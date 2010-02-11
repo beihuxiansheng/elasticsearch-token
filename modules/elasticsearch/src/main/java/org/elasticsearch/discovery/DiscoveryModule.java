@@ -142,8 +142,6 @@ extends|extends
 name|Module
 argument_list|>
 name|defaultDiscoveryModule
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(

@@ -186,6 +186,13 @@ name|InetSocketTransportAddress
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|addAddressType
+argument_list|(
+operator|new
+name|LocalTransportAddress
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(

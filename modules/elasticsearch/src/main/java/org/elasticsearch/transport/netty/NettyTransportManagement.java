@@ -75,6 +75,7 @@ name|NettyTransportManagement
 block|{
 DECL|field|transport
 specifier|private
+specifier|final
 name|NettyTransport
 name|transport
 decl_stmt|;

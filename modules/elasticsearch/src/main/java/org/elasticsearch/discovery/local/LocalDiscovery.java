@@ -194,6 +194,18 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|ConcurrentHashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|ConcurrentLinkedQueue
 import|;
 end_import
@@ -275,22 +287,6 @@ operator|.
 name|cluster
 operator|.
 name|ClusterState
-operator|.
-name|*
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ConcurrentMaps
 operator|.
 name|*
 import|;
@@ -385,6 +381,7 @@ name|InitialStateDiscoveryListener
 argument_list|>
 argument_list|()
 decl_stmt|;
+comment|// use CHM here and not ConcurrentMaps#new since we want to be able to agentify this using TC later on...
 DECL|field|clusterGroups
 specifier|private
 specifier|static
@@ -397,7 +394,13 @@ name|ClusterGroup
 argument_list|>
 name|clusterGroups
 init|=
-name|newConcurrentMap
+operator|new
+name|ConcurrentHashMap
+argument_list|<
+name|ClusterName
+argument_list|,
+name|ClusterGroup
+argument_list|>
 argument_list|()
 decl_stmt|;
 DECL|field|nodeIdGenerator
