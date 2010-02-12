@@ -79,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Loads the settings from a properties file.  *  * @author kimchy (Shay Banon)  */
+comment|/**  * Settings loader that loads (parses) the settings in a properties format.  *  * @author kimchy (Shay Banon)  */
 end_comment
 
 begin_class

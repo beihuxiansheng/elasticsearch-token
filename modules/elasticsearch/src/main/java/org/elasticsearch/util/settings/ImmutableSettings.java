@@ -1007,7 +1007,7 @@ argument_list|>
 name|defaultClazz
 parameter_list|)
 throws|throws
-name|SettingsException
+name|NoClassSettingsException
 block|{
 name|String
 name|sValue
@@ -1056,7 +1056,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|SettingsException
+name|NoClassSettingsException
 argument_list|(
 literal|"Failed to load class setting ["
 operator|+
@@ -1106,7 +1106,7 @@ name|String
 name|suffixClassName
 parameter_list|)
 throws|throws
-name|SettingsException
+name|NoClassSettingsException
 block|{
 name|String
 name|sValue

@@ -145,7 +145,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Loads settings from json source. Basically, flats them into a Map.  *  * @author kimchy (Shay Banon)  */
+comment|/**  * Settings loader that loads (parses) the settings in a json format by flattening them  * into a map.  *  * @author kimchy (Shay Banon)  */
 end_comment
 
 begin_class

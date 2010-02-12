@@ -48,6 +48,7 @@ specifier|public
 interface|interface
 name|SettingsLoader
 block|{
+comment|/**      * Loads (parses) the settings from a source string.      */
 DECL|method|load
 name|Map
 argument_list|<

@@ -93,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * Settings loader that loads (parses) the settings in a yaml format by flattening them  * into a map.  *  * @author kimchy (Shay Banon)  */
 end_comment
 
 begin_class

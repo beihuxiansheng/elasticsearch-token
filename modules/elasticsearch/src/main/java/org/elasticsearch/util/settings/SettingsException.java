@@ -27,7 +27,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * A generic failure to handle settings.  *  * @author kimchy (Shay Banon)  */
 end_comment
 
 begin_class
