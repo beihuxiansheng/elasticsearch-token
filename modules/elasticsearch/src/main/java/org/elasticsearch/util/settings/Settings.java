@@ -65,7 +65,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Immutable settings allowing to control the configuration.  *  * @author kimchy (Shay Banon)  * @see ImmutableSettings  */
+comment|/**  * Immutable settings allowing to control the configuration.  *  *<p>Using {@link ImmutableSettings#settingsBuilder()} in order to create a builder  * which in turn can create an immutable implementation of settings.  *  * @author kimchy (Shay Banon)  * @see ImmutableSettings  */
 end_comment
 
 begin_interface

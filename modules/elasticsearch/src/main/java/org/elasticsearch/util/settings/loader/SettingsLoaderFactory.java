@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * A settings loader factory automatically trying to identify what type of  * {@link SettingsLoader} to use.  *  * @author kimchy (Shay Banon)  */
 end_comment
 
 begin_class
@@ -34,6 +34,7 @@ specifier|private
 name|SettingsLoaderFactory
 parameter_list|()
 block|{      }
+comment|/**      * Returns a {@link SettingsLoader} based on the resource name.      */
 DECL|method|loaderFromResource
 specifier|public
 specifier|static
@@ -104,6 +105,7 @@ argument_list|()
 return|;
 block|}
 block|}
+comment|/**      * Returns a {@link SettingsLoader} based on the actual settings source.      */
 DECL|method|loaderFromSource
 specifier|public
 specifier|static

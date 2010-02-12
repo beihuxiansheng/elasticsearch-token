@@ -396,6 +396,22 @@ name|*
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|settings
+operator|.
+name|ImmutableSettings
+operator|.
+name|*
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (Shay Banon)  */
 end_comment
@@ -848,10 +864,7 @@ operator|.
 name|Builder
 name|indexSettingsBuilder
 init|=
-operator|new
-name|ImmutableSettings
-operator|.
-name|Builder
+name|settingsBuilder
 argument_list|()
 operator|.
 name|putAll

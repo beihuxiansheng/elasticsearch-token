@@ -161,7 +161,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * An immutable implementation of {@link Settings}.  *  * @author kimchy (Shay Banon)  */
 end_comment
 
 begin_class
@@ -1828,6 +1828,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Returns a builder to be used in order to build settings.      */
 DECL|method|settingsBuilder
 specifier|public
 specifier|static
@@ -1841,6 +1842,7 @@ name|Builder
 argument_list|()
 return|;
 block|}
+comment|/**      * A builder allowing to put different settings and then {@link #build()} an immutable      * settings implementation. Use {@link ImmutableSettings#settingsBuilder()} in order to      * construct it.      */
 DECL|class|Builder
 specifier|public
 specifier|static
@@ -1896,10 +1898,11 @@ name|Settings
 name|globalSettings
 decl_stmt|;
 DECL|method|Builder
-specifier|public
+specifier|private
 name|Builder
 parameter_list|()
 block|{          }
+comment|/**          * Returns a setting value based on the setting key.          */
 DECL|method|get
 specifier|public
 name|String
@@ -1918,6 +1921,7 @@ name|key
 argument_list|)
 return|;
 block|}
+comment|/**          * Sets a setting with the provided setting key and value.          *          * @param key   The setting key          * @param value The setting value          * @return The builder          */
 DECL|method|put
 specifier|public
 name|Builder
@@ -1943,6 +1947,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Sets a setting with the provided setting key and class as value.          *          * @param key   The setting key          * @param clazz The setting class value          * @return The builder          */
 DECL|method|putClass
 specifier|public
 name|Builder
@@ -1971,6 +1976,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Sets the setting with the provided setting key and the boolean value.          *          * @param setting The setting key          * @param value   The boolean value          * @return The builder          */
 DECL|method|putBoolean
 specifier|public
 name|Builder
@@ -1999,6 +2005,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Sets the setting with the provided setting key and the int value.          *          * @param setting The setting key          * @param value   The int value          * @return The builder          */
 DECL|method|putInt
 specifier|public
 name|Builder
@@ -2027,6 +2034,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Sets the setting with the provided setting key and the long value.          *          * @param setting The setting key          * @param value   The long value          * @return The builder          */
 DECL|method|putLong
 specifier|public
 name|Builder
@@ -2055,6 +2063,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Sets the setting with the provided setting key and the float value.          *          * @param setting The setting key          * @param value   The float value          * @return The builder          */
 DECL|method|putFloat
 specifier|public
 name|Builder
@@ -2111,6 +2120,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Sets the setting with the provided setting key and the time value.          *          * @param setting The setting key          * @param value   The time value          * @return The builder          */
 DECL|method|putTime
 specifier|public
 name|Builder
@@ -2142,6 +2152,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Sets the setting with the provided setting key and the size value.          *          * @param setting The setting key          * @param value   The size value          * @return The builder          */
 DECL|method|putSize
 specifier|public
 name|Builder
@@ -2173,6 +2184,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Sets the setting group.          */
 DECL|method|putGroup
 specifier|public
 name|Builder
@@ -2269,6 +2281,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Sets all the provided settings.          */
 DECL|method|putAll
 specifier|public
 name|Builder
@@ -2292,6 +2305,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Sets all the provided settings.          */
 DECL|method|putAll
 specifier|public
 name|Builder
@@ -2317,6 +2331,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Sets all the provided settings.          */
 DECL|method|putAll
 specifier|public
 name|Builder
@@ -2365,7 +2380,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Loads settings from the actual string content that represents them.          */
+comment|/**          * Loads settings from the actual string content that represents them using the          * {@link SettingsLoaderFactory#loaderFromSource(String)}.          */
 DECL|method|loadFromSource
 specifier|public
 name|Builder
@@ -2430,6 +2445,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Loads settings from a url that represents them using the          * {@link SettingsLoaderFactory#loaderFromSource(String)}.          */
 DECL|method|loadFromUrl
 specifier|public
 name|Builder
@@ -2482,6 +2498,7 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|/**          * Loads settings from a stream that represents them using the          * {@link SettingsLoaderFactory#loaderFromSource(String)}.          */
 DECL|method|loadFromStream
 specifier|public
 name|Builder
@@ -2560,7 +2577,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Loads the resource name from the classpath, returning<code>true</code> if it          * was loaded.          */
+comment|/**          * Loads settings from classpath that represents them using the          * {@link SettingsLoaderFactory#loaderFromSource(String)}.          */
 DECL|method|loadFromClasspath
 specifier|public
 name|Builder
@@ -2622,6 +2639,7 @@ name|is
 argument_list|)
 return|;
 block|}
+comment|/**          * Sets the class loader associated with the settings built.          */
 DECL|method|classLoader
 specifier|public
 name|Builder
@@ -2641,6 +2659,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Sets the global settings associated with the settings built.          */
 DECL|method|globalSettings
 specifier|public
 name|Builder
@@ -2660,6 +2679,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Puts all the properties with keys starting with the provided<tt>prefix</tt>.          *          * @param prefix     The prefix to filter proeprty key by          * @param properties The properties to put          * @return The builder          */
 DECL|method|putProperties
 specifier|public
 name|Builder
@@ -2734,6 +2754,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Runs across all the settings set on this builder and replaces<tt>${...}</tt> elements in the          * each setting value according to the following logic:          *          *<p>First, tries to resolve it against a System property ({@link System#getProperty(String)}), next,          * tries and resolve it against an environment variable ({@link System#getenv(String)}), and last, tries          * and replace it with another setting already set on this builder.          */
 DECL|method|replacePropertyPlaceholders
 specifier|public
 name|Builder
@@ -2871,6 +2892,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Builds a {@link Settings} (underlying uses {@link ImmutableSettings}) based on everything          * set on this builder.          */
 DECL|method|build
 specifier|public
 name|Settings
