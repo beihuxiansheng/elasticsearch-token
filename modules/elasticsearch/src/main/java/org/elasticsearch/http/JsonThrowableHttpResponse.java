@@ -84,8 +84,6 @@ name|json
 operator|.
 name|JsonBuilder
 operator|.
-name|Cached
-operator|.
 name|*
 import|;
 end_import
@@ -266,7 +264,7 @@ expr_stmt|;
 name|JsonBuilder
 name|builder
 init|=
-name|cached
+name|jsonBuilder
 argument_list|()
 operator|.
 name|prettyPrint

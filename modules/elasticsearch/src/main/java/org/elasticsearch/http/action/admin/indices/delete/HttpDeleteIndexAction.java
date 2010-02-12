@@ -236,8 +236,6 @@ name|json
 operator|.
 name|JsonBuilder
 operator|.
-name|Cached
-operator|.
 name|*
 import|;
 end_import
@@ -387,7 +385,7 @@ name|request
 argument_list|,
 name|OK
 argument_list|,
-name|cached
+name|jsonBuilder
 argument_list|()
 operator|.
 name|startObject

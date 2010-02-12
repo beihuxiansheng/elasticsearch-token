@@ -86,7 +86,7 @@ name|builder
 init|=
 name|JsonBuilder
 operator|.
-name|cached
+name|jsonBuilder
 argument_list|()
 decl_stmt|;
 name|toJson
