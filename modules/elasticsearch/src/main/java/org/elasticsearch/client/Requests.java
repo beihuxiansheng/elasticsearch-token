@@ -341,7 +341,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * A handy one stop shop for creating requests (make sure to import static this class).  *  * @author kimchy (Shay Banon)  */
 end_comment
 
 begin_class
@@ -350,6 +350,7 @@ specifier|public
 class|class
 name|Requests
 block|{
+comment|/**      * Create an index request against a specific index. Note the {@link IndexRequest#type(String)} must be      * set as well and optionally the {@link IndexRequest#id(String)}.      *      * @param index The index name to index the request against      * @return The index request      * @see org.elasticsearch.client.Client#index(org.elasticsearch.action.index.IndexRequest)      */
 DECL|method|indexRequest
 specifier|public
 specifier|static
@@ -368,6 +369,7 @@ name|index
 argument_list|)
 return|;
 block|}
+comment|/**      * Creates a delete request against a specific index. Note the {@link DeleteRequest#type(String)} and      * {@link DeleteRequest#id(String)} must be set.      *      * @param index The index name to delete from      * @return The delete request      * @see org.elasticsearch.client.Client#delete(org.elasticsearch.action.delete.DeleteRequest)      */
 DECL|method|deleteRequest
 specifier|public
 specifier|static
@@ -386,6 +388,7 @@ name|index
 argument_list|)
 return|;
 block|}
+comment|/**      * Creates a delete by query request. Note, the query itself must be set either by setting the JSON source      * of the query, or by using a {@link org.elasticsearch.index.query.QueryBuilder} (using {@link org.elasticsearch.index.query.json.JsonQueryBuilders}).      *      * @param indices The indices the delete by query against. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The delete by query request      * @see org.elasticsearch.client.Client#deleteByQuery(org.elasticsearch.action.deletebyquery.DeleteByQueryRequest)      */
 DECL|method|deleteByQueryRequest
 specifier|public
 specifier|static
@@ -405,6 +408,7 @@ name|indices
 argument_list|)
 return|;
 block|}
+comment|/**      * Creates a get request to get the JSON source from an index based on a type and id. Note, the      * {@link GetRequest#type(String)} and {@link GetRequest#id(String)} must be set.      *      * @param index The index to get the JSON source from      * @return The get request      * @see org.elasticsearch.client.Client#get(org.elasticsearch.action.get.GetRequest)      */
 DECL|method|getRequest
 specifier|public
 specifier|static
@@ -423,6 +427,7 @@ name|index
 argument_list|)
 return|;
 block|}
+comment|/**      * Creates a count request which counts the hits matched against a query. Note, the query itself must be set      * either using the JSON source of the query, or using a {@link org.elasticsearch.index.query.QueryBuilder} (using {@link org.elasticsearch.index.query.json.JsonQueryBuilders}).      *      * @param indices The indices the delete by query against. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The count request      * @see org.elasticsearch.client.Client#count(org.elasticsearch.action.count.CountRequest)      */
 DECL|method|countRequest
 specifier|public
 specifier|static
@@ -442,6 +447,7 @@ name|indices
 argument_list|)
 return|;
 block|}
+comment|/**      * Creates a search request against one or more indices. Note, the search source must be set either using the      * actual JSON search source, or the {@link org.elasticsearch.search.builder.SearchSourceBuilder}.      *      * @param indices The indices the delete by query against. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The search request      * @see org.elasticsearch.client.Client#search(org.elasticsearch.action.search.SearchRequest)      */
 DECL|method|searchRequest
 specifier|public
 specifier|static
@@ -450,17 +456,18 @@ name|searchRequest
 parameter_list|(
 name|String
 modifier|...
-name|index
+name|indices
 parameter_list|)
 block|{
 return|return
 operator|new
 name|SearchRequest
 argument_list|(
-name|index
+name|indices
 argument_list|)
 return|;
 block|}
+comment|/**      * Creates a search scroll request allowing to continue searching a previous search request.      *      * @param scrollId The scroll id representing the scrollable search      * @return The search scroll request      * @see org.elasticsearch.client.Client#searchScroll(org.elasticsearch.action.search.SearchScrollRequest)      */
 DECL|method|searchScrollRequest
 specifier|public
 specifier|static
@@ -479,6 +486,7 @@ name|scrollId
 argument_list|)
 return|;
 block|}
+comment|/**      * Creates an indices status request.      *      * @param indices The indices the delete by query against. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The indices status request      * @see org.elasticsearch.client.IndicesAdminClient#status(org.elasticsearch.action.admin.indices.status.IndicesStatusRequest)      */
 DECL|method|indicesStatus
 specifier|public
 specifier|static
@@ -498,6 +506,7 @@ name|indices
 argument_list|)
 return|;
 block|}
+comment|/**      * Creates a create index request.      *      * @param index The index to create      * @return The index create request      * @see org.elasticsearch.client.IndicesAdminClient#create(org.elasticsearch.action.admin.indices.create.CreateIndexRequest)      */
 DECL|method|createIndexRequest
 specifier|public
 specifier|static
@@ -516,6 +525,7 @@ name|index
 argument_list|)
 return|;
 block|}
+comment|/**      * Creates a delete index request.      *      * @param index The index to delete      * @return The delete index request      * @see org.elasticsearch.client.IndicesAdminClient#delete(org.elasticsearch.action.admin.indices.delete.DeleteIndexRequest)      */
 DECL|method|deleteIndexRequest
 specifier|public
 specifier|static
@@ -534,6 +544,7 @@ name|index
 argument_list|)
 return|;
 block|}
+comment|/**      * Create a create mapping request against one or more indices.      *      * @param indices The indices the delete by query against. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The create mapping request      * @see org.elasticsearch.client.IndicesAdminClient#createMapping(org.elasticsearch.action.admin.indices.mapping.create.CreateMappingRequest)      */
 DECL|method|createMappingRequest
 specifier|public
 specifier|static
@@ -553,6 +564,7 @@ name|indices
 argument_list|)
 return|;
 block|}
+comment|/**      * Creates a refresh indices request.      *      * @param indices The indices the delete by query against. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The refresh request      * @see org.elasticsearch.client.IndicesAdminClient#refresh(org.elasticsearch.action.admin.indices.refresh.RefreshRequest)      */
 DECL|method|refreshRequest
 specifier|public
 specifier|static
@@ -572,6 +584,7 @@ name|indices
 argument_list|)
 return|;
 block|}
+comment|/**      * Creates a flush indices request.      *      * @param indices The indices the delete by query against. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The flush request      * @see org.elasticsearch.client.IndicesAdminClient#flush(org.elasticsearch.action.admin.indices.flush.FlushRequest)      */
 DECL|method|flushRequest
 specifier|public
 specifier|static
@@ -591,6 +604,7 @@ name|indices
 argument_list|)
 return|;
 block|}
+comment|/**      * Creates a gateway snapshot indices request.      *      * @param indices The indices the delete by query against. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The gateway snapshot request      * @see org.elasticsearch.client.IndicesAdminClient#gatewaySnapshot(org.elasticsearch.action.admin.indices.gateway.snapshot.GatewaySnapshotRequest)      */
 DECL|method|gatewaySnapshotRequest
 specifier|public
 specifier|static
@@ -607,6 +621,54 @@ operator|new
 name|GatewaySnapshotRequest
 argument_list|(
 name|indices
+argument_list|)
+return|;
+block|}
+comment|/**      * Creates a cluster state request.      *      * @return The cluster state request.      * @see org.elasticsearch.client.ClusterAdminClient#state(org.elasticsearch.action.admin.cluster.state.ClusterStateRequest)      */
+DECL|method|clusterState
+specifier|public
+specifier|static
+name|ClusterStateRequest
+name|clusterState
+parameter_list|()
+block|{
+return|return
+operator|new
+name|ClusterStateRequest
+argument_list|()
+return|;
+block|}
+comment|/**      * Creates a nodes info request against all the nodes.      *      * @return The nodes info request      * @see org.elasticsearch.client.ClusterAdminClient#nodesInfo(org.elasticsearch.action.admin.cluster.node.info.NodesInfoRequest)      */
+DECL|method|nodesInfo
+specifier|public
+specifier|static
+name|NodesInfoRequest
+name|nodesInfo
+parameter_list|()
+block|{
+return|return
+operator|new
+name|NodesInfoRequest
+argument_list|()
+return|;
+block|}
+comment|/**      * Creates a nodes info request against one or more nodes. Pass<tt>null</tt> or an empty array for all nodes.      *      * @param nodesIds The nodes ids to get the status for      * @return The nodes info request      * @see org.elasticsearch.client.ClusterAdminClient#nodesInfo(org.elasticsearch.action.admin.cluster.node.info.NodesInfoRequest)      */
+DECL|method|nodesInfo
+specifier|public
+specifier|static
+name|NodesInfoRequest
+name|nodesInfo
+parameter_list|(
+name|String
+modifier|...
+name|nodesIds
+parameter_list|)
+block|{
+return|return
+operator|new
+name|NodesInfoRequest
+argument_list|(
+name|nodesIds
 argument_list|)
 return|;
 block|}
@@ -664,51 +726,6 @@ name|ReplicationPingRequest
 argument_list|(
 name|indices
 argument_list|)
-return|;
-block|}
-DECL|method|nodesInfo
-specifier|public
-specifier|static
-name|NodesInfoRequest
-name|nodesInfo
-parameter_list|()
-block|{
-return|return
-operator|new
-name|NodesInfoRequest
-argument_list|()
-return|;
-block|}
-DECL|method|nodesInfo
-specifier|public
-specifier|static
-name|NodesInfoRequest
-name|nodesInfo
-parameter_list|(
-name|String
-modifier|...
-name|nodesIds
-parameter_list|)
-block|{
-return|return
-operator|new
-name|NodesInfoRequest
-argument_list|(
-name|nodesIds
-argument_list|)
-return|;
-block|}
-DECL|method|clusterState
-specifier|public
-specifier|static
-name|ClusterStateRequest
-name|clusterState
-parameter_list|()
-block|{
-return|return
-operator|new
-name|ClusterStateRequest
-argument_list|()
 return|;
 block|}
 block|}

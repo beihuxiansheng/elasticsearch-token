@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * A server represent a node within a cluster (<tt>cluster.name</tt>). The {@link #client()} can be used  * in order to use a {@link Client} to perform actions/operations against the cluster.  *  *<p>In order to create a server, the {@link ServerBuilder} can be used. When done with it, make sure to  * call {@link #close()} on it.  *  * @author kimchy (Shay Banon)  */
 end_comment
 
 begin_interface
@@ -50,26 +50,31 @@ specifier|public
 interface|interface
 name|Server
 block|{
+comment|/**      * The settings that were used to create the server.      */
 DECL|method|settings
 name|Settings
 name|settings
 parameter_list|()
 function_decl|;
+comment|/**      * A client that can be used to execute actions (operations) against the cluster.      */
 DECL|method|client
 name|Client
 name|client
 parameter_list|()
 function_decl|;
+comment|/**      * Start the server. If the server is already started, this method is noop.      */
 DECL|method|start
 name|Server
 name|start
 parameter_list|()
 function_decl|;
+comment|/**      * Stops the server. If the server is already started, this method is noop.      */
 DECL|method|stop
 name|Server
 name|stop
 parameter_list|()
 function_decl|;
+comment|/**      * Closes the server (and {@link #stop}s if its running).      */
 DECL|method|close
 name|void
 name|close

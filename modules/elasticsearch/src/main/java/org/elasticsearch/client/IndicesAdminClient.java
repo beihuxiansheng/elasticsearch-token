@@ -299,7 +299,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * Administrative actions/operations against indices.  *  * @author kimchy (Shay Banon)  * @see AdminClient#indices()  */
 end_comment
 
 begin_interface
@@ -308,6 +308,7 @@ specifier|public
 interface|interface
 name|IndicesAdminClient
 block|{
+comment|/**      * The status of one or more indices.      *      * @param request The indices status request      * @return The result future      * @see Requests#indicesStatus(String...)      */
 DECL|method|status
 name|ActionFuture
 argument_list|<
@@ -319,6 +320,7 @@ name|IndicesStatusRequest
 name|request
 parameter_list|)
 function_decl|;
+comment|/**      * The status of one or more indices.      *      * @param request  The indices status request      * @param listener A listener to be notified with a result      * @return The result future      * @see Requests#indicesStatus(String...)      */
 DECL|method|status
 name|ActionFuture
 argument_list|<
@@ -336,6 +338,7 @@ argument_list|>
 name|listener
 parameter_list|)
 function_decl|;
+comment|/**      * The status of one or more indices.      *      * @param request  The indices status request      * @param listener A listener to be notified with a result      * @see Requests#indicesStatus(String...)      */
 DECL|method|execStatus
 name|void
 name|execStatus
@@ -350,6 +353,7 @@ argument_list|>
 name|listener
 parameter_list|)
 function_decl|;
+comment|/**      * Creates an index using an explicit request allowing to specify the settings of the index.      *      * @param request The create index request      * @return The result future      * @see org.elasticsearch.client.Requests#createIndexRequest(String)      */
 DECL|method|create
 name|ActionFuture
 argument_list|<
@@ -361,6 +365,7 @@ name|CreateIndexRequest
 name|request
 parameter_list|)
 function_decl|;
+comment|/**      * Creates an index using an explicit request allowing to specify the settings of the index.      *      * @param request  The create index request      * @param listener A listener to be notified with a result      * @return The result future      * @see org.elasticsearch.client.Requests#createIndexRequest(String)      */
 DECL|method|create
 name|ActionFuture
 argument_list|<
@@ -378,6 +383,7 @@ argument_list|>
 name|listener
 parameter_list|)
 function_decl|;
+comment|/**      * Creates an index using an explicit request allowing to specify the settings of the index.      *      * @param request  The create index request      * @param listener A listener to be notified with a result      * @see org.elasticsearch.client.Requests#createIndexRequest(String)      */
 DECL|method|execCreate
 name|void
 name|execCreate
@@ -392,6 +398,7 @@ argument_list|>
 name|listener
 parameter_list|)
 function_decl|;
+comment|/**      * Deletes an index based on the index name.      *      * @param request The delete index request      * @return The result future      * @see org.elasticsearch.client.Requests#deleteIndexRequest(String)      */
 DECL|method|delete
 name|ActionFuture
 argument_list|<
@@ -403,6 +410,7 @@ name|DeleteIndexRequest
 name|request
 parameter_list|)
 function_decl|;
+comment|/**      * Deletes an index based on the index name.      *      * @param request  The delete index request      * @param listener A listener to be notified with a result      * @return The result future      * @see org.elasticsearch.client.Requests#deleteIndexRequest(String)      */
 DECL|method|delete
 name|ActionFuture
 argument_list|<
@@ -420,6 +428,7 @@ argument_list|>
 name|listener
 parameter_list|)
 function_decl|;
+comment|/**      * Deletes an index based on the index name.      *      * @param request  The delete index request      * @param listener A listener to be notified with a result      * @see org.elasticsearch.client.Requests#deleteIndexRequest(String)      */
 DECL|method|execDelete
 name|void
 name|execDelete
@@ -434,6 +443,7 @@ argument_list|>
 name|listener
 parameter_list|)
 function_decl|;
+comment|/**      * Explicitly refresh one or more indices (making the content indexed since the last refresh searchable).      *      * @param request The refresh request      * @return The result future      * @see org.elasticsearch.client.Requests#refreshRequest(String...)      */
 DECL|method|refresh
 name|ActionFuture
 argument_list|<
@@ -445,6 +455,7 @@ name|RefreshRequest
 name|request
 parameter_list|)
 function_decl|;
+comment|/**      * Explicitly refresh one or more indices (making the content indexed since the last refresh searchable).      *      * @param request  The refresh request      * @param listener A listener to be notified with a result      * @return The result future      * @see org.elasticsearch.client.Requests#refreshRequest(String...)      */
 DECL|method|refresh
 name|ActionFuture
 argument_list|<
@@ -462,6 +473,7 @@ argument_list|>
 name|listener
 parameter_list|)
 function_decl|;
+comment|/**      * Explicitly refresh one or more indices (making the content indexed since the last refresh searchable).      *      * @param request  The refresh request      * @param listener A listener to be notified with a result      * @see org.elasticsearch.client.Requests#refreshRequest(String...)      */
 DECL|method|execRefresh
 name|void
 name|execRefresh
@@ -476,6 +488,7 @@ argument_list|>
 name|listener
 parameter_list|)
 function_decl|;
+comment|/**      * Explicitly flush one or more indices (releasing memory from the node).      *      * @param request The flush request      * @return A result future      * @see org.elasticsearch.client.Requests#flushRequest(String...)      */
 DECL|method|flush
 name|ActionFuture
 argument_list|<
@@ -487,6 +500,7 @@ name|FlushRequest
 name|request
 parameter_list|)
 function_decl|;
+comment|/**      * Explicitly flush one or more indices (releasing memory from the node).      *      * @param request  The flush request      * @param listener A listener to be notified with a result      * @return A result future      * @see org.elasticsearch.client.Requests#flushRequest(String...)      */
 DECL|method|flush
 name|ActionFuture
 argument_list|<
@@ -504,6 +518,7 @@ argument_list|>
 name|listener
 parameter_list|)
 function_decl|;
+comment|/**      * Explicitly flush one or more indices (releasing memory from the node).      *      * @param request  The flush request      * @param listener A listener to be notified with a result      * @see org.elasticsearch.client.Requests#flushRequest(String...)      */
 DECL|method|execFlush
 name|void
 name|execFlush
@@ -518,6 +533,7 @@ argument_list|>
 name|listener
 parameter_list|)
 function_decl|;
+comment|/**      * Add mapping definition for a type into one or more indices.      *      * @param request The create mapping request      * @return A result future      * @see org.elasticsearch.client.Requests#createMappingRequest(String...)      */
 DECL|method|createMapping
 name|ActionFuture
 argument_list|<
@@ -529,6 +545,7 @@ name|CreateMappingRequest
 name|request
 parameter_list|)
 function_decl|;
+comment|/**      * Add mapping definition for a type into one or more indices.      *      * @param request  The create mapping request      * @param listener A listener to be notified with a result      * @return A result future      * @see org.elasticsearch.client.Requests#createMappingRequest(String...)      */
 DECL|method|createMapping
 name|ActionFuture
 argument_list|<
@@ -546,6 +563,7 @@ argument_list|>
 name|listener
 parameter_list|)
 function_decl|;
+comment|/**      * Add mapping definition for a type into one or more indices.      *      * @param request  The create mapping request      * @param listener A listener to be notified with a result      * @see org.elasticsearch.client.Requests#createMappingRequest(String...)      */
 DECL|method|execCreateMapping
 name|void
 name|execCreateMapping
@@ -560,6 +578,7 @@ argument_list|>
 name|listener
 parameter_list|)
 function_decl|;
+comment|/**      * Explicitly perform gateway snapshot for one or more indices.      *      * @param request The gateway snapshot request      * @return The result future      * @see org.elasticsearch.client.Requests#gatewaySnapshotRequest(String...)      */
 DECL|method|gatewaySnapshot
 name|ActionFuture
 argument_list|<
@@ -571,6 +590,7 @@ name|GatewaySnapshotRequest
 name|request
 parameter_list|)
 function_decl|;
+comment|/**      * Explicitly perform gateway snapshot for one or more indices.      *      * @param request  The gateway snapshot request      * @param listener A listener to be notified with a result      * @return The result future      * @see org.elasticsearch.client.Requests#gatewaySnapshotRequest(String...)      */
 DECL|method|gatewaySnapshot
 name|ActionFuture
 argument_list|<
@@ -588,6 +608,7 @@ argument_list|>
 name|listener
 parameter_list|)
 function_decl|;
+comment|/**      * Explicitly perform gateway snapshot for one or more indices.      *      * @param request  The gateway snapshot request      * @param listener A listener to be notified with a result      * @see org.elasticsearch.client.Requests#gatewaySnapshotRequest(String...)      */
 DECL|method|execGatewaySnapshot
 name|void
 name|execGatewaySnapshot

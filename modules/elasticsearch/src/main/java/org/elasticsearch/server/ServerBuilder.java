@@ -57,7 +57,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * A server builder is used to construct a {@link Server} instance.  *  *<p>Settings will be loaded relative to the ES home (with or without<tt>config/</tt> prefix) and if not found,  * within the classpath (with or without<tt>config/<tt> prefix). The settings file loaded can either be named  *<tt>elasticsearch.yml</tt> or<tt>elasticsearch.json</tt>). Loading settings can be disabled by calling  * {@link #loadConfigSettings(boolean)} with<tt>false<tt>.  *  *<p>Explicit settings can be passed by using the {@link #settings(Settings)} method.  *  *<p>In any case, settings will be resolved from system properties as well that are either prefixed with<tt>es.</tt>  * or<tt>elasticsearch.</tt>.  *  *<p>An example for creating a simple server with optional settings loaded from the classpath:  *  *<pre>  * Server server = ServerBuilder.serverBuilder().server();  *</pre>  *  *<p>An example for creating a server with explicit settings (in this case, a node in the cluster that does not hold  * data):  *  *<pre>  * Server server = ServerBuilder.serverBuilder()  *                      .settings(ImmutableSettings.settingsBuilder().putBoolean("node.data", false)  *                      .server();  *</pre>  *  *<p>When done with the server, make sure you call {@link Server#close()} on it.  *  * @author kimchy (Shay Banon)  */
 end_comment
 
 begin_class
@@ -84,6 +84,7 @@ name|loadConfigSettings
 init|=
 literal|true
 decl_stmt|;
+comment|/**      * A convenient factory method to create a {@link ServerBuilder}.      */
 DECL|method|serverBuilder
 specifier|public
 specifier|static
@@ -97,6 +98,7 @@ name|ServerBuilder
 argument_list|()
 return|;
 block|}
+comment|/**      * Explicit server settings to set.      */
 DECL|method|settings
 specifier|public
 name|ServerBuilder
@@ -118,6 +120,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+comment|/**      * Explicit server settings to set.      */
 DECL|method|settings
 specifier|public
 name|ServerBuilder
@@ -137,6 +140,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Should the server builder automatically try and load config settings from the file system / classpath. Defaults      * to<tt>true</tt>.      */
 DECL|method|loadConfigSettings
 specifier|public
 name|ServerBuilder

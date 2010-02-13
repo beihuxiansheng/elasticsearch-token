@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * Administrative actions/operations against the cluster or the indices.  *  * @author kimchy (Shay Banon)  * @see org.elasticsearch.client.Client#admin()  */
 end_comment
 
 begin_interface
@@ -24,11 +24,13 @@ specifier|public
 interface|interface
 name|AdminClient
 block|{
+comment|/**      * A client allowing to perform actions/operations against the cluster.      */
 DECL|method|cluster
 name|ClusterAdminClient
 name|cluster
 parameter_list|()
 function_decl|;
+comment|/**      * A client allowing to perform actions/operations against the indices.      */
 DECL|method|indices
 name|IndicesAdminClient
 name|indices

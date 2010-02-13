@@ -533,7 +533,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * The transport client allows to create a client that is not part of the cluster, but simply connects to one  * or more nodes directly by adding their respective addresses using {@link #addTransportAddress(org.elasticsearch.util.transport.TransportAddress)}.  *  *<p>The transport client important modules used is the {@link org.elasticsearch.transport.TransportModule} which is  * started in client mode (only connects, no bind).  *  * @author kimchy (Shay Banon)  */
 end_comment
 
 begin_class
@@ -574,6 +574,7 @@ specifier|final
 name|InternalTransportClient
 name|internalClient
 decl_stmt|;
+comment|/**      * Constructs a new transport client with settings loaded either from the classpath or the file system (the      *<tt>elasticsearch.(yml|json)</tt> files optionally prefixed with<tt>config/</tt>).      */
 DECL|method|TransportClient
 specifier|public
 name|TransportClient
@@ -593,6 +594,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Constructs a new transport client with explicit settings and settings loaded either from the classpath or the file      * system (the<tt>elasticsearch.(yml|json)</tt> files optionally prefixed with<tt>config/</tt>).      */
 DECL|method|TransportClient
 specifier|public
 name|TransportClient
@@ -609,6 +611,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Constructs a new transport client with the provided settings and the ability to control if settings will      * be loaded from the classpath / file system (the<tt>elasticsearch.(yml|json)</tt> files optionally prefixed with      *<tt>config/</tt>).      *      * @param pSettings          The explicit settings.      * @param loadConfigSettings<tt>true</tt> if settings should be loaded from the classpath/file system.      * @throws ElasticSearchException      */
 DECL|method|TransportClient
 specifier|public
 name|TransportClient

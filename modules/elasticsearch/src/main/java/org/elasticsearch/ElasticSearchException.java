@@ -13,7 +13,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon) (Shay Banon)  */
+comment|/**  * A base class for all elasticsearch exceptions.  *  * @author kimchy (Shay Banon)  */
 end_comment
 
 begin_class
@@ -24,7 +24,7 @@ name|ElasticSearchException
 extends|extends
 name|RuntimeException
 block|{
-comment|/**      * Construct a<code>NestedRuntimeException</code> with the specified detail message.      *      * @param msg the detail message      */
+comment|/**      * Construct a<code>ElasticSearchException</code> with the specified detail message.      *      * @param msg the detail message      */
 DECL|method|ElasticSearchException
 specifier|public
 name|ElasticSearchException
@@ -39,7 +39,7 @@ name|msg
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Construct a<code>NestedRuntimeException</code> with the specified detail message      * and nested exception.      *      * @param msg   the detail message      * @param cause the nested exception      */
+comment|/**      * Construct a<code>ElasticSearchException</code> with the specified detail message      * and nested exception.      *      * @param msg   the detail message      * @param cause the nested exception      */
 DECL|method|ElasticSearchException
 specifier|public
 name|ElasticSearchException
@@ -59,6 +59,7 @@ name|cause
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Unwraps the actual cause from the exception for cases when the exception is a      * {@link ElasticSearchWrapperException}.      *      * @see org.elasticsearch.ExceptionsHelper#unwrapCause(Throwable)      */
 DECL|method|unwrapCause
 specifier|public
 name|Throwable
@@ -152,7 +153,7 @@ argument_list|()
 return|;
 block|}
 block|}
-comment|/**      * Retrieve the innermost cause of this exception, if any.      *      * @return the innermost exception, or<code>null</code> if none      * @since 2.0      */
+comment|/**      * Retrieve the innermost cause of this exception, if any.      */
 DECL|method|getRootCause
 specifier|public
 name|Throwable
@@ -197,7 +198,7 @@ return|return
 name|rootCause
 return|;
 block|}
-comment|/**      * Retrieve the most specific cause of this exception, that is,      * either the innermost cause (root cause) or this exception itself.      *<p>Differs from {@link #getRootCause()} in that it falls back      * to the present exception if there is no root cause.      *      * @return the most specific cause (never<code>null</code>)      * @since 2.0.3      */
+comment|/**      * Retrieve the most specific cause of this exception, that is,      * either the innermost cause (root cause) or this exception itself.      *<p>Differs from {@link #getRootCause()} in that it falls back      * to the present exception if there is no root cause.      *      * @return the most specific cause (never<code>null</code>)      */
 DECL|method|getMostSpecificCause
 specifier|public
 name|Throwable
