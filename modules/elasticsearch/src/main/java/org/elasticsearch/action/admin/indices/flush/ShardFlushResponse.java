@@ -28,21 +28,11 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ActionResponse
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|support
 operator|.
-name|elasticsearch
+name|broadcast
 operator|.
-name|util
-operator|.
-name|io
-operator|.
-name|Streamable
+name|BroadcastShardOperationResponse
 import|;
 end_import
 
@@ -85,15 +75,32 @@ DECL|class|ShardFlushResponse
 specifier|public
 class|class
 name|ShardFlushResponse
-implements|implements
-name|ActionResponse
-implements|,
-name|Streamable
+extends|extends
+name|BroadcastShardOperationResponse
 block|{
 DECL|method|ShardFlushResponse
 name|ShardFlushResponse
 parameter_list|()
 block|{      }
+DECL|method|ShardFlushResponse
+specifier|public
+name|ShardFlushResponse
+parameter_list|(
+name|String
+name|index
+parameter_list|,
+name|int
+name|shardId
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|index
+argument_list|,
+name|shardId
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|readFrom
 annotation|@
 name|Override
@@ -108,7 +115,15 @@ throws|throws
 name|IOException
 throws|,
 name|ClassNotFoundException
-block|{     }
+block|{
+name|super
+operator|.
+name|readFrom
+argument_list|(
+name|in
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|writeTo
 annotation|@
 name|Override
@@ -121,7 +136,15 @@ name|out
 parameter_list|)
 throws|throws
 name|IOException
-block|{     }
+block|{
+name|super
+operator|.
+name|writeTo
+argument_list|(
+name|out
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

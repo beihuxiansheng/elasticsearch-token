@@ -30,9 +30,9 @@ name|action
 operator|.
 name|support
 operator|.
-name|shards
+name|broadcast
 operator|.
-name|ShardsOperationRequest
+name|BroadcastOperationRequest
 import|;
 end_import
 
@@ -46,9 +46,9 @@ name|action
 operator|.
 name|support
 operator|.
-name|shards
+name|broadcast
 operator|.
-name|ShardsOperationThreading
+name|BroadcastOperationThreading
 import|;
 end_import
 
@@ -74,7 +74,7 @@ specifier|public
 class|class
 name|IndicesStatusRequest
 extends|extends
-name|ShardsOperationRequest
+name|BroadcastOperationRequest
 block|{
 DECL|method|IndicesStatusRequest
 specifier|public
@@ -101,6 +101,8 @@ block|{
 name|super
 argument_list|(
 name|indices
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -130,22 +132,20 @@ DECL|method|operationThreading
 annotation|@
 name|Override
 specifier|public
-name|IndicesStatusRequest
+name|BroadcastOperationRequest
 name|operationThreading
 parameter_list|(
-name|ShardsOperationThreading
+name|BroadcastOperationThreading
 name|operationThreading
 parameter_list|)
 block|{
+return|return
 name|super
 operator|.
 name|operationThreading
 argument_list|(
 name|operationThreading
 argument_list|)
-expr_stmt|;
-return|return
-name|this
 return|;
 block|}
 block|}

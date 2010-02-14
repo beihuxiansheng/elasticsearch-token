@@ -169,6 +169,12 @@ name|String
 name|shortSummary
 parameter_list|()
 function_decl|;
+comment|/**      * A shard iterator with just this shard in it.      */
+DECL|method|shardsIt
+name|ShardsIterator
+name|shardsIt
+parameter_list|()
+function_decl|;
 comment|/**      * Does not write index name and shard id      */
 DECL|method|writeToThin
 name|void

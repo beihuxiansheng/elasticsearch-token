@@ -30,9 +30,9 @@ name|action
 operator|.
 name|support
 operator|.
-name|replication
+name|broadcast
 operator|.
-name|IndicesReplicationOperationRequest
+name|BroadcastOperationRequest
 import|;
 end_import
 
@@ -42,9 +42,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|action
 operator|.
-name|TimeValue
+name|support
+operator|.
+name|broadcast
+operator|.
+name|BroadcastOperationThreading
 import|;
 end_import
 
@@ -58,8 +62,12 @@ specifier|public
 class|class
 name|FlushRequest
 extends|extends
-name|IndicesReplicationOperationRequest
+name|BroadcastOperationRequest
 block|{
+DECL|method|FlushRequest
+name|FlushRequest
+parameter_list|()
+block|{      }
 DECL|method|FlushRequest
 specifier|public
 name|FlushRequest
@@ -88,11 +96,20 @@ modifier|...
 name|indices
 parameter_list|)
 block|{
-name|this
+name|super
+argument_list|(
+name|indices
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+comment|// we want to do the refresh in parallel on local shards...
+name|operationThreading
+argument_list|(
+name|BroadcastOperationThreading
 operator|.
-name|indices
-operator|=
-name|indices
+name|THREAD_PER_SHARD
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|listenerThreaded
@@ -117,29 +134,28 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|timeout
+DECL|method|operationThreading
+annotation|@
+name|Override
 specifier|public
 name|FlushRequest
-name|timeout
+name|operationThreading
 parameter_list|(
-name|TimeValue
-name|timeout
+name|BroadcastOperationThreading
+name|operationThreading
 parameter_list|)
 block|{
-name|this
+name|super
 operator|.
-name|timeout
-operator|=
-name|timeout
+name|operationThreading
+argument_list|(
+name|operationThreading
+argument_list|)
 expr_stmt|;
 return|return
 name|this
 return|;
 block|}
-DECL|method|FlushRequest
-name|FlushRequest
-parameter_list|()
-block|{      }
 block|}
 end_class
 
