@@ -2520,7 +2520,13 @@ name|indexShard
 operator|.
 name|refresh
 argument_list|(
+operator|new
+name|Engine
+operator|.
+name|Refresh
+argument_list|(
 literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// probably need to do more here...

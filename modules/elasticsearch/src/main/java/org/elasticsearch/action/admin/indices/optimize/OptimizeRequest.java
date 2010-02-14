@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.action.admin.indices.refresh
+DECL|package|org.elasticsearch.action.admin.indices.optimize
 package|package
 name|org
 operator|.
@@ -16,7 +16,7 @@ name|admin
 operator|.
 name|indices
 operator|.
-name|refresh
+name|optimize
 package|;
 end_package
 
@@ -83,27 +83,36 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * A request to optimize one or more indices. In order to optimize on all the indices, pass an empty array or  *<tt>null</tt> for the indices.  *  *<p>{@link #waitForMerge(boolean)} allows to control if the call will block until the optimize completes and  * defaults to<tt>true</tt>.  *  *<p>{@link #maxNumSegments(int)} allows to control the number of segments to optimize down to. By default, will  * cause the optimize process to optimize down to half the configured number of segments.  *  * @author kimchy (Shay Banon)  */
 end_comment
 
 begin_class
-DECL|class|RefreshRequest
+DECL|class|OptimizeRequest
 specifier|public
 class|class
-name|RefreshRequest
+name|OptimizeRequest
 extends|extends
 name|BroadcastOperationRequest
 block|{
-DECL|field|waitForOperations
+DECL|field|waitForMerge
 specifier|private
 name|boolean
-name|waitForOperations
+name|waitForMerge
 init|=
 literal|true
 decl_stmt|;
-DECL|method|RefreshRequest
+DECL|field|maxNumSegments
+specifier|private
+name|int
+name|maxNumSegments
+init|=
+operator|-
+literal|1
+decl_stmt|;
+comment|/**      * Constructs an optimization request over one or more indices.      *      * @param indices The indices to optimize, no indices passed means all indices will be optimized.      */
+DECL|method|OptimizeRequest
 specifier|public
-name|RefreshRequest
+name|OptimizeRequest
 parameter_list|(
 name|String
 modifier|...
@@ -117,7 +126,7 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
-comment|// we want to do the refresh in parallel on local shards...
+comment|// we want to do the optimize in parallel on local shards...
 name|operationThreading
 argument_list|(
 name|BroadcastOperationThreading
@@ -126,15 +135,15 @@ name|THREAD_PER_SHARD
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|RefreshRequest
-name|RefreshRequest
+DECL|method|OptimizeRequest
+name|OptimizeRequest
 parameter_list|()
 block|{      }
 DECL|method|listenerThreaded
 annotation|@
 name|Override
 specifier|public
-name|RefreshRequest
+name|OptimizeRequest
 name|listenerThreaded
 parameter_list|(
 name|boolean
@@ -156,7 +165,7 @@ DECL|method|operationThreading
 annotation|@
 name|Override
 specifier|public
-name|RefreshRequest
+name|OptimizeRequest
 name|operationThreading
 parameter_list|(
 name|BroadcastOperationThreading
@@ -174,30 +183,63 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|waitForOperations
+comment|/**      * Should the call block until the optimize completes. Defaults to<tt>true</tt>.      */
+DECL|method|waitForMerge
 specifier|public
 name|boolean
-name|waitForOperations
+name|waitForMerge
 parameter_list|()
 block|{
 return|return
-name|waitForOperations
+name|waitForMerge
 return|;
 block|}
-DECL|method|waitForOperations
+comment|/**      * Should the call block until the optimize completes. Defaults to<tt>true</tt>.      */
+DECL|method|waitForMerge
 specifier|public
-name|RefreshRequest
-name|waitForOperations
+name|OptimizeRequest
+name|waitForMerge
 parameter_list|(
 name|boolean
-name|waitForOperations
+name|waitForMerge
 parameter_list|)
 block|{
 name|this
 operator|.
-name|waitForOperations
+name|waitForMerge
 operator|=
-name|waitForOperations
+name|waitForMerge
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Will optimize the index down to<= maxNumSegments. By default, will cause the optimize      * process to optimize down to half the configured number of segments.      */
+DECL|method|maxNumSegments
+specifier|public
+name|int
+name|maxNumSegments
+parameter_list|()
+block|{
+return|return
+name|maxNumSegments
+return|;
+block|}
+comment|/**      * Will optimize the index down to<= maxNumSegments. By default, will cause the optimize      * process to optimize down to half the configured number of segments.      */
+DECL|method|maxNumSegments
+specifier|public
+name|OptimizeRequest
+name|maxNumSegments
+parameter_list|(
+name|int
+name|maxNumSegments
+parameter_list|)
+block|{
+name|this
+operator|.
+name|maxNumSegments
+operator|=
+name|maxNumSegments
 expr_stmt|;
 return|return
 name|this
@@ -223,11 +265,18 @@ argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
-name|waitForOperations
+name|waitForMerge
 operator|=
 name|in
 operator|.
 name|readBoolean
+argument_list|()
+expr_stmt|;
+name|maxNumSegments
+operator|=
+name|in
+operator|.
+name|readInt
 argument_list|()
 expr_stmt|;
 block|}
@@ -253,7 +302,14 @@ name|out
 operator|.
 name|writeBoolean
 argument_list|(
-name|waitForOperations
+name|waitForMerge
+argument_list|)
+expr_stmt|;
+name|out
+operator|.
+name|writeInt
+argument_list|(
+name|maxNumSegments
 argument_list|)
 expr_stmt|;
 block|}

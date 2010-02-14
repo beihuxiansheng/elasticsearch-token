@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.action.admin.indices.flush
+DECL|package|org.elasticsearch.action.admin.indices.optimize
 package|package
 name|org
 operator|.
@@ -16,7 +16,7 @@ name|admin
 operator|.
 name|indices
 operator|.
-name|flush
+name|optimize
 package|;
 end_package
 
@@ -219,27 +219,27 @@ comment|/**  * @author kimchy (Shay Banon)  */
 end_comment
 
 begin_class
-DECL|class|TransportFlushAction
+DECL|class|TransportOptimizeAction
 specifier|public
 class|class
-name|TransportFlushAction
+name|TransportOptimizeAction
 extends|extends
 name|TransportBroadcastOperationAction
 argument_list|<
-name|FlushRequest
+name|OptimizeRequest
 argument_list|,
-name|FlushResponse
+name|OptimizeResponse
 argument_list|,
-name|ShardFlushRequest
+name|ShardOptimizeRequest
 argument_list|,
-name|ShardFlushResponse
+name|ShardOptimizeResponse
 argument_list|>
 block|{
-DECL|method|TransportFlushAction
+DECL|method|TransportOptimizeAction
 annotation|@
 name|Inject
 specifier|public
-name|TransportFlushAction
+name|TransportOptimizeAction
 parameter_list|(
 name|Settings
 name|settings
@@ -286,7 +286,7 @@ name|Admin
 operator|.
 name|Indices
 operator|.
-name|FLUSH
+name|OPTIMIZE
 return|;
 block|}
 DECL|method|transportShardAction
@@ -298,20 +298,20 @@ name|transportShardAction
 parameter_list|()
 block|{
 return|return
-literal|"indices/flush/shard"
+literal|"indices/optimize/shard"
 return|;
 block|}
 DECL|method|newRequest
 annotation|@
 name|Override
 specifier|protected
-name|FlushRequest
+name|OptimizeRequest
 name|newRequest
 parameter_list|()
 block|{
 return|return
 operator|new
-name|FlushRequest
+name|OptimizeRequest
 argument_list|()
 return|;
 block|}
@@ -319,10 +319,10 @@ DECL|method|newResponse
 annotation|@
 name|Override
 specifier|protected
-name|FlushResponse
+name|OptimizeResponse
 name|newResponse
 parameter_list|(
-name|FlushRequest
+name|OptimizeRequest
 name|request
 parameter_list|,
 name|AtomicReferenceArray
@@ -360,11 +360,11 @@ name|i
 operator|++
 control|)
 block|{
-name|ShardFlushResponse
+name|ShardOptimizeResponse
 name|shardCountResponse
 init|=
 operator|(
-name|ShardFlushResponse
+name|ShardOptimizeResponse
 operator|)
 name|shardsResponses
 operator|.
@@ -393,7 +393,7 @@ block|}
 block|}
 return|return
 operator|new
-name|FlushResponse
+name|OptimizeResponse
 argument_list|(
 name|successfulShards
 argument_list|,
@@ -405,13 +405,13 @@ DECL|method|newShardRequest
 annotation|@
 name|Override
 specifier|protected
-name|ShardFlushRequest
+name|ShardOptimizeRequest
 name|newShardRequest
 parameter_list|()
 block|{
 return|return
 operator|new
-name|ShardFlushRequest
+name|ShardOptimizeRequest
 argument_list|()
 return|;
 block|}
@@ -419,19 +419,19 @@ DECL|method|newShardRequest
 annotation|@
 name|Override
 specifier|protected
-name|ShardFlushRequest
+name|ShardOptimizeRequest
 name|newShardRequest
 parameter_list|(
 name|ShardRouting
 name|shard
 parameter_list|,
-name|FlushRequest
+name|OptimizeRequest
 name|request
 parameter_list|)
 block|{
 return|return
 operator|new
-name|ShardFlushRequest
+name|ShardOptimizeRequest
 argument_list|(
 name|shard
 operator|.
@@ -442,6 +442,8 @@ name|shard
 operator|.
 name|id
 argument_list|()
+argument_list|,
+name|request
 argument_list|)
 return|;
 block|}
@@ -449,13 +451,13 @@ DECL|method|newShardResponse
 annotation|@
 name|Override
 specifier|protected
-name|ShardFlushResponse
+name|ShardOptimizeResponse
 name|newShardResponse
 parameter_list|()
 block|{
 return|return
 operator|new
-name|ShardFlushResponse
+name|ShardOptimizeResponse
 argument_list|()
 return|;
 block|}
@@ -463,10 +465,10 @@ DECL|method|shardOperation
 annotation|@
 name|Override
 specifier|protected
-name|ShardFlushResponse
+name|ShardOptimizeResponse
 name|shardOperation
 parameter_list|(
-name|ShardFlushRequest
+name|ShardOptimizeRequest
 name|request
 parameter_list|)
 throws|throws
@@ -495,18 +497,28 @@ argument_list|)
 decl_stmt|;
 name|indexShard
 operator|.
-name|flush
+name|optimize
 argument_list|(
 operator|new
 name|Engine
 operator|.
-name|Flush
+name|Optimize
+argument_list|(
+name|request
+operator|.
+name|waitForMerge
 argument_list|()
+argument_list|,
+name|request
+operator|.
+name|maxNumSegments
+argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
 operator|new
-name|ShardFlushResponse
+name|ShardOptimizeResponse
 argument_list|(
 name|request
 operator|.
@@ -540,7 +552,7 @@ specifier|protected
 name|GroupShardsIterator
 name|shards
 parameter_list|(
-name|FlushRequest
+name|OptimizeRequest
 name|request
 parameter_list|,
 name|ClusterState
@@ -562,32 +574,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|//    @Override protected FlushRequest newRequestInstance() {
-comment|//        return new FlushRequest();
-comment|//    }
-comment|//
-comment|//    @Override protected FlushResponse newResponseInstance(FlushRequest request, AtomicReferenceArray indexResponses) {
-comment|//        FlushResponse response = new FlushResponse();
-comment|//        for (int i = 0; i< indexResponses.length(); i++) {
-comment|//            IndexFlushResponse indexFlushResponse = (IndexFlushResponse) indexResponses.get(i);
-comment|//            if (indexFlushResponse != null) {
-comment|//                response.indices().put(indexFlushResponse.index(), indexFlushResponse);
-comment|//            }
-comment|//        }
-comment|//        return response;
-comment|//    }
-comment|//
-comment|//    @Override protected boolean accumulateExceptions() {
-comment|//        return false;
-comment|//    }
-comment|//
-comment|//    @Override protected String transportAction() {
-comment|//        return TransportActions.Admin.Indices.FLUSH;
-comment|//    }
-comment|//
-comment|//    @Override protected IndexFlushRequest newIndexRequestInstance(FlushRequest request, String index) {
-comment|//        return new IndexFlushRequest(request, index);
-comment|//    }
 block|}
 end_class
 

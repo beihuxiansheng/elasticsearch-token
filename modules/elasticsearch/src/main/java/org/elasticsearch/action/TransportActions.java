@@ -135,6 +135,15 @@ name|REFRESH
 init|=
 literal|"indices/refresh"
 decl_stmt|;
+DECL|field|OPTIMIZE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|OPTIMIZE
+init|=
+literal|"indices/optimize"
+decl_stmt|;
 DECL|field|STATUS
 specifier|public
 specifier|static
