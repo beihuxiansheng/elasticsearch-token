@@ -336,11 +336,11 @@ name|this
 operator|.
 name|autoCreateIndex
 operator|=
-name|componentSettings
+name|settings
 operator|.
 name|getAsBoolean
 argument_list|(
-literal|"autoCreateIndex"
+literal|"action.autoCreateIndex"
 argument_list|,
 literal|true
 argument_list|)
