@@ -442,6 +442,8 @@ name|shard
 operator|.
 name|id
 argument_list|()
+argument_list|,
+name|request
 argument_list|)
 return|;
 block|}
@@ -502,6 +504,14 @@ name|Engine
 operator|.
 name|Flush
 argument_list|()
+operator|.
+name|refresh
+argument_list|(
+name|request
+operator|.
+name|refresh
+argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
