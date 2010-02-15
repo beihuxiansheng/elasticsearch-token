@@ -522,6 +522,13 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|builder
+operator|.
+name|startObject
+argument_list|(
+literal|"fields"
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|SearchHitField
@@ -624,6 +631,11 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+name|builder
+operator|.
+name|endObject
+argument_list|()
+expr_stmt|;
 block|}
 if|if
 condition|(
