@@ -662,6 +662,36 @@ name|void
 name|start
 parameter_list|()
 block|{
+if|if
+condition|(
+name|shardsIts
+operator|.
+name|size
+argument_list|()
+operator|==
+literal|0
+condition|)
+block|{
+comment|// no shards
+name|listener
+operator|.
+name|onResponse
+argument_list|(
+name|newResponse
+argument_list|(
+name|request
+argument_list|,
+operator|new
+name|AtomicReferenceArray
+argument_list|(
+literal|0
+argument_list|)
+argument_list|,
+name|clusterState
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 comment|// count the local operations, and perform the non local ones
 name|int
 name|localOperations
