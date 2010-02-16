@@ -454,6 +454,24 @@ name|ClientTransportSearchScrollAction
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|client
+operator|.
+name|transport
+operator|.
+name|action
+operator|.
+name|terms
+operator|.
+name|ClientTransportTermsAction
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (Shay Banon)  */
 end_comment
@@ -537,6 +555,16 @@ expr_stmt|;
 name|bind
 argument_list|(
 name|ClientTransportSearchScrollAction
+operator|.
+name|class
+argument_list|)
+operator|.
+name|asEagerSingleton
+argument_list|()
+expr_stmt|;
+name|bind
+argument_list|(
+name|ClientTransportTermsAction
 operator|.
 name|class
 argument_list|)

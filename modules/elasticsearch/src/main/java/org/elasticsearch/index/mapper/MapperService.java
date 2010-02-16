@@ -1109,6 +1109,42 @@ name|fullName
 argument_list|)
 return|;
 block|}
+comment|/**      * Same as {@link #smartNameFieldMappers(String)} but returns the first field mapper for it. Returns      *<tt>null</tt> if there is none.      */
+DECL|method|smartNameFieldMapper
+specifier|public
+name|FieldMapper
+name|smartNameFieldMapper
+parameter_list|(
+name|String
+name|smartName
+parameter_list|)
+block|{
+name|FieldMappers
+name|fieldMappers
+init|=
+name|smartNameFieldMappers
+argument_list|(
+name|smartName
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|fieldMappers
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|fieldMappers
+operator|.
+name|mapper
+argument_list|()
+return|;
+block|}
+return|return
+literal|null
+return|;
+block|}
 comment|/**      * Same as {@link #smartName(String)}, except it returns just the field mappers.      */
 DECL|method|smartNameFieldMappers
 specifier|public
@@ -1560,6 +1596,36 @@ operator|=
 name|docMapper
 expr_stmt|;
 block|}
+comment|/**          * Has at least one mapper for the field.          */
+DECL|method|hasMapper
+specifier|public
+name|boolean
+name|hasMapper
+parameter_list|()
+block|{
+return|return
+operator|!
+name|fieldMappers
+operator|.
+name|isEmpty
+argument_list|()
+return|;
+block|}
+comment|/**          * The first mapper for the smart named field.          */
+DECL|method|mapper
+specifier|public
+name|FieldMapper
+name|mapper
+parameter_list|()
+block|{
+return|return
+name|fieldMappers
+operator|.
+name|mapper
+argument_list|()
+return|;
+block|}
+comment|/**          * All the field mappers for the smart name field.          */
 DECL|method|fieldMappers
 specifier|public
 name|FieldMappers
@@ -1570,6 +1636,7 @@ return|return
 name|fieldMappers
 return|;
 block|}
+comment|/**          * If the smart name was a typed field, with a type that we resolved, will return          *<tt>true</tt>.          */
 DECL|method|hasDocMapper
 specifier|public
 name|boolean
@@ -1582,6 +1649,7 @@ operator|!=
 literal|null
 return|;
 block|}
+comment|/**          * If the smart name was a typed field, with a type that we resolved, will return          * the document mapper for it.          */
 DECL|method|docMapper
 specifier|public
 name|DocumentMapper

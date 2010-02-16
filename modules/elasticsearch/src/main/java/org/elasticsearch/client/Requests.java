@@ -358,6 +358,20 @@ name|SearchScrollRequest
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|terms
+operator|.
+name|TermsRequest
+import|;
+end_import
+
 begin_comment
 comment|/**  * A handy one stop shop for creating requests (make sure to import static this class).  *  * @author kimchy (Shay Banon)  */
 end_comment
@@ -460,6 +474,25 @@ block|{
 return|return
 operator|new
 name|CountRequest
+argument_list|(
+name|indices
+argument_list|)
+return|;
+block|}
+DECL|method|termsRequest
+specifier|public
+specifier|static
+name|TermsRequest
+name|termsRequest
+parameter_list|(
+name|String
+modifier|...
+name|indices
+parameter_list|)
+block|{
+return|return
+operator|new
+name|TermsRequest
 argument_list|(
 name|indices
 argument_list|)
@@ -622,7 +655,7 @@ name|indices
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates an optimize request.      *      * @param indices The indices to optimize. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The optimize request      * @see org.elasticsearch.client.IndicesAdminClient#optimize(org.elasticsearch.action.admin.indices.flush.FlushRequest)      */
+comment|/**      * Creates an optimize request.      *      * @param indices The indices to optimize. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The optimize request      * @see org.elasticsearch.client.IndicesAdminClient#optimize(org.elasticsearch.action.admin.indices.optimize.OptimizeRequest)      */
 DECL|method|optimizeRequest
 specifier|public
 specifier|static

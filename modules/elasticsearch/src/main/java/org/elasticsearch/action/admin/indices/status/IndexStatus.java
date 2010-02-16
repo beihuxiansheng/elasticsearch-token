@@ -139,21 +139,21 @@ name|Docs
 argument_list|()
 decl_stmt|;
 DECL|field|numDocs
-name|int
+name|long
 name|numDocs
 init|=
 operator|-
 literal|1
 decl_stmt|;
 DECL|field|maxDoc
-name|int
+name|long
 name|maxDoc
 init|=
 operator|-
 literal|1
 decl_stmt|;
 DECL|field|deletedDocs
-name|int
+name|long
 name|deletedDocs
 init|=
 operator|-
@@ -161,7 +161,7 @@ literal|1
 decl_stmt|;
 DECL|method|numDocs
 specifier|public
-name|int
+name|long
 name|numDocs
 parameter_list|()
 block|{
@@ -171,7 +171,7 @@ return|;
 block|}
 DECL|method|maxDoc
 specifier|public
-name|int
+name|long
 name|maxDoc
 parameter_list|()
 block|{
@@ -181,7 +181,7 @@ return|;
 block|}
 DECL|method|deletedDocs
 specifier|public
-name|int
+name|long
 name|deletedDocs
 parameter_list|()
 block|{
@@ -410,6 +410,7 @@ operator|.
 name|index
 return|;
 block|}
+comment|/**      * A shard id to index shard status map (note, index shard status is the replication shard group that maps      * to the shard id).      */
 DECL|method|shards
 specifier|public
 name|Map

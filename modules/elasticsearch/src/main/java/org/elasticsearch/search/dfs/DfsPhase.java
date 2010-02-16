@@ -230,7 +230,7 @@ operator|.
 name|dfsResult
 argument_list|()
 operator|.
-name|numDocs
+name|maxDoc
 argument_list|(
 name|context
 operator|.
@@ -240,7 +240,7 @@ operator|.
 name|getIndexReader
 argument_list|()
 operator|.
-name|numDocs
+name|maxDoc
 argument_list|()
 argument_list|)
 expr_stmt|;

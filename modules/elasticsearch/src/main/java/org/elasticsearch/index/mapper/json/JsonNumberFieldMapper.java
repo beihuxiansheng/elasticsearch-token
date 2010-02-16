@@ -499,7 +499,7 @@ operator|.
 name|precisionStep
 return|;
 block|}
-comment|/**      * Override the defualt behavior (to return the string, and reutrn the actual Number instance).      */
+comment|/**      * Override the default behavior (to return the string, and return the actual Number instance).      */
 DECL|method|valueForSearch
 annotation|@
 name|Override

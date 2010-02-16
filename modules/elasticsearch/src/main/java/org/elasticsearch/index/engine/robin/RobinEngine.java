@@ -1948,6 +1948,12 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// once we did the optimization, we are "dirty" since we removed deletes potentially which
+comment|// affects TermEnum
+name|dirty
+operator|=
+literal|true
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(

@@ -314,7 +314,7 @@ specifier|final
 name|boolean
 name|includeSettings
 init|=
-name|HttpActions
+name|request
 operator|.
 name|paramAsBoolean
 argument_list|(

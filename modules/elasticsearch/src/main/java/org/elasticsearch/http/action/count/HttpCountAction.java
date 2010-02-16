@@ -484,14 +484,11 @@ name|countRequest
 operator|.
 name|minScore
 argument_list|(
-name|paramAsFloat
-argument_list|(
 name|request
 operator|.
-name|param
+name|paramAsFloat
 argument_list|(
 literal|"minScore"
-argument_list|)
 argument_list|,
 name|DEFAULT_MIN_SCORE
 argument_list|)

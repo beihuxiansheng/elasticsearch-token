@@ -412,6 +412,22 @@ name|HttpSearchAction
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|http
+operator|.
+name|action
+operator|.
+name|terms
+operator|.
+name|HttpTermsAction
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (Shay Banon)  */
 end_comment
@@ -615,6 +631,16 @@ expr_stmt|;
 name|bind
 argument_list|(
 name|HttpCountAction
+operator|.
+name|class
+argument_list|)
+operator|.
+name|asEagerSingleton
+argument_list|()
+expr_stmt|;
+name|bind
+argument_list|(
+name|HttpTermsAction
 operator|.
 name|class
 argument_list|)

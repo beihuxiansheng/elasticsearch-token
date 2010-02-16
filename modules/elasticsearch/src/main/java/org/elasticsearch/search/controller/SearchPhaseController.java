@@ -467,8 +467,8 @@ operator|-
 literal|1
 argument_list|)
 decl_stmt|;
-name|int
-name|numDocs
+name|long
+name|aggMaxDoc
 init|=
 literal|0
 decl_stmt|;
@@ -530,11 +530,11 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
-name|numDocs
+name|aggMaxDoc
 operator|+=
 name|result
 operator|.
-name|numDocs
+name|maxDoc
 argument_list|()
 expr_stmt|;
 block|}
@@ -544,7 +544,7 @@ name|AggregatedDfs
 argument_list|(
 name|dfMap
 argument_list|,
-name|numDocs
+name|aggMaxDoc
 argument_list|)
 return|;
 block|}

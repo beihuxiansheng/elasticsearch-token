@@ -87,6 +87,15 @@ name|SEARCH_SCROLL
 init|=
 literal|"indices/searchScroll"
 decl_stmt|;
+DECL|field|TERMS
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|TERMS
+init|=
+literal|"indices/terms"
+decl_stmt|;
 DECL|class|Admin
 specifier|public
 specifier|static
