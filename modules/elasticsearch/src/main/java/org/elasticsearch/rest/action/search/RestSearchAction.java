@@ -632,6 +632,8 @@ operator|.
 name|toJson
 argument_list|(
 name|builder
+argument_list|,
+name|request
 argument_list|)
 expr_stmt|;
 name|builder

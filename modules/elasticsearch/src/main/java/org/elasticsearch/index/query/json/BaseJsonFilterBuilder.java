@@ -64,6 +64,9 @@ name|toJson
 parameter_list|(
 name|JsonBuilder
 name|builder
+parameter_list|,
+name|Params
+name|params
 parameter_list|)
 throws|throws
 name|IOException
@@ -76,6 +79,8 @@ expr_stmt|;
 name|doJson
 argument_list|(
 name|builder
+argument_list|,
+name|params
 argument_list|)
 expr_stmt|;
 name|builder
@@ -92,6 +97,9 @@ name|doJson
 parameter_list|(
 name|JsonBuilder
 name|builder
+parameter_list|,
+name|Params
+name|params
 parameter_list|)
 throws|throws
 name|IOException

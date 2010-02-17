@@ -16,6 +16,20 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|json
+operator|.
+name|ToJson
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -53,6 +67,10 @@ DECL|interface|RestRequest
 specifier|public
 interface|interface
 name|RestRequest
+extends|extends
+name|ToJson
+operator|.
+name|Params
 block|{
 DECL|enum|Method
 enum|enum

@@ -48,6 +48,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|json
+operator|.
+name|ToJson
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -549,6 +563,10 @@ operator|.
 name|toJson
 argument_list|(
 name|builder
+argument_list|,
+name|ToJson
+operator|.
+name|EMPTY_PARAMS
 argument_list|)
 expr_stmt|;
 if|if
@@ -734,9 +752,13 @@ condition|)
 block|{
 name|facetsBuilder
 operator|.
-name|json
+name|toJson
 argument_list|(
 name|builder
+argument_list|,
+name|ToJson
+operator|.
+name|EMPTY_PARAMS
 argument_list|)
 expr_stmt|;
 block|}
