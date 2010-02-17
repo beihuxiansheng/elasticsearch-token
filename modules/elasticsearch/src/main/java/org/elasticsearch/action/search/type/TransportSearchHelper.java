@@ -239,7 +239,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|queryBoost
+name|indexBoost
 argument_list|()
 operator|!=
 literal|null
@@ -249,7 +249,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|queryBoost
+name|indexBoost
 argument_list|()
 operator|.
 name|containsKey
@@ -267,7 +267,7 @@ name|queryBoost
 argument_list|(
 name|request
 operator|.
-name|queryBoost
+name|indexBoost
 argument_list|()
 operator|.
 name|get
