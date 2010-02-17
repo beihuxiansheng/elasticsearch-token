@@ -272,7 +272,7 @@ name|store
 operator|.
 name|memory
 operator|.
-name|MemoryStore
+name|ByteBufferStore
 import|;
 end_import
 
@@ -1871,13 +1871,14 @@ name|Store
 name|store
 init|=
 operator|new
-name|MemoryStore
+name|ByteBufferStore
 argument_list|(
 name|shardId
 argument_list|,
 name|settings
 argument_list|)
 decl_stmt|;
+comment|//        Store store = new HeapStore(shardId, settings);
 comment|//        Store store = new NioFsStore(shardId, settings);
 name|store
 operator|.

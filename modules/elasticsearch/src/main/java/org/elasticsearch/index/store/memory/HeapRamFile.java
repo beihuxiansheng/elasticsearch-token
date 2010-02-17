@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.store.bytebuffer
+DECL|package|org.elasticsearch.index.store.memory
 package|package
 name|org
 operator|.
@@ -14,34 +14,24 @@ name|index
 operator|.
 name|store
 operator|.
-name|bytebuffer
+name|memory
 package|;
 end_package
-
-begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|ByteBuffer
-import|;
-end_import
 
 begin_comment
 comment|/**  * @author kimchy (Shay Banon)  */
 end_comment
 
 begin_class
-DECL|class|ByteBufferFile
+DECL|class|HeapRamFile
 specifier|public
 class|class
-name|ByteBufferFile
+name|HeapRamFile
 block|{
 DECL|field|dir
 specifier|private
 specifier|final
-name|ByteBufferDirectory
+name|HeapDirectory
 name|dir
 decl_stmt|;
 DECL|field|lastModified
@@ -64,15 +54,16 @@ decl_stmt|;
 DECL|field|buffers
 specifier|private
 specifier|volatile
-name|ByteBuffer
+name|byte
+index|[]
 index|[]
 name|buffers
 decl_stmt|;
-DECL|method|ByteBufferFile
+DECL|method|HeapRamFile
 specifier|public
-name|ByteBufferFile
+name|HeapRamFile
 parameter_list|(
-name|ByteBufferDirectory
+name|HeapDirectory
 name|dir
 parameter_list|)
 block|{
@@ -132,7 +123,8 @@ name|length
 expr_stmt|;
 block|}
 DECL|method|buffer
-name|ByteBuffer
+name|byte
+index|[]
 name|buffer
 parameter_list|(
 name|int
@@ -165,7 +157,8 @@ DECL|method|buffers
 name|void
 name|buffers
 parameter_list|(
-name|ByteBuffer
+name|byte
+index|[]
 index|[]
 name|buffers
 parameter_list|)
@@ -191,7 +184,8 @@ condition|)
 block|{
 for|for
 control|(
-name|ByteBuffer
+name|byte
+index|[]
 name|buffer
 range|:
 name|buffers

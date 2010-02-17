@@ -117,14 +117,14 @@ comment|/**  * @author kimchy (Shay Banon)  */
 end_comment
 
 begin_class
-DECL|class|MemoryStore
+DECL|class|HeapStore
 specifier|public
 class|class
-name|MemoryStore
+name|HeapStore
 extends|extends
 name|AbstractStore
 argument_list|<
-name|MemoryDirectory
+name|HeapDirectory
 argument_list|>
 block|{
 DECL|field|bufferSize
@@ -147,14 +147,14 @@ name|warmCache
 decl_stmt|;
 DECL|field|directory
 specifier|private
-name|MemoryDirectory
+name|HeapDirectory
 name|directory
 decl_stmt|;
-DECL|method|MemoryStore
+DECL|method|HeapStore
 annotation|@
 name|Inject
 specifier|public
-name|MemoryStore
+name|HeapStore
 parameter_list|(
 name|ShardId
 name|shardId
@@ -232,7 +232,7 @@ operator|.
 name|directory
 operator|=
 operator|new
-name|MemoryDirectory
+name|HeapDirectory
 argument_list|(
 name|bufferSize
 argument_list|,
@@ -270,7 +270,7 @@ DECL|method|directory
 annotation|@
 name|Override
 specifier|public
-name|MemoryDirectory
+name|HeapDirectory
 name|directory
 parameter_list|()
 block|{

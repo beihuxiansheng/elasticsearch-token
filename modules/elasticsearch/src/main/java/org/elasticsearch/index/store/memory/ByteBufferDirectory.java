@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.store.bytebuffer
+DECL|package|org.elasticsearch.index.store.memory
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|index
 operator|.
 name|store
 operator|.
-name|bytebuffer
+name|memory
 package|;
 end_package
 
@@ -1069,6 +1069,7 @@ name|byteBuffer
 return|;
 block|}
 DECL|method|createBuffer
+specifier|private
 name|ByteBuffer
 name|createBuffer
 parameter_list|()
@@ -1100,6 +1101,7 @@ argument_list|)
 return|;
 block|}
 DECL|method|closeBuffer
+specifier|private
 name|void
 name|closeBuffer
 parameter_list|(

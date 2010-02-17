@@ -47,10 +47,10 @@ comment|/**  * @author kimchy (Shay Banon)  */
 end_comment
 
 begin_class
-DECL|class|MemoryIndexInput
+DECL|class|HeapIndexInput
 specifier|public
 class|class
-name|MemoryIndexInput
+name|HeapIndexInput
 extends|extends
 name|IndexInput
 block|{
@@ -63,7 +63,7 @@ decl_stmt|;
 DECL|field|file
 specifier|private
 specifier|final
-name|MemoryFile
+name|HeapRamFile
 name|file
 decl_stmt|;
 DECL|field|length
@@ -97,14 +97,14 @@ specifier|private
 name|int
 name|bufferLength
 decl_stmt|;
-DECL|method|MemoryIndexInput
+DECL|method|HeapIndexInput
 specifier|public
-name|MemoryIndexInput
+name|HeapIndexInput
 parameter_list|(
-name|MemoryDirectory
+name|HeapDirectory
 name|dir
 parameter_list|,
-name|MemoryFile
+name|HeapRamFile
 name|file
 parameter_list|)
 throws|throws

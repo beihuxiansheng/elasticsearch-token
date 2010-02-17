@@ -145,14 +145,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy  */
 end_comment
 
 begin_class
-DECL|class|SimpleMemoryStoreTests
+DECL|class|SimpleByteBufferStoreTests
 specifier|public
 class|class
-name|SimpleMemoryStoreTests
+name|SimpleByteBufferStoreTests
 block|{
 DECL|method|test1BufferNoCache
 annotation|@
@@ -164,11 +164,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|MemoryDirectory
+name|ByteBufferDirectory
 name|dir
 init|=
 operator|new
-name|MemoryDirectory
+name|ByteBufferDirectory
 argument_list|(
 operator|new
 name|SizeValue
@@ -189,6 +189,8 @@ name|SizeUnit
 operator|.
 name|BYTES
 argument_list|)
+argument_list|,
+literal|true
 argument_list|,
 literal|false
 argument_list|)
@@ -219,11 +221,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|MemoryDirectory
+name|ByteBufferDirectory
 name|dir
 init|=
 operator|new
-name|MemoryDirectory
+name|ByteBufferDirectory
 argument_list|(
 operator|new
 name|SizeValue
@@ -244,6 +246,8 @@ name|SizeUnit
 operator|.
 name|BYTES
 argument_list|)
+argument_list|,
+literal|true
 argument_list|,
 literal|false
 argument_list|)
@@ -274,11 +278,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|MemoryDirectory
+name|ByteBufferDirectory
 name|dir
 init|=
 operator|new
-name|MemoryDirectory
+name|ByteBufferDirectory
 argument_list|(
 operator|new
 name|SizeValue
@@ -299,6 +303,8 @@ name|SizeUnit
 operator|.
 name|BYTES
 argument_list|)
+argument_list|,
+literal|true
 argument_list|,
 literal|false
 argument_list|)
@@ -329,11 +335,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|MemoryDirectory
+name|ByteBufferDirectory
 name|dir
 init|=
 operator|new
-name|MemoryDirectory
+name|ByteBufferDirectory
 argument_list|(
 operator|new
 name|SizeValue
@@ -354,6 +360,8 @@ name|SizeUnit
 operator|.
 name|BYTES
 argument_list|)
+argument_list|,
+literal|true
 argument_list|,
 literal|false
 argument_list|)
@@ -384,11 +392,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|MemoryDirectory
+name|ByteBufferDirectory
 name|dir
 init|=
 operator|new
-name|MemoryDirectory
+name|ByteBufferDirectory
 argument_list|(
 operator|new
 name|SizeValue
@@ -409,6 +417,8 @@ name|SizeUnit
 operator|.
 name|BYTES
 argument_list|)
+argument_list|,
+literal|true
 argument_list|,
 literal|false
 argument_list|)
@@ -439,11 +449,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|MemoryDirectory
+name|ByteBufferDirectory
 name|dir
 init|=
 operator|new
-name|MemoryDirectory
+name|ByteBufferDirectory
 argument_list|(
 operator|new
 name|SizeValue
@@ -464,6 +474,8 @@ name|SizeUnit
 operator|.
 name|BYTES
 argument_list|)
+argument_list|,
+literal|true
 argument_list|,
 literal|false
 argument_list|)
@@ -484,21 +496,21 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testSimpeLocking
+DECL|method|testSimpleLocking
 annotation|@
 name|Test
 specifier|public
 name|void
-name|testSimpeLocking
+name|testSimpleLocking
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|MemoryDirectory
+name|ByteBufferDirectory
 name|dir
 init|=
 operator|new
-name|MemoryDirectory
+name|ByteBufferDirectory
 argument_list|(
 operator|new
 name|SizeValue
@@ -519,6 +531,8 @@ name|SizeUnit
 operator|.
 name|BYTES
 argument_list|)
+argument_list|,
+literal|true
 argument_list|,
 literal|false
 argument_list|)
@@ -641,7 +655,7 @@ specifier|private
 name|void
 name|insertData
 parameter_list|(
-name|MemoryDirectory
+name|ByteBufferDirectory
 name|dir
 parameter_list|)
 throws|throws
@@ -813,7 +827,7 @@ specifier|private
 name|void
 name|verifyData
 parameter_list|(
-name|MemoryDirectory
+name|ByteBufferDirectory
 name|dir
 parameter_list|)
 throws|throws

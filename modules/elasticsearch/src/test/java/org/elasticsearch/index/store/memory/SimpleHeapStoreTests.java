@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.store.bytebuffer
+DECL|package|org.elasticsearch.index.store.memory
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|index
 operator|.
 name|store
 operator|.
-name|bytebuffer
+name|memory
 package|;
 end_package
 
@@ -145,14 +145,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy  */
+comment|/**  * @author kimchy (Shay Banon)  */
 end_comment
 
 begin_class
-DECL|class|SimpleByteBufferStoreTests
+DECL|class|SimpleHeapStoreTests
 specifier|public
 class|class
-name|SimpleByteBufferStoreTests
+name|SimpleHeapStoreTests
 block|{
 DECL|method|test1BufferNoCache
 annotation|@
@@ -164,11 +164,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ByteBufferDirectory
+name|HeapDirectory
 name|dir
 init|=
 operator|new
-name|ByteBufferDirectory
+name|HeapDirectory
 argument_list|(
 operator|new
 name|SizeValue
@@ -189,8 +189,6 @@ name|SizeUnit
 operator|.
 name|BYTES
 argument_list|)
-argument_list|,
-literal|false
 argument_list|,
 literal|false
 argument_list|)
@@ -221,11 +219,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ByteBufferDirectory
+name|HeapDirectory
 name|dir
 init|=
 operator|new
-name|ByteBufferDirectory
+name|HeapDirectory
 argument_list|(
 operator|new
 name|SizeValue
@@ -246,8 +244,6 @@ name|SizeUnit
 operator|.
 name|BYTES
 argument_list|)
-argument_list|,
-literal|false
 argument_list|,
 literal|false
 argument_list|)
@@ -278,11 +274,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ByteBufferDirectory
+name|HeapDirectory
 name|dir
 init|=
 operator|new
-name|ByteBufferDirectory
+name|HeapDirectory
 argument_list|(
 operator|new
 name|SizeValue
@@ -303,8 +299,6 @@ name|SizeUnit
 operator|.
 name|BYTES
 argument_list|)
-argument_list|,
-literal|false
 argument_list|,
 literal|false
 argument_list|)
@@ -335,11 +329,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ByteBufferDirectory
+name|HeapDirectory
 name|dir
 init|=
 operator|new
-name|ByteBufferDirectory
+name|HeapDirectory
 argument_list|(
 operator|new
 name|SizeValue
@@ -360,8 +354,6 @@ name|SizeUnit
 operator|.
 name|BYTES
 argument_list|)
-argument_list|,
-literal|false
 argument_list|,
 literal|false
 argument_list|)
@@ -392,11 +384,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ByteBufferDirectory
+name|HeapDirectory
 name|dir
 init|=
 operator|new
-name|ByteBufferDirectory
+name|HeapDirectory
 argument_list|(
 operator|new
 name|SizeValue
@@ -417,8 +409,6 @@ name|SizeUnit
 operator|.
 name|BYTES
 argument_list|)
-argument_list|,
-literal|false
 argument_list|,
 literal|false
 argument_list|)
@@ -449,11 +439,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ByteBufferDirectory
+name|HeapDirectory
 name|dir
 init|=
 operator|new
-name|ByteBufferDirectory
+name|HeapDirectory
 argument_list|(
 operator|new
 name|SizeValue
@@ -474,8 +464,6 @@ name|SizeUnit
 operator|.
 name|BYTES
 argument_list|)
-argument_list|,
-literal|false
 argument_list|,
 literal|false
 argument_list|)
@@ -496,21 +484,21 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testSimpleLocking
+DECL|method|testSimpeLocking
 annotation|@
 name|Test
 specifier|public
 name|void
-name|testSimpleLocking
+name|testSimpeLocking
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ByteBufferDirectory
+name|HeapDirectory
 name|dir
 init|=
 operator|new
-name|ByteBufferDirectory
+name|HeapDirectory
 argument_list|(
 operator|new
 name|SizeValue
@@ -531,8 +519,6 @@ name|SizeUnit
 operator|.
 name|BYTES
 argument_list|)
-argument_list|,
-literal|false
 argument_list|,
 literal|false
 argument_list|)
@@ -655,7 +641,7 @@ specifier|private
 name|void
 name|insertData
 parameter_list|(
-name|ByteBufferDirectory
+name|HeapDirectory
 name|dir
 parameter_list|)
 throws|throws
@@ -827,7 +813,7 @@ specifier|private
 name|void
 name|verifyData
 parameter_list|(
-name|ByteBufferDirectory
+name|HeapDirectory
 name|dir
 parameter_list|)
 throws|throws

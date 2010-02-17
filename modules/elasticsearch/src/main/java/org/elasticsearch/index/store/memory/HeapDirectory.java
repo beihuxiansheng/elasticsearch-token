@@ -171,10 +171,10 @@ comment|/**  * @author kimchy (Shay Banon)  */
 end_comment
 
 begin_class
-DECL|class|MemoryDirectory
+DECL|class|HeapDirectory
 specifier|public
 class|class
-name|MemoryDirectory
+name|HeapDirectory
 extends|extends
 name|Directory
 block|{
@@ -185,7 +185,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|MemoryFile
+name|HeapRamFile
 argument_list|>
 name|files
 init|=
@@ -226,9 +226,9 @@ specifier|final
 name|boolean
 name|disableCache
 decl_stmt|;
-DECL|method|MemoryDirectory
+DECL|method|HeapDirectory
 specifier|public
-name|MemoryDirectory
+name|HeapDirectory
 parameter_list|()
 block|{
 name|this
@@ -257,9 +257,9 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|MemoryDirectory
+DECL|method|HeapDirectory
 specifier|public
-name|MemoryDirectory
+name|HeapDirectory
 parameter_list|(
 name|SizeValue
 name|bufferSize
@@ -533,7 +533,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|MemoryFile
+name|HeapRamFile
 name|file
 init|=
 name|files
@@ -576,7 +576,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|MemoryFile
+name|HeapRamFile
 name|file
 init|=
 name|files
@@ -683,7 +683,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|MemoryFile
+name|HeapRamFile
 name|file
 init|=
 name|files
@@ -725,7 +725,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|MemoryFile
+name|HeapRamFile
 name|file
 init|=
 name|files
@@ -768,16 +768,16 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|MemoryFile
+name|HeapRamFile
 name|file
 init|=
 operator|new
-name|MemoryFile
+name|HeapRamFile
 argument_list|(
 name|this
 argument_list|)
 decl_stmt|;
-name|MemoryFile
+name|HeapRamFile
 name|existing
 init|=
 name|files
@@ -804,7 +804,7 @@ expr_stmt|;
 block|}
 return|return
 operator|new
-name|MemoryIndexOutput
+name|HeapIndexOutput
 argument_list|(
 name|this
 argument_list|,
@@ -825,7 +825,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|MemoryFile
+name|HeapRamFile
 name|file
 init|=
 name|files
@@ -850,7 +850,7 @@ argument_list|)
 throw|;
 return|return
 operator|new
-name|MemoryIndexInput
+name|HeapIndexInput
 argument_list|(
 name|this
 argument_list|,

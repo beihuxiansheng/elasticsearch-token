@@ -18,20 +18,30 @@ name|memory
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|ByteBuffer
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (Shay Banon)  */
 end_comment
 
 begin_class
-DECL|class|MemoryFile
+DECL|class|ByteBufferFile
 specifier|public
 class|class
-name|MemoryFile
+name|ByteBufferFile
 block|{
 DECL|field|dir
 specifier|private
 specifier|final
-name|MemoryDirectory
+name|ByteBufferDirectory
 name|dir
 decl_stmt|;
 DECL|field|lastModified
@@ -54,16 +64,15 @@ decl_stmt|;
 DECL|field|buffers
 specifier|private
 specifier|volatile
-name|byte
-index|[]
+name|ByteBuffer
 index|[]
 name|buffers
 decl_stmt|;
-DECL|method|MemoryFile
+DECL|method|ByteBufferFile
 specifier|public
-name|MemoryFile
+name|ByteBufferFile
 parameter_list|(
-name|MemoryDirectory
+name|ByteBufferDirectory
 name|dir
 parameter_list|)
 block|{
@@ -123,8 +132,7 @@ name|length
 expr_stmt|;
 block|}
 DECL|method|buffer
-name|byte
-index|[]
+name|ByteBuffer
 name|buffer
 parameter_list|(
 name|int
@@ -157,8 +165,7 @@ DECL|method|buffers
 name|void
 name|buffers
 parameter_list|(
-name|byte
-index|[]
+name|ByteBuffer
 index|[]
 name|buffers
 parameter_list|)
@@ -184,8 +191,7 @@ condition|)
 block|{
 for|for
 control|(
-name|byte
-index|[]
+name|ByteBuffer
 name|buffer
 range|:
 name|buffers
