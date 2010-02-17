@@ -154,7 +154,7 @@ name|T
 name|builder
 decl_stmt|;
 DECL|method|Builder
-specifier|public
+specifier|protected
 name|Builder
 parameter_list|(
 name|String

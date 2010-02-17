@@ -276,36 +276,21 @@ decl_stmt|;
 DECL|method|Builder
 specifier|public
 name|Builder
-parameter_list|(
-name|String
-name|name
-parameter_list|)
+parameter_list|()
 block|{
 name|super
 argument_list|(
-name|name
+name|Defaults
+operator|.
+name|NAME
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|enabled
-specifier|public
-name|Builder
-name|enabled
-parameter_list|(
-name|boolean
-name|enabled
-parameter_list|)
-block|{
-name|this
-operator|.
-name|enabled
-operator|=
-name|enabled
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
+comment|// source is always enabled for now
+comment|//        public Builder enabled(boolean enabled) {
+comment|//            this.enabled = enabled;
+comment|//            return this;
+comment|//        }
 DECL|method|compressor
 specifier|public
 name|Builder

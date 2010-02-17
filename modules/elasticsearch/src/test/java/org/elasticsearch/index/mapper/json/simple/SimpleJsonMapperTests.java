@@ -272,9 +272,7 @@ operator|.
 name|sourceField
 argument_list|(
 name|source
-argument_list|(
-literal|"_source"
-argument_list|)
+argument_list|()
 operator|.
 name|compressionThreshold
 argument_list|(

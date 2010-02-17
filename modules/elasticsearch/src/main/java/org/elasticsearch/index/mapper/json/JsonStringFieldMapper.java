@@ -126,7 +126,7 @@ name|Builder
 extends|extends
 name|JsonFieldMapper
 operator|.
-name|Builder
+name|OpenBuilder
 argument_list|<
 name|Builder
 argument_list|,
