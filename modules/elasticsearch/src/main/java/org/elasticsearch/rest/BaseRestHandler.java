@@ -4,13 +4,13 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.http
+DECL|package|org.elasticsearch.rest
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|http
+name|rest
 package|;
 end_package
 
@@ -20,9 +20,37 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|rest
+name|client
 operator|.
-name|RestResponse
+name|Client
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|component
+operator|.
+name|AbstractComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|settings
+operator|.
+name|Settings
 import|;
 end_import
 
@@ -30,15 +58,48 @@ begin_comment
 comment|/**  * @author kimchy (Shay Banon)  */
 end_comment
 
-begin_interface
-DECL|interface|HttpResponse
+begin_class
+DECL|class|BaseRestHandler
 specifier|public
-interface|interface
-name|HttpResponse
+specifier|abstract
+class|class
+name|BaseRestHandler
 extends|extends
-name|RestResponse
-block|{  }
-end_interface
+name|AbstractComponent
+implements|implements
+name|RestHandler
+block|{
+DECL|field|client
+specifier|protected
+specifier|final
+name|Client
+name|client
+decl_stmt|;
+DECL|method|BaseRestHandler
+specifier|protected
+name|BaseRestHandler
+parameter_list|(
+name|Settings
+name|settings
+parameter_list|,
+name|Client
+name|client
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|settings
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|client
+operator|=
+name|client
+expr_stmt|;
+block|}
+block|}
+end_class
 
 end_unit
 

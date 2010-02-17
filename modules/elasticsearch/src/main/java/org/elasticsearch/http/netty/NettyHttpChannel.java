@@ -44,6 +44,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|rest
+operator|.
+name|RestResponse
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|jboss
 operator|.
 name|netty
@@ -217,7 +229,7 @@ specifier|public
 name|void
 name|sendResponse
 parameter_list|(
-name|HttpResponse
+name|RestResponse
 name|response
 parameter_list|)
 block|{

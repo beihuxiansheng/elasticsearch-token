@@ -4,40 +4,35 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.http
+DECL|package|org.elasticsearch.rest
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|http
+name|rest
 package|;
 end_package
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|rest
-operator|.
-name|RestResponse
-import|;
-end_import
 
 begin_comment
 comment|/**  * @author kimchy (Shay Banon)  */
 end_comment
 
 begin_interface
-DECL|interface|HttpResponse
+DECL|interface|RestChannel
 specifier|public
 interface|interface
-name|HttpResponse
-extends|extends
+name|RestChannel
+block|{
+DECL|method|sendResponse
+name|void
+name|sendResponse
+parameter_list|(
 name|RestResponse
-block|{  }
+name|response
+parameter_list|)
+function_decl|;
+block|}
 end_interface
 
 end_unit

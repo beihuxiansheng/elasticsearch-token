@@ -14,6 +14,18 @@ name|http
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|rest
+operator|.
+name|RestChannel
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (Shay Banon)  */
 end_comment
@@ -23,16 +35,9 @@ DECL|interface|HttpChannel
 specifier|public
 interface|interface
 name|HttpChannel
-block|{
-DECL|method|sendResponse
-name|void
-name|sendResponse
-parameter_list|(
-name|HttpResponse
-name|response
-parameter_list|)
-function_decl|;
-block|}
+extends|extends
+name|RestChannel
+block|{  }
 end_interface
 
 end_unit
