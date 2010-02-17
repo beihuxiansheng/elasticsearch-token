@@ -254,6 +254,8 @@ argument_list|,
 name|localNodeId
 argument_list|,
 name|shardId
+argument_list|,
+name|MAIN_INDEX_SUFFIX
 argument_list|)
 argument_list|,
 name|syncToDisk
