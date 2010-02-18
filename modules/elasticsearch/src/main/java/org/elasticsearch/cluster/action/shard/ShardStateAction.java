@@ -100,49 +100,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|ImmutableShardRouting
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|IndexShardRoutingTable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|RoutingTable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|ShardRouting
+name|*
 import|;
 end_import
 
@@ -650,6 +608,40 @@ name|ClusterState
 name|currentState
 parameter_list|)
 block|{
+name|RoutingTable
+name|routingTable
+init|=
+name|currentState
+operator|.
+name|routingTable
+argument_list|()
+decl_stmt|;
+name|IndexRoutingTable
+name|indexRoutingTable
+init|=
+name|routingTable
+operator|.
+name|index
+argument_list|(
+name|shardRouting
+operator|.
+name|index
+argument_list|()
+argument_list|)
+decl_stmt|;
+comment|// if there is no routing table, the index has been deleted while it was being allocated
+comment|// which is fine, we should just ignore this
+if|if
+condition|(
+name|indexRoutingTable
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+name|currentState
+return|;
+block|}
 if|if
 condition|(
 name|logger
@@ -784,11 +776,8 @@ operator|.
 name|routingTable
 argument_list|()
 decl_stmt|;
-comment|// find the one that maps to us, if its already started, no need to do anything...
-comment|// the shard might already be started since the nodes that is starting the shards might get cluster events
-comment|// with the shard still initializing, and it will try and start it again (until the verification comes)
-name|IndexShardRoutingTable
-name|indexShardRoutingTable
+name|IndexRoutingTable
+name|indexRoutingTable
 init|=
 name|routingTable
 operator|.
@@ -799,6 +788,27 @@ operator|.
 name|index
 argument_list|()
 argument_list|)
+decl_stmt|;
+comment|// if there is no routing table, the index has been deleted while it was being allocated
+comment|// which is fine, we should just ignore this
+if|if
+condition|(
+name|indexRoutingTable
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+name|currentState
+return|;
+block|}
+comment|// find the one that maps to us, if its already started, no need to do anything...
+comment|// the shard might already be started since the nodes that is starting the shards might get cluster events
+comment|// with the shard still initializing, and it will try and start it again (until the verification comes)
+name|IndexShardRoutingTable
+name|indexShardRoutingTable
+init|=
+name|indexRoutingTable
 operator|.
 name|shard
 argument_list|(
