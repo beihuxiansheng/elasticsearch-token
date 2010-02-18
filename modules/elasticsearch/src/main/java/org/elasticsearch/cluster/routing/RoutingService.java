@@ -515,10 +515,17 @@ name|event
 operator|.
 name|nodesRemoved
 argument_list|()
+operator|||
+name|event
+operator|.
+name|routingTableChanged
+argument_list|()
 condition|)
 block|{
 comment|// if nodes were removed, we don't want to wait for the scheduled task
 comment|// since we want to get primary election as fast as possible
+comment|// also, if the routing table changed, it means that we have new indices, or shard have started
+comment|// or failed, we want to apply this as fast as possible
 name|routingTableDirty
 operator|=
 literal|true
@@ -537,11 +544,6 @@ else|else
 block|{
 if|if
 condition|(
-name|event
-operator|.
-name|routingTableChanged
-argument_list|()
-operator|||
 name|event
 operator|.
 name|nodesAdded
@@ -622,10 +624,6 @@ condition|)
 block|{
 return|return;
 block|}
-name|routingTableDirty
-operator|=
-literal|false
-expr_stmt|;
 name|clusterService
 operator|.
 name|submitStateUpdateTask
@@ -676,6 +674,10 @@ return|;
 block|}
 block|}
 argument_list|)
+expr_stmt|;
+name|routingTableDirty
+operator|=
+literal|false
 expr_stmt|;
 block|}
 catch|catch
