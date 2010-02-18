@@ -230,18 +230,6 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|TimeValue
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|util
-operator|.
 name|json
 operator|.
 name|JsonBuilder
@@ -321,6 +309,20 @@ operator|.
 name|RestResponse
 operator|.
 name|Status
+operator|.
+name|*
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|TimeValue
 operator|.
 name|*
 import|;
@@ -1110,8 +1112,6 @@ argument_list|(
 operator|new
 name|Scroll
 argument_list|(
-name|TimeValue
-operator|.
 name|parseTimeValue
 argument_list|(
 name|scroll
@@ -1143,8 +1143,6 @@ name|searchRequest
 operator|.
 name|timeout
 argument_list|(
-name|TimeValue
-operator|.
 name|parseTimeValue
 argument_list|(
 name|timeout

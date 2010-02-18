@@ -4,82 +4,41 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search
+DECL|package|org.elasticsearch.util.timer
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
+name|util
+operator|.
+name|timer
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ElasticSearchException
-import|;
-end_import
-
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * A task which is executed after the delay specified with  * {@link Timer#newTimeout(TimerTask, long, java.util.concurrent.TimeUnit)}.  *  * @author kimchy (Shay Banon)  */
 end_comment
 
-begin_class
-DECL|class|SearchContextMissingException
+begin_interface
+DECL|interface|TimerTask
 specifier|public
-class|class
-name|SearchContextMissingException
-extends|extends
-name|ElasticSearchException
+interface|interface
+name|TimerTask
 block|{
-DECL|field|id
-specifier|private
-specifier|final
-name|long
-name|id
-decl_stmt|;
-DECL|method|SearchContextMissingException
-specifier|public
-name|SearchContextMissingException
+comment|/**      * Executed after the delay specified with      * {@link Timer#newTimeout(TimerTask, long, java.util.concurrent.TimeUnit)}.      *      * @param timeout a handle which is associated with this task      */
+DECL|method|run
+name|void
+name|run
 parameter_list|(
-name|long
-name|id
+name|Timeout
+name|timeout
 parameter_list|)
-block|{
-name|super
-argument_list|(
-literal|"No search context found for id ["
-operator|+
-name|id
-operator|+
-literal|"], timed out"
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|id
-operator|=
-name|id
-expr_stmt|;
+throws|throws
+name|Exception
+function_decl|;
 block|}
-DECL|method|id
-specifier|public
-name|long
-name|id
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|id
-return|;
-block|}
-block|}
-end_class
+end_interface
 
 end_unit
 

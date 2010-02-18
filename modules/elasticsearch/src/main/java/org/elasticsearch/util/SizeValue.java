@@ -377,11 +377,11 @@ name|suffix
 argument_list|)
 return|;
 block|}
-DECL|method|parse
+DECL|method|parseSizeValue
 specifier|public
 specifier|static
 name|SizeValue
-name|parse
+name|parseSizeValue
 parameter_list|(
 name|String
 name|sValue

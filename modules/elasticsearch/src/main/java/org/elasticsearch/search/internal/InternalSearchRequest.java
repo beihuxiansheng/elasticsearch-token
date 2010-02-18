@@ -375,7 +375,7 @@ return|;
 block|}
 DECL|method|timeout
 specifier|public
-name|void
+name|InternalSearchRequest
 name|timeout
 parameter_list|(
 name|TimeValue
@@ -388,6 +388,9 @@ name|timeout
 operator|=
 name|timeout
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**      * Allows to set a dynamic query boost on an index level query. Very handy when, for example, each user has      * his own index, and friends matter more than friends of friends.      */
 DECL|method|queryBoost

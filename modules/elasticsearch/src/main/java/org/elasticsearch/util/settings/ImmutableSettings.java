@@ -160,6 +160,34 @@ name|*
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|SizeValue
+operator|.
+name|*
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|TimeValue
+operator|.
+name|*
+import|;
+end_import
+
 begin_comment
 comment|/**  * An immutable implementation of {@link Settings}.  *  * @author kimchy (Shay Banon)  */
 end_comment
@@ -937,8 +965,6 @@ name|defaultValue
 parameter_list|)
 block|{
 return|return
-name|TimeValue
-operator|.
 name|parseTimeValue
 argument_list|(
 name|get
@@ -967,9 +993,7 @@ throws|throws
 name|SettingsException
 block|{
 return|return
-name|SizeValue
-operator|.
-name|parse
+name|parseSizeValue
 argument_list|(
 name|get
 argument_list|(

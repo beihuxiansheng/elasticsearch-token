@@ -4,23 +4,23 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search
+DECL|package|org.elasticsearch.util
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
+name|util
 package|;
 end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|util
 operator|.
-name|ElasticSearchException
+name|Iterator
 import|;
 end_import
 
@@ -28,58 +28,27 @@ begin_comment
 comment|/**  * @author kimchy (Shay Banon)  */
 end_comment
 
-begin_class
-DECL|class|SearchContextMissingException
+begin_interface
+DECL|interface|ReusableIterator
 specifier|public
-class|class
-name|SearchContextMissingException
+interface|interface
+name|ReusableIterator
+parameter_list|<
+name|E
+parameter_list|>
 extends|extends
-name|ElasticSearchException
+name|Iterator
+argument_list|<
+name|E
+argument_list|>
 block|{
-DECL|field|id
-specifier|private
-specifier|final
-name|long
-name|id
-decl_stmt|;
-DECL|method|SearchContextMissingException
-specifier|public
-name|SearchContextMissingException
-parameter_list|(
-name|long
-name|id
-parameter_list|)
-block|{
-name|super
-argument_list|(
-literal|"No search context found for id ["
-operator|+
-name|id
-operator|+
-literal|"], timed out"
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|id
-operator|=
-name|id
-expr_stmt|;
-block|}
-DECL|method|id
-specifier|public
-name|long
-name|id
+DECL|method|rewind
+name|void
+name|rewind
 parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|id
-return|;
+function_decl|;
 block|}
-block|}
-end_class
+end_interface
 
 end_unit
 
