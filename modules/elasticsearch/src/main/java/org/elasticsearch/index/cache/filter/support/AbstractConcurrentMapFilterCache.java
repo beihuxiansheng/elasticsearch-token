@@ -457,6 +457,11 @@ DECL|method|buildMap
 specifier|protected
 specifier|abstract
 name|ConcurrentMap
+argument_list|<
+name|Filter
+argument_list|,
+name|DocIdSet
+argument_list|>
 name|buildMap
 parameter_list|()
 function_decl|;
