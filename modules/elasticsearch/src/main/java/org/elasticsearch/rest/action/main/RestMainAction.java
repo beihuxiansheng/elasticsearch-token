@@ -485,6 +485,15 @@ name|builder
 operator|.
 name|field
 argument_list|(
+literal|"tagline"
+argument_list|,
+literal|"You Know, for Search"
+argument_list|)
+expr_stmt|;
+name|builder
+operator|.
+name|field
+argument_list|(
 literal|"cover"
 argument_list|,
 literal|"DON'T PANIC"
