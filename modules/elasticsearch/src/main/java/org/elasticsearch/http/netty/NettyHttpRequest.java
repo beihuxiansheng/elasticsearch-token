@@ -751,6 +751,13 @@ name|equals
 argument_list|(
 literal|"1"
 argument_list|)
+operator|||
+name|sValue
+operator|.
+name|equals
+argument_list|(
+literal|"on"
+argument_list|)
 return|;
 block|}
 DECL|method|paramAsTime
