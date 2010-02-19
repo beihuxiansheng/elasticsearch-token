@@ -85,7 +85,7 @@ name|String
 name|name
 parameter_list|()
 function_decl|;
-comment|/**      * Parses the into a query from the current json parser location.      */
+comment|/**      * Parses the into a query from the current json parser location. Will be at "START_OBJECT" location,      * and should end when the token is at the matching "END_OBJECT".      */
 DECL|method|parse
 name|Query
 name|parse
