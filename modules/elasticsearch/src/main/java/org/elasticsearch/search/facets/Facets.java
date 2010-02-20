@@ -488,7 +488,7 @@ name|IOException
 block|{
 name|out
 operator|.
-name|write
+name|writeInt
 argument_list|(
 name|facets
 operator|.
