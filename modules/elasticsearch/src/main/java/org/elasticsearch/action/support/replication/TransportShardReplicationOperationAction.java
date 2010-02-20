@@ -72,18 +72,6 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ShardOperationFailedException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
 name|support
 operator|.
 name|BaseAction
@@ -1152,7 +1140,7 @@ operator|.
 name|onFailure
 argument_list|(
 operator|new
-name|ShardOperationFailedException
+name|ReplicationShardOperationFailedException
 argument_list|(
 name|shards
 operator|.
@@ -1697,7 +1685,7 @@ operator|.
 name|onFailure
 argument_list|(
 operator|new
-name|ShardOperationFailedException
+name|ReplicationShardOperationFailedException
 argument_list|(
 name|shards
 operator|.

@@ -38,6 +38,18 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
+name|ShardOperationFailedException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
 name|support
 operator|.
 name|broadcast
@@ -93,6 +105,16 @@ operator|.
 name|util
 operator|.
 name|Iterator
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
 import|;
 end_import
 
@@ -184,6 +206,12 @@ parameter_list|,
 name|int
 name|failedShards
 parameter_list|,
+name|List
+argument_list|<
+name|ShardOperationFailedException
+argument_list|>
+name|shardFailures
+parameter_list|,
 name|FieldTermsFreq
 index|[]
 name|fieldsTermsFreq
@@ -203,6 +231,8 @@ argument_list|(
 name|successfulShards
 argument_list|,
 name|failedShards
+argument_list|,
+name|shardFailures
 argument_list|)
 expr_stmt|;
 name|this

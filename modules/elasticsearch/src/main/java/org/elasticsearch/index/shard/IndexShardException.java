@@ -88,7 +88,9 @@ operator|.
 name|index
 argument_list|()
 argument_list|,
-literal|"Shard["
+literal|false
+argument_list|,
+literal|"["
 operator|+
 name|shardId
 operator|.

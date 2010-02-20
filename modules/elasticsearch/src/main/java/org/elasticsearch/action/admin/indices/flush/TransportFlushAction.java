@@ -50,7 +50,49 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
+name|ShardOperationFailedException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
 name|TransportActions
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|support
+operator|.
+name|DefaultShardOperationFailedException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|support
+operator|.
+name|broadcast
+operator|.
+name|BroadcastShardOperationFailedException
 import|;
 end_import
 
@@ -206,11 +248,37 @@ name|java
 operator|.
 name|util
 operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|concurrent
 operator|.
 name|atomic
 operator|.
 name|AtomicReferenceArray
+import|;
+end_import
+
+begin_import
+import|import static
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|Lists
+operator|.
+name|*
 import|;
 end_import
 
@@ -342,6 +410,14 @@ name|failedShards
 init|=
 literal|0
 decl_stmt|;
+name|List
+argument_list|<
+name|ShardOperationFailedException
+argument_list|>
+name|shardFailures
+init|=
+literal|null
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -360,12 +436,9 @@ name|i
 operator|++
 control|)
 block|{
-name|ShardFlushResponse
-name|shardCountResponse
+name|Object
+name|shardResponse
 init|=
-operator|(
-name|ShardFlushResponse
-operator|)
 name|shardsResponses
 operator|.
 name|get
@@ -375,13 +448,52 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|shardCountResponse
+name|shardResponse
 operator|==
 literal|null
 condition|)
 block|{
 name|failedShards
 operator|++
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|shardResponse
+operator|instanceof
+name|BroadcastShardOperationFailedException
+condition|)
+block|{
+name|failedShards
+operator|++
+expr_stmt|;
+if|if
+condition|(
+name|shardFailures
+operator|==
+literal|null
+condition|)
+block|{
+name|shardFailures
+operator|=
+name|newArrayList
+argument_list|()
+expr_stmt|;
+block|}
+name|shardFailures
+operator|.
+name|add
+argument_list|(
+operator|new
+name|DefaultShardOperationFailedException
+argument_list|(
+operator|(
+name|BroadcastShardOperationFailedException
+operator|)
+name|shardResponse
+argument_list|)
+argument_list|)
 expr_stmt|;
 block|}
 else|else
@@ -398,6 +510,8 @@ argument_list|(
 name|successfulShards
 argument_list|,
 name|failedShards
+argument_list|,
+name|shardFailures
 argument_list|)
 return|;
 block|}
@@ -530,18 +644,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-DECL|method|accumulateExceptions
-annotation|@
-name|Override
-specifier|protected
-name|boolean
-name|accumulateExceptions
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
-block|}
 comment|/**      * The refresh request works against *all* shards.      */
 DECL|method|shards
 annotation|@
@@ -572,32 +674,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|//    @Override protected FlushRequest newRequestInstance() {
-comment|//        return new FlushRequest();
-comment|//    }
-comment|//
-comment|//    @Override protected FlushResponse newResponseInstance(FlushRequest request, AtomicReferenceArray indexResponses) {
-comment|//        FlushResponse response = new FlushResponse();
-comment|//        for (int i = 0; i< indexResponses.length(); i++) {
-comment|//            IndexFlushResponse indexFlushResponse = (IndexFlushResponse) indexResponses.get(i);
-comment|//            if (indexFlushResponse != null) {
-comment|//                response.indices().put(indexFlushResponse.index(), indexFlushResponse);
-comment|//            }
-comment|//        }
-comment|//        return response;
-comment|//    }
-comment|//
-comment|//    @Override protected boolean accumulateExceptions() {
-comment|//        return false;
-comment|//    }
-comment|//
-comment|//    @Override protected String transportAction() {
-comment|//        return TransportActions.Admin.Indices.FLUSH;
-comment|//    }
-comment|//
-comment|//    @Override protected IndexFlushRequest newIndexRequestInstance(FlushRequest request, String index) {
-comment|//        return new IndexFlushRequest(request, index);
-comment|//    }
 block|}
 end_class
 
