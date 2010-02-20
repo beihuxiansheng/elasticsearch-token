@@ -60,6 +60,9 @@ name|QueryPhaseExecutionException
 parameter_list|(
 name|SearchContext
 name|context
+parameter_list|,
+name|Throwable
+name|cause
 parameter_list|)
 block|{
 name|super
@@ -93,6 +96,8 @@ name|size
 argument_list|()
 operator|+
 literal|"]"
+argument_list|,
+name|cause
 argument_list|)
 expr_stmt|;
 block|}
