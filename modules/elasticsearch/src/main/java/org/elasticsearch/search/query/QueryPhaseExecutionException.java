@@ -24,7 +24,7 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|SearchException
+name|SearchContextException
 import|;
 end_import
 
@@ -52,7 +52,7 @@ specifier|public
 class|class
 name|QueryPhaseExecutionException
 extends|extends
-name|SearchException
+name|SearchContextException
 block|{
 DECL|method|QueryPhaseExecutionException
 specifier|public
@@ -61,39 +61,20 @@ parameter_list|(
 name|SearchContext
 name|context
 parameter_list|,
+name|String
+name|msg
+parameter_list|,
 name|Throwable
 name|cause
 parameter_list|)
 block|{
 name|super
 argument_list|(
-literal|"Failed to execute query ["
-operator|+
 name|context
-operator|.
-name|query
-argument_list|()
+argument_list|,
+literal|"Query Failed ["
 operator|+
-literal|"], sort ["
-operator|+
-name|context
-operator|.
-name|sort
-argument_list|()
-operator|+
-literal|"], from ["
-operator|+
-name|context
-operator|.
-name|from
-argument_list|()
-operator|+
-literal|"], size ["
-operator|+
-name|context
-operator|.
-name|size
-argument_list|()
+name|msg
 operator|+
 literal|"]"
 argument_list|,

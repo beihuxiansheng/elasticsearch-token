@@ -22,9 +22,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
-operator|.
-name|SearchException
+name|ElasticSearchException
 import|;
 end_import
 
@@ -38,7 +36,7 @@ specifier|public
 class|class
 name|SearchSourceBuilderException
 extends|extends
-name|SearchException
+name|ElasticSearchException
 block|{
 DECL|method|SearchSourceBuilderException
 specifier|public

@@ -51,6 +51,10 @@ block|,
 name|ElementType
 operator|.
 name|FIELD
+block|,
+name|ElementType
+operator|.
+name|METHOD
 block|}
 argument_list|)
 DECL|interface|Nullable

@@ -38,6 +38,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|search
+operator|.
+name|SearchException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|util
 operator|.
 name|json
@@ -482,6 +494,8 @@ specifier|public
 name|String
 name|build
 parameter_list|()
+throws|throws
+name|SearchException
 block|{
 try|try
 block|{

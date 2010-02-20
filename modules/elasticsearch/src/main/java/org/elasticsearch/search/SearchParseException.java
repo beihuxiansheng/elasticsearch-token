@@ -14,6 +14,20 @@ name|search
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|internal
+operator|.
+name|SearchContext
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (Shay Banon)  */
 end_comment
@@ -24,19 +38,28 @@ specifier|public
 class|class
 name|SearchParseException
 extends|extends
-name|SearchException
+name|SearchContextException
 block|{
 DECL|method|SearchParseException
 specifier|public
 name|SearchParseException
 parameter_list|(
+name|SearchContext
+name|context
+parameter_list|,
 name|String
 name|msg
 parameter_list|)
 block|{
 name|super
 argument_list|(
+name|context
+argument_list|,
+literal|"Parse Failure ["
+operator|+
 name|msg
+operator|+
+literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -44,6 +67,9 @@ DECL|method|SearchParseException
 specifier|public
 name|SearchParseException
 parameter_list|(
+name|SearchContext
+name|context
+parameter_list|,
 name|String
 name|msg
 parameter_list|,
@@ -53,7 +79,13 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|context
+argument_list|,
+literal|"Parse Failure ["
+operator|+
 name|msg
+operator|+
+literal|"]"
 argument_list|,
 name|cause
 argument_list|)

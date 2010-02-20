@@ -22,7 +22,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|search
+operator|.
+name|SearchContextException
 import|;
 end_import
 
@@ -50,7 +52,7 @@ specifier|public
 class|class
 name|FetchPhaseExecutionException
 extends|extends
-name|ElasticSearchException
+name|SearchContextException
 block|{
 DECL|method|FetchPhaseExecutionException
 specifier|public
@@ -63,13 +65,15 @@ name|String
 name|msg
 parameter_list|)
 block|{
-name|this
+name|super
 argument_list|(
 name|context
 argument_list|,
+literal|"Fetch Failed ["
+operator|+
 name|msg
-argument_list|,
-literal|null
+operator|+
+literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -89,35 +93,9 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-literal|"Failed to fetch query ["
-operator|+
 name|context
-operator|.
-name|query
-argument_list|()
-operator|+
-literal|"], sort ["
-operator|+
-name|context
-operator|.
-name|sort
-argument_list|()
-operator|+
-literal|"], from ["
-operator|+
-name|context
-operator|.
-name|from
-argument_list|()
-operator|+
-literal|"], size ["
-operator|+
-name|context
-operator|.
-name|size
-argument_list|()
-operator|+
-literal|"], reason ["
+argument_list|,
+literal|"Fetch Failed ["
 operator|+
 name|msg
 operator|+

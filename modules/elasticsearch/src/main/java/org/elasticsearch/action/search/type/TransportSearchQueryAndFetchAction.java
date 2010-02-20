@@ -380,7 +380,7 @@ name|QueryFetchSearchResult
 argument_list|>
 name|queryFetchResults
 init|=
-name|transportSearchCache
+name|searchCache
 operator|.
 name|obtainQueryFetchResults
 argument_list|()
@@ -538,7 +538,7 @@ name|scrollId
 init|=
 name|scrollIdX
 decl_stmt|;
-name|transportSearchCache
+name|searchCache
 operator|.
 name|releaseQueryFetchResults
 argument_list|(
@@ -585,6 +585,9 @@ name|successulOps
 operator|.
 name|get
 argument_list|()
+argument_list|,
+name|buildShardFailures
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -611,6 +614,9 @@ argument_list|,
 name|successulOps
 operator|.
 name|get
+argument_list|()
+argument_list|,
+name|buildShardFailures
 argument_list|()
 argument_list|)
 argument_list|)

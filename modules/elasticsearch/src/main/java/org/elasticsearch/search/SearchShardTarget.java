@@ -58,6 +58,16 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Serializable
+import|;
+end_import
+
 begin_comment
 comment|/**  * The target that the search request was executed on.  *  * @author kimchy (Shay Banon)  */
 end_comment
@@ -69,6 +79,8 @@ class|class
 name|SearchShardTarget
 implements|implements
 name|Streamable
+implements|,
+name|Serializable
 block|{
 DECL|field|nodeId
 specifier|private

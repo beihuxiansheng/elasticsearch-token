@@ -599,6 +599,8 @@ name|QueryPhaseExecutionException
 argument_list|(
 name|searchContext
 argument_list|,
+literal|""
+argument_list|,
 name|e
 argument_list|)
 throw|;

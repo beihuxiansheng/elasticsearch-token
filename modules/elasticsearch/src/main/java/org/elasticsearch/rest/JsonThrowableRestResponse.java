@@ -20,16 +20,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ExceptionsHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|util
 operator|.
 name|io
@@ -69,6 +59,18 @@ operator|.
 name|io
 operator|.
 name|PrintWriter
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|ExceptionsHelper
+operator|.
+name|*
 import|;
 end_import
 
@@ -282,15 +284,9 @@ name|field
 argument_list|(
 literal|"error"
 argument_list|,
-name|ExceptionsHelper
-operator|.
 name|detailedMessage
 argument_list|(
 name|t
-argument_list|,
-literal|false
-argument_list|,
-literal|0
 argument_list|)
 argument_list|)
 decl_stmt|;

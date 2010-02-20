@@ -328,6 +328,20 @@ name|search
 operator|.
 name|query
 operator|.
+name|QueryPhaseExecutionException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|query
+operator|.
 name|QuerySearchRequest
 import|;
 end_import
@@ -1157,8 +1171,10 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|SearchException
+name|QueryPhaseExecutionException
 argument_list|(
+name|context
+argument_list|,
 literal|"Failed to set aggregated df"
 argument_list|,
 name|e
@@ -1314,8 +1330,10 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|SearchException
+name|QueryPhaseExecutionException
 argument_list|(
+name|context
+argument_list|,
 literal|"Failed to set aggregated df"
 argument_list|,
 name|e
@@ -1984,6 +2002,8 @@ throw|throw
 operator|new
 name|SearchParseException
 argument_list|(
+name|context
+argument_list|,
 literal|"No parser for element ["
 operator|+
 name|fieldName
@@ -2024,6 +2044,8 @@ throw|throw
 operator|new
 name|SearchParseException
 argument_list|(
+name|context
+argument_list|,
 literal|"Failed to parse ["
 operator|+
 name|context

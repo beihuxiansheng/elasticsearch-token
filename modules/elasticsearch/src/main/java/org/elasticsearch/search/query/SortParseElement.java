@@ -739,6 +739,8 @@ throw|throw
 operator|new
 name|SearchParseException
 argument_list|(
+name|context
+argument_list|,
 literal|"No sort type for ["
 operator|+
 name|jp
@@ -908,6 +910,8 @@ throw|throw
 operator|new
 name|SearchParseException
 argument_list|(
+name|context
+argument_list|,
 literal|"No built in mapping found for ["
 operator|+
 name|fieldName

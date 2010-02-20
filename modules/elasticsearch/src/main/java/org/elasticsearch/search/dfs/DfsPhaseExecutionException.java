@@ -24,7 +24,7 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|SearchException
+name|SearchContextException
 import|;
 end_import
 
@@ -52,7 +52,7 @@ specifier|public
 class|class
 name|DfsPhaseExecutionException
 extends|extends
-name|SearchException
+name|SearchContextException
 block|{
 DECL|method|DfsPhaseExecutionException
 specifier|public
@@ -60,18 +60,25 @@ name|DfsPhaseExecutionException
 parameter_list|(
 name|SearchContext
 name|context
+parameter_list|,
+name|String
+name|msg
+parameter_list|,
+name|Throwable
+name|t
 parameter_list|)
 block|{
 name|super
 argument_list|(
-literal|"Failed to execute dfs ["
-operator|+
 name|context
-operator|.
-name|query
-argument_list|()
+argument_list|,
+literal|"Dfs Failed ["
+operator|+
+name|msg
 operator|+
 literal|"]"
+argument_list|,
+name|t
 argument_list|)
 expr_stmt|;
 block|}

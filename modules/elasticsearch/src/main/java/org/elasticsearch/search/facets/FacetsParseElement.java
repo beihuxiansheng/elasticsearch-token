@@ -300,6 +300,8 @@ throw|throw
 operator|new
 name|SearchParseException
 argument_list|(
+name|context
+argument_list|,
 literal|"Unsupported query type ["
 operator|+
 name|text
@@ -406,6 +408,8 @@ throw|throw
 operator|new
 name|SearchParseException
 argument_list|(
+name|context
+argument_list|,
 literal|"Unsupported facet type ["
 operator|+
 name|facetType
