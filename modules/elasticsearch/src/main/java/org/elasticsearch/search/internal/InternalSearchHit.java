@@ -523,6 +523,13 @@ name|fields
 argument_list|()
 operator|!=
 literal|null
+operator|&&
+operator|!
+name|fields
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
 condition|)
 block|{
 name|builder
