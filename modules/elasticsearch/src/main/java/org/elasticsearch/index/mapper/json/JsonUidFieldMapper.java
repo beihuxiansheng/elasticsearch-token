@@ -160,7 +160,9 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"_uid"
+name|UidFieldMapper
+operator|.
+name|NAME
 decl_stmt|;
 DECL|field|INDEX
 specifier|public

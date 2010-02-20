@@ -150,7 +150,9 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"_source"
+name|SourceFieldMapper
+operator|.
+name|NAME
 decl_stmt|;
 DECL|field|ENABLED
 specifier|public

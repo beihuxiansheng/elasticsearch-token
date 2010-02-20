@@ -48,6 +48,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|StringHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|util
@@ -75,7 +89,20 @@ argument_list|<
 name|String
 argument_list|>
 block|{
-comment|/**      * Returns<tt>true</tt> if the source field mapper is enalbed or not.      */
+DECL|field|NAME
+specifier|public
+specifier|final
+name|String
+name|NAME
+init|=
+name|StringHelper
+operator|.
+name|intern
+argument_list|(
+literal|"_source"
+argument_list|)
+decl_stmt|;
+comment|/**      * Returns<tt>true</tt> if the source field mapper is enabled or not.      */
 DECL|method|enabled
 name|boolean
 name|enabled

@@ -146,7 +146,9 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"_type"
+name|TypeFieldMapper
+operator|.
+name|NAME
 decl_stmt|;
 DECL|field|INDEX_NAME
 specifier|public
@@ -155,7 +157,9 @@ specifier|final
 name|String
 name|INDEX_NAME
 init|=
-literal|"_type"
+name|TypeFieldMapper
+operator|.
+name|NAME
 decl_stmt|;
 DECL|field|INDEX
 specifier|public
