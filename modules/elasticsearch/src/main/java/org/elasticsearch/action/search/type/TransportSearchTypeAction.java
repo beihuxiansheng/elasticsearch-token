@@ -1012,6 +1012,8 @@ argument_list|(
 name|shard
 argument_list|,
 name|result
+argument_list|,
+name|shardIt
 argument_list|)
 expr_stmt|;
 block|}
@@ -1050,6 +1052,12 @@ name|shard
 parameter_list|,
 name|FirstResult
 name|result
+parameter_list|,
+name|Iterator
+argument_list|<
+name|ShardRouting
+argument_list|>
+name|shardIt
 parameter_list|)
 block|{
 name|processFirstPhaseResult
@@ -1059,6 +1067,27 @@ argument_list|,
 name|result
 argument_list|)
 expr_stmt|;
+comment|// increment all the "future" shards to update the total ops since we some may work and some may not...
+comment|// and when that happens, we break on total ops, so we must maintain them
+while|while
+condition|(
+name|shardIt
+operator|.
+name|hasNext
+argument_list|()
+condition|)
+block|{
+name|totalOps
+operator|.
+name|incrementAndGet
+argument_list|()
+expr_stmt|;
+name|shardIt
+operator|.
+name|next
+argument_list|()
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|successulOps
