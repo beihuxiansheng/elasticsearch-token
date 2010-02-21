@@ -79,6 +79,14 @@ name|String
 name|mappingSource
 parameter_list|()
 function_decl|;
+comment|/**      * Generates the source of the mapper based on the current mappings.      */
+DECL|method|buildSource
+name|String
+name|buildSource
+parameter_list|()
+throws|throws
+name|FailedToGenerateSourceMapperException
+function_decl|;
 DECL|method|uidMapper
 name|UidFieldMapper
 name|uidMapper
