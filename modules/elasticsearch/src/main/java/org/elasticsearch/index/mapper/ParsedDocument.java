@@ -70,6 +70,11 @@ specifier|final
 name|String
 name|source
 decl_stmt|;
+DECL|field|mappersAdded
+specifier|private
+name|boolean
+name|mappersAdded
+decl_stmt|;
 DECL|method|ParsedDocument
 specifier|public
 name|ParsedDocument
@@ -88,6 +93,9 @@ name|document
 parameter_list|,
 name|String
 name|source
+parameter_list|,
+name|boolean
+name|mappersAdded
 parameter_list|)
 block|{
 name|this
@@ -119,6 +127,12 @@ operator|.
 name|source
 operator|=
 name|source
+expr_stmt|;
+name|this
+operator|.
+name|mappersAdded
+operator|=
+name|mappersAdded
 expr_stmt|;
 block|}
 DECL|method|uid
@@ -179,6 +193,17 @@ return|return
 name|this
 operator|.
 name|source
+return|;
+block|}
+comment|/**      * Has the parsed document caused for new mappings to be added.      */
+DECL|method|mappersAdded
+specifier|public
+name|boolean
+name|mappersAdded
+parameter_list|()
+block|{
+return|return
+name|mappersAdded
 return|;
 block|}
 DECL|method|toString

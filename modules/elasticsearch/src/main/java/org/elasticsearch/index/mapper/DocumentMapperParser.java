@@ -26,7 +26,7 @@ specifier|public
 interface|interface
 name|DocumentMapperParser
 block|{
-comment|/**      * Parses the source mapping definition into a document mapper with the specified      * type (overrding the one defined in the source mapping).      */
+comment|/**      * Parses the source mapping definition into a document mapper with the specified      * type (overriding the one defined in the source mapping).      */
 DECL|method|parse
 name|DocumentMapper
 name|parse

@@ -16,46 +16,16 @@ name|mapper
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|document
-operator|.
-name|Document
-import|;
-end_import
-
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * A marker interface for internal mappings.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_interface
-DECL|interface|IdFieldMapper
+DECL|interface|InternalMapper
 specifier|public
 interface|interface
-name|IdFieldMapper
-extends|extends
-name|FieldMapper
-argument_list|<
-name|String
-argument_list|>
-extends|,
 name|InternalMapper
-block|{
-DECL|method|value
-name|String
-name|value
-parameter_list|(
-name|Document
-name|document
-parameter_list|)
-function_decl|;
-block|}
+block|{ }
 end_interface
 
 end_unit

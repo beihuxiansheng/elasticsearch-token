@@ -662,10 +662,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|addMapping
+DECL|method|putMapping
 specifier|public
 name|Builder
-name|addMapping
+name|putMapping
 parameter_list|(
 name|String
 name|mappingType
@@ -774,7 +774,7 @@ control|)
 block|{
 name|builder
 operator|.
-name|addMapping
+name|putMapping
 argument_list|(
 name|in
 operator|.

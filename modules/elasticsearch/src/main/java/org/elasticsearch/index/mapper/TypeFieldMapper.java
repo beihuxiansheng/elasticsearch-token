@@ -88,6 +88,8 @@ name|FieldMapper
 argument_list|<
 name|String
 argument_list|>
+extends|,
+name|InternalMapper
 block|{
 DECL|field|NAME
 specifier|public

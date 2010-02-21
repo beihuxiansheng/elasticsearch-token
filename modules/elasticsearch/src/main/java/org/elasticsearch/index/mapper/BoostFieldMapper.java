@@ -30,6 +30,8 @@ name|FieldMapper
 argument_list|<
 name|Float
 argument_list|>
+extends|,
+name|InternalMapper
 block|{  }
 end_interface
 

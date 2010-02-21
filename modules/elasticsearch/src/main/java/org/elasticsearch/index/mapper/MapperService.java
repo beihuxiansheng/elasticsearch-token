@@ -1090,7 +1090,7 @@ name|indexName
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the {@link FieldMappers} of all the {@link FieldMapper}s that are      * registered under the give fullName ({@link FieldMapper#fullName()} across      * all the different {@link DocumentMapper} types.      *      * @param fullName The full name      * @return All teh {@link FieldMappers} across all the {@link DocumentMapper}s for the given fullName.      */
+comment|/**      * Returns the {@link FieldMappers} of all the {@link FieldMapper}s that are      * registered under the give fullName across all the different {@link DocumentMapper} types.      *      * @param fullName The full name      * @return All teh {@link FieldMappers} across all the {@link DocumentMapper}s for the given fullName.      */
 DECL|method|fullName
 specifier|public
 name|FieldMappers

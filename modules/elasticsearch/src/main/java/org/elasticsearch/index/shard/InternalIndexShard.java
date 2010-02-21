@@ -50,51 +50,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|document
-operator|.
-name|FieldSelector
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|IndexReader
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|index
 operator|.
 name|Term
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|TermEnum
 import|;
 end_import
 
@@ -224,7 +182,49 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|*
+name|DocumentMapper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|DocumentMapperNotFoundException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|MapperService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|ParsedDocument
 import|;
 end_import
 
@@ -458,35 +458,9 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|concurrent
 operator|.
 name|ScheduledFuture
-import|;
-end_import
-
-begin_import
-import|import static
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Lists
-operator|.
-name|*
 import|;
 end_import
 
@@ -1131,7 +1105,7 @@ return|;
 block|}
 DECL|method|create
 specifier|public
-name|void
+name|ParsedDocument
 name|create
 parameter_list|(
 name|String
@@ -1149,6 +1123,7 @@ block|{
 name|writeAllowed
 argument_list|()
 expr_stmt|;
+return|return
 name|innerCreate
 argument_list|(
 name|type
@@ -1157,11 +1132,11 @@ name|id
 argument_list|,
 name|source
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 DECL|method|innerCreate
 specifier|private
-name|void
+name|ParsedDocument
 name|innerCreate
 parameter_list|(
 name|String
@@ -1274,10 +1249,13 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+return|return
+name|doc
+return|;
 block|}
 DECL|method|index
 specifier|public
-name|void
+name|ParsedDocument
 name|index
 parameter_list|(
 name|String
@@ -1295,6 +1273,7 @@ block|{
 name|writeAllowed
 argument_list|()
 expr_stmt|;
+return|return
 name|innerIndex
 argument_list|(
 name|type
@@ -1303,11 +1282,11 @@ name|id
 argument_list|,
 name|source
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 DECL|method|innerIndex
 specifier|private
-name|void
+name|ParsedDocument
 name|innerIndex
 parameter_list|(
 name|String
@@ -1433,6 +1412,9 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+return|return
+name|doc
+return|;
 block|}
 DECL|method|delete
 specifier|public
@@ -2389,15 +2371,6 @@ operator|.
 name|STARTED
 expr_stmt|;
 block|}
-name|threadPool
-operator|.
-name|execute
-argument_list|(
-operator|new
-name|ShardMappingSniffer
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|scheduleRefresherIfNeeded
 argument_list|()
 expr_stmt|;
@@ -2472,15 +2445,6 @@ operator|.
 name|STARTED
 expr_stmt|;
 block|}
-name|threadPool
-operator|.
-name|execute
-argument_list|(
-operator|new
-name|ShardMappingSniffer
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|scheduleRefresherIfNeeded
 argument_list|()
 expr_stmt|;
@@ -3112,563 +3076,114 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * The mapping sniffer reads docs from the index and introduces them into the mapping service. This is      * because of dynamic fields and we want to reintroduce them.      *      *<p>Note, this is done on the shard level, we might have other dynamic fields in other shards, but      * this will be taken care off in another component.      */
-DECL|class|ShardMappingSniffer
-specifier|private
-class|class
-name|ShardMappingSniffer
-implements|implements
-name|Runnable
-block|{
-DECL|method|run
-annotation|@
-name|Override
-specifier|public
-name|void
-name|run
-parameter_list|()
-block|{
-name|engine
-operator|.
-name|refresh
-argument_list|(
-operator|new
-name|Engine
-operator|.
-name|Refresh
-argument_list|(
-literal|true
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|TermEnum
-name|termEnum
-init|=
-literal|null
-decl_stmt|;
-name|Engine
-operator|.
-name|Searcher
-name|searcher
-init|=
-name|searcher
-argument_list|()
-decl_stmt|;
-try|try
-block|{
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|typeNames
-init|=
-name|newArrayList
-argument_list|()
-decl_stmt|;
-name|termEnum
-operator|=
-name|searcher
-operator|.
-name|reader
-argument_list|()
-operator|.
-name|terms
-argument_list|(
-operator|new
-name|Term
-argument_list|(
-name|TypeFieldMapper
-operator|.
-name|NAME
-argument_list|,
-literal|""
-argument_list|)
-argument_list|)
-expr_stmt|;
-while|while
-condition|(
-literal|true
-condition|)
-block|{
-name|Term
-name|term
-init|=
-name|termEnum
-operator|.
-name|term
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|term
-operator|==
-literal|null
-condition|)
-block|{
-break|break;
-block|}
-if|if
-condition|(
-operator|!
-name|term
-operator|.
-name|field
-argument_list|()
-operator|.
-name|equals
-argument_list|(
-name|TypeFieldMapper
-operator|.
-name|NAME
-argument_list|)
-condition|)
-block|{
-break|break;
-block|}
-name|typeNames
-operator|.
-name|add
-argument_list|(
-name|term
-operator|.
-name|text
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|termEnum
-operator|.
-name|next
-argument_list|()
-expr_stmt|;
-block|}
-name|logger
-operator|.
-name|debug
-argument_list|(
-literal|"Sniffing mapping for [{}]"
-argument_list|,
-name|typeNames
-argument_list|)
-expr_stmt|;
-for|for
-control|(
-specifier|final
-name|String
-name|type
-range|:
-name|typeNames
-control|)
-block|{
-name|threadPool
-operator|.
-name|execute
-argument_list|(
-operator|new
-name|Runnable
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|run
-parameter_list|()
-block|{
-name|Engine
-operator|.
-name|Searcher
-name|searcher
-init|=
-name|searcher
-argument_list|()
-decl_stmt|;
-try|try
-block|{
-name|Query
-name|query
-init|=
-operator|new
-name|ConstantScoreQuery
-argument_list|(
-name|filterCache
-operator|.
-name|cache
-argument_list|(
-operator|new
-name|TermFilter
-argument_list|(
-operator|new
-name|Term
-argument_list|(
-name|TypeFieldMapper
-operator|.
-name|NAME
-argument_list|,
-name|type
-argument_list|)
-argument_list|)
-argument_list|)
-argument_list|)
-decl_stmt|;
-name|long
-name|typeCount
-init|=
-name|Lucene
-operator|.
-name|count
-argument_list|(
-name|searcher
-argument_list|()
-operator|.
-name|searcher
-argument_list|()
-argument_list|,
-name|query
-argument_list|,
-operator|-
-literal|1
-argument_list|)
-decl_stmt|;
-name|int
-name|marker
-init|=
-call|(
-name|int
-call|)
-argument_list|(
-name|typeCount
-operator|/
-name|mappingSnifferDocs
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|marker
-operator|==
-literal|0
-condition|)
-block|{
-name|marker
-operator|=
-literal|1
-expr_stmt|;
-block|}
-specifier|final
-name|int
-name|fMarker
-init|=
-name|marker
-decl_stmt|;
-name|searcher
-operator|.
-name|searcher
-argument_list|()
-operator|.
-name|search
-argument_list|(
-name|query
-argument_list|,
-operator|new
-name|Collector
-argument_list|()
-block|{
-specifier|private
-specifier|final
-name|FieldSelector
-name|fieldSelector
-init|=
-operator|new
-name|UidAndSourceFieldSelector
-argument_list|()
-decl_stmt|;
-specifier|private
-name|int
-name|counter
-init|=
-literal|0
-decl_stmt|;
-specifier|private
-name|IndexReader
-name|reader
-decl_stmt|;
-annotation|@
-name|Override
-specifier|public
-name|void
-name|setScorer
-parameter_list|(
-name|Scorer
-name|scorer
-parameter_list|)
-throws|throws
-name|IOException
-block|{                                     }
-annotation|@
-name|Override
-specifier|public
-name|void
-name|collect
-parameter_list|(
-name|int
-name|doc
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-if|if
-condition|(
-name|state
-operator|==
-name|IndexShardState
-operator|.
-name|CLOSED
-condition|)
-block|{
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-literal|"CLOSED"
-argument_list|)
-throw|;
-block|}
-if|if
-condition|(
-operator|++
-name|counter
-operator|==
-name|fMarker
-condition|)
-block|{
-name|counter
-operator|=
-literal|0
-expr_stmt|;
-name|Document
-name|document
-init|=
-name|reader
-operator|.
-name|document
-argument_list|(
-name|doc
-argument_list|,
-name|fieldSelector
-argument_list|)
-decl_stmt|;
-name|Uid
-name|uid
-init|=
-name|Uid
-operator|.
-name|createUid
-argument_list|(
-name|document
-operator|.
-name|get
-argument_list|(
-name|UidFieldMapper
-operator|.
-name|NAME
-argument_list|)
-argument_list|)
-decl_stmt|;
-name|String
-name|source
-init|=
-name|document
-operator|.
-name|get
-argument_list|(
-name|SourceFieldMapper
-operator|.
-name|NAME
-argument_list|)
-decl_stmt|;
-name|mapperService
-operator|.
-name|type
-argument_list|(
-name|uid
-operator|.
-name|type
-argument_list|()
-argument_list|)
-operator|.
-name|parse
-argument_list|(
-name|uid
-operator|.
-name|type
-argument_list|()
-argument_list|,
-name|uid
-operator|.
-name|id
-argument_list|()
-argument_list|,
-name|source
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-annotation|@
-name|Override
-specifier|public
-name|void
-name|setNextReader
-parameter_list|(
-name|IndexReader
-name|reader
-parameter_list|,
-name|int
-name|docBase
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|this
-operator|.
-name|reader
-operator|=
-name|reader
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-specifier|public
-name|boolean
-name|acceptsDocsOutOfOrder
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
-block|}
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-if|if
-condition|(
-name|e
-operator|.
-name|getMessage
-argument_list|()
-operator|.
-name|equals
-argument_list|(
-literal|"CLOSED"
-argument_list|)
-condition|)
-block|{
-comment|// ignore, we got closed
-block|}
-else|else
-block|{
-name|logger
-operator|.
-name|warn
-argument_list|(
-literal|"Failed to sniff mapping for type ["
-operator|+
-name|type
-operator|+
-literal|"]"
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-finally|finally
-block|{
-name|searcher
-operator|.
-name|release
-argument_list|()
-expr_stmt|;
-block|}
-block|}
-block|}
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-if|if
-condition|(
-name|e
-operator|.
-name|getMessage
-argument_list|()
-operator|.
-name|equals
-argument_list|(
-literal|"CLOSED"
-argument_list|)
-condition|)
-block|{
-comment|// ignore, we got closed
-block|}
-else|else
-block|{
-name|logger
-operator|.
-name|warn
-argument_list|(
-literal|"Failed to sniff mapping"
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-finally|finally
-block|{
-if|if
-condition|(
-name|termEnum
-operator|!=
-literal|null
-condition|)
-block|{
-try|try
-block|{
-name|termEnum
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-comment|// ignore
-block|}
-block|}
-name|searcher
-operator|.
-name|release
-argument_list|()
-expr_stmt|;
-block|}
-block|}
-block|}
+comment|// I wrote all this code, and now there is no need for it since dynamic mappings are autoamtically
+comment|// broadcast to all the cluster when updated, so we won't be in a state when the mappings are not up to
+comment|// date, in any case, lets leave it here for now
+comment|//    /**
+comment|//     * The mapping sniffer reads docs from the index and introduces them into the mapping service. This is
+comment|//     * because of dynamic fields and we want to reintroduce them.
+comment|//     *
+comment|//     *<p>Note, this is done on the shard level, we might have other dynamic fields in other shards, but
+comment|//     * this will be taken care off in another component.
+comment|//     */
+comment|//    private class ShardMappingSniffer implements Runnable {
+comment|//        @Override public void run() {
+comment|//            engine.refresh(new Engine.Refresh(true));
+comment|//
+comment|//            TermEnum termEnum = null;
+comment|//            Engine.Searcher searcher = searcher();
+comment|//            try {
+comment|//                List<String> typeNames = newArrayList();
+comment|//                termEnum = searcher.reader().terms(new Term(TypeFieldMapper.NAME, ""));
+comment|//                while (true) {
+comment|//                    Term term = termEnum.term();
+comment|//                    if (term == null) {
+comment|//                        break;
+comment|//                    }
+comment|//                    if (!term.field().equals(TypeFieldMapper.NAME)) {
+comment|//                        break;
+comment|//                    }
+comment|//                    typeNames.add(term.text());
+comment|//                    termEnum.next();
+comment|//                }
+comment|//
+comment|//                logger.debug("Sniffing mapping for [{}]", typeNames);
+comment|//
+comment|//                for (final String type : typeNames) {
+comment|//                    threadPool.execute(new Runnable() {
+comment|//                        @Override public void run() {
+comment|//                            Engine.Searcher searcher = searcher();
+comment|//                            try {
+comment|//                                Query query = new ConstantScoreQuery(filterCache.cache(new TermFilter(new Term(TypeFieldMapper.NAME, type))));
+comment|//                                long typeCount = Lucene.count(searcher().searcher(), query, -1);
+comment|//
+comment|//                                int marker = (int) (typeCount / mappingSnifferDocs);
+comment|//                                if (marker == 0) {
+comment|//                                    marker = 1;
+comment|//                                }
+comment|//                                final int fMarker = marker;
+comment|//                                searcher.searcher().search(query, new Collector() {
+comment|//
+comment|//                                    private final FieldSelector fieldSelector = new UidAndSourceFieldSelector();
+comment|//                                    private int counter = 0;
+comment|//                                    private IndexReader reader;
+comment|//
+comment|//                                    @Override public void setScorer(Scorer scorer) throws IOException {
+comment|//                                    }
+comment|//
+comment|//                                    @Override public void collect(int doc) throws IOException {
+comment|//                                        if (state == IndexShardState.CLOSED) {
+comment|//                                            throw new IOException("CLOSED");
+comment|//                                        }
+comment|//                                        if (++counter == fMarker) {
+comment|//                                            counter = 0;
+comment|//
+comment|//                                            Document document = reader.document(doc, fieldSelector);
+comment|//                                            Uid uid = Uid.createUid(document.get(UidFieldMapper.NAME));
+comment|//                                            String source = document.get(SourceFieldMapper.NAME);
+comment|//
+comment|//                                            mapperService.type(uid.type()).parse(uid.type(), uid.id(), source);
+comment|//                                        }
+comment|//                                    }
+comment|//
+comment|//                                    @Override public void setNextReader(IndexReader reader, int docBase) throws IOException {
+comment|//                                        this.reader = reader;
+comment|//                                    }
+comment|//
+comment|//                                    @Override public boolean acceptsDocsOutOfOrder() {
+comment|//                                        return true;
+comment|//                                    }
+comment|//                                });
+comment|//                            } catch (IOException e) {
+comment|//                                if (e.getMessage().equals("CLOSED")) {
+comment|//                                    // ignore, we got closed
+comment|//                                } else {
+comment|//                                    logger.warn("Failed to sniff mapping for type [" + type + "]", e);
+comment|//                                }
+comment|//                            } finally {
+comment|//                                searcher.release();
+comment|//                            }
+comment|//                        }
+comment|//                    });
+comment|//                }
+comment|//            } catch (IOException e) {
+comment|//                if (e.getMessage().equals("CLOSED")) {
+comment|//                    // ignore, we got closed
+comment|//                } else {
+comment|//                    logger.warn("Failed to sniff mapping", e);
+comment|//                }
+comment|//            } finally {
+comment|//                if (termEnum != null) {
+comment|//                    try {
+comment|//                        termEnum.close();
+comment|//                    } catch (IOException e) {
+comment|//                        // ignore
+comment|//                    }
+comment|//                }
+comment|//                searcher.release();
+comment|//            }
+comment|//        }
+comment|//    }
 block|}
 end_class
 

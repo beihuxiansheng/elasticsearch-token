@@ -74,6 +74,8 @@ name|FieldMapper
 argument_list|<
 name|Uid
 argument_list|>
+extends|,
+name|InternalMapper
 block|{
 DECL|field|NAME
 specifier|public
