@@ -62,6 +62,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|json
+operator|.
+name|ToJson
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -81,7 +95,8 @@ DECL|interface|JsonMapper
 specifier|public
 interface|interface
 name|JsonMapper
-comment|/*extends ToJson*/
+extends|extends
+name|ToJson
 block|{
 annotation|@
 name|NotThreadSafe

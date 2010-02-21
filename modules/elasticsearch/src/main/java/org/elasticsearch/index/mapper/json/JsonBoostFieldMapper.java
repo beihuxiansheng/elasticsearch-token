@@ -142,6 +142,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|json
+operator|.
+name|JsonBuilder
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -1013,6 +1027,24 @@ block|{
 return|return
 name|JSON_TYPE
 return|;
+block|}
+DECL|method|toJson
+annotation|@
+name|Override
+specifier|public
+name|void
+name|toJson
+parameter_list|(
+name|JsonBuilder
+name|builder
+parameter_list|,
+name|Params
+name|params
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+comment|// for now, don't output it at all
 block|}
 block|}
 end_class
