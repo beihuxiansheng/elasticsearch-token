@@ -200,9 +200,9 @@ name|indices
 operator|.
 name|mapping
 operator|.
-name|create
+name|put
 operator|.
-name|CreateMappingRequest
+name|PutMappingRequest
 import|;
 end_import
 
@@ -220,9 +220,9 @@ name|indices
 operator|.
 name|mapping
 operator|.
-name|create
+name|put
 operator|.
-name|CreateMappingResponse
+name|PutMappingResponse
 import|;
 end_import
 
@@ -335,7 +335,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Administrative actions/operations against indices.  *  * @author kimchy (Shay Banon)  * @see AdminClient#indices()  */
+comment|/**  * Administrative actions/operations against indices.  *  * @author kimchy (shay.banon)  * @see AdminClient#indices()  */
 end_comment
 
 begin_interface
@@ -614,47 +614,47 @@ argument_list|>
 name|listener
 parameter_list|)
 function_decl|;
-comment|/**      * Add mapping definition for a type into one or more indices.      *      * @param request The create mapping request      * @return A result future      * @see org.elasticsearch.client.Requests#createMappingRequest(String...)      */
-DECL|method|createMapping
+comment|/**      * Add mapping definition for a type into one or more indices.      *      * @param request The create mapping request      * @return A result future      * @see org.elasticsearch.client.Requests#putMappingRequest(String...)      */
+DECL|method|putMapping
 name|ActionFuture
 argument_list|<
-name|CreateMappingResponse
+name|PutMappingResponse
 argument_list|>
-name|createMapping
+name|putMapping
 parameter_list|(
-name|CreateMappingRequest
+name|PutMappingRequest
 name|request
 parameter_list|)
 function_decl|;
-comment|/**      * Add mapping definition for a type into one or more indices.      *      * @param request  The create mapping request      * @param listener A listener to be notified with a result      * @return A result future      * @see org.elasticsearch.client.Requests#createMappingRequest(String...)      */
-DECL|method|createMapping
+comment|/**      * Add mapping definition for a type into one or more indices.      *      * @param request  The create mapping request      * @param listener A listener to be notified with a result      * @return A result future      * @see org.elasticsearch.client.Requests#putMappingRequest(String...)      */
+DECL|method|putMapping
 name|ActionFuture
 argument_list|<
-name|CreateMappingResponse
+name|PutMappingResponse
 argument_list|>
-name|createMapping
+name|putMapping
 parameter_list|(
-name|CreateMappingRequest
+name|PutMappingRequest
 name|request
 parameter_list|,
 name|ActionListener
 argument_list|<
-name|CreateMappingResponse
+name|PutMappingResponse
 argument_list|>
 name|listener
 parameter_list|)
 function_decl|;
-comment|/**      * Add mapping definition for a type into one or more indices.      *      * @param request  The create mapping request      * @param listener A listener to be notified with a result      * @see org.elasticsearch.client.Requests#createMappingRequest(String...)      */
-DECL|method|execCreateMapping
+comment|/**      * Add mapping definition for a type into one or more indices.      *      * @param request  The create mapping request      * @param listener A listener to be notified with a result      * @see org.elasticsearch.client.Requests#putMappingRequest(String...)      */
+DECL|method|execPutMapping
 name|void
-name|execCreateMapping
+name|execPutMapping
 parameter_list|(
-name|CreateMappingRequest
+name|PutMappingRequest
 name|request
 parameter_list|,
 name|ActionListener
 argument_list|<
-name|CreateMappingResponse
+name|PutMappingResponse
 argument_list|>
 name|listener
 parameter_list|)

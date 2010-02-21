@@ -292,9 +292,9 @@ name|indices
 operator|.
 name|mapping
 operator|.
-name|create
+name|put
 operator|.
-name|TransportCreateMappingAction
+name|TransportPutMappingAction
 import|;
 end_import
 
@@ -620,7 +620,7 @@ argument_list|()
 expr_stmt|;
 name|bind
 argument_list|(
-name|TransportCreateMappingAction
+name|TransportPutMappingAction
 operator|.
 name|class
 argument_list|)

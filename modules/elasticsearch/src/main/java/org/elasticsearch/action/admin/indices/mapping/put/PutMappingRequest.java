@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.action.admin.indices.mapping.create
+DECL|package|org.elasticsearch.action.admin.indices.mapping.put
 package|package
 name|org
 operator|.
@@ -18,7 +18,7 @@ name|indices
 operator|.
 name|mapping
 operator|.
-name|create
+name|put
 package|;
 end_package
 
@@ -30,7 +30,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ActionRequest
+name|ActionRequestValidationException
 import|;
 end_import
 
@@ -42,7 +42,11 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ActionRequestValidationException
+name|support
+operator|.
+name|master
+operator|.
+name|MasterNodeOperationRequest
 import|;
 end_import
 
@@ -67,20 +71,6 @@ operator|.
 name|util
 operator|.
 name|TimeValue
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|util
-operator|.
-name|io
-operator|.
-name|Streamable
 import|;
 end_import
 
@@ -159,14 +149,12 @@ comment|/**  * @author kimchy (Shay Banon)  */
 end_comment
 
 begin_class
-DECL|class|CreateMappingRequest
+DECL|class|PutMappingRequest
 specifier|public
 class|class
-name|CreateMappingRequest
-implements|implements
-name|ActionRequest
-implements|,
-name|Streamable
+name|PutMappingRequest
+extends|extends
+name|MasterNodeOperationRequest
 block|{
 DECL|field|indices
 specifier|private
@@ -199,13 +187,13 @@ operator|.
 name|SECONDS
 argument_list|)
 decl_stmt|;
-DECL|method|CreateMappingRequest
-name|CreateMappingRequest
+DECL|method|PutMappingRequest
+name|PutMappingRequest
 parameter_list|()
 block|{     }
-DECL|method|CreateMappingRequest
+DECL|method|PutMappingRequest
 specifier|public
-name|CreateMappingRequest
+name|PutMappingRequest
 parameter_list|(
 name|String
 modifier|...
@@ -219,9 +207,9 @@ operator|=
 name|indices
 expr_stmt|;
 block|}
-DECL|method|CreateMappingRequest
+DECL|method|PutMappingRequest
 specifier|public
-name|CreateMappingRequest
+name|PutMappingRequest
 parameter_list|(
 name|String
 name|index
@@ -248,9 +236,9 @@ name|mappingSource
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|CreateMappingRequest
+DECL|method|PutMappingRequest
 specifier|public
-name|CreateMappingRequest
+name|PutMappingRequest
 parameter_list|(
 name|String
 index|[]
@@ -320,20 +308,7 @@ DECL|method|listenerThreaded
 annotation|@
 name|Override
 specifier|public
-name|boolean
-name|listenerThreaded
-parameter_list|()
-block|{
-comment|// we don't really care about this...
-return|return
-literal|true
-return|;
-block|}
-DECL|method|listenerThreaded
-annotation|@
-name|Override
-specifier|public
-name|CreateMappingRequest
+name|PutMappingRequest
 name|listenerThreaded
 parameter_list|(
 name|boolean
@@ -366,7 +341,7 @@ block|}
 comment|/**      * The type of the mappings. Not required since it can be defined explicitly within the mapping source.      * If it is not defined within the mapping source, then it is required.      */
 DECL|method|type
 specifier|public
-name|CreateMappingRequest
+name|PutMappingRequest
 name|type
 parameter_list|(
 name|String
@@ -396,7 +371,7 @@ DECL|method|mappingSource
 annotation|@
 name|Required
 specifier|public
-name|CreateMappingRequest
+name|PutMappingRequest
 name|mappingSource
 parameter_list|(
 name|String
@@ -424,7 +399,7 @@ return|;
 block|}
 DECL|method|timeout
 specifier|public
-name|CreateMappingRequest
+name|PutMappingRequest
 name|timeout
 parameter_list|(
 name|TimeValue
@@ -456,6 +431,13 @@ name|IOException
 throws|,
 name|ClassNotFoundException
 block|{
+name|super
+operator|.
+name|readFrom
+argument_list|(
+name|in
+argument_list|)
+expr_stmt|;
 name|indices
 operator|=
 operator|new
@@ -539,6 +521,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|super
+operator|.
+name|writeTo
+argument_list|(
+name|out
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|indices

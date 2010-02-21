@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.rest.action.admin.indices.mapping.create
+DECL|package|org.elasticsearch.rest.action.admin.indices.mapping.put
 package|package
 name|org
 operator|.
@@ -20,7 +20,7 @@ name|indices
 operator|.
 name|mapping
 operator|.
-name|create
+name|put
 package|;
 end_package
 
@@ -62,9 +62,9 @@ name|indices
 operator|.
 name|mapping
 operator|.
-name|create
+name|put
 operator|.
-name|CreateMappingRequest
+name|PutMappingRequest
 import|;
 end_import
 
@@ -82,9 +82,9 @@ name|indices
 operator|.
 name|mapping
 operator|.
-name|create
+name|put
 operator|.
-name|CreateMappingResponse
+name|PutMappingResponse
 import|;
 end_import
 
@@ -283,22 +283,22 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|RestCreateMappingAction
+DECL|class|RestPutMappingAction
 specifier|public
 class|class
-name|RestCreateMappingAction
+name|RestPutMappingAction
 extends|extends
 name|BaseRestHandler
 block|{
-DECL|method|RestCreateMappingAction
+DECL|method|RestPutMappingAction
 annotation|@
 name|Inject
 specifier|public
-name|RestCreateMappingAction
+name|RestPutMappingAction
 parameter_list|(
 name|Settings
 name|settings
@@ -356,10 +356,10 @@ name|RestChannel
 name|channel
 parameter_list|)
 block|{
-name|CreateMappingRequest
-name|createMappingRequest
+name|PutMappingRequest
+name|putMappingRequest
 init|=
-name|createMappingRequest
+name|putMappingRequest
 argument_list|(
 name|splitIndices
 argument_list|(
@@ -372,7 +372,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|createMappingRequest
+name|putMappingRequest
 operator|.
 name|type
 argument_list|(
@@ -384,7 +384,7 @@ literal|"type"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|createMappingRequest
+name|putMappingRequest
 operator|.
 name|mappingSource
 argument_list|(
@@ -394,7 +394,7 @@ name|contentAsString
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|createMappingRequest
+name|putMappingRequest
 operator|.
 name|timeout
 argument_list|(
@@ -419,14 +419,14 @@ operator|.
 name|indices
 argument_list|()
 operator|.
-name|execCreateMapping
+name|execPutMapping
 argument_list|(
-name|createMappingRequest
+name|putMappingRequest
 argument_list|,
 operator|new
 name|ActionListener
 argument_list|<
-name|CreateMappingResponse
+name|PutMappingResponse
 argument_list|>
 argument_list|()
 block|{
@@ -436,7 +436,7 @@ specifier|public
 name|void
 name|onResponse
 parameter_list|(
-name|CreateMappingResponse
+name|PutMappingResponse
 name|result
 parameter_list|)
 block|{

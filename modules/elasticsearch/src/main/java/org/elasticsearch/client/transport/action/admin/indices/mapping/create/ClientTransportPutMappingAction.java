@@ -64,9 +64,9 @@ name|indices
 operator|.
 name|mapping
 operator|.
-name|create
+name|put
 operator|.
-name|CreateMappingRequest
+name|PutMappingRequest
 import|;
 end_import
 
@@ -84,9 +84,9 @@ name|indices
 operator|.
 name|mapping
 operator|.
-name|create
+name|put
 operator|.
-name|CreateMappingResponse
+name|PutMappingResponse
 import|;
 end_import
 
@@ -135,27 +135,27 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|ClientTransportCreateMappingAction
+DECL|class|ClientTransportPutMappingAction
 specifier|public
 class|class
-name|ClientTransportCreateMappingAction
+name|ClientTransportPutMappingAction
 extends|extends
 name|BaseClientTransportAction
 argument_list|<
-name|CreateMappingRequest
+name|PutMappingRequest
 argument_list|,
-name|CreateMappingResponse
+name|PutMappingResponse
 argument_list|>
 block|{
-DECL|method|ClientTransportCreateMappingAction
+DECL|method|ClientTransportPutMappingAction
 annotation|@
 name|Inject
 specifier|public
-name|ClientTransportCreateMappingAction
+name|ClientTransportPutMappingAction
 parameter_list|(
 name|Settings
 name|settings
@@ -170,7 +170,7 @@ name|settings
 argument_list|,
 name|transportService
 argument_list|,
-name|CreateMappingResponse
+name|PutMappingResponse
 operator|.
 name|class
 argument_list|)
@@ -193,7 +193,7 @@ name|Indices
 operator|.
 name|Mapping
 operator|.
-name|CREATE
+name|PUT
 return|;
 block|}
 block|}

@@ -200,9 +200,9 @@ name|indices
 operator|.
 name|mapping
 operator|.
-name|create
+name|put
 operator|.
-name|CreateMappingRequest
+name|PutMappingRequest
 import|;
 end_import
 
@@ -595,12 +595,12 @@ name|index
 argument_list|)
 return|;
 block|}
-comment|/**      * Create a create mapping request against one or more indices.      *      * @param indices The indices the delete by query against. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The create mapping request      * @see org.elasticsearch.client.IndicesAdminClient#createMapping(org.elasticsearch.action.admin.indices.mapping.create.CreateMappingRequest)      */
-DECL|method|createMappingRequest
+comment|/**      * Create a create mapping request against one or more indices.      *      * @param indices The indices the delete by query against. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The create mapping request      * @see org.elasticsearch.client.IndicesAdminClient#putMapping(org.elasticsearch.action.admin.indices.mapping.put.PutMappingRequest)      */
+DECL|method|putMappingRequest
 specifier|public
 specifier|static
-name|CreateMappingRequest
-name|createMappingRequest
+name|PutMappingRequest
+name|putMappingRequest
 parameter_list|(
 name|String
 modifier|...
@@ -609,7 +609,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|CreateMappingRequest
+name|PutMappingRequest
 argument_list|(
 name|indices
 argument_list|)

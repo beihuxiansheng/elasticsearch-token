@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -184,14 +184,14 @@ specifier|static
 class|class
 name|Mapping
 block|{
-DECL|field|CREATE
+DECL|field|PUT
 specifier|public
 specifier|static
 specifier|final
 name|String
-name|CREATE
+name|PUT
 init|=
-literal|"indices/createMapping"
+literal|"indices/mapping/put"
 decl_stmt|;
 block|}
 block|}

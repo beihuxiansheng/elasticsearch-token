@@ -258,7 +258,7 @@ name|mapping
 operator|.
 name|create
 operator|.
-name|ClientTransportCreateMappingAction
+name|ClientTransportPutMappingAction
 import|;
 end_import
 
@@ -634,7 +634,7 @@ argument_list|()
 expr_stmt|;
 name|bind
 argument_list|(
-name|ClientTransportCreateMappingAction
+name|ClientTransportPutMappingAction
 operator|.
 name|class
 argument_list|)

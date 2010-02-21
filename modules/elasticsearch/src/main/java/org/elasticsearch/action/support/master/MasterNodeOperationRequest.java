@@ -30,6 +30,36 @@ name|ActionRequest
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|DataInput
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|DataOutput
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (Shay Banon)  */
 end_comment
@@ -72,6 +102,34 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|readFrom
+annotation|@
+name|Override
+specifier|public
+name|void
+name|readFrom
+parameter_list|(
+name|DataInput
+name|in
+parameter_list|)
+throws|throws
+name|IOException
+throws|,
+name|ClassNotFoundException
+block|{     }
+DECL|method|writeTo
+annotation|@
+name|Override
+specifier|public
+name|void
+name|writeTo
+parameter_list|(
+name|DataOutput
+name|out
+parameter_list|)
+throws|throws
+name|IOException
+block|{     }
 block|}
 end_class
 

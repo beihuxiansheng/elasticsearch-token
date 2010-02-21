@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.action.admin.indices.mapping.create
+DECL|package|org.elasticsearch.action.admin.indices.mapping.put
 package|package
 name|org
 operator|.
@@ -18,7 +18,7 @@ name|indices
 operator|.
 name|mapping
 operator|.
-name|create
+name|put
 package|;
 end_package
 
@@ -79,14 +79,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|CreateMappingResponse
+DECL|class|PutMappingResponse
 specifier|public
 class|class
-name|CreateMappingResponse
+name|PutMappingResponse
 implements|implements
 name|ActionResponse
 implements|,

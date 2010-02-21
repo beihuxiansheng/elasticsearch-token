@@ -226,9 +226,9 @@ name|indices
 operator|.
 name|mapping
 operator|.
-name|create
+name|put
 operator|.
-name|CreateMappingRequest
+name|PutMappingRequest
 import|;
 end_import
 
@@ -246,9 +246,9 @@ name|indices
 operator|.
 name|mapping
 operator|.
-name|create
+name|put
 operator|.
-name|CreateMappingResponse
+name|PutMappingResponse
 import|;
 end_import
 
@@ -496,7 +496,7 @@ name|mapping
 operator|.
 name|create
 operator|.
-name|ClientTransportCreateMappingAction
+name|ClientTransportPutMappingAction
 import|;
 end_import
 
@@ -609,7 +609,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -664,11 +664,11 @@ specifier|final
 name|ClientTransportOptimizeAction
 name|optimizeAction
 decl_stmt|;
-DECL|field|createMappingAction
+DECL|field|putMappingAction
 specifier|private
 specifier|final
-name|ClientTransportCreateMappingAction
-name|createMappingAction
+name|ClientTransportPutMappingAction
+name|putMappingAction
 decl_stmt|;
 DECL|field|gatewaySnapshotAction
 specifier|private
@@ -706,8 +706,8 @@ parameter_list|,
 name|ClientTransportOptimizeAction
 name|optimizeAction
 parameter_list|,
-name|ClientTransportCreateMappingAction
-name|createMappingAction
+name|ClientTransportPutMappingAction
+name|putMappingAction
 parameter_list|,
 name|ClientTransportGatewaySnapshotAction
 name|gatewaySnapshotAction
@@ -762,9 +762,9 @@ name|optimizeAction
 expr_stmt|;
 name|this
 operator|.
-name|createMappingAction
+name|putMappingAction
 operator|=
-name|createMappingAction
+name|putMappingAction
 expr_stmt|;
 name|this
 operator|.
@@ -1955,18 +1955,18 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|createMapping
+DECL|method|putMapping
 annotation|@
 name|Override
 specifier|public
 name|ActionFuture
 argument_list|<
-name|CreateMappingResponse
+name|PutMappingResponse
 argument_list|>
-name|createMapping
+name|putMapping
 parameter_list|(
 specifier|final
-name|CreateMappingRequest
+name|PutMappingRequest
 name|request
 parameter_list|)
 block|{
@@ -1982,7 +1982,7 @@ name|NodeCallback
 argument_list|<
 name|ActionFuture
 argument_list|<
-name|CreateMappingResponse
+name|PutMappingResponse
 argument_list|>
 argument_list|>
 argument_list|()
@@ -1992,7 +1992,7 @@ name|Override
 specifier|public
 name|ActionFuture
 argument_list|<
-name|CreateMappingResponse
+name|PutMappingResponse
 argument_list|>
 name|doWithNode
 parameter_list|(
@@ -2003,7 +2003,7 @@ throws|throws
 name|ElasticSearchException
 block|{
 return|return
-name|createMappingAction
+name|putMappingAction
 operator|.
 name|submit
 argument_list|(
@@ -2017,24 +2017,24 @@ block|}
 argument_list|)
 return|;
 block|}
-DECL|method|createMapping
+DECL|method|putMapping
 annotation|@
 name|Override
 specifier|public
 name|ActionFuture
 argument_list|<
-name|CreateMappingResponse
+name|PutMappingResponse
 argument_list|>
-name|createMapping
+name|putMapping
 parameter_list|(
 specifier|final
-name|CreateMappingRequest
+name|PutMappingRequest
 name|request
 parameter_list|,
 specifier|final
 name|ActionListener
 argument_list|<
-name|CreateMappingResponse
+name|PutMappingResponse
 argument_list|>
 name|listener
 parameter_list|)
@@ -2051,7 +2051,7 @@ name|NodeCallback
 argument_list|<
 name|ActionFuture
 argument_list|<
-name|CreateMappingResponse
+name|PutMappingResponse
 argument_list|>
 argument_list|>
 argument_list|()
@@ -2061,7 +2061,7 @@ name|Override
 specifier|public
 name|ActionFuture
 argument_list|<
-name|CreateMappingResponse
+name|PutMappingResponse
 argument_list|>
 name|doWithNode
 parameter_list|(
@@ -2072,7 +2072,7 @@ throws|throws
 name|ElasticSearchException
 block|{
 return|return
-name|createMappingAction
+name|putMappingAction
 operator|.
 name|submit
 argument_list|(
@@ -2088,21 +2088,21 @@ block|}
 argument_list|)
 return|;
 block|}
-DECL|method|execCreateMapping
+DECL|method|execPutMapping
 annotation|@
 name|Override
 specifier|public
 name|void
-name|execCreateMapping
+name|execPutMapping
 parameter_list|(
 specifier|final
-name|CreateMappingRequest
+name|PutMappingRequest
 name|request
 parameter_list|,
 specifier|final
 name|ActionListener
 argument_list|<
-name|CreateMappingResponse
+name|PutMappingResponse
 argument_list|>
 name|listener
 parameter_list|)
@@ -2132,7 +2132,7 @@ parameter_list|)
 throws|throws
 name|ElasticSearchException
 block|{
-name|createMappingAction
+name|putMappingAction
 operator|.
 name|execute
 argument_list|(
