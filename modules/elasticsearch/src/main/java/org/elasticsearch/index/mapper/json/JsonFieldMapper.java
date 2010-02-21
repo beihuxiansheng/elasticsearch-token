@@ -92,13 +92,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|elasticsearch
 operator|.
-name|lucene
+name|index
 operator|.
-name|util
+name|analysis
 operator|.
-name|StringHelper
+name|NamedAnalyzer
 import|;
 end_import
 
@@ -448,7 +448,7 @@ specifier|public
 name|T
 name|indexAnalyzer
 parameter_list|(
-name|Analyzer
+name|NamedAnalyzer
 name|indexAnalyzer
 parameter_list|)
 block|{
@@ -468,7 +468,7 @@ specifier|public
 name|T
 name|searchAnalyzer
 parameter_list|(
-name|Analyzer
+name|NamedAnalyzer
 name|searchAnalyzer
 parameter_list|)
 block|{
@@ -574,12 +574,12 @@ name|indexName
 decl_stmt|;
 DECL|field|indexAnalyzer
 specifier|protected
-name|Analyzer
+name|NamedAnalyzer
 name|indexAnalyzer
 decl_stmt|;
 DECL|field|searchAnalyzer
 specifier|protected
-name|Analyzer
+name|NamedAnalyzer
 name|searchAnalyzer
 decl_stmt|;
 DECL|method|Builder
@@ -744,7 +744,7 @@ specifier|protected
 name|T
 name|indexAnalyzer
 parameter_list|(
-name|Analyzer
+name|NamedAnalyzer
 name|indexAnalyzer
 parameter_list|)
 block|{
@@ -779,7 +779,7 @@ specifier|protected
 name|T
 name|searchAnalyzer
 parameter_list|(
-name|Analyzer
+name|NamedAnalyzer
 name|searchAnalyzer
 parameter_list|)
 block|{
@@ -791,6 +791,41 @@ name|searchAnalyzer
 expr_stmt|;
 return|return
 name|builder
+return|;
+block|}
+DECL|method|buildNames
+specifier|protected
+name|Names
+name|buildNames
+parameter_list|(
+name|BuilderContext
+name|context
+parameter_list|)
+block|{
+return|return
+operator|new
+name|Names
+argument_list|(
+name|name
+argument_list|,
+name|buildIndexName
+argument_list|(
+name|context
+argument_list|)
+argument_list|,
+name|indexName
+operator|==
+literal|null
+condition|?
+name|name
+else|:
+name|indexName
+argument_list|,
+name|buildFullName
+argument_list|(
+name|context
+argument_list|)
+argument_list|)
 return|;
 block|}
 DECL|method|buildIndexName
@@ -847,23 +882,11 @@ argument_list|)
 return|;
 block|}
 block|}
-DECL|field|name
+DECL|field|names
 specifier|protected
 specifier|final
-name|String
-name|name
-decl_stmt|;
-DECL|field|indexName
-specifier|protected
-specifier|final
-name|String
-name|indexName
-decl_stmt|;
-DECL|field|fullName
-specifier|protected
-specifier|final
-name|String
-name|fullName
+name|Names
+name|names
 decl_stmt|;
 DECL|field|index
 specifier|protected
@@ -910,27 +933,21 @@ decl_stmt|;
 DECL|field|indexAnalyzer
 specifier|protected
 specifier|final
-name|Analyzer
+name|NamedAnalyzer
 name|indexAnalyzer
 decl_stmt|;
 DECL|field|searchAnalyzer
 specifier|protected
 specifier|final
-name|Analyzer
+name|NamedAnalyzer
 name|searchAnalyzer
 decl_stmt|;
 DECL|method|JsonFieldMapper
 specifier|protected
 name|JsonFieldMapper
 parameter_list|(
-name|String
-name|name
-parameter_list|,
-name|String
-name|indexName
-parameter_list|,
-name|String
-name|fullName
+name|Names
+name|names
 parameter_list|,
 name|Field
 operator|.
@@ -956,45 +973,18 @@ parameter_list|,
 name|boolean
 name|omitTermFreqAndPositions
 parameter_list|,
-name|Analyzer
+name|NamedAnalyzer
 name|indexAnalyzer
 parameter_list|,
-name|Analyzer
+name|NamedAnalyzer
 name|searchAnalyzer
 parameter_list|)
 block|{
 name|this
 operator|.
-name|name
+name|names
 operator|=
-name|StringHelper
-operator|.
-name|intern
-argument_list|(
-name|name
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|indexName
-operator|=
-name|StringHelper
-operator|.
-name|intern
-argument_list|(
-name|indexName
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|fullName
-operator|=
-name|StringHelper
-operator|.
-name|intern
-argument_list|(
-name|fullName
-argument_list|)
+name|names
 expr_stmt|;
 name|this
 operator|.
@@ -1054,37 +1044,24 @@ name|name
 parameter_list|()
 block|{
 return|return
-name|this
+name|names
 operator|.
 name|name
+argument_list|()
 return|;
 block|}
-DECL|method|indexName
+DECL|method|names
 annotation|@
 name|Override
 specifier|public
-name|String
-name|indexName
+name|Names
+name|names
 parameter_list|()
 block|{
 return|return
 name|this
 operator|.
-name|indexName
-return|;
-block|}
-DECL|method|fullName
-annotation|@
-name|Override
-specifier|public
-name|String
-name|fullName
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|fullName
+name|names
 return|;
 block|}
 DECL|method|index
@@ -1434,7 +1411,10 @@ argument_list|(
 operator|new
 name|Term
 argument_list|(
+name|names
+operator|.
 name|indexName
+argument_list|()
 argument_list|,
 name|indexedValue
 argument_list|(
@@ -1462,7 +1442,10 @@ argument_list|(
 operator|new
 name|Term
 argument_list|(
+name|names
+operator|.
 name|indexName
+argument_list|()
 argument_list|,
 name|indexedValue
 argument_list|(
@@ -1496,7 +1479,10 @@ return|return
 operator|new
 name|TermRangeQuery
 argument_list|(
+name|names
+operator|.
 name|indexName
+argument_list|()
 argument_list|,
 name|lowerTerm
 operator|==
@@ -1550,7 +1536,10 @@ return|return
 operator|new
 name|TermRangeFilter
 argument_list|(
+name|names
+operator|.
 name|indexName
+argument_list|()
 argument_list|,
 name|lowerTerm
 operator|==
@@ -1594,6 +1583,31 @@ operator|.
 name|STRING
 return|;
 block|}
+comment|//    @Override public void toJson(JsonBuilder builder, Params params) throws IOException {
+comment|//        builder.startObject(names.name());
+comment|//        builder.field("type", jsonType());
+comment|//        builder.field("indexName", names.indexNameClean());
+comment|//        builder.field("index", index.name().toLowerCase());
+comment|//        builder.field("store", store.name().toLowerCase());
+comment|//        builder.field("termVector", termVector.name().toLowerCase());
+comment|//        builder.field("boost", boost);
+comment|//        builder.field("omitNorms", omitNorms);
+comment|//        builder.field("omitTermFreqAndPositions", omitTermFreqAndPositions);
+comment|//        if (indexAnalyzer != null&& !indexAnalyzer.name().startsWith("_")) {
+comment|//            builder.field("indexAnalyzer", indexAnalyzer.name());
+comment|//        }
+comment|//        if (searchAnalyzer != null&& !searchAnalyzer.name().startsWith("_")) {
+comment|//            builder.field("searchAnalyzer", searchAnalyzer.name());
+comment|//        }
+comment|//        builder.endObject();
+comment|//    }
+DECL|method|jsonType
+specifier|protected
+specifier|abstract
+name|String
+name|jsonType
+parameter_list|()
+function_decl|;
 block|}
 end_class
 

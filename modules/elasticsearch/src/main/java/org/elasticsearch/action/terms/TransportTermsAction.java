@@ -1302,6 +1302,9 @@ name|indexFieldName
 operator|=
 name|fieldMapper
 operator|.
+name|names
+argument_list|()
+operator|.
 name|indexName
 argument_list|()
 expr_stmt|;

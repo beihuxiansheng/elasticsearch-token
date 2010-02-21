@@ -89,11 +89,6 @@ argument_list|(
 literal|"_uid"
 argument_list|)
 decl_stmt|;
-DECL|method|name
-name|String
-name|name
-parameter_list|()
-function_decl|;
 DECL|method|term
 name|Term
 name|term

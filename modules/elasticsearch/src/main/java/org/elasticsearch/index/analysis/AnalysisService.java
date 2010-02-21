@@ -204,7 +204,7 @@ name|ImmutableMap
 argument_list|<
 name|String
 argument_list|,
-name|Analyzer
+name|NamedAnalyzer
 argument_list|>
 name|analyzers
 decl_stmt|;
@@ -702,7 +702,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|Analyzer
+name|NamedAnalyzer
 argument_list|>
 name|analyzers
 init|=
@@ -729,10 +729,19 @@ operator|.
 name|name
 argument_list|()
 argument_list|,
+operator|new
+name|NamedAnalyzer
+argument_list|(
+name|analyzerFactory
+operator|.
+name|name
+argument_list|()
+argument_list|,
 name|analyzerFactory
 operator|.
 name|get
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1028,7 +1037,7 @@ block|}
 block|}
 DECL|method|analyzer
 specifier|public
-name|Analyzer
+name|NamedAnalyzer
 name|analyzer
 parameter_list|(
 name|String
@@ -1046,7 +1055,7 @@ return|;
 block|}
 DECL|method|defaultAnalyzer
 specifier|public
-name|Analyzer
+name|NamedAnalyzer
 name|defaultAnalyzer
 parameter_list|()
 block|{
@@ -1061,7 +1070,7 @@ return|;
 block|}
 DECL|method|defaultIndexAnalyzer
 specifier|public
-name|Analyzer
+name|NamedAnalyzer
 name|defaultIndexAnalyzer
 parameter_list|()
 block|{
@@ -1072,7 +1081,7 @@ return|;
 block|}
 DECL|method|defaultSearchAnalyzer
 specifier|public
-name|Analyzer
+name|NamedAnalyzer
 name|defaultSearchAnalyzer
 parameter_list|()
 block|{

@@ -318,6 +318,9 @@ name|get
 argument_list|(
 name|fieldMapper
 operator|.
+name|names
+argument_list|()
+operator|.
 name|name
 argument_list|()
 argument_list|)
@@ -356,6 +359,9 @@ name|put
 argument_list|(
 name|fieldMapper
 operator|.
+name|names
+argument_list|()
+operator|.
 name|name
 argument_list|()
 argument_list|,
@@ -369,6 +375,9 @@ operator|.
 name|get
 argument_list|(
 name|fieldMapper
+operator|.
+name|names
+argument_list|()
 operator|.
 name|indexName
 argument_list|()
@@ -408,6 +417,9 @@ name|put
 argument_list|(
 name|fieldMapper
 operator|.
+name|names
+argument_list|()
+operator|.
 name|indexName
 argument_list|()
 argument_list|,
@@ -421,6 +433,9 @@ operator|.
 name|get
 argument_list|(
 name|fieldMapper
+operator|.
+name|names
+argument_list|()
 operator|.
 name|fullName
 argument_list|()
@@ -459,6 +474,9 @@ operator|.
 name|put
 argument_list|(
 name|fieldMapper
+operator|.
+name|names
+argument_list|()
 operator|.
 name|fullName
 argument_list|()
@@ -481,6 +499,9 @@ operator|.
 name|put
 argument_list|(
 name|fieldMapper
+operator|.
+name|names
+argument_list|()
 operator|.
 name|indexName
 argument_list|()
@@ -507,6 +528,9 @@ operator|.
 name|put
 argument_list|(
 name|fieldMapper
+operator|.
+name|names
+argument_list|()
 operator|.
 name|indexName
 argument_list|()

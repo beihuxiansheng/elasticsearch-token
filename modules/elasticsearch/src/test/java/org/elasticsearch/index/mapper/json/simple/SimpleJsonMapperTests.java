@@ -345,6 +345,9 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
+name|names
+argument_list|()
+operator|.
 name|indexName
 argument_list|()
 argument_list|)
@@ -368,6 +371,9 @@ literal|"first"
 argument_list|)
 operator|.
 name|mapper
+argument_list|()
+operator|.
+name|names
 argument_list|()
 operator|.
 name|fullName
@@ -471,6 +477,9 @@ operator|.
 name|uidMapper
 argument_list|()
 operator|.
+name|names
+argument_list|()
+operator|.
 name|indexName
 argument_list|()
 argument_list|)
@@ -525,6 +534,9 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
+name|names
+argument_list|()
+operator|.
 name|indexName
 argument_list|()
 argument_list|)
@@ -544,6 +556,9 @@ argument_list|(
 name|docMapper
 operator|.
 name|idMapper
+argument_list|()
+operator|.
+name|names
 argument_list|()
 operator|.
 name|indexName
@@ -638,6 +653,9 @@ operator|.
 name|uidMapper
 argument_list|()
 operator|.
+name|names
+argument_list|()
+operator|.
 name|indexName
 argument_list|()
 argument_list|)
@@ -692,6 +710,9 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
+name|names
+argument_list|()
+operator|.
 name|indexName
 argument_list|()
 argument_list|)
@@ -711,6 +732,9 @@ argument_list|(
 name|docMapper
 operator|.
 name|idMapper
+argument_list|()
+operator|.
+name|names
 argument_list|()
 operator|.
 name|indexName
@@ -807,6 +831,9 @@ operator|.
 name|uidMapper
 argument_list|()
 operator|.
+name|names
+argument_list|()
+operator|.
 name|indexName
 argument_list|()
 argument_list|)
@@ -861,6 +888,9 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
+name|names
+argument_list|()
+operator|.
 name|indexName
 argument_list|()
 argument_list|)
@@ -880,6 +910,9 @@ argument_list|(
 name|docMapper
 operator|.
 name|idMapper
+argument_list|()
+operator|.
+name|names
 argument_list|()
 operator|.
 name|indexName

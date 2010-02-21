@@ -474,6 +474,9 @@ name|name
 operator|=
 name|mapper
 operator|.
+name|names
+argument_list|()
+operator|.
 name|name
 argument_list|()
 expr_stmt|;
@@ -747,6 +750,9 @@ operator|.
 name|sourceMapper
 argument_list|()
 operator|.
+name|names
+argument_list|()
+operator|.
 name|indexName
 argument_list|()
 argument_list|)
@@ -777,6 +783,9 @@ argument_list|(
 name|documentMapper
 operator|.
 name|sourceMapper
+argument_list|()
+operator|.
+name|names
 argument_list|()
 operator|.
 name|indexName
@@ -828,6 +837,9 @@ name|get
 argument_list|(
 name|fieldMapper
 operator|.
+name|names
+argument_list|()
+operator|.
 name|indexName
 argument_list|()
 argument_list|)
@@ -853,6 +865,9 @@ operator|.
 name|removeField
 argument_list|(
 name|fieldMapper
+operator|.
+name|names
+argument_list|()
 operator|.
 name|indexName
 argument_list|()

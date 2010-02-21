@@ -289,6 +289,9 @@ name|analyzer
 argument_list|(
 literal|"custom1"
 argument_list|)
+operator|.
+name|analyzer
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(

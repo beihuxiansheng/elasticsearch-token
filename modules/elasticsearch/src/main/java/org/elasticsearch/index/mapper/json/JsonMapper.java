@@ -81,6 +81,7 @@ DECL|interface|JsonMapper
 specifier|public
 interface|interface
 name|JsonMapper
+comment|/*extends ToJson*/
 block|{
 annotation|@
 name|NotThreadSafe
