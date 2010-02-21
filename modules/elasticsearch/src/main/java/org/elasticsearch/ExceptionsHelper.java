@@ -94,6 +94,17 @@ name|int
 name|initialCounter
 parameter_list|)
 block|{
+if|if
+condition|(
+name|t
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|"Unknown"
+return|;
+block|}
 name|int
 name|counter
 init|=
