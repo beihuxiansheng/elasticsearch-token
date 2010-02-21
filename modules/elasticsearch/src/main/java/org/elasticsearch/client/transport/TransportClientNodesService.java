@@ -537,6 +537,14 @@ argument_list|,
 name|nodesSamplerInterval
 argument_list|)
 expr_stmt|;
+comment|// we want the transport service to throw connect exceptions, so we can retry
+name|transportService
+operator|.
+name|throwConnectException
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|transportAddresses
 specifier|public

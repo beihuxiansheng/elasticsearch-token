@@ -154,16 +154,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|concurrent
@@ -221,7 +211,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -291,6 +281,13 @@ init|=
 operator|new
 name|AtomicLong
 argument_list|()
+decl_stmt|;
+DECL|field|throwConnectException
+specifier|private
+name|boolean
+name|throwConnectException
+init|=
+literal|false
 decl_stmt|;
 DECL|method|TransportService
 specifier|public
@@ -624,6 +621,23 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Set to<tt>true</tt> to indicate that a {@link ConnectTransportException} should be thrown when      * sending a message (otherwise, it will be passed to the response handler). Defaults to<tt>false</tt>.      *      *<p>This is useful when logic based on connect failure is needed without having to wrap the handler,      * for example, in case of retries across several nodes.      */
+DECL|method|throwConnectException
+specifier|public
+name|void
+name|throwConnectException
+parameter_list|(
+name|boolean
+name|throwConnectException
+parameter_list|)
+block|{
+name|this
+operator|.
+name|throwConnectException
+operator|=
+name|throwConnectException
+expr_stmt|;
+block|}
 DECL|method|submitRequest
 specifier|public
 parameter_list|<
@@ -713,8 +727,6 @@ parameter_list|)
 throws|throws
 name|TransportException
 block|{
-try|try
-block|{
 specifier|final
 name|long
 name|requestId
@@ -722,6 +734,8 @@ init|=
 name|newRequestId
 argument_list|()
 decl_stmt|;
+try|try
+block|{
 name|clientHandlers
 operator|.
 name|put
@@ -749,19 +763,54 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IOException
+name|Exception
 name|e
 parameter_list|)
 block|{
-throw|throw
-operator|new
-name|TransportException
+comment|// usually happen either because we failed to connect to the node
+comment|// or because we failed serializing the message
+name|clientHandlers
+operator|.
+name|remove
 argument_list|(
-literal|"Can't serialize request"
+name|requestId
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|throwConnectException
+condition|)
+block|{
+if|if
+condition|(
+name|e
+operator|instanceof
+name|ConnectTransportException
+condition|)
+block|{
+throw|throw
+operator|(
+name|ConnectTransportException
+operator|)
+name|e
+throw|;
+block|}
+block|}
+name|handler
+operator|.
+name|handleException
+argument_list|(
+operator|new
+name|SendRequestTransportException
+argument_list|(
+name|node
+argument_list|,
+name|action
 argument_list|,
 name|e
 argument_list|)
-throw|;
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 DECL|method|newRequestId
