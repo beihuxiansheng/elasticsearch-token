@@ -786,7 +786,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The type of sorting for term / doc freq. Can either sort on term (lex) or doc frequncy. Defaults to      * {@link TermsRequest.SortType#TERM}.      */
+comment|/**      * The type of sorting for term / doc freq. Can either sort on term (lex) or doc frequency. Defaults to      * {@link TermsRequest.SortType#TERM}.      */
 DECL|method|sortType
 specifier|public
 name|SortType
@@ -797,7 +797,7 @@ return|return
 name|sortType
 return|;
 block|}
-comment|/**      * The type of sorting for term / doc freq. Can either sort on term (lex) or doc frequncy. Defaults to      * {@link TermsRequest.SortType#TERM}.      */
+comment|/**      * The type of sorting for term / doc freq. Can either sort on term (lex) or doc frequency. Defaults to      * {@link TermsRequest.SortType#TERM}.      */
 DECL|method|sortType
 specifier|public
 name|TermsRequest
