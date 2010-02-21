@@ -453,15 +453,7 @@ operator|.
 name|buildSource
 argument_list|()
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-name|builtMapping
-argument_list|)
-expr_stmt|;
+comment|//        System.out.println(builtMapping);
 comment|// reparse it
 name|JsonDocumentMapper
 name|builtDocMapper
