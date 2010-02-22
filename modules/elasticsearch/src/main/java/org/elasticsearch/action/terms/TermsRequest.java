@@ -319,7 +319,7 @@ specifier|private
 name|boolean
 name|toInclusive
 init|=
-literal|false
+literal|true
 decl_stmt|;
 DECL|field|prefix
 specifier|private
