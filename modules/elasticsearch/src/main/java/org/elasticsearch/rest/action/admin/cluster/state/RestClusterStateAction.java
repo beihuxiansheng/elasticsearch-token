@@ -510,13 +510,6 @@ name|builder
 operator|.
 name|startObject
 argument_list|(
-literal|"mapping"
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"name"
-argument_list|,
 name|entry
 operator|.
 name|getKey
@@ -525,7 +518,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"value"
+literal|"source"
 argument_list|,
 name|entry
 operator|.
