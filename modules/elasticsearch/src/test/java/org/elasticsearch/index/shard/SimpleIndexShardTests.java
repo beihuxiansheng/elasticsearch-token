@@ -348,6 +348,24 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|json
+operator|.
+name|JsonQueryBuilders
+operator|.
+name|*
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|util
 operator|.
 name|settings
@@ -717,7 +735,15 @@ name|count
 argument_list|(
 literal|0
 argument_list|,
-literal|"{ term : { age : 35 } }"
+name|termQuery
+argument_list|(
+literal|"age"
+argument_list|,
+literal|35
+argument_list|)
+operator|.
+name|buildAsBytes
+argument_list|()
 argument_list|,
 literal|null
 argument_list|)
@@ -736,7 +762,13 @@ name|count
 argument_list|(
 literal|0
 argument_list|,
-literal|"{ queryString : { query : \"name:test\" } }"
+name|queryString
+argument_list|(
+literal|"name:test"
+argument_list|)
+operator|.
+name|buildAsBytes
+argument_list|()
 argument_list|,
 literal|null
 argument_list|)
@@ -755,7 +787,13 @@ name|count
 argument_list|(
 literal|0
 argument_list|,
-literal|"{ queryString : { query : \"age:35\" } }"
+name|queryString
+argument_list|(
+literal|"age:35"
+argument_list|)
+operator|.
+name|buildAsBytes
+argument_list|()
 argument_list|,
 literal|null
 argument_list|)
@@ -862,7 +900,15 @@ name|indexShard
 operator|.
 name|deleteByQuery
 argument_list|(
-literal|"{ term : { name : \"test\" } }"
+name|termQuery
+argument_list|(
+literal|"name"
+argument_list|,
+literal|"test"
+argument_list|)
+operator|.
+name|buildAsBytes
+argument_list|()
 argument_list|,
 literal|null
 argument_list|)

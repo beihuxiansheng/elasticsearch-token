@@ -382,7 +382,8 @@ block|}
 DECL|method|parseQuerySource
 specifier|public
 specifier|static
-name|String
+name|byte
+index|[]
 name|parseQuerySource
 parameter_list|(
 name|RestRequest
@@ -400,7 +401,7 @@ block|{
 return|return
 name|request
 operator|.
-name|contentAsString
+name|contentAsBytes
 argument_list|()
 return|;
 block|}
@@ -543,7 +544,7 @@ block|}
 return|return
 name|queryBuilder
 operator|.
-name|buildAsString
+name|buildAsBytes
 argument_list|()
 return|;
 block|}

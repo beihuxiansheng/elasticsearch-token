@@ -262,6 +262,18 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
+name|Unicode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
 name|transport
 operator|.
 name|TransportAddress
@@ -1501,7 +1513,12 @@ argument_list|)
 operator|.
 name|querySource
 argument_list|(
+name|Unicode
+operator|.
+name|fromStringAsBytes
+argument_list|(
 literal|"{ term : { _type : \"type1 } }"
+argument_list|)
 argument_list|)
 argument_list|)
 operator|.

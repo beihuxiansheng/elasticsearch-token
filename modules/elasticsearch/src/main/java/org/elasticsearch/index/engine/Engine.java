@@ -1162,7 +1162,8 @@ decl_stmt|;
 DECL|field|source
 specifier|private
 specifier|final
-name|String
+name|byte
+index|[]
 name|source
 decl_stmt|;
 DECL|field|types
@@ -1179,7 +1180,8 @@ parameter_list|(
 name|Query
 name|query
 parameter_list|,
-name|String
+name|byte
+index|[]
 name|source
 parameter_list|,
 annotation|@
@@ -1243,7 +1245,8 @@ return|;
 block|}
 DECL|method|source
 specifier|public
-name|String
+name|byte
+index|[]
 name|source
 parameter_list|()
 block|{

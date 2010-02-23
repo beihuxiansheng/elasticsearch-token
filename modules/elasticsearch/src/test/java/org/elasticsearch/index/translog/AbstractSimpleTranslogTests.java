@@ -394,7 +394,12 @@ name|Translog
 operator|.
 name|DeleteByQuery
 argument_list|(
-literal|"{4}"
+operator|new
+name|byte
+index|[]
+block|{
+literal|4
+block|}
 argument_list|,
 literal|null
 argument_list|)
@@ -563,7 +568,12 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"{4}"
+operator|new
+name|byte
+index|[]
+block|{
+literal|4
+block|}
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -1527,7 +1527,8 @@ specifier|public
 name|void
 name|deleteByQuery
 parameter_list|(
-name|String
+name|byte
+index|[]
 name|querySource
 parameter_list|,
 annotation|@
@@ -1574,7 +1575,8 @@ specifier|private
 name|void
 name|innerDeleteByQuery
 parameter_list|(
-name|String
+name|byte
+index|[]
 name|querySource
 parameter_list|,
 name|String
@@ -1900,7 +1902,8 @@ parameter_list|(
 name|float
 name|minScore
 parameter_list|,
-name|String
+name|byte
+index|[]
 name|querySource
 parameter_list|,
 annotation|@
