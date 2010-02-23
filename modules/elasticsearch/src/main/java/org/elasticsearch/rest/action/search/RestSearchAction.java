@@ -1207,7 +1207,8 @@ return|;
 block|}
 DECL|method|parseSearchSource
 specifier|private
-name|String
+name|byte
+index|[]
 name|parseSearchSource
 parameter_list|(
 name|RestRequest
@@ -1225,7 +1226,7 @@ block|{
 return|return
 name|request
 operator|.
-name|contentAsString
+name|contentAsBytes
 argument_list|()
 return|;
 block|}

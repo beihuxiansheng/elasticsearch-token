@@ -309,7 +309,8 @@ decl_stmt|;
 DECL|field|source
 specifier|private
 specifier|final
-name|String
+name|byte
+index|[]
 name|source
 decl_stmt|;
 DECL|field|engineSearcher
@@ -465,7 +466,8 @@ parameter_list|,
 name|float
 name|queryBoost
 parameter_list|,
-name|String
+name|byte
+index|[]
 name|source
 parameter_list|,
 name|String
@@ -657,7 +659,8 @@ return|;
 block|}
 DECL|method|source
 specifier|public
-name|String
+name|byte
+index|[]
 name|source
 parameter_list|()
 block|{

@@ -126,6 +126,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|Unicode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|testng
 operator|.
 name|annotations
@@ -2140,7 +2152,12 @@ argument_list|)
 operator|.
 name|source
 argument_list|(
+name|Unicode
+operator|.
+name|fromStringAsBytes
+argument_list|(
 literal|"{ xxx }"
+argument_list|)
 argument_list|)
 argument_list|)
 operator|.

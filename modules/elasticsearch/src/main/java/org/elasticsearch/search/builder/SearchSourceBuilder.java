@@ -54,7 +54,7 @@ name|util
 operator|.
 name|json
 operator|.
-name|StringJsonBuilder
+name|JsonBuilder
 import|;
 end_import
 
@@ -507,7 +507,8 @@ return|;
 block|}
 DECL|method|build
 specifier|public
-name|String
+name|byte
+index|[]
 name|build
 parameter_list|()
 throws|throws
@@ -515,10 +516,10 @@ name|SearchException
 block|{
 try|try
 block|{
-name|StringJsonBuilder
+name|JsonBuilder
 name|builder
 init|=
-name|stringJsonBuilder
+name|binaryJsonBuilder
 argument_list|()
 decl_stmt|;
 name|builder
@@ -798,7 +799,7 @@ expr_stmt|;
 return|return
 name|builder
 operator|.
-name|string
+name|copiedBytes
 argument_list|()
 return|;
 block|}
