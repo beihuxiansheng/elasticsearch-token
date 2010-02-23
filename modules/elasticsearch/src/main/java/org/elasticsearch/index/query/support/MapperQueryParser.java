@@ -191,7 +191,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A query parser that uses the {@link MapperService} in order to build smarter  * queries based on the mapping information.  *  *<p>Maps a logic name of a field {@link org.elasticsearch.index.mapper.FieldMapper#name()}  * into its {@link org.elasticsearch.index.mapper.FieldMapper#indexName()}.  *  *<p>Also breaks fields with [type].[name] into a boolean query that must include the type  * as well as the query on the name.  *  * @author kimchy (Shay Banon)  */
+comment|/**  * A query parser that uses the {@link MapperService} in order to build smarter  * queries based on the mapping information.  *  *<p>Also breaks fields with [type].[name] into a boolean query that must include the type  * as well as the query on the name.  *  * @author kimchy (Shay Banon)  */
 end_comment
 
 begin_class
@@ -282,11 +282,6 @@ parameter_list|)
 throws|throws
 name|ParseException
 block|{
-name|String
-name|indexedNameField
-init|=
-name|field
-decl_stmt|;
 if|if
 condition|(
 name|mapperService
@@ -360,7 +355,7 @@ name|super
 operator|.
 name|getFieldQuery
 argument_list|(
-name|indexedNameField
+name|field
 argument_list|,
 name|queryText
 argument_list|)
