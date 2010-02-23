@@ -486,7 +486,7 @@ name|void
 name|onResponse
 parameter_list|(
 name|CreateIndexResponse
-name|result
+name|response
 parameter_list|)
 block|{
 try|try
@@ -511,6 +511,16 @@ argument_list|(
 literal|"ok"
 argument_list|,
 literal|true
+argument_list|)
+operator|.
+name|field
+argument_list|(
+literal|"acknowledged"
+argument_list|,
+name|response
+operator|.
+name|acknowledged
+argument_list|()
 argument_list|)
 operator|.
 name|endObject

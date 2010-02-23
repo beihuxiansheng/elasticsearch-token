@@ -90,6 +90,40 @@ name|ActionResponse
 implements|,
 name|Streamable
 block|{
+DECL|field|acknowledged
+specifier|private
+name|boolean
+name|acknowledged
+decl_stmt|;
+DECL|method|CreateIndexResponse
+name|CreateIndexResponse
+parameter_list|()
+block|{     }
+DECL|method|CreateIndexResponse
+specifier|public
+name|CreateIndexResponse
+parameter_list|(
+name|boolean
+name|acknowledged
+parameter_list|)
+block|{
+name|this
+operator|.
+name|acknowledged
+operator|=
+name|acknowledged
+expr_stmt|;
+block|}
+DECL|method|acknowledged
+specifier|public
+name|boolean
+name|acknowledged
+parameter_list|()
+block|{
+return|return
+name|acknowledged
+return|;
+block|}
 DECL|method|readFrom
 annotation|@
 name|Override
@@ -104,7 +138,15 @@ throws|throws
 name|IOException
 throws|,
 name|ClassNotFoundException
-block|{     }
+block|{
+name|acknowledged
+operator|=
+name|in
+operator|.
+name|readBoolean
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|writeTo
 annotation|@
 name|Override
@@ -117,7 +159,15 @@ name|out
 parameter_list|)
 throws|throws
 name|IOException
-block|{     }
+block|{
+name|out
+operator|.
+name|writeBoolean
+argument_list|(
+name|acknowledged
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
