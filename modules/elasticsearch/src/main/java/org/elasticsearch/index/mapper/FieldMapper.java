@@ -395,6 +395,11 @@ name|T
 name|value
 parameter_list|)
 function_decl|;
+DECL|method|useFieldQueryWithQueryString
+name|boolean
+name|useFieldQueryWithQueryString
+parameter_list|()
+function_decl|;
 DECL|method|fieldQuery
 name|Query
 name|fieldQuery

@@ -565,6 +565,19 @@ operator|.
 name|precisionStep
 return|;
 block|}
+comment|/**      * Use the field query created here when matching on numbers.      */
+DECL|method|useFieldQueryWithQueryString
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|useFieldQueryWithQueryString
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 comment|/**      * Override the default behavior (to return the string, and return the actual Number instance).      */
 DECL|method|valueForSearch
 annotation|@
