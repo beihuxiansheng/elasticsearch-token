@@ -524,13 +524,6 @@ specifier|final
 name|Translog
 name|translog
 decl_stmt|;
-comment|// the number of docs to sniff for mapping information in each type
-DECL|field|mappingSnifferDocs
-specifier|private
-specifier|final
-name|int
-name|mappingSnifferDocs
-decl_stmt|;
 DECL|field|mutex
 specifier|private
 specifier|final
@@ -648,19 +641,6 @@ operator|=
 name|IndexShardState
 operator|.
 name|CREATED
-expr_stmt|;
-name|this
-operator|.
-name|mappingSnifferDocs
-operator|=
-name|componentSettings
-operator|.
-name|getAsInt
-argument_list|(
-literal|"mappingSnifferDocs"
-argument_list|,
-literal|100
-argument_list|)
 expr_stmt|;
 block|}
 DECL|method|store
@@ -1114,7 +1094,8 @@ parameter_list|,
 name|String
 name|id
 parameter_list|,
-name|String
+name|byte
+index|[]
 name|source
 parameter_list|)
 throws|throws
@@ -1145,7 +1126,8 @@ parameter_list|,
 name|String
 name|id
 parameter_list|,
-name|String
+name|byte
+index|[]
 name|source
 parameter_list|)
 block|{
@@ -1264,7 +1246,8 @@ parameter_list|,
 name|String
 name|id
 parameter_list|,
-name|String
+name|byte
+index|[]
 name|source
 parameter_list|)
 throws|throws
@@ -1295,7 +1278,8 @@ parameter_list|,
 name|String
 name|id
 parameter_list|,
-name|String
+name|byte
+index|[]
 name|source
 parameter_list|)
 block|{
@@ -1700,7 +1684,8 @@ expr_stmt|;
 block|}
 DECL|method|get
 specifier|public
-name|String
+name|byte
+index|[]
 name|get
 parameter_list|(
 name|String

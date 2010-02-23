@@ -543,7 +543,7 @@ block|}
 return|return
 name|queryBuilder
 operator|.
-name|build
+name|buildAsString
 argument_list|()
 return|;
 block|}

@@ -152,7 +152,7 @@ block|{
 name|JsonBuilder
 name|builder
 init|=
-name|jsonBuilder
+name|binaryJsonBuilder
 argument_list|()
 operator|.
 name|prettyPrint

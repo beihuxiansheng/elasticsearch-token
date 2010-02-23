@@ -54,7 +54,7 @@ name|util
 operator|.
 name|json
 operator|.
-name|JsonBuilder
+name|StringJsonBuilder
 import|;
 end_import
 
@@ -103,6 +103,22 @@ operator|.
 name|collect
 operator|.
 name|Lists
+operator|.
+name|*
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|json
+operator|.
+name|JsonBuilder
 operator|.
 name|*
 import|;
@@ -499,12 +515,10 @@ name|SearchException
 block|{
 try|try
 block|{
-name|JsonBuilder
+name|StringJsonBuilder
 name|builder
 init|=
-name|JsonBuilder
-operator|.
-name|jsonBuilder
+name|stringJsonBuilder
 argument_list|()
 decl_stmt|;
 name|builder

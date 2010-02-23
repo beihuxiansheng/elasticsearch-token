@@ -482,6 +482,16 @@ parameter_list|)
 block|{
 try|try
 block|{
+name|JsonBuilder
+name|builder
+init|=
+name|RestJsonBuilder
+operator|.
+name|restJsonBuilder
+argument_list|(
+name|request
+argument_list|)
+decl_stmt|;
 name|channel
 operator|.
 name|sendResponse
@@ -493,10 +503,7 @@ name|request
 argument_list|,
 name|BAD_REQUEST
 argument_list|,
-name|JsonBuilder
-operator|.
-name|jsonBuilder
-argument_list|()
+name|builder
 operator|.
 name|startObject
 argument_list|()
@@ -571,7 +578,7 @@ name|builder
 init|=
 name|RestJsonBuilder
 operator|.
-name|cached
+name|restJsonBuilder
 argument_list|(
 name|request
 argument_list|)

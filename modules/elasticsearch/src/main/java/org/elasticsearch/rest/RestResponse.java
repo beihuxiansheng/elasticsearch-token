@@ -14,6 +14,16 @@ name|rest
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (Shay Banon)  */
 end_comment
@@ -390,12 +400,16 @@ name|byte
 index|[]
 name|content
 parameter_list|()
+throws|throws
+name|IOException
 function_decl|;
 comment|/**      * The content length.      */
 DECL|method|contentLength
 name|int
 name|contentLength
 parameter_list|()
+throws|throws
+name|IOException
 function_decl|;
 DECL|method|prefixContent
 name|byte

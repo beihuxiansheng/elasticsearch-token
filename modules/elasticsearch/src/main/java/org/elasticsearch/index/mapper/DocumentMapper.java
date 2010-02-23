@@ -158,7 +158,8 @@ name|Nullable
 name|String
 name|id
 parameter_list|,
-name|String
+name|byte
+index|[]
 name|source
 parameter_list|)
 throws|throws
@@ -169,7 +170,8 @@ DECL|method|parse
 name|ParsedDocument
 name|parse
 parameter_list|(
-name|String
+name|byte
+index|[]
 name|source
 parameter_list|)
 throws|throws

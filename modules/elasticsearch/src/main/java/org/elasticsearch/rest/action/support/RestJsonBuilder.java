@@ -40,7 +40,7 @@ name|util
 operator|.
 name|json
 operator|.
-name|JsonBuilder
+name|BinaryJsonBuilder
 import|;
 end_import
 
@@ -54,6 +54,22 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|json
+operator|.
+name|JsonBuilder
+operator|.
+name|*
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (Shay Banon)  */
 end_comment
@@ -64,11 +80,11 @@ specifier|public
 class|class
 name|RestJsonBuilder
 block|{
-DECL|method|cached
+DECL|method|restJsonBuilder
 specifier|public
 specifier|static
-name|JsonBuilder
-name|cached
+name|BinaryJsonBuilder
+name|restJsonBuilder
 parameter_list|(
 name|RestRequest
 name|request
@@ -76,12 +92,10 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|JsonBuilder
+name|BinaryJsonBuilder
 name|builder
 init|=
-name|JsonBuilder
-operator|.
-name|jsonBuilder
+name|binaryJsonBuilder
 argument_list|()
 decl_stmt|;
 if|if

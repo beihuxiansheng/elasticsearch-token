@@ -314,7 +314,7 @@ name|querySource
 argument_list|(
 name|queryBuilder
 operator|.
-name|build
+name|buildAsString
 argument_list|()
 argument_list|)
 return|;

@@ -424,7 +424,7 @@ name|builder
 init|=
 name|RestJsonBuilder
 operator|.
-name|cached
+name|restJsonBuilder
 argument_list|(
 name|request
 argument_list|)

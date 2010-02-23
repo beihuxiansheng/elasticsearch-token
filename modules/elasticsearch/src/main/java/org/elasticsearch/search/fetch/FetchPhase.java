@@ -362,7 +362,8 @@ name|type
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|String
+name|byte
+index|[]
 name|source
 init|=
 name|extractSource
@@ -723,7 +724,8 @@ block|}
 block|}
 DECL|method|extractSource
 specifier|private
-name|String
+name|byte
+index|[]
 name|extractSource
 parameter_list|(
 name|Document
@@ -733,7 +735,8 @@ name|DocumentMapper
 name|documentMapper
 parameter_list|)
 block|{
-name|String
+name|byte
+index|[]
 name|source
 init|=
 literal|null
@@ -771,7 +774,7 @@ operator|.
 name|sourceMapper
 argument_list|()
 operator|.
-name|valueAsString
+name|value
 argument_list|(
 name|sourceField
 argument_list|)

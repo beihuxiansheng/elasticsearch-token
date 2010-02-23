@@ -73,6 +73,17 @@ DECL|method|parse
 name|Query
 name|parse
 parameter_list|(
+name|byte
+index|[]
+name|source
+parameter_list|)
+throws|throws
+name|ElasticSearchException
+function_decl|;
+DECL|method|parse
+name|Query
+name|parse
+parameter_list|(
 name|String
 name|source
 parameter_list|)

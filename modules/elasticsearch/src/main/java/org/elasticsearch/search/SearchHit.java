@@ -96,8 +96,14 @@ name|type
 parameter_list|()
 function_decl|;
 DECL|method|source
-name|String
+name|byte
+index|[]
 name|source
+parameter_list|()
+function_decl|;
+DECL|method|sourceAsString
+name|String
+name|sourceAsString
 parameter_list|()
 function_decl|;
 DECL|method|explanation

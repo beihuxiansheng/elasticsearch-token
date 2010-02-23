@@ -362,11 +362,6 @@ operator|.
 name|parse
 argument_list|(
 name|jp
-argument_list|,
-name|context
-operator|.
-name|source
-argument_list|()
 argument_list|)
 decl_stmt|;
 if|if

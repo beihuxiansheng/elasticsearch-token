@@ -99,7 +99,8 @@ name|type
 decl_stmt|;
 DECL|field|source
 specifier|private
-name|String
+name|byte
+index|[]
 name|source
 decl_stmt|;
 DECL|field|id
@@ -171,7 +172,8 @@ parameter_list|,
 name|String
 name|type
 parameter_list|,
-name|String
+name|byte
+index|[]
 name|source
 parameter_list|)
 block|{
@@ -260,7 +262,8 @@ return|;
 block|}
 DECL|method|source
 specifier|public
-name|String
+name|byte
+index|[]
 name|source
 parameter_list|()
 block|{

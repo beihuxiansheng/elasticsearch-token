@@ -808,7 +808,8 @@ decl_stmt|;
 DECL|field|source
 specifier|private
 specifier|final
-name|String
+name|byte
+index|[]
 name|source
 decl_stmt|;
 DECL|method|Create
@@ -827,7 +828,8 @@ parameter_list|,
 name|String
 name|id
 parameter_list|,
-name|String
+name|byte
+index|[]
 name|source
 parameter_list|)
 block|{
@@ -912,7 +914,8 @@ return|;
 block|}
 DECL|method|source
 specifier|public
-name|String
+name|byte
+index|[]
 name|source
 parameter_list|()
 block|{
@@ -961,7 +964,8 @@ decl_stmt|;
 DECL|field|source
 specifier|private
 specifier|final
-name|String
+name|byte
+index|[]
 name|source
 decl_stmt|;
 DECL|method|Index
@@ -983,7 +987,8 @@ parameter_list|,
 name|String
 name|id
 parameter_list|,
-name|String
+name|byte
+index|[]
 name|source
 parameter_list|)
 block|{
@@ -1086,7 +1091,8 @@ return|;
 block|}
 DECL|method|source
 specifier|public
-name|String
+name|byte
+index|[]
 name|source
 parameter_list|()
 block|{

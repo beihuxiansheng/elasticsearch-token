@@ -86,7 +86,8 @@ name|SourceFieldMapper
 extends|extends
 name|FieldMapper
 argument_list|<
-name|String
+name|byte
+index|[]
 argument_list|>
 extends|,
 name|InternalMapper
@@ -111,7 +112,8 @@ name|enabled
 parameter_list|()
 function_decl|;
 DECL|method|value
-name|String
+name|byte
+index|[]
 name|value
 parameter_list|(
 name|Document

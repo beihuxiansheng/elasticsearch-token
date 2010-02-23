@@ -16,8 +16,22 @@ name|query
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|io
+operator|.
+name|FastCharArrayWriter
+import|;
+end_import
+
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_interface
@@ -26,9 +40,24 @@ specifier|public
 interface|interface
 name|QueryBuilder
 block|{
-DECL|method|build
+DECL|method|buildAsString
 name|String
-name|build
+name|buildAsString
+parameter_list|()
+throws|throws
+name|QueryBuilderException
+function_decl|;
+DECL|method|buildAsUnsafeChars
+name|FastCharArrayWriter
+name|buildAsUnsafeChars
+parameter_list|()
+throws|throws
+name|QueryBuilderException
+function_decl|;
+DECL|method|buildAsBytes
+name|byte
+index|[]
+name|buildAsBytes
 parameter_list|()
 throws|throws
 name|QueryBuilderException

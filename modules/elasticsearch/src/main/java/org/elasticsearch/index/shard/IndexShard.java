@@ -178,7 +178,8 @@ parameter_list|,
 name|String
 name|id
 parameter_list|,
-name|String
+name|byte
+index|[]
 name|source
 parameter_list|)
 throws|throws
@@ -194,7 +195,8 @@ parameter_list|,
 name|String
 name|id
 parameter_list|,
-name|String
+name|byte
+index|[]
 name|source
 parameter_list|)
 throws|throws
@@ -239,7 +241,8 @@ throws|throws
 name|ElasticSearchException
 function_decl|;
 DECL|method|get
-name|String
+name|byte
+index|[]
 name|get
 parameter_list|(
 name|String

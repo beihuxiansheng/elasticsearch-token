@@ -253,7 +253,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -586,7 +586,7 @@ name|i
 argument_list|,
 name|getResult
 operator|.
-name|source
+name|sourceAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -641,7 +641,7 @@ name|i
 argument_list|,
 name|getResult
 operator|.
-name|source
+name|sourceAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1106,7 +1106,7 @@ name|i
 argument_list|,
 name|getResult
 operator|.
-name|source
+name|sourceAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1156,7 +1156,7 @@ name|i
 argument_list|,
 name|getResult
 operator|.
-name|source
+name|sourceAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1634,7 +1634,7 @@ name|i
 argument_list|,
 name|getResult
 operator|.
-name|source
+name|sourceAsString
 argument_list|()
 argument_list|,
 name|equalTo

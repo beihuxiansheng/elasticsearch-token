@@ -479,6 +479,19 @@ block|,
 literal|"test3"
 block|}
 decl_stmt|;
+DECL|field|TRANSLOG_PAYLOAD
+specifier|private
+specifier|static
+name|byte
+index|[]
+name|TRANSLOG_PAYLOAD
+init|=
+operator|new
+name|byte
+index|[
+literal|12
+index|]
+decl_stmt|;
 DECL|field|lastRefreshedId
 specifier|private
 specifier|volatile
@@ -994,7 +1007,7 @@ literal|"type"
 argument_list|,
 name|sId
 argument_list|,
-literal|"{ ... }"
+name|TRANSLOG_PAYLOAD
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1796,7 +1809,7 @@ literal|"type"
 argument_list|,
 name|sId
 argument_list|,
-literal|"{ ... }"
+name|TRANSLOG_PAYLOAD
 argument_list|)
 argument_list|)
 expr_stmt|;
