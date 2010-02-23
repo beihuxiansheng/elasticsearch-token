@@ -748,6 +748,8 @@ operator|new
 name|InputStreamReader
 argument_list|(
 name|is
+argument_list|,
+literal|"UTF-8"
 argument_list|)
 argument_list|)
 return|;
