@@ -707,6 +707,9 @@ argument_list|(
 name|snapshotTransportAction
 argument_list|)
 expr_stmt|;
+name|cleanOpenIndex
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|startRecovery
 specifier|public
