@@ -412,7 +412,17 @@ init|=
 name|ChannelBuffers
 operator|.
 name|dynamicBuffer
+argument_list|(
+literal|512
+argument_list|,
+name|channel
+operator|.
+name|getConfig
 argument_list|()
+operator|.
+name|getBufferFactory
+argument_list|()
+argument_list|)
 decl_stmt|;
 name|ChannelBufferOutputStream
 name|os
