@@ -2254,7 +2254,7 @@ expr_stmt|;
 return|return
 name|os
 operator|.
-name|unsafeByteArray
+name|copiedByteArray
 argument_list|()
 return|;
 block|}
