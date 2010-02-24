@@ -179,6 +179,12 @@ specifier|final
 name|int
 name|maxMergeDocs
 decl_stmt|;
+DECL|field|calibrateSizeByDeletes
+specifier|private
+specifier|final
+name|boolean
+name|calibrateSizeByDeletes
+decl_stmt|;
 DECL|field|useCompoundFile
 specifier|private
 specifier|final
@@ -305,6 +311,19 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
+name|calibrateSizeByDeletes
+operator|=
+name|componentSettings
+operator|.
+name|getAsBoolean
+argument_list|(
+literal|"calibrateSizeByDeletes"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
 name|useCompoundFile
 operator|=
 name|componentSettings
@@ -327,7 +346,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Using [LogByteSize] merge policy with mergeFactor[{}], minMergeSize[{}], maxMergeSize[{}], maxMergeDocs[{}] useCompoundFile[{}]"
+literal|"Using [LogByteSize] merge policy with mergeFactor[{}], minMergeSize[{}], maxMergeSize[{}], maxMergeDocs[{}] useCompoundFile[{}], calibrateSizeByDeletes[{}]"
 argument_list|,
 operator|new
 name|Object
@@ -342,6 +361,8 @@ block|,
 name|maxMergeDocs
 block|,
 name|useCompoundFile
+block|,
+name|calibrateSizeByDeletes
 block|}
 argument_list|)
 expr_stmt|;
@@ -412,6 +433,13 @@ operator|.
 name|setUseCompoundDocStore
 argument_list|(
 name|useCompoundFile
+argument_list|)
+expr_stmt|;
+name|mergePolicy
+operator|.
+name|setCalibrateSizeByDeletes
+argument_list|(
+name|calibrateSizeByDeletes
 argument_list|)
 expr_stmt|;
 return|return
