@@ -272,7 +272,7 @@ name|Method
 operator|.
 name|GET
 argument_list|,
-literal|"/_cluster/nodes/${nodeId}"
+literal|"/_cluster/nodes/{nodeId}"
 argument_list|,
 name|this
 argument_list|)
