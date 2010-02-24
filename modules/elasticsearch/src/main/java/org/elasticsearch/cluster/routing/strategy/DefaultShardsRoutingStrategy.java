@@ -1845,16 +1845,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-assert|assert
-name|shard
-operator|.
-name|state
-argument_list|()
-operator|==
-name|ShardRoutingState
-operator|.
-name|RELOCATING
-assert|;
 name|shard
 operator|.
 name|cancelRelocation

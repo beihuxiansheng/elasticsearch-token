@@ -210,6 +210,15 @@ name|STATE
 init|=
 literal|"/cluster/state"
 decl_stmt|;
+DECL|field|HEALTH
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|HEALTH
+init|=
+literal|"/cluster/health"
+decl_stmt|;
 DECL|class|Node
 specifier|public
 specifier|static

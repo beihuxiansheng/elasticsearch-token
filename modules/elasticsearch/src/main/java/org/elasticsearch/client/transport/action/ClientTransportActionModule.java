@@ -46,6 +46,28 @@ name|admin
 operator|.
 name|cluster
 operator|.
+name|health
+operator|.
+name|ClientTransportClusterHealthAction
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|client
+operator|.
+name|transport
+operator|.
+name|action
+operator|.
+name|admin
+operator|.
+name|cluster
+operator|.
 name|node
 operator|.
 name|info
@@ -473,7 +495,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -695,6 +717,16 @@ expr_stmt|;
 name|bind
 argument_list|(
 name|ClientTransportClusterStateAction
+operator|.
+name|class
+argument_list|)
+operator|.
+name|asEagerSingleton
+argument_list|()
+expr_stmt|;
+name|bind
+argument_list|(
+name|ClientTransportClusterHealthAction
 operator|.
 name|class
 argument_list|)

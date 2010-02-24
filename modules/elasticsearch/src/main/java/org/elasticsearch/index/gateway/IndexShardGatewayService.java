@@ -793,6 +793,8 @@ block|{
 comment|// do not snapshot when in the process of relocation of primaries so we won't get conflicts
 return|return;
 block|}
+try|try
+block|{
 name|indexShard
 operator|.
 name|snapshot
@@ -879,6 +881,31 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalIndexShardStateException
+name|e
+parameter_list|)
+block|{
+comment|// ignore, that's fine
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"Failed to snapshot on close"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|close
 specifier|public
