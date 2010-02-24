@@ -1300,7 +1300,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"{ElasticSearch/{}}: Stopping ..."
+literal|"{{}}: Stopping ..."
 argument_list|,
 name|Version
 operator|.
