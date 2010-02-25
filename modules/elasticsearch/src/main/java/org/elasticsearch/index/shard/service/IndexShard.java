@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.shard
+DECL|package|org.elasticsearch.index.shard.service
 package|package
 name|org
 operator|.
@@ -13,6 +13,8 @@ operator|.
 name|index
 operator|.
 name|shard
+operator|.
+name|service
 package|;
 end_package
 
@@ -93,6 +95,48 @@ operator|.
 name|mapper
 operator|.
 name|ParsedDocument
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|shard
+operator|.
+name|IndexShardComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|shard
+operator|.
+name|IndexShardLifecycle
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|shard
+operator|.
+name|IndexShardState
 import|;
 end_import
 

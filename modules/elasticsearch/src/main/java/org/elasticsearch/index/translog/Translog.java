@@ -64,7 +64,7 @@ name|index
 operator|.
 name|shard
 operator|.
-name|IndexShard
+name|IndexShardComponent
 import|;
 end_import
 
@@ -78,7 +78,9 @@ name|index
 operator|.
 name|shard
 operator|.
-name|IndexShardComponent
+name|service
+operator|.
+name|IndexShard
 import|;
 end_import
 

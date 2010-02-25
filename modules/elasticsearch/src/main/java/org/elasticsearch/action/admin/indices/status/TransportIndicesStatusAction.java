@@ -204,6 +204,8 @@ name|index
 operator|.
 name|shard
 operator|.
+name|service
+operator|.
 name|InternalIndexShard
 import|;
 end_import

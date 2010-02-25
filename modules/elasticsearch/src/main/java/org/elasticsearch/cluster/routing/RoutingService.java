@@ -654,6 +654,21 @@ argument_list|(
 name|currentState
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|newRoutingTable
+operator|==
+name|currentState
+operator|.
+name|routingTable
+argument_list|()
+condition|)
+block|{
+comment|// no state changed
+return|return
+name|currentState
+return|;
+block|}
 return|return
 name|newClusterStateBuilder
 argument_list|()

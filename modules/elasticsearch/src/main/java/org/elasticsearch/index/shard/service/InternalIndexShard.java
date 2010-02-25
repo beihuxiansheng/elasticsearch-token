@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.shard
+DECL|package|org.elasticsearch.index.shard.service
 package|package
 name|org
 operator|.
@@ -13,6 +13,8 @@ operator|.
 name|index
 operator|.
 name|shard
+operator|.
+name|service
 package|;
 end_package
 
@@ -281,6 +283,20 @@ operator|.
 name|settings
 operator|.
 name|IndexSettings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|shard
+operator|.
+name|*
 import|;
 end_import
 
@@ -642,6 +658,13 @@ name|IndexShardState
 operator|.
 name|CREATED
 expr_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Moved to state [CREATED]"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|store
 specifier|public
@@ -873,6 +896,13 @@ name|IndexShardState
 operator|.
 name|RECOVERING
 expr_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Moved to state [RECOVERING]"
+argument_list|)
+expr_stmt|;
 return|return
 name|returnValue
 return|;
@@ -913,6 +943,17 @@ name|state
 argument_list|)
 throw|;
 block|}
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Restored to state [{}] from state [{}]"
+argument_list|,
+name|stateToRestore
+argument_list|,
+name|state
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|state
@@ -956,6 +997,13 @@ name|state
 argument_list|)
 throw|;
 block|}
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Moved to state [RELOCATED]"
+argument_list|)
+expr_stmt|;
 name|state
 operator|=
 name|IndexShardState
@@ -1042,6 +1090,13 @@ argument_list|()
 expr_stmt|;
 name|scheduleRefresherIfNeeded
 argument_list|()
+expr_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Moved to state [STARTED]"
+argument_list|)
 expr_stmt|;
 name|state
 operator|=
@@ -2294,6 +2349,13 @@ literal|null
 expr_stmt|;
 block|}
 block|}
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Moved to state [CLOSED]"
+argument_list|)
+expr_stmt|;
 name|state
 operator|=
 name|IndexShardState
@@ -2352,6 +2414,13 @@ init|(
 name|mutex
 init|)
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Moved to state [STARTED] post recovery (from gateway)"
+argument_list|)
+expr_stmt|;
 name|state
 operator|=
 name|IndexShardState
@@ -2426,6 +2495,13 @@ init|(
 name|mutex
 init|)
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Moved to state [STARTED] post recovery (from another shard)"
+argument_list|)
+expr_stmt|;
 name|state
 operator|=
 name|IndexShardState

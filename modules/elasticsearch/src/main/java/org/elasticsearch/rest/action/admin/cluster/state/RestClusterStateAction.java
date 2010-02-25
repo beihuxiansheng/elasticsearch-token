@@ -685,7 +685,7 @@ name|shardRouting
 range|:
 name|state
 operator|.
-name|routingNodes
+name|readOnlyRoutingNodes
 argument_list|()
 operator|.
 name|unassigned
@@ -719,7 +719,7 @@ name|routingNode
 range|:
 name|state
 operator|.
-name|routingNodes
+name|readOnlyRoutingNodes
 argument_list|()
 control|)
 block|{

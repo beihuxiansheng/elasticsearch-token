@@ -156,6 +156,38 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|shard
+operator|.
+name|service
+operator|.
+name|IndexShard
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|shard
+operator|.
+name|service
+operator|.
+name|InternalIndexShard
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|store
 operator|.
 name|Store
@@ -2284,11 +2316,24 @@ name|markAsRelocated
 condition|)
 block|{
 comment|// TODO what happens if the recovery process fails afterwards, we need to mark this back to started
+try|try
+block|{
 name|indexShard
 operator|.
 name|relocated
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalIndexShardStateException
+name|e
+parameter_list|)
+block|{
+comment|// we can ignore this exception since, on the other node, when it moved to phase3
+comment|// it will also send shard started, which might cause the index shard we work against
+comment|// to move be closed by the time we get to the the relocated method
+block|}
 block|}
 name|stopWatch
 operator|.

@@ -234,7 +234,7 @@ name|index
 operator|.
 name|shard
 operator|.
-name|IndexShard
+name|IndexShardNotStartedException
 import|;
 end_import
 
@@ -248,7 +248,9 @@ name|index
 operator|.
 name|shard
 operator|.
-name|IndexShardNotStartedException
+name|service
+operator|.
+name|IndexShard
 import|;
 end_import
 
@@ -409,6 +411,18 @@ operator|.
 name|atomic
 operator|.
 name|AtomicInteger
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|ExceptionsHelper
+operator|.
+name|*
 import|;
 end_import
 
@@ -2103,6 +2117,20 @@ operator|.
 name|shardFailed
 argument_list|(
 name|shard
+argument_list|,
+literal|"Failed to perform ["
+operator|+
+name|transportAction
+argument_list|()
+operator|+
+literal|"] on backup, message ["
+operator|+
+name|detailedMessage
+argument_list|(
+name|exp
+argument_list|)
+operator|+
+literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2260,6 +2288,20 @@ operator|.
 name|shardFailed
 argument_list|(
 name|shard
+argument_list|,
+literal|"Failed to perform ["
+operator|+
+name|transportAction
+argument_list|()
+operator|+
+literal|"] on backup, message ["
+operator|+
+name|detailedMessage
+argument_list|(
+name|e
+argument_list|)
+operator|+
+literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2336,6 +2378,20 @@ operator|.
 name|shardFailed
 argument_list|(
 name|shard
+argument_list|,
+literal|"Failed to perform ["
+operator|+
+name|transportAction
+argument_list|()
+operator|+
+literal|"] on backup, message ["
+operator|+
+name|detailedMessage
+argument_list|(
+name|e
+argument_list|)
+operator|+
+literal|"]"
 argument_list|)
 expr_stmt|;
 block|}

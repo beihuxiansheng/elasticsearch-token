@@ -48,7 +48,9 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|DefaultClusterService
+name|service
+operator|.
+name|InternalClusterService
 import|;
 end_import
 
@@ -170,7 +172,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-name|DefaultClusterService
+name|InternalClusterService
 operator|.
 name|class
 argument_list|)

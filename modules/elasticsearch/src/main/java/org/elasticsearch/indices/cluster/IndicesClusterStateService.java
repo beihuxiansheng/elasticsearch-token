@@ -354,35 +354,7 @@ name|index
 operator|.
 name|shard
 operator|.
-name|IndexShard
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|shard
-operator|.
 name|IndexShardState
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|shard
-operator|.
-name|InternalIndexShard
 import|;
 end_import
 
@@ -415,6 +387,38 @@ operator|.
 name|recovery
 operator|.
 name|RecoveryAction
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|shard
+operator|.
+name|service
+operator|.
+name|IndexShard
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|shard
+operator|.
+name|service
+operator|.
+name|InternalIndexShard
 import|;
 end_import
 
@@ -529,6 +533,18 @@ operator|.
 name|collect
 operator|.
 name|Sets
+operator|.
+name|*
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|ExceptionsHelper
 operator|.
 name|*
 import|;
@@ -970,7 +986,7 @@ operator|.
 name|state
 argument_list|()
 operator|.
-name|routingNodes
+name|readOnlyRoutingNodes
 argument_list|()
 operator|.
 name|nodesToShards
@@ -1637,6 +1653,15 @@ operator|.
 name|shardFailed
 argument_list|(
 name|shardRouting
+argument_list|,
+literal|"Master "
+operator|+
+name|nodes
+operator|.
+name|masterNode
+argument_list|()
+operator|+
+literal|" marked shard as started, but shard have not been created, mark shard as failed"
 argument_list|)
 expr_stmt|;
 continue|continue;
@@ -1846,6 +1871,15 @@ operator|.
 name|shardStarted
 argument_list|(
 name|shardRouting
+argument_list|,
+literal|"Master "
+operator|+
+name|nodes
+operator|.
+name|masterNode
+argument_list|()
+operator|+
+literal|" marked shard as initializing, but shard already started, mark shard as started"
 argument_list|)
 expr_stmt|;
 return|return;
@@ -2010,6 +2044,15 @@ operator|.
 name|shardFailed
 argument_list|(
 name|shardRouting
+argument_list|,
+literal|"Failed to create shard, message ["
+operator|+
+name|detailedMessage
+argument_list|(
+name|e
+argument_list|)
+operator|+
+literal|"]"
 argument_list|)
 expr_stmt|;
 return|return;
@@ -2174,6 +2217,12 @@ operator|.
 name|shardStarted
 argument_list|(
 name|shardRouting
+argument_list|,
+literal|"after recovery (backup) from node ["
+operator|+
+name|node
+operator|+
+literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2232,6 +2281,8 @@ operator|.
 name|shardStarted
 argument_list|(
 name|shardRouting
+argument_list|,
+literal|"after recovery from gateway"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2262,7 +2313,8 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
-comment|// we mark the primary we are going to recover from as relocated
+comment|// we mark the primary we are going to recover from as relocated at the end of phase 3
+comment|// so operations will start moving to the new primary
 name|recoveryAction
 operator|.
 name|startRecovery
@@ -2282,6 +2334,12 @@ operator|.
 name|shardStarted
 argument_list|(
 name|shardRouting
+argument_list|,
+literal|"after recovery (primary) from node ["
+operator|+
+name|node
+operator|+
+literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2389,6 +2447,15 @@ operator|.
 name|shardFailed
 argument_list|(
 name|shardRouting
+argument_list|,
+literal|"Failed to start shard, message ["
+operator|+
+name|detailedMessage
+argument_list|(
+name|e
+argument_list|)
+operator|+
+literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
