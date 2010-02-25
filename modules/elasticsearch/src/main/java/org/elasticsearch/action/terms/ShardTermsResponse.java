@@ -545,6 +545,11 @@ argument_list|()
 condition|;
 control|)
 block|{
+name|it
+operator|.
+name|advance
+argument_list|()
+expr_stmt|;
 name|out
 operator|.
 name|writeUTF
@@ -564,11 +569,6 @@ operator|.
 name|value
 argument_list|()
 argument_list|)
-expr_stmt|;
-name|it
-operator|.
-name|advance
-argument_list|()
 expr_stmt|;
 block|}
 block|}
