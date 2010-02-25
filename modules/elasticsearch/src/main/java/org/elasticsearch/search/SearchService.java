@@ -120,7 +120,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|IndexService
+name|engine
+operator|.
+name|Engine
 import|;
 end_import
 
@@ -132,9 +134,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|engine
+name|service
 operator|.
-name|Engine
+name|IndexService
 import|;
 end_import
 
