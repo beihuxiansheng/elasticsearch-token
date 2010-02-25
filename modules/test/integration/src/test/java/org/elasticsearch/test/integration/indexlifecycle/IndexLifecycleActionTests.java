@@ -661,6 +661,13 @@ argument_list|,
 name|settings
 argument_list|)
 expr_stmt|;
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|200
+argument_list|)
+expr_stmt|;
 name|ClusterService
 name|clusterService2
 init|=
@@ -865,6 +872,13 @@ argument_list|(
 literal|"server3"
 argument_list|,
 name|settings
+argument_list|)
+expr_stmt|;
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|200
 argument_list|)
 expr_stmt|;
 name|ClusterService
