@@ -70,6 +70,15 @@ argument_list|>
 name|parseElements
 parameter_list|()
 function_decl|;
+comment|/**      * Performs pre processing of the search context before the execute.      */
+DECL|method|preProcess
+name|void
+name|preProcess
+parameter_list|(
+name|SearchContext
+name|context
+parameter_list|)
+function_decl|;
 DECL|method|execute
 name|void
 name|execute

@@ -396,6 +396,18 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
+name|Unicode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
 name|component
 operator|.
 name|AbstractComponent
@@ -1682,11 +1694,6 @@ argument_list|()
 argument_list|,
 name|request
 operator|.
-name|queryBoost
-argument_list|()
-argument_list|,
-name|request
-operator|.
 name|source
 argument_list|()
 argument_list|,
@@ -1775,6 +1782,28 @@ literal|10
 argument_list|)
 expr_stmt|;
 block|}
+comment|// pre process
+name|dfsPhase
+operator|.
+name|preProcess
+argument_list|(
+name|context
+argument_list|)
+expr_stmt|;
+name|queryPhase
+operator|.
+name|preProcess
+argument_list|(
+name|context
+argument_list|)
+expr_stmt|;
+name|fetchPhase
+operator|.
+name|preProcess
+argument_list|(
+name|context
+argument_list|)
+expr_stmt|;
 comment|// compute the context keep alive
 name|TimeValue
 name|keepAlive
@@ -2034,10 +2063,15 @@ name|context
 argument_list|,
 literal|"Failed to parse ["
 operator|+
+name|Unicode
+operator|.
+name|fromBytes
+argument_list|(
 name|context
 operator|.
 name|source
 argument_list|()
+argument_list|)
 operator|+
 literal|"]"
 argument_list|,

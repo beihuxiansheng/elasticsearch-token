@@ -234,6 +234,17 @@ name|boolean
 name|defaultValue
 parameter_list|)
 function_decl|;
+DECL|method|paramAsBoolean
+name|Boolean
+name|paramAsBoolean
+parameter_list|(
+name|String
+name|key
+parameter_list|,
+name|Boolean
+name|defaultValue
+parameter_list|)
+function_decl|;
 DECL|method|paramAsTime
 name|TimeValue
 name|paramAsTime

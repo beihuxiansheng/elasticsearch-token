@@ -276,6 +276,17 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+DECL|method|preProcess
+annotation|@
+name|Override
+specifier|public
+name|void
+name|preProcess
+parameter_list|(
+name|SearchContext
+name|context
+parameter_list|)
+block|{     }
 DECL|method|execute
 specifier|public
 name|void
