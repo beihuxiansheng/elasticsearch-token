@@ -483,11 +483,11 @@ name|filterBuilder
 argument_list|)
 return|;
 block|}
-DECL|method|moreLikeThis
+DECL|method|moreLikeThisQuery
 specifier|public
 specifier|static
 name|MoreLikeThisJsonQueryBuilder
-name|moreLikeThis
+name|moreLikeThisQuery
 parameter_list|(
 name|String
 modifier|...
@@ -502,11 +502,11 @@ name|fields
 argument_list|)
 return|;
 block|}
-DECL|method|moreLikeThisField
+DECL|method|moreLikeThisFieldQuery
 specifier|public
 specifier|static
 name|MoreLikeThisFieldJsonQueryBuilder
-name|moreLikeThisField
+name|moreLikeThisFieldQuery
 parameter_list|(
 name|String
 name|name

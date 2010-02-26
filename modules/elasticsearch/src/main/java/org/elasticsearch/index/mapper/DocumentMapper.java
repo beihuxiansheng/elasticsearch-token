@@ -34,6 +34,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|document
+operator|.
+name|Fieldable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|util
@@ -57,7 +71,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_interface
@@ -143,7 +157,7 @@ name|Analyzer
 name|searchAnalyzer
 parameter_list|()
 function_decl|;
-comment|/**      * Parses the source into a parsed document.      *<p/>      *<p>Validates that the source has the provided id and type. Note, most times      * we will already have the id and the type even though they exist in the source as well.      */
+comment|/**      * Parses the source into a parsed document.      *      *<p>Validates that the source has the provided id and type. Note, most times      * we will already have the id and the type even though they exist in the source as well.      */
 DECL|method|parse
 name|ParsedDocument
 name|parse
@@ -161,6 +175,33 @@ parameter_list|,
 name|byte
 index|[]
 name|source
+parameter_list|)
+throws|throws
+name|MapperParsingException
+function_decl|;
+comment|/**      * Parses the source into a parsed document.      *      *<p>Validates that the source has the provided id and type. Note, most times      * we will already have the id and the type even though they exist in the source as well.      */
+DECL|method|parse
+name|ParsedDocument
+name|parse
+parameter_list|(
+annotation|@
+name|Nullable
+name|String
+name|type
+parameter_list|,
+annotation|@
+name|Nullable
+name|String
+name|id
+parameter_list|,
+name|byte
+index|[]
+name|source
+parameter_list|,
+annotation|@
+name|Nullable
+name|ParseListener
+name|listener
 parameter_list|)
 throws|throws
 name|MapperParsingException
@@ -283,6 +324,73 @@ name|ignoreDuplicates
 expr_stmt|;
 return|return
 name|this
+return|;
+block|}
+block|}
+comment|/**      * A listener to be called during the parse process.      */
+DECL|interface|ParseListener
+specifier|public
+specifier|static
+interface|interface
+name|ParseListener
+parameter_list|<
+name|ParseContext
+parameter_list|>
+block|{
+DECL|field|EMPTY
+specifier|public
+specifier|static
+specifier|final
+name|ParseListener
+name|EMPTY
+init|=
+operator|new
+name|ParseListenerAdapter
+argument_list|()
+decl_stmt|;
+comment|/**          * Called before a field is added to the document. Return<tt>true</tt> to include          * it in the document.          */
+DECL|method|beforeFieldAdded
+name|boolean
+name|beforeFieldAdded
+parameter_list|(
+name|FieldMapper
+name|fieldMapper
+parameter_list|,
+name|Fieldable
+name|fieldable
+parameter_list|,
+name|ParseContext
+name|parseContent
+parameter_list|)
+function_decl|;
+block|}
+DECL|class|ParseListenerAdapter
+specifier|public
+specifier|static
+class|class
+name|ParseListenerAdapter
+implements|implements
+name|ParseListener
+block|{
+DECL|method|beforeFieldAdded
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|beforeFieldAdded
+parameter_list|(
+name|FieldMapper
+name|fieldMapper
+parameter_list|,
+name|Fieldable
+name|fieldable
+parameter_list|,
+name|Object
+name|parseContext
+parameter_list|)
+block|{
+return|return
+literal|true
 return|;
 block|}
 block|}

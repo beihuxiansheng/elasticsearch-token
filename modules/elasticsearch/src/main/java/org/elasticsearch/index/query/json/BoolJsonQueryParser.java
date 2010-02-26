@@ -198,6 +198,24 @@ name|*
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|support
+operator|.
+name|QueryParsers
+operator|.
+name|*
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (Shay Banon)  */
 end_comment
@@ -756,7 +774,10 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
+name|fixNegativeQueryIfNeeded
+argument_list|(
 name|query
+argument_list|)
 return|;
 block|}
 block|}

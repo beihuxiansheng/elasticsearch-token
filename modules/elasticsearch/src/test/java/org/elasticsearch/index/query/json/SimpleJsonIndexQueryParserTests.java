@@ -6200,7 +6200,7 @@ name|queryParser
 operator|.
 name|parse
 argument_list|(
-name|moreLikeThis
+name|moreLikeThisQuery
 argument_list|(
 literal|"name.first"
 argument_list|,
@@ -6448,7 +6448,7 @@ name|queryParser
 operator|.
 name|parse
 argument_list|(
-name|moreLikeThisField
+name|moreLikeThisFieldQuery
 argument_list|(
 literal|"name.first"
 argument_list|)
