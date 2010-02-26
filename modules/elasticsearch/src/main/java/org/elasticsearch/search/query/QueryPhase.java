@@ -244,10 +244,10 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"queryBoost"
+literal|"indicesBoost"
 argument_list|,
 operator|new
-name|QueryBoostParseElement
+name|IndicesBoostParseElement
 argument_list|()
 argument_list|)
 operator|.

@@ -67,14 +67,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<pre>  * {  *    queryBoost : {  *         "index1" : 1.4,  *         "index2" : 1.5  *    }  * }  *</pre>  *  * @author kimchy (shay.banon)  */
+comment|/**  *<pre>  * {  *    indicesBoost : {  *         "index1" : 1.4,  *         "index2" : 1.5  *    }  * }  *</pre>  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|QueryBoostParseElement
+DECL|class|IndicesBoostParseElement
 specifier|public
 class|class
-name|QueryBoostParseElement
+name|IndicesBoostParseElement
 implements|implements
 name|SearchParseElement
 block|{

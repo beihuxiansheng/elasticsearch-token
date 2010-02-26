@@ -873,7 +873,7 @@ name|builder
 operator|.
 name|startObject
 argument_list|(
-literal|"queryBoost"
+literal|"indicesBoost"
 argument_list|)
 expr_stmt|;
 for|for
