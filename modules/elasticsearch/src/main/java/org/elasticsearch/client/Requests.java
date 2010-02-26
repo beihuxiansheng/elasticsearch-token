@@ -356,6 +356,20 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
+name|mlt
+operator|.
+name|MoreLikeThisRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
 name|search
 operator|.
 name|SearchRequest
@@ -497,6 +511,7 @@ name|indices
 argument_list|)
 return|;
 block|}
+comment|/**      * Terms request represent a request to get terms in one or more indices of specific fields and their      * document frequencies (in how many document each term exists).      *      * @param indices The indices the delete by query against. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The terms request      * @see org.elasticsearch.client.Client#terms(org.elasticsearch.action.terms.TermsRequest)      */
 DECL|method|termsRequest
 specifier|public
 specifier|static
@@ -513,6 +528,25 @@ operator|new
 name|TermsRequest
 argument_list|(
 name|indices
+argument_list|)
+return|;
+block|}
+comment|/**      * @param index      * @return      */
+DECL|method|moreLikeThisRequest
+specifier|public
+specifier|static
+name|MoreLikeThisRequest
+name|moreLikeThisRequest
+parameter_list|(
+name|String
+name|index
+parameter_list|)
+block|{
+return|return
+operator|new
+name|MoreLikeThisRequest
+argument_list|(
+name|index
 argument_list|)
 return|;
 block|}

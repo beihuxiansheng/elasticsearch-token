@@ -111,7 +111,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Terms request represent a request to get terms in one or more indices of specific fields and their  * document frequencies (in how many document each term exists).  *  *<p>This is very handy to implement things like tag clouds and auto complete (using {@link #prefix(String)} or  * {@link #regexp(String)}).  *  * @author kimchy (Shay Banon)  */
+comment|/**  * Terms request represent a request to get terms in one or more indices of specific fields and their  * document frequencies (in how many document each term exists).  *  *<p>This is very handy to implement things like tag clouds and auto complete (using {@link #prefix(String)} or  * {@link #regexp(String)}).  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class

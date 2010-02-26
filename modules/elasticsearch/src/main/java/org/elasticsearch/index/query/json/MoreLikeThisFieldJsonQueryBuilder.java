@@ -350,7 +350,7 @@ specifier|public
 name|MoreLikeThisFieldJsonQueryBuilder
 name|boostTerms
 parameter_list|(
-name|boolean
+name|Boolean
 name|boostTerms
 parameter_list|)
 block|{
