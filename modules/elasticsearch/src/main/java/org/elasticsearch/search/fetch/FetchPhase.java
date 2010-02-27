@@ -489,7 +489,7 @@ operator|.
 name|names
 argument_list|()
 operator|.
-name|name
+name|fullName
 argument_list|()
 expr_stmt|;
 name|value
