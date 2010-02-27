@@ -71,7 +71,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A tuple of term and its document frequency (in how many documents this term exists).  *  * @author kimchy (Shay Banon)  */
+comment|/**  * A tuple of term and its document frequency (in how many documents this term exists).  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -273,6 +273,7 @@ specifier|private
 name|TermFreq
 parameter_list|()
 block|{      }
+comment|/**      * Constructs a new term freq.      *      * @param term    The term      * @param docFreq The document frequency      */
 DECL|method|TermFreq
 name|TermFreq
 parameter_list|(

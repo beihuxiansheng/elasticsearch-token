@@ -115,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * All the {@link TermFreq}s that occur in a specific field.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -157,7 +157,6 @@ name|FieldTermsFreq
 parameter_list|()
 block|{      }
 DECL|method|FieldTermsFreq
-specifier|public
 name|FieldTermsFreq
 parameter_list|(
 name|String
@@ -181,6 +180,7 @@ operator|=
 name|termsFreqs
 expr_stmt|;
 block|}
+comment|/**      * The fields name.      */
 DECL|method|fieldName
 specifier|public
 name|String
@@ -193,6 +193,7 @@ operator|.
 name|fieldName
 return|;
 block|}
+comment|/**      * The term frequencies of the field.      */
 DECL|method|termsFreqs
 specifier|public
 name|TermFreq

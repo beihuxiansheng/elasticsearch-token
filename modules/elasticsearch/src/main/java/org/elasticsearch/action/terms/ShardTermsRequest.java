@@ -63,12 +63,11 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
 DECL|class|ShardTermsRequest
-specifier|public
 class|class
 name|ShardTermsRequest
 extends|extends

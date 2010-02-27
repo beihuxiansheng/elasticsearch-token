@@ -145,7 +145,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The response of terms request. Includes a list of {@link FieldTermsFreq} which include  * the field and all its term / doc freq pair.  *  * @author kimchy (Shay Banon)  */
+comment|/**  * The response of terms request. Includes a list of {@link FieldTermsFreq} which include  * the field and all its term / doc freq pair.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
