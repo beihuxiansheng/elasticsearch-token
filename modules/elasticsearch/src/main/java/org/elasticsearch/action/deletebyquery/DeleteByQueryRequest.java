@@ -24,6 +24,18 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
+name|ActionRequestValidationException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
 name|support
 operator|.
 name|replication
@@ -84,6 +96,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|Unicode
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -112,8 +136,32 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|Actions
+operator|.
+name|*
+import|;
+end_import
+
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * A request to delete all documents that matching a specific query. Best created with  * {@link org.elasticsearch.client.Requests#deleteByQueryRequest(String...)}.  *  *<p>The request requires the query source to be set either using {@link #querySource(org.elasticsearch.index.query.QueryBuilder)},  * or {@link #querySource(byte[])}.  *  * @author kimchy (shay.banon)  * @see DeleteByQueryResponse  * @see org.elasticsearch.client.Requests#deleteByQueryRequest(String...)  * @see org.elasticsearch.client.Client#deleteByQuery(DeleteByQueryRequest)  */
 end_comment
 
 begin_class
@@ -145,6 +193,7 @@ name|Strings
 operator|.
 name|EMPTY_ARRAY
 decl_stmt|;
+comment|/**      * Constructs a new delete by query request to run against the provided indices. No indices means      * it will run against all indices.      */
 DECL|method|DeleteByQueryRequest
 specifier|public
 name|DeleteByQueryRequest
@@ -165,6 +214,7 @@ DECL|method|DeleteByQueryRequest
 name|DeleteByQueryRequest
 parameter_list|()
 block|{     }
+comment|/**      * Should the listener be called on a separate thread if needed.      */
 DECL|method|listenerThreaded
 annotation|@
 name|Override
@@ -187,6 +237,44 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|validate
+annotation|@
+name|Override
+specifier|public
+name|ActionRequestValidationException
+name|validate
+parameter_list|()
+block|{
+name|ActionRequestValidationException
+name|validationException
+init|=
+name|super
+operator|.
+name|validate
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|querySource
+operator|==
+literal|null
+condition|)
+block|{
+name|validationException
+operator|=
+name|addValidationError
+argument_list|(
+literal|"query is missing"
+argument_list|,
+name|validationException
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|validationException
+return|;
+block|}
+comment|/**      * The query source to execute.      */
 DECL|method|querySource
 name|byte
 index|[]
@@ -197,6 +285,7 @@ return|return
 name|querySource
 return|;
 block|}
+comment|/**      * The query source to execute.      *      * @see org.elasticsearch.index.query.json.JsonQueryBuilders      */
 DECL|method|querySource
 annotation|@
 name|Required
@@ -218,6 +307,31 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+comment|/**      * The query source to execute. It is preferable to use either {@link #querySource(byte[])}      * or {@link #querySource(org.elasticsearch.index.query.QueryBuilder)}.      */
+DECL|method|querySource
+annotation|@
+name|Required
+specifier|public
+name|DeleteByQueryRequest
+name|querySource
+parameter_list|(
+name|String
+name|querySource
+parameter_list|)
+block|{
+return|return
+name|querySource
+argument_list|(
+name|Unicode
+operator|.
+name|fromStringAsBytes
+argument_list|(
+name|querySource
+argument_list|)
+argument_list|)
+return|;
+block|}
+comment|/**      * The query source to execute.      */
 DECL|method|querySource
 annotation|@
 name|Required
@@ -240,6 +354,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The query parse name to use. If not set, will use the default one.      */
 DECL|method|queryParserName
 name|String
 name|queryParserName
@@ -249,6 +364,7 @@ return|return
 name|queryParserName
 return|;
 block|}
+comment|/**      * The query parse name to use. If not set, will use the default one.      */
 DECL|method|queryParserName
 specifier|public
 name|DeleteByQueryRequest
@@ -268,6 +384,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The types of documents the query will run against. Defaults to all types.      */
 DECL|method|types
 name|String
 index|[]
@@ -280,6 +397,7 @@ operator|.
 name|types
 return|;
 block|}
+comment|/**      * The types of documents the query will run against. Defaults to all types.      */
 DECL|method|types
 specifier|public
 name|DeleteByQueryRequest
@@ -300,6 +418,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * A timeout to wait if the delete by query operation can't be performed immediately. Defaults to<tt>1m</tt>.      */
 DECL|method|timeout
 specifier|public
 name|DeleteByQueryRequest
@@ -440,6 +559,45 @@ name|queryParserName
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+DECL|method|toString
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"["
+operator|+
+name|Arrays
+operator|.
+name|toString
+argument_list|(
+name|indices
+argument_list|)
+operator|+
+literal|"]["
+operator|+
+name|Arrays
+operator|.
+name|toString
+argument_list|(
+name|types
+argument_list|)
+operator|+
+literal|"], querySource["
+operator|+
+name|Unicode
+operator|.
+name|fromBytes
+argument_list|(
+name|querySource
+argument_list|)
+operator|+
+literal|"]"
+return|;
 block|}
 block|}
 end_class

@@ -85,7 +85,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * The response of the count action.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -106,7 +106,6 @@ name|CountResponse
 parameter_list|()
 block|{      }
 DECL|method|CountResponse
-specifier|public
 name|CountResponse
 parameter_list|(
 name|long
@@ -141,6 +140,7 @@ operator|=
 name|count
 expr_stmt|;
 block|}
+comment|/**      * The count of documents matching the query provided.      */
 DECL|method|count
 specifier|public
 name|long

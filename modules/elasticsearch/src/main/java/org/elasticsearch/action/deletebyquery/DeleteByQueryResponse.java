@@ -78,7 +78,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashMap
+name|Iterator
 import|;
 end_import
 
@@ -92,8 +92,24 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import static
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|Maps
+operator|.
+name|*
+import|;
+end_import
+
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * The response of delete by query action. Holds the {@link IndexDeleteByQueryResponse}s from all the  * different indices.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -105,8 +121,13 @@ implements|implements
 name|ActionResponse
 implements|,
 name|Streamable
+implements|,
+name|Iterable
+argument_list|<
+name|IndexDeleteByQueryResponse
+argument_list|>
 block|{
-DECL|field|indexResponses
+DECL|field|indices
 specifier|private
 name|Map
 argument_list|<
@@ -114,21 +135,37 @@ name|String
 argument_list|,
 name|IndexDeleteByQueryResponse
 argument_list|>
-name|indexResponses
+name|indices
 init|=
-operator|new
-name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|IndexDeleteByQueryResponse
-argument_list|>
+name|newHashMap
 argument_list|()
 decl_stmt|;
 DECL|method|DeleteByQueryResponse
 name|DeleteByQueryResponse
 parameter_list|()
 block|{      }
+DECL|method|iterator
+annotation|@
+name|Override
+specifier|public
+name|Iterator
+argument_list|<
+name|IndexDeleteByQueryResponse
+argument_list|>
+name|iterator
+parameter_list|()
+block|{
+return|return
+name|indices
+operator|.
+name|values
+argument_list|()
+operator|.
+name|iterator
+argument_list|()
+return|;
+block|}
+comment|/**      * The responses from all the different indices.      */
 DECL|method|indices
 specifier|public
 name|Map
@@ -141,9 +178,10 @@ name|indices
 parameter_list|()
 block|{
 return|return
-name|indexResponses
+name|indices
 return|;
 block|}
+comment|/**      * The response of a specific index.      */
 DECL|method|index
 specifier|public
 name|IndexDeleteByQueryResponse
@@ -154,7 +192,7 @@ name|index
 parameter_list|)
 block|{
 return|return
-name|indexResponses
+name|indices
 operator|.
 name|get
 argument_list|(
@@ -214,7 +252,7 @@ argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
-name|indexResponses
+name|indices
 operator|.
 name|put
 argument_list|(
@@ -245,7 +283,7 @@ name|out
 operator|.
 name|writeInt
 argument_list|(
-name|indexResponses
+name|indices
 operator|.
 name|size
 argument_list|()
@@ -256,7 +294,7 @@ control|(
 name|IndexDeleteByQueryResponse
 name|indexResponse
 range|:
-name|indexResponses
+name|indices
 operator|.
 name|values
 argument_list|()

@@ -73,7 +73,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * The response of the delete action.  *  * @author kimchy (shay.banon)  * @see org.elasticsearch.action.delete.DeleteRequest  * @see org.elasticsearch.client.Client#delete(DeleteRequest)  */
 end_comment
 
 begin_class
@@ -106,7 +106,6 @@ name|DeleteResponse
 parameter_list|()
 block|{      }
 DECL|method|DeleteResponse
-specifier|public
 name|DeleteResponse
 parameter_list|(
 name|String
@@ -138,6 +137,7 @@ operator|=
 name|type
 expr_stmt|;
 block|}
+comment|/**      * The index the document was deleted from.      */
 DECL|method|index
 specifier|public
 name|String
@@ -150,18 +150,7 @@ operator|.
 name|index
 return|;
 block|}
-DECL|method|id
-specifier|public
-name|String
-name|id
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|id
-return|;
-block|}
+comment|/**      * The type of the document deleted.      */
 DECL|method|type
 specifier|public
 name|String
@@ -172,6 +161,19 @@ return|return
 name|this
 operator|.
 name|type
+return|;
+block|}
+comment|/**      * The id of the document deleted.      */
+DECL|method|id
+specifier|public
+name|String
+name|id
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|id
 return|;
 block|}
 DECL|method|readFrom

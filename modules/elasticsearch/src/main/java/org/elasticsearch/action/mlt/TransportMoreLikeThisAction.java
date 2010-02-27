@@ -411,7 +411,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  * The more like this action.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class

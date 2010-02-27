@@ -121,7 +121,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * Base class for all broadcast operation based responses.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -214,6 +214,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+comment|/**      * The total shards this request ran against.      */
 DECL|method|totalShards
 specifier|public
 name|int
@@ -226,6 +227,7 @@ operator|+
 name|failedShards
 return|;
 block|}
+comment|/**      * The successful shards this request was executed on.      */
 DECL|method|successfulShards
 specifier|public
 name|int
@@ -236,6 +238,7 @@ return|return
 name|successfulShards
 return|;
 block|}
+comment|/**      * The failed shards this request was executed on.      */
 DECL|method|failedShards
 specifier|public
 name|int
@@ -246,6 +249,7 @@ return|return
 name|failedShards
 return|;
 block|}
+comment|/**      * The list of shard failures exception.      */
 DECL|method|shardFailures
 specifier|public
 name|List
@@ -257,6 +261,20 @@ argument_list|>
 name|shardFailures
 parameter_list|()
 block|{
+if|if
+condition|(
+name|shardFailures
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+name|ImmutableList
+operator|.
+name|of
+argument_list|()
+return|;
+block|}
 return|return
 name|shardFailures
 return|;

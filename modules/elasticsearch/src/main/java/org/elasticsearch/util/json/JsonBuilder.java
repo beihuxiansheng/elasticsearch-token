@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * A helper builder for JSON documents.  *  *<p>Best constructed using {@link #stringJsonBuilder()} or {@link #binaryJsonBuilder()}. When used to create  * source for actions/operations, it is recommended to use {@link #binaryJsonBuilder()}.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class

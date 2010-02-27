@@ -87,12 +87,11 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * Internal count request executed directly against a specific index shard.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
 DECL|class|ShardCountRequest
-specifier|public
 class|class
 name|ShardCountRequest
 extends|extends

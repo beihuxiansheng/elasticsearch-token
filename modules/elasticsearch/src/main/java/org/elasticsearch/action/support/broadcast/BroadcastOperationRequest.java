@@ -110,7 +110,7 @@ implements|implements
 name|ActionRequest
 block|{
 DECL|field|indices
-specifier|private
+specifier|protected
 name|String
 index|[]
 name|indices

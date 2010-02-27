@@ -113,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * A request to delete a document from an index based on its type and id. Best created using  * {@link org.elasticsearch.client.Requests#deleteRequest(String)}.  *  *<p>The operation requires the {@link #index()}, {@link #type(String)} and {@link #id(String)} to  * be set.  *  * @author kimchy (shay.banon)  * @see DeleteResponse  * @see org.elasticsearch.client.Client#delete(DeleteRequest)  * @see org.elasticsearch.client.Requests#deleteRequest(String)  */
 end_comment
 
 begin_class
@@ -134,6 +134,7 @@ specifier|private
 name|String
 name|id
 decl_stmt|;
+comment|/**      * Constructs a new delete request against the specified index. The {@link #type(String)} and {@link #id(String)}      * must be set.      */
 DECL|method|DeleteRequest
 specifier|public
 name|DeleteRequest
@@ -149,6 +150,7 @@ operator|=
 name|index
 expr_stmt|;
 block|}
+comment|/**      * Constructs a new delete request against the specified index with the type and id.      *      * @param index The index to get the document from      * @param type  The type of the document      * @param id    The id of the document      */
 DECL|method|DeleteRequest
 specifier|public
 name|DeleteRequest
@@ -240,6 +242,7 @@ return|return
 name|validationException
 return|;
 block|}
+comment|/**      * Should the listener be called on a separate thread if needed.      */
 DECL|method|listenerThreaded
 annotation|@
 name|Override
@@ -262,6 +265,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Controls if the operation will be executed on a separate thread when executed locally.      */
 DECL|method|operationThreaded
 annotation|@
 name|Override
@@ -284,6 +288,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The type of the document to delete.      */
 DECL|method|type
 name|String
 name|type
@@ -293,6 +298,7 @@ return|return
 name|type
 return|;
 block|}
+comment|/**      * Sets the type of the document to delete.      */
 DECL|method|type
 annotation|@
 name|Required
@@ -314,6 +320,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The id of the document to delete.      */
 DECL|method|id
 name|String
 name|id
@@ -323,6 +330,7 @@ return|return
 name|id
 return|;
 block|}
+comment|/**      * Sets the id of the document to delete.      */
 DECL|method|id
 annotation|@
 name|Required
@@ -344,6 +352,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * A timeout to wait if the index operation can't be performed immediately. Defaults to<tt>1m</tt>.      */
 DECL|method|timeout
 specifier|public
 name|DeleteRequest
@@ -434,6 +443,30 @@ argument_list|(
 name|id
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|toString
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"["
+operator|+
+name|index
+operator|+
+literal|"]["
+operator|+
+name|type
+operator|+
+literal|"]["
+operator|+
+name|id
+operator|+
+literal|"]"
+return|;
 block|}
 block|}
 end_class

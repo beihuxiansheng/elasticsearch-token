@@ -100,6 +100,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|Unicode
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -128,8 +140,18 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * A request to count the number of documents matching a specific query. Best created with  * {@link org.elasticsearch.client.Requests#countRequest(String...)}.  *  *<p>The request requires the query source to be set either using {@link #querySource(org.elasticsearch.index.query.QueryBuilder)},  * or {@link #querySource(byte[])}.  *  * @author kimchy (shay.banon)  * @see CountResponse  * @see org.elasticsearch.client.Client#count(CountRequest)  * @see org.elasticsearch.client.Requests#countRequest(String...)  */
 end_comment
 
 begin_class
@@ -186,6 +208,7 @@ DECL|method|CountRequest
 name|CountRequest
 parameter_list|()
 block|{     }
+comment|/**      * Constructs a new count request against the provided indices. No indices provided means it will      * run against all indices.      */
 DECL|method|CountRequest
 specifier|public
 name|CountRequest
@@ -203,6 +226,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Controls the operation threading model.      */
 DECL|method|operationThreading
 annotation|@
 name|Override
@@ -225,6 +249,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Should the listener be called on a separate thread if needed.      */
 DECL|method|listenerThreaded
 annotation|@
 name|Override
@@ -247,6 +272,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * A query hint to optionally later be used when routing the request.      */
 DECL|method|queryHint
 specifier|public
 name|CountRequest
@@ -266,6 +292,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The minimum score of the documents to include in the count.      */
 DECL|method|minScore
 name|float
 name|minScore
@@ -275,6 +302,7 @@ return|return
 name|minScore
 return|;
 block|}
+comment|/**      * The minimum score of the documents to include in the count. Defaults to<tt>-1</tt> which means all      * documents will be included in the count.      */
 DECL|method|minScore
 specifier|public
 name|CountRequest
@@ -294,6 +322,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The query source to execute.      */
 DECL|method|querySource
 name|byte
 index|[]
@@ -304,6 +333,7 @@ return|return
 name|querySource
 return|;
 block|}
+comment|/**      * The query source to execute.      *      * @see org.elasticsearch.index.query.json.JsonQueryBuilders      */
 DECL|method|querySource
 annotation|@
 name|Required
@@ -325,7 +355,34 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+comment|/**      * The query source to execute. It is preferable to use either {@link #querySource(byte[])}      * or {@link #querySource(org.elasticsearch.index.query.QueryBuilder)}.      */
 DECL|method|querySource
+annotation|@
+name|Required
+specifier|public
+name|CountRequest
+name|querySource
+parameter_list|(
+name|String
+name|querySource
+parameter_list|)
+block|{
+return|return
+name|querySource
+argument_list|(
+name|Unicode
+operator|.
+name|fromStringAsBytes
+argument_list|(
+name|querySource
+argument_list|)
+argument_list|)
+return|;
+block|}
+comment|/**      * The query source to execute.      */
+DECL|method|querySource
+annotation|@
+name|Required
 specifier|public
 name|CountRequest
 name|querySource
@@ -345,6 +402,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The query parse name to use. If not set, will use the default one.      */
 DECL|method|queryParserName
 name|String
 name|queryParserName
@@ -354,6 +412,7 @@ return|return
 name|queryParserName
 return|;
 block|}
+comment|/**      * The query parse name to use. If not set, will use the default one.      */
 DECL|method|queryParserName
 specifier|public
 name|CountRequest
@@ -373,6 +432,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The types of documents the query will run against. Defaults to all types.      */
 DECL|method|types
 name|String
 index|[]
@@ -385,6 +445,7 @@ operator|.
 name|types
 return|;
 block|}
+comment|/**      * The types of documents the query will run against. Defaults to all types.      */
 DECL|method|types
 specifier|public
 name|CountRequest
@@ -620,6 +681,45 @@ name|type
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+DECL|method|toString
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"["
+operator|+
+name|Arrays
+operator|.
+name|toString
+argument_list|(
+name|indices
+argument_list|)
+operator|+
+literal|"]["
+operator|+
+name|Arrays
+operator|.
+name|toString
+argument_list|(
+name|types
+argument_list|)
+operator|+
+literal|"], querySource["
+operator|+
+name|Unicode
+operator|.
+name|fromBytes
+argument_list|(
+name|querySource
+argument_list|)
+operator|+
+literal|"]"
+return|;
 block|}
 block|}
 end_class

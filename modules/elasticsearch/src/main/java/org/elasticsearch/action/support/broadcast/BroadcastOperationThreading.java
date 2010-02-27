@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Controls the operation threading model for broadcast operation that are performed  * locally on the executing node.  *  * @author kimchy (Shay Banon)  */
+comment|/**  * Controls the operation threading model for broadcast operation that are performed  * locally on the executing node.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_enum

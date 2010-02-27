@@ -73,7 +73,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * Delete by query response executed on a specific index.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -137,6 +137,7 @@ DECL|method|IndexDeleteByQueryResponse
 name|IndexDeleteByQueryResponse
 parameter_list|()
 block|{      }
+comment|/**      * The index the delete by query operation was executed against.      */
 DECL|method|index
 specifier|public
 name|String
@@ -149,6 +150,7 @@ operator|.
 name|index
 return|;
 block|}
+comment|/**      * The total number of shards the delete by query was executed on.      */
 DECL|method|totalShards
 specifier|public
 name|int
@@ -161,6 +163,7 @@ operator|+
 name|successfulShards
 return|;
 block|}
+comment|/**      * The successful number of shards the delete by query was executed on.      */
 DECL|method|successfulShards
 specifier|public
 name|int
@@ -171,6 +174,7 @@ return|return
 name|successfulShards
 return|;
 block|}
+comment|/**      * The failed number of shards the delete by query was executed on.      */
 DECL|method|failedShards
 specifier|public
 name|int

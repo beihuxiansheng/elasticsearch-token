@@ -644,6 +644,7 @@ argument_list|>
 name|listener
 parameter_list|)
 function_decl|;
+comment|/**      * A more like this action to search for documents that are "like" a specific document.      *      * @param request The more like this request      * @return The response future      */
 DECL|method|moreLikeThis
 name|ActionFuture
 argument_list|<
@@ -655,6 +656,7 @@ name|MoreLikeThisRequest
 name|request
 parameter_list|)
 function_decl|;
+comment|/**      * A more like this action to search for documents that are "like" a specific document.      *      * @param request  The more like this request      * @param listener A listener to be notified of the result      * @return The response future      */
 DECL|method|moreLikeThis
 name|ActionFuture
 argument_list|<
@@ -672,6 +674,7 @@ argument_list|>
 name|listener
 parameter_list|)
 function_decl|;
+comment|/**      * A more like this action to search for documents that are "like" a specific document.      *      * @param request  The more like this request      * @param listener A listener to be notified of the result      */
 DECL|method|execMoreLikeThis
 name|void
 name|execMoreLikeThis

@@ -73,7 +73,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * Delete by query response executed on a specific shard.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class

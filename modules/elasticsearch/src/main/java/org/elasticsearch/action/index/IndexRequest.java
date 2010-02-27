@@ -855,7 +855,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"IndexAction ["
+literal|"["
 operator|+
 name|index
 operator|+
@@ -867,7 +867,7 @@ literal|"]["
 operator|+
 name|id
 operator|+
-literal|"], source ["
+literal|"], source["
 operator|+
 name|Unicode
 operator|.

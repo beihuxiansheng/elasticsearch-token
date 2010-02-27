@@ -112,7 +112,31 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
+name|Required
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
 name|Strings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|Unicode
 import|;
 end_import
 
@@ -161,7 +185,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  * A more like this request allowing to search for documents that a "like" the provided document. The document  * to check against to fetched based on the index, type and id provided. Best created with {@link org.elasticsearch.client.Requests#moreLikeThisRequest(String)}.  *  *<p>Note, the {@link #index()}, {@link #type(String)} and {@link #id(String)} are required.  *  * @author kimchy (shay.banon)  * @see org.elasticsearch.client.Client#moreLikeThis(MoreLikeThisRequest)  * @see org.elasticsearch.client.Requests#moreLikeThisRequest(String)  * @see org.elasticsearch.action.search.SearchResponse  */
 end_comment
 
 begin_class
@@ -317,10 +341,10 @@ init|=
 literal|false
 decl_stmt|;
 DECL|method|MoreLikeThisRequest
-specifier|public
 name|MoreLikeThisRequest
 parameter_list|()
 block|{     }
+comment|/**      * Constructs a new more like this request for a document that will be fetch from the provided index.      * Use {@link #type(String)} and {@link #id(String)} to specificy the document to load.      */
 DECL|method|MoreLikeThisRequest
 specifier|public
 name|MoreLikeThisRequest
@@ -336,6 +360,7 @@ operator|=
 name|index
 expr_stmt|;
 block|}
+comment|/**      * The index to load the document from which the "like" query will run with.      */
 DECL|method|index
 specifier|public
 name|String
@@ -346,6 +371,7 @@ return|return
 name|index
 return|;
 block|}
+comment|/**      * The type of document to load from which the "like" query will rutn with.      */
 DECL|method|type
 specifier|public
 name|String
@@ -356,7 +382,10 @@ return|return
 name|type
 return|;
 block|}
+comment|/**      * The type of document to load from which the "like" query will rutn with.      */
 DECL|method|type
+annotation|@
+name|Required
 specifier|public
 name|MoreLikeThisRequest
 name|type
@@ -375,6 +404,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The id of document to load from which the "like" query will rutn with.      */
 DECL|method|id
 specifier|public
 name|String
@@ -385,7 +415,10 @@ return|return
 name|id
 return|;
 block|}
+comment|/**      * The id of document to load from which the "like" query will rutn with.      */
 DECL|method|id
+annotation|@
+name|Required
 specifier|public
 name|MoreLikeThisRequest
 name|id
@@ -404,6 +437,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The fields of the document to use in order to find documents "like" this one. Defaults to run      * against all the document fields.      */
 DECL|method|fields
 specifier|public
 name|String
@@ -417,6 +451,7 @@ operator|.
 name|fields
 return|;
 block|}
+comment|/**      * The fields of the document to use in order to find documents "like" this one. Defaults to run      * against all the document fields.      */
 DECL|method|fields
 specifier|public
 name|MoreLikeThisRequest
@@ -437,6 +472,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The percent of the terms to match for each field. Defaults to<tt>0.3f</tt>.      */
 DECL|method|percentTermsToMatch
 specifier|public
 name|MoreLikeThisRequest
@@ -456,6 +492,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The percent of the terms to match for each field. Defaults to<tt>0.3f</tt>.      */
 DECL|method|percentTermsToMatch
 specifier|public
 name|float
@@ -468,6 +505,7 @@ operator|.
 name|percentTermsToMatch
 return|;
 block|}
+comment|/**      * The frequency below which terms will be ignored in the source doc. Defaults to<tt>2</tt>.      */
 DECL|method|minTermFrequency
 specifier|public
 name|MoreLikeThisRequest
@@ -487,6 +525,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The frequency below which terms will be ignored in the source doc. Defaults to<tt>2</tt>.      */
 DECL|method|minTermFrequency
 specifier|public
 name|int
@@ -499,6 +538,7 @@ operator|.
 name|minTermFrequency
 return|;
 block|}
+comment|/**      * The maximum number of query terms that will be included in any generated query. Defaults to<tt>25</tt>.      */
 DECL|method|maxQueryTerms
 specifier|public
 name|MoreLikeThisRequest
@@ -518,6 +558,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The maximum number of query terms that will be included in any generated query. Defaults to<tt>25</tt>.      */
 DECL|method|maxQueryTerms
 specifier|public
 name|int
@@ -530,6 +571,7 @@ operator|.
 name|maxQueryTerms
 return|;
 block|}
+comment|/**      * Any word in this set is considered "uninteresting" and ignored.      *      *<p>Even if your Analyzer allows stopwords, you might want to tell the MoreLikeThis code to ignore them, as      * for the purposes of document similarity it seems reasonable to assume that "a stop word is never interesting".      *      *<p>Defaults to no stop words.      */
 DECL|method|stopWords
 specifier|public
 name|MoreLikeThisRequest
@@ -550,6 +592,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Any word in this set is considered "uninteresting" and ignored.      *      *<p>Even if your Analyzer allows stopwords, you might want to tell the MoreLikeThis code to ignore them, as      * for the purposes of document similarity it seems reasonable to assume that "a stop word is never interesting".      *      *<p>Defaults to no stop words.      */
 DECL|method|stopWords
 specifier|public
 name|String
@@ -563,6 +606,7 @@ operator|.
 name|stopWords
 return|;
 block|}
+comment|/**      * The frequency at which words will be ignored which do not occur in at least this      * many docs. Defaults to<tt>5</tt>.      */
 DECL|method|minDocFreq
 specifier|public
 name|MoreLikeThisRequest
@@ -582,6 +626,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The frequency at which words will be ignored which do not occur in at least this      * many docs. Defaults to<tt>5</tt>.      */
 DECL|method|minDocFreq
 specifier|public
 name|int
@@ -594,6 +639,7 @@ operator|.
 name|minDocFreq
 return|;
 block|}
+comment|/**      * The maximum frequency in which words may still appear. Words that appear      * in more than this many docs will be ignored. Defaults to unbounded.      */
 DECL|method|maxDocFreq
 specifier|public
 name|MoreLikeThisRequest
@@ -613,6 +659,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The maximum frequency in which words may still appear. Words that appear      * in more than this many docs will be ignored. Defaults to unbounded.      */
 DECL|method|maxDocFreq
 specifier|public
 name|int
@@ -625,6 +672,7 @@ operator|.
 name|maxDocFreq
 return|;
 block|}
+comment|/**      * The minimum word length below which words will be ignored. Defaults to<tt>0</tt>.      */
 DECL|method|minWordLen
 specifier|public
 name|MoreLikeThisRequest
@@ -644,6 +692,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The minimum word length below which words will be ignored. Defaults to<tt>0</tt>.      */
 DECL|method|minWordLen
 specifier|public
 name|int
@@ -656,6 +705,7 @@ operator|.
 name|minWordLen
 return|;
 block|}
+comment|/**      * The maximum word length above which words will be ignored. Defaults to unbounded.      */
 DECL|method|maxWordLen
 specifier|public
 name|MoreLikeThisRequest
@@ -675,6 +725,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The maximum word length above which words will be ignored. Defaults to unbounded.      */
 DECL|method|maxWordLen
 specifier|public
 name|int
@@ -687,6 +738,7 @@ operator|.
 name|maxWordLen
 return|;
 block|}
+comment|/**      * Whether to boost terms in query based on "score" or not. Defaults to<tt>false</tt>.      */
 DECL|method|boostTerms
 specifier|public
 name|MoreLikeThisRequest
@@ -706,6 +758,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Whether to boost terms in query based on "score" or not. Defaults to<tt>false</tt>.      */
 DECL|method|boostTerms
 specifier|public
 name|Boolean
@@ -718,6 +771,7 @@ operator|.
 name|boostTerms
 return|;
 block|}
+comment|/**      * The boost factor to use when boosting terms. Defaults to<tt>1</tt>.      */
 DECL|method|boostTermsFactor
 specifier|public
 name|MoreLikeThisRequest
@@ -737,6 +791,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The boost factor to use when boosting terms. Defaults to<tt>1</tt>.      */
 DECL|method|boostTermsFactor
 specifier|public
 name|float
@@ -749,6 +804,7 @@ operator|.
 name|boostTermsFactor
 return|;
 block|}
+comment|/**      * An optional search source request allowing to control the search request for the      * more like this documents.      */
 DECL|method|searchSource
 specifier|public
 name|MoreLikeThisRequest
@@ -768,6 +824,29 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+comment|/**      * An optional search source request allowing to control the search request for the      * more like this documents.      */
+DECL|method|searchSource
+specifier|public
+name|MoreLikeThisRequest
+name|searchSource
+parameter_list|(
+name|String
+name|searchSource
+parameter_list|)
+block|{
+return|return
+name|searchSource
+argument_list|(
+name|Unicode
+operator|.
+name|fromStringAsBytes
+argument_list|(
+name|searchSource
+argument_list|)
+argument_list|)
+return|;
+block|}
+comment|/**      * An optional search source request allowing to control the search request for the      * more like this documents.      */
 DECL|method|searchSource
 specifier|public
 name|MoreLikeThisRequest
@@ -788,6 +867,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * An optional search source request allowing to control the search request for the      * more like this documents.      */
 DECL|method|searchSource
 specifier|public
 name|byte
@@ -801,7 +881,7 @@ operator|.
 name|searchSource
 return|;
 block|}
-comment|/**      * Sets the search type of the mlt search query.      */
+comment|/**      * The search type of the mlt search query.      */
 DECL|method|searchType
 specifier|public
 name|MoreLikeThisRequest
@@ -821,6 +901,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The search type of the mlt search query.      */
 DECL|method|searchType
 specifier|public
 name|SearchType
@@ -833,7 +914,7 @@ operator|.
 name|searchType
 return|;
 block|}
-comment|/**      * Sets the indices the resulting mlt query will run against. If not set, will run      * against the index the document was fetched from.      */
+comment|/**      * The indices the resulting mlt query will run against. If not set, will run      * against the index the document was fetched from.      */
 DECL|method|searchIndices
 specifier|public
 name|MoreLikeThisRequest
@@ -854,6 +935,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The indices the resulting mlt query will run against. If not set, will run      * against the index the document was fetched from.      */
 DECL|method|searchIndices
 specifier|public
 name|String
@@ -867,7 +949,7 @@ operator|.
 name|searchIndices
 return|;
 block|}
-comment|/**      * Sets the types the resulting mlt query will run against. If not set, will run      * against the type of the document fetched.      */
+comment|/**      * The types the resulting mlt query will run against. If not set, will run      * against the type of the document fetched.      */
 DECL|method|searchTypes
 specifier|public
 name|MoreLikeThisRequest
@@ -888,6 +970,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The types the resulting mlt query will run against. If not set, will run      * against the type of the document fetched.      */
 DECL|method|searchTypes
 specifier|public
 name|String
@@ -901,6 +984,7 @@ operator|.
 name|searchTypes
 return|;
 block|}
+comment|/**      * Optional search query hint.      */
 DECL|method|searchQueryHint
 specifier|public
 name|MoreLikeThisRequest
@@ -920,6 +1004,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Optional search query hint.      */
 DECL|method|searchQueryHint
 specifier|public
 name|String
@@ -932,6 +1017,7 @@ operator|.
 name|searchQueryHint
 return|;
 block|}
+comment|/**      * An optional search scroll request to be able to continue and scroll the search      * operation.      */
 DECL|method|searchScroll
 specifier|public
 name|MoreLikeThisRequest
@@ -951,6 +1037,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * An optional search scroll request to be able to continue and scroll the search      * operation.      */
 DECL|method|searchScroll
 specifier|public
 name|Scroll
@@ -1037,6 +1124,7 @@ return|return
 name|validationException
 return|;
 block|}
+comment|/**      * Should the listener be called on a separate thread if needed.      */
 DECL|method|listenerThreaded
 annotation|@
 name|Override
@@ -1049,6 +1137,7 @@ return|return
 name|threadedListener
 return|;
 block|}
+comment|/**      * Should the listener be called on a separate thread if needed.      */
 DECL|method|listenerThreaded
 annotation|@
 name|Override

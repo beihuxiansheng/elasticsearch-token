@@ -237,7 +237,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * Performs the delete operation.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class

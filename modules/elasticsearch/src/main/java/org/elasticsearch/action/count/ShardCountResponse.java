@@ -63,12 +63,11 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * Internal count response of a shard count request executed directly against a specific shard.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
 DECL|class|ShardCountResponse
-specifier|public
 class|class
 name|ShardCountResponse
 extends|extends
@@ -112,7 +111,6 @@ name|count
 expr_stmt|;
 block|}
 DECL|method|count
-specifier|public
 name|long
 name|count
 parameter_list|()
