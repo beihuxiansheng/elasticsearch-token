@@ -1604,6 +1604,15 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
+DECL|method|string
+specifier|public
+specifier|abstract
+name|String
+name|string
+parameter_list|()
+throws|throws
+name|IOException
+function_decl|;
 DECL|method|close
 specifier|public
 name|void

@@ -119,7 +119,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * A request to delete an index. Best created with {@link org.elasticsearch.client.Requests#deleteIndexRequest(String)}.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -146,6 +146,11 @@ literal|10
 argument_list|)
 decl_stmt|;
 DECL|method|DeleteIndexRequest
+name|DeleteIndexRequest
+parameter_list|()
+block|{     }
+comment|/**      * Constructs a new delete index request for the specified index.      */
+DECL|method|DeleteIndexRequest
 specifier|public
 name|DeleteIndexRequest
 parameter_list|(
@@ -160,10 +165,6 @@ operator|=
 name|index
 expr_stmt|;
 block|}
-DECL|method|DeleteIndexRequest
-name|DeleteIndexRequest
-parameter_list|()
-block|{     }
 DECL|method|validate
 annotation|@
 name|Override
@@ -198,6 +199,7 @@ return|return
 name|validationException
 return|;
 block|}
+comment|/**      * The index to delete.      */
 DECL|method|index
 name|String
 name|index
@@ -207,6 +209,7 @@ return|return
 name|index
 return|;
 block|}
+comment|/**      * Timeout to wait for the index deletion to be acknowledged by current cluster nodes. Defaults      * to<tt>10s</tt>.      */
 DECL|method|timeout
 name|TimeValue
 name|timeout
@@ -216,6 +219,7 @@ return|return
 name|timeout
 return|;
 block|}
+comment|/**      * Timeout to wait for the index deletion to be acknowledged by current cluster nodes. Defaults      * to<tt>10s</tt>.      */
 DECL|method|timeout
 specifier|public
 name|DeleteIndexRequest

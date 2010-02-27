@@ -77,7 +77,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * A response for a create index action.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -100,7 +100,6 @@ name|CreateIndexResponse
 parameter_list|()
 block|{     }
 DECL|method|CreateIndexResponse
-specifier|public
 name|CreateIndexResponse
 parameter_list|(
 name|boolean
@@ -114,6 +113,7 @@ operator|=
 name|acknowledged
 expr_stmt|;
 block|}
+comment|/**      * Has the index creation been acknowledged by all current cluster nodes within the      * provided {@link CreateIndexRequest#timeout(org.elasticsearch.util.TimeValue)}.      */
 DECL|method|acknowledged
 specifier|public
 name|boolean

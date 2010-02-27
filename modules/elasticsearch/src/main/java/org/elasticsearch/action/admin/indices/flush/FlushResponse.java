@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * A response to flush action.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class

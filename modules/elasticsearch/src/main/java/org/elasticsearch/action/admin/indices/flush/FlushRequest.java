@@ -83,7 +83,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * A flush request to flush one or more indices. The flush process of an index basically frees memory from the index  * by flushing data to the index storage and clearing the internal transaction log. By default, ElasticSearch uses  * memory heuristics in order to automatically trigger flush operations as required in order to clear memory.  *  *<p>Best created with {@link org.elasticsearch.client.Requests#flushRequest(String...)}.  *  * @author kimchy (shay.banon)  * @see org.elasticsearch.client.Requests#flushRequest(String...)  * @see org.elasticsearch.client.IndicesAdminClient#flush(FlushRequest)  * @see FlushResponse  */
 end_comment
 
 begin_class
@@ -105,6 +105,7 @@ DECL|method|FlushRequest
 name|FlushRequest
 parameter_list|()
 block|{      }
+comment|/**      * Constructs a new flush request against one or more indices. If nothing is provided, all indices will      * be flushed.      */
 DECL|method|FlushRequest
 specifier|public
 name|FlushRequest
@@ -130,6 +131,7 @@ name|THREAD_PER_SHARD
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Should a refresh be performed once the flush is done. Defaults to<tt>false</tt>.      */
 DECL|method|refresh
 specifier|public
 name|boolean
@@ -142,6 +144,7 @@ operator|.
 name|refresh
 return|;
 block|}
+comment|/**      * Should a refresh be performed once the flush is done. Defaults to<tt>false</tt>.      */
 DECL|method|refresh
 specifier|public
 name|FlushRequest
@@ -161,6 +164,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Should the listener be called on a separate thread if needed.      */
 DECL|method|listenerThreaded
 annotation|@
 name|Override
@@ -183,6 +187,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Controls the operation threading model.      */
 DECL|method|operationThreading
 annotation|@
 name|Override

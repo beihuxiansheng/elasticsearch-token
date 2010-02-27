@@ -570,11 +570,6 @@ parameter_list|)
 block|{
 try|try
 block|{
-name|jsonBuilder
-operator|.
-name|flush
-argument_list|()
-expr_stmt|;
 return|return
 name|source
 argument_list|(

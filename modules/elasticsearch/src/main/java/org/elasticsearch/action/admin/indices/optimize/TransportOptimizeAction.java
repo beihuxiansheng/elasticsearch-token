@@ -285,7 +285,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * Optimize index/indices action.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class

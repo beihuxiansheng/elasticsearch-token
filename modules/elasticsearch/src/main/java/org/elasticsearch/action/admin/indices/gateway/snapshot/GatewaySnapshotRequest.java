@@ -51,7 +51,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * Gateway snapshot allows to explicitly perform a snapshot through the gateway of one or more indices (backup them).  * By default, each index gateway periodically snapshot changes, though it can be disabled and be controlled completely  * through this API. Best created using {@link org.elasticsearch.client.Requests#gatewaySnapshotRequest(String...)}.  *  * @author kimchy (shay.banon)  * @see org.elasticsearch.client.Requests#gatewaySnapshotRequest(String...)  * @see org.elasticsearch.client.IndicesAdminClient#gatewaySnapshot(GatewaySnapshotRequest)  * @see GatewaySnapshotResponse  */
 end_comment
 
 begin_class
@@ -62,6 +62,11 @@ name|GatewaySnapshotRequest
 extends|extends
 name|IndicesReplicationOperationRequest
 block|{
+DECL|method|GatewaySnapshotRequest
+name|GatewaySnapshotRequest
+parameter_list|()
+block|{      }
+comment|/**      * Constructs a new gateway snapshot against one or more indices. No indices means the gateway snapshot      * will be executed against all indices.      */
 DECL|method|GatewaySnapshotRequest
 specifier|public
 name|GatewaySnapshotRequest
@@ -78,10 +83,7 @@ operator|=
 name|indices
 expr_stmt|;
 block|}
-DECL|method|GatewaySnapshotRequest
-name|GatewaySnapshotRequest
-parameter_list|()
-block|{      }
+comment|/**      * Should the listener be called on a separate thread if needed.      */
 DECL|method|listenerThreaded
 annotation|@
 name|Override

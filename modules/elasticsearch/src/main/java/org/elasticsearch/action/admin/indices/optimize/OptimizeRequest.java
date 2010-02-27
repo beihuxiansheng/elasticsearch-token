@@ -83,7 +83,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A request to optimize one or more indices. In order to optimize on all the indices, pass an empty array or  *<tt>null</tt> for the indices.  *  *<p>{@link #waitForMerge(boolean)} allows to control if the call will block until the optimize completes and  * defaults to<tt>true</tt>.  *  *<p>{@link #maxNumSegments(int)} allows to control the number of segments to optimize down to. By default, will  * cause the optimize process to optimize down to half the configured number of segments.  *  * @author kimchy (Shay Banon)  */
+comment|/**  * A request to optimize one or more indices. In order to optimize on all the indices, pass an empty array or  *<tt>null</tt> for the indices.  *  *<p>{@link #waitForMerge(boolean)} allows to control if the call will block until the optimize completes and  * defaults to<tt>true</tt>.  *  *<p>{@link #maxNumSegments(int)} allows to control the number of segments to optimize down to. By default, will  * cause the optimize process to optimize down to half the configured number of segments.  *  * @author kimchy (shay.banon)  * @see org.elasticsearch.client.Requests#optimizeRequest(String...)  * @see org.elasticsearch.client.IndicesAdminClient#optimize(OptimizeRequest)  * @see OptimizeResponse  */
 end_comment
 
 begin_class

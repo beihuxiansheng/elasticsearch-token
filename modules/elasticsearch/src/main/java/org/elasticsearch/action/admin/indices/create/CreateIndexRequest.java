@@ -179,7 +179,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * A request to create an index. Best created with {@link org.elasticsearch.client.Requests#createIndexRequest(String)}.  *  *<p>The index created can optionally be created with {@link #settings(org.elasticsearch.util.settings.Settings)}.  *  * @author kimchy (shay.banon)  * @see org.elasticsearch.client.IndicesAdminClient#create(CreateIndexRequest)  * @see org.elasticsearch.client.Requests#createIndexRequest(String)  * @see CreateIndexResponse  */
 end_comment
 
 begin_class
@@ -218,6 +218,11 @@ name|SECONDS
 argument_list|)
 decl_stmt|;
 DECL|method|CreateIndexRequest
+name|CreateIndexRequest
+parameter_list|()
+block|{     }
+comment|/**      * Constructs a new request to create an index with the specified name.      */
+DECL|method|CreateIndexRequest
 specifier|public
 name|CreateIndexRequest
 parameter_list|(
@@ -233,6 +238,7 @@ name|EMPTY_SETTINGS
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Constructs a new request to create an index with the specified name and settings.      */
 DECL|method|CreateIndexRequest
 specifier|public
 name|CreateIndexRequest
@@ -257,10 +263,6 @@ operator|=
 name|settings
 expr_stmt|;
 block|}
-DECL|method|CreateIndexRequest
-name|CreateIndexRequest
-parameter_list|()
-block|{     }
 DECL|method|validate
 annotation|@
 name|Override
@@ -295,6 +297,7 @@ return|return
 name|validationException
 return|;
 block|}
+comment|/**      * The index name to create.      */
 DECL|method|index
 name|String
 name|index
@@ -304,6 +307,7 @@ return|return
 name|index
 return|;
 block|}
+comment|/**      * The settings to created the index with.      */
 DECL|method|settings
 name|Settings
 name|settings
@@ -313,6 +317,7 @@ return|return
 name|settings
 return|;
 block|}
+comment|/**      * The settings to created the index with.      */
 DECL|method|settings
 specifier|public
 name|CreateIndexRequest
@@ -332,6 +337,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Timeout to wait for the index creation to be acknowledged by current cluster nodes. Defaults      * to<tt>10s</tt>.      */
 DECL|method|timeout
 name|TimeValue
 name|timeout
@@ -341,6 +347,7 @@ return|return
 name|timeout
 return|;
 block|}
+comment|/**      * Timeout to wait for the index creation to be acknowledged by current cluster nodes. Defaults      * to<tt>10s</tt>.      */
 DECL|method|timeout
 specifier|public
 name|CreateIndexRequest

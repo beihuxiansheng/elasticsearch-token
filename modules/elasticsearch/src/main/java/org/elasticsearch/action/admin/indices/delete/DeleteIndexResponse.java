@@ -77,7 +77,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * A response for a delete index action.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -100,7 +100,6 @@ name|DeleteIndexResponse
 parameter_list|()
 block|{     }
 DECL|method|DeleteIndexResponse
-specifier|public
 name|DeleteIndexResponse
 parameter_list|(
 name|boolean
@@ -114,6 +113,7 @@ operator|=
 name|acknowledged
 expr_stmt|;
 block|}
+comment|/**      * Has the index deletion been acknowledged by all current cluster nodes within the      * provided {@link DeleteIndexRequest#timeout(org.elasticsearch.util.TimeValue)}.      */
 DECL|method|acknowledged
 specifier|public
 name|boolean

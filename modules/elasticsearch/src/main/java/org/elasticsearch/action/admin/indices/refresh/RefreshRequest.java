@@ -83,7 +83,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * A refresh request making all operations performed since the last refresh available for search. The (near) real-time  * capabilities depends on the index engine used. For example, the robin one requires refresh to be called, but by  * default a refresh is scheduled periodically.  *  * @author kimchy (shay.banon)  * @see org.elasticsearch.client.Requests#refreshRequest(String...)  * @see org.elasticsearch.client.IndicesAdminClient#refresh(RefreshRequest)  * @see RefreshResponse  */
 end_comment
 
 begin_class
@@ -101,6 +101,10 @@ name|waitForOperations
 init|=
 literal|true
 decl_stmt|;
+DECL|method|RefreshRequest
+name|RefreshRequest
+parameter_list|()
+block|{     }
 DECL|method|RefreshRequest
 specifier|public
 name|RefreshRequest
@@ -126,10 +130,7 @@ name|THREAD_PER_SHARD
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|RefreshRequest
-name|RefreshRequest
-parameter_list|()
-block|{      }
+comment|/**      * Should the listener be called on a separate thread if needed.      */
 DECL|method|listenerThreaded
 annotation|@
 name|Override
@@ -152,6 +153,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Controls the operation threading model.      */
 DECL|method|operationThreading
 annotation|@
 name|Override

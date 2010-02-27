@@ -79,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  * The response of put mapping operation.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -102,7 +102,6 @@ name|PutMappingResponse
 parameter_list|()
 block|{      }
 DECL|method|PutMappingResponse
-specifier|public
 name|PutMappingResponse
 parameter_list|(
 name|boolean
@@ -116,6 +115,7 @@ operator|=
 name|acknowledged
 expr_stmt|;
 block|}
+comment|/**      * Has the put mapping creation been acknowledged by all current cluster nodes within the      * provided {@link PutMappingRequest#timeout(org.elasticsearch.util.TimeValue)}.      */
 DECL|method|acknowledged
 specifier|public
 name|boolean

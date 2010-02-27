@@ -197,6 +197,7 @@ return|return
 literal|null
 return|;
 block|}
+comment|/**      * Should the listener be called on a separate thread if needed.      */
 DECL|method|listenerThreaded
 annotation|@
 name|Override
@@ -211,6 +212,7 @@ operator|.
 name|listenerThreaded
 return|;
 block|}
+comment|/**      * Should the listener be called on a separate thread if needed.      */
 DECL|method|listenerThreaded
 annotation|@
 name|Override
@@ -232,6 +234,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Controls the operation threading model.      */
 DECL|method|operationThreading
 specifier|public
 name|BroadcastOperationThreading
@@ -242,6 +245,7 @@ return|return
 name|operationThreading
 return|;
 block|}
+comment|/**      * Controls the operation threading model.      */
 DECL|method|operationThreading
 specifier|public
 name|BroadcastOperationRequest

@@ -94,12 +94,22 @@ name|java
 operator|.
 name|util
 operator|.
+name|Iterator
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * Reponse for the gateway snapshot action.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -111,8 +121,13 @@ implements|implements
 name|ActionResponse
 implements|,
 name|Streamable
+implements|,
+name|Iterable
+argument_list|<
+name|IndexGatewaySnapshotResponse
+argument_list|>
 block|{
-DECL|field|indexResponses
+DECL|field|indices
 specifier|private
 name|Map
 argument_list|<
@@ -120,7 +135,7 @@ name|String
 argument_list|,
 name|IndexGatewaySnapshotResponse
 argument_list|>
-name|indexResponses
+name|indices
 init|=
 operator|new
 name|HashMap
@@ -135,6 +150,28 @@ DECL|method|GatewaySnapshotResponse
 name|GatewaySnapshotResponse
 parameter_list|()
 block|{      }
+DECL|method|iterator
+annotation|@
+name|Override
+specifier|public
+name|Iterator
+argument_list|<
+name|IndexGatewaySnapshotResponse
+argument_list|>
+name|iterator
+parameter_list|()
+block|{
+return|return
+name|indices
+operator|.
+name|values
+argument_list|()
+operator|.
+name|iterator
+argument_list|()
+return|;
+block|}
+comment|/**      * A map of index level responses of the gateway snapshot operation.      */
 DECL|method|indices
 specifier|public
 name|Map
@@ -147,9 +184,10 @@ name|indices
 parameter_list|()
 block|{
 return|return
-name|indexResponses
+name|indices
 return|;
 block|}
+comment|/**      * The index level gateway snapshot response for the given index.      */
 DECL|method|index
 specifier|public
 name|IndexGatewaySnapshotResponse
@@ -160,7 +198,7 @@ name|index
 parameter_list|)
 block|{
 return|return
-name|indexResponses
+name|indices
 operator|.
 name|get
 argument_list|(
@@ -220,7 +258,7 @@ argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
-name|indexResponses
+name|indices
 operator|.
 name|put
 argument_list|(
@@ -251,7 +289,7 @@ name|out
 operator|.
 name|writeInt
 argument_list|(
-name|indexResponses
+name|indices
 operator|.
 name|size
 argument_list|()
@@ -262,7 +300,7 @@ control|(
 name|IndexGatewaySnapshotResponse
 name|indexGatewaySnapshotResponse
 range|:
-name|indexResponses
+name|indices
 operator|.
 name|values
 argument_list|()

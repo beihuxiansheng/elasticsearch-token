@@ -69,12 +69,11 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
 DECL|class|ShardGatewaySnapshotRequest
-specifier|public
 class|class
 name|ShardGatewaySnapshotRequest
 extends|extends
@@ -86,7 +85,6 @@ name|int
 name|shardId
 decl_stmt|;
 DECL|method|ShardGatewaySnapshotRequest
-specifier|public
 name|ShardGatewaySnapshotRequest
 parameter_list|(
 name|IndexGatewaySnapshotRequest
@@ -115,7 +113,6 @@ argument_list|()
 expr_stmt|;
 block|}
 DECL|method|ShardGatewaySnapshotRequest
-specifier|public
 name|ShardGatewaySnapshotRequest
 parameter_list|(
 name|String

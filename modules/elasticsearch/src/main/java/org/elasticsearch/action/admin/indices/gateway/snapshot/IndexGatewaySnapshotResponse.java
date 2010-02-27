@@ -79,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * An index level gateway snapshot response.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -143,6 +143,7 @@ DECL|method|IndexGatewaySnapshotResponse
 name|IndexGatewaySnapshotResponse
 parameter_list|()
 block|{      }
+comment|/**      * The index the gateway snapshot has performed on.      */
 DECL|method|index
 specifier|public
 name|String
@@ -153,6 +154,7 @@ return|return
 name|index
 return|;
 block|}
+comment|/**      * The number of successful shards the gateway snapshot operation was performed on.      */
 DECL|method|successfulShards
 specifier|public
 name|int
@@ -163,6 +165,7 @@ return|return
 name|successfulShards
 return|;
 block|}
+comment|/**      * The number of failed shards the gateway snapshot operation was performed on.      */
 DECL|method|failedShards
 specifier|public
 name|int
@@ -173,6 +176,7 @@ return|return
 name|failedShards
 return|;
 block|}
+comment|/**      * The number of total shards the gateway snapshot operation was performed on.      */
 DECL|method|totalShards
 specifier|public
 name|int

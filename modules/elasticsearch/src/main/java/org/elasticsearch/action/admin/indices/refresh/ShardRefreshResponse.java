@@ -67,12 +67,11 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
 DECL|class|ShardRefreshResponse
-specifier|public
 class|class
 name|ShardRefreshResponse
 extends|extends

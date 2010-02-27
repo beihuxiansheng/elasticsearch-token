@@ -135,7 +135,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * Create index action.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class

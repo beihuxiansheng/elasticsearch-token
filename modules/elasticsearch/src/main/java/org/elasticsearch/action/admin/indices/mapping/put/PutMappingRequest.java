@@ -28,6 +28,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ElasticSearchIllegalArgumentException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|action
 operator|.
 name|ActionRequestValidationException
@@ -71,6 +81,20 @@ operator|.
 name|util
 operator|.
 name|TimeValue
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|json
+operator|.
+name|JsonBuilder
 import|;
 end_import
 
@@ -145,7 +169,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * Puts mapping definition registered under a specific type into one or more indices. Best created with  * {@link org.elasticsearch.client.Requests#putMappingRequest(String...)}.  *  *<p>If the mappings already exists, the new mappings will be merged with the new one. If there are elements  * that can't be merged are detected, the request will be rejected unless the {@link #ignoreDuplicates(boolean)}  * is set. In such a case, the duplicate mappings will be rejected.  *  * @author kimchy (shay.banon)  * @see org.elasticsearch.client.Requests#putMappingRequest(String...)  * @see org.elasticsearch.client.IndicesAdminClient#putMapping(PutMappingRequest)  * @see PutMappingResponse  */
 end_comment
 
 begin_class
@@ -198,6 +222,7 @@ DECL|method|PutMappingRequest
 name|PutMappingRequest
 parameter_list|()
 block|{     }
+comment|/**      * Constructs a new put mapping request against one or more indices. If nothing is set then      * it will be executed against all indices.      */
 DECL|method|PutMappingRequest
 specifier|public
 name|PutMappingRequest
@@ -212,69 +237,6 @@ operator|.
 name|indices
 operator|=
 name|indices
-expr_stmt|;
-block|}
-DECL|method|PutMappingRequest
-specifier|public
-name|PutMappingRequest
-parameter_list|(
-name|String
-name|index
-parameter_list|,
-name|String
-name|mappingType
-parameter_list|,
-name|String
-name|mappingSource
-parameter_list|)
-block|{
-name|this
-argument_list|(
-operator|new
-name|String
-index|[]
-block|{
-name|index
-block|}
-argument_list|,
-name|mappingType
-argument_list|,
-name|mappingSource
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|PutMappingRequest
-specifier|public
-name|PutMappingRequest
-parameter_list|(
-name|String
-index|[]
-name|indices
-parameter_list|,
-name|String
-name|mappingType
-parameter_list|,
-name|String
-name|mappingSource
-parameter_list|)
-block|{
-name|this
-operator|.
-name|indices
-operator|=
-name|indices
-expr_stmt|;
-name|this
-operator|.
-name|mappingType
-operator|=
-name|mappingType
-expr_stmt|;
-name|this
-operator|.
-name|mappingSource
-operator|=
-name|mappingSource
 expr_stmt|;
 block|}
 DECL|method|validate
@@ -311,21 +273,7 @@ return|return
 name|validationException
 return|;
 block|}
-DECL|method|listenerThreaded
-annotation|@
-name|Override
-specifier|public
-name|PutMappingRequest
-name|listenerThreaded
-parameter_list|(
-name|boolean
-name|threadedListener
-parameter_list|)
-block|{
-return|return
-name|this
-return|;
-block|}
+comment|/**      * The indices the mappings will be put.      */
 DECL|method|indices
 name|String
 index|[]
@@ -336,6 +284,7 @@ return|return
 name|indices
 return|;
 block|}
+comment|/**      * The mapping type.      */
 DECL|method|type
 name|String
 name|type
@@ -365,6 +314,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The mapping source definition.      */
 DECL|method|mappingSource
 name|String
 name|mappingSource
@@ -374,6 +324,48 @@ return|return
 name|mappingSource
 return|;
 block|}
+comment|/**      * The mapping source definition.      */
+DECL|method|mappingSource
+annotation|@
+name|Required
+specifier|public
+name|PutMappingRequest
+name|mappingSource
+parameter_list|(
+name|JsonBuilder
+name|mappingBuilder
+parameter_list|)
+block|{
+try|try
+block|{
+return|return
+name|mappingSource
+argument_list|(
+name|mappingBuilder
+operator|.
+name|string
+argument_list|()
+argument_list|)
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|ElasticSearchIllegalArgumentException
+argument_list|(
+literal|"Failed to build json for mapping request"
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
+block|}
+comment|/**      * The mapping source definition.      */
 DECL|method|mappingSource
 annotation|@
 name|Required
@@ -395,6 +387,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Timeout to wait till the put mapping gets acknowledged of all current cluster nodes. Defaults to      *<tt>10s</tt>.      */
 DECL|method|timeout
 name|TimeValue
 name|timeout
@@ -404,6 +397,7 @@ return|return
 name|timeout
 return|;
 block|}
+comment|/**      * Timeout to wait till the put mapping gets acknowledged of all current cluster nodes. Defaults to      *<tt>10s</tt>.      */
 DECL|method|timeout
 specifier|public
 name|PutMappingRequest
@@ -423,6 +417,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * If there is already a mapping definition registered against the type, then it will be merged. If there are      * elements that can't be merged are detected, the request will be rejected unless the      * {@link #ignoreDuplicates(boolean)} is set. In such a case, the duplicate mappings will be rejected.      */
 DECL|method|ignoreDuplicates
 specifier|public
 name|boolean
@@ -433,6 +428,7 @@ return|return
 name|ignoreDuplicates
 return|;
 block|}
+comment|/**      * If there is already a mapping definition registered against the type, then it will be merged. If there are      * elements that can't be merged are detected, the request will be rejected unless the      * {@link #ignoreDuplicates(boolean)} is set. In such a case, the duplicate mappings will be rejected.      */
 DECL|method|ignoreDuplicates
 specifier|public
 name|PutMappingRequest

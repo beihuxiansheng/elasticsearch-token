@@ -153,6 +153,7 @@ return|return
 literal|null
 return|;
 block|}
+comment|/**      * Should the listener be called on a separate thread if needed.      */
 DECL|method|listenerThreaded
 annotation|@
 name|Override
@@ -167,6 +168,7 @@ operator|.
 name|threadedListener
 return|;
 block|}
+comment|/**      * Should the listener be called on a separate thread if needed.      */
 DECL|method|listenerThreaded
 annotation|@
 name|Override
