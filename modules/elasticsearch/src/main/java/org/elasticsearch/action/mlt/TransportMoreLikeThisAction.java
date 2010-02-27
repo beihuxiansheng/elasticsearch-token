@@ -582,7 +582,7 @@ if|if
 condition|(
 name|getResponse
 operator|.
-name|empty
+name|exists
 argument_list|()
 condition|)
 block|{

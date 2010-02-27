@@ -319,7 +319,7 @@ if|if
 condition|(
 name|result
 operator|.
-name|empty
+name|exists
 argument_list|()
 condition|)
 block|{

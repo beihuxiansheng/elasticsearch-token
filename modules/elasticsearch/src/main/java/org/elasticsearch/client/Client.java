@@ -263,7 +263,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A client provides a one stop interface for performing actions/operations against the cluster.  *  *<p>All operations performed are asynchronous by nature. There are three flavors for each operation,  * the simplest returns an {@link ActionFuture}, another that also accepts an {@link ActionListener},  * and the last (prefixed with<tt>exec</tt>) which just accepts an {@link ActionListener} without returning  * an {@link ActionFuture}.  *  *<p>A client can either be retrieved from a {@link org.elasticsearch.server.Server} started, or connected remotely  * to one or more nodes using {@link org.elasticsearch.client.transport.TransportClient}.  *  * @author kimchy (Shay Banon)  * @see org.elasticsearch.server.Server#client()  * @see org.elasticsearch.client.transport.TransportClient  */
+comment|/**  * A client provides a one stop interface for performing actions/operations against the cluster.  *  *<p>All operations performed are asynchronous by nature. There are three flavors for each operation,  * the simplest returns an {@link ActionFuture}, another that also accepts an {@link ActionListener},  * and the last (prefixed with<tt>exec</tt>) which just accepts an {@link ActionListener} without returning  * an {@link ActionFuture}.  *  *<p>A client can either be retrieved from a {@link org.elasticsearch.server.Server} started, or connected remotely  * to one or more nodes using {@link org.elasticsearch.client.transport.TransportClient}.  *  * @author kimchy (shay.banon)  * @see org.elasticsearch.server.Server#client()  * @see org.elasticsearch.client.transport.TransportClient  */
 end_comment
 
 begin_interface

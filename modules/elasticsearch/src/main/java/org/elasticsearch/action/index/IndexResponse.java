@@ -73,7 +73,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * A response of an index operation,  *  * @author kimchy (shay.banon)  * @see org.elasticsearch.action.index.IndexRequest  * @see org.elasticsearch.client.Client#index(IndexRequest)  */
 end_comment
 
 begin_class
@@ -102,12 +102,10 @@ name|String
 name|type
 decl_stmt|;
 DECL|method|IndexResponse
-specifier|public
 name|IndexResponse
 parameter_list|()
 block|{      }
 DECL|method|IndexResponse
-specifier|public
 name|IndexResponse
 parameter_list|(
 name|String
@@ -139,6 +137,7 @@ operator|=
 name|type
 expr_stmt|;
 block|}
+comment|/**      * The index the document was indexed into.      */
 DECL|method|index
 specifier|public
 name|String
@@ -151,18 +150,7 @@ operator|.
 name|index
 return|;
 block|}
-DECL|method|id
-specifier|public
-name|String
-name|id
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|id
-return|;
-block|}
+comment|/**      * The type of the document indexed.      */
 DECL|method|type
 specifier|public
 name|String
@@ -173,6 +161,19 @@ return|return
 name|this
 operator|.
 name|type
+return|;
+block|}
+comment|/**      * The id of the document indexed.      */
+DECL|method|id
+specifier|public
+name|String
+name|id
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|id
 return|;
 block|}
 DECL|method|readFrom

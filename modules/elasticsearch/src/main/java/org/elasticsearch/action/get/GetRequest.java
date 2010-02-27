@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * A request to get a document (its source) from an index based on its type and id. Best created using  * {@link org.elasticsearch.client.Requests#getRequest(String)}.  *  *<p>The operation requires the {@link #index()}, {@link #type(String)} and {@link #id(String)}  * to be set.  *  * @author kimchy (shay.banon)  * @see org.elasticsearch.action.get.GetResponse  * @see org.elasticsearch.client.Requests#getRequest(String)  * @see org.elasticsearch.client.Client#get(GetRequest)  */
 end_comment
 
 begin_class
@@ -90,6 +90,7 @@ DECL|method|GetRequest
 name|GetRequest
 parameter_list|()
 block|{     }
+comment|/**      * Constructs a new get request against the specified index. The {@link #type(String)} and {@link #id(String)}      * must be set.      */
 DECL|method|GetRequest
 specifier|public
 name|GetRequest
@@ -108,6 +109,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Constructs a new get request against the specified index with the type and id.      *      * @param index The index to get the document from      * @param type  The type of the document      * @param id    The id of the document      */
 DECL|method|GetRequest
 specifier|public
 name|GetRequest
@@ -132,6 +134,7 @@ name|id
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Sets the type of the document to fetch.      */
 DECL|method|type
 annotation|@
 name|Required
@@ -153,6 +156,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the id of the document to fetch.      */
 DECL|method|id
 annotation|@
 name|Required
@@ -174,6 +178,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Should the listener be called on a separate thread if needed.      */
 DECL|method|listenerThreaded
 annotation|@
 name|Override
@@ -196,6 +201,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Controls if the operation will be executed on a separate thread when executed locally.      */
 DECL|method|threadedOperation
 annotation|@
 name|Override

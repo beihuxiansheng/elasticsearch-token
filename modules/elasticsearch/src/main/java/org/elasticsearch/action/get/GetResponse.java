@@ -85,7 +85,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * The response of a get action.  *  * @author kimchy (shay.banon)  * @see GetRequest  * @see org.elasticsearch.client.Client#get(GetRequest)  */
 end_comment
 
 begin_class
@@ -120,12 +120,10 @@ index|[]
 name|source
 decl_stmt|;
 DECL|method|GetResponse
-specifier|public
 name|GetResponse
 parameter_list|()
 block|{     }
 DECL|method|GetResponse
-specifier|public
 name|GetResponse
 parameter_list|(
 name|String
@@ -167,10 +165,11 @@ operator|=
 name|source
 expr_stmt|;
 block|}
-DECL|method|empty
+comment|/**      * Does the document exists.      */
+DECL|method|exists
 specifier|public
 name|boolean
-name|empty
+name|exists
 parameter_list|()
 block|{
 return|return
@@ -179,6 +178,7 @@ operator|==
 literal|null
 return|;
 block|}
+comment|/**      * The index the document was fetched from.      */
 DECL|method|index
 specifier|public
 name|String
@@ -191,6 +191,7 @@ operator|.
 name|index
 return|;
 block|}
+comment|/**      * The type of the document.      */
 DECL|method|type
 specifier|public
 name|String
@@ -201,6 +202,7 @@ return|return
 name|type
 return|;
 block|}
+comment|/**      * The id of the document.      */
 DECL|method|id
 specifier|public
 name|String
@@ -211,6 +213,7 @@ return|return
 name|id
 return|;
 block|}
+comment|/**      * The source of the document if exists.      */
 DECL|method|source
 specifier|public
 name|byte
@@ -224,6 +227,7 @@ operator|.
 name|source
 return|;
 block|}
+comment|/**      * The source of the document (as a string).      */
 DECL|method|sourceAsString
 specifier|public
 name|String

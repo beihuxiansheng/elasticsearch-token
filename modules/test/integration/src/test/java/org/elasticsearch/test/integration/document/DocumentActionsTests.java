@@ -889,7 +889,7 @@ name|assertThat
 argument_list|(
 name|getResult
 operator|.
-name|empty
+name|exists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1035,7 +1035,7 @@ name|assertThat
 argument_list|(
 name|getResult
 operator|.
-name|empty
+name|exists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1817,7 +1817,7 @@ name|i
 argument_list|,
 name|getResult
 operator|.
-name|empty
+name|exists
 argument_list|()
 argument_list|,
 name|equalTo

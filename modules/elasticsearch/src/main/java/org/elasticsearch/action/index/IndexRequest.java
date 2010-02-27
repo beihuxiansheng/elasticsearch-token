@@ -149,7 +149,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * Index request to index a typed JSON document into a specific index and make it searchable. Best  * created using {@link org.elasticsearch.client.Requests#indexRequest(String)}.  *  *<p>The index requires the {@link #index()}, {@link #type(String)}, {@link #id(String)} and  * {@link #source(byte[])} to be set.  *  *<p>The source (JSON to index) can be set in its bytes form using ({@link #source(byte[])}),  * its string form ({@link #source(String)}) or using a {@link org.elasticsearch.util.json.JsonBuilder}  * ({@link #source(org.elasticsearch.util.json.JsonBuilder)}).  *  *<p>If the {@link #id(String)} is not set, it will be automatically generated.  *  * @author kimchy (shay.banon)  * @see IndexResponse  * @see org.elasticsearch.client.Requests#indexRequest(String)  * @see org.elasticsearch.client.Client#index(IndexRequest)  */
 end_comment
 
 begin_class
@@ -160,6 +160,7 @@ name|IndexRequest
 extends|extends
 name|ShardReplicationOperationRequest
 block|{
+comment|/**      * Operation type controls if the type of the index operation.      */
 DECL|enum|OpType
 specifier|public
 specifier|static
@@ -205,6 +206,7 @@ operator|=
 name|id
 expr_stmt|;
 block|}
+comment|/**          * The internal representation of the operation type.          */
 DECL|method|id
 specifier|public
 name|byte
@@ -215,6 +217,7 @@ return|return
 name|id
 return|;
 block|}
+comment|/**          * Constructs the operation type from its internal representation.          */
 DECL|method|fromId
 specifier|public
 specifier|static
@@ -289,6 +292,7 @@ name|OpType
 operator|.
 name|INDEX
 decl_stmt|;
+comment|/**      * Constructs a new index request against the specific index. The {@link #type(String)},      * {@link #id(String)} and {@link #source(byte[])} must be set.      */
 DECL|method|IndexRequest
 specifier|public
 name|IndexRequest
@@ -304,6 +308,7 @@ operator|=
 name|index
 expr_stmt|;
 block|}
+comment|/**      * Constructs a new index request against the index, type, id and using the source.      *      * @param index  The index to index into      * @param type   The type to index into      * @param id     The id of document      * @param source The JSON source document      */
 DECL|method|IndexRequest
 specifier|public
 name|IndexRequest
@@ -405,6 +410,7 @@ return|return
 name|validationException
 return|;
 block|}
+comment|/**      * Should the listener be called on a separate thread if needed.      */
 DECL|method|listenerThreaded
 annotation|@
 name|Override
@@ -427,6 +433,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Controls if the operation will be executed on a separate thread when executed locally.      */
 DECL|method|operationThreaded
 annotation|@
 name|Override
@@ -449,6 +456,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The type of the indexed document.      */
 DECL|method|type
 name|String
 name|type
@@ -458,6 +466,7 @@ return|return
 name|type
 return|;
 block|}
+comment|/**      * Sets the type of the indexed document.      */
 DECL|method|type
 annotation|@
 name|Required
@@ -479,6 +488,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The id of the indexed document. If not set, will be automatically generated.      */
 DECL|method|id
 name|String
 name|id
@@ -488,6 +498,7 @@ return|return
 name|id
 return|;
 block|}
+comment|/**      * Sets the id of the indexed document. If not set, will be automatically generated.      */
 DECL|method|id
 specifier|public
 name|IndexRequest
@@ -507,6 +518,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The source of the JSON document to index.      */
 DECL|method|source
 name|byte
 index|[]
@@ -517,6 +529,7 @@ return|return
 name|source
 return|;
 block|}
+comment|/**      * Sets the JSON source to index.      *      *<p>Note, its preferable to either set it using {@link #source(org.elasticsearch.util.json.JsonBuilder)}      * or using the {@link #source(byte[])}.      */
 DECL|method|source
 annotation|@
 name|Required
@@ -543,6 +556,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the JSON source to index.      */
 DECL|method|source
 annotation|@
 name|Required
@@ -588,6 +602,7 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|/**      * Sets the JSON source to index.      */
 DECL|method|source
 annotation|@
 name|Required
@@ -610,6 +625,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * A timeout to wait if the index operation can't be performed immediately. Defaults to<tt>1m</tt>.      */
 DECL|method|timeout
 specifier|public
 name|IndexRequest
@@ -629,6 +645,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the type of operation to perform.      */
 DECL|method|opType
 specifier|public
 name|IndexRequest
@@ -648,6 +665,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The type of operation to perform.      */
 DECL|method|opType
 specifier|public
 name|OpType
@@ -689,6 +707,14 @@ operator|.
 name|readUTF
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|in
+operator|.
+name|readBoolean
+argument_list|()
+condition|)
+block|{
 name|id
 operator|=
 name|in
@@ -696,6 +722,7 @@ operator|.
 name|readUTF
 argument_list|()
 expr_stmt|;
+block|}
 name|source
 operator|=
 operator|new
@@ -760,6 +787,30 @@ argument_list|(
 name|type
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|id
+operator|==
+literal|null
+condition|)
+block|{
+name|out
+operator|.
+name|writeBoolean
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|out
+operator|.
+name|writeBoolean
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|out
 operator|.
 name|writeUTF
@@ -767,6 +818,7 @@ argument_list|(
 name|id
 argument_list|)
 expr_stmt|;
+block|}
 name|out
 operator|.
 name|writeInt
@@ -793,6 +845,39 @@ name|id
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|toString
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"IndexAction ["
+operator|+
+name|index
+operator|+
+literal|"]["
+operator|+
+name|type
+operator|+
+literal|"]["
+operator|+
+name|id
+operator|+
+literal|"], source ["
+operator|+
+name|Unicode
+operator|.
+name|fromBytes
+argument_list|(
+name|source
+argument_list|)
+operator|+
+literal|"]"
+return|;
 block|}
 block|}
 end_class
