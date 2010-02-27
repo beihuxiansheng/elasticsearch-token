@@ -55,7 +55,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -82,20 +82,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|context
-operator|.
-name|size
-argument_list|()
-operator|!=
-operator|-
-literal|1
-condition|)
-block|{
-comment|// it was externally set
-return|return;
-block|}
 name|context
 operator|.
 name|size

@@ -1702,27 +1702,6 @@ argument_list|,
 name|indexService
 argument_list|)
 decl_stmt|;
-comment|// init the from and size
-name|context
-operator|.
-name|from
-argument_list|(
-name|request
-operator|.
-name|from
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|context
-operator|.
-name|size
-argument_list|(
-name|request
-operator|.
-name|size
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|context
 operator|.
 name|scroll
