@@ -295,6 +295,16 @@ argument_list|)
 decl_stmt|;
 name|internalRequest
 operator|.
+name|extraSource
+argument_list|(
+name|request
+operator|.
+name|extraSource
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|internalRequest
+operator|.
 name|from
 argument_list|(
 name|request

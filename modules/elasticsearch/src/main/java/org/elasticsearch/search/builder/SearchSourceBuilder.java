@@ -670,6 +670,13 @@ name|queryParserName
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|queryBuilder
+operator|!=
+literal|null
+condition|)
+block|{
 name|builder
 operator|.
 name|field
@@ -688,6 +695,7 @@ operator|.
 name|EMPTY_PARAMS
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|explain

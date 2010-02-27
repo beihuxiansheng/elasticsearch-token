@@ -72,6 +72,15 @@ operator|)
 literal|3
 argument_list|)
 block|;
+DECL|field|DEFAULT
+specifier|public
+specifier|static
+specifier|final
+name|SearchType
+name|DEFAULT
+init|=
+name|QUERY_THEN_FETCH
+decl_stmt|;
 DECL|field|id
 specifier|private
 name|byte
