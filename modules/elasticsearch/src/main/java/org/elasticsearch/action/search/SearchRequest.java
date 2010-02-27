@@ -104,6 +104,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|Unicode
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -175,7 +187,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  * A request to execute search against one or more indices (or all). Best created using  * {@link org.elasticsearch.client.Requests#searchRequest(String...)}.  *  *<p>Note, the search {@link #source(org.elasticsearch.search.builder.SearchSourceBuilder)}  * is required. The search source is the different search options, including facets and such.  *  *<p>There is an option to specify an addition search source using the {@link #extraSource(org.elasticsearch.search.builder.SearchSourceBuilder)}.  *  * @author kimchy (shay.banon)  * @see org.elasticsearch.client.Requests#searchRequest(String...)  * @see org.elasticsearch.client.Client#search(SearchRequest)  * @see SearchResponse  */
 end_comment
 
 begin_class
@@ -258,6 +270,7 @@ DECL|method|SearchRequest
 name|SearchRequest
 parameter_list|()
 block|{     }
+comment|/**      * Constructs a new search request against the indices. No indices provided here means that search      * will run against all indices.      */
 DECL|method|SearchRequest
 specifier|public
 name|SearchRequest
@@ -274,76 +287,7 @@ operator|=
 name|indices
 expr_stmt|;
 block|}
-DECL|method|SearchRequest
-specifier|public
-name|SearchRequest
-parameter_list|(
-name|String
-name|index
-parameter_list|,
-name|SearchSourceBuilder
-name|source
-parameter_list|)
-block|{
-name|this
-argument_list|(
-name|index
-argument_list|,
-name|source
-operator|.
-name|build
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|SearchRequest
-specifier|public
-name|SearchRequest
-parameter_list|(
-name|String
-name|index
-parameter_list|,
-name|byte
-index|[]
-name|source
-parameter_list|)
-block|{
-name|this
-argument_list|(
-operator|new
-name|String
-index|[]
-block|{
-name|index
-block|}
-argument_list|,
-name|source
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|SearchRequest
-specifier|public
-name|SearchRequest
-parameter_list|(
-name|String
-index|[]
-name|indices
-parameter_list|,
-name|SearchSourceBuilder
-name|source
-parameter_list|)
-block|{
-name|this
-argument_list|(
-name|indices
-argument_list|,
-name|source
-operator|.
-name|build
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
+comment|/**      * Constructs a new search request against the provided indices with the given search source.      */
 DECL|method|SearchRequest
 specifier|public
 name|SearchRequest
@@ -388,6 +332,10 @@ condition|(
 name|source
 operator|==
 literal|null
+operator|&&
+name|extraSource
+operator|==
+literal|null
 condition|)
 block|{
 name|validationException
@@ -404,6 +352,7 @@ return|return
 name|validationException
 return|;
 block|}
+comment|/**      * Should the listener be called on a separate thread if needed.      */
 DECL|method|listenerThreaded
 annotation|@
 name|Override
@@ -416,6 +365,7 @@ return|return
 name|listenerThreaded
 return|;
 block|}
+comment|/**      * Should the listener be called on a separate thread if needed.      */
 DECL|method|listenerThreaded
 annotation|@
 name|Override
@@ -437,6 +387,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Controls the the search operation threading model.      */
 DECL|method|operationThreading
 specifier|public
 name|SearchOperationThreading
@@ -449,6 +400,7 @@ operator|.
 name|operationThreading
 return|;
 block|}
+comment|/**      * Controls the the search operation threading model.      */
 DECL|method|operationThreading
 specifier|public
 name|SearchRequest
@@ -468,6 +420,40 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The document types to execute the search against. Defaults to be executed against      * all types.      */
+DECL|method|types
+specifier|public
+name|String
+index|[]
+name|types
+parameter_list|()
+block|{
+return|return
+name|types
+return|;
+block|}
+comment|/**      * The document types to execute the search against. Defaults to be executed against      * all types.      */
+DECL|method|types
+specifier|public
+name|SearchRequest
+name|types
+parameter_list|(
+name|String
+modifier|...
+name|types
+parameter_list|)
+block|{
+name|this
+operator|.
+name|types
+operator|=
+name|types
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * The search type to execute, defaults to {@link SearchType#DEFAULT}.      */
 DECL|method|searchType
 specifier|public
 name|SearchRequest
@@ -507,6 +493,29 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+comment|/**      * The source of the search request. Consider using either {@link #source(byte[])} or      * {@link #source(org.elasticsearch.search.builder.SearchSourceBuilder)}.      */
+DECL|method|source
+specifier|public
+name|SearchRequest
+name|source
+parameter_list|(
+name|String
+name|source
+parameter_list|)
+block|{
+return|return
+name|source
+argument_list|(
+name|Unicode
+operator|.
+name|fromStringAsBytes
+argument_list|(
+name|source
+argument_list|)
+argument_list|)
+return|;
+block|}
+comment|/**      * The search source to execute.      */
 DECL|method|source
 specifier|public
 name|SearchRequest
@@ -527,7 +536,19 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Allows to provide an additional source that will be used as well.      */
+comment|/**      * The search source to execute.      */
+DECL|method|source
+specifier|public
+name|byte
+index|[]
+name|source
+parameter_list|()
+block|{
+return|return
+name|source
+return|;
+block|}
+comment|/**      * Allows to provide additional source that will be used as well.      */
 DECL|method|extraSource
 specifier|public
 name|SearchRequest
@@ -547,7 +568,29 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Allows to provide an additional source that will be used as well.      */
+comment|/**      * Allows to provide additional source that will use used as well.      */
+DECL|method|extraSource
+specifier|public
+name|SearchRequest
+name|extraSource
+parameter_list|(
+name|String
+name|source
+parameter_list|)
+block|{
+return|return
+name|extraSource
+argument_list|(
+name|Unicode
+operator|.
+name|fromStringAsBytes
+argument_list|(
+name|source
+argument_list|)
+argument_list|)
+return|;
+block|}
+comment|/**      * Allows to provide additional source that will be used as well.      */
 DECL|method|extraSource
 specifier|public
 name|SearchRequest
@@ -568,6 +611,21 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Additional search source to execute.      */
+DECL|method|extraSource
+specifier|public
+name|byte
+index|[]
+name|extraSource
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|extraSource
+return|;
+block|}
+comment|/**      * The tye of search to execute.      */
 DECL|method|searchType
 specifier|public
 name|SearchType
@@ -578,6 +636,7 @@ return|return
 name|searchType
 return|;
 block|}
+comment|/**      * The indices      */
 DECL|method|indices
 specifier|public
 name|String
@@ -589,6 +648,7 @@ return|return
 name|indices
 return|;
 block|}
+comment|/**      * A query hint to optionally later be used when routing the request.      */
 DECL|method|queryHint
 specifier|public
 name|SearchRequest
@@ -608,6 +668,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * A query hint to optionally later be used when routing the request.      */
 DECL|method|queryHint
 specifier|public
 name|String
@@ -618,30 +679,7 @@ return|return
 name|queryHint
 return|;
 block|}
-DECL|method|source
-specifier|public
-name|byte
-index|[]
-name|source
-parameter_list|()
-block|{
-return|return
-name|source
-return|;
-block|}
-DECL|method|extraSource
-specifier|public
-name|byte
-index|[]
-name|extraSource
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|extraSource
-return|;
-block|}
+comment|/**      * If set, will enable scrolling of the search request.      */
 DECL|method|scroll
 specifier|public
 name|Scroll
@@ -652,6 +690,7 @@ return|return
 name|scroll
 return|;
 block|}
+comment|/**      * If set, will enable scrolling of the search request.      */
 DECL|method|scroll
 specifier|public
 name|SearchRequest
@@ -671,37 +710,7 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|types
-specifier|public
-name|String
-index|[]
-name|types
-parameter_list|()
-block|{
-return|return
-name|types
-return|;
-block|}
-DECL|method|types
-specifier|public
-name|SearchRequest
-name|types
-parameter_list|(
-name|String
-modifier|...
-name|types
-parameter_list|)
-block|{
-name|this
-operator|.
-name|types
-operator|=
-name|types
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
+comment|/**      * An optional timeout to control how long search is allowed to take.      */
 DECL|method|timeout
 specifier|public
 name|TimeValue
@@ -712,6 +721,7 @@ return|return
 name|timeout
 return|;
 block|}
+comment|/**      * An optional timeout to control how long search is allowed to take.      */
 DECL|method|timeout
 specifier|public
 name|SearchRequest

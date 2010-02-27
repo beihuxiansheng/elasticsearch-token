@@ -61,7 +61,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * A count facet is a facet that holds a count.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -125,6 +125,7 @@ operator|.
 name|COUNT
 return|;
 block|}
+comment|/**      * The "logical" name of the facet.      */
 DECL|method|name
 specifier|public
 name|String
@@ -135,6 +136,7 @@ return|return
 name|name
 return|;
 block|}
+comment|/**      * The count of the facet.      */
 DECL|method|count
 specifier|public
 name|long

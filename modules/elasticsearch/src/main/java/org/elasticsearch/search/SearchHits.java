@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * The hits of a search request.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_interface
@@ -56,11 +56,13 @@ name|Streamable
 extends|,
 name|ToJson
 block|{
+comment|/**      * The total number of hits that matches the search request.      */
 DECL|method|totalHits
 name|long
 name|totalHits
 parameter_list|()
 function_decl|;
+comment|/**      * The hits of the search request (based on the search type, and from / size provided).      */
 DECL|method|hits
 name|SearchHit
 index|[]

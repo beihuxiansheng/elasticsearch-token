@@ -157,7 +157,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * A search source builder allowing to easily build search source. Simple consruction  * using {@link org.elasticsearch.search.builder.SearchSourceBuilder#searchSource()}.  *  * @author kimchy (shay.banon)  * @see org.elasticsearch.action.search.SearchRequest#source(SearchSourceBuilder)  */
 end_comment
 
 begin_class
@@ -166,6 +166,7 @@ specifier|public
 class|class
 name|SearchSourceBuilder
 block|{
+comment|/**      * A static factory method to construct a new search source.      */
 DECL|method|searchSource
 specifier|public
 specifier|static
@@ -179,6 +180,7 @@ name|SearchSourceBuilder
 argument_list|()
 return|;
 block|}
+comment|/**      * A static factory method to construct new search facets.      */
 DECL|method|facets
 specifier|public
 specifier|static
@@ -254,11 +256,13 @@ name|indexBoost
 init|=
 literal|null
 decl_stmt|;
+comment|/**      * Constructs a new search source builder.      */
 DECL|method|SearchSourceBuilder
 specifier|public
 name|SearchSourceBuilder
 parameter_list|()
 block|{     }
+comment|/**      * Constructs a new search source builder with a search query.      */
 DECL|method|query
 specifier|public
 name|SearchSourceBuilder
@@ -278,6 +282,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * From index to start the search from. Defaults to<tt>0</tt>.      */
 DECL|method|from
 specifier|public
 name|SearchSourceBuilder
@@ -297,6 +302,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The number of search hits to return. Defaults to<tt>10</tt>.      */
 DECL|method|size
 specifier|public
 name|SearchSourceBuilder
@@ -316,6 +322,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * An optional query parser name to use.      */
 DECL|method|queryParserName
 specifier|public
 name|SearchSourceBuilder
@@ -335,6 +342,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Should each {@link org.elasticsearch.search.SearchHit} be returned with an      * explanation of the hit (ranking).      */
 DECL|method|explain
 specifier|public
 name|SearchSourceBuilder
@@ -354,6 +362,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Add a sort against the given field name and if it should be revered or not.      *      * @param name    The name of the field to sort by      * @param reverse Should be soring be reversed or not      */
 DECL|method|sort
 specifier|public
 name|SearchSourceBuilder
@@ -377,6 +386,7 @@ name|reverse
 argument_list|)
 return|;
 block|}
+comment|/**      * Add a sort against the given field name.      *      * @param name The name of the field to sort by      */
 DECL|method|sort
 specifier|public
 name|SearchSourceBuilder
@@ -397,6 +407,7 @@ literal|false
 argument_list|)
 return|;
 block|}
+comment|/**      * Add a sort against the given field name of the given type.      *      * @param name The name of the field to sort by      * @param type The type of sort to perform      */
 DECL|method|sort
 specifier|public
 name|SearchSourceBuilder
@@ -420,6 +431,7 @@ literal|false
 argument_list|)
 return|;
 block|}
+comment|/**      * Add a sort against the given field name and if it should be revered or not.      *      * @param name    The name of the field to sort by      * @param type    The type of the sort to perform      * @param reverse Should the sort be reversed or not      */
 DECL|method|sort
 specifier|public
 name|SearchSourceBuilder
@@ -469,6 +481,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Adds facets to perform as part of the search.      */
 DECL|method|facets
 specifier|public
 name|SearchSourceBuilder
@@ -488,6 +501,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the fields to load and return as part of the search request. If none are specified,      * the source of the document will be returend.      */
 DECL|method|fields
 specifier|public
 name|SearchSourceBuilder
@@ -510,6 +524,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Adds a field to load and return (note, it must be stored) as part of the search request.      * If none are specified, the source of the document will be return.      */
 DECL|method|field
 specifier|public
 name|SearchSourceBuilder
@@ -547,6 +562,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the boost a specific index will receive when the query is executeed against it.      *      * @param index      The index to apply the boost against      * @param indexBoost The boost to apply to the index      */
 DECL|method|indexBoost
 specifier|public
 name|SearchSourceBuilder

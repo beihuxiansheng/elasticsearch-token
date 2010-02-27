@@ -55,7 +55,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * A search facet.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_interface
@@ -72,6 +72,7 @@ DECL|enum|Type
 enum|enum
 name|Type
 block|{
+comment|/**          * Count type facet.          */
 DECL|enum constant|COUNT
 name|COUNT
 argument_list|(
@@ -146,11 +147,13 @@ throw|;
 block|}
 block|}
 block|}
+comment|/**      * The "logical" name of the search facet.      */
 DECL|method|name
 name|String
 name|name
 parameter_list|()
 function_decl|;
+comment|/**      * The type of the facet.      */
 DECL|method|type
 name|Type
 name|type

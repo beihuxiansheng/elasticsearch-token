@@ -27,7 +27,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * Search type represent the manner at which the search operation is executed.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_enum
@@ -36,6 +36,7 @@ specifier|public
 enum|enum
 name|SearchType
 block|{
+comment|/**      * Same as {@link #QUERY_THEN_FETCH}, except for an initial scatter phase which goes and computes the distributed      * term frequencies for more accurate scoring.      */
 DECL|enum constant|DFS_QUERY_THEN_FETCH
 name|DFS_QUERY_THEN_FETCH
 argument_list|(
@@ -45,6 +46,7 @@ operator|)
 literal|0
 argument_list|)
 block|,
+comment|/**      * The query is executed against all shards, but only enough information is returned (not the document content).      * The results are then sorted and ranked, and based on it, only the relevant shards are asked for the actual      * document content. The return number of hits is exactly as specified in size, since they are the only ones that      * are fetched. This is very handy when the index has a lot of shards (not replicas, shard id groups).      */
 DECL|enum constant|QUERY_THEN_FETCH
 name|QUERY_THEN_FETCH
 argument_list|(
@@ -54,6 +56,7 @@ operator|)
 literal|1
 argument_list|)
 block|,
+comment|/**      * Same as {@link #QUERY_AND_FETCH}, except for an initial scatter phase which goes and computes the distributed      * term frequencies for more accurate scoring.      */
 DECL|enum constant|DFS_QUERY_AND_FETCH
 name|DFS_QUERY_AND_FETCH
 argument_list|(
@@ -63,6 +66,7 @@ operator|)
 literal|2
 argument_list|)
 block|,
+comment|/**      * The most naive (and possibly fastest) implementation is to simply execute the query on all relevant shards      * and return the results. Each shard returns size results. Since each shard already returns size hits, this      * type actually returns size times number of shards results back to the caller.      */
 DECL|enum constant|QUERY_AND_FETCH
 name|QUERY_AND_FETCH
 argument_list|(
@@ -72,6 +76,7 @@ operator|)
 literal|3
 argument_list|)
 block|;
+comment|/**      * The default search type ({@link #QUERY_THEN_FETCH}.      */
 DECL|field|DEFAULT
 specifier|public
 specifier|static
@@ -100,6 +105,7 @@ operator|=
 name|id
 expr_stmt|;
 block|}
+comment|/**      * The internal id of the type.      */
 DECL|method|id
 specifier|public
 name|byte
@@ -112,6 +118,7 @@ operator|.
 name|id
 return|;
 block|}
+comment|/**      * Constructs search type based on the internal id.      */
 DECL|method|fromId
 specifier|public
 specifier|static

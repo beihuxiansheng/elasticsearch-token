@@ -97,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * A search source facets builder.  *  * @author kimchy (shay.banon)  * @see SearchSourceBuilder#facets(SearchSourceFacetsBuilder)  */
 end_comment
 
 begin_class
@@ -121,6 +121,7 @@ name|FacetQuery
 argument_list|>
 name|queryFacets
 decl_stmt|;
+comment|/**      * Controls the type of query facet execution.      */
 DECL|method|queryExecution
 specifier|public
 name|SearchSourceFacetsBuilder
@@ -140,6 +141,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Adds a query facet (which results in a count facet returned).      *      * @param name  The logical name of the facet, it will be returned under the name      * @param query The query facet      */
 DECL|method|facet
 specifier|public
 name|SearchSourceFacetsBuilder

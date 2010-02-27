@@ -159,7 +159,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * A response of a search request.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -199,7 +199,6 @@ index|[]
 name|shardFailures
 decl_stmt|;
 DECL|method|SearchResponse
-specifier|public
 name|SearchResponse
 parameter_list|()
 block|{     }
@@ -255,6 +254,7 @@ operator|=
 name|shardFailures
 expr_stmt|;
 block|}
+comment|/**      * The search hits.      */
 DECL|method|hits
 specifier|public
 name|SearchHits
@@ -268,6 +268,7 @@ name|hits
 argument_list|()
 return|;
 block|}
+comment|/**      * The search facets.      */
 DECL|method|facets
 specifier|public
 name|Facets
@@ -281,6 +282,7 @@ name|facets
 argument_list|()
 return|;
 block|}
+comment|/**      * The total number of shards the search was executed on.      */
 DECL|method|totalShards
 specifier|public
 name|int
@@ -291,6 +293,7 @@ return|return
 name|totalShards
 return|;
 block|}
+comment|/**      * The successful number of shards the search was executed on.      */
 DECL|method|successfulShards
 specifier|public
 name|int
@@ -301,6 +304,7 @@ return|return
 name|successfulShards
 return|;
 block|}
+comment|/**      * The failed number of shards the search was executed on.      */
 DECL|method|failedShards
 specifier|public
 name|int
@@ -313,6 +317,7 @@ operator|-
 name|successfulShards
 return|;
 block|}
+comment|/**      * The failures that occurred during the search.      */
 DECL|method|shardFailures
 specifier|public
 name|ShardSearchFailure
@@ -326,6 +331,7 @@ operator|.
 name|shardFailures
 return|;
 block|}
+comment|/**      * If scrolling was enabled ({@link SearchRequest#scroll(org.elasticsearch.search.Scroll)}, the      * scroll id that can be used to continue scrolling.      */
 DECL|method|scrollId
 specifier|public
 name|String

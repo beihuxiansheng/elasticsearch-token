@@ -85,7 +85,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * A scroll enables scrolling of search request. It holds a {@link #keepAlive()} time that  * will control how long to keep the scrolling resources open.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -106,6 +106,7 @@ specifier|private
 name|Scroll
 parameter_list|()
 block|{      }
+comment|/**      * Constructs a new scroll of the provided keep alive.      */
 DECL|method|Scroll
 specifier|public
 name|Scroll
@@ -121,6 +122,7 @@ operator|=
 name|keepAlive
 expr_stmt|;
 block|}
+comment|/**      * How long the resources will be kept open to support the scroll request.      */
 DECL|method|keepAlive
 specifier|public
 name|TimeValue

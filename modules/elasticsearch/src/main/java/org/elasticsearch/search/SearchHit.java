@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * A single search hit.  *  * @author kimchy (shay.banon)  * @see SearchHits  */
 end_comment
 
 begin_interface
@@ -79,38 +79,50 @@ extends|extends
 name|Streamable
 extends|,
 name|ToJson
+extends|,
+name|Iterable
+argument_list|<
+name|SearchHitField
+argument_list|>
 block|{
+comment|/**      * The index of the hit.      */
 DECL|method|index
 name|String
 name|index
 parameter_list|()
 function_decl|;
+comment|/**      * The id of the document.      */
 DECL|method|id
 name|String
 name|id
 parameter_list|()
 function_decl|;
+comment|/**      * The type of the document.      */
 DECL|method|type
 name|String
 name|type
 parameter_list|()
 function_decl|;
+comment|/**      * The source of the document (can be<tt>null</tt>).      */
 DECL|method|source
 name|byte
 index|[]
 name|source
 parameter_list|()
 function_decl|;
+comment|/**      * The source of the document as string (can be<tt>null</tt>).      */
 DECL|method|sourceAsString
 name|String
 name|sourceAsString
 parameter_list|()
 function_decl|;
+comment|/**      * If enabled, the explanation of the search hit.      */
 DECL|method|explanation
 name|Explanation
 name|explanation
 parameter_list|()
 function_decl|;
+comment|/**      * A map of hit fields (from field name to hit fields) if additional fields      * were required to be loaded.      */
 DECL|method|fields
 name|Map
 argument_list|<
@@ -121,6 +133,7 @@ argument_list|>
 name|fields
 parameter_list|()
 function_decl|;
+comment|/**      * The shard of the search hit.      */
 DECL|method|target
 name|SearchShardTarget
 name|target

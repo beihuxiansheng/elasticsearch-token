@@ -108,6 +108,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Iterator
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -145,7 +155,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * Facets of search action.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -157,6 +167,11 @@ implements|implements
 name|Streamable
 implements|,
 name|ToJson
+implements|,
+name|Iterable
+argument_list|<
+name|Facet
+argument_list|>
 block|{
 DECL|field|EMPTY
 specifier|private
@@ -179,12 +194,15 @@ argument_list|<
 name|Facet
 argument_list|>
 name|facets
+init|=
+name|EMPTY
 decl_stmt|;
 DECL|method|Facets
 specifier|private
 name|Facets
 parameter_list|()
 block|{      }
+comment|/**      * Constructs a new facets.      */
 DECL|method|Facets
 specifier|public
 name|Facets
@@ -203,6 +221,26 @@ operator|=
 name|facets
 expr_stmt|;
 block|}
+comment|/**      * Iterates over the {@link Facet}s.      */
+DECL|method|iterator
+annotation|@
+name|Override
+specifier|public
+name|Iterator
+argument_list|<
+name|Facet
+argument_list|>
+name|iterator
+parameter_list|()
+block|{
+return|return
+name|facets
+operator|.
+name|iterator
+argument_list|()
+return|;
+block|}
+comment|/**      * The list of {@link Facet}s.      */
 DECL|method|facets
 specifier|public
 name|List
@@ -216,6 +254,7 @@ return|return
 name|facets
 return|;
 block|}
+comment|/**      * A specific count facet against the registered facet name.      */
 DECL|method|countFacet
 specifier|public
 name|CountFacet
@@ -235,6 +274,7 @@ name|name
 argument_list|)
 return|;
 block|}
+comment|/**      * A facet of the specified name.      */
 DECL|method|facet
 specifier|public
 name|Facet
@@ -244,17 +284,6 @@ name|String
 name|name
 parameter_list|)
 block|{
-if|if
-condition|(
-name|facets
-operator|==
-literal|null
-condition|)
-block|{
-return|return
-literal|null
-return|;
-block|}
 for|for
 control|(
 name|Facet

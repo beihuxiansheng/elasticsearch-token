@@ -239,6 +239,7 @@ operator|=
 name|reason
 expr_stmt|;
 block|}
+comment|/**      * The search shard target the failure occured on.      */
 DECL|method|shard
 annotation|@
 name|Nullable
@@ -253,6 +254,7 @@ operator|.
 name|shardTarget
 return|;
 block|}
+comment|/**      * The index the search failed on.      */
 DECL|method|index
 annotation|@
 name|Override
@@ -279,6 +281,7 @@ return|return
 literal|null
 return|;
 block|}
+comment|/**      * The shard id the search failed on.      */
 DECL|method|shardId
 annotation|@
 name|Override
@@ -306,6 +309,7 @@ operator|-
 literal|1
 return|;
 block|}
+comment|/**      * The reason of the failure.      */
 DECL|method|reason
 specifier|public
 name|String

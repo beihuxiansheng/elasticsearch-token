@@ -27,7 +27,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  * A failure during a reduce phase (when receiving results from several shards, and reducing them  * into one or more results and possible actions).  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
