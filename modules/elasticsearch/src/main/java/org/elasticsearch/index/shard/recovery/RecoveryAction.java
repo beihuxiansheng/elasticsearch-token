@@ -74,6 +74,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ElasticSearchInterruptedException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|ExceptionsHelper
 import|;
 end_import
@@ -117,6 +127,20 @@ operator|.
 name|engine
 operator|.
 name|Engine
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|engine
+operator|.
+name|RecoveryEngineException
 import|;
 end_import
 
@@ -481,7 +505,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -812,14 +836,6 @@ expr_stmt|;
 name|cleanOpenIndex
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-literal|true
-condition|)
-block|{
-comment|// disable the interruptions for now
-return|return;
-block|}
 comment|// interrupt the startRecovery thread if its performing recovery
 if|if
 condition|(
@@ -1354,6 +1370,51 @@ literal|"Ignoring recovery attempt, remote shard not started"
 argument_list|,
 name|e
 argument_list|)
+throw|;
+block|}
+elseif|else
+if|if
+condition|(
+name|cause
+operator|instanceof
+name|RecoveryEngineException
+condition|)
+block|{
+comment|// it might be wrapped
+if|if
+condition|(
+name|cause
+operator|.
+name|getCause
+argument_list|()
+operator|instanceof
+name|IgnoreRecoveryException
+condition|)
+block|{
+throw|throw
+operator|(
+name|IgnoreRecoveryException
+operator|)
+name|cause
+operator|.
+name|getCause
+argument_list|()
+throw|;
+block|}
+block|}
+elseif|else
+if|if
+condition|(
+name|cause
+operator|instanceof
+name|IgnoreRecoveryException
+condition|)
+block|{
+throw|throw
+operator|(
+name|IgnoreRecoveryException
+operator|)
+name|cause
 throw|;
 block|}
 throw|throw
@@ -2089,6 +2150,21 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
+name|ElasticSearchInterruptedException
+name|e
+parameter_list|)
+block|{
+comment|// we got interrupted since we are closing, ignore the recovery
+throw|throw
+operator|new
+name|IgnoreRecoveryException
+argument_list|(
+literal|"Interrupted while recovering files"
+argument_list|)
+throw|;
+block|}
+catch|catch
+parameter_list|(
 name|Throwable
 name|e
 parameter_list|)
@@ -2233,6 +2309,21 @@ name|size
 argument_list|()
 expr_stmt|;
 block|}
+catch|catch
+parameter_list|(
+name|ElasticSearchInterruptedException
+name|e
+parameter_list|)
+block|{
+comment|// we got interrupted since we are closing, ignore the recovery
+throw|throw
+operator|new
+name|IgnoreRecoveryException
+argument_list|(
+literal|"Interrupted in phase 2 files"
+argument_list|)
+throw|;
+block|}
 finally|finally
 block|{
 name|sendSnapshotRecoveryThread
@@ -2375,6 +2466,21 @@ operator|.
 name|size
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ElasticSearchInterruptedException
+name|e
+parameter_list|)
+block|{
+comment|// we got interrupted since we are closing, ignore the recovery
+throw|throw
+operator|new
+name|IgnoreRecoveryException
+argument_list|(
+literal|"Interrupted in phase 2 files"
+argument_list|)
+throw|;
 block|}
 finally|finally
 block|{
