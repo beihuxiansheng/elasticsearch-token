@@ -417,21 +417,6 @@ name|String
 name|value
 parameter_list|)
 function_decl|;
-DECL|method|merge
-name|void
-name|merge
-parameter_list|(
-name|FieldMapper
-name|mergeWith
-parameter_list|,
-name|DocumentMapper
-operator|.
-name|MergeFlags
-name|mergeFlags
-parameter_list|)
-throws|throws
-name|MergeMappingException
-function_decl|;
 comment|/**      * Constructs a range query based on the mapper.      */
 DECL|method|rangeQuery
 name|Query
