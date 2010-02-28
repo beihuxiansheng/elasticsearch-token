@@ -1730,6 +1730,8 @@ name|rootObjectMapper
 operator|.
 name|mergeMapping
 argument_list|(
+name|this
+argument_list|,
 name|jsonMergeWith
 operator|.
 name|rootObjectMapper

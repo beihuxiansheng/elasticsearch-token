@@ -268,6 +268,7 @@ specifier|public
 name|MergeFlags
 parameter_list|()
 block|{         }
+comment|/**          * A simulation run, don't perform actual modifications to the mapping.          */
 DECL|method|simulate
 specifier|public
 name|boolean

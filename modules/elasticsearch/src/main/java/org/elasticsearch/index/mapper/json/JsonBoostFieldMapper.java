@@ -134,6 +134,48 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|DocumentMapper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|FieldMapper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|MergeMappingException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|util
 operator|.
 name|Numbers
@@ -165,7 +207,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -1084,6 +1126,26 @@ operator|.
 name|endObject
 argument_list|()
 expr_stmt|;
+block|}
+DECL|method|merge
+annotation|@
+name|Override
+specifier|public
+name|void
+name|merge
+parameter_list|(
+name|FieldMapper
+name|mergeWith
+parameter_list|,
+name|DocumentMapper
+operator|.
+name|MergeFlags
+name|mergeFlags
+parameter_list|)
+throws|throws
+name|MergeMappingException
+block|{
+comment|// do nothing here, no merging, but also no exception
 block|}
 block|}
 end_class
