@@ -1125,7 +1125,7 @@ condition|)
 block|{
 name|queryBuilder
 operator|.
-name|defualtOperator
+name|defaultOperator
 argument_list|(
 name|QueryStringJsonQueryBuilder
 operator|.
@@ -1148,7 +1148,7 @@ condition|)
 block|{
 name|queryBuilder
 operator|.
-name|defualtOperator
+name|defaultOperator
 argument_list|(
 name|QueryStringJsonQueryBuilder
 operator|.
