@@ -236,13 +236,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|util
 operator|.
-name|query
+name|lucene
 operator|.
-name|support
+name|search
 operator|.
-name|QueryParsers
+name|Queries
 operator|.
 name|*
 import|;

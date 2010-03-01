@@ -214,6 +214,24 @@ name|*
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|Queries
+operator|.
+name|*
+import|;
+end_import
+
 begin_comment
 comment|/**  * A query parser that uses the {@link MapperService} in order to build smarter  * queries based on the mapping information.  *  *<p>Also breaks fields with [type].[name] into a boolean query that must include the type  * as well as the query on the name.  *  * @author kimchy (shay.banon)  */
 end_comment
@@ -931,9 +949,12 @@ literal|null
 return|;
 block|}
 return|return
+name|optimizeQuery
+argument_list|(
 name|fixNegativeQueryIfNeeded
 argument_list|(
 name|q
+argument_list|)
 argument_list|)
 return|;
 block|}
