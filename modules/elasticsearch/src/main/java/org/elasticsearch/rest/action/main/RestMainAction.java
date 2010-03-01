@@ -458,11 +458,11 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"devBuild"
+literal|"snapshotBuild"
 argument_list|,
 name|Version
 operator|.
-name|devBuild
+name|snapshotBuild
 argument_list|()
 argument_list|)
 operator|.

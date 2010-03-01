@@ -63,7 +63,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -86,12 +86,12 @@ specifier|final
 name|String
 name|date
 decl_stmt|;
-DECL|field|devBuild
+DECL|field|snapshotBuild
 specifier|private
 specifier|static
 specifier|final
 name|boolean
-name|devBuild
+name|snapshotBuild
 decl_stmt|;
 static|static
 block|{
@@ -151,6 +151,15 @@ argument_list|,
 literal|"0.0.0"
 argument_list|)
 expr_stmt|;
+name|snapshotBuild
+operator|=
+name|number
+operator|.
+name|contains
+argument_list|(
+literal|"-SNAPSHOT"
+argument_list|)
+expr_stmt|;
 name|SimpleDateFormat
 name|sdf
 init|=
@@ -190,22 +199,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|devBuild
-operator|=
-name|Boolean
-operator|.
-name|parseBoolean
-argument_list|(
-name|props
-operator|.
-name|getProperty
-argument_list|(
-literal|"devBuild"
-argument_list|,
-literal|"false"
-argument_list|)
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|number
 specifier|public
@@ -229,15 +222,15 @@ return|return
 name|date
 return|;
 block|}
-DECL|method|devBuild
+DECL|method|snapshotBuild
 specifier|public
 specifier|static
 name|boolean
-name|devBuild
+name|snapshotBuild
 parameter_list|()
 block|{
 return|return
-name|devBuild
+name|snapshotBuild
 return|;
 block|}
 DECL|method|full
@@ -265,7 +258,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|devBuild
+name|snapshotBuild
 condition|)
 block|{
 name|sb
@@ -278,13 +271,6 @@ operator|.
 name|append
 argument_list|(
 name|date
-argument_list|)
-expr_stmt|;
-name|sb
-operator|.
-name|append
-argument_list|(
-literal|"/dev"
 argument_list|)
 expr_stmt|;
 block|}
