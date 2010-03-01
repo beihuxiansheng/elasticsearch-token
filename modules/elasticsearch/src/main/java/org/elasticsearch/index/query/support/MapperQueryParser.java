@@ -191,7 +191,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A query parser that uses the {@link MapperService} in order to build smarter  * queries based on the mapping information.  *  *<p>Also breaks fields with [type].[name] into a boolean query that must include the type  * as well as the query on the name.  *  * @author kimchy (Shay Banon)  */
+comment|/**  * A query parser that uses the {@link MapperService} in order to build smarter  * queries based on the mapping information.  *  *<p>Also breaks fields with [type].[name] into a boolean query that must include the type  * as well as the query on the name.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -269,7 +269,7 @@ block|}
 DECL|method|getFieldQuery
 annotation|@
 name|Override
-specifier|protected
+specifier|public
 name|Query
 name|getFieldQuery
 parameter_list|(
@@ -419,6 +419,36 @@ parameter_list|)
 throws|throws
 name|ParseException
 block|{
+if|if
+condition|(
+literal|"*"
+operator|.
+name|equals
+argument_list|(
+name|part1
+argument_list|)
+condition|)
+block|{
+name|part1
+operator|=
+literal|null
+expr_stmt|;
+block|}
+if|if
+condition|(
+literal|"*"
+operator|.
+name|equals
+argument_list|(
+name|part2
+argument_list|)
+condition|)
+block|{
+name|part2
+operator|=
+literal|null
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|mapperService
