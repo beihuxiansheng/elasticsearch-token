@@ -2032,7 +2032,7 @@ name|put
 argument_list|(
 name|index
 argument_list|,
-name|newMapper
+name|existingMapper
 argument_list|)
 expr_stmt|;
 block|}
