@@ -242,6 +242,20 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|mapper
+operator|.
+name|MergeMappingException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|service
 operator|.
 name|IndexService
@@ -1654,7 +1668,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// merge from the updated into the existing, ignore duplicates (we know we have them, we just want the new ones)
+comment|// merge from the updated into the existing, ignore conflicts (we know we have them, we just want the new ones)
 name|existingMapper
 operator|.
 name|merge
@@ -1667,11 +1681,6 @@ operator|.
 name|simulate
 argument_list|(
 literal|false
-argument_list|)
-operator|.
-name|ignoreDuplicates
-argument_list|(
-literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1821,7 +1830,7 @@ name|String
 name|mappingSource
 parameter_list|,
 name|boolean
-name|ignoreDuplicates
+name|ignoreConflicts
 parameter_list|,
 name|TimeValue
 name|timeout
@@ -1973,7 +1982,12 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// first simulate and throw an exception if something goes wrong
+comment|// first, simulate
+name|DocumentMapper
+operator|.
+name|MergeResult
+name|mergeResult
+init|=
 name|existingMapper
 operator|.
 name|merge
@@ -1987,13 +2001,31 @@ name|simulate
 argument_list|(
 literal|true
 argument_list|)
+argument_list|)
+decl_stmt|;
+comment|// if we have conflicts, and we are not supposed to ignore them, throw an exception
+if|if
+condition|(
+operator|!
+name|ignoreConflicts
+operator|&&
+name|mergeResult
 operator|.
-name|ignoreDuplicates
+name|hasConflicts
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|MergeMappingException
 argument_list|(
-name|ignoreDuplicates
+name|mergeResult
+operator|.
+name|conflicts
+argument_list|()
 argument_list|)
-argument_list|)
-expr_stmt|;
+throw|;
+block|}
 name|existingMappers
 operator|.
 name|put
@@ -2195,11 +2227,6 @@ operator|.
 name|simulate
 argument_list|(
 literal|false
-argument_list|)
-operator|.
-name|ignoreDuplicates
-argument_list|(
-name|ignoreDuplicates
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2581,6 +2608,7 @@ name|acknowledged
 argument_list|)
 return|;
 block|}
+comment|/**      * The result of a putting mapping.      */
 DECL|class|PutMappingResult
 specifier|public
 specifier|static

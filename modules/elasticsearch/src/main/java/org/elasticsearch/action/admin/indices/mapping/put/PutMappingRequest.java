@@ -169,7 +169,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Puts mapping definition registered under a specific type into one or more indices. Best created with  * {@link org.elasticsearch.client.Requests#putMappingRequest(String...)}.  *  *<p>If the mappings already exists, the new mappings will be merged with the new one. If there are elements  * that can't be merged are detected, the request will be rejected unless the {@link #ignoreDuplicates(boolean)}  * is set. In such a case, the duplicate mappings will be rejected.  *  * @author kimchy (shay.banon)  * @see org.elasticsearch.client.Requests#putMappingRequest(String...)  * @see org.elasticsearch.client.IndicesAdminClient#putMapping(PutMappingRequest)  * @see PutMappingResponse  */
+comment|/**  * Puts mapping definition registered under a specific type into one or more indices. Best created with  * {@link org.elasticsearch.client.Requests#putMappingRequest(String...)}.  *  *<p>If the mappings already exists, the new mappings will be merged with the new one. If there are elements  * that can't be merged are detected, the request will be rejected unless the {@link #ignoreConflicts(boolean)}  * is set. In such a case, the duplicate mappings will be rejected.  *  * @author kimchy (shay.banon)  * @see org.elasticsearch.client.Requests#putMappingRequest(String...)  * @see org.elasticsearch.client.IndicesAdminClient#putMapping(PutMappingRequest)  * @see PutMappingResponse  */
 end_comment
 
 begin_class
@@ -211,10 +211,10 @@ operator|.
 name|SECONDS
 argument_list|)
 decl_stmt|;
-DECL|field|ignoreDuplicates
+DECL|field|ignoreConflicts
 specifier|private
 name|boolean
-name|ignoreDuplicates
+name|ignoreConflicts
 init|=
 literal|true
 decl_stmt|;
@@ -417,22 +417,22 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * If there is already a mapping definition registered against the type, then it will be merged. If there are      * elements that can't be merged are detected, the request will be rejected unless the      * {@link #ignoreDuplicates(boolean)} is set. In such a case, the duplicate mappings will be rejected.      */
-DECL|method|ignoreDuplicates
+comment|/**      * If there is already a mapping definition registered against the type, then it will be merged. If there are      * elements that can't be merged are detected, the request will be rejected unless the      * {@link #ignoreConflicts(boolean)} is set. In such a case, the duplicate mappings will be rejected.      */
+DECL|method|ignoreConflicts
 specifier|public
 name|boolean
-name|ignoreDuplicates
+name|ignoreConflicts
 parameter_list|()
 block|{
 return|return
-name|ignoreDuplicates
+name|ignoreConflicts
 return|;
 block|}
-comment|/**      * If there is already a mapping definition registered against the type, then it will be merged. If there are      * elements that can't be merged are detected, the request will be rejected unless the      * {@link #ignoreDuplicates(boolean)} is set. In such a case, the duplicate mappings will be rejected.      */
-DECL|method|ignoreDuplicates
+comment|/**      * If there is already a mapping definition registered against the type, then it will be merged. If there are      * elements that can't be merged are detected, the request will be rejected unless the      * {@link #ignoreConflicts(boolean)} is set. In such a case, the duplicate mappings will be rejected.      */
+DECL|method|ignoreConflicts
 specifier|public
 name|PutMappingRequest
-name|ignoreDuplicates
+name|ignoreConflicts
 parameter_list|(
 name|boolean
 name|ignoreDuplicates
@@ -440,7 +440,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|ignoreDuplicates
+name|ignoreConflicts
 operator|=
 name|ignoreDuplicates
 expr_stmt|;
@@ -539,7 +539,7 @@ argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
-name|ignoreDuplicates
+name|ignoreConflicts
 operator|=
 name|in
 operator|.
@@ -660,7 +660,7 @@ name|out
 operator|.
 name|writeBoolean
 argument_list|(
-name|ignoreDuplicates
+name|ignoreConflicts
 argument_list|)
 expr_stmt|;
 block|}

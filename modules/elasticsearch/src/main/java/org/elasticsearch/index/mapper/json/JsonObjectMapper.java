@@ -1999,7 +1999,7 @@ condition|)
 block|{
 name|mergeContext
 operator|.
-name|addFailure
+name|addConflict
 argument_list|(
 literal|"Can't merge a non object mapping ["
 operator|+

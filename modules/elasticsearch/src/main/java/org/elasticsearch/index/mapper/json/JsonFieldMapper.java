@@ -1643,22 +1643,9 @@ parameter_list|)
 throws|throws
 name|MergeMappingException
 block|{
-if|if
-condition|(
 name|mergeContext
 operator|.
-name|mergeFlags
-argument_list|()
-operator|.
-name|ignoreDuplicates
-argument_list|()
-condition|)
-block|{
-return|return;
-block|}
-name|mergeContext
-operator|.
-name|addFailure
+name|addConflict
 argument_list|(
 literal|"Mapper ["
 operator|+

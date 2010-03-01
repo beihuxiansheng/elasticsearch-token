@@ -461,7 +461,7 @@ argument_list|()
 argument_list|,
 name|request
 operator|.
-name|ignoreDuplicates
+name|ignoreConflicts
 argument_list|()
 argument_list|,
 name|request

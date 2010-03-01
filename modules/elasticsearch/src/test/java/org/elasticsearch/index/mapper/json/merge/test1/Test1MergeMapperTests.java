@@ -58,7 +58,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MergeMappingException
+name|DocumentMapper
 import|;
 end_import
 
@@ -252,8 +252,11 @@ argument_list|(
 name|stage2Mapping
 argument_list|)
 decl_stmt|;
-try|try
-block|{
+name|DocumentMapper
+operator|.
+name|MergeResult
+name|mergeResult
+init|=
 name|stage1
 operator|.
 name|merge
@@ -268,37 +271,15 @@ argument_list|(
 literal|true
 argument_list|)
 argument_list|)
-expr_stmt|;
-assert|assert
-literal|false
-operator|:
-literal|"can't change field from number to type"
-assert|;
-block|}
-catch|catch
-parameter_list|(
-name|MergeMappingException
-name|e
-parameter_list|)
-block|{
-comment|// all is well
-block|}
-comment|// now, test with ignore duplicates
-name|stage1
-operator|.
-name|merge
+decl_stmt|;
+name|assertThat
 argument_list|(
-name|stage2
-argument_list|,
-name|mergeFlags
+name|mergeResult
+operator|.
+name|hasConflicts
 argument_list|()
-operator|.
-name|ignoreDuplicates
-argument_list|(
-literal|true
-argument_list|)
-operator|.
-name|simulate
+argument_list|,
+name|equalTo
 argument_list|(
 literal|true
 argument_list|)
@@ -321,7 +302,9 @@ name|nullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// now merge, ignore duplicates and don't simulate
+comment|// now merge, don't simulate
+name|mergeResult
+operator|=
 name|stage1
 operator|.
 name|merge
@@ -331,17 +314,27 @@ argument_list|,
 name|mergeFlags
 argument_list|()
 operator|.
-name|ignoreDuplicates
-argument_list|(
-literal|true
-argument_list|)
-operator|.
 name|simulate
 argument_list|(
 literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// there is still merge failures
+name|assertThat
+argument_list|(
+name|mergeResult
+operator|.
+name|hasConflicts
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|true
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// but we have the age in
 name|assertThat
 argument_list|(
 name|stage1
