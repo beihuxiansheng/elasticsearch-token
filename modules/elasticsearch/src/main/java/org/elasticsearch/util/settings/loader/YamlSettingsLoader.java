@@ -22,6 +22,10 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
 name|yaml
 operator|.
 name|snakeyaml
