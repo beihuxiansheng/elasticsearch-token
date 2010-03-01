@@ -992,9 +992,12 @@ name|boost
 argument_list|)
 expr_stmt|;
 return|return
+name|optimizeQuery
+argument_list|(
 name|fixNegativeQueryIfNeeded
 argument_list|(
 name|query
+argument_list|)
 argument_list|)
 return|;
 block|}
