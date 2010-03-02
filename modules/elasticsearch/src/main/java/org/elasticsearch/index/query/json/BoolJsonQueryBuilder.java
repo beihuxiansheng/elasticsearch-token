@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * A Query that matches documents matching boolean combinations of other queries.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -114,6 +114,7 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
+comment|/**      * Adds a query that<b>must</b> appear in the matching documents.      */
 DECL|method|must
 specifier|public
 name|BoolJsonQueryBuilder
@@ -144,6 +145,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Adds a query that<b>must not</b> appear in the matching documents.      */
 DECL|method|mustNot
 specifier|public
 name|BoolJsonQueryBuilder
@@ -174,6 +176,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Adds a query that<i>should</i> appear in the matching documents. For a boolean query with no      *<tt>MUST</tt> clauses one or more<code>SHOULD</code> clauses must match a document      * for the BooleanQuery to match.      *      * @see #minimumNumberShouldMatch(int)      */
 DECL|method|should
 specifier|public
 name|BoolJsonQueryBuilder
@@ -204,6 +207,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the boost for this query.  Documents matching this query will (in addition to the normal      * weightings) have their score multiplied by the boost provided.      */
 DECL|method|boost
 specifier|public
 name|BoolJsonQueryBuilder
@@ -223,6 +227,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Disables<tt>Similarity#coord(int,int)</tt> in scoring. Defualts to<tt>false</tt>.      */
 DECL|method|disableCoord
 specifier|public
 name|BoolJsonQueryBuilder
@@ -242,6 +247,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Specifies a minimum number of the optional (should) boolean clauses which must be satisfied.      *      *<p>By default no optional clauses are necessary for a match      * (unless there are no required clauses).  If this method is used,      * then the specified number of clauses is required.      *      *<p>Use of this method is totally independent of specifying that      * any specific clauses are required (or prohibited).  This number will      * only be compared against the number of matching optional clauses.      *      * @param minimumNumberShouldMatch the number of optional clauses that must match      */
 DECL|method|minimumNumberShouldMatch
 specifier|public
 name|BoolJsonQueryBuilder

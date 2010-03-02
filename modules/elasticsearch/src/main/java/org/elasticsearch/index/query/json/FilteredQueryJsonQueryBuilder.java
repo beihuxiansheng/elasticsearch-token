@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * A query that applies a filter to the results of another query.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -74,6 +74,7 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
+comment|/**      * A query that applies a filter to the results of another query.      *      * @param queryBuilder  The query to apply the filter to      * @param filterBuilder The filter to apply on the query      */
 DECL|method|FilteredQueryJsonQueryBuilder
 specifier|public
 name|FilteredQueryJsonQueryBuilder
@@ -98,6 +99,7 @@ operator|=
 name|filterBuilder
 expr_stmt|;
 block|}
+comment|/**      * Sets the boost for this query.  Documents matching this query will (in addition to the normal      * weightings) have their score multiplied by the boost provided.      */
 DECL|method|boost
 specifier|public
 name|FilteredQueryJsonQueryBuilder

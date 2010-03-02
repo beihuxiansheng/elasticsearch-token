@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * A filter for a field based on a term.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -66,6 +66,7 @@ specifier|final
 name|Object
 name|value
 decl_stmt|;
+comment|/**      * A filter for a field based on a term.      *      * @param name  The field name      * @param value The term value      */
 DECL|method|TermJsonFilterBuilder
 specifier|public
 name|TermJsonFilterBuilder
@@ -88,6 +89,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * A filter for a field based on a term.      *      * @param name  The field name      * @param value The term value      */
 DECL|method|TermJsonFilterBuilder
 specifier|public
 name|TermJsonFilterBuilder
@@ -110,6 +112,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * A filter for a field based on a term.      *      * @param name  The field name      * @param value The term value      */
 DECL|method|TermJsonFilterBuilder
 specifier|public
 name|TermJsonFilterBuilder
@@ -132,6 +135,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * A filter for a field based on a term.      *      * @param name  The field name      * @param value The term value      */
 DECL|method|TermJsonFilterBuilder
 specifier|public
 name|TermJsonFilterBuilder
@@ -154,6 +158,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * A filter for a field based on a term.      *      * @param name  The field name      * @param value The term value      */
 DECL|method|TermJsonFilterBuilder
 specifier|public
 name|TermJsonFilterBuilder
@@ -176,8 +181,9 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * A filter for a field based on a term.      *      * @param name  The field name      * @param value The term value      */
 DECL|method|TermJsonFilterBuilder
-specifier|private
+specifier|public
 name|TermJsonFilterBuilder
 parameter_list|(
 name|String

@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * A Query that matches documents within an range of terms.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -92,6 +92,7 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
+comment|/**      * A Query that matches documents within an range of terms.      *      * @param name The field name      */
 DECL|method|RangeJsonQueryBuilder
 specifier|public
 name|RangeJsonQueryBuilder
@@ -107,6 +108,27 @@ operator|=
 name|name
 expr_stmt|;
 block|}
+comment|/**      * The from part of the range query. Null indicates unbounded.      */
+DECL|method|from
+specifier|public
+name|RangeJsonQueryBuilder
+name|from
+parameter_list|(
+name|Object
+name|from
+parameter_list|)
+block|{
+name|this
+operator|.
+name|from
+operator|=
+name|from
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * The from part of the range query. Null indicates unbounded.      */
 DECL|method|from
 specifier|public
 name|RangeJsonQueryBuilder
@@ -126,6 +148,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The from part of the range query. Null indicates unbounded.      */
 DECL|method|from
 specifier|public
 name|RangeJsonQueryBuilder
@@ -145,6 +168,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The from part of the range query. Null indicates unbounded.      */
 DECL|method|from
 specifier|public
 name|RangeJsonQueryBuilder
@@ -164,6 +188,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The from part of the range query. Null indicates unbounded.      */
 DECL|method|from
 specifier|public
 name|RangeJsonQueryBuilder
@@ -183,6 +208,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The from part of the range query. Null indicates unbounded.      */
 DECL|method|from
 specifier|public
 name|RangeJsonQueryBuilder
@@ -202,6 +228,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The to part of the range query. Null indicates unbounded.      */
+DECL|method|to
+specifier|public
+name|RangeJsonQueryBuilder
+name|to
+parameter_list|(
+name|Object
+name|to
+parameter_list|)
+block|{
+name|this
+operator|.
+name|to
+operator|=
+name|to
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * The to part of the range query. Null indicates unbounded.      */
 DECL|method|to
 specifier|public
 name|RangeJsonQueryBuilder
@@ -221,6 +268,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The to part of the range query. Null indicates unbounded.      */
 DECL|method|to
 specifier|public
 name|RangeJsonQueryBuilder
@@ -240,6 +288,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The to part of the range query. Null indicates unbounded.      */
 DECL|method|to
 specifier|public
 name|RangeJsonQueryBuilder
@@ -259,6 +308,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The to part of the range query. Null indicates unbounded.      */
 DECL|method|to
 specifier|public
 name|RangeJsonQueryBuilder
@@ -278,6 +328,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The to part of the range query. Null indicates unbounded.      */
 DECL|method|to
 specifier|public
 name|RangeJsonQueryBuilder
@@ -297,6 +348,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Should the lower bound be included or not. Defaults to<tt>true</tt>.      */
 DECL|method|includeLower
 specifier|public
 name|RangeJsonQueryBuilder
@@ -316,6 +368,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Should the upper bound be included or not. Defaults to<tt>true</tt>.      */
 DECL|method|includeUpper
 specifier|public
 name|RangeJsonQueryBuilder
@@ -335,6 +388,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the boost for this query.  Documents matching this query will (in addition to the normal      * weightings) have their score multiplied by the boost provided.      */
 DECL|method|boost
 specifier|public
 name|RangeJsonQueryBuilder

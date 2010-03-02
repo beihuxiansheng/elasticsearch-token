@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * A query that wraps a filter and simply returns a constant score equal to the  * query boost for every document in the filter.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -68,6 +68,7 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
+comment|/**      * A query that wraps a filter and simply returns a constant score equal to the      * query boost for every document in the filter.      *      * @param filterBuilder The filter to wrap in a constant score query      */
 DECL|method|ConstantScoreQueryJsonQueryBuilder
 specifier|public
 name|ConstantScoreQueryJsonQueryBuilder
@@ -83,6 +84,7 @@ operator|=
 name|filterBuilder
 expr_stmt|;
 block|}
+comment|/**      * Sets the boost for this query.  Documents matching this query will (in addition to the normal      * weightings) have their score multiplied by the boost provided.      */
 DECL|method|boost
 specifier|public
 name|ConstantScoreQueryJsonQueryBuilder

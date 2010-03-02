@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * Implements the wildcard search query. Supported wildcards are<tt>*</tt>, which  * matches any character sequence (including the empty one), and<tt>?</tt>,  * which matches any single character. Note this query can be slow, as it  * needs to iterate over many terms. In order to prevent extremely slow WildcardQueries,  * a Wildcard term should not start with one of the wildcards<tt>*</tt> or  *<tt>?</tt>.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -60,11 +60,11 @@ specifier|final
 name|String
 name|name
 decl_stmt|;
-DECL|field|value
+DECL|field|wildcard
 specifier|private
 specifier|final
 name|String
-name|value
+name|wildcard
 decl_stmt|;
 DECL|field|boost
 specifier|private
@@ -74,6 +74,7 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
+comment|/**      * Implements the wildcard search query. Supported wildcards are<tt>*</tt>, which      * matches any character sequence (including the empty one), and<tt>?</tt>,      * which matches any single character. Note this query can be slow, as it      * needs to iterate over many terms. In order to prevent extremely slow WildcardQueries,      * a Wildcard term should not start with one of the wildcards<tt>*</tt> or      *<tt>?</tt>.      *      * @param name     The field name      * @param wildcard The wildcard query string      */
 DECL|method|WildcardJsonQueryBuilder
 specifier|public
 name|WildcardJsonQueryBuilder
@@ -82,7 +83,7 @@ name|String
 name|name
 parameter_list|,
 name|String
-name|value
+name|wildcard
 parameter_list|)
 block|{
 name|this
@@ -93,11 +94,12 @@ name|name
 expr_stmt|;
 name|this
 operator|.
-name|value
+name|wildcard
 operator|=
-name|value
+name|wildcard
 expr_stmt|;
 block|}
+comment|/**      * Sets the boost for this query.  Documents matching this query will (in addition to the normal      * weightings) have their score multiplied by the boost provided.      */
 DECL|method|boost
 specifier|public
 name|WildcardJsonQueryBuilder
@@ -156,7 +158,7 @@ name|field
 argument_list|(
 name|name
 argument_list|,
-name|value
+name|wildcard
 argument_list|)
 expr_stmt|;
 block|}
@@ -175,7 +177,7 @@ name|field
 argument_list|(
 literal|"wildcard"
 argument_list|,
-name|value
+name|wildcard
 argument_list|)
 expr_stmt|;
 name|builder

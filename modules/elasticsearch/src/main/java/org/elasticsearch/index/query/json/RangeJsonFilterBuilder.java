@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * A filter that restricts search results to values that are within the given range.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -84,6 +84,7 @@ name|includeUpper
 init|=
 literal|true
 decl_stmt|;
+comment|/**      * A filter that restricts search results to values that are within the given range.      *      * @param name The field name      */
 DECL|method|RangeJsonFilterBuilder
 specifier|public
 name|RangeJsonFilterBuilder
@@ -99,6 +100,7 @@ operator|=
 name|name
 expr_stmt|;
 block|}
+comment|/**      * The from part of the filter query. Null indicates unbounded.      */
 DECL|method|from
 specifier|public
 name|RangeJsonFilterBuilder
@@ -118,6 +120,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The from part of the filter query. Null indicates unbounded.      */
 DECL|method|from
 specifier|public
 name|RangeJsonFilterBuilder
@@ -137,6 +140,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The from part of the filter query. Null indicates unbounded.      */
 DECL|method|from
 specifier|public
 name|RangeJsonFilterBuilder
@@ -156,6 +160,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The from part of the filter query. Null indicates unbounded.      */
 DECL|method|from
 specifier|public
 name|RangeJsonFilterBuilder
@@ -175,6 +180,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The from part of the filter query. Null indicates unbounded.      */
 DECL|method|from
 specifier|public
 name|RangeJsonFilterBuilder
@@ -194,6 +200,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The to part of the filter query. Null indicates unbounded.      */
 DECL|method|to
 specifier|public
 name|RangeJsonFilterBuilder
@@ -213,6 +220,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The to part of the filter query. Null indicates unbounded.      */
 DECL|method|to
 specifier|public
 name|RangeJsonFilterBuilder
@@ -232,6 +240,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The to part of the filter query. Null indicates unbounded.      */
 DECL|method|to
 specifier|public
 name|RangeJsonFilterBuilder
@@ -251,6 +260,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The to part of the filter query. Null indicates unbounded.      */
 DECL|method|to
 specifier|public
 name|RangeJsonFilterBuilder
@@ -270,6 +280,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The to part of the filter query. Null indicates unbounded.      */
 DECL|method|to
 specifier|public
 name|RangeJsonFilterBuilder
@@ -289,6 +300,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Should the lower bound be included or not. Defaults to<tt>true</tt>.      */
 DECL|method|includeLower
 specifier|public
 name|RangeJsonFilterBuilder
@@ -308,6 +320,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Should the upper bound be included or not. Defaults to<tt>true</tt>.      */
 DECL|method|includeUpper
 specifier|public
 name|RangeJsonFilterBuilder

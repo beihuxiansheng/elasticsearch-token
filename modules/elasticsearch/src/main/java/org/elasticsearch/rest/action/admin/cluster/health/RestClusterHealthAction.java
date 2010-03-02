@@ -646,7 +646,7 @@ control|)
 block|{
 name|builder
 operator|.
-name|string
+name|value
 argument_list|(
 name|validationFailure
 argument_list|)
@@ -711,7 +711,7 @@ control|)
 block|{
 name|builder
 operator|.
-name|string
+name|value
 argument_list|(
 name|validationFailure
 argument_list|)
@@ -878,7 +878,7 @@ control|)
 block|{
 name|builder
 operator|.
-name|string
+name|value
 argument_list|(
 name|validationFailure
 argument_list|)

@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * A filter that matches documents matching boolean combinations of other filters.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -93,6 +93,7 @@ name|Clause
 argument_list|>
 argument_list|()
 decl_stmt|;
+comment|/**      * Adds a filter that<b>must</b> appear in the matching documents.      */
 DECL|method|must
 specifier|public
 name|BoolJsonFilterBuilder
@@ -123,6 +124,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Adds a filter that<b>must not</b> appear in the matching documents.      */
 DECL|method|mustNot
 specifier|public
 name|BoolJsonFilterBuilder
@@ -153,6 +155,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Adds a filter that<i>should</i> appear in the matching documents. For a boolean filter      * with no<tt>MUST</tt> clauses one or more<code>SHOULD</code> clauses must match a document      * for the BooleanQuery to match.      */
 DECL|method|should
 specifier|public
 name|BoolJsonFilterBuilder

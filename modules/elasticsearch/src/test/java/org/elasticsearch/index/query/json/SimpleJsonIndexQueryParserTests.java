@@ -1621,7 +1621,7 @@ argument_list|(
 literal|1.2f
 argument_list|)
 operator|.
-name|tieBreakerMultiplier
+name|tieBreaker
 argument_list|(
 literal|0.7f
 argument_list|)

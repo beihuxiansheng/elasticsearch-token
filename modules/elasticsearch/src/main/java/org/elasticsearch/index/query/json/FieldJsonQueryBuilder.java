@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  * A query that executes the query string against a field. It is a simplified  * version of {@link QueryStringJsonQueryBuilder} that simply runs against  * a single field.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -142,6 +142,7 @@ name|extraSet
 init|=
 literal|false
 decl_stmt|;
+comment|/**      * A query that executes the query string against a field. It is a simplified      * version of {@link QueryStringJsonQueryBuilder} that simply runs against      * a single field.      *      * @param name  The name of the field      * @param query The query string      */
 DECL|method|FieldJsonQueryBuilder
 specifier|public
 name|FieldJsonQueryBuilder
@@ -164,6 +165,7 @@ name|query
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * A query that executes the query string against a field. It is a simplified      * version of {@link QueryStringJsonQueryBuilder} that simply runs against      * a single field.      *      * @param name  The name of the field      * @param query The query string      */
 DECL|method|FieldJsonQueryBuilder
 specifier|public
 name|FieldJsonQueryBuilder
@@ -186,6 +188,7 @@ name|query
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * A query that executes the query string against a field. It is a simplified      * version of {@link QueryStringJsonQueryBuilder} that simply runs against      * a single field.      *      * @param name  The name of the field      * @param query The query string      */
 DECL|method|FieldJsonQueryBuilder
 specifier|public
 name|FieldJsonQueryBuilder
@@ -208,6 +211,7 @@ name|query
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * A query that executes the query string against a field. It is a simplified      * version of {@link QueryStringJsonQueryBuilder} that simply runs against      * a single field.      *      * @param name  The name of the field      * @param query The query string      */
 DECL|method|FieldJsonQueryBuilder
 specifier|public
 name|FieldJsonQueryBuilder
@@ -230,6 +234,7 @@ name|query
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * A query that executes the query string against a field. It is a simplified      * version of {@link QueryStringJsonQueryBuilder} that simply runs against      * a single field.      *      * @param name  The name of the field      * @param query The query string      */
 DECL|method|FieldJsonQueryBuilder
 specifier|public
 name|FieldJsonQueryBuilder
@@ -252,6 +257,7 @@ name|query
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * A query that executes the query string against a field. It is a simplified      * version of {@link QueryStringJsonQueryBuilder} that simply runs against      * a single field.      *      * @param name  The name of the field      * @param query The query string      */
 DECL|method|FieldJsonQueryBuilder
 specifier|private
 name|FieldJsonQueryBuilder
@@ -276,6 +282,7 @@ operator|=
 name|query
 expr_stmt|;
 block|}
+comment|/**      * Sets the boost for this query.  Documents matching this query will (in addition to the normal      * weightings) have their score multiplied by the boost provided.      */
 DECL|method|boost
 specifier|public
 name|FieldJsonQueryBuilder
@@ -299,6 +306,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the boolean operator of the query parser used to parse the query string.      *      *<p>In default mode ({@link FieldJsonQueryBuilder.Operator#OR}) terms without any modifiers      * are considered optional: for example<code>capital of Hungary</code> is equal to      *<code>capital OR of OR Hungary</code>.      *      *<p>In {@link FieldJsonQueryBuilder.Operator#AND} mode terms are considered to be in conjunction: the      * above mentioned query is parsed as<code>capital AND of AND Hungary</code>      */
 DECL|method|defaultOperator
 specifier|public
 name|FieldJsonQueryBuilder
@@ -322,6 +330,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The optional analyzer used to analyze the query string. Note, if a field has search analyzer      * defined for it, then it will be used automatically. Defaults to the smart search analyzer.      */
 DECL|method|analyzer
 specifier|public
 name|FieldJsonQueryBuilder
@@ -345,6 +354,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Should leading wildcards be allowed or not. Defaults to<tt>true</tt>.      */
 DECL|method|allowLeadingWildcard
 specifier|public
 name|FieldJsonQueryBuilder
@@ -368,6 +378,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Whether terms of wildcard, prefix, fuzzy and range queries are to be automatically      * lower-cased or not.  Default is<tt>true</tt>.      */
 DECL|method|lowercaseExpandedTerms
 specifier|public
 name|FieldJsonQueryBuilder
@@ -391,6 +402,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set to<tt>true</tt> to enable position increments in result query. Defaults to      *<tt>true</tt>.      *      *<p>When set, result phrase and multi-phrase queries will be aware of position increments.      * Useful when e.g. a StopFilter increases the position increment of the token that follows an omitted token.      */
 DECL|method|enablePositionIncrements
 specifier|public
 name|FieldJsonQueryBuilder
@@ -414,6 +426,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set the minimum similarity for fuzzy queries. Default is 0.5f.      */
 DECL|method|fuzzyMinSim
 specifier|public
 name|FieldJsonQueryBuilder
@@ -437,6 +450,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set the prefix length for fuzzy queries. Default is 0.      */
 DECL|method|fuzzyPrefixLength
 specifier|public
 name|FieldJsonQueryBuilder
@@ -460,6 +474,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the default slop for phrases.  If zero, then exact phrase matches      * are required. Default value is zero.      */
 DECL|method|phraseSlop
 specifier|public
 name|FieldJsonQueryBuilder

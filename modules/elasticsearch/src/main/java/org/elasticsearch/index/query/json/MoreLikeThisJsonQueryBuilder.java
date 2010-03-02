@@ -57,7 +57,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * A more like this query that finds documents that are "like" the provided {@link #likeText(String)}  * which is checked against the fields the query is constructed with.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -159,6 +159,7 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
+comment|/**      * Sets the field names that will be used when generating the 'More Like This' query.      *      * @param fields the field names that will be used when generating the 'More Like This' query.      */
 DECL|method|MoreLikeThisJsonQueryBuilder
 specifier|public
 name|MoreLikeThisJsonQueryBuilder
@@ -175,6 +176,7 @@ operator|=
 name|fields
 expr_stmt|;
 block|}
+comment|/**      * The text to use in order to find documents that are "like" this.      */
 DECL|method|likeText
 specifier|public
 name|MoreLikeThisJsonQueryBuilder
@@ -213,6 +215,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The frequency below which terms will be ignored in the source doc. The default      * frequency is<tt>2</tt>.      */
 DECL|method|minTermFrequency
 specifier|public
 name|MoreLikeThisJsonQueryBuilder
@@ -232,6 +235,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the maximum number of query terms that will be included in any generated query.      * Defaults to<tt>25</tt>.      */
 DECL|method|maxQueryTerms
 specifier|public
 name|MoreLikeThisJsonQueryBuilder
@@ -251,6 +255,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set the set of stopwords.      *      *<p>Any word in this set is considered "uninteresting" and ignored. Even if your Analyzer allows stopwords, you      * might want to tell the MoreLikeThis code to ignore them, as for the purposes of document similarity it seems      * reasonable to assume that "a stop word is never interesting".      */
 DECL|method|stopWords
 specifier|public
 name|MoreLikeThisJsonQueryBuilder
@@ -271,6 +276,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the frequency at which words will be ignored which do not occur in at least this      * many docs. Defaults to<tt>5</tt>.      */
 DECL|method|minDocFreq
 specifier|public
 name|MoreLikeThisJsonQueryBuilder
@@ -290,6 +296,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set the maximum frequency in which words may still appear. Words that appear      * in more than this many docs will be ignored. Defaults to unbounded.      */
 DECL|method|maxDocFreq
 specifier|public
 name|MoreLikeThisJsonQueryBuilder
@@ -309,6 +316,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the minimum word length below which words will be ignored. Defaults      * to<tt>0</tt>.      */
 DECL|method|minWordLen
 specifier|public
 name|MoreLikeThisJsonQueryBuilder
@@ -328,6 +336,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the maximum word length above which words will be ignored. Defaults to      * unbounded (<tt>0</tt>).      */
 DECL|method|maxWordLen
 specifier|public
 name|MoreLikeThisJsonQueryBuilder
@@ -347,6 +356,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets whether to boost terms in query based on "score" or not. Defaults to      *<tt>false</tt>.      */
 DECL|method|boostTerms
 specifier|public
 name|MoreLikeThisJsonQueryBuilder
@@ -366,6 +376,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the boost factor to use when boosting terms. Defaults to<tt>1</tt>.      */
 DECL|method|boostTermsFactor
 specifier|public
 name|MoreLikeThisJsonQueryBuilder
@@ -448,7 +459,7 @@ control|)
 block|{
 name|builder
 operator|.
-name|string
+name|value
 argument_list|(
 name|field
 argument_list|)
@@ -567,7 +578,7 @@ control|)
 block|{
 name|builder
 operator|.
-name|string
+name|value
 argument_list|(
 name|stopWord
 argument_list|)

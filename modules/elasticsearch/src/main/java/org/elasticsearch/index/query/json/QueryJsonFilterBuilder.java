@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * A filter that simply wraps a query.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -60,6 +60,7 @@ specifier|final
 name|JsonQueryBuilder
 name|queryBuilder
 decl_stmt|;
+comment|/**      * A filter that simply wraps a query.      *      * @param queryBuilder The query to wrap as a filter      */
 DECL|method|QueryJsonFilterBuilder
 specifier|public
 name|QueryJsonFilterBuilder

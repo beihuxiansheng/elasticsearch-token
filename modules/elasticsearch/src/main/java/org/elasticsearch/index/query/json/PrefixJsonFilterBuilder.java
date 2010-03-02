@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * A filter that restricts search results to values that have a matching prefix in a given  * field.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -60,12 +60,13 @@ specifier|final
 name|String
 name|name
 decl_stmt|;
-DECL|field|value
+DECL|field|prefix
 specifier|private
 specifier|final
 name|String
-name|value
+name|prefix
 decl_stmt|;
+comment|/**      * A filter that restricts search results to values that have a matching prefix in a given      * field.      *      * @param name   The field name      * @param prefix The prefix      */
 DECL|method|PrefixJsonFilterBuilder
 specifier|public
 name|PrefixJsonFilterBuilder
@@ -74,7 +75,7 @@ name|String
 name|name
 parameter_list|,
 name|String
-name|value
+name|prefix
 parameter_list|)
 block|{
 name|this
@@ -85,9 +86,9 @@ name|name
 expr_stmt|;
 name|this
 operator|.
-name|value
+name|prefix
 operator|=
-name|value
+name|prefix
 expr_stmt|;
 block|}
 DECL|method|doJson
@@ -121,7 +122,7 @@ name|field
 argument_list|(
 name|name
 argument_list|,
-name|value
+name|prefix
 argument_list|)
 expr_stmt|;
 name|builder

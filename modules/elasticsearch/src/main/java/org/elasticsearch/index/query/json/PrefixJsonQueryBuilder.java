@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * A Query that matches documents containing terms with a specified prefix.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -60,11 +60,11 @@ specifier|final
 name|String
 name|name
 decl_stmt|;
-DECL|field|value
+DECL|field|prefix
 specifier|private
 specifier|final
 name|String
-name|value
+name|prefix
 decl_stmt|;
 DECL|field|boost
 specifier|private
@@ -74,6 +74,7 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
+comment|/**      * A Query that matches documents containing terms with a specified prefix.      *      * @param name   The name of the field      * @param prefix The prefix query      */
 DECL|method|PrefixJsonQueryBuilder
 specifier|public
 name|PrefixJsonQueryBuilder
@@ -82,7 +83,7 @@ name|String
 name|name
 parameter_list|,
 name|String
-name|value
+name|prefix
 parameter_list|)
 block|{
 name|this
@@ -93,11 +94,12 @@ name|name
 expr_stmt|;
 name|this
 operator|.
-name|value
+name|prefix
 operator|=
-name|value
+name|prefix
 expr_stmt|;
 block|}
+comment|/**      * Sets the boost for this query.  Documents matching this query will (in addition to the normal      * weightings) have their score multiplied by the boost provided.      */
 DECL|method|boost
 specifier|public
 name|PrefixJsonQueryBuilder
@@ -156,7 +158,7 @@ name|field
 argument_list|(
 name|name
 argument_list|,
-name|value
+name|prefix
 argument_list|)
 expr_stmt|;
 block|}
@@ -175,7 +177,7 @@ name|field
 argument_list|(
 literal|"prefix"
 argument_list|,
-name|value
+name|prefix
 argument_list|)
 expr_stmt|;
 name|builder

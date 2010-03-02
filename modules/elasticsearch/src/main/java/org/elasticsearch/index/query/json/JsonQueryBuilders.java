@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * A static factory for simple "import static" usage.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -29,6 +29,7 @@ specifier|abstract
 class|class
 name|JsonQueryBuilders
 block|{
+comment|/**      * A query that match on all documents.      */
 DECL|method|matchAllQuery
 specifier|public
 specifier|static
@@ -42,6 +43,7 @@ name|MatchAllJsonQueryBuilder
 argument_list|()
 return|;
 block|}
+comment|/**      * A query that generates the union of documents produced by its sub-queries, and that scores each document      * with the maximum score for that document as produced by any sub-query, plus a tie breaking increment for any      * additional matching sub-queries.      */
 DECL|method|disMaxQuery
 specifier|public
 specifier|static
@@ -55,6 +57,7 @@ name|DisMaxJsonQueryBuilder
 argument_list|()
 return|;
 block|}
+comment|/**      * A Query that matches documents containing a term.      *      * @param name  The name of the field      * @param value The value of the term      */
 DECL|method|termQuery
 specifier|public
 specifier|static
@@ -78,6 +81,7 @@ name|value
 argument_list|)
 return|;
 block|}
+comment|/**      * A Query that matches documents containing a term.      *      * @param name  The name of the field      * @param value The value of the term      */
 DECL|method|termQuery
 specifier|public
 specifier|static
@@ -101,6 +105,7 @@ name|value
 argument_list|)
 return|;
 block|}
+comment|/**      * A Query that matches documents containing a term.      *      * @param name  The name of the field      * @param value The value of the term      */
 DECL|method|termQuery
 specifier|public
 specifier|static
@@ -124,6 +129,7 @@ name|value
 argument_list|)
 return|;
 block|}
+comment|/**      * A Query that matches documents containing a term.      *      * @param name  The name of the field      * @param value The value of the term      */
 DECL|method|termQuery
 specifier|public
 specifier|static
@@ -147,6 +153,7 @@ name|value
 argument_list|)
 return|;
 block|}
+comment|/**      * A Query that matches documents containing a term.      *      * @param name  The name of the field      * @param value The value of the term      */
 DECL|method|termQuery
 specifier|public
 specifier|static
@@ -170,6 +177,7 @@ name|value
 argument_list|)
 return|;
 block|}
+comment|/**      * A query that executes the query string against a field. It is a simplified      * version of {@link QueryStringJsonQueryBuilder} that simply runs against      * a single field.      *      * @param name  The name of the field      * @param query The query string      */
 DECL|method|fieldQuery
 specifier|public
 specifier|static
@@ -193,6 +201,7 @@ name|query
 argument_list|)
 return|;
 block|}
+comment|/**      * A query that executes the query string against a field. It is a simplified      * version of {@link QueryStringJsonQueryBuilder} that simply runs against      * a single field.      *      * @param name  The name of the field      * @param query The query string      */
 DECL|method|fieldQuery
 specifier|public
 specifier|static
@@ -216,6 +225,7 @@ name|query
 argument_list|)
 return|;
 block|}
+comment|/**      * A query that executes the query string against a field. It is a simplified      * version of {@link QueryStringJsonQueryBuilder} that simply runs against      * a single field.      *      * @param name  The name of the field      * @param query The query string      */
 DECL|method|fieldQuery
 specifier|public
 specifier|static
@@ -239,6 +249,7 @@ name|query
 argument_list|)
 return|;
 block|}
+comment|/**      * A query that executes the query string against a field. It is a simplified      * version of {@link QueryStringJsonQueryBuilder} that simply runs against      * a single field.      *      * @param name  The name of the field      * @param query The query string      */
 DECL|method|fieldQuery
 specifier|public
 specifier|static
@@ -262,6 +273,7 @@ name|query
 argument_list|)
 return|;
 block|}
+comment|/**      * A query that executes the query string against a field. It is a simplified      * version of {@link QueryStringJsonQueryBuilder} that simply runs against      * a single field.      *      * @param name  The name of the field      * @param query The query string      */
 DECL|method|fieldQuery
 specifier|public
 specifier|static
@@ -285,6 +297,7 @@ name|query
 argument_list|)
 return|;
 block|}
+comment|/**      * A Query that matches documents containing terms with a specified prefix.      *      * @param name   The name of the field      * @param prefix The prefix query      */
 DECL|method|prefixQuery
 specifier|public
 specifier|static
@@ -295,7 +308,7 @@ name|String
 name|name
 parameter_list|,
 name|String
-name|query
+name|prefix
 parameter_list|)
 block|{
 return|return
@@ -304,10 +317,11 @@ name|PrefixJsonQueryBuilder
 argument_list|(
 name|name
 argument_list|,
-name|query
+name|prefix
 argument_list|)
 return|;
 block|}
+comment|/**      * A Query that matches documents within an range of terms.      *      * @param name The field name      */
 DECL|method|rangeQuery
 specifier|public
 specifier|static
@@ -326,6 +340,7 @@ name|name
 argument_list|)
 return|;
 block|}
+comment|/**      * Implements the wildcard search query. Supported wildcards are<tt>*</tt>, which      * matches any character sequence (including the empty one), and<tt>?</tt>,      * which matches any single character. Note this query can be slow, as it      * needs to iterate over many terms. In order to prevent extremely slow WildcardQueries,      * a Wildcard term should not start with one of the wildcards<tt>*</tt> or      *<tt>?</tt>.      *      * @param name  The field name      * @param query The wildcard query string      */
 DECL|method|wildcardQuery
 specifier|public
 specifier|static
@@ -336,7 +351,7 @@ name|String
 name|name
 parameter_list|,
 name|String
-name|value
+name|query
 parameter_list|)
 block|{
 return|return
@@ -345,10 +360,11 @@ name|WildcardJsonQueryBuilder
 argument_list|(
 name|name
 argument_list|,
-name|value
+name|query
 argument_list|)
 return|;
 block|}
+comment|/**      * A query that parses a query string and runs it. There are two modes that this operates. The first,      * when no field is added (using {@link QueryStringJsonQueryBuilder#field(String)}, will run the query once and non prefixed fields      * will use the {@link QueryStringJsonQueryBuilder#defaultField(String)} set. The second, when one or more fields are added      * (using {@link QueryStringJsonQueryBuilder#field(String)}), will run the parsed query against the provided fields, and combine      * them either using DisMax or a plain boolean query (see {@link QueryStringJsonQueryBuilder#useDisMax(boolean)}).      *      * @param queryString The query string to run      */
 DECL|method|queryString
 specifier|public
 specifier|static
@@ -367,6 +383,7 @@ name|queryString
 argument_list|)
 return|;
 block|}
+comment|/**      * A Query that matches documents matching boolean combinations of other queries.      */
 DECL|method|boolQuery
 specifier|public
 specifier|static
@@ -557,6 +574,7 @@ name|SpanOrJsonQueryBuilder
 argument_list|()
 return|;
 block|}
+comment|/**      * A query that applies a filter to the results of another query.      *      * @param queryBuilder  The query to apply the filter to      * @param filterBuilder The filter to apply on the query      */
 DECL|method|filteredQuery
 specifier|public
 specifier|static
@@ -580,6 +598,7 @@ name|filterBuilder
 argument_list|)
 return|;
 block|}
+comment|/**      * A query that wraps a filter and simply returns a constant score equal to the      * query boost for every document in the filter.      *      * @param filterBuilder The filter to wrap in a constant score query      */
 DECL|method|constantScoreQuery
 specifier|public
 specifier|static
@@ -598,6 +617,7 @@ name|filterBuilder
 argument_list|)
 return|;
 block|}
+comment|/**      * A more like this query that finds documents that are "like" the provided {@link MoreLikeThisJsonQueryBuilder#likeText(String)}      * which is checked against the fields the query is constructed with.      *      * @param fields The fields to run the query against      */
 DECL|method|moreLikeThisQuery
 specifier|public
 specifier|static
@@ -617,6 +637,7 @@ name|fields
 argument_list|)
 return|;
 block|}
+comment|/**      * A more like this query that runs against a specific field.      *      * @param name The field name      */
 DECL|method|moreLikeThisFieldQuery
 specifier|public
 specifier|static

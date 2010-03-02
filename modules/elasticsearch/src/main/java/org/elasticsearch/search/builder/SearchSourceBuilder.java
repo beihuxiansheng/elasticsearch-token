@@ -262,7 +262,7 @@ specifier|public
 name|SearchSourceBuilder
 parameter_list|()
 block|{     }
-comment|/**      * Constructs a new search source builder with a search query.      */
+comment|/**      * Constructs a new search source builder with a search query.      *      * @see org.elasticsearch.index.query.json.JsonQueryBuilders      */
 DECL|method|query
 specifier|public
 name|SearchSourceBuilder
@@ -780,7 +780,7 @@ control|)
 block|{
 name|builder
 operator|.
-name|string
+name|value
 argument_list|(
 name|fieldName
 argument_list|)

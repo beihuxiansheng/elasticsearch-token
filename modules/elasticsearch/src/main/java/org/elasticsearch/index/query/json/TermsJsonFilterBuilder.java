@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  * A filer for a field based on several terms matching on any of them.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -67,6 +67,7 @@ name|Object
 index|[]
 name|values
 decl_stmt|;
+comment|/**      * A filer for a field based on several terms matching on any of them.      *      * @param name   The field name      * @param values The terms      */
 DECL|method|TermsJsonFilterBuilder
 specifier|public
 name|TermsJsonFilterBuilder
@@ -91,6 +92,7 @@ name|values
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * A filer for a field based on several terms matching on any of them.      *      * @param name   The field name      * @param values The terms      */
 DECL|method|TermsJsonFilterBuilder
 specifier|public
 name|TermsJsonFilterBuilder
@@ -152,6 +154,7 @@ index|]
 expr_stmt|;
 block|}
 block|}
+comment|/**      * A filer for a field based on several terms matching on any of them.      *      * @param name   The field name      * @param values The terms      */
 DECL|method|TermsJsonFilterBuilder
 specifier|public
 name|TermsJsonFilterBuilder
@@ -213,6 +216,7 @@ index|]
 expr_stmt|;
 block|}
 block|}
+comment|/**      * A filer for a field based on several terms matching on any of them.      *      * @param name   The field name      * @param values The terms      */
 DECL|method|TermsJsonFilterBuilder
 specifier|public
 name|TermsJsonFilterBuilder
@@ -274,6 +278,7 @@ index|]
 expr_stmt|;
 block|}
 block|}
+comment|/**      * A filer for a field based on several terms matching on any of them.      *      * @param name   The field name      * @param values The terms      */
 DECL|method|TermsJsonFilterBuilder
 specifier|public
 name|TermsJsonFilterBuilder
@@ -335,8 +340,9 @@ index|]
 expr_stmt|;
 block|}
 block|}
+comment|/**      * A filer for a field based on several terms matching on any of them.      *      * @param name   The field name      * @param values The terms      */
 DECL|method|TermsJsonFilterBuilder
-specifier|private
+specifier|public
 name|TermsJsonFilterBuilder
 parameter_list|(
 name|String

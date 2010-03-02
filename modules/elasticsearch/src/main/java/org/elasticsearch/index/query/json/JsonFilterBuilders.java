@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * A static factory for simple "import static" usage.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -29,6 +29,7 @@ specifier|abstract
 class|class
 name|JsonFilterBuilders
 block|{
+comment|/**      * A filter for a field based on a term.      *      * @param name  The field name      * @param value The term value      */
 DECL|method|termFilter
 specifier|public
 specifier|static
@@ -52,6 +53,7 @@ name|value
 argument_list|)
 return|;
 block|}
+comment|/**      * A filter for a field based on a term.      *      * @param name  The field name      * @param value The term value      */
 DECL|method|termFilter
 specifier|public
 specifier|static
@@ -75,6 +77,7 @@ name|value
 argument_list|)
 return|;
 block|}
+comment|/**      * A filter for a field based on a term.      *      * @param name  The field name      * @param value The term value      */
 DECL|method|termFilter
 specifier|public
 specifier|static
@@ -98,6 +101,7 @@ name|value
 argument_list|)
 return|;
 block|}
+comment|/**      * A filter for a field based on a term.      *      * @param name  The field name      * @param value The term value      */
 DECL|method|termFilter
 specifier|public
 specifier|static
@@ -121,6 +125,7 @@ name|value
 argument_list|)
 return|;
 block|}
+comment|/**      * A filter for a field based on a term.      *      * @param name  The field name      * @param value The term value      */
 DECL|method|termFilter
 specifier|public
 specifier|static
@@ -144,6 +149,31 @@ name|value
 argument_list|)
 return|;
 block|}
+comment|/**      * A filter for a field based on a term.      *      * @param name  The field name      * @param value The term value      */
+DECL|method|termFilter
+specifier|public
+specifier|static
+name|TermJsonFilterBuilder
+name|termFilter
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|Object
+name|value
+parameter_list|)
+block|{
+return|return
+operator|new
+name|TermJsonFilterBuilder
+argument_list|(
+name|name
+argument_list|,
+name|value
+argument_list|)
+return|;
+block|}
+comment|/**      * A filer for a field based on several terms matching on any of them.      *      * @param name   The field name      * @param values The terms      */
 DECL|method|termsFilter
 specifier|public
 specifier|static
@@ -168,6 +198,7 @@ name|values
 argument_list|)
 return|;
 block|}
+comment|/**      * A filer for a field based on several terms matching on any of them.      *      * @param name   The field name      * @param values The terms      */
 DECL|method|termsFilter
 specifier|public
 specifier|static
@@ -192,6 +223,7 @@ name|values
 argument_list|)
 return|;
 block|}
+comment|/**      * A filer for a field based on several terms matching on any of them.      *      * @param name   The field name      * @param values The terms      */
 DECL|method|termsFilter
 specifier|public
 specifier|static
@@ -216,6 +248,7 @@ name|values
 argument_list|)
 return|;
 block|}
+comment|/**      * A filer for a field based on several terms matching on any of them.      *      * @param name   The field name      * @param values The terms      */
 DECL|method|termsFilter
 specifier|public
 specifier|static
@@ -240,6 +273,7 @@ name|values
 argument_list|)
 return|;
 block|}
+comment|/**      * A filer for a field based on several terms matching on any of them.      *      * @param name   The field name      * @param values The terms      */
 DECL|method|termsFilter
 specifier|public
 specifier|static
@@ -264,6 +298,32 @@ name|values
 argument_list|)
 return|;
 block|}
+comment|/**      * A filer for a field based on several terms matching on any of them.      *      * @param name   The field name      * @param values The terms      */
+DECL|method|termsFilter
+specifier|public
+specifier|static
+name|TermsJsonFilterBuilder
+name|termsFilter
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|Object
+modifier|...
+name|values
+parameter_list|)
+block|{
+return|return
+operator|new
+name|TermsJsonFilterBuilder
+argument_list|(
+name|name
+argument_list|,
+name|values
+argument_list|)
+return|;
+block|}
+comment|/**      * A filter that restricts search results to values that have a matching prefix in a given      * field.      *      * @param name   The field name      * @param prefix The prefix      */
 DECL|method|prefixFilter
 specifier|public
 specifier|static
@@ -274,7 +334,7 @@ name|String
 name|name
 parameter_list|,
 name|String
-name|value
+name|prefix
 parameter_list|)
 block|{
 return|return
@@ -283,10 +343,11 @@ name|PrefixJsonFilterBuilder
 argument_list|(
 name|name
 argument_list|,
-name|value
+name|prefix
 argument_list|)
 return|;
 block|}
+comment|/**      * A filter that restricts search results to values that are within the given range.      *      * @param name The field name      */
 DECL|method|rangeFilter
 specifier|public
 specifier|static
@@ -305,6 +366,7 @@ name|name
 argument_list|)
 return|;
 block|}
+comment|/**      * A filter that simply wraps a query.      *      * @param queryBuilder The query to wrap as a filter      */
 DECL|method|queryFilter
 specifier|public
 specifier|static

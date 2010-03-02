@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  * A Query that matches documents containing a term.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -74,6 +74,7 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
+comment|/**      * Constructs a new term query.      *      * @param name  The name of the field      * @param value The value of the term      */
 DECL|method|TermJsonQueryBuilder
 specifier|public
 name|TermJsonQueryBuilder
@@ -96,6 +97,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Constructs a new term query.      *      * @param name  The name of the field      * @param value The value of the term      */
 DECL|method|TermJsonQueryBuilder
 specifier|public
 name|TermJsonQueryBuilder
@@ -118,6 +120,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Constructs a new term query.      *      * @param name  The name of the field      * @param value The value of the term      */
 DECL|method|TermJsonQueryBuilder
 specifier|public
 name|TermJsonQueryBuilder
@@ -140,6 +143,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Constructs a new term query.      *      * @param name  The name of the field      * @param value The value of the term      */
 DECL|method|TermJsonQueryBuilder
 specifier|public
 name|TermJsonQueryBuilder
@@ -162,6 +166,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Constructs a new term query.      *      * @param name  The name of the field      * @param value The value of the term      */
 DECL|method|TermJsonQueryBuilder
 specifier|public
 name|TermJsonQueryBuilder
@@ -184,6 +189,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Constructs a new term query.      *      * @param name  The name of the field      * @param value The value of the term      */
 DECL|method|TermJsonQueryBuilder
 specifier|private
 name|TermJsonQueryBuilder
@@ -208,6 +214,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
+comment|/**      * Sets the boost for this query.  Documents matching this query will (in addition to the normal      * weightings) have their score multiplied by the boost provided.      */
 DECL|method|boost
 specifier|public
 name|TermJsonQueryBuilder
