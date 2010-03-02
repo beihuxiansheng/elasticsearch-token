@@ -113,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -254,9 +254,21 @@ operator|=
 operator|new
 name|ByteBufferDirectory
 argument_list|(
+operator|(
+name|int
+operator|)
 name|bufferSize
+operator|.
+name|bytes
+argument_list|()
 argument_list|,
+operator|(
+name|int
+operator|)
 name|cacheSize
+operator|.
+name|bytes
+argument_list|()
 argument_list|,
 name|direct
 argument_list|,
@@ -273,15 +285,9 @@ operator|new
 name|Object
 index|[]
 block|{
-name|directory
-operator|.
 name|bufferSize
-argument_list|()
 block|,
-name|directory
-operator|.
 name|cacheSize
-argument_list|()
 block|,
 name|directory
 operator|.
