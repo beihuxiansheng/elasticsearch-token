@@ -130,6 +130,7 @@ return|;
 block|}
 DECL|method|isTraceEnabled
 specifier|public
+specifier|final
 name|boolean
 name|isTraceEnabled
 parameter_list|()
@@ -143,6 +144,7 @@ return|;
 block|}
 DECL|method|trace
 specifier|public
+specifier|final
 name|void
 name|trace
 parameter_list|(
@@ -163,6 +165,7 @@ expr_stmt|;
 block|}
 DECL|method|trace
 specifier|public
+specifier|final
 name|void
 name|trace
 parameter_list|(
@@ -188,6 +191,7 @@ expr_stmt|;
 block|}
 DECL|method|trace
 specifier|public
+specifier|final
 name|void
 name|trace
 parameter_list|(
@@ -218,6 +222,7 @@ expr_stmt|;
 block|}
 DECL|method|trace
 specifier|public
+specifier|final
 name|void
 name|trace
 parameter_list|(
@@ -244,6 +249,7 @@ expr_stmt|;
 block|}
 DECL|method|trace
 specifier|public
+specifier|final
 name|void
 name|trace
 parameter_list|(
@@ -269,6 +275,7 @@ expr_stmt|;
 block|}
 DECL|method|isTraceEnabled
 specifier|public
+specifier|final
 name|boolean
 name|isTraceEnabled
 parameter_list|(
@@ -287,6 +294,7 @@ return|;
 block|}
 DECL|method|trace
 specifier|public
+specifier|final
 name|void
 name|trace
 parameter_list|(
@@ -312,6 +320,7 @@ expr_stmt|;
 block|}
 DECL|method|trace
 specifier|public
+specifier|final
 name|void
 name|trace
 parameter_list|(
@@ -342,6 +351,7 @@ expr_stmt|;
 block|}
 DECL|method|trace
 specifier|public
+specifier|final
 name|void
 name|trace
 parameter_list|(
@@ -377,6 +387,7 @@ expr_stmt|;
 block|}
 DECL|method|trace
 specifier|public
+specifier|final
 name|void
 name|trace
 parameter_list|(
@@ -408,6 +419,7 @@ expr_stmt|;
 block|}
 DECL|method|trace
 specifier|public
+specifier|final
 name|void
 name|trace
 parameter_list|(
@@ -438,6 +450,7 @@ expr_stmt|;
 block|}
 DECL|method|isDebugEnabled
 specifier|public
+specifier|final
 name|boolean
 name|isDebugEnabled
 parameter_list|()
@@ -451,6 +464,7 @@ return|;
 block|}
 DECL|method|debug
 specifier|public
+specifier|final
 name|void
 name|debug
 parameter_list|(
@@ -471,6 +485,7 @@ expr_stmt|;
 block|}
 DECL|method|debug
 specifier|public
+specifier|final
 name|void
 name|debug
 parameter_list|(
@@ -496,6 +511,7 @@ expr_stmt|;
 block|}
 DECL|method|debug
 specifier|public
+specifier|final
 name|void
 name|debug
 parameter_list|(
@@ -526,6 +542,7 @@ expr_stmt|;
 block|}
 DECL|method|debug
 specifier|public
+specifier|final
 name|void
 name|debug
 parameter_list|(
@@ -552,6 +569,7 @@ expr_stmt|;
 block|}
 DECL|method|debug
 specifier|public
+specifier|final
 name|void
 name|debug
 parameter_list|(
@@ -577,6 +595,7 @@ expr_stmt|;
 block|}
 DECL|method|isDebugEnabled
 specifier|public
+specifier|final
 name|boolean
 name|isDebugEnabled
 parameter_list|(
@@ -595,6 +614,7 @@ return|;
 block|}
 DECL|method|debug
 specifier|public
+specifier|final
 name|void
 name|debug
 parameter_list|(
@@ -620,6 +640,7 @@ expr_stmt|;
 block|}
 DECL|method|debug
 specifier|public
+specifier|final
 name|void
 name|debug
 parameter_list|(
@@ -650,6 +671,7 @@ expr_stmt|;
 block|}
 DECL|method|debug
 specifier|public
+specifier|final
 name|void
 name|debug
 parameter_list|(
@@ -685,6 +707,7 @@ expr_stmt|;
 block|}
 DECL|method|debug
 specifier|public
+specifier|final
 name|void
 name|debug
 parameter_list|(
@@ -716,6 +739,7 @@ expr_stmt|;
 block|}
 DECL|method|debug
 specifier|public
+specifier|final
 name|void
 name|debug
 parameter_list|(
@@ -746,6 +770,7 @@ expr_stmt|;
 block|}
 DECL|method|isInfoEnabled
 specifier|public
+specifier|final
 name|boolean
 name|isInfoEnabled
 parameter_list|()
@@ -759,6 +784,7 @@ return|;
 block|}
 DECL|method|info
 specifier|public
+specifier|final
 name|void
 name|info
 parameter_list|(
@@ -779,6 +805,7 @@ expr_stmt|;
 block|}
 DECL|method|info
 specifier|public
+specifier|final
 name|void
 name|info
 parameter_list|(
@@ -804,6 +831,7 @@ expr_stmt|;
 block|}
 DECL|method|info
 specifier|public
+specifier|final
 name|void
 name|info
 parameter_list|(
@@ -834,6 +862,7 @@ expr_stmt|;
 block|}
 DECL|method|info
 specifier|public
+specifier|final
 name|void
 name|info
 parameter_list|(
@@ -860,6 +889,7 @@ expr_stmt|;
 block|}
 DECL|method|info
 specifier|public
+specifier|final
 name|void
 name|info
 parameter_list|(
@@ -885,6 +915,7 @@ expr_stmt|;
 block|}
 DECL|method|isInfoEnabled
 specifier|public
+specifier|final
 name|boolean
 name|isInfoEnabled
 parameter_list|(
@@ -903,6 +934,7 @@ return|;
 block|}
 DECL|method|info
 specifier|public
+specifier|final
 name|void
 name|info
 parameter_list|(
@@ -928,6 +960,7 @@ expr_stmt|;
 block|}
 DECL|method|info
 specifier|public
+specifier|final
 name|void
 name|info
 parameter_list|(
@@ -958,6 +991,7 @@ expr_stmt|;
 block|}
 DECL|method|info
 specifier|public
+specifier|final
 name|void
 name|info
 parameter_list|(
@@ -993,6 +1027,7 @@ expr_stmt|;
 block|}
 DECL|method|info
 specifier|public
+specifier|final
 name|void
 name|info
 parameter_list|(
@@ -1024,6 +1059,7 @@ expr_stmt|;
 block|}
 DECL|method|info
 specifier|public
+specifier|final
 name|void
 name|info
 parameter_list|(
@@ -1054,6 +1090,7 @@ expr_stmt|;
 block|}
 DECL|method|isWarnEnabled
 specifier|public
+specifier|final
 name|boolean
 name|isWarnEnabled
 parameter_list|()
@@ -1067,6 +1104,7 @@ return|;
 block|}
 DECL|method|warn
 specifier|public
+specifier|final
 name|void
 name|warn
 parameter_list|(
@@ -1087,6 +1125,7 @@ expr_stmt|;
 block|}
 DECL|method|warn
 specifier|public
+specifier|final
 name|void
 name|warn
 parameter_list|(
@@ -1112,6 +1151,7 @@ expr_stmt|;
 block|}
 DECL|method|warn
 specifier|public
+specifier|final
 name|void
 name|warn
 parameter_list|(
@@ -1138,6 +1178,7 @@ expr_stmt|;
 block|}
 DECL|method|warn
 specifier|public
+specifier|final
 name|void
 name|warn
 parameter_list|(
@@ -1168,6 +1209,7 @@ expr_stmt|;
 block|}
 DECL|method|warn
 specifier|public
+specifier|final
 name|void
 name|warn
 parameter_list|(
@@ -1193,6 +1235,7 @@ expr_stmt|;
 block|}
 DECL|method|isWarnEnabled
 specifier|public
+specifier|final
 name|boolean
 name|isWarnEnabled
 parameter_list|(
@@ -1211,6 +1254,7 @@ return|;
 block|}
 DECL|method|warn
 specifier|public
+specifier|final
 name|void
 name|warn
 parameter_list|(
@@ -1236,6 +1280,7 @@ expr_stmt|;
 block|}
 DECL|method|warn
 specifier|public
+specifier|final
 name|void
 name|warn
 parameter_list|(
@@ -1266,6 +1311,7 @@ expr_stmt|;
 block|}
 DECL|method|warn
 specifier|public
+specifier|final
 name|void
 name|warn
 parameter_list|(
@@ -1301,6 +1347,7 @@ expr_stmt|;
 block|}
 DECL|method|warn
 specifier|public
+specifier|final
 name|void
 name|warn
 parameter_list|(
@@ -1332,6 +1379,7 @@ expr_stmt|;
 block|}
 DECL|method|warn
 specifier|public
+specifier|final
 name|void
 name|warn
 parameter_list|(
@@ -1362,6 +1410,7 @@ expr_stmt|;
 block|}
 DECL|method|isErrorEnabled
 specifier|public
+specifier|final
 name|boolean
 name|isErrorEnabled
 parameter_list|()
@@ -1375,6 +1424,7 @@ return|;
 block|}
 DECL|method|error
 specifier|public
+specifier|final
 name|void
 name|error
 parameter_list|(
@@ -1395,6 +1445,7 @@ expr_stmt|;
 block|}
 DECL|method|error
 specifier|public
+specifier|final
 name|void
 name|error
 parameter_list|(
@@ -1420,6 +1471,7 @@ expr_stmt|;
 block|}
 DECL|method|error
 specifier|public
+specifier|final
 name|void
 name|error
 parameter_list|(
@@ -1450,6 +1502,7 @@ expr_stmt|;
 block|}
 DECL|method|error
 specifier|public
+specifier|final
 name|void
 name|error
 parameter_list|(
@@ -1476,6 +1529,7 @@ expr_stmt|;
 block|}
 DECL|method|error
 specifier|public
+specifier|final
 name|void
 name|error
 parameter_list|(
@@ -1501,6 +1555,7 @@ expr_stmt|;
 block|}
 DECL|method|isErrorEnabled
 specifier|public
+specifier|final
 name|boolean
 name|isErrorEnabled
 parameter_list|(
@@ -1519,6 +1574,7 @@ return|;
 block|}
 DECL|method|error
 specifier|public
+specifier|final
 name|void
 name|error
 parameter_list|(
@@ -1544,6 +1600,7 @@ expr_stmt|;
 block|}
 DECL|method|error
 specifier|public
+specifier|final
 name|void
 name|error
 parameter_list|(
@@ -1574,6 +1631,7 @@ expr_stmt|;
 block|}
 DECL|method|error
 specifier|public
+specifier|final
 name|void
 name|error
 parameter_list|(
@@ -1609,6 +1667,7 @@ expr_stmt|;
 block|}
 DECL|method|error
 specifier|public
+specifier|final
 name|void
 name|error
 parameter_list|(
@@ -1640,6 +1699,7 @@ expr_stmt|;
 block|}
 DECL|method|error
 specifier|public
+specifier|final
 name|void
 name|error
 parameter_list|(
