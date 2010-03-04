@@ -26,6 +26,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|TimeValue
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -95,6 +107,17 @@ name|timeout
 parameter_list|,
 name|TimeUnit
 name|unit
+parameter_list|)
+throws|throws
+name|ElasticSearchException
+function_decl|;
+comment|/**      * Similar to {@link #get(long, java.util.concurrent.TimeUnit)}, just wrapping the {@link InterruptedException} with      * {@link org.elasticsearch.ElasticSearchInterruptedException}, and throwing the actual      * cause of the {@link java.util.concurrent.ExecutionException}.      */
+DECL|method|actionGet
+name|T
+name|actionGet
+parameter_list|(
+name|TimeValue
+name|timeout
 parameter_list|)
 throws|throws
 name|ElasticSearchException
