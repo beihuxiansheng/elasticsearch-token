@@ -370,7 +370,7 @@ operator|.
 name|cluster
 argument_list|()
 operator|.
-name|execPing
+name|ping
 argument_list|(
 name|replicationPingRequest
 argument_list|,

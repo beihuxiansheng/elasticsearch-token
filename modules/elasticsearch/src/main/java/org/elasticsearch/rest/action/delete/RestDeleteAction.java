@@ -305,7 +305,7 @@ argument_list|)
 expr_stmt|;
 name|client
 operator|.
-name|execDelete
+name|delete
 argument_list|(
 name|deleteRequest
 argument_list|,

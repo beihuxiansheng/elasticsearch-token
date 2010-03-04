@@ -510,7 +510,7 @@ operator|.
 name|cluster
 argument_list|()
 operator|.
-name|execHealth
+name|health
 argument_list|(
 name|clusterHealthRequest
 argument_list|,

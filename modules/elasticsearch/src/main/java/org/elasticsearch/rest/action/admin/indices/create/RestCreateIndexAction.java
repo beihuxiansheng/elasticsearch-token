@@ -468,7 +468,7 @@ operator|.
 name|indices
 argument_list|()
 operator|.
-name|execCreate
+name|create
 argument_list|(
 name|createIndexRequest
 argument_list|,

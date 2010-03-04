@@ -186,18 +186,6 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|Nullable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|util
-operator|.
 name|component
 operator|.
 name|AbstractComponent
@@ -247,7 +235,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -359,7 +347,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|submit
+DECL|method|execute
 annotation|@
 name|Override
 specifier|public
@@ -367,7 +355,7 @@ name|ActionFuture
 argument_list|<
 name|Response
 argument_list|>
-name|submit
+name|execute
 parameter_list|(
 name|Node
 name|node
@@ -378,42 +366,6 @@ parameter_list|)
 throws|throws
 name|ElasticSearchException
 block|{
-return|return
-name|submit
-argument_list|(
-name|node
-argument_list|,
-name|request
-argument_list|,
-literal|null
-argument_list|)
-return|;
-block|}
-DECL|method|submit
-annotation|@
-name|Override
-specifier|public
-name|ActionFuture
-argument_list|<
-name|Response
-argument_list|>
-name|submit
-parameter_list|(
-name|Node
-name|node
-parameter_list|,
-name|Request
-name|request
-parameter_list|,
-annotation|@
-name|Nullable
-name|ActionListener
-argument_list|<
-name|Response
-argument_list|>
-name|listener
-parameter_list|)
-block|{
 name|PlainActionFuture
 argument_list|<
 name|Response
@@ -421,19 +373,8 @@ argument_list|>
 name|future
 init|=
 name|newFuture
-argument_list|(
-name|listener
-argument_list|)
+argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|listener
-operator|==
-literal|null
-condition|)
-block|{
-comment|// since we don't have a listener, and we release a possible lock with the future
-comment|// there is no need to execute it under a listener thread
 name|request
 operator|.
 name|listenerThreaded
@@ -441,7 +382,6 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
-block|}
 name|execute
 argument_list|(
 name|node

@@ -550,7 +550,7 @@ operator|.
 name|indices
 argument_list|()
 operator|.
-name|execOptimize
+name|optimize
 argument_list|(
 name|optimizeRequest
 argument_list|,

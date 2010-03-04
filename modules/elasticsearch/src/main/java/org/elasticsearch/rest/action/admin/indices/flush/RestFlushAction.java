@@ -411,7 +411,7 @@ operator|.
 name|indices
 argument_list|()
 operator|.
-name|execFlush
+name|flush
 argument_list|(
 name|flushRequest
 argument_list|,

@@ -320,7 +320,7 @@ operator|.
 name|indices
 argument_list|()
 operator|.
-name|execDelete
+name|delete
 argument_list|(
 name|deleteIndexRequest
 argument_list|,

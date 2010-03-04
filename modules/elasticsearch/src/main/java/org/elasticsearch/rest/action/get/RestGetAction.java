@@ -292,7 +292,7 @@ argument_list|)
 expr_stmt|;
 name|client
 operator|.
-name|execGet
+name|get
 argument_list|(
 name|getRequest
 argument_list|,

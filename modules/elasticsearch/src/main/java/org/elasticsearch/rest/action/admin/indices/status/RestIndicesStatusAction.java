@@ -368,7 +368,7 @@ operator|.
 name|indices
 argument_list|()
 operator|.
-name|execStatus
+name|status
 argument_list|(
 name|indicesStatusRequest
 argument_list|,

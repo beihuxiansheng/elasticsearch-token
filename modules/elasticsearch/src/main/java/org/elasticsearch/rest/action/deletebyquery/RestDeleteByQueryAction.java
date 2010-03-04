@@ -484,7 +484,7 @@ return|return;
 block|}
 name|client
 operator|.
-name|execDeleteByQuery
+name|deleteByQuery
 argument_list|(
 name|deleteByQueryRequest
 argument_list|,

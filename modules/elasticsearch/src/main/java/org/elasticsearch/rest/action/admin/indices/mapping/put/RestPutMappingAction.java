@@ -450,7 +450,7 @@ operator|.
 name|indices
 argument_list|()
 operator|.
-name|execPutMapping
+name|putMapping
 argument_list|(
 name|putMappingRequest
 argument_list|,

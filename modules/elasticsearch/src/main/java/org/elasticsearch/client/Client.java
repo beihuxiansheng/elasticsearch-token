@@ -263,7 +263,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A client provides a one stop interface for performing actions/operations against the cluster.  *  *<p>All operations performed are asynchronous by nature. There are three flavors for each operation,  * the simplest returns an {@link ActionFuture}, another that also accepts an {@link ActionListener},  * and the last (prefixed with<tt>exec</tt>) which just accepts an {@link ActionListener} without returning  * an {@link ActionFuture}.  *  *<p>A client can either be retrieved from a {@link org.elasticsearch.server.Server} started, or connected remotely  * to one or more nodes using {@link org.elasticsearch.client.transport.TransportClient}.  *  * @author kimchy (shay.banon)  * @see org.elasticsearch.server.Server#client()  * @see org.elasticsearch.client.transport.TransportClient  */
+comment|/**  * A client provides a one stop interface for performing actions/operations against the cluster.  *  *<p>All operations performed are asynchronous by nature. Each action/operation has two flavors, the first  * simply returns an {@link org.elasticsearch.action.ActionFuture}, while the second accepts an  * {@link org.elasticsearch.action.ActionListener}.  *  *<p>A client can either be retrieved from a {@link org.elasticsearch.server.Server} started, or connected remotely  * to one or more nodes using {@link org.elasticsearch.client.transport.TransportClient}.  *  * @author kimchy (shay.banon)  * @see org.elasticsearch.server.Server#client()  * @see org.elasticsearch.client.transport.TransportClient  */
 end_comment
 
 begin_interface
@@ -296,28 +296,10 @@ name|IndexRequest
 name|request
 parameter_list|)
 function_decl|;
-comment|/**      * Index a JSON source associated with a given index and type.      *      *<p>The id is optional, if it is not provided, one will be generated automatically.      *      * @param request  The index request      * @param listener A listener to be notified with a result      * @return The result future      * @see Requests#indexRequest(String)      */
-DECL|method|index
-name|ActionFuture
-argument_list|<
-name|IndexResponse
-argument_list|>
-name|index
-parameter_list|(
-name|IndexRequest
-name|request
-parameter_list|,
-name|ActionListener
-argument_list|<
-name|IndexResponse
-argument_list|>
-name|listener
-parameter_list|)
-function_decl|;
 comment|/**      * Index a JSON source associated with a given index and type.      *      *<p>The id is optional, if it is not provided, one will be generated automatically.      *      * @param request  The index request      * @param listener A listener to be notified with a result      * @see Requests#indexRequest(String)      */
-DECL|method|execIndex
+DECL|method|index
 name|void
-name|execIndex
+name|index
 parameter_list|(
 name|IndexRequest
 name|request
@@ -341,28 +323,10 @@ name|DeleteRequest
 name|request
 parameter_list|)
 function_decl|;
-comment|/**      * Deletes a document from the index based on the index, type and id.      *      * @param request  The delete request      * @param listener A listener to be notified with a result      * @return The result future      * @see Requests#deleteRequest(String)      */
-DECL|method|delete
-name|ActionFuture
-argument_list|<
-name|DeleteResponse
-argument_list|>
-name|delete
-parameter_list|(
-name|DeleteRequest
-name|request
-parameter_list|,
-name|ActionListener
-argument_list|<
-name|DeleteResponse
-argument_list|>
-name|listener
-parameter_list|)
-function_decl|;
 comment|/**      * Deletes a document from the index based on the index, type and id.      *      * @param request  The delete request      * @param listener A listener to be notified with a result      * @see Requests#deleteRequest(String)      */
-DECL|method|execDelete
+DECL|method|delete
 name|void
-name|execDelete
+name|delete
 parameter_list|(
 name|DeleteRequest
 name|request
@@ -386,28 +350,10 @@ name|DeleteByQueryRequest
 name|request
 parameter_list|)
 function_decl|;
-comment|/**      * Deletes all documents from one or more indices based on a query.      *      * @param request  The delete by query request      * @param listener A listener to be notified with a result      * @return The result future      * @see Requests#deleteByQueryRequest(String...)      */
-DECL|method|deleteByQuery
-name|ActionFuture
-argument_list|<
-name|DeleteByQueryResponse
-argument_list|>
-name|deleteByQuery
-parameter_list|(
-name|DeleteByQueryRequest
-name|request
-parameter_list|,
-name|ActionListener
-argument_list|<
-name|DeleteByQueryResponse
-argument_list|>
-name|listener
-parameter_list|)
-function_decl|;
 comment|/**      * Deletes all documents from one or more indices based on a query.      *      * @param request  The delete by query request      * @param listener A listener to be notified with a result      * @see Requests#deleteByQueryRequest(String...)      */
-DECL|method|execDeleteByQuery
+DECL|method|deleteByQuery
 name|void
-name|execDeleteByQuery
+name|deleteByQuery
 parameter_list|(
 name|DeleteByQueryRequest
 name|request
@@ -431,28 +377,10 @@ name|GetRequest
 name|request
 parameter_list|)
 function_decl|;
-comment|/**      * Gets the JSON source that was indexed from an index with a type and id.      *      * @param request  The get request      * @param listener A listener to be notified with a result      * @return The result future      * @see Requests#getRequest(String)      */
-DECL|method|get
-name|ActionFuture
-argument_list|<
-name|GetResponse
-argument_list|>
-name|get
-parameter_list|(
-name|GetRequest
-name|request
-parameter_list|,
-name|ActionListener
-argument_list|<
-name|GetResponse
-argument_list|>
-name|listener
-parameter_list|)
-function_decl|;
 comment|/**      * Gets the JSON source that was indexed from an index with a type and id.      *      * @param request  The get request      * @param listener A listener to be notified with a result      * @see Requests#getRequest(String)      */
-DECL|method|execGet
+DECL|method|get
 name|void
-name|execGet
+name|get
 parameter_list|(
 name|GetRequest
 name|request
@@ -476,28 +404,10 @@ name|CountRequest
 name|request
 parameter_list|)
 function_decl|;
-comment|/**      * A count of all the documents matching a specific query.      *      * @param request  The count request      * @param listener A listener to be notified of the result      * @return The result future      * @see Requests#countRequest(String...)      */
-DECL|method|count
-name|ActionFuture
-argument_list|<
-name|CountResponse
-argument_list|>
-name|count
-parameter_list|(
-name|CountRequest
-name|request
-parameter_list|,
-name|ActionListener
-argument_list|<
-name|CountResponse
-argument_list|>
-name|listener
-parameter_list|)
-function_decl|;
 comment|/**      * A count of all the documents matching a specific query.      *      * @param request  The count request      * @param listener A listener to be notified of the result      * @see Requests#countRequest(String...)      */
-DECL|method|execCount
+DECL|method|count
 name|void
-name|execCount
+name|count
 parameter_list|(
 name|CountRequest
 name|request
@@ -521,28 +431,10 @@ name|SearchRequest
 name|request
 parameter_list|)
 function_decl|;
-comment|/**      * Search across one or more indices and one or more types with a query.      *      * @param request  The search request      * @param listener A listener to be notified of the result      * @return The result future      * @see Requests#searchRequest(String...)      */
-DECL|method|search
-name|ActionFuture
-argument_list|<
-name|SearchResponse
-argument_list|>
-name|search
-parameter_list|(
-name|SearchRequest
-name|request
-parameter_list|,
-name|ActionListener
-argument_list|<
-name|SearchResponse
-argument_list|>
-name|listener
-parameter_list|)
-function_decl|;
 comment|/**      * Search across one or more indices and one or more types with a query.      *      * @param request  The search request      * @param listener A listener to be notified of the result      * @see Requests#searchRequest(String...)      */
-DECL|method|execSearch
+DECL|method|search
 name|void
-name|execSearch
+name|search
 parameter_list|(
 name|SearchRequest
 name|request
@@ -566,28 +458,10 @@ name|SearchScrollRequest
 name|request
 parameter_list|)
 function_decl|;
-comment|/**      * A search scroll request to continue searching a previous scrollable search request.      *      * @param request  The search scroll request      * @param listener A listener to be notified of the result      * @return The result future      * @see Requests#searchScrollRequest(String)      */
-DECL|method|searchScroll
-name|ActionFuture
-argument_list|<
-name|SearchResponse
-argument_list|>
-name|searchScroll
-parameter_list|(
-name|SearchScrollRequest
-name|request
-parameter_list|,
-name|ActionListener
-argument_list|<
-name|SearchResponse
-argument_list|>
-name|listener
-parameter_list|)
-function_decl|;
 comment|/**      * A search scroll request to continue searching a previous scrollable search request.      *      * @param request  The search scroll request      * @param listener A listener to be notified of the result      * @see Requests#searchScrollRequest(String)      */
-DECL|method|execSearchScroll
+DECL|method|searchScroll
 name|void
-name|execSearchScroll
+name|searchScroll
 parameter_list|(
 name|SearchScrollRequest
 name|request
@@ -611,28 +485,10 @@ name|TermsRequest
 name|request
 parameter_list|)
 function_decl|;
-comment|/**      * A terms request  to get terms in one or more indices of specific fields and their      * document frequencies (in how many document each term exists).      *      * @param request  The term request      * @param listener A listener to be notified of the result      * @return The result future      * @see Requests#termsRequest(String...)      */
-DECL|method|terms
-name|ActionFuture
-argument_list|<
-name|TermsResponse
-argument_list|>
-name|terms
-parameter_list|(
-name|TermsRequest
-name|request
-parameter_list|,
-name|ActionListener
-argument_list|<
-name|TermsResponse
-argument_list|>
-name|listener
-parameter_list|)
-function_decl|;
 comment|/**      * A terms request  to get terms in one or more indices of specific fields and their      * document frequencies (in how many document each term exists).      *      * @param request  The term request      * @param listener A listener to be notified of the result      * @see Requests#termsRequest(String...)      */
-DECL|method|execTerms
+DECL|method|terms
 name|void
-name|execTerms
+name|terms
 parameter_list|(
 name|TermsRequest
 name|request
@@ -656,28 +512,10 @@ name|MoreLikeThisRequest
 name|request
 parameter_list|)
 function_decl|;
-comment|/**      * A more like this action to search for documents that are "like" a specific document.      *      * @param request  The more like this request      * @param listener A listener to be notified of the result      * @return The response future      */
-DECL|method|moreLikeThis
-name|ActionFuture
-argument_list|<
-name|SearchResponse
-argument_list|>
-name|moreLikeThis
-parameter_list|(
-name|MoreLikeThisRequest
-name|request
-parameter_list|,
-name|ActionListener
-argument_list|<
-name|SearchResponse
-argument_list|>
-name|listener
-parameter_list|)
-function_decl|;
 comment|/**      * A more like this action to search for documents that are "like" a specific document.      *      * @param request  The more like this request      * @param listener A listener to be notified of the result      */
-DECL|method|execMoreLikeThis
+DECL|method|moreLikeThis
 name|void
-name|execMoreLikeThis
+name|moreLikeThis
 parameter_list|(
 name|MoreLikeThisRequest
 name|request

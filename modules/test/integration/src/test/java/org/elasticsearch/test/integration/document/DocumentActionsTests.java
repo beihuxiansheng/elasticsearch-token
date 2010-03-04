@@ -1117,7 +1117,7 @@ name|source
 argument_list|(
 literal|"2"
 argument_list|,
-literal|"test"
+literal|"test2"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1317,7 +1317,7 @@ name|source
 argument_list|(
 literal|"2"
 argument_list|,
-literal|"test"
+literal|"test2"
 argument_list|)
 argument_list|)
 argument_list|)

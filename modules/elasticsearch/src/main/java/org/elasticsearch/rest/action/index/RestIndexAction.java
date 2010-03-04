@@ -450,7 +450,7 @@ argument_list|)
 expr_stmt|;
 name|client
 operator|.
-name|execIndex
+name|index
 argument_list|(
 name|indexRequest
 argument_list|,

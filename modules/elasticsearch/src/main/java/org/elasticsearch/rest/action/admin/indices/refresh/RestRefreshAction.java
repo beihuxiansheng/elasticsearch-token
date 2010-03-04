@@ -394,7 +394,7 @@ operator|.
 name|indices
 argument_list|()
 operator|.
-name|execRefresh
+name|refresh
 argument_list|(
 name|refreshRequest
 argument_list|,

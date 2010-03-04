@@ -347,7 +347,7 @@ operator|.
 name|cluster
 argument_list|()
 operator|.
-name|execNodesInfo
+name|nodesInfo
 argument_list|(
 name|nodesInfoRequest
 argument_list|,

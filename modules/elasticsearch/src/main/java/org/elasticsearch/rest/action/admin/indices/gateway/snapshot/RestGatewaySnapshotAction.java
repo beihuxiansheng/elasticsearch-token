@@ -374,7 +374,7 @@ operator|.
 name|indices
 argument_list|()
 operator|.
-name|execGatewaySnapshot
+name|gatewaySnapshot
 argument_list|(
 name|gatewaySnapshotRequest
 argument_list|,

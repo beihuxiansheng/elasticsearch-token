@@ -836,7 +836,7 @@ argument_list|)
 decl_stmt|;
 name|client
 operator|.
-name|execTerms
+name|terms
 argument_list|(
 name|termsRequest
 argument_list|,

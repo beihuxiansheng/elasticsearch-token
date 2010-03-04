@@ -585,7 +585,7 @@ return|return;
 block|}
 name|client
 operator|.
-name|execCount
+name|count
 argument_list|(
 name|countRequest
 argument_list|,

@@ -634,7 +634,7 @@ return|return;
 block|}
 name|client
 operator|.
-name|execSearch
+name|search
 argument_list|(
 name|searchRequest
 argument_list|,
