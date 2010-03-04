@@ -473,10 +473,16 @@ name|response
 operator|.
 name|status
 argument_list|()
-operator|==
+operator|.
+name|value
+argument_list|()
+operator|<=
 name|request
 operator|.
 name|waitForStatus
+argument_list|()
+operator|.
+name|value
 argument_list|()
 condition|)
 block|{
