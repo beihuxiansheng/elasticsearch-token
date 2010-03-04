@@ -13,20 +13,20 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * The same as {@link InterruptedException} simply a runtime one.  *  * @author kimchy (shay.banon)  */
+comment|/**  * The same as {@link java.util.concurrent.TimeoutException} simply a runtime one.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|ElasticSearchInterruptedException
+DECL|class|ElasticSearchTimeoutException
 specifier|public
 class|class
-name|ElasticSearchInterruptedException
+name|ElasticSearchTimeoutException
 extends|extends
 name|ElasticSearchException
 block|{
-DECL|method|ElasticSearchInterruptedException
+DECL|method|ElasticSearchTimeoutException
 specifier|public
-name|ElasticSearchInterruptedException
+name|ElasticSearchTimeoutException
 parameter_list|(
 name|String
 name|message
@@ -38,9 +38,9 @@ name|message
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|ElasticSearchInterruptedException
+DECL|method|ElasticSearchTimeoutException
 specifier|public
-name|ElasticSearchInterruptedException
+name|ElasticSearchTimeoutException
 parameter_list|(
 name|String
 name|message
