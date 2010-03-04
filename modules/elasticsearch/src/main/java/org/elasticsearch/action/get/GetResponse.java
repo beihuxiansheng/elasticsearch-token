@@ -174,8 +174,14 @@ parameter_list|()
 block|{
 return|return
 name|source
-operator|==
+operator|!=
 literal|null
+operator|&&
+name|source
+operator|.
+name|length
+operator|>
+literal|0
 return|;
 block|}
 comment|/**      * The index the document was fetched from.      */

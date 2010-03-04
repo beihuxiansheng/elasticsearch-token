@@ -580,6 +580,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
+operator|!
 name|getResponse
 operator|.
 name|exists
