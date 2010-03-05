@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -129,11 +129,57 @@ return|return
 name|queryFacets
 return|;
 block|}
+DECL|class|Facet
+specifier|public
+specifier|static
+specifier|abstract
+class|class
+name|Facet
+block|{
+DECL|field|global
+specifier|private
+name|boolean
+name|global
+decl_stmt|;
+DECL|method|Facet
+specifier|protected
+name|Facet
+parameter_list|()
+block|{         }
+DECL|method|global
+specifier|public
+name|boolean
+name|global
+parameter_list|()
+block|{
+return|return
+name|global
+return|;
+block|}
+DECL|method|global
+specifier|public
+name|void
+name|global
+parameter_list|(
+name|boolean
+name|global
+parameter_list|)
+block|{
+name|this
+operator|.
+name|global
+operator|=
+name|global
+expr_stmt|;
+block|}
+block|}
 DECL|class|QueryFacet
 specifier|public
 specifier|static
 class|class
 name|QueryFacet
+extends|extends
+name|Facet
 block|{
 DECL|field|name
 specifier|private
