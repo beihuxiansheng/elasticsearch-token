@@ -2026,6 +2026,24 @@ argument_list|(
 name|querySource
 argument_list|)
 decl_stmt|;
+comment|// wrap it in filter, cache it, and constant score it
+name|query
+operator|=
+operator|new
+name|ConstantScoreQuery
+argument_list|(
+name|filterCache
+operator|.
+name|cache
+argument_list|(
+operator|new
+name|QueryWrapperFilter
+argument_list|(
+name|query
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|query
 operator|=
 name|filterByTypesIfNeeded
