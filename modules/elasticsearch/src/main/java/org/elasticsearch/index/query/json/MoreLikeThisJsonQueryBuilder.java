@@ -196,6 +196,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The percentage of terms to match. Defaults to<tt>0.3</tt>.      */
 DECL|method|percentTermsToMatch
 specifier|public
 name|MoreLikeThisJsonQueryBuilder

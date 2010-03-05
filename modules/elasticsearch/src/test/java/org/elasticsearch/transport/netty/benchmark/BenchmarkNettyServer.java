@@ -157,7 +157,7 @@ operator|.
 name|settingsBuilder
 argument_list|()
 operator|.
-name|putInt
+name|put
 argument_list|(
 literal|"transport.netty.port"
 argument_list|,

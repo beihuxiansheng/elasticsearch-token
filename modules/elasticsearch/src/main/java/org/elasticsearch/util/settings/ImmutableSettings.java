@@ -1979,10 +1979,10 @@ name|this
 return|;
 block|}
 comment|/**          * Sets a setting with the provided setting key and class as value.          *          * @param key   The setting key          * @param clazz The setting class value          * @return The builder          */
-DECL|method|putClass
+DECL|method|put
 specifier|public
 name|Builder
-name|putClass
+name|put
 parameter_list|(
 name|String
 name|key
@@ -2008,10 +2008,10 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the setting with the provided setting key and the boolean value.          *          * @param setting The setting key          * @param value   The boolean value          * @return The builder          */
-DECL|method|putBoolean
+DECL|method|put
 specifier|public
 name|Builder
-name|putBoolean
+name|put
 parameter_list|(
 name|String
 name|setting
@@ -2037,10 +2037,10 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the setting with the provided setting key and the int value.          *          * @param setting The setting key          * @param value   The int value          * @return The builder          */
-DECL|method|putInt
+DECL|method|put
 specifier|public
 name|Builder
-name|putInt
+name|put
 parameter_list|(
 name|String
 name|setting
@@ -2066,10 +2066,10 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the setting with the provided setting key and the long value.          *          * @param setting The setting key          * @param value   The long value          * @return The builder          */
-DECL|method|putLong
+DECL|method|put
 specifier|public
 name|Builder
-name|putLong
+name|put
 parameter_list|(
 name|String
 name|setting
@@ -2095,10 +2095,10 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the setting with the provided setting key and the float value.          *          * @param setting The setting key          * @param value   The float value          * @return The builder          */
-DECL|method|putFloat
+DECL|method|put
 specifier|public
 name|Builder
-name|putFloat
+name|put
 parameter_list|(
 name|String
 name|setting
@@ -2123,10 +2123,11 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|putDouble
+comment|/**          * Sets the setting with the provided setting key and the double value.          *          * @param setting The setting key          * @param value   The double value          * @return The builder          */
+DECL|method|put
 specifier|public
 name|Builder
-name|putDouble
+name|put
 parameter_list|(
 name|String
 name|setting
@@ -2152,10 +2153,10 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the setting with the provided setting key and the time value.          *          * @param setting The setting key          * @param value   The time value          * @return The builder          */
-DECL|method|putTime
+DECL|method|put
 specifier|public
 name|Builder
-name|putTime
+name|put
 parameter_list|(
 name|String
 name|setting
@@ -2167,7 +2168,7 @@ name|TimeUnit
 name|timeUnit
 parameter_list|)
 block|{
-name|putLong
+name|put
 argument_list|(
 name|setting
 argument_list|,
@@ -2184,10 +2185,10 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the setting with the provided setting key and the size value.          *          * @param setting The setting key          * @param value   The size value          * @return The builder          */
-DECL|method|putSize
+DECL|method|put
 specifier|public
 name|Builder
-name|putSize
+name|put
 parameter_list|(
 name|String
 name|setting
@@ -2199,7 +2200,7 @@ name|SizeUnit
 name|sizeUnit
 parameter_list|)
 block|{
-name|putLong
+name|put
 argument_list|(
 name|setting
 argument_list|,
@@ -2216,10 +2217,10 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the setting group.          */
-DECL|method|putGroup
+DECL|method|put
 specifier|public
 name|Builder
-name|putGroup
+name|put
 parameter_list|(
 name|String
 name|settingPrefix
@@ -2313,10 +2314,10 @@ name|this
 return|;
 block|}
 comment|/**          * Sets all the provided settings.          */
-DECL|method|putAll
+DECL|method|put
 specifier|public
 name|Builder
-name|putAll
+name|put
 parameter_list|(
 name|Settings
 name|settings
@@ -2337,10 +2338,10 @@ name|this
 return|;
 block|}
 comment|/**          * Sets all the provided settings.          */
-DECL|method|putAll
+DECL|method|put
 specifier|public
 name|Builder
-name|putAll
+name|put
 parameter_list|(
 name|Map
 argument_list|<
@@ -2363,10 +2364,10 @@ name|this
 return|;
 block|}
 comment|/**          * Sets all the provided settings.          */
-DECL|method|putAll
+DECL|method|put
 specifier|public
 name|Builder
-name|putAll
+name|put
 parameter_list|(
 name|Properties
 name|properties
@@ -2448,7 +2449,7 @@ argument_list|(
 name|source
 argument_list|)
 decl_stmt|;
-name|putAll
+name|put
 argument_list|(
 name|loadedSettings
 argument_list|)
@@ -2582,7 +2583,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|putAll
+name|put
 argument_list|(
 name|loadedSettings
 argument_list|)

@@ -318,14 +318,14 @@ operator|.
 name|settingsBuilder
 argument_list|()
 operator|.
-name|putBoolean
+name|put
 argument_list|(
 literal|"network.server"
 argument_list|,
 literal|false
 argument_list|)
 operator|.
-name|putInt
+name|put
 argument_list|(
 literal|"transport.netty.connectionsPerNode"
 argument_list|,

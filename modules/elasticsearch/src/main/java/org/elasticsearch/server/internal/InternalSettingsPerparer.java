@@ -171,7 +171,7 @@ init|=
 name|settingsBuilder
 argument_list|()
 operator|.
-name|putAll
+name|put
 argument_list|(
 name|pSettings
 argument_list|)
@@ -217,7 +217,7 @@ operator|=
 name|settingsBuilder
 argument_list|()
 operator|.
-name|putAll
+name|put
 argument_list|(
 name|pSettings
 argument_list|)
@@ -439,7 +439,7 @@ block|}
 block|}
 name|settingsBuilder
 operator|.
-name|putAll
+name|put
 argument_list|(
 name|pSettings
 argument_list|)

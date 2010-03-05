@@ -154,7 +154,7 @@ operator|.
 name|settingsBuilder
 argument_list|()
 operator|.
-name|putBoolean
+name|put
 argument_list|(
 literal|"discovery.enabled"
 argument_list|,

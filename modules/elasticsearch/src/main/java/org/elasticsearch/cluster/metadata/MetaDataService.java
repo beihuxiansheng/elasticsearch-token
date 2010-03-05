@@ -999,7 +999,7 @@ init|=
 name|settingsBuilder
 argument_list|()
 operator|.
-name|putAll
+name|put
 argument_list|(
 name|indexSettings
 argument_list|)
@@ -1018,7 +1018,7 @@ condition|)
 block|{
 name|indexSettingsBuilder
 operator|.
-name|putInt
+name|put
 argument_list|(
 name|SETTING_NUMBER_OF_SHARDS
 argument_list|,
@@ -1047,7 +1047,7 @@ condition|)
 block|{
 name|indexSettingsBuilder
 operator|.
-name|putInt
+name|put
 argument_list|(
 name|SETTING_NUMBER_OF_REPLICAS
 argument_list|,

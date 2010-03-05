@@ -1777,12 +1777,12 @@ init|=
 name|settingsBuilder
 argument_list|()
 operator|.
-name|putAll
+name|put
 argument_list|(
 name|settings
 argument_list|)
 operator|.
-name|putBoolean
+name|put
 argument_list|(
 literal|"index.store.bytebuffer.direct"
 argument_list|,
@@ -1820,7 +1820,7 @@ init|=
 name|settingsBuilder
 argument_list|()
 operator|.
-name|putAll
+name|put
 argument_list|(
 name|settings
 argument_list|)

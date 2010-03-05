@@ -262,7 +262,7 @@ init|=
 name|settingsBuilder
 argument_list|()
 operator|.
-name|putClass
+name|put
 argument_list|(
 literal|"index.queryparser.json.query.my.type"
 argument_list|,
@@ -278,7 +278,7 @@ argument_list|,
 literal|"value1"
 argument_list|)
 operator|.
-name|putClass
+name|put
 argument_list|(
 literal|"index.queryparser.json.filter.my.type"
 argument_list|,

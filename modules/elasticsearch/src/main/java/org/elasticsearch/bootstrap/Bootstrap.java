@@ -425,7 +425,7 @@ init|=
 name|settingsBuilder
 argument_list|()
 operator|.
-name|putAll
+name|put
 argument_list|(
 name|tuple
 operator|.
@@ -433,7 +433,7 @@ name|v1
 argument_list|()
 argument_list|)
 operator|.
-name|putBoolean
+name|put
 argument_list|(
 name|JmxService
 operator|.

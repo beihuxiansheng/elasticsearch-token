@@ -200,7 +200,7 @@ init|=
 name|settingsBuilder
 argument_list|()
 operator|.
-name|putTime
+name|put
 argument_list|(
 literal|"cluster.routing.schedule"
 argument_list|,
@@ -211,14 +211,14 @@ operator|.
 name|MILLISECONDS
 argument_list|)
 operator|.
-name|putInt
+name|put
 argument_list|(
 name|SETTING_NUMBER_OF_SHARDS
 argument_list|,
 literal|5
 argument_list|)
 operator|.
-name|putInt
+name|put
 argument_list|(
 name|SETTING_NUMBER_OF_REPLICAS
 argument_list|,
@@ -239,7 +239,7 @@ argument_list|(
 name|settingsBuilder
 argument_list|()
 operator|.
-name|putAll
+name|put
 argument_list|(
 name|settings
 argument_list|)
@@ -266,7 +266,7 @@ argument_list|(
 name|settingsBuilder
 argument_list|()
 operator|.
-name|putAll
+name|put
 argument_list|(
 name|settings
 argument_list|)

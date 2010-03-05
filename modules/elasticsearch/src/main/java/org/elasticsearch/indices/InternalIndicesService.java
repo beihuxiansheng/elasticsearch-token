@@ -1066,14 +1066,14 @@ argument_list|,
 literal|"index"
 argument_list|)
 operator|.
-name|putAll
+name|put
 argument_list|(
 name|this
 operator|.
 name|settings
 argument_list|)
 operator|.
-name|putAll
+name|put
 argument_list|(
 name|settings
 argument_list|)

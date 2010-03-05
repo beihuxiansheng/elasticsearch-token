@@ -203,7 +203,7 @@ argument_list|,
 name|settingsBuilder
 argument_list|()
 operator|.
-name|putBoolean
+name|put
 argument_list|(
 literal|"node.data"
 argument_list|,
@@ -305,7 +305,7 @@ argument_list|,
 name|settingsBuilder
 argument_list|()
 operator|.
-name|putBoolean
+name|put
 argument_list|(
 literal|"node.data"
 argument_list|,
@@ -394,7 +394,7 @@ argument_list|,
 name|settingsBuilder
 argument_list|()
 operator|.
-name|putBoolean
+name|put
 argument_list|(
 literal|"node.data"
 argument_list|,

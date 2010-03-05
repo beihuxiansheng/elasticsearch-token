@@ -301,7 +301,7 @@ argument_list|(
 name|settingsSource
 argument_list|)
 operator|.
-name|putAll
+name|put
 argument_list|(
 name|settings
 argument_list|)

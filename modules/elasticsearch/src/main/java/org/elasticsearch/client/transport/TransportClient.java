@@ -611,7 +611,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The transport client allows to create a client that is not part of the cluster, but simply connects to one  * or more nodes directly by adding their respective addresses using {@link #addTransportAddress(org.elasticsearch.util.transport.TransportAddress)}.  *  *<p>The transport client important modules used is the {@link org.elasticsearch.transport.TransportModule} which is  * started in client mode (only connects, no bind).  *  * @author kimchy (Shay Banon)  */
+comment|/**  * The transport client allows to create a client that is not part of the cluster, but simply connects to one  * or more nodes directly by adding their respective addresses using {@link #addTransportAddress(org.elasticsearch.util.transport.TransportAddress)}.  *  *<p>The transport client important modules used is the {@link org.elasticsearch.transport.TransportModule} which is  * started in client mode (only connects, no bind).  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -727,7 +727,7 @@ operator|=
 name|settingsBuilder
 argument_list|()
 operator|.
-name|putAll
+name|put
 argument_list|(
 name|tuple
 operator|.
@@ -735,14 +735,14 @@ name|v1
 argument_list|()
 argument_list|)
 operator|.
-name|putBoolean
+name|put
 argument_list|(
 literal|"network.server"
 argument_list|,
 literal|false
 argument_list|)
 operator|.
-name|putBoolean
+name|put
 argument_list|(
 literal|"discovery.client"
 argument_list|,
