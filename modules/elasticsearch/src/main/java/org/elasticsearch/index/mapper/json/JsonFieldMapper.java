@@ -623,10 +623,6 @@ argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
-name|indexName
-operator|=
-name|name
-expr_stmt|;
 block|}
 DECL|method|index
 specifier|protected
