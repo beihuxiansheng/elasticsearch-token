@@ -273,7 +273,7 @@ name|rootNode
 operator|=
 name|Jackson
 operator|.
-name|newObjectMapper
+name|defaultObjectMapper
 argument_list|()
 operator|.
 name|readValue

@@ -235,7 +235,7 @@ name|this
 operator|.
 name|objectMapper
 operator|=
-name|newObjectMapper
+name|defaultObjectMapper
 argument_list|()
 expr_stmt|;
 name|this

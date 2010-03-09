@@ -1768,7 +1768,7 @@ try|try
 block|{
 name|dateTimeFormatter
 operator|.
-name|formatter
+name|parser
 argument_list|()
 operator|.
 name|parseMillis

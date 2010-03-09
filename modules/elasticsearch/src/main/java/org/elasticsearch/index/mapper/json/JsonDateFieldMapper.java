@@ -442,7 +442,7 @@ name|precisionStep
 argument_list|,
 name|dateTimeFormatter
 operator|.
-name|formatter
+name|parser
 argument_list|()
 argument_list|)
 argument_list|)
@@ -461,7 +461,7 @@ name|MAX_VALUE
 argument_list|,
 name|dateTimeFormatter
 operator|.
-name|formatter
+name|parser
 argument_list|()
 argument_list|)
 argument_list|)
@@ -548,7 +548,7 @@ block|{
 return|return
 name|dateTimeFormatter
 operator|.
-name|formatter
+name|printer
 argument_list|()
 operator|.
 name|print
@@ -578,7 +578,7 @@ name|longToPrefixCoded
 argument_list|(
 name|dateTimeFormatter
 operator|.
-name|formatter
+name|parser
 argument_list|()
 operator|.
 name|parseMillis
@@ -648,7 +648,7 @@ literal|null
 else|:
 name|dateTimeFormatter
 operator|.
-name|formatter
+name|parser
 argument_list|()
 operator|.
 name|parseMillis
@@ -664,7 +664,7 @@ literal|null
 else|:
 name|dateTimeFormatter
 operator|.
-name|formatter
+name|parser
 argument_list|()
 operator|.
 name|parseMillis
@@ -718,7 +718,7 @@ literal|null
 else|:
 name|dateTimeFormatter
 operator|.
-name|formatter
+name|parser
 argument_list|()
 operator|.
 name|parseMillis
@@ -734,7 +734,7 @@ literal|null
 else|:
 name|dateTimeFormatter
 operator|.
-name|formatter
+name|parser
 argument_list|()
 operator|.
 name|parseMillis
@@ -813,7 +813,7 @@ name|value
 init|=
 name|dateTimeFormatter
 operator|.
-name|formatter
+name|parser
 argument_list|()
 operator|.
 name|parseMillis
