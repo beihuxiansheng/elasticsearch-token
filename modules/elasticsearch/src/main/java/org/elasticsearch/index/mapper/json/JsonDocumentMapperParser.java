@@ -272,6 +272,22 @@ name|*
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|json
+operator|.
+name|JacksonNodes
+operator|.
+name|*
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (Shay Banon)  */
 end_comment
@@ -1035,13 +1051,10 @@ name|builder
 operator|.
 name|nullValue
 argument_list|(
+name|nodeFloatValue
+argument_list|(
 name|propNode
-operator|.
-name|getNumberValue
-argument_list|()
-operator|.
-name|floatValue
-argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1199,7 +1212,7 @@ name|getValue
 argument_list|()
 decl_stmt|;
 comment|//            if (fieldName.equals("compressionThreshold")) {
-comment|//                builder.compressionThreshold(fieldNode.getNumberValue().intValue());
+comment|//                builder.compressionThreshold(nodeIn...);
 comment|//            } else if (fieldName.equals("compressionType")) {
 comment|//                String compressionType = fieldNode.getTextValue();
 comment|//                if ("zip".equals(compressionType)) {
@@ -1313,10 +1326,10 @@ name|builder
 operator|.
 name|dynamic
 argument_list|(
+name|nodeBooleanValue
+argument_list|(
 name|fieldNode
-operator|.
-name|getBooleanValue
-argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1493,10 +1506,10 @@ name|builder
 operator|.
 name|enabled
 argument_list|(
+name|nodeBooleanValue
+argument_list|(
 name|fieldNode
-operator|.
-name|getBooleanValue
-argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -2802,13 +2815,10 @@ name|builder
 operator|.
 name|nullValue
 argument_list|(
+name|nodeIntegerValue
+argument_list|(
 name|propNode
-operator|.
-name|getNumberValue
-argument_list|()
-operator|.
-name|intValue
-argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -2922,13 +2932,10 @@ name|builder
 operator|.
 name|nullValue
 argument_list|(
+name|nodeLongValue
+argument_list|(
 name|propNode
-operator|.
-name|getNumberValue
-argument_list|()
-operator|.
-name|longValue
-argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -3042,13 +3049,10 @@ name|builder
 operator|.
 name|nullValue
 argument_list|(
+name|nodeFloatValue
+argument_list|(
 name|propNode
-operator|.
-name|getNumberValue
-argument_list|()
-operator|.
-name|floatValue
-argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -3162,13 +3166,10 @@ name|builder
 operator|.
 name|nullValue
 argument_list|(
+name|nodeDoubleValue
+argument_list|(
 name|propNode
-operator|.
-name|getNumberValue
-argument_list|()
-operator|.
-name|doubleValue
-argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -3436,10 +3437,10 @@ name|builder
 operator|.
 name|nullValue
 argument_list|(
+name|nodeBooleanValue
+argument_list|(
 name|propNode
-operator|.
-name|getBooleanValue
-argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -3546,13 +3547,10 @@ name|builder
 operator|.
 name|precisionStep
 argument_list|(
+name|nodeIntegerValue
+argument_list|(
 name|propNode
-operator|.
-name|getNumberValue
-argument_list|()
-operator|.
-name|intValue
-argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -3649,7 +3647,7 @@ name|indexName
 argument_list|(
 name|propNode
 operator|.
-name|getValueAsText
+name|getTextValue
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -3750,13 +3748,10 @@ name|builder
 operator|.
 name|boost
 argument_list|(
+name|nodeFloatValue
+argument_list|(
 name|propNode
-operator|.
-name|getNumberValue
-argument_list|()
-operator|.
-name|floatValue
-argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -3775,10 +3770,10 @@ name|builder
 operator|.
 name|omitNorms
 argument_list|(
+name|nodeBooleanValue
+argument_list|(
 name|propNode
-operator|.
-name|getBooleanValue
-argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -3797,10 +3792,10 @@ name|builder
 operator|.
 name|omitTermFreqAndPositions
 argument_list|(
+name|nodeBooleanValue
+argument_list|(
 name|propNode
-operator|.
-name|getBooleanValue
-argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
