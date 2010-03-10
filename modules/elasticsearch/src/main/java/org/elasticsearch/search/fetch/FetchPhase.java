@@ -990,15 +990,6 @@ name|fieldNames
 argument_list|()
 operator|==
 literal|null
-operator|||
-name|context
-operator|.
-name|fieldNames
-argument_list|()
-operator|.
-name|length
-operator|==
-literal|0
 condition|)
 block|{
 return|return
