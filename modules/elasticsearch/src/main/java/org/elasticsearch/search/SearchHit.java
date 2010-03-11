@@ -34,6 +34,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ElasticSearchParseException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|util
 operator|.
 name|io
@@ -115,6 +125,19 @@ DECL|method|sourceAsString
 name|String
 name|sourceAsString
 parameter_list|()
+function_decl|;
+comment|/**      * The source of the document as a map (can be<tt>null</tt>).      */
+DECL|method|sourceAsMap
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|sourceAsMap
+parameter_list|()
+throws|throws
+name|ElasticSearchParseException
 function_decl|;
 comment|/**      * If enabled, the explanation of the search hit.      */
 DECL|method|explanation
