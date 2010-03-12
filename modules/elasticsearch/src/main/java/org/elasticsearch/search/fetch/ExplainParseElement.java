@@ -66,8 +66,20 @@ name|SearchContext
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|Booleans
+import|;
+end_import
+
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -116,6 +128,40 @@ name|getIntValue
 argument_list|()
 operator|!=
 literal|0
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|jp
+operator|.
+name|getCurrentToken
+argument_list|()
+operator|==
+name|JsonToken
+operator|.
+name|VALUE_STRING
+condition|)
+block|{
+name|context
+operator|.
+name|explain
+argument_list|(
+name|Booleans
+operator|.
+name|parseBoolean
+argument_list|(
+name|jp
+operator|.
+name|getText
+argument_list|()
+argument_list|,
+name|context
+operator|.
+name|explain
+argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

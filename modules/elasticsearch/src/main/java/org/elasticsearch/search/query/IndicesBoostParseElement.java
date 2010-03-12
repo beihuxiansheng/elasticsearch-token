@@ -153,6 +153,36 @@ argument_list|()
 expr_stmt|;
 comment|// move to the value
 comment|// we found our query boost
+if|if
+condition|(
+name|jp
+operator|.
+name|getCurrentToken
+argument_list|()
+operator|==
+name|JsonToken
+operator|.
+name|VALUE_STRING
+condition|)
+block|{
+name|context
+operator|.
+name|queryBoost
+argument_list|(
+name|Float
+operator|.
+name|parseFloat
+argument_list|(
+name|jp
+operator|.
+name|getText
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|context
 operator|.
 name|queryBoost
@@ -163,6 +193,7 @@ name|getFloatValue
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
