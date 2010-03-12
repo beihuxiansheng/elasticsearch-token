@@ -785,7 +785,7 @@ comment|// we override parse since we want to handle cases where it is not index
 name|float
 name|value
 init|=
-name|parsedFloatValue
+name|parseFloatValue
 argument_list|(
 name|jsonContext
 argument_list|)
@@ -836,7 +836,7 @@ block|{
 name|float
 name|value
 init|=
-name|parsedFloatValue
+name|parseFloatValue
 argument_list|(
 name|jsonContext
 argument_list|)
@@ -952,10 +952,10 @@ return|return
 name|field
 return|;
 block|}
-DECL|method|parsedFloatValue
+DECL|method|parseFloatValue
 specifier|private
 name|float
-name|parsedFloatValue
+name|parseFloatValue
 parameter_list|(
 name|JsonParseContext
 name|jsonContext
