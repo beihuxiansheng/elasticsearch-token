@@ -173,7 +173,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -365,6 +365,40 @@ name|jp
 operator|.
 name|getFloatValue
 argument_list|()
+expr_stmt|;
+block|}
+block|}
+elseif|else
+if|if
+condition|(
+name|token
+operator|==
+name|JsonToken
+operator|.
+name|VALUE_STRING
+condition|)
+block|{
+if|if
+condition|(
+literal|"boost"
+operator|.
+name|equals
+argument_list|(
+name|currentFieldName
+argument_list|)
+condition|)
+block|{
+name|boost
+operator|=
+name|Float
+operator|.
+name|parseFloat
+argument_list|(
+name|jp
+operator|.
+name|getText
+argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 block|}
