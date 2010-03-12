@@ -1750,12 +1750,41 @@ operator|.
 name|VALUE_STRING
 condition|)
 block|{
+name|String
+name|text
+init|=
+name|jsonContext
+operator|.
+name|jp
+argument_list|()
+operator|.
+name|getText
+argument_list|()
+decl_stmt|;
 comment|// check if it fits one of the date formats
 name|boolean
 name|isDate
 init|=
 literal|false
 decl_stmt|;
+comment|// a safe check since "1" gets parsed as well
+if|if
+condition|(
+name|text
+operator|.
+name|contains
+argument_list|(
+literal|":"
+argument_list|)
+operator|||
+name|text
+operator|.
+name|contains
+argument_list|(
+literal|"-"
+argument_list|)
+condition|)
+block|{
 for|for
 control|(
 name|FormatDateTimeFormatter
@@ -1773,13 +1802,7 @@ argument_list|()
 operator|.
 name|parseMillis
 argument_list|(
-name|jsonContext
-operator|.
-name|jp
-argument_list|()
-operator|.
-name|getText
-argument_list|()
+name|text
 argument_list|)
 expr_stmt|;
 name|mapper
@@ -1812,6 +1835,7 @@ name|e
 parameter_list|)
 block|{
 comment|// failure to parse this, continue
+block|}
 block|}
 block|}
 if|if
