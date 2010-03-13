@@ -277,6 +277,11 @@ argument_list|()
 argument_list|,
 name|request
 operator|.
+name|mappings
+argument_list|()
+argument_list|,
+name|request
+operator|.
 name|timeout
 argument_list|()
 argument_list|)
