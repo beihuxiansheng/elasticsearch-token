@@ -76,6 +76,26 @@ name|admin
 operator|.
 name|cluster
 operator|.
+name|node
+operator|.
+name|shutdown
+operator|.
+name|TransportNodesShutdown
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|admin
+operator|.
+name|cluster
+operator|.
 name|ping
 operator|.
 name|broadcast
@@ -541,7 +561,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -563,6 +583,16 @@ block|{
 name|bind
 argument_list|(
 name|TransportNodesInfo
+operator|.
+name|class
+argument_list|)
+operator|.
+name|asEagerSingleton
+argument_list|()
+expr_stmt|;
+name|bind
+argument_list|(
+name|TransportNodesShutdown
 operator|.
 name|class
 argument_list|)

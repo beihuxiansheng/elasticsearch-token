@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.client.transport.action.admin.cluster.node.info
+DECL|package|org.elasticsearch.client.transport.action.admin.cluster.node.shutdown
 package|package
 name|org
 operator|.
@@ -22,7 +22,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|info
+name|shutdown
 package|;
 end_package
 
@@ -64,9 +64,9 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|info
+name|shutdown
 operator|.
-name|NodesInfoRequest
+name|NodesShutdownRequest
 import|;
 end_import
 
@@ -84,9 +84,9 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|info
+name|shutdown
 operator|.
-name|NodesInfoResponse
+name|NodesShutdownResponse
 import|;
 end_import
 
@@ -139,23 +139,23 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|ClientTransportNodesInfoAction
+DECL|class|ClientTransportNodesShutdownAction
 specifier|public
 class|class
-name|ClientTransportNodesInfoAction
+name|ClientTransportNodesShutdownAction
 extends|extends
 name|BaseClientTransportAction
 argument_list|<
-name|NodesInfoRequest
+name|NodesShutdownRequest
 argument_list|,
-name|NodesInfoResponse
+name|NodesShutdownResponse
 argument_list|>
 block|{
-DECL|method|ClientTransportNodesInfoAction
+DECL|method|ClientTransportNodesShutdownAction
 annotation|@
 name|Inject
 specifier|public
-name|ClientTransportNodesInfoAction
+name|ClientTransportNodesShutdownAction
 parameter_list|(
 name|Settings
 name|settings
@@ -170,7 +170,7 @@ name|settings
 argument_list|,
 name|transportService
 argument_list|,
-name|NodesInfoResponse
+name|NodesShutdownResponse
 operator|.
 name|class
 argument_list|)
@@ -193,7 +193,7 @@ name|Cluster
 operator|.
 name|Node
 operator|.
-name|INFO
+name|SHUTDOWN
 return|;
 block|}
 block|}

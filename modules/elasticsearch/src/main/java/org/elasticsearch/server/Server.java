@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A server represent a node within a cluster (<tt>cluster.name</tt>). The {@link #client()} can be used  * in order to use a {@link Client} to perform actions/operations against the cluster.  *  *<p>In order to create a server, the {@link ServerBuilder} can be used. When done with it, make sure to  * call {@link #close()} on it.  *  * @author kimchy (Shay Banon)  */
+comment|/**  * A server represent a node within a cluster (<tt>cluster.name</tt>). The {@link #client()} can be used  * in order to use a {@link Client} to perform actions/operations against the cluster.  *  *<p>In order to create a server, the {@link ServerBuilder} can be used. When done with it, make sure to  * call {@link #close()} on it.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_interface

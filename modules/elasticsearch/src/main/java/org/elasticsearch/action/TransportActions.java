@@ -243,6 +243,15 @@ name|INFO
 init|=
 literal|"/cluster/nodes/info"
 decl_stmt|;
+DECL|field|SHUTDOWN
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SHUTDOWN
+init|=
+literal|"/cluster/nodes/shutdown"
+decl_stmt|;
 block|}
 DECL|class|Ping
 specifier|public

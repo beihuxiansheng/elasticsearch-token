@@ -631,7 +631,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -786,6 +786,17 @@ name|Module
 argument_list|>
 argument_list|()
 decl_stmt|;
+name|modules
+operator|.
+name|add
+argument_list|(
+operator|new
+name|ServerModule
+argument_list|(
+name|this
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|modules
 operator|.
 name|add
