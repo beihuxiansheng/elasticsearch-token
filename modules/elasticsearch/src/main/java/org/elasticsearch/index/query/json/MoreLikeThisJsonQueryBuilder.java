@@ -159,6 +159,19 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
+comment|/**      * Constructs a new more like this query which uses the "_all" field.      */
+DECL|method|MoreLikeThisJsonQueryBuilder
+specifier|public
+name|MoreLikeThisJsonQueryBuilder
+parameter_list|()
+block|{
+name|this
+operator|.
+name|fields
+operator|=
+literal|null
+expr_stmt|;
+block|}
 comment|/**      * Sets the field names that will be used when generating the 'More Like This' query.      *      * @param fields the field names that will be used when generating the 'More Like This' query.      */
 DECL|method|MoreLikeThisJsonQueryBuilder
 specifier|public
@@ -443,6 +456,13 @@ literal|"moreLikeThis requires 'fields' to be provided"
 argument_list|)
 throw|;
 block|}
+if|if
+condition|(
+name|fields
+operator|!=
+literal|null
+condition|)
+block|{
 name|builder
 operator|.
 name|startArray
@@ -471,6 +491,7 @@ operator|.
 name|endArray
 argument_list|()
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|likeText

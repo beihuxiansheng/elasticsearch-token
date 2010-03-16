@@ -184,6 +184,20 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|mapper
+operator|.
+name|AllFieldMapper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|query
 operator|.
 name|QueryParsingException
@@ -315,7 +329,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -419,8 +433,11 @@ decl_stmt|;
 name|String
 name|defaultField
 init|=
-literal|null
+name|AllFieldMapper
+operator|.
+name|NAME
 decl_stmt|;
+comment|// default to all
 name|MapperQueryParser
 operator|.
 name|Operator

@@ -163,7 +163,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -182,6 +182,8 @@ name|JsonFieldMapper
 argument_list|<
 name|T
 argument_list|>
+implements|implements
+name|JsonIncludeInAllMapper
 block|{
 DECL|class|Defaults
 specifier|public
@@ -335,7 +337,7 @@ block|}
 DECL|method|boost
 annotation|@
 name|Override
-specifier|protected
+specifier|public
 name|T
 name|boost
 parameter_list|(
@@ -355,7 +357,7 @@ block|}
 DECL|method|indexName
 annotation|@
 name|Override
-specifier|protected
+specifier|public
 name|T
 name|indexName
 parameter_list|(
@@ -369,6 +371,26 @@ operator|.
 name|indexName
 argument_list|(
 name|indexName
+argument_list|)
+return|;
+block|}
+DECL|method|includeInAll
+annotation|@
+name|Override
+specifier|public
+name|T
+name|includeInAll
+parameter_list|(
+name|Boolean
+name|includeInAll
+parameter_list|)
+block|{
+return|return
+name|super
+operator|.
+name|includeInAll
+argument_list|(
+name|includeInAll
 argument_list|)
 return|;
 block|}
@@ -453,6 +475,11 @@ specifier|protected
 specifier|final
 name|int
 name|precisionStep
+decl_stmt|;
+DECL|field|includeInAll
+specifier|protected
+name|Boolean
+name|includeInAll
 decl_stmt|;
 DECL|method|JsonNumberFieldMapper
 specifier|protected
@@ -543,6 +570,32 @@ operator|.
 name|precisionStep
 operator|=
 name|precisionStep
+expr_stmt|;
+block|}
+block|}
+DECL|method|includeInAll
+annotation|@
+name|Override
+specifier|public
+name|void
+name|includeInAll
+parameter_list|(
+name|Boolean
+name|includeInAll
+parameter_list|)
+block|{
+if|if
+condition|(
+name|includeInAll
+operator|!=
+literal|null
+condition|)
+block|{
+name|this
+operator|.
+name|includeInAll
+operator|=
+name|includeInAll
 expr_stmt|;
 block|}
 block|}

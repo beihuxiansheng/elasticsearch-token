@@ -72,6 +72,22 @@ name|NotThreadSafe
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|lucene
+operator|.
+name|all
+operator|.
+name|AllEntries
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (Shay Banon)  */
 end_comment
@@ -154,6 +170,15 @@ name|boolean
 name|mappersAdded
 init|=
 literal|false
+decl_stmt|;
+DECL|field|allEntries
+specifier|private
+name|AllEntries
+name|allEntries
+init|=
+operator|new
+name|AllEntries
+argument_list|()
 decl_stmt|;
 DECL|method|JsonParseContext
 specifier|public
@@ -253,6 +278,14 @@ operator|.
 name|listener
 operator|=
 name|listener
+expr_stmt|;
+name|this
+operator|.
+name|allEntries
+operator|=
+operator|new
+name|AllEntries
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|mappersAdded
@@ -450,6 +483,18 @@ name|uid
 operator|=
 name|uid
 expr_stmt|;
+block|}
+DECL|method|allEntries
+specifier|public
+name|AllEntries
+name|allEntries
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|allEntries
+return|;
 block|}
 comment|/**      * A string builder that can be used to construct complex names for example.      * Its better to reuse the.      */
 DECL|method|stringBuilder

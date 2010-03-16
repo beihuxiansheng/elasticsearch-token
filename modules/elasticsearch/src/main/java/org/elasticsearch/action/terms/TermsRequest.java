@@ -34,18 +34,6 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ActionRequestValidationException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
 name|support
 operator|.
 name|broadcast
@@ -60,9 +48,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|index
 operator|.
-name|Required
+name|mapper
+operator|.
+name|AllFieldMapper
 import|;
 end_import
 
@@ -96,22 +86,8 @@ name|IOException
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|Actions
-operator|.
-name|*
-import|;
-end_import
-
 begin_comment
-comment|/**  * Terms request represent a request to get terms in one or more indices of specific fields and their  * document frequencies (in how many document each term exists).  *  *<p>This is very handy to implement things like tag clouds and auto complete (using {@link #prefix(String)} or  * {@link #regexp(String)}).  *  * @author kimchy (shay.banon)  */
+comment|/**  * Terms request represent a request to get terms in one or more indices of specific fields and their  * document frequencies (in how many document each term exists).  *  *<p>By default, the "_all" field will be used to extract terms and frequencies.  *  *<p>This is very handy to implement things like tag clouds and auto complete (using {@link #prefix(String)} or  * {@link #regexp(String)}).  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -291,11 +267,30 @@ throw|;
 block|}
 block|}
 block|}
+DECL|field|DEFAULT_FIELDS
+specifier|private
+specifier|static
+specifier|final
+name|String
+index|[]
+name|DEFAULT_FIELDS
+init|=
+operator|new
+name|String
+index|[]
+block|{
+name|AllFieldMapper
+operator|.
+name|NAME
+block|}
+decl_stmt|;
 DECL|field|fields
 specifier|private
 name|String
 index|[]
 name|fields
+init|=
+name|DEFAULT_FIELDS
 decl_stmt|;
 DECL|field|from
 specifier|private
@@ -381,7 +376,7 @@ DECL|method|TermsRequest
 name|TermsRequest
 parameter_list|()
 block|{     }
-comment|/**      * Constructs a new terms requests with the provided indices. Don't pass anything for it to run      * over all the indices. Note, the {@link #fields(String...)} is required.      */
+comment|/**      * Constructs a new terms requests with the provided indices. Don't pass anything for it to run      * over all the indices.      */
 DECL|method|TermsRequest
 specifier|public
 name|TermsRequest
@@ -399,49 +394,6 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|validate
-annotation|@
-name|Override
-specifier|public
-name|ActionRequestValidationException
-name|validate
-parameter_list|()
-block|{
-name|ActionRequestValidationException
-name|validationException
-init|=
-name|super
-operator|.
-name|validate
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|fields
-operator|==
-literal|null
-operator|||
-name|fields
-operator|.
-name|length
-operator|==
-literal|0
-condition|)
-block|{
-name|validationException
-operator|=
-name|addValidationError
-argument_list|(
-literal|"fields is missing"
-argument_list|,
-name|validationException
-argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|validationException
-return|;
-block|}
 comment|/**      * The fields within each document which terms will be iterated over and returned with the      * document frequencies.      */
 DECL|method|fields
 specifier|public
@@ -456,10 +408,8 @@ operator|.
 name|fields
 return|;
 block|}
-comment|/**      * The fields within each document which terms will be iterated over and returned with the      * document frequencies.      */
+comment|/**      * The fields within each document which terms will be iterated over and returned with the      * document frequencies. By default will use the "_all" field.      */
 DECL|method|fields
-annotation|@
-name|Required
 specifier|public
 name|TermsRequest
 name|fields

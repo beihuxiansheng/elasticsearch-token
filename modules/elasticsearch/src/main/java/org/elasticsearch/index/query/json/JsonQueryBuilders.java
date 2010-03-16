@@ -637,6 +637,20 @@ name|fields
 argument_list|)
 return|;
 block|}
+comment|/**      * A more like this query that finds documents that are "like" the provided {@link MoreLikeThisJsonQueryBuilder#likeText(String)}      * which is checked against the "_all" field.      */
+DECL|method|moreLikeThisQuery
+specifier|public
+specifier|static
+name|MoreLikeThisJsonQueryBuilder
+name|moreLikeThisQuery
+parameter_list|()
+block|{
+return|return
+operator|new
+name|MoreLikeThisJsonQueryBuilder
+argument_list|()
+return|;
+block|}
 comment|/**      * A more like this query that runs against a specific field.      *      * @param name The field name      */
 DECL|method|moreLikeThisFieldQuery
 specifier|public

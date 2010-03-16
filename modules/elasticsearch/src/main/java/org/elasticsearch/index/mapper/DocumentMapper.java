@@ -126,6 +126,11 @@ name|BoostFieldMapper
 name|boostMapper
 parameter_list|()
 function_decl|;
+DECL|method|allFieldMapper
+name|AllFieldMapper
+name|allFieldMapper
+parameter_list|()
+function_decl|;
 DECL|method|mappers
 name|DocumentFieldMappers
 name|mappers

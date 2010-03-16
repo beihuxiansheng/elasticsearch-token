@@ -179,7 +179,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -336,7 +336,9 @@ name|BuilderContext
 name|context
 parameter_list|)
 block|{
-return|return
+name|JsonDateFieldMapper
+name|fieldMapper
+init|=
 operator|new
 name|JsonDateFieldMapper
 argument_list|(
@@ -361,6 +363,16 @@ name|omitTermFreqAndPositions
 argument_list|,
 name|nullValue
 argument_list|)
+decl_stmt|;
+name|fieldMapper
+operator|.
+name|includeInAll
+argument_list|(
+name|includeInAll
+argument_list|)
+expr_stmt|;
+return|return
+name|fieldMapper
 return|;
 block|}
 block|}
@@ -808,6 +820,33 @@ return|return
 literal|null
 return|;
 block|}
+if|if
+condition|(
+name|includeInAll
+operator|==
+literal|null
+operator|||
+name|includeInAll
+condition|)
+block|{
+name|jsonContext
+operator|.
+name|allEntries
+argument_list|()
+operator|.
+name|addText
+argument_list|(
+name|names
+operator|.
+name|fullName
+argument_list|()
+argument_list|,
+name|dateAsString
+argument_list|,
+name|boost
+argument_list|)
+expr_stmt|;
+block|}
 name|long
 name|value
 init|=
@@ -980,6 +1019,23 @@ argument_list|(
 literal|"nullValue"
 argument_list|,
 name|nullValue
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|includeInAll
+operator|!=
+literal|null
+condition|)
+block|{
+name|builder
+operator|.
+name|field
+argument_list|(
+literal|"includeInAll"
+argument_list|,
+name|includeInAll
 argument_list|)
 expr_stmt|;
 block|}
