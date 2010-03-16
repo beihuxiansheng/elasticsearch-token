@@ -682,6 +682,11 @@ specifier|volatile
 name|HttpServerAdapter
 name|httpServerAdapter
 decl_stmt|;
+DECL|field|keepAliveTimer
+specifier|private
+name|HashedWheelTimer
+name|keepAliveTimer
+decl_stmt|;
 DECL|method|NettyHttpServerTransport
 annotation|@
 name|Inject
@@ -1052,10 +1057,8 @@ name|workerCount
 argument_list|)
 argument_list|)
 expr_stmt|;
-specifier|final
-name|HashedWheelTimer
 name|keepAliveTimer
-init|=
+operator|=
 operator|new
 name|HashedWheelTimer
 argument_list|(
@@ -1075,7 +1078,7 @@ name|TimeUnit
 operator|.
 name|MILLISECONDS
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 specifier|final
 name|HttpRequestHandler
 name|requestHandler
@@ -1648,6 +1651,11 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+name|keepAliveTimer
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|serverBootstrap
