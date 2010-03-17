@@ -421,6 +421,14 @@ argument_list|,
 literal|30
 argument_list|)
 decl_stmt|;
+name|assertThat
+argument_list|(
+name|fragment
+argument_list|,
+name|notNullValue
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|System
 operator|.
 name|out
