@@ -66,6 +66,20 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|index
+operator|.
+name|Term
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|search
 operator|.
 name|Filter
@@ -401,12 +415,22 @@ name|boolean
 name|useFieldQueryWithQueryString
 parameter_list|()
 function_decl|;
+comment|/**      * A field query for the specified value.      */
 DECL|method|fieldQuery
 name|Query
 name|fieldQuery
 parameter_list|(
 name|String
 name|value
+parameter_list|)
+function_decl|;
+comment|/**      * A term query to use when parsing a query string. Can return<tt>null</tt>.      */
+DECL|method|queryStringTermQuery
+name|Query
+name|queryStringTermQuery
+parameter_list|(
+name|Term
+name|term
 parameter_list|)
 function_decl|;
 DECL|method|fieldFilter
