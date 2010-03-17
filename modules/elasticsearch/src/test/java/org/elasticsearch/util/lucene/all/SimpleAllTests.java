@@ -307,7 +307,7 @@ argument_list|)
 expr_stmt|;
 name|allEntries
 operator|.
-name|finishTexts
+name|reset
 argument_list|()
 expr_stmt|;
 name|doc
@@ -402,7 +402,7 @@ argument_list|)
 expr_stmt|;
 name|allEntries
 operator|.
-name|finishTexts
+name|reset
 argument_list|()
 expr_stmt|;
 name|doc
@@ -700,7 +700,7 @@ argument_list|)
 expr_stmt|;
 name|allEntries
 operator|.
-name|finishTexts
+name|reset
 argument_list|()
 expr_stmt|;
 name|doc
@@ -795,7 +795,7 @@ argument_list|)
 expr_stmt|;
 name|allEntries
 operator|.
-name|finishTexts
+name|reset
 argument_list|()
 expr_stmt|;
 name|doc
@@ -1094,7 +1094,7 @@ argument_list|)
 expr_stmt|;
 name|allEntries
 operator|.
-name|finishTexts
+name|reset
 argument_list|()
 expr_stmt|;
 name|doc
@@ -1189,7 +1189,7 @@ argument_list|)
 expr_stmt|;
 name|allEntries
 operator|.
-name|finishTexts
+name|reset
 argument_list|()
 expr_stmt|;
 name|doc
@@ -1621,7 +1621,7 @@ argument_list|)
 expr_stmt|;
 name|allEntries
 operator|.
-name|finishTexts
+name|reset
 argument_list|()
 expr_stmt|;
 name|doc
@@ -1716,7 +1716,7 @@ argument_list|)
 expr_stmt|;
 name|allEntries
 operator|.
-name|finishTexts
+name|reset
 argument_list|()
 expr_stmt|;
 name|doc

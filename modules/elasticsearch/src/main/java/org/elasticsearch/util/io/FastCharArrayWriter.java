@@ -61,7 +61,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A similar class to {@link java.io.CharArrayWriter} allowing to get the underlying<tt>char[]</tt> buffer.  *  * @author kimchy (Shay Banon)  */
+comment|/**  * A similar class to {@link java.io.CharArrayWriter} allowing to get the underlying<tt>char[]</tt> buffer.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -74,6 +74,71 @@ name|FastCharArrayWriter
 extends|extends
 name|Writer
 block|{
+comment|/**      * A thread local based cache of {@link FastByteArrayOutputStream}.      */
+DECL|class|Cached
+specifier|public
+specifier|static
+class|class
+name|Cached
+block|{
+DECL|field|cache
+specifier|private
+specifier|static
+specifier|final
+name|ThreadLocal
+argument_list|<
+name|FastCharArrayWriter
+argument_list|>
+name|cache
+init|=
+operator|new
+name|ThreadLocal
+argument_list|<
+name|FastCharArrayWriter
+argument_list|>
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|protected
+name|FastCharArrayWriter
+name|initialValue
+parameter_list|()
+block|{
+return|return
+operator|new
+name|FastCharArrayWriter
+argument_list|()
+return|;
+block|}
+block|}
+decl_stmt|;
+comment|/**          * Returns the cached thread local byte stream, with its internal stream cleared.          */
+DECL|method|cached
+specifier|public
+specifier|static
+name|FastCharArrayWriter
+name|cached
+parameter_list|()
+block|{
+name|FastCharArrayWriter
+name|os
+init|=
+name|cache
+operator|.
+name|get
+argument_list|()
+decl_stmt|;
+name|os
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
+return|return
+name|os
+return|;
+block|}
+block|}
 comment|/**      * The buffer where data is stored.      */
 DECL|field|buf
 specifier|protected

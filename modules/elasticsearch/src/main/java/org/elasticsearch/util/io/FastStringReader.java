@@ -51,7 +51,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A character stream whose source is a string that is<b>not thread safe</b>  *  * @author kimchy (Shay Banon)  */
+comment|/**  * A character stream whose source is a string that is<b>not thread safe</b>  *  * @author kimchy (shay.banon  *         )  */
 end_comment
 
 begin_class
@@ -62,7 +62,7 @@ specifier|public
 class|class
 name|FastStringReader
 extends|extends
-name|Reader
+name|CharSequenceReader
 block|{
 DECL|field|str
 specifier|private
@@ -136,6 +136,63 @@ argument_list|(
 literal|"Stream closed"
 argument_list|)
 throw|;
+block|}
+DECL|method|length
+annotation|@
+name|Override
+specifier|public
+name|int
+name|length
+parameter_list|()
+block|{
+return|return
+name|length
+return|;
+block|}
+DECL|method|charAt
+annotation|@
+name|Override
+specifier|public
+name|char
+name|charAt
+parameter_list|(
+name|int
+name|index
+parameter_list|)
+block|{
+return|return
+name|str
+operator|.
+name|charAt
+argument_list|(
+name|index
+argument_list|)
+return|;
+block|}
+DECL|method|subSequence
+annotation|@
+name|Override
+specifier|public
+name|CharSequence
+name|subSequence
+parameter_list|(
+name|int
+name|start
+parameter_list|,
+name|int
+name|end
+parameter_list|)
+block|{
+return|return
+name|str
+operator|.
+name|subSequence
+argument_list|(
+name|start
+argument_list|,
+name|end
+argument_list|)
+return|;
 block|}
 comment|/**      * Reads a single character.      *      * @return The character read, or -1 if the end of the stream has been      *         reached      * @throws IOException If an I/O error occurs      */
 DECL|method|read
