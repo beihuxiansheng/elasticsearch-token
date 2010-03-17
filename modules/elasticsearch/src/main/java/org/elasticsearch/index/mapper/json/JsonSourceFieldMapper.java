@@ -99,7 +99,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -241,11 +241,25 @@ name|NAME
 argument_list|)
 expr_stmt|;
 block|}
-comment|// source is always enabled for now
-comment|//        public Builder enabled(boolean enabled) {
-comment|//            this.enabled = enabled;
-comment|//            return this;
-comment|//        }
+DECL|method|enabled
+specifier|public
+name|Builder
+name|enabled
+parameter_list|(
+name|boolean
+name|enabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|enabled
+operator|=
+name|enabled
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 DECL|method|build
 annotation|@
 name|Override
@@ -620,7 +634,38 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// for now, don't output it at all
+name|builder
+operator|.
+name|startObject
+argument_list|(
+name|jsonType
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|builder
+operator|.
+name|field
+argument_list|(
+literal|"name"
+argument_list|,
+name|name
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|builder
+operator|.
+name|field
+argument_list|(
+literal|"enabled"
+argument_list|,
+name|enabled
+argument_list|)
+expr_stmt|;
+name|builder
+operator|.
+name|endObject
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|merge
 annotation|@

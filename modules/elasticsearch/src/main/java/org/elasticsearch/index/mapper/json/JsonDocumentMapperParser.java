@@ -289,7 +289,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -1353,6 +1353,27 @@ operator|.
 name|getValue
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|fieldName
+operator|.
+name|equals
+argument_list|(
+literal|"enabled"
+argument_list|)
+condition|)
+block|{
+name|builder
+operator|.
+name|enabled
+argument_list|(
+name|nodeBooleanValue
+argument_list|(
+name|fieldNode
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 comment|//            if (fieldName.equals("compressionThreshold")) {
 comment|//                builder.compressionThreshold(nodeIn...);
 comment|//            } else if (fieldName.equals("compressionType")) {
