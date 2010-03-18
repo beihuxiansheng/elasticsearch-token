@@ -784,7 +784,7 @@ argument_list|,
 operator|new
 name|SizeValue
 argument_list|(
-literal|16
+literal|100
 argument_list|,
 name|SizeUnit
 operator|.
