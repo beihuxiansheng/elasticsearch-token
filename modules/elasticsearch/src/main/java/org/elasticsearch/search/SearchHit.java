@@ -44,6 +44,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|search
+operator|.
+name|highlight
+operator|.
+name|HighlightField
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|util
 operator|.
 name|io
@@ -156,10 +170,21 @@ argument_list|>
 name|fields
 parameter_list|()
 function_decl|;
+comment|/**      * A map of highlighted fields.      */
+DECL|method|highlightFields
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|HighlightField
+argument_list|>
+name|highlightFields
+parameter_list|()
+function_decl|;
 comment|/**      * The shard of the search hit.      */
-DECL|method|target
+DECL|method|shard
 name|SearchShardTarget
-name|target
+name|shard
 parameter_list|()
 function_decl|;
 block|}

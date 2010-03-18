@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search.internal
+DECL|package|org.elasticsearch.search.facets
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|internal
+name|facets
 package|;
 end_package
 

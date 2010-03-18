@@ -603,7 +603,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|source
+name|extraSource
 operator|=
 name|source
 expr_stmt|;
@@ -708,6 +708,27 @@ name|scroll
 expr_stmt|;
 return|return
 name|this
+return|;
+block|}
+comment|/**      * If set, will enable scrolling of the search request for the specified timeout.      */
+DECL|method|scroll
+specifier|public
+name|SearchRequest
+name|scroll
+parameter_list|(
+name|TimeValue
+name|keepAlive
+parameter_list|)
+block|{
+return|return
+name|scroll
+argument_list|(
+operator|new
+name|Scroll
+argument_list|(
+name|keepAlive
+argument_list|)
+argument_list|)
 return|;
 block|}
 comment|/**      * An optional timeout to control how long search is allowed to take.      */
