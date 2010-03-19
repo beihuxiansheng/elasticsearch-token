@@ -2382,7 +2382,9 @@ name|builder
 argument_list|,
 name|params
 argument_list|,
-literal|null
+name|JsonMapper
+operator|.
+name|EMPTY_ARRAY
 argument_list|)
 expr_stmt|;
 block|}
