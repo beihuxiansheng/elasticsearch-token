@@ -1165,16 +1165,7 @@ name|listener
 operator|.
 name|onFailure
 argument_list|(
-operator|new
-name|ReplicationShardOperationFailedException
-argument_list|(
-name|shards
-operator|.
-name|shardId
-argument_list|()
-argument_list|,
 name|e
-argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
