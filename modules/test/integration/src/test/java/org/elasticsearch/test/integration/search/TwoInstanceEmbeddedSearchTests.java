@@ -902,12 +902,12 @@ name|closeAllServers
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testDfsQueryFetch
+DECL|method|testDfsQueryThenFetch
 annotation|@
 name|Test
 specifier|public
 name|void
-name|testDfsQueryFetch
+name|testDfsQueryThenFetch
 parameter_list|()
 throws|throws
 name|Exception
@@ -1351,7 +1351,7 @@ name|SearchShardTarget
 argument_list|,
 name|QuerySearchResultProvider
 argument_list|>
-name|scollQueryResults
+name|scrollQueryResults
 init|=
 name|newHashMap
 argument_list|()
@@ -1367,7 +1367,7 @@ name|values
 argument_list|()
 control|)
 block|{
-name|scollQueryResults
+name|scrollQueryResults
 operator|.
 name|put
 argument_list|(
@@ -1408,7 +1408,7 @@ expr_stmt|;
 block|}
 name|queryResults
 operator|=
-name|scollQueryResults
+name|scrollQueryResults
 expr_stmt|;
 name|sortedShardList
 operator|=
@@ -1626,12 +1626,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|testDfsQueryFetchWithSort
+DECL|method|testDfsQueryThenFetchWithSort
 annotation|@
 name|Test
 specifier|public
 name|void
-name|testDfsQueryFetchWithSort
+name|testDfsQueryThenFetchWithSort
 parameter_list|()
 throws|throws
 name|Exception
@@ -2064,7 +2064,7 @@ name|SearchShardTarget
 argument_list|,
 name|QuerySearchResultProvider
 argument_list|>
-name|scollQueryResults
+name|scrollQueryResults
 init|=
 name|newHashMap
 argument_list|()
@@ -2080,7 +2080,7 @@ name|values
 argument_list|()
 control|)
 block|{
-name|scollQueryResults
+name|scrollQueryResults
 operator|.
 name|put
 argument_list|(
@@ -2133,7 +2133,7 @@ expr_stmt|;
 block|}
 name|queryResults
 operator|=
-name|scollQueryResults
+name|scrollQueryResults
 expr_stmt|;
 name|sortedShardList
 operator|=
@@ -2347,7 +2347,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// now try and scroll to the next next batch of results
-name|scollQueryResults
+name|scrollQueryResults
 operator|=
 name|newHashMap
 argument_list|()
@@ -2363,7 +2363,7 @@ name|values
 argument_list|()
 control|)
 block|{
-name|scollQueryResults
+name|scrollQueryResults
 operator|.
 name|put
 argument_list|(
@@ -2404,7 +2404,7 @@ expr_stmt|;
 block|}
 name|queryResults
 operator|=
-name|scollQueryResults
+name|scrollQueryResults
 expr_stmt|;
 name|sortedShardList
 operator|=
@@ -2562,12 +2562,12 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testQueryFetchInOneGo
+DECL|method|testQueryAndFetch
 annotation|@
 name|Test
 specifier|public
 name|void
-name|testQueryFetchInOneGo
+name|testQueryAndFetch
 parameter_list|()
 block|{
 name|SearchSourceBuilder

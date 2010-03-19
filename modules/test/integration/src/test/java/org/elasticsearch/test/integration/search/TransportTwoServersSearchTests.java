@@ -1998,13 +1998,13 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// TODO support scrolling
-comment|//        searchResponse = searchScrollAction.submit(new SearchScrollRequest(searchResponse.scrollId())).actionGet();
+comment|//        searchResponse = client.searchScroll(searchScrollRequest(searchResponse.scrollId())).actionGet();
 comment|//
-comment|//        assertEquals(100, searchResponse.hits().totalHits());
-comment|//        assertEquals(40, searchResponse.hits().hits().length);
+comment|//        assertThat(searchResponse.hits().totalHits(), equalTo(100l));
+comment|//        assertThat(searchResponse.hits().hits().length, equalTo(40));
 comment|//        for (int i = 0; i< 40; i++) {
 comment|//            SearchHit hit = searchResponse.hits().hits()[i];
-comment|//            assertEquals("id[" + hit.id() + "]", Integer.toString(100 - 60 - 1 - i), hit.id());
+comment|//            assertThat("id[" + hit.id() + "]", hit.id(), equalTo(Integer.toString(100 - 60 - 1 - i)));
 comment|//        }
 block|}
 DECL|method|testDfsQueryAndFetch
