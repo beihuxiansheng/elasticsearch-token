@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.util.io
+DECL|package|org.elasticsearch.util.io.stream
 package|package
 name|org
 operator|.
@@ -13,28 +13,10 @@ operator|.
 name|util
 operator|.
 name|io
+operator|.
+name|stream
 package|;
 end_package
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|DataInput
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|DataOutput
-import|;
-end_import
 
 begin_import
 import|import
@@ -47,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_interface
@@ -60,19 +42,17 @@ DECL|method|readFrom
 name|void
 name|readFrom
 parameter_list|(
-name|DataInput
+name|StreamInput
 name|in
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|ClassNotFoundException
 function_decl|;
 DECL|method|writeTo
 name|void
 name|writeTo
 parameter_list|(
-name|DataOutput
+name|StreamOutput
 name|out
 parameter_list|)
 throws|throws

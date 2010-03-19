@@ -114,21 +114,33 @@ end_import
 
 begin_import
 import|import
-name|java
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
 operator|.
 name|io
 operator|.
-name|DataInput
+name|stream
+operator|.
+name|StreamInput
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
 operator|.
 name|io
 operator|.
-name|DataOutput
+name|stream
+operator|.
+name|StreamOutput
 import|;
 end_import
 
@@ -668,13 +680,11 @@ specifier|static
 name|IndexRoutingTable
 name|readFrom
 parameter_list|(
-name|DataInput
+name|StreamInput
 name|in
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|ClassNotFoundException
 block|{
 name|String
 name|index
@@ -698,7 +708,7 @@ name|size
 init|=
 name|in
 operator|.
-name|readInt
+name|readVInt
 argument_list|()
 decl_stmt|;
 for|for
@@ -749,7 +759,7 @@ parameter_list|(
 name|IndexRoutingTable
 name|index
 parameter_list|,
-name|DataOutput
+name|StreamOutput
 name|out
 parameter_list|)
 throws|throws
@@ -767,7 +777,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeInt
+name|writeVInt
 argument_list|(
 name|index
 operator|.

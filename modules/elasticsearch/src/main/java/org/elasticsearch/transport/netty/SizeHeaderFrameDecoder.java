@@ -38,20 +38,6 @@ name|jboss
 operator|.
 name|netty
 operator|.
-name|buffer
-operator|.
-name|ChannelBufferInputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|jboss
-operator|.
-name|netty
-operator|.
 name|channel
 operator|.
 name|Channel
@@ -115,7 +101,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -216,13 +202,7 @@ literal|4
 argument_list|)
 expr_stmt|;
 return|return
-operator|new
-name|ChannelBufferInputStream
-argument_list|(
 name|buffer
-argument_list|,
-name|dataLen
-argument_list|)
 return|;
 block|}
 block|}

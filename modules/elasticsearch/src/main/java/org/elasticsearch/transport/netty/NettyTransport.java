@@ -162,7 +162,9 @@ name|util
 operator|.
 name|io
 operator|.
-name|ByteArrayDataOutputStream
+name|stream
+operator|.
+name|BytesStreamOutput
 import|;
 end_import
 
@@ -175,6 +177,8 @@ operator|.
 name|util
 operator|.
 name|io
+operator|.
+name|stream
 operator|.
 name|Streamable
 import|;
@@ -2318,10 +2322,10 @@ argument_list|(
 name|node
 argument_list|)
 decl_stmt|;
-name|ByteArrayDataOutputStream
+name|BytesStreamOutput
 name|stream
 init|=
-name|ByteArrayDataOutputStream
+name|BytesStreamOutput
 operator|.
 name|Cached
 operator|.
@@ -2330,7 +2334,7 @@ argument_list|()
 decl_stmt|;
 name|stream
 operator|.
-name|write
+name|writeBytes
 argument_list|(
 name|LENGTH_PLACEHOLDER
 argument_list|)

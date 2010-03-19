@@ -50,7 +50,7 @@ name|util
 operator|.
 name|io
 operator|.
-name|Streamable
+name|ThrowableObjectInputStream
 import|;
 end_import
 
@@ -64,7 +64,25 @@ name|util
 operator|.
 name|io
 operator|.
-name|ThrowableObjectInputStream
+name|stream
+operator|.
+name|StreamInput
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|io
+operator|.
+name|stream
+operator|.
+name|Streamable
 import|;
 end_import
 
@@ -78,7 +96,7 @@ name|netty
 operator|.
 name|buffer
 operator|.
-name|ChannelBufferInputStream
+name|ChannelBuffer
 import|;
 end_import
 
@@ -231,16 +249,25 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|ChannelBufferInputStream
+name|ChannelBuffer
 name|buffer
 init|=
 operator|(
-name|ChannelBufferInputStream
+name|ChannelBuffer
 operator|)
 name|event
 operator|.
 name|getMessage
 argument_list|()
+decl_stmt|;
+name|StreamInput
+name|streamIn
+init|=
+operator|new
+name|ChannelBufferStreamInput
+argument_list|(
+name|buffer
+argument_list|)
 decl_stmt|;
 name|long
 name|requestId
@@ -275,7 +302,7 @@ name|handleRequest
 argument_list|(
 name|event
 argument_list|,
-name|buffer
+name|streamIn
 argument_list|,
 name|requestId
 argument_list|)
@@ -319,7 +346,7 @@ condition|)
 block|{
 name|handlerResponseError
 argument_list|(
-name|buffer
+name|streamIn
 argument_list|,
 name|handler
 argument_list|)
@@ -329,7 +356,7 @@ else|else
 block|{
 name|handleResponse
 argument_list|(
-name|buffer
+name|streamIn
 argument_list|,
 name|handler
 argument_list|)
@@ -342,7 +369,7 @@ specifier|private
 name|void
 name|handleResponse
 parameter_list|(
-name|ChannelBufferInputStream
+name|StreamInput
 name|buffer
 parameter_list|,
 specifier|final
@@ -505,7 +532,7 @@ specifier|private
 name|void
 name|handlerResponseError
 parameter_list|(
-name|ChannelBufferInputStream
+name|StreamInput
 name|buffer
 parameter_list|,
 specifier|final
@@ -679,7 +706,7 @@ parameter_list|(
 name|MessageEvent
 name|event
 parameter_list|,
-name|ChannelBufferInputStream
+name|StreamInput
 name|buffer
 parameter_list|,
 name|long

@@ -1357,7 +1357,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-comment|// failure to marshal or unmarshal
+comment|// failure to marshal or un-marshal
 throw|throw
 operator|new
 name|ElasticSearchIllegalStateException

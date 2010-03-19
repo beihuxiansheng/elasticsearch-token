@@ -18,21 +18,33 @@ end_package
 
 begin_import
 import|import
-name|java
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
 operator|.
 name|io
 operator|.
-name|DataInput
+name|stream
+operator|.
+name|StreamInput
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
 operator|.
 name|io
 operator|.
-name|DataOutput
+name|stream
+operator|.
+name|StreamOutput
 import|;
 end_import
 
@@ -64,13 +76,11 @@ operator|.
 name|Operation
 name|readTranslogOperation
 parameter_list|(
-name|DataInput
+name|StreamInput
 name|in
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|ClassNotFoundException
 block|{
 name|Translog
 operator|.
@@ -181,7 +191,7 @@ specifier|static
 name|void
 name|writeTranslogOperation
 parameter_list|(
-name|DataOutput
+name|StreamOutput
 name|out
 parameter_list|,
 name|Translog

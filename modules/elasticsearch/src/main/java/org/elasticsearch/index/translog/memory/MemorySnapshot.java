@@ -68,21 +68,33 @@ end_import
 
 begin_import
 import|import
-name|java
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
 operator|.
 name|io
 operator|.
-name|DataInput
+name|stream
+operator|.
+name|StreamInput
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
 operator|.
 name|io
 operator|.
-name|DataOutput
+name|stream
+operator|.
+name|StreamOutput
 import|;
 end_import
 
@@ -356,13 +368,11 @@ specifier|public
 name|void
 name|readFrom
 parameter_list|(
-name|DataInput
+name|StreamInput
 name|in
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|ClassNotFoundException
 block|{
 name|id
 operator|=
@@ -380,7 +390,7 @@ name|Operation
 index|[
 name|in
 operator|.
-name|readInt
+name|readVInt
 argument_list|()
 index|]
 expr_stmt|;
@@ -420,7 +430,7 @@ specifier|public
 name|void
 name|writeTo
 parameter_list|(
-name|DataOutput
+name|StreamOutput
 name|out
 parameter_list|)
 throws|throws
@@ -435,7 +445,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeInt
+name|writeVInt
 argument_list|(
 name|operations
 operator|.

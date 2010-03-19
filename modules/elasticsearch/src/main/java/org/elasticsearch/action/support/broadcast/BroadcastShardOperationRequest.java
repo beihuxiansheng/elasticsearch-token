@@ -28,27 +28,41 @@ name|util
 operator|.
 name|io
 operator|.
+name|stream
+operator|.
+name|StreamInput
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|io
+operator|.
+name|stream
+operator|.
+name|StreamOutput
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|io
+operator|.
+name|stream
+operator|.
 name|Streamable
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|DataInput
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|DataOutput
 import|;
 end_import
 
@@ -63,7 +77,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -145,13 +159,11 @@ specifier|public
 name|void
 name|readFrom
 parameter_list|(
-name|DataInput
+name|StreamInput
 name|in
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|ClassNotFoundException
 block|{
 name|index
 operator|=
@@ -164,7 +176,7 @@ name|shardId
 operator|=
 name|in
 operator|.
-name|readInt
+name|readVInt
 argument_list|()
 expr_stmt|;
 block|}
@@ -175,7 +187,7 @@ specifier|public
 name|void
 name|writeTo
 parameter_list|(
-name|DataOutput
+name|StreamOutput
 name|out
 parameter_list|)
 throws|throws
@@ -190,7 +202,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeInt
+name|writeVInt
 argument_list|(
 name|shardId
 argument_list|)

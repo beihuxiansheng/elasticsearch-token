@@ -381,7 +381,7 @@ block|{
 name|flush
 argument_list|()
 expr_stmt|;
-name|UnicodeUtil
+name|Unicode
 operator|.
 name|UTF16Result
 name|result

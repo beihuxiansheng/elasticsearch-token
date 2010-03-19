@@ -162,21 +162,33 @@ end_import
 
 begin_import
 import|import
-name|java
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
 operator|.
 name|io
 operator|.
-name|DataInput
+name|stream
+operator|.
+name|StreamInput
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
 operator|.
 name|io
 operator|.
-name|DataOutput
+name|stream
+operator|.
+name|StreamOutput
 import|;
 end_import
 
@@ -511,7 +523,7 @@ specifier|static
 name|TopDocs
 name|readTopDocs
 parameter_list|(
-name|DataInput
+name|StreamInput
 name|in
 parameter_list|)
 throws|throws
@@ -544,7 +556,7 @@ name|totalHits
 init|=
 name|in
 operator|.
-name|readInt
+name|readVInt
 argument_list|()
 decl_stmt|;
 name|float
@@ -564,7 +576,7 @@ name|SortField
 index|[
 name|in
 operator|.
-name|readInt
+name|readVInt
 argument_list|()
 index|]
 decl_stmt|;
@@ -600,7 +612,7 @@ argument_list|()
 argument_list|,
 name|in
 operator|.
-name|readInt
+name|readVInt
 argument_list|()
 argument_list|,
 name|in
@@ -619,7 +631,7 @@ name|FieldDoc
 index|[
 name|in
 operator|.
-name|readInt
+name|readVInt
 argument_list|()
 index|]
 decl_stmt|;
@@ -649,7 +661,7 @@ name|Comparable
 index|[
 name|in
 operator|.
-name|readInt
+name|readVInt
 argument_list|()
 index|]
 decl_stmt|;
@@ -816,7 +828,7 @@ name|FieldDoc
 argument_list|(
 name|in
 operator|.
-name|readInt
+name|readVInt
 argument_list|()
 argument_list|,
 name|in
@@ -849,7 +861,7 @@ name|totalHits
 init|=
 name|in
 operator|.
-name|readInt
+name|readVInt
 argument_list|()
 decl_stmt|;
 name|float
@@ -869,7 +881,7 @@ name|ScoreDoc
 index|[
 name|in
 operator|.
-name|readInt
+name|readVInt
 argument_list|()
 index|]
 decl_stmt|;
@@ -900,7 +912,7 @@ name|ScoreDoc
 argument_list|(
 name|in
 operator|.
-name|readInt
+name|readVInt
 argument_list|()
 argument_list|,
 name|in
@@ -929,7 +941,7 @@ specifier|static
 name|void
 name|writeTopDocs
 parameter_list|(
-name|DataOutput
+name|StreamOutput
 name|out
 parameter_list|,
 name|TopDocs
@@ -994,7 +1006,7 @@ name|topDocs
 decl_stmt|;
 name|out
 operator|.
-name|writeInt
+name|writeVInt
 argument_list|(
 name|topDocs
 operator|.
@@ -1013,7 +1025,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeInt
+name|writeVInt
 argument_list|(
 name|topFieldDocs
 operator|.
@@ -1044,7 +1056,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeInt
+name|writeVInt
 argument_list|(
 name|sortField
 operator|.
@@ -1065,7 +1077,7 @@ expr_stmt|;
 block|}
 name|out
 operator|.
-name|writeInt
+name|writeVInt
 argument_list|(
 name|topDocs
 operator|.
@@ -1111,7 +1123,7 @@ name|doc
 decl_stmt|;
 name|out
 operator|.
-name|writeInt
+name|writeVInt
 argument_list|(
 name|fieldDoc
 operator|.
@@ -1149,8 +1161,11 @@ condition|)
 block|{
 name|out
 operator|.
-name|write
+name|writeByte
 argument_list|(
+operator|(
+name|byte
+operator|)
 literal|0
 argument_list|)
 expr_stmt|;
@@ -1177,8 +1192,11 @@ condition|)
 block|{
 name|out
 operator|.
-name|write
+name|writeByte
 argument_list|(
+operator|(
+name|byte
+operator|)
 literal|1
 argument_list|)
 expr_stmt|;
@@ -1205,8 +1223,11 @@ condition|)
 block|{
 name|out
 operator|.
-name|write
+name|writeByte
 argument_list|(
+operator|(
+name|byte
+operator|)
 literal|2
 argument_list|)
 expr_stmt|;
@@ -1233,8 +1254,11 @@ condition|)
 block|{
 name|out
 operator|.
-name|write
+name|writeByte
 argument_list|(
+operator|(
+name|byte
+operator|)
 literal|3
 argument_list|)
 expr_stmt|;
@@ -1261,8 +1285,11 @@ condition|)
 block|{
 name|out
 operator|.
-name|write
+name|writeByte
 argument_list|(
+operator|(
+name|byte
+operator|)
 literal|4
 argument_list|)
 expr_stmt|;
@@ -1289,14 +1316,17 @@ condition|)
 block|{
 name|out
 operator|.
-name|write
+name|writeByte
 argument_list|(
+operator|(
+name|byte
+operator|)
 literal|5
 argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|write
+name|writeByte
 argument_list|(
 operator|(
 name|Byte
@@ -1322,7 +1352,7 @@ block|}
 block|}
 name|out
 operator|.
-name|writeInt
+name|writeVInt
 argument_list|(
 name|doc
 operator|.
@@ -1351,7 +1381,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeInt
+name|writeVInt
 argument_list|(
 name|topDocs
 operator|.
@@ -1370,7 +1400,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeInt
+name|writeVInt
 argument_list|(
 name|topDocs
 operator|.
@@ -1408,7 +1438,7 @@ continue|continue;
 block|}
 name|out
 operator|.
-name|writeInt
+name|writeVInt
 argument_list|(
 name|doc
 operator|.
@@ -1433,7 +1463,7 @@ specifier|static
 name|Explanation
 name|readExplanation
 parameter_list|(
-name|DataInput
+name|StreamInput
 name|in
 parameter_list|)
 throws|throws
@@ -1479,7 +1509,7 @@ name|size
 init|=
 name|in
 operator|.
-name|readInt
+name|readVInt
 argument_list|()
 decl_stmt|;
 for|for
@@ -1519,7 +1549,7 @@ specifier|static
 name|void
 name|writeExplanation
 parameter_list|(
-name|DataOutput
+name|StreamOutput
 name|out
 parameter_list|,
 name|Explanation
@@ -1583,7 +1613,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeInt
+name|writeVInt
 argument_list|(
 name|subExplanations
 operator|.

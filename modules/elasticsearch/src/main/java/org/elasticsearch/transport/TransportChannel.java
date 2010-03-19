@@ -24,6 +24,8 @@ name|util
 operator|.
 name|io
 operator|.
+name|stream
+operator|.
 name|Streamable
 import|;
 end_import
