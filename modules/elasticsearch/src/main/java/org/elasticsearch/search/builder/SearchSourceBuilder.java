@@ -367,7 +367,7 @@ specifier|public
 name|SearchSourceBuilder
 name|explain
 parameter_list|(
-name|boolean
+name|Boolean
 name|explain
 parameter_list|)
 block|{

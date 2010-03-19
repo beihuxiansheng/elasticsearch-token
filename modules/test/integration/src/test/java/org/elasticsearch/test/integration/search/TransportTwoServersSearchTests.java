@@ -323,7 +323,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -637,7 +637,18 @@ index|[
 name|i
 index|]
 decl_stmt|;
-comment|//            System.out.println(hit.target() + ": " +  hit.explanation());
+comment|//            System.out.println(hit.shard() + ": " +  hit.explanation());
+name|assertThat
+argument_list|(
+name|hit
+operator|.
+name|explanation
+argument_list|()
+argument_list|,
+name|notNullValue
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|assertThat
 argument_list|(
 literal|"id["
@@ -963,7 +974,18 @@ index|[
 name|i
 index|]
 decl_stmt|;
-comment|//            System.out.println(hit.target() + ": " +  hit.explanation());
+comment|//            System.out.println(hit.shard() + ": " +  hit.explanation());
+name|assertThat
+argument_list|(
+name|hit
+operator|.
+name|explanation
+argument_list|()
+argument_list|,
+name|notNullValue
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|assertThat
 argument_list|(
 literal|"id["
@@ -1273,7 +1295,18 @@ index|[
 name|i
 index|]
 decl_stmt|;
-comment|//            System.out.println(hit.target() + ": " +  hit.explanation());
+comment|//            System.out.println(hit.shard() + ": " +  hit.explanation());
+name|assertThat
+argument_list|(
+name|hit
+operator|.
+name|explanation
+argument_list|()
+argument_list|,
+name|notNullValue
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|assertThat
 argument_list|(
 literal|"id["
@@ -1598,7 +1631,18 @@ index|[
 name|i
 index|]
 decl_stmt|;
-comment|//            System.out.println(hit.target() + ": " +  hit.explanation());
+comment|//            System.out.println(hit.shard() + ": " +  hit.explanation());
+name|assertThat
+argument_list|(
+name|hit
+operator|.
+name|explanation
+argument_list|()
+argument_list|,
+name|notNullValue
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|assertThat
 argument_list|(
 literal|"id["
@@ -1909,7 +1953,18 @@ index|[
 name|i
 index|]
 decl_stmt|;
-comment|//            System.out.println(hit.target() + ": " +  hit.explanation());
+comment|//            System.out.println(hit.shard() + ": " +  hit.explanation());
+name|assertThat
+argument_list|(
+name|hit
+operator|.
+name|explanation
+argument_list|()
+argument_list|,
+name|notNullValue
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|assertThat
 argument_list|(
 literal|"id["
@@ -2122,7 +2177,18 @@ index|[
 name|i
 index|]
 decl_stmt|;
-comment|//            System.out.println(hit.target() + ": " +  hit.explanation());
+comment|//            System.out.println(hit.shard() + ": " +  hit.explanation());
+name|assertThat
+argument_list|(
+name|hit
+operator|.
+name|explanation
+argument_list|()
+argument_list|,
+name|notNullValue
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|assertThat
 argument_list|(
 literal|"id["

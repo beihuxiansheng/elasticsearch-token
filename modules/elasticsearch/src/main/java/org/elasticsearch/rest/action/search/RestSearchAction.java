@@ -1214,7 +1214,7 @@ name|paramAsBoolean
 argument_list|(
 literal|"explain"
 argument_list|,
-literal|false
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
