@@ -176,7 +176,7 @@ specifier|private
 name|boolean
 name|threadedOperation
 init|=
-literal|false
+literal|true
 decl_stmt|;
 DECL|method|timeout
 specifier|public
@@ -246,7 +246,7 @@ return|return
 name|threadedOperation
 return|;
 block|}
-comment|/**      * Controls if the operation will be executed on a separate thread when executed locally.      */
+comment|/**      * Controls if the operation will be executed on a separate thread when executed locally. Defaults      * to<tt>true</tt> when running in embedded mode.      */
 DECL|method|operationThreaded
 specifier|public
 name|ShardReplicationOperationRequest

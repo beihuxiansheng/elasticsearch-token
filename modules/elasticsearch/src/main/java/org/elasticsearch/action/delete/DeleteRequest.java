@@ -277,7 +277,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Controls if the operation will be executed on a separate thread when executed locally.      */
+comment|/**      * Controls if the operation will be executed on a separate thread when executed locally. Defaults      * to<tt>true</tt> when running in embedded mode.      */
 DECL|method|operationThreaded
 annotation|@
 name|Override

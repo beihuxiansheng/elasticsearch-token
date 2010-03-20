@@ -441,7 +441,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -928,6 +928,19 @@ operator|.
 name|INSTANCE
 argument_list|)
 expr_stmt|;
+block|}
+comment|/**          * We spawn, since we want to perform the operation on the backup on a different thread.          */
+DECL|method|spawn
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|spawn
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
 block|}
 block|}
 DECL|class|ShardOperationRequest
