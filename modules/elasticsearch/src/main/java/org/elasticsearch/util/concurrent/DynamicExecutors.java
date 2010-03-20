@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Factory and utility methods for handling {@link DynamicThreadPoolExecutor}.  *  * @author kimchy (Shay Banon)  */
+comment|/**  * Factory and utility methods for handling {@link DynamicThreadPoolExecutor}.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class

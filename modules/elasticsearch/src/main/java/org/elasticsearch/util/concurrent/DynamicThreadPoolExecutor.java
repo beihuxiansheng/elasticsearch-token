@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An {@link ExecutorService} that executes each submitted task using one of  * possibly several pooled threads, normally configured using  * {@link DynamicExecutors} factory methods.  *  * @author moran  * @since 6.5  */
+comment|/**  * An {@link ExecutorService} that executes each submitted task using one of  * possibly several pooled threads, normally configured using  * {@link DynamicExecutors} factory methods.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
