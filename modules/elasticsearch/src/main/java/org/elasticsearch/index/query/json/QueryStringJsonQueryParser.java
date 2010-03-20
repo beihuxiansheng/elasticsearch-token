@@ -1556,7 +1556,7 @@ name|currentFieldName
 argument_list|)
 condition|)
 block|{
-name|escape
+name|useDisMax
 operator|=
 name|jp
 operator|.
