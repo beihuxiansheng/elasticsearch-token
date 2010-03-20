@@ -2824,20 +2824,20 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// TODO we need to support scrolling for query+fetch
-comment|//        Map<SearchShardTarget, QueryFetchSearchResult> scollQueryFetchResults = newHashMap();
+comment|//        Map<SearchShardTarget, QueryFetchSearchResult> scrollQueryFetchResults = newHashMap();
 comment|//        for (QueryFetchSearchResult searchResult : queryFetchResults.values()) {
 comment|//            QueryFetchSearchResult queryFetchResult = nodeToSearchService.get(searchResult.shardTarget().nodeId()).executeFetchPhase(new InternalScrollSearchRequest(searchResult.id()).scroll(new Scroll(timeValueMinutes(10))));
-comment|//            scollQueryFetchResults.put(queryFetchResult.shardTarget(), queryFetchResult);
+comment|//            scrollQueryFetchResults.put(queryFetchResult.shardTarget(), queryFetchResult);
 comment|//        }
-comment|//        queryFetchResults = scollQueryFetchResults;
+comment|//        queryFetchResults = scrollQueryFetchResults;
 comment|//
 comment|//        sortedShardList = searchPhaseController.sortDocs(queryFetchResults.values());
 comment|//        hits = searchPhaseController.merge(sortedShardList, queryFetchResults, queryFetchResults).hits();
-comment|//        assertEquals(100, hits.totalHits());
-comment|//        assertEquals(40, hits.hits().length);
+comment|//        assertThat(hits.totalHits(), equalTo(100l));
+comment|//        assertThat(hits.hits().length, equalTo(40));
 comment|//        for (int i = 0; i< 40; i++) {
 comment|//            SearchHit hit = hits.hits()[i];
-comment|//            assertEquals("id[" + hit.id() + "]", Integer.toString(100 - 60 - 1 - i), hit.id());
+comment|//            assertThat("id[" + hit.id() + "]", hit.id(), equalTo(Integer.toString(100 - 60 - 1 - i)));
 comment|//        }
 block|}
 DECL|method|testSimpleFacets
