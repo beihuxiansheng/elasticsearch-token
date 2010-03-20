@@ -1105,6 +1105,9 @@ argument_list|,
 literal|""
 argument_list|,
 name|e
+argument_list|,
+name|buildShardFailures
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1698,6 +1701,9 @@ argument_list|,
 literal|""
 argument_list|,
 name|e
+argument_list|,
+name|buildShardFailures
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

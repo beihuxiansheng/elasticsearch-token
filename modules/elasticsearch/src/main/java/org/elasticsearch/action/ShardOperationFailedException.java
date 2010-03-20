@@ -30,6 +30,16 @@ name|Streamable
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Serializable
+import|;
+end_import
+
 begin_comment
 comment|/**  * An exception indicating that a failure occurred performing an operation on the shard.  *  * @author kimchy (Shay Banon)  */
 end_comment
@@ -41,6 +51,8 @@ interface|interface
 name|ShardOperationFailedException
 extends|extends
 name|Streamable
+extends|,
+name|Serializable
 block|{
 comment|/**      * The index the operation failed on. Might return<tt>null</tt> if it can't be derived.      */
 DECL|method|index

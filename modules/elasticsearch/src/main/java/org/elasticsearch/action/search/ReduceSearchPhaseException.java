@@ -16,16 +16,6 @@ name|search
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ElasticSearchException
-import|;
-end_import
-
 begin_comment
 comment|/**  * A failure during a reduce phase (when receiving results from several shards, and reducing them  * into one or more results and possible actions).  *  * @author kimchy (shay.banon)  */
 end_comment
@@ -36,7 +26,7 @@ specifier|public
 class|class
 name|ReduceSearchPhaseException
 extends|extends
-name|ElasticSearchException
+name|SearchPhaseExecutionException
 block|{
 DECL|method|ReduceSearchPhaseException
 specifier|public
@@ -47,17 +37,21 @@ name|phaseName
 parameter_list|,
 name|String
 name|msg
+parameter_list|,
+name|ShardSearchFailure
+index|[]
+name|shardFailures
 parameter_list|)
 block|{
 name|super
 argument_list|(
-literal|"Failed to reduce ["
-operator|+
 name|phaseName
-operator|+
-literal|"] "
+argument_list|,
+literal|"[reduce] "
 operator|+
 name|msg
+argument_list|,
+name|shardFailures
 argument_list|)
 expr_stmt|;
 block|}
@@ -73,19 +67,23 @@ name|msg
 parameter_list|,
 name|Throwable
 name|cause
+parameter_list|,
+name|ShardSearchFailure
+index|[]
+name|shardFailures
 parameter_list|)
 block|{
 name|super
 argument_list|(
-literal|"Failed to reduce ["
-operator|+
 name|phaseName
-operator|+
-literal|"]"
+argument_list|,
+literal|"[reduce] "
 operator|+
 name|msg
 argument_list|,
 name|cause
+argument_list|,
+name|shardFailures
 argument_list|)
 expr_stmt|;
 block|}
