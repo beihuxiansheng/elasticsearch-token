@@ -185,7 +185,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -262,7 +262,7 @@ init|=
 literal|1.0f
 decl_stmt|;
 name|float
-name|tieBreakerMultiplier
+name|tieBreaker
 init|=
 literal|0.0f
 decl_stmt|;
@@ -445,50 +445,6 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"tieBreakerMultiplier"
-operator|.
-name|equals
-argument_list|(
-name|currentFieldName
-argument_list|)
-condition|)
-block|{
-if|if
-condition|(
-name|token
-operator|==
-name|JsonToken
-operator|.
-name|VALUE_STRING
-condition|)
-block|{
-name|tieBreakerMultiplier
-operator|=
-name|Float
-operator|.
-name|parseFloat
-argument_list|(
-name|jp
-operator|.
-name|getText
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|tieBreakerMultiplier
-operator|=
-name|jp
-operator|.
-name|getFloatValue
-argument_list|()
-expr_stmt|;
-block|}
-block|}
-elseif|else
-if|if
-condition|(
 literal|"tieBreaker"
 operator|.
 name|equals
@@ -506,7 +462,7 @@ operator|.
 name|VALUE_STRING
 condition|)
 block|{
-name|tieBreakerMultiplier
+name|tieBreaker
 operator|=
 name|Float
 operator|.
@@ -521,7 +477,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|tieBreakerMultiplier
+name|tieBreaker
 operator|=
 name|jp
 operator|.
@@ -540,7 +496,7 @@ name|DisjunctionMaxQuery
 argument_list|(
 name|queries
 argument_list|,
-name|tieBreakerMultiplier
+name|tieBreaker
 argument_list|)
 decl_stmt|;
 name|query
