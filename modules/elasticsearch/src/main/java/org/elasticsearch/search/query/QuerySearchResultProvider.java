@@ -24,7 +24,7 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|SearchShardTarget
+name|SearchPhaseResult
 import|;
 end_import
 
@@ -37,21 +37,13 @@ DECL|interface|QuerySearchResultProvider
 specifier|public
 interface|interface
 name|QuerySearchResultProvider
+extends|extends
+name|SearchPhaseResult
 block|{
 comment|/**      * If both query and fetch happened on the same call.      */
 DECL|method|includeFetch
 name|boolean
 name|includeFetch
-parameter_list|()
-function_decl|;
-DECL|method|id
-name|long
-name|id
-parameter_list|()
-function_decl|;
-DECL|method|shardTarget
-name|SearchShardTarget
-name|shardTarget
 parameter_list|()
 function_decl|;
 DECL|method|queryResult

@@ -4,15 +4,13 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search.fetch
+DECL|package|org.elasticsearch.search
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|search
-operator|.
-name|fetch
 package|;
 end_package
 
@@ -22,27 +20,36 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
+name|util
 operator|.
-name|SearchPhaseResult
+name|io
+operator|.
+name|stream
+operator|.
+name|Streamable
 import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_interface
-DECL|interface|FetchSearchResultProvider
+DECL|interface|SearchPhaseResult
 specifier|public
 interface|interface
-name|FetchSearchResultProvider
-extends|extends
 name|SearchPhaseResult
+extends|extends
+name|Streamable
 block|{
-DECL|method|fetchResult
-name|FetchSearchResult
-name|fetchResult
+DECL|method|id
+name|long
+name|id
+parameter_list|()
+function_decl|;
+DECL|method|shardTarget
+name|SearchShardTarget
+name|shardTarget
 parameter_list|()
 function_decl|;
 block|}

@@ -60,6 +60,18 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
+name|TimeValue
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
 name|io
 operator|.
 name|stream
@@ -144,6 +156,22 @@ specifier|private
 name|Scroll
 name|scroll
 decl_stmt|;
+DECL|field|listenerThreaded
+specifier|private
+name|boolean
+name|listenerThreaded
+init|=
+literal|false
+decl_stmt|;
+DECL|field|operationThreading
+specifier|private
+name|SearchOperationThreading
+name|operationThreading
+init|=
+name|SearchOperationThreading
+operator|.
+name|SINGLE_THREAD
+decl_stmt|;
 DECL|method|SearchScrollRequest
 specifier|public
 name|SearchScrollRequest
@@ -198,6 +226,40 @@ return|return
 name|validationException
 return|;
 block|}
+comment|/**      * Controls the the search operation threading model.      */
+DECL|method|operationThreading
+specifier|public
+name|SearchOperationThreading
+name|operationThreading
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|operationThreading
+return|;
+block|}
+comment|/**      * Controls the the search operation threading model.      */
+DECL|method|operationThreading
+specifier|public
+name|SearchScrollRequest
+name|operationThreading
+parameter_list|(
+name|SearchOperationThreading
+name|operationThreading
+parameter_list|)
+block|{
+name|this
+operator|.
+name|operationThreading
+operator|=
+name|operationThreading
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Should the listener be called on a separate thread if needed.      */
 DECL|method|listenerThreaded
 annotation|@
 name|Override
@@ -206,29 +268,33 @@ name|boolean
 name|listenerThreaded
 parameter_list|()
 block|{
-comment|// TODO threaded
 return|return
-literal|false
+name|listenerThreaded
 return|;
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+comment|/**      * Should the listener be called on a separate thread if needed.      */
 DECL|method|listenerThreaded
 annotation|@
 name|Override
 specifier|public
-name|ActionRequest
+name|SearchScrollRequest
 name|listenerThreaded
 parameter_list|(
 name|boolean
 name|threadedListener
 parameter_list|)
 block|{
-comment|// TODO threaded
+name|this
+operator|.
+name|listenerThreaded
+operator|=
+name|threadedListener
+expr_stmt|;
 return|return
-literal|null
+name|this
 return|;
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+comment|/**      * The scroll id used to scroll the search.      */
 DECL|method|scrollId
 specifier|public
 name|String
@@ -239,6 +305,7 @@ return|return
 name|scrollId
 return|;
 block|}
+comment|/**      * If set, will enable scrolling of the search request.      */
 DECL|method|scroll
 specifier|public
 name|Scroll
@@ -249,9 +316,10 @@ return|return
 name|scroll
 return|;
 block|}
+comment|/**      * If set, will enable scrolling of the search request.      */
 DECL|method|scroll
 specifier|public
-name|void
+name|SearchScrollRequest
 name|scroll
 parameter_list|(
 name|Scroll
@@ -264,6 +332,30 @@ name|scroll
 operator|=
 name|scroll
 expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * If set, will enable scrolling of the search request for the specified timeout.      */
+DECL|method|scroll
+specifier|public
+name|SearchScrollRequest
+name|scroll
+parameter_list|(
+name|TimeValue
+name|keepAlive
+parameter_list|)
+block|{
+return|return
+name|scroll
+argument_list|(
+operator|new
+name|Scroll
+argument_list|(
+name|keepAlive
+argument_list|)
+argument_list|)
+return|;
 block|}
 DECL|method|readFrom
 annotation|@
@@ -278,6 +370,18 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|operationThreading
+operator|=
+name|SearchOperationThreading
+operator|.
+name|fromId
+argument_list|(
+name|in
+operator|.
+name|readByte
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|scrollId
 operator|=
 name|in
@@ -315,6 +419,16 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|out
+operator|.
+name|writeByte
+argument_list|(
+name|operationThreading
+operator|.
+name|id
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|out
 operator|.
 name|writeUTF

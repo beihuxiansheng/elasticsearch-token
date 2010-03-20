@@ -922,6 +922,16 @@ argument_list|()
 expr_stmt|;
 name|bind
 argument_list|(
+name|TransportSearchScrollQueryAndFetchAction
+operator|.
+name|class
+argument_list|)
+operator|.
+name|asEagerSingleton
+argument_list|()
+expr_stmt|;
+name|bind
+argument_list|(
 name|TransportSearchScrollAction
 operator|.
 name|class
