@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.threadpool.dynamic
+DECL|package|org.elasticsearch.threadpool.scaling
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|elasticsearch
 operator|.
 name|threadpool
 operator|.
-name|dynamic
+name|scaling
 package|;
 end_package
 
@@ -131,10 +131,10 @@ comment|/**  * @author kimchy (Shay Banon)  */
 end_comment
 
 begin_class
-DECL|class|DynamicThreadPool
+DECL|class|ScalingThreadPool
 specifier|public
 class|class
-name|DynamicThreadPool
+name|ScalingThreadPool
 extends|extends
 name|AbstractThreadPool
 block|{
@@ -162,9 +162,9 @@ specifier|final
 name|int
 name|scheduledSize
 decl_stmt|;
-DECL|method|DynamicThreadPool
+DECL|method|ScalingThreadPool
 specifier|public
-name|DynamicThreadPool
+name|ScalingThreadPool
 parameter_list|()
 block|{
 name|this
@@ -173,11 +173,11 @@ name|EMPTY_SETTINGS
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|DynamicThreadPool
+DECL|method|ScalingThreadPool
 annotation|@
 name|Inject
 specifier|public
-name|DynamicThreadPool
+name|ScalingThreadPool
 parameter_list|(
 name|Settings
 name|settings

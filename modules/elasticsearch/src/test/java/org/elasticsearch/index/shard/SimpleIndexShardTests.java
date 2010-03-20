@@ -306,9 +306,9 @@ name|elasticsearch
 operator|.
 name|threadpool
 operator|.
-name|dynamic
+name|scaling
 operator|.
-name|DynamicThreadPool
+name|ScalingThreadPool
 import|;
 end_import
 
@@ -640,7 +640,7 @@ decl_stmt|;
 name|threadPool
 operator|=
 operator|new
-name|DynamicThreadPool
+name|ScalingThreadPool
 argument_list|()
 expr_stmt|;
 name|indexShard

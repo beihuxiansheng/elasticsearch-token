@@ -50,9 +50,9 @@ name|elasticsearch
 operator|.
 name|threadpool
 operator|.
-name|dynamic
+name|scaling
 operator|.
-name|DynamicThreadPool
+name|ScalingThreadPool
 import|;
 end_import
 
@@ -228,7 +228,7 @@ block|{
 name|threadPool
 operator|=
 operator|new
-name|DynamicThreadPool
+name|ScalingThreadPool
 argument_list|()
 expr_stmt|;
 name|serviceA
