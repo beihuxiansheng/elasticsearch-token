@@ -146,6 +146,18 @@ name|IOException
 block|{
 comment|// nothing to do there...
 block|}
+DECL|method|reset
+annotation|@
+name|Override
+specifier|public
+name|void
+name|reset
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+comment|// nothing to do there...
+block|}
 DECL|method|close
 annotation|@
 name|Override

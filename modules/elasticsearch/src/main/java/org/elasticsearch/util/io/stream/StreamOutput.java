@@ -539,6 +539,15 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
+DECL|method|reset
+specifier|public
+specifier|abstract
+name|void
+name|reset
+parameter_list|()
+throws|throws
+name|IOException
+function_decl|;
 DECL|method|write
 annotation|@
 name|Override

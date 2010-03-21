@@ -124,6 +124,18 @@ name|length
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|reset
+annotation|@
+name|Override
+specifier|public
+name|void
+name|reset
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+comment|// nothing to do
+block|}
 DECL|method|flush
 annotation|@
 name|Override
