@@ -391,6 +391,30 @@ name|Fieldable
 name|field
 parameter_list|)
 function_decl|;
+comment|/**      * Returns<tt>true</tt> if {@link #valueAsString(String)} is required to convert      * from text value to text value.      */
+DECL|method|requiresStringToStringConversion
+name|boolean
+name|requiresStringToStringConversion
+parameter_list|()
+function_decl|;
+comment|/**      * Converts from the internal/indexed (term) text to the actual string representation.      * Can return<tt>null</tt> indicating that this is "uninteresting" value (for example, with      * numbers). Useful for example when enumerating terms. See {@link #shouldBreakTermEnumeration(String)}.      */
+DECL|method|valueAsString
+name|String
+name|valueAsString
+parameter_list|(
+name|String
+name|text
+parameter_list|)
+function_decl|;
+comment|/**      * Return<tt>true</tt> if this term value indicates breaking out of term enumeration on this      * field. The term text passed is the one returned from {@link #valueAsString(String)}.      */
+DECL|method|shouldBreakTermEnumeration
+name|boolean
+name|shouldBreakTermEnumeration
+parameter_list|(
+name|String
+name|text
+parameter_list|)
+function_decl|;
 comment|/**      * Returns the indexed value.      */
 DECL|method|indexedValue
 name|String
