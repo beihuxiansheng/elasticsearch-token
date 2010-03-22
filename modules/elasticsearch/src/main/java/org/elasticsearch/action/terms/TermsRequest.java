@@ -512,6 +512,22 @@ name|Object
 name|from
 parameter_list|)
 block|{
+if|if
+condition|(
+name|from
+operator|==
+literal|null
+condition|)
+block|{
+name|this
+operator|.
+name|from
+operator|=
+literal|null
+expr_stmt|;
+block|}
+else|else
+block|{
 name|this
 operator|.
 name|from
@@ -521,6 +537,7 @@ operator|.
 name|toString
 argument_list|()
 expr_stmt|;
+block|}
 return|return
 name|this
 return|;
@@ -556,7 +573,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The upper bound (lex) term to which the iteration will end. Defaults to unbound (<tt>null</tt>).      */
+comment|/**      * The upper bound term to which the iteration will end. Defaults to unbound (<tt>null</tt>).      */
 DECL|method|to
 specifier|public
 name|String
@@ -567,7 +584,7 @@ return|return
 name|to
 return|;
 block|}
-comment|/**      * The upper bound (lex) term to which the iteration will end. Defaults to unbound (<tt>null</tt>).      */
+comment|/**      * The upper bound term to which the iteration will end. Defaults to unbound (<tt>null</tt>).      */
 DECL|method|to
 specifier|public
 name|TermsRequest
@@ -576,6 +593,22 @@ parameter_list|(
 name|Object
 name|to
 parameter_list|)
+block|{
+if|if
+condition|(
+name|to
+operator|==
+literal|null
+condition|)
+block|{
+name|this
+operator|.
+name|to
+operator|=
+literal|null
+expr_stmt|;
+block|}
+else|else
 block|{
 name|this
 operator|.
@@ -586,6 +619,7 @@ operator|.
 name|toString
 argument_list|()
 expr_stmt|;
+block|}
 return|return
 name|this
 return|;
