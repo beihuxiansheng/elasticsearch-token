@@ -373,6 +373,15 @@ name|Fieldable
 name|field
 parameter_list|)
 function_decl|;
+comment|/**      * Returns the value that will be returned to the user (similar to {@link #valueForSearch(org.apache.lucene.document.Fieldable)}).      */
+DECL|method|valueForSearch
+name|Object
+name|valueForSearch
+parameter_list|(
+name|Object
+name|value
+parameter_list|)
+function_decl|;
 comment|/**      * Returns the actual value of the field.      */
 DECL|method|value
 name|T
@@ -391,27 +400,30 @@ name|Fieldable
 name|field
 parameter_list|)
 function_decl|;
-comment|/**      * Returns<tt>true</tt> if {@link #valueAsString(String)} is required to convert      * from text value to text value.      */
-DECL|method|requiresStringToStringConversion
-name|boolean
-name|requiresStringToStringConversion
-parameter_list|()
-function_decl|;
-comment|/**      * Converts from the internal/indexed (term) text to the actual string representation.      * Can return<tt>null</tt> indicating that this is "uninteresting" value (for example, with      * numbers). Useful for example when enumerating terms. See {@link #shouldBreakTermEnumeration(String)}.      */
-DECL|method|valueAsString
+comment|/**      * Parses the string back into the type of the field (should be comparable!) in a similar      * manner {@link #valueForSearch(org.apache.lucene.document.Fieldable)} does with fields.      */
+DECL|method|valueFromTerm
+name|Object
+name|valueFromTerm
+parameter_list|(
 name|String
-name|valueAsString
+name|term
+parameter_list|)
+function_decl|;
+comment|/**      * Parses a string that represents the field into its value. For example, with numbers,      * it parses "1" to 1.      */
+DECL|method|valueFromString
+name|Object
+name|valueFromString
 parameter_list|(
 name|String
 name|text
 parameter_list|)
 function_decl|;
-comment|/**      * Return<tt>true</tt> if this term value indicates breaking out of term enumeration on this      * field. The term text passed is the one returned from {@link #valueAsString(String)}.      */
+comment|/**      * Return<tt>true</tt> if this term value indicates breaking out of term enumeration on this      * field. The term text passed is the one returned from {@link #valueFromTerm(String)}.      */
 DECL|method|shouldBreakTermEnumeration
 name|boolean
 name|shouldBreakTermEnumeration
 parameter_list|(
-name|String
+name|Object
 name|text
 parameter_list|)
 function_decl|;

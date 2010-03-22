@@ -161,7 +161,7 @@ specifier|private
 specifier|transient
 name|ExtTObjectIntHasMap
 argument_list|<
-name|String
+name|Object
 argument_list|>
 name|termsFreqMap
 decl_stmt|;
@@ -227,10 +227,11 @@ specifier|public
 name|int
 name|docFreq
 parameter_list|(
-name|String
+name|Object
 name|term
 parameter_list|)
 block|{
+comment|// we use "toString" on the term so we get hits when we the termValue is Long, and we lookup with int
 if|if
 condition|(
 name|termsFreqMap
@@ -240,14 +241,14 @@ condition|)
 block|{
 name|ExtTObjectIntHasMap
 argument_list|<
-name|String
+name|Object
 argument_list|>
 name|termsFreqMap
 init|=
 operator|new
 name|ExtTObjectIntHasMap
 argument_list|<
-name|String
+name|Object
 argument_list|>
 argument_list|()
 operator|.
@@ -273,6 +274,9 @@ name|termFreq
 operator|.
 name|term
 argument_list|()
+operator|.
+name|toString
+argument_list|()
 argument_list|,
 name|termFreq
 operator|.
@@ -294,6 +298,9 @@ operator|.
 name|get
 argument_list|(
 name|term
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 return|;
 block|}

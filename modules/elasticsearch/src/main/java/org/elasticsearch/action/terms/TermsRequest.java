@@ -508,7 +508,7 @@ specifier|public
 name|TermsRequest
 name|from
 parameter_list|(
-name|String
+name|Object
 name|from
 parameter_list|)
 block|{
@@ -517,12 +517,15 @@ operator|.
 name|from
 operator|=
 name|from
+operator|.
+name|toString
+argument_list|()
 expr_stmt|;
 return|return
 name|this
 return|;
 block|}
-comment|/**      * Should the first from (if set using {@link #from(String)} be inclusive or not. Defaults      * to<tt>false</tt> (not inclusive / exclusive).      */
+comment|/**      * Should the first from (if set using {@link #from(Object)} be inclusive or not. Defaults      * to<tt>false</tt> (not inclusive / exclusive).      */
 DECL|method|fromInclusive
 specifier|public
 name|boolean
@@ -533,7 +536,7 @@ return|return
 name|fromInclusive
 return|;
 block|}
-comment|/**      * Should the first from (if set using {@link #from(String)} be inclusive or not. Defaults      * to<tt>false</tt> (not inclusive / exclusive).      */
+comment|/**      * Should the first from (if set using {@link #from(Object)} be inclusive or not. Defaults      * to<tt>false</tt> (not inclusive / exclusive).      */
 DECL|method|fromInclusive
 specifier|public
 name|TermsRequest
@@ -570,7 +573,7 @@ specifier|public
 name|TermsRequest
 name|to
 parameter_list|(
-name|String
+name|Object
 name|to
 parameter_list|)
 block|{
@@ -579,12 +582,15 @@ operator|.
 name|to
 operator|=
 name|to
+operator|.
+name|toString
+argument_list|()
 expr_stmt|;
 return|return
 name|this
 return|;
 block|}
-comment|/**      * Should the last to (if set using {@link #to(String)} be inclusive or not. Defaults to      *<tt>true</tt>.      */
+comment|/**      * Should the last to (if set using {@link #to(Object)} be inclusive or not. Defaults to      *<tt>true</tt>.      */
 DECL|method|toInclusive
 specifier|public
 name|boolean
@@ -595,7 +601,7 @@ return|return
 name|toInclusive
 return|;
 block|}
-comment|/**      * Should the last to (if set using {@link #to(String)} be inclusive or not. Defaults to      *<tt>true</tt>.      */
+comment|/**      * Should the last to (if set using {@link #to(Object)} be inclusive or not. Defaults to      *<tt>true</tt>.      */
 DECL|method|toInclusive
 specifier|public
 name|TermsRequest
@@ -762,37 +768,6 @@ operator|.
 name|size
 operator|=
 name|size
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Should an attempt be made to convert the {@link #to(String)} and {@link #from(String)}.      * Defaults to<tt>true</tt>.      */
-DECL|method|convert
-specifier|public
-name|boolean
-name|convert
-parameter_list|()
-block|{
-return|return
-name|convert
-return|;
-block|}
-comment|/**      * Should an attempt be made to convert the {@link #to(String)} and {@link #from(String)}.      * Defaults to<tt>true</tt>.      */
-DECL|method|convert
-specifier|public
-name|TermsRequest
-name|convert
-parameter_list|(
-name|boolean
-name|convert
-parameter_list|)
-block|{
-name|this
-operator|.
-name|convert
-operator|=
-name|convert
 expr_stmt|;
 return|return
 name|this
