@@ -171,10 +171,10 @@ end_comment
 begin_class
 annotation|@
 name|Test
-DECL|class|NumericFieldCacheTests
+DECL|class|LuceneFieldCacheTests
 specifier|public
 class|class
-name|NumericFieldCacheTests
+name|LuceneFieldCacheTests
 block|{
 comment|/**      * A test that verifies that when using FieldCache for a field that has been added twice (under the same name)      * to the document, returns the last one.      */
 DECL|method|testTwoFieldSameNameNumericFieldCache
