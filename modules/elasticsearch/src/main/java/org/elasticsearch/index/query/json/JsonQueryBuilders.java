@@ -575,11 +575,11 @@ argument_list|()
 return|;
 block|}
 comment|/**      * A query that applies a filter to the results of another query.      *      * @param queryBuilder  The query to apply the filter to      * @param filterBuilder The filter to apply on the query      */
-DECL|method|filteredQuery
+DECL|method|filtered
 specifier|public
 specifier|static
-name|FilteredQueryJsonQueryBuilder
-name|filteredQuery
+name|FilteredJsonQueryBuilder
+name|filtered
 parameter_list|(
 name|JsonQueryBuilder
 name|queryBuilder
@@ -590,7 +590,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|FilteredQueryJsonQueryBuilder
+name|FilteredJsonQueryBuilder
 argument_list|(
 name|queryBuilder
 argument_list|,

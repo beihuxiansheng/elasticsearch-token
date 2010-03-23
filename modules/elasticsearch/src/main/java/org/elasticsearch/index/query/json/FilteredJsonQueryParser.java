@@ -177,10 +177,10 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|FilteredQueryJsonQueryParser
+DECL|class|FilteredJsonQueryParser
 specifier|public
 class|class
-name|FilteredQueryJsonQueryParser
+name|FilteredJsonQueryParser
 extends|extends
 name|AbstractIndexComponent
 implements|implements
@@ -193,13 +193,13 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"filteredQuery"
+literal|"filtered"
 decl_stmt|;
-DECL|method|FilteredQueryJsonQueryParser
+DECL|method|FilteredJsonQueryParser
 annotation|@
 name|Inject
 specifier|public
-name|FilteredQueryJsonQueryParser
+name|FilteredJsonQueryParser
 parameter_list|(
 name|Index
 name|index
@@ -440,7 +440,7 @@ name|QueryParsingException
 argument_list|(
 name|index
 argument_list|,
-literal|"[filteredQuery] requires 'query' element"
+literal|"[filtered] requires 'query' element"
 argument_list|)
 throw|;
 block|}
@@ -457,7 +457,7 @@ name|QueryParsingException
 argument_list|(
 name|index
 argument_list|,
-literal|"[filteredQuery] requires 'filter' element"
+literal|"[filtered] requires 'filter' element"
 argument_list|)
 throw|;
 block|}

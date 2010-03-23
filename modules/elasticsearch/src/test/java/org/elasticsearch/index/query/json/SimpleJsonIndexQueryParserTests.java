@@ -2991,7 +2991,7 @@ name|queryParser
 operator|.
 name|parse
 argument_list|(
-name|filteredQuery
+name|filtered
 argument_list|(
 name|termQuery
 argument_list|(
@@ -3768,7 +3768,7 @@ name|queryParser
 operator|.
 name|parse
 argument_list|(
-name|filteredQuery
+name|filtered
 argument_list|(
 name|termQuery
 argument_list|(
@@ -4749,7 +4749,7 @@ name|queryParser
 operator|.
 name|parse
 argument_list|(
-name|filteredQuery
+name|filtered
 argument_list|(
 name|termQuery
 argument_list|(
@@ -5368,7 +5368,7 @@ name|queryParser
 operator|.
 name|parse
 argument_list|(
-name|filteredQuery
+name|filtered
 argument_list|(
 name|termQuery
 argument_list|(
@@ -7244,7 +7244,7 @@ name|queryParser
 operator|.
 name|parse
 argument_list|(
-name|filteredQuery
+name|filtered
 argument_list|(
 name|termQuery
 argument_list|(
