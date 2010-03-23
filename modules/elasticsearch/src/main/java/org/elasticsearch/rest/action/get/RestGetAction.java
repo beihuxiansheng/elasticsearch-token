@@ -356,7 +356,7 @@ expr_stmt|;
 comment|// if we have a local operation, execute it on a thread since we don't spawn
 name|getRequest
 operator|.
-name|threadedOperation
+name|operationThreaded
 argument_list|(
 literal|true
 argument_list|)

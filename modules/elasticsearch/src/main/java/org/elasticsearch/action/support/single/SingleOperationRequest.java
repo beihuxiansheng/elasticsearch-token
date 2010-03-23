@@ -136,7 +136,7 @@ specifier|private
 name|boolean
 name|threadedOperation
 init|=
-literal|false
+literal|true
 decl_stmt|;
 DECL|method|SingleOperationRequest
 specifier|protected
@@ -315,10 +315,10 @@ name|this
 return|;
 block|}
 comment|/**      * Controls if the operation will be executed on a separate thread when executed locally.      */
-DECL|method|threadedOperation
+DECL|method|operationThreaded
 specifier|public
 name|boolean
-name|threadedOperation
+name|operationThreaded
 parameter_list|()
 block|{
 return|return
@@ -326,10 +326,10 @@ name|threadedOperation
 return|;
 block|}
 comment|/**      * Controls if the operation will be executed on a separate thread when executed locally.      */
-DECL|method|threadedOperation
+DECL|method|operationThreaded
 specifier|public
 name|SingleOperationRequest
-name|threadedOperation
+name|operationThreaded
 parameter_list|(
 name|boolean
 name|threadedOperation

@@ -198,12 +198,12 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|threadedOperation
+DECL|method|operationThreaded
 annotation|@
 name|Override
 specifier|public
 name|SinglePingRequest
-name|threadedOperation
+name|operationThreaded
 parameter_list|(
 name|boolean
 name|threadedOperation
@@ -211,7 +211,7 @@ parameter_list|)
 block|{
 name|super
 operator|.
-name|threadedOperation
+name|operationThreaded
 argument_list|(
 name|threadedOperation
 argument_list|)

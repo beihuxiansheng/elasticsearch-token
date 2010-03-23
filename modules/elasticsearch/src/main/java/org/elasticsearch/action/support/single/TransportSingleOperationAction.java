@@ -715,7 +715,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|threadedOperation
+name|operationThreaded
 argument_list|()
 condition|)
 block|{
@@ -1226,7 +1226,7 @@ expr_stmt|;
 comment|// if we have a local operation, execute it on a thread since we don't spawn
 name|request
 operator|.
-name|threadedOperation
+name|operationThreaded
 argument_list|(
 literal|true
 argument_list|)
