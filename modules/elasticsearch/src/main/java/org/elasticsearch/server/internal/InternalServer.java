@@ -484,6 +484,18 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
+name|ThreadLocals
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
 name|Tuple
 import|;
 end_import
@@ -1820,6 +1832,11 @@ parameter_list|)
 block|{
 comment|// ignore
 block|}
+name|ThreadLocals
+operator|.
+name|clearReferencesThreadLocals
+argument_list|()
+expr_stmt|;
 name|logger
 operator|.
 name|info
