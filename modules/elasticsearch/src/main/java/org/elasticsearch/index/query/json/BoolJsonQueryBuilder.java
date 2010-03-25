@@ -66,6 +66,16 @@ name|ArrayList
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
 comment|/**  * A Query that matches documents matching boolean combinations of other queries.  *  * @author kimchy (shay.banon)  */
 end_comment
@@ -265,6 +275,22 @@ name|minimumNumberShouldMatch
 expr_stmt|;
 return|return
 name|this
+return|;
+block|}
+comment|/**      * A list of the current clauses.      */
+DECL|method|clauses
+specifier|public
+name|List
+argument_list|<
+name|Clause
+argument_list|>
+name|clauses
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|clauses
 return|;
 block|}
 DECL|method|doJson
