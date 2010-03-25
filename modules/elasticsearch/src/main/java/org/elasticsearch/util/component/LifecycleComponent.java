@@ -27,7 +27,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_interface
@@ -38,6 +38,8 @@ name|LifecycleComponent
 parameter_list|<
 name|T
 parameter_list|>
+extends|extends
+name|CloseableComponent
 block|{
 DECL|method|lifecycleState
 name|Lifecycle
@@ -56,13 +58,6 @@ function_decl|;
 DECL|method|stop
 name|T
 name|stop
-parameter_list|()
-throws|throws
-name|ElasticSearchException
-function_decl|;
-DECL|method|close
-name|void
-name|close
 parameter_list|()
 throws|throws
 name|ElasticSearchException
