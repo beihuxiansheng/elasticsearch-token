@@ -393,6 +393,16 @@ return|return
 name|workFile
 return|;
 block|}
+DECL|method|configFile
+specifier|public
+name|File
+name|configFile
+parameter_list|()
+block|{
+return|return
+name|configFile
+return|;
+block|}
 DECL|method|workWithClusterFile
 specifier|public
 name|File
