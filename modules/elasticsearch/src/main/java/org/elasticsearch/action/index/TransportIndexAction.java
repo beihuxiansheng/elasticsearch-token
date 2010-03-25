@@ -152,6 +152,18 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|ClusterState
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
 name|action
 operator|.
 name|index
@@ -482,10 +494,7 @@ block|}
 if|if
 condition|(
 name|autoCreateIndex
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 operator|!
 name|clusterService
 operator|.
@@ -495,7 +504,7 @@ operator|.
 name|metaData
 argument_list|()
 operator|.
-name|hasIndex
+name|hasConcreteIndex
 argument_list|(
 name|indexRequest
 operator|.
@@ -609,7 +618,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
 DECL|method|newRequestInstance
 annotation|@
 name|Override
@@ -659,6 +667,9 @@ specifier|protected
 name|ShardsIterator
 name|shards
 parameter_list|(
+name|ClusterState
+name|clusterState
+parameter_list|,
 name|IndexRequest
 name|request
 parameter_list|)

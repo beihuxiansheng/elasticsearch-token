@@ -32,6 +32,20 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|ImmutableSet
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|codehaus
@@ -229,7 +243,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -263,6 +277,15 @@ specifier|private
 specifier|final
 name|String
 name|index
+decl_stmt|;
+DECL|field|aliases
+specifier|private
+specifier|final
+name|ImmutableSet
+argument_list|<
+name|String
+argument_list|>
+name|aliases
 decl_stmt|;
 DECL|field|settings
 specifier|private
@@ -387,6 +410,22 @@ operator|+
 literal|1
 operator|)
 expr_stmt|;
+name|this
+operator|.
+name|aliases
+operator|=
+name|ImmutableSet
+operator|.
+name|of
+argument_list|(
+name|settings
+operator|.
+name|getAsArray
+argument_list|(
+literal|"index.aliases"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|index
 specifier|public
@@ -452,6 +491,21 @@ parameter_list|()
 block|{
 return|return
 name|settings
+return|;
+block|}
+DECL|method|aliases
+specifier|public
+name|ImmutableSet
+argument_list|<
+name|String
+argument_list|>
+name|aliases
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|aliases
 return|;
 block|}
 DECL|method|mappings

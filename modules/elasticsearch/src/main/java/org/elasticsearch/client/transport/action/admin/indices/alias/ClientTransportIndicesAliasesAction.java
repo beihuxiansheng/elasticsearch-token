@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.client.transport.action.admin.indices.create
+DECL|package|org.elasticsearch.client.transport.action.admin.indices.alias
 package|package
 name|org
 operator|.
@@ -20,7 +20,7 @@ name|admin
 operator|.
 name|indices
 operator|.
-name|create
+name|alias
 package|;
 end_package
 
@@ -60,9 +60,9 @@ name|admin
 operator|.
 name|indices
 operator|.
-name|create
+name|alias
 operator|.
-name|CreateIndexRequest
+name|IndicesAliasesRequest
 import|;
 end_import
 
@@ -78,9 +78,9 @@ name|admin
 operator|.
 name|indices
 operator|.
-name|create
+name|alias
 operator|.
-name|CreateIndexResponse
+name|IndicesAliasesResponse
 import|;
 end_import
 
@@ -133,23 +133,23 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|ClientTransportCreateIndexAction
+DECL|class|ClientTransportIndicesAliasesAction
 specifier|public
 class|class
-name|ClientTransportCreateIndexAction
+name|ClientTransportIndicesAliasesAction
 extends|extends
 name|BaseClientTransportAction
 argument_list|<
-name|CreateIndexRequest
+name|IndicesAliasesRequest
 argument_list|,
-name|CreateIndexResponse
+name|IndicesAliasesResponse
 argument_list|>
 block|{
-DECL|method|ClientTransportCreateIndexAction
+DECL|method|ClientTransportIndicesAliasesAction
 annotation|@
 name|Inject
 specifier|public
-name|ClientTransportCreateIndexAction
+name|ClientTransportIndicesAliasesAction
 parameter_list|(
 name|Settings
 name|settings
@@ -164,7 +164,7 @@ name|settings
 argument_list|,
 name|transportService
 argument_list|,
-name|CreateIndexResponse
+name|IndicesAliasesResponse
 operator|.
 name|class
 argument_list|)
@@ -185,7 +185,7 @@ name|Admin
 operator|.
 name|Indices
 operator|.
-name|CREATE
+name|ALIASES
 return|;
 block|}
 block|}

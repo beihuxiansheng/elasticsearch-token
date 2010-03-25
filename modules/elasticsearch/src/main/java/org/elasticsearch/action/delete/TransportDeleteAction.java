@@ -152,6 +152,18 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|ClusterState
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
 name|action
 operator|.
 name|shard
@@ -363,7 +375,7 @@ operator|.
 name|metaData
 argument_list|()
 operator|.
-name|hasIndex
+name|hasConcreteIndex
 argument_list|(
 name|deleteRequest
 operator|.
@@ -621,6 +633,9 @@ specifier|protected
 name|ShardsIterator
 name|shards
 parameter_list|(
+name|ClusterState
+name|clusterState
+parameter_list|,
 name|DeleteRequest
 name|request
 parameter_list|)

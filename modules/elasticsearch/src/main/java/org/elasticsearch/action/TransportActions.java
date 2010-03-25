@@ -171,6 +171,15 @@ name|STATUS
 init|=
 literal|"indices/status"
 decl_stmt|;
+DECL|field|ALIASES
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|ALIASES
+init|=
+literal|"indices/aliases"
+decl_stmt|;
 DECL|class|Gateway
 specifier|public
 specifier|static

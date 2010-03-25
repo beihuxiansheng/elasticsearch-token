@@ -62,18 +62,6 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|Actions
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
 name|support
 operator|.
 name|BaseAction
@@ -89,6 +77,18 @@ operator|.
 name|cluster
 operator|.
 name|ClusterService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|ClusterState
 import|;
 end_import
 
@@ -183,7 +183,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -338,24 +338,41 @@ argument_list|>
 name|listener
 parameter_list|)
 block|{
-name|String
-index|[]
-name|indices
+name|ClusterState
+name|clusterState
 init|=
-name|Actions
-operator|.
-name|processIndices
-argument_list|(
 name|clusterService
 operator|.
 name|state
 argument_list|()
-argument_list|,
+decl_stmt|;
+comment|// update to actual indices
+name|request
+operator|.
+name|indices
+argument_list|(
+name|clusterState
+operator|.
+name|metaData
+argument_list|()
+operator|.
+name|concreteIndices
+argument_list|(
 name|request
 operator|.
 name|indices
 argument_list|()
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|String
+index|[]
+name|indices
+init|=
+name|request
+operator|.
+name|indices
+argument_list|()
 decl_stmt|;
 specifier|final
 name|AtomicInteger

@@ -256,20 +256,6 @@ name|*
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|Actions
-operator|.
-name|*
-import|;
-end_import
-
 begin_comment
 comment|/**  * @author kimchy (Shay Banon)  */
 end_comment
@@ -394,15 +380,10 @@ name|searchShards
 argument_list|(
 name|clusterState
 argument_list|,
-name|processIndices
-argument_list|(
-name|clusterState
-argument_list|,
 name|request
 operator|.
 name|indices
 argument_list|()
-argument_list|)
 argument_list|,
 name|request
 operator|.

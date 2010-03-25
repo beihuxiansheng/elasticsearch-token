@@ -656,6 +656,9 @@ specifier|abstract
 name|ShardsIterator
 name|shards
 parameter_list|(
+name|ClusterState
+name|clusterState
+parameter_list|,
 name|Request
 name|request
 parameter_list|)
@@ -1151,6 +1154,25 @@ operator|.
 name|state
 argument_list|()
 decl_stmt|;
+comment|// update to the concrete index
+name|request
+operator|.
+name|index
+argument_list|(
+name|clusterState
+operator|.
+name|metaData
+argument_list|()
+operator|.
+name|concreteIndex
+argument_list|(
+name|request
+operator|.
+name|index
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|nodes
 operator|=
 name|clusterState
@@ -1164,6 +1186,8 @@ name|shards
 operator|=
 name|shards
 argument_list|(
+name|clusterState
+argument_list|,
 name|request
 argument_list|)
 expr_stmt|;

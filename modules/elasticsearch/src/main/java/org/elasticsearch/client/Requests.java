@@ -162,6 +162,24 @@ name|admin
 operator|.
 name|indices
 operator|.
+name|alias
+operator|.
+name|IndicesAliasesRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|admin
+operator|.
+name|indices
+operator|.
 name|create
 operator|.
 name|CreateIndexRequest
@@ -685,6 +703,20 @@ name|PutMappingRequest
 argument_list|(
 name|indices
 argument_list|)
+return|;
+block|}
+comment|/**      * Creates an index aliases request allowing to add and remove aliases.      *      * @return The index aliases request      */
+DECL|method|indexAliasesRequest
+specifier|public
+specifier|static
+name|IndicesAliasesRequest
+name|indexAliasesRequest
+parameter_list|()
+block|{
+return|return
+operator|new
+name|IndicesAliasesRequest
+argument_list|()
 return|;
 block|}
 comment|/**      * Creates a refresh indices request.      *      * @param indices The indices the delete by query against. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The refresh request      * @see org.elasticsearch.client.IndicesAdminClient#refresh(org.elasticsearch.action.admin.indices.refresh.RefreshRequest)      */

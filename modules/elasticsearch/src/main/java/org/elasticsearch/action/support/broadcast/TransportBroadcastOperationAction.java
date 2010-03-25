@@ -600,6 +600,25 @@ operator|.
 name|state
 argument_list|()
 expr_stmt|;
+comment|// update to concrete indices
+name|request
+operator|.
+name|indices
+argument_list|(
+name|clusterState
+operator|.
+name|metaData
+argument_list|()
+operator|.
+name|concreteIndices
+argument_list|(
+name|request
+operator|.
+name|indices
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|nodes
 operator|=
 name|clusterState

@@ -22,20 +22,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Maps
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -178,6 +164,22 @@ end_import
 
 begin_import
 import|import static
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|Maps
+operator|.
+name|*
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|elasticsearch
@@ -272,8 +274,6 @@ name|String
 argument_list|>
 name|mappings
 init|=
-name|Maps
-operator|.
 name|newHashMap
 argument_list|()
 decl_stmt|;
@@ -407,6 +407,31 @@ operator|.
 name|settings
 operator|=
 name|settings
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * The settings to created the index with.      */
+DECL|method|settings
+specifier|public
+name|CreateIndexRequest
+name|settings
+parameter_list|(
+name|Settings
+operator|.
+name|Builder
+name|settings
+parameter_list|)
+block|{
+name|this
+operator|.
+name|settings
+operator|=
+name|settings
+operator|.
+name|build
+argument_list|()
 expr_stmt|;
 return|return
 name|this

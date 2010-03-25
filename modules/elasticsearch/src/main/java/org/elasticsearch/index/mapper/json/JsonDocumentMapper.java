@@ -269,9 +269,9 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|JsonDocumentMapper
 specifier|public
 class|class
+DECL|class|JsonDocumentMapper
 name|JsonDocumentMapper
 implements|implements
 name|DocumentMapper

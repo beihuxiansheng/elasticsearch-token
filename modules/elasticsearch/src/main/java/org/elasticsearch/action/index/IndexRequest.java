@@ -472,6 +472,29 @@ return|return
 name|validationException
 return|;
 block|}
+comment|/**      * Sets the index the index operation will happen on.      */
+DECL|method|index
+annotation|@
+name|Override
+specifier|public
+name|IndexRequest
+name|index
+parameter_list|(
+name|String
+name|index
+parameter_list|)
+block|{
+name|super
+operator|.
+name|index
+argument_list|(
+name|index
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Should the listener be called on a separate thread if needed.      */
 DECL|method|listenerThreaded
 annotation|@

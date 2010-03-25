@@ -377,6 +377,27 @@ return|return
 name|listenerThreaded
 return|;
 block|}
+comment|/**      * Sets the indices the search will be executed on.      */
+DECL|method|indices
+specifier|public
+name|SearchRequest
+name|indices
+parameter_list|(
+name|String
+index|[]
+name|indices
+parameter_list|)
+block|{
+name|this
+operator|.
+name|indices
+operator|=
+name|indices
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Should the listener be called on a separate thread if needed.      */
 DECL|method|listenerThreaded
 annotation|@

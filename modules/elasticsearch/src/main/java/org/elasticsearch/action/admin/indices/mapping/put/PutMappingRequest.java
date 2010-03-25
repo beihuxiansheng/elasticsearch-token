@@ -285,8 +285,30 @@ return|return
 name|validationException
 return|;
 block|}
+comment|/**      * Sets the indices this put mapping operation will execute on.      */
+DECL|method|indices
+specifier|public
+name|PutMappingRequest
+name|indices
+parameter_list|(
+name|String
+index|[]
+name|indices
+parameter_list|)
+block|{
+name|this
+operator|.
+name|indices
+operator|=
+name|indices
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * The indices the mappings will be put.      */
 DECL|method|indices
+specifier|public
 name|String
 index|[]
 name|indices
@@ -298,6 +320,7 @@ return|;
 block|}
 comment|/**      * The mapping type.      */
 DECL|method|type
+specifier|public
 name|String
 name|type
 parameter_list|()

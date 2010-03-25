@@ -554,6 +554,25 @@ operator|.
 name|nodes
 argument_list|()
 expr_stmt|;
+comment|// update to the concrete shard to use
+name|request
+operator|.
+name|index
+argument_list|(
+name|clusterState
+operator|.
+name|metaData
+argument_list|()
+operator|.
+name|concreteIndex
+argument_list|(
+name|request
+operator|.
+name|index
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|shards
@@ -565,6 +584,7 @@ argument_list|(
 name|request
 operator|.
 name|index
+argument_list|()
 argument_list|)
 operator|.
 name|operationRouting
