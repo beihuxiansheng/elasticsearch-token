@@ -167,7 +167,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  * A term query that takes all payload boost values into account.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
