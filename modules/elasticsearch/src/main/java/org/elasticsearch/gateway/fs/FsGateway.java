@@ -382,6 +382,27 @@ argument_list|,
 name|clusterName
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|gatewayHome
+operator|.
+name|exists
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"FsGateway location ["
+operator|+
+name|gatewayHome
+operator|+
+literal|"] can't be created"
+argument_list|)
+throw|;
+block|}
 name|this
 operator|.
 name|currentIndex
