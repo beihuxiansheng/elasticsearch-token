@@ -172,6 +172,20 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
+name|component
+operator|.
+name|CloseableComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
 name|concurrent
 operator|.
 name|ThreadSafe
@@ -193,6 +207,8 @@ interface|interface
 name|IndexShard
 extends|extends
 name|IndexShardComponent
+extends|,
+name|CloseableComponent
 block|{
 DECL|method|routingEntry
 name|ShardRouting
@@ -387,11 +403,6 @@ name|Engine
 operator|.
 name|Searcher
 name|searcher
-parameter_list|()
-function_decl|;
-DECL|method|close
-name|void
-name|close
 parameter_list|()
 function_decl|;
 comment|/**      * Returns<tt>true</tt> if this shard can ignore a recovery attempt made to it (since the already doing/done it)      */

@@ -115,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * The environment of where things exists.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -147,6 +147,12 @@ specifier|private
 specifier|final
 name|File
 name|configFile
+decl_stmt|;
+DECL|field|pluginsFile
+specifier|private
+specifier|final
+name|File
+name|pluginsFile
 decl_stmt|;
 DECL|field|logsFile
 specifier|private
@@ -266,6 +272,48 @@ name|settings
 operator|.
 name|get
 argument_list|(
+literal|"path.plugins"
+argument_list|)
+operator|!=
+literal|null
+condition|)
+block|{
+name|pluginsFile
+operator|=
+operator|new
+name|File
+argument_list|(
+name|cleanPath
+argument_list|(
+name|settings
+operator|.
+name|get
+argument_list|(
+literal|"path.plugins"
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|pluginsFile
+operator|=
+operator|new
+name|File
+argument_list|(
+name|homeFile
+argument_list|,
+literal|"plugins"
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|settings
+operator|.
+name|get
+argument_list|(
 literal|"path.work"
 argument_list|)
 operator|!=
@@ -373,6 +421,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * The home of the installation.      */
 DECL|method|homeFile
 specifier|public
 name|File
@@ -383,6 +432,7 @@ return|return
 name|homeFile
 return|;
 block|}
+comment|/**      * The work location.      */
 DECL|method|workFile
 specifier|public
 name|File
@@ -393,6 +443,7 @@ return|return
 name|workFile
 return|;
 block|}
+comment|/**      * The config location.      */
 DECL|method|configFile
 specifier|public
 name|File
@@ -401,6 +452,16 @@ parameter_list|()
 block|{
 return|return
 name|configFile
+return|;
+block|}
+DECL|method|pluginsFile
+specifier|public
+name|File
+name|pluginsFile
+parameter_list|()
+block|{
+return|return
+name|pluginsFile
 return|;
 block|}
 DECL|method|workWithClusterFile

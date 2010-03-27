@@ -4,15 +4,15 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.util.component
+DECL|package|org.elasticsearch.plugin.attachments
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|plugin
 operator|.
-name|component
+name|attachments
 package|;
 end_package
 
@@ -22,7 +22,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|plugins
+operator|.
+name|AbstractPlugin
 import|;
 end_import
 
@@ -30,56 +32,28 @@ begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
-begin_interface
-DECL|interface|LifecycleComponent
+begin_class
+DECL|class|AttachmentsPlugin
 specifier|public
-interface|interface
-name|LifecycleComponent
-parameter_list|<
-name|T
-parameter_list|>
+class|class
+name|AttachmentsPlugin
 extends|extends
-name|CloseableComponent
+name|AbstractPlugin
 block|{
-DECL|method|lifecycleState
-name|Lifecycle
-operator|.
-name|State
-name|lifecycleState
+DECL|method|name
+annotation|@
+name|Override
+specifier|public
+name|String
+name|name
 parameter_list|()
-function_decl|;
-DECL|method|addLifecycleListener
-name|void
-name|addLifecycleListener
-parameter_list|(
-name|LifecycleListener
-name|listener
-parameter_list|)
-function_decl|;
-DECL|method|removeLifecycleListener
-name|void
-name|removeLifecycleListener
-parameter_list|(
-name|LifecycleListener
-name|listener
-parameter_list|)
-function_decl|;
-DECL|method|start
-name|T
-name|start
-parameter_list|()
-throws|throws
-name|ElasticSearchException
-function_decl|;
-DECL|method|stop
-name|T
-name|stop
-parameter_list|()
-throws|throws
-name|ElasticSearchException
-function_decl|;
+block|{
+return|return
+literal|"attachments"
+return|;
 block|}
-end_interface
+block|}
+end_class
 
 end_unit
 

@@ -44,6 +44,20 @@ name|IndexComponent
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|component
+operator|.
+name|CloseableComponent
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (Shay Banon)  */
 end_comment
@@ -55,6 +69,8 @@ interface|interface
 name|FilterCache
 extends|extends
 name|IndexComponent
+extends|,
+name|CloseableComponent
 block|{
 DECL|method|cache
 name|Filter
@@ -63,11 +79,6 @@ parameter_list|(
 name|Filter
 name|filterToCache
 parameter_list|)
-function_decl|;
-DECL|method|close
-name|void
-name|close
-parameter_list|()
 function_decl|;
 block|}
 end_interface

@@ -28,6 +28,20 @@ name|IndexComponent
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|component
+operator|.
+name|CloseableComponent
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (Shay Banon)  */
 end_comment
@@ -39,6 +53,8 @@ interface|interface
 name|IndexGateway
 extends|extends
 name|IndexComponent
+extends|,
+name|CloseableComponent
 block|{
 DECL|method|shardGatewayClass
 name|Class
@@ -54,12 +70,6 @@ comment|/**      * Deletes the content of the index gateway.      */
 DECL|method|delete
 name|void
 name|delete
-parameter_list|()
-function_decl|;
-comment|/**      * Closes the index gateway.      */
-DECL|method|close
-name|void
-name|close
 parameter_list|()
 function_decl|;
 block|}

@@ -198,6 +198,20 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
+name|component
+operator|.
+name|CloseableComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
 name|concurrent
 operator|.
 name|ThreadSafe
@@ -233,6 +247,8 @@ interface|interface
 name|Engine
 extends|extends
 name|IndexShardComponent
+extends|,
+name|CloseableComponent
 block|{
 comment|/**      * Starts the Engine.      *      *<p>Note, after the creation and before the call to start, the store might      * be changed.      */
 DECL|method|start
@@ -348,13 +364,6 @@ DECL|method|estimateFlushableMemorySize
 name|SizeValue
 name|estimateFlushableMemorySize
 parameter_list|()
-function_decl|;
-DECL|method|close
-name|void
-name|close
-parameter_list|()
-throws|throws
-name|ElasticSearchException
 function_decl|;
 comment|/**      * Recovery allow to start the recovery process. It is built of three phases.      *      *<p>The first phase allows to take a snapshot of the master index. Once this      * is taken, no commit operations are effectively allowed on the index until the recovery      * phases are through.      *      *<p>The seconds phase takes a snapshot of the current transaction log.      *      *<p>The last phase returns the remaining transaction log. During this phase, no dirty      * operations are allowed on the index.      */
 DECL|interface|RecoveryHandler
