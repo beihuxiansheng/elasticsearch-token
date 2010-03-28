@@ -79,6 +79,11 @@ name|String
 name|name
 parameter_list|()
 function_decl|;
+DECL|method|description
+name|String
+name|description
+parameter_list|()
+function_decl|;
 DECL|method|modules
 name|Collection
 argument_list|<

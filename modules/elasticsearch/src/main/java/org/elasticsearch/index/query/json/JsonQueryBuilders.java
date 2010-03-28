@@ -177,7 +177,7 @@ name|value
 argument_list|)
 return|;
 block|}
-comment|/**      * A query that executes the query string against a field. It is a simplified      * version of {@link QueryStringJsonQueryBuilder} that simply runs against      * a single field.      *      * @param name  The name of the field      * @param query The query string      */
+comment|/**      * A query that executes the query string against a field. It is a simplified      * version of {@link QueryStringJsonQueryBuilder} that simply runs against      * a single field.      *      * @param name The name of the field      */
 DECL|method|fieldQuery
 specifier|public
 specifier|static

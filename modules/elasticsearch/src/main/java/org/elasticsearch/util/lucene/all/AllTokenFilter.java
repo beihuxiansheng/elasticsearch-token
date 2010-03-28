@@ -288,6 +288,21 @@ return|return
 literal|true
 return|;
 block|}
+DECL|method|toString
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+name|allEntries
+operator|.
+name|toString
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 
