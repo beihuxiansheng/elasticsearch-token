@@ -379,7 +379,7 @@ name|request
 operator|.
 name|paramAsStringArray
 argument_list|(
-literal|"fields"
+literal|"mltFields"
 argument_list|,
 literal|null
 argument_list|)
