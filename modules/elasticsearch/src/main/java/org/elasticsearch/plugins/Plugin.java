@@ -65,7 +65,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  * An extension point allowing to plug in custom functionality.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_interface
@@ -74,16 +74,19 @@ specifier|public
 interface|interface
 name|Plugin
 block|{
+comment|/**      * The name of the plugin.      */
 DECL|method|name
 name|String
 name|name
 parameter_list|()
 function_decl|;
+comment|/**      * The description of the plugin.      */
 DECL|method|description
 name|String
 name|description
 parameter_list|()
 function_decl|;
+comment|/**      * Server level modules.      */
 DECL|method|modules
 name|Collection
 argument_list|<
@@ -97,6 +100,7 @@ argument_list|>
 name|modules
 parameter_list|()
 function_decl|;
+comment|/**      * Server level services that will be automatically started/stopped/closed.      */
 DECL|method|services
 name|Collection
 argument_list|<
@@ -110,6 +114,7 @@ argument_list|>
 name|services
 parameter_list|()
 function_decl|;
+comment|/**      * Per index modules.      */
 DECL|method|indexModules
 name|Collection
 argument_list|<
@@ -123,6 +128,7 @@ argument_list|>
 name|indexModules
 parameter_list|()
 function_decl|;
+comment|/**      * Per index services that will be automatically closed.      */
 DECL|method|indexServices
 name|Collection
 argument_list|<
@@ -136,6 +142,7 @@ argument_list|>
 name|indexServices
 parameter_list|()
 function_decl|;
+comment|/**      * Per index shard module.      */
 DECL|method|shardModules
 name|Collection
 argument_list|<
@@ -149,6 +156,7 @@ argument_list|>
 name|shardModules
 parameter_list|()
 function_decl|;
+comment|/**      * Per index shard service that will be automatically closed.      */
 DECL|method|shardServices
 name|Collection
 argument_list|<

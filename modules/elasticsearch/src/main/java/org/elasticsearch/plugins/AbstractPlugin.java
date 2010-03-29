@@ -79,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  * A base class for a plugin.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -91,6 +91,7 @@ name|AbstractPlugin
 implements|implements
 name|Plugin
 block|{
+comment|/**      * Defaults to return an empty list.      */
 DECL|method|modules
 annotation|@
 name|Override
@@ -114,6 +115,7 @@ name|of
 argument_list|()
 return|;
 block|}
+comment|/**      * Defaults to return an empty list.      */
 DECL|method|services
 annotation|@
 name|Override
@@ -137,6 +139,7 @@ name|of
 argument_list|()
 return|;
 block|}
+comment|/**      * Defaults to return an empty list.      */
 DECL|method|indexModules
 annotation|@
 name|Override
@@ -160,6 +163,7 @@ name|of
 argument_list|()
 return|;
 block|}
+comment|/**      * Defaults to return an empty list.      */
 DECL|method|indexServices
 annotation|@
 name|Override
@@ -183,6 +187,7 @@ name|of
 argument_list|()
 return|;
 block|}
+comment|/**      * Defaults to return an empty list.      */
 DECL|method|shardModules
 annotation|@
 name|Override
@@ -206,6 +211,7 @@ name|of
 argument_list|()
 return|;
 block|}
+comment|/**      * Defaults to return an empty list.      */
 DECL|method|shardServices
 annotation|@
 name|Override
