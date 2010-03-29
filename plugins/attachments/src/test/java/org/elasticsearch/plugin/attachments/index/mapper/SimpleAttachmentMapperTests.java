@@ -222,7 +222,9 @@ operator|.
 name|JSON_TYPE
 argument_list|,
 operator|new
-name|JsonAttachmentTypeParser
+name|JsonAttachmentMapper
+operator|.
+name|TypeParser
 argument_list|()
 argument_list|)
 expr_stmt|;

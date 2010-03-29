@@ -119,18 +119,18 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|JsonAttachmentMapperInjector
+DECL|class|JsonAttachmentMapperService
 specifier|public
 class|class
-name|JsonAttachmentMapperInjector
+name|JsonAttachmentMapperService
 extends|extends
 name|AbstractIndexComponent
 block|{
-DECL|method|JsonAttachmentMapperInjector
+DECL|method|JsonAttachmentMapperService
 annotation|@
 name|Inject
 specifier|public
-name|JsonAttachmentMapperInjector
+name|JsonAttachmentMapperService
 parameter_list|(
 name|Index
 name|index
@@ -166,7 +166,9 @@ argument_list|(
 literal|"attachment"
 argument_list|,
 operator|new
-name|JsonAttachmentTypeParser
+name|JsonAttachmentMapper
+operator|.
+name|TypeParser
 argument_list|()
 argument_list|)
 expr_stmt|;

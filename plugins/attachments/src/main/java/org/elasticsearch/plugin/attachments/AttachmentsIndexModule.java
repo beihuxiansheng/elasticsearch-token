@@ -42,7 +42,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|JsonAttachmentMapperInjector
+name|JsonAttachmentMapperService
 import|;
 end_import
 
@@ -68,7 +68,7 @@ parameter_list|()
 block|{
 name|bind
 argument_list|(
-name|JsonAttachmentMapperInjector
+name|JsonAttachmentMapperService
 operator|.
 name|class
 argument_list|)
