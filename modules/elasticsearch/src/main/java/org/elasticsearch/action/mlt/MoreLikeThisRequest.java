@@ -394,6 +394,21 @@ return|return
 name|type
 return|;
 block|}
+DECL|method|index
+name|void
+name|index
+parameter_list|(
+name|String
+name|index
+parameter_list|)
+block|{
+name|this
+operator|.
+name|index
+operator|=
+name|index
+expr_stmt|;
+block|}
 comment|/**      * The type of document to load from which the "like" query will rutn with.      */
 DECL|method|type
 annotation|@
