@@ -65,7 +65,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -76,12 +76,6 @@ name|NumericDateTokenizer
 extends|extends
 name|NumericTokenizer
 block|{
-DECL|field|dateTimeFormatter
-specifier|private
-specifier|final
-name|DateTimeFormatter
-name|dateTimeFormatter
-decl_stmt|;
 DECL|method|NumericDateTokenizer
 specifier|public
 name|NumericDateTokenizer
@@ -107,13 +101,9 @@ name|NumericTokenStream
 argument_list|(
 name|precisionStep
 argument_list|)
+argument_list|,
+name|dateTimeFormatter
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|dateTimeFormatter
-operator|=
-name|dateTimeFormatter
 expr_stmt|;
 block|}
 DECL|method|NumericDateTokenizer
@@ -147,13 +137,9 @@ name|precisionStep
 argument_list|)
 argument_list|,
 name|buffer
+argument_list|,
+name|dateTimeFormatter
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|dateTimeFormatter
-operator|=
-name|dateTimeFormatter
 expr_stmt|;
 block|}
 DECL|method|setValue
@@ -174,7 +160,12 @@ name|tokenStream
 operator|.
 name|setLongValue
 argument_list|(
-name|dateTimeFormatter
+operator|(
+operator|(
+name|DateTimeFormatter
+operator|)
+name|extra
+operator|)
 operator|.
 name|parseMillis
 argument_list|(

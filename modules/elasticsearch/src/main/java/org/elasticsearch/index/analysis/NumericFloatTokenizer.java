@@ -51,7 +51,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -84,6 +84,8 @@ name|NumericTokenStream
 argument_list|(
 name|precisionStep
 argument_list|)
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -115,6 +117,8 @@ name|precisionStep
 argument_list|)
 argument_list|,
 name|buffer
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 block|}

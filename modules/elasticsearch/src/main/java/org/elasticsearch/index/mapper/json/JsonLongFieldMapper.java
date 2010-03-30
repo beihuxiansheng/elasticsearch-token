@@ -711,9 +711,7 @@ literal|null
 condition|)
 block|{
 return|return
-name|Long
-operator|.
-name|MIN_VALUE
+literal|null
 return|;
 block|}
 return|return

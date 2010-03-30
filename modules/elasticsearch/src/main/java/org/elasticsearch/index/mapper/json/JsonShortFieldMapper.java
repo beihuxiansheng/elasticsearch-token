@@ -711,9 +711,7 @@ literal|null
 condition|)
 block|{
 return|return
-name|Short
-operator|.
-name|MIN_VALUE
+literal|null
 return|;
 block|}
 return|return

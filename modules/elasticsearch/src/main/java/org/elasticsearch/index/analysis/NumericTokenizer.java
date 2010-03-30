@@ -65,7 +65,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -83,6 +83,12 @@ specifier|final
 name|NumericTokenStream
 name|numericTokenStream
 decl_stmt|;
+DECL|field|extra
+specifier|protected
+specifier|final
+name|Object
+name|extra
+decl_stmt|;
 DECL|method|NumericTokenizer
 specifier|protected
 name|NumericTokenizer
@@ -92,6 +98,9 @@ name|reader
 parameter_list|,
 name|NumericTokenStream
 name|numericTokenStream
+parameter_list|,
+name|Object
+name|extra
 parameter_list|)
 throws|throws
 name|IOException
@@ -106,6 +115,12 @@ operator|.
 name|numericTokenStream
 operator|=
 name|numericTokenStream
+expr_stmt|;
+name|this
+operator|.
+name|extra
+operator|=
+name|extra
 expr_stmt|;
 name|reset
 argument_list|(
@@ -126,6 +141,9 @@ parameter_list|,
 name|char
 index|[]
 name|buffer
+parameter_list|,
+name|Object
+name|extra
 parameter_list|)
 throws|throws
 name|IOException
@@ -140,6 +158,12 @@ operator|.
 name|numericTokenStream
 operator|=
 name|numericTokenStream
+expr_stmt|;
+name|this
+operator|.
+name|extra
+operator|=
+name|extra
 expr_stmt|;
 name|reset
 argument_list|(
@@ -205,8 +229,6 @@ expr_stmt|;
 name|int
 name|len
 init|=
-name|super
-operator|.
 name|input
 operator|.
 name|read

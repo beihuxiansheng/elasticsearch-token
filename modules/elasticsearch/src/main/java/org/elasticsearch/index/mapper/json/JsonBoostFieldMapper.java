@@ -583,9 +583,7 @@ literal|null
 condition|)
 block|{
 return|return
-name|Float
-operator|.
-name|NaN
+literal|null
 return|;
 block|}
 return|return
