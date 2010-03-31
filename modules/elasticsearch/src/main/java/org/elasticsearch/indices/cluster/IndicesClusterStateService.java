@@ -1229,14 +1229,13 @@ control|)
 block|{
 if|if
 condition|(
+operator|!
 name|metaData
 operator|.
-name|index
+name|hasIndex
 argument_list|(
 name|index
 argument_list|)
-operator|==
-literal|null
 condition|)
 block|{
 if|if
