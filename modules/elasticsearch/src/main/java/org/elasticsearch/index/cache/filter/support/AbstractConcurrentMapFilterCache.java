@@ -382,7 +382,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|SoftFilterCacheFilterWrapper
+name|FilterCacheFilterWrapper
 argument_list|(
 name|filterToCache
 argument_list|)
@@ -465,10 +465,10 @@ argument_list|>
 name|buildMap
 parameter_list|()
 function_decl|;
-DECL|class|SoftFilterCacheFilterWrapper
+DECL|class|FilterCacheFilterWrapper
 specifier|private
 class|class
-name|SoftFilterCacheFilterWrapper
+name|FilterCacheFilterWrapper
 extends|extends
 name|Filter
 block|{
@@ -478,9 +478,9 @@ specifier|final
 name|Filter
 name|filter
 decl_stmt|;
-DECL|method|SoftFilterCacheFilterWrapper
+DECL|method|FilterCacheFilterWrapper
 specifier|private
-name|SoftFilterCacheFilterWrapper
+name|FilterCacheFilterWrapper
 parameter_list|(
 name|Filter
 name|filter
@@ -624,7 +624,7 @@ operator|!
 operator|(
 name|o
 operator|instanceof
-name|SoftFilterCacheFilterWrapper
+name|FilterCacheFilterWrapper
 operator|)
 condition|)
 return|return
@@ -639,7 +639,7 @@ name|equals
 argument_list|(
 operator|(
 operator|(
-name|SoftFilterCacheFilterWrapper
+name|FilterCacheFilterWrapper
 operator|)
 name|o
 operator|)
