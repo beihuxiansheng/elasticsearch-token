@@ -468,6 +468,22 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
+name|io
+operator|.
+name|FileSystemUtils
+operator|.
+name|*
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
 name|lucene
 operator|.
 name|Directories
@@ -546,11 +562,6 @@ specifier|private
 specifier|volatile
 name|int
 name|lastTranslogSize
-decl_stmt|;
-DECL|field|translogFile
-specifier|private
-name|RandomAccessFile
-name|translogFile
 decl_stmt|;
 DECL|method|FsIndexShardGateway
 annotation|@
@@ -1082,52 +1093,10 @@ argument_list|)
 throw|;
 block|}
 block|}
-if|if
-condition|(
-name|translogSnapshot
-operator|.
-name|translogId
-argument_list|()
-operator|!=
-name|lastTranslogId
-operator|||
-name|translogFile
-operator|==
-literal|null
-condition|)
-block|{
-name|translogDirty
-operator|=
-literal|true
-expr_stmt|;
-if|if
-condition|(
-name|translogFile
-operator|!=
-literal|null
-condition|)
-block|{
-try|try
-block|{
-name|translogFile
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-comment|// ignore
-block|}
-block|}
-try|try
-block|{
+comment|// we reopen the RAF each snapshot and not keep an open one since we want to make sure we
+comment|// can sync it to disk later on (close it as well)
 name|File
-name|f
+name|translogFile
 init|=
 operator|new
 name|File
@@ -1142,12 +1111,42 @@ name|translogId
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|RandomAccessFile
+name|translogRaf
+init|=
+literal|null
+decl_stmt|;
+comment|// if we have a different trnaslogId (or the file does not exists at all), we want to flush the full
+comment|// translog to a new file (based on the translogId). If we still work on existing translog, just
+comment|// append the latest translog operations
+if|if
+condition|(
+name|translogSnapshot
+operator|.
+name|translogId
+argument_list|()
+operator|!=
+name|lastTranslogId
+operator|||
+operator|!
 name|translogFile
+operator|.
+name|exists
+argument_list|()
+condition|)
+block|{
+name|translogDirty
+operator|=
+literal|true
+expr_stmt|;
+try|try
+block|{
+name|translogRaf
 operator|=
 operator|new
 name|RandomAccessFile
 argument_list|(
-name|f
+name|translogFile
 argument_list|,
 literal|"rw"
 argument_list|)
@@ -1158,7 +1157,7 @@ init|=
 operator|new
 name|DataOutputStreamOutput
 argument_list|(
-name|translogFile
+name|translogRaf
 argument_list|)
 decl_stmt|;
 name|out
@@ -1171,7 +1170,7 @@ argument_list|)
 expr_stmt|;
 comment|// write the number of operations header with -1 currently
 comment|// double check that we managed to read/write correctly
-name|translogFile
+name|translogRaf
 operator|.
 name|seek
 argument_list|(
@@ -1180,7 +1179,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|translogFile
+name|translogRaf
 operator|.
 name|readInt
 argument_list|()
@@ -1195,7 +1194,7 @@ name|ElasticSearchIllegalStateException
 argument_list|(
 literal|"Wrote to snapshot file ["
 operator|+
-name|f
+name|translogFile
 operator|+
 literal|"] but did not read..."
 argument_list|)
@@ -1228,7 +1227,7 @@ parameter_list|)
 block|{
 try|try
 block|{
-name|translogFile
+name|translogRaf
 operator|.
 name|close
 argument_list|()
@@ -1242,10 +1241,6 @@ parameter_list|)
 block|{
 comment|// ignore
 block|}
-name|translogFile
-operator|=
-literal|null
-expr_stmt|;
 throw|throw
 operator|new
 name|IndexShardGatewaySnapshotFailedException
@@ -1277,13 +1272,34 @@ literal|true
 expr_stmt|;
 try|try
 block|{
+name|translogRaf
+operator|=
+operator|new
+name|RandomAccessFile
+argument_list|(
+name|translogFile
+argument_list|,
+literal|"rw"
+argument_list|)
+expr_stmt|;
+comment|// seek to the end, since we append
+name|translogRaf
+operator|.
+name|seek
+argument_list|(
+name|translogRaf
+operator|.
+name|length
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|StreamOutput
 name|out
 init|=
 operator|new
 name|DataOutputStreamOutput
 argument_list|(
-name|translogFile
+name|translogRaf
 argument_list|)
 decl_stmt|;
 for|for
@@ -1318,7 +1334,7 @@ parameter_list|)
 block|{
 try|try
 block|{
-name|translogFile
+name|translogRaf
 operator|.
 name|close
 argument_list|()
@@ -1332,10 +1348,6 @@ parameter_list|)
 block|{
 comment|// ignore
 block|}
-name|translogFile
-operator|=
-literal|null
-expr_stmt|;
 throw|throw
 operator|new
 name|IndexShardGatewaySnapshotFailedException
@@ -1388,14 +1400,14 @@ condition|(
 name|translogDirty
 condition|)
 block|{
-name|translogFile
+name|translogRaf
 operator|.
 name|seek
 argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-name|translogFile
+name|translogRaf
 operator|.
 name|writeInt
 argument_list|(
@@ -1405,23 +1417,16 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|translogFile
+name|translogRaf
 operator|.
-name|seek
+name|close
+argument_list|()
+expr_stmt|;
+comment|// now, sync the translog
+name|syncFile
 argument_list|(
 name|translogFile
-operator|.
-name|length
-argument_list|()
 argument_list|)
-expr_stmt|;
-name|translogFile
-operator|.
-name|getFD
-argument_list|()
-operator|.
-name|sync
-argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -1433,7 +1438,7 @@ parameter_list|)
 block|{
 try|try
 block|{
-name|translogFile
+name|translogRaf
 operator|.
 name|close
 argument_list|()
@@ -1447,10 +1452,6 @@ parameter_list|)
 block|{
 comment|// ignore
 block|}
-name|translogFile
-operator|=
-literal|null
-expr_stmt|;
 throw|throw
 operator|new
 name|IndexShardGatewaySnapshotFailedException
