@@ -1049,7 +1049,8 @@ name|snapshot
 argument_list|()
 expr_stmt|;
 block|}
-comment|// don't really delete the shard gateway if we are primary...
+comment|// don't really delete the shard gateway if we are *not* primary,
+comment|// the primary will close it
 if|if
 condition|(
 operator|!
