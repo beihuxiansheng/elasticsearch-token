@@ -320,7 +320,12 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Using weak filter cache with readerCleanerSchedule [{}]"
+literal|"Using ["
+operator|+
+name|type
+argument_list|()
+operator|+
+literal|"] filter cache with readerCleanerSchedule [{}]"
 argument_list|,
 name|readerCleanerSchedule
 argument_list|)

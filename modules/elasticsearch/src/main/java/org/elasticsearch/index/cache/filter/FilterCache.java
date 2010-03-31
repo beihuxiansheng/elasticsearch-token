@@ -59,7 +59,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_interface
@@ -72,6 +72,11 @@ name|IndexComponent
 extends|,
 name|CloseableComponent
 block|{
+DECL|method|type
+name|String
+name|type
+parameter_list|()
+function_decl|;
 DECL|method|cache
 name|Filter
 name|cache
