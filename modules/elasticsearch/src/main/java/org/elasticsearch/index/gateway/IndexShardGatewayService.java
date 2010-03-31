@@ -256,7 +256,7 @@ name|util
 operator|.
 name|component
 operator|.
-name|CloseableComponent
+name|CloseableIndexComponent
 import|;
 end_import
 
@@ -322,7 +322,7 @@ name|IndexShardGatewayService
 extends|extends
 name|AbstractIndexShardComponent
 implements|implements
-name|CloseableComponent
+name|CloseableIndexComponent
 block|{
 DECL|field|snapshotOnClose
 specifier|private
@@ -1006,7 +1006,10 @@ DECL|method|close
 specifier|public
 name|void
 name|close
-parameter_list|()
+parameter_list|(
+name|boolean
+name|delete
+parameter_list|)
 block|{
 if|if
 condition|(
@@ -1029,6 +1032,9 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+operator|!
+name|delete
+operator|&&
 name|snapshotOnClose
 condition|)
 block|{
@@ -1043,10 +1049,30 @@ name|snapshot
 argument_list|()
 expr_stmt|;
 block|}
+comment|// don't really delete the shard gateway if we are primary...
+if|if
+condition|(
+operator|!
+name|indexShard
+operator|.
+name|routingEntry
+argument_list|()
+operator|.
+name|primary
+argument_list|()
+condition|)
+block|{
+name|delete
+operator|=
+literal|false
+expr_stmt|;
+block|}
 name|shardGateway
 operator|.
 name|close
-argument_list|()
+argument_list|(
+name|delete
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|scheduleSnapshotIfNeeded

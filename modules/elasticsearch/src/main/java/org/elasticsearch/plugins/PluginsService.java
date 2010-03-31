@@ -116,7 +116,7 @@ name|util
 operator|.
 name|component
 operator|.
-name|CloseableComponent
+name|CloseableIndexComponent
 import|;
 end_import
 
@@ -552,7 +552,7 @@ name|Class
 argument_list|<
 name|?
 extends|extends
-name|CloseableComponent
+name|CloseableIndexComponent
 argument_list|>
 argument_list|>
 name|indexServices
@@ -564,7 +564,7 @@ name|Class
 argument_list|<
 name|?
 extends|extends
-name|CloseableComponent
+name|CloseableIndexComponent
 argument_list|>
 argument_list|>
 name|services
@@ -664,7 +664,7 @@ name|Class
 argument_list|<
 name|?
 extends|extends
-name|CloseableComponent
+name|CloseableIndexComponent
 argument_list|>
 argument_list|>
 name|shardServices
@@ -676,7 +676,7 @@ name|Class
 argument_list|<
 name|?
 extends|extends
-name|CloseableComponent
+name|CloseableIndexComponent
 argument_list|>
 argument_list|>
 name|services

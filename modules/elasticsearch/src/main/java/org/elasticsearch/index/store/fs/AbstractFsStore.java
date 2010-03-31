@@ -278,8 +278,10 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// if we are the last ones, delete also the actual index
-if|if
-condition|(
+name|String
+index|[]
+name|list
+init|=
 name|fsDirectory
 argument_list|()
 operator|.
@@ -291,6 +293,14 @@ argument_list|()
 operator|.
 name|list
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|list
+operator|==
+literal|null
+operator|||
+name|list
 operator|.
 name|length
 operator|==

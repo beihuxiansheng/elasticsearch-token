@@ -68,6 +68,20 @@ name|Translog
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|component
+operator|.
+name|CloseableIndexComponent
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (Shay Banon)  */
 end_comment
@@ -79,6 +93,8 @@ interface|interface
 name|IndexShardGateway
 extends|extends
 name|IndexShardComponent
+extends|,
+name|CloseableIndexComponent
 block|{
 comment|/**      * Recovers the state of the shard from the gateway.      */
 DECL|method|recover
@@ -101,11 +117,6 @@ comment|/**      * Returns<tt>true</tt> if this gateway requires scheduling mana
 DECL|method|requiresSnapshotScheduling
 name|boolean
 name|requiresSnapshotScheduling
-parameter_list|()
-function_decl|;
-DECL|method|close
-name|void
-name|close
 parameter_list|()
 function_decl|;
 DECL|class|Snapshot

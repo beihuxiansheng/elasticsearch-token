@@ -442,7 +442,7 @@ name|util
 operator|.
 name|component
 operator|.
-name|CloseableComponent
+name|CloseableIndexComponent
 import|;
 end_import
 
@@ -964,7 +964,10 @@ specifier|public
 specifier|synchronized
 name|void
 name|close
-parameter_list|()
+parameter_list|(
+name|boolean
+name|delete
+parameter_list|)
 block|{
 for|for
 control|(
@@ -979,7 +982,7 @@ name|deleteShard
 argument_list|(
 name|shardId
 argument_list|,
-literal|true
+name|delete
 argument_list|)
 expr_stmt|;
 block|}
@@ -1294,7 +1297,7 @@ name|deleteShard
 argument_list|(
 name|shardId
 argument_list|,
-literal|false
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -1308,7 +1311,7 @@ name|int
 name|shardId
 parameter_list|,
 name|boolean
-name|close
+name|delete
 parameter_list|)
 throws|throws
 name|ElasticSearchException
@@ -1345,7 +1348,8 @@ condition|)
 block|{
 if|if
 condition|(
-name|close
+operator|!
+name|delete
 condition|)
 block|{
 return|return;
@@ -1375,8 +1379,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-operator|!
-name|close
+name|delete
 condition|)
 block|{
 name|logger
@@ -1427,7 +1430,7 @@ name|Class
 argument_list|<
 name|?
 extends|extends
-name|CloseableComponent
+name|CloseableIndexComponent
 argument_list|>
 name|closeable
 range|:
@@ -1445,7 +1448,9 @@ name|closeable
 argument_list|)
 operator|.
 name|close
-argument_list|()
+argument_list|(
+name|delete
+argument_list|)
 expr_stmt|;
 block|}
 comment|// close shard actions
@@ -1494,7 +1499,9 @@ name|class
 argument_list|)
 operator|.
 name|close
-argument_list|()
+argument_list|(
+name|delete
+argument_list|)
 expr_stmt|;
 name|indexShard
 operator|.

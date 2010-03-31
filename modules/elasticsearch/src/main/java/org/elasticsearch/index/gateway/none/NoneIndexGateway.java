@@ -178,21 +178,16 @@ return|return
 literal|"none"
 return|;
 block|}
-DECL|method|delete
-annotation|@
-name|Override
-specifier|public
-name|void
-name|delete
-parameter_list|()
-block|{     }
 DECL|method|close
 annotation|@
 name|Override
 specifier|public
 name|void
 name|close
-parameter_list|()
+parameter_list|(
+name|boolean
+name|delete
+parameter_list|)
 block|{     }
 block|}
 end_class

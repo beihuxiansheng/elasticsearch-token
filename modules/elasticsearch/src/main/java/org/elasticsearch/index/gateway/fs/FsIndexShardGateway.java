@@ -665,8 +665,25 @@ name|Override
 specifier|public
 name|void
 name|close
-parameter_list|()
-block|{     }
+parameter_list|(
+name|boolean
+name|delete
+parameter_list|)
+block|{
+if|if
+condition|(
+name|delete
+condition|)
+block|{
+name|deleteRecursively
+argument_list|(
+name|location
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|method|recover
 annotation|@
 name|Override

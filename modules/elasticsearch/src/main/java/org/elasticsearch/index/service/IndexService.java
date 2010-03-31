@@ -164,6 +164,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|component
+operator|.
+name|CloseableIndexComponent
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -190,12 +204,9 @@ name|Iterable
 argument_list|<
 name|IndexShard
 argument_list|>
+extends|,
+name|CloseableIndexComponent
 block|{
-DECL|method|close
-name|void
-name|close
-parameter_list|()
-function_decl|;
 DECL|method|injector
 name|Injector
 name|injector
