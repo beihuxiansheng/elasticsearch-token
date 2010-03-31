@@ -2027,23 +2027,8 @@ name|querySource
 argument_list|)
 decl_stmt|;
 comment|// wrap it in filter, cache it, and constant score it
-name|query
-operator|=
-operator|new
-name|ConstantScoreQuery
-argument_list|(
-name|filterCache
-operator|.
-name|cache
-argument_list|(
-operator|new
-name|QueryWrapperFilter
-argument_list|(
-name|query
-argument_list|)
-argument_list|)
-argument_list|)
-expr_stmt|;
+comment|// Don't cache it, since it might be very different queries each time...
+comment|//        query = new ConstantScoreQuery(filterCache.cache(new QueryWrapperFilter(query)));
 name|query
 operator|=
 name|filterByTypesIfNeeded
