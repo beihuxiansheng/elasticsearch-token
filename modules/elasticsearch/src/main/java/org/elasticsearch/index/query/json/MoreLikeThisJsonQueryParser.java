@@ -324,6 +324,16 @@ name|NAME
 block|}
 argument_list|)
 expr_stmt|;
+name|mltQuery
+operator|.
+name|setSimilarity
+argument_list|(
+name|parseContext
+operator|.
+name|searchSimilarity
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|JsonToken
 name|token
 decl_stmt|;
