@@ -2023,7 +2023,6 @@ block|}
 block|}
 DECL|method|findLatestTranslogId
 specifier|private
-specifier|static
 name|long
 name|findLatestTranslogId
 parameter_list|(
