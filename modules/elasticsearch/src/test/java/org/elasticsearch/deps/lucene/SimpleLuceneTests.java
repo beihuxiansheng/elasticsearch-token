@@ -920,6 +920,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+comment|/**      * Verify doc freqs update with refresh of readers.      */
 DECL|method|testTermEnumDocFreq
 annotation|@
 name|Test
