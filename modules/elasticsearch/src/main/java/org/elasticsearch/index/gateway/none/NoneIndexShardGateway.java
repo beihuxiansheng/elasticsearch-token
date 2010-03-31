@@ -38,20 +38,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|deletionpolicy
-operator|.
-name|SnapshotIndexCommit
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|gateway
 operator|.
 name|IndexShardGateway
@@ -157,20 +143,6 @@ operator|.
 name|service
 operator|.
 name|InternalIndexShard
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|translog
-operator|.
-name|Translog
 import|;
 end_import
 
@@ -292,6 +264,9 @@ name|RecoveryStatus
 operator|.
 name|Index
 argument_list|(
+operator|-
+literal|1
+argument_list|,
 literal|0
 argument_list|,
 operator|new
@@ -310,6 +285,9 @@ name|RecoveryStatus
 operator|.
 name|Translog
 argument_list|(
+operator|-
+literal|1
+argument_list|,
 literal|0
 argument_list|,
 operator|new
@@ -332,13 +310,8 @@ specifier|public
 name|void
 name|snapshot
 parameter_list|(
-name|SnapshotIndexCommit
-name|snapshotIndexCommit
-parameter_list|,
-name|Translog
-operator|.
 name|Snapshot
-name|translogSnapshot
+name|snapshot
 parameter_list|)
 block|{
 comment|// nothing to do here
