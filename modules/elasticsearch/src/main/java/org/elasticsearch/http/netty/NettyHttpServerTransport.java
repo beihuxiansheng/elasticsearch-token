@@ -1736,7 +1736,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Caught exception while handling client http trafic"
+literal|"Caught exception while handling client http traffic"
 argument_list|,
 name|e
 operator|.
