@@ -987,23 +987,36 @@ comment|// ignore, that's fine
 block|}
 catch|catch
 parameter_list|(
+name|IndexShardGatewaySnapshotFailedException
+name|e
+parameter_list|)
+block|{
+throw|throw
+name|e
+throw|;
+block|}
+catch|catch
+parameter_list|(
 name|Exception
 name|e
 parameter_list|)
 block|{
-name|logger
-operator|.
-name|warn
+throw|throw
+operator|new
+name|IndexShardGatewaySnapshotFailedException
 argument_list|(
-literal|"Failed to snapshot on close"
+name|shardId
+argument_list|,
+literal|"Failed to snapshot"
 argument_list|,
 name|e
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 block|}
 DECL|method|close
 specifier|public
+specifier|synchronized
 name|void
 name|close
 parameter_list|(
@@ -1045,9 +1058,28 @@ argument_list|(
 literal|"Snapshotting on close ..."
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|snapshot
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"Failed to snapshot on close"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|// don't really delete the shard gateway if we are *not* primary,
 comment|// the primary will close it
@@ -1210,7 +1242,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to snapshot"
+literal|"Failed to snapshot (scheduled)"
 argument_list|,
 name|e
 argument_list|)
