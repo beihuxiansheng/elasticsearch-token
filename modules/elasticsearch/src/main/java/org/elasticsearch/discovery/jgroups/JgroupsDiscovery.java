@@ -1540,7 +1540,7 @@ expr_stmt|;
 block|}
 return|return;
 block|}
-comment|// direct message from a member that indicate his state has changed.
+comment|// direct message from a member indicating it has joined the jgroups cluster and provides us its node information
 if|if
 condition|(
 name|isMaster
