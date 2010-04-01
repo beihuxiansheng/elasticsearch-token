@@ -1577,6 +1577,29 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|logger
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Received node information from [{}], node [{}]"
+argument_list|,
+name|msg
+operator|.
+name|getSrc
+argument_list|()
+argument_list|,
+name|newNode
+argument_list|)
+expr_stmt|;
+block|}
 name|clusterService
 operator|.
 name|submitStateUpdateTask
@@ -1676,7 +1699,14 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Can't read address from cluster member, message ["
+literal|"Can't read address from cluster member ["
+operator|+
+name|msg
+operator|.
+name|getSrc
+argument_list|()
+operator|+
+literal|"] message ["
 operator|+
 name|msg
 operator|.
