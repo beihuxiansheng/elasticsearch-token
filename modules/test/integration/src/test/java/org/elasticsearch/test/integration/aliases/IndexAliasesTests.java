@@ -473,7 +473,7 @@ operator|.
 name|indices
 argument_list|()
 operator|.
-name|indicesAliases
+name|aliases
 argument_list|(
 name|indexAliasesRequest
 argument_list|()
@@ -662,7 +662,7 @@ operator|.
 name|indices
 argument_list|()
 operator|.
-name|indicesAliases
+name|aliases
 argument_list|(
 name|indexAliasesRequest
 argument_list|()

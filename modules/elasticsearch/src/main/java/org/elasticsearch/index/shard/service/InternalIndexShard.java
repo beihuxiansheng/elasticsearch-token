@@ -126,9 +126,7 @@ name|index
 operator|.
 name|cache
 operator|.
-name|filter
-operator|.
-name|FilterCache
+name|IndexCache
 import|;
 end_import
 
@@ -516,11 +514,11 @@ specifier|final
 name|IndexQueryParserService
 name|queryParserService
 decl_stmt|;
-DECL|field|filterCache
+DECL|field|indexCache
 specifier|private
 specifier|final
-name|FilterCache
-name|filterCache
+name|IndexCache
+name|indexCache
 decl_stmt|;
 DECL|field|store
 specifier|private
@@ -599,8 +597,8 @@ parameter_list|,
 name|IndexQueryParserService
 name|queryParserService
 parameter_list|,
-name|FilterCache
-name|filterCache
+name|IndexCache
+name|indexCache
 parameter_list|)
 block|{
 name|super
@@ -648,9 +646,9 @@ name|queryParserService
 expr_stmt|;
 name|this
 operator|.
-name|filterCache
+name|indexCache
 operator|=
-name|filterCache
+name|indexCache
 expr_stmt|;
 name|state
 operator|=
@@ -2966,7 +2964,10 @@ argument_list|)
 decl_stmt|;
 name|typeFilter
 operator|=
-name|filterCache
+name|indexCache
+operator|.
+name|filter
+argument_list|()
 operator|.
 name|cache
 argument_list|(
@@ -3053,7 +3054,10 @@ argument_list|)
 decl_stmt|;
 name|typeFilter
 operator|=
-name|filterCache
+name|indexCache
+operator|.
+name|filter
+argument_list|()
 operator|.
 name|cache
 argument_list|(

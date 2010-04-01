@@ -906,7 +906,10 @@ block|{
 return|return
 name|indexService
 operator|.
-name|filterCache
+name|cache
+argument_list|()
+operator|.
+name|filter
 argument_list|()
 return|;
 block|}

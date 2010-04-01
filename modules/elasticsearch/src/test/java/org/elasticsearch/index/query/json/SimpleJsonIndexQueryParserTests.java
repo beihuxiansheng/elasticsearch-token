@@ -124,11 +124,7 @@ name|index
 operator|.
 name|cache
 operator|.
-name|filter
-operator|.
-name|none
-operator|.
-name|NoneFilterCache
+name|IndexCache
 import|;
 end_import
 
@@ -8001,11 +7997,9 @@ name|newMapperService
 argument_list|()
 argument_list|,
 operator|new
-name|NoneFilterCache
+name|IndexCache
 argument_list|(
 name|index
-argument_list|,
-name|EMPTY_SETTINGS
 argument_list|)
 argument_list|,
 operator|new

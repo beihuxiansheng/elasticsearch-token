@@ -175,6 +175,12 @@ name|indices
 operator|=
 name|indices
 expr_stmt|;
+name|this
+operator|.
+name|queryHint
+operator|=
+name|queryHint
+expr_stmt|;
 block|}
 DECL|method|indices
 specifier|public

@@ -140,9 +140,7 @@ name|index
 operator|.
 name|cache
 operator|.
-name|filter
-operator|.
-name|FilterCache
+name|IndexCache
 import|;
 end_import
 
@@ -264,11 +262,11 @@ specifier|final
 name|MapperService
 name|mapperService
 decl_stmt|;
-DECL|field|filterCache
+DECL|field|indexCache
 specifier|private
 specifier|final
-name|FilterCache
-name|filterCache
+name|IndexCache
+name|indexCache
 decl_stmt|;
 DECL|field|currentMapper
 specifier|private
@@ -292,8 +290,8 @@ name|mapperService
 parameter_list|,
 annotation|@
 name|Nullable
-name|FilterCache
-name|filterCache
+name|IndexCache
+name|indexCache
 parameter_list|)
 block|{
 name|super
@@ -315,9 +313,9 @@ name|mapperService
 expr_stmt|;
 name|this
 operator|.
-name|filterCache
+name|indexCache
 operator|=
-name|filterCache
+name|indexCache
 expr_stmt|;
 name|setMultiTermRewriteMethod
 argument_list|(
@@ -487,7 +485,7 @@ name|query
 argument_list|,
 name|fieldMappers
 argument_list|,
-name|filterCache
+name|indexCache
 argument_list|)
 return|;
 block|}
@@ -626,7 +624,7 @@ name|rangeQuery
 argument_list|,
 name|fieldMappers
 argument_list|,
-name|filterCache
+name|indexCache
 argument_list|)
 return|;
 block|}
@@ -738,7 +736,7 @@ argument_list|)
 argument_list|,
 name|fieldMappers
 argument_list|,
-name|filterCache
+name|indexCache
 argument_list|)
 return|;
 block|}
@@ -852,7 +850,7 @@ argument_list|)
 argument_list|,
 name|fieldMappers
 argument_list|,
-name|filterCache
+name|indexCache
 argument_list|)
 return|;
 block|}
@@ -963,7 +961,7 @@ argument_list|)
 argument_list|,
 name|fieldMappers
 argument_list|,
-name|filterCache
+name|indexCache
 argument_list|)
 return|;
 block|}

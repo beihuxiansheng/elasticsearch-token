@@ -90,9 +90,7 @@ name|index
 operator|.
 name|cache
 operator|.
-name|filter
-operator|.
-name|FilterCache
+name|IndexCache
 import|;
 end_import
 
@@ -285,8 +283,8 @@ parameter_list|,
 name|MapperService
 name|mapperService
 parameter_list|,
-name|FilterCache
-name|filterCache
+name|IndexCache
+name|indexCache
 parameter_list|,
 name|AnalysisService
 name|analysisService
@@ -304,7 +302,7 @@ name|EMPTY_SETTINGS
 argument_list|,
 name|mapperService
 argument_list|,
-name|filterCache
+name|indexCache
 argument_list|,
 name|analysisService
 argument_list|,
@@ -331,8 +329,8 @@ parameter_list|,
 name|MapperService
 name|mapperService
 parameter_list|,
-name|FilterCache
-name|filterCache
+name|IndexCache
+name|indexCache
 parameter_list|,
 name|AnalysisService
 name|analysisService
@@ -495,7 +493,7 @@ name|indexSettings
 argument_list|,
 name|mapperService
 argument_list|,
-name|filterCache
+name|indexCache
 argument_list|,
 name|analysisService
 argument_list|,

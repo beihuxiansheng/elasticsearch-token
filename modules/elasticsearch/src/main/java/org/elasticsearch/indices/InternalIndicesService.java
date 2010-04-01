@@ -164,9 +164,7 @@ name|index
 operator|.
 name|cache
 operator|.
-name|filter
-operator|.
-name|FilterCache
+name|IndexCacheModule
 import|;
 end_import
 
@@ -182,7 +180,7 @@ name|cache
 operator|.
 name|filter
 operator|.
-name|FilterCacheModule
+name|FilterCache
 import|;
 end_import
 
@@ -1110,7 +1108,7 @@ name|indexSettings
 argument_list|)
 argument_list|,
 operator|new
-name|FilterCacheModule
+name|IndexCacheModule
 argument_list|(
 name|indexSettings
 argument_list|)

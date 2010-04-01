@@ -84,9 +84,7 @@ name|index
 operator|.
 name|cache
 operator|.
-name|filter
-operator|.
-name|FilterCache
+name|IndexCache
 import|;
 end_import
 
@@ -212,9 +210,9 @@ name|Injector
 name|injector
 parameter_list|()
 function_decl|;
-DECL|method|filterCache
-name|FilterCache
-name|filterCache
+DECL|method|cache
+name|IndexCache
+name|cache
 parameter_list|()
 function_decl|;
 DECL|method|operationRouting

@@ -140,9 +140,7 @@ name|index
 operator|.
 name|cache
 operator|.
-name|filter
-operator|.
-name|FilterCache
+name|IndexCache
 import|;
 end_import
 
@@ -467,7 +465,7 @@ name|mapperService
 argument_list|,
 name|similarityService
 argument_list|,
-name|filterCache
+name|indexCache
 argument_list|)
 argument_list|)
 return|;
@@ -503,11 +501,11 @@ specifier|final
 name|SimilarityService
 name|similarityService
 decl_stmt|;
-DECL|field|filterCache
+DECL|field|indexCache
 specifier|private
 specifier|final
-name|FilterCache
-name|filterCache
+name|IndexCache
+name|indexCache
 decl_stmt|;
 DECL|field|queryParserRegistry
 specifier|private
@@ -532,8 +530,8 @@ parameter_list|,
 name|MapperService
 name|mapperService
 parameter_list|,
-name|FilterCache
-name|filterCache
+name|IndexCache
+name|indexCache
 parameter_list|,
 name|AnalysisService
 name|analysisService
@@ -603,9 +601,9 @@ name|similarityService
 expr_stmt|;
 name|this
 operator|.
-name|filterCache
+name|indexCache
 operator|=
-name|filterCache
+name|indexCache
 expr_stmt|;
 name|List
 argument_list|<

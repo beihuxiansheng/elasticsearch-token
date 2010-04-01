@@ -70,9 +70,7 @@ name|index
 operator|.
 name|cache
 operator|.
-name|filter
-operator|.
-name|FilterCache
+name|IndexCache
 import|;
 end_import
 
@@ -206,8 +204,8 @@ name|mapperService
 parameter_list|,
 annotation|@
 name|Nullable
-name|FilterCache
-name|filterCache
+name|IndexCache
+name|indexCache
 parameter_list|)
 block|{
 name|super
@@ -218,7 +216,7 @@ name|analyzer
 argument_list|,
 name|mapperService
 argument_list|,
-name|filterCache
+name|indexCache
 argument_list|)
 expr_stmt|;
 name|this

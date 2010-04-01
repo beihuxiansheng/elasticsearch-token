@@ -180,6 +180,26 @@ name|admin
 operator|.
 name|indices
 operator|.
+name|cache
+operator|.
+name|clear
+operator|.
+name|ClearIndicesCacheRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|admin
+operator|.
+name|indices
+operator|.
 name|create
 operator|.
 name|CreateIndexRequest
@@ -779,7 +799,7 @@ name|indices
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a gateway snapshot indices request.      *      * @param indices The indices the delete by query against. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The gateway snapshot request      * @see org.elasticsearch.client.IndicesAdminClient#gatewaySnapshot(org.elasticsearch.action.admin.indices.gateway.snapshot.GatewaySnapshotRequest)      */
+comment|/**      * Creates a gateway snapshot indices request.      *      * @param indices The indices the gateway wil be performed ont. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The gateway snapshot request      * @see org.elasticsearch.client.IndicesAdminClient#gatewaySnapshot(org.elasticsearch.action.admin.indices.gateway.snapshot.GatewaySnapshotRequest)      */
 DECL|method|gatewaySnapshotRequest
 specifier|public
 specifier|static
@@ -794,6 +814,26 @@ block|{
 return|return
 operator|new
 name|GatewaySnapshotRequest
+argument_list|(
+name|indices
+argument_list|)
+return|;
+block|}
+comment|/**      * Creates a clean indices cache request.      *      * @param indices The indices the gateway wil be performed ont. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The request      */
+DECL|method|clearIndicesCache
+specifier|public
+specifier|static
+name|ClearIndicesCacheRequest
+name|clearIndicesCache
+parameter_list|(
+name|String
+modifier|...
+name|indices
+parameter_list|)
+block|{
+return|return
+operator|new
+name|ClearIndicesCacheRequest
 argument_list|(
 name|indices
 argument_list|)
