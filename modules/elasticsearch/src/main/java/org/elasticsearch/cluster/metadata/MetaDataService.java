@@ -1043,6 +1043,10 @@ name|createIndex
 parameter_list|(
 specifier|final
 name|String
+name|cause
+parameter_list|,
+specifier|final
+name|String
 name|index
 parameter_list|,
 specifier|final
@@ -1563,6 +1567,10 @@ literal|"create-index ["
 operator|+
 name|index
 operator|+
+literal|"], cause ["
+operator|+
+name|cause
+operator|+
 literal|"]"
 argument_list|,
 operator|new
@@ -1799,13 +1807,15 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Creating Index [{}], shards [{}]/[{}], mappings {}"
+literal|"Creating Index [{}], cause [{}], shards [{}]/[{}], mappings {}"
 argument_list|,
 operator|new
 name|Object
 index|[]
 block|{
 name|index
+block|,
+name|cause
 block|,
 name|indexMetaData
 operator|.

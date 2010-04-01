@@ -748,6 +748,8 @@ name|metaDataService
 operator|.
 name|createIndex
 argument_list|(
+literal|"gateway"
+argument_list|,
 name|indexMetaData
 operator|.
 name|index

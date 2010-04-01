@@ -252,6 +252,13 @@ name|CreateIndexRequest
 extends|extends
 name|MasterNodeOperationRequest
 block|{
+DECL|field|cause
+specifier|private
+name|String
+name|cause
+init|=
+literal|""
+decl_stmt|;
 DECL|field|index
 specifier|private
 name|String
@@ -392,6 +399,16 @@ return|return
 name|settings
 return|;
 block|}
+comment|/**      * The cause for this index creation.      */
+DECL|method|cause
+name|String
+name|cause
+parameter_list|()
+block|{
+return|return
+name|cause
+return|;
+block|}
 comment|/**      * The settings to created the index with.      */
 DECL|method|settings
 specifier|public
@@ -458,6 +475,26 @@ name|type
 argument_list|,
 name|source
 argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * The cause for this index creation.      */
+DECL|method|cause
+specifier|public
+name|CreateIndexRequest
+name|cause
+parameter_list|(
+name|String
+name|cause
+parameter_list|)
+block|{
+name|this
+operator|.
+name|cause
+operator|=
+name|cause
 expr_stmt|;
 return|return
 name|this
@@ -570,6 +607,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|cause
+operator|=
+name|in
+operator|.
+name|readUTF
+argument_list|()
+expr_stmt|;
 name|index
 operator|=
 name|in
@@ -644,6 +688,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|out
+operator|.
+name|writeUTF
+argument_list|(
+name|cause
+argument_list|)
+expr_stmt|;
 name|out
 operator|.
 name|writeUTF

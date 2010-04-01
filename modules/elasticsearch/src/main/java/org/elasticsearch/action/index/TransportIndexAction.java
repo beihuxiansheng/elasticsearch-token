@@ -525,6 +525,11 @@ operator|.
 name|index
 argument_list|()
 argument_list|)
+operator|.
+name|cause
+argument_list|(
+literal|"auto(index api)"
+argument_list|)
 argument_list|,
 operator|new
 name|ActionListener
