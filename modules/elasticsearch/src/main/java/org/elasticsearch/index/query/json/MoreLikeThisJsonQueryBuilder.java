@@ -438,27 +438,6 @@ expr_stmt|;
 if|if
 condition|(
 name|fields
-operator|==
-literal|null
-operator|||
-name|fields
-operator|.
-name|length
-operator|==
-literal|0
-condition|)
-block|{
-throw|throw
-operator|new
-name|QueryBuilderException
-argument_list|(
-literal|"moreLikeThis requires 'fields' to be provided"
-argument_list|)
-throw|;
-block|}
-if|if
-condition|(
-name|fields
 operator|!=
 literal|null
 condition|)
