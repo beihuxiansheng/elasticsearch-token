@@ -962,6 +962,10 @@ name|isMaster
 argument_list|()
 condition|)
 block|{
+name|firstMaster
+operator|=
+literal|true
+expr_stmt|;
 name|clusterService
 operator|.
 name|submitStateUpdateTask
@@ -1049,10 +1053,6 @@ expr_stmt|;
 block|}
 block|}
 argument_list|)
-expr_stmt|;
-name|firstMaster
-operator|=
-literal|true
 expr_stmt|;
 name|addressSet
 operator|=
