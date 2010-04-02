@@ -308,6 +308,19 @@ name|iterator
 argument_list|()
 return|;
 block|}
+comment|/**      * Is this a valid nodes that has the minimal information set. The minimal set is defined      * by the localNodeId being set.      */
+DECL|method|valid
+specifier|public
+name|boolean
+name|valid
+parameter_list|()
+block|{
+return|return
+name|localNodeId
+operator|!=
+literal|null
+return|;
+block|}
 comment|/**      * Returns<tt>true</tt> if the local node is the master node.      */
 DECL|method|localNodeMaster
 specifier|public
@@ -315,6 +328,18 @@ name|boolean
 name|localNodeMaster
 parameter_list|()
 block|{
+if|if
+condition|(
+name|localNodeId
+operator|==
+literal|null
+condition|)
+block|{
+comment|// we don't know yet the local node id, return false
+return|return
+literal|false
+return|;
+block|}
 return|return
 name|localNodeId
 operator|.

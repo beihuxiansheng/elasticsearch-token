@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * A pluggable module allowing to implement discovery of other nodes, publishing of the cluster  * state to all nodes, electing a master of the cluster that raises cluster state change  * events.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_interface
@@ -76,6 +76,7 @@ name|String
 name|nodeDescription
 parameter_list|()
 function_decl|;
+comment|/**      * Is the discovery of this node caused this node to be the first master in the cluster.      */
 DECL|method|firstMaster
 name|boolean
 name|firstMaster
