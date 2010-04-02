@@ -218,16 +218,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -1008,11 +998,7 @@ name|FieldMapper
 argument_list|>
 name|tempFieldMappers
 init|=
-operator|new
-name|ArrayList
-argument_list|<
-name|FieldMapper
-argument_list|>
+name|newArrayList
 argument_list|()
 decl_stmt|;
 comment|// add the basic ones
@@ -1035,6 +1021,13 @@ operator|.
 name|add
 argument_list|(
 name|uidFieldMapper
+argument_list|)
+expr_stmt|;
+name|tempFieldMappers
+operator|.
+name|add
+argument_list|(
+name|allFieldMapper
 argument_list|)
 expr_stmt|;
 if|if
