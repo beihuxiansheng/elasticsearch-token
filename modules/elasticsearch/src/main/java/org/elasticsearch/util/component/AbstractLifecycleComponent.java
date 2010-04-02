@@ -245,7 +245,7 @@ condition|(
 operator|!
 name|lifecycle
 operator|.
-name|moveToStarted
+name|canMoveToStarted
 argument_list|()
 condition|)
 block|{
@@ -271,6 +271,11 @@ argument_list|()
 expr_stmt|;
 block|}
 name|doStart
+argument_list|()
+expr_stmt|;
+name|lifecycle
+operator|.
+name|moveToStarted
 argument_list|()
 expr_stmt|;
 for|for
@@ -325,7 +330,7 @@ condition|(
 operator|!
 name|lifecycle
 operator|.
-name|moveToStopped
+name|canMoveToStopped
 argument_list|()
 condition|)
 block|{
@@ -350,6 +355,11 @@ name|beforeStop
 argument_list|()
 expr_stmt|;
 block|}
+name|lifecycle
+operator|.
+name|moveToStopped
+argument_list|()
+expr_stmt|;
 name|doStop
 argument_list|()
 expr_stmt|;
@@ -410,7 +420,7 @@ condition|(
 operator|!
 name|lifecycle
 operator|.
-name|moveToClosed
+name|canMoveToClosed
 argument_list|()
 condition|)
 block|{
@@ -430,6 +440,11 @@ name|beforeClose
 argument_list|()
 expr_stmt|;
 block|}
+name|lifecycle
+operator|.
+name|moveToClosed
+argument_list|()
+expr_stmt|;
 name|doClose
 argument_list|()
 expr_stmt|;
