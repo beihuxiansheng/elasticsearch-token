@@ -254,7 +254,7 @@ specifier|final
 name|String
 name|JSON_TYPE
 init|=
-literal|"allField"
+literal|"_all"
 decl_stmt|;
 DECL|class|Defaults
 specifier|public

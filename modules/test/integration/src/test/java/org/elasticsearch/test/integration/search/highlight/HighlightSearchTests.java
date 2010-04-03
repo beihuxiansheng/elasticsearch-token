@@ -924,7 +924,7 @@ argument_list|)
 operator|.
 name|startObject
 argument_list|(
-literal|"allField"
+literal|"_all"
 argument_list|)
 operator|.
 name|field

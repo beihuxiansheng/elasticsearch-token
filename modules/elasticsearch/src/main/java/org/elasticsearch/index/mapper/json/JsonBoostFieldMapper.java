@@ -202,7 +202,7 @@ specifier|final
 name|String
 name|JSON_TYPE
 init|=
-literal|"boostField"
+literal|"_boost"
 decl_stmt|;
 DECL|class|Defaults
 specifier|public

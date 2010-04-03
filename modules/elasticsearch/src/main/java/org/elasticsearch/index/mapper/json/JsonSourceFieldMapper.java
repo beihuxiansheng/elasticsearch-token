@@ -123,7 +123,7 @@ specifier|final
 name|String
 name|JSON_TYPE
 init|=
-literal|"sourceField"
+literal|"_source"
 decl_stmt|;
 DECL|class|Defaults
 specifier|public

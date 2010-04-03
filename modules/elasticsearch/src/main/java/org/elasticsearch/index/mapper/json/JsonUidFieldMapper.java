@@ -178,7 +178,7 @@ specifier|final
 name|String
 name|JSON_TYPE
 init|=
-literal|"uidField"
+literal|"_uid"
 decl_stmt|;
 DECL|class|Defaults
 specifier|public
