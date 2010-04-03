@@ -621,6 +621,13 @@ name|equals
 argument_list|(
 literal|"nullValue"
 argument_list|)
+operator|||
+name|propName
+operator|.
+name|equals
+argument_list|(
+literal|"null_value"
+argument_list|)
 condition|)
 block|{
 name|builder
