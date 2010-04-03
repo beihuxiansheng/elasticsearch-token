@@ -139,6 +139,12 @@ specifier|final
 name|Discovery
 name|discovery
 decl_stmt|;
+DECL|field|initialStateReceived
+specifier|private
+specifier|volatile
+name|boolean
+name|initialStateReceived
+decl_stmt|;
 DECL|method|DiscoveryService
 annotation|@
 name|Inject
@@ -273,9 +279,17 @@ argument_list|(
 literal|"Initial state set from discovery"
 argument_list|)
 expr_stmt|;
+name|initialStateReceived
+operator|=
+literal|true
+expr_stmt|;
 block|}
 else|else
 block|{
+name|initialStateReceived
+operator|=
+literal|false
+expr_stmt|;
 name|logger
 operator|.
 name|warn
@@ -348,6 +362,17 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
+comment|/**      * Returns<tt>true</tt> if the initial state was received within the timeout waiting for it      * on {@link #doStart()}.      */
+DECL|method|initialStateReceived
+specifier|public
+name|boolean
+name|initialStateReceived
+parameter_list|()
+block|{
+return|return
+name|initialStateReceived
+return|;
 block|}
 DECL|method|nodeDescription
 specifier|public
