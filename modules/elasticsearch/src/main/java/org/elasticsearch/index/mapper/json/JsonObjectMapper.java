@@ -1195,14 +1195,7 @@ name|fieldName
 operator|.
 name|equals
 argument_list|(
-literal|"pathType"
-argument_list|)
-operator|||
-name|fieldName
-operator|.
-name|equals
-argument_list|(
-literal|"path_type"
+literal|"path"
 argument_list|)
 condition|)
 block|{
@@ -3113,7 +3106,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"pathType"
+literal|"path"
 argument_list|,
 name|pathType
 operator|.

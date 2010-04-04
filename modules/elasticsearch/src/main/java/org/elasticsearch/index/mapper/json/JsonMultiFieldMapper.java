@@ -679,7 +679,7 @@ name|fieldName
 operator|.
 name|equals
 argument_list|(
-literal|"pathType"
+literal|"path"
 argument_list|)
 condition|)
 block|{
@@ -1568,7 +1568,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"pathType"
+literal|"path"
 argument_list|,
 name|pathType
 operator|.
