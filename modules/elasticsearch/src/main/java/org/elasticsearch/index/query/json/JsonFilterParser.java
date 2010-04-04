@@ -80,9 +80,10 @@ name|JsonFilterParser
 extends|extends
 name|IndexComponent
 block|{
-DECL|method|name
+DECL|method|names
 name|String
-name|name
+index|[]
+name|names
 parameter_list|()
 function_decl|;
 comment|/**      * Parses the into a filter from the current json parser location. Will be at "START_OBJECT" location,      * and should end when the token is at the matching "END_OBJECT".      */

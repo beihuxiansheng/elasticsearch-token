@@ -416,8 +416,11 @@ name|assertThat
 argument_list|(
 name|myJsonQueryParser
 operator|.
-name|name
+name|names
 argument_list|()
+index|[
+literal|0
+index|]
 argument_list|,
 name|equalTo
 argument_list|(
@@ -460,8 +463,11 @@ name|assertThat
 argument_list|(
 name|myJsonFilterParser
 operator|.
-name|name
+name|names
 argument_list|()
+index|[
+literal|0
+index|]
 argument_list|,
 name|equalTo
 argument_list|(
