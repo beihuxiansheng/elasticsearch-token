@@ -1471,14 +1471,6 @@ name|boostTerms
 argument_list|()
 argument_list|)
 operator|.
-name|boostTermsFactor
-argument_list|(
-name|request
-operator|.
-name|boostTermsFactor
-argument_list|()
-argument_list|)
-operator|.
 name|minDocFreq
 argument_list|(
 name|request
