@@ -517,7 +517,7 @@ name|request
 operator|.
 name|param
 argument_list|(
-literal|"operationThreading"
+literal|"operation_threading"
 argument_list|)
 argument_list|,
 name|SearchOperationThreading
@@ -819,7 +819,7 @@ name|request
 operator|.
 name|param
 argument_list|(
-literal|"searchType"
+literal|"search_type"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -910,7 +910,7 @@ name|request
 operator|.
 name|param
 argument_list|(
-literal|"queryHint"
+literal|"query_hint"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -993,7 +993,7 @@ name|request
 operator|.
 name|param
 argument_list|(
-literal|"defaultOperator"
+literal|"default_operator"
 argument_list|)
 decl_stmt|;
 if|if
@@ -1137,7 +1137,7 @@ name|request
 operator|.
 name|param
 argument_list|(
-literal|"queryParserName"
+literal|"query_parser_name"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1352,7 +1352,7 @@ name|request
 operator|.
 name|param
 argument_list|(
-literal|"indicesBoost"
+literal|"indices_boost"
 argument_list|)
 decl_stmt|;
 if|if

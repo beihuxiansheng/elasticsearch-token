@@ -374,7 +374,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"mustNot"
+literal|"must_not"
 argument_list|)
 expr_stmt|;
 name|clause
@@ -452,7 +452,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"disableCoord"
+literal|"disable_coord"
 argument_list|,
 name|disableCoord
 argument_list|)
@@ -470,7 +470,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"minimumNumberShouldMatch"
+literal|"minimum_number_should_match"
 argument_list|,
 name|minimumNumberShouldMatch
 argument_list|)

@@ -349,7 +349,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"queryString"
+literal|"query_string"
 decl_stmt|;
 DECL|field|analysisService
 specifier|private
@@ -822,7 +822,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"defaultField"
+literal|"default_field"
 operator|.
 name|equals
 argument_list|(
@@ -846,7 +846,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"defaultOperator"
+literal|"default_operator"
 operator|.
 name|equals
 argument_list|(
@@ -945,7 +945,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"allowLeadingWildcard"
+literal|"allow_leading_wildcard"
 operator|.
 name|equals
 argument_list|(
@@ -971,7 +971,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"lowercaseExpandedTerms"
+literal|"lowercase_expanded_terms"
 operator|.
 name|equals
 argument_list|(
@@ -997,7 +997,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"enablePositionIncrements"
+literal|"enable_position_increments"
 operator|.
 name|equals
 argument_list|(
@@ -1049,7 +1049,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"useDisMax"
+literal|"use_dis_max"
 operator|.
 name|equals
 argument_list|(
@@ -1075,7 +1075,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"fuzzyPrefixLength"
+literal|"fuzzy_prefix_length"
 operator|.
 name|equals
 argument_list|(
@@ -1099,7 +1099,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"phraseSlop"
+literal|"phrase_slop"
 operator|.
 name|equals
 argument_list|(
@@ -1123,7 +1123,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"fuzzyMinSim"
+literal|"fuzzy_min_sim"
 operator|.
 name|equals
 argument_list|(
@@ -1171,7 +1171,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"tieBreaker"
+literal|"tie_breaker"
 operator|.
 name|equals
 argument_list|(
@@ -1211,7 +1211,7 @@ condition|)
 block|{
 if|if
 condition|(
-literal|"allowLeadingWildcard"
+literal|"allow_leading_wildcard"
 operator|.
 name|equals
 argument_list|(
@@ -1231,7 +1231,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"lowercaseExpandedTerms"
+literal|"lowercase_expanded_terms"
 operator|.
 name|equals
 argument_list|(
@@ -1251,7 +1251,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"enablePositionIncrements"
+literal|"enable_position_increments"
 operator|.
 name|equals
 argument_list|(
@@ -1291,7 +1291,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"useDisMax"
+literal|"use_dis_max"
 operator|.
 name|equals
 argument_list|(
@@ -1321,7 +1321,7 @@ condition|)
 block|{
 if|if
 condition|(
-literal|"fuzzyMinSim"
+literal|"fuzzy_min_sim"
 operator|.
 name|equals
 argument_list|(
@@ -1359,7 +1359,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"tieBreaker"
+literal|"tie_breaker"
 operator|.
 name|equals
 argument_list|(
@@ -1388,7 +1388,7 @@ condition|)
 block|{
 if|if
 condition|(
-literal|"fuzzyPrefixLength"
+literal|"fuzzy_prefix_length"
 operator|.
 name|equals
 argument_list|(
@@ -1407,7 +1407,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"phraseSlop"
+literal|"phrase_slop"
 operator|.
 name|equals
 argument_list|(
@@ -1426,7 +1426,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"fuzzyMinSim"
+literal|"fuzzy_min_sim"
 operator|.
 name|equals
 argument_list|(
@@ -1464,7 +1464,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"allowLeadingWildcard"
+literal|"allow_leading_wildcard"
 operator|.
 name|equals
 argument_list|(
@@ -1485,7 +1485,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"lowercaseExpandedTerms"
+literal|"lowercase_expanded_terms"
 operator|.
 name|equals
 argument_list|(
@@ -1506,7 +1506,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"enablePositionIncrements"
+literal|"enable_position_increments"
 operator|.
 name|equals
 argument_list|(
@@ -1548,7 +1548,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"useDisMax"
+literal|"use_dis_max"
 operator|.
 name|equals
 argument_list|(
@@ -1569,7 +1569,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"tieBreaker"
+literal|"tie_breaker"
 operator|.
 name|equals
 argument_list|(
@@ -1600,7 +1600,7 @@ name|QueryParsingException
 argument_list|(
 name|index
 argument_list|,
-literal|"QueryString must be provided with a [query]"
+literal|"query_string must be provided with a [query]"
 argument_list|)
 throw|;
 block|}

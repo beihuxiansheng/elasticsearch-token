@@ -330,11 +330,11 @@ name|this
 operator|.
 name|autoCreateIndex
 operator|=
-name|componentSettings
+name|settings
 operator|.
 name|getAsBoolean
 argument_list|(
-literal|"autoCreateIndex"
+literal|"action.auto_create_index"
 argument_list|,
 literal|true
 argument_list|)
@@ -362,10 +362,7 @@ block|{
 if|if
 condition|(
 name|autoCreateIndex
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 operator|!
 name|clusterService
 operator|.
@@ -487,7 +484,6 @@ argument_list|,
 name|listener
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 DECL|method|newRequestInstance

@@ -193,7 +193,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"constantScore"
+literal|"constant_score"
 decl_stmt|;
 DECL|method|ConstantScoreQueryJsonQueryParser
 annotation|@

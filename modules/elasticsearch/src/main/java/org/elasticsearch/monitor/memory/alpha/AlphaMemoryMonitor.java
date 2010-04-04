@@ -199,9 +199,9 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|AlphaMemoryMonitor
 specifier|public
 class|class
+DECL|class|AlphaMemoryMonitor
 name|AlphaMemoryMonitor
 extends|extends
 name|AbstractLifecycleComponent
@@ -348,7 +348,7 @@ name|componentSettings
 operator|.
 name|getAsDouble
 argument_list|(
-literal|"upperMemoryThreshold"
+literal|"upper_memory_threshold"
 argument_list|,
 literal|0.8
 argument_list|)
@@ -361,7 +361,7 @@ name|componentSettings
 operator|.
 name|getAsDouble
 argument_list|(
-literal|"lowerMemoryThreshold"
+literal|"lower_memory_threshold"
 argument_list|,
 literal|0.5
 argument_list|)
@@ -390,7 +390,7 @@ name|componentSettings
 operator|.
 name|getAsInt
 argument_list|(
-literal|"gcThreshold"
+literal|"gc_threshold"
 argument_list|,
 literal|5
 argument_list|)
@@ -403,7 +403,7 @@ name|componentSettings
 operator|.
 name|getAsInt
 argument_list|(
-literal|"cleanThreshold"
+literal|"clean_threshold"
 argument_list|,
 literal|10
 argument_list|)
@@ -416,7 +416,7 @@ name|componentSettings
 operator|.
 name|getAsSize
 argument_list|(
-literal|"minimumFlushableSizeToClean"
+literal|"minimum_flushable_size_to_clean"
 argument_list|,
 operator|new
 name|SizeValue
@@ -437,7 +437,7 @@ name|componentSettings
 operator|.
 name|getAsInt
 argument_list|(
-literal|"translogNumberOfOperationsThreshold"
+literal|"translog_number_of_operations_threshold"
 argument_list|,
 literal|5000
 argument_list|)
@@ -446,19 +446,19 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Interval["
+literal|"interval["
 operator|+
 name|interval
 operator|+
-literal|"], upperMemoryThreshold["
+literal|"], upper_memory_threshold["
 operator|+
 name|upperMemoryThreshold
 operator|+
-literal|"], lowerMemoryThreshold["
+literal|"], lower_memory_threshold["
 operator|+
 name|lowerMemoryThreshold
 operator|+
-literal|"], translogNumberOfOperationsThreshold["
+literal|"], translog_number_of_operations_threshold["
 operator|+
 name|translogNumberOfOperationsThreshold
 operator|+

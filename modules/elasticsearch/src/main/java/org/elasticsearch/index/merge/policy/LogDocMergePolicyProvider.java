@@ -201,7 +201,7 @@ name|componentSettings
 operator|.
 name|getAsInt
 argument_list|(
-literal|"minMergeDocs"
+literal|"min_merge_docs"
 argument_list|,
 name|LogDocMergePolicy
 operator|.
@@ -216,7 +216,7 @@ name|componentSettings
 operator|.
 name|getAsInt
 argument_list|(
-literal|"maxMergeDocs"
+literal|"max_merge_docs"
 argument_list|,
 name|LogDocMergePolicy
 operator|.
@@ -231,7 +231,7 @@ name|componentSettings
 operator|.
 name|getAsInt
 argument_list|(
-literal|"mergeFactor"
+literal|"merge_factor"
 argument_list|,
 name|LogDocMergePolicy
 operator|.
@@ -246,7 +246,7 @@ name|componentSettings
 operator|.
 name|getAsBoolean
 argument_list|(
-literal|"calibrateSizeByDeletes"
+literal|"calibrate_size_by_deletes"
 argument_list|,
 literal|false
 argument_list|)
@@ -259,7 +259,7 @@ name|componentSettings
 operator|.
 name|getAsBoolean
 argument_list|(
-literal|"useCompoundFile"
+literal|"use_compound_file"
 argument_list|,
 name|store
 operator|==
@@ -275,7 +275,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Using [LogDoc] merge policy with mergeFactor[{}] minMergeDocs[{}], maxMergeDocs[{}], useCompoundFile[{}], calibrateSizeByDeletes[{}]"
+literal|"Using [LogDoc] merge policy with merge_factor[{}] min_merge_docs[{}], max_merge_docs[{}], use_compound_file[{}], calibrate_size_by_deletes[{}]"
 argument_list|,
 operator|new
 name|Object

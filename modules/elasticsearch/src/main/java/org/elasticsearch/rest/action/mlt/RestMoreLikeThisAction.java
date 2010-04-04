@@ -379,7 +379,7 @@ name|request
 operator|.
 name|paramAsStringArray
 argument_list|(
-literal|"mltFields"
+literal|"mlt_fields"
 argument_list|,
 literal|null
 argument_list|)
@@ -393,7 +393,7 @@ name|request
 operator|.
 name|paramAsFloat
 argument_list|(
-literal|"percentTermsToMatch"
+literal|"percent_terms_to_match"
 argument_list|,
 operator|-
 literal|1
@@ -402,13 +402,13 @@ argument_list|)
 expr_stmt|;
 name|mltRequest
 operator|.
-name|minTermFrequency
+name|minTermFreq
 argument_list|(
 name|request
 operator|.
 name|paramAsInt
 argument_list|(
-literal|"minTermFrequency"
+literal|"min_term_freq"
 argument_list|,
 operator|-
 literal|1
@@ -423,7 +423,7 @@ name|request
 operator|.
 name|paramAsInt
 argument_list|(
-literal|"maxQueryTerms"
+literal|"max_query_terms"
 argument_list|,
 operator|-
 literal|1
@@ -438,7 +438,7 @@ name|request
 operator|.
 name|paramAsStringArray
 argument_list|(
-literal|"stopWords"
+literal|"stop_words"
 argument_list|,
 literal|null
 argument_list|)
@@ -452,7 +452,7 @@ name|request
 operator|.
 name|paramAsInt
 argument_list|(
-literal|"minDocFreq"
+literal|"min_doc_freq"
 argument_list|,
 operator|-
 literal|1
@@ -467,7 +467,7 @@ name|request
 operator|.
 name|paramAsInt
 argument_list|(
-literal|"maxDocFreq"
+literal|"max_doc_freq"
 argument_list|,
 operator|-
 literal|1
@@ -482,7 +482,7 @@ name|request
 operator|.
 name|paramAsInt
 argument_list|(
-literal|"minWordLen"
+literal|"min_word_len"
 argument_list|,
 operator|-
 literal|1
@@ -497,7 +497,7 @@ name|request
 operator|.
 name|paramAsInt
 argument_list|(
-literal|"maxWordLen"
+literal|"max_word_len"
 argument_list|,
 operator|-
 literal|1
@@ -512,7 +512,7 @@ name|request
 operator|.
 name|paramAsBoolean
 argument_list|(
-literal|"boostTerms"
+literal|"boost_terms"
 argument_list|,
 literal|null
 argument_list|)
@@ -526,7 +526,7 @@ name|request
 operator|.
 name|paramAsFloat
 argument_list|(
-literal|"boostTermsFactor"
+literal|"boost_terms_factor"
 argument_list|,
 operator|-
 literal|1
@@ -543,7 +543,7 @@ name|request
 operator|.
 name|param
 argument_list|(
-literal|"searchType"
+literal|"search_type"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -556,7 +556,7 @@ name|request
 operator|.
 name|paramAsStringArray
 argument_list|(
-literal|"searchIndices"
+literal|"search_indices"
 argument_list|,
 literal|null
 argument_list|)
@@ -570,7 +570,7 @@ name|request
 operator|.
 name|paramAsStringArray
 argument_list|(
-literal|"searchTypes"
+literal|"search_types"
 argument_list|,
 literal|null
 argument_list|)
@@ -584,7 +584,7 @@ name|request
 operator|.
 name|param
 argument_list|(
-literal|"searchQueryHint"
+literal|"search_query_hint"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -595,7 +595,7 @@ name|request
 operator|.
 name|param
 argument_list|(
-literal|"searchScroll"
+literal|"search_scroll"
 argument_list|)
 decl_stmt|;
 if|if

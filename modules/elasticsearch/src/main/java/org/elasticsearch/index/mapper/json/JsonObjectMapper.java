@@ -3128,7 +3128,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"includeInAll"
+literal|"include_in_all"
 argument_list|,
 name|includeInAll
 argument_list|)
@@ -3147,7 +3147,7 @@ name|builder
 operator|.
 name|startArray
 argument_list|(
-literal|"dateFormats"
+literal|"date_formats"
 argument_list|)
 expr_stmt|;
 for|for

@@ -198,6 +198,15 @@ name|AbstractIndexComponent
 implements|implements
 name|JsonQueryParser
 block|{
+DECL|field|NAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|NAME
+init|=
+literal|"dis_max"
+decl_stmt|;
 DECL|method|DisMaxJsonQueryParser
 annotation|@
 name|Inject
@@ -230,7 +239,7 @@ name|name
 parameter_list|()
 block|{
 return|return
-literal|"disMax"
+name|NAME
 return|;
 block|}
 DECL|method|parse
@@ -445,7 +454,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"tieBreaker"
+literal|"tie_breaker"
 operator|.
 name|equals
 argument_list|(

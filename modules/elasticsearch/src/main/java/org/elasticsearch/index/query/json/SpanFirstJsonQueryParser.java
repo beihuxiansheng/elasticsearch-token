@@ -197,7 +197,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"spanFirst"
+literal|"span_first"
 decl_stmt|;
 DECL|method|SpanFirstJsonQueryParser
 annotation|@

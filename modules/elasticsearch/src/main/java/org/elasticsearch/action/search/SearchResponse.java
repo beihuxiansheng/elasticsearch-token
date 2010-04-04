@@ -482,7 +482,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"shardId"
+literal|"shard"
 argument_list|,
 name|shardFailure
 operator|.

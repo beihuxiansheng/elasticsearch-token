@@ -658,7 +658,7 @@ name|analyzerProviders
 operator|.
 name|containsKey
 argument_list|(
-literal|"defaultIndex"
+literal|"default_index"
 argument_list|)
 condition|)
 block|{
@@ -666,7 +666,7 @@ name|analyzerProviders
 operator|.
 name|put
 argument_list|(
-literal|"defaultIndex"
+literal|"default_index"
 argument_list|,
 name|analyzerProviders
 operator|.
@@ -684,7 +684,7 @@ name|analyzerProviders
 operator|.
 name|containsKey
 argument_list|(
-literal|"defaultSearch"
+literal|"default_search"
 argument_list|)
 condition|)
 block|{
@@ -692,7 +692,7 @@ name|analyzerProviders
 operator|.
 name|put
 argument_list|(
-literal|"defaultSearch"
+literal|"default_search"
 argument_list|,
 name|analyzerProviders
 operator|.

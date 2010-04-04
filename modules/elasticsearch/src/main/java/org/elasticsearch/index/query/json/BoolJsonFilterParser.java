@@ -378,7 +378,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"mustNot"
+literal|"must_not"
 operator|.
 name|equals
 argument_list|(
@@ -501,7 +501,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"mustNot"
+literal|"must_not"
 operator|.
 name|equals
 argument_list|(

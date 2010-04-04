@@ -548,7 +548,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"enablePositionIncrements"
+literal|"enable_position_increments"
 operator|.
 name|equals
 argument_list|(
@@ -574,7 +574,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"lowercaseExpandedTerms"
+literal|"lowercase_expanded_terms"
 operator|.
 name|equals
 argument_list|(
@@ -600,7 +600,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"phraseSlop"
+literal|"phrase_slop"
 operator|.
 name|equals
 argument_list|(
@@ -648,7 +648,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"defaultOperator"
+literal|"default_operator"
 operator|.
 name|equals
 argument_list|(
@@ -723,7 +723,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"fuzzyMinSim"
+literal|"fuzzy_min_sim"
 operator|.
 name|equals
 argument_list|(
@@ -747,7 +747,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"fuzzyPrefixLength"
+literal|"fuzzy_prefix_length"
 operator|.
 name|equals
 argument_list|(
@@ -845,7 +845,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"enablePositionIncrements"
+literal|"enable_position_increments"
 operator|.
 name|equals
 argument_list|(
@@ -866,7 +866,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"lowercaseExpandedTerms"
+literal|"lowercase_expanded_terms"
 operator|.
 name|equals
 argument_list|(
@@ -887,7 +887,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"phraseSlop"
+literal|"phrase_slop"
 operator|.
 name|equals
 argument_list|(
@@ -906,7 +906,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"fuzzyMinSim"
+literal|"fuzzy_min_sim"
 operator|.
 name|equals
 argument_list|(
@@ -925,7 +925,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"fuzzyPrefixLength"
+literal|"fuzzy_prefix_length"
 operator|.
 name|equals
 argument_list|(
@@ -1013,7 +1013,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"fuzzyPrefixLength"
+literal|"fuzzy_prefix_length"
 operator|.
 name|equals
 argument_list|(
@@ -1061,7 +1061,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"enablePositionIncrements"
+literal|"enable_position_increments"
 operator|.
 name|equals
 argument_list|(
@@ -1077,7 +1077,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"lowercaseExpandedTerms"
+literal|"lowercase_expanded_terms"
 operator|.
 name|equals
 argument_list|(
@@ -1138,7 +1138,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"enablePositionIncrements"
+literal|"enable_position_increments"
 operator|.
 name|equals
 argument_list|(
@@ -1154,7 +1154,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"lowercaseExpandedTerms"
+literal|"lowercase_expanded_terms"
 operator|.
 name|equals
 argument_list|(

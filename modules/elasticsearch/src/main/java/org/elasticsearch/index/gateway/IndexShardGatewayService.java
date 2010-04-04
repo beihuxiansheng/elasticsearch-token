@@ -466,7 +466,7 @@ name|componentSettings
 operator|.
 name|getAsBoolean
 argument_list|(
-literal|"snapshotOnClose"
+literal|"snapshot_on_close"
 argument_list|,
 literal|true
 argument_list|)
@@ -479,7 +479,7 @@ name|componentSettings
 operator|.
 name|getAsTime
 argument_list|(
-literal|"snapshotInterval"
+literal|"snapshot_interval"
 argument_list|,
 name|TimeValue
 operator|.

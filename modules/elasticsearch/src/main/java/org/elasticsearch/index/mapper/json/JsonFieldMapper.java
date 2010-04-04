@@ -1818,7 +1818,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"indexName"
+literal|"index_name"
 argument_list|,
 name|names
 operator|.
@@ -1860,7 +1860,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"termVector"
+literal|"term_vector"
 argument_list|,
 name|termVector
 operator|.
@@ -1884,7 +1884,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"omitNorms"
+literal|"omit_norms"
 argument_list|,
 name|omitNorms
 argument_list|)
@@ -1893,7 +1893,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"omitTermFreqAndPositions"
+literal|"omit_term_freq_and_positions"
 argument_list|,
 name|omitTermFreqAndPositions
 argument_list|)
@@ -1920,7 +1920,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"indexAnalyzer"
+literal|"index_analyzer"
 argument_list|,
 name|indexAnalyzer
 operator|.
@@ -1951,7 +1951,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"searchAnalyzer"
+literal|"search_analyzer"
 argument_list|,
 name|searchAnalyzer
 operator|.

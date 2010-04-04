@@ -462,7 +462,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"includeLower"
+literal|"include_lower"
 argument_list|,
 name|includeLower
 argument_list|)
@@ -471,7 +471,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"includeUpper"
+literal|"include_upper"
 argument_list|,
 name|includeUpper
 argument_list|)

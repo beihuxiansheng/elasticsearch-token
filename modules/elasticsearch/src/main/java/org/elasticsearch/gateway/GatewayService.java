@@ -427,7 +427,7 @@ name|componentSettings
 operator|.
 name|getAsTime
 argument_list|(
-literal|"initialStateTimeout"
+literal|"initial_state_timeout"
 argument_list|,
 name|TimeValue
 operator|.

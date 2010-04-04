@@ -288,7 +288,7 @@ name|componentSettings
 operator|.
 name|getAsBoolean
 argument_list|(
-literal|"syncToDisk"
+literal|"sync_to_disk"
 argument_list|,
 literal|false
 argument_list|)

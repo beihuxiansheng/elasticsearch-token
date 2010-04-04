@@ -351,7 +351,7 @@ name|request
 operator|.
 name|paramAsBoolean
 argument_list|(
-literal|"filterCache"
+literal|"filter_cache"
 argument_list|,
 name|clearIndicesCacheRequest
 operator|.

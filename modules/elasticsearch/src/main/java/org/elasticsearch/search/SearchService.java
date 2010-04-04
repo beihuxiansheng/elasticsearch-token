@@ -748,7 +748,7 @@ name|componentSettings
 operator|.
 name|getAsTime
 argument_list|(
-literal|"defaultKeepAlive"
+literal|"default_keep_alive"
 argument_list|,
 name|timeValueMinutes
 argument_list|(

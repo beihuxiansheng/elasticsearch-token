@@ -288,7 +288,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"likeText"
+literal|"like_text"
 argument_list|,
 name|likeText
 argument_list|)
@@ -304,7 +304,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"maxNumTerms"
+literal|"max_num_terms"
 argument_list|,
 name|maxNumTerms
 argument_list|)
@@ -321,7 +321,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"minSimilarity"
+literal|"min_similarity"
 argument_list|,
 name|minSimilarity
 argument_list|)
@@ -338,7 +338,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"prefixLength"
+literal|"prefix_length"
 argument_list|,
 name|prefixLength
 argument_list|)
@@ -355,7 +355,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"ignoreTF"
+literal|"ignore_tf"
 argument_list|,
 name|ignoreTF
 argument_list|)

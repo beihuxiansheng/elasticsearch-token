@@ -251,7 +251,7 @@ name|componentSettings
 operator|.
 name|getAsSize
 argument_list|(
-literal|"minMergeSize"
+literal|"min_merge_size"
 argument_list|,
 operator|new
 name|SizeValue
@@ -281,7 +281,7 @@ name|componentSettings
 operator|.
 name|getAsSize
 argument_list|(
-literal|"maxMergeSize"
+literal|"max_merge_size"
 argument_list|,
 operator|new
 name|SizeValue
@@ -307,7 +307,7 @@ name|componentSettings
 operator|.
 name|getAsInt
 argument_list|(
-literal|"mergeFactor"
+literal|"merge_factor"
 argument_list|,
 name|LogByteSizeMergePolicy
 operator|.
@@ -322,7 +322,7 @@ name|componentSettings
 operator|.
 name|getAsInt
 argument_list|(
-literal|"maxMergeDocs"
+literal|"max_merge_docs"
 argument_list|,
 name|LogByteSizeMergePolicy
 operator|.
@@ -337,7 +337,7 @@ name|componentSettings
 operator|.
 name|getAsInt
 argument_list|(
-literal|"numLargeSegments"
+literal|"num_large_segments"
 argument_list|,
 name|BalancedSegmentMergePolicy
 operator|.
@@ -352,7 +352,7 @@ name|componentSettings
 operator|.
 name|getAsInt
 argument_list|(
-literal|"maxSmallSegments"
+literal|"max_small_segments"
 argument_list|,
 literal|2
 operator|*
@@ -369,7 +369,7 @@ name|componentSettings
 operator|.
 name|getAsBoolean
 argument_list|(
-literal|"useCompoundFile"
+literal|"use_compound_file"
 argument_list|,
 name|store
 operator|==
@@ -385,7 +385,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Using [Balanced] merge policy with mergeFactor[{}], minMergeSize[{}], maxMergeSize[{}], maxMergeDocs[{}] useCompoundFile[{}]"
+literal|"Using [Balanced] merge policy with merge_factor[{}], min_merge_size[{}], max_merge_size[{}], max_merge_docs[{}] use_compound_file[{}]"
 argument_list|,
 operator|new
 name|Object

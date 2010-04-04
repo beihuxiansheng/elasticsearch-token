@@ -14,6 +14,56 @@ name|util
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|testng
+operator|.
+name|annotations
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|Strings
+operator|.
+name|*
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|MatcherAssert
+operator|.
+name|*
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|*
+import|;
+end_import
+
 begin_comment
 comment|/**  * Tests for {@link Strings}.  *  * @author kimchy (Shay Banon)  */
 end_comment
@@ -24,6 +74,50 @@ specifier|public
 class|class
 name|StringsTests
 block|{
+DECL|method|testCamelCase
+annotation|@
+name|Test
+specifier|public
+name|void
+name|testCamelCase
+parameter_list|()
+block|{
+name|assertThat
+argument_list|(
+name|toCamelCase
+argument_list|(
+literal|"test_value"
+argument_list|)
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"testValue"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testUnderscoreCase
+annotation|@
+name|Test
+specifier|public
+name|void
+name|testUnderscoreCase
+parameter_list|()
+block|{
+name|assertThat
+argument_list|(
+name|toUnderscoreCase
+argument_list|(
+literal|"testValue"
+argument_list|)
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"test_value"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 comment|//    @Test public void testHasTextBlank() throws Exception {
 comment|//        String blank = "          ";
 comment|//        assertEquals(false, Strings.hasText(blank));

@@ -585,7 +585,7 @@ name|componentSettings
 operator|.
 name|get
 argument_list|(
-literal|"dynamicMappingLocation"
+literal|"dynamic_mapping_location"
 argument_list|)
 decl_stmt|;
 name|URL

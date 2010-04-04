@@ -387,7 +387,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"maxNumberOfShardsPerNode"
+literal|"max_number_of_shards_per_node"
 argument_list|,
 name|state
 operator|.
@@ -556,7 +556,7 @@ name|builder
 operator|.
 name|startObject
 argument_list|(
-literal|"routingTable"
+literal|"routing_table"
 argument_list|)
 expr_stmt|;
 name|builder
@@ -668,7 +668,7 @@ name|builder
 operator|.
 name|startObject
 argument_list|(
-literal|"routingNodes"
+literal|"routing_nodes"
 argument_list|)
 expr_stmt|;
 name|builder
@@ -843,7 +843,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"nodeId"
+literal|"node"
 argument_list|,
 name|shardRouting
 operator|.
@@ -853,7 +853,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"relocatingNodeId"
+literal|"relocating_node"
 argument_list|,
 name|shardRouting
 operator|.
@@ -863,7 +863,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"shardId"
+literal|"shard"
 argument_list|,
 name|shardRouting
 operator|.

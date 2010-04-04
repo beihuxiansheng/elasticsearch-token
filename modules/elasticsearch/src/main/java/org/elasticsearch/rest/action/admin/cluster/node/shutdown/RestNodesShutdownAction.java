@@ -363,7 +363,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"clusterName"
+literal|"cluster_name"
 argument_list|,
 name|result
 operator|.

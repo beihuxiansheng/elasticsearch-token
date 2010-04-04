@@ -235,7 +235,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"spanNear"
+literal|"span_near"
 decl_stmt|;
 DECL|method|SpanNearJsonQueryParser
 annotation|@
@@ -455,7 +455,7 @@ condition|)
 block|{
 if|if
 condition|(
-literal|"inOrder"
+literal|"in_order"
 operator|.
 name|equals
 argument_list|(
@@ -481,7 +481,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"collectPayloads"
+literal|"collect_payloads"
 operator|.
 name|equals
 argument_list|(
@@ -571,7 +571,7 @@ condition|)
 block|{
 if|if
 condition|(
-literal|"inOrder"
+literal|"in_order"
 operator|.
 name|equals
 argument_list|(
@@ -591,7 +591,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"collectPayloads"
+literal|"collect_payloads"
 operator|.
 name|equals
 argument_list|(
@@ -621,7 +621,7 @@ condition|)
 block|{
 if|if
 condition|(
-literal|"inOrder"
+literal|"in_order"
 operator|.
 name|equals
 argument_list|(
@@ -642,7 +642,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"collectPayloads"
+literal|"collect_payloads"
 operator|.
 name|equals
 argument_list|(
@@ -743,7 +743,7 @@ name|QueryParsingException
 argument_list|(
 name|index
 argument_list|,
-literal|"spanNear must include [clauses]"
+literal|"span_near must include [clauses]"
 argument_list|)
 throw|;
 block|}
@@ -761,7 +761,7 @@ name|QueryParsingException
 argument_list|(
 name|index
 argument_list|,
-literal|"spanNear must include [slop]"
+literal|"span_near must include [slop]"
 argument_list|)
 throw|;
 block|}

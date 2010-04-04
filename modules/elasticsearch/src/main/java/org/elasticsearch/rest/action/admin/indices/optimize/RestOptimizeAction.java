@@ -345,7 +345,7 @@ name|request
 operator|.
 name|paramAsBoolean
 argument_list|(
-literal|"waitForMerge"
+literal|"wait_for_merge"
 argument_list|,
 name|optimizeRequest
 operator|.
@@ -362,7 +362,7 @@ name|request
 operator|.
 name|paramAsInt
 argument_list|(
-literal|"maxNumSegments"
+literal|"max_num_segments"
 argument_list|,
 name|optimizeRequest
 operator|.
@@ -379,7 +379,7 @@ name|request
 operator|.
 name|paramAsBoolean
 argument_list|(
-literal|"onlyExpungeDeletes"
+literal|"only_expunge_deletes"
 argument_list|,
 name|optimizeRequest
 operator|.
@@ -441,7 +441,7 @@ name|request
 operator|.
 name|param
 argument_list|(
-literal|"operationThreading"
+literal|"operation_threading"
 argument_list|)
 argument_list|,
 name|BroadcastOperationThreading

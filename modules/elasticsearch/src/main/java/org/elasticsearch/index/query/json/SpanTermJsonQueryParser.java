@@ -227,7 +227,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"spanTerm"
+literal|"span_term"
 decl_stmt|;
 DECL|method|SpanTermJsonQueryParser
 annotation|@

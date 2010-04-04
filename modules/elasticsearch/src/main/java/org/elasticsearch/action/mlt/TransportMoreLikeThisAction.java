@@ -1511,11 +1511,11 @@ name|maxWordLen
 argument_list|()
 argument_list|)
 operator|.
-name|minTermFrequency
+name|minTermFreq
 argument_list|(
 name|request
 operator|.
-name|minTermFrequency
+name|minTermFreq
 argument_list|()
 argument_list|)
 operator|.

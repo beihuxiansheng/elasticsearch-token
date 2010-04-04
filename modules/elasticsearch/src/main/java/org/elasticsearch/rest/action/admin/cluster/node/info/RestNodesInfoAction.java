@@ -389,7 +389,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"clusterName"
+literal|"cluster_name"
 argument_list|,
 name|result
 operator|.
@@ -447,7 +447,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"transportAddress"
+literal|"transport_address"
 argument_list|,
 name|nodeInfo
 operator|.
@@ -465,7 +465,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"dataNode"
+literal|"data_node"
 argument_list|,
 name|nodeInfo
 operator|.

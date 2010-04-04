@@ -289,7 +289,7 @@ name|componentSettings
 operator|.
 name|getAsTime
 argument_list|(
-literal|"tickDuration"
+literal|"tick_duration"
 argument_list|,
 name|timeValueMillis
 argument_list|(

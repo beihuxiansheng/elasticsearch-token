@@ -119,7 +119,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<pre>  * highlight : {  *  tagsSchema : "styled",  *  preTags : ["tag1", "tag2"],  *  postTags : ["tag1", "tag2"],  *  order : "score",  *  fields : {  *      field1 : {  }  *      field2 : { fragmentSize : 100, numOfFragments : 2 }  *  }  * }  *</pre>  *  * @author kimchy (shay.banon)  */
+comment|/**  *<pre>  * highlight : {  *  tags_schema : "styled",  *  pre_Tags : ["tag1", "tag2"],  *  post_tags : ["tag1", "tag2"],  *  order : "score",  *  fields : {  *      field1 : {  }  *      field2 : { fragment_size : 100, num_of_fragments : 2 }  *  }  * }  *</pre>  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -299,7 +299,7 @@ condition|)
 block|{
 if|if
 condition|(
-literal|"preTags"
+literal|"pre_tags"
 operator|.
 name|equals
 argument_list|(
@@ -365,7 +365,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"postTags"
+literal|"post_tags"
 operator|.
 name|equals
 argument_list|(
@@ -478,7 +478,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"tagsSchema"
+literal|"tags_schema"
 operator|.
 name|equals
 argument_list|(
@@ -643,7 +643,7 @@ condition|)
 block|{
 if|if
 condition|(
-literal|"fragmentSize"
+literal|"fragment_size"
 operator|.
 name|equals
 argument_list|(
@@ -667,7 +667,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"numberOfFragments"
+literal|"number_of_fragments"
 operator|.
 name|equals
 argument_list|(
@@ -701,7 +701,7 @@ condition|)
 block|{
 if|if
 condition|(
-literal|"fragmentSize"
+literal|"fragment_size"
 operator|.
 name|equals
 argument_list|(
@@ -720,7 +720,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"numberOfFragments"
+literal|"number_of_fragments"
 operator|.
 name|equals
 argument_list|(

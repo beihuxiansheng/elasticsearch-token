@@ -306,7 +306,7 @@ name|componentSettings
 operator|.
 name|getAsTime
 argument_list|(
-literal|"readerCleanerSchedule"
+literal|"reader_cleaner_schedule"
 argument_list|,
 name|TimeValue
 operator|.

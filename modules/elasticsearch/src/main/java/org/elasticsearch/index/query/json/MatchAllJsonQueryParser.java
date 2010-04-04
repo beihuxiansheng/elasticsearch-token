@@ -159,7 +159,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -179,7 +179,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"matchAll"
+literal|"match_all"
 decl_stmt|;
 DECL|method|MatchAllJsonQueryParser
 annotation|@
@@ -326,7 +326,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"normsField"
+literal|"norms_field"
 operator|.
 name|equals
 argument_list|(

@@ -328,7 +328,7 @@ name|request
 operator|.
 name|param
 argument_list|(
-literal|"operationThreading"
+literal|"operation_threading"
 argument_list|)
 argument_list|,
 name|BroadcastOperationThreading
@@ -536,14 +536,14 @@ name|builder
 operator|.
 name|nullField
 argument_list|(
-literal|"storeSize"
+literal|"store_size"
 argument_list|)
 expr_stmt|;
 name|builder
 operator|.
 name|nullField
 argument_list|(
-literal|"storeSizeInBytes"
+literal|"store_size_in_bytes"
 argument_list|)
 expr_stmt|;
 block|}
@@ -553,7 +553,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"storeSize"
+literal|"store_size"
 argument_list|,
 name|indexStatus
 operator|.
@@ -568,7 +568,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"storeSizeInBytes"
+literal|"store_size_in_bytes"
 argument_list|,
 name|indexStatus
 operator|.
@@ -594,14 +594,14 @@ name|builder
 operator|.
 name|nullField
 argument_list|(
-literal|"estimatedFlushableMemorySize"
+literal|"estimated_flushable_memory_size"
 argument_list|)
 expr_stmt|;
 name|builder
 operator|.
 name|nullField
 argument_list|(
-literal|"estimatedFlushableMemorySizeInBytes"
+literal|"estimated_flushable_Memory_size_in_bytes"
 argument_list|)
 expr_stmt|;
 block|}
@@ -611,7 +611,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"estimatedFlushableMemorySize"
+literal|"estimated_flushable_memory_size"
 argument_list|,
 name|indexStatus
 operator|.
@@ -626,7 +626,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"estimatedFlushableMemorySizeInBytes"
+literal|"estimated_flushable_Memory_size_in_bytes"
 argument_list|,
 name|indexStatus
 operator|.
@@ -642,7 +642,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"translogOperations"
+literal|"translog_operations"
 argument_list|,
 name|indexStatus
 operator|.
@@ -661,7 +661,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"numDocs"
+literal|"num_docs"
 argument_list|,
 name|indexStatus
 operator|.
@@ -676,7 +676,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"maxDoc"
+literal|"max_doc"
 argument_list|,
 name|indexStatus
 operator|.
@@ -691,7 +691,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"deletedDocs"
+literal|"deleted_docs"
 argument_list|,
 name|indexStatus
 operator|.
@@ -788,7 +788,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"nodeId"
+literal|"node"
 argument_list|,
 name|shardStatus
 operator|.
@@ -801,7 +801,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"relocatingNodeId"
+literal|"relocating_node"
 argument_list|,
 name|shardStatus
 operator|.
@@ -814,7 +814,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"shardId"
+literal|"shard"
 argument_list|,
 name|shardStatus
 operator|.
@@ -876,14 +876,14 @@ name|builder
 operator|.
 name|nullField
 argument_list|(
-literal|"storeSize"
+literal|"store_size"
 argument_list|)
 expr_stmt|;
 name|builder
 operator|.
 name|nullField
 argument_list|(
-literal|"storeSizeInBytes"
+literal|"store_size_in_bytes"
 argument_list|)
 expr_stmt|;
 block|}
@@ -893,7 +893,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"storeSize"
+literal|"store_size"
 argument_list|,
 name|shardStatus
 operator|.
@@ -908,7 +908,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"storeSizeInBytes"
+literal|"store_size_in_bytes"
 argument_list|,
 name|shardStatus
 operator|.
@@ -934,14 +934,14 @@ name|builder
 operator|.
 name|nullField
 argument_list|(
-literal|"estimatedFlushableMemorySize"
+literal|"estimated_flushable_memory_size"
 argument_list|)
 expr_stmt|;
 name|builder
 operator|.
 name|nullField
 argument_list|(
-literal|"estimatedFlushableMemorySizeInBytes"
+literal|"estimated_flushable_memory_size_in_bytes"
 argument_list|)
 expr_stmt|;
 block|}
@@ -951,7 +951,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"estimatedFlushableMemorySize"
+literal|"estimated_flushable_memory_size"
 argument_list|,
 name|shardStatus
 operator|.
@@ -966,7 +966,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"estimatedFlushableMemorySizeInBytes"
+literal|"estimated_flushable_memory_size_in_bytes"
 argument_list|,
 name|shardStatus
 operator|.
@@ -982,7 +982,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"translogId"
+literal|"translog_id"
 argument_list|,
 name|shardStatus
 operator|.
@@ -994,7 +994,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"translogOperations"
+literal|"translog_operations"
 argument_list|,
 name|shardStatus
 operator|.
@@ -1013,7 +1013,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"numDocs"
+literal|"num_docs"
 argument_list|,
 name|shardStatus
 operator|.
@@ -1028,7 +1028,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"maxDoc"
+literal|"max_doc"
 argument_list|,
 name|shardStatus
 operator|.
@@ -1043,7 +1043,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"deletedDocs"
+literal|"deleted_docs"
 argument_list|,
 name|shardStatus
 operator|.

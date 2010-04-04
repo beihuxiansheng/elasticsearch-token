@@ -363,7 +363,7 @@ name|request
 operator|.
 name|param
 argument_list|(
-literal|"queryParserName"
+literal|"query_parser_name"
 argument_list|)
 argument_list|)
 expr_stmt|;

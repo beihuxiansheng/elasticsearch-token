@@ -181,7 +181,7 @@ name|request
 operator|.
 name|paramAsBoolean
 argument_list|(
-literal|"errorTrace"
+literal|"error_trace"
 argument_list|,
 literal|false
 argument_list|)
@@ -191,7 +191,7 @@ name|builder
 operator|.
 name|startObject
 argument_list|(
-literal|"errorTrace"
+literal|"error_trace"
 argument_list|)
 expr_stmt|;
 name|boolean
@@ -313,7 +313,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"className"
+literal|"class"
 argument_list|,
 name|stElement
 operator|.
@@ -323,7 +323,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"methodName"
+literal|"method"
 argument_list|,
 name|stElement
 operator|.
@@ -345,7 +345,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"fileName"
+literal|"file"
 argument_list|,
 name|stElement
 operator|.
@@ -368,7 +368,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"lineNumber"
+literal|"line"
 argument_list|,
 name|stElement
 operator|.

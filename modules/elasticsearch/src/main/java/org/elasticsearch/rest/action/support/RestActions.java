@@ -345,7 +345,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"shardId"
+literal|"shard"
 argument_list|,
 name|shardFailure
 operator|.
@@ -581,7 +581,7 @@ name|request
 operator|.
 name|param
 argument_list|(
-literal|"defaultOperator"
+literal|"default_operator"
 argument_list|)
 decl_stmt|;
 if|if

@@ -267,7 +267,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"mustNot"
+literal|"must_not"
 argument_list|)
 expr_stmt|;
 name|clause

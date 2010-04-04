@@ -108,7 +108,7 @@ specifier|final
 name|String
 name|GLOBAL_NETWORK_BINDHOST_SETTING
 init|=
-literal|"network.bindHost"
+literal|"network.bind_host"
 decl_stmt|;
 DECL|field|GLOBAL_NETWORK_PUBLISHHOST_SETTING
 specifier|public
@@ -117,7 +117,7 @@ specifier|final
 name|String
 name|GLOBAL_NETWORK_PUBLISHHOST_SETTING
 init|=
-literal|"network.publishHost"
+literal|"network.publish_host"
 decl_stmt|;
 DECL|field|LOCAL_IP
 specifier|public

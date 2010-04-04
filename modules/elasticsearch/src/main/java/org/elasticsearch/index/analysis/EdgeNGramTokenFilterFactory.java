@@ -218,7 +218,7 @@ name|settings
 operator|.
 name|getAsInt
 argument_list|(
-literal|"minGram"
+literal|"min_gram"
 argument_list|,
 name|NGramTokenFilter
 operator|.
@@ -233,7 +233,7 @@ name|settings
 operator|.
 name|getAsInt
 argument_list|(
-literal|"maxGram"
+literal|"max_gram"
 argument_list|,
 name|NGramTokenFilter
 operator|.

@@ -223,7 +223,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"spanOr"
+literal|"span_or"
 decl_stmt|;
 DECL|method|SpanOrJsonQueryParser
 annotation|@

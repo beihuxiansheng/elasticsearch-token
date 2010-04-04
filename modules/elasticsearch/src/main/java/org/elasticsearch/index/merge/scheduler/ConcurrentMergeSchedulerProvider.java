@@ -180,7 +180,7 @@ name|componentSettings
 operator|.
 name|getAsInt
 argument_list|(
-literal|"maxThreadCount"
+literal|"max_thread_count"
 argument_list|,
 literal|1
 argument_list|)
@@ -189,7 +189,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Using [concurrent] merge scheduler with maxThreadCount[{}]"
+literal|"Using [concurrent] merge scheduler with max_thread_count[{}]"
 argument_list|,
 name|maxThreadCount
 argument_list|)

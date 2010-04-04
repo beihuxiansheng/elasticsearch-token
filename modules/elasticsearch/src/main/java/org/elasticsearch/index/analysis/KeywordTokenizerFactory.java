@@ -178,7 +178,7 @@ name|settings
 operator|.
 name|getAsInt
 argument_list|(
-literal|"bufferSize"
+literal|"buffer_size"
 argument_list|,
 literal|256
 argument_list|)

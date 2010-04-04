@@ -205,7 +205,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<pre>  * {  *  fuzzyLikeThisField : {  *      field1 : {  *          maxNumTerms : 12,  *          boost : 1.1,  *          likeText : "..."  *      }  * }  *</pre>  *  * @author kimchy (shay.banon)  */
+comment|/**  *<pre>  * {  *  fuzzy_like_This_field : {  *      field1 : {  *          maxNumTerms : 12,  *          boost : 1.1,  *          likeText : "..."  *      }  * }  *</pre>  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -225,7 +225,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"fuzzyLikeThisField"
+literal|"fuzzy_like_this_field"
 decl_stmt|;
 DECL|method|FuzzyLikeThisFieldJsonQueryParser
 specifier|public
@@ -401,7 +401,7 @@ condition|)
 block|{
 if|if
 condition|(
-literal|"likeText"
+literal|"like_text"
 operator|.
 name|equals
 argument_list|(
@@ -420,7 +420,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"maxNumTerms"
+literal|"max_num_terms"
 operator|.
 name|equals
 argument_list|(
@@ -468,7 +468,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"ignoreTF"
+literal|"ignore_tf"
 operator|.
 name|equals
 argument_list|(
@@ -504,7 +504,7 @@ condition|)
 block|{
 if|if
 condition|(
-literal|"maxNumTerms"
+literal|"max_num_terms"
 operator|.
 name|equals
 argument_list|(
@@ -542,7 +542,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"ignoreTF"
+literal|"ignore_tf"
 operator|.
 name|equals
 argument_list|(
@@ -573,7 +573,7 @@ condition|)
 block|{
 if|if
 condition|(
-literal|"ignoreTF"
+literal|"ignore_tf"
 operator|.
 name|equals
 argument_list|(
@@ -630,7 +630,7 @@ name|QueryParsingException
 argument_list|(
 name|index
 argument_list|,
-literal|"fuzzyLikeThisField requires 'likeText' to be specified"
+literal|"fuzzy_like_This_field requires 'likeText' to be specified"
 argument_list|)
 throw|;
 block|}

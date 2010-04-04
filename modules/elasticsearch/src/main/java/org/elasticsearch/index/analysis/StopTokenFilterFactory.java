@@ -298,7 +298,7 @@ name|settings
 operator|.
 name|getAsBoolean
 argument_list|(
-literal|"enablePositionIncrements"
+literal|"enable_position_increments"
 argument_list|,
 literal|true
 argument_list|)
@@ -311,7 +311,7 @@ name|settings
 operator|.
 name|getAsBoolean
 argument_list|(
-literal|"ignoreCase"
+literal|"ignore_case"
 argument_list|,
 literal|false
 argument_list|)

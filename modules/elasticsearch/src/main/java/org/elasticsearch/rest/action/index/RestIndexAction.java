@@ -311,7 +311,7 @@ name|request
 operator|.
 name|param
 argument_list|(
-literal|"opType"
+literal|"op_type"
 argument_list|)
 decl_stmt|;
 if|if

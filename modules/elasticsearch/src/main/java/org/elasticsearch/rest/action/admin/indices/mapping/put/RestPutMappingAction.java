@@ -433,7 +433,7 @@ name|request
 operator|.
 name|paramAsBoolean
 argument_list|(
-literal|"ignoreConflicts"
+literal|"ignore_conflicts"
 argument_list|,
 name|putMappingRequest
 operator|.

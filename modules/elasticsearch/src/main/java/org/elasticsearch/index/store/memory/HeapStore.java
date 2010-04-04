@@ -180,7 +180,7 @@ name|componentSettings
 operator|.
 name|getAsSize
 argument_list|(
-literal|"bufferSize"
+literal|"buffer_size"
 argument_list|,
 operator|new
 name|SizeValue
@@ -201,7 +201,7 @@ name|componentSettings
 operator|.
 name|getAsSize
 argument_list|(
-literal|"cacheSize"
+literal|"cache_size"
 argument_list|,
 operator|new
 name|SizeValue
@@ -222,7 +222,7 @@ name|componentSettings
 operator|.
 name|getAsBoolean
 argument_list|(
-literal|"warmCache"
+literal|"warm_cache"
 argument_list|,
 literal|true
 argument_list|)
@@ -245,7 +245,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Using [Memory] Store with bufferSize[{}], cacheSize[{}], warmCache[{}]"
+literal|"Using [Memory] Store with buffer_size[{}], cache_size[{}], warm_cache[{}]"
 argument_list|,
 operator|new
 name|Object

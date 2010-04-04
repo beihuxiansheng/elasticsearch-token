@@ -328,7 +328,7 @@ name|request
 operator|.
 name|param
 argument_list|(
-literal|"scrollId"
+literal|"scroll_id"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -386,7 +386,7 @@ name|request
 operator|.
 name|param
 argument_list|(
-literal|"operationThreading"
+literal|"operation_threading"
 argument_list|)
 argument_list|,
 name|SearchOperationThreading

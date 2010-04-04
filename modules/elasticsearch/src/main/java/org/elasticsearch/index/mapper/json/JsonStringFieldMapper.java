@@ -872,7 +872,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"nullValue"
+literal|"null_value"
 argument_list|,
 name|nullValue
 argument_list|)
@@ -889,7 +889,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"includeInAll"
+literal|"include_in_all"
 argument_list|,
 name|includeInAll
 argument_list|)

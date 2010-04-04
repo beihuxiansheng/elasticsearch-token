@@ -188,7 +188,9 @@ name|builder
 operator|.
 name|startObject
 argument_list|(
-literal|"disMax"
+name|DisMaxJsonQueryParser
+operator|.
+name|NAME
 argument_list|)
 expr_stmt|;
 if|if
@@ -203,7 +205,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"tieBreaker"
+literal|"tie_breaker"
 argument_list|,
 name|tieBreaker
 argument_list|)

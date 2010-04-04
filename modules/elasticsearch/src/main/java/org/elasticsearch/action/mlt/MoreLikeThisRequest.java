@@ -237,10 +237,10 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-DECL|field|minTermFrequency
+DECL|field|minTermFreq
 specifier|private
 name|int
-name|minTermFrequency
+name|minTermFreq
 init|=
 operator|-
 literal|1
@@ -533,36 +533,36 @@ name|percentTermsToMatch
 return|;
 block|}
 comment|/**      * The frequency below which terms will be ignored in the source doc. Defaults to<tt>2</tt>.      */
-DECL|method|minTermFrequency
+DECL|method|minTermFreq
 specifier|public
 name|MoreLikeThisRequest
-name|minTermFrequency
+name|minTermFreq
 parameter_list|(
 name|int
-name|minTermFrequency
+name|minTermFreq
 parameter_list|)
 block|{
 name|this
 operator|.
-name|minTermFrequency
+name|minTermFreq
 operator|=
-name|minTermFrequency
+name|minTermFreq
 expr_stmt|;
 return|return
 name|this
 return|;
 block|}
 comment|/**      * The frequency below which terms will be ignored in the source doc. Defaults to<tt>2</tt>.      */
-DECL|method|minTermFrequency
+DECL|method|minTermFreq
 specifier|public
 name|int
-name|minTermFrequency
+name|minTermFreq
 parameter_list|()
 block|{
 return|return
 name|this
 operator|.
-name|minTermFrequency
+name|minTermFreq
 return|;
 block|}
 comment|/**      * The maximum number of query terms that will be included in any generated query. Defaults to<tt>25</tt>.      */
@@ -1287,7 +1287,7 @@ operator|.
 name|readFloat
 argument_list|()
 expr_stmt|;
-name|minTermFrequency
+name|minTermFreq
 operator|=
 name|in
 operator|.
@@ -1726,7 +1726,7 @@ name|out
 operator|.
 name|writeVInt
 argument_list|(
-name|minTermFrequency
+name|minTermFreq
 argument_list|)
 expr_stmt|;
 name|out

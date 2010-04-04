@@ -368,7 +368,7 @@ name|componentSettings
 operator|.
 name|getAsSize
 argument_list|(
-literal|"cache.bufferSize"
+literal|"cache.buffer_size"
 argument_list|,
 operator|new
 name|SizeValue
@@ -388,7 +388,7 @@ name|componentSettings
 operator|.
 name|getAsSize
 argument_list|(
-literal|"cache.cacheSize"
+literal|"cache.cache_size"
 argument_list|,
 operator|new
 name|SizeValue
@@ -420,7 +420,7 @@ name|componentSettings
 operator|.
 name|getAsBoolean
 argument_list|(
-literal|"cache.warmCache"
+literal|"cache.warm_cache"
 argument_list|,
 literal|true
 argument_list|)

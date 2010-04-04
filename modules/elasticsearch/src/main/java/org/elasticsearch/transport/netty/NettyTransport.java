@@ -883,7 +883,7 @@ name|componentSettings
 operator|.
 name|getAsInt
 argument_list|(
-literal|"workerCount"
+literal|"worker_count"
 argument_list|,
 name|Runtime
 operator|.
@@ -915,7 +915,7 @@ name|componentSettings
 operator|.
 name|get
 argument_list|(
-literal|"bindHost"
+literal|"bind_host"
 argument_list|)
 expr_stmt|;
 name|this
@@ -926,7 +926,7 @@ name|componentSettings
 operator|.
 name|getAsInt
 argument_list|(
-literal|"connectionsPerNode"
+literal|"connections_per_node"
 argument_list|,
 literal|5
 argument_list|)
@@ -939,7 +939,7 @@ name|componentSettings
 operator|.
 name|get
 argument_list|(
-literal|"publishHost"
+literal|"publish_host"
 argument_list|)
 expr_stmt|;
 name|this
@@ -950,7 +950,7 @@ name|componentSettings
 operator|.
 name|getAsTime
 argument_list|(
-literal|"connectTimeout"
+literal|"connect_timeout"
 argument_list|,
 name|timeValueSeconds
 argument_list|(
@@ -966,7 +966,7 @@ name|componentSettings
 operator|.
 name|getAsInt
 argument_list|(
-literal|"connectRetries"
+literal|"connect_retries"
 argument_list|,
 literal|2
 argument_list|)
@@ -979,7 +979,7 @@ name|componentSettings
 operator|.
 name|getAsBoolean
 argument_list|(
-literal|"tcpNoDelay"
+literal|"tcp_no_delay"
 argument_list|,
 literal|true
 argument_list|)
@@ -992,7 +992,7 @@ name|componentSettings
 operator|.
 name|getAsBoolean
 argument_list|(
-literal|"tcpKeepAlive"
+literal|"tcp_keep_alive"
 argument_list|,
 literal|null
 argument_list|)
@@ -1005,7 +1005,7 @@ name|componentSettings
 operator|.
 name|getAsBoolean
 argument_list|(
-literal|"reuseAddress"
+literal|"reuse_address"
 argument_list|,
 literal|true
 argument_list|)
@@ -1018,7 +1018,7 @@ name|componentSettings
 operator|.
 name|getAsSize
 argument_list|(
-literal|"tcpSendBufferSize"
+literal|"tcp_send_buffer_size"
 argument_list|,
 literal|null
 argument_list|)
@@ -1031,7 +1031,7 @@ name|componentSettings
 operator|.
 name|getAsSize
 argument_list|(
-literal|"tcpReceiveBufferSize"
+literal|"tcp_receive_buffer_size"
 argument_list|,
 literal|null
 argument_list|)

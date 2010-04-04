@@ -161,7 +161,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"normsField"
+literal|"norms_field"
 argument_list|,
 name|normsField
 argument_list|)

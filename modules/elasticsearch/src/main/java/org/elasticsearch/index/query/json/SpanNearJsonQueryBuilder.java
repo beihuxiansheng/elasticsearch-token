@@ -324,7 +324,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"inOrder"
+literal|"in_order"
 argument_list|,
 name|inOrder
 argument_list|)
@@ -341,7 +341,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"collectPayloads"
+literal|"collect_payloads"
 argument_list|,
 name|collectPayloads
 argument_list|)

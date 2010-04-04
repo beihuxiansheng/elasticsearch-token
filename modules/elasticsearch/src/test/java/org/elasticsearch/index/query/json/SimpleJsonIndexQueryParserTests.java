@@ -353,7 +353,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -7530,7 +7530,7 @@ argument_list|(
 literal|"something"
 argument_list|)
 operator|.
-name|minTermFrequency
+name|minTermFreq
 argument_list|(
 literal|1
 argument_list|)
@@ -7980,7 +7980,7 @@ argument_list|(
 literal|"something"
 argument_list|)
 operator|.
-name|minTermFrequency
+name|minTermFreq
 argument_list|(
 literal|1
 argument_list|)

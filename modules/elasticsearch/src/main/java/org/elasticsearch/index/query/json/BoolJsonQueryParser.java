@@ -410,7 +410,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"mustNot"
+literal|"must_not"
 operator|.
 name|equals
 argument_list|(
@@ -533,7 +533,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"mustNot"
+literal|"must_not"
 operator|.
 name|equals
 argument_list|(
@@ -647,7 +647,7 @@ condition|)
 block|{
 if|if
 condition|(
-literal|"disableCoord"
+literal|"disable_coord"
 operator|.
 name|equals
 argument_list|(
@@ -677,7 +677,7 @@ condition|)
 block|{
 if|if
 condition|(
-literal|"disableCoord"
+literal|"disable_coord"
 operator|.
 name|equals
 argument_list|(
@@ -698,7 +698,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"minimumNumberShouldMatch"
+literal|"minimum_number_should_match"
 operator|.
 name|equals
 argument_list|(
@@ -775,7 +775,7 @@ condition|)
 block|{
 if|if
 condition|(
-literal|"disableCoord"
+literal|"disable_coord"
 operator|.
 name|equals
 argument_list|(
@@ -801,7 +801,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"minimumNumberShouldMatch"
+literal|"minimum_number_should_match"
 operator|.
 name|equals
 argument_list|(

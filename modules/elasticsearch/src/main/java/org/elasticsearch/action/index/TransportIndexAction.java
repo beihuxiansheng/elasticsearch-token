@@ -411,7 +411,7 @@ name|settings
 operator|.
 name|getAsBoolean
 argument_list|(
-literal|"action.autoCreateIndex"
+literal|"action.auto_create_index"
 argument_list|,
 literal|true
 argument_list|)
@@ -424,7 +424,7 @@ name|componentSettings
 operator|.
 name|getAsBoolean
 argument_list|(
-literal|"allowIdGeneration"
+literal|"allow_id_generation"
 argument_list|,
 literal|true
 argument_list|)

@@ -376,7 +376,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"tagsSchema"
+literal|"tags_schema"
 argument_list|,
 name|tagsSchema
 argument_list|)
@@ -393,7 +393,7 @@ name|builder
 operator|.
 name|array
 argument_list|(
-literal|"preTags"
+literal|"pre_tags"
 argument_list|,
 name|preTags
 argument_list|)
@@ -410,7 +410,7 @@ name|builder
 operator|.
 name|array
 argument_list|(
-literal|"postTags"
+literal|"post_tags"
 argument_list|,
 name|postTags
 argument_list|)
@@ -480,7 +480,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"fragmentSize"
+literal|"fragment_size"
 argument_list|,
 name|field
 operator|.
@@ -504,7 +504,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"numberOfFragments"
+literal|"number_of_fragments"
 argument_list|,
 name|field
 operator|.

@@ -1028,7 +1028,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"indexAnalyzer"
+literal|"index_analyzer"
 operator|.
 name|equals
 argument_list|(
@@ -1055,7 +1055,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"searchAnalyzer"
+literal|"search_analyzer"
 operator|.
 name|equals
 argument_list|(
@@ -1359,7 +1359,7 @@ name|propName
 operator|.
 name|equals
 argument_list|(
-literal|"nullValue"
+literal|"null_value"
 argument_list|)
 condition|)
 block|{

@@ -226,6 +226,19 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
+name|scheduledSize
+operator|=
+name|componentSettings
+operator|.
+name|getAsInt
+argument_list|(
+literal|"scheduled_size"
+argument_list|,
+literal|20
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
 name|min
 operator|=
 name|componentSettings
@@ -285,7 +298,7 @@ name|componentSettings
 operator|.
 name|getAsTime
 argument_list|(
-literal|"waitTime"
+literal|"wait_time"
 argument_list|,
 name|timeValueSeconds
 argument_list|(
@@ -301,7 +314,7 @@ name|componentSettings
 operator|.
 name|getAsTime
 argument_list|(
-literal|"keepAlive"
+literal|"keep_alive"
 argument_list|,
 name|timeValueSeconds
 argument_list|(
@@ -309,24 +322,11 @@ literal|60
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
-name|scheduledSize
-operator|=
-name|componentSettings
-operator|.
-name|getAsInt
-argument_list|(
-literal|"scheduledSize"
-argument_list|,
-literal|20
-argument_list|)
-expr_stmt|;
 name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Initializing {} thread pool with min[{}], max[{}], keepAlive[{}], capacity[{}], waitTime[{}], scheduledSize[{}]"
+literal|"Initializing {} thread pool with min[{}], max[{}], keep_alive[{}], capacity[{}], wait_time[{}], scheduled_size[{}]"
 argument_list|,
 operator|new
 name|Object

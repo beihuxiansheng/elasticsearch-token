@@ -938,7 +938,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"termVector"
+literal|"term_vector"
 argument_list|,
 name|termVector
 operator|.
@@ -971,7 +971,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"indexAnalyzer"
+literal|"index_analyzer"
 argument_list|,
 name|indexAnalyzer
 operator|.
@@ -1002,7 +1002,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"searchAnalyzer"
+literal|"search_analyzer"
 argument_list|,
 name|searchAnalyzer
 operator|.

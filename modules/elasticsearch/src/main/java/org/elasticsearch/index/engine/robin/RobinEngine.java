@@ -716,7 +716,7 @@ name|componentSettings
 operator|.
 name|getAsSize
 argument_list|(
-literal|"ramBufferSize"
+literal|"ram_buffer_size"
 argument_list|,
 operator|new
 name|SizeValue
@@ -737,7 +737,7 @@ name|componentSettings
 operator|.
 name|getAsTime
 argument_list|(
-literal|"refreshInterval"
+literal|"refresh_interval"
 argument_list|,
 name|timeValueSeconds
 argument_list|(
@@ -753,7 +753,7 @@ name|componentSettings
 operator|.
 name|getAsInt
 argument_list|(
-literal|"termIndexInterval"
+literal|"term_index_interval"
 argument_list|,
 name|IndexWriter
 operator|.
@@ -840,11 +840,11 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Starting engine with ramBufferSize ["
+literal|"Starting engine with ram_buffer_size ["
 operator|+
 name|ramBufferSize
 operator|+
-literal|"], refreshInterval ["
+literal|"], refresh_interval ["
 operator|+
 name|refreshInterval
 operator|+

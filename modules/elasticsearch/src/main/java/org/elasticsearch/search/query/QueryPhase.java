@@ -247,7 +247,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"queryParserName"
+literal|"query_parser_name"
 argument_list|,
 operator|new
 name|QueryParserNameParseElement
@@ -256,7 +256,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"indicesBoost"
+literal|"indices_boost"
 argument_list|,
 operator|new
 name|IndicesBoostParseElement

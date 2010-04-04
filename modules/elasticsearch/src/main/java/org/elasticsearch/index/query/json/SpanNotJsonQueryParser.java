@@ -197,7 +197,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"spanNot"
+literal|"span_not"
 decl_stmt|;
 DECL|method|SpanNotJsonQueryParser
 annotation|@

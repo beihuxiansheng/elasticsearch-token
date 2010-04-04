@@ -261,7 +261,7 @@ specifier|final
 name|String
 name|SETTING_NUMBER_OF_SHARDS
 init|=
-literal|"index.numberOfShards"
+literal|"index.number_of_shards"
 decl_stmt|;
 DECL|field|SETTING_NUMBER_OF_REPLICAS
 specifier|public
@@ -270,7 +270,7 @@ specifier|final
 name|String
 name|SETTING_NUMBER_OF_REPLICAS
 init|=
-literal|"index.numberOfReplicas"
+literal|"index.number_of_replicas"
 decl_stmt|;
 DECL|field|index
 specifier|private

@@ -301,7 +301,7 @@ name|settings
 operator|.
 name|getAsInt
 argument_list|(
-literal|"maxTokenLength"
+literal|"max_token_length"
 argument_list|,
 name|StandardAnalyzer
 operator|.

@@ -809,7 +809,7 @@ name|componentSettings
 operator|.
 name|getAsSize
 argument_list|(
-literal|"fileChunkSize"
+literal|"file_chunk_size"
 argument_list|,
 operator|new
 name|SizeValue
@@ -826,7 +826,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"Recovery Action registered, using fileChunkSize[{}]"
+literal|"Recovery Action registered, using file_chunk_size[{}]"
 argument_list|,
 name|fileChunkSize
 argument_list|)

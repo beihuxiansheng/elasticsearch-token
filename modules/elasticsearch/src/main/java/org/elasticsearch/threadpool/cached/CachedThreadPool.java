@@ -220,7 +220,7 @@ name|componentSettings
 operator|.
 name|getAsInt
 argument_list|(
-literal|"scheduledSize"
+literal|"scheduled_size"
 argument_list|,
 literal|20
 argument_list|)
@@ -233,7 +233,7 @@ name|componentSettings
 operator|.
 name|getAsTime
 argument_list|(
-literal|"keepAlive"
+literal|"keep_alive"
 argument_list|,
 name|timeValueSeconds
 argument_list|(
@@ -245,7 +245,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Initializing {} thread pool with keepAlive[{}], scheduledSize[{}]"
+literal|"Initializing {} thread pool with keep_alive[{}], scheduled_size[{}]"
 argument_list|,
 operator|new
 name|Object

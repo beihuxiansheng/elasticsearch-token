@@ -451,7 +451,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"includeLower"
+literal|"include_lower"
 operator|.
 name|equals
 argument_list|(
@@ -518,7 +518,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"includeUpper"
+literal|"include_upper"
 operator|.
 name|equals
 argument_list|(

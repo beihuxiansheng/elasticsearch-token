@@ -237,7 +237,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"moreLikeThisField"
+literal|"more_like_this_field"
 decl_stmt|;
 DECL|method|MoreLikeThisFieldJsonQueryParser
 specifier|public
@@ -400,7 +400,7 @@ condition|)
 block|{
 if|if
 condition|(
-literal|"likeText"
+literal|"like_text"
 operator|.
 name|equals
 argument_list|(
@@ -422,7 +422,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"minTermFrequency"
+literal|"min_term_freq"
 operator|.
 name|equals
 argument_list|(
@@ -449,7 +449,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"maxQueryTerms"
+literal|"max_query_terms"
 operator|.
 name|equals
 argument_list|(
@@ -476,7 +476,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"minDocFreq"
+literal|"min_doc_freq"
 operator|.
 name|equals
 argument_list|(
@@ -503,7 +503,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"maxDocFreq"
+literal|"max_doc_freq"
 operator|.
 name|equals
 argument_list|(
@@ -530,7 +530,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"minWordLen"
+literal|"min_word_len"
 operator|.
 name|equals
 argument_list|(
@@ -557,7 +557,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"maxWordLen"
+literal|"max_word_len"
 operator|.
 name|equals
 argument_list|(
@@ -584,7 +584,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"boostTerms"
+literal|"boost_terms"
 operator|.
 name|equals
 argument_list|(
@@ -613,7 +613,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"boostTermsFactor"
+literal|"boost_terms_factor"
 operator|.
 name|equals
 argument_list|(
@@ -640,7 +640,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"percentTermsToMatch"
+literal|"percent_terms_to_match"
 operator|.
 name|equals
 argument_list|(
@@ -677,7 +677,7 @@ condition|)
 block|{
 if|if
 condition|(
-literal|"minTermFrequency"
+literal|"min_term_freq"
 operator|.
 name|equals
 argument_list|(
@@ -699,7 +699,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"maxQueryTerms"
+literal|"max_query_terms"
 operator|.
 name|equals
 argument_list|(
@@ -721,7 +721,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"minDocFreq"
+literal|"min_doc_freq"
 operator|.
 name|equals
 argument_list|(
@@ -743,7 +743,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"maxDocFreq"
+literal|"max_doc_freq"
 operator|.
 name|equals
 argument_list|(
@@ -765,7 +765,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"minWordLen"
+literal|"min_word_len"
 operator|.
 name|equals
 argument_list|(
@@ -787,7 +787,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"maxWordLen"
+literal|"max_word_len"
 operator|.
 name|equals
 argument_list|(
@@ -809,7 +809,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"boostTerms"
+literal|"boost_terms"
 operator|.
 name|equals
 argument_list|(
@@ -833,7 +833,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"boostTermsFactor"
+literal|"boost_term_factor"
 operator|.
 name|equals
 argument_list|(
@@ -855,7 +855,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"percentTermsToMatch"
+literal|"percent_terms_to_match"
 operator|.
 name|equals
 argument_list|(
@@ -866,6 +866,28 @@ block|{
 name|mltQuery
 operator|.
 name|setPercentTermsToMatch
+argument_list|(
+name|jp
+operator|.
+name|getIntValue
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+literal|"boost"
+operator|.
+name|equals
+argument_list|(
+name|currentFieldName
+argument_list|)
+condition|)
+block|{
+name|mltQuery
+operator|.
+name|setBoost
 argument_list|(
 name|jp
 operator|.
@@ -887,7 +909,7 @@ condition|)
 block|{
 if|if
 condition|(
-literal|"boostTermsFactor"
+literal|"boost_terms_factor"
 operator|.
 name|equals
 argument_list|(
@@ -909,7 +931,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"percentTermsToMatch"
+literal|"percent_terms_to_match"
 operator|.
 name|equals
 argument_list|(
@@ -920,6 +942,28 @@ block|{
 name|mltQuery
 operator|.
 name|setPercentTermsToMatch
+argument_list|(
+name|jp
+operator|.
+name|getFloatValue
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+literal|"boost"
+operator|.
+name|equals
+argument_list|(
+name|currentFieldName
+argument_list|)
+condition|)
+block|{
+name|mltQuery
+operator|.
+name|setBoost
 argument_list|(
 name|jp
 operator|.
@@ -941,7 +985,7 @@ condition|)
 block|{
 if|if
 condition|(
-literal|"stopWords"
+literal|"stop_words"
 operator|.
 name|equals
 argument_list|(
@@ -1013,7 +1057,7 @@ name|QueryParsingException
 argument_list|(
 name|index
 argument_list|,
-literal|"moreLikeThisField requires 'likeText' to be specified"
+literal|"more_like_this_field requires 'like_text' to be specified"
 argument_list|)
 throw|;
 block|}

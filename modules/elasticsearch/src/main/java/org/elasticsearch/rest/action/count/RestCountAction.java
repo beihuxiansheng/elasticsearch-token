@@ -404,7 +404,7 @@ name|request
 operator|.
 name|param
 argument_list|(
-literal|"operationThreading"
+literal|"operation_threading"
 argument_list|)
 argument_list|,
 name|BroadcastOperationThreading
@@ -456,7 +456,7 @@ name|request
 operator|.
 name|param
 argument_list|(
-literal|"queryParserName"
+literal|"query_parser_name"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -468,7 +468,7 @@ name|request
 operator|.
 name|param
 argument_list|(
-literal|"queryHint"
+literal|"query_hint"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -480,7 +480,7 @@ name|request
 operator|.
 name|paramAsFloat
 argument_list|(
-literal|"minScore"
+literal|"min_score"
 argument_list|,
 name|DEFAULT_MIN_SCORE
 argument_list|)

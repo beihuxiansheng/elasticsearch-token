@@ -526,7 +526,7 @@ argument_list|(
 literal|"1"
 argument_list|)
 operator|.
-name|minTermFrequency
+name|minTermFreq
 argument_list|(
 literal|1
 argument_list|)

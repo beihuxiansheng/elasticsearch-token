@@ -280,7 +280,7 @@ name|settings
 operator|.
 name|getAsArray
 argument_list|(
-literal|"stemExclusion"
+literal|"stem_exclusion"
 argument_list|)
 decl_stmt|;
 if|if

@@ -176,7 +176,7 @@ name|settings
 operator|.
 name|getAsInt
 argument_list|(
-literal|"maxShingleSize"
+literal|"max_shingle_size"
 argument_list|,
 name|ShingleFilter
 operator|.
@@ -189,7 +189,7 @@ name|settings
 operator|.
 name|getAsBoolean
 argument_list|(
-literal|"outputUnigrams"
+literal|"output_unigrams"
 argument_list|,
 literal|true
 argument_list|)

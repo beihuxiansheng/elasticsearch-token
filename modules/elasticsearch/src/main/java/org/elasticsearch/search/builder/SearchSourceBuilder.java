@@ -719,7 +719,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"queryParserName"
+literal|"query_parser_name"
 argument_list|,
 name|queryParserName
 argument_list|)
@@ -936,7 +936,7 @@ name|builder
 operator|.
 name|startObject
 argument_list|(
-literal|"indicesBoost"
+literal|"indices_boost"
 argument_list|)
 expr_stmt|;
 for|for

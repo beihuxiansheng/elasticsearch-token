@@ -319,7 +319,7 @@ name|request
 operator|.
 name|param
 argument_list|(
-literal|"waitForStatus"
+literal|"wait_for_status"
 argument_list|)
 decl_stmt|;
 if|if
@@ -353,7 +353,7 @@ name|request
 operator|.
 name|paramAsInt
 argument_list|(
-literal|"waitForRelocatingShards"
+literal|"wait_for_relocating_shards"
 argument_list|,
 name|clusterHealthRequest
 operator|.
@@ -570,7 +570,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"timedOut"
+literal|"timed_out"
 argument_list|,
 name|response
 operator|.
@@ -582,7 +582,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"activePrimaryShards"
+literal|"active_primary_shards"
 argument_list|,
 name|response
 operator|.
@@ -594,7 +594,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"activeShards"
+literal|"active_shards"
 argument_list|,
 name|response
 operator|.
@@ -606,7 +606,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"relocatingShards"
+literal|"relocating_shards"
 argument_list|,
 name|response
 operator|.
@@ -630,7 +630,7 @@ name|builder
 operator|.
 name|startArray
 argument_list|(
-literal|"validationFailures"
+literal|"validation_failures"
 argument_list|)
 expr_stmt|;
 for|for
@@ -695,7 +695,7 @@ name|builder
 operator|.
 name|startArray
 argument_list|(
-literal|"validationFailures"
+literal|"validation_failures"
 argument_list|)
 expr_stmt|;
 for|for
@@ -790,7 +790,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"numberOfShards"
+literal|"number_of_shards"
 argument_list|,
 name|indexHealth
 operator|.
@@ -802,7 +802,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"numberOfReplicas"
+literal|"number_of_replicas"
 argument_list|,
 name|indexHealth
 operator|.
@@ -814,7 +814,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"activePrimaryShards"
+literal|"active_primary_shards"
 argument_list|,
 name|indexHealth
 operator|.
@@ -826,7 +826,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"activeShards"
+literal|"active_shards"
 argument_list|,
 name|indexHealth
 operator|.
@@ -838,7 +838,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"relocatingShards"
+literal|"relocating_shards"
 argument_list|,
 name|indexHealth
 operator|.
@@ -862,7 +862,7 @@ name|builder
 operator|.
 name|startArray
 argument_list|(
-literal|"validationFailures"
+literal|"validation_failures"
 argument_list|)
 expr_stmt|;
 for|for
@@ -949,7 +949,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"primaryActive"
+literal|"primary_active"
 argument_list|,
 name|shardHealth
 operator|.
@@ -961,7 +961,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"activeShards"
+literal|"active_shards"
 argument_list|,
 name|shardHealth
 operator|.
@@ -973,7 +973,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"relocatingShards"
+literal|"relocating_shards"
 argument_list|,
 name|shardHealth
 operator|.

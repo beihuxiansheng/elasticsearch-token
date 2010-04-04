@@ -427,7 +427,7 @@ name|request
 operator|.
 name|param
 argument_list|(
-literal|"operationThreading"
+literal|"operation_threading"
 argument_list|)
 argument_list|,
 name|BroadcastOperationThreading
@@ -593,7 +593,7 @@ name|request
 operator|.
 name|paramAsBoolean
 argument_list|(
-literal|"fromInclusive"
+literal|"from_inclusive"
 argument_list|,
 name|termsRequest
 operator|.
@@ -610,7 +610,7 @@ name|request
 operator|.
 name|paramAsBoolean
 argument_list|(
-literal|"toInclusive"
+literal|"to_inclusive"
 argument_list|,
 name|termsRequest
 operator|.
@@ -644,7 +644,7 @@ name|request
 operator|.
 name|paramAsInt
 argument_list|(
-literal|"minFreq"
+literal|"min_freq"
 argument_list|,
 name|termsRequest
 operator|.
@@ -661,7 +661,7 @@ name|request
 operator|.
 name|paramAsInt
 argument_list|(
-literal|"maxFreq"
+literal|"max_freq"
 argument_list|,
 name|termsRequest
 operator|.
@@ -812,7 +812,7 @@ name|request
 operator|.
 name|paramAsBoolean
 argument_list|(
-literal|"termsAsArray"
+literal|"terms_as_array"
 argument_list|,
 literal|true
 argument_list|)
@@ -875,7 +875,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"numDocs"
+literal|"num_docs"
 argument_list|,
 name|response
 operator|.
@@ -887,7 +887,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"maxDoc"
+literal|"max_doc"
 argument_list|,
 name|response
 operator|.
@@ -899,7 +899,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"deletedDocs"
+literal|"deleted_docs"
 argument_list|,
 name|response
 operator|.
@@ -978,7 +978,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"docFreq"
+literal|"doc_freq"
 argument_list|,
 name|termFreq
 operator|.
@@ -1039,7 +1039,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"docFreq"
+literal|"doc_freq"
 argument_list|,
 name|termFreq
 operator|.

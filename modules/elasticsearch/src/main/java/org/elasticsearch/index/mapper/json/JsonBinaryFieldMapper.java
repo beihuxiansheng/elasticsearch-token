@@ -544,7 +544,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"indexName"
+literal|"index_name"
 argument_list|,
 name|names
 operator|.

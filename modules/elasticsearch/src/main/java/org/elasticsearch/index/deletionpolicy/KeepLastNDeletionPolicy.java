@@ -198,7 +198,7 @@ name|componentSettings
 operator|.
 name|getAsInt
 argument_list|(
-literal|"numToKeep"
+literal|"num_to_keep"
 argument_list|,
 literal|5
 argument_list|)
@@ -207,7 +207,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Using [KeepLastN] deletion policy with numToKeep [{}]"
+literal|"Using [KeepLastN] deletion policy with num_to_keep [{}]"
 argument_list|,
 name|numToKeep
 argument_list|)

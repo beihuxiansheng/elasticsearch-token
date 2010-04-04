@@ -290,7 +290,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"queryExecution"
+literal|"query_execution"
 argument_list|,
 name|queryExecution
 argument_list|)

@@ -606,7 +606,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"defaultField"
+literal|"default_field"
 argument_list|,
 name|defaultField
 argument_list|)
@@ -697,7 +697,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"useDisMax"
+literal|"use_dis_max"
 argument_list|,
 name|useDisMax
 argument_list|)
@@ -715,7 +715,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"tieBreaker"
+literal|"tie_breaker"
 argument_list|,
 name|tieBreaker
 argument_list|)
@@ -732,7 +732,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"defaultOperator"
+literal|"default_operator"
 argument_list|,
 name|defaultOperator
 operator|.
@@ -772,7 +772,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"allowLeadingWildcard"
+literal|"allow_leading_wildcard"
 argument_list|,
 name|allowLeadingWildcard
 argument_list|)
@@ -789,7 +789,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"lowercaseExpandedTerms"
+literal|"lowercase_expanded_terms"
 argument_list|,
 name|lowercaseExpandedTerms
 argument_list|)
@@ -806,7 +806,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"enablePositionIncrements"
+literal|"enable_position_increments"
 argument_list|,
 name|enablePositionIncrements
 argument_list|)
@@ -824,7 +824,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"fuzzyMinSim"
+literal|"fuzzy_min_sim"
 argument_list|,
 name|fuzzyMinSim
 argument_list|)
@@ -860,7 +860,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"fuzzyPrefixLength"
+literal|"fuzzy_prefix_length"
 argument_list|,
 name|fuzzyPrefixLength
 argument_list|)
@@ -878,7 +878,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"phraseSlop"
+literal|"phrase_slop"
 argument_list|,
 name|phraseSlop
 argument_list|)

@@ -839,11 +839,11 @@ literal|"cleaned["
 operator|+
 name|cleaned
 operator|+
-literal|"], cleanedShards["
+literal|"], cleaned_shards["
 operator|+
 name|cleanedShards
 operator|+
-literal|"], totalShards["
+literal|"], total_shards["
 operator|+
 name|totalShards
 operator|+
@@ -976,15 +976,15 @@ literal|"cleaned["
 operator|+
 name|cleaned
 operator|+
-literal|"], estimatedFlushableSize["
+literal|"], estimated_flushable_size["
 operator|+
 name|estimatedFlushableSize
 operator|+
-literal|"], cleanedShards["
+literal|"], cleaned_shards["
 operator|+
 name|cleanedShards
 operator|+
-literal|"], totalShards["
+literal|"], total_shards["
 operator|+
 name|totalShards
 operator|+

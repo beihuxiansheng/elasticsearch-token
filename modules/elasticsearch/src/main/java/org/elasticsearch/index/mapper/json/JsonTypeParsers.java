@@ -530,7 +530,7 @@ name|propName
 operator|.
 name|equals
 argument_list|(
-literal|"omit_termFreq_and_positions"
+literal|"omit_term_freq_and_positions"
 argument_list|)
 condition|)
 block|{
