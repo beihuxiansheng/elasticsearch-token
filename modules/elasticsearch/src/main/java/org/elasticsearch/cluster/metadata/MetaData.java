@@ -1519,7 +1519,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"maxNumberOfShardsPerNode"
+literal|"max_number_of_shards_per_node"
 argument_list|,
 name|metaData
 operator|.
@@ -1704,7 +1704,7 @@ condition|)
 block|{
 if|if
 condition|(
-literal|"maxNumberOfShardsPerNode"
+literal|"max_number_of_shards_per_node"
 operator|.
 name|equals
 argument_list|(
