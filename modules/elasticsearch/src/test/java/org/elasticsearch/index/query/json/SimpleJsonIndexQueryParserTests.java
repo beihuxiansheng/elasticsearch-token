@@ -7905,7 +7905,7 @@ argument_list|(
 literal|"something"
 argument_list|)
 operator|.
-name|maxNumTerms
+name|maxQueryTerms
 argument_list|(
 literal|12
 argument_list|)
@@ -8006,7 +8006,7 @@ argument_list|(
 literal|"something"
 argument_list|)
 operator|.
-name|maxNumTerms
+name|maxQueryTerms
 argument_list|(
 literal|12
 argument_list|)

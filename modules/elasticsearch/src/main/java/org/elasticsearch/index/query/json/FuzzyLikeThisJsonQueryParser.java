@@ -286,7 +286,7 @@ decl_stmt|;
 name|int
 name|maxNumTerms
 init|=
-literal|100
+literal|25
 decl_stmt|;
 name|float
 name|boost
@@ -393,7 +393,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"max_numT_terms"
+literal|"max_query_terms"
 operator|.
 name|equals
 argument_list|(
@@ -477,7 +477,7 @@ condition|)
 block|{
 if|if
 condition|(
-literal|"max_num_terms"
+literal|"max_query_terms"
 operator|.
 name|equals
 argument_list|(
