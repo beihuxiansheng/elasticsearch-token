@@ -228,7 +228,7 @@ specifier|private
 name|boolean
 name|ignoreConflicts
 init|=
-literal|true
+literal|false
 decl_stmt|;
 DECL|method|PutMappingRequest
 name|PutMappingRequest
