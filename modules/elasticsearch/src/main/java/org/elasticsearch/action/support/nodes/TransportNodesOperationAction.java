@@ -580,7 +580,7 @@ index|]
 operator|.
 name|equals
 argument_list|(
-literal|"_al"
+literal|"_all"
 argument_list|)
 operator|)
 condition|)
