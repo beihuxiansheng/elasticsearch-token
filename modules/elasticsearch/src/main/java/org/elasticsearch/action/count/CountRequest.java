@@ -710,7 +710,7 @@ argument_list|(
 name|indices
 argument_list|)
 operator|+
-literal|"]["
+literal|"]"
 operator|+
 name|Arrays
 operator|.
@@ -719,7 +719,7 @@ argument_list|(
 name|types
 argument_list|)
 operator|+
-literal|"], querySource["
+literal|", querySource["
 operator|+
 name|Unicode
 operator|.

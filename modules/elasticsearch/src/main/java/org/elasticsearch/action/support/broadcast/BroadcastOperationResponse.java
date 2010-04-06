@@ -147,6 +147,11 @@ name|BroadcastOperationResponse
 implements|implements
 name|ActionResponse
 block|{
+DECL|field|totalShards
+specifier|private
+name|int
+name|totalShards
+decl_stmt|;
 DECL|field|successfulShards
 specifier|private
 name|int
@@ -180,6 +185,9 @@ specifier|protected
 name|BroadcastOperationResponse
 parameter_list|(
 name|int
+name|totalShards
+parameter_list|,
+name|int
 name|successfulShards
 parameter_list|,
 name|int
@@ -192,6 +200,12 @@ argument_list|>
 name|shardFailures
 parameter_list|)
 block|{
+name|this
+operator|.
+name|totalShards
+operator|=
+name|totalShards
+expr_stmt|;
 name|this
 operator|.
 name|successfulShards
@@ -236,9 +250,7 @@ name|totalShards
 parameter_list|()
 block|{
 return|return
-name|successfulShards
-operator|+
-name|failedShards
+name|totalShards
 return|;
 block|}
 comment|/**      * The successful shards this request was executed on.      */
@@ -306,6 +318,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|totalShards
+operator|=
+name|in
+operator|.
+name|readVInt
+argument_list|()
+expr_stmt|;
 name|successfulShards
 operator|=
 name|in
@@ -387,6 +406,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|out
+operator|.
+name|writeVInt
+argument_list|(
+name|totalShards
+argument_list|)
+expr_stmt|;
 name|out
 operator|.
 name|writeVInt

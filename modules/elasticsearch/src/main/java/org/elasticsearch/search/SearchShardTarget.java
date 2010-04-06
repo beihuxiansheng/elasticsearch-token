@@ -83,7 +83,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The target that the search request was executed on.  *  * @author kimchy (Shay Banon)  */
+comment|/**  * The target that the search request was executed on.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class

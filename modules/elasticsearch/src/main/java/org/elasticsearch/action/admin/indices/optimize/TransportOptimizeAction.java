@@ -385,6 +385,18 @@ name|OptimizeRequest
 argument_list|()
 return|;
 block|}
+DECL|method|ignoreNonActiveExceptions
+annotation|@
+name|Override
+specifier|protected
+name|boolean
+name|ignoreNonActiveExceptions
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 DECL|method|newResponse
 annotation|@
 name|Override
@@ -455,9 +467,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|failedShards
-operator|++
-expr_stmt|;
+comment|// a non active shard, ignore...
 block|}
 elseif|else
 if|if
@@ -509,6 +519,11 @@ return|return
 operator|new
 name|OptimizeResponse
 argument_list|(
+name|shardsResponses
+operator|.
+name|length
+argument_list|()
+argument_list|,
 name|successfulShards
 argument_list|,
 name|failedShards

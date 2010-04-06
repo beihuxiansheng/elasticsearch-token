@@ -1170,6 +1170,11 @@ return|return
 operator|new
 name|TermsResponse
 argument_list|(
+name|shardsResponses
+operator|.
+name|length
+argument_list|()
+argument_list|,
 name|successfulShards
 argument_list|,
 name|failedShards

@@ -219,6 +219,26 @@ name|shardId
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|toString
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"["
+operator|+
+name|index
+operator|+
+literal|"]["
+operator|+
+name|shardId
+operator|+
+literal|"]"
+return|;
+block|}
 block|}
 end_class
 

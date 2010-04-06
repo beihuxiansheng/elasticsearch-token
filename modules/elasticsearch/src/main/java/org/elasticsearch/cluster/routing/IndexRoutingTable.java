@@ -563,7 +563,7 @@ name|set
 argument_list|)
 return|;
 block|}
-comment|/**      * A groups shards iterator where each groups is a single {@link ShardRouting} and a group      * is created for each shard routing.      *      *<p>This basically means that components that use the {@link GroupShardsIterator} will itearte      * over *all* the shards (all the replicas) within the index.      */
+comment|/**      * A groups shards iterator where each groups is a single {@link ShardRouting} and a group      * is created for each shard routing.      *      *<p>This basically means that components that use the {@link GroupShardsIterator} will iterate      * over *all* the shards (all the replicas) within the index.      */
 DECL|method|groupByAllIt
 specifier|public
 name|GroupShardsIterator

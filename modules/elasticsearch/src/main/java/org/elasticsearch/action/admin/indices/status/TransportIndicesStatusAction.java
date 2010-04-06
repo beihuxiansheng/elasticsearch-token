@@ -311,7 +311,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -413,6 +413,18 @@ name|IndicesStatusRequest
 argument_list|()
 return|;
 block|}
+DECL|method|ignoreNonActiveExceptions
+annotation|@
+name|Override
+specifier|protected
+name|boolean
+name|ignoreNonActiveExceptions
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 DECL|method|newResponse
 annotation|@
 name|Override
@@ -493,9 +505,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|failedShards
-operator|++
-expr_stmt|;
+comment|// simply ignore non active shards
 block|}
 elseif|else
 if|if
@@ -572,6 +582,11 @@ index|]
 argument_list|)
 argument_list|,
 name|clusterState
+argument_list|,
+name|shardsResponses
+operator|.
+name|length
+argument_list|()
 argument_list|,
 name|successfulShards
 argument_list|,

@@ -122,6 +122,9 @@ DECL|method|ClearIndicesCacheResponse
 name|ClearIndicesCacheResponse
 parameter_list|(
 name|int
+name|totalShards
+parameter_list|,
+name|int
 name|successfulShards
 parameter_list|,
 name|int
@@ -136,6 +139,8 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|totalShards
+argument_list|,
 name|successfulShards
 argument_list|,
 name|failedShards

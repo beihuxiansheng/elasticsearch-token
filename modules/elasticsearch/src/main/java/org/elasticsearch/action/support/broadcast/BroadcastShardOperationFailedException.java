@@ -57,7 +57,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An exception indicating that a failure occurred performing an operation on the shard.  *  * @author kimchy (Shay Banon)  */
+comment|/**  * An exception indicating that a failure occurred performing an operation on the shard.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
