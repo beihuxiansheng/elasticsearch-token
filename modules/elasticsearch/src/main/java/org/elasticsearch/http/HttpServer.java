@@ -484,7 +484,7 @@ name|nodesInfo
 operator|.
 name|putNodeAttribute
 argument_list|(
-literal|"httpAddress"
+literal|"http_address"
 argument_list|,
 name|transport
 operator|.
@@ -513,7 +513,7 @@ name|nodesInfo
 operator|.
 name|removeNodeAttribute
 argument_list|(
-literal|"httpAddress"
+literal|"http_address"
 argument_list|)
 expr_stmt|;
 name|transport
