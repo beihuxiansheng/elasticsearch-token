@@ -328,7 +328,7 @@ name|metaData
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a built (on demand) routing nodes view of the routing table.<b>NOTE, the routing nodes      * are immutable, use them just for read operations</b>      */
+comment|/**      * Returns a built (on demand) routing nodes view of the routing table.<b>NOTE, the routing nodes      * are mutable, use them just for read operations</b>      */
 DECL|method|readOnlyRoutingNodes
 specifier|public
 name|RoutingNodes
