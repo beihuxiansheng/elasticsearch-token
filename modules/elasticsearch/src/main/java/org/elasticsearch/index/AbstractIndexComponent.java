@@ -93,12 +93,10 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-annotation|@
-name|IndexLifecycle
 DECL|class|AbstractIndexComponent
 specifier|public
 specifier|abstract

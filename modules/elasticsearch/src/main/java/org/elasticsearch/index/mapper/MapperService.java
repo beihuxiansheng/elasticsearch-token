@@ -140,18 +140,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|IndexLifecycle
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|analysis
 operator|.
 name|AnalysisService
@@ -321,8 +309,6 @@ comment|/**  * @author kimchy (Shay Banon)  */
 end_comment
 
 begin_class
-annotation|@
-name|IndexLifecycle
 annotation|@
 name|ThreadSafe
 DECL|class|MapperService

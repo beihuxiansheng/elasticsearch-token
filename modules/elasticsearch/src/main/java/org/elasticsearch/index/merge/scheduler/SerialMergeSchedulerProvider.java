@@ -96,20 +96,6 @@ name|index
 operator|.
 name|shard
 operator|.
-name|IndexShardLifecycle
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|shard
-operator|.
 name|ShardId
 import|;
 end_import
@@ -129,12 +115,10 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-annotation|@
-name|IndexShardLifecycle
 DECL|class|SerialMergeSchedulerProvider
 specifier|public
 class|class

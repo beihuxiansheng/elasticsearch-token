@@ -30,18 +30,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|IndexLifecycle
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|lang
@@ -127,8 +115,6 @@ name|RUNTIME
 argument_list|)
 annotation|@
 name|Documented
-annotation|@
-name|IndexLifecycle
 DECL|interface|IndexSettings
 specifier|public
 annotation_defn|@interface

@@ -58,18 +58,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|IndexLifecycle
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|IndexShardMissingException
 import|;
 end_import
@@ -189,8 +177,6 @@ comment|/**  * @author kimchy (Shay Banon)  */
 end_comment
 
 begin_interface
-annotation|@
-name|IndexLifecycle
 DECL|interface|IndexService
 specifier|public
 interface|interface

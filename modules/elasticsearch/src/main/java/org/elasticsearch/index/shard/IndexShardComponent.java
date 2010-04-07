@@ -35,8 +35,6 @@ comment|/**  * @author kimchy (Shay Banon)  */
 end_comment
 
 begin_interface
-annotation|@
-name|IndexShardLifecycle
 DECL|interface|IndexShardComponent
 specifier|public
 interface|interface

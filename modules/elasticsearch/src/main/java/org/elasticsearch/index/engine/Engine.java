@@ -146,20 +146,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|shard
-operator|.
-name|IndexShardLifecycle
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|translog
 operator|.
 name|Translog
@@ -233,14 +219,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_interface
 annotation|@
 name|ThreadSafe
-annotation|@
-name|IndexShardLifecycle
 DECL|interface|Engine
 specifier|public
 interface|interface

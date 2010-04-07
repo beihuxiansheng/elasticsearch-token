@@ -15,12 +15,10 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_interface
-annotation|@
-name|IndexLifecycle
 DECL|interface|IndexComponent
 specifier|public
 interface|interface
