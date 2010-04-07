@@ -1540,7 +1540,7 @@ throw|throw
 operator|new
 name|MapperException
 argument_list|(
-literal|"Malformed json, after type is must start with an object"
+literal|"Malformed json, a field with the same name as the type much be an object json with the properties/fields within it"
 argument_list|)
 throw|;
 block|}
