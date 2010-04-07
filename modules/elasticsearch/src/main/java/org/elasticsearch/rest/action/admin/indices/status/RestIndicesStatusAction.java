@@ -601,7 +601,7 @@ name|builder
 operator|.
 name|nullField
 argument_list|(
-literal|"estimated_flushable_Memory_size_in_bytes"
+literal|"estimated_flushable_memory_size_in_bytes"
 argument_list|)
 expr_stmt|;
 block|}
@@ -626,7 +626,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"estimated_flushable_Memory_size_in_bytes"
+literal|"estimated_flushable_memory_size_in_bytes"
 argument_list|,
 name|indexStatus
 operator|.
