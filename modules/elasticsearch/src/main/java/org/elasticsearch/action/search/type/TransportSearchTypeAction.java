@@ -1647,10 +1647,9 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|searchService
-operator|.
-name|sendFreeContext
-argument_list|(
+name|Node
+name|node
+init|=
 name|nodes
 operator|.
 name|get
@@ -1663,6 +1662,20 @@ operator|.
 name|nodeId
 argument_list|()
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|node
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// should not happen (==null) but safeguard anyhow
+name|searchService
+operator|.
+name|sendFreeContext
+argument_list|(
+name|node
 argument_list|,
 name|entry
 operator|.
@@ -1673,6 +1686,7 @@ name|id
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}

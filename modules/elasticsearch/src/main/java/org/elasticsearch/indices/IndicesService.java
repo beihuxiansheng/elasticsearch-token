@@ -153,6 +153,11 @@ name|String
 name|index
 parameter_list|)
 function_decl|;
+DECL|method|indicesLifecycle
+name|IndicesLifecycle
+name|indicesLifecycle
+parameter_list|()
+function_decl|;
 DECL|method|indices
 name|Set
 argument_list|<
