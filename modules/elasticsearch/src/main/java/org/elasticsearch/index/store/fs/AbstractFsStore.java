@@ -215,7 +215,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -346,7 +346,7 @@ name|componentSettings
 operator|.
 name|getAsBoolean
 argument_list|(
-literal|"cache.enabled"
+literal|"memory.enabled"
 argument_list|,
 literal|false
 argument_list|)
@@ -368,7 +368,7 @@ name|componentSettings
 operator|.
 name|getAsSize
 argument_list|(
-literal|"cache.buffer_size"
+literal|"memory.buffer_size"
 argument_list|,
 operator|new
 name|SizeValue
@@ -388,7 +388,7 @@ name|componentSettings
 operator|.
 name|getAsSize
 argument_list|(
-literal|"cache.cache_size"
+literal|"memory.cache_size"
 argument_list|,
 operator|new
 name|SizeValue
@@ -408,7 +408,7 @@ name|componentSettings
 operator|.
 name|getAsBoolean
 argument_list|(
-literal|"cache.direct"
+literal|"memory.direct"
 argument_list|,
 literal|true
 argument_list|)
@@ -420,7 +420,7 @@ name|componentSettings
 operator|.
 name|getAsBoolean
 argument_list|(
-literal|"cache.warm_cache"
+literal|"memory.warm_cache"
 argument_list|,
 literal|true
 argument_list|)
@@ -484,7 +484,7 @@ name|componentSettings
 operator|.
 name|getAsArray
 argument_list|(
-literal|"cache.extensions"
+literal|"memory.extensions"
 argument_list|,
 operator|new
 name|String
