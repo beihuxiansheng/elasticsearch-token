@@ -1161,15 +1161,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Sent address [{}] to master [{}]"
-argument_list|,
-name|transportService
-operator|.
-name|boundAddress
-argument_list|()
-operator|.
-name|publishAddress
-argument_list|()
+literal|"Sent (initial) node information to master [{}], node [{}]"
 argument_list|,
 name|channel
 operator|.
@@ -1178,6 +1170,8 @@ argument_list|()
 operator|.
 name|getCreator
 argument_list|()
+argument_list|,
+name|localNode
 argument_list|)
 expr_stmt|;
 block|}
@@ -1600,6 +1594,48 @@ name|newNode
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+operator|!
+name|transportService
+operator|.
+name|addressSupported
+argument_list|(
+name|newNode
+operator|.
+name|address
+argument_list|()
+operator|.
+name|getClass
+argument_list|()
+argument_list|)
+condition|)
+block|{
+comment|// TODO, what should we do now? Maybe inform that node that its crap?
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"Received a wrong address type from ["
+operator|+
+name|msg
+operator|.
+name|getSrc
+argument_list|()
+operator|+
+literal|"], ignoring... (received_address["
+operator|+
+name|newNode
+operator|.
+name|address
+argument_list|()
+operator|+
+literal|")"
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|clusterService
 operator|.
 name|submitStateUpdateTask
@@ -1688,6 +1724,7 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -1835,17 +1872,14 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Sent address [{}] to master [{}]"
-argument_list|,
-name|localNode
-operator|.
-name|address
-argument_list|()
+literal|"Sent (view) node information to master [{}], node [{}]"
 argument_list|,
 name|newView
 operator|.
 name|getCreator
 argument_list|()
+argument_list|,
+name|localNode
 argument_list|)
 expr_stmt|;
 name|addressSet
@@ -2090,17 +2124,14 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Disconnected from cluster, resending address [{}] to master [{}]"
-argument_list|,
-name|localNode
-operator|.
-name|address
-argument_list|()
+literal|"Disconnected from cluster, resending to master [{}], node [{}]"
 argument_list|,
 name|newView
 operator|.
 name|getCreator
 argument_list|()
+argument_list|,
+name|localNode
 argument_list|)
 expr_stmt|;
 try|try

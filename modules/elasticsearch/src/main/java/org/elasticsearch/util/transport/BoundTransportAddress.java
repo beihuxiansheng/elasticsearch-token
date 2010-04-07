@@ -17,7 +17,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A bounded transport address is a tuple of two {@link TransportAddress}, one that represents  * the address the transport is bounded on, the the published one represents the one clients should  * communicate on.  *  * @author kimchy (Shay Banon)  */
+comment|/**  * A bounded transport address is a tuple of two {@link TransportAddress}, one that represents  * the address the transport is bounded on, the the published one represents the one clients should  * communicate on.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class

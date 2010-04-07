@@ -74,6 +74,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|transport
+operator|.
+name|TransportAddress
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -83,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_interface
@@ -229,6 +243,20 @@ DECL|method|boundAddress
 name|BoundTransportAddress
 name|boundAddress
 parameter_list|()
+function_decl|;
+comment|/**      * Is the address type supported.      */
+DECL|method|addressSupported
+name|boolean
+name|addressSupported
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|TransportAddress
+argument_list|>
+name|address
+parameter_list|)
 function_decl|;
 DECL|method|nodesAdded
 name|void
