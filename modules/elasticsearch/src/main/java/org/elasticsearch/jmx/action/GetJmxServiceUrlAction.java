@@ -148,6 +148,8 @@ name|util
 operator|.
 name|io
 operator|.
+name|stream
+operator|.
 name|StringStreamable
 import|;
 end_import
@@ -161,6 +163,8 @@ operator|.
 name|util
 operator|.
 name|io
+operator|.
+name|stream
 operator|.
 name|VoidStreamable
 import|;

@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.util.io
+DECL|package|org.elasticsearch.util.io.stream
 package|package
 name|org
 operator|.
@@ -13,56 +13,10 @@ operator|.
 name|util
 operator|.
 name|io
+operator|.
+name|stream
 package|;
 end_package
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|util
-operator|.
-name|io
-operator|.
-name|stream
-operator|.
-name|StreamInput
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|util
-operator|.
-name|io
-operator|.
-name|stream
-operator|.
-name|StreamOutput
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|util
-operator|.
-name|io
-operator|.
-name|stream
-operator|.
-name|Streamable
-import|;
-end_import
 
 begin_import
 import|import
@@ -75,32 +29,32 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|StringStreamable
+DECL|class|LongStreamable
 specifier|public
 class|class
-name|StringStreamable
+name|LongStreamable
 implements|implements
 name|Streamable
 block|{
 DECL|field|value
 specifier|private
-name|String
+name|long
 name|value
 decl_stmt|;
-DECL|method|StringStreamable
+DECL|method|LongStreamable
 specifier|public
-name|StringStreamable
+name|LongStreamable
 parameter_list|()
 block|{     }
-DECL|method|StringStreamable
+DECL|method|LongStreamable
 specifier|public
-name|StringStreamable
+name|LongStreamable
 parameter_list|(
-name|String
+name|long
 name|value
 parameter_list|)
 block|{
@@ -116,7 +70,7 @@ specifier|public
 name|void
 name|set
 parameter_list|(
-name|String
+name|long
 name|newValue
 parameter_list|)
 block|{
@@ -127,7 +81,7 @@ expr_stmt|;
 block|}
 DECL|method|get
 specifier|public
-name|String
+name|long
 name|get
 parameter_list|()
 block|{
@@ -154,7 +108,7 @@ name|value
 operator|=
 name|in
 operator|.
-name|readUTF
+name|readLong
 argument_list|()
 expr_stmt|;
 block|}
@@ -173,7 +127,7 @@ name|IOException
 block|{
 name|out
 operator|.
-name|writeUTF
+name|writeLong
 argument_list|(
 name|value
 argument_list|)

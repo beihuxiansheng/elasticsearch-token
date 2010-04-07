@@ -48,6 +48,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
+name|AlreadyClosedException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|ElasticSearchException
@@ -618,6 +632,14 @@ name|e
 parameter_list|)
 block|{
 comment|// ignore this exception
+block|}
+catch|catch
+parameter_list|(
+name|AlreadyClosedException
+name|e
+parameter_list|)
+block|{
+comment|// ignore this as well
 block|}
 name|engineSearcher
 operator|.

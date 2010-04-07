@@ -1139,6 +1139,13 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+name|releaseIrrelevantSearchContexts
+argument_list|(
+name|queryResults
+argument_list|,
+name|docIdsToLoad
+argument_list|)
+expr_stmt|;
 name|finishHim
 argument_list|()
 expr_stmt|;
@@ -1519,6 +1526,13 @@ block|}
 block|}
 block|}
 block|}
+name|releaseIrrelevantSearchContexts
+argument_list|(
+name|queryResults
+argument_list|,
+name|docIdsToLoad
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|executeFetch
 specifier|private
