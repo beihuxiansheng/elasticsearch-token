@@ -833,7 +833,7 @@ literal|"No state read from gateway"
 argument_list|)
 expr_stmt|;
 return|return
-literal|false
+literal|true
 return|;
 block|}
 specifier|final
