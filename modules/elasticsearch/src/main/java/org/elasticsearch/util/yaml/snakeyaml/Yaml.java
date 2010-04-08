@@ -50,7 +50,7 @@ name|snakeyaml
 operator|.
 name|nodes
 operator|.
-name|Node
+name|YamlNode
 import|;
 end_import
 
@@ -354,7 +354,7 @@ block|}
 comment|/**      * Parse the first YAML document in a stream and produce the corresponding      * representation tree.      *      * @param io stream of a YAML document      * @return parsed root Node for the specified YAML document      */
 DECL|method|compose
 specifier|public
-name|Node
+name|YamlNode
 name|compose
 parameter_list|(
 name|Reader
@@ -375,7 +375,7 @@ DECL|method|composeAll
 specifier|public
 name|Iterable
 argument_list|<
-name|Node
+name|YamlNode
 argument_list|>
 name|composeAll
 parameter_list|(

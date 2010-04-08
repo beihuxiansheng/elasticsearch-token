@@ -33,23 +33,23 @@ block|{
 DECL|field|keyNode
 specifier|private
 specifier|final
-name|Node
+name|YamlNode
 name|keyNode
 decl_stmt|;
 DECL|field|valueNode
 specifier|private
 specifier|final
-name|Node
+name|YamlNode
 name|valueNode
 decl_stmt|;
 DECL|method|NodeTuple
 specifier|public
 name|NodeTuple
 parameter_list|(
-name|Node
+name|YamlNode
 name|keyNode
 parameter_list|,
-name|Node
+name|YamlNode
 name|valueNode
 parameter_list|)
 block|{
@@ -88,7 +88,7 @@ block|}
 comment|/**      * Key node.      */
 DECL|method|getKeyNode
 specifier|public
-name|Node
+name|YamlNode
 name|getKeyNode
 parameter_list|()
 block|{
@@ -99,7 +99,7 @@ block|}
 comment|/**      * Value node.      *      * @return value      */
 DECL|method|getValueNode
 specifier|public
-name|Node
+name|YamlNode
 name|getValueNode
 parameter_list|()
 block|{

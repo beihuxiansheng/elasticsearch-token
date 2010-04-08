@@ -34,7 +34,7 @@ name|snakeyaml
 operator|.
 name|nodes
 operator|.
-name|Node
+name|YamlNode
 import|;
 end_import
 
@@ -54,7 +54,7 @@ specifier|public
 name|Object
 name|construct
 parameter_list|(
-name|Node
+name|YamlNode
 name|node
 parameter_list|)
 function_decl|;
@@ -64,7 +64,7 @@ specifier|public
 name|void
 name|construct2ndStep
 parameter_list|(
-name|Node
+name|YamlNode
 name|node
 parameter_list|,
 name|Object

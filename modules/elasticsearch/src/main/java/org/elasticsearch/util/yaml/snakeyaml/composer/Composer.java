@@ -131,7 +131,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|Node
+name|YamlNode
 argument_list|>
 name|anchors
 decl_stmt|;
@@ -140,7 +140,7 @@ specifier|private
 specifier|final
 name|Set
 argument_list|<
-name|Node
+name|YamlNode
 argument_list|>
 name|recursiveNodes
 decl_stmt|;
@@ -176,7 +176,7 @@ name|HashMap
 argument_list|<
 name|String
 argument_list|,
-name|Node
+name|YamlNode
 argument_list|>
 argument_list|()
 expr_stmt|;
@@ -187,7 +187,7 @@ operator|=
 operator|new
 name|HashSet
 argument_list|<
-name|Node
+name|YamlNode
 argument_list|>
 argument_list|()
 expr_stmt|;
@@ -238,7 +238,7 @@ block|}
 comment|/**      * Reads and composes the next document.      *      * @return The root node of the document or<code>null</code> if no more      *         documents are available.      */
 DECL|method|getNode
 specifier|public
-name|Node
+name|YamlNode
 name|getNode
 parameter_list|()
 block|{
@@ -267,7 +267,7 @@ else|else
 block|{
 return|return
 operator|(
-name|Node
+name|YamlNode
 operator|)
 literal|null
 return|;
@@ -276,7 +276,7 @@ block|}
 comment|/**      * Reads a document from a source that contains only one document.      *<p>      * If the stream contains more than one document an exception is thrown.      *</p>      *      * @return The root node of the document or<code>null</code> if no document      *         is available.      */
 DECL|method|getSingleNode
 specifier|public
-name|Node
+name|YamlNode
 name|getSingleNode
 parameter_list|()
 block|{
@@ -287,7 +287,7 @@ name|getEvent
 argument_list|()
 expr_stmt|;
 comment|// Compose a document if the stream is not empty.
-name|Node
+name|YamlNode
 name|document
 init|=
 literal|null
@@ -369,7 +369,7 @@ return|;
 block|}
 DECL|method|composeDocument
 specifier|private
-name|Node
+name|YamlNode
 name|composeDocument
 parameter_list|()
 block|{
@@ -380,7 +380,7 @@ name|getEvent
 argument_list|()
 expr_stmt|;
 comment|// Compose the root node.
-name|Node
+name|YamlNode
 name|node
 init|=
 name|composeNode
@@ -414,10 +414,10 @@ return|;
 block|}
 DECL|method|composeNode
 specifier|private
-name|Node
+name|YamlNode
 name|composeNode
 parameter_list|(
-name|Node
+name|YamlNode
 name|parent
 parameter_list|,
 name|Object
@@ -494,11 +494,11 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
-name|Node
+name|YamlNode
 name|result
 init|=
 operator|(
-name|Node
+name|YamlNode
 operator|)
 name|anchors
 operator|.
@@ -598,7 +598,7 @@ argument_list|)
 throw|;
 block|}
 comment|// resolver.descendResolver(parent, index);
-name|Node
+name|YamlNode
 name|node
 init|=
 literal|null
@@ -672,7 +672,7 @@ return|;
 block|}
 DECL|method|composeScalarNode
 specifier|private
-name|Node
+name|YamlNode
 name|composeScalarNode
 parameter_list|(
 name|String
@@ -760,7 +760,7 @@ name|tag
 argument_list|)
 expr_stmt|;
 block|}
-name|Node
+name|YamlNode
 name|node
 init|=
 operator|new
@@ -814,7 +814,7 @@ return|;
 block|}
 DECL|method|composeSequenceNode
 specifier|private
-name|Node
+name|YamlNode
 name|composeSequenceNode
 parameter_list|(
 name|String
@@ -909,7 +909,7 @@ argument_list|,
 operator|new
 name|ArrayList
 argument_list|<
-name|Node
+name|YamlNode
 argument_list|>
 argument_list|()
 argument_list|,
@@ -1008,7 +1008,7 @@ return|;
 block|}
 DECL|method|composeMappingNode
 specifier|private
-name|Node
+name|YamlNode
 name|composeMappingNode
 parameter_list|(
 name|String
@@ -1152,7 +1152,7 @@ name|MappingEnd
 argument_list|)
 condition|)
 block|{
-name|Node
+name|YamlNode
 name|itemKey
 init|=
 name|composeNode
@@ -1162,7 +1162,7 @@ argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
-name|Node
+name|YamlNode
 name|itemValue
 init|=
 name|composeNode

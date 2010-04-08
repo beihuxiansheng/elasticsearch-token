@@ -640,7 +640,7 @@ specifier|public
 name|Object
 name|construct
 parameter_list|(
-name|Node
+name|YamlNode
 name|node
 parameter_list|)
 block|{
@@ -938,7 +938,7 @@ specifier|public
 name|void
 name|construct2ndStep
 parameter_list|(
-name|Node
+name|YamlNode
 name|node
 parameter_list|,
 name|Object
@@ -1209,7 +1209,7 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
-name|Node
+name|YamlNode
 name|valueNode
 init|=
 name|tuple
@@ -1999,7 +1999,7 @@ specifier|private
 name|Construct
 name|getConstructor
 parameter_list|(
-name|Node
+name|YamlNode
 name|node
 parameter_list|)
 block|{
@@ -2041,7 +2041,7 @@ specifier|public
 name|Object
 name|construct
 parameter_list|(
-name|Node
+name|YamlNode
 name|node
 parameter_list|)
 block|{
@@ -2111,7 +2111,7 @@ specifier|public
 name|void
 name|construct2ndStep
 parameter_list|(
-name|Node
+name|YamlNode
 name|node
 parameter_list|,
 name|Object
@@ -2190,7 +2190,7 @@ specifier|public
 name|Object
 name|construct
 parameter_list|(
-name|Node
+name|YamlNode
 name|nnode
 parameter_list|)
 block|{
@@ -3298,7 +3298,7 @@ specifier|public
 name|Object
 name|construct
 parameter_list|(
-name|Node
+name|YamlNode
 name|node
 parameter_list|)
 block|{
@@ -3539,7 +3539,7 @@ literal|0
 decl_stmt|;
 for|for
 control|(
-name|Node
+name|YamlNode
 name|argumentNode
 range|:
 name|snode
@@ -3716,7 +3716,7 @@ specifier|public
 name|void
 name|construct2ndStep
 parameter_list|(
-name|Node
+name|YamlNode
 name|node
 parameter_list|,
 name|Object
@@ -3788,7 +3788,7 @@ name|?
 argument_list|>
 name|getClassForNode
 parameter_list|(
-name|Node
+name|YamlNode
 name|node
 parameter_list|)
 block|{

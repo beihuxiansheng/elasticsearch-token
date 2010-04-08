@@ -190,7 +190,7 @@ specifier|private
 specifier|final
 name|Map
 argument_list|<
-name|Node
+name|YamlNode
 argument_list|,
 name|Object
 argument_list|>
@@ -201,7 +201,7 @@ specifier|private
 specifier|final
 name|Set
 argument_list|<
-name|Node
+name|YamlNode
 argument_list|>
 name|recursiveObjects
 decl_stmt|;
@@ -261,7 +261,7 @@ operator|=
 operator|new
 name|HashMap
 argument_list|<
-name|Node
+name|YamlNode
 argument_list|,
 name|Object
 argument_list|>
@@ -272,7 +272,7 @@ operator|=
 operator|new
 name|HashSet
 argument_list|<
-name|Node
+name|YamlNode
 argument_list|>
 argument_list|()
 expr_stmt|;
@@ -366,7 +366,7 @@ operator|.
 name|checkNode
 argument_list|()
 expr_stmt|;
-name|Node
+name|YamlNode
 name|node
 init|=
 name|composer
@@ -404,7 +404,7 @@ name|getSingleData
 parameter_list|()
 block|{
 comment|// Ensure that the stream contains a single document and construct it
-name|Node
+name|YamlNode
 name|node
 init|=
 name|composer
@@ -451,7 +451,7 @@ specifier|private
 name|Object
 name|constructDocument
 parameter_list|(
-name|Node
+name|YamlNode
 name|node
 parameter_list|)
 block|{
@@ -608,7 +608,7 @@ specifier|protected
 name|Object
 name|constructObject
 parameter_list|(
-name|Node
+name|YamlNode
 name|node
 parameter_list|)
 block|{
@@ -727,7 +727,7 @@ specifier|protected
 name|Construct
 name|getConstructor
 parameter_list|(
-name|Node
+name|YamlNode
 name|node
 parameter_list|)
 block|{
@@ -988,7 +988,7 @@ parameter_list|)
 block|{
 for|for
 control|(
-name|Node
+name|YamlNode
 name|child
 range|:
 name|node
@@ -1161,7 +1161,7 @@ range|:
 name|nodeValue
 control|)
 block|{
-name|Node
+name|YamlNode
 name|keyNode
 init|=
 name|tuple
@@ -1169,7 +1169,7 @@ operator|.
 name|getKeyNode
 argument_list|()
 decl_stmt|;
-name|Node
+name|YamlNode
 name|valueNode
 init|=
 name|tuple
@@ -1348,7 +1348,7 @@ range|:
 name|nodeValue
 control|)
 block|{
-name|Node
+name|YamlNode
 name|keyNode
 init|=
 name|tuple

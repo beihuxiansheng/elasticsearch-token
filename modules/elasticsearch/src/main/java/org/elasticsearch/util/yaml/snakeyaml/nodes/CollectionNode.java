@@ -49,7 +49,7 @@ specifier|abstract
 class|class
 name|CollectionNode
 extends|extends
-name|Node
+name|YamlNode
 block|{
 DECL|field|flowStyle
 specifier|private

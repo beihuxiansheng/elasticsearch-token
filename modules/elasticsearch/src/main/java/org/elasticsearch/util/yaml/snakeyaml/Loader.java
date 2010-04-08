@@ -122,7 +122,7 @@ name|snakeyaml
 operator|.
 name|nodes
 operator|.
-name|Node
+name|YamlNode
 import|;
 end_import
 
@@ -420,7 +420,7 @@ block|}
 comment|/**      * Parse the first YAML document in a stream and produce the corresponding      * representation tree.      *      * @param yaml YAML document      * @return parsed root Node for the specified YAML document      */
 DECL|method|compose
 specifier|public
-name|Node
+name|YamlNode
 name|compose
 parameter_list|(
 name|Reader
@@ -467,7 +467,7 @@ DECL|method|composeAll
 specifier|public
 name|Iterable
 argument_list|<
-name|Node
+name|YamlNode
 argument_list|>
 name|composeAll
 parameter_list|(
@@ -506,14 +506,14 @@ argument_list|)
 expr_stmt|;
 name|Iterator
 argument_list|<
-name|Node
+name|YamlNode
 argument_list|>
 name|result
 init|=
 operator|new
 name|Iterator
 argument_list|<
-name|Node
+name|YamlNode
 argument_list|>
 argument_list|()
 block|{
@@ -530,7 +530,7 @@ argument_list|()
 return|;
 block|}
 specifier|public
-name|Node
+name|YamlNode
 name|next
 parameter_list|()
 block|{
@@ -569,14 +569,14 @@ name|NodeIterable
 implements|implements
 name|Iterable
 argument_list|<
-name|Node
+name|YamlNode
 argument_list|>
 block|{
 DECL|field|iterator
 specifier|private
 name|Iterator
 argument_list|<
-name|Node
+name|YamlNode
 argument_list|>
 name|iterator
 decl_stmt|;
@@ -586,7 +586,7 @@ name|NodeIterable
 parameter_list|(
 name|Iterator
 argument_list|<
-name|Node
+name|YamlNode
 argument_list|>
 name|iterator
 parameter_list|)
@@ -602,7 +602,7 @@ DECL|method|iterator
 specifier|public
 name|Iterator
 argument_list|<
-name|Node
+name|YamlNode
 argument_list|>
 name|iterator
 parameter_list|()

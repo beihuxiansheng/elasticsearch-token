@@ -74,7 +74,7 @@ DECL|field|value
 specifier|private
 name|List
 argument_list|<
-name|Node
+name|YamlNode
 argument_list|>
 name|value
 decl_stmt|;
@@ -90,7 +90,7 @@ name|resolved
 parameter_list|,
 name|List
 argument_list|<
-name|Node
+name|YamlNode
 argument_list|>
 name|value
 parameter_list|,
@@ -158,7 +158,7 @@ name|tag
 parameter_list|,
 name|List
 argument_list|<
-name|Node
+name|YamlNode
 argument_list|>
 name|value
 parameter_list|,
@@ -201,14 +201,14 @@ DECL|method|getValue
 specifier|public
 name|List
 argument_list|<
-name|Node
+name|YamlNode
 argument_list|>
 name|getValue
 parameter_list|()
 block|{
 for|for
 control|(
-name|Node
+name|YamlNode
 name|node
 range|:
 name|value

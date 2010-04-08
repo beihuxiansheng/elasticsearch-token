@@ -43,11 +43,11 @@ comment|/**  * Base class for all nodes.  *<p>  * The nodes form the node-graph 
 end_comment
 
 begin_class
-DECL|class|Node
+DECL|class|YamlNode
 specifier|public
 specifier|abstract
 class|class
-name|Node
+name|YamlNode
 block|{
 DECL|field|tag
 specifier|private
@@ -90,9 +90,9 @@ specifier|protected
 name|Boolean
 name|useClassConstructor
 decl_stmt|;
-DECL|method|Node
+DECL|method|YamlNode
 specifier|public
-name|Node
+name|YamlNode
 parameter_list|(
 name|Tag
 name|tag

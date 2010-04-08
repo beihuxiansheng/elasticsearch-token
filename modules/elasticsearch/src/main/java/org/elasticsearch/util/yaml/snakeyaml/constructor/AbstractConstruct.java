@@ -52,7 +52,7 @@ name|snakeyaml
 operator|.
 name|nodes
 operator|.
-name|Node
+name|YamlNode
 import|;
 end_import
 
@@ -69,13 +69,13 @@ name|AbstractConstruct
 implements|implements
 name|Construct
 block|{
-comment|/**      * Fail with a reminder to provide the seconds step for a recursive      * structure      *      * @see org.elasticsearch.util.yaml.snakeyaml.constructor.Construct#construct2ndStep(org.elasticsearch.util.yaml.snakeyaml.nodes.Node,      *      java.lang.Object)      */
+comment|/**      * Fail with a reminder to provide the seconds step for a recursive      * structure      *      * @see org.elasticsearch.util.yaml.snakeyaml.constructor.Construct#construct2ndStep(org.elasticsearch.util.yaml.snakeyaml.nodes.YamlNode ,      *      java.lang.Object)      */
 DECL|method|construct2ndStep
 specifier|public
 name|void
 name|construct2ndStep
 parameter_list|(
-name|Node
+name|YamlNode
 name|node
 parameter_list|,
 name|Object

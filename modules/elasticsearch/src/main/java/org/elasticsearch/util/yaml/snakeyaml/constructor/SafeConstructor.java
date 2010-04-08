@@ -430,7 +430,7 @@ name|size
 argument_list|()
 condition|)
 block|{
-name|Node
+name|YamlNode
 name|keyNode
 init|=
 name|nodeValue
@@ -443,7 +443,7 @@ operator|.
 name|getKeyNode
 argument_list|()
 decl_stmt|;
-name|Node
+name|YamlNode
 name|valueNode
 init|=
 name|nodeValue
@@ -545,7 +545,7 @@ name|valueNode
 decl_stmt|;
 name|List
 argument_list|<
-name|Node
+name|YamlNode
 argument_list|>
 name|vals
 init|=
@@ -556,7 +556,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|Node
+name|YamlNode
 name|subnode
 range|:
 name|vals
@@ -821,7 +821,7 @@ specifier|public
 name|Object
 name|construct
 parameter_list|(
-name|Node
+name|YamlNode
 name|node
 parameter_list|)
 block|{
@@ -940,7 +940,7 @@ specifier|public
 name|Object
 name|construct
 parameter_list|(
-name|Node
+name|YamlNode
 name|node
 parameter_list|)
 block|{
@@ -983,7 +983,7 @@ specifier|public
 name|Object
 name|construct
 parameter_list|(
-name|Node
+name|YamlNode
 name|node
 parameter_list|)
 block|{
@@ -1386,7 +1386,7 @@ specifier|public
 name|Object
 name|construct
 parameter_list|(
-name|Node
+name|YamlNode
 name|node
 parameter_list|)
 block|{
@@ -1657,7 +1657,7 @@ specifier|public
 name|Object
 name|construct
 parameter_list|(
-name|Node
+name|YamlNode
 name|node
 parameter_list|)
 block|{
@@ -1744,7 +1744,7 @@ specifier|public
 name|Object
 name|construct
 parameter_list|(
-name|Node
+name|YamlNode
 name|node
 parameter_list|)
 block|{
@@ -2244,7 +2244,7 @@ specifier|public
 name|Object
 name|construct
 parameter_list|(
-name|Node
+name|YamlNode
 name|node
 parameter_list|)
 block|{
@@ -2312,7 +2312,7 @@ name|node
 decl_stmt|;
 for|for
 control|(
-name|Node
+name|YamlNode
 name|subnode
 range|:
 name|snode
@@ -2407,7 +2407,7 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
-name|Node
+name|YamlNode
 name|keyNode
 init|=
 name|mnode
@@ -2423,7 +2423,7 @@ operator|.
 name|getKeyNode
 argument_list|()
 decl_stmt|;
-name|Node
+name|YamlNode
 name|valueNode
 init|=
 name|mnode
@@ -2483,7 +2483,7 @@ specifier|public
 name|Object
 name|construct
 parameter_list|(
-name|Node
+name|YamlNode
 name|node
 parameter_list|)
 block|{
@@ -2557,7 +2557,7 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|Node
+name|YamlNode
 name|subnode
 range|:
 name|snode
@@ -2652,7 +2652,7 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
-name|Node
+name|YamlNode
 name|keyNode
 init|=
 name|mnode
@@ -2668,7 +2668,7 @@ operator|.
 name|getKeyNode
 argument_list|()
 decl_stmt|;
-name|Node
+name|YamlNode
 name|valueNode
 init|=
 name|mnode
@@ -2732,7 +2732,7 @@ specifier|public
 name|Object
 name|construct
 parameter_list|(
-name|Node
+name|YamlNode
 name|node
 parameter_list|)
 block|{
@@ -2772,7 +2772,7 @@ specifier|public
 name|void
 name|construct2ndStep
 parameter_list|(
-name|Node
+name|YamlNode
 name|node
 parameter_list|,
 name|Object
@@ -2830,7 +2830,7 @@ specifier|public
 name|Object
 name|construct
 parameter_list|(
-name|Node
+name|YamlNode
 name|node
 parameter_list|)
 block|{
@@ -2860,7 +2860,7 @@ specifier|public
 name|Object
 name|construct
 parameter_list|(
-name|Node
+name|YamlNode
 name|node
 parameter_list|)
 block|{
@@ -2915,7 +2915,7 @@ specifier|public
 name|void
 name|construct2ndStep
 parameter_list|(
-name|Node
+name|YamlNode
 name|node
 parameter_list|,
 name|Object
@@ -2973,7 +2973,7 @@ specifier|public
 name|Object
 name|construct
 parameter_list|(
-name|Node
+name|YamlNode
 name|node
 parameter_list|)
 block|{
@@ -3013,7 +3013,7 @@ specifier|public
 name|void
 name|construct2ndStep
 parameter_list|(
-name|Node
+name|YamlNode
 name|node
 parameter_list|,
 name|Object
@@ -3075,7 +3075,7 @@ specifier|public
 name|Object
 name|construct
 parameter_list|(
-name|Node
+name|YamlNode
 name|node
 parameter_list|)
 block|{

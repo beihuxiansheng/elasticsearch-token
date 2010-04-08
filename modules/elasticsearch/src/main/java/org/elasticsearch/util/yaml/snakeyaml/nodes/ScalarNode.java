@@ -48,7 +48,7 @@ specifier|public
 class|class
 name|ScalarNode
 extends|extends
-name|Node
+name|YamlNode
 block|{
 DECL|field|style
 specifier|private
