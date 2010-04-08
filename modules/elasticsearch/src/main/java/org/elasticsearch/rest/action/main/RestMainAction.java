@@ -142,6 +142,8 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|jsr166y
+operator|.
 name|ThreadLocalRandom
 import|;
 end_import

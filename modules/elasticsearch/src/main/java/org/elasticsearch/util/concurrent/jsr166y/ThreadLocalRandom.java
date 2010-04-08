@@ -8,7 +8,7 @@ comment|/*  * Written by Doug Lea with assistance from members of JCP JSR-166  *
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.util.concurrent
+DECL|package|org.elasticsearch.util.concurrent.jsr166y
 package|package
 name|org
 operator|.
@@ -17,20 +17,10 @@ operator|.
 name|util
 operator|.
 name|concurrent
+operator|.
+name|jsr166y
 package|;
 end_package
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|util
-operator|.
-name|ThreadLocals
-import|;
-end_import
 
 begin_import
 import|import
@@ -43,7 +33,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A random number generator isolated to the current thread.  Like the  * global {@link java.util.Random} generator used by the {@link  * java.lang.Math} class, a {@code ThreadLocalRandom} is initialized  * with an internally generated seed that may not otherwise be  * modified. When applicable, use of {@code ThreadLocalRandom} rather  * than shared {@code Random} objects in concurrent programs will  * typically encounter much less overhead and contention.  Use of  * {@code ThreadLocalRandom} is particularly appropriate when multiple  * tasks use random numbers in parallel in thread pools.  *  *<p>Usages of this class should typically be of the form:  * {@code ThreadLocalRandom.current().nextX(...)} (where  * {@code X} is {@code Int}, {@code Long}, etc).  * When all usages are of this form, it is never possible to  * accidently share a {@code ThreadLocalRandom} across multiple threads.  *  *<p>This class also provides additional commonly used bounded random  * generation methods.  *  * @author Doug Lea  * @since 1.7  */
+comment|/**  * A random number generator isolated to the current thread.  Like the  * global {@link java.util.Random} generator used by the {@link  * java.lang.Math} class, a {@code ThreadLocalRandom} is initialized  * with an internally generated seed that may not otherwise be  * modified. When applicable, use of {@code ThreadLocalRandom} rather  * than shared {@code Random} objects in concurrent programs will  * typically encounter much less overhead and contention.  Use of  * {@code ThreadLocalRandom} is particularly appropriate when multiple  * tasks (for example, each a {@link ForkJoinTask}) use random numbers  * in parallel in thread pools.  *  *<p>Usages of this class should typically be of the form:  * {@code ThreadLocalRandom.current().nextX(...)} (where  * {@code X} is {@code Int}, {@code Long}, etc).  * When all usages are of this form, it is never possible to  * accidently share a {@code ThreadLocalRandom} across multiple threads.  *  *<p>This class also provides additional commonly used bounded random  * generation methods.  *  * @author Doug Lea  * @since 1.7  */
 end_comment
 
 begin_class
@@ -135,50 +125,26 @@ specifier|static
 specifier|final
 name|ThreadLocal
 argument_list|<
-name|ThreadLocals
-operator|.
-name|CleanableValue
-argument_list|<
 name|ThreadLocalRandom
-argument_list|>
 argument_list|>
 name|localRandom
 init|=
 operator|new
 name|ThreadLocal
 argument_list|<
-name|ThreadLocals
-operator|.
-name|CleanableValue
-argument_list|<
 name|ThreadLocalRandom
-argument_list|>
 argument_list|>
 argument_list|()
 block|{
 specifier|protected
-name|ThreadLocals
-operator|.
-name|CleanableValue
-argument_list|<
 name|ThreadLocalRandom
-argument_list|>
 name|initialValue
 parameter_list|()
 block|{
 return|return
 operator|new
-name|ThreadLocals
-operator|.
-name|CleanableValue
-argument_list|<
-name|ThreadLocalRandom
-argument_list|>
-argument_list|(
-operator|new
 name|ThreadLocalRandom
 argument_list|()
-argument_list|)
 return|;
 block|}
 block|}
@@ -202,9 +168,6 @@ parameter_list|()
 block|{
 return|return
 name|localRandom
-operator|.
-name|get
-argument_list|()
 operator|.
 name|get
 argument_list|()

@@ -102,6 +102,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|jsr166y
+operator|.
+name|LinkedTransferQueue
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -142,20 +158,8 @@ name|ConcurrentHashMap
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ConcurrentLinkedQueue
-import|;
-end_import
-
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -177,7 +181,7 @@ argument_list|>
 name|cacheShardFailures
 init|=
 operator|new
-name|ConcurrentLinkedQueue
+name|LinkedTransferQueue
 argument_list|<
 name|Collection
 argument_list|<
@@ -199,7 +203,7 @@ argument_list|>
 name|cacheDfsResults
 init|=
 operator|new
-name|ConcurrentLinkedQueue
+name|LinkedTransferQueue
 argument_list|<
 name|Collection
 argument_list|<
@@ -223,7 +227,7 @@ argument_list|>
 name|cacheQueryResults
 init|=
 operator|new
-name|ConcurrentLinkedQueue
+name|LinkedTransferQueue
 argument_list|<
 name|Map
 argument_list|<
@@ -249,7 +253,7 @@ argument_list|>
 name|cacheFetchResults
 init|=
 operator|new
-name|ConcurrentLinkedQueue
+name|LinkedTransferQueue
 argument_list|<
 name|Map
 argument_list|<
@@ -275,7 +279,7 @@ argument_list|>
 name|cacheQueryFetchResults
 init|=
 operator|new
-name|ConcurrentLinkedQueue
+name|LinkedTransferQueue
 argument_list|<
 name|Map
 argument_list|<
@@ -320,7 +324,7 @@ operator|.
 name|offer
 argument_list|(
 operator|new
-name|ConcurrentLinkedQueue
+name|LinkedTransferQueue
 argument_list|<
 name|ShardSearchFailure
 argument_list|>
@@ -396,7 +400,7 @@ operator|.
 name|offer
 argument_list|(
 operator|new
-name|ConcurrentLinkedQueue
+name|LinkedTransferQueue
 argument_list|<
 name|DfsSearchResult
 argument_list|>
