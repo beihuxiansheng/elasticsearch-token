@@ -66,20 +66,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|gateway
-operator|.
-name|RecoveryStatus
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|settings
 operator|.
 name|IndexSettings
@@ -185,7 +171,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -307,14 +293,18 @@ DECL|method|snapshot
 annotation|@
 name|Override
 specifier|public
-name|void
+name|SnapshotStatus
 name|snapshot
 parameter_list|(
 name|Snapshot
 name|snapshot
 parameter_list|)
 block|{
-comment|// nothing to do here
+return|return
+name|SnapshotStatus
+operator|.
+name|NA
+return|;
 block|}
 DECL|method|requiresSnapshotScheduling
 annotation|@

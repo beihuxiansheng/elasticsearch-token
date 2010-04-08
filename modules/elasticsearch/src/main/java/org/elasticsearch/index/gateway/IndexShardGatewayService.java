@@ -311,7 +311,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -594,6 +594,8 @@ operator|.
 name|start
 argument_list|()
 decl_stmt|;
+name|IndexShardGateway
+operator|.
 name|RecoveryStatus
 name|recoveryStatus
 init|=
@@ -685,7 +687,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-literal|", took ["
+literal|", took["
 argument_list|)
 operator|.
 name|append
@@ -705,7 +707,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"    Index    : numberOfFiles ["
+literal|"    Index    : number_of_files["
 argument_list|)
 operator|.
 name|append
@@ -721,7 +723,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-literal|"] with totalSize ["
+literal|"] with total_size["
 argument_list|)
 operator|.
 name|append
@@ -744,7 +746,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"    Translog : translogId ["
+literal|"    Translog : translog_id["
 argument_list|)
 operator|.
 name|append
@@ -760,7 +762,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-literal|", numberOfOperations ["
+literal|"], number_of_operations["
 argument_list|)
 operator|.
 name|append
@@ -776,7 +778,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-literal|"] with totalSize ["
+literal|"] with total_size["
 argument_list|)
 operator|.
 name|append
@@ -878,6 +880,11 @@ return|return;
 block|}
 try|try
 block|{
+name|IndexShardGateway
+operator|.
+name|SnapshotStatus
+name|snapshotStatus
+init|=
 name|indexShard
 operator|.
 name|snapshot
@@ -886,12 +893,19 @@ operator|new
 name|Engine
 operator|.
 name|SnapshotHandler
+argument_list|<
+name|IndexShardGateway
+operator|.
+name|SnapshotStatus
+argument_list|>
 argument_list|()
 block|{
 annotation|@
 name|Override
 specifier|public
-name|void
+name|IndexShardGateway
+operator|.
+name|SnapshotStatus
 name|snapshot
 parameter_list|(
 name|SnapshotIndexCommit
@@ -929,6 +943,11 @@ name|size
 argument_list|()
 condition|)
 block|{
+name|IndexShardGateway
+operator|.
+name|SnapshotStatus
+name|snapshotStatus
+init|=
 name|shardGateway
 operator|.
 name|snapshot
@@ -949,7 +968,7 @@ argument_list|,
 name|lastTranslogSize
 argument_list|)
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|lastIndexVersion
 operator|=
 name|snapshotIndexCommit
@@ -971,11 +990,183 @@ operator|.
 name|size
 argument_list|()
 expr_stmt|;
+return|return
+name|snapshotStatus
+return|;
 block|}
+return|return
+name|IndexShardGateway
+operator|.
+name|SnapshotStatus
+operator|.
+name|NA
+return|;
 block|}
 block|}
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|snapshotStatus
+operator|!=
+name|IndexShardGateway
+operator|.
+name|SnapshotStatus
+operator|.
+name|NA
+condition|)
+block|{
+if|if
+condition|(
+name|logger
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|StringBuilder
+name|sb
+init|=
+operator|new
+name|StringBuilder
+argument_list|()
+decl_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|"Snapshot completed to "
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|shardGateway
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|", took["
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|snapshotStatus
+operator|.
+name|totalTime
+argument_list|()
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"]\n"
+argument_list|)
 expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|"    Index    : number_of_files["
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|snapshotStatus
+operator|.
+name|index
+argument_list|()
+operator|.
+name|numberOfFiles
+argument_list|()
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"] with total_size["
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|snapshotStatus
+operator|.
+name|index
+argument_list|()
+operator|.
+name|totalSize
+argument_list|()
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"], took["
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|snapshotStatus
+operator|.
+name|index
+argument_list|()
+operator|.
+name|time
+argument_list|()
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"]\n"
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|"    Translog : number_of_operations["
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|snapshotStatus
+operator|.
+name|translog
+argument_list|()
+operator|.
+name|numberOfOperations
+argument_list|()
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"], took["
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|snapshotStatus
+operator|.
+name|translog
+argument_list|()
+operator|.
+name|time
+argument_list|()
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"]"
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+name|sb
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 catch|catch
 parameter_list|(

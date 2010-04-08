@@ -2013,10 +2013,16 @@ DECL|method|snapshot
 annotation|@
 name|Override
 specifier|public
-name|void
+parameter_list|<
+name|T
+parameter_list|>
+name|T
 name|snapshot
 parameter_list|(
 name|SnapshotHandler
+argument_list|<
+name|T
+argument_list|>
 name|snapshotHandler
 parameter_list|)
 throws|throws
@@ -2099,6 +2105,7 @@ expr_stmt|;
 block|}
 try|try
 block|{
+return|return
 name|snapshotHandler
 operator|.
 name|snapshot
@@ -2107,7 +2114,7 @@ name|snapshotIndexCommit
 argument_list|,
 name|traslogSnapshot
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 finally|finally
 block|{
