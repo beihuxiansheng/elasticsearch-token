@@ -1146,7 +1146,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-literal|", took ["
+literal|", took["
 argument_list|)
 operator|.
 name|append

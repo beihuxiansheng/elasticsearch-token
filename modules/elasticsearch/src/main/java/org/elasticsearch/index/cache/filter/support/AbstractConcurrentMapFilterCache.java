@@ -325,7 +325,7 @@ operator|+
 name|type
 argument_list|()
 operator|+
-literal|"] filter cache with readerCleanerSchedule [{}]"
+literal|"] filter cache with reader_cleaner_schedule[{}]"
 argument_list|,
 name|readerCleanerSchedule
 argument_list|)

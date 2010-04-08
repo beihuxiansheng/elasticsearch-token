@@ -190,7 +190,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Using [RAM] Store"
+literal|"Using [ram] Store"
 argument_list|)
 expr_stmt|;
 block|}

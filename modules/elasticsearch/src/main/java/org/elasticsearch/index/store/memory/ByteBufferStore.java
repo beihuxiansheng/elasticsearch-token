@@ -279,7 +279,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Using [ByteBuffer] Store with buffer_size[{}], cache_size[{}], direct[{}], warm_cache[{}]"
+literal|"Using [byte_buffer] store with buffer_size[{}], cache_size[{}], direct[{}], warm_cache[{}]"
 argument_list|,
 operator|new
 name|Object

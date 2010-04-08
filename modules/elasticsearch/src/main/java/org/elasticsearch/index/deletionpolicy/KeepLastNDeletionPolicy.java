@@ -191,7 +191,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Using [KeepLastN] deletion policy with num_to_keep [{}]"
+literal|"Using [keep_last_n] deletion policy with num_to_keep[{}]"
 argument_list|,
 name|numToKeep
 argument_list|)

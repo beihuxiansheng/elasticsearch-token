@@ -824,11 +824,11 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Starting engine with ram_buffer_size ["
+literal|"Starting engine with ram_buffer_size["
 operator|+
 name|ramBufferSize
 operator|+
-literal|"], refresh_interval ["
+literal|"], refresh_interval["
 operator|+
 name|refreshInterval
 operator|+

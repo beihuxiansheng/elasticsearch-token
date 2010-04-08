@@ -2996,7 +2996,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Connected to node [{}], numberOfConnections [{}]"
+literal|"Connected to node[{}], number_of_connections[{}]"
 argument_list|,
 name|node
 argument_list|,

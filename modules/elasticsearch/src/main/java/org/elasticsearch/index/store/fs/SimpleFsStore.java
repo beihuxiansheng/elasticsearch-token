@@ -339,7 +339,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Using [SimpleFs] Store with path [{}], cache [true] with extensions [{}]"
+literal|"Using [simple_fs] Store with path [{}], cache [true] with extensions [{}]"
 argument_list|,
 operator|new
 name|Object
@@ -376,7 +376,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Using [SimpleFs] Store with path [{}]"
+literal|"Using [simple_fs] Store with path [{}]"
 argument_list|,
 name|fsDirectory
 operator|.

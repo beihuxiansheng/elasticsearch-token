@@ -270,6 +270,18 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|IndexShardMissingException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|gateway
 operator|.
 name|IgnoreGatewayRecoveryException
@@ -2000,6 +2012,14 @@ argument_list|(
 name|shardId
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IndexShardMissingException
+name|e1
+parameter_list|)
+block|{
+comment|// ignore
 block|}
 catch|catch
 parameter_list|(

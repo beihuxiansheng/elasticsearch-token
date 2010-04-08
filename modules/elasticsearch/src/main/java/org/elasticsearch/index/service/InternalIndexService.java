@@ -1192,7 +1192,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Creating Shard Id [{}]"
+literal|"Creating shard_id[{}]"
 argument_list|,
 name|shardId
 operator|.
@@ -1478,7 +1478,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Deleting Shard Id [{}]"
+literal|"Deleting shard_id[{}]"
 argument_list|,
 name|shardId
 argument_list|)

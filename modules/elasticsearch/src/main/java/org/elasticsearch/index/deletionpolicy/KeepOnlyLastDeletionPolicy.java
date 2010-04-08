@@ -162,7 +162,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Using [KeepOnlyLast] deletion policy"
+literal|"Using [keep_only_last] deletion policy"
 argument_list|)
 expr_stmt|;
 block|}

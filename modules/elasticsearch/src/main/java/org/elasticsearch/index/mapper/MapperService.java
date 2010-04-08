@@ -762,7 +762,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Using dynamic [{}] with location [{}] and source [{}]"
+literal|"Using dynamic[{}] with location[{}] and source[{}]"
 argument_list|,
 operator|new
 name|Object

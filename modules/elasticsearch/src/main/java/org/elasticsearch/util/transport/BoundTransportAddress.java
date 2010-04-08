@@ -91,11 +91,11 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"boundAddress ["
+literal|"bound_address["
 operator|+
 name|boundAddress
 operator|+
-literal|"], publishAddress ["
+literal|"], publish_address["
 operator|+
 name|publishAddress
 operator|+

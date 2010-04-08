@@ -245,7 +245,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Using [Memory] Store with buffer_size[{}], cache_size[{}], warm_cache[{}]"
+literal|"Using [heap] Store with buffer_size[{}], cache_size[{}], warm_cache[{}]"
 argument_list|,
 operator|new
 name|Object

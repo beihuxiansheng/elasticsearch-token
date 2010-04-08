@@ -340,7 +340,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Using [MmapFs] Store with path [{}], cache [true] with extensions [{}]"
+literal|"Using [mmap_fs] Store with path [{}], cache [true] with extensions [{}]"
 argument_list|,
 operator|new
 name|Object
@@ -377,7 +377,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Using [MmapFs] Store with path [{}]"
+literal|"Using [mmap_fs] Store with path [{}]"
 argument_list|,
 name|fsDirectory
 operator|.

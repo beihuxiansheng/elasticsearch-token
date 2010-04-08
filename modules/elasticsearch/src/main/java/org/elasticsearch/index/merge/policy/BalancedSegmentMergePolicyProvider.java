@@ -369,7 +369,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Using [Balanced] merge policy with merge_factor[{}], min_merge_size[{}], max_merge_size[{}], max_merge_docs[{}] use_compound_file[{}]"
+literal|"Using [balanced] merge policy with merge_factor[{}], min_merge_size[{}], max_merge_size[{}], max_merge_docs[{}] use_compound_file[{}]"
 argument_list|,
 operator|new
 name|Object
