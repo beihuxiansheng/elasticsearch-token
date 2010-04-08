@@ -52,11 +52,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|server
+name|node
 operator|.
 name|internal
 operator|.
-name|InternalServer
+name|InternalNode
 import|;
 end_import
 
@@ -143,9 +143,9 @@ name|server1Address
 init|=
 operator|(
 operator|(
-name|InternalServer
+name|InternalNode
 operator|)
-name|server
+name|node
 argument_list|(
 literal|"server1"
 argument_list|)
@@ -211,9 +211,9 @@ name|server1Address
 init|=
 operator|(
 operator|(
-name|InternalServer
+name|InternalNode
 operator|)
-name|server
+name|node
 argument_list|(
 literal|"server2"
 argument_list|)

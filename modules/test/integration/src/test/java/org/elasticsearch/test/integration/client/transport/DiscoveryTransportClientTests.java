@@ -44,7 +44,7 @@ name|test
 operator|.
 name|integration
 operator|.
-name|AbstractServersTests
+name|AbstractNodesTests
 import|;
 end_import
 
@@ -98,7 +98,7 @@ specifier|public
 class|class
 name|DiscoveryTransportClientTests
 extends|extends
-name|AbstractServersTests
+name|AbstractNodesTests
 block|{
 DECL|field|client
 specifier|private
@@ -126,7 +126,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-name|closeAllServers
+name|closeAllNodes
 argument_list|()
 expr_stmt|;
 block|}
@@ -139,7 +139,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|startServer
+name|startNode
 argument_list|(
 literal|"server1"
 argument_list|)
@@ -228,7 +228,7 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|startServer
+name|startNode
 argument_list|(
 literal|"server2"
 argument_list|)
@@ -269,7 +269,7 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|closeServer
+name|closeNode
 argument_list|(
 literal|"server1"
 argument_list|)
@@ -310,7 +310,7 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|closeServer
+name|closeNode
 argument_list|(
 literal|"server2"
 argument_list|)

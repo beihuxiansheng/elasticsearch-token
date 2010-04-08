@@ -4,13 +4,13 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.server.internal
+DECL|package|org.elasticsearch.node.internal
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|server
+name|node
 operator|.
 name|internal
 package|;
@@ -104,9 +104,9 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|server
+name|node
 operator|.
-name|ServerClientModule
+name|NodeClientModule
 import|;
 end_import
 
@@ -350,6 +350,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|node
+operator|.
+name|Node
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|plugins
 operator|.
 name|PluginsModule
@@ -413,18 +425,6 @@ operator|.
 name|search
 operator|.
 name|SearchService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|server
-operator|.
-name|Server
 import|;
 end_import
 
@@ -685,13 +685,13 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|InternalServer
+DECL|class|InternalNode
 specifier|public
 specifier|final
 class|class
-name|InternalServer
+name|InternalNode
 implements|implements
-name|Server
+name|Node
 block|{
 DECL|field|lifecycle
 specifier|private
@@ -733,9 +733,9 @@ specifier|final
 name|Client
 name|client
 decl_stmt|;
-DECL|method|InternalServer
+DECL|method|InternalNode
 specifier|public
-name|InternalServer
+name|InternalNode
 parameter_list|()
 throws|throws
 name|ElasticSearchException
@@ -750,9 +750,9 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|InternalServer
+DECL|method|InternalNode
 specifier|public
-name|InternalServer
+name|InternalNode
 parameter_list|(
 name|Settings
 name|pSettings
@@ -787,7 +787,7 @@ name|Loggers
 operator|.
 name|getLogger
 argument_list|(
-name|Server
+name|Node
 operator|.
 name|class
 argument_list|,
@@ -881,7 +881,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|ServerModule
+name|NodeModule
 argument_list|(
 name|this
 argument_list|)
@@ -1075,7 +1075,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|ServerClientModule
+name|NodeClientModule
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1140,7 +1140,7 @@ return|;
 block|}
 DECL|method|start
 specifier|public
-name|Server
+name|Node
 name|start
 parameter_list|()
 block|{
@@ -1164,7 +1164,7 @@ name|Loggers
 operator|.
 name|getLogger
 argument_list|(
-name|Server
+name|Node
 operator|.
 name|class
 argument_list|,
@@ -1389,7 +1389,7 @@ DECL|method|stop
 annotation|@
 name|Override
 specifier|public
-name|Server
+name|Node
 name|stop
 parameter_list|()
 block|{
@@ -1413,7 +1413,7 @@ name|Loggers
 operator|.
 name|getLogger
 argument_list|(
-name|Server
+name|Node
 operator|.
 name|class
 argument_list|,
@@ -1720,7 +1720,7 @@ name|Loggers
 operator|.
 name|getLogger
 argument_list|(
-name|Server
+name|Node
 operator|.
 name|class
 argument_list|,
@@ -2036,14 +2036,14 @@ throws|throws
 name|Exception
 block|{
 specifier|final
-name|InternalServer
-name|server
+name|InternalNode
+name|node
 init|=
 operator|new
-name|InternalServer
+name|InternalNode
 argument_list|()
 decl_stmt|;
-name|server
+name|node
 operator|.
 name|start
 argument_list|()
@@ -2066,7 +2066,7 @@ name|void
 name|run
 parameter_list|()
 block|{
-name|server
+name|node
 operator|.
 name|close
 argument_list|()

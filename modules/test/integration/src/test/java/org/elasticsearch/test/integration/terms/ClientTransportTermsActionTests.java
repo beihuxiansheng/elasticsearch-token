@@ -50,11 +50,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|server
+name|node
 operator|.
 name|internal
 operator|.
-name|InternalServer
+name|InternalNode
 import|;
 end_import
 
@@ -97,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -123,9 +123,9 @@ name|server1Address
 init|=
 operator|(
 operator|(
-name|InternalServer
+name|InternalNode
 operator|)
-name|server
+name|node
 argument_list|(
 literal|"server1"
 argument_list|)

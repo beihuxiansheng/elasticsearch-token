@@ -56,11 +56,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|server
+name|node
 operator|.
 name|internal
 operator|.
-name|InternalServer
+name|InternalNode
 import|;
 end_import
 
@@ -74,7 +74,7 @@ name|test
 operator|.
 name|integration
 operator|.
-name|AbstractServersTests
+name|AbstractNodesTests
 import|;
 end_import
 
@@ -150,17 +150,17 @@ specifier|public
 class|class
 name|SimpleNodesInfoTests
 extends|extends
-name|AbstractServersTests
+name|AbstractNodesTests
 block|{
-DECL|method|closeServers
+DECL|method|closeNodes
 annotation|@
 name|AfterMethod
 specifier|public
 name|void
-name|closeServers
+name|closeNodes
 parameter_list|()
 block|{
-name|closeAllServers
+name|closeAllNodes
 argument_list|()
 expr_stmt|;
 block|}
@@ -172,12 +172,12 @@ name|void
 name|testNodesInfos
 parameter_list|()
 block|{
-name|startServer
+name|startNode
 argument_list|(
 literal|"server1"
 argument_list|)
 expr_stmt|;
-name|startServer
+name|startNode
 argument_list|(
 literal|"server2"
 argument_list|)
@@ -187,9 +187,9 @@ name|server1NodeId
 init|=
 operator|(
 operator|(
-name|InternalServer
+name|InternalNode
 operator|)
-name|server
+name|node
 argument_list|(
 literal|"server1"
 argument_list|)
@@ -219,9 +219,9 @@ name|server2NodeId
 init|=
 operator|(
 operator|(
-name|InternalServer
+name|InternalNode
 operator|)
-name|server
+name|node
 argument_list|(
 literal|"server2"
 argument_list|)

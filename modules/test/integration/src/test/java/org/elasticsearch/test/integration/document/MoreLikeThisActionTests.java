@@ -90,7 +90,7 @@ name|test
 operator|.
 name|integration
 operator|.
-name|AbstractServersTests
+name|AbstractNodesTests
 import|;
 end_import
 
@@ -194,7 +194,7 @@ specifier|public
 class|class
 name|MoreLikeThisActionTests
 extends|extends
-name|AbstractServersTests
+name|AbstractNodesTests
 block|{
 DECL|field|client1
 specifier|private
@@ -214,12 +214,12 @@ name|void
 name|startServers
 parameter_list|()
 block|{
-name|startServer
+name|startNode
 argument_list|(
 literal|"server1"
 argument_list|)
 expr_stmt|;
-name|startServer
+name|startNode
 argument_list|(
 literal|"server2"
 argument_list|)
@@ -253,7 +253,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|closeAllServers
+name|closeAllNodes
 argument_list|()
 expr_stmt|;
 block|}

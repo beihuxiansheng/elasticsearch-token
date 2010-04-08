@@ -86,7 +86,7 @@ name|String
 name|description
 parameter_list|()
 function_decl|;
-comment|/**      * Server level modules.      */
+comment|/**      * Node level modules.      */
 DECL|method|modules
 name|Collection
 argument_list|<
@@ -100,7 +100,7 @@ argument_list|>
 name|modules
 parameter_list|()
 function_decl|;
-comment|/**      * Server level services that will be automatically started/stopped/closed.      */
+comment|/**      * Node level services that will be automatically started/stopped/closed.      */
 DECL|method|services
 name|Collection
 argument_list|<

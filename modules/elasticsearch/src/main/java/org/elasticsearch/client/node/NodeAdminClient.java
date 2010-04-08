@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.client.server
+DECL|package|org.elasticsearch.client.node
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|server
+name|node
 package|;
 end_package
 
@@ -93,14 +93,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|ServerAdminClient
+DECL|class|NodeAdminClient
 specifier|public
 class|class
-name|ServerAdminClient
+name|NodeAdminClient
 extends|extends
 name|AbstractComponent
 implements|implements
@@ -109,28 +109,28 @@ block|{
 DECL|field|indicesAdminClient
 specifier|private
 specifier|final
-name|ServerIndicesAdminClient
+name|NodeIndicesAdminClient
 name|indicesAdminClient
 decl_stmt|;
 DECL|field|clusterAdminClient
 specifier|private
 specifier|final
-name|ServerClusterAdminClient
+name|NodeClusterAdminClient
 name|clusterAdminClient
 decl_stmt|;
-DECL|method|ServerAdminClient
+DECL|method|NodeAdminClient
 annotation|@
 name|Inject
 specifier|public
-name|ServerAdminClient
+name|NodeAdminClient
 parameter_list|(
 name|Settings
 name|settings
 parameter_list|,
-name|ServerClusterAdminClient
+name|NodeClusterAdminClient
 name|clusterAdminClient
 parameter_list|,
-name|ServerIndicesAdminClient
+name|NodeIndicesAdminClient
 name|indicesAdminClient
 parameter_list|)
 block|{

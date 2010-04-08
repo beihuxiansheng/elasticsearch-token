@@ -144,7 +144,7 @@ name|test
 operator|.
 name|integration
 operator|.
-name|AbstractServersTests
+name|AbstractNodesTests
 import|;
 end_import
 
@@ -272,17 +272,17 @@ specifier|public
 class|class
 name|TransportSearchFailuresTests
 extends|extends
-name|AbstractServersTests
+name|AbstractNodesTests
 block|{
-DECL|method|closeServers
+DECL|method|closeNodes
 annotation|@
 name|AfterMethod
 specifier|public
 name|void
-name|closeServers
+name|closeNodes
 parameter_list|()
 block|{
-name|closeAllServers
+name|closeAllNodes
 argument_list|()
 expr_stmt|;
 block|}
@@ -303,7 +303,7 @@ argument_list|(
 literal|"Start Testing failed search with wrong query"
 argument_list|)
 expr_stmt|;
-name|startServer
+name|startNode
 argument_list|(
 literal|"server1"
 argument_list|)
@@ -544,7 +544,7 @@ expr_stmt|;
 comment|// all is well
 block|}
 block|}
-name|startServer
+name|startNode
 argument_list|(
 literal|"server2"
 argument_list|)
@@ -553,7 +553,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|300
+literal|500
 argument_list|)
 expr_stmt|;
 name|logger

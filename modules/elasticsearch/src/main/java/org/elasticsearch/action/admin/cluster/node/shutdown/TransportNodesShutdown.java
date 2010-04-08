@@ -128,9 +128,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|server
+name|node
 operator|.
-name|Server
+name|Node
 import|;
 end_import
 
@@ -317,11 +317,11 @@ operator|.
 name|NodeShutdownResponse
 argument_list|>
 block|{
-DECL|field|server
+DECL|field|node
 specifier|private
 specifier|final
-name|Server
-name|server
+name|Node
+name|node
 decl_stmt|;
 DECL|field|disabled
 specifier|private
@@ -350,8 +350,8 @@ parameter_list|,
 name|TransportService
 name|transportService
 parameter_list|,
-name|Server
-name|server
+name|Node
+name|node
 parameter_list|)
 block|{
 name|super
@@ -369,9 +369,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|server
+name|node
 operator|=
-name|server
+name|node
 expr_stmt|;
 name|disabled
 operator|=
@@ -644,7 +644,7 @@ name|void
 name|run
 parameter_list|()
 block|{
-name|server
+name|node
 operator|.
 name|close
 argument_list|()

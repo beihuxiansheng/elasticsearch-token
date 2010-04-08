@@ -136,11 +136,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|server
+name|node
 operator|.
 name|internal
 operator|.
-name|InternalServer
+name|InternalNode
 import|;
 end_import
 
@@ -154,7 +154,7 @@ name|test
 operator|.
 name|integration
 operator|.
-name|AbstractServersTests
+name|AbstractNodesTests
 import|;
 end_import
 
@@ -243,17 +243,17 @@ specifier|abstract
 class|class
 name|AbstractSimpleIndexGatewayTests
 extends|extends
-name|AbstractServersTests
+name|AbstractNodesTests
 block|{
-DECL|method|closeServers
+DECL|method|closeNodes
 annotation|@
 name|AfterMethod
 specifier|public
 name|void
-name|closeServers
+name|closeNodes
 parameter_list|()
 block|{
-name|server
+name|node
 argument_list|(
 literal|"server1"
 argument_list|)
@@ -264,9 +264,9 @@ expr_stmt|;
 comment|// since we store (by default) the index snapshot under the gateway, resetting it will reset the index data as well
 operator|(
 operator|(
-name|InternalServer
+name|InternalNode
 operator|)
-name|server
+name|node
 argument_list|(
 literal|"server1"
 argument_list|)
@@ -285,19 +285,19 @@ operator|.
 name|reset
 argument_list|()
 expr_stmt|;
-name|closeAllServers
+name|closeAllNodes
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|buildServer1
+DECL|method|buildNode1
 annotation|@
 name|BeforeMethod
 specifier|public
 name|void
-name|buildServer1
+name|buildNode1
 parameter_list|()
 block|{
-name|buildServer
+name|buildNode
 argument_list|(
 literal|"server1"
 argument_list|)
@@ -305,9 +305,9 @@ expr_stmt|;
 comment|// since we store (by default) the index snapshot under the gateway, resetting it will reset the index data as well
 operator|(
 operator|(
-name|InternalServer
+name|InternalNode
 operator|)
-name|server
+name|node
 argument_list|(
 literal|"server1"
 argument_list|)
@@ -337,7 +337,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|server
+name|node
 argument_list|(
 literal|"server1"
 argument_list|)
@@ -666,7 +666,7 @@ argument_list|(
 literal|"Closing the server"
 argument_list|)
 expr_stmt|;
-name|closeServer
+name|closeNode
 argument_list|(
 literal|"server1"
 argument_list|)
@@ -678,7 +678,7 @@ argument_list|(
 literal|"Starting the server, should recover from the gateway (only translog should be populated)"
 argument_list|)
 expr_stmt|;
-name|startServer
+name|startNode
 argument_list|(
 literal|"server1"
 argument_list|)
@@ -1045,7 +1045,7 @@ argument_list|(
 literal|"Closing the server"
 argument_list|)
 expr_stmt|;
-name|closeServer
+name|closeNode
 argument_list|(
 literal|"server1"
 argument_list|)
@@ -1057,7 +1057,7 @@ argument_list|(
 literal|"Starting the server, should recover from the gateway (both index and translog)"
 argument_list|)
 expr_stmt|;
-name|startServer
+name|startNode
 argument_list|(
 literal|"server1"
 argument_list|)
@@ -1382,7 +1382,7 @@ argument_list|(
 literal|"Closing the server"
 argument_list|)
 expr_stmt|;
-name|closeServer
+name|closeNode
 argument_list|(
 literal|"server1"
 argument_list|)
@@ -1394,7 +1394,7 @@ argument_list|(
 literal|"Starting the server, should recover from the gateway (just from the index, nothing in the translog)"
 argument_list|)
 expr_stmt|;
-name|startServer
+name|startNode
 argument_list|(
 literal|"server1"
 argument_list|)

@@ -4,17 +4,17 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_comment
-comment|/**  * Allow to build a {@link Server} using {@link ServerBuilder} which is a node within the cluster.  */
+comment|/**  * Allow to build a {@link Node} using {@link NodeBuilder} which is a node within the cluster.  */
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.server
+DECL|package|org.elasticsearch.node
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|server
+name|node
 package|;
 end_package
 

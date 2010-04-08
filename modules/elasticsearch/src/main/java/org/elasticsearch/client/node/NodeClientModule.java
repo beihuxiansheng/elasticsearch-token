@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.client.server
+DECL|package|org.elasticsearch.client.node
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|server
+name|node
 package|;
 end_package
 
@@ -81,10 +81,10 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|ServerClientModule
+DECL|class|NodeClientModule
 specifier|public
 class|class
-name|ServerClientModule
+name|NodeClientModule
 extends|extends
 name|AbstractModule
 block|{
@@ -105,7 +105,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-name|ServerClusterAdminClient
+name|NodeClusterAdminClient
 operator|.
 name|class
 argument_list|)
@@ -122,7 +122,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-name|ServerIndicesAdminClient
+name|NodeIndicesAdminClient
 operator|.
 name|class
 argument_list|)
@@ -139,7 +139,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-name|ServerAdminClient
+name|NodeAdminClient
 operator|.
 name|class
 argument_list|)
@@ -156,7 +156,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-name|ServerClient
+name|NodeClient
 operator|.
 name|class
 argument_list|)

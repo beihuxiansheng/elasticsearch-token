@@ -90,9 +90,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|server
+name|node
 operator|.
-name|Server
+name|Node
 import|;
 end_import
 
@@ -102,9 +102,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|server
+name|node
 operator|.
-name|ServerBuilder
+name|NodeBuilder
 import|;
 end_import
 
@@ -114,7 +114,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|server
+name|node
 operator|.
 name|internal
 operator|.
@@ -306,10 +306,10 @@ specifier|public
 class|class
 name|Bootstrap
 block|{
-DECL|field|server
+DECL|field|node
 specifier|private
-name|Server
-name|server
+name|Node
+name|node
 decl_stmt|;
 DECL|method|setup
 specifier|private
@@ -337,12 +337,12 @@ argument_list|(
 name|tuple
 argument_list|)
 expr_stmt|;
-name|ServerBuilder
-name|serverBuilder
+name|NodeBuilder
+name|nodeBuilder
 init|=
-name|ServerBuilder
+name|NodeBuilder
 operator|.
-name|serverBuilder
+name|nodeBuilder
 argument_list|()
 operator|.
 name|settings
@@ -358,9 +358,9 @@ argument_list|(
 literal|false
 argument_list|)
 decl_stmt|;
-name|server
+name|node
 operator|=
-name|serverBuilder
+name|nodeBuilder
 operator|.
 name|build
 argument_list|()
@@ -388,7 +388,7 @@ name|void
 name|run
 parameter_list|()
 block|{
-name|server
+name|node
 operator|.
 name|close
 argument_list|()
@@ -633,7 +633,7 @@ name|void
 name|start
 parameter_list|()
 block|{
-name|server
+name|node
 operator|.
 name|start
 argument_list|()
@@ -646,7 +646,7 @@ name|void
 name|stop
 parameter_list|()
 block|{
-name|server
+name|node
 operator|.
 name|stop
 argument_list|()
@@ -659,7 +659,7 @@ name|void
 name|destroy
 parameter_list|()
 block|{
-name|server
+name|node
 operator|.
 name|close
 argument_list|()
@@ -866,7 +866,7 @@ if|if
 condition|(
 name|bootstrap
 operator|.
-name|server
+name|node
 operator|!=
 literal|null
 condition|)
@@ -883,7 +883,7 @@ name|class
 argument_list|,
 name|bootstrap
 operator|.
-name|server
+name|node
 operator|.
 name|settings
 argument_list|()

@@ -4,13 +4,13 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.server
+DECL|package|org.elasticsearch.node
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|server
+name|node
 package|;
 end_package
 
@@ -41,16 +41,16 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A server represent a node within a cluster (<tt>cluster.name</tt>). The {@link #client()} can be used  * in order to use a {@link Client} to perform actions/operations against the cluster.  *  *<p>In order to create a server, the {@link ServerBuilder} can be used. When done with it, make sure to  * call {@link #close()} on it.  *  * @author kimchy (shay.banon)  */
+comment|/**  * A node represent a node within a cluster (<tt>cluster.name</tt>). The {@link #client()} can be used  * in order to use a {@link Client} to perform actions/operations against the cluster.  *  *<p>In order to create a node, the {@link NodeBuilder} can be used. When done with it, make sure to  * call {@link #close()} on it.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_interface
-DECL|interface|Server
+DECL|interface|Node
 specifier|public
 interface|interface
-name|Server
+name|Node
 block|{
-comment|/**      * The settings that were used to create the server.      */
+comment|/**      * The settings that were used to create the node.      */
 DECL|method|settings
 name|Settings
 name|settings
@@ -62,19 +62,19 @@ name|Client
 name|client
 parameter_list|()
 function_decl|;
-comment|/**      * Start the server. If the server is already started, this method is noop.      */
+comment|/**      * Start the node. If the node is already started, this method is no-op.      */
 DECL|method|start
-name|Server
+name|Node
 name|start
 parameter_list|()
 function_decl|;
-comment|/**      * Stops the server. If the server is already started, this method is noop.      */
+comment|/**      * Stops the node. If the node is already started, this method is no-op.      */
 DECL|method|stop
-name|Server
+name|Node
 name|stop
 parameter_list|()
 function_decl|;
-comment|/**      * Closes the server (and {@link #stop}s if its running).      */
+comment|/**      * Closes the node (and {@link #stop}s if its running).      */
 DECL|method|close
 name|void
 name|close

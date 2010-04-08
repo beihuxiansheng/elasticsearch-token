@@ -74,9 +74,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|server
+name|node
 operator|.
-name|Server
+name|Node
 import|;
 end_import
 
@@ -154,9 +154,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|server
+name|node
 operator|.
-name|ServerBuilder
+name|NodeBuilder
 operator|.
 name|*
 import|;
@@ -260,10 +260,10 @@ name|getClass
 argument_list|()
 argument_list|)
 decl_stmt|;
-DECL|field|server
+DECL|field|node
 specifier|private
-name|Server
-name|server
+name|Node
+name|node
 decl_stmt|;
 DECL|method|setupServer
 annotation|@
@@ -273,9 +273,9 @@ name|void
 name|setupServer
 parameter_list|()
 block|{
-name|server
+name|node
 operator|=
-name|serverBuilder
+name|nodeBuilder
 argument_list|()
 operator|.
 name|settings
@@ -291,7 +291,7 @@ literal|true
 argument_list|)
 argument_list|)
 operator|.
-name|server
+name|node
 argument_list|()
 expr_stmt|;
 block|}
@@ -303,7 +303,7 @@ name|void
 name|closeServer
 parameter_list|()
 block|{
-name|server
+name|node
 operator|.
 name|close
 argument_list|()
@@ -324,7 +324,7 @@ argument_list|(
 literal|"creating index [test]"
 argument_list|)
 expr_stmt|;
-name|server
+name|node
 operator|.
 name|client
 argument_list|()
@@ -369,7 +369,7 @@ expr_stmt|;
 name|ClusterHealthResponse
 name|clusterHealth
 init|=
-name|server
+name|node
 operator|.
 name|client
 argument_list|()
@@ -448,7 +448,7 @@ argument_list|(
 literal|"deleting index [test]"
 argument_list|)
 expr_stmt|;
-name|server
+name|node
 operator|.
 name|client
 argument_list|()
@@ -489,7 +489,7 @@ argument_list|(
 literal|"/org/elasticsearch/plugin/attachments/index/mapper/test-mapping.json"
 argument_list|)
 decl_stmt|;
-name|server
+name|node
 operator|.
 name|client
 argument_list|()
@@ -516,7 +516,7 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|server
+name|node
 operator|.
 name|client
 argument_list|()
@@ -559,7 +559,7 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|server
+name|node
 operator|.
 name|client
 argument_list|()
@@ -582,7 +582,7 @@ expr_stmt|;
 name|CountResponse
 name|countResponse
 init|=
-name|server
+name|node
 operator|.
 name|client
 argument_list|()
@@ -623,7 +623,7 @@ argument_list|)
 expr_stmt|;
 name|countResponse
 operator|=
-name|server
+name|node
 operator|.
 name|client
 argument_list|()

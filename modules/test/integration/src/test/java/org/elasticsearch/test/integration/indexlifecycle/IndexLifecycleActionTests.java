@@ -134,11 +134,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|server
+name|node
 operator|.
 name|internal
 operator|.
-name|InternalServer
+name|InternalNode
 import|;
 end_import
 
@@ -152,7 +152,7 @@ name|test
 operator|.
 name|integration
 operator|.
-name|AbstractServersTests
+name|AbstractNodesTests
 import|;
 end_import
 
@@ -314,7 +314,7 @@ specifier|public
 class|class
 name|IndexLifecycleActionTests
 extends|extends
-name|AbstractServersTests
+name|AbstractNodesTests
 block|{
 DECL|field|logger
 specifier|private
@@ -331,15 +331,15 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|method|closeServers
+DECL|method|closeNodes
 annotation|@
 name|AfterMethod
 specifier|public
 name|void
-name|closeServers
+name|closeNodes
 parameter_list|()
 block|{
-name|closeAllServers
+name|closeAllNodes
 argument_list|()
 expr_stmt|;
 block|}
@@ -384,7 +384,7 @@ argument_list|(
 literal|"Starting sever1"
 argument_list|)
 expr_stmt|;
-name|startServer
+name|startNode
 argument_list|(
 literal|"server1"
 argument_list|,
@@ -396,9 +396,9 @@ name|clusterService1
 init|=
 operator|(
 operator|(
-name|InternalServer
+name|InternalNode
 operator|)
-name|server
+name|node
 argument_list|(
 literal|"server1"
 argument_list|)
@@ -654,7 +654,7 @@ literal|"Starting server2"
 argument_list|)
 expr_stmt|;
 comment|// start another server
-name|startServer
+name|startNode
 argument_list|(
 literal|"server2"
 argument_list|,
@@ -673,9 +673,9 @@ name|clusterService2
 init|=
 operator|(
 operator|(
-name|InternalServer
+name|InternalNode
 operator|)
-name|server
+name|node
 argument_list|(
 literal|"server2"
 argument_list|)
@@ -867,7 +867,7 @@ literal|"Starting server3"
 argument_list|)
 expr_stmt|;
 comment|// start another server
-name|startServer
+name|startNode
 argument_list|(
 literal|"server3"
 argument_list|,
@@ -886,9 +886,9 @@ name|clusterService3
 init|=
 operator|(
 operator|(
-name|InternalServer
+name|InternalNode
 operator|)
-name|server
+name|node
 argument_list|(
 literal|"server3"
 argument_list|)
@@ -1212,7 +1212,7 @@ literal|"Closing server1"
 argument_list|)
 expr_stmt|;
 comment|// kill the first server
-name|closeServer
+name|closeNode
 argument_list|(
 literal|"server1"
 argument_list|)
@@ -1625,7 +1625,7 @@ argument_list|(
 literal|"Starting server1"
 argument_list|)
 expr_stmt|;
-name|startServer
+name|startNode
 argument_list|(
 literal|"server1"
 argument_list|,
@@ -1637,9 +1637,9 @@ name|clusterService1
 init|=
 operator|(
 operator|(
-name|InternalServer
+name|InternalNode
 operator|)
-name|server
+name|node
 argument_list|(
 literal|"server1"
 argument_list|)
@@ -1865,7 +1865,7 @@ argument_list|(
 literal|"Starting server2"
 argument_list|)
 expr_stmt|;
-name|startServer
+name|startNode
 argument_list|(
 literal|"server2"
 argument_list|,
@@ -2009,9 +2009,9 @@ name|clusterService2
 init|=
 operator|(
 operator|(
-name|InternalServer
+name|InternalNode
 operator|)
-name|server
+name|node
 argument_list|(
 literal|"server2"
 argument_list|)
@@ -2139,7 +2139,7 @@ argument_list|(
 literal|"Starting server3"
 argument_list|)
 expr_stmt|;
-name|startServer
+name|startNode
 argument_list|(
 literal|"server3"
 argument_list|)
@@ -2157,9 +2157,9 @@ name|clusterService3
 init|=
 operator|(
 operator|(
-name|InternalServer
+name|InternalNode
 operator|)
-name|server
+name|node
 argument_list|(
 literal|"server3"
 argument_list|)
@@ -2483,7 +2483,7 @@ literal|"Closing server1"
 argument_list|)
 expr_stmt|;
 comment|// kill the first server
-name|closeServer
+name|closeNode
 argument_list|(
 literal|"server1"
 argument_list|)
@@ -2897,7 +2897,7 @@ name|build
 argument_list|()
 decl_stmt|;
 comment|// start one server
-name|startServer
+name|startNode
 argument_list|(
 literal|"server1"
 argument_list|,

@@ -436,7 +436,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|server
+name|node
 operator|.
 name|internal
 operator|.
@@ -756,7 +756,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"discovery.client"
+literal|"node.client"
 argument_list|,
 literal|true
 argument_list|)

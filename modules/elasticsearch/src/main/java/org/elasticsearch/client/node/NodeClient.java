@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.client.server
+DECL|package|org.elasticsearch.client.node
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|server
+name|node
 package|;
 end_package
 
@@ -403,10 +403,10 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|ServerClient
+DECL|class|NodeClient
 specifier|public
 class|class
-name|ServerClient
+name|NodeClient
 extends|extends
 name|AbstractComponent
 implements|implements
@@ -415,7 +415,7 @@ block|{
 DECL|field|admin
 specifier|private
 specifier|final
-name|ServerAdminClient
+name|NodeAdminClient
 name|admin
 decl_stmt|;
 DECL|field|indexAction
@@ -472,16 +472,16 @@ specifier|final
 name|TransportMoreLikeThisAction
 name|moreLikeThisAction
 decl_stmt|;
-DECL|method|ServerClient
+DECL|method|NodeClient
 annotation|@
 name|Inject
 specifier|public
-name|ServerClient
+name|NodeClient
 parameter_list|(
 name|Settings
 name|settings
 parameter_list|,
-name|ServerAdminClient
+name|NodeAdminClient
 name|admin
 parameter_list|,
 name|TransportIndexAction

@@ -468,7 +468,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// if we received initial state, see if we can recover within the start phase, so we hold the
-comment|// server from starting until we recovered properly
+comment|// node from starting until we recovered properly
 if|if
 condition|(
 name|discoveryService

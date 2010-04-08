@@ -102,7 +102,7 @@ name|test
 operator|.
 name|integration
 operator|.
-name|AbstractServersTests
+name|AbstractNodesTests
 import|;
 end_import
 
@@ -192,7 +192,7 @@ specifier|public
 class|class
 name|IndexAliasesTests
 extends|extends
-name|AbstractServersTests
+name|AbstractNodesTests
 block|{
 DECL|field|client1
 specifier|protected
@@ -204,20 +204,20 @@ specifier|protected
 name|Client
 name|client2
 decl_stmt|;
-DECL|method|startServers
+DECL|method|startNodes
 annotation|@
 name|BeforeMethod
 specifier|public
 name|void
-name|startServers
+name|startNodes
 parameter_list|()
 block|{
-name|startServer
+name|startNode
 argument_list|(
 literal|"server1"
 argument_list|)
 expr_stmt|;
-name|startServer
+name|startNode
 argument_list|(
 literal|"server2"
 argument_list|)
@@ -233,12 +233,12 @@ name|getClient2
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|closeServers
+DECL|method|closeNodes
 annotation|@
 name|AfterMethod
 specifier|public
 name|void
-name|closeServers
+name|closeNodes
 parameter_list|()
 block|{
 name|client1
@@ -251,7 +251,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|closeAllServers
+name|closeAllNodes
 argument_list|()
 expr_stmt|;
 block|}

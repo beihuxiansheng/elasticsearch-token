@@ -114,7 +114,7 @@ name|test
 operator|.
 name|integration
 operator|.
-name|AbstractServersTests
+name|AbstractNodesTests
 import|;
 end_import
 
@@ -190,17 +190,17 @@ specifier|public
 class|class
 name|SimpleRecoveryTests
 extends|extends
-name|AbstractServersTests
+name|AbstractNodesTests
 block|{
-DECL|method|closeServers
+DECL|method|closeNodes
 annotation|@
 name|AfterMethod
 specifier|public
 name|void
-name|closeServers
+name|closeNodes
 parameter_list|()
 block|{
-name|closeAllServers
+name|closeAllNodes
 argument_list|()
 expr_stmt|;
 block|}
@@ -214,7 +214,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|startServer
+name|startNode
 argument_list|(
 literal|"server1"
 argument_list|)
@@ -516,7 +516,7 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|startServer
+name|startNode
 argument_list|(
 literal|"server2"
 argument_list|)
@@ -825,7 +825,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// now start another one so we move some primaries
-name|startServer
+name|startNode
 argument_list|(
 literal|"server3"
 argument_list|)

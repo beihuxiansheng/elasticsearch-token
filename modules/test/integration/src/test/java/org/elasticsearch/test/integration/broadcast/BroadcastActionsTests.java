@@ -142,7 +142,7 @@ name|test
 operator|.
 name|integration
 operator|.
-name|AbstractServersTests
+name|AbstractNodesTests
 import|;
 end_import
 
@@ -288,7 +288,7 @@ specifier|public
 class|class
 name|BroadcastActionsTests
 extends|extends
-name|AbstractServersTests
+name|AbstractNodesTests
 block|{
 DECL|method|closeServers
 annotation|@
@@ -298,7 +298,7 @@ name|void
 name|closeServers
 parameter_list|()
 block|{
-name|closeAllServers
+name|closeAllNodes
 argument_list|()
 expr_stmt|;
 block|}
@@ -312,7 +312,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|startServer
+name|startNode
 argument_list|(
 literal|"server1"
 argument_list|)

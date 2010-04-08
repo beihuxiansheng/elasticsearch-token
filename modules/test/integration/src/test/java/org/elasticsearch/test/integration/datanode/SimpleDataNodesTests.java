@@ -66,7 +66,7 @@ name|test
 operator|.
 name|integration
 operator|.
-name|AbstractServersTests
+name|AbstractNodesTests
 import|;
 end_import
 
@@ -172,17 +172,17 @@ specifier|public
 class|class
 name|SimpleDataNodesTests
 extends|extends
-name|AbstractServersTests
+name|AbstractNodesTests
 block|{
-DECL|method|closeServers
+DECL|method|closeNodes
 annotation|@
 name|AfterMethod
 specifier|public
 name|void
-name|closeServers
+name|closeNodes
 parameter_list|()
 block|{
-name|closeAllServers
+name|closeAllNodes
 argument_list|()
 expr_stmt|;
 block|}
@@ -196,7 +196,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|startServer
+name|startNode
 argument_list|(
 literal|"nonData1"
 argument_list|,
@@ -298,7 +298,7 @@ parameter_list|)
 block|{
 comment|// all is well
 block|}
-name|startServer
+name|startNode
 argument_list|(
 literal|"nonData2"
 argument_list|,
@@ -387,7 +387,7 @@ block|{
 comment|// all is well
 block|}
 comment|// now, start a node data, and see that it gets with shards
-name|startServer
+name|startNode
 argument_list|(
 literal|"data1"
 argument_list|,
