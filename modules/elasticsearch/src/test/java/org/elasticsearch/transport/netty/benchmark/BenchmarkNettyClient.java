@@ -42,7 +42,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Node
+name|DiscoveryNode
 import|;
 end_import
 
@@ -365,11 +365,11 @@ name|start
 argument_list|()
 decl_stmt|;
 specifier|final
-name|Node
+name|DiscoveryNode
 name|node
 init|=
 operator|new
-name|Node
+name|DiscoveryNode
 argument_list|(
 literal|"server"
 argument_list|,

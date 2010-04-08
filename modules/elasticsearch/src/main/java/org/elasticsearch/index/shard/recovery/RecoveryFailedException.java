@@ -38,7 +38,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Node
+name|DiscoveryNode
 import|;
 end_import
 
@@ -75,10 +75,10 @@ parameter_list|(
 name|ShardId
 name|shardId
 parameter_list|,
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|,
-name|Node
+name|DiscoveryNode
 name|targetNode
 parameter_list|,
 name|Throwable

@@ -88,7 +88,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Nodes
+name|DiscoveryNodes
 import|;
 end_import
 
@@ -280,7 +280,7 @@ argument_list|>
 name|listener
 parameter_list|)
 block|{
-name|Nodes
+name|DiscoveryNodes
 name|nodes
 init|=
 name|clusterService

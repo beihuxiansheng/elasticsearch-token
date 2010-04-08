@@ -24,7 +24,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Node
+name|DiscoveryNode
 import|;
 end_import
 
@@ -44,7 +44,7 @@ DECL|method|SendRequestTransportException
 specifier|public
 name|SendRequestTransportException
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|,
 name|String

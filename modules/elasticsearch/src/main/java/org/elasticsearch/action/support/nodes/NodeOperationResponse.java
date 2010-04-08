@@ -28,7 +28,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Node
+name|DiscoveryNode
 import|;
 end_import
 
@@ -105,7 +105,7 @@ name|Streamable
 block|{
 DECL|field|node
 specifier|private
-name|Node
+name|DiscoveryNode
 name|node
 decl_stmt|;
 DECL|method|NodeOperationResponse
@@ -117,7 +117,7 @@ DECL|method|NodeOperationResponse
 specifier|protected
 name|NodeOperationResponse
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 block|{
@@ -130,7 +130,7 @@ expr_stmt|;
 block|}
 DECL|method|node
 specifier|public
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|()
 block|{
@@ -153,7 +153,7 @@ name|IOException
 block|{
 name|node
 operator|=
-name|Node
+name|DiscoveryNode
 operator|.
 name|readNode
 argument_list|(

@@ -54,7 +54,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Node
+name|DiscoveryNode
 import|;
 end_import
 
@@ -68,7 +68,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Nodes
+name|DiscoveryNodes
 import|;
 end_import
 
@@ -286,7 +286,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Nodes
+name|DiscoveryNodes
 operator|.
 name|*
 import|;
@@ -2791,7 +2791,7 @@ operator|+
 literal|" nodes"
 argument_list|)
 expr_stmt|;
-name|Nodes
+name|DiscoveryNodes
 operator|.
 name|Builder
 name|nodesBuilder
@@ -2801,7 +2801,7 @@ argument_list|()
 decl_stmt|;
 name|List
 argument_list|<
-name|Node
+name|DiscoveryNode
 argument_list|>
 name|nodes
 init|=
@@ -5467,7 +5467,7 @@ block|}
 block|}
 DECL|method|newNode
 specifier|private
-name|Node
+name|DiscoveryNode
 name|newNode
 parameter_list|(
 name|String
@@ -5476,7 +5476,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|Node
+name|DiscoveryNode
 argument_list|(
 name|nodeId
 argument_list|,

@@ -60,7 +60,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Nodes
+name|DiscoveryNodes
 import|;
 end_import
 
@@ -1101,7 +1101,7 @@ argument_list|)
 decl_stmt|;
 comment|// new cluster state, notify all listeners
 specifier|final
-name|Nodes
+name|DiscoveryNodes
 operator|.
 name|Delta
 name|nodesDelta

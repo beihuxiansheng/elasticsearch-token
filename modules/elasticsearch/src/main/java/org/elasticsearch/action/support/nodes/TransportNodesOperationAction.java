@@ -136,7 +136,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Node
+name|DiscoveryNode
 import|;
 end_import
 
@@ -606,7 +606,7 @@ index|]
 expr_stmt|;
 for|for
 control|(
-name|Node
+name|DiscoveryNode
 name|node
 range|:
 name|clusterState
@@ -666,7 +666,7 @@ name|nodesIds
 control|)
 block|{
 specifier|final
-name|Node
+name|DiscoveryNode
 name|node
 init|=
 name|clusterState

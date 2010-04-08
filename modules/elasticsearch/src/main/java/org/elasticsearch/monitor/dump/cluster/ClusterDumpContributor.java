@@ -78,7 +78,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Nodes
+name|DiscoveryNodes
 import|;
 end_import
 
@@ -261,7 +261,7 @@ operator|.
 name|state
 argument_list|()
 decl_stmt|;
-name|Nodes
+name|DiscoveryNodes
 name|nodes
 init|=
 name|clusterState

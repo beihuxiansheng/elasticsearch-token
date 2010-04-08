@@ -698,7 +698,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Node
+name|DiscoveryNode
 import|;
 end_import
 
@@ -966,7 +966,7 @@ name|IndicesStatusResponse
 argument_list|>
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws
@@ -1025,7 +1025,7 @@ specifier|public
 name|Void
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws
@@ -1091,7 +1091,7 @@ name|CreateIndexResponse
 argument_list|>
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws
@@ -1150,7 +1150,7 @@ specifier|public
 name|Object
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws
@@ -1216,7 +1216,7 @@ name|DeleteIndexResponse
 argument_list|>
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws
@@ -1275,7 +1275,7 @@ specifier|public
 name|Object
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws
@@ -1341,7 +1341,7 @@ name|RefreshResponse
 argument_list|>
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws
@@ -1400,7 +1400,7 @@ specifier|public
 name|Void
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws
@@ -1466,7 +1466,7 @@ name|FlushResponse
 argument_list|>
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws
@@ -1525,7 +1525,7 @@ specifier|public
 name|Object
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws
@@ -1591,7 +1591,7 @@ name|OptimizeResponse
 argument_list|>
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws
@@ -1656,7 +1656,7 @@ name|Void
 argument_list|>
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws
@@ -1722,7 +1722,7 @@ name|PutMappingResponse
 argument_list|>
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws
@@ -1781,7 +1781,7 @@ specifier|public
 name|Void
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws
@@ -1847,7 +1847,7 @@ name|GatewaySnapshotResponse
 argument_list|>
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws
@@ -1906,7 +1906,7 @@ specifier|public
 name|Object
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws
@@ -1972,7 +1972,7 @@ name|IndicesAliasesResponse
 argument_list|>
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws
@@ -2031,7 +2031,7 @@ specifier|public
 name|Void
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws
@@ -2097,7 +2097,7 @@ name|ClearIndicesCacheResponse
 argument_list|>
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws
@@ -2156,7 +2156,7 @@ specifier|public
 name|Void
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws

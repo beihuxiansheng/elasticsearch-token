@@ -72,7 +72,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Node
+name|DiscoveryNode
 import|;
 end_import
 
@@ -2237,7 +2237,7 @@ parameter_list|>
 name|void
 name|sendRequest
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|,
 name|long
@@ -2429,7 +2429,7 @@ name|nodesAdded
 parameter_list|(
 name|Iterable
 argument_list|<
-name|Node
+name|DiscoveryNode
 argument_list|>
 name|nodes
 parameter_list|)
@@ -2453,7 +2453,7 @@ throw|;
 block|}
 for|for
 control|(
-name|Node
+name|DiscoveryNode
 name|node
 range|:
 name|nodes
@@ -2498,14 +2498,14 @@ name|nodesRemoved
 parameter_list|(
 name|Iterable
 argument_list|<
-name|Node
+name|DiscoveryNode
 argument_list|>
 name|nodes
 parameter_list|)
 block|{
 for|for
 control|(
-name|Node
+name|DiscoveryNode
 name|node
 range|:
 name|nodes
@@ -2544,7 +2544,7 @@ specifier|private
 name|Channel
 name|nodeChannel
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws

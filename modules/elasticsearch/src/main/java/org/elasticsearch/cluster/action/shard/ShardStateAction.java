@@ -86,7 +86,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Nodes
+name|DiscoveryNodes
 import|;
 end_import
 
@@ -511,7 +511,7 @@ argument_list|,
 name|reason
 argument_list|)
 expr_stmt|;
-name|Nodes
+name|DiscoveryNodes
 name|nodes
 init|=
 name|clusterService
@@ -629,7 +629,7 @@ name|reason
 argument_list|)
 expr_stmt|;
 block|}
-name|Nodes
+name|DiscoveryNodes
 name|nodes
 init|=
 name|clusterService

@@ -60,7 +60,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Node
+name|DiscoveryNode
 import|;
 end_import
 
@@ -311,7 +311,7 @@ expr_stmt|;
 for|for
 control|(
 specifier|final
-name|Node
+name|DiscoveryNode
 name|node
 range|:
 name|clusterService
@@ -387,7 +387,7 @@ specifier|private
 name|void
 name|registerNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|,
 name|String
@@ -492,7 +492,7 @@ block|}
 for|for
 control|(
 specifier|final
-name|Node
+name|DiscoveryNode
 name|node
 range|:
 name|event

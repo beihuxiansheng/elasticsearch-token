@@ -86,7 +86,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Node
+name|DiscoveryNode
 import|;
 end_import
 
@@ -116,7 +116,7 @@ name|Response
 argument_list|>
 name|execute
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|,
 name|Request
@@ -129,7 +129,7 @@ DECL|method|execute
 name|void
 name|execute
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|,
 name|Request

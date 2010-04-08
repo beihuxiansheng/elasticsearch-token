@@ -26,7 +26,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Node
+name|DiscoveryNode
 import|;
 end_import
 
@@ -209,12 +209,12 @@ name|serviceB
 decl_stmt|;
 DECL|field|serviceANode
 specifier|private
-name|Node
+name|DiscoveryNode
 name|serviceANode
 decl_stmt|;
 DECL|field|serviceBNode
 specifier|private
-name|Node
+name|DiscoveryNode
 name|serviceBNode
 decl_stmt|;
 DECL|method|setUp
@@ -251,7 +251,7 @@ expr_stmt|;
 name|serviceANode
 operator|=
 operator|new
-name|Node
+name|DiscoveryNode
 argument_list|(
 literal|"A"
 argument_list|,
@@ -284,7 +284,7 @@ expr_stmt|;
 name|serviceBNode
 operator|=
 operator|new
-name|Node
+name|DiscoveryNode
 argument_list|(
 literal|"B"
 argument_list|,

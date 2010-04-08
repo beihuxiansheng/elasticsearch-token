@@ -24,7 +24,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Node
+name|DiscoveryNode
 import|;
 end_import
 
@@ -264,7 +264,7 @@ name|nodesAdded
 parameter_list|(
 name|Iterable
 argument_list|<
-name|Node
+name|DiscoveryNode
 argument_list|>
 name|nodes
 parameter_list|)
@@ -275,7 +275,7 @@ name|nodesRemoved
 parameter_list|(
 name|Iterable
 argument_list|<
-name|Node
+name|DiscoveryNode
 argument_list|>
 name|nodes
 parameter_list|)
@@ -289,7 +289,7 @@ parameter_list|>
 name|void
 name|sendRequest
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|,
 name|long

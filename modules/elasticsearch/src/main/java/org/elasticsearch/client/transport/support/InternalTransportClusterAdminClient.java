@@ -536,7 +536,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Node
+name|DiscoveryNode
 import|;
 end_import
 
@@ -759,7 +759,7 @@ name|ClusterHealthResponse
 argument_list|>
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws
@@ -818,7 +818,7 @@ specifier|public
 name|Void
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws
@@ -884,7 +884,7 @@ name|ClusterStateResponse
 argument_list|>
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws
@@ -943,7 +943,7 @@ specifier|public
 name|Void
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws
@@ -1009,7 +1009,7 @@ name|SinglePingResponse
 argument_list|>
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws
@@ -1068,7 +1068,7 @@ specifier|public
 name|Void
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws
@@ -1134,7 +1134,7 @@ name|BroadcastPingResponse
 argument_list|>
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws
@@ -1193,7 +1193,7 @@ specifier|public
 name|Void
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws
@@ -1259,7 +1259,7 @@ name|ReplicationPingResponse
 argument_list|>
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws
@@ -1318,7 +1318,7 @@ specifier|public
 name|Void
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws
@@ -1384,7 +1384,7 @@ name|NodesInfoResponse
 argument_list|>
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws
@@ -1443,7 +1443,7 @@ specifier|public
 name|Void
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws
@@ -1509,7 +1509,7 @@ name|NodesShutdownResponse
 argument_list|>
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws
@@ -1574,7 +1574,7 @@ name|Void
 argument_list|>
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws

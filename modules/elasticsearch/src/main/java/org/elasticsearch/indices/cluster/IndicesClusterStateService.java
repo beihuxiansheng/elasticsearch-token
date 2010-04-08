@@ -176,7 +176,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Node
+name|DiscoveryNode
 import|;
 end_import
 
@@ -190,7 +190,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Nodes
+name|DiscoveryNodes
 import|;
 end_import
 
@@ -1564,7 +1564,7 @@ condition|)
 block|{
 return|return;
 block|}
-name|Nodes
+name|DiscoveryNodes
 name|nodes
 init|=
 name|event
@@ -1766,7 +1766,7 @@ name|RoutingTable
 name|routingTable
 parameter_list|,
 specifier|final
-name|Nodes
+name|DiscoveryNodes
 name|nodes
 parameter_list|,
 specifier|final
@@ -2197,7 +2197,7 @@ argument_list|()
 condition|)
 block|{
 comment|// only recover from started primary, if we can't find one, we will do it next round
-name|Node
+name|DiscoveryNode
 name|node
 init|=
 name|nodes
@@ -2313,7 +2313,7 @@ block|}
 else|else
 block|{
 comment|// relocating primaries, recovery from the relocating shard
-name|Node
+name|DiscoveryNode
 name|node
 init|=
 name|nodes

@@ -46,7 +46,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Node
+name|DiscoveryNode
 import|;
 end_import
 
@@ -507,7 +507,7 @@ name|nodesAdded
 parameter_list|(
 name|Iterable
 argument_list|<
-name|Node
+name|DiscoveryNode
 argument_list|>
 name|nodes
 parameter_list|)
@@ -550,7 +550,7 @@ name|nodesRemoved
 parameter_list|(
 name|Iterable
 argument_list|<
-name|Node
+name|DiscoveryNode
 argument_list|>
 name|nodes
 parameter_list|)
@@ -616,7 +616,7 @@ name|T
 argument_list|>
 name|submitRequest
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|,
 name|String
@@ -675,7 +675,7 @@ name|void
 name|sendRequest
 parameter_list|(
 specifier|final
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|,
 specifier|final

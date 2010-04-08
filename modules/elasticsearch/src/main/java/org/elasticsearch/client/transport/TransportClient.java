@@ -402,7 +402,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Node
+name|DiscoveryNode
 import|;
 end_import
 
@@ -984,7 +984,7 @@ DECL|method|connectedNodes
 specifier|public
 name|ImmutableList
 argument_list|<
-name|Node
+name|DiscoveryNode
 argument_list|>
 name|connectedNodes
 parameter_list|()

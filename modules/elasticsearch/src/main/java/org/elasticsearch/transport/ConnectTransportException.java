@@ -24,7 +24,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Node
+name|DiscoveryNode
 import|;
 end_import
 
@@ -43,14 +43,14 @@ block|{
 DECL|field|node
 specifier|private
 specifier|final
-name|Node
+name|DiscoveryNode
 name|node
 decl_stmt|;
 DECL|method|ConnectTransportException
 specifier|public
 name|ConnectTransportException
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|,
 name|String
@@ -71,7 +71,7 @@ DECL|method|ConnectTransportException
 specifier|public
 name|ConnectTransportException
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|,
 name|String
@@ -101,7 +101,7 @@ expr_stmt|;
 block|}
 DECL|method|node
 specifier|public
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|()
 block|{

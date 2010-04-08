@@ -145,10 +145,10 @@ comment|/**  * @author kimchy (Shay Banon)  */
 end_comment
 
 begin_class
-DECL|class|Node
+DECL|class|DiscoveryNode
 specifier|public
 class|class
-name|Node
+name|DiscoveryNode
 implements|implements
 name|Streamable
 implements|,
@@ -160,7 +160,7 @@ specifier|static
 specifier|final
 name|ImmutableList
 argument_list|<
-name|Node
+name|DiscoveryNode
 argument_list|>
 name|EMPTY_LIST
 init|=
@@ -198,14 +198,14 @@ name|dataNode
 init|=
 literal|true
 decl_stmt|;
-DECL|method|Node
+DECL|method|DiscoveryNode
 specifier|private
-name|Node
+name|DiscoveryNode
 parameter_list|()
 block|{     }
-DECL|method|Node
+DECL|method|DiscoveryNode
 specifier|public
-name|Node
+name|DiscoveryNode
 parameter_list|(
 name|String
 name|nodeId
@@ -226,9 +226,9 @@ name|address
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|Node
+DECL|method|DiscoveryNode
 specifier|public
-name|Node
+name|DiscoveryNode
 parameter_list|(
 name|String
 name|nodeName
@@ -349,7 +349,7 @@ block|}
 DECL|method|readNode
 specifier|public
 specifier|static
-name|Node
+name|DiscoveryNode
 name|readNode
 parameter_list|(
 name|StreamInput
@@ -358,11 +358,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|Node
+name|DiscoveryNode
 name|node
 init|=
 operator|new
-name|Node
+name|DiscoveryNode
 argument_list|()
 decl_stmt|;
 name|node
@@ -491,17 +491,17 @@ operator|!
 operator|(
 name|obj
 operator|instanceof
-name|Node
+name|DiscoveryNode
 operator|)
 condition|)
 return|return
 literal|false
 return|;
-name|Node
+name|DiscoveryNode
 name|other
 init|=
 operator|(
-name|Node
+name|DiscoveryNode
 operator|)
 name|obj
 decl_stmt|;

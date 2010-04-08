@@ -78,7 +78,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Node
+name|DiscoveryNode
 import|;
 end_import
 
@@ -92,7 +92,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Nodes
+name|DiscoveryNodes
 import|;
 end_import
 
@@ -460,7 +460,7 @@ decl_stmt|;
 DECL|field|nodes
 specifier|private
 specifier|final
-name|Nodes
+name|DiscoveryNodes
 name|nodes
 decl_stmt|;
 DECL|field|shardFailures
@@ -636,7 +636,7 @@ name|values
 argument_list|()
 control|)
 block|{
-name|Node
+name|DiscoveryNode
 name|node
 init|=
 name|nodes
@@ -793,7 +793,7 @@ name|values
 argument_list|()
 control|)
 block|{
-name|Node
+name|DiscoveryNode
 name|node
 init|=
 name|nodes
@@ -875,7 +875,7 @@ argument_list|()
 control|)
 block|{
 specifier|final
-name|Node
+name|DiscoveryNode
 name|node
 init|=
 name|nodes
@@ -976,7 +976,7 @@ name|values
 argument_list|()
 control|)
 block|{
-name|Node
+name|DiscoveryNode
 name|node
 init|=
 name|nodes
@@ -1055,7 +1055,7 @@ specifier|private
 name|void
 name|executePhase
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|,
 name|long

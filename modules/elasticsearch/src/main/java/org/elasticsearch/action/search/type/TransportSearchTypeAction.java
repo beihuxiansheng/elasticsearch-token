@@ -92,7 +92,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Node
+name|DiscoveryNode
 import|;
 end_import
 
@@ -106,7 +106,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Nodes
+name|DiscoveryNodes
 import|;
 end_import
 
@@ -507,7 +507,7 @@ decl_stmt|;
 DECL|field|nodes
 specifier|protected
 specifier|final
-name|Nodes
+name|DiscoveryNodes
 name|nodes
 decl_stmt|;
 DECL|field|expectedSuccessfulOps
@@ -982,7 +982,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|Node
+name|DiscoveryNode
 name|node
 init|=
 name|nodes
@@ -1647,7 +1647,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|Node
+name|DiscoveryNode
 name|node
 init|=
 name|nodes
@@ -1808,7 +1808,7 @@ specifier|abstract
 name|void
 name|sendExecuteFirstPhase
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|,
 name|InternalSearchRequest

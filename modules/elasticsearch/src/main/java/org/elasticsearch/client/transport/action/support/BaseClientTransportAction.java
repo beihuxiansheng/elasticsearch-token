@@ -138,7 +138,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Node
+name|DiscoveryNode
 import|;
 end_import
 
@@ -357,7 +357,7 @@ name|Response
 argument_list|>
 name|execute
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|,
 name|Request
@@ -402,7 +402,7 @@ specifier|public
 name|void
 name|execute
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|,
 specifier|final

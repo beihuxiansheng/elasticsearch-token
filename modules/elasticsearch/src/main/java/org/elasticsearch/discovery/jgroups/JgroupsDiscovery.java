@@ -70,7 +70,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Node
+name|DiscoveryNode
 import|;
 end_import
 
@@ -84,7 +84,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Nodes
+name|DiscoveryNodes
 import|;
 end_import
 
@@ -444,7 +444,7 @@ literal|false
 decl_stmt|;
 DECL|field|localNode
 specifier|private
-name|Node
+name|DiscoveryNode
 name|localNode
 decl_stmt|;
 DECL|field|firstMaster
@@ -921,7 +921,7 @@ operator|.
 name|localNode
 operator|=
 operator|new
-name|Node
+name|DiscoveryNode
 argument_list|(
 name|settings
 operator|.
@@ -986,13 +986,13 @@ name|ClusterState
 name|currentState
 parameter_list|)
 block|{
-name|Nodes
+name|DiscoveryNodes
 operator|.
 name|Builder
 name|builder
 init|=
 operator|new
-name|Nodes
+name|DiscoveryNodes
 operator|.
 name|Builder
 argument_list|()
@@ -1081,13 +1081,13 @@ name|ClusterState
 name|currentState
 parameter_list|)
 block|{
-name|Nodes
+name|DiscoveryNodes
 operator|.
 name|Builder
 name|builder
 init|=
 operator|new
-name|Nodes
+name|DiscoveryNodes
 operator|.
 name|Builder
 argument_list|()
@@ -1556,10 +1556,10 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 specifier|final
-name|Node
+name|DiscoveryNode
 name|newNode
 init|=
-name|Node
+name|DiscoveryNode
 operator|.
 name|readNode
 argument_list|(
@@ -1980,7 +1980,7 @@ name|ClusterState
 name|currentState
 parameter_list|)
 block|{
-name|Nodes
+name|DiscoveryNodes
 name|newNodes
 init|=
 name|currentState
@@ -2001,7 +2001,7 @@ name|toString
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|Nodes
+name|DiscoveryNodes
 operator|.
 name|Delta
 name|delta
@@ -2082,7 +2082,7 @@ literal|false
 decl_stmt|;
 for|for
 control|(
-name|Node
+name|DiscoveryNode
 name|node
 range|:
 name|clusterService

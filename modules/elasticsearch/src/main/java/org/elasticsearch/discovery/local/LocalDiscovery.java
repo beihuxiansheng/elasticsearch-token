@@ -70,7 +70,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Node
+name|DiscoveryNode
 import|;
 end_import
 
@@ -84,7 +84,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Nodes
+name|DiscoveryNodes
 import|;
 end_import
 
@@ -319,7 +319,7 @@ name|clusterName
 decl_stmt|;
 DECL|field|localNode
 specifier|private
-name|Node
+name|DiscoveryNode
 name|localNode
 decl_stmt|;
 DECL|field|master
@@ -502,7 +502,7 @@ operator|.
 name|localNode
 operator|=
 operator|new
-name|Node
+name|DiscoveryNode
 argument_list|(
 name|settings
 operator|.
@@ -591,13 +591,13 @@ name|ClusterState
 name|currentState
 parameter_list|)
 block|{
-name|Nodes
+name|DiscoveryNodes
 operator|.
 name|Builder
 name|builder
 init|=
 operator|new
-name|Nodes
+name|DiscoveryNodes
 operator|.
 name|Builder
 argument_list|()
@@ -934,7 +934,7 @@ name|ClusterState
 name|currentState
 parameter_list|)
 block|{
-name|Nodes
+name|DiscoveryNodes
 name|newNodes
 init|=
 name|currentState
@@ -954,7 +954,7 @@ name|id
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|Nodes
+name|DiscoveryNodes
 operator|.
 name|Delta
 name|delta

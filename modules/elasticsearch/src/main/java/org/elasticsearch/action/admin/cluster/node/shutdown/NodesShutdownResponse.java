@@ -76,7 +76,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Node
+name|DiscoveryNode
 import|;
 end_import
 
@@ -287,7 +287,7 @@ DECL|method|NodeShutdownResponse
 specifier|public
 name|NodeShutdownResponse
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 block|{

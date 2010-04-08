@@ -92,7 +92,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Node
+name|DiscoveryNode
 import|;
 end_import
 
@@ -426,7 +426,7 @@ specifier|protected
 name|void
 name|sendExecuteFirstPhase
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|,
 name|InternalSearchRequest

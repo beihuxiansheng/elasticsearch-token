@@ -40,7 +40,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Node
+name|DiscoveryNode
 import|;
 end_import
 
@@ -254,11 +254,11 @@ literal|"localNode"
 argument_list|)
 condition|)
 block|{
-name|Node
+name|DiscoveryNode
 name|localNode
 init|=
 operator|(
-name|Node
+name|DiscoveryNode
 operator|)
 name|context
 operator|.

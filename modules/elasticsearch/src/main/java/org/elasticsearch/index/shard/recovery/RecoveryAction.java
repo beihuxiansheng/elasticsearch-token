@@ -98,7 +98,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Node
+name|DiscoveryNode
 import|;
 end_import
 
@@ -931,10 +931,10 @@ specifier|synchronized
 name|void
 name|startRecovery
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|,
-name|Node
+name|DiscoveryNode
 name|targetNode
 parameter_list|,
 name|boolean
@@ -1563,7 +1563,7 @@ name|Streamable
 block|{
 DECL|field|node
 specifier|private
-name|Node
+name|DiscoveryNode
 name|node
 decl_stmt|;
 DECL|field|markAsRelocated
@@ -1580,7 +1580,7 @@ DECL|method|StartRecoveryRequest
 specifier|private
 name|StartRecoveryRequest
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|,
 name|boolean
@@ -1615,7 +1615,7 @@ name|IOException
 block|{
 name|node
 operator|=
-name|Node
+name|DiscoveryNode
 operator|.
 name|readNode
 argument_list|(
@@ -1717,7 +1717,7 @@ name|markAsRelocated
 argument_list|)
 expr_stmt|;
 specifier|final
-name|Node
+name|DiscoveryNode
 name|node
 init|=
 name|startRecoveryRequest

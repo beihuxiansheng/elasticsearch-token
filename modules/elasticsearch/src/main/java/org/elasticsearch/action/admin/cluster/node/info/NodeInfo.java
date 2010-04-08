@@ -62,7 +62,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Node
+name|DiscoveryNode
 import|;
 end_import
 
@@ -181,7 +181,7 @@ DECL|method|NodeInfo
 specifier|public
 name|NodeInfo
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|,
 name|Map
@@ -215,7 +215,7 @@ DECL|method|NodeInfo
 specifier|public
 name|NodeInfo
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|,
 name|ImmutableMap

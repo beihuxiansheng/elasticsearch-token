@@ -24,7 +24,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Nodes
+name|DiscoveryNodes
 import|;
 end_import
 
@@ -65,7 +65,7 @@ decl_stmt|;
 DECL|field|nodesDelta
 specifier|private
 specifier|final
-name|Nodes
+name|DiscoveryNodes
 operator|.
 name|Delta
 name|nodesDelta
@@ -230,7 +230,7 @@ return|;
 block|}
 DECL|method|nodesDelta
 specifier|public
-name|Nodes
+name|DiscoveryNodes
 operator|.
 name|Delta
 name|nodesDelta

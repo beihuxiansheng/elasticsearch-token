@@ -498,7 +498,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Node
+name|DiscoveryNode
 import|;
 end_import
 
@@ -788,7 +788,7 @@ name|IndexResponse
 argument_list|>
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws
@@ -847,7 +847,7 @@ specifier|public
 name|Void
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws
@@ -913,7 +913,7 @@ name|DeleteResponse
 argument_list|>
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws
@@ -972,7 +972,7 @@ specifier|public
 name|Void
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws
@@ -1038,7 +1038,7 @@ name|DeleteByQueryResponse
 argument_list|>
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws
@@ -1097,7 +1097,7 @@ specifier|public
 name|Void
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws
@@ -1163,7 +1163,7 @@ name|GetResponse
 argument_list|>
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws
@@ -1222,7 +1222,7 @@ specifier|public
 name|Object
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws
@@ -1288,7 +1288,7 @@ name|CountResponse
 argument_list|>
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws
@@ -1347,7 +1347,7 @@ specifier|public
 name|Void
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws
@@ -1413,7 +1413,7 @@ name|SearchResponse
 argument_list|>
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws
@@ -1472,7 +1472,7 @@ specifier|public
 name|Object
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws
@@ -1538,7 +1538,7 @@ name|SearchResponse
 argument_list|>
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws
@@ -1597,7 +1597,7 @@ specifier|public
 name|Object
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws
@@ -1663,7 +1663,7 @@ name|TermsResponse
 argument_list|>
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws
@@ -1728,7 +1728,7 @@ name|Void
 argument_list|>
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws
@@ -1794,7 +1794,7 @@ name|SearchResponse
 argument_list|>
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws
@@ -1853,7 +1853,7 @@ specifier|public
 name|Void
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws

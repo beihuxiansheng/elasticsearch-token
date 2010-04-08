@@ -60,7 +60,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Node
+name|DiscoveryNode
 import|;
 end_import
 
@@ -276,7 +276,7 @@ name|String
 name|obtainPublishUrl
 parameter_list|(
 specifier|final
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws

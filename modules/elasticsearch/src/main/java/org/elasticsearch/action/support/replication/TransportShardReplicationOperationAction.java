@@ -152,7 +152,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Node
+name|DiscoveryNode
 import|;
 end_import
 
@@ -166,7 +166,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Nodes
+name|DiscoveryNodes
 import|;
 end_import
 
@@ -1078,7 +1078,7 @@ name|request
 decl_stmt|;
 DECL|field|nodes
 specifier|private
-name|Nodes
+name|DiscoveryNodes
 name|nodes
 decl_stmt|;
 DECL|field|shards
@@ -1352,7 +1352,7 @@ block|}
 block|}
 else|else
 block|{
-name|Node
+name|DiscoveryNode
 name|node
 init|=
 name|nodes
@@ -2101,7 +2101,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|Node
+name|DiscoveryNode
 name|node
 init|=
 name|nodes

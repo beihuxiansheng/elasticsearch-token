@@ -50,7 +50,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Node
+name|DiscoveryNode
 import|;
 end_import
 
@@ -407,7 +407,7 @@ specifier|public
 name|void
 name|sendFreeContext
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|,
 specifier|final
@@ -475,7 +475,7 @@ specifier|public
 name|void
 name|sendExecuteDfs
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|,
 specifier|final
@@ -638,7 +638,7 @@ specifier|public
 name|void
 name|sendExecuteQuery
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|,
 specifier|final
@@ -801,7 +801,7 @@ specifier|public
 name|void
 name|sendExecuteQuery
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|,
 specifier|final
@@ -964,7 +964,7 @@ specifier|public
 name|void
 name|sendExecuteQuery
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|,
 specifier|final
@@ -1127,7 +1127,7 @@ specifier|public
 name|void
 name|sendExecuteFetch
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|,
 specifier|final
@@ -1290,7 +1290,7 @@ specifier|public
 name|void
 name|sendExecuteFetch
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|,
 specifier|final
@@ -1453,7 +1453,7 @@ specifier|public
 name|void
 name|sendExecuteFetch
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|,
 specifier|final
@@ -1616,7 +1616,7 @@ specifier|public
 name|void
 name|sendExecuteFetch
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|,
 specifier|final

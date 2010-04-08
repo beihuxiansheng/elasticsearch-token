@@ -40,7 +40,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Node
+name|DiscoveryNode
 import|;
 end_import
 
@@ -291,7 +291,7 @@ argument_list|()
 decl_stmt|;
 name|Iterable
 argument_list|<
-name|Node
+name|DiscoveryNode
 argument_list|>
 name|dataNodes
 init|=
@@ -1077,14 +1077,14 @@ name|routingNodes
 parameter_list|,
 name|Iterable
 argument_list|<
-name|Node
+name|DiscoveryNode
 argument_list|>
 name|liveNodes
 parameter_list|)
 block|{
 for|for
 control|(
-name|Node
+name|DiscoveryNode
 name|node
 range|:
 name|liveNodes
@@ -1147,7 +1147,7 @@ name|routingNodes
 parameter_list|,
 name|Iterable
 argument_list|<
-name|Node
+name|DiscoveryNode
 argument_list|>
 name|liveNodes
 parameter_list|)
@@ -1168,7 +1168,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|Node
+name|DiscoveryNode
 name|liveNode
 range|:
 name|liveNodes

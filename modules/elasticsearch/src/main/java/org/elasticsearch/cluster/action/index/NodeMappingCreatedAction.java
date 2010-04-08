@@ -62,7 +62,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Nodes
+name|DiscoveryNodes
 import|;
 end_import
 
@@ -398,7 +398,7 @@ parameter_list|)
 throws|throws
 name|ElasticSearchException
 block|{
-name|Nodes
+name|DiscoveryNodes
 name|nodes
 init|=
 name|clusterService

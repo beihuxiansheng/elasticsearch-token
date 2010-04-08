@@ -78,7 +78,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Node
+name|DiscoveryNode
 import|;
 end_import
 
@@ -492,7 +492,7 @@ specifier|protected
 name|void
 name|sendExecuteFirstPhase
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|,
 name|InternalSearchRequest
@@ -584,7 +584,7 @@ range|:
 name|dfsResults
 control|)
 block|{
-name|Node
+name|DiscoveryNode
 name|node
 init|=
 name|nodes
@@ -689,7 +689,7 @@ range|:
 name|dfsResults
 control|)
 block|{
-name|Node
+name|DiscoveryNode
 name|node
 init|=
 name|nodes
@@ -774,7 +774,7 @@ name|dfsResults
 control|)
 block|{
 specifier|final
-name|Node
+name|DiscoveryNode
 name|node
 init|=
 name|nodes
@@ -881,7 +881,7 @@ specifier|final
 name|AtomicInteger
 name|counter
 parameter_list|,
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|,
 name|QuerySearchRequest

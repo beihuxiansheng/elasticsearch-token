@@ -142,7 +142,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Node
+name|DiscoveryNode
 import|;
 end_import
 
@@ -156,7 +156,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Nodes
+name|DiscoveryNodes
 import|;
 end_import
 
@@ -415,7 +415,7 @@ specifier|private
 specifier|volatile
 name|ImmutableList
 argument_list|<
-name|Node
+name|DiscoveryNode
 argument_list|>
 name|nodes
 init|=
@@ -427,7 +427,7 @@ decl_stmt|;
 DECL|field|discoveredNodes
 specifier|private
 specifier|volatile
-name|Nodes
+name|DiscoveryNodes
 name|discoveredNodes
 decl_stmt|;
 DECL|field|tempNodeIdGenerator
@@ -585,7 +585,7 @@ DECL|method|connectedNodes
 specifier|public
 name|ImmutableList
 argument_list|<
-name|Node
+name|DiscoveryNode
 argument_list|>
 name|connectedNodes
 parameter_list|()
@@ -741,7 +741,7 @@ name|ElasticSearchException
 block|{
 name|ImmutableList
 argument_list|<
-name|Node
+name|DiscoveryNode
 argument_list|>
 name|nodes
 init|=
@@ -789,7 +789,7 @@ name|i
 operator|++
 control|)
 block|{
-name|Node
+name|DiscoveryNode
 name|node
 init|=
 name|nodes
@@ -886,14 +886,14 @@ argument_list|()
 expr_stmt|;
 name|HashSet
 argument_list|<
-name|Node
+name|DiscoveryNode
 argument_list|>
 name|newNodes
 init|=
 operator|new
 name|HashSet
 argument_list|<
-name|Node
+name|DiscoveryNode
 argument_list|>
 argument_list|(
 name|nodes
@@ -919,7 +919,7 @@ name|ImmutableList
 operator|.
 name|Builder
 argument_list|<
-name|Node
+name|DiscoveryNode
 argument_list|>
 argument_list|()
 operator|.
@@ -1003,14 +1003,14 @@ decl_stmt|;
 specifier|final
 name|CopyOnWriteArrayList
 argument_list|<
-name|Node
+name|DiscoveryNode
 argument_list|>
 name|tempNodes
 init|=
 operator|new
 name|CopyOnWriteArrayList
 argument_list|<
-name|Node
+name|DiscoveryNode
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -1038,11 +1038,11 @@ name|void
 name|run
 parameter_list|()
 block|{
-name|Node
+name|DiscoveryNode
 name|tempNode
 init|=
 operator|new
-name|Node
+name|DiscoveryNode
 argument_list|(
 literal|"#temp#-"
 operator|+
@@ -1222,14 +1222,14 @@ return|return;
 block|}
 name|HashSet
 argument_list|<
-name|Node
+name|DiscoveryNode
 argument_list|>
 name|newNodes
 init|=
 operator|new
 name|HashSet
 argument_list|<
-name|Node
+name|DiscoveryNode
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -1253,7 +1253,7 @@ operator|>
 literal|0
 condition|)
 block|{
-name|Node
+name|DiscoveryNode
 name|node
 init|=
 name|nodesInfoResponse
@@ -1344,7 +1344,7 @@ name|ImmutableList
 operator|.
 name|Builder
 argument_list|<
-name|Node
+name|DiscoveryNode
 argument_list|>
 argument_list|()
 operator|.
@@ -1378,7 +1378,7 @@ DECL|method|doWithNode
 name|T
 name|doWithNode
 parameter_list|(
-name|Node
+name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws

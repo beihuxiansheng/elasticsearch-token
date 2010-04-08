@@ -38,7 +38,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Node
+name|DiscoveryNode
 import|;
 end_import
 
@@ -52,7 +52,7 @@ name|cluster
 operator|.
 name|node
 operator|.
-name|Nodes
+name|DiscoveryNodes
 import|;
 end_import
 
@@ -209,7 +209,7 @@ decl_stmt|;
 DECL|field|nodes
 specifier|private
 specifier|final
-name|Nodes
+name|DiscoveryNodes
 name|nodes
 decl_stmt|;
 DECL|field|metaData
@@ -238,7 +238,7 @@ parameter_list|,
 name|RoutingTable
 name|routingTable
 parameter_list|,
-name|Nodes
+name|DiscoveryNodes
 name|nodes
 parameter_list|)
 block|{
@@ -281,7 +281,7 @@ return|;
 block|}
 DECL|method|nodes
 specifier|public
-name|Nodes
+name|DiscoveryNodes
 name|nodes
 parameter_list|()
 block|{
@@ -405,10 +405,10 @@ name|EMPTY_ROUTING_TABLE
 decl_stmt|;
 DECL|field|nodes
 specifier|private
-name|Nodes
+name|DiscoveryNodes
 name|nodes
 init|=
-name|Nodes
+name|DiscoveryNodes
 operator|.
 name|EMPTY_NODES
 decl_stmt|;
@@ -417,7 +417,7 @@ specifier|public
 name|Builder
 name|nodes
 parameter_list|(
-name|Nodes
+name|DiscoveryNodes
 operator|.
 name|Builder
 name|nodesBuilder
@@ -438,7 +438,7 @@ specifier|public
 name|Builder
 name|nodes
 parameter_list|(
-name|Nodes
+name|DiscoveryNodes
 name|nodes
 parameter_list|)
 block|{
@@ -651,7 +651,7 @@ parameter_list|,
 name|Settings
 name|globalSettings
 parameter_list|,
-name|Node
+name|DiscoveryNode
 name|localNode
 parameter_list|)
 throws|throws
@@ -725,7 +725,7 @@ argument_list|,
 name|out
 argument_list|)
 expr_stmt|;
-name|Nodes
+name|DiscoveryNodes
 operator|.
 name|Builder
 operator|.
@@ -756,7 +756,7 @@ name|globalSettings
 parameter_list|,
 annotation|@
 name|Nullable
-name|Node
+name|DiscoveryNode
 name|localNode
 parameter_list|)
 throws|throws
@@ -810,7 +810,7 @@ name|builder
 operator|.
 name|nodes
 operator|=
-name|Nodes
+name|DiscoveryNodes
 operator|.
 name|Builder
 operator|.
