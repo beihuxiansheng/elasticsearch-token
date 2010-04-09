@@ -177,7 +177,7 @@ name|globalFieldCaseConversion
 init|=
 name|FieldCaseConversion
 operator|.
-name|CAMELCASE
+name|NONE
 decl_stmt|;
 DECL|method|globalFieldCaseConversion
 specifier|public
