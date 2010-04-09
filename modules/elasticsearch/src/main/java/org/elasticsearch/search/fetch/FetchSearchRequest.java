@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -113,7 +113,6 @@ name|docIds
 decl_stmt|;
 DECL|field|size
 specifier|private
-specifier|transient
 name|int
 name|size
 decl_stmt|;
@@ -212,6 +211,16 @@ return|return
 name|docIds
 return|;
 block|}
+DECL|method|docIdsSize
+specifier|public
+name|int
+name|docIdsSize
+parameter_list|()
+block|{
+return|return
+name|size
+return|;
+block|}
 DECL|method|readFrom
 annotation|@
 name|Override
@@ -256,9 +265,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|docIds
-operator|.
-name|length
+name|size
 condition|;
 name|i
 operator|++

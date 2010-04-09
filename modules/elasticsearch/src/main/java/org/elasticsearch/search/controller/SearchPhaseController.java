@@ -1000,6 +1000,7 @@ operator|new
 name|ExtTIntArrayList
 argument_list|()
 expr_stmt|;
+comment|// can't be shared!, uses unsafe on it later on
 name|result
 operator|.
 name|put
