@@ -86,6 +86,17 @@ parameter_list|()
 throws|throws
 name|ElasticSearchException
 function_decl|;
+comment|/**      * Similar to {@link #get(long, java.util.concurrent.TimeUnit)}, just wrapping the {@link InterruptedException} with      * {@link org.elasticsearch.ElasticSearchInterruptedException}, and throwing the actual      * cause of the {@link java.util.concurrent.ExecutionException}.      */
+DECL|method|actionGet
+name|T
+name|actionGet
+parameter_list|(
+name|String
+name|timeout
+parameter_list|)
+throws|throws
+name|ElasticSearchException
+function_decl|;
 comment|/**      * Similar to {@link #get(long, java.util.concurrent.TimeUnit)}, just wrapping the {@link InterruptedException} with      * {@link org.elasticsearch.ElasticSearchInterruptedException}, and throwing the actual      * cause of the {@link java.util.concurrent.ExecutionException}.      *      * @param timeoutMillis Timeout in millis      */
 DECL|method|actionGet
 name|T
