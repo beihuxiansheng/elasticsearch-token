@@ -39,7 +39,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Provides the ability to load settings (in the form of a simple Map) from  * the actual source content that represents them.  *  * @author kimchy (Shay Banon)  */
+comment|/**  * Provides the ability to load settings (in the form of a simple Map) from  * the actual source content that represents them.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_interface
@@ -59,6 +59,23 @@ argument_list|>
 name|load
 parameter_list|(
 name|String
+name|source
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
+comment|/**      * Loads (parses) the settings from a source bytes.      */
+DECL|method|load
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|load
+parameter_list|(
+name|byte
+index|[]
 name|source
 parameter_list|)
 throws|throws
