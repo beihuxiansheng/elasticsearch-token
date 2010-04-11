@@ -157,7 +157,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A search source builder allowing to easily build search source. Simple consruction  * using {@link org.elasticsearch.search.builder.SearchSourceBuilder#searchSource()}.  *  * @author kimchy (shay.banon)  * @see org.elasticsearch.action.search.SearchRequest#source(SearchSourceBuilder)  */
+comment|/**  * A search source builder allowing to easily build search source. Simple construction  * using {@link org.elasticsearch.search.builder.SearchSourceBuilder#searchSource()}.  *  * @author kimchy (shay.banon)  * @see org.elasticsearch.action.search.SearchRequest#source(SearchSourceBuilder)  */
 end_comment
 
 begin_class
@@ -166,6 +166,18 @@ specifier|public
 class|class
 name|SearchSourceBuilder
 block|{
+DECL|enum|Order
+specifier|public
+specifier|static
+enum|enum
+name|Order
+block|{
+DECL|enum constant|ASC
+name|ASC
+block|,
+DECL|enum constant|DESC
+name|DESC
+block|}
 comment|/**      * A static factory method to construct a new search source.      */
 DECL|method|searchSource
 specifier|public
@@ -379,6 +391,77 @@ name|explain
 expr_stmt|;
 return|return
 name|this
+return|;
+block|}
+comment|/**      * Adds a sort against the given field name and the sort ordering.      *      * @param name  The name of the field      * @param order The sort ordering      */
+DECL|method|sort
+specifier|public
+name|SearchSourceBuilder
+name|sort
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|Order
+name|order
+parameter_list|)
+block|{
+name|boolean
+name|reverse
+init|=
+literal|false
+decl_stmt|;
+if|if
+condition|(
+name|name
+operator|.
+name|equals
+argument_list|(
+literal|"score"
+argument_list|)
+condition|)
+block|{
+if|if
+condition|(
+name|order
+operator|==
+name|Order
+operator|.
+name|ASC
+condition|)
+block|{
+name|reverse
+operator|=
+literal|true
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+if|if
+condition|(
+name|order
+operator|==
+name|Order
+operator|.
+name|DESC
+condition|)
+block|{
+name|reverse
+operator|=
+literal|true
+expr_stmt|;
+block|}
+block|}
+return|return
+name|sort
+argument_list|(
+name|name
+argument_list|,
+literal|null
+argument_list|,
+name|reverse
+argument_list|)
 return|;
 block|}
 comment|/**      * Add a sort against the given field name and if it should be revered or not.      *      * @param name    The name of the field to sort by      * @param reverse Should be soring be reversed or not      */
