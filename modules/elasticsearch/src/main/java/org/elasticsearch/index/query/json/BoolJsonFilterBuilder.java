@@ -76,7 +76,7 @@ specifier|public
 class|class
 name|BoolJsonFilterBuilder
 extends|extends
-name|BaseJsonQueryBuilder
+name|BaseJsonFilterBuilder
 block|{
 DECL|field|clauses
 specifier|private
