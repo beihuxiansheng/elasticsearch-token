@@ -688,7 +688,7 @@ name|getAsBoolean
 argument_list|(
 literal|"reuse_address"
 argument_list|,
-literal|true
+literal|null
 argument_list|)
 expr_stmt|;
 name|this
