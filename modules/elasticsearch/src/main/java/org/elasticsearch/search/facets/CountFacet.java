@@ -137,6 +137,19 @@ operator|.
 name|COUNT
 return|;
 block|}
+DECL|method|getType
+annotation|@
+name|Override
+specifier|public
+name|Type
+name|getType
+parameter_list|()
+block|{
+return|return
+name|type
+argument_list|()
+return|;
+block|}
 comment|/**      * The "logical" name of the facet.      */
 DECL|method|name
 specifier|public
@@ -148,11 +161,35 @@ return|return
 name|name
 return|;
 block|}
+DECL|method|getName
+annotation|@
+name|Override
+specifier|public
+name|String
+name|getName
+parameter_list|()
+block|{
+return|return
+name|name
+argument_list|()
+return|;
+block|}
 comment|/**      * The count of the facet.      */
 DECL|method|count
 specifier|public
 name|long
 name|count
+parameter_list|()
+block|{
+return|return
+name|count
+return|;
+block|}
+comment|/**      * The count of the facet.      */
+DECL|method|getCount
+specifier|public
+name|long
+name|getCount
 parameter_list|()
 block|{
 return|return

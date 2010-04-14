@@ -280,6 +280,18 @@ name|hits
 argument_list|()
 return|;
 block|}
+comment|/**      * The search hits.      */
+DECL|method|getHits
+specifier|public
+name|SearchHits
+name|getHits
+parameter_list|()
+block|{
+return|return
+name|hits
+argument_list|()
+return|;
+block|}
 comment|/**      * The search facets.      */
 DECL|method|facets
 specifier|public
@@ -290,6 +302,18 @@ block|{
 return|return
 name|internalResponse
 operator|.
+name|facets
+argument_list|()
+return|;
+block|}
+comment|/**      * The search facets.      */
+DECL|method|getFacets
+specifier|public
+name|Facets
+name|getFacets
+parameter_list|()
+block|{
+return|return
 name|facets
 argument_list|()
 return|;
@@ -305,11 +329,33 @@ return|return
 name|totalShards
 return|;
 block|}
+comment|/**      * The total number of shards the search was executed on.      */
+DECL|method|getTotalShards
+specifier|public
+name|int
+name|getTotalShards
+parameter_list|()
+block|{
+return|return
+name|totalShards
+return|;
+block|}
 comment|/**      * The successful number of shards the search was executed on.      */
 DECL|method|successfulShards
 specifier|public
 name|int
 name|successfulShards
+parameter_list|()
+block|{
+return|return
+name|successfulShards
+return|;
+block|}
+comment|/**      * The successful number of shards the search was executed on.      */
+DECL|method|getSuccessfulShards
+specifier|public
+name|int
+name|getSuccessfulShards
 parameter_list|()
 block|{
 return|return
@@ -329,6 +375,18 @@ operator|-
 name|successfulShards
 return|;
 block|}
+comment|/**      * The failed number of shards the search was executed on.      */
+DECL|method|getFailedShards
+specifier|public
+name|int
+name|getFailedShards
+parameter_list|()
+block|{
+return|return
+name|failedShards
+argument_list|()
+return|;
+block|}
 comment|/**      * The failures that occurred during the search.      */
 DECL|method|shardFailures
 specifier|public
@@ -343,11 +401,34 @@ operator|.
 name|shardFailures
 return|;
 block|}
+comment|/**      * The failures that occurred during the search.      */
+DECL|method|getShardFailures
+specifier|public
+name|ShardSearchFailure
+index|[]
+name|getShardFailures
+parameter_list|()
+block|{
+return|return
+name|shardFailures
+return|;
+block|}
 comment|/**      * If scrolling was enabled ({@link SearchRequest#scroll(org.elasticsearch.search.Scroll)}, the      * scroll id that can be used to continue scrolling.      */
 DECL|method|scrollId
 specifier|public
 name|String
 name|scrollId
+parameter_list|()
+block|{
+return|return
+name|scrollId
+return|;
+block|}
+comment|/**      * If scrolling was enabled ({@link SearchRequest#scroll(org.elasticsearch.search.Scroll)}, the      * scroll id that can be used to continue scrolling.      */
+DECL|method|getScrollId
+specifier|public
+name|String
+name|getScrollId
 parameter_list|()
 block|{
 return|return

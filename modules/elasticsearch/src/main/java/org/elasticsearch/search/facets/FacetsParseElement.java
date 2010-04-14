@@ -145,7 +145,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<pre>  * facets : {  *  query_execution : "collect|idset",  *  facet1: {  *      query : { ... },  *      global : false  *  }  * }  *</pre>  *  * @author kimchy (Shay Banon)  */
+comment|/**  *<pre>  * facets : {  *  query_execution : "collect|idset",  *  facet1: {  *      query : { ... },  *      global : false  *  }  * }  *</pre>  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -247,6 +247,13 @@ block|{
 if|if
 condition|(
 literal|"query_execution"
+operator|.
+name|equals
+argument_list|(
+name|topLevelFieldName
+argument_list|)
+operator|||
+literal|"queryExecution"
 operator|.
 name|equals
 argument_list|(

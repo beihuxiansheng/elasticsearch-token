@@ -57,6 +57,11 @@ extends|extends
 name|Streamable
 extends|,
 name|ToJson
+extends|,
+name|Iterable
+argument_list|<
+name|SearchHit
+argument_list|>
 block|{
 comment|/**      * The total number of hits that matches the search request.      */
 DECL|method|totalHits
@@ -64,11 +69,33 @@ name|long
 name|totalHits
 parameter_list|()
 function_decl|;
+comment|/**      * The total number of hits that matches the search request.      */
+DECL|method|getTotalHits
+name|long
+name|getTotalHits
+parameter_list|()
+function_decl|;
 comment|/**      * The hits of the search request (based on the search type, and from / size provided).      */
 DECL|method|hits
 name|SearchHit
 index|[]
 name|hits
+parameter_list|()
+function_decl|;
+DECL|method|getAt
+name|SearchHit
+name|getAt
+parameter_list|(
+name|int
+name|position
+parameter_list|)
+function_decl|;
+comment|/**      * The hits of the search request (based on the search type, and from / size provided).      */
+DECL|method|getHits
+specifier|public
+name|SearchHit
+index|[]
+name|getHits
 parameter_list|()
 function_decl|;
 block|}

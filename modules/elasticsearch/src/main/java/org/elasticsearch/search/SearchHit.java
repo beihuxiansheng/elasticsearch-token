@@ -117,10 +117,22 @@ name|String
 name|index
 parameter_list|()
 function_decl|;
+comment|/**      * The index of the hit.      */
+DECL|method|getIndex
+name|String
+name|getIndex
+parameter_list|()
+function_decl|;
 comment|/**      * The id of the document.      */
 DECL|method|id
 name|String
 name|id
+parameter_list|()
+function_decl|;
+comment|/**      * The id of the document.      */
+DECL|method|getId
+name|String
+name|getId
 parameter_list|()
 function_decl|;
 comment|/**      * The type of the document.      */
@@ -129,11 +141,28 @@ name|String
 name|type
 parameter_list|()
 function_decl|;
+comment|/**      * The type of the document.      */
+DECL|method|getType
+name|String
+name|getType
+parameter_list|()
+function_decl|;
 comment|/**      * The source of the document (can be<tt>null</tt>).      */
 DECL|method|source
 name|byte
 index|[]
 name|source
+parameter_list|()
+function_decl|;
+comment|/**      * The source of the document as a map (can be<tt>null</tt>).      */
+DECL|method|getSource
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|getSource
 parameter_list|()
 function_decl|;
 comment|/**      * The source of the document as string (can be<tt>null</tt>).      */
@@ -161,6 +190,12 @@ name|Explanation
 name|explanation
 parameter_list|()
 function_decl|;
+comment|/**      * If enabled, the explanation of the search hit.      */
+DECL|method|getExplanation
+name|Explanation
+name|getExplanation
+parameter_list|()
+function_decl|;
 comment|/**      * A map of hit fields (from field name to hit fields) if additional fields      * were required to be loaded.      */
 DECL|method|fields
 name|Map
@@ -170,6 +205,17 @@ argument_list|,
 name|SearchHitField
 argument_list|>
 name|fields
+parameter_list|()
+function_decl|;
+comment|/**      * A map of hit fields (from field name to hit fields) if additional fields      * were required to be loaded.      */
+DECL|method|getFields
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|SearchHitField
+argument_list|>
+name|getFields
 parameter_list|()
 function_decl|;
 comment|/**      * A map of highlighted fields.      */
@@ -183,10 +229,27 @@ argument_list|>
 name|highlightFields
 parameter_list|()
 function_decl|;
+comment|/**      * A map of highlighted fields.      */
+DECL|method|getHighlightFields
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|HighlightField
+argument_list|>
+name|getHighlightFields
+parameter_list|()
+function_decl|;
 comment|/**      * The shard of the search hit.      */
 DECL|method|shard
 name|SearchShardTarget
 name|shard
+parameter_list|()
+function_decl|;
+comment|/**      * The shard of the search hit.      */
+DECL|method|getShard
+name|SearchShardTarget
+name|getShard
 parameter_list|()
 function_decl|;
 block|}

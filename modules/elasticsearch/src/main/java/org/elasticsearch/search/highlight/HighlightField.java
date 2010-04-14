@@ -159,6 +159,18 @@ return|return
 name|name
 return|;
 block|}
+comment|/**      * The name of the field highlighted.      */
+DECL|method|getName
+specifier|public
+name|String
+name|getName
+parameter_list|()
+block|{
+return|return
+name|name
+argument_list|()
+return|;
+block|}
 comment|/**      * The highlighted fragments.<tt>null</tt> if failed to highlight (for example, the field is not stored).      */
 DECL|method|fragments
 specifier|public
@@ -169,6 +181,19 @@ parameter_list|()
 block|{
 return|return
 name|fragments
+return|;
+block|}
+comment|/**      * The highlighted fragments.<tt>null</tt> if failed to highlight (for example, the field is not stored).      */
+DECL|method|getFragments
+specifier|public
+name|String
+index|[]
+name|getFragments
+parameter_list|()
+block|{
+return|return
+name|fragments
+argument_list|()
 return|;
 block|}
 DECL|method|toString

@@ -63,6 +63,12 @@ name|String
 name|name
 parameter_list|()
 function_decl|;
+comment|/**      * The name of the field.      */
+DECL|method|getName
+name|String
+name|getName
+parameter_list|()
+function_decl|;
 comment|/**      * The field values.      */
 DECL|method|values
 name|List
@@ -70,6 +76,15 @@ argument_list|<
 name|Object
 argument_list|>
 name|values
+parameter_list|()
+function_decl|;
+comment|/**      * The field values.      */
+DECL|method|getValues
+name|List
+argument_list|<
+name|Object
+argument_list|>
+name|getValues
 parameter_list|()
 function_decl|;
 block|}

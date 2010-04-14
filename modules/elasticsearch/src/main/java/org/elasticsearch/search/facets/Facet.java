@@ -155,10 +155,22 @@ name|String
 name|name
 parameter_list|()
 function_decl|;
+comment|/**      * The "logical" name of the search facet.      */
+DECL|method|getName
+name|String
+name|getName
+parameter_list|()
+function_decl|;
 comment|/**      * The type of the facet.      */
 DECL|method|type
 name|Type
 name|type
+parameter_list|()
+function_decl|;
+comment|/**      * The type of the facet.      */
+DECL|method|getType
+name|Type
+name|getType
 parameter_list|()
 function_decl|;
 block|}
