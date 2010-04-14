@@ -86,6 +86,18 @@ name|MapperParsingException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|Strings
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
@@ -199,7 +211,12 @@ name|typeParsers
 operator|.
 name|get
 argument_list|(
+name|Strings
+operator|.
+name|toUnderscoreCase
+argument_list|(
 name|type
+argument_list|)
 argument_list|)
 return|;
 block|}
