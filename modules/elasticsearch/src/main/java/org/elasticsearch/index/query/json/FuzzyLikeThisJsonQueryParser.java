@@ -257,6 +257,8 @@ block|{
 name|NAME
 block|,
 literal|"fuzzy_like_this"
+block|,
+literal|"fuzzyLikeThis"
 block|}
 return|;
 block|}
@@ -380,6 +382,13 @@ name|equals
 argument_list|(
 name|currentFieldName
 argument_list|)
+operator|||
+literal|"likeText"
+operator|.
+name|equals
+argument_list|(
+name|currentFieldName
+argument_list|)
 condition|)
 block|{
 name|likeText
@@ -394,6 +403,13 @@ elseif|else
 if|if
 condition|(
 literal|"max_query_terms"
+operator|.
+name|equals
+argument_list|(
+name|currentFieldName
+argument_list|)
+operator|||
+literal|"maxQueryTerms"
 operator|.
 name|equals
 argument_list|(
@@ -447,6 +463,13 @@ name|equals
 argument_list|(
 name|currentFieldName
 argument_list|)
+operator|||
+literal|"ignoreTF"
+operator|.
+name|equals
+argument_list|(
+name|currentFieldName
+argument_list|)
 condition|)
 block|{
 name|ignoreTF
@@ -478,6 +501,13 @@ block|{
 if|if
 condition|(
 literal|"max_query_terms"
+operator|.
+name|equals
+argument_list|(
+name|currentFieldName
+argument_list|)
+operator|||
+literal|"maxQueryTerms"
 operator|.
 name|equals
 argument_list|(
@@ -521,6 +551,13 @@ name|equals
 argument_list|(
 name|currentFieldName
 argument_list|)
+operator|||
+literal|"ignoreTF"
+operator|.
+name|equals
+argument_list|(
+name|currentFieldName
+argument_list|)
 condition|)
 block|{
 name|ignoreTF
@@ -547,6 +584,13 @@ block|{
 if|if
 condition|(
 literal|"ignore_tf"
+operator|.
+name|equals
+argument_list|(
+name|currentFieldName
+argument_list|)
+operator|||
+literal|"ignoreTF"
 operator|.
 name|equals
 argument_list|(
@@ -664,7 +708,7 @@ name|QueryParsingException
 argument_list|(
 name|index
 argument_list|,
-literal|"fuzzy_like_this requires 'likeText' to be specified"
+literal|"fuzzy_like_this requires 'like_text' to be specified"
 argument_list|)
 throw|;
 block|}

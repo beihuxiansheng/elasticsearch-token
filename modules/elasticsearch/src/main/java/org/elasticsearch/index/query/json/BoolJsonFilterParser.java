@@ -390,6 +390,13 @@ name|equals
 argument_list|(
 name|currentFieldName
 argument_list|)
+operator|||
+literal|"mustNot"
+operator|.
+name|equals
+argument_list|(
+name|currentFieldName
+argument_list|)
 condition|)
 block|{
 name|clauses
@@ -508,6 +515,13 @@ elseif|else
 if|if
 condition|(
 literal|"must_not"
+operator|.
+name|equals
+argument_list|(
+name|currentFieldName
+argument_list|)
+operator|||
+literal|"mustNot"
 operator|.
 name|equals
 argument_list|(
