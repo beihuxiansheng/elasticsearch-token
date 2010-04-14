@@ -290,6 +290,17 @@ operator|.
 name|numDocs
 return|;
 block|}
+comment|/**      * The total number of documents.      */
+DECL|method|getNumDocs
+specifier|public
+name|long
+name|getNumDocs
+parameter_list|()
+block|{
+return|return
+name|numDocs
+return|;
+block|}
 comment|/**      * The total maximum number of documents (including deletions).      */
 DECL|method|maxDoc
 specifier|public
@@ -303,6 +314,17 @@ operator|.
 name|maxDoc
 return|;
 block|}
+comment|/**      * The total maximum number of documents (including deletions).      */
+DECL|method|getMaxDoc
+specifier|public
+name|long
+name|getMaxDoc
+parameter_list|()
+block|{
+return|return
+name|maxDoc
+return|;
+block|}
 comment|/**      * The number of deleted docs.      */
 DECL|method|deletedDocs
 specifier|public
@@ -313,6 +335,17 @@ block|{
 return|return
 name|this
 operator|.
+name|numDeletedDocs
+return|;
+block|}
+comment|/**      * The number of deleted docs.      */
+DECL|method|getNumDeletedDocs
+specifier|public
+name|long
+name|getNumDeletedDocs
+parameter_list|()
+block|{
+return|return
 name|numDeletedDocs
 return|;
 block|}
@@ -369,6 +402,22 @@ return|return
 name|this
 operator|.
 name|fieldsTermsFreq
+return|;
+block|}
+DECL|method|getFields
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|FieldTermsFreq
+argument_list|>
+name|getFields
+parameter_list|()
+block|{
+return|return
+name|fieldsAsMap
+argument_list|()
 return|;
 block|}
 comment|/**      * The pair of field name to {@link FieldTermsFreq} as map for simpler usage.      */

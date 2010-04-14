@@ -438,7 +438,7 @@ argument_list|)
 expr_stmt|;
 name|countRequest
 operator|.
-name|querySource
+name|query
 argument_list|(
 name|RestActions
 operator|.

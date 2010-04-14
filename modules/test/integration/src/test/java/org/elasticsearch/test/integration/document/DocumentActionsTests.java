@@ -1583,7 +1583,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|querySource
+name|query
 argument_list|(
 name|termQuery
 argument_list|(
@@ -1654,7 +1654,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|querySource
+name|query
 argument_list|(
 name|termQuery
 argument_list|(
@@ -1725,7 +1725,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|querySource
+name|query
 argument_list|(
 name|termQuery
 argument_list|(
@@ -1797,7 +1797,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|querySource
+name|query
 argument_list|(
 name|Unicode
 operator|.

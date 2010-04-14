@@ -586,7 +586,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|querySource
+name|query
 argument_list|(
 name|fieldQuery
 argument_list|(
@@ -627,7 +627,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|querySource
+name|query
 argument_list|(
 name|fieldQuery
 argument_list|(

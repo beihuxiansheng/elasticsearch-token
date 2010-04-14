@@ -194,7 +194,7 @@ operator|=
 name|termsFreqs
 expr_stmt|;
 block|}
-comment|/**      * The fields name.      */
+comment|/**      * The field name.      */
 DECL|method|fieldName
 specifier|public
 name|String
@@ -204,6 +204,17 @@ block|{
 return|return
 name|this
 operator|.
+name|fieldName
+return|;
+block|}
+comment|/**      * The field name.      */
+DECL|method|getFieldName
+specifier|public
+name|String
+name|getFieldName
+parameter_list|()
+block|{
+return|return
 name|fieldName
 return|;
 block|}
@@ -218,6 +229,18 @@ block|{
 return|return
 name|this
 operator|.
+name|termsFreqs
+return|;
+block|}
+comment|/**      * The term frequencies of the field.      */
+DECL|method|getTermsFreqs
+specifier|public
+name|TermFreq
+index|[]
+name|getTermsFreqs
+parameter_list|()
+block|{
+return|return
 name|termsFreqs
 return|;
 block|}

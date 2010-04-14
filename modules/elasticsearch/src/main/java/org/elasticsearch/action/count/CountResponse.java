@@ -168,6 +168,17 @@ return|return
 name|count
 return|;
 block|}
+comment|/**      * The count of documents matching the query provided.      */
+DECL|method|getCount
+specifier|public
+name|long
+name|getCount
+parameter_list|()
+block|{
+return|return
+name|count
+return|;
+block|}
 DECL|method|readFrom
 annotation|@
 name|Override

@@ -346,6 +346,17 @@ return|return
 name|term
 return|;
 block|}
+comment|/**      * The term.      */
+DECL|method|getTerm
+specifier|public
+name|Object
+name|getTerm
+parameter_list|()
+block|{
+return|return
+name|term
+return|;
+block|}
 DECL|method|termAsString
 specifier|public
 name|String
@@ -364,6 +375,17 @@ DECL|method|docFreq
 specifier|public
 name|int
 name|docFreq
+parameter_list|()
+block|{
+return|return
+name|docFreq
+return|;
+block|}
+comment|/**      * The document frequency of the term (in how many documents this term exists).      */
+DECL|method|getDocFreq
+specifier|public
+name|int
+name|getDocFreq
 parameter_list|()
 block|{
 return|return
