@@ -253,6 +253,17 @@ return|return
 name|totalShards
 return|;
 block|}
+comment|/**      * The total shards this request ran against.      */
+DECL|method|getTotalShards
+specifier|public
+name|int
+name|getTotalShards
+parameter_list|()
+block|{
+return|return
+name|totalShards
+return|;
+block|}
 comment|/**      * The successful shards this request was executed on.      */
 DECL|method|successfulShards
 specifier|public
@@ -264,11 +275,33 @@ return|return
 name|successfulShards
 return|;
 block|}
+comment|/**      * The successful shards this request was executed on.      */
+DECL|method|getSuccessfulShards
+specifier|public
+name|int
+name|getSuccessfulShards
+parameter_list|()
+block|{
+return|return
+name|successfulShards
+return|;
+block|}
 comment|/**      * The failed shards this request was executed on.      */
 DECL|method|failedShards
 specifier|public
 name|int
 name|failedShards
+parameter_list|()
+block|{
+return|return
+name|failedShards
+return|;
+block|}
+comment|/**      * The failed shards this request was executed on.      */
+DECL|method|getFailedShards
+specifier|public
+name|int
+name|getFailedShards
 parameter_list|()
 block|{
 return|return
@@ -301,6 +334,20 @@ name|of
 argument_list|()
 return|;
 block|}
+return|return
+name|shardFailures
+return|;
+block|}
+comment|/**      * The list of shard failures exception.      */
+DECL|method|getShardFailures
+specifier|public
+name|List
+argument_list|<
+name|ShardOperationFailedException
+argument_list|>
+name|getShardFailures
+parameter_list|()
+block|{
 return|return
 name|shardFailures
 return|;

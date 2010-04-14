@@ -354,6 +354,11 @@ name|OpType
 operator|.
 name|INDEX
 decl_stmt|;
+DECL|method|IndexRequest
+specifier|public
+name|IndexRequest
+parameter_list|()
+block|{     }
 comment|/**      * Constructs a new index request against the specific index. The {@link #type(String)},      * {@link #id(String)} and {@link #source(byte[])} must be set.      */
 DECL|method|IndexRequest
 specifier|public
@@ -414,10 +419,6 @@ operator|=
 name|source
 expr_stmt|;
 block|}
-DECL|method|IndexRequest
-name|IndexRequest
-parameter_list|()
-block|{     }
 DECL|method|validate
 annotation|@
 name|Override

@@ -164,6 +164,17 @@ operator|.
 name|index
 return|;
 block|}
+comment|/**      * The index the document was indexed into.      */
+DECL|method|getIndex
+specifier|public
+name|String
+name|getIndex
+parameter_list|()
+block|{
+return|return
+name|index
+return|;
+block|}
 comment|/**      * The type of the document indexed.      */
 DECL|method|type
 specifier|public
@@ -177,6 +188,17 @@ operator|.
 name|type
 return|;
 block|}
+comment|/**      * The type of the document indexed.      */
+DECL|method|getType
+specifier|public
+name|String
+name|getType
+parameter_list|()
+block|{
+return|return
+name|type
+return|;
+block|}
 comment|/**      * The id of the document indexed.      */
 DECL|method|id
 specifier|public
@@ -187,6 +209,17 @@ block|{
 return|return
 name|this
 operator|.
+name|id
+return|;
+block|}
+comment|/**      * The id of the document indexed.      */
+DECL|method|getId
+specifier|public
+name|String
+name|getId
+parameter_list|()
+block|{
+return|return
 name|id
 return|;
 block|}

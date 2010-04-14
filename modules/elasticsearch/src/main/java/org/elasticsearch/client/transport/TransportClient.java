@@ -344,7 +344,9 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|Client
+name|internal
+operator|.
+name|InternalClient
 import|;
 end_import
 
@@ -632,7 +634,7 @@ specifier|public
 class|class
 name|TransportClient
 implements|implements
-name|Client
+name|InternalClient
 block|{
 DECL|field|injector
 specifier|private
@@ -1123,6 +1125,21 @@ operator|.
 name|clearReferencesThreadLocals
 argument_list|()
 expr_stmt|;
+block|}
+DECL|method|threadPool
+annotation|@
+name|Override
+specifier|public
+name|ThreadPool
+name|threadPool
+parameter_list|()
+block|{
+return|return
+name|internalClient
+operator|.
+name|threadPool
+argument_list|()
+return|;
 block|}
 DECL|method|admin
 annotation|@

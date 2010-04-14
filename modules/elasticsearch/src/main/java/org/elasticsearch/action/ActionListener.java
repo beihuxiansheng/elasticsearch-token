@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * A listener for action responses or failures.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_interface
@@ -27,6 +27,7 @@ parameter_list|<
 name|Response
 parameter_list|>
 block|{
+comment|/**      * A response handler.      */
 DECL|method|onResponse
 name|void
 name|onResponse
@@ -35,6 +36,7 @@ name|Response
 name|response
 parameter_list|)
 function_decl|;
+comment|/**      * A failure handler.      */
 DECL|method|onFailure
 name|void
 name|onFailure

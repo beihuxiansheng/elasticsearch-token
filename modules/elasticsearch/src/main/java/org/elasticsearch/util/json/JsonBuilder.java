@@ -219,6 +219,11 @@ name|fieldCaseConversion
 init|=
 name|globalFieldCaseConversion
 decl_stmt|;
+DECL|field|cachedStringBuilder
+specifier|protected
+name|StringBuilder
+name|cachedStringBuilder
+decl_stmt|;
 DECL|method|stringJsonBuilder
 specifier|public
 specifier|static
@@ -530,6 +535,8 @@ operator|.
 name|toUnderscoreCase
 argument_list|(
 name|name
+argument_list|,
+name|cachedStringBuilder
 argument_list|)
 expr_stmt|;
 block|}
@@ -550,6 +557,8 @@ operator|.
 name|toCamelCase
 argument_list|(
 name|name
+argument_list|,
+name|cachedStringBuilder
 argument_list|)
 expr_stmt|;
 block|}
@@ -2054,16 +2063,6 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-DECL|method|cachedStringBuilder
-specifier|protected
-name|StringBuilder
-name|cachedStringBuilder
-parameter_list|()
-block|{
-return|return
-literal|null
-return|;
-block|}
 DECL|method|close
 specifier|public
 name|void

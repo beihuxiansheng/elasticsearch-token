@@ -472,6 +472,19 @@ specifier|public
 class|class
 name|Requests
 block|{
+DECL|method|indexRequest
+specifier|public
+specifier|static
+name|IndexRequest
+name|indexRequest
+parameter_list|()
+block|{
+return|return
+operator|new
+name|IndexRequest
+argument_list|()
+return|;
+block|}
 comment|/**      * Create an index request against a specific index. Note the {@link IndexRequest#type(String)} must be      * set as well and optionally the {@link IndexRequest#id(String)}.      *      * @param index The index name to index the request against      * @return The index request      * @see org.elasticsearch.client.Client#index(org.elasticsearch.action.index.IndexRequest)      */
 DECL|method|indexRequest
 specifier|public
