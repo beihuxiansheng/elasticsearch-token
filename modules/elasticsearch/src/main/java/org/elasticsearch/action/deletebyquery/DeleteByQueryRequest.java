@@ -173,7 +173,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A request to delete all documents that matching a specific query. Best created with  * {@link org.elasticsearch.client.Requests#deleteByQueryRequest(String...)}.  *  *<p>The request requires the query source to be set either using {@link #querySource(org.elasticsearch.index.query.QueryBuilder)},  * or {@link #querySource(byte[])}.  *  * @author kimchy (shay.banon)  * @see DeleteByQueryResponse  * @see org.elasticsearch.client.Requests#deleteByQueryRequest(String...)  * @see org.elasticsearch.client.Client#deleteByQuery(DeleteByQueryRequest)  */
+comment|/**  * A request to delete all documents that matching a specific query. Best created with  * {@link org.elasticsearch.client.Requests#deleteByQueryRequest(String...)}.  *  *<p>The request requires the query source to be set either using {@link #query(org.elasticsearch.index.query.QueryBuilder)},  * or {@link #query(byte[])}.  *  * @author kimchy (shay.banon)  * @see DeleteByQueryResponse  * @see org.elasticsearch.client.Requests#deleteByQueryRequest(String...)  * @see org.elasticsearch.client.Client#deleteByQuery(DeleteByQueryRequest)  */
 end_comment
 
 begin_class
@@ -286,6 +286,26 @@ return|return
 name|validationException
 return|;
 block|}
+DECL|method|indices
+specifier|public
+name|DeleteByQueryRequest
+name|indices
+parameter_list|(
+name|String
+modifier|...
+name|indices
+parameter_list|)
+block|{
+name|this
+operator|.
+name|indices
+operator|=
+name|indices
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * The query source to execute.      */
 DECL|method|querySource
 name|byte
@@ -298,19 +318,19 @@ name|querySource
 return|;
 block|}
 comment|/**      * The query source to execute.      *      * @see org.elasticsearch.index.query.json.JsonQueryBuilders      */
-DECL|method|querySource
+DECL|method|query
 annotation|@
 name|Required
 specifier|public
 name|DeleteByQueryRequest
-name|querySource
+name|query
 parameter_list|(
 name|QueryBuilder
 name|queryBuilder
 parameter_list|)
 block|{
 return|return
-name|querySource
+name|query
 argument_list|(
 name|queryBuilder
 operator|.
@@ -319,20 +339,20 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * The query source to execute. It is preferable to use either {@link #querySource(byte[])}      * or {@link #querySource(org.elasticsearch.index.query.QueryBuilder)}.      */
-DECL|method|querySource
+comment|/**      * The query source to execute. It is preferable to use either {@link #query(byte[])}      * or {@link #query(org.elasticsearch.index.query.QueryBuilder)}.      */
+DECL|method|query
 annotation|@
 name|Required
 specifier|public
 name|DeleteByQueryRequest
-name|querySource
+name|query
 parameter_list|(
 name|String
 name|querySource
 parameter_list|)
 block|{
 return|return
-name|querySource
+name|query
 argument_list|(
 name|Unicode
 operator|.
@@ -344,12 +364,12 @@ argument_list|)
 return|;
 block|}
 comment|/**      * The query source to execute.      */
-DECL|method|querySource
+DECL|method|query
 annotation|@
 name|Required
 specifier|public
 name|DeleteByQueryRequest
-name|querySource
+name|query
 parameter_list|(
 name|byte
 index|[]

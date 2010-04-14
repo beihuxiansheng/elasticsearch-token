@@ -195,6 +195,22 @@ return|return
 name|indices
 return|;
 block|}
+comment|/**      * The responses from all the different indices.      */
+DECL|method|getIndices
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|IndexDeleteByQueryResponse
+argument_list|>
+name|getIndices
+parameter_list|()
+block|{
+return|return
+name|indices
+return|;
+block|}
 comment|/**      * The response of a specific index.      */
 DECL|method|index
 specifier|public

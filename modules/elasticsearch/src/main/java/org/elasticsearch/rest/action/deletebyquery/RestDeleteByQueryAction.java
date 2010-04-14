@@ -345,7 +345,7 @@ try|try
 block|{
 name|deleteByQueryRequest
 operator|.
-name|querySource
+name|query
 argument_list|(
 name|RestActions
 operator|.
