@@ -934,6 +934,32 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the string representation of the sort type.      */
+DECL|method|sortType
+specifier|public
+name|TermsRequest
+name|sortType
+parameter_list|(
+name|String
+name|sortType
+parameter_list|)
+block|{
+return|return
+name|sortType
+argument_list|(
+name|SortType
+operator|.
+name|fromString
+argument_list|(
+name|sortType
+argument_list|,
+name|this
+operator|.
+name|sortType
+argument_list|)
+argument_list|)
+return|;
+block|}
 comment|/**      * Should the doc frequencies be exact frequencies. Exact frequencies takes into account deletes that      * have not been merged and cleaned (optimized). Note, when this is set to<tt>true</tt> this operation      * might be an expensive operation. Defaults to<tt>false</tt>.      */
 DECL|method|exact
 specifier|public

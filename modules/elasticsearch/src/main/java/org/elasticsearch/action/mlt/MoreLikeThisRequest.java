@@ -22,6 +22,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ElasticSearchIllegalArgumentException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|action
 operator|.
 name|ActionRequest
@@ -886,6 +896,30 @@ name|searchType
 expr_stmt|;
 return|return
 name|this
+return|;
+block|}
+comment|/**      * The search type of the mlt search query.      */
+DECL|method|searchType
+specifier|public
+name|MoreLikeThisRequest
+name|searchType
+parameter_list|(
+name|String
+name|searchType
+parameter_list|)
+throws|throws
+name|ElasticSearchIllegalArgumentException
+block|{
+return|return
+name|searchType
+argument_list|(
+name|SearchType
+operator|.
+name|fromString
+argument_list|(
+name|searchType
+argument_list|)
+argument_list|)
 return|;
 block|}
 comment|/**      * The search type of the mlt search query.      */
