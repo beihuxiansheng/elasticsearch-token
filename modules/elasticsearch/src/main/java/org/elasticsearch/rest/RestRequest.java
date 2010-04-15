@@ -93,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_interface
@@ -127,9 +127,16 @@ name|Method
 name|method
 parameter_list|()
 function_decl|;
+comment|/**      * The uri of the rest request, with the query string.      */
 DECL|method|uri
 name|String
 name|uri
+parameter_list|()
+function_decl|;
+comment|/**      * The path part of the URI (without the query string).      */
+DECL|method|path
+name|String
+name|path
 parameter_list|()
 function_decl|;
 DECL|method|hasContent
@@ -281,25 +288,11 @@ name|defaultValue
 parameter_list|)
 function_decl|;
 DECL|method|params
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|params
-parameter_list|(
-name|String
-name|key
-parameter_list|)
-function_decl|;
-DECL|method|params
 name|Map
 argument_list|<
 name|String
 argument_list|,
-name|List
-argument_list|<
 name|String
-argument_list|>
 argument_list|>
 name|params
 parameter_list|()

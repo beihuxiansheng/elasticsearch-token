@@ -238,7 +238,6 @@ name|ThreadPool
 name|threadPool
 decl_stmt|;
 DECL|field|serverHandlers
-specifier|private
 specifier|final
 name|ConcurrentMap
 argument_list|<
@@ -252,7 +251,6 @@ name|newConcurrentMap
 argument_list|()
 decl_stmt|;
 DECL|field|clientHandlers
-specifier|private
 specifier|final
 name|NonBlockingHashMapLong
 argument_list|<
