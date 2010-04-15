@@ -138,6 +138,17 @@ return|return
 name|node
 return|;
 block|}
+DECL|method|getNode
+specifier|public
+name|DiscoveryNode
+name|getNode
+parameter_list|()
+block|{
+return|return
+name|node
+argument_list|()
+return|;
+block|}
 DECL|method|readFrom
 annotation|@
 name|Override

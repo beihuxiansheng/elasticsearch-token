@@ -400,7 +400,7 @@ argument_list|)
 expr_stmt|;
 name|putMappingRequest
 operator|.
-name|mappingSource
+name|source
 argument_list|(
 name|request
 operator|.

@@ -138,6 +138,18 @@ return|return
 name|acknowledged
 return|;
 block|}
+comment|/**      * Has the index creation been acknowledged by all current cluster nodes within the      * provided {@link CreateIndexRequest#timeout(org.elasticsearch.util.TimeValue)}.      */
+DECL|method|getAcknowledged
+specifier|public
+name|boolean
+name|getAcknowledged
+parameter_list|()
+block|{
+return|return
+name|acknowledged
+argument_list|()
+return|;
+block|}
 DECL|method|readFrom
 annotation|@
 name|Override

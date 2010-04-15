@@ -147,7 +147,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -265,6 +265,22 @@ operator|.
 name|attributes
 return|;
 block|}
+DECL|method|getAttributes
+specifier|public
+name|ImmutableMap
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|getAttributes
+parameter_list|()
+block|{
+return|return
+name|attributes
+argument_list|()
+return|;
+block|}
 DECL|method|settings
 specifier|public
 name|Settings
@@ -275,6 +291,17 @@ return|return
 name|this
 operator|.
 name|settings
+return|;
+block|}
+DECL|method|getSettings
+specifier|public
+name|Settings
+name|getSettings
+parameter_list|()
+block|{
+return|return
+name|settings
+argument_list|()
 return|;
 block|}
 DECL|method|readNodeInfo

@@ -168,6 +168,18 @@ return|return
 name|index
 return|;
 block|}
+comment|/**      * The index the gateway snapshot has performed on.      */
+DECL|method|getIndex
+specifier|public
+name|String
+name|getIndex
+parameter_list|()
+block|{
+return|return
+name|index
+argument_list|()
+return|;
+block|}
 comment|/**      * The number of successful shards the gateway snapshot operation was performed on.      */
 DECL|method|successfulShards
 specifier|public
@@ -177,6 +189,18 @@ parameter_list|()
 block|{
 return|return
 name|successfulShards
+return|;
+block|}
+comment|/**      * The number of successful shards the gateway snapshot operation was performed on.      */
+DECL|method|getSuccessfulShards
+specifier|public
+name|int
+name|getSuccessfulShards
+parameter_list|()
+block|{
+return|return
+name|successfulShards
+argument_list|()
 return|;
 block|}
 comment|/**      * The number of failed shards the gateway snapshot operation was performed on.      */
@@ -190,6 +214,18 @@ return|return
 name|failedShards
 return|;
 block|}
+comment|/**      * The number of failed shards the gateway snapshot operation was performed on.      */
+DECL|method|getFailedShards
+specifier|public
+name|int
+name|getFailedShards
+parameter_list|()
+block|{
+return|return
+name|failedShards
+argument_list|()
+return|;
+block|}
 comment|/**      * The number of total shards the gateway snapshot operation was performed on.      */
 DECL|method|totalShards
 specifier|public
@@ -201,6 +237,18 @@ return|return
 name|successfulShards
 operator|+
 name|failedShards
+return|;
+block|}
+comment|/**      * The number of total shards the gateway snapshot operation was performed on.      */
+DECL|method|getTotalShards
+specifier|public
+name|int
+name|getTotalShards
+parameter_list|()
+block|{
+return|return
+name|totalShards
+argument_list|()
 return|;
 block|}
 DECL|method|readFrom

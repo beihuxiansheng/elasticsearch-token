@@ -311,6 +311,18 @@ return|return
 name|address
 return|;
 block|}
+comment|/**      * The address that the node can be communicated with.      */
+DECL|method|getAddress
+specifier|public
+name|TransportAddress
+name|getAddress
+parameter_list|()
+block|{
+return|return
+name|address
+argument_list|()
+return|;
+block|}
 comment|/**      * The unique id of the node.      */
 DECL|method|id
 specifier|public
@@ -320,6 +332,18 @@ parameter_list|()
 block|{
 return|return
 name|nodeId
+return|;
+block|}
+comment|/**      * The unique id of the node.      */
+DECL|method|getId
+specifier|public
+name|String
+name|getId
+parameter_list|()
+block|{
+return|return
+name|id
+argument_list|()
 return|;
 block|}
 comment|/**      * The name of the node.      */
@@ -335,6 +359,18 @@ operator|.
 name|nodeName
 return|;
 block|}
+comment|/**      * The name of the node.      */
+DECL|method|getName
+specifier|public
+name|String
+name|getName
+parameter_list|()
+block|{
+return|return
+name|name
+argument_list|()
+return|;
+block|}
 comment|/**      * Should this node hold data (shards) or not.      */
 DECL|method|dataNode
 specifier|public
@@ -344,6 +380,18 @@ parameter_list|()
 block|{
 return|return
 name|dataNode
+return|;
+block|}
+comment|/**      * Should this node hold data (shards) or not.      */
+DECL|method|isDataNode
+specifier|public
+name|boolean
+name|isDataNode
+parameter_list|()
+block|{
+return|return
+name|dataNode
+argument_list|()
 return|;
 block|}
 DECL|method|readNode

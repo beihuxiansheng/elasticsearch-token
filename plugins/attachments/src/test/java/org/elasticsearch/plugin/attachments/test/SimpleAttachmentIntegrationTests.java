@@ -499,7 +499,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|mappingSource
+name|source
 argument_list|(
 name|mapping
 argument_list|)

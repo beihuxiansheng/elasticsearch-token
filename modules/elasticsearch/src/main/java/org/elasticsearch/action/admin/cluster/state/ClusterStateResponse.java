@@ -133,6 +133,17 @@ operator|.
 name|clusterState
 return|;
 block|}
+DECL|method|getState
+specifier|public
+name|ClusterState
+name|getState
+parameter_list|()
+block|{
+return|return
+name|state
+argument_list|()
+return|;
+block|}
 DECL|method|readFrom
 annotation|@
 name|Override

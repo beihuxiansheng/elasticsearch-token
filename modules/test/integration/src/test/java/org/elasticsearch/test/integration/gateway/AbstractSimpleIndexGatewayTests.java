@@ -404,7 +404,7 @@ argument_list|(
 literal|"type1"
 argument_list|)
 operator|.
-name|mappingSource
+name|source
 argument_list|(
 name|mappingSource
 argument_list|()

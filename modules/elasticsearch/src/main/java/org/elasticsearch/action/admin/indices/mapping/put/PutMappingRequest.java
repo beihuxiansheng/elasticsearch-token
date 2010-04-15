@@ -350,9 +350,9 @@ name|this
 return|;
 block|}
 comment|/**      * The mapping source definition.      */
-DECL|method|mappingSource
+DECL|method|source
 name|String
-name|mappingSource
+name|source
 parameter_list|()
 block|{
 return|return
@@ -360,12 +360,12 @@ name|mappingSource
 return|;
 block|}
 comment|/**      * The mapping source definition.      */
-DECL|method|mappingSource
+DECL|method|source
 annotation|@
 name|Required
 specifier|public
 name|PutMappingRequest
-name|mappingSource
+name|source
 parameter_list|(
 name|JsonBuilder
 name|mappingBuilder
@@ -374,7 +374,7 @@ block|{
 try|try
 block|{
 return|return
-name|mappingSource
+name|source
 argument_list|(
 name|mappingBuilder
 operator|.
@@ -401,12 +401,12 @@ throw|;
 block|}
 block|}
 comment|/**      * The mapping source definition.      */
-DECL|method|mappingSource
+DECL|method|source
 annotation|@
 name|Required
 specifier|public
 name|PutMappingRequest
-name|mappingSource
+name|source
 parameter_list|(
 name|String
 name|mappingSource

@@ -168,6 +168,17 @@ operator|.
 name|name
 return|;
 block|}
+DECL|method|getName
+specifier|public
+name|String
+name|getName
+parameter_list|()
+block|{
+return|return
+name|name
+argument_list|()
+return|;
+block|}
 DECL|method|toString
 annotation|@
 name|Override

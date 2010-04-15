@@ -201,6 +201,23 @@ return|return
 name|indices
 return|;
 block|}
+comment|/**      * A map of index level responses of the gateway snapshot operation.      */
+DECL|method|getIndices
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|IndexGatewaySnapshotResponse
+argument_list|>
+name|getIndices
+parameter_list|()
+block|{
+return|return
+name|indices
+argument_list|()
+return|;
+block|}
 comment|/**      * The index level gateway snapshot response for the given index.      */
 DECL|method|index
 specifier|public

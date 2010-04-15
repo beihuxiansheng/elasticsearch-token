@@ -218,7 +218,8 @@ name|indices
 return|;
 block|}
 DECL|method|indices
-name|void
+specifier|public
+name|ClusterHealthRequest
 name|indices
 parameter_list|(
 name|String
@@ -232,6 +233,9 @@ name|indices
 operator|=
 name|indices
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 DECL|method|timeout
 specifier|public
