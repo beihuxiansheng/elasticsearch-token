@@ -705,7 +705,7 @@ name|bindAddress
 init|=
 name|HostResolver
 operator|.
-name|resultBindHostAddress
+name|resolveBindHostAddress
 argument_list|(
 literal|null
 argument_list|,

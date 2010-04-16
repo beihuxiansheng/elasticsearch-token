@@ -1538,7 +1538,7 @@ try|try
 block|{
 name|hostAddressX
 operator|=
-name|resultBindHostAddress
+name|resolveBindHostAddress
 argument_list|(
 name|bindHost
 argument_list|,
@@ -1714,7 +1714,7 @@ block|{
 name|InetAddress
 name|publishAddressX
 init|=
-name|resultPublishHostAddress
+name|resolvePublishHostAddress
 argument_list|(
 name|publishHost
 argument_list|,
@@ -1745,7 +1745,7 @@ operator|=
 operator|new
 name|InetSocketAddress
 argument_list|(
-name|resultPublishHostAddress
+name|resolvePublishHostAddress
 argument_list|(
 name|publishHost
 argument_list|,

@@ -577,7 +577,7 @@ name|publishHost
 init|=
 name|HostResolver
 operator|.
-name|resultPublishHostAddress
+name|resolvePublishHostAddress
 argument_list|(
 name|settings
 operator|.
