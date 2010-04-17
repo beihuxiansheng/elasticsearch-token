@@ -777,7 +777,7 @@ argument_list|(
 literal|"decoder"
 argument_list|,
 operator|new
-name|TextMemcachedDecoder
+name|MemcachedDecoder
 argument_list|()
 argument_list|)
 expr_stmt|;
