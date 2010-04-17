@@ -936,7 +936,15 @@ name|getAsBoolean
 argument_list|(
 literal|"node.data"
 argument_list|,
-literal|true
+operator|!
+name|settings
+operator|.
+name|getAsBoolean
+argument_list|(
+literal|"node.client"
+argument_list|,
+literal|false
+argument_list|)
 argument_list|)
 argument_list|,
 name|channel

@@ -184,12 +184,6 @@ argument_list|,
 name|client
 argument_list|)
 expr_stmt|;
-name|data
-argument_list|(
-operator|!
-name|client
-argument_list|)
-expr_stmt|;
 return|return
 name|this
 return|;
@@ -233,7 +227,7 @@ name|put
 argument_list|(
 literal|"node.local"
 argument_list|,
-literal|true
+name|local
 argument_list|)
 expr_stmt|;
 return|return
