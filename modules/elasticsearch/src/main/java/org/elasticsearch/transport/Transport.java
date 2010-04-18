@@ -258,26 +258,33 @@ argument_list|>
 name|address
 parameter_list|)
 function_decl|;
-DECL|method|nodesAdded
-name|void
-name|nodesAdded
+comment|/**      * Returns<tt>true</tt> if the node is connected.      */
+DECL|method|nodeConnected
+name|boolean
+name|nodeConnected
 parameter_list|(
-name|Iterable
-argument_list|<
 name|DiscoveryNode
-argument_list|>
-name|nodes
+name|node
 parameter_list|)
 function_decl|;
-DECL|method|nodesRemoved
+comment|/**      * Connects to the given node, if already connected, does nothing.      */
+DECL|method|connectToNode
 name|void
-name|nodesRemoved
+name|connectToNode
 parameter_list|(
-name|Iterable
-argument_list|<
 name|DiscoveryNode
-argument_list|>
-name|nodes
+name|node
+parameter_list|)
+throws|throws
+name|ConnectTransportException
+function_decl|;
+comment|/**      * Disconnected from the given node, if not connected, will do nothing.      */
+DECL|method|disconnectFromNode
+name|void
+name|disconnectFromNode
+parameter_list|(
+name|DiscoveryNode
+name|node
 parameter_list|)
 function_decl|;
 DECL|method|sendRequest

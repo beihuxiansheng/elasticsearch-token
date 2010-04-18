@@ -20,20 +20,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Lists
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -384,14 +370,9 @@ argument_list|)
 decl_stmt|;
 name|transportService
 operator|.
-name|nodesAdded
-argument_list|(
-name|Lists
-operator|.
-name|newArrayList
+name|connectToNode
 argument_list|(
 name|node
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|Thread

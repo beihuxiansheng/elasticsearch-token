@@ -207,7 +207,7 @@ name|getClient2
 parameter_list|()
 block|{
 name|TransportAddress
-name|server1Address
+name|server2Address
 init|=
 operator|(
 operator|(
@@ -259,7 +259,7 @@ name|client
 operator|.
 name|addTransportAddress
 argument_list|(
-name|server1Address
+name|server2Address
 argument_list|)
 expr_stmt|;
 return|return

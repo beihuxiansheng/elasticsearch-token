@@ -112,7 +112,7 @@ block|{
 return|return
 name|transport
 operator|.
-name|clientChannels
+name|connectedNodes
 operator|.
 name|size
 argument_list|()
