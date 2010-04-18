@@ -1714,6 +1714,13 @@ name|currentNodeId
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|routingNode
+operator|!=
+literal|null
+condition|)
+block|{
 name|Iterator
 argument_list|<
 name|MutableShardRouting
@@ -1775,6 +1782,7 @@ break|break;
 block|}
 block|}
 block|}
+block|}
 name|String
 name|nodeId
 init|=
@@ -1803,6 +1811,16 @@ argument_list|(
 name|nodeId
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|currentRoutingNode
+operator|==
+literal|null
+condition|)
+block|{
+comment|// already failed (might be called several times for the same shard)
+continue|continue;
+block|}
 name|Iterator
 argument_list|<
 name|MutableShardRouting
