@@ -3317,6 +3317,15 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Disconnected from [{}]"
+argument_list|,
+name|node
+argument_list|)
+expr_stmt|;
 name|transportServiceAdapter
 operator|.
 name|raiseNodeDisconnected
