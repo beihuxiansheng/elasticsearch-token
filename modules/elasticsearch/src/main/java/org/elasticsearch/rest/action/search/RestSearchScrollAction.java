@@ -285,7 +285,7 @@ name|registerHandler
 argument_list|(
 name|GET
 argument_list|,
-literal|"/_search/scroll/{scrollId}"
+literal|"/_search/scroll/{scroll_id}"
 argument_list|,
 name|this
 argument_list|)
@@ -296,7 +296,7 @@ name|registerHandler
 argument_list|(
 name|POST
 argument_list|,
-literal|"/_search/scroll/{scrollId}"
+literal|"/_search/scroll/{scroll_id}"
 argument_list|,
 name|this
 argument_list|)
