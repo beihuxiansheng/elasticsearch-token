@@ -26,7 +26,7 @@ name|util
 operator|.
 name|logging
 operator|.
-name|Loggers
+name|ESLogger
 import|;
 end_import
 
@@ -34,9 +34,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|slf4j
+name|elasticsearch
 operator|.
-name|Logger
+name|util
+operator|.
+name|logging
+operator|.
+name|Loggers
 import|;
 end_import
 
@@ -81,14 +85,14 @@ name|SUFFIX
 init|=
 literal|".lucene"
 decl_stmt|;
-comment|/**      * Creates a new {@link LoggerInfoStream} based on the provided logger      * by appending to its {@link Logger#getName()} the {@link #SUFFIX}.      */
+comment|/**      * Creates a new {@link LoggerInfoStream} based on the provided logger      * by appending to its<tt>NAME</tt> the {@link #SUFFIX}.      */
 DECL|method|getInfoStream
 specifier|public
 specifier|static
 name|LoggerInfoStream
 name|getInfoStream
 parameter_list|(
-name|Logger
+name|ESLogger
 name|logger
 parameter_list|)
 block|{
@@ -136,7 +140,7 @@ block|}
 DECL|field|logger
 specifier|private
 specifier|final
-name|Logger
+name|ESLogger
 name|logger
 decl_stmt|;
 comment|/**      * Constucts a new instance based on the provided logger. Will output      * each {@link #println(String)} operation as a trace level.      */
@@ -144,7 +148,7 @@ DECL|method|LoggerInfoStream
 specifier|public
 name|LoggerInfoStream
 parameter_list|(
-name|Logger
+name|ESLogger
 name|logger
 parameter_list|)
 block|{

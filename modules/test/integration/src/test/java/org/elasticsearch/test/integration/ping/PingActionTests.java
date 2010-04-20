@@ -102,7 +102,7 @@ name|util
 operator|.
 name|logging
 operator|.
-name|Loggers
+name|ESLogger
 import|;
 end_import
 
@@ -110,9 +110,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|slf4j
+name|elasticsearch
 operator|.
-name|Logger
+name|util
+operator|.
+name|logging
+operator|.
+name|Loggers
 import|;
 end_import
 
@@ -205,7 +209,7 @@ block|{
 DECL|field|logger
 specifier|private
 specifier|final
-name|Logger
+name|ESLogger
 name|logger
 init|=
 name|Loggers

@@ -32,16 +32,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|testng
 operator|.
 name|ITestContext
@@ -99,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -259,7 +249,13 @@ argument_list|(
 name|props
 argument_list|)
 expr_stmt|;
-name|LoggerFactory
+name|org
+operator|.
+name|apache
+operator|.
+name|log4j
+operator|.
+name|Logger
 operator|.
 name|getLogger
 argument_list|(
@@ -290,7 +286,13 @@ name|ITestResult
 name|result
 parameter_list|)
 block|{
-name|LoggerFactory
+name|org
+operator|.
+name|apache
+operator|.
+name|log4j
+operator|.
+name|Logger
 operator|.
 name|getLogger
 argument_list|(
@@ -321,7 +323,13 @@ name|ITestResult
 name|result
 parameter_list|)
 block|{
-name|LoggerFactory
+name|org
+operator|.
+name|apache
+operator|.
+name|log4j
+operator|.
+name|Logger
 operator|.
 name|getLogger
 argument_list|(
@@ -352,7 +360,13 @@ name|ITestResult
 name|result
 parameter_list|)
 block|{
-name|LoggerFactory
+name|org
+operator|.
+name|apache
+operator|.
+name|log4j
+operator|.
+name|Logger
 operator|.
 name|getLogger
 argument_list|(

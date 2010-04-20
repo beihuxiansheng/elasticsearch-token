@@ -82,7 +82,7 @@ name|util
 operator|.
 name|logging
 operator|.
-name|Loggers
+name|ESLogger
 import|;
 end_import
 
@@ -90,9 +90,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|slf4j
+name|elasticsearch
 operator|.
-name|Logger
+name|util
+operator|.
+name|logging
+operator|.
+name|Loggers
 import|;
 end_import
 
@@ -133,7 +137,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A global registry of all different types of {@link org.elasticsearch.util.transport.TransportAddress} allowing  * to perfrom serialization of them.  *<p/>  *<p>By defualt, adds {@link org.elasticsearch.util.transport.InetSocketTransportAddress}.  *  * @author kimchy (Shay Banon)  */
+comment|/**  * A global registry of all different types of {@link org.elasticsearch.util.transport.TransportAddress} allowing  * to perform serialization of them.  *  *<p>By default, adds {@link org.elasticsearch.util.transport.InetSocketTransportAddress}.  *  * @author kimchy (Shay Banon)  */
 end_comment
 
 begin_class
@@ -147,7 +151,7 @@ DECL|field|logger
 specifier|private
 specifier|static
 specifier|final
-name|Logger
+name|ESLogger
 name|logger
 init|=
 name|Loggers

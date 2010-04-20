@@ -106,6 +106,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|logging
+operator|.
+name|ESLogger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|jboss
 operator|.
 name|netty
@@ -127,16 +141,6 @@ operator|.
 name|channel
 operator|.
 name|*
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
 import|;
 end_import
 
@@ -167,7 +171,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -186,7 +190,7 @@ block|{
 DECL|field|logger
 specifier|private
 specifier|final
-name|Logger
+name|ESLogger
 name|logger
 decl_stmt|;
 DECL|field|threadPool
@@ -214,7 +218,7 @@ parameter_list|(
 name|NettyTransport
 name|transport
 parameter_list|,
-name|Logger
+name|ESLogger
 name|logger
 parameter_list|)
 block|{

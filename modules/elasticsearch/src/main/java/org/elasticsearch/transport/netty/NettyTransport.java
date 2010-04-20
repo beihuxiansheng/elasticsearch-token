@@ -392,20 +392,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|jboss
-operator|.
-name|netty
-operator|.
-name|logging
-operator|.
-name|Slf4JLoggerFactory
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -686,7 +672,7 @@ operator|.
 name|setDefaultFactory
 argument_list|(
 operator|new
-name|Slf4JLoggerFactory
+name|NettyInternalESLoggerFactory
 argument_list|()
 block|{
 annotation|@

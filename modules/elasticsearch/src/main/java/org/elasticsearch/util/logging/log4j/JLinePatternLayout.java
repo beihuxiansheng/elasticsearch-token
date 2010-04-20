@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.util.logging
+DECL|package|org.elasticsearch.util.logging.log4j
 package|package
 name|org
 operator|.
@@ -13,6 +13,8 @@ operator|.
 name|util
 operator|.
 name|logging
+operator|.
+name|log4j
 package|;
 end_package
 

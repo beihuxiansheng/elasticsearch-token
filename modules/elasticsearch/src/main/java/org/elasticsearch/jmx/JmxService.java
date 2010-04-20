@@ -36,6 +36,20 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
+name|logging
+operator|.
+name|ESLogger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
 name|settings
 operator|.
 name|Settings
@@ -53,16 +67,6 @@ operator|.
 name|transport
 operator|.
 name|PortsRange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
 import|;
 end_import
 
@@ -256,7 +260,7 @@ decl_stmt|;
 DECL|field|logger
 specifier|private
 specifier|final
-name|Logger
+name|ESLogger
 name|logger
 decl_stmt|;
 DECL|field|settings
@@ -341,7 +345,7 @@ DECL|method|JmxService
 specifier|public
 name|JmxService
 parameter_list|(
-name|Logger
+name|ESLogger
 name|logger
 parameter_list|,
 specifier|final

@@ -590,6 +590,20 @@ name|util
 operator|.
 name|logging
 operator|.
+name|ESLogger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|logging
+operator|.
 name|Loggers
 import|;
 end_import
@@ -619,16 +633,6 @@ operator|.
 name|settings
 operator|.
 name|SettingsModule
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
 import|;
 end_import
 
@@ -780,7 +784,7 @@ argument_list|,
 name|loadConfigSettings
 argument_list|)
 decl_stmt|;
-name|Logger
+name|ESLogger
 name|logger
 init|=
 name|Loggers
@@ -1157,7 +1161,7 @@ return|return
 name|this
 return|;
 block|}
-name|Logger
+name|ESLogger
 name|logger
 init|=
 name|Loggers
@@ -1406,7 +1410,7 @@ return|return
 name|this
 return|;
 block|}
-name|Logger
+name|ESLogger
 name|logger
 init|=
 name|Loggers
@@ -1713,7 +1717,7 @@ condition|)
 block|{
 return|return;
 block|}
-name|Logger
+name|ESLogger
 name|logger
 init|=
 name|Loggers

@@ -94,9 +94,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|slf4j
+name|elasticsearch
 operator|.
-name|Logger
+name|util
+operator|.
+name|logging
+operator|.
+name|ESLogger
 import|;
 end_import
 
@@ -274,7 +278,7 @@ decl_stmt|;
 DECL|field|logger
 specifier|private
 specifier|final
-name|Logger
+name|ESLogger
 name|logger
 decl_stmt|;
 DECL|field|obj
@@ -354,7 +358,7 @@ parameter_list|(
 name|Object
 name|instance
 parameter_list|,
-name|Logger
+name|ESLogger
 name|logger
 parameter_list|)
 block|{

@@ -318,7 +318,7 @@ name|put
 argument_list|(
 literal|"consolePattern"
 argument_list|,
-literal|"org.elasticsearch.util.logging.JLinePatternLayout"
+literal|"org.elasticsearch.util.logging.log4j.JLinePatternLayout"
 argument_list|)
 operator|.
 name|put
