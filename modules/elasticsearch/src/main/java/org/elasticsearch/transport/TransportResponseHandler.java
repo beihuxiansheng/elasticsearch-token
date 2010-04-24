@@ -45,7 +45,7 @@ extends|extends
 name|Streamable
 parameter_list|>
 block|{
-comment|/**      * creates a new instance of the return type from the remote call.      * called by the infra before deserializing the response.      *      * @return a new reponse copy.      */
+comment|/**      * creates a new instance of the return type from the remote call.      * called by the infra before de-serializing the response.      *      * @return a new response copy.      */
 DECL|method|newInstance
 name|T
 name|newInstance

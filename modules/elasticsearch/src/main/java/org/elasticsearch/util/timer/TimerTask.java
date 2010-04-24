@@ -17,7 +17,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A task which is executed after the delay specified with  * {@link Timer#newTimeout(TimerTask, long, java.util.concurrent.TimeUnit)}.  *  * @author kimchy (Shay Banon)  */
+comment|/**  * A task which is executed after the delay specified with  * {@link Timer#newTimeout(TimerTask, long, java.util.concurrent.TimeUnit)}.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_interface

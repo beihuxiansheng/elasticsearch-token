@@ -172,7 +172,7 @@ name|util
 operator|.
 name|io
 operator|.
-name|HostResolver
+name|NetworkUtils
 import|;
 end_import
 
@@ -703,7 +703,7 @@ block|{
 name|InetAddress
 name|bindAddress
 init|=
-name|HostResolver
+name|NetworkUtils
 operator|.
 name|resolveBindHostAddress
 argument_list|(
@@ -711,9 +711,9 @@ literal|null
 argument_list|,
 name|settings
 argument_list|,
-name|HostResolver
+name|NetworkUtils
 operator|.
-name|LOCAL_IP
+name|LOCAL
 argument_list|)
 decl_stmt|;
 if|if
@@ -723,7 +723,7 @@ name|bindAddress
 operator|instanceof
 name|Inet4Address
 operator|&&
-name|HostResolver
+name|NetworkUtils
 operator|.
 name|isIPv4
 argument_list|()
@@ -735,7 +735,7 @@ operator|instanceof
 name|Inet6Address
 operator|&&
 operator|!
-name|HostResolver
+name|NetworkUtils
 operator|.
 name|isIPv4
 argument_list|()

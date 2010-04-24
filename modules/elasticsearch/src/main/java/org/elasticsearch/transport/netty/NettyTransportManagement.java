@@ -221,25 +221,6 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Connect retries"
-argument_list|)
-DECL|method|getConnectRetries
-specifier|public
-name|int
-name|getConnectRetries
-parameter_list|()
-block|{
-return|return
-name|transport
-operator|.
-name|connectRetries
-return|;
-block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
 literal|"TcpNoDelay"
 argument_list|)
 DECL|method|getTcpNoDelay

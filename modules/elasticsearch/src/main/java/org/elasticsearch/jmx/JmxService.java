@@ -24,7 +24,7 @@ name|util
 operator|.
 name|io
 operator|.
-name|HostResolver
+name|NetworkUtils
 import|;
 end_import
 
@@ -193,22 +193,6 @@ operator|.
 name|atomic
 operator|.
 name|AtomicReference
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|util
-operator|.
-name|io
-operator|.
-name|HostResolver
-operator|.
-name|*
 import|;
 end_import
 
@@ -579,7 +563,7 @@ comment|// create the publish url
 name|String
 name|publishHost
 init|=
-name|HostResolver
+name|NetworkUtils
 operator|.
 name|resolvePublishHostAddress
 argument_list|(
@@ -591,8 +575,6 @@ literal|"jmx.publishHost"
 argument_list|)
 argument_list|,
 name|settings
-argument_list|,
-name|LOCAL_IP
 argument_list|)
 operator|.
 name|getHostAddress

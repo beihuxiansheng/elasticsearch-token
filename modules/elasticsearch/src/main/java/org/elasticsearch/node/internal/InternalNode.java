@@ -350,6 +350,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|monitor
+operator|.
+name|jvm
+operator|.
+name|JvmConfig
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|node
 operator|.
 name|Node
@@ -810,11 +824,19 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"{{}}: Initializing ..."
+literal|"{{}}[{}]: Initializing ..."
 argument_list|,
 name|Version
 operator|.
 name|full
+argument_list|()
+argument_list|,
+name|JvmConfig
+operator|.
+name|jvmConfig
+argument_list|()
+operator|.
+name|pid
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1107,11 +1129,19 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"{{}}: Initialized"
+literal|"{{}}[{}]: Initialized"
 argument_list|,
 name|Version
 operator|.
 name|full
+argument_list|()
+argument_list|,
+name|JvmConfig
+operator|.
+name|jvmConfig
+argument_list|()
+operator|.
+name|pid
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1184,11 +1214,19 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"{{}}: Starting ..."
+literal|"{{}}[{}]: Starting ..."
 argument_list|,
 name|Version
 operator|.
 name|full
+argument_list|()
+argument_list|,
+name|JvmConfig
+operator|.
+name|jvmConfig
+argument_list|()
+operator|.
+name|pid
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1377,11 +1415,19 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"{{}}: Started"
+literal|"{{}}[{}]: Started"
 argument_list|,
 name|Version
 operator|.
 name|full
+argument_list|()
+argument_list|,
+name|JvmConfig
+operator|.
+name|jvmConfig
+argument_list|()
+operator|.
+name|pid
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1433,11 +1479,19 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"{{}}: Stopping ..."
+literal|"{{}}[{}]: Stopping ..."
 argument_list|,
 name|Version
 operator|.
 name|full
+argument_list|()
+argument_list|,
+name|JvmConfig
+operator|.
+name|jvmConfig
+argument_list|()
+operator|.
+name|pid
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1676,11 +1730,19 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"{{}}: Stopped"
+literal|"{{}}[{}]: Stopped"
 argument_list|,
 name|Version
 operator|.
 name|full
+argument_list|()
+argument_list|,
+name|JvmConfig
+operator|.
+name|jvmConfig
+argument_list|()
+operator|.
+name|pid
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1740,11 +1802,19 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"{{}}: Closing ..."
+literal|"{{}}[{}]: Closing ..."
 argument_list|,
 name|Version
 operator|.
 name|full
+argument_list|()
+argument_list|,
+name|JvmConfig
+operator|.
+name|jvmConfig
+argument_list|()
+operator|.
+name|pid
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2005,11 +2075,19 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"{{}}: Closed"
+literal|"{{}}[{}]: Closed"
 argument_list|,
 name|Version
 operator|.
 name|full
+argument_list|()
+argument_list|,
+name|JvmConfig
+operator|.
+name|jvmConfig
+argument_list|()
+operator|.
+name|pid
 argument_list|()
 argument_list|)
 expr_stmt|;

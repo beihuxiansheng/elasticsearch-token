@@ -2449,9 +2449,17 @@ operator|.
 name|buildSource
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
 name|logger
 operator|.
-name|info
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|logger
+operator|.
+name|debug
 argument_list|(
 literal|"Index ["
 operator|+
@@ -2468,6 +2476,32 @@ operator|+
 literal|"]"
 argument_list|)
 expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|logger
+operator|.
+name|isInfoEnabled
+argument_list|()
+condition|)
+block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"Index ["
+operator|+
+name|index
+operator|+
+literal|"]: Update mapping ["
+operator|+
+name|type
+operator|+
+literal|"] (dynamic)"
+argument_list|)
+expr_stmt|;
+block|}
 comment|// publish the new mapping
 name|clusterService
 operator|.
@@ -3061,9 +3095,17 @@ argument_list|,
 name|mapping
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
 name|logger
 operator|.
-name|info
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|logger
+operator|.
+name|debug
 argument_list|(
 literal|"Index ["
 operator|+
@@ -3086,6 +3128,35 @@ operator|+
 literal|"]"
 argument_list|)
 expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|logger
+operator|.
+name|isInfoEnabled
+argument_list|()
+condition|)
+block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"Index ["
+operator|+
+name|index
+operator|+
+literal|"]: Put mapping ["
+operator|+
+name|mapping
+operator|.
+name|v1
+argument_list|()
+operator|+
+literal|"]"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 specifier|final
 name|CountDownLatch
