@@ -374,6 +374,22 @@ name|*
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|node
+operator|.
+name|DiscoveryNode
+operator|.
+name|*
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (Shay Banon)  */
 end_comment
@@ -930,23 +946,6 @@ argument_list|(
 literal|"name"
 argument_list|)
 argument_list|,
-name|settings
-operator|.
-name|getAsBoolean
-argument_list|(
-literal|"node.data"
-argument_list|,
-operator|!
-name|settings
-operator|.
-name|getAsBoolean
-argument_list|(
-literal|"node.client"
-argument_list|,
-literal|false
-argument_list|)
-argument_list|)
-argument_list|,
 name|channel
 operator|.
 name|getAddress
@@ -962,6 +961,11 @@ argument_list|()
 operator|.
 name|publishAddress
 argument_list|()
+argument_list|,
+name|buildCommonNodesAttributes
+argument_list|(
+name|settings
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -978,7 +982,7 @@ name|clusterService
 operator|.
 name|submitStateUpdateTask
 argument_list|(
-literal|"jgroups-disco-initialconnect(master)"
+literal|"jgroups-disco-initial_connect(master)"
 argument_list|,
 operator|new
 name|ProcessedClusterStateUpdateTask

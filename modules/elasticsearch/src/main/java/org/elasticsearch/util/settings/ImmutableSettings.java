@@ -499,11 +499,27 @@ argument_list|()
 operator|.
 name|length
 argument_list|()
-operator|-
-literal|1
 argument_list|)
 expr_stmt|;
-comment|// remove the simple class name
+comment|// remove the simple class name (keep the dot)
+return|return
+name|getByPrefix
+argument_list|(
+name|settingPrefix
+argument_list|)
+return|;
+block|}
+DECL|method|getByPrefix
+annotation|@
+name|Override
+specifier|public
+name|Settings
+name|getByPrefix
+parameter_list|(
+name|String
+name|prefix
+parameter_list|)
+block|{
 name|Builder
 name|builder
 init|=
@@ -539,7 +555,7 @@ argument_list|()
 operator|.
 name|startsWith
 argument_list|(
-name|settingPrefix
+name|prefix
 argument_list|)
 condition|)
 block|{
@@ -552,8 +568,8 @@ argument_list|()
 operator|.
 name|length
 argument_list|()
-operator|<=
-name|settingPrefix
+operator|<
+name|prefix
 operator|.
 name|length
 argument_list|()
@@ -573,12 +589,10 @@ argument_list|()
 operator|.
 name|substring
 argument_list|(
-name|settingPrefix
+name|prefix
 operator|.
 name|length
 argument_list|()
-operator|+
-literal|1
 argument_list|)
 argument_list|,
 name|entry

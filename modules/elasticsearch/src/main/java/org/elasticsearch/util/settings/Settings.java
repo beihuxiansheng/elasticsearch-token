@@ -103,7 +103,16 @@ name|Class
 name|component
 parameter_list|)
 function_decl|;
-comment|/**      * The class loader associted with this settings.      */
+comment|/**      * A settings that are filtered (and key is removed) with the specified prefix.      */
+DECL|method|getByPrefix
+name|Settings
+name|getByPrefix
+parameter_list|(
+name|String
+name|prefix
+parameter_list|)
+function_decl|;
+comment|/**      * The class loader associated with this settings.      */
 DECL|method|getClassLoader
 name|ClassLoader
 name|getClassLoader
