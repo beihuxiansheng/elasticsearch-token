@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.plugin.attachments
+DECL|package|org.elasticsearch.plugin.jgroups
 package|package
 name|org
 operator|.
@@ -12,21 +12,9 @@ name|elasticsearch
 operator|.
 name|plugin
 operator|.
-name|attachments
+name|jgroups
 package|;
 end_package
-
-begin_import
-import|import
-name|com
-operator|.
-name|google
-operator|.
-name|inject
-operator|.
-name|Module
-import|;
-end_import
 
 begin_import
 import|import
@@ -40,41 +28,15 @@ name|AbstractPlugin
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import static
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Lists
-operator|.
-name|*
-import|;
-end_import
-
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|AttachmentsPlugin
+DECL|class|JgroupsPlugin
 specifier|public
 class|class
-name|AttachmentsPlugin
+name|JgroupsPlugin
 extends|extends
 name|AbstractPlugin
 block|{
@@ -87,7 +49,7 @@ name|name
 parameter_list|()
 block|{
 return|return
-literal|"attachments"
+literal|"discovery-plugin"
 return|;
 block|}
 DECL|method|description
@@ -99,50 +61,7 @@ name|description
 parameter_list|()
 block|{
 return|return
-literal|"Adds the attachment type allowing to parse difference attachment formats"
-return|;
-block|}
-DECL|method|indexModules
-annotation|@
-name|Override
-specifier|public
-name|Collection
-argument_list|<
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|Module
-argument_list|>
-argument_list|>
-name|indexModules
-parameter_list|()
-block|{
-name|Collection
-argument_list|<
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|Module
-argument_list|>
-argument_list|>
-name|modules
-init|=
-name|newArrayList
-argument_list|()
-decl_stmt|;
-name|modules
-operator|.
-name|add
-argument_list|(
-name|AttachmentsIndexModule
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-return|return
-name|modules
+literal|"Adds jgroups as a discovery type"
 return|;
 block|}
 block|}
