@@ -38,7 +38,7 @@ specifier|public
 class|class
 name|NodeDisconnectedTransportException
 extends|extends
-name|RemoteTransportException
+name|ConnectTransportException
 block|{
 DECL|method|NodeDisconnectedTransportException
 specifier|public
@@ -54,14 +54,8 @@ block|{
 name|super
 argument_list|(
 name|node
-operator|.
-name|name
-argument_list|()
 argument_list|,
-name|node
-operator|.
-name|address
-argument_list|()
+literal|"disconnected"
 argument_list|,
 name|action
 argument_list|,

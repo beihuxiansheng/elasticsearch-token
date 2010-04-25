@@ -782,7 +782,7 @@ expr_stmt|;
 name|DiscoveryNode
 name|masterNode
 init|=
-name|pingTillMasterResolved
+name|broadBingTillMasterResolved
 argument_list|()
 decl_stmt|;
 if|if
@@ -1120,7 +1120,7 @@ operator|.
 name|values
 argument_list|()
 argument_list|,
-literal|3
+literal|5
 argument_list|)
 decl_stmt|;
 for|for
@@ -2154,10 +2154,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|pingTillMasterResolved
+DECL|method|broadBingTillMasterResolved
 specifier|private
 name|DiscoveryNode
-name|pingTillMasterResolved
+name|broadBingTillMasterResolved
 parameter_list|()
 block|{
 while|while

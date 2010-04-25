@@ -239,10 +239,22 @@ name|TransportServiceAdapter
 name|service
 parameter_list|)
 function_decl|;
+comment|/**      * The address the transport is bound on.      */
 DECL|method|boundAddress
 name|BoundTransportAddress
 name|boundAddress
 parameter_list|()
+function_decl|;
+comment|/**      * Returns an address from its string representation.      */
+DECL|method|addressFromString
+name|TransportAddress
+name|addressFromString
+parameter_list|(
+name|String
+name|address
+parameter_list|)
+throws|throws
+name|Exception
 function_decl|;
 comment|/**      * Is the address type supported.      */
 DECL|method|addressSupported
