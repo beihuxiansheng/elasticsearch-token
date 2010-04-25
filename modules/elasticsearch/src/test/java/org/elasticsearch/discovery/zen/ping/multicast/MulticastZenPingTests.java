@@ -328,9 +328,6 @@ decl_stmt|;
 name|MulticastZenPing
 name|zenPingA
 init|=
-operator|(
-name|MulticastZenPing
-operator|)
 operator|new
 name|MulticastZenPing
 argument_list|(
@@ -387,9 +384,6 @@ expr_stmt|;
 name|MulticastZenPing
 name|zenPingB
 init|=
-operator|(
-name|MulticastZenPing
-operator|)
 operator|new
 name|MulticastZenPing
 argument_list|(

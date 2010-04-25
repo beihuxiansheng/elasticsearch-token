@@ -238,21 +238,19 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|Nullable
+name|settings
+operator|.
+name|Settings
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|javax
 operator|.
-name|elasticsearch
+name|annotation
 operator|.
-name|util
-operator|.
-name|settings
-operator|.
-name|Settings
+name|Nullable
 import|;
 end_import
 

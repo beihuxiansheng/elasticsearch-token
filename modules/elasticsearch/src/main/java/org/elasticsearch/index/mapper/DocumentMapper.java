@@ -52,21 +52,19 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|Nullable
+name|concurrent
+operator|.
+name|ThreadSafe
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|javax
 operator|.
-name|elasticsearch
+name|annotation
 operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ThreadSafe
+name|Nullable
 import|;
 end_import
 

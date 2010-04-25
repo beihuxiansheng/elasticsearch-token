@@ -18,11 +18,13 @@ end_package
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|google
+name|elasticsearch
 operator|.
-name|common
+name|util
+operator|.
+name|gcommon
 operator|.
 name|collect
 operator|.
@@ -102,18 +104,6 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|Nullable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|util
-operator|.
 name|component
 operator|.
 name|CloseableComponent
@@ -150,6 +140,16 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|annotation
+operator|.
+name|Nullable
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -160,11 +160,13 @@ end_import
 
 begin_import
 import|import static
-name|com
+name|org
 operator|.
-name|google
+name|elasticsearch
 operator|.
-name|common
+name|util
+operator|.
+name|gcommon
 operator|.
 name|collect
 operator|.

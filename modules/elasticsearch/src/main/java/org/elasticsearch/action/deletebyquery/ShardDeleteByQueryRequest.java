@@ -52,18 +52,6 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|Nullable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|util
-operator|.
 name|Strings
 import|;
 end_import
@@ -109,6 +97,16 @@ operator|.
 name|stream
 operator|.
 name|StreamOutput
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|annotation
+operator|.
+name|Nullable
 import|;
 end_import
 

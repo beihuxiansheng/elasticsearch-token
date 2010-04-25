@@ -18,11 +18,9 @@ end_package
 
 begin_import
 import|import
-name|org
+name|javax
 operator|.
-name|elasticsearch
-operator|.
-name|util
+name|annotation
 operator|.
 name|Nullable
 import|;

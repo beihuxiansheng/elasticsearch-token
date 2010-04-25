@@ -22,11 +22,13 @@ end_package
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|google
+name|elasticsearch
 operator|.
-name|common
+name|util
+operator|.
+name|gcommon
 operator|.
 name|collect
 operator|.
@@ -36,11 +38,13 @@ end_import
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|google
+name|elasticsearch
 operator|.
-name|common
+name|util
+operator|.
+name|gcommon
 operator|.
 name|collect
 operator|.
@@ -134,11 +138,13 @@ end_import
 
 begin_import
 import|import static
-name|com
+name|org
 operator|.
-name|google
+name|elasticsearch
 operator|.
-name|common
+name|util
+operator|.
+name|gcommon
 operator|.
 name|collect
 operator|.
