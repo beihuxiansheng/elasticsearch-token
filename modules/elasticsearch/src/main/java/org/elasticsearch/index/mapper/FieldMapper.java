@@ -445,16 +445,16 @@ name|T
 name|value
 parameter_list|)
 function_decl|;
-comment|/**      * Should the field query {@link #fieldQuery(String)} be used when detecting this      * field in query string.      */
-DECL|method|useFieldQueryWithQueryString
+comment|/**      * Should the field query {@link #termQuery(String)} be used when detecting this      * field in query string.      */
+DECL|method|useTermQueryWithQueryString
 name|boolean
-name|useFieldQueryWithQueryString
+name|useTermQueryWithQueryString
 parameter_list|()
 function_decl|;
 comment|/**      * A field query for the specified value.      */
-DECL|method|fieldQuery
+DECL|method|termQuery
 name|Query
-name|fieldQuery
+name|termQuery
 parameter_list|(
 name|String
 name|value

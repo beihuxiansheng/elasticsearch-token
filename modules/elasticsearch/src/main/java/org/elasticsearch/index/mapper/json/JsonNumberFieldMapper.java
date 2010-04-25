@@ -661,12 +661,12 @@ name|precisionStep
 return|;
 block|}
 comment|/**      * Use the field query created here when matching on numbers.      */
-DECL|method|useFieldQueryWithQueryString
+DECL|method|useTermQueryWithQueryString
 annotation|@
 name|Override
 specifier|public
 name|boolean
-name|useFieldQueryWithQueryString
+name|useTermQueryWithQueryString
 parameter_list|()
 block|{
 return|return

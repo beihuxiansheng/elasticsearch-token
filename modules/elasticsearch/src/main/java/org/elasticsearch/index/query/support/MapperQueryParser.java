@@ -444,7 +444,7 @@ if|if
 condition|(
 name|currentMapper
 operator|.
-name|useFieldQueryWithQueryString
+name|useTermQueryWithQueryString
 argument_list|()
 condition|)
 block|{
@@ -452,7 +452,7 @@ name|query
 operator|=
 name|currentMapper
 operator|.
-name|fieldQuery
+name|termQuery
 argument_list|(
 name|queryText
 argument_list|)
