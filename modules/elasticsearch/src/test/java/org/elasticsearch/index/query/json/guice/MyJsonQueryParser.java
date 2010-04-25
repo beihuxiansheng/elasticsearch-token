@@ -22,9 +22,13 @@ end_package
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|google
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|guice
 operator|.
 name|inject
 operator|.
@@ -34,9 +38,13 @@ end_import
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|google
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|guice
 operator|.
 name|inject
 operator|.

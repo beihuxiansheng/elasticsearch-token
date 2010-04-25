@@ -18,9 +18,13 @@ end_package
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|google
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|guice
 operator|.
 name|inject
 operator|.
@@ -30,23 +34,13 @@ end_import
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|google
+name|elasticsearch
 operator|.
-name|inject
+name|util
 operator|.
-name|internal
-operator|.
-name|Sets
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|google
+name|guice
 operator|.
 name|inject
 operator|.
@@ -58,15 +52,35 @@ end_import
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|google
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|guice
 operator|.
 name|inject
 operator|.
 name|name
 operator|.
 name|Names
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|gcommon
+operator|.
+name|collect
+operator|.
+name|Sets
 import|;
 end_import
 
@@ -124,7 +138,7 @@ specifier|public
 class|class
 name|Injectors
 block|{
-comment|/**      * Returns an instance of the given type with the {@link com.google.inject.name.Named}      * annotation value.      *<p/>      * This method allows you to switch this code      *<code>injector.getInstance(Key.get(type, Names.named(name)));</code>      *<p/>      * to the more concise      *<code>Injectors.getInstance(injector, type, name);</code>      */
+comment|/**      * Returns an instance of the given type with the {@link org.elasticsearch.util.guice.inject.name.Named}      * annotation value.      *<p/>      * This method allows you to switch this code      *<code>injector.getInstance(Key.get(type, Names.named(name)));</code>      *<p/>      * to the more concise      *<code>Injectors.getInstance(injector, type, name);</code>      */
 DECL|method|getInstance
 specifier|public
 specifier|static
