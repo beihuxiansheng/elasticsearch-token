@@ -378,6 +378,15 @@ if|if
 condition|(
 name|componentSettings
 operator|.
+name|get
+argument_list|(
+literal|"unicast.hosts"
+argument_list|)
+operator|!=
+literal|null
+operator|||
+name|componentSettings
+operator|.
 name|getAsArray
 argument_list|(
 literal|"unicast.hosts"

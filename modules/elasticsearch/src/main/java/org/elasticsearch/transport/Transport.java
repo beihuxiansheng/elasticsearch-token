@@ -246,9 +246,10 @@ name|boundAddress
 parameter_list|()
 function_decl|;
 comment|/**      * Returns an address from its string representation.      */
-DECL|method|addressFromString
+DECL|method|addressesFromString
 name|TransportAddress
-name|addressFromString
+index|[]
+name|addressesFromString
 parameter_list|(
 name|String
 name|address

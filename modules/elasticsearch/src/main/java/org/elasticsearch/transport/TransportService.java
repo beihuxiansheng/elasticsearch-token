@@ -1032,10 +1032,11 @@ name|getAndIncrement
 argument_list|()
 return|;
 block|}
-DECL|method|addressFromString
+DECL|method|addressesFromString
 specifier|public
 name|TransportAddress
-name|addressFromString
+index|[]
+name|addressesFromString
 parameter_list|(
 name|String
 name|address
@@ -1046,7 +1047,7 @@ block|{
 return|return
 name|transport
 operator|.
-name|addressFromString
+name|addressesFromString
 argument_list|(
 name|address
 argument_list|)
