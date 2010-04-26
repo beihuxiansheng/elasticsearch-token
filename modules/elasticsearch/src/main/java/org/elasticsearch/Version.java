@@ -14,6 +14,20 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|monitor
+operator|.
+name|jvm
+operator|.
+name|JvmConfig
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -280,6 +294,44 @@ operator|.
 name|toString
 argument_list|()
 return|;
+block|}
+DECL|method|main
+specifier|public
+specifier|static
+name|void
+name|main
+parameter_list|(
+name|String
+index|[]
+name|args
+parameter_list|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"ElasticSearch Version: "
+operator|+
+name|number
+operator|+
+literal|" ("
+operator|+
+name|date
+argument_list|()
+operator|+
+literal|"), JVM: "
+operator|+
+name|JvmConfig
+operator|.
+name|jvmConfig
+argument_list|()
+operator|.
+name|vmVersion
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
