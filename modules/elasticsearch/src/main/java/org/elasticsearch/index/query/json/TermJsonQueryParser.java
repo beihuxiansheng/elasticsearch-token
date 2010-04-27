@@ -526,7 +526,7 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
-name|termQuery
+name|fieldQuery
 argument_list|(
 name|value
 argument_list|)

@@ -630,12 +630,12 @@ name|term
 argument_list|)
 return|;
 block|}
-DECL|method|termQuery
+DECL|method|fieldQuery
 annotation|@
 name|Override
 specifier|public
 name|Query
-name|termQuery
+name|fieldQuery
 parameter_list|(
 name|String
 name|value
