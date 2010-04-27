@@ -169,7 +169,7 @@ name|append
 argument_list|(
 name|context
 operator|.
-name|query
+name|originalQuery
 argument_list|()
 argument_list|)
 operator|.

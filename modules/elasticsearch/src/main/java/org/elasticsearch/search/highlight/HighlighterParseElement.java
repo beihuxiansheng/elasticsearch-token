@@ -636,6 +636,12 @@ operator|==
 name|JsonToken
 operator|.
 name|VALUE_FALSE
+operator|||
+name|token
+operator|==
+name|JsonToken
+operator|.
+name|VALUE_TRUE
 condition|)
 block|{
 if|if
@@ -657,7 +663,11 @@ condition|)
 block|{
 name|highlightFilter
 operator|=
-literal|false
+name|token
+operator|==
+name|JsonToken
+operator|.
+name|VALUE_TRUE
 expr_stmt|;
 block|}
 block|}
