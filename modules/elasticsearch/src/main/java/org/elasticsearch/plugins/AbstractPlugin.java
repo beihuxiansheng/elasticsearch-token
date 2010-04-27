@@ -241,6 +241,19 @@ name|of
 argument_list|()
 return|;
 block|}
+DECL|method|processModule
+annotation|@
+name|Override
+specifier|public
+name|void
+name|processModule
+parameter_list|(
+name|Module
+name|module
+parameter_list|)
+block|{
+comment|// nothing to do here
+block|}
 block|}
 end_class
 

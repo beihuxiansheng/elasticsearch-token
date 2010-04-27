@@ -1117,6 +1117,13 @@ name|NodeClientModule
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|pluginsService
+operator|.
+name|processModules
+argument_list|(
+name|modules
+argument_list|)
+expr_stmt|;
 name|injector
 operator|=
 name|Guice

@@ -174,6 +174,14 @@ argument_list|>
 name|shardServices
 parameter_list|()
 function_decl|;
+DECL|method|processModule
+name|void
+name|processModule
+parameter_list|(
+name|Module
+name|module
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 
