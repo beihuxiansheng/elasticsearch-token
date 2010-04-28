@@ -22,34 +22,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|util
-operator|.
-name|gcommon
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|jackson
-operator|.
-name|JsonNode
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|codehaus
 operator|.
 name|jackson
@@ -57,20 +29,6 @@ operator|.
 name|map
 operator|.
 name|ObjectMapper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|jackson
-operator|.
-name|node
-operator|.
-name|ObjectNode
 import|;
 end_import
 
@@ -162,6 +120,22 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
+name|gcommon
+operator|.
+name|collect
+operator|.
+name|ImmutableMap
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
 name|io
 operator|.
 name|FastStringReader
@@ -189,16 +163,6 @@ operator|.
 name|io
 operator|.
 name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Iterator
 import|;
 end_import
 
@@ -583,7 +547,12 @@ parameter_list|)
 throws|throws
 name|MapperParsingException
 block|{
-name|JsonNode
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|root
 decl_stmt|;
 try|try
@@ -600,7 +569,7 @@ argument_list|(
 name|source
 argument_list|)
 argument_list|,
-name|JsonNode
+name|Map
 operator|.
 name|class
 argument_list|)
@@ -627,13 +596,21 @@ name|rootName
 init|=
 name|root
 operator|.
-name|getFieldNames
+name|keySet
+argument_list|()
+operator|.
+name|iterator
 argument_list|()
 operator|.
 name|next
 argument_list|()
 decl_stmt|;
-name|ObjectNode
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|rootObj
 decl_stmt|;
 if|if
@@ -647,7 +624,12 @@ comment|// we have no type, we assume the first node is the type
 name|rootObj
 operator|=
 operator|(
-name|ObjectNode
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 operator|)
 name|root
 operator|.
@@ -675,7 +657,7 @@ name|rootName
 argument_list|)
 condition|)
 block|{
-name|JsonNode
+name|Object
 name|tmpNode
 init|=
 name|root
@@ -688,10 +670,11 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
+operator|(
 name|tmpNode
-operator|.
-name|isObject
-argument_list|()
+operator|instanceof
+name|Map
+operator|)
 condition|)
 block|{
 throw|throw
@@ -702,14 +685,19 @@ literal|"Expected root node name ["
 operator|+
 name|rootName
 operator|+
-literal|"] to be of json object type, but its not"
+literal|"] to be of object type, but its not"
 argument_list|)
 throw|;
 block|}
 name|rootObj
 operator|=
 operator|(
-name|ObjectNode
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 operator|)
 name|tmpNode
 expr_stmt|;
@@ -718,9 +706,6 @@ else|else
 block|{
 name|rootObj
 operator|=
-operator|(
-name|ObjectNode
-operator|)
 name|root
 expr_stmt|;
 block|}
@@ -768,46 +753,22 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|Iterator
-argument_list|<
 name|Map
 operator|.
 name|Entry
 argument_list|<
 name|String
 argument_list|,
-name|JsonNode
-argument_list|>
-argument_list|>
-name|fieldsIt
-init|=
-name|rootObj
-operator|.
-name|getFields
-argument_list|()
-init|;
-name|fieldsIt
-operator|.
-name|hasNext
-argument_list|()
-condition|;
-control|)
-block|{
-name|Map
-operator|.
-name|Entry
-argument_list|<
-name|String
-argument_list|,
-name|JsonNode
+name|Object
 argument_list|>
 name|entry
-init|=
-name|fieldsIt
+range|:
+name|rootObj
 operator|.
-name|next
+name|entrySet
 argument_list|()
-decl_stmt|;
+control|)
+block|{
 name|String
 name|fieldName
 init|=
@@ -821,7 +782,7 @@ name|getKey
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|JsonNode
+name|Object
 name|fieldNode
 init|=
 name|entry
@@ -855,7 +816,12 @@ argument_list|(
 name|parseSourceField
 argument_list|(
 operator|(
-name|ObjectNode
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 operator|)
 name|fieldNode
 argument_list|,
@@ -891,7 +857,12 @@ argument_list|(
 name|parseIdField
 argument_list|(
 operator|(
-name|ObjectNode
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 operator|)
 name|fieldNode
 argument_list|,
@@ -927,7 +898,12 @@ argument_list|(
 name|parseTypeField
 argument_list|(
 operator|(
-name|ObjectNode
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 operator|)
 name|fieldNode
 argument_list|,
@@ -963,7 +939,12 @@ argument_list|(
 name|parseUidField
 argument_list|(
 operator|(
-name|ObjectNode
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 operator|)
 name|fieldNode
 argument_list|,
@@ -999,7 +980,12 @@ argument_list|(
 name|parseBoostField
 argument_list|(
 operator|(
-name|ObjectNode
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 operator|)
 name|fieldNode
 argument_list|,
@@ -1035,7 +1021,12 @@ argument_list|(
 name|parseAllField
 argument_list|(
 operator|(
-name|ObjectNode
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 operator|)
 name|fieldNode
 argument_list|,
@@ -1065,7 +1056,7 @@ name|analyzer
 argument_list|(
 name|fieldNode
 operator|.
-name|getTextValue
+name|toString
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1092,7 +1083,7 @@ name|analyzer
 argument_list|(
 name|fieldNode
 operator|.
-name|getTextValue
+name|toString
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1119,7 +1110,7 @@ name|analyzer
 argument_list|(
 name|fieldNode
 operator|.
-name|getTextValue
+name|toString
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1134,7 +1125,7 @@ name|analyzer
 argument_list|(
 name|fieldNode
 operator|.
-name|getTextValue
+name|toString
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1218,7 +1209,12 @@ operator|.
 name|Builder
 name|parseUidField
 parameter_list|(
-name|ObjectNode
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|uidNode
 parameter_list|,
 name|JsonTypeParser
@@ -1227,7 +1223,6 @@ name|ParserContext
 name|parserContext
 parameter_list|)
 block|{
-comment|//        String name = uidNode.get("name") == null ? JsonUidFieldMapper.Defaults.NAME : uidNode.get("name").getTextValue();
 name|JsonUidFieldMapper
 operator|.
 name|Builder
@@ -1236,15 +1231,6 @@ init|=
 name|uid
 argument_list|()
 decl_stmt|;
-comment|//        for (Iterator<Map.Entry<String, JsonNode>> fieldsIt = uidNode.getFields(); fieldsIt.hasNext();) {
-comment|//            Map.Entry<String, JsonNode> entry = fieldsIt.next();
-comment|//            String fieldName = entry.getKey();
-comment|//            JsonNode fieldNode = entry.getValue();
-comment|//
-comment|//            if ("indexName".equals(fieldName)) {
-comment|//                builder.indexName(fieldNode.getTextValue());
-comment|//            }
-comment|//        }
 return|return
 name|builder
 return|;
@@ -1256,7 +1242,12 @@ operator|.
 name|Builder
 name|parseBoostField
 parameter_list|(
-name|ObjectNode
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|boostNode
 parameter_list|,
 name|JsonTypeParser
@@ -1290,7 +1281,7 @@ argument_list|(
 literal|"name"
 argument_list|)
 operator|.
-name|getTextValue
+name|toString
 argument_list|()
 decl_stmt|;
 name|JsonBoostFieldMapper
@@ -1316,46 +1307,22 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|Iterator
-argument_list|<
 name|Map
 operator|.
 name|Entry
 argument_list|<
 name|String
 argument_list|,
-name|JsonNode
-argument_list|>
-argument_list|>
-name|propsIt
-init|=
-name|boostNode
-operator|.
-name|getFields
-argument_list|()
-init|;
-name|propsIt
-operator|.
-name|hasNext
-argument_list|()
-condition|;
-control|)
-block|{
-name|Map
-operator|.
-name|Entry
-argument_list|<
-name|String
-argument_list|,
-name|JsonNode
+name|Object
 argument_list|>
 name|entry
-init|=
-name|propsIt
+range|:
+name|boostNode
 operator|.
-name|next
+name|entrySet
 argument_list|()
-decl_stmt|;
+control|)
+block|{
 name|String
 name|propName
 init|=
@@ -1369,7 +1336,7 @@ name|getKey
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|JsonNode
+name|Object
 name|propNode
 init|=
 name|entry
@@ -1410,7 +1377,12 @@ operator|.
 name|Builder
 name|parseTypeField
 parameter_list|(
-name|ObjectNode
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|typeNode
 parameter_list|,
 name|JsonTypeParser
@@ -1419,7 +1391,6 @@ name|ParserContext
 name|parserContext
 parameter_list|)
 block|{
-comment|//        String name = typeNode.get("name") == null ? JsonTypeFieldMapper.Defaults.NAME : typeNode.get("name").getTextValue();
 name|JsonTypeFieldMapper
 operator|.
 name|Builder
@@ -1452,7 +1423,12 @@ operator|.
 name|Builder
 name|parseIdField
 parameter_list|(
-name|ObjectNode
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|idNode
 parameter_list|,
 name|JsonTypeParser
@@ -1461,7 +1437,6 @@ name|ParserContext
 name|parserContext
 parameter_list|)
 block|{
-comment|//        String name = idNode.get("name") == null ? JsonIdFieldMapper.Defaults.NAME : idNode.get("name").getTextValue();
 name|JsonIdFieldMapper
 operator|.
 name|Builder
@@ -1494,7 +1469,12 @@ operator|.
 name|Builder
 name|parseAllField
 parameter_list|(
-name|ObjectNode
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|allNode
 parameter_list|,
 name|JsonTypeParser
@@ -1503,7 +1483,6 @@ name|ParserContext
 name|parserContext
 parameter_list|)
 block|{
-comment|//        String name = idNode.get("name") == null ? JsonIdFieldMapper.Defaults.NAME : idNode.get("name").getTextValue();
 name|JsonAllFieldMapper
 operator|.
 name|Builder
@@ -1527,46 +1506,22 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|Iterator
-argument_list|<
 name|Map
 operator|.
 name|Entry
 argument_list|<
 name|String
 argument_list|,
-name|JsonNode
-argument_list|>
-argument_list|>
-name|fieldsIt
-init|=
-name|allNode
-operator|.
-name|getFields
-argument_list|()
-init|;
-name|fieldsIt
-operator|.
-name|hasNext
-argument_list|()
-condition|;
-control|)
-block|{
-name|Map
-operator|.
-name|Entry
-argument_list|<
-name|String
-argument_list|,
-name|JsonNode
+name|Object
 argument_list|>
 name|entry
-init|=
-name|fieldsIt
+range|:
+name|allNode
 operator|.
-name|next
+name|entrySet
 argument_list|()
-decl_stmt|;
+control|)
+block|{
 name|String
 name|fieldName
 init|=
@@ -1580,7 +1535,7 @@ name|getKey
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|JsonNode
+name|Object
 name|fieldNode
 init|=
 name|entry
@@ -1621,7 +1576,12 @@ operator|.
 name|Builder
 name|parseSourceField
 parameter_list|(
-name|ObjectNode
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|sourceNode
 parameter_list|,
 name|JsonTypeParser
@@ -1630,7 +1590,6 @@ name|ParserContext
 name|parserContext
 parameter_list|)
 block|{
-comment|//        String name = sourceNode.get("name") == null ? JsonSourceFieldMapper.Defaults.NAME : sourceNode.get("name").getTextValue();
 name|JsonSourceFieldMapper
 operator|.
 name|Builder
@@ -1641,46 +1600,22 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|Iterator
-argument_list|<
 name|Map
 operator|.
 name|Entry
 argument_list|<
 name|String
 argument_list|,
-name|JsonNode
-argument_list|>
-argument_list|>
-name|fieldsIt
-init|=
-name|sourceNode
-operator|.
-name|getFields
-argument_list|()
-init|;
-name|fieldsIt
-operator|.
-name|hasNext
-argument_list|()
-condition|;
-control|)
-block|{
-name|Map
-operator|.
-name|Entry
-argument_list|<
-name|String
-argument_list|,
-name|JsonNode
+name|Object
 argument_list|>
 name|entry
-init|=
-name|fieldsIt
+range|:
+name|sourceNode
 operator|.
-name|next
+name|entrySet
 argument_list|()
-decl_stmt|;
+control|)
+block|{
 name|String
 name|fieldName
 init|=
@@ -1694,7 +1629,7 @@ name|getKey
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|JsonNode
+name|Object
 name|fieldNode
 init|=
 name|entry
@@ -1723,20 +1658,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|//            if (fieldName.equals("compressionThreshold")) {
-comment|//                builder.compressionThreshold(nodeIn...);
-comment|//            } else if (fieldName.equals("compressionType")) {
-comment|//                String compressionType = fieldNode.getTextValue();
-comment|//                if ("zip".equals(compressionType)) {
-comment|//                    builder.compressor(new ZipCompressor());
-comment|//                } else if ("gzip".equals(compressionType)) {
-comment|//                    builder.compressor(new GZIPCompressor());
-comment|//                } else if ("lzf".equals(compressionType)) {
-comment|//                    builder.compressor(new LzfCompressor());
-comment|//                } else {
-comment|//                    throw new MapperParsingException("No compressor registed under [" + compressionType + "]");
-comment|//                }
-comment|//            }
 block|}
 return|return
 name|builder

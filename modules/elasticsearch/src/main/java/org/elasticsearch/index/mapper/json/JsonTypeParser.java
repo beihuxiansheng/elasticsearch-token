@@ -100,6 +100,16 @@ name|Strings
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
@@ -125,7 +135,12 @@ decl_stmt|;
 DECL|field|rootNode
 specifier|private
 specifier|final
-name|ObjectNode
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|rootNode
 decl_stmt|;
 DECL|field|typeParsers
@@ -143,7 +158,12 @@ DECL|method|ParserContext
 specifier|public
 name|ParserContext
 parameter_list|(
-name|ObjectNode
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|rootNode
 parameter_list|,
 name|AnalysisService
@@ -189,7 +209,12 @@ return|;
 block|}
 DECL|method|rootNode
 specifier|public
-name|ObjectNode
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|rootNode
 parameter_list|()
 block|{
@@ -232,7 +257,12 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|JsonNode
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|node
 parameter_list|,
 name|ParserContext
