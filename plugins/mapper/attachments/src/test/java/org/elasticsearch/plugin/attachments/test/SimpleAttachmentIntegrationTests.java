@@ -482,7 +482,7 @@ name|mapping
 init|=
 name|copyToStringFromClasspath
 argument_list|(
-literal|"/org/elasticsearch/plugin/attachments/index/mapper/test-mapping.json"
+literal|"/org/elasticsearch/index/mapper/xcontent/test-mapping.json"
 argument_list|)
 decl_stmt|;
 name|node
@@ -543,7 +543,7 @@ literal|"file"
 argument_list|,
 name|copyToBytesFromClasspath
 argument_list|(
-literal|"/org/elasticsearch/plugin/attachments/index/mapper/testXHTML.html"
+literal|"/org/elasticsearch/index/mapper/xcontent/testXHTML.html"
 argument_list|)
 argument_list|)
 operator|.

@@ -164,9 +164,9 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|json
+name|xcontent
 operator|.
-name|JsonDocumentMapperParser
+name|XContentDocumentMapperParser
 import|;
 end_import
 
@@ -530,7 +530,7 @@ operator|.
 name|documentParser
 operator|=
 operator|new
-name|JsonDocumentMapperParser
+name|XContentDocumentMapperParser
 argument_list|(
 name|analysisService
 argument_list|)
@@ -615,7 +615,7 @@ name|indexClassLoader
 operator|.
 name|getResource
 argument_list|(
-literal|"org/elasticsearch/index/mapper/json/dynamic-mapping.json"
+literal|"org/elasticsearch/index/mapper/xcontent/dynamic-mapping.json"
 argument_list|)
 expr_stmt|;
 block|}
