@@ -166,9 +166,9 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|json
+name|xcontent
 operator|.
-name|JsonBuilder
+name|XContentFactory
 operator|.
 name|*
 import|;

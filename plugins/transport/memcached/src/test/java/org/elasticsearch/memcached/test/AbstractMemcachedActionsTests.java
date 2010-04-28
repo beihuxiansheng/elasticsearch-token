@@ -132,9 +132,9 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|json
+name|xcontent
 operator|.
-name|JsonBuilder
+name|XContentFactory
 operator|.
 name|*
 import|;
@@ -234,7 +234,7 @@ literal|"/test/person/1"
 argument_list|,
 literal|0
 argument_list|,
-name|binaryJsonBuilder
+name|jsonBuilder
 argument_list|()
 operator|.
 name|startObject

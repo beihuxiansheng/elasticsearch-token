@@ -76,9 +76,9 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|json
+name|settings
 operator|.
-name|JsonBuilder
+name|Settings
 import|;
 end_import
 
@@ -90,9 +90,11 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|settings
+name|xcontent
 operator|.
-name|Settings
+name|builder
+operator|.
+name|XContentBuilder
 import|;
 end_import
 
@@ -180,9 +182,9 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|json
+name|settings
 operator|.
-name|JsonBuilder
+name|ImmutableSettings
 operator|.
 name|*
 import|;
@@ -196,9 +198,9 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|settings
+name|xcontent
 operator|.
-name|ImmutableSettings
+name|XContentFactory
 operator|.
 name|*
 import|;
@@ -545,7 +547,7 @@ block|}
 DECL|method|source
 specifier|private
 specifier|static
-name|JsonBuilder
+name|XContentBuilder
 name|source
 parameter_list|(
 name|String

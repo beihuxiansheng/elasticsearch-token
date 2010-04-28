@@ -190,9 +190,9 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|json
+name|settings
 operator|.
-name|JsonBuilder
+name|ImmutableSettings
 operator|.
 name|*
 import|;
@@ -206,9 +206,9 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|settings
+name|xcontent
 operator|.
-name|ImmutableSettings
+name|XContentFactory
 operator|.
 name|*
 import|;

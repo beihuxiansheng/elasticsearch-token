@@ -168,9 +168,11 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|json
+name|xcontent
 operator|.
-name|JsonBuilder
+name|builder
+operator|.
+name|XContentBuilder
 import|;
 end_import
 
@@ -230,9 +232,9 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|json
+name|xcontent
 operator|.
-name|JsonBuilder
+name|XContentFactory
 operator|.
 name|*
 import|;
@@ -882,7 +884,7 @@ expr_stmt|;
 block|}
 DECL|method|source
 specifier|private
-name|JsonBuilder
+name|XContentBuilder
 name|source
 parameter_list|(
 name|String
@@ -938,7 +940,7 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|binaryJsonBuilder
+name|jsonBuilder
 argument_list|()
 operator|.
 name|startObject
