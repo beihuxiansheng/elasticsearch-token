@@ -22,13 +22,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|index
 operator|.
-name|guice
+name|cache
 operator|.
-name|inject
+name|filter
 operator|.
-name|AbstractModule
+name|FilterCacheModule
 import|;
 end_import
 
@@ -38,13 +38,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|util
 operator|.
-name|cache
+name|guice
 operator|.
-name|filter
+name|inject
 operator|.
-name|FilterCacheModule
+name|AbstractModule
 import|;
 end_import
 

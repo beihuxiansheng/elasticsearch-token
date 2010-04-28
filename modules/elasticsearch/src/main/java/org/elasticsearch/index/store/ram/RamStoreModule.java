@@ -24,13 +24,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|index
 operator|.
-name|guice
+name|store
 operator|.
-name|inject
-operator|.
-name|AbstractModule
+name|Store
 import|;
 end_import
 
@@ -40,11 +38,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|util
 operator|.
-name|store
+name|guice
 operator|.
-name|Store
+name|inject
+operator|.
+name|AbstractModule
 import|;
 end_import
 

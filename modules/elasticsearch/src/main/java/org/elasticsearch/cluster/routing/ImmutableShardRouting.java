@@ -22,13 +22,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|index
 operator|.
-name|gcommon
+name|shard
 operator|.
-name|collect
-operator|.
-name|ImmutableList
+name|ShardId
 import|;
 end_import
 
@@ -38,11 +36,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|util
 operator|.
-name|shard
+name|gcommon
 operator|.
-name|ShardId
+name|collect
+operator|.
+name|ImmutableList
 import|;
 end_import
 

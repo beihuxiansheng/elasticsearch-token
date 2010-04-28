@@ -24,13 +24,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|index
 operator|.
-name|gcommon
+name|mapper
 operator|.
-name|collect
-operator|.
-name|Lists
+name|DocumentMapper
 import|;
 end_import
 
@@ -40,11 +38,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|util
 operator|.
-name|mapper
+name|gcommon
 operator|.
-name|DocumentMapper
+name|collect
+operator|.
+name|Lists
 import|;
 end_import
 

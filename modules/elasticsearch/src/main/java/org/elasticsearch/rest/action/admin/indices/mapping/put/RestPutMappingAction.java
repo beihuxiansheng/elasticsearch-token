@@ -30,22 +30,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
-operator|.
-name|guice
-operator|.
-name|inject
-operator|.
-name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|ActionListener
@@ -180,9 +164,11 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|json
+name|guice
 operator|.
-name|JsonBuilder
+name|inject
+operator|.
+name|Inject
 import|;
 end_import
 
