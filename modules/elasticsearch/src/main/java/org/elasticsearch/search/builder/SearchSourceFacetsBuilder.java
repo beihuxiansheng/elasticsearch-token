@@ -26,9 +26,9 @@ name|index
 operator|.
 name|query
 operator|.
-name|json
+name|xcontent
 operator|.
-name|JsonQueryBuilder
+name|XContentQueryBuilder
 import|;
 end_import
 
@@ -40,9 +40,9 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|json
+name|xcontent
 operator|.
-name|JsonBuilder
+name|ToXContent
 import|;
 end_import
 
@@ -54,9 +54,11 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|json
+name|xcontent
 operator|.
-name|ToJson
+name|builder
+operator|.
+name|XContentBuilder
 import|;
 end_import
 
@@ -108,7 +110,7 @@ specifier|public
 class|class
 name|SearchSourceFacetsBuilder
 implements|implements
-name|ToJson
+name|ToXContent
 block|{
 DECL|field|queryExecution
 specifier|private
@@ -152,7 +154,7 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|JsonQueryBuilder
+name|XContentQueryBuilder
 name|query
 parameter_list|)
 block|{
@@ -199,7 +201,7 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|JsonQueryBuilder
+name|XContentQueryBuilder
 name|query
 parameter_list|,
 name|boolean
@@ -240,14 +242,14 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|toJson
+DECL|method|toXContent
 annotation|@
 name|Override
 specifier|public
 name|void
-name|toJson
+name|toXContent
 parameter_list|(
-name|JsonBuilder
+name|XContentBuilder
 name|builder
 parameter_list|,
 name|Params
@@ -335,7 +337,7 @@ operator|.
 name|queryBuilder
 argument_list|()
 operator|.
-name|toJson
+name|toXContent
 argument_list|(
 name|builder
 argument_list|,
@@ -393,7 +395,7 @@ decl_stmt|;
 DECL|field|queryBuilder
 specifier|private
 specifier|final
-name|JsonQueryBuilder
+name|XContentQueryBuilder
 name|queryBuilder
 decl_stmt|;
 DECL|field|global
@@ -409,7 +411,7 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|JsonQueryBuilder
+name|XContentQueryBuilder
 name|queryBuilder
 parameter_list|,
 name|Boolean
@@ -447,7 +449,7 @@ return|;
 block|}
 DECL|method|queryBuilder
 specifier|public
-name|JsonQueryBuilder
+name|XContentQueryBuilder
 name|queryBuilder
 parameter_list|()
 block|{

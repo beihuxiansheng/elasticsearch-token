@@ -367,7 +367,7 @@ return|return
 name|querySource
 return|;
 block|}
-comment|/**      * The query source to execute.      *      * @see org.elasticsearch.index.query.json.JsonQueryBuilders      */
+comment|/**      * The query source to execute.      *      * @see org.elasticsearch.index.query.xcontent.QueryBuilders      */
 DECL|method|query
 annotation|@
 name|Required

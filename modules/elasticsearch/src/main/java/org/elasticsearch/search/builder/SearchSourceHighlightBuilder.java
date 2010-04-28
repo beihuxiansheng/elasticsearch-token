@@ -24,9 +24,9 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|json
+name|xcontent
 operator|.
-name|JsonBuilder
+name|ToXContent
 import|;
 end_import
 
@@ -38,9 +38,11 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|json
+name|xcontent
 operator|.
-name|ToJson
+name|builder
+operator|.
+name|XContentBuilder
 import|;
 end_import
 
@@ -92,7 +94,7 @@ specifier|public
 class|class
 name|SearchSourceHighlightBuilder
 implements|implements
-name|ToJson
+name|ToXContent
 block|{
 DECL|field|fields
 specifier|private
@@ -344,14 +346,14 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|toJson
+DECL|method|toXContent
 annotation|@
 name|Override
 specifier|public
 name|void
-name|toJson
+name|toXContent
 parameter_list|(
-name|JsonBuilder
+name|XContentBuilder
 name|builder
 parameter_list|,
 name|Params

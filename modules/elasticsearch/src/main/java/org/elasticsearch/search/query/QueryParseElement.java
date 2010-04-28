@@ -52,9 +52,9 @@ name|index
 operator|.
 name|query
 operator|.
-name|json
+name|xcontent
 operator|.
-name|JsonIndexQueryParser
+name|XContentIndexQueryParser
 import|;
 end_import
 
@@ -84,8 +84,22 @@ name|SearchContext
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|xcontent
+operator|.
+name|XContentParser
+import|;
+end_import
+
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -103,8 +117,8 @@ specifier|public
 name|void
 name|parse
 parameter_list|(
-name|JsonParser
-name|jp
+name|XContentParser
+name|parser
 parameter_list|,
 name|SearchContext
 name|context
@@ -112,11 +126,11 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|JsonIndexQueryParser
+name|XContentIndexQueryParser
 name|indexQueryParser
 init|=
 operator|(
-name|JsonIndexQueryParser
+name|XContentIndexQueryParser
 operator|)
 name|context
 operator|.
@@ -130,7 +144,7 @@ name|indexQueryParser
 operator|.
 name|parse
 argument_list|(
-name|jp
+name|parser
 argument_list|)
 decl_stmt|;
 name|context

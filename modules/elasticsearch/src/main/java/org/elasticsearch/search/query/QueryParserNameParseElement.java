@@ -54,6 +54,20 @@ name|SearchContext
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|xcontent
+operator|.
+name|XContentParser
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (Shay Banon)  */
 end_comment
@@ -73,8 +87,8 @@ specifier|public
 name|void
 name|parse
 parameter_list|(
-name|JsonParser
-name|jp
+name|XContentParser
+name|parser
 parameter_list|,
 name|SearchContext
 name|context
@@ -86,9 +100,9 @@ name|context
 operator|.
 name|queryParserName
 argument_list|(
-name|jp
+name|parser
 operator|.
-name|getText
+name|text
 argument_list|()
 argument_list|)
 expr_stmt|;

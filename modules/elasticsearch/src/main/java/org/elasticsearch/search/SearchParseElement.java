@@ -40,6 +40,20 @@ name|SearchContext
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|xcontent
+operator|.
+name|XContentParser
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
@@ -54,8 +68,8 @@ DECL|method|parse
 name|void
 name|parse
 parameter_list|(
-name|JsonParser
-name|jp
+name|XContentParser
+name|parser
 parameter_list|,
 name|SearchContext
 name|context

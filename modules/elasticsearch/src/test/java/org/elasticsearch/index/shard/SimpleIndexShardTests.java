@@ -364,9 +364,9 @@ name|index
 operator|.
 name|query
 operator|.
-name|json
+name|xcontent
 operator|.
-name|JsonQueryBuilders
+name|QueryBuilders
 operator|.
 name|*
 import|;

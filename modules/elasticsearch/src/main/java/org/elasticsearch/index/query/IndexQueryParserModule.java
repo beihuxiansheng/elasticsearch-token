@@ -22,6 +22,22 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|xcontent
+operator|.
+name|*
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|util
 operator|.
 name|guice
@@ -81,22 +97,6 @@ operator|.
 name|multibindings
 operator|.
 name|MapBinder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|json
-operator|.
-name|*
 import|;
 end_import
 
@@ -266,7 +266,7 @@ name|getAsClass
 argument_list|(
 literal|"type"
 argument_list|,
-name|JsonIndexQueryParser
+name|XContentIndexQueryParser
 operator|.
 name|class
 argument_list|)
@@ -317,7 +317,7 @@ name|IndexQueryParserFactory
 operator|.
 name|class
 argument_list|,
-name|JsonIndexQueryParser
+name|XContentIndexQueryParser
 operator|.
 name|class
 argument_list|)
@@ -331,14 +331,14 @@ name|SINGLETON
 argument_list|)
 expr_stmt|;
 block|}
-comment|// handle JsonQueryParsers
+comment|// handle XContenQueryParsers
 name|MapBinder
 argument_list|<
 name|String
 argument_list|,
-name|JsonQueryParserFactory
+name|XContentQueryParserFactory
 argument_list|>
-name|jsonQueryBinder
+name|queryBinder
 init|=
 name|MapBinder
 operator|.
@@ -351,7 +351,7 @@ name|String
 operator|.
 name|class
 argument_list|,
-name|JsonQueryParserFactory
+name|XContentQueryParserFactory
 operator|.
 name|class
 argument_list|)
@@ -362,17 +362,17 @@ name|String
 argument_list|,
 name|Settings
 argument_list|>
-name|jsonQueryParserGroups
+name|xContentQueryParserGroups
 init|=
 name|settings
 operator|.
 name|getGroups
 argument_list|(
-name|JsonIndexQueryParser
+name|XContentIndexQueryParser
 operator|.
 name|Defaults
 operator|.
-name|JSON_QUERY_PREFIX
+name|QUERY_PREFIX
 argument_list|)
 decl_stmt|;
 for|for
@@ -387,7 +387,7 @@ name|Settings
 argument_list|>
 name|entry
 range|:
-name|jsonQueryParserGroups
+name|xContentQueryParserGroups
 operator|.
 name|entrySet
 argument_list|()
@@ -413,7 +413,7 @@ name|Class
 argument_list|<
 name|?
 extends|extends
-name|JsonQueryParser
+name|XContentQueryParser
 argument_list|>
 name|type
 init|=
@@ -437,7 +437,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Json Query Parser ["
+literal|"Query Parser ["
 operator|+
 name|qName
 operator|+
@@ -445,7 +445,7 @@ literal|"] must be provided with a type"
 argument_list|)
 throw|;
 block|}
-name|jsonQueryBinder
+name|queryBinder
 operator|.
 name|addBinding
 argument_list|(
@@ -458,7 +458,7 @@ name|FactoryProvider
 operator|.
 name|newFactory
 argument_list|(
-name|JsonQueryParserFactory
+name|XContentQueryParserFactory
 operator|.
 name|class
 argument_list|,
@@ -481,14 +481,14 @@ name|SINGLETON
 argument_list|)
 expr_stmt|;
 block|}
-comment|// handle JsonFilterParsers
+comment|// handle XContentFilterParsers
 name|MapBinder
 argument_list|<
 name|String
 argument_list|,
-name|JsonFilterParserFactory
+name|XContentFilterParserFactory
 argument_list|>
-name|jsonFilterBinder
+name|filterBinder
 init|=
 name|MapBinder
 operator|.
@@ -501,7 +501,7 @@ name|String
 operator|.
 name|class
 argument_list|,
-name|JsonFilterParserFactory
+name|XContentFilterParserFactory
 operator|.
 name|class
 argument_list|)
@@ -512,17 +512,17 @@ name|String
 argument_list|,
 name|Settings
 argument_list|>
-name|jsonFilterParserGroups
+name|xContentFilterParserGroups
 init|=
 name|settings
 operator|.
 name|getGroups
 argument_list|(
-name|JsonIndexQueryParser
+name|XContentIndexQueryParser
 operator|.
 name|Defaults
 operator|.
-name|JSON_FILTER_PREFIX
+name|FILTER_PREFIX
 argument_list|)
 decl_stmt|;
 for|for
@@ -537,7 +537,7 @@ name|Settings
 argument_list|>
 name|entry
 range|:
-name|jsonFilterParserGroups
+name|xContentFilterParserGroups
 operator|.
 name|entrySet
 argument_list|()
@@ -563,7 +563,7 @@ name|Class
 argument_list|<
 name|?
 extends|extends
-name|JsonFilterParser
+name|XContentFilterParser
 argument_list|>
 name|type
 init|=
@@ -587,7 +587,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Json Filter Parser ["
+literal|"Filter Parser ["
 operator|+
 name|fName
 operator|+
@@ -595,7 +595,7 @@ literal|"] must be provided with a type"
 argument_list|)
 throw|;
 block|}
-name|jsonFilterBinder
+name|filterBinder
 operator|.
 name|addBinding
 argument_list|(
@@ -608,7 +608,7 @@ name|FactoryProvider
 operator|.
 name|newFactory
 argument_list|(
-name|JsonFilterParserFactory
+name|XContentFilterParserFactory
 operator|.
 name|class
 argument_list|,

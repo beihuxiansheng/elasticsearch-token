@@ -66,9 +66,9 @@ name|index
 operator|.
 name|query
 operator|.
-name|json
+name|xcontent
 operator|.
-name|JsonQueryBuilders
+name|QueryBuilders
 import|;
 end_import
 
@@ -82,9 +82,9 @@ name|index
 operator|.
 name|query
 operator|.
-name|json
+name|xcontent
 operator|.
-name|QueryStringJsonQueryBuilder
+name|QueryStringQueryBuilder
 import|;
 end_import
 
@@ -459,10 +459,10 @@ literal|"No query to execute, not in body, and not bounded to 'q' parameter"
 argument_list|)
 throw|;
 block|}
-name|QueryStringJsonQueryBuilder
+name|QueryStringQueryBuilder
 name|queryBuilder
 init|=
-name|JsonQueryBuilders
+name|QueryBuilders
 operator|.
 name|queryString
 argument_list|(
@@ -524,7 +524,7 @@ name|queryBuilder
 operator|.
 name|defaultOperator
 argument_list|(
-name|QueryStringJsonQueryBuilder
+name|QueryStringQueryBuilder
 operator|.
 name|Operator
 operator|.
@@ -547,7 +547,7 @@ name|queryBuilder
 operator|.
 name|defaultOperator
 argument_list|(
-name|QueryStringJsonQueryBuilder
+name|QueryStringQueryBuilder
 operator|.
 name|Operator
 operator|.
