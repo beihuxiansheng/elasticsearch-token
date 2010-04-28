@@ -371,6 +371,16 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+DECL|method|writeRawFieldStart
+name|void
+name|writeRawFieldStart
+parameter_list|(
+name|String
+name|fieldName
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
 DECL|method|flush
 name|void
 name|flush

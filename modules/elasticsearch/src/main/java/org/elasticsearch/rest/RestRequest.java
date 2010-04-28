@@ -46,9 +46,9 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|json
+name|xcontent
 operator|.
-name|ToJson
+name|ToXContent
 import|;
 end_import
 
@@ -102,7 +102,7 @@ specifier|public
 interface|interface
 name|RestRequest
 extends|extends
-name|ToJson
+name|ToXContent
 operator|.
 name|Params
 block|{

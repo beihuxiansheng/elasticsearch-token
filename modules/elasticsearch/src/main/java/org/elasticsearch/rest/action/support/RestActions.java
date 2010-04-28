@@ -132,9 +132,11 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|json
+name|xcontent
 operator|.
-name|JsonBuilder
+name|builder
+operator|.
+name|XContentBuilder
 import|;
 end_import
 
@@ -218,7 +220,7 @@ specifier|static
 name|void
 name|buildBroadcastShardsHeader
 parameter_list|(
-name|JsonBuilder
+name|XContentBuilder
 name|builder
 parameter_list|,
 name|BroadcastOperationResponse

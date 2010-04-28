@@ -48,9 +48,11 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|json
+name|xcontent
 operator|.
-name|JsonBuilder
+name|builder
+operator|.
+name|XContentBuilder
 import|;
 end_import
 
@@ -222,11 +224,11 @@ specifier|final
 name|Status
 name|status
 decl_stmt|;
-DECL|field|jsonBuilder
+DECL|field|builder
 specifier|private
 specifier|final
-name|JsonBuilder
-name|jsonBuilder
+name|XContentBuilder
+name|builder
 decl_stmt|;
 DECL|method|JsonRestResponse
 specifier|public
@@ -241,7 +243,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|jsonBuilder
+name|builder
 operator|=
 literal|null
 expr_stmt|;
@@ -271,17 +273,17 @@ parameter_list|,
 name|Status
 name|status
 parameter_list|,
-name|JsonBuilder
-name|jsonBuilder
+name|XContentBuilder
+name|builder
 parameter_list|)
 throws|throws
 name|IOException
 block|{
 name|this
 operator|.
-name|jsonBuilder
+name|builder
 operator|=
-name|jsonBuilder
+name|builder
 expr_stmt|;
 name|this
 operator|.
@@ -335,7 +337,7 @@ throws|throws
 name|IOException
 block|{
 return|return
-name|jsonBuilder
+name|builder
 operator|.
 name|unsafeBytes
 argument_list|()
@@ -352,7 +354,7 @@ throws|throws
 name|IOException
 block|{
 return|return
-name|jsonBuilder
+name|builder
 operator|.
 name|unsafeBytesLength
 argument_list|()

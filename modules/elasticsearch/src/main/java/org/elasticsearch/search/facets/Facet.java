@@ -56,6 +56,20 @@ name|ToJson
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|xcontent
+operator|.
+name|ToXContent
+import|;
+end_import
+
 begin_comment
 comment|/**  * A search facet.  *  * @author kimchy (shay.banon)  */
 end_comment
@@ -68,7 +82,7 @@ name|Facet
 extends|extends
 name|Streamable
 extends|,
-name|ToJson
+name|ToXContent
 block|{
 DECL|enum|Type
 enum|enum

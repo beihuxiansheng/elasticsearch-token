@@ -88,9 +88,9 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|json
+name|xcontent
 operator|.
-name|JsonBuilder
+name|ToXContent
 import|;
 end_import
 
@@ -102,9 +102,11 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|json
+name|xcontent
 operator|.
-name|ToJson
+name|builder
+operator|.
+name|XContentBuilder
 import|;
 end_import
 
@@ -154,6 +156,22 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|search
+operator|.
+name|facets
+operator|.
+name|CountFacet
+operator|.
+name|*
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|util
 operator|.
 name|gcommon
@@ -184,22 +202,6 @@ name|*
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|facets
-operator|.
-name|CountFacet
-operator|.
-name|*
-import|;
-end_import
-
 begin_comment
 comment|/**  * Facets of search action.  *  * @author kimchy (shay.banon)  */
 end_comment
@@ -212,7 +214,7 @@ name|Facets
 implements|implements
 name|Streamable
 implements|,
-name|ToJson
+name|ToXContent
 implements|,
 name|Iterable
 argument_list|<
@@ -431,14 +433,14 @@ name|name
 argument_list|)
 return|;
 block|}
-DECL|method|toJson
+DECL|method|toXContent
 annotation|@
 name|Override
 specifier|public
 name|void
-name|toJson
+name|toXContent
 parameter_list|(
-name|JsonBuilder
+name|XContentBuilder
 name|builder
 parameter_list|,
 name|Params
@@ -464,7 +466,7 @@ control|)
 block|{
 name|facet
 operator|.
-name|toJson
+name|toXContent
 argument_list|(
 name|builder
 argument_list|,

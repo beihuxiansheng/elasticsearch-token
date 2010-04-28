@@ -154,6 +154,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|xcontent
+operator|.
+name|builder
+operator|.
+name|XContentBuilder
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -206,7 +222,7 @@ name|action
 operator|.
 name|support
 operator|.
-name|RestJsonBuilder
+name|RestXContentBuilder
 operator|.
 name|*
 import|;
@@ -431,10 +447,10 @@ parameter_list|)
 block|{
 try|try
 block|{
-name|JsonBuilder
+name|XContentBuilder
 name|builder
 init|=
-name|restJsonBuilder
+name|restContentBuilder
 argument_list|(
 name|request
 argument_list|)
@@ -514,10 +530,10 @@ parameter_list|)
 block|{
 try|try
 block|{
-name|JsonBuilder
+name|XContentBuilder
 name|builder
 init|=
-name|restJsonBuilder
+name|restContentBuilder
 argument_list|(
 name|request
 argument_list|)
@@ -529,7 +545,7 @@ argument_list|()
 expr_stmt|;
 name|response
 operator|.
-name|toJson
+name|toXContent
 argument_list|(
 name|builder
 argument_list|,

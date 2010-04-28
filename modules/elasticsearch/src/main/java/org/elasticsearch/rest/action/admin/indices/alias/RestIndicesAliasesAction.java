@@ -26,22 +26,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|util
-operator|.
-name|guice
-operator|.
-name|inject
-operator|.
-name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|codehaus
 operator|.
 name|jackson
@@ -164,13 +148,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|rest
+name|util
 operator|.
-name|action
+name|guice
 operator|.
-name|support
+name|inject
 operator|.
-name|RestJsonBuilder
+name|Inject
 import|;
 end_import
 
@@ -196,9 +180,9 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|json
+name|settings
 operator|.
-name|JsonBuilder
+name|Settings
 import|;
 end_import
 
@@ -210,9 +194,11 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|settings
+name|xcontent
 operator|.
-name|Settings
+name|builder
+operator|.
+name|XContentBuilder
 import|;
 end_import
 
@@ -253,6 +239,24 @@ operator|.
 name|RestResponse
 operator|.
 name|Status
+operator|.
+name|*
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|rest
+operator|.
+name|action
+operator|.
+name|support
+operator|.
+name|RestXContentBuilder
 operator|.
 name|*
 import|;
@@ -745,12 +749,10 @@ parameter_list|)
 block|{
 try|try
 block|{
-name|JsonBuilder
+name|XContentBuilder
 name|builder
 init|=
-name|RestJsonBuilder
-operator|.
-name|restJsonBuilder
+name|restContentBuilder
 argument_list|(
 name|request
 argument_list|)

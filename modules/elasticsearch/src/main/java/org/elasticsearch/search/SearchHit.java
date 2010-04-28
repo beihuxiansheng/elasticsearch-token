@@ -84,6 +84,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|xcontent
+operator|.
+name|ToXContent
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -104,7 +118,7 @@ name|SearchHit
 extends|extends
 name|Streamable
 extends|,
-name|ToJson
+name|ToXContent
 extends|,
 name|Iterable
 argument_list|<

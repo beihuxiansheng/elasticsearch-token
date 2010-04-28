@@ -28,22 +28,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
-operator|.
-name|guice
-operator|.
-name|inject
-operator|.
-name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|ActionListener
@@ -204,7 +188,7 @@ name|action
 operator|.
 name|support
 operator|.
-name|RestJsonBuilder
+name|RestXContentBuilder
 import|;
 end_import
 
@@ -216,9 +200,11 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|json
+name|guice
 operator|.
-name|JsonBuilder
+name|inject
+operator|.
+name|Inject
 import|;
 end_import
 
@@ -233,6 +219,22 @@ operator|.
 name|settings
 operator|.
 name|Settings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|xcontent
+operator|.
+name|builder
+operator|.
+name|XContentBuilder
 import|;
 end_import
 
@@ -364,12 +366,12 @@ operator|.
 name|state
 argument_list|()
 decl_stmt|;
-name|JsonBuilder
+name|XContentBuilder
 name|builder
 init|=
-name|RestJsonBuilder
+name|RestXContentBuilder
 operator|.
-name|restJsonBuilder
+name|restContentBuilder
 argument_list|(
 name|request
 argument_list|)
@@ -811,7 +813,7 @@ specifier|private
 name|void
 name|jsonShardRouting
 parameter_list|(
-name|JsonBuilder
+name|XContentBuilder
 name|builder
 parameter_list|,
 name|ShardRouting

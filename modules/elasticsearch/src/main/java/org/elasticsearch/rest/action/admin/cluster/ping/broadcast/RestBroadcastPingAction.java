@@ -160,7 +160,7 @@ name|action
 operator|.
 name|support
 operator|.
-name|RestJsonBuilder
+name|RestXContentBuilder
 import|;
 end_import
 
@@ -189,6 +189,22 @@ operator|.
 name|settings
 operator|.
 name|Settings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|xcontent
+operator|.
+name|builder
+operator|.
+name|XContentBuilder
 import|;
 end_import
 
@@ -423,12 +439,12 @@ parameter_list|)
 block|{
 try|try
 block|{
-name|JsonBuilder
+name|XContentBuilder
 name|builder
 init|=
-name|RestJsonBuilder
+name|RestXContentBuilder
 operator|.
-name|restJsonBuilder
+name|restContentBuilder
 argument_list|(
 name|request
 argument_list|)

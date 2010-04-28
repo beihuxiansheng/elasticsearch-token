@@ -56,9 +56,11 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|json
+name|xcontent
 operator|.
-name|JsonBuilder
+name|builder
+operator|.
+name|XContentBuilder
 import|;
 end_import
 
@@ -210,14 +212,14 @@ operator|+=
 name|increment
 expr_stmt|;
 block|}
-DECL|method|toJson
+DECL|method|toXContent
 annotation|@
 name|Override
 specifier|public
 name|void
-name|toJson
+name|toXContent
 parameter_list|(
-name|JsonBuilder
+name|XContentBuilder
 name|builder
 parameter_list|,
 name|Params

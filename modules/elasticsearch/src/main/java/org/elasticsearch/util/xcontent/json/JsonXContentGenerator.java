@@ -776,6 +776,31 @@ name|fieldName
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|writeRawFieldStart
+annotation|@
+name|Override
+specifier|public
+name|void
+name|writeRawFieldStart
+parameter_list|(
+name|String
+name|fieldName
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|generator
+operator|.
+name|writeRaw
+argument_list|(
+literal|", \""
+operator|+
+name|fieldName
+operator|+
+literal|"\" : "
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|flush
 annotation|@
 name|Override

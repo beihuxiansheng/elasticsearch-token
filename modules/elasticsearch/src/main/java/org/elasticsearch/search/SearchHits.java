@@ -44,6 +44,20 @@ name|ToJson
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|xcontent
+operator|.
+name|ToXContent
+import|;
+end_import
+
 begin_comment
 comment|/**  * The hits of a search request.  *  * @author kimchy (shay.banon)  */
 end_comment
@@ -56,7 +70,7 @@ name|SearchHits
 extends|extends
 name|Streamable
 extends|,
-name|ToJson
+name|ToXContent
 extends|,
 name|Iterable
 argument_list|<
