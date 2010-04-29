@@ -27,7 +27,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  * A generic abstraction on top of handling content, inspired by JSON and pull parsing.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_interface
@@ -36,11 +36,13 @@ specifier|public
 interface|interface
 name|XContent
 block|{
+comment|/**      * The type this content handles and produces.      */
 DECL|method|type
 name|XContentType
 name|type
 parameter_list|()
 function_decl|;
+comment|/**      * Creates a new generator using the provided output stream.      */
 DECL|method|createGenerator
 name|XContentGenerator
 name|createGenerator
@@ -51,6 +53,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * Creates a new generator using the provided writer.      */
 DECL|method|createGenerator
 name|XContentGenerator
 name|createGenerator
@@ -61,6 +64,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * Creates a parser over the provided string content.      */
 DECL|method|createParser
 name|XContentParser
 name|createParser
@@ -71,6 +75,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * Creates a parser over the provided input stream.      */
 DECL|method|createParser
 name|XContentParser
 name|createParser
@@ -81,6 +86,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * Creates a parser over the provided bytes.      */
 DECL|method|createParser
 name|XContentParser
 name|createParser
@@ -92,6 +98,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * Creates a parser over the provided bytes.      */
 DECL|method|createParser
 name|XContentParser
 name|createParser
@@ -109,6 +116,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * Creates a parser over the provided reader.      */
 DECL|method|createParser
 name|XContentParser
 name|createParser

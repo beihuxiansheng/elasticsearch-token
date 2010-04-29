@@ -32,16 +32,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|util
 operator|.
 name|xcontent
@@ -86,6 +76,38 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|xcontent
+operator|.
+name|xson
+operator|.
+name|XsonType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|xcontent
+operator|.
+name|xson
+operator|.
+name|XsonXContent
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -95,7 +117,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  * A one stop to use {@link org.elasticsearch.util.xcontent.XContent} and {@link org.elasticsearch.util.xcontent.builder.XContentBuilder}.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -127,7 +149,7 @@ operator|=
 operator|new
 name|XContent
 index|[
-literal|1
+literal|2
 index|]
 expr_stmt|;
 name|contents
@@ -139,7 +161,17 @@ operator|new
 name|JsonXContent
 argument_list|()
 expr_stmt|;
+name|contents
+index|[
+literal|1
+index|]
+operator|=
+operator|new
+name|XsonXContent
+argument_list|()
+expr_stmt|;
 block|}
+comment|/**      * Returns a binary content builder using JSON format ({@link org.elasticsearch.util.xcontent.XContentType#JSON}.      */
 DECL|method|jsonBuilder
 specifier|public
 specifier|static
@@ -158,6 +190,26 @@ name|JSON
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns a binary content builder using XSON format ({@link org.elasticsearch.util.xcontent.XContentType#XSON}.      */
+DECL|method|xsonBuilder
+specifier|public
+specifier|static
+name|BinaryXContentBuilder
+name|xsonBuilder
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+return|return
+name|contentBinaryBuilder
+argument_list|(
+name|XContentType
+operator|.
+name|XSON
+argument_list|)
+return|;
+block|}
+comment|/**      * Returns a binary content builder for the provided content type.      */
 DECL|method|contentBuilder
 specifier|public
 specifier|static
@@ -186,6 +238,23 @@ name|contentBinaryBuilder
 argument_list|()
 return|;
 block|}
+elseif|else
+if|if
+condition|(
+name|type
+operator|==
+name|XContentType
+operator|.
+name|XSON
+condition|)
+block|{
+return|return
+name|XsonXContent
+operator|.
+name|contentBinaryBuilder
+argument_list|()
+return|;
+block|}
 throw|throw
 operator|new
 name|ElasticSearchIllegalArgumentException
@@ -196,6 +265,7 @@ name|type
 argument_list|)
 throw|;
 block|}
+comment|/**      * Returns a binary content builder for the provided content type.      */
 DECL|method|contentBinaryBuilder
 specifier|public
 specifier|static
@@ -224,6 +294,23 @@ name|contentBinaryBuilder
 argument_list|()
 return|;
 block|}
+elseif|else
+if|if
+condition|(
+name|type
+operator|==
+name|XContentType
+operator|.
+name|XSON
+condition|)
+block|{
+return|return
+name|XsonXContent
+operator|.
+name|contentBinaryBuilder
+argument_list|()
+return|;
+block|}
 throw|throw
 operator|new
 name|ElasticSearchIllegalArgumentException
@@ -234,6 +321,7 @@ name|type
 argument_list|)
 throw|;
 block|}
+comment|/**      * Returns a textual content builder for the provided content type. Note, XSON does not support this... .      */
 DECL|method|contentTextBuilder
 specifier|public
 specifier|static
@@ -272,6 +360,7 @@ name|type
 argument_list|)
 throw|;
 block|}
+comment|/**      * Returns the {@link org.elasticsearch.util.xcontent.XContent} for the provided content type.      */
 DECL|method|xContent
 specifier|public
 specifier|static
@@ -292,6 +381,7 @@ argument_list|()
 index|]
 return|;
 block|}
+comment|/**      * Guesses the content type based on the provided char sequence.      */
 DECL|method|xContentType
 specifier|public
 specifier|static
@@ -358,14 +448,11 @@ name|JSON
 return|;
 block|}
 block|}
-throw|throw
-operator|new
-name|ElasticSearchIllegalStateException
-argument_list|(
-literal|"Failed to derive xContent from byte stream"
-argument_list|)
-throw|;
+return|return
+literal|null
+return|;
 block|}
+comment|/**      * Guesses the content (type) based on the provided char sequence.      */
 DECL|method|xContent
 specifier|public
 specifier|static
@@ -386,6 +473,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+comment|/**      * Guesses the content type based on the provided bytes.      */
 DECL|method|xContent
 specifier|public
 specifier|static
@@ -410,6 +498,7 @@ name|length
 argument_list|)
 return|;
 block|}
+comment|/**      * Guesses the content type based on the provided bytes.      */
 DECL|method|xContent
 specifier|public
 specifier|static
@@ -441,6 +530,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+comment|/**      * Guesses the content type based on the provided bytes.      */
 DECL|method|xContentType
 specifier|public
 specifier|static
@@ -465,6 +555,7 @@ name|length
 argument_list|)
 return|;
 block|}
+comment|/**      * Guesses the content type based on the provided bytes.      */
 DECL|method|xContentType
 specifier|public
 specifier|static
@@ -492,6 +583,28 @@ name|length
 else|:
 name|GUESS_HEADER_LENGTH
 expr_stmt|;
+if|if
+condition|(
+name|length
+operator|>
+literal|1
+operator|&&
+name|data
+index|[
+literal|0
+index|]
+operator|==
+name|XsonType
+operator|.
+name|HEADER
+condition|)
+block|{
+return|return
+name|XContentType
+operator|.
+name|XSON
+return|;
+block|}
 for|for
 control|(
 name|int
@@ -524,13 +637,9 @@ name|JSON
 return|;
 block|}
 block|}
-throw|throw
-operator|new
-name|ElasticSearchIllegalStateException
-argument_list|(
-literal|"Failed to derive xContent from byte stream"
-argument_list|)
-throw|;
+return|return
+literal|null
+return|;
 block|}
 block|}
 end_class

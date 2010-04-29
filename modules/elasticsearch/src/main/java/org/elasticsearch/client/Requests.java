@@ -462,8 +462,22 @@ name|TermsRequest
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|xcontent
+operator|.
+name|XContentType
+import|;
+end_import
+
 begin_comment
-comment|/**  * A handy one stop shop for creating requests (make sure to import static this class).  *  * @author kimchy (Shay Banon)  */
+comment|/**  * A handy one stop shop for creating requests (make sure to import static this class).  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -472,6 +486,17 @@ specifier|public
 class|class
 name|Requests
 block|{
+comment|/**      * The content type used to generate request builders (query / search).      */
+DECL|field|CONTENT_TYPE
+specifier|public
+specifier|static
+name|XContentType
+name|CONTENT_TYPE
+init|=
+name|XContentType
+operator|.
+name|XSON
+decl_stmt|;
 DECL|method|indexRequest
 specifier|public
 specifier|static

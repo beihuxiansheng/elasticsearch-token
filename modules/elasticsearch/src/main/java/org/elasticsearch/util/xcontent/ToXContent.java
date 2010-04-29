@@ -53,7 +53,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  * An interface allowing to transfer an object to "XContent" using an {@link org.elasticsearch.util.xcontent.builder.XContentBuilder}.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_interface

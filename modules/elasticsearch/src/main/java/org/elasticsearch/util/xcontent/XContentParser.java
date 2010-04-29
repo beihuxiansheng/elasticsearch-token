@@ -30,16 +30,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|math
-operator|.
-name|BigInteger
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|Map
@@ -218,21 +208,15 @@ name|NumberType
 block|{
 DECL|enum constant|INT
 DECL|enum constant|LONG
-DECL|enum constant|BIG_INTEGER
 DECL|enum constant|FLOAT
 DECL|enum constant|DOUBLE
-DECL|enum constant|BIG_DECIMAL
 name|INT
 block|,
 name|LONG
 block|,
-name|BIG_INTEGER
-block|,
 name|FLOAT
 block|,
 name|DOUBLE
-block|,
-name|BIG_DECIMAL
 block|}
 DECL|method|contentType
 name|XContentType
@@ -327,12 +311,11 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-DECL|method|byteValue
-name|byte
-name|byteValue
+comment|/**      * Is the number type estimated or not (i.e. an int might actually be a long, its just low enough      * to be an int).      */
+DECL|method|estimatedNumberType
+name|boolean
+name|estimatedNumberType
 parameter_list|()
-throws|throws
-name|IOException
 function_decl|;
 DECL|method|shortValue
 name|short
@@ -355,13 +338,6 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-DECL|method|bigIntegerValue
-name|BigInteger
-name|bigIntegerValue
-parameter_list|()
-throws|throws
-name|IOException
-function_decl|;
 DECL|method|floatValue
 name|float
 name|floatValue
@@ -372,17 +348,6 @@ function_decl|;
 DECL|method|doubleValue
 name|double
 name|doubleValue
-parameter_list|()
-throws|throws
-name|IOException
-function_decl|;
-DECL|method|decimalValue
-name|java
-operator|.
-name|math
-operator|.
-name|BigDecimal
-name|decimalValue
 parameter_list|()
 throws|throws
 name|IOException

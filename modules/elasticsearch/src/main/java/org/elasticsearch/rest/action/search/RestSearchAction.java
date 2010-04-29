@@ -940,8 +940,7 @@ return|;
 block|}
 DECL|method|parseSearchSource
 specifier|private
-name|byte
-index|[]
+name|SearchSourceBuilder
 name|parseSearchSource
 parameter_list|(
 name|RestRequest
@@ -1512,12 +1511,8 @@ throw|;
 block|}
 block|}
 block|}
-comment|// TODO add different parameters to the source
 return|return
 name|searchSourceBuilder
-operator|.
-name|build
-argument_list|()
 return|;
 block|}
 block|}
