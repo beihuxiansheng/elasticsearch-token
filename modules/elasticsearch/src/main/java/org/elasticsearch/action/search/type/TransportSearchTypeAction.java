@@ -1615,6 +1615,15 @@ argument_list|>
 name|docIdsToLoad
 parameter_list|)
 block|{
+if|if
+condition|(
+name|docIdsToLoad
+operator|==
+literal|null
+condition|)
+block|{
+return|return;
+block|}
 for|for
 control|(
 name|Map
