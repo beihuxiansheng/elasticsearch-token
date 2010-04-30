@@ -156,8 +156,6 @@ index|[
 literal|2
 index|]
 expr_stmt|;
-try|try
-block|{
 name|contents
 index|[
 literal|0
@@ -176,28 +174,6 @@ operator|new
 name|XsonXContent
 argument_list|()
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Throwable
-name|t
-parameter_list|)
-block|{
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"Failed to load xcontent"
-argument_list|)
-expr_stmt|;
-name|t
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 comment|/**      * Returns a binary content builder using JSON format ({@link org.elasticsearch.util.xcontent.XContentType#JSON}.      */
 DECL|method|jsonBuilder
