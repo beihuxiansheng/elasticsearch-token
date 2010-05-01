@@ -337,6 +337,12 @@ specifier|private
 name|Node
 name|node
 decl_stmt|;
+DECL|field|keepAliveThread
+specifier|private
+specifier|static
+name|Thread
+name|keepAliveThread
+decl_stmt|;
 DECL|method|setup
 specifier|private
 name|void
@@ -892,7 +898,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|// keep this thread alive (non daemon thread) until we shutdown
 specifier|final
 name|CountDownLatch
 name|latch
@@ -903,6 +908,7 @@ argument_list|(
 literal|1
 argument_list|)
 decl_stmt|;
+comment|// keep this thread alive (non daemon thread) until we shutdown
 name|Runtime
 operator|.
 name|getRuntime
@@ -930,10 +936,21 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-while|while
-condition|(
-literal|true
-condition|)
+name|keepAliveThread
+operator|=
+operator|new
+name|Thread
+argument_list|(
+operator|new
+name|Runnable
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|run
+parameter_list|()
 block|{
 try|try
 block|{
@@ -951,8 +968,24 @@ parameter_list|)
 block|{
 comment|// bail out
 block|}
-break|break;
 block|}
+block|}
+argument_list|,
+literal|"es[keepAlive]"
+argument_list|)
+expr_stmt|;
+name|keepAliveThread
+operator|.
+name|setDaemon
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+name|keepAliveThread
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
