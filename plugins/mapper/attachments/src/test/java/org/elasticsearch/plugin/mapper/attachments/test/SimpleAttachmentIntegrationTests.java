@@ -4,13 +4,15 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.plugin.attachments.test
+DECL|package|org.elasticsearch.plugin.mapper.attachments.test
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|plugin
+operator|.
+name|mapper
 operator|.
 name|attachments
 operator|.

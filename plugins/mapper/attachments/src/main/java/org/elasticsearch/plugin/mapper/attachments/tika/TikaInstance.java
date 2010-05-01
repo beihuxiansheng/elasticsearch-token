@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.plugin.jgroups
+DECL|package|org.elasticsearch.plugin.mapper.attachments.tika
 package|package
 name|org
 operator|.
@@ -12,7 +12,11 @@ name|elasticsearch
 operator|.
 name|plugin
 operator|.
-name|jgroups
+name|mapper
+operator|.
+name|attachments
+operator|.
+name|tika
 package|;
 end_package
 
@@ -20,11 +24,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
+name|apache
 operator|.
-name|plugins
+name|tika
 operator|.
-name|AbstractPlugin
+name|Tika
 import|;
 end_import
 
@@ -33,35 +37,31 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|JgroupsPlugin
+DECL|class|TikaInstance
 specifier|public
 class|class
-name|JgroupsPlugin
-extends|extends
-name|AbstractPlugin
+name|TikaInstance
 block|{
-DECL|method|name
-annotation|@
-name|Override
+DECL|field|tika
+specifier|private
+specifier|static
+specifier|final
+name|Tika
+name|tika
+init|=
+operator|new
+name|Tika
+argument_list|()
+decl_stmt|;
+DECL|method|tika
 specifier|public
-name|String
-name|name
+specifier|static
+name|Tika
+name|tika
 parameter_list|()
 block|{
 return|return
-literal|"discovery-plugin"
-return|;
-block|}
-DECL|method|description
-annotation|@
-name|Override
-specifier|public
-name|String
-name|description
-parameter_list|()
-block|{
-return|return
-literal|"Adds jgroups as a discovery type"
+name|tika
 return|;
 block|}
 block|}

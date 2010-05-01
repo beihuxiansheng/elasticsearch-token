@@ -196,6 +196,8 @@ name|elasticsearch
 operator|.
 name|plugin
 operator|.
+name|mapper
+operator|.
 name|attachments
 operator|.
 name|tika
