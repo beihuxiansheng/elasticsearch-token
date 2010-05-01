@@ -277,6 +277,15 @@ name|SHUTDOWN
 init|=
 literal|"/cluster/nodes/shutdown"
 decl_stmt|;
+DECL|field|RESTART
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|RESTART
+init|=
+literal|"/cluster/nodes/restart"
+decl_stmt|;
 block|}
 DECL|class|Ping
 specifier|public
