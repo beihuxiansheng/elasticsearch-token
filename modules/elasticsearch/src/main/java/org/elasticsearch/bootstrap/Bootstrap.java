@@ -340,8 +340,16 @@ decl_stmt|;
 DECL|field|keepAliveThread
 specifier|private
 specifier|static
+specifier|volatile
 name|Thread
 name|keepAliveThread
+decl_stmt|;
+DECL|field|keepAliveLatch
+specifier|private
+specifier|static
+specifier|volatile
+name|CountDownLatch
+name|keepAliveLatch
 decl_stmt|;
 DECL|method|setup
 specifier|private
@@ -898,16 +906,14 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-specifier|final
-name|CountDownLatch
-name|latch
-init|=
+name|keepAliveLatch
+operator|=
 operator|new
 name|CountDownLatch
 argument_list|(
 literal|1
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 comment|// keep this thread alive (non daemon thread) until we shutdown
 name|Runtime
 operator|.
@@ -927,7 +933,7 @@ name|void
 name|run
 parameter_list|()
 block|{
-name|latch
+name|keepAliveLatch
 operator|.
 name|countDown
 argument_list|()
@@ -954,7 +960,7 @@ parameter_list|()
 block|{
 try|try
 block|{
-name|latch
+name|keepAliveLatch
 operator|.
 name|await
 argument_list|()
