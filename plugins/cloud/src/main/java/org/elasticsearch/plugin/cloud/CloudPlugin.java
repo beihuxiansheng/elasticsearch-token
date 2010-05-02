@@ -38,7 +38,7 @@ name|cloud
 operator|.
 name|blobstore
 operator|.
-name|CloudBlobstoreService
+name|CloudBlobStoreService
 import|;
 end_import
 
@@ -308,7 +308,7 @@ name|services
 operator|.
 name|add
 argument_list|(
-name|CloudBlobstoreService
+name|CloudBlobStoreService
 operator|.
 name|class
 argument_list|)

@@ -191,6 +191,18 @@ argument_list|,
 name|pingService
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|settings
+operator|.
+name|getAsBoolean
+argument_list|(
+literal|"cloud.enabled"
+argument_list|,
+literal|true
+argument_list|)
+condition|)
+block|{
 name|pingService
 operator|.
 name|zenPings
@@ -215,6 +227,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class
