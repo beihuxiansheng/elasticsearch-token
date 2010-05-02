@@ -22,9 +22,9 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|io
+name|logging
 operator|.
-name|NetworkUtils
+name|ESLogger
 import|;
 end_import
 
@@ -36,9 +36,9 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|logging
+name|network
 operator|.
-name|ESLogger
+name|NetworkService
 import|;
 end_import
 
@@ -403,6 +403,10 @@ name|connectAndRegister
 parameter_list|(
 name|String
 name|nodeDescription
+parameter_list|,
+specifier|final
+name|NetworkService
+name|networkService
 parameter_list|)
 block|{
 if|if
@@ -563,7 +567,7 @@ comment|// create the publish url
 name|String
 name|publishHost
 init|=
-name|NetworkUtils
+name|networkService
 operator|.
 name|resolvePublishHostAddress
 argument_list|(
@@ -573,8 +577,6 @@ name|get
 argument_list|(
 literal|"jmx.publishHost"
 argument_list|)
-argument_list|,
-name|settings
 argument_list|)
 operator|.
 name|getHostAddress
