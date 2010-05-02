@@ -548,13 +548,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|searchCache
-operator|.
-name|releaseQueryFetchResults
-argument_list|(
-name|queryFetchResults
-argument_list|)
-expr_stmt|;
 name|invokeListener
 argument_list|(
 operator|new
@@ -574,6 +567,13 @@ argument_list|,
 name|buildShardFailures
 argument_list|()
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|searchCache
+operator|.
+name|releaseQueryFetchResults
+argument_list|(
+name|queryFetchResults
 argument_list|)
 expr_stmt|;
 block|}
