@@ -358,6 +358,16 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+DECL|method|context
+specifier|public
+name|BlobStoreContext
+name|context
+parameter_list|()
+block|{
+return|return
+name|blobStoreContext
+return|;
+block|}
 block|}
 end_class
 
