@@ -109,14 +109,14 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|CloudBlobstoreService
+DECL|class|CloudBlobStoreService
 specifier|public
 class|class
-name|CloudBlobstoreService
+name|CloudBlobStoreService
 extends|extends
 name|AbstractLifecycleComponent
 argument_list|<
-name|CloudBlobstoreService
+name|CloudBlobStoreService
 argument_list|>
 block|{
 DECL|field|type
@@ -131,11 +131,11 @@ specifier|final
 name|BlobStoreContext
 name|blobStoreContext
 decl_stmt|;
-DECL|method|CloudBlobstoreService
+DECL|method|CloudBlobStoreService
 annotation|@
 name|Inject
 specifier|public
-name|CloudBlobstoreService
+name|CloudBlobStoreService
 parameter_list|(
 name|Settings
 name|settings
