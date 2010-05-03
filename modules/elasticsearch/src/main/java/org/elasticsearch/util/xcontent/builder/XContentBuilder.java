@@ -191,7 +191,7 @@ DECL|enum constant|CAMELCASE
 name|CAMELCASE
 block|}
 DECL|field|defaultDatePrinter
-specifier|private
+specifier|public
 specifier|final
 specifier|static
 name|DateTimeFormatter
