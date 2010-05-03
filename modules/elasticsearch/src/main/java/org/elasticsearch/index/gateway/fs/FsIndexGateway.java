@@ -493,6 +493,14 @@ name|boolean
 name|delete
 parameter_list|)
 block|{
+if|if
+condition|(
+operator|!
+name|delete
+condition|)
+block|{
+return|return;
+block|}
 try|try
 block|{
 name|String
