@@ -134,22 +134,6 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|concurrent
-operator|.
-name|jsr166y
-operator|.
-name|LinkedTransferQueue
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|util
-operator|.
 name|guice
 operator|.
 name|inject
@@ -189,6 +173,18 @@ operator|.
 name|util
 operator|.
 name|Queue
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|LinkedBlockingQueue
 import|;
 end_import
 
@@ -258,6 +254,9 @@ specifier|volatile
 name|long
 name|id
 decl_stmt|;
+comment|// we use LinkedBlockingQueue and not LinkedTransferQueue since we clear it on #newTranslog
+comment|// and with LinkedTransferQueue, nodes are not really cleared, just marked causing for memory
+comment|// not to be cleaned properly (besides, clear is  heavy..., "while ... poll").
 DECL|field|operations
 specifier|private
 specifier|final
@@ -268,7 +267,7 @@ argument_list|>
 name|operations
 init|=
 operator|new
-name|LinkedTransferQueue
+name|LinkedBlockingQueue
 argument_list|<
 name|Operation
 argument_list|>
