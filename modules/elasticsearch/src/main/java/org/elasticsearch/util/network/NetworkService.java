@@ -36,9 +36,9 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|component
+name|collect
 operator|.
-name|AbstractComponent
+name|ImmutableMap
 import|;
 end_import
 
@@ -50,11 +50,9 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|gcommon
+name|component
 operator|.
-name|collect
-operator|.
-name|ImmutableMap
+name|AbstractComponent
 import|;
 end_import
 

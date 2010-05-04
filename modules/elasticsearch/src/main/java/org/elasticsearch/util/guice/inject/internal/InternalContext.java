@@ -28,13 +28,9 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|guice
+name|collect
 operator|.
-name|inject
-operator|.
-name|spi
-operator|.
-name|Dependency
+name|Maps
 import|;
 end_import
 
@@ -46,11 +42,13 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|gcommon
+name|guice
 operator|.
-name|collect
+name|inject
 operator|.
-name|Maps
+name|spi
+operator|.
+name|Dependency
 import|;
 end_import
 

@@ -62,8 +62,6 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|gcommon
-operator|.
 name|collect
 operator|.
 name|Lists
@@ -122,7 +120,7 @@ name|util
 operator|.
 name|Arrays
 operator|.
-name|asList
+name|*
 import|;
 end_import
 
@@ -133,8 +131,6 @@ operator|.
 name|elasticsearch
 operator|.
 name|util
-operator|.
-name|gcommon
 operator|.
 name|collect
 operator|.

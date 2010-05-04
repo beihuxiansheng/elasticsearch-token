@@ -28,8 +28,6 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|gcommon
-operator|.
 name|base
 operator|.
 name|Function
@@ -44,31 +42,9 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|gcommon
-operator|.
 name|collect
 operator|.
 name|MapMaker
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|util
-operator|.
-name|guice
-operator|.
-name|inject
-operator|.
-name|internal
-operator|.
-name|Preconditions
-operator|.
-name|checkNotNull
 import|;
 end_import
 
@@ -159,6 +135,26 @@ operator|.
 name|logging
 operator|.
 name|Logger
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|guice
+operator|.
+name|inject
+operator|.
+name|internal
+operator|.
+name|Preconditions
+operator|.
+name|*
 import|;
 end_import
 

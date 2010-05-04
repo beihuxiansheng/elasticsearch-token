@@ -118,9 +118,9 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|component
+name|collect
 operator|.
-name|AbstractLifecycleComponent
+name|Lists
 import|;
 end_import
 
@@ -132,11 +132,9 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|gcommon
+name|component
 operator|.
-name|collect
-operator|.
-name|Lists
+name|AbstractLifecycleComponent
 import|;
 end_import
 
@@ -620,6 +618,22 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
+name|collect
+operator|.
+name|Lists
+operator|.
+name|*
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
 name|concurrent
 operator|.
 name|ConcurrentMaps
@@ -639,24 +653,6 @@ operator|.
 name|concurrent
 operator|.
 name|DynamicExecutors
-operator|.
-name|*
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|util
-operator|.
-name|gcommon
-operator|.
-name|collect
-operator|.
-name|Lists
 operator|.
 name|*
 import|;

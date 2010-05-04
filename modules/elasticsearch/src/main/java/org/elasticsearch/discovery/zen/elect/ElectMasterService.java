@@ -24,13 +24,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|cluster
 operator|.
-name|gcommon
+name|node
 operator|.
-name|collect
-operator|.
-name|Lists
+name|DiscoveryNode
 import|;
 end_import
 
@@ -40,11 +38,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
+name|util
 operator|.
-name|node
+name|collect
 operator|.
-name|DiscoveryNode
+name|Lists
 import|;
 end_import
 
@@ -123,8 +121,6 @@ operator|.
 name|elasticsearch
 operator|.
 name|util
-operator|.
-name|gcommon
 operator|.
 name|collect
 operator|.

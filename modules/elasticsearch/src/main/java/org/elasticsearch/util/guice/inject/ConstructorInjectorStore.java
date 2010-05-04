@@ -73,24 +73,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|util
-operator|.
-name|gcommon
-operator|.
-name|collect
-operator|.
-name|Iterables
-operator|.
-name|concat
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -105,6 +87,22 @@ operator|.
 name|spi
 operator|.
 name|InjectionPoint
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|collect
+operator|.
+name|Iterables
+operator|.
+name|*
 import|;
 end_import
 

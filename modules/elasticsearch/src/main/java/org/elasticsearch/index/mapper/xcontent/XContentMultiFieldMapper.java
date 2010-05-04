@@ -94,8 +94,6 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|gcommon
-operator|.
 name|collect
 operator|.
 name|ImmutableMap
@@ -215,8 +213,6 @@ operator|.
 name|elasticsearch
 operator|.
 name|util
-operator|.
-name|gcommon
 operator|.
 name|collect
 operator|.

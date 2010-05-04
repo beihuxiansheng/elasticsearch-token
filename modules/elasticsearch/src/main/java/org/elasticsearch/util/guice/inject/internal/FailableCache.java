@@ -28,8 +28,6 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|gcommon
-operator|.
 name|base
 operator|.
 name|Function
@@ -43,8 +41,6 @@ operator|.
 name|elasticsearch
 operator|.
 name|util
-operator|.
-name|gcommon
 operator|.
 name|collect
 operator|.

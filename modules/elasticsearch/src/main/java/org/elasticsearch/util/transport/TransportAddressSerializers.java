@@ -22,13 +22,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
-operator|.
-name|gcommon
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
+name|ElasticSearchIllegalStateException
 import|;
 end_import
 
@@ -38,7 +32,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalStateException
+name|util
+operator|.
+name|collect
+operator|.
+name|ImmutableMap
 import|;
 end_import
 

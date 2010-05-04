@@ -22,13 +22,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|cluster
 operator|.
-name|gcommon
+name|node
 operator|.
-name|collect
-operator|.
-name|ImmutableMap
+name|DiscoveryNode
 import|;
 end_import
 
@@ -38,11 +36,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
+name|util
 operator|.
-name|node
+name|collect
 operator|.
-name|DiscoveryNode
+name|ImmutableMap
 import|;
 end_import
 

@@ -158,9 +158,9 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|component
+name|collect
 operator|.
-name|AbstractLifecycleComponent
+name|ImmutableList
 import|;
 end_import
 
@@ -172,11 +172,9 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|gcommon
+name|component
 operator|.
-name|collect
-operator|.
-name|ImmutableList
+name|AbstractLifecycleComponent
 import|;
 end_import
 

@@ -80,8 +80,6 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|gcommon
-operator|.
 name|collect
 operator|.
 name|ImmutableSet
@@ -95,8 +93,6 @@ operator|.
 name|elasticsearch
 operator|.
 name|util
-operator|.
-name|gcommon
 operator|.
 name|collect
 operator|.

@@ -26,18 +26,14 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|guice
+name|collect
 operator|.
-name|inject
-operator|.
-name|internal
-operator|.
-name|Errors
+name|ImmutableSet
 import|;
 end_import
 
 begin_import
-import|import static
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -50,9 +46,7 @@ name|inject
 operator|.
 name|internal
 operator|.
-name|Preconditions
-operator|.
-name|checkState
+name|Errors
 import|;
 end_import
 
@@ -76,27 +70,31 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|util
 operator|.
-name|gcommon
+name|guice
 operator|.
-name|collect
+name|inject
 operator|.
-name|ImmutableSet
-import|;
-end_import
-
-begin_import
-import|import
-name|java
+name|internal
 operator|.
-name|util
+name|Preconditions
 operator|.
-name|Collection
+name|*
 import|;
 end_import
 

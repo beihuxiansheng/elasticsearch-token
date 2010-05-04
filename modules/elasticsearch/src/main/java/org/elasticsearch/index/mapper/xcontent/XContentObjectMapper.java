@@ -62,9 +62,9 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|concurrent
+name|collect
 operator|.
-name|ThreadSafe
+name|ImmutableMap
 import|;
 end_import
 
@@ -76,11 +76,9 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|gcommon
+name|concurrent
 operator|.
-name|collect
-operator|.
-name|ImmutableMap
+name|ThreadSafe
 import|;
 end_import
 
@@ -226,8 +224,6 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|gcommon
-operator|.
 name|collect
 operator|.
 name|ImmutableMap
@@ -243,8 +239,6 @@ operator|.
 name|elasticsearch
 operator|.
 name|util
-operator|.
-name|gcommon
 operator|.
 name|collect
 operator|.
