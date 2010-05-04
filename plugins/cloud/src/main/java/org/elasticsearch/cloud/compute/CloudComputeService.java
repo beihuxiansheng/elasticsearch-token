@@ -312,7 +312,11 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Connected to [{}] compute service"
+literal|"Connected to {}/{} compute service"
+argument_list|,
+name|type
+argument_list|,
+name|account
 argument_list|)
 expr_stmt|;
 block|}
