@@ -2517,6 +2517,13 @@ name|contains
 argument_list|(
 literal|"-"
 argument_list|)
+operator|||
+name|text
+operator|.
+name|contains
+argument_list|(
+literal|"/"
+argument_list|)
 condition|)
 block|{
 for|for
