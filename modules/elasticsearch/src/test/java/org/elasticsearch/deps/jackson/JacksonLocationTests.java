@@ -38,20 +38,6 @@ name|util
 operator|.
 name|io
 operator|.
-name|FastByteArrayInputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|util
-operator|.
-name|io
-operator|.
 name|FastByteArrayOutputStream
 import|;
 end_import
@@ -210,15 +196,6 @@ operator|.
 name|copiedByteArray
 argument_list|()
 decl_stmt|;
-name|FastByteArrayInputStream
-name|is
-init|=
-operator|new
-name|FastByteArrayInputStream
-argument_list|(
-name|data
-argument_list|)
-decl_stmt|;
 name|JsonParser
 name|parser
 init|=
@@ -228,7 +205,7 @@ argument_list|()
 operator|.
 name|createJsonParser
 argument_list|(
-name|is
+name|data
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -293,27 +270,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// "source"
-name|assertThat
-argument_list|(
-name|parser
-operator|.
-name|nextToken
-argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-name|JsonToken
-operator|.
-name|START_OBJECT
-argument_list|)
-argument_list|)
-expr_stmt|;
-comment|//        int location1 = is.position();
+comment|//        JsonLocation location1 = parser.getCurrentLocation();
 comment|//        parser.skipChildren();
-comment|//        int location2 = is.position();
-comment|//        byte[] sourceData = new byte[location2 - location1];
-comment|//        System.arraycopy(data, location1, sourceData, 0, sourceData.length);
-comment|//        System.out.println(Unicode.fromBytes(sourceData));
+comment|//        JsonLocation location2 = parser.getCurrentLocation();
+comment|//
+comment|//        byte[] sourceData = new byte[(int) (location2.getByteOffset() - location1.getByteOffset())];
+comment|//        System.arraycopy(data, (int) location1.getByteOffset(), sourceData, 0, sourceData.length);
+comment|//
 comment|//        JsonParser sourceParser = new JsonFactory().createJsonParser(new FastByteArrayInputStream(sourceData));
 comment|//        assertThat(sourceParser.nextToken(), equalTo(JsonToken.START_OBJECT));
 comment|//        assertThat(sourceParser.nextToken(), equalTo(JsonToken.FIELD_NAME)); // "value"
