@@ -619,56 +619,18 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-comment|// IS
-DECL|method|read
-annotation|@
-name|Override
-specifier|public
-name|int
-name|read
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-return|return
-name|readByte
-argument_list|()
-return|;
-block|}
-comment|// Here, we assume that we always can read the full byte array
-DECL|method|read
-annotation|@
-name|Override
-specifier|public
-name|int
-name|read
-parameter_list|(
-name|byte
-index|[]
-name|b
-parameter_list|,
-name|int
-name|off
-parameter_list|,
-name|int
-name|len
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|readBytes
-argument_list|(
-name|b
-argument_list|,
-name|off
-argument_list|,
-name|len
-argument_list|)
-expr_stmt|;
-return|return
-name|len
-return|;
-block|}
+comment|//    // IS
+comment|//
+comment|//    @Override public int read() throws IOException {
+comment|//        return readByte();
+comment|//    }
+comment|//
+comment|//    // Here, we assume that we always can read the full byte array
+comment|//
+comment|//    @Override public int read(byte[] b, int off, int len) throws IOException {
+comment|//        readBytes(b, off, len);
+comment|//        return len;
+comment|//    }
 block|}
 end_class
 

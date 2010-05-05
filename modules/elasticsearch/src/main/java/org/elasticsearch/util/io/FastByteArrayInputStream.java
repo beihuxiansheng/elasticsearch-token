@@ -362,6 +362,16 @@ operator|-
 name|pos
 return|;
 block|}
+DECL|method|position
+specifier|public
+name|int
+name|position
+parameter_list|()
+block|{
+return|return
+name|pos
+return|;
+block|}
 comment|/**      * Tests if this<code>InputStream</code> supports mark/reset. The      *<code>markSupported</code> method of<code>ByteArrayInputStream</code>      * always returns<code>true</code>.      *      * @since JDK1.1      */
 DECL|method|markSupported
 specifier|public

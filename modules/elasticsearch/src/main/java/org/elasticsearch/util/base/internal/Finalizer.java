@@ -153,7 +153,7 @@ specifier|final
 name|String
 name|FINALIZABLE_REFERENCE
 init|=
-literal|"org.elasticsearch.util.gcommon.base.FinalizableReference"
+literal|"org.elasticsearch.util.base.FinalizableReference"
 decl_stmt|;
 comment|/**    * Starts the Finalizer thread. FinalizableReferenceQueue calls this method    * reflectively.    *    * @param finalizableReferenceClass FinalizableReference.class    * @param frq reference to instance of FinalizableReferenceQueue that started    *  this thread    * @return ReferenceQueue which Finalizer will poll    */
 DECL|method|startFinalizer

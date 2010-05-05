@@ -153,7 +153,7 @@ specifier|final
 name|String
 name|FINALIZER_CLASS_NAME
 init|=
-literal|"org.elasticsearch.util.gcommon.base.internal.Finalizer"
+literal|"org.elasticsearch.util.base.internal.Finalizer"
 decl_stmt|;
 comment|/** Reference to Finalizer.startFinalizer(). */
 DECL|field|startFinalizer
