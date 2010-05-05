@@ -256,7 +256,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Map
+name|Set
 import|;
 end_import
 
@@ -421,10 +421,8 @@ init|=
 name|newArrayList
 argument_list|()
 decl_stmt|;
-name|Map
+name|Set
 argument_list|<
-name|String
-argument_list|,
 name|?
 extends|extends
 name|ComputeMetadata
@@ -433,7 +431,7 @@ name|nodes
 init|=
 name|computeService
 operator|.
-name|getNodes
+name|listNodes
 argument_list|(
 name|GetNodesOptions
 operator|.
@@ -454,22 +452,10 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|Map
-operator|.
-name|Entry
-argument_list|<
-name|String
-argument_list|,
-name|?
-extends|extends
 name|ComputeMetadata
-argument_list|>
 name|node
 range|:
 name|nodes
-operator|.
-name|entrySet
-argument_list|()
 control|)
 block|{
 name|NodeMetadata
@@ -479,9 +465,6 @@ operator|(
 name|NodeMetadata
 operator|)
 name|node
-operator|.
-name|getValue
-argument_list|()
 decl_stmt|;
 if|if
 condition|(
