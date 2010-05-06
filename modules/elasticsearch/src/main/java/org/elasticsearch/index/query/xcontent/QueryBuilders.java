@@ -617,6 +617,25 @@ name|filterBuilder
 argument_list|)
 return|;
 block|}
+comment|/**      * A query that simply applies the boost fact to the wrapped query (multiplies it).      *      * @param queryBuilder The query to apply the boost factor to.      */
+DECL|method|customBoostFactorQuery
+specifier|public
+specifier|static
+name|CustomBoostFactorQueryBuilder
+name|customBoostFactorQuery
+parameter_list|(
+name|XContentQueryBuilder
+name|queryBuilder
+parameter_list|)
+block|{
+return|return
+operator|new
+name|CustomBoostFactorQueryBuilder
+argument_list|(
+name|queryBuilder
+argument_list|)
+return|;
+block|}
 comment|/**      * A more like this query that finds documents that are "like" the provided {@link MoreLikeThisQueryBuilder#likeText(String)}      * which is checked against the fields the query is constructed with.      *      * @param fields The fields to run the query against      */
 DECL|method|moreLikeThisQuery
 specifier|public
