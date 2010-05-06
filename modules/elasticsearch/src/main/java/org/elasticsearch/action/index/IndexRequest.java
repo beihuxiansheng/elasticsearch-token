@@ -679,7 +679,7 @@ return|return
 name|source
 return|;
 block|}
-comment|/**      * Writes the JSON as a {@link Map}.      *      * @param source The map to index      */
+comment|/**      * Writes the Map as a JSON.      *      * @param source The map to index      */
 DECL|method|source
 annotation|@
 name|Required
@@ -693,6 +693,34 @@ parameter_list|)
 throws|throws
 name|ElasticSearchGenerationException
 block|{
+return|return
+name|source
+argument_list|(
+name|source
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
+argument_list|)
+return|;
+block|}
+comment|/**      * Writes the JSON as the provided content type.      *      * @param source The map to index      */
+DECL|method|source
+annotation|@
+name|Required
+specifier|public
+name|IndexRequest
+name|source
+parameter_list|(
+name|Map
+name|source
+parameter_list|,
+name|XContentType
+name|contentType
+parameter_list|)
+throws|throws
+name|ElasticSearchGenerationException
+block|{
 try|try
 block|{
 name|BinaryXContentBuilder
@@ -702,9 +730,7 @@ name|XContentFactory
 operator|.
 name|contentBinaryBuilder
 argument_list|(
-name|XContentType
-operator|.
-name|JSON
+name|contentType
 argument_list|)
 decl_stmt|;
 name|builder

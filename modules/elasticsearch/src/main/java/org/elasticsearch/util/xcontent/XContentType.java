@@ -17,7 +17,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  * The content type of {@link org.elasticsearch.util.xcontent.XContent}.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_enum
@@ -26,12 +26,14 @@ specifier|public
 enum|enum
 name|XContentType
 block|{
+comment|/**      * A JSON based content type.      */
 DECL|enum constant|JSON
 name|JSON
 argument_list|(
 literal|0
 argument_list|)
 block|,
+comment|/**      * An optimized binary form of JSON.      */
 DECL|enum constant|XSON
 name|XSON
 argument_list|(
