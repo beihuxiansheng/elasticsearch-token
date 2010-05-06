@@ -318,7 +318,7 @@ name|monitor
 operator|.
 name|jvm
 operator|.
-name|JvmConfig
+name|JvmInfo
 import|;
 end_import
 
@@ -871,9 +871,9 @@ operator|.
 name|full
 argument_list|()
 argument_list|,
-name|JvmConfig
+name|JvmInfo
 operator|.
-name|jvmConfig
+name|jvmInfo
 argument_list|()
 operator|.
 name|pid
@@ -1192,9 +1192,9 @@ operator|.
 name|full
 argument_list|()
 argument_list|,
-name|JvmConfig
+name|JvmInfo
 operator|.
-name|jvmConfig
+name|jvmInfo
 argument_list|()
 operator|.
 name|pid
@@ -1277,9 +1277,9 @@ operator|.
 name|full
 argument_list|()
 argument_list|,
-name|JvmConfig
+name|JvmInfo
 operator|.
-name|jvmConfig
+name|jvmInfo
 argument_list|()
 operator|.
 name|pid
@@ -1487,9 +1487,9 @@ operator|.
 name|full
 argument_list|()
 argument_list|,
-name|JvmConfig
+name|JvmInfo
 operator|.
-name|jvmConfig
+name|jvmInfo
 argument_list|()
 operator|.
 name|pid
@@ -1551,9 +1551,9 @@ operator|.
 name|full
 argument_list|()
 argument_list|,
-name|JvmConfig
+name|JvmInfo
 operator|.
-name|jvmConfig
+name|jvmInfo
 argument_list|()
 operator|.
 name|pid
@@ -1802,9 +1802,9 @@ operator|.
 name|full
 argument_list|()
 argument_list|,
-name|JvmConfig
+name|JvmInfo
 operator|.
-name|jvmConfig
+name|jvmInfo
 argument_list|()
 operator|.
 name|pid
@@ -1874,9 +1874,9 @@ operator|.
 name|full
 argument_list|()
 argument_list|,
-name|JvmConfig
+name|JvmInfo
 operator|.
-name|jvmConfig
+name|jvmInfo
 argument_list|()
 operator|.
 name|pid
@@ -2147,9 +2147,9 @@ operator|.
 name|full
 argument_list|()
 argument_list|,
-name|JvmConfig
+name|JvmInfo
 operator|.
-name|jvmConfig
+name|jvmInfo
 argument_list|()
 operator|.
 name|pid

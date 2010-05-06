@@ -22,7 +22,7 @@ name|monitor
 operator|.
 name|jvm
 operator|.
-name|JvmConfig
+name|JvmInfo
 import|;
 end_import
 
@@ -323,9 +323,9 @@ argument_list|()
 operator|+
 literal|"), JVM: "
 operator|+
-name|JvmConfig
+name|JvmInfo
 operator|.
-name|jvmConfig
+name|jvmInfo
 argument_list|()
 operator|.
 name|vmVersion
