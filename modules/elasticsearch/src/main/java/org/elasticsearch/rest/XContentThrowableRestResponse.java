@@ -71,20 +71,20 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|JsonThrowableRestResponse
+DECL|class|XContentThrowableRestResponse
 specifier|public
 class|class
-name|JsonThrowableRestResponse
+name|XContentThrowableRestResponse
 extends|extends
-name|JsonRestResponse
+name|XContentRestResponse
 block|{
-DECL|method|JsonThrowableRestResponse
+DECL|method|XContentThrowableRestResponse
 specifier|public
-name|JsonThrowableRestResponse
+name|XContentThrowableRestResponse
 parameter_list|(
 name|RestRequest
 name|request
@@ -107,9 +107,9 @@ name|t
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|JsonThrowableRestResponse
+DECL|method|XContentThrowableRestResponse
 specifier|public
-name|JsonThrowableRestResponse
+name|XContentThrowableRestResponse
 parameter_list|(
 name|RestRequest
 name|request

@@ -561,7 +561,7 @@ operator|.
 name|sendResponse
 argument_list|(
 operator|new
-name|JsonRestResponse
+name|XContentRestResponse
 argument_list|(
 name|request
 argument_list|,
@@ -663,7 +663,7 @@ operator|.
 name|sendResponse
 argument_list|(
 operator|new
-name|JsonRestResponse
+name|XContentRestResponse
 argument_list|(
 name|request
 argument_list|,
@@ -704,7 +704,7 @@ operator|.
 name|sendResponse
 argument_list|(
 operator|new
-name|JsonThrowableRestResponse
+name|XContentThrowableRestResponse
 argument_list|(
 name|request
 argument_list|,

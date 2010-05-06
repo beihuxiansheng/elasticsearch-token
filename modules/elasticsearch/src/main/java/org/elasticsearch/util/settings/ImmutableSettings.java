@@ -2288,6 +2288,25 @@ specifier|private
 name|Builder
 parameter_list|()
 block|{          }
+comment|/**          * Removes the provided setting.          */
+DECL|method|remove
+specifier|public
+name|String
+name|remove
+parameter_list|(
+name|String
+name|key
+parameter_list|)
+block|{
+return|return
+name|map
+operator|.
+name|remove
+argument_list|(
+name|key
+argument_list|)
+return|;
+block|}
 comment|/**          * Returns a setting value based on the setting key.          */
 DECL|method|get
 specifier|public

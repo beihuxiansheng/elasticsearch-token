@@ -20,22 +20,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
-operator|.
-name|guice
-operator|.
-name|inject
-operator|.
-name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|ElasticSearchException
 import|;
 end_import
@@ -68,7 +52,7 @@ name|elasticsearch
 operator|.
 name|rest
 operator|.
-name|JsonThrowableRestResponse
+name|RestController
 import|;
 end_import
 
@@ -80,7 +64,7 @@ name|elasticsearch
 operator|.
 name|rest
 operator|.
-name|RestController
+name|XContentThrowableRestResponse
 import|;
 end_import
 
@@ -107,6 +91,22 @@ operator|.
 name|component
 operator|.
 name|AbstractLifecycleComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|guice
+operator|.
+name|inject
+operator|.
+name|Inject
 import|;
 end_import
 
@@ -631,7 +631,7 @@ operator|.
 name|sendResponse
 argument_list|(
 operator|new
-name|JsonThrowableRestResponse
+name|XContentThrowableRestResponse
 argument_list|(
 name|request
 argument_list|,
@@ -696,7 +696,7 @@ operator|.
 name|sendResponse
 argument_list|(
 operator|new
-name|JsonThrowableRestResponse
+name|XContentThrowableRestResponse
 argument_list|(
 name|request
 argument_list|,

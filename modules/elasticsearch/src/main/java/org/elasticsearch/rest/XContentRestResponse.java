@@ -71,10 +71,10 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|JsonRestResponse
+DECL|class|XContentRestResponse
 specifier|public
 class|class
-name|JsonRestResponse
+name|XContentRestResponse
 extends|extends
 name|AbstractRestResponse
 block|{
@@ -230,9 +230,9 @@ specifier|final
 name|XContentBuilder
 name|builder
 decl_stmt|;
-DECL|method|JsonRestResponse
+DECL|method|XContentRestResponse
 specifier|public
-name|JsonRestResponse
+name|XContentRestResponse
 parameter_list|(
 name|RestRequest
 name|request
@@ -263,9 +263,9 @@ name|request
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|JsonRestResponse
+DECL|method|XContentRestResponse
 specifier|public
-name|JsonRestResponse
+name|XContentRestResponse
 parameter_list|(
 name|RestRequest
 name|request

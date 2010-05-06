@@ -230,6 +230,20 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
+name|settings
+operator|.
+name|SettingsFilter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
 name|xcontent
 operator|.
 name|builder
@@ -259,7 +273,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -270,6 +284,12 @@ name|RestClusterStateAction
 extends|extends
 name|BaseRestHandler
 block|{
+DECL|field|settingsFilter
+specifier|private
+specifier|final
+name|SettingsFilter
+name|settingsFilter
+decl_stmt|;
 DECL|method|RestClusterStateAction
 annotation|@
 name|Inject
@@ -284,6 +304,9 @@ name|client
 parameter_list|,
 name|RestController
 name|controller
+parameter_list|,
+name|SettingsFilter
+name|settingsFilter
 parameter_list|)
 block|{
 name|super
@@ -307,6 +330,12 @@ literal|"/_cluster/state"
 argument_list|,
 name|this
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|settingsFilter
+operator|=
+name|settingsFilter
 expr_stmt|;
 block|}
 DECL|method|handleRequest
@@ -439,6 +468,19 @@ argument_list|(
 literal|"settings"
 argument_list|)
 expr_stmt|;
+name|Settings
+name|settings
+init|=
+name|settingsFilter
+operator|.
+name|filterSettings
+argument_list|(
+name|indexMetaData
+operator|.
+name|settings
+argument_list|()
+argument_list|)
+decl_stmt|;
 for|for
 control|(
 name|Map
@@ -451,10 +493,7 @@ name|String
 argument_list|>
 name|entry
 range|:
-name|indexMetaData
-operator|.
 name|settings
-argument_list|()
 operator|.
 name|getAsMap
 argument_list|()
@@ -781,7 +820,7 @@ operator|.
 name|sendResponse
 argument_list|(
 operator|new
-name|JsonRestResponse
+name|XContentRestResponse
 argument_list|(
 name|request
 argument_list|,
@@ -917,7 +956,7 @@ operator|.
 name|sendResponse
 argument_list|(
 operator|new
-name|JsonThrowableRestResponse
+name|XContentThrowableRestResponse
 argument_list|(
 name|request
 argument_list|,
