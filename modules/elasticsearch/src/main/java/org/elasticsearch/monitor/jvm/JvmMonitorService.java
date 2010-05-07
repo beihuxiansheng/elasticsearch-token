@@ -520,7 +520,10 @@ name|collectionTime
 init|=
 name|currentJvmStats
 operator|.
-name|gcCollectionTime
+name|gc
+argument_list|()
+operator|.
+name|collectionTime
 argument_list|()
 operator|.
 name|millis
@@ -528,7 +531,10 @@ argument_list|()
 operator|-
 name|lastJvmStats
 operator|.
-name|gcCollectionTime
+name|gc
+argument_list|()
+operator|.
+name|collectionTime
 argument_list|()
 operator|.
 name|millis
