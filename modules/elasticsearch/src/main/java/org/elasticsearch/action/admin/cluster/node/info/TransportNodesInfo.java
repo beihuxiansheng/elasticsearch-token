@@ -106,6 +106,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|monitor
+operator|.
+name|MonitorService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|threadpool
 operator|.
 name|ThreadPool
@@ -215,7 +227,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -237,6 +249,12 @@ argument_list|,
 name|NodeInfo
 argument_list|>
 block|{
+DECL|field|monitorService
+specifier|private
+specifier|final
+name|MonitorService
+name|monitorService
+decl_stmt|;
 DECL|field|nodeAttributes
 specifier|private
 specifier|volatile
@@ -273,6 +291,9 @@ name|clusterService
 parameter_list|,
 name|TransportService
 name|transportService
+parameter_list|,
+name|MonitorService
+name|monitorService
 parameter_list|)
 block|{
 name|super
@@ -287,6 +308,12 @@ name|clusterService
 argument_list|,
 name|transportService
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|monitorService
+operator|=
+name|monitorService
 expr_stmt|;
 block|}
 DECL|method|putNodeAttribute
@@ -588,6 +615,38 @@ argument_list|,
 name|nodeAttributes
 argument_list|,
 name|settings
+argument_list|,
+name|monitorService
+operator|.
+name|osService
+argument_list|()
+operator|.
+name|info
+argument_list|()
+argument_list|,
+name|monitorService
+operator|.
+name|processService
+argument_list|()
+operator|.
+name|info
+argument_list|()
+argument_list|,
+name|monitorService
+operator|.
+name|jvmService
+argument_list|()
+operator|.
+name|info
+argument_list|()
+argument_list|,
+name|monitorService
+operator|.
+name|networkService
+argument_list|()
+operator|.
+name|info
+argument_list|()
 argument_list|)
 return|;
 block|}

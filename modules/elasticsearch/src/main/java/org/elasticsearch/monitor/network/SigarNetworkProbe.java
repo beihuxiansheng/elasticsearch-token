@@ -198,7 +198,9 @@ init|=
 name|sigar
 operator|.
 name|getNetInterfaceConfig
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 decl_stmt|;
 name|networkInfo
 operator|.
@@ -221,7 +223,7 @@ argument_list|()
 argument_list|,
 name|netInterfaceConfig
 operator|.
-name|getAddress
+name|getHwaddr
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -400,7 +400,7 @@ argument_list|()
 expr_stmt|;
 name|suffix
 operator|=
-literal|"gb"
+literal|"g"
 expr_stmt|;
 block|}
 elseif|else
@@ -420,7 +420,7 @@ argument_list|()
 expr_stmt|;
 name|suffix
 operator|=
-literal|"mb"
+literal|"m"
 expr_stmt|;
 block|}
 elseif|else
@@ -440,7 +440,7 @@ argument_list|()
 expr_stmt|;
 name|suffix
 operator|=
-literal|"kb"
+literal|"k"
 expr_stmt|;
 block|}
 return|return
