@@ -212,7 +212,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-literal|"1.5kb"
+literal|"1.5k"
 argument_list|,
 name|is
 argument_list|(
@@ -240,7 +240,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-literal|"1.5mb"
+literal|"1.5m"
 argument_list|,
 name|is
 argument_list|(
@@ -268,7 +268,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-literal|"1.5gb"
+literal|"1.5g"
 argument_list|,
 name|is
 argument_list|(
@@ -296,7 +296,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-literal|"1536gb"
+literal|"1536g"
 argument_list|,
 name|is
 argument_list|(

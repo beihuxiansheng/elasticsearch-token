@@ -28,7 +28,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|ThreadSafe
+name|ConcurrentMapLong
 import|;
 end_import
 
@@ -42,40 +42,50 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|highscalelib
+name|ConcurrentMaps
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|NonBlockingHashMapLong
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ThreadSafe
 import|;
 end_import
 
 begin_comment
-comment|/**  * An implementation of {@link VersionedMap} based on {@link NonBlockingHashMapLong}.  *  * @author kimchy (Shay Banon)  */
+comment|/**  * An implementation of {@link VersionedMap} based on {@link ConcurrentMapLong}.  *  * @author kimchy (Shay Banon)  */
 end_comment
 
 begin_class
 annotation|@
 name|ThreadSafe
-DECL|class|NonBlockingVersionedMap
+DECL|class|ConcurrentVersionedMapLong
 specifier|public
 class|class
-name|NonBlockingVersionedMap
+name|ConcurrentVersionedMapLong
 implements|implements
 name|VersionedMap
 block|{
 DECL|field|map
 specifier|private
 specifier|final
-name|NonBlockingHashMapLong
+name|ConcurrentMapLong
 argument_list|<
 name|Integer
 argument_list|>
 name|map
 init|=
-operator|new
-name|NonBlockingHashMapLong
-argument_list|<
-name|Integer
-argument_list|>
+name|ConcurrentMaps
+operator|.
+name|newConcurrentMapLong
 argument_list|()
 decl_stmt|;
 DECL|method|beforeVersion

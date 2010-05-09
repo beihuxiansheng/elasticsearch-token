@@ -72,7 +72,7 @@ name|lucene
 operator|.
 name|versioned
 operator|.
-name|NativeVersionedMap
+name|ConcurrentVersionedMapLong
 import|;
 end_import
 
@@ -88,7 +88,7 @@ name|lucene
 operator|.
 name|versioned
 operator|.
-name|NonBlockingVersionedMap
+name|NativeVersionedMap
 import|;
 end_import
 
@@ -948,7 +948,7 @@ block|{
 name|versionedMap
 operator|=
 operator|new
-name|NonBlockingVersionedMap
+name|ConcurrentVersionedMapLong
 argument_list|()
 expr_stmt|;
 block|}

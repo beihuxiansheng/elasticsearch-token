@@ -24,6 +24,20 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ConcurrentMapLong
+import|;
+end_import
+
+begin_import
+import|import
 name|sun
 operator|.
 name|misc
@@ -142,6 +156,11 @@ name|TypeV
 argument_list|>
 implements|,
 name|Serializable
+implements|,
+name|ConcurrentMapLong
+argument_list|<
+name|TypeV
+argument_list|>
 block|{
 DECL|field|serialVersionUID
 specifier|private
