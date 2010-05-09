@@ -22,13 +22,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|jmx
 operator|.
-name|guice
-operator|.
-name|inject
-operator|.
-name|Inject
+name|MBean
 import|;
 end_import
 
@@ -38,9 +34,25 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|jmx
+name|transport
 operator|.
-name|MBean
+name|Transport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|guice
+operator|.
+name|inject
+operator|.
+name|Inject
 import|;
 end_import
 
@@ -77,7 +89,7 @@ name|Inject
 specifier|public
 name|LocalTransportManagement
 parameter_list|(
-name|LocalTransport
+name|Transport
 name|transport
 parameter_list|)
 block|{
@@ -85,6 +97,9 @@ name|this
 operator|.
 name|transport
 operator|=
+operator|(
+name|LocalTransport
+operator|)
 name|transport
 expr_stmt|;
 block|}
