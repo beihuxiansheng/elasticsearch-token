@@ -74,8 +74,6 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|guice
-operator|.
 name|inject
 operator|.
 name|Inject

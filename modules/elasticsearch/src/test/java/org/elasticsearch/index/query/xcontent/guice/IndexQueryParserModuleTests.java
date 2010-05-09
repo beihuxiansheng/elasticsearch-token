@@ -44,8 +44,6 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|guice
-operator|.
 name|inject
 operator|.
 name|Guice
@@ -59,8 +57,6 @@ operator|.
 name|elasticsearch
 operator|.
 name|util
-operator|.
-name|guice
 operator|.
 name|inject
 operator|.

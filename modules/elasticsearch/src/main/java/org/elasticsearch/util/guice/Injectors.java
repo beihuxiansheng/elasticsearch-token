@@ -38,8 +38,6 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|guice
-operator|.
 name|inject
 operator|.
 name|*
@@ -53,8 +51,6 @@ operator|.
 name|elasticsearch
 operator|.
 name|util
-operator|.
-name|guice
 operator|.
 name|inject
 operator|.
@@ -71,8 +67,6 @@ operator|.
 name|elasticsearch
 operator|.
 name|util
-operator|.
-name|guice
 operator|.
 name|inject
 operator|.
@@ -136,7 +130,7 @@ specifier|public
 class|class
 name|Injectors
 block|{
-comment|/**      * Returns an instance of the given type with the {@link org.elasticsearch.util.guice.inject.name.Named}      * annotation value.      *<p/>      * This method allows you to switch this code      *<code>injector.getInstance(Key.get(type, Names.named(name)));</code>      *<p/>      * to the more concise      *<code>Injectors.getInstance(injector, type, name);</code>      */
+comment|/**      * Returns an instance of the given type with the {@link org.elasticsearch.util.inject.name.Named}      * annotation value.      *<p/>      * This method allows you to switch this code      *<code>injector.getInstance(Key.get(type, Names.named(name)));</code>      *<p/>      * to the more concise      *<code>Injectors.getInstance(injector, type, name);</code>      */
 DECL|method|getInstance
 specifier|public
 specifier|static

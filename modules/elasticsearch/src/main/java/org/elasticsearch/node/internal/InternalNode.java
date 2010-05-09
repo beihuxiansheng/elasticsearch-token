@@ -552,8 +552,6 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|guice
-operator|.
 name|inject
 operator|.
 name|Guice
@@ -568,8 +566,6 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|guice
-operator|.
 name|inject
 operator|.
 name|Injector
@@ -583,8 +579,6 @@ operator|.
 name|elasticsearch
 operator|.
 name|util
-operator|.
-name|guice
 operator|.
 name|inject
 operator|.

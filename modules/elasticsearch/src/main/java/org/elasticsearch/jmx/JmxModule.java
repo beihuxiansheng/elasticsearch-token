@@ -22,8 +22,6 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|guice
-operator|.
 name|inject
 operator|.
 name|AbstractModule
@@ -38,8 +36,6 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|guice
-operator|.
 name|inject
 operator|.
 name|TypeLiteral
@@ -53,8 +49,6 @@ operator|.
 name|elasticsearch
 operator|.
 name|util
-operator|.
-name|guice
 operator|.
 name|inject
 operator|.
@@ -72,8 +66,6 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|guice
-operator|.
 name|inject
 operator|.
 name|spi
@@ -90,8 +82,6 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|guice
-operator|.
 name|inject
 operator|.
 name|spi
@@ -107,8 +97,6 @@ operator|.
 name|elasticsearch
 operator|.
 name|util
-operator|.
-name|guice
 operator|.
 name|inject
 operator|.
