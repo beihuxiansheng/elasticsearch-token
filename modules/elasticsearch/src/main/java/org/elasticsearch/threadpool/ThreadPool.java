@@ -48,6 +48,29 @@ specifier|public
 interface|interface
 name|ThreadPool
 block|{
+comment|/**      * Returns the current number of threads in the pool.      *      * @return the number of threads      */
+DECL|method|getPoolSize
+name|int
+name|getPoolSize
+parameter_list|()
+function_decl|;
+comment|/**      * Returns the approximate number of threads that are actively      * executing tasks.      *      * @return the number of threads      */
+DECL|method|getActiveCount
+name|int
+name|getActiveCount
+parameter_list|()
+function_decl|;
+DECL|method|getSchedulerPoolSize
+name|int
+name|getSchedulerPoolSize
+parameter_list|()
+function_decl|;
+DECL|method|getSchedulerActiveCount
+name|int
+name|getSchedulerActiveCount
+parameter_list|()
+function_decl|;
+comment|/**      * Returns<tt>true</tt> if the thread pool has started.      */
 DECL|method|isStarted
 name|boolean
 name|isStarted
