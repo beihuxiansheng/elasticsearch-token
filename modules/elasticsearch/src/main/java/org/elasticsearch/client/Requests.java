@@ -104,6 +104,26 @@ name|admin
 operator|.
 name|cluster
 operator|.
+name|node
+operator|.
+name|stats
+operator|.
+name|NodesStatsRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|admin
+operator|.
+name|cluster
+operator|.
 name|ping
 operator|.
 name|broadcast
@@ -945,7 +965,7 @@ name|NodesInfoRequest
 argument_list|()
 return|;
 block|}
-comment|/**      * Creates a nodes info request against one or more nodes. Pass<tt>null</tt> or an empty array for all nodes.      *      * @param nodesIds The nodes ids to get the status for      * @return The nodes info request      * @see org.elasticsearch.client.ClusterAdminClient#nodesInfo(org.elasticsearch.action.admin.cluster.node.info.NodesInfoRequest)      */
+comment|/**      * Creates a nodes info request against one or more nodes. Pass<tt>null</tt> or an empty array for all nodes.      *      * @param nodesIds The nodes ids to get the status for      * @return The nodes info request      * @see org.elasticsearch.client.ClusterAdminClient#nodesStats(org.elasticsearch.action.admin.cluster.node.stats.NodesStatsRequest)      */
 DECL|method|nodesInfo
 specifier|public
 specifier|static
@@ -960,6 +980,26 @@ block|{
 return|return
 operator|new
 name|NodesInfoRequest
+argument_list|(
+name|nodesIds
+argument_list|)
+return|;
+block|}
+comment|/**      * Creates a nodes stats request against one or more nodes. Pass<tt>null</tt> or an empty array for all nodes.      *      * @param nodesIds The nodes ids to get the stats for      * @return The nodes info request      * @see org.elasticsearch.client.ClusterAdminClient#nodesStats(org.elasticsearch.action.admin.cluster.node.stats.NodesStatsRequest)      */
+DECL|method|nodesStats
+specifier|public
+specifier|static
+name|NodesStatsRequest
+name|nodesStats
+parameter_list|(
+name|String
+modifier|...
+name|nodesIds
+parameter_list|)
+block|{
+return|return
+operator|new
+name|NodesStatsRequest
 argument_list|(
 name|nodesIds
 argument_list|)

@@ -209,7 +209,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  * A discovery node represents a node that is part of the cluster.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class

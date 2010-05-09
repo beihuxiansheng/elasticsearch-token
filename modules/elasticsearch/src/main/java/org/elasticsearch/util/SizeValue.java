@@ -382,7 +382,7 @@ decl_stmt|;
 name|String
 name|suffix
 init|=
-literal|"b"
+literal|""
 decl_stmt|;
 if|if
 condition|(

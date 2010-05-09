@@ -218,10 +218,17 @@ name|cpu
 operator|.
 name|percent
 operator|=
+call|(
+name|short
+call|)
+argument_list|(
 name|cpu
 operator|.
 name|getPercent
 argument_list|()
+operator|*
+literal|100
+argument_list|)
 expr_stmt|;
 name|stats
 operator|.

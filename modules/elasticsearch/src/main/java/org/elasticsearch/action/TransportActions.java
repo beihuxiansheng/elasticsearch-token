@@ -268,6 +268,15 @@ name|INFO
 init|=
 literal|"/cluster/nodes/info"
 decl_stmt|;
+DECL|field|STATS
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|STATS
+init|=
+literal|"/cluster/nodes/stats"
+decl_stmt|;
 DECL|field|SHUTDOWN
 specifier|public
 specifier|static
