@@ -69,6 +69,13 @@ name|equals
 argument_list|(
 name|contentType
 argument_list|)
+operator|||
+literal|"json"
+operator|.
+name|equalsIgnoreCase
+argument_list|(
+name|contentType
+argument_list|)
 condition|)
 block|{
 return|return
@@ -80,6 +87,13 @@ condition|(
 literal|"application/xson"
 operator|.
 name|equals
+argument_list|(
+name|contentType
+argument_list|)
+operator|||
+literal|"xson"
+operator|.
+name|equalsIgnoreCase
 argument_list|(
 name|contentType
 argument_list|)
