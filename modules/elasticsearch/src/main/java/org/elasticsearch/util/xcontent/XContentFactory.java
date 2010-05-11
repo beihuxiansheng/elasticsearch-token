@@ -644,13 +644,15 @@ literal|1
 operator|&&
 name|data
 index|[
-literal|0
+name|offset
 index|]
 operator|==
 literal|0x00
 operator|&&
 name|data
 index|[
+name|offset
+operator|+
 literal|1
 index|]
 operator|==
