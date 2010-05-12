@@ -64,12 +64,22 @@ name|java
 operator|.
 name|net
 operator|.
+name|InetAddress
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
 name|InetSocketAddress
 import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  * A transport address used for IP socket address (wraps {@link java.net.InetSocketAddress}).  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -106,6 +116,29 @@ operator|new
 name|InetSocketAddress
 argument_list|(
 name|hostname
+argument_list|,
+name|port
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|InetSocketTransportAddress
+specifier|public
+name|InetSocketTransportAddress
+parameter_list|(
+name|InetAddress
+name|address
+parameter_list|,
+name|int
+name|port
+parameter_list|)
+block|{
+name|this
+argument_list|(
+operator|new
+name|InetSocketAddress
+argument_list|(
+name|address
 argument_list|,
 name|port
 argument_list|)
