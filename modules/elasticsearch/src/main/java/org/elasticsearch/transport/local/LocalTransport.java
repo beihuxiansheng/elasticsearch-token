@@ -1037,21 +1037,14 @@ argument_list|(
 name|requestId
 argument_list|)
 decl_stmt|;
+comment|// ignore if its null, the adapter logs it
 if|if
 condition|(
 name|handler
-operator|==
+operator|!=
 literal|null
 condition|)
 block|{
-throw|throw
-operator|new
-name|ResponseHandlerNotFoundTransportException
-argument_list|(
-name|requestId
-argument_list|)
-throw|;
-block|}
 if|if
 condition|(
 name|Transport
@@ -1081,6 +1074,7 @@ argument_list|,
 name|handler
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
