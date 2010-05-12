@@ -239,7 +239,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  * A fault detection that pings the master periodically to see if its alive.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -927,6 +927,15 @@ name|MasterPingResponseResponse
 name|response
 parameter_list|)
 block|{
+comment|// reset the counter, we got a good result
+name|MasterFaultDetection
+operator|.
+name|this
+operator|.
+name|retryCount
+operator|=
+literal|0
+expr_stmt|;
 comment|// check if the master node did not get switched on us...
 if|if
 condition|(
