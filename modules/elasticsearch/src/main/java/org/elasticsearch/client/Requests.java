@@ -931,7 +931,7 @@ name|ClusterStateRequest
 argument_list|()
 return|;
 block|}
-comment|/**      * Creates a cluster health request.      *      * @param indices The indices to optimize. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The cluster health request      * @see org.elasticsearch.client.ClusterAdminClient#health(org.elasticsearch.action.admin.cluster.health.ClusterHealthRequest)      */
+comment|/**      * Creates a cluster health request.      *      * @param indices The indices to provide additional cluster health information for. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The cluster health request      * @see org.elasticsearch.client.ClusterAdminClient#health(org.elasticsearch.action.admin.cluster.health.ClusterHealthRequest)      */
 DECL|method|clusterHealth
 specifier|public
 specifier|static
