@@ -910,7 +910,7 @@ case|:
 return|return
 name|HttpResponseStatus
 operator|.
-name|UNUATHORIZED
+name|UNAUTHORIZED
 return|;
 case|case
 name|PAYMENT_REQUIRED

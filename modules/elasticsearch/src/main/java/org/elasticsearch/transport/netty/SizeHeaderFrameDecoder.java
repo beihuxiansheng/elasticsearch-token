@@ -66,20 +66,6 @@ name|jboss
 operator|.
 name|netty
 operator|.
-name|channel
-operator|.
-name|ChannelPipelineCoverage
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|jboss
-operator|.
-name|netty
-operator|.
 name|handler
 operator|.
 name|codec
@@ -105,11 +91,6 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-annotation|@
-name|ChannelPipelineCoverage
-argument_list|(
-literal|"one"
-argument_list|)
 DECL|class|SizeHeaderFrameDecoder
 specifier|public
 class|class

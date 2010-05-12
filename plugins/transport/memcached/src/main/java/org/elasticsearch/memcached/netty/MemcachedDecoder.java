@@ -104,20 +104,6 @@ name|netty
 operator|.
 name|channel
 operator|.
-name|ChannelPipelineCoverage
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|jboss
-operator|.
-name|netty
-operator|.
-name|channel
-operator|.
 name|ExceptionEvent
 import|;
 end_import
@@ -167,13 +153,6 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-annotation|@
-name|ChannelPipelineCoverage
-argument_list|(
-name|ChannelPipelineCoverage
-operator|.
-name|ONE
-argument_list|)
 DECL|class|MemcachedDecoder
 specifier|public
 class|class

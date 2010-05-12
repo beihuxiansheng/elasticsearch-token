@@ -52,12 +52,9 @@ end_comment
 
 begin_class
 annotation|@
-name|ChannelPipelineCoverage
-argument_list|(
-name|ChannelPipelineCoverage
+name|ChannelHandler
 operator|.
-name|ALL
-argument_list|)
+name|Sharable
 DECL|class|OpenChannelsHandler
 specifier|public
 class|class
