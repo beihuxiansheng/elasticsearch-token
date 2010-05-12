@@ -877,7 +877,7 @@ name|indices
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a gateway snapshot indices request.      *      * @param indices The indices the gateway wil be performed ont. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The gateway snapshot request      * @see org.elasticsearch.client.IndicesAdminClient#gatewaySnapshot(org.elasticsearch.action.admin.indices.gateway.snapshot.GatewaySnapshotRequest)      */
+comment|/**      * Creates a gateway snapshot indices request.      *      * @param indices The indices the gateway snapshot will be performed on. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The gateway snapshot request      * @see org.elasticsearch.client.IndicesAdminClient#gatewaySnapshot(org.elasticsearch.action.admin.indices.gateway.snapshot.GatewaySnapshotRequest)      */
 DECL|method|gatewaySnapshotRequest
 specifier|public
 specifier|static
@@ -897,7 +897,7 @@ name|indices
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a clean indices cache request.      *      * @param indices The indices the gateway wil be performed ont. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The request      */
+comment|/**      * Creates a clean indices cache request.      *      * @param indices The indices the gateway snapshot will be performed on. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The request      */
 DECL|method|clearIndicesCache
 specifier|public
 specifier|static
