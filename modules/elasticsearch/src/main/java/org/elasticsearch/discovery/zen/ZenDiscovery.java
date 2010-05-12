@@ -638,6 +638,15 @@ literal|3
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Using initial_ping_timeout [{}]"
+argument_list|,
+name|initialPingTimeout
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|electMaster

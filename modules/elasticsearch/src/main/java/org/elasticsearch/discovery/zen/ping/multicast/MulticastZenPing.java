@@ -701,6 +701,21 @@ argument_list|,
 literal|3
 argument_list|)
 expr_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Using group [{}], with port [{}], ttl [{}], and address [{}]"
+argument_list|,
+name|group
+argument_list|,
+name|port
+argument_list|,
+name|ttl
+argument_list|,
+name|address
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|transportService

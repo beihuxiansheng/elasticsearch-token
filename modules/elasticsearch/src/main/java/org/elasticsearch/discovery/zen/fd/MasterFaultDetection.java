@@ -454,6 +454,19 @@ argument_list|,
 literal|5
 argument_list|)
 expr_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Master FD uses ping_interval [{}], ping_timeout [{}], ping_retries [{}]"
+argument_list|,
+name|pingInterval
+argument_list|,
+name|pingRetryTimeout
+argument_list|,
+name|pingRetryCount
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|connectionListener

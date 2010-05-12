@@ -700,6 +700,15 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Using hosts "
+argument_list|,
+name|hosts
+argument_list|)
+expr_stmt|;
 name|List
 argument_list|<
 name|DiscoveryNode
