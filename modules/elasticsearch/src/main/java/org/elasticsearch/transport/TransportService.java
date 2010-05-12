@@ -98,7 +98,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|ConcurrentMapLong
+name|ConcurrentCollections
 import|;
 end_import
 
@@ -112,7 +112,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|ConcurrentMaps
+name|ConcurrentMapLong
 import|;
 end_import
 
@@ -274,7 +274,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|ConcurrentMaps
+name|ConcurrentCollections
 operator|.
 name|*
 import|;
@@ -352,7 +352,7 @@ name|RequestHolder
 argument_list|>
 name|clientHandlers
 init|=
-name|ConcurrentMaps
+name|ConcurrentCollections
 operator|.
 name|newConcurrentMapLong
 argument_list|()

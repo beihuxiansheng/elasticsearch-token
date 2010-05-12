@@ -414,7 +414,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|ConcurrentMapLong
+name|ConcurrentCollections
 import|;
 end_import
 
@@ -428,7 +428,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|ConcurrentMaps
+name|ConcurrentMapLong
 import|;
 end_import
 
@@ -672,7 +672,7 @@ name|SearchContext
 argument_list|>
 name|activeContexts
 init|=
-name|ConcurrentMaps
+name|ConcurrentCollections
 operator|.
 name|newConcurrentMapLong
 argument_list|()

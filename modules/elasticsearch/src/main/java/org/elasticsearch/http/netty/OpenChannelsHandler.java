@@ -26,9 +26,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|highscalelib
-operator|.
-name|NonBlockingHashSet
+name|ConcurrentCollections
 import|;
 end_import
 
@@ -43,6 +41,16 @@ operator|.
 name|channel
 operator|.
 name|*
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
 import|;
 end_import
 
@@ -64,17 +72,15 @@ name|ChannelUpstreamHandler
 block|{
 DECL|field|openChannels
 specifier|private
-name|NonBlockingHashSet
+name|Set
 argument_list|<
 name|Channel
 argument_list|>
 name|openChannels
 init|=
-operator|new
-name|NonBlockingHashSet
-argument_list|<
-name|Channel
-argument_list|>
+name|ConcurrentCollections
+operator|.
+name|newConcurrentSet
 argument_list|()
 decl_stmt|;
 DECL|field|remover

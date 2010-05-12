@@ -160,7 +160,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|ConcurrentMaps
+name|ConcurrentCollections
 operator|.
 name|*
 import|;
