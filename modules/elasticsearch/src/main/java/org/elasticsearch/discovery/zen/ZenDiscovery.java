@@ -2307,7 +2307,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Received an existing node [{}]"
+literal|"Received a join request for an existing node [{}]"
 argument_list|,
 name|node
 argument_list|)
