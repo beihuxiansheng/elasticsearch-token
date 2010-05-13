@@ -663,7 +663,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Adding {}/{}"
+literal|"Adding {}, addresses {}"
 argument_list|,
 name|nodeMetadata
 operator|.
