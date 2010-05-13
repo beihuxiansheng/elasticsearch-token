@@ -419,6 +419,12 @@ decl_stmt|;
 comment|// TODO for now, we fork operations on shards of the index
 name|shardRequest
 operator|.
+name|beforeLocalFork
+argument_list|()
+expr_stmt|;
+comment|// optimize for local fork
+name|shardRequest
+operator|.
 name|operationThreaded
 argument_list|(
 literal|true

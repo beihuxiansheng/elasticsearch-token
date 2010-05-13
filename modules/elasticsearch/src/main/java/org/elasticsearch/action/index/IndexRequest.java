@@ -697,6 +697,10 @@ argument_list|,
 name|sourceLength
 argument_list|)
 expr_stmt|;
+name|sourceOffset
+operator|=
+literal|0
+expr_stmt|;
 name|sourceUnsafe
 operator|=
 literal|false
