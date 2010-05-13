@@ -667,6 +667,16 @@ argument_list|()
 argument_list|,
 name|request
 operator|.
+name|querySourceOffset
+argument_list|()
+argument_list|,
+name|request
+operator|.
+name|querySourceLength
+argument_list|()
+argument_list|,
+name|request
+operator|.
 name|queryParserName
 argument_list|()
 argument_list|,

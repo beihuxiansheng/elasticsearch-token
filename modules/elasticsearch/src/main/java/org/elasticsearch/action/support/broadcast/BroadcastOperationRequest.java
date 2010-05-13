@@ -327,6 +327,12 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+DECL|method|beforeLocalFork
+specifier|protected
+name|void
+name|beforeLocalFork
+parameter_list|()
+block|{      }
 DECL|method|writeTo
 annotation|@
 name|Override

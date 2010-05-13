@@ -918,6 +918,11 @@ operator|>
 literal|0
 condition|)
 block|{
+name|request
+operator|.
+name|beforeLocalFork
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|request
