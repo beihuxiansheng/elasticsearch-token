@@ -443,10 +443,6 @@ name|type
 parameter_list|,
 name|String
 name|id
-parameter_list|,
-name|byte
-index|[]
-name|source
 parameter_list|)
 block|{
 name|this
@@ -466,12 +462,6 @@ operator|.
 name|id
 operator|=
 name|id
-expr_stmt|;
-name|this
-operator|.
-name|source
-operator|=
-name|source
 expr_stmt|;
 block|}
 DECL|method|validate

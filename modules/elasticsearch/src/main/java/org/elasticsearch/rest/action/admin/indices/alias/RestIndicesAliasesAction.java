@@ -328,15 +328,6 @@ comment|//         { add : { index : "test1", alias : "alias1" } }
 comment|//         { remove : { index : "test1", alias : "alias1" } }
 comment|//     ]
 comment|// }
-name|byte
-index|[]
-name|content
-init|=
-name|request
-operator|.
-name|contentAsBytes
-argument_list|()
-decl_stmt|;
 name|XContentParser
 name|parser
 init|=
@@ -344,12 +335,38 @@ name|XContentFactory
 operator|.
 name|xContent
 argument_list|(
-name|content
+name|request
+operator|.
+name|contentByteArray
+argument_list|()
+argument_list|,
+name|request
+operator|.
+name|contentByteArrayOffset
+argument_list|()
+argument_list|,
+name|request
+operator|.
+name|contentLength
+argument_list|()
 argument_list|)
 operator|.
 name|createParser
 argument_list|(
-name|content
+name|request
+operator|.
+name|contentByteArray
+argument_list|()
+argument_list|,
+name|request
+operator|.
+name|contentByteArrayOffset
+argument_list|()
+argument_list|,
+name|request
+operator|.
+name|contentLength
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|XContentParser

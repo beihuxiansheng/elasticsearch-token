@@ -1075,23 +1075,6 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|readTextHeader
-specifier|private
-name|void
-name|readTextHeader
-parameter_list|(
-name|ChannelHandlerContext
-name|ctx
-parameter_list|,
-name|Channel
-name|channel
-parameter_list|,
-name|ChannelBuffer
-name|buffer
-parameter_list|)
-throws|throws
-name|Exception
-block|{      }
 DECL|method|exceptionCaught
 annotation|@
 name|Override
