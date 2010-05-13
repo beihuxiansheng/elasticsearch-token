@@ -1298,6 +1298,11 @@ name|operationThreaded
 argument_list|()
 condition|)
 block|{
+name|request
+operator|.
+name|beforeLocalFork
+argument_list|()
+expr_stmt|;
 name|threadPool
 operator|.
 name|execute
@@ -2295,6 +2300,11 @@ name|operationThreaded
 argument_list|()
 condition|)
 block|{
+name|request
+operator|.
+name|beforeLocalFork
+argument_list|()
+expr_stmt|;
 name|threadPool
 operator|.
 name|execute
