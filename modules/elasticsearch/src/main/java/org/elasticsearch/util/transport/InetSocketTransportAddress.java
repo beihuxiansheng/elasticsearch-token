@@ -257,6 +257,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// prefer host address if possible, better than hostname (for example, on rackspace cloud)
 if|if
 condition|(
 name|address
