@@ -3367,7 +3367,10 @@ operator|new
 name|InternalSearchRequest
 argument_list|(
 name|shardRouting
-argument_list|,
+argument_list|)
+operator|.
+name|source
+argument_list|(
 name|builder
 operator|.
 name|buildAsBytes
