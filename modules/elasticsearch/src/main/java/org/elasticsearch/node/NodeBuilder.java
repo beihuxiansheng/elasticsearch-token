@@ -100,6 +100,32 @@ name|NodeBuilder
 argument_list|()
 return|;
 block|}
+comment|/**      * Set addition settings simply by working directly against the settings builder.      */
+DECL|method|settings
+specifier|public
+name|ImmutableSettings
+operator|.
+name|Builder
+name|settings
+parameter_list|()
+block|{
+return|return
+name|settings
+return|;
+block|}
+comment|/**      * Set addition settings simply by working directly against the settings builder.      */
+DECL|method|getSettings
+specifier|public
+name|ImmutableSettings
+operator|.
+name|Builder
+name|getSettings
+parameter_list|()
+block|{
+return|return
+name|settings
+return|;
+block|}
 comment|/**      * Explicit node settings to set.      */
 DECL|method|settings
 specifier|public
