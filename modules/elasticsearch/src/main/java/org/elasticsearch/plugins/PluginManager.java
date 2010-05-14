@@ -479,6 +479,13 @@ name|equals
 argument_list|(
 literal|"install"
 argument_list|)
+operator|||
+name|command
+operator|.
+name|equals
+argument_list|(
+literal|"-install"
+argument_list|)
 condition|)
 block|{
 if|if
@@ -592,6 +599,13 @@ operator|.
 name|equals
 argument_list|(
 literal|"remove"
+argument_list|)
+operator|||
+name|command
+operator|.
+name|equals
+argument_list|(
+literal|"-remove"
 argument_list|)
 condition|)
 block|{
