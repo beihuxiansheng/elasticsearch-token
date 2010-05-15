@@ -430,6 +430,24 @@ name|*
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|network
+operator|.
+name|NetworkService
+operator|.
+name|TcpSettings
+operator|.
+name|*
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
@@ -656,7 +674,14 @@ name|get
 argument_list|(
 literal|"port"
 argument_list|,
+name|settings
+operator|.
+name|get
+argument_list|(
+literal|"http.port"
+argument_list|,
 literal|"9200-9300"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|this
@@ -691,7 +716,14 @@ name|getAsBoolean
 argument_list|(
 literal|"tcp_no_delay"
 argument_list|,
+name|settings
+operator|.
+name|getAsBoolean
+argument_list|(
+name|TCP_NO_DELAY
+argument_list|,
 literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|this
@@ -704,7 +736,14 @@ name|getAsBoolean
 argument_list|(
 literal|"tcp_keep_alive"
 argument_list|,
+name|settings
+operator|.
+name|getAsBoolean
+argument_list|(
+name|TCP_KEEP_ALIVE
+argument_list|,
 literal|null
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|this
@@ -717,10 +756,17 @@ name|getAsBoolean
 argument_list|(
 literal|"reuse_address"
 argument_list|,
+name|settings
+operator|.
+name|getAsBoolean
+argument_list|(
+name|TCP_REUSE_ADDRESS
+argument_list|,
 name|NetworkUtils
 operator|.
 name|defaultReuseAddress
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|this
@@ -733,7 +779,14 @@ name|getAsSize
 argument_list|(
 literal|"tcp_send_buffer_size"
 argument_list|,
+name|settings
+operator|.
+name|getAsSize
+argument_list|(
+name|TCP_SEND_BUFFER_SIZE
+argument_list|,
 literal|null
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|this
@@ -746,7 +799,14 @@ name|getAsSize
 argument_list|(
 literal|"tcp_receive_buffer_size"
 argument_list|,
+name|settings
+operator|.
+name|getAsSize
+argument_list|(
+name|TCP_RECEIVE_BUFFER_SIZE
+argument_list|,
 literal|null
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// validate max content length
