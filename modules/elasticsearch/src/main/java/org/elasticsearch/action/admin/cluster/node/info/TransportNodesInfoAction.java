@@ -229,10 +229,10 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|TransportNodesInfo
+DECL|class|TransportNodesInfoAction
 specifier|public
 class|class
-name|TransportNodesInfo
+name|TransportNodesInfoAction
 extends|extends
 name|TransportNodesOperationAction
 argument_list|<
@@ -240,7 +240,7 @@ name|NodesInfoRequest
 argument_list|,
 name|NodesInfoResponse
 argument_list|,
-name|TransportNodesInfo
+name|TransportNodesInfoAction
 operator|.
 name|NodeInfoRequest
 argument_list|,
@@ -269,11 +269,11 @@ operator|.
 name|of
 argument_list|()
 decl_stmt|;
-DECL|method|TransportNodesInfo
+DECL|method|TransportNodesInfoAction
 annotation|@
 name|Inject
 specifier|public
-name|TransportNodesInfo
+name|TransportNodesInfoAction
 parameter_list|(
 name|Settings
 name|settings
@@ -642,6 +642,11 @@ name|monitorService
 operator|.
 name|networkService
 argument_list|()
+operator|.
+name|info
+argument_list|()
+argument_list|,
+name|threadPool
 operator|.
 name|info
 argument_list|()

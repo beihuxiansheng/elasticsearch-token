@@ -20,20 +20,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
-operator|.
-name|inject
-operator|.
-name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|ElasticSearchException
 import|;
 end_import
@@ -54,7 +40,7 @@ name|node
 operator|.
 name|info
 operator|.
-name|TransportNodesInfo
+name|TransportNodesInfoAction
 import|;
 end_import
 
@@ -81,6 +67,20 @@ operator|.
 name|component
 operator|.
 name|AbstractLifecycleComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|inject
+operator|.
+name|Inject
 import|;
 end_import
 
@@ -119,11 +119,11 @@ specifier|final
 name|MemcachedServerTransport
 name|transport
 decl_stmt|;
-DECL|field|nodesInfo
+DECL|field|nodesInfoAction
 specifier|private
 specifier|final
-name|TransportNodesInfo
-name|nodesInfo
+name|TransportNodesInfoAction
+name|nodesInfoAction
 decl_stmt|;
 DECL|field|restController
 specifier|private
@@ -146,8 +146,8 @@ parameter_list|,
 name|RestController
 name|restController
 parameter_list|,
-name|TransportNodesInfo
-name|nodesInfo
+name|TransportNodesInfoAction
+name|nodesInfoAction
 parameter_list|)
 block|{
 name|super
@@ -169,9 +169,9 @@ name|restController
 expr_stmt|;
 name|this
 operator|.
-name|nodesInfo
+name|nodesInfoAction
 operator|=
-name|nodesInfo
+name|nodesInfoAction
 expr_stmt|;
 block|}
 DECL|method|doStart
@@ -210,7 +210,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|nodesInfo
+name|nodesInfoAction
 operator|.
 name|putNodeAttribute
 argument_list|(
@@ -239,7 +239,7 @@ parameter_list|()
 throws|throws
 name|ElasticSearchException
 block|{
-name|nodesInfo
+name|nodesInfoAction
 operator|.
 name|removeNodeAttribute
 argument_list|(

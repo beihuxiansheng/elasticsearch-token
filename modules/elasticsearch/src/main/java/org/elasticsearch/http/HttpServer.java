@@ -40,7 +40,7 @@ name|node
 operator|.
 name|info
 operator|.
-name|TransportNodesInfo
+name|TransportNodesInfoAction
 import|;
 end_import
 
@@ -179,11 +179,11 @@ specifier|final
 name|RestController
 name|restController
 decl_stmt|;
-DECL|field|nodesInfo
+DECL|field|nodesInfoAction
 specifier|private
 specifier|final
-name|TransportNodesInfo
-name|nodesInfo
+name|TransportNodesInfoAction
+name|nodesInfoAction
 decl_stmt|;
 DECL|field|getHandlers
 specifier|private
@@ -239,8 +239,8 @@ parameter_list|,
 name|RestController
 name|restController
 parameter_list|,
-name|TransportNodesInfo
-name|nodesInfo
+name|TransportNodesInfoAction
+name|nodesInfoAction
 parameter_list|)
 block|{
 name|super
@@ -268,9 +268,9 @@ name|restController
 expr_stmt|;
 name|this
 operator|.
-name|nodesInfo
+name|nodesInfoAction
 operator|=
-name|nodesInfo
+name|nodesInfoAction
 expr_stmt|;
 name|getHandlers
 operator|=
@@ -482,7 +482,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|nodesInfo
+name|nodesInfoAction
 operator|.
 name|putNodeAttribute
 argument_list|(
@@ -511,7 +511,7 @@ parameter_list|()
 throws|throws
 name|ElasticSearchException
 block|{
-name|nodesInfo
+name|nodesInfoAction
 operator|.
 name|removeNodeAttribute
 argument_list|(

@@ -48,6 +48,34 @@ specifier|public
 interface|interface
 name|ThreadPool
 block|{
+DECL|method|info
+name|ThreadPoolInfo
+name|info
+parameter_list|()
+function_decl|;
+DECL|method|stats
+name|ThreadPoolStats
+name|stats
+parameter_list|()
+function_decl|;
+comment|/**      * The minimum number of threads in the thread pool.      */
+DECL|method|getMinThreads
+name|int
+name|getMinThreads
+parameter_list|()
+function_decl|;
+comment|/**      * The maximum number of threads in the thread pool.      */
+DECL|method|getMaxThreads
+name|int
+name|getMaxThreads
+parameter_list|()
+function_decl|;
+comment|/**      * The size of scheduler threads.      */
+DECL|method|getSchedulerThreads
+name|int
+name|getSchedulerThreads
+parameter_list|()
+function_decl|;
 comment|/**      * Returns the current number of threads in the pool.      *      * @return the number of threads      */
 DECL|method|getPoolSize
 name|int
@@ -60,11 +88,13 @@ name|int
 name|getActiveCount
 parameter_list|()
 function_decl|;
+comment|/**      * The size of the scheduler thread pool.      */
 DECL|method|getSchedulerPoolSize
 name|int
 name|getSchedulerPoolSize
 parameter_list|()
 function_decl|;
+comment|/**      * The approximate number of threads that are actively executing scheduled      * tasks.      */
 DECL|method|getSchedulerActiveCount
 name|int
 name|getSchedulerActiveCount

@@ -150,7 +150,7 @@ name|node
 operator|.
 name|info
 operator|.
-name|TransportNodesInfo
+name|TransportNodesInfoAction
 import|;
 end_import
 
@@ -330,7 +330,7 @@ name|node
 operator|.
 name|stats
 operator|.
-name|TransportNodesStats
+name|TransportNodesStatsAction
 import|;
 end_import
 
@@ -666,17 +666,17 @@ specifier|final
 name|TransportReplicationPingAction
 name|replicationPingAction
 decl_stmt|;
-DECL|field|nodesInfo
+DECL|field|nodesInfoAction
 specifier|private
 specifier|final
-name|TransportNodesInfo
-name|nodesInfo
+name|TransportNodesInfoAction
+name|nodesInfoAction
 decl_stmt|;
-DECL|field|nodesStats
+DECL|field|nodesStatsAction
 specifier|private
 specifier|final
-name|TransportNodesStats
-name|nodesStats
+name|TransportNodesStatsAction
+name|nodesStatsAction
 decl_stmt|;
 DECL|field|nodesShutdown
 specifier|private
@@ -714,8 +714,8 @@ parameter_list|,
 name|TransportReplicationPingAction
 name|replicationPingAction
 parameter_list|,
-name|TransportNodesInfo
-name|nodesInfo
+name|TransportNodesInfoAction
+name|nodesInfoAction
 parameter_list|,
 name|TransportNodesShutdownAction
 name|nodesShutdown
@@ -723,8 +723,8 @@ parameter_list|,
 name|TransportNodesRestartAction
 name|nodesRestart
 parameter_list|,
-name|TransportNodesStats
-name|nodesStats
+name|TransportNodesStatsAction
+name|nodesStatsAction
 parameter_list|)
 block|{
 name|super
@@ -746,9 +746,9 @@ name|clusterStateAction
 expr_stmt|;
 name|this
 operator|.
-name|nodesInfo
+name|nodesInfoAction
 operator|=
-name|nodesInfo
+name|nodesInfoAction
 expr_stmt|;
 name|this
 operator|.
@@ -782,9 +782,9 @@ name|replicationPingAction
 expr_stmt|;
 name|this
 operator|.
-name|nodesStats
+name|nodesStatsAction
 operator|=
-name|nodesStats
+name|nodesStatsAction
 expr_stmt|;
 block|}
 DECL|method|health
@@ -1052,7 +1052,7 @@ name|request
 parameter_list|)
 block|{
 return|return
-name|nodesInfo
+name|nodesInfoAction
 operator|.
 name|execute
 argument_list|(
@@ -1077,7 +1077,7 @@ argument_list|>
 name|listener
 parameter_list|)
 block|{
-name|nodesInfo
+name|nodesInfoAction
 operator|.
 name|execute
 argument_list|(
@@ -1102,7 +1102,7 @@ name|request
 parameter_list|)
 block|{
 return|return
-name|nodesStats
+name|nodesStatsAction
 operator|.
 name|execute
 argument_list|(
@@ -1127,7 +1127,7 @@ argument_list|>
 name|listener
 parameter_list|)
 block|{
-name|nodesStats
+name|nodesStatsAction
 operator|.
 name|execute
 argument_list|(

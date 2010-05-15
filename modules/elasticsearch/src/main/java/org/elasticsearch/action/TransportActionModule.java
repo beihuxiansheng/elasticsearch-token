@@ -48,7 +48,7 @@ name|node
 operator|.
 name|info
 operator|.
-name|TransportNodesInfo
+name|TransportNodesInfoAction
 import|;
 end_import
 
@@ -108,7 +108,7 @@ name|node
 operator|.
 name|stats
 operator|.
-name|TransportNodesStats
+name|TransportNodesStatsAction
 import|;
 end_import
 
@@ -662,7 +662,7 @@ parameter_list|()
 block|{
 name|bind
 argument_list|(
-name|TransportNodesInfo
+name|TransportNodesInfoAction
 operator|.
 name|class
 argument_list|)
@@ -672,7 +672,7 @@ argument_list|()
 expr_stmt|;
 name|bind
 argument_list|(
-name|TransportNodesStats
+name|TransportNodesStatsAction
 operator|.
 name|class
 argument_list|)

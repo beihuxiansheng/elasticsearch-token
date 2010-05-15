@@ -207,10 +207,10 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|TransportNodesStats
+DECL|class|TransportNodesStatsAction
 specifier|public
 class|class
-name|TransportNodesStats
+name|TransportNodesStatsAction
 extends|extends
 name|TransportNodesOperationAction
 argument_list|<
@@ -218,7 +218,7 @@ name|NodesStatsRequest
 argument_list|,
 name|NodesStatsResponse
 argument_list|,
-name|TransportNodesStats
+name|TransportNodesStatsAction
 operator|.
 name|NodeStatsRequest
 argument_list|,
@@ -231,11 +231,11 @@ specifier|final
 name|MonitorService
 name|monitorService
 decl_stmt|;
-DECL|method|TransportNodesStats
+DECL|method|TransportNodesStatsAction
 annotation|@
 name|Inject
 specifier|public
-name|TransportNodesStats
+name|TransportNodesStatsAction
 parameter_list|(
 name|Settings
 name|settings
@@ -523,6 +523,11 @@ name|monitorService
 operator|.
 name|networkService
 argument_list|()
+operator|.
+name|stats
+argument_list|()
+argument_list|,
+name|threadPool
 operator|.
 name|stats
 argument_list|()
