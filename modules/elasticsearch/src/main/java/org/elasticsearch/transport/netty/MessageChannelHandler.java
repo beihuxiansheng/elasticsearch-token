@@ -331,6 +331,8 @@ operator|.
 name|received
 argument_list|(
 name|size
+operator|+
+literal|4
 argument_list|)
 expr_stmt|;
 name|int

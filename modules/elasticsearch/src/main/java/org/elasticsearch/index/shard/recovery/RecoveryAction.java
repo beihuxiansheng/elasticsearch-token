@@ -1846,25 +1846,20 @@ name|trace
 argument_list|(
 literal|"Recovery [phase1] to {}: recovering [{}] files with total size of [{}]"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|node
-block|,
+argument_list|,
 name|snapshot
 operator|.
 name|getFiles
 argument_list|()
 operator|.
 name|length
-block|,
+argument_list|,
 operator|new
 name|SizeValue
 argument_list|(
 name|totalSize
 argument_list|)
-block|}
 argument_list|)
 expr_stmt|;
 specifier|final

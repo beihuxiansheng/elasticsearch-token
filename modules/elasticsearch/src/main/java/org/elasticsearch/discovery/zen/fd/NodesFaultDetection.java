@@ -1029,11 +1029,15 @@ condition|)
 block|{
 name|logger
 operator|.
-name|trace
+name|debug
 argument_list|(
-literal|"Node [{}] failed on ping"
+literal|"Node [{}] failed on ping, tried [{}] times, each with [{}] timeout"
 argument_list|,
 name|node
+argument_list|,
+name|pingRetryCount
+argument_list|,
+name|pingRetryTimeout
 argument_list|)
 expr_stmt|;
 comment|// not good, failure
