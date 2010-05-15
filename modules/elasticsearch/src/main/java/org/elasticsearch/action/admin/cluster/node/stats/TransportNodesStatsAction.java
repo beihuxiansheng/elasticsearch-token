@@ -531,6 +531,11 @@ name|threadPool
 operator|.
 name|stats
 argument_list|()
+argument_list|,
+name|transportService
+operator|.
+name|stats
+argument_list|()
 argument_list|)
 return|;
 block|}
