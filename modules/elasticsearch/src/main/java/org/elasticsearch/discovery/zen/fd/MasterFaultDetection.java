@@ -1170,6 +1170,7 @@ block|}
 block|}
 DECL|class|MasterPingRequest
 specifier|private
+specifier|static
 class|class
 name|MasterPingRequest
 implements|implements
@@ -1245,6 +1246,7 @@ block|}
 block|}
 DECL|class|MasterPingResponseResponse
 specifier|private
+specifier|static
 class|class
 name|MasterPingResponseResponse
 implements|implements

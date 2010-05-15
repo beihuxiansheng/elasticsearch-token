@@ -1177,6 +1177,7 @@ block|}
 block|}
 DECL|class|PingRequest
 specifier|private
+specifier|static
 class|class
 name|PingRequest
 implements|implements
@@ -1216,6 +1217,7 @@ block|{         }
 block|}
 DECL|class|PingResponse
 specifier|private
+specifier|static
 class|class
 name|PingResponse
 implements|implements
