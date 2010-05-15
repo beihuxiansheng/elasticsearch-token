@@ -689,7 +689,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-literal|", took["
+literal|", took ["
 argument_list|)
 operator|.
 name|append
@@ -709,7 +709,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"    Index    : number_of_files["
+literal|"    Index    : number_of_files ["
 argument_list|)
 operator|.
 name|append
@@ -725,7 +725,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-literal|"] with total_size["
+literal|"] with total_size ["
 argument_list|)
 operator|.
 name|append
@@ -748,7 +748,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"    Translog : translog_id["
+literal|"    Translog : translog_id ["
 argument_list|)
 operator|.
 name|append
@@ -764,7 +764,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-literal|"], number_of_operations["
+literal|"], number_of_operations ["
 argument_list|)
 operator|.
 name|append
@@ -1047,7 +1047,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-literal|", took["
+literal|", took ["
 argument_list|)
 operator|.
 name|append
@@ -1067,7 +1067,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"    Index    : number_of_files["
+literal|"    Index    : number_of_files ["
 argument_list|)
 operator|.
 name|append
@@ -1083,7 +1083,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-literal|"] with total_size["
+literal|"] with total_size ["
 argument_list|)
 operator|.
 name|append
@@ -1099,7 +1099,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-literal|"], took["
+literal|"], took ["
 argument_list|)
 operator|.
 name|append
@@ -1122,7 +1122,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"    Translog : number_of_operations["
+literal|"    Translog : number_of_operations ["
 argument_list|)
 operator|.
 name|append
@@ -1138,7 +1138,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-literal|"], took["
+literal|"], took ["
 argument_list|)
 operator|.
 name|append
