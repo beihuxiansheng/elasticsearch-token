@@ -1124,6 +1124,8 @@ argument_list|(
 name|shardId
 argument_list|,
 name|delete
+argument_list|,
+name|delete
 argument_list|)
 expr_stmt|;
 block|}
@@ -1510,13 +1512,13 @@ return|return
 name|indexShard
 return|;
 block|}
-DECL|method|deleteShard
+DECL|method|cleanShard
 annotation|@
 name|Override
 specifier|public
 specifier|synchronized
 name|void
-name|deleteShard
+name|cleanShard
 parameter_list|(
 name|int
 name|shardId
@@ -1529,6 +1531,8 @@ argument_list|(
 name|shardId
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -1543,6 +1547,9 @@ name|shardId
 parameter_list|,
 name|boolean
 name|delete
+parameter_list|,
+name|boolean
+name|deleteGateway
 parameter_list|)
 throws|throws
 name|ElasticSearchException
@@ -1740,7 +1747,7 @@ argument_list|)
 operator|.
 name|close
 argument_list|(
-name|delete
+name|deleteGateway
 argument_list|)
 expr_stmt|;
 name|indexShard

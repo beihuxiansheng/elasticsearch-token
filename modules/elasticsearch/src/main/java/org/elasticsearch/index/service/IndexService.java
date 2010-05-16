@@ -233,9 +233,10 @@ parameter_list|)
 throws|throws
 name|ElasticSearchException
 function_decl|;
-DECL|method|deleteShard
+comment|/**      * Cleans the shard locally, does not touch the gateway!.      */
+DECL|method|cleanShard
 name|void
-name|deleteShard
+name|cleanShard
 parameter_list|(
 name|int
 name|shardId

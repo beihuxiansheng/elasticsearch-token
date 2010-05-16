@@ -1042,7 +1042,7 @@ expr_stmt|;
 block|}
 name|indexService
 operator|.
-name|deleteShard
+name|cleanShard
 argument_list|(
 name|existingShardId
 argument_list|)
@@ -2009,7 +2009,7 @@ try|try
 block|{
 name|indexService
 operator|.
-name|deleteShard
+name|cleanShard
 argument_list|(
 name|shardId
 argument_list|)
@@ -2417,7 +2417,7 @@ try|try
 block|{
 name|indexService
 operator|.
-name|deleteShard
+name|cleanShard
 argument_list|(
 name|shardId
 argument_list|)
