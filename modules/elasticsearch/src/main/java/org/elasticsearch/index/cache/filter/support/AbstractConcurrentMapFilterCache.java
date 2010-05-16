@@ -233,7 +233,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * A base concurrent filter cache that accepts the actual cache to use.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -289,6 +289,19 @@ name|indexSettings
 parameter_list|,
 name|ThreadPool
 name|threadPool
+parameter_list|,
+name|ConcurrentMap
+argument_list|<
+name|IndexReader
+argument_list|,
+name|ConcurrentMap
+argument_list|<
+name|Filter
+argument_list|,
+name|DocIdSet
+argument_list|>
+argument_list|>
+name|cache
 parameter_list|)
 block|{
 name|super
@@ -297,6 +310,12 @@ name|index
 argument_list|,
 name|indexSettings
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|cache
+operator|=
+name|cache
 expr_stmt|;
 name|this
 operator|.
@@ -325,17 +344,10 @@ operator|+
 name|type
 argument_list|()
 operator|+
-literal|"] filter cache with reader_cleaner_schedule[{}]"
+literal|"] filter cache with reader_cleaner_schedule [{}]"
 argument_list|,
 name|readerCleanerSchedule
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|cache
-operator|=
-name|newConcurrentMap
-argument_list|()
 expr_stmt|;
 name|this
 operator|.
@@ -499,18 +511,22 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|buildMap
+DECL|method|buildFilterMap
 specifier|protected
-specifier|abstract
 name|ConcurrentMap
 argument_list|<
 name|Filter
 argument_list|,
 name|DocIdSet
 argument_list|>
-name|buildMap
+name|buildFilterMap
 parameter_list|()
-function_decl|;
+block|{
+return|return
+name|newConcurrentMap
+argument_list|()
+return|;
+block|}
 DECL|class|FilterCacheFilterWrapper
 specifier|private
 class|class
@@ -576,7 +592,7 @@ condition|)
 block|{
 name|cachedFilters
 operator|=
-name|buildMap
+name|buildFilterMap
 argument_list|()
 expr_stmt|;
 name|cache
