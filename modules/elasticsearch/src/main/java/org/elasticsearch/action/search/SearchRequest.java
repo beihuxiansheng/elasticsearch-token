@@ -1057,6 +1057,8 @@ argument_list|,
 name|source
 operator|.
 name|length
+argument_list|,
+literal|false
 argument_list|)
 return|;
 block|}
@@ -1075,6 +1077,9 @@ name|offset
 parameter_list|,
 name|int
 name|length
+parameter_list|,
+name|boolean
+name|unsafe
 parameter_list|)
 block|{
 name|this
@@ -1099,7 +1104,7 @@ name|this
 operator|.
 name|sourceUnsafe
 operator|=
-literal|false
+name|unsafe
 expr_stmt|;
 return|return
 name|this
@@ -1386,6 +1391,8 @@ argument_list|,
 name|source
 operator|.
 name|length
+argument_list|,
+literal|false
 argument_list|)
 return|;
 block|}
@@ -1404,6 +1411,9 @@ name|offset
 parameter_list|,
 name|int
 name|length
+parameter_list|,
+name|boolean
+name|unsafe
 parameter_list|)
 block|{
 name|this
@@ -1428,7 +1438,7 @@ name|this
 operator|.
 name|extraSourceUnsafe
 operator|=
-literal|false
+name|unsafe
 expr_stmt|;
 return|return
 name|this

@@ -456,6 +456,24 @@ name|readableBytes
 argument_list|()
 return|;
 block|}
+DECL|method|contentUnsafe
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|contentUnsafe
+parameter_list|()
+block|{
+return|return
+name|request
+operator|.
+name|getContent
+argument_list|()
+operator|.
+name|hasArray
+argument_list|()
+return|;
+block|}
 DECL|method|contentByteArray
 annotation|@
 name|Override
@@ -552,6 +570,7 @@ name|hasArray
 argument_list|()
 condition|)
 block|{
+comment|// get the array offset, and the reader index offset within it
 return|return
 name|request
 operator|.
@@ -559,6 +578,14 @@ name|getContent
 argument_list|()
 operator|.
 name|arrayOffset
+argument_list|()
+operator|+
+name|request
+operator|.
+name|getContent
+argument_list|()
+operator|.
+name|readerIndex
 argument_list|()
 return|;
 block|}

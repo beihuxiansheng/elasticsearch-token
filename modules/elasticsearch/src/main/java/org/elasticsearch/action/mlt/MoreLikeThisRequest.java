@@ -1239,6 +1239,8 @@ argument_list|,
 name|searchSource
 operator|.
 name|length
+argument_list|,
+literal|false
 argument_list|)
 return|;
 block|}
@@ -1257,6 +1259,9 @@ name|offset
 parameter_list|,
 name|int
 name|length
+parameter_list|,
+name|boolean
+name|unsafe
 parameter_list|)
 block|{
 name|this
@@ -1281,7 +1286,7 @@ name|this
 operator|.
 name|searchSourceUnsafe
 operator|=
-literal|false
+name|unsafe
 expr_stmt|;
 return|return
 name|this
@@ -1319,6 +1324,16 @@ parameter_list|()
 block|{
 return|return
 name|searchSourceLength
+return|;
+block|}
+DECL|method|searchSourceUnsafe
+specifier|public
+name|boolean
+name|searchSourceUnsafe
+parameter_list|()
+block|{
+return|return
+name|searchSourceUnsafe
 return|;
 block|}
 comment|/**      * The search type of the mlt search query.      */

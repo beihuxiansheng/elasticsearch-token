@@ -134,6 +134,12 @@ name|boolean
 name|hasContent
 parameter_list|()
 function_decl|;
+comment|/**      * Is the byte array content safe or unsafe for usage on other threads      */
+DECL|method|contentUnsafe
+name|boolean
+name|contentUnsafe
+parameter_list|()
+function_decl|;
 DECL|method|contentByteArray
 name|byte
 index|[]

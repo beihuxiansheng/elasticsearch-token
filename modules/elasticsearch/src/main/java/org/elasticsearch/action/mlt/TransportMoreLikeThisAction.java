@@ -1193,6 +1193,11 @@ name|request
 operator|.
 name|searchSourceLength
 argument_list|()
+argument_list|,
+name|request
+operator|.
+name|searchSourceUnsafe
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

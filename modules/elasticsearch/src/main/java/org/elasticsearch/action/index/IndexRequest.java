@@ -430,7 +430,7 @@ operator|=
 name|index
 expr_stmt|;
 block|}
-comment|/**      * Constructs a new index request against the index, type, id and using the source.      *      * @param index  The index to index into      * @param type   The type to index into      * @param id     The id of document      * @param source The JSON source document      */
+comment|/**      * Constructs a new index request against the index, type, id and using the source.      *      * @param index The index to index into      * @param type  The type to index into      * @param id    The id of document      */
 DECL|method|IndexRequest
 specifier|public
 name|IndexRequest
@@ -672,6 +672,10 @@ block|{
 if|if
 condition|(
 name|sourceUnsafe
+operator|||
+name|sourceOffset
+operator|>
+literal|0
 condition|)
 block|{
 name|source
