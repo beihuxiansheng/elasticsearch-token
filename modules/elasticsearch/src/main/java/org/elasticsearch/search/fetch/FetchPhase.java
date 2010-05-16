@@ -730,9 +730,6 @@ argument_list|,
 name|searchHit
 argument_list|)
 expr_stmt|;
-name|index
-operator|++
-expr_stmt|;
 block|}
 name|context
 operator|.
