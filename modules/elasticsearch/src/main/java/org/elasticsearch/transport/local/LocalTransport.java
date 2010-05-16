@@ -1409,7 +1409,7 @@ argument_list|,
 operator|new
 name|ResponseHandlerFailureTransportException
 argument_list|(
-literal|"Failed to handler response"
+literal|"Failed to handle response"
 argument_list|,
 name|e
 argument_list|)
@@ -1447,7 +1447,7 @@ argument_list|,
 operator|new
 name|ResponseHandlerFailureTransportException
 argument_list|(
-literal|"Failed to handler response"
+literal|"Failed to handle response"
 argument_list|,
 name|e
 argument_list|)
