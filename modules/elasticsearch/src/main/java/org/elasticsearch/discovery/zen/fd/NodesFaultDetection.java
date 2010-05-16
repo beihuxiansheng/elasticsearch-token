@@ -425,7 +425,7 @@ literal|"ping_timeout"
 argument_list|,
 name|timeValueSeconds
 argument_list|(
-literal|6
+literal|30
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -439,7 +439,7 @@ name|getAsInt
 argument_list|(
 literal|"ping_retries"
 argument_list|,
-literal|5
+literal|3
 argument_list|)
 expr_stmt|;
 name|logger
