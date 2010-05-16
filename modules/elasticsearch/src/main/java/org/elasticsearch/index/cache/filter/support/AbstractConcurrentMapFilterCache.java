@@ -329,9 +329,9 @@ literal|"reader_cleaner_schedule"
 argument_list|,
 name|TimeValue
 operator|.
-name|timeValueMinutes
+name|timeValueSeconds
 argument_list|(
-literal|1
+literal|10
 argument_list|)
 argument_list|)
 expr_stmt|;
