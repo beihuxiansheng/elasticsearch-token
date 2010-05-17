@@ -1299,7 +1299,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|Field
+name|Fieldable
 name|field
 init|=
 name|parseCreateField
@@ -1369,7 +1369,7 @@ block|}
 DECL|method|parseCreateField
 specifier|protected
 specifier|abstract
-name|Field
+name|Fieldable
 name|parseCreateField
 parameter_list|(
 name|ParseContext

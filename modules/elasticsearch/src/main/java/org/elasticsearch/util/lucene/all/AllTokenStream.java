@@ -123,10 +123,10 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|AllTokenFilter
+DECL|class|AllTokenStream
 specifier|public
 class|class
-name|AllTokenFilter
+name|AllTokenStream
 extends|extends
 name|TokenFilter
 block|{
@@ -150,7 +150,7 @@ name|IOException
 block|{
 return|return
 operator|new
-name|AllTokenFilter
+name|AllTokenStream
 argument_list|(
 name|analyzer
 operator|.
@@ -177,8 +177,8 @@ specifier|final
 name|PayloadAttribute
 name|payloadAttribute
 decl_stmt|;
-DECL|method|AllTokenFilter
-name|AllTokenFilter
+DECL|method|AllTokenStream
+name|AllTokenStream
 parameter_list|(
 name|TokenStream
 name|input

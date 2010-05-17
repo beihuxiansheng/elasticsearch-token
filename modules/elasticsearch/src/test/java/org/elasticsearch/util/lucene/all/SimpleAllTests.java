@@ -319,7 +319,7 @@ name|Field
 argument_list|(
 literal|"_all"
 argument_list|,
-name|AllTokenFilter
+name|AllTokenStream
 operator|.
 name|allTokenStream
 argument_list|(
@@ -414,7 +414,7 @@ name|Field
 argument_list|(
 literal|"_all"
 argument_list|,
-name|AllTokenFilter
+name|AllTokenStream
 operator|.
 name|allTokenStream
 argument_list|(
@@ -712,7 +712,7 @@ name|Field
 argument_list|(
 literal|"_all"
 argument_list|,
-name|AllTokenFilter
+name|AllTokenStream
 operator|.
 name|allTokenStream
 argument_list|(
@@ -807,7 +807,7 @@ name|Field
 argument_list|(
 literal|"_all"
 argument_list|,
-name|AllTokenFilter
+name|AllTokenStream
 operator|.
 name|allTokenStream
 argument_list|(
@@ -1106,7 +1106,7 @@ name|Field
 argument_list|(
 literal|"_all"
 argument_list|,
-name|AllTokenFilter
+name|AllTokenStream
 operator|.
 name|allTokenStream
 argument_list|(
@@ -1201,7 +1201,7 @@ name|Field
 argument_list|(
 literal|"_all"
 argument_list|,
-name|AllTokenFilter
+name|AllTokenStream
 operator|.
 name|allTokenStream
 argument_list|(
@@ -1633,7 +1633,7 @@ name|Field
 argument_list|(
 literal|"_all"
 argument_list|,
-name|AllTokenFilter
+name|AllTokenStream
 operator|.
 name|allTokenStream
 argument_list|(
@@ -1728,7 +1728,7 @@ name|Field
 argument_list|(
 literal|"_all"
 argument_list|,
-name|AllTokenFilter
+name|AllTokenStream
 operator|.
 name|allTokenStream
 argument_list|(
