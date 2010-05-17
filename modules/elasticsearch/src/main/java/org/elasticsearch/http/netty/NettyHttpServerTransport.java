@@ -634,6 +634,12 @@ name|getAsSize
 argument_list|(
 literal|"max_content_length"
 argument_list|,
+name|settings
+operator|.
+name|getAsSize
+argument_list|(
+literal|"http.max_content_length"
+argument_list|,
 operator|new
 name|SizeValue
 argument_list|(
@@ -642,6 +648,7 @@ argument_list|,
 name|SizeUnit
 operator|.
 name|MB
+argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
