@@ -74,43 +74,7 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|SizeUnit
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|util
-operator|.
-name|SizeValue
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|util
-operator|.
-name|StopWatch
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|util
-operator|.
-name|TimeValue
+name|*
 import|;
 end_import
 
@@ -231,11 +195,11 @@ specifier|final
 name|TimeValue
 name|interval
 decl_stmt|;
-DECL|field|gcThreshold
+DECL|field|clearCacheThreshold
 specifier|private
 specifier|final
 name|int
-name|gcThreshold
+name|clearCacheThreshold
 decl_stmt|;
 DECL|field|cleanThreshold
 specifier|private
@@ -300,10 +264,10 @@ operator|new
 name|AtomicLong
 argument_list|()
 decl_stmt|;
-DECL|field|totalGCs
+DECL|field|totalClearCache
 specifier|private
 name|AtomicLong
-name|totalGCs
+name|totalClearCache
 init|=
 operator|new
 name|AtomicLong
@@ -386,15 +350,15 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|gcThreshold
+name|clearCacheThreshold
 operator|=
 name|componentSettings
 operator|.
 name|getAsInt
 argument_list|(
-literal|"gc_threshold"
+literal|"clear_cache_threshold"
 argument_list|,
-literal|5
+literal|2
 argument_list|)
 expr_stmt|;
 name|this
@@ -448,19 +412,19 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"interval["
+literal|"interval ["
 operator|+
 name|interval
 operator|+
-literal|"], upper_memory_threshold["
+literal|"], upper_memory_threshold ["
 operator|+
 name|upperMemoryThreshold
 operator|+
-literal|"], lower_memory_threshold["
+literal|"], lower_memory_threshold ["
 operator|+
 name|lowerMemoryThreshold
 operator|+
-literal|"], translog_number_of_operations_threshold["
+literal|"], translog_number_of_operations_threshold ["
 operator|+
 name|translogNumberOfOperationsThreshold
 operator|+
@@ -610,10 +574,10 @@ name|MemoryCleaner
 implements|implements
 name|Runnable
 block|{
-DECL|field|gcCounter
+DECL|field|clearCacheCounter
 specifier|private
 name|int
-name|gcCounter
+name|clearCacheCounter
 decl_stmt|;
 DECL|field|performedClean
 specifier|private
@@ -647,8 +611,14 @@ name|void
 name|run
 parameter_list|()
 block|{
+comment|// clear unreferenced in the cache
+name|indicesMemoryCleaner
+operator|.
+name|cacheClearUnreferenced
+argument_list|()
+expr_stmt|;
 comment|// try and clean translog based on a threshold, since we don't want to get a very large transaction log
-comment|// which means recovery it will take a long time (since the target reindex all this data)
+comment|// which means recovery it will take a long time (since the target re-index all this data)
 name|IndicesMemoryCleaner
 operator|.
 name|TranslogCleanResult
@@ -687,7 +657,7 @@ literal|"["
 operator|+
 name|totalClean
 operator|+
-literal|"] Translog Clean: "
+literal|"] [Translog] "
 operator|+
 name|translogCleanResult
 argument_list|)
@@ -741,7 +711,7 @@ operator|<=
 literal|0
 condition|)
 block|{
-name|gcCounter
+name|clearCacheCounter
 operator|=
 literal|0
 expr_stmt|;
@@ -827,14 +797,14 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-literal|"]: "
+literal|"] "
 argument_list|)
 expr_stmt|;
 name|sb
 operator|.
 name|append
 argument_list|(
-literal|"Cleaning, memoryToClean["
+literal|"[Cleaning] memory_to_clean ["
 argument_list|)
 operator|.
 name|append
@@ -855,7 +825,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|", lowerMemoryThreshold["
+literal|", lower_memory_threshold ["
 argument_list|)
 operator|.
 name|append
@@ -876,7 +846,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|", upperMemoryThreshold["
+literal|", upper_memory_threshold ["
 argument_list|)
 operator|.
 name|append
@@ -897,7 +867,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|", usedMemory["
+literal|", used_memory ["
 argument_list|)
 operator|.
 name|append
@@ -918,7 +888,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|", totalMemory["
+literal|", total_memory["
 argument_list|)
 operator|.
 name|append
@@ -939,7 +909,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|", maxMemory["
+literal|", max_memory["
 argument_list|)
 operator|.
 name|append
@@ -993,32 +963,24 @@ literal|"["
 operator|+
 name|totalClean
 operator|+
-literal|"] Memory Clean: "
+literal|"] [Cleaned ] "
 operator|+
 name|memoryCleanResult
 argument_list|)
 expr_stmt|;
 block|}
-name|performedClean
-operator|=
-literal|true
-expr_stmt|;
-name|cleanCounter
-operator|=
-literal|0
-expr_stmt|;
 if|if
 condition|(
 operator|++
-name|gcCounter
+name|clearCacheCounter
 operator|>=
-name|gcThreshold
+name|clearCacheThreshold
 condition|)
 block|{
 name|long
-name|totalGc
+name|totalClear
 init|=
-name|totalGCs
+name|totalClearCache
 operator|.
 name|incrementAndGet
 argument_list|()
@@ -1029,25 +991,42 @@ name|debug
 argument_list|(
 literal|"["
 operator|+
-name|totalGc
+name|totalClear
 operator|+
-literal|"]: Running GC after ["
+literal|"] [Cache   ] cleared after ["
 operator|+
-name|gcCounter
+operator|(
+name|cleanCounter
+operator|/
+name|cleanThreshold
+operator|)
 operator|+
 literal|"] memory clean swipes"
 argument_list|)
 expr_stmt|;
-name|System
+name|indicesMemoryCleaner
 operator|.
-name|gc
+name|cacheClear
 argument_list|()
 expr_stmt|;
-name|gcCounter
+name|ThreadLocals
+operator|.
+name|clearReferencesThreadLocals
+argument_list|()
+expr_stmt|;
+name|clearCacheCounter
 operator|=
 literal|0
 expr_stmt|;
 block|}
+name|performedClean
+operator|=
+literal|true
+expr_stmt|;
+name|cleanCounter
+operator|=
+literal|0
+expr_stmt|;
 block|}
 block|}
 block|}

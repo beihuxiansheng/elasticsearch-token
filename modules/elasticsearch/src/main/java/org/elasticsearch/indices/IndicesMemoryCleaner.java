@@ -20,20 +20,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
-operator|.
-name|inject
-operator|.
-name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|index
 operator|.
 name|engine
@@ -191,6 +177,20 @@ operator|.
 name|component
 operator|.
 name|AbstractComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|inject
+operator|.
+name|Inject
 import|;
 end_import
 
@@ -407,6 +407,54 @@ name|BYTES
 argument_list|)
 argument_list|)
 return|;
+block|}
+DECL|method|cacheClearUnreferenced
+specifier|public
+name|void
+name|cacheClearUnreferenced
+parameter_list|()
+block|{
+for|for
+control|(
+name|IndexService
+name|indexService
+range|:
+name|indicesService
+control|)
+block|{
+name|indexService
+operator|.
+name|cache
+argument_list|()
+operator|.
+name|clearUnreferenced
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+DECL|method|cacheClear
+specifier|public
+name|void
+name|cacheClear
+parameter_list|()
+block|{
+for|for
+control|(
+name|IndexService
+name|indexService
+range|:
+name|indicesService
+control|)
+block|{
+name|indexService
+operator|.
+name|cache
+argument_list|()
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 comment|/**      * Checks if memory needs to be cleaned and cleans it. Returns the amount of memory cleaned.      */
 DECL|method|cleanMemory
@@ -837,15 +885,15 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"cleaned["
+literal|"cleaned ["
 operator|+
 name|cleaned
 operator|+
-literal|"], cleaned_shards["
+literal|"], cleaned_shards ["
 operator|+
 name|cleanedShards
 operator|+
-literal|"], total_shards["
+literal|"], total_shards ["
 operator|+
 name|totalShards
 operator|+
@@ -974,19 +1022,19 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"cleaned["
+literal|"cleaned ["
 operator|+
 name|cleaned
 operator|+
-literal|"], estimated_flushable_size["
+literal|"], estimated_flushable_size ["
 operator|+
 name|estimatedFlushableSize
 operator|+
-literal|"], cleaned_shards["
+literal|"], cleaned_shards ["
 operator|+
 name|cleanedShards
 operator|+
-literal|"], total_shards["
+literal|"], total_shards ["
 operator|+
 name|totalShards
 operator|+

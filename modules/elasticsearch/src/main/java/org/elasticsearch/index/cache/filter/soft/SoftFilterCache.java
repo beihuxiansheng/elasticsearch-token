@@ -112,18 +112,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|threadpool
-operator|.
-name|ThreadPool
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|util
 operator|.
 name|collect
@@ -197,9 +185,6 @@ annotation|@
 name|IndexSettings
 name|Settings
 name|indexSettings
-parameter_list|,
-name|ThreadPool
-name|threadPool
 parameter_list|)
 block|{
 name|super
@@ -207,8 +192,6 @@ argument_list|(
 name|index
 argument_list|,
 name|indexSettings
-argument_list|,
-name|threadPool
 argument_list|,
 operator|new
 name|MapMaker

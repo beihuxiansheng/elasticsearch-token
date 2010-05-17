@@ -624,7 +624,7 @@ condition|)
 block|{
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"ThreadLocal with key of type [{0}] (value [{1}]) and a value of type [{2}] (value [{3}]):  The ThreadLocal has been forcibly removed."
 argument_list|,
