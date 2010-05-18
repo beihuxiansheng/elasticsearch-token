@@ -110,7 +110,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|LinkedList
 import|;
 end_import
 
@@ -215,7 +215,7 @@ decl_stmt|;
 DECL|field|processors
 specifier|private
 specifier|final
-name|List
+name|LinkedList
 argument_list|<
 name|AnalysisBinderProcessor
 argument_list|>
@@ -223,7 +223,7 @@ name|processors
 init|=
 name|Lists
 operator|.
-name|newArrayList
+name|newLinkedList
 argument_list|()
 decl_stmt|;
 DECL|method|AnalysisModule
@@ -281,7 +281,7 @@ parameter_list|)
 block|{
 name|processors
 operator|.
-name|add
+name|addFirst
 argument_list|(
 name|processor
 argument_list|)
