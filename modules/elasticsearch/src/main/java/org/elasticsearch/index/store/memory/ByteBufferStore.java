@@ -283,21 +283,16 @@ name|debug
 argument_list|(
 literal|"Using [byte_buffer] store with buffer_size[{}], cache_size[{}], direct[{}], warm_cache[{}]"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|bufferSize
-block|,
+argument_list|,
 name|cacheSize
-block|,
+argument_list|,
 name|directory
 operator|.
 name|isDirect
 argument_list|()
-block|,
+argument_list|,
 name|warmCache
-block|}
 argument_list|)
 expr_stmt|;
 block|}

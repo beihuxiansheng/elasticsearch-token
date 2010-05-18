@@ -249,22 +249,17 @@ name|debug
 argument_list|(
 literal|"Using [heap] Store with buffer_size[{}], cache_size[{}], warm_cache[{}]"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|directory
 operator|.
 name|bufferSize
 argument_list|()
-block|,
+argument_list|,
 name|directory
 operator|.
 name|cacheSize
 argument_list|()
-block|,
+argument_list|,
 name|warmCache
-block|}
 argument_list|)
 expr_stmt|;
 block|}
