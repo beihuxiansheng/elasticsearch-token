@@ -58,11 +58,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cloud
+name|cluster
 operator|.
-name|jclouds
-operator|.
-name|JCloudsUtils
+name|ClusterName
 import|;
 end_import
 
@@ -270,6 +268,12 @@ specifier|final
 name|String
 name|indexContainer
 decl_stmt|;
+DECL|field|indexDirectory
+specifier|private
+specifier|final
+name|String
+name|indexDirectory
+decl_stmt|;
 DECL|field|location
 specifier|private
 specifier|final
@@ -301,6 +305,9 @@ annotation|@
 name|IndexSettings
 name|Settings
 name|indexSettings
+parameter_list|,
+name|ClusterName
+name|clusterName
 parameter_list|,
 name|CloudBlobStoreService
 name|blobStoreService
@@ -390,15 +397,6 @@ operator|=
 name|cloudGateway
 operator|.
 name|container
-argument_list|()
-operator|+
-name|JCloudsUtils
-operator|.
-name|BLOB_CONTAINER_SEP
-operator|+
-name|index
-operator|.
-name|name
 argument_list|()
 expr_stmt|;
 block|}
@@ -569,6 +567,22 @@ name|container
 expr_stmt|;
 name|this
 operator|.
+name|indexDirectory
+operator|=
+name|clusterName
+operator|.
+name|value
+argument_list|()
+operator|+
+literal|"/"
+operator|+
+name|index
+operator|.
+name|name
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
 name|chunkSize
 operator|=
 name|chunkSize
@@ -577,7 +591,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Using location [{}], container [{}], chunk_size [{}]"
+literal|"Using location [{}], container [{}], index_directory [{}], chunk_size [{}]"
 argument_list|,
 name|this
 operator|.
@@ -589,10 +603,13 @@ name|indexContainer
 argument_list|,
 name|this
 operator|.
+name|indexDirectory
+argument_list|,
+name|this
+operator|.
 name|chunkSize
 argument_list|)
 expr_stmt|;
-comment|//        blobStoreContext.getBlobStore().createContainerInLocation(this.location, this.indexContainer);
 block|}
 DECL|method|indexLocation
 specifier|public
@@ -616,6 +633,18 @@ return|return
 name|this
 operator|.
 name|indexContainer
+return|;
+block|}
+DECL|method|indexDirectory
+specifier|public
+name|String
+name|indexDirectory
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|indexDirectory
 return|;
 block|}
 DECL|method|chunkSize
@@ -670,7 +699,6 @@ condition|)
 block|{
 return|return;
 block|}
-comment|//        blobStoreContext.getBlobStore().deleteContainer(indexContainer);
 block|}
 block|}
 end_class

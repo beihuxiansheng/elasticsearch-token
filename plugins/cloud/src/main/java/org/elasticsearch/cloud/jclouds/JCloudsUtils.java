@@ -82,15 +82,6 @@ specifier|public
 class|class
 name|JCloudsUtils
 block|{
-DECL|field|BLOB_CONTAINER_SEP
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|BLOB_CONTAINER_SEP
-init|=
-literal|"-"
-decl_stmt|;
 DECL|method|buildModules
 specifier|public
 specifier|static
