@@ -228,6 +228,17 @@ parameter_list|)
 throws|throws
 name|ElasticSearchException
 function_decl|;
+comment|/**      * Cleans the index without actually deleting any content for it.      */
+DECL|method|cleanIndex
+name|void
+name|cleanIndex
+parameter_list|(
+name|String
+name|index
+parameter_list|)
+throws|throws
+name|ElasticSearchException
+function_decl|;
 block|}
 end_interface
 
