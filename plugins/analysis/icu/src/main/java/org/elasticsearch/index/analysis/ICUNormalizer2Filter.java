@@ -119,7 +119,7 @@ comment|/**  * Normalize token text with ICU's {@link com.ibm.icu.text.Normalize
 end_comment
 
 begin_comment
-comment|// TODO Lucene Monitor: Once 3.1 is released use it instead
+comment|// LUCENE MONITOR: Once 3.1 is released use it instead
 end_comment
 
 begin_class

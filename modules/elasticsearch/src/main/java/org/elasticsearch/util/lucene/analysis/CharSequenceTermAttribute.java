@@ -39,7 +39,7 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_comment
-comment|// TODO Lucene Monitor: Once 3.1 is out, no need for this class anymore, use CharTermAttribute
+comment|// LUCENE MONITOR: Once 3.1 is out, no need for this class anymore, use CharTermAttribute
 end_comment
 
 begin_class
