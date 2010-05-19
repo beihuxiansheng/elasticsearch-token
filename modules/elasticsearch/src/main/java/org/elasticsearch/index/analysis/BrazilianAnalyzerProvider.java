@@ -164,7 +164,7 @@ specifier|public
 class|class
 name|BrazilianAnalyzerProvider
 extends|extends
-name|AbstractAnalyzerProvider
+name|AbstractIndexAnalyzerProvider
 argument_list|<
 name|BrazilianAnalyzer
 argument_list|>

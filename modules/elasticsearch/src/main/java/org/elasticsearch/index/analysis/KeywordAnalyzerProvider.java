@@ -110,7 +110,7 @@ specifier|public
 class|class
 name|KeywordAnalyzerProvider
 extends|extends
-name|AbstractAnalyzerProvider
+name|AbstractIndexAnalyzerProvider
 argument_list|<
 name|KeywordAnalyzer
 argument_list|>

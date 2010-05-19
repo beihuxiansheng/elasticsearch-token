@@ -164,7 +164,7 @@ specifier|public
 class|class
 name|FrenchAnalyzerProvider
 extends|extends
-name|AbstractAnalyzerProvider
+name|AbstractIndexAnalyzerProvider
 argument_list|<
 name|FrenchAnalyzer
 argument_list|>

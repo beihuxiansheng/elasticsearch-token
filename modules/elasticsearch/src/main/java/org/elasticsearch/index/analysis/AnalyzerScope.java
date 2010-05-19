@@ -16,71 +16,23 @@ name|analysis
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|analysis
-operator|.
-name|Analyzer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|util
-operator|.
-name|inject
-operator|.
-name|Provider
-import|;
-end_import
-
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
-begin_interface
-DECL|interface|AnalyzerProvider
+begin_enum
+DECL|enum|AnalyzerScope
 specifier|public
-interface|interface
-name|AnalyzerProvider
-parameter_list|<
-name|T
-extends|extends
-name|Analyzer
-parameter_list|>
-extends|extends
-name|Provider
-argument_list|<
-name|T
-argument_list|>
-block|{
-DECL|method|name
-name|String
-name|name
-parameter_list|()
-function_decl|;
-DECL|method|scope
+enum|enum
 name|AnalyzerScope
-name|scope
-parameter_list|()
-function_decl|;
-DECL|method|get
-name|T
-name|get
-parameter_list|()
-function_decl|;
+block|{
+DECL|enum constant|INDEX
+name|INDEX
+block|,
+DECL|enum constant|INDICES
+name|INDICES
 block|}
-end_interface
+end_enum
 
 end_unit
 

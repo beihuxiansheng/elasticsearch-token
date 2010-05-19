@@ -146,7 +146,7 @@ specifier|public
 class|class
 name|CustomAnalyzerProvider
 extends|extends
-name|AbstractAnalyzerProvider
+name|AbstractIndexAnalyzerProvider
 argument_list|<
 name|CustomAnalyzer
 argument_list|>

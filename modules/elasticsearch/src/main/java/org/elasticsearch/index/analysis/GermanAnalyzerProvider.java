@@ -164,7 +164,7 @@ specifier|public
 class|class
 name|GermanAnalyzerProvider
 extends|extends
-name|AbstractAnalyzerProvider
+name|AbstractIndexAnalyzerProvider
 argument_list|<
 name|GermanAnalyzer
 argument_list|>

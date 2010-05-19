@@ -110,7 +110,7 @@ specifier|public
 class|class
 name|SimpleAnalyzerProvider
 extends|extends
-name|AbstractAnalyzerProvider
+name|AbstractIndexAnalyzerProvider
 argument_list|<
 name|SimpleAnalyzer
 argument_list|>

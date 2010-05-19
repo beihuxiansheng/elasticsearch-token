@@ -126,7 +126,7 @@ specifier|public
 class|class
 name|ThaiAnalyzerProvider
 extends|extends
-name|AbstractAnalyzerProvider
+name|AbstractIndexAnalyzerProvider
 argument_list|<
 name|ThaiAnalyzer
 argument_list|>

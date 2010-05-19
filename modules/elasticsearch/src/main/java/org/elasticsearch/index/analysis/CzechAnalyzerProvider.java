@@ -164,7 +164,7 @@ specifier|public
 class|class
 name|CzechAnalyzerProvider
 extends|extends
-name|AbstractAnalyzerProvider
+name|AbstractIndexAnalyzerProvider
 argument_list|<
 name|CzechAnalyzer
 argument_list|>

@@ -162,7 +162,7 @@ specifier|public
 class|class
 name|StopAnalyzerProvider
 extends|extends
-name|AbstractAnalyzerProvider
+name|AbstractIndexAnalyzerProvider
 argument_list|<
 name|StopAnalyzer
 argument_list|>

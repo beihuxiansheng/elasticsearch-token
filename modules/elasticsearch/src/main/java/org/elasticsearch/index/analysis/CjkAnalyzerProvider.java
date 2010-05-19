@@ -164,7 +164,7 @@ specifier|public
 class|class
 name|CjkAnalyzerProvider
 extends|extends
-name|AbstractAnalyzerProvider
+name|AbstractIndexAnalyzerProvider
 argument_list|<
 name|CJKAnalyzer
 argument_list|>

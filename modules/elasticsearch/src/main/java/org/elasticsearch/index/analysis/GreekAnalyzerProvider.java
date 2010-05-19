@@ -164,7 +164,7 @@ specifier|public
 class|class
 name|GreekAnalyzerProvider
 extends|extends
-name|AbstractAnalyzerProvider
+name|AbstractIndexAnalyzerProvider
 argument_list|<
 name|GreekAnalyzer
 argument_list|>

@@ -154,7 +154,7 @@ specifier|public
 class|class
 name|RussianAnalyzerProvider
 extends|extends
-name|AbstractAnalyzerProvider
+name|AbstractIndexAnalyzerProvider
 argument_list|<
 name|RussianAnalyzer
 argument_list|>

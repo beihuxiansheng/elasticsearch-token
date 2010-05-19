@@ -112,7 +112,7 @@ specifier|public
 class|class
 name|ChineseAnalyzerProvider
 extends|extends
-name|AbstractAnalyzerProvider
+name|AbstractIndexAnalyzerProvider
 argument_list|<
 name|ChineseAnalyzer
 argument_list|>

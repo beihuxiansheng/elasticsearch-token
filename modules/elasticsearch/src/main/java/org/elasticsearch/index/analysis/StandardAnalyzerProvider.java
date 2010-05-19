@@ -178,7 +178,7 @@ specifier|public
 class|class
 name|StandardAnalyzerProvider
 extends|extends
-name|AbstractAnalyzerProvider
+name|AbstractIndexAnalyzerProvider
 argument_list|<
 name|StandardAnalyzer
 argument_list|>

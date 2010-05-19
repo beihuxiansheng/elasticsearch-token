@@ -164,7 +164,7 @@ specifier|public
 class|class
 name|PersianAnalyzerProvider
 extends|extends
-name|AbstractAnalyzerProvider
+name|AbstractIndexAnalyzerProvider
 argument_list|<
 name|PersianAnalyzer
 argument_list|>

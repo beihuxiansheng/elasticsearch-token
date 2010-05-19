@@ -164,7 +164,7 @@ specifier|public
 class|class
 name|DutchAnalyzerProvider
 extends|extends
-name|AbstractAnalyzerProvider
+name|AbstractIndexAnalyzerProvider
 argument_list|<
 name|DutchAnalyzer
 argument_list|>
