@@ -268,15 +268,6 @@ argument_list|(
 name|query
 argument_list|)
 decl_stmt|;
-name|filter
-operator|=
-name|parseContext
-operator|.
-name|cacheFilterIfPossible
-argument_list|(
-name|filter
-argument_list|)
-expr_stmt|;
 return|return
 name|filter
 return|;

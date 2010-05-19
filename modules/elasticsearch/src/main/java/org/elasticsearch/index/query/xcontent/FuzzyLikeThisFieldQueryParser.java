@@ -668,9 +668,6 @@ argument_list|,
 name|smartNameFieldMappers
 argument_list|,
 name|parseContext
-operator|.
-name|indexCache
-argument_list|()
 argument_list|)
 return|;
 block|}

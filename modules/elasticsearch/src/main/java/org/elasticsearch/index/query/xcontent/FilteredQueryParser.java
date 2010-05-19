@@ -266,6 +266,11 @@ name|boost
 init|=
 literal|1.0f
 decl_stmt|;
+name|boolean
+name|cache
+init|=
+literal|true
+decl_stmt|;
 name|String
 name|currentFieldName
 init|=
@@ -390,6 +395,25 @@ name|floatValue
 argument_list|()
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+literal|"cache"
+operator|.
+name|equals
+argument_list|(
+name|currentFieldName
+argument_list|)
+condition|)
+block|{
+name|cache
+operator|=
+name|parser
+operator|.
+name|booleanValue
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 block|}
 if|if
@@ -425,6 +449,22 @@ argument_list|,
 literal|"[filtered] requires 'filter' element"
 argument_list|)
 throw|;
+block|}
+comment|// cache if required
+if|if
+condition|(
+name|cache
+condition|)
+block|{
+name|filter
+operator|=
+name|parseContext
+operator|.
+name|cacheFilterIfPossible
+argument_list|(
+name|filter
+argument_list|)
+expr_stmt|;
 block|}
 comment|// we don't cache the filter, we assume it is already cached in the filter parsers...
 name|FilteredQuery

@@ -860,14 +860,6 @@ argument_list|,
 name|analyzer
 argument_list|,
 name|parseContext
-operator|.
-name|mapperService
-argument_list|()
-argument_list|,
-name|parseContext
-operator|.
-name|indexCache
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|queryParser

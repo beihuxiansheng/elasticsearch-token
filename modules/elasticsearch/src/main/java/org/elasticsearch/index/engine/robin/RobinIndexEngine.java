@@ -98,6 +98,24 @@ name|Settings
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|settings
+operator|.
+name|ImmutableSettings
+operator|.
+name|Builder
+operator|.
+name|*
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
@@ -112,6 +130,22 @@ name|AbstractIndexComponent
 implements|implements
 name|IndexEngine
 block|{
+DECL|method|RobinIndexEngine
+specifier|public
+name|RobinIndexEngine
+parameter_list|(
+name|Index
+name|index
+parameter_list|)
+block|{
+name|this
+argument_list|(
+name|index
+argument_list|,
+name|EMPTY_SETTINGS
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|RobinIndexEngine
 annotation|@
 name|Inject
@@ -134,6 +168,19 @@ argument_list|,
 name|indexSettings
 argument_list|)
 expr_stmt|;
+block|}
+comment|/**      * With NRT, readers are cloned on deletions... .      */
+DECL|method|readerClonedOnDeletion
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|readerClonedOnDeletion
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
 block|}
 DECL|method|close
 annotation|@

@@ -416,15 +416,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|filter
-operator|=
-name|parseContext
-operator|.
-name|cacheFilterIfPossible
-argument_list|(
-name|filter
-argument_list|)
-expr_stmt|;
 return|return
 name|wrapSmartNameFilter
 argument_list|(
@@ -433,9 +424,6 @@ argument_list|,
 name|smartNameFieldMappers
 argument_list|,
 name|parseContext
-operator|.
-name|indexCache
-argument_list|()
 argument_list|)
 return|;
 block|}
