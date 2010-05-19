@@ -146,16 +146,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Iterator
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|concurrent
 operator|.
 name|ConcurrentMap
@@ -216,7 +206,7 @@ specifier|private
 specifier|final
 name|ConcurrentMap
 argument_list|<
-name|IndexReader
+name|Object
 argument_list|,
 name|ConcurrentMap
 argument_list|<
@@ -241,7 +231,7 @@ name|indexSettings
 parameter_list|,
 name|ConcurrentMap
 argument_list|<
-name|IndexReader
+name|Object
 argument_list|,
 name|ConcurrentMap
 argument_list|<
@@ -303,119 +293,23 @@ name|void
 name|clearUnreferenced
 parameter_list|()
 block|{
-name|int
-name|totalCount
-init|=
-name|cache
-operator|.
-name|size
-argument_list|()
-decl_stmt|;
-name|int
-name|cleaned
-init|=
-literal|0
-decl_stmt|;
-for|for
-control|(
-name|Iterator
-argument_list|<
-name|IndexReader
-argument_list|>
-name|readerIt
-init|=
-name|cache
-operator|.
-name|keySet
-argument_list|()
-operator|.
-name|iterator
-argument_list|()
-init|;
-name|readerIt
-operator|.
-name|hasNext
-argument_list|()
-condition|;
-control|)
-block|{
-name|IndexReader
-name|reader
-init|=
-name|readerIt
-operator|.
-name|next
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|reader
-operator|.
-name|getRefCount
-argument_list|()
-operator|<=
-literal|0
-condition|)
-block|{
-name|readerIt
-operator|.
-name|remove
-argument_list|()
-expr_stmt|;
-name|cleaned
-operator|++
-expr_stmt|;
-block|}
-block|}
-if|if
-condition|(
-name|logger
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-if|if
-condition|(
-name|cleaned
-operator|>
-literal|0
-condition|)
-block|{
-name|logger
-operator|.
-name|debug
-argument_list|(
-literal|"Cleaned [{}] out of estimated total [{}]"
-argument_list|,
-name|cleaned
-argument_list|,
-name|totalCount
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-elseif|else
-if|if
-condition|(
-name|logger
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
-name|logger
-operator|.
-name|trace
-argument_list|(
-literal|"Cleaned [{}] out of estimated total [{}]"
-argument_list|,
-name|cleaned
-argument_list|,
-name|totalCount
-argument_list|)
-expr_stmt|;
-block|}
+comment|// can't do this, since we cache on cacheKey...
+comment|//        int totalCount = cache.size();
+comment|//        int cleaned = 0;
+comment|//        for (Iterator<IndexReader> readerIt = cache.keySet().iterator(); readerIt.hasNext();) {
+comment|//            IndexReader reader = readerIt.next();
+comment|//            if (reader.getRefCount()<= 0) {
+comment|//                readerIt.remove();
+comment|//                cleaned++;
+comment|//            }
+comment|//        }
+comment|//        if (logger.isDebugEnabled()) {
+comment|//            if (cleaned> 0) {
+comment|//                logger.debug("Cleaned [{}] out of estimated total [{}]", cleaned, totalCount);
+comment|//            }
+comment|//        } else if (logger.isTraceEnabled()) {
+comment|//            logger.trace("Cleaned [{}] out of estimated total [{}]", cleaned, totalCount);
+comment|//        }
 block|}
 DECL|method|cache
 annotation|@
@@ -523,6 +417,9 @@ operator|.
 name|get
 argument_list|(
 name|reader
+operator|.
+name|getFieldCacheKey
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -542,6 +439,9 @@ operator|.
 name|putIfAbsent
 argument_list|(
 name|reader
+operator|.
+name|getFieldCacheKey
+argument_list|()
 argument_list|,
 name|cachedFilters
 argument_list|)
