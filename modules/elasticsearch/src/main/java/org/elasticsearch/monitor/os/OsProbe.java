@@ -36,6 +36,11 @@ name|OsStats
 name|osStats
 parameter_list|()
 function_decl|;
+DECL|method|ifconfig
+name|String
+name|ifconfig
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

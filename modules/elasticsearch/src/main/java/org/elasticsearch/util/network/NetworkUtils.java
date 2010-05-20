@@ -322,6 +322,27 @@ literal|"::1"
 argument_list|)
 return|;
 block|}
+DECL|method|canBindToMcastAddress
+specifier|public
+specifier|static
+name|boolean
+name|canBindToMcastAddress
+parameter_list|()
+block|{
+return|return
+name|OsUtils
+operator|.
+name|LINUX
+operator|||
+name|OsUtils
+operator|.
+name|SOLARIS
+operator|||
+name|OsUtils
+operator|.
+name|HP
+return|;
+block|}
 comment|/**      * Returns the first non-loopback address on any interface on the current host.      *      * @param ip_version Constraint on IP version of address to be returned, 4 or 6      */
 DECL|method|getFirstNonLoopbackAddress
 specifier|public

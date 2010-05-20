@@ -150,6 +150,19 @@ name|osStats
 argument_list|()
 return|;
 block|}
+DECL|method|ifconfig
+specifier|public
+name|String
+name|ifconfig
+parameter_list|()
+block|{
+return|return
+name|probe
+operator|.
+name|ifconfig
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 

@@ -30,6 +30,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|collect
+operator|.
+name|Iterables
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -3761,7 +3775,7 @@ specifier|static
 name|String
 name|collectionToDelimitedString
 parameter_list|(
-name|Collection
+name|Iterable
 name|coll
 parameter_list|,
 name|String
@@ -3776,6 +3790,8 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|Iterables
+operator|.
 name|isEmpty
 argument_list|(
 name|coll
@@ -3860,7 +3876,7 @@ specifier|static
 name|String
 name|collectionToDelimitedString
 parameter_list|(
-name|Collection
+name|Iterable
 name|coll
 parameter_list|,
 name|String
@@ -3887,7 +3903,7 @@ specifier|static
 name|String
 name|collectionToCommaDelimitedString
 parameter_list|(
-name|Collection
+name|Iterable
 name|coll
 parameter_list|)
 block|{
