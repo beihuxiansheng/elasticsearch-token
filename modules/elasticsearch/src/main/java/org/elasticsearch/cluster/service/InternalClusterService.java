@@ -1162,7 +1162,11 @@ name|logger
 operator|.
 name|info
 argument_list|(
+literal|"{}, Reason: {}"
+argument_list|,
 name|summary
+argument_list|,
+name|source
 argument_list|)
 expr_stmt|;
 block|}

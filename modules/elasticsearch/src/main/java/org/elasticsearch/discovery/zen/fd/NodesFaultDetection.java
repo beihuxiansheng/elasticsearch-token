@@ -262,6 +262,9 @@ name|onNodeFailure
 parameter_list|(
 name|DiscoveryNode
 name|node
+parameter_list|,
+name|String
+name|reason
 parameter_list|)
 function_decl|;
 block|}
@@ -571,6 +574,25 @@ control|)
 block|{
 if|if
 condition|(
+name|newNode
+operator|.
+name|id
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|nodes
+operator|.
+name|localNodeId
+argument_list|()
+argument_list|)
+condition|)
+block|{
+comment|// no need to monitor the local node
+continue|continue;
+block|}
+if|if
+condition|(
 operator|!
 name|nodesFD
 operator|.
@@ -784,6 +806,8 @@ expr_stmt|;
 name|notifyNodeFailure
 argument_list|(
 name|node
+argument_list|,
+literal|"Failed on disconnect (with verified connect)"
 argument_list|)
 expr_stmt|;
 block|}
@@ -802,6 +826,8 @@ expr_stmt|;
 name|notifyNodeFailure
 argument_list|(
 name|node
+argument_list|,
+literal|"Failed on disconnect"
 argument_list|)
 expr_stmt|;
 block|}
@@ -813,6 +839,9 @@ name|notifyNodeFailure
 parameter_list|(
 name|DiscoveryNode
 name|node
+parameter_list|,
+name|String
+name|reason
 parameter_list|)
 block|{
 for|for
@@ -828,6 +857,8 @@ operator|.
 name|onNodeFailure
 argument_list|(
 name|node
+argument_list|,
+name|reason
 argument_list|)
 expr_stmt|;
 block|}
@@ -1056,9 +1087,42 @@ block|{
 name|notifyNodeFailure
 argument_list|(
 name|node
+argument_list|,
+literal|"Failed on ping, tried ["
+operator|+
+name|pingRetryCount
+operator|+
+literal|"] times, each with ["
+operator|+
+name|pingRetryTimeout
+operator|+
+literal|"] timeout"
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+else|else
+block|{
+comment|// resend the request
+name|transportService
+operator|.
+name|sendRequest
+argument_list|(
+name|node
+argument_list|,
+name|PingRequestHandler
+operator|.
+name|ACTION
+argument_list|,
+operator|new
+name|PingRequest
+argument_list|()
+argument_list|,
+name|pingRetryTimeout
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}

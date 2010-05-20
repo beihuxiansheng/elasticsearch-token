@@ -1632,6 +1632,9 @@ parameter_list|(
 specifier|final
 name|DiscoveryNode
 name|node
+parameter_list|,
+name|String
+name|reason
 parameter_list|)
 block|{
 if|if
@@ -1651,7 +1654,9 @@ literal|"zen-disco-node_failed("
 operator|+
 name|node
 operator|+
-literal|")"
+literal|"), reason "
+operator|+
+name|reason
 argument_list|,
 operator|new
 name|ProcessedClusterStateUpdateTask
@@ -2665,11 +2670,16 @@ name|onNodeFailure
 parameter_list|(
 name|DiscoveryNode
 name|node
+parameter_list|,
+name|String
+name|reason
 parameter_list|)
 block|{
 name|handleNodeFailure
 argument_list|(
 name|node
+argument_list|,
+name|reason
 argument_list|)
 expr_stmt|;
 block|}
@@ -2692,13 +2702,16 @@ name|onMasterFailure
 parameter_list|(
 name|DiscoveryNode
 name|masterNode
+parameter_list|,
+name|String
+name|reason
 parameter_list|)
 block|{
 name|handleMasterGone
 argument_list|(
 name|masterNode
 argument_list|,
-literal|"failure"
+name|reason
 argument_list|)
 expr_stmt|;
 block|}

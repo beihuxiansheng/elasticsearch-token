@@ -262,6 +262,9 @@ name|onMasterFailure
 parameter_list|(
 name|DiscoveryNode
 name|masterNode
+parameter_list|,
+name|String
+name|reason
 parameter_list|)
 function_decl|;
 DECL|method|onDisconnectedFromMaster
@@ -610,6 +613,15 @@ block|{
 name|notifyMasterFailure
 argument_list|(
 name|masterNode
+argument_list|,
+literal|"failed to perform initial connect ["
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|+
+literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -736,6 +748,8 @@ expr_stmt|;
 name|notifyMasterFailure
 argument_list|(
 name|masterNode
+argument_list|,
+literal|"Failed on disconnect (with verified connect)"
 argument_list|)
 expr_stmt|;
 block|}
@@ -754,6 +768,8 @@ expr_stmt|;
 name|notifyMasterFailure
 argument_list|(
 name|masterNode
+argument_list|,
+literal|"Failed on disconnect"
 argument_list|)
 expr_stmt|;
 block|}
@@ -787,6 +803,9 @@ name|notifyMasterFailure
 parameter_list|(
 name|DiscoveryNode
 name|masterNode
+parameter_list|,
+name|String
+name|reason
 parameter_list|)
 block|{
 if|if
@@ -814,6 +833,8 @@ operator|.
 name|onMasterFailure
 argument_list|(
 name|masterNode
+argument_list|,
+name|reason
 argument_list|)
 expr_stmt|;
 block|}
@@ -1077,6 +1098,46 @@ comment|// not good, failure
 name|notifyMasterFailure
 argument_list|(
 name|sentToNode
+argument_list|,
+literal|"Failed on ping, tried ["
+operator|+
+name|pingRetryCount
+operator|+
+literal|"] times, each with ["
+operator|+
+name|pingRetryTimeout
+operator|+
+literal|"] timeout"
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|transportService
+operator|.
+name|sendRequest
+argument_list|(
+name|sentToNode
+argument_list|,
+name|MasterPingRequestHandler
+operator|.
+name|ACTION
+argument_list|,
+operator|new
+name|MasterPingRequest
+argument_list|(
+name|nodesProvider
+operator|.
+name|nodes
+argument_list|()
+operator|.
+name|localNode
+argument_list|()
+argument_list|)
+argument_list|,
+name|pingRetryTimeout
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 block|}
