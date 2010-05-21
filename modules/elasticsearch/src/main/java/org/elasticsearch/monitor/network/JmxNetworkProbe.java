@@ -135,6 +135,18 @@ return|return
 name|stats
 return|;
 block|}
+DECL|method|ifconfig
+annotation|@
+name|Override
+specifier|public
+name|String
+name|ifconfig
+parameter_list|()
+block|{
+return|return
+literal|"NA"
+return|;
+block|}
 block|}
 end_class
 
