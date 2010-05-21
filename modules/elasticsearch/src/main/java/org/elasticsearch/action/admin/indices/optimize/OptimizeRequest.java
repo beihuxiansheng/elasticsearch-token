@@ -133,14 +133,14 @@ specifier|private
 name|boolean
 name|flush
 init|=
-literal|false
+literal|true
 decl_stmt|;
 DECL|field|refresh
 specifier|private
 name|boolean
 name|refresh
 init|=
-literal|false
+literal|true
 decl_stmt|;
 comment|/**      * Constructs an optimization request over one or more indices.      *      * @param indices The indices to optimize, no indices passed means all indices will be optimized.      */
 DECL|method|OptimizeRequest
@@ -309,7 +309,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Should flush be performed after the optimization. Defaults to<tt>false</tt>.      */
+comment|/**      * Should flush be performed after the optimization. Defaults to<tt>true</tt>.      */
 DECL|method|flush
 specifier|public
 name|boolean
@@ -320,7 +320,7 @@ return|return
 name|flush
 return|;
 block|}
-comment|/**      * Should flush be performed after the optimization. Defaults to<tt>false</tt>.      */
+comment|/**      * Should flush be performed after the optimization. Defaults to<tt>true</tt>.      */
 DECL|method|flush
 specifier|public
 name|OptimizeRequest
@@ -340,7 +340,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Should refresh be performed after the optimization. Defaults to<tt>false</tt>.      */
+comment|/**      * Should refresh be performed after the optimization. Defaults to<tt>true</tt>.      */
 DECL|method|refresh
 specifier|public
 name|boolean
@@ -351,7 +351,7 @@ return|return
 name|refresh
 return|;
 block|}
-comment|/**      * Should refresh be performed after the optimization. Defaults to<tt>false</tt>.      */
+comment|/**      * Should refresh be performed after the optimization. Defaults to<tt>true</tt>.      */
 DECL|method|refresh
 specifier|public
 name|OptimizeRequest
