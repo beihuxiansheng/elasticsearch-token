@@ -47,6 +47,8 @@ DECL|interface|ThreadPool
 specifier|public
 interface|interface
 name|ThreadPool
+extends|extends
+name|Executor
 block|{
 DECL|method|info
 name|ThreadPoolInfo

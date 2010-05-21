@@ -428,7 +428,7 @@ operator|=
 operator|new
 name|SizeValue
 argument_list|(
-literal|4
+literal|1
 argument_list|,
 name|SizeUnit
 operator|.
