@@ -373,20 +373,15 @@ name|debug
 argument_list|(
 literal|"Using [balanced] merge policy with merge_factor[{}], min_merge_size[{}], max_merge_size[{}], max_merge_docs[{}] use_compound_file[{}]"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|mergeFactor
-block|,
+argument_list|,
 name|minMergeSize
-block|,
+argument_list|,
 name|maxMergeSize
-block|,
+argument_list|,
 name|maxMergeDocs
-block|,
+argument_list|,
 name|useCompoundFile
-block|}
 argument_list|)
 expr_stmt|;
 block|}
