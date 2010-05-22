@@ -16,20 +16,6 @@ name|mapper
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|StringHelper
-import|;
-end_import
-
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
@@ -54,12 +40,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-name|StringHelper
-operator|.
-name|intern
-argument_list|(
 literal|"_all"
-argument_list|)
 decl_stmt|;
 block|}
 end_interface
