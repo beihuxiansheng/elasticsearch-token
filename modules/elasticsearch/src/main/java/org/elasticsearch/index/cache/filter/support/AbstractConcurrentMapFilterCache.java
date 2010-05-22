@@ -363,8 +363,8 @@ name|newConcurrentMap
 argument_list|()
 return|;
 block|}
-comment|// LUCENE MONITOR: Check next version Lucene for CachingWrapperFilter, consifer using that logic
-comment|// and not use the DeletableConstantScoreQuery, instead pass the enum
+comment|// LUCENE MONITOR: Check next version Lucene for CachingWrapperFilter, consider using that logic
+comment|// and not use the DeletableConstantScoreQuery, instead pass the DeletesMode enum to the cache method
 comment|// see: https://issues.apache.org/jira/browse/LUCENE-2468
 DECL|class|FilterCacheFilterWrapper
 specifier|private
