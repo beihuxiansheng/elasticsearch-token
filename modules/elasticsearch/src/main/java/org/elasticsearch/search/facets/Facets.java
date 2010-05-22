@@ -320,6 +320,7 @@ parameter_list|()
 block|{
 return|return
 name|facetsAsMap
+argument_list|()
 return|;
 block|}
 comment|/**      * Returns the {@link Facet}s keyed by map.      */
