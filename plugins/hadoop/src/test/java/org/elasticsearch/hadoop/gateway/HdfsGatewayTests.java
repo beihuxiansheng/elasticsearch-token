@@ -216,7 +216,7 @@ name|testng
 operator|.
 name|annotations
 operator|.
-name|AfterTest
+name|AfterMethod
 import|;
 end_import
 
@@ -228,7 +228,7 @@ name|testng
 operator|.
 name|annotations
 operator|.
-name|BeforeTest
+name|BeforeMethod
 import|;
 end_import
 
@@ -343,7 +343,7 @@ name|node
 decl_stmt|;
 DECL|method|setUpNodes
 annotation|@
-name|BeforeTest
+name|BeforeMethod
 name|void
 name|setUpNodes
 parameter_list|()
@@ -439,7 +439,7 @@ return|;
 block|}
 DECL|method|closeNodes
 annotation|@
-name|AfterTest
+name|AfterMethod
 name|void
 name|closeNodes
 parameter_list|()
