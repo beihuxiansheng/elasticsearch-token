@@ -574,7 +574,7 @@ operator|.
 name|value
 argument_list|()
 operator|+
-literal|"/"
+literal|"/indices/"
 operator|+
 name|index
 operator|.
