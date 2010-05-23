@@ -350,6 +350,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// start the node and reset the gateway
 name|node
 operator|=
 name|buildNode
@@ -377,6 +378,15 @@ argument_list|()
 expr_stmt|;
 name|node
 operator|.
+name|close
+argument_list|()
+expr_stmt|;
+comment|// now start the node clean
+name|node
+operator|=
+name|buildNode
+argument_list|()
+operator|.
 name|start
 argument_list|()
 expr_stmt|;
@@ -392,13 +402,20 @@ name|settings
 init|=
 name|settingsBuilder
 argument_list|()
-comment|//                .put("hdfs.conf.fs.default.name", "file://work")
 operator|.
 name|put
 argument_list|(
 literal|"gateway.type"
 argument_list|,
 literal|"hdfs"
+argument_list|)
+comment|//                .put("gateway.hdfs.uri", "hdfs://training-vm.local:8022")
+operator|.
+name|put
+argument_list|(
+literal|"gateway.hdfs.uri"
+argument_list|,
+literal|"file:///"
 argument_list|)
 operator|.
 name|put
