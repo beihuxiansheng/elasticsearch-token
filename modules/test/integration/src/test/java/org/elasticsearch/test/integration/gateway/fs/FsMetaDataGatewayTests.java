@@ -140,6 +140,8 @@ name|AfterMethod
 name|void
 name|closeNodes
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|node
 argument_list|(
@@ -183,6 +185,8 @@ name|BeforeMethod
 name|void
 name|buildNode1
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|buildNode
 argument_list|(

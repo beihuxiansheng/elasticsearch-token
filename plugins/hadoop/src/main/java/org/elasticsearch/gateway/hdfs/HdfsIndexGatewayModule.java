@@ -4,13 +4,15 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.gateway
+DECL|package|org.elasticsearch.gateway.hdfs
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|gateway
+operator|.
+name|hdfs
 package|;
 end_package
 
@@ -20,11 +22,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
+name|index
 operator|.
-name|metadata
+name|gateway
 operator|.
-name|MetaData
+name|IndexGateway
 import|;
 end_import
 
@@ -34,11 +36,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|index
 operator|.
-name|component
+name|gateway
 operator|.
-name|LifecycleComponent
+name|hdfs
+operator|.
+name|HdfsIndexGateway
 import|;
 end_import
 
@@ -52,61 +56,50 @@ name|util
 operator|.
 name|inject
 operator|.
-name|Module
+name|AbstractModule
 import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  * @author kimchy (Shay Banon)  */
 end_comment
 
-begin_interface
-DECL|interface|Gateway
+begin_class
+DECL|class|HdfsIndexGatewayModule
 specifier|public
-interface|interface
-name|Gateway
+class|class
+name|HdfsIndexGatewayModule
 extends|extends
-name|LifecycleComponent
-argument_list|<
-name|Gateway
-argument_list|>
+name|AbstractModule
 block|{
-DECL|method|write
+DECL|method|configure
+annotation|@
+name|Override
+specifier|protected
 name|void
-name|write
-parameter_list|(
-name|MetaData
-name|metaData
-parameter_list|)
-throws|throws
-name|GatewayException
-function_decl|;
-DECL|method|read
-name|MetaData
-name|read
+name|configure
 parameter_list|()
-throws|throws
-name|GatewayException
-function_decl|;
-DECL|method|suggestIndexGateway
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|Module
-argument_list|>
-name|suggestIndexGateway
-parameter_list|()
-function_decl|;
-DECL|method|reset
-name|void
-name|reset
-parameter_list|()
-throws|throws
-name|Exception
-function_decl|;
+block|{
+name|bind
+argument_list|(
+name|IndexGateway
+operator|.
+name|class
+argument_list|)
+operator|.
+name|to
+argument_list|(
+name|HdfsIndexGateway
+operator|.
+name|class
+argument_list|)
+operator|.
+name|asEagerSingleton
+argument_list|()
+expr_stmt|;
 block|}
-end_interface
+block|}
+end_class
 
 end_unit
 
