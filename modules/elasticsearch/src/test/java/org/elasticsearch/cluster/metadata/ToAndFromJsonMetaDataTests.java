@@ -372,7 +372,7 @@ expr_stmt|;
 name|IndexMetaData
 name|indexMetaData
 init|=
-name|metaData
+name|parsedMetaData
 operator|.
 name|index
 argument_list|(
@@ -442,7 +442,7 @@ argument_list|)
 expr_stmt|;
 name|indexMetaData
 operator|=
-name|metaData
+name|parsedMetaData
 operator|.
 name|index
 argument_list|(
@@ -548,7 +548,7 @@ argument_list|)
 expr_stmt|;
 name|indexMetaData
 operator|=
-name|metaData
+name|parsedMetaData
 operator|.
 name|index
 argument_list|(
@@ -636,7 +636,7 @@ argument_list|)
 expr_stmt|;
 name|indexMetaData
 operator|=
-name|metaData
+name|parsedMetaData
 operator|.
 name|index
 argument_list|(
@@ -784,7 +784,7 @@ specifier|final
 name|String
 name|MAPPING_SOURCE1
 init|=
-literal|"{ text1: { type : \"string\" } }"
+literal|"{\"mapping1\":{\"text1\":{\"type\":\"string\"}}}"
 decl_stmt|;
 DECL|field|MAPPING_SOURCE2
 specifier|private
@@ -793,7 +793,7 @@ specifier|final
 name|String
 name|MAPPING_SOURCE2
 init|=
-literal|"{ text2: { type : \"string\" } }"
+literal|"{\"mapping2\":{\"text2\":{\"type\":\"string\"}}}"
 decl_stmt|;
 block|}
 end_class

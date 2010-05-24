@@ -331,7 +331,7 @@ name|skipTo
 parameter_list|)
 function_decl|;
 block|}
-comment|/**      * A generic interface representing an operation perfomed on the transaction log.      * Each is associated with a type.      */
+comment|/**      * A generic interface representing an operation performed on the transaction log.      * Each is associated with a type.      */
 DECL|interface|Operation
 specifier|static
 interface|interface
@@ -700,6 +700,12 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|in
+operator|.
+name|readVInt
+argument_list|()
+expr_stmt|;
+comment|// version
 name|id
 operator|=
 name|in
@@ -746,6 +752,14 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|out
+operator|.
+name|writeVInt
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+comment|// version
 name|out
 operator|.
 name|writeUTF
@@ -990,6 +1004,12 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|in
+operator|.
+name|readVInt
+argument_list|()
+expr_stmt|;
+comment|// version
 name|id
 operator|=
 name|in
@@ -1036,6 +1056,14 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|out
+operator|.
+name|writeVInt
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+comment|// version
 name|out
 operator|.
 name|writeUTF
@@ -1213,6 +1241,12 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|in
+operator|.
+name|readVInt
+argument_list|()
+expr_stmt|;
+comment|// version
 name|uid
 operator|=
 operator|new
@@ -1243,6 +1277,14 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|out
+operator|.
+name|writeVInt
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+comment|// version
 name|out
 operator|.
 name|writeUTF
@@ -1489,6 +1531,12 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|in
+operator|.
+name|readVInt
+argument_list|()
+expr_stmt|;
+comment|// version
 name|source
 operator|=
 operator|new
@@ -1587,6 +1635,14 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|out
+operator|.
+name|writeVInt
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+comment|// version
 name|out
 operator|.
 name|writeVInt
