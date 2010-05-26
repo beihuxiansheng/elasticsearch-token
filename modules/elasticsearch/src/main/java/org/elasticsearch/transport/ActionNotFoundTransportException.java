@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * An exception indicating that a transport action was not found.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -26,19 +26,47 @@ name|ActionNotFoundTransportException
 extends|extends
 name|TransportException
 block|{
+DECL|field|action
+specifier|private
+specifier|final
+name|String
+name|action
+decl_stmt|;
 DECL|method|ActionNotFoundTransportException
 specifier|public
 name|ActionNotFoundTransportException
 parameter_list|(
 name|String
-name|message
+name|action
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|message
+literal|"No handler for action ["
+operator|+
+name|action
+operator|+
+literal|"]"
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|action
+operator|=
+name|action
+expr_stmt|;
+block|}
+DECL|method|action
+specifier|public
+name|String
+name|action
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|action
+return|;
 block|}
 block|}
 end_class

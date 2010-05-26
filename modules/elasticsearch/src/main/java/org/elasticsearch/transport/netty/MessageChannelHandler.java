@@ -903,15 +903,13 @@ operator|==
 literal|null
 condition|)
 block|{
-name|logger
-operator|.
-name|warn
+throw|throw
+operator|new
+name|ActionNotFoundTransportException
 argument_list|(
-literal|"No handler found for action [{}]"
-argument_list|,
 name|action
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 specifier|final
 name|Streamable
