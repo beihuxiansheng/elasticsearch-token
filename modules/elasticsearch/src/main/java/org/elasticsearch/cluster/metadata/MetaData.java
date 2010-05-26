@@ -1211,12 +1211,10 @@ block|{
 return|return
 name|aliasAndIndexToIndexMap2
 operator|.
-name|get
+name|containsKey
 argument_list|(
 name|index
 argument_list|)
-operator|!=
-literal|null
 return|;
 block|}
 DECL|method|index
