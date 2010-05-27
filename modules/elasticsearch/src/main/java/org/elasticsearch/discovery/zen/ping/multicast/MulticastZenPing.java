@@ -226,20 +226,6 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|network
-operator|.
-name|NetworkUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|util
-operator|.
 name|settings
 operator|.
 name|Settings
@@ -262,7 +248,37 @@ name|java
 operator|.
 name|net
 operator|.
-name|*
+name|DatagramPacket
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
+name|InetAddress
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
+name|MulticastSocket
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
+name|SocketTimeoutException
 import|;
 end_import
 
@@ -855,46 +871,14 @@ block|{
 name|MulticastSocket
 name|multicastSocket
 decl_stmt|;
-if|if
-condition|(
-name|NetworkUtils
-operator|.
-name|canBindToMcastAddress
-argument_list|()
-condition|)
-block|{
-try|try
-block|{
-name|multicastSocket
-operator|=
-operator|new
-name|MulticastSocket
-argument_list|(
-operator|new
-name|InetSocketAddress
-argument_list|(
-name|group
-argument_list|,
-name|port
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-name|logger
-operator|.
-name|debug
-argument_list|(
-literal|"Failed to create multicast socket by binding to group address, binding to port"
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
+comment|//            if (NetworkUtils.canBindToMcastAddress()) {
+comment|//                try {
+comment|//                    multicastSocket = new MulticastSocket(new InetSocketAddress(group, port));
+comment|//                } catch (Exception e) {
+comment|//                    logger.debug("Failed to create multicast socket by binding to group address, binding to port", e);
+comment|//                    multicastSocket = new MulticastSocket(port);
+comment|//                }
+comment|//            } else {
 name|multicastSocket
 operator|=
 operator|new
@@ -903,19 +887,7 @@ argument_list|(
 name|port
 argument_list|)
 expr_stmt|;
-block|}
-block|}
-else|else
-block|{
-name|multicastSocket
-operator|=
-operator|new
-name|MulticastSocket
-argument_list|(
-name|port
-argument_list|)
-expr_stmt|;
-block|}
+comment|//            }
 name|multicastSocket
 operator|.
 name|setTimeToLive
