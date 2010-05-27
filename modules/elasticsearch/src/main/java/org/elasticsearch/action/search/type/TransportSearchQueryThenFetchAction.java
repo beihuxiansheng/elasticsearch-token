@@ -985,6 +985,7 @@ specifier|final
 name|AtomicInteger
 name|counter
 parameter_list|,
+specifier|final
 name|FetchSearchRequest
 name|fetchSearchRequest
 parameter_list|,
@@ -1066,9 +1067,14 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Failed to execute fetch phase"
+literal|"[{}] Failed to execute fetch phase"
 argument_list|,
 name|t
+argument_list|,
+name|fetchSearchRequest
+operator|.
+name|id
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

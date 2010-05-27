@@ -948,6 +948,7 @@ specifier|final
 name|AtomicInteger
 name|counter
 parameter_list|,
+specifier|final
 name|QuerySearchRequest
 name|querySearchRequest
 parameter_list|,
@@ -1029,9 +1030,14 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Failed to execute query phase"
+literal|"[{}] Failed to execute query phase"
 argument_list|,
 name|t
+argument_list|,
+name|querySearchRequest
+operator|.
+name|id
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1548,6 +1554,7 @@ specifier|final
 name|AtomicInteger
 name|counter
 parameter_list|,
+specifier|final
 name|FetchSearchRequest
 name|fetchSearchRequest
 parameter_list|,
@@ -1629,9 +1636,14 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Failed to execute fetch phase"
+literal|"[{}] Failed to execute fetch phase"
 argument_list|,
 name|t
+argument_list|,
+name|fetchSearchRequest
+operator|.
+name|id
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

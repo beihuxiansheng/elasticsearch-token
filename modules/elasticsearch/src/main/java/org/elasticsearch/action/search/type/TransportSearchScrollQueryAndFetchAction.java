@@ -1060,6 +1060,7 @@ parameter_list|(
 name|DiscoveryNode
 name|node
 parameter_list|,
+specifier|final
 name|long
 name|searchId
 parameter_list|)
@@ -1143,9 +1144,11 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Failed to execute query phase"
+literal|"[{}] Failed to execute query phase"
 argument_list|,
 name|t
+argument_list|,
+name|searchId
 argument_list|)
 expr_stmt|;
 block|}
