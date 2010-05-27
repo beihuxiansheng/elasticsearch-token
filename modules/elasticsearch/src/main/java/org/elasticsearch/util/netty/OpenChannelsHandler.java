@@ -4,13 +4,13 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.transport.netty
+DECL|package|org.elasticsearch.util.netty
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|transport
+name|util
 operator|.
 name|netty
 package|;
@@ -55,7 +55,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -224,11 +224,6 @@ name|awaitUninterruptibly
 argument_list|()
 expr_stmt|;
 block|}
-name|openChannels
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 end_class
