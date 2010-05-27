@@ -1726,6 +1726,8 @@ name|trace
 argument_list|(
 literal|"[{}] Failed to send multicast ping on interface {}"
 argument_list|,
+name|e
+argument_list|,
 name|id
 argument_list|,
 name|inf
