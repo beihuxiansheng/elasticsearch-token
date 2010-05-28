@@ -44,6 +44,22 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|action
+operator|.
+name|support
+operator|.
+name|replication
+operator|.
+name|ReplicationType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|util
 operator|.
 name|TimeValue
@@ -93,7 +109,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -144,6 +160,15 @@ operator|.
 name|timeout
 argument_list|()
 expr_stmt|;
+name|this
+operator|.
+name|replicationType
+operator|=
+name|request
+operator|.
+name|replicationType
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|IndexReplicationPingRequest
 name|IndexReplicationPingRequest
@@ -163,6 +188,26 @@ operator|.
 name|timeout
 operator|=
 name|timeout
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * The replication type to use with this operation.      */
+DECL|method|replicationType
+specifier|public
+name|IndexReplicationPingRequest
+name|replicationType
+parameter_list|(
+name|ReplicationType
+name|replicationType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|replicationType
+operator|=
+name|replicationType
 expr_stmt|;
 return|return
 name|this
