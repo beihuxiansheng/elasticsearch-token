@@ -272,6 +272,14 @@ argument_list|,
 name|shardId
 argument_list|)
 expr_stmt|;
+name|replicationType
+argument_list|(
+name|request
+operator|.
+name|replicationType
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|timeout
 operator|=
 name|request
