@@ -704,7 +704,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Using hosts "
+literal|"Using hosts {}"
 argument_list|,
 name|hosts
 argument_list|)
