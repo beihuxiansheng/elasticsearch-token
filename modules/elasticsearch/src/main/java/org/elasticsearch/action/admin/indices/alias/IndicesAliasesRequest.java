@@ -224,7 +224,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds an alias to the index.      *      * @param index The index      * @param alias The alias      */
+comment|/**      * Removes an alias to the index.      *      * @param index The index      * @param alias The alias      */
 DECL|method|removeAlias
 specifier|public
 name|IndicesAliasesRequest

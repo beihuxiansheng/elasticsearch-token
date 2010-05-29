@@ -473,9 +473,7 @@ operator|.
 name|indices
 argument_list|()
 operator|.
-name|aliases
-argument_list|(
-name|indexAliasesRequest
+name|prepareAliases
 argument_list|()
 operator|.
 name|addAlias
@@ -484,7 +482,9 @@ literal|"test"
 argument_list|,
 literal|"alias1"
 argument_list|)
-argument_list|)
+operator|.
+name|execute
+argument_list|()
 operator|.
 name|actionGet
 argument_list|()

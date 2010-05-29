@@ -342,13 +342,13 @@ operator|.
 name|indices
 argument_list|()
 operator|.
-name|create
-argument_list|(
-name|createIndexRequest
+name|prepareCreate
 argument_list|(
 literal|"test"
 argument_list|)
-argument_list|)
+operator|.
+name|execute
+argument_list|()
 operator|.
 name|actionGet
 argument_list|(

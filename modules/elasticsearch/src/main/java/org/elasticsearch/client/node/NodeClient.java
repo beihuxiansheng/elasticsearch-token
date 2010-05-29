@@ -366,9 +366,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|threadpool
+name|client
 operator|.
-name|ThreadPool
+name|support
+operator|.
+name|AbstractClient
 import|;
 end_import
 
@@ -378,11 +380,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|threadpool
 operator|.
-name|component
-operator|.
-name|AbstractComponent
+name|ThreadPool
 import|;
 end_import
 
@@ -424,7 +424,7 @@ specifier|public
 class|class
 name|NodeClient
 extends|extends
-name|AbstractComponent
+name|AbstractClient
 implements|implements
 name|InternalClient
 block|{
@@ -537,11 +537,6 @@ name|TransportMoreLikeThisAction
 name|moreLikeThisAction
 parameter_list|)
 block|{
-name|super
-argument_list|(
-name|settings
-argument_list|)
-expr_stmt|;
 name|this
 operator|.
 name|threadPool

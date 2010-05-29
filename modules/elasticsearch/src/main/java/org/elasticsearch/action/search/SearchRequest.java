@@ -460,6 +460,7 @@ operator|.
 name|SINGLE_THREAD
 decl_stmt|;
 DECL|method|SearchRequest
+specifier|public
 name|SearchRequest
 parameter_list|()
 block|{     }
@@ -1584,6 +1585,34 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+comment|/**      * If set, will enable scrolling of the search request for the specified timeout.      */
+DECL|method|scroll
+specifier|public
+name|SearchRequest
+name|scroll
+parameter_list|(
+name|String
+name|keepAlive
+parameter_list|)
+block|{
+return|return
+name|scroll
+argument_list|(
+operator|new
+name|Scroll
+argument_list|(
+name|TimeValue
+operator|.
+name|parseTimeValue
+argument_list|(
+name|keepAlive
+argument_list|,
+literal|null
+argument_list|)
+argument_list|)
+argument_list|)
+return|;
+block|}
 comment|/**      * An optional timeout to control how long search is allowed to take.      */
 DECL|method|timeout
 specifier|public
@@ -1613,6 +1642,30 @@ name|timeout
 expr_stmt|;
 return|return
 name|this
+return|;
+block|}
+comment|/**      * An optional timeout to control how long search is allowed to take.      */
+DECL|method|timeout
+specifier|public
+name|SearchRequest
+name|timeout
+parameter_list|(
+name|String
+name|timeout
+parameter_list|)
+block|{
+return|return
+name|timeout
+argument_list|(
+name|TimeValue
+operator|.
+name|parseTimeValue
+argument_list|(
+name|timeout
+argument_list|,
+literal|null
+argument_list|)
+argument_list|)
 return|;
 block|}
 DECL|method|readFrom

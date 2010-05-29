@@ -95,6 +95,7 @@ name|indices
 expr_stmt|;
 block|}
 DECL|method|ReplicationPingRequest
+specifier|public
 name|ReplicationPingRequest
 parameter_list|()
 block|{      }
@@ -156,6 +157,29 @@ name|timeout
 expr_stmt|;
 return|return
 name|this
+return|;
+block|}
+DECL|method|timeout
+specifier|public
+name|ReplicationPingRequest
+name|timeout
+parameter_list|(
+name|String
+name|timeout
+parameter_list|)
+block|{
+return|return
+name|timeout
+argument_list|(
+name|TimeValue
+operator|.
+name|parseTimeValue
+argument_list|(
+name|timeout
+argument_list|,
+literal|null
+argument_list|)
+argument_list|)
 return|;
 block|}
 block|}

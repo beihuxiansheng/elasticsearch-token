@@ -262,6 +262,144 @@ name|TermsResponse
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|client
+operator|.
+name|action
+operator|.
+name|count
+operator|.
+name|CountRequestBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|client
+operator|.
+name|action
+operator|.
+name|delete
+operator|.
+name|DeleteRequestBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|client
+operator|.
+name|action
+operator|.
+name|deletebyquery
+operator|.
+name|DeleteByQueryRequestBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|client
+operator|.
+name|action
+operator|.
+name|get
+operator|.
+name|GetRequestBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|client
+operator|.
+name|action
+operator|.
+name|index
+operator|.
+name|IndexRequestBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|client
+operator|.
+name|action
+operator|.
+name|search
+operator|.
+name|SearchRequestBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|client
+operator|.
+name|action
+operator|.
+name|search
+operator|.
+name|SearchScrollRequestBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|client
+operator|.
+name|action
+operator|.
+name|terms
+operator|.
+name|TermsRequestBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|annotation
+operator|.
+name|Nullable
+import|;
+end_import
+
 begin_comment
 comment|/**  * A client provides a one stop interface for performing actions/operations against the cluster.  *  *<p>All operations performed are asynchronous by nature. Each action/operation has two flavors, the first  * simply returns an {@link org.elasticsearch.action.ActionFuture}, while the second accepts an  * {@link org.elasticsearch.action.ActionListener}.  *  *<p>A client can either be retrieved from a {@link org.elasticsearch.node.Node} started, or connected remotely  * to one or more nodes using {@link org.elasticsearch.client.transport.TransportClient}.  *  * @author kimchy (shay.banon)  * @see org.elasticsearch.node.Node#client()  * @see org.elasticsearch.client.transport.TransportClient  */
 end_comment
@@ -296,7 +434,7 @@ name|IndexRequest
 name|request
 parameter_list|)
 function_decl|;
-comment|/**      * Index a JSON source associated with a given index and type.      *      *<p>The id is optional, if it is not provided, one will be generated automatically.      *      * @param request  The index request      * @param listener A listener to be notified with a result      * @see Requests#indexRequest(String)      */
+comment|/**      * Index a document associated with a given index and type.      *      *<p>The id is optional, if it is not provided, one will be generated automatically.      *      * @param request  The index request      * @param listener A listener to be notified with a result      * @see Requests#indexRequest(String)      */
 DECL|method|index
 name|void
 name|index
@@ -309,6 +447,41 @@ argument_list|<
 name|IndexResponse
 argument_list|>
 name|listener
+parameter_list|)
+function_decl|;
+comment|/**      * Index a document associated with a given index and type.      *      *<p>The id is optional, if it is not provided, one will be generated automatically.      */
+DECL|method|prepareIndex
+name|IndexRequestBuilder
+name|prepareIndex
+parameter_list|()
+function_decl|;
+comment|/**      * Index a document associated with a given index and type.      *      *<p>The id is optional, if it is not provided, one will be generated automatically.      *      * @param index The index to index the document to      * @param type  The type to index the document to      */
+DECL|method|prepareIndex
+name|IndexRequestBuilder
+name|prepareIndex
+parameter_list|(
+name|String
+name|index
+parameter_list|,
+name|String
+name|type
+parameter_list|)
+function_decl|;
+comment|/**      * Index a document associated with a given index and type.      *      *<p>The id is optional, if it is not provided, one will be generated automatically.      *      * @param index The index to index the document to      * @param type  The type to index the document to      * @param id    The id of the document      */
+DECL|method|prepareIndex
+name|IndexRequestBuilder
+name|prepareIndex
+parameter_list|(
+name|String
+name|index
+parameter_list|,
+name|String
+name|type
+parameter_list|,
+annotation|@
+name|Nullable
+name|String
+name|id
 parameter_list|)
 function_decl|;
 comment|/**      * Deletes a document from the index based on the index, type and id.      *      * @param request The delete request      * @return The result future      * @see Requests#deleteRequest(String)      */
@@ -338,6 +511,27 @@ argument_list|>
 name|listener
 parameter_list|)
 function_decl|;
+comment|/**      * Deletes a document from the index based on the index, type and id.      */
+DECL|method|prepareDelete
+name|DeleteRequestBuilder
+name|prepareDelete
+parameter_list|()
+function_decl|;
+comment|/**      * Deletes a document from the index based on the index, type and id.      *      * @param index The index to delete the document from      * @param type  The type of the document to delete      * @param id    The id of the document to delete      */
+DECL|method|prepareDelete
+name|DeleteRequestBuilder
+name|prepareDelete
+parameter_list|(
+name|String
+name|index
+parameter_list|,
+name|String
+name|type
+parameter_list|,
+name|String
+name|id
+parameter_list|)
+function_decl|;
 comment|/**      * Deletes all documents from one or more indices based on a query.      *      * @param request The delete by query request      * @return The result future      * @see Requests#deleteByQueryRequest(String...)      */
 DECL|method|deleteByQuery
 name|ActionFuture
@@ -365,7 +559,17 @@ argument_list|>
 name|listener
 parameter_list|)
 function_decl|;
-comment|/**      * Gets the JSON source that was indexed from an index with a type and id.      *      * @param request The get request      * @return The result future      * @see Requests#getRequest(String)      */
+comment|/**      * Deletes all documents from one or more indices based on a query.      */
+DECL|method|prepareDeleteByQuery
+name|DeleteByQueryRequestBuilder
+name|prepareDeleteByQuery
+parameter_list|(
+name|String
+modifier|...
+name|indices
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the document that was indexed from an index with a type and id.      *      * @param request The get request      * @return The result future      * @see Requests#getRequest(String)      */
 DECL|method|get
 name|ActionFuture
 argument_list|<
@@ -377,7 +581,7 @@ name|GetRequest
 name|request
 parameter_list|)
 function_decl|;
-comment|/**      * Gets the JSON source that was indexed from an index with a type and id.      *      * @param request  The get request      * @param listener A listener to be notified with a result      * @see Requests#getRequest(String)      */
+comment|/**      * Gets the document that was indexed from an index with a type and id.      *      * @param request  The get request      * @param listener A listener to be notified with a result      * @see Requests#getRequest(String)      */
 DECL|method|get
 name|void
 name|get
@@ -390,6 +594,27 @@ argument_list|<
 name|GetResponse
 argument_list|>
 name|listener
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the document that was indexed from an index with a type and id.      */
+DECL|method|prepareGet
+name|GetRequestBuilder
+name|prepareGet
+parameter_list|()
+function_decl|;
+comment|/**      * Gets the document that was indexed from an index with a type and id.      */
+DECL|method|prepareGet
+name|GetRequestBuilder
+name|prepareGet
+parameter_list|(
+name|String
+name|index
+parameter_list|,
+name|String
+name|type
+parameter_list|,
+name|String
+name|id
 parameter_list|)
 function_decl|;
 comment|/**      * A count of all the documents matching a specific query.      *      * @param request The count request      * @return The result future      * @see Requests#countRequest(String...)      */
@@ -419,6 +644,16 @@ argument_list|>
 name|listener
 parameter_list|)
 function_decl|;
+comment|/**      * A count of all the documents matching a specific query.      */
+DECL|method|prepareCount
+name|CountRequestBuilder
+name|prepareCount
+parameter_list|(
+name|String
+modifier|...
+name|indices
+parameter_list|)
+function_decl|;
 comment|/**      * Search across one or more indices and one or more types with a query.      *      * @param request The search request      * @return The result future      * @see Requests#searchRequest(String...)      */
 DECL|method|search
 name|ActionFuture
@@ -444,6 +679,16 @@ argument_list|<
 name|SearchResponse
 argument_list|>
 name|listener
+parameter_list|)
+function_decl|;
+comment|/**      * Search across one or more indices and one or more types with a query.      */
+DECL|method|prepareSearch
+name|SearchRequestBuilder
+name|prepareSearch
+parameter_list|(
+name|String
+modifier|...
+name|indices
 parameter_list|)
 function_decl|;
 comment|/**      * A search scroll request to continue searching a previous scrollable search request.      *      * @param request The search scroll request      * @return The result future      * @see Requests#searchScrollRequest(String)      */
@@ -473,6 +718,15 @@ argument_list|>
 name|listener
 parameter_list|)
 function_decl|;
+comment|/**      * A search scroll request to continue searching a previous scrollable search request.      */
+DECL|method|prepareSearchScroll
+name|SearchScrollRequestBuilder
+name|prepareSearchScroll
+parameter_list|(
+name|String
+name|scrollId
+parameter_list|)
+function_decl|;
 comment|/**      * A terms request  to get terms in one or more indices of specific fields and their      * document frequencies (in how many document each term exists).      *      * @param request The term request      * @return The result future      * @see Requests#termsRequest(String...)      */
 DECL|method|terms
 name|ActionFuture
@@ -498,6 +752,16 @@ argument_list|<
 name|TermsResponse
 argument_list|>
 name|listener
+parameter_list|)
+function_decl|;
+comment|/**      * A terms request  to get terms in one or more indices of specific fields and their      * document frequencies (in how many document each term exists).      */
+DECL|method|prepareTerms
+name|TermsRequestBuilder
+name|prepareTerms
+parameter_list|(
+name|String
+modifier|...
+name|indices
 parameter_list|)
 function_decl|;
 comment|/**      * A more like this action to search for documents that are "like" a specific document.      *      * @param request The more like this request      * @return The response future      */

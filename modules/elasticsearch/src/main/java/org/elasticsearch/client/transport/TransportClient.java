@@ -294,9 +294,9 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|internal
+name|support
 operator|.
-name|InternalClient
+name|AbstractClient
 import|;
 end_import
 
@@ -379,6 +379,18 @@ operator|.
 name|env
 operator|.
 name|EnvironmentModule
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|monitor
+operator|.
+name|MonitorService
 import|;
 end_import
 
@@ -653,8 +665,8 @@ DECL|class|TransportClient
 specifier|public
 class|class
 name|TransportClient
-implements|implements
-name|InternalClient
+extends|extends
+name|AbstractClient
 block|{
 DECL|field|injector
 specifier|private
@@ -1125,6 +1137,29 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+try|try
+block|{
+name|injector
+operator|.
+name|getInstance
+argument_list|(
+name|MonitorService
+operator|.
+name|class
+argument_list|)
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// ignore, might not be bounded
+block|}
 name|injector
 operator|.
 name|getInstance

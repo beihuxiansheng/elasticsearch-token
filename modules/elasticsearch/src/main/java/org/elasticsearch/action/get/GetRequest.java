@@ -152,6 +152,28 @@ name|id
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Sets the index of the document to fetch.      */
+DECL|method|index
+annotation|@
+name|Required
+specifier|public
+name|GetRequest
+name|index
+parameter_list|(
+name|String
+name|index
+parameter_list|)
+block|{
+name|this
+operator|.
+name|index
+operator|=
+name|index
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Sets the type of the document to fetch.      */
 DECL|method|type
 annotation|@

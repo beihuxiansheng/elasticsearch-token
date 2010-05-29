@@ -720,7 +720,7 @@ return|return
 name|source
 return|;
 block|}
-comment|/**      * Writes the Map as a JSON.      *      * @param source The map to index      */
+comment|/**      * Index the Map as a JSON.      *      * @param source The map to index      */
 DECL|method|source
 annotation|@
 name|Required
@@ -745,7 +745,7 @@ name|JSON
 argument_list|)
 return|;
 block|}
-comment|/**      * Writes the Map as the provided content type.      *      * @param source The map to index      */
+comment|/**      * Index the Map as the provided content type.      *      * @param source The map to index      */
 DECL|method|source
 annotation|@
 name|Required
@@ -950,7 +950,7 @@ name|length
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets the document to index in bytes form (assumed to be safe to be used from different      * threads).      *      * @param source The source to index      * @param offset The offset in the byte array      * @param length The length of the data      * @return      */
+comment|/**      * Sets the document to index in bytes form (assumed to be safe to be used from different      * threads).      *      * @param source The source to index      * @param offset The offset in the byte array      * @param length The length of the data      */
 DECL|method|source
 annotation|@
 name|Required
@@ -982,7 +982,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets the document to index in bytes form.      *      * @param source The source to index      * @param offset The offset in the byte array      * @param length The length of the data      * @param unsafe Is the byte array safe to be used form a different thread      * @return      */
+comment|/**      * Sets the document to index in bytes form.      *      * @param source The source to index      * @param offset The offset in the byte array      * @param length The length of the data      * @param unsafe Is the byte array safe to be used form a different thread      */
 DECL|method|source
 annotation|@
 name|Required
@@ -1050,6 +1050,30 @@ name|timeout
 expr_stmt|;
 return|return
 name|this
+return|;
+block|}
+comment|/**      * A timeout to wait if the index operation can't be performed immediately. Defaults to<tt>1m</tt>.      */
+DECL|method|timeout
+specifier|public
+name|IndexRequest
+name|timeout
+parameter_list|(
+name|String
+name|timeout
+parameter_list|)
+block|{
+return|return
+name|timeout
+argument_list|(
+name|TimeValue
+operator|.
+name|parseTimeValue
+argument_list|(
+name|timeout
+argument_list|,
+literal|null
+argument_list|)
+argument_list|)
 return|;
 block|}
 comment|/**      * Sets the type of operation to perform.      */
@@ -1155,6 +1179,32 @@ operator|.
 name|replicationType
 argument_list|(
 name|replicationType
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Set the replication type for this operation.      */
+DECL|method|replicationType
+specifier|public
+name|IndexRequest
+name|replicationType
+parameter_list|(
+name|String
+name|replicationType
+parameter_list|)
+block|{
+name|super
+operator|.
+name|replicationType
+argument_list|(
+name|ReplicationType
+operator|.
+name|fromString
+argument_list|(
+name|replicationType
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return

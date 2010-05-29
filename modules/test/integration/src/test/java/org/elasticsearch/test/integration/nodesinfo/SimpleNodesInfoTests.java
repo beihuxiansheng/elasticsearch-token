@@ -260,11 +260,11 @@ operator|.
 name|cluster
 argument_list|()
 operator|.
-name|nodesInfo
-argument_list|(
-name|nodesInfo
+name|prepareNodesInfo
 argument_list|()
-argument_list|)
+operator|.
+name|execute
+argument_list|()
 operator|.
 name|actionGet
 argument_list|()

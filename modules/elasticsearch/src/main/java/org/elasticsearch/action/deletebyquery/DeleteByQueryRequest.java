@@ -385,6 +385,7 @@ name|indices
 expr_stmt|;
 block|}
 DECL|method|DeleteByQueryRequest
+specifier|public
 name|DeleteByQueryRequest
 parameter_list|()
 block|{     }
@@ -448,6 +449,7 @@ return|return
 name|validationException
 return|;
 block|}
+comment|/**      * The indices the delete by query will run against.      */
 DECL|method|indices
 specifier|public
 name|DeleteByQueryRequest
@@ -909,6 +911,33 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * A timeout to wait if the delete by query operation can't be performed immediately. Defaults to<tt>1m</tt>.      */
+DECL|method|timeout
+specifier|public
+name|DeleteByQueryRequest
+name|timeout
+parameter_list|(
+name|String
+name|timeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|timeout
+operator|=
+name|TimeValue
+operator|.
+name|parseTimeValue
+argument_list|(
+name|timeout
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * The replication type to use with this operation.      */
 DECL|method|replicationType
 specifier|public
@@ -924,6 +953,31 @@ operator|.
 name|replicationType
 operator|=
 name|replicationType
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * The replication type to use with this operation.      */
+DECL|method|replicationType
+specifier|public
+name|DeleteByQueryRequest
+name|replicationType
+parameter_list|(
+name|String
+name|replicationType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|replicationType
+operator|=
+name|ReplicationType
+operator|.
+name|fromString
+argument_list|(
+name|replicationType
+argument_list|)
 expr_stmt|;
 return|return
 name|this

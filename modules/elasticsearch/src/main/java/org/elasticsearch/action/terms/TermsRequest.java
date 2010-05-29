@@ -796,7 +796,7 @@ block|}
 comment|/**      * An optional regular expression to filter out terms (only the ones that match the regexp      * will return).      */
 DECL|method|regexp
 specifier|public
-name|void
+name|TermsRequest
 name|regexp
 parameter_list|(
 name|String
@@ -809,6 +809,9 @@ name|regexp
 operator|=
 name|regexp
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**      * An optional minimum document frequency to filter out terms.      */
 DECL|method|minFreq
