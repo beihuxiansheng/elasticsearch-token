@@ -582,6 +582,30 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Timeout to wait till the put mapping gets acknowledged of all current cluster nodes. Defaults to      *<tt>10s</tt>.      */
+DECL|method|timeout
+specifier|public
+name|PutMappingRequest
+name|timeout
+parameter_list|(
+name|String
+name|timeout
+parameter_list|)
+block|{
+return|return
+name|timeout
+argument_list|(
+name|TimeValue
+operator|.
+name|parseTimeValue
+argument_list|(
+name|timeout
+argument_list|,
+literal|null
+argument_list|)
+argument_list|)
+return|;
+block|}
 comment|/**      * If there is already a mapping definition registered against the type, then it will be merged. If there are      * elements that can't be merged are detected, the request will be rejected unless the      * {@link #ignoreConflicts(boolean)} is set. In such a case, the duplicate mappings will be rejected.      */
 DECL|method|ignoreConflicts
 specifier|public

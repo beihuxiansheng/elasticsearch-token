@@ -169,6 +169,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|OptimizeRequest
+specifier|public
 name|OptimizeRequest
 parameter_list|()
 block|{      }
