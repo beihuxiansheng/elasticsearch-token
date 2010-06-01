@@ -496,7 +496,7 @@ argument_list|)
 expr_stmt|;
 name|builder
 operator|.
-name|startArray
+name|startObject
 argument_list|(
 literal|"attributes"
 argument_list|)
@@ -543,7 +543,7 @@ expr_stmt|;
 block|}
 name|builder
 operator|.
-name|endArray
+name|endObject
 argument_list|()
 expr_stmt|;
 for|for
