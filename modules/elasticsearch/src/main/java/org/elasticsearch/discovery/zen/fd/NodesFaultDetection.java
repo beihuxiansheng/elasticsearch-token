@@ -24,6 +24,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ElasticSearchIllegalStateException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|cluster
 operator|.
 name|node
@@ -919,7 +929,12 @@ name|ACTION
 argument_list|,
 operator|new
 name|PingRequest
+argument_list|(
+name|node
+operator|.
+name|id
 argument_list|()
+argument_list|)
 argument_list|,
 name|pingRetryTimeout
 argument_list|,
@@ -1103,7 +1118,7 @@ block|}
 block|}
 else|else
 block|{
-comment|// resend the request
+comment|// resend the request, not reschedule, rely on send timeout
 name|transportService
 operator|.
 name|sendRequest
@@ -1116,7 +1131,12 @@ name|ACTION
 argument_list|,
 operator|new
 name|PingRequest
+argument_list|(
+name|node
+operator|.
+name|id
 argument_list|()
+argument_list|)
 argument_list|,
 name|pingRetryTimeout
 argument_list|,
@@ -1180,7 +1200,6 @@ expr_stmt|;
 block|}
 block|}
 DECL|class|PingRequestHandler
-specifier|private
 class|class
 name|PingRequestHandler
 extends|extends
@@ -1228,6 +1247,45 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// if we are not the node we are supposed to be pinged, send an exception
+comment|// this can happen when a kill -9 is sent, and another node is started using the same port
+if|if
+condition|(
+operator|!
+name|latestNodes
+operator|.
+name|localNodeId
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|request
+operator|.
+name|nodeId
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|ElasticSearchIllegalStateException
+argument_list|(
+literal|"Got pinged as node ["
+operator|+
+name|request
+operator|.
+name|nodeId
+operator|+
+literal|"], but I am node ["
+operator|+
+name|latestNodes
+operator|.
+name|localNodeId
+argument_list|()
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
 name|channel
 operator|.
 name|sendResponse
@@ -1240,18 +1298,36 @@ expr_stmt|;
 block|}
 block|}
 DECL|class|PingRequest
-specifier|private
 specifier|static
 class|class
 name|PingRequest
 implements|implements
 name|Streamable
 block|{
-DECL|method|PingRequest
+comment|// the (assumed) node id we are pinging
+DECL|field|nodeId
 specifier|private
+name|String
+name|nodeId
+decl_stmt|;
+DECL|method|PingRequest
 name|PingRequest
 parameter_list|()
 block|{         }
+DECL|method|PingRequest
+name|PingRequest
+parameter_list|(
+name|String
+name|nodeId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|nodeId
+operator|=
+name|nodeId
+expr_stmt|;
+block|}
 DECL|method|readFrom
 annotation|@
 name|Override
@@ -1264,7 +1340,15 @@ name|in
 parameter_list|)
 throws|throws
 name|IOException
-block|{         }
+block|{
+name|nodeId
+operator|=
+name|in
+operator|.
+name|readUTF
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|writeTo
 annotation|@
 name|Override
@@ -1277,7 +1361,15 @@ name|out
 parameter_list|)
 throws|throws
 name|IOException
-block|{         }
+block|{
+name|out
+operator|.
+name|writeUTF
+argument_list|(
+name|nodeId
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|class|PingResponse
 specifier|private
