@@ -422,6 +422,21 @@ operator|.
 name|startObject
 argument_list|()
 expr_stmt|;
+name|builder
+operator|.
+name|field
+argument_list|(
+literal|"cluster_name"
+argument_list|,
+name|response
+operator|.
+name|clusterName
+argument_list|()
+operator|.
+name|value
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// nodes
 name|builder
 operator|.
