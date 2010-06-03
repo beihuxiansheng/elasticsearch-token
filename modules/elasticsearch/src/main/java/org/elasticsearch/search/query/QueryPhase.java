@@ -725,7 +725,7 @@ name|QueryPhaseExecutionException
 argument_list|(
 name|searchContext
 argument_list|,
-literal|""
+literal|"Failed to execute main query"
 argument_list|,
 name|e
 argument_list|)

@@ -68,9 +68,7 @@ name|index
 operator|.
 name|cache
 operator|.
-name|filter
-operator|.
-name|FilterCacheModule
+name|IndexCacheModule
 import|;
 end_import
 
@@ -359,7 +357,7 @@ name|settings
 argument_list|)
 argument_list|,
 operator|new
-name|FilterCacheModule
+name|IndexCacheModule
 argument_list|(
 name|settings
 argument_list|)

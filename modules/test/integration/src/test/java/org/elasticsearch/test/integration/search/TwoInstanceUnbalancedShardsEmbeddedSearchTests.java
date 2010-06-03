@@ -3008,7 +3008,7 @@ argument_list|(
 name|facets
 argument_list|()
 operator|.
-name|facet
+name|queryFacet
 argument_list|(
 literal|"all"
 argument_list|,
@@ -3020,7 +3020,7 @@ literal|"test"
 argument_list|)
 argument_list|)
 operator|.
-name|facet
+name|queryFacet
 argument_list|(
 literal|"test1"
 argument_list|,

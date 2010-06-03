@@ -28,6 +28,20 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|index
+operator|.
+name|IndexReader
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|search
 operator|.
 name|Filter
@@ -219,6 +233,19 @@ specifier|public
 name|void
 name|clear
 parameter_list|()
+block|{
+comment|// nothing to do here
+block|}
+DECL|method|clear
+annotation|@
+name|Override
+specifier|public
+name|void
+name|clear
+parameter_list|(
+name|IndexReader
+name|reader
+parameter_list|)
 block|{
 comment|// nothing to do here
 block|}
