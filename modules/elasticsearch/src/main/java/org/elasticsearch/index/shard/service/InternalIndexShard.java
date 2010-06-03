@@ -1945,16 +1945,11 @@ name|trace
 argument_list|(
 literal|"Get for [{}#{}] returned [{}]"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|type
-block|,
+argument_list|,
 name|id
-block|,
+argument_list|,
 name|doc
-block|}
 argument_list|)
 expr_stmt|;
 block|}
