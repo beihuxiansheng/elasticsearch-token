@@ -437,19 +437,11 @@ name|value
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// nodes
-name|builder
-operator|.
-name|startObject
-argument_list|(
-literal|"nodes"
-argument_list|)
-expr_stmt|;
 name|builder
 operator|.
 name|field
 argument_list|(
-literal|"_master"
+literal|"master_node"
 argument_list|,
 name|state
 operator|.
@@ -458,6 +450,14 @@ argument_list|()
 operator|.
 name|masterNodeId
 argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// nodes
+name|builder
+operator|.
+name|startObject
+argument_list|(
+literal|"nodes"
 argument_list|)
 expr_stmt|;
 for|for
