@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search.facets.collector.field
+DECL|package|org.elasticsearch.search.facets.collector.term
 package|package
 name|org
 operator|.
@@ -16,7 +16,7 @@ name|facets
 operator|.
 name|collector
 operator|.
-name|field
+name|term
 package|;
 end_package
 
@@ -261,10 +261,10 @@ comment|/**  * @author kimchy (Shay Banon)  */
 end_comment
 
 begin_class
-DECL|class|FieldFacetCollector
+DECL|class|TermFacetCollector
 specifier|public
 class|class
-name|FieldFacetCollector
+name|TermFacetCollector
 extends|extends
 name|FacetCollector
 block|{
@@ -395,9 +395,9 @@ name|String
 argument_list|>
 name|facets
 decl_stmt|;
-DECL|method|FieldFacetCollector
+DECL|method|TermFacetCollector
 specifier|public
-name|FieldFacetCollector
+name|TermFacetCollector
 parameter_list|(
 name|String
 name|name

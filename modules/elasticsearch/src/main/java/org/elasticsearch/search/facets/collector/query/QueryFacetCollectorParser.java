@@ -122,6 +122,15 @@ name|QueryFacetCollectorParser
 implements|implements
 name|FacetCollectorParser
 block|{
+DECL|field|NAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|NAME
+init|=
+literal|"query"
+decl_stmt|;
 DECL|method|name
 annotation|@
 name|Override

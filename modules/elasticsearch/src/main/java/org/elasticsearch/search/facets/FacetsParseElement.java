@@ -84,9 +84,9 @@ name|facets
 operator|.
 name|collector
 operator|.
-name|field
+name|query
 operator|.
-name|FieldFacetCollectorParser
+name|QueryFacetCollectorParser
 import|;
 end_import
 
@@ -102,9 +102,9 @@ name|facets
 operator|.
 name|collector
 operator|.
-name|query
+name|term
 operator|.
-name|QueryFacetCollectorParser
+name|TermFacetCollectorParser
 import|;
 end_import
 
@@ -243,10 +243,12 @@ name|builder
 operator|.
 name|put
 argument_list|(
-literal|"field"
+name|TermFacetCollectorParser
+operator|.
+name|NAME
 argument_list|,
 operator|new
-name|FieldFacetCollectorParser
+name|TermFacetCollectorParser
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -254,7 +256,9 @@ name|builder
 operator|.
 name|put
 argument_list|(
-literal|"query"
+name|QueryFacetCollectorParser
+operator|.
+name|NAME
 argument_list|,
 operator|new
 name|QueryFacetCollectorParser

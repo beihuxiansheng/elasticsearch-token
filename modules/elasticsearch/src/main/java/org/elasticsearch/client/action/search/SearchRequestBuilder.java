@@ -825,10 +825,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|addFieldFacet
+DECL|method|addTermFacet
 specifier|public
 name|SearchRequestBuilder
-name|addFieldFacet
+name|addTermFacet
 parameter_list|(
 name|String
 name|name
@@ -843,7 +843,7 @@ block|{
 name|facetsBuilder
 argument_list|()
 operator|.
-name|fieldFacet
+name|termFacet
 argument_list|(
 name|name
 argument_list|,
@@ -856,10 +856,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|addFieldFacet
+DECL|method|addTermFacet
 specifier|public
 name|SearchRequestBuilder
-name|addFieldFacet
+name|addTermFacet
 parameter_list|(
 name|String
 name|name
@@ -877,7 +877,7 @@ block|{
 name|facetsBuilder
 argument_list|()
 operator|.
-name|fieldFacet
+name|termFacet
 argument_list|(
 name|name
 argument_list|,

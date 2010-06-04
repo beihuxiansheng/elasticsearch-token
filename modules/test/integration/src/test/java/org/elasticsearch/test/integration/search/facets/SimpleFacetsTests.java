@@ -454,7 +454,7 @@ literal|"111"
 argument_list|)
 argument_list|)
 operator|.
-name|addFieldFacet
+name|addTermFacet
 argument_list|(
 literal|"facet1"
 argument_list|,
@@ -463,7 +463,7 @@ argument_list|,
 literal|10
 argument_list|)
 operator|.
-name|addFieldFacet
+name|addTermFacet
 argument_list|(
 literal|"facet2"
 argument_list|,
