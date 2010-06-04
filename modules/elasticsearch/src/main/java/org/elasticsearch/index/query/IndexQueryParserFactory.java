@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * Guice Factory for custom {@link IndexQueryParser}.  *  * @author kimchy (Shay Banon)  */
 end_comment
 
 begin_interface

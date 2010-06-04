@@ -346,6 +346,24 @@ name|*
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|settings
+operator|.
+name|ImmutableSettings
+operator|.
+name|Builder
+operator|.
+name|*
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
@@ -668,6 +686,18 @@ argument_list|(
 name|queryParserName
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|queryParserSettings
+operator|==
+literal|null
+condition|)
+block|{
+name|queryParserSettings
+operator|=
+name|EMPTY_SETTINGS
+expr_stmt|;
+block|}
 name|queryParsers
 operator|.
 name|add
@@ -763,6 +793,18 @@ argument_list|(
 name|filterParserName
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|filterParserSettings
+operator|==
+literal|null
+condition|)
+block|{
+name|filterParserSettings
+operator|=
+name|EMPTY_SETTINGS
+expr_stmt|;
+block|}
 name|filterParsers
 operator|.
 name|add
