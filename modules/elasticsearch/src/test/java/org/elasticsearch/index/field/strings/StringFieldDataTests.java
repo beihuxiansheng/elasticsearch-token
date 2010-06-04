@@ -853,9 +853,9 @@ operator|.
 name|forEachValue
 argument_list|(
 operator|new
-name|StringFieldData
+name|FieldData
 operator|.
-name|ValueProc
+name|StringValueProc
 argument_list|()
 block|{
 annotation|@
@@ -1280,9 +1280,9 @@ operator|.
 name|forEachValue
 argument_list|(
 operator|new
-name|StringFieldData
+name|FieldData
 operator|.
-name|ValueProc
+name|StringValueProc
 argument_list|()
 block|{
 annotation|@
