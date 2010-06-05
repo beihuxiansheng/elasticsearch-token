@@ -2296,7 +2296,9 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"Flush"
+literal|"Flush with {}"
+argument_list|,
+name|flush
 argument_list|)
 expr_stmt|;
 block|}
