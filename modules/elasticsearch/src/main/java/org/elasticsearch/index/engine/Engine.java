@@ -495,6 +495,13 @@ specifier|static
 class|class
 name|Flush
 block|{
+DECL|field|full
+specifier|private
+name|boolean
+name|full
+init|=
+literal|false
+decl_stmt|;
 DECL|field|refresh
 specifier|private
 name|boolean
@@ -535,6 +542,39 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Should a "full" flush be issued, basically cleaning as much memory as possible.          */
+DECL|method|full
+specifier|public
+name|boolean
+name|full
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|full
+return|;
+block|}
+comment|/**          * Should a "full" flush be issued, basically cleaning as much memory as possible.          */
+DECL|method|full
+specifier|public
+name|Flush
+name|full
+parameter_list|(
+name|boolean
+name|full
+parameter_list|)
+block|{
+name|this
+operator|.
+name|full
+operator|=
+name|full
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 DECL|method|toString
 annotation|@
 name|Override
@@ -544,7 +584,11 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"refresh["
+literal|"full["
+operator|+
+name|full
+operator|+
+literal|"], refresh["
 operator|+
 name|refresh
 operator|+

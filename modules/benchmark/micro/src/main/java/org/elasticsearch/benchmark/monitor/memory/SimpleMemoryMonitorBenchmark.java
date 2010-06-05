@@ -389,7 +389,7 @@ decl_stmt|;
 name|int
 name|COUNT
 init|=
-literal|200000
+literal|2000000
 decl_stmt|;
 name|System
 operator|.

@@ -63,6 +63,34 @@ name|t
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|FlushFailedEngineException
+specifier|public
+name|FlushFailedEngineException
+parameter_list|(
+name|ShardId
+name|shardId
+parameter_list|,
+name|String
+name|message
+parameter_list|,
+name|Throwable
+name|t
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|shardId
+argument_list|,
+literal|"Flush failed ["
+operator|+
+name|message
+operator|+
+literal|"]"
+argument_list|,
+name|t
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

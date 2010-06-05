@@ -645,6 +645,14 @@ operator|.
 name|refresh
 argument_list|()
 argument_list|)
+operator|.
+name|full
+argument_list|(
+name|request
+operator|.
+name|full
+argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return

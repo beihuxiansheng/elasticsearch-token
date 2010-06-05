@@ -196,6 +196,26 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|setFull
+specifier|public
+name|FlushRequestBuilder
+name|setFull
+parameter_list|(
+name|boolean
+name|full
+parameter_list|)
+block|{
+name|request
+operator|.
+name|full
+argument_list|(
+name|full
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Executes the operation asynchronously and returns a future.      */
 DECL|method|execute
 specifier|public
