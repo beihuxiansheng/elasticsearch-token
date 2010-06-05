@@ -987,6 +987,7 @@ operator|.
 name|cacheClear
 argument_list|()
 expr_stmt|;
+comment|// TODO this ends up doing a flush with "true", basically, at the end, replacing the IndexWriter, might not be needed with Lucene 3.0.2.
 name|indicesMemoryCleaner
 operator|.
 name|fullMemoryClean
