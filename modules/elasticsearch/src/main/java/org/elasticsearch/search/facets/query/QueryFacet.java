@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search.facets.internal
+DECL|package|org.elasticsearch.search.facets.query
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|search
 operator|.
 name|facets
 operator|.
-name|internal
+name|query
 package|;
 end_package
 
@@ -32,63 +32,29 @@ name|Facet
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|util
-operator|.
-name|io
-operator|.
-name|stream
-operator|.
-name|Streamable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|util
-operator|.
-name|xcontent
-operator|.
-name|ToXContent
-import|;
-end_import
-
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * A query facets returns the count (number of hits) for a facet based on a query.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_interface
-DECL|interface|InternalFacet
+DECL|interface|QueryFacet
 specifier|public
 interface|interface
-name|InternalFacet
+name|QueryFacet
 extends|extends
 name|Facet
-extends|,
-name|Streamable
-extends|,
-name|ToXContent
 block|{
-comment|/**      * Aggregate the data of the provided facets and returns the aggregated value. Note, this method      * might should handle cases of facets provided with different names, and should excllude them.      */
-DECL|method|aggregate
-name|Facet
-name|aggregate
-parameter_list|(
-name|Iterable
-argument_list|<
-name|Facet
-argument_list|>
-name|facets
-parameter_list|)
+comment|/**      * The count of the facet.      */
+DECL|method|count
+name|long
+name|count
+parameter_list|()
+function_decl|;
+comment|/**      * The count of the facet.      */
+DECL|method|getCount
+name|long
+name|getCount
+parameter_list|()
 function_decl|;
 block|}
 end_interface

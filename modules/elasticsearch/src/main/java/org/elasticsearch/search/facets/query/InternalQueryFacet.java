@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search.facets.internal
+DECL|package|org.elasticsearch.search.facets.query
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|search
 operator|.
 name|facets
 operator|.
-name|internal
+name|query
 package|;
 end_package
 
@@ -28,7 +28,7 @@ name|search
 operator|.
 name|facets
 operator|.
-name|CountFacet
+name|Facet
 import|;
 end_import
 
@@ -42,7 +42,7 @@ name|search
 operator|.
 name|facets
 operator|.
-name|Facet
+name|InternalFacet
 import|;
 end_import
 
@@ -109,12 +109,12 @@ comment|/**  * @author kimchy (Shay Banon)  */
 end_comment
 
 begin_class
-DECL|class|InternalCountFacet
+DECL|class|InternalQueryFacet
 specifier|public
 class|class
-name|InternalCountFacet
+name|InternalQueryFacet
 implements|implements
-name|CountFacet
+name|QueryFacet
 implements|,
 name|InternalFacet
 block|{
@@ -128,14 +128,14 @@ specifier|private
 name|long
 name|count
 decl_stmt|;
-DECL|method|InternalCountFacet
+DECL|method|InternalQueryFacet
 specifier|private
-name|InternalCountFacet
+name|InternalQueryFacet
 parameter_list|()
 block|{      }
-DECL|method|InternalCountFacet
+DECL|method|InternalQueryFacet
 specifier|public
-name|InternalCountFacet
+name|InternalQueryFacet
 parameter_list|(
 name|String
 name|name
@@ -168,7 +168,7 @@ block|{
 return|return
 name|Type
 operator|.
-name|COUNT
+name|QUERY
 return|;
 block|}
 DECL|method|getType
@@ -288,7 +288,7 @@ name|count
 operator|+=
 operator|(
 operator|(
-name|InternalCountFacet
+name|QueryFacet
 operator|)
 name|facet
 operator|)
@@ -300,7 +300,7 @@ block|}
 block|}
 return|return
 operator|new
-name|InternalCountFacet
+name|InternalQueryFacet
 argument_list|(
 name|name
 argument_list|,
@@ -326,18 +326,39 @@ name|IOException
 block|{
 name|builder
 operator|.
-name|field
+name|startObject
 argument_list|(
 name|name
+argument_list|)
+expr_stmt|;
+name|builder
+operator|.
+name|field
+argument_list|(
+literal|"_type"
+argument_list|,
+literal|"query"
+argument_list|)
+expr_stmt|;
+name|builder
+operator|.
+name|field
+argument_list|(
+literal|"count"
 argument_list|,
 name|count
 argument_list|)
+expr_stmt|;
+name|builder
+operator|.
+name|endObject
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|readCountFacet
 specifier|public
 specifier|static
-name|CountFacet
+name|QueryFacet
 name|readCountFacet
 parameter_list|(
 name|StreamInput
@@ -346,11 +367,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|InternalCountFacet
+name|InternalQueryFacet
 name|result
 init|=
 operator|new
-name|InternalCountFacet
+name|InternalQueryFacet
 argument_list|()
 decl_stmt|;
 name|result

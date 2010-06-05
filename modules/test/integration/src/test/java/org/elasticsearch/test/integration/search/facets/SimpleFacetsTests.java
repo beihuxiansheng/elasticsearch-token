@@ -56,7 +56,9 @@ name|search
 operator|.
 name|facets
 operator|.
-name|MultiCountFacet
+name|terms
+operator|.
+name|TermsFacet
 import|;
 end_import
 
@@ -71,16 +73,6 @@ operator|.
 name|integration
 operator|.
 name|AbstractNodesTests
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|MatcherAssert
 import|;
 end_import
 
@@ -149,6 +141,18 @@ operator|.
 name|xcontent
 operator|.
 name|XContentFactory
+operator|.
+name|*
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|MatcherAssert
 operator|.
 name|*
 import|;
@@ -454,7 +458,7 @@ literal|"111"
 argument_list|)
 argument_list|)
 operator|.
-name|addTermFacet
+name|addFacetTerms
 argument_list|(
 literal|"facet1"
 argument_list|,
@@ -463,7 +467,7 @@ argument_list|,
 literal|10
 argument_list|)
 operator|.
-name|addTermFacet
+name|addFacetTerms
 argument_list|(
 literal|"facet2"
 argument_list|,
@@ -478,18 +482,9 @@ operator|.
 name|actionGet
 argument_list|()
 decl_stmt|;
-name|MultiCountFacet
-argument_list|<
-name|String
-argument_list|>
+name|TermsFacet
 name|facet
 init|=
-operator|(
-name|MultiCountFacet
-argument_list|<
-name|String
-argument_list|>
-operator|)
 name|searchResponse
 operator|.
 name|facets
@@ -497,11 +492,13 @@ argument_list|()
 operator|.
 name|facet
 argument_list|(
+name|TermsFacet
+operator|.
+name|class
+argument_list|,
 literal|"facet1"
 argument_list|)
 decl_stmt|;
-name|MatcherAssert
-operator|.
 name|assertThat
 argument_list|(
 name|facet
@@ -515,8 +512,6 @@ literal|"facet1"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|MatcherAssert
-operator|.
 name|assertThat
 argument_list|(
 name|facet
@@ -533,8 +528,6 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|MatcherAssert
-operator|.
 name|assertThat
 argument_list|(
 name|facet
@@ -547,7 +540,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|value
+name|term
 argument_list|()
 argument_list|,
 name|equalTo
@@ -556,8 +549,6 @@ literal|"111"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|MatcherAssert
-operator|.
 name|assertThat
 argument_list|(
 name|facet
@@ -581,12 +572,6 @@ argument_list|)
 expr_stmt|;
 name|facet
 operator|=
-operator|(
-name|MultiCountFacet
-argument_list|<
-name|String
-argument_list|>
-operator|)
 name|searchResponse
 operator|.
 name|facets
@@ -594,11 +579,13 @@ argument_list|()
 operator|.
 name|facet
 argument_list|(
+name|TermsFacet
+operator|.
+name|class
+argument_list|,
 literal|"facet2"
 argument_list|)
 expr_stmt|;
-name|MatcherAssert
-operator|.
 name|assertThat
 argument_list|(
 name|facet
@@ -612,8 +599,6 @@ literal|"facet2"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|MatcherAssert
-operator|.
 name|assertThat
 argument_list|(
 name|facet
@@ -630,8 +615,6 @@ literal|3
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|MatcherAssert
-operator|.
 name|assertThat
 argument_list|(
 name|facet
@@ -644,7 +627,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|value
+name|term
 argument_list|()
 argument_list|,
 name|equalTo
@@ -653,8 +636,6 @@ literal|"yyy"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|MatcherAssert
-operator|.
 name|assertThat
 argument_list|(
 name|facet

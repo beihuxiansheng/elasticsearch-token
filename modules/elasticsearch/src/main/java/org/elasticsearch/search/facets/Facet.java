@@ -41,32 +41,26 @@ enum|enum
 name|Type
 block|{
 comment|/**          * Count type facet.          */
-DECL|enum constant|COUNT
-name|COUNT
+DECL|enum constant|TERMS
+name|TERMS
 argument_list|(
-operator|(
-name|byte
-operator|)
 literal|0
 argument_list|)
 block|,
-DECL|enum constant|MULTI_COUNT
-name|MULTI_COUNT
+DECL|enum constant|QUERY
+name|QUERY
 argument_list|(
-operator|(
-name|byte
-operator|)
 literal|1
 argument_list|)
 block|;
 DECL|field|id
-name|byte
+name|int
 name|id
 decl_stmt|;
 DECL|method|Type
 name|Type
 parameter_list|(
-name|byte
+name|int
 name|id
 parameter_list|)
 block|{
@@ -79,7 +73,7 @@ expr_stmt|;
 block|}
 DECL|method|id
 specifier|public
-name|byte
+name|int
 name|id
 parameter_list|()
 block|{
@@ -93,7 +87,7 @@ specifier|static
 name|Type
 name|fromId
 parameter_list|(
-name|byte
+name|int
 name|id
 parameter_list|)
 block|{
@@ -105,7 +99,7 @@ literal|0
 condition|)
 block|{
 return|return
-name|COUNT
+name|TERMS
 return|;
 block|}
 elseif|else
@@ -117,7 +111,7 @@ literal|1
 condition|)
 block|{
 return|return
-name|MULTI_COUNT
+name|QUERY
 return|;
 block|}
 else|else

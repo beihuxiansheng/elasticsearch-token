@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search.facets.collector.query
+DECL|package|org.elasticsearch.search.facets.query
 package|package
 name|org
 operator|.
@@ -13,8 +13,6 @@ operator|.
 name|search
 operator|.
 name|facets
-operator|.
-name|collector
 operator|.
 name|query
 package|;
@@ -91,22 +89,6 @@ operator|.
 name|collector
 operator|.
 name|FacetCollector
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|facets
-operator|.
-name|internal
-operator|.
-name|InternalCountFacet
 import|;
 end_import
 
@@ -345,7 +327,7 @@ parameter_list|()
 block|{
 return|return
 operator|new
-name|InternalCountFacet
+name|InternalQueryFacet
 argument_list|(
 name|name
 argument_list|,

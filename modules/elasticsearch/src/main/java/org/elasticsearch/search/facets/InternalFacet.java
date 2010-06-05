@@ -16,29 +16,63 @@ name|facets
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|io
+operator|.
+name|stream
+operator|.
+name|Streamable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|util
+operator|.
+name|xcontent
+operator|.
+name|ToXContent
+import|;
+end_import
+
 begin_comment
-comment|/**  * A count facet is a facet that holds a count.  *  * @author kimchy (shay.banon)  */
+comment|/**  * @author kimchy (Shay Banon)  */
 end_comment
 
 begin_interface
-DECL|interface|CountFacet
+DECL|interface|InternalFacet
 specifier|public
 interface|interface
-name|CountFacet
+name|InternalFacet
 extends|extends
 name|Facet
+extends|,
+name|Streamable
+extends|,
+name|ToXContent
 block|{
-comment|/**      * The count of the facet.      */
-DECL|method|count
-name|long
-name|count
-parameter_list|()
-function_decl|;
-comment|/**      * The count of the facet.      */
-DECL|method|getCount
-name|long
-name|getCount
-parameter_list|()
+comment|/**      * Aggregate the data of the provided facets and returns the aggregated value. Note, this method      * might should handle cases of facets provided with different names, and should excllude them.      */
+DECL|method|aggregate
+name|Facet
+name|aggregate
+parameter_list|(
+name|Iterable
+argument_list|<
+name|Facet
+argument_list|>
+name|facets
+parameter_list|)
 function_decl|;
 block|}
 end_interface

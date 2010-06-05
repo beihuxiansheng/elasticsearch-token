@@ -82,8 +82,6 @@ name|search
 operator|.
 name|facets
 operator|.
-name|collector
-operator|.
 name|query
 operator|.
 name|QueryFacetCollectorParser
@@ -100,9 +98,7 @@ name|search
 operator|.
 name|facets
 operator|.
-name|collector
-operator|.
-name|term
+name|terms
 operator|.
 name|TermFacetCollectorParser
 import|;
