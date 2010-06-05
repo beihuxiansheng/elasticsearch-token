@@ -554,7 +554,7 @@ name|field
 argument_list|(
 literal|"_type"
 argument_list|,
-literal|"stats"
+literal|"statistical"
 argument_list|)
 expr_stmt|;
 name|builder
