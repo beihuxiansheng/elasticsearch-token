@@ -310,12 +310,12 @@ name|proc
 operator|.
 name|onValue
 argument_list|(
+name|docId
+argument_list|,
 name|values
 index|[
 name|docOrder
 index|]
-argument_list|,
-name|docId
 argument_list|)
 expr_stmt|;
 block|}

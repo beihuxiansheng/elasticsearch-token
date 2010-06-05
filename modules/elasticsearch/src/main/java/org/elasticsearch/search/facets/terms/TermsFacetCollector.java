@@ -255,10 +255,10 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|TermFacetCollector
+DECL|class|TermsFacetCollector
 specifier|public
 class|class
-name|TermFacetCollector
+name|TermsFacetCollector
 extends|extends
 name|FacetCollector
 block|{
@@ -394,9 +394,9 @@ specifier|final
 name|AggregatorValueProc
 name|aggregator
 decl_stmt|;
-DECL|method|TermFacetCollector
+DECL|method|TermsFacetCollector
 specifier|public
-name|TermFacetCollector
+name|TermsFacetCollector
 parameter_list|(
 name|String
 name|name
@@ -908,11 +908,11 @@ specifier|public
 name|void
 name|onValue
 parameter_list|(
-name|String
-name|value
-parameter_list|,
 name|int
 name|docId
+parameter_list|,
+name|String
+name|value
 parameter_list|)
 block|{
 name|facets

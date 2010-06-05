@@ -40,7 +40,6 @@ DECL|enum|Type
 enum|enum
 name|Type
 block|{
-comment|/**          * Count type facet.          */
 DECL|enum constant|TERMS
 name|TERMS
 argument_list|(
@@ -51,6 +50,12 @@ DECL|enum constant|QUERY
 name|QUERY
 argument_list|(
 literal|1
+argument_list|)
+block|,
+DECL|enum constant|STATISTICAL
+name|STATISTICAL
+argument_list|(
+literal|2
 argument_list|)
 block|;
 DECL|field|id
@@ -112,6 +117,18 @@ condition|)
 block|{
 return|return
 name|QUERY
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|id
+operator|==
+literal|2
+condition|)
+block|{
+return|return
+name|STATISTICAL
 return|;
 block|}
 else|else

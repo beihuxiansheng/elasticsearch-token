@@ -766,7 +766,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds a query facet (which results in a count facet returned).      *      * @param name  The logical name of the facet, it will be returned under the name      * @param query The query facet      */
+comment|/**      * Adds a query facet (which results in a count facet returned).      *      * @param name  The logical name of the facet, it will be returned under the name      * @param query The query facet      * @see org.elasticsearch.search.facets.query.QueryFacet      */
 DECL|method|addFacetQuery
 specifier|public
 name|SearchRequestBuilder
@@ -793,7 +793,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds a query facet (which results in a count facet returned) with an option to      * be global on the index or bounded by the search query.      *      * @param name  The logical name of the facet, it will be returned under the name      * @param query The query facet      */
+comment|/**      * Adds a query facet (which results in a count facet returned) with an option to      * be global on the index or bounded by the search query.      *      * @param name  The logical name of the facet, it will be returned under the name      * @param query The query facet      * @see org.elasticsearch.search.facets.query.QueryFacet      */
 DECL|method|addFacetGlobalQuery
 specifier|public
 name|SearchRequestBuilder
@@ -820,6 +820,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Adds a term facet for the provided field name.      *      * @param name      The name of the facet      * @param fieldName The field name to run the facet against      * @param size      The number of the terms      * @see org.elasticsearch.search.facets.terms.TermsFacet      */
 DECL|method|addFacetTerms
 specifier|public
 name|SearchRequestBuilder
@@ -851,6 +852,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Adds a<b>global</b> term facet for the provided field name.      *      * @param name      The name of the facet      * @param fieldName The field name to run the facet against      * @param size      The number of the terms      * @see org.elasticsearch.search.facets.terms.TermsFacet      */
 DECL|method|addFacetGlobalTerms
 specifier|public
 name|SearchRequestBuilder
@@ -876,6 +878,60 @@ argument_list|,
 name|fieldName
 argument_list|,
 name|size
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Adds a numeric statistical facet for the provided field name.      *      * @param name      The name of the facet      * @param fieldName The name of the<b>numeric</b> field      * @see org.elasticsearch.search.facets.statistical.StatisticalFacet      */
+DECL|method|addFacetStatistical
+specifier|public
+name|SearchRequestBuilder
+name|addFacetStatistical
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|String
+name|fieldName
+parameter_list|)
+block|{
+name|facetsBuilder
+argument_list|()
+operator|.
+name|statisticalFacet
+argument_list|(
+name|name
+argument_list|,
+name|fieldName
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Adds a numeric statistical<b>global</b> facet for the provided field name.      *      * @param name      The name of the facet      * @param fieldName The name of the<b>numeric</b> field      * @see org.elasticsearch.search.facets.statistical.StatisticalFacet      */
+DECL|method|addFacetGlobalStatistical
+specifier|public
+name|SearchRequestBuilder
+name|addFacetGlobalStatistical
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|String
+name|fieldName
+parameter_list|)
+block|{
+name|facetsBuilder
+argument_list|()
+operator|.
+name|statisticalFacetGlobal
+argument_list|(
+name|name
+argument_list|,
+name|fieldName
 argument_list|)
 expr_stmt|;
 return|return

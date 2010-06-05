@@ -93,10 +93,10 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|TermFacetCollectorParser
+DECL|class|TermsFacetCollectorParser
 specifier|public
 class|class
-name|TermFacetCollectorParser
+name|TermsFacetCollectorParser
 implements|implements
 name|FacetCollectorParser
 block|{
@@ -247,7 +247,7 @@ block|}
 block|}
 return|return
 operator|new
-name|TermFacetCollector
+name|TermsFacetCollector
 argument_list|(
 name|facetName
 argument_list|,

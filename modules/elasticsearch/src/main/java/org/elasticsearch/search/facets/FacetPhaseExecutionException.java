@@ -47,6 +47,29 @@ name|facetName
 parameter_list|,
 name|String
 name|msg
+parameter_list|)
+block|{
+name|super
+argument_list|(
+literal|"Facet ["
+operator|+
+name|facetName
+operator|+
+literal|"]: "
+operator|+
+name|msg
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|FacetPhaseExecutionException
+specifier|public
+name|FacetPhaseExecutionException
+parameter_list|(
+name|String
+name|facetName
+parameter_list|,
+name|String
+name|msg
 parameter_list|,
 name|Throwable
 name|t

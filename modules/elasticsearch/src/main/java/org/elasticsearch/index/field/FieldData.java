@@ -419,11 +419,11 @@ DECL|method|onValue
 name|void
 name|onValue
 parameter_list|(
-name|String
-name|value
-parameter_list|,
 name|int
 name|docId
+parameter_list|,
+name|String
+name|value
 parameter_list|)
 function_decl|;
 block|}
