@@ -164,7 +164,9 @@ name|search
 operator|.
 name|facets
 operator|.
-name|Facets
+name|internal
+operator|.
+name|InternalFacet
 import|;
 end_import
 
@@ -178,7 +180,9 @@ name|search
 operator|.
 name|facets
 operator|.
-name|InternalFacet
+name|internal
+operator|.
+name|InternalFacets
 import|;
 end_import
 
@@ -1050,7 +1054,7 @@ name|fetchResults
 parameter_list|)
 block|{
 comment|// merge facets
-name|Facets
+name|InternalFacets
 name|facets
 init|=
 literal|null
@@ -1200,7 +1204,7 @@ block|}
 name|facets
 operator|=
 operator|new
-name|Facets
+name|InternalFacets
 argument_list|(
 name|mergedFacets
 argument_list|)

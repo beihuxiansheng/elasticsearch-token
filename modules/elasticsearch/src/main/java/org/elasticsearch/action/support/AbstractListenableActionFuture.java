@@ -64,16 +64,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import static
 name|org
 operator|.
 name|elasticsearch
@@ -83,8 +73,16 @@ operator|.
 name|collect
 operator|.
 name|Lists
+import|;
+end_import
+
+begin_import
+import|import
+name|java
 operator|.
-name|*
+name|util
+operator|.
+name|List
 import|;
 end_import
 
@@ -282,7 +280,9 @@ name|listeners
 decl_stmt|;
 name|listeners
 operator|=
-name|newArrayListWithExpectedSize
+name|Lists
+operator|.
+name|newArrayListWithCapacity
 argument_list|(
 literal|2
 argument_list|)

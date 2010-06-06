@@ -42,6 +42,8 @@ name|search
 operator|.
 name|facets
 operator|.
+name|internal
+operator|.
 name|InternalFacet
 import|;
 end_import

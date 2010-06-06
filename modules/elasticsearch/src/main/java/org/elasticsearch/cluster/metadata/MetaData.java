@@ -320,22 +320,6 @@ name|util
 operator|.
 name|collect
 operator|.
-name|Lists
-operator|.
-name|*
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|util
-operator|.
-name|collect
-operator|.
 name|Sets
 operator|.
 name|*
@@ -1007,7 +991,9 @@ name|String
 argument_list|>
 name|actualIndices
 init|=
-name|newArrayListWithExpectedSize
+name|Lists
+operator|.
+name|newArrayListWithCapacity
 argument_list|(
 name|indices
 operator|.
