@@ -1857,7 +1857,6 @@ name|masterNode
 argument_list|)
 expr_stmt|;
 comment|// remove the master node from the list, it has failed
-comment|// sort then
 name|DiscoveryNode
 name|electedMaster
 init|=
@@ -1868,6 +1867,7 @@ argument_list|(
 name|nodes
 argument_list|)
 decl_stmt|;
+comment|// elect master
 if|if
 condition|(
 name|localNode
