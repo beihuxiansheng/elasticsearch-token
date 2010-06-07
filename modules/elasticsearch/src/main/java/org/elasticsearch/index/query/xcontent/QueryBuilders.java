@@ -153,6 +153,30 @@ name|value
 argument_list|)
 return|;
 block|}
+comment|/**      * A Query that matches documents using fuzzy query.      *      * @param name  The name of the field      * @param value The value of the term      */
+DECL|method|fuzzyQuery
+specifier|public
+specifier|static
+name|FuzzyQueryBuilder
+name|fuzzyQuery
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|String
+name|value
+parameter_list|)
+block|{
+return|return
+operator|new
+name|FuzzyQueryBuilder
+argument_list|(
+name|name
+argument_list|,
+name|value
+argument_list|)
+return|;
+block|}
 comment|/**      * A Query that matches documents containing a term.      *      * @param name  The name of the field      * @param value The value of the term      */
 DECL|method|termQuery
 specifier|public
