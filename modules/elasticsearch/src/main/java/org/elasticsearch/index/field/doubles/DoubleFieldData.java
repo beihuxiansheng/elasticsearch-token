@@ -117,7 +117,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -130,6 +130,7 @@ extends|extends
 name|NumericFieldData
 block|{
 DECL|field|EMPTY_DOUBLE_ARRAY
+specifier|public
 specifier|static
 specifier|final
 name|double

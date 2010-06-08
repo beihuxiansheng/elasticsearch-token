@@ -33,7 +33,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -46,7 +46,6 @@ name|DoubleFieldData
 block|{
 DECL|field|valuesCache
 specifier|private
-specifier|static
 name|ThreadLocal
 argument_list|<
 name|double
@@ -253,6 +252,25 @@ name|loc
 index|]
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|doubleValues
+annotation|@
+name|Override
+specifier|public
+name|double
+index|[]
+name|doubleValues
+parameter_list|(
+name|int
+name|docId
+parameter_list|)
+block|{
+return|return
+name|values
+argument_list|(
+name|docId
+argument_list|)
+return|;
 block|}
 DECL|method|value
 annotation|@

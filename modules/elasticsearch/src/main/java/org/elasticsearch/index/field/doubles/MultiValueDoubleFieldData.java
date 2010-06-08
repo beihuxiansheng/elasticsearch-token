@@ -45,7 +45,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -63,11 +63,10 @@ specifier|final
 name|int
 name|VALUE_CACHE_SIZE
 init|=
-literal|100
+literal|10
 decl_stmt|;
 DECL|field|valuesCache
 specifier|private
-specifier|static
 name|ThreadLocal
 argument_list|<
 name|ThreadLocals
@@ -362,6 +361,25 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+DECL|method|doubleValues
+annotation|@
+name|Override
+specifier|public
+name|double
+index|[]
+name|doubleValues
+parameter_list|(
+name|int
+name|docId
+parameter_list|)
+block|{
+return|return
+name|values
+argument_list|(
+name|docId
+argument_list|)
+return|;
 block|}
 DECL|method|value
 annotation|@

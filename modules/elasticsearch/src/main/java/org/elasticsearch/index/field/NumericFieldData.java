@@ -132,6 +132,17 @@ name|docId
 argument_list|)
 return|;
 block|}
+DECL|method|doubleValues
+specifier|public
+specifier|abstract
+name|double
+index|[]
+name|doubleValues
+parameter_list|(
+name|int
+name|docId
+parameter_list|)
+function_decl|;
 DECL|method|forEachValueInDoc
 specifier|public
 specifier|abstract
