@@ -68,6 +68,18 @@ name|double
 name|getTotal
 parameter_list|()
 function_decl|;
+comment|/**      * The sum of squares of the values.      */
+DECL|method|sumOfSquares
+name|double
+name|sumOfSquares
+parameter_list|()
+function_decl|;
+comment|/**      * The sum of squares of the values.      */
+DECL|method|getSumOfSquares
+name|double
+name|getSumOfSquares
+parameter_list|()
+function_decl|;
 comment|/**      * The mean (average) of the values.      */
 DECL|method|mean
 name|double
@@ -102,6 +114,30 @@ comment|/**      * The maximum value.      */
 DECL|method|getMax
 name|double
 name|getMax
+parameter_list|()
+function_decl|;
+comment|/**      * Variance of the values.      */
+DECL|method|variance
+name|double
+name|variance
+parameter_list|()
+function_decl|;
+comment|/**      * Variance of the values.      */
+DECL|method|getVariance
+name|double
+name|getVariance
+parameter_list|()
+function_decl|;
+comment|/**      * Standard deviation of the values.      */
+DECL|method|stdDeviation
+name|double
+name|stdDeviation
+parameter_list|()
+function_decl|;
+comment|/**      * Standard deviation of the values.      */
+DECL|method|getStdDeviation
+name|double
+name|getStdDeviation
 parameter_list|()
 function_decl|;
 block|}
