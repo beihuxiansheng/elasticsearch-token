@@ -82,6 +82,22 @@ name|search
 operator|.
 name|facets
 operator|.
+name|histogram
+operator|.
+name|HistogramFacetCollectorParser
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|facets
+operator|.
 name|query
 operator|.
 name|QueryFacetCollectorParser
@@ -213,7 +229,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<pre>  * facets : {  *  facet1: {  *      query : { ... },  *      global : false  *  },  *  facet2: {  *      field : {  *          name : "myfield",  *          size : 12  *      },  *      global : false  *  }  * }  *</pre>  *  * @author kimchy (shay.banon)  */
+comment|/**  *<pre>  * facets : {  *  facet1: {  *      query : { ... },  *      global : false  *  },  *  facet2: {  *      terms : {  *          name : "myfield",  *          size : 12  *      },  *      global : false  *  }  * }  *</pre>  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -287,6 +303,19 @@ name|NAME
 argument_list|,
 operator|new
 name|StatisticalFacetCollectorParser
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|builder
+operator|.
+name|put
+argument_list|(
+name|HistogramFacetCollectorParser
+operator|.
+name|NAME
+argument_list|,
+operator|new
+name|HistogramFacetCollectorParser
 argument_list|()
 argument_list|)
 expr_stmt|;

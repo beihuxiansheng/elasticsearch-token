@@ -578,6 +578,8 @@ name|InternalTermsFacet
 argument_list|(
 name|facetName
 argument_list|,
+name|fieldName
+argument_list|,
 name|InternalTermsFacet
 operator|.
 name|ComparatorType
@@ -685,6 +687,8 @@ operator|new
 name|InternalTermsFacet
 argument_list|(
 name|facetName
+argument_list|,
+name|fieldName
 argument_list|,
 name|InternalTermsFacet
 operator|.
