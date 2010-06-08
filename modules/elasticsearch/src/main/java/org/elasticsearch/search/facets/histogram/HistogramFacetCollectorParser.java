@@ -164,11 +164,6 @@ name|fieldName
 init|=
 literal|null
 decl_stmt|;
-name|XContentParser
-operator|.
-name|Token
-name|token
-decl_stmt|;
 name|long
 name|interval
 init|=
@@ -185,6 +180,11 @@ operator|.
 name|ComparatorType
 operator|.
 name|VALUE
+decl_stmt|;
+name|XContentParser
+operator|.
+name|Token
+name|token
 decl_stmt|;
 while|while
 condition|(

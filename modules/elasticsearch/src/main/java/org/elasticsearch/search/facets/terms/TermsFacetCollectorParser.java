@@ -151,7 +151,7 @@ init|=
 literal|10
 decl_stmt|;
 name|String
-name|termFieldName
+name|fieldName
 init|=
 literal|null
 decl_stmt|;
@@ -189,7 +189,7 @@ operator|.
 name|FIELD_NAME
 condition|)
 block|{
-name|termFieldName
+name|fieldName
 operator|=
 name|parser
 operator|.
@@ -212,7 +212,7 @@ literal|"field"
 operator|.
 name|equals
 argument_list|(
-name|termFieldName
+name|fieldName
 argument_list|)
 condition|)
 block|{
@@ -231,7 +231,7 @@ literal|"size"
 operator|.
 name|equals
 argument_list|(
-name|termFieldName
+name|fieldName
 argument_list|)
 condition|)
 block|{
