@@ -155,10 +155,6 @@ comment|// General TODOs on FieldData
 end_comment
 
 begin_comment
-comment|// TODO Make storing of freqs optional
-end_comment
-
-begin_comment
 comment|// TODO Optimize the order (both int[] and int[][] when they are sparse, create an Order abstraction)
 end_comment
 
