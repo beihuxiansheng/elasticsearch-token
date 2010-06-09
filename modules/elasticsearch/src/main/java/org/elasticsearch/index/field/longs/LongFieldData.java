@@ -117,7 +117,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -128,6 +128,9 @@ class|class
 name|LongFieldData
 extends|extends
 name|NumericFieldData
+argument_list|<
+name|LongDocFieldData
+argument_list|>
 block|{
 DECL|field|EMPTY_LONG_ARRAY
 specifier|static
@@ -216,6 +219,42 @@ name|int
 name|docId
 parameter_list|)
 function_decl|;
+DECL|method|docFieldData
+annotation|@
+name|Override
+specifier|public
+name|LongDocFieldData
+name|docFieldData
+parameter_list|(
+name|int
+name|docId
+parameter_list|)
+block|{
+return|return
+name|super
+operator|.
+name|docFieldData
+argument_list|(
+name|docId
+argument_list|)
+return|;
+block|}
+DECL|method|createFieldData
+annotation|@
+name|Override
+specifier|protected
+name|LongDocFieldData
+name|createFieldData
+parameter_list|()
+block|{
+return|return
+operator|new
+name|LongDocFieldData
+argument_list|(
+name|this
+argument_list|)
+return|;
+block|}
 DECL|method|forEachValue
 annotation|@
 name|Override

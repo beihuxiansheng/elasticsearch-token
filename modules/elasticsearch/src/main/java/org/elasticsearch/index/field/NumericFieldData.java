@@ -17,7 +17,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -26,8 +26,16 @@ specifier|public
 specifier|abstract
 class|class
 name|NumericFieldData
+parameter_list|<
+name|Doc
+extends|extends
+name|NumericDocFieldData
+parameter_list|>
 extends|extends
 name|FieldData
+argument_list|<
+name|Doc
+argument_list|>
 block|{
 DECL|method|NumericFieldData
 specifier|protected
@@ -127,6 +135,26 @@ operator|(
 name|short
 operator|)
 name|intValue
+argument_list|(
+name|docId
+argument_list|)
+return|;
+block|}
+DECL|method|docFieldData
+annotation|@
+name|Override
+specifier|public
+name|Doc
+name|docFieldData
+parameter_list|(
+name|int
+name|docId
+parameter_list|)
+block|{
+return|return
+name|super
+operator|.
+name|docFieldData
 argument_list|(
 name|docId
 argument_list|)
