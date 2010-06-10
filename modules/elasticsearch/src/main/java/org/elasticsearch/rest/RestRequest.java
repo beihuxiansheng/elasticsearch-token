@@ -104,6 +104,8 @@ DECL|enum constant|GET
 DECL|enum constant|POST
 DECL|enum constant|PUT
 DECL|enum constant|DELETE
+DECL|enum constant|OPTIONS
+DECL|enum constant|HEAD
 name|GET
 block|,
 name|POST
@@ -111,6 +113,10 @@ block|,
 name|PUT
 block|,
 name|DELETE
+block|,
+name|OPTIONS
+block|,
+name|HEAD
 block|}
 DECL|method|method
 name|Method
