@@ -354,7 +354,7 @@ name|Query
 name|query
 init|=
 operator|new
-name|ConstantScoreQuery
+name|DeletionAwareConstantScoreQuery
 argument_list|(
 name|context
 operator|.
