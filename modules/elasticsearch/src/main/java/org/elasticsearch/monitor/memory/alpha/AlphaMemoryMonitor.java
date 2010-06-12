@@ -98,18 +98,6 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|ThreadLocals
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|util
-operator|.
 name|TimeValue
 import|;
 end_import
@@ -993,11 +981,8 @@ operator|.
 name|fullMemoryClean
 argument_list|()
 expr_stmt|;
-name|ThreadLocals
-operator|.
-name|clearReferencesThreadLocals
-argument_list|()
-expr_stmt|;
+comment|// don't clean thread locals, let GC clean them (so we won't run into visibility issues)
+comment|// ThreadLocals.clearReferencesThreadLocals();
 name|fullCounter
 operator|=
 literal|0
