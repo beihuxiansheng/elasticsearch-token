@@ -44,6 +44,8 @@ name|cache
 operator|.
 name|field
 operator|.
+name|data
+operator|.
 name|FieldDataCache
 import|;
 end_import
@@ -58,6 +60,8 @@ name|index
 operator|.
 name|field
 operator|.
+name|data
+operator|.
 name|FieldData
 import|;
 end_import
@@ -71,6 +75,8 @@ operator|.
 name|index
 operator|.
 name|field
+operator|.
+name|data
 operator|.
 name|NumericFieldData
 import|;
@@ -199,6 +205,8 @@ operator|.
 name|index
 operator|.
 name|field
+operator|.
+name|data
 operator|.
 name|FieldDataOptions
 operator|.

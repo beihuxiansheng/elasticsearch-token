@@ -28,6 +28,8 @@ name|cache
 operator|.
 name|field
 operator|.
+name|data
+operator|.
 name|FieldDataCacheModule
 import|;
 end_import
