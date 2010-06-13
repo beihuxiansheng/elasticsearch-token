@@ -88,7 +88,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|CustomBoostFactorQuery
+name|TermFilter
 import|;
 end_import
 
@@ -104,7 +104,9 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|TermFilter
+name|function
+operator|.
+name|FunctionScoreQuery
 import|;
 end_import
 
@@ -434,14 +436,14 @@ if|if
 condition|(
 name|sourceQuery
 operator|instanceof
-name|CustomBoostFactorQuery
+name|FunctionScoreQuery
 condition|)
 block|{
 name|flatten
 argument_list|(
 operator|(
 operator|(
-name|CustomBoostFactorQuery
+name|FunctionScoreQuery
 operator|)
 name|sourceQuery
 operator|)
