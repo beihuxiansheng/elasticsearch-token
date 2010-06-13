@@ -404,7 +404,7 @@ name|scorer
 argument_list|(
 name|reader
 argument_list|,
-literal|true
+name|scoreDocsInOrder
 argument_list|,
 literal|false
 argument_list|)
