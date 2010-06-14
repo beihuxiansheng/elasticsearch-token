@@ -119,6 +119,17 @@ name|docId
 argument_list|)
 return|;
 block|}
+DECL|method|getStringValue
+specifier|public
+name|String
+name|getStringValue
+parameter_list|()
+block|{
+return|return
+name|stringValue
+argument_list|()
+return|;
+block|}
 DECL|method|getType
 specifier|public
 name|FieldData

@@ -146,6 +146,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|script
+operator|.
+name|ScriptService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|util
 operator|.
 name|collect
@@ -237,7 +249,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -317,6 +329,12 @@ name|index
 argument_list|,
 name|EMPTY_SETTINGS
 argument_list|,
+operator|new
+name|ScriptService
+argument_list|(
+name|EMPTY_SETTINGS
+argument_list|)
+argument_list|,
 name|mapperService
 argument_list|,
 name|indexCache
@@ -344,6 +362,9 @@ annotation|@
 name|IndexSettings
 name|Settings
 name|indexSettings
+parameter_list|,
+name|ScriptService
+name|scriptService
 parameter_list|,
 name|MapperService
 name|mapperService
@@ -524,6 +545,8 @@ argument_list|(
 name|index
 argument_list|,
 name|indexSettings
+argument_list|,
+name|scriptService
 argument_list|,
 name|mapperService
 argument_list|,

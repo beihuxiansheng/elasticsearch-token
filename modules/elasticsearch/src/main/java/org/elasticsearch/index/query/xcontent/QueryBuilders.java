@@ -660,6 +660,25 @@ name|queryBuilder
 argument_list|)
 return|;
 block|}
+comment|/**      * A query that allows to define a custom scoring script.      *      * @param queryBuilder The query to custom score      */
+DECL|method|customScoreQuery
+specifier|public
+specifier|static
+name|CustomScoreQueryBuilder
+name|customScoreQuery
+parameter_list|(
+name|XContentQueryBuilder
+name|queryBuilder
+parameter_list|)
+block|{
+return|return
+operator|new
+name|CustomScoreQueryBuilder
+argument_list|(
+name|queryBuilder
+argument_list|)
+return|;
+block|}
 comment|/**      * A more like this query that finds documents that are "like" the provided {@link MoreLikeThisQueryBuilder#likeText(String)}      * which is checked against the fields the query is constructed with.      *      * @param fields The fields to run the query against      */
 DECL|method|moreLikeThisQuery
 specifier|public

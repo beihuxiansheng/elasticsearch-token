@@ -166,7 +166,7 @@ name|search
 operator|.
 name|function
 operator|.
-name|BoostFactorFunctionProvider
+name|BoostScoreFunction
 import|;
 end_import
 
@@ -406,7 +406,7 @@ name|query
 argument_list|()
 argument_list|,
 operator|new
-name|BoostFactorFunctionProvider
+name|BoostScoreFunction
 argument_list|(
 name|context
 operator|.

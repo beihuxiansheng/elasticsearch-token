@@ -355,6 +355,12 @@ specifier|final
 name|String
 name|fieldName
 decl_stmt|;
+DECL|field|indexFieldName
+specifier|private
+specifier|final
+name|String
+name|indexFieldName
+decl_stmt|;
 DECL|field|size
 specifier|private
 specifier|final
@@ -427,6 +433,12 @@ argument_list|(
 name|fieldName
 argument_list|)
 decl_stmt|;
+name|this
+operator|.
+name|fieldName
+operator|=
+name|fieldName
+expr_stmt|;
 if|if
 condition|(
 name|mapper
@@ -436,7 +448,7 @@ condition|)
 block|{
 name|this
 operator|.
-name|fieldName
+name|indexFieldName
 operator|=
 name|mapper
 operator|.
@@ -460,7 +472,7 @@ else|else
 block|{
 name|this
 operator|.
-name|fieldName
+name|indexFieldName
 operator|=
 name|fieldName
 expr_stmt|;
@@ -511,7 +523,7 @@ name|fieldDataType
 argument_list|,
 name|reader
 argument_list|,
-name|fieldName
+name|indexFieldName
 argument_list|,
 name|fieldDataOptions
 argument_list|()
