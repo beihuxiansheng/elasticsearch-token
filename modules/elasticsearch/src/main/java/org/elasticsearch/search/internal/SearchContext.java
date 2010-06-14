@@ -344,6 +344,16 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
@@ -431,8 +441,10 @@ name|explain
 decl_stmt|;
 DECL|field|fieldNames
 specifier|private
+name|List
+argument_list|<
 name|String
-index|[]
+argument_list|>
 name|fieldNames
 decl_stmt|;
 DECL|field|from
@@ -1202,8 +1214,10 @@ return|;
 block|}
 DECL|method|fieldNames
 specifier|public
+name|List
+argument_list|<
 name|String
-index|[]
+argument_list|>
 name|fieldNames
 parameter_list|()
 block|{
@@ -1216,8 +1230,10 @@ specifier|public
 name|SearchContext
 name|fieldNames
 parameter_list|(
+name|List
+argument_list|<
 name|String
-index|[]
+argument_list|>
 name|fieldNames
 parameter_list|)
 block|{

@@ -1105,9 +1105,8 @@ operator|.
 name|fieldNames
 argument_list|()
 operator|.
-name|length
-operator|==
-literal|0
+name|isEmpty
+argument_list|()
 condition|)
 block|{
 return|return
