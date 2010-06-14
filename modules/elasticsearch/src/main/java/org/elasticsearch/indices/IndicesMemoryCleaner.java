@@ -579,6 +579,8 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
+try|try
+block|{
 name|indexShard
 operator|.
 name|flush
@@ -595,6 +597,44 @@ literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|FlushNotAllowedEngineException
+name|e
+parameter_list|)
+block|{
+comment|// ignore this one, its temporal
+block|}
+catch|catch
+parameter_list|(
+name|IllegalIndexShardStateException
+name|e
+parameter_list|)
+block|{
+comment|// ignore this one as well
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+name|indexShard
+operator|.
+name|shardId
+argument_list|()
+operator|+
+literal|": Failed to force flush in order to clean memory"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}
