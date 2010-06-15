@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -56,12 +56,6 @@ specifier|final
 name|ClusterState
 name|state
 decl_stmt|;
-DECL|field|firstMaster
-specifier|private
-specifier|final
-name|boolean
-name|firstMaster
-decl_stmt|;
 DECL|field|nodesDelta
 specifier|private
 specifier|final
@@ -82,9 +76,6 @@ name|state
 parameter_list|,
 name|ClusterState
 name|previousState
-parameter_list|,
-name|boolean
-name|firstMaster
 parameter_list|)
 block|{
 name|this
@@ -104,12 +95,6 @@ operator|.
 name|previousState
 operator|=
 name|previousState
-expr_stmt|;
-name|this
-operator|.
-name|firstMaster
-operator|=
-name|firstMaster
 expr_stmt|;
 name|this
 operator|.
@@ -216,16 +201,6 @@ argument_list|()
 operator|.
 name|localNodeMaster
 argument_list|()
-return|;
-block|}
-DECL|method|firstMaster
-specifier|public
-name|boolean
-name|firstMaster
-parameter_list|()
-block|{
-return|return
-name|firstMaster
 return|;
 block|}
 DECL|method|nodesDelta

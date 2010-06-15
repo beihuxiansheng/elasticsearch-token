@@ -348,14 +348,6 @@ name|master
 init|=
 literal|false
 decl_stmt|;
-DECL|field|firstMaster
-specifier|private
-specifier|volatile
-name|boolean
-name|firstMaster
-init|=
-literal|false
-decl_stmt|;
 DECL|field|initialStateSent
 specifier|private
 specifier|final
@@ -578,10 +570,6 @@ condition|)
 block|{
 comment|// we are the first master (and the master)
 name|master
-operator|=
-literal|true
-expr_stmt|;
-name|firstMaster
 operator|=
 literal|true
 expr_stmt|;
@@ -1094,18 +1082,6 @@ name|localNode
 operator|.
 name|id
 argument_list|()
-return|;
-block|}
-DECL|method|firstMaster
-annotation|@
-name|Override
-specifier|public
-name|boolean
-name|firstMaster
-parameter_list|()
-block|{
-return|return
-name|firstMaster
 return|;
 block|}
 DECL|method|publish

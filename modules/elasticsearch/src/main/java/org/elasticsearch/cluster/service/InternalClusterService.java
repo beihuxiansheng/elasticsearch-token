@@ -1108,11 +1108,6 @@ argument_list|,
 name|clusterState
 argument_list|,
 name|previousClusterState
-argument_list|,
-name|discoveryService
-operator|.
-name|firstMaster
-argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// new cluster state, notify all listeners
