@@ -4,13 +4,15 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.util
+DECL|package|org.elasticsearch.common.unit
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|common
+operator|.
+name|unit
 package|;
 end_package
 
@@ -71,10 +73,10 @@ comment|/**  * @author kimchy (Shay Banon)  */
 end_comment
 
 begin_class
-DECL|class|SizeUnitTests
+DECL|class|ByteSizeUnitTests
 specifier|public
 class|class
-name|SizeUnitTests
+name|ByteSizeUnitTests
 block|{
 DECL|method|testBytes
 annotation|@

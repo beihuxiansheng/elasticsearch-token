@@ -112,7 +112,7 @@ argument_list|()
 operator|.
 name|loadFromClasspath
 argument_list|(
-literal|"org/elasticsearch/util/settings/loader/test-settings.json"
+literal|"org/elasticsearch/common/settings/loader/test-settings.json"
 argument_list|)
 operator|.
 name|build
