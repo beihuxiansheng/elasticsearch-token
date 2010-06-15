@@ -144,6 +144,22 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|io
+operator|.
+name|Streams
+operator|.
+name|*
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|settings
 operator|.
 name|ImmutableSettings
@@ -195,22 +211,6 @@ operator|.
 name|node
 operator|.
 name|NodeBuilder
-operator|.
-name|*
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|util
-operator|.
-name|io
-operator|.
-name|Streams
 operator|.
 name|*
 import|;

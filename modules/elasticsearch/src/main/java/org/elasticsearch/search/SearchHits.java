@@ -22,9 +22,11 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|xcontent
+name|io
 operator|.
-name|ToXContent
+name|stream
+operator|.
+name|Streamable
 import|;
 end_import
 
@@ -34,13 +36,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|common
 operator|.
-name|io
+name|xcontent
 operator|.
-name|stream
-operator|.
-name|Streamable
+name|ToXContent
 import|;
 end_import
 

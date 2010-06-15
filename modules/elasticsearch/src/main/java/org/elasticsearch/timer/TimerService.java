@@ -180,9 +180,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
 name|util
 operator|.
-name|TimeValue
+name|concurrent
+operator|.
+name|DynamicExecutors
 operator|.
 name|*
 import|;
@@ -196,9 +200,7 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|concurrent
-operator|.
-name|DynamicExecutors
+name|TimeValue
 operator|.
 name|*
 import|;

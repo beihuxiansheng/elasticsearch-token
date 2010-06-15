@@ -24,6 +24,8 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
 name|util
 operator|.
 name|concurrent
@@ -37,6 +39,8 @@ import|import
 name|org
 operator|.
 name|elasticsearch
+operator|.
+name|common
 operator|.
 name|util
 operator|.
@@ -52,6 +56,8 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
 name|util
 operator|.
 name|concurrent
@@ -61,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An implementation of {@link VersionedMap} based on {@link ConcurrentMapLong}.  *  * @author kimchy (Shay Banon)  */
+comment|/**  * An implementation of {@link VersionedMap} based on {@link org.elasticsearch.common.util.concurrent.ConcurrentMapLong}.  *  * @author kimchy (Shay Banon)  */
 end_comment
 
 begin_class

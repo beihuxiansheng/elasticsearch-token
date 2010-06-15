@@ -628,6 +628,22 @@ name|common
 operator|.
 name|collect
 operator|.
+name|MapBuilder
+operator|.
+name|*
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
 name|Maps
 operator|.
 name|*
@@ -645,20 +661,6 @@ operator|.
 name|collect
 operator|.
 name|Sets
-operator|.
-name|*
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|util
-operator|.
-name|MapBuilder
 operator|.
 name|*
 import|;

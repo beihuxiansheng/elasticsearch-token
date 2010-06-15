@@ -24,9 +24,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|jackson
+name|io
 operator|.
-name|*
+name|FastByteArrayOutputStream
 import|;
 end_import
 
@@ -36,11 +36,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|common
 operator|.
-name|io
+name|jackson
 operator|.
-name|FastByteArrayOutputStream
+name|*
 import|;
 end_import
 

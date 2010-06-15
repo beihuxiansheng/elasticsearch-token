@@ -76,9 +76,29 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|transport
+name|common
 operator|.
-name|TransportException
+name|util
+operator|.
+name|concurrent
+operator|.
+name|AbstractFuture
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|UncategorizedExecutionException
 import|;
 end_import
 
@@ -91,20 +111,6 @@ operator|.
 name|util
 operator|.
 name|TimeValue
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|AbstractFuture
 import|;
 end_import
 
@@ -239,7 +245,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|TransportException
+name|UncategorizedExecutionException
 argument_list|(
 literal|"Failed execution"
 argument_list|,
@@ -418,7 +424,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticSearchException
+name|UncategorizedExecutionException
 argument_list|(
 literal|"Failed execution"
 argument_list|,

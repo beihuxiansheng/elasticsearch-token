@@ -52,11 +52,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|test
+name|common
 operator|.
-name|integration
+name|collect
 operator|.
-name|AbstractNodesTests
+name|MapBuilder
 import|;
 end_import
 
@@ -66,9 +66,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|test
 operator|.
-name|MapBuilder
+name|integration
+operator|.
+name|AbstractNodesTests
 import|;
 end_import
 

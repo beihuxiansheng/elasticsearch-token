@@ -92,11 +92,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|common
 operator|.
-name|analysis
+name|util
 operator|.
-name|FieldNameAnalyzer
+name|concurrent
+operator|.
+name|Immutable
 import|;
 end_import
 
@@ -106,11 +108,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|index
 operator|.
-name|concurrent
+name|analysis
 operator|.
-name|Immutable
+name|FieldNameAnalyzer
 import|;
 end_import
 

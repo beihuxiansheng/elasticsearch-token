@@ -90,9 +90,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|xcontent
+name|io
 operator|.
-name|XContentFactory
+name|Streams
 operator|.
 name|*
 import|;
@@ -104,11 +104,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|common
 operator|.
-name|io
+name|xcontent
 operator|.
-name|Streams
+name|XContentFactory
 operator|.
 name|*
 import|;

@@ -220,9 +220,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|xcontent
+name|collect
 operator|.
-name|XContentFactory
+name|MapBuilder
 operator|.
 name|*
 import|;
@@ -234,9 +234,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|common
 operator|.
-name|MapBuilder
+name|xcontent
+operator|.
+name|XContentFactory
 operator|.
 name|*
 import|;

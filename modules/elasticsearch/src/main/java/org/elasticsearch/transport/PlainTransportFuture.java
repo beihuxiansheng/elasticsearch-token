@@ -50,11 +50,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|common
 operator|.
-name|concurrent
+name|io
 operator|.
-name|AbstractFuture
+name|stream
+operator|.
+name|Streamable
 import|;
 end_import
 
@@ -64,13 +66,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
 name|util
 operator|.
-name|io
+name|concurrent
 operator|.
-name|stream
-operator|.
-name|Streamable
+name|AbstractFuture
 import|;
 end_import
 
