@@ -976,9 +976,12 @@ parameter_list|)
 block|{
 if|if
 condition|(
+operator|!
 name|running
 condition|)
 block|{
+return|return;
+block|}
 name|NodeFD
 name|nodeFD
 init|=
@@ -1015,7 +1018,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
 annotation|@
 name|Override
 specifier|public
@@ -1029,9 +1031,12 @@ block|{
 comment|// check if the master node did not get switched on us...
 if|if
 condition|(
+operator|!
 name|running
 condition|)
 block|{
+return|return;
+block|}
 name|NodeFD
 name|nodeFD
 init|=
@@ -1149,7 +1154,6 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
