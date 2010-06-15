@@ -1077,7 +1077,7 @@ name|getAsInt
 argument_list|(
 literal|"transport.tcp.connection_per_node"
 argument_list|,
-literal|5
+literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
