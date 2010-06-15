@@ -4,13 +4,13 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.util
+DECL|package|org.elasticsearch.common
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|common
 package|;
 end_package
 

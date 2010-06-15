@@ -26,13 +26,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|common
 operator|.
-name|field
+name|thread
 operator|.
-name|data
-operator|.
-name|FieldDataOptions
+name|ThreadLocals
 import|;
 end_import
 
@@ -42,9 +40,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|index
 operator|.
-name|ThreadLocals
+name|field
+operator|.
+name|data
+operator|.
+name|FieldDataOptions
 import|;
 end_import
 

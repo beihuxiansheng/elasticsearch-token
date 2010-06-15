@@ -64,13 +64,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|common
 operator|.
-name|store
+name|unit
 operator|.
-name|support
-operator|.
-name|ForceSyncDirectory
+name|SizeValue
 import|;
 end_import
 
@@ -80,9 +78,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|index
 operator|.
-name|SizeValue
+name|store
+operator|.
+name|support
+operator|.
+name|ForceSyncDirectory
 import|;
 end_import
 

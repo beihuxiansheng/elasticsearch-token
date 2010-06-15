@@ -36,11 +36,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|common
 operator|.
-name|shard
+name|unit
 operator|.
-name|IndexShardComponent
+name|SizeValue
 import|;
 end_import
 
@@ -50,9 +50,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|index
 operator|.
-name|SizeValue
+name|shard
+operator|.
+name|IndexShardComponent
 import|;
 end_import
 

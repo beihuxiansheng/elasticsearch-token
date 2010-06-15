@@ -50,7 +50,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|common
+operator|.
+name|os
 operator|.
 name|OsUtils
 import|;

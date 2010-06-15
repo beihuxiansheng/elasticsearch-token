@@ -88,11 +88,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|common
 operator|.
-name|shard
+name|unit
 operator|.
-name|IndexShardState
+name|SizeValue
 import|;
 end_import
 
@@ -102,9 +102,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|index
 operator|.
-name|SizeValue
+name|shard
+operator|.
+name|IndexShardState
 import|;
 end_import
 
@@ -140,7 +142,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|common
+operator|.
+name|unit
 operator|.
 name|SizeValue
 operator|.

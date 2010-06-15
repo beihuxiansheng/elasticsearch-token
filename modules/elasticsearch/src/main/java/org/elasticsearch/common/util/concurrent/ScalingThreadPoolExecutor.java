@@ -26,13 +26,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|util
+name|unit
 operator|.
-name|concurrent
-operator|.
-name|jsr166y
-operator|.
-name|LinkedTransferQueue
+name|TimeValue
 import|;
 end_import
 
@@ -42,9 +38,15 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
 name|util
 operator|.
-name|TimeValue
+name|concurrent
+operator|.
+name|jsr166y
+operator|.
+name|LinkedTransferQueue
 import|;
 end_import
 

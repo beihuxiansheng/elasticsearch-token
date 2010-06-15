@@ -24,11 +24,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|util
+name|thread
 operator|.
-name|concurrent
-operator|.
-name|NotThreadSafe
+name|ThreadLocals
 import|;
 end_import
 
@@ -38,9 +36,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
 name|util
 operator|.
-name|ThreadLocals
+name|concurrent
+operator|.
+name|NotThreadSafe
 import|;
 end_import
 

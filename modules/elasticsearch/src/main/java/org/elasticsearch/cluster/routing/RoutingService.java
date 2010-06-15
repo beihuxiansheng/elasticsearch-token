@@ -102,9 +102,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|threadpool
+name|common
 operator|.
-name|ThreadPool
+name|unit
+operator|.
+name|TimeValue
 import|;
 end_import
 
@@ -114,9 +116,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|threadpool
 operator|.
-name|TimeValue
+name|ThreadPool
 import|;
 end_import
 
@@ -152,7 +154,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|common
+operator|.
+name|unit
 operator|.
 name|TimeValue
 operator|.

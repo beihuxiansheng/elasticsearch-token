@@ -42,6 +42,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Classes
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|collect
 operator|.
 name|Tuple
@@ -209,18 +221,6 @@ operator|.
 name|internal
 operator|.
 name|InternalSettingsPerparer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|util
-operator|.
-name|Classes
 import|;
 end_import
 

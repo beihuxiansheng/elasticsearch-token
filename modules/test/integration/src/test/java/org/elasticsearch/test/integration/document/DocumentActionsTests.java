@@ -248,11 +248,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|test
+name|common
 operator|.
-name|integration
-operator|.
-name|AbstractNodesTests
+name|Unicode
 import|;
 end_import
 
@@ -262,9 +260,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|test
 operator|.
-name|Unicode
+name|integration
+operator|.
+name|AbstractNodesTests
 import|;
 end_import
 

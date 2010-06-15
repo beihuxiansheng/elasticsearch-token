@@ -32,7 +32,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|common
 operator|.
 name|Strings
 operator|.
@@ -65,7 +65,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Tests for {@link Strings}.  *  * @author kimchy (Shay Banon)  */
+comment|/**  * Tests for {@link org.elasticsearch.common.Strings}.  *  * @author kimchy (Shay Banon)  */
 end_comment
 
 begin_class

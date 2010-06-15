@@ -140,6 +140,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Unicode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|xcontent
 operator|.
 name|XContentFactory
@@ -187,18 +199,6 @@ operator|.
 name|integration
 operator|.
 name|AbstractNodesTests
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|util
-operator|.
-name|Unicode
 import|;
 end_import
 

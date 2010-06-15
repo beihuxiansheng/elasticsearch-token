@@ -38,9 +38,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|lease
-operator|.
-name|Releasable
+name|StopWatch
 import|;
 end_import
 
@@ -50,9 +48,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|common
 operator|.
-name|StopWatch
+name|lease
+operator|.
+name|Releasable
 import|;
 end_import
 

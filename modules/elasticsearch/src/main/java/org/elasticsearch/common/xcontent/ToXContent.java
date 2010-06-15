@@ -24,11 +24,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|xcontent
-operator|.
-name|builder
-operator|.
-name|XContentBuilder
+name|Booleans
 import|;
 end_import
 
@@ -38,9 +34,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|common
 operator|.
-name|Booleans
+name|xcontent
+operator|.
+name|builder
+operator|.
+name|XContentBuilder
 import|;
 end_import
 

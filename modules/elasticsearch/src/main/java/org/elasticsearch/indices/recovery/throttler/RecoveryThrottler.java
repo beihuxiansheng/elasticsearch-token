@@ -66,11 +66,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|common
 operator|.
-name|shard
+name|unit
 operator|.
-name|ShardId
+name|TimeValue
 import|;
 end_import
 
@@ -80,9 +80,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|index
 operator|.
-name|TimeValue
+name|shard
+operator|.
+name|ShardId
 import|;
 end_import
 

@@ -26,6 +26,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Unicode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|io
 operator|.
 name|FastByteArrayOutputStream
@@ -43,18 +55,6 @@ operator|.
 name|xcontent
 operator|.
 name|XContent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|util
-operator|.
-name|Unicode
 import|;
 end_import
 

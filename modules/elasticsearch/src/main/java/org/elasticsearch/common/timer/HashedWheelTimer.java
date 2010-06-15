@@ -66,11 +66,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|util
+name|thread
 operator|.
-name|concurrent
-operator|.
-name|ConcurrentIdentityHashMap
+name|ThreadRenamingRunnable
 import|;
 end_import
 
@@ -80,9 +78,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
 name|util
 operator|.
-name|ThreadRenamingRunnable
+name|concurrent
+operator|.
+name|ConcurrentIdentityHashMap
 import|;
 end_import
 

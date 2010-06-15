@@ -118,9 +118,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
+name|common
 operator|.
-name|Scroll
+name|unit
+operator|.
+name|TimeValue
 import|;
 end_import
 
@@ -130,9 +132,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|search
 operator|.
-name|TimeValue
+name|Scroll
 import|;
 end_import
 

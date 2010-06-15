@@ -122,11 +122,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|discovery
+name|common
 operator|.
-name|zen
+name|unit
 operator|.
-name|DiscoveryNodesProvider
+name|TimeValue
 import|;
 end_import
 
@@ -136,9 +136,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|discovery
 operator|.
-name|TimeValue
+name|zen
+operator|.
+name|DiscoveryNodesProvider
 import|;
 end_import
 

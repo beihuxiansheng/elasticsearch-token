@@ -36,6 +36,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Names
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|collect
 operator|.
 name|Tuple
@@ -95,14 +107,16 @@ import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|common
 operator|.
-name|Names
+name|Strings
+operator|.
+name|*
 import|;
 end_import
 
@@ -117,20 +131,6 @@ operator|.
 name|settings
 operator|.
 name|ImmutableSettings
-operator|.
-name|*
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|util
-operator|.
-name|Strings
 operator|.
 name|*
 import|;

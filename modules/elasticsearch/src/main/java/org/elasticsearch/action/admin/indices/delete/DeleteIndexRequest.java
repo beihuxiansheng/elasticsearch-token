@@ -86,7 +86,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|common
+operator|.
+name|unit
 operator|.
 name|TimeValue
 import|;
@@ -122,7 +124,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|common
+operator|.
+name|unit
 operator|.
 name|TimeValue
 operator|.
