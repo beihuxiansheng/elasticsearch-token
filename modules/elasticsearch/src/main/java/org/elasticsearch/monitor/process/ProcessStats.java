@@ -74,7 +74,7 @@ name|common
 operator|.
 name|unit
 operator|.
-name|SizeValue
+name|ByteSizeValue
 import|;
 end_import
 
@@ -1048,13 +1048,13 @@ expr_stmt|;
 block|}
 DECL|method|totalVirtual
 specifier|public
-name|SizeValue
+name|ByteSizeValue
 name|totalVirtual
 parameter_list|()
 block|{
 return|return
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 name|totalVirtual
 argument_list|)
@@ -1062,7 +1062,7 @@ return|;
 block|}
 DECL|method|getTotalVirtual
 specifier|public
-name|SizeValue
+name|ByteSizeValue
 name|getTotalVirtual
 parameter_list|()
 block|{
@@ -1073,13 +1073,13 @@ return|;
 block|}
 DECL|method|resident
 specifier|public
-name|SizeValue
+name|ByteSizeValue
 name|resident
 parameter_list|()
 block|{
 return|return
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 name|resident
 argument_list|)
@@ -1087,7 +1087,7 @@ return|;
 block|}
 DECL|method|getResident
 specifier|public
-name|SizeValue
+name|ByteSizeValue
 name|getResident
 parameter_list|()
 block|{
@@ -1098,13 +1098,13 @@ return|;
 block|}
 DECL|method|share
 specifier|public
-name|SizeValue
+name|ByteSizeValue
 name|share
 parameter_list|()
 block|{
 return|return
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 name|share
 argument_list|)
@@ -1112,7 +1112,7 @@ return|;
 block|}
 DECL|method|getShare
 specifier|public
-name|SizeValue
+name|ByteSizeValue
 name|getShare
 parameter_list|()
 block|{

@@ -68,7 +68,7 @@ name|common
 operator|.
 name|unit
 operator|.
-name|SizeValue
+name|ByteSizeValue
 import|;
 end_import
 
@@ -177,7 +177,7 @@ comment|/**      * Returns the estimated size of a {@link Directory}.      */
 DECL|method|estimateSize
 specifier|public
 specifier|static
-name|SizeValue
+name|ByteSizeValue
 name|estimateSize
 parameter_list|(
 name|Directory
@@ -231,7 +231,7 @@ block|}
 block|}
 return|return
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 name|estimatedSize
 argument_list|)

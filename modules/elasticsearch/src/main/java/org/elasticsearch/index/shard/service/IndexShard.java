@@ -80,7 +80,7 @@ name|common
 operator|.
 name|unit
 operator|.
-name|SizeValue
+name|ByteSizeValue
 import|;
 end_import
 
@@ -208,7 +208,7 @@ parameter_list|()
 function_decl|;
 comment|/**      * Returns the estimated flushable memory size. Returns<tt>null</tt> if not available.      */
 DECL|method|estimateFlushableMemorySize
-name|SizeValue
+name|ByteSizeValue
 name|estimateFlushableMemorySize
 parameter_list|()
 throws|throws

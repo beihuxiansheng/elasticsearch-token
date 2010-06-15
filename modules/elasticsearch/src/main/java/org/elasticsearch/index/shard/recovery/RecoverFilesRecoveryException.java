@@ -28,7 +28,7 @@ name|common
 operator|.
 name|unit
 operator|.
-name|SizeValue
+name|ByteSizeValue
 import|;
 end_import
 
@@ -81,7 +81,7 @@ decl_stmt|;
 DECL|field|totalFilesSize
 specifier|private
 specifier|final
-name|SizeValue
+name|ByteSizeValue
 name|totalFilesSize
 decl_stmt|;
 DECL|method|RecoverFilesRecoveryException
@@ -94,7 +94,7 @@ parameter_list|,
 name|int
 name|numberOfFiles
 parameter_list|,
-name|SizeValue
+name|ByteSizeValue
 name|totalFilesSize
 parameter_list|,
 name|Throwable
@@ -143,7 +143,7 @@ return|;
 block|}
 DECL|method|totalFilesSize
 specifier|public
-name|SizeValue
+name|ByteSizeValue
 name|totalFilesSize
 parameter_list|()
 block|{

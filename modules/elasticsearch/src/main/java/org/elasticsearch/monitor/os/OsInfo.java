@@ -74,7 +74,7 @@ name|common
 operator|.
 name|unit
 operator|.
-name|SizeValue
+name|ByteSizeValue
 import|;
 end_import
 
@@ -789,13 +789,13 @@ expr_stmt|;
 block|}
 DECL|method|total
 specifier|public
-name|SizeValue
+name|ByteSizeValue
 name|total
 parameter_list|()
 block|{
 return|return
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 name|total
 argument_list|)
@@ -803,7 +803,7 @@ return|;
 block|}
 DECL|method|getTotal
 specifier|public
-name|SizeValue
+name|ByteSizeValue
 name|getTotal
 parameter_list|()
 block|{
@@ -908,13 +908,13 @@ expr_stmt|;
 block|}
 DECL|method|total
 specifier|public
-name|SizeValue
+name|ByteSizeValue
 name|total
 parameter_list|()
 block|{
 return|return
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 name|total
 argument_list|)
@@ -922,7 +922,7 @@ return|;
 block|}
 DECL|method|getTotal
 specifier|public
-name|SizeValue
+name|ByteSizeValue
 name|getTotal
 parameter_list|()
 block|{
@@ -1121,13 +1121,13 @@ return|;
 block|}
 DECL|method|cacheSize
 specifier|public
-name|SizeValue
+name|ByteSizeValue
 name|cacheSize
 parameter_list|()
 block|{
 return|return
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 name|cacheSize
 argument_list|)
@@ -1135,7 +1135,7 @@ return|;
 block|}
 DECL|method|getCacheSize
 specifier|public
-name|SizeValue
+name|ByteSizeValue
 name|getCacheSize
 parameter_list|()
 block|{

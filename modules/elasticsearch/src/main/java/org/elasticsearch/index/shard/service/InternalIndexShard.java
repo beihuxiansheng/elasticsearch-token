@@ -198,7 +198,7 @@ name|common
 operator|.
 name|unit
 operator|.
-name|SizeValue
+name|ByteSizeValue
 import|;
 end_import
 
@@ -1170,7 +1170,7 @@ DECL|method|estimateFlushableMemorySize
 annotation|@
 name|Override
 specifier|public
-name|SizeValue
+name|ByteSizeValue
 name|estimateFlushableMemorySize
 parameter_list|()
 throws|throws

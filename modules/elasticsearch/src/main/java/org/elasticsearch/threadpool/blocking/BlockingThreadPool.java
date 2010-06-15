@@ -54,7 +54,7 @@ name|common
 operator|.
 name|unit
 operator|.
-name|SizeUnit
+name|ByteSizeUnit
 import|;
 end_import
 
@@ -68,7 +68,7 @@ name|common
 operator|.
 name|unit
 operator|.
-name|SizeValue
+name|ByteSizeValue
 import|;
 end_import
 
@@ -290,16 +290,16 @@ name|int
 operator|)
 name|componentSettings
 operator|.
-name|getAsSize
+name|getAsBytesSize
 argument_list|(
 literal|"capacity"
 argument_list|,
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 literal|1
 argument_list|,
-name|SizeUnit
+name|ByteSizeUnit
 operator|.
 name|KB
 argument_list|)

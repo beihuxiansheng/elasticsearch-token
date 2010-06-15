@@ -96,7 +96,7 @@ name|common
 operator|.
 name|unit
 operator|.
-name|SizeUnit
+name|ByteSizeUnit
 import|;
 end_import
 
@@ -110,7 +110,7 @@ name|common
 operator|.
 name|unit
 operator|.
-name|SizeValue
+name|ByteSizeValue
 import|;
 end_import
 
@@ -250,15 +250,15 @@ name|args
 parameter_list|)
 block|{
 specifier|final
-name|SizeValue
+name|ByteSizeValue
 name|payloadSize
 init|=
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 literal|100
 argument_list|,
-name|SizeUnit
+name|ByteSizeUnit
 operator|.
 name|BYTES
 argument_list|)

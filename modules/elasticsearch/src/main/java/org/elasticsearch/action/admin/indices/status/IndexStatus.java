@@ -58,7 +58,7 @@ name|common
 operator|.
 name|unit
 operator|.
-name|SizeValue
+name|ByteSizeValue
 import|;
 end_import
 
@@ -515,7 +515,7 @@ return|;
 block|}
 DECL|method|storeSize
 specifier|public
-name|SizeValue
+name|ByteSizeValue
 name|storeSize
 parameter_list|()
 block|{
@@ -582,7 +582,7 @@ return|;
 block|}
 return|return
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 name|bytes
 argument_list|)
@@ -590,7 +590,7 @@ return|;
 block|}
 DECL|method|getStoreSize
 specifier|public
-name|SizeValue
+name|ByteSizeValue
 name|getStoreSize
 parameter_list|()
 block|{
@@ -601,7 +601,7 @@ return|;
 block|}
 DECL|method|estimatedFlushableMemorySize
 specifier|public
-name|SizeValue
+name|ByteSizeValue
 name|estimatedFlushableMemorySize
 parameter_list|()
 block|{
@@ -668,7 +668,7 @@ return|;
 block|}
 return|return
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 name|bytes
 argument_list|)
@@ -676,7 +676,7 @@ return|;
 block|}
 DECL|method|getEstimatedFlushableMemorySize
 specifier|public
-name|SizeValue
+name|ByteSizeValue
 name|getEstimatedFlushableMemorySize
 parameter_list|()
 block|{

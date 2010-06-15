@@ -106,7 +106,7 @@ name|common
 operator|.
 name|unit
 operator|.
-name|SizeValue
+name|ByteSizeValue
 import|;
 end_import
 
@@ -734,7 +734,7 @@ operator|+
 literal|"] entries is "
 operator|+
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 name|bytesTaken
 argument_list|)

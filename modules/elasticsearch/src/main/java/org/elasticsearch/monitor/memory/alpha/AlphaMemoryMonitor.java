@@ -80,7 +80,7 @@ name|common
 operator|.
 name|unit
 operator|.
-name|SizeUnit
+name|ByteSizeUnit
 import|;
 end_import
 
@@ -94,7 +94,7 @@ name|common
 operator|.
 name|unit
 operator|.
-name|SizeValue
+name|ByteSizeValue
 import|;
 end_import
 
@@ -242,7 +242,7 @@ decl_stmt|;
 DECL|field|minimumFlushableSizeToClean
 specifier|private
 specifier|final
-name|SizeValue
+name|ByteSizeValue
 name|minimumFlushableSizeToClean
 decl_stmt|;
 DECL|field|translogNumberOfOperationsThreshold
@@ -272,13 +272,13 @@ decl_stmt|;
 DECL|field|maxMemory
 specifier|private
 specifier|final
-name|SizeValue
+name|ByteSizeValue
 name|maxMemory
 decl_stmt|;
 DECL|field|totalMemory
 specifier|private
 specifier|final
-name|SizeValue
+name|ByteSizeValue
 name|totalMemory
 decl_stmt|;
 DECL|field|scheduledFuture
@@ -412,16 +412,16 @@ name|minimumFlushableSizeToClean
 operator|=
 name|componentSettings
 operator|.
-name|getAsSize
+name|getAsBytesSize
 argument_list|(
 literal|"minimum_flushable_size_to_clean"
 argument_list|,
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 literal|5
 argument_list|,
-name|SizeUnit
+name|ByteSizeUnit
 operator|.
 name|MB
 argument_list|)
@@ -477,7 +477,7 @@ operator|.
 name|maxMemory
 operator|=
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 name|runtime
 operator|.
@@ -500,7 +500,7 @@ name|totalMemory
 argument_list|()
 condition|?
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 name|runtime
 operator|.
@@ -855,7 +855,7 @@ operator|.
 name|append
 argument_list|(
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 name|memoryToClean
 argument_list|)
@@ -876,7 +876,7 @@ operator|.
 name|append
 argument_list|(
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 name|lowerThresholdMemory
 argument_list|)
@@ -897,7 +897,7 @@ operator|.
 name|append
 argument_list|(
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 name|upperThresholdMemory
 argument_list|)
@@ -918,7 +918,7 @@ operator|.
 name|append
 argument_list|(
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 name|usedMemory
 argument_list|)
@@ -939,7 +939,7 @@ operator|.
 name|append
 argument_list|(
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 name|totalMemory
 argument_list|)
@@ -1048,7 +1048,7 @@ operator|.
 name|append
 argument_list|(
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 name|memoryToClean
 argument_list|)
@@ -1069,7 +1069,7 @@ operator|.
 name|append
 argument_list|(
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 name|lowerThresholdMemory
 argument_list|)
@@ -1090,7 +1090,7 @@ operator|.
 name|append
 argument_list|(
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 name|upperThresholdMemory
 argument_list|)
@@ -1111,7 +1111,7 @@ operator|.
 name|append
 argument_list|(
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 name|usedMemory
 argument_list|)
@@ -1132,7 +1132,7 @@ operator|.
 name|append
 argument_list|(
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 name|totalMemory
 argument_list|)

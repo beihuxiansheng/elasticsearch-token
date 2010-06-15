@@ -82,7 +82,7 @@ name|common
 operator|.
 name|unit
 operator|.
-name|SizeUnit
+name|ByteSizeUnit
 import|;
 end_import
 
@@ -96,7 +96,7 @@ name|common
 operator|.
 name|unit
 operator|.
-name|SizeValue
+name|ByteSizeValue
 import|;
 end_import
 
@@ -148,13 +148,13 @@ block|{
 DECL|field|minMergeSize
 specifier|private
 specifier|final
-name|SizeValue
+name|ByteSizeValue
 name|minMergeSize
 decl_stmt|;
 DECL|field|maxMergeSize
 specifier|private
 specifier|final
-name|SizeValue
+name|ByteSizeValue
 name|maxMergeSize
 decl_stmt|;
 DECL|field|mergeFactor
@@ -219,12 +219,12 @@ name|minMergeSize
 operator|=
 name|componentSettings
 operator|.
-name|getAsSize
+name|getAsBytesSize
 argument_list|(
 literal|"min_merge_size"
 argument_list|,
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 operator|(
 name|long
@@ -237,7 +237,7 @@ literal|1024
 operator|*
 literal|1024
 argument_list|,
-name|SizeUnit
+name|ByteSizeUnit
 operator|.
 name|BYTES
 argument_list|)
@@ -249,12 +249,12 @@ name|maxMergeSize
 operator|=
 name|componentSettings
 operator|.
-name|getAsSize
+name|getAsBytesSize
 argument_list|(
 literal|"max_merge_size"
 argument_list|,
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 operator|(
 name|long
@@ -263,7 +263,7 @@ name|LogByteSizeMergePolicy
 operator|.
 name|DEFAULT_MAX_MERGE_MB
 argument_list|,
-name|SizeUnit
+name|ByteSizeUnit
 operator|.
 name|MB
 argument_list|)

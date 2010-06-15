@@ -70,7 +70,7 @@ name|common
 operator|.
 name|unit
 operator|.
-name|SizeValue
+name|ByteSizeValue
 import|;
 end_import
 
@@ -221,7 +221,7 @@ DECL|method|estimateSize
 annotation|@
 name|Override
 specifier|public
-name|SizeValue
+name|ByteSizeValue
 name|estimateSize
 parameter_list|()
 throws|throws

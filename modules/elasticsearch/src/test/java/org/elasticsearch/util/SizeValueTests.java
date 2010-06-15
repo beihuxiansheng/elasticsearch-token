@@ -24,7 +24,7 @@ name|common
 operator|.
 name|unit
 operator|.
-name|SizeUnit
+name|ByteSizeUnit
 import|;
 end_import
 
@@ -38,7 +38,7 @@ name|common
 operator|.
 name|unit
 operator|.
-name|SizeValue
+name|ByteSizeValue
 import|;
 end_import
 
@@ -99,11 +99,11 @@ block|{
 name|assertThat
 argument_list|(
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 literal|4
 argument_list|,
-name|SizeUnit
+name|ByteSizeUnit
 operator|.
 name|GB
 argument_list|)
@@ -128,7 +128,7 @@ parameter_list|()
 block|{
 name|assertThat
 argument_list|(
-name|SizeUnit
+name|ByteSizeUnit
 operator|.
 name|BYTES
 operator|.
@@ -140,11 +140,11 @@ argument_list|,
 name|is
 argument_list|(
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 literal|10
 argument_list|,
-name|SizeUnit
+name|ByteSizeUnit
 operator|.
 name|BYTES
 argument_list|)
@@ -156,7 +156,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|SizeUnit
+name|ByteSizeUnit
 operator|.
 name|KB
 operator|.
@@ -168,11 +168,11 @@ argument_list|,
 name|is
 argument_list|(
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 literal|10
 argument_list|,
-name|SizeUnit
+name|ByteSizeUnit
 operator|.
 name|KB
 argument_list|)
@@ -184,7 +184,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|SizeUnit
+name|ByteSizeUnit
 operator|.
 name|MB
 operator|.
@@ -196,11 +196,11 @@ argument_list|,
 name|is
 argument_list|(
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 literal|10
 argument_list|,
-name|SizeUnit
+name|ByteSizeUnit
 operator|.
 name|MB
 argument_list|)
@@ -212,7 +212,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|SizeUnit
+name|ByteSizeUnit
 operator|.
 name|GB
 operator|.
@@ -224,11 +224,11 @@ argument_list|,
 name|is
 argument_list|(
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 literal|10
 argument_list|,
-name|SizeUnit
+name|ByteSizeUnit
 operator|.
 name|GB
 argument_list|)
@@ -254,11 +254,11 @@ argument_list|,
 name|is
 argument_list|(
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 literal|10
 argument_list|,
-name|SizeUnit
+name|ByteSizeUnit
 operator|.
 name|BYTES
 argument_list|)
@@ -275,7 +275,7 @@ argument_list|,
 name|is
 argument_list|(
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 call|(
 name|long
@@ -286,7 +286,7 @@ operator|*
 literal|1.5
 argument_list|)
 argument_list|,
-name|SizeUnit
+name|ByteSizeUnit
 operator|.
 name|BYTES
 argument_list|)
@@ -303,7 +303,7 @@ argument_list|,
 name|is
 argument_list|(
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 call|(
 name|long
@@ -314,7 +314,7 @@ operator|*
 literal|1.5
 argument_list|)
 argument_list|,
-name|SizeUnit
+name|ByteSizeUnit
 operator|.
 name|KB
 argument_list|)
@@ -331,7 +331,7 @@ argument_list|,
 name|is
 argument_list|(
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 call|(
 name|long
@@ -342,7 +342,7 @@ operator|*
 literal|1.5
 argument_list|)
 argument_list|,
-name|SizeUnit
+name|ByteSizeUnit
 operator|.
 name|MB
 argument_list|)
@@ -359,7 +359,7 @@ argument_list|,
 name|is
 argument_list|(
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 call|(
 name|long
@@ -370,7 +370,7 @@ operator|*
 literal|1.5
 argument_list|)
 argument_list|,
-name|SizeUnit
+name|ByteSizeUnit
 operator|.
 name|GB
 argument_list|)

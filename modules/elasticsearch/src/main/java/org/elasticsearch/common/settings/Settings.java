@@ -26,6 +26,20 @@ name|common
 operator|.
 name|unit
 operator|.
+name|ByteSizeValue
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|unit
+operator|.
 name|SizeValue
 import|;
 end_import
@@ -256,7 +270,21 @@ parameter_list|)
 throws|throws
 name|SettingsException
 function_decl|;
-comment|/**      * Returns the setting value (as size) associated with the setting key. If it does not exists,      * returns the default value provided.      *      * @param setting      The setting key      * @param defaultValue The value to return if no value is associated with the setting      * @return The (size) value, or the default value if no value exists.      * @throws SettingsException Failure to parse the setting      * @see SizeValue#parseSizeValue(String, SizeValue)      */
+comment|/**      * Returns the setting value (as size) associated with the setting key. If it does not exists,      * returns the default value provided.      *      * @param setting      The setting key      * @param defaultValue The value to return if no value is associated with the setting      * @return The (size) value, or the default value if no value exists.      * @throws SettingsException Failure to parse the setting      * @see org.elasticsearch.common.unit.ByteSizeValue#parseBytesSizeValue(String, org.elasticsearch.common.unit.ByteSizeValue)      */
+DECL|method|getAsBytesSize
+name|ByteSizeValue
+name|getAsBytesSize
+parameter_list|(
+name|String
+name|setting
+parameter_list|,
+name|ByteSizeValue
+name|defaultValue
+parameter_list|)
+throws|throws
+name|SettingsException
+function_decl|;
+comment|/**      * Returns the setting value (as size) associated with the setting key. If it does not exists,      * returns the default value provided.      *      * @param setting      The setting key      * @param defaultValue The value to return if no value is associated with the setting      * @return The (size) value, or the default value if no value exists.      * @throws SettingsException Failure to parse the setting      * @see org.elasticsearch.common.unit.ByteSizeValue#parseBytesSizeValue(String, org.elasticsearch.common.unit.ByteSizeValue)      */
 DECL|method|getAsSize
 name|SizeValue
 name|getAsSize

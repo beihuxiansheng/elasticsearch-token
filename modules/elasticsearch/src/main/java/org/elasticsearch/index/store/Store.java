@@ -40,7 +40,7 @@ name|common
 operator|.
 name|unit
 operator|.
-name|SizeValue
+name|ByteSizeValue
 import|;
 end_import
 
@@ -109,7 +109,7 @@ name|IOException
 function_decl|;
 comment|/**      * The estimated size this store is using.      */
 DECL|method|estimateSize
-name|SizeValue
+name|ByteSizeValue
 name|estimateSize
 parameter_list|()
 throws|throws

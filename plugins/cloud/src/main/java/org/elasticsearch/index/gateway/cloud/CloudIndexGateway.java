@@ -102,7 +102,7 @@ name|common
 operator|.
 name|unit
 operator|.
-name|SizeUnit
+name|ByteSizeUnit
 import|;
 end_import
 
@@ -116,7 +116,7 @@ name|common
 operator|.
 name|unit
 operator|.
-name|SizeValue
+name|ByteSizeValue
 import|;
 end_import
 
@@ -287,7 +287,7 @@ decl_stmt|;
 DECL|field|chunkSize
 specifier|private
 specifier|final
-name|SizeValue
+name|ByteSizeValue
 name|chunkSize
 decl_stmt|;
 DECL|field|blobStoreContext
@@ -362,12 +362,12 @@ argument_list|(
 literal|"container"
 argument_list|)
 decl_stmt|;
-name|SizeValue
+name|ByteSizeValue
 name|chunkSize
 init|=
 name|componentSettings
 operator|.
-name|getAsSize
+name|getAsBytesSize
 argument_list|(
 literal|"chunk_size"
 argument_list|,
@@ -430,11 +430,11 @@ block|{
 name|chunkSize
 operator|=
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 literal|1
 argument_list|,
-name|SizeUnit
+name|ByteSizeUnit
 operator|.
 name|GB
 argument_list|)
@@ -653,7 +653,7 @@ return|;
 block|}
 DECL|method|chunkSize
 specifier|public
-name|SizeValue
+name|ByteSizeValue
 name|chunkSize
 parameter_list|()
 block|{

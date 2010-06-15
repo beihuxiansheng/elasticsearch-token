@@ -218,7 +218,7 @@ name|common
 operator|.
 name|unit
 operator|.
-name|SizeUnit
+name|ByteSizeUnit
 import|;
 end_import
 
@@ -232,7 +232,7 @@ name|common
 operator|.
 name|unit
 operator|.
-name|SizeValue
+name|ByteSizeValue
 import|;
 end_import
 
@@ -593,7 +593,7 @@ block|{
 DECL|field|fileChunkSize
 specifier|private
 specifier|final
-name|SizeValue
+name|ByteSizeValue
 name|fileChunkSize
 decl_stmt|;
 DECL|field|threadPool
@@ -866,16 +866,16 @@ name|fileChunkSize
 operator|=
 name|componentSettings
 operator|.
-name|getAsSize
+name|getAsBytesSize
 argument_list|(
 literal|"file_chunk_size"
 argument_list|,
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 literal|100
 argument_list|,
-name|SizeUnit
+name|ByteSizeUnit
 operator|.
 name|KB
 argument_list|)
@@ -1429,7 +1429,7 @@ operator|.
 name|append
 argument_list|(
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 name|recoveryStatus
 operator|.
@@ -2154,7 +2154,7 @@ operator|.
 name|length
 argument_list|,
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 name|totalSize
 argument_list|)
@@ -2572,7 +2572,7 @@ operator|.
 name|length
 argument_list|,
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 name|totalSize
 argument_list|)

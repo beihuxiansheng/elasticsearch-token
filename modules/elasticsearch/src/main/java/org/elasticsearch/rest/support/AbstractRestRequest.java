@@ -48,7 +48,7 @@ name|common
 operator|.
 name|unit
 operator|.
-name|SizeValue
+name|ByteSizeValue
 import|;
 end_import
 
@@ -100,7 +100,7 @@ name|common
 operator|.
 name|unit
 operator|.
-name|SizeValue
+name|ByteSizeValue
 operator|.
 name|*
 import|;
@@ -404,18 +404,18 @@ DECL|method|paramAsSize
 annotation|@
 name|Override
 specifier|public
-name|SizeValue
+name|ByteSizeValue
 name|paramAsSize
 parameter_list|(
 name|String
 name|key
 parameter_list|,
-name|SizeValue
+name|ByteSizeValue
 name|defaultValue
 parameter_list|)
 block|{
 return|return
-name|parseSizeValue
+name|parseBytesSizeValue
 argument_list|(
 name|param
 argument_list|(

@@ -50,7 +50,7 @@ name|common
 operator|.
 name|unit
 operator|.
-name|SizeValue
+name|ByteSizeValue
 import|;
 end_import
 
@@ -393,7 +393,7 @@ argument_list|(
 literal|0
 argument_list|,
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 literal|0
 argument_list|)
@@ -570,7 +570,7 @@ name|numberOfFiles
 decl_stmt|;
 DECL|field|totalSize
 specifier|private
-name|SizeValue
+name|ByteSizeValue
 name|totalSize
 decl_stmt|;
 DECL|field|time
@@ -585,7 +585,7 @@ parameter_list|(
 name|int
 name|numberOfFiles
 parameter_list|,
-name|SizeValue
+name|ByteSizeValue
 name|totalSize
 parameter_list|,
 name|TimeValue
@@ -635,7 +635,7 @@ return|;
 block|}
 DECL|method|totalSize
 specifier|public
-name|SizeValue
+name|ByteSizeValue
 name|totalSize
 parameter_list|()
 block|{
@@ -721,7 +721,7 @@ name|numberOfOperations
 decl_stmt|;
 DECL|field|totalSize
 specifier|private
-name|SizeValue
+name|ByteSizeValue
 name|totalSize
 decl_stmt|;
 DECL|method|Translog
@@ -734,7 +734,7 @@ parameter_list|,
 name|int
 name|numberOfOperations
 parameter_list|,
-name|SizeValue
+name|ByteSizeValue
 name|totalSize
 parameter_list|)
 block|{
@@ -780,7 +780,7 @@ return|;
 block|}
 DECL|method|totalSize
 specifier|public
-name|SizeValue
+name|ByteSizeValue
 name|totalSize
 parameter_list|()
 block|{
@@ -807,7 +807,7 @@ name|numberOfFiles
 decl_stmt|;
 DECL|field|totalSize
 specifier|private
-name|SizeValue
+name|ByteSizeValue
 name|totalSize
 decl_stmt|;
 DECL|field|throttlingWaitTime
@@ -825,7 +825,7 @@ parameter_list|,
 name|int
 name|numberOfFiles
 parameter_list|,
-name|SizeValue
+name|ByteSizeValue
 name|totalSize
 parameter_list|,
 name|TimeValue
@@ -881,7 +881,7 @@ return|;
 block|}
 DECL|method|totalSize
 specifier|public
-name|SizeValue
+name|ByteSizeValue
 name|totalSize
 parameter_list|()
 block|{

@@ -80,7 +80,7 @@ name|common
 operator|.
 name|unit
 operator|.
-name|SizeUnit
+name|ByteSizeUnit
 import|;
 end_import
 
@@ -94,7 +94,7 @@ name|common
 operator|.
 name|unit
 operator|.
-name|SizeValue
+name|ByteSizeValue
 import|;
 end_import
 
@@ -443,11 +443,11 @@ argument_list|,
 name|cleanedShards
 argument_list|,
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 name|cleaned
 argument_list|,
-name|SizeUnit
+name|ByteSizeUnit
 operator|.
 name|BYTES
 argument_list|)
@@ -654,7 +654,7 @@ parameter_list|(
 name|long
 name|memoryToClean
 parameter_list|,
-name|SizeValue
+name|ByteSizeValue
 name|minimumFlushableSizeToClean
 parameter_list|)
 block|{
@@ -672,7 +672,7 @@ name|ArrayList
 argument_list|<
 name|Tuple
 argument_list|<
-name|SizeValue
+name|ByteSizeValue
 argument_list|,
 name|IndexShard
 argument_list|>
@@ -684,7 +684,7 @@ name|ArrayList
 argument_list|<
 name|Tuple
 argument_list|<
-name|SizeValue
+name|ByteSizeValue
 argument_list|,
 name|IndexShard
 argument_list|>
@@ -724,7 +724,7 @@ block|}
 name|totalShards
 operator|++
 expr_stmt|;
-name|SizeValue
+name|ByteSizeValue
 name|estimatedSize
 init|=
 name|indexShard
@@ -753,7 +753,7 @@ argument_list|(
 operator|new
 name|Tuple
 argument_list|<
-name|SizeValue
+name|ByteSizeValue
 argument_list|,
 name|IndexShard
 argument_list|>
@@ -778,7 +778,7 @@ name|Comparator
 argument_list|<
 name|Tuple
 argument_list|<
-name|SizeValue
+name|ByteSizeValue
 argument_list|,
 name|IndexShard
 argument_list|>
@@ -793,7 +793,7 @@ name|compare
 parameter_list|(
 name|Tuple
 argument_list|<
-name|SizeValue
+name|ByteSizeValue
 argument_list|,
 name|IndexShard
 argument_list|>
@@ -801,7 +801,7 @@ name|o1
 parameter_list|,
 name|Tuple
 argument_list|<
-name|SizeValue
+name|ByteSizeValue
 argument_list|,
 name|IndexShard
 argument_list|>
@@ -857,7 +857,7 @@ for|for
 control|(
 name|Tuple
 argument_list|<
-name|SizeValue
+name|ByteSizeValue
 argument_list|,
 name|IndexShard
 argument_list|>
@@ -987,13 +987,13 @@ argument_list|,
 name|cleanedShards
 argument_list|,
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 name|estimatedFlushableSize
 argument_list|)
 argument_list|,
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 name|cleaned
 argument_list|)
@@ -1023,7 +1023,7 @@ decl_stmt|;
 DECL|field|cleaned
 specifier|private
 specifier|final
-name|SizeValue
+name|ByteSizeValue
 name|cleaned
 decl_stmt|;
 DECL|method|TranslogCleanResult
@@ -1036,7 +1036,7 @@ parameter_list|,
 name|int
 name|cleanedShards
 parameter_list|,
-name|SizeValue
+name|ByteSizeValue
 name|cleaned
 parameter_list|)
 block|{
@@ -1081,7 +1081,7 @@ return|;
 block|}
 DECL|method|cleaned
 specifier|public
-name|SizeValue
+name|ByteSizeValue
 name|cleaned
 parameter_list|()
 block|{
@@ -1135,13 +1135,13 @@ decl_stmt|;
 DECL|field|estimatedFlushableSize
 specifier|private
 specifier|final
-name|SizeValue
+name|ByteSizeValue
 name|estimatedFlushableSize
 decl_stmt|;
 DECL|field|cleaned
 specifier|private
 specifier|final
-name|SizeValue
+name|ByteSizeValue
 name|cleaned
 decl_stmt|;
 DECL|field|shardsCleaned
@@ -1163,10 +1163,10 @@ parameter_list|,
 name|int
 name|cleanedShards
 parameter_list|,
-name|SizeValue
+name|ByteSizeValue
 name|estimatedFlushableSize
 parameter_list|,
-name|SizeValue
+name|ByteSizeValue
 name|cleaned
 parameter_list|,
 name|Set
@@ -1229,7 +1229,7 @@ return|;
 block|}
 DECL|method|estimatedFlushableSize
 specifier|public
-name|SizeValue
+name|ByteSizeValue
 name|estimatedFlushableSize
 parameter_list|()
 block|{
@@ -1239,7 +1239,7 @@ return|;
 block|}
 DECL|method|cleaned
 specifier|public
-name|SizeValue
+name|ByteSizeValue
 name|cleaned
 parameter_list|()
 block|{

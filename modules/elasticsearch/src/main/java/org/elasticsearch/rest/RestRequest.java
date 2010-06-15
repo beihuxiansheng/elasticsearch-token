@@ -24,7 +24,7 @@ name|common
 operator|.
 name|unit
 operator|.
-name|SizeValue
+name|ByteSizeValue
 import|;
 end_import
 
@@ -288,13 +288,13 @@ name|defaultValue
 parameter_list|)
 function_decl|;
 DECL|method|paramAsSize
-name|SizeValue
+name|ByteSizeValue
 name|paramAsSize
 parameter_list|(
 name|String
 name|key
 parameter_list|,
-name|SizeValue
+name|ByteSizeValue
 name|defaultValue
 parameter_list|)
 function_decl|;

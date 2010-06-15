@@ -124,7 +124,7 @@ name|common
 operator|.
 name|unit
 operator|.
-name|SizeValue
+name|ByteSizeValue
 import|;
 end_import
 
@@ -252,7 +252,7 @@ parameter_list|()
 function_decl|;
 comment|/**      * The estimated memory size this translog is taking.      */
 DECL|method|estimateMemorySize
-name|SizeValue
+name|ByteSizeValue
 name|estimateMemorySize
 parameter_list|()
 function_decl|;

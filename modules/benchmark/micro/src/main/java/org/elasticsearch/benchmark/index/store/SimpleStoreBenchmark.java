@@ -82,7 +82,7 @@ name|common
 operator|.
 name|unit
 operator|.
-name|SizeUnit
+name|ByteSizeUnit
 import|;
 end_import
 
@@ -96,7 +96,7 @@ name|common
 operator|.
 name|unit
 operator|.
-name|SizeValue
+name|ByteSizeValue
 import|;
 end_import
 
@@ -386,30 +386,30 @@ index|]
 decl_stmt|;
 DECL|field|staticFileSize
 specifier|private
-name|SizeValue
+name|ByteSizeValue
 name|staticFileSize
 init|=
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 literal|5
 argument_list|,
-name|SizeUnit
+name|ByteSizeUnit
 operator|.
 name|MB
 argument_list|)
 decl_stmt|;
 DECL|field|dynamicFileSize
 specifier|private
-name|SizeValue
+name|ByteSizeValue
 name|dynamicFileSize
 init|=
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 literal|1
 argument_list|,
-name|SizeUnit
+name|ByteSizeUnit
 operator|.
 name|MB
 argument_list|)
@@ -512,7 +512,7 @@ specifier|public
 name|SimpleStoreBenchmark
 name|staticFileSize
 parameter_list|(
-name|SizeValue
+name|ByteSizeValue
 name|staticFileSize
 parameter_list|)
 block|{
@@ -531,7 +531,7 @@ specifier|public
 name|SimpleStoreBenchmark
 name|dynamicFileSize
 parameter_list|(
-name|SizeValue
+name|ByteSizeValue
 name|dynamicFileSize
 parameter_list|)
 block|{
@@ -1218,11 +1218,11 @@ operator|+
 literal|"], is "
 operator|+
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 name|bytesTaken
 argument_list|,
-name|SizeUnit
+name|ByteSizeUnit
 operator|.
 name|BYTES
 argument_list|)
@@ -1892,11 +1892,11 @@ operator|.
 name|staticFileSize
 argument_list|(
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 literal|5
 argument_list|,
-name|SizeUnit
+name|ByteSizeUnit
 operator|.
 name|MB
 argument_list|)
@@ -1905,11 +1905,11 @@ operator|.
 name|dynamicFileSize
 argument_list|(
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 literal|1
 argument_list|,
-name|SizeUnit
+name|ByteSizeUnit
 operator|.
 name|MB
 argument_list|)

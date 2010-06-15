@@ -56,7 +56,7 @@ name|common
 operator|.
 name|unit
 operator|.
-name|SizeUnit
+name|ByteSizeUnit
 import|;
 end_import
 
@@ -70,7 +70,7 @@ name|common
 operator|.
 name|unit
 operator|.
-name|SizeValue
+name|ByteSizeValue
 import|;
 end_import
 
@@ -136,13 +136,13 @@ block|{
 DECL|field|bufferSize
 specifier|private
 specifier|final
-name|SizeValue
+name|ByteSizeValue
 name|bufferSize
 decl_stmt|;
 DECL|field|cacheSize
 specifier|private
 specifier|final
-name|SizeValue
+name|ByteSizeValue
 name|cacheSize
 decl_stmt|;
 DECL|field|warmCache
@@ -184,16 +184,16 @@ name|bufferSize
 operator|=
 name|componentSettings
 operator|.
-name|getAsSize
+name|getAsBytesSize
 argument_list|(
 literal|"buffer_size"
 argument_list|,
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 literal|100
 argument_list|,
-name|SizeUnit
+name|ByteSizeUnit
 operator|.
 name|KB
 argument_list|)
@@ -205,16 +205,16 @@ name|cacheSize
 operator|=
 name|componentSettings
 operator|.
-name|getAsSize
+name|getAsBytesSize
 argument_list|(
 literal|"cache_size"
 argument_list|,
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 literal|20
 argument_list|,
-name|SizeUnit
+name|ByteSizeUnit
 operator|.
 name|MB
 argument_list|)

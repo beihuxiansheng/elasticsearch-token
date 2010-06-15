@@ -92,7 +92,7 @@ name|common
 operator|.
 name|unit
 operator|.
-name|SizeValue
+name|ByteSizeValue
 import|;
 end_import
 
@@ -146,7 +146,7 @@ name|common
 operator|.
 name|unit
 operator|.
-name|SizeValue
+name|ByteSizeValue
 operator|.
 name|*
 import|;
@@ -276,11 +276,11 @@ name|IndexShardState
 name|state
 decl_stmt|;
 DECL|field|storeSize
-name|SizeValue
+name|ByteSizeValue
 name|storeSize
 decl_stmt|;
 DECL|field|estimatedFlushableMemorySize
-name|SizeValue
+name|ByteSizeValue
 name|estimatedFlushableMemorySize
 decl_stmt|;
 DECL|field|translogId
@@ -382,7 +382,7 @@ return|;
 block|}
 DECL|method|storeSize
 specifier|public
-name|SizeValue
+name|ByteSizeValue
 name|storeSize
 parameter_list|()
 block|{
@@ -392,7 +392,7 @@ return|;
 block|}
 DECL|method|getStoreSize
 specifier|public
-name|SizeValue
+name|ByteSizeValue
 name|getStoreSize
 parameter_list|()
 block|{
@@ -403,7 +403,7 @@ return|;
 block|}
 DECL|method|estimatedFlushableMemorySize
 specifier|public
-name|SizeValue
+name|ByteSizeValue
 name|estimatedFlushableMemorySize
 parameter_list|()
 block|{
@@ -413,7 +413,7 @@ return|;
 block|}
 DECL|method|getEstimatedFlushableMemorySize
 specifier|public
-name|SizeValue
+name|ByteSizeValue
 name|getEstimatedFlushableMemorySize
 parameter_list|()
 block|{
@@ -710,7 +710,7 @@ condition|)
 block|{
 name|storeSize
 operator|=
-name|readSizeValue
+name|readBytesSizeValue
 argument_list|(
 name|in
 argument_list|)
@@ -726,7 +726,7 @@ condition|)
 block|{
 name|estimatedFlushableMemorySize
 operator|=
-name|readSizeValue
+name|readBytesSizeValue
 argument_list|(
 name|in
 argument_list|)

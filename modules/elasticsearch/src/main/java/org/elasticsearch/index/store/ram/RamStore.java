@@ -70,7 +70,7 @@ name|common
 operator|.
 name|unit
 operator|.
-name|SizeUnit
+name|ByteSizeUnit
 import|;
 end_import
 
@@ -84,7 +84,7 @@ name|common
 operator|.
 name|unit
 operator|.
-name|SizeValue
+name|ByteSizeValue
 import|;
 end_import
 
@@ -216,7 +216,7 @@ DECL|method|estimateSize
 annotation|@
 name|Override
 specifier|public
-name|SizeValue
+name|ByteSizeValue
 name|estimateSize
 parameter_list|()
 throws|throws
@@ -224,14 +224,14 @@ name|IOException
 block|{
 return|return
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 name|directory
 operator|.
 name|sizeInBytes
 argument_list|()
 argument_list|,
-name|SizeUnit
+name|ByteSizeUnit
 operator|.
 name|BYTES
 argument_list|)

@@ -426,7 +426,7 @@ name|common
 operator|.
 name|unit
 operator|.
-name|SizeValue
+name|ByteSizeValue
 import|;
 end_import
 
@@ -867,12 +867,12 @@ name|reuseAddress
 decl_stmt|;
 DECL|field|tcpSendBufferSize
 specifier|final
-name|SizeValue
+name|ByteSizeValue
 name|tcpSendBufferSize
 decl_stmt|;
 DECL|field|tcpReceiveBufferSize
 specifier|final
-name|SizeValue
+name|ByteSizeValue
 name|tcpReceiveBufferSize
 decl_stmt|;
 DECL|field|threadPool
@@ -1184,13 +1184,13 @@ name|tcpSendBufferSize
 operator|=
 name|componentSettings
 operator|.
-name|getAsSize
+name|getAsBytesSize
 argument_list|(
 literal|"tcp_send_buffer_size"
 argument_list|,
 name|settings
 operator|.
-name|getAsSize
+name|getAsBytesSize
 argument_list|(
 name|TCP_SEND_BUFFER_SIZE
 argument_list|,
@@ -1204,13 +1204,13 @@ name|tcpReceiveBufferSize
 operator|=
 name|componentSettings
 operator|.
-name|getAsSize
+name|getAsBytesSize
 argument_list|(
 literal|"tcp_receive_buffer_size"
 argument_list|,
 name|settings
 operator|.
-name|getAsSize
+name|getAsBytesSize
 argument_list|(
 name|TCP_RECEIVE_BUFFER_SIZE
 argument_list|,

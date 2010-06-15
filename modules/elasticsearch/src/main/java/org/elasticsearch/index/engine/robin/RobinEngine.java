@@ -162,7 +162,7 @@ name|common
 operator|.
 name|unit
 operator|.
-name|SizeUnit
+name|ByteSizeUnit
 import|;
 end_import
 
@@ -176,7 +176,7 @@ name|common
 operator|.
 name|unit
 operator|.
-name|SizeValue
+name|ByteSizeValue
 import|;
 end_import
 
@@ -507,7 +507,7 @@ block|{
 DECL|field|ramBufferSize
 specifier|private
 specifier|final
-name|SizeValue
+name|ByteSizeValue
 name|ramBufferSize
 decl_stmt|;
 DECL|field|refreshInterval
@@ -712,16 +712,16 @@ name|ramBufferSize
 operator|=
 name|componentSettings
 operator|.
-name|getAsSize
+name|getAsBytesSize
 argument_list|(
 literal|"ram_buffer_size"
 argument_list|,
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 literal|64
 argument_list|,
-name|SizeUnit
+name|ByteSizeUnit
 operator|.
 name|MB
 argument_list|)
@@ -1440,7 +1440,7 @@ DECL|method|estimateFlushableMemorySize
 annotation|@
 name|Override
 specifier|public
-name|SizeValue
+name|ByteSizeValue
 name|estimateFlushableMemorySize
 parameter_list|()
 block|{
@@ -1476,7 +1476,7 @@ argument_list|()
 expr_stmt|;
 return|return
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 name|bytes
 argument_list|)

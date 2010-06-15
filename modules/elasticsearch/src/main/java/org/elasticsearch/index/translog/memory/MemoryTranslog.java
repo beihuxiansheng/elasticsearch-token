@@ -56,7 +56,7 @@ name|common
 operator|.
 name|unit
 operator|.
-name|SizeUnit
+name|ByteSizeUnit
 import|;
 end_import
 
@@ -70,7 +70,7 @@ name|common
 operator|.
 name|unit
 operator|.
-name|SizeValue
+name|ByteSizeValue
 import|;
 end_import
 
@@ -335,20 +335,20 @@ DECL|method|estimateMemorySize
 annotation|@
 name|Override
 specifier|public
-name|SizeValue
+name|ByteSizeValue
 name|estimateMemorySize
 parameter_list|()
 block|{
 return|return
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 name|estimatedMemorySize
 operator|.
 name|get
 argument_list|()
 argument_list|,
-name|SizeUnit
+name|ByteSizeUnit
 operator|.
 name|BYTES
 argument_list|)

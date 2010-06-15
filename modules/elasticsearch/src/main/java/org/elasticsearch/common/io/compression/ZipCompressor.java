@@ -82,7 +82,7 @@ name|common
 operator|.
 name|unit
 operator|.
-name|SizeUnit
+name|ByteSizeUnit
 import|;
 end_import
 
@@ -282,7 +282,7 @@ index|[
 operator|(
 name|int
 operator|)
-name|SizeUnit
+name|ByteSizeUnit
 operator|.
 name|KB
 operator|.

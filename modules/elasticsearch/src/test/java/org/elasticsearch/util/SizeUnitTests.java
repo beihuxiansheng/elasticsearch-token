@@ -36,7 +36,7 @@ name|common
 operator|.
 name|unit
 operator|.
-name|SizeUnit
+name|ByteSizeUnit
 operator|.
 name|*
 import|;

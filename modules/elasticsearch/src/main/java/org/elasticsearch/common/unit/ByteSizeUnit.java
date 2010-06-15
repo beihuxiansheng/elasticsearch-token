@@ -17,23 +17,23 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  * A<tt>SizeUnit</tt> represents size at a given unit of  * granularity and provides utility methods to convert across units.  * A<tt>SizeUnit</tt> does not maintain size information, but only  * helps organize and use size representations that may be maintained  * separately across various contexts.  *  * @author kimchy (Shay Banon)  */
 end_comment
 
 begin_enum
-DECL|enum|SizeUnit
+DECL|enum|ByteSizeUnit
 specifier|public
 enum|enum
-name|SizeUnit
+name|ByteSizeUnit
 block|{
-DECL|enum constant|SINGLE
-name|SINGLE
+DECL|enum constant|BYTES
+name|BYTES
 block|{
 annotation|@
 name|Override
 specifier|public
 name|long
-name|toSingles
+name|toBytes
 parameter_list|(
 name|long
 name|size
@@ -47,7 +47,7 @@ annotation|@
 name|Override
 specifier|public
 name|long
-name|toKilo
+name|toKB
 parameter_list|(
 name|long
 name|size
@@ -67,7 +67,7 @@ annotation|@
 name|Override
 specifier|public
 name|long
-name|toMega
+name|toMB
 parameter_list|(
 name|long
 name|size
@@ -87,7 +87,7 @@ annotation|@
 name|Override
 specifier|public
 name|long
-name|toGiga
+name|toGB
 parameter_list|(
 name|long
 name|size
@@ -105,14 +105,14 @@ return|;
 block|}
 block|}
 block|,
-DECL|enum constant|KILO
-name|KILO
+DECL|enum constant|KB
+name|KB
 block|{
 annotation|@
 name|Override
 specifier|public
 name|long
-name|toSingles
+name|toBytes
 parameter_list|(
 name|long
 name|size
@@ -141,7 +141,7 @@ annotation|@
 name|Override
 specifier|public
 name|long
-name|toKilo
+name|toKB
 parameter_list|(
 name|long
 name|size
@@ -155,7 +155,7 @@ annotation|@
 name|Override
 specifier|public
 name|long
-name|toMega
+name|toMB
 parameter_list|(
 name|long
 name|size
@@ -175,7 +175,7 @@ annotation|@
 name|Override
 specifier|public
 name|long
-name|toGiga
+name|toGB
 parameter_list|(
 name|long
 name|size
@@ -193,14 +193,14 @@ return|;
 block|}
 block|}
 block|,
-DECL|enum constant|MEGA
-name|MEGA
+DECL|enum constant|MB
+name|MB
 block|{
 annotation|@
 name|Override
 specifier|public
 name|long
-name|toSingles
+name|toBytes
 parameter_list|(
 name|long
 name|size
@@ -229,7 +229,7 @@ annotation|@
 name|Override
 specifier|public
 name|long
-name|toKilo
+name|toKB
 parameter_list|(
 name|long
 name|size
@@ -258,7 +258,7 @@ annotation|@
 name|Override
 specifier|public
 name|long
-name|toMega
+name|toMB
 parameter_list|(
 name|long
 name|size
@@ -272,7 +272,7 @@ annotation|@
 name|Override
 specifier|public
 name|long
-name|toGiga
+name|toGB
 parameter_list|(
 name|long
 name|size
@@ -290,14 +290,14 @@ return|;
 block|}
 block|}
 block|,
-DECL|enum constant|GIGA
-name|GIGA
+DECL|enum constant|GB
+name|GB
 block|{
 annotation|@
 name|Override
 specifier|public
 name|long
-name|toSingles
+name|toBytes
 parameter_list|(
 name|long
 name|size
@@ -326,7 +326,7 @@ annotation|@
 name|Override
 specifier|public
 name|long
-name|toKilo
+name|toKB
 parameter_list|(
 name|long
 name|size
@@ -355,7 +355,7 @@ annotation|@
 name|Override
 specifier|public
 name|long
-name|toMega
+name|toMB
 parameter_list|(
 name|long
 name|size
@@ -384,7 +384,7 @@ annotation|@
 name|Override
 specifier|public
 name|long
-name|toGiga
+name|toGB
 parameter_list|(
 name|long
 name|size
@@ -412,7 +412,7 @@ name|C1
 init|=
 name|C0
 operator|*
-literal|1000L
+literal|1024L
 decl_stmt|;
 DECL|field|C2
 specifier|static
@@ -422,7 +422,7 @@ name|C2
 init|=
 name|C1
 operator|*
-literal|1000L
+literal|1024L
 decl_stmt|;
 DECL|field|C3
 specifier|static
@@ -432,7 +432,7 @@ name|C3
 init|=
 name|C2
 operator|*
-literal|1000L
+literal|1024L
 decl_stmt|;
 DECL|field|MAX
 specifier|static
@@ -489,10 +489,10 @@ operator|*
 name|m
 return|;
 block|}
-DECL|method|toSingles
+DECL|method|toBytes
 specifier|public
 name|long
-name|toSingles
+name|toBytes
 parameter_list|(
 name|long
 name|size
@@ -504,10 +504,10 @@ name|AbstractMethodError
 argument_list|()
 throw|;
 block|}
-DECL|method|toKilo
+DECL|method|toKB
 specifier|public
 name|long
-name|toKilo
+name|toKB
 parameter_list|(
 name|long
 name|size
@@ -519,10 +519,10 @@ name|AbstractMethodError
 argument_list|()
 throw|;
 block|}
-DECL|method|toMega
+DECL|method|toMB
 specifier|public
 name|long
-name|toMega
+name|toMB
 parameter_list|(
 name|long
 name|size
@@ -534,10 +534,10 @@ name|AbstractMethodError
 argument_list|()
 throw|;
 block|}
-DECL|method|toGiga
+DECL|method|toGB
 specifier|public
 name|long
-name|toGiga
+name|toGB
 parameter_list|(
 name|long
 name|size

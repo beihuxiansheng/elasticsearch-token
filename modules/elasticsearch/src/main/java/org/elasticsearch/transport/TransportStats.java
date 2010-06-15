@@ -72,7 +72,7 @@ name|common
 operator|.
 name|unit
 operator|.
-name|SizeValue
+name|ByteSizeValue
 import|;
 end_import
 
@@ -436,13 +436,13 @@ return|;
 block|}
 DECL|method|rxSize
 specifier|public
-name|SizeValue
+name|ByteSizeValue
 name|rxSize
 parameter_list|()
 block|{
 return|return
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 name|rxSize
 argument_list|)
@@ -450,7 +450,7 @@ return|;
 block|}
 DECL|method|getRxSize
 specifier|public
-name|SizeValue
+name|ByteSizeValue
 name|getRxSize
 parameter_list|()
 block|{
@@ -482,13 +482,13 @@ return|;
 block|}
 DECL|method|txSize
 specifier|public
-name|SizeValue
+name|ByteSizeValue
 name|txSize
 parameter_list|()
 block|{
 return|return
 operator|new
-name|SizeValue
+name|ByteSizeValue
 argument_list|(
 name|txSize
 argument_list|)
@@ -496,7 +496,7 @@ return|;
 block|}
 DECL|method|getTxSize
 specifier|public
-name|SizeValue
+name|ByteSizeValue
 name|getTxSize
 parameter_list|()
 block|{
