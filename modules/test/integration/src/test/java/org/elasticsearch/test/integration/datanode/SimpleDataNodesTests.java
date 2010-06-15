@@ -114,9 +114,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|common
 operator|.
-name|TimeValue
+name|settings
+operator|.
+name|ImmutableSettings
 operator|.
 name|*
 import|;
@@ -130,9 +132,7 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|settings
-operator|.
-name|ImmutableSettings
+name|TimeValue
 operator|.
 name|*
 import|;

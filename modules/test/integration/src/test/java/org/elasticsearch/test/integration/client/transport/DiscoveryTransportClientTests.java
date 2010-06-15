@@ -40,11 +40,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|test
+name|common
 operator|.
-name|integration
+name|settings
 operator|.
-name|AbstractNodesTests
+name|ImmutableSettings
 import|;
 end_import
 
@@ -54,11 +54,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|test
 operator|.
-name|settings
+name|integration
 operator|.
-name|ImmutableSettings
+name|AbstractNodesTests
 import|;
 end_import
 

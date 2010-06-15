@@ -22,7 +22,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|common
 operator|.
 name|joda
 operator|.
@@ -36,7 +36,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|common
 operator|.
 name|joda
 operator|.
@@ -47,6 +47,10 @@ end_import
 begin_import
 import|import
 name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
 operator|.
 name|joda
 operator|.
@@ -59,6 +63,10 @@ end_import
 begin_import
 import|import
 name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
 operator|.
 name|joda
 operator|.
@@ -74,6 +82,10 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|joda
 operator|.
 name|time
@@ -87,6 +99,10 @@ end_import
 begin_import
 import|import
 name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
 operator|.
 name|joda
 operator|.

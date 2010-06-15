@@ -24,11 +24,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|common
 operator|.
-name|query
+name|xcontent
 operator|.
-name|QueryBuilderException
+name|builder
+operator|.
+name|XContentBuilder
 import|;
 end_import
 
@@ -38,13 +40,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|index
 operator|.
-name|xcontent
+name|query
 operator|.
-name|builder
-operator|.
-name|XContentBuilder
+name|QueryBuilderException
 import|;
 end_import
 

@@ -20,9 +20,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|common
 operator|.
-name|TimeValue
+name|component
+operator|.
+name|LifecycleComponent
 import|;
 end_import
 
@@ -34,9 +36,7 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|component
-operator|.
-name|LifecycleComponent
+name|TimeValue
 import|;
 end_import
 

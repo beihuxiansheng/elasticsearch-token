@@ -138,6 +138,22 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentFactory
+operator|.
+name|*
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|index
 operator|.
 name|query
@@ -161,22 +177,6 @@ operator|.
 name|builder
 operator|.
 name|SearchSourceBuilder
-operator|.
-name|*
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|util
-operator|.
-name|xcontent
-operator|.
-name|XContentFactory
 operator|.
 name|*
 import|;

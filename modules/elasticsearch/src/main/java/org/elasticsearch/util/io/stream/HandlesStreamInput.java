@@ -24,9 +24,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|common
 operator|.
-name|ThreadLocals
+name|trove
+operator|.
+name|TIntObjectHashMap
 import|;
 end_import
 
@@ -38,11 +40,7 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|gnu
-operator|.
-name|trove
-operator|.
-name|TIntObjectHashMap
+name|ThreadLocals
 import|;
 end_import
 

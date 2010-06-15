@@ -56,7 +56,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|common
 operator|.
 name|component
 operator|.
@@ -70,7 +70,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|common
 operator|.
 name|inject
 operator|.
@@ -84,7 +84,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|common
 operator|.
 name|settings
 operator|.
@@ -98,7 +98,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|common
 operator|.
 name|settings
 operator|.
@@ -112,7 +112,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|common
 operator|.
 name|settings
 operator|.

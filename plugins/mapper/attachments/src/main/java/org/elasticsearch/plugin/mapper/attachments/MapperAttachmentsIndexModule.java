@@ -24,13 +24,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|common
 operator|.
-name|mapper
+name|inject
 operator|.
-name|xcontent
-operator|.
-name|XContentAttachmentMapperService
+name|AbstractModule
 import|;
 end_import
 
@@ -40,11 +38,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|index
 operator|.
-name|inject
+name|mapper
 operator|.
-name|AbstractModule
+name|xcontent
+operator|.
+name|XContentAttachmentMapperService
 import|;
 end_import
 

@@ -22,9 +22,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|common
 operator|.
-name|IndexComponent
+name|component
+operator|.
+name|CloseableIndexComponent
 import|;
 end_import
 
@@ -34,11 +36,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|index
 operator|.
-name|component
-operator|.
-name|CloseableIndexComponent
+name|IndexComponent
 import|;
 end_import
 

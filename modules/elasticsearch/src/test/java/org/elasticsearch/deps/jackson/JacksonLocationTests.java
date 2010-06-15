@@ -20,7 +20,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|codehaus
+name|elasticsearch
+operator|.
+name|common
 operator|.
 name|jackson
 operator|.

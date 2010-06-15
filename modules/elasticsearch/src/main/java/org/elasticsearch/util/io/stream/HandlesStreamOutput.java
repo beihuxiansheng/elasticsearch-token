@@ -24,13 +24,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
-operator|.
-name|gnu
+name|common
 operator|.
 name|trove
 operator|.
-name|TObjectIntHashMap
+name|ExtTObjectIntHasMap
 import|;
 end_import
 
@@ -40,11 +38,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|common
 operator|.
 name|trove
 operator|.
-name|ExtTObjectIntHasMap
+name|TObjectIntHashMap
 import|;
 end_import
 

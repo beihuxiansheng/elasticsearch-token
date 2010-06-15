@@ -44,11 +44,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|common
 operator|.
-name|translog
+name|collect
 operator|.
-name|Translog
+name|Iterables
 import|;
 end_import
 
@@ -58,11 +58,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|index
 operator|.
-name|collect
+name|translog
 operator|.
-name|Iterables
+name|Translog
 import|;
 end_import
 

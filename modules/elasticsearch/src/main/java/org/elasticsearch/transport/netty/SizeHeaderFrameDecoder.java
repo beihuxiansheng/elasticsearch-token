@@ -20,7 +20,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|jboss
+name|elasticsearch
+operator|.
+name|common
 operator|.
 name|netty
 operator|.
@@ -34,7 +36,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|jboss
+name|elasticsearch
+operator|.
+name|common
 operator|.
 name|netty
 operator|.
@@ -48,7 +52,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|jboss
+name|elasticsearch
+operator|.
+name|common
 operator|.
 name|netty
 operator|.
@@ -62,7 +68,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|jboss
+name|elasticsearch
+operator|.
+name|common
 operator|.
 name|netty
 operator|.

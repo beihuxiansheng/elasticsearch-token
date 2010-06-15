@@ -18,6 +18,10 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|joda
 operator|.
 name|time

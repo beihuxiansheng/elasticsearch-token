@@ -122,9 +122,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|common
 operator|.
-name|TimeValue
+name|xcontent
+operator|.
+name|builder
+operator|.
+name|XContentBuilder
 import|;
 end_import
 
@@ -136,11 +140,7 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|xcontent
-operator|.
-name|builder
-operator|.
-name|XContentBuilder
+name|TimeValue
 import|;
 end_import
 

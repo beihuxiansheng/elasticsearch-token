@@ -22,13 +22,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|common
 operator|.
-name|io
+name|netty
 operator|.
-name|stream
+name|buffer
 operator|.
-name|StreamInput
+name|ChannelBuffer
 import|;
 end_import
 
@@ -36,13 +36,15 @@ begin_import
 import|import
 name|org
 operator|.
-name|jboss
+name|elasticsearch
 operator|.
-name|netty
+name|util
 operator|.
-name|buffer
+name|io
 operator|.
-name|ChannelBuffer
+name|stream
+operator|.
+name|StreamInput
 import|;
 end_import
 
@@ -57,7 +59,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Netty {@link org.jboss.netty.buffer.ChannelBuffer} based {@link org.elasticsearch.util.io.stream.StreamInput}.  *  * @author kimchy (shay.banon)  */
+comment|/**  * A Netty {@link org.elasticsearch.common.netty.buffer.ChannelBuffer} based {@link org.elasticsearch.util.io.stream.StreamInput}.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class

@@ -24,9 +24,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|plugins
+name|common
 operator|.
-name|AbstractPlugin
+name|inject
+operator|.
+name|Module
 import|;
 end_import
 
@@ -36,11 +38,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|plugins
 operator|.
-name|inject
-operator|.
-name|Module
+name|AbstractPlugin
 import|;
 end_import
 
@@ -60,7 +60,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|common
 operator|.
 name|collect
 operator|.

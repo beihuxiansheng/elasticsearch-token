@@ -36,9 +36,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|common
 operator|.
-name|IndexComponent
+name|inject
+operator|.
+name|Provider
 import|;
 end_import
 
@@ -48,11 +50,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|index
 operator|.
-name|inject
-operator|.
-name|Provider
+name|IndexComponent
 import|;
 end_import
 

@@ -20,7 +20,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|common
 operator|.
 name|logging
 operator|.
@@ -34,7 +34,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|common
 operator|.
 name|network
 operator|.
@@ -48,7 +48,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|common
 operator|.
 name|settings
 operator|.
@@ -62,7 +62,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|common
 operator|.
 name|transport
 operator|.

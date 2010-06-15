@@ -24,11 +24,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|common
 operator|.
-name|query
+name|xcontent
 operator|.
-name|QueryBuilder
+name|ToXContent
 import|;
 end_import
 
@@ -38,11 +38,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|index
 operator|.
-name|xcontent
+name|query
 operator|.
-name|ToXContent
+name|QueryBuilder
 import|;
 end_import
 

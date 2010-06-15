@@ -24,11 +24,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
+name|common
 operator|.
-name|internal
+name|xcontent
 operator|.
-name|SearchContext
+name|XContentParser
 import|;
 end_import
 
@@ -38,11 +38,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|search
 operator|.
-name|xcontent
+name|internal
 operator|.
-name|XContentParser
+name|SearchContext
 import|;
 end_import
 

@@ -116,9 +116,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|node
+name|common
 operator|.
-name|NodeBuilder
+name|xcontent
+operator|.
+name|XContentFactory
 operator|.
 name|*
 import|;
@@ -130,11 +132,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|node
 operator|.
-name|xcontent
-operator|.
-name|XContentFactory
+name|NodeBuilder
 operator|.
 name|*
 import|;

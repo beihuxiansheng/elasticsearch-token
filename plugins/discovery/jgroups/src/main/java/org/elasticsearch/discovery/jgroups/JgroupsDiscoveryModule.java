@@ -22,7 +22,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|common
 operator|.
 name|inject
 operator|.
@@ -36,9 +36,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|discovery
+name|common
 operator|.
-name|Discovery
+name|settings
+operator|.
+name|Settings
 import|;
 end_import
 
@@ -48,11 +50,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|discovery
 operator|.
-name|settings
-operator|.
-name|Settings
+name|Discovery
 import|;
 end_import
 

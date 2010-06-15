@@ -20,7 +20,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|jboss
+name|elasticsearch
+operator|.
+name|common
 operator|.
 name|netty
 operator|.
@@ -34,7 +36,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|jboss
+name|elasticsearch
+operator|.
+name|common
 operator|.
 name|netty
 operator|.
@@ -49,7 +53,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class

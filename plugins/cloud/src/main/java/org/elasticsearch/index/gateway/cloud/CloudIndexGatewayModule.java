@@ -24,11 +24,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|common
 operator|.
-name|gateway
+name|inject
 operator|.
-name|IndexGateway
+name|AbstractModule
 import|;
 end_import
 
@@ -38,11 +38,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|index
 operator|.
-name|inject
+name|gateway
 operator|.
-name|AbstractModule
+name|IndexGateway
 import|;
 end_import
 

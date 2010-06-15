@@ -22,11 +22,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|common
 operator|.
-name|concurrent
+name|netty
 operator|.
-name|ConcurrentCollections
+name|channel
+operator|.
+name|*
 import|;
 end_import
 
@@ -34,13 +36,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|jboss
+name|elasticsearch
 operator|.
-name|netty
+name|util
 operator|.
-name|channel
+name|concurrent
 operator|.
-name|*
+name|ConcurrentCollections
 import|;
 end_import
 

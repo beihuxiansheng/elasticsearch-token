@@ -66,11 +66,25 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|common
 operator|.
 name|collect
 operator|.
 name|ImmutableMap
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|Settings
 import|;
 end_import
 
@@ -103,20 +117,6 @@ operator|.
 name|stream
 operator|.
 name|StreamOutput
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|util
-operator|.
-name|settings
-operator|.
-name|Settings
 import|;
 end_import
 
@@ -176,7 +176,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|common
 operator|.
 name|collect
 operator|.
@@ -192,7 +192,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|common
 operator|.
 name|collect
 operator|.
@@ -208,7 +208,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|common
 operator|.
 name|settings
 operator|.

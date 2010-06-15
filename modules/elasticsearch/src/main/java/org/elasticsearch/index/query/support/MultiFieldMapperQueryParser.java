@@ -66,13 +66,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|common
 operator|.
-name|query
+name|trove
 operator|.
-name|xcontent
-operator|.
-name|QueryParseContext
+name|ExtTObjectFloatHashMap
 import|;
 end_import
 
@@ -82,11 +80,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|index
 operator|.
-name|trove
+name|query
 operator|.
-name|ExtTObjectFloatHashMap
+name|xcontent
+operator|.
+name|QueryParseContext
 import|;
 end_import
 

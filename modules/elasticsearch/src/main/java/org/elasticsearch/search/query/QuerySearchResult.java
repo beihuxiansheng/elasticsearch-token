@@ -136,9 +136,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
+name|common
 operator|.
-name|SearchShardTarget
+name|lucene
+operator|.
+name|Lucene
 operator|.
 name|*
 import|;
@@ -150,11 +152,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|search
 operator|.
-name|lucene
-operator|.
-name|Lucene
+name|SearchShardTarget
 operator|.
 name|*
 import|;

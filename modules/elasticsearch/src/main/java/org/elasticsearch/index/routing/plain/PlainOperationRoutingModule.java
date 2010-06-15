@@ -24,11 +24,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|common
 operator|.
-name|routing
+name|inject
 operator|.
-name|OperationRouting
+name|AbstractModule
 import|;
 end_import
 
@@ -38,11 +38,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|index
 operator|.
-name|inject
+name|routing
 operator|.
-name|AbstractModule
+name|OperationRouting
 import|;
 end_import
 

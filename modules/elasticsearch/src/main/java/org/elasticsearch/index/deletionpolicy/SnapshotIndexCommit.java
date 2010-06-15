@@ -36,11 +36,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|common
 operator|.
-name|lease
+name|lucene
 operator|.
-name|Releasable
+name|IndexCommitDelegate
 import|;
 end_import
 
@@ -52,9 +52,9 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|lucene
+name|lease
 operator|.
-name|IndexCommitDelegate
+name|Releasable
 import|;
 end_import
 

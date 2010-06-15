@@ -22,11 +22,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|common
 operator|.
-name|io
+name|xcontent
 operator|.
-name|FastByteArrayOutputStream
+name|XContentType
 import|;
 end_import
 
@@ -38,9 +38,9 @@ name|elasticsearch
 operator|.
 name|util
 operator|.
-name|xcontent
+name|io
 operator|.
-name|XContentType
+name|FastByteArrayOutputStream
 import|;
 end_import
 

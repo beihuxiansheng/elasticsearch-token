@@ -22,9 +22,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|gateway
+name|common
 operator|.
-name|Gateway
+name|inject
+operator|.
+name|AbstractModule
 import|;
 end_import
 
@@ -34,11 +36,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|util
+name|gateway
 operator|.
-name|inject
-operator|.
-name|AbstractModule
+name|Gateway
 import|;
 end_import
 
