@@ -999,7 +999,9 @@ block|{
 name|masterFD
 operator|.
 name|stop
-argument_list|()
+argument_list|(
+literal|"zen disco stop"
+argument_list|)
 expr_stmt|;
 block|}
 name|nodesFD
@@ -1631,6 +1633,8 @@ operator|.
 name|start
 argument_list|(
 name|masterNode
+argument_list|,
+literal|"initial_join"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1858,7 +1862,13 @@ expr_stmt|;
 name|masterFD
 operator|.
 name|stop
-argument_list|()
+argument_list|(
+literal|"got elected as new master since master left (reason = "
+operator|+
+name|reason
+operator|+
+literal|")"
+argument_list|)
 expr_stmt|;
 name|nodesFD
 operator|.
@@ -1989,6 +1999,12 @@ operator|.
 name|restart
 argument_list|(
 name|electedMaster
+argument_list|,
+literal|"possible elected master since master left (reason = "
+operator|+
+name|reason
+operator|+
+literal|")"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1997,7 +2013,13 @@ block|{
 name|masterFD
 operator|.
 name|stop
-argument_list|()
+argument_list|(
+literal|"no master elected since master left (reason = "
+operator|+
+name|reason
+operator|+
+literal|")"
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -2048,9 +2070,10 @@ name|masterFD
 operator|.
 name|masterNode
 argument_list|()
-operator|!=
+operator|==
 literal|null
-operator|&&
+operator|||
+operator|!
 name|masterFD
 operator|.
 name|masterNode
@@ -2073,6 +2096,15 @@ name|latestDiscoNodes
 operator|.
 name|masterNode
 argument_list|()
+argument_list|,
+literal|"new cluster stare received and we monitor the wrong master ["
+operator|+
+name|masterFD
+operator|.
+name|masterNode
+argument_list|()
+operator|+
+literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2753,18 +2785,42 @@ name|onDisconnectedFromMaster
 parameter_list|()
 block|{
 comment|// got disconnected from the master, send a join request
-name|membership
-operator|.
-name|sendJoinRequest
-argument_list|(
+name|DiscoveryNode
+name|masterNode
+init|=
 name|latestDiscoNodes
 operator|.
 name|masterNode
 argument_list|()
+decl_stmt|;
+try|try
+block|{
+name|membership
+operator|.
+name|sendJoinRequest
+argument_list|(
+name|masterNode
 argument_list|,
 name|localNode
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"Failed to send join request on disconnection from master [{}]"
+argument_list|,
+name|masterNode
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}
