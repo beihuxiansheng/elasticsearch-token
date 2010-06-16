@@ -154,6 +154,12 @@ index|[]
 name|source
 parameter_list|()
 function_decl|;
+comment|/**      * Is the source empty (not available) or not.      */
+DECL|method|isSourceEmpty
+name|boolean
+name|isSourceEmpty
+parameter_list|()
+function_decl|;
 comment|/**      * The source of the document as a map (can be<tt>null</tt>).      */
 DECL|method|getSource
 name|Map

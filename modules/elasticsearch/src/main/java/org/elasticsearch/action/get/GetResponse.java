@@ -475,6 +475,19 @@ operator|.
 name|source
 return|;
 block|}
+comment|/**      * Is the source empty (not available) or not.      */
+DECL|method|isSourceEmpty
+specifier|public
+name|boolean
+name|isSourceEmpty
+parameter_list|()
+block|{
+return|return
+name|source
+operator|==
+literal|null
+return|;
+block|}
 comment|/**      * The source of the document (as a string).      */
 DECL|method|sourceAsString
 specifier|public
