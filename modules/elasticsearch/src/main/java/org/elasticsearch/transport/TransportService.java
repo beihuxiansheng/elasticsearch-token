@@ -1110,8 +1110,6 @@ argument_list|,
 name|action
 argument_list|,
 name|message
-argument_list|,
-name|handler
 argument_list|)
 expr_stmt|;
 block|}
@@ -1534,6 +1532,7 @@ specifier|public
 name|void
 name|raiseNodeDisconnected
 parameter_list|(
+specifier|final
 name|DiscoveryNode
 name|node
 parameter_list|)
@@ -1594,8 +1593,10 @@ name|node
 argument_list|)
 condition|)
 block|{
-name|holder
-operator|=
+specifier|final
+name|RequestHolder
+name|holderToNotify
+init|=
 name|clientHandlers
 operator|.
 name|remove
@@ -1605,15 +1606,32 @@ operator|.
 name|getKey
 argument_list|()
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
-name|holder
+name|holderToNotify
 operator|!=
 literal|null
 condition|)
 block|{
-name|holder
+comment|// callback that an exception happened, but on a different thread since we don't
+comment|// want handlers to worry about stack overflows
+name|threadPool
+operator|.
+name|execute
+argument_list|(
+operator|new
+name|Runnable
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|run
+parameter_list|()
+block|{
+name|holderToNotify
 operator|.
 name|handler
 argument_list|()
@@ -1625,11 +1643,15 @@ name|NodeDisconnectedTransportException
 argument_list|(
 name|node
 argument_list|,
-name|holder
+name|holderToNotify
 operator|.
 name|action
 argument_list|()
 argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -1686,6 +1708,7 @@ condition|)
 block|{
 return|return;
 block|}
+specifier|final
 name|RequestHolder
 name|holder
 init|=
@@ -1725,6 +1748,23 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// callback that an exception happened, but on a different thread since we don't
+comment|// want handlers to worry about stack overflows
+name|threadPool
+operator|.
+name|execute
+argument_list|(
+operator|new
+name|Runnable
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|run
+parameter_list|()
+block|{
 name|holder
 operator|.
 name|handler
@@ -1745,6 +1785,10 @@ operator|.
 name|action
 argument_list|()
 argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 argument_list|)
 expr_stmt|;
 block|}

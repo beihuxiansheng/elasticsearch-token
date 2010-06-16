@@ -320,12 +320,6 @@ name|action
 parameter_list|,
 name|Streamable
 name|message
-parameter_list|,
-name|TransportResponseHandler
-argument_list|<
-name|T
-argument_list|>
-name|handler
 parameter_list|)
 throws|throws
 name|IOException

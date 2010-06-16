@@ -2581,24 +2581,21 @@ parameter_list|>
 name|void
 name|sendRequest
 parameter_list|(
+specifier|final
 name|DiscoveryNode
 name|node
 parameter_list|,
+specifier|final
 name|long
 name|requestId
 parameter_list|,
+specifier|final
 name|String
 name|action
 parameter_list|,
+specifier|final
 name|Streamable
 name|streamable
-parameter_list|,
-specifier|final
-name|TransportResponseHandler
-argument_list|<
-name|T
-argument_list|>
-name|handler
 parameter_list|)
 throws|throws
 name|IOException
@@ -2716,23 +2713,13 @@ operator|==
 literal|0
 condition|)
 block|{
-name|handler
-operator|.
-name|handleException
-argument_list|(
+throw|throw
 operator|new
-name|RemoteTransportException
-argument_list|(
-literal|""
-argument_list|,
-operator|new
-name|FailedCommunicationException
+name|ElasticSearchIllegalStateException
 argument_list|(
 literal|"Trying to send a stream with 0 size"
 argument_list|)
-argument_list|)
-argument_list|)
-expr_stmt|;
+throw|;
 block|}
 name|buffer
 operator|.
@@ -2754,15 +2741,83 @@ argument_list|(
 name|buffer
 argument_list|)
 decl_stmt|;
-comment|// TODO do we need this listener?
-comment|//        channelFuture.addListener(new ChannelFutureListener() {
-comment|//            @Override public void operationComplete(ChannelFuture future) throws Exception {
-comment|//                if (!future.isSuccess()) {
-comment|//                    // maybe add back the retry?
-comment|//                    handler.handleException(new RemoteTransportException("", new FailedCommunicationException("Error sending request", future.getCause())));
-comment|//                }
-comment|//            }
-comment|//        });
+name|channelFuture
+operator|.
+name|addListener
+argument_list|(
+operator|new
+name|ChannelFutureListener
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|operationComplete
+parameter_list|(
+name|ChannelFuture
+name|future
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+operator|!
+name|future
+operator|.
+name|isSuccess
+argument_list|()
+condition|)
+block|{
+comment|// maybe add back the retry?
+name|TransportResponseHandler
+name|handler
+init|=
+name|transportServiceAdapter
+operator|.
+name|remove
+argument_list|(
+name|requestId
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|handler
+operator|!=
+literal|null
+condition|)
+block|{
+name|handler
+operator|.
+name|handleException
+argument_list|(
+operator|new
+name|RemoteTransportException
+argument_list|(
+literal|"Failed write request"
+argument_list|,
+operator|new
+name|SendRequestTransportException
+argument_list|(
+name|node
+argument_list|,
+name|action
+argument_list|,
+name|future
+operator|.
+name|getCause
+argument_list|()
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
+block|}
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|nodeConnected
 annotation|@
