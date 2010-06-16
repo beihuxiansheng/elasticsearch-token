@@ -507,6 +507,13 @@ specifier|final
 name|TimeValue
 name|initialPingTimeout
 decl_stmt|;
+comment|// a flag that should be used only for testing
+DECL|field|sendLeaveRequest
+specifier|private
+specifier|final
+name|boolean
+name|sendLeaveRequest
+decl_stmt|;
 DECL|field|electMaster
 specifier|private
 specifier|final
@@ -632,6 +639,19 @@ name|timeValueSeconds
 argument_list|(
 literal|3
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|sendLeaveRequest
+operator|=
+name|componentSettings
+operator|.
+name|getAsBoolean
+argument_list|(
+literal|"send_leave_request"
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|logger
@@ -1018,6 +1038,11 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|sendLeaveRequest
+condition|)
+block|{
+if|if
+condition|(
 operator|!
 name|master
 condition|)
@@ -1144,6 +1169,7 @@ argument_list|,
 name|possibleMaster
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}

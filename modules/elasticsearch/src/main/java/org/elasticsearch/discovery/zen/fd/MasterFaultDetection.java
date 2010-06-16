@@ -329,6 +329,13 @@ specifier|final
 name|int
 name|pingRetryCount
 decl_stmt|;
+comment|// used mainly for testing, should always be true
+DECL|field|registerConnectionListener
+specifier|private
+specifier|final
+name|boolean
+name|registerConnectionListener
+decl_stmt|;
 DECL|field|connectionListener
 specifier|private
 specifier|final
@@ -471,6 +478,19 @@ argument_list|,
 literal|3
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|registerConnectionListener
+operator|=
+name|componentSettings
+operator|.
+name|getAsBoolean
+argument_list|(
+literal|"register_connection_listener"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
 name|logger
 operator|.
 name|debug
@@ -492,6 +512,11 @@ operator|new
 name|FDConnectionListener
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|registerConnectionListener
+condition|)
+block|{
 name|transportService
 operator|.
 name|addConnectionListener
@@ -499,6 +524,7 @@ argument_list|(
 name|connectionListener
 argument_list|)
 expr_stmt|;
+block|}
 name|transportService
 operator|.
 name|registerHandler
