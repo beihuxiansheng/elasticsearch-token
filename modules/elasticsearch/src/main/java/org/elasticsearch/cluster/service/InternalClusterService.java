@@ -425,7 +425,7 @@ name|componentSettings
 operator|.
 name|getAsTime
 argument_list|(
-literal|"timeoutInterval"
+literal|"timeout_interval"
 argument_list|,
 name|timeValueMillis
 argument_list|(
@@ -444,6 +444,16 @@ parameter_list|()
 throws|throws
 name|ElasticSearchException
 block|{
+name|this
+operator|.
+name|clusterState
+operator|=
+name|newClusterStateBuilder
+argument_list|()
+operator|.
+name|build
+argument_list|()
+expr_stmt|;
 name|this
 operator|.
 name|updateTasksExecutor
@@ -963,7 +973,7 @@ condition|)
 block|{
 name|logger
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Got old cluster state ["
 operator|+
@@ -1200,7 +1210,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-comment|// TODO, need to mark this node as failed...
+comment|// the fault detection will detect it as failed as well
 name|logger
 operator|.
 name|warn
