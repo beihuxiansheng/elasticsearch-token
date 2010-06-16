@@ -922,7 +922,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"Master [{}] failed on disconnect (with verified connect)"
+literal|"Master [{}] transport disconnected (with verified connect)"
 argument_list|,
 name|masterNode
 argument_list|)
@@ -931,7 +931,7 @@ name|notifyMasterFailure
 argument_list|(
 name|masterNode
 argument_list|,
-literal|"failed on disconnect (with verified connect)"
+literal|"transport disconnected (with verified connect)"
 argument_list|)
 expr_stmt|;
 block|}
@@ -942,7 +942,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"Master [{}] failed on disconnect"
+literal|"Master [{}] transport disconnected"
 argument_list|,
 name|node
 argument_list|)
@@ -951,7 +951,7 @@ name|notifyMasterFailure
 argument_list|(
 name|node
 argument_list|,
-literal|"failed on disconnect"
+literal|"transport disconnected"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1363,7 +1363,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Master [{}] failed on ping, tried [{}] times, each with [{}] timeout"
+literal|"Master [{}] failed to ping, tried [{}] times, each with [{}] timeout"
 argument_list|,
 name|masterNode
 argument_list|,
@@ -1377,7 +1377,7 @@ name|notifyMasterFailure
 argument_list|(
 name|masterToPing
 argument_list|,
-literal|"Failed on ping, tried ["
+literal|"failed to ping, tried ["
 operator|+
 name|pingRetryCount
 operator|+
