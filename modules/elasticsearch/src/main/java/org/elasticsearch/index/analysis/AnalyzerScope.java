@@ -31,6 +31,9 @@ name|INDEX
 block|,
 DECL|enum constant|INDICES
 name|INDICES
+block|,
+DECL|enum constant|GLOBAL
+name|GLOBAL
 block|}
 end_enum
 

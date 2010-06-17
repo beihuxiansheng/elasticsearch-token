@@ -186,6 +186,20 @@ name|index
 operator|.
 name|analysis
 operator|.
+name|AnalyzerScope
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|analysis
+operator|.
 name|NamedAnalyzer
 import|;
 end_import
@@ -201,7 +215,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -248,6 +262,10 @@ name|NamedAnalyzer
 argument_list|(
 literal|"_standard"
 argument_list|,
+name|AnalyzerScope
+operator|.
+name|GLOBAL
+argument_list|,
 operator|new
 name|StandardAnalyzer
 argument_list|(
@@ -266,6 +284,10 @@ operator|new
 name|NamedAnalyzer
 argument_list|(
 literal|"_keyword"
+argument_list|,
+name|AnalyzerScope
+operator|.
+name|GLOBAL
 argument_list|,
 operator|new
 name|KeywordAnalyzer
