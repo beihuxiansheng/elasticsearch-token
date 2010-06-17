@@ -485,7 +485,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Nodes FD uses ping_interval [{}], ping_timeout [{}], ping_retries [{}]"
+literal|"[node  ] uses ping_interval [{}], ping_timeout [{}], ping_retries [{}]"
 argument_list|,
 name|pingInterval
 argument_list|,
@@ -840,7 +840,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"Node [{}] transport disconnected (with verified connect)"
+literal|"[node  ] [{}] transport disconnected (with verified connect)"
 argument_list|,
 name|node
 argument_list|)
@@ -860,7 +860,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"Node [{}] transport disconnected"
+literal|"[node  ] [{}] transport disconnected"
 argument_list|,
 name|node
 argument_list|)
@@ -1092,7 +1092,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"Node [{}] failed to ping, retry [{}] out of [{}]"
+literal|"[node  ] failed to ping [{}], retry [{}] out of [{}]"
 argument_list|,
 name|exp
 argument_list|,
@@ -1114,7 +1114,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Node [{}] failed to ping, tried [{}] times, each with [{}] timeout"
+literal|"[node  ] failed to ping [{}], tried [{}] times, each with  maximum [{}] timeout"
 argument_list|,
 name|node
 argument_list|,
@@ -1144,7 +1144,7 @@ literal|"failed to ping, tried ["
 operator|+
 name|pingRetryCount
 operator|+
-literal|"] times, each with ["
+literal|"] times, each with maximum ["
 operator|+
 name|pingRetryTimeout
 operator|+

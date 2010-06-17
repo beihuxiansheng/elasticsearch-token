@@ -495,7 +495,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Master FD uses ping_interval [{}], ping_timeout [{}], ping_retries [{}]"
+literal|"[master] uses ping_interval [{}], ping_timeout [{}], ping_retries [{}]"
 argument_list|,
 name|pingInterval
 argument_list|,
@@ -614,7 +614,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Restarting fault detection against master [{}], reason [{}]"
+literal|"[master] restarting fault detection against master [{}], reason [{}]"
 argument_list|,
 name|masterNode
 argument_list|,
@@ -662,7 +662,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Starting fault detection against master [{}], reason [{}]"
+literal|"[master] starting fault detection against master [{}], reason [{}]"
 argument_list|,
 name|masterNode
 argument_list|,
@@ -808,7 +808,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Stopping fault detection against master [{}], reason [{}]"
+literal|"[master] stopping fault detection against master [{}], reason [{}]"
 argument_list|,
 name|masterNode
 argument_list|,
@@ -948,7 +948,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"Master [{}] transport disconnected (with verified connect)"
+literal|"[master] [{}] transport disconnected (with verified connect)"
 argument_list|,
 name|masterNode
 argument_list|)
@@ -968,7 +968,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"Master [{}] transport disconnected"
+literal|"[master] [{}] transport disconnected"
 argument_list|,
 name|node
 argument_list|)
@@ -1291,7 +1291,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"Master [{}] does not have us registered with it..."
+literal|"[master] [{}] does not have us registered with it..."
 argument_list|,
 name|masterToPing
 argument_list|)
@@ -1367,7 +1367,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"Master [{}] failed to ping, retry [{}] out of [{}]"
+literal|"[master] failed to ping [{}], retry [{}] out of [{}]"
 argument_list|,
 name|exp
 argument_list|,
@@ -1389,7 +1389,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Master [{}] failed to ping, tried [{}] times, each with [{}] timeout"
+literal|"[master] failed to ping [{}], tried [{}] times, each with maximum [{}] timeout"
 argument_list|,
 name|masterNode
 argument_list|,
@@ -1407,7 +1407,7 @@ literal|"failed to ping, tried ["
 operator|+
 name|pingRetryCount
 operator|+
-literal|"] times, each with ["
+literal|"] times, each with  maximum ["
 operator|+
 name|pingRetryTimeout
 operator|+
