@@ -2238,7 +2238,7 @@ name|clusterService
 operator|.
 name|submitStateUpdateTask
 argument_list|(
-literal|"zen-disco-node_failed("
+literal|"zen-disco-node_left("
 operator|+
 name|node
 operator|+
@@ -2387,6 +2387,14 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// try and connect to the node, if it fails, we can raise an exception back to the client...
+name|transportService
+operator|.
+name|connectToNode
+argument_list|(
+name|node
+argument_list|)
+expr_stmt|;
 name|clusterService
 operator|.
 name|submitStateUpdateTask
