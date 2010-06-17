@@ -374,6 +374,7 @@ parameter_list|)
 throws|throws
 name|SettingsException
 function_decl|;
+comment|/**      * The values associated with a setting prefix as an array. The settings array is in the format of:      *<tt>settingPrefix.[index]</tt>.      *      * @param settingPrefix The setting prefix to load the array by      * @return The setting array values      * @throws SettingsException      */
 DECL|method|getAsArray
 name|String
 index|[]
