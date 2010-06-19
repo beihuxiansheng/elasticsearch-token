@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -150,6 +150,18 @@ return|return
 name|this
 operator|.
 name|doc
+return|;
+block|}
+DECL|method|score
+annotation|@
+name|Override
+specifier|public
+name|float
+name|score
+parameter_list|()
+block|{
+return|return
+name|score
 return|;
 block|}
 block|}

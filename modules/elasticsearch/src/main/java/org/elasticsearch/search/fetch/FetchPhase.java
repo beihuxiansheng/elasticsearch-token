@@ -1041,6 +1041,17 @@ name|topDocs
 argument_list|()
 operator|.
 name|totalHits
+argument_list|,
+name|context
+operator|.
+name|queryResult
+argument_list|()
+operator|.
+name|topDocs
+argument_list|()
+operator|.
+name|getMaxScore
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

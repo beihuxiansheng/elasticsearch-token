@@ -662,6 +662,7 @@ literal|60
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|//        System.out.println("max_score: " + searchResponse.hits().maxScore());
 for|for
 control|(
 name|int
@@ -691,7 +692,7 @@ index|[
 name|i
 index|]
 decl_stmt|;
-comment|//            System.out.println(hit.shard() + ": " +  hit.explanation());
+comment|//            System.out.println(hit.shard() + ": " + hit.score() + ":" +  hit.explanation());
 name|assertThat
 argument_list|(
 name|hit

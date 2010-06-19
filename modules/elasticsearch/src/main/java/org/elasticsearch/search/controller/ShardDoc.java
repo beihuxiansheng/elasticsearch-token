@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_interface
@@ -46,6 +46,11 @@ function_decl|;
 DECL|method|docId
 name|int
 name|docId
+parameter_list|()
+function_decl|;
+DECL|method|score
+name|float
+name|score
 parameter_list|()
 function_decl|;
 block|}

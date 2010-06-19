@@ -75,6 +75,18 @@ name|long
 name|getTotalHits
 parameter_list|()
 function_decl|;
+comment|/**      * The maximum score of this query.      */
+DECL|method|maxScore
+name|float
+name|maxScore
+parameter_list|()
+function_decl|;
+comment|/**      * The maximum score of this query.      */
+DECL|method|getMaxScore
+name|float
+name|getMaxScore
+parameter_list|()
+function_decl|;
 comment|/**      * The hits of the search request (based on the search type, and from / size provided).      */
 DECL|method|hits
 name|SearchHit
@@ -82,6 +94,7 @@ index|[]
 name|hits
 parameter_list|()
 function_decl|;
+comment|/**      * Return the hit as the provided position.      */
 DECL|method|getAt
 name|SearchHit
 name|getAt

@@ -111,6 +111,18 @@ argument_list|<
 name|SearchHitField
 argument_list|>
 block|{
+comment|/**      * The score.      */
+DECL|method|score
+name|float
+name|score
+parameter_list|()
+function_decl|;
+comment|/**      * The score.      */
+DECL|method|getScore
+name|float
+name|getScore
+parameter_list|()
+function_decl|;
 comment|/**      * The index of the hit.      */
 DECL|method|index
 name|String

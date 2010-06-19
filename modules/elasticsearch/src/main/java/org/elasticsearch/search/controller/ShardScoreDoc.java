@@ -116,6 +116,18 @@ return|return
 name|doc
 return|;
 block|}
+DECL|method|score
+annotation|@
+name|Override
+specifier|public
+name|float
+name|score
+parameter_list|()
+block|{
+return|return
+name|score
+return|;
+block|}
 block|}
 end_class
 
