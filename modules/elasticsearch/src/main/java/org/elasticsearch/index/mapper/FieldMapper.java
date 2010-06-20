@@ -434,15 +434,6 @@ name|String
 name|value
 parameter_list|)
 function_decl|;
-comment|/**      * Returns the indexed value.      */
-DECL|method|indexedValue
-name|String
-name|indexedValue
-parameter_list|(
-name|T
-name|value
-parameter_list|)
-function_decl|;
 comment|/**      * Should the field query {@link #fieldQuery(String)} be used when detecting this      * field in query string.      */
 DECL|method|useFieldQueryWithQueryString
 name|boolean
