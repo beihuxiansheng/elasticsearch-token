@@ -359,6 +359,7 @@ argument_list|,
 name|handler
 argument_list|)
 expr_stmt|;
+break|break;
 case|case
 name|HEAD
 case|:
@@ -371,6 +372,7 @@ argument_list|,
 name|handler
 argument_list|)
 expr_stmt|;
+break|break;
 default|default:
 throw|throw
 operator|new
