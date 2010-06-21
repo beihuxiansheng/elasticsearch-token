@@ -113,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -148,6 +148,18 @@ argument_list|,
 name|indexSettings
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|type
+annotation|@
+name|Override
+specifier|public
+name|String
+name|type
+parameter_list|()
+block|{
+return|return
+literal|"none"
+return|;
 block|}
 DECL|method|shardGatewayClass
 annotation|@

@@ -4,15 +4,19 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.gateway
+DECL|package|org.elasticsearch.test.integration.gateway.fs
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|test
+operator|.
+name|integration
 operator|.
 name|gateway
+operator|.
+name|fs
 package|;
 end_package
 
@@ -22,23 +26,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|test
 operator|.
-name|component
+name|integration
 operator|.
-name|CloseableIndexComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|gateway
 operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|IndexComponent
+name|AbstractSimpleIndexGatewayTests
 import|;
 end_import
 
@@ -46,33 +40,15 @@ begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
-begin_interface
-DECL|interface|IndexGateway
+begin_class
+DECL|class|ChunkFsIndexGatewayTests
 specifier|public
-interface|interface
-name|IndexGateway
+class|class
+name|ChunkFsIndexGatewayTests
 extends|extends
-name|IndexComponent
-extends|,
-name|CloseableIndexComponent
-block|{
-DECL|method|type
-name|String
-name|type
-parameter_list|()
-function_decl|;
-DECL|method|shardGatewayClass
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|IndexShardGateway
-argument_list|>
-name|shardGatewayClass
-parameter_list|()
-function_decl|;
-block|}
-end_interface
+name|AbstractSimpleIndexGatewayTests
+block|{  }
+end_class
 
 end_unit
 

@@ -71,6 +71,11 @@ argument_list|<
 name|Gateway
 argument_list|>
 block|{
+DECL|method|type
+name|String
+name|type
+parameter_list|()
+function_decl|;
 DECL|method|write
 name|void
 name|write

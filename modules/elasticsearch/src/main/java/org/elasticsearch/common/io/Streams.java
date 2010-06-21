@@ -56,7 +56,9 @@ specifier|final
 name|int
 name|BUFFER_SIZE
 init|=
-literal|4096
+literal|1024
+operator|*
+literal|8
 decl_stmt|;
 comment|//---------------------------------------------------------------------
 comment|// Copy methods for java.io.File
@@ -65,7 +67,7 @@ comment|/**      * Copy the contents of the given input File to the given output
 DECL|method|copy
 specifier|public
 specifier|static
-name|int
+name|long
 name|copy
 parameter_list|(
 name|File
@@ -230,7 +232,7 @@ comment|/**      * Copy the contents of the given InputStream to the given Outpu
 DECL|method|copy
 specifier|public
 specifier|static
-name|int
+name|long
 name|copy
 parameter_list|(
 name|InputStream
@@ -262,7 +264,7 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|int
+name|long
 name|byteCount
 init|=
 literal|0

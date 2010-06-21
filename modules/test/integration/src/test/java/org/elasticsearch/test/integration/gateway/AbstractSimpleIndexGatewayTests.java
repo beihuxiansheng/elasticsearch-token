@@ -330,6 +330,9 @@ operator|.
 name|reset
 argument_list|()
 expr_stmt|;
+name|closeAllNodes
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|testSnapshotOperations
 annotation|@
@@ -341,13 +344,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|node
+name|startNode
 argument_list|(
 literal|"server1"
 argument_list|)
-operator|.
-name|start
-argument_list|()
 expr_stmt|;
 comment|// Translog tests
 name|logger

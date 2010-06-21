@@ -137,7 +137,7 @@ operator|.
 name|length
 argument_list|)
 decl_stmt|;
-name|int
+name|long
 name|count
 init|=
 name|copy
@@ -153,6 +153,9 @@ name|count
 argument_list|,
 name|equalTo
 argument_list|(
+operator|(
+name|long
+operator|)
 name|content
 operator|.
 name|length

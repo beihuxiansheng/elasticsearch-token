@@ -140,6 +140,11 @@ name|IndexShardComponent
 extends|,
 name|CloseableIndexComponent
 block|{
+DECL|method|type
+name|String
+name|type
+parameter_list|()
+function_decl|;
 comment|/**      * Recovers the state of the shard from the gateway.      */
 DECL|method|recover
 name|RecoveryStatus
@@ -156,6 +161,8 @@ parameter_list|(
 name|Snapshot
 name|snapshot
 parameter_list|)
+throws|throws
+name|IndexShardGatewaySnapshotFailedException
 function_decl|;
 comment|/**      * Returns<tt>true</tt> if this gateway requires scheduling management for snapshot      * operations.      */
 DECL|method|requiresSnapshotScheduling

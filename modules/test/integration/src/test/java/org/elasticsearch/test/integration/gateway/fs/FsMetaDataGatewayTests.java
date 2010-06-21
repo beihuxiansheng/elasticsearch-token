@@ -123,7 +123,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -179,11 +179,11 @@ name|closeAllNodes
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|buildNode1
+DECL|method|buildNodeToReset
 annotation|@
 name|BeforeMethod
 name|void
-name|buildNode1
+name|buildNodeToReset
 parameter_list|()
 throws|throws
 name|Exception
@@ -217,6 +217,9 @@ operator|.
 name|reset
 argument_list|()
 expr_stmt|;
+name|closeAllNodes
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|testIndexActions
 annotation|@
@@ -228,41 +231,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|buildNode
+name|startNode
 argument_list|(
 literal|"server1"
 argument_list|)
-expr_stmt|;
-operator|(
-operator|(
-name|InternalNode
-operator|)
-name|node
-argument_list|(
-literal|"server1"
-argument_list|)
-operator|)
-operator|.
-name|injector
-argument_list|()
-operator|.
-name|getInstance
-argument_list|(
-name|Gateway
-operator|.
-name|class
-argument_list|)
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-name|node
-argument_list|(
-literal|"server1"
-argument_list|)
-operator|.
-name|start
-argument_list|()
 expr_stmt|;
 name|client
 argument_list|(
