@@ -100,15 +100,18 @@ name|close
 parameter_list|()
 function_decl|;
 block|}
+comment|/**      * Returns of an appended blob can be opened on an existing blob.      */
+DECL|method|canAppendToExistingBlob
+name|boolean
+name|canAppendToExistingBlob
+parameter_list|()
+function_decl|;
 DECL|method|appendBlob
 name|AppendableBlob
 name|appendBlob
 parameter_list|(
 name|String
 name|blobName
-parameter_list|,
-name|boolean
-name|append
 parameter_list|)
 throws|throws
 name|IOException
