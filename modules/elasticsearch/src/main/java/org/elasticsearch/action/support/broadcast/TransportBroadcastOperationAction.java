@@ -1278,6 +1278,28 @@ name|currentNodeId
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|node
+operator|==
+literal|null
+condition|)
+block|{
+comment|// no node connected, act as failure
+name|onOperation
+argument_list|(
+name|shard
+argument_list|,
+name|shardIt
+argument_list|,
+literal|null
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|transportService
 operator|.
 name|sendRequest
@@ -1365,6 +1387,7 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}

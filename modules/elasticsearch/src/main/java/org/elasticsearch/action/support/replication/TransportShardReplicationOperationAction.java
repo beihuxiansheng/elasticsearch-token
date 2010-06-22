@@ -1299,6 +1299,17 @@ name|shard
 operator|.
 name|active
 argument_list|()
+operator|||
+operator|!
+name|nodes
+operator|.
+name|nodeExists
+argument_list|(
+name|shard
+operator|.
+name|currentNodeId
+argument_list|()
+argument_list|)
 condition|)
 block|{
 name|retryPrimary
@@ -2068,12 +2079,25 @@ block|}
 comment|// we index on a backup that is initializing as well since we might not have got the event
 comment|// yet that it was started. We will get an exception IllegalShardState exception if its not started
 comment|// and that's fine, we will ignore it
+comment|// if we don't have that node, it means that it might have failed and will be created again, in
+comment|// this case, we don't have to do the operation, and just let it failover
 if|if
 condition|(
 name|shard
 operator|.
 name|unassigned
 argument_list|()
+operator|||
+operator|!
+name|nodes
+operator|.
+name|nodeExists
+argument_list|(
+name|shard
+operator|.
+name|currentNodeId
+argument_list|()
+argument_list|)
 condition|)
 block|{
 if|if
