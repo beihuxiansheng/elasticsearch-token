@@ -42,19 +42,19 @@ name|index
 operator|.
 name|store
 operator|.
-name|Store
+name|IndexStore
 import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|RamStoreModule
+DECL|class|RamIndexStoreModule
 specifier|public
 class|class
-name|RamStoreModule
+name|RamIndexStoreModule
 extends|extends
 name|AbstractModule
 block|{
@@ -68,14 +68,14 @@ parameter_list|()
 block|{
 name|bind
 argument_list|(
-name|Store
+name|IndexStore
 operator|.
 name|class
 argument_list|)
 operator|.
 name|to
 argument_list|(
-name|RamStore
+name|RamIndexStore
 operator|.
 name|class
 argument_list|)

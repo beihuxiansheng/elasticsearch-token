@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.store.fs
+DECL|package|org.elasticsearch.index.store
 package|package
 name|org
 operator|.
@@ -13,8 +13,6 @@ operator|.
 name|index
 operator|.
 name|store
-operator|.
-name|fs
 package|;
 end_package
 
@@ -24,68 +22,42 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|inject
-operator|.
-name|AbstractModule
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|index
 operator|.
-name|store
-operator|.
-name|Store
+name|IndexComponent
 import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
-begin_class
-DECL|class|NioFsStoreModule
+begin_interface
+DECL|interface|IndexStore
 specifier|public
-class|class
-name|NioFsStoreModule
+interface|interface
+name|IndexStore
 extends|extends
-name|AbstractModule
+name|IndexComponent
 block|{
-DECL|method|configure
-annotation|@
-name|Override
-specifier|protected
-name|void
-name|configure
+comment|/**      * Is the store a persistent store that can survive full restarts.      */
+DECL|method|persistent
+name|boolean
+name|persistent
 parameter_list|()
-block|{
-name|bind
-argument_list|(
+function_decl|;
+DECL|method|shardStoreClass
+name|Class
+argument_list|<
+name|?
+extends|extends
 name|Store
-operator|.
-name|class
-argument_list|)
-operator|.
-name|to
-argument_list|(
-name|NioFsStore
-operator|.
-name|class
-argument_list|)
-operator|.
-name|asEagerSingleton
-argument_list|()
-expr_stmt|;
+argument_list|>
+name|shardStoreClass
+parameter_list|()
+function_decl|;
 block|}
-block|}
-end_class
+end_interface
 
 end_unit
 

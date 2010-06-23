@@ -223,11 +223,11 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|AbstractFsStore
+DECL|class|FsStore
 specifier|public
 specifier|abstract
 class|class
-name|AbstractFsStore
+name|FsStore
 parameter_list|<
 name|T
 extends|extends
@@ -239,9 +239,9 @@ argument_list|<
 name|T
 argument_list|>
 block|{
-DECL|method|AbstractFsStore
+DECL|method|FsStore
 specifier|public
-name|AbstractFsStore
+name|FsStore
 parameter_list|(
 name|ShardId
 name|shardId
