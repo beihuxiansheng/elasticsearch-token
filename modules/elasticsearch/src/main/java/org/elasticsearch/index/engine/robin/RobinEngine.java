@@ -837,41 +837,6 @@ name|WRITE_LOCK_NAME
 argument_list|)
 expr_stmt|;
 block|}
-name|IndexWriter
-name|writer
-init|=
-operator|new
-name|IndexWriter
-argument_list|(
-name|store
-operator|.
-name|directory
-argument_list|()
-argument_list|,
-name|analysisService
-operator|.
-name|defaultIndexAnalyzer
-argument_list|()
-argument_list|,
-literal|true
-argument_list|,
-name|IndexWriter
-operator|.
-name|MaxFieldLength
-operator|.
-name|UNLIMITED
-argument_list|)
-decl_stmt|;
-name|writer
-operator|.
-name|commit
-argument_list|()
-expr_stmt|;
-name|writer
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -883,7 +848,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to clean the index"
+literal|"Failed to check if index is locked"
 argument_list|,
 name|e
 argument_list|)
@@ -2562,6 +2527,7 @@ expr_stmt|;
 block|}
 try|try
 block|{
+comment|// no need to commit in this case!, we snapshot before we close the shard, so translog and all sync'ed
 if|if
 condition|(
 name|indexWriter
@@ -2571,7 +2537,7 @@ condition|)
 block|{
 name|indexWriter
 operator|.
-name|close
+name|rollback
 argument_list|()
 expr_stmt|;
 block|}
@@ -2582,17 +2548,15 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-throw|throw
-operator|new
-name|CloseEngineException
+name|logger
+operator|.
+name|debug
 argument_list|(
-name|shardId
-argument_list|,
-literal|"Failed to close engine"
+literal|"failed to rollback writer on close"
 argument_list|,
 name|e
 argument_list|)
-throw|;
+expr_stmt|;
 block|}
 finally|finally
 block|{

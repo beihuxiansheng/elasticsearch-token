@@ -298,16 +298,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|concurrent
@@ -580,31 +570,6 @@ literal|"Trying to recover when the shard is in backup state"
 argument_list|)
 throw|;
 block|}
-comment|// clear the store, we are going to recover into it
-try|try
-block|{
-name|store
-operator|.
-name|deleteContent
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-name|logger
-operator|.
-name|debug
-argument_list|(
-literal|"Failed to delete store before recovery from gateway"
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-block|}
 name|indexShard
 operator|.
 name|recovering
@@ -699,7 +664,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Starting recovery from {}"
+literal|"starting recovery from {}"
 argument_list|,
 name|shardGateway
 argument_list|)
@@ -797,7 +762,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"Recovery completed from "
+literal|"recovery completed from "
 argument_list|)
 operator|.
 name|append
@@ -840,7 +805,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"    Index    : number_of_files ["
+literal|"    index    : number_of_files ["
 argument_list|)
 operator|.
 name|append
@@ -895,7 +860,46 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"    Translog : translog_id ["
+literal|"             : reusing_files ["
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|recoveryStatus
+operator|.
+name|index
+argument_list|()
+operator|.
+name|numberOfExistingFiles
+argument_list|()
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"] with total_size ["
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|recoveryStatus
+operator|.
+name|index
+argument_list|()
+operator|.
+name|existingTotalSize
+argument_list|()
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"]\n"
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|"    translog : translog_id ["
 argument_list|)
 operator|.
 name|append
@@ -1197,7 +1201,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"Snapshot completed to "
+literal|"snapshot completed to "
 argument_list|)
 operator|.
 name|append
@@ -1227,7 +1231,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"    Index    : number_of_files ["
+literal|"    index    : number_of_files ["
 argument_list|)
 operator|.
 name|append
@@ -1282,7 +1286,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"    Translog : number_of_operations ["
+literal|"    translog : number_of_operations ["
 argument_list|)
 operator|.
 name|append
@@ -1408,7 +1412,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Snapshotting on close ..."
+literal|"snapshotting on close ..."
 argument_list|)
 expr_stmt|;
 try|try
@@ -1427,7 +1431,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to snapshot on close"
+literal|"failed to snapshot on close"
 argument_list|,
 name|e
 argument_list|)
@@ -1543,7 +1547,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Scheduling snapshot every [{}]"
+literal|"scheduling snapshot every [{}]"
 argument_list|,
 name|snapshotInterval
 argument_list|)
@@ -1595,7 +1599,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to snapshot (scheduled)"
+literal|"failed to snapshot (scheduled)"
 argument_list|,
 name|e
 argument_list|)

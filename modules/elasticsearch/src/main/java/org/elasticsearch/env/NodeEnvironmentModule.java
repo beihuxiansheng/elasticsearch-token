@@ -4,17 +4,13 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.store.fs
+DECL|package|org.elasticsearch.env
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|store
-operator|.
-name|fs
+name|env
 package|;
 end_package
 
@@ -32,32 +28,23 @@ name|AbstractModule
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|store
-operator|.
-name|IndexStore
-import|;
-end_import
-
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|MmapFsIndexStoreModule
+DECL|class|NodeEnvironmentModule
 specifier|public
 class|class
-name|MmapFsIndexStoreModule
+name|NodeEnvironmentModule
 extends|extends
 name|AbstractModule
 block|{
+DECL|method|NodeEnvironmentModule
+specifier|public
+name|NodeEnvironmentModule
+parameter_list|()
+block|{     }
 DECL|method|configure
 annotation|@
 name|Override
@@ -68,14 +55,7 @@ parameter_list|()
 block|{
 name|bind
 argument_list|(
-name|IndexStore
-operator|.
-name|class
-argument_list|)
-operator|.
-name|to
-argument_list|(
-name|MmapFsIndexStore
+name|NodeEnvironment
 operator|.
 name|class
 argument_list|)

@@ -1141,7 +1141,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Creating Index [{}], shards [{}]/[{}]"
+literal|"creating Index [{}], shards [{}]/[{}]"
 argument_list|,
 name|sIndexName
 argument_list|,
@@ -1557,7 +1557,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Deleting Index [{}]"
+literal|"deleting Index [{}]"
 argument_list|,
 name|index
 argument_list|)

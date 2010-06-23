@@ -1778,7 +1778,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Creating Index [{}], cause [{}], shards [{}]/[{}], mappings {}"
+literal|"creating Index [{}], cause [{}], shards [{}]/[{}], mappings {}"
 argument_list|,
 name|index
 argument_list|,
@@ -2007,7 +2007,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to read mapping ["
+literal|"failed to read mapping ["
 operator|+
 name|fileNameNoSuffix
 operator|+
@@ -2077,7 +2077,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Deleting index [{}]"
+literal|"deleting index [{}]"
 argument_list|,
 name|index
 argument_list|)
@@ -2462,7 +2462,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Index ["
+literal|"index ["
 operator|+
 name|index
 operator|+
@@ -2491,7 +2491,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Index ["
+literal|"index ["
 operator|+
 name|index
 operator|+
@@ -3108,7 +3108,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Index ["
+literal|"index ["
 operator|+
 name|index
 operator|+
@@ -3143,7 +3143,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Index ["
+literal|"index ["
 operator|+
 name|index
 operator|+

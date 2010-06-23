@@ -54,7 +54,7 @@ name|elasticsearch
 operator|.
 name|env
 operator|.
-name|Environment
+name|NodeEnvironment
 import|;
 end_import
 
@@ -67,18 +67,6 @@ operator|.
 name|index
 operator|.
 name|Index
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|LocalNodeId
 import|;
 end_import
 
@@ -136,13 +124,8 @@ name|IndexSettings
 name|Settings
 name|indexSettings
 parameter_list|,
-name|Environment
-name|environment
-parameter_list|,
-annotation|@
-name|LocalNodeId
-name|String
-name|localNodeId
+name|NodeEnvironment
+name|nodeEnv
 parameter_list|)
 block|{
 name|super
@@ -151,9 +134,7 @@ name|index
 argument_list|,
 name|indexSettings
 argument_list|,
-name|environment
-argument_list|,
-name|localNodeId
+name|nodeEnv
 argument_list|)
 expr_stmt|;
 block|}

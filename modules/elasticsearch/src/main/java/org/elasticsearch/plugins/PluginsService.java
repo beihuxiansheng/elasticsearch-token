@@ -358,7 +358,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Loaded {}"
+literal|"loaded {}"
 argument_list|,
 name|plugins
 operator|.
@@ -888,7 +888,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Failed to find addURL method on classLoader ["
+literal|"failed to find addURL method on classLoader ["
 operator|+
 name|classLoader
 operator|+
@@ -942,7 +942,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"Processing [{}]"
+literal|"processing [{}]"
 argument_list|,
 name|pluginFile
 argument_list|)
@@ -1099,7 +1099,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"--- No need to extract plugin, same size ["
+literal|"--- no need to extract plugin, same size ["
 operator|+
 name|size
 operator|+
@@ -1162,7 +1162,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"--- Extracting plugin to ["
+literal|"--- extracting plugin to ["
 operator|+
 name|extractedPluginDir
 operator|+
@@ -1305,7 +1305,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to extract plugin ["
+literal|"failed to extract plugin ["
 operator|+
 name|pluginFile
 operator|+
@@ -1449,7 +1449,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to add plugin ["
+literal|"failed to add plugin ["
 operator|+
 name|pluginFile
 operator|+
@@ -1519,7 +1519,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to find plugins from classpath"
+literal|"failed to find plugins from classpath"
 argument_list|,
 name|e
 argument_list|)
@@ -1688,7 +1688,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to load plugin from ["
+literal|"failed to load plugin from ["
 operator|+
 name|pluginUrl
 operator|+

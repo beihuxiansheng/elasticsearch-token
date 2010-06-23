@@ -247,15 +247,15 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"bound_address["
+literal|"bound_address {"
 operator|+
 name|boundAddress
 operator|+
-literal|"], publish_address["
+literal|"}, publish_address {"
 operator|+
 name|publishAddress
 operator|+
-literal|"]"
+literal|"}"
 return|;
 block|}
 block|}

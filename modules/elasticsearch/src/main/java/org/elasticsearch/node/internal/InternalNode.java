@@ -274,20 +274,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|io
-operator|.
-name|FileSystemUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|logging
 operator|.
 name|ESLogger
@@ -423,6 +409,30 @@ operator|.
 name|env
 operator|.
 name|EnvironmentModule
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|env
+operator|.
+name|NodeEnvironment
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|env
+operator|.
+name|NodeEnvironmentModule
 import|;
 end_import
 
@@ -732,16 +742,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|ArrayList
@@ -902,7 +902,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"{{}}[{}]: Initializing ..."
+literal|"{{}}[{}]: initializing ..."
 argument_list|,
 name|Version
 operator|.
@@ -1049,6 +1049,15 @@ name|EnvironmentModule
 argument_list|(
 name|environment
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|modules
+operator|.
+name|add
+argument_list|(
+operator|new
+name|NodeEnvironmentModule
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|modules
@@ -1250,7 +1259,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"{{}}[{}]: Initialized"
+literal|"{{}}[{}]: initialized"
 argument_list|,
 name|Version
 operator|.
@@ -1335,7 +1344,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"{{}}[{}]: Starting ..."
+literal|"{{}}[{}]: starting ..."
 argument_list|,
 name|Version
 operator|.
@@ -1545,7 +1554,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"{{}}[{}]: Started"
+literal|"{{}}[{}]: started"
 argument_list|,
 name|Version
 operator|.
@@ -1609,7 +1618,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"{{}}[{}]: Stopping ..."
+literal|"{{}}[{}]: stopping ..."
 argument_list|,
 name|Version
 operator|.
@@ -1797,56 +1806,18 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
-comment|// Not pretty, but here we go
-try|try
-block|{
-name|FileSystemUtils
-operator|.
-name|deleteRecursively
-argument_list|(
-operator|new
-name|File
-argument_list|(
-operator|new
-name|File
-argument_list|(
-name|environment
-operator|.
-name|workWithClusterFile
-argument_list|()
-argument_list|,
-literal|"indices"
-argument_list|)
-argument_list|,
 name|injector
 operator|.
 name|getInstance
 argument_list|(
-name|ClusterService
+name|NodeEnvironment
 operator|.
 name|class
 argument_list|)
 operator|.
-name|state
+name|close
 argument_list|()
-operator|.
-name|nodes
-argument_list|()
-operator|.
-name|localNodeId
-argument_list|()
-argument_list|)
-argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-comment|// ignore
-block|}
 name|Injectors
 operator|.
 name|close
@@ -1858,7 +1829,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"{{}}[{}]: Stopped"
+literal|"{{}}[{}]: stopped"
 argument_list|,
 name|Version
 operator|.
@@ -1930,7 +1901,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"{{}}[{}]: Closing ..."
+literal|"{{}}[{}]: closing ..."
 argument_list|,
 name|Version
 operator|.
@@ -2215,7 +2186,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"{{}}[{}]: Closed"
+literal|"{{}}[{}]: closed"
 argument_list|,
 name|Version
 operator|.

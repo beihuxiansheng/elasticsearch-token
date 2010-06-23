@@ -2876,10 +2876,14 @@ operator|new
 name|ByteSizeValue
 argument_list|(
 name|totalSize
+argument_list|)
 argument_list|,
-name|ByteSizeUnit
-operator|.
-name|BYTES
+literal|0
+argument_list|,
+operator|new
+name|ByteSizeValue
+argument_list|(
+literal|0
 argument_list|)
 argument_list|,
 name|TimeValue

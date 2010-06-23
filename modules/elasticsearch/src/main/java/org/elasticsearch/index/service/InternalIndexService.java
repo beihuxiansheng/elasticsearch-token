@@ -158,6 +158,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|gateway
+operator|.
+name|none
+operator|.
+name|NoneGateway
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|index
 operator|.
 name|AbstractIndexComponent
@@ -748,6 +762,18 @@ specifier|final
 name|IndexEngine
 name|indexEngine
 decl_stmt|;
+DECL|field|indexGateway
+specifier|private
+specifier|final
+name|IndexGateway
+name|indexGateway
+decl_stmt|;
+DECL|field|indexStore
+specifier|private
+specifier|final
+name|IndexStore
+name|indexStore
+decl_stmt|;
 DECL|field|operationRouting
 specifier|private
 specifier|final
@@ -828,6 +854,12 @@ parameter_list|,
 name|IndexEngine
 name|indexEngine
 parameter_list|,
+name|IndexGateway
+name|indexGateway
+parameter_list|,
+name|IndexStore
+name|indexStore
+parameter_list|,
 name|OperationRouting
 name|operationRouting
 parameter_list|)
@@ -880,6 +912,18 @@ operator|.
 name|indexEngine
 operator|=
 name|indexEngine
+expr_stmt|;
+name|this
+operator|.
+name|indexGateway
+operator|=
+name|indexGateway
+expr_stmt|;
+name|this
+operator|.
+name|indexStore
+operator|=
+name|indexStore
 expr_stmt|;
 name|this
 operator|.
@@ -1325,7 +1369,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Creating shard_id[{}]"
+literal|"creating shard_id [{}]"
 argument_list|,
 name|shardId
 operator|.
@@ -1510,7 +1554,22 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// clean the store
+comment|// if there is no gateway, clean the store, since we won't recover into it
+if|if
+condition|(
+name|indexGateway
+operator|.
+name|type
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|NoneGateway
+operator|.
+name|TYPE
+argument_list|)
+condition|)
+block|{
 name|Store
 name|store
 init|=
@@ -1541,11 +1600,12 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to clean store on shard creation"
+literal|"failed to clean store on shard creation"
 argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|indicesLifecycle
 operator|.
@@ -1690,7 +1750,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Deleting shard_id[{}]"
+literal|"deleting shard_id [{}]"
 argument_list|,
 name|shardId
 argument_list|)
@@ -1851,6 +1911,7 @@ argument_list|,
 name|delete
 argument_list|)
 expr_stmt|;
+comment|// if we delete or have no gateway or the store is not persistent, clean the store...
 name|Store
 name|store
 init|=
@@ -1863,6 +1924,29 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|delete
+operator|||
+name|indexGateway
+operator|.
+name|type
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|NoneGateway
+operator|.
+name|TYPE
+argument_list|)
+operator|||
+operator|!
+name|indexStore
+operator|.
+name|persistent
+argument_list|()
+condition|)
+block|{
 try|try
 block|{
 name|store
@@ -1881,12 +1965,14 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to clean store on shard deletion"
+literal|"failed to clean store on shard deletion"
 argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+comment|// and close it
 try|try
 block|{
 name|store
@@ -1905,7 +1991,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to close store on shard deletion"
+literal|"failed to close store on shard deletion"
 argument_list|,
 name|e
 argument_list|)

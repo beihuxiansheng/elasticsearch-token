@@ -664,7 +664,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"bound_address[{}], publish_address[{}]"
+literal|"bound_address {{}}, publish_address {{}}"
 argument_list|,
 name|serviceUrl
 argument_list|,
