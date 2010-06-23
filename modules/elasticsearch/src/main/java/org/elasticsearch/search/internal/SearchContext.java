@@ -696,9 +696,6 @@ argument_list|(
 name|this
 argument_list|,
 name|engineSearcher
-operator|.
-name|reader
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
