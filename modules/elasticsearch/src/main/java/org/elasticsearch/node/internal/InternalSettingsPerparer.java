@@ -264,7 +264,7 @@ name|settingsBuilder
 operator|.
 name|put
 argument_list|(
-literal|"path.workWithCluster"
+literal|"path.work_with_cluster"
 argument_list|,
 name|cleanPath
 argument_list|(
