@@ -34,22 +34,6 @@ name|ThreadLocals
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|field
-operator|.
-name|data
-operator|.
-name|FieldDataOptions
-import|;
-end_import
-
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
@@ -137,9 +121,6 @@ parameter_list|(
 name|String
 name|fieldName
 parameter_list|,
-name|FieldDataOptions
-name|options
-parameter_list|,
 name|int
 index|[]
 name|order
@@ -147,21 +128,13 @@ parameter_list|,
 name|double
 index|[]
 name|values
-parameter_list|,
-name|int
-index|[]
-name|freqs
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|fieldName
 argument_list|,
-name|options
-argument_list|,
 name|values
-argument_list|,
-name|freqs
 argument_list|)
 expr_stmt|;
 name|this

@@ -380,21 +380,12 @@ specifier|final
 name|String
 name|fieldName
 decl_stmt|;
-DECL|field|options
-specifier|private
-specifier|final
-name|FieldDataOptions
-name|options
-decl_stmt|;
 DECL|method|FieldData
 specifier|protected
 name|FieldData
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|,
-name|FieldDataOptions
-name|options
 parameter_list|)
 block|{
 name|this
@@ -402,12 +393,6 @@ operator|.
 name|fieldName
 operator|=
 name|fieldName
-expr_stmt|;
-name|this
-operator|.
-name|options
-operator|=
-name|options
 expr_stmt|;
 block|}
 comment|/**      * The field name of this field data.      */
@@ -511,9 +496,6 @@ name|onValue
 parameter_list|(
 name|String
 name|value
-parameter_list|,
-name|int
-name|freq
 parameter_list|)
 function_decl|;
 block|}
@@ -556,18 +538,6 @@ name|Type
 name|type
 parameter_list|()
 function_decl|;
-DECL|method|options
-specifier|public
-name|FieldDataOptions
-name|options
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|options
-return|;
-block|}
 DECL|method|load
 specifier|public
 specifier|static
@@ -582,9 +552,6 @@ name|reader
 parameter_list|,
 name|String
 name|fieldName
-parameter_list|,
-name|FieldDataOptions
-name|options
 parameter_list|)
 throws|throws
 name|IOException
@@ -599,8 +566,6 @@ argument_list|,
 name|reader
 argument_list|,
 name|fieldName
-argument_list|,
-name|options
 argument_list|)
 return|;
 block|}
@@ -633,9 +598,6 @@ name|reader
 parameter_list|,
 name|String
 name|fieldName
-parameter_list|,
-name|FieldDataOptions
-name|options
 parameter_list|)
 throws|throws
 name|IOException
@@ -660,8 +622,6 @@ argument_list|(
 name|reader
 argument_list|,
 name|fieldName
-argument_list|,
-name|options
 argument_list|)
 return|;
 block|}
@@ -686,8 +646,6 @@ argument_list|(
 name|reader
 argument_list|,
 name|fieldName
-argument_list|,
-name|options
 argument_list|)
 return|;
 block|}
@@ -712,8 +670,6 @@ argument_list|(
 name|reader
 argument_list|,
 name|fieldName
-argument_list|,
-name|options
 argument_list|)
 return|;
 block|}
@@ -738,8 +694,6 @@ argument_list|(
 name|reader
 argument_list|,
 name|fieldName
-argument_list|,
-name|options
 argument_list|)
 return|;
 block|}
@@ -764,8 +718,6 @@ argument_list|(
 name|reader
 argument_list|,
 name|fieldName
-argument_list|,
-name|options
 argument_list|)
 return|;
 block|}
@@ -790,8 +742,6 @@ argument_list|(
 name|reader
 argument_list|,
 name|fieldName
-argument_list|,
-name|options
 argument_list|)
 return|;
 block|}

@@ -66,22 +66,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|field
-operator|.
-name|data
-operator|.
-name|FieldDataOptions
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -122,9 +106,6 @@ name|reader
 parameter_list|,
 name|String
 name|fieldName
-parameter_list|,
-name|FieldDataOptions
-name|options
 parameter_list|)
 throws|throws
 name|IOException
@@ -143,9 +124,6 @@ name|reader
 parameter_list|,
 name|String
 name|fieldName
-parameter_list|,
-name|FieldDataOptions
-name|options
 parameter_list|)
 throws|throws
 name|IOException

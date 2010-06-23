@@ -192,24 +192,6 @@ name|IOException
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|field
-operator|.
-name|data
-operator|.
-name|FieldDataOptions
-operator|.
-name|*
-import|;
-end_import
-
 begin_comment
 comment|/**  * A histogram facet collector that uses different fields for the key and the value.  *  * @author kimchy (shay.banon)  */
 end_comment
@@ -795,14 +777,6 @@ argument_list|,
 name|reader
 argument_list|,
 name|keyIndexFieldName
-argument_list|,
-name|fieldDataOptions
-argument_list|()
-operator|.
-name|withFreqs
-argument_list|(
-literal|false
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|valueFieldData
@@ -819,14 +793,6 @@ argument_list|,
 name|reader
 argument_list|,
 name|valueIndexFieldName
-argument_list|,
-name|fieldDataOptions
-argument_list|()
-operator|.
-name|withFreqs
-argument_list|(
-literal|false
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

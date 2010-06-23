@@ -45,16 +45,11 @@ name|NumericFieldData
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|,
-name|FieldDataOptions
-name|options
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|fieldName
-argument_list|,
-name|options
 argument_list|)
 expr_stmt|;
 block|}
