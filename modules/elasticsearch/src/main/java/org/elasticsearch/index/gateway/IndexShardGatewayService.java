@@ -805,7 +805,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"    index    : number_of_files ["
+literal|"    index    : recovered_files ["
 argument_list|)
 operator|.
 name|append
@@ -860,7 +860,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"             : reusing_files ["
+literal|"             : reusing_files   ["
 argument_list|)
 operator|.
 name|append

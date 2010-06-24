@@ -2341,12 +2341,22 @@ block|}
 block|}
 name|indexShard
 operator|.
-name|performRecovery
+name|performRecoveryPrepareForTranslog
+argument_list|()
+expr_stmt|;
+name|indexShard
+operator|.
+name|performRecoveryOperations
 argument_list|(
 name|operations
 argument_list|)
 expr_stmt|;
-comment|// clean all the other translogs
+name|indexShard
+operator|.
+name|performRecoveryFinalization
+argument_list|()
+expr_stmt|;
+comment|// clean all the other translog
 for|for
 control|(
 name|Long
