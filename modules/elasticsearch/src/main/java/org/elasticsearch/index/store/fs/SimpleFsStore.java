@@ -291,7 +291,7 @@ operator|)
 name|indexStore
 operator|)
 operator|.
-name|shardLocation
+name|shardIndexLocation
 argument_list|(
 name|shardId
 argument_list|)

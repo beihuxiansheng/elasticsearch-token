@@ -335,10 +335,10 @@ return|return
 name|location
 return|;
 block|}
-DECL|method|shardLocation
+DECL|method|shardIndexLocation
 specifier|public
 name|File
-name|shardLocation
+name|shardIndexLocation
 parameter_list|(
 name|ShardId
 name|shardId
