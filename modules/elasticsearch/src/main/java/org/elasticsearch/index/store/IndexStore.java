@@ -22,6 +22,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|unit
+operator|.
+name|ByteSizeValue
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|index
 operator|.
 name|IndexComponent
@@ -29,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  * Index store is an index level information of the {@link Store} each shard will use.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_interface
@@ -46,6 +60,7 @@ name|boolean
 name|persistent
 parameter_list|()
 function_decl|;
+comment|/**      * The shard store class that should be used for each shard.      */
 DECL|method|shardStoreClass
 name|Class
 argument_list|<
@@ -54,6 +69,18 @@ extends|extends
 name|Store
 argument_list|>
 name|shardStoreClass
+parameter_list|()
+function_decl|;
+comment|/**      * Returns the backing store total space. Return<tt>-1</tt> if not available.      */
+DECL|method|backingStoreTotalSpace
+name|ByteSizeValue
+name|backingStoreTotalSpace
+parameter_list|()
+function_decl|;
+comment|/**      * Returns the backing store free space. Return<tt>-1</tt> if not available.      */
+DECL|method|backingStoreFreeSpace
+name|ByteSizeValue
+name|backingStoreFreeSpace
 parameter_list|()
 function_decl|;
 block|}
