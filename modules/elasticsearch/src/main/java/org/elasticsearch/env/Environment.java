@@ -249,7 +249,12 @@ operator|=
 operator|new
 name|File
 argument_list|(
-literal|"."
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"user.dir"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
