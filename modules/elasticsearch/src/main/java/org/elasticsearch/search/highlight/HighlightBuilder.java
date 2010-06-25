@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search.builder
+DECL|package|org.elasticsearch.search.highlight
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|builder
+name|highlight
 package|;
 end_package
 
@@ -83,14 +83,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A builder for search highlighting.  *  * @author kimchy (shay.banon)  * @see SearchSourceBuilder#highlight()  */
+comment|/**  * A builder for search highlighting.  *  * @author kimchy (shay.banon)  * @see org.elasticsearch.search.builder.SearchSourceBuilder#highlight()  */
 end_comment
 
 begin_class
-DECL|class|SearchSourceHighlightBuilder
+DECL|class|HighlightBuilder
 specifier|public
 class|class
-name|SearchSourceHighlightBuilder
+name|HighlightBuilder
 implements|implements
 name|ToXContent
 block|{
@@ -127,7 +127,7 @@ decl_stmt|;
 comment|/**      * Adds a field to be highlighted with default fragment size of 100 characters, and      * default number of fragments of 5.      *      * @param name The field to highlight      */
 DECL|method|field
 specifier|public
-name|SearchSourceHighlightBuilder
+name|HighlightBuilder
 name|field
 parameter_list|(
 name|String
@@ -165,7 +165,7 @@ block|}
 comment|/**      * Adds a field to be highlighted with a provided fragment size (in characters), and      * default number of fragments of 5.      *      * @param name         The field to highlight      * @param fragmentSize The size of a fragment in characters      */
 DECL|method|field
 specifier|public
-name|SearchSourceHighlightBuilder
+name|HighlightBuilder
 name|field
 parameter_list|(
 name|String
@@ -211,7 +211,7 @@ block|}
 comment|/**      * Adds a field to be highlighted with a provided fragment size (in characters), and      * a provided (maximum) number of fragments.      *      * @param name              The field to highlight      * @param fragmentSize      The size of a fragment in characters      * @param numberOfFragments The (maximum) number of fragments      */
 DECL|method|field
 specifier|public
-name|SearchSourceHighlightBuilder
+name|HighlightBuilder
 name|field
 parameter_list|(
 name|String
@@ -265,7 +265,7 @@ block|}
 comment|/**      * Set a tag scheme that encapsulates a built in pre and post tags. The allows schemes      * are<tt>styled</tt> and<tt>default</tt>.      *      * @param schemaName The tag scheme name      */
 DECL|method|tagsSchema
 specifier|public
-name|SearchSourceHighlightBuilder
+name|HighlightBuilder
 name|tagsSchema
 parameter_list|(
 name|String
@@ -285,7 +285,7 @@ block|}
 comment|/**      * Explicitly set the pre tags that will be used for highlighting.      */
 DECL|method|preTags
 specifier|public
-name|SearchSourceHighlightBuilder
+name|HighlightBuilder
 name|preTags
 parameter_list|(
 name|String
@@ -306,7 +306,7 @@ block|}
 comment|/**      * Explicitly set the post tags that will be used for highlighting.      */
 DECL|method|postTags
 specifier|public
-name|SearchSourceHighlightBuilder
+name|HighlightBuilder
 name|postTags
 parameter_list|(
 name|String
@@ -327,7 +327,7 @@ block|}
 comment|/**      * The order of fragments per field. By default, ordered by the order in the      * highlighted text. Can be<tt>score</tt>, which then it will be ordered      * by score of the fragments.      */
 DECL|method|order
 specifier|public
-name|SearchSourceHighlightBuilder
+name|HighlightBuilder
 name|order
 parameter_list|(
 name|String
