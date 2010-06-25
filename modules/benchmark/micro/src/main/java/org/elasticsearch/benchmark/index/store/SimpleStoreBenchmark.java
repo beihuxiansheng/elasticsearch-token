@@ -1702,6 +1702,8 @@ argument_list|()
 argument_list|,
 name|settings
 argument_list|,
+literal|null
+argument_list|,
 name|nodeEnvironment
 argument_list|)
 argument_list|)
@@ -1737,6 +1739,8 @@ argument_list|()
 argument_list|,
 name|settings
 argument_list|,
+literal|null
+argument_list|,
 name|nodeEnvironment
 argument_list|)
 argument_list|)
@@ -1771,6 +1775,8 @@ name|index
 argument_list|()
 argument_list|,
 name|settings
+argument_list|,
+literal|null
 argument_list|,
 name|nodeEnvironment
 argument_list|)

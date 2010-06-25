@@ -82,7 +82,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|AbstractIndexComponent
+name|Index
 import|;
 end_import
 
@@ -94,7 +94,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|Index
+name|service
+operator|.
+name|IndexService
 import|;
 end_import
 
@@ -122,7 +124,7 @@ name|index
 operator|.
 name|store
 operator|.
-name|IndexStore
+name|Store
 import|;
 end_import
 
@@ -136,7 +138,9 @@ name|index
 operator|.
 name|store
 operator|.
-name|Store
+name|support
+operator|.
+name|AbstractIndexStore
 import|;
 end_import
 
@@ -178,9 +182,7 @@ specifier|public
 class|class
 name|ByteBufferIndexStore
 extends|extends
-name|AbstractIndexComponent
-implements|implements
-name|IndexStore
+name|AbstractIndexStore
 block|{
 DECL|field|direct
 specifier|private
@@ -201,6 +203,9 @@ annotation|@
 name|IndexSettings
 name|Settings
 name|indexSettings
+parameter_list|,
+name|IndexService
+name|indexService
 parameter_list|)
 block|{
 name|super
@@ -208,6 +213,8 @@ argument_list|(
 name|index
 argument_list|,
 name|indexSettings
+argument_list|,
+name|indexService
 argument_list|)
 expr_stmt|;
 name|this

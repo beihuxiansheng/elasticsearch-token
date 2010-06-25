@@ -341,11 +341,19 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Search Failure Shard "
+literal|"shard ["
 operator|+
+operator|(
 name|shardTarget
+operator|==
+literal|null
+condition|?
+literal|"_na"
+else|:
+name|shardTarget
+operator|)
 operator|+
-literal|", reason ["
+literal|"], reason ["
 operator|+
 name|reason
 operator|+
