@@ -3286,6 +3286,7 @@ argument_list|(
 name|e
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
 block|}
 name|recoveryThrottler
@@ -3588,6 +3589,22 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
+try|try
+block|{
+name|fIndexInput
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+block|}
 name|failures
 operator|.
 name|add
