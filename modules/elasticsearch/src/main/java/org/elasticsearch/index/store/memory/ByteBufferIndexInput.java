@@ -122,6 +122,8 @@ name|bufferSize
 operator|=
 name|dir
 operator|.
+name|byteBufferCache
+operator|.
 name|bufferSizeInBytes
 argument_list|()
 expr_stmt|;

@@ -391,6 +391,8 @@ name|pos
 operator|/
 name|dir
 operator|.
+name|byteBufferCache
+operator|.
 name|bufferSizeInBytes
 argument_list|()
 argument_list|)
@@ -410,6 +412,8 @@ argument_list|(
 name|pos
 operator|%
 name|dir
+operator|.
+name|byteBufferCache
 operator|.
 name|bufferSizeInBytes
 argument_list|()
@@ -456,6 +460,8 @@ name|currentBuffer
 operator|=
 name|dir
 operator|.
+name|byteBufferCache
+operator|.
 name|acquireBuffer
 argument_list|()
 expr_stmt|;
@@ -492,6 +498,8 @@ operator|(
 name|long
 operator|)
 name|dir
+operator|.
+name|byteBufferCache
 operator|.
 name|bufferSizeInBytes
 argument_list|()

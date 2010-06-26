@@ -108,6 +108,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|cache
+operator|.
+name|memory
+operator|.
+name|ByteBufferCache
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|StopWatch
@@ -1981,9 +1995,14 @@ argument_list|(
 name|shardId
 argument_list|,
 name|settings
+argument_list|,
+operator|new
+name|ByteBufferCache
+argument_list|(
+name|settings
+argument_list|)
 argument_list|)
 decl_stmt|;
-comment|//        Store store = new HeapStore(shardId, settings);
 comment|//        Store store = new NioFsStore(shardId, settings);
 name|store
 operator|.
