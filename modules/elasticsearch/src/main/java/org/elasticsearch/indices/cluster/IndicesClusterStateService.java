@@ -739,7 +739,7 @@ argument_list|(
 name|event
 argument_list|)
 expr_stmt|;
-name|applyNewShards
+name|applyNewOrUpdatedShards
 argument_list|(
 name|event
 argument_list|)
@@ -806,7 +806,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Index [{}]: Deleting"
+literal|"[{}] deleting index"
 argument_list|,
 name|index
 argument_list|)
@@ -1032,7 +1032,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Index [{}]: Deleting shard [{}]"
+literal|"[{}][{}] deleting shard"
 argument_list|,
 name|index
 argument_list|,
@@ -1104,7 +1104,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Index [{}]: Creating"
+literal|"[{}] creating index"
 argument_list|,
 name|indexMetaData
 operator|.
@@ -1325,19 +1325,13 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Index ["
-operator|+
+literal|"[{}] adding mapping [{}], source [{}]"
+argument_list|,
 name|index
-operator|+
-literal|"] Adding mapping ["
-operator|+
+argument_list|,
 name|mappingType
-operator|+
-literal|"], source ["
-operator|+
+argument_list|,
 name|mappingSource
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1416,19 +1410,13 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Index ["
-operator|+
+literal|"[{}] updating mapping [{}], source [{}]"
+argument_list|,
 name|index
-operator|+
-literal|"] Updating mapping ["
-operator|+
+argument_list|,
 name|mappingType
-operator|+
-literal|"], source ["
-operator|+
+argument_list|,
 name|mappingSource
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1480,27 +1468,23 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to add mapping ["
-operator|+
-name|mappingType
-operator|+
-literal|"], source ["
-operator|+
-name|mappingSource
-operator|+
-literal|"]"
+literal|"[{}] failed to add mapping [{}], source [{}]"
 argument_list|,
-name|e
+name|index
+argument_list|,
+name|mappingType
+argument_list|,
+name|mappingSource
 argument_list|)
 expr_stmt|;
 block|}
 block|}
 block|}
 block|}
-DECL|method|applyNewShards
+DECL|method|applyNewOrUpdatedShards
 specifier|private
 name|void
-name|applyNewShards
+name|applyNewOrUpdatedShards
 parameter_list|(
 specifier|final
 name|ClusterChangedEvent
@@ -1630,31 +1614,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"["
-operator|+
-name|shardRouting
-operator|.
-name|index
-argument_list|()
-operator|+
-literal|"]["
-operator|+
-name|shardRouting
-operator|.
-name|shardId
-argument_list|()
-operator|.
-name|id
-argument_list|()
-operator|+
-literal|"] Master "
-operator|+
-name|nodes
-operator|.
-name|masterNode
-argument_list|()
-operator|+
-literal|" marked shard as started, but shard have not been created, mark shard as failed"
+literal|"[{}][{}] master [{}] marked shard as started, but shard have not been created, mark shard as failed"
 argument_list|)
 expr_stmt|;
 name|shardStateAction
@@ -1663,7 +1623,7 @@ name|shardFailed
 argument_list|(
 name|shardRouting
 argument_list|,
-literal|"Master "
+literal|"master "
 operator|+
 name|nodes
 operator|.
@@ -1847,31 +1807,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"["
-operator|+
-name|shardRouting
-operator|.
-name|index
-argument_list|()
-operator|+
-literal|"]["
-operator|+
-name|shardRouting
-operator|.
-name|shardId
-argument_list|()
-operator|.
-name|id
-argument_list|()
-operator|+
-literal|"] Master "
-operator|+
-name|nodes
-operator|.
-name|masterNode
-argument_list|()
-operator|+
-literal|" marked shard as initializing, but shard already started, mark shard as started"
+literal|"[{}][{}] master [{}] marked shard as initializing, but shard already created, mark shard as started"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1881,7 +1817,7 @@ name|shardStarted
 argument_list|(
 name|shardRouting
 argument_list|,
-literal|"Master "
+literal|"master "
 operator|+
 name|nodes
 operator|.
@@ -1933,7 +1869,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Index [{}]: Creating shard [{}]"
+literal|"[{}][{}] creating shard"
 argument_list|,
 name|shardRouting
 operator|.
@@ -1983,26 +1919,19 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to create shard for index ["
-operator|+
-name|indexService
+literal|"[{}][{}] failed to create shard"
+argument_list|,
+name|e
+argument_list|,
+name|shardRouting
 operator|.
 name|index
 argument_list|()
-operator|.
-name|name
-argument_list|()
-operator|+
-literal|"] and shard id ["
-operator|+
+argument_list|,
 name|shardRouting
 operator|.
 name|id
 argument_list|()
-operator|+
-literal|"]"
-argument_list|,
-name|e
 argument_list|)
 expr_stmt|;
 try|try
@@ -2033,26 +1962,19 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to delete shard after failed creation for index ["
-operator|+
-name|indexService
+literal|"[{}][{}] failed to delete shard after failed creation"
+argument_list|,
+name|e1
+argument_list|,
+name|shardRouting
 operator|.
 name|index
 argument_list|()
-operator|.
-name|name
-argument_list|()
-operator|+
-literal|"] and shard id ["
-operator|+
+argument_list|,
 name|shardRouting
 operator|.
 name|id
 argument_list|()
-operator|+
-literal|"]"
-argument_list|,
-name|e1
 argument_list|)
 expr_stmt|;
 block|}
@@ -2381,8 +2303,10 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to start shard for index ["
-operator|+
+literal|"[{}][{}] failed to start shard"
+argument_list|,
+name|e
+argument_list|,
 name|indexService
 operator|.
 name|index
@@ -2390,17 +2314,11 @@ argument_list|()
 operator|.
 name|name
 argument_list|()
-operator|+
-literal|"] and shard id ["
-operator|+
+argument_list|,
 name|shardRouting
 operator|.
 name|id
 argument_list|()
-operator|+
-literal|"]"
-argument_list|,
-name|e
 argument_list|)
 expr_stmt|;
 if|if
@@ -2433,8 +2351,10 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to delete shard after failed startup for index ["
-operator|+
+literal|"[{}][{}] failed to delete shard after failed startup"
+argument_list|,
+name|e
+argument_list|,
 name|indexService
 operator|.
 name|index
@@ -2442,17 +2362,11 @@ argument_list|()
 operator|.
 name|name
 argument_list|()
-operator|+
-literal|"] and shard id ["
-operator|+
+argument_list|,
 name|shardRouting
 operator|.
 name|id
 argument_list|()
-operator|+
-literal|"]"
-argument_list|,
-name|e1
 argument_list|)
 expr_stmt|;
 block|}
@@ -2486,8 +2400,10 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to mark shard as failed after a failed start for index ["
-operator|+
+literal|"[{}][{}] failed to mark shard as failed after a failed start"
+argument_list|,
+name|e1
+argument_list|,
 name|indexService
 operator|.
 name|index
@@ -2495,17 +2411,11 @@ argument_list|()
 operator|.
 name|name
 argument_list|()
-operator|+
-literal|"] and shard id ["
-operator|+
+argument_list|,
 name|shardRouting
 operator|.
 name|id
 argument_list|()
-operator|+
-literal|"]"
-argument_list|,
-name|e
 argument_list|)
 expr_stmt|;
 block|}
