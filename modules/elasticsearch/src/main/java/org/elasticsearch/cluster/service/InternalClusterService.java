@@ -828,7 +828,7 @@ init|=
 operator|new
 name|StringBuilder
 argument_list|(
-literal|"Failed to execute cluster state update, state:\nVersion ["
+literal|"failed to execute cluster state update, state:\nversion ["
 argument_list|)
 operator|.
 name|append
@@ -975,7 +975,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Got old cluster state ["
+literal|"got old cluster state ["
 operator|+
 name|clusterState
 operator|.
@@ -1013,7 +1013,7 @@ init|=
 operator|new
 name|StringBuilder
 argument_list|(
-literal|"Cluster State updated:\nVersion ["
+literal|"cluster state updated:\nversion ["
 argument_list|)
 operator|.
 name|append
@@ -1102,7 +1102,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Cluster state updated, version [{}], source [{}]"
+literal|"cluster state updated, version [{}], source [{}]"
 argument_list|,
 name|clusterState
 operator|.
@@ -1173,7 +1173,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"{}, Reason: {}"
+literal|"{}, reason: {}"
 argument_list|,
 name|summary
 argument_list|,
@@ -1215,7 +1215,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to connect to node ["
+literal|"failed to connect to node ["
 operator|+
 name|node
 operator|+
