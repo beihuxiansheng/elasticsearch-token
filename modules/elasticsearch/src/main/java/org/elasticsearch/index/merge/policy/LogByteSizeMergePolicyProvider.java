@@ -226,9 +226,10 @@ argument_list|,
 operator|new
 name|ByteSizeValue
 argument_list|(
-operator|(
+call|(
 name|long
-operator|)
+call|)
+argument_list|(
 name|LogByteSizeMergePolicy
 operator|.
 name|DEFAULT_MIN_MERGE_MB
@@ -236,6 +237,7 @@ operator|*
 literal|1024
 operator|*
 literal|1024
+argument_list|)
 argument_list|,
 name|ByteSizeUnit
 operator|.
