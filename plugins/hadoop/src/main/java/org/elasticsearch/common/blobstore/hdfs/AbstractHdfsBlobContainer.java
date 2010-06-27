@@ -537,9 +537,10 @@ init|=
 operator|new
 name|byte
 index|[
-literal|1024
-operator|*
-literal|16
+name|blobStore
+operator|.
+name|bufferSizeInBytes
+argument_list|()
 index|]
 decl_stmt|;
 name|FSDataInputStream

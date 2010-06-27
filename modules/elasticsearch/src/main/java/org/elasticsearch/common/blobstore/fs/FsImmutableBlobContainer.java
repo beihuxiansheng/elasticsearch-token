@@ -219,9 +219,10 @@ init|=
 operator|new
 name|byte
 index|[
-literal|16
-operator|*
-literal|1024
+name|blobStore
+operator|.
+name|bufferSizeInBytes
+argument_list|()
 index|]
 decl_stmt|;
 name|int
