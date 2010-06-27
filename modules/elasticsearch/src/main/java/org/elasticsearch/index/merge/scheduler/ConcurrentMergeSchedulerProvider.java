@@ -158,6 +158,7 @@ argument_list|,
 name|indexSettings
 argument_list|)
 expr_stmt|;
+comment|// TODO LUCENE MONITOR this will change in Lucene 4.0
 name|this
 operator|.
 name|maxThreadCount
