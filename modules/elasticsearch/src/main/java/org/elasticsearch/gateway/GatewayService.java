@@ -573,7 +573,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Not recovering from gateway, nodes_size ["
+literal|"not recovering from gateway, nodes_size ["
 operator|+
 name|clusterState
 operator|.
@@ -627,7 +627,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Waited for {} for indices to be created from the gateway, and not all have been created"
+literal|"waited for {} for indices to be created from the gateway, and not all have been created"
 argument_list|,
 name|initialStateTimeout
 argument_list|)
@@ -643,7 +643,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Can't wait on start for (possibly) reading state from gateway, will do it asynchronously"
+literal|"can't wait on start for (possibly) reading state from gateway, will do it asynchronously"
 argument_list|)
 expr_stmt|;
 block|}
@@ -797,7 +797,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Not recovering from gateway, nodes_size ["
+literal|"not recovering from gateway, nodes_size ["
 operator|+
 name|clusterState
 operator|.
@@ -906,7 +906,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Writing to gateway"
+literal|"writing to gateway"
 argument_list|)
 expr_stmt|;
 try|try
@@ -936,7 +936,7 @@ name|logger
 operator|.
 name|error
 argument_list|(
-literal|"Failed to write to gateway"
+literal|"failed to write to gateway"
 argument_list|,
 name|e
 argument_list|)
@@ -963,7 +963,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Reading state from gateway..."
+literal|"reading state from gateway..."
 argument_list|)
 expr_stmt|;
 name|MetaData
@@ -989,7 +989,7 @@ name|logger
 operator|.
 name|error
 argument_list|(
-literal|"Failed to read from gateway"
+literal|"failed to read from gateway"
 argument_list|,
 name|e
 argument_list|)
@@ -1014,7 +1014,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"No state read from gateway"
+literal|"no state read from gateway"
 argument_list|)
 expr_stmt|;
 name|markMetaDataAsReadFromGateway
@@ -1059,7 +1059,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Delaying initial state index creation for [{}]"
+literal|"delaying initial state index creation for [{}]"
 argument_list|,
 name|recoverAfterTime
 argument_list|)
@@ -1363,7 +1363,7 @@ name|logger
 operator|.
 name|error
 argument_list|(
-literal|"Failed to create index ["
+literal|"failed to create index ["
 operator|+
 name|indexMetaData
 operator|.
