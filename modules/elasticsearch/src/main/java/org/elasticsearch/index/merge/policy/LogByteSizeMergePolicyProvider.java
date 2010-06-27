@@ -338,7 +338,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Using [log_bytes_size] merge policy with merge_factor[{}], min_merge_size[{}], max_merge_size[{}], max_merge_docs[{}] use_compound_file[{}], calibrate_size_by_deletes[{}]"
+literal|"using [log_bytes_size] merge policy with merge_factor[{}], min_merge_size[{}], max_merge_size[{}], max_merge_docs[{}] use_compound_file[{}], calibrate_size_by_deletes[{}]"
 argument_list|,
 name|mergeFactor
 argument_list|,

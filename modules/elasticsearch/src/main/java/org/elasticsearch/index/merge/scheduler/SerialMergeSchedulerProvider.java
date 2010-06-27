@@ -156,7 +156,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"Using [serial] merge scheduler"
+literal|"using [serial] merge scheduler"
 argument_list|)
 expr_stmt|;
 block|}

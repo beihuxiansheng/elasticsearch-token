@@ -175,7 +175,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Using [concurrent] merge scheduler with max_thread_count[{}]"
+literal|"using [concurrent] merge scheduler with max_thread_count[{}]"
 argument_list|,
 name|maxThreadCount
 argument_list|)
