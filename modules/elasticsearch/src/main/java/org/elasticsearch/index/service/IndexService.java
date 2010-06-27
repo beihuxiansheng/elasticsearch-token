@@ -180,6 +180,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|store
+operator|.
+name|IndexStore
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -240,6 +254,11 @@ function_decl|;
 DECL|method|indexEngine
 name|IndexEngine
 name|indexEngine
+parameter_list|()
+function_decl|;
+DECL|method|store
+name|IndexStore
+name|store
 parameter_list|()
 function_decl|;
 DECL|method|createShard
