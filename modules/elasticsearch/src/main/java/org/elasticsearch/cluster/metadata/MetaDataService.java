@@ -617,7 +617,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -1778,7 +1778,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"creating Index [{}], cause [{}], shards [{}]/[{}], mappings {}"
+literal|"creating index [{}], cause [{}], shards [{}]/[{}], mappings {}"
 argument_list|,
 name|index
 argument_list|,
