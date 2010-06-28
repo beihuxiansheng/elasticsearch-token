@@ -1778,7 +1778,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"creating index [{}], cause [{}], shards [{}]/[{}], mappings {}"
+literal|"[{}] creating index, cause [{}], shards [{}]/[{}], mappings {}"
 argument_list|,
 name|index
 argument_list|,
@@ -2077,7 +2077,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"deleting index [{}]"
+literal|"[{}] deleting index"
 argument_list|,
 name|index
 argument_list|)
@@ -2462,19 +2462,13 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"index ["
-operator|+
+literal|"[{}] update mapping [{}] (dynamic) with source [{}]"
+argument_list|,
 name|index
-operator|+
-literal|"]: Update mapping ["
-operator|+
+argument_list|,
 name|type
-operator|+
-literal|"] (dynamic) with source ["
-operator|+
+argument_list|,
 name|updatedMappingSource
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2491,15 +2485,11 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"index ["
-operator|+
+literal|"[{}] update mapping [{}] (dynamic)"
+argument_list|,
 name|index
-operator|+
-literal|"]: Update mapping ["
-operator|+
+argument_list|,
 name|type
-operator|+
-literal|"] (dynamic)"
 argument_list|)
 expr_stmt|;
 block|}
@@ -3108,25 +3098,19 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"index ["
-operator|+
+literal|"[{}] put_mapping [{}] with source [{}]"
+argument_list|,
 name|index
-operator|+
-literal|"]: Put mapping ["
-operator|+
+argument_list|,
 name|mapping
 operator|.
 name|v1
 argument_list|()
-operator|+
-literal|"] with source ["
-operator|+
+argument_list|,
 name|mapping
 operator|.
 name|v2
 argument_list|()
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -3143,18 +3127,14 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"index ["
-operator|+
+literal|"[{}] put_mapping [{}]"
+argument_list|,
 name|index
-operator|+
-literal|"]: Put mapping ["
-operator|+
+argument_list|,
 name|mapping
 operator|.
 name|v1
 argument_list|()
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 block|}

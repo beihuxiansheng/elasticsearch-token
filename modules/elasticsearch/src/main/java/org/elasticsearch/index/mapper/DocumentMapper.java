@@ -52,6 +52,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|collect
+operator|.
+name|ImmutableMap
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|util
 operator|.
 name|concurrent
@@ -91,6 +105,17 @@ comment|/**      * When constructed by parsing a mapping definition, will return
 DECL|method|mappingSource
 name|String
 name|mappingSource
+parameter_list|()
+function_decl|;
+comment|/**      * Attributes of this type mappings.      */
+DECL|method|attributes
+name|ImmutableMap
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|attributes
 parameter_list|()
 function_decl|;
 comment|/**      * Generates the source of the mapper based on the current mappings.      */

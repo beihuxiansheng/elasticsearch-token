@@ -309,7 +309,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -345,12 +345,6 @@ specifier|private
 specifier|final
 name|URL
 name|dynamicMappingUrl
-decl_stmt|;
-DECL|field|indexClassLoader
-specifier|private
-specifier|final
-name|ClassLoader
-name|indexClassLoader
 decl_stmt|;
 DECL|field|dynamicMappingSource
 specifier|private
@@ -548,15 +542,6 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|indexClassLoader
-operator|=
-name|indexSettings
-operator|.
-name|getClassLoader
-argument_list|()
-expr_stmt|;
-name|this
-operator|.
 name|dynamic
 operator|=
 name|componentSettings
@@ -609,7 +594,10 @@ block|{
 comment|// not there, default to the built in one
 name|dynamicMappingUrl
 operator|=
-name|indexClassLoader
+name|indexSettings
+operator|.
+name|getClassLoader
+argument_list|()
 operator|.
 name|getResource
 argument_list|(
@@ -766,18 +754,13 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Using dynamic[{}] with location[{}] and source[{}]"
+literal|"using dynamic[{}] with location[{}] and source[{}]"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|dynamic
-block|,
+argument_list|,
 name|dynamicMappingLocation
-block|,
+argument_list|,
 name|dynamicMappingSource
-block|}
 argument_list|)
 expr_stmt|;
 block|}
