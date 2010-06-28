@@ -74,6 +74,30 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|ClusterService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|ClusterState
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
 name|routing
 operator|.
 name|GroupShardsIterator
@@ -199,7 +223,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -239,6 +263,12 @@ specifier|final
 name|ThreadPool
 name|threadPool
 decl_stmt|;
+DECL|field|clusterService
+specifier|protected
+specifier|final
+name|ClusterService
+name|clusterService
+decl_stmt|;
 DECL|field|shardAction
 specifier|protected
 specifier|final
@@ -262,6 +292,9 @@ parameter_list|,
 name|TransportService
 name|transportService
 parameter_list|,
+name|ClusterService
+name|clusterService
+parameter_list|,
 name|ThreadPool
 name|threadPool
 parameter_list|,
@@ -284,6 +317,12 @@ operator|.
 name|threadPool
 operator|=
 name|threadPool
+expr_stmt|;
+name|this
+operator|.
+name|clusterService
+operator|=
+name|clusterService
 expr_stmt|;
 name|this
 operator|.
@@ -323,6 +362,40 @@ argument_list|>
 name|listener
 parameter_list|)
 block|{
+name|ClusterState
+name|clusterState
+init|=
+name|clusterService
+operator|.
+name|state
+argument_list|()
+decl_stmt|;
+comment|// upate to concrete index
+name|request
+operator|.
+name|index
+argument_list|(
+name|clusterState
+operator|.
+name|metaData
+argument_list|()
+operator|.
+name|concreteIndex
+argument_list|(
+name|request
+operator|.
+name|index
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|checkBlock
+argument_list|(
+name|request
+argument_list|,
+name|clusterState
+argument_list|)
+expr_stmt|;
 name|GroupShardsIterator
 name|groups
 decl_stmt|;
@@ -705,6 +778,18 @@ name|boolean
 name|accumulateExceptions
 parameter_list|()
 function_decl|;
+DECL|method|checkBlock
+specifier|protected
+name|void
+name|checkBlock
+parameter_list|(
+name|Request
+name|request
+parameter_list|,
+name|ClusterState
+name|state
+parameter_list|)
+block|{      }
 DECL|class|TransportHandler
 specifier|private
 class|class

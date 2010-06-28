@@ -223,7 +223,7 @@ parameter_list|()
 block|{
 name|assertThat
 argument_list|(
-literal|"10"
+literal|"10b"
 argument_list|,
 name|is
 argument_list|(

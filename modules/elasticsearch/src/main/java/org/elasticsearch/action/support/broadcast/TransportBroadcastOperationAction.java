@@ -637,6 +637,18 @@ return|return
 literal|false
 return|;
 block|}
+DECL|method|checkBlock
+specifier|protected
+name|void
+name|checkBlock
+parameter_list|(
+name|Request
+name|request
+parameter_list|,
+name|ClusterState
+name|state
+parameter_list|)
+block|{      }
 DECL|class|AsyncBroadcastAction
 class|class
 name|AsyncBroadcastAction
@@ -755,6 +767,13 @@ operator|.
 name|indices
 argument_list|()
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|checkBlock
+argument_list|(
+name|request
+argument_list|,
+name|clusterState
 argument_list|)
 expr_stmt|;
 name|nodes

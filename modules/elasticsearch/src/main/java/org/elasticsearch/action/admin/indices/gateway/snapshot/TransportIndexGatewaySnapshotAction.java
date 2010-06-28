@@ -169,7 +169,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -189,12 +189,6 @@ argument_list|,
 name|ShardGatewaySnapshotResponse
 argument_list|>
 block|{
-DECL|field|clusterService
-specifier|private
-specifier|final
-name|ClusterService
-name|clusterService
-decl_stmt|;
 DECL|method|TransportIndexGatewaySnapshotAction
 annotation|@
 name|Inject
@@ -223,16 +217,12 @@ name|settings
 argument_list|,
 name|transportService
 argument_list|,
+name|clusterService
+argument_list|,
 name|threadPool
 argument_list|,
 name|shardGatewaySnapshotAction
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|clusterService
-operator|=
-name|clusterService
 expr_stmt|;
 block|}
 DECL|method|newRequestInstance

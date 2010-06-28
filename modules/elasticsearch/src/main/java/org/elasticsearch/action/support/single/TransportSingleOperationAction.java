@@ -463,6 +463,18 @@ name|Response
 name|newResponse
 parameter_list|()
 function_decl|;
+DECL|method|checkBlock
+specifier|protected
+name|void
+name|checkBlock
+parameter_list|(
+name|Request
+name|request
+parameter_list|,
+name|ClusterState
+name|state
+parameter_list|)
+block|{      }
 DECL|class|AsyncSingleAction
 specifier|private
 class|class
@@ -553,6 +565,13 @@ operator|.
 name|index
 argument_list|()
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|checkBlock
+argument_list|(
+name|request
+argument_list|,
+name|clusterState
 argument_list|)
 expr_stmt|;
 name|this
