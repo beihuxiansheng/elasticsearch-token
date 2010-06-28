@@ -522,6 +522,16 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|builder
+operator|.
+name|blocks
+argument_list|(
+name|currentState
+operator|.
+name|blocks
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|ClusterStateResponse
