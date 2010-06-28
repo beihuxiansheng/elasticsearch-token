@@ -396,7 +396,7 @@ decl_stmt|;
 name|String
 name|suffix
 init|=
-literal|""
+literal|"b"
 decl_stmt|;
 if|if
 condition|(
