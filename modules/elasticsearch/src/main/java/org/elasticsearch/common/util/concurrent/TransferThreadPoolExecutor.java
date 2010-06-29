@@ -597,6 +597,11 @@ parameter_list|)
 block|{
 comment|// note, there might be starvation of some commands that were added to the queue,
 comment|// while others are being transferred directly
+name|queueSize
+operator|.
+name|getAndIncrement
+argument_list|()
+expr_stmt|;
 name|boolean
 name|succeeded
 init|=
