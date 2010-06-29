@@ -291,11 +291,11 @@ name|void
 name|testSingleIndexFirstStartPrimaryThenBackups
 parameter_list|()
 block|{
-name|DefaultShardsRoutingStrategy
+name|ShardsRoutingStrategy
 name|strategy
 init|=
 operator|new
-name|DefaultShardsRoutingStrategy
+name|ShardsRoutingStrategy
 argument_list|()
 decl_stmt|;
 name|logger

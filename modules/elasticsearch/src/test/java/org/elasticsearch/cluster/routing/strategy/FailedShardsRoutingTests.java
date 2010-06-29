@@ -317,11 +317,11 @@ name|void
 name|testFailures
 parameter_list|()
 block|{
-name|DefaultShardsRoutingStrategy
+name|ShardsRoutingStrategy
 name|strategy
 init|=
 operator|new
-name|DefaultShardsRoutingStrategy
+name|ShardsRoutingStrategy
 argument_list|()
 decl_stmt|;
 name|logger
@@ -1586,11 +1586,11 @@ name|void
 name|test10ShardsWith1ReplicaFailure
 parameter_list|()
 block|{
-name|DefaultShardsRoutingStrategy
+name|ShardsRoutingStrategy
 name|strategy
 init|=
 operator|new
-name|DefaultShardsRoutingStrategy
+name|ShardsRoutingStrategy
 argument_list|()
 decl_stmt|;
 name|logger

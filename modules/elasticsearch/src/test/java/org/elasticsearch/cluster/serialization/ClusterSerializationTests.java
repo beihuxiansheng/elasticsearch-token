@@ -96,7 +96,7 @@ name|routing
 operator|.
 name|strategy
 operator|.
-name|DefaultShardsRoutingStrategy
+name|ShardsRoutingStrategy
 import|;
 end_import
 
@@ -401,11 +401,11 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
-name|DefaultShardsRoutingStrategy
+name|ShardsRoutingStrategy
 name|strategy
 init|=
 operator|new
-name|DefaultShardsRoutingStrategy
+name|ShardsRoutingStrategy
 argument_list|()
 decl_stmt|;
 name|clusterState
@@ -609,11 +609,11 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
-name|DefaultShardsRoutingStrategy
+name|ShardsRoutingStrategy
 name|strategy
 init|=
 operator|new
-name|DefaultShardsRoutingStrategy
+name|ShardsRoutingStrategy
 argument_list|()
 decl_stmt|;
 name|RoutingTable
