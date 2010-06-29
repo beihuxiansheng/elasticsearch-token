@@ -409,7 +409,6 @@ literal|"gateway.type"
 argument_list|,
 literal|"hdfs"
 argument_list|)
-comment|//                .put("gateway.hdfs.uri", "hdfs://training-vm.local:8022")
 operator|.
 name|put
 argument_list|(
@@ -417,6 +416,7 @@ literal|"gateway.hdfs.uri"
 argument_list|,
 literal|"file:///"
 argument_list|)
+comment|//                .put("gateway.hdfs.uri", "hdfs://training-vm.local:8022")
 operator|.
 name|put
 argument_list|(
