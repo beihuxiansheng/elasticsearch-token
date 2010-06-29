@@ -86,7 +86,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|ScalingThreadPoolExecutor
+name|TransferThreadPoolExecutor
 import|;
 end_import
 
@@ -129,6 +129,18 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -163,7 +175,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -188,11 +200,6 @@ DECL|field|keepAlive
 specifier|final
 name|TimeValue
 name|keepAlive
-decl_stmt|;
-DECL|field|interval
-specifier|final
-name|TimeValue
-name|interval
 decl_stmt|;
 DECL|field|scheduledSize
 specifier|final
@@ -269,22 +276,6 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|interval
-operator|=
-name|componentSettings
-operator|.
-name|getAsTime
-argument_list|(
-literal|"interval"
-argument_list|,
-name|timeValueSeconds
-argument_list|(
-literal|5
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
 name|scheduledSize
 operator|=
 name|componentSettings
@@ -334,14 +325,22 @@ argument_list|)
 expr_stmt|;
 name|executorService
 operator|=
-operator|new
-name|ScalingThreadPoolExecutor
+name|TransferThreadPoolExecutor
+operator|.
+name|newScalingExecutor
 argument_list|(
 name|min
 argument_list|,
 name|max
 argument_list|,
 name|keepAlive
+operator|.
+name|nanos
+argument_list|()
+argument_list|,
+name|TimeUnit
+operator|.
+name|NANOSECONDS
 argument_list|,
 name|DynamicExecutors
 operator|.
@@ -351,10 +350,6 @@ name|settings
 argument_list|,
 literal|"[tp]"
 argument_list|)
-argument_list|,
-name|scheduledExecutorService
-argument_list|,
-name|interval
 argument_list|)
 expr_stmt|;
 name|started
@@ -409,7 +404,7 @@ block|{
 return|return
 operator|(
 operator|(
-name|ScalingThreadPoolExecutor
+name|TransferThreadPoolExecutor
 operator|)
 name|executorService
 operator|)
@@ -429,7 +424,7 @@ block|{
 return|return
 operator|(
 operator|(
-name|ScalingThreadPoolExecutor
+name|TransferThreadPoolExecutor
 operator|)
 name|executorService
 operator|)

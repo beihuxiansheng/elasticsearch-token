@@ -135,7 +135,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -189,6 +189,7 @@ argument_list|(
 name|settings
 argument_list|)
 decl_stmt|;
+comment|//        final ThreadPool threadPool = new ScalingThreadPool(settings);
 specifier|final
 name|TimerService
 name|timerService

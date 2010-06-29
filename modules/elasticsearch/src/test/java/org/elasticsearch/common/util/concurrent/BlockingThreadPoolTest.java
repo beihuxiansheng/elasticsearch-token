@@ -4,11 +4,13 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.util.concurrent
+DECL|package|org.elasticsearch.common.util.concurrent
 package|package
 name|org
 operator|.
 name|elasticsearch
+operator|.
+name|common
 operator|.
 name|util
 operator|.
@@ -20,43 +22,23 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|DynamicExecutors
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ThreadBarrier
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|testng
 operator|.
 name|annotations
 operator|.
 name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|Executors
 import|;
 end_import
 
@@ -80,7 +62,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|ThreadPoolExecutor
+name|TimeUnit
 import|;
 end_import
 
@@ -109,7 +91,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -159,15 +141,12 @@ operator|+
 literal|1
 argument_list|)
 decl_stmt|;
-name|ThreadPoolExecutor
+name|TransferThreadPoolExecutor
 name|pool
 init|=
-operator|(
-name|ThreadPoolExecutor
-operator|)
-name|DynamicExecutors
+name|TransferThreadPoolExecutor
 operator|.
-name|newBlockingThreadPool
+name|newBlockingExecutor
 argument_list|(
 name|min
 argument_list|,
@@ -175,9 +154,22 @@ name|max
 argument_list|,
 literal|60000
 argument_list|,
-literal|1
+name|TimeUnit
+operator|.
+name|MILLISECONDS
 argument_list|,
 name|waitTime
+argument_list|,
+name|TimeUnit
+operator|.
+name|MILLISECONDS
+argument_list|,
+literal|1
+argument_list|,
+name|Executors
+operator|.
+name|defaultThreadFactory
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -321,10 +313,7 @@ literal|"queue isn't empty"
 argument_list|,
 name|pool
 operator|.
-name|getQueue
-argument_list|()
-operator|.
-name|size
+name|getQueueSize
 argument_list|()
 argument_list|,
 name|equalTo
@@ -357,10 +346,7 @@ literal|"queue isn't full"
 argument_list|,
 name|pool
 operator|.
-name|getQueue
-argument_list|()
-operator|.
-name|size
+name|getQueueSize
 argument_list|()
 argument_list|,
 name|equalTo
