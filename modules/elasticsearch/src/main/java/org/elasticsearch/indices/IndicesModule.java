@@ -78,6 +78,34 @@ name|elasticsearch
 operator|.
 name|indices
 operator|.
+name|memory
+operator|.
+name|IndexingMemoryBufferController
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
+name|memory
+operator|.
+name|IndicesMemoryCleaner
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
 name|recovery
 operator|.
 name|throttler
@@ -87,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -184,6 +212,16 @@ expr_stmt|;
 name|bind
 argument_list|(
 name|IndicesMemoryCleaner
+operator|.
+name|class
+argument_list|)
+operator|.
+name|asEagerSingleton
+argument_list|()
+expr_stmt|;
+name|bind
+argument_list|(
+name|IndexingMemoryBufferController
 operator|.
 name|class
 argument_list|)

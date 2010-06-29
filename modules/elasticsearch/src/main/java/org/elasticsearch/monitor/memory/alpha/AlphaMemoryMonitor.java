@@ -120,6 +120,8 @@ name|elasticsearch
 operator|.
 name|indices
 operator|.
+name|memory
+operator|.
 name|IndicesMemoryCleaner
 import|;
 end_import

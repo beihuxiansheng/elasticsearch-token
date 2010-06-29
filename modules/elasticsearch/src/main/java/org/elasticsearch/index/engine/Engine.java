@@ -236,6 +236,14 @@ name|IndexShardComponent
 extends|,
 name|CloseableComponent
 block|{
+DECL|method|indexingBuffer
+name|void
+name|indexingBuffer
+parameter_list|(
+name|ByteSizeValue
+name|indexingBufferSize
+parameter_list|)
+function_decl|;
 comment|/**      * Starts the Engine.      *      *<p>Note, after the creation and before the call to start, the store might      * be changed.      */
 DECL|method|start
 name|void

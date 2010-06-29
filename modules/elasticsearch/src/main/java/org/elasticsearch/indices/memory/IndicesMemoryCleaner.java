@@ -4,13 +4,15 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.indices
+DECL|package|org.elasticsearch.indices.memory
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|indices
+operator|.
+name|memory
 package|;
 end_package
 
@@ -230,6 +232,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
+name|IndicesService
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -285,7 +299,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
