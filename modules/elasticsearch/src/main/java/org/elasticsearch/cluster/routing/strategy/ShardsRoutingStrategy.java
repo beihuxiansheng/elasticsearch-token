@@ -324,6 +324,15 @@ argument_list|,
 name|dataNodes
 argument_list|)
 expr_stmt|;
+comment|// elect primaries *before* allocating unassigned, so backups of primaries that failed
+comment|// will be moved to primary state and not wait for primaries to be allocated and recovered (*from gateway*)
+name|changed
+operator||=
+name|electPrimaries
+argument_list|(
+name|routingNodes
+argument_list|)
+expr_stmt|;
 comment|// now allocate all the unassigned to available nodes
 if|if
 condition|(
@@ -340,8 +349,7 @@ argument_list|(
 name|routingNodes
 argument_list|)
 expr_stmt|;
-block|}
-comment|// elect new primaries (backups that should become primaries)
+comment|// elect primaries again, in case this is needed with unassigned allocation
 name|changed
 operator||=
 name|electPrimaries
@@ -349,6 +357,7 @@ argument_list|(
 name|routingNodes
 argument_list|)
 expr_stmt|;
+block|}
 comment|// rebalance
 name|changed
 operator||=
