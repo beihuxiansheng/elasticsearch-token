@@ -382,7 +382,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Adding three nodes and performing rerouting"
+literal|"Adding two nodes and performing rerouting"
 argument_list|)
 expr_stmt|;
 name|clusterState
