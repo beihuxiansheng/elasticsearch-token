@@ -98,7 +98,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|DynamicExecutors
+name|Executors
 import|;
 end_import
 
@@ -129,18 +129,6 @@ operator|.
 name|support
 operator|.
 name|AbstractThreadPool
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|Executors
 import|;
 end_import
 
@@ -420,7 +408,7 @@ name|MILLISECONDS
 argument_list|,
 name|capacity
 argument_list|,
-name|DynamicExecutors
+name|Executors
 operator|.
 name|daemonThreadFactory
 argument_list|(
@@ -432,13 +420,19 @@ argument_list|)
 expr_stmt|;
 name|scheduledExecutorService
 operator|=
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|Executors
 operator|.
 name|newScheduledThreadPool
 argument_list|(
 name|scheduledSize
 argument_list|,
-name|DynamicExecutors
+name|Executors
 operator|.
 name|daemonThreadFactory
 argument_list|(

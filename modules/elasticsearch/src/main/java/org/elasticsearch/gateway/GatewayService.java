@@ -318,7 +318,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|DynamicExecutors
+name|Executors
 operator|.
 name|*
 import|;

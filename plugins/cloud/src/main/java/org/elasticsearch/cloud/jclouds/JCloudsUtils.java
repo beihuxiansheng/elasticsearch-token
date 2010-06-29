@@ -84,7 +84,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|DynamicExecutors
+name|Executors
 import|;
 end_import
 
@@ -99,18 +99,6 @@ operator|.
 name|config
 operator|.
 name|ExecutorServiceModule
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|Executors
 import|;
 end_import
 
@@ -153,11 +141,17 @@ argument_list|,
 operator|new
 name|ExecutorServiceModule
 argument_list|(
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|Executors
 operator|.
 name|newCachedThreadPool
 argument_list|(
-name|DynamicExecutors
+name|Executors
 operator|.
 name|daemonThreadFactory
 argument_list|(
@@ -167,11 +161,17 @@ literal|"jclouds-user"
 argument_list|)
 argument_list|)
 argument_list|,
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|Executors
 operator|.
 name|newCachedThreadPool
 argument_list|(
-name|DynamicExecutors
+name|Executors
 operator|.
 name|daemonThreadFactory
 argument_list|(
