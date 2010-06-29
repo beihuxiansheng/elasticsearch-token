@@ -572,6 +572,11 @@ name|max
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|pool
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|testScaleAbove
 annotation|@
@@ -807,6 +812,11 @@ argument_list|)
 expr_stmt|;
 comment|//        assertThat("didn't scale above core pool size. (" + pool.getLargestPoolSize() + ")", pool.getLargestPoolSize(), greaterThan(min));
 comment|//        assertThat("Largest pool size exceeds max. (" + pool.getLargestPoolSize() + ")", pool.getLargestPoolSize(), lessThanOrEqualTo(max));
+name|pool
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_class
