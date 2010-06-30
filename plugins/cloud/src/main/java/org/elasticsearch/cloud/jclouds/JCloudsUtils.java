@@ -84,7 +84,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|Executors
+name|EsExecutors
 import|;
 end_import
 
@@ -151,7 +151,7 @@ name|Executors
 operator|.
 name|newCachedThreadPool
 argument_list|(
-name|Executors
+name|EsExecutors
 operator|.
 name|daemonThreadFactory
 argument_list|(
@@ -171,7 +171,7 @@ name|Executors
 operator|.
 name|newCachedThreadPool
 argument_list|(
-name|Executors
+name|EsExecutors
 operator|.
 name|daemonThreadFactory
 argument_list|(

@@ -51,7 +51,7 @@ extends|extends
 name|NodesOperationRequest
 block|{
 DECL|method|NodesInfoRequest
-specifier|protected
+specifier|public
 name|NodesInfoRequest
 parameter_list|()
 block|{     }

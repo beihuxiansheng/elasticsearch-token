@@ -49,10 +49,10 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|Executors
+DECL|class|EsExecutors
 specifier|public
 class|class
-name|Executors
+name|EsExecutors
 block|{
 DECL|method|daemonThreadFactory
 specifier|public
@@ -195,9 +195,9 @@ block|}
 return|;
 block|}
 comment|/**      * Cannot instantiate.      */
-DECL|method|Executors
+DECL|method|EsExecutors
 specifier|private
-name|Executors
+name|EsExecutors
 parameter_list|()
 block|{     }
 block|}

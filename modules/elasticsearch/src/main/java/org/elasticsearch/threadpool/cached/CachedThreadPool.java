@@ -70,7 +70,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|Executors
+name|EsExecutors
 import|;
 end_import
 
@@ -281,7 +281,7 @@ name|Runnable
 argument_list|>
 argument_list|()
 argument_list|,
-name|Executors
+name|EsExecutors
 operator|.
 name|daemonThreadFactory
 argument_list|(
@@ -305,7 +305,7 @@ name|newScheduledThreadPool
 argument_list|(
 name|scheduledSize
 argument_list|,
-name|Executors
+name|EsExecutors
 operator|.
 name|daemonThreadFactory
 argument_list|(

@@ -70,7 +70,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|Executors
+name|EsExecutors
 import|;
 end_import
 
@@ -307,7 +307,7 @@ name|newScheduledThreadPool
 argument_list|(
 name|scheduledSize
 argument_list|,
-name|Executors
+name|EsExecutors
 operator|.
 name|daemonThreadFactory
 argument_list|(
@@ -336,7 +336,7 @@ name|TimeUnit
 operator|.
 name|NANOSECONDS
 argument_list|,
-name|Executors
+name|EsExecutors
 operator|.
 name|daemonThreadFactory
 argument_list|(
