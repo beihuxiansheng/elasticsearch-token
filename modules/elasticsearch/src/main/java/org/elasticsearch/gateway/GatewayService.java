@@ -60,6 +60,20 @@ name|cluster
 operator|.
 name|block
 operator|.
+name|ClusterBlockLevel
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|block
+operator|.
 name|ClusterBlocks
 import|;
 end_import
@@ -353,6 +367,10 @@ argument_list|(
 literal|1
 argument_list|,
 literal|"not recovered from gateway"
+argument_list|,
+name|ClusterBlockLevel
+operator|.
+name|ALL
 argument_list|)
 decl_stmt|;
 DECL|field|gateway
