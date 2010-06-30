@@ -187,7 +187,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -1127,6 +1127,13 @@ name|endsWith
 argument_list|(
 literal|"H"
 argument_list|)
+operator|||
+name|sValue
+operator|.
+name|endsWith
+argument_list|(
+literal|"h"
+argument_list|)
 condition|)
 block|{
 name|millis
@@ -1153,6 +1160,52 @@ operator|-
 literal|1
 argument_list|)
 argument_list|)
+operator|*
+literal|60
+operator|*
+literal|60
+operator|*
+literal|1000
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|sValue
+operator|.
+name|endsWith
+argument_list|(
+literal|"d"
+argument_list|)
+condition|)
+block|{
+name|millis
+operator|=
+call|(
+name|long
+call|)
+argument_list|(
+name|Double
+operator|.
+name|parseDouble
+argument_list|(
+name|sValue
+operator|.
+name|substring
+argument_list|(
+literal|0
+argument_list|,
+name|sValue
+operator|.
+name|length
+argument_list|()
+operator|-
+literal|1
+argument_list|)
+argument_list|)
+operator|*
+literal|24
 operator|*
 literal|60
 operator|*
