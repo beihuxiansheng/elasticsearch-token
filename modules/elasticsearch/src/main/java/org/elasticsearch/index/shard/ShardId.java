@@ -463,7 +463,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeInt
+name|writeVInt
 argument_list|(
 name|shardId
 argument_list|)
