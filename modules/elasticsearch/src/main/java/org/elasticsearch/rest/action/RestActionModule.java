@@ -596,22 +596,6 @@ name|RestSearchScrollAction
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|rest
-operator|.
-name|action
-operator|.
-name|terms
-operator|.
-name|RestTermsAction
-import|;
-end_import
-
 begin_comment
 comment|/**  * @author kimchy (Shay Banon)  */
 end_comment
@@ -885,16 +869,6 @@ expr_stmt|;
 name|bind
 argument_list|(
 name|RestCountAction
-operator|.
-name|class
-argument_list|)
-operator|.
-name|asEagerSingleton
-argument_list|()
-expr_stmt|;
-name|bind
-argument_list|(
-name|RestTermsAction
 operator|.
 name|class
 argument_list|)
