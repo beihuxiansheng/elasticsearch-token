@@ -398,16 +398,14 @@ argument_list|(
 name|status
 argument_list|)
 decl_stmt|;
-name|TransportResponseHandler
-name|handler
-init|=
-literal|null
-decl_stmt|;
 if|if
 condition|(
 name|isRequest
 condition|)
 block|{
+name|TransportRequestHandler
+name|handler
+init|=
 name|handleRequest
 argument_list|(
 name|event
@@ -416,19 +414,49 @@ name|streamIn
 argument_list|,
 name|requestId
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|buffer
+operator|.
+name|readerIndex
+argument_list|()
+operator|<
+name|expectedIndexReader
+condition|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"Message not fully read (request) for [{}] and handler {}, resetting"
+argument_list|,
+name|requestId
+argument_list|,
+name|handler
+argument_list|)
 expr_stmt|;
+name|buffer
+operator|.
+name|readerIndex
+argument_list|(
+name|expectedIndexReader
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 else|else
 block|{
+name|TransportResponseHandler
 name|handler
-operator|=
+init|=
 name|transportServiceAdapter
 operator|.
 name|remove
 argument_list|(
 name|requestId
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 comment|// ignore if its null, the adapter logs it
 if|if
 condition|(
@@ -477,7 +505,6 @@ name|size
 argument_list|)
 expr_stmt|;
 block|}
-block|}
 if|if
 condition|(
 name|buffer
@@ -492,7 +519,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Message not fully read for [{}] and handler {}, resetting"
+literal|"Message not fully read (response) for [{}] and handler {}, resetting"
 argument_list|,
 name|requestId
 argument_list|,
@@ -506,6 +533,7 @@ argument_list|(
 name|expectedIndexReader
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|handleResponse
@@ -844,7 +872,7 @@ block|}
 block|}
 DECL|method|handleRequest
 specifier|private
-name|void
+name|TransportRequestHandler
 name|handleRequest
 parameter_list|(
 name|MessageEvent
@@ -1037,6 +1065,9 @@ name|transportChannel
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|handler
+return|;
 block|}
 catch|catch
 parameter_list|(
@@ -1084,6 +1115,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+return|return
+literal|null
+return|;
 block|}
 DECL|method|exceptionCaught
 annotation|@
