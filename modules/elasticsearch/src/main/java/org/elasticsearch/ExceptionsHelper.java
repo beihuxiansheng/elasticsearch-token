@@ -146,7 +146,7 @@ return|;
 block|}
 name|result
 operator|=
-name|t
+name|result
 operator|.
 name|getCause
 argument_list|()
