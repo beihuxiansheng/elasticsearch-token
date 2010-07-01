@@ -96,7 +96,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|t
+name|result
 operator|.
 name|getCause
 argument_list|()
@@ -110,12 +110,12 @@ return|;
 block|}
 if|if
 condition|(
-name|t
+name|result
 operator|.
 name|getCause
 argument_list|()
 operator|==
-name|t
+name|result
 condition|)
 block|{
 return|return
