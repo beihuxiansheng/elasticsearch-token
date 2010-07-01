@@ -871,6 +871,18 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// note, we rely on the fact that its a new id each time we start, see FD and "kill -9" handling
+name|String
+name|nodeId
+init|=
+name|UUID
+operator|.
+name|randomUUID
+argument_list|()
+operator|.
+name|toString
+argument_list|()
+decl_stmt|;
 name|localNode
 operator|=
 operator|new
@@ -883,13 +895,7 @@ argument_list|(
 literal|"name"
 argument_list|)
 argument_list|,
-name|UUID
-operator|.
-name|randomUUID
-argument_list|()
-operator|.
-name|toString
-argument_list|()
+name|nodeId
 argument_list|,
 name|transportService
 operator|.
