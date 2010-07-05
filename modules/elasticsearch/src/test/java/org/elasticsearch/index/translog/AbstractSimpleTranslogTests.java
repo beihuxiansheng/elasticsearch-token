@@ -202,7 +202,9 @@ expr_stmt|;
 name|translog
 operator|.
 name|newTranslog
-argument_list|()
+argument_list|(
+literal|0
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|tearDown
@@ -593,7 +595,9 @@ decl_stmt|;
 name|translog
 operator|.
 name|newTranslog
-argument_list|()
+argument_list|(
+literal|1
+argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
@@ -922,7 +926,9 @@ expr_stmt|;
 name|translog
 operator|.
 name|newTranslog
-argument_list|()
+argument_list|(
+literal|2
+argument_list|)
 expr_stmt|;
 name|translog
 operator|.

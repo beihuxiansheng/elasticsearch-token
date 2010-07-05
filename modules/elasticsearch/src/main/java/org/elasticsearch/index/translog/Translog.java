@@ -260,7 +260,10 @@ comment|/**      * Creates a new transaction log internally. Note, users of this
 DECL|method|newTranslog
 name|void
 name|newTranslog
-parameter_list|()
+parameter_list|(
+name|long
+name|id
+parameter_list|)
 function_decl|;
 comment|/**      * Adds a create operation to the transaction log.      */
 DECL|method|add

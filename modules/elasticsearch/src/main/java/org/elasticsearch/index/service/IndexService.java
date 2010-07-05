@@ -114,6 +114,20 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|gateway
+operator|.
+name|IndexGateway
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|mapper
 operator|.
 name|MapperService
@@ -203,7 +217,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_interface
@@ -224,6 +238,11 @@ block|{
 DECL|method|injector
 name|Injector
 name|injector
+parameter_list|()
+function_decl|;
+DECL|method|gateway
+name|IndexGateway
+name|gateway
 parameter_list|()
 function_decl|;
 DECL|method|cache

@@ -311,7 +311,9 @@ decl_stmt|;
 name|shardGatewayService
 operator|.
 name|snapshot
-argument_list|()
+argument_list|(
+literal|"api"
+argument_list|)
 expr_stmt|;
 return|return
 operator|new

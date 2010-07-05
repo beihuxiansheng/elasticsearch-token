@@ -100,16 +100,6 @@ name|IOException
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|RandomAccessFile
-import|;
-end_import
-
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
@@ -285,11 +275,6 @@ name|void
 name|run
 parameter_list|()
 block|{
-name|RandomAccessFile
-name|raf
-init|=
-literal|null
-decl_stmt|;
 try|try
 block|{
 name|listener

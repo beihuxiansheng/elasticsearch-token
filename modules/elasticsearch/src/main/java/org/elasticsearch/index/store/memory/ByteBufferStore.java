@@ -22,6 +22,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
+name|Directory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|cache
@@ -104,6 +118,16 @@ name|AbstractStore
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
@@ -115,14 +139,11 @@ class|class
 name|ByteBufferStore
 extends|extends
 name|AbstractStore
-argument_list|<
-name|ByteBufferDirectory
-argument_list|>
 block|{
 DECL|field|directory
 specifier|private
 specifier|final
-name|ByteBufferDirectory
+name|Directory
 name|directory
 decl_stmt|;
 DECL|method|ByteBufferStore
@@ -142,6 +163,8 @@ parameter_list|,
 name|ByteBufferCache
 name|byteBufferCache
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|super
 argument_list|(
@@ -154,10 +177,13 @@ name|this
 operator|.
 name|directory
 operator|=
+name|wrapDirectory
+argument_list|(
 operator|new
 name|ByteBufferDirectory
 argument_list|(
 name|byteBufferCache
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|logger
@@ -172,7 +198,7 @@ DECL|method|directory
 annotation|@
 name|Override
 specifier|public
-name|ByteBufferDirectory
+name|Directory
 name|directory
 parameter_list|()
 block|{

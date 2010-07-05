@@ -104,6 +104,14 @@ name|BlobPath
 name|path
 parameter_list|()
 function_decl|;
+DECL|method|blobExists
+name|boolean
+name|blobExists
+parameter_list|(
+name|String
+name|blobName
+parameter_list|)
+function_decl|;
 DECL|method|readBlob
 name|void
 name|readBlob

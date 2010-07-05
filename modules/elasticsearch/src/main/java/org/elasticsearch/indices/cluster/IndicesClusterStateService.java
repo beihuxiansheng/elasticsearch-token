@@ -2353,7 +2353,7 @@ name|warn
 argument_list|(
 literal|"[{}][{}] failed to delete shard after failed startup"
 argument_list|,
-name|e
+name|e1
 argument_list|,
 name|indexService
 operator|.

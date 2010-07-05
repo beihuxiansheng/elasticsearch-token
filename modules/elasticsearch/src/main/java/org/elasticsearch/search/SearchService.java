@@ -729,6 +729,9 @@ parameter_list|,
 name|IndicesService
 name|indicesService
 parameter_list|,
+name|IndicesLifecycle
+name|indicesLifecycle
+parameter_list|,
 name|TimerService
 name|timerService
 parameter_list|,
@@ -867,10 +870,7 @@ argument_list|(
 name|elementParsers
 argument_list|)
 expr_stmt|;
-name|indicesService
-operator|.
 name|indicesLifecycle
-argument_list|()
 operator|.
 name|addListener
 argument_list|(

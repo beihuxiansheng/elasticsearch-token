@@ -184,16 +184,8 @@ specifier|public
 specifier|abstract
 class|class
 name|FsStore
-parameter_list|<
-name|T
-extends|extends
-name|Directory
-parameter_list|>
 extends|extends
 name|AbstractStore
-argument_list|<
-name|T
-argument_list|>
 block|{
 DECL|method|FsStore
 specifier|public

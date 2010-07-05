@@ -407,12 +407,16 @@ decl_stmt|;
 return|return
 name|BlobStoreIndexShardGateway
 operator|.
-name|aggregateParts
+name|buildVirtualBlobs
 argument_list|(
+name|indexContainer
+argument_list|,
 name|indexContainer
 operator|.
 name|listBlobs
 argument_list|()
+argument_list|,
+literal|null
 argument_list|)
 return|;
 block|}

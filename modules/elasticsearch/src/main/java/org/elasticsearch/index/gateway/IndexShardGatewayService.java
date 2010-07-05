@@ -540,6 +540,7 @@ name|IgnoreGatewayRecoveryException
 block|{
 if|if
 condition|(
+operator|!
 name|recovered
 operator|.
 name|compareAndSet
@@ -550,6 +551,39 @@ literal|true
 argument_list|)
 condition|)
 block|{
+throw|throw
+operator|new
+name|IgnoreGatewayRecoveryException
+argument_list|(
+name|shardId
+argument_list|,
+literal|"already recovered"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|indexShard
+operator|.
+name|state
+argument_list|()
+operator|==
+name|IndexShardState
+operator|.
+name|CLOSED
+condition|)
+block|{
+comment|// got closed on us, just ignore this recovery
+throw|throw
+operator|new
+name|IgnoreGatewayRecoveryException
+argument_list|(
+name|shardId
+argument_list|,
+literal|"shard closed"
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 operator|!
@@ -992,26 +1026,16 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-else|else
-block|{
-throw|throw
-operator|new
-name|IgnoreGatewayRecoveryException
-argument_list|(
-name|shardId
-argument_list|,
-literal|"Already recovered"
-argument_list|)
-throw|;
-block|}
-block|}
 comment|/**      * Snapshots the given shard into the gateway.      */
 DECL|method|snapshot
 specifier|public
 specifier|synchronized
 name|void
 name|snapshot
-parameter_list|()
+parameter_list|(
+name|String
+name|reason
+parameter_list|)
 throws|throws
 name|IndexShardGatewaySnapshotFailedException
 block|{
@@ -1201,7 +1225,17 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"snapshot completed to "
+literal|"snapshot ("
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|reason
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|") completed to "
 argument_list|)
 operator|.
 name|append
@@ -1408,17 +1442,12 @@ operator|&&
 name|snapshotOnClose
 condition|)
 block|{
-name|logger
-operator|.
-name|debug
-argument_list|(
-literal|"snapshotting on close ..."
-argument_list|)
-expr_stmt|;
 try|try
 block|{
 name|snapshot
-argument_list|()
+argument_list|(
+literal|"shutdown"
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch
@@ -1586,7 +1615,9 @@ block|{
 try|try
 block|{
 name|snapshot
-argument_list|()
+argument_list|(
+literal|"scheduled"
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch

@@ -715,6 +715,11 @@ argument_list|()
 operator|.
 name|waitForYellowStatus
 argument_list|()
+operator|.
+name|waitForActiveShards
+argument_list|(
+literal|1
+argument_list|)
 argument_list|)
 operator|.
 name|actionGet
@@ -1093,6 +1098,11 @@ argument_list|()
 operator|.
 name|waitForYellowStatus
 argument_list|()
+operator|.
+name|waitForActiveShards
+argument_list|(
+literal|1
+argument_list|)
 argument_list|)
 operator|.
 name|actionGet
@@ -1430,6 +1440,11 @@ argument_list|()
 operator|.
 name|waitForYellowStatus
 argument_list|()
+operator|.
+name|waitForActiveShards
+argument_list|(
+literal|1
+argument_list|)
 argument_list|)
 operator|.
 name|actionGet

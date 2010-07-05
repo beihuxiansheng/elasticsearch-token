@@ -84,19 +84,6 @@ name|cause
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|fillInStackTrace
-annotation|@
-name|Override
-specifier|public
-name|Throwable
-name|fillInStackTrace
-parameter_list|()
-block|{
-return|return
-name|fillStack
-argument_list|()
-return|;
-block|}
 block|}
 end_class
 

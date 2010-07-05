@@ -304,6 +304,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|concurrent
@@ -552,6 +562,8 @@ specifier|protected
 name|Store
 name|createStore
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 return|return
 operator|new
