@@ -704,7 +704,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Moved to state [CREATED]"
+literal|"state: [CREATED]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -827,7 +827,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Suspect illegal state: Trying to move shard from primary mode to backup mode"
+literal|"suspect illegal state: trying to move shard from primary mode to backup mode"
 argument_list|)
 expr_stmt|;
 block|}
@@ -934,18 +934,24 @@ name|shardId
 argument_list|)
 throw|;
 block|}
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"state: [{}]->[{}]"
+argument_list|,
+name|state
+argument_list|,
+name|IndexShardState
+operator|.
+name|RECOVERING
+argument_list|)
+expr_stmt|;
 name|state
 operator|=
 name|IndexShardState
 operator|.
 name|RECOVERING
-expr_stmt|;
-name|logger
-operator|.
-name|debug
-argument_list|(
-literal|"Moved to state [RECOVERING]"
-argument_list|)
 expr_stmt|;
 return|return
 name|returnValue
@@ -991,11 +997,11 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Restored to state [{}] from state [{}]"
-argument_list|,
-name|stateToRestore
+literal|"state: [{}]->[{}], restored after recovery"
 argument_list|,
 name|state
+argument_list|,
+name|stateToRestore
 argument_list|)
 expr_stmt|;
 name|this
@@ -1045,7 +1051,13 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Moved to state [RELOCATED]"
+literal|"state: [{}]->[{}]"
+argument_list|,
+name|state
+argument_list|,
+name|IndexShardState
+operator|.
+name|RELOCATED
 argument_list|)
 expr_stmt|;
 name|state
@@ -1139,7 +1151,13 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Moved to state [STARTED]"
+literal|"state: [{}]->[{}]"
+argument_list|,
+name|state
+argument_list|,
+name|IndexShardState
+operator|.
+name|STARTED
 argument_list|)
 expr_stmt|;
 name|state
@@ -1291,7 +1309,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"Indexing {}"
+literal|"index {}"
 argument_list|,
 name|doc
 argument_list|)
@@ -1445,7 +1463,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"Indexing {}"
+literal|"index {}"
 argument_list|,
 name|doc
 argument_list|)
@@ -1610,7 +1628,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"Deleting [{}]"
+literal|"delete [{}]"
 argument_list|,
 name|uid
 operator|.
@@ -1771,7 +1789,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"Deleting By Query [{}]"
+literal|"delete_by_query [{}]"
 argument_list|,
 name|query
 argument_list|)
@@ -1904,7 +1922,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"Get for [{}#{}] returned no result"
+literal|"get for [{}#{}] returned no result"
 argument_list|,
 name|type
 argument_list|,
@@ -1949,7 +1967,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"Get for [{}#{}] returned [{}]"
+literal|"get for [{}#{}] returned [{}]"
 argument_list|,
 name|type
 argument_list|,
@@ -2187,7 +2205,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"Count of [{}] is [{}]"
+literal|"count of [{}] is [{}]"
 argument_list|,
 name|query
 argument_list|,
@@ -2258,7 +2276,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"Refresh with {}"
+literal|"refresh with {}"
 argument_list|,
 name|refresh
 argument_list|)
@@ -2302,7 +2320,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"Flush with {}"
+literal|"flush with {}"
 argument_list|,
 name|flush
 argument_list|)
@@ -2346,7 +2364,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"Optimize with {}"
+literal|"optimize with {}"
 argument_list|,
 name|optimize
 argument_list|)
@@ -2524,7 +2542,13 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Moved to state [CLOSED]"
+literal|"state: [{}]->[{}]"
+argument_list|,
+name|state
+argument_list|,
+name|IndexShardState
+operator|.
+name|CLOSED
 argument_list|)
 expr_stmt|;
 name|state
@@ -2586,7 +2610,13 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Moved to state [STARTED] post recovery (from another shard)"
+literal|"state: [{}]->[{}]"
+argument_list|,
+name|state
+argument_list|,
+name|IndexShardState
+operator|.
+name|STARTED
 argument_list|)
 expr_stmt|;
 name|state
@@ -2613,18 +2643,15 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|performRecoveryOperations
+DECL|method|performRecoveryOperation
 specifier|public
 name|void
-name|performRecoveryOperations
+name|performRecoveryOperation
 parameter_list|(
-name|Iterable
-argument_list|<
 name|Translog
 operator|.
 name|Operation
-argument_list|>
-name|operations
+name|operation
 parameter_list|)
 throws|throws
 name|ElasticSearchException
@@ -2648,36 +2675,6 @@ name|state
 argument_list|)
 throw|;
 block|}
-name|applyTranslogOperations
-argument_list|(
-name|operations
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|applyTranslogOperations
-specifier|private
-name|void
-name|applyTranslogOperations
-parameter_list|(
-name|Iterable
-argument_list|<
-name|Translog
-operator|.
-name|Operation
-argument_list|>
-name|snapshot
-parameter_list|)
-block|{
-for|for
-control|(
-name|Translog
-operator|.
-name|Operation
-name|operation
-range|:
-name|snapshot
-control|)
-block|{
 switch|switch
 condition|(
 name|operation
@@ -2824,7 +2821,6 @@ operator|+
 literal|"]"
 argument_list|)
 throw|;
-block|}
 block|}
 block|}
 comment|/**      * Returns<tt>true</tt> if this shard can ignore a recovery attempt made to it (since the already doing/done it)      */

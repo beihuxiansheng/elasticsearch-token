@@ -225,7 +225,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_interface
@@ -307,14 +307,7 @@ specifier|static
 interface|interface
 name|Snapshot
 extends|extends
-name|Iterable
-argument_list|<
-name|Operation
-argument_list|>
-extends|,
 name|Releasable
-extends|,
-name|Streamable
 block|{
 comment|/**          * The id of the translog the snapshot was taken with.          */
 DECL|method|translogId
@@ -322,21 +315,33 @@ name|long
 name|translogId
 parameter_list|()
 function_decl|;
-comment|/**          * The number of translog operations in the snapshot.          */
-DECL|method|size
-name|int
-name|size
+DECL|method|position
+name|long
+name|position
 parameter_list|()
 function_decl|;
-DECL|method|skipTo
-name|Iterable
-argument_list|<
+comment|/**          * Returns the internal length (*not* number of operations) of this snapshot.          */
+DECL|method|length
+name|long
+name|length
+parameter_list|()
+function_decl|;
+DECL|method|hasNext
+name|boolean
+name|hasNext
+parameter_list|()
+function_decl|;
+DECL|method|next
 name|Operation
-argument_list|>
-name|skipTo
+name|next
+parameter_list|()
+function_decl|;
+DECL|method|seekForward
+name|void
+name|seekForward
 parameter_list|(
-name|int
-name|skipTo
+name|long
+name|position
 parameter_list|)
 function_decl|;
 block|}

@@ -190,6 +190,16 @@ name|InternalIndexShard
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
@@ -256,6 +266,34 @@ throws|throws
 name|IndexShardGatewayRecoveryException
 block|{
 comment|// in the none case, we simply start the shard
+comment|// clean the store, there should be nothing there...
+try|try
+block|{
+name|indexShard
+operator|.
+name|store
+argument_list|()
+operator|.
+name|deleteContent
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"failed to clean store before starting shard"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 name|indexShard
 operator|.
 name|start
@@ -278,6 +316,8 @@ name|Translog
 argument_list|(
 operator|-
 literal|1
+argument_list|,
+literal|0
 argument_list|,
 literal|0
 argument_list|,
