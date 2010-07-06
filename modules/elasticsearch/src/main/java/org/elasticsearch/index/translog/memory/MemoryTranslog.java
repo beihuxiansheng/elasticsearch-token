@@ -323,9 +323,9 @@ name|size
 parameter_list|()
 block|{
 return|return
-name|operations
+name|operationCounter
 operator|.
-name|size
+name|get
 argument_list|()
 return|;
 block|}
