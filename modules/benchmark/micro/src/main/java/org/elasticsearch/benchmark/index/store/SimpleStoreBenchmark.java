@@ -1660,6 +1660,8 @@ argument_list|(
 name|shardId
 argument_list|,
 name|settings
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -1799,6 +1801,8 @@ argument_list|(
 name|shardId
 argument_list|,
 name|settings
+argument_list|,
+literal|null
 argument_list|,
 name|byteBufferCache
 argument_list|)

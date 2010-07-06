@@ -595,6 +595,8 @@ argument_list|(
 name|shardId
 argument_list|,
 name|settings
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|MemoryTranslog

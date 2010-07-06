@@ -252,6 +252,8 @@ argument_list|(
 name|shardId
 argument_list|,
 name|indexSettings
+argument_list|,
+name|indexStore
 argument_list|)
 expr_stmt|;
 name|LockFactory

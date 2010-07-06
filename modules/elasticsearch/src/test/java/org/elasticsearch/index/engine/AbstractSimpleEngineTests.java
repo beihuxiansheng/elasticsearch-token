@@ -572,6 +572,8 @@ argument_list|(
 name|shardId
 argument_list|,
 name|EMPTY_SETTINGS
+argument_list|,
+literal|null
 argument_list|)
 return|;
 block|}

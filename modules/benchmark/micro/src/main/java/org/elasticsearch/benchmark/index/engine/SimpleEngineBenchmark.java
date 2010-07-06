@@ -1996,6 +1996,8 @@ name|shardId
 argument_list|,
 name|settings
 argument_list|,
+literal|null
+argument_list|,
 operator|new
 name|ByteBufferCache
 argument_list|(
