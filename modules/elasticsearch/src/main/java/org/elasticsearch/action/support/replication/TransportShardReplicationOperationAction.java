@@ -1771,6 +1771,24 @@ name|TimeValue
 name|timeValue
 parameter_list|)
 block|{
+comment|// just to be on the safe side, see if we can start it now?
+if|if
+condition|(
+name|start
+argument_list|(
+literal|true
+argument_list|)
+condition|)
+block|{
+name|clusterService
+operator|.
+name|remove
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 specifier|final
 name|PrimaryNotStartedActionException
 name|failure
