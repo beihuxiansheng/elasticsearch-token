@@ -940,6 +940,8 @@ name|listAll
 argument_list|()
 control|)
 block|{
+try|try
+block|{
 name|builder
 operator|.
 name|put
@@ -972,6 +974,15 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|FileNotFoundException
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+block|}
 block|}
 name|filesMetadata
 operator|=
