@@ -1419,6 +1419,14 @@ block|}
 block|}
 catch|catch
 parameter_list|(
+name|IllegalStateException
+name|e
+parameter_list|)
+block|{
+comment|// ignore, snapshot deletion policy not started yet...
+block|}
+catch|catch
+parameter_list|(
 name|IllegalIndexShardStateException
 name|e
 parameter_list|)
