@@ -248,7 +248,7 @@ name|void
 name|seekForward
 parameter_list|(
 name|long
-name|position
+name|length
 parameter_list|)
 block|{
 name|long
@@ -258,7 +258,7 @@ name|this
 operator|.
 name|position
 operator|+
-name|position
+name|length
 decl_stmt|;
 while|while
 condition|(
@@ -277,8 +277,8 @@ block|}
 name|this
 operator|.
 name|position
-operator|=
-name|position
+operator|+=
+name|length
 expr_stmt|;
 block|}
 block|}

@@ -264,6 +264,8 @@ parameter_list|(
 name|long
 name|id
 parameter_list|)
+throws|throws
+name|TranslogException
 function_decl|;
 comment|/**      * Adds a create operation to the transaction log.      */
 DECL|method|add
@@ -341,7 +343,7 @@ name|void
 name|seekForward
 parameter_list|(
 name|long
-name|position
+name|length
 parameter_list|)
 function_decl|;
 block|}
