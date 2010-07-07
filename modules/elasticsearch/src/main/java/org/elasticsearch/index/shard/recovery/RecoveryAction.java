@@ -1203,6 +1203,21 @@ parameter_list|)
 throws|throws
 name|ElasticSearchException
 block|{
+if|if
+condition|(
+name|targetNode
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IgnoreRecoveryException
+argument_list|(
+literal|"No node to recovery from, retry next time..."
+argument_list|)
+throw|;
+block|}
 name|sendStartRecoveryThread
 operator|=
 name|Thread
