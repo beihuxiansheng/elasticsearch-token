@@ -144,6 +144,20 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|engine
+operator|.
+name|SnapshotFailedEngineException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|settings
 operator|.
 name|IndexSettings
@@ -1419,11 +1433,36 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|IllegalStateException
+name|SnapshotFailedEngineException
 name|e
 parameter_list|)
 block|{
-comment|// ignore, snapshot deletion policy not started yet...
+if|if
+condition|(
+name|e
+operator|.
+name|getCause
+argument_list|()
+operator|instanceof
+name|IllegalStateException
+condition|)
+block|{
+comment|// ignore, that's fine, snapshot has not started yet
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|IndexShardGatewaySnapshotFailedException
+argument_list|(
+name|shardId
+argument_list|,
+literal|"Failed to snapshot"
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -1431,7 +1470,7 @@ name|IllegalIndexShardStateException
 name|e
 parameter_list|)
 block|{
-comment|// ignore, that's fine
+comment|// ignore, that's fine, snapshot has not started yet
 block|}
 catch|catch
 parameter_list|(
