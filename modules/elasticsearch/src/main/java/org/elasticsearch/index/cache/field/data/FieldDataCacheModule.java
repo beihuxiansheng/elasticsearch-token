@@ -76,14 +76,14 @@ name|field
 operator|.
 name|data
 operator|.
-name|weak
+name|soft
 operator|.
-name|WeakFieldDataCache
+name|SoftFieldDataCache
 import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -157,7 +157,7 @@ name|FieldDataCacheSettings
 operator|.
 name|FIELD_DATA_CACHE_TYPE
 argument_list|,
-name|WeakFieldDataCache
+name|SoftFieldDataCache
 operator|.
 name|class
 argument_list|,
