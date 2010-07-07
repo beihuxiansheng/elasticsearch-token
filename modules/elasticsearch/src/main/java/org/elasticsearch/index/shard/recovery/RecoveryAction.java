@@ -1970,6 +1970,24 @@ operator|)
 name|cause
 throw|;
 block|}
+elseif|else
+if|if
+condition|(
+name|cause
+operator|instanceof
+name|NodeNotConnectedException
+condition|)
+block|{
+throw|throw
+operator|new
+name|IgnoreRecoveryException
+argument_list|(
+literal|"Ignore recovery attemot, remote node not connected"
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 throw|throw
 operator|new
 name|RecoveryFailedException
