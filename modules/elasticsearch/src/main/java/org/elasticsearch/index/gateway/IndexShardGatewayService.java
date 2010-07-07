@@ -1102,6 +1102,21 @@ block|{
 comment|// do not snapshot when in the process of relocation of primaries so we won't get conflicts
 return|return;
 block|}
+if|if
+condition|(
+name|indexShard
+operator|.
+name|state
+argument_list|()
+operator|==
+name|IndexShardState
+operator|.
+name|CREATED
+condition|)
+block|{
+comment|// shard has just been created, ignore it and return
+return|return;
+block|}
 try|try
 block|{
 name|IndexShardGateway
