@@ -904,15 +904,6 @@ name|precisionStep
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|sortType
-annotation|@
-name|Override
-specifier|public
-specifier|abstract
-name|int
-name|sortType
-parameter_list|()
-function_decl|;
 DECL|method|fieldDataType
 annotation|@
 name|Override

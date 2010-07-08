@@ -475,11 +475,6 @@ name|boolean
 name|includeUpper
 parameter_list|)
 function_decl|;
-DECL|method|sortType
-name|int
-name|sortType
-parameter_list|()
-function_decl|;
 DECL|method|fieldDataType
 name|FieldData
 operator|.
