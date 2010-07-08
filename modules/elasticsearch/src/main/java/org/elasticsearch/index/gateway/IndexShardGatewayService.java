@@ -357,6 +357,12 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
+DECL|field|lastTranslogPosition
+specifier|private
+specifier|volatile
+name|long
+name|lastTranslogPosition
+decl_stmt|;
 DECL|field|lastTranslogLength
 specifier|private
 specifier|volatile
@@ -707,23 +713,16 @@ argument_list|()
 expr_stmt|;
 name|lastTranslogId
 operator|=
-name|recoveryStatus
-operator|.
-name|translog
-argument_list|()
-operator|.
-name|translogId
-argument_list|()
+operator|-
+literal|1
+expr_stmt|;
+name|lastTranslogPosition
+operator|=
+literal|0
 expr_stmt|;
 name|lastTranslogLength
 operator|=
-name|recoveryStatus
-operator|.
-name|translog
-argument_list|()
-operator|.
-name|translogLength
-argument_list|()
+literal|0
 expr_stmt|;
 comment|// start the shard if the gateway has not started it already
 if|if
@@ -905,23 +904,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"    translog : translog_id ["
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|recoveryStatus
-operator|.
-name|translog
-argument_list|()
-operator|.
-name|translogId
-argument_list|()
-argument_list|)
-operator|.
-name|append
-argument_list|(
-literal|"], number_of_operations ["
+literal|"    translog : number_of_operations ["
 argument_list|)
 operator|.
 name|append
@@ -932,22 +915,6 @@ name|translog
 argument_list|()
 operator|.
 name|numberOfOperations
-argument_list|()
-argument_list|)
-operator|.
-name|append
-argument_list|(
-literal|"] with total_size["
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|recoveryStatus
-operator|.
-name|translog
-argument_list|()
-operator|.
-name|totalSize
 argument_list|()
 argument_list|)
 operator|.
@@ -1189,7 +1156,7 @@ name|translogId
 argument_list|()
 operator|||
 name|lastTranslogLength
-operator|!=
+operator|<
 name|translogSnapshot
 operator|.
 name|length
@@ -1218,6 +1185,8 @@ name|lastIndexVersion
 argument_list|,
 name|lastTranslogId
 argument_list|,
+name|lastTranslogPosition
+argument_list|,
 name|lastTranslogLength
 argument_list|)
 argument_list|)
@@ -1234,6 +1203,13 @@ operator|=
 name|translogSnapshot
 operator|.
 name|translogId
+argument_list|()
+expr_stmt|;
+name|lastTranslogPosition
+operator|=
+name|translogSnapshot
+operator|.
+name|position
 argument_list|()
 expr_stmt|;
 name|lastTranslogLength
