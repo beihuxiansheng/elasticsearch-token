@@ -254,7 +254,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"Waiting for {} for the initial state to be set by the discovery"
+literal|"waiting for {} for the initial state to be set by the discovery"
 argument_list|,
 name|initialStateTimeout
 argument_list|)
@@ -280,7 +280,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"Initial state set from discovery"
+literal|"initial state set from discovery"
 argument_list|)
 expr_stmt|;
 name|initialStateReceived
@@ -298,7 +298,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Waited for {} and no initial state was set by the discovery"
+literal|"waited for {} and no initial state was set by the discovery"
 argument_list|,
 name|initialStateTimeout
 argument_list|)
