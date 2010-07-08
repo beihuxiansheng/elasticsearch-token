@@ -622,6 +622,16 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|annotation
+operator|.
+name|Nullable
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -1794,10 +1804,23 @@ argument_list|(
 name|tmpShardsMap
 argument_list|)
 expr_stmt|;
+name|ShardId
+name|sId
+init|=
+operator|new
+name|ShardId
+argument_list|(
+name|index
+argument_list|,
+name|shardId
+argument_list|)
+decl_stmt|;
 name|indicesLifecycle
 operator|.
 name|beforeIndexShardClosed
 argument_list|(
+name|sId
+argument_list|,
 name|indexShard
 argument_list|,
 name|delete
@@ -1819,6 +1842,8 @@ name|shardServices
 argument_list|()
 control|)
 block|{
+try|try
+block|{
 name|shardInjector
 operator|.
 name|getInstance
@@ -1832,7 +1857,33 @@ name|delete
 argument_list|)
 expr_stmt|;
 block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"failed to clean plugin shard service [{}]"
+argument_list|,
+name|e
+argument_list|,
+name|closeable
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 comment|// close shard actions
+if|if
+condition|(
+name|indexShard
+operator|!=
+literal|null
+condition|)
+block|{
 name|shardInjector
 operator|.
 name|getInstance
@@ -1845,6 +1896,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 name|RecoveryAction
 name|recoveryAction
 init|=
@@ -1870,11 +1922,21 @@ argument_list|()
 expr_stmt|;
 comment|// this logic is tricky, we want to close the engine so we rollback the changes done to it
 comment|// and close the shard so no operations are allowed to it
+if|if
+condition|(
+name|indexShard
+operator|!=
+literal|null
+condition|)
+block|{
 name|indexShard
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
+try|try
+block|{
 name|shardInjector
 operator|.
 name|getInstance
@@ -1887,6 +1949,17 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+block|}
+try|try
+block|{
 comment|// now, we can snapshot to the gateway, it will be only the translog
 name|shardInjector
 operator|.
@@ -1902,6 +1975,17 @@ argument_list|(
 name|deleteGateway
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+block|}
+try|try
+block|{
 comment|// now we can close the translog
 name|shardInjector
 operator|.
@@ -1915,15 +1999,21 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+block|}
 comment|// call this before we close the store, so we can release resources for it
 name|indicesLifecycle
 operator|.
 name|afterIndexShardClosed
 argument_list|(
-name|indexShard
-operator|.
-name|shardId
-argument_list|()
+name|sId
 argument_list|,
 name|delete
 argument_list|)
@@ -2037,6 +2127,11 @@ specifier|public
 name|void
 name|beforeIndexShardClosed
 parameter_list|(
+name|ShardId
+name|shardId
+parameter_list|,
+annotation|@
+name|Nullable
 name|IndexShard
 name|indexShard
 parameter_list|,

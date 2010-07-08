@@ -70,6 +70,16 @@ name|IndexShard
 import|;
 end_import
 
+begin_import
+import|import
+name|javax
+operator|.
+name|annotation
+operator|.
+name|Nullable
+import|;
+end_import
+
 begin_comment
 comment|/**  * A global component allowing to register for lifecycle of an index (create/closed) and  * an index shard (created/closed).  *  * @author kimchy (shay.banon)  */
 end_comment
@@ -178,6 +188,11 @@ specifier|public
 name|void
 name|beforeIndexShardClosed
 parameter_list|(
+name|ShardId
+name|shardId
+parameter_list|,
+annotation|@
+name|Nullable
 name|IndexShard
 name|indexShard
 parameter_list|,

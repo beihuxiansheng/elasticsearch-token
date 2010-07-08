@@ -114,6 +114,16 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|annotation
+operator|.
+name|Nullable
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -375,6 +385,11 @@ specifier|public
 name|void
 name|beforeIndexShardClosed
 parameter_list|(
+name|ShardId
+name|shardId
+parameter_list|,
+annotation|@
+name|Nullable
 name|IndexShard
 name|indexShard
 parameter_list|,
@@ -394,6 +409,8 @@ name|listener
 operator|.
 name|beforeIndexShardClosed
 argument_list|(
+name|shardId
+argument_list|,
 name|indexShard
 argument_list|,
 name|delete
