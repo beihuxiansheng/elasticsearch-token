@@ -741,7 +741,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Using group [{}], with port [{}], ttl [{}], and address [{}]"
+literal|"using group [{}], with port [{}], ttl [{}], and address [{}]"
 argument_list|,
 name|group
 argument_list|,
@@ -1220,7 +1220,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"[{}] Failed to send second ping request"
+literal|"[{}] failed to send second ping request"
 argument_list|,
 name|e
 argument_list|,
@@ -1418,7 +1418,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"[{}] Sending ping request"
+literal|"[{}] sending ping request"
 argument_list|,
 name|id
 argument_list|)
@@ -1509,7 +1509,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"[{}] Received {}"
+literal|"[{}] received {}"
 argument_list|,
 name|request
 operator|.
@@ -1549,7 +1549,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Received ping response with no matching id [{}]"
+literal|"received ping response with no matching id [{}]"
 argument_list|,
 name|request
 operator|.
@@ -1753,7 +1753,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to receive packet"
+literal|"failed to receive packet"
 argument_list|,
 name|e
 argument_list|)
@@ -1826,7 +1826,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to read requesting node from {}"
+literal|"failed to read requesting node from {}"
 argument_list|,
 name|e
 argument_list|,
@@ -1936,7 +1936,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"[{}] Received ping_request from [{}], sending {}"
+literal|"[{}] received ping_request from [{}], sending {}"
 argument_list|,
 name|id
 argument_list|,
@@ -1996,7 +1996,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to connect to requesting node {}"
+literal|"failed to connect to requesting node {}"
 argument_list|,
 name|e
 argument_list|,
@@ -2036,7 +2036,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to receive confirmation on sent ping response to [{}]"
+literal|"failed to receive confirmation on sent ping response to [{}]"
 argument_list|,
 name|exp
 argument_list|,
@@ -2086,7 +2086,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to receive confirmation on sent ping response to [{}]"
+literal|"failed to receive confirmation on sent ping response to [{}]"
 argument_list|,
 name|exp
 argument_list|,
@@ -2109,7 +2109,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Unexpected exception in multicast receiver"
+literal|"unexpected exception in multicast receiver"
 argument_list|,
 name|e
 argument_list|)

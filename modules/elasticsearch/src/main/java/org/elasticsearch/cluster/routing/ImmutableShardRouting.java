@@ -1225,7 +1225,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|", Node["
+literal|", node["
 argument_list|)
 operator|.
 name|append
@@ -1249,7 +1249,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"Relocating ["
+literal|"relocating ["
 argument_list|)
 operator|.
 name|append
@@ -1282,7 +1282,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"[B]"
+literal|"[R]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1290,7 +1290,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|", S["
+literal|", s["
 argument_list|)
 operator|.
 name|append

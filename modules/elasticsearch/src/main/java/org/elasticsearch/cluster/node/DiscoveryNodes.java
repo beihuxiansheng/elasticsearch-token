@@ -907,7 +907,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"Nodes: \n"
+literal|"nodes: \n"
 argument_list|)
 expr_stmt|;
 for|for
@@ -1290,7 +1290,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"New Master "
+literal|"new_master "
 argument_list|)
 operator|.
 name|append
@@ -1307,7 +1307,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"Detected Master "
+literal|"detected_master "
 argument_list|)
 operator|.
 name|append
@@ -1330,7 +1330,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"Master {New "
+literal|"master {new "
 argument_list|)
 operator|.
 name|append
@@ -1351,7 +1351,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|", Previous "
+literal|", previous "
 argument_list|)
 operator|.
 name|append
@@ -1393,7 +1393,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"Removed {"
+literal|"removed {"
 argument_list|)
 expr_stmt|;
 for|for
@@ -1485,7 +1485,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"Added {"
+literal|"added {"
 argument_list|)
 expr_stmt|;
 for|for

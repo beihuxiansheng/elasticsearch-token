@@ -1139,7 +1139,7 @@ init|=
 operator|new
 name|StringBuilder
 argument_list|(
-literal|"Routing Table:\n"
+literal|"routing_table:\n"
 argument_list|)
 decl_stmt|;
 for|for

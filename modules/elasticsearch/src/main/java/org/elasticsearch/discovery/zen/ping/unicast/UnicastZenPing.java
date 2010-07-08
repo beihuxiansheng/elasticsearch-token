@@ -678,7 +678,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Using initial hosts {}"
+literal|"using initial hosts {}"
 argument_list|,
 name|hosts
 argument_list|)
@@ -1454,7 +1454,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Received ping response with no matching id [{}]"
+literal|"received ping response with no matching id [{}]"
 argument_list|,
 name|response
 operator|.
@@ -1531,7 +1531,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to send ping to [{}]"
+literal|"failed to send ping to [{}]"
 argument_list|,
 name|exp
 argument_list|,

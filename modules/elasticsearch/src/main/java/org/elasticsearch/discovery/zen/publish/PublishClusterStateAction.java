@@ -368,7 +368,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to send cluster state to [{}], should be detected as failed soon..."
+literal|"failed to send cluster state to [{}], should be detected as failed soon..."
 argument_list|,
 name|exp
 argument_list|,

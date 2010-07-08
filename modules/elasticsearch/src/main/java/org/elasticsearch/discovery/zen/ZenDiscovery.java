@@ -672,7 +672,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Using initial_ping_timeout [{}]"
+literal|"using initial_ping_timeout [{}]"
 argument_list|,
 name|initialPingTimeout
 argument_list|)
@@ -1088,7 +1088,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Failed to send leave request to master [{}]"
+literal|"failed to send leave request to master [{}]"
 argument_list|,
 name|e
 argument_list|,
@@ -1166,7 +1166,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Failed to send leave request from master [{}] to possible master [{}]"
+literal|"failed to send leave request from master [{}] to possible master [{}]"
 argument_list|,
 name|e
 argument_list|,
@@ -1559,7 +1559,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to connect to master [{}], retrying..."
+literal|"failed to connect to master [{}], retrying..."
 argument_list|,
 name|e
 argument_list|,
@@ -1604,7 +1604,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Failed to send join request to master [{}], reason [{}]"
+literal|"failed to send join request to master [{}], reason [{}]"
 argument_list|,
 name|masterNode
 argument_list|,
@@ -1626,7 +1626,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Failed to send join request to master [{}], reason [{}]"
+literal|"failed to send join request to master [{}], reason [{}]"
 argument_list|,
 name|masterNode
 argument_list|,
@@ -1649,7 +1649,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"Detailed failed reason"
+literal|"detailed failed reason"
 argument_list|,
 name|e
 argument_list|)
@@ -1865,7 +1865,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Master [{}] left, reason [{}]"
+literal|"master [{}] left, reason [{}]"
 argument_list|,
 name|masterNode
 argument_list|,
@@ -2107,7 +2107,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Master should not receive new cluster state from [{}]"
+literal|"master should not receive new cluster state from [{}]"
 argument_list|,
 name|clusterState
 operator|.
@@ -2190,7 +2190,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Received a cluster state from [{}] and not part of the cluster, should not happen"
+literal|"received a cluster state from [{}] and not part of the cluster, should not happen"
 argument_list|,
 name|clusterState
 operator|.
@@ -2418,7 +2418,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Received a wrong address type from [{}], ignoring..."
+literal|"received a wrong address type from [{}], ignoring..."
 argument_list|,
 name|node
 argument_list|)
@@ -2479,7 +2479,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Received a join request for an existing node [{}]"
+literal|"received a join request for an existing node [{}]"
 argument_list|,
 name|node
 argument_list|)
@@ -2985,7 +2985,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to send join request on disconnection from master [{}]"
+literal|"failed to send join request on disconnection from master [{}]"
 argument_list|,
 name|masterNode
 argument_list|)

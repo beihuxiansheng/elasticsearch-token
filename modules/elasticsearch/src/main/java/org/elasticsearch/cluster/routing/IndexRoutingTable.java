@@ -1133,7 +1133,7 @@ init|=
 operator|new
 name|StringBuilder
 argument_list|(
-literal|"-- Index["
+literal|"-- index ["
 operator|+
 name|index
 operator|+
@@ -1152,7 +1152,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"----ShardId["
+literal|"----shard_id ["
 argument_list|)
 operator|.
 name|append

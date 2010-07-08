@@ -869,7 +869,7 @@ init|=
 operator|new
 name|StringBuilder
 argument_list|(
-literal|"Routing Nodes:\n"
+literal|"routing_nodes:\n"
 argument_list|)
 decl_stmt|;
 for|for
@@ -895,7 +895,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"---- Unassigned\n"
+literal|"---- unassigned\n"
 argument_list|)
 expr_stmt|;
 for|for
