@@ -1304,7 +1304,17 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"    index    : number_of_files ["
+literal|"    index    : version ["
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|lastIndexVersion
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"], number_of_files ["
 argument_list|)
 operator|.
 name|append
@@ -1359,7 +1369,17 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"    translog : number_of_operations ["
+literal|"    translog : id      ["
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|lastTranslogId
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"], number_of_operations ["
 argument_list|)
 operator|.
 name|append
