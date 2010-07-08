@@ -347,6 +347,11 @@ operator|>
 name|length
 condition|)
 block|{
+comment|// restore the position to before we read the opSize
+name|position
+operator|-=
+literal|4
+expr_stmt|;
 return|return
 literal|false
 return|;

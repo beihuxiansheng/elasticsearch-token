@@ -827,6 +827,18 @@ operator|.
 name|snapshot
 argument_list|()
 decl_stmt|;
+comment|// we use the translogSize to also navigate to the last position on this snapshot
+comment|// so snapshot(Snapshot) will work properly
+name|assertThat
+argument_list|(
+name|snapshot1
+argument_list|,
+name|translogSize
+argument_list|(
+literal|1
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|translog
 operator|.
 name|add

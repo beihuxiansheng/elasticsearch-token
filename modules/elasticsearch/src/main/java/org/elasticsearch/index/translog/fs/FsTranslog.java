@@ -681,6 +681,11 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|operationCounter
+operator|.
+name|incrementAndGet
+argument_list|()
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -844,7 +849,7 @@ name|seekForward
 argument_list|(
 name|fsSnapshot
 operator|.
-name|length
+name|position
 argument_list|()
 argument_list|)
 expr_stmt|;

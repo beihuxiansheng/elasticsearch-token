@@ -530,7 +530,7 @@ name|seekForward
 argument_list|(
 name|memorySnapshot
 operator|.
-name|length
+name|position
 argument_list|()
 argument_list|)
 expr_stmt|;
