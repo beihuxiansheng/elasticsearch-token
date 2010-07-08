@@ -826,6 +826,7 @@ name|ByteSizeValue
 name|indexingBufferSize
 parameter_list|)
 block|{
+comment|// LUCENE MONITOR - If this restriction is removed from Lucene, remove it from here
 if|if
 condition|(
 name|indexingBufferSize
