@@ -145,10 +145,10 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|FsSnapshot
+DECL|class|FsStreamSnapshot
 specifier|public
 class|class
-name|FsSnapshot
+name|FsStreamSnapshot
 implements|implements
 name|Translog
 operator|.
@@ -206,9 +206,9 @@ name|byte
 index|[]
 name|cachedData
 decl_stmt|;
-DECL|method|FsSnapshot
+DECL|method|FsStreamSnapshot
 specifier|public
-name|FsSnapshot
+name|FsStreamSnapshot
 parameter_list|(
 name|ShardId
 name|shardId

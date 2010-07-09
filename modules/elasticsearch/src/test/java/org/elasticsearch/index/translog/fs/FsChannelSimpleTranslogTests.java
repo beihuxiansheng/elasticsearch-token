@@ -105,10 +105,10 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|FsSimpleTranslogTests
+DECL|class|FsChannelSimpleTranslogTests
 specifier|public
 class|class
-name|FsSimpleTranslogTests
+name|FsChannelSimpleTranslogTests
 extends|extends
 name|AbstractSimpleTranslogTests
 block|{
@@ -133,6 +133,8 @@ name|File
 argument_list|(
 literal|"work/fs-translog"
 argument_list|)
+argument_list|,
+literal|false
 argument_list|)
 return|;
 block|}
