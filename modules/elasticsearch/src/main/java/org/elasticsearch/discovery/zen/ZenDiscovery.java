@@ -2289,6 +2289,15 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"master_left and no other node elected to become master, current nodes: {}"
+argument_list|,
+name|nodes
+argument_list|)
+expr_stmt|;
 name|builder
 operator|.
 name|masterNodeId
