@@ -88,8 +88,20 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  * A facet builder of histogram facets.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -125,6 +137,7 @@ operator|.
 name|ComparatorType
 name|comparatorType
 decl_stmt|;
+comment|/**      * Constructs a new histogram facet with the provided facet logical name.      *      * @param name The logical name of the facet      */
 DECL|method|HistogramFacetBuilder
 specifier|public
 name|HistogramFacetBuilder
@@ -139,6 +152,7 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * The field name to perform the histogram facet. Translates to perform the histogram facet      * using the provided field as both the {@link #keyField(String)} and {@link #valueField(String)}.      */
 DECL|method|field
 specifier|public
 name|HistogramFacetBuilder
@@ -164,6 +178,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The field name to use in order to control where the hit will "fall into" within the histogram      * entries. Essentially, using the key field numeric value, the hit will be "rounded" into the relevant      * bucket controlled by the interval.      */
 DECL|method|keyField
 specifier|public
 name|HistogramFacetBuilder
@@ -183,6 +198,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The field name to use as the value of the hit to compute data based on values within the interval      * (for example, total).      */
 DECL|method|valueField
 specifier|public
 name|HistogramFacetBuilder
@@ -202,6 +218,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The interval used to control the bucket "size" where each key value of a hit will fall into.      */
 DECL|method|interval
 specifier|public
 name|HistogramFacetBuilder
@@ -219,6 +236,31 @@ name|interval
 expr_stmt|;
 return|return
 name|this
+return|;
+block|}
+comment|/**      * The interval used to control the bucket "size" where each key value of a hit will fall into.      */
+DECL|method|interval
+specifier|public
+name|HistogramFacetBuilder
+name|interval
+parameter_list|(
+name|long
+name|interval
+parameter_list|,
+name|TimeUnit
+name|unit
+parameter_list|)
+block|{
+return|return
+name|interval
+argument_list|(
+name|unit
+operator|.
+name|toMillis
+argument_list|(
+name|interval
+argument_list|)
+argument_list|)
 return|;
 block|}
 DECL|method|comparator
@@ -242,6 +284,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Should the facet run in global mode (not bounded by the search query) or not (bounded by      * the search query). Defaults to<tt>false</tt>.      */
 DECL|method|global
 specifier|public
 name|HistogramFacetBuilder
@@ -261,6 +304,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * An additional filter used to further filter down the set of documents the facet will run on.      */
 DECL|method|filter
 specifier|public
 name|HistogramFacetBuilder

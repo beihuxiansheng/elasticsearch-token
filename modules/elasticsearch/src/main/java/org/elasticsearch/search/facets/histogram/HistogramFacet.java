@@ -63,7 +63,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Numeric histogram information.  *  * @author kimchy (shay.banon)  */
+comment|/**  * Numeric histogram facet.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_interface
@@ -81,26 +81,31 @@ operator|.
 name|Entry
 argument_list|>
 block|{
+comment|/**      * The key field name used with this facet.      */
 DECL|method|keyFieldName
 name|String
 name|keyFieldName
 parameter_list|()
 function_decl|;
+comment|/**      * The key field name used with this facet.      */
 DECL|method|getKeyFieldName
 name|String
 name|getKeyFieldName
 parameter_list|()
 function_decl|;
+comment|/**      * The value field name used with this facet.      */
 DECL|method|valueFieldName
 name|String
 name|valueFieldName
 parameter_list|()
 function_decl|;
+comment|/**      * The value field name used with this facet.      */
 DECL|method|getValueFieldName
 name|String
 name|getValueFieldName
 parameter_list|()
 function_decl|;
+comment|/**      * An ordered list of histogram facet entries.      */
 DECL|method|entries
 name|List
 argument_list|<
@@ -109,6 +114,7 @@ argument_list|>
 name|entries
 parameter_list|()
 function_decl|;
+comment|/**      * An ordered list of histogram facet entries.      */
 DECL|method|getEntries
 name|List
 argument_list|<
@@ -628,6 +634,7 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|/**      * A histogram entry representing a single entry within the result of a histogram facet.      */
 DECL|class|Entry
 specifier|public
 class|class
@@ -684,6 +691,7 @@ operator|=
 name|total
 expr_stmt|;
 block|}
+comment|/**          * The key value of the histogram.          */
 DECL|method|key
 specifier|public
 name|long
@@ -694,6 +702,7 @@ return|return
 name|key
 return|;
 block|}
+comment|/**          * The key value of the histogram.          */
 DECL|method|getKey
 specifier|public
 name|long
@@ -705,6 +714,7 @@ name|key
 argument_list|()
 return|;
 block|}
+comment|/**          * The number of hits that fall within that key "range" or "interval".          */
 DECL|method|count
 specifier|public
 name|long
@@ -715,6 +725,7 @@ return|return
 name|count
 return|;
 block|}
+comment|/**          * The number of hits that fall within that key "range" or "interval".          */
 DECL|method|getCount
 specifier|public
 name|long
@@ -726,6 +737,7 @@ name|count
 argument_list|()
 return|;
 block|}
+comment|/**          * The sum / total of the value field that fall within this key "interval".          */
 DECL|method|total
 specifier|public
 name|double
@@ -736,6 +748,7 @@ return|return
 name|total
 return|;
 block|}
+comment|/**          * The sum / total of the value field that fall within this key "interval".          */
 DECL|method|getTotal
 specifier|public
 name|double
@@ -747,6 +760,7 @@ name|total
 argument_list|()
 return|;
 block|}
+comment|/**          * The mean of this facet interval.          */
 DECL|method|mean
 specifier|public
 name|double
@@ -759,6 +773,7 @@ operator|/
 name|count
 return|;
 block|}
+comment|/**          * The mean of this facet interval.          */
 DECL|method|getMean
 specifier|public
 name|double
