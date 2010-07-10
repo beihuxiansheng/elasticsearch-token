@@ -258,11 +258,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|homeFile
-operator|.
-name|mkdirs
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
 name|settings
@@ -389,11 +384,6 @@ literal|"work"
 argument_list|)
 expr_stmt|;
 block|}
-name|workFile
-operator|.
-name|mkdirs
-argument_list|()
-expr_stmt|;
 name|workWithClusterFile
 operator|=
 operator|new
@@ -411,11 +401,6 @@ operator|.
 name|value
 argument_list|()
 argument_list|)
-expr_stmt|;
-name|workWithClusterFile
-operator|.
-name|mkdirs
-argument_list|()
 expr_stmt|;
 if|if
 condition|(

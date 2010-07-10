@@ -431,14 +431,6 @@ literal|"dump"
 argument_list|)
 expr_stmt|;
 block|}
-name|boolean
-name|success
-init|=
-name|dumpLocationFile
-operator|.
-name|mkdirs
-argument_list|()
-decl_stmt|;
 name|Map
 argument_list|<
 name|String
