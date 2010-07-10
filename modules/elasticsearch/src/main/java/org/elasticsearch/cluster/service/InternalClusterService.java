@@ -797,8 +797,26 @@ name|started
 argument_list|()
 condition|)
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"processing [{}]: ignoring, cluster_service not started"
+argument_list|,
+name|source
+argument_list|)
+expr_stmt|;
 return|return;
 block|}
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"processing [{}]: execute"
+argument_list|,
+name|source
+argument_list|)
+expr_stmt|;
 name|ClusterState
 name|previousClusterState
 init|=
@@ -1325,6 +1343,27 @@ name|clusterState
 argument_list|)
 expr_stmt|;
 block|}
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"processing [{}]: done applying updated cluster_state"
+argument_list|,
+name|source
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"processing [{}]: no change in cluster_state"
+argument_list|,
+name|source
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}

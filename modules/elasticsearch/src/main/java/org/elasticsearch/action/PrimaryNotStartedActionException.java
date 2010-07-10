@@ -20,11 +20,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|shard
-operator|.
-name|IndexShardException
+name|ElasticSearchException
 import|;
 end_import
 
@@ -43,7 +39,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -52,7 +48,7 @@ specifier|public
 class|class
 name|PrimaryNotStartedActionException
 extends|extends
-name|IndexShardException
+name|ElasticSearchException
 block|{
 DECL|method|PrimaryNotStartedActionException
 specifier|public
@@ -67,11 +63,58 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|buildMessage
+argument_list|(
 name|shardId
 argument_list|,
 name|message
 argument_list|)
+argument_list|)
 expr_stmt|;
+block|}
+DECL|method|buildMessage
+specifier|private
+specifier|static
+name|String
+name|buildMessage
+parameter_list|(
+name|ShardId
+name|shardId
+parameter_list|,
+name|String
+name|message
+parameter_list|)
+block|{
+if|if
+condition|(
+name|shardId
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+name|message
+return|;
+block|}
+return|return
+literal|"["
+operator|+
+name|shardId
+operator|.
+name|index
+argument_list|()
+operator|+
+literal|"]["
+operator|+
+name|shardId
+operator|.
+name|id
+argument_list|()
+operator|+
+literal|"]"
+operator|+
+name|message
+return|;
 block|}
 block|}
 end_class

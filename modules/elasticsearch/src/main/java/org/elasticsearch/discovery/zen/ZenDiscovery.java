@@ -1845,9 +1845,8 @@ name|ClusterState
 name|clusterState
 parameter_list|)
 block|{
-name|sendInitialStateEventIfNeeded
-argument_list|()
-expr_stmt|;
+comment|// don't send initial state event, since we want to get the cluster state from the master that includes us first
+comment|//                        sendInitialStateEventIfNeeded();
 block|}
 block|}
 argument_list|)
