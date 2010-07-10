@@ -76,6 +76,10 @@ begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
+begin_comment
+comment|// LUCENE MONITOR: Monitor against FieldComparator.Double
+end_comment
+
 begin_class
 DECL|class|DoubleFieldDataComparator
 specifier|public

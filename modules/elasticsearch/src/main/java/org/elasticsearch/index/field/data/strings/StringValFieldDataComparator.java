@@ -96,6 +96,10 @@ begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
+begin_comment
+comment|// LUCENE MONITOR: Monitor against FieldComparator#String
+end_comment
+
 begin_class
 DECL|class|StringValFieldDataComparator
 specifier|public
