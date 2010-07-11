@@ -4547,7 +4547,9 @@ block|{
 name|indexShard
 operator|.
 name|performRecoveryFinalization
-argument_list|()
+argument_list|(
+literal|false
+argument_list|)
 expr_stmt|;
 name|channel
 operator|.

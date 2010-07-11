@@ -2954,7 +2954,9 @@ expr_stmt|;
 name|indexShard
 operator|.
 name|performRecoveryFinalization
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 expr_stmt|;
 return|return
 operator|new
