@@ -842,6 +842,22 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
+literal|"], took ["
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|recoveryStatus
+operator|.
+name|index
+argument_list|()
+operator|.
+name|took
+argument_list|()
+argument_list|)
+operator|.
+name|append
+argument_list|(
 literal|"], throttling_wait ["
 argument_list|)
 operator|.
@@ -915,6 +931,22 @@ name|translog
 argument_list|()
 operator|.
 name|numberOfOperations
+argument_list|()
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"], took ["
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|recoveryStatus
+operator|.
+name|translog
+argument_list|()
+operator|.
+name|took
 argument_list|()
 argument_list|)
 operator|.

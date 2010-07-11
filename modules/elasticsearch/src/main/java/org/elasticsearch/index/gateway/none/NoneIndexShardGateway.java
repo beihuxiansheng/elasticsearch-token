@@ -281,13 +281,11 @@ name|Index
 operator|.
 name|EMPTY
 argument_list|,
-operator|new
 name|RecoveryStatus
 operator|.
 name|Translog
-argument_list|(
-literal|0
-argument_list|)
+operator|.
+name|EMPTY
 argument_list|)
 return|;
 block|}
