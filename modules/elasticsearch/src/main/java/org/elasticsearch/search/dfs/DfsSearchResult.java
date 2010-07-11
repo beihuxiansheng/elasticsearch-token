@@ -488,7 +488,7 @@ index|]
 operator|=
 name|in
 operator|.
-name|readInt
+name|readVInt
 argument_list|()
 expr_stmt|;
 block|}
@@ -585,7 +585,7 @@ control|)
 block|{
 name|out
 operator|.
-name|writeInt
+name|writeVInt
 argument_list|(
 name|freq
 argument_list|)
