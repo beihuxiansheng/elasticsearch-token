@@ -817,7 +817,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"[cluster_shutdown]: done shutting done all nodes except master, proceeding to master"
+literal|"[cluster_shutdown]: done shutting down all nodes except master, proceeding to master"
 argument_list|)
 expr_stmt|;
 comment|// now, kill the master
