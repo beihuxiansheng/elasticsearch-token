@@ -312,6 +312,9 @@ name|masterOperation
 parameter_list|(
 name|DeleteIndexRequest
 name|request
+parameter_list|,
+name|ClusterState
+name|state
 parameter_list|)
 throws|throws
 name|ElasticSearchException

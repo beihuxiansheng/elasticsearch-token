@@ -153,7 +153,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A base class for operations that needs to be performed on the master node.  *  * @author kimchy (Shay Banon)  */
+comment|/**  * A base class for operations that needs to be performed on the master node.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -279,6 +279,9 @@ name|masterOperation
 parameter_list|(
 name|Request
 name|request
+parameter_list|,
+name|ClusterState
+name|state
 parameter_list|)
 throws|throws
 name|ElasticSearchException
@@ -287,6 +290,18 @@ DECL|method|checkBlock
 specifier|protected
 name|void
 name|checkBlock
+parameter_list|(
+name|Request
+name|request
+parameter_list|,
+name|ClusterState
+name|state
+parameter_list|)
+block|{      }
+DECL|method|processBeforeDelegationToMaster
+specifier|protected
+name|void
+name|processBeforeDelegationToMaster
 parameter_list|(
 name|Request
 name|request
@@ -314,13 +329,19 @@ argument_list|>
 name|listener
 parameter_list|)
 block|{
-name|DiscoveryNodes
-name|nodes
+specifier|final
+name|ClusterState
+name|clusterState
 init|=
 name|clusterService
 operator|.
 name|state
 argument_list|()
+decl_stmt|;
+name|DiscoveryNodes
+name|nodes
+init|=
+name|clusterState
 operator|.
 name|nodes
 argument_list|()
@@ -354,10 +375,7 @@ name|checkBlock
 argument_list|(
 name|request
 argument_list|,
-name|clusterService
-operator|.
-name|state
-argument_list|()
+name|clusterState
 argument_list|)
 expr_stmt|;
 name|Response
@@ -366,6 +384,8 @@ init|=
 name|masterOperation
 argument_list|(
 name|request
+argument_list|,
+name|clusterState
 argument_list|)
 decl_stmt|;
 name|listener
@@ -415,6 +435,13 @@ literal|"No master node discovered or set"
 argument_list|)
 throw|;
 block|}
+name|processBeforeDelegationToMaster
+argument_list|(
+name|request
+argument_list|,
+name|clusterState
+argument_list|)
+expr_stmt|;
 name|transportService
 operator|.
 name|sendRequest
@@ -530,12 +557,18 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
+specifier|final
+name|ClusterState
+name|clusterState
+init|=
 name|clusterService
 operator|.
 name|state
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|clusterState
 operator|.
 name|nodes
 argument_list|()
@@ -548,10 +581,7 @@ name|checkBlock
 argument_list|(
 name|request
 argument_list|,
-name|clusterService
-operator|.
-name|state
-argument_list|()
+name|clusterState
 argument_list|)
 expr_stmt|;
 name|Response
@@ -560,6 +590,8 @@ init|=
 name|masterOperation
 argument_list|(
 name|request
+argument_list|,
+name|clusterState
 argument_list|)
 decl_stmt|;
 name|channel
