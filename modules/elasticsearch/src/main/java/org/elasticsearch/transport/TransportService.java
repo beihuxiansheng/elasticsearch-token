@@ -1674,7 +1674,7 @@ operator|.
 name|handleException
 argument_list|(
 operator|new
-name|NodeDisconnectedTransportException
+name|NodeDisconnectedException
 argument_list|(
 name|node
 argument_list|,

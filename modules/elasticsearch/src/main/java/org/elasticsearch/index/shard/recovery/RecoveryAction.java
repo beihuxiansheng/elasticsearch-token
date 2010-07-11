@@ -1973,16 +1973,24 @@ block|}
 elseif|else
 if|if
 condition|(
+operator|(
 name|cause
 operator|instanceof
 name|NodeNotConnectedException
+operator|)
+operator|||
+operator|(
+name|cause
+operator|instanceof
+name|NodeDisconnectedException
+operator|)
 condition|)
 block|{
 throw|throw
 operator|new
 name|IgnoreRecoveryException
 argument_list|(
-literal|"Ignore recovery attemot, remote node not connected"
+literal|"Ignore recovery attempt, remote node not connected"
 argument_list|,
 name|e
 argument_list|)

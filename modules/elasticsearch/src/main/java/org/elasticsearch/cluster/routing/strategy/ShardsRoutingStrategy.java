@@ -554,6 +554,8 @@ operator|.
 name|allocateUnassigned
 argument_list|(
 name|routingNodes
+argument_list|,
+name|nodes
 argument_list|)
 expr_stmt|;
 block|}

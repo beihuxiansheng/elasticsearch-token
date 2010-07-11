@@ -403,8 +403,8 @@ condition|(
 name|isRequest
 condition|)
 block|{
-name|TransportRequestHandler
-name|handler
+name|String
+name|action
 init|=
 name|handleRequest
 argument_list|(
@@ -429,11 +429,11 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Message not fully read (request) for [{}] and handler {}, resetting"
+literal|"Message not fully read (request) for [{}] and action [{}], resetting"
 argument_list|,
 name|requestId
 argument_list|,
-name|handler
+name|action
 argument_list|)
 expr_stmt|;
 name|buffer
@@ -872,7 +872,7 @@ block|}
 block|}
 DECL|method|handleRequest
 specifier|private
-name|TransportRequestHandler
+name|String
 name|handleRequest
 parameter_list|(
 name|MessageEvent
@@ -1065,9 +1065,6 @@ name|transportChannel
 argument_list|)
 expr_stmt|;
 block|}
-return|return
-name|handler
-return|;
 block|}
 catch|catch
 parameter_list|(
@@ -1116,7 +1113,7 @@ expr_stmt|;
 block|}
 block|}
 return|return
-literal|null
+name|action
 return|;
 block|}
 DECL|method|exceptionCaught

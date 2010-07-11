@@ -33,16 +33,16 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|NodeDisconnectedTransportException
+DECL|class|NodeDisconnectedException
 specifier|public
 class|class
-name|NodeDisconnectedTransportException
+name|NodeDisconnectedException
 extends|extends
 name|ConnectTransportException
 block|{
-DECL|method|NodeDisconnectedTransportException
+DECL|method|NodeDisconnectedException
 specifier|public
-name|NodeDisconnectedTransportException
+name|NodeDisconnectedException
 parameter_list|(
 name|DiscoveryNode
 name|node
