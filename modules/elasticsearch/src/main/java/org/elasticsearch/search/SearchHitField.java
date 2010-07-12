@@ -69,6 +69,18 @@ name|String
 name|getName
 parameter_list|()
 function_decl|;
+comment|/**      * The first value of the hit.      */
+DECL|method|value
+name|Object
+name|value
+parameter_list|()
+function_decl|;
+comment|/**      * The first value of the hit.      */
+DECL|method|getValue
+name|Object
+name|getValue
+parameter_list|()
+function_decl|;
 comment|/**      * The field values.      */
 DECL|method|values
 name|List

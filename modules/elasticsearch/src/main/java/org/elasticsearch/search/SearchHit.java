@@ -214,6 +214,15 @@ name|Explanation
 name|getExplanation
 parameter_list|()
 function_decl|;
+DECL|method|field
+specifier|public
+name|SearchHitField
+name|field
+parameter_list|(
+name|String
+name|fieldName
+parameter_list|)
+function_decl|;
 comment|/**      * A map of hit fields (from field name to hit fields) if additional fields      * were required to be loaded.      */
 DECL|method|fields
 name|Map
