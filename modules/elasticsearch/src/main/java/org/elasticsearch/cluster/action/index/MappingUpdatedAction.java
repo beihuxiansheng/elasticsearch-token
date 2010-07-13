@@ -118,7 +118,7 @@ name|cluster
 operator|.
 name|metadata
 operator|.
-name|MetaDataService
+name|MetaDataMappingService
 import|;
 end_import
 
@@ -217,7 +217,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Called by shards in the cluster when their mapping was dynamically updated and it needs to be updated  * in the cluster state meta data (and broadcast to all members).  *  * @author kimchy (Shay Banon)  */
+comment|/**  * Called by shards in the cluster when their mapping was dynamically updated and it needs to be updated  * in the cluster state meta data (and broadcast to all members).  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -237,11 +237,11 @@ operator|.
 name|MappingUpdatedResponse
 argument_list|>
 block|{
-DECL|field|metaDataService
+DECL|field|metaDataMappingService
 specifier|private
 specifier|final
-name|MetaDataService
-name|metaDataService
+name|MetaDataMappingService
+name|metaDataMappingService
 decl_stmt|;
 DECL|method|MappingUpdatedAction
 annotation|@
@@ -261,8 +261,8 @@ parameter_list|,
 name|ThreadPool
 name|threadPool
 parameter_list|,
-name|MetaDataService
-name|metaDataService
+name|MetaDataMappingService
+name|metaDataMappingService
 parameter_list|)
 block|{
 name|super
@@ -278,9 +278,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|metaDataService
+name|metaDataMappingService
 operator|=
-name|metaDataService
+name|metaDataMappingService
 expr_stmt|;
 block|}
 DECL|method|transportAction
@@ -339,7 +339,7 @@ parameter_list|)
 throws|throws
 name|ElasticSearchException
 block|{
-name|metaDataService
+name|metaDataMappingService
 operator|.
 name|updateMapping
 argument_list|(

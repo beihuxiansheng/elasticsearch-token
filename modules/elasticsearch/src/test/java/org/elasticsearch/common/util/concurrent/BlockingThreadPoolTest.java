@@ -95,6 +95,13 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
+annotation|@
+name|Test
+argument_list|(
+name|enabled
+operator|=
+literal|false
+argument_list|)
 DECL|class|BlockingThreadPoolTest
 specifier|public
 class|class

@@ -1074,6 +1074,12 @@ name|requestId
 argument_list|)
 argument_list|,
 name|timeout
+argument_list|,
+name|TimerService
+operator|.
+name|ExecutionType
+operator|.
+name|THREADED
 argument_list|)
 expr_stmt|;
 block|}
@@ -1787,23 +1793,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// callback that an exception happened, but on a different thread since we don't
-comment|// want handlers to worry about stack overflows
-name|threadPool
-operator|.
-name|execute
-argument_list|(
-operator|new
-name|Runnable
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|run
-parameter_list|()
-block|{
 name|holder
 operator|.
 name|handler
@@ -1824,10 +1813,6 @@ operator|.
 name|action
 argument_list|()
 argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 argument_list|)
 expr_stmt|;
 block|}
