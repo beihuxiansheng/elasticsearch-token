@@ -55,6 +55,26 @@ name|fields
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|setFields
+annotation|@
+name|Override
+specifier|public
+name|void
+name|setFields
+parameter_list|(
+name|SortField
+index|[]
+name|fields
+parameter_list|)
+block|{
+name|super
+operator|.
+name|setFields
+argument_list|(
+name|fields
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
