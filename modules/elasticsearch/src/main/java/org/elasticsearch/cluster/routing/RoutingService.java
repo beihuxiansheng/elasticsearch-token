@@ -320,6 +320,10 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+name|scheduledRoutingTableFuture
+operator|=
+literal|null
+expr_stmt|;
 block|}
 name|clusterService
 operator|.
