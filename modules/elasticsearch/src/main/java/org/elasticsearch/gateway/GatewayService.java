@@ -623,6 +623,9 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
+name|dataNodes
+argument_list|()
+operator|.
 name|size
 argument_list|()
 operator|<
@@ -636,11 +639,14 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"not recovering from gateway, nodes_size ["
+literal|"not recovering from gateway, data_nodes_size ["
 operator|+
 name|clusterState
 operator|.
 name|nodes
+argument_list|()
+operator|.
+name|dataNodes
 argument_list|()
 operator|.
 name|size
@@ -850,6 +856,9 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
+name|dataNodes
+argument_list|()
+operator|.
 name|size
 argument_list|()
 operator|<
@@ -860,11 +869,14 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"not recovering from gateway, nodes_size ["
+literal|"not recovering from gateway, data_nodes_size ["
 operator|+
 name|clusterState
 operator|.
 name|nodes
+argument_list|()
+operator|.
+name|dataNodes
 argument_list|()
 operator|.
 name|size
