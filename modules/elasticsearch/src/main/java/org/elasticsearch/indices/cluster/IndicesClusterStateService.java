@@ -2056,7 +2056,7 @@ name|recoveryAction
 init|=
 name|indexService
 operator|.
-name|shardInjector
+name|shardInjectorSafe
 argument_list|(
 name|shardId
 argument_list|)
