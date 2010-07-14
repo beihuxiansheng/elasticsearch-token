@@ -169,7 +169,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Source structure:  *<p/>  *<pre>  * {  *  from : 0, size : 20, (optional, can be set on the request)  *  sort : { "name.first" : {}, "name.last" : { reverse : true } }  *  fields : [ "name.first", "name.last" ]  *  queryParserName : "",  *  query : { ... }  *  facets : {  *      "facet1" : {  *          query : { ... }  *      }  *  }  * }  *</pre>  *  * @author kimchy (Shay Banon)  */
+comment|/**  * Source structure:  *<p/>  *<pre>  * {  *  from : 0, size : 20, (optional, can be set on the request)  *  sort : { "name.first" : {}, "name.last" : { reverse : true } }  *  fields : [ "name.first", "name.last" ]  *  queryParserName : "",  *  query : { ... }  *  facets : {  *      "facet1" : {  *          query : { ... }  *      }  *  }  * }  *</pre>  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -189,6 +189,11 @@ DECL|field|shardId
 specifier|private
 name|int
 name|shardId
+decl_stmt|;
+DECL|field|numberOfShards
+specifier|private
+name|int
+name|numberOfShards
 decl_stmt|;
 DECL|field|scroll
 specifier|private
@@ -253,6 +258,9 @@ name|InternalSearchRequest
 parameter_list|(
 name|ShardRouting
 name|shardRouting
+parameter_list|,
+name|int
+name|numberOfShards
 parameter_list|)
 block|{
 name|this
@@ -266,6 +274,8 @@ name|shardRouting
 operator|.
 name|id
 argument_list|()
+argument_list|,
+name|numberOfShards
 argument_list|)
 expr_stmt|;
 block|}
@@ -278,6 +288,9 @@ name|index
 parameter_list|,
 name|int
 name|shardId
+parameter_list|,
+name|int
+name|numberOfShards
 parameter_list|)
 block|{
 name|this
@@ -291,6 +304,12 @@ operator|.
 name|shardId
 operator|=
 name|shardId
+expr_stmt|;
+name|this
+operator|.
+name|numberOfShards
+operator|=
+name|numberOfShards
 expr_stmt|;
 block|}
 DECL|method|index
@@ -311,6 +330,16 @@ parameter_list|()
 block|{
 return|return
 name|shardId
+return|;
+block|}
+DECL|method|numberOfShards
+specifier|public
+name|int
+name|numberOfShards
+parameter_list|()
+block|{
+return|return
+name|numberOfShards
 return|;
 block|}
 DECL|method|source
@@ -591,6 +620,13 @@ operator|.
 name|readVInt
 argument_list|()
 expr_stmt|;
+name|numberOfShards
+operator|=
+name|in
+operator|.
+name|readVInt
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|in
@@ -785,6 +821,13 @@ operator|.
 name|writeVInt
 argument_list|(
 name|shardId
+argument_list|)
+expr_stmt|;
+name|out
+operator|.
+name|writeVInt
+argument_list|(
+name|numberOfShards
 argument_list|)
 expr_stmt|;
 if|if

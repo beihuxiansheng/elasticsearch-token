@@ -363,6 +363,12 @@ specifier|final
 name|int
 name|size
 decl_stmt|;
+DECL|field|numberOfShards
+specifier|private
+specifier|final
+name|int
+name|numberOfShards
+decl_stmt|;
 DECL|field|fieldDataType
 specifier|private
 specifier|final
@@ -404,6 +410,9 @@ parameter_list|,
 name|int
 name|size
 parameter_list|,
+name|int
+name|numberOfShards
+parameter_list|,
 name|FieldDataCache
 name|fieldDataCache
 parameter_list|,
@@ -433,6 +442,12 @@ operator|.
 name|size
 operator|=
 name|size
+expr_stmt|;
+name|this
+operator|.
+name|numberOfShards
+operator|=
+name|numberOfShards
 expr_stmt|;
 name|this
 operator|.
@@ -650,6 +665,7 @@ return|;
 block|}
 else|else
 block|{
+comment|// we need to fetch facets of "size * numberOfShards" because of problems in how they are distributed across shards
 name|BoundedTreeSet
 argument_list|<
 name|InternalTermsFacet
@@ -676,6 +692,8 @@ name|comparator
 argument_list|()
 argument_list|,
 name|size
+operator|*
+name|numberOfShards
 argument_list|)
 decl_stmt|;
 for|for

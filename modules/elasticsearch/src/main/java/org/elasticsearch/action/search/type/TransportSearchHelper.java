@@ -319,6 +319,9 @@ parameter_list|(
 name|ShardRouting
 name|shardRouting
 parameter_list|,
+name|int
+name|numberOfShards
+parameter_list|,
 name|SearchRequest
 name|request
 parameter_list|)
@@ -330,6 +333,8 @@ operator|new
 name|InternalSearchRequest
 argument_list|(
 name|shardRouting
+argument_list|,
+name|numberOfShards
 argument_list|)
 decl_stmt|;
 name|internalRequest

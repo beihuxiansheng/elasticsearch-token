@@ -1926,6 +1926,11 @@ name|shardTarget
 argument_list|,
 name|request
 operator|.
+name|numberOfShards
+argument_list|()
+argument_list|,
+name|request
+operator|.
 name|timeout
 argument_list|()
 argument_list|,

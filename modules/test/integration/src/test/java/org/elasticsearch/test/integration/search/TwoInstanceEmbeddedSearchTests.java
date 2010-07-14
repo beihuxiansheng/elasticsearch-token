@@ -3545,6 +3545,8 @@ operator|new
 name|InternalSearchRequest
 argument_list|(
 name|shardRouting
+argument_list|,
+literal|3
 argument_list|)
 operator|.
 name|source

@@ -1119,6 +1119,11 @@ name|internalSearchRequest
 argument_list|(
 name|shard
 argument_list|,
+name|shardsIts
+operator|.
+name|size
+argument_list|()
+argument_list|,
 name|request
 argument_list|)
 argument_list|,

@@ -355,6 +355,11 @@ name|size
 argument_list|,
 name|context
 operator|.
+name|numberOfShards
+argument_list|()
+argument_list|,
+name|context
+operator|.
 name|fieldDataCache
 argument_list|()
 argument_list|,
