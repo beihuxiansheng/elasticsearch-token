@@ -584,7 +584,7 @@ name|StringBuilder
 argument_list|(
 name|shard
 operator|+
-literal|": failures when trying to list stores on nodes:\n"
+literal|": failures when trying to list stores on nodes:"
 argument_list|)
 decl_stmt|;
 for|for
@@ -611,12 +611,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-name|i
-argument_list|)
-operator|.
-name|append
-argument_list|(
-literal|". "
+literal|"\n    -> "
 argument_list|)
 operator|.
 name|append
@@ -631,11 +626,6 @@ index|]
 operator|.
 name|getDetailedMessage
 argument_list|()
-argument_list|)
-operator|.
-name|append
-argument_list|(
-literal|"\n"
 argument_list|)
 expr_stmt|;
 block|}
