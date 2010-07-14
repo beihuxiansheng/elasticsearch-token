@@ -68,9 +68,9 @@ name|index
 operator|.
 name|translog
 operator|.
-name|memory
+name|fs
 operator|.
-name|MemoryTranslog
+name|FsTranslog
 import|;
 end_import
 
@@ -148,7 +148,7 @@ name|TranslogSettings
 operator|.
 name|TYPE
 argument_list|,
-name|MemoryTranslog
+name|FsTranslog
 operator|.
 name|class
 argument_list|)
