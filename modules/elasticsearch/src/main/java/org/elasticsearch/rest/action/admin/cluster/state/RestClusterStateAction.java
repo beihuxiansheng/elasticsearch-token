@@ -450,6 +450,7 @@ name|RestChannel
 name|channel
 parameter_list|)
 block|{
+specifier|final
 name|ClusterStateRequest
 name|clusterStateRequest
 init|=
@@ -555,9 +556,7 @@ argument_list|()
 operator|.
 name|state
 argument_list|(
-operator|new
-name|ClusterStateRequest
-argument_list|()
+name|clusterStateRequest
 argument_list|,
 operator|new
 name|ActionListener
@@ -616,6 +615,15 @@ name|value
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|clusterStateRequest
+operator|.
+name|filterNodes
+argument_list|()
+condition|)
+block|{
 name|builder
 operator|.
 name|field
@@ -631,7 +639,17 @@ name|masterNodeId
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 comment|// blocks
+if|if
+condition|(
+operator|!
+name|clusterStateRequest
+operator|.
+name|filterBlocks
+argument_list|()
+condition|)
+block|{
 name|builder
 operator|.
 name|startObject
@@ -788,7 +806,17 @@ operator|.
 name|endObject
 argument_list|()
 expr_stmt|;
+block|}
 comment|// nodes
+if|if
+condition|(
+operator|!
+name|clusterStateRequest
+operator|.
+name|filterNodes
+argument_list|()
+condition|)
+block|{
 name|builder
 operator|.
 name|startObject
@@ -855,7 +883,17 @@ operator|.
 name|endObject
 argument_list|()
 expr_stmt|;
+block|}
 comment|// meta data
+if|if
+condition|(
+operator|!
+name|clusterStateRequest
+operator|.
+name|filterMetaData
+argument_list|()
+condition|)
+block|{
 name|builder
 operator|.
 name|startObject
@@ -1127,7 +1165,17 @@ operator|.
 name|endObject
 argument_list|()
 expr_stmt|;
+block|}
 comment|// routing table
+if|if
+condition|(
+operator|!
+name|clusterStateRequest
+operator|.
+name|filterRoutingTable
+argument_list|()
+condition|)
+block|{
 name|builder
 operator|.
 name|startObject
@@ -1239,7 +1287,17 @@ operator|.
 name|endObject
 argument_list|()
 expr_stmt|;
+block|}
 comment|// routing nodes
+if|if
+condition|(
+operator|!
+name|clusterStateRequest
+operator|.
+name|filterRoutingTable
+argument_list|()
+condition|)
+block|{
 name|builder
 operator|.
 name|startObject
@@ -1341,6 +1399,7 @@ operator|.
 name|endObject
 argument_list|()
 expr_stmt|;
+block|}
 name|builder
 operator|.
 name|endObject
