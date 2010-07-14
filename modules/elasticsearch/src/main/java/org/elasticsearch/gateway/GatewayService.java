@@ -1372,14 +1372,6 @@ operator|.
 name|metaData
 argument_list|()
 argument_list|)
-operator|.
-name|maxNumberOfShardsPerNode
-argument_list|(
-name|fMetaData
-operator|.
-name|maxNumberOfShardsPerNode
-argument_list|()
-argument_list|)
 decl_stmt|;
 comment|// mark the metadata as read from gateway
 name|metaDataBuilder

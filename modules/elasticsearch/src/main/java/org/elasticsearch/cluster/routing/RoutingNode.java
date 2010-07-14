@@ -486,16 +486,7 @@ name|routingTable
 parameter_list|)
 block|{
 return|return
-name|shards
-argument_list|()
-operator|.
-name|size
-argument_list|()
-operator|<
-name|metaData
-operator|.
-name|maxNumberOfShardsPerNode
-argument_list|()
+literal|true
 return|;
 block|}
 DECL|method|canAllocate
