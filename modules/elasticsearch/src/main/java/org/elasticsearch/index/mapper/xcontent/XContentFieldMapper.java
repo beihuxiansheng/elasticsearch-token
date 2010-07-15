@@ -1799,6 +1799,37 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
+name|String
+name|mergedType
+init|=
+name|mergeWith
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getSimpleName
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|mergeWith
+operator|instanceof
+name|XContentFieldMapper
+condition|)
+block|{
+name|mergedType
+operator|=
+operator|(
+operator|(
+name|XContentFieldMapper
+operator|)
+name|mergeWith
+operator|)
+operator|.
+name|contentType
+argument_list|()
+expr_stmt|;
+block|}
 name|mergeContext
 operator|.
 name|addConflict
@@ -1810,9 +1841,20 @@ operator|.
 name|fullName
 argument_list|()
 operator|+
-literal|"] of different type"
+literal|"] of different type, current_type ["
+operator|+
+name|contentType
+argument_list|()
+operator|+
+literal|"], merged_type ["
+operator|+
+name|mergedType
+operator|+
+literal|"]"
 argument_list|)
 expr_stmt|;
+comment|// different types, return
+return|return;
 block|}
 name|XContentFieldMapper
 name|fieldMergeWith
@@ -1949,6 +1991,31 @@ block|}
 elseif|else
 if|if
 condition|(
+name|fieldMergeWith
+operator|.
+name|indexAnalyzer
+operator|==
+literal|null
+condition|)
+block|{
+name|mergeContext
+operator|.
+name|addConflict
+argument_list|(
+literal|"mapper ["
+operator|+
+name|names
+operator|.
+name|fullName
+argument_list|()
+operator|+
+literal|"] has different index_analyzer"
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
 operator|!
 name|this
 operator|.
@@ -2016,6 +2083,31 @@ literal|"] has different search_analyzer"
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+elseif|else
+if|if
+condition|(
+name|fieldMergeWith
+operator|.
+name|searchAnalyzer
+operator|==
+literal|null
+condition|)
+block|{
+name|mergeContext
+operator|.
+name|addConflict
+argument_list|(
+literal|"mapper ["
+operator|+
+name|names
+operator|.
+name|fullName
+argument_list|()
+operator|+
+literal|"] has different search_analyzer"
+argument_list|)
+expr_stmt|;
 block|}
 elseif|else
 if|if

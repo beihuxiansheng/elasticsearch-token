@@ -56,7 +56,7 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-literal|"Merge failed with failures ["
+literal|"Merge failed with failures {"
 operator|+
 name|Arrays
 operator|.
@@ -65,7 +65,7 @@ argument_list|(
 name|failures
 argument_list|)
 operator|+
-literal|"]"
+literal|"}"
 argument_list|)
 expr_stmt|;
 name|this
