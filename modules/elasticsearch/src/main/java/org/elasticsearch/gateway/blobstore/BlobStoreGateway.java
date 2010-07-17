@@ -220,6 +220,16 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|annotation
+operator|.
+name|Nullable
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -308,6 +318,11 @@ name|blobStore
 parameter_list|,
 name|ClusterName
 name|clusterName
+parameter_list|,
+annotation|@
+name|Nullable
+name|ByteSizeValue
+name|defaultChunkSize
 parameter_list|)
 throws|throws
 name|IOException
@@ -328,7 +343,7 @@ name|getAsBytesSize
 argument_list|(
 literal|"chunk_size"
 argument_list|,
-literal|null
+name|defaultChunkSize
 argument_list|)
 expr_stmt|;
 name|this

@@ -102,6 +102,18 @@ name|ExecutorServiceModule
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|Executors
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
@@ -141,12 +153,6 @@ argument_list|,
 operator|new
 name|ExecutorServiceModule
 argument_list|(
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
 name|Executors
 operator|.
 name|newCachedThreadPool
@@ -161,12 +167,6 @@ literal|"jclouds-user"
 argument_list|)
 argument_list|)
 argument_list|,
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
 name|Executors
 operator|.
 name|newCachedThreadPool

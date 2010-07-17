@@ -411,6 +411,8 @@ name|hPath
 argument_list|)
 argument_list|,
 name|clusterName
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
