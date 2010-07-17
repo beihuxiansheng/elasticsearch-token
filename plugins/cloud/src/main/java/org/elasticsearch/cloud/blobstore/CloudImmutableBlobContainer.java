@@ -186,7 +186,10 @@ argument_list|()
 operator|.
 name|newBlob
 argument_list|(
+name|buildBlobPath
+argument_list|(
 name|blobName
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|blob

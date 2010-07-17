@@ -444,6 +444,14 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+name|listener
+operator|.
+name|onCompleted
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
