@@ -198,6 +198,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -415,11 +425,81 @@ literal|"native"
 argument_list|)
 condition|)
 block|{
+comment|// TODO LUCENE MONITOR: this is not needed in next Lucene version
 name|lockFactory
 operator|=
 operator|new
 name|NativeFSLockFactory
 argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|clearLock
+parameter_list|(
+name|String
+name|lockName
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+comment|// Note that this isn't strictly required anymore
+comment|// because the existence of these files does not mean
+comment|// they are locked, but, still do this in case people
+comment|// really want to see the files go away:
+if|if
+condition|(
+name|lockDir
+operator|.
+name|exists
+argument_list|()
+condition|)
+block|{
+comment|// Try to release the lock first - if it's held by another process, this
+comment|// method should not silently fail.
+comment|// NOTE: makeLock fixes the lock name by prefixing it w/ lockPrefix.
+comment|// Therefore it should be called before the code block next which prefixes
+comment|// the given name.
+name|makeLock
+argument_list|(
+name|lockName
+argument_list|)
+operator|.
+name|release
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|lockPrefix
+operator|!=
+literal|null
+condition|)
+block|{
+name|lockName
+operator|=
+name|lockPrefix
+operator|+
+literal|"-"
+operator|+
+name|lockName
+expr_stmt|;
+block|}
+comment|// As mentioned above, we don't care if the deletion of the file failed.
+operator|new
+name|File
+argument_list|(
+name|lockDir
+argument_list|,
+name|lockName
+argument_list|)
+operator|.
+name|delete
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+block|}
 expr_stmt|;
 block|}
 elseif|else

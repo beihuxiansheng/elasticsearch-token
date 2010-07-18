@@ -57,7 +57,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -72,11 +72,43 @@ DECL|method|RecoveryFailedException
 specifier|public
 name|RecoveryFailedException
 parameter_list|(
+name|StartRecoveryRequest
+name|request
+parameter_list|,
+name|Throwable
+name|cause
+parameter_list|)
+block|{
+name|this
+argument_list|(
+name|request
+operator|.
+name|shardId
+argument_list|()
+argument_list|,
+name|request
+operator|.
+name|sourceNode
+argument_list|()
+argument_list|,
+name|request
+operator|.
+name|targetNode
+argument_list|()
+argument_list|,
+name|cause
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|RecoveryFailedException
+specifier|public
+name|RecoveryFailedException
+parameter_list|(
 name|ShardId
 name|shardId
 parameter_list|,
 name|DiscoveryNode
-name|node
+name|sourceNode
 parameter_list|,
 name|DiscoveryNode
 name|targetNode
@@ -91,11 +123,11 @@ name|shardId
 operator|+
 literal|": Recovery failed from "
 operator|+
-name|targetNode
+name|sourceNode
 operator|+
 literal|" into "
 operator|+
-name|node
+name|targetNode
 argument_list|,
 name|cause
 argument_list|)

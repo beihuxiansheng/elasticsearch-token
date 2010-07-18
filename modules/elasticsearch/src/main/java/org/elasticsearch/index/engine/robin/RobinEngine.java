@@ -899,6 +899,16 @@ parameter_list|()
 throws|throws
 name|EngineException
 block|{
+name|rwl
+operator|.
+name|writeLock
+argument_list|()
+operator|.
+name|lock
+argument_list|()
+expr_stmt|;
+try|try
+block|{
 if|if
 condition|(
 name|indexWriter
@@ -1045,6 +1055,18 @@ argument_list|,
 name|e
 argument_list|)
 throw|;
+block|}
+block|}
+finally|finally
+block|{
+name|rwl
+operator|.
+name|writeLock
+argument_list|()
+operator|.
+name|unlock
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 DECL|method|refreshInterval
@@ -2616,6 +2638,8 @@ operator|.
 name|lock
 argument_list|()
 expr_stmt|;
+try|try
+block|{
 if|if
 condition|(
 name|nrtResource
@@ -2631,8 +2655,6 @@ name|forceClose
 argument_list|()
 expr_stmt|;
 block|}
-try|try
-block|{
 comment|// no need to commit in this case!, we snapshot before we close the shard, so translog and all sync'ed
 if|if
 condition|(
@@ -2722,21 +2744,19 @@ condition|)
 block|{
 name|logger
 operator|.
-name|trace
+name|warn
 argument_list|(
-literal|"Shard is locked, releasing lock"
+literal|"shard is locked, releasing lock"
 argument_list|)
 expr_stmt|;
+name|IndexWriter
+operator|.
+name|unlock
+argument_list|(
 name|store
 operator|.
 name|directory
 argument_list|()
-operator|.
-name|clearLock
-argument_list|(
-name|IndexWriter
-operator|.
-name|WRITE_LOCK_NAME
 argument_list|)
 expr_stmt|;
 block|}
