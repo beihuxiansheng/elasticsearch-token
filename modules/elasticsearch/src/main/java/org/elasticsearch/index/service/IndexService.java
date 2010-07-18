@@ -34,6 +34,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|collect
+operator|.
+name|ImmutableSet
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|component
 operator|.
 name|CloseableIndexComponent
@@ -206,16 +220,6 @@ name|IndexStore
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
-import|;
-end_import
-
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
@@ -307,7 +311,7 @@ name|numberOfShards
 parameter_list|()
 function_decl|;
 DECL|method|shardIds
-name|Set
+name|ImmutableSet
 argument_list|<
 name|Integer
 argument_list|>
