@@ -164,6 +164,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|threadpool
+operator|.
+name|ThreadPool
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -227,6 +239,9 @@ name|settings
 parameter_list|,
 name|ClusterName
 name|clusterName
+parameter_list|,
+name|ThreadPool
+name|threadPool
 parameter_list|)
 throws|throws
 name|IOException
@@ -406,6 +421,11 @@ argument_list|(
 name|settings
 argument_list|,
 name|fileSystem
+argument_list|,
+name|threadPool
+operator|.
+name|cached
+argument_list|()
 argument_list|,
 name|hPath
 argument_list|)

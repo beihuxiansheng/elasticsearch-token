@@ -306,7 +306,7 @@ block|}
 argument_list|,
 name|cloudBlobStore
 operator|.
-name|executorService
+name|executor
 argument_list|()
 argument_list|)
 expr_stmt|;

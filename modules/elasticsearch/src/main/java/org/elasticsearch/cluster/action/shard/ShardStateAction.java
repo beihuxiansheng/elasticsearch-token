@@ -506,7 +506,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Sending failed shard for {}, reason [{}]"
+literal|"sending failed shard for {}, reason [{}]"
 argument_list|,
 name|shardRouting
 argument_list|,
@@ -623,7 +623,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Sending shard started for {}, reason [{}]"
+literal|"sending shard started for {}, reason [{}]"
 argument_list|,
 name|shardRouting
 argument_list|,
@@ -731,7 +731,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Received shard failed for {}, reason [{}]"
+literal|"received shard failed for {}, reason [{}]"
 argument_list|,
 name|shardRouting
 argument_list|,
@@ -902,7 +902,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Received shard started for {}, reason [{}]"
+literal|"received shard started for {}, reason [{}]"
 argument_list|,
 name|shardRouting
 argument_list|,

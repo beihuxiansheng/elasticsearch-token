@@ -24,6 +24,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ElasticSearchWrapperException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|unit
@@ -71,6 +81,8 @@ class|class
 name|RecoverFilesRecoveryException
 extends|extends
 name|IndexShardException
+implements|implements
+name|ElasticSearchWrapperException
 block|{
 DECL|field|numberOfFiles
 specifier|private

@@ -180,7 +180,7 @@ parameter_list|)
 block|{
 name|blobStore
 operator|.
-name|executorService
+name|executor
 argument_list|()
 operator|.
 name|execute

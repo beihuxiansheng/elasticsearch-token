@@ -359,7 +359,11 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"Expected handle header"
+literal|"Expected handle header, got ["
+operator|+
+name|b
+operator|+
+literal|"]"
 argument_list|)
 throw|;
 block|}

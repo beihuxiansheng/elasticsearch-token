@@ -130,6 +130,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|threadpool
+operator|.
+name|ThreadPool
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -174,6 +186,9 @@ name|environment
 parameter_list|,
 name|ClusterName
 name|clusterName
+parameter_list|,
+name|ThreadPool
+name|threadPool
 parameter_list|)
 throws|throws
 name|IOException
@@ -241,6 +256,11 @@ operator|new
 name|FsBlobStore
 argument_list|(
 name|componentSettings
+argument_list|,
+name|threadPool
+operator|.
+name|cached
+argument_list|()
 argument_list|,
 name|gatewayFile
 argument_list|)

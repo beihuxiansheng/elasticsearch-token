@@ -1056,6 +1056,9 @@ expr_stmt|;
 comment|// do the join on a different thread, the DiscoveryService waits for 30s anyhow till it is discovered
 name|threadPool
 operator|.
+name|cached
+argument_list|()
+operator|.
 name|execute
 argument_list|(
 operator|new
@@ -2410,6 +2413,9 @@ argument_list|)
 expr_stmt|;
 comment|// try and join the cluster again...
 name|threadPool
+operator|.
+name|cached
+argument_list|()
 operator|.
 name|execute
 argument_list|(

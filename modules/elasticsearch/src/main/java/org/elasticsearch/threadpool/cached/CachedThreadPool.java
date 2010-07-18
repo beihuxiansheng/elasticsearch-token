@@ -241,17 +241,12 @@ name|debug
 argument_list|(
 literal|"Initializing {} thread pool with keep_alive[{}], scheduled_size[{}]"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|getType
 argument_list|()
-block|,
+argument_list|,
 name|keepAlive
-block|,
+argument_list|,
 name|scheduledSize
-block|}
 argument_list|)
 expr_stmt|;
 name|executorService
@@ -314,6 +309,10 @@ argument_list|,
 literal|"[sc]"
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|cached
+operator|=
+name|executorService
 expr_stmt|;
 name|started
 operator|=

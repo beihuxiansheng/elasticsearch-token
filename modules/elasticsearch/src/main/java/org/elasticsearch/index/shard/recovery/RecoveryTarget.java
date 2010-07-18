@@ -314,43 +314,7 @@ name|elasticsearch
 operator|.
 name|transport
 operator|.
-name|BaseTransportRequestHandler
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|transport
-operator|.
-name|FutureTransportResponseHandler
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|transport
-operator|.
-name|TransportChannel
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|transport
-operator|.
-name|TransportService
+name|*
 import|;
 end_import
 
@@ -701,6 +665,8 @@ name|listener
 operator|.
 name|onIgnoreRecovery
 argument_list|(
+literal|false
+argument_list|,
 literal|"No node to recovery from, retry on next cluster state update"
 argument_list|)
 expr_stmt|;
@@ -765,7 +731,9 @@ name|listener
 operator|.
 name|onIgnoreRecovery
 argument_list|(
-literal|"Already in recovering process, "
+literal|false
+argument_list|,
+literal|"already in recovering process, "
 operator|+
 name|e
 operator|.
@@ -782,6 +750,9 @@ init|=
 name|preRecoveryState
 decl_stmt|;
 name|threadPool
+operator|.
+name|cached
+argument_list|()
 operator|.
 name|execute
 argument_list|(
@@ -867,6 +838,8 @@ name|listener
 operator|.
 name|onIgnoreRecovery
 argument_list|(
+literal|false
+argument_list|,
 literal|"shard closed, stop recovery"
 argument_list|)
 expr_stmt|;
@@ -1017,6 +990,8 @@ name|listener
 operator|.
 name|onIgnoreRecovery
 argument_list|(
+literal|false
+argument_list|,
 literal|"shard closed, stop recovery"
 argument_list|)
 expr_stmt|;
@@ -1449,6 +1424,8 @@ name|listener
 operator|.
 name|onIgnoreRecovery
 argument_list|(
+literal|false
+argument_list|,
 literal|"shard closed, stop recovery"
 argument_list|)
 expr_stmt|;
@@ -1513,6 +1490,32 @@ name|getCause
 argument_list|()
 expr_stmt|;
 block|}
+comment|// do it twice, in case we have double transport exception
+name|cause
+operator|=
+name|ExceptionsHelper
+operator|.
+name|unwrapCause
+argument_list|(
+name|cause
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|cause
+operator|instanceof
+name|RecoveryEngineException
+condition|)
+block|{
+comment|// unwrap an exception that was thrown as part of the recovery
+name|cause
+operator|=
+name|cause
+operator|.
+name|getCause
+argument_list|()
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|cause
@@ -1528,6 +1531,8 @@ operator|instanceof
 name|IndexShardMissingException
 condition|)
 block|{
+try|try
+block|{
 name|shard
 operator|.
 name|restoreRecoveryState
@@ -1535,6 +1540,15 @@ argument_list|(
 name|preRecoveryState
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IndexShardNotRecoveringException
+name|e1
+parameter_list|)
+block|{
+comment|// ignore this, we might be closing...
+block|}
 name|listener
 operator|.
 name|onRetryRecovery
@@ -1543,6 +1557,42 @@ name|recoveryThrottler
 operator|.
 name|throttleInterval
 argument_list|()
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+if|if
+condition|(
+name|cause
+operator|instanceof
+name|ConnectTransportException
+condition|)
+block|{
+name|listener
+operator|.
+name|onIgnoreRecovery
+argument_list|(
+literal|true
+argument_list|,
+literal|"source node disconnected"
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+if|if
+condition|(
+name|cause
+operator|instanceof
+name|IndexShardClosedException
+condition|)
+block|{
+name|listener
+operator|.
+name|onIgnoreRecovery
+argument_list|(
+literal|true
+argument_list|,
+literal|"source node disconnected"
 argument_list|)
 expr_stmt|;
 return|return;
@@ -1602,6 +1652,9 @@ DECL|method|onIgnoreRecovery
 name|void
 name|onIgnoreRecovery
 parameter_list|(
+name|boolean
+name|cleanShard
+parameter_list|,
 name|String
 name|reason
 parameter_list|)
