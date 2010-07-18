@@ -350,7 +350,7 @@ name|getAsDouble
 argument_list|(
 literal|"upper_memory_threshold"
 argument_list|,
-literal|0.8
+literal|0.95
 argument_list|)
 expr_stmt|;
 name|this
@@ -363,7 +363,7 @@ name|getAsDouble
 argument_list|(
 literal|"lower_memory_threshold"
 argument_list|,
-literal|0.5
+literal|0.8
 argument_list|)
 expr_stmt|;
 name|this
