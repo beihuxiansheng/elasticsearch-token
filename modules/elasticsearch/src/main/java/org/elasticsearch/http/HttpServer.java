@@ -705,7 +705,7 @@ operator|.
 name|OPTIONS
 condition|)
 block|{
-comment|// when we have OPTIONS request, simply send OK by default (with the Access Control Origin header which gest automatically added)
+comment|// when we have OPTIONS request, simply send OK by default (with the Access Control Origin header which gets automatically added)
 name|StringRestResponse
 name|response
 init|=
