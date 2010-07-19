@@ -104,6 +104,7 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// UGLY!, this exception messages seems to represent closed connection
 if|if
 condition|(
 name|e
@@ -148,6 +149,23 @@ operator|.
 name|contains
 argument_list|(
 literal|"forcibly closed"
+argument_list|)
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+if|if
+condition|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"Broken pipe"
 argument_list|)
 condition|)
 block|{
