@@ -595,11 +595,11 @@ name|transportService
 operator|.
 name|registerHandler
 argument_list|(
-name|transportBackupAction
+name|transportReplicaAction
 argument_list|()
 argument_list|,
 operator|new
-name|BackupOperationTransportHandler
+name|ReplicaOperationTransportHandler
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -682,11 +682,11 @@ name|ShardOperationRequest
 name|shardRequest
 parameter_list|)
 function_decl|;
-DECL|method|shardOperationOnBackup
+DECL|method|shardOperationOnReplica
 specifier|protected
 specifier|abstract
 name|void
-name|shardOperationOnBackup
+name|shardOperationOnReplica
 parameter_list|(
 name|ShardOperationRequest
 name|shardRequest
@@ -719,28 +719,28 @@ name|ClusterState
 name|state
 parameter_list|)
 block|{      }
-comment|/**      * Should the operations be performed on the backups as well. Defaults to<tt>false</tt> meaning operations      * will be executed on the backup.      */
-DECL|method|ignoreBackups
+comment|/**      * Should the operations be performed on the replicas as well. Defaults to<tt>false</tt> meaning operations      * will be executed on the replica.      */
+DECL|method|ignoreReplicas
 specifier|protected
 name|boolean
-name|ignoreBackups
+name|ignoreReplicas
 parameter_list|()
 block|{
 return|return
 literal|false
 return|;
 block|}
-DECL|method|transportBackupAction
+DECL|method|transportReplicaAction
 specifier|private
 name|String
-name|transportBackupAction
+name|transportReplicaAction
 parameter_list|()
 block|{
 return|return
 name|transportAction
 argument_list|()
 operator|+
-literal|"/backup"
+literal|"/replica"
 return|;
 block|}
 DECL|method|indexShard
@@ -931,10 +931,10 @@ literal|false
 return|;
 block|}
 block|}
-DECL|class|BackupOperationTransportHandler
+DECL|class|ReplicaOperationTransportHandler
 specifier|private
 class|class
-name|BackupOperationTransportHandler
+name|ReplicaOperationTransportHandler
 extends|extends
 name|BaseTransportRequestHandler
 argument_list|<
@@ -971,7 +971,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|shardOperationOnBackup
+name|shardOperationOnReplica
 argument_list|(
 name|request
 argument_list|)
@@ -986,7 +986,7 @@ name|INSTANCE
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**          * We spawn, since we want to perform the operation on the backup on a different thread.          */
+comment|/**          * We spawn, since we want to perform the operation on the replica on a different thread.          */
 DECL|method|spawn
 annotation|@
 name|Override
@@ -1891,7 +1891,7 @@ name|request
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|performBackups
+name|performReplicas
 argument_list|(
 name|response
 argument_list|,
@@ -1968,10 +1968,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|performBackups
+DECL|method|performReplicas
 specifier|private
 name|void
-name|performBackups
+name|performReplicas
 parameter_list|(
 specifier|final
 name|Response
@@ -1983,7 +1983,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|ignoreBackups
+name|ignoreReplicas
 argument_list|()
 operator|||
 name|shards
@@ -1992,7 +1992,7 @@ name|size
 argument_list|()
 operator|==
 literal|1
-comment|/* no backups */
+comment|/* no replicas */
 condition|)
 block|{
 if|if
@@ -2047,7 +2047,7 @@ return|return;
 block|}
 comment|// initialize the counter
 name|int
-name|backupCounter
+name|replicaCounter
 init|=
 literal|0
 decl_stmt|;
@@ -2110,7 +2110,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// now, trick the counter so it won't decrease to 0
-name|backupCounter
+name|replicaCounter
 operator|=
 operator|-
 literal|100
@@ -2128,6 +2128,7 @@ name|reset
 argument_list|()
 control|)
 block|{
+comment|// if the shard is primary and relocating, add one to the counter since we perform it on the replica as well
 if|if
 condition|(
 name|shard
@@ -2136,12 +2137,25 @@ name|primary
 argument_list|()
 condition|)
 block|{
-continue|continue;
-block|}
-name|backupCounter
+if|if
+condition|(
+name|shard
+operator|.
+name|relocating
+argument_list|()
+condition|)
+block|{
+name|replicaCounter
 operator|++
 expr_stmt|;
-comment|// if we are relocating the backup, we want to perform the index operation on both the relocating
+block|}
+block|}
+else|else
+block|{
+name|replicaCounter
+operator|++
+expr_stmt|;
+comment|// if we are relocating the replica, we want to perform the index operation on both the relocating
 comment|// shard and the target shard. This means that we won't loose index operations between end of recovery
 comment|// and reassignment of the shard by the master node
 if|if
@@ -2152,9 +2166,10 @@ name|relocating
 argument_list|()
 condition|)
 block|{
-name|backupCounter
+name|replicaCounter
 operator|++
 expr_stmt|;
+block|}
 block|}
 block|}
 name|AtomicInteger
@@ -2163,7 +2178,7 @@ init|=
 operator|new
 name|AtomicInteger
 argument_list|(
-name|backupCounter
+name|replicaCounter
 argument_list|)
 decl_stmt|;
 for|for
@@ -2178,6 +2193,11 @@ name|reset
 argument_list|()
 control|)
 block|{
+name|boolean
+name|doOnlyOnRelocating
+init|=
+literal|false
+decl_stmt|;
 if|if
 condition|(
 name|shard
@@ -2186,9 +2206,25 @@ name|primary
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
+name|shard
+operator|.
+name|relocating
+argument_list|()
+condition|)
+block|{
+name|doOnlyOnRelocating
+operator|=
+literal|true
+expr_stmt|;
+block|}
+else|else
+block|{
 continue|continue;
 block|}
-comment|// we index on a backup that is initializing as well since we might not have got the event
+block|}
+comment|// we index on a replica that is initializing as well since we might not have got the event
 comment|// yet that it was started. We will get an exception IllegalShardState exception if its not started
 comment|// and that's fine, we will ignore it
 comment|// if we don't have that node, it means that it might have failed and will be created again, in
@@ -2274,7 +2310,13 @@ break|break;
 block|}
 continue|continue;
 block|}
-name|performOnBackup
+if|if
+condition|(
+operator|!
+name|doOnlyOnRelocating
+condition|)
+block|{
+name|performOnReplica
 argument_list|(
 name|response
 argument_list|,
@@ -2288,6 +2330,7 @@ name|currentNodeId
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|shard
@@ -2296,7 +2339,7 @@ name|relocating
 argument_list|()
 condition|)
 block|{
-name|performOnBackup
+name|performOnReplica
 argument_list|(
 name|response
 argument_list|,
@@ -2313,10 +2356,10 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|performOnBackup
+DECL|method|performOnReplica
 specifier|private
 name|void
-name|performOnBackup
+name|performOnReplica
 parameter_list|(
 specifier|final
 name|Response
@@ -2382,7 +2425,7 @@ name|sendRequest
 argument_list|(
 name|node
 argument_list|,
-name|transportBackupAction
+name|transportReplicaAction
 argument_list|()
 argument_list|,
 name|shardRequest
@@ -2418,7 +2461,7 @@ block|{
 if|if
 condition|(
 operator|!
-name|ignoreBackupException
+name|ignoreReplicaException
 argument_list|(
 name|exp
 operator|.
@@ -2436,7 +2479,7 @@ operator|+
 name|transportAction
 argument_list|()
 operator|+
-literal|" on backup "
+literal|" on replica "
 operator|+
 name|shards
 operator|.
@@ -2457,7 +2500,7 @@ operator|+
 name|transportAction
 argument_list|()
 operator|+
-literal|"] on backup, message ["
+literal|"] on replica, message ["
 operator|+
 name|detailedMessage
 argument_list|(
@@ -2582,7 +2625,7 @@ parameter_list|()
 block|{
 try|try
 block|{
-name|shardOperationOnBackup
+name|shardOperationOnReplica
 argument_list|(
 name|shardRequest
 argument_list|)
@@ -2597,7 +2640,7 @@ block|{
 if|if
 condition|(
 operator|!
-name|ignoreBackupException
+name|ignoreReplicaException
 argument_list|(
 name|e
 argument_list|)
@@ -2612,7 +2655,7 @@ operator|+
 name|transportAction
 argument_list|()
 operator|+
-literal|" on backup "
+literal|" on replica "
 operator|+
 name|shards
 operator|.
@@ -2633,7 +2676,7 @@ operator|+
 name|transportAction
 argument_list|()
 operator|+
-literal|"] on backup, message ["
+literal|"] on replica, message ["
 operator|+
 name|detailedMessage
 argument_list|(
@@ -2672,7 +2715,7 @@ else|else
 block|{
 try|try
 block|{
-name|shardOperationOnBackup
+name|shardOperationOnReplica
 argument_list|(
 name|shardRequest
 argument_list|)
@@ -2687,7 +2730,7 @@ block|{
 if|if
 condition|(
 operator|!
-name|ignoreBackupException
+name|ignoreReplicaException
 argument_list|(
 name|e
 argument_list|)
@@ -2702,7 +2745,7 @@ operator|+
 name|transportAction
 argument_list|()
 operator|+
-literal|" on backup "
+literal|" on replica"
 operator|+
 name|shards
 operator|.
@@ -2723,7 +2766,7 @@ operator|+
 name|transportAction
 argument_list|()
 operator|+
-literal|"] on backup, message ["
+literal|"] on replica, message ["
 operator|+
 name|detailedMessage
 argument_list|(
@@ -2794,11 +2837,11 @@ block|}
 block|}
 block|}
 block|}
-comment|/**          * Should an exception be ignored when the operation is performed on the backup. The exception          * is ignored if it is:          *          *<ul>          *<li><tt>IllegalIndexShardStateException</tt>: The shard has not yet moved to started mode (it is still recovering).          *<li><tt>IndexMissingException</tt>/<tt>IndexShardMissingException</tt>: The shard has not yet started to initialize on the target node.          *</ul>          */
-DECL|method|ignoreBackupException
+comment|/**          * Should an exception be ignored when the operation is performed on the replica. The exception          * is ignored if it is:          *          *<ul>          *<li><tt>IllegalIndexShardStateException</tt>: The shard has not yet moved to started mode (it is still recovering).          *<li><tt>IndexMissingException</tt>/<tt>IndexShardMissingException</tt>: The shard has not yet started to initialize on the target node.          *</ul>          */
+DECL|method|ignoreReplicaException
 specifier|private
 name|boolean
-name|ignoreBackupException
+name|ignoreReplicaException
 parameter_list|(
 name|Throwable
 name|e

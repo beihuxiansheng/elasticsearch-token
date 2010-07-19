@@ -321,12 +321,12 @@ name|ShardGatewaySnapshotResponse
 argument_list|()
 return|;
 block|}
-DECL|method|shardOperationOnBackup
+DECL|method|shardOperationOnReplica
 annotation|@
 name|Override
 specifier|protected
 name|void
-name|shardOperationOnBackup
+name|shardOperationOnReplica
 parameter_list|(
 name|ShardOperationRequest
 name|shardRequest
@@ -378,12 +378,12 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Snapshot should only happen on primary shards.      */
-DECL|method|ignoreBackups
+DECL|method|ignoreReplicas
 annotation|@
 name|Override
 specifier|protected
 name|boolean
-name|ignoreBackups
+name|ignoreReplicas
 parameter_list|()
 block|{
 return|return

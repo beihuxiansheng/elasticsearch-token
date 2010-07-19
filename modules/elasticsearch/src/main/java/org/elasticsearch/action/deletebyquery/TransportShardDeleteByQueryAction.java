@@ -365,12 +365,12 @@ name|ShardDeleteByQueryResponse
 argument_list|()
 return|;
 block|}
-DECL|method|shardOperationOnBackup
+DECL|method|shardOperationOnReplica
 annotation|@
 name|Override
 specifier|protected
 name|void
-name|shardOperationOnBackup
+name|shardOperationOnReplica
 parameter_list|(
 name|ShardOperationRequest
 name|shardRequest
