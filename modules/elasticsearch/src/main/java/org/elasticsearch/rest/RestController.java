@@ -100,22 +100,6 @@ name|IOException
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|rest
-operator|.
-name|RestResponse
-operator|.
-name|Status
-operator|.
-name|*
-import|;
-end_import
-
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
@@ -393,7 +377,7 @@ block|}
 block|}
 DECL|method|dispatchRequest
 specifier|public
-name|void
+name|boolean
 name|dispatchRequest
 parameter_list|(
 specifier|final
@@ -421,34 +405,9 @@ operator|==
 literal|null
 condition|)
 block|{
-name|channel
-operator|.
-name|sendResponse
-argument_list|(
-operator|new
-name|StringRestResponse
-argument_list|(
-name|BAD_REQUEST
-argument_list|,
-literal|"No handler found for uri ["
-operator|+
-name|request
-operator|.
-name|uri
-argument_list|()
-operator|+
-literal|"] and method ["
-operator|+
-name|request
-operator|.
-name|method
-argument_list|()
-operator|+
-literal|"]"
-argument_list|)
-argument_list|)
-expr_stmt|;
-return|return;
+return|return
+literal|false
+return|;
 block|}
 try|try
 block|{
@@ -508,6 +467,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+return|return
+literal|true
+return|;
 block|}
 DECL|method|getHandler
 specifier|private

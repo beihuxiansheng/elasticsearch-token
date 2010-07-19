@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An http response that is built on top of {@link org.apache.lucene.util.UnicodeUtil.UTF8Result}.  *  *<p>Note, this class assumes that the utf8 result is not thread safe.  *  * @author kimchy (Shay Banon)  */
+comment|/**  * An http response that is built on top of {@link org.apache.lucene.util.UnicodeUtil.UTF8Result}.  *  *<p>Note, this class assumes that the utf8 result is not thread safe.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class

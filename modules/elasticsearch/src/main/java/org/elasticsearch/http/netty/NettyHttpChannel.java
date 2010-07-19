@@ -185,7 +185,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -414,6 +414,48 @@ operator|.
 name|HTTP_1_1
 argument_list|,
 name|status
+argument_list|)
+expr_stmt|;
+block|}
+comment|// add support for cross origin
+name|resp
+operator|.
+name|addHeader
+argument_list|(
+literal|"Access-Control-Allow-Origin"
+argument_list|,
+literal|"*"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|request
+operator|.
+name|getMethod
+argument_list|()
+operator|==
+name|HttpMethod
+operator|.
+name|OPTIONS
+condition|)
+block|{
+comment|// also add more access control parameters
+name|resp
+operator|.
+name|addHeader
+argument_list|(
+literal|"Access-Control-Max-Age"
+argument_list|,
+literal|1728000
+argument_list|)
+expr_stmt|;
+name|resp
+operator|.
+name|addHeader
+argument_list|(
+literal|"Access-Control-Allow-Methods"
+argument_list|,
+literal|"PUT, DELETE"
 argument_list|)
 expr_stmt|;
 block|}
