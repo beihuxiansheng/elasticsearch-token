@@ -34,16 +34,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|ExceptionsHelper
 import|;
 end_import
@@ -401,6 +391,18 @@ operator|.
 name|indices
 operator|.
 name|IndicesService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|node
+operator|.
+name|NodeCloseException
 import|;
 end_import
 
@@ -1621,6 +1623,13 @@ name|unwrapCause
 argument_list|()
 operator|instanceof
 name|ConnectTransportException
+operator|||
+name|exp
+operator|.
+name|unwrapCause
+argument_list|()
+operator|instanceof
+name|NodeCloseException
 condition|)
 block|{
 name|primaryOperationStarted
@@ -1829,9 +1838,12 @@ operator|.
 name|onFailure
 argument_list|(
 operator|new
-name|ElasticSearchIllegalStateException
+name|NodeCloseException
 argument_list|(
-literal|"node is shutting down"
+name|nodes
+operator|.
+name|localNode
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

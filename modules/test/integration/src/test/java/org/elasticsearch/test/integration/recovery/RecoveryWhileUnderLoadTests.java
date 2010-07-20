@@ -56,6 +56,34 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|logging
+operator|.
+name|ESLogger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|logging
+operator|.
+name|Loggers
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|integration
@@ -182,6 +210,21 @@ name|RecoveryWhileUnderLoadTests
 extends|extends
 name|AbstractNodesTests
 block|{
+DECL|field|logger
+specifier|private
+specifier|final
+name|ESLogger
+name|logger
+init|=
+name|Loggers
+operator|.
+name|getLogger
+argument_list|(
+name|RecoveryWhileUnderLoadTests
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|method|shutdownNodes
 annotation|@
 name|AfterMethod
@@ -204,9 +247,23 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> starting [node1] ..."
+argument_list|)
+expr_stmt|;
 name|startNode
 argument_list|(
 literal|"node1"
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> creating test index ..."
 argument_list|)
 expr_stmt|;
 name|client
@@ -271,6 +328,17 @@ operator|.
 name|length
 argument_list|)
 decl_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> starting {} indexing threads"
+argument_list|,
+name|writers
+operator|.
+name|length
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -288,6 +356,12 @@ name|i
 operator|++
 control|)
 block|{
+specifier|final
+name|int
+name|indexerId
+init|=
+name|i
+decl_stmt|;
 name|writers
 index|[
 name|i
@@ -304,6 +378,17 @@ name|void
 name|run
 parameter_list|()
 block|{
+try|try
+block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"**** starting indexing thread {}"
+argument_list|,
+name|indexerId
+argument_list|)
+expr_stmt|;
 while|while
 condition|(
 operator|!
@@ -372,11 +457,24 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 block|}
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"**** done indexing thread {}"
+argument_list|,
+name|indexerId
+argument_list|)
+expr_stmt|;
+block|}
+finally|finally
+block|{
 name|stopLatch
 operator|.
 name|countDown
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 expr_stmt|;
@@ -389,6 +487,13 @@ name|start
 argument_list|()
 expr_stmt|;
 block|}
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> waiting for 20000 docs to be indexed ..."
+argument_list|)
+expr_stmt|;
 while|while
 condition|(
 name|client
@@ -445,6 +550,20 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 block|}
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> 20000 docs indexed"
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> flushing the index ...."
+argument_list|)
+expr_stmt|;
 comment|// now flush, just to make sure we have some data in the index, not just translog
 name|client
 argument_list|(
@@ -465,6 +584,13 @@ argument_list|()
 operator|.
 name|actionGet
 argument_list|()
+expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> waiting for 40000 docs to be indexed ..."
+argument_list|)
 expr_stmt|;
 while|while
 condition|(
@@ -522,10 +648,31 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 block|}
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> 40000 docs indexed"
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> starting [node2] ..."
+argument_list|)
+expr_stmt|;
 comment|// now start another node, while we index
 name|startNode
 argument_list|(
-literal|"server2"
+literal|"node2"
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> waiting for GREEN health status ..."
 argument_list|)
 expr_stmt|;
 comment|// make sure the cluster state is green, and all has been recovered
@@ -570,7 +717,13 @@ name|GREEN
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// wait till we index 10,0000
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> waiting for 100000 docs to be indexed ..."
+argument_list|)
+expr_stmt|;
 while|while
 condition|(
 name|client
@@ -627,6 +780,20 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 block|}
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> 100000 docs indexed"
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> marking and waiting for indexing threads to stop ..."
+argument_list|)
+expr_stmt|;
 name|stop
 operator|.
 name|set
@@ -638,6 +805,20 @@ name|stopLatch
 operator|.
 name|await
 argument_list|()
+expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> indexing threads stopped"
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> refreshing the index"
+argument_list|)
 expr_stmt|;
 name|client
 argument_list|(
@@ -658,6 +839,13 @@ argument_list|()
 operator|.
 name|actionGet
 argument_list|()
+expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> verifying indexed content"
+argument_list|)
 expr_stmt|;
 for|for
 control|(
@@ -720,9 +908,23 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> starting [node1] ..."
+argument_list|)
+expr_stmt|;
 name|startNode
 argument_list|(
 literal|"node1"
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> creating test index ..."
 argument_list|)
 expr_stmt|;
 name|client
@@ -775,6 +977,17 @@ index|[
 literal|5
 index|]
 decl_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> starting {} indexing threads"
+argument_list|,
+name|writers
+operator|.
+name|length
+argument_list|)
+expr_stmt|;
 specifier|final
 name|CountDownLatch
 name|stopLatch
@@ -804,6 +1017,12 @@ name|i
 operator|++
 control|)
 block|{
+specifier|final
+name|int
+name|indexerId
+init|=
+name|i
+decl_stmt|;
 name|writers
 index|[
 name|i
@@ -820,6 +1039,17 @@ name|void
 name|run
 parameter_list|()
 block|{
+try|try
+block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"**** starting indexing thread {}"
+argument_list|,
+name|indexerId
+argument_list|)
+expr_stmt|;
 while|while
 condition|(
 operator|!
@@ -888,11 +1118,24 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 block|}
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"**** done indexing thread {}"
+argument_list|,
+name|indexerId
+argument_list|)
+expr_stmt|;
+block|}
+finally|finally
+block|{
 name|stopLatch
 operator|.
 name|countDown
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 expr_stmt|;
@@ -905,6 +1148,13 @@ name|start
 argument_list|()
 expr_stmt|;
 block|}
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> waiting for 20000 docs to be indexed ..."
+argument_list|)
+expr_stmt|;
 while|while
 condition|(
 name|client
@@ -961,6 +1211,20 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 block|}
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> 20000 docs indexed"
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> flushing the index ...."
+argument_list|)
+expr_stmt|;
 comment|// now flush, just to make sure we have some data in the index, not just translog
 name|client
 argument_list|(
@@ -981,6 +1245,13 @@ argument_list|()
 operator|.
 name|actionGet
 argument_list|()
+expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> waiting for 40000 docs to be indexed ..."
+argument_list|)
 expr_stmt|;
 while|while
 condition|(
@@ -1038,10 +1309,30 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 block|}
-comment|// now start another node, while we index
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> 40000 docs indexed"
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> starting [node2] ..."
+argument_list|)
+expr_stmt|;
 name|startNode
 argument_list|(
 literal|"node2"
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> starting [node3] ..."
 argument_list|)
 expr_stmt|;
 name|startNode
@@ -1049,9 +1340,23 @@ argument_list|(
 literal|"node3"
 argument_list|)
 expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> starting [node4] ..."
+argument_list|)
+expr_stmt|;
 name|startNode
 argument_list|(
 literal|"node4"
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> waiting for GREEN health status ..."
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -1093,6 +1398,13 @@ name|ClusterHealthStatus
 operator|.
 name|GREEN
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> waiting for 150000 docs to be indexed ..."
 argument_list|)
 expr_stmt|;
 while|while
@@ -1151,6 +1463,13 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 block|}
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> 150000 docs indexed"
+argument_list|)
+expr_stmt|;
 name|stop
 operator|.
 name|set
@@ -1162,6 +1481,39 @@ name|stopLatch
 operator|.
 name|await
 argument_list|()
+expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> marking and waiting for indexing threads to stop ..."
+argument_list|)
+expr_stmt|;
+name|stop
+operator|.
+name|set
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|stopLatch
+operator|.
+name|await
+argument_list|()
+expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> indexing threads stopped"
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> refreshing the index"
+argument_list|)
 expr_stmt|;
 name|client
 argument_list|(
@@ -1182,6 +1534,13 @@ argument_list|()
 operator|.
 name|actionGet
 argument_list|()
+expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> verifying indexed content"
+argument_list|)
 expr_stmt|;
 for|for
 control|(
@@ -1244,14 +1603,35 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> starting [node1] ..."
+argument_list|)
+expr_stmt|;
 name|startNode
 argument_list|(
 literal|"node1"
 argument_list|)
 expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> starting [node2] ..."
+argument_list|)
+expr_stmt|;
 name|startNode
 argument_list|(
 literal|"node2"
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> creating test index ..."
 argument_list|)
 expr_stmt|;
 name|client
@@ -1316,6 +1696,17 @@ operator|.
 name|length
 argument_list|)
 decl_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> starting {} indexing threads"
+argument_list|,
+name|writers
+operator|.
+name|length
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -1333,6 +1724,12 @@ name|i
 operator|++
 control|)
 block|{
+specifier|final
+name|int
+name|indexerId
+init|=
+name|i
+decl_stmt|;
 name|writers
 index|[
 name|i
@@ -1351,6 +1748,15 @@ parameter_list|()
 block|{
 try|try
 block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"**** starting indexing thread {}"
+argument_list|,
+name|indexerId
+argument_list|)
+expr_stmt|;
 while|while
 condition|(
 operator|!
@@ -1419,6 +1825,15 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 block|}
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"**** done indexing thread {}"
+argument_list|,
+name|indexerId
+argument_list|)
+expr_stmt|;
 block|}
 finally|finally
 block|{
@@ -1440,6 +1855,13 @@ name|start
 argument_list|()
 expr_stmt|;
 block|}
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> waiting for 20000 docs to be indexed ..."
+argument_list|)
+expr_stmt|;
 while|while
 condition|(
 name|client
@@ -1496,6 +1918,20 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 block|}
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> 20000 docs indexed"
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> flushing the index ...."
+argument_list|)
+expr_stmt|;
 comment|// now flush, just to make sure we have some data in the index, not just translog
 name|client
 argument_list|(
@@ -1516,6 +1952,13 @@ argument_list|()
 operator|.
 name|actionGet
 argument_list|()
+expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> waiting for 40000 docs to be indexed ..."
+argument_list|)
 expr_stmt|;
 while|while
 condition|(
@@ -1573,15 +2016,43 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 block|}
-comment|// now start nore nodes, while we index
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> 40000 docs indexed"
+argument_list|)
+expr_stmt|;
+comment|// now start more nodes, while we index
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> starting [node3] ..."
+argument_list|)
+expr_stmt|;
 name|startNode
 argument_list|(
 literal|"node3"
 argument_list|)
 expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> starting [node4] ..."
+argument_list|)
+expr_stmt|;
 name|startNode
 argument_list|(
 literal|"node4"
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> waiting for GREEN health status ..."
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -1625,6 +2096,13 @@ name|GREEN
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> waiting for 100000 docs to be indexed ..."
+argument_list|)
+expr_stmt|;
 while|while
 condition|(
 name|client
@@ -1650,7 +2128,7 @@ operator|.
 name|count
 argument_list|()
 operator|<
-literal|80000
+literal|100000
 condition|)
 block|{
 name|Thread
@@ -1681,10 +2159,31 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 block|}
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> 100000 docs indexed"
+argument_list|)
+expr_stmt|;
 comment|// now, shutdown nodes
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> shutting down [node1] ..."
+argument_list|)
+expr_stmt|;
 name|closeNode
 argument_list|(
 literal|"node1"
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> waiting for GREEN health status ..."
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -1726,6 +2225,13 @@ name|ClusterHealthStatus
 operator|.
 name|GREEN
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> shutting down [node3] ..."
 argument_list|)
 expr_stmt|;
 name|closeNode
@@ -1733,6 +2239,13 @@ argument_list|(
 literal|"node3"
 argument_list|)
 expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> waiting for GREEN health status ..."
+argument_list|)
+expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
@@ -1774,9 +2287,23 @@ name|GREEN
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> shutting down [node4] ..."
+argument_list|)
+expr_stmt|;
 name|closeNode
 argument_list|(
 literal|"node4"
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> waiting for YELLOW health status ..."
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -1818,6 +2345,13 @@ name|ClusterHealthStatus
 operator|.
 name|YELLOW
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> marking and waiting for indexing threads to stop ..."
 argument_list|)
 expr_stmt|;
 name|stop
@@ -1832,6 +2366,13 @@ operator|.
 name|await
 argument_list|()
 expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> indexing threads stopped"
+argument_list|)
+expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
@@ -1871,6 +2412,40 @@ name|ClusterHealthStatus
 operator|.
 name|YELLOW
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> refreshing the index"
+argument_list|)
+expr_stmt|;
+name|client
+argument_list|(
+literal|"node2"
+argument_list|)
+operator|.
+name|admin
+argument_list|()
+operator|.
+name|indices
+argument_list|()
+operator|.
+name|prepareRefresh
+argument_list|()
+operator|.
+name|execute
+argument_list|()
+operator|.
+name|actionGet
+argument_list|()
+expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> verifying indexed content"
 argument_list|)
 expr_stmt|;
 name|client

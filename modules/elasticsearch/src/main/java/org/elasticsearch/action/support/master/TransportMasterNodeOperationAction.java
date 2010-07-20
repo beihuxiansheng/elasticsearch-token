@@ -172,6 +172,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|node
+operator|.
+name|NodeCloseException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|threadpool
 operator|.
 name|ThreadPool
@@ -407,6 +419,7 @@ operator|.
 name|state
 argument_list|()
 decl_stmt|;
+specifier|final
 name|DiscoveryNodes
 name|nodes
 init|=
@@ -690,9 +703,12 @@ operator|.
 name|onFailure
 argument_list|(
 operator|new
-name|ElasticSearchIllegalStateException
+name|NodeCloseException
 argument_list|(
-literal|"node is shutting down"
+name|nodes
+operator|.
+name|localNode
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
