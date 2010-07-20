@@ -1660,6 +1660,18 @@ operator|.
 name|warn
 argument_list|(
 literal|"[{}][{}] master [{}] marked shard as started, but shard have not been created, mark shard as failed"
+argument_list|,
+name|shardRouting
+operator|.
+name|index
+argument_list|()
+argument_list|,
+name|shardId
+argument_list|,
+name|nodes
+operator|.
+name|masterNode
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|shardStateAction
