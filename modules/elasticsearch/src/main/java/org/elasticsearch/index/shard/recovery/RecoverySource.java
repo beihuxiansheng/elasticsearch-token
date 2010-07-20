@@ -2334,7 +2334,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IOException
+name|Exception
 name|e1
 parameter_list|)
 block|{
