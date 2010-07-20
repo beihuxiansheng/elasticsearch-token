@@ -1297,6 +1297,13 @@ operator|.
 name|state
 argument_list|()
 decl_stmt|;
+name|nodes
+operator|=
+name|clusterState
+operator|.
+name|nodes
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -1336,13 +1343,6 @@ return|return
 literal|false
 return|;
 block|}
-name|nodes
-operator|=
-name|clusterState
-operator|.
-name|nodes
-argument_list|()
-expr_stmt|;
 try|try
 block|{
 name|shards
