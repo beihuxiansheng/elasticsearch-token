@@ -92,6 +92,18 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
+name|IndicesAdminClient
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|client
+operator|.
 name|action
 operator|.
 name|RequestBuilder
@@ -155,7 +167,7 @@ DECL|method|BaseIndicesRequestBuilder
 specifier|protected
 name|BaseIndicesRequestBuilder
 parameter_list|(
-name|InternalIndicesAdminClient
+name|IndicesAdminClient
 name|client
 parameter_list|,
 name|Request
@@ -166,6 +178,9 @@ name|this
 operator|.
 name|client
 operator|=
+operator|(
+name|InternalIndicesAdminClient
+operator|)
 name|client
 expr_stmt|;
 name|this

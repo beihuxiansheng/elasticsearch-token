@@ -82,11 +82,7 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|action
-operator|.
-name|support
-operator|.
-name|BaseRequestBuilder
+name|Client
 import|;
 end_import
 
@@ -98,9 +94,11 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|internal
+name|action
 operator|.
-name|InternalClient
+name|support
+operator|.
+name|BaseRequestBuilder
 import|;
 end_import
 
@@ -139,7 +137,7 @@ DECL|method|CountRequestBuilder
 specifier|public
 name|CountRequestBuilder
 parameter_list|(
-name|InternalClient
+name|Client
 name|client
 parameter_list|)
 block|{

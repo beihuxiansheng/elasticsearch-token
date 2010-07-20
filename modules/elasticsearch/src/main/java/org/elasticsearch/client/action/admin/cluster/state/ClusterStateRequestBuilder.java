@@ -78,15 +78,7 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|action
-operator|.
-name|admin
-operator|.
-name|cluster
-operator|.
-name|support
-operator|.
-name|BaseClusterRequestBuilder
+name|ClusterAdminClient
 import|;
 end_import
 
@@ -98,9 +90,15 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|internal
+name|action
 operator|.
-name|InternalClusterAdminClient
+name|admin
+operator|.
+name|cluster
+operator|.
+name|support
+operator|.
+name|BaseClusterRequestBuilder
 import|;
 end_import
 
@@ -125,7 +123,7 @@ DECL|method|ClusterStateRequestBuilder
 specifier|public
 name|ClusterStateRequestBuilder
 parameter_list|(
-name|InternalClusterAdminClient
+name|ClusterAdminClient
 name|clusterClient
 parameter_list|)
 block|{

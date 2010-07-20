@@ -88,6 +88,18 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
+name|Client
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|client
+operator|.
 name|action
 operator|.
 name|RequestBuilder
@@ -151,7 +163,7 @@ DECL|method|BaseRequestBuilder
 specifier|protected
 name|BaseRequestBuilder
 parameter_list|(
-name|InternalClient
+name|Client
 name|client
 parameter_list|,
 name|Request
@@ -162,6 +174,9 @@ name|this
 operator|.
 name|client
 operator|=
+operator|(
+name|InternalClient
+operator|)
 name|client
 expr_stmt|;
 name|this

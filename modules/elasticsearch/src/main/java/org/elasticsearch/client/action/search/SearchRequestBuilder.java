@@ -104,11 +104,7 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|action
-operator|.
-name|support
-operator|.
-name|BaseRequestBuilder
+name|Client
 import|;
 end_import
 
@@ -120,9 +116,11 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|internal
+name|action
 operator|.
-name|InternalClient
+name|support
+operator|.
+name|BaseRequestBuilder
 import|;
 end_import
 
@@ -251,7 +249,7 @@ DECL|method|SearchRequestBuilder
 specifier|public
 name|SearchRequestBuilder
 parameter_list|(
-name|InternalClient
+name|Client
 name|client
 parameter_list|)
 block|{
@@ -701,6 +699,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Adds a script based field to load and return. The field does not have to be stored,      * but its recommended to use non analyzed or numeric fields.      *      * @param name   The name that will represent this value in the return hit      * @param script The script to use      */
 DECL|method|addScriptField
 specifier|public
 name|SearchRequestBuilder
@@ -727,6 +726,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Adds a script based field to load and return. The field does not have to be stored,      * but its recommended to use non analyzed or numeric fields.      *      * @param name   The name that will represent this value in the return hit      * @param script The script to use      * @param params Parameters that the script can use.      */
 DECL|method|addScriptField
 specifier|public
 name|SearchRequestBuilder
