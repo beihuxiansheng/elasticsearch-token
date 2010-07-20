@@ -102,6 +102,20 @@ name|BaseIndicesRequestBuilder
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|unit
+operator|.
+name|TimeValue
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
@@ -183,6 +197,27 @@ argument_list|(
 name|index
 argument_list|,
 name|alias
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the master node timeout in case the master has not yet been discovered.      */
+DECL|method|setMasterNodeTimeout
+specifier|public
+name|IndicesAliasesRequestBuilder
+name|setMasterNodeTimeout
+parameter_list|(
+name|TimeValue
+name|timeout
+parameter_list|)
+block|{
+name|request
+operator|.
+name|masterNodeTimeout
+argument_list|(
+name|timeout
 argument_list|)
 expr_stmt|;
 return|return

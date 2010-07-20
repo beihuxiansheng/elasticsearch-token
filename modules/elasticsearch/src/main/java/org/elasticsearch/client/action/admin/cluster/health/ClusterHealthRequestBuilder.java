@@ -190,6 +190,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the master node timeout in case the master has not yet been discovered.      */
+DECL|method|setMasterNodeTimeout
+specifier|public
+name|ClusterHealthRequestBuilder
+name|setMasterNodeTimeout
+parameter_list|(
+name|TimeValue
+name|timeout
+parameter_list|)
+block|{
+name|request
+operator|.
+name|masterNodeTimeout
+argument_list|(
+name|timeout
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 DECL|method|setTimeout
 specifier|public
 name|ClusterHealthRequestBuilder
