@@ -150,6 +150,15 @@ specifier|public
 class|class
 name|Loggers
 block|{
+DECL|field|SPACE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SPACE
+init|=
+literal|" "
+decl_stmt|;
 DECL|field|consoleLoggingEnabled
 specifier|private
 specifier|static
@@ -284,6 +293,8 @@ name|Lists
 operator|.
 name|asList
 argument_list|(
+name|SPACE
+argument_list|,
 name|index
 operator|.
 name|name
@@ -658,6 +669,26 @@ operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|prefixX
+operator|.
+name|equals
+argument_list|(
+name|SPACE
+argument_list|)
+condition|)
+block|{
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|" "
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|sb
 operator|.
 name|append
@@ -675,6 +706,7 @@ argument_list|(
 literal|"]"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 if|if
