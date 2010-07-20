@@ -83,6 +83,9 @@ argument_list|,
 name|cause
 argument_list|)
 expr_stmt|;
+name|fillStack
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_class

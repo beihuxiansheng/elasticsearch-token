@@ -1170,6 +1170,20 @@ block|}
 block|}
 comment|// callback that an exception happened, but on a different thread since we don't
 comment|// want handlers to worry about stack overflows
+specifier|final
+name|SendRequestTransportException
+name|sendRequestException
+init|=
+operator|new
+name|SendRequestTransportException
+argument_list|(
+name|node
+argument_list|,
+name|action
+argument_list|,
+name|e
+argument_list|)
+decl_stmt|;
 name|threadPool
 operator|.
 name|execute
@@ -1189,15 +1203,7 @@ name|handler
 operator|.
 name|handleException
 argument_list|(
-operator|new
-name|SendRequestTransportException
-argument_list|(
-name|node
-argument_list|,
-name|action
-argument_list|,
-name|e
-argument_list|)
+name|sendRequestException
 argument_list|)
 expr_stmt|;
 block|}
