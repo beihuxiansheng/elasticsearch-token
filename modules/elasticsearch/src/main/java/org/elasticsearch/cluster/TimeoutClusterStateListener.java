@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * An exception to cluster state listener that allows for timeouts and for post added notifications.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_interface
@@ -40,6 +40,16 @@ name|TimeoutClusterStateListener
 extends|extends
 name|ClusterStateListener
 block|{
+DECL|method|postAdded
+name|void
+name|postAdded
+parameter_list|()
+function_decl|;
+DECL|method|onClose
+name|void
+name|onClose
+parameter_list|()
+function_decl|;
 DECL|method|onTimeout
 name|void
 name|onTimeout

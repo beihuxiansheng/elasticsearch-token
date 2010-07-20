@@ -89,14 +89,6 @@ name|TimeoutClusterStateListener
 name|listener
 parameter_list|)
 function_decl|;
-DECL|method|remove
-name|void
-name|remove
-parameter_list|(
-name|TimeoutClusterStateListener
-name|listener
-parameter_list|)
-function_decl|;
 DECL|method|submitStateUpdateTask
 name|void
 name|submitStateUpdateTask

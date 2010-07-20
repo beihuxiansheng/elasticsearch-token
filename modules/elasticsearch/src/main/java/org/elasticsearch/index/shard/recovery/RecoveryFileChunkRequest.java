@@ -412,6 +412,32 @@ name|contentLength
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|toString
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+name|shardId
+operator|+
+literal|": name='"
+operator|+
+name|name
+operator|+
+literal|'\''
+operator|+
+literal|", position="
+operator|+
+name|position
+operator|+
+literal|", length="
+operator|+
+name|length
+return|;
+block|}
 block|}
 end_class
 
