@@ -608,9 +608,9 @@ specifier|final
 name|SimilarityService
 name|similarityService
 decl_stmt|;
+comment|// no need for volatile, its always used under a lock
 DECL|field|indexWriter
 specifier|private
-specifier|volatile
 name|IndexWriter
 name|indexWriter
 decl_stmt|;
@@ -827,6 +827,16 @@ name|indexingBufferSize
 parameter_list|)
 block|{
 comment|// LUCENE MONITOR - If this restriction is removed from Lucene, remove it from here
+name|rwl
+operator|.
+name|readLock
+argument_list|()
+operator|.
+name|lock
+argument_list|()
+expr_stmt|;
+try|try
+block|{
 if|if
 condition|(
 name|indexingBufferSize
@@ -886,6 +896,18 @@ operator|.
 name|mbFrac
 argument_list|()
 argument_list|)
+expr_stmt|;
+block|}
+block|}
+finally|finally
+block|{
+name|rwl
+operator|.
+name|readLock
+argument_list|()
+operator|.
+name|unlock
+argument_list|()
 expr_stmt|;
 block|}
 block|}
