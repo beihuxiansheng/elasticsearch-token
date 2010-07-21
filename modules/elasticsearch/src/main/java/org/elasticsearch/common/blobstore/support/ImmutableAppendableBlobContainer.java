@@ -247,7 +247,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IOException
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -258,6 +258,7 @@ argument_list|(
 name|e
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
 name|FastByteArrayInputStream
 name|is
