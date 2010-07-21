@@ -163,8 +163,6 @@ literal|"<em class=\"hlt1\">"
 block|,
 literal|"<em class=\"hlt2\">"
 block|,
-literal|"<em class=\"hlt2\">"
-block|,
 literal|"<em class=\"hlt3\">"
 block|,
 literal|"<em class=\"hlt4\">"
@@ -178,6 +176,8 @@ block|,
 literal|"<em class=\"hlt8\">"
 block|,
 literal|"<em class=\"hlt9\">"
+block|,
+literal|"<em class=\"hlt10\">"
 block|}
 decl_stmt|;
 DECL|field|STYLED_POST_TAGS
