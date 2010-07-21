@@ -341,6 +341,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Waits for N number of nodes. Use "12" for exact mapping, ">12" and "<12" for range.      */
+DECL|method|setWaitForNodes
+specifier|public
+name|ClusterHealthRequestBuilder
+name|setWaitForNodes
+parameter_list|(
+name|String
+name|waitForNodes
+parameter_list|)
+block|{
+name|request
+operator|.
+name|waitForNodes
+argument_list|(
+name|waitForNodes
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 DECL|method|doExecute
 annotation|@
 name|Override

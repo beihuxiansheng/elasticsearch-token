@@ -1673,6 +1673,21 @@ operator|.
 name|lock
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|indexWriter
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|EngineClosedException
+argument_list|(
+name|shardId
+argument_list|)
+throw|;
+block|}
 try|try
 block|{
 comment|// this engine always acts as if waitForOperations=true

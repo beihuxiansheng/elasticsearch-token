@@ -665,13 +665,6 @@ argument_list|,
 name|settings
 argument_list|)
 expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|200
-argument_list|)
-expr_stmt|;
 name|ClusterService
 name|clusterService2
 init|=
@@ -722,6 +715,11 @@ argument_list|()
 operator|.
 name|waitForGreenStatus
 argument_list|()
+operator|.
+name|waitForNodes
+argument_list|(
+literal|"2"
+argument_list|)
 argument_list|)
 operator|.
 name|actionGet
@@ -878,13 +876,6 @@ argument_list|,
 name|settings
 argument_list|)
 expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|200
-argument_list|)
-expr_stmt|;
 name|ClusterService
 name|clusterService3
 init|=
@@ -935,6 +926,11 @@ argument_list|()
 operator|.
 name|waitForGreenStatus
 argument_list|()
+operator|.
+name|waitForNodes
+argument_list|(
+literal|"3"
+argument_list|)
 operator|.
 name|waitForRelocatingShards
 argument_list|(
@@ -1221,14 +1217,6 @@ argument_list|(
 literal|"server1"
 argument_list|)
 expr_stmt|;
-comment|// wait a bit so it will be discovered as removed
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|200
-argument_list|)
-expr_stmt|;
 comment|// verify health
 name|logger
 operator|.
@@ -1261,6 +1249,11 @@ operator|.
 name|waitForRelocatingShards
 argument_list|(
 literal|0
+argument_list|)
+operator|.
+name|waitForNodes
+argument_list|(
+literal|"2"
 argument_list|)
 argument_list|)
 operator|.
@@ -1876,14 +1869,6 @@ argument_list|,
 name|settings
 argument_list|)
 expr_stmt|;
-comment|// wait a bit
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|200
-argument_list|)
-expr_stmt|;
 name|logger
 operator|.
 name|info
@@ -1915,6 +1900,11 @@ operator|.
 name|waitForRelocatingShards
 argument_list|(
 literal|0
+argument_list|)
+operator|.
+name|waitForNodes
+argument_list|(
+literal|"2"
 argument_list|)
 argument_list|)
 operator|.
@@ -2148,14 +2138,6 @@ argument_list|(
 literal|"server3"
 argument_list|)
 expr_stmt|;
-comment|// wait a bit so assignment will start
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|200
-argument_list|)
-expr_stmt|;
 name|ClusterService
 name|clusterService3
 init|=
@@ -2210,6 +2192,11 @@ operator|.
 name|waitForRelocatingShards
 argument_list|(
 literal|0
+argument_list|)
+operator|.
+name|waitForNodes
+argument_list|(
+literal|"3"
 argument_list|)
 argument_list|)
 operator|.
@@ -2492,14 +2479,6 @@ argument_list|(
 literal|"server1"
 argument_list|)
 expr_stmt|;
-comment|// wait a bit so it will be discovered as removed
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|200
-argument_list|)
-expr_stmt|;
 name|logger
 operator|.
 name|info
@@ -2527,6 +2506,11 @@ argument_list|()
 operator|.
 name|waitForGreenStatus
 argument_list|()
+operator|.
+name|waitForNodes
+argument_list|(
+literal|"2"
+argument_list|)
 operator|.
 name|waitForRelocatingShards
 argument_list|(
