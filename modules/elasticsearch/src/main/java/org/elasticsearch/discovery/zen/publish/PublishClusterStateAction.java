@@ -366,7 +366,7 @@ parameter_list|)
 block|{
 name|logger
 operator|.
-name|warn
+name|debug
 argument_list|(
 literal|"failed to send cluster state to [{}], should be detected as failed soon..."
 argument_list|,
