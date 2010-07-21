@@ -1185,7 +1185,12 @@ name|info
 argument_list|(
 literal|"[partial_cluster_shutdown]: done shutting down [{}]"
 argument_list|,
+operator|(
+operator|(
+name|Object
+operator|)
 name|nodesIds
+operator|)
 argument_list|)
 expr_stmt|;
 block|}
