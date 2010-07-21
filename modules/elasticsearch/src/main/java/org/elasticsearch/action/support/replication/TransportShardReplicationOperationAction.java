@@ -336,20 +336,6 @@ name|index
 operator|.
 name|shard
 operator|.
-name|IndexShardNotStartedException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|shard
-operator|.
 name|ShardId
 import|;
 end_import
@@ -1614,7 +1600,7 @@ name|RemoteTransportException
 name|exp
 parameter_list|)
 block|{
-comment|// if we got disconnected from the node, retry it...
+comment|// if we got disconnected from the node, or the node / shard is not in the right state (being closed)
 if|if
 condition|(
 name|exp
@@ -1630,6 +1616,13 @@ name|unwrapCause
 argument_list|()
 operator|instanceof
 name|NodeCloseException
+operator|||
+name|exp
+operator|.
+name|unwrapCause
+argument_list|()
+operator|instanceof
+name|IllegalIndexShardStateException
 condition|)
 block|{
 name|primaryOperationStarted
@@ -2027,6 +2020,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+comment|// shard has not been allocated yet, retry it here
 if|if
 condition|(
 name|e
@@ -2035,7 +2029,7 @@ name|IndexShardMissingException
 operator|||
 name|e
 operator|instanceof
-name|IndexShardNotStartedException
+name|IllegalIndexShardStateException
 operator|||
 name|e
 operator|instanceof
@@ -2968,7 +2962,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/**          * Should an exception be ignored when the operation is performed on the replica. The exception          * is ignored if it is:          *          *<ul>          *<li><tt>IllegalIndexShardStateException</tt>: The shard has not yet moved to started mode (it is still recovering).          *<li><tt>IndexMissingException</tt>/<tt>IndexShardMissingException</tt>: The shard has not yet started to initialize on the target node.          *</ul>          */
+comment|/**          * Should an exception be ignored when the operation is performed on the replica.          */
 DECL|method|ignoreReplicaException
 specifier|private
 name|boolean
