@@ -48,20 +48,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|store
-operator|.
-name|AlreadyClosedException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|ElasticSearchException
@@ -361,16 +347,6 @@ operator|.
 name|query
 operator|.
 name|QuerySearchResult
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
 import|;
 end_import
 
@@ -724,6 +700,7 @@ parameter_list|()
 throws|throws
 name|ElasticSearchException
 block|{
+comment|// we should close this searcher, since its a new one we create each time, and we use the IndexReader
 try|try
 block|{
 name|searcher
@@ -734,30 +711,30 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IOException
+name|Exception
 name|e
 parameter_list|)
 block|{
-comment|// ignore this exception
-block|}
-catch|catch
-parameter_list|(
-name|AlreadyClosedException
-name|e
-parameter_list|)
-block|{
-comment|// ignore this as well
+comment|// ignore any exception here
 block|}
 name|engineSearcher
 operator|.
 name|release
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|keepAliveTimeout
+operator|!=
+literal|null
+condition|)
+block|{
 name|keepAliveTimeout
 operator|.
 name|cancel
 argument_list|()
 expr_stmt|;
+block|}
 return|return
 literal|true
 return|;
