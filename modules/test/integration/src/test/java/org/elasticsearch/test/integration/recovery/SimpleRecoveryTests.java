@@ -830,6 +830,13 @@ argument_list|(
 literal|"server3"
 argument_list|)
 expr_stmt|;
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|200
+argument_list|)
+expr_stmt|;
 name|logger
 operator|.
 name|info
@@ -857,6 +864,11 @@ argument_list|()
 operator|.
 name|waitForGreenStatus
 argument_list|()
+operator|.
+name|waitForRelocatingShards
+argument_list|(
+literal|0
+argument_list|)
 operator|.
 name|waitForNodes
 argument_list|(
