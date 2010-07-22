@@ -393,16 +393,6 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|getConcreteIndexName
-specifier|protected
-name|String
-name|getConcreteIndexName
-parameter_list|()
-block|{
-return|return
-literal|"test"
-return|;
-block|}
 DECL|method|closeNodes
 annotation|@
 name|AfterMethod
