@@ -760,21 +760,6 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|retrying
-condition|)
-block|{
-name|listener
-operator|.
-name|onFailure
-argument_list|(
-name|exp
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-if|if
-condition|(
 name|exp
 operator|.
 name|unwrapCause
@@ -849,7 +834,7 @@ name|request
 argument_list|,
 name|listener
 argument_list|,
-literal|true
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -942,7 +927,7 @@ name|request
 argument_list|,
 name|listener
 argument_list|,
-literal|true
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -960,7 +945,6 @@ argument_list|(
 name|exp
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
