@@ -39,14 +39,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  * An exception indicating that node is closed.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|NodeCloseException
+DECL|class|NodeClosedException
 specifier|public
 class|class
-name|NodeCloseException
+name|NodeClosedException
 extends|extends
 name|ElasticSearchException
 block|{
@@ -56,9 +56,9 @@ specifier|final
 name|DiscoveryNode
 name|node
 decl_stmt|;
-DECL|method|NodeCloseException
+DECL|method|NodeClosedException
 specifier|public
-name|NodeCloseException
+name|NodeClosedException
 parameter_list|(
 name|DiscoveryNode
 name|node

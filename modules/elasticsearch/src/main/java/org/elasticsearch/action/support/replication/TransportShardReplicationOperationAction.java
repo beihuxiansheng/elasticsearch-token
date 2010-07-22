@@ -388,7 +388,7 @@ name|elasticsearch
 operator|.
 name|node
 operator|.
-name|NodeCloseException
+name|NodeClosedException
 import|;
 end_import
 
@@ -1615,7 +1615,7 @@ operator|.
 name|unwrapCause
 argument_list|()
 operator|instanceof
-name|NodeCloseException
+name|NodeClosedException
 operator|||
 name|exp
 operator|.
@@ -1833,7 +1833,7 @@ operator|.
 name|onFailure
 argument_list|(
 operator|new
-name|NodeCloseException
+name|NodeClosedException
 argument_list|(
 name|nodes
 operator|.
