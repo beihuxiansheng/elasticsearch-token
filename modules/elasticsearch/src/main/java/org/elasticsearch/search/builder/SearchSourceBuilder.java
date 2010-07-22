@@ -192,6 +192,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|query
+operator|.
+name|SortParseElement
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -506,7 +520,9 @@ name|name
 operator|.
 name|equals
 argument_list|(
-literal|"score"
+name|SortParseElement
+operator|.
+name|SCORE_FIELD_NAME
 argument_list|)
 condition|)
 block|{
