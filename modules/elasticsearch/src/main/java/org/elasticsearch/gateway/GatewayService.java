@@ -128,6 +128,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|StopWatch
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|component
 operator|.
 name|AbstractLifecycleComponent
@@ -981,9 +993,21 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"writing to gateway"
+literal|"writing to gateway {} ..."
+argument_list|,
+name|gateway
 argument_list|)
 expr_stmt|;
+name|StopWatch
+name|stopWatch
+init|=
+operator|new
+name|StopWatch
+argument_list|()
+operator|.
+name|start
+argument_list|()
+decl_stmt|;
 try|try
 block|{
 name|gateway
@@ -996,6 +1020,23 @@ name|state
 argument_list|()
 operator|.
 name|metaData
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"wrote to gateway {}, took {}"
+argument_list|,
+name|gateway
+argument_list|,
+name|stopWatch
+operator|.
+name|stop
+argument_list|()
+operator|.
+name|totalTime
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1038,7 +1079,9 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"reading state from gateway..."
+literal|"reading state from gateway {} ..."
+argument_list|,
+name|gateway
 argument_list|)
 expr_stmt|;
 name|MetaData

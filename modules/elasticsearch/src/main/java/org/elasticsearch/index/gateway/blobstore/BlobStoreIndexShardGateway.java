@@ -188,20 +188,6 @@ name|common
 operator|.
 name|io
 operator|.
-name|FastByteArrayInputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|io
-operator|.
 name|FastByteArrayOutputStream
 import|;
 end_import
@@ -579,6 +565,16 @@ operator|.
 name|annotation
 operator|.
 name|Nullable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|ByteArrayInputStream
 import|;
 end_import
 
@@ -4225,7 +4221,7 @@ operator|+
 literal|".md5"
 argument_list|,
 operator|new
-name|FastByteArrayInputStream
+name|ByteArrayInputStream
 argument_list|(
 name|md5
 argument_list|)

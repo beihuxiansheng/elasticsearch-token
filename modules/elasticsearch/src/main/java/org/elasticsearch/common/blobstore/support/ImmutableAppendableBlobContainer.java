@@ -98,23 +98,19 @@ name|common
 operator|.
 name|io
 operator|.
-name|FastByteArrayInputStream
+name|stream
+operator|.
+name|BytesStreamOutput
 import|;
 end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
+name|java
 operator|.
 name|io
 operator|.
-name|stream
-operator|.
-name|BytesStreamOutput
+name|ByteArrayInputStream
 import|;
 end_import
 
@@ -260,11 +256,12 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-name|FastByteArrayInputStream
+comment|// use teh sync one
+name|ByteArrayInputStream
 name|is
 init|=
 operator|new
-name|FastByteArrayInputStream
+name|ByteArrayInputStream
 argument_list|(
 name|out
 operator|.

@@ -181,7 +181,7 @@ name|blob
 init|=
 name|cloudBlobStore
 operator|.
-name|sync
+name|async
 argument_list|()
 operator|.
 name|newBlob

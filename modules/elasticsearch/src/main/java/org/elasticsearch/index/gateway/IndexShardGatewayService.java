@@ -1156,6 +1156,7 @@ specifier|synchronized
 name|void
 name|snapshot
 parameter_list|(
+specifier|final
 name|String
 name|reason
 parameter_list|)
@@ -1271,6 +1272,17 @@ name|length
 argument_list|()
 condition|)
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"snapshot ({}) to {} ..."
+argument_list|,
+name|reason
+argument_list|,
+name|shardGateway
+argument_list|)
+expr_stmt|;
 name|IndexShardGateway
 operator|.
 name|SnapshotStatus
