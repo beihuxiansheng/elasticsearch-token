@@ -394,6 +394,11 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// a new master (us), make sure we reroute shards
+name|routingTableDirty
+operator|=
+literal|true
+expr_stmt|;
 name|scheduledRoutingTableFuture
 operator|=
 name|threadPool
