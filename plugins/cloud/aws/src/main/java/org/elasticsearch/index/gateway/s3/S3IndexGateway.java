@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.gateway.none
+DECL|package|org.elasticsearch.index.gateway.s3
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|index
 operator|.
 name|gateway
 operator|.
-name|none
+name|s3
 package|;
 end_package
 
@@ -52,9 +52,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|gateway
 operator|.
-name|AbstractIndexComponent
+name|Gateway
 import|;
 end_import
 
@@ -80,7 +80,7 @@ name|index
 operator|.
 name|gateway
 operator|.
-name|IndexGateway
+name|IndexShardGateway
 import|;
 end_import
 
@@ -94,7 +94,9 @@ name|index
 operator|.
 name|gateway
 operator|.
-name|IndexShardGateway
+name|blobstore
+operator|.
+name|BlobStoreIndexGateway
 import|;
 end_import
 
@@ -117,20 +119,18 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|NoneIndexGateway
+DECL|class|S3IndexGateway
 specifier|public
 class|class
-name|NoneIndexGateway
+name|S3IndexGateway
 extends|extends
-name|AbstractIndexComponent
-implements|implements
-name|IndexGateway
+name|BlobStoreIndexGateway
 block|{
-DECL|method|NoneIndexGateway
+DECL|method|S3IndexGateway
 annotation|@
 name|Inject
 specifier|public
-name|NoneIndexGateway
+name|S3IndexGateway
 parameter_list|(
 name|Index
 name|index
@@ -139,6 +139,9 @@ annotation|@
 name|IndexSettings
 name|Settings
 name|indexSettings
+parameter_list|,
+name|Gateway
+name|gateway
 parameter_list|)
 block|{
 name|super
@@ -146,6 +149,8 @@ argument_list|(
 name|index
 argument_list|,
 name|indexSettings
+argument_list|,
+name|gateway
 argument_list|)
 expr_stmt|;
 block|}
@@ -158,7 +163,7 @@ name|type
 parameter_list|()
 block|{
 return|return
-literal|"none"
+literal|"s3"
 return|;
 block|}
 DECL|method|shardGatewayClass
@@ -175,34 +180,11 @@ name|shardGatewayClass
 parameter_list|()
 block|{
 return|return
-name|NoneIndexShardGateway
+name|S3IndexShardGateway
 operator|.
 name|class
 return|;
 block|}
-DECL|method|toString
-annotation|@
-name|Override
-specifier|public
-name|String
-name|toString
-parameter_list|()
-block|{
-return|return
-literal|"_none_"
-return|;
-block|}
-DECL|method|close
-annotation|@
-name|Override
-specifier|public
-name|void
-name|close
-parameter_list|(
-name|boolean
-name|delete
-parameter_list|)
-block|{     }
 block|}
 end_class
 

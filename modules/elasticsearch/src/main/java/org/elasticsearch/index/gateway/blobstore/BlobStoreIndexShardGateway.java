@@ -2090,14 +2090,41 @@ try|try
 block|{
 name|translogContainer
 operator|.
-name|deleteBlob
+name|deleteBlobsByFilter
+argument_list|(
+operator|new
+name|BlobContainer
+operator|.
+name|BlobNameFilter
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|accept
+parameter_list|(
+name|String
+name|blobName
+parameter_list|)
+block|{
+comment|// delete all the ones that are not this translog
+return|return
+operator|!
+name|blobName
+operator|.
+name|equals
 argument_list|(
 literal|"translog-"
 operator|+
-name|snapshot
+name|translogSnapshot
 operator|.
-name|lastTranslogId
+name|translogId
 argument_list|()
+argument_list|)
+return|;
+block|}
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -2109,6 +2136,12 @@ parameter_list|)
 block|{
 comment|// ignore
 block|}
+comment|// NOT doing this one, the above allows us to clean the translog properly
+comment|//            try {
+comment|//                translogContainer.deleteBlob("translog-" + snapshot.lastTranslogId());
+comment|//            } catch (Exception e) {
+comment|//                // ignore
+comment|//            }
 block|}
 comment|// delete old index files
 if|if

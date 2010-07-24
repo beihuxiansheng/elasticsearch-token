@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.discovery.zen
+DECL|package|org.elasticsearch.discovery.ec2
 package|package
 name|org
 operator|.
@@ -12,23 +12,9 @@ name|elasticsearch
 operator|.
 name|discovery
 operator|.
-name|zen
+name|ec2
 package|;
 end_package
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|inject
-operator|.
-name|AbstractModule
-import|;
-end_import
 
 begin_import
 import|import
@@ -52,9 +38,7 @@ name|discovery
 operator|.
 name|zen
 operator|.
-name|ping
-operator|.
-name|ZenPingService
+name|ZenDiscoveryModule
 import|;
 end_import
 
@@ -63,36 +47,16 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|ZenDiscoveryModule
+DECL|class|Ec2DiscoveryModule
 specifier|public
 class|class
-name|ZenDiscoveryModule
+name|Ec2DiscoveryModule
 extends|extends
-name|AbstractModule
+name|ZenDiscoveryModule
 block|{
-DECL|method|configure
+DECL|method|bindDiscovery
 annotation|@
 name|Override
-specifier|protected
-name|void
-name|configure
-parameter_list|()
-block|{
-name|bind
-argument_list|(
-name|ZenPingService
-operator|.
-name|class
-argument_list|)
-operator|.
-name|asEagerSingleton
-argument_list|()
-expr_stmt|;
-name|bindDiscovery
-argument_list|()
-expr_stmt|;
-block|}
-DECL|method|bindDiscovery
 specifier|protected
 name|void
 name|bindDiscovery
@@ -107,7 +71,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-name|ZenDiscovery
+name|Ec2Discovery
 operator|.
 name|class
 argument_list|)

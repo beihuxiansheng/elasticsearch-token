@@ -724,7 +724,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"starting recovery from {}"
+literal|"starting recovery from {} ..."
 argument_list|,
 name|shardGateway
 argument_list|)
