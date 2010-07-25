@@ -279,6 +279,28 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The query source to execute.      *      * @see org.elasticsearch.index.query.xcontent.QueryBuilders      */
+DECL|method|setQuery
+specifier|public
+name|CountRequestBuilder
+name|setQuery
+parameter_list|(
+name|byte
+index|[]
+name|querySource
+parameter_list|)
+block|{
+name|request
+operator|.
+name|query
+argument_list|(
+name|querySource
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Controls the operation threading model.      */
 DECL|method|setOperationThreading
 specifier|public

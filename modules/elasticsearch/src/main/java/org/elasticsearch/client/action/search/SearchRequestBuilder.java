@@ -562,6 +562,29 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Constructs a new search source builder with a raw search query.      */
+DECL|method|setQuery
+specifier|public
+name|SearchRequestBuilder
+name|setQuery
+parameter_list|(
+name|byte
+index|[]
+name|queryBinary
+parameter_list|)
+block|{
+name|sourceBuilder
+argument_list|()
+operator|.
+name|query
+argument_list|(
+name|queryBinary
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * From index to start the search from. Defaults to<tt>0</tt>.      */
 DECL|method|setFrom
 specifier|public
