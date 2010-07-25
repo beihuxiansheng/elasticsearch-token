@@ -1534,13 +1534,12 @@ throw|throw
 operator|new
 name|MapperException
 argument_list|(
-literal|"Malformed content, after first object, the type name must exists"
+literal|"Malformed content, after first object, either the type field or the actual properties should exist"
 argument_list|)
 throw|;
 block|}
 if|if
 condition|(
-operator|!
 name|parser
 operator|.
 name|currentName
@@ -1552,37 +1551,10 @@ name|type
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|type
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|MapperException
-argument_list|(
-literal|"Content _type ["
-operator|+
-name|parser
-operator|.
-name|currentName
-argument_list|()
-operator|+
-literal|"] does not match the type of the mapper ["
-operator|+
-name|type
-operator|+
-literal|"]"
-argument_list|)
-throw|;
-block|}
-comment|// continue
-block|}
-else|else
-block|{
-comment|// now move to the actual content, which is the start object
+comment|// first field is the same as the type, this might be because the type is provided, and the object exists within it
+comment|// or because there is a valid field that by chance is named as the type
+comment|// Note, in this case, we only handle plain value types, an object type will be analyzed as if it was the type itself
+comment|// and other same level fields will be ignored
 name|token
 operator|=
 name|parser
@@ -1590,25 +1562,10 @@ operator|.
 name|nextToken
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|token
-operator|!=
-name|XContentParser
-operator|.
-name|Token
-operator|.
-name|START_OBJECT
-condition|)
-block|{
-throw|throw
-operator|new
-name|MapperException
-argument_list|(
-literal|"Malformed content, a field with the same name as the type much be an object with the properties/fields within it"
-argument_list|)
-throw|;
-block|}
+comment|// commented out, allow for same type with START_OBJECT, we do our best to handle it except for the above corner case
+comment|//                if (token != XContentParser.Token.START_OBJECT) {
+comment|//                    throw new MapperException("Malformed content, a field with the same name as the type must be an object with the properties/fields within it");
+comment|//                }
 block|}
 if|if
 condition|(

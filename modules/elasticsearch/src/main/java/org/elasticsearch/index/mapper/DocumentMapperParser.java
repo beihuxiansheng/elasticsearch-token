@@ -36,6 +36,17 @@ specifier|public
 interface|interface
 name|DocumentMapperParser
 block|{
+comment|/**      * Parses the source mapping definition into a document mapper.      */
+DECL|method|parse
+name|DocumentMapper
+name|parse
+parameter_list|(
+name|String
+name|mappingSource
+parameter_list|)
+throws|throws
+name|MapperParsingException
+function_decl|;
 comment|/**      * Parses the source mapping definition into a document mapper with the specified      * type (overriding the one defined in the source mapping).      */
 DECL|method|parse
 name|DocumentMapper
@@ -52,13 +63,21 @@ parameter_list|)
 throws|throws
 name|MapperParsingException
 function_decl|;
-comment|/**      * Parses the source mapping definition into a document mapper.      */
+comment|/**      * Parses the source mapping definition into a document mapper with the specified      * type (overriding the one defined in the source mapping).      */
 DECL|method|parse
 name|DocumentMapper
 name|parse
 parameter_list|(
+annotation|@
+name|Nullable
+name|String
+name|type
+parameter_list|,
 name|String
 name|mappingSource
+parameter_list|,
+name|String
+name|defaultMappingSource
 parameter_list|)
 throws|throws
 name|MapperParsingException

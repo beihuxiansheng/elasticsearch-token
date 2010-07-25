@@ -1105,6 +1105,16 @@ throw|;
 block|}
 if|if
 condition|(
+operator|!
+name|MapperService
+operator|.
+name|DEFAULT_MAPPING
+operator|.
+name|equals
+argument_list|(
+name|mappingType
+argument_list|)
+operator|&&
 name|mappingType
 operator|.
 name|charAt
