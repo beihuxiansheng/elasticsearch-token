@@ -16,6 +16,16 @@ name|mapper
 package|;
 end_package
 
+begin_import
+import|import
+name|javax
+operator|.
+name|annotation
+operator|.
+name|Nullable
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
@@ -31,6 +41,8 @@ DECL|method|parse
 name|DocumentMapper
 name|parse
 parameter_list|(
+annotation|@
+name|Nullable
 name|String
 name|type
 parameter_list|,
