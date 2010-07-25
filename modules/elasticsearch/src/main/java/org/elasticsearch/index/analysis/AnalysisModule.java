@@ -1895,6 +1895,17 @@ name|analyzersBindings
 operator|.
 name|processAnalyzer
 argument_list|(
+literal|"pattern"
+argument_list|,
+name|PatternAnalyzerProvider
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|analyzersBindings
+operator|.
+name|processAnalyzer
+argument_list|(
 literal|"arabic"
 argument_list|,
 name|ArabicAnalyzerProvider
