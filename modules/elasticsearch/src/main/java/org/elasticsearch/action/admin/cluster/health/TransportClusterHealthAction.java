@@ -629,7 +629,7 @@ argument_list|()
 operator|.
 name|startsWith
 argument_list|(
-literal|"M="
+literal|"<="
 argument_list|)
 condition|)
 block|{
