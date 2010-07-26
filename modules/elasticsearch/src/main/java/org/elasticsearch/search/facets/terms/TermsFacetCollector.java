@@ -935,6 +935,7 @@ block|}
 block|}
 DECL|class|AggregatorValueProc
 specifier|public
+specifier|static
 class|class
 name|AggregatorValueProc
 extends|extends
