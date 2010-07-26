@@ -104,7 +104,12 @@ parameter_list|)
 function_decl|;
 comment|/**      * A facet of the specified name.      */
 DECL|method|facet
+parameter_list|<
+name|T
+extends|extends
 name|Facet
+parameter_list|>
+name|T
 name|facet
 parameter_list|(
 name|String

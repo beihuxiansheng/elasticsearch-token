@@ -471,6 +471,8 @@ return|;
 block|}
 comment|/**      * Returns the facet by name already casted to the specified type.      */
 DECL|method|facet
+annotation|@
+name|Override
 specifier|public
 parameter_list|<
 name|T
@@ -504,8 +506,22 @@ return|;
 block|}
 comment|/**      * A facet of the specified name.      */
 DECL|method|facet
+annotation|@
+name|SuppressWarnings
+argument_list|(
+block|{
+literal|"unchecked"
+block|}
+argument_list|)
+annotation|@
+name|Override
 specifier|public
+parameter_list|<
+name|T
+extends|extends
 name|Facet
+parameter_list|>
+name|T
 name|facet
 parameter_list|(
 name|String
@@ -513,6 +529,9 @@ name|name
 parameter_list|)
 block|{
 return|return
+operator|(
+name|T
+operator|)
 name|facetsAsMap
 argument_list|()
 operator|.
