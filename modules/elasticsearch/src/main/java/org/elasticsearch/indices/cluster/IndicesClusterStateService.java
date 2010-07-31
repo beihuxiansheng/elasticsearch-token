@@ -1515,6 +1515,8 @@ name|warn
 argument_list|(
 literal|"[{}] failed to add mapping [{}], source [{}]"
 argument_list|,
+name|e
+argument_list|,
 name|index
 argument_list|,
 name|mappingType
