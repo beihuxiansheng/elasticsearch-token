@@ -826,7 +826,7 @@ name|field
 argument_list|(
 literal|"_type"
 argument_list|,
-literal|"histogram"
+literal|"geo_distance"
 argument_list|)
 expr_stmt|;
 name|builder
