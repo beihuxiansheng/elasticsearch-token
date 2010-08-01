@@ -1126,6 +1126,24 @@ throw|;
 block|}
 if|if
 condition|(
+name|entries
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|FacetPhaseExecutionException
+argument_list|(
+name|facetName
+argument_list|,
+literal|"no ranges defined for geo_distance facet"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
 name|valueFieldName
 operator|!=
 literal|null
