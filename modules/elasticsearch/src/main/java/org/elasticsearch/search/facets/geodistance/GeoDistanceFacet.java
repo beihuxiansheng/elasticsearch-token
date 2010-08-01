@@ -105,7 +105,7 @@ name|DistanceUnit
 name|getUnit
 parameter_list|()
 function_decl|;
-comment|/**      * An ordered list of histogram facet entries.      */
+comment|/**      * An ordered list of geo distance facet entries.      */
 DECL|method|entries
 name|List
 argument_list|<
@@ -114,7 +114,7 @@ argument_list|>
 name|entries
 parameter_list|()
 function_decl|;
-comment|/**      * An ordered list of histogram facet entries.      */
+comment|/**      * An ordered list of geo distance facet entries.      */
 DECL|method|getEntries
 name|List
 argument_list|<
