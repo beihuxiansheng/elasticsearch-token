@@ -66,9 +66,10 @@ specifier|public
 interface|interface
 name|FacetCollectorParser
 block|{
-DECL|method|name
+DECL|method|names
 name|String
-name|name
+index|[]
+name|names
 parameter_list|()
 function_decl|;
 DECL|method|parser
