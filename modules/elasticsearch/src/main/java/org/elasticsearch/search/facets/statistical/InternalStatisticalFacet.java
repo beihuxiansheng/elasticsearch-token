@@ -730,7 +730,9 @@ name|field
 argument_list|(
 literal|"_type"
 argument_list|,
-literal|"statistical"
+name|StatisticalFacetCollectorParser
+operator|.
+name|NAME
 argument_list|)
 expr_stmt|;
 name|builder

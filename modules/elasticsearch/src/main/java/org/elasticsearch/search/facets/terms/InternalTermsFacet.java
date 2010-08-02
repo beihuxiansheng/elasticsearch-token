@@ -754,7 +754,9 @@ name|field
 argument_list|(
 literal|"_type"
 argument_list|,
-literal|"terms"
+name|TermsFacetCollectorParser
+operator|.
+name|NAME
 argument_list|)
 expr_stmt|;
 name|builder

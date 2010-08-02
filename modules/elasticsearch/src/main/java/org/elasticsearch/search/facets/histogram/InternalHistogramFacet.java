@@ -934,7 +934,9 @@ name|field
 argument_list|(
 literal|"_type"
 argument_list|,
-literal|"histogram"
+name|HistogramFacetCollectorParser
+operator|.
+name|NAME
 argument_list|)
 expr_stmt|;
 name|builder
