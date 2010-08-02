@@ -380,6 +380,14 @@ name|Fieldable
 name|field
 parameter_list|)
 function_decl|;
+DECL|method|valueFromString
+name|T
+name|valueFromString
+parameter_list|(
+name|String
+name|value
+parameter_list|)
+function_decl|;
 comment|/**      * Returns the actual value of the field as string.      */
 DECL|method|valueAsString
 name|String
@@ -387,15 +395,6 @@ name|valueAsString
 parameter_list|(
 name|Fieldable
 name|field
-parameter_list|)
-function_decl|;
-comment|/**      * Parses the string back into the type of the field (should be comparable!) in a similar      * manner {@link #valueForSearch(org.apache.lucene.document.Fieldable)} does with fields.      */
-DECL|method|valueFromTerm
-name|Object
-name|valueFromTerm
-parameter_list|(
-name|String
-name|term
 parameter_list|)
 function_decl|;
 comment|/**      * Returns the indexed value.      */

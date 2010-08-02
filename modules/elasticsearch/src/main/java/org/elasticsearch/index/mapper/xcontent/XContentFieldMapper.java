@@ -1532,22 +1532,6 @@ name|field
 argument_list|)
 return|;
 block|}
-comment|/**      * Simply returns the same string.      */
-DECL|method|valueFromTerm
-annotation|@
-name|Override
-specifier|public
-name|Object
-name|valueFromTerm
-parameter_list|(
-name|String
-name|term
-parameter_list|)
-block|{
-return|return
-name|term
-return|;
-block|}
 DECL|method|indexedValue
 annotation|@
 name|Override
