@@ -343,12 +343,12 @@ literal|"geoDistance"
 block|}
 return|;
 block|}
-DECL|method|parser
+DECL|method|parse
 annotation|@
 name|Override
 specifier|public
 name|FacetCollector
-name|parser
+name|parse
 parameter_list|(
 name|String
 name|facetName

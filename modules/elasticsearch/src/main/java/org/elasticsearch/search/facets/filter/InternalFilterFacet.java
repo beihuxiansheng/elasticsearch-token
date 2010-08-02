@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search.facets.query
+DECL|package|org.elasticsearch.search.facets.filter
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|search
 operator|.
 name|facets
 operator|.
-name|query
+name|filter
 package|;
 end_package
 
@@ -111,12 +111,12 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|InternalQueryFacet
+DECL|class|InternalFilterFacet
 specifier|public
 class|class
-name|InternalQueryFacet
+name|InternalFilterFacet
 implements|implements
-name|QueryFacet
+name|FilterFacet
 implements|,
 name|InternalFacet
 block|{
@@ -130,14 +130,14 @@ specifier|private
 name|long
 name|count
 decl_stmt|;
-DECL|method|InternalQueryFacet
+DECL|method|InternalFilterFacet
 specifier|private
-name|InternalQueryFacet
+name|InternalFilterFacet
 parameter_list|()
 block|{      }
-DECL|method|InternalQueryFacet
+DECL|method|InternalFilterFacet
 specifier|public
-name|InternalQueryFacet
+name|InternalFilterFacet
 parameter_list|(
 name|String
 name|name
@@ -170,7 +170,7 @@ block|{
 return|return
 name|Type
 operator|.
-name|QUERY
+name|FILTER
 return|;
 block|}
 DECL|method|getType
@@ -276,7 +276,7 @@ name|count
 operator|+=
 operator|(
 operator|(
-name|QueryFacet
+name|FilterFacet
 operator|)
 name|facet
 operator|)
@@ -288,7 +288,7 @@ block|}
 block|}
 return|return
 operator|new
-name|InternalQueryFacet
+name|InternalFilterFacet
 argument_list|(
 name|name
 argument_list|,
@@ -325,7 +325,7 @@ name|field
 argument_list|(
 literal|"_type"
 argument_list|,
-name|QueryFacetCollectorParser
+name|FilterFacetCollectorParser
 operator|.
 name|NAME
 argument_list|)
@@ -345,11 +345,11 @@ name|endObject
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|readCountFacet
+DECL|method|readFilterFacet
 specifier|public
 specifier|static
-name|QueryFacet
-name|readCountFacet
+name|FilterFacet
+name|readFilterFacet
 parameter_list|(
 name|StreamInput
 name|in
@@ -357,11 +357,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|InternalQueryFacet
+name|InternalFilterFacet
 name|result
 init|=
 operator|new
-name|InternalQueryFacet
+name|InternalFilterFacet
 argument_list|()
 decl_stmt|;
 name|result

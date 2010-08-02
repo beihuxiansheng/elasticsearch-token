@@ -36,6 +36,22 @@ name|search
 operator|.
 name|facets
 operator|.
+name|filter
+operator|.
+name|FilterFacet
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|facets
+operator|.
 name|geodistance
 operator|.
 name|GeoDistanceFacet
@@ -199,6 +215,17 @@ argument_list|(
 literal|5
 argument_list|,
 name|RangeFacet
+operator|.
+name|class
+argument_list|)
+block|,
+comment|/**          * Filter facet type, matching {@link FilterFacet}.          */
+DECL|enum constant|FILTER
+name|FILTER
+argument_list|(
+literal|6
+argument_list|,
+name|FilterFacet
 operator|.
 name|class
 argument_list|)

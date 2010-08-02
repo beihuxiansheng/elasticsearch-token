@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search.facets.collector
+DECL|package|org.elasticsearch.search.facets.filter
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|search
 operator|.
 name|facets
 operator|.
-name|collector
+name|filter
 package|;
 end_package
 
@@ -24,69 +24,37 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
-name|XContentParser
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|search
 operator|.
-name|internal
+name|facets
 operator|.
-name|SearchContext
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
+name|Facet
 import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  * A query facets returns the count (number of hits) for a facet based on a query.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_interface
-DECL|interface|FacetCollectorParser
+DECL|interface|FilterFacet
 specifier|public
 interface|interface
-name|FacetCollectorParser
+name|FilterFacet
+extends|extends
+name|Facet
 block|{
-DECL|method|names
-name|String
-index|[]
-name|names
+comment|/**      * The count of the facet.      */
+DECL|method|count
+name|long
+name|count
 parameter_list|()
 function_decl|;
-DECL|method|parse
-name|FacetCollector
-name|parse
-parameter_list|(
-name|String
-name|facetName
-parameter_list|,
-name|XContentParser
-name|parser
-parameter_list|,
-name|SearchContext
-name|context
-parameter_list|)
-throws|throws
-name|IOException
+comment|/**      * The count of the facet.      */
+DECL|method|getCount
+name|long
+name|getCount
+parameter_list|()
 function_decl|;
 block|}
 end_interface
