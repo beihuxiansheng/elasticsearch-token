@@ -508,8 +508,8 @@ argument_list|)
 condition|)
 block|{
 comment|// "ranges" : [
-comment|//     { "from" : "0', to : "12.5" }
-comment|//     { "from" : "12.5" }
+comment|//     { "from" : 0, "to" : 12.5 }
+comment|//     { "from" : 12.5 }
 comment|// ]
 while|while
 condition|(
