@@ -60,7 +60,7 @@ name|IndexReader
 name|reader
 parameter_list|)
 function_decl|;
-comment|/**      * @param docId      * @param vars  The vars providing additional parameters, should be reused and has values added to it in execute      * @return      */
+comment|/**      * @param docId      * @param vars  The vars providing additional parameters, should be reused and has values added to it in execute      */
 DECL|method|execute
 name|Object
 name|execute

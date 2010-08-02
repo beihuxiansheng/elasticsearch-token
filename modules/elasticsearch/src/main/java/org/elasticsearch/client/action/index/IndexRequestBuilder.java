@@ -547,7 +547,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set to<tt>true</tt> to force this index to use {@link IndexRequest.OpType#CREATE}.      */
+comment|/**      * Set to<tt>true</tt> to force this index to use {@link org.elasticsearch.action.index.IndexRequest.OpType#CREATE}.      */
 DECL|method|setCreate
 specifier|public
 name|IndexRequestBuilder

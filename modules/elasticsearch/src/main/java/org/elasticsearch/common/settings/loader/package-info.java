@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_comment
-comment|/**  * Settings loader (parser) allowing to parse different "source" formats into  * a {@link Settings}.  */
+comment|/**  * Settings loader (parser) allowing to parse different "source" formats into  * a {@link org.elasticsearch.common.settings.Settings}.  */
 end_comment
 
 begin_package

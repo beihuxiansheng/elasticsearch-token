@@ -77,7 +77,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An implementation of {@link VersionedMap} based on trove {@link org.elasticsearch.util.gnu.trove.TIntIntHashMap}.  *  * @author kimchy (Shay Banon)  */
+comment|/**  * An implementation of {@link VersionedMap} based on trove {@link org.elasticsearch.common.trove.TIntIntHashMap}.  *  * @author kimchy (Shay Banon)  */
 end_comment
 
 begin_class
