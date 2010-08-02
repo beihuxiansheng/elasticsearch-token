@@ -310,27 +310,6 @@ operator|.
 name|START_ARRAY
 condition|)
 block|{
-if|if
-condition|(
-literal|"ranges"
-operator|.
-name|equals
-argument_list|(
-name|fieldName
-argument_list|)
-operator|||
-literal|"entries"
-operator|.
-name|equals
-argument_list|(
-name|fieldName
-argument_list|)
-condition|)
-block|{
-comment|// "ranges" : [
-comment|//     { "from" : "0', to : "12.5" }
-comment|//     { "from" : "12.5" }
-comment|// ]
 while|while
 condition|(
 operator|(
@@ -511,6 +490,22 @@ name|entry
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+operator|!
+literal|"ranges"
+operator|.
+name|equals
+argument_list|(
+name|fieldName
+argument_list|)
+condition|)
+block|{
+comment|// this is the actual field name, so also update the keyField
+name|keyField
+operator|=
+name|fieldName
+expr_stmt|;
 block|}
 block|}
 elseif|else
