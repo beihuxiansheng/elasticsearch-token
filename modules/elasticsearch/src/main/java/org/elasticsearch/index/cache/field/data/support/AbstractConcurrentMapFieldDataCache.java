@@ -171,7 +171,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -444,52 +444,6 @@ name|fieldDataCache
 argument_list|)
 expr_stmt|;
 block|}
-name|T
-name|fieldData
-init|=
-operator|(
-name|T
-operator|)
-name|fieldDataCache
-operator|.
-name|get
-argument_list|(
-name|fieldName
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|fieldData
-operator|==
-literal|null
-condition|)
-block|{
-name|fieldData
-operator|=
-name|FieldData
-operator|.
-name|load
-argument_list|(
-name|type
-argument_list|,
-name|reader
-argument_list|,
-name|fieldName
-argument_list|)
-expr_stmt|;
-name|fieldDataCache
-operator|.
-name|put
-argument_list|(
-name|fieldName
-argument_list|,
-name|fieldData
-argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|fieldData
-return|;
 block|}
 block|}
 name|T
@@ -514,7 +468,7 @@ condition|)
 block|{
 synchronized|synchronized
 init|(
-name|creationMutex
+name|fieldDataCache
 init|)
 block|{
 name|fieldData
@@ -559,9 +513,6 @@ name|fieldData
 argument_list|)
 expr_stmt|;
 block|}
-return|return
-name|fieldData
-return|;
 block|}
 block|}
 return|return
