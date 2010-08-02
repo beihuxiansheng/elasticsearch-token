@@ -85,7 +85,7 @@ name|String
 name|getValueFieldName
 parameter_list|()
 function_decl|;
-comment|/**      * An ordered list of geo distance facet entries.      */
+comment|/**      * An ordered list of range facet entries.      */
 DECL|method|entries
 name|List
 argument_list|<
@@ -94,7 +94,7 @@ argument_list|>
 name|entries
 parameter_list|()
 function_decl|;
-comment|/**      * An ordered list of geo distance facet entries.      */
+comment|/**      * An ordered list of range facet entries.      */
 DECL|method|getEntries
 name|List
 argument_list|<
