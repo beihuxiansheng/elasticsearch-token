@@ -355,7 +355,7 @@ specifier|private
 name|String
 name|resolution
 init|=
-literal|"32"
+literal|"64"
 decl_stmt|;
 DECL|field|precisionStep
 specifier|private
