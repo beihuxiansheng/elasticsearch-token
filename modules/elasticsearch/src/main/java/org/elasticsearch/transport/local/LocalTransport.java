@@ -790,6 +790,11 @@ parameter_list|,
 specifier|final
 name|Streamable
 name|message
+parameter_list|,
+annotation|@
+name|Nullable
+name|TransportRequestOptions
+name|options
 parameter_list|)
 throws|throws
 name|IOException

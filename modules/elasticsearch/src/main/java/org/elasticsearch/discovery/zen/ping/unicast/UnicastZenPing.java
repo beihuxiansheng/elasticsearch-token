@@ -1307,9 +1307,12 @@ name|ACTION
 argument_list|,
 name|pingRequest
 argument_list|,
-name|TimeValue
+name|TransportRequestOptions
 operator|.
-name|timeValueMillis
+name|options
+argument_list|()
+operator|.
+name|withTimeout
 argument_list|(
 call|(
 name|long

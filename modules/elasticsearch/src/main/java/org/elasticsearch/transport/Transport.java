@@ -88,6 +88,16 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|annotation
+operator|.
+name|Nullable
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -300,6 +310,7 @@ name|DiscoveryNode
 name|node
 parameter_list|)
 function_decl|;
+comment|/**      * Sends the request to the node.      */
 DECL|method|sendRequest
 parameter_list|<
 name|T
@@ -320,6 +331,11 @@ name|action
 parameter_list|,
 name|Streamable
 name|message
+parameter_list|,
+annotation|@
+name|Nullable
+name|TransportRequestOptions
+name|options
 parameter_list|)
 throws|throws
 name|IOException

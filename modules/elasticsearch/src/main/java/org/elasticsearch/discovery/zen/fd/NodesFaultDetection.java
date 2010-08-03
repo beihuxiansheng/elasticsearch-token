@@ -254,6 +254,20 @@ name|*
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|transport
+operator|.
+name|TransportRequestOptions
+operator|.
+name|*
+import|;
+end_import
+
 begin_comment
 comment|/**  * A fault detection of multiple nodes.  *  * @author kimchy (shay.banon)  */
 end_comment
@@ -968,7 +982,13 @@ name|id
 argument_list|()
 argument_list|)
 argument_list|,
+name|options
+argument_list|()
+operator|.
+name|withTimeout
+argument_list|(
 name|pingRetryTimeout
+argument_list|)
 argument_list|,
 operator|new
 name|BaseTransportResponseHandler
@@ -1175,7 +1195,13 @@ name|id
 argument_list|()
 argument_list|)
 argument_list|,
+name|options
+argument_list|()
+operator|.
+name|withTimeout
+argument_list|(
 name|pingRetryTimeout
+argument_list|)
 argument_list|,
 name|this
 argument_list|)

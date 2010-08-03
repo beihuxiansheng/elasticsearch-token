@@ -202,6 +202,20 @@ begin_import
 import|import static
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|transport
+operator|.
+name|TransportRequestOptions
+operator|.
+name|*
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|MatcherAssert
@@ -1067,9 +1081,10 @@ argument_list|(
 literal|"moshe"
 argument_list|)
 argument_list|,
-name|TimeValue
+name|options
+argument_list|()
 operator|.
-name|timeValueMillis
+name|withTimeout
 argument_list|(
 literal|100
 argument_list|)
@@ -1368,9 +1383,10 @@ argument_list|(
 literal|"300ms"
 argument_list|)
 argument_list|,
-name|TimeValue
+name|options
+argument_list|()
 operator|.
-name|timeValueMillis
+name|withTimeout
 argument_list|(
 literal|100
 argument_list|)
@@ -1534,9 +1550,10 @@ operator|+
 literal|"ms"
 argument_list|)
 argument_list|,
-name|TimeValue
+name|options
+argument_list|()
 operator|.
-name|timeValueMillis
+name|withTimeout
 argument_list|(
 literal|100
 argument_list|)
