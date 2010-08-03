@@ -1500,6 +1500,22 @@ condition|)
 block|{
 return|return;
 block|}
+if|if
+condition|(
+name|lifecycle
+operator|.
+name|stoppedOrClosed
+argument_list|()
+condition|)
+block|{
+name|listener
+operator|.
+name|onClose
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
 name|listener
 operator|.
 name|onTimeout
@@ -1509,6 +1525,7 @@ operator|.
 name|timeout
 argument_list|)
 expr_stmt|;
+block|}
 comment|// note, we rely on the listener to remove itself in case of timeout if needed
 block|}
 block|}
