@@ -268,10 +268,8 @@ argument_list|)
 expr_stmt|;
 name|builder
 operator|.
-name|field
+name|startObject
 argument_list|(
-literal|"field"
-argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
@@ -395,6 +393,11 @@ literal|"geo_bounding_box requires 'bottom_right' to be set"
 argument_list|)
 throw|;
 block|}
+name|builder
+operator|.
+name|endObject
+argument_list|()
+expr_stmt|;
 name|builder
 operator|.
 name|endObject
