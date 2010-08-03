@@ -385,6 +385,7 @@ name|queryBuilder
 argument_list|)
 return|;
 block|}
+comment|/**      * A builder for filter based on a script.      *      * @param script The script to filter by.      */
 DECL|method|scriptFilter
 specifier|public
 specifier|static
@@ -403,6 +404,7 @@ name|script
 argument_list|)
 return|;
 block|}
+comment|/**      * A filter to filter based on a specific distance from a specific geo location / point.      *      * @param name The location field name.      */
 DECL|method|geoDistanceFilter
 specifier|public
 specifier|static
@@ -421,6 +423,7 @@ name|name
 argument_list|)
 return|;
 block|}
+comment|/**      * A filter to filter based on a bounding box defined by top left and bottom right locations / points      *      * @param name The location field name.      */
 DECL|method|geoBoundingBoxFilter
 specifier|public
 specifier|static
@@ -434,6 +437,25 @@ block|{
 return|return
 operator|new
 name|GeoBoundingBoxFilterBuilder
+argument_list|(
+name|name
+argument_list|)
+return|;
+block|}
+comment|/**      * A filter to filter based on a polygon defined by a set of locations  / points.      *      * @param name The location field name.      */
+DECL|method|geoPolygonFilter
+specifier|public
+specifier|static
+name|GeoPolygonFilterBuilder
+name|geoPolygonFilter
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+return|return
+operator|new
+name|GeoPolygonFilterBuilder
 argument_list|(
 name|name
 argument_list|)
