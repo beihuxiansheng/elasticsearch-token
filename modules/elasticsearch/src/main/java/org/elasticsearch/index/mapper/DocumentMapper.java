@@ -141,6 +141,11 @@ name|TypeFieldMapper
 name|typeMapper
 parameter_list|()
 function_decl|;
+DECL|method|indexMapper
+name|IndexFieldMapper
+name|indexMapper
+parameter_list|()
+function_decl|;
 DECL|method|sourceMapper
 name|SourceFieldMapper
 name|sourceMapper

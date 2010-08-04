@@ -169,6 +169,12 @@ operator|new
 name|XContentDocumentMapperParser
 argument_list|(
 operator|new
+name|Index
+argument_list|(
+literal|"test"
+argument_list|)
+argument_list|,
+operator|new
 name|AnalysisService
 argument_list|(
 operator|new
@@ -216,9 +222,6 @@ decl_stmt|;
 name|XContentDocumentMapper
 name|docMapper
 init|=
-operator|(
-name|XContentDocumentMapper
-operator|)
 name|mapperParser
 operator|.
 name|parse
@@ -347,9 +350,6 @@ argument_list|()
 decl_stmt|;
 name|docMapper
 operator|=
-operator|(
-name|XContentDocumentMapper
-operator|)
 name|mapperParser
 operator|.
 name|parse

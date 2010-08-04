@@ -106,6 +106,12 @@ operator|new
 name|XContentDocumentMapperParser
 argument_list|(
 operator|new
+name|Index
+argument_list|(
+literal|"test"
+argument_list|)
+argument_list|,
+operator|new
 name|AnalysisService
 argument_list|(
 operator|new

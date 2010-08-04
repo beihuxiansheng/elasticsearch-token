@@ -472,6 +472,8 @@ name|builderDocMapper
 init|=
 name|doc
 argument_list|(
+literal|"test"
+argument_list|,
 name|object
 argument_list|(
 literal|"person"
