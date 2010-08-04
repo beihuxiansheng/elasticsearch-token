@@ -197,7 +197,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -219,7 +219,7 @@ specifier|final
 name|String
 name|CREATE_CONNECTOR
 init|=
-literal|"jmx.createConnector"
+literal|"jmx.create_connector"
 decl_stmt|;
 block|}
 comment|// we use {jmx.port} without prefix of $ since we don't want it to be resolved as a setting property
@@ -514,7 +514,7 @@ name|settings
 operator|.
 name|get
 argument_list|(
-literal|"jmx.serviceUrl"
+literal|"jmx.service_url"
 argument_list|,
 name|JMXRMI_URI_PATTERN
 argument_list|)
@@ -575,7 +575,7 @@ name|settings
 operator|.
 name|get
 argument_list|(
-literal|"jmx.publishHost"
+literal|"jmx.publish_host"
 argument_list|)
 argument_list|)
 operator|.
@@ -588,7 +588,7 @@ name|settings
 operator|.
 name|get
 argument_list|(
-literal|"jmx.publishUrl"
+literal|"jmx.publish_url"
 argument_list|,
 name|JMXRMI_PUBLISH_URI_PATTERN
 argument_list|)
