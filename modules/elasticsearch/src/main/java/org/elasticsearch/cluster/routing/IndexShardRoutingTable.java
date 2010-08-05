@@ -193,7 +193,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -1086,6 +1086,26 @@ block|}
 name|shards
 operator|.
 name|add
+argument_list|(
+name|shardEntry
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|removeShard
+specifier|public
+name|Builder
+name|removeShard
+parameter_list|(
+name|ShardRouting
+name|shardEntry
+parameter_list|)
+block|{
+name|shards
+operator|.
+name|remove
 argument_list|(
 name|shardEntry
 argument_list|)
