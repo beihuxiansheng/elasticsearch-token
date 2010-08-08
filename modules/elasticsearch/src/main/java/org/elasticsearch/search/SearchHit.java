@@ -267,6 +267,20 @@ argument_list|>
 name|getHighlightFields
 parameter_list|()
 function_decl|;
+comment|/**      * An array of the sort values used.      */
+DECL|method|sortValues
+name|Object
+index|[]
+name|sortValues
+parameter_list|()
+function_decl|;
+comment|/**      * An array of the sort values used.      */
+DECL|method|getSortValues
+name|Object
+index|[]
+name|getSortValues
+parameter_list|()
+function_decl|;
 comment|/**      * The shard of the search hit.      */
 DECL|method|shard
 name|SearchShardTarget
