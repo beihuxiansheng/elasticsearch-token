@@ -490,6 +490,13 @@ block|}
 elseif|else
 if|if
 condition|(
+literal|"order"
+operator|.
+name|equals
+argument_list|(
+name|fieldName
+argument_list|)
+operator|||
 literal|"comparator"
 operator|.
 name|equals
