@@ -446,7 +446,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The geo distance type used to compute the distnace.      */
+comment|/**      * The geo distance type used to compute the distance.      */
 DECL|method|geoDistance
 specifier|public
 name|GeoDistanceFacetBuilder
