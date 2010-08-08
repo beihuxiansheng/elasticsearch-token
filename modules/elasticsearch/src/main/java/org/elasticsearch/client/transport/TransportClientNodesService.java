@@ -1161,7 +1161,7 @@ name|INFO
 argument_list|,
 name|Requests
 operator|.
-name|nodesInfo
+name|nodesInfoRequest
 argument_list|(
 literal|"_local"
 argument_list|)

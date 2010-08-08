@@ -620,7 +620,7 @@ argument_list|()
 operator|.
 name|health
 argument_list|(
-name|clusterHealth
+name|clusterHealthRequest
 argument_list|()
 operator|.
 name|waitForGreenStatus
@@ -831,7 +831,7 @@ argument_list|()
 operator|.
 name|clearCache
 argument_list|(
-name|clearIndicesCache
+name|clearIndicesCacheRequest
 argument_list|(
 literal|"test"
 argument_list|)

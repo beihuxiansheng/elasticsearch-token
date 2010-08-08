@@ -448,7 +448,7 @@ argument_list|()
 operator|.
 name|state
 argument_list|(
-name|clusterState
+name|clusterStateRequest
 argument_list|()
 argument_list|)
 operator|.
@@ -710,7 +710,7 @@ argument_list|()
 operator|.
 name|health
 argument_list|(
-name|clusterHealth
+name|clusterHealthRequest
 argument_list|()
 operator|.
 name|waitForYellowStatus
@@ -781,7 +781,7 @@ argument_list|()
 operator|.
 name|state
 argument_list|(
-name|clusterState
+name|clusterStateRequest
 argument_list|()
 argument_list|)
 operator|.
@@ -1093,7 +1093,7 @@ argument_list|()
 operator|.
 name|health
 argument_list|(
-name|clusterHealth
+name|clusterHealthRequest
 argument_list|()
 operator|.
 name|waitForYellowStatus
@@ -1435,7 +1435,7 @@ argument_list|()
 operator|.
 name|health
 argument_list|(
-name|clusterHealth
+name|clusterHealthRequest
 argument_list|()
 operator|.
 name|waitForYellowStatus

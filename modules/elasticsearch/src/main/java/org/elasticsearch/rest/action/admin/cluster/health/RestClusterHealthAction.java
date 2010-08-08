@@ -277,7 +277,7 @@ block|{
 name|ClusterHealthRequest
 name|clusterHealthRequest
 init|=
-name|clusterHealth
+name|clusterHealthRequest
 argument_list|(
 name|RestActions
 operator|.

@@ -337,7 +337,7 @@ argument_list|()
 operator|.
 name|health
 argument_list|(
-name|clusterHealth
+name|clusterHealthRequest
 argument_list|()
 operator|.
 name|waitForGreenStatus
@@ -597,7 +597,7 @@ argument_list|()
 operator|.
 name|health
 argument_list|(
-name|clusterHealth
+name|clusterHealthRequest
 argument_list|()
 operator|.
 name|waitForGreenStatus

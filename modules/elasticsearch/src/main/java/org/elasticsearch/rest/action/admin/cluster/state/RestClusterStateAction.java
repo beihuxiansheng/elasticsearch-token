@@ -456,7 +456,7 @@ name|clusterStateRequest
 init|=
 name|Requests
 operator|.
-name|clusterState
+name|clusterStateRequest
 argument_list|()
 decl_stmt|;
 name|clusterStateRequest

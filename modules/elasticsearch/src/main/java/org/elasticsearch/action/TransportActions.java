@@ -180,6 +180,15 @@ name|ALIASES
 init|=
 literal|"indices/aliases"
 decl_stmt|;
+DECL|field|UPDATE_SETTINGS
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|UPDATE_SETTINGS
+init|=
+literal|"indices/updateSettings"
+decl_stmt|;
 DECL|class|Gateway
 specifier|public
 specifier|static

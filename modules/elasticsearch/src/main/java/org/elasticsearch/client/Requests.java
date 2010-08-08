@@ -370,6 +370,24 @@ name|admin
 operator|.
 name|indices
 operator|.
+name|settings
+operator|.
+name|UpdateSettingsRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|admin
+operator|.
+name|indices
+operator|.
 name|status
 operator|.
 name|IndicesStatusRequest
@@ -692,11 +710,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Creates an indices status request.      *      * @param indices The indices the delete by query against. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The indices status request      * @see org.elasticsearch.client.IndicesAdminClient#status(org.elasticsearch.action.admin.indices.status.IndicesStatusRequest)      */
-DECL|method|indicesStatus
+DECL|method|indicesStatusRequest
 specifier|public
 specifier|static
 name|IndicesStatusRequest
-name|indicesStatus
+name|indicesStatusRequest
 parameter_list|(
 name|String
 modifier|...
@@ -864,11 +882,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Creates a clean indices cache request.      *      * @param indices The indices the gateway snapshot will be performed on. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The request      */
-DECL|method|clearIndicesCache
+DECL|method|clearIndicesCacheRequest
 specifier|public
 specifier|static
 name|ClearIndicesCacheRequest
-name|clearIndicesCache
+name|clearIndicesCacheRequest
 parameter_list|(
 name|String
 modifier|...
@@ -883,12 +901,32 @@ name|indices
 argument_list|)
 return|;
 block|}
+comment|/**      * A request to update indices settings.      *      * @param indices The indices to update the settings for. Use<tt>null</tt> or<tt>_all</tt> to executed against all indices.      * @return The request      */
+DECL|method|updateSettingsRequest
+specifier|public
+specifier|static
+name|UpdateSettingsRequest
+name|updateSettingsRequest
+parameter_list|(
+name|String
+modifier|...
+name|indices
+parameter_list|)
+block|{
+return|return
+operator|new
+name|UpdateSettingsRequest
+argument_list|(
+name|indices
+argument_list|)
+return|;
+block|}
 comment|/**      * Creates a cluster state request.      *      * @return The cluster state request.      * @see org.elasticsearch.client.ClusterAdminClient#state(org.elasticsearch.action.admin.cluster.state.ClusterStateRequest)      */
-DECL|method|clusterState
+DECL|method|clusterStateRequest
 specifier|public
 specifier|static
 name|ClusterStateRequest
-name|clusterState
+name|clusterStateRequest
 parameter_list|()
 block|{
 return|return
@@ -898,11 +936,11 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Creates a cluster health request.      *      * @param indices The indices to provide additional cluster health information for. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The cluster health request      * @see org.elasticsearch.client.ClusterAdminClient#health(org.elasticsearch.action.admin.cluster.health.ClusterHealthRequest)      */
-DECL|method|clusterHealth
+DECL|method|clusterHealthRequest
 specifier|public
 specifier|static
 name|ClusterHealthRequest
-name|clusterHealth
+name|clusterHealthRequest
 parameter_list|(
 name|String
 modifier|...
@@ -918,11 +956,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Creates a nodes info request against all the nodes.      *      * @return The nodes info request      * @see org.elasticsearch.client.ClusterAdminClient#nodesInfo(org.elasticsearch.action.admin.cluster.node.info.NodesInfoRequest)      */
-DECL|method|nodesInfo
+DECL|method|nodesInfoRequest
 specifier|public
 specifier|static
 name|NodesInfoRequest
-name|nodesInfo
+name|nodesInfoRequest
 parameter_list|()
 block|{
 return|return
@@ -932,11 +970,11 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Creates a nodes info request against one or more nodes. Pass<tt>null</tt> or an empty array for all nodes.      *      * @param nodesIds The nodes ids to get the status for      * @return The nodes info request      * @see org.elasticsearch.client.ClusterAdminClient#nodesStats(org.elasticsearch.action.admin.cluster.node.stats.NodesStatsRequest)      */
-DECL|method|nodesInfo
+DECL|method|nodesInfoRequest
 specifier|public
 specifier|static
 name|NodesInfoRequest
-name|nodesInfo
+name|nodesInfoRequest
 parameter_list|(
 name|String
 modifier|...
@@ -952,11 +990,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Creates a nodes stats request against one or more nodes. Pass<tt>null</tt> or an empty array for all nodes.      *      * @param nodesIds The nodes ids to get the stats for      * @return The nodes info request      * @see org.elasticsearch.client.ClusterAdminClient#nodesStats(org.elasticsearch.action.admin.cluster.node.stats.NodesStatsRequest)      */
-DECL|method|nodesStats
+DECL|method|nodesStatsRequest
 specifier|public
 specifier|static
 name|NodesStatsRequest
-name|nodesStats
+name|nodesStatsRequest
 parameter_list|(
 name|String
 modifier|...
@@ -972,11 +1010,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Shuts down all nodes in the cluster.      */
-DECL|method|nodesShutdown
+DECL|method|nodesShutdownRequest
 specifier|public
 specifier|static
 name|NodesShutdownRequest
-name|nodesShutdown
+name|nodesShutdownRequest
 parameter_list|()
 block|{
 return|return
@@ -986,11 +1024,11 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Shuts down the specified nodes in the cluster.      *      * @param nodesIds The nodes ids to get the status for      * @return The nodes info request      * @see org.elasticsearch.client.ClusterAdminClient#nodesShutdown(org.elasticsearch.action.admin.cluster.node.shutdown.NodesShutdownRequest)      */
-DECL|method|nodesShutdown
+DECL|method|nodesShutdownRequest
 specifier|public
 specifier|static
 name|NodesShutdownRequest
-name|nodesShutdown
+name|nodesShutdownRequest
 parameter_list|(
 name|String
 modifier|...
@@ -1006,11 +1044,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Restarts all nodes in the cluster.      */
-DECL|method|nodesRestart
+DECL|method|nodesRestartRequest
 specifier|public
 specifier|static
 name|NodesRestartRequest
-name|nodesRestart
+name|nodesRestartRequest
 parameter_list|()
 block|{
 return|return
@@ -1020,11 +1058,11 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Restarts specific nodes in the cluster.      *      * @param nodesIds The nodes ids to restart      * @return The nodes info request      * @see org.elasticsearch.client.ClusterAdminClient#nodesRestart(org.elasticsearch.action.admin.cluster.node.restart.NodesRestartRequest)      */
-DECL|method|nodesRestart
+DECL|method|nodesRestartRequest
 specifier|public
 specifier|static
 name|NodesRestartRequest
-name|nodesRestart
+name|nodesRestartRequest
 parameter_list|(
 name|String
 modifier|...

@@ -594,7 +594,7 @@ specifier|public
 interface|interface
 name|ClusterAdminClient
 block|{
-comment|/**      * The health of the cluster.      *      * @param request The cluster state request      * @return The result future      * @see Requests#clusterHealth(String...)      */
+comment|/**      * The health of the cluster.      *      * @param request The cluster state request      * @return The result future      * @see Requests#clusterHealthRequest(String...)      */
 DECL|method|health
 name|ActionFuture
 argument_list|<
@@ -606,7 +606,7 @@ name|ClusterHealthRequest
 name|request
 parameter_list|)
 function_decl|;
-comment|/**      * The health of the cluster.      *      * @param request  The cluster state request      * @param listener A listener to be notified with a result      * @see Requests#clusterHealth(String...)      */
+comment|/**      * The health of the cluster.      *      * @param request  The cluster state request      * @param listener A listener to be notified with a result      * @see Requests#clusterHealthRequest(String...)      */
 DECL|method|health
 name|void
 name|health
@@ -631,7 +631,7 @@ modifier|...
 name|indices
 parameter_list|)
 function_decl|;
-comment|/**      * The state of the cluster.      *      * @param request The cluster state request.      * @return The result future      * @see Requests#clusterState()      */
+comment|/**      * The state of the cluster.      *      * @param request The cluster state request.      * @return The result future      * @see Requests#clusterStateRequest()      */
 DECL|method|state
 name|ActionFuture
 argument_list|<
@@ -643,7 +643,7 @@ name|ClusterStateRequest
 name|request
 parameter_list|)
 function_decl|;
-comment|/**      * The state of the cluster.      *      * @param request  The cluster state request.      * @param listener A listener to be notified with a result      * @see Requests#clusterState()      */
+comment|/**      * The state of the cluster.      *      * @param request  The cluster state request.      * @param listener A listener to be notified with a result      * @see Requests#clusterStateRequest()      */
 DECL|method|state
 name|void
 name|state
@@ -664,7 +664,7 @@ name|ClusterStateRequestBuilder
 name|prepareState
 parameter_list|()
 function_decl|;
-comment|/**      * Nodes info of the cluster.      *      * @param request The nodes info request      * @return The result future      * @see org.elasticsearch.client.Requests#nodesInfo(String...)      */
+comment|/**      * Nodes info of the cluster.      *      * @param request The nodes info request      * @return The result future      * @see org.elasticsearch.client.Requests#nodesInfoRequest(String...)      */
 DECL|method|nodesInfo
 name|ActionFuture
 argument_list|<
@@ -676,7 +676,7 @@ name|NodesInfoRequest
 name|request
 parameter_list|)
 function_decl|;
-comment|/**      * Nodes info of the cluster.      *      * @param request  The nodes info request      * @param listener A listener to be notified with a result      * @see org.elasticsearch.client.Requests#nodesInfo(String...)      */
+comment|/**      * Nodes info of the cluster.      *      * @param request  The nodes info request      * @param listener A listener to be notified with a result      * @see org.elasticsearch.client.Requests#nodesInfoRequest(String...)      */
 DECL|method|nodesInfo
 name|void
 name|nodesInfo
@@ -701,7 +701,7 @@ modifier|...
 name|nodesIds
 parameter_list|)
 function_decl|;
-comment|/**      * Nodes stats of the cluster.      *      * @param request The nodes info request      * @return The result future      * @see org.elasticsearch.client.Requests#nodesStats(String...)      */
+comment|/**      * Nodes stats of the cluster.      *      * @param request The nodes info request      * @return The result future      * @see org.elasticsearch.client.Requests#nodesStatsRequest(String...)      */
 DECL|method|nodesStats
 name|ActionFuture
 argument_list|<
@@ -713,7 +713,7 @@ name|NodesStatsRequest
 name|request
 parameter_list|)
 function_decl|;
-comment|/**      * Nodes stats of the cluster.      *      * @param request  The nodes info request      * @param listener A listener to be notified with a result      * @see org.elasticsearch.client.Requests#nodesStats(String...)      */
+comment|/**      * Nodes stats of the cluster.      *      * @param request  The nodes info request      * @param listener A listener to be notified with a result      * @see org.elasticsearch.client.Requests#nodesStatsRequest(String...)      */
 DECL|method|nodesStats
 name|void
 name|nodesStats
@@ -738,7 +738,7 @@ modifier|...
 name|nodesIds
 parameter_list|)
 function_decl|;
-comment|/**      * Shutdown nodes in the cluster.      *      * @param request The nodes shutdown request      * @return The result future      * @see org.elasticsearch.client.Requests#nodesShutdown(String...)      */
+comment|/**      * Shutdown nodes in the cluster.      *      * @param request The nodes shutdown request      * @return The result future      * @see org.elasticsearch.client.Requests#nodesShutdownRequest(String...)      */
 DECL|method|nodesShutdown
 name|ActionFuture
 argument_list|<
@@ -750,7 +750,7 @@ name|NodesShutdownRequest
 name|request
 parameter_list|)
 function_decl|;
-comment|/**      * Shutdown nodes in the cluster.      *      * @param request  The nodes shutdown request      * @param listener A listener to be notified with a result      * @see org.elasticsearch.client.Requests#nodesShutdown(String...)      */
+comment|/**      * Shutdown nodes in the cluster.      *      * @param request  The nodes shutdown request      * @param listener A listener to be notified with a result      * @see org.elasticsearch.client.Requests#nodesShutdownRequest(String...)      */
 DECL|method|nodesShutdown
 name|void
 name|nodesShutdown
@@ -775,7 +775,7 @@ modifier|...
 name|nodesIds
 parameter_list|)
 function_decl|;
-comment|/**      * Restarts nodes in the cluster.      *      * @param request The nodes restart request      * @return The result future      * @see org.elasticsearch.client.Requests#nodesRestart(String...)      */
+comment|/**      * Restarts nodes in the cluster.      *      * @param request The nodes restart request      * @return The result future      * @see org.elasticsearch.client.Requests#nodesRestartRequest(String...)      */
 DECL|method|nodesRestart
 name|ActionFuture
 argument_list|<
@@ -787,7 +787,7 @@ name|NodesRestartRequest
 name|request
 parameter_list|)
 function_decl|;
-comment|/**      * Restarts nodes in the cluster.      *      * @param request  The nodes restart request      * @param listener A listener to be notified with a result      * @see org.elasticsearch.client.Requests#nodesRestart(String...)      */
+comment|/**      * Restarts nodes in the cluster.      *      * @param request  The nodes restart request      * @param listener A listener to be notified with a result      * @see org.elasticsearch.client.Requests#nodesRestartRequest(String...)      */
 DECL|method|nodesRestart
 name|void
 name|nodesRestart

@@ -386,6 +386,42 @@ name|admin
 operator|.
 name|indices
 operator|.
+name|settings
+operator|.
+name|UpdateSettingsRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|admin
+operator|.
+name|indices
+operator|.
+name|settings
+operator|.
+name|UpdateSettingsResponse
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|admin
+operator|.
+name|indices
+operator|.
 name|status
 operator|.
 name|IndicesStatusRequest
@@ -610,6 +646,26 @@ name|admin
 operator|.
 name|indices
 operator|.
+name|settings
+operator|.
+name|UpdateSettingsRequestBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|client
+operator|.
+name|action
+operator|.
+name|admin
+operator|.
+name|indices
+operator|.
 name|status
 operator|.
 name|IndicesStatusRequestBuilder
@@ -626,7 +682,7 @@ specifier|public
 interface|interface
 name|IndicesAdminClient
 block|{
-comment|/**      * The status of one or more indices.      *      * @param request The indices status request      * @return The result future      * @see Requests#indicesStatus(String...)      */
+comment|/**      * The status of one or more indices.      *      * @param request The indices status request      * @return The result future      * @see Requests#indicesStatusRequest(String...)      */
 DECL|method|status
 name|ActionFuture
 argument_list|<
@@ -638,7 +694,7 @@ name|IndicesStatusRequest
 name|request
 parameter_list|)
 function_decl|;
-comment|/**      * The status of one or more indices.      *      * @param request  The indices status request      * @param listener A listener to be notified with a result      * @see Requests#indicesStatus(String...)      */
+comment|/**      * The status of one or more indices.      *      * @param request  The indices status request      * @param listener A listener to be notified with a result      * @see Requests#indicesStatusRequest(String...)      */
 DECL|method|status
 name|void
 name|status
@@ -953,7 +1009,7 @@ name|IndicesAliasesRequestBuilder
 name|prepareAliases
 parameter_list|()
 function_decl|;
-comment|/**      * Clear indices cache.      *      * @param request The clear indices cache request      * @return The result future      * @see Requests#clearIndicesCache(String...)      */
+comment|/**      * Clear indices cache.      *      * @param request The clear indices cache request      * @return The result future      * @see Requests#clearIndicesCacheRequest(String...)      */
 DECL|method|clearCache
 name|ActionFuture
 argument_list|<
@@ -965,7 +1021,7 @@ name|ClearIndicesCacheRequest
 name|request
 parameter_list|)
 function_decl|;
-comment|/**      * Clear indices cache.      *      * @param request  The clear indices cache request      * @param listener A listener to be notified with a result      * @see Requests#clearIndicesCache(String...)      */
+comment|/**      * Clear indices cache.      *      * @param request  The clear indices cache request      * @param listener A listener to be notified with a result      * @see Requests#clearIndicesCacheRequest(String...)      */
 DECL|method|clearCache
 name|void
 name|clearCache
@@ -984,6 +1040,43 @@ comment|/**      * Clear indices cache.      */
 DECL|method|prepareClearCache
 name|ClearIndicesCacheRequestBuilder
 name|prepareClearCache
+parameter_list|(
+name|String
+modifier|...
+name|indices
+parameter_list|)
+function_decl|;
+comment|/**      * Updates settings of one or more indices.      *      * @param request the update settings request      * @return The result future      */
+DECL|method|updateSettings
+name|ActionFuture
+argument_list|<
+name|UpdateSettingsResponse
+argument_list|>
+name|updateSettings
+parameter_list|(
+name|UpdateSettingsRequest
+name|request
+parameter_list|)
+function_decl|;
+comment|/**      * Updates settings of one or more indices.      *      * @param request  the update settings request      * @param listener A listener to be notified with the response      */
+DECL|method|updateSettings
+name|void
+name|updateSettings
+parameter_list|(
+name|UpdateSettingsRequest
+name|request
+parameter_list|,
+name|ActionListener
+argument_list|<
+name|UpdateSettingsResponse
+argument_list|>
+name|listener
+parameter_list|)
+function_decl|;
+comment|/**      * Update indices settings.      */
+DECL|method|prepareUpdateSettings
+name|UpdateSettingsRequestBuilder
+name|prepareUpdateSettings
 parameter_list|(
 name|String
 modifier|...

@@ -610,7 +610,7 @@ argument_list|()
 operator|.
 name|health
 argument_list|(
-name|clusterHealth
+name|clusterHealthRequest
 argument_list|(
 literal|"test"
 argument_list|)

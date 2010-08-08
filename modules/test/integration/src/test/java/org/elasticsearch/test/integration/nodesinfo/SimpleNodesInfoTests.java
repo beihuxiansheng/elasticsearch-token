@@ -331,7 +331,7 @@ argument_list|()
 operator|.
 name|nodesInfo
 argument_list|(
-name|nodesInfo
+name|nodesInfoRequest
 argument_list|()
 argument_list|)
 operator|.
@@ -400,7 +400,7 @@ argument_list|()
 operator|.
 name|nodesInfo
 argument_list|(
-name|nodesInfo
+name|nodesInfoRequest
 argument_list|(
 name|server1NodeId
 argument_list|)
@@ -455,7 +455,7 @@ argument_list|()
 operator|.
 name|nodesInfo
 argument_list|(
-name|nodesInfo
+name|nodesInfoRequest
 argument_list|(
 name|server1NodeId
 argument_list|)
@@ -510,7 +510,7 @@ argument_list|()
 operator|.
 name|nodesInfo
 argument_list|(
-name|nodesInfo
+name|nodesInfoRequest
 argument_list|(
 name|server2NodeId
 argument_list|)
@@ -565,7 +565,7 @@ argument_list|()
 operator|.
 name|nodesInfo
 argument_list|(
-name|nodesInfo
+name|nodesInfoRequest
 argument_list|(
 name|server2NodeId
 argument_list|)
