@@ -1468,7 +1468,7 @@ name|builder
 operator|.
 name|startArray
 argument_list|(
-literal|"sort_values"
+literal|"sort"
 argument_list|)
 expr_stmt|;
 for|for
