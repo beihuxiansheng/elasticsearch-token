@@ -63,7 +63,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  * Terms facet allows to return facets of the most popular terms within the search query.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_interface
@@ -81,12 +81,14 @@ operator|.
 name|Entry
 argument_list|>
 block|{
+comment|/**      * Controls how the terms facets are ordered.      */
 DECL|enum|ComparatorType
 specifier|public
 specifier|static
 enum|enum
 name|ComparatorType
 block|{
+comment|/**          * Order by the count of each term.          */
 DECL|enum constant|COUNT
 name|COUNT
 argument_list|(
@@ -182,6 +184,7 @@ block|}
 block|}
 argument_list|)
 block|,
+comment|/**          * Order by the count of each term.          */
 DECL|enum constant|TERM
 name|TERM
 argument_list|(
@@ -213,14 +216,14 @@ block|{
 name|int
 name|i
 init|=
-name|o2
+name|o1
 operator|.
 name|term
 argument_list|()
 operator|.
 name|compareTo
 argument_list|(
-name|o1
+name|o2
 operator|.
 name|term
 argument_list|()
@@ -235,12 +238,12 @@ condition|)
 block|{
 name|i
 operator|=
-name|o2
+name|o1
 operator|.
 name|count
 argument_list|()
 operator|-
-name|o1
+name|o2
 operator|.
 name|count
 argument_list|()
@@ -258,14 +261,14 @@ name|System
 operator|.
 name|identityHashCode
 argument_list|(
-name|o2
+name|o1
 argument_list|)
 operator|-
 name|System
 operator|.
 name|identityHashCode
 argument_list|(
-name|o1
+name|o2
 argument_list|)
 expr_stmt|;
 block|}
@@ -380,9 +383,60 @@ throw|throw
 operator|new
 name|ElasticSearchIllegalArgumentException
 argument_list|(
-literal|"No type argument match for multi count comparator ["
+literal|"No type argument match for terms facet comparator ["
 operator|+
 name|id
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
+DECL|method|fromString
+specifier|public
+specifier|static
+name|ComparatorType
+name|fromString
+parameter_list|(
+name|String
+name|type
+parameter_list|)
+block|{
+if|if
+condition|(
+literal|"count"
+operator|.
+name|equals
+argument_list|(
+name|type
+argument_list|)
+condition|)
+block|{
+return|return
+name|COUNT
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+literal|"term"
+operator|.
+name|equals
+argument_list|(
+name|type
+argument_list|)
+condition|)
+block|{
+return|return
+name|TERM
+return|;
+block|}
+throw|throw
+operator|new
+name|ElasticSearchIllegalArgumentException
+argument_list|(
+literal|"No type argument match for terms facet comparator ["
+operator|+
+name|type
 operator|+
 literal|"]"
 argument_list|)
@@ -470,16 +524,31 @@ argument_list|()
 return|;
 block|}
 block|}
+comment|/**      * The field name the terms were extracted from.      */
 DECL|method|fieldName
 name|String
 name|fieldName
 parameter_list|()
 function_decl|;
+comment|/**      * The field name the terms were extracted from.      */
 DECL|method|getFieldName
 name|String
 name|getFieldName
 parameter_list|()
 function_decl|;
+comment|/**      * The ordering of the results.      */
+DECL|method|comparatorType
+name|ComparatorType
+name|comparatorType
+parameter_list|()
+function_decl|;
+comment|/**      * The ordering of the results.      */
+DECL|method|getComparatorType
+name|ComparatorType
+name|getComparatorType
+parameter_list|()
+function_decl|;
+comment|/**      * The terms and counts.      */
 DECL|method|entries
 name|List
 argument_list|<
@@ -488,6 +557,7 @@ argument_list|>
 name|entries
 parameter_list|()
 function_decl|;
+comment|/**      * The terms and counts.      */
 DECL|method|getEntries
 name|List
 argument_list|<
