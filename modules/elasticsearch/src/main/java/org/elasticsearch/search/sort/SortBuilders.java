@@ -17,7 +17,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  * A set of static factory methods for {@link SortBuilder}s.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -26,6 +26,7 @@ specifier|public
 class|class
 name|SortBuilders
 block|{
+comment|/**      * Constructs a new score sort.      */
 DECL|method|scoreSort
 specifier|public
 specifier|static
@@ -39,6 +40,7 @@ name|ScoreSortBuilder
 argument_list|()
 return|;
 block|}
+comment|/**      * Constructs a new field based sort.      *      * @param field The field name.      */
 DECL|method|fieldSort
 specifier|public
 specifier|static
@@ -57,6 +59,7 @@ name|field
 argument_list|)
 return|;
 block|}
+comment|/**      * Constructs a new script based sort.      *      * @param script The script to use.      * @param type   The type, can either be "string" or "number".      */
 DECL|method|scriptSort
 specifier|public
 specifier|static
@@ -80,6 +83,7 @@ name|type
 argument_list|)
 return|;
 block|}
+comment|/**      * A geo distance based sort.      *      * @param fieldName The geo point like field name.      */
 DECL|method|geoDistanceSort
 specifier|public
 specifier|static

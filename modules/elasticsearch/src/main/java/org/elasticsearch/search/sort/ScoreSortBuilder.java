@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  * A sort builder allowing to sort by score.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -59,6 +59,7 @@ specifier|private
 name|SortOrder
 name|order
 decl_stmt|;
+comment|/**      * The order of sort scoring. By default, its {@link SortOrder#DESC}.      */
 DECL|method|order
 specifier|public
 name|ScoreSortBuilder

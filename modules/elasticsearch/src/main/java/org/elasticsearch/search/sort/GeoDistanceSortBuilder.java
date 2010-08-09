@@ -73,7 +73,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  * A geo distance based sorting on a geo point like field.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -119,6 +119,7 @@ specifier|private
 name|SortOrder
 name|order
 decl_stmt|;
+comment|/**      * Constructs a new distance based sort on a geo point like field.      *      * @param fieldName The geo point like field name.      */
 DECL|method|GeoDistanceSortBuilder
 specifier|public
 name|GeoDistanceSortBuilder
@@ -223,6 +224,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The order of sorting. Defaults to {@link SortOrder#ASC}.      */
 DECL|method|order
 specifier|public
 name|GeoDistanceSortBuilder

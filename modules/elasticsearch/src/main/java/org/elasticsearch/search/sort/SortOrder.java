@@ -17,7 +17,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  * A sorting order.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_enum
@@ -26,9 +26,11 @@ specifier|public
 enum|enum
 name|SortOrder
 block|{
+comment|/**      * Ascending order.      */
 DECL|enum constant|ASC
 name|ASC
 block|,
+comment|/**      * Descending order.      */
 DECL|enum constant|DESC
 name|DESC
 block|}

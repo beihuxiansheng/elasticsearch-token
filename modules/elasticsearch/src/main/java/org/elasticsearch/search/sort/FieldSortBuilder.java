@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  * A sort builder to sort based on a document field.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -65,6 +65,7 @@ specifier|private
 name|SortOrder
 name|order
 decl_stmt|;
+comment|/**      * Constructs a new sort based on a document field.      *      * @param fieldName The field name.      */
 DECL|method|FieldSortBuilder
 specifier|public
 name|FieldSortBuilder
@@ -80,6 +81,7 @@ operator|=
 name|fieldName
 expr_stmt|;
 block|}
+comment|/**      * The order of sorting. Defaults to {@link SortOrder#ASC}.      */
 DECL|method|order
 specifier|public
 name|FieldSortBuilder
