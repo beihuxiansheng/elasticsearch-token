@@ -34,60 +34,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|highscalelib
-operator|.
-name|NonBlockingHashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|highscalelib
-operator|.
-name|NonBlockingHashMapLong
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|highscalelib
-operator|.
-name|NonBlockingHashSet
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -169,22 +115,9 @@ argument_list|>
 name|newConcurrentMap
 parameter_list|()
 block|{
-if|if
-condition|(
-name|useNonBlockingMap
-condition|)
-block|{
-return|return
-operator|new
-name|NonBlockingHashMap
-argument_list|<
-name|K
-argument_list|,
-name|V
-argument_list|>
-argument_list|()
-return|;
-block|}
+comment|//        if (useNonBlockingMap) {
+comment|//            return new NonBlockingHashMap<K, V>();
+comment|//        }
 return|return
 operator|new
 name|ConcurrentHashMap
@@ -209,20 +142,9 @@ argument_list|>
 name|newConcurrentMapLong
 parameter_list|()
 block|{
-if|if
-condition|(
-name|useNonBlockingMap
-condition|)
-block|{
-return|return
-operator|new
-name|NonBlockingHashMapLong
-argument_list|<
-name|V
-argument_list|>
-argument_list|()
-return|;
-block|}
+comment|//        if (useNonBlockingMap) {
+comment|//            return new NonBlockingHashMapLong<V>();
+comment|//        }
 return|return
 operator|new
 name|ConcurrentHashMapLong
@@ -245,20 +167,9 @@ argument_list|>
 name|newConcurrentSet
 parameter_list|()
 block|{
-if|if
-condition|(
-name|useNonBlockingMap
-condition|)
-block|{
-return|return
-operator|new
-name|NonBlockingHashSet
-argument_list|<
-name|V
-argument_list|>
-argument_list|()
-return|;
-block|}
+comment|//        if (useNonBlockingMap) {
+comment|//            return new NonBlockingHashSet<V>();
+comment|//        }
 return|return
 operator|new
 name|MapBackedSet
