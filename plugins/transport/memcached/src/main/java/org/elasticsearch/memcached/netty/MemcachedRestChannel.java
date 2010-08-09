@@ -458,6 +458,27 @@ name|isBinary
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
+name|request
+operator|.
+name|isQuiet
+argument_list|()
+operator|&&
+name|response
+operator|.
+name|status
+argument_list|()
+operator|.
+name|getStatus
+argument_list|()
+operator|<
+literal|500
+condition|)
+block|{
+comment|// nothing to send and all is well
+return|return;
+block|}
 try|try
 block|{
 name|ChannelBuffer
@@ -488,9 +509,6 @@ name|writeBuffer
 operator|.
 name|writeByte
 argument_list|(
-operator|(
-name|byte
-operator|)
 literal|0x81
 argument_list|)
 expr_stmt|;
@@ -513,9 +531,6 @@ name|writeBuffer
 operator|.
 name|writeByte
 argument_list|(
-operator|(
-name|byte
-operator|)
 literal|0x00
 argument_list|)
 expr_stmt|;
@@ -536,17 +551,34 @@ operator|.
 name|POST
 condition|)
 block|{
+if|if
+condition|(
+name|request
+operator|.
+name|isQuiet
+argument_list|()
+condition|)
+block|{
 name|writeBuffer
 operator|.
 name|writeByte
 argument_list|(
-operator|(
-name|byte
-operator|)
+literal|0x11
+argument_list|)
+expr_stmt|;
+comment|// opcode
+block|}
+else|else
+block|{
+name|writeBuffer
+operator|.
+name|writeByte
+argument_list|(
 literal|0x01
 argument_list|)
 expr_stmt|;
 comment|// opcode
+block|}
 block|}
 elseif|else
 if|if
@@ -567,9 +599,6 @@ name|writeBuffer
 operator|.
 name|writeByte
 argument_list|(
-operator|(
-name|byte
-operator|)
 literal|0x04
 argument_list|)
 expr_stmt|;
@@ -630,9 +659,6 @@ name|writeBuffer
 operator|.
 name|writeByte
 argument_list|(
-operator|(
-name|byte
-operator|)
 name|extrasLength
 argument_list|)
 expr_stmt|;
@@ -641,9 +667,6 @@ name|writeBuffer
 operator|.
 name|writeByte
 argument_list|(
-operator|(
-name|byte
-operator|)
 literal|0
 argument_list|)
 expr_stmt|;
@@ -666,9 +689,6 @@ name|writeBuffer
 operator|.
 name|writeShort
 argument_list|(
-operator|(
-name|short
-operator|)
 literal|0x0A
 argument_list|)
 expr_stmt|;
@@ -680,9 +700,6 @@ name|writeBuffer
 operator|.
 name|writeShort
 argument_list|(
-operator|(
-name|short
-operator|)
 literal|0x0000
 argument_list|)
 expr_stmt|;
@@ -751,9 +768,6 @@ name|writeBuffer
 operator|.
 name|writeShort
 argument_list|(
-operator|(
-name|short
-operator|)
 literal|0
 argument_list|)
 expr_stmt|;
@@ -761,9 +775,6 @@ name|writeBuffer
 operator|.
 name|writeShort
 argument_list|(
-operator|(
-name|short
-operator|)
 literal|0
 argument_list|)
 expr_stmt|;
@@ -965,9 +976,6 @@ name|writeBuffer
 operator|.
 name|writeByte
 argument_list|(
-operator|(
-name|byte
-operator|)
 literal|' '
 argument_list|)
 expr_stmt|;
@@ -975,9 +983,6 @@ name|writeBuffer
 operator|.
 name|writeByte
 argument_list|(
-operator|(
-name|byte
-operator|)
 literal|'0'
 argument_list|)
 expr_stmt|;
@@ -985,9 +990,6 @@ name|writeBuffer
 operator|.
 name|writeByte
 argument_list|(
-operator|(
-name|byte
-operator|)
 literal|' '
 argument_list|)
 expr_stmt|;
@@ -1010,9 +1012,6 @@ name|writeBuffer
 operator|.
 name|writeByte
 argument_list|(
-operator|(
-name|byte
-operator|)
 literal|'\r'
 argument_list|)
 expr_stmt|;
@@ -1020,9 +1019,6 @@ name|writeBuffer
 operator|.
 name|writeByte
 argument_list|(
-operator|(
-name|byte
-operator|)
 literal|'\n'
 argument_list|)
 expr_stmt|;
@@ -1047,9 +1043,6 @@ name|writeBuffer
 operator|.
 name|writeByte
 argument_list|(
-operator|(
-name|byte
-operator|)
 literal|'\r'
 argument_list|)
 expr_stmt|;
@@ -1057,9 +1050,6 @@ name|writeBuffer
 operator|.
 name|writeByte
 argument_list|(
-operator|(
-name|byte
-operator|)
 literal|'\n'
 argument_list|)
 expr_stmt|;

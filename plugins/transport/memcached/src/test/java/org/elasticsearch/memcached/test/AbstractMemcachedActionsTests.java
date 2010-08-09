@@ -275,6 +275,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// TODO seems to use SetQ, which is not really supported yet
+comment|//        List<Future<Boolean>> setResults = Lists.newArrayList();
+comment|//
+comment|//        for (int i = 0; i< 10; i++) {
+comment|//            setResults.add(memcachedClient.set("/test/person/" + i, 0, jsonBuilder().startObject().field("test", "value").endObject().copiedBytes()));
+comment|//        }
+comment|//
+comment|//        for (Future<Boolean> setResult : setResults) {
+comment|//            assertThat(setResult.get(10, TimeUnit.SECONDS), equalTo(true));
+comment|//        }
 name|Future
 argument_list|<
 name|Boolean

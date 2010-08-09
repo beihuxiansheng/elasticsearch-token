@@ -914,7 +914,9 @@ literal|"decoder"
 argument_list|,
 operator|new
 name|MemcachedDecoder
-argument_list|()
+argument_list|(
+name|logger
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|pipeline
