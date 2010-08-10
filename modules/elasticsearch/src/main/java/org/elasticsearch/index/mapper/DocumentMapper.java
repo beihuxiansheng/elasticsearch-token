@@ -48,6 +48,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|Filter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -176,6 +190,12 @@ comment|/**      * The default search analyzer to be used. Note, the {@link Docu
 DECL|method|searchAnalyzer
 name|Analyzer
 name|searchAnalyzer
+parameter_list|()
+function_decl|;
+comment|/**      * A filter based on the type of the field.      */
+DECL|method|typeFilter
+name|Filter
+name|typeFilter
 parameter_list|()
 function_decl|;
 comment|/**      * Parses the source into a parsed document.      *      *<p>Validates that the source has the provided id and type. Note, most times      * we will already have the id and the type even though they exist in the source as well.      */
