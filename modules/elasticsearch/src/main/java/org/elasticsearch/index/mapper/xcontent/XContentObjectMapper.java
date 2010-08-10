@@ -2221,6 +2221,8 @@ name|context
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
 name|BuilderContext
 name|builderContext
 init|=
@@ -2284,6 +2286,7 @@ operator|.
 name|addedMapper
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 else|else
