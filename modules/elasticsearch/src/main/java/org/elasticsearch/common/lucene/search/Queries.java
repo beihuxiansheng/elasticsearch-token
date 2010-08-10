@@ -75,18 +75,17 @@ operator|new
 name|MatchAllDocsQuery
 argument_list|()
 decl_stmt|;
+comment|/**      * A match all docs filter. Note, requires no caching!.      */
 DECL|field|MATCH_ALL_FILTER
 specifier|public
 specifier|final
 specifier|static
-name|QueryWrapperFilter
+name|MatchAllDocsFilter
 name|MATCH_ALL_FILTER
 init|=
 operator|new
-name|QueryWrapperFilter
-argument_list|(
-name|MATCH_ALL_QUERY
-argument_list|)
+name|MatchAllDocsFilter
+argument_list|()
 decl_stmt|;
 DECL|field|disjuncts
 specifier|private

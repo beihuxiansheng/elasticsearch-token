@@ -356,19 +356,12 @@ init|=
 operator|new
 name|DeletionAwareConstantScoreQuery
 argument_list|(
-name|context
-operator|.
-name|filterCache
-argument_list|()
-operator|.
-name|cache
-argument_list|(
 name|Queries
 operator|.
 name|MATCH_ALL_FILTER
 argument_list|)
-argument_list|)
 decl_stmt|;
+comment|// no need to cache a MATCH ALL FILTER
 if|if
 condition|(
 name|context
