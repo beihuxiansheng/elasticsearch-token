@@ -692,7 +692,7 @@ name|fullName
 argument_list|)
 return|;
 block|}
-comment|/**      * Tries to find first based on {@link #fullName(String)}, then by {@link #indexName(String)}.      */
+comment|/**      * Tries to find first based on {@link #fullName(String)}, then by {@link #indexName(String)}, and last      * by {@link #name(String)}.      */
 DECL|method|smartName
 specifier|public
 name|FieldMappers
@@ -721,8 +721,26 @@ return|return
 name|fieldMappers
 return|;
 block|}
-return|return
+name|fieldMappers
+operator|=
 name|indexName
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|fieldMappers
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|fieldMappers
+return|;
+block|}
+return|return
+name|name
 argument_list|(
 name|name
 argument_list|)
