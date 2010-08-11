@@ -145,10 +145,10 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|InternalRangeDistanceFacet
+DECL|class|InternalRangeFacet
 specifier|public
 class|class
-name|InternalRangeDistanceFacet
+name|InternalRangeFacet
 implements|implements
 name|RangeFacet
 implements|,
@@ -175,13 +175,13 @@ name|Entry
 index|[]
 name|entries
 decl_stmt|;
-DECL|method|InternalRangeDistanceFacet
-name|InternalRangeDistanceFacet
+DECL|method|InternalRangeFacet
+name|InternalRangeFacet
 parameter_list|()
 block|{     }
-DECL|method|InternalRangeDistanceFacet
+DECL|method|InternalRangeFacet
 specifier|public
-name|InternalRangeDistanceFacet
+name|InternalRangeFacet
 parameter_list|(
 name|String
 name|name
@@ -399,7 +399,7 @@ argument_list|>
 name|facets
 parameter_list|)
 block|{
-name|InternalRangeDistanceFacet
+name|InternalRangeFacet
 name|agg
 init|=
 literal|null
@@ -428,11 +428,11 @@ condition|)
 block|{
 continue|continue;
 block|}
-name|InternalRangeDistanceFacet
+name|InternalRangeFacet
 name|geoDistanceFacet
 init|=
 operator|(
-name|InternalRangeDistanceFacet
+name|InternalRangeFacet
 operator|)
 name|facet
 decl_stmt|;
@@ -515,7 +515,7 @@ block|}
 DECL|method|readRangeFacet
 specifier|public
 specifier|static
-name|InternalRangeDistanceFacet
+name|InternalRangeFacet
 name|readRangeFacet
 parameter_list|(
 name|StreamInput
@@ -524,11 +524,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|InternalRangeDistanceFacet
+name|InternalRangeFacet
 name|facet
 init|=
 operator|new
-name|InternalRangeDistanceFacet
+name|InternalRangeFacet
 argument_list|()
 decl_stmt|;
 name|facet
@@ -1011,7 +1011,7 @@ literal|"to_str"
 argument_list|,
 name|entry
 operator|.
-name|fromAsString
+name|toAsString
 argument_list|)
 expr_stmt|;
 block|}

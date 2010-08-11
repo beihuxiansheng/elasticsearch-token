@@ -408,7 +408,7 @@ parameter_list|()
 block|{
 return|return
 operator|new
-name|InternalRangeDistanceFacet
+name|InternalRangeFacet
 argument_list|(
 name|facetName
 argument_list|,

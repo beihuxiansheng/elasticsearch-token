@@ -242,7 +242,7 @@ name|facets
 operator|.
 name|range
 operator|.
-name|InternalRangeDistanceFacet
+name|InternalRangeFacet
 import|;
 end_import
 
@@ -906,7 +906,7 @@ name|facets
 operator|.
 name|add
 argument_list|(
-name|InternalRangeDistanceFacet
+name|InternalRangeFacet
 operator|.
 name|readRangeFacet
 argument_list|(
