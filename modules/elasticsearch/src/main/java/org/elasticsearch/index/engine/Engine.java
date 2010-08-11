@@ -236,9 +236,9 @@ name|IndexShardComponent
 extends|,
 name|CloseableComponent
 block|{
-DECL|method|indexingBuffer
+DECL|method|updateIndexingBufferSize
 name|void
-name|indexingBuffer
+name|updateIndexingBufferSize
 parameter_list|(
 name|ByteSizeValue
 name|indexingBufferSize

@@ -815,18 +815,17 @@ operator|=
 name|similarityService
 expr_stmt|;
 block|}
-DECL|method|indexingBuffer
+DECL|method|updateIndexingBufferSize
 annotation|@
 name|Override
 specifier|public
 name|void
-name|indexingBuffer
+name|updateIndexingBufferSize
 parameter_list|(
 name|ByteSizeValue
 name|indexingBufferSize
 parameter_list|)
 block|{
-comment|// LUCENE MONITOR - If this restriction is removed from Lucene, remove it from here
 name|rwl
 operator|.
 name|readLock
@@ -837,6 +836,7 @@ argument_list|()
 expr_stmt|;
 try|try
 block|{
+comment|// LUCENE MONITOR - If this restriction is removed from Lucene, remove it from here
 if|if
 condition|(
 name|indexingBufferSize

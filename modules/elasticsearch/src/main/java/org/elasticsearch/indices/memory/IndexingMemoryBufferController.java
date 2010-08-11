@@ -580,7 +580,7 @@ operator|.
 name|engine
 argument_list|()
 operator|.
-name|indexingBuffer
+name|updateIndexingBufferSize
 argument_list|(
 name|shardIndexingBufferSize
 argument_list|)

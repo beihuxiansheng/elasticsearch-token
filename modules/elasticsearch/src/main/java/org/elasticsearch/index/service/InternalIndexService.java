@@ -586,6 +586,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|translog
+operator|.
+name|TranslogService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|indices
 operator|.
 name|IndicesLifecycle
@@ -2001,6 +2015,30 @@ name|closeable
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+try|try
+block|{
+comment|// now we can close the translog service, we need to close it before the we close the shard
+name|shardInjector
+operator|.
+name|getInstance
+argument_list|(
+name|TranslogService
+operator|.
+name|class
+argument_list|)
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// ignore
 block|}
 comment|// close shard actions
 if|if
