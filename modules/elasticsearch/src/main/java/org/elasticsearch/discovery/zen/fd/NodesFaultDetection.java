@@ -1358,6 +1358,19 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|spawn
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|spawn
+parameter_list|()
+block|{
+comment|// no need to spawn here, we just send a response
+return|return
+literal|false
+return|;
+block|}
 block|}
 DECL|class|PingRequest
 specifier|static
