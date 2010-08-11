@@ -1698,13 +1698,21 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Caught exception while handling client http traffic"
+literal|"Caught exception while handling client http traffic, closing connection"
 argument_list|,
 name|e
 operator|.
 name|getCause
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|ctx
+operator|.
+name|getChannel
+argument_list|()
+operator|.
+name|disconnect
+argument_list|()
 expr_stmt|;
 block|}
 block|}
