@@ -2188,6 +2188,8 @@ name|startRecovery
 argument_list|(
 name|request
 argument_list|,
+literal|false
+argument_list|,
 operator|new
 name|PeerRecoveryListener
 argument_list|(
@@ -2372,6 +2374,8 @@ name|startRecovery
 argument_list|(
 name|request
 argument_list|,
+literal|false
+argument_list|,
 operator|new
 name|PeerRecoveryListener
 argument_list|(
@@ -2521,6 +2525,8 @@ operator|.
 name|startRecovery
 argument_list|(
 name|request
+argument_list|,
+literal|true
 argument_list|,
 name|PeerRecoveryListener
 operator|.
