@@ -810,6 +810,15 @@ argument_list|,
 name|subQueryScore
 argument_list|)
 expr_stmt|;
+name|vars
+operator|.
+name|put
+argument_list|(
+literal|"_score"
+argument_list|,
+name|subQueryScore
+argument_list|)
+expr_stmt|;
 return|return
 operator|(
 operator|(
