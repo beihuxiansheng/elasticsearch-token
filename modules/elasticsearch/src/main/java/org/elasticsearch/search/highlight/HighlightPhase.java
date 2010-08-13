@@ -523,8 +523,6 @@ block|}
 name|String
 index|[]
 name|fragments
-init|=
-literal|null
 decl_stmt|;
 try|try
 block|{
