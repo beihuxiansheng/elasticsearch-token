@@ -3701,7 +3701,7 @@ operator|.
 name|name
 argument_list|()
 operator|+
-literal|"part0"
+literal|".part0"
 expr_stmt|;
 block|}
 if|if
@@ -3827,6 +3827,9 @@ name|String
 name|partName
 init|=
 name|fileToRecover
+operator|.
+name|name
+argument_list|()
 operator|+
 literal|".part"
 operator|+
@@ -3852,6 +3855,7 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
 else|else
 block|{
