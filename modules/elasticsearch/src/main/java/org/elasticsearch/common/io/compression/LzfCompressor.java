@@ -345,14 +345,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|CompressHolder
-name|ch
-init|=
-name|Cached
-operator|.
-name|cached
-argument_list|()
-decl_stmt|;
 name|byte
 index|[]
 name|result
