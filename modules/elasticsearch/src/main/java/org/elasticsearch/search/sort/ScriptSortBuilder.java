@@ -262,12 +262,7 @@ operator|.
 name|field
 argument_list|(
 literal|"params"
-argument_list|)
-expr_stmt|;
-name|builder
-operator|.
-name|map
-argument_list|(
+argument_list|,
 name|this
 operator|.
 name|params
