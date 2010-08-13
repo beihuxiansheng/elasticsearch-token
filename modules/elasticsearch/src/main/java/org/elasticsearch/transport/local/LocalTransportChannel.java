@@ -86,43 +86,7 @@ name|elasticsearch
 operator|.
 name|transport
 operator|.
-name|NotSerializableTransportException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|transport
-operator|.
-name|RemoteTransportException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|transport
-operator|.
-name|Transport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|transport
-operator|.
-name|TransportChannel
+name|*
 import|;
 end_import
 
@@ -147,7 +111,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -246,6 +210,32 @@ name|sendResponse
 parameter_list|(
 name|Streamable
 name|message
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|sendResponse
+argument_list|(
+name|message
+argument_list|,
+name|TransportResponseOptions
+operator|.
+name|EMPTY
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|sendResponse
+annotation|@
+name|Override
+specifier|public
+name|void
+name|sendResponse
+parameter_list|(
+name|Streamable
+name|message
+parameter_list|,
+name|TransportResponseOptions
+name|options
 parameter_list|)
 throws|throws
 name|IOException

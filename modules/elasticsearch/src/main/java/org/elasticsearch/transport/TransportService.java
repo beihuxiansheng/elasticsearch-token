@@ -210,16 +210,6 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|annotation
-operator|.
-name|Nullable
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -882,7 +872,9 @@ name|action
 argument_list|,
 name|message
 argument_list|,
-literal|null
+name|TransportRequestOptions
+operator|.
+name|EMPTY
 argument_list|,
 name|handler
 argument_list|)
@@ -910,8 +902,6 @@ parameter_list|,
 name|Streamable
 name|message
 parameter_list|,
-annotation|@
-name|Nullable
 name|TransportRequestOptions
 name|options
 parameter_list|,
@@ -996,7 +986,9 @@ name|action
 argument_list|,
 name|message
 argument_list|,
-literal|null
+name|TransportRequestOptions
+operator|.
+name|EMPTY
 argument_list|,
 name|handler
 argument_list|)
@@ -1024,8 +1016,6 @@ specifier|final
 name|Streamable
 name|message
 parameter_list|,
-annotation|@
-name|Nullable
 specifier|final
 name|TransportRequestOptions
 name|options
@@ -1056,10 +1046,6 @@ try|try
 block|{
 if|if
 condition|(
-name|options
-operator|!=
-literal|null
-operator|&&
 name|options
 operator|.
 name|timeout

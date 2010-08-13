@@ -88,16 +88,6 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|annotation
-operator|.
-name|Nullable
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -133,13 +123,15 @@ name|byte
 name|TRANSPORT_TYPE
 init|=
 literal|1
+operator|<<
+literal|0
 decl_stmt|;
-DECL|field|RESPONSE_TYPE
+DECL|field|ERROR
 specifier|public
 specifier|static
 specifier|final
 name|byte
-name|RESPONSE_TYPE
+name|ERROR
 init|=
 literal|1
 operator|<<
@@ -216,7 +208,7 @@ return|return
 operator|(
 name|value
 operator|&
-name|RESPONSE_TYPE
+name|ERROR
 operator|)
 operator|!=
 literal|0
@@ -234,7 +226,7 @@ parameter_list|)
 block|{
 name|value
 operator||=
-name|RESPONSE_TYPE
+name|ERROR
 expr_stmt|;
 return|return
 name|value
@@ -332,8 +324,6 @@ parameter_list|,
 name|Streamable
 name|message
 parameter_list|,
-annotation|@
-name|Nullable
 name|TransportRequestOptions
 name|options
 parameter_list|)

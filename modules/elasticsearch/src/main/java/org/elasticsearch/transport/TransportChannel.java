@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * A transport channel allows to send a response to a request on the channel.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_interface
@@ -61,6 +61,19 @@ name|sendResponse
 parameter_list|(
 name|Streamable
 name|message
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
+DECL|method|sendResponse
+name|void
+name|sendResponse
+parameter_list|(
+name|Streamable
+name|message
+parameter_list|,
+name|TransportResponseOptions
+name|options
 parameter_list|)
 throws|throws
 name|IOException

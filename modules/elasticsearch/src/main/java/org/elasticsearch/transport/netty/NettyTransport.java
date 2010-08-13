@@ -510,16 +510,6 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|annotation
-operator|.
-name|Nullable
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -2678,8 +2668,6 @@ specifier|final
 name|Streamable
 name|streamable
 parameter_list|,
-annotation|@
-name|Nullable
 name|TransportRequestOptions
 name|options
 parameter_list|)
