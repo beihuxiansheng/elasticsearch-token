@@ -601,13 +601,13 @@ name|getAsBoolean
 argument_list|(
 literal|"memcached.blocking_server"
 argument_list|,
-name|componentSettings
+name|settings
 operator|.
 name|getAsBoolean
 argument_list|(
 name|TCP_BLOCKING_SERVER
 argument_list|,
-name|componentSettings
+name|settings
 operator|.
 name|getAsBoolean
 argument_list|(

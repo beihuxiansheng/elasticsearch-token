@@ -1323,7 +1323,7 @@ name|out
 init|=
 name|CachedStreamOutput
 operator|.
-name|cachedHandles
+name|cachedHandlesBytes
 argument_list|()
 decl_stmt|;
 name|out
@@ -1764,11 +1764,9 @@ block|{
 name|StreamInput
 name|input
 init|=
-name|HandlesStreamInput
+name|CachedStreamInput
 operator|.
-name|Cached
-operator|.
-name|cached
+name|cachedHandles
 argument_list|(
 operator|new
 name|BytesStreamInput
