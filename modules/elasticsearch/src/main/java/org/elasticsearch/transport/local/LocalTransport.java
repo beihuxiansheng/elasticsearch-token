@@ -802,9 +802,7 @@ block|{
 name|HandlesStreamOutput
 name|stream
 init|=
-name|BytesStreamOutput
-operator|.
-name|Cached
+name|CachedStreamOutput
 operator|.
 name|cachedHandles
 argument_list|()

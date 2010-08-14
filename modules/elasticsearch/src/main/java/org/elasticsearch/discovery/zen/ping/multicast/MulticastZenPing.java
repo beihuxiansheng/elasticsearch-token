@@ -1321,9 +1321,7 @@ block|{
 name|HandlesStreamOutput
 name|out
 init|=
-name|BytesStreamOutput
-operator|.
-name|Cached
+name|CachedStreamOutput
 operator|.
 name|cachedHandles
 argument_list|()
