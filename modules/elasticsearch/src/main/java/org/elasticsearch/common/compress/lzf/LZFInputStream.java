@@ -58,7 +58,6 @@ decl_stmt|;
 comment|/* stream to be decompressed */
 DECL|field|inputStream
 specifier|private
-specifier|final
 name|InputStream
 name|inputStream
 decl_stmt|;
@@ -329,6 +328,30 @@ name|inputStream
 operator|.
 name|close
 argument_list|()
+expr_stmt|;
+block|}
+DECL|method|reset
+specifier|public
+name|void
+name|reset
+parameter_list|(
+name|InputStream
+name|is
+parameter_list|)
+block|{
+name|this
+operator|.
+name|inputStream
+operator|=
+name|is
+expr_stmt|;
+name|bufferLength
+operator|=
+literal|0
+expr_stmt|;
+name|bufferPosition
+operator|=
+literal|0
 expr_stmt|;
 block|}
 comment|/**      * Fill the uncompressed bytes buffer by reading the underlying inputStream.      *      * @throws java.io.IOException      */

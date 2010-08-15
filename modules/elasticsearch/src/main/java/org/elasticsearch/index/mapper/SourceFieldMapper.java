@@ -48,6 +48,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|document
+operator|.
+name|Fieldable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -61,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A mapper that maps the actual source of a generated document.  *  * @author kimchy (Shay Banon)  */
+comment|/**  * A mapper that maps the actual source of a generated document.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_interface
@@ -93,6 +107,22 @@ DECL|method|enabled
 name|boolean
 name|enabled
 parameter_list|()
+function_decl|;
+comment|/**      * Is the source field compressed or not?      */
+DECL|method|compressed
+name|boolean
+name|compressed
+parameter_list|()
+function_decl|;
+comment|/**      * Returns the native source value, if its compressed, then the compressed value is returned.      */
+DECL|method|nativeValue
+name|byte
+index|[]
+name|nativeValue
+parameter_list|(
+name|Fieldable
+name|field
+parameter_list|)
 function_decl|;
 DECL|method|value
 name|byte
