@@ -266,6 +266,17 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|len
+operator|==
+literal|0
+condition|)
+block|{
+return|return
+literal|0
+return|;
+block|}
 name|int
 name|available
 init|=
