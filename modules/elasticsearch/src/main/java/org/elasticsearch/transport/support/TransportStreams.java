@@ -646,6 +646,11 @@ name|wrappedOut
 argument_list|()
 operator|)
 expr_stmt|;
+name|stream
+operator|.
+name|cleanHandles
+argument_list|()
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -687,6 +692,11 @@ operator|.
 name|wrappedOut
 argument_list|()
 operator|)
+expr_stmt|;
+name|stream
+operator|.
+name|cleanHandles
+argument_list|()
 expr_stmt|;
 block|}
 name|byte

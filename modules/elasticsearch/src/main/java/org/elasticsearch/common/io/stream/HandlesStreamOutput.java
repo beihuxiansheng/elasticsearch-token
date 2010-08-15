@@ -85,7 +85,7 @@ specifier|final
 name|int
 name|DEFAULT_IDENTITY_THRESHOLD
 init|=
-literal|50
+literal|100
 decl_stmt|;
 comment|// a threshold above which strings will use identity check
 DECL|field|identityThreshold
@@ -408,6 +408,23 @@ name|offset
 argument_list|,
 name|length
 argument_list|)
+expr_stmt|;
+block|}
+DECL|method|cleanHandles
+specifier|public
+name|void
+name|cleanHandles
+parameter_list|()
+block|{
+name|handles
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|identityHandles
+operator|.
+name|clear
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|reset
