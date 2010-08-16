@@ -70,6 +70,20 @@ name|ConcurrentMap
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicLong
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
@@ -163,6 +177,14 @@ name|long
 name|currentTranslogOperations
 init|=
 literal|0
+decl_stmt|;
+DECL|field|currentFilesSize
+name|AtomicLong
+name|currentFilesSize
+init|=
+operator|new
+name|AtomicLong
+argument_list|()
 decl_stmt|;
 block|}
 end_class
