@@ -103,6 +103,9 @@ block|{
 DECL|enum constant|INIT
 name|INIT
 block|,
+DECL|enum constant|RETRY
+name|RETRY
+block|,
 DECL|enum constant|FILES
 name|FILES
 block|,
@@ -125,6 +128,23 @@ name|ConcurrentCollections
 operator|.
 name|newConcurrentMap
 argument_list|()
+decl_stmt|;
+DECL|field|startTimeImMillis
+specifier|final
+name|long
+name|startTimeImMillis
+init|=
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
+decl_stmt|;
+DECL|field|retryTimeInMillis
+specifier|volatile
+name|long
+name|retryTimeInMillis
+init|=
+literal|0
 decl_stmt|;
 DECL|field|phase1FileNames
 name|List
