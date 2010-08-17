@@ -739,8 +739,6 @@ operator|.
 name|start
 argument_list|()
 decl_stmt|;
-name|IndexShardGateway
-operator|.
 name|RecoveryStatus
 name|recoveryStatus
 init|=
@@ -1209,8 +1207,6 @@ return|return;
 block|}
 try|try
 block|{
-name|IndexShardGateway
-operator|.
 name|SnapshotStatus
 name|snapshotStatus
 init|=
@@ -1223,8 +1219,6 @@ name|Engine
 operator|.
 name|SnapshotHandler
 argument_list|<
-name|IndexShardGateway
-operator|.
 name|SnapshotStatus
 argument_list|>
 argument_list|()
@@ -1232,8 +1226,6 @@ block|{
 annotation|@
 name|Override
 specifier|public
-name|IndexShardGateway
-operator|.
 name|SnapshotStatus
 name|snapshot
 parameter_list|(
@@ -1283,8 +1275,6 @@ argument_list|,
 name|shardGateway
 argument_list|)
 expr_stmt|;
-name|IndexShardGateway
-operator|.
 name|SnapshotStatus
 name|snapshotStatus
 init|=
@@ -1344,11 +1334,7 @@ name|snapshotStatus
 return|;
 block|}
 return|return
-name|IndexShardGateway
-operator|.
-name|SnapshotStatus
-operator|.
-name|NA
+literal|null
 return|;
 block|}
 block|}
@@ -1358,11 +1344,7 @@ if|if
 condition|(
 name|snapshotStatus
 operator|!=
-name|IndexShardGateway
-operator|.
-name|SnapshotStatus
-operator|.
-name|NA
+literal|null
 condition|)
 block|{
 if|if
@@ -1411,7 +1393,7 @@ name|append
 argument_list|(
 name|snapshotStatus
 operator|.
-name|totalTime
+name|took
 argument_list|()
 argument_list|)
 operator|.
@@ -1476,7 +1458,7 @@ operator|.
 name|index
 argument_list|()
 operator|.
-name|time
+name|took
 argument_list|()
 argument_list|)
 operator|.
@@ -1509,7 +1491,7 @@ operator|.
 name|translog
 argument_list|()
 operator|.
-name|numberOfOperations
+name|currentTranslogOperations
 argument_list|()
 argument_list|)
 operator|.
@@ -1525,7 +1507,7 @@ operator|.
 name|translog
 argument_list|()
 operator|.
-name|time
+name|took
 argument_list|()
 argument_list|)
 operator|.
