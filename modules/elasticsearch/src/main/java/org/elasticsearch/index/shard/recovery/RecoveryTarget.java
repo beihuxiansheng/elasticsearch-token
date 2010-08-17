@@ -504,7 +504,7 @@ name|ConcurrentMap
 argument_list|<
 name|ShardId
 argument_list|,
-name|PeerRecoveryStatus
+name|RecoveryStatus
 argument_list|>
 name|onGoingRecoveries
 init|=
@@ -685,14 +685,14 @@ expr_stmt|;
 block|}
 DECL|method|peerRecoveryStatus
 specifier|public
-name|PeerRecoveryStatus
+name|RecoveryStatus
 name|peerRecoveryStatus
 parameter_list|(
 name|ShardId
 name|shardId
 parameter_list|)
 block|{
-name|PeerRecoveryStatus
+name|RecoveryStatus
 name|peerRecoveryStatus
 init|=
 name|onGoingRecoveries
@@ -726,7 +726,7 @@ name|peerRecoveryStatus
 operator|.
 name|stage
 operator|!=
-name|PeerRecoveryStatus
+name|RecoveryStatus
 operator|.
 name|Stage
 operator|.
@@ -1037,7 +1037,7 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-name|PeerRecoveryStatus
+name|RecoveryStatus
 name|recovery
 decl_stmt|;
 if|if
@@ -1063,7 +1063,7 @@ block|{
 name|recovery
 operator|=
 operator|new
-name|PeerRecoveryStatus
+name|RecoveryStatus
 argument_list|()
 expr_stmt|;
 name|onGoingRecoveries
@@ -1099,7 +1099,7 @@ name|recovery
 operator|.
 name|stage
 operator|=
-name|PeerRecoveryStatus
+name|RecoveryStatus
 operator|.
 name|Stage
 operator|.
@@ -1284,7 +1284,7 @@ name|recovery
 operator|.
 name|stage
 operator|=
-name|PeerRecoveryStatus
+name|RecoveryStatus
 operator|.
 name|Stage
 operator|.
@@ -1762,7 +1762,7 @@ name|recovery
 operator|.
 name|stage
 operator|=
-name|PeerRecoveryStatus
+name|RecoveryStatus
 operator|.
 name|Stage
 operator|.
@@ -1954,7 +1954,7 @@ name|shardId
 parameter_list|)
 block|{
 comment|// clean it from the on going recoveries since it is being closed
-name|PeerRecoveryStatus
+name|RecoveryStatus
 name|peerRecoveryStatus
 init|=
 name|onGoingRecoveries
@@ -2101,7 +2101,7 @@ name|id
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|PeerRecoveryStatus
+name|RecoveryStatus
 name|onGoingRecovery
 init|=
 name|onGoingRecoveries
@@ -2137,7 +2137,7 @@ name|onGoingRecovery
 operator|.
 name|stage
 operator|=
-name|PeerRecoveryStatus
+name|RecoveryStatus
 operator|.
 name|Stage
 operator|.
@@ -2231,7 +2231,7 @@ name|id
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|PeerRecoveryStatus
+name|RecoveryStatus
 name|peerRecoveryStatus
 init|=
 name|onGoingRecoveries
@@ -2267,7 +2267,7 @@ name|peerRecoveryStatus
 operator|.
 name|stage
 operator|=
-name|PeerRecoveryStatus
+name|RecoveryStatus
 operator|.
 name|Stage
 operator|.
@@ -2299,7 +2299,7 @@ name|peerRecoveryStatus
 operator|.
 name|stage
 operator|=
-name|PeerRecoveryStatus
+name|RecoveryStatus
 operator|.
 name|Stage
 operator|.
@@ -2409,7 +2409,7 @@ name|operation
 argument_list|)
 expr_stmt|;
 block|}
-name|PeerRecoveryStatus
+name|RecoveryStatus
 name|onGoingRecovery
 init|=
 name|onGoingRecoveries
@@ -2534,7 +2534,7 @@ name|id
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|PeerRecoveryStatus
+name|RecoveryStatus
 name|onGoingRecovery
 init|=
 name|onGoingRecoveries
@@ -2618,11 +2618,11 @@ name|onGoingRecovery
 operator|.
 name|stage
 operator|=
-name|PeerRecoveryStatus
+name|RecoveryStatus
 operator|.
 name|Stage
 operator|.
-name|FILES
+name|INDEX
 expr_stmt|;
 name|channel
 operator|.
@@ -2837,7 +2837,7 @@ name|id
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|PeerRecoveryStatus
+name|RecoveryStatus
 name|onGoingRecovery
 init|=
 name|onGoingRecoveries

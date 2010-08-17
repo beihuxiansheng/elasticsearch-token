@@ -121,9 +121,12 @@ parameter_list|()
 function_decl|;
 comment|/**      * Recovers the state of the shard from the gateway.      */
 DECL|method|recover
-name|RecoveryStatus
+name|void
 name|recover
-parameter_list|()
+parameter_list|(
+name|RecoveryStatus
+name|recoveryStatus
+parameter_list|)
 throws|throws
 name|IndexShardGatewayRecoveryException
 function_decl|;

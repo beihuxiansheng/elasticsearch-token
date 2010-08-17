@@ -89,10 +89,10 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|PeerRecoveryStatus
+DECL|class|RecoveryStatus
 specifier|public
 class|class
-name|PeerRecoveryStatus
+name|RecoveryStatus
 block|{
 DECL|enum|Stage
 specifier|public
@@ -106,8 +106,8 @@ block|,
 DECL|enum constant|RETRY
 name|RETRY
 block|,
-DECL|enum constant|FILES
-name|FILES
+DECL|enum constant|INDEX
+name|INDEX
 block|,
 DECL|enum constant|TRANSLOG
 name|TRANSLOG

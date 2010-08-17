@@ -382,7 +382,7 @@ name|shard
 operator|.
 name|recovery
 operator|.
-name|PeerRecoveryStatus
+name|RecoveryStatus
 import|;
 end_import
 
@@ -569,7 +569,7 @@ name|shardRouting
 decl_stmt|;
 DECL|field|peerRecoveryStatus
 specifier|private
-name|PeerRecoveryStatus
+name|RecoveryStatus
 name|peerRecoveryStatus
 decl_stmt|;
 DECL|method|InternalIndexShard
@@ -2502,7 +2502,7 @@ block|}
 comment|/**      * The peer recovery status if this shard recovered from a peer shard.      */
 DECL|method|peerRecoveryStatus
 specifier|public
-name|PeerRecoveryStatus
+name|RecoveryStatus
 name|peerRecoveryStatus
 parameter_list|()
 block|{
@@ -2520,7 +2520,7 @@ parameter_list|(
 name|boolean
 name|withFlush
 parameter_list|,
-name|PeerRecoveryStatus
+name|RecoveryStatus
 name|peerRecoveryStatus
 parameter_list|)
 throws|throws
