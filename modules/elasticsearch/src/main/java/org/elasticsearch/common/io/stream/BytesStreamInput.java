@@ -455,7 +455,7 @@ block|{
 name|int
 name|utflen
 init|=
-name|readUnsignedShort
+name|readInt
 argument_list|()
 decl_stmt|;
 if|if

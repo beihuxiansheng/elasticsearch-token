@@ -38,16 +38,6 @@ name|OutputStream
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|UTFDataFormatException
-import|;
-end_import
-
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
@@ -484,23 +474,6 @@ block|}
 block|}
 if|if
 condition|(
-name|utflen
-operator|>
-literal|65535
-condition|)
-throw|throw
-operator|new
-name|UTFDataFormatException
-argument_list|(
-literal|"encoded string too long: "
-operator|+
-name|utflen
-operator|+
-literal|" bytes"
-argument_list|)
-throw|;
-if|if
-condition|(
 name|this
 operator|.
 name|bytearr
@@ -517,7 +490,7 @@ operator|<
 operator|(
 name|utflen
 operator|+
-literal|2
+literal|4
 operator|)
 operator|)
 condition|)
@@ -534,7 +507,7 @@ operator|*
 literal|2
 operator|)
 operator|+
-literal|2
+literal|4
 index|]
 expr_stmt|;
 name|byte
@@ -545,6 +518,7 @@ name|this
 operator|.
 name|bytearr
 decl_stmt|;
+comment|// same as writeInt
 name|bytearr
 index|[
 name|count
@@ -555,13 +529,9 @@ call|(
 name|byte
 call|)
 argument_list|(
-operator|(
 name|utflen
-operator|>>>
-literal|8
-operator|)
-operator|&
-literal|0xFF
+operator|>>
+literal|24
 argument_list|)
 expr_stmt|;
 name|bytearr
@@ -574,13 +544,37 @@ call|(
 name|byte
 call|)
 argument_list|(
-operator|(
 name|utflen
-operator|>>>
-literal|0
-operator|)
-operator|&
-literal|0xFF
+operator|>>
+literal|16
+argument_list|)
+expr_stmt|;
+name|bytearr
+index|[
+name|count
+operator|++
+index|]
+operator|=
+call|(
+name|byte
+call|)
+argument_list|(
+name|utflen
+operator|>>
+literal|8
+argument_list|)
+expr_stmt|;
+name|bytearr
+index|[
+name|count
+operator|++
+index|]
+operator|=
+call|(
+name|byte
+call|)
+argument_list|(
+name|utflen
 argument_list|)
 expr_stmt|;
 name|int
@@ -824,7 +818,7 @@ literal|0
 argument_list|,
 name|utflen
 operator|+
-literal|2
+literal|4
 argument_list|)
 expr_stmt|;
 comment|//        return utflen + 2;
