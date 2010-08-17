@@ -978,7 +978,7 @@ operator|.
 name|translog
 argument_list|()
 operator|.
-name|numberOfOperations
+name|currentTranslogOperations
 argument_list|()
 argument_list|)
 operator|.
