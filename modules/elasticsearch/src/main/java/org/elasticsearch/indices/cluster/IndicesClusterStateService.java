@@ -2483,7 +2483,7 @@ name|shardStarted
 argument_list|(
 name|shardRouting
 argument_list|,
-literal|"after recovery (backup) from node ["
+literal|"after recovery (replica) from node ["
 operator|+
 name|request
 operator|.
