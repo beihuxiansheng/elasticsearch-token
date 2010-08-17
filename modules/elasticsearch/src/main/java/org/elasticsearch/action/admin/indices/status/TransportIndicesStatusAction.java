@@ -1124,7 +1124,7 @@ argument_list|()
 argument_list|,
 name|peerRecoveryStatus
 operator|.
-name|took
+name|time
 argument_list|()
 argument_list|,
 name|peerRecoveryStatus
