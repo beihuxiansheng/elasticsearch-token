@@ -275,7 +275,12 @@ name|this
 operator|.
 name|path
 operator|=
+name|RestUtils
+operator|.
+name|decodeComponent
+argument_list|(
 name|uri
+argument_list|)
 expr_stmt|;
 block|}
 else|else
@@ -284,6 +289,10 @@ name|this
 operator|.
 name|path
 operator|=
+name|RestUtils
+operator|.
+name|decodeComponent
+argument_list|(
 name|uri
 operator|.
 name|substring
@@ -291,6 +300,7 @@ argument_list|(
 literal|0
 argument_list|,
 name|pathEndPos
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|RestUtils
