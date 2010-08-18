@@ -269,11 +269,6 @@ name|raf
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|listener
-operator|.
-name|onCompleted
-argument_list|()
-expr_stmt|;
 name|raf
 operator|.
 name|close
@@ -285,6 +280,11 @@ name|syncFile
 argument_list|(
 name|file
 argument_list|)
+expr_stmt|;
+name|listener
+operator|.
+name|onCompleted
+argument_list|()
 expr_stmt|;
 block|}
 catch|catch

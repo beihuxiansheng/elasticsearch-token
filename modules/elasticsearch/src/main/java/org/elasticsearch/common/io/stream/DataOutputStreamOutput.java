@@ -96,7 +96,7 @@ name|IOException
 block|{
 name|out
 operator|.
-name|write
+name|writeByte
 argument_list|(
 name|b
 argument_list|)
