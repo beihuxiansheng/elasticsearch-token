@@ -848,23 +848,6 @@ literal|"more_like_this requires 'fields' to be specified"
 argument_list|)
 throw|;
 block|}
-comment|// move to the next end object, to close the field name
-name|token
-operator|=
-name|parser
-operator|.
-name|nextToken
-argument_list|()
-expr_stmt|;
-assert|assert
-name|token
-operator|==
-name|XContentParser
-operator|.
-name|Token
-operator|.
-name|END_OBJECT
-assert|;
 name|mltQuery
 operator|.
 name|setAnalyzer

@@ -669,23 +669,6 @@ argument_list|(
 name|ignoreTF
 argument_list|)
 expr_stmt|;
-comment|// move to the next end object, to close the field name
-name|token
-operator|=
-name|parser
-operator|.
-name|nextToken
-argument_list|()
-expr_stmt|;
-assert|assert
-name|token
-operator|==
-name|XContentParser
-operator|.
-name|Token
-operator|.
-name|END_OBJECT
-assert|;
 return|return
 name|query
 return|;
