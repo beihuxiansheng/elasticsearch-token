@@ -263,10 +263,10 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|TenShardsOneBackupRoutingTests
+DECL|class|TenShardsOneReplicaRoutingTests
 specifier|public
 class|class
-name|TenShardsOneBackupRoutingTests
+name|TenShardsOneReplicaRoutingTests
 block|{
 DECL|field|logger
 specifier|private
@@ -278,7 +278,7 @@ name|Loggers
 operator|.
 name|getLogger
 argument_list|(
-name|TenShardsOneBackupRoutingTests
+name|TenShardsOneReplicaRoutingTests
 operator|.
 name|class
 argument_list|)

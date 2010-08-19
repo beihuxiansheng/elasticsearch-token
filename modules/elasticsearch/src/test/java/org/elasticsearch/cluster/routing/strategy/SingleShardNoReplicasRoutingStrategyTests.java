@@ -357,10 +357,10 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|SingleShardNoBackupsRoutingStrategyTests
+DECL|class|SingleShardNoReplicasRoutingStrategyTests
 specifier|public
 class|class
-name|SingleShardNoBackupsRoutingStrategyTests
+name|SingleShardNoReplicasRoutingStrategyTests
 block|{
 DECL|field|logger
 specifier|private
@@ -372,7 +372,7 @@ name|Loggers
 operator|.
 name|getLogger
 argument_list|(
-name|SingleShardNoBackupsRoutingStrategyTests
+name|SingleShardNoReplicasRoutingStrategyTests
 operator|.
 name|class
 argument_list|)
