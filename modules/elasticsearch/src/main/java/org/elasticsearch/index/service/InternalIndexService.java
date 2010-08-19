@@ -1363,6 +1363,9 @@ name|shardId
 argument_list|,
 name|delete
 argument_list|,
+operator|!
+name|delete
+argument_list|,
 name|delete
 argument_list|)
 expr_stmt|;
@@ -1806,6 +1809,8 @@ argument_list|,
 literal|true
 argument_list|,
 literal|false
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -1819,6 +1824,9 @@ name|shardId
 parameter_list|,
 name|boolean
 name|delete
+parameter_list|,
+name|boolean
+name|snapshotGateway
 parameter_list|,
 name|boolean
 name|deleteGateway
@@ -2102,6 +2110,35 @@ block|}
 try|try
 block|{
 comment|// now, we can snapshot to the gateway, it will be only the translog
+if|if
+condition|(
+name|snapshotGateway
+condition|)
+block|{
+name|shardInjector
+operator|.
+name|getInstance
+argument_list|(
+name|IndexShardGatewayService
+operator|.
+name|class
+argument_list|)
+operator|.
+name|snapshotOnClose
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+block|}
+try|try
+block|{
 name|shardInjector
 operator|.
 name|getInstance
