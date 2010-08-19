@@ -1438,13 +1438,8 @@ decl_stmt|;
 comment|// update the source with the generated one
 name|documentMapper
 operator|.
-name|mappingSource
-argument_list|(
-name|documentMapper
-operator|.
-name|buildSource
+name|refreshSource
 argument_list|()
-argument_list|)
 expr_stmt|;
 return|return
 name|documentMapper

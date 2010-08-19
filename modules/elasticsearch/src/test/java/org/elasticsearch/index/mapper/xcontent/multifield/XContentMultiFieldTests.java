@@ -551,12 +551,20 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
+name|builderDocMapper
+operator|.
+name|refreshSource
+argument_list|()
+expr_stmt|;
 name|String
 name|builtMapping
 init|=
 name|builderDocMapper
 operator|.
-name|buildSource
+name|mappingSource
+argument_list|()
+operator|.
+name|string
 argument_list|()
 decl_stmt|;
 comment|//        System.out.println(builtMapping);

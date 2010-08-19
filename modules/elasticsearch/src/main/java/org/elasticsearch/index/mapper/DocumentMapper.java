@@ -80,6 +80,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|compress
+operator|.
+name|CompressedString
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|util
 operator|.
 name|concurrent
@@ -117,7 +131,7 @@ parameter_list|()
 function_decl|;
 comment|/**      * When constructed by parsing a mapping definition, will return it. Otherwise,      * returns<tt>null</tt>.      */
 DECL|method|mappingSource
-name|String
+name|CompressedString
 name|mappingSource
 parameter_list|()
 function_decl|;
@@ -133,9 +147,9 @@ name|attributes
 parameter_list|()
 function_decl|;
 comment|/**      * Generates the source of the mapper based on the current mappings.      */
-DECL|method|buildSource
-name|String
-name|buildSource
+DECL|method|refreshSource
+name|void
+name|refreshSource
 parameter_list|()
 throws|throws
 name|FailedToGenerateSourceMapperException

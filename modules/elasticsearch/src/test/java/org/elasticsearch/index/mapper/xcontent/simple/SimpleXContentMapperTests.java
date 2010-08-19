@@ -410,7 +410,10 @@ name|builtMapping
 init|=
 name|docMapper
 operator|.
-name|buildSource
+name|mappingSource
+argument_list|()
+operator|.
+name|string
 argument_list|()
 decl_stmt|;
 comment|//        System.out.println(builtMapping);

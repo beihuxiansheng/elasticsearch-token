@@ -260,6 +260,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|compress
+operator|.
+name|CompressedString
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|inject
 operator|.
 name|Inject
@@ -1301,7 +1315,7 @@ name|ImmutableMap
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|CompressedString
 argument_list|>
 name|mappings
 init|=
@@ -1319,7 +1333,7 @@ name|Entry
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|CompressedString
 argument_list|>
 name|entry
 range|:
@@ -1337,7 +1351,7 @@ operator|.
 name|getKey
 argument_list|()
 decl_stmt|;
-name|String
+name|CompressedString
 name|mappingSource
 init|=
 name|entry
@@ -1377,6 +1391,9 @@ argument_list|,
 name|mappingType
 argument_list|,
 name|mappingSource
+operator|.
+name|string
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1387,6 +1404,9 @@ argument_list|(
 name|mappingType
 argument_list|,
 name|mappingSource
+operator|.
+name|string
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|nodeMappingCreatedAction
@@ -1462,6 +1482,9 @@ argument_list|,
 name|mappingType
 argument_list|,
 name|mappingSource
+operator|.
+name|string
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1472,6 +1495,9 @@ argument_list|(
 name|mappingType
 argument_list|,
 name|mappingSource
+operator|.
+name|string
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|nodeMappingCreatedAction
