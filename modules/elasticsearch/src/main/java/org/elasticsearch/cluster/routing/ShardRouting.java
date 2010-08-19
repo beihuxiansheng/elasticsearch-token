@@ -99,7 +99,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  * Shard routing represents the state of a shard instance allocated in the cluster.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_interface
@@ -112,41 +112,61 @@ name|Streamable
 extends|,
 name|Serializable
 block|{
+comment|/**      * The shard id.      */
+DECL|method|shardId
+name|ShardId
+name|shardId
+parameter_list|()
+function_decl|;
+comment|/**      * The index name.      */
 DECL|method|index
 name|String
 name|index
 parameter_list|()
 function_decl|;
+comment|/**      * The index name.      */
 DECL|method|getIndex
 name|String
 name|getIndex
 parameter_list|()
 function_decl|;
+comment|/**      * The shard id.      */
 DECL|method|id
 name|int
 name|id
 parameter_list|()
 function_decl|;
+comment|/**      * The shard id.      */
 DECL|method|getId
 name|int
 name|getId
 parameter_list|()
 function_decl|;
+comment|/**      * The shard state.      */
+DECL|method|state
+name|ShardRoutingState
+name|state
+parameter_list|()
+function_decl|;
+comment|/**      * The shard is unassigned (not allocated to any node).      */
 DECL|method|unassigned
 name|boolean
 name|unassigned
 parameter_list|()
 function_decl|;
+comment|/**      * The shard is initializing (usually recovering either from peer shard      * or from gateway).      */
 DECL|method|initializing
 name|boolean
 name|initializing
 parameter_list|()
 function_decl|;
+comment|/**      * The shard is in started mode.      */
 DECL|method|started
 name|boolean
 name|started
 parameter_list|()
 function_decl|;
+comment|/**      * The shard is in relocating mode.      */
 DECL|method|relocating
 name|boolean
 name|relocating
@@ -158,36 +178,31 @@ name|boolean
 name|active
 parameter_list|()
 function_decl|;
+comment|/**      * The shard is assigned to a node.      */
 DECL|method|assignedToNode
 name|boolean
 name|assignedToNode
 parameter_list|()
 function_decl|;
+comment|/**      * The current node id the shard is allocated to.      */
 DECL|method|currentNodeId
 name|String
 name|currentNodeId
 parameter_list|()
 function_decl|;
+comment|/**      * The relocating node id the shard is either relocating to or relocating from.      */
 DECL|method|relocatingNodeId
 name|String
 name|relocatingNodeId
 parameter_list|()
 function_decl|;
+comment|/**      * Is this a primary shard.      */
 DECL|method|primary
 name|boolean
 name|primary
 parameter_list|()
 function_decl|;
-DECL|method|state
-name|ShardRoutingState
-name|state
-parameter_list|()
-function_decl|;
-DECL|method|shardId
-name|ShardId
-name|shardId
-parameter_list|()
-function_decl|;
+comment|/**      * A short description of the shard.      */
 DECL|method|shortSummary
 name|String
 name|shortSummary

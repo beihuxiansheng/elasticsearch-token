@@ -984,9 +984,7 @@ operator|.
 name|docs
 operator|=
 operator|new
-name|ShardStatus
-operator|.
-name|Docs
+name|DocsStatus
 argument_list|()
 expr_stmt|;
 name|shardStatus

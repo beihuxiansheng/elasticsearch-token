@@ -27,7 +27,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * The state of the shard as defined by the cluster.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_enum
@@ -36,10 +36,8 @@ specifier|public
 enum|enum
 name|ShardRoutingState
 block|{
+comment|/**      * The shard is not assigned to any node.      */
 DECL|enum constant|UNASSIGNED
-DECL|enum constant|INITIALIZING
-DECL|enum constant|STARTED
-DECL|enum constant|RELOCATING
 name|UNASSIGNED
 argument_list|(
 operator|(
@@ -48,6 +46,8 @@ operator|)
 literal|1
 argument_list|)
 block|,
+comment|/**      * The shard is initializing (probably recovering from either a peer shard      * or gateway).      */
+DECL|enum constant|INITIALIZING
 name|INITIALIZING
 argument_list|(
 operator|(
@@ -56,6 +56,8 @@ operator|)
 literal|2
 argument_list|)
 block|,
+comment|/**      * The shard is started.      */
+DECL|enum constant|STARTED
 name|STARTED
 argument_list|(
 operator|(
@@ -64,6 +66,8 @@ operator|)
 literal|3
 argument_list|)
 block|,
+comment|/**      * The shard is in the process being relocated.      */
+DECL|enum constant|RELOCATING
 name|RELOCATING
 argument_list|(
 operator|(

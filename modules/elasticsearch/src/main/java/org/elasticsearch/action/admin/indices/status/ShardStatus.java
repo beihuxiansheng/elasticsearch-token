@@ -153,7 +153,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  * Shard instance (actual allocated shard) status.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -164,108 +164,6 @@ name|ShardStatus
 extends|extends
 name|BroadcastShardOperationResponse
 block|{
-DECL|class|Docs
-specifier|public
-specifier|static
-class|class
-name|Docs
-block|{
-DECL|field|UNKNOWN
-specifier|public
-specifier|static
-specifier|final
-name|Docs
-name|UNKNOWN
-init|=
-operator|new
-name|Docs
-argument_list|()
-decl_stmt|;
-DECL|field|numDocs
-name|int
-name|numDocs
-init|=
-operator|-
-literal|1
-decl_stmt|;
-DECL|field|maxDoc
-name|int
-name|maxDoc
-init|=
-operator|-
-literal|1
-decl_stmt|;
-DECL|field|deletedDocs
-name|int
-name|deletedDocs
-init|=
-operator|-
-literal|1
-decl_stmt|;
-DECL|method|numDocs
-specifier|public
-name|int
-name|numDocs
-parameter_list|()
-block|{
-return|return
-name|numDocs
-return|;
-block|}
-DECL|method|getNumDocs
-specifier|public
-name|int
-name|getNumDocs
-parameter_list|()
-block|{
-return|return
-name|numDocs
-argument_list|()
-return|;
-block|}
-DECL|method|maxDoc
-specifier|public
-name|int
-name|maxDoc
-parameter_list|()
-block|{
-return|return
-name|maxDoc
-return|;
-block|}
-DECL|method|getMaxDoc
-specifier|public
-name|int
-name|getMaxDoc
-parameter_list|()
-block|{
-return|return
-name|maxDoc
-argument_list|()
-return|;
-block|}
-DECL|method|deletedDocs
-specifier|public
-name|int
-name|deletedDocs
-parameter_list|()
-block|{
-return|return
-name|deletedDocs
-return|;
-block|}
-DECL|method|getDeletedDocs
-specifier|public
-name|int
-name|getDeletedDocs
-parameter_list|()
-block|{
-return|return
-name|deletedDocs
-argument_list|()
-return|;
-block|}
-block|}
 DECL|field|shardRouting
 specifier|private
 name|ShardRouting
@@ -294,12 +192,8 @@ operator|-
 literal|1
 decl_stmt|;
 DECL|field|docs
-name|Docs
+name|DocsStatus
 name|docs
-init|=
-name|Docs
-operator|.
-name|UNKNOWN
 decl_stmt|;
 DECL|field|peerRecoveryStatus
 name|PeerRecoveryStatus
@@ -344,6 +238,7 @@ operator|=
 name|shardRouting
 expr_stmt|;
 block|}
+comment|/**      * The shard routing information (cluster wide shard state).      */
 DECL|method|shardRouting
 specifier|public
 name|ShardRouting
@@ -356,6 +251,7 @@ operator|.
 name|shardRouting
 return|;
 block|}
+comment|/**      * The shard routing information (cluster wide shard state).      */
 DECL|method|getShardRouting
 specifier|public
 name|ShardRouting
@@ -367,6 +263,7 @@ name|shardRouting
 argument_list|()
 return|;
 block|}
+comment|/**      * The shard state (index/local state).      */
 DECL|method|state
 specifier|public
 name|IndexShardState
@@ -377,6 +274,7 @@ return|return
 name|state
 return|;
 block|}
+comment|/**      * The shard state (index/local state).      */
 DECL|method|getState
 specifier|public
 name|IndexShardState
@@ -388,6 +286,7 @@ name|state
 argument_list|()
 return|;
 block|}
+comment|/**      * The current size of the shard index storage.      */
 DECL|method|storeSize
 specifier|public
 name|ByteSizeValue
@@ -398,6 +297,7 @@ return|return
 name|storeSize
 return|;
 block|}
+comment|/**      * The current size of the shard index storage.      */
 DECL|method|getStoreSize
 specifier|public
 name|ByteSizeValue
@@ -409,6 +309,7 @@ name|storeSize
 argument_list|()
 return|;
 block|}
+comment|/**      * The transaction log id.      */
 DECL|method|translogId
 specifier|public
 name|long
@@ -419,6 +320,7 @@ return|return
 name|translogId
 return|;
 block|}
+comment|/**      * The transaction log id.      */
 DECL|method|getTranslogId
 specifier|public
 name|long
@@ -430,6 +332,7 @@ name|translogId
 argument_list|()
 return|;
 block|}
+comment|/**      * The number of transaction operations in the transaction log.      */
 DECL|method|translogOperations
 specifier|public
 name|long
@@ -440,6 +343,7 @@ return|return
 name|translogOperations
 return|;
 block|}
+comment|/**      * The number of transaction operations in the transaction log.      */
 DECL|method|getTranslogOperations
 specifier|public
 name|long
@@ -451,9 +355,10 @@ name|translogOperations
 argument_list|()
 return|;
 block|}
+comment|/**      * Docs level information for the shard index,<tt>null</tt> if not applicable.      */
 DECL|method|docs
 specifier|public
-name|Docs
+name|DocsStatus
 name|docs
 parameter_list|()
 block|{
@@ -461,9 +366,10 @@ return|return
 name|docs
 return|;
 block|}
+comment|/**      * Docs level information for the shard index,<tt>null</tt> if not applicable.      */
 DECL|method|getDocs
 specifier|public
-name|Docs
+name|DocsStatus
 name|getDocs
 parameter_list|()
 block|{
@@ -472,6 +378,7 @@ name|docs
 argument_list|()
 return|;
 block|}
+comment|/**      * Peer recovery status (<tt>null</tt> if not applicable). Both real time if an on going recovery      * is in progress and summary once it is done.      */
 DECL|method|peerRecoveryStatus
 specifier|public
 name|PeerRecoveryStatus
@@ -482,6 +389,7 @@ return|return
 name|peerRecoveryStatus
 return|;
 block|}
+comment|/**      * Peer recovery status (<tt>null</tt> if not applicable). Both real time if an on going recovery      * is in progress and summary once it done.      */
 DECL|method|getPeerRecoveryStatus
 specifier|public
 name|PeerRecoveryStatus
@@ -493,6 +401,7 @@ name|peerRecoveryStatus
 argument_list|()
 return|;
 block|}
+comment|/**      * Gateway recovery status (<tt>null</tt> if not applicable). Both real time if an on going recovery      * is in progress adn summary once it is done.      */
 DECL|method|gatewayRecoveryStatus
 specifier|public
 name|GatewayRecoveryStatus
@@ -503,6 +412,7 @@ return|return
 name|gatewayRecoveryStatus
 return|;
 block|}
+comment|/**      * Gateway recovery status (<tt>null</tt> if not applicable). Both real time if an on going recovery      * is in progress adn summary once it is done.      */
 DECL|method|getGatewayRecoveryStatus
 specifier|public
 name|GatewayRecoveryStatus
@@ -514,6 +424,7 @@ name|gatewayRecoveryStatus
 argument_list|()
 return|;
 block|}
+comment|/**      * The current on going snapshot to the gateway or the last one if none is on going.      */
 DECL|method|gatewaySnapshotStatus
 specifier|public
 name|GatewaySnapshotStatus
@@ -524,6 +435,7 @@ return|return
 name|gatewaySnapshotStatus
 return|;
 block|}
+comment|/**      * The current on going snapshot to the gateway or the last one if none is on going.      */
 DECL|method|getGatewaySnapshotStatus
 specifier|public
 name|GatewaySnapshotStatus
@@ -652,9 +564,7 @@ if|if
 condition|(
 name|docs
 operator|==
-name|Docs
-operator|.
-name|UNKNOWN
+literal|null
 condition|)
 block|{
 name|out
@@ -1068,7 +978,7 @@ block|{
 name|docs
 operator|=
 operator|new
-name|Docs
+name|DocsStatus
 argument_list|()
 expr_stmt|;
 name|docs

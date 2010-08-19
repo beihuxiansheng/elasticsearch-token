@@ -637,11 +637,7 @@ operator|.
 name|docs
 argument_list|()
 operator|!=
-name|IndexStatus
-operator|.
-name|Docs
-operator|.
-name|UNKNOWN
+literal|null
 condition|)
 block|{
 name|builder
@@ -965,11 +961,7 @@ operator|.
 name|docs
 argument_list|()
 operator|!=
-name|ShardStatus
-operator|.
-name|Docs
-operator|.
-name|UNKNOWN
+literal|null
 condition|)
 block|{
 name|builder
