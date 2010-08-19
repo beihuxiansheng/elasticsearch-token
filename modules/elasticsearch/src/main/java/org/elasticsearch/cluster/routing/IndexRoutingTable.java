@@ -972,7 +972,7 @@ if|if
 condition|(
 name|indexShard
 operator|.
-name|backupsShards
+name|replicaShards
 argument_list|()
 operator|.
 name|isEmpty

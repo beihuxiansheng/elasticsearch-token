@@ -894,7 +894,7 @@ name|elected
 init|=
 literal|false
 decl_stmt|;
-comment|// primary and not assigned, go over and find a backup that is assigned
+comment|// primary and not assigned, go over and find a replica that is assigned and active (since it might be relocating)
 for|for
 control|(
 name|RoutingNode
@@ -934,6 +934,11 @@ operator|.
 name|shardId
 argument_list|()
 argument_list|)
+operator|&&
+name|shardEntry2
+operator|.
+name|active
+argument_list|()
 condition|)
 block|{
 assert|assert

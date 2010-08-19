@@ -367,7 +367,7 @@ name|IllegalShardRoutingStateException
 argument_list|(
 name|this
 argument_list|,
-literal|"Already primary, can't move to backup"
+literal|"Already primary, can't move to replica"
 argument_list|)
 throw|;
 block|}

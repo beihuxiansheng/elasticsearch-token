@@ -922,7 +922,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|backupsShards
+name|replicaShards
 argument_list|()
 operator|.
 name|size
@@ -948,7 +948,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|backupsShards
+name|replicaShards
 argument_list|()
 operator|.
 name|get
@@ -979,7 +979,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|backupsShards
+name|replicaShards
 argument_list|()
 operator|.
 name|get
@@ -1226,7 +1226,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|backupsShards
+name|replicaShards
 argument_list|()
 operator|.
 name|size
@@ -1252,7 +1252,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|backupsShards
+name|replicaShards
 argument_list|()
 operator|.
 name|get
@@ -1283,7 +1283,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|backupsShards
+name|replicaShards
 argument_list|()
 operator|.
 name|get
@@ -1314,7 +1314,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|backupsShards
+name|replicaShards
 argument_list|()
 operator|.
 name|get
@@ -1526,7 +1526,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|backupsShards
+name|replicaShards
 argument_list|()
 operator|.
 name|size
@@ -1552,7 +1552,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|backupsShards
+name|replicaShards
 argument_list|()
 operator|.
 name|get
@@ -1583,7 +1583,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|backupsShards
+name|replicaShards
 argument_list|()
 operator|.
 name|get
@@ -1614,7 +1614,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|backupsShards
+name|replicaShards
 argument_list|()
 operator|.
 name|get
@@ -1645,7 +1645,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|backupsShards
+name|replicaShards
 argument_list|()
 operator|.
 name|get
@@ -1834,7 +1834,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|backupsShards
+name|replicaShards
 argument_list|()
 operator|.
 name|size
@@ -1860,7 +1860,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|backupsShards
+name|replicaShards
 argument_list|()
 operator|.
 name|get
@@ -1891,7 +1891,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|backupsShards
+name|replicaShards
 argument_list|()
 operator|.
 name|get
@@ -1922,7 +1922,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|backupsShards
+name|replicaShards
 argument_list|()
 operator|.
 name|get
@@ -1953,7 +1953,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|backupsShards
+name|replicaShards
 argument_list|()
 operator|.
 name|get
@@ -2200,7 +2200,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|backupsShards
+name|replicaShards
 argument_list|()
 operator|.
 name|size
@@ -2226,7 +2226,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|backupsShards
+name|replicaShards
 argument_list|()
 operator|.
 name|get
@@ -2257,7 +2257,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|backupsShards
+name|replicaShards
 argument_list|()
 operator|.
 name|get
