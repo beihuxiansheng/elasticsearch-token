@@ -878,7 +878,7 @@ name|InternalIndexShard
 operator|)
 name|indexService
 operator|.
-name|shard
+name|shardSafe
 argument_list|(
 name|request
 operator|.
