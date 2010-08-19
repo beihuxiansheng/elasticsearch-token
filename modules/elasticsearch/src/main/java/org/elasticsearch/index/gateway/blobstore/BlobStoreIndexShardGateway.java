@@ -3262,6 +3262,13 @@ operator|.
 name|sizeInBytes
 argument_list|()
 expr_stmt|;
+name|totalSize
+operator|+=
+name|virtualMd
+operator|.
+name|sizeInBytes
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|logger
@@ -3421,7 +3428,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"recovering_files [{}] with total_size [{}], reusing_files [{}] with total_size [{}]"
+literal|"recovering_files [{}] with total_size [{}], reusing_files [{}] with reused_size [{}]"
 argument_list|,
 name|numberOfFiles
 argument_list|,

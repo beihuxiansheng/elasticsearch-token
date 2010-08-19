@@ -574,6 +574,17 @@ operator|==
 literal|0
 condition|)
 block|{
+if|if
+condition|(
+name|indexSize
+operator|==
+name|reusedIndexSize
+condition|)
+block|{
+return|return
+literal|100
+return|;
+block|}
 return|return
 literal|0
 return|;
