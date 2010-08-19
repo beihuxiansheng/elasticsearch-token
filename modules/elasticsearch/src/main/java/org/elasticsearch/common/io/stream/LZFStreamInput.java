@@ -468,6 +468,20 @@ name|readyBuffer
 argument_list|()
 expr_stmt|;
 block|}
+comment|/**      * Expert!, resets to buffer start, without the need to decompress it again.      */
+DECL|method|resetToBufferStart
+specifier|public
+name|void
+name|resetToBufferStart
+parameter_list|()
+block|{
+name|this
+operator|.
+name|bufferPosition
+operator|=
+literal|0
+expr_stmt|;
+block|}
 DECL|method|close
 annotation|@
 name|Override
