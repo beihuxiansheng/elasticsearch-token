@@ -2637,7 +2637,7 @@ name|IndexShardGatewayRecoveryException
 argument_list|(
 name|shardId
 argument_list|,
-literal|"Failed to recovery translog, can't read current index version"
+literal|"Failed to recover translog, can't read current index version"
 argument_list|,
 name|e
 argument_list|)
@@ -3102,7 +3102,7 @@ name|IndexShardGatewayRecoveryException
 argument_list|(
 name|shardId
 argument_list|,
-literal|"Failed to recovery translog"
+literal|"Failed to recover translog"
 argument_list|,
 name|e
 argument_list|)
