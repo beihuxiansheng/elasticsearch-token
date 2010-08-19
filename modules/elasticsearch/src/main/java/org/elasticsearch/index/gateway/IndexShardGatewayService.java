@@ -777,6 +777,23 @@ literal|"gateway"
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|indexShard
+operator|.
+name|ignoreRecoveryAttempt
+argument_list|()
+condition|)
+block|{
+name|listener
+operator|.
+name|onIgnoreRecovery
+argument_list|(
+literal|"ignoring recovery while waiting on retry"
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 name|recoveryStatus
 operator|.
 name|updateStage
@@ -840,8 +857,9 @@ argument_list|(
 literal|"Interrupted while waiting for recovery, but we should ignore ..."
 argument_list|)
 expr_stmt|;
-return|return;
 block|}
+else|else
+block|{
 name|listener
 operator|.
 name|onRecoveryFailed
@@ -857,6 +875,8 @@ name|e
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+return|return;
 block|}
 block|}
 try|try
