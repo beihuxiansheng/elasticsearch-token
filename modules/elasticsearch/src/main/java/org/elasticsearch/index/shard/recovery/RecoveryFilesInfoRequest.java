@@ -407,6 +407,17 @@ operator|.
 name|readVInt
 argument_list|()
 expr_stmt|;
+name|phase1ExistingFileSizes
+operator|=
+operator|new
+name|ArrayList
+argument_list|<
+name|Long
+argument_list|>
+argument_list|(
+name|size
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int
