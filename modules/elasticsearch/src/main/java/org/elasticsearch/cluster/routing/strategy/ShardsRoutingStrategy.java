@@ -955,7 +955,7 @@ literal|true
 expr_stmt|;
 name|shardEntry
 operator|.
-name|moveToBackup
+name|moveFromPrimary
 argument_list|()
 expr_stmt|;
 name|shardEntry2

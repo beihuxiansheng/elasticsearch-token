@@ -349,10 +349,10 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-DECL|method|moveToBackup
+DECL|method|moveFromPrimary
 specifier|public
 name|void
-name|moveToBackup
+name|moveFromPrimary
 parameter_list|()
 block|{
 if|if
