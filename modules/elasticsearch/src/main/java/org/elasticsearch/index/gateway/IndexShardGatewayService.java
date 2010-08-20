@@ -741,6 +741,11 @@ name|void
 name|run
 parameter_list|()
 block|{
+name|indexShard
+operator|.
+name|recovering
+argument_list|()
+expr_stmt|;
 name|recoveryStatus
 operator|=
 operator|new
@@ -757,11 +762,6 @@ name|Stage
 operator|.
 name|INIT
 argument_list|)
-expr_stmt|;
-name|indexShard
-operator|.
-name|recovering
-argument_list|()
 expr_stmt|;
 comment|// we know we are on a thread, we can spin till we can engage in recovery
 while|while
