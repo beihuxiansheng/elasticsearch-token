@@ -3907,6 +3907,18 @@ argument_list|)
 condition|)
 block|{
 comment|// no file, what to do, what to do?
+name|recoveryThrottler
+operator|.
+name|streamDone
+argument_list|(
+name|shardId
+argument_list|,
+name|fileToRecover
+operator|.
+name|name
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|logger
 operator|.
 name|warn
