@@ -541,6 +541,19 @@ name|INSTANCE
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**          * No need to spawn, we add submit a new cluster state directly. This allows for faster application.          */
+DECL|method|spawn
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|spawn
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 block|}
 block|}
 end_class
