@@ -577,6 +577,10 @@ block|{
 if|if
 condition|(
 name|indexSize
+operator|!=
+literal|0
+operator|&&
+name|indexSize
 operator|==
 name|reusedIndexSize
 condition|)
