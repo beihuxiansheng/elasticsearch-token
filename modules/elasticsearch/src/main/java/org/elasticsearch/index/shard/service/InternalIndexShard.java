@@ -805,6 +805,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Marks the shard as recovering, fails with exception is recovering is not allowed to be set.      */
 DECL|method|recovering
 specifier|public
 name|IndexShardState

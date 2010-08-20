@@ -176,7 +176,7 @@ specifier|public
 class|class
 name|Directories
 block|{
-comment|/**      * Deletes all the files from a directory.      *      * @param directory The directoy to delete all the files from      * @throws IOException if an exception occurs during the delete process      */
+comment|/**      * Deletes all the files from a directory.      *      * @param directory The directory to delete all the files from      * @throws IOException if an exception occurs during the delete process      */
 DECL|method|deleteFiles
 specifier|public
 specifier|static
@@ -220,6 +220,14 @@ argument_list|(
 name|file
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|FileNotFoundException
+name|e
+parameter_list|)
+block|{
+comment|// ignore
 block|}
 catch|catch
 parameter_list|(

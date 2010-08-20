@@ -271,20 +271,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|atomic
-operator|.
-name|AtomicBoolean
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -376,16 +362,6 @@ specifier|private
 specifier|volatile
 name|long
 name|lastTranslogLength
-decl_stmt|;
-DECL|field|recovered
-specifier|private
-specifier|final
-name|AtomicBoolean
-name|recovered
-init|=
-operator|new
-name|AtomicBoolean
-argument_list|()
 decl_stmt|;
 DECL|field|snapshotInterval
 specifier|private
@@ -652,28 +628,6 @@ name|IgnoreGatewayRecoveryException
 block|{
 if|if
 condition|(
-operator|!
-name|recovered
-operator|.
-name|compareAndSet
-argument_list|(
-literal|false
-argument_list|,
-literal|true
-argument_list|)
-condition|)
-block|{
-name|listener
-operator|.
-name|onIgnoreRecovery
-argument_list|(
-literal|"already recovered"
-argument_list|)
-expr_stmt|;
-return|return;
-block|}
-if|if
-condition|(
 name|indexShard
 operator|.
 name|state
@@ -723,6 +677,35 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+try|try
+block|{
+name|indexShard
+operator|.
+name|recovering
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalIndexShardStateException
+name|e
+parameter_list|)
+block|{
+comment|// that's fine, since we might be called concurrently, just ignore this, we are already recovering
+name|listener
+operator|.
+name|onIgnoreRecovery
+argument_list|(
+literal|"already in recovering process, "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 name|threadPool
 operator|.
 name|cached
@@ -741,11 +724,6 @@ name|void
 name|run
 parameter_list|()
 block|{
-name|indexShard
-operator|.
-name|recovering
-argument_list|()
-expr_stmt|;
 name|recoveryStatus
 operator|=
 operator|new
@@ -781,15 +759,19 @@ if|if
 condition|(
 name|indexShard
 operator|.
-name|ignoreRecoveryAttempt
+name|state
 argument_list|()
+operator|==
+name|IndexShardState
+operator|.
+name|CLOSED
 condition|)
 block|{
 name|listener
 operator|.
 name|onIgnoreRecovery
 argument_list|(
-literal|"ignoring recovery while waiting on retry"
+literal|"ignoring recovery while waiting on retry, closed"
 argument_list|)
 expr_stmt|;
 return|return;
@@ -842,19 +824,27 @@ name|InterruptedException
 name|e
 parameter_list|)
 block|{
+name|recoveryStatus
+operator|=
+literal|null
+expr_stmt|;
 if|if
 condition|(
 name|indexShard
 operator|.
-name|ignoreRecoveryAttempt
+name|state
 argument_list|()
+operator|==
+name|IndexShardState
+operator|.
+name|CLOSED
 condition|)
 block|{
 name|listener
 operator|.
 name|onIgnoreRecovery
 argument_list|(
-literal|"Interrupted while waiting for recovery, but we should ignore ..."
+literal|"Interrupted while waiting for recovery, but we should ignore since closed"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1405,6 +1395,21 @@ name|CREATED
 condition|)
 block|{
 comment|// shard has just been created, ignore it and return
+return|return;
+block|}
+if|if
+condition|(
+name|indexShard
+operator|.
+name|state
+argument_list|()
+operator|==
+name|IndexShardState
+operator|.
+name|RECOVERING
+condition|)
+block|{
+comment|// shard is recovering, don't snapshot
 return|return;
 block|}
 try|try
