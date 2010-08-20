@@ -1235,6 +1235,28 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|indexShard
+operator|.
+name|state
+argument_list|()
+operator|==
+name|IndexShardState
+operator|.
+name|CLOSED
+condition|)
+block|{
+comment|// got closed on us, just ignore this recovery
+name|listener
+operator|.
+name|onIgnoreRecovery
+argument_list|(
+literal|"shard closed"
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+if|if
+condition|(
 operator|(
 name|e
 operator|.

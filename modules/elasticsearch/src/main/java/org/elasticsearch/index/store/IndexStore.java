@@ -189,15 +189,6 @@ name|ByteSizeValue
 name|backingStoreFreeSpace
 parameter_list|()
 function_decl|;
-comment|/**      * Lists all unallocated stores.      */
-DECL|method|listUnallocatedStores
-name|StoreFilesMetaData
-index|[]
-name|listUnallocatedStores
-parameter_list|()
-throws|throws
-name|IOException
-function_decl|;
 DECL|method|deleteUnallocated
 name|void
 name|deleteUnallocated

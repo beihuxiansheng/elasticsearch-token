@@ -232,25 +232,6 @@ name|IOException
 block|{
 comment|// do nothing here...
 block|}
-DECL|method|listUnallocatedStores
-annotation|@
-name|Override
-specifier|public
-name|StoreFilesMetaData
-index|[]
-name|listUnallocatedStores
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-return|return
-operator|new
-name|StoreFilesMetaData
-index|[
-literal|0
-index|]
-return|;
-block|}
 DECL|method|listStoreMetaData
 annotation|@
 name|Override

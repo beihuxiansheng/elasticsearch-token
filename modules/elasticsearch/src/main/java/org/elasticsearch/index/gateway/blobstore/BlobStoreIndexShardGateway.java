@@ -3641,7 +3641,7 @@ name|IndexShardGatewayRecoveryException
 argument_list|(
 name|shardId
 argument_list|,
-literal|"Failed to recovery index"
+literal|"Failed to recover index"
 argument_list|,
 name|failures
 operator|.
