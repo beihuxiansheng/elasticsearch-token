@@ -1696,7 +1696,10 @@ operator|.
 name|shardId
 argument_list|()
 argument_list|,
-literal|"Primary not found"
+name|request
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -1919,7 +1922,12 @@ literal|"Timeout waiting for ["
 operator|+
 name|timeValue
 operator|+
-literal|"]"
+literal|"], request: "
+operator|+
+name|request
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if

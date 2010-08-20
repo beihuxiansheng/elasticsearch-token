@@ -594,8 +594,33 @@ name|String
 name|toString
 parameter_list|()
 block|{
+name|String
+name|sSource
+init|=
+literal|"_na_"
+decl_stmt|;
+try|try
+block|{
+name|sSource
+operator|=
+name|Unicode
+operator|.
+name|fromBytes
+argument_list|(
+name|querySource
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+block|}
 return|return
-literal|"["
+literal|"delete_by_query {["
 operator|+
 name|index
 operator|+
@@ -610,14 +635,9 @@ argument_list|)
 operator|+
 literal|", query ["
 operator|+
-name|Unicode
-operator|.
-name|fromBytes
-argument_list|(
-name|querySource
-argument_list|)
+name|sSource
 operator|+
-literal|"]"
+literal|"]}"
 return|;
 block|}
 block|}

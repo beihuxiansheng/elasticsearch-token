@@ -321,7 +321,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"["
+literal|"replication_ping {["
 operator|+
 name|index
 operator|+
@@ -329,7 +329,7 @@ literal|"]["
 operator|+
 name|shardId
 operator|+
-literal|"]"
+literal|"]}"
 return|;
 block|}
 block|}

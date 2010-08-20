@@ -228,7 +228,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"["
+literal|"gateway_snapshot {["
 operator|+
 name|index
 operator|+
@@ -236,7 +236,7 @@ literal|"]["
 operator|+
 name|shardId
 operator|+
-literal|"]"
+literal|"]}"
 return|;
 block|}
 block|}

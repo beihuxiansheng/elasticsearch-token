@@ -103,6 +103,9 @@ name|shardId
 operator|.
 name|index
 argument_list|()
+operator|.
+name|name
+argument_list|()
 operator|+
 literal|"]["
 operator|+
@@ -111,7 +114,7 @@ operator|.
 name|id
 argument_list|()
 operator|+
-literal|"]"
+literal|"] "
 operator|+
 name|message
 return|;
