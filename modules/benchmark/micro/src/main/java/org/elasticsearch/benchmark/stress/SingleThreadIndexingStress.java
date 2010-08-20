@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.benchmark.monitor.memory
+DECL|package|org.elasticsearch.benchmark.stress
 package|package
 name|org
 operator|.
@@ -12,9 +12,7 @@ name|elasticsearch
 operator|.
 name|benchmark
 operator|.
-name|monitor
-operator|.
-name|memory
+name|stress
 package|;
 end_package
 
@@ -211,10 +209,10 @@ comment|/**  * @author kimchy (Shay Banon)  */
 end_comment
 
 begin_class
-DECL|class|SimpleMemoryMonitorBenchmark
+DECL|class|SingleThreadIndexingStress
 specifier|public
 class|class
-name|SimpleMemoryMonitorBenchmark
+name|SingleThreadIndexingStress
 block|{
 DECL|method|main
 specifier|public
