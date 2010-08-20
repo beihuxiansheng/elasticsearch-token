@@ -1008,6 +1008,19 @@ name|listAll
 argument_list|()
 control|)
 block|{
+if|if
+condition|(
+name|file
+operator|.
+name|endsWith
+argument_list|(
+literal|".md5"
+argument_list|)
+condition|)
+block|{
+comment|// md5 are files we create, ignore them
+continue|continue;
+block|}
 try|try
 block|{
 name|String
@@ -1349,6 +1362,19 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|name
+operator|.
+name|endsWith
+argument_list|(
+literal|".md5"
+argument_list|)
+condition|)
+block|{
+comment|// ignore, this should not really happen...
+return|return;
+block|}
 name|delegate
 operator|.
 name|deleteFile

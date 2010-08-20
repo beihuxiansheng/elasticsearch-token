@@ -2738,6 +2738,8 @@ name|existingFile
 argument_list|)
 condition|)
 block|{
+try|try
+block|{
 name|shard
 operator|.
 name|store
@@ -2751,6 +2753,15 @@ argument_list|(
 name|existingFile
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+comment|// ignore, we don't really care, will get deleted later on
+block|}
 block|}
 block|}
 name|channel
