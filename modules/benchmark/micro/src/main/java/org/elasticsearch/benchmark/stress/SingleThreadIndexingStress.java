@@ -430,15 +430,16 @@ operator|+
 literal|"] ..."
 argument_list|)
 expr_stmt|;
-for|for
-control|(
 name|int
 name|i
 init|=
-literal|0
+literal|1
+decl_stmt|;
+for|for
+control|(
 init|;
 name|i
-operator|<
+operator|<=
 name|COUNT
 condition|;
 name|i
@@ -516,13 +517,9 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"Indexed 10000, total "
+literal|"Indexed "
 operator|+
-operator|(
 name|i
-operator|+
-literal|10000
-operator|)
 operator|+
 literal|" took "
 operator|+
@@ -542,11 +539,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-name|stopWatch
-operator|.
-name|stop
-argument_list|()
-expr_stmt|;
 name|System
 operator|.
 name|out
