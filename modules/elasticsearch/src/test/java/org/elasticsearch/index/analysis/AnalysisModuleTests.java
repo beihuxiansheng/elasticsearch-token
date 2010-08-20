@@ -395,6 +395,12 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
+operator|(
+name|Iterable
+argument_list|<
+name|String
+argument_list|>
+operator|)
 name|stop1
 operator|.
 name|stopWords
