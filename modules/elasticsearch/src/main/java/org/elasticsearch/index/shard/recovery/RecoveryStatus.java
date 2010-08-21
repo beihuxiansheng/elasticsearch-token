@@ -103,9 +103,6 @@ block|{
 DECL|enum constant|INIT
 name|INIT
 block|,
-DECL|enum constant|THROTTLE
-name|THROTTLE
-block|,
 DECL|enum constant|INDEX
 name|INDEX
 block|,
@@ -145,13 +142,6 @@ decl_stmt|;
 DECL|field|time
 name|long
 name|time
-decl_stmt|;
-DECL|field|retryTime
-specifier|volatile
-name|long
-name|retryTime
-init|=
-literal|0
 decl_stmt|;
 DECL|field|phase1FileNames
 name|List
@@ -233,16 +223,6 @@ return|return
 name|this
 operator|.
 name|time
-return|;
-block|}
-DECL|method|retryTime
-specifier|public
-name|long
-name|retryTime
-parameter_list|()
-block|{
-return|return
-name|retryTime
 return|;
 block|}
 DECL|method|phase1TotalSize

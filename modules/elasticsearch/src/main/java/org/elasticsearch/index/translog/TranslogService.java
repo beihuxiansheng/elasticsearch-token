@@ -82,6 +82,20 @@ name|index
 operator|.
 name|engine
 operator|.
+name|EngineClosedException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|engine
+operator|.
 name|FlushNotAllowedEngineException
 import|;
 end_import
@@ -423,6 +437,14 @@ name|Flush
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|EngineClosedException
+name|e
+parameter_list|)
+block|{
+comment|// we are being closed, ignore
 block|}
 catch|catch
 parameter_list|(

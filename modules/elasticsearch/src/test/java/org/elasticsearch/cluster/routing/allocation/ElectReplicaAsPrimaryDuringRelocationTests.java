@@ -252,6 +252,22 @@ begin_import
 import|import static
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|ImmutableSettings
+operator|.
+name|*
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|MatcherAssert
@@ -310,7 +326,20 @@ name|strategy
 init|=
 operator|new
 name|ShardsAllocation
+argument_list|(
+name|settingsBuilder
 argument_list|()
+operator|.
+name|put
+argument_list|(
+literal|"cluster.routing.allocation.concurrent_recoveries"
+argument_list|,
+literal|10
+argument_list|)
+operator|.
+name|build
+argument_list|()
+argument_list|)
 decl_stmt|;
 name|logger
 operator|.

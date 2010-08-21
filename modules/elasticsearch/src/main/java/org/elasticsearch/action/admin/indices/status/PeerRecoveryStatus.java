@@ -82,22 +82,13 @@ operator|)
 literal|0
 argument_list|)
 block|,
-DECL|enum constant|THROTTLE
-name|THROTTLE
-argument_list|(
-operator|(
-name|byte
-operator|)
-literal|1
-argument_list|)
-block|,
 DECL|enum constant|INDEX
 name|INDEX
 argument_list|(
 operator|(
 name|byte
 operator|)
-literal|2
+literal|1
 argument_list|)
 block|,
 DECL|enum constant|TRANSLOG
@@ -106,7 +97,7 @@ argument_list|(
 operator|(
 name|byte
 operator|)
-literal|3
+literal|2
 argument_list|)
 block|,
 DECL|enum constant|FINALIZE
@@ -115,7 +106,7 @@ argument_list|(
 operator|(
 name|byte
 operator|)
-literal|4
+literal|3
 argument_list|)
 block|,
 DECL|enum constant|DONE
@@ -124,7 +115,7 @@ argument_list|(
 operator|(
 name|byte
 operator|)
-literal|5
+literal|4
 argument_list|)
 block|;
 DECL|field|value
@@ -187,7 +178,7 @@ literal|1
 condition|)
 block|{
 return|return
-name|THROTTLE
+name|INDEX
 return|;
 block|}
 elseif|else
@@ -199,7 +190,7 @@ literal|2
 condition|)
 block|{
 return|return
-name|INDEX
+name|TRANSLOG
 return|;
 block|}
 elseif|else
@@ -211,18 +202,6 @@ literal|3
 condition|)
 block|{
 return|return
-name|TRANSLOG
-return|;
-block|}
-elseif|else
-if|if
-condition|(
-name|value
-operator|==
-literal|4
-condition|)
-block|{
-return|return
 name|FINALIZE
 return|;
 block|}
@@ -231,7 +210,7 @@ if|if
 condition|(
 name|value
 operator|==
-literal|5
+literal|4
 condition|)
 block|{
 return|return
@@ -265,11 +244,6 @@ DECL|field|time
 specifier|final
 name|long
 name|time
-decl_stmt|;
-DECL|field|throttlingTime
-specifier|final
-name|long
-name|throttlingTime
 decl_stmt|;
 DECL|field|indexSize
 specifier|final
@@ -305,9 +279,6 @@ name|long
 name|time
 parameter_list|,
 name|long
-name|throttlingTime
-parameter_list|,
-name|long
 name|indexSize
 parameter_list|,
 name|long
@@ -337,12 +308,6 @@ operator|.
 name|time
 operator|=
 name|time
-expr_stmt|;
-name|this
-operator|.
-name|throttlingTime
-operator|=
-name|throttlingTime
 expr_stmt|;
 name|this
 operator|.
@@ -428,32 +393,6 @@ parameter_list|()
 block|{
 return|return
 name|time
-argument_list|()
-return|;
-block|}
-DECL|method|throttlingTime
-specifier|public
-name|TimeValue
-name|throttlingTime
-parameter_list|()
-block|{
-return|return
-name|TimeValue
-operator|.
-name|timeValueMillis
-argument_list|(
-name|throttlingTime
-argument_list|)
-return|;
-block|}
-DECL|method|getThrottlingTime
-specifier|public
-name|TimeValue
-name|getThrottlingTime
-parameter_list|()
-block|{
-return|return
-name|throttlingTime
 argument_list|()
 return|;
 block|}
