@@ -174,7 +174,7 @@ block|{
 return|return
 name|Decision
 operator|.
-name|ALLOWED
+name|YES
 return|;
 block|}
 name|MutableShardRouting
@@ -203,13 +203,13 @@ block|{
 return|return
 name|Decision
 operator|.
-name|DISALLOWED
+name|NO
 return|;
 block|}
 return|return
 name|Decision
 operator|.
-name|ALLOWED
+name|YES
 return|;
 block|}
 block|}

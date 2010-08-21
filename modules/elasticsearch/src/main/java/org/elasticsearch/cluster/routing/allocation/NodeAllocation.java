@@ -74,8 +74,8 @@ DECL|enum|Decision
 enum|enum
 name|Decision
 block|{
-DECL|enum constant|ALLOWED
-name|ALLOWED
+DECL|enum constant|YES
+name|YES
 block|{
 annotation|@
 name|Override
@@ -89,8 +89,23 @@ return|;
 block|}
 block|}
 block|,
-DECL|enum constant|DISALLOWED
-name|DISALLOWED
+DECL|enum constant|NO
+name|NO
+block|{
+annotation|@
+name|Override
+name|boolean
+name|allocate
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
+block|}
+block|,
+DECL|enum constant|THROTTLE
+name|THROTTLE
 block|{
 annotation|@
 name|Override
