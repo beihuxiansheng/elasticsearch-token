@@ -1320,10 +1320,7 @@ name|routingNode
 range|:
 name|routingNodes
 operator|.
-name|nodesToShards
-argument_list|()
-operator|.
-name|values
+name|sortedNodesLeastToHigh
 argument_list|()
 control|)
 block|{
