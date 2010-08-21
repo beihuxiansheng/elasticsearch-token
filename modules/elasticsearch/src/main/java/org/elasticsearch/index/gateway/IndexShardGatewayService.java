@@ -747,7 +747,7 @@ condition|(
 operator|!
 name|recoveryThrottler
 operator|.
-name|tryRecovery
+name|tryGatewayRecovery
 argument_list|(
 name|shardId
 argument_list|,
@@ -1348,7 +1348,7 @@ finally|finally
 block|{
 name|recoveryThrottler
 operator|.
-name|recoveryDone
+name|recoveryGatewayDone
 argument_list|(
 name|shardId
 argument_list|,

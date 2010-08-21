@@ -1084,7 +1084,7 @@ condition|(
 operator|!
 name|recoveryThrottler
 operator|.
-name|tryRecovery
+name|tryPeerRecovery
 argument_list|(
 name|shard
 operator|.
@@ -1890,7 +1890,7 @@ finally|finally
 block|{
 name|recoveryThrottler
 operator|.
-name|recoveryDone
+name|recoveryPeerDone
 argument_list|(
 name|shard
 operator|.
