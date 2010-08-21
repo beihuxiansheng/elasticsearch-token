@@ -678,7 +678,7 @@ name|primary
 init|=
 name|routingNodes
 operator|.
-name|findPrimaryForBackup
+name|findPrimaryForReplica
 argument_list|(
 name|shard
 argument_list|)
@@ -1433,7 +1433,7 @@ name|primaryShard
 init|=
 name|routingNodes
 operator|.
-name|findPrimaryForBackup
+name|findPrimaryForReplica
 argument_list|(
 name|shard
 argument_list|)

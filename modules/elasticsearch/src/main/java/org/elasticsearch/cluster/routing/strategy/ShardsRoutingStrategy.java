@@ -753,6 +753,56 @@ range|:
 name|activeShards
 control|)
 block|{
+comment|// we only relocate shards that all other shards within the replication group are active
+name|List
+argument_list|<
+name|MutableShardRouting
+argument_list|>
+name|allShards
+init|=
+name|routingNodes
+operator|.
+name|shardsRoutingFor
+argument_list|(
+name|activeShard
+argument_list|)
+decl_stmt|;
+name|boolean
+name|ignoreShard
+init|=
+literal|false
+decl_stmt|;
+for|for
+control|(
+name|MutableShardRouting
+name|allShard
+range|:
+name|allShards
+control|)
+block|{
+if|if
+condition|(
+operator|!
+name|allShard
+operator|.
+name|active
+argument_list|()
+condition|)
+block|{
+name|ignoreShard
+operator|=
+literal|true
+expr_stmt|;
+break|break;
+block|}
+block|}
+if|if
+condition|(
+name|ignoreShard
+condition|)
+block|{
+continue|continue;
+block|}
 if|if
 condition|(
 name|lowRoutingNode
@@ -1059,6 +1109,7 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
+comment|// if its a replica, only allocate it if the primary is active
 if|if
 condition|(
 operator|!
@@ -1068,13 +1119,12 @@ name|primary
 argument_list|()
 condition|)
 block|{
-comment|// if its a backup, only allocate it if the primary is active
 name|MutableShardRouting
 name|primary
 init|=
 name|routingNodes
 operator|.
-name|findPrimaryForBackup
+name|findPrimaryForReplica
 argument_list|(
 name|shard
 argument_list|)
@@ -1095,6 +1145,7 @@ block|{
 continue|continue;
 block|}
 block|}
+comment|// do the allocation, finding the least "busy" node
 for|for
 control|(
 name|int
@@ -1241,6 +1292,7 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
+comment|// if its a backup, only allocate it if the primary is active
 if|if
 condition|(
 operator|!
@@ -1250,13 +1302,12 @@ name|primary
 argument_list|()
 condition|)
 block|{
-comment|// if its a backup, only allocate it if the primary is active
 name|MutableShardRouting
 name|primary
 init|=
 name|routingNodes
 operator|.
-name|findPrimaryForBackup
+name|findPrimaryForReplica
 argument_list|(
 name|shard
 argument_list|)
