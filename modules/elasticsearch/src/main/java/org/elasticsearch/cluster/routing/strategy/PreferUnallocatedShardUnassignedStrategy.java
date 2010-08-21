@@ -933,14 +933,6 @@ operator|.
 name|canAllocate
 argument_list|(
 name|routingNodes
-operator|.
-name|metaData
-argument_list|()
-argument_list|,
-name|routingNodes
-operator|.
-name|routingTable
-argument_list|()
 argument_list|)
 operator|&&
 name|node
