@@ -103,8 +103,8 @@ block|{
 DECL|enum constant|INIT
 name|INIT
 block|,
-DECL|enum constant|RETRY
-name|RETRY
+DECL|enum constant|THROTTLE
+name|THROTTLE
 block|,
 DECL|enum constant|INDEX
 name|INDEX

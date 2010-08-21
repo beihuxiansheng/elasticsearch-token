@@ -784,7 +784,7 @@ name|RecoveryStatus
 operator|.
 name|Stage
 operator|.
-name|RETRY
+name|THROTTLE
 argument_list|)
 expr_stmt|;
 try|try

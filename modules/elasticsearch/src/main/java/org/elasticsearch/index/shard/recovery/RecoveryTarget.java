@@ -1103,7 +1103,7 @@ name|RecoveryStatus
 operator|.
 name|Stage
 operator|.
-name|RETRY
+name|THROTTLE
 expr_stmt|;
 name|recovery
 operator|.
@@ -1288,7 +1288,7 @@ name|RecoveryStatus
 operator|.
 name|Stage
 operator|.
-name|RETRY
+name|THROTTLE
 expr_stmt|;
 name|recovery
 operator|.
@@ -1766,7 +1766,7 @@ name|RecoveryStatus
 operator|.
 name|Stage
 operator|.
-name|RETRY
+name|THROTTLE
 expr_stmt|;
 name|recovery
 operator|.

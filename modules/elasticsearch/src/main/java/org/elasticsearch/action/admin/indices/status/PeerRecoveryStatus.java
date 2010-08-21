@@ -82,8 +82,8 @@ operator|)
 literal|0
 argument_list|)
 block|,
-DECL|enum constant|RETRY
-name|RETRY
+DECL|enum constant|THROTTLE
+name|THROTTLE
 argument_list|(
 operator|(
 name|byte
@@ -187,7 +187,7 @@ literal|1
 condition|)
 block|{
 return|return
-name|RETRY
+name|THROTTLE
 return|;
 block|}
 elseif|else

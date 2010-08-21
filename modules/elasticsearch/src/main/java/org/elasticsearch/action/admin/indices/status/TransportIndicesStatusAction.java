@@ -1125,7 +1125,7 @@ name|TRANSLOG
 expr_stmt|;
 break|break;
 case|case
-name|RETRY
+name|THROTTLE
 case|:
 name|stage
 operator|=
@@ -1133,7 +1133,7 @@ name|PeerRecoveryStatus
 operator|.
 name|Stage
 operator|.
-name|RETRY
+name|THROTTLE
 expr_stmt|;
 break|break;
 case|case
@@ -1309,7 +1309,7 @@ name|TRANSLOG
 expr_stmt|;
 break|break;
 case|case
-name|RETRY
+name|THROTTLE
 case|:
 name|stage
 operator|=
@@ -1317,7 +1317,7 @@ name|GatewayRecoveryStatus
 operator|.
 name|Stage
 operator|.
-name|RETRY
+name|THROTTLE
 expr_stmt|;
 break|break;
 case|case
