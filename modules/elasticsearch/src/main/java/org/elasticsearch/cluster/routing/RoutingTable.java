@@ -54,6 +54,20 @@ name|common
 operator|.
 name|collect
 operator|.
+name|Iterables
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
 name|Lists
 import|;
 end_import
@@ -207,7 +221,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -1236,10 +1250,20 @@ control|(
 name|MutableShardRouting
 name|shardRoutingEntry
 range|:
+name|Iterables
+operator|.
+name|concat
+argument_list|(
 name|routingNodes
 operator|.
 name|unassigned
 argument_list|()
+argument_list|,
+name|routingNodes
+operator|.
+name|ignoredUnassigned
+argument_list|()
+argument_list|)
 control|)
 block|{
 name|String

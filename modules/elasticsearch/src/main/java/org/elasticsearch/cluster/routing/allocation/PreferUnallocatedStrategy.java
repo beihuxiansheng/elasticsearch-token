@@ -64,6 +64,10 @@ begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
+begin_comment
+comment|// TODO move this to be a NodeAllocation (once we remove the md5 and make listing fast for Unassigned impl)
+end_comment
+
 begin_interface
 DECL|interface|PreferUnallocatedStrategy
 specifier|public

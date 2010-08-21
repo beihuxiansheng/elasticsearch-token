@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -139,6 +139,18 @@ argument_list|<
 name|MutableShardRouting
 argument_list|>
 name|unassigned
+init|=
+name|newArrayList
+argument_list|()
+decl_stmt|;
+DECL|field|ignoredUnassigned
+specifier|private
+specifier|final
+name|List
+argument_list|<
+name|MutableShardRouting
+argument_list|>
+name|ignoredUnassigned
 init|=
 name|newArrayList
 argument_list|()
@@ -520,6 +532,21 @@ name|unassigned
 operator|.
 name|isEmpty
 argument_list|()
+return|;
+block|}
+DECL|method|ignoredUnassigned
+specifier|public
+name|List
+argument_list|<
+name|MutableShardRouting
+argument_list|>
+name|ignoredUnassigned
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|ignoredUnassigned
 return|;
 block|}
 DECL|method|unassigned

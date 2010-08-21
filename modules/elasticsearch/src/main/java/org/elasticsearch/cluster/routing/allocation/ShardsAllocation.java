@@ -606,6 +606,17 @@ expr_stmt|;
 block|}
 name|changed
 operator||=
+name|nodeAllocations
+operator|.
+name|allocate
+argument_list|(
+name|routingNodes
+argument_list|,
+name|nodes
+argument_list|)
+expr_stmt|;
+name|changed
+operator||=
 name|allocateUnassigned
 argument_list|(
 name|routingNodes
