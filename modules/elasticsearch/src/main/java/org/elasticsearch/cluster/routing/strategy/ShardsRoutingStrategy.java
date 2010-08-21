@@ -736,7 +736,7 @@ name|List
 argument_list|<
 name|MutableShardRouting
 argument_list|>
-name|activeShards
+name|startedShards
 init|=
 name|highRoutingNode
 operator|.
@@ -748,9 +748,9 @@ decl_stmt|;
 for|for
 control|(
 name|MutableShardRouting
-name|activeShard
+name|startedShard
 range|:
-name|activeShards
+name|startedShards
 control|)
 block|{
 comment|// we only relocate shards that all other shards within the replication group are active
@@ -764,7 +764,7 @@ name|routingNodes
 operator|.
 name|shardsRoutingFor
 argument_list|(
-name|activeShard
+name|startedShard
 argument_list|)
 decl_stmt|;
 name|boolean
@@ -824,7 +824,7 @@ name|lowRoutingNode
 operator|.
 name|canAllocate
 argument_list|(
-name|activeShard
+name|startedShard
 argument_list|)
 condition|)
 block|{
@@ -839,12 +839,12 @@ argument_list|(
 operator|new
 name|MutableShardRouting
 argument_list|(
-name|activeShard
+name|startedShard
 operator|.
 name|index
 argument_list|()
 argument_list|,
-name|activeShard
+name|startedShard
 operator|.
 name|id
 argument_list|()
@@ -854,12 +854,12 @@ operator|.
 name|nodeId
 argument_list|()
 argument_list|,
-name|activeShard
+name|startedShard
 operator|.
 name|currentNodeId
 argument_list|()
 argument_list|,
-name|activeShard
+name|startedShard
 operator|.
 name|primary
 argument_list|()
@@ -868,7 +868,7 @@ name|INITIALIZING
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|activeShard
+name|startedShard
 operator|.
 name|relocate
 argument_list|(
