@@ -1218,7 +1218,7 @@ decl_stmt|;
 if|if
 condition|(
 name|numberOfShardsToAllocate
-operator|==
+operator|<=
 literal|0
 condition|)
 block|{
