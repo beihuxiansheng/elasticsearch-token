@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|metadata
-operator|.
-name|MetaData
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -478,11 +464,8 @@ specifier|public
 name|boolean
 name|canAllocate
 parameter_list|(
-name|MetaData
-name|metaData
-parameter_list|,
-name|RoutingTable
-name|routingTable
+name|RoutingNodes
+name|nodes
 parameter_list|)
 block|{
 return|return
