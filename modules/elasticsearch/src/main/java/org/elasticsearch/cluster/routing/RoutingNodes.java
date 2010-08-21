@@ -605,7 +605,7 @@ specifier|public
 name|MutableShardRouting
 name|findPrimaryForReplica
 parameter_list|(
-name|MutableShardRouting
+name|ShardRouting
 name|shard
 parameter_list|)
 block|{
