@@ -144,9 +144,9 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|strategy
+name|allocation
 operator|.
-name|ShardsRoutingStrategy
+name|ShardsAllocation
 import|;
 end_import
 
@@ -360,11 +360,11 @@ specifier|final
 name|ClusterService
 name|clusterService
 decl_stmt|;
-DECL|field|shardsRoutingStrategy
+DECL|field|shardsAllocation
 specifier|private
 specifier|final
-name|ShardsRoutingStrategy
-name|shardsRoutingStrategy
+name|ShardsAllocation
+name|shardsAllocation
 decl_stmt|;
 DECL|field|threadPool
 specifier|private
@@ -387,8 +387,8 @@ parameter_list|,
 name|TransportService
 name|transportService
 parameter_list|,
-name|ShardsRoutingStrategy
-name|shardsRoutingStrategy
+name|ShardsAllocation
+name|shardsAllocation
 parameter_list|,
 name|ThreadPool
 name|threadPool
@@ -413,9 +413,9 @@ name|transportService
 expr_stmt|;
 name|this
 operator|.
-name|shardsRoutingStrategy
+name|shardsAllocation
 operator|=
-name|shardsRoutingStrategy
+name|shardsAllocation
 expr_stmt|;
 name|this
 operator|.
@@ -861,7 +861,7 @@ decl_stmt|;
 name|RoutingTable
 name|newRoutingTable
 init|=
-name|shardsRoutingStrategy
+name|shardsAllocation
 operator|.
 name|applyFailedShards
 argument_list|(
@@ -1081,7 +1081,7 @@ block|}
 name|RoutingTable
 name|newRoutingTable
 init|=
-name|shardsRoutingStrategy
+name|shardsAllocation
 operator|.
 name|applyStartedShards
 argument_list|(

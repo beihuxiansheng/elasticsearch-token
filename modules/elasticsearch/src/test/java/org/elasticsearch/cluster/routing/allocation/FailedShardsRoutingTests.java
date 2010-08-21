@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.cluster.routing.strategy
+DECL|package|org.elasticsearch.cluster.routing.allocation
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|strategy
+name|allocation
 package|;
 end_package
 
@@ -317,11 +317,11 @@ name|void
 name|testFailures
 parameter_list|()
 block|{
-name|ShardsRoutingStrategy
+name|ShardsAllocation
 name|strategy
 init|=
 operator|new
-name|ShardsRoutingStrategy
+name|ShardsAllocation
 argument_list|()
 decl_stmt|;
 name|logger
@@ -1856,11 +1856,11 @@ name|void
 name|test10ShardsWith1ReplicaFailure
 parameter_list|()
 block|{
-name|ShardsRoutingStrategy
+name|ShardsAllocation
 name|strategy
 init|=
 operator|new
-name|ShardsRoutingStrategy
+name|ShardsAllocation
 argument_list|()
 decl_stmt|;
 name|logger

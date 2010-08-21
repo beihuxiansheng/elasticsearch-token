@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_package
-DECL|package|org.elasticsearch.cluster.routing.strategy
+DECL|package|org.elasticsearch.cluster.routing.allocation
 package|package
 name|org
 operator|.
@@ -10,7 +10,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|strategy
+name|allocation
 package|;
 end_package
 
@@ -303,11 +303,11 @@ name|void
 name|testUpdateNumberOfReplicas
 parameter_list|()
 block|{
-name|ShardsRoutingStrategy
+name|ShardsAllocation
 name|strategy
 init|=
 operator|new
-name|ShardsRoutingStrategy
+name|ShardsAllocation
 argument_list|()
 decl_stmt|;
 name|logger

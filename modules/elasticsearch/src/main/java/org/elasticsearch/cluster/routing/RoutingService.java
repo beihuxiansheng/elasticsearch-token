@@ -48,9 +48,9 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|strategy
+name|allocation
 operator|.
-name|ShardsRoutingStrategy
+name|ShardsAllocation
 import|;
 end_import
 
@@ -193,11 +193,11 @@ specifier|final
 name|ClusterService
 name|clusterService
 decl_stmt|;
-DECL|field|shardsRoutingStrategy
+DECL|field|shardsAllocation
 specifier|private
 specifier|final
-name|ShardsRoutingStrategy
-name|shardsRoutingStrategy
+name|ShardsAllocation
+name|shardsAllocation
 decl_stmt|;
 DECL|field|schedule
 specifier|private
@@ -234,8 +234,8 @@ parameter_list|,
 name|ClusterService
 name|clusterService
 parameter_list|,
-name|ShardsRoutingStrategy
-name|shardsRoutingStrategy
+name|ShardsAllocation
+name|shardsAllocation
 parameter_list|)
 block|{
 name|super
@@ -257,9 +257,9 @@ name|clusterService
 expr_stmt|;
 name|this
 operator|.
-name|shardsRoutingStrategy
+name|shardsAllocation
 operator|=
-name|shardsRoutingStrategy
+name|shardsAllocation
 expr_stmt|;
 name|this
 operator|.
@@ -551,7 +551,7 @@ block|{
 name|RoutingTable
 name|newRoutingTable
 init|=
-name|shardsRoutingStrategy
+name|shardsAllocation
 operator|.
 name|reroute
 argument_list|(

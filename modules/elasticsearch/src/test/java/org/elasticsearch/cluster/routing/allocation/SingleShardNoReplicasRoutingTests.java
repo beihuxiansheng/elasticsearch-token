@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.cluster.routing.strategy
+DECL|package|org.elasticsearch.cluster.routing.allocation
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|strategy
+name|allocation
 package|;
 end_package
 
@@ -357,10 +357,10 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|SingleShardNoReplicasRoutingStrategyTests
+DECL|class|SingleShardNoReplicasRoutingTests
 specifier|public
 class|class
-name|SingleShardNoReplicasRoutingStrategyTests
+name|SingleShardNoReplicasRoutingTests
 block|{
 DECL|field|logger
 specifier|private
@@ -372,7 +372,7 @@ name|Loggers
 operator|.
 name|getLogger
 argument_list|(
-name|SingleShardNoReplicasRoutingStrategyTests
+name|SingleShardNoReplicasRoutingTests
 operator|.
 name|class
 argument_list|)
@@ -385,11 +385,11 @@ name|void
 name|testSingleIndexStartedShard
 parameter_list|()
 block|{
-name|ShardsRoutingStrategy
+name|ShardsAllocation
 name|strategy
 init|=
 operator|new
-name|ShardsRoutingStrategy
+name|ShardsAllocation
 argument_list|()
 decl_stmt|;
 name|logger
@@ -1783,11 +1783,11 @@ name|void
 name|testSingleIndexShardFailed
 parameter_list|()
 block|{
-name|ShardsRoutingStrategy
+name|ShardsAllocation
 name|strategy
 init|=
 operator|new
-name|ShardsRoutingStrategy
+name|ShardsAllocation
 argument_list|()
 decl_stmt|;
 name|logger
@@ -2455,11 +2455,11 @@ name|void
 name|testMultiIndexEvenDistribution
 parameter_list|()
 block|{
-name|ShardsRoutingStrategy
+name|ShardsAllocation
 name|strategy
 init|=
 operator|new
-name|ShardsRoutingStrategy
+name|ShardsAllocation
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -3823,11 +3823,11 @@ name|void
 name|testMultiIndexUnevenNodes
 parameter_list|()
 block|{
-name|ShardsRoutingStrategy
+name|ShardsAllocation
 name|strategy
 init|=
 operator|new
-name|ShardsRoutingStrategy
+name|ShardsAllocation
 argument_list|()
 decl_stmt|;
 specifier|final
