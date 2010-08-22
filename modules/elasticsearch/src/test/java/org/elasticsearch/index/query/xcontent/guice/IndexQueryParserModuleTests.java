@@ -30,7 +30,7 @@ name|common
 operator|.
 name|inject
 operator|.
-name|Guice
+name|Injector
 import|;
 end_import
 
@@ -44,7 +44,7 @@ name|common
 operator|.
 name|inject
 operator|.
-name|Injector
+name|ModulesBuilder
 import|;
 end_import
 
@@ -372,9 +372,11 @@ decl_stmt|;
 name|Injector
 name|injector
 init|=
-name|Guice
+operator|new
+name|ModulesBuilder
+argument_list|()
 operator|.
-name|createInjector
+name|add
 argument_list|(
 operator|new
 name|SettingsModule
@@ -428,6 +430,9 @@ argument_list|(
 name|index
 argument_list|)
 argument_list|)
+operator|.
+name|createInjector
+argument_list|()
 decl_stmt|;
 name|IndexQueryParserService
 name|indexQueryParserService

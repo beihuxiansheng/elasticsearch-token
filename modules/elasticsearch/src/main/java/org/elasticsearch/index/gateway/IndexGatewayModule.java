@@ -24,6 +24,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|collect
+operator|.
+name|ImmutableList
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|inject
 operator|.
 name|AbstractModule
@@ -40,7 +54,35 @@ name|common
 operator|.
 name|inject
 operator|.
-name|ModulesFactory
+name|Module
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|inject
+operator|.
+name|Modules
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|inject
+operator|.
+name|SpawnModules
 import|;
 end_import
 
@@ -71,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -81,6 +123,8 @@ class|class
 name|IndexGatewayModule
 extends|extends
 name|AbstractModule
+implements|implements
+name|SpawnModules
 block|{
 DECL|field|settings
 specifier|private
@@ -118,15 +162,25 @@ operator|=
 name|gateway
 expr_stmt|;
 block|}
-DECL|method|configure
+DECL|method|spawnModules
 annotation|@
 name|Override
-specifier|protected
-name|void
-name|configure
+specifier|public
+name|Iterable
+argument_list|<
+name|?
+extends|extends
+name|Module
+argument_list|>
+name|spawnModules
 parameter_list|()
 block|{
-name|ModulesFactory
+return|return
+name|ImmutableList
+operator|.
+name|of
+argument_list|(
+name|Modules
 operator|.
 name|createModule
 argument_list|(
@@ -148,14 +202,17 @@ argument_list|)
 argument_list|,
 name|settings
 argument_list|)
-operator|.
-name|configure
-argument_list|(
-name|binder
-argument_list|()
 argument_list|)
-expr_stmt|;
+return|;
 block|}
+DECL|method|configure
+annotation|@
+name|Override
+specifier|protected
+name|void
+name|configure
+parameter_list|()
+block|{     }
 block|}
 end_class
 
