@@ -354,9 +354,9 @@ name|index
 operator|.
 name|translog
 operator|.
-name|memory
+name|fs
 operator|.
-name|MemoryTranslog
+name|FsTranslog
 import|;
 end_import
 
@@ -383,6 +383,16 @@ operator|.
 name|scaling
 operator|.
 name|ScalingThreadPool
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
 import|;
 end_import
 
@@ -2048,11 +2058,19 @@ argument_list|,
 name|deletionPolicy
 argument_list|,
 operator|new
-name|MemoryTranslog
+name|FsTranslog
 argument_list|(
 name|shardId
 argument_list|,
-name|settings
+name|EMPTY_SETTINGS
+argument_list|,
+operator|new
+name|File
+argument_list|(
+literal|"work/fs-translog"
+argument_list|)
+argument_list|,
+literal|false
 argument_list|)
 argument_list|,
 operator|new

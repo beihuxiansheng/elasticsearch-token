@@ -860,15 +860,6 @@ operator|.
 name|indexSize
 argument_list|)
 expr_stmt|;
-name|out
-operator|.
-name|writeVLong
-argument_list|(
-name|gatewaySnapshotStatus
-operator|.
-name|translogOperations
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 DECL|method|readFrom
@@ -1120,11 +1111,6 @@ operator|.
 name|readByte
 argument_list|()
 argument_list|)
-argument_list|,
-name|in
-operator|.
-name|readVLong
-argument_list|()
 argument_list|,
 name|in
 operator|.

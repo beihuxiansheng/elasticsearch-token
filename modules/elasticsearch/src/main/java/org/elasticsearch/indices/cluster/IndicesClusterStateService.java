@@ -2204,7 +2204,7 @@ operator|.
 name|store
 argument_list|()
 operator|.
-name|listWithMd5
+name|list
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -2390,7 +2390,7 @@ operator|.
 name|store
 argument_list|()
 operator|.
-name|listWithMd5
+name|list
 argument_list|()
 argument_list|)
 decl_stmt|;

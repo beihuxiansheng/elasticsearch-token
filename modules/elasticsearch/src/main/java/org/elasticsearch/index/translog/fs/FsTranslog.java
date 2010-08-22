@@ -287,6 +287,8 @@ specifier|private
 specifier|volatile
 name|long
 name|id
+init|=
+literal|0
 decl_stmt|;
 DECL|field|operationCounter
 specifier|private
@@ -532,10 +534,7 @@ name|Override
 specifier|public
 name|void
 name|newTranslog
-parameter_list|(
-name|long
-name|id
-parameter_list|)
+parameter_list|()
 throws|throws
 name|TranslogException
 block|{
@@ -560,6 +559,8 @@ operator|.
 name|id
 operator|=
 name|id
+operator|+
+literal|1
 expr_stmt|;
 if|if
 condition|(

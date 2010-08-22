@@ -224,6 +224,16 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|InputStream
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
@@ -260,10 +270,7 @@ comment|/**      * Creates a new transaction log internally. Note, users of this
 DECL|method|newTranslog
 name|void
 name|newTranslog
-parameter_list|(
-name|long
-name|id
-parameter_list|)
+parameter_list|()
 throws|throws
 name|TranslogException
 function_decl|;
@@ -345,6 +352,20 @@ parameter_list|(
 name|long
 name|length
 parameter_list|)
+function_decl|;
+comment|/**          * Returns a stream of this snapshot.          */
+DECL|method|stream
+name|InputStream
+name|stream
+parameter_list|()
+throws|throws
+name|IOException
+function_decl|;
+comment|/**          * The length in bytes of this channel.          */
+DECL|method|lengthInBytes
+name|long
+name|lengthInBytes
+parameter_list|()
 function_decl|;
 block|}
 comment|/**      * A generic interface representing an operation performed on the transaction log.      * Each is associated with a type.      */

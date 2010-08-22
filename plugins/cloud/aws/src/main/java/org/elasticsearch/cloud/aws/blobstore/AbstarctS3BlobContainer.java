@@ -643,8 +643,6 @@ name|summary
 operator|.
 name|getSize
 argument_list|()
-argument_list|,
-literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;

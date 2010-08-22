@@ -175,6 +175,7 @@ name|boolean
 name|markAsRelocated
 decl_stmt|;
 DECL|field|existingFiles
+specifier|private
 name|Map
 argument_list|<
 name|String

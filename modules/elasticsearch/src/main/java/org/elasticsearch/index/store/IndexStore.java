@@ -329,7 +329,7 @@ name|totalSizeInBytes
 operator|+=
 name|file
 operator|.
-name|sizeInBytes
+name|length
 argument_list|()
 expr_stmt|;
 block|}

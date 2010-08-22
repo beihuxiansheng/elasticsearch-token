@@ -1514,22 +1514,6 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-literal|"], number_of_operations ["
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|snapshotStatus
-operator|.
-name|translog
-argument_list|()
-operator|.
-name|currentTranslogOperations
-argument_list|()
-argument_list|)
-operator|.
-name|append
-argument_list|(
 literal|"], took ["
 argument_list|)
 operator|.

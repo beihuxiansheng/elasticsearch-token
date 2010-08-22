@@ -1491,14 +1491,6 @@ argument_list|()
 operator|.
 name|totalSize
 argument_list|()
-argument_list|,
-name|snapshotStatus
-operator|.
-name|translog
-argument_list|()
-operator|.
-name|currentTranslogOperations
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

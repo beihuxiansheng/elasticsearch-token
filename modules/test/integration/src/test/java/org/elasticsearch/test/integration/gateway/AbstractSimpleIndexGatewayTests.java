@@ -259,7 +259,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -614,6 +614,36 @@ literal|"2"
 argument_list|,
 literal|"test"
 argument_list|)
+argument_list|)
+argument_list|)
+operator|.
+name|actionGet
+argument_list|()
+expr_stmt|;
+comment|// perform snapshot to the index
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"Gateway Snapshot"
+argument_list|)
+expr_stmt|;
+name|client
+argument_list|(
+literal|"server1"
+argument_list|)
+operator|.
+name|admin
+argument_list|()
+operator|.
+name|indices
+argument_list|()
+operator|.
+name|gatewaySnapshot
+argument_list|(
+name|gatewaySnapshotRequest
+argument_list|(
+literal|"test"
 argument_list|)
 argument_list|)
 operator|.

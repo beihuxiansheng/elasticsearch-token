@@ -658,7 +658,7 @@ operator|.
 name|store
 argument_list|()
 operator|.
-name|metaDataWithMd5
+name|metaData
 argument_list|(
 name|name
 argument_list|)
@@ -673,6 +673,7 @@ condition|(
 name|request
 operator|.
 name|existingFiles
+argument_list|()
 operator|.
 name|containsKey
 argument_list|(
@@ -682,25 +683,34 @@ condition|)
 block|{
 if|if
 condition|(
+operator|!
 name|md
 operator|.
-name|md5
+name|name
 argument_list|()
 operator|.
-name|equals
+name|contains
 argument_list|(
+literal|"segment"
+argument_list|)
+operator|&&
+name|md
+operator|.
+name|length
+argument_list|()
+operator|==
 name|request
 operator|.
 name|existingFiles
+argument_list|()
 operator|.
 name|get
 argument_list|(
 name|name
 argument_list|)
 operator|.
-name|md5
+name|length
 argument_list|()
-argument_list|)
 condition|)
 block|{
 name|response
@@ -720,7 +730,7 @@ name|add
 argument_list|(
 name|md
 operator|.
-name|sizeInBytes
+name|length
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -728,7 +738,7 @@ name|existingTotalSize
 operator|+=
 name|md
 operator|.
-name|sizeInBytes
+name|length
 argument_list|()
 expr_stmt|;
 name|useExisting
@@ -747,7 +757,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"[{}][{}] recovery [phase1] to {}: not recovering [{}], exists in local store and has md5 [{}]"
+literal|"[{}][{}] recovery [phase1] to {}: not recovering [{}], exists in local store and has size [{}]"
 argument_list|,
 name|request
 operator|.
@@ -777,7 +787,7 @@ name|name
 argument_list|,
 name|md
 operator|.
-name|md5
+name|length
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -795,6 +805,7 @@ condition|(
 name|request
 operator|.
 name|existingFiles
+argument_list|()
 operator|.
 name|containsKey
 argument_list|(
@@ -806,7 +817,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"[{}][{}] recovery [phase1] to {}: recovering [{}], exists in local store, but has different md5: remote [{}], local [{}]"
+literal|"[{}][{}] recovery [phase1] to {}: recovering [{}], exists in local store, but has different length: remote [{}], local [{}]"
 argument_list|,
 name|request
 operator|.
@@ -837,18 +848,19 @@ argument_list|,
 name|request
 operator|.
 name|existingFiles
+argument_list|()
 operator|.
 name|get
 argument_list|(
 name|name
 argument_list|)
 operator|.
-name|md5
+name|length
 argument_list|()
 argument_list|,
 name|md
 operator|.
-name|md5
+name|length
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -906,7 +918,7 @@ name|add
 argument_list|(
 name|md
 operator|.
-name|sizeInBytes
+name|length
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -914,7 +926,7 @@ name|totalSize
 operator|+=
 name|md
 operator|.
-name|sizeInBytes
+name|length
 argument_list|()
 expr_stmt|;
 block|}

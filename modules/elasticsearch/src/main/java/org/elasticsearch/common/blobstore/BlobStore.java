@@ -30,14 +30,6 @@ name|BlobPath
 name|path
 parameter_list|)
 function_decl|;
-DECL|method|appendableBlobContainer
-name|AppendableBlobContainer
-name|appendableBlobContainer
-parameter_list|(
-name|BlobPath
-name|path
-parameter_list|)
-function_decl|;
 DECL|method|delete
 name|void
 name|delete

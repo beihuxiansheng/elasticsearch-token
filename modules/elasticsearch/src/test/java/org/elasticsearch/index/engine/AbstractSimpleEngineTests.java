@@ -258,9 +258,9 @@ name|index
 operator|.
 name|translog
 operator|.
-name|memory
+name|fs
 operator|.
-name|MemoryTranslog
+name|FsTranslog
 import|;
 end_import
 
@@ -297,6 +297,16 @@ operator|.
 name|annotations
 operator|.
 name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
 import|;
 end_import
 
@@ -585,11 +595,19 @@ parameter_list|()
 block|{
 return|return
 operator|new
-name|MemoryTranslog
+name|FsTranslog
 argument_list|(
 name|shardId
 argument_list|,
 name|EMPTY_SETTINGS
+argument_list|,
+operator|new
+name|File
+argument_list|(
+literal|"work/fs-translog"
+argument_list|)
+argument_list|,
+literal|false
 argument_list|)
 return|;
 block|}

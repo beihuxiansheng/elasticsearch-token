@@ -31,15 +31,9 @@ name|String
 name|name
 parameter_list|()
 function_decl|;
-DECL|method|sizeInBytes
+DECL|method|length
 name|long
-name|sizeInBytes
-parameter_list|()
-function_decl|;
-comment|/**      * If the blob store support native md5 checksum, return it. Can be<tt>null</tt>.      */
-DECL|method|md5
-name|String
-name|md5
+name|length
 parameter_list|()
 function_decl|;
 block|}
