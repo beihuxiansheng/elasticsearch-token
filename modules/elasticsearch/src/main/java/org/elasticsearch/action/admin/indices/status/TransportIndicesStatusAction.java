@@ -1345,7 +1345,7 @@ operator|.
 name|index
 argument_list|()
 operator|.
-name|existingTotalSize
+name|reusedTotalSize
 argument_list|()
 argument_list|,
 name|gatewayRecoveryStatus
