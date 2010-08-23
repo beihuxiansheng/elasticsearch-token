@@ -191,6 +191,12 @@ specifier|final
 name|long
 name|lastTranslogLength
 decl_stmt|;
+DECL|field|lastTotalTranslogOperations
+specifier|private
+specifier|final
+name|int
+name|lastTotalTranslogOperations
+decl_stmt|;
 DECL|method|Snapshot
 specifier|public
 name|Snapshot
@@ -214,6 +220,9 @@ name|lastTranslogPosition
 parameter_list|,
 name|long
 name|lastTranslogLength
+parameter_list|,
+name|int
+name|lastTotalTranslogOperations
 parameter_list|)
 block|{
 name|this
@@ -251,6 +260,12 @@ operator|.
 name|lastTranslogLength
 operator|=
 name|lastTranslogLength
+expr_stmt|;
+name|this
+operator|.
+name|lastTotalTranslogOperations
+operator|=
+name|lastTotalTranslogOperations
 expr_stmt|;
 block|}
 comment|/**          * Indicates that the index has changed from the latest snapshot.          */
@@ -375,6 +390,18 @@ parameter_list|()
 block|{
 return|return
 name|lastTranslogLength
+return|;
+block|}
+DECL|method|lastTotalTranslogOperations
+specifier|public
+name|int
+name|lastTotalTranslogOperations
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|lastTotalTranslogOperations
 return|;
 block|}
 block|}

@@ -335,6 +335,18 @@ name|long
 name|length
 parameter_list|()
 function_decl|;
+comment|/**          * The total number of operations in the translog.          */
+DECL|method|totalOperations
+name|int
+name|totalOperations
+parameter_list|()
+function_decl|;
+comment|/**          * The number of operations in this snapshot.          */
+DECL|method|snapshotOperations
+name|int
+name|snapshotOperations
+parameter_list|()
+function_decl|;
 DECL|method|hasNext
 name|boolean
 name|hasNext
@@ -361,7 +373,7 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-comment|/**          * The length in bytes of this channel.          */
+comment|/**          * The length in bytes of this stream.          */
 DECL|method|lengthInBytes
 name|long
 name|lengthInBytes

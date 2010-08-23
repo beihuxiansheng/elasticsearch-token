@@ -228,7 +228,7 @@ decl_stmt|;
 DECL|field|currentTranslogOperations
 specifier|private
 specifier|volatile
-name|long
+name|int
 name|currentTranslogOperations
 init|=
 literal|0
@@ -294,7 +294,7 @@ specifier|public
 name|void
 name|addTranslogOperations
 parameter_list|(
-name|long
+name|int
 name|count
 parameter_list|)
 block|{
@@ -307,7 +307,7 @@ expr_stmt|;
 block|}
 DECL|method|currentTranslogOperations
 specifier|public
-name|long
+name|int
 name|currentTranslogOperations
 parameter_list|()
 block|{

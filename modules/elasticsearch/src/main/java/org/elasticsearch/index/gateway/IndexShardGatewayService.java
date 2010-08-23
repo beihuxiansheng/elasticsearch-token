@@ -335,6 +335,12 @@ specifier|volatile
 name|long
 name|lastTranslogPosition
 decl_stmt|;
+DECL|field|lastTotalTranslogOperations
+specifier|private
+specifier|volatile
+name|int
+name|lastTotalTranslogOperations
+decl_stmt|;
 DECL|field|lastTranslogLength
 specifier|private
 specifier|volatile
@@ -750,6 +756,16 @@ expr_stmt|;
 name|lastTranslogLength
 operator|=
 literal|0
+expr_stmt|;
+name|lastTotalTranslogOperations
+operator|=
+name|recoveryStatus
+operator|.
+name|translog
+argument_list|()
+operator|.
+name|currentTranslogOperations
+argument_list|()
 expr_stmt|;
 comment|// start the shard if the gateway has not started it already
 if|if
@@ -1317,6 +1333,8 @@ argument_list|,
 name|lastTranslogPosition
 argument_list|,
 name|lastTranslogLength
+argument_list|,
+name|lastTotalTranslogOperations
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1346,6 +1364,13 @@ operator|=
 name|translogSnapshot
 operator|.
 name|length
+argument_list|()
+expr_stmt|;
+name|lastTotalTranslogOperations
+operator|=
+name|translogSnapshot
+operator|.
+name|totalOperations
 argument_list|()
 expr_stmt|;
 return|return
@@ -1514,6 +1539,16 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
+literal|"], number_of_operations ["
+operator|+
+name|snapshotStatus
+operator|.
+name|translog
+argument_list|()
+operator|.
+name|expectedNumberOfOperations
+argument_list|()
+operator|+
 literal|"], took ["
 argument_list|)
 operator|.
