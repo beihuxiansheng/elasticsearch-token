@@ -1314,7 +1314,7 @@ throw|throw
 operator|new
 name|StreamCorruptedException
 argument_list|(
-literal|"Expecting \r\n after data block"
+literal|"Expecting separator after data block"
 argument_list|)
 throw|;
 block|}
@@ -1331,7 +1331,7 @@ throw|throw
 operator|new
 name|StreamCorruptedException
 argument_list|(
-literal|"Expecting \r\n after data block"
+literal|"Expecting separator after data block"
 argument_list|)
 throw|;
 block|}
