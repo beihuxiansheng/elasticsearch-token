@@ -734,9 +734,10 @@ block|{
 continue|continue;
 block|}
 comment|// check if we can allocate on that node...
+comment|// we only check for NO, since if this node is THROTTLING and it has enough "same data"
+comment|// then we will try and assign it next time
 if|if
 condition|(
-operator|!
 name|nodeAllocations
 operator|.
 name|canAllocate
@@ -747,9 +748,10 @@ name|node
 argument_list|,
 name|routingNodes
 argument_list|)
+operator|==
+name|Decision
 operator|.
-name|allocate
-argument_list|()
+name|NO
 condition|)
 block|{
 continue|continue;

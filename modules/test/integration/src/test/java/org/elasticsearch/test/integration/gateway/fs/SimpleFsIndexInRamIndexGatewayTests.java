@@ -47,7 +47,20 @@ class|class
 name|SimpleFsIndexInRamIndexGatewayTests
 extends|extends
 name|AbstractSimpleIndexGatewayTests
-block|{  }
+block|{
+DECL|method|isPersistentStorage
+annotation|@
+name|Override
+specifier|protected
+name|boolean
+name|isPersistentStorage
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
+block|}
 end_class
 
 end_unit

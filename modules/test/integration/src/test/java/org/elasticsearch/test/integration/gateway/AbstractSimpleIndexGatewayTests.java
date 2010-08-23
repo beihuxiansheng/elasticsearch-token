@@ -2140,6 +2140,16 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|isPersistentStorage
+specifier|protected
+name|boolean
+name|isPersistentStorage
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 DECL|method|testLoad
 specifier|private
 name|void
@@ -2572,6 +2582,10 @@ block|{
 if|if
 condition|(
 name|fullRecovery
+operator|||
+operator|!
+name|isPersistentStorage
+argument_list|()
 condition|)
 block|{
 name|assertThat
