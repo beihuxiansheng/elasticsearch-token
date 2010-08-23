@@ -1051,7 +1051,7 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"Malformed commit, missing size for ["
+literal|"Malformed commit, missing length for ["
 operator|+
 name|fileName
 operator|+

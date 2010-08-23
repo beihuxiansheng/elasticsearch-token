@@ -528,6 +528,8 @@ name|warn
 argument_list|(
 literal|"failed to read commit point [{}]"
 argument_list|,
+name|e
+argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
