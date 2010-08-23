@@ -2603,6 +2603,7 @@ decl_stmt|;
 annotation|@
 name|Override
 specifier|public
+specifier|synchronized
 name|void
 name|onPartial
 parameter_list|(
@@ -2905,6 +2906,13 @@ name|void
 name|onCompleted
 parameter_list|()
 block|{
+if|if
+condition|(
+name|ignore
+condition|)
+block|{
+return|return;
+block|}
 if|if
 condition|(
 operator|!
