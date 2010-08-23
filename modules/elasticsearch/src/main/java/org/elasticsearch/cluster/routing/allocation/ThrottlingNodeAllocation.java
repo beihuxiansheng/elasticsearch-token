@@ -152,6 +152,9 @@ specifier|public
 name|boolean
 name|allocate
 parameter_list|(
+name|NodeAllocations
+name|nodeAllocations
+parameter_list|,
 name|RoutingNodes
 name|routingNodes
 parameter_list|,

@@ -93,6 +93,7 @@ name|YES
 block|{
 annotation|@
 name|Override
+specifier|public
 name|boolean
 name|allocate
 parameter_list|()
@@ -108,6 +109,7 @@ name|NO
 block|{
 annotation|@
 name|Override
+specifier|public
 name|boolean
 name|allocate
 parameter_list|()
@@ -123,6 +125,7 @@ name|THROTTLE
 block|{
 annotation|@
 name|Override
+specifier|public
 name|boolean
 name|allocate
 parameter_list|()
@@ -134,6 +137,7 @@ block|}
 block|}
 block|;
 DECL|method|allocate
+specifier|public
 specifier|abstract
 name|boolean
 name|allocate
@@ -144,6 +148,9 @@ DECL|method|allocate
 name|boolean
 name|allocate
 parameter_list|(
+name|NodeAllocations
+name|nodeAllocations
+parameter_list|,
 name|RoutingNodes
 name|routingNodes
 parameter_list|,

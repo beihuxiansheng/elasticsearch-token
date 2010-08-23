@@ -260,6 +260,9 @@ specifier|public
 name|boolean
 name|allocate
 parameter_list|(
+name|NodeAllocations
+name|nodeAllocations
+parameter_list|,
 name|RoutingNodes
 name|routingNodes
 parameter_list|,
@@ -286,6 +289,8 @@ name|allocation
 operator|.
 name|allocate
 argument_list|(
+name|nodeAllocations
+argument_list|,
 name|routingNodes
 argument_list|,
 name|nodes

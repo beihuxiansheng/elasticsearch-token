@@ -22,11 +22,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|gateway
 operator|.
-name|inject
-operator|.
-name|AbstractModule
+name|Gateway
 import|;
 end_import
 
@@ -38,7 +36,9 @@ name|elasticsearch
 operator|.
 name|gateway
 operator|.
-name|Gateway
+name|blobstore
+operator|.
+name|BlobStoreGatewayModule
 import|;
 end_import
 
@@ -52,7 +52,7 @@ specifier|public
 class|class
 name|S3GatewayModule
 extends|extends
-name|AbstractModule
+name|BlobStoreGatewayModule
 block|{
 DECL|method|configure
 annotation|@
