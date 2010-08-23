@@ -878,7 +878,23 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"    index    : total_size ["
+literal|"    index    : files           ["
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|recoveryStatus
+operator|.
+name|index
+argument_list|()
+operator|.
+name|numberOfFiles
+argument_list|()
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"] with total_size ["
 argument_list|)
 operator|.
 name|append
@@ -957,7 +973,7 @@ operator|.
 name|index
 argument_list|()
 operator|.
-name|numberOfFiles
+name|numberOfRecoveredFiles
 argument_list|()
 argument_list|)
 operator|.
