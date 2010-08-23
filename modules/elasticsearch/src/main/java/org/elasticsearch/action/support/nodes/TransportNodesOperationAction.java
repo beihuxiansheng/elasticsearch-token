@@ -235,7 +235,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -691,6 +691,35 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+name|TransportRequestOptions
+name|transportRequestOptions
+init|=
+name|TransportRequestOptions
+operator|.
+name|options
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|request
+operator|.
+name|timeout
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|transportRequestOptions
+operator|.
+name|withTimeout
+argument_list|(
+name|request
+operator|.
+name|timeout
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 for|for
 control|(
 specifier|final
@@ -918,6 +947,8 @@ name|transportNodeAction
 argument_list|()
 argument_list|,
 name|nodeRequest
+argument_list|,
+name|transportRequestOptions
 argument_list|,
 operator|new
 name|BaseTransportResponseHandler
