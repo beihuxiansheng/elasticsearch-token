@@ -977,6 +977,13 @@ operator|!
 name|done
 condition|)
 block|{
+name|sb
+operator|.
+name|setLength
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
 name|buffer
 operator|.
 name|resetReaderIndex
