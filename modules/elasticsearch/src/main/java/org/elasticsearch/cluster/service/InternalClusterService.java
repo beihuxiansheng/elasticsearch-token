@@ -1331,7 +1331,22 @@ name|clusterChangedEvent
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+operator|!
+name|nodesDelta
+operator|.
+name|removedNodes
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
 name|threadPool
+operator|.
+name|cached
+argument_list|()
 operator|.
 name|execute
 argument_list|(
@@ -1369,6 +1384,7 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+block|}
 comment|// if we are the master, publish the new state to all nodes
 if|if
 condition|(

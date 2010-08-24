@@ -354,10 +354,12 @@ argument_list|)
 expr_stmt|;
 name|cached
 operator|=
-name|Executors
+name|EsExecutors
 operator|.
 name|newCachedThreadPool
 argument_list|(
+name|keepAlive
+argument_list|,
 name|EsExecutors
 operator|.
 name|daemonThreadFactory

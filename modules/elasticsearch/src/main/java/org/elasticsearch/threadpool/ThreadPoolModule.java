@@ -173,7 +173,7 @@ name|settings
 operator|.
 name|getAsClass
 argument_list|(
-literal|"transport.type"
+literal|"threadpool.type"
 argument_list|,
 name|CachedThreadPoolModule
 operator|.

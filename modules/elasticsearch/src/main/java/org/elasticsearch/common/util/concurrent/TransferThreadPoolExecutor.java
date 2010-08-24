@@ -155,7 +155,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  * A thread pool based on {@link org.elasticsearch.common.util.concurrent.jsr166y.TransferQueue}.  *  *<p>Limited compared to ExecutorServer in what it does, but focused on speed.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -975,7 +975,7 @@ argument_list|(
 name|blockingTime
 argument_list|)
 operator|+
-literal|"ms for task ["
+literal|"s for task ["
 operator|+
 name|command
 operator|.

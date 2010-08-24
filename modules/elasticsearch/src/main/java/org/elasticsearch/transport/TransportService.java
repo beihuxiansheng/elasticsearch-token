@@ -1521,6 +1521,9 @@ parameter_list|)
 block|{
 name|threadPool
 operator|.
+name|cached
+argument_list|()
+operator|.
 name|execute
 argument_list|(
 operator|new

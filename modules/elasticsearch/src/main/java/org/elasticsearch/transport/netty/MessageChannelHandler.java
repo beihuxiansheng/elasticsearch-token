@@ -735,6 +735,8 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+try|try
+block|{
 if|if
 condition|(
 name|handler
@@ -802,8 +804,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-try|try
-block|{
 comment|//noinspection unchecked
 name|handler
 operator|.
@@ -812,6 +812,7 @@ argument_list|(
 name|streamable
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -832,7 +833,6 @@ name|e
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 DECL|method|handlerResponseError
