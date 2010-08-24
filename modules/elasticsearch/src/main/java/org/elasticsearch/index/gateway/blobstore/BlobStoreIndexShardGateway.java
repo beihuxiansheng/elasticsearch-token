@@ -2134,11 +2134,12 @@ name|blobName
 decl_stmt|;
 if|if
 condition|(
+operator|!
 name|name
 operator|.
 name|startsWith
 argument_list|(
-literal|"commit-"
+literal|"__"
 argument_list|)
 condition|)
 block|{
@@ -4839,11 +4840,12 @@ control|)
 block|{
 if|if
 condition|(
+operator|!
 name|name
 operator|.
 name|startsWith
 argument_list|(
-literal|"commit-"
+literal|"__"
 argument_list|)
 condition|)
 block|{
