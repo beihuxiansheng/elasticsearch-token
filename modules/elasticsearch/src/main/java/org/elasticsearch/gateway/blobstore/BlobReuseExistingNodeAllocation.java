@@ -1375,7 +1375,7 @@ condition|)
 block|{
 name|logger
 operator|.
-name|trace
+name|debug
 argument_list|(
 literal|"[{}][{}]: throttling allocation [{}] to [{}] in order to reuse its unallocated persistent store with total_size [{}]"
 argument_list|,
