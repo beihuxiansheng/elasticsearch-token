@@ -274,6 +274,17 @@ parameter_list|()
 throws|throws
 name|TranslogException
 function_decl|;
+comment|/**      * Creates a new transaction log internally. Note, users of this class should make      * sure that no operations are performed on the trans log when this is called.      */
+DECL|method|newTranslog
+name|void
+name|newTranslog
+parameter_list|(
+name|long
+name|id
+parameter_list|)
+throws|throws
+name|TranslogException
+function_decl|;
 comment|/**      * Adds a create operation to the transaction log.      */
 DECL|method|add
 name|void

@@ -813,7 +813,7 @@ if|if
 condition|(
 name|logger
 operator|.
-name|isDebugEnabled
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
@@ -958,7 +958,7 @@ expr_stmt|;
 block|}
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
 name|sb
 operator|.
