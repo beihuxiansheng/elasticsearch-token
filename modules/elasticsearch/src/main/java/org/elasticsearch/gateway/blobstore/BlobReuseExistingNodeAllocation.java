@@ -395,7 +395,7 @@ name|TimeValue
 operator|.
 name|timeValueMillis
 argument_list|(
-literal|500
+literal|5000
 argument_list|)
 argument_list|)
 expr_stmt|;
