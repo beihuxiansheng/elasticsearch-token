@@ -1070,7 +1070,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Applying started shard {}, reason [{}]"
+literal|"applying started shard {}, reason [{}]"
 argument_list|,
 name|shardRouting
 argument_list|,
