@@ -129,12 +129,12 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|allocate
+DECL|method|allocateUnassigned
 annotation|@
 name|Override
 specifier|public
 name|boolean
-name|allocate
+name|allocateUnassigned
 parameter_list|(
 name|NodeAllocations
 name|nodeAllocations
