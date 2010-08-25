@@ -410,6 +410,24 @@ block|}
 block|}
 if|if
 condition|(
+name|filters
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|QueryParsingException
+argument_list|(
+name|index
+argument_list|,
+literal|"[or] filter requires 'filters' to be set on it'"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
 name|cache
 condition|)
 block|{
