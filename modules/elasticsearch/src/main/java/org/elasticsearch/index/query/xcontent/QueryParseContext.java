@@ -551,6 +551,14 @@ operator|.
 name|Token
 operator|.
 name|START_OBJECT
+operator|||
+name|token
+operator|==
+name|XContentParser
+operator|.
+name|Token
+operator|.
+name|START_ARRAY
 assert|;
 name|XContentQueryParser
 name|queryParser
@@ -605,6 +613,17 @@ operator|.
 name|Token
 operator|.
 name|END_OBJECT
+operator|||
+name|parser
+operator|.
+name|currentToken
+argument_list|()
+operator|==
+name|XContentParser
+operator|.
+name|Token
+operator|.
+name|END_ARRAY
 condition|)
 block|{
 comment|// if we are at END_OBJECT, move to the next one...
@@ -689,7 +708,7 @@ operator|.
 name|currentName
 argument_list|()
 decl_stmt|;
-comment|// move to the next START_OBJECT
+comment|// move to the next START_OBJECT or START_ARRAY
 name|token
 operator|=
 name|parser
@@ -705,6 +724,14 @@ operator|.
 name|Token
 operator|.
 name|START_OBJECT
+operator|||
+name|token
+operator|==
+name|XContentParser
+operator|.
+name|Token
+operator|.
+name|START_ARRAY
 assert|;
 name|XContentFilterParser
 name|filterParser
@@ -759,6 +786,17 @@ operator|.
 name|Token
 operator|.
 name|END_OBJECT
+operator|||
+name|parser
+operator|.
+name|currentToken
+argument_list|()
+operator|==
+name|XContentParser
+operator|.
+name|Token
+operator|.
+name|END_ARRAY
 condition|)
 block|{
 comment|// if we are at END_OBJECT, move to the next one...
