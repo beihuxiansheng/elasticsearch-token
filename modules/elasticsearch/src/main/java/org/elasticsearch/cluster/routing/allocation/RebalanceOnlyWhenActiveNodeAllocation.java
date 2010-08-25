@@ -170,6 +170,8 @@ argument_list|(
 name|shardRouting
 argument_list|)
 decl_stmt|;
+comment|// its ok to check for active here, since in relocation, a shard is split into two in routing
+comment|// nodes, once relocating, and one initializing
 for|for
 control|(
 name|ShardRouting
