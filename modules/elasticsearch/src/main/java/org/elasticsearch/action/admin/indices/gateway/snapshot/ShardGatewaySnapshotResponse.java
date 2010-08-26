@@ -30,7 +30,11 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ActionResponse
+name|support
+operator|.
+name|broadcast
+operator|.
+name|BroadcastShardOperationResponse
 import|;
 end_import
 
@@ -63,22 +67,6 @@ operator|.
 name|stream
 operator|.
 name|StreamOutput
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|io
-operator|.
-name|stream
-operator|.
-name|Streamable
 import|;
 end_import
 
@@ -100,15 +88,32 @@ begin_class
 DECL|class|ShardGatewaySnapshotResponse
 class|class
 name|ShardGatewaySnapshotResponse
-implements|implements
-name|ActionResponse
-implements|,
-name|Streamable
+extends|extends
+name|BroadcastShardOperationResponse
 block|{
 DECL|method|ShardGatewaySnapshotResponse
 name|ShardGatewaySnapshotResponse
 parameter_list|()
-block|{      }
+block|{     }
+DECL|method|ShardGatewaySnapshotResponse
+specifier|public
+name|ShardGatewaySnapshotResponse
+parameter_list|(
+name|String
+name|index
+parameter_list|,
+name|int
+name|shardId
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|index
+argument_list|,
+name|shardId
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|readFrom
 annotation|@
 name|Override
@@ -121,7 +126,15 @@ name|in
 parameter_list|)
 throws|throws
 name|IOException
-block|{     }
+block|{
+name|super
+operator|.
+name|readFrom
+argument_list|(
+name|in
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|writeTo
 annotation|@
 name|Override
@@ -134,7 +147,15 @@ name|out
 parameter_list|)
 throws|throws
 name|IOException
-block|{     }
+block|{
+name|super
+operator|.
+name|writeTo
+argument_list|(
+name|out
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
