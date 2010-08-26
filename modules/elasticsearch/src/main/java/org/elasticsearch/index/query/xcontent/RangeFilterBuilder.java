@@ -108,7 +108,7 @@ specifier|public
 name|RangeFilterBuilder
 name|from
 parameter_list|(
-name|String
+name|Object
 name|from
 parameter_list|)
 block|{
@@ -208,7 +208,7 @@ specifier|public
 name|RangeFilterBuilder
 name|gt
 parameter_list|(
-name|String
+name|Object
 name|from
 parameter_list|)
 block|{
@@ -338,7 +338,7 @@ specifier|public
 name|RangeFilterBuilder
 name|gte
 parameter_list|(
-name|String
+name|Object
 name|from
 parameter_list|)
 block|{
@@ -468,7 +468,7 @@ specifier|public
 name|RangeFilterBuilder
 name|to
 parameter_list|(
-name|String
+name|Object
 name|to
 parameter_list|)
 block|{
@@ -568,7 +568,7 @@ specifier|public
 name|RangeFilterBuilder
 name|lt
 parameter_list|(
-name|String
+name|Object
 name|to
 parameter_list|)
 block|{
