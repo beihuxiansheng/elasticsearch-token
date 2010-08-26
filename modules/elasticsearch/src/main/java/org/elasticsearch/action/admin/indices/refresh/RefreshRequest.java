@@ -129,8 +129,6 @@ block|{
 name|super
 argument_list|(
 name|indices
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 comment|// we want to do the refresh in parallel on local shards...
