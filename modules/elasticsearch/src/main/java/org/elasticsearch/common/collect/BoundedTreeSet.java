@@ -47,7 +47,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * A {@link TreeSet} that is bounded by size.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class

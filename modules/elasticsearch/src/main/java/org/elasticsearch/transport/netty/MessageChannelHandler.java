@@ -790,8 +790,6 @@ argument_list|,
 operator|new
 name|ResponseHandlerFailureTransportException
 argument_list|(
-literal|"Failed to handle response"
-argument_list|,
 name|e
 argument_list|)
 argument_list|)
@@ -827,8 +825,6 @@ argument_list|,
 operator|new
 name|ResponseHandlerFailureTransportException
 argument_list|(
-literal|"Failed to handle response"
-argument_list|,
 name|e
 argument_list|)
 argument_list|)
@@ -926,7 +922,10 @@ operator|=
 operator|new
 name|RemoteTransportException
 argument_list|(
-literal|"None remote transport exception"
+name|error
+operator|.
+name|getMessage
+argument_list|()
 argument_list|,
 name|error
 argument_list|)

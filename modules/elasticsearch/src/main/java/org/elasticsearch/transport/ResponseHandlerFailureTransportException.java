@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -24,36 +24,22 @@ specifier|public
 class|class
 name|ResponseHandlerFailureTransportException
 extends|extends
-name|TransportException
+name|RemoteTransportException
 block|{
 DECL|method|ResponseHandlerFailureTransportException
 specifier|public
 name|ResponseHandlerFailureTransportException
 parameter_list|(
-name|String
-name|msg
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|msg
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|ResponseHandlerFailureTransportException
-specifier|public
-name|ResponseHandlerFailureTransportException
-parameter_list|(
-name|String
-name|msg
-parameter_list|,
 name|Throwable
 name|cause
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|msg
+name|cause
+operator|.
+name|getMessage
+argument_list|()
 argument_list|,
 name|cause
 argument_list|)
