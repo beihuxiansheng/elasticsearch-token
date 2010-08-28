@@ -222,6 +222,16 @@ literal|"node.client"
 argument_list|,
 literal|false
 argument_list|)
+operator|||
+operator|!
+name|settings
+operator|.
+name|getAsBoolean
+argument_list|(
+literal|"node.master"
+argument_list|,
+literal|true
+argument_list|)
 condition|)
 block|{
 name|nodeFile

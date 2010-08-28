@@ -478,15 +478,10 @@ expr_stmt|;
 name|RoutingNodes
 name|routingNodes
 init|=
-name|routingTable
-operator|.
-name|routingNodes
-argument_list|(
 name|clusterState
 operator|.
-name|metaData
+name|routingNodes
 argument_list|()
-argument_list|)
 decl_stmt|;
 name|routingTable
 operator|=
