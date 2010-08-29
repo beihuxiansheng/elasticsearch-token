@@ -408,9 +408,9 @@ name|index
 operator|.
 name|gateway
 operator|.
-name|none
+name|local
 operator|.
-name|NoneIndexGatewayModule
+name|LocalIndexGatewayModule
 import|;
 end_import
 
@@ -1315,7 +1315,7 @@ name|suggestIndexGateway
 parameter_list|()
 block|{
 return|return
-name|NoneIndexGatewayModule
+name|LocalIndexGatewayModule
 operator|.
 name|class
 return|;

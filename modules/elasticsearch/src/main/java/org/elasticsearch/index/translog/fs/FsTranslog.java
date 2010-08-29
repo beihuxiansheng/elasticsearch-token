@@ -479,6 +479,16 @@ operator|=
 name|useStream
 expr_stmt|;
 block|}
+DECL|method|location
+specifier|public
+name|File
+name|location
+parameter_list|()
+block|{
+return|return
+name|location
+return|;
+block|}
 DECL|method|currentId
 annotation|@
 name|Override
