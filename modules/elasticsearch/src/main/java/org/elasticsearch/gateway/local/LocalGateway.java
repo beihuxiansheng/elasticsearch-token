@@ -416,18 +416,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|threadpool
-operator|.
-name|ThreadPool
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -559,12 +547,6 @@ specifier|private
 name|File
 name|location
 decl_stmt|;
-DECL|field|clusterName
-specifier|private
-specifier|final
-name|ClusterName
-name|clusterName
-decl_stmt|;
 DECL|field|clusterService
 specifier|private
 specifier|final
@@ -613,12 +595,6 @@ parameter_list|,
 name|NodeEnvironment
 name|nodeEnv
 parameter_list|,
-name|ClusterName
-name|clusterName
-parameter_list|,
-name|ThreadPool
-name|threadPool
-parameter_list|,
 name|TransportNodesListGatewayState
 name|listGatewayState
 parameter_list|)
@@ -627,12 +603,6 @@ name|super
 argument_list|(
 name|settings
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|clusterName
-operator|=
-name|clusterName
 expr_stmt|;
 name|this
 operator|.
@@ -748,7 +718,7 @@ name|File
 argument_list|(
 name|nodeEnv
 operator|.
-name|nodeFile
+name|nodeLocation
 argument_list|()
 argument_list|,
 literal|"_state"
@@ -1329,7 +1299,18 @@ name|reset
 parameter_list|()
 throws|throws
 name|Exception
-block|{     }
+block|{
+name|FileSystemUtils
+operator|.
+name|deleteRecursively
+argument_list|(
+name|nodeEnv
+operator|.
+name|nodeLocation
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|clusterChanged
 annotation|@
 name|Override
