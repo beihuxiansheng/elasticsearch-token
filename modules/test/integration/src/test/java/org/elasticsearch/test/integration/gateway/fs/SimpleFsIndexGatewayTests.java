@@ -20,22 +20,6 @@ name|fs
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|integration
-operator|.
-name|gateway
-operator|.
-name|AbstractSimpleIndexGatewayTests
-import|;
-end_import
-
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
