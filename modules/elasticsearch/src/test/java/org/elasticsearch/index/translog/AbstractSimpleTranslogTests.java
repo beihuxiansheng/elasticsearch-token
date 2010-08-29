@@ -206,7 +206,9 @@ block|{
 name|translog
 operator|.
 name|close
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|create

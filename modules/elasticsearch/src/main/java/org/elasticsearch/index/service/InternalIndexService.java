@@ -2140,7 +2140,9 @@ name|class
 argument_list|)
 operator|.
 name|close
-argument_list|()
+argument_list|(
+name|delete
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch

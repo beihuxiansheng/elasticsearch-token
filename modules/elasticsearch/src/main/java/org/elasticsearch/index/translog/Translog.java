@@ -317,7 +317,10 @@ comment|/**      * Closes the transaction log.      */
 DECL|method|close
 name|void
 name|close
-parameter_list|()
+parameter_list|(
+name|boolean
+name|delete
+parameter_list|)
 function_decl|;
 comment|/**      * A snapshot of the transaction log, allows to iterate over all the transaction log operations.      */
 annotation|@

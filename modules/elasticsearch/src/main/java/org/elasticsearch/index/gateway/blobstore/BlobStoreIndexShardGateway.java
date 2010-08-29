@@ -2385,6 +2385,34 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+comment|// no commit points, clean the store just so we won't recover wrong files
+try|try
+block|{
+name|indexShard
+operator|.
+name|store
+argument_list|()
+operator|.
+name|deleteContent
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"failed to clean store before starting shard"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 name|recoveryStatus
 operator|.
 name|index
