@@ -420,7 +420,6 @@ name|currentTimeMillis
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// read the gateway data persisted
 name|long
 name|version
 init|=
