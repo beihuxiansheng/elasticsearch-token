@@ -935,27 +935,6 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-literal|"], took ["
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|TimeValue
-operator|.
-name|timeValueMillis
-argument_list|(
-name|recoveryStatus
-operator|.
-name|index
-argument_list|()
-operator|.
-name|time
-argument_list|()
-argument_list|)
-argument_list|)
-operator|.
-name|append
-argument_list|(
 literal|"]\n"
 argument_list|)
 expr_stmt|;
