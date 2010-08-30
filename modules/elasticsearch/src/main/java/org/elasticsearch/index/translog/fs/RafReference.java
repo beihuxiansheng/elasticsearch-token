@@ -20,6 +20,20 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|io
+operator|.
+name|FileSystemUtils
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -211,6 +225,16 @@ name|file
 operator|.
 name|delete
 argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+name|FileSystemUtils
+operator|.
+name|syncFile
+argument_list|(
+name|file
+argument_list|)
 expr_stmt|;
 block|}
 block|}
