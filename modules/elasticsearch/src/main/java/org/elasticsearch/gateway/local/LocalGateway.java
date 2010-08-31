@@ -1232,6 +1232,16 @@ condition|)
 block|{
 return|return;
 block|}
+comment|// the location is set to null, so we should not store it (for example, its not a data/master node)
+if|if
+condition|(
+name|location
+operator|==
+literal|null
+condition|)
+block|{
+return|return;
+block|}
 comment|// go over the indices, if they are blocked, and all are allocated, update the cluster state that it is no longer blocked
 for|for
 control|(
