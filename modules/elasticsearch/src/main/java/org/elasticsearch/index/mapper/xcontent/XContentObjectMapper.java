@@ -1924,6 +1924,20 @@ operator|.
 name|currentToken
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|token
+operator|==
+name|XContentParser
+operator|.
+name|Token
+operator|.
+name|VALUE_NULL
+condition|)
+block|{
+comment|// the object is null ("obj1" : null), simply bail
+return|return;
+block|}
 comment|// if we are at the end of the previous object, advance
 if|if
 condition|(
