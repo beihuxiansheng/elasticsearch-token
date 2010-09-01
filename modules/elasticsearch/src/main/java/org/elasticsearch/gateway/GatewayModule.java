@@ -106,9 +106,9 @@ name|elasticsearch
 operator|.
 name|gateway
 operator|.
-name|none
+name|local
 operator|.
-name|NoneGatewayModule
+name|LocalGatewayModule
 import|;
 end_import
 
@@ -175,7 +175,7 @@ name|getAsClass
 argument_list|(
 literal|"gateway.type"
 argument_list|,
-name|NoneGatewayModule
+name|LocalGatewayModule
 operator|.
 name|class
 argument_list|,
