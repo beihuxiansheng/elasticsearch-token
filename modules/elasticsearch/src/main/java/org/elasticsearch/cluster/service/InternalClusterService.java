@@ -610,6 +610,21 @@ parameter_list|()
 throws|throws
 name|ElasticSearchException
 block|{     }
+DECL|method|localNode
+annotation|@
+name|Override
+specifier|public
+name|DiscoveryNode
+name|localNode
+parameter_list|()
+block|{
+return|return
+name|discoveryService
+operator|.
+name|localNode
+argument_list|()
+return|;
+block|}
 DECL|method|state
 specifier|public
 name|ClusterState

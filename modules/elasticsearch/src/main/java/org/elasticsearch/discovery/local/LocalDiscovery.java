@@ -1118,6 +1118,18 @@ parameter_list|()
 throws|throws
 name|ElasticSearchException
 block|{     }
+DECL|method|localNode
+annotation|@
+name|Override
+specifier|public
+name|DiscoveryNode
+name|localNode
+parameter_list|()
+block|{
+return|return
+name|localNode
+return|;
+block|}
 DECL|method|addListener
 annotation|@
 name|Override

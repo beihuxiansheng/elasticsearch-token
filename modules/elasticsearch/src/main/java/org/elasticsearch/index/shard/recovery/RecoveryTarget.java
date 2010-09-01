@@ -38,16 +38,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|ExceptionsHelper
 import|;
 end_import
@@ -2798,13 +2788,15 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// shard is getting closed on us
 throw|throw
 operator|new
-name|ElasticSearchIllegalStateException
+name|IndexShardClosedException
 argument_list|(
-literal|"No ongoing output file to write to, request: "
-operator|+
-name|request
+name|shard
+operator|.
+name|shardId
+argument_list|()
 argument_list|)
 throw|;
 block|}
