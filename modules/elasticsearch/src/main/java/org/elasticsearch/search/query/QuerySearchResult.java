@@ -146,22 +146,8 @@ name|*
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|SearchShardTarget
-operator|.
-name|*
-import|;
-end_import
-
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -283,6 +269,24 @@ block|{
 return|return
 name|shardTarget
 return|;
+block|}
+DECL|method|shardTarget
+annotation|@
+name|Override
+specifier|public
+name|void
+name|shardTarget
+parameter_list|(
+name|SearchShardTarget
+name|shardTarget
+parameter_list|)
+block|{
+name|this
+operator|.
+name|shardTarget
+operator|=
+name|shardTarget
+expr_stmt|;
 block|}
 DECL|method|searchTimedOut
 specifier|public
@@ -470,13 +474,7 @@ operator|.
 name|readLong
 argument_list|()
 expr_stmt|;
-name|shardTarget
-operator|=
-name|readSearchShardTarget
-argument_list|(
-name|in
-argument_list|)
-expr_stmt|;
+comment|//        shardTarget = readSearchShardTarget(in);
 name|from
 operator|=
 name|in
@@ -544,13 +542,7 @@ argument_list|(
 name|id
 argument_list|)
 expr_stmt|;
-name|shardTarget
-operator|.
-name|writeTo
-argument_list|(
-name|out
-argument_list|)
-expr_stmt|;
+comment|//        shardTarget.writeTo(out);
 name|out
 operator|.
 name|writeVInt

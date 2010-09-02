@@ -327,7 +327,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -580,6 +580,7 @@ literal|0
 decl_stmt|;
 for|for
 control|(
+specifier|final
 name|DfsSearchResult
 name|dfsResult
 range|:
@@ -640,6 +641,8 @@ argument_list|)
 decl_stmt|;
 name|executeSecondPhase
 argument_list|(
+name|dfsResult
+argument_list|,
 name|counter
 argument_list|,
 name|node
@@ -685,6 +688,7 @@ parameter_list|()
 block|{
 for|for
 control|(
+specifier|final
 name|DfsSearchResult
 name|dfsResult
 range|:
@@ -739,6 +743,8 @@ argument_list|)
 decl_stmt|;
 name|executeSecondPhase
 argument_list|(
+name|dfsResult
+argument_list|,
 name|counter
 argument_list|,
 name|node
@@ -769,6 +775,7 @@ name|THREAD_PER_SHARD
 decl_stmt|;
 for|for
 control|(
+specifier|final
 name|DfsSearchResult
 name|dfsResult
 range|:
@@ -845,6 +852,8 @@ parameter_list|()
 block|{
 name|executeSecondPhase
 argument_list|(
+name|dfsResult
+argument_list|,
 name|counter
 argument_list|,
 name|node
@@ -861,6 +870,8 @@ else|else
 block|{
 name|executeSecondPhase
 argument_list|(
+name|dfsResult
+argument_list|,
 name|counter
 argument_list|,
 name|node
@@ -879,6 +890,10 @@ specifier|private
 name|void
 name|executeSecondPhase
 parameter_list|(
+specifier|final
+name|DfsSearchResult
+name|dfsResult
+parameter_list|,
 specifier|final
 name|AtomicInteger
 name|counter
@@ -916,6 +931,16 @@ name|QueryFetchSearchResult
 name|result
 parameter_list|)
 block|{
+name|result
+operator|.
+name|shardTarget
+argument_list|(
+name|dfsResult
+operator|.
+name|shardTarget
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|queryFetchResults
 operator|.
 name|put

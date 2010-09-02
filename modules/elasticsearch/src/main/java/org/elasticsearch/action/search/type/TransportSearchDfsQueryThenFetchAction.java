@@ -365,7 +365,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -645,6 +645,7 @@ literal|0
 decl_stmt|;
 for|for
 control|(
+specifier|final
 name|DfsSearchResult
 name|dfsResult
 range|:
@@ -705,6 +706,8 @@ argument_list|)
 decl_stmt|;
 name|executeQuery
 argument_list|(
+name|dfsResult
+argument_list|,
 name|counter
 argument_list|,
 name|querySearchRequest
@@ -750,6 +753,7 @@ parameter_list|()
 block|{
 for|for
 control|(
+specifier|final
 name|DfsSearchResult
 name|dfsResult
 range|:
@@ -804,6 +808,8 @@ argument_list|)
 decl_stmt|;
 name|executeQuery
 argument_list|(
+name|dfsResult
+argument_list|,
 name|counter
 argument_list|,
 name|querySearchRequest
@@ -834,6 +840,7 @@ name|THREAD_PER_SHARD
 decl_stmt|;
 for|for
 control|(
+specifier|final
 name|DfsSearchResult
 name|dfsResult
 range|:
@@ -910,6 +917,8 @@ parameter_list|()
 block|{
 name|executeQuery
 argument_list|(
+name|dfsResult
+argument_list|,
 name|counter
 argument_list|,
 name|querySearchRequest
@@ -926,6 +935,8 @@ else|else
 block|{
 name|executeQuery
 argument_list|(
+name|dfsResult
+argument_list|,
 name|counter
 argument_list|,
 name|querySearchRequest
@@ -944,6 +955,10 @@ specifier|private
 name|void
 name|executeQuery
 parameter_list|(
+specifier|final
+name|DfsSearchResult
+name|dfsResult
+parameter_list|,
 specifier|final
 name|AtomicInteger
 name|counter
@@ -981,6 +996,16 @@ name|QuerySearchResult
 name|result
 parameter_list|)
 block|{
+name|result
+operator|.
+name|shardTarget
+argument_list|(
+name|dfsResult
+operator|.
+name|shardTarget
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|queryResults
 operator|.
 name|put
@@ -1188,6 +1213,7 @@ literal|0
 decl_stmt|;
 for|for
 control|(
+specifier|final
 name|Map
 operator|.
 name|Entry
@@ -1269,6 +1295,11 @@ argument_list|)
 decl_stmt|;
 name|executeFetch
 argument_list|(
+name|entry
+operator|.
+name|getKey
+argument_list|()
+argument_list|,
 name|counter
 argument_list|,
 name|fetchSearchRequest
@@ -1314,6 +1345,7 @@ parameter_list|()
 block|{
 for|for
 control|(
+specifier|final
 name|Map
 operator|.
 name|Entry
@@ -1389,6 +1421,11 @@ argument_list|)
 decl_stmt|;
 name|executeFetch
 argument_list|(
+name|entry
+operator|.
+name|getKey
+argument_list|()
+argument_list|,
 name|counter
 argument_list|,
 name|fetchSearchRequest
@@ -1419,6 +1456,7 @@ name|THREAD_PER_SHARD
 decl_stmt|;
 for|for
 control|(
+specifier|final
 name|Map
 operator|.
 name|Entry
@@ -1516,6 +1554,11 @@ parameter_list|()
 block|{
 name|executeFetch
 argument_list|(
+name|entry
+operator|.
+name|getKey
+argument_list|()
+argument_list|,
 name|counter
 argument_list|,
 name|fetchSearchRequest
@@ -1532,6 +1575,11 @@ else|else
 block|{
 name|executeFetch
 argument_list|(
+name|entry
+operator|.
+name|getKey
+argument_list|()
+argument_list|,
 name|counter
 argument_list|,
 name|fetchSearchRequest
@@ -1550,6 +1598,10 @@ specifier|private
 name|void
 name|executeFetch
 parameter_list|(
+specifier|final
+name|SearchShardTarget
+name|shardTarget
+parameter_list|,
 specifier|final
 name|AtomicInteger
 name|counter
@@ -1587,6 +1639,13 @@ name|FetchSearchResult
 name|result
 parameter_list|)
 block|{
+name|result
+operator|.
+name|shardTarget
+argument_list|(
+name|shardTarget
+argument_list|)
+expr_stmt|;
 name|fetchResults
 operator|.
 name|put

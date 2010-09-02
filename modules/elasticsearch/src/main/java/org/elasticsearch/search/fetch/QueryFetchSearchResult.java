@@ -147,7 +147,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -226,6 +226,32 @@ operator|.
 name|shardTarget
 argument_list|()
 return|;
+block|}
+DECL|method|shardTarget
+annotation|@
+name|Override
+specifier|public
+name|void
+name|shardTarget
+parameter_list|(
+name|SearchShardTarget
+name|shardTarget
+parameter_list|)
+block|{
+name|queryResult
+operator|.
+name|shardTarget
+argument_list|(
+name|shardTarget
+argument_list|)
+expr_stmt|;
+name|fetchResult
+operator|.
+name|shardTarget
+argument_list|(
+name|shardTarget
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|includeFetch
 annotation|@

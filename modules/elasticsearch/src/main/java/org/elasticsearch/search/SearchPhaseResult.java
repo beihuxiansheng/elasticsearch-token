@@ -52,6 +52,14 @@ name|SearchShardTarget
 name|shardTarget
 parameter_list|()
 function_decl|;
+DECL|method|shardTarget
+name|void
+name|shardTarget
+parameter_list|(
+name|SearchShardTarget
+name|shardTarget
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

@@ -1537,6 +1537,9 @@ name|id
 argument_list|()
 argument_list|)
 argument_list|)
+operator|.
+name|queryResult
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2264,6 +2267,9 @@ argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
+operator|.
+name|queryResult
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2535,6 +2541,9 @@ name|id
 argument_list|()
 argument_list|)
 argument_list|)
+operator|.
+name|queryResult
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

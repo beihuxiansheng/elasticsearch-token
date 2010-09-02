@@ -1245,6 +1245,7 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
+specifier|final
 name|Map
 operator|.
 name|Entry
@@ -1334,6 +1335,16 @@ name|FetchSearchResult
 name|result
 parameter_list|)
 block|{
+name|result
+operator|.
+name|shardTarget
+argument_list|(
+name|entry
+operator|.
+name|getKey
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|fetchResults
 operator|.
 name|put
