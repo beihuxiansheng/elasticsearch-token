@@ -60,7 +60,7 @@ name|IndexReader
 name|reader
 parameter_list|)
 function_decl|;
-comment|/**      * @param docId      * @param vars  The vars providing additional parameters, should be reused and has values added to it in execute      */
+comment|/**      * @param docId The doc id      * @param vars  The vars providing additional parameters, should be reused and has values added to it in execute      */
 DECL|method|execute
 name|Object
 name|execute
@@ -75,6 +75,31 @@ argument_list|,
 name|Object
 argument_list|>
 name|vars
+parameter_list|)
+function_decl|;
+comment|/**      * @param docId        The doc id      * @param vars         The vars providing additional parameters, should be reused and has values added to it in execute      * @param sameDocCache If executing against the same doc id several times (possibly with different scripts), pass this across the invocations      */
+DECL|method|execute
+name|Object
+name|execute
+parameter_list|(
+name|int
+name|docId
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|vars
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|sameDocCache
 parameter_list|)
 function_decl|;
 block|}

@@ -49,26 +49,26 @@ comment|/**  * An optimized field selector that loads just the uid.  *  * @autho
 end_comment
 
 begin_class
-DECL|class|UidFieldSelector
+DECL|class|SourceFieldSelector
 specifier|public
 class|class
-name|UidFieldSelector
+name|SourceFieldSelector
 implements|implements
 name|FieldSelector
 block|{
 DECL|field|INSTANCE
 specifier|public
 specifier|static
-name|UidFieldSelector
+name|SourceFieldSelector
 name|INSTANCE
 init|=
 operator|new
-name|UidFieldSelector
+name|SourceFieldSelector
 argument_list|()
 decl_stmt|;
-DECL|method|UidFieldSelector
+DECL|method|SourceFieldSelector
 specifier|private
-name|UidFieldSelector
+name|SourceFieldSelector
 parameter_list|()
 block|{      }
 DECL|method|accept
@@ -84,7 +84,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|UidFieldMapper
+name|SourceFieldMapper
 operator|.
 name|NAME
 operator|.
