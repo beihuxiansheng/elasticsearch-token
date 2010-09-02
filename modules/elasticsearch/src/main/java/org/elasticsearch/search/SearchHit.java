@@ -214,6 +214,7 @@ name|Explanation
 name|getExplanation
 parameter_list|()
 function_decl|;
+comment|/**      * The hit field matching the given field name.      */
 DECL|method|field
 specifier|public
 name|SearchHitField
