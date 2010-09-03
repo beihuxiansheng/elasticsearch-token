@@ -17,7 +17,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  * A module can implement this interface to allow to pre process other modules  * before an injector is created.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_interface
