@@ -520,7 +520,7 @@ name|elasticsearch
 operator|.
 name|plugins
 operator|.
-name|IndicesPluginsModule
+name|IndexPluginsModule
 import|;
 end_import
 
@@ -1476,7 +1476,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|IndicesPluginsModule
+name|IndexPluginsModule
 argument_list|(
 name|indexSettings
 argument_list|,
