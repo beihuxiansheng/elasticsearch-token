@@ -109,7 +109,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<pre>  * highlight : {  *  tags_schema : "styled",  *  pre_tags : ["tag1", "tag2"],  *  post_tags : ["tag1", "tag2"],  *  order : "score",  *  highlight_filter : true,  *  fields : {  *      field1 : {  },  *      field2 : { fragment_size : 100, number_of_fragments : 2 },  *      field3 : { number_of_fragments : 5, order : "simple", tags_schema : "styled" },  *      field4 : { fragment_type : "content", pre_tags : ["openingTagA", "openingTagB"], post_tags : ["closingTag"] }  *  }  * }  *</pre>  *  * @author kimchy (shay.banon)  */
+comment|/**  *<pre>  * highlight : {  *  tags_schema : "styled",  *  pre_tags : ["tag1", "tag2"],  *  post_tags : ["tag1", "tag2"],  *  order : "score",  *  highlight_filter : true,  *  fields : {  *      field1 : {  },  *      field2 : { fragment_size : 100, number_of_fragments : 2 },  *      field3 : { number_of_fragments : 5, order : "simple", tags_schema : "styled" },  *      field4 : { number_of_fragments: 0, pre_tags : ["openingTagA", "openingTagB"], post_tags : ["closingTag"] }  *  }  * }  *</pre>  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
