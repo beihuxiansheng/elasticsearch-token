@@ -650,6 +650,14 @@ name|postTags
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// a HACK to make highlighter do highlighting, even though its using the single frag list builder
+name|field
+operator|.
+name|numberOfFragments
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
 block|}
 else|else
 block|{
