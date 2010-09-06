@@ -941,10 +941,8 @@ if|if
 condition|(
 name|context
 operator|.
-name|scriptFields
+name|hasScriptFields
 argument_list|()
-operator|!=
-literal|null
 condition|)
 block|{
 name|sameDocCache
@@ -1434,17 +1432,14 @@ if|if
 condition|(
 name|context
 operator|.
-name|scriptFields
+name|hasScriptFields
 argument_list|()
-operator|!=
-literal|null
 operator|&&
+operator|!
 name|context
 operator|.
-name|fieldNames
+name|hasFieldNames
 argument_list|()
-operator|==
-literal|null
 condition|)
 block|{
 comment|// we ask for script fields, and no field names, don't load the source
@@ -1456,12 +1451,11 @@ return|;
 block|}
 if|if
 condition|(
+operator|!
 name|context
 operator|.
-name|fieldNames
+name|hasFieldNames
 argument_list|()
-operator|==
-literal|null
 condition|)
 block|{
 return|return
