@@ -4,48 +4,30 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.common.component
+DECL|package|org.elasticsearch.indexer
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|component
+name|indexer
 package|;
 end_package
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ElasticSearchException
-import|;
-end_import
 
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_interface
-DECL|interface|CloseableIndexComponent
+DECL|interface|IndexerComponent
 specifier|public
 interface|interface
-name|CloseableIndexComponent
+name|IndexerComponent
 block|{
-comment|/**      * Closes the index component. A boolean indicating if its part of an actual index      * deletion or not is passed.      *      * @param delete<tt>true</tt> if the index is being deleted.      * @throws ElasticSearchException      */
-DECL|method|close
-name|void
-name|close
-parameter_list|(
-name|boolean
-name|delete
-parameter_list|)
-throws|throws
-name|ElasticSearchException
+DECL|method|indexerName
+name|IndexerName
+name|indexerName
+parameter_list|()
 function_decl|;
 block|}
 end_interface

@@ -4,15 +4,13 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.gateway
+DECL|package|org.elasticsearch.index
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|index
-operator|.
-name|gateway
 package|;
 end_package
 
@@ -22,21 +20,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|CloseableIndexComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|IndexComponent
+name|ElasticSearchException
 import|;
 end_import
 
@@ -45,29 +29,21 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_interface
-DECL|interface|IndexGateway
+DECL|interface|CloseableIndexComponent
 specifier|public
 interface|interface
-name|IndexGateway
-extends|extends
-name|IndexComponent
-extends|,
 name|CloseableIndexComponent
 block|{
-DECL|method|type
-name|String
-name|type
-parameter_list|()
-function_decl|;
-DECL|method|shardGatewayClass
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|IndexShardGateway
-argument_list|>
-name|shardGatewayClass
-parameter_list|()
+comment|/**      * Closes the index component. A boolean indicating if its part of an actual index      * deletion or not is passed.      *      * @param delete<tt>true</tt> if the index is being deleted.      * @throws ElasticSearchException      */
+DECL|method|close
+name|void
+name|close
+parameter_list|(
+name|boolean
+name|delete
+parameter_list|)
+throws|throws
+name|ElasticSearchException
 function_decl|;
 block|}
 end_interface

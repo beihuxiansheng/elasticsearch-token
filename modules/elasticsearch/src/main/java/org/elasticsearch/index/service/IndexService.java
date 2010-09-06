@@ -48,9 +48,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|component
+name|inject
 operator|.
-name|CloseableIndexComponent
+name|Injector
 import|;
 end_import
 
@@ -60,11 +60,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|index
 operator|.
-name|inject
-operator|.
-name|Injector
+name|CloseableIndexComponent
 import|;
 end_import
 

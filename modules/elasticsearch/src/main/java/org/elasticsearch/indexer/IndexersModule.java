@@ -4,15 +4,13 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.gateway
+DECL|package|org.elasticsearch.indexer
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|gateway
+name|indexer
 package|;
 end_package
 
@@ -22,9 +20,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|common
 operator|.
-name|CloseableIndexComponent
+name|inject
+operator|.
+name|AbstractModule
 import|;
 end_import
 
@@ -34,9 +34,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|common
 operator|.
-name|IndexComponent
+name|settings
+operator|.
+name|Settings
 import|;
 end_import
 
@@ -44,33 +46,56 @@ begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
-begin_interface
-DECL|interface|IndexGateway
+begin_class
+DECL|class|IndexersModule
 specifier|public
-interface|interface
-name|IndexGateway
+class|class
+name|IndexersModule
 extends|extends
-name|IndexComponent
-extends|,
-name|CloseableIndexComponent
+name|AbstractModule
 block|{
-DECL|method|type
-name|String
-name|type
-parameter_list|()
-function_decl|;
-DECL|method|shardGatewayClass
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|IndexShardGateway
-argument_list|>
-name|shardGatewayClass
-parameter_list|()
-function_decl|;
+DECL|field|settings
+specifier|private
+specifier|final
+name|Settings
+name|settings
+decl_stmt|;
+DECL|method|IndexersModule
+specifier|public
+name|IndexersModule
+parameter_list|(
+name|Settings
+name|settings
+parameter_list|)
+block|{
+name|this
+operator|.
+name|settings
+operator|=
+name|settings
+expr_stmt|;
 block|}
-end_interface
+DECL|method|configure
+annotation|@
+name|Override
+specifier|protected
+name|void
+name|configure
+parameter_list|()
+block|{
+name|bind
+argument_list|(
+name|IndexersService
+operator|.
+name|class
+argument_list|)
+operator|.
+name|asEagerSingleton
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+end_class
 
 end_unit
 

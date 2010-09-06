@@ -32,9 +32,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|component
+name|index
 operator|.
 name|CloseableIndexComponent
 import|;
