@@ -1267,6 +1267,11 @@ argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
+name|boolean
+name|added
+init|=
+literal|false
+decl_stmt|;
 name|XContentParser
 operator|.
 name|Token
@@ -1360,6 +1365,10 @@ name|trim
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|added
+operator|=
+literal|true
+expr_stmt|;
 name|parseLatLon
 argument_list|(
 name|context
@@ -1373,6 +1382,10 @@ block|}
 else|else
 block|{
 comment|// geo hash
+name|added
+operator|=
+literal|true
+expr_stmt|;
 name|parseGeohash
 argument_list|(
 name|context
@@ -1552,6 +1565,10 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|added
+operator|=
+literal|true
+expr_stmt|;
 name|parseGeohash
 argument_list|(
 name|context
@@ -1572,6 +1589,10 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|added
+operator|=
+literal|true
+expr_stmt|;
 name|parseLatLon
 argument_list|(
 name|context
@@ -1668,6 +1689,10 @@ operator|.
 name|END_ARRAY
 condition|)
 block|{              }
+name|added
+operator|=
+literal|true
+expr_stmt|;
 name|parseLatLon
 argument_list|(
 name|context
@@ -1677,6 +1702,24 @@ argument_list|,
 name|lon
 argument_list|)
 expr_stmt|;
+block|}
+if|if
+condition|(
+operator|!
+name|added
+condition|)
+block|{
+throw|throw
+operator|new
+name|MapperParsingException
+argument_list|(
+literal|"failed to find location values for ["
+operator|+
+name|name
+operator|+
+literal|"]"
+argument_list|)
+throw|;
 block|}
 name|context
 operator|.
