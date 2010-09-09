@@ -745,9 +745,21 @@ operator|!
 name|resolvedField
 operator|&&
 name|allValuesAreNull
+operator|&&
+name|fieldDocs
+operator|.
+name|fields
+index|[
+name|i
+index|]
+operator|.
+name|getField
+argument_list|()
+operator|!=
+literal|null
 condition|)
 block|{
-comment|// we did not manage to resolve a field, and all the fields are null (which can only happen for STRING), make it a STRING
+comment|// we did not manage to resolve a field (and its not score or doc, which have no field), and all the fields are null (which can only happen for STRING), make it a STRING
 name|fieldDocs
 operator|.
 name|fields
