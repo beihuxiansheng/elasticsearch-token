@@ -1674,6 +1674,9 @@ name|parse
 argument_list|(
 name|querySource
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|query
 operator|=
@@ -2058,6 +2061,9 @@ name|parse
 argument_list|(
 name|querySource
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 comment|// wrap it in filter, cache it, and constant score it
 comment|// Don't cache it, since it might be very different queries each time...

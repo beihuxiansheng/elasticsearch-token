@@ -494,6 +494,9 @@ argument_list|(
 literal|1
 argument_list|)
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -568,6 +571,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -652,6 +658,9 @@ argument_list|(
 literal|false
 argument_list|)
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -793,6 +802,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -944,6 +956,9 @@ argument_list|(
 literal|true
 argument_list|)
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -1070,6 +1085,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -1208,6 +1226,9 @@ argument_list|(
 literal|true
 argument_list|)
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -1380,6 +1401,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -1550,6 +1574,9 @@ argument_list|(
 literal|1.2f
 argument_list|)
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -1623,6 +1650,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -1719,6 +1749,9 @@ literal|"last"
 argument_list|)
 argument_list|)
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -1910,6 +1943,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -2101,6 +2137,9 @@ operator|.
 name|buildAsBytes
 argument_list|()
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -2214,6 +2253,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -2327,6 +2369,9 @@ operator|.
 name|buildAsBytes
 argument_list|()
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -2401,6 +2446,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -2490,6 +2538,9 @@ operator|.
 name|buildAsBytes
 argument_list|()
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -2603,6 +2654,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -2716,6 +2770,9 @@ operator|.
 name|buildAsBytes
 argument_list|()
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -2829,6 +2886,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -2942,6 +3002,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -3132,6 +3195,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -3265,6 +3331,9 @@ argument_list|(
 literal|2.0f
 argument_list|)
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -3396,6 +3465,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -3524,6 +3596,9 @@ argument_list|,
 literal|"sh"
 argument_list|)
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -3599,6 +3674,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -3681,6 +3759,9 @@ literal|"sh"
 argument_list|)
 argument_list|)
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -3766,6 +3847,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -3853,6 +3937,9 @@ argument_list|(
 literal|2.0f
 argument_list|)
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -3945,6 +4032,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -4034,6 +4124,9 @@ argument_list|,
 literal|"sh*"
 argument_list|)
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -4108,6 +4201,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -4197,6 +4293,9 @@ argument_list|(
 literal|false
 argument_list|)
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 comment|// since age is automatically registered in data, we encode it as numeric
 name|assertThat
@@ -4324,6 +4423,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 comment|// since age is automatically registered in data, we encode it as numeric
 name|assertThat
@@ -4451,6 +4553,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 comment|// since age is automatically registered in data, we encode it as numeric
 name|assertThat
@@ -4603,6 +4708,9 @@ literal|false
 argument_list|)
 argument_list|)
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 comment|// since age is automatically registered in data, we encode it as numeric
 name|assertThat
@@ -4755,6 +4863,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 comment|// since age is automatically registered in data, we encode it as numeric
 name|assertThat
@@ -4907,6 +5018,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -4987,6 +5101,9 @@ argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -5133,6 +5250,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -5279,6 +5399,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -5438,6 +5561,9 @@ argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -5584,6 +5710,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -5730,6 +5859,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -5882,6 +6014,9 @@ argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -5975,6 +6110,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -6101,6 +6239,9 @@ literal|"test3"
 argument_list|)
 argument_list|)
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -6377,6 +6518,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -6660,6 +6804,9 @@ literal|"banon"
 argument_list|)
 argument_list|)
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -6769,6 +6916,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -6878,6 +7028,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -6987,6 +7140,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -7142,6 +7298,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -7281,6 +7440,9 @@ literal|"kimchy"
 argument_list|)
 argument_list|)
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -7432,6 +7594,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -7583,6 +7748,9 @@ literal|"banon"
 argument_list|)
 argument_list|)
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -7665,6 +7833,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -7747,6 +7918,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -7851,6 +8025,9 @@ argument_list|(
 literal|1.3f
 argument_list|)
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -7959,6 +8136,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -8064,6 +8244,9 @@ argument_list|,
 literal|34
 argument_list|)
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -8144,6 +8327,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -8237,6 +8423,9 @@ literal|35
 argument_list|)
 argument_list|)
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -8357,6 +8546,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -8479,6 +8671,9 @@ argument_list|,
 literal|12
 argument_list|)
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -8580,6 +8775,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -8719,6 +8917,9 @@ argument_list|(
 literal|false
 argument_list|)
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -8907,6 +9108,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -9118,6 +9322,9 @@ literal|36
 argument_list|)
 argument_list|)
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -9293,6 +9500,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -9478,6 +9688,9 @@ argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -9612,6 +9825,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -9758,6 +9974,9 @@ argument_list|(
 literal|12
 argument_list|)
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -9868,6 +10087,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -10001,6 +10223,9 @@ argument_list|(
 literal|12
 argument_list|)
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -10049,6 +10274,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -10102,6 +10330,9 @@ argument_list|(
 literal|12
 argument_list|)
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -10150,6 +10381,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -10208,6 +10442,9 @@ argument_list|(
 literal|12
 argument_list|)
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -10318,6 +10555,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -10428,6 +10668,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -10566,6 +10809,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -10704,6 +10950,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -10842,6 +11091,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -10980,6 +11232,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -11142,6 +11397,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -11304,6 +11562,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -11466,6 +11727,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -11628,6 +11892,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -11858,6 +12125,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -12088,6 +12358,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -12318,6 +12591,9 @@ name|parse
 argument_list|(
 name|query
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(

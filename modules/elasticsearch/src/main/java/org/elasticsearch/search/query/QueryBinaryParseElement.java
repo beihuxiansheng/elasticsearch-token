@@ -172,6 +172,9 @@ name|parse
 argument_list|(
 name|qSourceParser
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 name|context
 operator|.

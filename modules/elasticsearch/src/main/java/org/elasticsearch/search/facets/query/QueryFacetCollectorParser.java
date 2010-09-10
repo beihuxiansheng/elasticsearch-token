@@ -184,6 +184,9 @@ name|parse
 argument_list|(
 name|parser
 argument_list|)
+operator|.
+name|query
+argument_list|()
 decl_stmt|;
 return|return
 operator|new
