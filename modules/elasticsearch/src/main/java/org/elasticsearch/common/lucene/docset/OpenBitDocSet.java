@@ -71,7 +71,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -164,7 +164,7 @@ block|{
 return|return
 name|set
 operator|.
-name|get
+name|fastGet
 argument_list|(
 name|doc
 argument_list|)
