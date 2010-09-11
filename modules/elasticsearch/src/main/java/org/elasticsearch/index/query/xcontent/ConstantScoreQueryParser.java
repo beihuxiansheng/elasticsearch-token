@@ -407,7 +407,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"cache"
+literal|"_cache"
 operator|.
 name|equals
 argument_list|(

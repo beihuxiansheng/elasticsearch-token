@@ -282,6 +282,20 @@ index|[]
 name|getSortValues
 parameter_list|()
 function_decl|;
+comment|/**      * The set of filter names the query matched. Mainly makes sense for OR filters.      */
+DECL|method|matchedFilters
+name|String
+index|[]
+name|matchedFilters
+parameter_list|()
+function_decl|;
+comment|/**      * The set of filter names the query matched. Mainly makes sense for OR filters.      */
+DECL|method|getMatchedFilters
+name|String
+index|[]
+name|getMatchedFilters
+parameter_list|()
+function_decl|;
 comment|/**      * The shard of the search hit.      */
 DECL|method|shard
 name|SearchShardTarget

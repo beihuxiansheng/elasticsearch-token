@@ -343,7 +343,10 @@ name|original
 operator|==
 name|searchContext
 operator|.
-name|originalQuery
+name|parsedQuery
+argument_list|()
+operator|.
+name|query
 argument_list|()
 condition|)
 block|{
