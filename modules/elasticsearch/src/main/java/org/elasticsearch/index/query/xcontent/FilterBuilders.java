@@ -29,6 +29,20 @@ specifier|abstract
 class|class
 name|FilterBuilders
 block|{
+comment|/**      * A filter that matches all documents.      */
+DECL|method|matchAllFilter
+specifier|public
+specifier|static
+name|MatchAllFilterBuilder
+name|matchAllFilter
+parameter_list|()
+block|{
+return|return
+operator|new
+name|MatchAllFilterBuilder
+argument_list|()
+return|;
+block|}
 comment|/**      * A filter for a field based on a term.      *      * @param name  The field name      * @param value The term value      */
 DECL|method|termFilter
 specifier|public
