@@ -1624,7 +1624,7 @@ name|File
 argument_list|(
 name|location
 argument_list|,
-literal|"state-"
+literal|"metadata-"
 operator|+
 name|event
 operator|.
@@ -1708,7 +1708,7 @@ name|name
 operator|.
 name|startsWith
 argument_list|(
-literal|"state-"
+literal|"metadata-"
 argument_list|)
 operator|&&
 operator|!
@@ -1716,7 +1716,7 @@ name|name
 operator|.
 name|equals
 argument_list|(
-literal|"state-"
+literal|"metadata-"
 operator|+
 name|event
 operator|.
@@ -2257,7 +2257,7 @@ name|File
 argument_list|(
 name|location
 argument_list|,
-literal|"state-"
+literal|"metadata-"
 operator|+
 name|version
 argument_list|)
@@ -2567,7 +2567,7 @@ name|name
 operator|.
 name|startsWith
 argument_list|(
-literal|"state-"
+literal|"metadata-"
 argument_list|)
 condition|)
 block|{
