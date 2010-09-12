@@ -222,6 +222,15 @@ name|AbstractIndexComponent
 implements|implements
 name|XContentQueryParser
 block|{
+DECL|field|NAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|NAME
+init|=
+literal|"bool"
+decl_stmt|;
 DECL|method|BoolQueryParser
 annotation|@
 name|Inject
@@ -259,7 +268,7 @@ operator|new
 name|String
 index|[]
 block|{
-literal|"bool"
+name|NAME
 block|}
 return|;
 block|}
