@@ -28,6 +28,20 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|queryParser
+operator|.
+name|QueryParserSettings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|search
 operator|.
 name|Query
@@ -90,7 +104,7 @@ specifier|public
 name|Query
 name|get
 parameter_list|(
-name|String
+name|QueryParserSettings
 name|queryString
 parameter_list|)
 block|{
@@ -105,12 +119,20 @@ specifier|public
 name|void
 name|put
 parameter_list|(
-name|String
+name|QueryParserSettings
 name|queryString
 parameter_list|,
 name|Query
 name|query
 parameter_list|)
+block|{     }
+DECL|method|clear
+annotation|@
+name|Override
+specifier|public
+name|void
+name|clear
+parameter_list|()
 block|{     }
 block|}
 end_class
