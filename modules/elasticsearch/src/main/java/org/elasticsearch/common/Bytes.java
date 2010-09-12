@@ -92,7 +92,7 @@ argument_list|(
 operator|new
 name|byte
 index|[
-literal|256
+literal|1024
 index|]
 argument_list|)
 return|;

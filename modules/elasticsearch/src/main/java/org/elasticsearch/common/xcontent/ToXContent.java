@@ -30,22 +30,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
-name|builder
-operator|.
-name|XContentBuilder
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -65,7 +49,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An interface allowing to transfer an object to "XContent" using an {@link org.elasticsearch.common.xcontent.builder.XContentBuilder}.  *  * @author kimchy (shay.banon)  */
+comment|/**  * An interface allowing to transfer an object to "XContent" using an {@link XContentBuilder}.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_interface

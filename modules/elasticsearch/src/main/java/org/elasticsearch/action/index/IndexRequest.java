@@ -174,6 +174,20 @@ name|common
 operator|.
 name|xcontent
 operator|.
+name|XContentBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
 name|XContentFactory
 import|;
 end_import
@@ -189,38 +203,6 @@ operator|.
 name|xcontent
 operator|.
 name|XContentType
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
-name|builder
-operator|.
-name|BinaryXContentBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
-name|builder
-operator|.
-name|XContentBuilder
 import|;
 end_import
 
@@ -269,7 +251,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Index request to index a typed JSON document into a specific index and make it searchable. Best  * created using {@link org.elasticsearch.client.Requests#indexRequest(String)}.  *  *<p>The index requires the {@link #index()}, {@link #type(String)}, {@link #id(String)} and  * {@link #source(byte[])} to be set.  *  *<p>The source (content to index) can be set in its bytes form using ({@link #source(byte[])}),  * its string form ({@link #source(String)}) or using a {@link org.elasticsearch.common.xcontent.builder.XContentBuilder}  * ({@link #source(org.elasticsearch.common.xcontent.builder.XContentBuilder)}).  *  *<p>If the {@link #id(String)} is not set, it will be automatically generated.  *  * @author kimchy (shay.banon)  * @see IndexResponse  * @see org.elasticsearch.client.Requests#indexRequest(String)  * @see org.elasticsearch.client.Client#index(IndexRequest)  */
+comment|/**  * Index request to index a typed JSON document into a specific index and make it searchable. Best  * created using {@link org.elasticsearch.client.Requests#indexRequest(String)}.  *  *<p>The index requires the {@link #index()}, {@link #type(String)}, {@link #id(String)} and  * {@link #source(byte[])} to be set.  *  *<p>The source (content to index) can be set in its bytes form using ({@link #source(byte[])}),  * its string form ({@link #source(String)}) or using a {@link org.elasticsearch.common.xcontent.XContentBuilder}  * ({@link #source(org.elasticsearch.common.xcontent.XContentBuilder)}).  *  *<p>If the {@link #id(String)} is not set, it will be automatically generated.  *  * @author kimchy (shay.banon)  * @see IndexResponse  * @see org.elasticsearch.client.Requests#indexRequest(String)  * @see org.elasticsearch.client.Client#index(IndexRequest)  */
 end_comment
 
 begin_class
@@ -766,12 +748,12 @@ name|ElasticSearchGenerationException
 block|{
 try|try
 block|{
-name|BinaryXContentBuilder
+name|XContentBuilder
 name|builder
 init|=
 name|XContentFactory
 operator|.
-name|contentBinaryBuilder
+name|contentBuilder
 argument_list|(
 name|contentType
 argument_list|)
@@ -811,7 +793,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Sets the document source to index.      *      *<p>Note, its preferable to either set it using {@link #source(org.elasticsearch.common.xcontent.builder.XContentBuilder)}      * or using the {@link #source(byte[])}.      */
+comment|/**      * Sets the document source to index.      *      *<p>Note, its preferable to either set it using {@link #source(org.elasticsearch.common.xcontent.XContentBuilder)}      * or using the {@link #source(byte[])}.      */
 DECL|method|source
 annotation|@
 name|Required

@@ -461,6 +461,23 @@ return|return
 name|count
 return|;
 block|}
+comment|/**      * Seeks back to the given position. Size will become the seeked location.      */
+DECL|method|seek
+specifier|public
+name|void
+name|seek
+parameter_list|(
+name|int
+name|position
+parameter_list|)
+block|{
+name|this
+operator|.
+name|count
+operator|=
+name|position
+expr_stmt|;
+block|}
 comment|/**      * Converts the buffer's contents into a string decoding bytes using the      * platform's default character set. The length of the new<tt>String</tt>      * is a function of the character set, and hence may not be equal to the      * size of the buffer.      *<p/>      *<p> This method always replaces malformed-input and unmappable-character      * sequences with the default replacement string for the platform's      * default character set. The {@linkplain java.nio.charset.CharsetDecoder}      * class should be used when more control over the decoding process is      * required.      *      * @return String decoded from the buffer's contents.      * @since JDK1.1      */
 DECL|method|toString
 specifier|public

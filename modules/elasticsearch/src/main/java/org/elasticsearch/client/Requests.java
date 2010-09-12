@@ -539,7 +539,7 @@ name|CONTENT_TYPE
 init|=
 name|XContentType
 operator|.
-name|XSON
+name|SMILE
 decl_stmt|;
 DECL|method|indexRequest
 specifier|public

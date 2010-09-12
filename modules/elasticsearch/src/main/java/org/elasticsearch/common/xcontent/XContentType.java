@@ -33,9 +33,9 @@ argument_list|(
 literal|0
 argument_list|)
 block|,
-comment|/**      * An optimized binary form of JSON.      */
-DECL|enum constant|XSON
-name|XSON
+comment|/**      * The jackson based smile binary format. Fast and compact binary format.      */
+DECL|enum constant|SMILE
+name|SMILE
 argument_list|(
 literal|1
 argument_list|)
@@ -84,14 +84,14 @@ return|;
 block|}
 if|if
 condition|(
-literal|"application/xson"
+literal|"application/smile"
 operator|.
 name|equals
 argument_list|(
 name|contentType
 argument_list|)
 operator|||
-literal|"xson"
+literal|"smile"
 operator|.
 name|equalsIgnoreCase
 argument_list|(
@@ -100,7 +100,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|XSON
+name|SMILE
 return|;
 block|}
 return|return

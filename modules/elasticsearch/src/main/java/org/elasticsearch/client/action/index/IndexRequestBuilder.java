@@ -126,7 +126,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|XContentType
+name|XContentBuilder
 import|;
 end_import
 
@@ -140,9 +140,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|builder
-operator|.
-name|XContentBuilder
+name|XContentType
 import|;
 end_import
 
@@ -328,7 +326,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the document source to index.      *      *<p>Note, its preferable to either set it using {@link #setSource(org.elasticsearch.common.xcontent.builder.XContentBuilder)}      * or using the {@link #setSource(byte[])}.      */
+comment|/**      * Sets the document source to index.      *      *<p>Note, its preferable to either set it using {@link #setSource(org.elasticsearch.common.xcontent.XContentBuilder)}      * or using the {@link #setSource(byte[])}.      */
 DECL|method|setSource
 specifier|public
 name|IndexRequestBuilder

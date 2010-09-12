@@ -60,8 +60,6 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|builder
-operator|.
 name|XContentBuilder
 import|;
 end_import

@@ -158,6 +158,16 @@ argument_list|(
 literal|"]: "
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|context
+operator|.
+name|parsedQuery
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 name|sb
 operator|.
 name|append
@@ -178,7 +188,15 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-literal|"],from["
+literal|"],"
+argument_list|)
+expr_stmt|;
+block|}
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|"from["
 argument_list|)
 operator|.
 name|append

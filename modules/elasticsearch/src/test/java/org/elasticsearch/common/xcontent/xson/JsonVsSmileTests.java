@@ -139,10 +139,10 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|JsonVsXsonTests
+DECL|class|JsonVsSmileTests
 specifier|public
 class|class
-name|JsonVsXsonTests
+name|JsonVsSmileTests
 block|{
 DECL|method|compareParsingTokens
 annotation|@
@@ -170,7 +170,7 @@ name|xContent
 argument_list|(
 name|XContentType
 operator|.
-name|XSON
+name|SMILE
 argument_list|)
 operator|.
 name|createGenerator
@@ -323,7 +323,7 @@ name|xContent
 argument_list|(
 name|XContentType
 operator|.
-name|XSON
+name|SMILE
 argument_list|)
 operator|.
 name|createParser

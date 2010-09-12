@@ -108,7 +108,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|XContentParser
+name|XContentBuilder
 import|;
 end_import
 
@@ -122,9 +122,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|builder
-operator|.
-name|XContentBuilder
+name|XContentParser
 import|;
 end_import
 
