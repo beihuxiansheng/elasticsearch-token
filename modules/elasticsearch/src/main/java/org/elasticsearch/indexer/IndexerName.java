@@ -14,6 +14,16 @@ name|indexer
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Serializable
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
@@ -23,6 +33,8 @@ DECL|class|IndexerName
 specifier|public
 class|class
 name|IndexerName
+implements|implements
+name|Serializable
 block|{
 DECL|field|type
 specifier|private
