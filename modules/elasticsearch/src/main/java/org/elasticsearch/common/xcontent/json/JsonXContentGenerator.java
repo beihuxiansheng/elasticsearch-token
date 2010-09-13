@@ -793,9 +793,19 @@ operator|.
 name|writeRaw
 argument_list|(
 literal|", \""
-operator|+
+argument_list|)
+expr_stmt|;
+name|generator
+operator|.
+name|writeRaw
+argument_list|(
 name|fieldName
-operator|+
+argument_list|)
+expr_stmt|;
+name|generator
+operator|.
+name|writeRaw
+argument_list|(
 literal|"\" : "
 argument_list|)
 expr_stmt|;
@@ -834,9 +844,19 @@ operator|.
 name|writeRaw
 argument_list|(
 literal|", \""
-operator|+
+argument_list|)
+expr_stmt|;
+name|generator
+operator|.
+name|writeRaw
+argument_list|(
 name|fieldName
-operator|+
+argument_list|)
+expr_stmt|;
+name|generator
+operator|.
+name|writeRaw
+argument_list|(
 literal|"\" : "
 argument_list|)
 expr_stmt|;
