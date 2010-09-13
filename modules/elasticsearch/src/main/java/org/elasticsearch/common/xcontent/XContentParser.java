@@ -275,6 +275,11 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
+DECL|method|hasTextCharacters
+name|boolean
+name|hasTextCharacters
+parameter_list|()
+function_decl|;
 DECL|method|textCharacters
 name|char
 index|[]

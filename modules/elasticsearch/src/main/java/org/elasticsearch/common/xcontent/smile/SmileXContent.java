@@ -167,7 +167,6 @@ argument_list|)
 return|;
 block|}
 DECL|field|smileFactory
-specifier|private
 specifier|final
 specifier|static
 name|SmileFactory

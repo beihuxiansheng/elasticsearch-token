@@ -375,6 +375,16 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+DECL|method|copyCurrentStructure
+name|void
+name|copyCurrentStructure
+parameter_list|(
+name|XContentParser
+name|parser
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
 DECL|method|flush
 name|void
 name|flush

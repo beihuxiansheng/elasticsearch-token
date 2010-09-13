@@ -138,7 +138,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|XContentMerger
+name|XContentHelper
 import|;
 end_import
 
@@ -852,7 +852,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|XContentMerger
+name|XContentHelper
 operator|.
 name|mergeDefaults
 argument_list|(
