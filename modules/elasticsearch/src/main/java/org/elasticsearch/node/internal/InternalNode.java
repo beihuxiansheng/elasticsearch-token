@@ -470,7 +470,7 @@ name|elasticsearch
 operator|.
 name|indexer
 operator|.
-name|IndexersModule
+name|IndexerManager
 import|;
 end_import
 
@@ -482,7 +482,7 @@ name|elasticsearch
 operator|.
 name|indexer
 operator|.
-name|IndexersService
+name|IndexersModule
 import|;
 end_import
 
@@ -1410,7 +1410,7 @@ name|injector
 operator|.
 name|getInstance
 argument_list|(
-name|IndexersService
+name|IndexerManager
 operator|.
 name|class
 argument_list|)
@@ -1754,7 +1754,7 @@ name|injector
 operator|.
 name|getInstance
 argument_list|(
-name|IndexersService
+name|IndexerManager
 operator|.
 name|class
 argument_list|)
@@ -2150,7 +2150,7 @@ name|injector
 operator|.
 name|getInstance
 argument_list|(
-name|IndexersService
+name|IndexerManager
 operator|.
 name|class
 argument_list|)
