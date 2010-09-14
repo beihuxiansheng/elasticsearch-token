@@ -1179,6 +1179,15 @@ index|[
 name|i
 index|]
 decl_stmt|;
+if|if
+condition|(
+name|op
+operator|==
+literal|null
+condition|)
+block|{
+continue|continue;
+block|}
 try|try
 block|{
 switch|switch

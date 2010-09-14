@@ -400,6 +400,11 @@ specifier|private
 name|boolean
 name|sourceUnsafe
 decl_stmt|;
+DECL|field|sourceFromBuilder
+specifier|private
+name|boolean
+name|sourceFromBuilder
+decl_stmt|;
 DECL|field|opType
 specifier|private
 name|OpType
@@ -522,7 +527,7 @@ comment|/**      * Before we fork on a local thread, make sure we copy over the 
 DECL|method|beforeLocalFork
 annotation|@
 name|Override
-specifier|protected
+specifier|public
 name|void
 name|beforeLocalFork
 parameter_list|()
@@ -530,6 +535,17 @@ block|{
 name|source
 argument_list|()
 expr_stmt|;
+block|}
+comment|/**      * Need this in case builders are used, we need to copy after adding...      */
+DECL|method|sourceFromBuilder
+specifier|public
+name|boolean
+name|sourceFromBuilder
+parameter_list|()
+block|{
+return|return
+name|sourceFromBuilder
+return|;
 block|}
 comment|/**      * Sets the index the index operation will happen on.      */
 DECL|method|index
@@ -602,6 +618,7 @@ return|;
 block|}
 comment|/**      * The type of the indexed document.      */
 DECL|method|type
+specifier|public
 name|String
 name|type
 parameter_list|()
@@ -634,6 +651,7 @@ return|;
 block|}
 comment|/**      * The id of the indexed document. If not set, will be automatically generated.      */
 DECL|method|id
+specifier|public
 name|String
 name|id
 parameter_list|()
@@ -664,6 +682,7 @@ return|;
 block|}
 comment|/**      * The source of the JSON document to index.      */
 DECL|method|source
+specifier|public
 name|byte
 index|[]
 name|source
@@ -882,6 +901,12 @@ name|unsafeBytesLength
 argument_list|()
 expr_stmt|;
 name|sourceUnsafe
+operator|=
+literal|true
+expr_stmt|;
+name|this
+operator|.
+name|sourceFromBuilder
 operator|=
 literal|true
 expr_stmt|;

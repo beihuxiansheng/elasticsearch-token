@@ -446,7 +446,7 @@ expr_stmt|;
 block|}
 comment|/**      * Called before the request gets forked into a local thread.      */
 DECL|method|beforeLocalFork
-specifier|protected
+specifier|public
 name|void
 name|beforeLocalFork
 parameter_list|()

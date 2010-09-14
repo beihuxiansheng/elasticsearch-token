@@ -73,6 +73,43 @@ argument_list|(
 literal|"Creating index [test1] with alias [test]"
 argument_list|)
 expr_stmt|;
+try|try
+block|{
+name|client1
+operator|.
+name|admin
+argument_list|()
+operator|.
+name|indices
+argument_list|()
+operator|.
+name|prepareDelete
+argument_list|(
+literal|"test1"
+argument_list|)
+operator|.
+name|execute
+argument_list|()
+operator|.
+name|actionGet
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+block|}
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> creating index test"
+argument_list|)
+expr_stmt|;
 name|client1
 operator|.
 name|admin

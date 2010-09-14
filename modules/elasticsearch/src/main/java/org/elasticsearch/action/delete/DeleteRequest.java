@@ -215,6 +215,7 @@ name|id
 expr_stmt|;
 block|}
 DECL|method|DeleteRequest
+specifier|public
 name|DeleteRequest
 parameter_list|()
 block|{     }
@@ -366,6 +367,7 @@ return|;
 block|}
 comment|/**      * The type of the document to delete.      */
 DECL|method|type
+specifier|public
 name|String
 name|type
 parameter_list|()
@@ -398,6 +400,7 @@ return|;
 block|}
 comment|/**      * The id of the document to delete.      */
 DECL|method|id
+specifier|public
 name|String
 name|id
 parameter_list|()

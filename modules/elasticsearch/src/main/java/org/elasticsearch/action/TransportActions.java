@@ -24,6 +24,15 @@ specifier|public
 class|class
 name|TransportActions
 block|{
+DECL|field|BULK
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|BULK
+init|=
+literal|"indices/bulk"
+decl_stmt|;
 DECL|field|INDEX
 specifier|public
 specifier|static

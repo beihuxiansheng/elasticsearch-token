@@ -116,10 +116,12 @@ name|String
 name|type
 decl_stmt|;
 DECL|method|IndexResponse
+specifier|public
 name|IndexResponse
 parameter_list|()
 block|{      }
 DECL|method|IndexResponse
+specifier|public
 name|IndexResponse
 parameter_list|(
 name|String

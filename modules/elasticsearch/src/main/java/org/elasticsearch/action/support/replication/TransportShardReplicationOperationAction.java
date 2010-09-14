@@ -727,6 +727,18 @@ name|ClusterState
 name|state
 parameter_list|)
 block|{      }
+DECL|method|transportOptions
+specifier|protected
+name|TransportRequestOptions
+name|transportOptions
+parameter_list|()
+block|{
+return|return
+name|TransportRequestOptions
+operator|.
+name|EMPTY
+return|;
+block|}
 comment|/**      * Should the operations be performed on the replicas as well. Defaults to<tt>false</tt> meaning operations      * will be executed on the replica.      */
 DECL|method|ignoreReplicas
 specifier|protected
@@ -1552,6 +1564,9 @@ name|transportAction
 argument_list|()
 argument_list|,
 name|request
+argument_list|,
+name|transportOptions
+argument_list|()
 argument_list|,
 operator|new
 name|BaseTransportResponseHandler
@@ -2644,6 +2659,9 @@ name|transportReplicaAction
 argument_list|()
 argument_list|,
 name|shardRequest
+argument_list|,
+name|transportOptions
+argument_list|()
 argument_list|,
 operator|new
 name|VoidTransportResponseHandler

@@ -402,6 +402,20 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
+name|bulk
+operator|.
+name|BulkRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
 name|count
 operator|.
 name|CountRequest
@@ -590,6 +604,20 @@ name|DeleteRequest
 argument_list|(
 name|index
 argument_list|)
+return|;
+block|}
+comment|/**      * Creats a new bulk request.      */
+DECL|method|bulkRequest
+specifier|public
+specifier|static
+name|BulkRequest
+name|bulkRequest
+parameter_list|()
+block|{
+return|return
+operator|new
+name|BulkRequest
+argument_list|()
 return|;
 block|}
 comment|/**      * Creates a delete by query request. Note, the query itself must be set either by setting the JSON source      * of the query, or by using a {@link org.elasticsearch.index.query.QueryBuilder} (using {@link org.elasticsearch.index.query.xcontent.QueryBuilders}).      *      * @param indices The indices the delete by query against. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The delete by query request      * @see org.elasticsearch.client.Client#deleteByQuery(org.elasticsearch.action.deletebyquery.DeleteByQueryRequest)      */
