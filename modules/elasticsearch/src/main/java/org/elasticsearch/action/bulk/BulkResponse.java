@@ -95,7 +95,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A response of a bulk execution. Holding a response for each item responding (in order) of the  * bulk requests.  *  * @author kimchy (shay.banon)  */
+comment|/**  * A response of a bulk execution. Holding a response for each item responding (in order) of the  * bulk requests. Each item holds the index/type/id is operated on, and if it failed or not (with the  * failure message).  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -137,6 +137,7 @@ operator|=
 name|responses
 expr_stmt|;
 block|}
+comment|/**      * Has anything failed with the execution.      */
 DECL|method|hasFailures
 specifier|public
 name|boolean
@@ -168,6 +169,7 @@ return|return
 literal|false
 return|;
 block|}
+comment|/**      * The items representing each action performed in the bulk operation (in the same order!).      */
 DECL|method|items
 specifier|public
 name|BulkItemResponse

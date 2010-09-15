@@ -115,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  * Represents a single item response for an action executed as part of the bulk API. Holds the index/type/id  * of the relevant action, and if it has failed or not (with the failure message incase it failed).  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -126,6 +126,7 @@ name|BulkItemResponse
 implements|implements
 name|Streamable
 block|{
+comment|/**      * Represents a failure.      */
 DECL|class|Failure
 specifier|public
 specifier|static
@@ -198,6 +199,7 @@ operator|=
 name|message
 expr_stmt|;
 block|}
+comment|/**          * The index name of the action.          */
 DECL|method|index
 specifier|public
 name|String
@@ -210,6 +212,7 @@ operator|.
 name|index
 return|;
 block|}
+comment|/**          * The index name of the action.          */
 DECL|method|getIndex
 specifier|public
 name|String
@@ -221,6 +224,54 @@ name|index
 argument_list|()
 return|;
 block|}
+comment|/**          * The type of the action.          */
+DECL|method|type
+specifier|public
+name|String
+name|type
+parameter_list|()
+block|{
+return|return
+name|type
+return|;
+block|}
+comment|/**          * The type of the action.          */
+DECL|method|getType
+specifier|public
+name|String
+name|getType
+parameter_list|()
+block|{
+return|return
+name|type
+argument_list|()
+return|;
+block|}
+comment|/**          * The id of the action.          */
+DECL|method|id
+specifier|public
+name|String
+name|id
+parameter_list|()
+block|{
+return|return
+name|id
+return|;
+block|}
+comment|/**          * The id of the action.          */
+DECL|method|getId
+specifier|public
+name|String
+name|getId
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|id
+return|;
+block|}
+comment|/**          * The failure message.          */
 DECL|method|message
 specifier|public
 name|String
@@ -233,6 +284,7 @@ operator|.
 name|message
 return|;
 block|}
+comment|/**          * The failure message.          */
 DECL|method|getMessage
 specifier|public
 name|String
@@ -242,49 +294,6 @@ block|{
 return|return
 name|message
 argument_list|()
-return|;
-block|}
-DECL|method|type
-specifier|public
-name|String
-name|type
-parameter_list|()
-block|{
-return|return
-name|type
-return|;
-block|}
-DECL|method|getType
-specifier|public
-name|String
-name|getType
-parameter_list|()
-block|{
-return|return
-name|type
-argument_list|()
-return|;
-block|}
-DECL|method|id
-specifier|public
-name|String
-name|id
-parameter_list|()
-block|{
-return|return
-name|id
-return|;
-block|}
-DECL|method|getId
-specifier|public
-name|String
-name|getId
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|id
 return|;
 block|}
 block|}
@@ -378,6 +387,7 @@ operator|=
 name|failure
 expr_stmt|;
 block|}
+comment|/**      * The numeric order of the item matching the same request order in the bulk request.      */
 DECL|method|itemId
 specifier|public
 name|int
@@ -388,6 +398,7 @@ return|return
 name|id
 return|;
 block|}
+comment|/**      * The operation type ("index", "create" or "delete").      */
 DECL|method|opType
 specifier|public
 name|String
@@ -400,6 +411,7 @@ operator|.
 name|opType
 return|;
 block|}
+comment|/**      * The index name of the action.      */
 DECL|method|index
 specifier|public
 name|String
@@ -463,6 +475,7 @@ return|return
 literal|null
 return|;
 block|}
+comment|/**      * The index name of the action.      */
 DECL|method|getIndex
 specifier|public
 name|String
@@ -474,6 +487,7 @@ name|index
 argument_list|()
 return|;
 block|}
+comment|/**      * The type of the action.      */
 DECL|method|type
 specifier|public
 name|String
@@ -537,6 +551,7 @@ return|return
 literal|null
 return|;
 block|}
+comment|/**      * The type of the action.      */
 DECL|method|getType
 specifier|public
 name|String
@@ -550,6 +565,7 @@ name|type
 argument_list|()
 return|;
 block|}
+comment|/**      * The id of the action.      */
 DECL|method|id
 specifier|public
 name|String
@@ -613,6 +629,7 @@ return|return
 literal|null
 return|;
 block|}
+comment|/**      * The id of the action.      */
 DECL|method|getId
 specifier|public
 name|String
@@ -624,6 +641,7 @@ name|id
 argument_list|()
 return|;
 block|}
+comment|/**      * The actual response ({@link IndexResponse} or {@link DeleteResponse}).<tt>null</tt> in      * case of failure.      */
 DECL|method|response
 specifier|public
 name|ActionResponse
@@ -634,6 +652,7 @@ return|return
 name|response
 return|;
 block|}
+comment|/**      * Is this a failed execution of an operation.      */
 DECL|method|failed
 specifier|public
 name|boolean
@@ -646,6 +665,7 @@ operator|!=
 literal|null
 return|;
 block|}
+comment|/**      * Is this a failed execution of an operation.      */
 DECL|method|isFailed
 specifier|public
 name|boolean
@@ -657,6 +677,44 @@ name|failed
 argument_list|()
 return|;
 block|}
+comment|/**      * The failure message,<tt>null</tt> if it did not fail.      */
+DECL|method|failureMessage
+specifier|public
+name|String
+name|failureMessage
+parameter_list|()
+block|{
+if|if
+condition|(
+name|failure
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|failure
+operator|.
+name|message
+argument_list|()
+return|;
+block|}
+return|return
+literal|null
+return|;
+block|}
+comment|/**      * The failure message,<tt>null</tt> if it did not fail.      */
+DECL|method|getFailureMessage
+specifier|public
+name|String
+name|getFailureMessage
+parameter_list|()
+block|{
+return|return
+name|failureMessage
+argument_list|()
+return|;
+block|}
+comment|/**      * The actual failure object if there was a failure.      */
 DECL|method|failure
 specifier|public
 name|Failure
@@ -669,6 +727,7 @@ operator|.
 name|failure
 return|;
 block|}
+comment|/**      * The actual failure object if there was a failure.      */
 DECL|method|getFailure
 specifier|public
 name|Failure

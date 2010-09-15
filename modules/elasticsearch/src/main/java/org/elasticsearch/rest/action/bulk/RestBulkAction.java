@@ -866,6 +866,13 @@ operator|.
 name|startObject
 argument_list|()
 expr_stmt|;
+name|builder
+operator|.
+name|startArray
+argument_list|(
+literal|"items"
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|BulkItemResponse
@@ -950,6 +957,11 @@ name|endObject
 argument_list|()
 expr_stmt|;
 block|}
+name|builder
+operator|.
+name|endArray
+argument_list|()
+expr_stmt|;
 name|builder
 operator|.
 name|endObject
