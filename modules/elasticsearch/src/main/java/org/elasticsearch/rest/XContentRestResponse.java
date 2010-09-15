@@ -310,7 +310,13 @@ name|contentType
 parameter_list|()
 block|{
 return|return
-literal|"application/json; charset=UTF-8"
+name|builder
+operator|.
+name|contentType
+argument_list|()
+operator|.
+name|restContentType
+argument_list|()
 return|;
 block|}
 DECL|method|contentThreadSafe

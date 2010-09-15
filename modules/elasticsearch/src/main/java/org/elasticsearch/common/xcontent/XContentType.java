@@ -32,6 +32,19 @@ name|JSON
 argument_list|(
 literal|0
 argument_list|)
+block|{
+annotation|@
+name|Override
+specifier|public
+name|String
+name|restContentType
+parameter_list|()
+block|{
+return|return
+literal|"application/json; charset=UTF-8"
+return|;
+block|}
+block|}
 block|,
 comment|/**      * The jackson based smile binary format. Fast and compact binary format.      */
 DECL|enum constant|SMILE
@@ -39,6 +52,19 @@ name|SMILE
 argument_list|(
 literal|1
 argument_list|)
+block|{
+annotation|@
+name|Override
+specifier|public
+name|String
+name|restContentType
+parameter_list|()
+block|{
+return|return
+literal|"application/smile"
+return|;
+block|}
+block|}
 block|;
 DECL|method|fromRestContentType
 specifier|public
@@ -136,6 +162,13 @@ return|return
 name|index
 return|;
 block|}
+DECL|method|restContentType
+specifier|public
+specifier|abstract
+name|String
+name|restContentType
+parameter_list|()
+function_decl|;
 block|}
 end_enum
 
