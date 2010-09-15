@@ -558,6 +558,8 @@ name|source
 argument_list|,
 name|sourceOffset
 argument_list|,
+name|sourceOffset
+operator|+
 name|sourceLength
 argument_list|)
 expr_stmt|;
@@ -589,6 +591,8 @@ name|extraSource
 argument_list|,
 name|extraSourceOffset
 argument_list|,
+name|extraSourceOffset
+operator|+
 name|extraSourceLength
 argument_list|)
 expr_stmt|;

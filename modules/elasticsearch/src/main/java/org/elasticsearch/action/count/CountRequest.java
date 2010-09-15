@@ -490,6 +490,8 @@ name|querySource
 argument_list|,
 name|querySourceOffset
 argument_list|,
+name|querySourceOffset
+operator|+
 name|querySourceLength
 argument_list|)
 expr_stmt|;

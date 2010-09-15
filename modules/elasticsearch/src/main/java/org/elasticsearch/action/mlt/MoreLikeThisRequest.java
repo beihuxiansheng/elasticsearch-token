@@ -959,6 +959,8 @@ name|searchSource
 argument_list|,
 name|searchSourceOffset
 argument_list|,
+name|searchSourceOffset
+operator|+
 name|searchSourceLength
 argument_list|)
 expr_stmt|;

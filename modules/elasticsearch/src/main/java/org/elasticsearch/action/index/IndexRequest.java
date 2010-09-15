@@ -707,6 +707,8 @@ name|source
 argument_list|,
 name|sourceOffset
 argument_list|,
+name|sourceOffset
+operator|+
 name|sourceLength
 argument_list|)
 expr_stmt|;

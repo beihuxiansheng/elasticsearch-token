@@ -42,6 +42,11 @@ name|XContentType
 name|type
 parameter_list|()
 function_decl|;
+DECL|method|streamSeparator
+name|byte
+name|streamSeparator
+parameter_list|()
+function_decl|;
 comment|/**      * Creates a new generator using the provided output stream.      */
 DECL|method|createGenerator
 name|XContentGenerator
