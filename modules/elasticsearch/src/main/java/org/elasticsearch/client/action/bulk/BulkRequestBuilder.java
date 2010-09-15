@@ -147,7 +147,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  * A bulk request holds an ordered {@link IndexRequest}s and {@link DeleteRequest}s and allows to executes  * it in a single batch.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -181,6 +181,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Adds an {@link IndexRequest} to the list of actions to execute. Follows the same behavior of {@link IndexRequest}      * (for example, if no id is provided, one will be generated, or usage of the create flag).      */
 DECL|method|add
 specifier|public
 name|BulkRequestBuilder
@@ -203,6 +204,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Adds an {@link IndexRequest} to the list of actions to execute. Follows the same behavior of {@link IndexRequest}      * (for example, if no id is provided, one will be generated, or usage of the create flag).      */
 DECL|method|add
 specifier|public
 name|BulkRequestBuilder
@@ -228,6 +230,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Adds an {@link DeleteRequest} to the list of actions to execute.      */
 DECL|method|add
 specifier|public
 name|BulkRequestBuilder
@@ -250,6 +253,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Adds an {@link DeleteRequest} to the list of actions to execute.      */
 DECL|method|add
 specifier|public
 name|BulkRequestBuilder
