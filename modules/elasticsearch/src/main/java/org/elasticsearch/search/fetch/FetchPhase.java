@@ -1828,13 +1828,9 @@ name|fieldSelector
 operator|.
 name|add
 argument_list|(
-name|context
+name|UidFieldMapper
 operator|.
-name|mapperService
-argument_list|()
-operator|.
-name|uidFieldMappers
-argument_list|()
+name|NAME
 argument_list|)
 expr_stmt|;
 return|return

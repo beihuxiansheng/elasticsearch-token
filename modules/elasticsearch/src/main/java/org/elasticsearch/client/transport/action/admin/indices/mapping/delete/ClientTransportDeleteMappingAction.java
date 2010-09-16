@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.client.transport.action.admin.indices.mapping.create
+DECL|package|org.elasticsearch.client.transport.action.admin.indices.mapping.delete
 package|package
 name|org
 operator|.
@@ -22,7 +22,7 @@ name|indices
 operator|.
 name|mapping
 operator|.
-name|create
+name|delete
 package|;
 end_package
 
@@ -52,9 +52,9 @@ name|indices
 operator|.
 name|mapping
 operator|.
-name|put
+name|delete
 operator|.
-name|PutMappingRequest
+name|DeleteMappingRequest
 import|;
 end_import
 
@@ -72,9 +72,9 @@ name|indices
 operator|.
 name|mapping
 operator|.
-name|put
+name|delete
 operator|.
-name|PutMappingResponse
+name|DeleteMappingResponse
 import|;
 end_import
 
@@ -141,23 +141,23 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|ClientTransportPutMappingAction
+DECL|class|ClientTransportDeleteMappingAction
 specifier|public
 class|class
-name|ClientTransportPutMappingAction
+name|ClientTransportDeleteMappingAction
 extends|extends
 name|BaseClientTransportAction
 argument_list|<
-name|PutMappingRequest
+name|DeleteMappingRequest
 argument_list|,
-name|PutMappingResponse
+name|DeleteMappingResponse
 argument_list|>
 block|{
-DECL|method|ClientTransportPutMappingAction
+DECL|method|ClientTransportDeleteMappingAction
 annotation|@
 name|Inject
 specifier|public
-name|ClientTransportPutMappingAction
+name|ClientTransportDeleteMappingAction
 parameter_list|(
 name|Settings
 name|settings
@@ -172,7 +172,7 @@ name|settings
 argument_list|,
 name|transportService
 argument_list|,
-name|PutMappingResponse
+name|DeleteMappingResponse
 operator|.
 name|class
 argument_list|)
@@ -195,7 +195,7 @@ name|Indices
 operator|.
 name|Mapping
 operator|.
-name|PUT
+name|DELETE
 return|;
 block|}
 block|}

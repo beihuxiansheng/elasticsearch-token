@@ -1324,7 +1324,7 @@ operator|.
 name|mappings
 argument_list|()
 decl_stmt|;
-comment|// we don't support removing mappings for now ...
+comment|// go over and add the relevant mappings (or update them)
 for|for
 control|(
 name|Map
@@ -1548,6 +1548,42 @@ argument_list|,
 name|mappingType
 argument_list|,
 name|mappingSource
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|// go over and remove mappings
+for|for
+control|(
+name|DocumentMapper
+name|documentMapper
+range|:
+name|mapperService
+control|)
+block|{
+if|if
+condition|(
+operator|!
+name|mappings
+operator|.
+name|containsKey
+argument_list|(
+name|documentMapper
+operator|.
+name|type
+argument_list|()
+argument_list|)
+condition|)
+block|{
+comment|// we have it in our mappings, but not in the metadata, remove it
+name|mapperService
+operator|.
+name|remove
+argument_list|(
+name|documentMapper
+operator|.
+name|type
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

@@ -229,6 +229,15 @@ name|PUT
 init|=
 literal|"indices/mapping/put"
 decl_stmt|;
+DECL|field|DELETE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DELETE
+init|=
+literal|"indices/mapping/delete"
+decl_stmt|;
 block|}
 DECL|class|Cache
 specifier|public
