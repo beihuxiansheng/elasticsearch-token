@@ -466,8 +466,6 @@ operator|.
 name|readFrom
 argument_list|(
 name|in
-argument_list|,
-name|settings
 argument_list|)
 expr_stmt|;
 block|}

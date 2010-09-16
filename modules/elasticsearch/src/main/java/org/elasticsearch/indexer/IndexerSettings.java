@@ -4,15 +4,13 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.indexer.settings
+DECL|package|org.elasticsearch.indexer
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|indexer
-operator|.
-name|settings
 package|;
 end_package
 
@@ -95,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  * @author kimchy (Shay Banon)  */
 end_comment
 
 begin_annotation_defn

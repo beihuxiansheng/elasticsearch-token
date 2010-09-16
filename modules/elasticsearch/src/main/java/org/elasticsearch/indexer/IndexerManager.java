@@ -80,6 +80,20 @@ name|IndexerClusterService
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indexer
+operator|.
+name|routing
+operator|.
+name|IndexersRouter
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
@@ -107,6 +121,12 @@ specifier|final
 name|IndexerClusterService
 name|clusterService
 decl_stmt|;
+DECL|field|indexersRouter
+specifier|private
+specifier|final
+name|IndexersRouter
+name|indexersRouter
+decl_stmt|;
 DECL|method|IndexerManager
 annotation|@
 name|Inject
@@ -121,6 +141,9 @@ name|indexersService
 parameter_list|,
 name|IndexerClusterService
 name|clusterService
+parameter_list|,
+name|IndexersRouter
+name|indexersRouter
 parameter_list|)
 block|{
 name|super
@@ -140,6 +163,12 @@ name|clusterService
 operator|=
 name|clusterService
 expr_stmt|;
+name|this
+operator|.
+name|indexersRouter
+operator|=
+name|indexersRouter
+expr_stmt|;
 block|}
 DECL|method|doStart
 annotation|@
@@ -151,6 +180,11 @@ parameter_list|()
 throws|throws
 name|ElasticSearchException
 block|{
+name|indexersRouter
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|indexersService
 operator|.
 name|start
@@ -172,6 +206,11 @@ parameter_list|()
 throws|throws
 name|ElasticSearchException
 block|{
+name|indexersRouter
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
 name|clusterService
 operator|.
 name|stop
@@ -193,6 +232,11 @@ parameter_list|()
 throws|throws
 name|ElasticSearchException
 block|{
+name|indexersRouter
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 name|clusterService
 operator|.
 name|close
