@@ -72,9 +72,9 @@ name|cache
 operator|.
 name|filter
 operator|.
-name|weak
+name|soft
 operator|.
-name|WeakFilterCache
+name|SoftFilterCache
 import|;
 end_import
 
@@ -153,7 +153,7 @@ name|FilterCacheSettings
 operator|.
 name|FILTER_CACHE_TYPE
 argument_list|,
-name|WeakFilterCache
+name|SoftFilterCache
 operator|.
 name|class
 argument_list|,
