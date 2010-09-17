@@ -418,16 +418,14 @@ return|return
 operator|new
 name|DeletionAwareConstantScoreQuery
 argument_list|(
-name|parseContext
-operator|.
-name|cacheFilterIfPossible
-argument_list|(
 name|Queries
 operator|.
 name|MATCH_ALL_FILTER
-argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 return|;
+comment|// no need to cache a MATCH ALL FILTER
 block|}
 name|MatchAllDocsQuery
 name|query

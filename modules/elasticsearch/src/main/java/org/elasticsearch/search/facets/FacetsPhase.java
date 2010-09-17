@@ -343,6 +343,8 @@ argument_list|(
 name|Queries
 operator|.
 name|MATCH_ALL_FILTER
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 comment|// no need to cache a MATCH ALL FILTER
