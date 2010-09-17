@@ -336,7 +336,7 @@ name|registerHandler
 argument_list|(
 name|DELETE
 argument_list|,
-literal|"/{index}/{type}/"
+literal|"/{index}/{type}"
 argument_list|,
 name|this
 argument_list|)

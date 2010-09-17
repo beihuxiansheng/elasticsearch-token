@@ -29,10 +29,7 @@ block|{
 DECL|method|close
 name|void
 name|close
-parameter_list|(
-name|boolean
-name|delete
-parameter_list|)
+parameter_list|()
 function_decl|;
 block|}
 end_interface

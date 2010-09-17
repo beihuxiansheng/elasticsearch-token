@@ -271,13 +271,6 @@ parameter_list|()
 block|{
 name|bind
 argument_list|(
-name|Map
-operator|.
-name|class
-argument_list|)
-operator|.
-name|annotatedWith
-argument_list|(
 name|IndexerSettings
 operator|.
 name|class
@@ -285,7 +278,13 @@ argument_list|)
 operator|.
 name|toInstance
 argument_list|(
+operator|new
+name|IndexerSettings
+argument_list|(
+name|globalSettings
+argument_list|,
 name|settings
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

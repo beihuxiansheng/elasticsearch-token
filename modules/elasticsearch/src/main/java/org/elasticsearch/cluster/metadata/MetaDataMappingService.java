@@ -877,6 +877,21 @@ argument_list|)
 argument_list|)
 throw|;
 block|}
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"[{}] remove_mapping [{}]"
+argument_list|,
+name|request
+operator|.
+name|indices
+argument_list|,
+name|request
+operator|.
+name|mappingType
+argument_list|)
+expr_stmt|;
 name|MetaData
 operator|.
 name|Builder

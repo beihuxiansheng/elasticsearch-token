@@ -197,12 +197,6 @@ argument_list|<
 name|IndexerClusterService
 argument_list|>
 block|{
-DECL|field|transportService
-specifier|private
-specifier|final
-name|TransportService
-name|transportService
-decl_stmt|;
 DECL|field|clusterService
 specifier|private
 specifier|final
@@ -271,12 +265,6 @@ name|super
 argument_list|(
 name|settings
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|transportService
-operator|=
-name|transportService
 expr_stmt|;
 name|this
 operator|.
