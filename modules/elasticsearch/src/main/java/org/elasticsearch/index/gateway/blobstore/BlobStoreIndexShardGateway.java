@@ -1687,6 +1687,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+comment|// else (no operations, nothing to snapshot)
 block|}
 else|else
 block|{
