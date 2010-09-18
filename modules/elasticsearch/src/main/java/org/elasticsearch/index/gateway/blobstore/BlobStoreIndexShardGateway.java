@@ -1655,7 +1655,7 @@ name|seekForward
 argument_list|(
 name|snapshot
 operator|.
-name|lastTranslogPosition
+name|lastTranslogLength
 argument_list|()
 argument_list|)
 expr_stmt|;

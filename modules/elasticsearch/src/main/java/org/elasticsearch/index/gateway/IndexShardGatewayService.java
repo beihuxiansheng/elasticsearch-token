@@ -327,12 +327,6 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-DECL|field|lastTranslogPosition
-specifier|private
-specifier|volatile
-name|long
-name|lastTranslogPosition
-decl_stmt|;
 DECL|field|lastTotalTranslogOperations
 specifier|private
 specifier|volatile
@@ -746,10 +740,6 @@ name|lastTranslogId
 operator|=
 operator|-
 literal|1
-expr_stmt|;
-name|lastTranslogPosition
-operator|=
-literal|0
 expr_stmt|;
 name|lastTranslogLength
 operator|=
@@ -1393,8 +1383,6 @@ name|lastIndexVersion
 argument_list|,
 name|lastTranslogId
 argument_list|,
-name|lastTranslogPosition
-argument_list|,
 name|lastTranslogLength
 argument_list|,
 name|lastTotalTranslogOperations
@@ -1413,13 +1401,6 @@ operator|=
 name|translogSnapshot
 operator|.
 name|translogId
-argument_list|()
-expr_stmt|;
-name|lastTranslogPosition
-operator|=
-name|translogSnapshot
-operator|.
-name|position
 argument_list|()
 expr_stmt|;
 name|lastTranslogLength
@@ -1603,7 +1584,10 @@ operator|.
 name|append
 argument_list|(
 literal|"], number_of_operations ["
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 name|snapshotStatus
 operator|.
 name|translog
@@ -1611,7 +1595,10 @@ argument_list|()
 operator|.
 name|expectedNumberOfOperations
 argument_list|()
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 literal|"], took ["
 argument_list|)
 operator|.
