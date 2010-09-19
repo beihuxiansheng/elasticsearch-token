@@ -2965,6 +2965,17 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|pingResponses
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
+if|if
+condition|(
 name|logger
 operator|.
 name|isDebugEnabled
