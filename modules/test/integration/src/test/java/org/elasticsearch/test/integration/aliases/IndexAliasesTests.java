@@ -295,7 +295,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Creating index [test]"
+literal|"--> creating index [test]"
 argument_list|)
 expr_stmt|;
 name|client1
@@ -321,7 +321,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Running Cluster Health"
+literal|"--> running cluster_health"
 argument_list|)
 expr_stmt|;
 name|ClusterHealthResponse
@@ -351,7 +351,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Done Cluster Health, status "
+literal|"--> done cluster_health, status "
 operator|+
 name|clusterHealth
 operator|.
@@ -393,7 +393,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Indexing against [alias1], should fail"
+literal|"--> indexing against [alias1], should fail"
 argument_list|)
 expr_stmt|;
 name|client1
@@ -462,7 +462,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Aliasing index [test] with [alias1]"
+literal|"--> aliasing index [test] with [alias1]"
 argument_list|)
 expr_stmt|;
 name|client1
@@ -500,7 +500,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Indexing against [alias1], should work now"
+literal|"--> indexing against [alias1], should work now"
 argument_list|)
 expr_stmt|;
 name|IndexResponse
@@ -556,7 +556,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Creating index [test]"
+literal|"--> creating index [test]"
 argument_list|)
 expr_stmt|;
 name|client1
@@ -582,7 +582,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Running Cluster Health"
+literal|"--> running cluster_health"
 argument_list|)
 expr_stmt|;
 name|clusterHealth
@@ -611,7 +611,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Done Cluster Health, status "
+literal|"--> done cluster_health, status "
 operator|+
 name|clusterHealth
 operator|.
@@ -651,7 +651,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Remove [alias1], Aliasing index [test_x] with [alias1]"
+literal|"--> remove [alias1], Aliasing index [test_x] with [alias1]"
 argument_list|)
 expr_stmt|;
 name|client1
@@ -696,7 +696,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Indexing against [alias1], should work against [test_x]"
+literal|"--> indexing against [alias1], should work against [test_x]"
 argument_list|)
 expr_stmt|;
 name|indexResponse

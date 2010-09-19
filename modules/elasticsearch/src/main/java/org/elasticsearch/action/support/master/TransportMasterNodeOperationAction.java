@@ -889,7 +889,9 @@ name|listener
 operator|.
 name|onFailure
 argument_list|(
-name|exp
+operator|new
+name|MasterNotDiscoveredException
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
