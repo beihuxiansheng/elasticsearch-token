@@ -293,6 +293,7 @@ name|ClusterStateListener
 block|{
 DECL|field|NOT_RECOVERED_FROM_GATEWAY_BLOCK
 specifier|public
+specifier|static
 specifier|final
 name|ClusterBlock
 name|NOT_RECOVERED_FROM_GATEWAY_BLOCK
