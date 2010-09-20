@@ -541,10 +541,7 @@ argument_list|(
 literal|"type"
 argument_list|)
 argument_list|,
-name|indexerName
-operator|.
-name|name
-argument_list|()
+literal|"status"
 argument_list|)
 expr_stmt|;
 block|}
