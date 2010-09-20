@@ -108,7 +108,6 @@ name|NodeStats
 argument_list|>
 block|{
 DECL|method|NodesStatsResponse
-specifier|public
 name|NodesStatsResponse
 parameter_list|()
 block|{     }

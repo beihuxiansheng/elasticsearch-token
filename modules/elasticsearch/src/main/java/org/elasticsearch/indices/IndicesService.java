@@ -147,6 +147,11 @@ name|boolean
 name|changesAllowed
 parameter_list|()
 function_decl|;
+DECL|method|stats
+name|IndicesStats
+name|stats
+parameter_list|()
+function_decl|;
 DECL|method|hasIndex
 name|boolean
 name|hasIndex

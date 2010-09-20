@@ -2258,14 +2258,14 @@ name|IOException
 block|{
 name|out
 operator|.
-name|writeLong
+name|writeVLong
 argument_list|(
 name|startTime
 argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeLong
+name|writeVLong
 argument_list|(
 name|endTime
 argument_list|)
