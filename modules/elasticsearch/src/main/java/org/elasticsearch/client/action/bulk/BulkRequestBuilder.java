@@ -279,6 +279,20 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The number of actions currently in the bulk.      */
+DECL|method|numberOfActions
+specifier|public
+name|int
+name|numberOfActions
+parameter_list|()
+block|{
+return|return
+name|request
+operator|.
+name|numberOfActions
+argument_list|()
+return|;
+block|}
 DECL|method|doExecute
 annotation|@
 name|Override

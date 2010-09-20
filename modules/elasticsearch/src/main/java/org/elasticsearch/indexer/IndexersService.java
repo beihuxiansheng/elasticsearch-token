@@ -442,13 +442,13 @@ name|this
 operator|.
 name|indexerIndexName
 operator|=
-name|settings
+name|IndexerIndexName
 operator|.
-name|get
+name|Conf
+operator|.
+name|indexName
 argument_list|(
-literal|"indexer.index_name"
-argument_list|,
-literal|"indexer"
+name|settings
 argument_list|)
 expr_stmt|;
 name|this
@@ -779,6 +779,13 @@ operator|.
 name|immutableMap
 argument_list|()
 expr_stmt|;
+comment|// we need this start so there can be operations done (like creating an index) which can't be
+comment|// done on create since Guice can't create two concurrent child injectors
+name|indexer
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 return|return
 name|indexer
 return|;
@@ -1026,6 +1033,22 @@ condition|)
 block|{
 continue|continue;
 block|}
+comment|// if its already created, ignore it
+if|if
+condition|(
+name|indexers
+operator|.
+name|containsKey
+argument_list|(
+name|routing
+operator|.
+name|indexerName
+argument_list|()
+argument_list|)
+condition|)
+block|{
+continue|continue;
+block|}
 name|client
 operator|.
 name|prepareGet
@@ -1064,6 +1087,20 @@ parameter_list|)
 block|{
 if|if
 condition|(
+operator|!
+name|indexers
+operator|.
+name|containsKey
+argument_list|(
+name|routing
+operator|.
+name|indexerName
+argument_list|()
+argument_list|)
+condition|)
+block|{
+if|if
+condition|(
 name|getResponse
 operator|.
 name|exists
@@ -1086,6 +1123,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
 annotation|@
 name|Override
 specifier|public
@@ -1101,6 +1139,8 @@ operator|.
 name|warn
 argument_list|(
 literal|"failed to get _meta from [{}]/[{}]"
+argument_list|,
+name|e
 argument_list|,
 name|routing
 operator|.

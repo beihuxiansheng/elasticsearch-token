@@ -26,6 +26,11 @@ name|Indexer
 extends|extends
 name|IndexerComponent
 block|{
+DECL|method|start
+name|void
+name|start
+parameter_list|()
+function_decl|;
 DECL|method|close
 name|void
 name|close
