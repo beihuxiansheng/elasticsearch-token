@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * A task that can update the cluster state.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_interface
@@ -24,6 +24,7 @@ specifier|public
 interface|interface
 name|ClusterStateUpdateTask
 block|{
+comment|/**      * Update the cluster state based on the current state. Return the *same instance* if no state      * should be changed.      */
 DECL|method|execute
 name|ClusterState
 name|execute

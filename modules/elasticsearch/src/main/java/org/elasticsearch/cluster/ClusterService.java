@@ -57,7 +57,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  * The cluster service allowing to both register for cluster state events ({@link ClusterStateListener})  * and submit state update tasks ({@link ClusterStateUpdateTask}.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_interface
@@ -71,16 +71,19 @@ argument_list|<
 name|ClusterService
 argument_list|>
 block|{
+comment|/**      * The local node.      */
 DECL|method|localNode
 name|DiscoveryNode
 name|localNode
 parameter_list|()
 function_decl|;
+comment|/**      * The current state.      */
 DECL|method|state
 name|ClusterState
 name|state
 parameter_list|()
 function_decl|;
+comment|/**      * Adds a listener for updated cluster states.      */
 DECL|method|add
 name|void
 name|add
@@ -89,6 +92,7 @@ name|ClusterStateListener
 name|listener
 parameter_list|)
 function_decl|;
+comment|/**      * Removes a listener for updated cluster states.      */
 DECL|method|remove
 name|void
 name|remove
@@ -97,6 +101,7 @@ name|ClusterStateListener
 name|listener
 parameter_list|)
 function_decl|;
+comment|/**      * Adds a cluster state listener that will timeout after the provided timeout.      */
 DECL|method|add
 name|void
 name|add
@@ -108,6 +113,7 @@ name|TimeoutClusterStateListener
 name|listener
 parameter_list|)
 function_decl|;
+comment|/**      * Submits a task that will update the cluster state.      */
 DECL|method|submitStateUpdateTask
 name|void
 name|submitStateUpdateTask

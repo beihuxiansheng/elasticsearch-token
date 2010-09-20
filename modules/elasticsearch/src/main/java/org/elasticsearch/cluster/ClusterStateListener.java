@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * A listener to be notified when a cluster state changes.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_interface
@@ -24,6 +24,7 @@ specifier|public
 interface|interface
 name|ClusterStateListener
 block|{
+comment|/**      * Called when cluster state changes.      */
 DECL|method|clusterChanged
 name|void
 name|clusterChanged
