@@ -88,9 +88,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|indexer
+name|river
 operator|.
-name|IndexerName
+name|RiverName
 import|;
 end_import
 
@@ -354,8 +354,8 @@ parameter_list|,
 name|Settings
 name|settings
 parameter_list|,
-name|IndexerName
-name|indexerName
+name|RiverName
+name|riverName
 parameter_list|,
 name|String
 modifier|...
@@ -384,7 +384,7 @@ name|l
 operator|.
 name|add
 argument_list|(
-name|indexerName
+name|riverName
 operator|.
 name|type
 argument_list|()
@@ -394,7 +394,7 @@ name|l
 operator|.
 name|add
 argument_list|(
-name|indexerName
+name|riverName
 operator|.
 name|name
 argument_list|()
