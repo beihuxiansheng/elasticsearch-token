@@ -476,6 +476,9 @@ name|reroute
 argument_list|(
 name|clusterState
 argument_list|)
+operator|.
+name|routingTable
+argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -529,6 +532,9 @@ argument_list|(
 name|INITIALIZING
 argument_list|)
 argument_list|)
+operator|.
+name|routingTable
+argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -581,6 +587,9 @@ argument_list|(
 name|INITIALIZING
 argument_list|)
 argument_list|)
+operator|.
+name|routingTable
+argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -734,6 +743,9 @@ name|reroute
 argument_list|(
 name|clusterState
 argument_list|)
+operator|.
+name|routingTable
+argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -923,6 +935,9 @@ name|reroute
 argument_list|(
 name|clusterState
 argument_list|)
+operator|.
+name|routingTable
+argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=

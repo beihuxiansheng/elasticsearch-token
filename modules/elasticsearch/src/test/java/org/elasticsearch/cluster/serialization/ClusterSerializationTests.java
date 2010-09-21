@@ -426,6 +426,9 @@ name|reroute
 argument_list|(
 name|clusterState
 argument_list|)
+operator|.
+name|routingTable
+argument_list|()
 argument_list|)
 operator|.
 name|build
@@ -625,6 +628,9 @@ name|reroute
 argument_list|(
 name|clusterState
 argument_list|)
+operator|.
+name|routingTable
+argument_list|()
 decl_stmt|;
 name|BytesStreamOutput
 name|outStream
