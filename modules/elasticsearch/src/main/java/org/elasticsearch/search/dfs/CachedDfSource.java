@@ -200,9 +200,6 @@ argument_list|(
 literal|"df for term "
 operator|+
 name|term
-operator|.
-name|text
-argument_list|()
 operator|+
 literal|" not available"
 argument_list|)
