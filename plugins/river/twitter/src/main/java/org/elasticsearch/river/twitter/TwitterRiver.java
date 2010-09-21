@@ -405,7 +405,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"creating twitter stream indexer for [{}]"
+literal|"creating twitter stream river for [{}]"
 argument_list|,
 name|user
 argument_list|)
@@ -479,7 +479,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"no user / password specified, disabling indexer..."
+literal|"no user / password specified, disabling river..."
 argument_list|)
 expr_stmt|;
 return|return;
@@ -670,7 +670,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"failed to create index [{}], disabling indexer..."
+literal|"failed to create index [{}], disabling river..."
 argument_list|,
 name|e
 argument_list|,
@@ -705,7 +705,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"closing twitter stream indexer"
+literal|"closing twitter stream river"
 argument_list|)
 expr_stmt|;
 if|if
