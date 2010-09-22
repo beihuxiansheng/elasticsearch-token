@@ -1657,7 +1657,7 @@ expr_stmt|;
 block|}
 name|builder
 operator|.
-name|endObject
+name|endArray
 argument_list|()
 expr_stmt|;
 block|}
@@ -1800,6 +1800,24 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
+if|if
+condition|(
+name|logger
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"failed to handle cluster state"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 try|try
 block|{
 name|channel
