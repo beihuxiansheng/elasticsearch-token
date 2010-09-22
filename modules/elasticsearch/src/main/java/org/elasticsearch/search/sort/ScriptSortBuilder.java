@@ -65,7 +65,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  * Script sort builder allows to sort based on a custom script expression.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -103,6 +103,7 @@ name|Object
 argument_list|>
 name|params
 decl_stmt|;
+comment|/**      * Constructs a script sort builder with the script and the type.      *      * @param script The script to use.      * @param type   The type, can either be "string" or "number".      */
 DECL|method|ScriptSortBuilder
 specifier|public
 name|ScriptSortBuilder
@@ -127,6 +128,7 @@ operator|=
 name|type
 expr_stmt|;
 block|}
+comment|/**      * Adds a parameter to the script.      *      * @param name  The name of the parameter.      * @param value The value of the parameter.      */
 DECL|method|param
 specifier|public
 name|ScriptSortBuilder
@@ -167,6 +169,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the sort order.      */
 DECL|method|order
 specifier|public
 name|ScriptSortBuilder
