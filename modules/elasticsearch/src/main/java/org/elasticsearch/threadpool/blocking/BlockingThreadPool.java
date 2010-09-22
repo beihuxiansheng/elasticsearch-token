@@ -84,7 +84,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|EsExecutors
+name|DynamicExecutors
 import|;
 end_import
 
@@ -100,7 +100,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|TransferThreadPoolExecutor
+name|EsExecutors
 import|;
 end_import
 
@@ -139,18 +139,6 @@ operator|.
 name|concurrent
 operator|.
 name|ThreadPoolExecutor
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|TimeUnit
 import|;
 end_import
 
@@ -279,12 +267,13 @@ name|getAsInt
 argument_list|(
 literal|"min"
 argument_list|,
-literal|1
+literal|10
 argument_list|)
 expr_stmt|;
-name|int
+name|this
+operator|.
 name|max
-init|=
+operator|=
 name|componentSettings
 operator|.
 name|getAsInt
@@ -293,33 +282,6 @@ literal|"max"
 argument_list|,
 literal|100
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|max
-operator|<
-literal|10
-condition|)
-block|{
-name|logger
-operator|.
-name|warn
-argument_list|(
-literal|"blocking threadpool max threads [{}] must not be lower than 10, setting it to 10"
-argument_list|,
-name|max
-argument_list|)
-expr_stmt|;
-name|max
-operator|=
-literal|10
-expr_stmt|;
-block|}
-name|this
-operator|.
-name|max
-operator|=
-name|max
 expr_stmt|;
 comment|// capacity is set to 0 as it might cause starvation in blocking mode
 name|this
@@ -399,11 +361,12 @@ argument_list|,
 name|scheduledSize
 argument_list|)
 expr_stmt|;
+comment|//        executorService = TransferThreadPoolExecutor.newBlockingExecutor(min, max, keepAlive.millis(), TimeUnit.MILLISECONDS, waitTime.millis(), TimeUnit.MILLISECONDS, capacity, EsExecutors.daemonThreadFactory(settings, "[tp]"));
 name|executorService
 operator|=
-name|TransferThreadPoolExecutor
+name|DynamicExecutors
 operator|.
-name|newBlockingExecutor
+name|newBlockingThreadPool
 argument_list|(
 name|min
 argument_list|,
@@ -414,20 +377,12 @@ operator|.
 name|millis
 argument_list|()
 argument_list|,
-name|TimeUnit
-operator|.
-name|MILLISECONDS
+name|capacity
 argument_list|,
 name|waitTime
 operator|.
 name|millis
 argument_list|()
-argument_list|,
-name|TimeUnit
-operator|.
-name|MILLISECONDS
-argument_list|,
-name|capacity
 argument_list|,
 name|EsExecutors
 operator|.

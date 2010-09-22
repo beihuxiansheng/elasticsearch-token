@@ -106,9 +106,9 @@ name|elasticsearch
 operator|.
 name|threadpool
 operator|.
-name|cached
+name|scaling
 operator|.
-name|CachedThreadPoolModule
+name|ScalingThreadPoolModule
 import|;
 end_import
 
@@ -175,7 +175,7 @@ name|getAsClass
 argument_list|(
 literal|"threadpool.type"
 argument_list|,
-name|CachedThreadPoolModule
+name|ScalingThreadPoolModule
 operator|.
 name|class
 argument_list|,

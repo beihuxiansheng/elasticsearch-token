@@ -471,7 +471,7 @@ decl_stmt|;
 name|int
 name|BATCH
 init|=
-literal|1000
+literal|100
 decl_stmt|;
 name|System
 operator|.
