@@ -117,7 +117,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -336,12 +336,27 @@ operator|.
 name|readLong
 argument_list|()
 expr_stmt|;
-comment|//        shardTarget = readSearchShardTarget(in);
 name|hits
 operator|=
+name|InternalSearchHits
+operator|.
 name|readSearchHits
 argument_list|(
 name|in
+argument_list|,
+name|InternalSearchHits
+operator|.
+name|streamContext
+argument_list|()
+operator|.
+name|streamShardTarget
+argument_list|(
+name|StreamContext
+operator|.
+name|ShardTargetType
+operator|.
+name|NO_STREAM
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -365,12 +380,25 @@ argument_list|(
 name|id
 argument_list|)
 expr_stmt|;
-comment|//        shardTarget.writeTo(out);
 name|hits
 operator|.
 name|writeTo
 argument_list|(
 name|out
+argument_list|,
+name|InternalSearchHits
+operator|.
+name|streamContext
+argument_list|()
+operator|.
+name|streamShardTarget
+argument_list|(
+name|StreamContext
+operator|.
+name|ShardTargetType
+operator|.
+name|NO_STREAM
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
