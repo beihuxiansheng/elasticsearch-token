@@ -5649,11 +5649,11 @@ name|FilteredQuery
 operator|)
 name|parsedQuery
 decl_stmt|;
-name|BooleanFilter
+name|XBooleanFilter
 name|booleanFilter
 init|=
 operator|(
-name|BooleanFilter
+name|XBooleanFilter
 operator|)
 name|filteredQuery
 operator|.

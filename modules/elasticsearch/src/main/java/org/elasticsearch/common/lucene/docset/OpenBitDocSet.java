@@ -148,6 +148,16 @@ name|numBits
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|set
+specifier|public
+name|OpenBitSet
+name|set
+parameter_list|()
+block|{
+return|return
+name|set
+return|;
+block|}
 DECL|method|get
 annotation|@
 name|Override
