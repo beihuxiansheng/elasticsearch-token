@@ -245,6 +245,7 @@ name|of
 argument_list|()
 return|;
 block|}
+comment|// using MapBuilder and not ImmutableMap.Builder as it seems like File#listFiles might return duplicate files!
 name|MapBuilder
 argument_list|<
 name|String
