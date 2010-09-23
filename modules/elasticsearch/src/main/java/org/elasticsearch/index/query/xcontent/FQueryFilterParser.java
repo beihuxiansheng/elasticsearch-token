@@ -165,7 +165,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  * The "fquery" filter is the same as the {@link QueryFilterParser} except that it allows also to  * associate a name with the query filter.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class

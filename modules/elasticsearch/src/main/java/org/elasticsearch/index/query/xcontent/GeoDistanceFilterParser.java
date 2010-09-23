@@ -242,6 +242,24 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|support
+operator|.
+name|QueryParsers
+operator|.
+name|*
+import|;
+end_import
+
 begin_comment
 comment|/**  *<pre>  * {  *     "name.lat" : 1.1,  *     "name.lon" : 1.2,  * }  *</pre>  *  * @author kimchy (shay.banon)  */
 end_comment
@@ -1199,7 +1217,7 @@ operator|.
 name|indexName
 argument_list|()
 expr_stmt|;
-name|GeoDistanceFilter
+name|Filter
 name|filter
 init|=
 operator|new
@@ -1231,6 +1249,22 @@ name|fieldData
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|filter
+operator|=
+name|wrapSmartNameFilter
+argument_list|(
+name|filter
+argument_list|,
+name|parseContext
+operator|.
+name|smartFieldMappers
+argument_list|(
+name|latFieldName
+argument_list|)
+argument_list|,
+name|parseContext
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|filterName
