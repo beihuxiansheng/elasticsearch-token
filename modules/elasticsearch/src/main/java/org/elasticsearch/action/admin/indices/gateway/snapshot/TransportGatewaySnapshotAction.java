@@ -644,7 +644,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * The refresh request works against *all* shards.      */
+comment|/**      * The snapshot request works against all primary shards.      */
 DECL|method|shards
 annotation|@
 name|Override
