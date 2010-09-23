@@ -4,17 +4,15 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.plugin.river.twitter
+DECL|package|org.elasticsearch.river.couchdb
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|plugin
-operator|.
 name|river
 operator|.
-name|twitter
+name|couchdb
 package|;
 end_package
 
@@ -28,7 +26,7 @@ name|common
 operator|.
 name|inject
 operator|.
-name|Inject
+name|AbstractModule
 import|;
 end_import
 
@@ -38,9 +36,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|plugins
+name|river
 operator|.
-name|AbstractPlugin
+name|River
 import|;
 end_import
 
@@ -49,43 +47,38 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|RiverTwitterPlugin
+DECL|class|CouchdbRiverModule
 specifier|public
 class|class
-name|RiverTwitterPlugin
+name|CouchdbRiverModule
 extends|extends
-name|AbstractPlugin
+name|AbstractModule
 block|{
-DECL|method|RiverTwitterPlugin
-annotation|@
-name|Inject
-specifier|public
-name|RiverTwitterPlugin
-parameter_list|()
-block|{     }
-DECL|method|name
+DECL|method|configure
 annotation|@
 name|Override
-specifier|public
-name|String
-name|name
+specifier|protected
+name|void
+name|configure
 parameter_list|()
 block|{
-return|return
-literal|"river-twitter"
-return|;
-block|}
-DECL|method|description
-annotation|@
-name|Override
-specifier|public
-name|String
-name|description
-parameter_list|()
-block|{
-return|return
-literal|"River Twitter Plugin"
-return|;
+name|bind
+argument_list|(
+name|River
+operator|.
+name|class
+argument_list|)
+operator|.
+name|to
+argument_list|(
+name|CouchdbRiver
+operator|.
+name|class
+argument_list|)
+operator|.
+name|asEagerSingleton
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_class

@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.plugin.river.rabbitmq
+DECL|package|org.elasticsearch.plugin.river.twitter
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|plugin
 operator|.
 name|river
 operator|.
-name|rabbitmq
+name|twitter
 package|;
 end_package
 
@@ -49,18 +49,18 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|RiverRabbitMQPlugin
+DECL|class|TwitterRiverPlugin
 specifier|public
 class|class
-name|RiverRabbitMQPlugin
+name|TwitterRiverPlugin
 extends|extends
 name|AbstractPlugin
 block|{
-DECL|method|RiverRabbitMQPlugin
+DECL|method|TwitterRiverPlugin
 annotation|@
 name|Inject
 specifier|public
-name|RiverRabbitMQPlugin
+name|TwitterRiverPlugin
 parameter_list|()
 block|{     }
 DECL|method|name
@@ -72,7 +72,7 @@ name|name
 parameter_list|()
 block|{
 return|return
-literal|"river-rabbitmq"
+literal|"river-twitter"
 return|;
 block|}
 DECL|method|description
@@ -84,7 +84,7 @@ name|description
 parameter_list|()
 block|{
 return|return
-literal|"River RabbitMQ Plugin"
+literal|"River Twitter Plugin"
 return|;
 block|}
 block|}
