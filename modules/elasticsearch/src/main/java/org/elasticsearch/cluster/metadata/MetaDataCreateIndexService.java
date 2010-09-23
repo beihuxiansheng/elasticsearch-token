@@ -1542,7 +1542,7 @@ name|getAsInt
 argument_list|(
 name|SETTING_NUMBER_OF_REPLICAS
 argument_list|,
-literal|2
+literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
