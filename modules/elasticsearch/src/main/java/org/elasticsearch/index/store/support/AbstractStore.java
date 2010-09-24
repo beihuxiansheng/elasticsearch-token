@@ -331,9 +331,10 @@ name|getAsBoolean
 argument_list|(
 literal|"sync"
 argument_list|,
-literal|false
+literal|true
 argument_list|)
 expr_stmt|;
+comment|// TODO we don't really need to fsync when using shared gateway...
 block|}
 DECL|method|wrapDirectory
 specifier|protected

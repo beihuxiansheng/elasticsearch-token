@@ -225,6 +225,15 @@ name|FsStore
 extends|extends
 name|AbstractStore
 block|{
+DECL|field|DEFAULT_SUGGEST_USE_COMPOUND_FILE
+specifier|public
+specifier|static
+specifier|final
+name|boolean
+name|DEFAULT_SUGGEST_USE_COMPOUND_FILE
+init|=
+literal|false
+decl_stmt|;
 DECL|method|FsStore
 specifier|public
 name|FsStore

@@ -359,7 +359,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Using [mmap_fs] Store with path [{}], cache [true] with extensions [{}]"
+literal|"using [mmap_fs] store with path [{}], cache [true] with extensions [{}]"
 argument_list|,
 name|fsDirectory
 operator|.
@@ -390,7 +390,7 @@ else|else
 block|{
 name|suggestUseCompoundFile
 operator|=
-literal|true
+name|DEFAULT_SUGGEST_USE_COMPOUND_FILE
 expr_stmt|;
 name|directory
 operator|=
@@ -403,7 +403,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Using [mmap_fs] Store with path [{}]"
+literal|"using [mmap_fs] store with path [{}]"
 argument_list|,
 name|fsDirectory
 operator|.
