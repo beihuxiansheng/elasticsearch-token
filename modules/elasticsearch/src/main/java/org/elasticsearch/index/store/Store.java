@@ -100,16 +100,6 @@ name|Directory
 name|directory
 parameter_list|()
 function_decl|;
-DECL|method|metaData
-name|StoreFileMetaData
-name|metaData
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-throws|throws
-name|IOException
-function_decl|;
 DECL|method|list
 name|ImmutableMap
 argument_list|<
