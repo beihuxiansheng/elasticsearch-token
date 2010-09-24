@@ -1065,7 +1065,7 @@ block|{
 name|highlightBuilder
 argument_list|()
 operator|.
-name|preTags
+name|postTags
 argument_list|(
 name|postTags
 argument_list|)
