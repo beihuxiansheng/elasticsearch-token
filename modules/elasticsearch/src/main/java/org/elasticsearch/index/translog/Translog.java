@@ -313,11 +313,19 @@ name|Snapshot
 name|snapshot
 parameter_list|)
 function_decl|;
-comment|/**      * Flushes the translog.      */
-DECL|method|flush
+comment|/**      * Sync's the translog.      */
+DECL|method|sync
 name|void
-name|flush
+name|sync
 parameter_list|()
+function_decl|;
+DECL|method|syncOnEachOperation
+name|void
+name|syncOnEachOperation
+parameter_list|(
+name|boolean
+name|syncOnEachOperation
+parameter_list|)
 function_decl|;
 comment|/**      * Closes the transaction log.      */
 DECL|method|close
