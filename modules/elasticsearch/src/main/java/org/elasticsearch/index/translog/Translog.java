@@ -313,6 +313,12 @@ name|Snapshot
 name|snapshot
 parameter_list|)
 function_decl|;
+comment|/**      * Flushes the translog.      */
+DECL|method|flush
+name|void
+name|flush
+parameter_list|()
+function_decl|;
 comment|/**      * Closes the transaction log.      */
 DECL|method|close
 name|void
