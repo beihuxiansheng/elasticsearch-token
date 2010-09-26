@@ -199,7 +199,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -422,6 +422,23 @@ argument_list|,
 name|IndexRequest
 operator|.
 name|DEFAULT_TIMEOUT
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|indexRequest
+operator|.
+name|refresh
+argument_list|(
+name|request
+operator|.
+name|paramAsBoolean
+argument_list|(
+literal|"refresh"
+argument_list|,
+name|indexRequest
+operator|.
+name|refresh
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

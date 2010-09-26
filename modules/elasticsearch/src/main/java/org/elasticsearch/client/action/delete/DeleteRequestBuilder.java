@@ -217,6 +217,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Should a refresh be executed post this index operation causing the operation to      * be searchable. Note, heavy indexing should not set this to<tt>true</tt>. Defaults      * to<tt>false</tt>.      */
+DECL|method|setRefresh
+specifier|public
+name|DeleteRequestBuilder
+name|setRefresh
+parameter_list|(
+name|boolean
+name|refresh
+parameter_list|)
+block|{
+name|request
+operator|.
+name|refresh
+argument_list|(
+name|refresh
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Should the listener be called on a separate thread if needed.      */
 DECL|method|setListenerThreaded
 specifier|public
