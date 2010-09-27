@@ -381,7 +381,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// TODO, should we just return it as binary and not auto convert it?
 name|XContentParser
 name|parser
 init|=
@@ -389,10 +388,7 @@ name|XContentFactory
 operator|.
 name|xContent
 argument_list|(
-name|builder
-operator|.
 name|contentType
-argument_list|()
 argument_list|)
 operator|.
 name|createParser
@@ -434,14 +430,19 @@ block|}
 block|}
 else|else
 block|{
-if|if
-condition|(
+name|XContentType
+name|contentType
+init|=
 name|XContentFactory
 operator|.
 name|xContentType
 argument_list|(
 name|source
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|contentType
 operator|==
 name|builder
 operator|.
@@ -461,7 +462,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// TODO, should we just return it as binary and not auto convert it?
 name|XContentParser
 name|parser
 init|=
@@ -469,10 +469,7 @@ name|XContentFactory
 operator|.
 name|xContent
 argument_list|(
-name|builder
-operator|.
 name|contentType
-argument_list|()
 argument_list|)
 operator|.
 name|createParser
