@@ -1696,7 +1696,7 @@ literal|"/"
 operator|+
 name|couchDb
 operator|+
-literal|"/_changes?feed=continuous&include_docs=true&&heartbeat=10000"
+literal|"/_changes?feed=continuous&include_docs=true&heartbeat=10000"
 decl_stmt|;
 if|if
 condition|(
