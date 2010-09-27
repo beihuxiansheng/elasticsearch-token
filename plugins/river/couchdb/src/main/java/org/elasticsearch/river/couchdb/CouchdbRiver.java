@@ -1672,6 +1672,7 @@ argument_list|(
 literal|5000
 argument_list|)
 expr_stmt|;
+continue|continue;
 block|}
 catch|catch
 parameter_list|(
