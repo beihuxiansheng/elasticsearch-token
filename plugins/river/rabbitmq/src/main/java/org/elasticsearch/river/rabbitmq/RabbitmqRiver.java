@@ -490,7 +490,7 @@ name|rabbitSettings
 operator|.
 name|get
 argument_list|(
-literal|"host"
+literal|"user"
 argument_list|)
 argument_list|,
 name|ConnectionFactory
@@ -508,7 +508,7 @@ name|rabbitSettings
 operator|.
 name|get
 argument_list|(
-literal|"host"
+literal|"pass"
 argument_list|)
 argument_list|,
 name|ConnectionFactory
@@ -526,7 +526,7 @@ name|rabbitSettings
 operator|.
 name|get
 argument_list|(
-literal|"host"
+literal|"vhost"
 argument_list|)
 argument_list|,
 name|ConnectionFactory
