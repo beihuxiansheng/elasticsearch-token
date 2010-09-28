@@ -241,6 +241,16 @@ return|return
 literal|false
 return|;
 block|}
+if|if
+condition|(
+name|allEntries
+operator|.
+name|current
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 name|float
 name|boost
 init|=
@@ -283,6 +293,7 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 literal|true
