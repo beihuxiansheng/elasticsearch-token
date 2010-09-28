@@ -2487,14 +2487,15 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-throw|throw
-operator|new
-name|SearchParseException
-argument_list|(
-name|context
-argument_list|,
-literal|"Failed to parse ["
-operator|+
+name|String
+name|sSource
+init|=
+literal|"_na_"
+decl_stmt|;
+try|try
+block|{
+name|sSource
+operator|=
 name|Unicode
 operator|.
 name|fromBytes
@@ -2505,6 +2506,25 @@ name|offset
 argument_list|,
 name|length
 argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e1
+parameter_list|)
+block|{
+comment|// ignore
+block|}
+throw|throw
+operator|new
+name|SearchParseException
+argument_list|(
+name|context
+argument_list|,
+literal|"Failed to parse ["
+operator|+
+name|sSource
 operator|+
 literal|"]"
 argument_list|,
