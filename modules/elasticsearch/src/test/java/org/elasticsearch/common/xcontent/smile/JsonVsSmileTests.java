@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.common.xcontent.xson
+DECL|package|org.elasticsearch.common.xcontent.smile
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|xson
+name|smile
 package|;
 end_package
 
@@ -144,6 +144,14 @@ specifier|public
 class|class
 name|JsonVsSmileTests
 block|{
+comment|//    @Test public void testBinarySmileField() throws Exception {
+comment|//        JsonGenerator gen = new SmileFactory().createJsonGenerator(new ByteArrayOutputStream());
+comment|////        JsonGenerator gen = new JsonFactory().createJsonGenerator(new ByteArrayOutputStream(), JsonEncoding.UTF8);
+comment|//        gen.writeStartObject();
+comment|//        gen.writeFieldName("field1");
+comment|//        gen.writeBinary(new byte[]{1, 2, 3});
+comment|//        gen.writeEndObject();
+comment|//    }
 DECL|method|compareParsingTokens
 annotation|@
 name|Test
