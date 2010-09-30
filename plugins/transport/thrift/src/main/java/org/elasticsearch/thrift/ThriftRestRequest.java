@@ -173,7 +173,7 @@ name|params
 operator|=
 name|request
 operator|.
-name|getParams
+name|getParameters
 argument_list|()
 operator|==
 literal|null
@@ -189,7 +189,7 @@ argument_list|()
 else|:
 name|request
 operator|.
-name|getParams
+name|getParameters
 argument_list|()
 expr_stmt|;
 name|int
