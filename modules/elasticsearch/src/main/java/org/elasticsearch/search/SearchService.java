@@ -2510,7 +2510,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|Error
 name|e1
 parameter_list|)
 block|{
