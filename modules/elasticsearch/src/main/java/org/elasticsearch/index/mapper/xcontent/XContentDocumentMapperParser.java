@@ -659,6 +659,26 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+DECL|method|parserContext
+specifier|public
+name|XContentTypeParser
+operator|.
+name|ParserContext
+name|parserContext
+parameter_list|()
+block|{
+return|return
+operator|new
+name|XContentTypeParser
+operator|.
+name|ParserContext
+argument_list|(
+name|analysisService
+argument_list|,
+name|typeParsers
+argument_list|)
+return|;
+block|}
 DECL|method|parse
 annotation|@
 name|Override
@@ -876,8 +896,6 @@ name|XContentTypeParser
 operator|.
 name|ParserContext
 argument_list|(
-name|mapping
-argument_list|,
 name|analysisService
 argument_list|,
 name|typeParsers
@@ -1433,7 +1451,9 @@ init|=
 name|docBuilder
 operator|.
 name|build
-argument_list|()
+argument_list|(
+name|this
+argument_list|)
 decl_stmt|;
 comment|// update the source with the generated one
 name|documentMapper

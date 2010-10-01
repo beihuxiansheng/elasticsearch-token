@@ -660,7 +660,10 @@ DECL|method|build
 specifier|public
 name|XContentDocumentMapper
 name|build
-parameter_list|()
+parameter_list|(
+name|XContentDocumentMapperParser
+name|docMapperParser
+parameter_list|)
 block|{
 name|Preconditions
 operator|.
@@ -676,6 +679,8 @@ operator|new
 name|XContentDocumentMapper
 argument_list|(
 name|index
+argument_list|,
+name|docMapperParser
 argument_list|,
 name|rootObjectMapper
 argument_list|,
@@ -753,6 +758,8 @@ name|ParseContext
 argument_list|(
 name|index
 argument_list|,
+name|docMapperParser
+argument_list|,
 name|XContentDocumentMapper
 operator|.
 name|this
@@ -779,6 +786,12 @@ specifier|private
 specifier|final
 name|String
 name|type
+decl_stmt|;
+DECL|field|docMapperParser
+specifier|private
+specifier|final
+name|XContentDocumentMapperParser
+name|docMapperParser
 decl_stmt|;
 DECL|field|attributes
 specifier|private
@@ -898,6 +911,9 @@ parameter_list|(
 name|String
 name|index
 parameter_list|,
+name|XContentDocumentMapperParser
+name|docMapperParser
+parameter_list|,
 name|XContentObjectMapper
 name|rootObjectMapper
 parameter_list|,
@@ -953,6 +969,12 @@ name|rootObjectMapper
 operator|.
 name|name
 argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|docMapperParser
+operator|=
+name|docMapperParser
 expr_stmt|;
 name|this
 operator|.
