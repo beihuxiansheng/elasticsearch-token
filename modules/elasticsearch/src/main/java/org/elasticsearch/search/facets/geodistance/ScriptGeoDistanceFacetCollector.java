@@ -191,6 +191,9 @@ name|SearchContext
 name|context
 parameter_list|,
 name|String
+name|scriptLang
+parameter_list|,
+name|String
 name|script
 parameter_list|,
 name|Map
@@ -234,6 +237,8 @@ operator|=
 operator|new
 name|ScriptFieldsFunction
 argument_list|(
+name|scriptLang
+argument_list|,
 name|script
 argument_list|,
 name|context

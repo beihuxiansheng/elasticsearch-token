@@ -235,6 +235,9 @@ name|String
 name|facetName
 parameter_list|,
 name|String
+name|scriptLang
+parameter_list|,
+name|String
 name|keyScript
 parameter_list|,
 name|String
@@ -272,6 +275,8 @@ operator|=
 operator|new
 name|ScriptFieldsFunction
 argument_list|(
+name|scriptLang
+argument_list|,
 name|keyScript
 argument_list|,
 name|context
@@ -297,6 +302,8 @@ operator|=
 operator|new
 name|ScriptFieldsFunction
 argument_list|(
+name|scriptLang
+argument_list|,
 name|valueScript
 argument_list|,
 name|context

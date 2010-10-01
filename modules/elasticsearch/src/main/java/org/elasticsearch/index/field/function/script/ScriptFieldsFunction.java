@@ -611,6 +611,9 @@ specifier|public
 name|ScriptFieldsFunction
 parameter_list|(
 name|String
+name|scriptLang
+parameter_list|,
+name|String
 name|script
 parameter_list|,
 name|ScriptService
@@ -637,6 +640,8 @@ name|scriptService
 operator|.
 name|compile
 argument_list|(
+name|scriptLang
+argument_list|,
 name|script
 argument_list|)
 expr_stmt|;

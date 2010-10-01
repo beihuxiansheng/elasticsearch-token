@@ -377,6 +377,11 @@ name|valueScript
 init|=
 literal|null
 decl_stmt|;
+name|String
+name|scriptLang
+init|=
+literal|null
+decl_stmt|;
 name|Map
 argument_list|<
 name|String
@@ -994,6 +999,25 @@ name|text
 argument_list|()
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+literal|"lang"
+operator|.
+name|equals
+argument_list|(
+name|currentName
+argument_list|)
+condition|)
+block|{
+name|scriptLang
+operator|=
+name|parser
+operator|.
+name|text
+argument_list|()
+expr_stmt|;
+block|}
 else|else
 block|{
 comment|// assume the value is the actual value
@@ -1227,6 +1251,8 @@ index|]
 argument_list|)
 argument_list|,
 name|context
+argument_list|,
+name|scriptLang
 argument_list|,
 name|valueScript
 argument_list|,
