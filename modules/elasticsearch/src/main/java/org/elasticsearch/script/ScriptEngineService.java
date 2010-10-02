@@ -34,9 +34,10 @@ specifier|public
 interface|interface
 name|ScriptEngineService
 block|{
-DECL|method|type
+DECL|method|types
 name|String
-name|type
+index|[]
+name|types
 parameter_list|()
 function_decl|;
 DECL|method|compile
