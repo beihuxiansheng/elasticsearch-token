@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  * An executable script, can't be used concurrently.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_interface
