@@ -80,6 +80,11 @@ argument_list|>
 name|vars
 parameter_list|)
 function_decl|;
+DECL|method|close
+name|void
+name|close
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

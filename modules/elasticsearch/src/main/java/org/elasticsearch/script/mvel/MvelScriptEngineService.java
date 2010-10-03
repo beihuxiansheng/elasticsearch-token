@@ -289,6 +289,16 @@ expr_stmt|;
 block|}
 block|}
 block|}
+DECL|method|close
+annotation|@
+name|Override
+specifier|public
+name|void
+name|close
+parameter_list|()
+block|{
+comment|// nothing to do here...
+block|}
 DECL|method|types
 annotation|@
 name|Override
