@@ -56,6 +56,11 @@ name|Object
 name|compiledScript
 parameter_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|vars
 parameter_list|)
 function_decl|;
@@ -67,6 +72,11 @@ name|Object
 name|compiledScript
 parameter_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|vars
 parameter_list|)
 function_decl|;

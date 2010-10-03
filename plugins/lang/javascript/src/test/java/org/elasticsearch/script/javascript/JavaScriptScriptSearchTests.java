@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.script.groovy
+DECL|package|org.elasticsearch.script.javascript
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|groovy
+name|javascript
 package|;
 end_package
 
@@ -303,10 +303,10 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|GroovyScriptSearchTests
+DECL|class|JavaScriptScriptSearchTests
 specifier|public
 class|class
-name|GroovyScriptSearchTests
+name|JavaScriptScriptSearchTests
 block|{
 DECL|field|logger
 specifier|protected
@@ -401,12 +401,12 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testGroovyScriptFilter
+DECL|method|testJavaScriptFilter
 annotation|@
 name|Test
 specifier|public
 name|void
-name|testGroovyScriptFilter
+name|testJavaScriptFilter
 parameter_list|()
 throws|throws
 name|Exception
@@ -639,7 +639,7 @@ argument_list|)
 operator|.
 name|lang
 argument_list|(
-literal|"groovy"
+literal|"js"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -657,7 +657,7 @@ name|addScriptField
 argument_list|(
 literal|"sNum1"
 argument_list|,
-literal|"groovy"
+literal|"js"
 argument_list|,
 literal|"doc['num1'].value"
 argument_list|,
@@ -830,7 +830,7 @@ argument_list|)
 operator|.
 name|lang
 argument_list|(
-literal|"groovy"
+literal|"js"
 argument_list|)
 operator|.
 name|addParam
@@ -855,7 +855,7 @@ name|addScriptField
 argument_list|(
 literal|"sNum1"
 argument_list|,
-literal|"groovy"
+literal|"js"
 argument_list|,
 literal|"doc['num1'].value"
 argument_list|,
@@ -970,7 +970,7 @@ argument_list|)
 operator|.
 name|lang
 argument_list|(
-literal|"groovy"
+literal|"js"
 argument_list|)
 operator|.
 name|addParam
@@ -996,7 +996,7 @@ name|addScriptField
 argument_list|(
 literal|"sNum1"
 argument_list|,
-literal|"groovy"
+literal|"js"
 argument_list|,
 literal|"doc['num1'].value"
 argument_list|,
@@ -1340,7 +1340,7 @@ name|addScriptField
 argument_list|(
 literal|"s_obj1"
 argument_list|,
-literal|"groovy"
+literal|"js"
 argument_list|,
 literal|"_source.obj1"
 argument_list|,
@@ -1351,7 +1351,7 @@ name|addScriptField
 argument_list|(
 literal|"s_obj1_test"
 argument_list|,
-literal|"groovy"
+literal|"js"
 argument_list|,
 literal|"_source.obj1.test"
 argument_list|,
@@ -1362,7 +1362,7 @@ name|addScriptField
 argument_list|(
 literal|"s_obj2"
 argument_list|,
-literal|"groovy"
+literal|"js"
 argument_list|,
 literal|"_source.obj2"
 argument_list|,
@@ -1373,7 +1373,7 @@ name|addScriptField
 argument_list|(
 literal|"s_obj2_arr2"
 argument_list|,
-literal|"groovy"
+literal|"js"
 argument_list|,
 literal|"_source.obj2.arr2"
 argument_list|,
@@ -1992,7 +1992,7 @@ argument_list|)
 operator|.
 name|lang
 argument_list|(
-literal|"groovy"
+literal|"js"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2177,7 +2177,7 @@ argument_list|)
 operator|.
 name|lang
 argument_list|(
-literal|"groovy"
+literal|"js"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2362,7 +2362,7 @@ argument_list|)
 operator|.
 name|lang
 argument_list|(
-literal|"groovy"
+literal|"js"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2542,12 +2542,12 @@ argument_list|)
 operator|.
 name|script
 argument_list|(
-literal|"Math.max(doc['num1'].value, 1d)"
+literal|"Math.max(doc['num1'].value, 1)"
 argument_list|)
 operator|.
 name|lang
 argument_list|(
-literal|"groovy"
+literal|"js"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2732,7 +2732,7 @@ argument_list|)
 operator|.
 name|lang
 argument_list|(
-literal|"groovy"
+literal|"js"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2931,7 +2931,7 @@ argument_list|)
 operator|.
 name|lang
 argument_list|(
-literal|"groovy"
+literal|"js"
 argument_list|)
 argument_list|)
 argument_list|)

@@ -259,6 +259,11 @@ name|Object
 name|compiledScript
 parameter_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|vars
 parameter_list|)
 block|{
@@ -351,6 +356,11 @@ name|Object
 name|compiledScript
 parameter_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|vars
 parameter_list|)
 block|{
@@ -484,6 +494,11 @@ name|Object
 name|run
 parameter_list|(
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|vars
 parameter_list|)
 block|{

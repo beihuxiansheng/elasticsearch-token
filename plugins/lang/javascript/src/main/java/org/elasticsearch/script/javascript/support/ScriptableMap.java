@@ -4,13 +4,17 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.script
+DECL|package|org.elasticsearch.script.javascript.support
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|script
+operator|.
+name|javascript
+operator|.
+name|support
 package|;
 end_package
 
@@ -18,15 +22,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
+name|mozilla
 operator|.
-name|common
+name|javascript
 operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|NotThreadSafe
+name|Scriptable
 import|;
 end_import
 
@@ -41,38 +41,29 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An executable script, can't be used concurrently.  *  * @author kimchy (shay.banon)  */
+comment|/**  * Contract to be implemented by classes providing Map like collections to JavaScript.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_interface
-annotation|@
-name|NotThreadSafe
-DECL|interface|ExecutableScript
+DECL|interface|ScriptableMap
 specifier|public
 interface|interface
-name|ExecutableScript
-block|{
-comment|/**      * Executes the script.      */
-DECL|method|run
-name|Object
-name|run
-parameter_list|()
-function_decl|;
-comment|/**      * Executes the script.      */
-DECL|method|run
-name|Object
-name|run
-parameter_list|(
+name|ScriptableMap
+parameter_list|<
+name|K
+parameter_list|,
+name|V
+parameter_list|>
+extends|extends
+name|Scriptable
+extends|,
 name|Map
 argument_list|<
-name|String
+name|K
 argument_list|,
-name|Object
+name|V
 argument_list|>
-name|vars
-parameter_list|)
-function_decl|;
-block|}
+block|{ }
 end_interface
 
 end_unit

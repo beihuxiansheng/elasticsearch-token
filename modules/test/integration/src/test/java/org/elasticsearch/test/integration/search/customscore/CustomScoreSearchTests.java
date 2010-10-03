@@ -268,9 +268,9 @@ literal|"server1"
 argument_list|)
 return|;
 block|}
+DECL|method|testCustomScriptBoost
 annotation|@
 name|Test
-DECL|method|testCustomScriptBoost
 specifier|public
 name|void
 name|testCustomScriptBoost
