@@ -3443,7 +3443,7 @@ name|String
 name|name
 parameter_list|,
 name|String
-name|mappingType
+name|dynamicType
 parameter_list|)
 block|{
 name|XContentDynamicTemplate
@@ -3453,7 +3453,7 @@ name|findTemplate
 argument_list|(
 name|name
 argument_list|,
-name|mappingType
+name|dynamicType
 argument_list|)
 decl_stmt|;
 if|if
@@ -3488,7 +3488,9 @@ argument_list|(
 name|dynamicTemplate
 operator|.
 name|mappingType
-argument_list|()
+argument_list|(
+name|dynamicType
+argument_list|)
 argument_list|)
 operator|.
 name|parse
@@ -3500,6 +3502,8 @@ operator|.
 name|mappingForName
 argument_list|(
 name|name
+argument_list|,
+name|dynamicType
 argument_list|)
 argument_list|,
 name|parserContext
@@ -3515,7 +3519,7 @@ name|String
 name|name
 parameter_list|,
 name|String
-name|mappingType
+name|dynamicType
 parameter_list|)
 block|{
 for|for
@@ -3534,7 +3538,7 @@ name|match
 argument_list|(
 name|name
 argument_list|,
-name|mappingType
+name|dynamicType
 argument_list|)
 condition|)
 block|{
