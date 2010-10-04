@@ -231,6 +231,13 @@ parameter_list|)
 throws|throws
 name|GatewayException
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"performing state recovery"
+argument_list|)
+expr_stmt|;
 name|listener
 operator|.
 name|onSuccess
