@@ -1312,6 +1312,30 @@ operator|.
 name|toString
 argument_list|()
 decl_stmt|;
+comment|// Ignore design documents
+if|if
+condition|(
+name|id
+operator|.
+name|startsWith
+argument_list|(
+literal|"_design/"
+argument_list|)
+condition|)
+block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"ignoring design document {}"
+argument_list|,
+name|id
+argument_list|)
+expr_stmt|;
+return|return
+name|seq
+return|;
+block|}
 if|if
 condition|(
 name|map
