@@ -1325,7 +1325,7 @@ condition|)
 block|{
 name|logger
 operator|.
-name|info
+name|trace
 argument_list|(
 literal|"ignoring design document {}"
 argument_list|,
