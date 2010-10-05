@@ -1577,7 +1577,7 @@ name|changed
 operator|=
 literal|true
 expr_stmt|;
-comment|// we found all nodes to allocate to, do the allocation
+comment|// we found all nodes to allocate to, do the allocation (but only for the index we are working on)
 for|for
 control|(
 name|Iterator
@@ -1609,6 +1609,22 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|shardRouting
+operator|.
+name|index
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|indexRoutingTable
+operator|.
+name|index
+argument_list|()
+argument_list|)
+condition|)
+block|{
 if|if
 condition|(
 name|shardRouting
@@ -1677,6 +1693,7 @@ operator|.
 name|remove
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
