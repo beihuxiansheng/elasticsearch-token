@@ -125,7 +125,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  * Term facets allow to collect frequency of terms within one (or more) field.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -199,6 +199,7 @@ name|Object
 argument_list|>
 name|params
 decl_stmt|;
+comment|/**      * Construct a new term facet with the provided facet name.      *      * @param name The facet name.      */
 DECL|method|TermsFacetBuilder
 specifier|public
 name|TermsFacetBuilder
@@ -213,6 +214,7 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Should the fact run in global mode (not bounded by the search query) or not. Defaults      * to<tt>false</tt>.      */
 DECL|method|global
 specifier|public
 name|TermsFacetBuilder
@@ -232,6 +234,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * An additional facet filter that will further filter the documents the facet will be      * executed on.      */
 DECL|method|facetFilter
 specifier|public
 name|TermsFacetBuilder
@@ -251,6 +254,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The field the terms will be collected from.      */
 DECL|method|field
 specifier|public
 name|TermsFacetBuilder
@@ -270,6 +274,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The fields the terms will be collected from.      */
 DECL|method|fields
 specifier|public
 name|TermsFacetBuilder
@@ -290,6 +295,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * A set of terms that will be excluded.      */
 DECL|method|exclude
 specifier|public
 name|TermsFacetBuilder
@@ -310,6 +316,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The number of terms (and frequencies) to return. Defaults to 10.      */
 DECL|method|size
 specifier|public
 name|TermsFacetBuilder
@@ -329,6 +336,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * A regular expression to use in order to further filter terms.      */
 DECL|method|regex
 specifier|public
 name|TermsFacetBuilder
@@ -347,6 +355,7 @@ literal|0
 argument_list|)
 return|;
 block|}
+comment|/**      * A regular expression (with flags) to use in order to further filter terms.      */
 DECL|method|regex
 specifier|public
 name|TermsFacetBuilder
@@ -375,6 +384,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The order by which to return the facets by. Defaults to {@link TermsFacet.ComparatorType#COUNT}.      */
 DECL|method|order
 specifier|public
 name|TermsFacetBuilder
@@ -396,6 +406,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * A script allowing to either modify or ignore a provided term (can be accessed using<tt>term</tt> var).      */
 DECL|method|script
 specifier|public
 name|TermsFacetBuilder
@@ -435,6 +446,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * A parameter that will be passed to the script.      *      * @param name  The name of the script parameter.      * @param value The value of the script parameter.      */
 DECL|method|param
 specifier|public
 name|TermsFacetBuilder
