@@ -295,6 +295,26 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Define a script field that will control the terms that will be used (and not filtered, as is the      * case when the script is provided on top of field / fields).      */
+DECL|method|scriptField
+specifier|public
+name|TermsFacetBuilder
+name|scriptField
+parameter_list|(
+name|String
+name|scriptField
+parameter_list|)
+block|{
+name|this
+operator|.
+name|script
+operator|=
+name|scriptField
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * A set of terms that will be excluded.      */
 DECL|method|exclude
 specifier|public
@@ -512,13 +532,17 @@ operator|&&
 name|fieldsNames
 operator|==
 literal|null
+operator|&&
+name|script
+operator|==
+literal|null
 condition|)
 block|{
 throw|throw
 operator|new
 name|SearchSourceBuilderException
 argument_list|(
-literal|"field must be set on terms facet for facet ["
+literal|"field/fields/script must be set on terms facet for facet ["
 operator|+
 name|name
 operator|+
@@ -584,7 +608,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|fieldName
+operator|!=
+literal|null
+condition|)
 block|{
 name|builder
 operator|.
