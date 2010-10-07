@@ -64,23 +64,30 @@ specifier|public
 class|class
 name|Queries
 block|{
+comment|// We don't use MatchAllDocsQuery, its slower than the one below ... (much slower)
 DECL|field|MATCH_ALL_QUERY
 specifier|public
 specifier|final
 specifier|static
-name|MatchAllDocsQuery
+name|Query
 name|MATCH_ALL_QUERY
 init|=
 operator|new
-name|MatchAllDocsQuery
+name|DeletionAwareConstantScoreQuery
+argument_list|(
+operator|new
+name|MatchAllDocsFilter
 argument_list|()
+argument_list|,
+literal|true
+argument_list|)
 decl_stmt|;
 comment|/**      * A match all docs filter. Note, requires no caching!.      */
 DECL|field|MATCH_ALL_FILTER
 specifier|public
 specifier|final
 specifier|static
-name|MatchAllDocsFilter
+name|Filter
 name|MATCH_ALL_FILTER
 init|=
 operator|new

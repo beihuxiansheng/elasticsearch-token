@@ -268,6 +268,13 @@ argument_list|(
 literal|"server1"
 argument_list|)
 expr_stmt|;
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|500
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|client

@@ -519,6 +519,8 @@ specifier|public
 name|void
 name|testHdfsGateway
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 comment|// first, test meta data
 name|CreateIndexResponse
@@ -571,6 +573,13 @@ argument_list|()
 operator|.
 name|start
 argument_list|()
+expr_stmt|;
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|500
+argument_list|)
 expr_stmt|;
 try|try
 block|{
