@@ -438,6 +438,30 @@ name|toString
 argument_list|()
 return|;
 block|}
+DECL|method|decode
+specifier|public
+specifier|static
+name|double
+index|[]
+name|decode
+parameter_list|(
+name|String
+name|geohash
+parameter_list|)
+block|{
+return|return
+name|decode
+argument_list|(
+name|geohash
+argument_list|,
+operator|new
+name|double
+index|[
+literal|2
+index|]
+argument_list|)
+return|;
+block|}
 comment|/**      * Decodes the given geohash into a latitude and longitude      *      * @param geohash Geohash to deocde      * @return Array with the latitude at index 0, and longitude at index 1      */
 DECL|method|decode
 specifier|public
@@ -448,6 +472,10 @@ name|decode
 parameter_list|(
 name|String
 name|geohash
+parameter_list|,
+name|double
+index|[]
+name|ret
 parameter_list|)
 block|{
 comment|//        double[] latInterval = {-90.0, 90.0};
@@ -478,12 +506,6 @@ name|boolean
 name|isEven
 init|=
 literal|true
-decl_stmt|;
-name|double
-name|latitude
-decl_stmt|;
-name|double
-name|longitude
 decl_stmt|;
 for|for
 control|(
@@ -618,7 +640,10 @@ expr_stmt|;
 block|}
 block|}
 comment|//        latitude = (latInterval[0] + latInterval[1]) / 2D;
-name|latitude
+name|ret
+index|[
+literal|0
+index|]
 operator|=
 operator|(
 name|latInterval0
@@ -629,7 +654,10 @@ operator|/
 literal|2D
 expr_stmt|;
 comment|//        longitude = (lngInterval[0] + lngInterval[1]) / 2D;
-name|longitude
+name|ret
+index|[
+literal|1
+index|]
 operator|=
 operator|(
 name|lngInterval0
@@ -640,14 +668,7 @@ operator|/
 literal|2D
 expr_stmt|;
 return|return
-operator|new
-name|double
-index|[]
-block|{
-name|latitude
-block|,
-name|longitude
-block|}
+name|ret
 return|;
 block|}
 block|}
