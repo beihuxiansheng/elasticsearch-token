@@ -184,7 +184,7 @@ name|field
 operator|.
 name|data
 operator|.
-name|FieldData
+name|FieldDataType
 import|;
 end_import
 
@@ -992,9 +992,7 @@ annotation|@
 name|Override
 specifier|public
 specifier|abstract
-name|FieldData
-operator|.
-name|Type
+name|FieldDataType
 name|fieldDataType
 parameter_list|()
 function_decl|;

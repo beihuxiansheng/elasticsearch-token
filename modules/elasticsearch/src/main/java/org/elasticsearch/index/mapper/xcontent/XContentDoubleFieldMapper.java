@@ -196,7 +196,7 @@ name|field
 operator|.
 name|data
 operator|.
-name|FieldData
+name|FieldDataType
 import|;
 end_import
 
@@ -1223,16 +1223,14 @@ DECL|method|fieldDataType
 annotation|@
 name|Override
 specifier|public
-name|FieldData
-operator|.
-name|Type
+name|FieldDataType
 name|fieldDataType
 parameter_list|()
 block|{
 return|return
-name|FieldData
+name|FieldDataType
 operator|.
-name|Type
+name|DefaultTypes
 operator|.
 name|DOUBLE
 return|;

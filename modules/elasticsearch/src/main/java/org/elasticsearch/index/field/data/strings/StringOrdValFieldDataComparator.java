@@ -84,6 +84,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|field
+operator|.
+name|data
+operator|.
+name|FieldDataType
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -697,9 +713,9 @@ name|fieldDataCache
 operator|.
 name|cache
 argument_list|(
-name|FieldData
+name|FieldDataType
 operator|.
-name|Type
+name|DefaultTypes
 operator|.
 name|STRING
 argument_list|,

@@ -132,9 +132,7 @@ return|;
 block|}
 DECL|method|getType
 specifier|public
-name|FieldData
-operator|.
-name|Type
+name|FieldDataType
 name|getType
 parameter_list|()
 block|{

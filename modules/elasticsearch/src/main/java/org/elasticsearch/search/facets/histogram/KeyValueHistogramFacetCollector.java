@@ -90,7 +90,7 @@ name|field
 operator|.
 name|data
 operator|.
-name|FieldData
+name|FieldDataType
 import|;
 end_import
 
@@ -265,9 +265,7 @@ decl_stmt|;
 DECL|field|keyFieldDataType
 specifier|private
 specifier|final
-name|FieldData
-operator|.
-name|Type
+name|FieldDataType
 name|keyFieldDataType
 decl_stmt|;
 DECL|field|keyFieldData
@@ -278,9 +276,7 @@ decl_stmt|;
 DECL|field|valueFieldDataType
 specifier|private
 specifier|final
-name|FieldData
-operator|.
-name|Type
+name|FieldDataType
 name|valueFieldDataType
 decl_stmt|;
 DECL|field|valueFieldData
