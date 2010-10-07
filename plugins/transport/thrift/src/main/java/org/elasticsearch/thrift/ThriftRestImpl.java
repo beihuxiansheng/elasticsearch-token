@@ -216,6 +216,24 @@ parameter_list|)
 throws|throws
 name|TException
 block|{
+if|if
+condition|(
+name|logger
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"thrift message {}"
+argument_list|,
+name|request
+argument_list|)
+expr_stmt|;
+block|}
 specifier|final
 name|CountDownLatch
 name|latch
