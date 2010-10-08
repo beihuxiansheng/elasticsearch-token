@@ -435,7 +435,7 @@ case|:
 return|return
 name|Status
 operator|.
-name|CONTINUE
+name|CONT
 return|;
 case|case
 name|SWITCHING_PROTOCOLS

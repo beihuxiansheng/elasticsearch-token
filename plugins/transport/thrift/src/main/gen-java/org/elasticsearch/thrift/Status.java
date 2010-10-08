@@ -34,8 +34,8 @@ name|Status
 implements|implements
 name|TEnum
 block|{
-DECL|enum constant|CONTINUE
-name|CONTINUE
+DECL|enum constant|CONT
+name|CONT
 argument_list|(
 literal|100
 argument_list|)
@@ -350,7 +350,7 @@ case|case
 literal|100
 case|:
 return|return
-name|CONTINUE
+name|CONT
 return|;
 case|case
 literal|101
