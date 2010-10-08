@@ -46,7 +46,7 @@ name|mapper
 operator|.
 name|xcontent
 operator|.
-name|XContentDocumentMapper
+name|MapperTests
 import|;
 end_import
 
@@ -62,7 +62,7 @@ name|mapper
 operator|.
 name|xcontent
 operator|.
-name|XContentMapperTests
+name|XContentDocumentMapper
 import|;
 end_import
 
@@ -165,7 +165,7 @@ decl_stmt|;
 name|XContentDocumentMapper
 name|mapper
 init|=
-name|XContentMapperTests
+name|MapperTests
 operator|.
 name|newParser
 argument_list|()
@@ -208,7 +208,7 @@ argument_list|)
 expr_stmt|;
 name|mapper
 operator|=
-name|XContentMapperTests
+name|MapperTests
 operator|.
 name|newParser
 argument_list|()

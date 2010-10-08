@@ -174,7 +174,7 @@ name|mapper
 operator|.
 name|xcontent
 operator|.
-name|XContentGeoPointFieldMapper
+name|GeoPointFieldMapper
 import|;
 end_import
 
@@ -574,7 +574,7 @@ name|smartNameFieldMapper
 argument_list|(
 name|fieldName
 operator|+
-name|XContentGeoPointFieldMapper
+name|GeoPointFieldMapper
 operator|.
 name|Names
 operator|.
@@ -620,7 +620,7 @@ name|smartNameFieldMapper
 argument_list|(
 name|fieldName
 operator|+
-name|XContentGeoPointFieldMapper
+name|GeoPointFieldMapper
 operator|.
 name|Names
 operator|.

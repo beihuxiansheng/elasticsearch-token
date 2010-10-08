@@ -118,7 +118,7 @@ name|mapper
 operator|.
 name|xcontent
 operator|.
-name|XContentGeoPointFieldMapper
+name|GeoPointFieldMapper
 import|;
 end_import
 
@@ -404,7 +404,7 @@ name|currentName
 operator|.
 name|equals
 argument_list|(
-name|XContentGeoPointFieldMapper
+name|GeoPointFieldMapper
 operator|.
 name|Names
 operator|.
@@ -427,7 +427,7 @@ name|currentName
 operator|.
 name|equals
 argument_list|(
-name|XContentGeoPointFieldMapper
+name|GeoPointFieldMapper
 operator|.
 name|Names
 operator|.
@@ -450,7 +450,7 @@ name|currentName
 operator|.
 name|equals
 argument_list|(
-name|XContentGeoPointFieldMapper
+name|GeoPointFieldMapper
 operator|.
 name|Names
 operator|.

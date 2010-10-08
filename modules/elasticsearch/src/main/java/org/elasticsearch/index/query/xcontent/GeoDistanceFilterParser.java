@@ -200,7 +200,7 @@ name|mapper
 operator|.
 name|xcontent
 operator|.
-name|XContentGeoPointFieldMapper
+name|GeoPointFieldMapper
 import|;
 end_import
 
@@ -502,7 +502,7 @@ name|currentFieldName
 operator|+
 literal|"."
 operator|+
-name|XContentGeoPointFieldMapper
+name|GeoPointFieldMapper
 operator|.
 name|Names
 operator|.
@@ -514,7 +514,7 @@ name|currentFieldName
 operator|+
 literal|"."
 operator|+
-name|XContentGeoPointFieldMapper
+name|GeoPointFieldMapper
 operator|.
 name|Names
 operator|.
@@ -546,7 +546,7 @@ name|latFieldName
 operator|=
 name|currentFieldName
 operator|+
-name|XContentGeoPointFieldMapper
+name|GeoPointFieldMapper
 operator|.
 name|Names
 operator|.
@@ -556,7 +556,7 @@ name|lonFieldName
 operator|=
 name|currentFieldName
 operator|+
-name|XContentGeoPointFieldMapper
+name|GeoPointFieldMapper
 operator|.
 name|Names
 operator|.
@@ -614,7 +614,7 @@ name|currentName
 operator|.
 name|equals
 argument_list|(
-name|XContentGeoPointFieldMapper
+name|GeoPointFieldMapper
 operator|.
 name|Names
 operator|.
@@ -637,7 +637,7 @@ name|currentName
 operator|.
 name|equals
 argument_list|(
-name|XContentGeoPointFieldMapper
+name|GeoPointFieldMapper
 operator|.
 name|Names
 operator|.
@@ -660,7 +660,7 @@ name|currentName
 operator|.
 name|equals
 argument_list|(
-name|XContentGeoPointFieldMapper
+name|GeoPointFieldMapper
 operator|.
 name|Names
 operator|.
@@ -824,7 +824,7 @@ name|currentFieldName
 operator|.
 name|endsWith
 argument_list|(
-name|XContentGeoPointFieldMapper
+name|GeoPointFieldMapper
 operator|.
 name|Names
 operator|.
@@ -851,7 +851,7 @@ name|currentFieldName
 operator|.
 name|endsWith
 argument_list|(
-name|XContentGeoPointFieldMapper
+name|GeoPointFieldMapper
 operator|.
 name|Names
 operator|.
@@ -878,7 +878,7 @@ name|currentFieldName
 operator|.
 name|endsWith
 argument_list|(
-name|XContentGeoPointFieldMapper
+name|GeoPointFieldMapper
 operator|.
 name|Names
 operator|.
@@ -927,7 +927,7 @@ operator|.
 name|length
 argument_list|()
 operator|-
-name|XContentGeoPointFieldMapper
+name|GeoPointFieldMapper
 operator|.
 name|Names
 operator|.
@@ -937,7 +937,7 @@ name|length
 argument_list|()
 argument_list|)
 operator|+
-name|XContentGeoPointFieldMapper
+name|GeoPointFieldMapper
 operator|.
 name|Names
 operator|.
@@ -956,7 +956,7 @@ operator|.
 name|length
 argument_list|()
 operator|-
-name|XContentGeoPointFieldMapper
+name|GeoPointFieldMapper
 operator|.
 name|Names
 operator|.
@@ -966,7 +966,7 @@ name|length
 argument_list|()
 argument_list|)
 operator|+
-name|XContentGeoPointFieldMapper
+name|GeoPointFieldMapper
 operator|.
 name|Names
 operator|.
@@ -1092,7 +1092,7 @@ name|latFieldName
 operator|=
 name|currentFieldName
 operator|+
-name|XContentGeoPointFieldMapper
+name|GeoPointFieldMapper
 operator|.
 name|Names
 operator|.
@@ -1102,7 +1102,7 @@ name|lonFieldName
 operator|=
 name|currentFieldName
 operator|+
-name|XContentGeoPointFieldMapper
+name|GeoPointFieldMapper
 operator|.
 name|Names
 operator|.

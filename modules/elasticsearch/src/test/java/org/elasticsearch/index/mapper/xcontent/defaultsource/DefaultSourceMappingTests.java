@@ -74,7 +74,7 @@ name|mapper
 operator|.
 name|xcontent
 operator|.
-name|XContentDocumentMapper
+name|MapperTests
 import|;
 end_import
 
@@ -90,7 +90,7 @@ name|mapper
 operator|.
 name|xcontent
 operator|.
-name|XContentMapperTests
+name|XContentDocumentMapper
 import|;
 end_import
 
@@ -195,7 +195,7 @@ decl_stmt|;
 name|XContentDocumentMapper
 name|mapper
 init|=
-name|XContentMapperTests
+name|MapperTests
 operator|.
 name|newParser
 argument_list|()
@@ -242,7 +242,7 @@ try|try
 block|{
 name|mapper
 operator|=
-name|XContentMapperTests
+name|MapperTests
 operator|.
 name|newParser
 argument_list|()
@@ -393,7 +393,7 @@ decl_stmt|;
 name|XContentDocumentMapper
 name|mapper
 init|=
-name|XContentMapperTests
+name|MapperTests
 operator|.
 name|newParser
 argument_list|()
@@ -492,7 +492,7 @@ decl_stmt|;
 name|MapperService
 name|mapperService
 init|=
-name|XContentMapperTests
+name|MapperTests
 operator|.
 name|newMapperService
 argument_list|()
@@ -606,7 +606,7 @@ decl_stmt|;
 name|MapperService
 name|mapperService
 init|=
-name|XContentMapperTests
+name|MapperTests
 operator|.
 name|newMapperService
 argument_list|()

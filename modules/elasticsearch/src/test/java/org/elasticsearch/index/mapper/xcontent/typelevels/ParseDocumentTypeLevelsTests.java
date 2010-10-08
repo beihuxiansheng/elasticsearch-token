@@ -60,7 +60,7 @@ name|mapper
 operator|.
 name|xcontent
 operator|.
-name|XContentDocumentMapper
+name|MapperTests
 import|;
 end_import
 
@@ -76,7 +76,7 @@ name|mapper
 operator|.
 name|xcontent
 operator|.
-name|XContentMapperTests
+name|XContentDocumentMapper
 import|;
 end_import
 
@@ -164,7 +164,7 @@ decl_stmt|;
 name|XContentDocumentMapper
 name|defaultMapper
 init|=
-name|XContentMapperTests
+name|MapperTests
 operator|.
 name|newParser
 argument_list|()
@@ -322,7 +322,7 @@ decl_stmt|;
 name|XContentDocumentMapper
 name|defaultMapper
 init|=
-name|XContentMapperTests
+name|MapperTests
 operator|.
 name|newParser
 argument_list|()
@@ -488,7 +488,7 @@ decl_stmt|;
 name|XContentDocumentMapper
 name|defaultMapper
 init|=
-name|XContentMapperTests
+name|MapperTests
 operator|.
 name|newParser
 argument_list|()
@@ -671,7 +671,7 @@ decl_stmt|;
 name|XContentDocumentMapper
 name|defaultMapper
 init|=
-name|XContentMapperTests
+name|MapperTests
 operator|.
 name|newParser
 argument_list|()
@@ -862,7 +862,7 @@ decl_stmt|;
 name|XContentDocumentMapper
 name|defaultMapper
 init|=
-name|XContentMapperTests
+name|MapperTests
 operator|.
 name|newParser
 argument_list|()
@@ -1032,7 +1032,7 @@ decl_stmt|;
 name|XContentDocumentMapper
 name|defaultMapper
 init|=
-name|XContentMapperTests
+name|MapperTests
 operator|.
 name|newParser
 argument_list|()
@@ -1231,7 +1231,7 @@ decl_stmt|;
 name|XContentDocumentMapper
 name|defaultMapper
 init|=
-name|XContentMapperTests
+name|MapperTests
 operator|.
 name|newParser
 argument_list|()
@@ -1422,7 +1422,7 @@ decl_stmt|;
 name|XContentDocumentMapper
 name|defaultMapper
 init|=
-name|XContentMapperTests
+name|MapperTests
 operator|.
 name|newParser
 argument_list|()
@@ -1613,7 +1613,7 @@ decl_stmt|;
 name|XContentDocumentMapper
 name|defaultMapper
 init|=
-name|XContentMapperTests
+name|MapperTests
 operator|.
 name|newParser
 argument_list|()
@@ -1805,7 +1805,7 @@ decl_stmt|;
 name|XContentDocumentMapper
 name|defaultMapper
 init|=
-name|XContentMapperTests
+name|MapperTests
 operator|.
 name|newParser
 argument_list|()

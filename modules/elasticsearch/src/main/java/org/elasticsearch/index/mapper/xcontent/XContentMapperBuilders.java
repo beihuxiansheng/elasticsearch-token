@@ -45,7 +45,7 @@ parameter_list|(
 name|String
 name|index
 parameter_list|,
-name|XContentObjectMapper
+name|ObjectMapper
 operator|.
 name|Builder
 name|objectBuilder
@@ -66,7 +66,7 @@ block|}
 DECL|method|source
 specifier|public
 specifier|static
-name|XContentSourceFieldMapper
+name|SourceFieldMapper
 operator|.
 name|Builder
 name|source
@@ -74,7 +74,7 @@ parameter_list|()
 block|{
 return|return
 operator|new
-name|XContentSourceFieldMapper
+name|SourceFieldMapper
 operator|.
 name|Builder
 argument_list|()
@@ -83,7 +83,7 @@ block|}
 DECL|method|id
 specifier|public
 specifier|static
-name|XContentIdFieldMapper
+name|IdFieldMapper
 operator|.
 name|Builder
 name|id
@@ -91,7 +91,7 @@ parameter_list|()
 block|{
 return|return
 operator|new
-name|XContentIdFieldMapper
+name|IdFieldMapper
 operator|.
 name|Builder
 argument_list|()
@@ -100,7 +100,7 @@ block|}
 DECL|method|uid
 specifier|public
 specifier|static
-name|XContentUidFieldMapper
+name|UidFieldMapper
 operator|.
 name|Builder
 name|uid
@@ -108,7 +108,7 @@ parameter_list|()
 block|{
 return|return
 operator|new
-name|XContentUidFieldMapper
+name|UidFieldMapper
 operator|.
 name|Builder
 argument_list|()
@@ -117,7 +117,7 @@ block|}
 DECL|method|type
 specifier|public
 specifier|static
-name|XContentTypeFieldMapper
+name|TypeFieldMapper
 operator|.
 name|Builder
 name|type
@@ -125,7 +125,7 @@ parameter_list|()
 block|{
 return|return
 operator|new
-name|XContentTypeFieldMapper
+name|TypeFieldMapper
 operator|.
 name|Builder
 argument_list|()
@@ -134,7 +134,7 @@ block|}
 DECL|method|index
 specifier|public
 specifier|static
-name|XContentIndexFieldMapper
+name|IndexFieldMapper
 operator|.
 name|Builder
 name|index
@@ -142,7 +142,7 @@ parameter_list|()
 block|{
 return|return
 operator|new
-name|XContentIndexFieldMapper
+name|IndexFieldMapper
 operator|.
 name|Builder
 argument_list|()
@@ -151,7 +151,7 @@ block|}
 DECL|method|boost
 specifier|public
 specifier|static
-name|XContentBoostFieldMapper
+name|BoostFieldMapper
 operator|.
 name|Builder
 name|boost
@@ -162,7 +162,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|XContentBoostFieldMapper
+name|BoostFieldMapper
 operator|.
 name|Builder
 argument_list|(
@@ -173,7 +173,7 @@ block|}
 DECL|method|all
 specifier|public
 specifier|static
-name|XContentAllFieldMapper
+name|AllFieldMapper
 operator|.
 name|Builder
 name|all
@@ -181,7 +181,7 @@ parameter_list|()
 block|{
 return|return
 operator|new
-name|XContentAllFieldMapper
+name|AllFieldMapper
 operator|.
 name|Builder
 argument_list|()
@@ -190,7 +190,7 @@ block|}
 DECL|method|multiField
 specifier|public
 specifier|static
-name|XContentMultiFieldMapper
+name|MultiFieldMapper
 operator|.
 name|Builder
 name|multiField
@@ -201,7 +201,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|XContentMultiFieldMapper
+name|MultiFieldMapper
 operator|.
 name|Builder
 argument_list|(
@@ -212,7 +212,7 @@ block|}
 DECL|method|object
 specifier|public
 specifier|static
-name|XContentObjectMapper
+name|ObjectMapper
 operator|.
 name|Builder
 name|object
@@ -223,7 +223,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|XContentObjectMapper
+name|ObjectMapper
 operator|.
 name|Builder
 argument_list|(
@@ -234,7 +234,7 @@ block|}
 DECL|method|booleanField
 specifier|public
 specifier|static
-name|XContentBooleanFieldMapper
+name|BooleanFieldMapper
 operator|.
 name|Builder
 name|booleanField
@@ -245,7 +245,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|XContentBooleanFieldMapper
+name|BooleanFieldMapper
 operator|.
 name|Builder
 argument_list|(
@@ -256,7 +256,7 @@ block|}
 DECL|method|stringField
 specifier|public
 specifier|static
-name|XContentStringFieldMapper
+name|StringFieldMapper
 operator|.
 name|Builder
 name|stringField
@@ -267,7 +267,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|XContentStringFieldMapper
+name|StringFieldMapper
 operator|.
 name|Builder
 argument_list|(
@@ -278,7 +278,7 @@ block|}
 DECL|method|binaryField
 specifier|public
 specifier|static
-name|XContentBinaryFieldMapper
+name|BinaryFieldMapper
 operator|.
 name|Builder
 name|binaryField
@@ -289,7 +289,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|XContentBinaryFieldMapper
+name|BinaryFieldMapper
 operator|.
 name|Builder
 argument_list|(
@@ -300,7 +300,7 @@ block|}
 DECL|method|dateField
 specifier|public
 specifier|static
-name|XContentDateFieldMapper
+name|DateFieldMapper
 operator|.
 name|Builder
 name|dateField
@@ -311,7 +311,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|XContentDateFieldMapper
+name|DateFieldMapper
 operator|.
 name|Builder
 argument_list|(
@@ -322,7 +322,7 @@ block|}
 DECL|method|shortField
 specifier|public
 specifier|static
-name|XContentShortFieldMapper
+name|ShortFieldMapper
 operator|.
 name|Builder
 name|shortField
@@ -333,7 +333,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|XContentShortFieldMapper
+name|ShortFieldMapper
 operator|.
 name|Builder
 argument_list|(
@@ -344,7 +344,7 @@ block|}
 DECL|method|integerField
 specifier|public
 specifier|static
-name|XContentIntegerFieldMapper
+name|IntegerFieldMapper
 operator|.
 name|Builder
 name|integerField
@@ -355,7 +355,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|XContentIntegerFieldMapper
+name|IntegerFieldMapper
 operator|.
 name|Builder
 argument_list|(
@@ -366,7 +366,7 @@ block|}
 DECL|method|longField
 specifier|public
 specifier|static
-name|XContentLongFieldMapper
+name|LongFieldMapper
 operator|.
 name|Builder
 name|longField
@@ -377,7 +377,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|XContentLongFieldMapper
+name|LongFieldMapper
 operator|.
 name|Builder
 argument_list|(
@@ -388,7 +388,7 @@ block|}
 DECL|method|floatField
 specifier|public
 specifier|static
-name|XContentFloatFieldMapper
+name|FloatFieldMapper
 operator|.
 name|Builder
 name|floatField
@@ -399,7 +399,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|XContentFloatFieldMapper
+name|FloatFieldMapper
 operator|.
 name|Builder
 argument_list|(
@@ -410,7 +410,7 @@ block|}
 DECL|method|doubleField
 specifier|public
 specifier|static
-name|XContentDoubleFieldMapper
+name|DoubleFieldMapper
 operator|.
 name|Builder
 name|doubleField
@@ -421,7 +421,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|XContentDoubleFieldMapper
+name|DoubleFieldMapper
 operator|.
 name|Builder
 argument_list|(

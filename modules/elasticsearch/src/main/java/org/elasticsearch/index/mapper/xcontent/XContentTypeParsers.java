@@ -144,7 +144,7 @@ specifier|static
 name|void
 name|parseNumberField
 parameter_list|(
-name|XContentNumberFieldMapper
+name|NumberFieldMapper
 operator|.
 name|Builder
 name|builder
@@ -160,7 +160,9 @@ name|Object
 argument_list|>
 name|numberNode
 parameter_list|,
-name|XContentTypeParser
+name|XContentMapper
+operator|.
+name|TypeParser
 operator|.
 name|ParserContext
 name|parserContext
@@ -245,7 +247,7 @@ specifier|static
 name|void
 name|parseField
 parameter_list|(
-name|XContentFieldMapper
+name|AbstractFieldMapper
 operator|.
 name|Builder
 name|builder
@@ -261,7 +263,9 @@ name|Object
 argument_list|>
 name|fieldNode
 parameter_list|,
-name|XContentTypeParser
+name|XContentMapper
+operator|.
+name|TypeParser
 operator|.
 name|ParserContext
 name|parserContext
