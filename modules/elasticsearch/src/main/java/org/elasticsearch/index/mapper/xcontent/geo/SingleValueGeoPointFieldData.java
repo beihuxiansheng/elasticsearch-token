@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.field.data.strings
+DECL|package|org.elasticsearch.index.mapper.xcontent.geo
 package|package
 name|org
 operator|.
@@ -12,25 +12,13 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|field
+name|mapper
 operator|.
-name|data
+name|xcontent
 operator|.
-name|strings
+name|geo
 package|;
 end_package
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|Strings
-import|;
-end_import
 
 begin_import
 import|import
@@ -51,12 +39,12 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|SingleValueStringFieldData
+DECL|class|SingleValueGeoPointFieldData
 specifier|public
 class|class
-name|SingleValueStringFieldData
+name|SingleValueGeoPointFieldData
 extends|extends
-name|StringFieldData
+name|GeoPointFieldData
 block|{
 DECL|field|valuesCache
 specifier|private
@@ -67,7 +55,7 @@ name|ThreadLocals
 operator|.
 name|CleanableValue
 argument_list|<
-name|String
+name|GeoPoint
 index|[]
 argument_list|>
 argument_list|>
@@ -80,7 +68,7 @@ name|ThreadLocals
 operator|.
 name|CleanableValue
 argument_list|<
-name|String
+name|GeoPoint
 index|[]
 argument_list|>
 argument_list|>
@@ -93,7 +81,7 @@ name|ThreadLocals
 operator|.
 name|CleanableValue
 argument_list|<
-name|String
+name|GeoPoint
 index|[]
 argument_list|>
 name|initialValue
@@ -105,12 +93,12 @@ name|ThreadLocals
 operator|.
 name|CleanableValue
 argument_list|<
-name|String
+name|GeoPoint
 index|[]
 argument_list|>
 argument_list|(
 operator|new
-name|String
+name|GeoPoint
 index|[
 literal|1
 index|]
@@ -127,9 +115,9 @@ name|int
 index|[]
 name|order
 decl_stmt|;
-DECL|method|SingleValueStringFieldData
+DECL|method|SingleValueGeoPointFieldData
 specifier|public
-name|SingleValueStringFieldData
+name|SingleValueGeoPointFieldData
 parameter_list|(
 name|String
 name|fieldName
@@ -138,7 +126,7 @@ name|int
 index|[]
 name|order
 parameter_list|,
-name|String
+name|GeoPoint
 index|[]
 name|values
 parameter_list|)
@@ -168,7 +156,7 @@ name|order
 return|;
 block|}
 DECL|method|values
-name|String
+name|GeoPoint
 index|[]
 name|values
 parameter_list|()
@@ -252,6 +240,9 @@ name|values
 index|[
 name|loc
 index|]
+operator|.
+name|geohash
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -259,7 +250,7 @@ DECL|method|value
 annotation|@
 name|Override
 specifier|public
-name|String
+name|GeoPoint
 name|value
 parameter_list|(
 name|int
@@ -280,7 +271,7 @@ DECL|method|values
 annotation|@
 name|Override
 specifier|public
-name|String
+name|GeoPoint
 index|[]
 name|values
 parameter_list|(
@@ -304,12 +295,10 @@ literal|0
 condition|)
 block|{
 return|return
-name|Strings
-operator|.
 name|EMPTY_ARRAY
 return|;
 block|}
-name|String
+name|GeoPoint
 index|[]
 name|ret
 init|=
