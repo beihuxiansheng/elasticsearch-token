@@ -520,7 +520,7 @@ condition|)
 block|{
 if|if
 condition|(
-literal|"index"
+literal|"_index"
 operator|.
 name|equals
 argument_list|(
@@ -539,7 +539,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"type"
+literal|"_type"
 operator|.
 name|equals
 argument_list|(
@@ -558,7 +558,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"id"
+literal|"_id"
 operator|.
 name|equals
 argument_list|(
