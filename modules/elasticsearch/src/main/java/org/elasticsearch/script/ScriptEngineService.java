@@ -80,6 +80,14 @@ argument_list|>
 name|vars
 parameter_list|)
 function_decl|;
+DECL|method|unwrap
+name|Object
+name|unwrap
+parameter_list|(
+name|Object
+name|value
+parameter_list|)
+function_decl|;
 DECL|method|close
 name|void
 name|close

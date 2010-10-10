@@ -268,6 +268,21 @@ literal|null
 return|;
 comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
+DECL|method|unwrap
+annotation|@
+name|Override
+specifier|public
+name|Object
+name|unwrap
+parameter_list|(
+name|Object
+name|value
+parameter_list|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 DECL|method|close
 annotation|@
 name|Override

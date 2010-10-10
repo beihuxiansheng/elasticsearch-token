@@ -72,6 +72,15 @@ argument_list|>
 name|vars
 parameter_list|)
 function_decl|;
+comment|/**      * Unwraps a possible script value. For example, when passing vars and expecting the returned value to      * be part of the vars.      */
+DECL|method|unwrap
+name|Object
+name|unwrap
+parameter_list|(
+name|Object
+name|value
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

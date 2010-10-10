@@ -411,12 +411,12 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testJavaScriptFilter
+DECL|method|testPythonFilter
 annotation|@
 name|Test
 specifier|public
 name|void
-name|testJavaScriptFilter
+name|testPythonFilter
 parameter_list|()
 throws|throws
 name|Exception
