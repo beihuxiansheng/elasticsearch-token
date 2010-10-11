@@ -921,10 +921,7 @@ name|nodeId
 init|=
 name|UUID
 operator|.
-name|randomUUID
-argument_list|()
-operator|.
-name|toString
+name|randomBase64UUID
 argument_list|()
 decl_stmt|;
 name|localNode

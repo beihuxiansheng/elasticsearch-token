@@ -987,10 +987,7 @@ name|id
 argument_list|(
 name|UUID
 operator|.
-name|randomUUID
-argument_list|()
-operator|.
-name|toString
+name|randomBase64UUID
 argument_list|()
 argument_list|)
 expr_stmt|;
