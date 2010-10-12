@@ -325,6 +325,20 @@ annotation|@
 name|Override
 specifier|public
 name|boolean
+name|isCacheable
+parameter_list|()
+block|{
+comment|// not cacheable for several reasons:
+comment|// 1. It is only relevant when _cache is set to true, and then, we really want to create in mem bitset
+comment|// 2. Its already fast without in mem bitset, since it works with field data
+return|return
+literal|false
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|boolean
 name|get
 parameter_list|(
 name|int
@@ -603,6 +617,20 @@ name|maxDoc
 argument_list|()
 argument_list|)
 block|{
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|isCacheable
+parameter_list|()
+block|{
+comment|// not cacheable for several reasons:
+comment|// 1. It is only relevant when _cache is set to true, and then, we really want to create in mem bitset
+comment|// 2. Its already fast without in mem bitset, since it works with field data
+return|return
+literal|false
+return|;
+block|}
 annotation|@
 name|Override
 specifier|public

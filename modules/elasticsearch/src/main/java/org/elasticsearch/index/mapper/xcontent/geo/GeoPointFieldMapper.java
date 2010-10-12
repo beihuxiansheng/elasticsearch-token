@@ -420,9 +420,10 @@ specifier|private
 name|int
 name|precision
 init|=
-literal|16
+name|GeoHashUtils
+operator|.
+name|PRECISION
 decl_stmt|;
-comment|// to get high precision
 DECL|field|store
 specifier|private
 name|Field

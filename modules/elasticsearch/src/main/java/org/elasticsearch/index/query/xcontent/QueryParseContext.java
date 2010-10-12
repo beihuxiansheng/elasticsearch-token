@@ -557,10 +557,10 @@ return|return
 name|multiFieldQueryParser
 return|;
 block|}
-DECL|method|cacheFilterIfPossible
+DECL|method|cacheFilter
 specifier|public
 name|Filter
-name|cacheFilterIfPossible
+name|cacheFilter
 parameter_list|(
 name|Filter
 name|filter

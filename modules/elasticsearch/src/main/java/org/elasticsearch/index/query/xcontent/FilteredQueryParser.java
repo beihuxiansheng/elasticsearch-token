@@ -460,7 +460,7 @@ name|filter
 operator|=
 name|parseContext
 operator|.
-name|cacheFilterIfPossible
+name|cacheFilter
 argument_list|(
 name|filter
 argument_list|)

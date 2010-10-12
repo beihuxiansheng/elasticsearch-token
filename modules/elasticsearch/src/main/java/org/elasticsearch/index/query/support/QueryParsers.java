@@ -220,7 +220,7 @@ name|query
 argument_list|,
 name|parseContext
 operator|.
-name|cacheFilterIfPossible
+name|cacheFilter
 argument_list|(
 name|docMapper
 operator|.
@@ -292,7 +292,7 @@ name|of
 argument_list|(
 name|parseContext
 operator|.
-name|cacheFilterIfPossible
+name|cacheFilter
 argument_list|(
 name|docMapper
 operator|.
