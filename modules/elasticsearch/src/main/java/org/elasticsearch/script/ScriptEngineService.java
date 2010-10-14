@@ -40,6 +40,12 @@ index|[]
 name|types
 parameter_list|()
 function_decl|;
+DECL|method|extensions
+name|String
+index|[]
+name|extensions
+parameter_list|()
+function_decl|;
 DECL|method|compile
 name|Object
 name|compile
