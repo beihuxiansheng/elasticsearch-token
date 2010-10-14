@@ -218,6 +218,8 @@ name|String
 index|[]
 block|{
 literal|"python"
+block|,
+literal|"py"
 block|}
 return|;
 block|}
