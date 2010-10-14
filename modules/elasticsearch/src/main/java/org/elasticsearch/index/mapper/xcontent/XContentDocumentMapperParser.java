@@ -375,13 +375,13 @@ decl_stmt|;
 DECL|field|rootObjectTypeParser
 specifier|private
 specifier|final
-name|ObjectMapper
+name|RootObjectMapper
 operator|.
 name|TypeParser
 name|rootObjectTypeParser
 init|=
 operator|new
-name|ObjectMapper
+name|RootObjectMapper
 operator|.
 name|TypeParser
 argument_list|()
@@ -948,7 +948,7 @@ name|name
 argument_list|()
 argument_list|,
 operator|(
-name|ObjectMapper
+name|RootObjectMapper
 operator|.
 name|Builder
 operator|)

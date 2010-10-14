@@ -233,7 +233,7 @@ name|doc
 argument_list|(
 literal|"test"
 argument_list|,
-name|object
+name|rootObject
 argument_list|(
 literal|"person"
 argument_list|)

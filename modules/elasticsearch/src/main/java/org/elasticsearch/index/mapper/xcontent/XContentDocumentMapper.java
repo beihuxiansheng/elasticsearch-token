@@ -320,7 +320,7 @@ decl_stmt|;
 DECL|field|rootObjectMapper
 specifier|private
 specifier|final
-name|ObjectMapper
+name|RootObjectMapper
 name|rootObjectMapper
 decl_stmt|;
 DECL|field|attributes
@@ -364,7 +364,7 @@ parameter_list|(
 name|String
 name|index
 parameter_list|,
-name|ObjectMapper
+name|RootObjectMapper
 operator|.
 name|Builder
 name|builder
@@ -855,7 +855,7 @@ decl_stmt|;
 DECL|field|rootObjectMapper
 specifier|private
 specifier|final
-name|ObjectMapper
+name|RootObjectMapper
 name|rootObjectMapper
 decl_stmt|;
 DECL|field|indexAnalyzer
@@ -914,7 +914,7 @@ parameter_list|,
 name|XContentDocumentMapperParser
 name|docMapperParser
 parameter_list|,
-name|ObjectMapper
+name|RootObjectMapper
 name|rootObjectMapper
 parameter_list|,
 name|ImmutableMap
@@ -1264,6 +1264,18 @@ return|return
 name|this
 operator|.
 name|mappingSource
+return|;
+block|}
+DECL|method|root
+specifier|public
+name|RootObjectMapper
+name|root
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|rootObjectMapper
 return|;
 block|}
 DECL|method|uidMapper
