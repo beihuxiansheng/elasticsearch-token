@@ -1342,7 +1342,7 @@ name|map
 operator|.
 name|containsKey
 argument_list|(
-literal|"delete"
+literal|"deleted"
 argument_list|)
 operator|&&
 name|map
@@ -1354,7 +1354,9 @@ argument_list|)
 operator|.
 name|equals
 argument_list|(
-literal|"true"
+name|Boolean
+operator|.
+name|TRUE
 argument_list|)
 condition|)
 block|{
