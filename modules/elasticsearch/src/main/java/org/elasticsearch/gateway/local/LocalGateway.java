@@ -549,7 +549,7 @@ literal|"index not recovered (not enough nodes with shards allocated found)"
 argument_list|,
 name|ClusterBlockLevel
 operator|.
-name|ALL
+name|READ_WRITE
 argument_list|)
 decl_stmt|;
 DECL|field|location
