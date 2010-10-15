@@ -3625,6 +3625,18 @@ operator|.
 name|clean
 condition|)
 block|{
+if|if
+condition|(
+name|state
+operator|==
+name|IndexShardState
+operator|.
+name|CLOSED
+condition|)
+block|{
+comment|// ignore if closed....
+return|return;
+block|}
 name|logger
 operator|.
 name|warn
