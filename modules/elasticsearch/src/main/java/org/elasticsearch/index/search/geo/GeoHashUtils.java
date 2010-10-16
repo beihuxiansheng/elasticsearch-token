@@ -4,15 +4,15 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.common.lucene.geo
+DECL|package|org.elasticsearch.index.search.geo
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|index
 operator|.
-name|lucene
+name|search
 operator|.
 name|geo
 package|;

@@ -26,9 +26,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|index
 operator|.
-name|lucene
+name|search
 operator|.
 name|geo
 operator|.
