@@ -150,7 +150,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Should the inner filters be cached or not. Defaults to<tt>true</tt>.      */
+comment|/**      * Should the filter be cached or not. Defaults to<tt>false</tt>.      */
 DECL|method|cache
 specifier|public
 name|OrFilterBuilder

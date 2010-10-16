@@ -84,7 +84,7 @@ operator|=
 name|filter
 expr_stmt|;
 block|}
-comment|/**      * Should the inner filter be cached or not. Defaults to<tt>true</tt>.      */
+comment|/**      * Should the filter be cached or not. Defaults to<tt>false</tt>.      */
 DECL|method|cache
 specifier|public
 name|NotFilterBuilder
