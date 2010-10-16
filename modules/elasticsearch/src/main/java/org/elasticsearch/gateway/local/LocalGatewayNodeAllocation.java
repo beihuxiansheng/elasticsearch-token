@@ -1071,30 +1071,8 @@ name|routingTable
 argument_list|()
 control|)
 block|{
-comment|// only do the allocation if there is a local "INDEX NOT RECOVERED" block
-if|if
-condition|(
-operator|!
-name|routingNodes
-operator|.
-name|blocks
-argument_list|()
-operator|.
-name|hasIndexBlock
-argument_list|(
-name|indexRoutingTable
-operator|.
-name|index
-argument_list|()
-argument_list|,
-name|LocalGateway
-operator|.
-name|INDEX_NOT_RECOVERED_BLOCK
-argument_list|)
-condition|)
-block|{
-continue|continue;
-block|}
+comment|// TODO we need to also handle a case where all shards per replication group are unassigned, in that case, we ignore until we
+comment|// manage to find a place to allocate them...
 if|if
 condition|(
 name|indexRoutingTable
@@ -1723,6 +1701,7 @@ return|return
 name|changed
 return|;
 block|}
+comment|// go ahead and see if we can optimize replica allocation to an existing node...
 name|Iterator
 argument_list|<
 name|MutableShardRouting
