@@ -62,6 +62,7 @@ name|DiscoveryNode
 name|node
 parameter_list|)
 block|{
+comment|// we don't allocate rivers on client nodes
 if|if
 condition|(
 name|node

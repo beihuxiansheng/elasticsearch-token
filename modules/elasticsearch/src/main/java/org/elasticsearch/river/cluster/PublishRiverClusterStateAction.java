@@ -336,16 +336,6 @@ comment|// master nodes because they will handle the state and the allocation of
 comment|// and river nodes since they will end up creating indexes
 if|if
 condition|(
-name|node
-operator|.
-name|clientNode
-argument_list|()
-condition|)
-block|{
-continue|continue;
-block|}
-if|if
-condition|(
 operator|!
 name|node
 operator|.
