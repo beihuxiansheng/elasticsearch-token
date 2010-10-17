@@ -405,16 +405,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 specifier|final
-name|String
-index|[]
-name|indices
-init|=
-name|request
-operator|.
-name|indices
-argument_list|()
-decl_stmt|;
-specifier|final
 name|AtomicReference
 argument_list|<
 name|PutMappingResponse
