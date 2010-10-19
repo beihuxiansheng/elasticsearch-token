@@ -188,18 +188,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|indices
-operator|.
-name|IndicesService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|threadpool
 operator|.
 name|ThreadPool
@@ -296,9 +284,6 @@ name|clusterService
 parameter_list|,
 name|TransportService
 name|transportService
-parameter_list|,
-name|IndicesService
-name|indicesService
 parameter_list|)
 block|{
 name|super
@@ -310,8 +295,6 @@ argument_list|,
 name|clusterService
 argument_list|,
 name|transportService
-argument_list|,
-name|indicesService
 argument_list|)
 expr_stmt|;
 block|}

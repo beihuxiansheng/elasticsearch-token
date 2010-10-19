@@ -132,18 +132,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|indices
-operator|.
-name|IndicesService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|search
 operator|.
 name|SearchShardTarget
@@ -301,9 +289,6 @@ parameter_list|,
 name|ClusterService
 name|clusterService
 parameter_list|,
-name|IndicesService
-name|indicesService
-parameter_list|,
 name|TransportSearchCache
 name|transportSearchCache
 parameter_list|,
@@ -321,8 +306,6 @@ argument_list|,
 name|threadPool
 argument_list|,
 name|clusterService
-argument_list|,
-name|indicesService
 argument_list|,
 name|transportSearchCache
 argument_list|,

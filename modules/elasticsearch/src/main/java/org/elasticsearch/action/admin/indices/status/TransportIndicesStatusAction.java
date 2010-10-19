@@ -437,6 +437,12 @@ argument_list|,
 name|ShardStatus
 argument_list|>
 block|{
+DECL|field|indicesService
+specifier|private
+specifier|final
+name|IndicesService
+name|indicesService
+decl_stmt|;
 DECL|field|peerRecoveryTarget
 specifier|private
 specifier|final
@@ -477,8 +483,6 @@ argument_list|,
 name|clusterService
 argument_list|,
 name|transportService
-argument_list|,
-name|indicesService
 argument_list|)
 expr_stmt|;
 name|this
@@ -486,6 +490,12 @@ operator|.
 name|peerRecoveryTarget
 operator|=
 name|peerRecoveryTarget
+expr_stmt|;
+name|this
+operator|.
+name|indicesService
+operator|=
+name|indicesService
 expr_stmt|;
 block|}
 DECL|method|transportAction
