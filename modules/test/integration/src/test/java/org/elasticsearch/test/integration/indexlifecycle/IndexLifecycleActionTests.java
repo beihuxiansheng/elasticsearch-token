@@ -1512,9 +1512,10 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|200
+literal|500
 argument_list|)
 expr_stmt|;
+comment|// wait till the cluster state gets published
 name|clusterState2
 operator|=
 name|clusterService2
@@ -2799,6 +2800,14 @@ literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|500
+argument_list|)
+expr_stmt|;
+comment|// wait till the cluster state gets published
 name|clusterState2
 operator|=
 name|clusterService2

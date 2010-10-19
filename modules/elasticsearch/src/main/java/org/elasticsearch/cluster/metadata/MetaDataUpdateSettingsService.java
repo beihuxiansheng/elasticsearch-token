@@ -58,7 +58,7 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterStateUpdateTask
+name|ProcessedClusterStateUpdateTask
 import|;
 end_import
 
@@ -318,7 +318,7 @@ argument_list|(
 literal|"update-settings"
 argument_list|,
 operator|new
-name|ClusterStateUpdateTask
+name|ProcessedClusterStateUpdateTask
 argument_list|()
 block|{
 annotation|@
@@ -464,11 +464,6 @@ argument_list|,
 name|actualIndices
 argument_list|)
 expr_stmt|;
-name|listener
-operator|.
-name|onSuccess
-argument_list|()
-expr_stmt|;
 return|return
 name|ClusterState
 operator|.
@@ -511,6 +506,22 @@ return|return
 name|currentState
 return|;
 block|}
+block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|clusterStateProcessed
+parameter_list|(
+name|ClusterState
+name|clusterState
+parameter_list|)
+block|{
+name|listener
+operator|.
+name|onSuccess
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 argument_list|)
