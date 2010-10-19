@@ -34,6 +34,22 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|operation
+operator|.
+name|OperationRouting
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|component
@@ -81,6 +97,11 @@ comment|/**      * The current state.      */
 DECL|method|state
 name|ClusterState
 name|state
+parameter_list|()
+function_decl|;
+DECL|method|operationRouting
+name|OperationRouting
+name|operationRouting
 parameter_list|()
 function_decl|;
 comment|/**      * Adds a listener for updated cluster states.      */

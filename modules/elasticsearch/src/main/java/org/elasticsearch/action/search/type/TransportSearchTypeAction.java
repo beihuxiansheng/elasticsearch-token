@@ -688,7 +688,10 @@ expr_stmt|;
 block|}
 name|shardsIts
 operator|=
-name|indicesService
+name|clusterService
+operator|.
+name|operationRouting
+argument_list|()
 operator|.
 name|searchShards
 argument_list|(

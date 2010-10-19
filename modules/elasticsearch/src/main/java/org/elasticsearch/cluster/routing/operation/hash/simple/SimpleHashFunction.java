@@ -4,15 +4,17 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.routing.hash.simple
+DECL|package|org.elasticsearch.cluster.routing.operation.hash.simple
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|cluster
 operator|.
 name|routing
+operator|.
+name|operation
 operator|.
 name|hash
 operator|.
@@ -26,9 +28,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|cluster
 operator|.
 name|routing
+operator|.
+name|operation
 operator|.
 name|hash
 operator|.
@@ -37,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class

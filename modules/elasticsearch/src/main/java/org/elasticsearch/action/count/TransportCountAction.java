@@ -454,7 +454,10 @@ name|clusterState
 parameter_list|)
 block|{
 return|return
-name|indicesService
+name|clusterService
+operator|.
+name|operationRouting
+argument_list|()
 operator|.
 name|searchShards
 argument_list|(

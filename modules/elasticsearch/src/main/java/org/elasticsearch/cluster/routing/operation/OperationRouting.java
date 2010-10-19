@@ -4,15 +4,17 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.routing
+DECL|package|org.elasticsearch.cluster.routing.operation
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|cluster
 operator|.
 name|routing
+operator|.
+name|operation
 package|;
 end_package
 
@@ -91,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_interface
@@ -106,6 +108,9 @@ name|indexShards
 parameter_list|(
 name|ClusterState
 name|clusterState
+parameter_list|,
+name|String
+name|index
 parameter_list|,
 name|String
 name|type
@@ -126,6 +131,9 @@ name|ClusterState
 name|clusterState
 parameter_list|,
 name|String
+name|index
+parameter_list|,
+name|String
 name|type
 parameter_list|,
 name|String
@@ -144,6 +152,9 @@ name|ClusterState
 name|clusterState
 parameter_list|,
 name|String
+name|index
+parameter_list|,
+name|String
 name|type
 parameter_list|,
 name|String
@@ -154,13 +165,15 @@ name|IndexMissingException
 throws|,
 name|IndexShardMissingException
 function_decl|;
-comment|/**      * Returns the shards grouped by shard      */
 DECL|method|deleteByQueryShards
 name|GroupShardsIterator
 name|deleteByQueryShards
 parameter_list|(
 name|ClusterState
 name|clusterState
+parameter_list|,
+name|String
+name|index
 parameter_list|)
 throws|throws
 name|IndexMissingException
@@ -171,6 +184,10 @@ name|searchShards
 parameter_list|(
 name|ClusterState
 name|clusterState
+parameter_list|,
+name|String
+index|[]
+name|indices
 parameter_list|,
 annotation|@
 name|Nullable

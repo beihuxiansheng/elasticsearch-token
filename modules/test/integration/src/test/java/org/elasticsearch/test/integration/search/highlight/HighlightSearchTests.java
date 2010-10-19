@@ -505,7 +505,7 @@ argument_list|)
 operator|.
 name|setSearchType
 argument_list|(
-name|QUERY_THEN_FETCH
+name|DFS_QUERY_THEN_FETCH
 argument_list|)
 operator|.
 name|setQuery
