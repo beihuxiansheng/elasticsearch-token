@@ -31,7 +31,25 @@ class|class
 name|SimpleFsIndexGatewayTests
 extends|extends
 name|AbstractSimpleIndexGatewayTests
-block|{  }
+block|{
+DECL|method|testSnapshotOperations
+annotation|@
+name|Override
+specifier|public
+name|void
+name|testSnapshotOperations
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|testSnapshotOperations
+argument_list|()
+expr_stmt|;
+comment|//To change body of overridden methods use File | Settings | File Templates.
+block|}
+block|}
 end_class
 
 end_unit
