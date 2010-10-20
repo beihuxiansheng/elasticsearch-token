@@ -449,6 +449,24 @@ name|indexerId
 argument_list|)
 expr_stmt|;
 block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"**** failed indexing thread {}"
+argument_list|,
+name|e
+argument_list|,
+name|indexerId
+argument_list|)
+expr_stmt|;
+block|}
 finally|finally
 block|{
 name|stopLatch
@@ -1108,6 +1126,24 @@ operator|.
 name|info
 argument_list|(
 literal|"**** done indexing thread {}"
+argument_list|,
+name|indexerId
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"**** failed indexing thread {}"
+argument_list|,
+name|e
 argument_list|,
 name|indexerId
 argument_list|)
@@ -1818,6 +1854,24 @@ operator|.
 name|info
 argument_list|(
 literal|"**** done indexing thread {}"
+argument_list|,
+name|indexerId
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"**** failed indexing thread {}"
+argument_list|,
+name|e
 argument_list|,
 name|indexerId
 argument_list|)
