@@ -483,7 +483,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|// we always cache this one, really does not change...
+comment|// we always cache this one, really does not change... (exists)
 name|filter
 operator|=
 name|parseContext
@@ -493,12 +493,20 @@ argument_list|(
 name|filter
 argument_list|)
 expr_stmt|;
-comment|// we do the cached before the NotFilter, since there is no need to cache the not result, and this
-comment|// way we share with the exists filter
 name|filter
 operator|=
 operator|new
 name|NotFilter
+argument_list|(
+name|filter
+argument_list|)
+expr_stmt|;
+comment|// cache the not filter as well, so it will be faster
+name|filter
+operator|=
+name|parseContext
+operator|.
+name|cacheFilter
 argument_list|(
 name|filter
 argument_list|)
