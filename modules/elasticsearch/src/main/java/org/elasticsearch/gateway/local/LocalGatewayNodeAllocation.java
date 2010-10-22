@@ -1042,6 +1042,20 @@ condition|)
 block|{
 continue|continue;
 block|}
+comment|// the index might be created, but shards not instantiated yet, ignore this state
+if|if
+condition|(
+name|indexRoutingTable
+operator|.
+name|shards
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+continue|continue;
+block|}
 if|if
 condition|(
 name|indexRoutingTable
