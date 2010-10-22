@@ -575,6 +575,17 @@ name|XContentType
 operator|.
 name|SMILE
 decl_stmt|;
+comment|/**      * The default content type to use to generate source documents when indexing.      */
+DECL|field|INDEX_CONTENT_TYPE
+specifier|public
+specifier|static
+name|XContentType
+name|INDEX_CONTENT_TYPE
+init|=
+name|XContentType
+operator|.
+name|JSON
+decl_stmt|;
 DECL|method|indexRequest
 specifier|public
 specifier|static
