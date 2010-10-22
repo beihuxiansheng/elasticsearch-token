@@ -1017,6 +1017,8 @@ argument_list|()
 control|)
 block|{
 comment|// only do the allocation if there is a local "INDEX NOT RECOVERED" block
+comment|// we check this here since it helps distinguish between index creation though an API, where the below logic
+comment|// should not apply, and when recovering from the gateway, where we should apply this logic
 if|if
 condition|(
 operator|!

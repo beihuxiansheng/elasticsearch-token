@@ -322,6 +322,13 @@ throws|throws
 name|Exception
 block|{
 comment|// clean three nodes
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> cleaning nodes"
+argument_list|)
+expr_stmt|;
 name|buildNode
 argument_list|(
 literal|"node1"
@@ -378,6 +385,13 @@ argument_list|)
 expr_stmt|;
 name|cleanAndCloseNodes
 argument_list|()
+expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> starting 3 nodes"
+argument_list|)
 expr_stmt|;
 name|Node
 name|node1
@@ -484,6 +498,13 @@ name|build
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> indexing..."
+argument_list|)
+expr_stmt|;
 name|node1
 operator|.
 name|client
