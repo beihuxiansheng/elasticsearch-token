@@ -42,20 +42,6 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|MultiTermQueryWrapperFilter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
 name|TermRangeFilter
 import|;
 end_import
@@ -502,16 +488,7 @@ operator|=
 operator|new
 name|NotFilter
 argument_list|(
-operator|new
-name|ExistsFilterParser
-operator|.
-name|ExistsFilter
-argument_list|(
-operator|(
-name|MultiTermQueryWrapperFilter
-operator|)
 name|filter
-argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// we always cache this one, really does not change...
