@@ -157,7 +157,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -213,6 +213,18 @@ argument_list|,
 name|shardStateAction
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|checkWriteConsistency
+annotation|@
+name|Override
+specifier|protected
+name|boolean
+name|checkWriteConsistency
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
 block|}
 DECL|method|newRequestInstance
 annotation|@

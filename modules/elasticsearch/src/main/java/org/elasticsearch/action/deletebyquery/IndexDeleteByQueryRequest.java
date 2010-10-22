@@ -246,6 +246,15 @@ operator|.
 name|replicationType
 argument_list|()
 expr_stmt|;
+name|this
+operator|.
+name|consistencyLevel
+operator|=
+name|request
+operator|.
+name|consistencyLevel
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|IndexDeleteByQueryRequest
 name|IndexDeleteByQueryRequest

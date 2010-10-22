@@ -280,6 +280,14 @@ name|replicationType
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|consistencyLevel
+argument_list|(
+name|request
+operator|.
+name|consistencyLevel
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|timeout
 operator|=
 name|request

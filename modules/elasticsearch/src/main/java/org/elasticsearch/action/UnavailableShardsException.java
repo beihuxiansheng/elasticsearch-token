@@ -43,16 +43,16 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|PrimaryNotStartedActionException
+DECL|class|UnavailableShardsException
 specifier|public
 class|class
-name|PrimaryNotStartedActionException
+name|UnavailableShardsException
 extends|extends
 name|ElasticSearchException
 block|{
-DECL|method|PrimaryNotStartedActionException
+DECL|method|UnavailableShardsException
 specifier|public
-name|PrimaryNotStartedActionException
+name|UnavailableShardsException
 parameter_list|(
 name|ShardId
 name|shardId
