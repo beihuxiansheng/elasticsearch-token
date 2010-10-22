@@ -308,9 +308,7 @@ name|newBq
 operator|.
 name|add
 argument_list|(
-operator|new
-name|MatchAllDocsQuery
-argument_list|()
+name|MATCH_ALL_QUERY
 argument_list|,
 name|BooleanClause
 operator|.
