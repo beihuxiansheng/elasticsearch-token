@@ -77,11 +77,9 @@ name|boolean
 name|isCacheable
 parameter_list|()
 block|{
+comment|// if it is cached, create a new doc set for it so it will be fast for advance in iterator
 return|return
-name|set
-operator|.
-name|isCacheable
-argument_list|()
+literal|false
 return|;
 block|}
 DECL|method|get
