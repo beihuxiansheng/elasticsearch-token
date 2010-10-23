@@ -272,6 +272,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|gateway
+operator|.
+name|GatewayService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|index
 operator|.
 name|shard
@@ -620,7 +632,7 @@ operator|.
 name|index
 argument_list|()
 argument_list|,
-name|LocalGateway
+name|GatewayService
 operator|.
 name|INDEX_NOT_RECOVERED_BLOCK
 argument_list|)
@@ -1034,7 +1046,7 @@ operator|.
 name|index
 argument_list|()
 argument_list|,
-name|LocalGateway
+name|GatewayService
 operator|.
 name|INDEX_NOT_RECOVERED_BLOCK
 argument_list|)
