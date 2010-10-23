@@ -1138,6 +1138,14 @@ name|mappings
 argument_list|()
 argument_list|)
 operator|.
+name|state
+argument_list|(
+name|indexMetaData
+operator|.
+name|state
+argument_list|()
+argument_list|)
+operator|.
 name|blocks
 argument_list|(
 name|ImmutableSet

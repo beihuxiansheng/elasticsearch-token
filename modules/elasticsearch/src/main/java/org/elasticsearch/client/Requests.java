@@ -240,6 +240,24 @@ name|admin
 operator|.
 name|indices
 operator|.
+name|close
+operator|.
+name|CloseIndexRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|admin
+operator|.
+name|indices
+operator|.
 name|create
 operator|.
 name|CreateIndexRequest
@@ -339,6 +357,24 @@ operator|.
 name|put
 operator|.
 name|PutMappingRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|admin
+operator|.
+name|indices
+operator|.
+name|open
+operator|.
+name|OpenIndexRequest
 import|;
 end_import
 
@@ -826,6 +862,44 @@ name|index
 argument_list|)
 return|;
 block|}
+comment|/**      * Creates a close index request.      *      * @param index The index to close      * @return The delete index request      * @see org.elasticsearch.client.IndicesAdminClient#close(org.elasticsearch.action.admin.indices.close.CloseIndexRequest)      */
+DECL|method|closeIndexRequest
+specifier|public
+specifier|static
+name|CloseIndexRequest
+name|closeIndexRequest
+parameter_list|(
+name|String
+name|index
+parameter_list|)
+block|{
+return|return
+operator|new
+name|CloseIndexRequest
+argument_list|(
+name|index
+argument_list|)
+return|;
+block|}
+comment|/**      * Creates an open index request.      *      * @param index The index to open      * @return The delete index request      * @see org.elasticsearch.client.IndicesAdminClient#open(org.elasticsearch.action.admin.indices.open.OpenIndexRequest)      */
+DECL|method|openIndexRequest
+specifier|public
+specifier|static
+name|OpenIndexRequest
+name|openIndexRequest
+parameter_list|(
+name|String
+name|index
+parameter_list|)
+block|{
+return|return
+operator|new
+name|OpenIndexRequest
+argument_list|(
+name|index
+argument_list|)
+return|;
+block|}
 comment|/**      * Create a create mapping request against one or more indices.      *      * @param indices The indices the delete by query against. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The create mapping request      * @see org.elasticsearch.client.IndicesAdminClient#putMapping(org.elasticsearch.action.admin.indices.mapping.put.PutMappingRequest)      */
 DECL|method|putMappingRequest
 specifier|public
@@ -846,7 +920,7 @@ name|indices
 argument_list|)
 return|;
 block|}
-comment|/**      * Deletes mapping (and all its data) from one or more indices.      *      * @param indices The indices the mapping will be deleted from. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The create mapping request      * @see org.elasticsearch.client.IndicesAdminClient#deleteMapping(org.elasticsearch.action.admin.indices.mapping.put.DeleteMappingRequest)      */
+comment|/**      * Deletes mapping (and all its data) from one or more indices.      *      * @param indices The indices the mapping will be deleted from. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The create mapping request      * @see org.elasticsearch.client.IndicesAdminClient#deleteMapping(org.elasticsearch.action.admin.indices.mapping.delete.DeleteMappingRequest)      */
 DECL|method|deleteMappingRequest
 specifier|public
 specifier|static
