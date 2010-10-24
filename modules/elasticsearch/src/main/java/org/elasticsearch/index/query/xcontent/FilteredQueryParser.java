@@ -466,7 +466,15 @@ name|filter
 argument_list|)
 expr_stmt|;
 block|}
-comment|// we don't cache the filter, we assume it is already cached in the filter parsers...
+comment|// TODO
+comment|// With the way filtered queries work today, both query and filter advance (one at a time)
+comment|// to get hits. Since all filters support random access, it might make sense to use that.
+comment|// But, it make more sense to apply it down at the postings level then letting the query
+comment|// construct doc ids and extract it.
+comment|// This might be possible in lucene 4.0.
+comment|// More info:
+comment|//    - https://issues.apache.org/jira/browse/LUCENE-1536
+comment|//    - http://chbits.blogspot.com/2010/09/fast-search-filters-using-flex.html
 name|FilteredQuery
 name|filteredQuery
 init|=
