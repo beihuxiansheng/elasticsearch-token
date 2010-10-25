@@ -99,6 +99,14 @@ name|Filter
 name|filterToCache
 parameter_list|)
 function_decl|;
+DECL|method|weakCache
+name|Filter
+name|weakCache
+parameter_list|(
+name|Filter
+name|filterToCache
+parameter_list|)
+function_decl|;
 DECL|method|isCached
 name|boolean
 name|isCached

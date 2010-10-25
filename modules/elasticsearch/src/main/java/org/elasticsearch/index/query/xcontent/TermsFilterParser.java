@@ -575,6 +575,8 @@ name|filter
 init|=
 name|termsFilter
 decl_stmt|;
+comment|// we weak cache the filter if not cached, since in any case it builds an OpenBitSet
+comment|// we might as well weak cache it...
 if|if
 condition|(
 name|cache
@@ -585,6 +587,18 @@ operator|=
 name|parseContext
 operator|.
 name|cacheFilter
+argument_list|(
+name|filter
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|filter
+operator|=
+name|parseContext
+operator|.
+name|cacheWeakFilter
 argument_list|(
 name|filter
 argument_list|)

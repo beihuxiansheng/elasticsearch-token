@@ -113,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A simple filter for a specific term.  *  * @author kimchy (Shay Banon)  */
+comment|/**  * A simple filter for a specific term.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -207,7 +207,7 @@ condition|)
 block|{
 name|result
 operator|.
-name|set
+name|fastSet
 argument_list|(
 name|td
 operator|.

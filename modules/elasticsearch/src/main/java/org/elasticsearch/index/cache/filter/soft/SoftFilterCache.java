@@ -118,7 +118,7 @@ name|filter
 operator|.
 name|support
 operator|.
-name|AbstractConcurrentMapFilterCache
+name|AbstractDoubleConcurrentMapFilterCache
 import|;
 end_import
 
@@ -158,7 +158,7 @@ specifier|public
 class|class
 name|SoftFilterCache
 extends|extends
-name|AbstractConcurrentMapFilterCache
+name|AbstractDoubleConcurrentMapFilterCache
 block|{
 DECL|method|SoftFilterCache
 annotation|@
@@ -183,7 +183,7 @@ name|indexSettings
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|buildFilterMap
+DECL|method|buildCacheMap
 annotation|@
 name|Override
 specifier|protected
@@ -193,7 +193,7 @@ name|Filter
 argument_list|,
 name|DocSet
 argument_list|>
-name|buildFilterMap
+name|buildCacheMap
 parameter_list|()
 block|{
 comment|// DocSet are not really stored with strong reference only when searching on them...
@@ -204,6 +204,33 @@ name|MapMaker
 argument_list|()
 operator|.
 name|softValues
+argument_list|()
+operator|.
+name|makeMap
+argument_list|()
+return|;
+block|}
+DECL|method|buildWeakCacheMap
+annotation|@
+name|Override
+specifier|protected
+name|ConcurrentMap
+argument_list|<
+name|Filter
+argument_list|,
+name|DocSet
+argument_list|>
+name|buildWeakCacheMap
+parameter_list|()
+block|{
+comment|// DocSet are not really stored with strong reference only when searching on them...
+comment|// Filter might be stored in query cache
+return|return
+operator|new
+name|MapMaker
+argument_list|()
+operator|.
+name|weakValues
 argument_list|()
 operator|.
 name|makeMap

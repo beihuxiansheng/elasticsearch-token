@@ -286,9 +286,8 @@ decl_stmt|;
 name|boolean
 name|cache
 init|=
-literal|true
+literal|false
 decl_stmt|;
-comment|// default to true, make sense to cache prefix
 name|String
 name|fieldName
 init|=
@@ -499,6 +498,8 @@ name|value
 argument_list|)
 argument_list|)
 decl_stmt|;
+comment|// we weak cache the filter if not cached, since in any case it builds an OpenBitSet
+comment|// we might as well weak cache it...
 if|if
 condition|(
 name|cache
@@ -509,6 +510,18 @@ operator|=
 name|parseContext
 operator|.
 name|cacheFilter
+argument_list|(
+name|filter
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|filter
+operator|=
+name|parseContext
+operator|.
+name|cacheWeakFilter
 argument_list|(
 name|filter
 argument_list|)
