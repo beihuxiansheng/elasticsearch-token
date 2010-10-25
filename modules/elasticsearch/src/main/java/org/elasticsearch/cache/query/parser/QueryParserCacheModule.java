@@ -30,9 +30,9 @@ name|query
 operator|.
 name|parser
 operator|.
-name|none
+name|weak
 operator|.
-name|NoneQueryParserCache
+name|WeakQueryParserCache
 import|;
 end_import
 
@@ -134,7 +134,7 @@ name|getAsClass
 argument_list|(
 literal|"cache.query.parser.type"
 argument_list|,
-name|NoneQueryParserCache
+name|WeakQueryParserCache
 operator|.
 name|class
 argument_list|,
