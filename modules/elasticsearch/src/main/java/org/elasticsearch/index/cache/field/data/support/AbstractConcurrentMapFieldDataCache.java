@@ -453,9 +453,6 @@ block|}
 name|FieldData
 name|fieldData
 init|=
-operator|(
-name|FieldData
-operator|)
 name|fieldDataCache
 operator|.
 name|get
