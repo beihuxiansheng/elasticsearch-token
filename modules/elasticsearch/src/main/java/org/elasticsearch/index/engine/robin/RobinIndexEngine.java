@@ -169,19 +169,6 @@ name|indexSettings
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * With NRT, readers are cloned on deletions... .      */
-DECL|method|readerClonedOnDeletion
-annotation|@
-name|Override
-specifier|public
-name|boolean
-name|readerClonedOnDeletion
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
 DECL|method|close
 annotation|@
 name|Override

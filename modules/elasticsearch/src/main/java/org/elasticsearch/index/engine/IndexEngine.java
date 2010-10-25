@@ -40,12 +40,6 @@ name|IndexEngine
 extends|extends
 name|IndexComponent
 block|{
-comment|/**      * Are readers cloned on deletion? If this is the case, then some specific      * needs to be taken.      */
-DECL|method|readerClonedOnDeletion
-name|boolean
-name|readerClonedOnDeletion
-parameter_list|()
-function_decl|;
 DECL|method|close
 name|void
 name|close
