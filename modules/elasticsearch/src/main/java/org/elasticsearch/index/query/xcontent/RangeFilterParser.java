@@ -652,6 +652,23 @@ expr_stmt|;
 block|}
 block|}
 block|}
+if|if
+condition|(
+name|fieldName
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|QueryParsingException
+argument_list|(
+name|index
+argument_list|,
+literal|"No field specified for range filter"
+argument_list|)
+throw|;
+block|}
 name|Filter
 name|filter
 init|=

@@ -416,6 +416,23 @@ block|}
 block|}
 if|if
 condition|(
+name|fieldName
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|QueryParsingException
+argument_list|(
+name|index
+argument_list|,
+literal|"No field specified for term filter"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
 name|value
 operator|==
 literal|null
