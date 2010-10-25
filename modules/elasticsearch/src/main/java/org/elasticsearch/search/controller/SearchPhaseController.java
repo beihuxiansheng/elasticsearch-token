@@ -176,7 +176,7 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|facets
+name|facet
 operator|.
 name|Facet
 import|;
@@ -190,7 +190,7 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|facets
+name|facet
 operator|.
 name|internal
 operator|.
@@ -206,7 +206,7 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|facets
+name|facet
 operator|.
 name|internal
 operator|.

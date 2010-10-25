@@ -316,7 +316,7 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|facets
+name|facet
 operator|.
 name|query
 operator|.
@@ -650,7 +650,7 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|facets
+name|facet
 operator|.
 name|FacetBuilders
 operator|.

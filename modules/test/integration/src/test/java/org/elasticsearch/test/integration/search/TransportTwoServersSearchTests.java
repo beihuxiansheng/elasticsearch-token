@@ -166,7 +166,7 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|facets
+name|facet
 operator|.
 name|FacetBuilders
 import|;
@@ -180,7 +180,7 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|facets
+name|facet
 operator|.
 name|query
 operator|.
