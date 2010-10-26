@@ -288,8 +288,9 @@ decl_stmt|;
 name|boolean
 name|cache
 init|=
-literal|false
+literal|true
 decl_stmt|;
+comment|// since usually term filter is on repeating terms, cache it by default
 name|String
 name|fieldName
 init|=
