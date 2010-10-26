@@ -1451,7 +1451,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Transport response handler timed out, action [{}], node [{}], id [{}]"
+literal|"Received response for a request that has timed out, action [{}], node [{}], id [{}]"
 argument_list|,
 name|timeoutInfoHolder
 operator|.
