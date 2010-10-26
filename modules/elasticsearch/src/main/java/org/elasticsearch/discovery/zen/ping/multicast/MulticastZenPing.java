@@ -1584,6 +1584,18 @@ name|INSTANCE
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|spawn
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|spawn
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 block|}
 DECL|class|MulticastPingResponse
 specifier|static
@@ -1957,6 +1969,9 @@ condition|)
 block|{
 comment|// do the connect and send on a thread pool
 name|threadPool
+operator|.
+name|cached
+argument_list|()
 operator|.
 name|execute
 argument_list|(
