@@ -123,7 +123,7 @@ parameter_list|)
 block|{
 return|return
 name|distance
-operator|/
+operator|*
 name|MILES_KILOMETRES_RATIO
 return|;
 block|}
@@ -176,7 +176,7 @@ parameter_list|)
 block|{
 return|return
 name|distance
-operator|*
+operator|/
 name|MILES_KILOMETRES_RATIO
 return|;
 block|}
