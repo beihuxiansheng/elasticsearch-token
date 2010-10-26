@@ -57,6 +57,8 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
+annotation|@
+name|Test
 DECL|class|DistanceUnitTests
 specifier|public
 class|class
@@ -122,7 +124,7 @@ name|closeTo
 argument_list|(
 literal|6.21371192
 argument_list|,
-literal|0.000
+literal|0.001
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -141,7 +143,7 @@ name|closeTo
 argument_list|(
 literal|10
 argument_list|,
-literal|0.000
+literal|0.001
 argument_list|)
 argument_list|)
 expr_stmt|;
