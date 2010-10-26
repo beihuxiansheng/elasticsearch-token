@@ -196,6 +196,8 @@ name|doc
 return|;
 block|}
 return|return
+name|doc
+operator|=
 name|NO_MORE_DOCS
 return|;
 block|}
@@ -228,6 +230,8 @@ name|doc
 return|;
 block|}
 return|return
+name|doc
+operator|=
 name|NO_MORE_DOCS
 return|;
 block|}
