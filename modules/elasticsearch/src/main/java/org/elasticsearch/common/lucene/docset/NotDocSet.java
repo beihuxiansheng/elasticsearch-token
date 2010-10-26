@@ -77,9 +77,11 @@ name|boolean
 name|isCacheable
 parameter_list|()
 block|{
-comment|// if it is cached, create a new doc set for it so it will be fast for advance in iterator
 return|return
-literal|false
+name|set
+operator|.
+name|isCacheable
+argument_list|()
 return|;
 block|}
 DECL|method|get
@@ -105,6 +107,69 @@ name|doc
 argument_list|)
 return|;
 block|}
+comment|// This seems like overhead compared to testing with get and iterating over docs
+comment|//    @Override public DocIdSetIterator iterator() throws IOException {
+comment|//        return new NotDocIdSetIterator();
+comment|//    }
+comment|//
+comment|//    class NotDocIdSetIterator extends DocIdSetIterator {
+comment|//        int lastReturn = -1;
+comment|//        private DocIdSetIterator it1 = null;
+comment|//        private int innerDocid = -1;
+comment|//
+comment|//        NotDocIdSetIterator() throws IOException {
+comment|//            initialize();
+comment|//        }
+comment|//
+comment|//        private void initialize() throws IOException {
+comment|//            it1 = set.iterator();
+comment|//
+comment|//            if ((innerDocid = it1.nextDoc()) == DocIdSetIterator.NO_MORE_DOCS) it1 = null;
+comment|//        }
+comment|//
+comment|//        @Override
+comment|//        public int docID() {
+comment|//            return lastReturn;
+comment|//        }
+comment|//
+comment|//        @Override
+comment|//        public int nextDoc() throws IOException {
+comment|//            return advance(0);
+comment|//        }
+comment|//
+comment|//        @Override
+comment|//        public int advance(int target) throws IOException {
+comment|//
+comment|//            if (lastReturn == DocIdSetIterator.NO_MORE_DOCS) {
+comment|//                return DocIdSetIterator.NO_MORE_DOCS;
+comment|//            }
+comment|//
+comment|//            if (target<= lastReturn) target = lastReturn + 1;
+comment|//
+comment|//            if (it1 != null&& innerDocid< target) {
+comment|//                if ((innerDocid = it1.advance(target)) == DocIdSetIterator.NO_MORE_DOCS) {
+comment|//                    it1 = null;
+comment|//                }
+comment|//            }
+comment|//
+comment|//            while (it1 != null&& innerDocid == target) {
+comment|//                target++;
+comment|//                if (target>= max) {
+comment|//                    return (lastReturn = DocIdSetIterator.NO_MORE_DOCS);
+comment|//                }
+comment|//                if ((innerDocid = it1.advance(target)) == DocIdSetIterator.NO_MORE_DOCS) {
+comment|//                    it1 = null;
+comment|//                }
+comment|//            }
+comment|//
+comment|//            // ADDED THIS, bug in code
+comment|//            if (target>= max) {
+comment|//                return (lastReturn = DocIdSetIterator.NO_MORE_DOCS);
+comment|//            }
+comment|//
+comment|//            return (lastReturn = target);
+comment|//        }
+comment|//    }
 block|}
 end_class
 
