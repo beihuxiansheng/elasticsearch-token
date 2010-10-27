@@ -379,14 +379,12 @@ block|{
 return|return
 name|request
 operator|.
-name|getBody
+name|isSetBody
 argument_list|()
-operator|!=
-literal|null
 operator|&&
 name|request
 operator|.
-name|getBody
+name|BufferForBody
 argument_list|()
 operator|.
 name|remaining
@@ -434,7 +432,7 @@ block|}
 return|return
 name|request
 operator|.
-name|getBody
+name|BufferForBody
 argument_list|()
 operator|.
 name|array
@@ -465,7 +463,7 @@ block|}
 return|return
 name|request
 operator|.
-name|getBody
+name|BufferForBody
 argument_list|()
 operator|.
 name|arrayOffset
@@ -496,7 +494,7 @@ block|}
 return|return
 name|request
 operator|.
-name|getBody
+name|BufferForBody
 argument_list|()
 operator|.
 name|remaining

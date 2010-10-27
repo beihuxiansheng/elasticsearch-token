@@ -585,7 +585,7 @@ name|createParser
 argument_list|(
 name|response
 operator|.
-name|getBody
+name|BufferForBody
 argument_list|()
 operator|.
 name|array
@@ -593,7 +593,7 @@ argument_list|()
 argument_list|,
 name|response
 operator|.
-name|getBody
+name|BufferForBody
 argument_list|()
 operator|.
 name|arrayOffset
@@ -601,7 +601,7 @@ argument_list|()
 argument_list|,
 name|response
 operator|.
-name|getBody
+name|BufferForBody
 argument_list|()
 operator|.
 name|remaining
