@@ -71,29 +71,29 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|OrDocSet
+DECL|class|OrDocIdSet
 specifier|public
 class|class
-name|OrDocSet
+name|OrDocIdSet
 extends|extends
-name|DocSet
+name|DocIdSet
 block|{
 DECL|field|sets
 specifier|private
 specifier|final
 name|List
 argument_list|<
-name|DocSet
+name|DocIdSet
 argument_list|>
 name|sets
 decl_stmt|;
-DECL|method|OrDocSet
+DECL|method|OrDocIdSet
 specifier|public
-name|OrDocSet
+name|OrDocIdSet
 parameter_list|(
 name|List
 argument_list|<
-name|DocSet
+name|DocIdSet
 argument_list|>
 name|sets
 parameter_list|)
@@ -105,29 +105,6 @@ operator|=
 name|sets
 expr_stmt|;
 block|}
-DECL|method|get
-annotation|@
-name|Override
-specifier|public
-name|boolean
-name|get
-parameter_list|(
-name|int
-name|doc
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-comment|// not cacheable, the reason is that by default, when constructing the filter, it is not cacheable,
-comment|// so if someone wants it to be cacheable, we might as well construct a cached version of the result
-return|return
-literal|false
-return|;
-comment|//        for (DocSet s : sets) {
-comment|//            if (s.get(doc)) return true;
-comment|//        }
-comment|//        return false;
-block|}
 DECL|method|isCacheable
 annotation|@
 name|Override
@@ -136,31 +113,17 @@ name|boolean
 name|isCacheable
 parameter_list|()
 block|{
-for|for
-control|(
-name|DocSet
-name|set
-range|:
-name|sets
-control|)
-block|{
-if|if
-condition|(
-operator|!
-name|set
-operator|.
-name|isCacheable
-argument_list|()
-condition|)
-block|{
+comment|// not cacheable, the reason is that by default, when constructing the filter, it is not cacheable,
+comment|// so if someone wants it to be cacheable, we might as well construct a cached version of the result
 return|return
 literal|false
 return|;
-block|}
-block|}
-return|return
-literal|true
-return|;
+comment|//        for (DocIdSet set : sets) {
+comment|//            if (!set.isCacheable()) {
+comment|//                return false;
+comment|//            }
+comment|//        }
+comment|//        return true;
 block|}
 DECL|method|iterator
 annotation|@

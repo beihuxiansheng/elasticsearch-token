@@ -71,29 +71,29 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|AndDocSet
+DECL|class|AndDocIdSet
 specifier|public
 class|class
-name|AndDocSet
+name|AndDocIdSet
 extends|extends
-name|DocSet
+name|DocIdSet
 block|{
 DECL|field|sets
 specifier|private
 specifier|final
 name|List
 argument_list|<
-name|DocSet
+name|DocIdSet
 argument_list|>
 name|sets
 decl_stmt|;
-DECL|method|AndDocSet
+DECL|method|AndDocIdSet
 specifier|public
-name|AndDocSet
+name|AndDocIdSet
 parameter_list|(
 name|List
 argument_list|<
-name|DocSet
+name|DocIdSet
 argument_list|>
 name|sets
 parameter_list|)
@@ -104,45 +104,6 @@ name|sets
 operator|=
 name|sets
 expr_stmt|;
-block|}
-DECL|method|get
-annotation|@
-name|Override
-specifier|public
-name|boolean
-name|get
-parameter_list|(
-name|int
-name|doc
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-for|for
-control|(
-name|DocSet
-name|s
-range|:
-name|sets
-control|)
-block|{
-if|if
-condition|(
-operator|!
-name|s
-operator|.
-name|get
-argument_list|(
-name|doc
-argument_list|)
-condition|)
-return|return
-literal|false
-return|;
-block|}
-return|return
-literal|true
-return|;
 block|}
 DECL|method|isCacheable
 annotation|@
@@ -157,7 +118,7 @@ comment|// so if someone wants it to be cacheable, we might as well construct a 
 return|return
 literal|false
 return|;
-comment|//        for (DocSet set : sets) {
+comment|//        for (DocIdSet set : sets) {
 comment|//            if (!set.isCacheable()) {
 comment|//                return false;
 comment|//            }

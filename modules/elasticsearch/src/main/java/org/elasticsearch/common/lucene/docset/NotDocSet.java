@@ -77,12 +77,12 @@ name|boolean
 name|isCacheable
 parameter_list|()
 block|{
+comment|// not cacheable, the reason is that by default, when constructing the filter, it is not cacheable,
+comment|// so if someone wants it to be cacheable, we might as well construct a cached version of the result
 return|return
-name|set
-operator|.
-name|isCacheable
-argument_list|()
+literal|false
 return|;
+comment|//        return set.isCacheable();
 block|}
 DECL|method|get
 annotation|@
