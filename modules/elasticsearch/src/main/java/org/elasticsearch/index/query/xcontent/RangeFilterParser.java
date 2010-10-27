@@ -272,7 +272,7 @@ decl_stmt|;
 name|boolean
 name|cache
 init|=
-literal|false
+literal|true
 decl_stmt|;
 name|String
 name|fieldName
