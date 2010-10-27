@@ -443,7 +443,7 @@ name|operationThreading
 init|=
 name|SearchOperationThreading
 operator|.
-name|SINGLE_THREAD
+name|THREAD_PER_SHARD
 decl_stmt|;
 DECL|method|SearchRequest
 specifier|public
