@@ -623,6 +623,15 @@ index|[]
 name|args
 parameter_list|)
 block|{
+name|System
+operator|.
+name|setProperty
+argument_list|(
+literal|"es.logger.prefix"
+argument_list|,
+literal|""
+argument_list|)
+expr_stmt|;
 name|Bootstrap
 name|bootstrap
 init|=

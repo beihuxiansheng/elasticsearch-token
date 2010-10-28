@@ -175,7 +175,7 @@ name|getProperty
 argument_list|(
 literal|"es.logger.prefix"
 argument_list|,
-literal|""
+literal|"org.elasticsearch."
 argument_list|)
 decl_stmt|;
 DECL|field|SPACE
@@ -455,7 +455,7 @@ block|{
 return|return
 name|getLogger
 argument_list|(
-name|getLoggerName
+name|buildClassLoggerName
 argument_list|(
 name|clazz
 argument_list|)
@@ -705,7 +705,10 @@ name|getLogger
 argument_list|(
 name|getLoggerName
 argument_list|(
+name|buildClassLoggerName
+argument_list|(
 name|clazz
+argument_list|)
 argument_list|)
 argument_list|)
 return|;
@@ -727,7 +730,7 @@ block|{
 return|return
 name|getLogger
 argument_list|(
-name|getLoggerName
+name|buildClassLoggerName
 argument_list|(
 name|clazz
 argument_list|)
@@ -870,11 +873,11 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-DECL|method|getLoggerName
+DECL|method|buildClassLoggerName
 specifier|private
 specifier|static
 name|String
-name|getLoggerName
+name|buildClassLoggerName
 parameter_list|(
 name|Class
 name|clazz
@@ -909,10 +912,7 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|getLoggerName
-argument_list|(
 name|name
-argument_list|)
 return|;
 block|}
 DECL|method|getLoggerName
@@ -935,7 +935,8 @@ literal|"org.elasticsearch."
 argument_list|)
 condition|)
 block|{
-return|return
+name|name
+operator|=
 name|name
 operator|.
 name|substring
@@ -945,7 +946,7 @@ operator|.
 name|length
 argument_list|()
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 return|return
 name|commonPrefix
