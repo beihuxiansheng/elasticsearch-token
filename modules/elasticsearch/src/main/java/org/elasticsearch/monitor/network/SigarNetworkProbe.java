@@ -455,6 +455,7 @@ operator|+
 literal|"]"
 argument_list|)
 expr_stmt|;
+continue|continue;
 block|}
 name|long
 name|flags
