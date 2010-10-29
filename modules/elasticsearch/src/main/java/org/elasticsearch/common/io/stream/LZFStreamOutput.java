@@ -422,6 +422,13 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|position
+operator|>
+literal|0
+condition|)
+block|{
 name|encoder
 operator|.
 name|encodeChunk
@@ -439,6 +446,7 @@ name|position
 operator|=
 literal|0
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class
