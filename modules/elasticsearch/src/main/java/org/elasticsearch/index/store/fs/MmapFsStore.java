@@ -335,7 +335,7 @@ condition|)
 block|{
 name|suggestUseCompoundFile
 operator|=
-literal|true
+name|DEFAULT_SUGGEST_USE_COMPOUND_FILE
 expr_stmt|;
 if|if
 condition|(
