@@ -112,6 +112,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|jna
+operator|.
+name|Natives
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|logging
 operator|.
 name|ESLogger
@@ -338,6 +352,12 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|//        Loggers.getLogger(Bootstrap.class, tuple.v1().get("name")).info("heap_size {}/{}", JvmStats.jvmStats().mem().heapCommitted(), JvmInfo.jvmInfo().mem().heapMax());
+name|Natives
+operator|.
+name|tryMlockall
+argument_list|()
+expr_stmt|;
 name|tuple
 operator|=
 name|setupJmx
