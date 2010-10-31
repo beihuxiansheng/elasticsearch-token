@@ -2873,6 +2873,12 @@ literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// clear unreferenced files
+name|translog
+operator|.
+name|clearUnreferenced
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|performRecoveryOperation
 specifier|public

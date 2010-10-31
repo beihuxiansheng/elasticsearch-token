@@ -313,6 +313,12 @@ name|Snapshot
 name|snapshot
 parameter_list|)
 function_decl|;
+comment|/**      * Clears unreferenced transaclogs.      */
+DECL|method|clearUnreferenced
+name|void
+name|clearUnreferenced
+parameter_list|()
+function_decl|;
 comment|/**      * Sync's the translog.      */
 DECL|method|sync
 name|void
