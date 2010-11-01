@@ -171,9 +171,9 @@ name|debug
 argument_list|(
 literal|"Unable to lock JVM memory (ENOMEM)."
 operator|+
-literal|" This can result in part of the JVM being swapped out, especially with mmapped I/O enabled."
+literal|" This can result in part of the JVM being swapped out."
 operator|+
-literal|" Increase RLIMIT_MEMLOCK or run Cassandra as root."
+literal|" Increase RLIMIT_MEMLOCK or run elasticsearch as root."
 argument_list|)
 expr_stmt|;
 block|}
