@@ -542,7 +542,6 @@ throws|throws
 name|IndexShardGatewayRecoveryException
 block|{
 name|recoveryStatus
-argument_list|()
 operator|.
 name|index
 argument_list|()

@@ -2555,7 +2555,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IOException
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -2731,6 +2731,8 @@ block|{
 comment|// ignore
 block|}
 block|}
+comment|// we create an output with no checksum, this is because the pure binary data of the file is not
+comment|// the checksum (because of seek). We will create the checksum file once copying is done
 name|indexOutput
 operator|=
 name|shard
@@ -2738,10 +2740,7 @@ operator|.
 name|store
 argument_list|()
 operator|.
-name|directory
-argument_list|()
-operator|.
-name|createOutput
+name|createOutputWithNoChecksum
 argument_list|(
 name|request
 operator|.
@@ -2853,6 +2852,52 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+comment|// write the checksum
+if|if
+condition|(
+name|request
+operator|.
+name|checksum
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|shard
+operator|.
+name|store
+argument_list|()
+operator|.
+name|writeChecksum
+argument_list|(
+name|request
+operator|.
+name|name
+argument_list|()
+argument_list|,
+name|request
+operator|.
+name|checksum
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+name|shard
+operator|.
+name|store
+argument_list|()
+operator|.
+name|directory
+argument_list|()
+operator|.
+name|sync
+argument_list|(
+name|request
+operator|.
+name|name
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|onGoingRecovery
 operator|.
 name|openIndexOutputs
@@ -2901,6 +2946,9 @@ parameter_list|)
 block|{
 comment|// ignore
 block|}
+throw|throw
+name|e
+throw|;
 block|}
 block|}
 name|channel

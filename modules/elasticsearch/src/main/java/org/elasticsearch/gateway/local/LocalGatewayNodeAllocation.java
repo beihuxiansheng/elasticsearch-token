@@ -2058,13 +2058,10 @@ name|name
 argument_list|()
 argument_list|)
 operator|.
-name|length
-argument_list|()
-operator|==
+name|isSame
+argument_list|(
 name|storeFileMetaData
-operator|.
-name|length
-argument_list|()
+argument_list|)
 condition|)
 block|{
 name|sizeMatched
