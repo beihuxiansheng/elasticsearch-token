@@ -192,6 +192,18 @@ return|return
 literal|false
 return|;
 block|}
+DECL|method|toString
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"*:*"
+return|;
+block|}
 block|}
 end_class
 
