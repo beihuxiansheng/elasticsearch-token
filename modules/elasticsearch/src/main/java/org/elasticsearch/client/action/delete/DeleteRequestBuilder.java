@@ -229,6 +229,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Controls the shard routing of the delete request. Using this value to hash the shard      * and not the id.      */
+DECL|method|setRouting
+specifier|public
+name|DeleteRequestBuilder
+name|setRouting
+parameter_list|(
+name|String
+name|routing
+parameter_list|)
+block|{
+name|request
+operator|.
+name|routing
+argument_list|(
+name|routing
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Should a refresh be executed post this index operation causing the operation to      * be searchable. Note, heavy indexing should not set this to<tt>true</tt>. Defaults      * to<tt>false</tt>.      */
 DECL|method|setRefresh
 specifier|public

@@ -200,6 +200,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -714,11 +724,18 @@ parameter_list|)
 throws|throws
 name|IndexMissingException
 block|{
-name|GroupShardsIterator
-name|its
+comment|// use list here since we need to maintain identity across shards
+name|ArrayList
+argument_list|<
+name|ShardsIterator
+argument_list|>
+name|set
 init|=
 operator|new
-name|GroupShardsIterator
+name|ArrayList
+argument_list|<
+name|ShardsIterator
+argument_list|>
 argument_list|()
 decl_stmt|;
 if|if
@@ -800,7 +817,7 @@ range|:
 name|indexShardRoutingTable
 control|)
 block|{
-name|its
+name|set
 operator|.
 name|add
 argument_list|(
@@ -814,7 +831,11 @@ block|}
 block|}
 block|}
 return|return
-name|its
+operator|new
+name|GroupShardsIterator
+argument_list|(
+name|set
+argument_list|)
 return|;
 block|}
 comment|/**      * All the primary shards for the provided indices grouped (each group is a single element, consisting      * of the primary shard). This is handy for components that expect to get group iterators, but still want in some      * cases to iterate over all primary shards (and not just one shard in replication group).      *      * @param indices The indices to return all the shards (replicas), can be<tt>null</tt> or empty array to indicate all indices      * @return All the primary shards grouped into a single shard element group each      * @throws IndexMissingException If an index passed does not exists      * @see IndexRoutingTable#groupByAllIt()      */
@@ -830,11 +851,18 @@ parameter_list|)
 throws|throws
 name|IndexMissingException
 block|{
-name|GroupShardsIterator
-name|its
+comment|// use list here since we need to maintain identity across shards
+name|ArrayList
+argument_list|<
+name|ShardsIterator
+argument_list|>
+name|set
 init|=
 operator|new
-name|GroupShardsIterator
+name|ArrayList
+argument_list|<
+name|ShardsIterator
+argument_list|>
 argument_list|()
 decl_stmt|;
 if|if
@@ -916,7 +944,7 @@ range|:
 name|indexRoutingTable
 control|)
 block|{
-name|its
+name|set
 operator|.
 name|add
 argument_list|(
@@ -932,7 +960,11 @@ expr_stmt|;
 block|}
 block|}
 return|return
-name|its
+operator|new
+name|GroupShardsIterator
+argument_list|(
+name|set
+argument_list|)
 return|;
 block|}
 DECL|method|builder

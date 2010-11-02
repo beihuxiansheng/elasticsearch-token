@@ -140,6 +140,19 @@ name|ShardRouting
 name|nextAssignedOrNull
 parameter_list|()
 function_decl|;
+DECL|method|hashCode
+name|int
+name|hashCode
+parameter_list|()
+function_decl|;
+DECL|method|equals
+name|boolean
+name|equals
+parameter_list|(
+name|Object
+name|other
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

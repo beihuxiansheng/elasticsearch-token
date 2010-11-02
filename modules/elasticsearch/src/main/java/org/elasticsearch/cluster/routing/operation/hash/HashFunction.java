@@ -35,6 +35,14 @@ name|int
 name|hash
 parameter_list|(
 name|String
+name|routing
+parameter_list|)
+function_decl|;
+DECL|method|hash
+name|int
+name|hash
+parameter_list|(
+name|String
 name|type
 parameter_list|,
 name|String

@@ -245,6 +245,49 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * A comma separated list of routing values to control the shards the action will be executed on.      */
+DECL|method|setRouting
+specifier|public
+name|DeleteByQueryRequestBuilder
+name|setRouting
+parameter_list|(
+name|String
+name|routing
+parameter_list|)
+block|{
+name|request
+operator|.
+name|routing
+argument_list|(
+name|routing
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * The routing values to control the shards that the action will be executed on.      */
+DECL|method|setRouting
+specifier|public
+name|DeleteByQueryRequestBuilder
+name|setRouting
+parameter_list|(
+name|String
+modifier|...
+name|routing
+parameter_list|)
+block|{
+name|request
+operator|.
+name|routing
+argument_list|(
+name|routing
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * The query source to execute.      *      * @see org.elasticsearch.index.query.xcontent.QueryBuilders      */
 DECL|method|setQuery
 specifier|public
@@ -357,10 +400,10 @@ name|this
 return|;
 block|}
 comment|/**      * The query source to execute.      */
-DECL|method|query
+DECL|method|setQuery
 specifier|public
 name|DeleteByQueryRequestBuilder
-name|query
+name|setQuery
 parameter_list|(
 name|byte
 index|[]

@@ -281,6 +281,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Controls the shard routing of the request. Using this value to hash the shard      * and not the id.      */
+DECL|method|setRouting
+specifier|public
+name|IndexRequestBuilder
+name|setRouting
+parameter_list|(
+name|String
+name|routing
+parameter_list|)
+block|{
+name|request
+operator|.
+name|routing
+argument_list|(
+name|routing
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Index the Map as a JSON.      *      * @param source The map to index      */
 DECL|method|setSource
 specifier|public

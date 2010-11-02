@@ -218,6 +218,26 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Controls the shard routing of the request. Using this value to hash the shard      * and not the id.      */
+DECL|method|routing
+specifier|public
+name|GetRequest
+name|routing
+parameter_list|(
+name|String
+name|routing
+parameter_list|)
+block|{
+name|this
+operator|.
+name|routing
+operator|=
+name|routing
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Explicitly specify the fields that will be returned. By default, the<tt>_source</tt>      * field will be returned.      */
 DECL|method|fields
 specifier|public

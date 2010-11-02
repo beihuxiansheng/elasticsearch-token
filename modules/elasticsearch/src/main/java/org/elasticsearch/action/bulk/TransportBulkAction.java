@@ -1109,6 +1109,11 @@ name|indexRequest
 operator|.
 name|id
 argument_list|()
+argument_list|,
+name|indexRequest
+operator|.
+name|routing
+argument_list|()
 argument_list|)
 operator|.
 name|shardId
@@ -1155,6 +1160,11 @@ argument_list|,
 name|deleteRequest
 operator|.
 name|id
+argument_list|()
+argument_list|,
+name|deleteRequest
+operator|.
+name|routing
 argument_list|()
 argument_list|)
 operator|.
