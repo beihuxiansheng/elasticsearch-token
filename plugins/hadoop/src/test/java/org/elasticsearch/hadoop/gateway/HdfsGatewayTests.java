@@ -440,7 +440,7 @@ name|put
 argument_list|(
 literal|"gateway.hdfs.path"
 argument_list|,
-literal|"work/hdfs/gateway"
+literal|"data/hdfs/gateway"
 argument_list|)
 operator|.
 name|build
