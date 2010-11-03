@@ -1386,7 +1386,7 @@ operator|.
 name|class
 argument_list|)
 operator|.
-name|nodeLocation
+name|nodeDataLocation
 argument_list|()
 decl_stmt|;
 name|node

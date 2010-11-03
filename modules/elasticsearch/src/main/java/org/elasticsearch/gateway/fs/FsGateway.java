@@ -268,7 +268,7 @@ name|File
 argument_list|(
 name|environment
 operator|.
-name|workFile
+name|dataFile
 argument_list|()
 argument_list|,
 literal|"gateway"

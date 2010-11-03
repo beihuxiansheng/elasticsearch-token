@@ -1292,7 +1292,7 @@ name|deleteRecursively
 argument_list|(
 name|nodeEnv
 operator|.
-name|nodeLocation
+name|nodeDataLocation
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2084,7 +2084,7 @@ name|File
 argument_list|(
 name|nodeEnv
 operator|.
-name|nodeLocation
+name|nodeDataLocation
 argument_list|()
 argument_list|,
 literal|"_state"

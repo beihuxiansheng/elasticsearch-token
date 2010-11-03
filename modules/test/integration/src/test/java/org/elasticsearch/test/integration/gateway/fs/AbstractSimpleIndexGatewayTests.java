@@ -1486,7 +1486,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Clearing cluster work dir, so there will be a full recovery from the gateway"
+literal|"Clearing cluster data dir, so there will be a full recovery from the gateway"
 argument_list|)
 expr_stmt|;
 name|FileSystemUtils
@@ -1495,7 +1495,7 @@ name|deleteRecursively
 argument_list|(
 name|environment
 operator|.
-name|workWithClusterFile
+name|dataWithClusterFile
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2546,7 +2546,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Clearing cluster work dir, so there will be a full recovery from the gateway"
+literal|"Clearing cluster data dir, so there will be a full recovery from the gateway"
 argument_list|)
 expr_stmt|;
 name|FileSystemUtils
@@ -2555,7 +2555,7 @@ name|deleteRecursively
 argument_list|(
 name|environment
 operator|.
-name|workWithClusterFile
+name|dataWithClusterFile
 argument_list|()
 argument_list|)
 expr_stmt|;

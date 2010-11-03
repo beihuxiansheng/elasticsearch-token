@@ -239,7 +239,7 @@ name|File
 argument_list|(
 name|nodeEnv
 operator|.
-name|nodeLocation
+name|nodeDataLocation
 argument_list|()
 argument_list|,
 literal|"indices"

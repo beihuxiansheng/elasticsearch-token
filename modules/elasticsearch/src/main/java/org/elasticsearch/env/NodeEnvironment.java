@@ -252,7 +252,7 @@ name|File
 argument_list|(
 name|environment
 operator|.
-name|workWithClusterFile
+name|dataWithClusterFile
 argument_list|()
 argument_list|,
 literal|"nodes"
@@ -417,10 +417,10 @@ operator|!=
 literal|null
 return|;
 block|}
-DECL|method|nodeLocation
+DECL|method|nodeDataLocation
 specifier|public
 name|File
-name|nodeLocation
+name|nodeDataLocation
 parameter_list|()
 block|{
 if|if
