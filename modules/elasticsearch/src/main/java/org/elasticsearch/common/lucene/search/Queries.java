@@ -78,8 +78,6 @@ argument_list|(
 operator|new
 name|MatchAllDocsFilter
 argument_list|()
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 comment|/**      * A match all docs filter. Note, requires no caching!.      */

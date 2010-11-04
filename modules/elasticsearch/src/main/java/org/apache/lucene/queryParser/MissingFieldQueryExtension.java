@@ -296,8 +296,6 @@ operator|new
 name|DeletionAwareConstantScoreQuery
 argument_list|(
 name|filter
-argument_list|,
-literal|true
 argument_list|)
 return|;
 block|}

@@ -659,8 +659,6 @@ operator|new
 name|DeletionAwareConstantScoreQuery
 argument_list|(
 name|cachedFilter
-argument_list|,
-literal|true
 argument_list|)
 argument_list|,
 operator|-
