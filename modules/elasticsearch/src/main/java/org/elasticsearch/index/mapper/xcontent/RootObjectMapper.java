@@ -934,6 +934,11 @@ name|dynamicTemplate
 init|=
 name|findTemplate
 argument_list|(
+name|context
+operator|.
+name|path
+argument_list|()
+argument_list|,
 name|name
 argument_list|,
 name|dynamicType
@@ -1000,6 +1005,9 @@ specifier|public
 name|DynamicTemplate
 name|findTemplate
 parameter_list|(
+name|ContentPath
+name|path
+parameter_list|,
 name|String
 name|name
 parameter_list|,
@@ -1021,6 +1029,8 @@ name|dynamicTemplate
 operator|.
 name|match
 argument_list|(
+name|path
+argument_list|,
 name|name
 argument_list|,
 name|dynamicType
