@@ -280,6 +280,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|discovery
+operator|.
+name|Discovery
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|env
 operator|.
 name|NodeEnvironment
@@ -1337,6 +1349,9 @@ condition|)
 block|{
 return|return;
 block|}
+comment|// we only write the local metadata if this is a possible master node, the metadata has changed, and
+comment|// we don't have a NO_MASTER block (in which case, the routing is cleaned, and we don't want to override what
+comment|// we have now, since it might be needed when later on performing full state recovery)
 if|if
 condition|(
 name|event
@@ -1357,6 +1372,22 @@ name|event
 operator|.
 name|metaDataChanged
 argument_list|()
+operator|&&
+operator|!
+name|event
+operator|.
+name|state
+argument_list|()
+operator|.
+name|blocks
+argument_list|()
+operator|.
+name|hasGlobalBlock
+argument_list|(
+name|Discovery
+operator|.
+name|NO_MASTER_BLOCK
+argument_list|)
 condition|)
 block|{
 name|executor
