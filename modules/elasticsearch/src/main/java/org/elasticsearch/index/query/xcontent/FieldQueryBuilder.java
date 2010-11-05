@@ -259,7 +259,30 @@ expr_stmt|;
 block|}
 comment|/**      * A query that executes the query string against a field. It is a simplified      * version of {@link QueryStringQueryBuilder} that simply runs against      * a single field.      *      * @param name  The name of the field      * @param query The query string      */
 DECL|method|FieldQueryBuilder
-specifier|private
+specifier|public
+name|FieldQueryBuilder
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|boolean
+name|query
+parameter_list|)
+block|{
+name|this
+argument_list|(
+name|name
+argument_list|,
+operator|(
+name|Object
+operator|)
+name|query
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * A query that executes the query string against a field. It is a simplified      * version of {@link QueryStringQueryBuilder} that simply runs against      * a single field.      *      * @param name  The name of the field      * @param query The query string      */
+DECL|method|FieldQueryBuilder
+specifier|public
 name|FieldQueryBuilder
 parameter_list|(
 name|String

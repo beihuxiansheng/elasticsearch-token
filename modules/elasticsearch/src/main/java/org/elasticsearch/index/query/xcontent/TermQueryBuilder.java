@@ -191,7 +191,30 @@ expr_stmt|;
 block|}
 comment|/**      * Constructs a new term query.      *      * @param name  The name of the field      * @param value The value of the term      */
 DECL|method|TermQueryBuilder
-specifier|private
+specifier|public
+name|TermQueryBuilder
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|boolean
+name|value
+parameter_list|)
+block|{
+name|this
+argument_list|(
+name|name
+argument_list|,
+operator|(
+name|Object
+operator|)
+name|value
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Constructs a new term query.      *      * @param name  The name of the field      * @param value The value of the term      */
+DECL|method|TermQueryBuilder
+specifier|public
 name|TermQueryBuilder
 parameter_list|(
 name|String
