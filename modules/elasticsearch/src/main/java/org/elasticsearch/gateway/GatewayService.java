@@ -592,7 +592,7 @@ name|componentSettings
 operator|.
 name|getAsInt
 argument_list|(
-literal|"expected__data_nodes"
+literal|"expected_data_nodes"
 argument_list|,
 operator|-
 literal|1
@@ -620,7 +620,7 @@ name|componentSettings
 operator|.
 name|getAsInt
 argument_list|(
-literal|"expected__master_nodes"
+literal|"expected_master_nodes"
 argument_list|,
 operator|-
 literal|1
