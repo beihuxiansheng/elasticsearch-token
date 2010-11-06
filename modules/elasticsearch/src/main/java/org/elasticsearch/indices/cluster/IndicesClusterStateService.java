@@ -2628,7 +2628,8 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
-comment|// we are recovering a backup from a primary, so no need to mark it as relocated
+comment|// we don't mark this one as relocated at the end, requests in any case are routed to both when its relocating
+comment|// and that way we handle the edge case where its mark as relocated, and we might need to roll it back...
 specifier|final
 name|StartRecoveryRequest
 name|request
