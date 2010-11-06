@@ -1206,12 +1206,12 @@ return|return
 name|similarityService
 return|;
 block|}
-DECL|method|indexEngine
+DECL|method|engine
 annotation|@
 name|Override
 specifier|public
 name|IndexEngine
-name|indexEngine
+name|engine
 parameter_list|()
 block|{
 return|return

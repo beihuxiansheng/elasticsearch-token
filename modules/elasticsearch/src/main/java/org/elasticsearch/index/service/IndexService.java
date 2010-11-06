@@ -253,9 +253,9 @@ name|SimilarityService
 name|similarityService
 parameter_list|()
 function_decl|;
-DECL|method|indexEngine
+DECL|method|engine
 name|IndexEngine
-name|indexEngine
+name|engine
 parameter_list|()
 function_decl|;
 DECL|method|store
