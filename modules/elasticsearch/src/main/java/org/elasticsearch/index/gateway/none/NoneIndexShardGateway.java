@@ -482,6 +482,20 @@ name|boolean
 name|delete
 parameter_list|)
 block|{     }
+DECL|method|obtainSnapshotLock
+annotation|@
+name|Override
+specifier|public
+name|SnapshotLock
+name|obtainSnapshotLock
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+return|return
+name|NO_SNAPSHOT_LOCK
+return|;
+block|}
 block|}
 end_class
 
