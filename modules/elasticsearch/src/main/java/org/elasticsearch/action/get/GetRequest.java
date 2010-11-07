@@ -378,6 +378,13 @@ argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
+name|refresh
+operator|=
+name|in
+operator|.
+name|readBoolean
+argument_list|()
+expr_stmt|;
 name|int
 name|size
 init|=
@@ -447,6 +454,13 @@ operator|.
 name|writeTo
 argument_list|(
 name|out
+argument_list|)
+expr_stmt|;
+name|out
+operator|.
+name|writeBoolean
+argument_list|(
+name|refresh
 argument_list|)
 expr_stmt|;
 if|if
