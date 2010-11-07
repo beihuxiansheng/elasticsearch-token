@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  * A failure to handle the response of a transaction action.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -24,7 +24,7 @@ specifier|public
 class|class
 name|ResponseHandlerFailureTransportException
 extends|extends
-name|RemoteTransportException
+name|TransportException
 block|{
 DECL|method|ResponseHandlerFailureTransportException
 specifier|public
@@ -44,6 +44,18 @@ argument_list|,
 name|cause
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|fillInStackTrace
+annotation|@
+name|Override
+specifier|public
+name|Throwable
+name|fillInStackTrace
+parameter_list|()
+block|{
+return|return
+literal|null
+return|;
 block|}
 block|}
 end_class

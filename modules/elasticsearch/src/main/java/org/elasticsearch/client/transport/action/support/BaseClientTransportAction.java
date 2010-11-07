@@ -190,7 +190,7 @@ name|elasticsearch
 operator|.
 name|transport
 operator|.
-name|RemoteTransportException
+name|TransportException
 import|;
 end_import
 
@@ -490,7 +490,7 @@ specifier|public
 name|void
 name|handleException
 parameter_list|(
-name|RemoteTransportException
+name|TransportException
 name|exp
 parameter_list|)
 block|{

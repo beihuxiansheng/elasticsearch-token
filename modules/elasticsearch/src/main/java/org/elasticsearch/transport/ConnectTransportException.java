@@ -38,7 +38,7 @@ specifier|public
 class|class
 name|ConnectTransportException
 extends|extends
-name|RemoteTransportException
+name|ActionTransportException
 block|{
 DECL|field|node
 specifier|private

@@ -1382,7 +1382,7 @@ specifier|public
 name|void
 name|handleException
 parameter_list|(
-name|RemoteTransportException
+name|TransportException
 name|e
 parameter_list|)
 block|{

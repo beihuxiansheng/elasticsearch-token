@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -134,7 +134,7 @@ specifier|public
 name|void
 name|handleException
 parameter_list|(
-name|RemoteTransportException
+name|TransportException
 name|exp
 parameter_list|)
 block|{     }

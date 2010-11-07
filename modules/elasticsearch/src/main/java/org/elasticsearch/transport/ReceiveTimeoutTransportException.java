@@ -38,7 +38,7 @@ specifier|public
 class|class
 name|ReceiveTimeoutTransportException
 extends|extends
-name|RemoteTransportException
+name|ActionTransportException
 block|{
 DECL|method|ReceiveTimeoutTransportException
 specifier|public

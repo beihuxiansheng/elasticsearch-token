@@ -390,7 +390,7 @@ specifier|public
 name|void
 name|handleException
 parameter_list|(
-name|RemoteTransportException
+name|TransportException
 name|exp
 parameter_list|)
 block|{

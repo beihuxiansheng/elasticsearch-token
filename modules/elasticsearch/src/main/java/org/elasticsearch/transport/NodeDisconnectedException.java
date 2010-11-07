@@ -63,9 +63,19 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|//    @Override public Throwable fillInStackTrace() {
-comment|//        return fillStack();
-comment|//    }
+comment|// stack trace is meaningless...
+DECL|method|fillInStackTrace
+annotation|@
+name|Override
+specifier|public
+name|Throwable
+name|fillInStackTrace
+parameter_list|()
+block|{
+return|return
+literal|null
+return|;
+block|}
 block|}
 end_class
 
