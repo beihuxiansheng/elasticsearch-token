@@ -827,6 +827,29 @@ operator|.
 name|indexAnalyzer
 return|;
 block|}
+comment|/**      * A smart analyzer used for indexing that takes into account specific analyzers configured      * per {@link FieldMapper} with a custom default analyzer for no explicit field analyzer.      */
+DECL|method|indexAnalyzer
+specifier|public
+name|Analyzer
+name|indexAnalyzer
+parameter_list|(
+name|Analyzer
+name|defaultAnalyzer
+parameter_list|)
+block|{
+return|return
+operator|new
+name|FieldNameAnalyzer
+argument_list|(
+name|indexAnalyzer
+operator|.
+name|analyzers
+argument_list|()
+argument_list|,
+name|defaultAnalyzer
+argument_list|)
+return|;
+block|}
 comment|/**      * A smart analyzer used for searching that takes into account specific analyzers configured      * per {@link FieldMapper}.      */
 DECL|method|searchAnalyzer
 specifier|public

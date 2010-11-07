@@ -1060,6 +1060,10 @@ literal|"type"
 argument_list|,
 name|doc
 argument_list|,
+name|Lucene
+operator|.
+name|STANDARD_ANALYZER
+argument_list|,
 name|TRANSLOG_PAYLOAD
 argument_list|,
 literal|false
@@ -1080,10 +1084,6 @@ operator|.
 name|Create
 argument_list|(
 name|pDoc
-argument_list|,
-name|Lucene
-operator|.
-name|STANDARD_ANALYZER
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1108,10 +1108,6 @@ name|sId
 argument_list|)
 argument_list|,
 name|pDoc
-argument_list|,
-name|Lucene
-operator|.
-name|STANDARD_ANALYZER
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1901,6 +1897,10 @@ literal|"type"
 argument_list|,
 name|doc
 argument_list|,
+name|Lucene
+operator|.
+name|STANDARD_ANALYZER
+argument_list|,
 name|TRANSLOG_PAYLOAD
 argument_list|,
 literal|false
@@ -1921,10 +1921,6 @@ operator|.
 name|Create
 argument_list|(
 name|pDoc
-argument_list|,
-name|Lucene
-operator|.
-name|STANDARD_ANALYZER
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1949,10 +1945,6 @@ name|sId
 argument_list|)
 argument_list|,
 name|pDoc
-argument_list|,
-name|Lucene
-operator|.
-name|STANDARD_ANALYZER
 argument_list|)
 argument_list|)
 expr_stmt|;
