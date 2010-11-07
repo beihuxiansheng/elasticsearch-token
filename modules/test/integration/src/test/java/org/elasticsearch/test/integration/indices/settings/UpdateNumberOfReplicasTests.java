@@ -702,6 +702,11 @@ operator|.
 name|setWaitForYellowStatus
 argument_list|()
 operator|.
+name|setWaitForActiveShards
+argument_list|(
+literal|10
+argument_list|)
+operator|.
 name|execute
 argument_list|()
 operator|.

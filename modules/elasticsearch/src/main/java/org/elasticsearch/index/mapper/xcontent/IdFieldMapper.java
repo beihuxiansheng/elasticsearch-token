@@ -769,6 +769,18 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// if all are defaults, no sense to write it at all
+if|if
+condition|(
+name|store
+operator|==
+name|Defaults
+operator|.
+name|STORE
+condition|)
+block|{
+return|return;
+block|}
 name|builder
 operator|.
 name|startObject
@@ -776,6 +788,15 @@ argument_list|(
 name|CONTENT_TYPE
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|store
+operator|!=
+name|Defaults
+operator|.
+name|STORE
+condition|)
+block|{
 name|builder
 operator|.
 name|field
@@ -791,6 +812,7 @@ name|toLowerCase
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|builder
 operator|.
 name|endObject

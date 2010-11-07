@@ -1595,6 +1595,15 @@ argument_list|,
 name|CONTENT_TYPE
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|pathType
+operator|!=
+name|Defaults
+operator|.
+name|PATH_TYPE
+condition|)
+block|{
 name|builder
 operator|.
 name|field
@@ -1610,6 +1619,7 @@ name|toLowerCase
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|builder
 operator|.
 name|startObject
