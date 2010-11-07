@@ -2445,13 +2445,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// no need to pass here id and boost, since they are added to the root object mapper
+comment|// in the constructor
 block|}
 argument_list|,
 name|indexFieldMapper
 argument_list|,
 name|typeFieldMapper
-argument_list|,
-name|idFieldMapper
 argument_list|,
 name|allFieldMapper
 argument_list|,
