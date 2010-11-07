@@ -20,6 +20,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ElasticSearchWrapperException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|cluster
 operator|.
 name|node
@@ -39,6 +49,8 @@ class|class
 name|SendRequestTransportException
 extends|extends
 name|ActionTransportException
+implements|implements
+name|ElasticSearchWrapperException
 block|{
 DECL|method|SendRequestTransportException
 specifier|public
