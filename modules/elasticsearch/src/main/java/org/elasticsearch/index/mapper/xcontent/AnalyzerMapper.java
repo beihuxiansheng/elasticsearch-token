@@ -204,32 +204,32 @@ comment|//            AnalyzerMapper.Builder builder = analyzer();
 comment|//            for (Map.Entry<String, Object> entry : node.entrySet()) {
 comment|//                String fieldName = Strings.toUnderscoreCase(entry.getKey());
 comment|//                Object fieldNode = entry.getValue();
-comment|//                if ("field".equals(fieldName)) {
+comment|//                if ("path".equals(fieldName)) {
 comment|//                    builder.field(fieldNode.toString());
 comment|//                }
 comment|//            }
 comment|//            return builder;
 comment|//        }
 comment|//    }
-DECL|field|field
+DECL|field|path
 specifier|private
 specifier|final
 name|String
-name|field
+name|path
 decl_stmt|;
 DECL|method|AnalyzerMapper
 specifier|public
 name|AnalyzerMapper
 parameter_list|(
 name|String
-name|field
+name|path
 parameter_list|)
 block|{
 name|this
 operator|.
-name|field
+name|path
 operator|=
-name|field
+name|path
 expr_stmt|;
 block|}
 DECL|method|name
@@ -273,7 +273,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|field
+name|path
 operator|!=
 literal|null
 condition|)
@@ -288,7 +288,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-name|field
+name|path
 argument_list|)
 decl_stmt|;
 if|if
@@ -325,9 +325,9 @@ literal|"No analyzer found for ["
 operator|+
 name|value
 operator|+
-literal|"] from field ["
+literal|"] from path ["
 operator|+
-name|field
+name|path
 operator|+
 literal|"]"
 argument_list|)
@@ -403,7 +403,7 @@ name|IOException
 block|{
 if|if
 condition|(
-name|field
+name|path
 operator|==
 literal|null
 condition|)
@@ -419,7 +419,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|field
+name|path
 operator|!=
 literal|null
 condition|)
@@ -428,9 +428,9 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"field"
+literal|"path"
 argument_list|,
-name|field
+name|path
 argument_list|)
 expr_stmt|;
 block|}

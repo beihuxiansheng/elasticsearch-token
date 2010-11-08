@@ -1889,7 +1889,7 @@ name|fieldName
 operator|.
 name|equals
 argument_list|(
-literal|"field"
+literal|"path"
 argument_list|)
 condition|)
 block|{

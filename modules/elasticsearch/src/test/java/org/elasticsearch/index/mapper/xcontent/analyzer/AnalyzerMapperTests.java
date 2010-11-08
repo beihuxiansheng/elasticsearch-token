@@ -187,7 +187,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"field"
+literal|"path"
 argument_list|,
 literal|"field_analyzer"
 argument_list|)
