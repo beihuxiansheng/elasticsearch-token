@@ -717,12 +717,36 @@ name|field
 argument_list|)
 return|;
 block|}
-comment|/**      * A query that applies a filter to the results of another query.      *      * @param queryBuilder  The query to apply the filter to      * @param filterBuilder The filter to apply on the query      */
+comment|/**      * A query that applies a filter to the results of another query.      *      * @param queryBuilder  The query to apply the filter to      * @param filterBuilder The filter to apply on the query      * @deprecated Use filteredQuery instead (rename)      */
 DECL|method|filtered
 specifier|public
 specifier|static
 name|FilteredQueryBuilder
 name|filtered
+parameter_list|(
+name|XContentQueryBuilder
+name|queryBuilder
+parameter_list|,
+name|XContentFilterBuilder
+name|filterBuilder
+parameter_list|)
+block|{
+return|return
+operator|new
+name|FilteredQueryBuilder
+argument_list|(
+name|queryBuilder
+argument_list|,
+name|filterBuilder
+argument_list|)
+return|;
+block|}
+comment|/**      * A query that applies a filter to the results of another query.      *      * @param queryBuilder  The query to apply the filter to      * @param filterBuilder The filter to apply on the query      */
+DECL|method|filteredQuery
+specifier|public
+specifier|static
+name|FilteredQueryBuilder
+name|filteredQuery
 parameter_list|(
 name|XContentQueryBuilder
 name|queryBuilder
