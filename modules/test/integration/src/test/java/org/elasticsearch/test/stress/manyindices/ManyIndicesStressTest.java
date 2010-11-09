@@ -434,13 +434,6 @@ operator|.
 name|node
 argument_list|()
 expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|5000
-argument_list|)
-expr_stmt|;
 name|ClusterHealthResponse
 name|health
 init|=
@@ -472,6 +465,18 @@ operator|.
 name|actionGet
 argument_list|()
 decl_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"health: "
+operator|+
+name|health
+operator|.
+name|status
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|logger
 operator|.
 name|info
@@ -512,13 +517,6 @@ literal|"Timed out on health..."
 argument_list|)
 expr_stmt|;
 block|}
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|30000
-argument_list|)
-expr_stmt|;
 name|ClusterState
 name|clusterState
 init|=

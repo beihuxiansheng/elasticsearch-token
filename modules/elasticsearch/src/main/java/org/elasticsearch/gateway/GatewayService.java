@@ -844,6 +844,11 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// first update the state that its blocked for not recovered, and then let recovery take its place
+comment|// that way, we can wait till it is resolved
+name|updateClusterStateBlockedOnNotRecovered
+argument_list|()
+expr_stmt|;
 name|performStateRecovery
 argument_list|(
 name|initialStateTimeout
@@ -1372,38 +1377,10 @@ operator|.
 name|blocks
 argument_list|()
 operator|.
-name|indices
-argument_list|()
-operator|.
-name|containsKey
+name|hasIndexBlock
 argument_list|(
 name|index
-argument_list|)
-condition|)
-block|{
-return|return
-name|currentState
-return|;
-block|}
-comment|// check if the block was removed...
-if|if
-condition|(
-operator|!
-name|currentState
-operator|.
-name|blocks
-argument_list|()
-operator|.
-name|indices
-argument_list|()
-operator|.
-name|get
-argument_list|(
-name|index
-argument_list|)
-operator|.
-name|contains
-argument_list|(
+argument_list|,
 name|GatewayService
 operator|.
 name|INDEX_NOT_RECOVERED_BLOCK
