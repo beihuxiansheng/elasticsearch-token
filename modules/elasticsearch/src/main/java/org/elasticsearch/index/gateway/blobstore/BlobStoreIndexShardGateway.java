@@ -3326,14 +3326,15 @@ parameter_list|)
 block|{
 comment|// no file
 block|}
+comment|// we don't compute checksum for segments, so always recover them
 if|if
 condition|(
 operator|!
 name|fileName
 operator|.
-name|contains
+name|startsWith
 argument_list|(
-literal|"segment"
+literal|"segments"
 argument_list|)
 operator|&&
 name|md

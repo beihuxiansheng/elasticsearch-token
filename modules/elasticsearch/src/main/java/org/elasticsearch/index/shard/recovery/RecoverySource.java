@@ -681,14 +681,15 @@ name|name
 argument_list|)
 condition|)
 block|{
+comment|// we don't compute checksum for segments, so always recover them
 if|if
 condition|(
 operator|!
 name|name
 operator|.
-name|contains
+name|startsWith
 argument_list|(
-literal|"segment"
+literal|"segments"
 argument_list|)
 operator|&&
 name|md
