@@ -166,6 +166,14 @@ name|String
 name|name
 parameter_list|)
 block|{
+name|path
+index|[
+name|index
+operator|++
+index|]
+operator|=
+name|name
+expr_stmt|;
 if|if
 condition|(
 name|index
@@ -175,7 +183,7 @@ operator|.
 name|length
 condition|)
 block|{
-comment|// resize
+comment|// expand if needed
 name|String
 index|[]
 name|newPath
@@ -212,14 +220,6 @@ operator|=
 name|newPath
 expr_stmt|;
 block|}
-name|path
-index|[
-name|index
-operator|++
-index|]
-operator|=
-name|name
-expr_stmt|;
 block|}
 DECL|method|remove
 specifier|public
