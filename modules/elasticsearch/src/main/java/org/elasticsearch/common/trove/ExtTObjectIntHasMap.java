@@ -171,6 +171,7 @@ DECL|method|get
 annotation|@
 name|Override
 specifier|public
+specifier|final
 name|int
 name|get
 parameter_list|(
