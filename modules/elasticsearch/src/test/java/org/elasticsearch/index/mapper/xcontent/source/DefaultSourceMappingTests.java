@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.mapper.xcontent.defaultsource
+DECL|package|org.elasticsearch.index.mapper.xcontent.source
 package|package
 name|org
 operator|.
@@ -16,7 +16,7 @@ name|mapper
 operator|.
 name|xcontent
 operator|.
-name|defaultsource
+name|source
 package|;
 end_package
 
