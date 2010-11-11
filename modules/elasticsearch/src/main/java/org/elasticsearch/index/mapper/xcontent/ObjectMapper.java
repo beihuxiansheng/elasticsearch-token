@@ -1054,15 +1054,10 @@ block|{
 name|String
 name|propName
 init|=
-name|Strings
-operator|.
-name|toUnderscoreCase
-argument_list|(
 name|entry
 operator|.
 name|getKey
 argument_list|()
-argument_list|)
 decl_stmt|;
 name|Map
 argument_list|<
