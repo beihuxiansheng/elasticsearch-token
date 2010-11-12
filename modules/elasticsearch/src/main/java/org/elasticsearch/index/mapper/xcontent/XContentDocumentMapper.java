@@ -1940,7 +1940,9 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-return|return
+name|ParsedDocument
+name|doc
+init|=
 operator|new
 name|ParsedDocument
 argument_list|(
@@ -1976,6 +1978,25 @@ operator|.
 name|mappersAdded
 argument_list|()
 argument_list|)
+decl_stmt|;
+comment|// reset the context to free up memory
+name|context
+operator|.
+name|reset
+argument_list|(
+literal|null
+argument_list|,
+literal|null
+argument_list|,
+literal|null
+argument_list|,
+literal|null
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+return|return
+name|doc
 return|;
 block|}
 DECL|method|addFieldMapper

@@ -68,6 +68,17 @@ specifier|public
 class|class
 name|DocumentBuilder
 block|{
+DECL|field|EMPTY
+specifier|public
+specifier|static
+specifier|final
+name|Document
+name|EMPTY
+init|=
+operator|new
+name|Document
+argument_list|()
+decl_stmt|;
 DECL|method|doc
 specifier|public
 specifier|static
