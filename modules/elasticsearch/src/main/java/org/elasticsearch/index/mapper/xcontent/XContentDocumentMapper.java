@@ -1210,21 +1210,6 @@ argument_list|(
 name|allFieldMapper
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|boostFieldMapper
-operator|!=
-literal|null
-condition|)
-block|{
-name|tempFieldMappers
-operator|.
-name|add
-argument_list|(
-name|boostFieldMapper
-argument_list|)
-expr_stmt|;
-block|}
 comment|// now traverse and get all the statically defined ones
 name|rootObjectMapper
 operator|.
@@ -2094,13 +2079,6 @@ operator|.
 name|fieldMapper
 argument_list|(
 name|typeFieldMapper
-argument_list|)
-expr_stmt|;
-name|fieldMapperListener
-operator|.
-name|fieldMapper
-argument_list|(
-name|idFieldMapper
 argument_list|)
 expr_stmt|;
 name|fieldMapperListener
