@@ -60,6 +60,29 @@ specifier|public
 class|class
 name|Regex
 block|{
+comment|/**      * Is the str a simple match pattern.      */
+DECL|method|isSimpleMatchPattern
+specifier|public
+specifier|static
+name|boolean
+name|isSimpleMatchPattern
+parameter_list|(
+name|String
+name|str
+parameter_list|)
+block|{
+return|return
+name|str
+operator|.
+name|indexOf
+argument_list|(
+literal|'*'
+argument_list|)
+operator|!=
+operator|-
+literal|1
+return|;
+block|}
 comment|/**      * Match a String against the given pattern, supporting the following simple      * pattern styles: "xxx*", "*xxx", "*xxx*" and "xxx*yyy" matches (with an      * arbitrary number of pattern parts), as well as direct equality.      *      * @param pattern the pattern to match against      * @param str     the String to match      * @return whether the String matches the given pattern      */
 DECL|method|simpleMatch
 specifier|public
