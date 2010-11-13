@@ -308,6 +308,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
+name|InvalidTypeNameException
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|annotation
