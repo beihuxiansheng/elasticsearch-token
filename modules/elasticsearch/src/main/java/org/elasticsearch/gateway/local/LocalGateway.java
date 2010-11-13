@@ -1229,12 +1229,12 @@ name|error
 argument_list|(
 literal|"failed to create index [{}]"
 argument_list|,
+name|t
+argument_list|,
 name|indexMetaData
 operator|.
 name|index
 argument_list|()
-argument_list|,
-name|t
 argument_list|)
 expr_stmt|;
 block|}
@@ -1254,12 +1254,12 @@ name|error
 argument_list|(
 literal|"failed to create index [{}]"
 argument_list|,
+name|e
+argument_list|,
 name|indexMetaData
 operator|.
 name|index
 argument_list|()
-argument_list|,
-name|e
 argument_list|)
 expr_stmt|;
 block|}
