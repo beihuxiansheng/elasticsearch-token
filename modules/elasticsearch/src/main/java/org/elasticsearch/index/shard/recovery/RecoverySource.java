@@ -573,7 +573,26 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"starting recovery to {}, mark_as_relocated {}"
+literal|"[{}][{}] starting recovery to {}, mark_as_relocated {}"
+argument_list|,
+name|request
+operator|.
+name|shardId
+argument_list|()
+operator|.
+name|index
+argument_list|()
+operator|.
+name|name
+argument_list|()
+argument_list|,
+name|request
+operator|.
+name|shardId
+argument_list|()
+operator|.
+name|id
+argument_list|()
 argument_list|,
 name|request
 operator|.
