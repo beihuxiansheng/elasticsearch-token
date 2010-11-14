@@ -45,7 +45,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  * The result of parsing a document.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class

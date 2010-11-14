@@ -399,6 +399,16 @@ operator|.
 name|listener
 operator|=
 name|listener
+operator|==
+literal|null
+condition|?
+name|DocumentMapper
+operator|.
+name|ParseListener
+operator|.
+name|EMPTY
+else|:
+name|listener
 expr_stmt|;
 name|this
 operator|.
