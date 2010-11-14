@@ -367,11 +367,27 @@ throws|throws
 name|Exception
 block|{
 comment|//        Loggers.getLogger(Bootstrap.class, tuple.v1().get("name")).info("heap_size {}/{}", JvmStats.jvmStats().mem().heapCommitted(), JvmInfo.jvmInfo().mem().heapMax());
+if|if
+condition|(
+name|tuple
+operator|.
+name|v1
+argument_list|()
+operator|.
+name|getAsBoolean
+argument_list|(
+literal|"bootstrap.mlockall"
+argument_list|,
+literal|true
+argument_list|)
+condition|)
+block|{
 name|Natives
 operator|.
 name|tryMlockall
 argument_list|()
 expr_stmt|;
+block|}
 name|tuple
 operator|=
 name|setupJmx
