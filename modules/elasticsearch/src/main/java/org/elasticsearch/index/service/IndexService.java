@@ -284,6 +284,17 @@ parameter_list|)
 throws|throws
 name|ElasticSearchException
 function_decl|;
+comment|/**      * Removes the shard, does not delete local data or the gateway.      */
+DECL|method|removeShard
+name|void
+name|removeShard
+parameter_list|(
+name|int
+name|shardId
+parameter_list|)
+throws|throws
+name|ElasticSearchException
+function_decl|;
 DECL|method|numberOfShards
 name|int
 name|numberOfShards

@@ -1495,6 +1495,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+comment|//            logger.trace("[{}][{}] Got exception on recovery", e, request.shardId().index().name(), request.shardId().id());
 if|if
 condition|(
 name|shard
@@ -1578,6 +1579,18 @@ name|getCause
 argument_list|()
 expr_stmt|;
 block|}
+comment|// here, we would add checks against exception that need to be retried (and not removeAndClean in this case)
+comment|// here, we check against ignore recovery options
+comment|// in general, no need to clean the shard on ignored recovery, since we want to try and reuse it later
+comment|// it will get deleted in the IndicesStore if all are allocated and no shard exists on this node...
+name|removeAndCleanOnGoingRecovery
+argument_list|(
+name|request
+operator|.
+name|shardId
+argument_list|()
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|cause
@@ -1593,61 +1606,18 @@ operator|instanceof
 name|IndexShardMissingException
 condition|)
 block|{
+comment|// no need to retry here, since we only get to try and recover when there is an existing shard on the other side
 name|listener
 operator|.
-name|onRetryRecovery
+name|onIgnoreRecovery
 argument_list|(
-name|TimeValue
-operator|.
-name|timeValueMillis
-argument_list|(
-literal|500
-argument_list|)
+literal|true
+argument_list|,
+literal|"shard does not exists on source, ignore..."
 argument_list|)
 expr_stmt|;
 return|return;
 block|}
-name|removeAndCleanOnGoingRecovery
-argument_list|(
-name|request
-operator|.
-name|shardId
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|logger
-operator|.
-name|trace
-argument_list|(
-literal|"[{}][{}] recovery from [{}] failed"
-argument_list|,
-name|e
-argument_list|,
-name|request
-operator|.
-name|shardId
-argument_list|()
-operator|.
-name|index
-argument_list|()
-operator|.
-name|name
-argument_list|()
-argument_list|,
-name|request
-operator|.
-name|shardId
-argument_list|()
-operator|.
-name|id
-argument_list|()
-argument_list|,
-name|request
-operator|.
-name|sourceNode
-argument_list|()
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|cause
@@ -1684,6 +1654,39 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"[{}][{}] recovery from [{}] failed"
+argument_list|,
+name|e
+argument_list|,
+name|request
+operator|.
+name|shardId
+argument_list|()
+operator|.
+name|index
+argument_list|()
+operator|.
+name|name
+argument_list|()
+argument_list|,
+name|request
+operator|.
+name|shardId
+argument_list|()
+operator|.
+name|id
+argument_list|()
+argument_list|,
+name|request
+operator|.
+name|sourceNode
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|listener
 operator|.
 name|onRecoveryFailure
@@ -1725,7 +1728,7 @@ name|void
 name|onIgnoreRecovery
 parameter_list|(
 name|boolean
-name|cleanShard
+name|removeShard
 parameter_list|,
 name|String
 name|reason

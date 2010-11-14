@@ -2840,7 +2840,7 @@ name|void
 name|onIgnoreRecovery
 parameter_list|(
 name|boolean
-name|cleanShard
+name|removeShard
 parameter_list|,
 name|String
 name|reason
@@ -2849,7 +2849,7 @@ block|{
 if|if
 condition|(
 operator|!
-name|cleanShard
+name|removeShard
 condition|)
 block|{
 return|return;
@@ -2874,7 +2874,7 @@ try|try
 block|{
 name|indexService
 operator|.
-name|cleanShard
+name|removeShard
 argument_list|(
 name|shardRouting
 operator|.
