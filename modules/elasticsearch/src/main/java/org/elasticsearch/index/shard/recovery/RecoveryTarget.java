@@ -1580,17 +1580,6 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// here, we would add checks against exception that need to be retried (and not removeAndClean in this case)
-comment|// here, we check against ignore recovery options
-comment|// in general, no need to clean the shard on ignored recovery, since we want to try and reuse it later
-comment|// it will get deleted in the IndicesStore if all are allocated and no shard exists on this node...
-name|removeAndCleanOnGoingRecovery
-argument_list|(
-name|request
-operator|.
-name|shardId
-argument_list|()
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|cause
@@ -1609,15 +1598,29 @@ block|{
 comment|// no need to retry here, since we only get to try and recover when there is an existing shard on the other side
 name|listener
 operator|.
-name|onIgnoreRecovery
+name|onRetryRecovery
 argument_list|(
-literal|true
-argument_list|,
-literal|"shard does not exists on source, ignore..."
+name|TimeValue
+operator|.
+name|timeValueMillis
+argument_list|(
+literal|500
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return;
 block|}
+comment|// here, we check against ignore recovery options
+comment|// in general, no need to clean the shard on ignored recovery, since we want to try and reuse it later
+comment|// it will get deleted in the IndicesStore if all are allocated and no shard exists on this node...
+name|removeAndCleanOnGoingRecovery
+argument_list|(
+name|request
+operator|.
+name|shardId
+argument_list|()
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|cause
