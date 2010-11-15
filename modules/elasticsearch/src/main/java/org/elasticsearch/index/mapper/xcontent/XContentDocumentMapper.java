@@ -341,7 +341,7 @@ specifier|final
 name|RootObjectMapper
 name|rootObjectMapper
 decl_stmt|;
-DECL|field|attributes
+DECL|field|meta
 specifier|private
 name|ImmutableMap
 argument_list|<
@@ -349,7 +349,7 @@ name|String
 argument_list|,
 name|Object
 argument_list|>
-name|attributes
+name|meta
 init|=
 name|ImmutableMap
 operator|.
@@ -406,10 +406,10 @@ name|builderContext
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|attributes
+DECL|method|meta
 specifier|public
 name|Builder
-name|attributes
+name|meta
 parameter_list|(
 name|ImmutableMap
 argument_list|<
@@ -417,14 +417,14 @@ name|String
 argument_list|,
 name|Object
 argument_list|>
-name|attributes
+name|meta
 parameter_list|)
 block|{
 name|this
 operator|.
-name|attributes
+name|meta
 operator|=
-name|attributes
+name|meta
 expr_stmt|;
 return|return
 name|this
@@ -754,7 +754,7 @@ name|docMapperParser
 argument_list|,
 name|rootObjectMapper
 argument_list|,
-name|attributes
+name|meta
 argument_list|,
 name|uidFieldMapper
 argument_list|,
@@ -867,7 +867,7 @@ specifier|final
 name|XContentDocumentMapperParser
 name|docMapperParser
 decl_stmt|;
-DECL|field|attributes
+DECL|field|meta
 specifier|private
 specifier|volatile
 name|ImmutableMap
@@ -876,7 +876,7 @@ name|String
 argument_list|,
 name|Object
 argument_list|>
-name|attributes
+name|meta
 decl_stmt|;
 DECL|field|mappingSource
 specifier|private
@@ -1009,7 +1009,7 @@ name|String
 argument_list|,
 name|Object
 argument_list|>
-name|attributes
+name|meta
 parameter_list|,
 name|UidFieldMapper
 name|uidFieldMapper
@@ -1070,9 +1070,9 @@ name|docMapperParser
 expr_stmt|;
 name|this
 operator|.
-name|attributes
+name|meta
 operator|=
-name|attributes
+name|meta
 expr_stmt|;
 name|this
 operator|.
@@ -1329,7 +1329,7 @@ operator|.
 name|type
 return|;
 block|}
-DECL|method|attributes
+DECL|method|meta
 annotation|@
 name|Override
 specifier|public
@@ -1339,13 +1339,13 @@ name|String
 argument_list|,
 name|Object
 argument_list|>
-name|attributes
+name|meta
 parameter_list|()
 block|{
 return|return
 name|this
 operator|.
-name|attributes
+name|meta
 return|;
 block|}
 DECL|method|mappingSource
@@ -2331,11 +2331,11 @@ argument_list|()
 condition|)
 block|{
 comment|// let the merge with attributes to override the attributes
-name|attributes
+name|meta
 operator|=
 name|mergeWith
 operator|.
-name|attributes
+name|meta
 argument_list|()
 expr_stmt|;
 comment|// update the source of the merged one
@@ -2635,12 +2635,12 @@ block|}
 block|}
 if|if
 condition|(
-name|attributes
+name|meta
 operator|!=
 literal|null
 operator|&&
 operator|!
-name|attributes
+name|meta
 operator|.
 name|isEmpty
 argument_list|()
@@ -2650,9 +2650,9 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"_attributes"
+literal|"_meta"
 argument_list|,
-name|attributes
+name|meta
 argument_list|()
 argument_list|)
 expr_stmt|;

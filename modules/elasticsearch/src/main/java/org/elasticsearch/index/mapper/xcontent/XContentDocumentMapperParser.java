@@ -1557,7 +1557,7 @@ name|mapping
 operator|.
 name|containsKey
 argument_list|(
-literal|"_attributes"
+literal|"_meta"
 argument_list|)
 condition|)
 block|{
@@ -1579,14 +1579,14 @@ name|mapping
 operator|.
 name|get
 argument_list|(
-literal|"_attributes"
+literal|"_meta"
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
 name|docBuilder
 operator|.
-name|attributes
+name|meta
 argument_list|(
 name|attributes
 argument_list|)

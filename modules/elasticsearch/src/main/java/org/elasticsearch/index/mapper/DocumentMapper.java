@@ -136,14 +136,14 @@ name|mappingSource
 parameter_list|()
 function_decl|;
 comment|/**      * Attributes of this type mappings.      */
-DECL|method|attributes
+DECL|method|meta
 name|ImmutableMap
 argument_list|<
 name|String
 argument_list|,
 name|Object
 argument_list|>
-name|attributes
+name|meta
 parameter_list|()
 function_decl|;
 comment|/**      * Generates the source of the mapper based on the current mappings.      */

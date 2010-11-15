@@ -627,7 +627,7 @@ name|String
 operator|)
 name|docMapper
 operator|.
-name|attributes
+name|meta
 argument_list|()
 operator|.
 name|get
@@ -978,7 +978,7 @@ name|String
 operator|)
 name|docMapper
 operator|.
-name|attributes
+name|meta
 argument_list|()
 operator|.
 name|get
@@ -1023,7 +1023,7 @@ name|String
 operator|)
 name|builtDocMapper
 operator|.
-name|attributes
+name|meta
 argument_list|()
 operator|.
 name|get
