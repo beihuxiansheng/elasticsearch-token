@@ -610,6 +610,9 @@ argument_list|(
 literal|"mapping1"
 argument_list|)
 operator|.
+name|source
+argument_list|()
+operator|.
 name|string
 argument_list|()
 argument_list|,
@@ -737,6 +740,9 @@ argument_list|(
 literal|"mapping1"
 argument_list|)
 operator|.
+name|source
+argument_list|()
+operator|.
 name|string
 argument_list|()
 argument_list|,
@@ -757,6 +763,9 @@ name|get
 argument_list|(
 literal|"mapping2"
 argument_list|)
+operator|.
+name|source
+argument_list|()
 operator|.
 name|string
 argument_list|()

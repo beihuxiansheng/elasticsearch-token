@@ -875,7 +875,7 @@ name|settings
 argument_list|()
 argument_list|)
 operator|.
-name|mappingsCompressed
+name|mappingsMetaData
 argument_list|(
 name|indexMetaData
 operator|.
