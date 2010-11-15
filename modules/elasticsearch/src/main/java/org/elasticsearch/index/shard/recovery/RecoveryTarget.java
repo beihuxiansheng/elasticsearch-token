@@ -1652,7 +1652,7 @@ name|onIgnoreRecovery
 argument_list|(
 literal|true
 argument_list|,
-literal|"source node disconnected"
+literal|"source shard is closed"
 argument_list|)
 expr_stmt|;
 return|return;
