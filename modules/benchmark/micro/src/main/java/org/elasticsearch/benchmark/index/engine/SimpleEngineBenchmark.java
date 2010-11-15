@@ -1058,6 +1058,8 @@ name|sId
 argument_list|,
 literal|"type"
 argument_list|,
+literal|null
+argument_list|,
 name|doc
 argument_list|,
 name|Lucene
@@ -1894,6 +1896,8 @@ argument_list|,
 name|sId
 argument_list|,
 literal|"type"
+argument_list|,
+literal|null
 argument_list|,
 name|doc
 argument_list|,
