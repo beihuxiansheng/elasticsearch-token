@@ -553,6 +553,13 @@ argument_list|,
 name|indexFieldName
 argument_list|)
 expr_stmt|;
+name|valueScript
+operator|.
+name|setNextReader
+argument_list|(
+name|reader
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|facet
 annotation|@
