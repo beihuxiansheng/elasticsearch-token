@@ -18,6 +18,24 @@ name|xcontent
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|xcontent
+operator|.
+name|ip
+operator|.
+name|IpFieldMapper
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
