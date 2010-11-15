@@ -655,6 +655,16 @@ operator|.
 name|newConcurrentMap
 argument_list|()
 decl_stmt|;
+DECL|field|mutex
+specifier|private
+specifier|final
+name|Object
+name|mutex
+init|=
+operator|new
+name|Object
+argument_list|()
+decl_stmt|;
 DECL|method|IndicesClusterStateService
 annotation|@
 name|Inject
@@ -810,6 +820,11 @@ name|changesAllowed
 argument_list|()
 condition|)
 return|return;
+synchronized|synchronized
+init|(
+name|mutex
+init|)
+block|{
 name|applyNewIndices
 argument_list|(
 name|event
@@ -840,6 +855,7 @@ argument_list|(
 name|event
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|applyCleanedIndices
 specifier|private
@@ -2854,6 +2870,11 @@ condition|)
 block|{
 return|return;
 block|}
+synchronized|synchronized
+init|(
+name|mutex
+init|)
+block|{
 if|if
 condition|(
 name|indexService
@@ -2928,6 +2949,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
+block|}
 DECL|method|onRecoveryFailure
 annotation|@
 name|Override
@@ -2998,6 +3020,11 @@ name|id
 argument_list|()
 argument_list|)
 expr_stmt|;
+synchronized|synchronized
+init|(
+name|mutex
+init|)
+block|{
 if|if
 condition|(
 name|indexService
@@ -3123,6 +3150,7 @@ name|id
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
