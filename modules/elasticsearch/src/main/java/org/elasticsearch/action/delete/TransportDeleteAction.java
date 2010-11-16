@@ -736,6 +736,7 @@ name|IndexDeleteResponse
 name|indexDeleteResponse
 parameter_list|)
 block|{
+comment|// TODO what do we do with specific failed shards?
 name|listener
 operator|.
 name|onResponse
