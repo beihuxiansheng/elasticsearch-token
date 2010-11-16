@@ -179,6 +179,19 @@ name|testValue
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertThat
+argument_list|(
+name|toUnderscoreCase
+argument_list|(
+literal|"Name"
+argument_list|)
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"name"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 comment|//    @Test public void testHasTextBlank() throws Exception {
 comment|//        String blank = "          ";
