@@ -840,7 +840,6 @@ argument_list|)
 return|;
 block|}
 DECL|class|OperationTransportHandler
-specifier|private
 class|class
 name|OperationTransportHandler
 extends|extends
@@ -998,7 +997,6 @@ return|;
 block|}
 block|}
 DECL|class|ReplicaOperationTransportHandler
-specifier|private
 class|class
 name|ReplicaOperationTransportHandler
 extends|extends
@@ -1175,7 +1173,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|class|AsyncShardOperationAction
-specifier|private
+specifier|protected
 class|class
 name|AsyncShardOperationAction
 block|{
