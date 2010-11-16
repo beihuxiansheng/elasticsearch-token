@@ -47,6 +47,11 @@ argument_list|>
 extends|,
 name|InternalMapper
 block|{
+DECL|method|required
+name|boolean
+name|required
+parameter_list|()
+function_decl|;
 DECL|method|value
 name|String
 name|value

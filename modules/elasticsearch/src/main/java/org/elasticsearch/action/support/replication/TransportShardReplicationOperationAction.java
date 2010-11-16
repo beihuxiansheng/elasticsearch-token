@@ -722,6 +722,9 @@ specifier|abstract
 name|Response
 name|shardOperationOnPrimary
 parameter_list|(
+name|ClusterState
+name|clusterState
+parameter_list|,
 name|ShardOperationRequest
 name|shardRequest
 parameter_list|)
@@ -1330,6 +1333,7 @@ parameter_list|)
 throws|throws
 name|ElasticSearchException
 block|{
+specifier|final
 name|ClusterState
 name|clusterState
 init|=
@@ -1675,6 +1679,8 @@ argument_list|,
 literal|true
 argument_list|,
 name|shard
+argument_list|,
+name|clusterState
 argument_list|)
 expr_stmt|;
 block|}
@@ -1696,6 +1702,8 @@ argument_list|,
 literal|false
 argument_list|,
 name|shard
+argument_list|,
+name|clusterState
 argument_list|)
 expr_stmt|;
 block|}
@@ -2187,6 +2195,9 @@ parameter_list|,
 specifier|final
 name|ShardRouting
 name|shard
+parameter_list|,
+name|ClusterState
+name|clusterState
 parameter_list|)
 block|{
 try|try
@@ -2196,6 +2207,8 @@ name|response
 init|=
 name|shardOperationOnPrimary
 argument_list|(
+name|clusterState
+argument_list|,
 operator|new
 name|ShardOperationRequest
 argument_list|(

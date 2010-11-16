@@ -337,6 +337,9 @@ specifier|protected
 name|ShardDeleteByQueryResponse
 name|shardOperationOnPrimary
 parameter_list|(
+name|ClusterState
+name|clusterState
+parameter_list|,
 name|ShardOperationRequest
 name|shardRequest
 parameter_list|)
