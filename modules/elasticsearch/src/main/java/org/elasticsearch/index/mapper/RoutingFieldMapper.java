@@ -52,6 +52,11 @@ name|boolean
 name|required
 parameter_list|()
 function_decl|;
+DECL|method|path
+name|String
+name|path
+parameter_list|()
+function_decl|;
 DECL|method|value
 name|String
 name|value

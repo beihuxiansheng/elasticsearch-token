@@ -2071,6 +2071,19 @@ argument_list|(
 name|context
 argument_list|)
 expr_stmt|;
+comment|// validate aggregated mappers (TODO: need to be added as a phase to any field mapper)
+name|routingFieldMapper
+operator|.
+name|validate
+argument_list|(
+name|context
+argument_list|,
+name|source
+operator|.
+name|routing
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
