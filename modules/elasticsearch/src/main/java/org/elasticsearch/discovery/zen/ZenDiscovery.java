@@ -2828,7 +2828,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-comment|// no change, the node already exists in the cluster
+comment|// the node already exists in the cluster
 name|logger
 operator|.
 name|warn
@@ -2838,8 +2838,20 @@ argument_list|,
 name|node
 argument_list|)
 expr_stmt|;
+comment|// still send a new cluster state, so it will be re published and possibly update the other node
 return|return
+name|ClusterState
+operator|.
+name|builder
+argument_list|()
+operator|.
+name|state
+argument_list|(
 name|currentState
+argument_list|)
+operator|.
+name|build
+argument_list|()
 return|;
 block|}
 return|return
