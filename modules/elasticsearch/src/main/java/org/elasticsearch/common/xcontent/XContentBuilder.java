@@ -1782,9 +1782,6 @@ name|String
 name|name
 parameter_list|,
 name|List
-argument_list|<
-name|Object
-argument_list|>
 name|value
 parameter_list|)
 throws|throws
@@ -1825,9 +1822,6 @@ name|XContentBuilderString
 name|name
 parameter_list|,
 name|List
-argument_list|<
-name|Object
-argument_list|>
 name|value
 parameter_list|)
 throws|throws
@@ -2610,6 +2604,7 @@ operator|instanceof
 name|Map
 condition|)
 block|{
+comment|//noinspection unchecked
 name|field
 argument_list|(
 name|name
@@ -3026,6 +3021,7 @@ operator|instanceof
 name|Map
 condition|)
 block|{
+comment|//noinspection unchecked
 name|field
 argument_list|(
 name|name
@@ -3412,6 +3408,7 @@ operator|instanceof
 name|Map
 condition|)
 block|{
+comment|//noinspection unchecked
 name|value
 argument_list|(
 operator|(
