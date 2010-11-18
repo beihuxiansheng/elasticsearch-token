@@ -459,6 +459,24 @@ name|fragments
 decl_stmt|;
 try|try
 block|{
+comment|// a HACK to make highlighter do highlighting, even though its using the single frag list builder
+name|int
+name|numberOfFragments
+init|=
+name|field
+operator|.
+name|numberOfFragments
+argument_list|()
+operator|==
+literal|0
+condition|?
+literal|1
+else|:
+name|field
+operator|.
+name|numberOfFragments
+argument_list|()
+decl_stmt|;
 name|fragments
 operator|=
 name|highlighter
@@ -484,10 +502,7 @@ operator|.
 name|fragmentCharSize
 argument_list|()
 argument_list|,
-name|field
-operator|.
 name|numberOfFragments
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -668,14 +683,6 @@ name|field
 operator|.
 name|postTags
 argument_list|()
-argument_list|)
-expr_stmt|;
-comment|// a HACK to make highlighter do highlighting, even though its using the single frag list builder
-name|field
-operator|.
-name|numberOfFragments
-argument_list|(
-literal|1
 argument_list|)
 expr_stmt|;
 block|}
