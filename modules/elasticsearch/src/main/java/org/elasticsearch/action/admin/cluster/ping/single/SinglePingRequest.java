@@ -34,6 +34,8 @@ name|support
 operator|.
 name|single
 operator|.
+name|shard
+operator|.
 name|SingleOperationRequest
 import|;
 end_import

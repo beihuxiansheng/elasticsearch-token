@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.action.support.single
+DECL|package|org.elasticsearch.action.support.single.shard
 package|package
 name|org
 operator|.
@@ -15,6 +15,8 @@ operator|.
 name|support
 operator|.
 name|single
+operator|.
+name|shard
 package|;
 end_package
 
@@ -226,18 +228,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|indices
-operator|.
-name|IndicesService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|threadpool
 operator|.
 name|ThreadPool
@@ -305,12 +295,6 @@ specifier|final
 name|TransportService
 name|transportService
 decl_stmt|;
-DECL|field|indicesService
-specifier|protected
-specifier|final
-name|IndicesService
-name|indicesService
-decl_stmt|;
 DECL|field|threadPool
 specifier|protected
 specifier|final
@@ -332,9 +316,6 @@ name|clusterService
 parameter_list|,
 name|TransportService
 name|transportService
-parameter_list|,
-name|IndicesService
-name|indicesService
 parameter_list|)
 block|{
 name|super
@@ -359,12 +340,6 @@ operator|.
 name|threadPool
 operator|=
 name|threadPool
-expr_stmt|;
-name|this
-operator|.
-name|indicesService
-operator|=
-name|indicesService
 expr_stmt|;
 name|transportService
 operator|.

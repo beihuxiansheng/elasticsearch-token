@@ -92,6 +92,8 @@ name|support
 operator|.
 name|single
 operator|.
+name|shard
+operator|.
 name|TransportSingleOperationAction
 import|;
 end_import
@@ -333,6 +335,12 @@ argument_list|,
 name|GetResponse
 argument_list|>
 block|{
+DECL|field|indicesService
+specifier|private
+specifier|final
+name|IndicesService
+name|indicesService
+decl_stmt|;
 DECL|method|TransportGetAction
 annotation|@
 name|Inject
@@ -364,9 +372,13 @@ argument_list|,
 name|clusterService
 argument_list|,
 name|transportService
-argument_list|,
-name|indicesService
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|indicesService
+operator|=
+name|indicesService
 expr_stmt|;
 block|}
 DECL|method|transportAction
