@@ -84,6 +84,12 @@ block|{
 name|super
 argument_list|(
 name|shardId
+operator|==
+literal|null
+condition|?
+literal|null
+else|:
+name|shardId
 operator|.
 name|index
 argument_list|()
@@ -92,6 +98,12 @@ literal|false
 argument_list|,
 literal|"["
 operator|+
+name|shardId
+operator|==
+literal|null
+condition|?
+literal|"_na"
+else|:
 name|shardId
 operator|.
 name|id

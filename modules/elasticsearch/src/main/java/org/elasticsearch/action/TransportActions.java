@@ -216,6 +216,15 @@ name|UPDATE_SETTINGS
 init|=
 literal|"indices/updateSettings"
 decl_stmt|;
+DECL|field|ANALYZE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|ANALYZE
+init|=
+literal|"indices/analyze"
+decl_stmt|;
 DECL|class|Gateway
 specifier|public
 specifier|static
