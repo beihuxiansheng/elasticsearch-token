@@ -94,7 +94,7 @@ name|single
 operator|.
 name|shard
 operator|.
-name|TransportSingleOperationAction
+name|TransportShardSingleOperationAction
 import|;
 end_import
 
@@ -328,7 +328,7 @@ specifier|public
 class|class
 name|TransportGetAction
 extends|extends
-name|TransportSingleOperationAction
+name|TransportShardSingleOperationAction
 argument_list|<
 name|GetRequest
 argument_list|,

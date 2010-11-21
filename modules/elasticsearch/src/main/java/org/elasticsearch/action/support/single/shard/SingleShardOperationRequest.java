@@ -103,11 +103,11 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|SingleOperationRequest
+DECL|class|SingleShardOperationRequest
 specifier|public
 specifier|abstract
 class|class
-name|SingleOperationRequest
+name|SingleShardOperationRequest
 implements|implements
 name|ActionRequest
 block|{
@@ -145,14 +145,14 @@ name|threadedOperation
 init|=
 literal|true
 decl_stmt|;
-DECL|method|SingleOperationRequest
+DECL|method|SingleShardOperationRequest
 specifier|protected
-name|SingleOperationRequest
+name|SingleShardOperationRequest
 parameter_list|()
 block|{     }
-DECL|method|SingleOperationRequest
+DECL|method|SingleShardOperationRequest
 specifier|public
-name|SingleOperationRequest
+name|SingleShardOperationRequest
 parameter_list|(
 name|String
 name|index
@@ -268,7 +268,7 @@ name|index
 return|;
 block|}
 DECL|method|index
-name|SingleOperationRequest
+name|SingleShardOperationRequest
 name|index
 parameter_list|(
 name|String
@@ -334,7 +334,7 @@ DECL|method|listenerThreaded
 annotation|@
 name|Override
 specifier|public
-name|SingleOperationRequest
+name|SingleShardOperationRequest
 name|listenerThreaded
 parameter_list|(
 name|boolean
@@ -365,7 +365,7 @@ block|}
 comment|/**      * Controls if the operation will be executed on a separate thread when executed locally.      */
 DECL|method|operationThreaded
 specifier|public
-name|SingleOperationRequest
+name|SingleShardOperationRequest
 name|operationThreaded
 parameter_list|(
 name|boolean

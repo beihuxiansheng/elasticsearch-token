@@ -58,7 +58,7 @@ name|single
 operator|.
 name|shard
 operator|.
-name|TransportSingleOperationAction
+name|TransportShardSingleOperationAction
 import|;
 end_import
 
@@ -136,7 +136,7 @@ specifier|public
 class|class
 name|TransportSinglePingAction
 extends|extends
-name|TransportSingleOperationAction
+name|TransportShardSingleOperationAction
 argument_list|<
 name|SinglePingRequest
 argument_list|,

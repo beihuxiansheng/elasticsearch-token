@@ -36,7 +36,7 @@ name|single
 operator|.
 name|shard
 operator|.
-name|SingleOperationRequest
+name|SingleShardOperationRequest
 import|;
 end_import
 
@@ -92,7 +92,7 @@ specifier|public
 class|class
 name|SinglePingRequest
 extends|extends
-name|SingleOperationRequest
+name|SingleShardOperationRequest
 block|{
 DECL|method|SinglePingRequest
 specifier|public

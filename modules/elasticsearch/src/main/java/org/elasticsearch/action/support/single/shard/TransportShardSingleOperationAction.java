@@ -261,15 +261,15 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|TransportSingleOperationAction
+DECL|class|TransportShardSingleOperationAction
 specifier|public
 specifier|abstract
 class|class
-name|TransportSingleOperationAction
+name|TransportShardSingleOperationAction
 parameter_list|<
 name|Request
 extends|extends
-name|SingleOperationRequest
+name|SingleShardOperationRequest
 parameter_list|,
 name|Response
 extends|extends
@@ -301,9 +301,9 @@ specifier|final
 name|ThreadPool
 name|threadPool
 decl_stmt|;
-DECL|method|TransportSingleOperationAction
+DECL|method|TransportShardSingleOperationAction
 specifier|protected
-name|TransportSingleOperationAction
+name|TransportShardSingleOperationAction
 parameter_list|(
 name|Settings
 name|settings

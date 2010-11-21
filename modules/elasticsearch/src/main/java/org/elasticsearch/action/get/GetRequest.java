@@ -30,7 +30,7 @@ name|single
 operator|.
 name|shard
 operator|.
-name|SingleOperationRequest
+name|SingleShardOperationRequest
 import|;
 end_import
 
@@ -98,7 +98,7 @@ specifier|public
 class|class
 name|GetRequest
 extends|extends
-name|SingleOperationRequest
+name|SingleShardOperationRequest
 block|{
 DECL|field|fields
 specifier|private
