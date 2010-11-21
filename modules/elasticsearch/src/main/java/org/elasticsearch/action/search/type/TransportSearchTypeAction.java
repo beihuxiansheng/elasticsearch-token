@@ -148,7 +148,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|ShardRouting
+name|ShardIterator
 import|;
 end_import
 
@@ -162,7 +162,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|ShardsIterator
+name|ShardRouting
 import|;
 end_import
 
@@ -747,7 +747,7 @@ decl_stmt|;
 for|for
 control|(
 specifier|final
-name|ShardsIterator
+name|ShardIterator
 name|shardIt
 range|:
 name|shardsIts
@@ -859,7 +859,7 @@ block|{
 for|for
 control|(
 specifier|final
-name|ShardsIterator
+name|ShardIterator
 name|shardIt
 range|:
 name|shardsIts
@@ -944,7 +944,7 @@ block|}
 for|for
 control|(
 specifier|final
-name|ShardsIterator
+name|ShardIterator
 name|shardIt
 range|:
 name|shardsIts
@@ -1041,7 +1041,7 @@ name|void
 name|performFirstPhase
 parameter_list|(
 specifier|final
-name|ShardsIterator
+name|ShardIterator
 name|shardIt
 parameter_list|)
 block|{
@@ -1186,7 +1186,7 @@ parameter_list|,
 name|FirstResult
 name|result
 parameter_list|,
-name|ShardsIterator
+name|ShardIterator
 name|shardIt
 parameter_list|)
 block|{
@@ -1356,7 +1356,7 @@ name|ShardRouting
 name|shard
 parameter_list|,
 specifier|final
-name|ShardsIterator
+name|ShardIterator
 name|shardIt
 parameter_list|,
 name|Throwable

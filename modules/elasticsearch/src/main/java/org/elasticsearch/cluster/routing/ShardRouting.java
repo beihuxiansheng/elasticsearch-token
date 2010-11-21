@@ -210,7 +210,7 @@ parameter_list|()
 function_decl|;
 comment|/**      * A shard iterator with just this shard in it.      */
 DECL|method|shardsIt
-name|ShardsIterator
+name|ShardIterator
 name|shardsIt
 parameter_list|()
 function_decl|;

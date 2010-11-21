@@ -164,7 +164,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|ShardRouting
+name|ShardIterator
 import|;
 end_import
 
@@ -178,7 +178,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|ShardsIterator
+name|ShardRouting
 import|;
 end_import
 
@@ -592,7 +592,7 @@ specifier|protected
 name|ShardRouting
 name|nextShardOrNull
 parameter_list|(
-name|ShardsIterator
+name|ShardIterator
 name|shardIt
 parameter_list|)
 block|{
@@ -611,7 +611,7 @@ specifier|protected
 name|boolean
 name|hasNextShard
 parameter_list|(
-name|ShardsIterator
+name|ShardIterator
 name|shardIt
 parameter_list|)
 block|{

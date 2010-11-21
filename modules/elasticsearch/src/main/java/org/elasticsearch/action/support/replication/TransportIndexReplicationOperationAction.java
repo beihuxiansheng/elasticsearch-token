@@ -114,7 +114,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|ShardsIterator
+name|ShardIterator
 import|;
 end_import
 
@@ -467,8 +467,8 @@ decl_stmt|;
 for|for
 control|(
 specifier|final
-name|ShardsIterator
-name|shards
+name|ShardIterator
+name|shardIt
 range|:
 name|groups
 control|)
@@ -480,7 +480,7 @@ name|newShardRequestInstance
 argument_list|(
 name|request
 argument_list|,
-name|shards
+name|shardIt
 operator|.
 name|shardId
 argument_list|()
@@ -489,7 +489,7 @@ name|id
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// TODO for now, we fork operations on shards of the index
+comment|// TODO for now, we fork operations on shardIt of the index
 name|shardRequest
 operator|.
 name|beforeLocalFork

@@ -687,7 +687,7 @@ return|return
 name|shards
 return|;
 block|}
-comment|/**      * A group shards iterator where each group ({@link ShardsIterator}      * is an iterator across shard replication group.      */
+comment|/**      * A group shards iterator where each group ({@link ShardIterator}      * is an iterator across shard replication group.      */
 DECL|method|groupByShardsIt
 specifier|public
 name|GroupShardsIterator
@@ -697,16 +697,21 @@ block|{
 comment|// use list here since we need to maintain identity across shards
 name|ArrayList
 argument_list|<
-name|ShardsIterator
+name|ShardIterator
 argument_list|>
 name|set
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|ShardsIterator
+name|ShardIterator
 argument_list|>
+argument_list|(
+name|shards
+operator|.
+name|size
 argument_list|()
+argument_list|)
 decl_stmt|;
 for|for
 control|(
@@ -745,14 +750,14 @@ block|{
 comment|// use list here since we need to maintain identity across shards
 name|ArrayList
 argument_list|<
-name|ShardsIterator
+name|ShardIterator
 argument_list|>
 name|set
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|ShardsIterator
+name|ShardIterator
 argument_list|>
 argument_list|()
 decl_stmt|;

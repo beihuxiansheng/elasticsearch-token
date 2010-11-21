@@ -727,14 +727,14 @@ block|{
 comment|// use list here since we need to maintain identity across shards
 name|ArrayList
 argument_list|<
-name|ShardsIterator
+name|ShardIterator
 argument_list|>
 name|set
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|ShardsIterator
+name|ShardIterator
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -854,14 +854,14 @@ block|{
 comment|// use list here since we need to maintain identity across shards
 name|ArrayList
 argument_list|<
-name|ShardsIterator
+name|ShardIterator
 argument_list|>
 name|set
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|ShardsIterator
+name|ShardIterator
 argument_list|>
 argument_list|()
 decl_stmt|;

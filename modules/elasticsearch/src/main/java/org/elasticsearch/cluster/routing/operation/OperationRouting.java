@@ -54,7 +54,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|ShardsIterator
+name|ShardIterator
 import|;
 end_import
 
@@ -103,7 +103,7 @@ interface|interface
 name|OperationRouting
 block|{
 DECL|method|indexShards
-name|ShardsIterator
+name|ShardIterator
 name|indexShards
 parameter_list|(
 name|ClusterState
@@ -129,7 +129,7 @@ throws|,
 name|IndexShardMissingException
 function_decl|;
 DECL|method|deleteShards
-name|ShardsIterator
+name|ShardIterator
 name|deleteShards
 parameter_list|(
 name|ClusterState
@@ -170,7 +170,7 @@ throws|,
 name|IndexShardMissingException
 function_decl|;
 DECL|method|getShards
-name|ShardsIterator
+name|ShardIterator
 name|getShards
 parameter_list|(
 name|ClusterState

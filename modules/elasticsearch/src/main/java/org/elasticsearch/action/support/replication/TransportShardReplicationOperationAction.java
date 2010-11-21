@@ -202,7 +202,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|ShardRouting
+name|ShardIterator
 import|;
 end_import
 
@@ -216,7 +216,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|ShardsIterator
+name|ShardRouting
 import|;
 end_import
 
@@ -742,7 +742,7 @@ function_decl|;
 DECL|method|shards
 specifier|protected
 specifier|abstract
-name|ShardsIterator
+name|ShardIterator
 name|shards
 parameter_list|(
 name|ClusterState
@@ -1197,10 +1197,10 @@ specifier|private
 name|DiscoveryNodes
 name|nodes
 decl_stmt|;
-DECL|field|shards
+DECL|field|shardIt
 specifier|private
-name|ShardsIterator
-name|shards
+name|ShardIterator
+name|shardIt
 decl_stmt|;
 DECL|field|primaryOperationStarted
 specifier|private
@@ -1377,7 +1377,7 @@ return|;
 block|}
 try|try
 block|{
-name|shards
+name|shardIt
 operator|=
 name|shards
 argument_list|(
@@ -1404,10 +1404,10 @@ return|return
 literal|true
 return|;
 block|}
-comment|// no shards, might be in the case between index gateway recovery and shards initialization
+comment|// no shardIt, might be in the case between index gateway recovery and shardIt initialization
 if|if
 condition|(
-name|shards
+name|shardIt
 operator|.
 name|size
 argument_list|()
@@ -1419,7 +1419,7 @@ name|retry
 argument_list|(
 name|fromClusterEvent
 argument_list|,
-name|shards
+name|shardIt
 operator|.
 name|shardId
 argument_list|()
@@ -1440,10 +1440,10 @@ specifier|final
 name|ShardRouting
 name|shard
 range|:
-name|shards
+name|shardIt
 control|)
 block|{
-comment|// we only deal with primary shards here...
+comment|// we only deal with primary shardIt here...
 if|if
 condition|(
 operator|!
@@ -1534,7 +1534,7 @@ name|WriteConsistencyLevel
 operator|.
 name|QUORUM
 operator|&&
-name|shards
+name|shardIt
 operator|.
 name|size
 argument_list|()
@@ -1542,11 +1542,11 @@ operator|>
 literal|2
 condition|)
 block|{
-comment|// only for more than 2 in the number of shards it makes sense, otherwise its 1 shard with 1 replica, quorum is 1 (which is what it is initialized to)
+comment|// only for more than 2 in the number of shardIt it makes sense, otherwise its 1 shard with 1 replica, quorum is 1 (which is what it is initialized to)
 name|requiredNumber
 operator|=
 operator|(
-name|shards
+name|shardIt
 operator|.
 name|size
 argument_list|()
@@ -1569,7 +1569,7 @@ condition|)
 block|{
 name|requiredNumber
 operator|=
-name|shards
+name|shardIt
 operator|.
 name|size
 argument_list|()
@@ -1577,7 +1577,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|shards
+name|shardIt
 operator|.
 name|sizeActive
 argument_list|()
@@ -1872,7 +1872,7 @@ init|=
 operator|new
 name|UnavailableShardsException
 argument_list|(
-name|shards
+name|shardIt
 operator|.
 name|shardId
 argument_list|()
@@ -2101,14 +2101,14 @@ name|shardId
 argument_list|,
 literal|"["
 operator|+
-name|shards
+name|shardIt
 operator|.
 name|size
 argument_list|()
 operator|+
-literal|"] shards, ["
+literal|"] shardIt, ["
 operator|+
-name|shards
+name|shardIt
 operator|.
 name|sizeActive
 argument_list|()
@@ -2292,7 +2292,7 @@ argument_list|(
 operator|new
 name|ReplicationShardOperationFailedException
 argument_list|(
-name|shards
+name|shardIt
 operator|.
 name|shardId
 argument_list|()
@@ -2321,7 +2321,7 @@ condition|(
 name|ignoreReplicas
 argument_list|()
 operator|||
-name|shards
+name|shardIt
 operator|.
 name|size
 argument_list|()
@@ -2392,7 +2392,7 @@ specifier|final
 name|ShardRouting
 name|shard
 range|:
-name|shards
+name|shardIt
 operator|.
 name|reset
 argument_list|()
@@ -2591,7 +2591,7 @@ specifier|final
 name|ShardRouting
 name|shard
 range|:
-name|shards
+name|shardIt
 operator|.
 name|reset
 argument_list|()
@@ -2799,7 +2799,7 @@ init|=
 operator|new
 name|ShardOperationRequest
 argument_list|(
-name|shards
+name|shardIt
 operator|.
 name|shardId
 argument_list|()
@@ -2899,7 +2899,7 @@ argument_list|()
 operator|+
 literal|" on replica "
 operator|+
-name|shards
+name|shardIt
 operator|.
 name|shardId
 argument_list|()
@@ -3075,7 +3075,7 @@ argument_list|()
 operator|+
 literal|" on replica "
 operator|+
-name|shards
+name|shardIt
 operator|.
 name|shardId
 argument_list|()
@@ -3165,7 +3165,7 @@ argument_list|()
 operator|+
 literal|" on replica"
 operator|+
-name|shards
+name|shardIt
 operator|.
 name|shardId
 argument_list|()

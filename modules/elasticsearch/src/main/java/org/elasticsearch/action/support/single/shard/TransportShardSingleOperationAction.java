@@ -142,7 +142,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|ShardRouting
+name|ShardIterator
 import|;
 end_import
 
@@ -156,7 +156,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|ShardsIterator
+name|ShardRouting
 import|;
 end_import
 
@@ -464,11 +464,11 @@ name|Response
 argument_list|>
 name|listener
 decl_stmt|;
-DECL|field|shardsIt
+DECL|field|shardIt
 specifier|private
 specifier|final
-name|ShardsIterator
-name|shardsIt
+name|ShardIterator
+name|shardIt
 decl_stmt|;
 DECL|field|request
 specifier|private
@@ -551,7 +551,7 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|shardsIt
+name|shardIt
 operator|=
 name|clusterService
 operator|.
@@ -662,7 +662,7 @@ parameter_list|()
 block|{
 while|while
 condition|(
-name|shardsIt
+name|shardIt
 operator|.
 name|hasNextActive
 argument_list|()
@@ -672,7 +672,7 @@ specifier|final
 name|ShardRouting
 name|shard
 init|=
-name|shardsIt
+name|shardIt
 operator|.
 name|nextActive
 argument_list|()
@@ -844,14 +844,14 @@ block|}
 if|if
 condition|(
 operator|!
-name|shardsIt
+name|shardIt
 operator|.
 name|hasNextActive
 argument_list|()
 condition|)
 block|{
 comment|// no local node get, go remote
-name|shardsIt
+name|shardIt
 operator|.
 name|reset
 argument_list|()
@@ -875,7 +875,7 @@ parameter_list|)
 block|{
 while|while
 condition|(
-name|shardsIt
+name|shardIt
 operator|.
 name|hasNextActive
 argument_list|()
@@ -885,7 +885,7 @@ specifier|final
 name|ShardRouting
 name|shard
 init|=
-name|shardsIt
+name|shardIt
 operator|.
 name|nextActive
 argument_list|()
@@ -1056,7 +1056,7 @@ block|}
 if|if
 condition|(
 operator|!
-name|shardsIt
+name|shardIt
 operator|.
 name|hasNextActive
 argument_list|()
@@ -1079,7 +1079,7 @@ operator|=
 operator|new
 name|NoShardAvailableActionException
 argument_list|(
-name|shardsIt
+name|shardIt
 operator|.
 name|shardId
 argument_list|()
@@ -1116,7 +1116,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-name|shardsIt
+name|shardIt
 operator|.
 name|shardId
 argument_list|()

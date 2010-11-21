@@ -64,7 +64,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|ShardRouting
+name|ShardIterator
 import|;
 end_import
 
@@ -78,7 +78,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|ShardsIterator
+name|ShardRouting
 import|;
 end_import
 
@@ -1040,8 +1040,8 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|ShardsIterator
-name|shardsIt
+name|ShardIterator
+name|shardIt
 range|:
 name|clusterService
 operator|.
@@ -1073,7 +1073,7 @@ control|(
 name|ShardRouting
 name|shardRouting
 range|:
-name|shardsIt
+name|shardIt
 control|)
 block|{
 name|InternalSearchRequest
@@ -1767,8 +1767,8 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|ShardsIterator
-name|shardsIt
+name|ShardIterator
+name|shardIt
 range|:
 name|clusterService
 operator|.
@@ -1800,7 +1800,7 @@ control|(
 name|ShardRouting
 name|shardRouting
 range|:
-name|shardsIt
+name|shardIt
 control|)
 block|{
 name|InternalSearchRequest
@@ -2746,8 +2746,8 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|ShardsIterator
-name|shardsIt
+name|ShardIterator
+name|shardIt
 range|:
 name|clusterService
 operator|.
@@ -2779,7 +2779,7 @@ control|(
 name|ShardRouting
 name|shardRouting
 range|:
-name|shardsIt
+name|shardIt
 control|)
 block|{
 name|InternalSearchRequest
@@ -3250,8 +3250,8 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|ShardsIterator
-name|shardsIt
+name|ShardIterator
+name|shardIt
 range|:
 name|clusterService
 operator|.
@@ -3283,7 +3283,7 @@ control|(
 name|ShardRouting
 name|shardRouting
 range|:
-name|shardsIt
+name|shardIt
 control|)
 block|{
 name|InternalSearchRequest

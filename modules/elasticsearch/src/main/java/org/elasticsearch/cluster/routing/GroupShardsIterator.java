@@ -48,7 +48,7 @@ name|GroupShardsIterator
 implements|implements
 name|Iterable
 argument_list|<
-name|ShardsIterator
+name|ShardIterator
 argument_list|>
 block|{
 DECL|field|iterators
@@ -56,7 +56,7 @@ specifier|private
 specifier|final
 name|Collection
 argument_list|<
-name|ShardsIterator
+name|ShardIterator
 argument_list|>
 name|iterators
 decl_stmt|;
@@ -66,7 +66,7 @@ name|GroupShardsIterator
 parameter_list|(
 name|Collection
 argument_list|<
-name|ShardsIterator
+name|ShardIterator
 argument_list|>
 name|iterators
 parameter_list|)
@@ -91,7 +91,7 @@ literal|0
 decl_stmt|;
 for|for
 control|(
-name|ShardsIterator
+name|ShardIterator
 name|shard
 range|:
 name|iterators
@@ -122,7 +122,7 @@ literal|0
 decl_stmt|;
 for|for
 control|(
-name|ShardsIterator
+name|ShardIterator
 name|shard
 range|:
 name|iterators
@@ -157,7 +157,7 @@ DECL|method|iterators
 specifier|public
 name|Collection
 argument_list|<
-name|ShardsIterator
+name|ShardIterator
 argument_list|>
 name|iterators
 parameter_list|()
@@ -172,7 +172,7 @@ name|Override
 specifier|public
 name|Iterator
 argument_list|<
-name|ShardsIterator
+name|ShardIterator
 argument_list|>
 name|iterator
 parameter_list|()

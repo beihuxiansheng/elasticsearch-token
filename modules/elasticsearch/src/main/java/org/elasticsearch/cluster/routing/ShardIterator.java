@@ -55,10 +55,10 @@ comment|/**  * Allows to iterate over a set of shard instances (routing) within 
 end_comment
 
 begin_interface
-DECL|interface|ShardsIterator
+DECL|interface|ShardIterator
 specifier|public
 interface|interface
-name|ShardsIterator
+name|ShardIterator
 extends|extends
 name|Iterable
 argument_list|<
@@ -78,7 +78,7 @@ parameter_list|()
 function_decl|;
 comment|/**      * Resets the iterator.      */
 DECL|method|reset
-name|ShardsIterator
+name|ShardIterator
 name|reset
 parameter_list|()
 function_decl|;

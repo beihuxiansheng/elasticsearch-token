@@ -550,13 +550,13 @@ DECL|method|shardsIt
 annotation|@
 name|Override
 specifier|public
-name|ShardsIterator
+name|ShardIterator
 name|shardsIt
 parameter_list|()
 block|{
 return|return
 operator|new
-name|PlainShardsIterator
+name|PlainShardIterator
 argument_list|(
 name|shardId
 argument_list|()

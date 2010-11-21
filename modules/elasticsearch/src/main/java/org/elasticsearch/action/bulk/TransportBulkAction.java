@@ -230,7 +230,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|ShardsIterator
+name|ShardIterator
 import|;
 end_import
 
@@ -1416,8 +1416,8 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|ShardsIterator
-name|shardsId
+name|ShardIterator
+name|shardIt
 range|:
 name|groupShards
 control|)
@@ -1432,7 +1432,7 @@ name|requestsByShard
 operator|.
 name|get
 argument_list|(
-name|shardsId
+name|shardIt
 operator|.
 name|shardId
 argument_list|()
@@ -1456,7 +1456,7 @@ name|requestsByShard
 operator|.
 name|put
 argument_list|(
-name|shardsId
+name|shardIt
 operator|.
 name|shardId
 argument_list|()

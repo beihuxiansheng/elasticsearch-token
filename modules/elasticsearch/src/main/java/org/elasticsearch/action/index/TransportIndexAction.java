@@ -240,7 +240,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|ShardsIterator
+name|ShardIterator
 import|;
 end_import
 
@@ -927,7 +927,7 @@ DECL|method|shards
 annotation|@
 name|Override
 specifier|protected
-name|ShardsIterator
+name|ShardIterator
 name|shards
 parameter_list|(
 name|ClusterState

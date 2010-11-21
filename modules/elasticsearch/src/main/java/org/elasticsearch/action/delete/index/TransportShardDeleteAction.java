@@ -122,7 +122,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|ShardsIterator
+name|ShardIterator
 import|;
 end_import
 
@@ -502,7 +502,7 @@ DECL|method|shards
 annotation|@
 name|Override
 specifier|protected
-name|ShardsIterator
+name|ShardIterator
 name|shards
 parameter_list|(
 name|ClusterState
@@ -535,15 +535,15 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|ShardsIterator
-name|shards
+name|ShardIterator
+name|shardIt
 range|:
 name|group
 control|)
 block|{
 if|if
 condition|(
-name|shards
+name|shardIt
 operator|.
 name|shardId
 argument_list|()
@@ -558,7 +558,7 @@ argument_list|()
 condition|)
 block|{
 return|return
-name|shards
+name|shardIt
 return|;
 block|}
 block|}

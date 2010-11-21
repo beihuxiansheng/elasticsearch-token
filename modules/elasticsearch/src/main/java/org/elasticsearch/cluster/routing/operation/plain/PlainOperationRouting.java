@@ -98,7 +98,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|ShardsIterator
+name|ShardIterator
 import|;
 end_import
 
@@ -352,7 +352,7 @@ DECL|method|indexShards
 annotation|@
 name|Override
 specifier|public
-name|ShardsIterator
+name|ShardIterator
 name|indexShards
 parameter_list|(
 name|ClusterState
@@ -399,7 +399,7 @@ DECL|method|deleteShards
 annotation|@
 name|Override
 specifier|public
-name|ShardsIterator
+name|ShardIterator
 name|deleteShards
 parameter_list|(
 name|ClusterState
@@ -446,7 +446,7 @@ DECL|method|getShards
 annotation|@
 name|Override
 specifier|public
-name|ShardsIterator
+name|ShardIterator
 name|getShards
 parameter_list|(
 name|ClusterState
@@ -593,14 +593,14 @@ block|}
 comment|// we use set here and not identity set since we might get duplicates
 name|HashSet
 argument_list|<
-name|ShardsIterator
+name|ShardIterator
 argument_list|>
 name|set
 init|=
 operator|new
 name|HashSet
 argument_list|<
-name|ShardsIterator
+name|ShardIterator
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -778,14 +778,14 @@ block|{
 comment|// we use set here and not list since we might get duplicates
 name|HashSet
 argument_list|<
-name|ShardsIterator
+name|ShardIterator
 argument_list|>
 name|set
 init|=
 operator|new
 name|HashSet
 argument_list|<
-name|ShardsIterator
+name|ShardIterator
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -888,14 +888,14 @@ block|{
 comment|// we use list here since we know we are not going to create duplicates
 name|ArrayList
 argument_list|<
-name|ShardsIterator
+name|ShardIterator
 argument_list|>
 name|set
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|ShardsIterator
+name|ShardIterator
 argument_list|>
 argument_list|()
 decl_stmt|;

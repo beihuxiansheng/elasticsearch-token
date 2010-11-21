@@ -130,7 +130,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|ShardRouting
+name|ShardIterator
 import|;
 end_import
 
@@ -144,7 +144,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|ShardsIterator
+name|ShardRouting
 import|;
 end_import
 
@@ -590,13 +590,13 @@ name|ClusterState
 name|clusterState
 parameter_list|)
 function_decl|;
-comment|/**      * Allows to override how shard routing is iterated over. Default implementation uses      * {@link ShardsIterator#nextActiveOrNull()}.      *      *<p>Note, if overriding this method, make sure to also override {@link #hasNextShard(org.elasticsearch.cluster.routing.ShardsIterator)}.      */
+comment|/**      * Allows to override how shard routing is iterated over. Default implementation uses      * {@link org.elasticsearch.cluster.routing.ShardIterator#nextActiveOrNull()}.      *      *<p>Note, if overriding this method, make sure to also override {@link #hasNextShard(org.elasticsearch.cluster.routing.ShardIterator)}.      */
 DECL|method|nextShardOrNull
 specifier|protected
 name|ShardRouting
 name|nextShardOrNull
 parameter_list|(
-name|ShardsIterator
+name|ShardIterator
 name|shardIt
 parameter_list|)
 block|{
@@ -607,13 +607,13 @@ name|nextActiveOrNull
 argument_list|()
 return|;
 block|}
-comment|/**      * Allows to override how shard routing is iterated over. Default implementation uses      * {@link ShardsIterator#hasNextActive()}.      *      *<p>Note, if overriding this method, make sure to also override {@link #nextShardOrNull(org.elasticsearch.cluster.routing.ShardsIterator)}.      */
+comment|/**      * Allows to override how shard routing is iterated over. Default implementation uses      * {@link org.elasticsearch.cluster.routing.ShardIterator#hasNextActive()}.      *      *<p>Note, if overriding this method, make sure to also override {@link #nextShardOrNull(org.elasticsearch.cluster.routing.ShardIterator)}.      */
 DECL|method|hasNextShard
 specifier|protected
 name|boolean
 name|hasNextShard
 parameter_list|(
-name|ShardsIterator
+name|ShardIterator
 name|shardIt
 parameter_list|)
 block|{
@@ -863,7 +863,7 @@ decl_stmt|;
 for|for
 control|(
 specifier|final
-name|ShardsIterator
+name|ShardIterator
 name|shardIt
 range|:
 name|shardsIts
@@ -979,7 +979,7 @@ block|{
 for|for
 control|(
 specifier|final
-name|ShardsIterator
+name|ShardIterator
 name|shardIt
 range|:
 name|shardsIts
@@ -1066,7 +1066,7 @@ block|}
 for|for
 control|(
 specifier|final
-name|ShardsIterator
+name|ShardIterator
 name|shardIt
 range|:
 name|shardsIts
@@ -1129,7 +1129,7 @@ name|void
 name|performOperation
 parameter_list|(
 specifier|final
-name|ShardsIterator
+name|ShardIterator
 name|shardIt
 parameter_list|,
 name|boolean
@@ -1484,7 +1484,7 @@ name|ShardRouting
 name|shard
 parameter_list|,
 specifier|final
-name|ShardsIterator
+name|ShardIterator
 name|shardIt
 parameter_list|,
 name|Throwable

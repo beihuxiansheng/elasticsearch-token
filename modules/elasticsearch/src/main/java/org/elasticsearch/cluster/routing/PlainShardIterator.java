@@ -65,12 +65,12 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|PlainShardsIterator
+DECL|class|PlainShardIterator
 specifier|public
 class|class
-name|PlainShardsIterator
+name|PlainShardIterator
 implements|implements
-name|ShardsIterator
+name|ShardIterator
 block|{
 DECL|field|shardId
 specifier|private
@@ -95,9 +95,9 @@ name|counter
 init|=
 literal|0
 decl_stmt|;
-DECL|method|PlainShardsIterator
+DECL|method|PlainShardIterator
 specifier|public
-name|PlainShardsIterator
+name|PlainShardIterator
 parameter_list|(
 name|ShardId
 name|shardId
@@ -126,7 +126,7 @@ DECL|method|reset
 annotation|@
 name|Override
 specifier|public
-name|ShardsIterator
+name|ShardIterator
 name|reset
 parameter_list|()
 block|{
@@ -604,11 +604,11 @@ condition|)
 return|return
 literal|true
 return|;
-name|ShardsIterator
+name|ShardIterator
 name|that
 init|=
 operator|(
-name|ShardsIterator
+name|ShardIterator
 operator|)
 name|o
 decl_stmt|;
