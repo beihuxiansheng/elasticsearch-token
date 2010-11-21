@@ -31,11 +31,6 @@ block|{
 DECL|method|MutableShardRouting
 specifier|public
 name|MutableShardRouting
-parameter_list|()
-block|{     }
-DECL|method|MutableShardRouting
-specifier|public
-name|MutableShardRouting
 parameter_list|(
 name|ShardRouting
 name|copy

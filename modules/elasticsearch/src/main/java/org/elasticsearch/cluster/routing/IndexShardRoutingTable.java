@@ -427,8 +427,13 @@ return|return
 operator|new
 name|IndexShardIterator
 argument_list|(
+name|Math
+operator|.
+name|abs
+argument_list|(
 name|nextCounter
 argument_list|()
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -594,7 +599,7 @@ name|ShardRouting
 name|shardModulo
 parameter_list|(
 name|int
-name|shardId
+name|counter
 parameter_list|)
 block|{
 return|return
@@ -603,12 +608,7 @@ operator|.
 name|get
 argument_list|(
 operator|(
-name|Math
-operator|.
-name|abs
-argument_list|(
-name|shardId
-argument_list|)
+name|counter
 operator|%
 name|size
 argument_list|()
