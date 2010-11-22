@@ -2574,7 +2574,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Error
+name|Throwable
 name|e1
 parameter_list|)
 block|{
@@ -2586,7 +2586,7 @@ name|SearchParseException
 argument_list|(
 name|context
 argument_list|,
-literal|"Failed to parse ["
+literal|"Failed to parse source ["
 operator|+
 name|sSource
 operator|+
