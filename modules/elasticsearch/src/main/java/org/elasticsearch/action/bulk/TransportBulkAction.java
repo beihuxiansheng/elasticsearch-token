@@ -1645,6 +1645,11 @@ operator|.
 name|id
 argument_list|()
 argument_list|,
+name|bulkRequest
+operator|.
+name|refresh
+argument_list|()
+argument_list|,
 name|requests
 operator|.
 name|toArray
