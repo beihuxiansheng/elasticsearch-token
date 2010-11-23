@@ -1191,7 +1191,7 @@ operator|.
 name|names
 argument_list|()
 operator|.
-name|name
+name|indexName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1233,7 +1233,7 @@ operator|.
 name|names
 argument_list|()
 operator|.
-name|name
+name|indexName
 argument_list|()
 argument_list|)
 operator|.
@@ -1257,7 +1257,7 @@ operator|.
 name|names
 argument_list|()
 operator|.
-name|name
+name|indexName
 argument_list|()
 argument_list|,
 name|mappers
@@ -1279,7 +1279,7 @@ operator|.
 name|names
 argument_list|()
 operator|.
-name|name
+name|fullName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1321,7 +1321,7 @@ operator|.
 name|names
 argument_list|()
 operator|.
-name|name
+name|fullName
 argument_list|()
 argument_list|)
 operator|.
@@ -1345,7 +1345,7 @@ operator|.
 name|names
 argument_list|()
 operator|.
-name|name
+name|fullName
 argument_list|()
 argument_list|,
 name|mappers
@@ -3266,7 +3266,7 @@ operator|.
 name|names
 argument_list|()
 operator|.
-name|indexName
+name|fullName
 argument_list|()
 argument_list|)
 expr_stmt|;
