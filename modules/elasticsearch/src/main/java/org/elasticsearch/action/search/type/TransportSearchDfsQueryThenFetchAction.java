@@ -1862,6 +1862,9 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
+name|buildTookInMillis
+argument_list|()
+argument_list|,
 name|buildShardFailures
 argument_list|()
 argument_list|)

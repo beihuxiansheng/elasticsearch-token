@@ -574,6 +574,17 @@ name|ShardDoc
 index|[]
 name|sortedShardList
 decl_stmt|;
+DECL|field|startTime
+specifier|protected
+specifier|final
+name|long
+name|startTime
+init|=
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
+decl_stmt|;
 DECL|method|BaseAsyncAction
 specifier|protected
 name|BaseAsyncAction
@@ -1770,9 +1781,27 @@ block|}
 block|}
 block|}
 block|}
+comment|/**          * Builds how long it took to execute the search.          */
+DECL|method|buildTookInMillis
+specifier|protected
+specifier|final
+name|long
+name|buildTookInMillis
+parameter_list|()
+block|{
+return|return
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
+operator|-
+name|startTime
+return|;
+block|}
 comment|/**          * Builds the shard failures, and releases the cache (meaning this should only be called once!).          */
 DECL|method|buildShardFailures
 specifier|protected
+specifier|final
 name|ShardSearchFailure
 index|[]
 name|buildShardFailures
