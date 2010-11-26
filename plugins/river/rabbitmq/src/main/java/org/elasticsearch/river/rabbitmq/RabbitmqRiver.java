@@ -376,6 +376,13 @@ specifier|volatile
 name|ConnectionFactory
 name|connectionFactory
 decl_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+block|{
+literal|"unchecked"
+block|}
+argument_list|)
 DECL|method|RabbitmqRiver
 annotation|@
 name|Inject

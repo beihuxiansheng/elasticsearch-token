@@ -437,6 +437,13 @@ specifier|volatile
 name|BulkRequestBuilder
 name|currentRequest
 decl_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+block|{
+literal|"unchecked"
+block|}
+argument_list|)
 DECL|method|WikipediaRiver
 annotation|@
 name|Inject

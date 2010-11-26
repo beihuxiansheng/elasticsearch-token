@@ -887,7 +887,7 @@ comment|// from NY
 operator|.
 name|setQuery
 argument_list|(
-name|filtered
+name|filteredQuery
 argument_list|(
 name|matchAllQuery
 argument_list|()
@@ -1010,7 +1010,7 @@ comment|// from NY
 operator|.
 name|setQuery
 argument_list|(
-name|filtered
+name|filteredQuery
 argument_list|(
 name|matchAllQuery
 argument_list|()
@@ -1128,7 +1128,7 @@ comment|// from NY
 operator|.
 name|setQuery
 argument_list|(
-name|filtered
+name|filteredQuery
 argument_list|(
 name|matchAllQuery
 argument_list|()

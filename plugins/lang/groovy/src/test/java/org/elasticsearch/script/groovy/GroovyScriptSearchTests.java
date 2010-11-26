@@ -627,7 +627,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|filtered
+name|filteredQuery
 argument_list|(
 name|matchAllQuery
 argument_list|()
@@ -818,7 +818,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|filtered
+name|filteredQuery
 argument_list|(
 name|matchAllQuery
 argument_list|()
@@ -958,7 +958,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|filtered
+name|filteredQuery
 argument_list|(
 name|matchAllQuery
 argument_list|()
@@ -1200,6 +1200,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+block|{
+literal|"unchecked"
+block|}
+argument_list|)
 DECL|method|testScriptFieldUsingSource
 annotation|@
 name|Test

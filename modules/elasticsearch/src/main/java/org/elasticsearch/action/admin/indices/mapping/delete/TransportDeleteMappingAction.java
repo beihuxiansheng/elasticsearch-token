@@ -585,7 +585,7 @@ name|query
 argument_list|(
 name|QueryBuilders
 operator|.
-name|filtered
+name|filteredQuery
 argument_list|(
 name|QueryBuilders
 operator|.
