@@ -720,12 +720,12 @@ name|indices
 argument_list|)
 return|;
 block|}
-DECL|method|prepareAnalyzer
+DECL|method|prepareAnalyze
 annotation|@
 name|Override
 specifier|public
 name|AnalyzeRequestBuilder
-name|prepareAnalyzer
+name|prepareAnalyze
 parameter_list|(
 name|String
 name|index

@@ -1574,9 +1574,9 @@ name|listener
 parameter_list|)
 function_decl|;
 comment|/**      * Analyze text under the provided index.      *      * @param index The index name      * @param text  The text to analyze      */
-DECL|method|prepareAnalyzer
+DECL|method|prepareAnalyze
 name|AnalyzeRequestBuilder
-name|prepareAnalyzer
+name|prepareAnalyze
 parameter_list|(
 name|String
 name|index
