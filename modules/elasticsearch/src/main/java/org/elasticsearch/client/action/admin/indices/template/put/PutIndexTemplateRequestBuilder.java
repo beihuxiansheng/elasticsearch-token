@@ -1,10 +1,10 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.client.action.admin.indices.create
+DECL|package|org.elasticsearch.client.action.admin.indices.template.put
 package|package
 name|org
 operator|.
@@ -18,7 +18,9 @@ name|admin
 operator|.
 name|indices
 operator|.
-name|create
+name|template
+operator|.
+name|put
 package|;
 end_package
 
@@ -46,9 +48,11 @@ name|admin
 operator|.
 name|indices
 operator|.
-name|create
+name|template
 operator|.
-name|CreateIndexRequest
+name|put
+operator|.
+name|PutIndexTemplateRequest
 import|;
 end_import
 
@@ -64,9 +68,11 @@ name|admin
 operator|.
 name|indices
 operator|.
-name|create
+name|template
 operator|.
-name|CreateIndexResponse
+name|put
+operator|.
+name|PutIndexTemplateResponse
 import|;
 end_import
 
@@ -159,27 +165,27 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|CreateIndexRequestBuilder
+DECL|class|PutIndexTemplateRequestBuilder
 specifier|public
 class|class
-name|CreateIndexRequestBuilder
+name|PutIndexTemplateRequestBuilder
 extends|extends
 name|BaseIndicesRequestBuilder
 argument_list|<
-name|CreateIndexRequest
+name|PutIndexTemplateRequest
 argument_list|,
-name|CreateIndexResponse
+name|PutIndexTemplateResponse
 argument_list|>
 block|{
-DECL|method|CreateIndexRequestBuilder
+DECL|method|PutIndexTemplateRequestBuilder
 specifier|public
-name|CreateIndexRequestBuilder
+name|PutIndexTemplateRequestBuilder
 parameter_list|(
 name|IndicesAdminClient
 name|indicesClient
 parameter_list|,
 name|String
-name|index
+name|name
 parameter_list|)
 block|{
 name|super
@@ -187,17 +193,80 @@ argument_list|(
 name|indicesClient
 argument_list|,
 operator|new
-name|CreateIndexRequest
+name|PutIndexTemplateRequest
 argument_list|(
-name|index
+name|name
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The settings to created the index with.      */
+comment|/**      * Sets the template match expression that will be used to match on indices created.      */
+DECL|method|setTemplate
+specifier|public
+name|PutIndexTemplateRequestBuilder
+name|setTemplate
+parameter_list|(
+name|String
+name|template
+parameter_list|)
+block|{
+name|request
+operator|.
+name|template
+argument_list|(
+name|template
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the order of this template if more than one template matches.      */
+DECL|method|setOrder
+specifier|public
+name|PutIndexTemplateRequestBuilder
+name|setOrder
+parameter_list|(
+name|int
+name|order
+parameter_list|)
+block|{
+name|request
+operator|.
+name|order
+argument_list|(
+name|order
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Set to<tt>true</tt> to force only creation, not an update of an index template. If it already      * exists, it will fail with an {@link org.elasticsearch.indices.IndexTemplateAlreadyExistsException}.      */
+DECL|method|setCreate
+specifier|public
+name|PutIndexTemplateRequestBuilder
+name|setCreate
+parameter_list|(
+name|boolean
+name|create
+parameter_list|)
+block|{
+name|request
+operator|.
+name|create
+argument_list|(
+name|create
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * The settings to created the index template with.      */
 DECL|method|setSettings
 specifier|public
-name|CreateIndexRequestBuilder
+name|PutIndexTemplateRequestBuilder
 name|setSettings
 parameter_list|(
 name|Settings
@@ -215,10 +284,10 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The settings to created the index with.      */
+comment|/**      * The settings to created the index template with.      */
 DECL|method|setSettings
 specifier|public
-name|CreateIndexRequestBuilder
+name|PutIndexTemplateRequestBuilder
 name|setSettings
 parameter_list|(
 name|Settings
@@ -238,10 +307,10 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The settings to crete the index with (either json/yaml/properties format)      */
+comment|/**      * The settings to crete the index template with (either json/yaml/properties format)      */
 DECL|method|setSettings
 specifier|public
-name|CreateIndexRequestBuilder
+name|PutIndexTemplateRequestBuilder
 name|setSettings
 parameter_list|(
 name|String
@@ -259,10 +328,10 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The settings to crete the index with (either json/yaml/properties format)      */
+comment|/**      * The settings to crete the index template with (either json/yaml/properties format)      */
 DECL|method|setSettings
 specifier|public
-name|CreateIndexRequestBuilder
+name|PutIndexTemplateRequestBuilder
 name|setSettings
 parameter_list|(
 name|Map
@@ -285,10 +354,10 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds mapping that will be added when the index gets created.      *      * @param type   The mapping type      * @param source The mapping source      */
+comment|/**      * Adds mapping that will be added when the index template gets created.      *      * @param type   The mapping type      * @param source The mapping source      */
 DECL|method|addMapping
 specifier|public
-name|CreateIndexRequestBuilder
+name|PutIndexTemplateRequestBuilder
 name|addMapping
 parameter_list|(
 name|String
@@ -311,10 +380,10 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The cause for this index creation.      */
+comment|/**      * The cause for this index template creation.      */
 DECL|method|cause
 specifier|public
-name|CreateIndexRequestBuilder
+name|PutIndexTemplateRequestBuilder
 name|cause
 parameter_list|(
 name|String
@@ -332,10 +401,10 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds mapping that will be added when the index gets created.      *      * @param type   The mapping type      * @param source The mapping source      */
+comment|/**      * Adds mapping that will be added when the index template gets created.      *      * @param type   The mapping type      * @param source The mapping source      */
 DECL|method|addMapping
 specifier|public
-name|CreateIndexRequestBuilder
+name|PutIndexTemplateRequestBuilder
 name|addMapping
 parameter_list|(
 name|String
@@ -361,7 +430,7 @@ block|}
 comment|/**      * Adds mapping that will be added when the index gets created.      *      * @param type   The mapping type      * @param source The mapping source      */
 DECL|method|addMapping
 specifier|public
-name|CreateIndexRequestBuilder
+name|PutIndexTemplateRequestBuilder
 name|addMapping
 parameter_list|(
 name|String
@@ -392,7 +461,7 @@ block|}
 comment|/**      * Timeout to wait for the index creation to be acknowledged by current cluster nodes. Defaults      * to<tt>10s</tt>.      */
 DECL|method|setTimeout
 specifier|public
-name|CreateIndexRequestBuilder
+name|PutIndexTemplateRequestBuilder
 name|setTimeout
 parameter_list|(
 name|TimeValue
@@ -413,7 +482,7 @@ block|}
 comment|/**      * Timeout to wait for the index creation to be acknowledged by current cluster nodes. Defaults      * to<tt>10s</tt>.      */
 DECL|method|setTimeout
 specifier|public
-name|CreateIndexRequestBuilder
+name|PutIndexTemplateRequestBuilder
 name|setTimeout
 parameter_list|(
 name|String
@@ -434,7 +503,7 @@ block|}
 comment|/**      * Sets the master node timeout in case the master has not yet been discovered.      */
 DECL|method|setMasterNodeTimeout
 specifier|public
-name|CreateIndexRequestBuilder
+name|PutIndexTemplateRequestBuilder
 name|setMasterNodeTimeout
 parameter_list|(
 name|TimeValue
@@ -455,7 +524,7 @@ block|}
 comment|/**      * Sets the master node timeout in case the master has not yet been discovered.      */
 DECL|method|setMasterNodeTimeout
 specifier|public
-name|CreateIndexRequestBuilder
+name|PutIndexTemplateRequestBuilder
 name|setMasterNodeTimeout
 parameter_list|(
 name|String
@@ -482,14 +551,14 @@ name|doExecute
 parameter_list|(
 name|ActionListener
 argument_list|<
-name|CreateIndexResponse
+name|PutIndexTemplateResponse
 argument_list|>
 name|listener
 parameter_list|)
 block|{
 name|client
 operator|.
-name|create
+name|putTemplate
 argument_list|(
 name|request
 argument_list|,

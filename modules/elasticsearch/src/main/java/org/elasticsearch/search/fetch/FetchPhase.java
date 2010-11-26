@@ -799,7 +799,7 @@ if|if
 condition|(
 name|searchHit
 operator|.
-name|fields
+name|fieldsOrNull
 argument_list|()
 operator|==
 literal|null
@@ -977,7 +977,7 @@ if|if
 condition|(
 name|searchHit
 operator|.
-name|fields
+name|fieldsOrNull
 argument_list|()
 operator|==
 literal|null
