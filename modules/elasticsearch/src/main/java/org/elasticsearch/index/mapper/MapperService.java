@@ -452,7 +452,7 @@ name|DEFAULT_MAPPING
 init|=
 literal|"_default_"
 decl_stmt|;
-comment|/**      * Will create types automatically if they do not exists in the repo yet      */
+comment|/**      * Will create types automatically if they do not exists in the mapping definition yet      */
 DECL|field|dynamic
 specifier|private
 specifier|final
@@ -935,6 +935,9 @@ argument_list|)
 condition|)
 block|{
 comment|// verify we can parse it
+name|DocumentMapper
+name|mapper
+init|=
 name|documentParser
 operator|.
 name|parse
@@ -943,7 +946,32 @@ name|type
 argument_list|,
 name|mappingSource
 argument_list|)
+decl_stmt|;
+comment|// still add it as a document mapper so we have it registered and, for example, persisted back into
+comment|// the cluster meta data if needed, or checked for existence
+synchronized|synchronized
+init|(
+name|mutex
+init|)
+block|{
+name|mappers
+operator|=
+name|newMapBuilder
+argument_list|(
+name|mappers
+argument_list|)
+operator|.
+name|put
+argument_list|(
+name|type
+argument_list|,
+name|mapper
+argument_list|)
+operator|.
+name|immutableMap
+argument_list|()
 expr_stmt|;
+block|}
 name|defaultMappingSource
 operator|=
 name|mappingSource
