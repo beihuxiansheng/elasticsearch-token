@@ -464,6 +464,8 @@ name|SearchPhaseResult
 argument_list|>
 name|searchPhaseResults
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 if|if
 condition|(
@@ -544,6 +546,8 @@ name|SearchPhaseResult
 argument_list|>
 name|searchPhaseResults
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|StringBuilder
 name|sb
@@ -616,6 +620,10 @@ operator|.
 name|toString
 argument_list|()
 argument_list|)
+argument_list|,
+name|Base64
+operator|.
+name|URL_SAFE
 argument_list|)
 return|;
 block|}
@@ -642,6 +650,10 @@ operator|.
 name|decode
 argument_list|(
 name|scrollId
+argument_list|,
+name|Base64
+operator|.
+name|URL_SAFE
 argument_list|)
 argument_list|)
 expr_stmt|;

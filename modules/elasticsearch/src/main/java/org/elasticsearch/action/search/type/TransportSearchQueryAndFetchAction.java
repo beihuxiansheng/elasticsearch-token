@@ -470,6 +470,8 @@ specifier|protected
 name|void
 name|moveToSecondPhase
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|sortedShardList
 operator|=

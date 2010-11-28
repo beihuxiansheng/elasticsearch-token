@@ -2075,6 +2075,8 @@ specifier|abstract
 name|void
 name|moveToSecondPhase
 parameter_list|()
+throws|throws
+name|Exception
 function_decl|;
 DECL|method|firstPhaseName
 specifier|protected

@@ -1081,6 +1081,8 @@ specifier|private
 name|void
 name|innerFinishHim
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|sortedShardList
 operator|=
