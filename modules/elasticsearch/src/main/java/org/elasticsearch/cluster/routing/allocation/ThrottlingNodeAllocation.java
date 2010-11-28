@@ -145,15 +145,7 @@ name|getAsInt
 argument_list|(
 literal|"concurrent_recoveries"
 argument_list|,
-name|Runtime
-operator|.
-name|getRuntime
-argument_list|()
-operator|.
-name|availableProcessors
-argument_list|()
-operator|+
-literal|1
+literal|2
 argument_list|)
 expr_stmt|;
 block|}
