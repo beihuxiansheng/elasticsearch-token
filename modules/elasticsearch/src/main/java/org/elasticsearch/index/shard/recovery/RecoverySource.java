@@ -477,7 +477,7 @@ argument_list|,
 operator|new
 name|ByteSizeValue
 argument_list|(
-literal|100
+literal|500
 argument_list|,
 name|ByteSizeUnit
 operator|.
@@ -509,6 +509,19 @@ argument_list|(
 literal|"compress"
 argument_list|,
 literal|true
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"using file_chunk_size [{}], translog_batch_size [{}], and compress [{}]"
+argument_list|,
+name|fileChunkSize
+argument_list|,
+name|translogBatchSize
+argument_list|,
+name|compress
 argument_list|)
 expr_stmt|;
 name|transportService
