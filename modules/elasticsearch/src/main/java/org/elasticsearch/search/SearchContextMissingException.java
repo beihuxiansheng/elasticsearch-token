@@ -56,7 +56,7 @@ literal|"No search context found for id ["
 operator|+
 name|id
 operator|+
-literal|"], timed out"
+literal|"]"
 argument_list|)
 expr_stmt|;
 name|this
