@@ -407,6 +407,23 @@ name|void
 name|processedScope
 parameter_list|()
 block|{
+comment|// clean the current scope (we processed it, also handles scrolling since we don't want to
+comment|// do it again)
+if|if
+condition|(
+name|scopeCollectors
+operator|!=
+literal|null
+condition|)
+block|{
+name|scopeCollectors
+operator|.
+name|remove
+argument_list|(
+name|processingScope
+argument_list|)
+expr_stmt|;
+block|}
 name|this
 operator|.
 name|processingScope

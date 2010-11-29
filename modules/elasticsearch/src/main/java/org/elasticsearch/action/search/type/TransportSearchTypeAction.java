@@ -1850,6 +1850,17 @@ condition|)
 block|{
 return|return;
 block|}
+comment|// we only release search context that we did not fetch from if we are not scrolling
+if|if
+condition|(
+name|request
+operator|.
+name|scroll
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
 for|for
 control|(
 name|Map
@@ -1921,6 +1932,7 @@ name|id
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
