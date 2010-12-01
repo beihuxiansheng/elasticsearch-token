@@ -734,7 +734,7 @@ name|componentSettings
 operator|.
 name|getAsBytesSize
 argument_list|(
-literal|"indexing_buffer_size"
+literal|"index_buffer_size"
 argument_list|,
 operator|new
 name|ByteSizeValue
@@ -747,6 +747,7 @@ name|MB
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// not really important, as it is set by the IndexingMemory manager
 name|this
 operator|.
 name|termIndexInterval
@@ -801,9 +802,16 @@ name|getAsTime
 argument_list|(
 literal|"refresh_interval"
 argument_list|,
+name|indexSettings
+operator|.
+name|getAsTime
+argument_list|(
+literal|"index.refresh_interval"
+argument_list|,
 name|timeValueSeconds
 argument_list|(
 literal|1
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
