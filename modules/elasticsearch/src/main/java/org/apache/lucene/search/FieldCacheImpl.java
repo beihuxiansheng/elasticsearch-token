@@ -3729,6 +3729,12 @@ name|field
 argument_list|()
 operator|!=
 name|field
+operator|||
+name|t
+operator|>=
+name|mterms
+operator|.
+name|length
 condition|)
 break|break;
 comment|// store term text
