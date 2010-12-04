@@ -691,6 +691,26 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+name|client
+operator|.
+name|admin
+argument_list|()
+operator|.
+name|cluster
+argument_list|()
+operator|.
+name|prepareHealth
+argument_list|()
+operator|.
+name|setWaitForGreenStatus
+argument_list|()
+operator|.
+name|execute
+argument_list|()
+operator|.
+name|actionGet
+argument_list|()
+expr_stmt|;
 comment|// now only match on one template (template_1)
 name|searchResponse
 operator|=
