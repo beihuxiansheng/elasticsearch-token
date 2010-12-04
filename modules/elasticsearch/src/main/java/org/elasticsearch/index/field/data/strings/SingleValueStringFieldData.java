@@ -120,12 +120,12 @@ block|}
 block|}
 decl_stmt|;
 comment|// order with value 0 indicates no value
-DECL|field|order
+DECL|field|ordinals
 specifier|private
 specifier|final
 name|int
 index|[]
-name|order
+name|ordinals
 decl_stmt|;
 DECL|method|SingleValueStringFieldData
 specifier|public
@@ -136,7 +136,7 @@ name|fieldName
 parameter_list|,
 name|int
 index|[]
-name|order
+name|ordinals
 parameter_list|,
 name|String
 index|[]
@@ -152,19 +152,19 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|order
+name|ordinals
 operator|=
-name|order
+name|ordinals
 expr_stmt|;
 block|}
-DECL|method|order
+DECL|method|ordinals
 name|int
 index|[]
-name|order
+name|ordinals
 parameter_list|()
 block|{
 return|return
-name|order
+name|ordinals
 return|;
 block|}
 DECL|method|values
@@ -203,7 +203,7 @@ name|docId
 parameter_list|)
 block|{
 return|return
-name|order
+name|ordinals
 index|[
 name|docId
 index|]
@@ -228,7 +228,7 @@ block|{
 name|int
 name|loc
 init|=
-name|order
+name|ordinals
 index|[
 name|docId
 index|]
@@ -269,7 +269,7 @@ block|{
 return|return
 name|values
 index|[
-name|order
+name|ordinals
 index|[
 name|docId
 index|]
@@ -291,7 +291,7 @@ block|{
 name|int
 name|loc
 init|=
-name|order
+name|ordinals
 index|[
 name|docId
 index|]

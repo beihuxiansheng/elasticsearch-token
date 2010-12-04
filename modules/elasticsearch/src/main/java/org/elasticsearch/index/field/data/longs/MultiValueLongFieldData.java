@@ -421,13 +421,13 @@ block|}
 block|}
 decl_stmt|;
 comment|// order with value 0 indicates no value
-DECL|field|order
+DECL|field|ordinals
 specifier|private
 specifier|final
 name|int
 index|[]
 index|[]
-name|order
+name|ordinals
 decl_stmt|;
 DECL|method|MultiValueLongFieldData
 specifier|public
@@ -439,7 +439,7 @@ parameter_list|,
 name|int
 index|[]
 index|[]
-name|order
+name|ordinals
 parameter_list|,
 name|long
 index|[]
@@ -455,9 +455,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|order
+name|ordinals
 operator|=
-name|order
+name|ordinals
 expr_stmt|;
 block|}
 DECL|method|multiValued
@@ -484,7 +484,7 @@ name|docId
 parameter_list|)
 block|{
 return|return
-name|order
+name|ordinals
 index|[
 name|docId
 index|]
@@ -510,7 +510,7 @@ name|int
 index|[]
 name|docOrders
 init|=
-name|order
+name|ordinals
 index|[
 name|docId
 index|]
@@ -569,7 +569,7 @@ name|int
 index|[]
 name|docOrders
 init|=
-name|order
+name|ordinals
 index|[
 name|docId
 index|]
@@ -621,7 +621,7 @@ name|int
 index|[]
 name|docOrders
 init|=
-name|order
+name|ordinals
 index|[
 name|docId
 index|]
@@ -760,7 +760,7 @@ name|int
 index|[]
 name|docOrders
 init|=
-name|order
+name|ordinals
 index|[
 name|docId
 index|]
@@ -870,7 +870,7 @@ name|int
 index|[]
 name|docOrders
 init|=
-name|order
+name|ordinals
 index|[
 name|docId
 index|]
@@ -912,7 +912,7 @@ name|int
 index|[]
 name|docOrders
 init|=
-name|order
+name|ordinals
 index|[
 name|docId
 index|]

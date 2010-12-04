@@ -754,7 +754,7 @@ name|order
 operator|=
 name|fieldData
 operator|.
-name|order
+name|ordinals
 argument_list|()
 expr_stmt|;
 name|lookup

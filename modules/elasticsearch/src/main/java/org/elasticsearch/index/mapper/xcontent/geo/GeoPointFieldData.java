@@ -748,7 +748,7 @@ name|field
 parameter_list|,
 name|int
 index|[]
-name|order
+name|ordinals
 parameter_list|)
 block|{
 return|return
@@ -757,7 +757,7 @@ name|SingleValueGeoPointFieldData
 argument_list|(
 name|field
 argument_list|,
-name|order
+name|ordinals
 argument_list|,
 name|lat
 operator|.
@@ -784,7 +784,7 @@ parameter_list|,
 name|int
 index|[]
 index|[]
-name|order
+name|ordinals
 parameter_list|)
 block|{
 return|return
@@ -793,7 +793,7 @@ name|MultiValueGeoPointFieldData
 argument_list|(
 name|field
 argument_list|,
-name|order
+name|ordinals
 argument_list|,
 name|lat
 operator|.

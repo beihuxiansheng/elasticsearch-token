@@ -605,7 +605,7 @@ name|field
 parameter_list|,
 name|int
 index|[]
-name|order
+name|ordinals
 parameter_list|)
 block|{
 return|return
@@ -614,7 +614,7 @@ name|SingleValueIntFieldData
 argument_list|(
 name|field
 argument_list|,
-name|order
+name|ordinals
 argument_list|,
 name|terms
 operator|.
@@ -636,7 +636,7 @@ parameter_list|,
 name|int
 index|[]
 index|[]
-name|order
+name|ordinals
 parameter_list|)
 block|{
 return|return
@@ -645,7 +645,7 @@ name|MultiValueIntFieldData
 argument_list|(
 name|field
 argument_list|,
-name|order
+name|ordinals
 argument_list|,
 name|terms
 operator|.
