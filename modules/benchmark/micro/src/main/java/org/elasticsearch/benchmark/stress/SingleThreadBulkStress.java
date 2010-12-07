@@ -662,7 +662,7 @@ operator|+
 operator|(
 name|i
 operator|*
-literal|100
+name|BATCH
 operator|)
 operator|+
 literal|" took "

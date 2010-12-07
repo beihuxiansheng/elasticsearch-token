@@ -444,7 +444,7 @@ argument_list|(
 name|matchAllQuery
 argument_list|()
 argument_list|,
-name|exists
+name|existsFilter
 argument_list|(
 literal|"field1"
 argument_list|)
@@ -542,7 +542,7 @@ name|setQuery
 argument_list|(
 name|constantScoreQuery
 argument_list|(
-name|exists
+name|existsFilter
 argument_list|(
 literal|"field1"
 argument_list|)
@@ -738,7 +738,7 @@ argument_list|(
 name|matchAllQuery
 argument_list|()
 argument_list|,
-name|exists
+name|existsFilter
 argument_list|(
 literal|"field2"
 argument_list|)
@@ -839,7 +839,7 @@ argument_list|(
 name|matchAllQuery
 argument_list|()
 argument_list|,
-name|exists
+name|existsFilter
 argument_list|(
 literal|"field3"
 argument_list|)
@@ -903,7 +903,7 @@ argument_list|(
 name|matchAllQuery
 argument_list|()
 argument_list|,
-name|missing
+name|missingFilter
 argument_list|(
 literal|"field1"
 argument_list|)
@@ -1005,7 +1005,7 @@ argument_list|(
 name|matchAllQuery
 argument_list|()
 argument_list|,
-name|missing
+name|missingFilter
 argument_list|(
 literal|"field1"
 argument_list|)
@@ -1103,7 +1103,7 @@ name|setQuery
 argument_list|(
 name|constantScoreQuery
 argument_list|(
-name|missing
+name|missingFilter
 argument_list|(
 literal|"field1"
 argument_list|)

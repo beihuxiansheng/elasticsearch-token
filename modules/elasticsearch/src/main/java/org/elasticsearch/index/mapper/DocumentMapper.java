@@ -194,6 +194,11 @@ name|RoutingFieldMapper
 name|routingFieldMapper
 parameter_list|()
 function_decl|;
+DECL|method|parentFieldMapper
+name|ParentFieldMapper
+name|parentFieldMapper
+parameter_list|()
+function_decl|;
 DECL|method|mappers
 name|DocumentFieldMappers
 name|mappers

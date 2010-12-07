@@ -2353,7 +2353,7 @@ specifier|final
 name|String
 name|ACTION
 init|=
-literal|"search/phase/queyr/query+fetch"
+literal|"search/phase/query/query+fetch"
 decl_stmt|;
 DECL|method|newInstance
 annotation|@

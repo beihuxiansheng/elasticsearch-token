@@ -370,7 +370,6 @@ block|}
 block|}
 DECL|field|required
 specifier|private
-specifier|final
 name|boolean
 name|required
 decl_stmt|;
@@ -486,6 +485,19 @@ operator|.
 name|path
 operator|=
 name|path
+expr_stmt|;
+block|}
+DECL|method|markAsRequired
+specifier|public
+name|void
+name|markAsRequired
+parameter_list|()
+block|{
+name|this
+operator|.
+name|required
+operator|=
+name|required
 expr_stmt|;
 block|}
 DECL|method|required

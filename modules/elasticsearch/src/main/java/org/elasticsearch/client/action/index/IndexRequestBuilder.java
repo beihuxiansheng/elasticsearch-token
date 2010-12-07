@@ -302,6 +302,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the parent id of this document. If routing is not set, automatically set it as the      * routing as well.      */
+DECL|method|setParent
+specifier|public
+name|IndexRequestBuilder
+name|setParent
+parameter_list|(
+name|String
+name|parent
+parameter_list|)
+block|{
+name|request
+operator|.
+name|parent
+argument_list|(
+name|parent
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Index the Map as a JSON.      *      * @param source The map to index      */
 DECL|method|setSource
 specifier|public

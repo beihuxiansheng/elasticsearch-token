@@ -1553,6 +1553,11 @@ name|parseContext
 operator|.
 name|copyNamedFilters
 argument_list|()
+argument_list|,
+name|parseContext
+operator|.
+name|copyScopePhases
+argument_list|()
 argument_list|)
 return|;
 block|}

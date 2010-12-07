@@ -193,17 +193,10 @@ operator|-
 literal|1
 condition|)
 block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"df for term "
-operator|+
-name|term
-operator|+
-literal|" not available"
-argument_list|)
-throw|;
+return|return
+literal|1
+return|;
+comment|//            throw new IllegalArgumentException("df for term " + term + " not available");
 block|}
 return|return
 name|df

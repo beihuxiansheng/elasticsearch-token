@@ -384,6 +384,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Should the facet run in global mode (not bounded by the search query) or not (bounded by      * the search query). Defaults to<tt>false</tt>.      */
 DECL|method|global
 specifier|public
 name|RangeScriptFacetBuilder
@@ -393,11 +394,35 @@ name|boolean
 name|global
 parameter_list|)
 block|{
-name|this
+name|super
 operator|.
 name|global
-operator|=
+argument_list|(
 name|global
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Marks the facet to run in a specific scope.      */
+DECL|method|scope
+annotation|@
+name|Override
+specifier|public
+name|RangeScriptFacetBuilder
+name|scope
+parameter_list|(
+name|String
+name|scope
+parameter_list|)
+block|{
+name|super
+operator|.
+name|scope
+argument_list|(
+name|scope
+argument_list|)
 expr_stmt|;
 return|return
 name|this

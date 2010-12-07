@@ -495,11 +495,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * A filter to filter only documents where a field exists in them.      *      * @param name The name of the field      */
-DECL|method|exists
+DECL|method|existsFilter
 specifier|public
 specifier|static
 name|ExistsFilterBuilder
-name|exists
+name|existsFilter
 parameter_list|(
 name|String
 name|name
@@ -514,11 +514,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * A filter to filter only documents where a field does not exists in them.      *      * @param name The name of the field      */
-DECL|method|missing
+DECL|method|missingFilter
 specifier|public
 specifier|static
 name|MissingFilterBuilder
-name|missing
+name|missingFilter
 parameter_list|(
 name|String
 name|name
@@ -529,6 +529,30 @@ operator|new
 name|MissingFilterBuilder
 argument_list|(
 name|name
+argument_list|)
+return|;
+block|}
+comment|/**      * Constructs a child filter, with the child type and the query to run against child documents, with      * the result of the filter being the *parent* documents.      *      * @param type  The child type      * @param query The query to run against the child type      */
+DECL|method|hasChildFilter
+specifier|public
+specifier|static
+name|HasChildFilterBuilder
+name|hasChildFilter
+parameter_list|(
+name|String
+name|type
+parameter_list|,
+name|XContentQueryBuilder
+name|query
+parameter_list|)
+block|{
+return|return
+operator|new
+name|HasChildFilterBuilder
+argument_list|(
+name|type
+argument_list|,
+name|query
 argument_list|)
 return|;
 block|}

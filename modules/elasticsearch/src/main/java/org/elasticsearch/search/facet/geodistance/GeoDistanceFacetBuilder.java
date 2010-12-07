@@ -597,6 +597,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Marks the facet to run in a global scope, not bounded by any query.      */
 DECL|method|global
 specifier|public
 name|GeoDistanceFacetBuilder
@@ -606,11 +607,35 @@ name|boolean
 name|global
 parameter_list|)
 block|{
-name|this
+name|super
 operator|.
 name|global
-operator|=
+argument_list|(
 name|global
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Marks the facet to run in a specific scope.      */
+DECL|method|scope
+annotation|@
+name|Override
+specifier|public
+name|GeoDistanceFacetBuilder
+name|scope
+parameter_list|(
+name|String
+name|scope
+parameter_list|)
+block|{
+name|super
+operator|.
+name|scope
+argument_list|(
+name|scope
+argument_list|)
 expr_stmt|;
 return|return
 name|this
