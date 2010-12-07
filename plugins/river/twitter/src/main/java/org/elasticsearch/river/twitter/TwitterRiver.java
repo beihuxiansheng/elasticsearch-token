@@ -1641,7 +1641,7 @@ condition|)
 block|{
 name|stream
 operator|.
-name|cleanup
+name|cleanUp
 argument_list|()
 expr_stmt|;
 name|stream
