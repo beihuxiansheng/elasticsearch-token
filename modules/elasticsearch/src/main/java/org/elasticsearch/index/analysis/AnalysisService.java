@@ -1086,11 +1086,39 @@ operator|.
 name|INDEX
 condition|)
 block|{
+try|try
+block|{
 name|analyzer
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|NullPointerException
+name|e
+parameter_list|)
+block|{
+comment|// because analyzers are aliased, they might be closed several times
+comment|// an NPE is thrown in this case, so ignore....
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"failed to close analyzer "
+operator|+
+name|analyzer
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}

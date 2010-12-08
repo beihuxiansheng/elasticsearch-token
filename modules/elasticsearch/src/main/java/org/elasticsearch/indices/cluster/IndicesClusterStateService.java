@@ -904,6 +904,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// clean the index
+try|try
+block|{
 name|indicesService
 operator|.
 name|cleanIndex
@@ -911,6 +913,23 @@ argument_list|(
 name|index
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"failed to clean index (no shards of that index are allocated on this node)"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -971,6 +990,8 @@ name|index
 argument_list|)
 expr_stmt|;
 block|}
+try|try
+block|{
 name|indicesService
 operator|.
 name|deleteIndex
@@ -1015,6 +1036,23 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"failed to delete index"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}
