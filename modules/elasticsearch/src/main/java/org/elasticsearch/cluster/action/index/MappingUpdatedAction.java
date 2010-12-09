@@ -396,7 +396,7 @@ throw|throw
 operator|new
 name|ElasticSearchParseException
 argument_list|(
-literal|"failed to parse mapping form compressed string"
+literal|"failed to update mapping"
 argument_list|,
 name|e
 argument_list|)
