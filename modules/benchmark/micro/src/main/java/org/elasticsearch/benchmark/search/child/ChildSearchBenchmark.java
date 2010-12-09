@@ -195,6 +195,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -466,9 +476,14 @@ init|=
 literal|100
 decl_stmt|;
 name|int
+name|QUERY_WARMUP
+init|=
+literal|20
+decl_stmt|;
+name|int
 name|QUERY_COUNT
 init|=
-literal|500
+literal|50
 decl_stmt|;
 name|Thread
 operator|.
@@ -1013,7 +1028,7 @@ literal|0
 init|;
 name|j
 operator|<
-literal|100
+name|QUERY_WARMUP
 condition|;
 name|j
 operator|++
@@ -1200,7 +1215,7 @@ literal|0
 init|;
 name|j
 operator|<
-literal|100
+name|QUERY_WARMUP
 condition|;
 name|j
 operator|++
@@ -1239,6 +1254,36 @@ if|if
 condition|(
 name|searchResponse
 operator|.
+name|failedShards
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
+name|System
+operator|.
+name|err
+operator|.
+name|println
+argument_list|(
+literal|"Search Failures "
+operator|+
+name|Arrays
+operator|.
+name|toString
+argument_list|(
+name|searchResponse
+operator|.
+name|shardFailures
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|searchResponse
+operator|.
 name|hits
 argument_list|()
 operator|.
@@ -1254,7 +1299,25 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"--> mismatch on hits"
+literal|"--> mismatch on hits ["
+operator|+
+name|j
+operator|+
+literal|"], got ["
+operator|+
+name|searchResponse
+operator|.
+name|hits
+argument_list|()
+operator|.
+name|totalHits
+argument_list|()
+operator|+
+literal|"], expected ["
+operator|+
+name|COUNT
+operator|+
+literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1311,6 +1374,36 @@ if|if
 condition|(
 name|searchResponse
 operator|.
+name|failedShards
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
+name|System
+operator|.
+name|err
+operator|.
+name|println
+argument_list|(
+literal|"Search Failures "
+operator|+
+name|Arrays
+operator|.
+name|toString
+argument_list|(
+name|searchResponse
+operator|.
+name|shardFailures
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|searchResponse
+operator|.
 name|hits
 argument_list|()
 operator|.
@@ -1326,7 +1419,25 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"--> mismatch on hits"
+literal|"--> mismatch on hits ["
+operator|+
+name|j
+operator|+
+literal|"], got ["
+operator|+
+name|searchResponse
+operator|.
+name|hits
+argument_list|()
+operator|.
+name|totalHits
+argument_list|()
+operator|+
+literal|"], expected ["
+operator|+
+name|COUNT
+operator|+
+literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1374,7 +1485,7 @@ literal|0
 init|;
 name|j
 operator|<
-literal|100
+name|QUERY_WARMUP
 condition|;
 name|j
 operator|++
