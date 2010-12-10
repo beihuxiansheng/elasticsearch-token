@@ -1802,7 +1802,10 @@ name|version
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// remove from the current state all the shards that are primary and started, we won't need them anymore
+comment|// remove from the current state all the shards that are primary and started somewhere, we won't need them anymore
+comment|// and if they are still here, we will add them in the next phase
+comment|// Also note, this works well when closing an index, since a closed index will have no routing shards entries
+comment|// so they won't get removed (we want to keep the fact that those shards are allocated on this node if needed)
 for|for
 control|(
 name|IndexRoutingTable

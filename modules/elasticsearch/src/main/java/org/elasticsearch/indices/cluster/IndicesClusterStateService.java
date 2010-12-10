@@ -1115,8 +1115,9 @@ name|indices
 argument_list|()
 control|)
 block|{
-if|if
-condition|(
+name|IndexMetaData
+name|indexMetaData
+init|=
 name|event
 operator|.
 name|state
@@ -1125,10 +1126,16 @@ operator|.
 name|metaData
 argument_list|()
 operator|.
-name|hasIndex
+name|index
 argument_list|(
 name|index
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|indexMetaData
+operator|!=
+literal|null
 condition|)
 block|{
 comment|// now, go over and delete shards that needs to get deleted
@@ -1219,6 +1226,20 @@ condition|)
 block|{
 if|if
 condition|(
+name|indexMetaData
+operator|.
+name|state
+argument_list|()
+operator|==
+name|IndexMetaData
+operator|.
+name|State
+operator|.
+name|CLOSE
+condition|)
+block|{
+if|if
+condition|(
 name|logger
 operator|.
 name|isDebugEnabled
@@ -1229,7 +1250,37 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"[{}][{}] deleting shard"
+literal|"[{}][{}] removing shard (index is closed)"
+argument_list|,
+name|index
+argument_list|,
+name|existingShardId
+argument_list|)
+expr_stmt|;
+block|}
+name|indexService
+operator|.
+name|removeShard
+argument_list|(
+name|existingShardId
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+if|if
+condition|(
+name|logger
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"[{}][{}] cleaning shard locally (not allocated)"
 argument_list|,
 name|index
 argument_list|,
@@ -1244,6 +1295,7 @@ argument_list|(
 name|existingShardId
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
