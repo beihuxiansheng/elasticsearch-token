@@ -69,6 +69,40 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|ReceiveTimeoutTransportException
+specifier|public
+name|ReceiveTimeoutTransportException
+parameter_list|(
+name|DiscoveryNode
+name|node
+parameter_list|,
+name|String
+name|action
+parameter_list|,
+name|String
+name|msg
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|node
+operator|.
+name|name
+argument_list|()
+argument_list|,
+name|node
+operator|.
+name|address
+argument_list|()
+argument_list|,
+name|action
+argument_list|,
+name|msg
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
 comment|//    @Override public Throwable fillInStackTrace() {
 comment|//        return fillStack();
 comment|//    }
