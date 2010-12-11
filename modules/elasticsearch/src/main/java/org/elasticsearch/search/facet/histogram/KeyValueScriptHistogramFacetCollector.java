@@ -445,7 +445,7 @@ name|SearchScript
 argument_list|(
 name|context
 operator|.
-name|scriptSearchLookup
+name|lookup
 argument_list|()
 argument_list|,
 name|scriptLang
