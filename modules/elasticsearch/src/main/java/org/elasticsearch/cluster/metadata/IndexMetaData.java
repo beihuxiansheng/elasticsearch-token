@@ -228,16 +228,6 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|annotation
-operator|.
-name|Nullable
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -1468,11 +1458,6 @@ name|fromXContent
 parameter_list|(
 name|XContentParser
 name|parser
-parameter_list|,
-annotation|@
-name|Nullable
-name|Settings
-name|globalSettings
 parameter_list|)
 throws|throws
 name|IOException
@@ -1570,11 +1555,6 @@ name|settingsBuilder
 init|=
 name|settingsBuilder
 argument_list|()
-operator|.
-name|globalSettings
-argument_list|(
-name|globalSettings
-argument_list|)
 decl_stmt|;
 while|while
 condition|(
@@ -1805,9 +1785,6 @@ name|readFrom
 parameter_list|(
 name|StreamInput
 name|in
-parameter_list|,
-name|Settings
-name|globalSettings
 parameter_list|)
 throws|throws
 name|IOException
@@ -1846,8 +1823,6 @@ argument_list|(
 name|readSettingsFromStream
 argument_list|(
 name|in
-argument_list|,
-name|globalSettings
 argument_list|)
 argument_list|)
 expr_stmt|;

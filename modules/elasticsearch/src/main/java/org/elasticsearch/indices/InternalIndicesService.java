@@ -1430,14 +1430,6 @@ name|getClassLoader
 argument_list|()
 argument_list|)
 operator|.
-name|globalSettings
-argument_list|(
-name|settings
-operator|.
-name|getGlobalSettings
-argument_list|()
-argument_list|)
-operator|.
 name|build
 argument_list|()
 decl_stmt|;

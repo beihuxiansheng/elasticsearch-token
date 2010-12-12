@@ -1410,10 +1410,6 @@ name|clusterStateBytes
 argument_list|,
 name|discovery
 operator|.
-name|settings
-argument_list|,
-name|discovery
-operator|.
 name|localNode
 argument_list|)
 decl_stmt|;

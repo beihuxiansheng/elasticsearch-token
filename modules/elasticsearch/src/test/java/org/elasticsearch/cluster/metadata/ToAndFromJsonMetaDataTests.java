@@ -347,8 +347,6 @@ name|createParser
 argument_list|(
 name|metaDataSource
 argument_list|)
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|IndexMetaData

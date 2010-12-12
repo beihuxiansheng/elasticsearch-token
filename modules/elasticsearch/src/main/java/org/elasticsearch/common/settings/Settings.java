@@ -85,7 +85,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Immutable settings allowing to control the configuration.  *  *<p>Using {@link ImmutableSettings#settingsBuilder()} in order to create a builder  * which in turn can create an immutable implementation of settings.  *  * @author kimchy (Shay Banon)  * @see ImmutableSettings  */
+comment|/**  * Immutable settings allowing to control the configuration.  *  *<p>Using {@link ImmutableSettings#settingsBuilder()} in order to create a builder  * which in turn can create an immutable implementation of settings.  *  * @author kimchy (shay.banon)  * @see ImmutableSettings  */
 end_comment
 
 begin_interface
@@ -96,12 +96,6 @@ specifier|public
 interface|interface
 name|Settings
 block|{
-comment|/**      * The global settings if these settings are group settings.      */
-DECL|method|getGlobalSettings
-name|Settings
-name|getGlobalSettings
-parameter_list|()
-function_decl|;
 comment|/**      * Component settings for a specific component. Returns all the settings for the given class, where the      * FQN of the class is used, without the<tt>org.elasticsearch<tt> prefix.      */
 DECL|method|getComponentSettings
 name|Settings

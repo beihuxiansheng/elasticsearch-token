@@ -148,20 +148,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|annotation
@@ -982,9 +968,6 @@ name|byte
 index|[]
 name|data
 parameter_list|,
-name|Settings
-name|globalSettings
-parameter_list|,
 name|DiscoveryNode
 name|localNode
 parameter_list|)
@@ -999,8 +982,6 @@ name|BytesStreamInput
 argument_list|(
 name|data
 argument_list|)
-argument_list|,
-name|globalSettings
 argument_list|,
 name|localNode
 argument_list|)
@@ -1109,11 +1090,6 @@ name|in
 parameter_list|,
 annotation|@
 name|Nullable
-name|Settings
-name|globalSettings
-parameter_list|,
-annotation|@
-name|Nullable
 name|DiscoveryNode
 name|localNode
 parameter_list|)
@@ -1147,8 +1123,6 @@ operator|.
 name|readFrom
 argument_list|(
 name|in
-argument_list|,
-name|globalSettings
 argument_list|)
 expr_stmt|;
 name|builder

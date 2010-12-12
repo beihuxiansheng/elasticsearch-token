@@ -1159,8 +1159,6 @@ operator|.
 name|fromXContent
 argument_list|(
 name|parser
-argument_list|,
-name|settings
 argument_list|)
 return|;
 block|}
