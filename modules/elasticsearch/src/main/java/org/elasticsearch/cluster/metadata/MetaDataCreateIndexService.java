@@ -1977,6 +1977,16 @@ name|request
 operator|.
 name|index
 argument_list|)
+argument_list|,
+name|request
+operator|.
+name|origin
+operator|==
+name|Request
+operator|.
+name|Origin
+operator|.
+name|API
 argument_list|)
 decl_stmt|;
 name|routingTableBuilder

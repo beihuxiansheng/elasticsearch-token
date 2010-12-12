@@ -1108,7 +1108,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**          * Initializes a new empty index          */
+comment|/**          * Initializes a new empty index, as if it was created from an API.          */
 DECL|method|initializeEmpty
 specifier|public
 name|Builder
@@ -1116,6 +1116,28 @@ name|initializeEmpty
 parameter_list|(
 name|IndexMetaData
 name|indexMetaData
+parameter_list|)
+block|{
+return|return
+name|initializeEmpty
+argument_list|(
+name|indexMetaData
+argument_list|,
+literal|true
+argument_list|)
+return|;
+block|}
+comment|/**          * Initializes a new empty index, with an option to control if its from an API or not.          */
+DECL|method|initializeEmpty
+specifier|public
+name|Builder
+name|initializeEmpty
+parameter_list|(
+name|IndexMetaData
+name|indexMetaData
+parameter_list|,
+name|boolean
+name|fromApi
 parameter_list|)
 block|{
 for|for
@@ -1167,6 +1189,8 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|UNASSIGNED
+argument_list|,
+name|fromApi
 argument_list|)
 expr_stmt|;
 block|}
@@ -1203,6 +1227,8 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|UNASSIGNED
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -1267,6 +1293,11 @@ argument_list|(
 name|indexShard
 operator|.
 name|shardId
+argument_list|()
+argument_list|,
+name|indexShard
+operator|.
+name|allocatedPostApi
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1423,6 +1454,9 @@ name|addShard
 parameter_list|(
 name|ShardRouting
 name|shard
+parameter_list|,
+name|boolean
+name|fromApi
 parameter_list|)
 block|{
 return|return
@@ -1433,6 +1467,8 @@ name|ImmutableShardRouting
 argument_list|(
 name|shard
 argument_list|)
+argument_list|,
+name|fromApi
 argument_list|)
 return|;
 block|}
@@ -1452,6 +1488,9 @@ name|primary
 parameter_list|,
 name|ShardRoutingState
 name|state
+parameter_list|,
+name|boolean
+name|fromApi
 parameter_list|)
 block|{
 name|ImmutableShardRouting
@@ -1475,6 +1514,8 @@ return|return
 name|internalAddShard
 argument_list|(
 name|shard
+argument_list|,
+name|fromApi
 argument_list|)
 return|;
 block|}
@@ -1485,6 +1526,9 @@ name|internalAddShard
 parameter_list|(
 name|ImmutableShardRouting
 name|shard
+parameter_list|,
+name|boolean
+name|fromApi
 parameter_list|)
 block|{
 name|IndexShardRoutingTable
@@ -1518,6 +1562,12 @@ name|shard
 operator|.
 name|shardId
 argument_list|()
+argument_list|,
+name|fromApi
+condition|?
+literal|false
+else|:
+literal|true
 argument_list|)
 operator|.
 name|addShard

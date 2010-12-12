@@ -653,11 +653,20 @@ name|field
 argument_list|(
 literal|"field2"
 argument_list|)
-argument_list|,
-name|nullValue
+operator|.
+name|value
 argument_list|()
+operator|.
+name|toString
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"value 2"
+argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// this will still be loaded because of the source feature
 name|client
 operator|.
 name|prepareIndex
