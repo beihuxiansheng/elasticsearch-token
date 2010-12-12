@@ -623,7 +623,9 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"using file_chunk_size [{}], translog_batch_size [{}], and compress [{}]"
+literal|"using concurrent_streams [{}], file_chunk_size [{}], translog_batch_size [{}], and compress [{}]"
+argument_list|,
+name|concurrentStreams
 argument_list|,
 name|fileChunkSize
 argument_list|,
