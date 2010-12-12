@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search.fetch
+DECL|package|org.elasticsearch.search.fetch.explain
 package|package
 name|org
 operator|.
@@ -13,6 +13,8 @@ operator|.
 name|search
 operator|.
 name|fetch
+operator|.
+name|explain
 package|;
 end_package
 
