@@ -327,12 +327,6 @@ name|SearchHitPhase
 index|[]
 name|hitPhases
 decl_stmt|;
-DECL|field|highlightPhase
-specifier|private
-specifier|final
-name|HighlightPhase
-name|highlightPhase
-decl_stmt|;
 DECL|method|FetchPhase
 annotation|@
 name|Inject
@@ -352,12 +346,6 @@ name|ExplainSearchHitPhase
 name|explainPhase
 parameter_list|)
 block|{
-name|this
-operator|.
-name|highlightPhase
-operator|=
-name|highlightPhase
-expr_stmt|;
 name|this
 operator|.
 name|hitPhases
