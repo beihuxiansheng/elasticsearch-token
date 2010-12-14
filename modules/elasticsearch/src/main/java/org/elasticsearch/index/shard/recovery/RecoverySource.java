@@ -585,7 +585,7 @@ argument_list|,
 operator|new
 name|ByteSizeValue
 argument_list|(
-literal|500
+literal|100
 argument_list|,
 name|ByteSizeUnit
 operator|.
