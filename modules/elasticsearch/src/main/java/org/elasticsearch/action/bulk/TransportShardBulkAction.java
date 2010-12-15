@@ -537,6 +537,7 @@ name|TransportRequestOptions
 name|transportOptions
 parameter_list|()
 block|{
+comment|// low type since we don't want the large bulk requests to cause high latency on typical requests
 return|return
 name|TransportRequestOptions
 operator|.
@@ -547,6 +548,9 @@ name|withCompress
 argument_list|(
 literal|true
 argument_list|)
+operator|.
+name|withLowType
+argument_list|()
 return|;
 block|}
 DECL|method|newRequestInstance

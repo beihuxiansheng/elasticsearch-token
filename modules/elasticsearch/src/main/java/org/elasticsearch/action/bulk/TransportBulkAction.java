@@ -2156,10 +2156,10 @@ name|boolean
 name|spawn
 parameter_list|()
 block|{
-comment|// no need to spawn, since in the doExecute we always execute with threaded operation set to true
 return|return
-literal|false
+literal|true
 return|;
+comment|// spawn, we do some work here...
 block|}
 block|}
 block|}

@@ -1451,6 +1451,9 @@ name|withCompress
 argument_list|(
 name|compress
 argument_list|)
+operator|.
+name|withLowType
+argument_list|()
 argument_list|,
 name|VoidTransportResponseHandler
 operator|.
@@ -2193,6 +2196,9 @@ name|withCompress
 argument_list|(
 name|compress
 argument_list|)
+operator|.
+name|withLowType
+argument_list|()
 argument_list|,
 name|VoidTransportResponseHandler
 operator|.
@@ -2265,6 +2271,9 @@ name|withCompress
 argument_list|(
 name|compress
 argument_list|)
+operator|.
+name|withLowType
+argument_list|()
 argument_list|,
 name|VoidTransportResponseHandler
 operator|.

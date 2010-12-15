@@ -200,6 +200,9 @@ operator|.
 name|options
 argument_list|()
 operator|.
+name|withLowType
+argument_list|()
+operator|.
 name|withCompress
 argument_list|(
 literal|true

@@ -1009,6 +1009,9 @@ argument_list|,
 name|options
 argument_list|()
 operator|.
+name|withHighType
+argument_list|()
+operator|.
 name|withTimeout
 argument_list|(
 name|pingRetryTimeout
@@ -1220,6 +1223,9 @@ argument_list|()
 argument_list|)
 argument_list|,
 name|options
+argument_list|()
+operator|.
+name|withHighType
 argument_list|()
 operator|.
 name|withTimeout
