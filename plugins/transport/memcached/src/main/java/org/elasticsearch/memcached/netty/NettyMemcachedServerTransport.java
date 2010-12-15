@@ -698,7 +698,7 @@ name|getAsBoolean
 argument_list|(
 name|TCP_KEEP_ALIVE
 argument_list|,
-literal|null
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -741,7 +741,7 @@ name|getAsBytesSize
 argument_list|(
 name|TCP_SEND_BUFFER_SIZE
 argument_list|,
-literal|null
+name|TCP_DEFAULT_SEND_BUFFER_SIZE
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -761,7 +761,7 @@ name|getAsBytesSize
 argument_list|(
 name|TCP_RECEIVE_BUFFER_SIZE
 argument_list|,
-literal|null
+name|TCP_DEFAULT_RECEIVE_BUFFER_SIZE
 argument_list|)
 argument_list|)
 expr_stmt|;
