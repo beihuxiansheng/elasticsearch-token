@@ -1289,7 +1289,7 @@ name|componentSettings
 operator|.
 name|getAsInt
 argument_list|(
-literal|"connections_per_node.low"
+literal|"connections_per_node.med"
 argument_list|,
 literal|7
 argument_list|)
@@ -1302,7 +1302,7 @@ name|componentSettings
 operator|.
 name|getAsInt
 argument_list|(
-literal|"connections_per_node.low"
+literal|"connections_per_node.high"
 argument_list|,
 literal|1
 argument_list|)
