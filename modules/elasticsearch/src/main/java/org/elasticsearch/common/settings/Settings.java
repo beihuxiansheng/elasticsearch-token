@@ -24,6 +24,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|collect
+operator|.
+name|ImmutableMap
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|unit
 operator|.
 name|ByteSizeValue
@@ -134,7 +148,7 @@ parameter_list|()
 function_decl|;
 comment|/**      * The settings as a {@link java.util.Map}.      */
 DECL|method|getAsMap
-name|Map
+name|ImmutableMap
 argument_list|<
 name|String
 argument_list|,
@@ -352,7 +366,7 @@ parameter_list|)
 throws|throws
 name|NoClassSettingsException
 function_decl|;
-comment|/**      * The values associated with a setting prefix as an array. The settings array is in the format of:      *<tt>settingPrefix.[index]</tt>.      *      * @param settingPrefix The setting prefix to load the array by      * @return The setting array values      * @throws SettingsException      */
+comment|/**      * The values associated with a setting prefix as an array. The settings array is in the format of:      *<tt>settingPrefix.[index]</tt>.      *      *<p>It will also automatically load a comma separated list under the settingPrefix and merge with      * the numbered format.      *      * @param settingPrefix The setting prefix to load the array by      * @return The setting array values      * @throws SettingsException      */
 DECL|method|getAsArray
 name|String
 index|[]
@@ -368,7 +382,7 @@ parameter_list|)
 throws|throws
 name|SettingsException
 function_decl|;
-comment|/**      * The values associated with a setting prefix as an array. The settings array is in the format of:      *<tt>settingPrefix.[index]</tt>.      *      * @param settingPrefix The setting prefix to load the array by      * @return The setting array values      * @throws SettingsException      */
+comment|/**      * The values associated with a setting prefix as an array. The settings array is in the format of:      *<tt>settingPrefix.[index]</tt>.      *      *<p>It will also automatically load a comma separated list under the settingPrefix and merge with      * the numbered format.      *      * @param settingPrefix The setting prefix to load the array by      * @return The setting array values      * @throws SettingsException      */
 DECL|method|getAsArray
 name|String
 index|[]
