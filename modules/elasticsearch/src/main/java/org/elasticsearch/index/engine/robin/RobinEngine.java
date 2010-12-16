@@ -536,6 +536,12 @@ specifier|final
 name|int
 name|termIndexInterval
 decl_stmt|;
+DECL|field|termIndexDivisor
+specifier|private
+specifier|final
+name|int
+name|termIndexDivisor
+decl_stmt|;
 DECL|field|refreshInterval
 specifier|private
 specifier|final
@@ -763,6 +769,20 @@ operator|.
 name|DEFAULT_TERM_INDEX_INTERVAL
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|termIndexDivisor
+operator|=
+name|indexSettings
+operator|.
+name|getAsInt
+argument_list|(
+literal|"index.term_index_divisor"
+argument_list|,
+literal|1
+argument_list|)
+expr_stmt|;
+comment|// IndexReader#DEFAULT_TERMS_INDEX_DIVISOR
 name|this
 operator|.
 name|compoundFormat
@@ -3501,6 +3521,13 @@ operator|.
 name|setTermIndexInterval
 argument_list|(
 name|termIndexInterval
+argument_list|)
+expr_stmt|;
+name|indexWriter
+operator|.
+name|setReaderTermsIndexDivisor
+argument_list|(
+name|termIndexDivisor
 argument_list|)
 expr_stmt|;
 name|indexWriter
