@@ -1440,7 +1440,9 @@ throw|throw
 operator|new
 name|ZenPingException
 argument_list|(
-literal|"Failed to send ping request over multicast"
+literal|"Failed to send ping request over multicast on "
+operator|+
+name|multicastSocket
 argument_list|,
 name|e
 argument_list|)
