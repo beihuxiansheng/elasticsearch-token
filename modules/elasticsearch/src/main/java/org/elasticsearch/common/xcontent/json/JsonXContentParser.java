@@ -655,6 +655,14 @@ name|Token
 operator|.
 name|END_ARRAY
 return|;
+case|case
+name|VALUE_EMBEDDED_OBJECT
+case|:
+return|return
+name|Token
+operator|.
+name|VALUE_EMBEDDED_OBJECT
+return|;
 block|}
 throw|throw
 operator|new

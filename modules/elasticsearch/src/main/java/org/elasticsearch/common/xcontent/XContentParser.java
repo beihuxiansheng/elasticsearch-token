@@ -178,6 +178,23 @@ return|;
 block|}
 block|}
 block|,
+comment|// usually a binary value
+DECL|enum constant|VALUE_EMBEDDED_OBJECT
+name|VALUE_EMBEDDED_OBJECT
+block|{
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|isValue
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
+block|}
+block|,
 DECL|enum constant|VALUE_NULL
 name|VALUE_NULL
 block|{
