@@ -96,7 +96,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|TermsFilter
+name|PublicTermsFilter
 import|;
 end_import
 
@@ -1484,11 +1484,11 @@ name|typeFilter
 argument_list|()
 return|;
 block|}
-name|TermsFilter
+name|PublicTermsFilter
 name|termsFilter
 init|=
 operator|new
-name|TermsFilter
+name|PublicTermsFilter
 argument_list|()
 decl_stmt|;
 for|for
