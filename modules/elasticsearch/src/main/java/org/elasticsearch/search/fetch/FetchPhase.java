@@ -1196,6 +1196,7 @@ name|INSTANCE
 return|;
 block|}
 comment|// asked for all stored fields, just return null so all of them will be loaded
+comment|// don't load the source field in this case, makes little sense to get it with all stored fields
 if|if
 condition|(
 name|context
@@ -1215,7 +1216,9 @@ argument_list|)
 condition|)
 block|{
 return|return
-literal|null
+name|AllButSourceFieldSelector
+operator|.
+name|INSTANCE
 return|;
 block|}
 name|FieldMappersFieldSelector
