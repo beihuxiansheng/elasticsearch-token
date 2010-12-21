@@ -788,6 +788,23 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets no fields to be loaded, resulting in only id and type to be returned per field.      */
+DECL|method|setNoFields
+specifier|public
+name|SearchRequestBuilder
+name|setNoFields
+parameter_list|()
+block|{
+name|sourceBuilder
+argument_list|()
+operator|.
+name|noFields
+argument_list|()
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Adds a field to load and return (note, it must be stored) as part of the search request.      * If none are specified, the source of the document will be return.      */
 DECL|method|addField
 specifier|public
