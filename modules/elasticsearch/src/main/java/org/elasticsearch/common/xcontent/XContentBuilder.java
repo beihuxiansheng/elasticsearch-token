@@ -162,6 +162,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|OutputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Date
@@ -271,7 +281,7 @@ decl_stmt|;
 DECL|field|bos
 specifier|private
 specifier|final
-name|FastByteArrayOutputStream
+name|OutputStream
 name|bos
 decl_stmt|;
 DECL|field|fieldCaseConversion
@@ -286,6 +296,7 @@ specifier|private
 name|StringBuilder
 name|cachedStringBuilder
 decl_stmt|;
+comment|/**      * Constructs a new cached builder over a cached (thread local) {@link FastByteArrayOutputStream}.      */
 DECL|method|cachedBuilder
 specifier|public
 specifier|static
@@ -302,17 +313,18 @@ return|return
 operator|new
 name|XContentBuilder
 argument_list|(
+name|xContent
+argument_list|,
 name|FastByteArrayOutputStream
 operator|.
 name|Cached
 operator|.
 name|cached
 argument_list|()
-argument_list|,
-name|xContent
 argument_list|)
 return|;
 block|}
+comment|/**      * Constructs a new builder using a fresh {@link FastByteArrayOutputStream}.      */
 DECL|method|builder
 specifier|public
 specifier|static
@@ -329,23 +341,24 @@ return|return
 operator|new
 name|XContentBuilder
 argument_list|(
+name|xContent
+argument_list|,
 operator|new
 name|FastByteArrayOutputStream
 argument_list|()
-argument_list|,
-name|xContent
 argument_list|)
 return|;
 block|}
+comment|/**      * Constructs a new builder using the provided xcontent and an OutputStream. Make sure      * to call {@link #close()} when the builder is done with.      */
 DECL|method|XContentBuilder
 specifier|public
 name|XContentBuilder
 parameter_list|(
-name|FastByteArrayOutputStream
-name|bos
-parameter_list|,
 name|XContent
 name|xContent
+parameter_list|,
+name|OutputStream
+name|bos
 parameter_list|)
 throws|throws
 name|IOException
@@ -4389,6 +4402,7 @@ block|{
 comment|// ignore
 block|}
 block|}
+comment|/**      * Returns the unsafe bytes (thread local bound). Make sure to use it with      * {@link #unsafeBytesLength()}.      *      *<p>Only applicable when the builder is constructed with {@link FastByteArrayOutputStream}.      */
 DECL|method|unsafeBytes
 specifier|public
 name|byte
@@ -4402,12 +4416,18 @@ name|close
 argument_list|()
 expr_stmt|;
 return|return
+operator|(
+operator|(
+name|FastByteArrayOutputStream
+operator|)
 name|bos
+operator|)
 operator|.
 name|unsafeByteArray
 argument_list|()
 return|;
 block|}
+comment|/**      * Returns the unsafe bytes length (thread local bound). Make sure to use it with      * {@link #unsafeBytes()}.      *      *<p>Only applicable when the builder is constructed with {@link FastByteArrayOutputStream}.      */
 DECL|method|unsafeBytesLength
 specifier|public
 name|int
@@ -4420,12 +4440,18 @@ name|close
 argument_list|()
 expr_stmt|;
 return|return
+operator|(
+operator|(
+name|FastByteArrayOutputStream
+operator|)
 name|bos
+operator|)
 operator|.
 name|size
 argument_list|()
 return|;
 block|}
+comment|/**      * Returns the actual stream used.      */
 DECL|method|unsafeStream
 specifier|public
 name|FastByteArrayOutputStream
@@ -4438,9 +4464,13 @@ name|close
 argument_list|()
 expr_stmt|;
 return|return
+operator|(
+name|FastByteArrayOutputStream
+operator|)
 name|bos
 return|;
 block|}
+comment|/**      * Returns a copy of the bytes this builder generated.      *      *<p>Only applicable when the builder is constructed with {@link FastByteArrayOutputStream}.      */
 DECL|method|copiedBytes
 specifier|public
 name|byte
@@ -4454,12 +4484,18 @@ name|close
 argument_list|()
 expr_stmt|;
 return|return
+operator|(
+operator|(
+name|FastByteArrayOutputStream
+operator|)
 name|bos
+operator|)
 operator|.
 name|copiedByteArray
 argument_list|()
 return|;
 block|}
+comment|/**      * Returns a string representation of the builder (only applicable for text based xcontent).      *      *<p>Only applicable when the builder is constructed with {@link FastByteArrayOutputStream}.      */
 DECL|method|string
 specifier|public
 name|String
@@ -4476,16 +4512,12 @@ name|Unicode
 operator|.
 name|fromBytes
 argument_list|(
-name|bos
-operator|.
-name|unsafeByteArray
+name|unsafeBytes
 argument_list|()
 argument_list|,
 literal|0
 argument_list|,
-name|bos
-operator|.
-name|size
+name|unsafeBytesLength
 argument_list|()
 argument_list|)
 return|;

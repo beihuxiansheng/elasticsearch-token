@@ -26,20 +26,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|io
-operator|.
-name|FastByteArrayOutputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|jackson
 operator|.
 name|JsonGenerator
@@ -102,6 +88,16 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|OutputStream
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
@@ -156,7 +152,7 @@ name|byte
 index|[]
 name|content
 parameter_list|,
-name|FastByteArrayOutputStream
+name|OutputStream
 name|bos
 parameter_list|)
 throws|throws

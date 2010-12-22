@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|io
-operator|.
-name|FastByteArrayOutputStream
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -47,6 +33,16 @@ operator|.
 name|io
 operator|.
 name|InputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|OutputStream
 import|;
 end_import
 
@@ -485,7 +481,7 @@ name|byte
 index|[]
 name|content
 parameter_list|,
-name|FastByteArrayOutputStream
+name|OutputStream
 name|bos
 parameter_list|)
 throws|throws
@@ -501,7 +497,7 @@ parameter_list|,
 name|InputStream
 name|content
 parameter_list|,
-name|FastByteArrayOutputStream
+name|OutputStream
 name|bos
 parameter_list|)
 throws|throws
