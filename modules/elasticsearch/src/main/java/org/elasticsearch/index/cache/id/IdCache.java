@@ -32,6 +32,20 @@ name|IndexReader
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|component
+operator|.
+name|CloseableComponent
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
@@ -42,6 +56,8 @@ specifier|public
 interface|interface
 name|IdCache
 extends|extends
+name|CloseableComponent
+extends|,
 name|Iterable
 argument_list|<
 name|IdReaderCache

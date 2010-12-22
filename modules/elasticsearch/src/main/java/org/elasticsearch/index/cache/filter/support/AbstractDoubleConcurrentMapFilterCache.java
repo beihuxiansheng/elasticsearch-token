@@ -322,8 +322,6 @@ name|void
 name|close
 parameter_list|()
 block|{
-name|cache
-operator|.
 name|clear
 argument_list|()
 expr_stmt|;
@@ -337,6 +335,11 @@ name|clear
 parameter_list|()
 block|{
 name|cache
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|weakCache
 operator|.
 name|clear
 argument_list|()

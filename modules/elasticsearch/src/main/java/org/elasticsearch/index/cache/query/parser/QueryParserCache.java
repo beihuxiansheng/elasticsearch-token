@@ -4,19 +4,19 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.cache.query.parser.none
+DECL|package|org.elasticsearch.index.cache.query.parser
 package|package
 name|org
 operator|.
 name|elasticsearch
+operator|.
+name|index
 operator|.
 name|cache
 operator|.
 name|query
 operator|.
 name|parser
-operator|.
-name|none
 package|;
 end_package
 
@@ -54,27 +54,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cache
-operator|.
-name|query
-operator|.
-name|parser
-operator|.
-name|QueryParserCache
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
-name|inject
+name|component
 operator|.
-name|Inject
+name|CloseableComponent
 import|;
 end_import
 
@@ -82,40 +66,23 @@ begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
-begin_class
-DECL|class|NoneQueryParserCache
+begin_interface
+DECL|interface|QueryParserCache
 specifier|public
-class|class
-name|NoneQueryParserCache
-implements|implements
+interface|interface
 name|QueryParserCache
+extends|extends
+name|CloseableComponent
 block|{
-DECL|method|NoneQueryParserCache
-annotation|@
-name|Inject
-specifier|public
-name|NoneQueryParserCache
-parameter_list|()
-block|{     }
 DECL|method|get
-annotation|@
-name|Override
-specifier|public
 name|Query
 name|get
 parameter_list|(
 name|QueryParserSettings
 name|queryString
 parameter_list|)
-block|{
-return|return
-literal|null
-return|;
-block|}
+function_decl|;
 DECL|method|put
-annotation|@
-name|Override
-specifier|public
 name|void
 name|put
 parameter_list|(
@@ -125,17 +92,14 @@ parameter_list|,
 name|Query
 name|query
 parameter_list|)
-block|{     }
+function_decl|;
 DECL|method|clear
-annotation|@
-name|Override
-specifier|public
 name|void
 name|clear
 parameter_list|()
-block|{     }
+function_decl|;
 block|}
-end_class
+end_interface
 
 end_unit
 

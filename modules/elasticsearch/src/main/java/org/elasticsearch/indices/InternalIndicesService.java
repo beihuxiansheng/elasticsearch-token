@@ -310,7 +310,7 @@ name|index
 operator|.
 name|cache
 operator|.
-name|IndexCacheModule
+name|IndexCache
 import|;
 end_import
 
@@ -324,9 +324,7 @@ name|index
 operator|.
 name|cache
 operator|.
-name|filter
-operator|.
-name|FilterCache
+name|IndexCacheModule
 import|;
 end_import
 
@@ -1858,7 +1856,7 @@ name|indexInjector
 operator|.
 name|getInstance
 argument_list|(
-name|FilterCache
+name|IndexCache
 operator|.
 name|class
 argument_list|)
