@@ -46,6 +46,18 @@ name|CloseableComponent
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|IndexComponent
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
@@ -56,6 +68,8 @@ specifier|public
 interface|interface
 name|IdCache
 extends|extends
+name|IndexComponent
+extends|,
 name|CloseableComponent
 extends|,
 name|Iterable

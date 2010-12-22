@@ -56,6 +56,18 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|IndexComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|field
 operator|.
 name|data
@@ -100,6 +112,8 @@ specifier|public
 interface|interface
 name|FieldDataCache
 extends|extends
+name|IndexComponent
+extends|,
 name|CloseableComponent
 block|{
 DECL|method|cache
