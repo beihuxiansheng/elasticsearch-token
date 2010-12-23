@@ -152,6 +152,8 @@ argument_list|()
 argument_list|,
 name|action
 argument_list|,
+name|msg
+argument_list|,
 name|cause
 argument_list|)
 expr_stmt|;
