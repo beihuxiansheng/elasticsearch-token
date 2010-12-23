@@ -1995,7 +1995,14 @@ block|{
 name|shard
 operator|.
 name|relocated
+argument_list|(
+literal|"to "
+operator|+
+name|request
+operator|.
+name|targetNode
 argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch

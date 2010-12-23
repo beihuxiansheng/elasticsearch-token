@@ -899,7 +899,10 @@ DECL|method|recovering
 specifier|public
 name|IndexShardState
 name|recovering
-parameter_list|()
+parameter_list|(
+name|String
+name|reason
+parameter_list|)
 throws|throws
 name|IndexShardStartedException
 throws|,
@@ -991,13 +994,15 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"state: [{}]->[{}]"
+literal|"state: [{}]->[{}], reason [{}]"
 argument_list|,
 name|state
 argument_list|,
 name|IndexShardState
 operator|.
 name|RECOVERING
+argument_list|,
+name|reason
 argument_list|)
 expr_stmt|;
 name|state
@@ -1015,7 +1020,10 @@ DECL|method|relocated
 specifier|public
 name|InternalIndexShard
 name|relocated
-parameter_list|()
+parameter_list|(
+name|String
+name|reason
+parameter_list|)
 throws|throws
 name|IndexShardNotStartedException
 block|{
@@ -1047,13 +1055,15 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"state: [{}]->[{}]"
+literal|"state: [{}]->[{}], reason [{}]"
 argument_list|,
 name|state
 argument_list|,
 name|IndexShardState
 operator|.
 name|RELOCATED
+argument_list|,
+name|reason
 argument_list|)
 expr_stmt|;
 name|state
@@ -1071,7 +1081,10 @@ DECL|method|start
 specifier|public
 name|InternalIndexShard
 name|start
-parameter_list|()
+parameter_list|(
+name|String
+name|reason
+parameter_list|)
 throws|throws
 name|IndexShardStartedException
 throws|,
@@ -1158,13 +1171,15 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"state: [{}]->[{}]"
+literal|"state: [{}]->[{}], reason [{}]"
 argument_list|,
 name|state
 argument_list|,
 name|IndexShardState
 operator|.
 name|STARTED
+argument_list|,
+name|reason
 argument_list|)
 expr_stmt|;
 name|state
@@ -2431,12 +2446,13 @@ argument_list|()
 return|;
 block|}
 DECL|method|close
-annotation|@
-name|Override
 specifier|public
 name|void
 name|close
-parameter_list|()
+parameter_list|(
+name|String
+name|reason
+parameter_list|)
 block|{
 synchronized|synchronized
 init|(
@@ -2476,13 +2492,15 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"state: [{}]->[{}]"
+literal|"state: [{}]->[{}], reason [{}]"
 argument_list|,
 name|state
 argument_list|,
 name|IndexShardState
 operator|.
 name|CLOSED
+argument_list|,
+name|reason
 argument_list|)
 expr_stmt|;
 name|state
@@ -2615,7 +2633,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"state: [{}]->[{}]"
+literal|"state: [{}]->[{}], reason [post recovery]"
 argument_list|,
 name|state
 argument_list|,

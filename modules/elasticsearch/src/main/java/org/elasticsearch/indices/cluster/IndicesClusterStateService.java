@@ -32,6 +32,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ExceptionsHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|cluster
 operator|.
 name|ClusterChangedEvent
@@ -948,6 +958,8 @@ operator|.
 name|cleanIndex
 argument_list|(
 name|index
+argument_list|,
+literal|"cleaning index (no shards allocated)"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1034,6 +1046,8 @@ operator|.
 name|deleteIndex
 argument_list|(
 name|index
+argument_list|,
+literal|"deleting index"
 argument_list|)
 expr_stmt|;
 name|threadPool
@@ -1300,6 +1314,8 @@ operator|.
 name|removeShard
 argument_list|(
 name|existingShardId
+argument_list|,
+literal|"removing shard (index is closed)"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1330,6 +1346,8 @@ operator|.
 name|cleanShard
 argument_list|(
 name|existingShardId
+argument_list|,
+literal|"cleaning shard locally (not allocated)"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2588,6 +2606,17 @@ operator|.
 name|cleanShard
 argument_list|(
 name|shardId
+argument_list|,
+literal|"failed to create ["
+operator|+
+name|ExceptionsHelper
+operator|.
+name|detailedMessage
+argument_list|(
+name|e
+argument_list|)
+operator|+
+literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -3172,6 +3201,37 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|logger
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"[{}][{}] removing shard on ignored recovery, reason [{}]"
+argument_list|,
+name|shardRouting
+operator|.
+name|index
+argument_list|()
+argument_list|,
+name|shardRouting
+operator|.
+name|shardId
+argument_list|()
+operator|.
+name|id
+argument_list|()
+argument_list|,
+name|reason
+argument_list|)
+expr_stmt|;
+block|}
 try|try
 block|{
 name|indexService
@@ -3185,6 +3245,10 @@ argument_list|()
 operator|.
 name|id
 argument_list|()
+argument_list|,
+literal|"ignore recovery: "
+operator|+
+name|reason
 argument_list|)
 expr_stmt|;
 block|}
@@ -3335,6 +3399,17 @@ argument_list|()
 operator|.
 name|id
 argument_list|()
+argument_list|,
+literal|"recovery failure ["
+operator|+
+name|ExceptionsHelper
+operator|.
+name|detailedMessage
+argument_list|(
+name|failure
+argument_list|)
+operator|+
+literal|"]"
 argument_list|)
 expr_stmt|;
 block|}

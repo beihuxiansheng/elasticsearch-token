@@ -62,18 +62,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|CloseableIndexComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|IndexComponent
 import|;
 end_import
@@ -234,8 +222,6 @@ name|Iterable
 argument_list|<
 name|IndexShard
 argument_list|>
-extends|,
-name|CloseableIndexComponent
 block|{
 DECL|method|injector
 name|Injector
@@ -299,6 +285,9 @@ name|cleanShard
 parameter_list|(
 name|int
 name|shardId
+parameter_list|,
+name|String
+name|reason
 parameter_list|)
 throws|throws
 name|ElasticSearchException
@@ -310,6 +299,9 @@ name|removeShard
 parameter_list|(
 name|int
 name|shardId
+parameter_list|,
+name|String
+name|reason
 parameter_list|)
 throws|throws
 name|ElasticSearchException

@@ -670,7 +670,9 @@ comment|// no translog files, bail
 name|indexShard
 operator|.
 name|start
-argument_list|()
+argument_list|(
+literal|"post recovery from gateway, no translog"
+argument_list|)
 expr_stmt|;
 comment|// no index, just start the shard and bail
 name|recoveryStatus
@@ -803,7 +805,9 @@ comment|// no translog files, bail
 name|indexShard
 operator|.
 name|start
-argument_list|()
+argument_list|(
+literal|"post recovery from gateway, no translog"
+argument_list|)
 expr_stmt|;
 comment|// no index, just start the shard and bail
 name|recoveryStatus

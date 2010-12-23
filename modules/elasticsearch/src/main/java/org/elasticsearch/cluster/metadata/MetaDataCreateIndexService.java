@@ -1468,6 +1468,8 @@ argument_list|(
 name|request
 operator|.
 name|index
+argument_list|,
+literal|"failed on parsing default mapping on index creation"
 argument_list|)
 expr_stmt|;
 throw|throw
@@ -1569,6 +1571,8 @@ argument_list|(
 name|request
 operator|.
 name|index
+argument_list|,
+literal|"failed on parsing mappings on index creation"
 argument_list|)
 expr_stmt|;
 throw|throw

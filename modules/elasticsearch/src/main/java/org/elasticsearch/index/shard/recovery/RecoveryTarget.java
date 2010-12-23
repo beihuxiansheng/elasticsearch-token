@@ -744,7 +744,7 @@ name|onIgnoreRecovery
 argument_list|(
 literal|false
 argument_list|,
-literal|"No node to recovery from, retry on next cluster state update"
+literal|"No node to recover from, retry on next cluster state update"
 argument_list|)
 expr_stmt|;
 return|return;
@@ -789,7 +789,7 @@ name|onIgnoreRecovery
 argument_list|(
 literal|false
 argument_list|,
-literal|"index missing, stop recovery"
+literal|"index missing locally, stop recovery"
 argument_list|)
 expr_stmt|;
 return|return;
@@ -835,7 +835,7 @@ name|onIgnoreRecovery
 argument_list|(
 literal|false
 argument_list|,
-literal|"shard missing, stop recovery"
+literal|"shard missing locally, stop recovery"
 argument_list|)
 expr_stmt|;
 return|return;
@@ -851,7 +851,14 @@ block|{
 name|shard
 operator|.
 name|recovering
+argument_list|(
+literal|"from "
+operator|+
+name|request
+operator|.
+name|sourceNode
 argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch
@@ -904,7 +911,7 @@ name|onIgnoreRecovery
 argument_list|(
 literal|false
 argument_list|,
-literal|"shard closed, stop recovery"
+literal|"local shard closed, stop recovery"
 argument_list|)
 expr_stmt|;
 return|return;
@@ -991,7 +998,7 @@ name|onIgnoreRecovery
 argument_list|(
 literal|false
 argument_list|,
-literal|"shard closed, stop recovery"
+literal|"local shard closed, stop recovery"
 argument_list|)
 expr_stmt|;
 return|return;
@@ -1139,13 +1146,21 @@ operator|.
 name|CLOSED
 condition|)
 block|{
+name|removeAndCleanOnGoingRecovery
+argument_list|(
+name|shard
+operator|.
+name|shardId
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|listener
 operator|.
 name|onIgnoreRecovery
 argument_list|(
 literal|false
 argument_list|,
-literal|"shard closed, stop recovery"
+literal|"local shard closed, stop recovery"
 argument_list|)
 expr_stmt|;
 return|return;
@@ -1522,7 +1537,7 @@ name|onIgnoreRecovery
 argument_list|(
 literal|false
 argument_list|,
-literal|"shard closed, stop recovery"
+literal|"local shard closed, stop recovery"
 argument_list|)
 expr_stmt|;
 return|return;
@@ -1595,7 +1610,7 @@ operator|instanceof
 name|IndexShardMissingException
 condition|)
 block|{
-comment|// no need to retry here, since we only get to try and recover when there is an existing shard on the other side
+comment|// if the target is not ready yet, retry
 name|listener
 operator|.
 name|onRetryRecovery
@@ -1634,7 +1649,14 @@ name|onIgnoreRecovery
 argument_list|(
 literal|true
 argument_list|,
-literal|"source node disconnected"
+literal|"source node disconnected ("
+operator|+
+name|request
+operator|.
+name|sourceNode
+argument_list|()
+operator|+
+literal|")"
 argument_list|)
 expr_stmt|;
 return|return;
@@ -1652,7 +1674,14 @@ name|onIgnoreRecovery
 argument_list|(
 literal|true
 argument_list|,
-literal|"source shard is closed"
+literal|"source shard is closed ("
+operator|+
+name|request
+operator|.
+name|sourceNode
+argument_list|()
+operator|+
+literal|")"
 argument_list|)
 expr_stmt|;
 return|return;

@@ -187,6 +187,9 @@ name|deleteIndex
 parameter_list|(
 name|String
 name|index
+parameter_list|,
+name|String
+name|reason
 parameter_list|)
 throws|throws
 name|ElasticSearchException
@@ -198,6 +201,9 @@ name|cleanIndex
 parameter_list|(
 name|String
 name|index
+parameter_list|,
+name|String
+name|reason
 parameter_list|)
 throws|throws
 name|ElasticSearchException

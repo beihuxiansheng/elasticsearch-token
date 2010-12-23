@@ -348,7 +348,9 @@ block|}
 name|indexShard
 operator|.
 name|start
-argument_list|()
+argument_list|(
+literal|"post recovery from gateway"
+argument_list|)
 expr_stmt|;
 name|recoveryStatus
 operator|.
