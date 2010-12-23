@@ -927,7 +927,7 @@ block|{
 comment|// no method
 name|logger
 operator|.
-name|debug
+name|warn
 argument_list|(
 literal|"lucene default FieldCache is used, not enabling eager reader based cache eviction"
 argument_list|)
