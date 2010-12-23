@@ -516,7 +516,7 @@ name|XContentDocumentMapper
 operator|)
 name|mapperService
 operator|.
-name|type
+name|documentMapperWithAutoCreate
 argument_list|(
 literal|"my_type"
 argument_list|)
@@ -679,7 +679,7 @@ name|XContentDocumentMapper
 operator|)
 name|mapperService
 operator|.
-name|type
+name|documentMapper
 argument_list|(
 literal|"my_type"
 argument_list|)

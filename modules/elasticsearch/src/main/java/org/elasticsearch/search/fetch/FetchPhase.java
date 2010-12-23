@@ -536,7 +536,7 @@ operator|.
 name|mapperService
 argument_list|()
 operator|.
-name|type
+name|documentMapper
 argument_list|(
 name|uid
 operator|.

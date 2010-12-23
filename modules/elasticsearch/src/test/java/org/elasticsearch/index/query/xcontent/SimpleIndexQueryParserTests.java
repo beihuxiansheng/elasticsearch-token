@@ -738,7 +738,7 @@ operator|.
 name|class
 argument_list|)
 operator|.
-name|type
+name|documentMapper
 argument_list|(
 literal|"person"
 argument_list|)
