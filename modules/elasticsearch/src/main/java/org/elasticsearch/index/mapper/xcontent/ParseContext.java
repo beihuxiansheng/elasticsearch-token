@@ -512,6 +512,24 @@ operator|.
 name|source
 return|;
 block|}
+comment|// only should be used by SourceFieldMapper to update with a compressed source
+DECL|method|source
+specifier|public
+name|void
+name|source
+parameter_list|(
+name|byte
+index|[]
+name|source
+parameter_list|)
+block|{
+name|this
+operator|.
+name|source
+operator|=
+name|source
+expr_stmt|;
+block|}
 DECL|method|path
 specifier|public
 name|ContentPath

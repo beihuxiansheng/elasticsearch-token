@@ -108,12 +108,6 @@ name|boolean
 name|enabled
 parameter_list|()
 function_decl|;
-comment|/**      * Is the source field compressed or not?      */
-DECL|method|compressed
-name|boolean
-name|compressed
-parameter_list|()
-function_decl|;
 comment|/**      * Returns the native source value, if its compressed, then the compressed value is returned.      */
 DECL|method|nativeValue
 name|byte
