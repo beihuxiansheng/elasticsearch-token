@@ -107,6 +107,16 @@ name|ByteSizeValue
 name|backingStoreFreeSpace
 parameter_list|()
 function_decl|;
+comment|/**      * Returns<tt>true</tt> if this shard is allocated on this node. Allocated means      * that it has storage files that can be deleted using {@link #deleteUnallocated(org.elasticsearch.index.shard.ShardId)}.      */
+DECL|method|canDeleteUnallocated
+name|boolean
+name|canDeleteUnallocated
+parameter_list|(
+name|ShardId
+name|shardId
+parameter_list|)
+function_decl|;
+comment|/**      * Deletes this shard store since its no longer allocated.      */
 DECL|method|deleteUnallocated
 name|void
 name|deleteUnallocated

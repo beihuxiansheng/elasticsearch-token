@@ -364,6 +364,25 @@ condition|)
 block|{
 continue|continue;
 block|}
+if|if
+condition|(
+operator|!
+name|indexService
+operator|.
+name|store
+argument_list|()
+operator|.
+name|canDeleteUnallocated
+argument_list|(
+name|indexShardRoutingTable
+operator|.
+name|shardId
+argument_list|()
+argument_list|)
+condition|)
+block|{
+continue|continue;
+block|}
 comment|// only delete an unallocated shard if all (other shards) are started
 if|if
 condition|(
