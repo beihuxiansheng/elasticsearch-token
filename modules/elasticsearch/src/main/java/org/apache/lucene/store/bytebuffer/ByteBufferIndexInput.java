@@ -1,22 +1,22 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
-begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
-end_comment
-
 begin_package
-DECL|package|org.elasticsearch.index.store.memory
+DECL|package|org.apache.lucene.store.bytebuffer
 package|package
 name|org
 operator|.
-name|elasticsearch
+name|apache
 operator|.
-name|index
+name|lucene
 operator|.
 name|store
 operator|.
-name|memory
+name|bytebuffer
 package|;
 end_package
+
+begin_comment
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+end_comment
 
 begin_import
 import|import
@@ -64,17 +64,28 @@ name|ByteBufferIndexInput
 extends|extends
 name|IndexInput
 block|{
+DECL|field|EMPTY_BUFFER
+specifier|private
+specifier|final
+specifier|static
+name|ByteBuffer
+name|EMPTY_BUFFER
+init|=
+name|ByteBuffer
+operator|.
+name|allocate
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|asReadOnlyBuffer
+argument_list|()
+decl_stmt|;
 DECL|field|file
 specifier|private
 specifier|final
 name|ByteBufferFile
 name|file
-decl_stmt|;
-DECL|field|bufferSize
-specifier|private
-specifier|final
-name|int
-name|bufferSize
 decl_stmt|;
 DECL|field|length
 specifier|private
@@ -97,13 +108,16 @@ specifier|private
 name|long
 name|bufferStart
 decl_stmt|;
+DECL|field|BUFFER_SIZE
+specifier|private
+specifier|final
+name|int
+name|BUFFER_SIZE
+decl_stmt|;
 DECL|method|ByteBufferIndexInput
 specifier|public
 name|ByteBufferIndexInput
 parameter_list|(
-name|ByteBufferDirectory
-name|dir
-parameter_list|,
 name|ByteBufferFile
 name|file
 parameter_list|)
@@ -118,33 +132,84 @@ name|file
 expr_stmt|;
 name|this
 operator|.
-name|bufferSize
-operator|=
-name|dir
-operator|.
-name|byteBufferCache
-operator|.
-name|bufferSizeInBytes
-argument_list|()
-expr_stmt|;
-name|this
-operator|.
 name|length
 operator|=
 name|file
 operator|.
-name|length
+name|getLength
 argument_list|()
 expr_stmt|;
-name|switchCurrentBuffer
-argument_list|(
-literal|true
-argument_list|)
+name|this
+operator|.
+name|BUFFER_SIZE
+operator|=
+name|file
+operator|.
+name|bufferSize
+expr_stmt|;
+comment|// make sure that we switch to the
+comment|// first needed buffer lazily
+name|currentBufferIndex
+operator|=
+operator|-
+literal|1
+expr_stmt|;
+name|currentBuffer
+operator|=
+name|EMPTY_BUFFER
 expr_stmt|;
 block|}
-DECL|method|readByte
 annotation|@
 name|Override
+DECL|method|close
+specifier|public
+name|void
+name|close
+parameter_list|()
+block|{
+comment|// nothing to do here
+block|}
+annotation|@
+name|Override
+DECL|method|length
+specifier|public
+name|long
+name|length
+parameter_list|()
+block|{
+return|return
+name|length
+return|;
+block|}
+comment|//    @Override
+comment|//    public short readShort() throws IOException {
+comment|//        try {
+comment|//            return currentBuffer.getShort();
+comment|//        } catch (BufferUnderflowException e) {
+comment|//            return super.readShort();
+comment|//        }
+comment|//    }
+comment|//
+comment|//    @Override
+comment|//    public int readInt() throws IOException {
+comment|//        try {
+comment|//            return currentBuffer.getInt();
+comment|//        } catch (BufferUnderflowException e) {
+comment|//            return super.readInt();
+comment|//        }
+comment|//    }
+comment|//
+comment|//    @Override
+comment|//    public long readLong() throws IOException {
+comment|//        try {
+comment|//            return currentBuffer.getLong();
+comment|//        } catch (BufferUnderflowException e) {
+comment|//            return super.readLong();
+comment|//        }
+comment|//    }
+annotation|@
+name|Override
+DECL|method|readByte
 specifier|public
 name|byte
 name|readByte
@@ -177,9 +242,9 @@ name|get
 argument_list|()
 return|;
 block|}
-DECL|method|readBytes
 annotation|@
 name|Override
+DECL|method|readBytes
 specifier|public
 name|void
 name|readBytes
@@ -262,19 +327,9 @@ name|bytesToCopy
 expr_stmt|;
 block|}
 block|}
-DECL|method|close
 annotation|@
 name|Override
-specifier|public
-name|void
-name|close
-parameter_list|()
-throws|throws
-name|IOException
-block|{     }
 DECL|method|getFilePointer
-annotation|@
-name|Override
 specifier|public
 name|long
 name|getFilePointer
@@ -295,9 +350,9 @@ name|position
 argument_list|()
 return|;
 block|}
-DECL|method|seek
 annotation|@
 name|Override
+DECL|method|seek
 specifier|public
 name|void
 name|seek
@@ -312,7 +367,7 @@ if|if
 condition|(
 name|currentBuffer
 operator|==
-literal|null
+name|EMPTY_BUFFER
 operator|||
 name|pos
 operator|<
@@ -322,7 +377,7 @@ name|pos
 operator|>=
 name|bufferStart
 operator|+
-name|bufferSize
+name|BUFFER_SIZE
 condition|)
 block|{
 name|currentBufferIndex
@@ -333,15 +388,68 @@ call|)
 argument_list|(
 name|pos
 operator|/
-name|bufferSize
+name|BUFFER_SIZE
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|currentBufferIndex
+operator|>=
+name|file
+operator|.
+name|numBuffers
+argument_list|()
+condition|)
+block|{
+comment|// if we are past EOF, don't throw one here, instead, move it to the last position in the last buffer
+name|currentBufferIndex
+operator|=
+name|file
+operator|.
+name|numBuffers
+argument_list|()
+operator|-
+literal|1
+expr_stmt|;
+name|currentBuffer
+operator|=
+name|currentBufferIndex
+operator|==
+operator|-
+literal|1
+condition|?
+name|EMPTY_BUFFER
+else|:
+name|file
+operator|.
+name|getBuffer
+argument_list|(
+name|currentBufferIndex
+argument_list|)
+expr_stmt|;
+name|currentBuffer
+operator|.
+name|position
+argument_list|(
+name|currentBuffer
+operator|.
+name|limit
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+else|else
+block|{
 name|switchCurrentBuffer
 argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+try|try
+block|{
 name|currentBuffer
 operator|.
 name|position
@@ -352,22 +460,28 @@ call|)
 argument_list|(
 name|pos
 operator|%
-name|bufferSize
+name|BUFFER_SIZE
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|length
-annotation|@
-name|Override
-specifier|public
-name|long
-name|length
-parameter_list|()
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
 block|{
-return|return
-name|length
-return|;
+name|currentBuffer
+operator|.
+name|position
+argument_list|(
+name|currentBuffer
+operator|.
+name|limit
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|switchCurrentBuffer
 specifier|private
@@ -386,15 +500,15 @@ name|currentBufferIndex
 operator|>=
 name|file
 operator|.
-name|numberOfBuffers
+name|numBuffers
 argument_list|()
 condition|)
 block|{
-comment|// end of file reached, no more buffers left
 if|if
 condition|(
 name|enforceEOF
 condition|)
+block|{
 throw|throw
 operator|new
 name|IOException
@@ -402,32 +516,24 @@ argument_list|(
 literal|"Read past EOF"
 argument_list|)
 throw|;
-else|else
-block|{
-comment|// Force EOF if a read takes place at this position
-name|currentBufferIndex
-operator|--
-expr_stmt|;
-name|currentBuffer
-operator|.
-name|position
-argument_list|(
-name|bufferSize
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 else|else
 block|{
-comment|// we must duplicate (and make it read only while we are at it) since we need position and such to be independant
-name|currentBuffer
-operator|=
+name|ByteBuffer
+name|buffer
+init|=
 name|file
 operator|.
-name|buffer
+name|getBuffer
 argument_list|(
 name|currentBufferIndex
 argument_list|)
+decl_stmt|;
+comment|// we must duplicate (and make it read only while we are at it) since we need position and such to be independent
+name|currentBuffer
+operator|=
+name|buffer
 operator|.
 name|asReadOnlyBuffer
 argument_list|()
@@ -444,18 +550,61 @@ operator|=
 operator|(
 name|long
 operator|)
-name|bufferSize
+name|BUFFER_SIZE
 operator|*
 operator|(
 name|long
 operator|)
 name|currentBufferIndex
 expr_stmt|;
+comment|// if we are at the tip, limit the current buffer to only whats available to read
+name|long
+name|buflen
+init|=
+name|length
+operator|-
+name|bufferStart
+decl_stmt|;
+if|if
+condition|(
+name|buflen
+operator|<
+name|BUFFER_SIZE
+condition|)
+block|{
+name|currentBuffer
+operator|.
+name|limit
+argument_list|(
+operator|(
+name|int
+operator|)
+name|buflen
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|enforceEOF
+operator|&&
+name|buflen
+operator|==
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Read past EOF"
+argument_list|)
+throw|;
 block|}
 block|}
-DECL|method|clone
+block|}
+block|}
 annotation|@
 name|Override
+DECL|method|clone
 specifier|public
 name|Object
 name|clone
@@ -472,6 +621,13 @@ operator|.
 name|clone
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|currentBuffer
+operator|!=
+name|EMPTY_BUFFER
+condition|)
+block|{
 name|cloned
 operator|.
 name|currentBuffer
@@ -481,6 +637,19 @@ operator|.
 name|asReadOnlyBuffer
 argument_list|()
 expr_stmt|;
+name|cloned
+operator|.
+name|currentBuffer
+operator|.
+name|position
+argument_list|(
+name|currentBuffer
+operator|.
+name|position
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|cloned
 return|;

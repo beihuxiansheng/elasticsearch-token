@@ -78,6 +78,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
+name|bytebuffer
+operator|.
+name|ByteBufferDirectory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|cache
@@ -165,8 +181,6 @@ argument_list|,
 literal|0
 argument_list|,
 literal|true
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|ByteBufferDirectory
@@ -181,6 +195,8 @@ decl_stmt|;
 name|insertData
 argument_list|(
 name|dir
+argument_list|,
+literal|1
 argument_list|)
 expr_stmt|;
 name|verifyData
@@ -220,8 +236,6 @@ argument_list|,
 literal|10
 argument_list|,
 literal|true
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|ByteBufferDirectory
@@ -236,6 +250,8 @@ decl_stmt|;
 name|insertData
 argument_list|(
 name|dir
+argument_list|,
+literal|1
 argument_list|)
 expr_stmt|;
 name|verifyData
@@ -275,8 +291,6 @@ argument_list|,
 literal|10
 argument_list|,
 literal|true
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|ByteBufferDirectory
@@ -291,6 +305,8 @@ decl_stmt|;
 name|insertData
 argument_list|(
 name|dir
+argument_list|,
+literal|3
 argument_list|)
 expr_stmt|;
 name|verifyData
@@ -330,8 +346,6 @@ argument_list|,
 literal|20
 argument_list|,
 literal|true
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|ByteBufferDirectory
@@ -346,6 +360,8 @@ decl_stmt|;
 name|insertData
 argument_list|(
 name|dir
+argument_list|,
+literal|10
 argument_list|)
 expr_stmt|;
 name|verifyData
@@ -385,8 +401,6 @@ argument_list|,
 literal|30
 argument_list|,
 literal|true
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|ByteBufferDirectory
@@ -401,6 +415,8 @@ decl_stmt|;
 name|insertData
 argument_list|(
 name|dir
+argument_list|,
+literal|15
 argument_list|)
 expr_stmt|;
 name|verifyData
@@ -440,8 +456,6 @@ argument_list|,
 literal|80
 argument_list|,
 literal|true
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|ByteBufferDirectory
@@ -456,6 +470,8 @@ decl_stmt|;
 name|insertData
 argument_list|(
 name|dir
+argument_list|,
+literal|40
 argument_list|)
 expr_stmt|;
 name|verifyData
@@ -495,8 +511,6 @@ argument_list|,
 literal|80
 argument_list|,
 literal|true
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|ByteBufferDirectory
@@ -633,6 +647,9 @@ name|insertData
 parameter_list|(
 name|ByteBufferDirectory
 name|dir
+parameter_list|,
+name|int
+name|bufferSizeInBytes
 parameter_list|)
 throws|throws
 name|IOException
@@ -760,10 +777,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|dir
-operator|.
 name|bufferSizeInBytes
-argument_list|()
 operator|>
 literal|4
 condition|)
