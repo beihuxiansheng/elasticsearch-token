@@ -124,7 +124,7 @@ specifier|public
 class|class
 name|S3ImmutableBlobContainer
 extends|extends
-name|AbstarctS3BlobContainer
+name|AbstractS3BlobContainer
 implements|implements
 name|ImmutableBlobContainer
 block|{

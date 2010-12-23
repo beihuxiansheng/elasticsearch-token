@@ -175,10 +175,10 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|AbstarctS3BlobContainer
+DECL|class|AbstractS3BlobContainer
 specifier|public
 class|class
-name|AbstarctS3BlobContainer
+name|AbstractS3BlobContainer
 extends|extends
 name|AbstractBlobContainer
 block|{
@@ -194,9 +194,9 @@ specifier|final
 name|String
 name|keyPath
 decl_stmt|;
-DECL|method|AbstarctS3BlobContainer
+DECL|method|AbstractS3BlobContainer
 specifier|public
-name|AbstarctS3BlobContainer
+name|AbstractS3BlobContainer
 parameter_list|(
 name|BlobPath
 name|path
