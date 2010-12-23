@@ -1574,6 +1574,9 @@ parameter_list|)
 block|{
 name|threadPool
 operator|.
+name|cached
+argument_list|()
+operator|.
 name|execute
 argument_list|(
 operator|new
@@ -1667,6 +1670,9 @@ block|{
 comment|// callback that an exception happened, but on a different thread since we don't
 comment|// want handlers to worry about stack overflows
 name|threadPool
+operator|.
+name|cached
+argument_list|()
 operator|.
 name|execute
 argument_list|(
