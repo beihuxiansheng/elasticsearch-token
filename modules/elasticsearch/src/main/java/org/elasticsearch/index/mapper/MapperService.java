@@ -945,6 +945,15 @@ literal|"Document mapping type name can't start with '_'"
 argument_list|)
 throw|;
 block|}
+name|remove
+argument_list|(
+name|mapper
+operator|.
+name|type
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// first remove it (in case its an update, we need to remove the aggregated mappers)
 name|mappers
 operator|=
 name|newMapBuilder
