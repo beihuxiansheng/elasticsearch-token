@@ -199,6 +199,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|TreeMap
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -3656,13 +3666,33 @@ argument_list|,
 name|params
 argument_list|)
 expr_stmt|;
+comment|// sort the mappers so we get consistent serialization format
+name|TreeMap
+argument_list|<
+name|String
+argument_list|,
+name|XContentMapper
+argument_list|>
+name|sortedMappers
+init|=
+operator|new
+name|TreeMap
+argument_list|<
+name|String
+argument_list|,
+name|XContentMapper
+argument_list|>
+argument_list|(
+name|mappers
+argument_list|)
+decl_stmt|;
 comment|// check internal mappers first (this is only relevant for root object)
 for|for
 control|(
 name|XContentMapper
 name|mapper
 range|:
-name|mappers
+name|sortedMappers
 operator|.
 name|values
 argument_list|()
@@ -3733,7 +3763,7 @@ control|(
 name|XContentMapper
 name|mapper
 range|:
-name|mappers
+name|sortedMappers
 operator|.
 name|values
 argument_list|()

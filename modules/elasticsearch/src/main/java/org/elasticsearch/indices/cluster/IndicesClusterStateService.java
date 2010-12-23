@@ -1887,9 +1887,49 @@ name|string
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//                if (!mapperService.documentMapper(mappingType).mappingSource().equals(mappingSource)) {
-comment|//                    logger.warn("[{}] parsed mapping [{}], and got different sources\noriginal:\n{}\nparsed:\n{}", mappingType, mappingSource, mapperService.documentMapper(mappingType).mappingSource());
-comment|//                }
+if|if
+condition|(
+operator|!
+name|mapperService
+operator|.
+name|documentMapper
+argument_list|(
+name|mappingType
+argument_list|)
+operator|.
+name|mappingSource
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|mappingSource
+argument_list|)
+condition|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"[{}] parsed mapping [{}], and got different sources\noriginal:\n{}\nparsed:\n{}"
+argument_list|,
+name|index
+argument_list|,
+name|mappingType
+argument_list|,
+name|mappingSource
+argument_list|,
+name|mapperService
+operator|.
+name|documentMapper
+argument_list|(
+name|mappingType
+argument_list|)
+operator|.
+name|mappingSource
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|nodeMappingCreatedAction
 operator|.
 name|nodeMappingCreated
@@ -1981,9 +2021,49 @@ name|string
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//                    if (!mapperService.documentMapper(mappingType).mappingSource().equals(mappingSource)) {
-comment|//                        logger.warn("[{}] parsed mapping [{}], and got different sources\noriginal:\n{}\nparsed:\n{}", mappingType, mappingSource, mapperService.documentMapper(mappingType).mappingSource());
-comment|//                    }
+if|if
+condition|(
+operator|!
+name|mapperService
+operator|.
+name|documentMapper
+argument_list|(
+name|mappingType
+argument_list|)
+operator|.
+name|mappingSource
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|mappingSource
+argument_list|)
+condition|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"[{}] parsed mapping [{}], and got different sources\noriginal:\n{}\nparsed:\n{}"
+argument_list|,
+name|index
+argument_list|,
+name|mappingType
+argument_list|,
+name|mappingSource
+argument_list|,
+name|mapperService
+operator|.
+name|documentMapper
+argument_list|(
+name|mappingType
+argument_list|)
+operator|.
+name|mappingSource
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|nodeMappingCreatedAction
 operator|.
 name|nodeMappingCreated
