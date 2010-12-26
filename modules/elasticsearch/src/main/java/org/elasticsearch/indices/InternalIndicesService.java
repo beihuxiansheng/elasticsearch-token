@@ -1132,7 +1132,12 @@ name|stats
 parameter_list|()
 block|{
 name|long
-name|totalSize
+name|storeTotalSize
+init|=
+literal|0
+decl_stmt|;
+name|long
+name|fieldCacheTotalSize
 init|=
 literal|0
 decl_stmt|;
@@ -1157,7 +1162,7 @@ control|)
 block|{
 try|try
 block|{
-name|totalSize
+name|storeTotalSize
 operator|+=
 operator|(
 operator|(
@@ -1185,6 +1190,19 @@ block|{
 comment|// ignore
 block|}
 block|}
+name|fieldCacheTotalSize
+operator|+=
+name|indexService
+operator|.
+name|cache
+argument_list|()
+operator|.
+name|fieldData
+argument_list|()
+operator|.
+name|sizeInBytes
+argument_list|()
+expr_stmt|;
 block|}
 return|return
 operator|new
@@ -1193,7 +1211,13 @@ argument_list|(
 operator|new
 name|ByteSizeValue
 argument_list|(
-name|totalSize
+name|storeTotalSize
+argument_list|)
+argument_list|,
+operator|new
+name|ByteSizeValue
+argument_list|(
+name|fieldCacheTotalSize
 argument_list|)
 argument_list|)
 return|;

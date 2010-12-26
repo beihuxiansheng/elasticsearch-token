@@ -297,6 +297,33 @@ parameter_list|()
 throws|throws
 name|ElasticSearchException
 block|{     }
+DECL|method|sizeInBytes
+annotation|@
+name|Override
+specifier|public
+name|long
+name|sizeInBytes
+parameter_list|()
+block|{
+return|return
+literal|0
+return|;
+block|}
+DECL|method|sizeInBytes
+annotation|@
+name|Override
+specifier|public
+name|long
+name|sizeInBytes
+parameter_list|(
+name|String
+name|fieldName
+parameter_list|)
+block|{
+return|return
+literal|0
+return|;
+block|}
 block|}
 end_class
 
