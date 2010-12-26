@@ -526,7 +526,7 @@ name|this
 operator|.
 name|compress
 operator|=
-literal|true
+name|compress
 expr_stmt|;
 name|this
 operator|.
