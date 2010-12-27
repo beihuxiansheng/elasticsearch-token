@@ -437,7 +437,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"scope"
+literal|"_scope"
 operator|.
 name|equals
 argument_list|(

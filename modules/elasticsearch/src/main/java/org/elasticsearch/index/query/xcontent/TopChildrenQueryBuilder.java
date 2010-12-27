@@ -283,7 +283,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"scope"
+literal|"_scope"
 argument_list|,
 name|scope
 argument_list|)
