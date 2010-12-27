@@ -497,7 +497,7 @@ name|this
 operator|.
 name|required
 operator|=
-name|required
+literal|true
 expr_stmt|;
 block|}
 DECL|method|required
