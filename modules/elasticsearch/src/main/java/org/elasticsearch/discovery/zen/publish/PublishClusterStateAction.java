@@ -348,6 +348,14 @@ argument_list|(
 name|clusterState
 argument_list|)
 argument_list|,
+name|TransportRequestOptions
+operator|.
+name|options
+argument_list|()
+operator|.
+name|withHighType
+argument_list|()
+argument_list|,
 operator|new
 name|VoidTransportResponseHandler
 argument_list|(
