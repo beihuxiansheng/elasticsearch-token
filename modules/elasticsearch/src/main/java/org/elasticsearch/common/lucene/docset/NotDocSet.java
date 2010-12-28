@@ -107,6 +107,21 @@ name|doc
 argument_list|)
 return|;
 block|}
+DECL|method|sizeInBytes
+annotation|@
+name|Override
+specifier|public
+name|long
+name|sizeInBytes
+parameter_list|()
+block|{
+return|return
+name|set
+operator|.
+name|sizeInBytes
+argument_list|()
+return|;
+block|}
 comment|// This seems like overhead compared to testing with get and iterating over docs
 comment|//    @Override public DocIdSetIterator iterator() throws IOException {
 comment|//        return new NotDocIdSetIterator();

@@ -118,15 +118,30 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// not cacheable, the reason is that by default, when constructing the filter, it is not cacheable,
-comment|// so if someone wants it to be cacheable, we might as well construct a cached version of the result
+for|for
+control|(
+name|DocSet
+name|s
+range|:
+name|sets
+control|)
+block|{
+if|if
+condition|(
+name|s
+operator|.
+name|get
+argument_list|(
+name|doc
+argument_list|)
+condition|)
+return|return
+literal|true
+return|;
+block|}
 return|return
 literal|false
 return|;
-comment|//        for (DocSet s : sets) {
-comment|//            if (s.get(doc)) return true;
-comment|//        }
-comment|//        return false;
 block|}
 DECL|method|isCacheable
 annotation|@
@@ -136,6 +151,31 @@ name|boolean
 name|isCacheable
 parameter_list|()
 block|{
+comment|// not cacheable, the reason is that by default, when constructing the filter, it is not cacheable,
+comment|// so if someone wants it to be cacheable, we might as well construct a cached version of the result
+return|return
+literal|false
+return|;
+comment|//        for (DocSet set : sets) {
+comment|//            if (!set.isCacheable()) {
+comment|//                return false;
+comment|//            }
+comment|//        }
+comment|//        return true;
+block|}
+DECL|method|sizeInBytes
+annotation|@
+name|Override
+specifier|public
+name|long
+name|sizeInBytes
+parameter_list|()
+block|{
+name|long
+name|sizeInBytes
+init|=
+literal|0
+decl_stmt|;
 for|for
 control|(
 name|DocSet
@@ -144,22 +184,16 @@ range|:
 name|sets
 control|)
 block|{
-if|if
-condition|(
-operator|!
+name|sizeInBytes
+operator|+=
 name|set
 operator|.
-name|isCacheable
+name|sizeInBytes
 argument_list|()
-condition|)
-block|{
-return|return
-literal|false
-return|;
-block|}
+expr_stmt|;
 block|}
 return|return
-literal|true
+name|sizeInBytes
 return|;
 block|}
 DECL|method|iterator

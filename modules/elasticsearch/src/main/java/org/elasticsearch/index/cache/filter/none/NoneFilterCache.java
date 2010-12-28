@@ -274,6 +274,18 @@ parameter_list|()
 block|{
 comment|// nothing to do here
 block|}
+DECL|method|sizeInBytes
+annotation|@
+name|Override
+specifier|public
+name|long
+name|sizeInBytes
+parameter_list|()
+block|{
+return|return
+literal|0
+return|;
+block|}
 block|}
 end_class
 

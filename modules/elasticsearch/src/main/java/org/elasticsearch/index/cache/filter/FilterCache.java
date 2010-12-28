@@ -134,6 +134,11 @@ name|void
 name|clearUnreferenced
 parameter_list|()
 function_decl|;
+DECL|method|sizeInBytes
+name|long
+name|sizeInBytes
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
