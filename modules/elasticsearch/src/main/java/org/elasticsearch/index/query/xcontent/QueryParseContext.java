@@ -903,7 +903,7 @@ name|QueryParsingException
 argument_list|(
 name|index
 argument_list|,
-literal|"No query parser registered for ["
+literal|"No query registered for ["
 operator|+
 name|queryName
 operator|+
@@ -1021,7 +1021,7 @@ operator|.
 name|FIELD_NAME
 assert|;
 name|String
-name|queryName
+name|filterName
 init|=
 name|parser
 operator|.
@@ -1060,7 +1060,7 @@ name|indexQueryParser
 operator|.
 name|filterParser
 argument_list|(
-name|queryName
+name|filterName
 argument_list|)
 decl_stmt|;
 if|if
@@ -1076,9 +1076,9 @@ name|QueryParsingException
 argument_list|(
 name|index
 argument_list|,
-literal|"No query parser registered for ["
+literal|"No filter registered for ["
 operator|+
-name|queryName
+name|filterName
 operator|+
 literal|"]"
 argument_list|)
