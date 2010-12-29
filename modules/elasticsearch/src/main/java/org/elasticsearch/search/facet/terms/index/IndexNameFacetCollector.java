@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search.facet.terms
+DECL|package|org.elasticsearch.search.facet.terms.index
 package|package
 name|org
 operator|.
@@ -15,6 +15,8 @@ operator|.
 name|facet
 operator|.
 name|terms
+operator|.
+name|index
 package|;
 end_package
 
@@ -76,6 +78,40 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|facet
+operator|.
+name|terms
+operator|.
+name|TermsFacet
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|facet
+operator|.
+name|terms
+operator|.
+name|strings
+operator|.
+name|InternalStringTermsFacet
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -105,7 +141,7 @@ decl_stmt|;
 DECL|field|comparatorType
 specifier|private
 specifier|final
-name|InternalTermsFacet
+name|InternalStringTermsFacet
 operator|.
 name|ComparatorType
 name|comparatorType
@@ -209,7 +245,7 @@ parameter_list|()
 block|{
 return|return
 operator|new
-name|InternalTermsFacet
+name|InternalStringTermsFacet
 argument_list|(
 name|facetName
 argument_list|,
@@ -224,9 +260,9 @@ operator|.
 name|newHashSet
 argument_list|(
 operator|new
-name|TermsFacet
+name|InternalStringTermsFacet
 operator|.
-name|Entry
+name|StringEntry
 argument_list|(
 name|indexName
 argument_list|,

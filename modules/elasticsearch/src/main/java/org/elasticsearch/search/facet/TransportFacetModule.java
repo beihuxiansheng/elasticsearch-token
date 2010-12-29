@@ -138,7 +138,9 @@ name|facet
 operator|.
 name|terms
 operator|.
-name|InternalTermsFacet
+name|strings
+operator|.
+name|InternalStringTermsFacet
 import|;
 end_import
 
@@ -258,11 +260,11 @@ name|Streams
 operator|.
 name|registerStream
 argument_list|(
-name|InternalTermsFacet
+name|InternalStringTermsFacet
 operator|.
 name|STREAM
 argument_list|,
-name|InternalTermsFacet
+name|InternalStringTermsFacet
 operator|.
 name|TYPE
 argument_list|)

@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search.facet.terms
+DECL|package|org.elasticsearch.search.facet.terms.strings
 package|package
 name|org
 operator|.
@@ -15,6 +15,8 @@ operator|.
 name|facet
 operator|.
 name|terms
+operator|.
+name|strings
 package|;
 end_package
 
@@ -319,10 +321,10 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|TermsFacetCollector
+DECL|class|TermsStringFacetCollector
 specifier|public
 class|class
-name|TermsFacetCollector
+name|TermsStringFacetCollector
 extends|extends
 name|AbstractFacetCollector
 block|{
@@ -435,7 +437,7 @@ decl_stmt|;
 DECL|field|comparatorType
 specifier|private
 specifier|final
-name|InternalTermsFacet
+name|InternalStringTermsFacet
 operator|.
 name|ComparatorType
 name|comparatorType
@@ -475,9 +477,9 @@ specifier|final
 name|SearchScript
 name|script
 decl_stmt|;
-DECL|method|TermsFacetCollector
+DECL|method|TermsStringFacetCollector
 specifier|public
-name|TermsFacetCollector
+name|TermsStringFacetCollector
 parameter_list|(
 name|String
 name|facetName
@@ -488,7 +490,7 @@ parameter_list|,
 name|int
 name|size
 parameter_list|,
-name|InternalTermsFacet
+name|InternalStringTermsFacet
 operator|.
 name|ComparatorType
 name|comparatorType
@@ -857,7 +859,7 @@ argument_list|)
 expr_stmt|;
 return|return
 operator|new
-name|InternalTermsFacet
+name|InternalStringTermsFacet
 argument_list|(
 name|facetName
 argument_list|,
@@ -870,9 +872,9 @@ argument_list|,
 name|ImmutableList
 operator|.
 expr|<
-name|InternalTermsFacet
+name|InternalStringTermsFacet
 operator|.
-name|Entry
+name|StringEntry
 operator|>
 name|of
 argument_list|()
@@ -884,21 +886,21 @@ block|{
 comment|// we need to fetch facets of "size * numberOfShards" because of problems in how they are distributed across shards
 name|BoundedTreeSet
 argument_list|<
-name|InternalTermsFacet
+name|InternalStringTermsFacet
 operator|.
-name|Entry
+name|StringEntry
 argument_list|>
 name|ordered
 init|=
 operator|new
 name|BoundedTreeSet
 argument_list|<
-name|InternalTermsFacet
+name|InternalStringTermsFacet
 operator|.
-name|Entry
+name|StringEntry
 argument_list|>
 argument_list|(
-name|InternalTermsFacet
+name|InternalStringTermsFacet
 operator|.
 name|ComparatorType
 operator|.
@@ -942,9 +944,9 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|InternalTermsFacet
+name|InternalStringTermsFacet
 operator|.
-name|Entry
+name|StringEntry
 argument_list|(
 name|it
 operator|.
@@ -966,7 +968,7 @@ argument_list|)
 expr_stmt|;
 return|return
 operator|new
-name|InternalTermsFacet
+name|InternalStringTermsFacet
 argument_list|(
 name|facetName
 argument_list|,
