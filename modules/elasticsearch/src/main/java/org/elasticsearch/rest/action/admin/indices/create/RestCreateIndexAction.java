@@ -461,6 +461,11 @@ operator|.
 name|mapAndClose
 argument_list|()
 decl_stmt|;
+name|boolean
+name|found
+init|=
+literal|false
+decl_stmt|;
 if|if
 condition|(
 name|source
@@ -491,6 +496,10 @@ literal|"settings"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|found
+operator|=
+literal|true
+expr_stmt|;
 block|}
 if|if
 condition|(
@@ -502,6 +511,10 @@ literal|"mappings"
 argument_list|)
 condition|)
 block|{
+name|found
+operator|=
+literal|true
+expr_stmt|;
 name|Map
 argument_list|<
 name|String
@@ -567,6 +580,21 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+if|if
+condition|(
+operator|!
+name|found
+condition|)
+block|{
+comment|// the top level are settings, use them
+name|createIndexRequest
+operator|.
+name|settings
+argument_list|(
+name|source
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 catch|catch
