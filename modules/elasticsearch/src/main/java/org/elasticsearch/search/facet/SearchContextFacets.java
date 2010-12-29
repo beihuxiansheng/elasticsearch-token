@@ -18,22 +18,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|facet
-operator|.
-name|collector
-operator|.
-name|FacetCollector
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util

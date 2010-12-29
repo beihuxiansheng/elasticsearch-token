@@ -75,6 +75,16 @@ operator|.
 name|Entry
 argument_list|>
 block|{
+comment|/**      * The type of the filter facet.      */
+DECL|field|TYPE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|TYPE
+init|=
+literal|"geo_distance"
+decl_stmt|;
 DECL|method|fieldName
 name|String
 name|fieldName

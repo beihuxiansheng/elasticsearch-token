@@ -263,9 +263,9 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|QueryFacetCollectorParser
+name|QueryFacet
 operator|.
-name|NAME
+name|TYPE
 argument_list|)
 expr_stmt|;
 name|query

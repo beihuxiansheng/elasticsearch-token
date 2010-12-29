@@ -154,7 +154,7 @@ name|search
 operator|.
 name|facet
 operator|.
-name|FacetsPhase
+name|FacetPhase
 import|;
 end_import
 
@@ -236,11 +236,11 @@ name|QueryPhase
 implements|implements
 name|SearchPhase
 block|{
-DECL|field|facetsPhase
+DECL|field|facetPhase
 specifier|private
 specifier|final
-name|FacetsPhase
-name|facetsPhase
+name|FacetPhase
+name|facetPhase
 decl_stmt|;
 DECL|method|QueryPhase
 annotation|@
@@ -248,15 +248,15 @@ name|Inject
 specifier|public
 name|QueryPhase
 parameter_list|(
-name|FacetsPhase
-name|facetsPhase
+name|FacetPhase
+name|facetPhase
 parameter_list|)
 block|{
 name|this
 operator|.
-name|facetsPhase
+name|facetPhase
 operator|=
-name|facetsPhase
+name|facetPhase
 expr_stmt|;
 block|}
 DECL|method|parseElements
@@ -383,7 +383,7 @@ argument_list|)
 operator|.
 name|putAll
 argument_list|(
-name|facetsPhase
+name|facetPhase
 operator|.
 name|parseElements
 argument_list|()
@@ -470,7 +470,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|facetsPhase
+name|facetPhase
 operator|.
 name|preProcess
 argument_list|(
@@ -1235,7 +1235,7 @@ name|processedScope
 argument_list|()
 expr_stmt|;
 block|}
-name|facetsPhase
+name|facetPhase
 operator|.
 name|execute
 argument_list|(

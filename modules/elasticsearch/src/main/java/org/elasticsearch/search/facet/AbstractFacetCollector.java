@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search.facet.support
+DECL|package|org.elasticsearch.search.facet
 package|package
 name|org
 operator|.
@@ -13,8 +13,6 @@ operator|.
 name|search
 operator|.
 name|facet
-operator|.
-name|support
 package|;
 end_package
 
@@ -119,22 +117,6 @@ operator|.
 name|search
 operator|.
 name|AndFilter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|facet
-operator|.
-name|collector
-operator|.
-name|FacetCollector
 import|;
 end_import
 

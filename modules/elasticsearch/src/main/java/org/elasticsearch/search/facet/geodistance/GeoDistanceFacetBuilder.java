@@ -726,9 +726,9 @@ name|builder
 operator|.
 name|startObject
 argument_list|(
-name|GeoDistanceFacetCollectorParser
+name|GeoDistanceFacet
 operator|.
-name|NAME
+name|TYPE
 argument_list|)
 expr_stmt|;
 if|if

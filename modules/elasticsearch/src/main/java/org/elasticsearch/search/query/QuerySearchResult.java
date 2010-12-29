@@ -114,8 +114,6 @@ name|search
 operator|.
 name|facet
 operator|.
-name|internal
-operator|.
 name|InternalFacets
 import|;
 end_import

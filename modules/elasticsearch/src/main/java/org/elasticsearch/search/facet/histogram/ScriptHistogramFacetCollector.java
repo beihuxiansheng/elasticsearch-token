@@ -84,7 +84,7 @@ name|search
 operator|.
 name|facet
 operator|.
-name|Facet
+name|AbstractFacetCollector
 import|;
 end_import
 
@@ -98,9 +98,7 @@ name|search
 operator|.
 name|facet
 operator|.
-name|support
-operator|.
-name|AbstractFacetCollector
+name|Facet
 import|;
 end_import
 

@@ -81,6 +81,16 @@ operator|.
 name|Entry
 argument_list|>
 block|{
+comment|/**      * The type of the filter facet.      */
+DECL|field|TYPE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|TYPE
+init|=
+literal|"histogram"
+decl_stmt|;
 comment|/**      * The key field name used with this facet.      */
 DECL|method|keyFieldName
 name|String

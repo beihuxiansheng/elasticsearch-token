@@ -525,9 +525,9 @@ name|builder
 operator|.
 name|startObject
 argument_list|(
-name|RangeFacetCollectorParser
+name|RangeFacet
 operator|.
-name|NAME
+name|TYPE
 argument_list|)
 expr_stmt|;
 if|if

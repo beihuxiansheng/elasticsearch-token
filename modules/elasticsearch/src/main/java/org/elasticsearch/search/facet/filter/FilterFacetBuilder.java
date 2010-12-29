@@ -247,9 +247,9 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|FilterFacetCollectorParser
+name|FilterFacet
 operator|.
-name|NAME
+name|TYPE
 argument_list|)
 expr_stmt|;
 name|filter

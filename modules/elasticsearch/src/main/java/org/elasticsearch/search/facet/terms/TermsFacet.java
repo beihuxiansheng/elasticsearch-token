@@ -81,6 +81,16 @@ operator|.
 name|Entry
 argument_list|>
 block|{
+comment|/**      * The type of the filter facet.      */
+DECL|field|TYPE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|TYPE
+init|=
+literal|"terms"
+decl_stmt|;
 comment|/**      * Controls how the terms facets are ordered.      */
 DECL|enum|ComparatorType
 specifier|public

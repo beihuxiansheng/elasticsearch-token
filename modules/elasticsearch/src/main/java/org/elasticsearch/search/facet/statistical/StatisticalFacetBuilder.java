@@ -276,9 +276,9 @@ name|builder
 operator|.
 name|startObject
 argument_list|(
-name|StatisticalFacetCollectorParser
+name|StatisticalFacet
 operator|.
-name|NAME
+name|TYPE
 argument_list|)
 expr_stmt|;
 if|if

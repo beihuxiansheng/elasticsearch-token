@@ -411,9 +411,9 @@ name|builder
 operator|.
 name|startObject
 argument_list|(
-name|HistogramFacetCollectorParser
+name|HistogramFacet
 operator|.
-name|NAME
+name|TYPE
 argument_list|)
 expr_stmt|;
 if|if

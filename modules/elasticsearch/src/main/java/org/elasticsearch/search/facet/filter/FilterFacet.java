@@ -44,6 +44,16 @@ name|FilterFacet
 extends|extends
 name|Facet
 block|{
+comment|/**      * The type of the filter facet.      */
+DECL|field|TYPE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|TYPE
+init|=
+literal|"filter"
+decl_stmt|;
 comment|/**      * The count of the facet.      */
 DECL|method|count
 name|long
