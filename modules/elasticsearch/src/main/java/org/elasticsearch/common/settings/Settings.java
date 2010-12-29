@@ -110,7 +110,7 @@ specifier|public
 interface|interface
 name|Settings
 block|{
-comment|/**      * Component settings for a specific component. Returns all the settings for the given class, where the      * FQN of the class is used, without the<tt>org.elasticsearch<tt> prefix.      */
+comment|/**      * Component settings for a specific component. Returns all the settings for the given class, where the      * FQN of the class is used, without the<tt>org.elasticsearch<tt> prefix. If there is no<tt>org.elasticsearch</tt>      * prefix, then the prefix used is the first part of the package name (<tt>org</tt> /<tt>com</tt> / ...)      */
 DECL|method|getComponentSettings
 name|Settings
 name|getComponentSettings

@@ -133,6 +133,7 @@ specifier|final
 name|Settings
 name|componentSettings
 decl_stmt|;
+comment|/**      * Constructs a new index component, with the index name and its settings.      *      * @param index         The index name      * @param indexSettings The index settings      */
 DECL|method|AbstractIndexComponent
 specifier|protected
 name|AbstractIndexComponent
@@ -187,6 +188,7 @@ name|index
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Constructs a new index component, with the index name and its settings, as well as settings prefix.      *      * @param index          The index name      * @param indexSettings  The index settings      * @param prefixSettings A settings prefix (like "com.mycompany") to simplify extracting the component settings      */
 DECL|method|AbstractIndexComponent
 specifier|protected
 name|AbstractIndexComponent
