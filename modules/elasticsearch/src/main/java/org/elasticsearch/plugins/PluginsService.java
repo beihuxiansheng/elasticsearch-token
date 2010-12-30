@@ -1092,6 +1092,12 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+return|return
+name|ImmutableMap
+operator|.
+name|of
+argument_list|()
+return|;
 block|}
 while|while
 condition|(
