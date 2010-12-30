@@ -2358,6 +2358,11 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
+literal|4
+argument_list|)
+argument_list|,
+name|equalTo
+argument_list|(
 literal|3
 argument_list|)
 argument_list|)
@@ -2405,6 +2410,11 @@ argument_list|(
 name|equalTo
 argument_list|(
 literal|5
+argument_list|)
+argument_list|,
+name|equalTo
+argument_list|(
+literal|4
 argument_list|)
 argument_list|,
 name|equalTo

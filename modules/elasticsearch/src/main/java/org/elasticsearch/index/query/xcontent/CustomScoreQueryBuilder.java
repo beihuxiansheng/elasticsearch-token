@@ -187,6 +187,8 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|this
+operator|.
 name|params
 operator|==
 literal|null

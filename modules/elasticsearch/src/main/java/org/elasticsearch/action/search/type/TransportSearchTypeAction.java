@@ -316,6 +316,16 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|annotation
+operator|.
+name|Nullable
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -818,7 +828,7 @@ block|{
 comment|// really, no shards active in this group
 name|onFirstPhaseResult
 argument_list|(
-name|shard
+literal|null
 argument_list|,
 name|shardIt
 argument_list|,
@@ -1075,7 +1085,7 @@ block|{
 comment|// no more active shards... (we should not really get here, but just for safety)
 name|onFirstPhaseResult
 argument_list|(
-name|shard
+literal|null
 argument_list|,
 name|shardIt
 argument_list|,
@@ -1363,6 +1373,8 @@ specifier|private
 name|void
 name|onFirstPhaseResult
 parameter_list|(
+annotation|@
+name|Nullable
 name|ShardRouting
 name|shard
 parameter_list|,

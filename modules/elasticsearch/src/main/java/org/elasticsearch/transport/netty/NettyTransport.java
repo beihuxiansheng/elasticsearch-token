@@ -2905,7 +2905,7 @@ throw|throw
 operator|new
 name|ConnectTransportException
 argument_list|(
-name|node
+literal|null
 argument_list|,
 literal|"Can't connect to a null node"
 argument_list|)

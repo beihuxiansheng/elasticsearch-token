@@ -807,11 +807,7 @@ throw|throw
 operator|new
 name|UnknownHostException
 argument_list|(
-literal|"network interface "
-operator|+
-name|intf
-operator|+
-literal|" not found"
+literal|"network interface not found"
 argument_list|)
 throw|;
 block|}
