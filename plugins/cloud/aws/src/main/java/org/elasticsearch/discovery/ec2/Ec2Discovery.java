@@ -294,6 +294,13 @@ expr_stmt|;
 break|break;
 block|}
 block|}
+if|if
+condition|(
+name|unicastZenPing
+operator|!=
+literal|null
+condition|)
+block|{
 comment|// update the unicast zen ping to add cloud hosts provider
 comment|// and, while we are at it, use only it and not the multicast for example
 name|unicastZenPing
@@ -324,6 +331,17 @@ name|unicastZenPing
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"failed to apply ec2 unicast discovery, no unicast ping found"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}
