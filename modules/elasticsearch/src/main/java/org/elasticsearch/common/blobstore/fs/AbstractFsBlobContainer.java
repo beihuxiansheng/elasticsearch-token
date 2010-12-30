@@ -108,6 +108,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|io
+operator|.
+name|Closeables
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -417,6 +431,8 @@ index|]
 decl_stmt|;
 name|FileInputStream
 name|is
+init|=
+literal|null
 decl_stmt|;
 try|try
 block|{
@@ -441,6 +457,13 @@ name|FileNotFoundException
 name|e
 parameter_list|)
 block|{
+name|Closeables
+operator|.
+name|closeQuietly
+argument_list|(
+name|is
+argument_list|)
+expr_stmt|;
 name|listener
 operator|.
 name|onFailure
