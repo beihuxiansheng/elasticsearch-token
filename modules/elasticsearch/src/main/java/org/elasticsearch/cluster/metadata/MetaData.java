@@ -796,6 +796,7 @@ name|concreteAllIndices
 argument_list|()
 return|;
 block|}
+comment|/**      * Translates the provided indices (possibly aliased) into actual indices.      */
 DECL|method|concreteIndices
 specifier|public
 name|String
@@ -815,6 +816,27 @@ argument_list|(
 name|indices
 argument_list|,
 literal|false
+argument_list|)
+return|;
+block|}
+comment|/**      * Translates the provided indices (possibly aliased) into actual indices.      */
+DECL|method|concreteIndicesIgnoreMissing
+specifier|public
+name|String
+index|[]
+name|concreteIndicesIgnoreMissing
+parameter_list|(
+name|String
+index|[]
+name|indices
+parameter_list|)
+block|{
+return|return
+name|concreteIndices
+argument_list|(
+name|indices
+argument_list|,
+literal|true
 argument_list|)
 return|;
 block|}

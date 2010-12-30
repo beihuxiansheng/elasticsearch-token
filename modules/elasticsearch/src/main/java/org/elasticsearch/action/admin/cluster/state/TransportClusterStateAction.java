@@ -517,14 +517,12 @@ operator|.
 name|metaData
 argument_list|()
 operator|.
-name|concreteIndices
+name|concreteIndicesIgnoreMissing
 argument_list|(
 name|request
 operator|.
 name|filteredIndices
 argument_list|()
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 for|for

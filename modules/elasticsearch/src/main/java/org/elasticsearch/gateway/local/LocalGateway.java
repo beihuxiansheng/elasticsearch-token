@@ -2120,7 +2120,7 @@ argument_list|()
 operator|.
 name|masterNode
 argument_list|()
-operator|||
+operator|&&
 operator|!
 name|clusterService
 operator|.
