@@ -1300,34 +1300,6 @@ name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|shard
-operator|!=
-literal|null
-condition|)
-block|{
-name|logger
-operator|.
-name|debug
-argument_list|(
-name|shard
-operator|.
-name|shortSummary
-argument_list|()
-operator|+
-literal|": Failed to execute ["
-operator|+
-name|request
-operator|+
-literal|"] while moving to second phase"
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
 name|logger
 operator|.
 name|debug
@@ -1346,7 +1318,6 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 name|invokeListener
 argument_list|(
