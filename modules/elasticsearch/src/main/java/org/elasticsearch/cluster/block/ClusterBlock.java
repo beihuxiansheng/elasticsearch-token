@@ -218,7 +218,6 @@ return|return
 name|this
 operator|.
 name|levels
-argument_list|()
 return|;
 block|}
 DECL|method|contains
