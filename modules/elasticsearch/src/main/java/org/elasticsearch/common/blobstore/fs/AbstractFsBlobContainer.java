@@ -519,22 +519,13 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-try|try
-block|{
-name|is
+name|Closeables
 operator|.
-name|close
-argument_list|()
+name|closeQuietly
+argument_list|(
+name|is
+argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e1
-parameter_list|)
-block|{
-comment|// ignore
-block|}
 name|listener
 operator|.
 name|onFailure
