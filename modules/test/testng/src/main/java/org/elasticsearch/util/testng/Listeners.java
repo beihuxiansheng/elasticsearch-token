@@ -70,10 +70,6 @@ name|ITestListener
 index|[]
 block|{
 operator|new
-name|DotTestListener
-argument_list|()
-block|,
-operator|new
 name|LoggingListener
 argument_list|()
 block|}
