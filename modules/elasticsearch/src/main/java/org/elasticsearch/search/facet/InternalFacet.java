@@ -116,6 +116,11 @@ name|Streamable
 extends|,
 name|ToXContent
 block|{
+DECL|method|streamType
+name|String
+name|streamType
+parameter_list|()
+function_decl|;
 DECL|interface|Stream
 specifier|public
 specifier|static

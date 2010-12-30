@@ -879,11 +879,7 @@ operator|.
 name|StringEntry
 argument_list|>
 argument_list|(
-name|InternalStringTermsFacet
-operator|.
-name|ComparatorType
-operator|.
-name|COUNT
+name|comparatorType
 operator|.
 name|comparator
 argument_list|()

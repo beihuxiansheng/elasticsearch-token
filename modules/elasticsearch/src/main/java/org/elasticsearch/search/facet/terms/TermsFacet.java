@@ -111,6 +111,16 @@ name|String
 name|getTerm
 parameter_list|()
 function_decl|;
+DECL|method|termAsNumber
+name|Number
+name|termAsNumber
+parameter_list|()
+function_decl|;
+DECL|method|getTermAsNumber
+name|Number
+name|getTermAsNumber
+parameter_list|()
+function_decl|;
 DECL|method|count
 name|int
 name|count
