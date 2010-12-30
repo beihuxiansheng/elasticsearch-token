@@ -198,6 +198,7 @@ block|{
 DECL|field|EMPTY_META_DATA
 specifier|public
 specifier|static
+specifier|final
 name|MetaData
 name|EMPTY_META_DATA
 init|=

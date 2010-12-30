@@ -41,6 +41,7 @@ block|{
 DECL|field|cachedBytes
 specifier|public
 specifier|static
+specifier|final
 name|ThreadLocal
 argument_list|<
 name|ThreadLocals

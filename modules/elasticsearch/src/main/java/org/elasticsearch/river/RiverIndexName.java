@@ -142,6 +142,7 @@ block|{
 DECL|field|DEFAULT_INDEX_NAME
 specifier|public
 specifier|static
+specifier|final
 name|String
 name|DEFAULT_INDEX_NAME
 init|=

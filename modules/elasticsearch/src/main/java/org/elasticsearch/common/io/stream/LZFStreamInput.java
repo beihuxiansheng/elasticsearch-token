@@ -85,6 +85,7 @@ block|{
 DECL|field|EOF_FLAG
 specifier|public
 specifier|static
+specifier|final
 name|int
 name|EOF_FLAG
 init|=

@@ -41,6 +41,7 @@ block|{
 DECL|field|EMPTY
 specifier|public
 specifier|static
+specifier|final
 name|TransportRequestOptions
 name|EMPTY
 init|=

@@ -329,6 +329,7 @@ decl_stmt|;
 DECL|field|TCP_DEFAULT_SEND_BUFFER_SIZE
 specifier|public
 specifier|static
+specifier|final
 name|ByteSizeValue
 name|TCP_DEFAULT_SEND_BUFFER_SIZE
 init|=
@@ -345,6 +346,7 @@ decl_stmt|;
 DECL|field|TCP_DEFAULT_RECEIVE_BUFFER_SIZE
 specifier|public
 specifier|static
+specifier|final
 name|ByteSizeValue
 name|TCP_DEFAULT_RECEIVE_BUFFER_SIZE
 init|=
@@ -361,6 +363,7 @@ decl_stmt|;
 DECL|field|TCP_DEFAULT_CONNECT_TIMEOUT
 specifier|public
 specifier|static
+specifier|final
 name|TimeValue
 name|TCP_DEFAULT_CONNECT_TIMEOUT
 init|=

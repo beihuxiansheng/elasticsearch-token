@@ -190,6 +190,7 @@ block|}
 DECL|field|EMPTY_FIELDS
 specifier|public
 specifier|static
+specifier|final
 name|Field
 index|[]
 name|EMPTY_FIELDS

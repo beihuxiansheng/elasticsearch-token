@@ -603,6 +603,7 @@ block|{
 comment|/**      * The content type used to generate request builders (query / search).      */
 DECL|field|CONTENT_TYPE
 specifier|public
+specifier|final
 specifier|static
 name|XContentType
 name|CONTENT_TYPE
@@ -614,6 +615,7 @@ decl_stmt|;
 comment|/**      * The default content type to use to generate source documents when indexing.      */
 DECL|field|INDEX_CONTENT_TYPE
 specifier|public
+specifier|final
 specifier|static
 name|XContentType
 name|INDEX_CONTENT_TYPE

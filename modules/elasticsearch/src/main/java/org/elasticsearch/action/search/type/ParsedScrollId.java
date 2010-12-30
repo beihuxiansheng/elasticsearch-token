@@ -45,6 +45,7 @@ block|{
 DECL|field|QUERY_THEN_FETCH_TYPE
 specifier|public
 specifier|static
+specifier|final
 name|String
 name|QUERY_THEN_FETCH_TYPE
 init|=
@@ -53,6 +54,7 @@ decl_stmt|;
 DECL|field|QUERY_AND_FETCH_TYPE
 specifier|public
 specifier|static
+specifier|final
 name|String
 name|QUERY_AND_FETCH_TYPE
 init|=

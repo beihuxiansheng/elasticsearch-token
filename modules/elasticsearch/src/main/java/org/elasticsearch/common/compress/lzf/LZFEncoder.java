@@ -224,6 +224,7 @@ block|}
 DECL|field|cachedEncoder
 specifier|public
 specifier|static
+specifier|final
 name|ThreadLocal
 argument_list|<
 name|ThreadLocals

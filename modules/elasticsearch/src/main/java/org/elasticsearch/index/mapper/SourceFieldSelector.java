@@ -59,6 +59,7 @@ block|{
 DECL|field|INSTANCE
 specifier|public
 specifier|static
+specifier|final
 name|SourceFieldSelector
 name|INSTANCE
 init|=

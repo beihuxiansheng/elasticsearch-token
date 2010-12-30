@@ -216,6 +216,7 @@ comment|// hack since flatten is called from the parent constructor, so we can't
 DECL|field|reader
 specifier|public
 specifier|static
+specifier|final
 name|ThreadLocal
 argument_list|<
 name|IndexReader
@@ -232,6 +233,7 @@ decl_stmt|;
 DECL|field|highlightFilters
 specifier|public
 specifier|static
+specifier|final
 name|ThreadLocal
 argument_list|<
 name|Boolean

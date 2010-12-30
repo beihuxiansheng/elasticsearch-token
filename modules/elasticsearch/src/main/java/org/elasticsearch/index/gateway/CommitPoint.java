@@ -77,6 +77,7 @@ block|{
 DECL|field|NULL
 specifier|public
 specifier|static
+specifier|final
 name|CommitPoint
 name|NULL
 init|=

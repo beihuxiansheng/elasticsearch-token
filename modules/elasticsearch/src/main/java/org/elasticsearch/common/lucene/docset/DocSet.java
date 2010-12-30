@@ -72,6 +72,7 @@ block|{
 DECL|field|EMPTY_DOC_SET
 specifier|public
 specifier|static
+specifier|final
 name|DocSet
 name|EMPTY_DOC_SET
 init|=

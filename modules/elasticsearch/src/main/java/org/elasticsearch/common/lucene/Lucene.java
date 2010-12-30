@@ -274,6 +274,7 @@ block|}
 argument_list|)
 specifier|public
 specifier|static
+specifier|final
 name|Version
 name|VERSION
 init|=
@@ -284,6 +285,7 @@ decl_stmt|;
 DECL|field|ANALYZER_VERSION
 specifier|public
 specifier|static
+specifier|final
 name|Version
 name|ANALYZER_VERSION
 init|=
@@ -292,6 +294,7 @@ decl_stmt|;
 DECL|field|QUERYPARSER_VERSION
 specifier|public
 specifier|static
+specifier|final
 name|Version
 name|QUERYPARSER_VERSION
 init|=

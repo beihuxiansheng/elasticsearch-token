@@ -57,6 +57,7 @@ block|;
 DECL|field|ALL
 specifier|public
 specifier|static
+specifier|final
 name|ClusterBlockLevel
 index|[]
 name|ALL
@@ -75,6 +76,7 @@ decl_stmt|;
 DECL|field|READ_WRITE
 specifier|public
 specifier|static
+specifier|final
 name|ClusterBlockLevel
 index|[]
 name|READ_WRITE

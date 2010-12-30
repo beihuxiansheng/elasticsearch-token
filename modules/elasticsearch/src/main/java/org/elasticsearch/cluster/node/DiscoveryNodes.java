@@ -218,6 +218,7 @@ block|{
 DECL|field|EMPTY_NODES
 specifier|public
 specifier|static
+specifier|final
 name|DiscoveryNodes
 name|EMPTY_NODES
 init|=
