@@ -305,6 +305,8 @@ literal|1
 argument_list|,
 literal|"not recovered from gateway"
 argument_list|,
+literal|true
+argument_list|,
 name|ClusterBlockLevel
 operator|.
 name|ALL
