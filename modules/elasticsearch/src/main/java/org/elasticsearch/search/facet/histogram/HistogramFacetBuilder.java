@@ -166,12 +166,6 @@ name|keyFieldName
 operator|=
 name|field
 expr_stmt|;
-name|this
-operator|.
-name|valueFieldName
-operator|=
-name|field
-expr_stmt|;
 return|return
 name|this
 return|;
@@ -421,14 +415,6 @@ condition|(
 name|valueFieldName
 operator|!=
 literal|null
-operator|&&
-operator|!
-name|keyFieldName
-operator|.
-name|equals
-argument_list|(
-name|valueFieldName
-argument_list|)
 condition|)
 block|{
 name|builder

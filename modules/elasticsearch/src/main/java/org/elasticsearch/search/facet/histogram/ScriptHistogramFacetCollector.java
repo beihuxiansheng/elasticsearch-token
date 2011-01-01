@@ -443,7 +443,7 @@ parameter_list|()
 block|{
 return|return
 operator|new
-name|InternalHistogramFacet
+name|InternalCountAndTotalHistogramFacet
 argument_list|(
 name|facetName
 argument_list|,

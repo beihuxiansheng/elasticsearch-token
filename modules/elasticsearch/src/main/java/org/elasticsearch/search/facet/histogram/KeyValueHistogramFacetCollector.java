@@ -597,7 +597,7 @@ block|{
 name|long
 name|bucket
 init|=
-name|HistogramFacetCollector
+name|CountAndTotalHistogramFacetCollector
 operator|.
 name|bucket
 argument_list|(
@@ -668,7 +668,7 @@ block|{
 name|long
 name|bucket
 init|=
-name|HistogramFacetCollector
+name|CountAndTotalHistogramFacetCollector
 operator|.
 name|bucket
 argument_list|(
@@ -708,7 +708,7 @@ comment|// single key value, compute the bucket once
 name|long
 name|bucket
 init|=
-name|HistogramFacetCollector
+name|CountAndTotalHistogramFacetCollector
 operator|.
 name|bucket
 argument_list|(
@@ -864,7 +864,7 @@ parameter_list|()
 block|{
 return|return
 operator|new
-name|InternalHistogramFacet
+name|InternalCountAndTotalHistogramFacet
 argument_list|(
 name|facetName
 argument_list|,

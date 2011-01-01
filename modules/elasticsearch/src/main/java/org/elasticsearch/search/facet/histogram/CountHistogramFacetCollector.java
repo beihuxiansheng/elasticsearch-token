@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -29,20 +29,6 @@ operator|.
 name|index
 operator|.
 name|IndexReader
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|trove
-operator|.
-name|TLongDoubleHashMap
 import|;
 end_import
 
@@ -209,10 +195,10 @@ comment|/**  * A histogram facet collector that uses the same field as the key a
 end_comment
 
 begin_class
-DECL|class|HistogramFacetCollector
+DECL|class|CountHistogramFacetCollector
 specifier|public
 class|class
-name|HistogramFacetCollector
+name|CountHistogramFacetCollector
 extends|extends
 name|AbstractFacetCollector
 block|{
@@ -265,9 +251,9 @@ specifier|final
 name|HistogramProc
 name|histoProc
 decl_stmt|;
-DECL|method|HistogramFacetCollector
+DECL|method|CountHistogramFacetCollector
 specifier|public
-name|HistogramFacetCollector
+name|CountHistogramFacetCollector
 parameter_list|(
 name|String
 name|facetName
@@ -490,7 +476,7 @@ parameter_list|()
 block|{
 return|return
 operator|new
-name|InternalHistogramFacet
+name|InternalCountHistogramFacet
 argument_list|(
 name|facetName
 argument_list|,
@@ -505,11 +491,6 @@ argument_list|,
 name|histoProc
 operator|.
 name|counts
-argument_list|()
-argument_list|,
-name|histoProc
-operator|.
-name|totals
 argument_list|()
 argument_list|)
 return|;
@@ -570,16 +551,6 @@ operator|new
 name|TLongLongHashMap
 argument_list|()
 decl_stmt|;
-DECL|field|totals
-specifier|private
-specifier|final
-name|TLongDoubleHashMap
-name|totals
-init|=
-operator|new
-name|TLongDoubleHashMap
-argument_list|()
-decl_stmt|;
 DECL|method|HistogramProc
 specifier|public
 name|HistogramProc
@@ -630,17 +601,6 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
-name|totals
-operator|.
-name|adjustOrPutValue
-argument_list|(
-name|bucket
-argument_list|,
-name|value
-argument_list|,
-name|value
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|counts
 specifier|public
@@ -650,16 +610,6 @@ parameter_list|()
 block|{
 return|return
 name|counts
-return|;
-block|}
-DECL|method|totals
-specifier|public
-name|TLongDoubleHashMap
-name|totals
-parameter_list|()
-block|{
-return|return
-name|totals
 return|;
 block|}
 block|}
