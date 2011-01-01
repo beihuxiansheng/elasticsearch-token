@@ -424,6 +424,34 @@ parameter_list|)
 block|{
 comment|// all is well
 block|}
+comment|// test offset in format
+name|millis
+operator|=
+name|formatter
+operator|.
+name|parseMillis
+argument_list|(
+literal|"1970-01-01T00:00:00-02:00"
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|millis
+argument_list|,
+name|equalTo
+argument_list|(
+name|TimeValue
+operator|.
+name|timeValueHours
+argument_list|(
+literal|2
+argument_list|)
+operator|.
+name|millis
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testIsoVsCustom
 annotation|@
