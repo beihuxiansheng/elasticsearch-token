@@ -1137,7 +1137,7 @@ name|key
 init|=
 name|in
 operator|.
-name|readVLong
+name|readLong
 argument_list|()
 decl_stmt|;
 name|counts
@@ -1219,7 +1219,7 @@ argument_list|()
 expr_stmt|;
 name|out
 operator|.
-name|writeVLong
+name|writeLong
 argument_list|(
 name|it
 operator|.
