@@ -153,6 +153,8 @@ operator|+
 literal|" TP Millis "
 operator|+
 operator|(
+name|NUMBER_OF_ITERATIONS
+operator|/
 name|stopWatch
 operator|.
 name|totalTime
@@ -160,8 +162,6 @@ argument_list|()
 operator|.
 name|millisFrac
 argument_list|()
-operator|/
-name|NUMBER_OF_ITERATIONS
 operator|)
 argument_list|)
 expr_stmt|;
@@ -321,6 +321,12 @@ operator|+
 literal|" TP Millis "
 operator|+
 operator|(
+operator|(
+name|NUMBER_OF_ITERATIONS
+operator|*
+name|NUMBER_OF_THREADS
+operator|)
+operator|/
 name|stopWatch
 operator|.
 name|totalTime
@@ -328,12 +334,6 @@ argument_list|()
 operator|.
 name|millisFrac
 argument_list|()
-operator|/
-operator|(
-name|NUMBER_OF_ITERATIONS
-operator|*
-name|NUMBER_OF_THREADS
-operator|)
 operator|)
 argument_list|)
 expr_stmt|;
