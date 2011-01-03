@@ -974,6 +974,13 @@ if|if
 condition|(
 operator|!
 name|master
+operator|&&
+name|latestDiscoNodes
+operator|.
+name|masterNode
+argument_list|()
+operator|!=
+literal|null
 condition|)
 block|{
 try|try
