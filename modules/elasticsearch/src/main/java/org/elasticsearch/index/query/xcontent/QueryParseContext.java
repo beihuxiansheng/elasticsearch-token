@@ -576,10 +576,10 @@ operator|.
 name|indexCache
 return|;
 block|}
-DECL|method|queryParser
+DECL|method|singleQueryParser
 specifier|public
 name|MapperQueryParser
-name|queryParser
+name|singleQueryParser
 parameter_list|(
 name|QueryParserSettings
 name|settings
@@ -596,10 +596,10 @@ return|return
 name|queryParser
 return|;
 block|}
-DECL|method|queryParser
+DECL|method|multiQueryParser
 specifier|public
 name|MultiFieldMapperQueryParser
-name|queryParser
+name|multiQueryParser
 parameter_list|(
 name|MultiFieldQueryParserSettings
 name|settings

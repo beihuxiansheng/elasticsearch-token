@@ -1434,7 +1434,7 @@ name|queryParser
 operator|=
 name|parseContext
 operator|.
-name|queryParser
+name|singleQueryParser
 argument_list|(
 name|qpSettings
 argument_list|)
@@ -1454,7 +1454,7 @@ name|queryParser
 operator|=
 name|parseContext
 operator|.
-name|queryParser
+name|multiQueryParser
 argument_list|(
 name|qpSettings
 argument_list|)
@@ -1467,7 +1467,7 @@ name|queryParser
 operator|=
 name|parseContext
 operator|.
-name|queryParser
+name|singleQueryParser
 argument_list|(
 name|qpSettings
 argument_list|)
