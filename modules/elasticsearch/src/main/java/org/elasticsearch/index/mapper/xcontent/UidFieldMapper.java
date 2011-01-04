@@ -82,6 +82,22 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|lucene
+operator|.
+name|uid
+operator|.
+name|UidField
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|xcontent
 operator|.
 name|XContentBuilder
@@ -234,8 +250,9 @@ specifier|final
 name|boolean
 name|OMIT_TERM_FREQ_AND_POSITIONS
 init|=
-literal|true
+literal|false
 decl_stmt|;
+comment|// we store payload
 block|}
 DECL|class|Builder
 specifier|public
@@ -392,7 +409,7 @@ DECL|method|parseCreateField
 annotation|@
 name|Override
 specifier|protected
-name|Field
+name|Fieldable
 name|parseCreateField
 parameter_list|(
 name|ParseContext
@@ -446,9 +463,10 @@ argument_list|)
 expr_stmt|;
 return|return
 operator|new
-name|Field
+name|UidField
 argument_list|(
 name|names
+argument_list|()
 operator|.
 name|indexName
 argument_list|()
@@ -458,11 +476,10 @@ operator|.
 name|uid
 argument_list|()
 argument_list|,
-name|store
-argument_list|,
-name|index
+literal|0
 argument_list|)
 return|;
+comment|// version get updated by the engine
 block|}
 DECL|method|value
 annotation|@

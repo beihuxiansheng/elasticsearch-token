@@ -98,6 +98,7 @@ literal|false
 argument_list|,
 literal|"["
 operator|+
+operator|(
 name|shardId
 operator|==
 literal|null
@@ -108,6 +109,7 @@ name|shardId
 operator|.
 name|id
 argument_list|()
+operator|)
 operator|+
 literal|"] "
 operator|+

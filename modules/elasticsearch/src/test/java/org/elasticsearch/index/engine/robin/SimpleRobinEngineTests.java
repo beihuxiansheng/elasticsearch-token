@@ -89,6 +89,20 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|translog
+operator|.
+name|Translog
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -125,6 +139,9 @@ name|createEngine
 parameter_list|(
 name|Store
 name|store
+parameter_list|,
+name|Translog
+name|translog
 parameter_list|)
 block|{
 return|return
@@ -140,8 +157,7 @@ argument_list|,
 name|createSnapshotDeletionPolicy
 argument_list|()
 argument_list|,
-name|createTranslog
-argument_list|()
+name|translog
 argument_list|,
 name|createMergePolicy
 argument_list|()

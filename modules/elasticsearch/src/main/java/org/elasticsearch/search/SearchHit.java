@@ -159,6 +159,18 @@ name|String
 name|getType
 parameter_list|()
 function_decl|;
+comment|/**      * The version of the hit.      */
+DECL|method|version
+name|long
+name|version
+parameter_list|()
+function_decl|;
+comment|/**      * The version of the hit.      */
+DECL|method|getVersion
+name|long
+name|getVersion
+parameter_list|()
+function_decl|;
 comment|/**      * The source of the document (can be<tt>null</tt>).      */
 DECL|method|source
 name|byte

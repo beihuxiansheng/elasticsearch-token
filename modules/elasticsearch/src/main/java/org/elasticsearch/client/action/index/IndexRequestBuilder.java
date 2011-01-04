@@ -889,6 +889,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the version, which will cause the index operation to only be performed if a matching      * version exists and no changes happened on the doc since then.      */
+DECL|method|setVersion
+specifier|public
+name|IndexRequestBuilder
+name|setVersion
+parameter_list|(
+name|long
+name|version
+parameter_list|)
+block|{
+name|request
+operator|.
+name|version
+argument_list|(
+name|version
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Should the listener be called on a separate thread if needed.      */
 DECL|method|setListenerThreaded
 specifier|public

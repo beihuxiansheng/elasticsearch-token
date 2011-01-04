@@ -115,6 +115,11 @@ specifier|private
 name|String
 name|type
 decl_stmt|;
+DECL|field|version
+specifier|private
+name|long
+name|version
+decl_stmt|;
 DECL|method|IndexResponse
 specifier|public
 name|IndexResponse
@@ -132,6 +137,9 @@ name|type
 parameter_list|,
 name|String
 name|id
+parameter_list|,
+name|long
+name|version
 parameter_list|)
 block|{
 name|this
@@ -151,6 +159,12 @@ operator|.
 name|type
 operator|=
 name|type
+expr_stmt|;
+name|this
+operator|.
+name|version
+operator|=
+name|version
 expr_stmt|;
 block|}
 comment|/**      * The index the document was indexed into.      */
@@ -225,6 +239,31 @@ return|return
 name|id
 return|;
 block|}
+comment|/**      * Returns the version of the doc indexed.      */
+DECL|method|version
+specifier|public
+name|long
+name|version
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|version
+return|;
+block|}
+comment|/**      * Returns the version of the doc indexed.      */
+DECL|method|getVersion
+specifier|public
+name|long
+name|getVersion
+parameter_list|()
+block|{
+return|return
+name|version
+argument_list|()
+return|;
+block|}
 DECL|method|readFrom
 annotation|@
 name|Override
@@ -257,6 +296,13 @@ operator|=
 name|in
 operator|.
 name|readUTF
+argument_list|()
+expr_stmt|;
+name|version
+operator|=
+name|in
+operator|.
+name|readLong
 argument_list|()
 expr_stmt|;
 block|}
@@ -292,6 +338,13 @@ operator|.
 name|writeUTF
 argument_list|(
 name|type
+argument_list|)
+expr_stmt|;
+name|out
+operator|.
+name|writeLong
+argument_list|(
+name|version
 argument_list|)
 expr_stmt|;
 block|}

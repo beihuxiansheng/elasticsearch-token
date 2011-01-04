@@ -233,6 +233,17 @@ name|int
 name|defaultValue
 parameter_list|)
 function_decl|;
+DECL|method|paramAsLong
+name|long
+name|paramAsLong
+parameter_list|(
+name|String
+name|key
+parameter_list|,
+name|long
+name|defaultValue
+parameter_list|)
+function_decl|;
 DECL|method|paramAsBoolean
 name|boolean
 name|paramAsBoolean
