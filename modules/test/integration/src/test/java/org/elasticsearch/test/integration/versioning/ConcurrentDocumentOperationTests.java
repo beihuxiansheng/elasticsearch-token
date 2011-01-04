@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_package
-DECL|package|org.elasticsearch.test.integration.load
+DECL|package|org.elasticsearch.test.integration.versioning
 package|package
 name|org
 operator|.
@@ -10,7 +10,7 @@ name|test
 operator|.
 name|integration
 operator|.
-name|load
+name|versioning
 package|;
 end_package
 

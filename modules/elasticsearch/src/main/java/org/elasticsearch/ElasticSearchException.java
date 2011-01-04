@@ -163,7 +163,7 @@ argument_list|()
 return|;
 block|}
 block|}
-comment|/**      * Retrieve the innermost cause of this exception, if any.      */
+comment|/**      * Retrieve the innermost cause of this exception, if none, returns the current exception.      */
 DECL|method|getRootCause
 specifier|public
 name|Throwable
@@ -173,7 +173,7 @@ block|{
 name|Throwable
 name|rootCause
 init|=
-literal|null
+name|this
 decl_stmt|;
 name|Throwable
 name|cause
