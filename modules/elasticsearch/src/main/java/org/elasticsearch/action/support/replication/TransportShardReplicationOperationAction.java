@@ -1983,6 +1983,11 @@ block|{
 comment|// make it threaded operation so we fork on the discovery listener thread
 name|request
 operator|.
+name|beforeLocalFork
+argument_list|()
+expr_stmt|;
+name|request
+operator|.
 name|operationThreaded
 argument_list|(
 literal|true
