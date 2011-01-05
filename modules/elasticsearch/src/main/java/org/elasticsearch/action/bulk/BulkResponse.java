@@ -76,6 +76,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|unit
+operator|.
+name|TimeValue
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -117,6 +131,11 @@ name|BulkItemResponse
 index|[]
 name|responses
 decl_stmt|;
+DECL|field|tookInMillis
+specifier|private
+name|long
+name|tookInMillis
+decl_stmt|;
 DECL|method|BulkResponse
 name|BulkResponse
 parameter_list|()
@@ -128,6 +147,9 @@ parameter_list|(
 name|BulkItemResponse
 index|[]
 name|responses
+parameter_list|,
+name|long
+name|tookInMillis
 parameter_list|)
 block|{
 name|this
@@ -136,6 +158,62 @@ name|responses
 operator|=
 name|responses
 expr_stmt|;
+name|this
+operator|.
+name|tookInMillis
+operator|=
+name|tookInMillis
+expr_stmt|;
+block|}
+comment|/**      * How long the bulk execution took.      */
+DECL|method|took
+specifier|public
+name|TimeValue
+name|took
+parameter_list|()
+block|{
+return|return
+operator|new
+name|TimeValue
+argument_list|(
+name|tookInMillis
+argument_list|)
+return|;
+block|}
+comment|/**      * How long the bulk execution took.      */
+DECL|method|getTook
+specifier|public
+name|TimeValue
+name|getTook
+parameter_list|()
+block|{
+return|return
+name|took
+argument_list|()
+return|;
+block|}
+comment|/**      * How long the bulk execution took in milliseconds.      */
+DECL|method|tookInMillis
+specifier|public
+name|long
+name|tookInMillis
+parameter_list|()
+block|{
+return|return
+name|tookInMillis
+return|;
+block|}
+comment|/**      * How long the bulk execution took in milliseconds.      */
+DECL|method|getTookInMillis
+specifier|public
+name|long
+name|getTookInMillis
+parameter_list|()
+block|{
+return|return
+name|tookInMillis
+argument_list|()
+return|;
 block|}
 comment|/**      * Has anything failed with the execution.      */
 DECL|method|hasFailures
