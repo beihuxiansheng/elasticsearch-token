@@ -1279,13 +1279,7 @@ name|getBestFragments
 argument_list|(
 name|fieldQuery
 argument_list|,
-name|context
-operator|.
-name|searcher
-argument_list|()
-operator|.
-name|getIndexReader
-argument_list|()
+name|reader
 argument_list|,
 name|docId
 argument_list|,
