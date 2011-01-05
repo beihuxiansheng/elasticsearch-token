@@ -361,7 +361,7 @@ literal|"interval"
 argument_list|,
 name|timeValueSeconds
 argument_list|(
-literal|10
+literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
