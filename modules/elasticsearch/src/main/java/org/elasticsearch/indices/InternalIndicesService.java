@@ -1137,6 +1137,11 @@ init|=
 literal|0
 decl_stmt|;
 name|long
+name|fieldCacheEvictions
+init|=
+literal|0
+decl_stmt|;
+name|long
 name|fieldCacheTotalSize
 init|=
 literal|0
@@ -1195,6 +1200,19 @@ block|{
 comment|// ignore
 block|}
 block|}
+name|fieldCacheEvictions
+operator|+=
+name|indexService
+operator|.
+name|cache
+argument_list|()
+operator|.
+name|fieldData
+argument_list|()
+operator|.
+name|evictions
+argument_list|()
+expr_stmt|;
 name|fieldCacheTotalSize
 operator|+=
 name|indexService
@@ -1243,6 +1261,8 @@ name|ByteSizeValue
 argument_list|(
 name|filterCacheTotalSize
 argument_list|)
+argument_list|,
+name|fieldCacheEvictions
 argument_list|)
 return|;
 block|}

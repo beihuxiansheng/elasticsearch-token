@@ -155,6 +155,11 @@ name|void
 name|clearUnreferenced
 parameter_list|()
 function_decl|;
+DECL|method|evictions
+name|long
+name|evictions
+parameter_list|()
+function_decl|;
 DECL|method|sizeInBytes
 name|long
 name|sizeInBytes

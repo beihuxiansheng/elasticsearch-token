@@ -324,6 +324,18 @@ return|return
 literal|0
 return|;
 block|}
+DECL|method|evictions
+annotation|@
+name|Override
+specifier|public
+name|long
+name|evictions
+parameter_list|()
+block|{
+return|return
+literal|0
+return|;
+block|}
 block|}
 end_class
 
