@@ -2058,6 +2058,10 @@ operator|.
 name|parse
 argument_list|(
 name|querySource
+argument_list|,
+name|querySourceOffset
+argument_list|,
+name|querySourceLength
 argument_list|)
 operator|.
 name|query
