@@ -226,17 +226,8 @@ parameter_list|(
 name|SearchContext
 name|context
 parameter_list|,
-name|InternalSearchHit
-name|hit
-parameter_list|,
-name|Uid
-name|uid
-parameter_list|,
-name|IndexReader
-name|reader
-parameter_list|,
-name|int
-name|docId
+name|HitContext
+name|hitContext
 parameter_list|)
 throws|throws
 name|ElasticSearchException
@@ -244,7 +235,10 @@ block|{
 try|try
 block|{
 comment|// we use the top level doc id, since we work with the top level searcher
+name|hitContext
+operator|.
 name|hit
+argument_list|()
 operator|.
 name|explanation
 argument_list|(
@@ -260,7 +254,10 @@ operator|.
 name|query
 argument_list|()
 argument_list|,
+name|hitContext
+operator|.
 name|hit
+argument_list|()
 operator|.
 name|docId
 argument_list|()
@@ -282,7 +279,23 @@ name|context
 argument_list|,
 literal|"Failed to explain doc ["
 operator|+
-name|docId
+name|hitContext
+operator|.
+name|hit
+argument_list|()
+operator|.
+name|type
+argument_list|()
+operator|+
+literal|"#"
+operator|+
+name|hitContext
+operator|.
+name|hit
+argument_list|()
+operator|.
+name|id
+argument_list|()
 operator|+
 literal|"]"
 argument_list|,
