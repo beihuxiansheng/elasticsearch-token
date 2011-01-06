@@ -145,13 +145,15 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|fromIndex
+operator|<
+name|idx
+operator|&&
 name|idx
 operator|<
-literal|0
+name|toIndex
 condition|)
 block|{
-continue|continue;
-block|}
 name|params
 operator|.
 name|put
@@ -183,6 +185,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|fromIndex
 operator|=
 name|toIndex
