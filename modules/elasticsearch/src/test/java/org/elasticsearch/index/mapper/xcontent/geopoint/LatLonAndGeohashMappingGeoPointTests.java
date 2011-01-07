@@ -100,21 +100,23 @@ begin_import
 import|import
 name|org
 operator|.
-name|hamcrest
-operator|.
-name|MatcherAssert
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|testng
 operator|.
 name|annotations
 operator|.
 name|Test
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|MatcherAssert
+operator|.
+name|*
 import|;
 end_import
 
@@ -273,8 +275,6 @@ name|copiedBytes
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|MatcherAssert
-operator|.
 name|assertThat
 argument_list|(
 name|doc
@@ -282,7 +282,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getField
+name|getFieldable
 argument_list|(
 literal|"point.lat"
 argument_list|)
@@ -291,8 +291,6 @@ name|notNullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|MatcherAssert
-operator|.
 name|assertThat
 argument_list|(
 name|doc
@@ -300,7 +298,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getField
+name|getFieldable
 argument_list|(
 literal|"point.lon"
 argument_list|)
@@ -309,8 +307,6 @@ name|notNullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|MatcherAssert
-operator|.
 name|assertThat
 argument_list|(
 name|doc
@@ -455,8 +451,6 @@ name|copiedBytes
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|MatcherAssert
-operator|.
 name|assertThat
 argument_list|(
 name|doc
@@ -464,7 +458,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getField
+name|getFieldable
 argument_list|(
 literal|"point.lat"
 argument_list|)
@@ -473,8 +467,6 @@ name|notNullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|MatcherAssert
-operator|.
 name|assertThat
 argument_list|(
 name|doc
@@ -482,7 +474,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getField
+name|getFieldable
 argument_list|(
 literal|"point.lon"
 argument_list|)
@@ -491,8 +483,6 @@ name|notNullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|MatcherAssert
-operator|.
 name|assertThat
 argument_list|(
 name|doc
@@ -644,8 +634,6 @@ name|copiedBytes
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|MatcherAssert
-operator|.
 name|assertThat
 argument_list|(
 name|doc
@@ -653,7 +641,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getField
+name|getFieldable
 argument_list|(
 literal|"point.lat"
 argument_list|)
@@ -662,8 +650,6 @@ name|notNullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|MatcherAssert
-operator|.
 name|assertThat
 argument_list|(
 name|doc
@@ -671,7 +657,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getField
+name|getFieldable
 argument_list|(
 literal|"point.lon"
 argument_list|)
@@ -680,8 +666,6 @@ name|notNullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|MatcherAssert
-operator|.
 name|assertThat
 argument_list|(
 name|doc

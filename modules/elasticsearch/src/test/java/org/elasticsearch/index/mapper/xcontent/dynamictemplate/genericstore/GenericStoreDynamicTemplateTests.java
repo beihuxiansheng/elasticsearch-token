@@ -46,7 +46,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|Field
+name|Fieldable
 import|;
 end_import
 
@@ -153,10 +153,10 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|GenericStoreDynamicTempalteTests
+DECL|class|GenericStoreDynamicTemplateTests
 specifier|public
 class|class
-name|GenericStoreDynamicTempalteTests
+name|GenericStoreDynamicTemplateTests
 block|{
 DECL|method|testSimple
 annotation|@
@@ -211,12 +211,12 @@ operator|.
 name|doc
 argument_list|()
 decl_stmt|;
-name|Field
+name|Fieldable
 name|f
 init|=
 name|doc
 operator|.
-name|getField
+name|getFieldable
 argument_list|(
 literal|"name"
 argument_list|)
@@ -309,7 +309,7 @@ name|f
 operator|=
 name|doc
 operator|.
-name|getField
+name|getFieldable
 argument_list|(
 literal|"age"
 argument_list|)

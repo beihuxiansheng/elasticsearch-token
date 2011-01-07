@@ -287,7 +287,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getField
+name|getFieldable
 argument_list|(
 literal|"point.lat"
 argument_list|)
@@ -303,7 +303,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getField
+name|getFieldable
 argument_list|(
 literal|"point.lat"
 argument_list|)
@@ -322,7 +322,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getField
+name|getFieldable
 argument_list|(
 literal|"point.lon"
 argument_list|)
@@ -338,7 +338,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getField
+name|getFieldable
 argument_list|(
 literal|"point.lon"
 argument_list|)
@@ -357,7 +357,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getField
+name|getFieldable
 argument_list|(
 literal|"point.geohash"
 argument_list|)
@@ -525,7 +525,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getField
+name|getFieldable
 argument_list|(
 literal|"point.lat"
 argument_list|)
@@ -541,7 +541,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getField
+name|getFieldable
 argument_list|(
 literal|"point.lat"
 argument_list|)
@@ -567,7 +567,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getField
+name|getFieldable
 argument_list|(
 literal|"point.lon"
 argument_list|)
@@ -583,7 +583,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getField
+name|getFieldable
 argument_list|(
 literal|"point.lon"
 argument_list|)
@@ -609,7 +609,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getField
+name|getFieldable
 argument_list|(
 literal|"point.geohash"
 argument_list|)
@@ -803,7 +803,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getFields
+name|getFieldables
 argument_list|(
 literal|"point.lat"
 argument_list|)
@@ -823,7 +823,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getFields
+name|getFieldables
 argument_list|(
 literal|"point.lon"
 argument_list|)
@@ -843,7 +843,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getFields
+name|getFieldables
 argument_list|(
 literal|"point.lat"
 argument_list|)
@@ -872,7 +872,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getFields
+name|getFieldables
 argument_list|(
 literal|"point.lon"
 argument_list|)
@@ -901,7 +901,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getFields
+name|getFieldables
 argument_list|(
 literal|"point"
 argument_list|)
@@ -925,7 +925,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getFields
+name|getFieldables
 argument_list|(
 literal|"point.lat"
 argument_list|)
@@ -954,7 +954,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getFields
+name|getFieldables
 argument_list|(
 literal|"point.lon"
 argument_list|)
@@ -983,7 +983,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getFields
+name|getFieldables
 argument_list|(
 literal|"point"
 argument_list|)
@@ -1119,7 +1119,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getField
+name|getFieldable
 argument_list|(
 literal|"point.lat"
 argument_list|)
@@ -1135,7 +1135,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getField
+name|getFieldable
 argument_list|(
 literal|"point.lon"
 argument_list|)
@@ -1288,7 +1288,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getField
+name|getFieldable
 argument_list|(
 literal|"point.lat"
 argument_list|)
@@ -1304,7 +1304,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getField
+name|getFieldable
 argument_list|(
 literal|"point.lat"
 argument_list|)
@@ -1330,7 +1330,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getField
+name|getFieldable
 argument_list|(
 literal|"point.lon"
 argument_list|)
@@ -1346,7 +1346,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getField
+name|getFieldable
 argument_list|(
 literal|"point.lon"
 argument_list|)
@@ -1520,7 +1520,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getFields
+name|getFieldables
 argument_list|(
 literal|"point.lat"
 argument_list|)
@@ -1540,7 +1540,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getFields
+name|getFieldables
 argument_list|(
 literal|"point.lon"
 argument_list|)
@@ -1560,7 +1560,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getFields
+name|getFieldables
 argument_list|(
 literal|"point.lat"
 argument_list|)
@@ -1589,7 +1589,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getFields
+name|getFieldables
 argument_list|(
 literal|"point.lon"
 argument_list|)
@@ -1618,7 +1618,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getFields
+name|getFieldables
 argument_list|(
 literal|"point"
 argument_list|)
@@ -1642,7 +1642,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getFields
+name|getFieldables
 argument_list|(
 literal|"point.lat"
 argument_list|)
@@ -1671,7 +1671,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getFields
+name|getFieldables
 argument_list|(
 literal|"point.lon"
 argument_list|)
@@ -1700,7 +1700,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getFields
+name|getFieldables
 argument_list|(
 literal|"point"
 argument_list|)
@@ -1843,7 +1843,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getField
+name|getFieldable
 argument_list|(
 literal|"point.lat"
 argument_list|)
@@ -1859,7 +1859,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getField
+name|getFieldable
 argument_list|(
 literal|"point.lon"
 argument_list|)
@@ -2014,7 +2014,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getField
+name|getFieldable
 argument_list|(
 literal|"point.lat"
 argument_list|)
@@ -2030,7 +2030,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getField
+name|getFieldable
 argument_list|(
 literal|"point.lat"
 argument_list|)
@@ -2049,7 +2049,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getField
+name|getFieldable
 argument_list|(
 literal|"point.lon"
 argument_list|)
@@ -2065,7 +2065,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getField
+name|getFieldable
 argument_list|(
 literal|"point.lon"
 argument_list|)
@@ -2232,7 +2232,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getField
+name|getFieldable
 argument_list|(
 literal|"point.lat"
 argument_list|)
@@ -2248,7 +2248,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getField
+name|getFieldable
 argument_list|(
 literal|"point.lat"
 argument_list|)
@@ -2274,7 +2274,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getField
+name|getFieldable
 argument_list|(
 literal|"point.lon"
 argument_list|)
@@ -2290,7 +2290,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getField
+name|getFieldable
 argument_list|(
 literal|"point.lon"
 argument_list|)
@@ -2486,7 +2486,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getFields
+name|getFieldables
 argument_list|(
 literal|"point.lat"
 argument_list|)
@@ -2506,7 +2506,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getFields
+name|getFieldables
 argument_list|(
 literal|"point.lon"
 argument_list|)
@@ -2526,7 +2526,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getFields
+name|getFieldables
 argument_list|(
 literal|"point.lat"
 argument_list|)
@@ -2555,7 +2555,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getFields
+name|getFieldables
 argument_list|(
 literal|"point.lon"
 argument_list|)
@@ -2584,7 +2584,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getFields
+name|getFieldables
 argument_list|(
 literal|"point"
 argument_list|)
@@ -2608,7 +2608,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getFields
+name|getFieldables
 argument_list|(
 literal|"point.lat"
 argument_list|)
@@ -2637,7 +2637,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getFields
+name|getFieldables
 argument_list|(
 literal|"point.lon"
 argument_list|)
@@ -2666,7 +2666,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getFields
+name|getFieldables
 argument_list|(
 literal|"point"
 argument_list|)

@@ -236,7 +236,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|getField
+name|getFieldable
 argument_list|(
 literal|"ip1"
 argument_list|)
