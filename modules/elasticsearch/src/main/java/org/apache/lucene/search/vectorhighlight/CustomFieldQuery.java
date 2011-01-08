@@ -499,22 +499,8 @@ operator|.
 name|getRewriteMethod
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|rewriteMethod
-operator|!=
-name|MultiTermQuery
-operator|.
-name|CONSTANT_SCORE_BOOLEAN_QUERY_REWRITE
-operator|&&
-name|rewriteMethod
-operator|!=
-name|MultiTermQuery
-operator|.
-name|SCORING_BOOLEAN_QUERY_REWRITE
-condition|)
-block|{
-comment|// we need to rewrite
+comment|// we want to rewrite a multi term query to extract the terms out of it
+comment|// LUCENE MONITOR: The regular Highlighter actually uses MemoryIndex to extract the terms
 name|multiTermQuery
 operator|.
 name|setRewriteMethod
@@ -569,7 +555,6 @@ argument_list|(
 name|rewriteMethod
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 elseif|else
