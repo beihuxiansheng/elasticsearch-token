@@ -1617,6 +1617,11 @@ block|}
 break|break;
 block|}
 block|}
+block|}
+name|dirty
+operator|=
+literal|true
+expr_stmt|;
 if|if
 condition|(
 name|bulk
@@ -1646,11 +1651,6 @@ block|{
 comment|//ignore
 block|}
 block|}
-block|}
-name|dirty
-operator|=
-literal|true
-expr_stmt|;
 block|}
 finally|finally
 block|{
