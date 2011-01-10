@@ -286,6 +286,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -1068,6 +1078,7 @@ specifier|private
 name|void
 name|sendPings
 parameter_list|(
+specifier|final
 name|int
 name|id
 parameter_list|,
@@ -1239,6 +1250,19 @@ name|ConnectTransportException
 name|e
 parameter_list|)
 block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"[{}] failed to connect to {}"
+argument_list|,
+name|e
+argument_list|,
+name|id
+argument_list|,
+name|nodeToSend
+argument_list|)
+expr_stmt|;
 name|latch
 operator|.
 name|countDown
@@ -1247,6 +1271,19 @@ expr_stmt|;
 comment|// can't connect to the node
 continue|continue;
 block|}
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"[{}] connecting to {}, disconnect[{}]"
+argument_list|,
+name|id
+argument_list|,
+name|nodeToSend
+argument_list|,
+name|disconnectX
+argument_list|)
+expr_stmt|;
 specifier|final
 name|boolean
 name|disconnect
@@ -1315,6 +1352,26 @@ name|UnicastPingResponse
 name|response
 parameter_list|)
 block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"[{}] received response from {}: {}"
+argument_list|,
+name|id
+argument_list|,
+name|nodeToSend
+argument_list|,
+name|Arrays
+operator|.
+name|toString
+argument_list|(
+name|response
+operator|.
+name|pingResponses
+argument_list|)
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|DiscoveryNodes
@@ -1385,6 +1442,26 @@ argument_list|)
 condition|)
 block|{
 comment|// not part of the cluster
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"[{}] filtering out response from {}, not same cluster_name [{}]"
+argument_list|,
+name|pingResponse
+operator|.
+name|target
+argument_list|()
+argument_list|,
+name|pingResponse
+operator|.
+name|clusterName
+argument_list|()
+operator|.
+name|value
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return;
 block|}
 name|ConcurrentMap
@@ -1472,6 +1549,17 @@ name|ConnectTransportException
 condition|)
 block|{
 comment|// ok, not connected...
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"failed to connect to {}"
+argument_list|,
+name|exp
+argument_list|,
+name|nodeToSend
+argument_list|)
+expr_stmt|;
 block|}
 else|else
 block|{

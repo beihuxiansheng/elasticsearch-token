@@ -470,7 +470,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"ping_response target ["
+literal|"ping_response{target ["
 operator|+
 name|target
 operator|+
@@ -478,7 +478,14 @@ literal|"], master ["
 operator|+
 name|master
 operator|+
-literal|"]"
+literal|"], cluster_name["
+operator|+
+name|clusterName
+operator|.
+name|value
+argument_list|()
+operator|+
+literal|"]}"
 return|;
 block|}
 block|}
