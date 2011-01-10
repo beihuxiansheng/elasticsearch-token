@@ -696,7 +696,7 @@ DECL|method|toXContent
 annotation|@
 name|Override
 specifier|public
-name|void
+name|XContentBuilder
 name|toXContent
 parameter_list|(
 name|XContentBuilder
@@ -911,6 +911,9 @@ argument_list|,
 name|params
 argument_list|)
 expr_stmt|;
+return|return
+name|builder
+return|;
 block|}
 DECL|method|readSearchResponse
 specifier|public

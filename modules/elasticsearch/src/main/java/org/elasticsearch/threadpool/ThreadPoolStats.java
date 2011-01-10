@@ -310,7 +310,7 @@ DECL|method|toXContent
 annotation|@
 name|Override
 specifier|public
-name|void
+name|XContentBuilder
 name|toXContent
 parameter_list|(
 name|XContentBuilder
@@ -370,6 +370,9 @@ operator|.
 name|endObject
 argument_list|()
 expr_stmt|;
+return|return
+name|builder
+return|;
 block|}
 comment|/**      * Returns the current number of threads in the pool.      *      * @return the number of threads      */
 DECL|method|poolSize

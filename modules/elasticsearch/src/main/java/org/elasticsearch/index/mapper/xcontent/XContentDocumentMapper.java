@@ -2818,7 +2818,7 @@ DECL|method|toXContent
 annotation|@
 name|Override
 specifier|public
-name|void
+name|XContentBuilder
 name|toXContent
 parameter_list|(
 name|XContentBuilder
@@ -2845,7 +2845,7 @@ block|{
 annotation|@
 name|Override
 specifier|public
-name|void
+name|XContentBuilder
 name|toXContent
 parameter_list|(
 name|XContentBuilder
@@ -3040,6 +3040,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|builder
+return|;
 block|}
 comment|// no need to pass here id and boost, since they are added to the root object mapper
 comment|// in the constructor
@@ -3056,6 +3059,9 @@ argument_list|,
 name|sourceFieldMapper
 argument_list|)
 expr_stmt|;
+return|return
+name|builder
+return|;
 block|}
 block|}
 end_class

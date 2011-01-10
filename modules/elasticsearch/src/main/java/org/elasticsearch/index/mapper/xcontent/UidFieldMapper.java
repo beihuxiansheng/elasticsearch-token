@@ -625,7 +625,7 @@ DECL|method|toXContent
 annotation|@
 name|Override
 specifier|public
-name|void
+name|XContentBuilder
 name|toXContent
 parameter_list|(
 name|XContentBuilder
@@ -638,6 +638,9 @@ throws|throws
 name|IOException
 block|{
 comment|// for now, don't output it at all
+return|return
+name|builder
+return|;
 block|}
 DECL|method|merge
 annotation|@

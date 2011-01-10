@@ -918,7 +918,7 @@ DECL|method|toXContent
 annotation|@
 name|Override
 specifier|public
-name|void
+name|XContentBuilder
 name|toXContent
 parameter_list|(
 name|XContentBuilder
@@ -1195,6 +1195,9 @@ name|endObject
 argument_list|()
 expr_stmt|;
 block|}
+return|return
+name|builder
+return|;
 block|}
 DECL|method|readFrom
 annotation|@

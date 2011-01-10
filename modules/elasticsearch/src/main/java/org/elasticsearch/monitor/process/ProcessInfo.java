@@ -181,7 +181,7 @@ DECL|method|toXContent
 annotation|@
 name|Override
 specifier|public
-name|void
+name|XContentBuilder
 name|toXContent
 parameter_list|(
 name|XContentBuilder
@@ -214,6 +214,9 @@ operator|.
 name|endObject
 argument_list|()
 expr_stmt|;
+return|return
+name|builder
+return|;
 block|}
 DECL|method|readProcessInfo
 specifier|public

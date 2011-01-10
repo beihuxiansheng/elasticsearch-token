@@ -371,7 +371,7 @@ return|;
 block|}
 block|}
 DECL|method|toXContent
-name|void
+name|XContentBuilder
 name|toXContent
 parameter_list|(
 name|XContentBuilder
