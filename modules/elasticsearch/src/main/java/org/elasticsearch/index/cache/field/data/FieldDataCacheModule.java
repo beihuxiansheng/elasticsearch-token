@@ -161,7 +161,7 @@ name|SoftFieldDataCache
 operator|.
 name|class
 argument_list|,
-literal|"org.elasticsearch.index.cache.field."
+literal|"org.elasticsearch.index.cache.field.data."
 argument_list|,
 literal|"FieldDataCache"
 argument_list|)
