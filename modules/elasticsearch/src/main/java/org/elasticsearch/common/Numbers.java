@@ -51,7 +51,7 @@ operator|(
 operator|(
 name|arr
 index|[
-literal|2
+literal|0
 index|]
 operator|&
 literal|0xff
@@ -63,7 +63,7 @@ operator||
 operator|(
 name|arr
 index|[
-literal|3
+literal|1
 index|]
 operator|&
 literal|0xff
@@ -406,7 +406,7 @@ index|]
 decl_stmt|;
 name|arr
 index|[
-literal|2
+literal|0
 index|]
 operator|=
 call|(
@@ -420,7 +420,7 @@ argument_list|)
 expr_stmt|;
 name|arr
 index|[
-literal|3
+literal|1
 index|]
 operator|=
 call|(
