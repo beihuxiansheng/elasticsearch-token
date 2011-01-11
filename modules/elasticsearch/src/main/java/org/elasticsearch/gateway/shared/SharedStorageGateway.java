@@ -868,6 +868,24 @@ name|ClusterState
 name|clusterState
 parameter_list|)
 block|{
+if|if
+condition|(
+name|fMetaData
+operator|.
+name|indices
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|listener
+operator|.
+name|onSuccess
+argument_list|()
+expr_stmt|;
+return|return;
+block|}
 comment|// go over the meta data and create indices, we don't really need to copy over
 comment|// the meta data per index, since we create the index and it will be added automatically
 for|for
