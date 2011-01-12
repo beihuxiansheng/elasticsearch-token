@@ -156,6 +156,16 @@ name|IndexShard
 name|indexShard
 parameter_list|)
 block|{          }
+comment|/**          * Called after the index shard has been started.          */
+DECL|method|afterIndexShardStarted
+specifier|public
+name|void
+name|afterIndexShardStarted
+parameter_list|(
+name|IndexShard
+name|indexShard
+parameter_list|)
+block|{          }
 comment|/**          * Called before the index get closed.          *          * @param indexService The index service          * @param delete       Does the index gets closed because of a delete command, or because the node is shutting down          */
 DECL|method|beforeIndexClosed
 specifier|public
