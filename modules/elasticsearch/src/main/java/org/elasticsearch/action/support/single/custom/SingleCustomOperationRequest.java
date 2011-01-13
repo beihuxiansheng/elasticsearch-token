@@ -113,6 +113,13 @@ name|threadedOperation
 init|=
 literal|true
 decl_stmt|;
+DECL|field|preferLocal
+specifier|private
+name|boolean
+name|preferLocal
+init|=
+literal|true
+decl_stmt|;
 DECL|method|SingleCustomOperationRequest
 specifier|protected
 name|SingleCustomOperationRequest
@@ -195,6 +202,39 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * if this operation hits a node with a local relevant shard, should it be preferred      * to be executed on, or just do plain round robin. Defaults to<tt>true</tt>      */
+DECL|method|preferLocal
+specifier|public
+name|SingleCustomOperationRequest
+name|preferLocal
+parameter_list|(
+name|boolean
+name|preferLocal
+parameter_list|)
+block|{
+name|this
+operator|.
+name|preferLocal
+operator|=
+name|preferLocal
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * if this operation hits a node with a local relevant shard, should it be preferred      * to be executed on, or just do plain round robin. Defaults to<tt>true</tt>      */
+DECL|method|preferLocalShard
+specifier|public
+name|boolean
+name|preferLocalShard
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|preferLocal
+return|;
+block|}
 DECL|method|beforeLocalFork
 specifier|public
 name|void
@@ -215,6 +255,13 @@ throws|throws
 name|IOException
 block|{
 comment|// no need to pass threading over the network, they are always false when coming throw a thread pool
+name|preferLocal
+operator|=
+name|in
+operator|.
+name|readBoolean
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|writeTo
 annotation|@
@@ -228,7 +275,15 @@ name|out
 parameter_list|)
 throws|throws
 name|IOException
-block|{     }
+block|{
+name|out
+operator|.
+name|writeBoolean
+argument_list|(
+name|preferLocal
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

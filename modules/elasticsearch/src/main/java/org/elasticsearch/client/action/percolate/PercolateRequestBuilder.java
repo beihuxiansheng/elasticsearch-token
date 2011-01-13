@@ -408,6 +408,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * if this operation hits a node with a local relevant shard, should it be preferred      * to be executed on, or just do plain round robin. Defaults to<tt>true</tt>      */
+DECL|method|setPreferLocal
+specifier|public
+name|PercolateRequestBuilder
+name|setPreferLocal
+parameter_list|(
+name|boolean
+name|preferLocal
+parameter_list|)
+block|{
+name|request
+operator|.
+name|preferLocal
+argument_list|(
+name|preferLocal
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Controls if the operation will be executed on a separate thread when executed locally. Defaults      * to<tt>true</tt> when running in embedded mode.      */
 DECL|method|setOperationThreaded
 specifier|public

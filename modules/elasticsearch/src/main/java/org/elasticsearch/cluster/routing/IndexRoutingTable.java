@@ -785,10 +785,10 @@ name|shards
 return|;
 block|}
 comment|/**      * An iterator over all shards (including replicas).      */
-DECL|method|allShardsIt
+DECL|method|randomAllShardsIt
 specifier|public
 name|ShardsIterator
-name|allShardsIt
+name|randomAllShardsIt
 parameter_list|()
 block|{
 return|return

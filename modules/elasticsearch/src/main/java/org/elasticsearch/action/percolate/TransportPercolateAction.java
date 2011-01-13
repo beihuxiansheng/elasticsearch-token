@@ -363,7 +363,7 @@ name|index
 argument_list|()
 argument_list|)
 operator|.
-name|allShardsIt
+name|randomAllShardsIt
 argument_list|()
 return|;
 block|}
