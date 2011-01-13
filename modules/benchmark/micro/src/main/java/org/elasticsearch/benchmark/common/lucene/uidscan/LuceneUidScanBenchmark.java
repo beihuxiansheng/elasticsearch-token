@@ -551,6 +551,11 @@ name|isPayloadAvailable
 argument_list|()
 condition|)
 block|{
+name|uid
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 name|System
 operator|.
 name|err
@@ -591,6 +596,11 @@ operator|!=
 name|id
 condition|)
 block|{
+name|uid
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 name|System
 operator|.
 name|err
@@ -602,6 +612,11 @@ argument_list|)
 expr_stmt|;
 break|break;
 block|}
+name|uid
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 catch|catch

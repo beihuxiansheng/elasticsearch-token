@@ -201,6 +201,9 @@ parameter_list|)
 throws|throws
 name|ElasticSearchException
 block|{
+comment|// it might make sense to cache the TermDocs on a shared fetch context and just skip here)
+comment|// it is going to mean we work on the high level multi reader and not the lower level reader as is
+comment|// the case below...
 name|long
 name|version
 init|=
