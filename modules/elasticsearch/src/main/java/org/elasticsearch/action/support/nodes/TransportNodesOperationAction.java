@@ -1090,6 +1090,26 @@ name|accumulateExceptions
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
+name|logger
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"failed to execute on node [{}]"
+argument_list|,
+name|t
+argument_list|,
+name|nodeId
+argument_list|)
+expr_stmt|;
+block|}
 name|responses
 operator|.
 name|set
