@@ -47,6 +47,15 @@ argument_list|>
 extends|,
 name|InternalMapper
 block|{
+DECL|field|NAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|NAME
+init|=
+literal|"_id"
+decl_stmt|;
 DECL|method|value
 name|String
 name|value

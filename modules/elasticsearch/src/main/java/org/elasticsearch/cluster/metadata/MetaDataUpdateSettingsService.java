@@ -217,17 +217,7 @@ condition|)
 block|{
 return|return;
 block|}
-if|if
-condition|(
-operator|!
-name|event
-operator|.
-name|nodesChanged
-argument_list|()
-condition|)
-block|{
-return|return;
-block|}
+comment|// TODO we only need to do that on first create of an index, or the number of nodes changed
 for|for
 control|(
 specifier|final
@@ -253,7 +243,9 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"index.auto_expand_replicas"
+name|IndexMetaData
+operator|.
+name|SETTING_AUTO_EXPAND_REPLICAS
 argument_list|)
 decl_stmt|;
 if|if
@@ -367,6 +359,19 @@ argument_list|(
 name|sMax
 argument_list|)
 expr_stmt|;
+block|}
+comment|// same value, nothing to do there
+if|if
+condition|(
+name|numberOfReplicas
+operator|==
+name|indexMetaData
+operator|.
+name|numberOfReplicas
+argument_list|()
+condition|)
+block|{
+continue|continue;
 block|}
 if|if
 condition|(

@@ -2069,6 +2069,11 @@ name|listener
 argument_list|)
 expr_stmt|;
 comment|// will result in START_OBJECT
+name|int
+name|countDownTokens
+init|=
+literal|0
+decl_stmt|;
 name|XContentParser
 operator|.
 name|Token
@@ -2098,6 +2103,9 @@ literal|"Malformed content, must start with an object"
 argument_list|)
 throw|;
 block|}
+name|countDownTokens
+operator|++
+expr_stmt|;
 name|token
 operator|=
 name|parser
@@ -2147,6 +2155,9 @@ name|parser
 operator|.
 name|nextToken
 argument_list|()
+expr_stmt|;
+name|countDownTokens
+operator|++
 expr_stmt|;
 comment|// commented out, allow for same type with START_OBJECT, we do our best to handle it except for the above corner case
 comment|//                if (token != XContentParser.Token.START_OBJECT) {
@@ -2247,6 +2258,27 @@ argument_list|(
 name|context
 argument_list|)
 expr_stmt|;
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+name|countDownTokens
+condition|;
+name|i
+operator|++
+control|)
+block|{
+name|parser
+operator|.
+name|nextToken
+argument_list|()
+expr_stmt|;
+block|}
 comment|// if we did not get the id, we need to parse the uid into the document now, after it was added
 if|if
 condition|(

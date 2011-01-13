@@ -445,6 +445,15 @@ name|SETTING_NUMBER_OF_REPLICAS
 init|=
 literal|"index.number_of_replicas"
 decl_stmt|;
+DECL|field|SETTING_AUTO_EXPAND_REPLICAS
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SETTING_AUTO_EXPAND_REPLICAS
+init|=
+literal|"index.auto_expand_replicas"
+decl_stmt|;
 DECL|field|index
 specifier|private
 specifier|final

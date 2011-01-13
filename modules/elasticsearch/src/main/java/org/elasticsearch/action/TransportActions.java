@@ -114,6 +114,15 @@ name|MORE_LIKE_THIS
 init|=
 literal|"indices/moreLikeThis"
 decl_stmt|;
+DECL|field|PERCOLATE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|PERCOLATE
+init|=
+literal|"indices/percolate"
+decl_stmt|;
 DECL|class|Admin
 specifier|public
 specifier|static
