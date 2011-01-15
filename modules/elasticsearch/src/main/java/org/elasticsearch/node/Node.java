@@ -68,7 +68,7 @@ name|Node
 name|start
 parameter_list|()
 function_decl|;
-comment|/**      * Stops the node. If the node is already started, this method is no-op.      */
+comment|/**      * Stops the node. If the node is already stopped, this method is no-op.      */
 DECL|method|stop
 name|Node
 name|stop
