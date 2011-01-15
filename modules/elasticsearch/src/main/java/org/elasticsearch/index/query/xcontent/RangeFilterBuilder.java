@@ -830,6 +830,32 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The to part of the filter query. Null indicates unbounded.      */
+DECL|method|lte
+specifier|public
+name|RangeFilterBuilder
+name|lte
+parameter_list|(
+name|Object
+name|to
+parameter_list|)
+block|{
+name|this
+operator|.
+name|to
+operator|=
+name|to
+expr_stmt|;
+name|this
+operator|.
+name|includeUpper
+operator|=
+literal|true
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Should the lower bound be included or not. Defaults to<tt>true</tt>.      */
 DECL|method|includeLower
 specifier|public
