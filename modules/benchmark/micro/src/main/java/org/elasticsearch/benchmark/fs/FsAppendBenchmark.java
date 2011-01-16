@@ -172,7 +172,7 @@ name|ByteSizeValue
 operator|.
 name|parseBytesSizeValue
 argument_list|(
-literal|"100mb"
+literal|"10gb"
 argument_list|)
 operator|.
 name|bytes
@@ -205,7 +205,9 @@ name|StopWatch
 argument_list|()
 operator|.
 name|start
-argument_list|()
+argument_list|(
+literal|"write"
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -253,6 +255,16 @@ operator|.
 name|length
 expr_stmt|;
 block|}
+name|watch
+operator|.
+name|stop
+argument_list|()
+operator|.
+name|start
+argument_list|(
+literal|"flush"
+argument_list|)
+expr_stmt|;
 name|channel
 operator|.
 name|force
@@ -289,6 +301,16 @@ operator|.
 name|length
 expr_stmt|;
 block|}
+name|watch
+operator|.
+name|stop
+argument_list|()
+operator|.
+name|start
+argument_list|(
+literal|"flush"
+argument_list|)
+expr_stmt|;
 name|raf
 operator|.
 name|getFD
@@ -337,9 +359,6 @@ operator|+
 literal|"], in "
 operator|+
 name|watch
-operator|.
-name|lastTaskTime
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
