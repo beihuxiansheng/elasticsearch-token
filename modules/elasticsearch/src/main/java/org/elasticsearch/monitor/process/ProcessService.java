@@ -187,6 +187,17 @@ argument_list|()
 expr_stmt|;
 name|this
 operator|.
+name|info
+operator|.
+name|refreshInterval
+operator|=
+name|refreshInterval
+operator|.
+name|millis
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
 name|cachedStats
 operator|=
 name|probe
