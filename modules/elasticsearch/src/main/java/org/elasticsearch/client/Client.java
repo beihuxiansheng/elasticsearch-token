@@ -436,9 +436,11 @@ end_import
 
 begin_import
 import|import
-name|javax
+name|org
 operator|.
-name|annotation
+name|elasticsearch
+operator|.
+name|common
 operator|.
 name|Nullable
 import|;

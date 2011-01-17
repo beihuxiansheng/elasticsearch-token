@@ -138,21 +138,23 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|io
-operator|.
-name|stream
-operator|.
-name|*
+name|Nullable
 import|;
 end_import
 
 begin_import
 import|import
-name|javax
+name|org
 operator|.
-name|annotation
+name|elasticsearch
 operator|.
-name|Nullable
+name|common
+operator|.
+name|io
+operator|.
+name|stream
+operator|.
+name|*
 import|;
 end_import
 

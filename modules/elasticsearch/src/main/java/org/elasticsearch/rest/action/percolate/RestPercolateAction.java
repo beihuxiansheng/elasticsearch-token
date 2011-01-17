@@ -78,6 +78,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|settings
 operator|.
 name|Settings
@@ -137,16 +151,6 @@ operator|.
 name|support
 operator|.
 name|RestXContentBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|inject
-operator|.
-name|Inject
 import|;
 end_import
 

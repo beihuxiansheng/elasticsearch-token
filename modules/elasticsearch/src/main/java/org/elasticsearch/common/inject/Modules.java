@@ -34,19 +34,21 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|settings
-operator|.
-name|Settings
+name|Nullable
 import|;
 end_import
 
 begin_import
 import|import
-name|javax
+name|org
 operator|.
-name|annotation
+name|elasticsearch
 operator|.
-name|Nullable
+name|common
+operator|.
+name|settings
+operator|.
+name|Settings
 import|;
 end_import
 
