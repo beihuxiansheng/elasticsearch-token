@@ -272,6 +272,17 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+block|}
+try|try
+block|{
 name|client
 operator|.
 name|admin
@@ -531,6 +542,17 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+block|}
+try|try
+block|{
 name|client
 operator|.
 name|admin
@@ -894,6 +916,17 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+block|}
+try|try
+block|{
 name|client
 operator|.
 name|admin
