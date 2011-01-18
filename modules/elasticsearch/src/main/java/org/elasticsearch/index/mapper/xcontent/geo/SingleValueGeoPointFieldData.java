@@ -420,6 +420,13 @@ operator|==
 literal|0
 condition|)
 block|{
+name|proc
+operator|.
+name|onMissing
+argument_list|(
+name|docId
+argument_list|)
+expr_stmt|;
 return|return;
 block|}
 name|proc

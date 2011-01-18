@@ -198,6 +198,14 @@ name|double
 name|value
 parameter_list|)
 function_decl|;
+DECL|method|onMissing
+name|void
+name|onMissing
+parameter_list|(
+name|int
+name|docId
+parameter_list|)
+function_decl|;
 block|}
 block|}
 end_class

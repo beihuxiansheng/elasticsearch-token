@@ -637,6 +637,18 @@ name|ComparatorType
 name|getComparatorType
 parameter_list|()
 function_decl|;
+comment|/**      * The number of docs missing a value.      */
+DECL|method|missingCount
+name|long
+name|missingCount
+parameter_list|()
+function_decl|;
+comment|/**      * The number of docs missing a value.      */
+DECL|method|getMissingCount
+name|long
+name|getMissingCount
+parameter_list|()
+function_decl|;
 comment|/**      * The terms and counts.      */
 DECL|method|entries
 name|List

@@ -328,6 +328,14 @@ name|String
 name|value
 parameter_list|)
 function_decl|;
+DECL|method|onMissing
+name|void
+name|onMissing
+parameter_list|(
+name|int
+name|docId
+parameter_list|)
+function_decl|;
 block|}
 comment|/**      * The type of this field data.      */
 DECL|method|type

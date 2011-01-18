@@ -558,6 +558,14 @@ name|byte
 name|value
 parameter_list|)
 function_decl|;
+DECL|method|onMissing
+name|void
+name|onMissing
+parameter_list|(
+name|int
+name|docID
+parameter_list|)
+function_decl|;
 block|}
 DECL|method|load
 specifier|public
