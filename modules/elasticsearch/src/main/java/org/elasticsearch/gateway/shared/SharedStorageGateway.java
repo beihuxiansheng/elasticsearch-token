@@ -234,14 +234,6 @@ specifier|final
 name|ClusterService
 name|clusterService
 decl_stmt|;
-DECL|field|performedStateRecovery
-specifier|private
-specifier|volatile
-name|boolean
-name|performedStateRecovery
-init|=
-literal|false
-decl_stmt|;
 DECL|field|executor
 specifier|private
 specifier|volatile
@@ -372,10 +364,6 @@ parameter_list|)
 throws|throws
 name|GatewayException
 block|{
-name|performedStateRecovery
-operator|=
-literal|true
-expr_stmt|;
 name|executor
 operator|.
 name|execute
@@ -538,10 +526,19 @@ condition|)
 block|{
 return|return;
 block|}
+comment|// nothing to do until we actually recover from the gateway or any other block indicates we need to disable persistency
 if|if
 condition|(
-operator|!
-name|performedStateRecovery
+name|event
+operator|.
+name|state
+argument_list|()
+operator|.
+name|blocks
+argument_list|()
+operator|.
+name|disableStatePersistence
+argument_list|()
 condition|)
 block|{
 return|return;

@@ -149,8 +149,14 @@ specifier|private
 name|boolean
 name|retryable
 decl_stmt|;
-DECL|method|ClusterBlock
+DECL|field|disableStatePersistence
 specifier|private
+name|boolean
+name|disableStatePersistence
+init|=
+literal|false
+decl_stmt|;
+DECL|method|ClusterBlock
 name|ClusterBlock
 parameter_list|()
 block|{     }
@@ -166,6 +172,9 @@ name|description
 parameter_list|,
 name|boolean
 name|retryable
+parameter_list|,
+name|boolean
+name|disableStatePersistence
 parameter_list|,
 name|ClusterBlockLevel
 modifier|...
@@ -189,6 +198,12 @@ operator|.
 name|retryable
 operator|=
 name|retryable
+expr_stmt|;
+name|this
+operator|.
+name|disableStatePersistence
+operator|=
+name|disableStatePersistence
 expr_stmt|;
 name|this
 operator|.
@@ -267,6 +282,7 @@ return|return
 literal|false
 return|;
 block|}
+comment|/**      * Should operations get into retry state if this block is present.      */
 DECL|method|retryable
 specifier|public
 name|boolean
@@ -277,6 +293,19 @@ return|return
 name|this
 operator|.
 name|retryable
+return|;
+block|}
+comment|/**      * Should global state persistence be disabled when this block is present. Note,      * only relevant for global blocks.      */
+DECL|method|disableStatePersistence
+specifier|public
+name|boolean
+name|disableStatePersistence
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|disableStatePersistence
 return|;
 block|}
 DECL|method|toXContent
@@ -325,6 +354,21 @@ argument_list|,
 name|retryable
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|disableStatePersistence
+condition|)
+block|{
+name|builder
+operator|.
+name|field
+argument_list|(
+literal|"disable_state_persistence"
+argument_list|,
+name|disableStatePersistence
+argument_list|)
+expr_stmt|;
+block|}
 name|builder
 operator|.
 name|startArray
@@ -476,6 +520,13 @@ operator|.
 name|readBoolean
 argument_list|()
 expr_stmt|;
+name|disableStatePersistence
+operator|=
+name|in
+operator|.
+name|readBoolean
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|writeTo
 annotation|@
@@ -537,6 +588,13 @@ operator|.
 name|writeBoolean
 argument_list|(
 name|retryable
+argument_list|)
+expr_stmt|;
+name|out
+operator|.
+name|writeBoolean
+argument_list|(
+name|disableStatePersistence
 argument_list|)
 expr_stmt|;
 block|}

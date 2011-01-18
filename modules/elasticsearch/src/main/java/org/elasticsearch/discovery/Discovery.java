@@ -111,6 +111,8 @@ literal|"no master"
 argument_list|,
 literal|true
 argument_list|,
+literal|true
+argument_list|,
 name|ClusterBlockLevel
 operator|.
 name|ALL
