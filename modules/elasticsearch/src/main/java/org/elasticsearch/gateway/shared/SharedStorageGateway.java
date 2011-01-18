@@ -1015,6 +1015,24 @@ name|index
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// we report success on index creation failure and do nothing
+comment|// should we disable writing the updated metadata?
+if|if
+condition|(
+name|indicesCounter
+operator|.
+name|decrementAndGet
+argument_list|()
+operator|==
+literal|0
+condition|)
+block|{
+name|listener
+operator|.
+name|onSuccess
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 block|}
 argument_list|)

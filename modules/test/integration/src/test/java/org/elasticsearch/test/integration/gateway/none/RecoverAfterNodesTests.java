@@ -222,7 +222,7 @@ name|hasItem
 argument_list|(
 name|GatewayService
 operator|.
-name|NOT_RECOVERED_FROM_GATEWAY_BLOCK
+name|STATE_NOT_RECOVERED_BLOCK
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -292,7 +292,7 @@ name|hasItem
 argument_list|(
 name|GatewayService
 operator|.
-name|NOT_RECOVERED_FROM_GATEWAY_BLOCK
+name|STATE_NOT_RECOVERED_BLOCK
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -340,7 +340,7 @@ name|hasItem
 argument_list|(
 name|GatewayService
 operator|.
-name|NOT_RECOVERED_FROM_GATEWAY_BLOCK
+name|STATE_NOT_RECOVERED_BLOCK
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -602,7 +602,7 @@ name|hasItem
 argument_list|(
 name|GatewayService
 operator|.
-name|NOT_RECOVERED_FROM_GATEWAY_BLOCK
+name|STATE_NOT_RECOVERED_BLOCK
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -686,7 +686,7 @@ name|hasItem
 argument_list|(
 name|GatewayService
 operator|.
-name|NOT_RECOVERED_FROM_GATEWAY_BLOCK
+name|STATE_NOT_RECOVERED_BLOCK
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -734,7 +734,7 @@ name|hasItem
 argument_list|(
 name|GatewayService
 operator|.
-name|NOT_RECOVERED_FROM_GATEWAY_BLOCK
+name|STATE_NOT_RECOVERED_BLOCK
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -818,7 +818,7 @@ name|hasItem
 argument_list|(
 name|GatewayService
 operator|.
-name|NOT_RECOVERED_FROM_GATEWAY_BLOCK
+name|STATE_NOT_RECOVERED_BLOCK
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -866,7 +866,7 @@ name|hasItem
 argument_list|(
 name|GatewayService
 operator|.
-name|NOT_RECOVERED_FROM_GATEWAY_BLOCK
+name|STATE_NOT_RECOVERED_BLOCK
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -914,7 +914,7 @@ name|hasItem
 argument_list|(
 name|GatewayService
 operator|.
-name|NOT_RECOVERED_FROM_GATEWAY_BLOCK
+name|STATE_NOT_RECOVERED_BLOCK
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1239,7 +1239,7 @@ name|hasItem
 argument_list|(
 name|GatewayService
 operator|.
-name|NOT_RECOVERED_FROM_GATEWAY_BLOCK
+name|STATE_NOT_RECOVERED_BLOCK
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1323,7 +1323,7 @@ name|hasItem
 argument_list|(
 name|GatewayService
 operator|.
-name|NOT_RECOVERED_FROM_GATEWAY_BLOCK
+name|STATE_NOT_RECOVERED_BLOCK
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1371,7 +1371,7 @@ name|hasItem
 argument_list|(
 name|GatewayService
 operator|.
-name|NOT_RECOVERED_FROM_GATEWAY_BLOCK
+name|STATE_NOT_RECOVERED_BLOCK
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1455,7 +1455,7 @@ name|hasItem
 argument_list|(
 name|GatewayService
 operator|.
-name|NOT_RECOVERED_FROM_GATEWAY_BLOCK
+name|STATE_NOT_RECOVERED_BLOCK
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1503,7 +1503,7 @@ name|hasItem
 argument_list|(
 name|GatewayService
 operator|.
-name|NOT_RECOVERED_FROM_GATEWAY_BLOCK
+name|STATE_NOT_RECOVERED_BLOCK
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1551,7 +1551,7 @@ name|hasItem
 argument_list|(
 name|GatewayService
 operator|.
-name|NOT_RECOVERED_FROM_GATEWAY_BLOCK
+name|STATE_NOT_RECOVERED_BLOCK
 argument_list|)
 argument_list|)
 expr_stmt|;

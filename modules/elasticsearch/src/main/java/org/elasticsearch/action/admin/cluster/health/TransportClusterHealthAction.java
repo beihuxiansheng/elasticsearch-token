@@ -1774,7 +1774,7 @@ name|hasGlobalBlock
 argument_list|(
 name|GatewayService
 operator|.
-name|NOT_RECOVERED_FROM_GATEWAY_BLOCK
+name|STATE_NOT_RECOVERED_BLOCK
 argument_list|)
 condition|)
 block|{
