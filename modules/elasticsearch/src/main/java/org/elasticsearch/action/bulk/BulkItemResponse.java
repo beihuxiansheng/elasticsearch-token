@@ -707,11 +707,19 @@ block|}
 comment|/**      * The actual response ({@link IndexResponse} or {@link DeleteResponse}).<tt>null</tt> in      * case of failure.      */
 DECL|method|response
 specifier|public
+parameter_list|<
+name|T
+extends|extends
 name|ActionResponse
+parameter_list|>
+name|T
 name|response
 parameter_list|()
 block|{
 return|return
+operator|(
+name|T
+operator|)
 name|response
 return|;
 block|}
