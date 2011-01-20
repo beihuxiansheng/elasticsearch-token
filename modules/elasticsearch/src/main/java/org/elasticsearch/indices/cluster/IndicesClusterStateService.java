@@ -975,7 +975,7 @@ control|)
 block|{
 name|logger
 operator|.
-name|warn
+name|debug
 argument_list|(
 literal|"[{}][{}] removing shard (index is closed)"
 argument_list|,
@@ -984,6 +984,8 @@ argument_list|,
 name|shardId
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|indexService
 operator|.
 name|removeShard
@@ -993,6 +995,25 @@ argument_list|,
 literal|"removing shard (index is closed)"
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"[{}] failed to remove shard (index is closed)"
+argument_list|,
+name|e
+argument_list|,
+name|index
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -1065,9 +1086,11 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"failed to clean index (no shards of that index are allocated on this node)"
+literal|"[{}] failed to clean index (no shards of that index are allocated on this node)"
 argument_list|,
 name|e
+argument_list|,
+name|index
 argument_list|)
 expr_stmt|;
 block|}
