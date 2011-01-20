@@ -1,10 +1,12 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_package
-DECL|package|org.apache.lucene.analysis.cz
+DECL|package|org.elasticsearch.common.lucene.analysis.cz
 package|package
 name|org
 operator|.
-name|apache
+name|elasticsearch
+operator|.
+name|common
 operator|.
 name|lucene
 operator|.
@@ -19,11 +21,11 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_comment
-comment|/**  * Light Stemmer for Czech.  *<p>  * Implements the algorithm described in:    *<i>  * Indexing and stemming approaches for the Czech language  *</i>  * http://portal.acm.org/citation.cfm?id=1598600  *</p>  */
+comment|/**  * Light Stemmer for Czech.  *<p>  * Implements the algorithm described in:  *<i>  * Indexing and stemming approaches for the Czech language  *</i>  * http://portal.acm.org/citation.cfm?id=1598600  *</p>  */
 end_comment
 
 begin_comment
-comment|// LUCENE MONITOR
+comment|// LUCENE MONITOR (remove once 3.1 is out)
 end_comment
 
 begin_class
@@ -32,7 +34,7 @@ specifier|public
 class|class
 name|CzechStemmer
 block|{
-comment|/**    * Stem an input buffer of Czech text.    *     * @param s input buffer    * @param len length of input buffer    * @return length of input buffer after normalization    *     *<p><b>NOTE</b>: Input is expected to be in lowercase,     * but with diacritical marks</p>    */
+comment|/**      * Stem an input buffer of Czech text.      *      * @param s   input buffer      * @param len length of input buffer      * @return length of input buffer after normalization      *      *<p><b>NOTE</b>: Input is expected to be in lowercase,      *         but with diacritical marks</p>      */
 DECL|method|stem
 specifier|public
 name|int
