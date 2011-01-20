@@ -1929,6 +1929,19 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"[{}] failed to create"
+argument_list|,
+name|e
+argument_list|,
+name|request
+operator|.
+name|index
+argument_list|)
+expr_stmt|;
 name|listener
 operator|.
 name|onFailure
