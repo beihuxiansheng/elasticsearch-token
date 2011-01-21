@@ -277,12 +277,12 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testSourceFieldPlainExplciit
+DECL|method|testSourceFieldPlainExplicit
 annotation|@
 name|Test
 specifier|public
 name|void
-name|testSourceFieldPlainExplciit
+name|testSourceFieldPlainExplicit
 parameter_list|()
 throws|throws
 name|IOException
