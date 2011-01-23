@@ -1801,7 +1801,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"failed to read local state"
+literal|"failed to read local state (metadata)"
 argument_list|,
 name|e
 argument_list|)
@@ -1873,7 +1873,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"failed to read local state"
+literal|"failed to read local state (started shards)"
 argument_list|,
 name|e
 argument_list|)
