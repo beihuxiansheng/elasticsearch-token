@@ -1266,7 +1266,6 @@ name|ReplicationType
 name|replicationType
 decl_stmt|;
 DECL|method|AsyncShardOperationAction
-specifier|private
 name|AsyncShardOperationAction
 parameter_list|(
 name|Request
