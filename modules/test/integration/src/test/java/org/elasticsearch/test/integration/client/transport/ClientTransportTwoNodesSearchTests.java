@@ -86,7 +86,9 @@ name|integration
 operator|.
 name|search
 operator|.
-name|TransportTwoServersSearchTests
+name|basic
+operator|.
+name|TransportTwoNodesSearchTests
 import|;
 end_import
 
@@ -107,12 +109,12 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|ClientTransportTwoServersSearchTests
+DECL|class|ClientTransportTwoNodesSearchTests
 specifier|public
 class|class
-name|ClientTransportTwoServersSearchTests
+name|ClientTransportTwoNodesSearchTests
 extends|extends
-name|TransportTwoServersSearchTests
+name|TransportTwoNodesSearchTests
 block|{
 DECL|method|getClient
 annotation|@
