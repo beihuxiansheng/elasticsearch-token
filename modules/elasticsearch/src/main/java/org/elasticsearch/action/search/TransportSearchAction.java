@@ -190,6 +190,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|indices
+operator|.
+name|IndexMissingException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|transport
 operator|.
 name|BaseTransportRequestHandler
@@ -477,6 +489,15 @@ name|QUERY_AND_FETCH
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+catch|catch
+parameter_list|(
+name|IndexMissingException
+name|e
+parameter_list|)
+block|{
+comment|// ignore this, we will notify the search response if its really the case
+comment|// from the actual action
 block|}
 catch|catch
 parameter_list|(
