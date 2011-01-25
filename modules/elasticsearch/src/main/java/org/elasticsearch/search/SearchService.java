@@ -2613,6 +2613,7 @@ index|[
 literal|0
 index|]
 decl_stmt|;
+comment|/**      * Shortcut ids to load, we load only "from" and up to "size". The phase controller      * handles this as well since the result is always size * shards for Q_A_F      */
 DECL|method|shortcutDocIdsToLoad
 specifier|private
 name|void

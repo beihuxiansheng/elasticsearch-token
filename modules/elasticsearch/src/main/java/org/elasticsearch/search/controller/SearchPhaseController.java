@@ -719,6 +719,7 @@ argument_list|()
 condition|)
 block|{
 comment|// if we did both query and fetch on the same go, we have fetched all the docs from each shards already, use them...
+comment|// this is also important since we shortcut and fetch only docs from "from" and up to "size"
 name|queueSize
 operator|*=
 name|results
@@ -1206,6 +1207,8 @@ return|return
 name|EMPTY
 return|;
 block|}
+comment|// we only pop the first, this handles "from" nicely since the "from" are down the queue
+comment|// that we already fetched, so we are actually popping the "from" and up to "size"
 name|ShardDoc
 index|[]
 name|shardDocs
