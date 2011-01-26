@@ -714,6 +714,16 @@ name|disableFlushCounter
 init|=
 literal|0
 decl_stmt|;
+DECL|field|flushing
+specifier|private
+specifier|final
+name|AtomicBoolean
+name|flushing
+init|=
+operator|new
+name|AtomicBoolean
+argument_list|()
+decl_stmt|;
 DECL|field|versionMap
 specifier|private
 specifier|final
@@ -3890,6 +3900,64 @@ literal|"Recovery is in progress, flush is not allowed"
 argument_list|)
 throw|;
 block|}
+comment|// don't allow for concurrent flush operations...
+if|if
+condition|(
+operator|!
+name|flushing
+operator|.
+name|compareAndSet
+argument_list|(
+literal|false
+argument_list|,
+literal|true
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|FlushNotAllowedEngineException
+argument_list|(
+name|shardId
+argument_list|,
+literal|"Already flushing..."
+argument_list|)
+throw|;
+block|}
+comment|// call maybeMerge outside of the write lock since it gets called anyhow within commit/refresh
+comment|// and we want not to suffer this cost within the write lock
+comment|// We can't do prepareCommit here, since we rely on the the segment version for the translog version
+try|try
+block|{
+name|indexWriter
+operator|.
+name|maybeMerge
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|flushing
+operator|.
+name|set
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+throw|throw
+operator|new
+name|FlushFailedEngineException
+argument_list|(
+name|shardId
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 name|rwl
 operator|.
 name|writeLock
@@ -4068,6 +4136,7 @@ operator|=
 literal|true
 expr_stmt|;
 comment|// force a refresh
+comment|// we need to do a refresh here so we sync versioning support
 name|refresh
 argument_list|(
 operator|new
@@ -4088,25 +4157,18 @@ operator|.
 name|unlock
 argument_list|()
 expr_stmt|;
-block|}
-if|if
-condition|(
-name|flush
+name|flushing
 operator|.
-name|refresh
-argument_list|()
-condition|)
-block|{
-name|refresh
-argument_list|(
-operator|new
-name|Refresh
+name|set
 argument_list|(
 literal|false
 argument_list|)
-argument_list|)
 expr_stmt|;
 block|}
+comment|// we flush anyhow before...
+comment|//        if (flush.refresh()) {
+comment|//            refresh(new Refresh(false));
+comment|//        }
 block|}
 DECL|method|optimize
 annotation|@
