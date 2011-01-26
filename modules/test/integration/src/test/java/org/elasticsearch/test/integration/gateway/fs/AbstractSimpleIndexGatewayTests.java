@@ -2503,7 +2503,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> indexing 12345 docs"
+literal|"--> indexing 1234 docs"
 argument_list|)
 expr_stmt|;
 for|for
@@ -2515,7 +2515,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|12345
+literal|1234
 condition|;
 name|i
 operator|++
@@ -2610,6 +2610,39 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 block|}
+comment|// flush every once is a while, so we get different data
+if|if
+condition|(
+operator|(
+name|i
+operator|%
+literal|55
+operator|)
+operator|==
+literal|0
+condition|)
+block|{
+name|client
+argument_list|(
+literal|"server1"
+argument_list|)
+operator|.
+name|admin
+argument_list|()
+operator|.
+name|indices
+argument_list|()
+operator|.
+name|prepareFlush
+argument_list|()
+operator|.
+name|execute
+argument_list|()
+operator|.
+name|actionGet
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 name|logger
 operator|.
@@ -2665,7 +2698,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|12345l
+literal|1234l
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2827,7 +2860,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|12345l
+literal|1234l
 argument_list|)
 argument_list|)
 expr_stmt|;
