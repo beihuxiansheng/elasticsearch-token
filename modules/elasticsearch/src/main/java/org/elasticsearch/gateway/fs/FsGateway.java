@@ -381,7 +381,7 @@ name|daemonThreadFactory
 argument_list|(
 name|settings
 argument_list|,
-literal|"[s3_stream]"
+literal|"[fs_stream]"
 argument_list|)
 argument_list|)
 expr_stmt|;
