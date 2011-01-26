@@ -56,20 +56,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|LogMergePolicy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
 name|Term
 import|;
 end_import
@@ -309,6 +295,22 @@ operator|.
 name|engine
 operator|.
 name|*
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|merge
+operator|.
+name|policy
+operator|.
+name|EnableMergePolicy
 import|;
 end_import
 
@@ -3924,11 +3926,37 @@ literal|"Already flushing..."
 argument_list|)
 throw|;
 block|}
+comment|// We can't do prepareCommit here, since we rely on the the segment version for the translog version
 comment|// call maybeMerge outside of the write lock since it gets called anyhow within commit/refresh
 comment|// and we want not to suffer this cost within the write lock
-comment|// We can't do prepareCommit here, since we rely on the the segment version for the translog version
+comment|// only do it if we don't have an async merging going on, otherwise, we know that we won't do any
+comment|// merge operation
 try|try
 block|{
+if|if
+condition|(
+name|indexWriter
+operator|.
+name|getMergePolicy
+argument_list|()
+operator|instanceof
+name|EnableMergePolicy
+condition|)
+block|{
+operator|(
+operator|(
+name|EnableMergePolicy
+operator|)
+name|indexWriter
+operator|.
+name|getMergePolicy
+argument_list|()
+operator|)
+operator|.
+name|enableMerge
+argument_list|()
+expr_stmt|;
+block|}
 name|indexWriter
 operator|.
 name|maybeMerge
@@ -3957,6 +3985,34 @@ argument_list|,
 name|e
 argument_list|)
 throw|;
+block|}
+finally|finally
+block|{
+comment|// don't allow merge when committing under write lock
+if|if
+condition|(
+name|indexWriter
+operator|.
+name|getMergePolicy
+argument_list|()
+operator|instanceof
+name|EnableMergePolicy
+condition|)
+block|{
+operator|(
+operator|(
+name|EnableMergePolicy
+operator|)
+name|indexWriter
+operator|.
+name|getMergePolicy
+argument_list|()
+operator|)
+operator|.
+name|disableMerge
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 name|rwl
 operator|.
@@ -4165,7 +4221,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|// we flush anyhow before...
+comment|// we refresh anyhow before...
 comment|//        if (flush.refresh()) {
 comment|//            refresh(new Refresh(false));
 comment|//        }
@@ -4220,23 +4276,6 @@ name|shardId
 argument_list|)
 throw|;
 block|}
-name|int
-name|maxNumberOfSegments
-init|=
-name|optimize
-operator|.
-name|maxNumSegments
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|maxNumberOfSegments
-operator|==
-operator|-
-literal|1
-condition|)
-block|{
-comment|// not set, optimize down to half the configured number of segments
 if|if
 condition|(
 name|indexWriter
@@ -4244,14 +4283,12 @@ operator|.
 name|getMergePolicy
 argument_list|()
 operator|instanceof
-name|LogMergePolicy
+name|EnableMergePolicy
 condition|)
 block|{
-name|maxNumberOfSegments
-operator|=
 operator|(
 operator|(
-name|LogMergePolicy
+name|EnableMergePolicy
 operator|)
 name|indexWriter
 operator|.
@@ -4259,24 +4296,9 @@ name|getMergePolicy
 argument_list|()
 operator|)
 operator|.
-name|getMergeFactor
+name|enableMerge
 argument_list|()
-operator|/
-literal|2
 expr_stmt|;
-if|if
-condition|(
-name|maxNumberOfSegments
-operator|<
-literal|0
-condition|)
-block|{
-name|maxNumberOfSegments
-operator|=
-literal|1
-expr_stmt|;
-block|}
-block|}
 block|}
 if|if
 condition|(
@@ -4290,11 +4312,25 @@ name|indexWriter
 operator|.
 name|expungeDeletes
 argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
 name|optimize
 operator|.
-name|waitForMerge
+name|maxNumSegments
 argument_list|()
-argument_list|)
+operator|<=
+literal|0
+condition|)
+block|{
+name|indexWriter
+operator|.
+name|maybeMerge
+argument_list|()
 expr_stmt|;
 block|}
 else|else
@@ -4303,21 +4339,15 @@ name|indexWriter
 operator|.
 name|optimize
 argument_list|(
-name|maxNumberOfSegments
-argument_list|,
 name|optimize
 operator|.
-name|waitForMerge
+name|maxNumSegments
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|// once we did the optimization, we are "dirty" since we removed deletes potentially which
-comment|// affects TermEnum
-name|dirty
-operator|=
-literal|true
-expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -4337,6 +4367,34 @@ throw|;
 block|}
 finally|finally
 block|{
+if|if
+condition|(
+name|indexWriter
+operator|!=
+literal|null
+operator|&&
+name|indexWriter
+operator|.
+name|getMergePolicy
+argument_list|()
+operator|instanceof
+name|EnableMergePolicy
+condition|)
+block|{
+operator|(
+operator|(
+name|EnableMergePolicy
+operator|)
+name|indexWriter
+operator|.
+name|getMergePolicy
+argument_list|()
+operator|)
+operator|.
+name|disableMerge
+argument_list|()
+expr_stmt|;
+block|}
 name|rwl
 operator|.
 name|readLock
@@ -4354,6 +4412,27 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// wait for the merges outside of the read lock
+if|if
+condition|(
+name|optimize
+operator|.
+name|waitForMerge
+argument_list|()
+condition|)
+block|{
+name|indexWriter
+operator|.
+name|waitForMerges
+argument_list|()
+expr_stmt|;
+block|}
+comment|// once we did the optimization, we are "dirty" since we removed deletes potentially which
+comment|// affects TermEnum
+name|dirty
+operator|=
+literal|true
+expr_stmt|;
 if|if
 condition|(
 name|optimize

@@ -2950,8 +2950,8 @@ operator|.
 name|bytes
 argument_list|()
 operator|-
-literal|4098
-comment|/* segments file */
+literal|8196
+comment|/* segments file and others */
 argument_list|)
 argument_list|)
 expr_stmt|;

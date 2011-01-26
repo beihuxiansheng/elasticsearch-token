@@ -311,9 +311,16 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"index.engine.robin.refreshInterval"
+literal|"index.refresh_interval"
 argument_list|,
 literal|"-1"
+argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"index.merge.async"
+argument_list|,
+literal|true
 argument_list|)
 operator|.
 name|put
