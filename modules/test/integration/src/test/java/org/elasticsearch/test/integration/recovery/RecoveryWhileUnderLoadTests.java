@@ -504,7 +504,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> waiting for 20000 docs to be indexed ..."
+literal|"--> waiting for 2000 docs to be indexed ..."
 argument_list|)
 expr_stmt|;
 while|while
@@ -532,7 +532,7 @@ operator|.
 name|count
 argument_list|()
 operator|<
-literal|20000
+literal|2000
 condition|)
 block|{
 name|Thread
@@ -567,7 +567,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> 20000 docs indexed"
+literal|"--> 2000 docs indexed"
 argument_list|)
 expr_stmt|;
 name|logger
@@ -602,7 +602,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> waiting for 40000 docs to be indexed ..."
+literal|"--> waiting for 4000 docs to be indexed ..."
 argument_list|)
 expr_stmt|;
 while|while
@@ -630,7 +630,7 @@ operator|.
 name|count
 argument_list|()
 operator|<
-literal|40000
+literal|4000
 condition|)
 block|{
 name|Thread
@@ -665,7 +665,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> 40000 docs indexed"
+literal|"--> 4000 docs indexed"
 argument_list|)
 expr_stmt|;
 name|logger
@@ -737,7 +737,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> waiting for 100000 docs to be indexed ..."
+literal|"--> waiting for 10000 docs to be indexed ..."
 argument_list|)
 expr_stmt|;
 while|while
@@ -765,7 +765,7 @@ operator|.
 name|count
 argument_list|()
 operator|<
-literal|100000
+literal|10000
 condition|)
 block|{
 name|Thread
@@ -800,7 +800,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> 100000 docs indexed"
+literal|"--> 10000 docs indexed"
 argument_list|)
 expr_stmt|;
 name|logger
@@ -1199,7 +1199,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> waiting for 20000 docs to be indexed ..."
+literal|"--> waiting for 2000 docs to be indexed ..."
 argument_list|)
 expr_stmt|;
 while|while
@@ -1227,7 +1227,7 @@ operator|.
 name|count
 argument_list|()
 operator|<
-literal|20000
+literal|2000
 condition|)
 block|{
 name|Thread
@@ -1262,7 +1262,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> 20000 docs indexed"
+literal|"--> 2000 docs indexed"
 argument_list|)
 expr_stmt|;
 name|logger
@@ -1297,7 +1297,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> waiting for 40000 docs to be indexed ..."
+literal|"--> waiting for 4000 docs to be indexed ..."
 argument_list|)
 expr_stmt|;
 while|while
@@ -1325,7 +1325,7 @@ operator|.
 name|count
 argument_list|()
 operator|<
-literal|40000
+literal|4000
 condition|)
 block|{
 name|Thread
@@ -1360,7 +1360,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> 40000 docs indexed"
+literal|"--> 4000 docs indexed"
 argument_list|)
 expr_stmt|;
 name|logger
@@ -1454,7 +1454,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> waiting for 150000 docs to be indexed ..."
+literal|"--> waiting for 15000 docs to be indexed ..."
 argument_list|)
 expr_stmt|;
 while|while
@@ -1482,7 +1482,7 @@ operator|.
 name|count
 argument_list|()
 operator|<
-literal|150000
+literal|15000
 condition|)
 block|{
 name|Thread
@@ -1517,7 +1517,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> 150000 docs indexed"
+literal|"--> 15000 docs indexed"
 argument_list|)
 expr_stmt|;
 name|stop
@@ -1940,7 +1940,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> waiting for 20000 docs to be indexed ..."
+literal|"--> waiting for 2000 docs to be indexed ..."
 argument_list|)
 expr_stmt|;
 while|while
@@ -1968,7 +1968,7 @@ operator|.
 name|count
 argument_list|()
 operator|<
-literal|20000
+literal|2000
 condition|)
 block|{
 name|Thread
@@ -2003,7 +2003,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> 20000 docs indexed"
+literal|"--> 2000 docs indexed"
 argument_list|)
 expr_stmt|;
 name|logger
@@ -2038,7 +2038,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> waiting for 40000 docs to be indexed ..."
+literal|"--> waiting for 4000 docs to be indexed ..."
 argument_list|)
 expr_stmt|;
 while|while
@@ -2066,7 +2066,7 @@ operator|.
 name|count
 argument_list|()
 operator|<
-literal|40000
+literal|4000
 condition|)
 block|{
 name|Thread
@@ -2101,7 +2101,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> 40000 docs indexed"
+literal|"--> 4000 docs indexed"
 argument_list|)
 expr_stmt|;
 comment|// now start more nodes, while we index
@@ -2184,7 +2184,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> waiting for 100000 docs to be indexed ..."
+literal|"--> waiting for 10000 docs to be indexed ..."
 argument_list|)
 expr_stmt|;
 while|while
@@ -2212,7 +2212,7 @@ operator|.
 name|count
 argument_list|()
 operator|<
-literal|100000
+literal|10000
 condition|)
 block|{
 name|Thread
@@ -2247,7 +2247,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> 100000 docs indexed"
+literal|"--> 10000 docs indexed"
 argument_list|)
 expr_stmt|;
 comment|// now, shutdown nodes
