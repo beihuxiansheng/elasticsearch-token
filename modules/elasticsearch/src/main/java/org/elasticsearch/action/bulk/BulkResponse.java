@@ -464,6 +464,13 @@ name|in
 argument_list|)
 expr_stmt|;
 block|}
+name|tookInMillis
+operator|=
+name|in
+operator|.
+name|readVLong
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|writeTo
 annotation|@
@@ -503,6 +510,13 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+name|out
+operator|.
+name|writeVLong
+argument_list|(
+name|tookInMillis
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
