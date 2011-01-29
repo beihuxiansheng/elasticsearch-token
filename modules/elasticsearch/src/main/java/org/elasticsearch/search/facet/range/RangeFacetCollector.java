@@ -174,12 +174,6 @@ name|RangeFacetCollector
 extends|extends
 name|AbstractFacetCollector
 block|{
-DECL|field|fieldName
-specifier|private
-specifier|final
-name|String
-name|fieldName
-decl_stmt|;
 DECL|field|indexFieldName
 specifier|private
 specifier|final
@@ -242,12 +236,6 @@ name|super
 argument_list|(
 name|facetName
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|fieldName
-operator|=
-name|fieldName
 expr_stmt|;
 name|this
 operator|.
@@ -436,10 +424,6 @@ operator|new
 name|InternalRangeFacet
 argument_list|(
 name|facetName
-argument_list|,
-name|fieldName
-argument_list|,
-name|fieldName
 argument_list|,
 name|entries
 argument_list|)

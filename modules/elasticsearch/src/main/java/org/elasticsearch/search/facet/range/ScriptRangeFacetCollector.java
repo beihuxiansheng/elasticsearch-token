@@ -370,10 +370,6 @@ name|InternalRangeFacet
 argument_list|(
 name|facetName
 argument_list|,
-literal|"_na"
-argument_list|,
-literal|"_na"
-argument_list|,
 name|entries
 argument_list|)
 return|;

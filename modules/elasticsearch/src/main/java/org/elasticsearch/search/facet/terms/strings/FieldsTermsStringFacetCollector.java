@@ -296,20 +296,6 @@ name|Pattern
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|Strings
-operator|.
-name|*
-import|;
-end_import
-
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
@@ -327,13 +313,6 @@ specifier|private
 specifier|final
 name|FieldDataCache
 name|fieldDataCache
-decl_stmt|;
-DECL|field|fieldsNames
-specifier|private
-specifier|final
-name|String
-index|[]
-name|fieldsNames
 decl_stmt|;
 DECL|field|indexFieldsNames
 specifier|private
@@ -470,12 +449,6 @@ name|context
 operator|.
 name|numberOfShards
 argument_list|()
-expr_stmt|;
-name|this
-operator|.
-name|fieldsNames
-operator|=
-name|fieldsNames
 expr_stmt|;
 name|fieldsDataType
 operator|=
@@ -824,7 +797,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|fieldsNames
+name|indexFieldsNames
 operator|.
 name|length
 condition|;
@@ -943,11 +916,6 @@ name|InternalStringTermsFacet
 argument_list|(
 name|facetName
 argument_list|,
-name|arrayToCommaDelimitedString
-argument_list|(
-name|fieldsNames
-argument_list|)
-argument_list|,
 name|comparatorType
 argument_list|,
 name|size
@@ -1057,11 +1025,6 @@ operator|new
 name|InternalStringTermsFacet
 argument_list|(
 name|facetName
-argument_list|,
-name|arrayToCommaDelimitedString
-argument_list|(
-name|fieldsNames
-argument_list|)
 argument_list|,
 name|comparatorType
 argument_list|,

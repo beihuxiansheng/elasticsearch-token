@@ -54,18 +54,6 @@ name|TYPE
 init|=
 literal|"statistical"
 decl_stmt|;
-comment|/**      * The field name of the facet.      */
-DECL|method|fieldName
-name|String
-name|fieldName
-parameter_list|()
-function_decl|;
-comment|/**      * The field name of the facet.      */
-DECL|method|getFieldName
-name|String
-name|getFieldName
-parameter_list|()
-function_decl|;
 comment|/**      * The number of values counted.      */
 DECL|method|count
 name|long

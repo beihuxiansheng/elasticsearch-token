@@ -407,12 +407,6 @@ specifier|final
 name|FieldDataCache
 name|fieldDataCache
 decl_stmt|;
-DECL|field|fieldName
-specifier|private
-specifier|final
-name|String
-name|fieldName
-decl_stmt|;
 DECL|field|indexFieldName
 specifier|private
 specifier|final
@@ -535,12 +529,6 @@ name|context
 operator|.
 name|numberOfShards
 argument_list|()
-expr_stmt|;
-name|this
-operator|.
-name|fieldName
-operator|=
-name|fieldName
 expr_stmt|;
 name|MapperService
 operator|.
@@ -919,8 +907,6 @@ name|InternalFloatTermsFacet
 argument_list|(
 name|facetName
 argument_list|,
-name|fieldName
-argument_list|,
 name|comparatorType
 argument_list|,
 name|size
@@ -1025,8 +1011,6 @@ operator|new
 name|InternalFloatTermsFacet
 argument_list|(
 name|facetName
-argument_list|,
-name|fieldName
 argument_list|,
 name|comparatorType
 argument_list|,

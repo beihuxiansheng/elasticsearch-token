@@ -91,30 +91,6 @@ name|TYPE
 init|=
 literal|"histogram"
 decl_stmt|;
-comment|/**      * The key field name used with this facet.      */
-DECL|method|keyFieldName
-name|String
-name|keyFieldName
-parameter_list|()
-function_decl|;
-comment|/**      * The key field name used with this facet.      */
-DECL|method|getKeyFieldName
-name|String
-name|getKeyFieldName
-parameter_list|()
-function_decl|;
-comment|/**      * The value field name used with this facet.      */
-DECL|method|valueFieldName
-name|String
-name|valueFieldName
-parameter_list|()
-function_decl|;
-comment|/**      * The value field name used with this facet.      */
-DECL|method|getValueFieldName
-name|String
-name|getValueFieldName
-parameter_list|()
-function_decl|;
 comment|/**      * An ordered list of histogram facet entries.      */
 DECL|method|entries
 name|List

@@ -613,30 +613,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * The field name the terms were extracted from.      */
-DECL|method|fieldName
-name|String
-name|fieldName
-parameter_list|()
-function_decl|;
-comment|/**      * The field name the terms were extracted from.      */
-DECL|method|getFieldName
-name|String
-name|getFieldName
-parameter_list|()
-function_decl|;
-comment|/**      * The ordering of the results.      */
-DECL|method|comparatorType
-name|ComparatorType
-name|comparatorType
-parameter_list|()
-function_decl|;
-comment|/**      * The ordering of the results.      */
-DECL|method|getComparatorType
-name|ComparatorType
-name|getComparatorType
-parameter_list|()
-function_decl|;
 comment|/**      * The number of docs missing a value.      */
 DECL|method|missingCount
 name|long

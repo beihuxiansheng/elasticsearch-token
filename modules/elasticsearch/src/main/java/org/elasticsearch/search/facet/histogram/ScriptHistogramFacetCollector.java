@@ -447,13 +447,6 @@ name|InternalCountAndTotalHistogramFacet
 argument_list|(
 name|facetName
 argument_list|,
-literal|"_na"
-argument_list|,
-literal|"_na"
-argument_list|,
-operator|-
-literal|1
-argument_list|,
 name|comparatorType
 argument_list|,
 name|counts

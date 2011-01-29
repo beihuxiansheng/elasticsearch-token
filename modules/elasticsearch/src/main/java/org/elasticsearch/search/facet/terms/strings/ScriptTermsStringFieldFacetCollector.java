@@ -236,12 +236,6 @@ specifier|final
 name|int
 name|numberOfShards
 decl_stmt|;
-DECL|field|sScript
-specifier|private
-specifier|final
-name|String
-name|sScript
-decl_stmt|;
 DECL|field|script
 specifier|private
 specifier|final
@@ -344,12 +338,6 @@ name|context
 operator|.
 name|numberOfShards
 argument_list|()
-expr_stmt|;
-name|this
-operator|.
-name|sScript
-operator|=
-name|script
 expr_stmt|;
 name|this
 operator|.
@@ -728,8 +716,6 @@ name|InternalStringTermsFacet
 argument_list|(
 name|facetName
 argument_list|,
-name|sScript
-argument_list|,
 name|comparatorType
 argument_list|,
 name|size
@@ -836,8 +822,6 @@ operator|new
 name|InternalStringTermsFacet
 argument_list|(
 name|facetName
-argument_list|,
-name|sScript
 argument_list|,
 name|comparatorType
 argument_list|,

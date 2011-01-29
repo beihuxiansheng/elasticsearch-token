@@ -249,8 +249,6 @@ name|InternalStringTermsFacet
 argument_list|(
 name|facetName
 argument_list|,
-literal|"_index"
-argument_list|,
 name|comparatorType
 argument_list|,
 name|size

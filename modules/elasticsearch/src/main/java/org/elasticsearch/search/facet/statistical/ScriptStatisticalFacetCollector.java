@@ -339,8 +339,6 @@ name|InternalStatisticalFacet
 argument_list|(
 name|facetName
 argument_list|,
-literal|"_na"
-argument_list|,
 name|min
 argument_list|,
 name|max
