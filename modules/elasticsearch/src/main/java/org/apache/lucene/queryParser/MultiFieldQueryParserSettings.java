@@ -26,7 +26,11 @@ name|common
 operator|.
 name|trove
 operator|.
-name|ExtTObjectFloatHashMap
+name|map
+operator|.
+name|hash
+operator|.
+name|TObjectFloatHashMap
 import|;
 end_import
 
@@ -62,7 +66,7 @@ init|=
 literal|null
 decl_stmt|;
 DECL|field|boosts
-name|ExtTObjectFloatHashMap
+name|TObjectFloatHashMap
 argument_list|<
 name|String
 argument_list|>
@@ -116,7 +120,7 @@ expr_stmt|;
 block|}
 DECL|method|boosts
 specifier|public
-name|ExtTObjectFloatHashMap
+name|TObjectFloatHashMap
 argument_list|<
 name|String
 argument_list|>
@@ -132,7 +136,7 @@ specifier|public
 name|void
 name|boosts
 parameter_list|(
-name|ExtTObjectFloatHashMap
+name|TObjectFloatHashMap
 argument_list|<
 name|String
 argument_list|>

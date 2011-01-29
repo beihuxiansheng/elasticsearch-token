@@ -104,7 +104,9 @@ name|common
 operator|.
 name|trove
 operator|.
-name|TIntIntHashMap
+name|iterator
+operator|.
+name|TIntIntIterator
 import|;
 end_import
 
@@ -118,7 +120,11 @@ name|common
 operator|.
 name|trove
 operator|.
-name|TIntIntIterator
+name|map
+operator|.
+name|hash
+operator|.
+name|TIntIntHashMap
 import|;
 end_import
 

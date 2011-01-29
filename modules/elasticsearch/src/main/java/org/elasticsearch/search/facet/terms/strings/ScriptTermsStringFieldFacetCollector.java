@@ -86,7 +86,9 @@ name|common
 operator|.
 name|trove
 operator|.
-name|TObjectIntHashMap
+name|iterator
+operator|.
+name|TObjectIntIterator
 import|;
 end_import
 
@@ -100,7 +102,11 @@ name|common
 operator|.
 name|trove
 operator|.
-name|TObjectIntIterator
+name|map
+operator|.
+name|hash
+operator|.
+name|TObjectIntHashMap
 import|;
 end_import
 

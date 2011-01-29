@@ -28,7 +28,27 @@ name|common
 operator|.
 name|trove
 operator|.
-name|ExtTIntIntHashMap
+name|impl
+operator|.
+name|Constants
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|trove
+operator|.
+name|map
+operator|.
+name|hash
+operator|.
+name|TIntIntHashMap
 import|;
 end_import
 
@@ -77,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An implementation of {@link VersionedMap} based on trove {@link org.elasticsearch.common.trove.TIntIntHashMap}.  *  * @author kimchy (Shay Banon)  */
+comment|/**  * An implementation of {@link VersionedMap} based on trove.  *  * @author kimchy (Shay Banon)  */
 end_comment
 
 begin_class
@@ -582,27 +602,31 @@ argument_list|()
 decl_stmt|;
 DECL|field|map
 specifier|final
-name|ExtTIntIntHashMap
+name|TIntIntHashMap
 name|map
 init|=
 operator|new
-name|ExtTIntIntHashMap
-argument_list|()
+name|TIntIntHashMap
+argument_list|(
+name|Constants
+operator|.
+name|DEFAULT_CAPACITY
+argument_list|,
+name|Constants
+operator|.
+name|DEFAULT_LOAD_FACTOR
+argument_list|,
+literal|0
+argument_list|,
+operator|-
+literal|1
+argument_list|)
 decl_stmt|;
 DECL|method|Segment
 specifier|private
 name|Segment
 parameter_list|()
-block|{
-name|map
-operator|.
-name|defaultReturnValue
-argument_list|(
-operator|-
-literal|1
-argument_list|)
-expr_stmt|;
-block|}
+block|{          }
 block|}
 block|}
 end_class

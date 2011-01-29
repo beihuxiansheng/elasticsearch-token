@@ -110,7 +110,9 @@ name|common
 operator|.
 name|trove
 operator|.
-name|TFloatIntHashMap
+name|iterator
+operator|.
+name|TFloatIntIterator
 import|;
 end_import
 
@@ -124,7 +126,11 @@ name|common
 operator|.
 name|trove
 operator|.
-name|TFloatIntIterator
+name|map
+operator|.
+name|hash
+operator|.
+name|TFloatIntHashMap
 import|;
 end_import
 

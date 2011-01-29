@@ -136,12 +136,6 @@ operator|.
 name|idToDoc
 operator|=
 name|idToDoc
-operator|.
-name|defaultReturnValue
-argument_list|(
-operator|-
-literal|1
-argument_list|)
 expr_stmt|;
 name|this
 operator|.

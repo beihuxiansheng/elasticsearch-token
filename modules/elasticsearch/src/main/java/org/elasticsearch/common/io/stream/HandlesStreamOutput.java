@@ -28,7 +28,9 @@ name|common
 operator|.
 name|trove
 operator|.
-name|ExtTObjectIntHasMap
+name|impl
+operator|.
+name|Constants
 import|;
 end_import
 
@@ -41,6 +43,10 @@ operator|.
 name|common
 operator|.
 name|trove
+operator|.
+name|map
+operator|.
+name|hash
 operator|.
 name|TObjectIntHashMap
 import|;
@@ -109,14 +115,19 @@ argument_list|>
 name|handles
 init|=
 operator|new
-name|ExtTObjectIntHasMap
+name|TObjectIntHashMap
 argument_list|<
 name|String
 argument_list|>
-argument_list|()
-operator|.
-name|defaultReturnValue
 argument_list|(
+name|Constants
+operator|.
+name|DEFAULT_CAPACITY
+argument_list|,
+name|Constants
+operator|.
+name|DEFAULT_LOAD_FACTOR
+argument_list|,
 operator|-
 literal|1
 argument_list|)

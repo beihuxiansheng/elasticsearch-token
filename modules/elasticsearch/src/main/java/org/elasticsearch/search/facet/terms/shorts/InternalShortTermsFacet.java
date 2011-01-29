@@ -104,7 +104,9 @@ name|common
 operator|.
 name|trove
 operator|.
-name|TShortIntHashMap
+name|iterator
+operator|.
+name|TShortIntIterator
 import|;
 end_import
 
@@ -118,7 +120,11 @@ name|common
 operator|.
 name|trove
 operator|.
-name|TShortIntIterator
+name|map
+operator|.
+name|hash
+operator|.
+name|TShortIntHashMap
 import|;
 end_import
 

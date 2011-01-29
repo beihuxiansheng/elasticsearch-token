@@ -86,6 +86,10 @@ name|common
 operator|.
 name|trove
 operator|.
+name|map
+operator|.
+name|hash
+operator|.
 name|TIntObjectHashMap
 import|;
 end_import

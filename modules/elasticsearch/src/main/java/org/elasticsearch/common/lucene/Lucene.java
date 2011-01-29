@@ -172,6 +172,10 @@ name|common
 operator|.
 name|trove
 operator|.
+name|list
+operator|.
+name|array
+operator|.
 name|TIntArrayList
 import|;
 end_import

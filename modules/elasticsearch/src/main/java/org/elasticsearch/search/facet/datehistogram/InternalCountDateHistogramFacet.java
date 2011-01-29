@@ -74,7 +74,9 @@ name|common
 operator|.
 name|trove
 operator|.
-name|TLongLongHashMap
+name|iterator
+operator|.
+name|TLongLongIterator
 import|;
 end_import
 
@@ -88,7 +90,11 @@ name|common
 operator|.
 name|trove
 operator|.
-name|TLongLongIterator
+name|map
+operator|.
+name|hash
+operator|.
+name|TLongLongHashMap
 import|;
 end_import
 

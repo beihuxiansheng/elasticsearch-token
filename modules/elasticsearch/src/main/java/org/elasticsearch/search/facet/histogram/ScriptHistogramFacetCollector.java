@@ -42,6 +42,10 @@ name|common
 operator|.
 name|trove
 operator|.
+name|map
+operator|.
+name|hash
+operator|.
 name|TLongDoubleHashMap
 import|;
 end_import
@@ -55,6 +59,10 @@ operator|.
 name|common
 operator|.
 name|trove
+operator|.
+name|map
+operator|.
+name|hash
 operator|.
 name|TLongLongHashMap
 import|;

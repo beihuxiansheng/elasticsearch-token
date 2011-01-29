@@ -134,6 +134,10 @@ name|common
 operator|.
 name|trove
 operator|.
+name|map
+operator|.
+name|hash
+operator|.
 name|TIntObjectHashMap
 import|;
 end_import
@@ -858,7 +862,7 @@ operator|.
 name|getValue
 argument_list|()
 operator|.
-name|getValues
+name|values
 argument_list|(
 operator|new
 name|ParentDoc

@@ -104,7 +104,9 @@ name|common
 operator|.
 name|trove
 operator|.
-name|TByteIntHashMap
+name|iterator
+operator|.
+name|TByteIntIterator
 import|;
 end_import
 
@@ -118,7 +120,11 @@ name|common
 operator|.
 name|trove
 operator|.
-name|TByteIntIterator
+name|map
+operator|.
+name|hash
+operator|.
+name|TByteIntHashMap
 import|;
 end_import
 

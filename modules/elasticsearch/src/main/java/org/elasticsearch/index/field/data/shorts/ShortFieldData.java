@@ -70,6 +70,10 @@ name|common
 operator|.
 name|trove
 operator|.
+name|list
+operator|.
+name|array
+operator|.
 name|TShortArrayList
 import|;
 end_import
@@ -697,7 +701,7 @@ name|ordinals
 argument_list|,
 name|terms
 operator|.
-name|toNativeArray
+name|toArray
 argument_list|()
 argument_list|)
 return|;
@@ -728,7 +732,7 @@ name|ordinals
 argument_list|,
 name|terms
 operator|.
-name|toNativeArray
+name|toArray
 argument_list|()
 argument_list|)
 return|;

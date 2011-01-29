@@ -16,6 +16,24 @@ name|trove
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|trove
+operator|.
+name|list
+operator|.
+name|array
+operator|.
+name|TIntArrayList
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (Shay Banon)  */
 end_comment

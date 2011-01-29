@@ -68,6 +68,10 @@ name|common
 operator|.
 name|trove
 operator|.
+name|set
+operator|.
+name|hash
+operator|.
 name|THashSet
 import|;
 end_import

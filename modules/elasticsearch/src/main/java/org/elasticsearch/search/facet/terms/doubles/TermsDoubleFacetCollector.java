@@ -110,7 +110,9 @@ name|common
 operator|.
 name|trove
 operator|.
-name|TDoubleIntHashMap
+name|iterator
+operator|.
+name|TDoubleIntIterator
 import|;
 end_import
 
@@ -124,7 +126,11 @@ name|common
 operator|.
 name|trove
 operator|.
-name|TDoubleIntIterator
+name|map
+operator|.
+name|hash
+operator|.
+name|TDoubleIntHashMap
 import|;
 end_import
 

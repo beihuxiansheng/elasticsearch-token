@@ -92,7 +92,9 @@ name|common
 operator|.
 name|trove
 operator|.
-name|TObjectFloatHashMap
+name|iterator
+operator|.
+name|TObjectFloatIterator
 import|;
 end_import
 
@@ -106,7 +108,11 @@ name|common
 operator|.
 name|trove
 operator|.
-name|TObjectFloatIterator
+name|map
+operator|.
+name|hash
+operator|.
+name|TObjectFloatHashMap
 import|;
 end_import
 
