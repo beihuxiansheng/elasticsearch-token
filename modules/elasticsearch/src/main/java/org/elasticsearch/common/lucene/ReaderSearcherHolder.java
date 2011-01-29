@@ -34,20 +34,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|IndexSearcher
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|ElasticSearchException
@@ -68,6 +54,22 @@ name|Releasable
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|ExtendedIndexSearcher
+import|;
+end_import
+
 begin_comment
 comment|/**  * A very simple holder for a tuple of reader and searcher.  *  * @author kimchy (Shay Banon)  */
 end_comment
@@ -83,7 +85,7 @@ block|{
 DECL|field|indexSearcher
 specifier|private
 specifier|final
-name|IndexSearcher
+name|ExtendedIndexSearcher
 name|indexSearcher
 decl_stmt|;
 DECL|method|ReaderSearcherHolder
@@ -97,7 +99,7 @@ block|{
 name|this
 argument_list|(
 operator|new
-name|IndexSearcher
+name|ExtendedIndexSearcher
 argument_list|(
 name|indexReader
 argument_list|)
@@ -108,7 +110,7 @@ DECL|method|ReaderSearcherHolder
 specifier|public
 name|ReaderSearcherHolder
 parameter_list|(
-name|IndexSearcher
+name|ExtendedIndexSearcher
 name|indexSearcher
 parameter_list|)
 block|{
@@ -134,7 +136,7 @@ return|;
 block|}
 DECL|method|searcher
 specifier|public
-name|IndexSearcher
+name|ExtendedIndexSearcher
 name|searcher
 parameter_list|()
 block|{

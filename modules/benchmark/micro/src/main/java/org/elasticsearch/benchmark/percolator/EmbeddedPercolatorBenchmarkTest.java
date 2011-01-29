@@ -290,6 +290,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|threadpool
+operator|.
+name|ThreadPoolModule
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -403,6 +415,12 @@ name|add
 argument_list|(
 operator|new
 name|SettingsModule
+argument_list|(
+name|settings
+argument_list|)
+argument_list|,
+operator|new
+name|ThreadPoolModule
 argument_list|(
 name|settings
 argument_list|)
