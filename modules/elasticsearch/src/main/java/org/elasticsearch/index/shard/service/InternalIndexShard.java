@@ -3871,6 +3871,16 @@ name|waitForMerge
 argument_list|(
 literal|false
 argument_list|)
+operator|.
+name|flush
+argument_list|(
+literal|false
+argument_list|)
+operator|.
+name|refresh
+argument_list|(
+literal|false
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
