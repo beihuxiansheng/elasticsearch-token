@@ -3716,10 +3716,7 @@ name|bytes
 operator|+=
 name|translog
 operator|.
-name|estimateMemorySize
-argument_list|()
-operator|.
-name|bytes
+name|memorySizeInBytes
 argument_list|()
 expr_stmt|;
 return|return

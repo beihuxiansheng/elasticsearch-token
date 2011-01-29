@@ -124,20 +124,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|unit
-operator|.
-name|ByteSizeValue
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|util
 operator|.
 name|concurrent
@@ -237,9 +223,14 @@ name|size
 parameter_list|()
 function_decl|;
 comment|/**      * The estimated memory size this translog is taking.      */
-DECL|method|estimateMemorySize
-name|ByteSizeValue
-name|estimateMemorySize
+DECL|method|memorySizeInBytes
+name|long
+name|memorySizeInBytes
+parameter_list|()
+function_decl|;
+DECL|method|translogSizeInBytes
+name|long
+name|translogSizeInBytes
 parameter_list|()
 function_decl|;
 comment|/**      * Creates a new transaction log internally. Note, users of this class should make      * sure that no operations are performed on the trans log when this is called.      */
