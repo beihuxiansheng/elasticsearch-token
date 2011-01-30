@@ -481,12 +481,12 @@ operator|.
 name|id
 return|;
 block|}
-DECL|method|size
+DECL|method|numberOfOperations
 annotation|@
 name|Override
 specifier|public
 name|int
-name|size
+name|numberOfOperations
 parameter_list|()
 block|{
 return|return

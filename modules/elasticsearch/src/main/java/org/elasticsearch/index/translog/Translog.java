@@ -217,9 +217,9 @@ name|currentId
 parameter_list|()
 function_decl|;
 comment|/**      * Returns the number of operations in the transaction log.      */
-DECL|method|size
+DECL|method|numberOfOperations
 name|int
-name|size
+name|numberOfOperations
 parameter_list|()
 function_decl|;
 comment|/**      * The estimated memory size this translog is taking.      */
@@ -228,6 +228,7 @@ name|long
 name|memorySizeInBytes
 parameter_list|()
 function_decl|;
+comment|/**      * Returns the size in bytes of the translog.      */
 DECL|method|translogSizeInBytes
 name|long
 name|translogSizeInBytes

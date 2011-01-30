@@ -670,76 +670,16 @@ literal|"id"
 argument_list|,
 name|id
 argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"numeric1"
-argument_list|,
-name|time
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"numeric2"
-argument_list|,
-name|time
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"numeric3"
-argument_list|,
-name|time
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"numeric4"
-argument_list|,
-name|time
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"numeric5"
-argument_list|,
-name|time
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"numeric6"
-argument_list|,
-name|time
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"numeric7"
-argument_list|,
-name|time
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"numeric8"
-argument_list|,
-name|time
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"numeric9"
-argument_list|,
-name|time
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"numeric10"
-argument_list|,
-name|time
-argument_list|)
+comment|//                .field("numeric1", time)
+comment|//                .field("numeric2", time)
+comment|//                .field("numeric3", time)
+comment|//                .field("numeric4", time)
+comment|//                .field("numeric5", time)
+comment|//                .field("numeric6", time)
+comment|//                .field("numeric7", time)
+comment|//                .field("numeric8", time)
+comment|//                .field("numeric9", time)
+comment|//                .field("numeric10", time)
 operator|.
 name|field
 argument_list|(
