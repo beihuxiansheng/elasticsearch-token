@@ -3603,7 +3603,8 @@ expr_stmt|;
 block|}
 block|}
 comment|// since we can do async merging, it will not be called explicitly when indexing (adding / deleting docs), and only when flushing
-comment|// so, make sure we periodically call it
+comment|// so, make sure we periodically call it, this need to be a small enough value so mergine will actually
+comment|// happen and reduce the number of segments
 name|TimeValue
 name|optimizeInterval
 init|=

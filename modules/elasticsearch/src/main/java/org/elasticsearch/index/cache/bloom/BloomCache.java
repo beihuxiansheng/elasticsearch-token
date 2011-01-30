@@ -86,7 +86,7 @@ name|IndexComponent
 extends|,
 name|CloseableComponent
 block|{
-comment|/**      * *Async* loads a bloom filter for the field name.      */
+comment|/**      * *Async* loads a bloom filter for the field name. Note, this one only supports      * for fields that have a single term per doc.      */
 DECL|method|filter
 name|BloomFilter
 name|filter
