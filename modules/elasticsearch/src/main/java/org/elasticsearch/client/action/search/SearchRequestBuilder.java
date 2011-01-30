@@ -1110,6 +1110,29 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets a raw (xcontent) binary representation of facets to use.      */
+DECL|method|setFacets
+specifier|public
+name|SearchRequestBuilder
+name|setFacets
+parameter_list|(
+name|byte
+index|[]
+name|facets
+parameter_list|)
+block|{
+name|sourceBuilder
+argument_list|()
+operator|.
+name|facets
+argument_list|(
+name|facets
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Adds a field to be highlighted with default fragment size of 100 characters, and      * default number of fragments of 5.      *      * @param name The field to highlight      */
 DECL|method|addHighlightedField
 specifier|public

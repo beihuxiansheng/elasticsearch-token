@@ -409,7 +409,7 @@ name|SearchParseException
 argument_list|(
 name|context
 argument_list|,
-literal|"No facet type for ["
+literal|"No facet type found for ["
 operator|+
 name|facetFieldName
 operator|+
