@@ -272,7 +272,7 @@ name|getAsTime
 argument_list|(
 literal|"keep_alive"
 argument_list|,
-name|timeValueSeconds
+name|timeValueMinutes
 argument_list|(
 literal|60
 argument_list|)
