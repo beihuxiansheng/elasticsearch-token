@@ -70,9 +70,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|search
-operator|.
-name|SearchScript
+name|ExecutableSearchScript
 import|;
 end_import
 
@@ -108,7 +106,7 @@ specifier|static
 name|FieldComparatorSource
 name|comparatorSource
 parameter_list|(
-name|SearchScript
+name|ExecutableSearchScript
 name|script
 parameter_list|)
 block|{
@@ -131,14 +129,14 @@ block|{
 DECL|field|script
 specifier|private
 specifier|final
-name|SearchScript
+name|ExecutableSearchScript
 name|script
 decl_stmt|;
 DECL|method|InnerSource
 specifier|private
 name|InnerSource
 parameter_list|(
-name|SearchScript
+name|ExecutableSearchScript
 name|script
 parameter_list|)
 block|{
@@ -185,7 +183,7 @@ block|}
 DECL|field|script
 specifier|private
 specifier|final
-name|SearchScript
+name|ExecutableSearchScript
 name|script
 decl_stmt|;
 DECL|field|values
@@ -207,7 +205,7 @@ parameter_list|(
 name|int
 name|numHits
 parameter_list|,
-name|SearchScript
+name|ExecutableSearchScript
 name|script
 parameter_list|)
 block|{

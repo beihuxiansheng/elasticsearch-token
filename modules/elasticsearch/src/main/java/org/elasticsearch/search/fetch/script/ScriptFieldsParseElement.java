@@ -40,9 +40,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|search
-operator|.
-name|SearchScript
+name|ExecutableSearchScript
 import|;
 end_import
 
@@ -323,11 +321,11 @@ expr_stmt|;
 block|}
 block|}
 block|}
-name|SearchScript
+name|ExecutableSearchScript
 name|searchScript
 init|=
 operator|new
-name|SearchScript
+name|ExecutableSearchScript
 argument_list|(
 name|context
 operator|.

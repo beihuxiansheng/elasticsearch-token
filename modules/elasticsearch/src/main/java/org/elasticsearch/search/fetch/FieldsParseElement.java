@@ -52,9 +52,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|search
-operator|.
-name|SearchScript
+name|ExecutableSearchScript
 import|;
 end_import
 
@@ -198,11 +196,11 @@ argument_list|)
 condition|)
 block|{
 comment|// script field to load from source
-name|SearchScript
+name|ExecutableSearchScript
 name|searchScript
 init|=
 operator|new
-name|SearchScript
+name|ExecutableSearchScript
 argument_list|(
 name|context
 operator|.
@@ -316,11 +314,11 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|SearchScript
+name|ExecutableSearchScript
 name|searchScript
 init|=
 operator|new
-name|SearchScript
+name|ExecutableSearchScript
 argument_list|(
 name|context
 operator|.
@@ -423,11 +421,11 @@ argument_list|)
 condition|)
 block|{
 comment|// script field to load from source
-name|SearchScript
+name|ExecutableSearchScript
 name|searchScript
 init|=
 operator|new
-name|SearchScript
+name|ExecutableSearchScript
 argument_list|(
 name|context
 operator|.
@@ -533,11 +531,11 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|SearchScript
+name|ExecutableSearchScript
 name|searchScript
 init|=
 operator|new
-name|SearchScript
+name|ExecutableSearchScript
 argument_list|(
 name|context
 operator|.

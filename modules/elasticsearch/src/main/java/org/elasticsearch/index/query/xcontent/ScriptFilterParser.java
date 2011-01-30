@@ -202,7 +202,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptService
+name|ExecutableSearchScript
 import|;
 end_import
 
@@ -214,9 +214,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|search
-operator|.
-name|SearchScript
+name|ScriptService
 import|;
 end_import
 
@@ -651,7 +649,7 @@ decl_stmt|;
 DECL|field|searchScript
 specifier|private
 specifier|final
-name|SearchScript
+name|ExecutableSearchScript
 name|searchScript
 decl_stmt|;
 DECL|method|ScriptFilter
@@ -716,7 +714,7 @@ operator|.
 name|searchScript
 operator|=
 operator|new
-name|SearchScript
+name|ExecutableSearchScript
 argument_list|(
 name|context
 operator|.
@@ -961,7 +959,7 @@ block|{
 DECL|field|searchScript
 specifier|private
 specifier|final
-name|SearchScript
+name|ExecutableSearchScript
 name|searchScript
 decl_stmt|;
 DECL|method|ScriptDocSet
@@ -971,7 +969,7 @@ parameter_list|(
 name|IndexReader
 name|reader
 parameter_list|,
-name|SearchScript
+name|ExecutableSearchScript
 name|searchScript
 parameter_list|)
 block|{

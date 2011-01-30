@@ -196,9 +196,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|search
-operator|.
-name|SearchScript
+name|ExecutableSearchScript
 import|;
 end_import
 
@@ -369,7 +367,7 @@ decl_stmt|;
 DECL|field|script
 specifier|private
 specifier|final
-name|SearchScript
+name|ExecutableSearchScript
 name|script
 decl_stmt|;
 DECL|method|FieldsTermsStringFacetCollector
@@ -609,7 +607,7 @@ operator|.
 name|script
 operator|=
 operator|new
-name|SearchScript
+name|ExecutableSearchScript
 argument_list|(
 name|context
 operator|.
@@ -1072,7 +1070,7 @@ decl_stmt|;
 DECL|field|script
 specifier|private
 specifier|final
-name|SearchScript
+name|ExecutableSearchScript
 name|script
 decl_stmt|;
 DECL|field|scriptParams
@@ -1105,7 +1103,7 @@ parameter_list|,
 name|Pattern
 name|pattern
 parameter_list|,
-name|SearchScript
+name|ExecutableSearchScript
 name|script
 parameter_list|)
 block|{

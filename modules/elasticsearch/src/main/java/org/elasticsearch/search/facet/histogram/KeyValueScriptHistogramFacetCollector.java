@@ -154,9 +154,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|search
-operator|.
-name|SearchScript
+name|ExecutableSearchScript
 import|;
 end_import
 
@@ -282,7 +280,7 @@ decl_stmt|;
 DECL|field|valueScript
 specifier|private
 specifier|final
-name|SearchScript
+name|ExecutableSearchScript
 name|valueScript
 decl_stmt|;
 DECL|field|histoProc
@@ -423,7 +421,7 @@ operator|.
 name|valueScript
 operator|=
 operator|new
-name|SearchScript
+name|ExecutableSearchScript
 argument_list|(
 name|context
 operator|.
@@ -620,7 +618,7 @@ decl_stmt|;
 DECL|field|valueScript
 specifier|private
 specifier|final
-name|SearchScript
+name|ExecutableSearchScript
 name|valueScript
 decl_stmt|;
 DECL|field|counts
@@ -655,7 +653,7 @@ parameter_list|(
 name|long
 name|interval
 parameter_list|,
-name|SearchScript
+name|ExecutableSearchScript
 name|valueScript
 parameter_list|)
 block|{

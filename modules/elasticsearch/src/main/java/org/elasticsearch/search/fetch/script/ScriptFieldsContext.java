@@ -40,9 +40,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|search
-operator|.
-name|SearchScript
+name|ExecutableSearchScript
 import|;
 end_import
 
@@ -81,7 +79,7 @@ decl_stmt|;
 DECL|field|script
 specifier|private
 specifier|final
-name|SearchScript
+name|ExecutableSearchScript
 name|script
 decl_stmt|;
 DECL|field|ignoreException
@@ -97,7 +95,7 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|SearchScript
+name|ExecutableSearchScript
 name|script
 parameter_list|,
 name|boolean
@@ -135,7 +133,7 @@ return|;
 block|}
 DECL|method|script
 specifier|public
-name|SearchScript
+name|ExecutableSearchScript
 name|script
 parameter_list|()
 block|{

@@ -40,9 +40,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|search
-operator|.
-name|SearchScript
+name|ExecutableSearchScript
 import|;
 end_import
 
@@ -123,7 +121,7 @@ block|{
 DECL|field|script
 specifier|private
 specifier|final
-name|SearchScript
+name|ExecutableSearchScript
 name|script
 decl_stmt|;
 DECL|field|min
@@ -198,7 +196,7 @@ operator|.
 name|script
 operator|=
 operator|new
-name|SearchScript
+name|ExecutableSearchScript
 argument_list|(
 name|context
 operator|.

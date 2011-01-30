@@ -234,9 +234,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|search
-operator|.
-name|SearchScript
+name|ExecutableSearchScript
 import|;
 end_import
 
@@ -619,11 +617,11 @@ literal|"No search context on going..."
 argument_list|)
 throw|;
 block|}
-name|SearchScript
+name|ExecutableSearchScript
 name|searchScript
 init|=
 operator|new
-name|SearchScript
+name|ExecutableSearchScript
 argument_list|(
 name|context
 operator|.
@@ -679,7 +677,7 @@ block|{
 DECL|field|script
 specifier|private
 specifier|final
-name|SearchScript
+name|ExecutableSearchScript
 name|script
 decl_stmt|;
 DECL|field|vars
@@ -703,7 +701,7 @@ DECL|method|ScriptScoreFunction
 specifier|private
 name|ScriptScoreFunction
 parameter_list|(
-name|SearchScript
+name|ExecutableSearchScript
 name|script
 parameter_list|)
 block|{

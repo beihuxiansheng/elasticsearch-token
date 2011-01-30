@@ -102,9 +102,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|search
-operator|.
-name|SearchScript
+name|ExecutableSearchScript
 import|;
 end_import
 
@@ -433,11 +431,11 @@ literal|"_script sorting requires setting the type of the script"
 argument_list|)
 throw|;
 block|}
-name|SearchScript
+name|ExecutableSearchScript
 name|searchScript
 init|=
 operator|new
-name|SearchScript
+name|ExecutableSearchScript
 argument_list|(
 name|context
 operator|.
