@@ -1700,6 +1700,16 @@ name|type
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|documentMapper
+operator|==
+literal|null
+condition|)
+block|{
+comment|// should not happen
+return|return;
+block|}
 name|documentMapper
 operator|.
 name|refreshSource
