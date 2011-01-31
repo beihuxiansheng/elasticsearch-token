@@ -383,12 +383,12 @@ argument_list|)
 operator|.
 name|value
 argument_list|(
-name|lat
+name|lon
 argument_list|)
 operator|.
 name|value
 argument_list|(
-name|lon
+name|lat
 argument_list|)
 operator|.
 name|endArray

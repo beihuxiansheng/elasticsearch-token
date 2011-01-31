@@ -139,6 +139,7 @@ operator|=
 name|name
 expr_stmt|;
 block|}
+comment|/**      * Adds top left point.      *      * @param lat The latitude      * @param lon The longitude      */
 DECL|method|topLeft
 specifier|public
 name|GeoBoundingBoxFilterBuilder
@@ -175,6 +176,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Adds bottom right point.      *      * @param lat The latitude      * @param lon The longitude      */
 DECL|method|bottomRight
 specifier|public
 name|GeoBoundingBoxFilterBuilder
@@ -357,14 +359,14 @@ name|value
 argument_list|(
 name|topLeft
 operator|.
-name|lat
+name|lon
 argument_list|)
 operator|.
 name|value
 argument_list|(
 name|topLeft
 operator|.
-name|lon
+name|lat
 argument_list|)
 operator|.
 name|endArray
@@ -417,14 +419,14 @@ name|value
 argument_list|(
 name|bottomRight
 operator|.
-name|lat
+name|lon
 argument_list|)
 operator|.
 name|value
 argument_list|(
 name|bottomRight
 operator|.
-name|lon
+name|lat
 argument_list|)
 operator|.
 name|endArray

@@ -293,7 +293,7 @@ operator|.
 name|nextToken
 argument_list|()
 expr_stmt|;
-name|lat
+name|lon
 operator|=
 name|parser
 operator|.
@@ -307,7 +307,7 @@ operator|.
 name|nextToken
 argument_list|()
 expr_stmt|;
-name|lon
+name|lat
 operator|=
 name|parser
 operator|.

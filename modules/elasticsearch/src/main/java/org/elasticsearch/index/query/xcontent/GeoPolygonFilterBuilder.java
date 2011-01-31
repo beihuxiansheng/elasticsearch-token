@@ -157,6 +157,7 @@ operator|=
 name|name
 expr_stmt|;
 block|}
+comment|/**      * Adds a point with lat and lon      *      * @param lat The latitude      * @param lon The longitude      * @return      */
 DECL|method|addPoint
 specifier|public
 name|GeoPolygonFilterBuilder
@@ -321,14 +322,14 @@ name|value
 argument_list|(
 name|point
 operator|.
-name|lat
+name|lon
 argument_list|)
 operator|.
 name|value
 argument_list|(
 name|point
 operator|.
-name|lon
+name|lat
 argument_list|)
 operator|.
 name|endArray

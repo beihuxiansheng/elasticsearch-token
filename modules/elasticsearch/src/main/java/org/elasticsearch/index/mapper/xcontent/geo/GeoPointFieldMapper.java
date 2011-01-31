@@ -1416,7 +1416,7 @@ operator|.
 name|START_ARRAY
 condition|)
 block|{
-comment|// its an array of array of lat/lon [ [1.2, 1.3], [1.4, 1.5] ]
+comment|// its an array of array of lon/lat [ [1.2, 1.3], [1.4, 1.5] ]
 while|while
 condition|(
 name|token
@@ -1439,7 +1439,7 @@ name|nextToken
 argument_list|()
 expr_stmt|;
 name|Double
-name|lat
+name|lon
 init|=
 name|context
 operator|.
@@ -1460,7 +1460,7 @@ name|nextToken
 argument_list|()
 expr_stmt|;
 name|Double
-name|lon
+name|lat
 init|=
 name|context
 operator|.
@@ -1527,7 +1527,7 @@ name|VALUE_NUMBER
 condition|)
 block|{
 name|Double
-name|lat
+name|lon
 init|=
 name|context
 operator|.
@@ -1548,7 +1548,7 @@ name|nextToken
 argument_list|()
 expr_stmt|;
 name|Double
-name|lon
+name|lat
 init|=
 name|context
 operator|.

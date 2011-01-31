@@ -582,7 +582,7 @@ argument_list|()
 expr_stmt|;
 name|point
 operator|.
-name|lat
+name|lon
 operator|=
 name|parser
 operator|.
@@ -598,7 +598,7 @@ argument_list|()
 expr_stmt|;
 name|point
 operator|.
-name|lon
+name|lat
 operator|=
 name|parser
 operator|.
