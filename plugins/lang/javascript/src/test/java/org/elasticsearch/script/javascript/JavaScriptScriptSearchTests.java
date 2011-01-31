@@ -2684,7 +2684,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"running doc['num1'].value * score"
+literal|"running doc['num1'].value * _score"
 argument_list|)
 expr_stmt|;
 name|response
@@ -2727,7 +2727,7 @@ argument_list|)
 operator|.
 name|script
 argument_list|(
-literal|"doc['num1'].value * score"
+literal|"doc['num1'].value * _score"
 argument_list|)
 operator|.
 name|lang
@@ -2869,7 +2869,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"running param1 * param2 * score"
+literal|"running param1 * param2 * _score"
 argument_list|)
 expr_stmt|;
 name|response
@@ -2912,7 +2912,7 @@ argument_list|)
 operator|.
 name|script
 argument_list|(
-literal|"param1 * param2 * score"
+literal|"param1 * param2 * _score"
 argument_list|)
 operator|.
 name|param

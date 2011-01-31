@@ -1149,9 +1149,9 @@ argument_list|,
 name|vars
 argument_list|)
 decl_stmt|;
-name|ctx
+name|script
 operator|.
-name|put
+name|setNextVar
 argument_list|(
 literal|"value"
 argument_list|,
@@ -1164,9 +1164,7 @@ init|=
 name|script
 operator|.
 name|run
-argument_list|(
-name|ctx
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -1186,9 +1184,9 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ctx
+name|script
 operator|.
-name|put
+name|setNextVar
 argument_list|(
 literal|"value"
 argument_list|,
@@ -1200,9 +1198,7 @@ operator|=
 name|script
 operator|.
 name|run
-argument_list|(
-name|ctx
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|assertThat
 argument_list|(

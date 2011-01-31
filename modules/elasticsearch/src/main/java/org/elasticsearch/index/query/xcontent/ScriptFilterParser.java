@@ -202,7 +202,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ExecutableSearchScript
+name|ScriptService
 import|;
 end_import
 
@@ -214,7 +214,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptService
+name|SearchScript
 import|;
 end_import
 
@@ -649,7 +649,7 @@ decl_stmt|;
 DECL|field|searchScript
 specifier|private
 specifier|final
-name|ExecutableSearchScript
+name|SearchScript
 name|searchScript
 decl_stmt|;
 DECL|method|ScriptFilter
@@ -713,8 +713,12 @@ name|this
 operator|.
 name|searchScript
 operator|=
-operator|new
-name|ExecutableSearchScript
+name|context
+operator|.
+name|scriptService
+argument_list|()
+operator|.
+name|search
 argument_list|(
 name|context
 operator|.
@@ -726,8 +730,6 @@ argument_list|,
 name|script
 argument_list|,
 name|params
-argument_list|,
-name|scriptService
 argument_list|)
 expr_stmt|;
 block|}
@@ -959,7 +961,7 @@ block|{
 DECL|field|searchScript
 specifier|private
 specifier|final
-name|ExecutableSearchScript
+name|SearchScript
 name|searchScript
 decl_stmt|;
 DECL|method|ScriptDocSet
@@ -969,7 +971,7 @@ parameter_list|(
 name|IndexReader
 name|reader
 parameter_list|,
-name|ExecutableSearchScript
+name|SearchScript
 name|searchScript
 parameter_list|)
 block|{
@@ -1029,15 +1031,20 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|searchScript
+operator|.
+name|setNextDocId
+argument_list|(
+name|doc
+argument_list|)
+expr_stmt|;
 name|Object
 name|val
 init|=
 name|searchScript
 operator|.
-name|execute
-argument_list|(
-name|doc
-argument_list|)
+name|run
+argument_list|()
 decl_stmt|;
 if|if
 condition|(

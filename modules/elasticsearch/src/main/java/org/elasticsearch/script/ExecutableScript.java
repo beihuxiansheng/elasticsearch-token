@@ -30,16 +30,6 @@ name|NotThreadSafe
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
 begin_comment
 comment|/**  * An executable script, can't be used concurrently.  *  * @author kimchy (shay.banon)  */
 end_comment
@@ -52,25 +42,22 @@ specifier|public
 interface|interface
 name|ExecutableScript
 block|{
-comment|/**      * Executes the script.      */
-DECL|method|run
+DECL|method|setNextVar
+name|void
+name|setNextVar
+parameter_list|(
+name|String
+name|name
+parameter_list|,
 name|Object
-name|run
-parameter_list|()
+name|value
+parameter_list|)
 function_decl|;
 comment|/**      * Executes the script.      */
 DECL|method|run
 name|Object
 name|run
-parameter_list|(
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|vars
-parameter_list|)
+parameter_list|()
 function_decl|;
 comment|/**      * Unwraps a possible script value. For example, when passing vars and expecting the returned value to      * be part of the vars.      */
 DECL|method|unwrap

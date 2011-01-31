@@ -102,7 +102,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ExecutableSearchScript
+name|SearchScript
 import|;
 end_import
 
@@ -431,11 +431,15 @@ literal|"_script sorting requires setting the type of the script"
 argument_list|)
 throw|;
 block|}
-name|ExecutableSearchScript
+name|SearchScript
 name|searchScript
 init|=
-operator|new
-name|ExecutableSearchScript
+name|context
+operator|.
+name|scriptService
+argument_list|()
+operator|.
+name|search
 argument_list|(
 name|context
 operator|.
@@ -447,11 +451,6 @@ argument_list|,
 name|script
 argument_list|,
 name|params
-argument_list|,
-name|context
-operator|.
-name|scriptService
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|FieldComparatorSource

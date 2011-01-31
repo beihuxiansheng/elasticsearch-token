@@ -154,7 +154,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ExecutableSearchScript
+name|SearchScript
 import|;
 end_import
 
@@ -280,7 +280,7 @@ decl_stmt|;
 DECL|field|valueScript
 specifier|private
 specifier|final
-name|ExecutableSearchScript
+name|SearchScript
 name|valueScript
 decl_stmt|;
 DECL|field|histoProc
@@ -420,8 +420,12 @@ name|this
 operator|.
 name|valueScript
 operator|=
-operator|new
-name|ExecutableSearchScript
+name|context
+operator|.
+name|scriptService
+argument_list|()
+operator|.
+name|search
 argument_list|(
 name|context
 operator|.
@@ -433,11 +437,6 @@ argument_list|,
 name|valueScript
 argument_list|,
 name|params
-argument_list|,
-name|context
-operator|.
-name|scriptService
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|FieldMapper
@@ -618,7 +617,7 @@ decl_stmt|;
 DECL|field|valueScript
 specifier|private
 specifier|final
-name|ExecutableSearchScript
+name|SearchScript
 name|valueScript
 decl_stmt|;
 DECL|field|counts
@@ -653,7 +652,7 @@ parameter_list|(
 name|long
 name|interval
 parameter_list|,
-name|ExecutableSearchScript
+name|SearchScript
 name|valueScript
 parameter_list|)
 block|{
@@ -684,6 +683,13 @@ name|double
 name|value
 parameter_list|)
 block|{
+name|valueScript
+operator|.
+name|setNextDocId
+argument_list|(
+name|docId
+argument_list|)
+expr_stmt|;
 name|long
 name|bucket
 init|=
@@ -708,19 +714,9 @@ expr_stmt|;
 name|double
 name|scriptValue
 init|=
-operator|(
-operator|(
-name|Number
-operator|)
 name|valueScript
 operator|.
-name|execute
-argument_list|(
-name|docId
-argument_list|)
-operator|)
-operator|.
-name|doubleValue
+name|runAsDouble
 argument_list|()
 decl_stmt|;
 name|totals
