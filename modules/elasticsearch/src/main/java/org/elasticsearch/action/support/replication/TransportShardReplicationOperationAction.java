@@ -1660,7 +1660,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-literal|false
+literal|true
 return|;
 block|}
 name|foundPrimary
