@@ -28,6 +28,20 @@ name|IndexReader
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|Scorer
+import|;
+end_import
+
 begin_comment
 comment|/**  * A search script.  */
 end_comment
@@ -38,6 +52,14 @@ specifier|public
 interface|interface
 name|SearchScript
 block|{
+DECL|method|setScorer
+name|void
+name|setScorer
+parameter_list|(
+name|Scorer
+name|scorer
+parameter_list|)
+function_decl|;
 DECL|method|setNextReader
 name|void
 name|setNextReader
