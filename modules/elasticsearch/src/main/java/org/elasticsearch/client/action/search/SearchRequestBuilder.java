@@ -1065,6 +1065,28 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Applies when sorting, and controls if scores will be tracked as well. Defaults to      *<tt>false</tt>.      */
+DECL|method|setTrackScores
+specifier|public
+name|SearchRequestBuilder
+name|setTrackScores
+parameter_list|(
+name|boolean
+name|trackScores
+parameter_list|)
+block|{
+name|sourceBuilder
+argument_list|()
+operator|.
+name|trackScores
+argument_list|(
+name|trackScores
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Adds the fields to load and return as part of the search request. If none are specified,      * the source of the document will be returned.      */
 DECL|method|addFields
 specifier|public
