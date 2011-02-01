@@ -1184,7 +1184,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"indexed [{}], count [{}]"
+literal|"indexed [{}], count [{}], [{}]"
 argument_list|,
 name|count
 operator|.
@@ -1195,6 +1195,20 @@ name|indexCounter
 operator|.
 name|get
 argument_list|()
+argument_list|,
+name|count
+operator|.
+name|count
+argument_list|()
+operator|==
+name|indexCounter
+operator|.
+name|get
+argument_list|()
+condition|?
+literal|"OK"
+else|:
+literal|"FAIL"
 argument_list|)
 expr_stmt|;
 if|if
@@ -1481,6 +1495,28 @@ operator|.
 name|endObject
 argument_list|()
 expr_stmt|;
+name|String
+name|id
+init|=
+name|Long
+operator|.
+name|toString
+argument_list|(
+name|idCounter
+operator|.
+name|incrementAndGet
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"indexing "
+operator|+
+name|id
+argument_list|)
+expr_stmt|;
 name|client
 operator|.
 name|client
@@ -1492,15 +1528,7 @@ literal|"test"
 argument_list|,
 literal|"type1"
 argument_list|,
-name|Long
-operator|.
-name|toString
-argument_list|(
-name|idCounter
-operator|.
-name|incrementAndGet
-argument_list|()
-argument_list|)
+name|id
 argument_list|)
 operator|.
 name|setCreate

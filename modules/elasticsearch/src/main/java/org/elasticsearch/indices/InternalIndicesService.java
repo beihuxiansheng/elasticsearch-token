@@ -72,6 +72,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ElasticSearchIllegalStateException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|collect
@@ -1447,6 +1457,27 @@ parameter_list|)
 throws|throws
 name|ElasticSearchException
 block|{
+if|if
+condition|(
+operator|!
+name|lifecycle
+operator|.
+name|started
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|ElasticSearchIllegalStateException
+argument_list|(
+literal|"Can't create an index ["
+operator|+
+name|sIndexName
+operator|+
+literal|"] is closed"
+argument_list|)
+throw|;
+block|}
 name|Index
 name|index
 init|=

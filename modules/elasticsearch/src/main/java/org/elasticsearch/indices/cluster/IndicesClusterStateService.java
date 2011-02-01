@@ -857,6 +857,17 @@ name|changesAllowed
 argument_list|()
 condition|)
 return|return;
+if|if
+condition|(
+operator|!
+name|lifecycle
+operator|.
+name|started
+argument_list|()
+condition|)
+block|{
+return|return;
+block|}
 synchronized|synchronized
 init|(
 name|mutex
