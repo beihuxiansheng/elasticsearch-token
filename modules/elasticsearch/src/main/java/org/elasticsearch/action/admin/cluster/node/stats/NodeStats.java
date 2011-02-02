@@ -92,7 +92,7 @@ name|elasticsearch
 operator|.
 name|indices
 operator|.
-name|IndicesStats
+name|NodeIndicesStats
 import|;
 end_import
 
@@ -200,7 +200,7 @@ name|NodeOperationResponse
 block|{
 DECL|field|indices
 specifier|private
-name|IndicesStats
+name|NodeIndicesStats
 name|indices
 decl_stmt|;
 DECL|field|os
@@ -244,7 +244,7 @@ parameter_list|(
 name|DiscoveryNode
 name|node
 parameter_list|,
-name|IndicesStats
+name|NodeIndicesStats
 name|indices
 parameter_list|,
 name|OsStats
@@ -317,7 +317,7 @@ block|}
 comment|/**      * Indices level stats.      */
 DECL|method|indices
 specifier|public
-name|IndicesStats
+name|NodeIndicesStats
 name|indices
 parameter_list|()
 block|{
@@ -330,7 +330,7 @@ block|}
 comment|/**      * Indices level stats.      */
 DECL|method|getIndices
 specifier|public
-name|IndicesStats
+name|NodeIndicesStats
 name|getIndices
 parameter_list|()
 block|{
@@ -537,7 +537,7 @@ condition|)
 block|{
 name|indices
 operator|=
-name|IndicesStats
+name|NodeIndicesStats
 operator|.
 name|readIndicesStats
 argument_list|(

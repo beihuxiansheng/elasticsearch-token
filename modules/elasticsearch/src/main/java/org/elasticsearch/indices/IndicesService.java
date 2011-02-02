@@ -122,7 +122,7 @@ name|changesAllowed
 parameter_list|()
 function_decl|;
 DECL|method|stats
-name|IndicesStats
+name|NodeIndicesStats
 name|stats
 parameter_list|()
 function_decl|;

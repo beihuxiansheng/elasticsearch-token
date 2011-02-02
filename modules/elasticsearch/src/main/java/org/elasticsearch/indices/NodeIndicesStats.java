@@ -143,10 +143,10 @@ comment|/**  * Global information on indices stats running on a specific node.  
 end_comment
 
 begin_class
-DECL|class|IndicesStats
+DECL|class|NodeIndicesStats
 specifier|public
 class|class
-name|IndicesStats
+name|NodeIndicesStats
 implements|implements
 name|Streamable
 implements|,
@@ -174,13 +174,13 @@ specifier|private
 name|long
 name|fieldCacheEvictions
 decl_stmt|;
-DECL|method|IndicesStats
-name|IndicesStats
+DECL|method|NodeIndicesStats
+name|NodeIndicesStats
 parameter_list|()
 block|{     }
-DECL|method|IndicesStats
+DECL|method|NodeIndicesStats
 specifier|public
-name|IndicesStats
+name|NodeIndicesStats
 parameter_list|(
 name|ByteSizeValue
 name|storeSize
@@ -318,7 +318,7 @@ block|}
 DECL|method|readIndicesStats
 specifier|public
 specifier|static
-name|IndicesStats
+name|NodeIndicesStats
 name|readIndicesStats
 parameter_list|(
 name|StreamInput
@@ -327,11 +327,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|IndicesStats
+name|NodeIndicesStats
 name|stats
 init|=
 operator|new
-name|IndicesStats
+name|NodeIndicesStats
 argument_list|()
 decl_stmt|;
 name|stats

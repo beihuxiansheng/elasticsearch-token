@@ -1165,7 +1165,7 @@ DECL|method|stats
 annotation|@
 name|Override
 specifier|public
-name|IndicesStats
+name|NodeIndicesStats
 name|stats
 parameter_list|()
 block|{
@@ -1280,7 +1280,7 @@ expr_stmt|;
 block|}
 return|return
 operator|new
-name|IndicesStats
+name|NodeIndicesStats
 argument_list|(
 operator|new
 name|ByteSizeValue
