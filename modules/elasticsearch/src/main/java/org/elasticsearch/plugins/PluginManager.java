@@ -866,7 +866,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"    -url     [plugins location]    : Downloads and installs listed plugins"
+literal|"    -url     [plugins location]  : Set URL to download plugins from"
 argument_list|)
 expr_stmt|;
 name|System
@@ -875,7 +875,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"    -install [plugin name]: Downloads and installs listed plugins"
+literal|"    -install [plugin name]       : Downloads and installs listed plugins"
 argument_list|)
 expr_stmt|;
 name|System
@@ -884,7 +884,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"    -remove  [plugin name]: Removes listed plugins"
+literal|"    -remove  [plugin name]       : Removes listed plugins"
 argument_list|)
 expr_stmt|;
 block|}
