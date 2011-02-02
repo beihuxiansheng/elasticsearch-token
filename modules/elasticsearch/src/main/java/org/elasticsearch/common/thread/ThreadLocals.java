@@ -620,7 +620,7 @@ if|if
 condition|(
 name|logger
 operator|.
-name|isDebugEnabled
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
