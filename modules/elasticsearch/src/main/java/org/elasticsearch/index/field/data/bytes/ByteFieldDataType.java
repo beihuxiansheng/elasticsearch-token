@@ -98,24 +98,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|field
-operator|.
-name|data
-operator|.
-name|shorts
-operator|.
-name|ShortFieldDataComparator
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -179,7 +161,7 @@ name|IOException
 block|{
 return|return
 operator|new
-name|ShortFieldDataComparator
+name|ByteFieldDataComparator
 argument_list|(
 name|numHits
 argument_list|,
