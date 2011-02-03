@@ -1326,6 +1326,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the source builder to be used with this request. Note, any operations done      * on this require builder before are discarded as this internal builder replaces      * what has been built up until this point.      */
+DECL|method|internalBuilder
+specifier|public
+name|SearchRequestBuilder
+name|internalBuilder
+parameter_list|(
+name|SearchSourceBuilder
+name|sourceBuilder
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sourceBuilder
+operator|=
+name|sourceBuilder
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Returns the internal search source builder used to construct the request.      */
 DECL|method|internalBuilder
 specifier|public
 name|SearchSourceBuilder
