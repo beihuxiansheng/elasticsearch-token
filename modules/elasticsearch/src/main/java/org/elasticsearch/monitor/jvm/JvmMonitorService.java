@@ -498,9 +498,7 @@ name|void
 name|run
 parameter_list|()
 block|{
-name|monitorDeadlock
-argument_list|()
-expr_stmt|;
+comment|//            monitorDeadlock();
 name|monitorLongGc
 argument_list|()
 expr_stmt|;
