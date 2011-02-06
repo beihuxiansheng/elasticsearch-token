@@ -271,7 +271,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"geo_bounding_box"
+literal|"geo_bbox"
 decl_stmt|;
 DECL|method|GeoBoundingBoxFilterParser
 annotation|@
@@ -311,6 +311,10 @@ name|String
 index|[]
 block|{
 name|NAME
+block|,
+literal|"geoBbox"
+block|,
+literal|"geo_bounding_box"
 block|,
 literal|"geoBoundingBox"
 block|}
