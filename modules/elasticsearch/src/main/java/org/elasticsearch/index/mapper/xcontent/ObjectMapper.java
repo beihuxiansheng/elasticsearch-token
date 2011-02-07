@@ -142,24 +142,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|xcontent
-operator|.
-name|ip
-operator|.
-name|IpFieldMapper
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -2721,89 +2703,21 @@ comment|// failure to parse this, continue
 block|}
 block|}
 block|}
+comment|// DON'T do automatic ip detection logic, since it messes up with docs that have hosts and ips
 comment|// check if its an ip
-if|if
-condition|(
-operator|!
-name|resolved
-operator|&&
-name|text
-operator|.
-name|indexOf
-argument_list|(
-literal|'.'
-argument_list|)
-operator|!=
-operator|-
-literal|1
-condition|)
-block|{
-try|try
-block|{
-name|IpFieldMapper
-operator|.
-name|ipToLong
-argument_list|(
-name|text
-argument_list|)
-expr_stmt|;
-name|XContentMapper
-operator|.
-name|Builder
-name|builder
-init|=
-name|context
-operator|.
-name|root
-argument_list|()
-operator|.
-name|findTemplateBuilder
-argument_list|(
-name|context
-argument_list|,
-name|currentFieldName
-argument_list|,
-literal|"ip"
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|builder
-operator|==
-literal|null
-condition|)
-block|{
-name|builder
-operator|=
-name|ipField
-argument_list|(
-name|currentFieldName
-argument_list|)
-expr_stmt|;
-block|}
-name|mapper
-operator|=
-name|builder
-operator|.
-name|build
-argument_list|(
-name|builderContext
-argument_list|)
-expr_stmt|;
-name|resolved
-operator|=
-literal|true
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-comment|// failure to parse, not ip...
-block|}
-block|}
+comment|//                if (!resolved&& text.indexOf('.') != -1) {
+comment|//                    try {
+comment|//                        IpFieldMapper.ipToLong(text);
+comment|//                        XContentMapper.Builder builder = context.root().findTemplateBuilder(context, currentFieldName, "ip");
+comment|//                        if (builder == null) {
+comment|//                            builder = ipField(currentFieldName);
+comment|//                        }
+comment|//                        mapper = builder.build(builderContext);
+comment|//                        resolved = true;
+comment|//                    } catch (Exception e) {
+comment|//                        // failure to parse, not ip...
+comment|//                    }
+comment|//                }
 if|if
 condition|(
 operator|!
