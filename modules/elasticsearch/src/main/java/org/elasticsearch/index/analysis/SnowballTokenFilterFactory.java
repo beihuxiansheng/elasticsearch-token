@@ -117,7 +117,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Real work actually done here by Sebastian on the ElasticSearch mailing list  * http://elasticsearch-users.115913.n3.nabble.com/Using-the-Snowball-stemmers-tp2126106p2127111.html  * @author harryf (Harry Fuecks)  */
+comment|/**  * Real work actually done here by Sebastian on the ElasticSearch mailing list  * http://elasticsearch-users.115913.n3.nabble.com/Using-the-Snowball-stemmers-tp2126106p2127111.html  *  * @author harryf (Harry Fuecks)  */
 end_comment
 
 begin_class
@@ -176,6 +176,8 @@ operator|.
 name|get
 argument_list|(
 literal|"language"
+argument_list|,
+literal|"English"
 argument_list|)
 expr_stmt|;
 block|}
