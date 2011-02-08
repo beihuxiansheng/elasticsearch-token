@@ -2105,9 +2105,6 @@ literal|"Malformed content, must start with an object"
 argument_list|)
 throw|;
 block|}
-name|countDownTokens
-operator|++
-expr_stmt|;
 name|token
 operator|=
 name|parser

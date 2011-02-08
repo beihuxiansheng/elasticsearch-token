@@ -512,6 +512,9 @@ name|preparePercolate
 parameter_list|(
 name|String
 name|index
+parameter_list|,
+name|String
+name|type
 parameter_list|)
 block|{
 return|return
@@ -521,6 +524,8 @@ argument_list|(
 name|this
 argument_list|,
 name|index
+argument_list|,
+name|type
 argument_list|)
 return|;
 block|}

@@ -237,7 +237,7 @@ name|registerHandler
 argument_list|(
 name|GET
 argument_list|,
-literal|"/{index}/_percolate"
+literal|"/{index}/{type}/_percolate"
 argument_list|,
 name|this
 argument_list|)
@@ -248,7 +248,7 @@ name|registerHandler
 argument_list|(
 name|POST
 argument_list|,
-literal|"/{index}/_percolate"
+literal|"/{index}/{type}/_percolate"
 argument_list|,
 name|this
 argument_list|)
@@ -281,6 +281,13 @@ operator|.
 name|param
 argument_list|(
 literal|"index"
+argument_list|)
+argument_list|,
+name|request
+operator|.
+name|param
+argument_list|(
+literal|"type"
 argument_list|)
 argument_list|)
 decl_stmt|;

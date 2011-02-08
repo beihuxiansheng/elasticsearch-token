@@ -94,18 +94,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Nullable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|xcontent
 operator|.
 name|XContentBuilder
@@ -160,10 +148,11 @@ parameter_list|(
 name|Client
 name|client
 parameter_list|,
-annotation|@
-name|Nullable
 name|String
 name|index
+parameter_list|,
+name|String
+name|type
 parameter_list|)
 block|{
 name|super
@@ -174,11 +163,13 @@ operator|new
 name|PercolateRequest
 argument_list|(
 name|index
+argument_list|,
+name|type
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sets the index to index the document to.      */
+comment|/**      * Sets the index to percolate the document against.      */
 DECL|method|setIndex
 specifier|public
 name|PercolateRequestBuilder
@@ -193,6 +184,27 @@ operator|.
 name|index
 argument_list|(
 name|index
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the type of the document to percolate.      */
+DECL|method|setType
+specifier|public
+name|PercolateRequestBuilder
+name|setType
+parameter_list|(
+name|String
+name|type
+parameter_list|)
+block|{
+name|request
+operator|.
+name|type
+argument_list|(
+name|type
 argument_list|)
 expr_stmt|;
 return|return

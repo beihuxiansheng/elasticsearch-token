@@ -532,11 +532,6 @@ argument_list|(
 literal|"doc"
 argument_list|)
 operator|.
-name|startObject
-argument_list|(
-literal|"type1"
-argument_list|)
-operator|.
 name|field
 argument_list|(
 literal|"field1"
@@ -557,9 +552,6 @@ literal|"field3"
 argument_list|,
 literal|"the quick brown fox jumped over the lazy dog"
 argument_list|)
-operator|.
-name|endObject
-argument_list|()
 operator|.
 name|endObject
 argument_list|()
@@ -591,6 +583,8 @@ name|PercolatorExecutor
 operator|.
 name|SourceRequest
 argument_list|(
+literal|"type1"
+argument_list|,
 name|source
 argument_list|)
 argument_list|)
@@ -683,6 +677,8 @@ name|PercolatorExecutor
 operator|.
 name|SourceRequest
 argument_list|(
+literal|"type1"
+argument_list|,
 name|source
 argument_list|)
 argument_list|)
@@ -825,6 +821,8 @@ name|PercolatorExecutor
 operator|.
 name|SourceRequest
 argument_list|(
+literal|"type1"
+argument_list|,
 name|source
 argument_list|)
 argument_list|)

@@ -860,13 +860,16 @@ argument_list|>
 name|listener
 parameter_list|)
 function_decl|;
-comment|/**      * Percolates a request returning the matches documents.      */
+comment|/**      * Percolates a request returning the matches documents.      *      * @param index The index to percolate the doc      * @param type  The type of the doc      */
 DECL|method|preparePercolate
 name|PercolateRequestBuilder
 name|preparePercolate
 parameter_list|(
 name|String
 name|index
+parameter_list|,
+name|String
+name|type
 parameter_list|)
 function_decl|;
 block|}

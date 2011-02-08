@@ -524,6 +524,8 @@ operator|.
 name|preparePercolate
 argument_list|(
 literal|"test"
+argument_list|,
+literal|"type1"
 argument_list|)
 operator|.
 name|setSource
@@ -697,11 +699,6 @@ argument_list|(
 literal|"doc"
 argument_list|)
 operator|.
-name|startObject
-argument_list|(
-literal|"type1"
-argument_list|)
-operator|.
 name|field
 argument_list|(
 literal|"id"
@@ -785,9 +782,6 @@ literal|"name"
 argument_list|,
 name|nameValue
 argument_list|)
-operator|.
-name|endObject
-argument_list|()
 operator|.
 name|endObject
 argument_list|()
