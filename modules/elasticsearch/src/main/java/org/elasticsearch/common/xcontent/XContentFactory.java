@@ -169,7 +169,7 @@ operator|.
 name|smileXContent
 expr_stmt|;
 block|}
-comment|/**      * Returns a content builder using JSON format ({@link org.elasticsearch.common.xcontent.XContentType#JSON}.      */
+comment|/**      * Returns a content builder using JSON format ({@link org.elasticsearch.common.xcontent.XContentType#JSON}.      *      *<p>Note, this should be passed directly to an API, if its going to be used around, make sure you use      * {@link #safeJsonBuilder()}.      */
 DECL|method|jsonBuilder
 specifier|public
 specifier|static
@@ -188,7 +188,26 @@ name|JSON
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a content builder using SMILE format ({@link org.elasticsearch.common.xcontent.XContentType#SMILE}.      */
+comment|/**      * Returns a content builder using JSON format ({@link org.elasticsearch.common.xcontent.XContentType#JSON}      * that can be used outside of the scope of passing it directly to an API call.      */
+DECL|method|safeJsonBuilder
+specifier|public
+specifier|static
+name|XContentBuilder
+name|safeJsonBuilder
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+return|return
+name|unCachedContentBuilder
+argument_list|(
+name|XContentType
+operator|.
+name|JSON
+argument_list|)
+return|;
+block|}
+comment|/**      * Returns a content builder using SMILE format ({@link org.elasticsearch.common.xcontent.XContentType#SMILE}.      *      *<p>Note, this should be passed directly to an API, if its going to be used around, make sure you use      * {@link #safeSmileBuilder()}.      */
 DECL|method|smileBuilder
 specifier|public
 specifier|static
@@ -200,6 +219,25 @@ name|IOException
 block|{
 return|return
 name|contentBuilder
+argument_list|(
+name|XContentType
+operator|.
+name|SMILE
+argument_list|)
+return|;
+block|}
+comment|/**      * Returns a content builder using SMILE format ({@link org.elasticsearch.common.xcontent.XContentType#SMILE}      * that can be used outside of the scope of passing it directly to an API call.      */
+DECL|method|safeSmileBuilder
+specifier|public
+specifier|static
+name|XContentBuilder
+name|safeSmileBuilder
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+return|return
+name|unCachedContentBuilder
 argument_list|(
 name|XContentType
 operator|.
