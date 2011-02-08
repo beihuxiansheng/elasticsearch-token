@@ -78,6 +78,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
+name|AlreadyClosedException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -251,6 +265,8 @@ name|CorruptIndexException
 throws|,
 name|IOException
 block|{
+try|try
+block|{
 comment|// if merge is not enabled, don't do any merging...
 if|if
 condition|(
@@ -281,6 +297,18 @@ condition|)
 block|{
 return|return;
 block|}
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|AlreadyClosedException
+name|e
+parameter_list|)
+block|{
+comment|// called writer#getMergePolicy can cause an AlreadyClosed failure, so ignore it
+comment|// since we are doing it on close, return here and don't do the actual merge
+comment|// since we do it outside of a lock in the RobinEngine
+return|return;
 block|}
 name|super
 operator|.
