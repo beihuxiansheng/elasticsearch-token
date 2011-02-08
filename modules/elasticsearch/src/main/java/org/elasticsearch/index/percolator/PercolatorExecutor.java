@@ -160,6 +160,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Preconditions
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|Strings
 import|;
 end_import
@@ -1497,6 +1509,17 @@ name|Query
 name|query
 parameter_list|)
 block|{
+name|Preconditions
+operator|.
+name|checkArgument
+argument_list|(
+name|query
+operator|!=
+literal|null
+argument_list|,
+literal|"query must be provided for percolate request"
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|queries
