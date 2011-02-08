@@ -236,6 +236,12 @@ specifier|final
 name|long
 name|version
 decl_stmt|;
+DECL|field|reader
+specifier|public
+specifier|final
+name|IndexReader
+name|reader
+decl_stmt|;
 DECL|method|DocIdAndVersion
 specifier|public
 name|DocIdAndVersion
@@ -245,6 +251,9 @@ name|docId
 parameter_list|,
 name|long
 name|version
+parameter_list|,
+name|IndexReader
+name|reader
 parameter_list|)
 block|{
 name|this
@@ -258,6 +267,12 @@ operator|.
 name|version
 operator|=
 name|version
+expr_stmt|;
+name|this
+operator|.
+name|reader
+operator|=
+name|reader
 expr_stmt|;
 block|}
 block|}
@@ -316,6 +331,8 @@ name|NO_DOC
 argument_list|,
 operator|-
 literal|1
+argument_list|,
+name|reader
 argument_list|)
 return|;
 block|}
@@ -348,6 +365,8 @@ name|docId
 argument_list|,
 operator|-
 literal|2
+argument_list|,
+name|reader
 argument_list|)
 return|;
 block|}
@@ -369,6 +388,8 @@ name|docId
 argument_list|,
 operator|-
 literal|2
+argument_list|,
+name|reader
 argument_list|)
 return|;
 block|}
@@ -401,6 +422,8 @@ name|bytesToLong
 argument_list|(
 name|payload
 argument_list|)
+argument_list|,
+name|reader
 argument_list|)
 return|;
 block|}
@@ -418,6 +441,8 @@ name|docId
 argument_list|,
 operator|-
 literal|2
+argument_list|,
+name|reader
 argument_list|)
 return|;
 block|}
