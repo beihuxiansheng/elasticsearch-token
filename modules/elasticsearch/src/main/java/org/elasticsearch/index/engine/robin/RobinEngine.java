@@ -686,16 +686,6 @@ operator|new
 name|ReentrantReadWriteLock
 argument_list|()
 decl_stmt|;
-DECL|field|refreshMutex
-specifier|private
-specifier|final
-name|AtomicBoolean
-name|refreshMutex
-init|=
-operator|new
-name|AtomicBoolean
-argument_list|()
-decl_stmt|;
 DECL|field|optimizeMutex
 specifier|private
 specifier|final
@@ -3762,16 +3752,6 @@ parameter_list|)
 throws|throws
 name|EngineException
 block|{
-comment|// we obtain a read lock here, since we don't want a flush to happen while we are refreshing
-comment|// since it flushes the index as well (though, in terms of concurrency, we are allowed to do it)
-name|rwl
-operator|.
-name|readLock
-argument_list|()
-operator|.
-name|lock
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
 name|indexWriter
@@ -3787,21 +3767,19 @@ name|shardId
 argument_list|)
 throw|;
 block|}
+comment|// we obtain a read lock here, since we don't want a flush to happen while we are refreshing
+comment|// since it flushes the index as well (though, in terms of concurrency, we are allowed to do it)
+name|rwl
+operator|.
+name|readLock
+argument_list|()
+operator|.
+name|lock
+argument_list|()
+expr_stmt|;
 try|try
 block|{
 comment|// this engine always acts as if waitForOperations=true
-if|if
-condition|(
-name|refreshMutex
-operator|.
-name|compareAndSet
-argument_list|(
-literal|false
-argument_list|,
-literal|true
-argument_list|)
-condition|)
-block|{
 name|IndexWriter
 name|currentWriter
 init|=
@@ -3829,6 +3807,7 @@ condition|(
 name|dirty
 condition|)
 block|{
+comment|// we eagerly set dirty to false so we won't miss refresh requests
 name|dirty
 operator|=
 literal|false
@@ -3958,17 +3937,6 @@ argument_list|,
 name|e
 argument_list|)
 throw|;
-block|}
-block|}
-finally|finally
-block|{
-name|refreshMutex
-operator|.
-name|set
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 block|}
@@ -4197,13 +4165,6 @@ name|dirty
 operator|=
 literal|false
 expr_stmt|;
-name|refreshMutex
-operator|.
-name|set
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
 try|try
 block|{
 comment|// that's ok if the index writer failed and is in inconsistent state
@@ -4263,16 +4224,6 @@ argument_list|,
 name|e
 argument_list|)
 throw|;
-block|}
-finally|finally
-block|{
-name|refreshMutex
-operator|.
-name|set
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 else|else
