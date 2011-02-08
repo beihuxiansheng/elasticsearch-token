@@ -595,6 +595,13 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
+if|if
+condition|(
+name|endpoint
+operator|!=
+literal|null
+condition|)
+block|{
 name|client
 operator|.
 name|setEndpoint
@@ -602,6 +609,7 @@ argument_list|(
 name|endpoint
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|this
