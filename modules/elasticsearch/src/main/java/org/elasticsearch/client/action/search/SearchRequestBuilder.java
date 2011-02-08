@@ -844,6 +844,28 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Should each {@link org.elasticsearch.search.SearchHit} be returned with its      * version.      */
+DECL|method|setVersion
+specifier|public
+name|SearchRequestBuilder
+name|setVersion
+parameter_list|(
+name|boolean
+name|version
+parameter_list|)
+block|{
+name|sourceBuilder
+argument_list|()
+operator|.
+name|version
+argument_list|(
+name|version
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Sets the boost a specific index will receive when the query is executeed against it.      *      * @param index      The index to apply the boost against      * @param indexBoost The boost to apply to the index      */
 DECL|method|addIndexBoost
 specifier|public

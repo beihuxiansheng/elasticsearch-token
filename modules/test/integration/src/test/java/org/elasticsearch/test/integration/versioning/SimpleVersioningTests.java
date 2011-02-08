@@ -886,6 +886,11 @@ name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.
+name|setVersion
+argument_list|(
+literal|true
+argument_list|)
+operator|.
 name|execute
 argument_list|()
 operator|.
@@ -1522,6 +1527,11 @@ name|setQuery
 argument_list|(
 name|matchAllQuery
 argument_list|()
+argument_list|)
+operator|.
+name|setVersion
+argument_list|(
+literal|true
 argument_list|)
 operator|.
 name|execute

@@ -201,6 +201,28 @@ parameter_list|)
 throws|throws
 name|ElasticSearchException
 block|{
+if|if
+condition|(
+operator|!
+name|context
+operator|.
+name|version
+argument_list|()
+condition|)
+block|{
+name|hitContext
+operator|.
+name|hit
+argument_list|()
+operator|.
+name|version
+argument_list|(
+operator|-
+literal|1
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 comment|// it might make sense to cache the TermDocs on a shared fetch context and just skip here)
 comment|// it is going to mean we work on the high level multi reader and not the lower level reader as is
 comment|// the case below...
