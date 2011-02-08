@@ -2432,6 +2432,14 @@ name|Bulk
 argument_list|(
 name|ops
 argument_list|)
+operator|.
+name|refresh
+argument_list|(
+name|request
+operator|.
+name|refresh
+argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
