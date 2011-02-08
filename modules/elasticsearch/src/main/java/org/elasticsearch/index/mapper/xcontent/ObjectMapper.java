@@ -874,7 +874,7 @@ if|if
 condition|(
 name|value
 operator|.
-name|equals
+name|equalsIgnoreCase
 argument_list|(
 literal|"strict"
 argument_list|)
@@ -3664,6 +3664,12 @@ argument_list|(
 literal|"dynamic"
 argument_list|,
 name|dynamic
+operator|.
+name|name
+argument_list|()
+operator|.
+name|toLowerCase
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -3686,6 +3692,12 @@ argument_list|(
 literal|"dynamic"
 argument_list|,
 name|dynamic
+operator|.
+name|name
+argument_list|()
+operator|.
+name|toLowerCase
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
