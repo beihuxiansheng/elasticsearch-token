@@ -118,9 +118,9 @@ name|elasticsearch
 operator|.
 name|threadpool
 operator|.
-name|cached
+name|fixed
 operator|.
-name|CachedThreadPool
+name|FixedThreadPool
 import|;
 end_import
 
@@ -275,6 +275,26 @@ name|threadPool
 parameter_list|)
 function_decl|;
 block|}
+DECL|method|newThreadPool
+specifier|public
+specifier|static
+name|ThreadPool
+name|newThreadPool
+parameter_list|(
+name|Settings
+name|settings
+parameter_list|)
+block|{
+comment|//        return new ForkjoinThreadPool(settings);
+return|return
+operator|new
+name|FixedThreadPool
+argument_list|(
+name|settings
+argument_list|)
+return|;
+comment|//        return new CachedThreadPool(settings);
+block|}
 DECL|method|main
 specifier|public
 specifier|static
@@ -322,7 +342,7 @@ specifier|final
 name|int
 name|NUMBER_OF_ITERATIONS
 init|=
-literal|10000000
+literal|100000
 decl_stmt|;
 specifier|final
 name|byte
@@ -355,7 +375,7 @@ name|type
 init|=
 name|Type
 operator|.
-name|LOCAL
+name|NETTY
 decl_stmt|;
 name|Settings
 name|settings
@@ -372,13 +392,11 @@ specifier|final
 name|ThreadPool
 name|serverThreadPool
 init|=
-operator|new
-name|CachedThreadPool
+name|newThreadPool
 argument_list|(
 name|settings
 argument_list|)
 decl_stmt|;
-comment|//        final ThreadPool threadPool = new ScalingThreadPool(settings);
 specifier|final
 name|TransportService
 name|serverTransportService
@@ -405,13 +423,11 @@ specifier|final
 name|ThreadPool
 name|clientThreadPool
 init|=
-operator|new
-name|CachedThreadPool
+name|newThreadPool
 argument_list|(
 name|settings
 argument_list|)
 decl_stmt|;
-comment|//        final ThreadPool threadPool = new ScalingThreadPool(settings);
 specifier|final
 name|TransportService
 name|clientTransportService
