@@ -205,6 +205,12 @@ name|TimeValue
 name|interval
 parameter_list|)
 function_decl|;
+comment|/**      * Returns an estimated current time in milliseconds.      */
+DECL|method|estimatedCurrentTimeInMillis
+name|long
+name|estimatedCurrentTimeInMillis
+parameter_list|()
+function_decl|;
 DECL|enum|ExecutionType
 specifier|static
 enum|enum
