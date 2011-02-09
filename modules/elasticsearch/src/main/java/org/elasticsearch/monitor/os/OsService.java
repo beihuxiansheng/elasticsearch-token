@@ -72,18 +72,6 @@ name|TimeValue
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|timer
-operator|.
-name|TimerService
-import|;
-end_import
-
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
@@ -96,12 +84,6 @@ name|OsService
 extends|extends
 name|AbstractComponent
 block|{
-DECL|field|timerService
-specifier|private
-specifier|final
-name|TimerService
-name|timerService
-decl_stmt|;
 DECL|field|probe
 specifier|private
 specifier|final
@@ -136,9 +118,6 @@ name|settings
 parameter_list|,
 name|OsProbe
 name|probe
-parameter_list|,
-name|TimerService
-name|timerService
 parameter_list|)
 block|{
 name|super
@@ -151,12 +130,6 @@ operator|.
 name|probe
 operator|=
 name|probe
-expr_stmt|;
-name|this
-operator|.
-name|timerService
-operator|=
-name|timerService
 expr_stmt|;
 name|this
 operator|.
@@ -239,9 +212,9 @@ block|{
 if|if
 condition|(
 operator|(
-name|timerService
+name|System
 operator|.
-name|estimatedTimeInMillis
+name|currentTimeMillis
 argument_list|()
 operator|-
 name|cachedStats
