@@ -671,7 +671,7 @@ specifier|public
 name|SearchSourceBuilder
 name|explain
 parameter_list|(
-name|boolean
+name|Boolean
 name|explain
 parameter_list|)
 block|{
@@ -691,7 +691,7 @@ specifier|public
 name|SearchSourceBuilder
 name|version
 parameter_list|(
-name|boolean
+name|Boolean
 name|version
 parameter_list|)
 block|{
