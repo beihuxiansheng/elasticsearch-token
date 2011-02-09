@@ -338,18 +338,6 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|TimeUnit
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
 name|atomic
 operator|.
 name|AtomicInteger
@@ -1183,6 +1171,8 @@ expr_stmt|;
 name|sendPingRequest
 argument_list|(
 name|id
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 comment|// try and send another ping request halfway through (just in case someone woke up during it...)
@@ -1207,6 +1197,8 @@ block|{
 name|sendPingRequest
 argument_list|(
 name|id
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -1218,7 +1210,7 @@ parameter_list|)
 block|{
 name|logger
 operator|.
-name|debug
+name|warn
 argument_list|(
 literal|"[{}] failed to send second ping request"
 argument_list|,
@@ -1231,16 +1223,23 @@ block|}
 block|}
 block|}
 argument_list|,
+name|TimeValue
+operator|.
+name|timeValueMillis
+argument_list|(
 name|timeout
 operator|.
 name|millis
 argument_list|()
 operator|/
 literal|2
+argument_list|)
 argument_list|,
-name|TimeUnit
+name|ThreadPool
 operator|.
-name|MILLISECONDS
+name|ExecutionType
+operator|.
+name|THREADED
 argument_list|)
 expr_stmt|;
 name|threadPool
@@ -1299,6 +1298,12 @@ block|}
 block|}
 argument_list|,
 name|timeout
+argument_list|,
+name|ThreadPool
+operator|.
+name|ExecutionType
+operator|.
+name|THREADED
 argument_list|)
 expr_stmt|;
 block|}
@@ -1309,6 +1314,9 @@ name|sendPingRequest
 parameter_list|(
 name|int
 name|id
+parameter_list|,
+name|boolean
+name|remove
 parameter_list|)
 block|{
 synchronized|synchronized
@@ -1378,6 +1386,11 @@ name|IOException
 name|e
 parameter_list|)
 block|{
+if|if
+condition|(
+name|remove
+condition|)
+block|{
 name|receivedResponses
 operator|.
 name|remove
@@ -1385,6 +1398,7 @@ argument_list|(
 name|id
 argument_list|)
 expr_stmt|;
+block|}
 throw|throw
 operator|new
 name|ZenPingException
@@ -1429,6 +1443,11 @@ name|IOException
 name|e
 parameter_list|)
 block|{
+if|if
+condition|(
+name|remove
+condition|)
+block|{
 name|receivedResponses
 operator|.
 name|remove
@@ -1436,6 +1455,7 @@ argument_list|(
 name|id
 argument_list|)
 expr_stmt|;
+block|}
 throw|throw
 operator|new
 name|ZenPingException

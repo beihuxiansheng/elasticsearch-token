@@ -274,7 +274,7 @@ literal|"keep_alive"
 argument_list|,
 name|timeValueMinutes
 argument_list|(
-literal|60
+literal|5
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -288,7 +288,7 @@ name|getAsInt
 argument_list|(
 literal|"scheduled_size"
 argument_list|,
-literal|20
+literal|1
 argument_list|)
 expr_stmt|;
 name|logger

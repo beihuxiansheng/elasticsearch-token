@@ -862,6 +862,12 @@ argument_list|,
 name|request
 operator|.
 name|delay
+argument_list|,
+name|ThreadPool
+operator|.
+name|ExecutionType
+operator|.
+name|THREADED
 argument_list|)
 expr_stmt|;
 return|return

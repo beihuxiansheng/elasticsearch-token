@@ -172,26 +172,8 @@ name|Runnable
 name|command
 parameter_list|)
 function_decl|;
+comment|/**      * Scheduled a task. Note, when using {@link ExecutionType#DEFAULT}, make sure to not      * execute long running blocking tasks.      */
 DECL|method|schedule
-specifier|public
-name|ScheduledFuture
-argument_list|<
-name|?
-argument_list|>
-name|schedule
-parameter_list|(
-name|Runnable
-name|command
-parameter_list|,
-name|long
-name|delay
-parameter_list|,
-name|TimeUnit
-name|unit
-parameter_list|)
-function_decl|;
-DECL|method|schedule
-specifier|public
 name|ScheduledFuture
 argument_list|<
 name|?
@@ -203,8 +185,12 @@ name|command
 parameter_list|,
 name|TimeValue
 name|delay
+parameter_list|,
+name|ExecutionType
+name|executionType
 parameter_list|)
 function_decl|;
+comment|/**      * Schedule a repeating task with a task that is very short lived.      */
 DECL|method|scheduleWithFixedDelay
 name|ScheduledFuture
 argument_list|<
@@ -219,6 +205,17 @@ name|TimeValue
 name|interval
 parameter_list|)
 function_decl|;
+DECL|enum|ExecutionType
+specifier|static
+enum|enum
+name|ExecutionType
+block|{
+DECL|enum constant|DEFAULT
+name|DEFAULT
+block|,
+DECL|enum constant|THREADED
+name|THREADED
+block|}
 block|}
 end_interface
 

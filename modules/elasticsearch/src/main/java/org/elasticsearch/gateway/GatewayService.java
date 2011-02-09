@@ -1432,6 +1432,12 @@ block|}
 block|}
 argument_list|,
 name|recoverAfterTime
+argument_list|,
+name|ThreadPool
+operator|.
+name|ExecutionType
+operator|.
+name|THREADED
 argument_list|)
 expr_stmt|;
 block|}
