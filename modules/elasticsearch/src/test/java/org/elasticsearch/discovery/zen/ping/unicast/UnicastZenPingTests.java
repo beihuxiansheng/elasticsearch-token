@@ -308,8 +308,6 @@ argument_list|(
 name|transportA
 argument_list|,
 name|threadPool
-argument_list|,
-name|timerService
 argument_list|)
 operator|.
 name|start
@@ -366,8 +364,6 @@ argument_list|(
 name|transportB
 argument_list|,
 name|threadPool
-argument_list|,
-name|timerService
 argument_list|)
 operator|.
 name|start

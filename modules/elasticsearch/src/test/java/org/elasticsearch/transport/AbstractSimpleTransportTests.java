@@ -120,18 +120,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|timer
-operator|.
-name|TimerService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|testng
 operator|.
 name|annotations
@@ -252,11 +240,6 @@ specifier|protected
 name|ThreadPool
 name|threadPool
 decl_stmt|;
-DECL|field|timerService
-specifier|protected
-name|TimerService
-name|timerService
-decl_stmt|;
 DECL|field|serviceA
 specifier|protected
 name|TransportService
@@ -290,14 +273,6 @@ operator|=
 operator|new
 name|CachedThreadPool
 argument_list|()
-expr_stmt|;
-name|timerService
-operator|=
-operator|new
-name|TimerService
-argument_list|(
-name|threadPool
-argument_list|)
 expr_stmt|;
 name|build
 argument_list|()
@@ -395,19 +370,6 @@ name|TransportChannel
 name|channel
 parameter_list|)
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"got message: "
-operator|+
-name|request
-operator|.
-name|message
-argument_list|)
-expr_stmt|;
 name|assertThat
 argument_list|(
 literal|"moshe"
@@ -519,19 +481,6 @@ name|StringMessage
 name|response
 parameter_list|)
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"got response: "
-operator|+
-name|response
-operator|.
-name|message
-argument_list|)
-expr_stmt|;
 name|assertThat
 argument_list|(
 literal|"hello moshe"
@@ -633,15 +582,6 @@ argument_list|(
 literal|"sayHello"
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"after ..."
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|testHelloWorldCompressed
 annotation|@
@@ -690,19 +630,6 @@ name|TransportChannel
 name|channel
 parameter_list|)
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"got message: "
-operator|+
-name|request
-operator|.
-name|message
-argument_list|)
-expr_stmt|;
 name|assertThat
 argument_list|(
 literal|"moshe"
@@ -832,19 +759,6 @@ name|StringMessage
 name|response
 parameter_list|)
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"got response: "
-operator|+
-name|response
-operator|.
-name|message
-argument_list|)
-expr_stmt|;
 name|assertThat
 argument_list|(
 literal|"hello moshe"
@@ -946,15 +860,6 @@ argument_list|(
 literal|"sayHello"
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"after ..."
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|testErrorMessage
 annotation|@
@@ -1005,19 +910,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"got message: "
-operator|+
-name|request
-operator|.
-name|message
-argument_list|)
-expr_stmt|;
 name|assertThat
 argument_list|(
 literal|"moshe"
@@ -1184,15 +1076,6 @@ argument_list|(
 literal|"sayHelloException"
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"after ..."
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -1338,19 +1221,6 @@ name|TransportChannel
 name|channel
 parameter_list|)
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"got message: "
-operator|+
-name|request
-operator|.
-name|message
-argument_list|)
-expr_stmt|;
 name|assertThat
 argument_list|(
 literal|"moshe"
@@ -1520,15 +1390,6 @@ argument_list|(
 literal|"sayHelloTimeoutNoResponse"
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"after ..."
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|testTimeoutSendExceptionWithDelayedResponse
 annotation|@
@@ -1579,19 +1440,6 @@ name|TransportChannel
 name|channel
 parameter_list|)
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"got message: "
-operator|+
-name|request
-operator|.
-name|message
-argument_list|)
-expr_stmt|;
 name|TimeValue
 name|sleep
 init|=
@@ -1901,19 +1749,6 @@ name|StringMessage
 name|response
 parameter_list|)
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"got response: "
-operator|+
-name|response
-operator|.
-name|message
-argument_list|)
-expr_stmt|;
 name|assertThat
 argument_list|(
 literal|"hello "
@@ -2001,15 +1836,6 @@ operator|.
 name|removeHandler
 argument_list|(
 literal|"sayHelloTimeoutDelayedResponse"
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"after ..."
 argument_list|)
 expr_stmt|;
 block|}

@@ -146,18 +146,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|timer
-operator|.
-name|TimerService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|transport
 operator|.
 name|BaseTransportResponseHandler
@@ -345,18 +333,6 @@ argument_list|)
 decl_stmt|;
 comment|//        final ThreadPool threadPool = new ScalingThreadPool(settings);
 specifier|final
-name|TimerService
-name|timerService
-init|=
-operator|new
-name|TimerService
-argument_list|(
-name|settings
-argument_list|,
-name|threadPool
-argument_list|)
-decl_stmt|;
-specifier|final
 name|TransportService
 name|transportService
 init|=
@@ -372,8 +348,6 @@ name|threadPool
 argument_list|)
 argument_list|,
 name|threadPool
-argument_list|,
-name|timerService
 argument_list|)
 operator|.
 name|start

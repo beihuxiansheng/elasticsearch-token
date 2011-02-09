@@ -319,8 +319,6 @@ name|threadPool
 argument_list|)
 argument_list|,
 name|threadPool
-argument_list|,
-name|timerService
 argument_list|)
 operator|.
 name|start
@@ -342,8 +340,6 @@ name|threadPool
 argument_list|)
 argument_list|,
 name|threadPool
-argument_list|,
-name|timerService
 argument_list|)
 operator|.
 name|start
