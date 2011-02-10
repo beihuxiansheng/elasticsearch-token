@@ -3771,6 +3771,14 @@ parameter_list|()
 block|{
 try|try
 block|{
+if|if
+condition|(
+name|engine
+operator|.
+name|refreshNeeded
+argument_list|()
+condition|)
+block|{
 name|engine
 operator|.
 name|refresh
@@ -3784,6 +3792,7 @@ literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(

@@ -358,6 +358,12 @@ parameter_list|()
 throws|throws
 name|EngineException
 function_decl|;
+comment|/**      * Returns<tt>true</tt> if a refresh is really needed.      */
+DECL|method|refreshNeeded
+name|boolean
+name|refreshNeeded
+parameter_list|()
+function_decl|;
 comment|/**      * Refreshes the engine for new search operations to reflect the latest      * changes. Pass<tt>true</tt> if the refresh operation should include      * all the operations performed up to this call.      */
 DECL|method|refresh
 name|void
