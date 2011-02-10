@@ -1175,6 +1175,15 @@ name|toString
 argument_list|()
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|fragments
+operator|.
+name|length
+operator|>
+literal|0
+condition|)
+block|{
 name|HighlightField
 name|highlightField
 init|=
@@ -1201,6 +1210,7 @@ argument_list|,
 name|highlightField
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 else|else
 block|{
@@ -1320,6 +1330,15 @@ name|e
 argument_list|)
 throw|;
 block|}
+if|if
+condition|(
+name|fragments
+operator|.
+name|length
+operator|>
+literal|0
+condition|)
+block|{
 name|HighlightField
 name|highlightField
 init|=
@@ -1346,6 +1365,7 @@ argument_list|,
 name|highlightField
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 name|hitContext
