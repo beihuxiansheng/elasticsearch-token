@@ -238,6 +238,15 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|collector
+operator|.
+name|setNextReader
+argument_list|(
+name|reader
+argument_list|,
+name|docBase
+argument_list|)
+expr_stmt|;
 name|docSet
 operator|=
 name|DocSets
