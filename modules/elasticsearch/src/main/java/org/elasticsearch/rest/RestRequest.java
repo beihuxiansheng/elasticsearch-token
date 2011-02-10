@@ -123,7 +123,13 @@ name|String
 name|uri
 parameter_list|()
 function_decl|;
-comment|/**      * The path part of the URI (without the query string).      */
+comment|/**      * The non decoded, raw path provided.      */
+DECL|method|rawPath
+name|String
+name|rawPath
+parameter_list|()
+function_decl|;
+comment|/**      * The path part of the URI (without the query string), decoded.      */
 DECL|method|path
 name|String
 name|path

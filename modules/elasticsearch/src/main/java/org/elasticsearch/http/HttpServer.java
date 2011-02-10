@@ -154,6 +154,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|rest
+operator|.
+name|support
+operator|.
+name|RestUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|threadpool
 operator|.
 name|ThreadPool
@@ -239,7 +253,11 @@ name|PathTrie
 argument_list|<
 name|HttpServerHandler
 argument_list|>
-argument_list|()
+argument_list|(
+name|RestUtils
+operator|.
+name|REST_DECODER
+argument_list|)
 decl_stmt|;
 DECL|field|postHandlers
 specifier|private
@@ -255,7 +273,11 @@ name|PathTrie
 argument_list|<
 name|HttpServerHandler
 argument_list|>
-argument_list|()
+argument_list|(
+name|RestUtils
+operator|.
+name|REST_DECODER
+argument_list|)
 decl_stmt|;
 DECL|field|putHandlers
 specifier|private
@@ -271,7 +293,11 @@ name|PathTrie
 argument_list|<
 name|HttpServerHandler
 argument_list|>
-argument_list|()
+argument_list|(
+name|RestUtils
+operator|.
+name|REST_DECODER
+argument_list|)
 decl_stmt|;
 DECL|field|deleteHandlers
 specifier|private
@@ -287,7 +313,11 @@ name|PathTrie
 argument_list|<
 name|HttpServerHandler
 argument_list|>
-argument_list|()
+argument_list|(
+name|RestUtils
+operator|.
+name|REST_DECODER
+argument_list|)
 decl_stmt|;
 DECL|field|headHandlers
 specifier|private
@@ -303,7 +333,11 @@ name|PathTrie
 argument_list|<
 name|HttpServerHandler
 argument_list|>
-argument_list|()
+argument_list|(
+name|RestUtils
+operator|.
+name|REST_DECODER
+argument_list|)
 decl_stmt|;
 DECL|field|optionsHandlers
 specifier|private
@@ -319,7 +353,11 @@ name|PathTrie
 argument_list|<
 name|HttpServerHandler
 argument_list|>
-argument_list|()
+argument_list|(
+name|RestUtils
+operator|.
+name|REST_DECODER
+argument_list|)
 decl_stmt|;
 DECL|method|HttpServer
 annotation|@
@@ -1104,10 +1142,13 @@ name|HttpRequest
 name|request
 parameter_list|)
 block|{
+comment|// we use rawPath since we don't want to decode it while processing the path resolution
+comment|// so we can handle things like:
+comment|// my_index/my_type/http%3A%2F%2Fwww.google.com
 return|return
 name|request
 operator|.
-name|path
+name|rawPath
 argument_list|()
 return|;
 block|}
