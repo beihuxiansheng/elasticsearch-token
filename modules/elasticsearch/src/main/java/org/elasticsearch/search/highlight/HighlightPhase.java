@@ -550,25 +550,8 @@ operator|==
 literal|null
 condition|)
 block|{
-throw|throw
-operator|new
-name|SearchException
-argument_list|(
-name|context
-operator|.
-name|shardTarget
-argument_list|()
-argument_list|,
-literal|"No mapping found for ["
-operator|+
-name|field
-operator|.
-name|field
-argument_list|()
-operator|+
-literal|"]"
-argument_list|)
-throw|;
+comment|//Save skipping missing fields
+continue|continue;
 block|}
 comment|// if we can do highlighting using Term Vectors, use FastVectorHighlighter, otherwise, use the
 comment|// slower plain highlighter
