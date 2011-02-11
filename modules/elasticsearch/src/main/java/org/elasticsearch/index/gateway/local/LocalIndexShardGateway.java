@@ -454,6 +454,7 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+comment|// we don't need to execute the sync on a different thread, just do it on the scheduler thread
 name|flushScheduler
 operator|=
 name|threadPool
