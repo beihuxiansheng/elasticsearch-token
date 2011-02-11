@@ -503,6 +503,20 @@ name|queryString
 argument_list|)
 return|;
 block|}
+comment|/**      * The BoostingQuery class can be used to effectively demote results that match a given query.      * Unlike the "NOT" clause, this still selects documents that contain undesirable terms,      * but reduces their overall score:      */
+DECL|method|boostingQuery
+specifier|public
+specifier|static
+name|BoostingQueryBuilder
+name|boostingQuery
+parameter_list|()
+block|{
+return|return
+operator|new
+name|BoostingQueryBuilder
+argument_list|()
+return|;
+block|}
 comment|/**      * A Query that matches documents matching boolean combinations of other queries.      */
 DECL|method|boolQuery
 specifier|public
