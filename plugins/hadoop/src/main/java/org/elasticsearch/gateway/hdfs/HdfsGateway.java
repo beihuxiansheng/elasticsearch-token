@@ -313,14 +313,14 @@ parameter_list|(
 name|Settings
 name|settings
 parameter_list|,
+name|ThreadPool
+name|threadPool
+parameter_list|,
 name|ClusterService
 name|clusterService
 parameter_list|,
 name|ClusterName
 name|clusterName
-parameter_list|,
-name|ThreadPool
-name|threadPool
 parameter_list|)
 throws|throws
 name|IOException
@@ -328,6 +328,8 @@ block|{
 name|super
 argument_list|(
 name|settings
+argument_list|,
+name|threadPool
 argument_list|,
 name|clusterService
 argument_list|)
