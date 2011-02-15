@@ -123,7 +123,7 @@ DECL|method|StringRestResponse
 specifier|public
 name|StringRestResponse
 parameter_list|(
-name|Status
+name|RestStatus
 name|status
 parameter_list|)
 block|{
@@ -137,7 +137,7 @@ DECL|method|StringRestResponse
 specifier|public
 name|StringRestResponse
 parameter_list|(
-name|Status
+name|RestStatus
 name|status
 parameter_list|,
 name|String

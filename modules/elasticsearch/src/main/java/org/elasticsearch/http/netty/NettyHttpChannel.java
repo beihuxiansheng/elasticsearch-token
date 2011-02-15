@@ -146,9 +146,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|http
+name|rest
 operator|.
-name|HttpResponse
+name|RestResponse
 import|;
 end_import
 
@@ -160,7 +160,7 @@ name|elasticsearch
 operator|.
 name|rest
 operator|.
-name|RestResponse
+name|RestStatus
 import|;
 end_import
 
@@ -817,9 +817,7 @@ specifier|private
 name|HttpResponseStatus
 name|getStatus
 parameter_list|(
-name|HttpResponse
-operator|.
-name|Status
+name|RestStatus
 name|status
 parameter_list|)
 block|{

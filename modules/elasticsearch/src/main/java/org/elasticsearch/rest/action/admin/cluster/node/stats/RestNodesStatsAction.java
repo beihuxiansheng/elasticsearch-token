@@ -591,9 +591,7 @@ name|XContentRestResponse
 argument_list|(
 name|request
 argument_list|,
-name|RestResponse
-operator|.
-name|Status
+name|RestStatus
 operator|.
 name|OK
 argument_list|,

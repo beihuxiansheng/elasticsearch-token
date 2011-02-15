@@ -106,6 +106,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|rest
+operator|.
+name|RestStatus
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -500,9 +512,7 @@ specifier|private
 name|Status
 name|getStatus
 parameter_list|(
-name|RestResponse
-operator|.
-name|Status
+name|RestStatus
 name|status
 parameter_list|)
 block|{

@@ -88,7 +88,7 @@ block|}
 DECL|field|status
 specifier|private
 specifier|final
-name|Status
+name|RestStatus
 name|status
 decl_stmt|;
 DECL|field|utf8Result
@@ -119,7 +119,7 @@ DECL|method|Utf8RestResponse
 specifier|public
 name|Utf8RestResponse
 parameter_list|(
-name|Status
+name|RestStatus
 name|status
 parameter_list|)
 block|{
@@ -135,7 +135,7 @@ DECL|method|Utf8RestResponse
 specifier|public
 name|Utf8RestResponse
 parameter_list|(
-name|Status
+name|RestStatus
 name|status
 parameter_list|,
 name|UnicodeUtil
@@ -160,7 +160,7 @@ DECL|method|Utf8RestResponse
 specifier|public
 name|Utf8RestResponse
 parameter_list|(
-name|Status
+name|RestStatus
 name|status
 parameter_list|,
 name|UnicodeUtil
@@ -261,7 +261,7 @@ DECL|method|status
 annotation|@
 name|Override
 specifier|public
-name|Status
+name|RestStatus
 name|status
 parameter_list|()
 block|{

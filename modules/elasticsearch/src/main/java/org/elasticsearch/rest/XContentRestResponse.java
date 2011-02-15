@@ -221,7 +221,7 @@ decl_stmt|;
 DECL|field|status
 specifier|private
 specifier|final
-name|Status
+name|RestStatus
 name|status
 decl_stmt|;
 DECL|field|builder
@@ -237,7 +237,7 @@ parameter_list|(
 name|RestRequest
 name|request
 parameter_list|,
-name|Status
+name|RestStatus
 name|status
 parameter_list|)
 block|{
@@ -270,7 +270,7 @@ parameter_list|(
 name|RestRequest
 name|request
 parameter_list|,
-name|Status
+name|RestStatus
 name|status
 parameter_list|,
 name|XContentBuilder
@@ -370,7 +370,7 @@ DECL|method|status
 annotation|@
 name|Override
 specifier|public
-name|Status
+name|RestStatus
 name|status
 parameter_list|()
 block|{

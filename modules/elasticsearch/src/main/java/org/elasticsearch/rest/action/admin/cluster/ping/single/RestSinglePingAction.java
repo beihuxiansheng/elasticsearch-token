@@ -176,9 +176,7 @@ name|elasticsearch
 operator|.
 name|rest
 operator|.
-name|RestResponse
-operator|.
-name|Status
+name|RestStatus
 operator|.
 name|*
 import|;

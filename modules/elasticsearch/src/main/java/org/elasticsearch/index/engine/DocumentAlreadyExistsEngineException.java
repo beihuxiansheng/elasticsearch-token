@@ -30,6 +30,18 @@ name|ShardId
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|rest
+operator|.
+name|RestStatus
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
@@ -71,6 +83,20 @@ operator|+
 literal|"]: document already exists"
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|status
+annotation|@
+name|Override
+specifier|public
+name|RestStatus
+name|status
+parameter_list|()
+block|{
+return|return
+name|RestStatus
+operator|.
+name|CONFLICT
+return|;
 block|}
 block|}
 end_class

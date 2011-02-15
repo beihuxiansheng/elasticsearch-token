@@ -24,6 +24,18 @@ name|ElasticSearchException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|rest
+operator|.
+name|RestStatus
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
@@ -83,6 +95,20 @@ return|return
 name|this
 operator|.
 name|name
+return|;
+block|}
+DECL|method|status
+annotation|@
+name|Override
+specifier|public
+name|RestStatus
+name|status
+parameter_list|()
+block|{
+return|return
+name|RestStatus
+operator|.
+name|BAD_REQUEST
 return|;
 block|}
 block|}

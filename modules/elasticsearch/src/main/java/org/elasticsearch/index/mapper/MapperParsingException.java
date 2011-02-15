@@ -16,6 +16,18 @@ name|mapper
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|rest
+operator|.
+name|RestStatus
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (Shay Banon)  */
 end_comment
@@ -60,6 +72,20 @@ argument_list|,
 name|cause
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|status
+annotation|@
+name|Override
+specifier|public
+name|RestStatus
+name|status
+parameter_list|()
+block|{
+return|return
+name|RestStatus
+operator|.
+name|BAD_REQUEST
+return|;
 block|}
 block|}
 end_class

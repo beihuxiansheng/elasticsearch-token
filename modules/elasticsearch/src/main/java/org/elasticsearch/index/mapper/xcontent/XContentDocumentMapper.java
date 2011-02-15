@@ -2099,7 +2099,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|MapperException
+name|MapperParsingException
 argument_list|(
 literal|"Malformed content, must start with an object"
 argument_list|)
@@ -2125,7 +2125,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|MapperException
+name|MapperParsingException
 argument_list|(
 literal|"Malformed content, after first object, either the type field or the actual properties should exist"
 argument_list|)
