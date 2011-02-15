@@ -84,6 +84,20 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|store
+operator|.
+name|AlreadyClosedException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|util
 operator|.
 name|StringHelper
@@ -1267,6 +1281,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+catch|catch
+parameter_list|(
+name|AlreadyClosedException
+name|e
+parameter_list|)
+block|{
+comment|// ignore, we are getting closed
 block|}
 catch|catch
 parameter_list|(
