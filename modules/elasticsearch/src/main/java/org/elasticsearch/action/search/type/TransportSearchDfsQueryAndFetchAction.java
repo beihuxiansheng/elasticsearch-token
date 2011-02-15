@@ -1059,7 +1059,9 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|invokeListener
+name|listener
+operator|.
+name|onFailure
 argument_list|(
 operator|new
 name|ReduceSearchPhaseException
@@ -1157,7 +1159,9 @@ name|dfsResults
 argument_list|)
 expr_stmt|;
 block|}
-name|invokeListener
+name|listener
+operator|.
+name|onResponse
 argument_list|(
 operator|new
 name|SearchResponse

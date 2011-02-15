@@ -262,6 +262,9 @@ parameter_list|(
 name|Settings
 name|settings
 parameter_list|,
+name|ThreadPool
+name|threadPool
+parameter_list|,
 name|TransportService
 name|transportService
 parameter_list|,
@@ -275,6 +278,8 @@ block|{
 name|super
 argument_list|(
 name|settings
+argument_list|,
+name|threadPool
 argument_list|)
 expr_stmt|;
 name|this
