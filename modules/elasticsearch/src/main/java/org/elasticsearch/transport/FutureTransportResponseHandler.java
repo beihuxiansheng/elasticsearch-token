@@ -30,6 +30,18 @@ name|Streamable
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|threadpool
+operator|.
+name|ThreadPool
+import|;
+end_import
+
 begin_comment
 comment|/**  * A response handler to be used when all interaction will be done through the {@link TransportFuture}.  *  * @author kimchy (Shay Banon)  */
 end_comment
@@ -73,6 +85,22 @@ name|TransportException
 name|exp
 parameter_list|)
 block|{     }
+DECL|method|executor
+annotation|@
+name|Override
+specifier|public
+name|String
+name|executor
+parameter_list|()
+block|{
+return|return
+name|ThreadPool
+operator|.
+name|Names
+operator|.
+name|SAME
+return|;
+block|}
 block|}
 end_class
 

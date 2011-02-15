@@ -67,9 +67,9 @@ name|TransportException
 name|exp
 parameter_list|)
 function_decl|;
-DECL|method|spawn
-name|boolean
-name|spawn
+DECL|method|executor
+name|String
+name|executor
 parameter_list|()
 function_decl|;
 block|}

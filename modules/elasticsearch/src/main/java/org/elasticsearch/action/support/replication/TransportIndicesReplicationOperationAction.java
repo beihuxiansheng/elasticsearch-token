@@ -254,6 +254,11 @@ name|ShardResponse
 argument_list|>
 name|indexAction
 decl_stmt|;
+DECL|field|transportAction
+specifier|final
+name|String
+name|transportAction
+decl_stmt|;
 DECL|method|TransportIndicesReplicationOperationAction
 annotation|@
 name|Inject
@@ -308,12 +313,18 @@ name|indexAction
 operator|=
 name|indexAction
 expr_stmt|;
+name|this
+operator|.
+name|transportAction
+operator|=
+name|transportAction
+argument_list|()
+expr_stmt|;
 name|transportService
 operator|.
 name|registerHandler
 argument_list|(
 name|transportAction
-argument_list|()
 argument_list|,
 operator|new
 name|TransportHandler
@@ -503,6 +514,9 @@ condition|)
 block|{
 name|threadPool
 operator|.
+name|cached
+argument_list|()
+operator|.
 name|execute
 argument_list|(
 operator|new
@@ -608,6 +622,9 @@ argument_list|()
 condition|)
 block|{
 name|threadPool
+operator|.
+name|cached
+argument_list|()
 operator|.
 name|execute
 argument_list|(
@@ -743,6 +760,22 @@ name|newRequestInstance
 argument_list|()
 return|;
 block|}
+DECL|method|executor
+annotation|@
+name|Override
+specifier|public
+name|String
+name|executor
+parameter_list|()
+block|{
+return|return
+name|ThreadPool
+operator|.
+name|Names
+operator|.
+name|SAME
+return|;
+block|}
 DECL|method|messageReceived
 annotation|@
 name|Override
@@ -846,7 +879,6 @@ argument_list|(
 literal|"Failed to send error response for action ["
 operator|+
 name|transportAction
-argument_list|()
 operator|+
 literal|"] and request ["
 operator|+
@@ -862,19 +894,6 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-block|}
-DECL|method|spawn
-annotation|@
-name|Override
-specifier|public
-name|boolean
-name|spawn
-parameter_list|()
-block|{
-comment|// no need to spawn, since we always execute in the index one with threadedOperation set to true
-return|return
-literal|false
-return|;
 block|}
 block|}
 block|}

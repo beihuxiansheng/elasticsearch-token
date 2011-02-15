@@ -406,20 +406,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|threadpool
-operator|.
-name|scaling
-operator|.
-name|ScalingThreadPool
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -2083,7 +2069,7 @@ name|ThreadPool
 name|threadPool
 init|=
 operator|new
-name|ScalingThreadPool
+name|ThreadPool
 argument_list|()
 decl_stmt|;
 name|SnapshotDeletionPolicy

@@ -373,6 +373,9 @@ operator|.
 name|threadPool
 argument_list|()
 operator|.
+name|cached
+argument_list|()
+operator|.
 name|execute
 argument_list|(
 operator|new
@@ -561,6 +564,9 @@ decl_stmt|;
 name|targetTransport
 operator|.
 name|threadPool
+argument_list|()
+operator|.
+name|cached
 argument_list|()
 operator|.
 name|execute

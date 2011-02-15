@@ -63,9 +63,9 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-DECL|method|spawn
-name|boolean
-name|spawn
+DECL|method|executor
+name|String
+name|executor
 parameter_list|()
 function_decl|;
 block|}

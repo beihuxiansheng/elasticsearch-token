@@ -166,8 +166,9 @@ name|listenerThreaded
 parameter_list|()
 block|{
 return|return
-name|listenerThreaded
+literal|false
 return|;
+comment|// we control execution of the listener
 block|}
 DECL|method|threadPool
 specifier|public
@@ -449,6 +450,9 @@ condition|)
 block|{
 name|threadPool
 operator|.
+name|cached
+argument_list|()
+operator|.
 name|execute
 argument_list|(
 operator|(
@@ -461,6 +465,9 @@ block|}
 else|else
 block|{
 name|threadPool
+operator|.
+name|cached
+argument_list|()
 operator|.
 name|execute
 argument_list|(

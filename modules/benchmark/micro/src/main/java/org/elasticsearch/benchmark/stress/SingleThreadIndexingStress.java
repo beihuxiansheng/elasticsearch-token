@@ -443,6 +443,7 @@ name|i
 operator|++
 control|)
 block|{
+comment|//            client1.admin().cluster().preparePingSingle("test", "type1", Integer.toString(i)).execute().actionGet();
 name|client1
 operator|.
 name|prepareIndex

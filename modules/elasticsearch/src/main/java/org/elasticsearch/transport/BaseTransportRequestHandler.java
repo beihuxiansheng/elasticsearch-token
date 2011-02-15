@@ -50,20 +50,7 @@ name|TransportRequestHandler
 argument_list|<
 name|T
 argument_list|>
-block|{
-DECL|method|spawn
-annotation|@
-name|Override
-specifier|public
-name|boolean
-name|spawn
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
-block|}
+block|{  }
 end_class
 
 end_unit

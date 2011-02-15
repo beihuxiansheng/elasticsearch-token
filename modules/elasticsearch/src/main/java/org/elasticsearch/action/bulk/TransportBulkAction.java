@@ -1611,6 +1611,9 @@ condition|)
 block|{
 name|threadPool
 operator|.
+name|cached
+argument_list|()
+operator|.
 name|execute
 argument_list|(
 operator|new
@@ -2054,6 +2057,9 @@ condition|)
 block|{
 name|threadPool
 operator|.
+name|cached
+argument_list|()
+operator|.
 name|execute
 argument_list|(
 operator|new
@@ -2261,18 +2267,21 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|spawn
+DECL|method|executor
 annotation|@
 name|Override
 specifier|public
-name|boolean
-name|spawn
+name|String
+name|executor
 parameter_list|()
 block|{
 return|return
-literal|true
+name|ThreadPool
+operator|.
+name|Names
+operator|.
+name|SAME
 return|;
-comment|// spawn, we do some work here...
 block|}
 block|}
 block|}

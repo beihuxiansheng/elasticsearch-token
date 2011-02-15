@@ -575,6 +575,26 @@ specifier|final
 name|WriteConsistencyLevel
 name|defaultWriteConsistencyLevel
 decl_stmt|;
+DECL|field|transportAction
+specifier|final
+name|String
+name|transportAction
+decl_stmt|;
+DECL|field|transportReplicaAction
+specifier|final
+name|String
+name|transportReplicaAction
+decl_stmt|;
+DECL|field|executor
+specifier|final
+name|String
+name|executor
+decl_stmt|;
+DECL|field|checkWriteConsistency
+specifier|final
+name|boolean
+name|checkWriteConsistency
+decl_stmt|;
 DECL|method|TransportShardReplicationOperationAction
 specifier|protected
 name|TransportShardReplicationOperationAction
@@ -633,12 +653,39 @@ name|shardStateAction
 operator|=
 name|shardStateAction
 expr_stmt|;
+name|this
+operator|.
+name|transportAction
+operator|=
+name|transportAction
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|transportReplicaAction
+operator|=
+name|transportReplicaAction
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|executor
+operator|=
+name|executor
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|checkWriteConsistency
+operator|=
+name|checkWriteConsistency
+argument_list|()
+expr_stmt|;
 name|transportService
 operator|.
 name|registerHandler
 argument_list|(
 name|transportAction
-argument_list|()
 argument_list|,
 operator|new
 name|OperationTransportHandler
@@ -650,7 +697,6 @@ operator|.
 name|registerHandler
 argument_list|(
 name|transportReplicaAction
-argument_list|()
 argument_list|,
 operator|new
 name|ReplicaOperationTransportHandler
@@ -742,6 +788,13 @@ specifier|protected
 specifier|abstract
 name|String
 name|transportAction
+parameter_list|()
+function_decl|;
+DECL|method|executor
+specifier|protected
+specifier|abstract
+name|String
+name|executor
 parameter_list|()
 function_decl|;
 DECL|method|shardOperationOnPrimary
@@ -908,6 +961,22 @@ name|newRequestInstance
 argument_list|()
 return|;
 block|}
+DECL|method|executor
+annotation|@
+name|Override
+specifier|public
+name|String
+name|executor
+parameter_list|()
+block|{
+return|return
+name|ThreadPool
+operator|.
+name|Names
+operator|.
+name|SAME
+return|;
+block|}
 DECL|method|messageReceived
 annotation|@
 name|Override
@@ -1019,7 +1088,6 @@ argument_list|(
 literal|"Failed to send response for "
 operator|+
 name|transportAction
-argument_list|()
 argument_list|,
 name|e1
 argument_list|)
@@ -1029,18 +1097,6 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-block|}
-DECL|method|spawn
-annotation|@
-name|Override
-specifier|public
-name|boolean
-name|spawn
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
 block|}
 block|}
 DECL|class|ReplicaOperationTransportHandler
@@ -1066,6 +1122,18 @@ name|ShardOperationRequest
 argument_list|()
 return|;
 block|}
+DECL|method|executor
+annotation|@
+name|Override
+specifier|public
+name|String
+name|executor
+parameter_list|()
+block|{
+return|return
+name|executor
+return|;
+block|}
 DECL|method|messageReceived
 annotation|@
 name|Override
@@ -1073,9 +1141,11 @@ specifier|public
 name|void
 name|messageReceived
 parameter_list|(
+specifier|final
 name|ShardOperationRequest
 name|request
 parameter_list|,
+specifier|final
 name|TransportChannel
 name|channel
 parameter_list|)
@@ -1096,19 +1166,6 @@ operator|.
 name|INSTANCE
 argument_list|)
 expr_stmt|;
-block|}
-comment|/**          * We spawn, since we want to perform the operation on the replica on a different thread.          */
-DECL|method|spawn
-annotation|@
-name|Override
-specifier|public
-name|boolean
-name|spawn
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
 block|}
 block|}
 DECL|class|ShardOperationRequest
@@ -1539,7 +1596,6 @@ comment|// check here for consistency
 if|if
 condition|(
 name|checkWriteConsistency
-argument_list|()
 condition|)
 block|{
 name|WriteConsistencyLevel
@@ -1698,6 +1754,11 @@ argument_list|()
 expr_stmt|;
 name|threadPool
 operator|.
+name|executor
+argument_list|(
+name|executor
+argument_list|)
+operator|.
 name|execute
 argument_list|(
 operator|new
@@ -1774,7 +1835,6 @@ argument_list|(
 name|node
 argument_list|,
 name|transportAction
-argument_list|()
 argument_list|,
 name|request
 argument_list|,
@@ -1798,6 +1858,21 @@ block|{
 return|return
 name|newResponseInstance
 argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|executor
+parameter_list|()
+block|{
+return|return
+name|ThreadPool
+operator|.
+name|Names
+operator|.
+name|SAME
 return|;
 block|}
 annotation|@
@@ -1884,20 +1959,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Override
-specifier|public
-name|boolean
-name|spawn
-parameter_list|()
-block|{
-return|return
-name|request
-operator|.
-name|listenerThreaded
-argument_list|()
-return|;
-block|}
 block|}
 argument_list|)
 expr_stmt|;
@@ -1938,6 +1999,9 @@ argument_list|()
 condition|)
 block|{
 name|threadPool
+operator|.
+name|cached
+argument_list|()
 operator|.
 name|execute
 argument_list|(
@@ -2186,6 +2250,9 @@ condition|)
 block|{
 name|threadPool
 operator|.
+name|cached
+argument_list|()
+operator|.
 name|execute
 argument_list|(
 operator|new
@@ -2411,6 +2478,9 @@ else|else
 block|{
 name|threadPool
 operator|.
+name|cached
+argument_list|()
+operator|.
 name|execute
 argument_list|(
 operator|new
@@ -2555,6 +2625,9 @@ else|else
 block|{
 name|threadPool
 operator|.
+name|cached
+argument_list|()
+operator|.
 name|execute
 argument_list|(
 operator|new
@@ -2627,6 +2700,9 @@ block|}
 else|else
 block|{
 name|threadPool
+operator|.
+name|cached
+argument_list|()
 operator|.
 name|execute
 argument_list|(
@@ -2829,6 +2905,9 @@ else|else
 block|{
 name|threadPool
 operator|.
+name|cached
+argument_list|()
+operator|.
 name|execute
 argument_list|(
 operator|new
@@ -2935,6 +3014,9 @@ else|else
 block|{
 name|threadPool
 operator|.
+name|cached
+argument_list|()
+operator|.
 name|execute
 argument_list|(
 operator|new
@@ -3015,7 +3097,6 @@ argument_list|(
 name|node
 argument_list|,
 name|transportReplicaAction
-argument_list|()
 argument_list|,
 name|shardRequest
 argument_list|,
@@ -3024,7 +3105,13 @@ argument_list|()
 argument_list|,
 operator|new
 name|VoidTransportResponseHandler
-argument_list|()
+argument_list|(
+name|ThreadPool
+operator|.
+name|Names
+operator|.
+name|SAME
+argument_list|)
 block|{
 annotation|@
 name|Override
@@ -3069,7 +3156,6 @@ argument_list|(
 literal|"Failed to perform "
 operator|+
 name|transportAction
-argument_list|()
 operator|+
 literal|" on replica "
 operator|+
@@ -3090,7 +3176,6 @@ argument_list|,
 literal|"Failed to perform ["
 operator|+
 name|transportAction
-argument_list|()
 operator|+
 literal|"] on replica, message ["
 operator|+
@@ -3132,6 +3217,9 @@ condition|)
 block|{
 name|threadPool
 operator|.
+name|cached
+argument_list|()
+operator|.
 name|execute
 argument_list|(
 operator|new
@@ -3175,18 +3263,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Override
-specifier|public
-name|boolean
-name|spawn
-parameter_list|()
-block|{
-comment|// don't spawn, we will call the listener on a thread pool if needed
-return|return
-literal|false
-return|;
-block|}
 block|}
 argument_list|)
 expr_stmt|;
@@ -3207,6 +3283,11 @@ name|beforeLocalFork
 argument_list|()
 expr_stmt|;
 name|threadPool
+operator|.
+name|executor
+argument_list|(
+name|executor
+argument_list|)
 operator|.
 name|execute
 argument_list|(
@@ -3251,7 +3332,6 @@ argument_list|(
 literal|"Failed to perform "
 operator|+
 name|transportAction
-argument_list|()
 operator|+
 literal|" on replica "
 operator|+
@@ -3272,7 +3352,6 @@ argument_list|,
 literal|"Failed to perform ["
 operator|+
 name|transportAction
-argument_list|()
 operator|+
 literal|"] on replica, message ["
 operator|+
@@ -3344,7 +3423,6 @@ argument_list|(
 literal|"Failed to perform "
 operator|+
 name|transportAction
-argument_list|()
 operator|+
 literal|" on replica"
 operator|+
@@ -3365,7 +3443,6 @@ argument_list|,
 literal|"Failed to perform ["
 operator|+
 name|transportAction
-argument_list|()
 operator|+
 literal|"] on replica, message ["
 operator|+
@@ -3398,6 +3475,9 @@ argument_list|()
 condition|)
 block|{
 name|threadPool
+operator|.
+name|cached
+argument_list|()
 operator|.
 name|execute
 argument_list|(
