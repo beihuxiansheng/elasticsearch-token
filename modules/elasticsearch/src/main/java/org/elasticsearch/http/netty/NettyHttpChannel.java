@@ -458,6 +458,15 @@ argument_list|,
 literal|"PUT, DELETE"
 argument_list|)
 expr_stmt|;
+name|resp
+operator|.
+name|addHeader
+argument_list|(
+literal|"Access-Control-Allow-Headers"
+argument_list|,
+literal|"X-Requested-With"
+argument_list|)
+expr_stmt|;
 block|}
 comment|// Convert the response content to a ChannelBuffer.
 name|ChannelBuffer
