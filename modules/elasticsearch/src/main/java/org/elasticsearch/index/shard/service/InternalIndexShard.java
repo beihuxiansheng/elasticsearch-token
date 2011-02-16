@@ -3956,6 +3956,8 @@ name|Names
 operator|.
 name|SAME
 argument_list|,
+name|EngineRefresher
+operator|.
 name|this
 argument_list|)
 expr_stmt|;

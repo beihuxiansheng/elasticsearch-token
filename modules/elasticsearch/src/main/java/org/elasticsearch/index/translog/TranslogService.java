@@ -745,6 +745,8 @@ name|Names
 operator|.
 name|SAME
 argument_list|,
+name|TranslogBasedFlush
+operator|.
 name|this
 argument_list|)
 expr_stmt|;
