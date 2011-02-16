@@ -2536,7 +2536,7 @@ name|clusterService
 operator|.
 name|submitStateUpdateTask
 argument_list|(
-literal|"zen-disco-receive(from ["
+literal|"zen-disco-receive(from master ["
 operator|+
 name|clusterState
 operator|.
@@ -2833,7 +2833,7 @@ name|clusterService
 operator|.
 name|submitStateUpdateTask
 argument_list|(
-literal|"zen-disco-receive(from node["
+literal|"zen-disco-receive(join from node["
 operator|+
 name|node
 operator|+
