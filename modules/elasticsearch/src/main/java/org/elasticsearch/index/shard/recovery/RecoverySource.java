@@ -1070,6 +1070,7 @@ name|length
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|totalSize
 operator|+=
 name|md
@@ -1077,7 +1078,6 @@ operator|.
 name|length
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 name|response
 operator|.
