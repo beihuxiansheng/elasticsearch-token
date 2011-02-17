@@ -374,7 +374,14 @@ name|get
 argument_list|(
 literal|"language"
 argument_list|,
+name|settings
+operator|.
+name|get
+argument_list|(
+literal|"name"
+argument_list|,
 literal|"English"
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|Set
