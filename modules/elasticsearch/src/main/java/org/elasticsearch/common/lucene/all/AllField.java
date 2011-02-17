@@ -227,6 +227,12 @@ parameter_list|()
 block|{
 try|try
 block|{
+name|allEntries
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
+comment|// reset the all entries, just in case it was read already
 return|return
 name|AllTokenStream
 operator|.
