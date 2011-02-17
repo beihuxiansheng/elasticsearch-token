@@ -460,7 +460,7 @@ name|equalTo
 argument_list|(
 name|Status
 operator|.
-name|OK
+name|CREATED
 argument_list|)
 argument_list|)
 expr_stmt|;
