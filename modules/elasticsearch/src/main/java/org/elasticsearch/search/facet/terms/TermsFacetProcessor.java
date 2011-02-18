@@ -978,7 +978,7 @@ literal|"comparator"
 operator|.
 name|equals
 argument_list|(
-name|field
+name|currentFieldName
 argument_list|)
 condition|)
 block|{
