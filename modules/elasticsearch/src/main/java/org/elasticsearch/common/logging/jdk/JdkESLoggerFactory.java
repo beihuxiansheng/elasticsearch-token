@@ -101,6 +101,8 @@ name|JdkESLogger
 argument_list|(
 name|prefix
 argument_list|,
+name|name
+argument_list|,
 name|logger
 argument_list|)
 return|;
