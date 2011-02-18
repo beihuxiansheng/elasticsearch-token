@@ -428,8 +428,7 @@ name|length
 return|;
 block|}
 return|return
-operator|-
-literal|1
+literal|0
 return|;
 block|}
 DECL|method|suffixContent
@@ -478,8 +477,7 @@ name|length
 return|;
 block|}
 return|return
-operator|-
-literal|1
+literal|0
 return|;
 block|}
 DECL|method|startJsonp

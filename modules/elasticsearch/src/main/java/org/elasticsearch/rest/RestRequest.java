@@ -66,16 +66,6 @@ name|Map
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
-import|;
-end_import
-
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
@@ -167,14 +157,6 @@ name|String
 name|contentAsString
 parameter_list|()
 function_decl|;
-DECL|method|headerNames
-name|Set
-argument_list|<
-name|String
-argument_list|>
-name|headerNames
-parameter_list|()
-function_decl|;
 DECL|method|header
 name|String
 name|header
@@ -182,11 +164,6 @@ parameter_list|(
 name|String
 name|name
 parameter_list|)
-function_decl|;
-DECL|method|cookie
-name|String
-name|cookie
-parameter_list|()
 function_decl|;
 DECL|method|hasParam
 name|boolean
