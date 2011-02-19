@@ -158,6 +158,22 @@ name|InternalTermsFacet
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|facet
+operator|.
+name|termsstats
+operator|.
+name|InternalTermsStatsFacet
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
@@ -214,6 +230,11 @@ name|registerStreams
 argument_list|()
 expr_stmt|;
 name|InternalTermsFacet
+operator|.
+name|registerStreams
+argument_list|()
+expr_stmt|;
+name|InternalTermsStatsFacet
 operator|.
 name|registerStreams
 argument_list|()

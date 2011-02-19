@@ -224,6 +224,22 @@ name|TermsFacetBuilder
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|facet
+operator|.
+name|termsstats
+operator|.
+name|TermsStatsFacetBuilder
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
@@ -335,6 +351,24 @@ block|{
 return|return
 operator|new
 name|TermsFacetBuilder
+argument_list|(
+name|facetName
+argument_list|)
+return|;
+block|}
+DECL|method|termsStats
+specifier|public
+specifier|static
+name|TermsStatsFacetBuilder
+name|termsStats
+parameter_list|(
+name|String
+name|facetName
+parameter_list|)
+block|{
+return|return
+operator|new
+name|TermsStatsFacetBuilder
 argument_list|(
 name|facetName
 argument_list|)
