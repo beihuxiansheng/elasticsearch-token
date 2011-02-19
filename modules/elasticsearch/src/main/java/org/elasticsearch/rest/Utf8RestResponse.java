@@ -307,8 +307,7 @@ name|prefixUtf8Result
 operator|.
 name|length
 else|:
-operator|-
-literal|1
+literal|0
 return|;
 block|}
 DECL|method|suffixContent
@@ -349,8 +348,7 @@ name|suffixUtf8Result
 operator|.
 name|length
 else|:
-operator|-
-literal|1
+literal|0
 return|;
 block|}
 block|}
