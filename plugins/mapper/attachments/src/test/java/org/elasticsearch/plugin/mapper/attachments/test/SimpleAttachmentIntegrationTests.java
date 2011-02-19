@@ -500,6 +500,15 @@ argument_list|(
 literal|"/org/elasticsearch/index/mapper/xcontent/test-mapping.json"
 argument_list|)
 decl_stmt|;
+name|byte
+index|[]
+name|html
+init|=
+name|copyToBytesFromClasspath
+argument_list|(
+literal|"/org/elasticsearch/index/mapper/xcontent/testXHTML.html"
+argument_list|)
+decl_stmt|;
 name|node
 operator|.
 name|client
@@ -556,10 +565,7 @@ name|field
 argument_list|(
 literal|"file"
 argument_list|,
-name|copyToBytesFromClasspath
-argument_list|(
-literal|"/org/elasticsearch/index/mapper/xcontent/testXHTML.html"
-argument_list|)
+name|html
 argument_list|)
 operator|.
 name|endObject
