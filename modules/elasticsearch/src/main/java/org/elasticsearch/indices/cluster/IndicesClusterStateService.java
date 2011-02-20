@@ -2361,7 +2361,7 @@ name|indexService
 init|=
 name|indicesService
 operator|.
-name|indexServiceSafe
+name|indexService
 argument_list|(
 name|shardRouting
 operator|.
@@ -2369,6 +2369,16 @@ name|index
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|indexService
+operator|==
+literal|null
+condition|)
+block|{
+comment|// got deleted on us, ignore
+continue|continue;
+block|}
 specifier|final
 name|int
 name|shardId
