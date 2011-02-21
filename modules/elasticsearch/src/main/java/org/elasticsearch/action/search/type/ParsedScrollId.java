@@ -60,6 +60,15 @@ name|QUERY_AND_FETCH_TYPE
 init|=
 literal|"queryAndFetch"
 decl_stmt|;
+DECL|field|SCAN
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SCAN
+init|=
+literal|"scan"
+decl_stmt|;
 DECL|field|source
 specifier|private
 specifier|final

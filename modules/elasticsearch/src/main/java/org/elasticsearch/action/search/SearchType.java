@@ -75,6 +75,16 @@ name|byte
 operator|)
 literal|3
 argument_list|)
+block|,
+comment|/**      * Performs scanning of the results which executes the search without any sorting.      * It will automatically start scrolling the result set.      */
+DECL|enum constant|SCAN
+name|SCAN
+argument_list|(
+operator|(
+name|byte
+operator|)
+literal|4
+argument_list|)
 block|;
 comment|/**      * The default search type ({@link #QUERY_THEN_FETCH}.      */
 DECL|field|DEFAULT
@@ -176,6 +186,18 @@ return|return
 name|QUERY_AND_FETCH
 return|;
 block|}
+elseif|else
+if|if
+condition|(
+name|id
+operator|==
+literal|4
+condition|)
+block|{
+return|return
+name|SCAN
+return|;
+block|}
 else|else
 block|{
 throw|throw
@@ -191,7 +213,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * The a string representation search type to execute, defaults to {@link SearchType#DEFAULT}. Can be      * one of "dfs_query_then_fetch"/"dfsQueryThenFetch", "dfs_query_and_fetch"/"dfsQueryAndFetch",      * "query_then_fetch"/"queryThenFetch", and "query_and_fetch"/"queryAndFetch".      */
+comment|/**      * The a string representation search type to execute, defaults to {@link SearchType#DEFAULT}. Can be      * one of "dfs_query_then_fetch"/"dfsQueryThenFetch", "dfs_query_and_fetch"/"dfsQueryAndFetch",      * "query_then_fetch"/"queryThenFetch", "query_and_fetch"/"queryAndFetch", and "scan".      */
 DECL|method|fromString
 specifier|public
 specifier|static
@@ -282,6 +304,23 @@ return|return
 name|SearchType
 operator|.
 name|QUERY_AND_FETCH
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+literal|"scan"
+operator|.
+name|equals
+argument_list|(
+name|searchType
+argument_list|)
+condition|)
+block|{
+return|return
+name|SearchType
+operator|.
+name|SCAN
 return|;
 block|}
 else|else

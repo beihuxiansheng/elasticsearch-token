@@ -465,7 +465,7 @@ argument_list|()
 return|;
 block|}
 DECL|field|EMPTY
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|InternalSearchHit

@@ -689,6 +689,7 @@ literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
 specifier|final
 name|AtomicInteger
