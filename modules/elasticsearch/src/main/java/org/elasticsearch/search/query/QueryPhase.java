@@ -1304,8 +1304,12 @@ if|if
 condition|(
 name|searchContext
 operator|.
-name|scanning
+name|searchType
 argument_list|()
+operator|==
+name|SearchType
+operator|.
+name|SCAN
 condition|)
 block|{
 name|ScanCollector
