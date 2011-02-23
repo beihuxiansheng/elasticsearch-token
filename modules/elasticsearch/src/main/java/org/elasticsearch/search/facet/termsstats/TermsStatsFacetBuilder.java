@@ -545,6 +545,13 @@ operator|.
 name|endObject
 argument_list|()
 expr_stmt|;
+name|addFilterFacetAndGlobal
+argument_list|(
+name|builder
+argument_list|,
+name|params
+argument_list|)
+expr_stmt|;
 name|builder
 operator|.
 name|endObject
