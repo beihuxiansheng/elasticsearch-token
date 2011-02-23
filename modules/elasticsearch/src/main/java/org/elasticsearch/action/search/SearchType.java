@@ -85,6 +85,16 @@ name|byte
 operator|)
 literal|4
 argument_list|)
+block|,
+comment|/**      * Only counts the results, will still execute facets and the like.      */
+DECL|enum constant|COUNT
+name|COUNT
+argument_list|(
+operator|(
+name|byte
+operator|)
+literal|5
+argument_list|)
 block|;
 comment|/**      * The default search type ({@link #QUERY_THEN_FETCH}.      */
 DECL|field|DEFAULT
@@ -196,6 +206,18 @@ condition|)
 block|{
 return|return
 name|SCAN
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|id
+operator|==
+literal|5
+condition|)
+block|{
+return|return
+name|COUNT
 return|;
 block|}
 else|else
@@ -321,6 +343,23 @@ return|return
 name|SearchType
 operator|.
 name|SCAN
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+literal|"count"
+operator|.
+name|equals
+argument_list|(
+name|searchType
+argument_list|)
+condition|)
+block|{
+return|return
+name|SearchType
+operator|.
+name|COUNT
 return|;
 block|}
 else|else

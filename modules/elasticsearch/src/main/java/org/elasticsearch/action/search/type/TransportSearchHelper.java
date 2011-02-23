@@ -335,6 +335,11 @@ argument_list|(
 name|shardRouting
 argument_list|,
 name|numberOfShards
+argument_list|,
+name|request
+operator|.
+name|searchType
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|internalRequest
