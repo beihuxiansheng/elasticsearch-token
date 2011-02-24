@@ -756,6 +756,28 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the minimum score below which docs will be filtered out.      */
+DECL|method|setMinScore
+specifier|public
+name|SearchRequestBuilder
+name|setMinScore
+parameter_list|(
+name|float
+name|minScore
+parameter_list|)
+block|{
+name|sourceBuilder
+argument_list|()
+operator|.
+name|minScore
+argument_list|(
+name|minScore
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * From index to start the search from. Defaults to<tt>0</tt>.      */
 DECL|method|setFrom
 specifier|public
