@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.cache.filter.weak
+DECL|package|org.elasticsearch.index.cache.filter.resident
 package|package
 name|org
 operator|.
@@ -16,7 +16,7 @@ name|cache
 operator|.
 name|filter
 operator|.
-name|weak
+name|resident
 package|;
 end_package
 
@@ -118,7 +118,7 @@ name|filter
 operator|.
 name|support
 operator|.
-name|AbstractConcurrentMapFilterCache
+name|AbstractDoubleConcurrentMapFilterCache
 import|;
 end_import
 
@@ -149,16 +149,16 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A weak reference based filter cache that has weak keys on the<tt>IndexReader</tt>.  *  * @author kimchy (shay.banon)  */
+comment|/**  * A resident reference based filter cache that has soft keys on the<tt>IndexReader</tt>.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|WeakFilterCache
+DECL|class|ResidentFilterCache
 specifier|public
 class|class
-name|WeakFilterCache
+name|ResidentFilterCache
 extends|extends
-name|AbstractConcurrentMapFilterCache
+name|AbstractDoubleConcurrentMapFilterCache
 block|{
 DECL|field|maxSize
 specifier|private
@@ -166,11 +166,11 @@ specifier|final
 name|int
 name|maxSize
 decl_stmt|;
-DECL|method|WeakFilterCache
+DECL|method|ResidentFilterCache
 annotation|@
 name|Inject
 specifier|public
-name|WeakFilterCache
+name|ResidentFilterCache
 parameter_list|(
 name|Index
 name|index
@@ -198,12 +198,11 @@ name|getAsInt
 argument_list|(
 literal|"max_size"
 argument_list|,
-operator|-
-literal|1
+literal|1000
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|buildFilterMap
+DECL|method|buildCacheMap
 annotation|@
 name|Override
 specifier|protected
@@ -213,7 +212,50 @@ name|Filter
 argument_list|,
 name|DocSet
 argument_list|>
-name|buildFilterMap
+name|buildCacheMap
+parameter_list|()
+block|{
+name|MapMaker
+name|mapMaker
+init|=
+operator|new
+name|MapMaker
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|maxSize
+operator|!=
+operator|-
+literal|1
+condition|)
+block|{
+name|mapMaker
+operator|.
+name|maximumSize
+argument_list|(
+name|maxSize
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|mapMaker
+operator|.
+name|makeMap
+argument_list|()
+return|;
+block|}
+DECL|method|buildWeakCacheMap
+annotation|@
+name|Override
+specifier|protected
+name|ConcurrentMap
+argument_list|<
+name|Filter
+argument_list|,
+name|DocSet
+argument_list|>
+name|buildWeakCacheMap
 parameter_list|()
 block|{
 comment|// DocSet are not really stored with strong reference only when searching on them...
@@ -260,7 +302,7 @@ name|type
 parameter_list|()
 block|{
 return|return
-literal|"weak"
+literal|"soft"
 return|;
 block|}
 block|}
