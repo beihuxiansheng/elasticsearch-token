@@ -42,6 +42,13 @@ name|NAME
 init|=
 literal|"_all"
 decl_stmt|;
+comment|/**      * Is the all field enabled or not.      */
+DECL|method|enabled
+specifier|public
+name|boolean
+name|enabled
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

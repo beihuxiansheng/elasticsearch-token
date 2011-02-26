@@ -758,11 +758,12 @@ return|;
 block|}
 if|if
 condition|(
+name|context
+operator|.
 name|includeInAll
-operator|==
-literal|null
-operator|||
+argument_list|(
 name|includeInAll
+argument_list|)
 condition|)
 block|{
 name|context
