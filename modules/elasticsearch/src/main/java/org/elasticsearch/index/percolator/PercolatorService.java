@@ -494,12 +494,9 @@ name|this
 operator|.
 name|percolator
 operator|.
-name|setIndicesLifecycle
+name|setIndicesService
 argument_list|(
 name|indicesService
-operator|.
-name|indicesLifecycle
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
