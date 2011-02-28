@@ -36,7 +36,7 @@ name|testng
 operator|.
 name|annotations
 operator|.
-name|BeforeTest
+name|BeforeClass
 import|;
 end_import
 
@@ -139,12 +139,7 @@ name|ByteArrayOutputStream
 name|compressed
 decl_stmt|;
 annotation|@
-name|BeforeTest
-argument_list|(
-name|alwaysRun
-operator|=
-literal|true
-argument_list|)
+name|BeforeClass
 DECL|method|setUp
 specifier|public
 name|void

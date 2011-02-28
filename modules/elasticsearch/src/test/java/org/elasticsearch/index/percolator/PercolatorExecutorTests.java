@@ -282,7 +282,7 @@ name|testng
 operator|.
 name|annotations
 operator|.
-name|BeforeTest
+name|BeforeClass
 import|;
 end_import
 
@@ -359,7 +359,7 @@ name|percolatorExecutor
 decl_stmt|;
 DECL|method|buildPercolatorService
 annotation|@
-name|BeforeTest
+name|BeforeClass
 specifier|public
 name|void
 name|buildPercolatorService

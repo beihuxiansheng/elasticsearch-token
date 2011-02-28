@@ -92,7 +92,7 @@ name|testng
 operator|.
 name|annotations
 operator|.
-name|AfterTest
+name|AfterClass
 import|;
 end_import
 
@@ -104,7 +104,7 @@ name|testng
 operator|.
 name|annotations
 operator|.
-name|BeforeTest
+name|BeforeClass
 import|;
 end_import
 
@@ -239,7 +239,7 @@ name|indexWriter
 decl_stmt|;
 DECL|method|setUp
 annotation|@
-name|BeforeTest
+name|BeforeClass
 specifier|public
 name|void
 name|setUp
@@ -292,7 +292,7 @@ expr_stmt|;
 block|}
 DECL|method|tearDown
 annotation|@
-name|AfterTest
+name|AfterClass
 specifier|public
 name|void
 name|tearDown

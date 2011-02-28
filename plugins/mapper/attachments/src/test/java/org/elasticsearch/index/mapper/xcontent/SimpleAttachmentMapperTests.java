@@ -66,7 +66,7 @@ name|testng
 operator|.
 name|annotations
 operator|.
-name|BeforeTest
+name|BeforeClass
 import|;
 end_import
 
@@ -157,7 +157,7 @@ name|mapperParser
 decl_stmt|;
 DECL|method|setupMapperParser
 annotation|@
-name|BeforeTest
+name|BeforeClass
 specifier|public
 name|void
 name|setupMapperParser
