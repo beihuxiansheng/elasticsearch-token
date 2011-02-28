@@ -267,11 +267,12 @@ name|delimiterIndex
 init|=
 name|uid
 operator|.
-name|lastIndexOf
+name|indexOf
 argument_list|(
 name|DELIMITER
 argument_list|)
 decl_stmt|;
+comment|// type is not allowed to have # in it..., ids can
 return|return
 operator|new
 name|Uid
