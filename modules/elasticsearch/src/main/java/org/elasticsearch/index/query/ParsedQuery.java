@@ -74,20 +74,6 @@ name|Queries
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|internal
-operator|.
-name|ScopePhase
-import|;
-end_import
-
 begin_comment
 comment|/**  * The result of parsing a query.  *  * @author kimchy (shay.banon)  */
 end_comment
@@ -120,12 +106,6 @@ name|Filter
 operator|>
 name|of
 argument_list|()
-argument_list|,
-operator|new
-name|ScopePhase
-index|[
-literal|0
-index|]
 argument_list|)
 decl_stmt|;
 DECL|field|query
@@ -145,13 +125,6 @@ name|Filter
 argument_list|>
 name|namedFilters
 decl_stmt|;
-DECL|field|scopePhases
-specifier|private
-specifier|final
-name|ScopePhase
-index|[]
-name|scopePhases
-decl_stmt|;
 DECL|method|ParsedQuery
 specifier|public
 name|ParsedQuery
@@ -166,10 +139,6 @@ argument_list|,
 name|Filter
 argument_list|>
 name|namedFilters
-parameter_list|,
-name|ScopePhase
-index|[]
-name|scopePhases
 parameter_list|)
 block|{
 name|this
@@ -183,12 +152,6 @@ operator|.
 name|namedFilters
 operator|=
 name|namedFilters
-expr_stmt|;
-name|this
-operator|.
-name|scopePhases
-operator|=
-name|scopePhases
 expr_stmt|;
 block|}
 DECL|method|ParsedQuery
@@ -215,14 +178,6 @@ operator|=
 name|parsedQuery
 operator|.
 name|namedFilters
-expr_stmt|;
-name|this
-operator|.
-name|scopePhases
-operator|=
-name|parsedQuery
-operator|.
-name|scopePhases
 expr_stmt|;
 block|}
 comment|/**      * The query parsed.      */
@@ -253,19 +208,6 @@ return|return
 name|this
 operator|.
 name|namedFilters
-return|;
-block|}
-DECL|method|scopePhases
-specifier|public
-name|ScopePhase
-index|[]
-name|scopePhases
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|scopePhases
 return|;
 block|}
 block|}

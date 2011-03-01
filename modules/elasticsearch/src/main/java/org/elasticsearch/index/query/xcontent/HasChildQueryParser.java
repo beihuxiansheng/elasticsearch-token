@@ -591,6 +591,14 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|SearchContext
+name|searchContext
+init|=
+name|SearchContext
+operator|.
+name|current
+argument_list|()
+decl_stmt|;
 name|HasChildFilter
 name|childFilter
 init|=
@@ -605,10 +613,7 @@ name|childType
 argument_list|,
 name|parentType
 argument_list|,
-name|SearchContext
-operator|.
-name|current
-argument_list|()
+name|searchContext
 argument_list|)
 decl_stmt|;
 comment|// we don't need DeletionAwareConstantScore, since we filter deleted parent docs in the filter
@@ -628,7 +633,7 @@ argument_list|(
 name|boost
 argument_list|)
 expr_stmt|;
-name|parseContext
+name|searchContext
 operator|.
 name|addScopePhase
 argument_list|(

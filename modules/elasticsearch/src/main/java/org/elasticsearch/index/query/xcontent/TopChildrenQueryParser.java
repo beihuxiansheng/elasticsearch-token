@@ -186,6 +186,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|internal
+operator|.
+name|SearchContext
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -674,6 +688,14 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|SearchContext
+name|searchContext
+init|=
+name|SearchContext
+operator|.
+name|current
+argument_list|()
+decl_stmt|;
 name|TopChildrenQuery
 name|childQuery
 init|=
@@ -695,7 +717,7 @@ argument_list|,
 name|incrementalFactor
 argument_list|)
 decl_stmt|;
-name|parseContext
+name|searchContext
 operator|.
 name|addScopePhase
 argument_list|(
