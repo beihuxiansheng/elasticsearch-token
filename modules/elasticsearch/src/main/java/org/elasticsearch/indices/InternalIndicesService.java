@@ -1553,7 +1553,7 @@ literal|"Can't create an index ["
 operator|+
 name|sIndexName
 operator|+
-literal|"] is closed"
+literal|"], node is closed"
 argument_list|)
 throw|;
 block|}
