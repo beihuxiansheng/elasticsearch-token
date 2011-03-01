@@ -1444,10 +1444,7 @@ name|TimeValue
 operator|.
 name|parseTimeValue
 argument_list|(
-name|parser
-operator|.
-name|text
-argument_list|()
+name|sInterval
 argument_list|,
 literal|null
 argument_list|)
