@@ -185,12 +185,7 @@ name|this
 operator|.
 name|filter
 operator|=
-name|filterCache
-operator|.
-name|cache
-argument_list|(
 name|filter
-argument_list|)
 expr_stmt|;
 block|}
 DECL|method|doSetNextReader
