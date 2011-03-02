@@ -614,16 +614,6 @@ name|IntervalDateHistogramProc
 extends|extends
 name|DateHistogramProc
 block|{
-DECL|field|counts
-specifier|private
-specifier|final
-name|TLongLongHashMap
-name|counts
-init|=
-operator|new
-name|TLongLongHashMap
-argument_list|()
-decl_stmt|;
 DECL|field|interval
 specifier|private
 specifier|final
