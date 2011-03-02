@@ -1462,9 +1462,17 @@ operator|!
 name|dynamic
 condition|)
 block|{
-return|return
-literal|null
-return|;
+throw|throw
+operator|new
+name|TypeMissingException
+argument_list|(
+name|index
+argument_list|,
+name|type
+argument_list|,
+literal|"typing to auto create mapping, but dynamic mapping is disabled"
+argument_list|)
+throw|;
 block|}
 comment|// go ahead and dynamically create it
 synchronized|synchronized
