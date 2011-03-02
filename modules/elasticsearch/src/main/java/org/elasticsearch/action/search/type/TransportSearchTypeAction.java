@@ -706,11 +706,12 @@ operator|.
 name|size
 argument_list|()
 expr_stmt|;
+comment|// we need to add 1 for non active partition, since we count it in the total!
 name|expectedTotalOps
 operator|=
 name|shardsIts
 operator|.
-name|totalSizeActive
+name|totalSizeActiveWith1ForEmpty
 argument_list|()
 expr_stmt|;
 if|if
