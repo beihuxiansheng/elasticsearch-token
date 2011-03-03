@@ -1064,6 +1064,18 @@ name|release
 argument_list|()
 expr_stmt|;
 block|}
+name|shardStatus
+operator|.
+name|mergeStats
+operator|=
+name|indexShard
+operator|.
+name|mergeScheduler
+argument_list|()
+operator|.
+name|stats
+argument_list|()
+expr_stmt|;
 block|}
 comment|// check on going recovery (from peer or gateway)
 name|RecoveryStatus
