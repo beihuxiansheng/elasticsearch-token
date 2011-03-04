@@ -30,16 +30,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchInterruptedException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|cluster
 operator|.
 name|*
@@ -166,18 +156,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Nullable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|component
 operator|.
 name|AbstractLifecycleComponent
@@ -279,18 +257,6 @@ operator|.
 name|concurrent
 operator|.
 name|CountDownLatch
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|TimeUnit
 import|;
 end_import
 
@@ -438,12 +404,6 @@ specifier|final
 name|MetaDataCreateIndexService
 name|createIndexService
 decl_stmt|;
-DECL|field|initialStateTimeout
-specifier|private
-specifier|final
-name|TimeValue
-name|initialStateTimeout
-decl_stmt|;
 DECL|field|recoverAfterTime
 specifier|private
 specifier|final
@@ -565,24 +525,6 @@ operator|.
 name|threadPool
 operator|=
 name|threadPool
-expr_stmt|;
-name|this
-operator|.
-name|initialStateTimeout
-operator|=
-name|componentSettings
-operator|.
-name|getAsTime
-argument_list|(
-literal|"initial_state_timeout"
-argument_list|,
-name|TimeValue
-operator|.
-name|timeValueSeconds
-argument_list|(
-literal|30
-argument_list|)
-argument_list|)
 expr_stmt|;
 comment|// allow to control a delay of when indices will get created
 name|this
@@ -882,7 +824,7 @@ block|}
 else|else
 block|{
 name|boolean
-name|ignoreTimeout
+name|ignoreRecoverAfterTime
 decl_stmt|;
 if|if
 condition|(
@@ -903,7 +845,7 @@ literal|1
 condition|)
 block|{
 comment|// no expected is set, don't ignore the timeout
-name|ignoreTimeout
+name|ignoreRecoverAfterTime
 operator|=
 literal|false
 expr_stmt|;
@@ -911,7 +853,7 @@ block|}
 else|else
 block|{
 comment|// one of the expected is set, see if all of them meet the need, and ignore the timeout in this case
-name|ignoreTimeout
+name|ignoreRecoverAfterTime
 operator|=
 literal|true
 expr_stmt|;
@@ -936,7 +878,7 @@ operator|)
 condition|)
 block|{
 comment|// does not meet the expected...
-name|ignoreTimeout
+name|ignoreRecoverAfterTime
 operator|=
 literal|false
 expr_stmt|;
@@ -962,7 +904,7 @@ operator|)
 condition|)
 block|{
 comment|// does not meet the expected...
-name|ignoreTimeout
+name|ignoreRecoverAfterTime
 operator|=
 literal|false
 expr_stmt|;
@@ -988,7 +930,7 @@ operator|)
 condition|)
 block|{
 comment|// does not meet the expected...
-name|ignoreTimeout
+name|ignoreRecoverAfterTime
 operator|=
 literal|false
 expr_stmt|;
@@ -996,9 +938,7 @@ block|}
 block|}
 name|performStateRecovery
 argument_list|(
-name|initialStateTimeout
-argument_list|,
-name|ignoreTimeout
+name|ignoreRecoverAfterTime
 argument_list|)
 expr_stmt|;
 block|}
@@ -1075,10 +1015,9 @@ parameter_list|)
 block|{
 if|if
 condition|(
-operator|!
 name|lifecycle
 operator|.
-name|started
+name|stoppedOrClosed
 argument_list|()
 condition|)
 block|{
@@ -1248,7 +1187,7 @@ block|}
 else|else
 block|{
 name|boolean
-name|ignoreTimeout
+name|ignoreRecoverAfterTime
 decl_stmt|;
 if|if
 condition|(
@@ -1269,7 +1208,7 @@ literal|1
 condition|)
 block|{
 comment|// no expected is set, don't ignore the timeout
-name|ignoreTimeout
+name|ignoreRecoverAfterTime
 operator|=
 literal|false
 expr_stmt|;
@@ -1277,7 +1216,7 @@ block|}
 else|else
 block|{
 comment|// one of the expected is set, see if all of them meet the need, and ignore the timeout in this case
-name|ignoreTimeout
+name|ignoreRecoverAfterTime
 operator|=
 literal|true
 expr_stmt|;
@@ -1302,7 +1241,7 @@ operator|)
 condition|)
 block|{
 comment|// does not meet the expected...
-name|ignoreTimeout
+name|ignoreRecoverAfterTime
 operator|=
 literal|false
 expr_stmt|;
@@ -1328,7 +1267,7 @@ operator|)
 condition|)
 block|{
 comment|// does not meet the expected...
-name|ignoreTimeout
+name|ignoreRecoverAfterTime
 operator|=
 literal|false
 expr_stmt|;
@@ -1354,7 +1293,7 @@ operator|)
 condition|)
 block|{
 comment|// does not meet the expected...
-name|ignoreTimeout
+name|ignoreRecoverAfterTime
 operator|=
 literal|false
 expr_stmt|;
@@ -1362,9 +1301,9 @@ block|}
 block|}
 specifier|final
 name|boolean
-name|fIgnoreTimeout
+name|fIgnoreRecoverAfterTime
 init|=
-name|ignoreTimeout
+name|ignoreRecoverAfterTime
 decl_stmt|;
 name|threadPool
 operator|.
@@ -1386,9 +1325,7 @@ parameter_list|()
 block|{
 name|performStateRecovery
 argument_list|(
-literal|null
-argument_list|,
-name|fIgnoreTimeout
+name|fIgnoreRecoverAfterTime
 argument_list|)
 expr_stmt|;
 block|}
@@ -1403,44 +1340,10 @@ specifier|private
 name|void
 name|performStateRecovery
 parameter_list|(
-annotation|@
-name|Nullable
-name|TimeValue
-name|timeout
-parameter_list|)
-block|{
-name|performStateRecovery
-argument_list|(
-literal|null
-argument_list|,
-literal|false
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|performStateRecovery
-specifier|private
-name|void
-name|performStateRecovery
-parameter_list|(
-annotation|@
-name|Nullable
-name|TimeValue
-name|timeout
-parameter_list|,
 name|boolean
-name|ignoreTimeout
+name|ignoreRecoverAfterTime
 parameter_list|)
 block|{
-specifier|final
-name|CountDownLatch
-name|latch
-init|=
-operator|new
-name|CountDownLatch
-argument_list|(
-literal|1
-argument_list|)
-decl_stmt|;
 specifier|final
 name|Gateway
 operator|.
@@ -1450,13 +1353,17 @@ init|=
 operator|new
 name|GatewayRecoveryListener
 argument_list|(
-name|latch
+operator|new
+name|CountDownLatch
+argument_list|(
+literal|1
+argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
 operator|!
-name|ignoreTimeout
+name|ignoreRecoverAfterTime
 operator|&&
 name|recoverAfterTime
 operator|!=
@@ -1554,50 +1461,6 @@ argument_list|(
 name|recoveryListener
 argument_list|)
 expr_stmt|;
-block|}
-block|}
-if|if
-condition|(
-name|timeout
-operator|!=
-literal|null
-condition|)
-block|{
-try|try
-block|{
-name|latch
-operator|.
-name|await
-argument_list|(
-name|timeout
-operator|.
-name|millis
-argument_list|()
-argument_list|,
-name|TimeUnit
-operator|.
-name|MILLISECONDS
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|InterruptedException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|ElasticSearchInterruptedException
-argument_list|(
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|,
-name|e
-argument_list|)
-throw|;
 block|}
 block|}
 block|}
