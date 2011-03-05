@@ -3887,6 +3887,19 @@ operator|.
 name|getCause
 argument_list|()
 operator|instanceof
+name|EngineClosedException
+condition|)
+block|{
+comment|// ignore, we are being shutdown
+block|}
+elseif|else
+if|if
+condition|(
+name|e
+operator|.
+name|getCause
+argument_list|()
+operator|instanceof
 name|InterruptedException
 condition|)
 block|{
