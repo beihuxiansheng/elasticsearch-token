@@ -415,7 +415,9 @@ argument_list|)
 argument_list|,
 operator|new
 name|ScriptModule
-argument_list|()
+argument_list|(
+name|settings
+argument_list|)
 argument_list|,
 operator|new
 name|MapperServiceModule

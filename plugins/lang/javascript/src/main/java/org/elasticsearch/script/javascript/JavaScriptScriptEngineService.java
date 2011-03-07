@@ -1339,6 +1339,26 @@ name|doubleValue
 argument_list|()
 return|;
 block|}
+DECL|method|unwrap
+annotation|@
+name|Override
+specifier|public
+name|Object
+name|unwrap
+parameter_list|(
+name|Object
+name|value
+parameter_list|)
+block|{
+return|return
+name|ScriptValueConverter
+operator|.
+name|unwrapValue
+argument_list|(
+name|value
+argument_list|)
+return|;
+block|}
 block|}
 comment|/**      * Wrap Factory for Rhino Script Engine      */
 DECL|class|CustomWrapFactory
