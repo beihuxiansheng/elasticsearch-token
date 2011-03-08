@@ -54,6 +54,18 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|CloseableIndexComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|shard
 operator|.
 name|IndexShardComponent
@@ -76,6 +88,8 @@ name|MergePolicy
 parameter_list|>
 extends|extends
 name|IndexShardComponent
+extends|,
+name|CloseableIndexComponent
 block|{
 DECL|method|newMergePolicy
 name|T

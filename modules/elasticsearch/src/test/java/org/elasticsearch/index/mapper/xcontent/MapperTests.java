@@ -235,6 +235,12 @@ argument_list|(
 operator|new
 name|IndexSettingsModule
 argument_list|(
+operator|new
+name|Index
+argument_list|(
+literal|"test"
+argument_list|)
+argument_list|,
 name|ImmutableSettings
 operator|.
 name|Builder

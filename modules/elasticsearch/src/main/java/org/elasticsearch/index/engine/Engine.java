@@ -190,6 +190,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|unit
+operator|.
+name|TimeValue
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|util
 operator|.
 name|concurrent
@@ -284,6 +298,12 @@ name|IndexShardComponent
 extends|,
 name|CloseableComponent
 block|{
+comment|/**      * The default suggested refresh interval, -1 to disable it.      */
+DECL|method|defaultRefreshInterval
+name|TimeValue
+name|defaultRefreshInterval
+parameter_list|()
+function_decl|;
 DECL|method|updateIndexingBufferSize
 name|void
 name|updateIndexingBufferSize

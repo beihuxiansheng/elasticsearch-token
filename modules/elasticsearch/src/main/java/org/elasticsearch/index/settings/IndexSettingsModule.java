@@ -44,6 +44,18 @@ name|Settings
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|Index
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
@@ -56,6 +68,12 @@ name|IndexSettingsModule
 extends|extends
 name|AbstractModule
 block|{
+DECL|field|index
+specifier|private
+specifier|final
+name|Index
+name|index
+decl_stmt|;
 DECL|field|settings
 specifier|private
 specifier|final
@@ -66,10 +84,19 @@ DECL|method|IndexSettingsModule
 specifier|public
 name|IndexSettingsModule
 parameter_list|(
+name|Index
+name|index
+parameter_list|,
 name|Settings
 name|settings
 parameter_list|)
 block|{
+name|this
+operator|.
+name|index
+operator|=
+name|index
+expr_stmt|;
 name|this
 operator|.
 name|settings
@@ -91,6 +118,8 @@ init|=
 operator|new
 name|IndexSettingsService
 argument_list|(
+name|index
+argument_list|,
 name|settings
 argument_list|)
 decl_stmt|;
