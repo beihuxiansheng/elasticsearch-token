@@ -70,7 +70,7 @@ name|index
 operator|.
 name|memory
 operator|.
-name|MemoryIndex
+name|CustomMemoryIndex
 import|;
 end_import
 
@@ -1959,11 +1959,11 @@ name|ElasticSearchException
 block|{
 comment|// first, parse the source doc into a MemoryIndex
 specifier|final
-name|MemoryIndex
+name|CustomMemoryIndex
 name|memoryIndex
 init|=
 operator|new
-name|MemoryIndex
+name|CustomMemoryIndex
 argument_list|()
 decl_stmt|;
 for|for
