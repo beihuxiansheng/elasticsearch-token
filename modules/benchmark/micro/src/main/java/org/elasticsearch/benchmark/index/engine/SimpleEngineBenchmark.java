@@ -2111,6 +2111,17 @@ name|shardId
 argument_list|,
 name|settings
 argument_list|,
+operator|new
+name|IndexSettingsService
+argument_list|(
+name|shardId
+operator|.
+name|index
+argument_list|()
+argument_list|,
+name|settings
+argument_list|)
+argument_list|,
 name|store
 argument_list|,
 name|deletionPolicy

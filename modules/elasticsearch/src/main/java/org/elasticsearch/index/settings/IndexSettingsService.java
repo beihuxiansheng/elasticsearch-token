@@ -165,11 +165,17 @@ name|Settings
 name|settings
 parameter_list|)
 block|{
+comment|// this.settings include also the node settings
 if|if
 condition|(
 name|this
 operator|.
 name|settings
+operator|.
+name|getByPrefix
+argument_list|(
+literal|"index."
+argument_list|)
 operator|.
 name|getAsMap
 argument_list|()
@@ -177,6 +183,11 @@ operator|.
 name|equals
 argument_list|(
 name|settings
+operator|.
+name|getByPrefix
+argument_list|(
+literal|"index."
+argument_list|)
 operator|.
 name|getAsMap
 argument_list|()
