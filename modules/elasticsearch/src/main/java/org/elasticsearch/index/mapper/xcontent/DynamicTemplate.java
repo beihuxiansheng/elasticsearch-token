@@ -112,6 +112,16 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|TreeMap
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
@@ -615,7 +625,16 @@ name|this
 operator|.
 name|conf
 operator|=
+operator|new
+name|TreeMap
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+argument_list|(
 name|conf
+argument_list|)
 expr_stmt|;
 name|this
 operator|.
