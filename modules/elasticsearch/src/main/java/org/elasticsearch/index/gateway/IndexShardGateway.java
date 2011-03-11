@@ -139,6 +139,12 @@ parameter_list|)
 throws|throws
 name|IndexShardGatewaySnapshotFailedException
 function_decl|;
+comment|/**      * Returns<tt>true</tt> if snapshot is even required on this gateway (i.e. mainly handles recovery).      */
+DECL|method|requiresSnapshot
+name|boolean
+name|requiresSnapshot
+parameter_list|()
+function_decl|;
 comment|/**      * Returns<tt>true</tt> if this gateway requires scheduling management for snapshot      * operations.      */
 DECL|method|requiresSnapshotScheduling
 name|boolean
