@@ -246,6 +246,11 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
+name|IOException
+name|lastException
+init|=
+literal|null
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -255,7 +260,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|100
+literal|50
 condition|;
 name|i
 operator|++
@@ -351,7 +356,10 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-comment|// ignore
+name|lastException
+operator|=
+name|e
+expr_stmt|;
 block|}
 block|}
 if|if
@@ -366,6 +374,8 @@ operator|new
 name|IOException
 argument_list|(
 literal|"Failed to obtain node lock"
+argument_list|,
+name|lastException
 argument_list|)
 throw|;
 block|}
