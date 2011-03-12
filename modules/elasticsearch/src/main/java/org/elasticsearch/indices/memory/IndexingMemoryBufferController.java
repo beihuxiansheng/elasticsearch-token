@@ -451,6 +451,7 @@ name|MB
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// LUCENE MONITOR: Based on this thread, currently (based on Mike), having a large buffer does not make a lot of sense: https://issues.apache.org/jira/browse/LUCENE-2324?focusedCommentId=13005155&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-13005155
 name|this
 operator|.
 name|maxShardIndexBufferSize
