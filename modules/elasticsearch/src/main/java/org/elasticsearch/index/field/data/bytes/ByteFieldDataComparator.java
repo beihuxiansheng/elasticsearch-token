@@ -188,7 +188,7 @@ name|bottom
 operator|-
 name|currentFieldData
 operator|.
-name|shortValue
+name|byteValue
 argument_list|(
 name|doc
 argument_list|)
