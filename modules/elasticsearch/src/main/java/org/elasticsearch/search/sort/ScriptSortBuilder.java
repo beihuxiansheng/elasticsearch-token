@@ -194,6 +194,22 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Not really relevant.      */
+DECL|method|missing
+annotation|@
+name|Override
+specifier|public
+name|SortBuilder
+name|missing
+parameter_list|(
+name|Object
+name|missing
+parameter_list|)
+block|{
+return|return
+name|this
+return|;
+block|}
 comment|/**      * The language of the script.      */
 DECL|method|lang
 specifier|public

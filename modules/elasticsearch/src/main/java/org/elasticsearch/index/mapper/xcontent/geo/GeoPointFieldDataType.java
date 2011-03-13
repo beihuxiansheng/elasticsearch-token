@@ -160,6 +160,10 @@ parameter_list|(
 specifier|final
 name|FieldDataCache
 name|cache
+parameter_list|,
+specifier|final
+name|String
+name|missing
 parameter_list|)
 block|{
 return|return

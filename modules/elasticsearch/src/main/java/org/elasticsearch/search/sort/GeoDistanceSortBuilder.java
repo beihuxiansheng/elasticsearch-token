@@ -242,6 +242,22 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Not relevant.      */
+DECL|method|missing
+annotation|@
+name|Override
+specifier|public
+name|SortBuilder
+name|missing
+parameter_list|(
+name|Object
+name|missing
+parameter_list|)
+block|{
+return|return
+name|this
+return|;
+block|}
 DECL|method|toXContent
 annotation|@
 name|Override
