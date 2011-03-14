@@ -481,6 +481,11 @@ name|searchRequest
 operator|.
 name|routing
 argument_list|()
+argument_list|,
+name|searchRequest
+operator|.
+name|preference
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if

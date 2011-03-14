@@ -1078,6 +1078,8 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+literal|null
 argument_list|)
 control|)
 block|{
@@ -1805,6 +1807,8 @@ index|[]
 block|{
 literal|"test"
 block|}
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -2792,6 +2796,8 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+literal|null
 argument_list|)
 control|)
 block|{
@@ -3296,6 +3302,8 @@ index|[]
 block|{
 literal|"test"
 block|}
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|,

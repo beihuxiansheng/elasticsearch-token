@@ -573,6 +573,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the preference to execute the search. Defaults to randomize across shards. Can be set to      *<tt>_local</tt> to prefer local shards,<tt>_primary</tt> to execute only on primary shards, or      * a custom value, which guarantees that the same order will be used across different requests.      */
+DECL|method|setPreference
+specifier|public
+name|SearchRequestBuilder
+name|setPreference
+parameter_list|(
+name|String
+name|preference
+parameter_list|)
+block|{
+name|request
+operator|.
+name|preference
+argument_list|(
+name|preference
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Controls the the search operation threading model.      */
 DECL|method|setOperationThreading
 specifier|public

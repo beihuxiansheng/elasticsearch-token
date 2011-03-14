@@ -697,6 +697,11 @@ name|request
 operator|.
 name|routing
 argument_list|()
+argument_list|,
+name|request
+operator|.
+name|preference
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|expectedSuccessfulOps

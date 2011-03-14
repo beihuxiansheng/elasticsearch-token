@@ -191,6 +191,11 @@ annotation|@
 name|Nullable
 name|String
 name|routing
+parameter_list|,
+annotation|@
+name|Nullable
+name|String
+name|preference
 parameter_list|)
 throws|throws
 name|IndexMissingException
@@ -235,6 +240,11 @@ annotation|@
 name|Nullable
 name|String
 name|routing
+parameter_list|,
+annotation|@
+name|Nullable
+name|String
+name|preference
 parameter_list|)
 throws|throws
 name|IndexMissingException
