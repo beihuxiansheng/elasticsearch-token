@@ -1757,6 +1757,16 @@ operator|.
 name|metaData
 argument_list|()
 decl_stmt|;
+comment|// sync also the version with the version the master currently has, so the next update will be applied
+specifier|final
+name|long
+name|version
+init|=
+name|clusterState
+operator|.
+name|version
+argument_list|()
+decl_stmt|;
 name|clusterService
 operator|.
 name|submitStateUpdateTask
@@ -1855,6 +1865,11 @@ operator|.
 name|metaData
 argument_list|(
 name|metaData
+argument_list|)
+operator|.
+name|version
+argument_list|(
+name|version
 argument_list|)
 operator|.
 name|build
