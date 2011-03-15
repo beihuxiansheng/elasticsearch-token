@@ -648,6 +648,15 @@ name|IndexMissingException
 name|e
 parameter_list|)
 block|{
+name|response
+operator|.
+name|status
+operator|=
+name|ClusterHealthStatus
+operator|.
+name|RED
+expr_stmt|;
+comment|// no indices, make sure its RED
 comment|// missing indices, wait a bit more...
 block|}
 block|}
