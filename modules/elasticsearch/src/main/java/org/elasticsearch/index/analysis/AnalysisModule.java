@@ -2241,6 +2241,17 @@ name|analyzersBindings
 operator|.
 name|processAnalyzer
 argument_list|(
+literal|"default"
+argument_list|,
+name|StandardAnalyzerProvider
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|analyzersBindings
+operator|.
+name|processAnalyzer
+argument_list|(
 literal|"standard"
 argument_list|,
 name|StandardAnalyzerProvider
