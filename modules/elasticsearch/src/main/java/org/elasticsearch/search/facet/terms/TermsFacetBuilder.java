@@ -161,7 +161,7 @@ name|allTerms
 decl_stmt|;
 DECL|field|exclude
 specifier|private
-name|String
+name|Object
 index|[]
 name|exclude
 decl_stmt|;
@@ -350,7 +350,7 @@ specifier|public
 name|TermsFacetBuilder
 name|exclude
 parameter_list|(
-name|String
+name|Object
 modifier|...
 name|exclude
 parameter_list|)
@@ -700,7 +700,7 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|String
+name|Object
 name|ex
 range|:
 name|exclude
