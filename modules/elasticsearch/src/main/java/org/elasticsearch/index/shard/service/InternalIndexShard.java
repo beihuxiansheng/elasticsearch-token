@@ -2730,6 +2730,15 @@ name|String
 name|reason
 parameter_list|)
 block|{
+name|listeners
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|listeners
+operator|=
+literal|null
+expr_stmt|;
 name|indexSettingsService
 operator|.
 name|removeListener
