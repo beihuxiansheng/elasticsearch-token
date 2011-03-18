@@ -1136,13 +1136,14 @@ argument_list|>
 name|listener
 parameter_list|)
 function_decl|;
-comment|/**      * Deletes an index based on the index name.      *      * @param index The index name to delete      */
+comment|/**      * Deletes an index based on the index name.      *      * @param indices The indices to delete. Empty array to delete all indices.      */
 DECL|method|prepareDelete
 name|DeleteIndexRequestBuilder
 name|prepareDelete
 parameter_list|(
 name|String
-name|index
+modifier|...
+name|indices
 parameter_list|)
 function_decl|;
 comment|/**      * Closes an index based on the index name.      *      * @param request The close index request      * @return The result future      * @see org.elasticsearch.client.Requests#closeIndexRequest(String)      */

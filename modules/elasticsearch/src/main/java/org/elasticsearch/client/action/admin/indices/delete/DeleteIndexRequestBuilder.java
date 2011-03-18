@@ -141,7 +141,8 @@ name|IndicesAdminClient
 name|indicesClient
 parameter_list|,
 name|String
-name|index
+modifier|...
+name|indices
 parameter_list|)
 block|{
 name|super
@@ -151,7 +152,7 @@ argument_list|,
 operator|new
 name|DeleteIndexRequest
 argument_list|(
-name|index
+name|indices
 argument_list|)
 argument_list|)
 expr_stmt|;

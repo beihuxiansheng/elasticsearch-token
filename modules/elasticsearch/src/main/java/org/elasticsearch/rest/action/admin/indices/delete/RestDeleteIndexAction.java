@@ -206,6 +206,24 @@ name|*
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|rest
+operator|.
+name|action
+operator|.
+name|support
+operator|.
+name|RestActions
+operator|.
+name|*
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
@@ -251,6 +269,21 @@ name|Method
 operator|.
 name|DELETE
 argument_list|,
+literal|"/"
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
+name|controller
+operator|.
+name|registerHandler
+argument_list|(
+name|RestRequest
+operator|.
+name|Method
+operator|.
+name|DELETE
+argument_list|,
 literal|"/{index}"
 argument_list|,
 name|this
@@ -279,11 +312,14 @@ init|=
 operator|new
 name|DeleteIndexRequest
 argument_list|(
+name|splitIndices
+argument_list|(
 name|request
 operator|.
 name|param
 argument_list|(
 literal|"index"
+argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;

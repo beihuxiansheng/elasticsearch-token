@@ -465,7 +465,8 @@ name|DeleteIndexRequestBuilder
 name|prepareDelete
 parameter_list|(
 name|String
-name|index
+modifier|...
+name|indices
 parameter_list|)
 block|{
 return|return
@@ -474,7 +475,7 @@ name|DeleteIndexRequestBuilder
 argument_list|(
 name|this
 argument_list|,
-name|index
+name|indices
 argument_list|)
 return|;
 block|}
