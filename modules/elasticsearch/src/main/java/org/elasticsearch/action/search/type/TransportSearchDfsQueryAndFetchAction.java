@@ -1156,6 +1156,8 @@ name|searchType
 argument_list|()
 argument_list|,
 name|dfsResults
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
