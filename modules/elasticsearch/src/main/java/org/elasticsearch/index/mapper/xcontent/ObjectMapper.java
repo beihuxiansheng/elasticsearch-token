@@ -1806,6 +1806,31 @@ name|nextToken
 argument_list|()
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|token
+operator|.
+name|isValue
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|MapperParsingException
+argument_list|(
+literal|"object_mapper ["
+operator|+
+name|name
+operator|+
+literal|"] expected object type, but got value ["
+operator|+
+name|token
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
 while|while
 condition|(
 name|token
@@ -1895,6 +1920,26 @@ argument_list|,
 name|currentFieldName
 argument_list|)
 expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|token
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|MapperParsingException
+argument_list|(
+literal|"object_mapper ["
+operator|+
+name|name
+operator|+
+literal|"] tried to parse as object, but got EOF"
+argument_list|)
+throw|;
 block|}
 elseif|else
 if|if
