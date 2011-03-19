@@ -740,6 +740,14 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+name|latch
+operator|.
+name|countDown
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
