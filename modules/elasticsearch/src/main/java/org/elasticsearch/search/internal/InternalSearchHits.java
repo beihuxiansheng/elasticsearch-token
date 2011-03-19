@@ -485,7 +485,7 @@ index|[]
 name|hits
 decl_stmt|;
 DECL|field|totalHits
-specifier|private
+specifier|public
 name|long
 name|totalHits
 decl_stmt|;
