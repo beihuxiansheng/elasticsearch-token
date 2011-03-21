@@ -367,6 +367,8 @@ name|warn
 argument_list|(
 literal|"failed to set [{}], wrong format [{}]"
 argument_list|,
+name|e
+argument_list|,
 name|IndexMetaData
 operator|.
 name|SETTING_AUTO_EXPAND_REPLICAS
