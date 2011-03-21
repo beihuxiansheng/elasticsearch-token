@@ -50,6 +50,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Booleans
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|component
 operator|.
 name|AbstractComponent
@@ -243,8 +255,18 @@ condition|(
 name|autoExpandReplicas
 operator|!=
 literal|null
+operator|&&
+name|Booleans
+operator|.
+name|parseBoolean
+argument_list|(
+name|autoExpandReplicas
+argument_list|,
+literal|true
+argument_list|)
 condition|)
 block|{
+comment|// Booleans only work for false values, just as we want it here
 try|try
 block|{
 specifier|final
