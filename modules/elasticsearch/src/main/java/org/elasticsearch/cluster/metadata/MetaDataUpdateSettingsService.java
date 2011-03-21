@@ -269,7 +269,14 @@ literal|1
 decl_stmt|;
 name|int
 name|min
-init|=
+decl_stmt|;
+name|int
+name|max
+decl_stmt|;
+try|try
+block|{
+name|min
+operator|=
 name|Integer
 operator|.
 name|parseInt
@@ -288,10 +295,7 @@ literal|'-'
 argument_list|)
 argument_list|)
 argument_list|)
-decl_stmt|;
-name|int
-name|max
-decl_stmt|;
+expr_stmt|;
 name|String
 name|sMax
 init|=
@@ -349,6 +353,28 @@ argument_list|(
 name|sMax
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"failed to set [{}], wrong format [{}]"
+argument_list|,
+name|IndexMetaData
+operator|.
+name|SETTING_AUTO_EXPAND_REPLICAS
+argument_list|,
+name|autoExpandReplicas
+argument_list|)
+expr_stmt|;
+continue|continue;
 block|}
 comment|// same value, nothing to do there
 if|if
