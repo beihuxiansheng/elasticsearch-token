@@ -426,6 +426,11 @@ operator|.
 name|evictions
 argument_list|()
 argument_list|,
+name|filterCache
+operator|.
+name|evictions
+argument_list|()
+argument_list|,
 name|fieldDataCache
 operator|.
 name|sizeInBytes
@@ -434,6 +439,11 @@ argument_list|,
 name|filterCache
 operator|.
 name|sizeInBytes
+argument_list|()
+argument_list|,
+name|filterCache
+operator|.
+name|count
 argument_list|()
 argument_list|,
 name|bloomCache
