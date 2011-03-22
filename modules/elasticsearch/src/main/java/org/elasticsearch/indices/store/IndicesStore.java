@@ -279,6 +279,22 @@ condition|)
 block|{
 return|return;
 block|}
+if|if
+condition|(
+name|event
+operator|.
+name|state
+argument_list|()
+operator|.
+name|blocks
+argument_list|()
+operator|.
+name|disableStatePersistence
+argument_list|()
+condition|)
+block|{
+return|return;
+block|}
 comment|// when all shards are started within a shard replication group, delete an unallocated shard on this node
 name|RoutingTable
 name|routingTable
