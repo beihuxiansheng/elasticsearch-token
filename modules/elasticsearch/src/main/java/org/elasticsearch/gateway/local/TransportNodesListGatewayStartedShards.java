@@ -436,6 +436,19 @@ return|return
 literal|"/gateway/local/started-shards/node"
 return|;
 block|}
+DECL|method|transportCompress
+annotation|@
+name|Override
+specifier|protected
+name|boolean
+name|transportCompress
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+comment|// this can become big...
+block|}
 DECL|method|newRequest
 annotation|@
 name|Override

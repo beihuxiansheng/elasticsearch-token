@@ -436,6 +436,19 @@ return|return
 literal|"/gateway/local/meta-state/node"
 return|;
 block|}
+DECL|method|transportCompress
+annotation|@
+name|Override
+specifier|protected
+name|boolean
+name|transportCompress
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+comment|// compress since the metadata can become large
+block|}
 DECL|method|newRequest
 annotation|@
 name|Override
