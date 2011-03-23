@@ -1225,8 +1225,9 @@ return|return;
 block|}
 comment|// we are only interested when the first shard on this node has been created for an index
 comment|// when it does, fetch the relevant queries if not fetched already
-if|if
-condition|(
+name|IndexService
+name|indexService
+init|=
 name|indicesService
 operator|.
 name|indexService
@@ -1242,6 +1243,19 @@ operator|.
 name|name
 argument_list|()
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|indexService
+operator|==
+literal|null
+condition|)
+block|{
+return|return;
+block|}
+if|if
+condition|(
+name|indexService
 operator|.
 name|numberOfShards
 argument_list|()
