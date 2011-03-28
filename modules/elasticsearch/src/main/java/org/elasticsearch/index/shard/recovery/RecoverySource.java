@@ -656,9 +656,9 @@ name|concurrentStreams
 argument_list|,
 name|fileChunkSize
 argument_list|,
-name|translogOps
-argument_list|,
 name|translogSize
+argument_list|,
+name|translogOps
 argument_list|,
 name|compress
 argument_list|)
