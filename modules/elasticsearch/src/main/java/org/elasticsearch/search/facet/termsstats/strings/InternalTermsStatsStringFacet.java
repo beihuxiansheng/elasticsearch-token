@@ -1282,7 +1282,12 @@ name|ArrayList
 argument_list|<
 name|StringEntry
 argument_list|>
+argument_list|(
+name|map
+operator|.
+name|size
 argument_list|()
+argument_list|)
 decl_stmt|;
 for|for
 control|(
