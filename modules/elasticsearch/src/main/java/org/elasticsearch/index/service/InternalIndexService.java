@@ -2176,6 +2176,15 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"failed to close translog service"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 comment|// ignore
 block|}
 comment|// close shard actions
@@ -2229,6 +2238,15 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"failed to close index shard"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 comment|// ignore
 block|}
 block|}
@@ -2253,6 +2271,15 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"failed to close engine"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 comment|// ignore
 block|}
 try|try
@@ -2278,6 +2305,15 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"failed to close merge policy provider"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 comment|// ignore
 block|}
 try|try
@@ -2308,6 +2344,15 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"failed to snapshot gateway on close"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 comment|// ignore
 block|}
 try|try
@@ -2333,6 +2378,15 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"failed to close index shard gateway"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 comment|// ignore
 block|}
 try|try
@@ -2359,6 +2413,15 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"failed to close translog"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 comment|// ignore
 block|}
 comment|// call this before we close the store, so we can release resources for it
