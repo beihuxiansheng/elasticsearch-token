@@ -1110,6 +1110,15 @@ operator|.
 name|stats
 argument_list|()
 expr_stmt|;
+name|shardStatus
+operator|.
+name|refreshStats
+operator|=
+name|indexShard
+operator|.
+name|refreshStats
+argument_list|()
+expr_stmt|;
 block|}
 if|if
 condition|(
