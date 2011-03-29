@@ -2888,6 +2888,11 @@ operator|.
 name|prepareStatus
 argument_list|()
 operator|.
+name|setRecovery
+argument_list|(
+literal|true
+argument_list|)
+operator|.
 name|execute
 argument_list|()
 operator|.
