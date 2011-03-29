@@ -305,6 +305,18 @@ name|mkdirs
 argument_list|()
 expr_stmt|;
 block|}
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"obtaining node lock on {} ..."
+argument_list|,
+name|dir
+operator|.
+name|getAbsolutePath
+argument_list|()
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|NativeFSLockFactory
@@ -349,6 +361,21 @@ name|i
 expr_stmt|;
 break|break;
 block|}
+else|else
+block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"failed to obtain node lock on {}"
+argument_list|,
+name|dir
+operator|.
+name|getAbsolutePath
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -356,6 +383,20 @@ name|IOException
 name|e
 parameter_list|)
 block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"failed to obtain node lock on {}"
+argument_list|,
+name|e
+argument_list|,
+name|dir
+operator|.
+name|getAbsolutePath
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|lastException
 operator|=
 name|e
