@@ -3850,8 +3850,6 @@ name|refreshNeeded
 argument_list|()
 condition|)
 block|{
-name|engine
-operator|.
 name|refresh
 argument_list|(
 operator|new
