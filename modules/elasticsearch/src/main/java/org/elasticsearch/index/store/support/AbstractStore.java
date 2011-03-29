@@ -258,7 +258,7 @@ name|util
 operator|.
 name|zip
 operator|.
-name|CRC32
+name|Adler32
 import|;
 end_import
 
@@ -2267,12 +2267,15 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|//                    this.digest = new CRC32();
+comment|// adler is faster, and we compare on length as well, should be enough to check for difference
+comment|// between files
 name|this
 operator|.
 name|digest
 operator|=
 operator|new
-name|CRC32
+name|Adler32
 argument_list|()
 expr_stmt|;
 block|}
