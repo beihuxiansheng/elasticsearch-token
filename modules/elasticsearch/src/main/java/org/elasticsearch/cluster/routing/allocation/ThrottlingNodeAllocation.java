@@ -145,7 +145,23 @@ name|getAsInt
 argument_list|(
 literal|"concurrent_recoveries"
 argument_list|,
+name|componentSettings
+operator|.
+name|getAsInt
+argument_list|(
+literal|"node_concurrent_recoveries"
+argument_list|,
 literal|2
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"using [concurrent_recoveries] with [{}]"
+argument_list|,
+name|concurrentRecoveries
 argument_list|)
 expr_stmt|;
 block|}
