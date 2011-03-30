@@ -400,7 +400,7 @@ name|getAsInt
 argument_list|(
 literal|"flush_threshold"
 argument_list|,
-literal|20000
+literal|5000
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -417,7 +417,7 @@ argument_list|,
 operator|new
 name|ByteSizeValue
 argument_list|(
-literal|500
+literal|200
 argument_list|,
 name|ByteSizeUnit
 operator|.
