@@ -142,7 +142,11 @@ name|lzf
 init|=
 operator|new
 name|LZFStreamInput
-argument_list|()
+argument_list|(
+literal|null
+argument_list|,
+literal|true
+argument_list|)
 decl_stmt|;
 return|return
 operator|new

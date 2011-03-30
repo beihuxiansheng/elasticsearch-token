@@ -167,6 +167,8 @@ operator|new
 name|LZFStreamOutput
 argument_list|(
 name|bytes
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 return|return

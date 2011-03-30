@@ -94,7 +94,7 @@ name|compress
 operator|.
 name|lzf
 operator|.
-name|LZFDecoder
+name|LZF
 import|;
 end_import
 
@@ -388,7 +388,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|LZFDecoder
+name|LZF
 operator|.
 name|isCompressed
 argument_list|(

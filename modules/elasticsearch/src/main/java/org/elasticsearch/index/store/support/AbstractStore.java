@@ -800,6 +800,24 @@ name|readStringStringMap
 argument_list|()
 return|;
 block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// failed to load checksums, ignore and return an empty map
+return|return
+operator|new
+name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+argument_list|()
+return|;
+block|}
 finally|finally
 block|{
 name|indexInput

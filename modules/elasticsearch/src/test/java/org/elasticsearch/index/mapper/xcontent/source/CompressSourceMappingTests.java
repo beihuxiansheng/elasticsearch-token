@@ -32,7 +32,7 @@ name|compress
 operator|.
 name|lzf
 operator|.
-name|LZFDecoder
+name|LZF
 import|;
 end_import
 
@@ -247,7 +247,7 @@ argument_list|)
 decl_stmt|;
 name|assertThat
 argument_list|(
-name|LZFDecoder
+name|LZF
 operator|.
 name|isCompressed
 argument_list|(
@@ -374,7 +374,7 @@ argument_list|)
 decl_stmt|;
 name|assertThat
 argument_list|(
-name|LZFDecoder
+name|LZF
 operator|.
 name|isCompressed
 argument_list|(
@@ -494,7 +494,7 @@ argument_list|)
 decl_stmt|;
 name|assertThat
 argument_list|(
-name|LZFDecoder
+name|LZF
 operator|.
 name|isCompressed
 argument_list|(
@@ -577,7 +577,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|LZFDecoder
+name|LZF
 operator|.
 name|isCompressed
 argument_list|(

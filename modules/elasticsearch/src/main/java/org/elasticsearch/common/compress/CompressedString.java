@@ -192,7 +192,7 @@ name|bytes
 operator|=
 name|LZFEncoder
 operator|.
-name|encodeWithCache
+name|encode
 argument_list|(
 name|result
 operator|.
