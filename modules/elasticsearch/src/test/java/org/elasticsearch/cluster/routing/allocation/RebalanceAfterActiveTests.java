@@ -334,6 +334,14 @@ argument_list|,
 literal|"always"
 argument_list|)
 operator|.
+name|put
+argument_list|(
+literal|"cluster.routing.allocation.cluster_concurrent_rebalance"
+argument_list|,
+operator|-
+literal|1
+argument_list|)
+operator|.
 name|build
 argument_list|()
 argument_list|)
