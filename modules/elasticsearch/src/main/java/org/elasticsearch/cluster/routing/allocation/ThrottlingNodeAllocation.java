@@ -114,6 +114,12 @@ name|ThrottlingNodeAllocation
 extends|extends
 name|NodeAllocation
 block|{
+DECL|field|primariesInitialRecoveries
+specifier|private
+specifier|final
+name|int
+name|primariesInitialRecoveries
+decl_stmt|;
 DECL|field|concurrentRecoveries
 specifier|private
 specifier|final
@@ -133,6 +139,19 @@ block|{
 name|super
 argument_list|(
 name|settings
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|primariesInitialRecoveries
+operator|=
+name|componentSettings
+operator|.
+name|getAsInt
+argument_list|(
+literal|"node_initial_primaries_recoveries"
+argument_list|,
+literal|4
 argument_list|)
 expr_stmt|;
 name|this
@@ -159,9 +178,11 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"using [concurrent_recoveries] with [{}]"
+literal|"using node_concurrent_recoveries [{}], node_initial_primaries_recoveries [{}]"
 argument_list|,
 name|concurrentRecoveries
+argument_list|,
+name|primariesInitialRecoveries
 argument_list|)
 expr_stmt|;
 block|}
@@ -277,7 +298,7 @@ if|if
 condition|(
 name|primariesInRecovery
 operator|>=
-name|concurrentRecoveries
+name|primariesInitialRecoveries
 condition|)
 block|{
 return|return
