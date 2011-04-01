@@ -394,6 +394,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|CacheRecycler
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|collect
 operator|.
 name|ImmutableList
@@ -1200,6 +1212,11 @@ parameter_list|)
 block|{
 comment|// ignore
 block|}
+name|CacheRecycler
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 name|ThreadLocals
 operator|.
 name|clearReferencesThreadLocals
