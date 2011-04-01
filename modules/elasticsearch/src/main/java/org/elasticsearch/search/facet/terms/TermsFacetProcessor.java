@@ -1910,10 +1910,6 @@ name|script
 operator|==
 literal|null
 operator|&&
-name|pattern
-operator|==
-literal|null
-operator|&&
 operator|!
 literal|"map"
 operator|.
@@ -1940,6 +1936,8 @@ argument_list|,
 name|context
 argument_list|,
 name|excluded
+argument_list|,
+name|pattern
 argument_list|)
 return|;
 block|}
