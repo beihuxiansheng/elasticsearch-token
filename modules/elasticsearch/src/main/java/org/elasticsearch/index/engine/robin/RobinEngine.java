@@ -877,6 +877,16 @@ name|Object
 index|[]
 name|dirtyLocks
 decl_stmt|;
+DECL|field|refreshMutex
+specifier|private
+specifier|final
+name|Object
+name|refreshMutex
+init|=
+operator|new
+name|Object
+argument_list|()
+decl_stmt|;
 DECL|field|applySettings
 specifier|private
 specifier|final
@@ -3733,6 +3743,14 @@ throw|;
 block|}
 try|try
 block|{
+comment|// we need to obtain a mutex here, to make sure we don't leave dangling readers
+comment|// we could have used an AtomicBoolean#compareAndSet, but, then we might miss refresh requests
+comment|// compared to on going ones
+synchronized|synchronized
+init|(
+name|refreshMutex
+init|)
+block|{
 if|if
 condition|(
 name|dirty
@@ -3743,7 +3761,6 @@ name|force
 argument_list|()
 condition|)
 block|{
-comment|// we eagerly set dirty to false so we won't miss refresh requests
 name|dirty
 operator|=
 literal|false
@@ -3820,6 +3837,7 @@ operator|.
 name|markForClose
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
