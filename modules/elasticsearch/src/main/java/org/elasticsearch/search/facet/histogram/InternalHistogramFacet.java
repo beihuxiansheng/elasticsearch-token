@@ -78,7 +78,7 @@ name|void
 name|registerStreams
 parameter_list|()
 block|{
-name|InternalCountAndTotalHistogramFacet
+name|InternalFullHistogramFacet
 operator|.
 name|registerStreams
 argument_list|()

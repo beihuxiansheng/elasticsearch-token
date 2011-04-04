@@ -857,11 +857,6 @@ operator|.
 name|popLongIntMap
 argument_list|()
 decl_stmt|;
-name|aggregated
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
 name|long
 name|missing
 init|=

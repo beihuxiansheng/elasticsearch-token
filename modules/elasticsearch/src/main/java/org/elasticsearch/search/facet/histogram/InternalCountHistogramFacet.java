@@ -293,8 +293,9 @@ operator|=
 name|count
 expr_stmt|;
 block|}
-comment|/**          * The key value of the histogram.          */
 DECL|method|key
+annotation|@
+name|Override
 specifier|public
 name|long
 name|key
@@ -304,8 +305,9 @@ return|return
 name|key
 return|;
 block|}
-comment|/**          * The key value of the histogram.          */
 DECL|method|getKey
+annotation|@
+name|Override
 specifier|public
 name|long
 name|getKey
@@ -316,8 +318,9 @@ name|key
 argument_list|()
 return|;
 block|}
-comment|/**          * The number of hits that fall within that key "range" or "interval".          */
 DECL|method|count
+annotation|@
+name|Override
 specifier|public
 name|long
 name|count
@@ -327,8 +330,9 @@ return|return
 name|count
 return|;
 block|}
-comment|/**          * The number of hits that fall within that key "range" or "interval".          */
 DECL|method|getCount
+annotation|@
+name|Override
 specifier|public
 name|long
 name|getCount
@@ -339,20 +343,23 @@ name|count
 argument_list|()
 return|;
 block|}
-comment|/**          * The sum / total of the value field that fall within this key "interval".          */
 DECL|method|total
+annotation|@
+name|Override
 specifier|public
 name|double
 name|total
 parameter_list|()
 block|{
 return|return
-operator|-
-literal|1
+name|Double
+operator|.
+name|NaN
 return|;
 block|}
-comment|/**          * The sum / total of the value field that fall within this key "interval".          */
 DECL|method|getTotal
+annotation|@
+name|Override
 specifier|public
 name|double
 name|getTotal
@@ -363,20 +370,47 @@ name|total
 argument_list|()
 return|;
 block|}
-comment|/**          * The mean of this facet interval.          */
+DECL|method|totalCount
+annotation|@
+name|Override
+specifier|public
+name|long
+name|totalCount
+parameter_list|()
+block|{
+return|return
+literal|0
+return|;
+block|}
+DECL|method|getTotalCount
+annotation|@
+name|Override
+specifier|public
+name|long
+name|getTotalCount
+parameter_list|()
+block|{
+return|return
+literal|0
+return|;
+block|}
 DECL|method|mean
+annotation|@
+name|Override
 specifier|public
 name|double
 name|mean
 parameter_list|()
 block|{
 return|return
-operator|-
-literal|1
+name|Double
+operator|.
+name|NaN
 return|;
 block|}
-comment|/**          * The mean of this facet interval.          */
 DECL|method|getMean
+annotation|@
+name|Override
 specifier|public
 name|double
 name|getMean

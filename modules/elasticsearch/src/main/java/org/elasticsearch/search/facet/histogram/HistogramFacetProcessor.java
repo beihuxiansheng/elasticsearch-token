@@ -757,7 +757,7 @@ condition|)
 block|{
 return|return
 operator|new
-name|CountAndTotalHistogramFacetCollector
+name|FullHistogramFacetCollector
 argument_list|(
 name|facetName
 argument_list|,
