@@ -252,6 +252,7 @@ block|}
 comment|/**      * A histogram entry representing a single entry within the result of a histogram facet.      */
 DECL|class|CountEntry
 specifier|public
+specifier|static
 class|class
 name|CountEntry
 implements|implements

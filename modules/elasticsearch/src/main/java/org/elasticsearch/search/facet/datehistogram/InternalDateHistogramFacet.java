@@ -83,7 +83,7 @@ operator|.
 name|registerStreams
 argument_list|()
 expr_stmt|;
-name|InternalCountAndTotalDateHistogramFacet
+name|InternalFullDateHistogramFacet
 operator|.
 name|registerStreams
 argument_list|()

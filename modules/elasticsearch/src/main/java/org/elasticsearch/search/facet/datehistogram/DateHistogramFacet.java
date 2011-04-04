@@ -149,6 +149,30 @@ name|Entry
 name|o2
 parameter_list|)
 block|{
+comment|// push nulls to the end
+if|if
+condition|(
+name|o1
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|1
+return|;
+block|}
+if|if
+condition|(
+name|o2
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+operator|-
+literal|1
+return|;
+block|}
 return|return
 operator|(
 name|o1
@@ -215,6 +239,30 @@ name|Entry
 name|o2
 parameter_list|)
 block|{
+comment|// push nulls to the end
+if|if
+condition|(
+name|o1
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|1
+return|;
+block|}
+if|if
+condition|(
+name|o2
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+operator|-
+literal|1
+return|;
+block|}
 return|return
 operator|(
 name|o1
@@ -281,6 +329,30 @@ name|Entry
 name|o2
 parameter_list|)
 block|{
+comment|// push nulls to the end
+if|if
+condition|(
+name|o1
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|1
+return|;
+block|}
+if|if
+condition|(
+name|o2
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+operator|-
+literal|1
+return|;
+block|}
 return|return
 operator|(
 name|o1
@@ -563,6 +635,18 @@ name|long
 name|getCount
 parameter_list|()
 function_decl|;
+comment|/**          * The total count of values aggregated to compute the total.          */
+DECL|method|totalCount
+name|long
+name|totalCount
+parameter_list|()
+function_decl|;
+comment|/**          * The total count of values aggregated to compute the total.          */
+DECL|method|getTotalCount
+name|long
+name|getTotalCount
+parameter_list|()
+function_decl|;
 comment|/**          * The sum / total of the value field that fall within this key "interval".          */
 DECL|method|total
 name|double
@@ -585,6 +669,30 @@ comment|/**          * The mean of this facet interval.          */
 DECL|method|getMean
 name|double
 name|getMean
+parameter_list|()
+function_decl|;
+comment|/**          * The minimum value.          */
+DECL|method|min
+name|double
+name|min
+parameter_list|()
+function_decl|;
+comment|/**          * The minimum value.          */
+DECL|method|getMin
+name|double
+name|getMin
+parameter_list|()
+function_decl|;
+comment|/**          * The maximum value.          */
+DECL|method|max
+name|double
+name|max
+parameter_list|()
+function_decl|;
+comment|/**          * The maximum value.          */
+DECL|method|getMax
+name|double
+name|getMax
 parameter_list|()
 function_decl|;
 block|}

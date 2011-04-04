@@ -1507,7 +1507,6 @@ name|id
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// optimize the write, since we know we have the same buckets as keys
 name|out
 operator|.
 name|writeVInt
