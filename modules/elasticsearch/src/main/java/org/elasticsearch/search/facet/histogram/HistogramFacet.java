@@ -671,6 +671,30 @@ name|double
 name|getMean
 parameter_list|()
 function_decl|;
+comment|/**          * The minimum value.          */
+DECL|method|min
+name|double
+name|min
+parameter_list|()
+function_decl|;
+comment|/**          * The minimum value.          */
+DECL|method|getMin
+name|double
+name|getMin
+parameter_list|()
+function_decl|;
+comment|/**          * The maximum value.          */
+DECL|method|max
+name|double
+name|max
+parameter_list|()
+function_decl|;
+comment|/**          * The maximum value.          */
+DECL|method|getMax
+name|double
+name|getMax
+parameter_list|()
+function_decl|;
 block|}
 block|}
 end_interface
