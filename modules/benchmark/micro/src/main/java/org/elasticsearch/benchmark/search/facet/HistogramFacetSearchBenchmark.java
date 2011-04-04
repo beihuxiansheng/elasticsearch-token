@@ -451,7 +451,7 @@ name|SizeValue
 operator|.
 name|parseSizeValue
 argument_list|(
-literal|"1m"
+literal|"5m"
 argument_list|)
 operator|.
 name|singles
@@ -886,14 +886,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"--> Number of docs in index: "
-operator|+
+name|COUNT
+operator|=
 name|client
 operator|.
 name|prepareCount
@@ -913,6 +907,16 @@ argument_list|()
 operator|.
 name|count
 argument_list|()
+expr_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"--> Number of docs in index: "
+operator|+
+name|COUNT
 argument_list|)
 expr_stmt|;
 name|System
