@@ -532,7 +532,7 @@ name|StatsProc
 implements|implements
 name|NumericFieldData
 operator|.
-name|DoubleValueInDocProc
+name|MissingDoubleValueInDocProc
 block|{
 DECL|field|min
 name|double
