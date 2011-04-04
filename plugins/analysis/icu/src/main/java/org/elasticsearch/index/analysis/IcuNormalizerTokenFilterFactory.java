@@ -115,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Uses the {@link org.elasticsearch.index.analysis.ICUNormalizer2Filter} to normalize tokens.  *  *<p>The<tt>name</tt> can be used to provide the type of normalization to perofrm.  *  * @author kimchy (shay.banon)  * @see org.elasticsearch.index.analysis.ICUNormalizer2Filter  */
+comment|/**  * Uses the {@link org.apache.lucene.analysis.icu.ICUNormalizer2Filter} to normalize tokens.  *  *<p>The<tt>name</tt> can be used to provide the type of normalization to perform.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -193,6 +193,16 @@ parameter_list|)
 block|{
 return|return
 operator|new
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|analysis
+operator|.
+name|icu
+operator|.
 name|ICUNormalizer2Filter
 argument_list|(
 name|tokenStream

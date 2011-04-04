@@ -681,7 +681,7 @@ name|get
 argument_list|(
 name|indexReader
 operator|.
-name|getFieldCacheKey
+name|getCoreCacheKey
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -707,7 +707,7 @@ name|put
 argument_list|(
 name|indexReader
 operator|.
-name|getFieldCacheKey
+name|getCoreCacheKey
 argument_list|()
 argument_list|,
 name|readerParentDocs
@@ -1313,7 +1313,7 @@ name|get
 argument_list|(
 name|reader
 operator|.
-name|getFieldCacheKey
+name|getCoreCacheKey
 argument_list|()
 argument_list|)
 decl_stmt|;

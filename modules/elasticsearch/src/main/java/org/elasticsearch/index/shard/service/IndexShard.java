@@ -62,20 +62,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|unit
-operator|.
-name|ByteSizeValue
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|util
 operator|.
 name|concurrent
@@ -226,14 +212,6 @@ DECL|method|state
 name|IndexShardState
 name|state
 parameter_list|()
-function_decl|;
-comment|/**      * Returns the estimated flushable memory size. Returns<tt>null</tt> if not available.      */
-DECL|method|estimateFlushableMemorySize
-name|ByteSizeValue
-name|estimateFlushableMemorySize
-parameter_list|()
-throws|throws
-name|ElasticSearchException
 function_decl|;
 DECL|method|prepareCreate
 name|Engine

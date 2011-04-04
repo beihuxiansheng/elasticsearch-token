@@ -42,7 +42,7 @@ name|analysis
 operator|.
 name|tokenattributes
 operator|.
-name|TermAttribute
+name|CharTermAttribute
 import|;
 end_import
 
@@ -629,6 +629,9 @@ name|field
 parameter_list|,
 name|String
 name|queryText
+parameter_list|,
+name|boolean
+name|quoted
 parameter_list|)
 throws|throws
 name|ParseException
@@ -759,6 +762,8 @@ name|indexName
 argument_list|()
 argument_list|,
 name|queryText
+argument_list|,
+name|quoted
 argument_list|)
 expr_stmt|;
 block|}
@@ -783,6 +788,8 @@ argument_list|(
 name|field
 argument_list|,
 name|queryText
+argument_list|,
+name|quoted
 argument_list|)
 return|;
 block|}
@@ -1197,12 +1204,9 @@ name|termStr
 argument_list|)
 return|;
 block|}
-comment|// LUCENE MONITOR: TermAttribute deprecated in 3.1
 comment|// get Analyzer from superclass and tokenize the term
 name|TokenStream
 name|source
-init|=
-literal|null
 decl_stmt|;
 try|try
 block|{
@@ -1253,14 +1257,14 @@ name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
-name|TermAttribute
+name|CharTermAttribute
 name|termAtt
 init|=
 name|source
 operator|.
 name|addAttribute
 argument_list|(
-name|TermAttribute
+name|CharTermAttribute
 operator|.
 name|class
 argument_list|)
@@ -1296,7 +1300,7 @@ name|add
 argument_list|(
 name|termAtt
 operator|.
-name|term
+name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1628,14 +1632,14 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|TermAttribute
+name|CharTermAttribute
 name|termAtt
 init|=
 name|source
 operator|.
 name|addAttribute
 argument_list|(
-name|TermAttribute
+name|CharTermAttribute
 operator|.
 name|class
 argument_list|)
@@ -1653,7 +1657,7 @@ name|term
 init|=
 name|termAtt
 operator|.
-name|term
+name|toString
 argument_list|()
 decl_stmt|;
 if|if
@@ -1779,14 +1783,14 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|TermAttribute
+name|CharTermAttribute
 name|termAtt
 init|=
 name|source
 operator|.
 name|addAttribute
 argument_list|(
-name|TermAttribute
+name|CharTermAttribute
 operator|.
 name|class
 argument_list|)
@@ -1804,7 +1808,7 @@ name|term
 init|=
 name|termAtt
 operator|.
-name|term
+name|toString
 argument_list|()
 decl_stmt|;
 if|if

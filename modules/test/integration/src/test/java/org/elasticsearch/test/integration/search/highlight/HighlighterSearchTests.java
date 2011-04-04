@@ -1477,6 +1477,7 @@ literal|1l
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// LUCENE 3.1 UPGRADE: Caused adding the space at the end...
 name|assertThat
 argument_list|(
 name|searchResponse
@@ -1505,7 +1506,7 @@ index|]
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"this is a<xxx>test</xxx>"
+literal|"this is a<xxx>test</xxx> "
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1652,6 +1653,7 @@ literal|1l
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// LUCENE 3.1 UPGRADE: Caused adding the space at the end...
 name|assertThat
 argument_list|(
 name|searchResponse
@@ -1680,7 +1682,7 @@ index|]
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"this is a<xxx>test</xxx>"
+literal|"this is a<xxx>test</xxx> "
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1827,6 +1829,7 @@ literal|1l
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// LUCENE 3.1 UPGRADE: Caused adding the space at the end...
 name|assertThat
 argument_list|(
 name|searchResponse
@@ -1855,7 +1858,7 @@ index|]
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"The<xxx>quick</xxx> brown fox jumps over the lazy dog"
+literal|"The<xxx>quick</xxx> brown fox jumps over the lazy dog "
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2002,6 +2005,7 @@ literal|1l
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// LUCENE 3.1 UPGRADE: Caused adding the space at the end...
 name|assertThat
 argument_list|(
 name|searchResponse
@@ -2030,7 +2034,7 @@ index|]
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"The<xxx>quick</xxx> brown fox jumps over the lazy dog"
+literal|"The<xxx>quick</xxx> brown fox jumps over the lazy dog "
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2335,6 +2339,7 @@ name|hits
 argument_list|()
 control|)
 block|{
+comment|// LUCENE 3.1 UPGRADE: Caused adding the space at the end...
 name|assertThat
 argument_list|(
 name|hit
@@ -2361,6 +2366,8 @@ name|hit
 operator|.
 name|id
 argument_list|()
+operator|+
+literal|" "
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2464,6 +2471,7 @@ name|hits
 argument_list|()
 control|)
 block|{
+comment|// LUCENE 3.1 UPGRADE: Caused adding the space at the end...
 name|assertThat
 argument_list|(
 name|hit
@@ -2490,6 +2498,8 @@ name|hit
 operator|.
 name|id
 argument_list|()
+operator|+
+literal|" "
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2586,6 +2596,7 @@ name|hits
 argument_list|()
 control|)
 block|{
+comment|// LUCENE 3.1 UPGRADE: Caused adding the space at the end...
 name|assertThat
 argument_list|(
 name|hit
@@ -2613,7 +2624,7 @@ operator|.
 name|id
 argument_list|()
 operator|+
-literal|" "
+literal|"  "
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2966,6 +2977,7 @@ name|hits
 argument_list|()
 control|)
 block|{
+comment|// LUCENE 3.1 UPGRADE: Caused adding the space at the end...
 name|assertThat
 argument_list|(
 name|hit
@@ -2986,7 +2998,7 @@ index|]
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"This is a test on the highlighting<em>bug</em> present in elasticsearch"
+literal|"This is a test on the highlighting<em>bug</em> present in elasticsearch "
 argument_list|)
 argument_list|)
 expr_stmt|;

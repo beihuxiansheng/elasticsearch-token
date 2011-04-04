@@ -208,7 +208,8 @@ name|internalAllocator
 operator|=
 literal|true
 expr_stmt|;
-comment|//        try {
+try|try
+block|{
 name|setLockFactory
 argument_list|(
 operator|new
@@ -216,9 +217,15 @@ name|SingleInstanceLockFactory
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//        } catch (IOException e) {
-comment|//            // will not happen
-comment|//        }
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+comment|// will not happen
+block|}
 block|}
 comment|/**      * Constructs a new byte buffer directory with a custom allocator.      */
 DECL|method|ByteBufferDirectory
@@ -241,7 +248,8 @@ name|internalAllocator
 operator|=
 literal|false
 expr_stmt|;
-comment|//        try {
+try|try
+block|{
 name|setLockFactory
 argument_list|(
 operator|new
@@ -249,9 +257,15 @@ name|SingleInstanceLockFactory
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//        } catch (IOException e) {
-comment|//            // will not happen
-comment|//        }
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+comment|// will not happen
+block|}
 block|}
 DECL|method|sync
 specifier|public

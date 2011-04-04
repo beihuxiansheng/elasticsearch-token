@@ -3727,7 +3727,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"12-54-23"
+literal|"something"
 argument_list|)
 argument_list|)
 expr_stmt|;

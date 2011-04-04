@@ -18,6 +18,10 @@ begin_comment
 comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
+begin_comment
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+end_comment
+
 begin_import
 import|import
 name|org
@@ -58,6 +62,22 @@ name|analysis
 operator|.
 name|tokenattributes
 operator|.
+name|CharTermAttribute
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|analysis
+operator|.
+name|tokenattributes
+operator|.
 name|OffsetAttribute
 import|;
 end_import
@@ -75,22 +95,6 @@ operator|.
 name|tokenattributes
 operator|.
 name|PositionIncrementAttribute
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|analysis
-operator|.
-name|tokenattributes
-operator|.
-name|TermAttribute
 import|;
 end_import
 
@@ -161,6 +165,34 @@ operator|.
 name|store
 operator|.
 name|RAMDirectory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|ArrayUtil
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Constants
 import|;
 end_import
 
@@ -305,12 +337,23 @@ specifier|private
 specifier|static
 specifier|final
 name|Comparator
+argument_list|<
+name|Object
+argument_list|>
 name|termComparator
 init|=
 operator|new
 name|Comparator
+argument_list|<
+name|Object
+argument_list|>
 argument_list|()
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 specifier|public
 name|int
 name|compare
@@ -329,21 +372,21 @@ operator|instanceof
 name|Map
 operator|.
 name|Entry
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
+condition|) o1 = ((Map.Entry<?
+condition|,
+operator|?
+operator|>
 condition|)
 name|o1
-operator|=
-operator|(
-operator|(
-name|Map
-operator|.
-name|Entry
-operator|)
-name|o1
-operator|)
-operator|.
-name|getKey
-argument_list|()
-expr_stmt|;
+block|)
+function|.getKey
+parameter_list|()
+function|;
 if|if
 condition|(
 name|o2
@@ -351,17 +394,18 @@ operator|instanceof
 name|Map
 operator|.
 name|Entry
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
+condition|) o2 = ((Map.Entry<?
+condition|,
+operator|?
+operator|>
 condition|)
 name|o2
-operator|=
-operator|(
-operator|(
-name|Map
-operator|.
-name|Entry
-operator|)
-name|o2
-operator|)
+block|)
 operator|.
 name|getKey
 argument_list|()
@@ -392,9 +436,14 @@ name|o2
 argument_list|)
 return|;
 block|}
-block|}
-decl_stmt|;
+end_class
+
+begin_comment
+unit|};
 comment|/**      * Constructs an empty instance.      */
+end_comment
+
+begin_constructor
 DECL|method|CustomMemoryIndex
 specifier|public
 name|CustomMemoryIndex
@@ -406,7 +455,13 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+end_constructor
+
+begin_comment
 comment|/**      * Constructs an empty instance that can optionally store the start and end      * character offset of each token term in the text. This can be useful for      * highlighting of hit locations with the Lucene highlighter package.      * Private until the highlighter package matures, so that this can actually      * be meaningfully integrated.      *      * @param storeOffsets whether or not to store the start and end character offset of      *                     each token term in the text      */
+end_comment
+
+begin_constructor
 DECL|method|CustomMemoryIndex
 specifier|private
 name|CustomMemoryIndex
@@ -426,7 +481,13 @@ else|:
 literal|1
 expr_stmt|;
 block|}
+end_constructor
+
+begin_comment
 comment|/**      * Convenience method; Tokenizes the given field text and adds the resulting      * terms to the index; Equivalent to adding an indexed non-keyword Lucene      * {@link org.apache.lucene.document.Field} that is      * {@link org.apache.lucene.document.Field.Index#ANALYZED tokenized},      * {@link org.apache.lucene.document.Field.Store#NO not stored},      * {@link org.apache.lucene.document.Field.TermVector#WITH_POSITIONS termVectorStored with positions} (or      * {@link org.apache.lucene.document.Field.TermVector#WITH_POSITIONS termVectorStored with positions and offsets}),      *      * @param fieldName a name to be associated with the text      * @param text      the text to tokenize and index.      * @param analyzer  the analyzer to use for tokenization      */
+end_comment
+
+begin_function
 DECL|method|addField
 specifier|public
 name|void
@@ -505,7 +566,13 @@ name|stream
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Convenience method; Creates and returns a token stream that generates a      * token for each keyword in the given collection, "as is", without any      * transforming text analysis. The resulting token stream can be fed into      * {@link #addField(String, TokenStream)}, perhaps wrapped into another      * {@link org.apache.lucene.analysis.TokenFilter}, as desired.      *      * @param keywords the keywords to generate tokens for      * @return the corresponding token stream      */
+end_comment
+
+begin_function
 DECL|method|keywordTokenStream
 specifier|public
 parameter_list|<
@@ -560,17 +627,19 @@ init|=
 literal|0
 decl_stmt|;
 specifier|private
-name|TermAttribute
+specifier|final
+name|CharTermAttribute
 name|termAtt
 init|=
 name|addAttribute
 argument_list|(
-name|TermAttribute
+name|CharTermAttribute
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
 specifier|private
+specifier|final
 name|OffsetAttribute
 name|offsetAtt
 init|=
@@ -633,7 +702,10 @@ argument_list|()
 expr_stmt|;
 name|termAtt
 operator|.
-name|setTermBuffer
+name|setEmpty
+argument_list|()
+operator|.
+name|append
 argument_list|(
 name|term
 argument_list|)
@@ -648,7 +720,7 @@ name|start
 operator|+
 name|termAtt
 operator|.
-name|termLength
+name|length
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -669,7 +741,13 @@ block|}
 block|}
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Equivalent to<code>addField(fieldName, stream, 1.0f)</code>.      *      * @param fieldName a name to be associated with the text      * @param stream    the token stream to retrieve tokens from      */
+end_comment
+
+begin_function
 DECL|method|addField
 specifier|public
 name|void
@@ -692,7 +770,13 @@ literal|1.0f
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Iterates over the given token stream and adds the resulting terms to the index;      * Equivalent to adding a tokenized, indexed, termVectorStored, unstored,      * Lucene {@link org.apache.lucene.document.Field}.      * Finally closes the token stream. Note that untokenized keywords can be added with this method via      * {@link #keywordTokenStream(Collection)}, the Lucene contrib<code>KeywordTokenizer</code> or similar utilities.      *      * @param fieldName a name to be associated with the text      * @param stream    the token stream to retrieve tokens from.      * @param boost     the boost factor for hits for this field      * @see org.apache.lucene.document.Field#setBoost(float)      */
+end_comment
+
+begin_function
 DECL|method|addField
 specifier|public
 name|void
@@ -782,6 +866,7 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
+comment|// CHANGE
 if|if
 condition|(
 name|fields
@@ -843,14 +928,14 @@ argument_list|>
 argument_list|()
 expr_stmt|;
 block|}
-name|TermAttribute
+name|CharTermAttribute
 name|termAtt
 init|=
 name|stream
 operator|.
 name|addAttribute
 argument_list|(
-name|TermAttribute
+name|CharTermAttribute
 operator|.
 name|class
 argument_list|)
@@ -897,7 +982,7 @@ name|term
 init|=
 name|termAtt
 operator|.
-name|term
+name|toString
 argument_list|()
 decl_stmt|;
 if|if
@@ -1104,7 +1189,13 @@ throw|;
 block|}
 block|}
 block|}
+end_function
+
+begin_comment
 comment|/**      * Creates and returns a searcher that can be used to execute arbitrary      * Lucene queries and to collect the resulting query results as hits.      *      * @return a searcher      */
+end_comment
+
+begin_function
 DECL|method|createSearcher
 specifier|public
 name|IndexSearcher
@@ -1140,7 +1231,13 @@ return|return
 name|searcher
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Convenience method that efficiently returns the relevance score by      * matching this index against the given Lucene query expression.      *      * @param query an arbitrary Lucene query to run against this index      * @return the relevance score of the matchmaking; A number in the range      *         [0.0 .. 1.0], with 0.0 indicating no match. The higher the number      *         the better the match.      */
+end_comment
+
+begin_function
 DECL|method|search
 specifier|public
 name|float
@@ -1299,7 +1396,13 @@ comment|// searcher.close();
 comment|/*             * Note that it is harmless and important for good performance to             * NOT close the index reader!!! This avoids all sorts of             * unnecessary baggage and locking in the Lucene IndexReader             * superclass, all of which is completely unnecessary for this main             * memory index data structure without thread-safety claims.             *             * Wishing IndexReader would be an interface...             *             * Actually with the new tight createSearcher() API auto-closing is now             * made impossible, hence searcher.close() would be harmless and also             * would not degrade performance...             */
 block|}
 block|}
+end_function
+
+begin_comment
 comment|/**      * Returns a reasonable approximation of the main memory [bytes] consumed by      * this instance. Useful for smart memory sensititive caches/pools. Assumes      * fieldNames are interned, whereas tokenized terms are memory-overlaid.      *      * @return the main memory consumption      */
+end_comment
+
+begin_function
 DECL|method|getMemorySize
 specifier|public
 name|int
@@ -1540,6 +1643,9 @@ return|return
 name|size
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|numPositions
 specifier|private
 name|int
@@ -1558,7 +1664,13 @@ operator|/
 name|stride
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * sorts into ascending order (on demand), reusing memory along the way      */
+end_comment
+
+begin_function
 DECL|method|sortFields
 specifier|private
 name|void
@@ -1579,7 +1691,13 @@ name|fields
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * returns a view of the given map's entries, sorted ascending by key      */
+end_comment
+
+begin_function
 DECL|method|sort
 specifier|private
 specifier|static
@@ -1616,6 +1734,11 @@ operator|.
 name|size
 argument_list|()
 decl_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 name|Map
 operator|.
 name|Entry
@@ -1688,9 +1811,9 @@ name|size
 operator|>
 literal|1
 condition|)
-name|Arrays
+name|ArrayUtil
 operator|.
-name|sort
+name|quickSort
 argument_list|(
 name|entries
 argument_list|,
@@ -1701,7 +1824,13 @@ return|return
 name|entries
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Returns a String representation of the index data for debugging purposes.      *      * @return the string representation      */
+end_comment
+
+begin_function
 annotation|@
 name|Override
 DECL|method|toString
@@ -2022,10 +2151,25 @@ name|toString
 argument_list|()
 return|;
 block|}
+end_function
+
+begin_comment
 comment|///////////////////////////////////////////////////////////////////////////////
+end_comment
+
+begin_comment
 comment|// Nested classes:
+end_comment
+
+begin_comment
 comment|///////////////////////////////////////////////////////////////////////////////
+end_comment
+
+begin_comment
 comment|/**      * Index data structure for a field; Contains the tokenized term texts and      * their positions.      */
+end_comment
+
+begin_class
 DECL|class|Info
 specifier|private
 specifier|static
@@ -2232,10 +2376,25 @@ name|boost
 return|;
 block|}
 block|}
+end_class
+
+begin_comment
 comment|///////////////////////////////////////////////////////////////////////////////
+end_comment
+
+begin_comment
 comment|// Nested classes:
+end_comment
+
+begin_comment
 comment|///////////////////////////////////////////////////////////////////////////////
+end_comment
+
+begin_comment
 comment|/**      * Efficient resizable auto-expanding list holding<code>int</code> elements;      * implemented with arrays.      */
+end_comment
+
+begin_class
 DECL|class|ArrayIntList
 specifier|private
 specifier|static
@@ -2718,9 +2877,21 @@ argument_list|()
 return|;
 block|}
 block|}
+end_class
+
+begin_comment
 comment|///////////////////////////////////////////////////////////////////////////////
+end_comment
+
+begin_comment
 comment|// Nested classes:
+end_comment
+
+begin_comment
 comment|///////////////////////////////////////////////////////////////////////////////
+end_comment
+
+begin_decl_stmt
 DECL|field|MATCH_ALL_TERM
 specifier|private
 specifier|static
@@ -2734,7 +2905,13 @@ argument_list|(
 literal|""
 argument_list|)
 decl_stmt|;
+end_decl_stmt
+
+begin_comment
 comment|/**      * Search support for Lucene framework integration; implements all methods      * required by the Lucene IndexReader contracts.      */
+end_comment
+
+begin_class
 DECL|class|MemoryIndexReader
 specifier|private
 specifier|final
@@ -2758,6 +2935,20 @@ name|super
 argument_list|()
 expr_stmt|;
 comment|// avoid as much superclass baggage as possible
+name|readerFinishedListeners
+operator|=
+name|Collections
+operator|.
+name|synchronizedSet
+argument_list|(
+operator|new
+name|HashSet
+argument_list|<
+name|ReaderFinishedListener
+argument_list|>
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|getInfo
 specifier|private
@@ -3124,14 +3315,14 @@ argument_list|()
 block|{
 specifier|private
 name|int
-name|i
+name|srtTermsIdx
 init|=
 name|ix
 decl_stmt|;
 comment|// index into info.sortedTerms
 specifier|private
 name|int
-name|j
+name|srtFldsIdx
 init|=
 name|jx
 decl_stmt|;
@@ -3158,7 +3349,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|j
+name|srtFldsIdx
 operator|>=
 name|sortedFields
 operator|.
@@ -3172,13 +3363,13 @@ name|info
 init|=
 name|getInfo
 argument_list|(
-name|j
+name|srtFldsIdx
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
 operator|++
-name|i
+name|srtTermsIdx
 operator|<
 name|info
 operator|.
@@ -3190,16 +3381,16 @@ return|return
 literal|true
 return|;
 comment|// move to successor
-name|j
+name|srtFldsIdx
 operator|++
 expr_stmt|;
-name|i
+name|srtTermsIdx
 operator|=
 literal|0
 expr_stmt|;
 if|if
 condition|(
-name|j
+name|srtFldsIdx
 operator|>=
 name|sortedFields
 operator|.
@@ -3210,7 +3401,7 @@ literal|false
 return|;
 name|getInfo
 argument_list|(
-name|j
+name|srtFldsIdx
 argument_list|)
 operator|.
 name|sortTerms
@@ -3239,12 +3430,12 @@ name|println
 argument_list|(
 literal|"TermEnum.term: "
 operator|+
-name|i
+name|srtTermsIdx
 argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|j
+name|srtFldsIdx
 operator|>=
 name|sortedFields
 operator|.
@@ -3258,12 +3449,12 @@ name|info
 init|=
 name|getInfo
 argument_list|(
-name|j
+name|srtFldsIdx
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|i
+name|srtTermsIdx
 operator|>=
 name|info
 operator|.
@@ -3280,13 +3471,13 @@ name|createTerm
 argument_list|(
 name|info
 argument_list|,
-name|j
+name|srtFldsIdx
 argument_list|,
 name|info
 operator|.
 name|sortedTerms
 index|[
-name|i
+name|srtTermsIdx
 index|]
 operator|.
 name|getKey
@@ -3316,7 +3507,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|j
+name|srtFldsIdx
 operator|>=
 name|sortedFields
 operator|.
@@ -3330,12 +3521,12 @@ name|info
 init|=
 name|getInfo
 argument_list|(
-name|j
+name|srtFldsIdx
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|i
+name|srtTermsIdx
 operator|>=
 name|info
 operator|.
@@ -3353,7 +3544,7 @@ name|info
 operator|.
 name|getPositions
 argument_list|(
-name|i
+name|srtTermsIdx
 argument_list|)
 argument_list|)
 return|;
@@ -4976,9 +5167,9 @@ decl_stmt|;
 name|byte
 name|norm
 init|=
-name|Similarity
+name|sim
 operator|.
-name|encodeNorm
+name|encodeNormValue
 argument_list|(
 name|n
 argument_list|)
@@ -5500,9 +5691,21 @@ argument_list|)
 return|;
 block|}
 block|}
+end_class
+
+begin_comment
 comment|///////////////////////////////////////////////////////////////////////////////
+end_comment
+
+begin_comment
 comment|// Nested classes:
+end_comment
+
+begin_comment
 comment|///////////////////////////////////////////////////////////////////////////////
+end_comment
+
+begin_class
 DECL|class|VM
 specifier|private
 specifier|static
@@ -5517,8 +5720,9 @@ specifier|final
 name|int
 name|PTR
 init|=
-name|is64BitVM
-argument_list|()
+name|Constants
+operator|.
+name|JRE_IS_64BIT
 condition|?
 literal|8
 else|:
@@ -5867,73 +6071,6 @@ name|len
 argument_list|)
 return|;
 block|}
-DECL|method|is64BitVM
-specifier|private
-specifier|static
-name|boolean
-name|is64BitVM
-parameter_list|()
-block|{
-try|try
-block|{
-name|int
-name|bits
-init|=
-name|Integer
-operator|.
-name|getInteger
-argument_list|(
-literal|"sun.arch.data.model"
-argument_list|,
-literal|0
-argument_list|)
-operator|.
-name|intValue
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|bits
-operator|!=
-literal|0
-condition|)
-return|return
-name|bits
-operator|==
-literal|64
-return|;
-comment|// fallback if sun.arch.data.model isn't available
-return|return
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"java.vm.name"
-argument_list|)
-operator|.
-name|toLowerCase
-argument_list|()
-operator|.
-name|indexOf
-argument_list|(
-literal|"64"
-argument_list|)
-operator|>=
-literal|0
-return|;
-block|}
-catch|catch
-parameter_list|(
-name|Throwable
-name|t
-parameter_list|)
-block|{
-return|return
-literal|false
-return|;
-comment|// better safe than sorry (applets, security managers, etc.) ...
-block|}
-block|}
 comment|/**          * logarithm to the base 2. Example: log2(4) == 2, log2(8) == 3          */
 DECL|method|log2
 specifier|private
@@ -5962,8 +6099,8 @@ argument_list|)
 return|;
 block|}
 block|}
-block|}
 end_class
 
+unit|}
 end_unit
 

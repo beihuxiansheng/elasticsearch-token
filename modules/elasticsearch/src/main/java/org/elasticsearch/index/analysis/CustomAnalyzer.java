@@ -57,6 +57,7 @@ end_comment
 begin_class
 DECL|class|CustomAnalyzer
 specifier|public
+specifier|final
 class|class
 name|CustomAnalyzer
 extends|extends
@@ -197,6 +198,7 @@ DECL|method|tokenStream
 annotation|@
 name|Override
 specifier|public
+specifier|final
 name|TokenStream
 name|tokenStream
 parameter_list|(
@@ -220,6 +222,7 @@ DECL|method|reusableTokenStream
 annotation|@
 name|Override
 specifier|public
+specifier|final
 name|TokenStream
 name|reusableTokenStream
 parameter_list|(

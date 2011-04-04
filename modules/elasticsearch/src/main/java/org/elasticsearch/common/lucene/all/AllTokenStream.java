@@ -125,6 +125,7 @@ end_comment
 begin_class
 DECL|class|AllTokenStream
 specifier|public
+specifier|final
 class|class
 name|AllTokenStream
 extends|extends
@@ -222,6 +223,7 @@ DECL|method|incrementToken
 annotation|@
 name|Override
 specifier|public
+specifier|final
 name|boolean
 name|incrementToken
 parameter_list|()

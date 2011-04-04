@@ -338,7 +338,7 @@ operator|)
 name|dir
 operator|)
 operator|.
-name|getFile
+name|getDirectory
 argument_list|()
 argument_list|,
 name|fileName
@@ -586,7 +586,7 @@ operator|)
 name|dir
 operator|)
 operator|.
-name|getFile
+name|getDirectory
 argument_list|()
 argument_list|,
 name|fileName

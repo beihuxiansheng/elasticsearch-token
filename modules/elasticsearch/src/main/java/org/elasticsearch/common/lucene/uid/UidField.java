@@ -802,6 +802,7 @@ block|}
 DECL|class|UidPayloadTokenStream
 specifier|public
 specifier|static
+specifier|final
 class|class
 name|UidPayloadTokenStream
 extends|extends
@@ -855,6 +856,7 @@ DECL|method|incrementToken
 annotation|@
 name|Override
 specifier|public
+specifier|final
 name|boolean
 name|incrementToken
 parameter_list|()

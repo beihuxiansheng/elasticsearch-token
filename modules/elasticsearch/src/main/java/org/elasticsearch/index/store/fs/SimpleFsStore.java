@@ -362,7 +362,7 @@ literal|"using [simple_fs] store with path [{}], cache [true] with extensions [{
 argument_list|,
 name|fsDirectory
 operator|.
-name|getFile
+name|getDirectory
 argument_list|()
 argument_list|,
 name|switchDirectory
@@ -406,7 +406,7 @@ literal|"using [simple_fs] store with path [{}]"
 argument_list|,
 name|fsDirectory
 operator|.
-name|getFile
+name|getDirectory
 argument_list|()
 argument_list|)
 expr_stmt|;

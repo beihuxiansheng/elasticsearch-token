@@ -54,6 +54,20 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|ExtendedIndexSearcher
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|IndexReader
 import|;
 end_import
@@ -133,22 +147,6 @@ operator|.
 name|lease
 operator|.
 name|Releasable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|ExtendedIndexSearcher
 import|;
 end_import
 
@@ -310,6 +308,18 @@ name|IndexShardComponent
 extends|,
 name|CloseableComponent
 block|{
+DECL|field|INACTIVE_SHARD_INDEXING_BUFFER
+specifier|static
+name|ByteSizeValue
+name|INACTIVE_SHARD_INDEXING_BUFFER
+init|=
+name|ByteSizeValue
+operator|.
+name|parseBytesSizeValue
+argument_list|(
+literal|"500kb"
+argument_list|)
+decl_stmt|;
 comment|/**      * The default suggested refresh interval, -1 to disable it.      */
 DECL|method|defaultRefreshInterval
 name|TimeValue
@@ -457,12 +467,6 @@ name|recoveryHandler
 parameter_list|)
 throws|throws
 name|EngineException
-function_decl|;
-comment|/**      * Returns the estimated flushable memory size. Returns<tt>null</tt> if not available.      */
-DECL|method|estimateFlushableMemorySize
-name|ByteSizeValue
-name|estimateFlushableMemorySize
-parameter_list|()
 function_decl|;
 comment|/**      * Recovery allow to start the recovery process. It is built of three phases.      *      *<p>The first phase allows to take a snapshot of the master index. Once this      * is taken, no commit operations are effectively allowed on the index until the recovery      * phases are through.      *      *<p>The seconds phase takes a snapshot of the current transaction log.      *      *<p>The last phase returns the remaining transaction log. During this phase, no dirty      * operations are allowed on the index.      */
 DECL|interface|RecoveryHandler

@@ -86,6 +86,7 @@ DECL|method|tokenStream
 annotation|@
 name|Override
 specifier|public
+specifier|final
 name|TokenStream
 name|tokenStream
 parameter_list|(
@@ -132,6 +133,7 @@ DECL|method|reusableTokenStream
 annotation|@
 name|Override
 specifier|public
+specifier|final
 name|TokenStream
 name|reusableTokenStream
 parameter_list|(

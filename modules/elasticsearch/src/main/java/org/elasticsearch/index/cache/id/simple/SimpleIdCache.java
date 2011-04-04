@@ -375,6 +375,10 @@ extends|extends
 name|AbstractIndexComponent
 implements|implements
 name|IdCache
+implements|,
+name|IndexReader
+operator|.
+name|ReaderFinishedListener
 block|{
 DECL|field|idReaders
 specifier|private
@@ -450,6 +454,23 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
+DECL|method|finished
+annotation|@
+name|Override
+specifier|public
+name|void
+name|finished
+parameter_list|(
+name|IndexReader
+name|reader
+parameter_list|)
+block|{
+name|clear
+argument_list|(
+name|reader
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|clear
 annotation|@
 name|Override
@@ -467,7 +488,7 @@ name|remove
 argument_list|(
 name|reader
 operator|.
-name|getFieldCacheKey
+name|getCoreCacheKey
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -500,7 +521,7 @@ name|get
 argument_list|(
 name|reader
 operator|.
-name|getFieldCacheKey
+name|getCoreCacheKey
 argument_list|()
 argument_list|)
 return|;
@@ -627,7 +648,7 @@ name|containsKey
 argument_list|(
 name|reader
 operator|.
-name|getFieldCacheKey
+name|getCoreCacheKey
 argument_list|()
 argument_list|)
 condition|)
@@ -635,6 +656,13 @@ block|{
 comment|// no need, continue
 continue|continue;
 block|}
+name|reader
+operator|.
+name|addReaderFinishedListener
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
 name|HashMap
 argument_list|<
 name|String
@@ -658,7 +686,7 @@ name|put
 argument_list|(
 name|reader
 operator|.
-name|getFieldCacheKey
+name|getCoreCacheKey
 argument_list|()
 argument_list|,
 name|readerBuilder
@@ -889,7 +917,7 @@ name|containsKey
 argument_list|(
 name|reader
 operator|.
-name|getFieldCacheKey
+name|getCoreCacheKey
 argument_list|()
 argument_list|)
 condition|)
@@ -911,7 +939,7 @@ name|get
 argument_list|(
 name|reader
 operator|.
-name|getFieldCacheKey
+name|getCoreCacheKey
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1449,7 +1477,7 @@ name|containsKey
 argument_list|(
 name|reader
 operator|.
-name|getFieldCacheKey
+name|getCoreCacheKey
 argument_list|()
 argument_list|)
 condition|)

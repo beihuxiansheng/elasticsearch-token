@@ -486,12 +486,6 @@ name|indexName
 argument_list|()
 argument_list|,
 name|value
-argument_list|,
-name|Field
-operator|.
-name|Store
-operator|.
-name|YES
 argument_list|)
 return|;
 block|}

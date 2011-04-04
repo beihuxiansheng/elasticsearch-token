@@ -58,7 +58,7 @@ name|analysis
 operator|.
 name|tokenattributes
 operator|.
-name|PositionIncrementAttribute
+name|CharTermAttribute
 import|;
 end_import
 
@@ -74,7 +74,7 @@ name|analysis
 operator|.
 name|tokenattributes
 operator|.
-name|TermAttribute
+name|PositionIncrementAttribute
 import|;
 end_import
 
@@ -107,7 +107,7 @@ comment|/**  * Create tokens for phonetic matches.  See:  * http://jakarta.apach
 end_comment
 
 begin_comment
-comment|// LUCENE MONITOR: 3.1 move to use CharTermAttribute
+comment|// LUCENE MONITOR
 end_comment
 
 begin_class
@@ -149,14 +149,28 @@ decl_stmt|;
 DECL|field|termAtt
 specifier|private
 specifier|final
-name|TermAttribute
+name|CharTermAttribute
 name|termAtt
+init|=
+name|addAttribute
+argument_list|(
+name|CharTermAttribute
+operator|.
+name|class
+argument_list|)
 decl_stmt|;
 DECL|field|posAtt
 specifier|private
 specifier|final
 name|PositionIncrementAttribute
 name|posAtt
+init|=
+name|addAttribute
+argument_list|(
+name|PositionIncrementAttribute
+operator|.
+name|class
+argument_list|)
 decl_stmt|;
 DECL|method|PhoneticFilter
 specifier|public
@@ -197,28 +211,6 @@ operator|.
 name|inject
 operator|=
 name|inject
-expr_stmt|;
-name|this
-operator|.
-name|termAtt
-operator|=
-name|addAttribute
-argument_list|(
-name|TermAttribute
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|posAtt
-operator|=
-name|addAttribute
-argument_list|(
-name|PositionIncrementAttribute
-operator|.
-name|class
-argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -268,7 +260,7 @@ if|if
 condition|(
 name|termAtt
 operator|.
-name|termLength
+name|length
 argument_list|()
 operator|==
 literal|0
@@ -281,7 +273,7 @@ name|value
 init|=
 name|termAtt
 operator|.
-name|term
+name|toString
 argument_list|()
 decl_stmt|;
 name|String
@@ -351,7 +343,10 @@ block|{
 comment|// just modify this token
 name|termAtt
 operator|.
-name|setTermBuffer
+name|setEmpty
+argument_list|()
+operator|.
+name|append
 argument_list|(
 name|phonetic
 argument_list|)
@@ -392,7 +387,10 @@ argument_list|)
 expr_stmt|;
 name|termAtt
 operator|.
-name|setTermBuffer
+name|setEmpty
+argument_list|()
+operator|.
+name|append
 argument_list|(
 name|phonetic
 argument_list|)

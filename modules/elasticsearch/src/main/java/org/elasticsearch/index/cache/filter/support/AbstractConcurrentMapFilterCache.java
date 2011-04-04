@@ -338,7 +338,7 @@ name|remove
 argument_list|(
 name|reader
 operator|.
-name|getFieldCacheKey
+name|getCoreCacheKey
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -635,7 +635,7 @@ name|get
 argument_list|(
 name|reader
 operator|.
-name|getFieldCacheKey
+name|getCoreCacheKey
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -669,7 +669,7 @@ name|putIfAbsent
 argument_list|(
 name|reader
 operator|.
-name|getFieldCacheKey
+name|getCoreCacheKey
 argument_list|()
 argument_list|,
 name|cachedFilters
