@@ -155,6 +155,8 @@ argument_list|,
 name|indexSettings
 argument_list|,
 name|name
+argument_list|,
+name|settings
 argument_list|)
 expr_stmt|;
 name|analyzer

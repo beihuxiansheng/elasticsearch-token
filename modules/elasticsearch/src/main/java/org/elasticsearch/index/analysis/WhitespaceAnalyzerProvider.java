@@ -153,6 +153,8 @@ argument_list|,
 name|indexSettings
 argument_list|,
 name|name
+argument_list|,
+name|settings
 argument_list|)
 expr_stmt|;
 name|this
@@ -161,7 +163,9 @@ name|analyzer
 operator|=
 operator|new
 name|WhitespaceAnalyzer
-argument_list|()
+argument_list|(
+name|version
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|get

@@ -326,6 +326,8 @@ return|return
 operator|new
 name|HyphenationCompoundWordTokenFilter
 argument_list|(
+name|version
+argument_list|,
 name|tokenStream
 argument_list|,
 name|hyphenationTree

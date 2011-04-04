@@ -198,6 +198,8 @@ return|return
 operator|new
 name|DictionaryCompoundWordTokenFilter
 argument_list|(
+name|version
+argument_list|,
 name|tokenStream
 argument_list|,
 name|wordList

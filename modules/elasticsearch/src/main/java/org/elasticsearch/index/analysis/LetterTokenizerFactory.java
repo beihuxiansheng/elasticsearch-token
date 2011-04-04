@@ -168,6 +168,8 @@ argument_list|,
 name|indexSettings
 argument_list|,
 name|name
+argument_list|,
+name|settings
 argument_list|)
 expr_stmt|;
 block|}
@@ -186,6 +188,8 @@ return|return
 operator|new
 name|LetterTokenizer
 argument_list|(
+name|version
+argument_list|,
 name|reader
 argument_list|)
 return|;
