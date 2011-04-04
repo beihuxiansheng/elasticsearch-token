@@ -126,6 +126,11 @@ DECL|field|total
 name|double
 name|total
 decl_stmt|;
+comment|/**          * Internal field used in facet collection          */
+DECL|field|foundInDoc
+name|boolean
+name|foundInDoc
+decl_stmt|;
 DECL|method|Entry
 name|Entry
 parameter_list|()

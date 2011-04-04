@@ -13708,7 +13708,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|5l
+literal|3l
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -13730,14 +13730,10 @@ argument_list|,
 name|closeTo
 argument_list|(
 literal|1
-operator|*
-literal|2
 operator|+
 literal|2
 operator|+
 literal|3
-operator|*
-literal|2
 argument_list|,
 literal|0.000001
 argument_list|)

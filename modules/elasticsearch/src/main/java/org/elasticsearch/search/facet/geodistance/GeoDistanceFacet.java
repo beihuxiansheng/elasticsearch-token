@@ -118,6 +118,13 @@ DECL|field|total
 name|double
 name|total
 decl_stmt|;
+comment|/**          * internal field used to see if this entry was already found for a doc          */
+DECL|field|foundInDoc
+name|boolean
+name|foundInDoc
+init|=
+literal|false
+decl_stmt|;
 DECL|method|Entry
 name|Entry
 parameter_list|()
