@@ -700,7 +700,7 @@ condition|)
 block|{
 return|return
 operator|new
-name|KeyValueScriptHistogramFacetCollector
+name|ValueScriptHistogramFacetCollector
 argument_list|(
 name|facetName
 argument_list|,
@@ -776,7 +776,7 @@ block|{
 comment|// we have a value field, and its different than the key
 return|return
 operator|new
-name|KeyValueHistogramFacetCollector
+name|ValueHistogramFacetCollector
 argument_list|(
 name|facetName
 argument_list|,
