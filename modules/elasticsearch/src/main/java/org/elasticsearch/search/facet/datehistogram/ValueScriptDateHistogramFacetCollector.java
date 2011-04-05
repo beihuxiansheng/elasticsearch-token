@@ -629,15 +629,6 @@ name|Facet
 name|facet
 parameter_list|()
 block|{
-name|CacheRecycler
-operator|.
-name|pushLongObjectMap
-argument_list|(
-name|histoProc
-operator|.
-name|entries
-argument_list|)
-expr_stmt|;
 return|return
 operator|new
 name|InternalFullDateHistogramFacet
@@ -649,9 +640,8 @@ argument_list|,
 name|histoProc
 operator|.
 name|entries
-operator|.
-name|valueCollection
-argument_list|()
+argument_list|,
+literal|true
 argument_list|)
 return|;
 block|}

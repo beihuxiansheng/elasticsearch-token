@@ -556,15 +556,6 @@ name|Facet
 name|facet
 parameter_list|()
 block|{
-name|CacheRecycler
-operator|.
-name|pushIntArray
-argument_list|(
-name|histoProc
-operator|.
-name|counts
-argument_list|)
-expr_stmt|;
 return|return
 operator|new
 name|InternalBoundedCountHistogramFacet
@@ -589,6 +580,8 @@ argument_list|,
 name|histoProc
 operator|.
 name|counts
+argument_list|,
+literal|true
 argument_list|)
 return|;
 block|}

@@ -484,16 +484,6 @@ name|Facet
 name|facet
 parameter_list|()
 block|{
-name|CacheRecycler
-operator|.
-name|pushLongLongMap
-argument_list|(
-name|histoProc
-operator|.
-name|counts
-argument_list|()
-argument_list|)
-expr_stmt|;
 return|return
 operator|new
 name|InternalCountHistogramFacet
@@ -506,6 +496,8 @@ name|histoProc
 operator|.
 name|counts
 argument_list|()
+argument_list|,
+literal|true
 argument_list|)
 return|;
 block|}
