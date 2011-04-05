@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search.facet.histogram
+DECL|package|org.elasticsearch.search.facet.histogram.unbounded
 package|package
 name|org
 operator|.
@@ -15,6 +15,8 @@ operator|.
 name|facet
 operator|.
 name|histogram
+operator|.
+name|unbounded
 package|;
 end_package
 
@@ -175,6 +177,22 @@ operator|.
 name|facet
 operator|.
 name|FacetPhaseExecutionException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|facet
+operator|.
+name|histogram
+operator|.
+name|HistogramFacet
 import|;
 end_import
 
