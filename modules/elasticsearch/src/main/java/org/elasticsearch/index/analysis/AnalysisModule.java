@@ -2141,7 +2141,7 @@ name|tokenizersBindings
 operator|.
 name|processTokenizer
 argument_list|(
-literal|"uaUrlEmail"
+literal|"uaxUrlEmail"
 argument_list|,
 name|UAX29URLEmailTokenizerFactory
 operator|.
