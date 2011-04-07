@@ -18415,7 +18415,7 @@ argument_list|)
 operator|.
 name|addFacet
 argument_list|(
-name|termsStats
+name|termsStatsFacet
 argument_list|(
 literal|"stats1"
 argument_list|)
@@ -18433,7 +18433,7 @@ argument_list|)
 operator|.
 name|addFacet
 argument_list|(
-name|termsStats
+name|termsStatsFacet
 argument_list|(
 literal|"stats2"
 argument_list|)
@@ -18451,7 +18451,7 @@ argument_list|)
 operator|.
 name|addFacet
 argument_list|(
-name|termsStats
+name|termsStatsFacet
 argument_list|(
 literal|"stats3"
 argument_list|)
@@ -18478,7 +18478,7 @@ argument_list|)
 operator|.
 name|addFacet
 argument_list|(
-name|termsStats
+name|termsStatsFacet
 argument_list|(
 literal|"stats4"
 argument_list|)
@@ -18505,7 +18505,7 @@ argument_list|)
 operator|.
 name|addFacet
 argument_list|(
-name|termsStats
+name|termsStatsFacet
 argument_list|(
 literal|"stats5"
 argument_list|)
@@ -18532,7 +18532,7 @@ argument_list|)
 operator|.
 name|addFacet
 argument_list|(
-name|termsStats
+name|termsStatsFacet
 argument_list|(
 literal|"stats6"
 argument_list|)
@@ -18559,7 +18559,7 @@ argument_list|)
 operator|.
 name|addFacet
 argument_list|(
-name|termsStats
+name|termsStatsFacet
 argument_list|(
 literal|"stats7"
 argument_list|)
@@ -18580,7 +18580,7 @@ argument_list|)
 operator|.
 name|addFacet
 argument_list|(
-name|termsStats
+name|termsStatsFacet
 argument_list|(
 literal|"stats8"
 argument_list|)
@@ -18601,7 +18601,7 @@ argument_list|)
 operator|.
 name|addFacet
 argument_list|(
-name|termsStats
+name|termsStatsFacet
 argument_list|(
 literal|"stats9"
 argument_list|)
@@ -18631,7 +18631,7 @@ argument_list|)
 operator|.
 name|addFacet
 argument_list|(
-name|termsStats
+name|termsStatsFacet
 argument_list|(
 literal|"stats10"
 argument_list|)
@@ -18661,7 +18661,7 @@ argument_list|)
 operator|.
 name|addFacet
 argument_list|(
-name|termsStats
+name|termsStatsFacet
 argument_list|(
 literal|"stats11"
 argument_list|)
@@ -18691,7 +18691,7 @@ argument_list|)
 operator|.
 name|addFacet
 argument_list|(
-name|termsStats
+name|termsStatsFacet
 argument_list|(
 literal|"stats12"
 argument_list|)
@@ -18721,7 +18721,7 @@ argument_list|)
 operator|.
 name|addFacet
 argument_list|(
-name|termsStats
+name|termsStatsFacet
 argument_list|(
 literal|"stats13"
 argument_list|)
@@ -21409,7 +21409,7 @@ argument_list|)
 operator|.
 name|addFacet
 argument_list|(
-name|termsStats
+name|termsStatsFacet
 argument_list|(
 literal|"stats1"
 argument_list|)
@@ -21427,7 +21427,7 @@ argument_list|)
 operator|.
 name|addFacet
 argument_list|(
-name|termsStats
+name|termsStatsFacet
 argument_list|(
 literal|"stats2"
 argument_list|)
@@ -22179,7 +22179,7 @@ argument_list|)
 operator|.
 name|addFacet
 argument_list|(
-name|termsStats
+name|termsStatsFacet
 argument_list|(
 literal|"stats1"
 argument_list|)
@@ -22206,7 +22206,7 @@ argument_list|)
 operator|.
 name|addFacet
 argument_list|(
-name|termsStats
+name|termsStatsFacet
 argument_list|(
 literal|"stats2"
 argument_list|)

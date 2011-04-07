@@ -356,11 +356,11 @@ name|facetName
 argument_list|)
 return|;
 block|}
-DECL|method|termsStats
+DECL|method|termsStatsFacet
 specifier|public
 specifier|static
 name|TermsStatsFacetBuilder
-name|termsStats
+name|termsStatsFacet
 parameter_list|(
 name|String
 name|facetName
