@@ -225,15 +225,10 @@ name|this
 operator|.
 name|filter
 operator|=
-name|filterCache
-operator|.
-name|weakCache
-argument_list|(
 operator|new
 name|QueryWrapperFilter
 argument_list|(
 name|query
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
