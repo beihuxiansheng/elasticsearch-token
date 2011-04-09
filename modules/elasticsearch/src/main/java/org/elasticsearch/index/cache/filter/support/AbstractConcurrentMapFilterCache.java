@@ -357,32 +357,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|clearUnreferenced
-annotation|@
-name|Override
-specifier|public
-name|void
-name|clearUnreferenced
-parameter_list|()
-block|{
-comment|// can't do this, since we cache on cacheKey...
-comment|//        int totalCount = cache.size();
-comment|//        int cleaned = 0;
-comment|//        for (Iterator<IndexReader> readerIt = cache.keySet().iterator(); readerIt.hasNext();) {
-comment|//            IndexReader reader = readerIt.next();
-comment|//            if (reader.getRefCount()<= 0) {
-comment|//                readerIt.remove();
-comment|//                cleaned++;
-comment|//            }
-comment|//        }
-comment|//        if (logger.isDebugEnabled()) {
-comment|//            if (cleaned> 0) {
-comment|//                logger.debug("Cleaned [{}] out of estimated total [{}]", cleaned, totalCount);
-comment|//            }
-comment|//        } else if (logger.isTraceEnabled()) {
-comment|//            logger.trace("Cleaned [{}] out of estimated total [{}]", cleaned, totalCount);
-comment|//        }
-block|}
 DECL|method|sizeInBytes
 annotation|@
 name|Override

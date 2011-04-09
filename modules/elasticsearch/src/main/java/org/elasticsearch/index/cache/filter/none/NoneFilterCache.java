@@ -249,16 +249,6 @@ parameter_list|)
 block|{
 comment|// nothing to do here
 block|}
-DECL|method|clearUnreferenced
-annotation|@
-name|Override
-specifier|public
-name|void
-name|clearUnreferenced
-parameter_list|()
-block|{
-comment|// nothing to do here
-block|}
 DECL|method|count
 annotation|@
 name|Override

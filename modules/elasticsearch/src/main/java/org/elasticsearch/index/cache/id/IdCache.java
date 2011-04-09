@@ -90,12 +90,6 @@ name|IndexReader
 name|reader
 parameter_list|)
 function_decl|;
-comment|/**      * Clears unreferenced readers.      */
-DECL|method|clearUnreferenced
-name|void
-name|clearUnreferenced
-parameter_list|()
-function_decl|;
 DECL|method|refresh
 name|void
 name|refresh

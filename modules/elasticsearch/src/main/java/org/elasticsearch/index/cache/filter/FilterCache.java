@@ -120,12 +120,6 @@ name|void
 name|clear
 parameter_list|()
 function_decl|;
-comment|/**      * Clears unreferenced filters.      */
-DECL|method|clearUnreferenced
-name|void
-name|clearUnreferenced
-parameter_list|()
-function_decl|;
 DECL|method|count
 name|long
 name|count

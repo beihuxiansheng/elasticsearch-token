@@ -150,11 +150,6 @@ name|IndexReader
 name|reader
 parameter_list|)
 function_decl|;
-DECL|method|clearUnreferenced
-name|void
-name|clearUnreferenced
-parameter_list|()
-function_decl|;
 DECL|method|evictions
 name|long
 name|evictions

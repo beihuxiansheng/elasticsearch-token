@@ -493,16 +493,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|clearUnreferenced
-annotation|@
-name|Override
-specifier|public
-name|void
-name|clearUnreferenced
-parameter_list|()
-block|{
-comment|// nothing to do here...
-block|}
 DECL|method|reader
 annotation|@
 name|Override

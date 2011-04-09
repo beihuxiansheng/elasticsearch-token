@@ -279,14 +279,6 @@ name|IndexReader
 name|reader
 parameter_list|)
 block|{     }
-DECL|method|clearUnreferenced
-annotation|@
-name|Override
-specifier|public
-name|void
-name|clearUnreferenced
-parameter_list|()
-block|{     }
 DECL|method|close
 annotation|@
 name|Override
