@@ -342,6 +342,8 @@ name|System
 operator|.
 name|currentTimeMillis
 argument_list|()
+operator|-
+literal|1000000
 argument_list|)
 argument_list|)
 argument_list|)

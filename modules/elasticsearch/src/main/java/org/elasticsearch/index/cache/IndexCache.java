@@ -431,6 +431,11 @@ operator|.
 name|evictions
 argument_list|()
 argument_list|,
+name|filterCache
+operator|.
+name|memEvictions
+argument_list|()
+argument_list|,
 name|fieldDataCache
 operator|.
 name|sizeInBytes

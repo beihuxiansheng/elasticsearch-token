@@ -1152,7 +1152,7 @@ block|{
 comment|//this might happen if multiple instances are trying to concurrently register same objectName
 name|logger
 operator|.
-name|warn
+name|debug
 argument_list|(
 literal|"Could not register object with name:"
 operator|+
@@ -1174,11 +1174,13 @@ else|else
 block|{
 name|logger
 operator|.
-name|warn
+name|debug
 argument_list|(
 literal|"Could not register object with name: "
 operator|+
 name|objectName
+operator|+
+literal|", already registered"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1199,6 +1201,15 @@ name|resourceDMBean
 operator|.
 name|getFullObjectName
 argument_list|()
+operator|+
+literal|"("
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|+
+literal|")"
 argument_list|)
 expr_stmt|;
 block|}

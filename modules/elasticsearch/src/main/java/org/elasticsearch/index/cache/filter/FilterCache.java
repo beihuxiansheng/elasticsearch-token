@@ -135,6 +135,11 @@ name|long
 name|evictions
 parameter_list|()
 function_decl|;
+DECL|method|memEvictions
+name|long
+name|memEvictions
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
