@@ -356,6 +356,13 @@ name|NANOSECONDS
 argument_list|)
 expr_stmt|;
 block|}
+name|mapMaker
+operator|.
+name|evictionListener
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
 return|return
 name|mapMaker
 operator|.
