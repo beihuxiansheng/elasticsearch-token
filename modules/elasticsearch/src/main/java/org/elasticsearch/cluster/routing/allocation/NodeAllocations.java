@@ -413,6 +413,32 @@ name|Decision
 operator|.
 name|YES
 decl_stmt|;
+comment|// first, check if its in the ignored, if so, return NO
+if|if
+condition|(
+name|allocation
+operator|.
+name|shouldIgnoreShardForNode
+argument_list|(
+name|shardRouting
+operator|.
+name|shardId
+argument_list|()
+argument_list|,
+name|node
+operator|.
+name|nodeId
+argument_list|()
+argument_list|)
+condition|)
+block|{
+return|return
+name|Decision
+operator|.
+name|NO
+return|;
+block|}
+comment|// now, go over the registered allocations
 for|for
 control|(
 name|NodeAllocation

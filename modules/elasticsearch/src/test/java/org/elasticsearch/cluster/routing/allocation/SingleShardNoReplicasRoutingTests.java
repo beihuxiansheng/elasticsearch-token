@@ -2342,7 +2342,7 @@ name|routingTable
 operator|=
 name|strategy
 operator|.
-name|applyFailedShards
+name|applyFailedShard
 argument_list|(
 name|clusterState
 argument_list|,
@@ -2356,6 +2356,11 @@ operator|.
 name|shardsWithState
 argument_list|(
 name|INITIALIZING
+argument_list|)
+operator|.
+name|get
+argument_list|(
+literal|0
 argument_list|)
 argument_list|)
 operator|.
