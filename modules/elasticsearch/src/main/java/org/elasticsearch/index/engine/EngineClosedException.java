@@ -70,6 +70,25 @@ name|shardId
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|EngineClosedException
+specifier|public
+name|EngineClosedException
+parameter_list|(
+name|ShardId
+name|shardId
+parameter_list|,
+name|Throwable
+name|t
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|shardId
+argument_list|,
+name|t
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
