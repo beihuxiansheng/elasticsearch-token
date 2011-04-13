@@ -465,6 +465,15 @@ argument_list|>
 implements|implements
 name|ZenPing
 block|{
+DECL|field|LIMIT_PORTS_COUNT
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|LIMIT_PORTS_COUNT
+init|=
+literal|1
+decl_stmt|;
 DECL|field|threadPool
 specifier|private
 specifier|final
@@ -688,7 +697,7 @@ argument_list|(
 name|host
 argument_list|)
 decl_stmt|;
-comment|// we only limit to 5 addresses, makes no sense to ping 100 ports
+comment|// we only limit to 1 addresses, makes no sense to ping 100 ports
 for|for
 control|(
 name|int
@@ -705,7 +714,7 @@ name|length
 operator|&&
 name|i
 operator|<
-literal|5
+name|LIMIT_PORTS_COUNT
 operator|)
 condition|;
 name|i

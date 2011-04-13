@@ -312,6 +312,8 @@ name|AwsEc2UnicastHostsProvider
 argument_list|(
 name|settings
 argument_list|,
+name|transportService
+argument_list|,
 name|ec2Service
 operator|.
 name|client
