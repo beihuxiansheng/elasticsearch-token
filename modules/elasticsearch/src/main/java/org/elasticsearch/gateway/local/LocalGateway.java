@@ -96,49 +96,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|IndexRoutingTable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|IndexShardRoutingTable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|MutableShardRouting
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|RoutingNode
+name|*
 import|;
 end_import
 
@@ -1102,9 +1060,9 @@ condition|)
 block|{
 return|return;
 block|}
-comment|// we only write the local metadata if this is a possible master node, the metadata has changed, and
-comment|// we don't have a NO_MASTER block (in which case, the routing is cleaned, and we don't want to override what
-comment|// we have now, since it might be needed when later on performing full state recovery)
+comment|// we only write the local metadata if this is a possible master node
+comment|// currently, we always write the metadata, since we want to keep it in sync with the latest version, but
+comment|// we need to think of a better way to not persist it when nothing changed
 if|if
 condition|(
 name|event
@@ -1119,11 +1077,6 @@ name|localNode
 argument_list|()
 operator|.
 name|masterNode
-argument_list|()
-operator|&&
-name|event
-operator|.
-name|metaDataChanged
 argument_list|()
 condition|)
 block|{
@@ -1521,10 +1474,16 @@ if|if
 condition|(
 name|indexShardRoutingTable
 operator|.
-name|primaryShard
-argument_list|()
+name|countWithState
+argument_list|(
+name|ShardRoutingState
 operator|.
-name|active
+name|STARTED
+argument_list|)
+operator|==
+name|indexShardRoutingTable
+operator|.
+name|size
 argument_list|()
 condition|)
 block|{
