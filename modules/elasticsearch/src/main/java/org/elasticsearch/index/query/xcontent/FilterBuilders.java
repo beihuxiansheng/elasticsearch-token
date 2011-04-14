@@ -606,6 +606,25 @@ name|name
 argument_list|)
 return|;
 block|}
+comment|/**      * A filter to filter based on a specific range from a specific geo location / point.      *      * @param name The location field name.      */
+DECL|method|geoDistanceRangeFilter
+specifier|public
+specifier|static
+name|GeoDistanceRangeFilterBuilder
+name|geoDistanceRangeFilter
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+return|return
+operator|new
+name|GeoDistanceRangeFilterBuilder
+argument_list|(
+name|name
+argument_list|)
+return|;
+block|}
 comment|/**      * A filter to filter based on a bounding box defined by top left and bottom right locations / points      *      * @param name The location field name.      */
 DECL|method|geoBoundingBoxFilter
 specifier|public
