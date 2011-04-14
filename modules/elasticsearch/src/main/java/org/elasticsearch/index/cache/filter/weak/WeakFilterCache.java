@@ -245,13 +245,8 @@ argument_list|()
 decl_stmt|;
 DECL|field|memEvictions
 specifier|private
-specifier|final
 name|AtomicLong
 name|memEvictions
-init|=
-operator|new
-name|AtomicLong
-argument_list|()
 decl_stmt|;
 DECL|method|WeakFilterCache
 annotation|@
@@ -316,6 +311,13 @@ argument_list|>
 name|buildCache
 parameter_list|()
 block|{
+name|memEvictions
+operator|=
+operator|new
+name|AtomicLong
+argument_list|()
+expr_stmt|;
+comment|// we need to init it here, since its called from the super constructor
 comment|// better to have weak on the whole ReaderValue, simpler on the GC to clean it
 name|MapMaker
 name|mapMaker
