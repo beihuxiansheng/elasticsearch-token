@@ -78,6 +78,26 @@ name|Collection
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
 comment|/**  * A base class for a plugin.  *  * @author kimchy (shay.banon)  */
 end_comment
@@ -247,6 +267,26 @@ name|module
 parameter_list|)
 block|{
 comment|// nothing to do here
+block|}
+DECL|method|additionalSettings
+annotation|@
+name|Override
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|additionalSettings
+parameter_list|()
+block|{
+return|return
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
+return|;
 block|}
 block|}
 end_class

@@ -64,6 +64,16 @@ name|Collection
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
 comment|/**  * An extension point allowing to plug in custom functionality.  *  * @author kimchy (shay.banon)  */
 end_comment
@@ -177,6 +187,17 @@ parameter_list|(
 name|Module
 name|module
 parameter_list|)
+function_decl|;
+comment|/**      * Additional node settings loaded by the plugin      */
+DECL|method|additionalSettings
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|additionalSettings
+parameter_list|()
 function_decl|;
 block|}
 end_interface
