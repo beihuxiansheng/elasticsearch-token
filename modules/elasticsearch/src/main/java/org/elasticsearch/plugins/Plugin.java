@@ -48,6 +48,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|Settings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|index
 operator|.
 name|CloseableIndexComponent
@@ -61,16 +75,6 @@ operator|.
 name|util
 operator|.
 name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
 import|;
 end_import
 
@@ -190,12 +194,7 @@ parameter_list|)
 function_decl|;
 comment|/**      * Additional node settings loaded by the plugin      */
 DECL|method|additionalSettings
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+name|Settings
 name|additionalSettings
 parameter_list|()
 function_decl|;
