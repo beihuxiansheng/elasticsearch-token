@@ -481,6 +481,26 @@ argument_list|(
 literal|"done indexing, verifying docs"
 argument_list|)
 expr_stmt|;
+name|client
+operator|.
+name|client
+argument_list|()
+operator|.
+name|admin
+argument_list|()
+operator|.
+name|indices
+argument_list|()
+operator|.
+name|prepareRefresh
+argument_list|()
+operator|.
+name|execute
+argument_list|()
+operator|.
+name|actionGet
+argument_list|()
+expr_stmt|;
 for|for
 control|(
 name|int
