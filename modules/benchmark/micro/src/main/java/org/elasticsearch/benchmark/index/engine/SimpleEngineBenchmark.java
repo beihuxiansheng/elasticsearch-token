@@ -2112,6 +2112,10 @@ argument_list|,
 name|settings
 argument_list|,
 operator|new
+name|ThreadPool
+argument_list|()
+argument_list|,
+operator|new
 name|IndexSettingsService
 argument_list|(
 name|shardId
