@@ -193,7 +193,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"gateway"
+literal|"gateway.type"
 argument_list|,
 literal|"none"
 argument_list|)
@@ -253,7 +253,7 @@ specifier|final
 name|int
 name|NUMBER_OF_DOCS
 init|=
-literal|1000
+literal|10000
 decl_stmt|;
 specifier|final
 name|int
@@ -269,7 +269,7 @@ name|SizeValue
 operator|.
 name|parseSizeValue
 argument_list|(
-literal|"100k"
+literal|"10k"
 argument_list|)
 operator|.
 name|singles
