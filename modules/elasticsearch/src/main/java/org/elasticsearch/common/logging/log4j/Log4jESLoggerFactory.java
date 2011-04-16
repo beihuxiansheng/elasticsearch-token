@@ -61,7 +61,7 @@ block|{
 DECL|method|newInstance
 annotation|@
 name|Override
-specifier|public
+specifier|protected
 name|ESLogger
 name|newInstance
 parameter_list|(

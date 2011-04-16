@@ -189,8 +189,14 @@ operator|.
 name|newInstance
 argument_list|(
 name|prefix
+operator|.
+name|intern
+argument_list|()
 argument_list|,
 name|name
+operator|.
+name|intern
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -210,6 +216,9 @@ operator|.
 name|newInstance
 argument_list|(
 name|name
+operator|.
+name|intern
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -232,7 +241,7 @@ argument_list|)
 return|;
 block|}
 DECL|method|newInstance
-specifier|public
+specifier|protected
 specifier|abstract
 name|ESLogger
 name|newInstance
