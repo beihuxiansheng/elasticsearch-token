@@ -702,6 +702,12 @@ specifier|volatile
 name|int
 name|termIndexDivisor
 decl_stmt|;
+DECL|field|indexConcurrency
+specifier|private
+specifier|volatile
+name|int
+name|indexConcurrency
+decl_stmt|;
 DECL|field|rwl
 specifier|private
 specifier|final
@@ -1169,6 +1175,21 @@ name|bloomCache
 expr_stmt|;
 name|this
 operator|.
+name|indexConcurrency
+operator|=
+name|indexSettings
+operator|.
+name|getAsInt
+argument_list|(
+literal|"index.index_concurrency"
+argument_list|,
+name|IndexWriterConfig
+operator|.
+name|DEFAULT_MAX_THREAD_STATES
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
 name|versionMap
 operator|=
 operator|new
@@ -1178,9 +1199,7 @@ name|String
 argument_list|,
 name|VersionValue
 argument_list|>
-argument_list|(
-literal|1000
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|this
 operator|.
@@ -1189,16 +1208,12 @@ operator|=
 operator|new
 name|Object
 index|[
-name|componentSettings
-operator|.
-name|getAsInt
-argument_list|(
-literal|"concurrency"
-argument_list|,
-literal|10000
-argument_list|)
+name|indexConcurrency
+operator|*
+literal|10
 index|]
 expr_stmt|;
+comment|// we multiply it by 10 to have enough...
 for|for
 control|(
 name|int
@@ -6073,6 +6088,13 @@ argument_list|(
 name|termIndexDivisor
 argument_list|)
 expr_stmt|;
+name|config
+operator|.
+name|setMaxThreadStates
+argument_list|(
+name|indexConcurrency
+argument_list|)
+expr_stmt|;
 name|indexWriter
 operator|=
 operator|new
@@ -6170,6 +6192,22 @@ name|termIndexDivisor
 argument_list|)
 decl_stmt|;
 comment|// IndexReader#DEFAULT_TERMS_INDEX_DIVISOR
+name|int
+name|indexConcurrency
+init|=
+name|settings
+operator|.
+name|getAsInt
+argument_list|(
+literal|"index.index_concurrency"
+argument_list|,
+name|RobinEngine
+operator|.
+name|this
+operator|.
+name|indexConcurrency
+argument_list|)
+decl_stmt|;
 name|boolean
 name|requiresFlushing
 init|=
@@ -6219,7 +6257,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"updating term_index_interval from [{}] to [{}]"
+literal|"updating index.term_index_interval from [{}] to [{}]"
 argument_list|,
 name|RobinEngine
 operator|.
@@ -6264,7 +6302,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"updating term_index_divisor from [{}] to [{}]"
+literal|"updating index.term_index_divisor from [{}] to [{}]"
 argument_list|,
 name|RobinEngine
 operator|.
@@ -6294,6 +6332,46 @@ name|termIndexDivisor
 argument_list|)
 expr_stmt|;
 comment|// we want to apply this right now for readers, even "current" ones
+name|requiresFlushing
+operator|=
+literal|true
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|indexConcurrency
+operator|!=
+name|RobinEngine
+operator|.
+name|this
+operator|.
+name|indexConcurrency
+condition|)
+block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"updating index.index_concurrency from [{}] to [{}]"
+argument_list|,
+name|RobinEngine
+operator|.
+name|this
+operator|.
+name|indexConcurrency
+argument_list|,
+name|indexConcurrency
+argument_list|)
+expr_stmt|;
+name|RobinEngine
+operator|.
+name|this
+operator|.
+name|indexConcurrency
+operator|=
+name|indexConcurrency
+expr_stmt|;
+comment|// we have to flush in this case, since it only applies on a new index writer
 name|requiresFlushing
 operator|=
 literal|true
