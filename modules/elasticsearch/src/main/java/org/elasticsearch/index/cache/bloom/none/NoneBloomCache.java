@@ -159,18 +159,18 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|NonBloomCache
+DECL|class|NoneBloomCache
 specifier|public
 class|class
-name|NonBloomCache
+name|NoneBloomCache
 extends|extends
 name|AbstractIndexComponent
 implements|implements
 name|BloomCache
 block|{
-DECL|method|NonBloomCache
+DECL|method|NoneBloomCache
 specifier|public
-name|NonBloomCache
+name|NoneBloomCache
 parameter_list|(
 name|Index
 name|index
@@ -188,11 +188,11 @@ name|EMPTY_SETTINGS
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|NonBloomCache
+DECL|method|NoneBloomCache
 annotation|@
 name|Inject
 specifier|public
-name|NonBloomCache
+name|NoneBloomCache
 parameter_list|(
 name|Index
 name|index

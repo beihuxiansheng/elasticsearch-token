@@ -210,7 +210,7 @@ name|bloom
 operator|.
 name|none
 operator|.
-name|NonBloomCache
+name|NoneBloomCache
 import|;
 end_import
 
@@ -2186,7 +2186,7 @@ argument_list|()
 argument_list|)
 argument_list|,
 operator|new
-name|NonBloomCache
+name|NoneBloomCache
 argument_list|(
 name|shardId
 operator|.
