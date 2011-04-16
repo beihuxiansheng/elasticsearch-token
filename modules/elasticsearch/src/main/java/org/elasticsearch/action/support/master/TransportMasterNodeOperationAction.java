@@ -558,7 +558,10 @@ name|checkBlock
 argument_list|(
 name|request
 argument_list|,
-name|clusterState
+name|clusterService
+operator|.
+name|state
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
