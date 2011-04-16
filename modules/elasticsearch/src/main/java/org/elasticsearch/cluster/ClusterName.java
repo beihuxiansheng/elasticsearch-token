@@ -118,6 +118,9 @@ operator|new
 name|ClusterName
 argument_list|(
 literal|"elasticsearch"
+operator|.
+name|intern
+argument_list|()
 argument_list|)
 decl_stmt|;
 DECL|field|value
@@ -173,6 +176,9 @@ operator|.
 name|value
 operator|=
 name|value
+operator|.
+name|intern
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|value
@@ -235,6 +241,9 @@ operator|=
 name|in
 operator|.
 name|readUTF
+argument_list|()
+operator|.
+name|intern
 argument_list|()
 expr_stmt|;
 block|}
