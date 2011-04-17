@@ -583,14 +583,9 @@ argument_list|,
 literal|"1"
 argument_list|)
 argument_list|)
-operator|.
-name|version
 argument_list|,
-name|equalTo
-argument_list|(
-operator|-
-literal|1l
-argument_list|)
+name|nullValue
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

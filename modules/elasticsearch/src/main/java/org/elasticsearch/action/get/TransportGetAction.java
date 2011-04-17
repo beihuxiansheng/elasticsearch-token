@@ -1741,15 +1741,12 @@ argument_list|,
 name|uid
 argument_list|)
 decl_stmt|;
-comment|// either -2 (its there, but no version associated), or an actual version
+comment|// not null if it exists
 if|if
 condition|(
 name|docIdAndVersion
-operator|.
-name|docId
 operator|!=
-operator|-
-literal|1
+literal|null
 condition|)
 block|{
 return|return

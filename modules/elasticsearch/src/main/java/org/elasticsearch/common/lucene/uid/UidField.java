@@ -322,19 +322,9 @@ argument_list|()
 condition|)
 block|{
 return|return
-operator|new
-name|DocIdAndVersion
-argument_list|(
-name|Lucene
-operator|.
-name|NO_DOC
-argument_list|,
-operator|-
-literal|1
-argument_list|,
-name|reader
-argument_list|)
+literal|null
 return|;
+comment|// no doc
 block|}
 name|docId
 operator|=
