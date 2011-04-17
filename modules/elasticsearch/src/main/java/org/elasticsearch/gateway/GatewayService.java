@@ -1847,7 +1847,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"recovered [{}] indices into cluster_state, allocating"
+literal|"recovered [{}] indices into cluster_state"
 argument_list|,
 name|clusterState
 operator|.
