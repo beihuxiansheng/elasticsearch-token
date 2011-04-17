@@ -1480,6 +1480,11 @@ argument_list|,
 literal|"value1"
 argument_list|)
 operator|.
+name|setTimeout
+argument_list|(
+literal|"1s"
+argument_list|)
+operator|.
 name|execute
 argument_list|()
 operator|.
@@ -2147,6 +2152,11 @@ argument_list|(
 literal|"field1"
 argument_list|,
 literal|"value1"
+argument_list|)
+operator|.
+name|setTimeout
+argument_list|(
+literal|"1s"
 argument_list|)
 operator|.
 name|execute

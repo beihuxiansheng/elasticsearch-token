@@ -446,14 +446,6 @@ name|MetaDataCreateIndexService
 operator|.
 name|Request
 argument_list|(
-name|MetaDataCreateIndexService
-operator|.
-name|Request
-operator|.
-name|Origin
-operator|.
-name|API
-argument_list|,
 name|cause
 argument_list|,
 name|request

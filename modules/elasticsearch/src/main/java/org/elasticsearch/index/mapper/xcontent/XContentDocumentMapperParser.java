@@ -1969,6 +1969,7 @@ return|return
 name|builder
 return|;
 block|}
+comment|// NOTE, we also parse this in MappingMetaData
 DECL|method|parseRoutingField
 specifier|private
 name|RoutingFieldMapper
