@@ -504,6 +504,14 @@ return|return
 name|builder
 return|;
 block|}
+DECL|method|close
+annotation|@
+name|Override
+specifier|public
+name|void
+name|close
+parameter_list|()
+block|{      }
 block|}
 end_class
 

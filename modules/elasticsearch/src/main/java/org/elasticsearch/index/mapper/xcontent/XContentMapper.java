@@ -441,6 +441,11 @@ name|FieldMapperListener
 name|fieldMapperListener
 parameter_list|)
 function_decl|;
+DECL|method|close
+name|void
+name|close
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

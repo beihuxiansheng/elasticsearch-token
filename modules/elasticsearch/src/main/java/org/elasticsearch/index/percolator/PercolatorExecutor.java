@@ -1994,6 +1994,24 @@ condition|)
 block|{
 continue|continue;
 block|}
+comment|// no need to index the UID field
+if|if
+condition|(
+name|field
+operator|.
+name|name
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|UidFieldMapper
+operator|.
+name|NAME
+argument_list|)
+condition|)
+block|{
+continue|continue;
+block|}
 name|TokenStream
 name|tokenStream
 init|=

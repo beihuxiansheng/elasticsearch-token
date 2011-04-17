@@ -1103,6 +1103,8 @@ name|Engine
 operator|.
 name|Create
 argument_list|(
+literal|null
+argument_list|,
 operator|new
 name|Term
 argument_list|(
@@ -1127,6 +1129,8 @@ name|Engine
 operator|.
 name|Index
 argument_list|(
+literal|null
+argument_list|,
 operator|new
 name|Term
 argument_list|(
@@ -1950,6 +1954,8 @@ name|Engine
 operator|.
 name|Create
 argument_list|(
+literal|null
+argument_list|,
 operator|new
 name|Term
 argument_list|(
@@ -1974,6 +1980,8 @@ name|Engine
 operator|.
 name|Index
 argument_list|(
+literal|null
+argument_list|,
 operator|new
 name|Term
 argument_list|(

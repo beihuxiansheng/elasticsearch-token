@@ -2413,6 +2413,25 @@ name|String
 name|contentType
 parameter_list|()
 function_decl|;
+DECL|method|close
+annotation|@
+name|Override
+specifier|public
+name|void
+name|close
+parameter_list|()
+block|{
+comment|// nothing to do here, sub classes to override if needed
+block|}
+DECL|method|processFieldAfterIndex
+specifier|public
+name|void
+name|processFieldAfterIndex
+parameter_list|(
+name|Fieldable
+name|field
+parameter_list|)
+block|{      }
 block|}
 end_class
 

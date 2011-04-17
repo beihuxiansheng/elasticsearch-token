@@ -1527,6 +1527,8 @@ operator|.
 name|Create
 argument_list|(
 name|docMapper
+argument_list|,
+name|docMapper
 operator|.
 name|uidMapper
 argument_list|()
@@ -1666,6 +1668,8 @@ name|Engine
 operator|.
 name|Index
 argument_list|(
+name|docMapper
+argument_list|,
 name|docMapper
 operator|.
 name|uidMapper
