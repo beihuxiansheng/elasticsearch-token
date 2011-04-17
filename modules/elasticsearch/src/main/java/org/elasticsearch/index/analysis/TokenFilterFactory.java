@@ -30,18 +30,6 @@ name|TokenStream
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|IndexComponent
-import|;
-end_import
-
 begin_comment
 comment|/**  * @author kimchy (Shay Banon)  */
 end_comment
@@ -51,8 +39,6 @@ DECL|interface|TokenFilterFactory
 specifier|public
 interface|interface
 name|TokenFilterFactory
-extends|extends
-name|IndexComponent
 block|{
 DECL|method|name
 name|String

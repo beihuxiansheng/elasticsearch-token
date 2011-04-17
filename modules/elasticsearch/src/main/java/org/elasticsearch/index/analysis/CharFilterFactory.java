@@ -30,18 +30,6 @@ name|CharStream
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|IndexComponent
-import|;
-end_import
-
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
@@ -51,8 +39,6 @@ DECL|interface|CharFilterFactory
 specifier|public
 interface|interface
 name|CharFilterFactory
-extends|extends
-name|IndexComponent
 block|{
 DECL|method|name
 name|String

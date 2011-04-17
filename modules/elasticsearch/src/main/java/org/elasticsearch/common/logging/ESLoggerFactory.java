@@ -189,6 +189,12 @@ operator|.
 name|newInstance
 argument_list|(
 name|prefix
+operator|==
+literal|null
+condition|?
+literal|null
+else|:
+name|prefix
 operator|.
 name|intern
 argument_list|()
