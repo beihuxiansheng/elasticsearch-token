@@ -891,6 +891,10 @@ argument_list|(
 name|nodeIndexDeleteListener
 argument_list|)
 expr_stmt|;
+name|listener
+operator|.
+name|future
+operator|=
 name|threadPool
 operator|.
 name|schedule
