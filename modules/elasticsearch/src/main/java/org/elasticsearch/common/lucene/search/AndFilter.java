@@ -275,6 +275,20 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|set
+operator|==
+literal|null
+condition|)
+block|{
+comment|// none matching for this filter, we AND, so return EMPTY
+return|return
+name|DocSet
+operator|.
+name|EMPTY_DOC_SET
+return|;
+block|}
+if|if
+condition|(
 operator|!
 operator|(
 name|set
