@@ -674,6 +674,8 @@ operator|.
 name|fieldQuery
 argument_list|(
 name|value
+argument_list|,
+name|parseContext
 argument_list|)
 argument_list|,
 name|BooleanClause

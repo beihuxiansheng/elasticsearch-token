@@ -432,6 +432,8 @@ operator|.
 name|fieldQuery
 argument_list|(
 literal|"value1"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 literal|10
@@ -471,6 +473,8 @@ operator|.
 name|fieldQuery
 argument_list|(
 literal|"1"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 literal|10
@@ -510,6 +514,8 @@ operator|.
 name|fieldQuery
 argument_list|(
 literal|"1.1"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 literal|10
@@ -549,6 +555,8 @@ operator|.
 name|fieldQuery
 argument_list|(
 literal|"2010-01-01"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 literal|10
@@ -588,6 +596,8 @@ operator|.
 name|fieldQuery
 argument_list|(
 literal|"1"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 literal|10
@@ -627,6 +637,8 @@ operator|.
 name|fieldQuery
 argument_list|(
 literal|"2"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 literal|10
@@ -666,6 +678,8 @@ operator|.
 name|fieldQuery
 argument_list|(
 literal|"3"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 literal|10

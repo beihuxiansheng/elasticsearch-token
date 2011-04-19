@@ -148,6 +148,22 @@ name|FieldDataType
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|xcontent
+operator|.
+name|QueryParseContext
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
@@ -426,7 +442,7 @@ name|String
 name|value
 parameter_list|)
 function_decl|;
-comment|/**      * Should the field query {@link #fieldQuery(String)} be used when detecting this      * field in query string.      */
+comment|/**      * Should the field query {@link #fieldQuery(String, org.elasticsearch.index.query.xcontent.QueryParseContext)}  be used when detecting this      * field in query string.      */
 DECL|method|useFieldQueryWithQueryString
 name|boolean
 name|useFieldQueryWithQueryString
@@ -439,6 +455,9 @@ name|fieldQuery
 parameter_list|(
 name|String
 name|value
+parameter_list|,
+name|QueryParseContext
+name|context
 parameter_list|)
 function_decl|;
 comment|/**      * A term query to use when parsing a query string. Can return<tt>null</tt>.      */

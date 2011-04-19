@@ -62,6 +62,25 @@ name|type
 argument_list|)
 return|;
 block|}
+comment|/**      * A filter based on doc/mapping type.      */
+DECL|method|typeFilter
+specifier|public
+specifier|static
+name|TypeFilterBuilder
+name|typeFilter
+parameter_list|(
+name|String
+name|type
+parameter_list|)
+block|{
+return|return
+operator|new
+name|TypeFilterBuilder
+argument_list|(
+name|type
+argument_list|)
+return|;
+block|}
 comment|/**      * A filter for a field based on a term.      *      * @param name  The field name      * @param value The term value      */
 DECL|method|termFilter
 specifier|public
