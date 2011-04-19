@@ -740,8 +740,8 @@ argument_list|,
 name|e1
 argument_list|)
 expr_stmt|;
-return|return;
 block|}
+return|return;
 block|}
 name|client
 operator|.
