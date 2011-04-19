@@ -653,10 +653,13 @@ argument_list|)
 operator|.
 name|setQuery
 argument_list|(
-name|termQuery
+name|idsQuery
 argument_list|(
-literal|"child._id"
-argument_list|,
+literal|"child"
+argument_list|)
+operator|.
+name|ids
+argument_list|(
 literal|"c1"
 argument_list|)
 argument_list|)

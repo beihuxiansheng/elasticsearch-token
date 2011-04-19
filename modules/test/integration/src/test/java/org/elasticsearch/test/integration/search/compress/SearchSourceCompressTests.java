@@ -680,10 +680,13 @@ name|setQuery
 argument_list|(
 name|QueryBuilders
 operator|.
-name|termQuery
+name|idsQuery
 argument_list|(
-literal|"_id"
-argument_list|,
+literal|"type1"
+argument_list|)
+operator|.
+name|ids
+argument_list|(
 name|Integer
 operator|.
 name|toString
