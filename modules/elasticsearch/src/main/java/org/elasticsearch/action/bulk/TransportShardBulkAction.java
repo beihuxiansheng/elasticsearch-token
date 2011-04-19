@@ -708,18 +708,7 @@ name|IndexingOperation
 index|[]
 name|ops
 init|=
-operator|new
-name|Engine
-operator|.
-name|IndexingOperation
-index|[
-name|request
-operator|.
-name|items
-argument_list|()
-operator|.
-name|length
-index|]
+literal|null
 decl_stmt|;
 name|BulkItemResponse
 index|[]
@@ -1623,6 +1612,15 @@ operator|.
 name|payload
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|ops
+operator|==
+literal|null
+condition|)
+block|{
+return|return;
+block|}
 for|for
 control|(
 name|int
@@ -1694,7 +1692,7 @@ literal|null
 condition|)
 block|{
 continue|continue;
-comment|// failed
+comment|// failed / no matches requested
 block|}
 if|if
 condition|(
