@@ -43,6 +43,25 @@ name|MatchAllFilterBuilder
 argument_list|()
 return|;
 block|}
+comment|/**      * Creates a new ids filter with the provided doc/mapping type.      *      * @param type The type      */
+DECL|method|idsFilter
+specifier|public
+specifier|static
+name|IdsFilterBuilder
+name|idsFilter
+parameter_list|(
+name|String
+name|type
+parameter_list|)
+block|{
+return|return
+operator|new
+name|IdsFilterBuilder
+argument_list|(
+name|type
+argument_list|)
+return|;
+block|}
 comment|/**      * A filter for a field based on a term.      *      * @param name  The field name      * @param value The term value      */
 DECL|method|termFilter
 specifier|public

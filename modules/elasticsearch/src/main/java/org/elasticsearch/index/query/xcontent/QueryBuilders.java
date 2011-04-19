@@ -57,6 +57,25 @@ name|DisMaxQueryBuilder
 argument_list|()
 return|;
 block|}
+comment|/**      * Constructs a query that will match only specific ids within a type.      *      * @param type The mapping/doc type      */
+DECL|method|idsQuery
+specifier|public
+specifier|static
+name|IdsQueryBuilder
+name|idsQuery
+parameter_list|(
+name|String
+name|type
+parameter_list|)
+block|{
+return|return
+operator|new
+name|IdsQueryBuilder
+argument_list|(
+name|type
+argument_list|)
+return|;
+block|}
 comment|/**      * A Query that matches documents containing a term.      *      * @param name  The name of the field      * @param value The value of the term      */
 DECL|method|termQuery
 specifier|public
