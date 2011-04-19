@@ -2811,6 +2811,13 @@ name|name
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|fieldMappers
+operator|!=
+literal|null
+condition|)
+block|{
 name|FieldMapper
 name|mapper
 init|=
@@ -2833,6 +2840,7 @@ argument_list|(
 name|field
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
