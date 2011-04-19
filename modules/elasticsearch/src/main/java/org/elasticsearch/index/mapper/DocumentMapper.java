@@ -40,20 +40,6 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|Document
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|document
-operator|.
 name|Fieldable
 import|;
 end_import
@@ -324,14 +310,6 @@ name|fieldMapperListener
 parameter_list|,
 name|boolean
 name|includeExisting
-parameter_list|)
-function_decl|;
-DECL|method|processDocumentAfterIndex
-name|void
-name|processDocumentAfterIndex
-parameter_list|(
-name|Document
-name|doc
 parameter_list|)
 function_decl|;
 comment|/**      * A result of a merge.      */

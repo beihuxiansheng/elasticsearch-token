@@ -501,6 +501,9 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// so, caching uid stream and field is fine
+comment|// since we don't do any mapping parsing without immediate indexing
+comment|// and, when percolating, we don't index the uid
 name|UidField
 name|field
 init|=

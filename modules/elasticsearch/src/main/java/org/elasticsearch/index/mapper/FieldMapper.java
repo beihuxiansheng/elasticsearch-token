@@ -499,14 +499,6 @@ name|FieldDataType
 name|fieldDataType
 parameter_list|()
 function_decl|;
-DECL|method|processFieldAfterIndex
-name|void
-name|processFieldAfterIndex
-parameter_list|(
-name|Fieldable
-name|field
-parameter_list|)
-function_decl|;
 block|}
 end_interface
 
