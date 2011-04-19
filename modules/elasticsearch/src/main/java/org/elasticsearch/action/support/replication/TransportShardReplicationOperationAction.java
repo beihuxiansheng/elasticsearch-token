@@ -2280,6 +2280,16 @@ return|return;
 block|}
 if|if
 condition|(
+operator|!
+operator|(
+name|e
+operator|instanceof
+name|VersionConflictEngineException
+operator|)
+condition|)
+block|{
+if|if
+condition|(
 name|logger
 operator|.
 name|isDebugEnabled
@@ -2304,6 +2314,7 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|listener
 operator|.
