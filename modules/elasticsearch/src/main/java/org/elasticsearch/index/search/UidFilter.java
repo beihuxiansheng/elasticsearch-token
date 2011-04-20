@@ -323,6 +323,9 @@ name|uids
 argument_list|)
 expr_stmt|;
 block|}
+comment|// TODO Optimizations
+comment|// - If we have a single id, we can create a SingleIdDocIdSet to save on mem
+comment|// - We can use sorted int array DocIdSet to reserve memory compared to OpenBitSet in some cases
 DECL|method|getDocIdSet
 annotation|@
 name|Override
