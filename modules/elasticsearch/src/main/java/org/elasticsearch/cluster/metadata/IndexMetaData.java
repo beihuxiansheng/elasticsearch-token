@@ -1445,7 +1445,7 @@ name|mapping
 init|=
 name|parser
 operator|.
-name|map
+name|mapOrdered
 argument_list|()
 decl_stmt|;
 name|parser
@@ -1679,7 +1679,7 @@ name|mapping
 init|=
 name|parser
 operator|.
-name|map
+name|mapOrdered
 argument_list|()
 decl_stmt|;
 if|if
