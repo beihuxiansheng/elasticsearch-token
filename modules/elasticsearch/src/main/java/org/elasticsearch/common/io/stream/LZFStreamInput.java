@@ -150,11 +150,11 @@ init|=
 literal|0
 decl_stmt|;
 comment|// ES: added to support never closing just resetting
-DECL|field|neverClose
+DECL|field|cached
 specifier|private
 specifier|final
 name|boolean
-name|neverClose
+name|cached
 decl_stmt|;
 DECL|method|LZFStreamInput
 specifier|public
@@ -164,7 +164,7 @@ name|StreamInput
 name|in
 parameter_list|,
 name|boolean
-name|neverClose
+name|cached
 parameter_list|)
 block|{
 name|super
@@ -172,10 +172,24 @@ argument_list|()
 expr_stmt|;
 name|this
 operator|.
-name|neverClose
+name|cached
 operator|=
-name|neverClose
+name|cached
 expr_stmt|;
+if|if
+condition|(
+name|cached
+condition|)
+block|{
+name|_recycler
+operator|=
+operator|new
+name|BufferRecycler
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
 name|_recycler
 operator|=
 name|BufferRecycler
@@ -183,6 +197,7 @@ operator|.
 name|instance
 argument_list|()
 expr_stmt|;
+block|}
 name|inputStream
 operator|=
 name|in
@@ -580,7 +595,7 @@ name|IOException
 block|{
 if|if
 condition|(
-name|neverClose
+name|cached
 condition|)
 block|{
 name|reset
