@@ -934,6 +934,13 @@ condition|(
 literal|true
 condition|)
 block|{
+name|Translog
+operator|.
+name|Operation
+name|operation
+decl_stmt|;
+try|try
+block|{
 name|int
 name|opSize
 init|=
@@ -942,18 +949,34 @@ operator|.
 name|readInt
 argument_list|()
 decl_stmt|;
-name|Translog
-operator|.
-name|Operation
 name|operation
-init|=
+operator|=
 name|TranslogStreams
 operator|.
 name|readTranslogOperation
 argument_list|(
 name|si
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|EOFException
+name|e
+parameter_list|)
+block|{
+comment|// ignore, not properly written the last op
+break|break;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+comment|// ignore, not properly written last op
+break|break;
+block|}
 name|recoveryStatus
 operator|.
 name|translog
@@ -975,19 +998,32 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|EOFException
+name|Throwable
 name|e
 parameter_list|)
 block|{
-comment|// ignore this exception, its fine
-block|}
-catch|catch
-parameter_list|(
-name|IOException
+comment|// we failed to recovery, make sure to delete the translog file (and keep the recovering one)
+name|indexShard
+operator|.
+name|translog
+argument_list|()
+operator|.
+name|close
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+throw|throw
+operator|new
+name|IndexShardGatewayRecoveryException
+argument_list|(
+name|shardId
+argument_list|,
+literal|"failed to recover shard"
+argument_list|,
 name|e
-parameter_list|)
-block|{
-comment|// ignore this as well
+argument_list|)
+throw|;
 block|}
 name|indexShard
 operator|.

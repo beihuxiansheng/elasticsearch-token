@@ -3690,7 +3690,7 @@ try|try
 block|{
 name|indexService
 operator|.
-name|cleanShard
+name|removeShard
 argument_list|(
 name|shardRouting
 operator|.
@@ -3968,7 +3968,7 @@ try|try
 block|{
 name|indexService
 operator|.
-name|cleanShard
+name|removeShard
 argument_list|(
 name|shardId
 operator|.
