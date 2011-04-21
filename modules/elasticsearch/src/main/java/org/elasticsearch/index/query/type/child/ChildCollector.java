@@ -376,8 +376,8 @@ name|subReaders
 argument_list|()
 control|)
 block|{
-name|int
-name|parentDocId
+name|IdReaderTypeCache
+name|idReaderTypeCache
 init|=
 name|typeCacheMap
 operator|.
@@ -388,6 +388,21 @@ operator|.
 name|getCoreCacheKey
 argument_list|()
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|idReaderTypeCache
+operator|==
+literal|null
+condition|)
+block|{
+comment|// might be if we don't have that doc with that type in this reader
+continue|continue;
+block|}
+name|int
+name|parentDocId
+init|=
+name|idReaderTypeCache
 operator|.
 name|docById
 argument_list|(
