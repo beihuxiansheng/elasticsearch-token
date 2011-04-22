@@ -568,6 +568,11 @@ name|ClusterState
 name|currentState
 parameter_list|)
 block|{
+name|boolean
+name|createdIndex
+init|=
+literal|false
+decl_stmt|;
 try|try
 block|{
 comment|// first, check if it really needs to be updated
@@ -642,6 +647,10 @@ operator|.
 name|id
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|createdIndex
+operator|=
+literal|true
 expr_stmt|;
 for|for
 control|(
@@ -864,6 +873,24 @@ return|return
 name|currentState
 return|;
 block|}
+finally|finally
+block|{
+if|if
+condition|(
+name|createdIndex
+condition|)
+block|{
+name|indicesService
+operator|.
+name|cleanIndex
+argument_list|(
+name|index
+argument_list|,
+literal|"created for mapping processing"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 block|}
 argument_list|)
@@ -919,6 +946,11 @@ name|ClusterState
 name|currentState
 parameter_list|)
 block|{
+name|boolean
+name|createdIndex
+init|=
+literal|false
+decl_stmt|;
 try|try
 block|{
 comment|// first, check if it really needs to be updated
@@ -1025,6 +1057,10 @@ operator|.
 name|id
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|createdIndex
+operator|=
+literal|true
 expr_stmt|;
 comment|// only add the current relevant mapping (if exists)
 if|if
@@ -1309,6 +1345,24 @@ return|return
 name|currentState
 return|;
 block|}
+finally|finally
+block|{
+if|if
+condition|(
+name|createdIndex
+condition|)
+block|{
+name|indicesService
+operator|.
+name|cleanIndex
+argument_list|(
+name|index
+argument_list|,
+literal|"created for mapping processing"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 annotation|@
 name|Override
@@ -1552,6 +1606,17 @@ name|ClusterState
 name|currentState
 parameter_list|)
 block|{
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|indicesToClose
+init|=
+name|Lists
+operator|.
+name|newArrayList
+argument_list|()
+decl_stmt|;
 try|try
 block|{
 if|if
@@ -1684,6 +1749,16 @@ name|id
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|indicesToClose
+operator|.
+name|add
+argument_list|(
+name|indexMetaData
+operator|.
+name|index
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// only add the current relevant mapping (if exists)
 if|if
 condition|(
@@ -2405,6 +2480,27 @@ expr_stmt|;
 return|return
 name|currentState
 return|;
+block|}
+finally|finally
+block|{
+for|for
+control|(
+name|String
+name|index
+range|:
+name|indicesToClose
+control|)
+block|{
+name|indicesService
+operator|.
+name|cleanIndex
+argument_list|(
+name|index
+argument_list|,
+literal|"created for mapping processing"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 annotation|@
