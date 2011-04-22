@@ -289,9 +289,9 @@ name|this
 operator|.
 name|replacement
 operator|=
-name|PathHierarchyTokenizer
+name|this
 operator|.
-name|DEFAULT_DELIMITER
+name|delimiter
 expr_stmt|;
 block|}
 elseif|else
