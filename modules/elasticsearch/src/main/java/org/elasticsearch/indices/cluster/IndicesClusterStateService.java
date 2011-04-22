@@ -2198,9 +2198,10 @@ name|mappingSource
 argument_list|)
 condition|)
 block|{
+comment|// this might happen when upgrading from 0.15 to 0.16
 name|logger
 operator|.
-name|warn
+name|debug
 argument_list|(
 literal|"[{}] parsed mapping [{}], and got different sources\noriginal:\n{}\nparsed:\n{}"
 argument_list|,
@@ -2332,9 +2333,10 @@ name|mappingSource
 argument_list|)
 condition|)
 block|{
+comment|// this might happen when upgrading from 0.15 to 0.16
 name|logger
 operator|.
-name|warn
+name|debug
 argument_list|(
 literal|"[{}] parsed mapping [{}], and got different sources\noriginal:\n{}\nparsed:\n{}"
 argument_list|,
