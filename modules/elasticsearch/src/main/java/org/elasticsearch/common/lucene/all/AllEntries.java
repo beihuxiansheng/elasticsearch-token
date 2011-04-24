@@ -445,11 +445,8 @@ expr_stmt|;
 name|FastCharArrayWriter
 name|writer
 init|=
+operator|new
 name|FastCharArrayWriter
-operator|.
-name|Cached
-operator|.
-name|cached
 argument_list|()
 decl_stmt|;
 for|for

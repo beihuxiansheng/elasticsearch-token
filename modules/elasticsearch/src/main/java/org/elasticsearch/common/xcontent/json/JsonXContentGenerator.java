@@ -26,7 +26,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Bytes
+name|CacheRecycler
 import|;
 end_import
 
@@ -1138,14 +1138,9 @@ name|byte
 index|[]
 name|bytes
 init|=
-name|Bytes
+name|CacheRecycler
 operator|.
-name|cachedBytes
-operator|.
-name|get
-argument_list|()
-operator|.
-name|get
+name|popBytes
 argument_list|()
 decl_stmt|;
 name|Streams
