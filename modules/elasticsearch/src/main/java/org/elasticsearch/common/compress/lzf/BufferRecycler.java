@@ -179,6 +179,19 @@ return|return
 name|br
 return|;
 block|}
+DECL|method|clean
+specifier|public
+specifier|static
+name|void
+name|clean
+parameter_list|()
+block|{
+name|_recyclerRef
+operator|.
+name|remove
+argument_list|()
+expr_stmt|;
+block|}
 comment|/*     ///////////////////////////////////////////////////////////////////////     // Buffers for encoding (output)     ///////////////////////////////////////////////////////////////////////      */
 DECL|method|allocEncodingBuffer
 specifier|public
