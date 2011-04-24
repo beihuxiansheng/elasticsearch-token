@@ -462,6 +462,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|io
+operator|.
+name|CachedStreams
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|network
 operator|.
 name|NetworkModule
@@ -1213,6 +1227,11 @@ block|{
 comment|// ignore
 block|}
 name|CacheRecycler
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|CachedStreams
 operator|.
 name|clear
 argument_list|()
