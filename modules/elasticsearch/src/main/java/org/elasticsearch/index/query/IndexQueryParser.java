@@ -69,6 +69,11 @@ name|String
 name|name
 parameter_list|()
 function_decl|;
+DECL|method|close
+name|void
+name|close
+parameter_list|()
+function_decl|;
 DECL|method|parse
 name|ParsedQuery
 name|parse
