@@ -365,9 +365,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|DocIdSet
-name|docIdSet
-init|=
+comment|// ok to return null
+return|return
 name|parentDocs
 operator|.
 name|get
@@ -377,22 +376,6 @@ operator|.
 name|getCoreCacheKey
 argument_list|()
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|docIdSet
-operator|==
-literal|null
-condition|)
-block|{
-return|return
-name|DocIdSet
-operator|.
-name|EMPTY_DOCIDSET
-return|;
-block|}
-return|return
-name|docIdSet
 return|;
 block|}
 DECL|method|toString
