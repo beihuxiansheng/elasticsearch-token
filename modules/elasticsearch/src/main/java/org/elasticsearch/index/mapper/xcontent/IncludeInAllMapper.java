@@ -38,6 +38,14 @@ name|Boolean
 name|includeInAll
 parameter_list|)
 function_decl|;
+DECL|method|includeInAllIfNotSet
+name|void
+name|includeInAllIfNotSet
+parameter_list|(
+name|Boolean
+name|includeInAll
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 
