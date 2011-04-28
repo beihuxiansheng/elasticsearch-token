@@ -50,20 +50,6 @@ name|common
 operator|.
 name|collect
 operator|.
-name|ImmutableList
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
 name|ImmutableMap
 import|;
 end_import
@@ -199,6 +185,16 @@ operator|.
 name|io
 operator|.
 name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
 import|;
 end_import
 
@@ -523,12 +519,12 @@ condition|)
 block|{
 name|list
 operator|=
-name|ImmutableList
-operator|.
-name|of
-argument_list|(
-name|collector
-argument_list|)
+operator|new
+name|ArrayList
+argument_list|<
+name|Collector
+argument_list|>
+argument_list|()
 expr_stmt|;
 name|filtersByCollector
 operator|.
@@ -540,8 +536,6 @@ name|list
 argument_list|)
 expr_stmt|;
 block|}
-else|else
-block|{
 name|list
 operator|.
 name|add
@@ -549,7 +543,6 @@ argument_list|(
 name|collector
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|// now, go and execute the filters->collector ones
