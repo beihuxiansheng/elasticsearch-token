@@ -748,10 +748,20 @@ name|parsedFilter
 argument_list|()
 operator|!=
 literal|null
+operator|&&
+name|Scopes
+operator|.
+name|MAIN
+operator|.
+name|equals
+argument_list|(
+name|processingScope
+argument_list|)
 condition|)
 block|{
 comment|// this will only get applied to the actual search collector and not
-comment|// to any scoped collectors
+comment|// to any scoped collectors, also, it will only be applied to the main collector
+comment|// since that is where the filter should only work
 name|collector
 operator|=
 operator|new
