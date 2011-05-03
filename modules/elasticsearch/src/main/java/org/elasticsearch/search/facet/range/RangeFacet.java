@@ -136,7 +136,7 @@ name|min
 init|=
 name|Double
 operator|.
-name|MAX_VALUE
+name|POSITIVE_INFINITY
 decl_stmt|;
 DECL|field|max
 name|double
@@ -144,7 +144,7 @@ name|max
 init|=
 name|Double
 operator|.
-name|MIN_VALUE
+name|NEGATIVE_INFINITY
 decl_stmt|;
 comment|/**          * Internal field used in facet collection          */
 DECL|field|foundInDoc

@@ -1114,11 +1114,11 @@ literal|0
 argument_list|,
 name|Double
 operator|.
-name|MAX_VALUE
+name|POSITIVE_INFINITY
 argument_list|,
 name|Double
 operator|.
-name|MIN_VALUE
+name|NEGATIVE_INFINITY
 argument_list|)
 expr_stmt|;
 name|entries
@@ -1322,11 +1322,11 @@ literal|0
 argument_list|,
 name|Double
 operator|.
-name|MAX_VALUE
+name|POSITIVE_INFINITY
 argument_list|,
 name|Double
 operator|.
-name|MIN_VALUE
+name|NEGATIVE_INFINITY
 argument_list|)
 expr_stmt|;
 name|entries
