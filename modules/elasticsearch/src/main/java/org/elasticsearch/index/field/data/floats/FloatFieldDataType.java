@@ -235,11 +235,11 @@ name|reversed
 condition|?
 name|Float
 operator|.
-name|MIN_VALUE
+name|NEGATIVE_INFINITY
 else|:
 name|Float
 operator|.
-name|MAX_VALUE
+name|POSITIVE_INFINITY
 argument_list|)
 return|;
 block|}
@@ -296,11 +296,11 @@ name|reversed
 condition|?
 name|Float
 operator|.
-name|MAX_VALUE
+name|POSITIVE_INFINITY
 else|:
 name|Float
 operator|.
-name|MIN_VALUE
+name|NEGATIVE_INFINITY
 argument_list|)
 return|;
 block|}

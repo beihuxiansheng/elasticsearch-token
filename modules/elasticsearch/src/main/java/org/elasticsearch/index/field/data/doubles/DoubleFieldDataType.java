@@ -235,11 +235,11 @@ name|reversed
 condition|?
 name|Double
 operator|.
-name|MIN_VALUE
+name|NEGATIVE_INFINITY
 else|:
 name|Double
 operator|.
-name|MAX_VALUE
+name|POSITIVE_INFINITY
 argument_list|)
 return|;
 block|}
@@ -296,11 +296,11 @@ name|reversed
 condition|?
 name|Double
 operator|.
-name|MAX_VALUE
+name|POSITIVE_INFINITY
 else|:
 name|Double
 operator|.
-name|MIN_VALUE
+name|NEGATIVE_INFINITY
 argument_list|)
 return|;
 block|}
