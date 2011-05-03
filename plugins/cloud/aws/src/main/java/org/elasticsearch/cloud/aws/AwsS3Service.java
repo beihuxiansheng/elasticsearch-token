@@ -362,11 +362,11 @@ block|}
 name|String
 name|proxyHost
 init|=
-name|settings
+name|componentSettings
 operator|.
 name|get
 argument_list|(
-literal|"network.proxyHost"
+literal|"proxy_host"
 argument_list|)
 decl_stmt|;
 if|if
@@ -379,11 +379,11 @@ block|{
 name|String
 name|portString
 init|=
-name|settings
+name|componentSettings
 operator|.
 name|get
 argument_list|(
-literal|"network.proxyPort"
+literal|"proxy_port"
 argument_list|,
 literal|"80"
 argument_list|)
