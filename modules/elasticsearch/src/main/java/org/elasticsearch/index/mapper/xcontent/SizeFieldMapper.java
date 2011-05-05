@@ -296,6 +296,10 @@ name|PRECISION_STEP
 argument_list|,
 name|Defaults
 operator|.
+name|FUZZY_FACTOR
+argument_list|,
+name|Defaults
+operator|.
 name|INDEX
 argument_list|,
 name|store
