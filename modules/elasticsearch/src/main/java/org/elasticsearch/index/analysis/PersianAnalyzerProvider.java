@@ -102,16 +102,6 @@ name|IndexSettings
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
-import|;
-end_import
-
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
@@ -169,12 +159,13 @@ argument_list|,
 name|settings
 argument_list|)
 expr_stmt|;
-name|Set
-argument_list|<
-name|?
-argument_list|>
-name|stopWords
-init|=
+name|analyzer
+operator|=
+operator|new
+name|PersianAnalyzer
+argument_list|(
+name|version
+argument_list|,
 name|Analysis
 operator|.
 name|parseStopWords
@@ -186,15 +177,6 @@ operator|.
 name|getDefaultStopSet
 argument_list|()
 argument_list|)
-decl_stmt|;
-name|analyzer
-operator|=
-operator|new
-name|PersianAnalyzer
-argument_list|(
-name|version
-argument_list|,
-name|stopWords
 argument_list|)
 expr_stmt|;
 block|}

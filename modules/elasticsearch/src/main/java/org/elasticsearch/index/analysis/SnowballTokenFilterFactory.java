@@ -54,6 +54,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Strings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|inject
 operator|.
 name|Inject
@@ -173,6 +185,10 @@ name|this
 operator|.
 name|language
 operator|=
+name|Strings
+operator|.
+name|capitalize
+argument_list|(
 name|settings
 operator|.
 name|get
@@ -186,6 +202,7 @@ argument_list|(
 literal|"name"
 argument_list|,
 literal|"English"
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
