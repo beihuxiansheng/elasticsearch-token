@@ -1094,7 +1094,6 @@ operator|)
 operator|.
 name|fuzzyFactor
 expr_stmt|;
-empty_stmt|;
 name|this
 operator|.
 name|dFuzzyFactor
