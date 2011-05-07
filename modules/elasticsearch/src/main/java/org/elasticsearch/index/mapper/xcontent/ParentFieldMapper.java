@@ -861,14 +861,10 @@ name|uid
 parameter_list|)
 block|{
 return|return
-operator|new
-name|Term
-argument_list|(
-name|names
+name|termFactory
 operator|.
-name|indexName
-argument_list|()
-argument_list|,
+name|createTerm
+argument_list|(
 name|uid
 argument_list|)
 return|;

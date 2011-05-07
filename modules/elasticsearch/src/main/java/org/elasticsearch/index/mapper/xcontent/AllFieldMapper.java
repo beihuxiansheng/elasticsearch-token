@@ -644,14 +644,10 @@ return|return
 operator|new
 name|AllTermQuery
 argument_list|(
-operator|new
-name|Term
-argument_list|(
-name|names
+name|termFactory
 operator|.
-name|indexName
-argument_list|()
-argument_list|,
+name|createTerm
+argument_list|(
 name|value
 argument_list|)
 argument_list|)
