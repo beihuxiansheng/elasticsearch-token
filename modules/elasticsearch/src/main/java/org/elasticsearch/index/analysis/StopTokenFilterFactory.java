@@ -108,6 +108,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|env
+operator|.
+name|Environment
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|index
 operator|.
 name|Index
@@ -179,6 +191,9 @@ name|IndexSettings
 name|Settings
 name|indexSettings
 parameter_list|,
+name|Environment
+name|env
+parameter_list|,
 annotation|@
 name|Assisted
 name|String
@@ -209,6 +224,8 @@ name|Analysis
 operator|.
 name|parseStopWords
 argument_list|(
+name|env
+argument_list|,
 name|settings
 argument_list|,
 name|StopAnalyzer

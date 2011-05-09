@@ -462,6 +462,8 @@ name|index
 argument_list|,
 name|indexSettings
 argument_list|,
+literal|null
+argument_list|,
 literal|"default"
 argument_list|,
 name|ImmutableSettings
