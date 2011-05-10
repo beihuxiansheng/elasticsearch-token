@@ -1458,6 +1458,13 @@ argument_list|(
 name|omitTermFreqAndPositions
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|customBoost
+argument_list|()
+condition|)
+block|{
 name|field
 operator|.
 name|setBoost
@@ -1465,6 +1472,7 @@ argument_list|(
 name|boost
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|context
@@ -1530,6 +1538,17 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * Derived classes can override it to specify that boost value is set by derived classes.      */
+DECL|method|customBoost
+specifier|protected
+name|boolean
+name|customBoost
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 DECL|method|traverse
 annotation|@
 name|Override
