@@ -965,7 +965,7 @@ name|wordList
 init|=
 name|Analysis
 operator|.
-name|getWordList
+name|getWordSet
 argument_list|(
 literal|null
 argument_list|,
@@ -1091,7 +1091,7 @@ name|wordList
 init|=
 name|Analysis
 operator|.
-name|getWordList
+name|getWordSet
 argument_list|(
 name|env
 argument_list|,

@@ -303,7 +303,7 @@ name|wordList
 operator|=
 name|Analysis
 operator|.
-name|getWordList
+name|getWordSet
 argument_list|(
 name|env
 argument_list|,

@@ -326,7 +326,7 @@ comment|// % => DIGIT
 comment|// . => DIGIT
 comment|// \u002C => DIGIT
 comment|// \u200D => ALPHANUM
-name|Set
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -506,7 +506,7 @@ name|protectedWords
 init|=
 name|Analysis
 operator|.
-name|getWordList
+name|getWordSet
 argument_list|(
 name|env
 argument_list|,
