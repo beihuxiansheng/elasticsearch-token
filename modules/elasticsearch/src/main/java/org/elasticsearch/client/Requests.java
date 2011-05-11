@@ -726,7 +726,7 @@ name|index
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a count request which counts the hits matched against a query. Note, the query itself must be set      * either using the JSON source of the query, or using a {@link org.elasticsearch.index.query.QueryBuilder} (using {@link org.elasticsearch.index.query.xcontent.QueryBuilders}).      *      * @param indices The indices the delete by query against. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The count request      * @see org.elasticsearch.client.Client#count(org.elasticsearch.action.count.CountRequest)      */
+comment|/**      * Creates a count request which counts the hits matched against a query. Note, the query itself must be set      * either using the JSON source of the query, or using a {@link org.elasticsearch.index.query.QueryBuilder} (using {@link org.elasticsearch.index.query.xcontent.QueryBuilders}).      *      * @param indices The indices to count matched documents against a query. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The count request      * @see org.elasticsearch.client.Client#count(org.elasticsearch.action.count.CountRequest)      */
 DECL|method|countRequest
 specifier|public
 specifier|static
@@ -765,7 +765,7 @@ name|index
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a search request against one or more indices. Note, the search source must be set either using the      * actual JSON search source, or the {@link org.elasticsearch.search.builder.SearchSourceBuilder}.      *      * @param indices The indices the delete by query against. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The search request      * @see org.elasticsearch.client.Client#search(org.elasticsearch.action.search.SearchRequest)      */
+comment|/**      * Creates a search request against one or more indices. Note, the search source must be set either using the      * actual JSON search source, or the {@link org.elasticsearch.search.builder.SearchSourceBuilder}.      *      * @param indices The indices to search against. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The search request      * @see org.elasticsearch.client.Client#search(org.elasticsearch.action.search.SearchRequest)      */
 DECL|method|searchRequest
 specifier|public
 specifier|static
@@ -804,7 +804,7 @@ name|scrollId
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates an indices status request.      *      * @param indices The indices the delete by query against. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The indices status request      * @see org.elasticsearch.client.IndicesAdminClient#status(org.elasticsearch.action.admin.indices.status.IndicesStatusRequest)      */
+comment|/**      * Creates an indices status request.      *      * @param indices The indices to query status about. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The indices status request      * @see org.elasticsearch.client.IndicesAdminClient#status(org.elasticsearch.action.admin.indices.status.IndicesStatusRequest)      */
 DECL|method|indicesStatusRequest
 specifier|public
 specifier|static
@@ -900,7 +900,7 @@ name|index
 argument_list|)
 return|;
 block|}
-comment|/**      * Create a create mapping request against one or more indices.      *      * @param indices The indices the delete by query against. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The create mapping request      * @see org.elasticsearch.client.IndicesAdminClient#putMapping(org.elasticsearch.action.admin.indices.mapping.put.PutMappingRequest)      */
+comment|/**      * Create a create mapping request against one or more indices.      *      * @param indices The indices to create mapping. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The create mapping request      * @see org.elasticsearch.client.IndicesAdminClient#putMapping(org.elasticsearch.action.admin.indices.mapping.put.PutMappingRequest)      */
 DECL|method|putMappingRequest
 specifier|public
 specifier|static
@@ -954,7 +954,7 @@ name|IndicesAliasesRequest
 argument_list|()
 return|;
 block|}
-comment|/**      * Creates a refresh indices request.      *      * @param indices The indices the delete by query against. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The refresh request      * @see org.elasticsearch.client.IndicesAdminClient#refresh(org.elasticsearch.action.admin.indices.refresh.RefreshRequest)      */
+comment|/**      * Creates a refresh indices request.      *      * @param indices The indices to refresh. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The refresh request      * @see org.elasticsearch.client.IndicesAdminClient#refresh(org.elasticsearch.action.admin.indices.refresh.RefreshRequest)      */
 DECL|method|refreshRequest
 specifier|public
 specifier|static
@@ -974,7 +974,7 @@ name|indices
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a flush indices request.      *      * @param indices The indices the delete by query against. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The flush request      * @see org.elasticsearch.client.IndicesAdminClient#flush(org.elasticsearch.action.admin.indices.flush.FlushRequest)      */
+comment|/**      * Creates a flush indices request.      *      * @param indices The indices to flush. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The flush request      * @see org.elasticsearch.client.IndicesAdminClient#flush(org.elasticsearch.action.admin.indices.flush.FlushRequest)      */
 DECL|method|flushRequest
 specifier|public
 specifier|static
@@ -1034,7 +1034,7 @@ name|indices
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a clean indices cache request.      *      * @param indices The indices the gateway snapshot will be performed on. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The request      */
+comment|/**      * Creates a clean indices cache request.      *      * @param indices The indices to clean their caches. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The request      */
 DECL|method|clearIndicesCacheRequest
 specifier|public
 specifier|static
