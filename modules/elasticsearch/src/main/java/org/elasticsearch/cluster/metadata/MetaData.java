@@ -957,6 +957,7 @@ name|possiblyAliased
 operator|=
 literal|true
 expr_stmt|;
+break|break;
 block|}
 block|}
 if|if
@@ -969,15 +970,15 @@ return|return
 name|indices
 return|;
 block|}
-name|ArrayList
+name|Set
 argument_list|<
 name|String
 argument_list|>
 name|actualIndices
 init|=
-name|Lists
+name|Sets
 operator|.
-name|newArrayListWithCapacity
+name|newHashSetWithExpectedSize
 argument_list|(
 name|indices
 operator|.
