@@ -2062,6 +2062,7 @@ specifier|private
 name|void
 name|serializeObject
 parameter_list|(
+specifier|final
 name|ParseContext
 name|context
 parameter_list|,
@@ -2277,6 +2278,40 @@ expr_stmt|;
 name|putMapper
 argument_list|(
 name|objectMapper
+argument_list|)
+expr_stmt|;
+comment|// we need to traverse in case we have a dynamic template and need to add field mappers
+comment|// introduced by it
+name|objectMapper
+operator|.
+name|traverse
+argument_list|(
+operator|new
+name|FieldMapperListener
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|fieldMapper
+parameter_list|(
+name|FieldMapper
+name|fieldMapper
+parameter_list|)
+block|{
+name|context
+operator|.
+name|docMapper
+argument_list|()
+operator|.
+name|addFieldMapper
+argument_list|(
+name|fieldMapper
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 argument_list|)
 expr_stmt|;
 comment|// now re add it and parse...
