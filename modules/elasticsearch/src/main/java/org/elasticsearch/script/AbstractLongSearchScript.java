@@ -14,6 +14,10 @@ name|script
 package|;
 end_package
 
+begin_comment
+comment|/**  * A simpler base class instead of {@link AbstractSearchScript} for computations  * that return a long number.  */
+end_comment
+
 begin_class
 DECL|class|AbstractLongSearchScript
 specifier|public
