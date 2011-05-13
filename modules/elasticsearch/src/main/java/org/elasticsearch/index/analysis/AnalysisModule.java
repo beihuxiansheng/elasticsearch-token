@@ -2464,6 +2464,17 @@ name|tokenFiltersBindings
 operator|.
 name|processTokenFilter
 argument_list|(
+literal|"elision"
+argument_list|,
+name|ElisionTokenFilterFactory
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|tokenFiltersBindings
+operator|.
+name|processTokenFilter
+argument_list|(
 literal|"phonetic"
 argument_list|,
 name|PhoneticTokenFilterFactory
