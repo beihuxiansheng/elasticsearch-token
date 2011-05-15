@@ -140,22 +140,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|facet
-operator|.
-name|histogram
-operator|.
-name|HistogramFacet
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -1024,8 +1008,6 @@ name|Fields
 operator|.
 name|_TYPE
 argument_list|,
-name|HistogramFacet
-operator|.
 name|TYPE
 argument_list|)
 expr_stmt|;
