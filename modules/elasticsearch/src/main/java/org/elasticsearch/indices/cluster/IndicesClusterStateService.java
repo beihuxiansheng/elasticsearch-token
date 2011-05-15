@@ -743,7 +743,8 @@ specifier|final
 name|NodeMappingRefreshAction
 name|nodeMappingRefreshAction
 decl_stmt|;
-comment|// a map of mappings type we have seen per index
+comment|// a map of mappings type we have seen per index due to cluster state
+comment|// we need this so we won't remove types automatically created as part of the indexing process
 DECL|field|seenMappings
 specifier|private
 specifier|final
@@ -1344,6 +1345,45 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+block|}
+comment|// clear seen mappings as well
+for|for
+control|(
+name|Tuple
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|tuple
+range|:
+name|seenMappings
+operator|.
+name|keySet
+argument_list|()
+control|)
+block|{
+if|if
+condition|(
+name|tuple
+operator|.
+name|v1
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|index
+argument_list|)
+condition|)
+block|{
+name|seenMappings
+operator|.
+name|remove
+argument_list|(
+name|tuple
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}
