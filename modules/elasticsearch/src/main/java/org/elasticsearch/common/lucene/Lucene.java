@@ -2868,6 +2868,17 @@ specifier|private
 name|boolean
 name|exists
 decl_stmt|;
+DECL|method|reset
+specifier|public
+name|void
+name|reset
+parameter_list|()
+block|{
+name|exists
+operator|=
+literal|false
+expr_stmt|;
+block|}
 DECL|method|exists
 specifier|public
 name|boolean
