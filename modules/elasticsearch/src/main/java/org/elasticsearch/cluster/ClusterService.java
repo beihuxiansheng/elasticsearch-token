@@ -140,6 +140,15 @@ name|OperationRouting
 name|operationRouting
 parameter_list|()
 function_decl|;
+comment|/**      * Adds a priority listener for updated cluster states.      */
+DECL|method|addPriority
+name|void
+name|addPriority
+parameter_list|(
+name|ClusterStateListener
+name|listener
+parameter_list|)
+function_decl|;
 comment|/**      * Adds a listener for updated cluster states.      */
 DECL|method|add
 name|void
