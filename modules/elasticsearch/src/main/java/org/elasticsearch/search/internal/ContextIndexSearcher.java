@@ -410,6 +410,17 @@ name|String
 name|scope
 parameter_list|)
 block|{
+if|if
+condition|(
+name|scopeCollectors
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 return|return
 name|scopeCollectors
 operator|.

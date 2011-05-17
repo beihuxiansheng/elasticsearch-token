@@ -334,6 +334,16 @@ name|facets
 argument_list|()
 operator|==
 literal|null
+operator|||
+name|context
+operator|.
+name|facets
+argument_list|()
+operator|.
+name|facetCollectors
+argument_list|()
+operator|==
+literal|null
 condition|)
 block|{
 return|return;
