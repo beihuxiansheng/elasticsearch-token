@@ -454,6 +454,9 @@ name|indexMetaData
 operator|.
 name|aliases
 argument_list|()
+operator|.
+name|keySet
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -553,6 +556,9 @@ range|:
 name|indexMetaData
 operator|.
 name|aliases
+argument_list|()
+operator|.
+name|keySet
 argument_list|()
 control|)
 block|{

@@ -1617,6 +1617,9 @@ name|indexMetaData
 operator|.
 name|aliases
 argument_list|()
+operator|.
+name|keySet
+argument_list|()
 control|)
 block|{
 name|builder
