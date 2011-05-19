@@ -210,6 +210,15 @@ name|Translog
 extends|extends
 name|IndexShardComponent
 block|{
+DECL|field|TRANSLOG_ID_KEY
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|TRANSLOG_ID_KEY
+init|=
+literal|"translog_id"
+decl_stmt|;
 comment|/**      * Returns the id of the current transaction log.      */
 DECL|method|currentId
 name|long
