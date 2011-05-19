@@ -686,6 +686,12 @@ name|EntriesStats
 argument_list|(
 name|sizeInBytes
 argument_list|,
+name|segmentsCount
+operator|==
+literal|0
+condition|?
+literal|0
+else|:
 name|totalCount
 operator|/
 name|segmentsCount
