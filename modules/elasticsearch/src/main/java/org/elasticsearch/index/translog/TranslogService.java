@@ -829,7 +829,7 @@ name|currentNumberOfOperations
 init|=
 name|translog
 operator|.
-name|numberOfOperations
+name|estimatedNumberOfOperations
 argument_list|()
 decl_stmt|;
 if|if

@@ -217,9 +217,9 @@ name|currentId
 parameter_list|()
 function_decl|;
 comment|/**      * Returns the number of operations in the transaction log.      */
-DECL|method|numberOfOperations
+DECL|method|estimatedNumberOfOperations
 name|int
-name|numberOfOperations
+name|estimatedNumberOfOperations
 parameter_list|()
 function_decl|;
 comment|/**      * The estimated memory size this translog is taking.      */
@@ -234,15 +234,7 @@ name|long
 name|translogSizeInBytes
 parameter_list|()
 function_decl|;
-comment|/**      * Creates a new transaction log internally. Note, users of this class should make      * sure that no operations are performed on the trans log when this is called.      */
-DECL|method|newTranslog
-name|void
-name|newTranslog
-parameter_list|()
-throws|throws
-name|TranslogException
-function_decl|;
-comment|/**      * Creates a new transaction log internally. Note, users of this class should make      * sure that no operations are performed on the trans log when this is called.      */
+comment|/**      * Creates a new transaction log internally.      */
 DECL|method|newTranslog
 name|void
 name|newTranslog
@@ -338,15 +330,9 @@ name|length
 parameter_list|()
 function_decl|;
 comment|/**          * The total number of operations in the translog.          */
-DECL|method|totalOperations
+DECL|method|estimatedTotalOperations
 name|int
-name|totalOperations
-parameter_list|()
-function_decl|;
-comment|/**          * The number of operations in this snapshot.          */
-DECL|method|snapshotOperations
-name|int
-name|snapshotOperations
+name|estimatedTotalOperations
 parameter_list|()
 function_decl|;
 DECL|method|hasNext

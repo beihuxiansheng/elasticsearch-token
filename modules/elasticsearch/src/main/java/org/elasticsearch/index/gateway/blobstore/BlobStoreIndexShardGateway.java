@@ -1592,7 +1592,7 @@ name|expectedNumberOfOperations
 operator|=
 name|translogSnapshot
 operator|.
-name|totalOperations
+name|estimatedTotalOperations
 argument_list|()
 expr_stmt|;
 block|}
@@ -1713,7 +1713,7 @@ name|expectedNumberOfOperations
 operator|=
 name|translogSnapshot
 operator|.
-name|totalOperations
+name|estimatedTotalOperations
 argument_list|()
 operator|-
 name|snapshot
@@ -1742,7 +1742,7 @@ name|expectedNumberOfOperations
 operator|=
 name|translogSnapshot
 operator|.
-name|totalOperations
+name|estimatedTotalOperations
 argument_list|()
 expr_stmt|;
 name|snapshotRequired
@@ -1769,7 +1769,7 @@ name|expectedNumberOfOperations
 operator|=
 name|translogSnapshot
 operator|.
-name|totalOperations
+name|estimatedTotalOperations
 argument_list|()
 expr_stmt|;
 name|snapshotRequired

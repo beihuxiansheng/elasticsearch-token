@@ -1431,7 +1431,7 @@ name|lastTotalTranslogOperations
 operator|=
 name|translogSnapshot
 operator|.
-name|totalOperations
+name|estimatedTotalOperations
 argument_list|()
 expr_stmt|;
 return|return

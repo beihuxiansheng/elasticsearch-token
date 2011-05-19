@@ -2150,8 +2150,6 @@ name|File
 argument_list|(
 literal|"work/fs-translog"
 argument_list|)
-argument_list|,
-literal|false
 argument_list|)
 argument_list|,
 operator|new

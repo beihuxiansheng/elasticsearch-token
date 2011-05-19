@@ -734,8 +734,6 @@ name|File
 argument_list|(
 literal|"work/fs-translog/primary"
 argument_list|)
-argument_list|,
-literal|false
 argument_list|)
 return|;
 block|}
@@ -758,8 +756,6 @@ name|File
 argument_list|(
 literal|"work/fs-translog/replica"
 argument_list|)
-argument_list|,
-literal|false
 argument_list|)
 return|;
 block|}

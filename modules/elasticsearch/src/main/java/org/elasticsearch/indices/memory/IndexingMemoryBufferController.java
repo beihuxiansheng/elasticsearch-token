@@ -881,7 +881,7 @@ argument_list|()
 operator|&&
 name|translog
 operator|.
-name|numberOfOperations
+name|estimatedNumberOfOperations
 argument_list|()
 operator|==
 literal|0
@@ -1062,7 +1062,7 @@ name|translogNumberOfOperations
 operator|=
 name|translog
 operator|.
-name|numberOfOperations
+name|estimatedNumberOfOperations
 argument_list|()
 expr_stmt|;
 block|}

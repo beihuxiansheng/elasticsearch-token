@@ -480,7 +480,7 @@ block|{
 return|return
 name|translog
 operator|.
-name|numberOfOperations
+name|estimatedNumberOfOperations
 argument_list|()
 return|;
 block|}

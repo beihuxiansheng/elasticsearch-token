@@ -1024,7 +1024,7 @@ operator|.
 name|translog
 argument_list|()
 operator|.
-name|numberOfOperations
+name|estimatedNumberOfOperations
 argument_list|()
 expr_stmt|;
 name|Engine
