@@ -199,6 +199,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -320,7 +330,7 @@ try|try
 block|{
 comment|// {
 comment|//     actions : [
-comment|//         { add : { index : "test1", alias : "alias1" } }
+comment|//         { add : { index : "test1", alias : "alias1", filter : {"user" : "kimchy"} } }
 comment|//         { remove : { index : "test1", alias : "alias1" } }
 comment|//     ]
 comment|// }
@@ -524,6 +534,16 @@ name|alias
 init|=
 literal|null
 decl_stmt|;
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|filter
+init|=
+literal|null
+decl_stmt|;
 name|String
 name|currentFieldName
 init|=
@@ -616,6 +636,37 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+elseif|else
+if|if
+condition|(
+name|token
+operator|==
+name|XContentParser
+operator|.
+name|Token
+operator|.
+name|START_OBJECT
+condition|)
+block|{
+if|if
+condition|(
+literal|"filter"
+operator|.
+name|equals
+argument_list|(
+name|currentFieldName
+argument_list|)
+condition|)
+block|{
+name|filter
+operator|=
+name|parser
+operator|.
+name|mapOrdered
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 block|}
 if|if
 condition|(
@@ -673,6 +724,8 @@ argument_list|(
 name|index
 argument_list|,
 name|alias
+argument_list|,
+name|filter
 argument_list|)
 expr_stmt|;
 block|}
