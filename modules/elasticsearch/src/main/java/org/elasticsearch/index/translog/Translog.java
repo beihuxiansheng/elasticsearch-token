@@ -243,7 +243,7 @@ name|long
 name|translogSizeInBytes
 parameter_list|()
 function_decl|;
-comment|/**      * Creates a new transaction log internally.      */
+comment|/**      * Creates a new transaction log internally.      *      *<p>Can only be called by one thread.      */
 DECL|method|newTranslog
 name|void
 name|newTranslog
@@ -253,6 +253,23 @@ name|id
 parameter_list|)
 throws|throws
 name|TranslogException
+function_decl|;
+comment|/**      * Creates a new transient translog, where added ops will be added to the current one, and to      * it.      *      *<p>Can only be called by one thread.      */
+DECL|method|newTransientTranslog
+name|void
+name|newTransientTranslog
+parameter_list|(
+name|long
+name|id
+parameter_list|)
+throws|throws
+name|TranslogException
+function_decl|;
+comment|/**      * Swaps the transient translog to be the current one.      *      *<p>Can only be called by one thread.      */
+DECL|method|makeTransientCurrent
+name|void
+name|makeTransientCurrent
+parameter_list|()
 function_decl|;
 comment|/**      * Adds a create operation to the transaction log.      */
 DECL|method|add
@@ -302,7 +319,7 @@ name|boolean
 name|syncOnEachOperation
 parameter_list|)
 function_decl|;
-comment|/**      * Closes the transaction log.      */
+comment|/**      * Closes the transaction log.      *      *<p>Can only be called by one thread.      */
 DECL|method|close
 name|void
 name|close
