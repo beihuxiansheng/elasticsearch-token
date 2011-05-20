@@ -127,7 +127,7 @@ name|Float
 operator|.
 name|NaN
 decl_stmt|;
-comment|// helper methods
+comment|/**      * Returns the current score and only applicable when used as a scoring script in a custom score query!.      * For other cases, use {@link #doc()} and get the score from it.      */
 DECL|method|score
 specifier|protected
 specifier|final
