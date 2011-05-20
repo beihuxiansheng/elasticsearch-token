@@ -151,7 +151,8 @@ argument_list|)
 return|;
 block|}
 DECL|class|AllDocIdSetIterator
-specifier|private
+specifier|public
+specifier|static
 specifier|final
 class|class
 name|AllDocIdSetIterator
@@ -173,7 +174,7 @@ operator|-
 literal|1
 decl_stmt|;
 DECL|method|AllDocIdSetIterator
-specifier|private
+specifier|public
 name|AllDocIdSetIterator
 parameter_list|(
 name|int
