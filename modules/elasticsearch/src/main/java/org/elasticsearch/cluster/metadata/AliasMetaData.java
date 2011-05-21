@@ -289,6 +289,13 @@ name|alias
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|filter
+operator|=
+name|aliasMetaData
+operator|.
+name|filter
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|alias
 specifier|public
