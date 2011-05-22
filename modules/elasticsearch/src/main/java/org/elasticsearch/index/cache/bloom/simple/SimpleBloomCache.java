@@ -176,20 +176,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|collect
-operator|.
-name|MapMaker
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|inject
 operator|.
 name|Inject
@@ -467,20 +453,13 @@ operator|.
 name|singles
 argument_list|()
 expr_stmt|;
-comment|// weak keys is fine, it will only be cleared once IndexReader references will be removed
-comment|// (assuming clear(...) will not be called)
 name|this
 operator|.
 name|cache
 operator|=
-operator|new
-name|MapMaker
-argument_list|()
+name|ConcurrentCollections
 operator|.
-name|weakKeys
-argument_list|()
-operator|.
-name|makeMap
+name|newConcurrentMap
 argument_list|()
 expr_stmt|;
 block|}
