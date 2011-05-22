@@ -76,9 +76,9 @@ name|field
 operator|.
 name|data
 operator|.
-name|soft
+name|resident
 operator|.
-name|SoftFieldDataCache
+name|ResidentFieldDataCache
 import|;
 end_import
 
@@ -157,7 +157,7 @@ name|FieldDataCacheSettings
 operator|.
 name|FIELD_DATA_CACHE_TYPE
 argument_list|,
-name|SoftFieldDataCache
+name|ResidentFieldDataCache
 operator|.
 name|class
 argument_list|,
