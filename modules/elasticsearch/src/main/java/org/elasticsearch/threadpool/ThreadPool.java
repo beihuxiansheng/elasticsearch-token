@@ -472,7 +472,7 @@ name|put
 argument_list|(
 literal|"keep_alive"
 argument_list|,
-literal|"30s"
+literal|"5m"
 argument_list|)
 operator|.
 name|build
@@ -611,7 +611,7 @@ name|put
 argument_list|(
 literal|"keep_alive"
 argument_list|,
-literal|"30s"
+literal|"5m"
 argument_list|)
 operator|.
 name|put
@@ -658,7 +658,7 @@ name|put
 argument_list|(
 literal|"keep_alive"
 argument_list|,
-literal|"30s"
+literal|"5m"
 argument_list|)
 operator|.
 name|put
