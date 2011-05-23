@@ -384,6 +384,8 @@ DECL|method|resolveDefault
 name|InetAddress
 name|resolveDefault
 parameter_list|()
+throws|throws
+name|IOException
 function_decl|;
 comment|/**          * Resolves a custom value handling, return<tt>null</tt> if can't handle it.          */
 DECL|method|resolveIfPossible
@@ -393,6 +395,8 @@ parameter_list|(
 name|String
 name|value
 parameter_list|)
+throws|throws
+name|IOException
 function_decl|;
 block|}
 DECL|field|customNameResolvers
