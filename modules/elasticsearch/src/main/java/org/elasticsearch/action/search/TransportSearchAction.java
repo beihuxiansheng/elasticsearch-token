@@ -437,10 +437,10 @@ operator|.
 name|state
 argument_list|()
 decl_stmt|;
-name|searchRequest
-operator|.
-name|indices
-argument_list|(
+name|String
+index|[]
+name|concreteIndices
+init|=
 name|clusterState
 operator|.
 name|metaData
@@ -453,8 +453,7 @@ operator|.
 name|indices
 argument_list|()
 argument_list|)
-argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|GroupShardsIterator
 name|groupIt
 init|=
@@ -467,10 +466,7 @@ name|searchShards
 argument_list|(
 name|clusterState
 argument_list|,
-name|searchRequest
-operator|.
-name|indices
-argument_list|()
+name|concreteIndices
 argument_list|,
 name|searchRequest
 operator|.

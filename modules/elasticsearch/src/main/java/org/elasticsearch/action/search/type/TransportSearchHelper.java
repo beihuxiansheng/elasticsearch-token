@@ -374,6 +374,10 @@ name|numberOfShards
 parameter_list|,
 name|SearchRequest
 name|request
+parameter_list|,
+name|String
+index|[]
+name|filteringAliases
 parameter_list|)
 block|{
 name|InternalSearchRequest
@@ -450,6 +454,13 @@ name|request
 operator|.
 name|timeout
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|internalRequest
+operator|.
+name|filteringAliases
+argument_list|(
+name|filteringAliases
 argument_list|)
 expr_stmt|;
 name|internalRequest
