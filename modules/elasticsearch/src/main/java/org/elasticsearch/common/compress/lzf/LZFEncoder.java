@@ -94,6 +94,11 @@ operator|new
 name|ChunkEncoder
 argument_list|(
 name|length
+argument_list|,
+name|BufferRecycler
+operator|.
+name|instance
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|byte

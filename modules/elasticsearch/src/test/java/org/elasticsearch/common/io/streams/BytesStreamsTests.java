@@ -129,6 +129,9 @@ name|out
 init|=
 name|CachedStreamOutput
 operator|.
+name|popEntry
+argument_list|()
+operator|.
 name|cachedBytes
 argument_list|()
 decl_stmt|;

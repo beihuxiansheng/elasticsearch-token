@@ -245,6 +245,21 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testHelloWorld
+annotation|@
+name|Override
+specifier|public
+name|void
+name|testHelloWorld
+parameter_list|()
+block|{
+name|super
+operator|.
+name|testHelloWorld
+argument_list|()
+expr_stmt|;
+comment|//To change body of overridden methods use File | Settings | File Templates.
+block|}
 DECL|method|testVoidMessageCompressed
 annotation|@
 name|Override

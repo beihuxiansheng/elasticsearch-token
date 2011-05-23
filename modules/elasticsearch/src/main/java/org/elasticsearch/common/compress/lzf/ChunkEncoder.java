@@ -143,12 +143,16 @@ index|[]
 name|_headerBuffer
 decl_stmt|;
 comment|/**      * @param totalLength Total encoded length; used for calculating size      *                    of hash table to use      */
+comment|// ES: Added recycler as a parameter so we can control its caching
 DECL|method|ChunkEncoder
 specifier|public
 name|ChunkEncoder
 parameter_list|(
 name|int
 name|totalLength
+parameter_list|,
+name|BufferRecycler
+name|recycler
 parameter_list|)
 block|{
 name|int
@@ -175,10 +179,7 @@ argument_list|)
 decl_stmt|;
 name|_recycler
 operator|=
-name|BufferRecycler
-operator|.
-name|instance
-argument_list|()
+name|recycler
 expr_stmt|;
 name|_hashTable
 operator|=
