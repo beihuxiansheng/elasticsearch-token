@@ -315,7 +315,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"text"
+literal|"query"
 argument_list|,
 name|text
 argument_list|)
