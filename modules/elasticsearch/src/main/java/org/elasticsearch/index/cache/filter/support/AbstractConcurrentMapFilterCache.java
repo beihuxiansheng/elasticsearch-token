@@ -1024,6 +1024,14 @@ expr_stmt|;
 block|}
 return|return
 name|docSet
+operator|==
+name|DocSet
+operator|.
+name|EMPTY_DOC_SET
+condition|?
+literal|null
+else|:
+name|docSet
 return|;
 block|}
 DECL|method|toString

@@ -1165,6 +1165,17 @@ name|cacheValue
 operator|.
 name|value
 argument_list|()
+operator|==
+name|DocSet
+operator|.
+name|EMPTY_DOC_SET
+condition|?
+literal|null
+else|:
+name|cacheValue
+operator|.
+name|value
+argument_list|()
 return|;
 block|}
 DECL|method|toString
