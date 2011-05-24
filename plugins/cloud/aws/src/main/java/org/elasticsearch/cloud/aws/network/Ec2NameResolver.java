@@ -106,7 +106,7 @@ block|{
 DECL|enum constant|PRIVATE_IPv4
 name|PRIVATE_IPv4
 argument_list|(
-literal|"_ec2:privateIpv4_"
+literal|"ec2:privateIpv4"
 argument_list|,
 literal|"local-ipv4"
 argument_list|)
@@ -114,7 +114,7 @@ block|,
 DECL|enum constant|PRIVATE_DNS
 name|PRIVATE_DNS
 argument_list|(
-literal|"_ec2:privateDns_"
+literal|"ec2:privateDns"
 argument_list|,
 literal|"local-hostname"
 argument_list|)
@@ -122,7 +122,7 @@ block|,
 DECL|enum constant|PUBLIC_IPv4
 name|PUBLIC_IPv4
 argument_list|(
-literal|"_ec2:publicIpv4_"
+literal|"ec2:publicIpv4"
 argument_list|,
 literal|"public-ipv4"
 argument_list|)
@@ -130,7 +130,7 @@ block|,
 DECL|enum constant|PUBLIC_DNS
 name|PUBLIC_DNS
 argument_list|(
-literal|"_ec2:publicDns_"
+literal|"ec2:publicDns"
 argument_list|,
 literal|"public-hostname"
 argument_list|)
@@ -139,7 +139,7 @@ comment|// some less verbose defaults
 DECL|enum constant|PUBLIC_IP
 name|PUBLIC_IP
 argument_list|(
-literal|"_ec2:publicIp_"
+literal|"ec2:publicIp"
 argument_list|,
 name|PUBLIC_IPv4
 operator|.
@@ -149,7 +149,7 @@ block|,
 DECL|enum constant|PRIVATE_IP
 name|PRIVATE_IP
 argument_list|(
-literal|"_ec2:privateIp_"
+literal|"ec2:privateIp"
 argument_list|,
 name|PRIVATE_IPv4
 operator|.
@@ -159,7 +159,7 @@ block|,
 DECL|enum constant|DEFAULT
 name|DEFAULT
 argument_list|(
-literal|"_ec2"
+literal|"ec2"
 argument_list|,
 name|PRIVATE_IPv4
 operator|.
