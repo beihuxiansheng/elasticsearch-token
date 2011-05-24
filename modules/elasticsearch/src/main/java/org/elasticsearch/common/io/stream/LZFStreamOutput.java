@@ -461,8 +461,10 @@ condition|(
 name|neverClose
 condition|)
 block|{
-name|reset
-argument_list|()
+comment|// just reset here the LZF stream (not the underlying stream, since we might want to read from it)
+name|_position
+operator|=
+literal|0
 expr_stmt|;
 return|return;
 block|}
