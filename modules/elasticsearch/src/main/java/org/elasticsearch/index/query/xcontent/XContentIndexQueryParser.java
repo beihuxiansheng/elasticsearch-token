@@ -122,7 +122,7 @@ name|common
 operator|.
 name|io
 operator|.
-name|FastByteArrayOutputStream
+name|BytesStream
 import|;
 end_import
 
@@ -1037,7 +1037,7 @@ literal|null
 decl_stmt|;
 try|try
 block|{
-name|FastByteArrayOutputStream
+name|BytesStream
 name|unsafeBytes
 init|=
 name|queryBuilder

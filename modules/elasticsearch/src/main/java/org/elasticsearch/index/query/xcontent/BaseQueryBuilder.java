@@ -28,7 +28,7 @@ name|common
 operator|.
 name|io
 operator|.
-name|FastByteArrayOutputStream
+name|BytesStream
 import|;
 end_import
 
@@ -115,7 +115,7 @@ DECL|method|buildAsUnsafeBytes
 annotation|@
 name|Override
 specifier|public
-name|FastByteArrayOutputStream
+name|BytesStream
 name|buildAsUnsafeBytes
 parameter_list|()
 throws|throws
@@ -134,7 +134,7 @@ DECL|method|buildAsUnsafeBytes
 annotation|@
 name|Override
 specifier|public
-name|FastByteArrayOutputStream
+name|BytesStream
 name|buildAsUnsafeBytes
 parameter_list|(
 name|XContentType

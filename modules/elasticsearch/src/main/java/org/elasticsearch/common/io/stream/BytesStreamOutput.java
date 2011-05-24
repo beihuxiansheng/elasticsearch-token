@@ -20,6 +20,20 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|io
+operator|.
+name|BytesStream
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -49,6 +63,8 @@ class|class
 name|BytesStreamOutput
 extends|extends
 name|StreamOutput
+implements|implements
+name|BytesStream
 block|{
 comment|/**      * The buffer where data is stored.      */
 DECL|field|buf

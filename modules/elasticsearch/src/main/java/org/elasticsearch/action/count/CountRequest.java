@@ -166,7 +166,7 @@ name|common
 operator|.
 name|io
 operator|.
-name|FastByteArrayOutputStream
+name|BytesStream
 import|;
 end_import
 
@@ -648,7 +648,7 @@ name|QueryBuilder
 name|queryBuilder
 parameter_list|)
 block|{
-name|FastByteArrayOutputStream
+name|BytesStream
 name|bos
 init|=
 name|queryBuilder

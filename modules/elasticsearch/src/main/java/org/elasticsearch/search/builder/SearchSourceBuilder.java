@@ -78,7 +78,7 @@ name|common
 operator|.
 name|io
 operator|.
-name|FastByteArrayOutputStream
+name|BytesStream
 import|;
 end_import
 
@@ -1298,7 +1298,7 @@ block|}
 block|}
 DECL|method|buildAsUnsafeBytes
 specifier|public
-name|FastByteArrayOutputStream
+name|BytesStream
 name|buildAsUnsafeBytes
 parameter_list|(
 name|XContentType

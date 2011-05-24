@@ -144,7 +144,7 @@ name|common
 operator|.
 name|io
 operator|.
-name|FastByteArrayOutputStream
+name|BytesStream
 import|;
 end_import
 
@@ -927,7 +927,7 @@ name|SearchSourceBuilder
 name|sourceBuilder
 parameter_list|)
 block|{
-name|FastByteArrayOutputStream
+name|BytesStream
 name|bos
 init|=
 name|sourceBuilder
@@ -1296,7 +1296,7 @@ name|SearchSourceBuilder
 name|sourceBuilder
 parameter_list|)
 block|{
-name|FastByteArrayOutputStream
+name|BytesStream
 name|bos
 init|=
 name|sourceBuilder

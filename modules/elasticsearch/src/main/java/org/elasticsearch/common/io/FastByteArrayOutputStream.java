@@ -79,6 +79,8 @@ class|class
 name|FastByteArrayOutputStream
 extends|extends
 name|OutputStream
+implements|implements
+name|BytesStream
 block|{
 comment|/**      * A thread local based cache of {@link FastByteArrayOutputStream}.      */
 DECL|class|Cached
