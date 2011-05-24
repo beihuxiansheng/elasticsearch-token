@@ -76,6 +76,34 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|logging
+operator|.
+name|ESLogger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|logging
+operator|.
+name|Loggers
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|network
 operator|.
 name|NetworkService
@@ -85,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Resolves certain ec2 related 'meta' hostnames into an actual hostname  * obtained from ec2 meta-data.  *<p />   * Valid config values for {@link Ec2HostnameType}s are -  *<ul>  *<li>_ec2 - maps to privateIpv4</li>  *<li>_ec2:privateIp_ - maps to privateIpv4</li>  *<li>_ec2:privateIpv4_</li>  *<li>_ec2:privateDns_</li>  *<li>_ec2:publicIp_ - maps to publicIpv4</li>  *<li>_ec2:publicIpv4_</li>  *<li>_ec2:publicDns_</li>  *</ul>  * @author Paul_Loy (keteracel)  */
+comment|/**  * Resolves certain ec2 related 'meta' hostnames into an actual hostname  * obtained from ec2 meta-data.  *<p />   * Valid config values for {@link Ec2HostnameType}s are -  *<ul>  *<li>_ec2_ - maps to privateIpv4</li>  *<li>_ec2:privateIp_ - maps to privateIpv4</li>  *<li>_ec2:privateIpv4_</li>  *<li>_ec2:privateDns_</li>  *<li>_ec2:publicIp_ - maps to publicIpv4</li>  *<li>_ec2:publicIpv4_</li>  *<li>_ec2:publicDns_</li>  *</ul>  * @author Paul_Loy (keteracel)  */
 end_comment
 
 begin_class
@@ -210,13 +238,30 @@ name|EC2_METADATA_URL
 init|=
 literal|"http://169.254.169.254/latest/meta-data/"
 decl_stmt|;
-comment|/** 	 * Construct a {@link CustomNameResolver} with the given {@link Ec2HostnameType} 	 * address type. 	 *  	 * @param addressType the type of ec2 host to bind to. 	 */
+DECL|field|logger
+specifier|private
+specifier|final
+name|ESLogger
+name|logger
+decl_stmt|;
+comment|/** 	 * Construct a {@link CustomNameResolver}. 	 *  	 */
 DECL|method|Ec2NameResolver
 specifier|public
 name|Ec2NameResolver
 parameter_list|()
-block|{ 	}
-comment|/** 	 * @return the appropriate host resolved from ec2 meta-data. 	 * @throws IOException if ec2 meta-data cannot be obtained. 	 *  	 * @see CustomNameResolver#resolveIfPossible(String) 	 */
+block|{
+name|logger
+operator|=
+name|Loggers
+operator|.
+name|getLogger
+argument_list|(
+name|getClass
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+comment|/** 	 * @param type the ec2 hostname type to discover. 	 * @return the appropriate host resolved from ec2 meta-data. 	 * @throws IOException if ec2 meta-data cannot be obtained. 	 *  	 * @see CustomNameResolver#resolveIfPossible(String) 	 */
 DECL|method|resolve
 specifier|public
 name|InetAddress
@@ -225,8 +270,8 @@ parameter_list|(
 name|Ec2HostnameType
 name|type
 parameter_list|)
-throws|throws
-name|IOException
+block|{
+try|try
 block|{
 name|URL
 name|url
@@ -241,6 +286,15 @@ operator|.
 name|ec2Name
 argument_list|)
 decl_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"obtaining ec2 hostname from ec2 meta-data url {}"
+argument_list|,
+name|url
+argument_list|)
+expr_stmt|;
 name|BufferedReader
 name|urlReader
 init|=
@@ -279,15 +333,18 @@ operator|==
 literal|0
 condition|)
 block|{
-throw|throw
-operator|new
-name|IOException
+name|logger
+operator|.
+name|error
 argument_list|(
-literal|"no ec2 metadata returned from :"
-operator|+
+literal|"no ec2 metadata returned from {}"
+argument_list|,
 name|url
 argument_list|)
-throw|;
+expr_stmt|;
+return|return
+literal|null
+return|;
 block|}
 return|return
 name|InetAddress
@@ -298,6 +355,26 @@ name|metadataResult
 argument_list|)
 return|;
 block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|error
+argument_list|(
+literal|"exception obtaining metadata"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+return|return
+literal|null
+return|;
+block|}
+block|}
 comment|/* 	 * (non-Javadoc) 	 * @see org.elasticsearch.common.network.NetworkService.CustomNameResolver#resolveDefault() 	 */
 annotation|@
 name|Override
@@ -306,8 +383,6 @@ specifier|public
 name|InetAddress
 name|resolveDefault
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 return|return
 name|resolve
@@ -329,8 +404,6 @@ parameter_list|(
 name|String
 name|value
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 for|for
 control|(
