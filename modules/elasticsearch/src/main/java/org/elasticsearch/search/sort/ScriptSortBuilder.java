@@ -176,6 +176,8 @@ return|;
 block|}
 comment|/**      * Sets the sort order.      */
 DECL|method|order
+annotation|@
+name|Override
 specifier|public
 name|ScriptSortBuilder
 name|order

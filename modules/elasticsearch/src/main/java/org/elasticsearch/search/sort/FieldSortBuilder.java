@@ -86,6 +86,8 @@ expr_stmt|;
 block|}
 comment|/**      * The order of sorting. Defaults to {@link SortOrder#ASC}.      */
 DECL|method|order
+annotation|@
+name|Override
 specifier|public
 name|FieldSortBuilder
 name|order
@@ -106,6 +108,8 @@ return|;
 block|}
 comment|/**      * Sets the value when a field is missing in a doc. Can also be set to<tt>_last</tt> or      *<tt>_first</tt> to sort missing last or first respectively.      */
 DECL|method|missing
+annotation|@
+name|Override
 specifier|public
 name|FieldSortBuilder
 name|missing

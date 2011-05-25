@@ -390,6 +390,8 @@ return|;
 block|}
 comment|/**      * Should the facet run in global mode (not bounded by the search query) or not (bounded by      * the search query). Defaults to<tt>false</tt>.      */
 DECL|method|global
+annotation|@
+name|Override
 specifier|public
 name|DateHistogramFacetBuilder
 name|global
@@ -434,6 +436,8 @@ return|;
 block|}
 comment|/**      * An additional filter used to further filter down the set of documents the facet will run on.      */
 DECL|method|facetFilter
+annotation|@
+name|Override
 specifier|public
 name|DateHistogramFacetBuilder
 name|facetFilter

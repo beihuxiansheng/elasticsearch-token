@@ -224,6 +224,8 @@ return|;
 block|}
 comment|/**      * The order of sorting. Defaults to {@link SortOrder#ASC}.      */
 DECL|method|order
+annotation|@
+name|Override
 specifier|public
 name|GeoDistanceSortBuilder
 name|order

@@ -59,6 +59,8 @@ name|order
 decl_stmt|;
 comment|/**      * The order of sort scoring. By default, its {@link SortOrder#DESC}.      */
 DECL|method|order
+annotation|@
+name|Override
 specifier|public
 name|ScoreSortBuilder
 name|order
