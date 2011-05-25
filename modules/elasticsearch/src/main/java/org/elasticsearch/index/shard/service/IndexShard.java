@@ -341,6 +341,12 @@ name|Nullable
 name|String
 name|queryParserName
 parameter_list|,
+annotation|@
+name|Nullable
+name|String
+index|[]
+name|filteringAliases
+parameter_list|,
 name|String
 modifier|...
 name|types
@@ -369,6 +375,12 @@ annotation|@
 name|Nullable
 name|String
 name|queryParserName
+parameter_list|,
+annotation|@
+name|Nullable
+name|String
+index|[]
+name|filteringAliases
 parameter_list|,
 name|String
 modifier|...

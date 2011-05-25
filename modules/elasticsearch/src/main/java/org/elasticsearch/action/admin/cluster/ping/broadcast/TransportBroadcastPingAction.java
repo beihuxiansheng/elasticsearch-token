@@ -370,6 +370,10 @@ parameter_list|(
 name|BroadcastPingRequest
 name|request
 parameter_list|,
+name|String
+index|[]
+name|concreteIndices
+parameter_list|,
 name|ClusterState
 name|clusterState
 parameter_list|)
@@ -384,10 +388,7 @@ name|searchShards
 argument_list|(
 name|clusterState
 argument_list|,
-name|request
-operator|.
-name|indices
-argument_list|()
+name|concreteIndices
 argument_list|,
 name|request
 operator|.

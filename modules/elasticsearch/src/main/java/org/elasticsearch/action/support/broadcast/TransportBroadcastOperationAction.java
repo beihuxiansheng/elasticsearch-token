@@ -501,6 +501,10 @@ parameter_list|(
 name|Request
 name|request
 parameter_list|,
+name|String
+index|[]
+name|concreteIndices
+parameter_list|,
 name|ClusterState
 name|clusterState
 parameter_list|)
@@ -566,6 +570,10 @@ name|checkBlock
 parameter_list|(
 name|Request
 name|request
+parameter_list|,
+name|String
+index|[]
+name|indices
 parameter_list|,
 name|ClusterState
 name|state
@@ -640,6 +648,13 @@ specifier|final
 name|AtomicReferenceArray
 name|shardsResponses
 decl_stmt|;
+DECL|field|concreteIndices
+specifier|private
+specifier|final
+name|String
+index|[]
+name|concreteIndices
+decl_stmt|;
 DECL|method|AsyncBroadcastAction
 name|AsyncBroadcastAction
 parameter_list|(
@@ -673,10 +688,8 @@ name|state
 argument_list|()
 expr_stmt|;
 comment|// update to concrete indices
-name|request
-operator|.
-name|indices
-argument_list|(
+name|concreteIndices
+operator|=
 name|clusterState
 operator|.
 name|metaData
@@ -689,11 +702,12 @@ operator|.
 name|indices
 argument_list|()
 argument_list|)
-argument_list|)
 expr_stmt|;
 name|checkBlock
 argument_list|(
 name|request
+argument_list|,
+name|concreteIndices
 argument_list|,
 name|clusterState
 argument_list|)
@@ -710,6 +724,8 @@ operator|=
 name|shards
 argument_list|(
 name|request
+argument_list|,
+name|concreteIndices
 argument_list|,
 name|clusterState
 argument_list|)

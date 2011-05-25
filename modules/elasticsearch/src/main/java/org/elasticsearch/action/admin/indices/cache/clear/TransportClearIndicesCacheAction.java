@@ -797,6 +797,10 @@ parameter_list|(
 name|ClearIndicesCacheRequest
 name|request
 parameter_list|,
+name|String
+index|[]
+name|concreteIndices
+parameter_list|,
 name|ClusterState
 name|clusterState
 parameter_list|)
@@ -809,10 +813,7 @@ argument_list|()
 operator|.
 name|allShardsGrouped
 argument_list|(
-name|request
-operator|.
-name|indices
-argument_list|()
+name|concreteIndices
 argument_list|)
 return|;
 block|}
