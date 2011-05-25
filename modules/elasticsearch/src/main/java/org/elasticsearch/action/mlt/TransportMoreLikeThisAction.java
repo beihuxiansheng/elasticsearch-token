@@ -585,10 +585,10 @@ name|state
 argument_list|()
 decl_stmt|;
 comment|// update to the concrete index
-name|request
-operator|.
-name|index
-argument_list|(
+specifier|final
+name|String
+name|concreteIndex
+init|=
 name|clusterState
 operator|.
 name|metaData
@@ -601,8 +601,7 @@ operator|.
 name|index
 argument_list|()
 argument_list|)
-argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|Set
 argument_list|<
 name|String
@@ -650,10 +649,7 @@ name|getRequest
 init|=
 name|getRequest
 argument_list|(
-name|request
-operator|.
-name|index
-argument_list|()
+name|concreteIndex
 argument_list|)
 operator|.
 name|fields
@@ -765,10 +761,7 @@ name|indicesService
 operator|.
 name|indexServiceSafe
 argument_list|(
-name|request
-operator|.
-name|index
-argument_list|()
+name|concreteIndex
 argument_list|)
 operator|.
 name|mapperService
