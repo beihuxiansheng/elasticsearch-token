@@ -532,6 +532,7 @@ return|;
 block|}
 else|else
 block|{
+comment|// we need to bench here a bit, to see maybe it makes sense to use OrFilter
 name|XBooleanFilter
 name|combined
 init|=
