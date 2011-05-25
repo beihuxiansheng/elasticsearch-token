@@ -349,11 +349,11 @@ operator|.
 name|state
 argument_list|()
 decl_stmt|;
-comment|// update to actual indices
-name|request
-operator|.
-name|indices
-argument_list|(
+comment|// get actual indices
+name|String
+index|[]
+name|concreteIndices
+init|=
 name|clusterState
 operator|.
 name|metaData
@@ -366,24 +366,16 @@ operator|.
 name|indices
 argument_list|()
 argument_list|)
-argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|checkBlock
 argument_list|(
 name|request
 argument_list|,
+name|concreteIndices
+argument_list|,
 name|clusterState
 argument_list|)
 expr_stmt|;
-name|String
-index|[]
-name|indices
-init|=
-name|request
-operator|.
-name|indices
-argument_list|()
-decl_stmt|;
 specifier|final
 name|AtomicInteger
 name|indexCounter
@@ -399,7 +391,7 @@ init|=
 operator|new
 name|AtomicInteger
 argument_list|(
-name|indices
+name|concreteIndices
 operator|.
 name|length
 argument_list|)
@@ -417,7 +409,7 @@ argument_list|<
 name|Object
 argument_list|>
 argument_list|(
-name|indices
+name|concreteIndices
 operator|.
 name|length
 argument_list|)
@@ -428,7 +420,7 @@ specifier|final
 name|String
 name|index
 range|:
-name|indices
+name|concreteIndices
 control|)
 block|{
 name|IndexRequest
@@ -630,6 +622,10 @@ name|checkBlock
 parameter_list|(
 name|Request
 name|request
+parameter_list|,
+name|String
+index|[]
+name|concreteIndices
 parameter_list|,
 name|ClusterState
 name|state

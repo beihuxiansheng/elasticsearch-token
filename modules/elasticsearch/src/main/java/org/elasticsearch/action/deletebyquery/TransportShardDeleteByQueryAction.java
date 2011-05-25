@@ -389,6 +389,11 @@ argument_list|()
 argument_list|,
 name|request
 operator|.
+name|filteringAliases
+argument_list|()
+argument_list|,
+name|request
+operator|.
 name|types
 argument_list|()
 argument_list|)
@@ -441,6 +446,11 @@ argument_list|,
 name|request
 operator|.
 name|queryParserName
+argument_list|()
+argument_list|,
+name|request
+operator|.
+name|filteringAliases
 argument_list|()
 argument_list|,
 name|request
