@@ -510,6 +510,14 @@ name|enablePositionIncrements
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|setAutoGeneratePhraseQueries
+argument_list|(
+name|settings
+operator|.
+name|autoGeneratePhraseQueries
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|setAllowLeadingWildcard
 argument_list|(
 name|settings
