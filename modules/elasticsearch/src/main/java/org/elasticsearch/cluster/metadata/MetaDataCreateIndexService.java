@@ -2691,6 +2691,16 @@ range|:
 name|mappingsFiles
 control|)
 block|{
+if|if
+condition|(
+name|mappingFile
+operator|.
+name|isHidden
+argument_list|()
+condition|)
+block|{
+continue|continue;
+block|}
 name|String
 name|mappingType
 init|=
