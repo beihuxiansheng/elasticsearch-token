@@ -18,6 +18,18 @@ name|xcontent
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|Nullable
+import|;
+end_import
+
 begin_comment
 comment|/**  * A static factory for simple "import static" usage.  *  * @author kimchy (shay.banon)  */
 end_comment
@@ -156,22 +168,25 @@ name|DisMaxQueryBuilder
 argument_list|()
 return|;
 block|}
-comment|/**      * Constructs a query that will match only specific ids within a type.      *      * @param type The mapping/doc type      */
+comment|/**      * Constructs a query that will match only specific ids within types.      *      * @param types The mapping/doc type      */
 DECL|method|idsQuery
 specifier|public
 specifier|static
 name|IdsQueryBuilder
 name|idsQuery
 parameter_list|(
+annotation|@
+name|Nullable
 name|String
-name|type
+modifier|...
+name|types
 parameter_list|)
 block|{
 return|return
 operator|new
 name|IdsQueryBuilder
 argument_list|(
-name|type
+name|types
 argument_list|)
 return|;
 block|}

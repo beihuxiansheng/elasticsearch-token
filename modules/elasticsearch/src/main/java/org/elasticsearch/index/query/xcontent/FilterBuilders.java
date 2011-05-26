@@ -18,6 +18,18 @@ name|xcontent
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|Nullable
+import|;
+end_import
+
 begin_comment
 comment|/**  * A static factory for simple "import static" usage.  *  * @author kimchy (shay.banon)  */
 end_comment
@@ -43,22 +55,25 @@ name|MatchAllFilterBuilder
 argument_list|()
 return|;
 block|}
-comment|/**      * Creates a new ids filter with the provided doc/mapping type.      *      * @param type The type      */
+comment|/**      * Creates a new ids filter with the provided doc/mapping types.      *      * @param types The types to match the ids against.      */
 DECL|method|idsFilter
 specifier|public
 specifier|static
 name|IdsFilterBuilder
 name|idsFilter
 parameter_list|(
+annotation|@
+name|Nullable
 name|String
-name|type
+modifier|...
+name|types
 parameter_list|)
 block|{
 return|return
 operator|new
 name|IdsFilterBuilder
 argument_list|(
-name|type
+name|types
 argument_list|)
 return|;
 block|}
