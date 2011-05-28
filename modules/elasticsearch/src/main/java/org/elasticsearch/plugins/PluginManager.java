@@ -1382,6 +1382,17 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"Installed "
+operator|+
+name|name
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|removePlugin
 specifier|public
