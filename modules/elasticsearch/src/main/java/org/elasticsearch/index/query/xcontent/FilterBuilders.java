@@ -55,6 +55,25 @@ name|MatchAllFilterBuilder
 argument_list|()
 return|;
 block|}
+comment|/**      * A filter that limits the results to the provided limit value (per shard!).      */
+DECL|method|limitFilter
+specifier|public
+specifier|static
+name|LimitFilterBuilder
+name|limitFilter
+parameter_list|(
+name|int
+name|limit
+parameter_list|)
+block|{
+return|return
+operator|new
+name|LimitFilterBuilder
+argument_list|(
+name|limit
+argument_list|)
+return|;
+block|}
 comment|/**      * Creates a new ids filter with the provided doc/mapping types.      *      * @param types The types to match the ids against.      */
 DECL|method|idsFilter
 specifier|public
