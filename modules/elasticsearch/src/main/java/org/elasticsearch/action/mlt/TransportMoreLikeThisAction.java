@@ -990,12 +990,10 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+operator|!
 name|boolBuilder
 operator|.
-name|clauses
-argument_list|()
-operator|.
-name|isEmpty
+name|hasClauses
 argument_list|()
 condition|)
 block|{
