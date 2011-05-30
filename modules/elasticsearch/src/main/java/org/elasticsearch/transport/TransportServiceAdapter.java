@@ -70,22 +70,6 @@ name|DiscoveryNode
 name|node
 parameter_list|)
 function_decl|;
-DECL|method|received
-name|void
-name|received
-parameter_list|(
-name|long
-name|size
-parameter_list|)
-function_decl|;
-DECL|method|sent
-name|void
-name|sent
-parameter_list|(
-name|long
-name|size
-parameter_list|)
-function_decl|;
 block|}
 end_interface
 
