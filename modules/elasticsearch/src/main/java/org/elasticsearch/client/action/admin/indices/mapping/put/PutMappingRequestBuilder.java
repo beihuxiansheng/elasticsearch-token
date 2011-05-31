@@ -116,6 +116,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Required
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|unit
 operator|.
 name|TimeValue
@@ -202,8 +214,10 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The type of the mappings. Not required since it can be defined explicitly within the mapping source.      * If it is not defined within the mapping source, then it is required.      */
+comment|/**      * The type of the mappings.      */
 DECL|method|setType
+annotation|@
+name|Required
 specifier|public
 name|PutMappingRequestBuilder
 name|setType

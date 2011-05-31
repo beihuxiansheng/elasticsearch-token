@@ -318,6 +318,23 @@ literal|null
 decl_stmt|;
 if|if
 condition|(
+name|mappingType
+operator|==
+literal|null
+condition|)
+block|{
+name|validationException
+operator|=
+name|addValidationError
+argument_list|(
+literal|"mapping type is missing"
+argument_list|,
+name|validationException
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|mappingSource
 operator|==
 literal|null
@@ -381,8 +398,10 @@ return|return
 name|mappingType
 return|;
 block|}
-comment|/**      * The type of the mappings. Not required since it can be defined explicitly within the mapping source.      * If it is not defined within the mapping source, then it is required.      */
+comment|/**      * The type of the mappings.      */
 DECL|method|type
+annotation|@
+name|Required
 specifier|public
 name|PutMappingRequest
 name|type
