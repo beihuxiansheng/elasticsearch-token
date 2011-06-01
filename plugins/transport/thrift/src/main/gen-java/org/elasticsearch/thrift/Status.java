@@ -14,24 +14,18 @@ name|thrift
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|thrift
-operator|.
-name|TEnum
-import|;
-end_import
-
 begin_enum
 DECL|enum|Status
 specifier|public
 enum|enum
 name|Status
 implements|implements
+name|org
+operator|.
+name|apache
+operator|.
+name|thrift
+operator|.
 name|TEnum
 block|{
 DECL|enum constant|CONT

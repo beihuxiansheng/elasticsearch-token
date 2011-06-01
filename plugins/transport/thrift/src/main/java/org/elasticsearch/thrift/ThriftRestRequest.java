@@ -360,7 +360,7 @@ argument_list|()
 operator|&&
 name|request
 operator|.
-name|BufferForBody
+name|bufferForBody
 argument_list|()
 operator|.
 name|remaining
@@ -408,7 +408,7 @@ block|}
 return|return
 name|request
 operator|.
-name|BufferForBody
+name|bufferForBody
 argument_list|()
 operator|.
 name|array
@@ -439,7 +439,7 @@ block|}
 return|return
 name|request
 operator|.
-name|BufferForBody
+name|bufferForBody
 argument_list|()
 operator|.
 name|arrayOffset
@@ -470,7 +470,7 @@ block|}
 return|return
 name|request
 operator|.
-name|BufferForBody
+name|bufferForBody
 argument_list|()
 operator|.
 name|remaining
