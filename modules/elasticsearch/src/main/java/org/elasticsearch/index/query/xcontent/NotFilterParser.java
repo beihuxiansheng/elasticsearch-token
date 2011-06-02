@@ -331,6 +331,19 @@ name|parseInnerFilter
 argument_list|()
 expr_stmt|;
 block|}
+else|else
+block|{
+comment|// its the filter, and the name is the field
+name|filter
+operator|=
+name|parseContext
+operator|.
+name|parseInnerFilter
+argument_list|(
+name|currentFieldName
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 elseif|else
 if|if

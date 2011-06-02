@@ -985,6 +985,69 @@ return|return
 name|result
 return|;
 block|}
+DECL|method|parseInnerFilter
+specifier|public
+name|Filter
+name|parseInnerFilter
+parameter_list|(
+name|String
+name|filterName
+parameter_list|)
+throws|throws
+name|IOException
+throws|,
+name|QueryParsingException
+block|{
+name|XContentFilterParser
+name|filterParser
+init|=
+name|indexQueryParser
+operator|.
+name|filterParser
+argument_list|(
+name|filterName
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|filterParser
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|QueryParsingException
+argument_list|(
+name|index
+argument_list|,
+literal|"No filter registered for ["
+operator|+
+name|filterName
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
+name|Filter
+name|result
+init|=
+name|filterParser
+operator|.
+name|parse
+argument_list|(
+name|this
+argument_list|)
+decl_stmt|;
+comment|// don't move to the nextToken in this case...
+comment|//        if (parser.currentToken() == XContentParser.Token.END_OBJECT || parser.currentToken() == XContentParser.Token.END_ARRAY) {
+comment|//            // if we are at END_OBJECT, move to the next one...
+comment|//            parser.nextToken();
+comment|//        }
+return|return
+name|result
+return|;
+block|}
 DECL|method|fieldMapper
 specifier|public
 name|FieldMapper
