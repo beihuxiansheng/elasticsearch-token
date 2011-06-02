@@ -4629,7 +4629,6 @@ literal|"Already flushing..."
 argument_list|)
 throw|;
 block|}
-comment|// We can't do prepareCommit here, since we rely on the the segment version for the translog version
 try|try
 block|{
 if|if
