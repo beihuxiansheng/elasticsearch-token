@@ -489,17 +489,6 @@ name|builder
 return|;
 block|}
 block|}
-DECL|class|FieldWrapper
-specifier|static
-class|class
-name|FieldWrapper
-block|{
-DECL|field|field
-specifier|public
-name|Field
-name|field
-decl_stmt|;
-block|}
 DECL|field|nullValue
 specifier|private
 name|String
