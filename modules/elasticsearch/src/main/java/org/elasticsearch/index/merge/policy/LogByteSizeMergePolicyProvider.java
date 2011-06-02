@@ -547,7 +547,7 @@ block|{
 name|mergePolicy
 operator|=
 operator|new
-name|CustomLogByteSizeMergePolicy
+name|EnableMergeLogByteSizeMergePolicy
 argument_list|(
 name|this
 argument_list|)

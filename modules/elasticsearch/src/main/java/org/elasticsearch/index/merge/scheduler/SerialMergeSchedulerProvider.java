@@ -430,6 +430,9 @@ if|if
 condition|(
 name|writer
 operator|.
+name|getConfig
+argument_list|()
+operator|.
 name|getMergePolicy
 argument_list|()
 operator|instanceof
@@ -444,6 +447,9 @@ operator|(
 name|EnableMergePolicy
 operator|)
 name|writer
+operator|.
+name|getConfig
+argument_list|()
 operator|.
 name|getMergePolicy
 argument_list|()
