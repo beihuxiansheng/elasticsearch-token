@@ -1121,6 +1121,34 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
+literal|","
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|InvalidTypeNameException
+argument_list|(
+literal|"mapping type name ["
+operator|+
+name|mapper
+operator|.
+name|type
+argument_list|()
+operator|+
+literal|"] should not include ',' in it"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|mapper
+operator|.
+name|type
+argument_list|()
+operator|.
+name|contains
+argument_list|(
 literal|"."
 argument_list|)
 condition|)
