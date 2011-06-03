@@ -102,8 +102,6 @@ name|index
 operator|.
 name|query
 operator|.
-name|xcontent
-operator|.
 name|QueryBuilders
 import|;
 end_import

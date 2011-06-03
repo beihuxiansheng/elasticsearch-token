@@ -130,9 +130,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|xcontent
-operator|.
-name|QueryBuilders
+name|FilterBuilder
 import|;
 end_import
 
@@ -146,9 +144,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|xcontent
-operator|.
-name|XContentFilterBuilder
+name|QueryBuilders
 import|;
 end_import
 
@@ -287,8 +283,6 @@ operator|.
 name|index
 operator|.
 name|query
-operator|.
-name|xcontent
 operator|.
 name|FilterBuilders
 operator|.
@@ -1209,7 +1203,7 @@ argument_list|(
 literal|"--> aliasing index [test] with [alias1] and filter [user:kimchy]"
 argument_list|)
 expr_stmt|;
-name|XContentFilterBuilder
+name|FilterBuilder
 name|filter
 init|=
 name|termFilter

@@ -56,9 +56,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|xcontent
-operator|.
-name|XContentFilterBuilder
+name|FilterBuilder
 import|;
 end_import
 
@@ -428,7 +426,7 @@ specifier|public
 name|HistogramScriptFacetBuilder
 name|facetFilter
 parameter_list|(
-name|XContentFilterBuilder
+name|FilterBuilder
 name|filter
 parameter_list|)
 block|{

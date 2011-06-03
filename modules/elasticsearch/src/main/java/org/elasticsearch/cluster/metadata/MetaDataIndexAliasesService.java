@@ -194,9 +194,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|xcontent
-operator|.
-name|XContentIndexQueryParser
+name|IndexQueryParserService
 import|;
 end_import
 
@@ -726,18 +724,12 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// now, parse the filter
-name|XContentIndexQueryParser
+name|IndexQueryParserService
 name|indexQueryParser
 init|=
-operator|(
-name|XContentIndexQueryParser
-operator|)
 name|indexService
 operator|.
 name|queryParserService
-argument_list|()
-operator|.
-name|defaultIndexQueryParser
 argument_list|()
 decl_stmt|;
 try|try

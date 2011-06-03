@@ -26,9 +26,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|xcontent
-operator|.
-name|XContentFilterBuilder
+name|FilterBuilder
 import|;
 end_import
 
@@ -42,9 +40,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|xcontent
-operator|.
-name|XContentQueryBuilder
+name|QueryBuilder
 import|;
 end_import
 
@@ -277,7 +273,7 @@ parameter_list|(
 name|String
 name|facetName
 parameter_list|,
-name|XContentQueryBuilder
+name|QueryBuilder
 name|query
 parameter_list|)
 block|{
@@ -321,7 +317,7 @@ parameter_list|(
 name|String
 name|facetName
 parameter_list|,
-name|XContentFilterBuilder
+name|FilterBuilder
 name|filter
 parameter_list|)
 block|{

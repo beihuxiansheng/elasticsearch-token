@@ -687,7 +687,7 @@ name|BulkRequest
 argument_list|()
 return|;
 block|}
-comment|/**      * Creates a delete by query request. Note, the query itself must be set either by setting the JSON source      * of the query, or by using a {@link org.elasticsearch.index.query.QueryBuilder} (using {@link org.elasticsearch.index.query.xcontent.QueryBuilders}).      *      * @param indices The indices the delete by query against. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The delete by query request      * @see org.elasticsearch.client.Client#deleteByQuery(org.elasticsearch.action.deletebyquery.DeleteByQueryRequest)      */
+comment|/**      * Creates a delete by query request. Note, the query itself must be set either by setting the JSON source      * of the query, or by using a {@link org.elasticsearch.index.query.QueryBuilder} (using {@link org.elasticsearch.index.query.QueryBuilders}).      *      * @param indices The indices the delete by query against. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The delete by query request      * @see org.elasticsearch.client.Client#deleteByQuery(org.elasticsearch.action.deletebyquery.DeleteByQueryRequest)      */
 DECL|method|deleteByQueryRequest
 specifier|public
 specifier|static
@@ -726,7 +726,7 @@ name|index
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a count request which counts the hits matched against a query. Note, the query itself must be set      * either using the JSON source of the query, or using a {@link org.elasticsearch.index.query.QueryBuilder} (using {@link org.elasticsearch.index.query.xcontent.QueryBuilders}).      *      * @param indices The indices to count matched documents against a query. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The count request      * @see org.elasticsearch.client.Client#count(org.elasticsearch.action.count.CountRequest)      */
+comment|/**      * Creates a count request which counts the hits matched against a query. Note, the query itself must be set      * either using the JSON source of the query, or using a {@link org.elasticsearch.index.query.QueryBuilder} (using {@link org.elasticsearch.index.query.QueryBuilders}).      *      * @param indices The indices to count matched documents against a query. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The count request      * @see org.elasticsearch.client.Client#count(org.elasticsearch.action.count.CountRequest)      */
 DECL|method|countRequest
 specifier|public
 specifier|static

@@ -170,11 +170,9 @@ name|index
 operator|.
 name|query
 operator|.
-name|xcontent
-operator|.
 name|FilterBuilders
 operator|.
-name|termFilter
+name|*
 import|;
 end_import
 

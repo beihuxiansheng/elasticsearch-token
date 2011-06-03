@@ -252,8 +252,6 @@ name|index
 operator|.
 name|query
 operator|.
-name|xcontent
-operator|.
 name|FilterBuilders
 import|;
 end_import
@@ -267,8 +265,6 @@ operator|.
 name|index
 operator|.
 name|query
-operator|.
-name|xcontent
 operator|.
 name|QueryBuilders
 import|;

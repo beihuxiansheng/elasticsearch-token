@@ -54,9 +54,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|xcontent
-operator|.
-name|XContentFilterBuilder
+name|FilterBuilder
 import|;
 end_import
 
@@ -110,7 +108,7 @@ name|scope
 decl_stmt|;
 DECL|field|facetFilter
 specifier|protected
-name|XContentFilterBuilder
+name|FilterBuilder
 name|facetFilter
 decl_stmt|;
 DECL|method|AbstractFacetBuilder
@@ -133,7 +131,7 @@ specifier|public
 name|AbstractFacetBuilder
 name|facetFilter
 parameter_list|(
-name|XContentFilterBuilder
+name|FilterBuilder
 name|filter
 parameter_list|)
 block|{

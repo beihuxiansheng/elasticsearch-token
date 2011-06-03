@@ -162,9 +162,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|xcontent
-operator|.
-name|XContentFilterBuilder
+name|FilterBuilder
 import|;
 end_import
 
@@ -178,9 +176,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|xcontent
-operator|.
-name|XContentQueryBuilder
+name|QueryBuilder
 import|;
 end_import
 
@@ -657,13 +653,13 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Constructs a new search source builder with a search query.      *      * @see org.elasticsearch.index.query.xcontent.QueryBuilders      */
+comment|/**      * Constructs a new search source builder with a search query.      *      * @see org.elasticsearch.index.query.QueryBuilders      */
 DECL|method|setQuery
 specifier|public
 name|SearchRequestBuilder
 name|setQuery
 parameter_list|(
-name|XContentQueryBuilder
+name|QueryBuilder
 name|queryBuilder
 parameter_list|)
 block|{
@@ -730,7 +726,7 @@ specifier|public
 name|SearchRequestBuilder
 name|setFilter
 parameter_list|(
-name|XContentFilterBuilder
+name|FilterBuilder
 name|filter
 parameter_list|)
 block|{
@@ -851,28 +847,6 @@ operator|.
 name|size
 argument_list|(
 name|size
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * An optional query parser name to use.      */
-DECL|method|setQueryParserName
-specifier|public
-name|SearchRequestBuilder
-name|setQueryParserName
-parameter_list|(
-name|String
-name|queryParserName
-parameter_list|)
-block|{
-name|sourceBuilder
-argument_list|()
-operator|.
-name|queryParserName
-argument_list|(
-name|queryParserName
 argument_list|)
 expr_stmt|;
 return|return

@@ -158,8 +158,6 @@ name|index
 operator|.
 name|query
 operator|.
-name|xcontent
-operator|.
 name|QueryParseContext
 import|;
 end_import
@@ -442,7 +440,7 @@ name|String
 name|value
 parameter_list|)
 function_decl|;
-comment|/**      * Should the field query {@link #fieldQuery(String, org.elasticsearch.index.query.xcontent.QueryParseContext)}  be used when detecting this      * field in query string.      */
+comment|/**      * Should the field query {@link #fieldQuery(String, org.elasticsearch.index.query.QueryParseContext)}  be used when detecting this      * field in query string.      */
 DECL|method|useFieldQueryWithQueryString
 name|boolean
 name|useFieldQueryWithQueryString

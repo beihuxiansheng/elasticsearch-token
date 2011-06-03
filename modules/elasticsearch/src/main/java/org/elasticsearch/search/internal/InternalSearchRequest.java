@@ -183,7 +183,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Source structure:  *<p/>  *<pre>  * {  *  from : 0, size : 20, (optional, can be set on the request)  *  sort : { "name.first" : {}, "name.last" : { reverse : true } }  *  fields : [ "name.first", "name.last" ]  *  queryParserName : "",  *  query : { ... }  *  facets : {  *      "facet1" : {  *          query : { ... }  *      }  *  }  * }  *</pre>  *  * @author kimchy (shay.banon)  */
+comment|/**  * Source structure:  *<p/>  *<pre>  * {  *  from : 0, size : 20, (optional, can be set on the request)  *  sort : { "name.first" : {}, "name.last" : { reverse : true } }  *  fields : [ "name.first", "name.last" ]  *  query : { ... }  *  facets : {  *      "facet1" : {  *          query : { ... }  *      }  *  }  * }  *</pre>  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class

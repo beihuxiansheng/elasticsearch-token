@@ -276,8 +276,6 @@ name|index
 operator|.
 name|query
 operator|.
-name|xcontent
-operator|.
 name|QueryBuilders
 operator|.
 name|*

@@ -182,9 +182,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|xcontent
-operator|.
-name|XContentFilterBuilder
+name|FilterBuilder
 import|;
 end_import
 
@@ -198,9 +196,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|xcontent
-operator|.
-name|XContentQueryBuilder
+name|QueryBuilder
 import|;
 end_import
 
@@ -356,7 +352,7 @@ return|;
 block|}
 DECL|field|queryBuilder
 specifier|private
-name|XContentQueryBuilder
+name|QueryBuilder
 name|queryBuilder
 decl_stmt|;
 DECL|field|queryBinary
@@ -367,7 +363,7 @@ name|queryBinary
 decl_stmt|;
 DECL|field|filterBuilder
 specifier|private
-name|XContentFilterBuilder
+name|FilterBuilder
 name|filterBuilder
 decl_stmt|;
 DECL|field|filterBinary
@@ -391,11 +387,6 @@ name|size
 init|=
 operator|-
 literal|1
-decl_stmt|;
-DECL|field|queryParserName
-specifier|private
-name|String
-name|queryParserName
 decl_stmt|;
 DECL|field|explain
 specifier|private
@@ -478,13 +469,13 @@ specifier|public
 name|SearchSourceBuilder
 parameter_list|()
 block|{     }
-comment|/**      * Constructs a new search source builder with a search query.      *      * @see org.elasticsearch.index.query.xcontent.QueryBuilders      */
+comment|/**      * Constructs a new search source builder with a search query.      *      * @see org.elasticsearch.index.query.QueryBuilders      */
 DECL|method|query
 specifier|public
 name|SearchSourceBuilder
 name|query
 parameter_list|(
-name|XContentQueryBuilder
+name|QueryBuilder
 name|query
 parameter_list|)
 block|{
@@ -550,7 +541,7 @@ specifier|public
 name|SearchSourceBuilder
 name|filter
 parameter_list|(
-name|XContentFilterBuilder
+name|FilterBuilder
 name|filter
 parameter_list|)
 block|{
@@ -665,26 +656,6 @@ operator|.
 name|minScore
 operator|=
 name|minScore
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * An optional query parser name to use.      */
-DECL|method|queryParserName
-specifier|public
-name|SearchSourceBuilder
-name|queryParserName
-parameter_list|(
-name|String
-name|queryParserName
-parameter_list|)
-block|{
-name|this
-operator|.
-name|queryParserName
-operator|=
-name|queryParserName
 expr_stmt|;
 return|return
 name|this
@@ -1479,23 +1450,6 @@ argument_list|(
 literal|"size"
 argument_list|,
 name|size
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|queryParserName
-operator|!=
-literal|null
-condition|)
-block|{
-name|builder
-operator|.
-name|field
-argument_list|(
-literal|"query_parser_name"
-argument_list|,
-name|queryParserName
 argument_list|)
 expr_stmt|;
 block|}

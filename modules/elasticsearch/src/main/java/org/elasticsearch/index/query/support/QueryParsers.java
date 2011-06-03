@@ -140,8 +140,6 @@ name|index
 operator|.
 name|query
 operator|.
-name|xcontent
-operator|.
 name|QueryParseContext
 import|;
 end_import

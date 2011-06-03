@@ -288,7 +288,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The query source to execute.      *      * @see org.elasticsearch.index.query.xcontent.QueryBuilders      */
+comment|/**      * The query source to execute.      *      * @see org.elasticsearch.index.query.QueryBuilders      */
 DECL|method|setQuery
 specifier|public
 name|DeleteByQueryRequestBuilder

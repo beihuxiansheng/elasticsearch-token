@@ -470,8 +470,6 @@ name|index
 operator|.
 name|query
 operator|.
-name|xcontent
-operator|.
 name|FilterBuilders
 operator|.
 name|*
@@ -487,8 +485,6 @@ operator|.
 name|index
 operator|.
 name|query
-operator|.
-name|xcontent
 operator|.
 name|QueryBuilders
 operator|.

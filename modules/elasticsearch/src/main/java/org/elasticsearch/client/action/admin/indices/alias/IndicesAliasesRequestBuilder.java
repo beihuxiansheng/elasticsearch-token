@@ -126,9 +126,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|xcontent
-operator|.
-name|XContentFilterBuilder
+name|FilterBuilder
 import|;
 end_import
 
@@ -270,7 +268,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds an alias to the index.      *      * @param index  The index      * @param alias  The alias      * @param filterBuilder The filter      */
+comment|/**      * Adds an alias to the index.      *      * @param index         The index      * @param alias         The alias      * @param filterBuilder The filter      */
 DECL|method|addAlias
 specifier|public
 name|IndicesAliasesRequestBuilder
@@ -282,7 +280,7 @@ parameter_list|,
 name|String
 name|alias
 parameter_list|,
-name|XContentFilterBuilder
+name|FilterBuilder
 name|filterBuilder
 parameter_list|)
 block|{

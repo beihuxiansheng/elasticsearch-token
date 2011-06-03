@@ -195,27 +195,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The query parse name to use. If not set, will use the default one.      */
-DECL|method|setQueryParserName
-specifier|public
-name|CountRequestBuilder
-name|setQueryParserName
-parameter_list|(
-name|String
-name|queryParserName
-parameter_list|)
-block|{
-name|request
-operator|.
-name|queryParserName
-argument_list|(
-name|queryParserName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**      * The minimum score of the documents to include in the count. Defaults to<tt>-1</tt> which means all      * documents will be included in the count.      */
 DECL|method|setMinScore
 specifier|public
@@ -301,7 +280,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The query source to execute.      *      * @see org.elasticsearch.index.query.xcontent.QueryBuilders      */
+comment|/**      * The query source to execute.      *      * @see org.elasticsearch.index.query.QueryBuilders      */
 DECL|method|setQuery
 specifier|public
 name|CountRequestBuilder
@@ -322,7 +301,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The query source to execute.      *      * @see org.elasticsearch.index.query.xcontent.QueryBuilders      */
+comment|/**      * The query source to execute.      *      * @see org.elasticsearch.index.query.QueryBuilders      */
 DECL|method|setQuery
 specifier|public
 name|CountRequestBuilder

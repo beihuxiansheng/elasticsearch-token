@@ -118,9 +118,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|xcontent
-operator|.
-name|XContentQueryBuilder
+name|QueryBuilder
 import|;
 end_import
 
@@ -248,8 +246,6 @@ name|index
 operator|.
 name|query
 operator|.
-name|xcontent
-operator|.
 name|FilterBuilders
 operator|.
 name|*
@@ -265,8 +261,6 @@ operator|.
 name|index
 operator|.
 name|query
-operator|.
-name|xcontent
 operator|.
 name|QueryBuilders
 operator|.
@@ -1139,7 +1133,7 @@ argument_list|(
 name|counter
 argument_list|)
 decl_stmt|;
-name|XContentQueryBuilder
+name|QueryBuilder
 name|query
 init|=
 name|termQuery

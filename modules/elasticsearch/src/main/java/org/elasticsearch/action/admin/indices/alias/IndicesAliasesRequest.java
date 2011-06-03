@@ -184,9 +184,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|xcontent
-operator|.
-name|XContentFilterBuilder
+name|FilterBuilder
 import|;
 end_import
 
@@ -495,7 +493,7 @@ parameter_list|,
 name|String
 name|alias
 parameter_list|,
-name|XContentFilterBuilder
+name|FilterBuilder
 name|filterBuilder
 parameter_list|)
 block|{

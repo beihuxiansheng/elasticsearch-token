@@ -204,6 +204,20 @@ name|index
 operator|.
 name|query
 operator|.
+name|FilterBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
 name|IndexQueryParserModule
 import|;
 end_import
@@ -219,22 +233,6 @@ operator|.
 name|query
 operator|.
 name|IndexQueryParserService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|xcontent
-operator|.
-name|XContentFilterBuilder
 import|;
 end_import
 
@@ -322,8 +320,6 @@ name|index
 operator|.
 name|query
 operator|.
-name|xcontent
-operator|.
 name|FilterBuilders
 operator|.
 name|*
@@ -338,7 +334,7 @@ name|hamcrest
 operator|.
 name|MatcherAssert
 operator|.
-name|assertThat
+name|*
 import|;
 end_import
 
@@ -525,7 +521,7 @@ specifier|static
 name|CompressedString
 name|filter
 parameter_list|(
-name|XContentFilterBuilder
+name|FilterBuilder
 name|filterBuilder
 parameter_list|)
 throws|throws

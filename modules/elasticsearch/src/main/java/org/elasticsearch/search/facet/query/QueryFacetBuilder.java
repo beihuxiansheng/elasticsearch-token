@@ -42,9 +42,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|xcontent
-operator|.
-name|XContentFilterBuilder
+name|FilterBuilder
 import|;
 end_import
 
@@ -58,9 +56,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|xcontent
-operator|.
-name|XContentQueryBuilder
+name|QueryBuilder
 import|;
 end_import
 
@@ -116,7 +112,7 @@ name|AbstractFacetBuilder
 block|{
 DECL|field|query
 specifier|private
-name|XContentQueryBuilder
+name|QueryBuilder
 name|query
 decl_stmt|;
 DECL|method|QueryFacetBuilder
@@ -184,7 +180,7 @@ specifier|public
 name|QueryFacetBuilder
 name|facetFilter
 parameter_list|(
-name|XContentFilterBuilder
+name|FilterBuilder
 name|filter
 parameter_list|)
 block|{
@@ -203,7 +199,7 @@ specifier|public
 name|QueryFacetBuilder
 name|query
 parameter_list|(
-name|XContentQueryBuilder
+name|QueryBuilder
 name|query
 parameter_list|)
 block|{

@@ -302,11 +302,6 @@ parameter_list|,
 annotation|@
 name|Nullable
 name|String
-name|queryParserName
-parameter_list|,
-annotation|@
-name|Nullable
-name|String
 index|[]
 name|filteringAliases
 parameter_list|,
@@ -345,11 +340,6 @@ parameter_list|,
 annotation|@
 name|Nullable
 name|String
-name|queryParserName
-parameter_list|,
-annotation|@
-name|Nullable
-name|String
 index|[]
 name|filteringAliases
 parameter_list|,
@@ -376,11 +366,6 @@ name|querySourceOffset
 parameter_list|,
 name|int
 name|querySourceLength
-parameter_list|,
-annotation|@
-name|Nullable
-name|String
-name|queryParserName
 parameter_list|,
 annotation|@
 name|Nullable
