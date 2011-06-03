@@ -32,18 +32,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|IndexComponent
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -61,8 +49,6 @@ DECL|interface|FilterParser
 specifier|public
 interface|interface
 name|FilterParser
-extends|extends
-name|IndexComponent
 block|{
 comment|/**      * The names this filter is registered under.      */
 DECL|method|names

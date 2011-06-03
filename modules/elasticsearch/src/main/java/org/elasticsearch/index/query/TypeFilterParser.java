@@ -82,47 +82,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|settings
-operator|.
-name|Settings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|xcontent
 operator|.
 name|XContentParser
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|AbstractIndexComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|Index
 import|;
 end_import
 
@@ -156,20 +118,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|settings
-operator|.
-name|IndexSettings
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -183,8 +131,6 @@ DECL|class|TypeFilterParser
 specifier|public
 class|class
 name|TypeFilterParser
-extends|extends
-name|AbstractIndexComponent
 implements|implements
 name|FilterParser
 block|{
@@ -202,24 +148,8 @@ annotation|@
 name|Inject
 specifier|public
 name|TypeFilterParser
-parameter_list|(
-name|Index
-name|index
-parameter_list|,
-annotation|@
-name|IndexSettings
-name|Settings
-name|settings
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|index
-argument_list|,
-name|settings
-argument_list|)
-expr_stmt|;
-block|}
+parameter_list|()
+block|{     }
 DECL|method|names
 annotation|@
 name|Override
@@ -286,7 +216,10 @@ throw|throw
 operator|new
 name|QueryParsingException
 argument_list|(
+name|parseContext
+operator|.
 name|index
+argument_list|()
 argument_list|,
 literal|"type filter should have a value field, and the type name"
 argument_list|)
@@ -315,7 +248,10 @@ throw|throw
 operator|new
 name|QueryParsingException
 argument_list|(
+name|parseContext
+operator|.
 name|index
+argument_list|()
 argument_list|,
 literal|"type filter should have a value field, and the type name"
 argument_list|)
@@ -343,7 +279,10 @@ throw|throw
 operator|new
 name|QueryParsingException
 argument_list|(
+name|parseContext
+operator|.
 name|index
+argument_list|()
 argument_list|,
 literal|"type filter should have a value field, and the type name"
 argument_list|)
