@@ -96,8 +96,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|xcontent
-operator|.
 name|geo
 operator|.
 name|GeoPointFieldDataType
@@ -113,8 +111,6 @@ operator|.
 name|index
 operator|.
 name|mapper
-operator|.
-name|xcontent
 operator|.
 name|geo
 operator|.

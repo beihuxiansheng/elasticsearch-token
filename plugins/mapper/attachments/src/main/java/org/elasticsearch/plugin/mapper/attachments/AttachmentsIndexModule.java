@@ -42,7 +42,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|xcontent
+name|attachment
 operator|.
 name|RegisterAttachmentType
 import|;

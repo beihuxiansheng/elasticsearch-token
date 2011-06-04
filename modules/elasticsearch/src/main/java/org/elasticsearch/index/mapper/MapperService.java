@@ -358,9 +358,9 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|xcontent
+name|internal
 operator|.
-name|XContentDocumentMapperParser
+name|TypeFieldMapper
 import|;
 end_import
 
@@ -629,7 +629,6 @@ operator|.
 name|of
 argument_list|()
 decl_stmt|;
-comment|// for now, just use the xcontent one. Can work on it more to support custom ones
 DECL|field|documentParser
 specifier|private
 specifier|final
@@ -691,7 +690,7 @@ operator|.
 name|documentParser
 operator|=
 operator|new
-name|XContentDocumentMapperParser
+name|DocumentMapperParser
 argument_list|(
 name|index
 argument_list|,
@@ -774,7 +773,7 @@ argument_list|()
 operator|.
 name|getResource
 argument_list|(
-literal|"org/elasticsearch/index/mapper/xcontent/default-mapping.json"
+literal|"org/elasticsearch/index/mapper/default-mapping.json"
 argument_list|)
 expr_stmt|;
 block|}

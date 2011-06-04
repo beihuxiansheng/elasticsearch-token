@@ -96,7 +96,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|xcontent
+name|core
 operator|.
 name|NumberFieldMapper
 import|;

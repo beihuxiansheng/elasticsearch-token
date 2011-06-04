@@ -164,8 +164,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|xcontent
-operator|.
 name|ip
 operator|.
 name|IpFieldMapper

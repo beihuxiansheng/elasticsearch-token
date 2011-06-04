@@ -308,7 +308,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|SourceFieldMapper
+name|SourceToParse
 import|;
 end_import
 
@@ -322,7 +322,9 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|SourceToParse
+name|internal
+operator|.
+name|SourceFieldMapper
 import|;
 end_import
 

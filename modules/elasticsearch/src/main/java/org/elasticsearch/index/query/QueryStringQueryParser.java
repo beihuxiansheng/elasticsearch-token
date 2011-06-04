@@ -184,6 +184,8 @@ name|index
 operator|.
 name|mapper
 operator|.
+name|internal
+operator|.
 name|AllFieldMapper
 import|;
 end_import
