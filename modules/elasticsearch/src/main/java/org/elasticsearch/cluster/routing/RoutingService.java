@@ -34,7 +34,55 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|*
+name|ClusterChangedEvent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|ClusterService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|ClusterState
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|ClusterStateListener
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|ClusterStateUpdateTask
 import|;
 end_import
 
@@ -442,17 +490,10 @@ name|event
 operator|.
 name|nodesRemoved
 argument_list|()
-operator|||
-name|event
-operator|.
-name|routingTableChanged
-argument_list|()
 condition|)
 block|{
 comment|// if nodes were removed, we don't want to wait for the scheduled task
 comment|// since we want to get primary election as fast as possible
-comment|// also, if the routing table changed, it means that we have new indices, or shard have started
-comment|// or failed, we want to apply this as fast as possible
 name|routingTableDirty
 operator|=
 literal|true
@@ -460,6 +501,10 @@ expr_stmt|;
 name|reroute
 argument_list|()
 expr_stmt|;
+comment|// Commented out since we make sure to reroute whenever shards changes state or metadata changes state
+comment|//            } else if (event.routingTableChanged()) {
+comment|//                routingTableDirty = true;
+comment|//                reroute();
 block|}
 else|else
 block|{
