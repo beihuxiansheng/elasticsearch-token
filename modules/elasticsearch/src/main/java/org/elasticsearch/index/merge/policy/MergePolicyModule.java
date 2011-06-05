@@ -22,20 +22,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|LogMergePolicy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -103,37 +89,6 @@ parameter_list|()
 block|{
 name|bind
 argument_list|(
-name|Integer
-operator|.
-name|class
-argument_list|)
-operator|.
-name|annotatedWith
-argument_list|(
-name|MergeFactor
-operator|.
-name|class
-argument_list|)
-operator|.
-name|toInstance
-argument_list|(
-name|settings
-operator|.
-name|getAsInt
-argument_list|(
-literal|"index.merge.policy.mergeFactor"
-argument_list|,
-name|LogMergePolicy
-operator|.
-name|DEFAULT_MERGE_FACTOR
-argument_list|)
-argument_list|)
-expr_stmt|;
-comment|// TODO consider moving to BalancedSegmentMergePolicyProvider as the default
-comment|// Note, when using the index jmeter benchmark, it seams like the balanced merger keeps on merging ...
-comment|// don't have time to look at it now...
-name|bind
-argument_list|(
 name|MergePolicyProvider
 operator|.
 name|class
@@ -147,7 +102,7 @@ name|getAsClass
 argument_list|(
 literal|"index.merge.policy.type"
 argument_list|,
-name|LogByteSizeMergePolicyProvider
+name|TieredMergePolicyProvider
 operator|.
 name|class
 argument_list|)
