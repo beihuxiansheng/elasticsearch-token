@@ -638,7 +638,7 @@ throw|throw
 operator|new
 name|ElasticSearchIllegalArgumentException
 argument_list|(
-literal|"failed ot parse ip ["
+literal|"failed to parse ip ["
 operator|+
 name|ip
 operator|+
@@ -1150,7 +1150,7 @@ name|value
 argument_list|)
 return|;
 block|}
-comment|/**      * Dates should return as a string, delegates to {@link #valueAsString(org.apache.lucene.document.Fieldable)}.      */
+comment|/**      * IPs should return as a string, delegates to {@link #valueAsString(org.apache.lucene.document.Fieldable)}.      */
 DECL|method|valueForSearch
 annotation|@
 name|Override
