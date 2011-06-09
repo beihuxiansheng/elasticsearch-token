@@ -903,7 +903,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|maxMergeAtOnce
+name|maxMergeAtOnceExplicit
 operator|!=
 name|TieredMergePolicyProvider
 operator|.
