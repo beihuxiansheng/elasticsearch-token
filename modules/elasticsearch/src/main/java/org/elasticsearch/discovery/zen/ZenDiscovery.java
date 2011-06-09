@@ -2545,7 +2545,7 @@ name|handleNewClusterStateFromMaster
 parameter_list|(
 specifier|final
 name|ClusterState
-name|clusterState
+name|newState
 parameter_list|)
 block|{
 if|if
@@ -2559,7 +2559,7 @@ name|warn
 argument_list|(
 literal|"master should not receive new cluster state from [{}]"
 argument_list|,
-name|clusterState
+name|newState
 operator|.
 name|nodes
 argument_list|()
@@ -2573,7 +2573,7 @@ else|else
 block|{
 if|if
 condition|(
-name|clusterState
+name|newState
 operator|.
 name|nodes
 argument_list|()
@@ -2590,7 +2590,7 @@ name|warn
 argument_list|(
 literal|"received a cluster state from [{}] and not part of the cluster, should not happen"
 argument_list|,
-name|clusterState
+name|newState
 operator|.
 name|nodes
 argument_list|()
@@ -2608,7 +2608,7 @@ name|submitStateUpdateTask
 argument_list|(
 literal|"zen-disco-receive(from master ["
 operator|+
-name|clusterState
+name|newState
 operator|.
 name|nodes
 argument_list|()
@@ -2634,7 +2634,7 @@ parameter_list|)
 block|{
 name|latestDiscoNodes
 operator|=
-name|clusterState
+name|newState
 operator|.
 name|nodes
 argument_list|()
@@ -2684,8 +2684,57 @@ literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
+name|ClusterState
+operator|.
+name|Builder
+name|builder
+init|=
+name|ClusterState
+operator|.
+name|builder
+argument_list|()
+operator|.
+name|state
+argument_list|(
+name|newState
+argument_list|)
+decl_stmt|;
+comment|// if the routing table did not change, use the original one
+if|if
+condition|(
+name|newState
+operator|.
+name|routingTable
+argument_list|()
+operator|.
+name|version
+argument_list|()
+operator|==
+name|currentState
+operator|.
+name|routingTable
+argument_list|()
+operator|.
+name|version
+argument_list|()
+condition|)
+block|{
+name|builder
+operator|.
+name|routingTable
+argument_list|(
+name|currentState
+operator|.
+name|routingTable
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 return|return
-name|clusterState
+name|builder
+operator|.
+name|build
+argument_list|()
 return|;
 block|}
 annotation|@
