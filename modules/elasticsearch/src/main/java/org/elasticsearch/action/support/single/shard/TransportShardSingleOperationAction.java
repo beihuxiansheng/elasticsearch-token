@@ -256,6 +256,16 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
@@ -554,7 +564,15 @@ operator|.
 name|nodes
 argument_list|()
 expr_stmt|;
-comment|// update to the concrete shard to use
+comment|// update to the concrete shard and find routing to use
+name|String
+name|alias
+init|=
+name|request
+operator|.
+name|index
+argument_list|()
+decl_stmt|;
 name|request
 operator|.
 name|index
@@ -573,6 +591,24 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|String
+name|effectiveRouting
+init|=
+name|clusterState
+operator|.
+name|metaData
+argument_list|()
+operator|.
+name|resolveIndexRouting
+argument_list|(
+name|request
+operator|.
+name|routing
+argument_list|()
+argument_list|,
+name|alias
+argument_list|)
+decl_stmt|;
 name|checkBlock
 argument_list|(
 name|request
@@ -608,10 +644,7 @@ operator|.
 name|id
 argument_list|()
 argument_list|,
-name|request
-operator|.
-name|routing
-argument_list|()
+name|effectiveRouting
 argument_list|,
 name|request
 operator|.

@@ -360,7 +360,7 @@ operator|.
 name|state
 argument_list|()
 decl_stmt|;
-comment|// upate to concrete index
+comment|// update to concrete index
 name|request
 operator|.
 name|index

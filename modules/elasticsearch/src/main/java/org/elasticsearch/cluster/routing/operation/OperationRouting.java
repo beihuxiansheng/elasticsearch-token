@@ -94,6 +94,26 @@ name|IndexMissingException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
@@ -214,7 +234,10 @@ name|index
 parameter_list|,
 annotation|@
 name|Nullable
+name|Set
+argument_list|<
 name|String
+argument_list|>
 name|routing
 parameter_list|)
 throws|throws
@@ -231,6 +254,10 @@ name|String
 index|[]
 name|indices
 parameter_list|,
+name|String
+index|[]
+name|concreteIndices
+parameter_list|,
 annotation|@
 name|Nullable
 name|String
@@ -238,7 +265,15 @@ name|queryHint
 parameter_list|,
 annotation|@
 name|Nullable
+name|Map
+argument_list|<
 name|String
+argument_list|,
+name|Set
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
 name|routing
 parameter_list|,
 annotation|@
