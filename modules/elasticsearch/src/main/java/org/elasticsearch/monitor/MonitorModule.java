@@ -82,6 +82,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|logging
+operator|.
+name|Loggers
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|settings
 operator|.
 name|Settings
@@ -640,6 +654,22 @@ name|e
 parameter_list|)
 block|{
 comment|// no sigar
+name|Loggers
+operator|.
+name|getLogger
+argument_list|(
+name|MonitorModule
+operator|.
+name|class
+argument_list|)
+operator|.
+name|debug
+argument_list|(
+literal|"failed to load sigar"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 block|}
 if|if
 condition|(
