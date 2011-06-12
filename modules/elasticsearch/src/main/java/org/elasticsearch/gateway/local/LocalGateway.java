@@ -1585,21 +1585,6 @@ name|routingTableChanged
 argument_list|()
 condition|)
 block|{
-name|executor
-operator|.
-name|execute
-argument_list|(
-operator|new
-name|Runnable
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|run
-parameter_list|()
-block|{
 name|LocalGatewayStartedShards
 operator|.
 name|Builder
@@ -1638,6 +1623,11 @@ name|version
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|boolean
+name|changed
+init|=
+literal|false
+decl_stmt|;
 comment|// remove from the current state all the shards that are primary and started somewhere, we won't need them anymore
 comment|// and if they are still here, we will add them in the next phase
 comment|// Also note, this works well when closing an index, since a closed index will have no routing shards entries
@@ -1681,6 +1671,8 @@ name|size
 argument_list|()
 condition|)
 block|{
+name|changed
+operator||=
 name|builder
 operator|.
 name|remove
@@ -1735,6 +1727,8 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
+name|changed
+operator||=
 name|builder
 operator|.
 name|remove
@@ -1794,6 +1788,8 @@ name|active
 argument_list|()
 condition|)
 block|{
+name|changed
+operator||=
 name|builder
 operator|.
 name|put
@@ -1803,10 +1799,7 @@ operator|.
 name|shardId
 argument_list|()
 argument_list|,
-name|event
-operator|.
-name|state
-argument_list|()
+name|shardRouting
 operator|.
 name|version
 argument_list|()
@@ -1815,6 +1808,36 @@ expr_stmt|;
 block|}
 block|}
 block|}
+comment|// only write if something changed...
+if|if
+condition|(
+name|changed
+condition|)
+block|{
+specifier|final
+name|LocalGatewayStartedShards
+name|stateToWrite
+init|=
+name|builder
+operator|.
+name|build
+argument_list|()
+decl_stmt|;
+name|executor
+operator|.
+name|execute
+argument_list|(
+operator|new
+name|Runnable
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|run
+parameter_list|()
+block|{
 try|try
 block|{
 name|File
@@ -1859,14 +1882,6 @@ name|fos
 argument_list|)
 expr_stmt|;
 block|}
-name|LocalGatewayStartedShards
-name|stateToWrite
-init|=
-name|builder
-operator|.
-name|build
-argument_list|()
-decl_stmt|;
 name|XContentBuilder
 name|xContentBuilder
 init|=
@@ -2028,6 +2043,7 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|/**      * We do here lazy initialization on not only on start(), since we might be called before start by another node (really will      * happen in term of timing in testing, but still), and we want to return the cluster state when we can.      *      * It is synchronized since we want to wait for it to be loaded if called concurrently. There should really be a nicer      * solution here, but for now, its good enough.      */

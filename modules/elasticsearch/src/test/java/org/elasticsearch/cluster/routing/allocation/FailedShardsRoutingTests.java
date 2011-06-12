@@ -1895,6 +1895,8 @@ argument_list|,
 literal|true
 argument_list|,
 name|INITIALIZING
+argument_list|,
+literal|0
 argument_list|)
 argument_list|)
 operator|.
@@ -2170,6 +2172,8 @@ argument_list|,
 literal|true
 argument_list|,
 name|INITIALIZING
+argument_list|,
+literal|0
 argument_list|)
 argument_list|)
 operator|.
@@ -2624,6 +2628,8 @@ argument_list|,
 literal|true
 argument_list|,
 name|INITIALIZING
+argument_list|,
+literal|0
 argument_list|)
 argument_list|)
 operator|.
@@ -2901,6 +2907,8 @@ argument_list|,
 literal|true
 argument_list|,
 name|INITIALIZING
+argument_list|,
+literal|0
 argument_list|)
 argument_list|)
 operator|.

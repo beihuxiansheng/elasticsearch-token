@@ -142,6 +142,12 @@ name|int
 name|getId
 parameter_list|()
 function_decl|;
+comment|/**      * The routing version associated with the shard.      */
+DECL|method|version
+name|long
+name|version
+parameter_list|()
+function_decl|;
 comment|/**      * The shard state.      */
 DECL|method|state
 name|ShardRoutingState

@@ -1259,11 +1259,18 @@ name|changed
 operator|=
 literal|true
 expr_stmt|;
+comment|// make sure we create one with the version from the recovered state
 name|node
 operator|.
 name|add
 argument_list|(
+operator|new
+name|MutableShardRouting
+argument_list|(
 name|shard
+argument_list|,
+name|highestVersion
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|unassignedIterator
@@ -1362,11 +1369,18 @@ name|changed
 operator|=
 literal|true
 expr_stmt|;
+comment|// make sure we create one with the version from the recovered state
 name|node
 operator|.
 name|add
 argument_list|(
+operator|new
+name|MutableShardRouting
+argument_list|(
 name|shard
+argument_list|,
+name|highestVersion
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|unassignedIterator
