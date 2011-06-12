@@ -658,6 +658,10 @@ name|NO
 argument_list|,
 name|boost
 argument_list|,
+name|boost
+operator|!=
+literal|1.0f
+operator|||
 name|omitNorms
 argument_list|,
 name|omitTermFreqAndPositions
