@@ -1257,7 +1257,10 @@ literal|true
 expr_stmt|;
 name|omitNorms
 operator|=
-literal|true
+name|mapper
+operator|.
+name|omitNorms
+argument_list|()
 expr_stmt|;
 if|if
 condition|(
