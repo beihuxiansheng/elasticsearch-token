@@ -253,7 +253,7 @@ name|Admin
 operator|.
 name|Indices
 operator|.
-name|CLOSE
+name|EXISTS
 return|;
 block|}
 DECL|method|newRequest
