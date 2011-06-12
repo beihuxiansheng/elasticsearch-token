@@ -769,6 +769,8 @@ name|IndexAlreadyExistsException
 condition|)
 block|{
 comment|// we have the index, do it
+try|try
+block|{
 name|innerExecute
 argument_list|(
 name|request
@@ -776,6 +778,21 @@ argument_list|,
 name|listener
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e1
+parameter_list|)
+block|{
+name|listener
+operator|.
+name|onFailure
+argument_list|(
+name|e1
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 else|else
 block|{
