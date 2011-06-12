@@ -207,6 +207,15 @@ name|STATUS
 init|=
 literal|"indices/status"
 decl_stmt|;
+DECL|field|EXISTS
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|EXISTS
+init|=
+literal|"indices/exists"
+decl_stmt|;
 DECL|field|ALIASES
 specifier|public
 specifier|static
