@@ -1902,6 +1902,16 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|routingTableBuilder
+operator|.
+name|version
+argument_list|(
+name|recoveredState
+operator|.
+name|version
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// now, reroute
 name|RoutingAllocation
 operator|.
