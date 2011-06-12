@@ -878,6 +878,42 @@ argument_list|,
 literal|"alias10"
 argument_list|)
 expr_stmt|;
+assert|assert
+literal|false
+operator|:
+literal|"should fail"
+assert|;
+block|}
+catch|catch
+parameter_list|(
+name|ElasticSearchIllegalArgumentException
+name|e
+parameter_list|)
+block|{
+comment|// all is well, we can't have two mappings, one provided, and one in the alias
+block|}
+try|try
+block|{
+name|clusterService
+operator|.
+name|state
+argument_list|()
+operator|.
+name|metaData
+argument_list|()
+operator|.
+name|resolveIndexRouting
+argument_list|(
+literal|null
+argument_list|,
+literal|"alias110"
+argument_list|)
+expr_stmt|;
+assert|assert
+literal|false
+operator|:
+literal|"should fail"
+assert|;
 block|}
 catch|catch
 parameter_list|(
