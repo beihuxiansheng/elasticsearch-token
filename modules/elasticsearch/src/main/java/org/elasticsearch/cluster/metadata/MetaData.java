@@ -414,7 +414,7 @@ name|collect
 operator|.
 name|Maps
 operator|.
-name|newHashMap
+name|*
 import|;
 end_import
 
@@ -1643,7 +1643,7 @@ literal|"Alias ["
 operator|+
 name|aliasOrIndex
 operator|+
-literal|"] has more than one indices associated with it ["
+literal|"] has more than one index associated with it ["
 operator|+
 name|indexAliases
 operator|.
@@ -1704,9 +1704,28 @@ return|;
 block|}
 else|else
 block|{
-return|return
-literal|null
-return|;
+throw|throw
+operator|new
+name|ElasticSearchIllegalArgumentException
+argument_list|(
+literal|"Alias ["
+operator|+
+name|aliasOrIndex
+operator|+
+literal|"] has index routing associated with it ["
+operator|+
+name|aliasMd
+operator|.
+name|indexRouting
+argument_list|()
+operator|+
+literal|"], and was provided with routing value ["
+operator|+
+name|routing
+operator|+
+literal|"], rejecting operation"
+argument_list|)
+throw|;
 block|}
 block|}
 return|return

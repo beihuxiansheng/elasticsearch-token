@@ -137,18 +137,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|regex
-operator|.
-name|Matcher
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -160,7 +148,7 @@ name|metadata
 operator|.
 name|AliasAction
 operator|.
-name|newAddAliasAction
+name|*
 import|;
 end_import
 
@@ -176,7 +164,7 @@ name|collect
 operator|.
 name|Maps
 operator|.
-name|newHashMap
+name|*
 import|;
 end_import
 
@@ -192,7 +180,7 @@ name|collect
 operator|.
 name|Sets
 operator|.
-name|newHashSet
+name|*
 import|;
 end_import
 
@@ -204,7 +192,7 @@ name|hamcrest
 operator|.
 name|MatcherAssert
 operator|.
-name|assertThat
+name|*
 import|;
 end_import
 
@@ -873,8 +861,8 @@ literal|"0"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertThat
-argument_list|(
+try|try
+block|{
 name|clusterService
 operator|.
 name|state
@@ -889,11 +877,16 @@ literal|"1"
 argument_list|,
 literal|"alias10"
 argument_list|)
-argument_list|,
-name|nullValue
-argument_list|()
-argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ElasticSearchIllegalArgumentException
+name|e
+parameter_list|)
+block|{
+comment|// all is well, we can't have two mappings, one provided, and one in the alias
+block|}
 try|try
 block|{
 name|clusterService
