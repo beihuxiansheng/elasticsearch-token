@@ -171,6 +171,17 @@ parameter_list|)
 throws|throws
 name|ConnectTransportException
 function_decl|;
+comment|/**      * Connects to a node in a light manner. Used when just connecting for ping and then      * disconnecting.      */
+DECL|method|connectToNodeLight
+name|void
+name|connectToNodeLight
+parameter_list|(
+name|DiscoveryNode
+name|node
+parameter_list|)
+throws|throws
+name|ConnectTransportException
+function_decl|;
 comment|/**      * Disconnected from the given node, if not connected, will do nothing.      */
 DECL|method|disconnectFromNode
 name|void
