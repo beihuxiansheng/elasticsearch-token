@@ -126,7 +126,7 @@ name|indices
 operator|.
 name|analysis
 operator|.
-name|IndicesAnalysisService
+name|IndicesAnalysisModule
 import|;
 end_import
 
@@ -258,6 +258,10 @@ argument_list|(
 operator|new
 name|IndicesQueriesModule
 argument_list|()
+argument_list|,
+operator|new
+name|IndicesAnalysisModule
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -346,16 +350,6 @@ expr_stmt|;
 name|bind
 argument_list|(
 name|IndicesNodeFilterCache
-operator|.
-name|class
-argument_list|)
-operator|.
-name|asEagerSingleton
-argument_list|()
-expr_stmt|;
-name|bind
-argument_list|(
-name|IndicesAnalysisService
 operator|.
 name|class
 argument_list|)
