@@ -605,11 +605,11 @@ specifier|final
 name|MembershipAction
 name|membership
 decl_stmt|;
-DECL|field|initialPingTimeout
+DECL|field|pingTimeout
 specifier|private
 specifier|final
 name|TimeValue
-name|initialPingTimeout
+name|pingTimeout
 decl_stmt|;
 comment|// a flag that should be used only for testing
 DECL|field|sendLeaveRequest
@@ -735,10 +735,17 @@ name|pingService
 operator|=
 name|pingService
 expr_stmt|;
+comment|// also support direct discovery.zen settings, for cases when it gets extended
 name|this
 operator|.
-name|initialPingTimeout
+name|pingTimeout
 operator|=
+name|settings
+operator|.
+name|getAsTime
+argument_list|(
+literal|"discovery.zen.ping_timeout"
+argument_list|,
 name|componentSettings
 operator|.
 name|getAsTime
@@ -754,6 +761,7 @@ argument_list|,
 name|timeValueSeconds
 argument_list|(
 literal|3
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
@@ -777,7 +785,7 @@ name|debug
 argument_list|(
 literal|"using ping_timeout [{}]"
 argument_list|,
-name|initialPingTimeout
+name|pingTimeout
 argument_list|)
 expr_stmt|;
 name|this
@@ -1707,7 +1715,7 @@ name|masterNode
 argument_list|,
 name|localNode
 argument_list|,
-name|initialPingTimeout
+name|pingTimeout
 argument_list|)
 expr_stmt|;
 block|}
@@ -3095,7 +3103,7 @@ name|pingService
 operator|.
 name|pingAndWait
 argument_list|(
-name|initialPingTimeout
+name|pingTimeout
 argument_list|)
 decl_stmt|;
 if|if
