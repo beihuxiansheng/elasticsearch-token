@@ -751,7 +751,10 @@ name|XContentRestResponse
 argument_list|(
 name|request
 argument_list|,
-name|OK
+name|response
+operator|.
+name|status
+argument_list|()
 argument_list|,
 name|builder
 argument_list|)
