@@ -342,7 +342,7 @@ operator|.
 name|index
 argument_list|()
 argument_list|,
-literal|"spanNear [clauses] must be of type span query"
+literal|"spanOr [clauses] must be of type span query"
 argument_list|)
 throw|;
 block|}
