@@ -290,6 +290,22 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|unit
+operator|.
+name|TimeValue
+operator|.
+name|timeValueSeconds
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|rest
 operator|.
 name|RestRequest
@@ -410,6 +426,23 @@ comment|//         { add : { index : "test1", alias : "alias1", filter : {"user"
 comment|//         { remove : { index : "test1", alias : "alias1" } }
 comment|//     ]
 comment|// }
+name|indicesAliasesRequest
+operator|.
+name|timeout
+argument_list|(
+name|request
+operator|.
+name|paramAsTime
+argument_list|(
+literal|"timeout"
+argument_list|,
+name|timeValueSeconds
+argument_list|(
+literal|10
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|XContentParser
 name|parser
 init|=
@@ -1084,6 +1117,16 @@ argument_list|(
 literal|"ok"
 argument_list|,
 literal|true
+argument_list|)
+operator|.
+name|field
+argument_list|(
+literal|"acknowledged"
+argument_list|,
+name|response
+operator|.
+name|acknowledged
+argument_list|()
 argument_list|)
 operator|.
 name|endObject

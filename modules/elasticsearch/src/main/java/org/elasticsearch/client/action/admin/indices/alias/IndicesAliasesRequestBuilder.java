@@ -381,6 +381,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets operation timeout.      *      * @param timeout      */
+DECL|method|setTimeout
+specifier|public
+name|IndicesAliasesRequestBuilder
+name|setTimeout
+parameter_list|(
+name|TimeValue
+name|timeout
+parameter_list|)
+block|{
+name|request
+operator|.
+name|timeout
+argument_list|(
+name|timeout
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 DECL|method|doExecute
 annotation|@
 name|Override

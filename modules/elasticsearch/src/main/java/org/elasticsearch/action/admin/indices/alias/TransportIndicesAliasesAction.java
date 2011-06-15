@@ -522,6 +522,11 @@ name|size
 argument_list|()
 index|]
 argument_list|)
+argument_list|,
+name|request
+operator|.
+name|timeout
+argument_list|()
 argument_list|)
 argument_list|,
 operator|new
@@ -548,7 +553,12 @@ name|set
 argument_list|(
 operator|new
 name|IndicesAliasesResponse
+argument_list|(
+name|response
+operator|.
+name|acknowledged
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|latch

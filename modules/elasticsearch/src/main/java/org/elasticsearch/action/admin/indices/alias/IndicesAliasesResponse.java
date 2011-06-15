@@ -91,7 +91,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A response for a create index action.  *  * @author kimchy (shay.banon)  */
+comment|/**  * A response for a add/remove alias action.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
@@ -104,10 +104,50 @@ name|ActionResponse
 implements|,
 name|Streamable
 block|{
+DECL|field|acknowledged
+specifier|private
+name|boolean
+name|acknowledged
+decl_stmt|;
 DECL|method|IndicesAliasesResponse
 name|IndicesAliasesResponse
 parameter_list|()
-block|{     }
+block|{      }
+DECL|method|IndicesAliasesResponse
+name|IndicesAliasesResponse
+parameter_list|(
+name|boolean
+name|acknowledged
+parameter_list|)
+block|{
+name|this
+operator|.
+name|acknowledged
+operator|=
+name|acknowledged
+expr_stmt|;
+block|}
+DECL|method|acknowledged
+specifier|public
+name|boolean
+name|acknowledged
+parameter_list|()
+block|{
+return|return
+name|acknowledged
+return|;
+block|}
+DECL|method|getAcknowledged
+specifier|public
+name|boolean
+name|getAcknowledged
+parameter_list|()
+block|{
+return|return
+name|acknowledged
+argument_list|()
+return|;
+block|}
 DECL|method|readFrom
 annotation|@
 name|Override
@@ -120,7 +160,15 @@ name|in
 parameter_list|)
 throws|throws
 name|IOException
-block|{     }
+block|{
+name|acknowledged
+operator|=
+name|in
+operator|.
+name|readBoolean
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|writeTo
 annotation|@
 name|Override
@@ -133,7 +181,15 @@ name|out
 parameter_list|)
 throws|throws
 name|IOException
-block|{     }
+block|{
+name|out
+operator|.
+name|writeBoolean
+argument_list|(
+name|acknowledged
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
