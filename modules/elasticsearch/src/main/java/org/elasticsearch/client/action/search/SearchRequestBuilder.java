@@ -1379,7 +1379,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the source of the request as a json string. Note, settings anything other      * than the search type will cause this source to be overridden, consifer using      * {@link #setExtraSource(String)}.      */
+comment|/**      * Sets the source of the request as a json string. Note, settings anything other      * than the search type will cause this source to be overridden, consider using      * {@link #setExtraSource(String)}.      */
 DECL|method|setSource
 specifier|public
 name|SearchRequestBuilder
