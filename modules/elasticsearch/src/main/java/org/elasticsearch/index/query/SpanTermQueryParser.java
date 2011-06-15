@@ -394,6 +394,11 @@ expr_stmt|;
 block|}
 block|}
 block|}
+name|parser
+operator|.
+name|nextToken
+argument_list|()
+expr_stmt|;
 block|}
 else|else
 block|{
