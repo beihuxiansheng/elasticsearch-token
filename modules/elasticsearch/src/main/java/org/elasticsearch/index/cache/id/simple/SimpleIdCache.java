@@ -934,12 +934,6 @@ name|getCoreCacheKey
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|int
-name|t
-init|=
-literal|1
-decl_stmt|;
-comment|// current term number (0 indicated null value)
 name|String
 name|field
 init|=
@@ -1144,6 +1138,8 @@ name|doc
 argument_list|()
 index|]
 operator|=
+name|typeBuilder
+operator|.
 name|t
 expr_stmt|;
 block|}
@@ -1153,6 +1149,8 @@ condition|(
 name|added
 condition|)
 block|{
+name|typeBuilder
+operator|.
 name|t
 operator|++
 expr_stmt|;
@@ -1534,6 +1532,13 @@ name|int
 index|[]
 name|parentIdsOrdinals
 decl_stmt|;
+DECL|field|t
+name|int
+name|t
+init|=
+literal|1
+decl_stmt|;
+comment|// current term number (0 indicated null value)
 DECL|method|TypeBuilder
 name|TypeBuilder
 parameter_list|(
