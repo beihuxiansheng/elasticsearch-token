@@ -2051,6 +2051,17 @@ name|tokenFiltersBindings
 operator|.
 name|processTokenFilter
 argument_list|(
+literal|"k_stem"
+argument_list|,
+name|KStemTokenFilterFactory
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|tokenFiltersBindings
+operator|.
+name|processTokenFilter
+argument_list|(
 literal|"standard"
 argument_list|,
 name|StandardTokenFilterFactory
