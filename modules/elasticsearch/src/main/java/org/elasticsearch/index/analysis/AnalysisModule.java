@@ -2051,7 +2051,7 @@ name|tokenFiltersBindings
 operator|.
 name|processTokenFilter
 argument_list|(
-literal|"k_stem"
+literal|"kstem"
 argument_list|,
 name|KStemTokenFilterFactory
 operator|.
