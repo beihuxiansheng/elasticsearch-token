@@ -676,13 +676,6 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|300
-argument_list|)
-expr_stmt|;
 name|assertThat
 argument_list|(
 name|clusterService
@@ -1227,13 +1220,6 @@ argument_list|()
 operator|.
 name|actionGet
 argument_list|()
-expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|300
-argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
