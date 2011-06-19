@@ -1221,6 +1221,13 @@ operator|.
 name|REPLICA
 argument_list|)
 decl_stmt|;
+name|indexShard
+operator|.
+name|delete
+argument_list|(
+name|delete
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|request
@@ -1254,13 +1261,6 @@ block|{
 comment|// ignore
 block|}
 block|}
-name|indexShard
-operator|.
-name|delete
-argument_list|(
-name|delete
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|shards
 annotation|@
