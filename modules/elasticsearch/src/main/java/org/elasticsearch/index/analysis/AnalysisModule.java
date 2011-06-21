@@ -2532,6 +2532,17 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+name|tokenFiltersBindings
+operator|.
+name|processTokenFilter
+argument_list|(
+literal|"keyword_marker"
+argument_list|,
+name|KeywordMarkerTokenFilterFactory
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|processTokenizers
 annotation|@
