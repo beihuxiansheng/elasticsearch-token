@@ -2543,6 +2543,17 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+name|tokenFiltersBindings
+operator|.
+name|processTokenFilter
+argument_list|(
+literal|"stemmer_override"
+argument_list|,
+name|StemmerOverrideTokenFilterFactory
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|processTokenizers
 annotation|@
