@@ -514,11 +514,7 @@ name|TokenizerFactory
 name|tokFactory
 parameter_list|)
 block|{
-name|int
-name|count
-init|=
-literal|0
-decl_stmt|;
+comment|//        int count = 0;
 for|for
 control|(
 name|String
@@ -706,9 +702,7 @@ range|:
 name|source
 control|)
 block|{
-name|count
-operator|++
-expr_stmt|;
+comment|//                count++;
 for|for
 control|(
 name|List
