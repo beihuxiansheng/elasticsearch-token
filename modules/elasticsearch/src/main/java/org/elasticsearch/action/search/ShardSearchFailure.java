@@ -310,6 +310,14 @@ name|reason
 operator|=
 name|reason
 expr_stmt|;
+name|this
+operator|.
+name|status
+operator|=
+name|RestStatus
+operator|.
+name|INTERNAL_SERVER_ERROR
+expr_stmt|;
 block|}
 comment|/**      * The search shard target the failure occurred on.      */
 DECL|method|shard
