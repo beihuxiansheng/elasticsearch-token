@@ -954,6 +954,13 @@ operator|.
 name|SMILE
 return|;
 block|}
+name|int
+name|size
+init|=
+name|offset
+operator|+
+name|length
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -963,7 +970,7 @@ name|offset
 init|;
 name|i
 operator|<
-name|length
+name|size
 condition|;
 name|i
 operator|++

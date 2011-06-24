@@ -42,6 +42,16 @@ name|Scorer
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
 comment|/**  * A search script.  */
 end_comment
@@ -76,6 +86,19 @@ name|setNextDocId
 parameter_list|(
 name|int
 name|doc
+parameter_list|)
+function_decl|;
+DECL|method|setNextSource
+name|void
+name|setNextSource
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|source
 parameter_list|)
 function_decl|;
 DECL|method|setNextScore

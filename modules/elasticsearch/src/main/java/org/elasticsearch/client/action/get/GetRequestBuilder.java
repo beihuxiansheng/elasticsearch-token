@@ -288,6 +288,26 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|setRealtime
+specifier|public
+name|GetRequestBuilder
+name|setRealtime
+parameter_list|(
+name|Boolean
+name|realtime
+parameter_list|)
+block|{
+name|request
+operator|.
+name|realtime
+argument_list|(
+name|realtime
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Should the listener be called on a separate thread if needed.      */
 DECL|method|setListenerThreaded
 specifier|public

@@ -295,6 +295,17 @@ return|return
 name|len
 return|;
 block|}
+DECL|method|underlyingBuffer
+specifier|public
+name|byte
+index|[]
+name|underlyingBuffer
+parameter_list|()
+block|{
+return|return
+name|buf
+return|;
+block|}
 DECL|method|readByte
 annotation|@
 name|Override
