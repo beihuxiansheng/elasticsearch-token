@@ -613,6 +613,22 @@ block|{
 comment|// we already handled this one...
 continue|continue;
 block|}
+comment|// Ignore any duration> 1hr; getLastGcInfo occasionally returns total crap
+if|if
+condition|(
+name|lastGc
+operator|.
+name|duration
+argument_list|()
+operator|.
+name|hoursFrac
+argument_list|()
+operator|>
+literal|1
+condition|)
+block|{
+continue|continue;
+block|}
 if|if
 condition|(
 name|lastGc
