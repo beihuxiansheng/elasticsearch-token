@@ -681,7 +681,7 @@ name|GetRequestBuilder
 name|prepareGet
 parameter_list|()
 function_decl|;
-comment|/**      * Gets the document that was indexed from an index with a type and id.      */
+comment|/**      * Gets the document that was indexed from an index with a type (optional) and id.      */
 DECL|method|prepareGet
 name|GetRequestBuilder
 name|prepareGet
@@ -689,6 +689,8 @@ parameter_list|(
 name|String
 name|index
 parameter_list|,
+annotation|@
+name|Nullable
 name|String
 name|type
 parameter_list|,

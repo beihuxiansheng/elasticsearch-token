@@ -161,12 +161,14 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the type of the document to fetch.      */
+comment|/**      * Sets the type of the document to fetch. If set to<tt>null</tt>, will use just the id to fetch the      * first document matching it.      */
 DECL|method|setType
 specifier|public
 name|GetRequestBuilder
 name|setType
 parameter_list|(
+annotation|@
+name|Nullable
 name|String
 name|type
 parameter_list|)

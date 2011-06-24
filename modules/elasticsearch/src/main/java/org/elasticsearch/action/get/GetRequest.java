@@ -42,6 +42,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Nullable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|Required
 import|;
 end_import
@@ -89,7 +101,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A request to get a document (its source) from an index based on its type and id. Best created using  * {@link org.elasticsearch.client.Requests#getRequest(String)}.  *  *<p>The operation requires the {@link #index()}, {@link #type(String)} and {@link #id(String)}  * to be set.  *  * @author kimchy (shay.banon)  * @see org.elasticsearch.action.get.GetResponse  * @see org.elasticsearch.client.Requests#getRequest(String)  * @see org.elasticsearch.client.Client#get(GetRequest)  */
+comment|/**  * A request to get a document (its source) from an index based on its type (optional) and id. Best created using  * {@link org.elasticsearch.client.Requests#getRequest(String)}.  *  *<p>The operation requires the {@link #index()}, {@link #type(String)} and {@link #id(String)}  * to be set.  *  * @author kimchy (shay.banon)  * @see org.elasticsearch.action.get.GetResponse  * @see org.elasticsearch.client.Requests#getRequest(String)  * @see org.elasticsearch.client.Client#get(GetRequest)  */
 end_comment
 
 begin_class
@@ -120,7 +132,12 @@ decl_stmt|;
 DECL|method|GetRequest
 name|GetRequest
 parameter_list|()
-block|{     }
+block|{
+name|type
+operator|=
+literal|"_all"
+expr_stmt|;
+block|}
 comment|/**      * Constructs a new get request against the specified index. The {@link #type(String)} and {@link #id(String)}      * must be set.      */
 DECL|method|GetRequest
 specifier|public
@@ -134,7 +151,7 @@ name|super
 argument_list|(
 name|index
 argument_list|,
-literal|null
+literal|"_all"
 argument_list|,
 literal|null
 argument_list|)
@@ -189,16 +206,28 @@ return|;
 block|}
 comment|/**      * Sets the type of the document to fetch.      */
 DECL|method|type
-annotation|@
-name|Required
 specifier|public
 name|GetRequest
 name|type
 parameter_list|(
+annotation|@
+name|Nullable
 name|String
 name|type
 parameter_list|)
 block|{
+if|if
+condition|(
+name|type
+operator|==
+literal|null
+condition|)
+block|{
+name|type
+operator|=
+literal|"_all"
+expr_stmt|;
+block|}
 name|this
 operator|.
 name|type
