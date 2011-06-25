@@ -348,6 +348,16 @@ name|Translog
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
@@ -462,6 +472,14 @@ name|searcher
 parameter_list|()
 throws|throws
 name|EngineException
+function_decl|;
+DECL|method|segments
+name|List
+argument_list|<
+name|Segment
+argument_list|>
+name|segments
+parameter_list|()
 function_decl|;
 comment|/**      * Returns<tt>true</tt> if a refresh is really needed.      */
 DECL|method|refreshNeeded

@@ -293,6 +293,13 @@ argument_list|(
 name|recovery
 argument_list|)
 expr_stmt|;
+name|out
+operator|.
+name|writeBoolean
+argument_list|(
+name|snapshot
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|readFrom
 annotation|@
@@ -315,6 +322,13 @@ name|in
 argument_list|)
 expr_stmt|;
 name|recovery
+operator|=
+name|in
+operator|.
+name|readBoolean
+argument_list|()
+expr_stmt|;
+name|snapshot
 operator|=
 name|in
 operator|.

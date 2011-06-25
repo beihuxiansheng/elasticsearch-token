@@ -207,6 +207,15 @@ name|STATUS
 init|=
 literal|"indices/status"
 decl_stmt|;
+DECL|field|SEGMENTS
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SEGMENTS
+init|=
+literal|"indices/segments"
+decl_stmt|;
 DECL|field|EXISTS
 specifier|public
 specifier|static
