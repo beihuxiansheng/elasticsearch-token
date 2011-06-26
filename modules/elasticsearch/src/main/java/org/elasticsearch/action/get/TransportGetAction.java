@@ -773,7 +773,7 @@ operator|.
 name|operationRouting
 argument_list|()
 operator|.
-name|indexShards
+name|getShards
 argument_list|(
 name|clusterService
 operator|.
@@ -798,6 +798,11 @@ argument_list|,
 name|request
 operator|.
 name|routing
+argument_list|()
+argument_list|,
+name|request
+operator|.
+name|preference
 argument_list|()
 argument_list|)
 return|;
