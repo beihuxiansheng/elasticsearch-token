@@ -407,7 +407,23 @@ name|params
 parameter_list|)
 throws|throws
 name|IOException
-block|{      }
+block|{
+name|restDocumentSource
+argument_list|(
+name|source
+argument_list|,
+literal|0
+argument_list|,
+name|source
+operator|.
+name|length
+argument_list|,
+name|builder
+argument_list|,
+name|params
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|restDocumentSource
 specifier|public
 specifier|static
