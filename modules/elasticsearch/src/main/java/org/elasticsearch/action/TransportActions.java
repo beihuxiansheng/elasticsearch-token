@@ -78,6 +78,15 @@ name|GET
 init|=
 literal|"indices/get"
 decl_stmt|;
+DECL|field|MULTI_GET
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|MULTI_GET
+init|=
+literal|"indices/mget"
+decl_stmt|;
 DECL|field|SEARCH
 specifier|public
 specifier|static
