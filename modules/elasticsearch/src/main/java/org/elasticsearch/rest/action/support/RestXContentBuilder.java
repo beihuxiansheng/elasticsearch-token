@@ -605,6 +605,10 @@ argument_list|(
 literal|"_source"
 argument_list|,
 name|source
+argument_list|,
+name|offset
+argument_list|,
+name|length
 argument_list|)
 expr_stmt|;
 block|}
