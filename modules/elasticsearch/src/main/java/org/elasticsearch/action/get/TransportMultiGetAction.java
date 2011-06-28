@@ -496,6 +496,11 @@ name|item
 operator|.
 name|id
 argument_list|()
+argument_list|,
+name|item
+operator|.
+name|fields
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
