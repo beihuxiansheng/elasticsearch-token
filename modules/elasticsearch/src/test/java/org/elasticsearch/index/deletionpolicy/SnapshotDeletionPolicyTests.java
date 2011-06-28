@@ -124,13 +124,13 @@ begin_import
 import|import static
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|common
+name|apache
 operator|.
 name|lucene
 operator|.
-name|Directories
+name|index
+operator|.
+name|IndexReader
 operator|.
 name|*
 import|;
