@@ -555,6 +555,47 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Allows to set the settings using a json builder.      */
+DECL|method|settings
+specifier|public
+name|CreateIndexRequest
+name|settings
+parameter_list|(
+name|XContentBuilder
+name|builder
+parameter_list|)
+block|{
+try|try
+block|{
+name|settings
+argument_list|(
+name|builder
+operator|.
+name|string
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|ElasticSearchGenerationException
+argument_list|(
+literal|"Failed to generate json settings from builder"
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
+return|return
+name|this
+return|;
+block|}
 comment|/**      * The settings to crete the index with (either json/yaml/properties format)      */
 DECL|method|settings
 specifier|public

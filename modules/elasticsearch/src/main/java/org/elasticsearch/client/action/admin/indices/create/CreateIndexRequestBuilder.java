@@ -238,6 +238,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Allows to set the settings using a json builder.      */
+DECL|method|setSettings
+specifier|public
+name|CreateIndexRequestBuilder
+name|setSettings
+parameter_list|(
+name|XContentBuilder
+name|builder
+parameter_list|)
+block|{
+name|request
+operator|.
+name|settings
+argument_list|(
+name|builder
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * The settings to crete the index with (either json/yaml/properties format)      */
 DECL|method|setSettings
 specifier|public
