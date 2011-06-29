@@ -202,22 +202,6 @@ name|Set
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|RoutingTable
-operator|.
-name|*
-import|;
-end_import
-
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
@@ -911,7 +895,9 @@ operator|.
 name|Builder
 name|routingTableBuilder
 init|=
-name|newRoutingTableBuilder
+name|RoutingTable
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|routingTable

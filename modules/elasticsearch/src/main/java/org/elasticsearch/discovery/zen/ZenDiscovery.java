@@ -2452,6 +2452,7 @@ name|dataNode
 argument_list|()
 condition|)
 block|{
+comment|// TODO, what happens with versioning here?
 name|metaData
 operator|=
 name|MetaData
@@ -2466,7 +2467,7 @@ name|routingTable
 operator|=
 name|RoutingTable
 operator|.
-name|newRoutingTableBuilder
+name|builder
 argument_list|()
 operator|.
 name|build
