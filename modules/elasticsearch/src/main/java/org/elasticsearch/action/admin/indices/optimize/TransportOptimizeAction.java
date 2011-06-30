@@ -376,7 +376,7 @@ name|ThreadPool
 operator|.
 name|Names
 operator|.
-name|CACHED
+name|MERGE
 return|;
 block|}
 DECL|method|transportAction

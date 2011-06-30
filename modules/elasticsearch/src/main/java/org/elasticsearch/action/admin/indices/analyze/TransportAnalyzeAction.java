@@ -402,7 +402,7 @@ name|ThreadPool
 operator|.
 name|Names
 operator|.
-name|CACHED
+name|INDEX
 return|;
 block|}
 DECL|method|newRequest
