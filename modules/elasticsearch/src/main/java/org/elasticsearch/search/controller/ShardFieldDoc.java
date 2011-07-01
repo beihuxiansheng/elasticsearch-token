@@ -103,7 +103,7 @@ parameter_list|,
 name|float
 name|score
 parameter_list|,
-name|Comparable
+name|Object
 index|[]
 name|fields
 parameter_list|)

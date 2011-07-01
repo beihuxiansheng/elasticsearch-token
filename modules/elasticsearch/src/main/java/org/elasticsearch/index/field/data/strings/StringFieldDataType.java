@@ -58,7 +58,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|FieldComparatorSource
+name|SortField
 import|;
 end_import
 
@@ -135,7 +135,7 @@ DECL|method|newFieldComparatorSource
 annotation|@
 name|Override
 specifier|public
-name|FieldComparatorSource
+name|ExtendedFieldComparatorSource
 name|newFieldComparatorSource
 parameter_list|(
 specifier|final
@@ -164,7 +164,7 @@ throw|;
 block|}
 return|return
 operator|new
-name|FieldComparatorSource
+name|ExtendedFieldComparatorSource
 argument_list|()
 block|{
 annotation|@
@@ -202,6 +202,19 @@ name|reversed
 argument_list|,
 name|cache
 argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|int
+name|reducedType
+parameter_list|()
+block|{
+return|return
+name|SortField
+operator|.
+name|STRING
 return|;
 block|}
 block|}

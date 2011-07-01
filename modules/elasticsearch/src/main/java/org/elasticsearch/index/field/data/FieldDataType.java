@@ -313,7 +313,7 @@ argument_list|()
 decl_stmt|;
 block|}
 DECL|method|newFieldComparatorSource
-name|FieldComparatorSource
+name|ExtendedFieldComparatorSource
 name|newFieldComparatorSource
 parameter_list|(
 name|FieldDataCache
@@ -338,6 +338,25 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|// we need this extended source we we have custom comparators to reuse our field data
+comment|// in this case, we need to reduce type that will be used when search results are reduced
+comment|// on another node (we don't have the custom source them...)
+DECL|class|ExtendedFieldComparatorSource
+specifier|public
+specifier|abstract
+class|class
+name|ExtendedFieldComparatorSource
+extends|extends
+name|FieldComparatorSource
+block|{
+DECL|method|reducedType
+specifier|public
+specifier|abstract
+name|int
+name|reducedType
+parameter_list|()
+function_decl|;
+block|}
 block|}
 end_interface
 
