@@ -369,7 +369,6 @@ name|initializer
 decl_stmt|;
 comment|/**      * Just-in-time binding cache. Guarded by state.lock()      */
 DECL|field|jitBindings
-specifier|final
 name|Map
 argument_list|<
 name|Key
@@ -4106,7 +4105,6 @@ end_comment
 
 begin_decl_stmt
 DECL|field|constructors
-specifier|final
 name|ConstructorInjectorStore
 name|constructors
 init|=
@@ -4776,6 +4774,53 @@ operator|.
 name|toString
 argument_list|()
 return|;
+block|}
+end_function
+
+begin_comment
+comment|// ES_GUICE: clear caches
+end_comment
+
+begin_function
+DECL|method|clearCache
+specifier|public
+name|void
+name|clearCache
+parameter_list|()
+block|{
+name|state
+operator|.
+name|clearBlacklisted
+argument_list|()
+expr_stmt|;
+name|constructors
+operator|=
+operator|new
+name|ConstructorInjectorStore
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+name|membersInjectorStore
+operator|=
+operator|new
+name|MembersInjectorStore
+argument_list|(
+name|this
+argument_list|,
+name|state
+operator|.
+name|getTypeListenerBindings
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|jitBindings
+operator|=
+name|Maps
+operator|.
+name|newHashMap
+argument_list|()
+expr_stmt|;
 block|}
 end_function
 

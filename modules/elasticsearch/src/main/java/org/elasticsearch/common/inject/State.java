@@ -385,6 +385,13 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|clearBlacklisted
+parameter_list|()
+block|{         }
 specifier|public
 name|Object
 name|lock
@@ -567,6 +574,12 @@ comment|/**      * Returns the shared lock for all injector data. This is a low-
 DECL|method|lock
 name|Object
 name|lock
+parameter_list|()
+function_decl|;
+comment|// ES_GUICE: clean blacklist keys
+DECL|method|clearBlacklisted
+name|void
+name|clearBlacklisted
 parameter_list|()
 function_decl|;
 block|}
