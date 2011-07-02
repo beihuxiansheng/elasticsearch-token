@@ -465,6 +465,13 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|out
+operator|.
+name|writeBoolean
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|responses
 operator|.
 name|get
