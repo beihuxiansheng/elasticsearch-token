@@ -316,7 +316,7 @@ name|assertThat
 argument_list|(
 name|doc
 operator|.
-name|doc
+name|masterDoc
 argument_list|()
 operator|.
 name|get
@@ -334,7 +334,7 @@ name|assertThat
 argument_list|(
 name|doc
 operator|.
-name|doc
+name|masterDoc
 argument_list|()
 operator|.
 name|get
@@ -492,7 +492,7 @@ name|assertThat
 argument_list|(
 name|doc
 operator|.
-name|doc
+name|masterDoc
 argument_list|()
 operator|.
 name|get
@@ -508,7 +508,7 @@ name|assertThat
 argument_list|(
 name|doc
 operator|.
-name|doc
+name|masterDoc
 argument_list|()
 operator|.
 name|get
@@ -644,7 +644,7 @@ name|assertThat
 argument_list|(
 name|doc
 operator|.
-name|doc
+name|masterDoc
 argument_list|()
 operator|.
 name|get
@@ -660,7 +660,7 @@ name|assertThat
 argument_list|(
 name|doc
 operator|.
-name|doc
+name|masterDoc
 argument_list|()
 operator|.
 name|get

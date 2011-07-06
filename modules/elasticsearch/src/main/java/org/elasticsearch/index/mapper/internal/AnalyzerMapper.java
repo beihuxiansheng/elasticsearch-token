@@ -140,6 +140,20 @@ name|index
 operator|.
 name|mapper
 operator|.
+name|ObjectMapperListener
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
 name|ParseContext
 import|;
 end_import
@@ -489,6 +503,17 @@ name|traverse
 parameter_list|(
 name|FieldMapperListener
 name|fieldMapperListener
+parameter_list|)
+block|{     }
+DECL|method|traverse
+annotation|@
+name|Override
+specifier|public
+name|void
+name|traverse
+parameter_list|(
+name|ObjectMapperListener
+name|objectMapperListener
 parameter_list|)
 block|{     }
 DECL|method|toXContent

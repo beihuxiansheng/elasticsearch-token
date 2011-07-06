@@ -247,7 +247,7 @@ name|isCompressed
 argument_list|(
 name|doc
 operator|.
-name|doc
+name|masterDoc
 argument_list|()
 operator|.
 name|getBinaryValue
@@ -374,7 +374,7 @@ name|isCompressed
 argument_list|(
 name|doc
 operator|.
-name|doc
+name|masterDoc
 argument_list|()
 operator|.
 name|getBinaryValue
@@ -494,7 +494,7 @@ name|isCompressed
 argument_list|(
 name|doc
 operator|.
-name|doc
+name|masterDoc
 argument_list|()
 operator|.
 name|getBinaryValue
@@ -577,7 +577,7 @@ name|isCompressed
 argument_list|(
 name|doc
 operator|.
-name|doc
+name|masterDoc
 argument_list|()
 operator|.
 name|getBinaryValue

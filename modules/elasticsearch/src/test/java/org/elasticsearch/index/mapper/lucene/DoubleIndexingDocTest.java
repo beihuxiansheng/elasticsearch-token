@@ -362,7 +362,7 @@ name|addDocument
 argument_list|(
 name|doc
 operator|.
-name|doc
+name|masterDoc
 argument_list|()
 argument_list|,
 name|doc
@@ -377,7 +377,7 @@ name|addDocument
 argument_list|(
 name|doc
 operator|.
-name|doc
+name|masterDoc
 argument_list|()
 argument_list|,
 name|doc

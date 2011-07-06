@@ -314,6 +314,10 @@ literal|null
 return|;
 comment|// no doc
 block|}
+comment|// Note, only master docs uid have version payload, so we can use that info to not
+comment|// take them into account
+do|do
+block|{
 name|docId
 operator|=
 name|uid
@@ -335,18 +339,7 @@ name|isPayloadAvailable
 argument_list|()
 condition|)
 block|{
-return|return
-operator|new
-name|DocIdAndVersion
-argument_list|(
-name|docId
-argument_list|,
-operator|-
-literal|2
-argument_list|,
-name|reader
-argument_list|)
-return|;
+continue|continue;
 block|}
 if|if
 condition|(
@@ -358,18 +351,7 @@ operator|<
 literal|8
 condition|)
 block|{
-return|return
-operator|new
-name|DocIdAndVersion
-argument_list|(
-name|docId
-argument_list|,
-operator|-
-literal|2
-argument_list|,
-name|reader
-argument_list|)
-return|;
+continue|continue;
 block|}
 name|byte
 index|[]
@@ -400,6 +382,27 @@ name|bytesToLong
 argument_list|(
 name|payload
 argument_list|)
+argument_list|,
+name|reader
+argument_list|)
+return|;
+block|}
+do|while
+condition|(
+name|uid
+operator|.
+name|next
+argument_list|()
+condition|)
+do|;
+return|return
+operator|new
+name|DocIdAndVersion
+argument_list|(
+name|docId
+argument_list|,
+operator|-
+literal|2
 argument_list|,
 name|reader
 argument_list|)
@@ -496,6 +499,10 @@ operator|-
 literal|1
 return|;
 block|}
+comment|// Note, only master docs uid have version payload, so we can use that info to not
+comment|// take them into account
+do|do
+block|{
 name|uid
 operator|.
 name|nextPosition
@@ -510,10 +517,7 @@ name|isPayloadAvailable
 argument_list|()
 condition|)
 block|{
-return|return
-operator|-
-literal|2
-return|;
+continue|continue;
 block|}
 if|if
 condition|(
@@ -525,10 +529,7 @@ operator|<
 literal|8
 condition|)
 block|{
-return|return
-operator|-
-literal|2
-return|;
+continue|continue;
 block|}
 name|byte
 index|[]
@@ -554,6 +555,19 @@ name|bytesToLong
 argument_list|(
 name|payload
 argument_list|)
+return|;
+block|}
+do|while
+condition|(
+name|uid
+operator|.
+name|next
+argument_list|()
+condition|)
+do|;
+return|return
+operator|-
+literal|2
 return|;
 block|}
 catch|catch
@@ -689,6 +703,18 @@ name|omitTermFreqAndPositions
 parameter_list|)
 block|{
 comment|// never allow to set this, since we want payload!
+block|}
+DECL|method|uid
+specifier|public
+name|String
+name|uid
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|uid
+return|;
 block|}
 DECL|method|setUid
 specifier|public

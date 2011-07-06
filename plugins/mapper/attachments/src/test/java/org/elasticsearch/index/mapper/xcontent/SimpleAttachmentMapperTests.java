@@ -322,7 +322,7 @@ argument_list|(
 name|json
 argument_list|)
 operator|.
-name|doc
+name|masterDoc
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -447,7 +447,7 @@ argument_list|(
 name|json
 argument_list|)
 operator|.
-name|doc
+name|masterDoc
 argument_list|()
 expr_stmt|;
 name|assertThat

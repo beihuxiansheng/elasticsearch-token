@@ -409,6 +409,14 @@ name|FieldMapperListener
 name|fieldMapperListener
 parameter_list|)
 function_decl|;
+DECL|method|traverse
+name|void
+name|traverse
+parameter_list|(
+name|ObjectMapperListener
+name|objectMapperListener
+parameter_list|)
+function_decl|;
 DECL|method|close
 name|void
 name|close

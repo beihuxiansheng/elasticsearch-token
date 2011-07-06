@@ -1998,6 +1998,7 @@ operator|new
 name|CustomMemoryIndex
 argument_list|()
 decl_stmt|;
+comment|// TODO: This means percolation does not support nested docs...
 for|for
 control|(
 name|Fieldable
@@ -2008,7 +2009,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|doc
+name|masterDoc
 argument_list|()
 operator|.
 name|getFields
@@ -2133,7 +2134,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|doc
+name|masterDoc
 argument_list|()
 operator|.
 name|getBoost
@@ -2225,7 +2226,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|doc
+name|masterDoc
 argument_list|()
 operator|.
 name|getBoost
