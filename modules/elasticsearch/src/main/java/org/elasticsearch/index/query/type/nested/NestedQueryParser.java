@@ -627,7 +627,7 @@ condition|(
 name|query
 operator|==
 literal|null
-operator|||
+operator|&&
 name|filter
 operator|==
 literal|null
@@ -682,6 +682,13 @@ name|filter
 argument_list|)
 expr_stmt|;
 block|}
+name|query
+operator|.
+name|setBoost
+argument_list|(
+name|boost
+argument_list|)
+expr_stmt|;
 name|MapperService
 operator|.
 name|SmartNameObjectMapper
@@ -881,13 +888,6 @@ argument_list|,
 name|scoreMode
 argument_list|)
 decl_stmt|;
-name|joinQuery
-operator|.
-name|setBoost
-argument_list|(
-name|boost
-argument_list|)
-expr_stmt|;
 return|return
 name|joinQuery
 return|;
