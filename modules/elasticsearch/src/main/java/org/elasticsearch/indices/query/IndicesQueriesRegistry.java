@@ -88,24 +88,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|type
-operator|.
-name|nested
-operator|.
-name|NestedQueryParser
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util

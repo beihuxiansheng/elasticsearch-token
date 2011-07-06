@@ -388,9 +388,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|query
-operator|.
-name|type
+name|search
 operator|.
 name|nested
 operator|.

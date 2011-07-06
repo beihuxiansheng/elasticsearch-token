@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.query.type.nested
+DECL|package|org.elasticsearch.index.search.nested
 package|package
 name|org
 operator|.
@@ -12,9 +12,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|query
-operator|.
-name|type
+name|search
 operator|.
 name|nested
 package|;

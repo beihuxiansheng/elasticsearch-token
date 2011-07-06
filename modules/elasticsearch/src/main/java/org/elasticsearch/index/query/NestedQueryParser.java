@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.query.type.nested
+DECL|package|org.elasticsearch.index.query
 package|package
 name|org
 operator|.
@@ -13,10 +13,6 @@ operator|.
 name|index
 operator|.
 name|query
-operator|.
-name|type
-operator|.
-name|nested
 package|;
 end_package
 
@@ -182,9 +178,11 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|query
+name|search
 operator|.
-name|QueryParseContext
+name|nested
+operator|.
+name|BlockJoinQuery
 import|;
 end_import
 
@@ -196,23 +194,11 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|query
+name|search
 operator|.
-name|QueryParser
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|nested
 operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|QueryParsingException
+name|NonNestedDocsFilter
 import|;
 end_import
 
