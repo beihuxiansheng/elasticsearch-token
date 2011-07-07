@@ -780,6 +780,12 @@ name|settings
 operator|.
 name|getAsTime
 argument_list|(
+literal|"discovery.zen.ping.timeout"
+argument_list|,
+name|settings
+operator|.
+name|getAsTime
+argument_list|(
 literal|"discovery.zen.ping_timeout"
 argument_list|,
 name|componentSettings
@@ -797,6 +803,7 @@ argument_list|,
 name|timeValueSeconds
 argument_list|(
 literal|3
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
@@ -819,7 +826,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"using ping_timeout [{}]"
+literal|"using ping.timeout [{}]"
 argument_list|,
 name|pingTimeout
 argument_list|)
