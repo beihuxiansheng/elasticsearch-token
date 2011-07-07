@@ -457,6 +457,26 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the nested path the facet will execute on. A match (root object) will then cause all the      * nested objects matching the path to be computed into the facet.      */
+DECL|method|nested
+specifier|public
+name|RangeFacetBuilder
+name|nested
+parameter_list|(
+name|String
+name|nested
+parameter_list|)
+block|{
+name|this
+operator|.
+name|nested
+operator|=
+name|nested
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 DECL|method|toXContent
 annotation|@
 name|Override
