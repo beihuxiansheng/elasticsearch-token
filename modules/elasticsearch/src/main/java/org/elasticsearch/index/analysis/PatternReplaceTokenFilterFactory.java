@@ -144,26 +144,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|Reader
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|regex
@@ -173,6 +153,8 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|AnalysisSettingsRequired
 DECL|class|PatternReplaceTokenFilterFactory
 specifier|public
 class|class
@@ -243,7 +225,7 @@ name|get
 argument_list|(
 literal|"pattern"
 argument_list|,
-literal|""
+literal|null
 argument_list|)
 decl_stmt|;
 if|if
@@ -292,7 +274,7 @@ name|get
 argument_list|(
 literal|"replacement"
 argument_list|,
-literal|""
+literal|null
 argument_list|)
 decl_stmt|;
 if|if

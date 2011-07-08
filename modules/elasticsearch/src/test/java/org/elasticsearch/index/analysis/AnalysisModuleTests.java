@@ -699,7 +699,7 @@ name|assertThat
 argument_list|(
 name|custom5
 operator|.
-name|tokenFilters
+name|charFilters
 argument_list|()
 index|[
 literal|0
