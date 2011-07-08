@@ -662,6 +662,57 @@ comment|//        assertThat(html.readAheadLimit(), equalTo(HTMLStripCharFilter.
 comment|//
 comment|//        html = (HtmlStripCharFilterFactory) custom2.charFilters()[1];
 comment|//        assertThat(html.readAheadLimit(), equalTo(1024));
+comment|// verify characters  mapping
+name|analyzer
+operator|=
+name|analysisService
+operator|.
+name|analyzer
+argument_list|(
+literal|"custom5"
+argument_list|)
+operator|.
+name|analyzer
+argument_list|()
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|analyzer
+argument_list|,
+name|instanceOf
+argument_list|(
+name|CustomAnalyzer
+operator|.
+name|class
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|CustomAnalyzer
+name|custom5
+init|=
+operator|(
+name|CustomAnalyzer
+operator|)
+name|analyzer
+decl_stmt|;
+name|assertThat
+argument_list|(
+name|custom5
+operator|.
+name|tokenFilters
+argument_list|()
+index|[
+literal|0
+index|]
+argument_list|,
+name|instanceOf
+argument_list|(
+name|MappingCharFilterFactory
+operator|.
+name|class
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|// verify aliases
 name|analyzer
 operator|=
