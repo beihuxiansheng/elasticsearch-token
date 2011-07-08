@@ -2449,6 +2449,17 @@ name|tokenFiltersBindings
 operator|.
 name|processTokenFilter
 argument_list|(
+literal|"pattern_replace"
+argument_list|,
+name|PatternReplaceTokenFilterFactory
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|tokenFiltersBindings
+operator|.
+name|processTokenFilter
+argument_list|(
 literal|"phonetic"
 argument_list|,
 name|PhoneticTokenFilterFactory
