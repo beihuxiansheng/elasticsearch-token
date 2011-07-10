@@ -977,6 +977,26 @@ argument_list|(
 literal|':'
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|sep
+operator|==
+operator|-
+literal|1
+condition|)
+block|{
+throw|throw
+operator|new
+name|ElasticSearchIllegalArgumentException
+argument_list|(
+literal|"Malformed scrollId ["
+operator|+
+name|scrollId
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
 name|context
 index|[
 name|i
