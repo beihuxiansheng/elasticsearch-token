@@ -844,7 +844,7 @@ operator|.
 name|metaData
 argument_list|()
 operator|.
-name|concreteAllIndices
+name|concreteAllOpenIndices
 argument_list|()
 expr_stmt|;
 block|}
@@ -1088,7 +1088,7 @@ operator|.
 name|metaData
 argument_list|()
 operator|.
-name|concreteAllIndices
+name|concreteAllOpenIndices
 argument_list|()
 expr_stmt|;
 block|}
