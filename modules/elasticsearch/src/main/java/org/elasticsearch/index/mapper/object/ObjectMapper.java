@@ -3637,6 +3637,17 @@ decl_stmt|;
 comment|// a safe check since "1" gets parsed as well
 if|if
 condition|(
+name|context
+operator|.
+name|root
+argument_list|()
+operator|.
+name|dateDetection
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
 name|text
 operator|.
 name|contains
@@ -3746,6 +3757,7 @@ name|e
 parameter_list|)
 block|{
 comment|// failure to parse this, continue
+block|}
 block|}
 block|}
 block|}
