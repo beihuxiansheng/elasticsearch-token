@@ -1575,9 +1575,7 @@ name|field
 argument_list|(
 literal|"date_detection"
 argument_list|,
-name|Defaults
-operator|.
-name|DATE_DETECTION
+name|dateDetection
 argument_list|)
 expr_stmt|;
 block|}
