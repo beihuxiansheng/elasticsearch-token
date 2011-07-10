@@ -236,6 +236,24 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|support
+operator|.
+name|XContentMapValues
+operator|.
+name|*
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|index
 operator|.
 name|mapper
@@ -299,7 +317,7 @@ specifier|final
 name|boolean
 name|DATE_DETECTION
 init|=
-literal|false
+literal|true
 decl_stmt|;
 block|}
 DECL|class|Builder
@@ -979,7 +997,22 @@ argument_list|(
 literal|"date_detection"
 argument_list|)
 condition|)
-block|{              }
+block|{
+operator|(
+operator|(
+name|Builder
+operator|)
+name|builder
+operator|)
+operator|.
+name|dateDetection
+operator|=
+name|nodeBooleanValue
+argument_list|(
+name|fieldNode
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 DECL|field|dateTimeFormatters
