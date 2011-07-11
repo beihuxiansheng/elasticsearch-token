@@ -548,7 +548,6 @@ operator|.
 name|countDown
 argument_list|()
 expr_stmt|;
-empty_stmt|;
 block|}
 block|}
 argument_list|)
