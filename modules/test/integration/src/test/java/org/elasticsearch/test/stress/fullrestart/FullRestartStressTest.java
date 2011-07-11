@@ -1495,7 +1495,7 @@ name|put
 argument_list|(
 literal|"gateway.type"
 argument_list|,
-literal|"fs"
+literal|"local"
 argument_list|)
 operator|.
 name|put

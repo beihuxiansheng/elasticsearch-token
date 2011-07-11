@@ -62,6 +62,11 @@ name|BoundTransportAddress
 name|boundAddress
 parameter_list|()
 function_decl|;
+DECL|method|stats
+name|HttpStats
+name|stats
+parameter_list|()
+function_decl|;
 DECL|method|httpServerAdapter
 name|void
 name|httpServerAdapter

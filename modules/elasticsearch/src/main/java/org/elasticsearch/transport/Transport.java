@@ -221,6 +221,11 @@ name|IOException
 throws|,
 name|TransportException
 function_decl|;
+DECL|method|stats
+name|TransportStats
+name|stats
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
