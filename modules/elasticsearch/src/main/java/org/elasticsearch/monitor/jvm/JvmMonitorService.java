@@ -346,7 +346,10 @@ name|getAsBoolean
 argument_list|(
 literal|"enabled"
 argument_list|,
-literal|true
+name|JvmStats
+operator|.
+name|isLastGcEnabled
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|this
@@ -379,6 +382,24 @@ name|timeValueMillis
 argument_list|(
 literal|5000
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"enabled [{}], last_gc_enabled [{}], interval [{}], gc_threshold [{}]"
+argument_list|,
+name|enabled
+argument_list|,
+name|JvmStats
+operator|.
+name|isLastGcEnabled
+argument_list|()
+argument_list|,
+name|interval
+argument_list|,
+name|gcThreshold
 argument_list|)
 expr_stmt|;
 block|}
