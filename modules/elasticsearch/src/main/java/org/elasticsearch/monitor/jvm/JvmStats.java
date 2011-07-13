@@ -416,7 +416,7 @@ name|System
 operator|.
 name|getProperty
 argument_list|(
-literal|"monitory.jvm.enable_last_gc"
+literal|"monitor.jvm.enable_last_gc"
 argument_list|)
 argument_list|,
 literal|false
