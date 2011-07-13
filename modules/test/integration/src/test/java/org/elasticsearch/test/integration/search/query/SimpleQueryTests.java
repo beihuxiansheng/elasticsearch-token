@@ -84,7 +84,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|JSONQueryBuilder
+name|TermQueryBuilder
 import|;
 end_import
 
@@ -98,7 +98,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|TermQueryBuilder
+name|WrapperQueryBuilder
 import|;
 end_import
 
@@ -3370,11 +3370,11 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|JSONQueryBuilder
-name|json
+name|WrapperQueryBuilder
+name|wrapper
 init|=
 operator|new
-name|JSONQueryBuilder
+name|WrapperQueryBuilder
 argument_list|(
 literal|"{ \"term\" : { \"field1\" : \"value1_1\" } }"
 argument_list|)
@@ -3389,7 +3389,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|json
+name|wrapper
 argument_list|)
 operator|.
 name|execute
@@ -3425,7 +3425,7 @@ name|bool
 operator|.
 name|must
 argument_list|(
-name|json
+name|wrapper
 argument_list|)
 expr_stmt|;
 name|bool
@@ -3450,7 +3450,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|json
+name|wrapper
 argument_list|)
 operator|.
 name|execute

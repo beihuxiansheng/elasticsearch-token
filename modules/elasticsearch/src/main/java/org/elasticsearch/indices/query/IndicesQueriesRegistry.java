@@ -426,7 +426,7 @@ argument_list|(
 name|queryParsers
 argument_list|,
 operator|new
-name|JSONQueryParser
+name|WrapperQueryParser
 argument_list|()
 argument_list|)
 expr_stmt|;
