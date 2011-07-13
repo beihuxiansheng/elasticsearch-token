@@ -233,26 +233,6 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|type
-specifier|public
-name|AnalyzeRequestBuilder
-name|type
-parameter_list|(
-name|String
-name|type
-parameter_list|)
-block|{
-name|request
-operator|.
-name|type
-argument_list|(
-name|type
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 block|}
 end_class
 
