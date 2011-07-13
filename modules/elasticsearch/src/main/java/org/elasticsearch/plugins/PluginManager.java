@@ -1052,6 +1052,10 @@ name|getAbsolutePath
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|downloaded
+operator|=
+literal|true
+expr_stmt|;
 block|}
 block|}
 else|else
@@ -1069,6 +1073,10 @@ operator|.
 name|getAbsolutePath
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|downloaded
+operator|=
+literal|true
 expr_stmt|;
 block|}
 if|if
