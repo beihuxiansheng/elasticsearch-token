@@ -221,6 +221,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Should the JVM be exited as well or not. Defaults to<tt>true</tt>.      */
+DECL|method|setExit
+specifier|public
+name|NodesShutdownRequestBuilder
+name|setExit
+parameter_list|(
+name|boolean
+name|exit
+parameter_list|)
+block|{
+name|request
+operator|.
+name|exit
+argument_list|(
+name|exit
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Sets the master node timeout in case the master has not yet been discovered.      */
 DECL|method|setMasterNodeTimeout
 specifier|public

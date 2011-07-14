@@ -80,6 +80,12 @@ name|void
 name|close
 parameter_list|()
 function_decl|;
+comment|/**      * Returns<tt>true</tt> if the node is closed.      */
+DECL|method|isClosed
+name|boolean
+name|isClosed
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
