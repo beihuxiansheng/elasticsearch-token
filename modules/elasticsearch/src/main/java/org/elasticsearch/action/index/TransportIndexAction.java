@@ -703,6 +703,12 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
+name|request
+operator|.
+name|beforeLocalFork
+argument_list|()
+expr_stmt|;
+comment|// we fork on another thread...
 name|createIndexAction
 operator|.
 name|execute

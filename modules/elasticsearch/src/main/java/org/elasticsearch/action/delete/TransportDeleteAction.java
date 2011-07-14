@@ -504,7 +504,7 @@ name|doExecute
 parameter_list|(
 specifier|final
 name|DeleteRequest
-name|deleteRequest
+name|request
 parameter_list|,
 specifier|final
 name|ActionListener
@@ -529,13 +529,18 @@ argument_list|()
 operator|.
 name|hasConcreteIndex
 argument_list|(
-name|deleteRequest
+name|request
 operator|.
 name|index
 argument_list|()
 argument_list|)
 condition|)
 block|{
+name|request
+operator|.
+name|beforeLocalFork
+argument_list|()
+expr_stmt|;
 name|createIndexAction
 operator|.
 name|execute
@@ -543,7 +548,7 @@ argument_list|(
 operator|new
 name|CreateIndexRequest
 argument_list|(
-name|deleteRequest
+name|request
 operator|.
 name|index
 argument_list|()
@@ -568,7 +573,7 @@ parameter_list|)
 block|{
 name|innerExecute
 argument_list|(
-name|deleteRequest
+name|request
 argument_list|,
 name|listener
 argument_list|)
@@ -599,7 +604,7 @@ block|{
 comment|// we have the index, do it
 name|innerExecute
 argument_list|(
-name|deleteRequest
+name|request
 argument_list|,
 name|listener
 argument_list|)
@@ -624,7 +629,7 @@ else|else
 block|{
 name|innerExecute
 argument_list|(
-name|deleteRequest
+name|request
 argument_list|,
 name|listener
 argument_list|)
