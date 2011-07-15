@@ -1825,7 +1825,9 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"received ping response with no matching id [{}]"
+literal|"received ping response {} with no matching id [{}]"
+argument_list|,
+name|pingResponse
 argument_list|,
 name|response
 operator|.
