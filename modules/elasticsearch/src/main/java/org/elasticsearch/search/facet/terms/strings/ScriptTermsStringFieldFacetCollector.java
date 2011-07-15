@@ -329,6 +329,11 @@ specifier|private
 name|int
 name|missing
 decl_stmt|;
+DECL|field|total
+specifier|private
+name|int
+name|total
+decl_stmt|;
 DECL|method|ScriptTermsStringFieldFacetCollector
 specifier|public
 name|ScriptTermsStringFieldFacetCollector
@@ -594,6 +599,9 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
+name|total
+operator|++
+expr_stmt|;
 block|}
 block|}
 if|if
@@ -666,6 +674,9 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
+name|total
+operator|++
+expr_stmt|;
 block|}
 block|}
 if|if
@@ -707,6 +718,9 @@ literal|1
 argument_list|,
 literal|1
 argument_list|)
+expr_stmt|;
+name|total
+operator|++
 expr_stmt|;
 block|}
 else|else
@@ -814,6 +828,8 @@ name|of
 argument_list|()
 argument_list|,
 name|missing
+argument_list|,
+name|total
 argument_list|)
 return|;
 block|}
@@ -969,6 +985,8 @@ name|list
 argument_list|)
 argument_list|,
 name|missing
+argument_list|,
+name|total
 argument_list|)
 return|;
 block|}
@@ -1065,6 +1083,8 @@ argument_list|,
 name|ordered
 argument_list|,
 name|missing
+argument_list|,
+name|total
 argument_list|)
 return|;
 block|}

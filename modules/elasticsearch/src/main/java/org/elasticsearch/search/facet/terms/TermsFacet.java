@@ -625,6 +625,30 @@ name|long
 name|getMissingCount
 parameter_list|()
 function_decl|;
+comment|/**      * The total count of terms.      */
+DECL|method|totalCount
+name|long
+name|totalCount
+parameter_list|()
+function_decl|;
+comment|/**      * The total count of terms.      */
+DECL|method|getTotalCount
+name|long
+name|getTotalCount
+parameter_list|()
+function_decl|;
+comment|/**      * The count of terms other than the one provided by the entries.      */
+DECL|method|otherCount
+name|long
+name|otherCount
+parameter_list|()
+function_decl|;
+comment|/**      * The count of terms other than the one provided by the entries.      */
+DECL|method|getOtherCount
+name|long
+name|getOtherCount
+parameter_list|()
+function_decl|;
 comment|/**      * The terms and counts.      */
 DECL|method|entries
 name|List
