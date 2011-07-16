@@ -61,6 +61,14 @@ name|short
 name|uniqueAddressTypeId
 parameter_list|()
 function_decl|;
+DECL|method|match
+name|boolean
+name|match
+parameter_list|(
+name|String
+name|otherAddress
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 
