@@ -87,6 +87,13 @@ name|_position
 init|=
 literal|0
 decl_stmt|;
+comment|/**      * Flag that indicates if we have already called '_outputStream.close()'      * (to avoid calling it multiple times)      */
+DECL|field|_outputStreamClosed
+specifier|protected
+name|boolean
+name|_outputStreamClosed
+decl_stmt|;
+comment|/*    ///////////////////////////////////////////////////////////////////////    // Construction    ///////////////////////////////////////////////////////////////////////     */
 DECL|method|LZFOutputStream
 specifier|public
 name|LZFOutputStream
@@ -126,7 +133,12 @@ argument_list|(
 name|OUTPUT_BUFFER_SIZE
 argument_list|)
 expr_stmt|;
+name|_outputStreamClosed
+operator|=
+literal|false
+expr_stmt|;
 block|}
+comment|/*     ///////////////////////////////////////////////////////////////////////     // OutputStream impl     ///////////////////////////////////////////////////////////////////////      */
 annotation|@
 name|Override
 DECL|method|write
@@ -361,11 +373,6 @@ block|{
 name|flush
 argument_list|()
 expr_stmt|;
-name|_outputStream
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|_encoder
 operator|.
 name|close
@@ -396,10 +403,39 @@ name|buf
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+operator|!
+name|_outputStreamClosed
+condition|)
+block|{
+name|_outputStreamClosed
+operator|=
+literal|true
+expr_stmt|;
+name|_outputStream
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
+block|}
+comment|/*     ///////////////////////////////////////////////////////////////////////     // Additional public accessors     ///////////////////////////////////////////////////////////////////////      */
+comment|/**      * Method that can be used to find underlying {@link OutputStream} that      * we write encoded LZF encoded data into, after compressing it.      * Will never return null; although underlying stream may be closed      * (if this stream has been closed).      *      * @since 0.8      */
+DECL|method|getUnderlyingOutputStream
+specifier|public
+name|OutputStream
+name|getUnderlyingOutputStream
+parameter_list|()
+block|{
+return|return
+name|_outputStream
+return|;
+block|}
+comment|/*    ///////////////////////////////////////////////////////////////////////    // Internal methods    ///////////////////////////////////////////////////////////////////////     */
 comment|/**      * Compress and write the current block to the OutputStream      */
 DECL|method|writeCompressedBlock
-specifier|private
+specifier|protected
 name|void
 name|writeCompressedBlock
 parameter_list|()
