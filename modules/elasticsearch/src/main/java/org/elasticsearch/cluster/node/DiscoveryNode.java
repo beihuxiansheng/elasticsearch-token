@@ -292,6 +292,14 @@ name|getAsMap
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|attributes
+operator|.
+name|remove
+argument_list|(
+literal|"name"
+argument_list|)
+expr_stmt|;
+comment|// name is extracted in other places
 if|if
 condition|(
 name|attributes
