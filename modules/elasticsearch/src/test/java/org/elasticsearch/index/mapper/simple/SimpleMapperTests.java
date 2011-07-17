@@ -293,7 +293,7 @@ argument_list|,
 name|json
 argument_list|)
 operator|.
-name|masterDoc
+name|rootDoc
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -384,7 +384,7 @@ argument_list|(
 name|json
 argument_list|)
 operator|.
-name|masterDoc
+name|rootDoc
 argument_list|()
 expr_stmt|;
 comment|//        System.out.println("Document: " + doc);
@@ -466,7 +466,7 @@ argument_list|(
 name|json
 argument_list|)
 operator|.
-name|masterDoc
+name|rootDoc
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -624,7 +624,7 @@ argument_list|(
 name|json
 argument_list|)
 operator|.
-name|masterDoc
+name|rootDoc
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -765,7 +765,7 @@ argument_list|,
 name|json
 argument_list|)
 operator|.
-name|masterDoc
+name|rootDoc
 argument_list|()
 decl_stmt|;
 name|assertThat

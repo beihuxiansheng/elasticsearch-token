@@ -202,7 +202,7 @@ argument_list|(
 name|json
 argument_list|)
 operator|.
-name|masterDoc
+name|rootDoc
 argument_list|()
 decl_stmt|;
 name|Fieldable

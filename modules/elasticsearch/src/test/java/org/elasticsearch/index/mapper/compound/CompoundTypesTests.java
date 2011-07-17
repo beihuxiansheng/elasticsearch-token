@@ -230,7 +230,7 @@ name|assertThat
 argument_list|(
 name|doc
 operator|.
-name|masterDoc
+name|rootDoc
 argument_list|()
 operator|.
 name|get
@@ -251,7 +251,7 @@ name|double
 operator|)
 name|doc
 operator|.
-name|masterDoc
+name|rootDoc
 argument_list|()
 operator|.
 name|getFieldable
@@ -274,7 +274,7 @@ name|assertThat
 argument_list|(
 name|doc
 operator|.
-name|masterDoc
+name|rootDoc
 argument_list|()
 operator|.
 name|get
@@ -343,7 +343,7 @@ name|assertThat
 argument_list|(
 name|doc
 operator|.
-name|masterDoc
+name|rootDoc
 argument_list|()
 operator|.
 name|get
@@ -364,7 +364,7 @@ name|double
 operator|)
 name|doc
 operator|.
-name|masterDoc
+name|rootDoc
 argument_list|()
 operator|.
 name|getFieldable
@@ -387,7 +387,7 @@ name|assertThat
 argument_list|(
 name|doc
 operator|.
-name|masterDoc
+name|rootDoc
 argument_list|()
 operator|.
 name|get
@@ -441,7 +441,7 @@ name|assertThat
 argument_list|(
 name|doc
 operator|.
-name|masterDoc
+name|rootDoc
 argument_list|()
 operator|.
 name|get
@@ -462,7 +462,7 @@ name|double
 operator|)
 name|doc
 operator|.
-name|masterDoc
+name|rootDoc
 argument_list|()
 operator|.
 name|getFieldable
@@ -485,7 +485,7 @@ name|assertThat
 argument_list|(
 name|doc
 operator|.
-name|masterDoc
+name|rootDoc
 argument_list|()
 operator|.
 name|get

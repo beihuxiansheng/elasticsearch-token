@@ -1499,7 +1499,7 @@ name|UidField
 operator|)
 name|doc
 operator|.
-name|masterDoc
+name|rootDoc
 argument_list|()
 operator|.
 name|getFieldable
@@ -1858,7 +1858,7 @@ name|UidField
 operator|)
 name|doc
 operator|.
-name|masterDoc
+name|rootDoc
 argument_list|()
 operator|.
 name|getFieldable

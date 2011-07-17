@@ -2009,7 +2009,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|masterDoc
+name|rootDoc
 argument_list|()
 operator|.
 name|getFields
@@ -2134,7 +2134,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|masterDoc
+name|rootDoc
 argument_list|()
 operator|.
 name|getBoost
@@ -2226,7 +2226,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|masterDoc
+name|rootDoc
 argument_list|()
 operator|.
 name|getBoost

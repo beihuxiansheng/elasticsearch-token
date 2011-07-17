@@ -44,7 +44,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|Field
+name|Fieldable
 import|;
 end_import
 
@@ -202,15 +202,15 @@ argument_list|(
 name|json
 argument_list|)
 operator|.
-name|masterDoc
+name|rootDoc
 argument_list|()
 decl_stmt|;
-name|Field
+name|Fieldable
 name|f
 init|=
 name|doc
 operator|.
-name|getField
+name|getFieldable
 argument_list|(
 literal|"name"
 argument_list|)
@@ -303,7 +303,7 @@ name|f
 operator|=
 name|doc
 operator|.
-name|getField
+name|getFieldable
 argument_list|(
 literal|"obj1.name"
 argument_list|)
@@ -382,7 +382,7 @@ name|f
 operator|=
 name|doc
 operator|.
-name|getField
+name|getFieldable
 argument_list|(
 literal|"obj1.obj2.name"
 argument_list|)

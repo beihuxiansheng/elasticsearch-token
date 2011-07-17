@@ -315,10 +315,10 @@ operator|.
 name|routing
 return|;
 block|}
-DECL|method|masterDoc
+DECL|method|rootDoc
 specifier|public
 name|Document
-name|masterDoc
+name|rootDoc
 parameter_list|()
 block|{
 return|return

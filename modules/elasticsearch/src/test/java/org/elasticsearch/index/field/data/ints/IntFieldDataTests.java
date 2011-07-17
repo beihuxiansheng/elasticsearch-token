@@ -398,10 +398,14 @@ expr_stmt|;
 name|IndexReader
 name|reader
 init|=
-name|indexWriter
+name|IndexReader
 operator|.
-name|getReader
-argument_list|()
+name|open
+argument_list|(
+name|indexWriter
+argument_list|,
+literal|true
+argument_list|)
 decl_stmt|;
 name|IntFieldData
 name|sFieldData
