@@ -105,6 +105,10 @@ argument_list|,
 name|TieredMergePolicyProvider
 operator|.
 name|class
+argument_list|,
+literal|"org.elasticsearch.index.merge.policy"
+argument_list|,
+literal|"MergePolicyProvider"
 argument_list|)
 argument_list|)
 operator|.
