@@ -761,7 +761,7 @@ init|=
 operator|new
 name|URL
 argument_list|(
-literal|"http://github.com/downloads/"
+literal|"https://github.com/downloads/"
 operator|+
 name|userName
 operator|+
@@ -837,7 +837,7 @@ operator|=
 operator|new
 name|URL
 argument_list|(
-literal|"http://github.com/"
+literal|"https://github.com/"
 operator|+
 name|userName
 operator|+
@@ -907,7 +907,7 @@ operator|=
 operator|new
 name|URL
 argument_list|(
-literal|"http://github.com/"
+literal|"https://github.com/"
 operator|+
 name|userName
 operator|+
@@ -966,11 +966,7 @@ name|IOException
 name|e2
 parameter_list|)
 block|{
-name|e2
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
+comment|// ignore
 block|}
 block|}
 block|}
@@ -984,7 +980,7 @@ init|=
 operator|new
 name|URL
 argument_list|(
-literal|"http://github.com/downloads/"
+literal|"https://github.com/downloads/"
 operator|+
 name|userName
 operator|+
@@ -1057,7 +1053,7 @@ operator|=
 operator|new
 name|URL
 argument_list|(
-literal|"http://github.com/"
+literal|"https://github.com/"
 operator|+
 name|userName
 operator|+
