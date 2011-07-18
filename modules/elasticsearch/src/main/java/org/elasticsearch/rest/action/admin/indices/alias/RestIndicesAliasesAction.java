@@ -296,7 +296,7 @@ name|unit
 operator|.
 name|TimeValue
 operator|.
-name|timeValueSeconds
+name|*
 import|;
 end_import
 
@@ -813,6 +813,13 @@ name|equals
 argument_list|(
 name|currentFieldName
 argument_list|)
+operator|||
+literal|"index_routing"
+operator|.
+name|equals
+argument_list|(
+name|currentFieldName
+argument_list|)
 condition|)
 block|{
 name|indexRouting
@@ -838,6 +845,13 @@ name|currentFieldName
 argument_list|)
 operator|||
 literal|"search-routing"
+operator|.
+name|equals
+argument_list|(
+name|currentFieldName
+argument_list|)
+operator|||
+literal|"search_routing"
 operator|.
 name|equals
 argument_list|(
