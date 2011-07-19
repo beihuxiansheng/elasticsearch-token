@@ -1089,6 +1089,15 @@ name|RuntimeException
 name|e
 parameter_list|)
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Dfs phase failed"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 name|freeContext
 argument_list|(
 name|context
@@ -1218,6 +1227,15 @@ name|RuntimeException
 name|e
 parameter_list|)
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Scan phase failed"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 name|freeContext
 argument_list|(
 name|context
@@ -1397,6 +1415,15 @@ name|RuntimeException
 name|e
 parameter_list|)
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Scan phase failed"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 name|freeContext
 argument_list|(
 name|context
@@ -1502,6 +1529,15 @@ name|RuntimeException
 name|e
 parameter_list|)
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Query phase failed"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 name|freeContext
 argument_list|(
 name|context
@@ -1590,6 +1626,15 @@ name|RuntimeException
 name|e
 parameter_list|)
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Query phase failed"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 name|freeContext
 argument_list|(
 name|context
@@ -1718,6 +1763,15 @@ name|RuntimeException
 name|e
 parameter_list|)
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Query phase failed"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 name|freeContext
 argument_list|(
 name|context
@@ -1842,6 +1896,15 @@ name|RuntimeException
 name|e
 parameter_list|)
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Fetch phase failed"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 name|freeContext
 argument_list|(
 name|context
@@ -2013,6 +2076,15 @@ name|RuntimeException
 name|e
 parameter_list|)
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Fetch phase failed"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 name|freeContext
 argument_list|(
 name|context
@@ -2144,6 +2216,15 @@ name|RuntimeException
 name|e
 parameter_list|)
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Fetch phase failed"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 name|freeContext
 argument_list|(
 name|context
@@ -2255,6 +2336,15 @@ name|RuntimeException
 name|e
 parameter_list|)
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Fetch phase failed"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 name|freeContext
 argument_list|(
 name|context
