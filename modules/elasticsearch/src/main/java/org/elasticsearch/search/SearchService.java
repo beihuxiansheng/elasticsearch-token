@@ -390,7 +390,63 @@ name|search
 operator|.
 name|fetch
 operator|.
-name|*
+name|FetchPhase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|fetch
+operator|.
+name|FetchSearchRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|fetch
+operator|.
+name|FetchSearchResult
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|fetch
+operator|.
+name|QueryFetchSearchResult
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|fetch
+operator|.
+name|ScrollQueryFetchSearchResult
 import|;
 end_import
 
@@ -446,7 +502,63 @@ name|search
 operator|.
 name|query
 operator|.
-name|*
+name|QueryPhase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|query
+operator|.
+name|QueryPhaseExecutionException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|query
+operator|.
+name|QuerySearchRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|query
+operator|.
+name|QuerySearchResult
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|query
+operator|.
+name|ScrollQuerySearchResult
 import|;
 end_import
 
@@ -1091,7 +1203,7 @@ parameter_list|)
 block|{
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Dfs phase failed"
 argument_list|,
@@ -1229,7 +1341,7 @@ parameter_list|)
 block|{
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Scan phase failed"
 argument_list|,
@@ -1417,7 +1529,7 @@ parameter_list|)
 block|{
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Scan phase failed"
 argument_list|,
@@ -1531,7 +1643,7 @@ parameter_list|)
 block|{
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Query phase failed"
 argument_list|,
@@ -1628,7 +1740,7 @@ parameter_list|)
 block|{
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Query phase failed"
 argument_list|,
@@ -1765,7 +1877,7 @@ parameter_list|)
 block|{
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Query phase failed"
 argument_list|,
@@ -1898,7 +2010,7 @@ parameter_list|)
 block|{
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Fetch phase failed"
 argument_list|,
@@ -2078,7 +2190,7 @@ parameter_list|)
 block|{
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Fetch phase failed"
 argument_list|,
@@ -2218,7 +2330,7 @@ parameter_list|)
 block|{
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Fetch phase failed"
 argument_list|,
@@ -2338,7 +2450,7 @@ parameter_list|)
 block|{
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Fetch phase failed"
 argument_list|,
