@@ -364,7 +364,7 @@ init|=
 operator|new
 name|TimeValue
 argument_list|(
-literal|2
+literal|30
 argument_list|,
 name|TimeUnit
 operator|.
