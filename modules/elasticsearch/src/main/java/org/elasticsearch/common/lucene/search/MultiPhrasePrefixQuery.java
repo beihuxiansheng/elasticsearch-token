@@ -762,7 +762,7 @@ name|terms
 operator|.
 name|size
 argument_list|()
-operator|>
+operator|>=
 name|maxExpansions
 condition|)
 block|{
