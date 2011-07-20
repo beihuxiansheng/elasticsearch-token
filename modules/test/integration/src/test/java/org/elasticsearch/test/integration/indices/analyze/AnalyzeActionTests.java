@@ -569,7 +569,7 @@ argument_list|)
 decl_stmt|;
 name|requestBuilder
 operator|.
-name|field
+name|setField
 argument_list|(
 literal|"document.simple"
 argument_list|)
