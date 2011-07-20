@@ -753,6 +753,27 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|facet
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|SearchParseException
+argument_list|(
+name|context
+argument_list|,
+literal|"no facet type found for facet named ["
+operator|+
+name|topLevelFieldName
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
 name|facetCollectors
 operator|==
 literal|null
