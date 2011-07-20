@@ -213,10 +213,10 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|field
+DECL|method|setField
 specifier|public
 name|AnalyzeRequestBuilder
-name|field
+name|setField
 parameter_list|(
 name|String
 name|field
