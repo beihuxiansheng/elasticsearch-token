@@ -345,6 +345,15 @@ argument_list|(
 name|queryParsers
 argument_list|,
 operator|new
+name|CustomFiltersScoreQueryParser
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|addQueryParser
+argument_list|(
+name|queryParsers
+argument_list|,
+operator|new
 name|SpanTermQueryParser
 argument_list|()
 argument_list|)

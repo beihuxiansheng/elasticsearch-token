@@ -967,6 +967,24 @@ name|queryBuilder
 argument_list|)
 return|;
 block|}
+DECL|method|customFiltersScoreQuery
+specifier|public
+specifier|static
+name|CustomFiltersScoreQueryBuilder
+name|customFiltersScoreQuery
+parameter_list|(
+name|QueryBuilder
+name|queryBuilder
+parameter_list|)
+block|{
+return|return
+operator|new
+name|CustomFiltersScoreQueryBuilder
+argument_list|(
+name|queryBuilder
+argument_list|)
+return|;
+block|}
 comment|/**      * A more like this query that finds documents that are "like" the provided {@link MoreLikeThisQueryBuilder#likeText(String)}      * which is checked against the fields the query is constructed with.      *      * @param fields The fields to run the query against      */
 DECL|method|moreLikeThisQuery
 specifier|public
