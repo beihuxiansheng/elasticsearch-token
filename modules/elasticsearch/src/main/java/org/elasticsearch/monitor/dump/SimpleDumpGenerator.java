@@ -58,6 +58,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|io
+operator|.
+name|FileSystemUtils
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -314,10 +328,12 @@ operator|+
 name|timestamp
 argument_list|)
 decl_stmt|;
-name|file
+name|FileSystemUtils
 operator|.
 name|mkdirs
-argument_list|()
+argument_list|(
+name|file
+argument_list|)
 expr_stmt|;
 name|SimpleDump
 name|dump

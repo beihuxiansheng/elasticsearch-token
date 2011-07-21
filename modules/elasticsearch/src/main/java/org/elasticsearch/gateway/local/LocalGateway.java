@@ -2110,12 +2110,14 @@ argument_list|,
 literal|"_state"
 argument_list|)
 expr_stmt|;
+name|FileSystemUtils
+operator|.
+name|mkdirs
+argument_list|(
 name|this
 operator|.
 name|location
-operator|.
-name|mkdirs
-argument_list|()
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
