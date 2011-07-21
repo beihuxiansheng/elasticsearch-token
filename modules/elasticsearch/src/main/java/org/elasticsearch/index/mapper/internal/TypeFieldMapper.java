@@ -852,6 +852,8 @@ name|fieldFilter
 argument_list|(
 name|value
 argument_list|)
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 return|;

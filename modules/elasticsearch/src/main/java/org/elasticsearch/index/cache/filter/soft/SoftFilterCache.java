@@ -419,7 +419,7 @@ name|Override
 specifier|protected
 name|ConcurrentMap
 argument_list|<
-name|Filter
+name|Object
 argument_list|,
 name|DocSet
 argument_list|>

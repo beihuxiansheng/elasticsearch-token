@@ -392,6 +392,8 @@ operator|.
 name|cacheFilter
 argument_list|(
 name|filter
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|filter

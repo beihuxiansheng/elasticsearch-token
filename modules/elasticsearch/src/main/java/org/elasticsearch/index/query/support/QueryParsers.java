@@ -226,6 +226,8 @@ name|docMapper
 operator|.
 name|typeFilter
 argument_list|()
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 return|;
@@ -298,6 +300,8 @@ name|docMapper
 operator|.
 name|typeFilter
 argument_list|()
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|filter

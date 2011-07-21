@@ -824,6 +824,8 @@ name|objectMapper
 operator|.
 name|nestedTypeFilter
 argument_list|()
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|usAsParentFilter
@@ -888,6 +890,8 @@ operator|.
 name|cacheFilter
 argument_list|(
 name|parentFilter
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
