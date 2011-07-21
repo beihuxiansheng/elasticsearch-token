@@ -2364,8 +2364,10 @@ block|{
 comment|// try and read the meta data
 try|try
 block|{
-name|readStartedShards
-argument_list|(
+name|byte
+index|[]
+name|data
+init|=
 name|Streams
 operator|.
 name|copyToByteArray
@@ -2376,6 +2378,31 @@ argument_list|(
 name|stateFile
 argument_list|)
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|data
+operator|.
+name|length
+operator|==
+literal|0
+condition|)
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"[findLatestState]: not data for ["
+operator|+
+name|name
+operator|+
+literal|"], ignoring..."
+argument_list|)
+expr_stmt|;
+block|}
+name|readStartedShards
+argument_list|(
+name|data
 argument_list|)
 expr_stmt|;
 name|index
@@ -2510,8 +2537,10 @@ block|{
 comment|// try and read the meta data
 try|try
 block|{
-name|readMetaState
-argument_list|(
+name|byte
+index|[]
+name|data
+init|=
 name|Streams
 operator|.
 name|copyToByteArray
@@ -2522,6 +2551,32 @@ argument_list|(
 name|stateFile
 argument_list|)
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|data
+operator|.
+name|length
+operator|==
+literal|0
+condition|)
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"[findLatestState]: not data for ["
+operator|+
+name|name
+operator|+
+literal|"], ignoring..."
+argument_list|)
+expr_stmt|;
+continue|continue;
+block|}
+name|readMetaState
+argument_list|(
+name|data
 argument_list|)
 expr_stmt|;
 name|index
