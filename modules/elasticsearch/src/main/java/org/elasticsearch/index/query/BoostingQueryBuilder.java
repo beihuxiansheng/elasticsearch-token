@@ -289,6 +289,11 @@ name|boost
 argument_list|)
 expr_stmt|;
 block|}
+name|builder
+operator|.
+name|endObject
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_class
