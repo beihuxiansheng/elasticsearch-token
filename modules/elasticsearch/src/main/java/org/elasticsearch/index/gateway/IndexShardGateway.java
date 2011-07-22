@@ -122,6 +122,9 @@ DECL|method|recover
 name|void
 name|recover
 parameter_list|(
+name|boolean
+name|indexShouldExists
+parameter_list|,
 name|RecoveryStatus
 name|recoveryStatus
 parameter_list|)

@@ -546,6 +546,9 @@ specifier|public
 name|void
 name|recover
 parameter_list|(
+name|boolean
+name|indexShouldExists
+parameter_list|,
 name|RecoveryStatus
 name|recoveryStatus
 parameter_list|)
@@ -667,6 +670,23 @@ operator|=
 name|version
 expr_stmt|;
 block|}
+block|}
+elseif|else
+if|if
+condition|(
+name|indexShouldExists
+condition|)
+block|{
+throw|throw
+operator|new
+name|IndexShardGatewayRecoveryException
+argument_list|(
+name|shardId
+argument_list|()
+argument_list|,
+literal|"shard allocated for local recovery (post api), should exists, but doesn't"
+argument_list|)
+throw|;
 block|}
 block|}
 catch|catch

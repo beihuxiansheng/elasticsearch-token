@@ -3480,6 +3480,24 @@ name|routingTable
 argument_list|,
 name|nodes
 argument_list|,
+name|routingTable
+operator|.
+name|index
+argument_list|(
+name|shardRouting
+operator|.
+name|index
+argument_list|()
+argument_list|)
+operator|.
+name|shard
+argument_list|(
+name|shardRouting
+operator|.
+name|id
+argument_list|()
+argument_list|)
+argument_list|,
 name|shardRouting
 argument_list|)
 expr_stmt|;
@@ -3498,6 +3516,10 @@ parameter_list|,
 specifier|final
 name|DiscoveryNodes
 name|nodes
+parameter_list|,
+specifier|final
+name|IndexShardRoutingTable
+name|indexShardRouting
 parameter_list|,
 specifier|final
 name|ShardRouting
@@ -4066,6 +4088,15 @@ literal|null
 condition|)
 block|{
 comment|// we are the first primary, recover from the gateway
+comment|// if its post api allocation, the index should exists
+name|boolean
+name|indexShouldExists
+init|=
+name|indexShardRouting
+operator|.
+name|allocatedPostApi
+argument_list|()
+decl_stmt|;
 name|IndexShardGatewayService
 name|shardGatewayService
 init|=
@@ -4087,6 +4118,8 @@ name|shardGatewayService
 operator|.
 name|recover
 argument_list|(
+name|indexShouldExists
+argument_list|,
 operator|new
 name|IndexShardGatewayService
 operator|.

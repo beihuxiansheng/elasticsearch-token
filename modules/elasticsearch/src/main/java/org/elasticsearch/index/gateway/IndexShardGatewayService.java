@@ -811,6 +811,10 @@ name|void
 name|recover
 parameter_list|(
 specifier|final
+name|boolean
+name|indexShouldExists
+parameter_list|,
+specifier|final
 name|RecoveryListener
 name|listener
 parameter_list|)
@@ -951,6 +955,8 @@ name|shardGateway
 operator|.
 name|recover
 argument_list|(
+name|indexShouldExists
+argument_list|,
 name|recoveryStatus
 argument_list|)
 expr_stmt|;
