@@ -310,18 +310,6 @@ name|Set
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|regex
-operator|.
-name|Pattern
-import|;
-end_import
-
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
@@ -336,20 +324,6 @@ name|AbstractComponent
 implements|implements
 name|OperationRouting
 block|{
-DECL|field|routingPattern
-specifier|public
-specifier|final
-specifier|static
-name|Pattern
-name|routingPattern
-init|=
-name|Pattern
-operator|.
-name|compile
-argument_list|(
-literal|","
-argument_list|)
-decl_stmt|;
 DECL|field|hashFunction
 specifier|private
 specifier|final

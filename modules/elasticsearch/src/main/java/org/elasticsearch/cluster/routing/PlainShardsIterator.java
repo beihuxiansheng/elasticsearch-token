@@ -398,8 +398,6 @@ specifier|public
 name|ShardRouting
 name|nextActiveOrNull
 parameter_list|()
-throws|throws
-name|NoSuchElementException
 block|{
 name|int
 name|counter
