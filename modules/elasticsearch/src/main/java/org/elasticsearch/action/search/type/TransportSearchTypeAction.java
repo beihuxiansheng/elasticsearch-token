@@ -586,7 +586,7 @@ argument_list|>
 name|listener
 decl_stmt|;
 DECL|field|shardsIts
-specifier|protected
+specifier|private
 specifier|final
 name|GroupShardsIterator
 name|shardsIts
@@ -610,7 +610,7 @@ name|int
 name|expectedSuccessfulOps
 decl_stmt|;
 DECL|field|expectedTotalOps
-specifier|protected
+specifier|private
 specifier|final
 name|int
 name|expectedTotalOps
@@ -626,7 +626,7 @@ name|AtomicInteger
 argument_list|()
 decl_stmt|;
 DECL|field|totalOps
-specifier|protected
+specifier|private
 specifier|final
 name|AtomicInteger
 name|totalOps
