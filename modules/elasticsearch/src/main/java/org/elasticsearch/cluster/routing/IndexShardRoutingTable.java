@@ -772,10 +772,15 @@ comment|// fill it in a randomized fashion
 name|int
 name|index
 init|=
+name|Math
+operator|.
+name|abs
+argument_list|(
 name|counter
 operator|.
 name|getAndIncrement
 argument_list|()
+argument_list|)
 decl_stmt|;
 for|for
 control|(
