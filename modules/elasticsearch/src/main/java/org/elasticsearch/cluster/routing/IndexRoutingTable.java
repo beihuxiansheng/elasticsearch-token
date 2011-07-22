@@ -1042,15 +1042,10 @@ name|PlainShardsIterator
 argument_list|(
 name|allShards
 argument_list|,
-name|Math
-operator|.
-name|abs
-argument_list|(
 name|counter
 operator|.
 name|incrementAndGet
 argument_list|()
-argument_list|)
 argument_list|)
 return|;
 block|}

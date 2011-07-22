@@ -59,13 +59,19 @@ implements|implements
 name|ShardsIterator
 block|{
 DECL|field|shards
-specifier|protected
+specifier|private
 specifier|final
 name|List
 argument_list|<
 name|ShardRouting
 argument_list|>
 name|shards
+decl_stmt|;
+DECL|field|size
+specifier|private
+specifier|final
+name|int
+name|size
 decl_stmt|;
 DECL|field|origIndex
 specifier|private
@@ -125,6 +131,15 @@ operator|.
 name|shards
 operator|=
 name|shards
+expr_stmt|;
+name|this
+operator|.
+name|size
+operator|=
+name|shards
+operator|.
+name|size
+argument_list|()
 expr_stmt|;
 name|this
 operator|.
@@ -193,7 +208,6 @@ return|return
 name|counter
 operator|<
 name|size
-argument_list|()
 return|;
 block|}
 DECL|method|next
@@ -255,10 +269,7 @@ name|size
 parameter_list|()
 block|{
 return|return
-name|shards
-operator|.
 name|size
-argument_list|()
 return|;
 block|}
 DECL|method|sizeActive
@@ -327,7 +338,6 @@ name|counter
 operator|++
 operator|<
 name|size
-argument_list|()
 condition|)
 block|{
 name|ShardRouting
@@ -419,7 +429,6 @@ name|counter
 operator|++
 operator|<
 name|size
-argument_list|()
 condition|)
 block|{
 name|ShardRouting
@@ -538,7 +547,6 @@ name|counter
 operator|++
 operator|<
 name|size
-argument_list|()
 condition|)
 block|{
 name|ShardRouting
@@ -630,7 +638,6 @@ name|counter
 operator|++
 operator|<
 name|size
-argument_list|()
 condition|)
 block|{
 name|ShardRouting
@@ -684,6 +691,7 @@ literal|null
 return|;
 block|}
 DECL|method|shardModulo
+specifier|final
 name|ShardRouting
 name|shardModulo
 parameter_list|(
@@ -700,7 +708,6 @@ operator|(
 name|counter
 operator|%
 name|size
-argument_list|()
 operator|)
 argument_list|)
 return|;
