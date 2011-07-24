@@ -26,6 +26,18 @@ name|ElasticSearchIllegalArgumentException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|Nullable
+import|;
+end_import
+
 begin_comment
 comment|/**  * Controls the operation threading model for search operation that are performed  * locally on the executing node.  *  * @author kimchy (shay.banon)  */
 end_comment
@@ -162,6 +174,8 @@ parameter_list|(
 name|String
 name|value
 parameter_list|,
+annotation|@
+name|Nullable
 name|SearchOperationThreading
 name|defaultValue
 parameter_list|)

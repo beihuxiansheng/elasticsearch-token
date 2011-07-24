@@ -529,11 +529,16 @@ argument_list|(
 literal|"operation_threading"
 argument_list|)
 argument_list|,
-name|SearchOperationThreading
-operator|.
-name|SINGLE_THREAD
+literal|null
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|operationThreading
+operator|!=
+literal|null
+condition|)
+block|{
 if|if
 condition|(
 name|operationThreading
@@ -558,6 +563,7 @@ argument_list|(
 name|operationThreading
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
