@@ -893,7 +893,7 @@ name|shard
 init|=
 name|shardIt
 operator|.
-name|nextActiveOrNull
+name|firstActiveOrNull
 argument_list|()
 decl_stmt|;
 if|if
@@ -929,9 +929,6 @@ comment|// do the remote operation here, the localAsync flag is not relevant
 name|performFirstPhase
 argument_list|(
 name|shardIt
-operator|.
-name|reset
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1014,10 +1011,7 @@ name|shard
 init|=
 name|shardIt
 operator|.
-name|reset
-argument_list|()
-operator|.
-name|nextActiveOrNull
+name|firstActiveOrNull
 argument_list|()
 decl_stmt|;
 if|if
@@ -1046,9 +1040,6 @@ block|{
 name|performFirstPhase
 argument_list|(
 name|shardIt
-operator|.
-name|reset
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1099,10 +1090,7 @@ name|shard
 init|=
 name|shardIt
 operator|.
-name|reset
-argument_list|()
-operator|.
-name|nextActiveOrNull
+name|firstActiveOrNull
 argument_list|()
 decl_stmt|;
 if|if
@@ -1160,9 +1148,6 @@ block|{
 name|performFirstPhase
 argument_list|(
 name|shardIt
-operator|.
-name|reset
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1175,9 +1160,6 @@ block|{
 name|performFirstPhase
 argument_list|(
 name|shardIt
-operator|.
-name|reset
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

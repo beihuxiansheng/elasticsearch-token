@@ -557,7 +557,7 @@ name|ClusterState
 name|clusterState
 parameter_list|)
 function_decl|;
-comment|/**      * Allows to override how shard routing is iterated over. Default implementation uses      * {@link org.elasticsearch.cluster.routing.ShardIterator#nextActiveOrNull()}.      *      *<p>Note, if overriding this method, make sure to also override {@link #hasNextShard(org.elasticsearch.cluster.routing.ShardIterator)}.      */
+comment|/**      * Allows to override how shard routing is iterated over. Default implementation uses      * {@link org.elasticsearch.cluster.routing.ShardIterator#nextActiveOrNull()}.      *      *<p>Note, if overriding this method, make sure to also override {@link #hasNextShard(org.elasticsearch.cluster.routing.ShardIterator)},      * and {@link #firstShardOrNull(org.elasticsearch.cluster.routing.ShardIterator)}.      */
 DECL|method|nextShardOrNull
 specifier|protected
 name|ShardRouting
@@ -571,6 +571,22 @@ return|return
 name|shardIt
 operator|.
 name|nextActiveOrNull
+argument_list|()
+return|;
+block|}
+DECL|method|firstShardOrNull
+specifier|protected
+name|ShardRouting
+name|firstShardOrNull
+parameter_list|(
+name|ShardIterator
+name|shardIt
+parameter_list|)
+block|{
+return|return
+name|shardIt
+operator|.
+name|firstActiveOrNull
 argument_list|()
 return|;
 block|}
@@ -856,7 +872,7 @@ specifier|final
 name|ShardRouting
 name|shard
 init|=
-name|nextShardOrNull
+name|firstShardOrNull
 argument_list|(
 name|shardIt
 argument_list|)
@@ -894,9 +910,6 @@ comment|// do the remote operation here, the localAsync flag is not relevant
 name|performOperation
 argument_list|(
 name|shardIt
-operator|.
-name|reset
-argument_list|()
 argument_list|,
 literal|true
 argument_list|)
@@ -975,12 +988,9 @@ specifier|final
 name|ShardRouting
 name|shard
 init|=
-name|nextShardOrNull
+name|firstShardOrNull
 argument_list|(
 name|shardIt
-operator|.
-name|reset
-argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -1009,9 +1019,6 @@ block|{
 name|performOperation
 argument_list|(
 name|shardIt
-operator|.
-name|reset
-argument_list|()
 argument_list|,
 literal|false
 argument_list|)
@@ -1062,12 +1069,9 @@ specifier|final
 name|ShardRouting
 name|shard
 init|=
-name|nextShardOrNull
+name|firstShardOrNull
 argument_list|(
 name|shardIt
-operator|.
-name|reset
-argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -1096,9 +1100,6 @@ block|{
 name|performOperation
 argument_list|(
 name|shardIt
-operator|.
-name|reset
-argument_list|()
 argument_list|,
 name|localAsync
 argument_list|)

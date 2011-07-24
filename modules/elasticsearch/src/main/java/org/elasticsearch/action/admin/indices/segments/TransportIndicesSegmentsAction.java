@@ -550,6 +550,25 @@ argument_list|()
 return|;
 block|}
 comment|/**      * We want to go over all assigned nodes (to get recovery status) and not just active ones.      */
+DECL|method|firstShardOrNull
+annotation|@
+name|Override
+specifier|protected
+name|ShardRouting
+name|firstShardOrNull
+parameter_list|(
+name|ShardIterator
+name|shardIt
+parameter_list|)
+block|{
+return|return
+name|shardIt
+operator|.
+name|firstAssignedOrNull
+argument_list|()
+return|;
+block|}
+comment|/**      * We want to go over all assigned nodes (to get recovery status) and not just active ones.      */
 DECL|method|hasNextShard
 annotation|@
 name|Override

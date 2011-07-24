@@ -94,6 +94,12 @@ name|ShardRouting
 name|nextActiveOrNull
 parameter_list|()
 function_decl|;
+comment|/**      * Returns the first active shard, or<tt>null</tt>, without      * incrementing the iterator.      *      * @see ShardRouting#active()      */
+DECL|method|firstActiveOrNull
+name|ShardRouting
+name|firstActiveOrNull
+parameter_list|()
+function_decl|;
 comment|/**      * The number of assigned shard routing instances.      *      * @see ShardRouting#assignedToNode()      */
 DECL|method|sizeAssigned
 name|int
@@ -118,6 +124,12 @@ comment|/**      * Returns the next assigned shard, or<tt>null</tt>.      *     
 DECL|method|nextAssignedOrNull
 name|ShardRouting
 name|nextAssignedOrNull
+parameter_list|()
+function_decl|;
+comment|/**      * Returns the first assigned shard, or<tt>null</tt>, wuthout      * incrementing the iterator.      *      * @see ShardRouting#assignedToNode()      */
+DECL|method|firstAssignedOrNull
+name|ShardRouting
+name|firstAssignedOrNull
 parameter_list|()
 function_decl|;
 DECL|method|hashCode
