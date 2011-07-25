@@ -1008,7 +1008,6 @@ block|}
 block|}
 block|}
 DECL|method|executeQuery
-specifier|private
 name|void
 name|executeQuery
 parameter_list|(
@@ -1163,7 +1162,6 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|executeFetchPhase
-specifier|private
 name|void
 name|executeFetchPhase
 parameter_list|()
@@ -1201,7 +1199,6 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|innerExecuteFetchPhase
-specifier|private
 name|void
 name|innerExecuteFetchPhase
 parameter_list|()
@@ -1672,7 +1669,6 @@ block|}
 block|}
 block|}
 DECL|method|executeFetch
-specifier|private
 name|void
 name|executeFetch
 parameter_list|(
@@ -1824,7 +1820,6 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|finishHim
-specifier|private
 name|void
 name|finishHim
 parameter_list|()
@@ -1916,7 +1911,6 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|innerFinishHim
-specifier|private
 name|void
 name|innerFinishHim
 parameter_list|()

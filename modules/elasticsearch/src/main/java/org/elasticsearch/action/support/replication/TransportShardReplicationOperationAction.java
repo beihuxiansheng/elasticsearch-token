@@ -2075,7 +2075,6 @@ literal|true
 return|;
 block|}
 DECL|method|retry
-specifier|private
 name|void
 name|retry
 parameter_list|(
@@ -2285,7 +2284,6 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|performOnPrimary
-specifier|private
 name|void
 name|performOnPrimary
 parameter_list|(
@@ -2412,7 +2410,6 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|performReplicas
-specifier|private
 name|void
 name|performReplicas
 parameter_list|(
@@ -2686,7 +2683,6 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|performOnReplica
-specifier|private
 name|void
 name|performOnReplica
 parameter_list|(
@@ -3135,7 +3131,6 @@ block|}
 block|}
 comment|/**          * Should an exception be ignored when the operation is performed on the replica.          */
 DECL|method|ignoreReplicaException
-specifier|private
 name|boolean
 name|ignoreReplicaException
 parameter_list|(

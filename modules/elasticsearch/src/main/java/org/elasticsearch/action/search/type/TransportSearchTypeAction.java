@@ -1170,7 +1170,6 @@ block|}
 block|}
 block|}
 DECL|method|performFirstPhase
-specifier|private
 name|void
 name|performFirstPhase
 parameter_list|(
@@ -1191,7 +1190,6 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|performFirstPhase
-specifier|private
 name|void
 name|performFirstPhase
 parameter_list|(
@@ -1350,7 +1348,6 @@ block|}
 block|}
 block|}
 DECL|method|onFirstPhaseResult
-specifier|private
 name|void
 name|onFirstPhaseResult
 parameter_list|(
@@ -1486,7 +1483,6 @@ block|}
 block|}
 block|}
 DECL|method|onFirstPhaseResult
-specifier|private
 name|void
 name|onFirstPhaseResult
 parameter_list|(

@@ -1061,7 +1061,6 @@ block|}
 block|}
 block|}
 DECL|method|performOperation
-specifier|private
 name|void
 name|performOperation
 parameter_list|(
@@ -1087,7 +1086,6 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|performOperation
-specifier|private
 name|void
 name|performOperation
 parameter_list|(
@@ -1366,6 +1364,7 @@ block|}
 block|}
 block|}
 block|}
+DECL|method|onOperation
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -1373,8 +1372,6 @@ block|{
 literal|"unchecked"
 block|}
 argument_list|)
-DECL|method|onOperation
-specifier|private
 name|void
 name|onOperation
 parameter_list|(
@@ -1412,6 +1409,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+DECL|method|onOperation
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -1419,8 +1417,6 @@ block|{
 literal|"unchecked"
 block|}
 argument_list|)
-DECL|method|onOperation
-specifier|private
 name|void
 name|onOperation
 parameter_list|(
@@ -1694,7 +1690,6 @@ block|}
 block|}
 block|}
 DECL|method|finishHim
-specifier|private
 name|void
 name|finishHim
 parameter_list|()
