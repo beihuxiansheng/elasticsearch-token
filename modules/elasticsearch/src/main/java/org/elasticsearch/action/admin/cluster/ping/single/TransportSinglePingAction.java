@@ -270,7 +270,7 @@ operator|.
 name|operationRouting
 argument_list|()
 operator|.
-name|indexShards
+name|getShards
 argument_list|(
 name|clusterService
 operator|.
@@ -289,6 +289,8 @@ argument_list|,
 name|request
 operator|.
 name|id
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|)

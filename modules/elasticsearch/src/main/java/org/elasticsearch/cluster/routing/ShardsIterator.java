@@ -16,26 +16,6 @@ name|routing
 package|;
 end_package
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Iterator
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|NoSuchElementException
-import|;
-end_import
-
 begin_comment
 comment|/**  * Allows to iterate over unrelated shards.  *  * @author kimchy (shay.banon)  */
 end_comment
@@ -45,16 +25,6 @@ DECL|interface|ShardsIterator
 specifier|public
 interface|interface
 name|ShardsIterator
-extends|extends
-name|Iterable
-argument_list|<
-name|ShardRouting
-argument_list|>
-extends|,
-name|Iterator
-argument_list|<
-name|ShardRouting
-argument_list|>
 block|{
 comment|/**      * Resets the iterator.      */
 DECL|method|reset
@@ -68,68 +38,31 @@ name|int
 name|size
 parameter_list|()
 function_decl|;
-comment|/**      * The number of active shard routing instances.      *      * @see ShardRouting#active()      */
 DECL|method|sizeActive
 name|int
 name|sizeActive
 parameter_list|()
 function_decl|;
-comment|/**      * Is there an active shard we can iterate to.      *      * @see ShardRouting#active()      */
-DECL|method|hasNextActive
-name|boolean
-name|hasNextActive
-parameter_list|()
-function_decl|;
-comment|/**      * Returns the next active shard, or throws {@link NoSuchElementException}.      *      * @see ShardRouting#active()      */
-DECL|method|nextActive
-name|ShardRouting
-name|nextActive
-parameter_list|()
-throws|throws
-name|NoSuchElementException
-function_decl|;
-comment|/**      * Returns the next active shard, or<tt>null</tt>.      *      * @see ShardRouting#active()      */
-DECL|method|nextActiveOrNull
-name|ShardRouting
-name|nextActiveOrNull
-parameter_list|()
-function_decl|;
-comment|/**      * Returns the first active shard, or<tt>null</tt>, without      * incrementing the iterator.      *      * @see ShardRouting#active()      */
-DECL|method|firstActiveOrNull
-name|ShardRouting
-name|firstActiveOrNull
-parameter_list|()
-function_decl|;
-comment|/**      * The number of assigned shard routing instances.      *      * @see ShardRouting#assignedToNode()      */
-DECL|method|sizeAssigned
+DECL|method|assignedReplicasIncludingRelocating
 name|int
-name|sizeAssigned
+name|assignedReplicasIncludingRelocating
 parameter_list|()
 function_decl|;
-comment|/**      * Is there an assigned shard we can iterate to.      *      * @see ShardRouting#assignedToNode()      */
-DECL|method|hasNextAssigned
-name|boolean
-name|hasNextAssigned
-parameter_list|()
-function_decl|;
-comment|/**      * Returns the next assigned shard, or throws {@link NoSuchElementException}.      *      * @see ShardRouting#assignedToNode()      */
-DECL|method|nextAssigned
+comment|/**      * Returns the next shard, or<tt>null</tt> if none available.      */
+DECL|method|nextOrNull
 name|ShardRouting
-name|nextAssigned
-parameter_list|()
-throws|throws
-name|NoSuchElementException
-function_decl|;
-comment|/**      * Returns the next assigned shard, or<tt>null</tt>.      *      * @see ShardRouting#assignedToNode()      */
-DECL|method|nextAssignedOrNull
-name|ShardRouting
-name|nextAssignedOrNull
+name|nextOrNull
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the first assigned shard, or<tt>null</tt>, wuthout      * incrementing the iterator.      *      * @see ShardRouting#assignedToNode()      */
-DECL|method|firstAssignedOrNull
+comment|/**      * Returns the first shard, or<tt>null</tt>, without      * incrementing the iterator.      *      * @see ShardRouting#assignedToNode()      */
+DECL|method|firstOrNull
 name|ShardRouting
-name|firstAssignedOrNull
+name|firstOrNull
+parameter_list|()
+function_decl|;
+DECL|method|remaining
+name|int
+name|remaining
 parameter_list|()
 function_decl|;
 DECL|method|hashCode
@@ -144,6 +77,14 @@ parameter_list|(
 name|Object
 name|other
 parameter_list|)
+function_decl|;
+DECL|method|asUnordered
+name|Iterable
+argument_list|<
+name|ShardRouting
+argument_list|>
+name|asUnordered
+parameter_list|()
 function_decl|;
 block|}
 end_interface

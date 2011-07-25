@@ -1631,6 +1631,16 @@ name|id
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|lifecycle
+operator|.
+name|stoppedOrClosed
+argument_list|()
+condition|)
+block|{
+return|return;
+block|}
 throw|throw
 operator|new
 name|ZenPingException

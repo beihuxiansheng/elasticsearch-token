@@ -503,7 +503,7 @@ throws|,
 name|IndexShardMissingException
 block|{
 return|return
-name|preferenceShardIterator
+name|preferenceActiveShardIterator
 argument_list|(
 name|shards
 argument_list|(
@@ -557,7 +557,7 @@ throws|,
 name|IndexShardMissingException
 block|{
 return|return
-name|preferenceShardIterator
+name|preferenceActiveShardIterator
 argument_list|(
 name|shards
 argument_list|(
@@ -1185,7 +1185,7 @@ name|set
 operator|.
 name|add
 argument_list|(
-name|preferenceShardIterator
+name|preferenceActiveShardIterator
 argument_list|(
 name|indexShard
 argument_list|,
@@ -1258,7 +1258,7 @@ name|set
 operator|.
 name|add
 argument_list|(
-name|preferenceShardIterator
+name|preferenceActiveShardIterator
 argument_list|(
 name|indexShard
 argument_list|,
@@ -1285,10 +1285,10 @@ argument_list|)
 return|;
 block|}
 block|}
-DECL|method|preferenceShardIterator
+DECL|method|preferenceActiveShardIterator
 specifier|private
 name|ShardIterator
-name|preferenceShardIterator
+name|preferenceActiveShardIterator
 parameter_list|(
 name|IndexShardRoutingTable
 name|indexShard
@@ -1312,7 +1312,7 @@ block|{
 return|return
 name|indexShard
 operator|.
-name|shardsRandomIt
+name|activeShardsRandomIt
 argument_list|()
 return|;
 block|}
@@ -1329,7 +1329,7 @@ block|{
 return|return
 name|indexShard
 operator|.
-name|preferLocalShardsIt
+name|preferNodeShardsIt
 argument_list|(
 name|nodeId
 argument_list|)

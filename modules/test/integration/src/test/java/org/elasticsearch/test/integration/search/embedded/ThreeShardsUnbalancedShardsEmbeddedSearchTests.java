@@ -1240,6 +1240,9 @@ name|ShardRouting
 name|shardRouting
 range|:
 name|shardIt
+operator|.
+name|asUnordered
+argument_list|()
 control|)
 block|{
 name|InternalSearchRequest
@@ -1980,6 +1983,9 @@ name|ShardRouting
 name|shardRouting
 range|:
 name|shardIt
+operator|.
+name|asUnordered
+argument_list|()
 control|)
 block|{
 name|InternalSearchRequest
@@ -2932,6 +2938,9 @@ name|ShardRouting
 name|shardRouting
 range|:
 name|shardIt
+operator|.
+name|asUnordered
+argument_list|()
 control|)
 block|{
 name|InternalSearchRequest
@@ -3307,6 +3316,9 @@ name|ShardRouting
 name|shardRouting
 range|:
 name|shardIt
+operator|.
+name|asUnordered
+argument_list|()
 control|)
 block|{
 name|InternalSearchRequest

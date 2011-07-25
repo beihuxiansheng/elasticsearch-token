@@ -557,7 +557,6 @@ throws|throws
 name|ElasticSearchException
 function_decl|;
 DECL|class|AsyncSingleAction
-specifier|private
 class|class
 name|AsyncSingleAction
 block|{
@@ -743,7 +742,7 @@ name|shardRouting
 init|=
 name|shardIt
 operator|.
-name|nextActiveOrNull
+name|nextOrNull
 argument_list|()
 decl_stmt|;
 if|if

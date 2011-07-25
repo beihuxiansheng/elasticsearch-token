@@ -722,9 +722,11 @@ operator|.
 name|routingTable
 argument_list|()
 operator|.
-name|allShardsGrouped
+name|allActiveShardsGrouped
 argument_list|(
 name|concreteIndices
+argument_list|,
+literal|true
 argument_list|)
 return|;
 block|}
