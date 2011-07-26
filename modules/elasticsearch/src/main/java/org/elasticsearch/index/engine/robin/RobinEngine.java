@@ -2363,6 +2363,11 @@ name|e
 argument_list|)
 throw|;
 block|}
+name|searcher
+operator|.
+name|release
+argument_list|()
+expr_stmt|;
 return|return
 name|GetResult
 operator|.
