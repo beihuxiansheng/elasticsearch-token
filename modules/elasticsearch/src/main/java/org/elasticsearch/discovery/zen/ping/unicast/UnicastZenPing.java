@@ -1781,6 +1781,8 @@ name|debug
 argument_list|(
 literal|"[{}] filtering out response from {}, not same cluster_name [{}]"
 argument_list|,
+name|id
+argument_list|,
 name|pingResponse
 operator|.
 name|target
@@ -1795,7 +1797,7 @@ name|value
 argument_list|()
 argument_list|)
 expr_stmt|;
-return|return;
+continue|continue;
 block|}
 name|ConcurrentMap
 argument_list|<
