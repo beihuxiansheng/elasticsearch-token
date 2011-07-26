@@ -96,6 +96,16 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
@@ -137,6 +147,21 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+DECL|method|writeChecksums
+name|void
+name|writeChecksums
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|checksums
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
 DECL|method|metaData
 name|StoreFileMetaData
 name|metaData
@@ -164,6 +189,20 @@ DECL|method|deleteContent
 name|void
 name|deleteContent
 parameter_list|()
+throws|throws
+name|IOException
+function_decl|;
+comment|/**      * Renames, note, might not be atomic, and can fail "in the middle".      */
+DECL|method|renameFile
+name|void
+name|renameFile
+parameter_list|(
+name|String
+name|from
+parameter_list|,
+name|String
+name|to
+parameter_list|)
 throws|throws
 name|IOException
 function_decl|;

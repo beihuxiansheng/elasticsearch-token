@@ -149,7 +149,7 @@ extends|extends
 name|Directory
 block|{
 DECL|field|files
-specifier|private
+specifier|protected
 specifier|final
 name|Map
 argument_list|<
