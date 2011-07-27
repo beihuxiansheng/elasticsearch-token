@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A simple implementation of {@link FragListBuilder}.  */
+comment|/**  * A modification of SimpleFragListBuilder to expose the margin property. Implements FragListBuilder {@link FragListBuilder}.  */
 end_comment
 
 begin_class
