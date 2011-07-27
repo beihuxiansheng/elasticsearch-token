@@ -663,7 +663,7 @@ operator|.
 name|class
 argument_list|)
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"failed to load sigar"
 argument_list|,

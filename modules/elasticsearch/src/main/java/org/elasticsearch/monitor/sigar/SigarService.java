@@ -131,7 +131,7 @@ parameter_list|)
 block|{
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Failed to load sigar"
 argument_list|,
