@@ -799,6 +799,11 @@ specifier|final
 name|int
 name|compressionLevel
 decl_stmt|;
+DECL|field|resetCookies
+specifier|final
+name|boolean
+name|resetCookies
+decl_stmt|;
 DECL|field|port
 specifier|private
 specifier|final
@@ -1007,6 +1012,28 @@ name|ByteSizeUnit
 operator|.
 name|KB
 argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// don't reset cookies by default, since I don't think we really need to, and parsing of cookies with netty is slow
+comment|// and requires a large stack allocation because of the use of regex
+name|this
+operator|.
+name|resetCookies
+operator|=
+name|componentSettings
+operator|.
+name|getAsBoolean
+argument_list|(
+literal|"reset_cookies"
+argument_list|,
+name|settings
+operator|.
+name|getAsBoolean
+argument_list|(
+literal|"http.reset_cookies"
+argument_list|,
+literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;

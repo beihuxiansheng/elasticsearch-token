@@ -871,6 +871,18 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+operator|(
+operator|(
+name|HttpURLConnection
+operator|)
+name|connection
+operator|)
+operator|.
+name|setConnectTimeout
+argument_list|(
+literal|5000
+argument_list|)
+expr_stmt|;
 block|}
 comment|// connect to the remote site (may take some time)
 name|connection

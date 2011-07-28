@@ -392,6 +392,12 @@ name|NettyHttpChannel
 implements|implements
 name|HttpChannel
 block|{
+DECL|field|transport
+specifier|private
+specifier|final
+name|NettyHttpServerTransport
+name|transport
+decl_stmt|;
 DECL|field|channel
 specifier|private
 specifier|final
@@ -422,6 +428,9 @@ DECL|method|NettyHttpChannel
 specifier|public
 name|NettyHttpChannel
 parameter_list|(
+name|NettyHttpServerTransport
+name|transport
+parameter_list|,
 name|Channel
 name|channel
 parameter_list|,
@@ -443,6 +452,12 @@ name|HttpRequest
 name|request
 parameter_list|)
 block|{
+name|this
+operator|.
+name|transport
+operator|=
+name|transport
+expr_stmt|;
 name|this
 operator|.
 name|channel
@@ -1018,6 +1033,13 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|transport
+operator|.
+name|resetCookies
+condition|)
+block|{
 name|String
 name|cookieString
 init|=
@@ -1110,6 +1132,7 @@ name|encode
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|// Write the response.
