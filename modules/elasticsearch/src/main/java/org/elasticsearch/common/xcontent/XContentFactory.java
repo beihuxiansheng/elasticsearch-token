@@ -677,7 +677,15 @@ throw|throw
 operator|new
 name|ElasticSearchParseException
 argument_list|(
-literal|"Failed to derive xcontent from "
+literal|"Failed to derive xcontent from (offset="
+operator|+
+name|offset
+operator|+
+literal|", length="
+operator|+
+name|length
+operator|+
+literal|"): "
 operator|+
 name|Arrays
 operator|.
