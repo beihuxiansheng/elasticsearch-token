@@ -309,6 +309,12 @@ name|void
 name|makeTransientCurrent
 parameter_list|()
 function_decl|;
+comment|/**      * Reverts back to not have a transient translog.      */
+DECL|method|revertTransient
+name|void
+name|revertTransient
+parameter_list|()
+function_decl|;
 comment|/**      * Adds a create operation to the transaction log.      */
 DECL|method|add
 name|Location

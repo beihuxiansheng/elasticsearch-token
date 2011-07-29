@@ -5654,6 +5654,11 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+name|translog
+operator|.
+name|revertTransient
+argument_list|()
+expr_stmt|;
 throw|throw
 operator|new
 name|FlushFailedEngineException
@@ -5670,6 +5675,11 @@ name|OutOfMemoryError
 name|e
 parameter_list|)
 block|{
+name|translog
+operator|.
+name|revertTransient
+argument_list|()
+expr_stmt|;
 name|failEngine
 argument_list|(
 name|e
