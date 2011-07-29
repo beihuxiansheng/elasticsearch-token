@@ -2124,6 +2124,17 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+name|tokenFiltersBindings
+operator|.
+name|processTokenFilter
+argument_list|(
+literal|"unique"
+argument_list|,
+name|UniqueTokenFilterFactory
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|processTokenizers
 annotation|@
