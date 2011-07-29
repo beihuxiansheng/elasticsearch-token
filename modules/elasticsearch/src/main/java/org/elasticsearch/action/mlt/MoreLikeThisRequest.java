@@ -443,6 +443,20 @@ name|SearchType
 operator|.
 name|DEFAULT
 decl_stmt|;
+DECL|field|searchSize
+specifier|private
+name|int
+name|searchSize
+init|=
+literal|0
+decl_stmt|;
+DECL|field|searchFrom
+specifier|private
+name|int
+name|searchFrom
+init|=
+literal|0
+decl_stmt|;
 DECL|field|searchQueryHint
 specifier|private
 name|String
@@ -497,7 +511,7 @@ DECL|method|MoreLikeThisRequest
 name|MoreLikeThisRequest
 parameter_list|()
 block|{     }
-comment|/**      * Constructs a new more like this request for a document that will be fetch from the provided index.      * Use {@link #type(String)} and {@link #id(String)} to specificy the document to load.      */
+comment|/**      * Constructs a new more like this request for a document that will be fetch from the provided index.      * Use {@link #type(String)} and {@link #id(String)} to specify the document to load.      */
 DECL|method|MoreLikeThisRequest
 specifier|public
 name|MoreLikeThisRequest
@@ -550,7 +564,7 @@ operator|=
 name|index
 expr_stmt|;
 block|}
-comment|/**      * The type of document to load from which the "like" query will rutn with.      */
+comment|/**      * The type of document to load from which the "like" query will execute with.      */
 DECL|method|type
 annotation|@
 name|Required
@@ -572,7 +586,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The id of document to load from which the "like" query will rutn with.      */
+comment|/**      * The id of document to load from which the "like" query will execute with.      */
 DECL|method|id
 specifier|public
 name|String
@@ -583,7 +597,7 @@ return|return
 name|id
 return|;
 block|}
-comment|/**      * The id of document to load from which the "like" query will rutn with.      */
+comment|/**      * The id of document to load from which the "like" query will execute with.      */
 DECL|method|id
 annotation|@
 name|Required
@@ -1517,6 +1531,70 @@ operator|.
 name|searchScroll
 return|;
 block|}
+comment|/**      * The number of documents to return, defaults to 10.      */
+DECL|method|searchSize
+specifier|public
+name|MoreLikeThisRequest
+name|searchSize
+parameter_list|(
+name|int
+name|size
+parameter_list|)
+block|{
+name|this
+operator|.
+name|searchSize
+operator|=
+name|size
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|searchSize
+specifier|public
+name|int
+name|searchSize
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|searchSize
+return|;
+block|}
+comment|/**      * From which search result set to return.      */
+DECL|method|searchFrom
+specifier|public
+name|MoreLikeThisRequest
+name|searchFrom
+parameter_list|(
+name|int
+name|from
+parameter_list|)
+block|{
+name|this
+operator|.
+name|searchFrom
+operator|=
+name|from
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|searchFrom
+specifier|public
+name|int
+name|searchFrom
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|searchFrom
+return|;
+block|}
 DECL|method|validate
 annotation|@
 name|Override
@@ -2066,6 +2144,20 @@ name|searchSource
 argument_list|)
 expr_stmt|;
 block|}
+name|searchSize
+operator|=
+name|in
+operator|.
+name|readVInt
+argument_list|()
+expr_stmt|;
+name|searchFrom
+operator|=
+name|in
+operator|.
+name|readVInt
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|writeTo
 annotation|@
@@ -2443,6 +2535,20 @@ name|searchSourceLength
 argument_list|)
 expr_stmt|;
 block|}
+name|out
+operator|.
+name|writeVInt
+argument_list|(
+name|searchSize
+argument_list|)
+expr_stmt|;
+name|out
+operator|.
+name|writeVInt
+argument_list|(
+name|searchFrom
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

@@ -440,6 +440,22 @@ name|client
 operator|.
 name|action
 operator|.
+name|mlt
+operator|.
+name|MoreLikeThisRequestBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|client
+operator|.
+name|action
+operator|.
 name|percolate
 operator|.
 name|PercolateRequestBuilder
@@ -910,6 +926,21 @@ argument_list|<
 name|SearchResponse
 argument_list|>
 name|listener
+parameter_list|)
+function_decl|;
+comment|/**      * A more like this action to search for documents that are "like" a specific document.      *      * @param index The index to load the document from      * @param type  The type of the document      * @param id    The id of the document      */
+DECL|method|prepareMoreLikeThis
+name|MoreLikeThisRequestBuilder
+name|prepareMoreLikeThis
+parameter_list|(
+name|String
+name|index
+parameter_list|,
+name|String
+name|type
+parameter_list|,
+name|String
+name|id
 parameter_list|)
 function_decl|;
 comment|/**      * Percolates a request returning the matches documents.      */
