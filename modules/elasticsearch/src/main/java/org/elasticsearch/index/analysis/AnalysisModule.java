@@ -2135,6 +2135,17 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+name|tokenFiltersBindings
+operator|.
+name|processTokenFilter
+argument_list|(
+literal|"truncate"
+argument_list|,
+name|TruncateTokenFilterFactory
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|processTokenizers
 annotation|@
