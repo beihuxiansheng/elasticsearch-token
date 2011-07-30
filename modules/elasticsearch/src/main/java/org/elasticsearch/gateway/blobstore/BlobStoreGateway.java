@@ -1335,16 +1335,26 @@ name|index
 condition|)
 block|{
 comment|// try and read the meta data
+name|byte
+index|[]
+name|data
+init|=
+literal|null
+decl_stmt|;
 try|try
 block|{
-name|readMetaData
-argument_list|(
+name|data
+operator|=
 name|metaDataBlobContainer
 operator|.
 name|readBlobFully
 argument_list|(
 name|name
 argument_list|)
+expr_stmt|;
+name|readMetaData
+argument_list|(
+name|data
 argument_list|)
 expr_stmt|;
 name|index
@@ -1362,13 +1372,21 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"[findLatestMetadata]: Failed to read metadata from ["
-operator|+
-name|name
-operator|+
-literal|"], ignoring..."
+literal|"[findLatestMetadata]: failed to read metadata from [{}], data_length [{}] ignoring..."
 argument_list|,
 name|e
+argument_list|,
+name|name
+argument_list|,
+name|data
+operator|==
+literal|null
+condition|?
+literal|"na"
+else|:
+name|data
+operator|.
+name|length
 argument_list|)
 expr_stmt|;
 block|}
