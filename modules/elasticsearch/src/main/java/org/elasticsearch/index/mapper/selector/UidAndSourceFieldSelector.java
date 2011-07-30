@@ -28,7 +28,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|FieldSelector
+name|FieldSelectorResult
 import|;
 end_import
 
@@ -36,13 +36,15 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|elasticsearch
+operator|.
+name|common
 operator|.
 name|lucene
 operator|.
 name|document
 operator|.
-name|FieldSelectorResult
+name|ResetFieldSelector
 import|;
 end_import
 
@@ -88,7 +90,7 @@ specifier|public
 class|class
 name|UidAndSourceFieldSelector
 implements|implements
-name|FieldSelector
+name|ResetFieldSelector
 block|{
 DECL|field|match
 specifier|private
@@ -128,10 +130,6 @@ operator|==
 literal|2
 condition|)
 block|{
-name|match
-operator|=
-literal|0
-expr_stmt|;
 return|return
 name|FieldSelectorResult
 operator|.
@@ -164,10 +162,6 @@ operator|==
 literal|2
 condition|)
 block|{
-name|match
-operator|=
-literal|0
-expr_stmt|;
 return|return
 name|FieldSelectorResult
 operator|.
@@ -185,6 +179,19 @@ name|FieldSelectorResult
 operator|.
 name|NO_LOAD
 return|;
+block|}
+DECL|method|reset
+annotation|@
+name|Override
+specifier|public
+name|void
+name|reset
+parameter_list|()
+block|{
+name|match
+operator|=
+literal|0
+expr_stmt|;
 block|}
 block|}
 end_class
