@@ -708,6 +708,26 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"[{}][{}] failed to execute multi_get for [{}]/[{}]"
+argument_list|,
+name|e
+argument_list|,
+name|request
+operator|.
+name|index
+argument_list|()
+argument_list|,
+name|shardId
+argument_list|,
+name|type
+argument_list|,
+name|id
+argument_list|)
+expr_stmt|;
 name|response
 operator|.
 name|add
