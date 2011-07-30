@@ -316,6 +316,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|http
+operator|.
+name|HttpHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|rest
 operator|.
 name|RestResponse
@@ -628,6 +640,25 @@ name|status
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|HttpHelper
+operator|.
+name|isBrowser
+argument_list|(
+name|request
+operator|.
+name|getHeader
+argument_list|(
+name|HttpHeaders
+operator|.
+name|Names
+operator|.
+name|USER_AGENT
+argument_list|)
+argument_list|)
+condition|)
+block|{
 comment|// add support for cross origin
 name|resp
 operator|.
@@ -678,6 +709,7 @@ argument_list|,
 literal|"X-Requested-With"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// Convert the response content to a ChannelBuffer.
 name|ChannelFutureListener
