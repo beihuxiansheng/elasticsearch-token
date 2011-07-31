@@ -53,12 +53,35 @@ name|MatchAllQueryBuilder
 argument_list|()
 return|;
 block|}
-comment|/**      * Creates a text query with type "BOOLEAN" for the provided field name and text.      *      * @param name The field name.      * @param text The query text (to be analyzed).      */
+comment|/**      * Creates a text query with type "BOOLEAN" for the provided field name and text.      *      * @param name The field name.      * @param text The query text (to be analyzed).      * @deprecated use {@link #textQuery(String, Object)} instead      */
 DECL|method|text
 specifier|public
 specifier|static
 name|TextQueryBuilder
 name|text
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|Object
+name|text
+parameter_list|)
+block|{
+return|return
+name|textQuery
+argument_list|(
+name|name
+argument_list|,
+name|text
+argument_list|)
+return|;
+block|}
+comment|/**      * Creates a text query with type "BOOLEAN" for the provided field name and text.      *      * @param name The field name.      * @param text The query text (to be analyzed).      */
+DECL|method|textQuery
+specifier|public
+specifier|static
+name|TextQueryBuilder
+name|textQuery
 parameter_list|(
 name|String
 name|name
@@ -86,12 +109,35 @@ name|BOOLEAN
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a text query with type "PHRASE" for the provided field name and text.      *      * @param name The field name.      * @param text The query text (to be analyzed).      */
+comment|/**      * Creates a text query with type "PHRASE" for the provided field name and text.      *      * @param name The field name.      * @param text The query text (to be analyzed).      * @deprecated use {@link #textPhraseQuery(String, Object)} instead      */
 DECL|method|textPhrase
 specifier|public
 specifier|static
 name|TextQueryBuilder
 name|textPhrase
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|Object
+name|text
+parameter_list|)
+block|{
+return|return
+name|textPhraseQuery
+argument_list|(
+name|name
+argument_list|,
+name|text
+argument_list|)
+return|;
+block|}
+comment|/**      * Creates a text query with type "PHRASE" for the provided field name and text.      *      * @param name The field name.      * @param text The query text (to be analyzed).      */
+DECL|method|textPhraseQuery
+specifier|public
+specifier|static
+name|TextQueryBuilder
+name|textPhraseQuery
 parameter_list|(
 name|String
 name|name
@@ -119,12 +165,35 @@ name|PHRASE
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a text query with type "PHRASE_PREFIX" for the provided field name and text.      *      * @param name The field name.      * @param text The query text (to be analyzed).      */
+comment|/**      * Creates a text query with type "PHRASE_PREFIX" for the provided field name and text.      *      * @param name The field name.      * @param text The query text (to be analyzed).      * @deprecated use {@link #textPhrasePrefixQuery(String, Object)} instead      */
 DECL|method|textPhrasePrefix
 specifier|public
 specifier|static
 name|TextQueryBuilder
 name|textPhrasePrefix
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|Object
+name|text
+parameter_list|)
+block|{
+return|return
+name|textPhrasePrefixQuery
+argument_list|(
+name|name
+argument_list|,
+name|text
+argument_list|)
+return|;
+block|}
+comment|/**      * Creates a text query with type "PHRASE_PREFIX" for the provided field name and text.      *      * @param name The field name.      * @param text The query text (to be analyzed).      */
+DECL|method|textPhrasePrefixQuery
+specifier|public
+specifier|static
+name|TextQueryBuilder
+name|textPhrasePrefixQuery
 parameter_list|(
 name|String
 name|name
