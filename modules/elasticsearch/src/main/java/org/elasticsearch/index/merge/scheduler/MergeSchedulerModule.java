@@ -142,7 +142,7 @@ name|ConcurrentMergeSchedulerProvider
 operator|.
 name|class
 argument_list|,
-literal|"org.elasticsearch.index.scheduler"
+literal|"org.elasticsearch.index.scheduler."
 argument_list|,
 literal|"MergeSchedulerProvider"
 argument_list|)
