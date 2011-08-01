@@ -2146,6 +2146,31 @@ operator|-
 literal|1
 condition|)
 block|{
+name|File
+name|file
+init|=
+operator|new
+name|File
+argument_list|(
+name|location
+argument_list|,
+literal|"metadata-"
+operator|+
+name|version
+argument_list|)
+decl_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"[find_latest_state]: loading metadata from [{}]"
+argument_list|,
+name|file
+operator|.
+name|getAbsolutePath
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|currentMetaState
@@ -2159,17 +2184,19 @@ argument_list|(
 operator|new
 name|FileInputStream
 argument_list|(
-operator|new
-name|File
+name|file
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|logger
+operator|.
+name|debug
 argument_list|(
-name|location
-argument_list|,
-literal|"metadata-"
-operator|+
-name|version
-argument_list|)
-argument_list|)
-argument_list|)
+literal|"[find_latest_state]: no metadata state loaded"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2218,6 +2245,31 @@ operator|-
 literal|1
 condition|)
 block|{
+name|File
+name|file
+init|=
+operator|new
+name|File
+argument_list|(
+name|location
+argument_list|,
+literal|"shards-"
+operator|+
+name|version
+argument_list|)
+decl_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"[find_latest_state]: loading started shards from [{}]"
+argument_list|,
+name|file
+operator|.
+name|getAbsolutePath
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|currentStartedShards
@@ -2231,17 +2283,19 @@ argument_list|(
 operator|new
 name|FileInputStream
 argument_list|(
-operator|new
-name|File
+name|file
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|logger
+operator|.
+name|debug
 argument_list|(
-name|location
-argument_list|,
-literal|"shards-"
-operator|+
-name|version
-argument_list|)
-argument_list|)
-argument_list|)
+literal|"[find_latest_state]: no started shards loaded"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2302,7 +2356,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"[findLatestState]: Processing ["
+literal|"[find_latest_state]: processing ["
 operator|+
 name|stateFile
 operator|.
@@ -2394,7 +2448,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"[findLatestState]: not data for ["
+literal|"[find_latest_state]: not data for ["
 operator|+
 name|name
 operator|+
@@ -2422,7 +2476,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"[findLatestState]: Failed to read state from ["
+literal|"[find_latest_state]: failed to read state from ["
 operator|+
 name|name
 operator|+
@@ -2475,7 +2529,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"[findLatestState]: Processing ["
+literal|"[find_latest_state]: processing ["
 operator|+
 name|stateFile
 operator|.
@@ -2567,7 +2621,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"[findLatestState]: not data for ["
+literal|"[find_latest_state]: not data for ["
 operator|+
 name|name
 operator|+
@@ -2596,7 +2650,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"[findLatestState]: Failed to read state from ["
+literal|"[find_latest_state]: failed to read state from ["
 operator|+
 name|name
 operator|+
