@@ -706,74 +706,15 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-if|if
-condition|(
-operator|!
-operator|(
-name|aSource
-operator|.
-name|getProtocol
-argument_list|()
-operator|.
-name|equals
-argument_list|(
-name|aDest
-operator|.
-name|getProtocol
-argument_list|()
-argument_list|)
-operator|||
-operator|(
-literal|"http"
-operator|.
-name|equals
-argument_list|(
-name|aSource
-operator|.
-name|getProtocol
-argument_list|()
-argument_list|)
-operator|&&
-literal|"https"
-operator|.
-name|equals
-argument_list|(
-name|aDest
-operator|.
-name|getProtocol
-argument_list|()
-argument_list|)
-operator|)
-operator|)
-condition|)
-block|{
-name|String
-name|message
-init|=
-literal|"Redirection detected from "
-operator|+
-name|aSource
-operator|.
-name|getProtocol
-argument_list|()
-operator|+
-literal|" to "
-operator|+
-name|aDest
-operator|.
-name|getProtocol
-argument_list|()
-operator|+
-literal|". Protocol switch unsafe, not allowed."
-decl_stmt|;
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-name|message
-argument_list|)
-throw|;
-block|}
+comment|// Argh, github does this...
+comment|//            if (!(aSource.getProtocol().equals(aDest.getProtocol()) || ("http"
+comment|//                    .equals(aSource.getProtocol())&& "https".equals(aDest
+comment|//                    .getProtocol())))) {
+comment|//                String message = "Redirection detected from "
+comment|//                        + aSource.getProtocol() + " to " + aDest.getProtocol()
+comment|//                        + ". Protocol switch unsafe, not allowed.";
+comment|//                throw new IOException(message);
+comment|//            }
 name|redirections
 operator|++
 expr_stmt|;
