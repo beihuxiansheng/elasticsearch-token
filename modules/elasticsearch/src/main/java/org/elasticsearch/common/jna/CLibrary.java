@@ -128,9 +128,9 @@ parameter_list|)
 block|{
 name|logger
 operator|.
-name|debug
+name|warn
 argument_list|(
-literal|"JNA not found. Native methods will be disabled."
+literal|"jna not found. native methods (mlockall) will be disabled."
 argument_list|)
 expr_stmt|;
 block|}
@@ -144,7 +144,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Unable to link C library. Native methods will be disabled."
+literal|"unable to link C library. native methods (mlockall) will be disabled."
 argument_list|)
 expr_stmt|;
 block|}

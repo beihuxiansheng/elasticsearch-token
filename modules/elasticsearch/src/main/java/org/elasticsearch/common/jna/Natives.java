@@ -167,7 +167,7 @@ condition|)
 block|{
 name|logger
 operator|.
-name|debug
+name|warn
 argument_list|(
 literal|"Unable to lock JVM memory (ENOMEM)."
 operator|+
@@ -200,7 +200,7 @@ block|{
 comment|// OS X allows mlockall to be called, but always returns an error
 name|logger
 operator|.
-name|debug
+name|warn
 argument_list|(
 literal|"Unknown mlockall error "
 operator|+
