@@ -29,10 +29,36 @@ block|{
 comment|/**      * Ascending order.      */
 DECL|enum constant|ASC
 name|ASC
+block|{
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"asc"
+return|;
+block|}
+block|}
 block|,
 comment|/**      * Descending order.      */
 DECL|enum constant|DESC
 name|DESC
+block|{
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"desc"
+return|;
+block|}
+block|}
 block|}
 end_enum
 
