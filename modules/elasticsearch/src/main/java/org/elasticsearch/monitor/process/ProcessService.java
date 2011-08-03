@@ -145,7 +145,7 @@ name|TimeValue
 operator|.
 name|timeValueSeconds
 argument_list|(
-literal|5
+literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
