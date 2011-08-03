@@ -2106,6 +2106,11 @@ argument_list|()
 argument_list|,
 name|deleteByQuery
 operator|.
+name|filteringAliases
+argument_list|()
+argument_list|,
+name|deleteByQuery
+operator|.
 name|types
 argument_list|()
 argument_list|)
