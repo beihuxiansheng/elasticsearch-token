@@ -320,6 +320,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|nio
+operator|.
+name|channels
+operator|.
+name|ClosedChannelException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|concurrent
@@ -1282,6 +1294,14 @@ block|}
 catch|catch
 parameter_list|(
 name|AlreadyClosedException
+name|e
+parameter_list|)
+block|{
+comment|// ignore, we are getting closed
+block|}
+catch|catch
+parameter_list|(
+name|ClosedChannelException
 name|e
 parameter_list|)
 block|{
