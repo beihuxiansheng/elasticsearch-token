@@ -114,11 +114,6 @@ name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|field|count
-specifier|private
-name|int
-name|count
-decl_stmt|;
 DECL|method|add
 specifier|public
 name|void
@@ -189,23 +184,6 @@ name|fieldName
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-operator|++
-name|count
-operator|==
-name|names
-operator|.
-name|size
-argument_list|()
-condition|)
-block|{
-return|return
-name|FieldSelectorResult
-operator|.
-name|LOAD_AND_BREAK
-return|;
-block|}
 return|return
 name|FieldSelectorResult
 operator|.
@@ -225,12 +203,7 @@ specifier|public
 name|void
 name|reset
 parameter_list|()
-block|{
-name|count
-operator|=
-literal|0
-expr_stmt|;
-block|}
+block|{     }
 block|}
 end_class
 

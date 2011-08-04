@@ -109,7 +109,7 @@ block|{
 return|return
 name|FieldSelectorResult
 operator|.
-name|LOAD_AND_BREAK
+name|LOAD
 return|;
 block|}
 return|return
