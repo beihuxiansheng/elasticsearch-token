@@ -5403,7 +5403,9 @@ comment|// to be allocated to a different node
 name|indexWriter
 operator|.
 name|close
-argument_list|()
+argument_list|(
+literal|false
+argument_list|)
 expr_stmt|;
 name|indexWriter
 operator|=
