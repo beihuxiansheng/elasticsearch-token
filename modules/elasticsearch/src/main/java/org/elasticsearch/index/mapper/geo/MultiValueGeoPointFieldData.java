@@ -193,6 +193,9 @@ init|;
 name|j
 operator|<
 name|value
+index|[
+name|i
+index|]
 operator|.
 name|length
 condition|;
