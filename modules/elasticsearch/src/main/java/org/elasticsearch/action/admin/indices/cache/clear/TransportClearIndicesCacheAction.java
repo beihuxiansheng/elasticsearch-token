@@ -769,6 +769,14 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
+name|service
+operator|.
+name|cache
+argument_list|()
+operator|.
+name|invalidateCache
+argument_list|()
+expr_stmt|;
 block|}
 return|return
 operator|new
