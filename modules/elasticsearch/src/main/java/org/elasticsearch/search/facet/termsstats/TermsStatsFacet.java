@@ -229,15 +229,9 @@ name|i
 operator|=
 name|o2
 operator|.
-name|term
-argument_list|()
-operator|.
 name|compareTo
 argument_list|(
 name|o1
-operator|.
-name|term
-argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
