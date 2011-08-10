@@ -1023,7 +1023,13 @@ argument_list|(
 operator|new
 name|SortField
 argument_list|(
-name|fieldName
+name|fieldMapper
+operator|.
+name|names
+argument_list|()
+operator|.
+name|indexName
+argument_list|()
 argument_list|,
 name|fieldMapper
 operator|.
