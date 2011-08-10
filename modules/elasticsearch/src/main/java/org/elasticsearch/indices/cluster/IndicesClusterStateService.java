@@ -1914,6 +1914,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// we can just remove the shard, without cleaning it locally, since we will clean it
+comment|// when all shards are allocated in the IndicesStore
 if|if
 condition|(
 name|logger
@@ -1926,7 +1928,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"[{}][{}] cleaning shard locally (not allocated)"
+literal|"[{}][{}] removing shard (not allocated)"
 argument_list|,
 name|index
 argument_list|,
@@ -1936,11 +1938,11 @@ expr_stmt|;
 block|}
 name|indexService
 operator|.
-name|cleanShard
+name|removeShard
 argument_list|(
 name|existingShardId
 argument_list|,
-literal|"cleaning shard locally (not allocated)"
+literal|"removing shard (not allocated)"
 argument_list|)
 expr_stmt|;
 block|}
