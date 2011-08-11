@@ -58,7 +58,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|FieldComparatorSource
+name|Scorer
 import|;
 end_import
 
@@ -72,7 +72,23 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Scorer
+name|SortField
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|field
+operator|.
+name|data
+operator|.
+name|FieldDataType
 import|;
 end_import
 
@@ -113,7 +129,9 @@ block|{
 DECL|method|comparatorSource
 specifier|public
 specifier|static
-name|FieldComparatorSource
+name|FieldDataType
+operator|.
+name|ExtendedFieldComparatorSource
 name|comparatorSource
 parameter_list|(
 name|SearchScript
@@ -134,7 +152,9 @@ specifier|static
 class|class
 name|InnerSource
 extends|extends
-name|FieldComparatorSource
+name|FieldDataType
+operator|.
+name|ExtendedFieldComparatorSource
 block|{
 DECL|field|script
 specifier|private
@@ -187,6 +207,20 @@ name|numHits
 argument_list|,
 name|script
 argument_list|)
+return|;
+block|}
+DECL|method|reducedType
+annotation|@
+name|Override
+specifier|public
+name|int
+name|reducedType
+parameter_list|()
+block|{
+return|return
+name|SortField
+operator|.
+name|STRING
 return|;
 block|}
 block|}
