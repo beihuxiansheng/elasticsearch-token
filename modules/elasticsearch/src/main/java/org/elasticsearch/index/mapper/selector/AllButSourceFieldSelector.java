@@ -65,7 +65,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An optimized field selector that loads just the uid and the source.  *  * @author kimchy (shay.banon)  */
+comment|/**  * A field selector that loads all fields except the source field.  *  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
