@@ -444,6 +444,14 @@ argument_list|()
 operator|.
 name|arrayOffset
 argument_list|()
+operator|+
+name|request
+operator|.
+name|bufferForBody
+argument_list|()
+operator|.
+name|position
+argument_list|()
 return|;
 block|}
 DECL|method|contentLength
