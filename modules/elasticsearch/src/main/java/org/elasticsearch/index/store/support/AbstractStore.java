@@ -791,10 +791,7 @@ init|=
 operator|new
 name|StoreFileMetaData
 argument_list|(
-name|fromMetaData
-operator|.
-name|name
-argument_list|()
+name|to
 argument_list|,
 name|fromMetaData
 operator|.
