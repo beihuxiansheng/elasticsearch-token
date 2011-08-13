@@ -464,7 +464,7 @@ block|}
 comment|/**      * Set to true if phrase queries will be automatically generated      * when the analyzer returns more than one term from whitespace      * delimited text.      * NOTE: this behavior may not be suitable for all languages.      *<p>      * Set to false if phrase queries should only be generated when      * surrounded by double quotes.      */
 DECL|method|autoGeneratePhraseQueries
 specifier|public
-name|void
+name|QueryStringQueryBuilder
 name|autoGeneratePhraseQueries
 parameter_list|(
 name|boolean
@@ -477,6 +477,9 @@ name|autoGeneratePhraseQueries
 operator|=
 name|autoGeneratePhraseQueries
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**      * Should leading wildcards be allowed or not. Defaults to<tt>true</tt>.      */
 DECL|method|allowLeadingWildcard
