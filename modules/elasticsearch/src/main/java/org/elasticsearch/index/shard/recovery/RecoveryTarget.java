@@ -332,6 +332,22 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|store
+operator|.
+name|support
+operator|.
+name|AbstractStore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|translog
 operator|.
 name|Translog
@@ -2991,6 +3007,7 @@ name|listAll
 argument_list|()
 control|)
 block|{
+comment|// don't delete snapshot file, or the checksums file (note, this is extra protection since the Store won't delete checksum)
 if|if
 condition|(
 operator|!
@@ -3000,6 +3017,14 @@ name|snapshotFiles
 argument_list|()
 operator|.
 name|contains
+argument_list|(
+name|existingFile
+argument_list|)
+operator|&&
+operator|!
+name|AbstractStore
+operator|.
+name|isChecksum
 argument_list|(
 name|existingFile
 argument_list|)
