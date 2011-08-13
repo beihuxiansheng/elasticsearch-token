@@ -330,7 +330,7 @@ name|Joda
 operator|.
 name|forPattern
 argument_list|(
-literal|"yyyy/MM/dd HH:mm:ss Z||yyyy/MM/dd Z"
+literal|"yyyy/MM/dd HH:mm:ss||yyyy/MM/dd"
 argument_list|)
 block|}
 decl_stmt|;

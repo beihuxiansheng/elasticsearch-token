@@ -225,10 +225,19 @@ argument_list|()
 operator|.
 name|field
 argument_list|(
-literal|"date_field"
+literal|"date_field1"
 argument_list|,
-literal|"2011/01/22 00:00:00 +02"
+literal|"2011/01/22"
 argument_list|)
+operator|.
+name|field
+argument_list|(
+literal|"date_field2"
+argument_list|,
+literal|"2011/01/22 00:00:00"
+argument_list|)
+comment|//                .field("date_field3", "2011/01/22 +02")
+comment|//                .field("date_field4", "2011/01/22 00:00:00 +02:00")
 operator|.
 name|endObject
 argument_list|()
@@ -247,7 +256,7 @@ argument_list|()
 operator|.
 name|smartNameFieldMapper
 argument_list|(
-literal|"date_field"
+literal|"date_field1"
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -262,6 +271,34 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|fieldMapper
+operator|=
+name|defaultMapper
+operator|.
+name|mappers
+argument_list|()
+operator|.
+name|smartNameFieldMapper
+argument_list|(
+literal|"date_field2"
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|fieldMapper
+argument_list|,
+name|instanceOf
+argument_list|(
+name|DateFieldMapper
+operator|.
+name|class
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|//        fieldMapper = defaultMapper.mappers().smartNameFieldMapper("date_field3");
+comment|//        assertThat(fieldMapper, instanceOf(DateFieldMapper.class));
+comment|//        fieldMapper = defaultMapper.mappers().smartNameFieldMapper("date_field4");
+comment|//        assertThat(fieldMapper, instanceOf(DateFieldMapper.class));
 block|}
 DECL|method|testTimestampAsDate
 annotation|@
