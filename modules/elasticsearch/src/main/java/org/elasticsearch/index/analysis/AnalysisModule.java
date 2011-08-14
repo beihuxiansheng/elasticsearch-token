@@ -1342,6 +1342,27 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|type
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|ElasticSearchIllegalArgumentException
+argument_list|(
+literal|"failed to find token filter type for ["
+operator|+
+name|tokenFilterName
+operator|+
+literal|"]"
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 if|if
 condition|(
@@ -1354,7 +1375,7 @@ throw|throw
 operator|new
 name|ElasticSearchIllegalArgumentException
 argument_list|(
-literal|"Token Filter ["
+literal|"token filter ["
 operator|+
 name|tokenFilterName
 operator|+
@@ -1592,6 +1613,8 @@ operator|.
 name|getValue
 argument_list|()
 decl_stmt|;
+try|try
+block|{
 name|Class
 argument_list|<
 name|?
@@ -1685,6 +1708,27 @@ operator|.
 name|SINGLETON
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|NoClassSettingsException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|ElasticSearchIllegalArgumentException
+argument_list|(
+literal|"failed to find tokenizer type for ["
+operator|+
+name|tokenizerName
+operator|+
+literal|"]"
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 name|AnalysisBinderProcessor
 operator|.
@@ -1793,6 +1837,8 @@ operator|.
 name|getValue
 argument_list|()
 decl_stmt|;
+try|try
+block|{
 name|Class
 argument_list|<
 name|?
@@ -1853,7 +1899,7 @@ throw|throw
 operator|new
 name|ElasticSearchIllegalArgumentException
 argument_list|(
-literal|"Analyzer ["
+literal|"analyzer ["
 operator|+
 name|analyzerName
 operator|+
@@ -1890,6 +1936,27 @@ operator|.
 name|SINGLETON
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|NoClassSettingsException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|ElasticSearchIllegalArgumentException
+argument_list|(
+literal|"failed to find analyzer type for ["
+operator|+
+name|analyzerName
+operator|+
+literal|"]"
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 name|AnalysisBinderProcessor
 operator|.

@@ -48,30 +48,6 @@ name|Message
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|logging
-operator|.
-name|Level
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|logging
-operator|.
-name|Logger
-import|;
-end_import
-
 begin_comment
 comment|/**  * Handles {@link Binder#addError} commands.  *  * @author crazybob@google.com (Bob Lee)  * @author jessewilson@google.com (Jesse Wilson)  */
 end_comment
@@ -83,25 +59,7 @@ name|MessageProcessor
 extends|extends
 name|AbstractProcessor
 block|{
-DECL|field|logger
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|logger
-init|=
-name|Logger
-operator|.
-name|getLogger
-argument_list|(
-name|Guice
-operator|.
-name|class
-operator|.
-name|getName
-argument_list|()
-argument_list|)
-decl_stmt|;
+comment|//private static final Logger logger = Logger.getLogger(Guice.class.getName());
 DECL|method|MessageProcessor
 name|MessageProcessor
 parameter_list|(
@@ -126,46 +84,13 @@ name|Message
 name|message
 parameter_list|)
 block|{
-if|if
-condition|(
-name|message
-operator|.
-name|getCause
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
-name|String
-name|rootMessage
-init|=
-name|getRootMessage
-argument_list|(
-name|message
-operator|.
-name|getCause
-argument_list|()
-argument_list|)
-decl_stmt|;
-name|logger
-operator|.
-name|log
-argument_list|(
-name|Level
-operator|.
-name|INFO
-argument_list|,
-literal|"An exception was caught and reported. Message: "
-operator|+
-name|rootMessage
-argument_list|,
-name|message
-operator|.
-name|getCause
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
+comment|// ES_GUICE: don't log failures using jdk logging
+comment|//        if (message.getCause() != null) {
+comment|//            String rootMessage = getRootMessage(message.getCause());
+comment|//            logger.log(Level.INFO,
+comment|//                    "An exception was caught and reported. Message: " + rootMessage,
+comment|//                    message.getCause());
+comment|//        }
 name|errors
 operator|.
 name|addMessage

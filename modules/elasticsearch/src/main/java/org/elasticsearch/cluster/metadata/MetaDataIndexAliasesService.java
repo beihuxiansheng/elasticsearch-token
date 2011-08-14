@@ -794,6 +794,8 @@ literal|null
 condition|)
 block|{
 comment|// temporarily create the index so we have can parse the filter
+try|try
+block|{
 name|indexService
 operator|=
 name|indicesService
@@ -822,6 +824,29 @@ name|id
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"[{}] failed to temporary create in order to apply alias action"
+argument_list|,
+name|e
+argument_list|,
+name|indexMetaData
+operator|.
+name|index
+argument_list|()
+argument_list|)
+expr_stmt|;
+continue|continue;
+block|}
 name|indicesToClose
 operator|.
 name|add
