@@ -505,9 +505,6 @@ expr_stmt|;
 name|DocumentMapper
 name|mapper
 init|=
-operator|(
-name|DocumentMapper
-operator|)
 name|mapperService
 operator|.
 name|documentMapperWithAutoCreate
@@ -668,9 +665,6 @@ expr_stmt|;
 name|DocumentMapper
 name|mapper
 init|=
-operator|(
-name|DocumentMapper
-operator|)
 name|mapperService
 operator|.
 name|documentMapper

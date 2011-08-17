@@ -211,7 +211,7 @@ name|Mapper
 parameter_list|>
 block|{
 DECL|field|name
-specifier|protected
+specifier|public
 name|String
 name|name
 decl_stmt|;

@@ -259,12 +259,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 operator|.
-name|sourceField
-argument_list|(
-name|source
-argument_list|()
-argument_list|)
-operator|.
 name|build
 argument_list|(
 name|mapperParser
