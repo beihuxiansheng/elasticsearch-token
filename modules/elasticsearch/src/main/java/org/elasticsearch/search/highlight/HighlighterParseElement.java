@@ -1043,7 +1043,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"score"
+literal|"order"
 operator|.
 name|equals
 argument_list|(
