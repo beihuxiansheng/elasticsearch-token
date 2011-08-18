@@ -1754,7 +1754,7 @@ name|root
 operator|=
 name|xContentParser
 operator|.
-name|map
+name|mapOrdered
 argument_list|()
 expr_stmt|;
 block|}
