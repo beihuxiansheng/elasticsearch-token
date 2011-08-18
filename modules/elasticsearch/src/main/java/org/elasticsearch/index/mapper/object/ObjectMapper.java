@@ -2360,9 +2360,6 @@ comment|// pre add the uid field if possible (id was already provided)
 name|Fieldable
 name|uidField
 init|=
-operator|(
-name|Fieldable
-operator|)
 name|context
 operator|.
 name|doc
