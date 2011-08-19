@@ -42,7 +42,7 @@ name|search
 operator|.
 name|geo
 operator|.
-name|GeoBoundingBoxFilter
+name|Point
 import|;
 end_import
 
@@ -76,8 +76,6 @@ name|name
 decl_stmt|;
 DECL|field|topLeft
 specifier|private
-name|GeoBoundingBoxFilter
-operator|.
 name|Point
 name|topLeft
 decl_stmt|;
@@ -88,8 +86,6 @@ name|topLeftGeohash
 decl_stmt|;
 DECL|field|bottomRight
 specifier|private
-name|GeoBoundingBoxFilter
-operator|.
 name|Point
 name|bottomRight
 decl_stmt|;
@@ -144,8 +140,6 @@ block|{
 name|topLeft
 operator|=
 operator|new
-name|GeoBoundingBoxFilter
-operator|.
 name|Point
 argument_list|()
 expr_stmt|;
@@ -181,8 +175,6 @@ block|{
 name|bottomRight
 operator|=
 operator|new
-name|GeoBoundingBoxFilter
-operator|.
 name|Point
 argument_list|()
 expr_stmt|;

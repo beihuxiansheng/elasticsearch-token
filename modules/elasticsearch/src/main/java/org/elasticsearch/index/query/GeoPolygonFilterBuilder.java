@@ -72,7 +72,7 @@ name|search
 operator|.
 name|geo
 operator|.
-name|GeoPolygonFilter
+name|Point
 import|;
 end_import
 
@@ -119,8 +119,6 @@ specifier|private
 specifier|final
 name|List
 argument_list|<
-name|GeoPolygonFilter
-operator|.
 name|Point
 argument_list|>
 name|points
@@ -178,8 +176,6 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|GeoPolygonFilter
-operator|.
 name|Point
 argument_list|(
 name|lat
@@ -327,8 +323,6 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|GeoPolygonFilter
-operator|.
 name|Point
 name|point
 range|:
