@@ -1340,6 +1340,8 @@ operator|.
 name|includeInAll
 argument_list|(
 name|includeInAll
+argument_list|,
+name|this
 argument_list|)
 condition|)
 block|{
@@ -1418,6 +1420,8 @@ operator|.
 name|includeInAll
 argument_list|(
 name|includeInAll
+argument_list|,
+name|this
 argument_list|)
 operator|)
 condition|)
@@ -1611,6 +1615,8 @@ operator|.
 name|includeInAll
 argument_list|(
 name|includeInAll
+argument_list|,
+name|this
 argument_list|)
 condition|)
 block|{
