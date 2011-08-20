@@ -128,6 +128,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|metrics
+operator|.
+name|CounterMetric
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|settings
 operator|.
 name|Settings
@@ -230,20 +244,6 @@ name|TimeUnit
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|atomic
-operator|.
-name|AtomicLong
-import|;
-end_import
-
 begin_comment
 comment|/**  * A weak reference based filter cache that has weak keys on the<tt>IndexReader</tt>.  *  * @author kimchy (shay.banon)  */
 end_comment
@@ -284,11 +284,11 @@ decl_stmt|;
 DECL|field|evictions
 specifier|private
 specifier|final
-name|AtomicLong
+name|CounterMetric
 name|evictions
 init|=
 operator|new
-name|AtomicLong
+name|CounterMetric
 argument_list|()
 decl_stmt|;
 DECL|field|applySettings
@@ -511,7 +511,7 @@ block|{
 return|return
 name|evictions
 operator|.
-name|get
+name|count
 argument_list|()
 return|;
 block|}
@@ -531,7 +531,7 @@ parameter_list|)
 block|{
 name|evictions
 operator|.
-name|incrementAndGet
+name|inc
 argument_list|()
 expr_stmt|;
 block|}
