@@ -361,6 +361,15 @@ name|HEALTH
 init|=
 literal|"/cluster/health"
 decl_stmt|;
+DECL|field|UPDATE_SETTINGS
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|UPDATE_SETTINGS
+init|=
+literal|"/cluster/updateSettings"
+decl_stmt|;
 DECL|class|Node
 specifier|public
 specifier|static

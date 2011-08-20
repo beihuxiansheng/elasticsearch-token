@@ -85,6 +85,19 @@ operator|=
 name|logger
 expr_stmt|;
 block|}
+DECL|method|setLevel
+annotation|@
+name|Override
+specifier|public
+name|void
+name|setLevel
+parameter_list|(
+name|String
+name|level
+parameter_list|)
+block|{
+comment|// can't set it in slf4j...
+block|}
 DECL|method|getName
 annotation|@
 name|Override

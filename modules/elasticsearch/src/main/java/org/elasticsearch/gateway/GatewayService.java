@@ -1789,6 +1789,19 @@ name|version
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|metaDataBuilder
+operator|.
+name|persistentSettings
+argument_list|(
+name|recoveredState
+operator|.
+name|metaData
+argument_list|()
+operator|.
+name|persistentSettings
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// add the index templates
 for|for
 control|(

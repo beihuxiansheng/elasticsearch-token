@@ -36,6 +36,14 @@ name|String
 name|getName
 parameter_list|()
 function_decl|;
+DECL|method|setLevel
+name|void
+name|setLevel
+parameter_list|(
+name|String
+name|level
+parameter_list|)
+function_decl|;
 comment|/**      * Returns {@code true} if a TRACE level message is logged.      */
 DECL|method|isTraceEnabled
 name|boolean
