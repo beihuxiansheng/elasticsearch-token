@@ -42,6 +42,20 @@ name|Node
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|node
+operator|.
+name|settings
+operator|.
+name|NodeSettingsService
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
@@ -94,6 +108,16 @@ name|toInstance
 argument_list|(
 name|node
 argument_list|)
+expr_stmt|;
+name|bind
+argument_list|(
+name|NodeSettingsService
+operator|.
+name|class
+argument_list|)
+operator|.
+name|asEagerSingleton
+argument_list|()
 expr_stmt|;
 block|}
 block|}

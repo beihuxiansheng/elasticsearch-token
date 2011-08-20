@@ -4,13 +4,13 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.cluster.settings
+DECL|package|org.elasticsearch.node.settings
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
+name|node
 operator|.
 name|settings
 package|;
@@ -131,14 +131,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * A service that allows to register for node settings change that can come from cluster  * events holding new settings.  */
 end_comment
 
 begin_class
-DECL|class|ClusterSettingsService
+DECL|class|NodeSettingsService
 specifier|public
 class|class
-name|ClusterSettingsService
+name|NodeSettingsService
 extends|extends
 name|AbstractComponent
 implements|implements
@@ -166,11 +166,11 @@ name|Listener
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|method|ClusterSettingsService
+DECL|method|NodeSettingsService
 annotation|@
 name|Inject
 specifier|public
-name|ClusterSettingsService
+name|NodeSettingsService
 parameter_list|(
 name|Settings
 name|settings
