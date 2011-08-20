@@ -221,9 +221,9 @@ name|IOException
 throws|,
 name|TransportException
 function_decl|;
-DECL|method|stats
-name|TransportStats
-name|stats
+DECL|method|serverOpen
+name|long
+name|serverOpen
 parameter_list|()
 function_decl|;
 block|}
