@@ -1070,6 +1070,15 @@ operator|.
 name|refreshStats
 argument_list|()
 expr_stmt|;
+name|shardStatus
+operator|.
+name|flushStats
+operator|=
+name|indexShard
+operator|.
+name|flushStats
+argument_list|()
+expr_stmt|;
 block|}
 if|if
 condition|(
