@@ -335,7 +335,7 @@ parameter_list|)
 block|{
 name|logger
 operator|.
-name|warn
+name|trace
 argument_list|(
 literal|"Failed to find local host"
 argument_list|,
