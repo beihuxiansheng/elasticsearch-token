@@ -812,12 +812,11 @@ name|fieldName
 argument_list|)
 condition|)
 block|{
-name|location
-operator|++
-expr_stmt|;
 if|if
 condition|(
 name|location
+operator|+
+literal|1
 operator|==
 name|routing
 operator|.
@@ -851,6 +850,8 @@ argument_list|(
 name|parser
 argument_list|,
 name|location
+operator|+
+literal|1
 argument_list|)
 return|;
 block|}
