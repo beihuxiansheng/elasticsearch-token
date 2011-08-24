@@ -397,9 +397,9 @@ argument_list|)
 operator|.
 name|setTimeout
 argument_list|(
-name|timeValueSeconds
+name|timeValueMillis
 argument_list|(
-literal|1
+literal|100
 argument_list|)
 argument_list|)
 operator|.
@@ -579,9 +579,9 @@ argument_list|)
 operator|.
 name|setTimeout
 argument_list|(
-name|timeValueSeconds
+name|timeValueMillis
 argument_list|(
-literal|1
+literal|100
 argument_list|)
 argument_list|)
 operator|.
