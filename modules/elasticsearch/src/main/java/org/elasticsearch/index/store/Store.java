@@ -214,6 +214,13 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
+DECL|method|stats
+name|StoreStats
+name|stats
+parameter_list|()
+throws|throws
+name|IOException
+function_decl|;
 comment|/**      * The estimated size this store is using.      */
 DECL|method|estimateSize
 name|ByteSizeValue

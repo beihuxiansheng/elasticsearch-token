@@ -409,7 +409,7 @@ name|realtime
 argument_list|(
 name|request
 operator|.
-name|paramAsBoolean
+name|paramAsBooleanOptional
 argument_list|(
 literal|"realtime"
 argument_list|,

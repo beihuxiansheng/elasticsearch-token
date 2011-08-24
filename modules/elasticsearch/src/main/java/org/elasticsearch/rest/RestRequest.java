@@ -238,9 +238,9 @@ name|boolean
 name|defaultValue
 parameter_list|)
 function_decl|;
-DECL|method|paramAsBoolean
+DECL|method|paramAsBooleanOptional
 name|Boolean
-name|paramAsBoolean
+name|paramAsBooleanOptional
 parameter_list|(
 name|String
 name|key

@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.shard.service
+DECL|package|org.elasticsearch.index.indexing
 package|package
 name|org
 operator|.
@@ -12,9 +12,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|shard
-operator|.
-name|service
+name|indexing
 package|;
 end_package
 
@@ -37,18 +35,18 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|OperationListener
+DECL|class|IndexingOperationListener
 specifier|public
 specifier|abstract
 class|class
-name|OperationListener
+name|IndexingOperationListener
 block|{
-DECL|method|beforeCreate
+DECL|method|preCreate
 specifier|public
 name|Engine
 operator|.
 name|Create
-name|beforeCreate
+name|preCreate
 parameter_list|(
 name|Engine
 operator|.
@@ -60,12 +58,23 @@ return|return
 name|create
 return|;
 block|}
-DECL|method|beforeIndex
+DECL|method|postCreate
+specifier|public
+name|void
+name|postCreate
+parameter_list|(
+name|Engine
+operator|.
+name|Create
+name|create
+parameter_list|)
+block|{      }
+DECL|method|preIndex
 specifier|public
 name|Engine
 operator|.
 name|Index
-name|beforeIndex
+name|preIndex
 parameter_list|(
 name|Engine
 operator|.
@@ -77,12 +86,23 @@ return|return
 name|index
 return|;
 block|}
-DECL|method|beforeDelete
+DECL|method|postIndex
+specifier|public
+name|void
+name|postIndex
+parameter_list|(
+name|Engine
+operator|.
+name|Index
+name|index
+parameter_list|)
+block|{      }
+DECL|method|preDelete
 specifier|public
 name|Engine
 operator|.
 name|Delete
-name|beforeDelete
+name|preDelete
 parameter_list|(
 name|Engine
 operator|.
@@ -94,6 +114,45 @@ return|return
 name|delete
 return|;
 block|}
+DECL|method|postDelete
+specifier|public
+name|void
+name|postDelete
+parameter_list|(
+name|Engine
+operator|.
+name|Delete
+name|delete
+parameter_list|)
+block|{      }
+DECL|method|preDeleteByQuery
+specifier|public
+name|Engine
+operator|.
+name|DeleteByQuery
+name|preDeleteByQuery
+parameter_list|(
+name|Engine
+operator|.
+name|DeleteByQuery
+name|deleteByQuery
+parameter_list|)
+block|{
+return|return
+name|deleteByQuery
+return|;
+block|}
+DECL|method|postDeleteByQuery
+specifier|public
+name|void
+name|postDeleteByQuery
+parameter_list|(
+name|Engine
+operator|.
+name|DeleteByQuery
+name|deleteByQuery
+parameter_list|)
+block|{      }
 block|}
 end_class
 

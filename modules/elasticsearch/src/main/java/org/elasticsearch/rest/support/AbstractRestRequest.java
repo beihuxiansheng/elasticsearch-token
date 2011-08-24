@@ -389,12 +389,12 @@ name|defaultValue
 argument_list|)
 return|;
 block|}
-DECL|method|paramAsBoolean
+DECL|method|paramAsBooleanOptional
 annotation|@
 name|Override
 specifier|public
 name|Boolean
-name|paramAsBoolean
+name|paramAsBooleanOptional
 parameter_list|(
 name|String
 name|key

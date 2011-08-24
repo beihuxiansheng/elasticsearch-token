@@ -1267,7 +1267,7 @@ name|explain
 argument_list|(
 name|request
 operator|.
-name|paramAsBoolean
+name|paramAsBooleanOptional
 argument_list|(
 literal|"explain"
 argument_list|,
@@ -1281,7 +1281,7 @@ name|version
 argument_list|(
 name|request
 operator|.
-name|paramAsBoolean
+name|paramAsBooleanOptional
 argument_list|(
 literal|"version"
 argument_list|,

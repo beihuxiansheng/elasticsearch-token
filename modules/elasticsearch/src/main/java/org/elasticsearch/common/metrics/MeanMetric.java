@@ -172,6 +172,23 @@ return|return
 literal|0.0
 return|;
 block|}
+DECL|method|clear
+specifier|public
+name|void
+name|clear
+parameter_list|()
+block|{
+name|counter
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
+name|sum
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 end_class
 

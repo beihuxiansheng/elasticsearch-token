@@ -32,20 +32,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|unit
-operator|.
-name|ByteSizeValue
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -78,7 +64,7 @@ comment|/**      * Returns the estimated size of a {@link Directory}.      */
 DECL|method|estimateSize
 specifier|public
 specifier|static
-name|ByteSizeValue
+name|long
 name|estimateSize
 parameter_list|(
 name|Directory
@@ -131,11 +117,7 @@ comment|// ignore, the file is not there no more
 block|}
 block|}
 return|return
-operator|new
-name|ByteSizeValue
-argument_list|(
 name|estimatedSize
-argument_list|)
 return|;
 block|}
 DECL|method|Directories
