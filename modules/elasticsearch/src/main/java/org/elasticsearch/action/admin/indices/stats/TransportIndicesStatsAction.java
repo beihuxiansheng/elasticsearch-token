@@ -458,7 +458,7 @@ name|Admin
 operator|.
 name|Indices
 operator|.
-name|STATUS
+name|STATS
 return|;
 block|}
 DECL|method|transportShardAction
