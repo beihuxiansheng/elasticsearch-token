@@ -121,10 +121,14 @@ name|boolean
 name|changesAllowed
 parameter_list|()
 function_decl|;
+comment|/**      * Returns the node stats indices stats. The<tt>includePrevious</tt> flag controls      * if old shards stats will be aggregated as well (only for relevant stats, such as      * refresh and indexing, not for docs/store).      */
 DECL|method|stats
 name|NodeIndicesStats
 name|stats
-parameter_list|()
+parameter_list|(
+name|boolean
+name|includePrevious
+parameter_list|)
 function_decl|;
 DECL|method|hasIndex
 name|boolean

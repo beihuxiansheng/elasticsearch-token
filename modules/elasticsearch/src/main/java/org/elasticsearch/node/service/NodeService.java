@@ -483,6 +483,8 @@ name|NodeStats
 name|stats
 parameter_list|()
 block|{
+comment|// for indices stats we want to include previous allocated shards stats as well (it will
+comment|// only be applied to the sensible ones to use, like refresh/merge/flush/indexing stats)
 return|return
 operator|new
 name|NodeStats
@@ -501,7 +503,9 @@ argument_list|,
 name|indicesService
 operator|.
 name|stats
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 argument_list|,
 name|monitorService
 operator|.
