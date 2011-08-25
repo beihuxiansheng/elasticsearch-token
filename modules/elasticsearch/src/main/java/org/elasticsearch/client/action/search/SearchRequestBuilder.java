@@ -1647,6 +1647,28 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The encoder to set for highlighting      */
+DECL|method|setEncoder
+specifier|public
+name|SearchRequestBuilder
+name|setEncoder
+parameter_list|(
+name|String
+name|encoder
+parameter_list|)
+block|{
+name|highlightBuilder
+argument_list|()
+operator|.
+name|encoder
+argument_list|(
+name|encoder
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Sets the source of the request as a json string. Note, settings anything other      * than the search type will cause this source to be overridden, consider using      * {@link #setExtraSource(String)}.      */
 DECL|method|setSource
 specifier|public

@@ -122,7 +122,12 @@ specifier|private
 name|String
 name|order
 decl_stmt|;
-comment|/**      * Adds a field to be highlighted with default fragment size of 100 characters, and      * default number of fragments of 5.      *      * @param name The field to highlight      */
+DECL|field|encoder
+specifier|private
+name|String
+name|encoder
+decl_stmt|;
+comment|/**      * Adds a field to be highlighted with default fragment size of 100 characters, and      * default number of fragments of 5 using the default encoder      *      * @param name The field to highlight      */
 DECL|method|field
 specifier|public
 name|HighlightBuilder
@@ -342,6 +347,26 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set encoder for the highlighting      * are<tt>styled</tt> and<tt>default</tt>.      *      * @param encoder name      */
+DECL|method|encoder
+specifier|public
+name|HighlightBuilder
+name|encoder
+parameter_list|(
+name|String
+name|encoder
+parameter_list|)
+block|{
+name|this
+operator|.
+name|encoder
+operator|=
+name|encoder
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Explicitly set the pre tags that will be used for highlighting.      */
 DECL|method|preTags
 specifier|public
@@ -492,6 +517,23 @@ argument_list|(
 literal|"order"
 argument_list|,
 name|order
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|encoder
+operator|!=
+literal|null
+condition|)
+block|{
+name|builder
+operator|.
+name|field
+argument_list|(
+literal|"encoder"
+argument_list|,
+name|encoder
 argument_list|)
 expr_stmt|;
 block|}
