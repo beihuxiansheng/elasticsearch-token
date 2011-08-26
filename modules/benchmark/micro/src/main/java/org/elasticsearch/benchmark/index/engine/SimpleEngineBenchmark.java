@@ -1078,6 +1078,9 @@ literal|"type"
 argument_list|,
 literal|null
 argument_list|,
+operator|-
+literal|1
+argument_list|,
 name|doc
 argument_list|,
 name|Lucene
@@ -1928,6 +1931,9 @@ argument_list|,
 literal|"type"
 argument_list|,
 literal|null
+argument_list|,
+operator|-
+literal|1
 argument_list|,
 name|doc
 argument_list|,

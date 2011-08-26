@@ -463,6 +463,18 @@ expr_stmt|;
 comment|// order is important, set it after routing, so it will set the routing
 name|indexRequest
 operator|.
+name|timestamp
+argument_list|(
+name|request
+operator|.
+name|param
+argument_list|(
+literal|"timestamp"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|indexRequest
+operator|.
 name|source
 argument_list|(
 name|request
