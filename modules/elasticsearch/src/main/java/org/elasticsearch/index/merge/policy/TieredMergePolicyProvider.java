@@ -481,6 +481,12 @@ name|componentSettings
 operator|.
 name|getAsBytesSize
 argument_list|(
+literal|"max_merged_segment"
+argument_list|,
+name|componentSettings
+operator|.
+name|getAsBytesSize
+argument_list|(
 literal|"max_merge_segment"
 argument_list|,
 operator|new
@@ -491,6 +497,7 @@ argument_list|,
 name|ByteSizeUnit
 operator|.
 name|GB
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -524,7 +531,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"using [tiered] merge policy with expunge_deletes_allowed[{}], floor_segment[{}], max_merge_at_once[{}], max_merge_at_once_explicit[{}], max_merge_segment[{}], segments_per_tier[{}], reclaim_deletes_weight[{}], async_merge[{}]"
+literal|"using [tiered] merge policy with expunge_deletes_allowed[{}], floor_segment[{}], max_merge_at_once[{}], max_merge_at_once_explicit[{}], max_merged_segment[{}], segments_per_tier[{}], reclaim_deletes_weight[{}], async_merge[{}]"
 argument_list|,
 name|expungeDeletesPctAllowed
 argument_list|,
