@@ -495,7 +495,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  * @author kimchy (shay.banon)  * @author dadoonet (David Pilato) for attachments filter  */
 end_comment
 
 begin_class
@@ -555,6 +555,12 @@ specifier|private
 specifier|final
 name|String
 name|basicAuth
+decl_stmt|;
+DECL|field|couchIgnoreAttachements
+specifier|private
+specifier|final
+name|boolean
+name|couchIgnoreAttachements
 decl_stmt|;
 DECL|field|indexName
 specifier|private
@@ -905,6 +911,22 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+name|couchIgnoreAttachements
+operator|=
+name|XContentMapValues
+operator|.
+name|nodeBooleanValue
+argument_list|(
+name|couchSettings
+operator|.
+name|get
+argument_list|(
+literal|"ignore_attachments"
+argument_list|)
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|couchSettings
@@ -1040,6 +1062,10 @@ expr_stmt|;
 name|couchFilterParamsUrl
 operator|=
 literal|null
+expr_stmt|;
+name|couchIgnoreAttachements
+operator|=
+literal|false
 expr_stmt|;
 name|basicAuth
 operator|=
@@ -1591,6 +1617,14 @@ literal|"_design/"
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|logger
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|logger
 operator|.
 name|trace
@@ -1600,6 +1634,7 @@ argument_list|,
 name|id
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|seq
 return|;
@@ -1859,6 +1894,79 @@ argument_list|,
 name|doc
 argument_list|)
 expr_stmt|;
+block|}
+comment|// Remove _attachement from doc if needed
+comment|// TODO : check if couchDB support now attachment filter : https://issues.apache.org/jira/browse/COUCHDB-1263
+if|if
+condition|(
+name|couchIgnoreAttachements
+condition|)
+block|{
+if|if
+condition|(
+name|doc
+operator|.
+name|containsKey
+argument_list|(
+literal|"_attachments"
+argument_list|)
+condition|)
+block|{
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|_attachments
+init|=
+operator|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+operator|)
+name|doc
+operator|.
+name|get
+argument_list|(
+literal|"_attachments"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|_attachments
+operator|!=
+literal|null
+condition|)
+block|{
+name|doc
+operator|.
+name|remove
+argument_list|(
+literal|"_attachments"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|logger
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"_attachments found and removed from doc"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
 block|}
 name|bulk
 operator|.
@@ -2582,6 +2690,7 @@ name|couchFilterParamsUrl
 expr_stmt|;
 block|}
 block|}
+comment|// TODO : check if couchDB support now attachment filter : https://issues.apache.org/jira/browse/COUCHDB-1263
 if|if
 condition|(
 name|lastSeq
