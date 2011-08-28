@@ -1896,7 +1896,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// Remove _attachement from doc if needed
-comment|// TODO : check if couchDB support now attachment filter : https://issues.apache.org/jira/browse/COUCHDB-1263
 if|if
 condition|(
 name|couchIgnoreAttachements
@@ -1967,6 +1966,11 @@ expr_stmt|;
 block|}
 block|}
 block|}
+block|}
+else|else
+block|{
+comment|// TODO by now, couchDB river does not really store attachments in Elastic Search but only attachments meta informations
+comment|// So we perhaps need to fully support attachments
 block|}
 name|bulk
 operator|.
@@ -2690,7 +2694,6 @@ name|couchFilterParamsUrl
 expr_stmt|;
 block|}
 block|}
-comment|// TODO : check if couchDB support now attachment filter : https://issues.apache.org/jira/browse/COUCHDB-1263
 if|if
 condition|(
 name|lastSeq
