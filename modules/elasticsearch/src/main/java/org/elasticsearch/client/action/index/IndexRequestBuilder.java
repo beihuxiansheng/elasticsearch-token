@@ -966,6 +966,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the timestamp either as millis since the epoch, or, in the configured date format.      */
+DECL|method|setTimestamp
+specifier|public
+name|IndexRequestBuilder
+name|setTimestamp
+parameter_list|(
+name|String
+name|timestamp
+parameter_list|)
+block|{
+name|request
+operator|.
+name|timestamp
+argument_list|(
+name|timestamp
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Should the listener be called on a separate thread if needed.      */
 DECL|method|setListenerThreaded
 specifier|public

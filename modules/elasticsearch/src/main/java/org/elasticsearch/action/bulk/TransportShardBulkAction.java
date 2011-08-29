@@ -900,7 +900,7 @@ name|timestamp
 argument_list|(
 name|indexRequest
 operator|.
-name|getParsedTimestamp
+name|timestamp
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1893,7 +1893,7 @@ name|timestamp
 argument_list|(
 name|indexRequest
 operator|.
-name|getParsedTimestamp
+name|timestamp
 argument_list|()
 argument_list|)
 decl_stmt|;
