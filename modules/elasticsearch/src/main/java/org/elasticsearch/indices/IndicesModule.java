@@ -212,6 +212,20 @@ name|TransportNodesListShardStoreMetaData
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
+name|ttl
+operator|.
+name|IndicesTTLService
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
@@ -380,6 +394,16 @@ expr_stmt|;
 name|bind
 argument_list|(
 name|TransportNodesListShardStoreMetaData
+operator|.
+name|class
+argument_list|)
+operator|.
+name|asEagerSingleton
+argument_list|()
+expr_stmt|;
+name|bind
+argument_list|(
+name|IndicesTTLService
 operator|.
 name|class
 argument_list|)

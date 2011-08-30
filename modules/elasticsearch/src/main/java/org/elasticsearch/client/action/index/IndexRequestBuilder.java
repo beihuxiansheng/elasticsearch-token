@@ -987,6 +987,27 @@ return|return
 name|this
 return|;
 block|}
+comment|// Sets the relative ttl value. It musts be> 0 as it makes little sense otherwise.
+DECL|method|setTTL
+specifier|public
+name|IndexRequestBuilder
+name|setTTL
+parameter_list|(
+name|long
+name|ttl
+parameter_list|)
+block|{
+name|request
+operator|.
+name|ttl
+argument_list|(
+name|ttl
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Should the listener be called on a separate thread if needed.      */
 DECL|method|setListenerThreaded
 specifier|public
