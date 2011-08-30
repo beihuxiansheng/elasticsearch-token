@@ -359,6 +359,9 @@ parameter_list|,
 name|String
 index|[]
 name|filteringAliases
+parameter_list|,
+name|long
+name|nowInMillis
 parameter_list|)
 block|{
 name|InternalSearchRequest
@@ -452,6 +455,13 @@ name|request
 operator|.
 name|types
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|internalRequest
+operator|.
+name|nowInMillis
+argument_list|(
+name|nowInMillis
 argument_list|)
 expr_stmt|;
 return|return
