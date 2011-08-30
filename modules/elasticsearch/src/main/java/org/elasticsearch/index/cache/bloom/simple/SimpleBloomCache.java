@@ -310,16 +310,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|nio
 operator|.
 name|channels
@@ -1313,6 +1303,17 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+comment|// ignore failures that result from a closed reader...
+if|if
+condition|(
+name|reader
+operator|.
+name|getRefCount
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
 name|logger
 operator|.
 name|warn
@@ -1324,6 +1325,7 @@ argument_list|,
 name|field
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 finally|finally
 block|{
@@ -1345,7 +1347,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|IOException
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -1369,7 +1371,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|IOException
+name|Exception
 name|e
 parameter_list|)
 block|{
