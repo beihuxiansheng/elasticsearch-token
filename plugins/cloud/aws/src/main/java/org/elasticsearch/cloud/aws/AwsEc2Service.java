@@ -385,7 +385,7 @@ throw|throw
 operator|new
 name|ElasticSearchIllegalArgumentException
 argument_list|(
-literal|"No s3 access_key defined for s3 gateway"
+literal|"No aws access_key defined for ec2 discovery"
 argument_list|)
 throw|;
 block|}
@@ -400,7 +400,7 @@ throw|throw
 operator|new
 name|ElasticSearchIllegalArgumentException
 argument_list|(
-literal|"No s3 secret_key defined for s3 gateway"
+literal|"No aws secret_key defined for ec2 discovery"
 argument_list|)
 throw|;
 block|}
