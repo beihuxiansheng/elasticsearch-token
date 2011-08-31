@@ -1302,7 +1302,7 @@ expr_stmt|;
 return|return
 name|builder
 operator|.
-name|unsafeStream
+name|underlyingStream
 argument_list|()
 return|;
 block|}

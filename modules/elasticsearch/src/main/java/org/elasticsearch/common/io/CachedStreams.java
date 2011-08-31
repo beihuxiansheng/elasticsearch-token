@@ -61,13 +61,6 @@ name|void
 name|clear
 parameter_list|()
 block|{
-name|FastByteArrayOutputStream
-operator|.
-name|Cached
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
 name|CachedStreamInput
 operator|.
 name|clear

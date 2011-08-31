@@ -811,14 +811,14 @@ name|wrappedBuffer
 argument_list|(
 name|builder
 operator|.
-name|unsafeBytes
+name|underlyingBytes
 argument_list|()
 argument_list|,
 literal|0
 argument_list|,
 name|builder
 operator|.
-name|unsafeBytesLength
+name|underlyingBytesLength
 argument_list|()
 argument_list|)
 expr_stmt|;

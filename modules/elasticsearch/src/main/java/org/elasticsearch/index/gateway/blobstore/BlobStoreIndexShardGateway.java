@@ -3048,7 +3048,7 @@ name|BytesStreamInput
 argument_list|(
 name|bos
 operator|.
-name|unsafeByteArray
+name|underlyingBytes
 argument_list|()
 argument_list|,
 literal|0
@@ -3273,7 +3273,7 @@ name|write
 argument_list|(
 name|bos
 operator|.
-name|unsafeByteArray
+name|underlyingBytes
 argument_list|()
 argument_list|,
 name|position

@@ -498,7 +498,7 @@ operator|.
 name|bytes
 argument_list|()
 operator|.
-name|unsafeByteArray
+name|underlyingBytes
 argument_list|()
 operator|.
 name|length

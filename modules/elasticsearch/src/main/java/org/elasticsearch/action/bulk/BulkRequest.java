@@ -297,21 +297,27 @@ name|IndexRequest
 name|request
 parameter_list|)
 block|{
-comment|// if the source is from a builder, we need to copy it over before adding the next one, which can come from a builder as well...
-if|if
-condition|(
-name|request
-operator|.
-name|sourceFromBuilder
-argument_list|()
-condition|)
-block|{
 name|request
 operator|.
 name|beforeLocalFork
 argument_list|()
 expr_stmt|;
+return|return
+name|internalAdd
+argument_list|(
+name|request
+argument_list|)
+return|;
 block|}
+DECL|method|internalAdd
+specifier|private
+name|BulkRequest
+name|internalAdd
+parameter_list|(
+name|IndexRequest
+name|request
+parameter_list|)
+block|{
 name|requests
 operator|.
 name|add
@@ -937,6 +943,8 @@ block|{
 break|break;
 block|}
 comment|// order is important, we set parent after routing, so routing will be set to parent if not set explicitly
+comment|// we use internalAdd so we don't fork here, this allows us not to copy over the big byte array to small chunks
+comment|// of index request. All index requests are still unsafe if applicable.
 if|if
 condition|(
 literal|"index"
@@ -954,7 +962,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|add
+name|internalAdd
 argument_list|(
 operator|new
 name|IndexRequest
@@ -1013,7 +1021,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|add
+name|internalAdd
 argument_list|(
 operator|new
 name|IndexRequest
@@ -1092,7 +1100,7 @@ name|action
 argument_list|)
 condition|)
 block|{
-name|add
+name|internalAdd
 argument_list|(
 operator|new
 name|IndexRequest

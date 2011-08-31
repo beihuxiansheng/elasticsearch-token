@@ -3275,7 +3275,7 @@ operator|.
 name|bytes
 argument_list|()
 operator|.
-name|unsafeByteArray
+name|underlyingBytes
 argument_list|()
 argument_list|,
 literal|0

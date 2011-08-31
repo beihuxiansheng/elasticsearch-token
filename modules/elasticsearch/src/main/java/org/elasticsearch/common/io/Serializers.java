@@ -111,7 +111,7 @@ expr_stmt|;
 return|return
 name|os
 operator|.
-name|unsafeByteArray
+name|underlyingBytes
 argument_list|()
 return|;
 block|}
@@ -294,7 +294,7 @@ expr_stmt|;
 return|return
 name|os
 operator|.
-name|unsafeByteArray
+name|underlyingBytes
 argument_list|()
 return|;
 block|}

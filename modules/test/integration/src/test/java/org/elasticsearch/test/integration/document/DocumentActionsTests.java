@@ -1906,19 +1906,17 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|assertThat
-argument_list|(
-literal|"cycle #"
-operator|+
-name|i
-argument_list|,
+name|String
+name|ste1
+init|=
 name|getResult
 operator|.
 name|sourceAsString
 argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
+decl_stmt|;
+name|String
+name|ste2
+init|=
 name|source
 argument_list|(
 literal|"2"
@@ -1928,6 +1926,18 @@ argument_list|)
 operator|.
 name|string
 argument_list|()
+decl_stmt|;
+name|assertThat
+argument_list|(
+literal|"cycle #"
+operator|+
+name|i
+argument_list|,
+name|ste1
+argument_list|,
+name|equalTo
+argument_list|(
+name|ste2
 argument_list|)
 argument_list|)
 expr_stmt|;

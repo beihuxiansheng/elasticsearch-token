@@ -657,7 +657,7 @@ name|querySource
 operator|=
 name|bos
 operator|.
-name|unsafeByteArray
+name|underlyingBytes
 argument_list|()
 expr_stmt|;
 name|this
@@ -763,7 +763,7 @@ name|querySource
 operator|=
 name|builder
 operator|.
-name|unsafeBytes
+name|underlyingBytes
 argument_list|()
 expr_stmt|;
 name|this
@@ -778,14 +778,14 @@ name|querySourceLength
 operator|=
 name|builder
 operator|.
-name|unsafeBytesLength
+name|underlyingBytesLength
 argument_list|()
 expr_stmt|;
 name|this
 operator|.
 name|querySourceUnsafe
 operator|=
-literal|true
+literal|false
 expr_stmt|;
 return|return
 name|this

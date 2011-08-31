@@ -110,7 +110,7 @@ name|builder
 init|=
 name|XContentFactory
 operator|.
-name|safeJsonBuilder
+name|jsonBuilder
 argument_list|()
 decl_stmt|;
 name|builder
@@ -203,7 +203,7 @@ expr_stmt|;
 return|return
 name|builder
 operator|.
-name|unsafeStream
+name|underlyingStream
 argument_list|()
 return|;
 block|}

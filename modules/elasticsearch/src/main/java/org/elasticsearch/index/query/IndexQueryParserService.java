@@ -1000,7 +1000,7 @@ name|xContent
 argument_list|(
 name|unsafeBytes
 operator|.
-name|unsafeByteArray
+name|underlyingBytes
 argument_list|()
 argument_list|,
 literal|0
@@ -1015,7 +1015,7 @@ name|createParser
 argument_list|(
 name|unsafeBytes
 operator|.
-name|unsafeByteArray
+name|underlyingBytes
 argument_list|()
 argument_list|,
 literal|0

@@ -179,7 +179,7 @@ operator|.
 name|smileXContent
 expr_stmt|;
 block|}
-comment|/**      * Returns a content builder using JSON format ({@link org.elasticsearch.common.xcontent.XContentType#JSON}.      *      *<p>Note, this should be passed directly to an API, if its going to be used around, make sure you use      * {@link #safeJsonBuilder()}.      */
+comment|/**      * Returns a content builder using JSON format ({@link org.elasticsearch.common.xcontent.XContentType#JSON}.      */
 DECL|method|jsonBuilder
 specifier|public
 specifier|static
@@ -223,26 +223,7 @@ name|os
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a content builder using JSON format ({@link org.elasticsearch.common.xcontent.XContentType#JSON}      * that can be used outside of the scope of passing it directly to an API call.      */
-DECL|method|safeJsonBuilder
-specifier|public
-specifier|static
-name|XContentBuilder
-name|safeJsonBuilder
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-return|return
-name|unCachedContentBuilder
-argument_list|(
-name|XContentType
-operator|.
-name|JSON
-argument_list|)
-return|;
-block|}
-comment|/**      * Returns a content builder using SMILE format ({@link org.elasticsearch.common.xcontent.XContentType#SMILE}.      *      *<p>Note, this should be passed directly to an API, if its going to be used around, make sure you use      * {@link #safeSmileBuilder()}.      */
+comment|/**      * Returns a content builder using SMILE format ({@link org.elasticsearch.common.xcontent.XContentType#SMILE}.      */
 DECL|method|smileBuilder
 specifier|public
 specifier|static
@@ -283,25 +264,6 @@ operator|.
 name|smileXContent
 argument_list|,
 name|os
-argument_list|)
-return|;
-block|}
-comment|/**      * Returns a content builder using SMILE format ({@link org.elasticsearch.common.xcontent.XContentType#SMILE}      * that can be used outside of the scope of passing it directly to an API call.      */
-DECL|method|safeSmileBuilder
-specifier|public
-specifier|static
-name|XContentBuilder
-name|safeSmileBuilder
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-return|return
-name|unCachedContentBuilder
-argument_list|(
-name|XContentType
-operator|.
-name|SMILE
 argument_list|)
 return|;
 block|}
@@ -407,62 +369,6 @@ return|return
 name|SmileXContent
 operator|.
 name|contentBuilder
-argument_list|()
-return|;
-block|}
-throw|throw
-operator|new
-name|ElasticSearchIllegalArgumentException
-argument_list|(
-literal|"No matching content type for "
-operator|+
-name|type
-argument_list|)
-throw|;
-block|}
-comment|/**      * Returns a binary content builder for the provided content type.      */
-DECL|method|unCachedContentBuilder
-specifier|public
-specifier|static
-name|XContentBuilder
-name|unCachedContentBuilder
-parameter_list|(
-name|XContentType
-name|type
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-if|if
-condition|(
-name|type
-operator|==
-name|XContentType
-operator|.
-name|JSON
-condition|)
-block|{
-return|return
-name|JsonXContent
-operator|.
-name|unCachedContentBuilder
-argument_list|()
-return|;
-block|}
-elseif|else
-if|if
-condition|(
-name|type
-operator|==
-name|XContentType
-operator|.
-name|SMILE
-condition|)
-block|{
-return|return
-name|SmileXContent
-operator|.
-name|unCachedContentBuilder
 argument_list|()
 return|;
 block|}

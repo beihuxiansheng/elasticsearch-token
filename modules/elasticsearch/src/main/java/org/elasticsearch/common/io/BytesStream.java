@@ -22,10 +22,10 @@ specifier|public
 interface|interface
 name|BytesStream
 block|{
-DECL|method|unsafeByteArray
+DECL|method|underlyingBytes
 name|byte
 index|[]
-name|unsafeByteArray
+name|underlyingBytes
 parameter_list|()
 function_decl|;
 DECL|method|size

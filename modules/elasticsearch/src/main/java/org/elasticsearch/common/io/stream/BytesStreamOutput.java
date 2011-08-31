@@ -330,11 +330,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Returns the underlying byte array. Note, use {@link #size()} in order to know      * the length of it.      */
-DECL|method|unsafeByteArray
+DECL|method|underlyingBytes
 specifier|public
 name|byte
 index|[]
-name|unsafeByteArray
+name|underlyingBytes
 parameter_list|()
 block|{
 return|return

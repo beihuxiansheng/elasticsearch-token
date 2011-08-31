@@ -1220,7 +1220,7 @@ name|unsafeBytes
 init|=
 name|builder
 operator|.
-name|unsafeStream
+name|underlyingStream
 argument_list|()
 decl_stmt|;
 name|addQuery
@@ -1229,7 +1229,7 @@ name|name
 argument_list|,
 name|unsafeBytes
 operator|.
-name|unsafeByteArray
+name|underlyingBytes
 argument_list|()
 argument_list|,
 literal|0

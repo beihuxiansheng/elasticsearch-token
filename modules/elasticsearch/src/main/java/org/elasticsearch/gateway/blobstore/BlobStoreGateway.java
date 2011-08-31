@@ -1112,7 +1112,7 @@ name|ByteArrayInputStream
 argument_list|(
 name|out
 operator|.
-name|unsafeByteArray
+name|underlyingBytes
 argument_list|()
 argument_list|,
 literal|0

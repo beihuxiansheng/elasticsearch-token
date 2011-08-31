@@ -299,34 +299,6 @@ operator|=
 name|globalFieldCaseConversion
 expr_stmt|;
 block|}
-comment|/**      * Constructs a new cached builder over a cached (thread local) {@link FastByteArrayOutputStream}.      */
-DECL|method|cachedBuilder
-specifier|public
-specifier|static
-name|XContentBuilder
-name|cachedBuilder
-parameter_list|(
-name|XContent
-name|xContent
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-operator|new
-name|XContentBuilder
-argument_list|(
-name|xContent
-argument_list|,
-name|FastByteArrayOutputStream
-operator|.
-name|Cached
-operator|.
-name|cached
-argument_list|()
-argument_list|)
-return|;
-block|}
 comment|/**      * Constructs a new builder using a fresh {@link FastByteArrayOutputStream}.      */
 DECL|method|builder
 specifier|public
@@ -5097,12 +5069,12 @@ operator|.
 name|bos
 return|;
 block|}
-comment|/**      * Returns the unsafe bytes (thread local bound). Make sure to use it with      * {@link #unsafeBytesLength()}.      *      *<p>Only applicable when the builder is constructed with {@link FastByteArrayOutputStream}.      */
-DECL|method|unsafeBytes
+comment|/**      * Returns the unsafe bytes (thread local bound). Make sure to use it with      * {@link #underlyingBytesLength()}.      *      *<p>Only applicable when the builder is constructed with {@link FastByteArrayOutputStream}.      */
+DECL|method|underlyingBytes
 specifier|public
 name|byte
 index|[]
-name|unsafeBytes
+name|underlyingBytes
 parameter_list|()
 throws|throws
 name|IOException
@@ -5118,15 +5090,15 @@ operator|)
 name|bos
 operator|)
 operator|.
-name|unsafeByteArray
+name|underlyingBytes
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns the unsafe bytes length (thread local bound). Make sure to use it with      * {@link #unsafeBytes()}.      *      *<p>Only applicable when the builder is constructed with {@link FastByteArrayOutputStream}.      */
-DECL|method|unsafeBytesLength
+comment|/**      * Returns the unsafe bytes length (thread local bound). Make sure to use it with      * {@link #underlyingBytes()}.      *      *<p>Only applicable when the builder is constructed with {@link FastByteArrayOutputStream}.      */
+DECL|method|underlyingBytesLength
 specifier|public
 name|int
-name|unsafeBytesLength
+name|underlyingBytesLength
 parameter_list|()
 throws|throws
 name|IOException
@@ -5147,10 +5119,10 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Returns the actual stream used.      */
-DECL|method|unsafeStream
+DECL|method|underlyingStream
 specifier|public
 name|BytesStream
-name|unsafeStream
+name|underlyingStream
 parameter_list|()
 throws|throws
 name|IOException
@@ -5207,12 +5179,12 @@ name|Unicode
 operator|.
 name|fromBytes
 argument_list|(
-name|unsafeBytes
+name|underlyingBytes
 argument_list|()
 argument_list|,
 literal|0
 argument_list|,
-name|unsafeBytesLength
+name|underlyingBytesLength
 argument_list|()
 argument_list|)
 return|;

@@ -209,7 +209,7 @@ literal|"_source"
 argument_list|,
 name|XContentFactory
 operator|.
-name|unCachedContentBuilder
+name|contentBuilder
 argument_list|(
 name|type
 argument_list|)

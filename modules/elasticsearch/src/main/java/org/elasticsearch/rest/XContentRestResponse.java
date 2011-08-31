@@ -324,7 +324,7 @@ block|{
 return|return
 name|builder
 operator|.
-name|unsafeBytes
+name|underlyingBytes
 argument_list|()
 return|;
 block|}
@@ -341,7 +341,7 @@ block|{
 return|return
 name|builder
 operator|.
-name|unsafeBytesLength
+name|underlyingBytesLength
 argument_list|()
 return|;
 block|}
