@@ -520,6 +520,12 @@ name|node
 operator|.
 name|id
 argument_list|()
+argument_list|,
+name|XContentBuilder
+operator|.
+name|FieldCaseConversion
+operator|.
+name|NONE
 argument_list|)
 expr_stmt|;
 name|builder
@@ -532,6 +538,12 @@ name|node
 operator|.
 name|name
 argument_list|()
+argument_list|,
+name|XContentBuilder
+operator|.
+name|FieldCaseConversion
+operator|.
+name|NONE
 argument_list|)
 expr_stmt|;
 name|builder
