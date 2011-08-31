@@ -777,6 +777,21 @@ name|unit
 argument_list|)
 return|;
 block|}
+DECL|method|getRootFailure
+annotation|@
+name|Override
+specifier|public
+name|Throwable
+name|getRootFailure
+parameter_list|()
+block|{
+return|return
+name|future
+operator|.
+name|getRootFailure
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 

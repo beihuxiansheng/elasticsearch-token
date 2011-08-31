@@ -32,6 +32,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Nullable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|unit
 operator|.
 name|TimeValue
@@ -80,7 +92,7 @@ argument_list|<
 name|T
 argument_list|>
 block|{
-comment|/**      * Similar to {@link #get()}, just wrapping the {@link InterruptedException} with      * {@link org.elasticsearch.ElasticSearchInterruptedException}, and throwing the actual      * cause of the {@link java.util.concurrent.ExecutionException}.      */
+comment|/**      * Similar to {@link #get()}, just wrapping the {@link InterruptedException} with      * {@link org.elasticsearch.ElasticSearchInterruptedException}, and throwing the actual      * cause of the {@link java.util.concurrent.ExecutionException}.      *      *<p>Note, the actual cause is unwrapped to the actual failure (for example, unwrapped      * from {@link org.elasticsearch.transport.RemoteTransportException}. The root failure is      * still accessible using {@link #getRootFailure()}.      */
 DECL|method|actionGet
 name|T
 name|actionGet
@@ -88,7 +100,7 @@ parameter_list|()
 throws|throws
 name|ElasticSearchException
 function_decl|;
-comment|/**      * Similar to {@link #get(long, java.util.concurrent.TimeUnit)}, just wrapping the {@link InterruptedException} with      * {@link org.elasticsearch.ElasticSearchInterruptedException}, and throwing the actual      * cause of the {@link java.util.concurrent.ExecutionException}.      */
+comment|/**      * Similar to {@link #get(long, java.util.concurrent.TimeUnit)}, just wrapping the {@link InterruptedException} with      * {@link org.elasticsearch.ElasticSearchInterruptedException}, and throwing the actual      * cause of the {@link java.util.concurrent.ExecutionException}.      *      *<p>Note, the actual cause is unwrapped to the actual failure (for example, unwrapped      * from {@link org.elasticsearch.transport.RemoteTransportException}. The root failure is      * still accessible using {@link #getRootFailure()}.      */
 DECL|method|actionGet
 name|T
 name|actionGet
@@ -99,7 +111,7 @@ parameter_list|)
 throws|throws
 name|ElasticSearchException
 function_decl|;
-comment|/**      * Similar to {@link #get(long, java.util.concurrent.TimeUnit)}, just wrapping the {@link InterruptedException} with      * {@link org.elasticsearch.ElasticSearchInterruptedException}, and throwing the actual      * cause of the {@link java.util.concurrent.ExecutionException}.      *      * @param timeoutMillis Timeout in millis      */
+comment|/**      * Similar to {@link #get(long, java.util.concurrent.TimeUnit)}, just wrapping the {@link InterruptedException} with      * {@link org.elasticsearch.ElasticSearchInterruptedException}, and throwing the actual      * cause of the {@link java.util.concurrent.ExecutionException}.      *      *<p>Note, the actual cause is unwrapped to the actual failure (for example, unwrapped      * from {@link org.elasticsearch.transport.RemoteTransportException}. The root failure is      * still accessible using {@link #getRootFailure()}.      *      * @param timeoutMillis Timeout in millis      */
 DECL|method|actionGet
 name|T
 name|actionGet
@@ -110,7 +122,7 @@ parameter_list|)
 throws|throws
 name|ElasticSearchException
 function_decl|;
-comment|/**      * Similar to {@link #get(long, java.util.concurrent.TimeUnit)}, just wrapping the {@link InterruptedException} with      * {@link org.elasticsearch.ElasticSearchInterruptedException}, and throwing the actual      * cause of the {@link java.util.concurrent.ExecutionException}.      */
+comment|/**      * Similar to {@link #get(long, java.util.concurrent.TimeUnit)}, just wrapping the {@link InterruptedException} with      * {@link org.elasticsearch.ElasticSearchInterruptedException}, and throwing the actual      * cause of the {@link java.util.concurrent.ExecutionException}.      *      *<p>Note, the actual cause is unwrapped to the actual failure (for example, unwrapped      * from {@link org.elasticsearch.transport.RemoteTransportException}. The root failure is      * still accessible using {@link #getRootFailure()}.      */
 DECL|method|actionGet
 name|T
 name|actionGet
@@ -124,7 +136,7 @@ parameter_list|)
 throws|throws
 name|ElasticSearchException
 function_decl|;
-comment|/**      * Similar to {@link #get(long, java.util.concurrent.TimeUnit)}, just wrapping the {@link InterruptedException} with      * {@link org.elasticsearch.ElasticSearchInterruptedException}, and throwing the actual      * cause of the {@link java.util.concurrent.ExecutionException}.      */
+comment|/**      * Similar to {@link #get(long, java.util.concurrent.TimeUnit)}, just wrapping the {@link InterruptedException} with      * {@link org.elasticsearch.ElasticSearchInterruptedException}, and throwing the actual      * cause of the {@link java.util.concurrent.ExecutionException}.      *      *<p>Note, the actual cause is unwrapped to the actual failure (for example, unwrapped      * from {@link org.elasticsearch.transport.RemoteTransportException}. The root failure is      * still accessible using {@link #getRootFailure()}.      */
 DECL|method|actionGet
 name|T
 name|actionGet
@@ -134,6 +146,14 @@ name|timeout
 parameter_list|)
 throws|throws
 name|ElasticSearchException
+function_decl|;
+comment|/**      * The root (possibly) wrapped failure.      */
+DECL|method|getRootFailure
+annotation|@
+name|Nullable
+name|Throwable
+name|getRootFailure
+parameter_list|()
 function_decl|;
 block|}
 end_interface
