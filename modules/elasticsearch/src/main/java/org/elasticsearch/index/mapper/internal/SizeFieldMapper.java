@@ -755,10 +755,8 @@ name|this
 argument_list|,
 name|context
 operator|.
-name|source
+name|sourceLength
 argument_list|()
-operator|.
-name|length
 argument_list|)
 return|;
 block|}
