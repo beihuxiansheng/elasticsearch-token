@@ -1614,7 +1614,6 @@ name|hash
 argument_list|(
 name|id
 argument_list|)
-argument_list|)
 operator|%
 name|indexMetaData
 argument_list|(
@@ -1625,6 +1624,7 @@ argument_list|)
 operator|.
 name|numberOfShards
 argument_list|()
+argument_list|)
 return|;
 block|}
 else|else
@@ -1640,7 +1640,6 @@ name|type
 argument_list|,
 name|id
 argument_list|)
-argument_list|)
 operator|%
 name|indexMetaData
 argument_list|(
@@ -1651,6 +1650,7 @@ argument_list|)
 operator|.
 name|numberOfShards
 argument_list|()
+argument_list|)
 return|;
 block|}
 block|}
@@ -1663,7 +1663,6 @@ name|hash
 argument_list|(
 name|routing
 argument_list|)
-argument_list|)
 operator|%
 name|indexMetaData
 argument_list|(
@@ -1674,6 +1673,7 @@ argument_list|)
 operator|.
 name|numberOfShards
 argument_list|()
+argument_list|)
 return|;
 block|}
 DECL|method|hash
