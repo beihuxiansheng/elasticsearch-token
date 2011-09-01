@@ -494,6 +494,8 @@ comment|// since we are doing it on close, return here and don't do the actual m
 comment|// since we do it outside of a lock in the RobinEngine
 return|return;
 block|}
+try|try
+block|{
 name|super
 operator|.
 name|merge
@@ -501,6 +503,26 @@ argument_list|(
 name|writer
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"failed to merge"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+throw|throw
+name|e
+throw|;
+block|}
 block|}
 DECL|method|close
 annotation|@

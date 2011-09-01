@@ -95,7 +95,7 @@ extends|extends
 name|ConcurrentMergeScheduler
 block|{
 DECL|field|logger
-specifier|private
+specifier|protected
 specifier|final
 name|ESLogger
 name|logger
