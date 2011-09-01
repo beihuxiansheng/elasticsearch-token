@@ -256,6 +256,7 @@ name|boolean
 name|sourceUnsafe
 decl_stmt|;
 DECL|method|PercolateRequest
+specifier|public
 name|PercolateRequest
 parameter_list|()
 block|{      }
