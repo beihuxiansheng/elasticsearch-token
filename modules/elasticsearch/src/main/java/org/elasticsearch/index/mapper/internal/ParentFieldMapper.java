@@ -751,6 +751,16 @@ operator|.
 name|text
 argument_list|()
 decl_stmt|;
+name|context
+operator|.
+name|sourceToParse
+argument_list|()
+operator|.
+name|parent
+argument_list|(
+name|parentId
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|Field
