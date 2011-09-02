@@ -300,6 +300,17 @@ operator|.
 name|getUser
 argument_list|()
 expr_stmt|;
+name|stats
+operator|.
+name|cpu
+operator|.
+name|total
+operator|=
+name|cpu
+operator|.
+name|getTotal
+argument_list|()
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
