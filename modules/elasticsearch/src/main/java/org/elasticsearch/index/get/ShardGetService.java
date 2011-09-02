@@ -1827,6 +1827,13 @@ name|docMapper
 operator|.
 name|parentFieldMapper
 argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|docMapper
+operator|.
+name|parentFieldMapper
+argument_list|()
 operator|.
 name|stored
 argument_list|()
