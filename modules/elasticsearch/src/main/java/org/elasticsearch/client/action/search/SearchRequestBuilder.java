@@ -1078,6 +1078,29 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The stats groups this request will be aggregated under.      */
+DECL|method|setStats
+specifier|public
+name|SearchRequestBuilder
+name|setStats
+parameter_list|(
+name|String
+modifier|...
+name|statsGroups
+parameter_list|)
+block|{
+name|sourceBuilder
+argument_list|()
+operator|.
+name|stats
+argument_list|(
+name|statsGroups
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Sets no fields to be loaded, resulting in only id and type to be returned per field.      */
 DECL|method|setNoFields
 specifier|public
