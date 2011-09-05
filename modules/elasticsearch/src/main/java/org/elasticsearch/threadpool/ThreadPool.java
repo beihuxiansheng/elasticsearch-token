@@ -1519,7 +1519,7 @@ argument_list|>
 argument_list|()
 else|:
 operator|new
-name|LinkedBlockingQueue
+name|ArrayBlockingQueue
 argument_list|<
 name|Runnable
 argument_list|>

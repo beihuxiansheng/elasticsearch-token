@@ -436,7 +436,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|BlockingQueue
+name|ArrayBlockingQueue
 import|;
 end_import
 
@@ -448,7 +448,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|LinkedBlockingQueue
+name|BlockingQueue
 import|;
 end_import
 
@@ -1286,7 +1286,7 @@ block|{
 name|stream
 operator|=
 operator|new
-name|LinkedBlockingQueue
+name|ArrayBlockingQueue
 argument_list|<
 name|String
 argument_list|>
