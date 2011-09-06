@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.cluster.routing.allocation
+DECL|package|org.elasticsearch.cluster.routing.allocation.decider
 package|package
 name|org
 operator|.
@@ -15,6 +15,8 @@ operator|.
 name|routing
 operator|.
 name|allocation
+operator|.
+name|decider
 package|;
 end_package
 
@@ -43,6 +45,22 @@ operator|.
 name|routing
 operator|.
 name|ShardRouting
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|allocation
+operator|.
+name|RoutingAllocation
 import|;
 end_import
 
@@ -113,27 +131,27 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Holds several {@link NodeAllocation}s and combines them into a single allocation decision.  *  * @author kimchy (shay.banon)  */
+comment|/**  * Holds several {@link AllocationDecider}s and combines them into a single allocation decision.  */
 end_comment
 
 begin_class
-DECL|class|NodeAllocations
+DECL|class|AllocationDeciders
 specifier|public
 class|class
-name|NodeAllocations
+name|AllocationDeciders
 extends|extends
-name|NodeAllocation
+name|AllocationDecider
 block|{
 DECL|field|allocations
 specifier|private
 specifier|final
-name|NodeAllocation
+name|AllocationDecider
 index|[]
 name|allocations
 decl_stmt|;
-DECL|method|NodeAllocations
+DECL|method|AllocationDeciders
 specifier|public
-name|NodeAllocations
+name|AllocationDeciders
 parameter_list|(
 name|Settings
 name|settings
@@ -149,7 +167,7 @@ argument_list|,
 name|ImmutableSet
 operator|.
 expr|<
-name|NodeAllocation
+name|AllocationDecider
 operator|>
 name|builder
 argument_list|()
@@ -157,7 +175,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|SameShardNodeAllocation
+name|SameShardAllocationDecider
 argument_list|(
 name|settings
 argument_list|)
@@ -166,7 +184,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|ReplicaAfterPrimaryActiveNodeAllocation
+name|ReplicaAfterPrimaryActiveAllocationDecider
 argument_list|(
 name|settings
 argument_list|)
@@ -175,7 +193,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|ThrottlingNodeAllocation
+name|ThrottlingAllocationDecider
 argument_list|(
 name|settings
 argument_list|,
@@ -186,7 +204,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|RebalanceOnlyWhenActiveNodeAllocation
+name|RebalanceOnlyWhenActiveAllocationDecider
 argument_list|(
 name|settings
 argument_list|)
@@ -195,7 +213,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|ClusterRebalanceNodeAllocation
+name|ClusterRebalanceAllocationDecider
 argument_list|(
 name|settings
 argument_list|)
@@ -204,7 +222,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|ConcurrentRebalanceNodeAllocation
+name|ConcurrentRebalanceAllocationDecider
 argument_list|(
 name|settings
 argument_list|)
@@ -215,18 +233,18 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|NodeAllocations
+DECL|method|AllocationDeciders
 annotation|@
 name|Inject
 specifier|public
-name|NodeAllocations
+name|AllocationDeciders
 parameter_list|(
 name|Settings
 name|settings
 parameter_list|,
 name|Set
 argument_list|<
-name|NodeAllocation
+name|AllocationDecider
 argument_list|>
 name|allocations
 parameter_list|)
@@ -245,7 +263,7 @@ operator|.
 name|toArray
 argument_list|(
 operator|new
-name|NodeAllocation
+name|AllocationDecider
 index|[
 name|allocations
 operator|.
@@ -271,7 +289,7 @@ parameter_list|)
 block|{
 for|for
 control|(
-name|NodeAllocation
+name|AllocationDecider
 name|allocation1
 range|:
 name|allocations
@@ -351,7 +369,7 @@ block|}
 comment|// now, go over the registered allocations
 for|for
 control|(
-name|NodeAllocation
+name|AllocationDecider
 name|allocation1
 range|:
 name|allocations

@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.cluster.routing.allocation
+DECL|package|org.elasticsearch.cluster.routing.allocation.decider
 package|package
 name|org
 operator|.
@@ -15,6 +15,8 @@ operator|.
 name|routing
 operator|.
 name|allocation
+operator|.
+name|decider
 package|;
 end_package
 
@@ -66,6 +68,22 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|allocation
+operator|.
+name|RoutingAllocation
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|inject
@@ -89,12 +107,12 @@ import|;
 end_import
 
 begin_class
-DECL|class|ClusterRebalanceNodeAllocation
+DECL|class|ClusterRebalanceAllocationDecider
 specifier|public
 class|class
-name|ClusterRebalanceNodeAllocation
+name|ClusterRebalanceAllocationDecider
 extends|extends
-name|NodeAllocation
+name|AllocationDecider
 block|{
 DECL|enum|ClusterRebalanceType
 specifier|public
@@ -117,11 +135,11 @@ specifier|final
 name|ClusterRebalanceType
 name|type
 decl_stmt|;
-DECL|method|ClusterRebalanceNodeAllocation
+DECL|method|ClusterRebalanceAllocationDecider
 annotation|@
 name|Inject
 specifier|public
-name|ClusterRebalanceNodeAllocation
+name|ClusterRebalanceAllocationDecider
 parameter_list|(
 name|Settings
 name|settings
@@ -135,11 +153,11 @@ expr_stmt|;
 name|String
 name|allowRebalance
 init|=
-name|componentSettings
+name|settings
 operator|.
 name|get
 argument_list|(
-literal|"allow_rebalance"
+literal|"cluster.routing.allocation.allow_rebalance"
 argument_list|,
 literal|"indices_all_active"
 argument_list|)

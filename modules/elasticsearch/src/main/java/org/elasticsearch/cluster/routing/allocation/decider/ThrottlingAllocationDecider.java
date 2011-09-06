@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.cluster.routing.allocation
+DECL|package|org.elasticsearch.cluster.routing.allocation.decider
 package|package
 name|org
 operator|.
@@ -15,6 +15,8 @@ operator|.
 name|routing
 operator|.
 name|allocation
+operator|.
+name|decider
 package|;
 end_package
 
@@ -94,6 +96,22 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|allocation
+operator|.
+name|RoutingAllocation
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|inject
@@ -131,16 +149,16 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  */
 end_comment
 
 begin_class
-DECL|class|ThrottlingNodeAllocation
+DECL|class|ThrottlingAllocationDecider
 specifier|public
 class|class
-name|ThrottlingNodeAllocation
+name|ThrottlingAllocationDecider
 extends|extends
-name|NodeAllocation
+name|AllocationDecider
 block|{
 static|static
 block|{
@@ -166,11 +184,11 @@ specifier|volatile
 name|int
 name|concurrentRecoveries
 decl_stmt|;
-DECL|method|ThrottlingNodeAllocation
+DECL|method|ThrottlingAllocationDecider
 annotation|@
 name|Inject
 specifier|public
-name|ThrottlingNodeAllocation
+name|ThrottlingAllocationDecider
 parameter_list|(
 name|Settings
 name|settings
@@ -188,30 +206,37 @@ name|this
 operator|.
 name|primariesInitialRecoveries
 operator|=
-name|componentSettings
+name|settings
 operator|.
 name|getAsInt
 argument_list|(
-literal|"node_initial_primaries_recoveries"
+literal|"cluster.routing.allocation.node_initial_primaries_recoveries"
+argument_list|,
+name|settings
+operator|.
+name|getAsInt
+argument_list|(
+literal|"cluster.routing.allocation.node_initial_primaries_recoveries"
 argument_list|,
 literal|4
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|this
 operator|.
 name|concurrentRecoveries
 operator|=
-name|componentSettings
+name|settings
 operator|.
 name|getAsInt
 argument_list|(
-literal|"concurrent_recoveries"
+literal|"cluster.routing.allocation.concurrent_recoveries"
 argument_list|,
-name|componentSettings
+name|settings
 operator|.
 name|getAsInt
 argument_list|(
-literal|"node_concurrent_recoveries"
+literal|"cluster.routing.allocation.node_concurrent_recoveries"
 argument_list|,
 literal|2
 argument_list|)
@@ -460,7 +485,7 @@ name|getAsInt
 argument_list|(
 literal|"cluster.routing.allocation.node_initial_primaries_recoveries"
 argument_list|,
-name|ThrottlingNodeAllocation
+name|ThrottlingAllocationDecider
 operator|.
 name|this
 operator|.
@@ -471,7 +496,7 @@ if|if
 condition|(
 name|primariesInitialRecoveries
 operator|!=
-name|ThrottlingNodeAllocation
+name|ThrottlingAllocationDecider
 operator|.
 name|this
 operator|.
@@ -484,7 +509,7 @@ name|info
 argument_list|(
 literal|"updating [cluster.routing.allocation.node_initial_primaries_recoveries] from [{}] to [{}]"
 argument_list|,
-name|ThrottlingNodeAllocation
+name|ThrottlingAllocationDecider
 operator|.
 name|this
 operator|.
@@ -493,7 +518,7 @@ argument_list|,
 name|primariesInitialRecoveries
 argument_list|)
 expr_stmt|;
-name|ThrottlingNodeAllocation
+name|ThrottlingAllocationDecider
 operator|.
 name|this
 operator|.
@@ -511,7 +536,7 @@ name|getAsInt
 argument_list|(
 literal|"cluster.routing.allocation.node_concurrent_recoveries"
 argument_list|,
-name|ThrottlingNodeAllocation
+name|ThrottlingAllocationDecider
 operator|.
 name|this
 operator|.
@@ -522,7 +547,7 @@ if|if
 condition|(
 name|concurrentRecoveries
 operator|!=
-name|ThrottlingNodeAllocation
+name|ThrottlingAllocationDecider
 operator|.
 name|this
 operator|.
@@ -535,7 +560,7 @@ name|info
 argument_list|(
 literal|"updating [cluster.routing.allocation.node_concurrent_recoveries] from [{}] to [{}]"
 argument_list|,
-name|ThrottlingNodeAllocation
+name|ThrottlingAllocationDecider
 operator|.
 name|this
 operator|.
@@ -544,7 +569,7 @@ argument_list|,
 name|concurrentRecoveries
 argument_list|)
 expr_stmt|;
-name|ThrottlingNodeAllocation
+name|ThrottlingAllocationDecider
 operator|.
 name|this
 operator|.

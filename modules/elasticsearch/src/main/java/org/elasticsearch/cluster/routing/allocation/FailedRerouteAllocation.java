@@ -60,6 +60,24 @@ name|ShardRouting
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|allocation
+operator|.
+name|decider
+operator|.
+name|AllocationDeciders
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
@@ -82,6 +100,9 @@ DECL|method|FailedRerouteAllocation
 specifier|public
 name|FailedRerouteAllocation
 parameter_list|(
+name|AllocationDeciders
+name|deciders
+parameter_list|,
 name|RoutingNodes
 name|routingNodes
 parameter_list|,
@@ -94,6 +115,8 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|deciders
+argument_list|,
 name|routingNodes
 argument_list|,
 name|nodes

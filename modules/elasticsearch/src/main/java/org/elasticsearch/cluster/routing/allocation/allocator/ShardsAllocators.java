@@ -48,22 +48,6 @@ name|routing
 operator|.
 name|allocation
 operator|.
-name|NodeAllocations
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|allocation
-operator|.
 name|RoutingAllocation
 import|;
 end_import
@@ -260,9 +244,6 @@ specifier|public
 name|void
 name|applyStartedShards
 parameter_list|(
-name|NodeAllocations
-name|nodeAllocations
-parameter_list|,
 name|StartedRerouteAllocation
 name|allocation
 parameter_list|)
@@ -271,8 +252,6 @@ name|gatewayAllocator
 operator|.
 name|applyStartedShards
 argument_list|(
-name|nodeAllocations
-argument_list|,
 name|allocation
 argument_list|)
 expr_stmt|;
@@ -280,8 +259,6 @@ name|allocator
 operator|.
 name|applyStartedShards
 argument_list|(
-name|nodeAllocations
-argument_list|,
 name|allocation
 argument_list|)
 expr_stmt|;
@@ -293,9 +270,6 @@ specifier|public
 name|void
 name|applyFailedShards
 parameter_list|(
-name|NodeAllocations
-name|nodeAllocations
-parameter_list|,
 name|FailedRerouteAllocation
 name|allocation
 parameter_list|)
@@ -304,8 +278,6 @@ name|gatewayAllocator
 operator|.
 name|applyFailedShards
 argument_list|(
-name|nodeAllocations
-argument_list|,
 name|allocation
 argument_list|)
 expr_stmt|;
@@ -313,8 +285,6 @@ name|allocator
 operator|.
 name|applyFailedShards
 argument_list|(
-name|nodeAllocations
-argument_list|,
 name|allocation
 argument_list|)
 expr_stmt|;
@@ -326,9 +296,6 @@ specifier|public
 name|boolean
 name|allocateUnassigned
 parameter_list|(
-name|NodeAllocations
-name|nodeAllocations
-parameter_list|,
 name|RoutingAllocation
 name|allocation
 parameter_list|)
@@ -344,8 +311,6 @@ name|gatewayAllocator
 operator|.
 name|allocateUnassigned
 argument_list|(
-name|nodeAllocations
-argument_list|,
 name|allocation
 argument_list|)
 expr_stmt|;
@@ -355,8 +320,6 @@ name|allocator
 operator|.
 name|allocateUnassigned
 argument_list|(
-name|nodeAllocations
-argument_list|,
 name|allocation
 argument_list|)
 expr_stmt|;
@@ -371,9 +334,6 @@ specifier|public
 name|boolean
 name|rebalance
 parameter_list|(
-name|NodeAllocations
-name|nodeAllocations
-parameter_list|,
 name|RoutingAllocation
 name|allocation
 parameter_list|)
@@ -383,8 +343,6 @@ name|allocator
 operator|.
 name|rebalance
 argument_list|(
-name|nodeAllocations
-argument_list|,
 name|allocation
 argument_list|)
 return|;
