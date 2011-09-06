@@ -203,6 +203,10 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+name|valuesLoaded
+operator|=
+literal|false
+expr_stmt|;
 name|doc
 operator|=
 literal|null
