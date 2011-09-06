@@ -108,7 +108,7 @@ name|routing
 operator|.
 name|allocation
 operator|.
-name|RoutingAllocation
+name|AllocationService
 import|;
 end_import
 
@@ -124,7 +124,7 @@ name|routing
 operator|.
 name|allocation
 operator|.
-name|ShardsAllocation
+name|RoutingAllocation
 import|;
 end_import
 
@@ -314,11 +314,11 @@ specifier|final
 name|ClusterService
 name|clusterService
 decl_stmt|;
-DECL|field|shardsAllocation
+DECL|field|allocationService
 specifier|private
 specifier|final
-name|ShardsAllocation
-name|shardsAllocation
+name|AllocationService
+name|allocationService
 decl_stmt|;
 DECL|field|nodeIndexDeletedAction
 specifier|private
@@ -347,8 +347,8 @@ parameter_list|,
 name|ClusterService
 name|clusterService
 parameter_list|,
-name|ShardsAllocation
-name|shardsAllocation
+name|AllocationService
+name|allocationService
 parameter_list|,
 name|NodeIndexDeletedAction
 name|nodeIndexDeletedAction
@@ -376,9 +376,9 @@ name|clusterService
 expr_stmt|;
 name|this
 operator|.
-name|shardsAllocation
+name|allocationService
 operator|=
-name|shardsAllocation
+name|allocationService
 expr_stmt|;
 name|this
 operator|.
@@ -592,7 +592,7 @@ operator|.
 name|Result
 name|routingResult
 init|=
-name|shardsAllocation
+name|allocationService
 operator|.
 name|reroute
 argument_list|(

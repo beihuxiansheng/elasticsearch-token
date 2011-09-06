@@ -297,11 +297,11 @@ name|void
 name|testBackupIsAllocatedAfterPrimary
 parameter_list|()
 block|{
-name|ShardsAllocation
+name|AllocationService
 name|strategy
 init|=
 operator|new
-name|ShardsAllocation
+name|AllocationService
 argument_list|(
 name|settingsBuilder
 argument_list|()

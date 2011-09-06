@@ -96,7 +96,7 @@ name|routing
 operator|.
 name|allocation
 operator|.
-name|ShardsAllocation
+name|AllocationService
 import|;
 end_import
 
@@ -387,11 +387,11 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
-name|ShardsAllocation
+name|AllocationService
 name|strategy
 init|=
 operator|new
-name|ShardsAllocation
+name|AllocationService
 argument_list|()
 decl_stmt|;
 name|clusterState
@@ -590,11 +590,11 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
-name|ShardsAllocation
+name|AllocationService
 name|strategy
 init|=
 operator|new
-name|ShardsAllocation
+name|AllocationService
 argument_list|()
 decl_stmt|;
 name|RoutingTable

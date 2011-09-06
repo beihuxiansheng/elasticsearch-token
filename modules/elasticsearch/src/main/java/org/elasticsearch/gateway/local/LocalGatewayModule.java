@@ -28,7 +28,9 @@ name|routing
 operator|.
 name|allocation
 operator|.
-name|ShardAllocationModule
+name|allocator
+operator|.
+name|ShardsAllocatorModule
 import|;
 end_import
 
@@ -161,19 +163,19 @@ if|if
 condition|(
 name|module
 operator|instanceof
-name|ShardAllocationModule
+name|ShardsAllocatorModule
 condition|)
 block|{
 operator|(
 operator|(
-name|ShardAllocationModule
+name|ShardsAllocatorModule
 operator|)
 name|module
 operator|)
 operator|.
-name|addNodeAllocation
+name|setGatewayAllocator
 argument_list|(
-name|LocalGatewayNodeAllocation
+name|LocalGatewayAllocator
 operator|.
 name|class
 argument_list|)

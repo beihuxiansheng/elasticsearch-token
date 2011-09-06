@@ -283,11 +283,11 @@ name|void
 name|testPrimaryRecoveryThrottling
 parameter_list|()
 block|{
-name|ShardsAllocation
+name|AllocationService
 name|strategy
 init|=
 operator|new
-name|ShardsAllocation
+name|AllocationService
 argument_list|(
 name|settingsBuilder
 argument_list|()
@@ -909,11 +909,11 @@ name|void
 name|testReplicaAndPrimaryRecoveryThrottling
 parameter_list|()
 block|{
-name|ShardsAllocation
+name|AllocationService
 name|strategy
 init|=
 operator|new
-name|ShardsAllocation
+name|AllocationService
 argument_list|(
 name|settingsBuilder
 argument_list|()

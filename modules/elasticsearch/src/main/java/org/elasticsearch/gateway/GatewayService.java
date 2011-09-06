@@ -250,7 +250,7 @@ name|routing
 operator|.
 name|allocation
 operator|.
-name|RoutingAllocation
+name|AllocationService
 import|;
 end_import
 
@@ -266,7 +266,7 @@ name|routing
 operator|.
 name|allocation
 operator|.
-name|ShardsAllocation
+name|RoutingAllocation
 import|;
 end_import
 
@@ -480,11 +480,11 @@ specifier|final
 name|ThreadPool
 name|threadPool
 decl_stmt|;
-DECL|field|shardsAllocation
+DECL|field|allocationService
 specifier|private
 specifier|final
-name|ShardsAllocation
-name|shardsAllocation
+name|AllocationService
+name|allocationService
 decl_stmt|;
 DECL|field|clusterService
 specifier|private
@@ -578,8 +578,8 @@ parameter_list|,
 name|Gateway
 name|gateway
 parameter_list|,
-name|ShardsAllocation
-name|shardsAllocation
+name|AllocationService
+name|allocationService
 parameter_list|,
 name|ClusterService
 name|clusterService
@@ -607,9 +607,9 @@ name|gateway
 expr_stmt|;
 name|this
 operator|.
-name|shardsAllocation
+name|allocationService
 operator|=
-name|shardsAllocation
+name|allocationService
 expr_stmt|;
 name|this
 operator|.
@@ -2029,7 +2029,7 @@ operator|.
 name|Result
 name|routingResult
 init|=
-name|shardsAllocation
+name|allocationService
 operator|.
 name|reroute
 argument_list|(

@@ -264,7 +264,7 @@ name|routing
 operator|.
 name|allocation
 operator|.
-name|ShardAllocationModule
+name|AllocationModule
 import|;
 end_import
 
@@ -422,7 +422,7 @@ operator|.
 name|of
 argument_list|(
 operator|new
-name|ShardAllocationModule
+name|AllocationModule
 argument_list|(
 name|settings
 argument_list|)
