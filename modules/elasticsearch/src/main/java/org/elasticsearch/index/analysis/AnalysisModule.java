@@ -2571,7 +2571,7 @@ name|tokenFiltersBindings
 operator|.
 name|processTokenFilter
 argument_list|(
-literal|"hypennation_decompounder"
+literal|"hyphenation_decompounder"
 argument_list|,
 name|HyphenationCompoundWordTokenFilterFactory
 operator|.

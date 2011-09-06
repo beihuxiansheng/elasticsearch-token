@@ -294,7 +294,7 @@ name|settings
 operator|.
 name|getAsBoolean
 argument_list|(
-literal|"only_longest_max"
+literal|"only_longest_match"
 argument_list|,
 literal|false
 argument_list|)
