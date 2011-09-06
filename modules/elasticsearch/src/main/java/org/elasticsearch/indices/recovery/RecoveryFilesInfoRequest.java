@@ -4,15 +4,13 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.shard.recovery
+DECL|package|org.elasticsearch.indices.recovery
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|shard
+name|indices
 operator|.
 name|recovery
 package|;
