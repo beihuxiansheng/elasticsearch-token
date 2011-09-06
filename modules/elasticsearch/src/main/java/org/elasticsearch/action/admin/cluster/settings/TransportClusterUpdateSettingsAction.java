@@ -439,10 +439,7 @@ if|if
 condition|(
 name|MetaData
 operator|.
-name|dynamicSettings
-argument_list|()
-operator|.
-name|contains
+name|hasDynamicSetting
 argument_list|(
 name|entry
 operator|.
@@ -548,10 +545,7 @@ if|if
 condition|(
 name|MetaData
 operator|.
-name|dynamicSettings
-argument_list|()
-operator|.
-name|contains
+name|hasDynamicSetting
 argument_list|(
 name|entry
 operator|.

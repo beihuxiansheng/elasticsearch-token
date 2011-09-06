@@ -892,10 +892,7 @@ condition|(
 operator|!
 name|IndexMetaData
 operator|.
-name|dynamicSettings
-argument_list|()
-operator|.
-name|contains
+name|hasDynamicSetting
 argument_list|(
 name|key
 argument_list|)
