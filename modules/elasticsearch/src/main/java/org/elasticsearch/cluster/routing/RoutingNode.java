@@ -18,6 +18,20 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|node
+operator|.
+name|DiscoveryNode
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -63,7 +77,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  */
 end_comment
 
 begin_class
@@ -77,11 +91,11 @@ argument_list|<
 name|MutableShardRouting
 argument_list|>
 block|{
-DECL|field|nodeId
+DECL|field|node
 specifier|private
 specifier|final
-name|String
-name|nodeId
+name|DiscoveryNode
+name|node
 decl_stmt|;
 DECL|field|shards
 specifier|private
@@ -96,13 +110,13 @@ DECL|method|RoutingNode
 specifier|public
 name|RoutingNode
 parameter_list|(
-name|String
-name|nodeId
+name|DiscoveryNode
+name|node
 parameter_list|)
 block|{
 name|this
 argument_list|(
-name|nodeId
+name|node
 argument_list|,
 operator|new
 name|ArrayList
@@ -117,8 +131,8 @@ DECL|method|RoutingNode
 specifier|public
 name|RoutingNode
 parameter_list|(
-name|String
-name|nodeId
+name|DiscoveryNode
+name|node
 parameter_list|,
 name|List
 argument_list|<
@@ -129,9 +143,9 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|nodeId
+name|node
 operator|=
-name|nodeId
+name|node
 expr_stmt|;
 name|this
 operator|.
@@ -158,6 +172,18 @@ name|iterator
 argument_list|()
 return|;
 block|}
+DECL|method|node
+specifier|public
+name|DiscoveryNode
+name|node
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|node
+return|;
+block|}
 DECL|method|nodeId
 specifier|public
 name|String
@@ -167,7 +193,10 @@ block|{
 return|return
 name|this
 operator|.
-name|nodeId
+name|node
+operator|.
+name|id
+argument_list|()
 return|;
 block|}
 DECL|method|shards
@@ -205,7 +234,10 @@ name|shard
 operator|.
 name|assignToNode
 argument_list|(
-name|nodeId
+name|node
+operator|.
+name|id
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -562,7 +594,10 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-name|nodeId
+name|node
+operator|.
+name|id
+argument_list|()
 argument_list|)
 operator|.
 name|append

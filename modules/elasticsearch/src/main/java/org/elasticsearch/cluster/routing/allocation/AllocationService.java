@@ -1234,9 +1234,6 @@ operator|new
 name|RoutingNode
 argument_list|(
 name|node
-operator|.
-name|id
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|routingNodes
