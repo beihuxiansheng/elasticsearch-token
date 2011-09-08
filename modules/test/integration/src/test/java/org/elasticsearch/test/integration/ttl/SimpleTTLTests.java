@@ -134,7 +134,7 @@ name|settings
 operator|.
 name|ImmutableSettings
 operator|.
-name|settingsBuilder
+name|*
 import|;
 end_import
 
@@ -177,7 +177,7 @@ specifier|final
 name|long
 name|purgeInterval
 init|=
-literal|500
+literal|200
 decl_stmt|;
 DECL|field|client
 specifier|private
@@ -202,7 +202,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"indices.ttl.purge_interval"
+literal|"indices.ttl.interval"
 argument_list|,
 name|purgeInterval
 argument_list|)
