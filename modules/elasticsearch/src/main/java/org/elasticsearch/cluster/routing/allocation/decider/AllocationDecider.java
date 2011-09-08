@@ -218,6 +218,26 @@ operator|.
 name|YES
 return|;
 block|}
+comment|/**      * Can the provided shard routing remain on the node?      */
+DECL|method|canRemain
+specifier|public
+name|boolean
+name|canRemain
+parameter_list|(
+name|ShardRouting
+name|shardRouting
+parameter_list|,
+name|RoutingNode
+name|node
+parameter_list|,
+name|RoutingAllocation
+name|allocation
+parameter_list|)
+block|{
+return|return
+literal|true
+return|;
+block|}
 block|}
 end_class
 
