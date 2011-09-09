@@ -184,6 +184,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|os
+operator|.
+name|OsUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|settings
 operator|.
 name|Settings
@@ -713,7 +727,7 @@ argument_list|(
 literal|"es-pidfile"
 argument_list|)
 decl_stmt|;
-comment|// enable jline by default when running form "main"
+comment|// enable jline by default when running form "main" (and not on windows)
 if|if
 condition|(
 name|System
@@ -724,6 +738,11 @@ literal|"jline.enabled"
 argument_list|)
 operator|==
 literal|null
+operator|&&
+operator|!
+name|OsUtils
+operator|.
+name|WINDOWS
 condition|)
 block|{
 name|System
