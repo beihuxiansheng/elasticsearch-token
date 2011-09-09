@@ -839,6 +839,15 @@ operator|.
 name|NAME
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|ttlFieldMappers
+operator|==
+literal|null
+condition|)
+block|{
+continue|continue;
+block|}
 comment|// check if ttl is enabled for at least one type of this index
 name|boolean
 name|hasTTLEnabled
