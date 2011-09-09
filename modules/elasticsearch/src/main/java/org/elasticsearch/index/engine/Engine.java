@@ -759,6 +759,13 @@ name|refresh
 init|=
 literal|false
 decl_stmt|;
+DECL|field|force
+specifier|private
+name|boolean
+name|force
+init|=
+literal|false
+decl_stmt|;
 comment|/**          * Should a refresh be performed after flushing. Defaults to<tt>false</tt>.          */
 DECL|method|refresh
 specifier|public
@@ -820,6 +827,37 @@ operator|.
 name|full
 operator|=
 name|full
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|force
+specifier|public
+name|boolean
+name|force
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|force
+return|;
+block|}
+DECL|method|force
+specifier|public
+name|Flush
+name|force
+parameter_list|(
+name|boolean
+name|force
+parameter_list|)
+block|{
+name|this
+operator|.
+name|force
+operator|=
+name|force
 expr_stmt|;
 return|return
 name|this
@@ -841,6 +879,10 @@ operator|+
 literal|"], refresh["
 operator|+
 name|refresh
+operator|+
+literal|"], force["
+operator|+
+name|force
 operator|+
 literal|"]"
 return|;

@@ -5348,6 +5348,11 @@ expr_stmt|;
 if|if
 condition|(
 name|flushNeeded
+operator|||
+name|flush
+operator|.
+name|force
+argument_list|()
 condition|)
 block|{
 name|flushNeeded
@@ -5522,6 +5527,11 @@ block|}
 if|if
 condition|(
 name|flushNeeded
+operator|||
+name|flush
+operator|.
+name|force
+argument_list|()
 condition|)
 block|{
 name|flushNeeded
@@ -6035,6 +6045,11 @@ argument_list|(
 operator|new
 name|Flush
 argument_list|()
+operator|.
+name|force
+argument_list|(
+literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -6278,6 +6293,11 @@ argument_list|(
 operator|new
 name|Flush
 argument_list|()
+operator|.
+name|force
+argument_list|(
+literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

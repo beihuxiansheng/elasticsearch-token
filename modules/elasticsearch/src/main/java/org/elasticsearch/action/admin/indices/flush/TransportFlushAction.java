@@ -679,6 +679,14 @@ operator|.
 name|full
 argument_list|()
 argument_list|)
+operator|.
+name|force
+argument_list|(
+name|request
+operator|.
+name|force
+argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
