@@ -456,10 +456,7 @@ name|onOrdinal
 argument_list|(
 name|docId
 argument_list|,
-name|ordinal
-index|[
-name|docId
-index|]
+name|loc
 argument_list|)
 expr_stmt|;
 block|}
