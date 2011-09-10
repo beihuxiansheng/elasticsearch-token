@@ -1733,18 +1733,18 @@ name|settings
 operator|.
 name|getAsSize
 argument_list|(
-literal|"capacity"
+literal|"queue_size"
 argument_list|,
 name|defaultSettings
 operator|.
 name|getAsSize
 argument_list|(
-literal|"capacity"
+literal|"queue_size"
 argument_list|,
 operator|new
 name|SizeValue
 argument_list|(
-literal|0
+literal|1000
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1775,7 +1775,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"creating thread_pool [{}], type [{}], min [{}], size [{}], keep_alive [{}], wait_time [{}]"
+literal|"creating thread_pool [{}], type [{}], min [{}], size [{}], queue_size [{}], keep_alive [{}], wait_time [{}]"
 argument_list|,
 name|name
 argument_list|,
@@ -1784,6 +1784,11 @@ argument_list|,
 name|min
 argument_list|,
 name|size
+argument_list|,
+name|capacity
+operator|.
+name|singles
+argument_list|()
 argument_list|,
 name|keepAlive
 argument_list|,
