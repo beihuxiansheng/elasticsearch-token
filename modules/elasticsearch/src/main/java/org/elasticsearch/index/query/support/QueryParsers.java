@@ -489,6 +489,17 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|query
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
+if|if
+condition|(
 name|smartFieldMappers
 operator|==
 literal|null
