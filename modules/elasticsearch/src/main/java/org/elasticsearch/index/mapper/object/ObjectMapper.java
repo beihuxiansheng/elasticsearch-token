@@ -2706,7 +2706,7 @@ throw|throw
 operator|new
 name|MapperParsingException
 argument_list|(
-literal|"object_mapper ["
+literal|"object mapping for ["
 operator|+
 name|name
 operator|+
@@ -2977,6 +2977,35 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|currentFieldName
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|MapperParsingException
+argument_list|(
+literal|"object mapping ["
+operator|+
+name|name
+operator|+
+literal|"] trying to serialize an object with no field associated with it, current value ["
+operator|+
+name|context
+operator|.
+name|parser
+argument_list|()
+operator|.
+name|textOrNull
+argument_list|()
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
 name|context
 operator|.
 name|path
@@ -3496,6 +3525,35 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|currentFieldName
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|MapperParsingException
+argument_list|(
+literal|"object mapping ["
+operator|+
+name|name
+operator|+
+literal|"] trying to serialize a value with no field associated with it, current value ["
+operator|+
+name|context
+operator|.
+name|parser
+argument_list|()
+operator|.
+name|textOrNull
+argument_list|()
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
 name|Mapper
 name|mapper
 init|=
