@@ -562,11 +562,10 @@ name|timestamp
 init|=
 literal|null
 decl_stmt|;
-name|long
+name|Long
 name|ttl
 init|=
-operator|-
-literal|1
+literal|null
 decl_stmt|;
 name|String
 name|opType
