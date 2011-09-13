@@ -1016,7 +1016,7 @@ operator|.
 name|timestamp
 return|;
 block|}
-comment|// Sets the relative ttl value. It musts be> 0 as it makes little sense otherwise.
+comment|/**      * Sets the relative ttl value. It musts be> 0 as it makes little sense otherwise. Setting it      * to<tt>null</tt> will reset to have no ttl.      */
 DECL|method|ttl
 specifier|public
 name|IndexRequest
@@ -1035,6 +1035,13 @@ operator|==
 literal|null
 condition|)
 block|{
+name|this
+operator|.
+name|ttl
+operator|=
+operator|-
+literal|1
+expr_stmt|;
 return|return
 name|this
 return|;
