@@ -115,7 +115,7 @@ name|geoDistance
 decl_stmt|;
 DECL|field|optimizeBbox
 specifier|private
-name|Boolean
+name|String
 name|optimizeBbox
 decl_stmt|;
 DECL|field|cache
@@ -303,7 +303,7 @@ specifier|public
 name|GeoDistanceFilterBuilder
 name|optimizeBbox
 parameter_list|(
-name|boolean
+name|String
 name|optimizeBbox
 parameter_list|)
 block|{
@@ -487,9 +487,6 @@ argument_list|(
 literal|"optimize_bbox"
 argument_list|,
 name|optimizeBbox
-operator|.
-name|booleanValue
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

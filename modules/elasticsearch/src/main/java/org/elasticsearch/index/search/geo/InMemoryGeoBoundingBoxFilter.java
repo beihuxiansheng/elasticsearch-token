@@ -141,10 +141,10 @@ comment|/**  * @author kimchy (shay.banon)  */
 end_comment
 
 begin_class
-DECL|class|GeoBoundingBoxFilter
+DECL|class|InMemoryGeoBoundingBoxFilter
 specifier|public
 class|class
-name|GeoBoundingBoxFilter
+name|InMemoryGeoBoundingBoxFilter
 extends|extends
 name|Filter
 block|{
@@ -172,9 +172,9 @@ specifier|final
 name|FieldDataCache
 name|fieldDataCache
 decl_stmt|;
-DECL|method|GeoBoundingBoxFilter
+DECL|method|InMemoryGeoBoundingBoxFilter
 specifier|public
-name|GeoBoundingBoxFilter
+name|InMemoryGeoBoundingBoxFilter
 parameter_list|(
 name|Point
 name|topLeft
@@ -291,7 +291,7 @@ condition|)
 block|{
 return|return
 operator|new
-name|LeftGeoBoundingBoxDocSet
+name|Meridian180GeoBoundingBoxDocSet
 argument_list|(
 name|reader
 operator|.
@@ -310,7 +310,7 @@ else|else
 block|{
 return|return
 operator|new
-name|RightGeoBoundingBoxDocSet
+name|GeoBoundingBoxDocSet
 argument_list|(
 name|reader
 operator|.
@@ -326,11 +326,11 @@ argument_list|)
 return|;
 block|}
 block|}
-DECL|class|LeftGeoBoundingBoxDocSet
+DECL|class|Meridian180GeoBoundingBoxDocSet
 specifier|public
 specifier|static
 class|class
-name|LeftGeoBoundingBoxDocSet
+name|Meridian180GeoBoundingBoxDocSet
 extends|extends
 name|GetDocSet
 block|{
@@ -352,9 +352,9 @@ specifier|final
 name|Point
 name|bottomRight
 decl_stmt|;
-DECL|method|LeftGeoBoundingBoxDocSet
+DECL|method|Meridian180GeoBoundingBoxDocSet
 specifier|public
-name|LeftGeoBoundingBoxDocSet
+name|Meridian180GeoBoundingBoxDocSet
 parameter_list|(
 name|int
 name|maxDoc
@@ -603,11 +603,11 @@ literal|false
 return|;
 block|}
 block|}
-DECL|class|RightGeoBoundingBoxDocSet
+DECL|class|GeoBoundingBoxDocSet
 specifier|public
 specifier|static
 class|class
-name|RightGeoBoundingBoxDocSet
+name|GeoBoundingBoxDocSet
 extends|extends
 name|GetDocSet
 block|{
@@ -629,9 +629,9 @@ specifier|final
 name|Point
 name|bottomRight
 decl_stmt|;
-DECL|method|RightGeoBoundingBoxDocSet
+DECL|method|GeoBoundingBoxDocSet
 specifier|public
-name|RightGeoBoundingBoxDocSet
+name|GeoBoundingBoxDocSet
 parameter_list|(
 name|int
 name|maxDoc
