@@ -70,7 +70,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|OpenBitSet
+name|FixedBitSet
 import|;
 end_import
 
@@ -81,6 +81,22 @@ operator|.
 name|elasticsearch
 operator|.
 name|ElasticSearchIllegalArgumentException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|lucene
+operator|.
+name|docset
+operator|.
+name|DocSets
 import|;
 end_import
 
@@ -302,7 +318,7 @@ DECL|method|getDocIdSet
 annotation|@
 name|Override
 specifier|public
-name|OpenBitSet
+name|FixedBitSet
 name|getDocIdSet
 parameter_list|(
 name|IndexReader
@@ -311,7 +327,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|OpenBitSet
+name|FixedBitSet
 name|main
 decl_stmt|;
 name|DocIdSet
@@ -347,7 +363,7 @@ block|{
 name|main
 operator|=
 operator|(
-name|OpenBitSet
+name|FixedBitSet
 operator|)
 name|set
 expr_stmt|;
@@ -402,7 +418,7 @@ block|{
 name|main
 operator|=
 operator|(
-name|OpenBitSet
+name|FixedBitSet
 operator|)
 name|set
 expr_stmt|;
@@ -414,7 +430,7 @@ operator|.
 name|or
 argument_list|(
 operator|(
-name|OpenBitSet
+name|FixedBitSet
 operator|)
 name|set
 argument_list|)
@@ -447,13 +463,12 @@ return|return
 literal|null
 return|;
 block|}
-name|main
+name|DocSets
 operator|.
 name|and
 argument_list|(
-operator|(
-name|OpenBitSet
-operator|)
+name|main
+argument_list|,
 name|set
 argument_list|)
 expr_stmt|;
@@ -730,7 +745,7 @@ DECL|method|getDocIdSet
 annotation|@
 name|Override
 specifier|public
-name|OpenBitSet
+name|FixedBitSet
 name|getDocIdSet
 parameter_list|(
 name|IndexReader
@@ -739,7 +754,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|OpenBitSet
+name|FixedBitSet
 name|main
 decl_stmt|;
 name|DocIdSet
@@ -772,7 +787,7 @@ block|}
 name|main
 operator|=
 operator|(
-name|OpenBitSet
+name|FixedBitSet
 operator|)
 name|set
 expr_stmt|;
@@ -802,13 +817,12 @@ return|return
 literal|null
 return|;
 block|}
-name|main
+name|DocSets
 operator|.
 name|and
 argument_list|(
-operator|(
-name|OpenBitSet
-operator|)
+name|main
+argument_list|,
 name|set
 argument_list|)
 expr_stmt|;

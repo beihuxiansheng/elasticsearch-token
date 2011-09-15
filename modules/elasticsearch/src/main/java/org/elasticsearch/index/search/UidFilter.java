@@ -96,7 +96,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|OpenBitSet
+name|FixedBitSet
 import|;
 end_import
 
@@ -369,7 +369,7 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
-name|OpenBitSet
+name|FixedBitSet
 name|set
 init|=
 literal|null
@@ -465,7 +465,7 @@ block|{
 name|set
 operator|=
 operator|new
-name|OpenBitSet
+name|FixedBitSet
 argument_list|(
 name|reader
 operator|.
@@ -476,7 +476,7 @@ expr_stmt|;
 block|}
 name|set
 operator|.
-name|fastSet
+name|set
 argument_list|(
 name|td
 operator|.

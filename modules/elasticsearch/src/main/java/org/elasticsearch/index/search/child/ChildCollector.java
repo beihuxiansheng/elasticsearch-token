@@ -70,7 +70,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|OpenBitSet
+name|FixedBitSet
 import|;
 end_import
 
@@ -203,7 +203,7 @@ name|Map
 argument_list|<
 name|Object
 argument_list|,
-name|OpenBitSet
+name|FixedBitSet
 argument_list|>
 name|parentDocs
 decl_stmt|;
@@ -244,7 +244,7 @@ name|HashMap
 argument_list|<
 name|Object
 argument_list|,
-name|OpenBitSet
+name|FixedBitSet
 argument_list|>
 argument_list|()
 expr_stmt|;
@@ -337,7 +337,7 @@ name|Map
 argument_list|<
 name|Object
 argument_list|,
-name|OpenBitSet
+name|FixedBitSet
 argument_list|>
 name|parentDocs
 parameter_list|()
@@ -458,7 +458,7 @@ name|parentDocId
 argument_list|)
 condition|)
 block|{
-name|OpenBitSet
+name|FixedBitSet
 name|docIdSet
 init|=
 name|parentDocs
@@ -482,7 +482,7 @@ block|{
 name|docIdSet
 operator|=
 operator|new
-name|OpenBitSet
+name|FixedBitSet
 argument_list|(
 name|indexReader
 operator|.
@@ -505,7 +505,7 @@ expr_stmt|;
 block|}
 name|docIdSet
 operator|.
-name|fastSet
+name|set
 argument_list|(
 name|parentDocId
 argument_list|)

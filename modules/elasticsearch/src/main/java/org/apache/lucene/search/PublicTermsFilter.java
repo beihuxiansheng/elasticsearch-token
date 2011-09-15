@@ -68,7 +68,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|OpenBitSet
+name|FixedBitSet
 import|;
 end_import
 
@@ -319,7 +319,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|OpenBitSet
+name|FixedBitSet
 name|result
 init|=
 literal|null
@@ -367,7 +367,7 @@ block|{
 name|result
 operator|=
 operator|new
-name|OpenBitSet
+name|FixedBitSet
 argument_list|(
 name|reader
 operator|.
@@ -378,7 +378,7 @@ expr_stmt|;
 block|}
 name|result
 operator|.
-name|fastSet
+name|set
 argument_list|(
 name|td
 operator|.
@@ -396,7 +396,7 @@ condition|)
 block|{
 name|result
 operator|.
-name|fastSet
+name|set
 argument_list|(
 name|td
 operator|.

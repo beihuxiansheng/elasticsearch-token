@@ -70,7 +70,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|OpenBitSet
+name|FixedBitSet
 import|;
 end_import
 
@@ -118,7 +118,7 @@ name|lucene
 operator|.
 name|docset
 operator|.
-name|OpenBitDocSet
+name|FixedBitDocSet
 import|;
 end_import
 
@@ -197,7 +197,7 @@ name|childDocs
 decl_stmt|;
 DECL|field|parentDocs
 specifier|private
-name|OpenBitSet
+name|FixedBitSet
 name|parentDocs
 decl_stmt|;
 DECL|field|currentReader
@@ -343,7 +343,7 @@ name|parentDocs
 operator|=
 operator|(
 operator|(
-name|OpenBitDocSet
+name|FixedBitDocSet
 operator|)
 name|parentFilter
 operator|.

@@ -98,7 +98,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|OpenBitSet
+name|FixedBitSet
 import|;
 end_import
 
@@ -224,7 +224,7 @@ comment|// BlockJoinQuery, we cache it anyhow...
 name|docSet
 operator|=
 operator|new
-name|OpenBitSet
+name|FixedBitSet
 argument_list|(
 name|reader
 operator|.
@@ -235,7 +235,7 @@ expr_stmt|;
 block|}
 operator|(
 operator|(
-name|OpenBitSet
+name|FixedBitSet
 operator|)
 name|docSet
 operator|)

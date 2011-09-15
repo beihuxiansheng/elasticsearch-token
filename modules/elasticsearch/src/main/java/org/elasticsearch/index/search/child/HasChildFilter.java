@@ -98,7 +98,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|OpenBitSet
+name|FixedBitSet
 import|;
 end_import
 
@@ -198,7 +198,7 @@ name|Map
 argument_list|<
 name|Object
 argument_list|,
-name|OpenBitSet
+name|FixedBitSet
 argument_list|>
 name|parentDocs
 decl_stmt|;

@@ -84,7 +84,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|OpenBitSet
+name|FixedBitSet
 import|;
 end_import
 
@@ -100,7 +100,7 @@ name|lucene
 operator|.
 name|docset
 operator|.
-name|OpenBitDocSet
+name|FixedBitDocSet
 import|;
 end_import
 
@@ -141,7 +141,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This query requires that you index  * children and parent docs as a single block, using the  * {@link org.apache.lucene.index.IndexWriter#addDocuments} or {@link  * org.apache.lucene.index.IndexWriter#updateDocuments} API.  In each block, the  * child documents must appear first, ending with the parent  * document.  At search time you provide a Filter  * identifying the parents, however this Filter must provide  * an {@link org.apache.lucene.util.OpenBitSet} per sub-reader.  *  *<p>Once the block index is built, use this query to wrap  * any sub-query matching only child docs and join matches in that  * child document space up to the parent document space.  * You can then use this Query as a clause with  * other queries in the parent document space.</p>  *  *<p>The child documents must be orthogonal to the parent  * documents: the wrapped child query must never  * return a parent document.</p>  *  * If you'd like to retrieve {@link TopGroups} for the  * resulting query, use the {@link BlockJoinCollector}.  * Note that this is not necessary, ie, if you simply want  * to collect the parent documents and don't need to see  * which child documents matched under that parent, then  * you can use any collector.  *  *<p><b>NOTE</b>: If the overall query contains parent-only  * matches, for example you OR a parent-only query with a  * joined child-only query, then the resulting collected documents  * will be correct, however the {@link TopGroups} you get  * from {@link BlockJoinCollector} will not contain every  * child for parents that had matched.  *  *<p>See {@link org.apache.lucene.search.join} for an  * overview.</p>  *  * @lucene.experimental  */
+comment|/**  * This query requires that you index  * children and parent docs as a single block, using the  * {@link org.apache.lucene.index.IndexWriter#addDocuments} or {@link  * org.apache.lucene.index.IndexWriter#updateDocuments} API.  In each block, the  * child documents must appear first, ending with the parent  * document.  At search time you provide a Filter  * identifying the parents, however this Filter must provide  * an {@link org.apache.lucene.util.FixedBitSet} per sub-reader.  *  *<p>Once the block index is built, use this query to wrap  * any sub-query matching only child docs and join matches in that  * child document space up to the parent document space.  * You can then use this Query as a clause with  * other queries in the parent document space.</p>  *  *<p>The child documents must be orthogonal to the parent  * documents: the wrapped child query must never  * return a parent document.</p>  *  * If you'd like to retrieve {@link TopGroups} for the  * resulting query, use the {@link BlockJoinCollector}.  * Note that this is not necessary, ie, if you simply want  * to collect the parent documents and don't need to see  * which child documents matched under that parent, then  * you can use any collector.  *  *<p><b>NOTE</b>: If the overall query contains parent-only  * matches, for example you OR a parent-only query with a  * joined child-only query, then the resulting collected documents  * will be correct, however the {@link TopGroups} you get  * from {@link BlockJoinCollector} will not contain every  * child for parents that had matched.  *  *<p>See {@link org.apache.lucene.search.join} for an  * overview.</p>  *  * @lucene.experimental  */
 end_comment
 
 begin_comment
@@ -608,14 +608,14 @@ if|if
 condition|(
 name|parents
 operator|instanceof
-name|OpenBitDocSet
+name|FixedBitDocSet
 condition|)
 block|{
 name|parents
 operator|=
 operator|(
 operator|(
-name|OpenBitDocSet
+name|FixedBitDocSet
 operator|)
 name|parents
 operator|)
@@ -630,7 +630,7 @@ operator|!
 operator|(
 name|parents
 operator|instanceof
-name|OpenBitSet
+name|FixedBitSet
 operator|)
 condition|)
 block|{
@@ -678,7 +678,7 @@ argument_list|,
 name|childScorer
 argument_list|,
 operator|(
-name|OpenBitSet
+name|FixedBitSet
 operator|)
 name|parents
 argument_list|,
@@ -750,7 +750,7 @@ decl_stmt|;
 DECL|field|parentBits
 specifier|private
 specifier|final
-name|OpenBitSet
+name|FixedBitSet
 name|parentBits
 decl_stmt|;
 DECL|field|scoreMode
@@ -813,7 +813,7 @@ parameter_list|,
 name|Scorer
 name|childScorer
 parameter_list|,
-name|OpenBitSet
+name|FixedBitSet
 name|parentBits
 parameter_list|,
 name|int
