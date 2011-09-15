@@ -942,6 +942,7 @@ operator|.
 name|inactive
 condition|)
 block|{
+comment|// mark it as inactive only if enough time has passed and there are no ongoing merges going on...
 if|if
 condition|(
 operator|(
@@ -956,6 +957,24 @@ name|inactiveTime
 operator|.
 name|millis
 argument_list|()
+operator|&&
+operator|(
+operator|(
+name|InternalIndexShard
+operator|)
+name|indexShard
+operator|)
+operator|.
+name|mergeScheduler
+argument_list|()
+operator|.
+name|stats
+argument_list|()
+operator|.
+name|current
+argument_list|()
+operator|==
+literal|0
 condition|)
 block|{
 try|try
@@ -1011,7 +1030,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"marking shard [{}][{}] as inactive (inactive_time[{}]), setting size to [{}]"
+literal|"marking shard [{}][{}] as inactive (inactive_time[{}]) indexing wise, setting size to [{}]"
 argument_list|,
 name|indexShard
 operator|.
@@ -1065,7 +1084,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"marking shard [{}][{}] as active"
+literal|"marking shard [{}][{}] as active indexing wise"
 argument_list|,
 name|indexShard
 operator|.
@@ -1123,7 +1142,7 @@ condition|)
 block|{
 name|calcAndSetShardIndexingBuffer
 argument_list|(
-literal|"shards became active/inactive"
+literal|"shards became active/inactive (indexing wise)"
 argument_list|)
 expr_stmt|;
 block|}
