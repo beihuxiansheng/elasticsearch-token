@@ -173,6 +173,23 @@ return|return
 literal|true
 return|;
 block|}
+if|if
+condition|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"Connection timed out"
+argument_list|)
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
 block|}
 return|return
 literal|false
