@@ -432,7 +432,7 @@ name|index
 operator|.
 name|store
 operator|.
-name|StoreFileMetaData
+name|Store
 import|;
 end_import
 
@@ -446,9 +446,7 @@ name|index
 operator|.
 name|store
 operator|.
-name|support
-operator|.
-name|AbstractStore
+name|StoreFileMetaData
 import|;
 end_import
 
@@ -1410,7 +1408,7 @@ try|try
 block|{
 name|checksums
 operator|=
-name|AbstractStore
+name|Store
 operator|.
 name|readChecksums
 argument_list|(
@@ -1446,7 +1444,7 @@ continue|continue;
 block|}
 if|if
 condition|(
-name|AbstractStore
+name|Store
 operator|.
 name|isChecksum
 argument_list|(

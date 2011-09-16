@@ -619,6 +619,25 @@ literal|true
 argument_list|)
 return|;
 block|}
+DECL|method|innerDeleteRecursively
+specifier|private
+specifier|static
+name|boolean
+name|innerDeleteRecursively
+parameter_list|(
+name|File
+name|root
+parameter_list|)
+block|{
+return|return
+name|deleteRecursively
+argument_list|(
+name|root
+argument_list|,
+literal|true
+argument_list|)
+return|;
+block|}
 comment|/**      * Delete the supplied {@link java.io.File} - for directories,      * recursively delete any nested directories or files as well.      *      * @param root       the root<code>File</code> to delete      * @param deleteRoot whether or not to delete the root itself or just the content of the root.      * @return<code>true</code> if the<code>File</code> was deleted,      *         otherwise<code>false</code>      */
 DECL|method|deleteRecursively
 specifier|public
@@ -677,7 +696,7 @@ range|:
 name|children
 control|)
 block|{
-name|deleteRecursively
+name|innerDeleteRecursively
 argument_list|(
 name|aChildren
 argument_list|)

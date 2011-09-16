@@ -346,9 +346,7 @@ name|index
 operator|.
 name|store
 operator|.
-name|support
-operator|.
-name|AbstractStore
+name|Store
 import|;
 end_import
 
@@ -3074,7 +3072,7 @@ name|existingFile
 argument_list|)
 operator|&&
 operator|!
-name|AbstractStore
+name|Store
 operator|.
 name|isChecksum
 argument_list|(

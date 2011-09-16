@@ -108,7 +108,7 @@ name|index
 operator|.
 name|store
 operator|.
-name|Store
+name|DirectoryService
 import|;
 end_import
 
@@ -157,7 +157,7 @@ name|nodeEnv
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|shardStoreClass
+DECL|method|shardDirectory
 annotation|@
 name|Override
 specifier|public
@@ -165,13 +165,13 @@ name|Class
 argument_list|<
 name|?
 extends|extends
-name|Store
+name|DirectoryService
 argument_list|>
-name|shardStoreClass
+name|shardDirectory
 parameter_list|()
 block|{
 return|return
-name|NioFsStore
+name|NioFsDirectoryService
 operator|.
 name|class
 return|;

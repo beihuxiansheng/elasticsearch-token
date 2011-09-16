@@ -102,7 +102,7 @@ parameter_list|()
 block|{
 name|bind
 argument_list|(
-name|Store
+name|DirectoryService
 operator|.
 name|class
 argument_list|)
@@ -111,7 +111,7 @@ name|to
 argument_list|(
 name|indexStore
 operator|.
-name|shardStoreClass
+name|shardDirectory
 argument_list|()
 argument_list|)
 operator|.
@@ -121,6 +121,16 @@ expr_stmt|;
 name|bind
 argument_list|(
 name|StoreManagement
+operator|.
+name|class
+argument_list|)
+operator|.
+name|asEagerSingleton
+argument_list|()
+expr_stmt|;
+name|bind
+argument_list|(
+name|Store
 operator|.
 name|class
 argument_list|)
