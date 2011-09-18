@@ -5360,6 +5360,11 @@ throw|;
 block|}
 try|try
 block|{
+name|boolean
+name|makeTransientCurrent
+init|=
+literal|false
+decl_stmt|;
 if|if
 condition|(
 name|flush
@@ -5736,19 +5741,17 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|translog
-operator|.
 name|makeTransientCurrent
-argument_list|()
+operator|=
+literal|true
 expr_stmt|;
 block|}
 block|}
 else|else
 block|{
-name|translog
-operator|.
 name|makeTransientCurrent
-argument_list|()
+operator|=
+literal|true
 expr_stmt|;
 block|}
 block|}
@@ -5821,6 +5824,20 @@ name|estimatedTimeInMillis
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// we need to move transient to current only after we refresh
+comment|// so items added to current will still be around for realtime get
+comment|// when tans overrides it
+if|if
+condition|(
+name|makeTransientCurrent
+condition|)
+block|{
+name|translog
+operator|.
+name|makeTransientCurrent
+argument_list|()
+expr_stmt|;
+block|}
 try|try
 block|{
 name|SegmentInfos
@@ -5851,6 +5868,12 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+if|if
+condition|(
+operator|!
+name|closed
+condition|)
+block|{
 name|logger
 operator|.
 name|warn
@@ -5860,6 +5883,7 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 finally|finally

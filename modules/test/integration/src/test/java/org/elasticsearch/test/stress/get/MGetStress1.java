@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.test.stress.mget
+DECL|package|org.elasticsearch.test.stress.get
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|test
 operator|.
 name|stress
 operator|.
-name|mget
+name|get
 package|;
 end_package
 
