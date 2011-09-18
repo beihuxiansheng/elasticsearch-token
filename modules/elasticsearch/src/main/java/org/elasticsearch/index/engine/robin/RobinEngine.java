@@ -1710,6 +1710,8 @@ throw|;
 block|}
 try|try
 block|{
+comment|// commit on a just opened writer will commit even if there are no changes done to it
+comment|// we rely on that for the commit data translog id key
 if|if
 condition|(
 name|IndexReader
@@ -5439,6 +5441,8 @@ operator|=
 name|createWriter
 argument_list|()
 expr_stmt|;
+comment|// commit on a just opened writer will commit even if there are no changes done to it
+comment|// we rely on that for the commit data translog id key
 if|if
 condition|(
 name|flushNeeded
@@ -5520,6 +5524,14 @@ name|current
 operator|.
 name|markForClose
 argument_list|()
+expr_stmt|;
+name|refreshVersioningTable
+argument_list|(
+name|threadPool
+operator|.
+name|estimatedTimeInMillis
+argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch
@@ -5754,6 +5766,28 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|makeTransientCurrent
+condition|)
+block|{
+name|refreshVersioningTable
+argument_list|(
+name|threadPool
+operator|.
+name|estimatedTimeInMillis
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// we need to move transient to current only after we refresh
+comment|// so items added to current will still be around for realtime get
+comment|// when tans overrides it
+name|translog
+operator|.
+name|makeTransientCurrent
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -5815,28 +5849,6 @@ name|unlock
 argument_list|()
 expr_stmt|;
 block|}
-block|}
-name|refreshVersioningTable
-argument_list|(
-name|threadPool
-operator|.
-name|estimatedTimeInMillis
-argument_list|()
-argument_list|)
-expr_stmt|;
-comment|// we need to move transient to current only after we refresh
-comment|// so items added to current will still be around for realtime get
-comment|// when tans overrides it
-if|if
-condition|(
-name|makeTransientCurrent
-condition|)
-block|{
-name|translog
-operator|.
-name|makeTransientCurrent
-argument_list|()
-expr_stmt|;
 block|}
 try|try
 block|{
