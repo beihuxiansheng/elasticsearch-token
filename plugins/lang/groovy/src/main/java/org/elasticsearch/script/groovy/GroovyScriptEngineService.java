@@ -215,7 +215,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  */
 end_comment
 
 begin_class
@@ -450,6 +450,13 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+block|{
+literal|"unchecked"
+block|}
+argument_list|)
 DECL|method|search
 annotation|@
 name|Override
@@ -708,6 +715,13 @@ operator|=
 name|script
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+block|{
+literal|"unchecked"
+block|}
+argument_list|)
 DECL|method|setNextVar
 annotation|@
 name|Override
@@ -870,6 +884,13 @@ name|doc
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+block|{
+literal|"unchecked"
+block|}
+argument_list|)
 DECL|method|setNextScore
 annotation|@
 name|Override
@@ -897,6 +918,13 @@ name|score
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+block|{
+literal|"unchecked"
+block|}
+argument_list|)
 DECL|method|setNextVar
 annotation|@
 name|Override
