@@ -1035,7 +1035,7 @@ operator|.
 name|source
 argument_list|()
 operator|.
-name|getValues
+name|extractRawValues
 argument_list|(
 name|mapper
 operator|.
