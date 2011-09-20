@@ -811,7 +811,7 @@ name|propName
 operator|.
 name|equals
 argument_list|(
-literal|"numeric_precision"
+literal|"numeric_resolution"
 argument_list|)
 condition|)
 block|{
@@ -2301,7 +2301,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"numeric_precision"
+literal|"numeric_resolution"
 argument_list|,
 name|timeUnit
 argument_list|)
