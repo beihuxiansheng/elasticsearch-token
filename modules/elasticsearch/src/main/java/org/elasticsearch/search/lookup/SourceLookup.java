@@ -262,18 +262,6 @@ name|Set
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|regex
-operator|.
-name|Pattern
-import|;
-end_import
-
 begin_comment
 comment|/**  * @author kimchy (shay.banon)  */
 end_comment
@@ -709,20 +697,6 @@ operator|=
 name|source
 expr_stmt|;
 block|}
-DECL|field|dotPattern
-specifier|private
-specifier|final
-specifier|static
-name|Pattern
-name|dotPattern
-init|=
-name|Pattern
-operator|.
-name|compile
-argument_list|(
-literal|"\\."
-argument_list|)
-decl_stmt|;
 comment|/**      * Returns the values associated with the path. Those are "low" level values, and it can      * handle path expression where an array/list is navigated within.      */
 DECL|method|extractRawValues
 specifier|public
