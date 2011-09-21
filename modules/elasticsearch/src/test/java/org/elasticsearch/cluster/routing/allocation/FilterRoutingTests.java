@@ -458,7 +458,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> adding two nodes and performing rerouting"
+literal|"--> adding four nodes and performing rerouting"
 argument_list|)
 expr_stmt|;
 name|clusterState
