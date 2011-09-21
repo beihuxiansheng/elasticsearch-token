@@ -267,6 +267,18 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -781,12 +793,6 @@ specifier|final
 name|String
 name|path
 decl_stmt|;
-DECL|field|dateTimeFormatter
-specifier|private
-specifier|final
-name|FormatDateTimeFormatter
-name|dateTimeFormatter
-decl_stmt|;
 DECL|method|TimestampFieldMapper
 specifier|public
 name|TimestampFieldMapper
@@ -891,6 +897,11 @@ argument_list|,
 name|Defaults
 operator|.
 name|NULL_VALUE
+argument_list|,
+name|TimeUnit
+operator|.
+name|MILLISECONDS
+comment|/*always milliseconds*/
 argument_list|)
 expr_stmt|;
 name|this
@@ -904,12 +915,6 @@ operator|.
 name|path
 operator|=
 name|path
-expr_stmt|;
-name|this
-operator|.
-name|dateTimeFormatter
-operator|=
-name|dateTimeFormatter
 expr_stmt|;
 block|}
 DECL|method|enabled
