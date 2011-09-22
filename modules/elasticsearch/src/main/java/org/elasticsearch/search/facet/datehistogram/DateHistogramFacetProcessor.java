@@ -1228,6 +1228,27 @@ decl_stmt|;
 if|if
 condition|(
 name|mapper
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|FacetPhaseExecutionException
+argument_list|(
+name|facetName
+argument_list|,
+literal|"(key) field ["
+operator|+
+name|keyField
+operator|+
+literal|"] not found"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|mapper
 operator|.
 name|fieldDataType
 argument_list|()
