@@ -176,7 +176,7 @@ name|settings
 operator|.
 name|ImmutableSettings
 operator|.
-name|settingsBuilder
+name|*
 import|;
 end_import
 
@@ -806,7 +806,7 @@ decl_stmt|;
 return|return
 name|env
 operator|.
-name|shardLocation
+name|shardLocations
 argument_list|(
 operator|new
 name|ShardId
@@ -816,6 +816,9 @@ argument_list|,
 name|shard
 argument_list|)
 argument_list|)
+index|[
+literal|0
+index|]
 return|;
 block|}
 block|}

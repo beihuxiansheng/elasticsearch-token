@@ -1365,7 +1365,8 @@ name|nodes
 control|)
 block|{
 name|File
-name|nodeWork
+index|[]
+name|nodeDatas
 init|=
 operator|(
 operator|(
@@ -1384,7 +1385,7 @@ operator|.
 name|class
 argument_list|)
 operator|.
-name|nodeDataLocation
+name|nodeDataLocations
 argument_list|()
 decl_stmt|;
 name|node
@@ -1414,7 +1415,7 @@ name|FileSystemUtils
 operator|.
 name|deleteRecursively
 argument_list|(
-name|nodeWork
+name|nodeDatas
 argument_list|)
 expr_stmt|;
 block|}
@@ -1510,6 +1511,13 @@ argument_list|(
 literal|"index.number_of_shards"
 argument_list|,
 literal|1
+argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"path.data"
+argument_list|,
+literal|"data/data1,data/data2"
 argument_list|)
 operator|.
 name|build

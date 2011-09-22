@@ -1565,7 +1565,7 @@ name|deleteRecursively
 argument_list|(
 name|environment
 operator|.
-name|dataWithClusterFile
+name|dataWithClusterFiles
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2730,7 +2730,7 @@ name|deleteRecursively
 argument_list|(
 name|environment
 operator|.
-name|dataWithClusterFile
+name|dataWithClusterFiles
 argument_list|()
 argument_list|)
 expr_stmt|;

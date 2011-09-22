@@ -995,6 +995,7 @@ literal|true
 condition|)
 block|{
 name|File
+index|[]
 name|nodeData
 init|=
 operator|(
@@ -1017,7 +1018,7 @@ operator|.
 name|class
 argument_list|)
 operator|.
-name|nodeDataLocation
+name|nodeDataLocations
 argument_list|()
 decl_stmt|;
 name|nodes
@@ -1966,11 +1967,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|StringBuffer
+name|StringBuilder
 name|sb
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 name|XContentBuilder
@@ -2209,6 +2210,13 @@ argument_list|(
 literal|"gateway.type"
 argument_list|,
 literal|"none"
+argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"path.data"
+argument_list|,
+literal|"data/data1,data/data2"
 argument_list|)
 operator|.
 name|build

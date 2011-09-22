@@ -1242,7 +1242,7 @@ name|deleteRecursively
 argument_list|(
 name|nodeEnv
 operator|.
-name|nodeDataLocation
+name|nodeDataLocations
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1663,6 +1663,7 @@ block|}
 else|else
 block|{
 comment|// create the location where the state will be stored
+comment|// TODO: we might want to persist states on all data locations
 name|this
 operator|.
 name|location
@@ -1672,8 +1673,11 @@ name|File
 argument_list|(
 name|nodeEnv
 operator|.
-name|nodeDataLocation
+name|nodeDataLocations
 argument_list|()
+index|[
+literal|0
+index|]
 argument_list|,
 literal|"_state"
 argument_list|)

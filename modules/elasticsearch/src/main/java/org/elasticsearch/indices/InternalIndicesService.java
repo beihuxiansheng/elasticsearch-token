@@ -2607,7 +2607,7 @@ name|deleteRecursively
 argument_list|(
 name|nodeEnv
 operator|.
-name|indexLocation
+name|indexLocations
 argument_list|(
 operator|new
 name|Index

@@ -2771,6 +2771,11 @@ modifier|...
 name|values
 parameter_list|)
 block|{
+name|remove
+argument_list|(
+name|setting
+argument_list|)
+expr_stmt|;
 name|int
 name|counter
 init|=

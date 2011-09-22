@@ -2760,7 +2760,7 @@ name|deleteRecursively
 argument_list|(
 name|nodeEnv
 operator|.
-name|shardLocation
+name|shardLocations
 argument_list|(
 name|sId
 argument_list|)

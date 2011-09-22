@@ -720,16 +720,19 @@ operator|.
 name|shardId
 argument_list|()
 decl_stmt|;
+for|for
+control|(
 name|File
 name|shardLocation
-init|=
+range|:
 name|nodeEnv
 operator|.
-name|shardLocation
+name|shardLocations
 argument_list|(
 name|shardId
 argument_list|)
-decl_stmt|;
+control|)
+block|{
 if|if
 condition|(
 name|shardLocation
@@ -769,15 +772,24 @@ block|}
 block|}
 block|}
 block|}
+block|}
 comment|// delete indices that are no longer part of the metadata
+for|for
+control|(
+name|File
+name|indicesLocation
+range|:
+name|nodeEnv
+operator|.
+name|indicesLocations
+argument_list|()
+control|)
+block|{
 name|File
 index|[]
 name|files
 init|=
-name|nodeEnv
-operator|.
 name|indicesLocation
-argument_list|()
 operator|.
 name|listFiles
 argument_list|()
@@ -823,12 +835,14 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"[{}] deleting index that is no longer in the cluster meta_date"
+literal|"[{}] deleting index that is no longer in the cluster meta_date from [{}]"
 argument_list|,
 name|file
 operator|.
 name|getName
 argument_list|()
+argument_list|,
+name|file
 argument_list|)
 expr_stmt|;
 name|FileSystemUtils
@@ -838,6 +852,7 @@ argument_list|(
 name|file
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
