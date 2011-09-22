@@ -217,7 +217,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A servlet that can be used to dispatch requests to elasticsearch. A {@link Node} will be started, reading  * config from either<tt>/WEB-INF/elasticsearch.json</tt> or<tt>/WEB-INF/elasticsearch.yml</tt> but, by defualt,  * with its internal HTTP interface disabled.  *  *<p>The node is registered as a servlet context attribute under<tt>elasticsearchNode</tt> so its easily  * accessible from other web resources if needed.  */
+comment|/**  * A servlet that can be used to dispatch requests to elasticsearch. A {@link Node} will be started, reading  * config from either<tt>/WEB-INF/elasticsearch.json</tt> or<tt>/WEB-INF/elasticsearch.yml</tt> but, by defualt,  * with its internal HTTP interface disabled.  *  *<p>The node is registered as a servlet context attribute under<tt>elasticsearchNode</tt> so its easily  * accessible from other web resources if needed.  *  *<p>The servlet can be registered under a prefix URI, and it will automatically adjust to handle it.  */
 end_comment
 
 begin_class
