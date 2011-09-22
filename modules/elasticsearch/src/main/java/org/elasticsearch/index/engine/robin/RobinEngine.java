@@ -4450,31 +4450,8 @@ operator|-
 literal|1
 condition|)
 block|{
-throw|throw
-operator|new
-name|VersionConflictEngineException
-argument_list|(
-name|shardId
-argument_list|,
-name|delete
-operator|.
-name|type
-argument_list|()
-argument_list|,
-name|delete
-operator|.
-name|id
-argument_list|()
-argument_list|,
-operator|-
-literal|1
-argument_list|,
-name|delete
-operator|.
-name|version
-argument_list|()
-argument_list|)
-throw|;
+comment|// its an external version, that's fine, we allow it to be set
+comment|//throw new VersionConflictEngineException(shardId, delete.type(), delete.id(), -1, delete.version());
 block|}
 elseif|else
 if|if
