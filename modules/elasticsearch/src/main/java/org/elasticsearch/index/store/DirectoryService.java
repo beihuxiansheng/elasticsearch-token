@@ -52,6 +52,7 @@ name|DirectoryService
 block|{
 DECL|method|build
 name|Directory
+index|[]
 name|build
 parameter_list|()
 throws|throws

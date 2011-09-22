@@ -195,6 +195,7 @@ annotation|@
 name|Override
 specifier|public
 name|Directory
+index|[]
 name|build
 parameter_list|()
 throws|throws
@@ -219,6 +220,10 @@ argument_list|)
 expr_stmt|;
 return|return
 operator|new
+name|Directory
+index|[]
+block|{
+operator|new
 name|NIOFSDirectory
 argument_list|(
 name|location
@@ -226,6 +231,7 @@ argument_list|,
 name|buildLockFactory
 argument_list|()
 argument_list|)
+block|}
 return|;
 block|}
 block|}
