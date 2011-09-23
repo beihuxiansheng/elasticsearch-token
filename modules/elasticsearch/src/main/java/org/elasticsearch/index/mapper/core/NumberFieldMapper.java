@@ -1344,6 +1344,13 @@ return|return
 literal|null
 return|;
 block|}
+DECL|method|numericAsString
+specifier|public
+specifier|abstract
+name|String
+name|numericAsString
+parameter_list|()
+function_decl|;
 block|}
 block|}
 end_class
