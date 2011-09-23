@@ -242,6 +242,17 @@ operator|.
 name|add
 argument_list|(
 operator|new
+name|DisableAllocationDecider
+argument_list|(
+name|settings
+argument_list|,
+name|nodeSettingsService
+argument_list|)
+argument_list|)
+operator|.
+name|add
+argument_list|(
+operator|new
 name|AwarenessAllocationDecider
 argument_list|(
 name|settings
