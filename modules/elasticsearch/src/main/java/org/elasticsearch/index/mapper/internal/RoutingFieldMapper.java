@@ -1070,15 +1070,6 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|value
-operator|==
-literal|null
-condition|)
-block|{
-comment|// maybe its a numeric field
-block|}
-if|if
-condition|(
 operator|!
 name|routing
 operator|.
