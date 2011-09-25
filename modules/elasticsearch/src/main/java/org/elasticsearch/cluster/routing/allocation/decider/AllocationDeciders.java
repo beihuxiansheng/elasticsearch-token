@@ -236,6 +236,8 @@ operator|new
 name|ConcurrentRebalanceAllocationDecider
 argument_list|(
 name|settings
+argument_list|,
+name|nodeSettingsService
 argument_list|)
 argument_list|)
 operator|.
