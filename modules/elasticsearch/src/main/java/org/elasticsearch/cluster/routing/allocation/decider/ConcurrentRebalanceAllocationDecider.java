@@ -252,6 +252,9 @@ name|ConcurrentRebalanceAllocationDecider
 parameter_list|(
 name|Settings
 name|settings
+parameter_list|,
+name|NodeSettingsService
+name|nodeSettingsService
 parameter_list|)
 block|{
 name|super
@@ -279,6 +282,15 @@ argument_list|(
 literal|"using [cluster_concurrent_rebalance] with [{}]"
 argument_list|,
 name|clusterConcurrentRebalance
+argument_list|)
+expr_stmt|;
+name|nodeSettingsService
+operator|.
+name|addListener
+argument_list|(
+operator|new
+name|ApplySettings
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
