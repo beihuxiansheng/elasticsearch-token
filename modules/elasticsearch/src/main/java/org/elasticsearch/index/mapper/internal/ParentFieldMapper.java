@@ -1143,9 +1143,10 @@ name|uid
 parameter_list|)
 block|{
 return|return
-name|termFactory
+name|names
+argument_list|()
 operator|.
-name|createTerm
+name|createIndexNameTerm
 argument_list|(
 name|uid
 argument_list|)

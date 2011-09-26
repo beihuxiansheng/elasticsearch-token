@@ -316,13 +316,12 @@ name|uids
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Term
-argument_list|(
 name|UidFieldMapper
 operator|.
-name|NAME
-argument_list|,
+name|TERM_FACTORY
+operator|.
+name|createTerm
+argument_list|(
 name|Uid
 operator|.
 name|createUid

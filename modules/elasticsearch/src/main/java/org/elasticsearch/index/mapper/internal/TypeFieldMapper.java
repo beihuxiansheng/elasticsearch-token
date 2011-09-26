@@ -899,9 +899,10 @@ name|value
 parameter_list|)
 block|{
 return|return
-name|termFactory
+name|names
+argument_list|()
 operator|.
-name|createTerm
+name|createIndexNameTerm
 argument_list|(
 name|value
 argument_list|)
@@ -953,9 +954,10 @@ return|return
 operator|new
 name|TermFilter
 argument_list|(
-name|termFactory
+name|names
+argument_list|()
 operator|.
-name|createTerm
+name|createIndexNameTerm
 argument_list|(
 name|value
 argument_list|)
