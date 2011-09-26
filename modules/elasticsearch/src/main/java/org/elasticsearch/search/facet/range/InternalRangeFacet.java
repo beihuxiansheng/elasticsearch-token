@@ -1072,6 +1072,17 @@ name|count
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// only output min and max if there are actually documents matching this range...
+if|if
+condition|(
+name|entry
+operator|.
+name|totalCount
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
 name|builder
 operator|.
 name|field
@@ -1100,6 +1111,7 @@ name|max
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|builder
 operator|.
 name|field
