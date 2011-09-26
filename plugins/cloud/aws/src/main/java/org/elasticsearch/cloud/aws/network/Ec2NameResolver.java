@@ -34,6 +34,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|cloud
+operator|.
+name|aws
+operator|.
+name|AwsEc2Service
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|component
@@ -275,15 +289,6 @@ name|ec2Name
 expr_stmt|;
 block|}
 block|}
-DECL|field|EC2_METADATA_URL
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|EC2_METADATA_URL
-init|=
-literal|"http://169.254.169.254/latest/meta-data/"
-decl_stmt|;
 comment|/**      * Construct a {@link CustomNameResolver}.      */
 DECL|method|Ec2NameResolver
 specifier|public
@@ -330,6 +335,8 @@ init|=
 operator|new
 name|URL
 argument_list|(
+name|AwsEc2Service
+operator|.
 name|EC2_METADATA_URL
 operator|+
 name|type
