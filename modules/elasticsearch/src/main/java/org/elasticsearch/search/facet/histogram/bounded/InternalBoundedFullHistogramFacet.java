@@ -481,6 +481,17 @@ name|double
 name|mean
 parameter_list|()
 block|{
+if|if
+condition|(
+name|totalCount
+operator|==
+literal|0
+condition|)
+block|{
+return|return
+literal|0
+return|;
+block|}
 return|return
 name|total
 operator|/
