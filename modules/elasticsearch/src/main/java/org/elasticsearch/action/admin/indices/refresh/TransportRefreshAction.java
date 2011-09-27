@@ -711,7 +711,7 @@ operator|.
 name|routingTable
 argument_list|()
 operator|.
-name|allActiveShardsGrouped
+name|allAssignedShardsGrouped
 argument_list|(
 name|concreteIndices
 argument_list|,
