@@ -149,6 +149,15 @@ name|ClusterStateListener
 name|listener
 parameter_list|)
 function_decl|;
+comment|/**      * Adds last listener.      */
+DECL|method|addLast
+name|void
+name|addLast
+parameter_list|(
+name|ClusterStateListener
+name|listener
+parameter_list|)
+function_decl|;
 comment|/**      * Adds a listener for updated cluster states.      */
 DECL|method|add
 name|void

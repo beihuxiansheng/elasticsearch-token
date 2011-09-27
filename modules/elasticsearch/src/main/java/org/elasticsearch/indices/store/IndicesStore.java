@@ -316,7 +316,7 @@ name|clusterService
 expr_stmt|;
 name|clusterService
 operator|.
-name|add
+name|addLast
 argument_list|(
 name|this
 argument_list|)
