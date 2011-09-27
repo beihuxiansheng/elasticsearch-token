@@ -1105,6 +1105,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// never expose this to the outside world, we need to reparse the doc mapper so we get fresh
+comment|// instances of field mappers to properly remove existing doc mapper
 DECL|method|add
 specifier|private
 name|void
@@ -1231,15 +1233,22 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|remove
+comment|// we can add new field/object mappers while the old ones are there
+comment|// since we get new instances of those, and when we remove, we remove
+comment|// by instance equality
+name|DocumentMapper
+name|oldMapper
+init|=
+name|mappers
+operator|.
+name|get
 argument_list|(
 name|mapper
 operator|.
 name|type
 argument_list|()
 argument_list|)
-expr_stmt|;
-comment|// first remove it (in case its an update, we need to remove the aggregated mappers)
+decl_stmt|;
 name|mapper
 operator|.
 name|addFieldMapperListener
@@ -1278,6 +1287,24 @@ operator|.
 name|immutableMap
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|oldMapper
+operator|!=
+literal|null
+condition|)
+block|{
+name|removeObjectFieldMappers
+argument_list|(
+name|oldMapper
+argument_list|)
+expr_stmt|;
+name|oldMapper
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|remove
@@ -1333,6 +1360,22 @@ operator|.
 name|immutableMap
 argument_list|()
 expr_stmt|;
+name|removeObjectFieldMappers
+argument_list|(
+name|docMapper
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+DECL|method|removeObjectFieldMappers
+specifier|private
+name|void
+name|removeObjectFieldMappers
+parameter_list|(
+name|DocumentMapper
+name|docMapper
+parameter_list|)
+block|{
 comment|// we need to remove those mappers
 for|for
 control|(
@@ -1703,7 +1746,6 @@ operator|.
 name|immutableMap
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
