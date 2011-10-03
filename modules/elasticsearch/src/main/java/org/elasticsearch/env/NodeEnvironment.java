@@ -298,6 +298,18 @@ name|lastException
 init|=
 literal|null
 decl_stmt|;
+name|int
+name|maxLocalStorageNodes
+init|=
+name|settings
+operator|.
+name|getAsInt
+argument_list|(
+literal|"node.max_local_storage_nodes"
+argument_list|,
+literal|50
+argument_list|)
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -307,7 +319,7 @@ literal|0
 init|;
 name|possibleLockId
 operator|<
-literal|50
+name|maxLocalStorageNodes
 condition|;
 name|possibleLockId
 operator|++
