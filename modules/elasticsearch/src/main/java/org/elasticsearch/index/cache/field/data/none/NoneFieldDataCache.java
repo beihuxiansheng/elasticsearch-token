@@ -266,6 +266,17 @@ name|Override
 specifier|public
 name|void
 name|clear
+parameter_list|(
+name|String
+name|fieldName
+parameter_list|)
+block|{      }
+DECL|method|clear
+annotation|@
+name|Override
+specifier|public
+name|void
+name|clear
 parameter_list|()
 block|{     }
 DECL|method|clear

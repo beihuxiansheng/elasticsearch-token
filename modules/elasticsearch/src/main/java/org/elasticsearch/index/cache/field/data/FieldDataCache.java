@@ -140,6 +140,14 @@ function_decl|;
 DECL|method|clear
 name|void
 name|clear
+parameter_list|(
+name|String
+name|fieldName
+parameter_list|)
+function_decl|;
+DECL|method|clear
+name|void
+name|clear
 parameter_list|()
 function_decl|;
 DECL|method|clear
