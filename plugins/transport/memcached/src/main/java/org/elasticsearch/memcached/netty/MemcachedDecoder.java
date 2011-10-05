@@ -1235,7 +1235,9 @@ name|bytes
 init|=
 name|Version
 operator|.
-name|full
+name|CURRENT
+operator|.
+name|toString
 argument_list|()
 operator|.
 name|getBytes

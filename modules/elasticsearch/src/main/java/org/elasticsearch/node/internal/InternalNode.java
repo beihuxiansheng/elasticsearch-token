@@ -970,8 +970,7 @@ literal|"{{}}[{}]: initializing ..."
 argument_list|,
 name|Version
 operator|.
-name|full
-argument_list|()
+name|CURRENT
 argument_list|,
 name|JvmInfo
 operator|.
@@ -1309,8 +1308,7 @@ literal|"{{}}[{}]: initialized"
 argument_list|,
 name|Version
 operator|.
-name|full
-argument_list|()
+name|CURRENT
 argument_list|,
 name|JvmInfo
 operator|.
@@ -1394,8 +1392,7 @@ literal|"{{}}[{}]: starting ..."
 argument_list|,
 name|Version
 operator|.
-name|full
-argument_list|()
+name|CURRENT
 argument_list|,
 name|JvmInfo
 operator|.
@@ -1652,8 +1649,7 @@ literal|"{{}}[{}]: started"
 argument_list|,
 name|Version
 operator|.
-name|full
-argument_list|()
+name|CURRENT
 argument_list|,
 name|JvmInfo
 operator|.
@@ -1716,8 +1712,7 @@ literal|"{{}}[{}]: stopping ..."
 argument_list|,
 name|Version
 operator|.
-name|full
-argument_list|()
+name|CURRENT
 argument_list|,
 name|JvmInfo
 operator|.
@@ -1964,8 +1959,7 @@ literal|"{{}}[{}]: stopped"
 argument_list|,
 name|Version
 operator|.
-name|full
-argument_list|()
+name|CURRENT
 argument_list|,
 name|JvmInfo
 operator|.
@@ -2036,8 +2030,7 @@ literal|"{{}}[{}]: closing ..."
 argument_list|,
 name|Version
 operator|.
-name|full
-argument_list|()
+name|CURRENT
 argument_list|,
 name|JvmInfo
 operator|.
@@ -2629,8 +2622,7 @@ literal|"{{}}[{}]: closed"
 argument_list|,
 name|Version
 operator|.
-name|full
-argument_list|()
+name|CURRENT
 argument_list|,
 name|JvmInfo
 operator|.

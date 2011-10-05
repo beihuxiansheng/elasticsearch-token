@@ -457,6 +457,8 @@ literal|"-"
 operator|+
 name|Version
 operator|.
+name|CURRENT
+operator|.
 name|number
 argument_list|()
 operator|+
@@ -496,6 +498,8 @@ operator|+
 literal|"-"
 operator|+
 name|Version
+operator|.
+name|CURRENT
 operator|.
 name|number
 argument_list|()
@@ -777,6 +781,8 @@ literal|"-"
 operator|+
 name|Version
 operator|.
+name|CURRENT
+operator|.
 name|number
 argument_list|()
 operator|+
@@ -848,6 +854,8 @@ operator|+
 literal|"/zipball/v"
 operator|+
 name|Version
+operator|.
+name|CURRENT
 operator|.
 name|number
 argument_list|()
@@ -1140,6 +1148,8 @@ operator|+
 literal|"-"
 operator|+
 name|Version
+operator|.
+name|CURRENT
 operator|.
 name|number
 argument_list|()

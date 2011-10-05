@@ -1262,8 +1262,7 @@ name|append
 argument_list|(
 name|Version
 operator|.
-name|full
-argument_list|()
+name|CURRENT
 argument_list|)
 operator|.
 name|append
