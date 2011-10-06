@@ -58,7 +58,7 @@ name|MIN_OUTPUT_BUFFER
 init|=
 literal|8000
 decl_stmt|;
-comment|/**      * This<code>ThreadLocal</code> contains a {@link java.lang.ref.SoftRerefence}      * to a {@link BufferRecycler} used to provide a low-cost      * buffer recycling for buffers we need for encoding, decoding.      */
+comment|/**      * This<code>ThreadLocal</code> contains a {@link java.lang.ref.SoftReference}      * to a {@link BufferRecycler} used to provide a low-cost      * buffer recycling for buffers we need for encoding, decoding.      */
 DECL|field|_recyclerRef
 specifier|final
 specifier|protected
@@ -352,6 +352,11 @@ name|_outputBuffer
 operator|==
 literal|null
 operator|||
+operator|(
+name|buffer
+operator|!=
+literal|null
+operator|&&
 name|buffer
 operator|.
 name|length
@@ -359,6 +364,7 @@ operator|>
 name|_outputBuffer
 operator|.
 name|length
+operator|)
 condition|)
 block|{
 name|_outputBuffer
@@ -432,6 +438,11 @@ name|_encodingHash
 operator|==
 literal|null
 operator|||
+operator|(
+name|buffer
+operator|!=
+literal|null
+operator|&&
 name|buffer
 operator|.
 name|length
@@ -439,6 +450,7 @@ operator|>
 name|_encodingHash
 operator|.
 name|length
+operator|)
 condition|)
 block|{
 name|_encodingHash
@@ -520,6 +532,11 @@ name|_inputBuffer
 operator|==
 literal|null
 operator|||
+operator|(
+name|buffer
+operator|!=
+literal|null
+operator|&&
 name|buffer
 operator|.
 name|length
@@ -527,6 +544,7 @@ operator|>
 name|_inputBuffer
 operator|.
 name|length
+operator|)
 condition|)
 block|{
 name|_inputBuffer
@@ -600,6 +618,11 @@ name|_decodingBuffer
 operator|==
 literal|null
 operator|||
+operator|(
+name|buffer
+operator|!=
+literal|null
+operator|&&
 name|buffer
 operator|.
 name|length
@@ -607,6 +630,7 @@ operator|>
 name|_decodingBuffer
 operator|.
 name|length
+operator|)
 condition|)
 block|{
 name|_decodingBuffer
