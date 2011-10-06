@@ -234,6 +234,22 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|Queries
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|metrics
 operator|.
 name|MeanMetric
@@ -2500,7 +2516,25 @@ argument_list|()
 expr_stmt|;
 name|Query
 name|query
-init|=
+decl_stmt|;
+if|if
+condition|(
+name|querySourceLength
+operator|==
+literal|0
+condition|)
+block|{
+name|query
+operator|=
+name|Queries
+operator|.
+name|MATCH_ALL_QUERY
+expr_stmt|;
+block|}
+else|else
+block|{
+name|query
+operator|=
 name|queryParserService
 operator|.
 name|parse
@@ -2514,7 +2548,8 @@ argument_list|)
 operator|.
 name|query
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+block|}
 comment|// wrap it in filter, cache it, and constant score it
 comment|// Don't cache it, since it might be very different queries each time...
 comment|//        query = new ConstantScoreQuery(filterCache.cache(new QueryWrapperFilter(query)));
