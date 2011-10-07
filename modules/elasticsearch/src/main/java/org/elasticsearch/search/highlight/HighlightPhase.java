@@ -1274,6 +1274,8 @@ block|}
 name|String
 index|[]
 name|fragments
+init|=
+literal|null
 decl_stmt|;
 comment|// number_of_fragments is set to 0 but we have a multivalued field
 if|if
@@ -1291,6 +1293,13 @@ name|size
 argument_list|()
 operator|>
 literal|1
+operator|&&
+name|fragsList
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|0
 condition|)
 block|{
 name|fragments
@@ -1419,6 +1428,10 @@ block|}
 block|}
 if|if
 condition|(
+name|fragments
+operator|!=
+literal|null
+operator|&&
 name|fragments
 operator|.
 name|length
