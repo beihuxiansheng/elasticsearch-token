@@ -3093,6 +3093,16 @@ operator|.
 name|startObject
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|url
+operator|.
+name|getURL
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 name|builder
 operator|.
 name|field
@@ -3108,6 +3118,7 @@ name|toExternalForm
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|url
