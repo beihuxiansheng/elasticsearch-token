@@ -407,13 +407,9 @@ operator|==
 literal|null
 condition|)
 block|{
-throw|throw
-operator|new
-name|ElasticSearchIllegalArgumentException
-argument_list|(
-literal|"No query to execute, not in body, and not bounded to 'q' parameter"
-argument_list|)
-throw|;
+return|return
+literal|null
+return|;
 block|}
 name|QueryStringQueryBuilder
 name|queryBuilder
