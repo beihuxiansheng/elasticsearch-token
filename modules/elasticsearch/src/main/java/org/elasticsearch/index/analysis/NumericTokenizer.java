@@ -266,6 +266,7 @@ DECL|method|incrementToken
 annotation|@
 name|Override
 specifier|public
+specifier|final
 name|boolean
 name|incrementToken
 parameter_list|()
