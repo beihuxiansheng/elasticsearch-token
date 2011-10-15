@@ -1505,6 +1505,11 @@ operator|.
 name|text
 argument_list|()
 argument_list|)
+operator|.
+name|fields
+argument_list|(
+name|defaultFields
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
