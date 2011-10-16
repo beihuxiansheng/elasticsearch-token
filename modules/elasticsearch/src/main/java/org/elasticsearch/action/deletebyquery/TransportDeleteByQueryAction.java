@@ -159,7 +159,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  */
 end_comment
 
 begin_class
@@ -177,6 +177,8 @@ argument_list|,
 name|IndexDeleteByQueryRequest
 argument_list|,
 name|IndexDeleteByQueryResponse
+argument_list|,
+name|ShardDeleteByQueryRequest
 argument_list|,
 name|ShardDeleteByQueryRequest
 argument_list|,

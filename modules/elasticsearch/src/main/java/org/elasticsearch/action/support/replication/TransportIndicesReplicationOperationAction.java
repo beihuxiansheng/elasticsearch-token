@@ -38,6 +38,18 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
+name|ActionRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
 name|ActionResponse
 import|;
 end_import
@@ -205,7 +217,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  */
 end_comment
 
 begin_class
@@ -235,6 +247,10 @@ name|ShardRequest
 extends|extends
 name|ShardReplicationOperationRequest
 parameter_list|,
+name|ShardReplicaRequest
+extends|extends
+name|ActionRequest
+parameter_list|,
 name|ShardResponse
 extends|extends
 name|ActionResponse
@@ -263,6 +279,8 @@ argument_list|,
 name|IndexResponse
 argument_list|,
 name|ShardRequest
+argument_list|,
+name|ShardReplicaRequest
 argument_list|,
 name|ShardResponse
 argument_list|>
@@ -298,6 +316,8 @@ argument_list|,
 name|IndexResponse
 argument_list|,
 name|ShardRequest
+argument_list|,
+name|ShardReplicaRequest
 argument_list|,
 name|ShardResponse
 argument_list|>

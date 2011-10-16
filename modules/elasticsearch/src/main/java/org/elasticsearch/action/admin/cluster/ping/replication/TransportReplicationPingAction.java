@@ -139,7 +139,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  */
 end_comment
 
 begin_class
@@ -157,6 +157,8 @@ argument_list|,
 name|IndexReplicationPingRequest
 argument_list|,
 name|IndexReplicationPingResponse
+argument_list|,
+name|ShardReplicationPingRequest
 argument_list|,
 name|ShardReplicationPingRequest
 argument_list|,

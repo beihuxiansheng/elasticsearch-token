@@ -180,6 +180,8 @@ name|IndexDeleteResponse
 argument_list|,
 name|ShardDeleteRequest
 argument_list|,
+name|ShardDeleteRequest
+argument_list|,
 name|ShardDeleteResponse
 argument_list|>
 block|{

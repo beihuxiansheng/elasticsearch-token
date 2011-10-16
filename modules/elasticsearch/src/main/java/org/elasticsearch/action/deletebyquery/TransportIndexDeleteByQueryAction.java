@@ -168,6 +168,8 @@ name|IndexDeleteByQueryResponse
 argument_list|,
 name|ShardDeleteByQueryRequest
 argument_list|,
+name|ShardDeleteByQueryRequest
+argument_list|,
 name|ShardDeleteByQueryResponse
 argument_list|>
 block|{
