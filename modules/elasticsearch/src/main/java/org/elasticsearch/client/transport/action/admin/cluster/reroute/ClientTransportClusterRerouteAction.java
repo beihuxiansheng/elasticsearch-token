@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.client.transport.action.admin.cluster.state
+DECL|package|org.elasticsearch.client.transport.action.admin.cluster.reroute
 package|package
 name|org
 operator|.
@@ -20,7 +20,7 @@ name|admin
 operator|.
 name|cluster
 operator|.
-name|state
+name|reroute
 package|;
 end_package
 
@@ -48,9 +48,9 @@ name|admin
 operator|.
 name|cluster
 operator|.
-name|state
+name|reroute
 operator|.
-name|ClusterStateRequest
+name|ClusterRerouteRequest
 import|;
 end_import
 
@@ -66,9 +66,9 @@ name|admin
 operator|.
 name|cluster
 operator|.
-name|state
+name|reroute
 operator|.
-name|ClusterStateResponse
+name|ClusterRerouteResponse
 import|;
 end_import
 
@@ -131,27 +131,27 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * @author kimchy (Shay Banon)  */
 end_comment
 
 begin_class
-DECL|class|ClientTransportClusterStateAction
+DECL|class|ClientTransportClusterRerouteAction
 specifier|public
 class|class
-name|ClientTransportClusterStateAction
+name|ClientTransportClusterRerouteAction
 extends|extends
 name|BaseClientTransportAction
 argument_list|<
-name|ClusterStateRequest
+name|ClusterRerouteRequest
 argument_list|,
-name|ClusterStateResponse
+name|ClusterRerouteResponse
 argument_list|>
 block|{
-DECL|method|ClientTransportClusterStateAction
+DECL|method|ClientTransportClusterRerouteAction
 annotation|@
 name|Inject
 specifier|public
-name|ClientTransportClusterStateAction
+name|ClientTransportClusterRerouteAction
 parameter_list|(
 name|Settings
 name|settings
@@ -166,7 +166,7 @@ name|settings
 argument_list|,
 name|transportService
 argument_list|,
-name|ClusterStateResponse
+name|ClusterRerouteResponse
 operator|.
 name|class
 argument_list|)
@@ -187,7 +187,7 @@ name|Admin
 operator|.
 name|Cluster
 operator|.
-name|STATE
+name|REROUTE
 return|;
 block|}
 block|}

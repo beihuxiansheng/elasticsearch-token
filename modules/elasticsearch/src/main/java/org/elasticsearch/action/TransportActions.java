@@ -379,6 +379,15 @@ name|UPDATE_SETTINGS
 init|=
 literal|"/cluster/updateSettings"
 decl_stmt|;
+DECL|field|REROUTE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|REROUTE
+init|=
+literal|"/cluster/reroute"
+decl_stmt|;
 DECL|class|Node
 specifier|public
 specifier|static
