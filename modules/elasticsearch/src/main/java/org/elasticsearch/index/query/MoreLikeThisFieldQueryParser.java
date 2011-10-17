@@ -810,6 +810,7 @@ operator|.
 name|indexName
 argument_list|()
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|analyzer
@@ -821,13 +822,9 @@ name|analyzer
 operator|=
 name|smartNameFieldMappers
 operator|.
-name|mapper
-argument_list|()
-operator|.
 name|searchAnalyzer
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 block|}
 if|if

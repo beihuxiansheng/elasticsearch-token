@@ -412,10 +412,7 @@ name|mapper
 init|=
 name|parseContext
 operator|.
-name|mapperService
-argument_list|()
-operator|.
-name|smartNameFieldMapper
+name|fieldMapper
 argument_list|(
 name|field
 argument_list|)

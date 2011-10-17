@@ -389,10 +389,7 @@ name|smartMappers
 init|=
 name|context
 operator|.
-name|mapperService
-argument_list|()
-operator|.
-name|smartName
+name|smartFieldMappers
 argument_list|(
 name|fieldName
 argument_list|)
@@ -430,6 +427,11 @@ condition|(
 name|smartMappers
 operator|.
 name|hasDocMapper
+argument_list|()
+operator|&&
+name|smartMappers
+operator|.
+name|explicitTypeInName
 argument_list|()
 condition|)
 block|{

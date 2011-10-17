@@ -516,6 +516,12 @@ name|smartFieldMappers
 operator|.
 name|hasDocMapper
 argument_list|()
+operator|||
+operator|!
+name|smartFieldMappers
+operator|.
+name|explicitTypeInName
+argument_list|()
 condition|)
 block|{
 return|return
@@ -587,6 +593,12 @@ operator|!
 name|smartFieldMappers
 operator|.
 name|hasDocMapper
+argument_list|()
+operator|||
+operator|!
+name|smartFieldMappers
+operator|.
+name|explicitTypeInName
 argument_list|()
 condition|)
 block|{

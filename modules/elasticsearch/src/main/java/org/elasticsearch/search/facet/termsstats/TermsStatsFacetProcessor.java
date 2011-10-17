@@ -720,9 +720,6 @@ name|keyFieldMapper
 init|=
 name|context
 operator|.
-name|mapperService
-argument_list|()
-operator|.
 name|smartNameFieldMapper
 argument_list|(
 name|keyField

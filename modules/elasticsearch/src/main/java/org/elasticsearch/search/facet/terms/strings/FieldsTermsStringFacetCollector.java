@@ -548,10 +548,7 @@ name|smartMappers
 init|=
 name|context
 operator|.
-name|mapperService
-argument_list|()
-operator|.
-name|smartName
+name|smartFieldMappers
 argument_list|(
 name|fieldsNames
 index|[

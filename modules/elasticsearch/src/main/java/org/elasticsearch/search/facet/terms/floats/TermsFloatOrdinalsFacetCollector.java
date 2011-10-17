@@ -476,10 +476,7 @@ name|smartMappers
 init|=
 name|context
 operator|.
-name|mapperService
-argument_list|()
-operator|.
-name|smartName
+name|smartFieldMappers
 argument_list|(
 name|fieldName
 argument_list|)
@@ -509,14 +506,17 @@ literal|"] doesn't have a type, can't run terms float facet collector on it"
 argument_list|)
 throw|;
 block|}
-else|else
-block|{
 comment|// add type filter if there is exact doc mapper associated with it
 if|if
 condition|(
 name|smartMappers
 operator|.
 name|hasDocMapper
+argument_list|()
+operator|&&
+name|smartMappers
+operator|.
+name|explicitTypeInName
 argument_list|()
 condition|)
 block|{
@@ -596,7 +596,6 @@ operator|.
 name|fieldDataType
 argument_list|()
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|excluded

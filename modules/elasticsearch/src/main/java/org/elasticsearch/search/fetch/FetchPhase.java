@@ -782,9 +782,6 @@ name|x
 init|=
 name|context
 operator|.
-name|mapperService
-argument_list|()
-operator|.
 name|smartNameFieldMappers
 argument_list|(
 name|fieldName
