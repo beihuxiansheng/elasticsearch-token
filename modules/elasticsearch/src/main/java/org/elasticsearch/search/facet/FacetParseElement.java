@@ -633,9 +633,6 @@ name|mapper
 init|=
 name|context
 operator|.
-name|mapperService
-argument_list|()
-operator|.
 name|smartNameObjectMapper
 argument_list|(
 name|nestedPath

@@ -685,10 +685,7 @@ name|mapper
 init|=
 name|parseContext
 operator|.
-name|mapperService
-argument_list|()
-operator|.
-name|smartNameObjectMapper
+name|smartObjectMapper
 argument_list|(
 name|path
 argument_list|)
