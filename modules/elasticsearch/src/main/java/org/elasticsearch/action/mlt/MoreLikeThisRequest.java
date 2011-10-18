@@ -1003,7 +1003,7 @@ name|bos
 init|=
 name|sourceBuilder
 operator|.
-name|buildAsUnsafeBytes
+name|buildAsBytesStream
 argument_list|(
 name|Requests
 operator|.

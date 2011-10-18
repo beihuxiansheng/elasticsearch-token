@@ -940,7 +940,7 @@ name|bos
 init|=
 name|sourceBuilder
 operator|.
-name|buildAsUnsafeBytes
+name|buildAsBytesStream
 argument_list|(
 name|Requests
 operator|.
@@ -975,7 +975,7 @@ name|this
 operator|.
 name|sourceUnsafe
 operator|=
-literal|true
+literal|false
 expr_stmt|;
 return|return
 name|this
@@ -1324,7 +1324,7 @@ name|bos
 init|=
 name|sourceBuilder
 operator|.
-name|buildAsUnsafeBytes
+name|buildAsBytesStream
 argument_list|(
 name|Requests
 operator|.
@@ -1359,7 +1359,7 @@ name|this
 operator|.
 name|extraSourceUnsafe
 operator|=
-literal|true
+literal|false
 expr_stmt|;
 return|return
 name|this

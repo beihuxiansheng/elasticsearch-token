@@ -1769,10 +1769,10 @@ literal|"\"}"
 return|;
 block|}
 block|}
-DECL|method|buildAsUnsafeBytes
+DECL|method|buildAsBytesStream
 specifier|public
 name|BytesStream
-name|buildAsUnsafeBytes
+name|buildAsBytesStream
 parameter_list|(
 name|XContentType
 name|contentType

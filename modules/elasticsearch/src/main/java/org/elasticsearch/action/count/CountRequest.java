@@ -440,12 +440,12 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|beforeLocalFork
+DECL|method|beforeStart
 annotation|@
 name|Override
 specifier|protected
 name|void
-name|beforeLocalFork
+name|beforeStart
 parameter_list|()
 block|{
 if|if

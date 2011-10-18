@@ -289,6 +289,12 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+DECL|method|beforeStart
+specifier|protected
+name|void
+name|beforeStart
+parameter_list|()
+block|{      }
 DECL|method|beforeLocalFork
 specifier|protected
 name|void
