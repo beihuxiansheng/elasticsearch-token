@@ -560,13 +560,14 @@ return|return
 name|validationException
 return|;
 block|}
-comment|/**      * Internal.      */
-DECL|method|beforeLocalFork
+DECL|method|beforeStart
 specifier|public
 name|void
-name|beforeLocalFork
+name|beforeStart
 parameter_list|()
 block|{
+comment|// we always copy over if needed, the reason is that a request might fail while being search remotely
+comment|// and then we need to keep the buffer around
 if|if
 condition|(
 name|source
@@ -634,6 +635,13 @@ literal|false
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Internal.      */
+DECL|method|beforeLocalFork
+specifier|public
+name|void
+name|beforeLocalFork
+parameter_list|()
+block|{     }
 comment|/**      * Should the listener be called on a separate thread if needed.      */
 DECL|method|listenerThreaded
 annotation|@
