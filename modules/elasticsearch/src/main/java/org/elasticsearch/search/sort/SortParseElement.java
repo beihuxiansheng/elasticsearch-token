@@ -1009,7 +1009,7 @@ literal|"No mapping found for ["
 operator|+
 name|fieldName
 operator|+
-literal|"]"
+literal|"] in order to sort on"
 argument_list|)
 throw|;
 block|}
