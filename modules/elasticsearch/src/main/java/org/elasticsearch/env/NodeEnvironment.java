@@ -550,7 +550,18 @@ argument_list|)
 expr_stmt|;
 name|lastException
 operator|=
+operator|new
+name|IOException
+argument_list|(
+literal|"failed to obtain lock on "
+operator|+
+name|dir
+operator|.
+name|getAbsolutePath
+argument_list|()
+argument_list|,
 name|e
+argument_list|)
 expr_stmt|;
 comment|// release all the ones that were obtained up until now
 for|for
