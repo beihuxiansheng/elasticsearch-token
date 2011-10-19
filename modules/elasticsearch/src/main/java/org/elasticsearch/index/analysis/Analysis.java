@@ -1798,12 +1798,12 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * @return null If no settings set for "settingsPrefix + _path" then return null.      *      * @throws ElasticSearchIllegalArgumentException      *          If the Reader can not be instantiated.      */
-DECL|method|getFileReader
+comment|/**      * @return null If no settings set for "settingsPrefix" then return<code>null</code>.      *      * @throws ElasticSearchIllegalArgumentException      *          If the Reader can not be instantiated.      */
+DECL|method|getReaderFromFile
 specifier|public
 specifier|static
 name|Reader
-name|getFileReader
+name|getReaderFromFile
 parameter_list|(
 name|Environment
 name|env
@@ -1823,8 +1823,6 @@ operator|.
 name|get
 argument_list|(
 name|settingPrefix
-operator|+
-literal|"_path"
 argument_list|,
 literal|null
 argument_list|)
