@@ -1487,7 +1487,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"index.shard.check_index"
+literal|"index.shard.check_on_startup"
 argument_list|,
 literal|true
 argument_list|)

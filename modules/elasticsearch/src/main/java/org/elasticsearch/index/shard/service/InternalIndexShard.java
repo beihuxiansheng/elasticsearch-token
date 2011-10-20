@@ -958,11 +958,11 @@ operator|new
 name|Object
 argument_list|()
 decl_stmt|;
-DECL|field|checkIndex
+DECL|field|checkIndexOnStartup
 specifier|private
 specifier|final
 name|boolean
-name|checkIndex
+name|checkIndexOnStartup
 decl_stmt|;
 DECL|field|state
 specifier|private
@@ -1252,13 +1252,13 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|checkIndex
+name|checkIndexOnStartup
 operator|=
 name|indexSettings
 operator|.
 name|getAsBoolean
 argument_list|(
-literal|"index.shard.check_index"
+literal|"index.shard.check_on_startup"
 argument_list|,
 literal|false
 argument_list|)
@@ -1706,7 +1706,7 @@ throw|;
 block|}
 if|if
 condition|(
-name|checkIndex
+name|checkIndexOnStartup
 condition|)
 block|{
 name|checkIndex
@@ -3308,7 +3308,7 @@ block|}
 comment|// also check here, before we apply the translog
 if|if
 condition|(
-name|checkIndex
+name|checkIndexOnStartup
 condition|)
 block|{
 name|checkIndex
