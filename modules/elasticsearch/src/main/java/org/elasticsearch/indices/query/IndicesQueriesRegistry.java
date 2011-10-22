@@ -439,6 +439,15 @@ name|WrapperQueryParser
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|addQueryParser
+argument_list|(
+name|queryParsers
+argument_list|,
+operator|new
+name|IndicesQueryParser
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|queryParsers
