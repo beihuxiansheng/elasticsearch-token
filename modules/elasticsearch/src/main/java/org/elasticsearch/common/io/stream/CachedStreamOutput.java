@@ -535,6 +535,13 @@ name|Entry
 argument_list|>
 argument_list|()
 expr_stmt|;
+name|counter
+operator|.
+name|set
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
 name|cache
 operator|.
 name|set
