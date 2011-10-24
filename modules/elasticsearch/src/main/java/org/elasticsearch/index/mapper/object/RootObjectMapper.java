@@ -1344,7 +1344,7 @@ name|mappingForName
 argument_list|(
 name|name
 argument_list|,
-name|mappingType
+name|dynamicType
 argument_list|)
 argument_list|,
 name|parserContext
