@@ -769,7 +769,7 @@ argument_list|)
 expr_stmt|;
 name|indicesStatsRequest
 operator|.
-name|indexing
+name|get
 argument_list|(
 name|request
 operator|.
