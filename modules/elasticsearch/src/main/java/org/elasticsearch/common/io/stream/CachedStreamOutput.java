@@ -387,9 +387,8 @@ name|AtomicInteger
 argument_list|()
 decl_stmt|;
 DECL|field|BYTES_LIMIT
-specifier|private
+specifier|public
 specifier|static
-specifier|final
 name|int
 name|BYTES_LIMIT
 init|=
@@ -401,9 +400,8 @@ literal|1024
 decl_stmt|;
 comment|// don't cache entries that are bigger than that...
 DECL|field|COUNT_LIMIT
-specifier|private
+specifier|public
 specifier|static
-specifier|final
 name|int
 name|COUNT_LIMIT
 init|=
