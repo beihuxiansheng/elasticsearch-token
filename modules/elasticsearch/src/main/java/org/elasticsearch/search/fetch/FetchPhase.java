@@ -1320,7 +1320,7 @@ argument_list|()
 operator|.
 name|setNextDocId
 argument_list|(
-name|docId
+name|subDoc
 argument_list|)
 expr_stmt|;
 if|if
