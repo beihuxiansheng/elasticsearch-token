@@ -2491,7 +2491,7 @@ name|size
 init|=
 name|Long
 operator|.
-name|MAX_VALUE
+name|MIN_VALUE
 decl_stmt|;
 for|for
 control|(
@@ -2521,13 +2521,13 @@ operator|.
 name|getDirectory
 argument_list|()
 operator|.
-name|getFreeSpace
+name|getUsableSpace
 argument_list|()
 decl_stmt|;
 if|if
 condition|(
 name|currentSize
-operator|<
+operator|>
 name|size
 condition|)
 block|{
@@ -2561,6 +2561,8 @@ operator|=
 name|delegate
 expr_stmt|;
 block|}
+else|else
+block|{                             }
 block|}
 else|else
 block|{
