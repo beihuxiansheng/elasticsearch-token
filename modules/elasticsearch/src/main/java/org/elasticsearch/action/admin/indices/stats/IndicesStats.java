@@ -838,7 +838,7 @@ argument_list|(
 literal|"total"
 argument_list|)
 expr_stmt|;
-name|primaries
+name|total
 argument_list|()
 operator|.
 name|toXContent
