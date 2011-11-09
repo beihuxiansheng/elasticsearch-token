@@ -3720,6 +3720,8 @@ argument_list|,
 name|currentFieldName
 argument_list|,
 literal|"string"
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 if|if
