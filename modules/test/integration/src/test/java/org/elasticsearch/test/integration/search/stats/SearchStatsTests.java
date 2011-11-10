@@ -324,7 +324,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|100
+literal|500
 condition|;
 name|i
 operator|++
@@ -369,7 +369,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|100
+literal|500
 condition|;
 name|i
 operator|++
@@ -414,7 +414,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|50
+literal|200
 condition|;
 name|i
 operator|++
