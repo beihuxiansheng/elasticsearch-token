@@ -1069,7 +1069,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"minimum_should_write"
+literal|"minimum_should_match"
 argument_list|,
 name|minimumShouldMatch
 argument_list|)
