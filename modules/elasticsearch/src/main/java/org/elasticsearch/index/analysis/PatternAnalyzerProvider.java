@@ -263,6 +263,8 @@ argument_list|,
 name|StopAnalyzer
 operator|.
 name|ENGLISH_STOP_WORDS_SET
+argument_list|,
+name|version
 argument_list|)
 decl_stmt|;
 name|String

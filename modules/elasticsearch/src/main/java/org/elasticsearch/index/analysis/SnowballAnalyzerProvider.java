@@ -433,6 +433,8 @@ argument_list|,
 name|settings
 argument_list|,
 name|defaultStopwords
+argument_list|,
+name|version
 argument_list|)
 decl_stmt|;
 name|analyzer

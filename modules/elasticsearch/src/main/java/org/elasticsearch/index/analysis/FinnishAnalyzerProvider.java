@@ -207,6 +207,8 @@ name|FinnishAnalyzer
 operator|.
 name|getDefaultStopSet
 argument_list|()
+argument_list|,
+name|version
 argument_list|)
 argument_list|,
 name|Analysis

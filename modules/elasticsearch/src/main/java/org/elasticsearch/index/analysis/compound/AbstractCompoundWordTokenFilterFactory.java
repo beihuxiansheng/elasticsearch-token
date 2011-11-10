@@ -206,7 +206,7 @@ specifier|protected
 specifier|final
 name|Set
 argument_list|<
-name|String
+name|?
 argument_list|>
 name|wordList
 decl_stmt|;
@@ -310,6 +310,8 @@ argument_list|,
 name|settings
 argument_list|,
 literal|"word_list"
+argument_list|,
+name|version
 argument_list|)
 expr_stmt|;
 if|if

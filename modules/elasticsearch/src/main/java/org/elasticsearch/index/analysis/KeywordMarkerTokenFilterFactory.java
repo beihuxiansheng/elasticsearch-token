@@ -152,20 +152,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|Version
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -243,7 +229,7 @@ argument_list|)
 decl_stmt|;
 name|Set
 argument_list|<
-name|String
+name|?
 argument_list|>
 name|rules
 init|=
@@ -256,6 +242,8 @@ argument_list|,
 name|settings
 argument_list|,
 literal|"keywords"
+argument_list|,
+name|version
 argument_list|)
 decl_stmt|;
 if|if
@@ -278,9 +266,7 @@ operator|=
 operator|new
 name|CharArraySet
 argument_list|(
-name|Version
-operator|.
-name|LUCENE_32
+name|version
 argument_list|,
 name|rules
 argument_list|,
