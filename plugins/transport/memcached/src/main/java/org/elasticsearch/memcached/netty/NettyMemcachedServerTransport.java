@@ -794,7 +794,9 @@ name|serverOpenChannels
 operator|=
 operator|new
 name|OpenChannelsHandler
-argument_list|()
+argument_list|(
+name|logger
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
