@@ -226,13 +226,7 @@ name|shards
 operator|.
 name|get
 argument_list|(
-operator|(
 name|index
-operator|+
-literal|1
-operator|)
-operator|%
-name|size
 argument_list|)
 return|;
 block|}
