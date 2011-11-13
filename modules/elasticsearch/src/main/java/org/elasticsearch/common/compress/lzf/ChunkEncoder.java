@@ -39,7 +39,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Class that handles actual encoding of individual chunks.  * Resulting chunks can be compressed or non-compressed; compression  * is only used if it actually reduces chunk size (including overhead  * of additional header bytes)  *  * @author tatu@ning.com  */
+comment|/**  * Class that handles actual encoding of individual chunks.  * Resulting chunks can be compressed or non-compressed; compression  * is only used if it actually reduces chunk size (including overhead  * of additional header bytes)  *  * @author Tatu Saloranta (tatu@ning.com)  */
 end_comment
 
 begin_class
@@ -116,6 +116,7 @@ specifier|final
 name|BufferRecycler
 name|_recycler
 decl_stmt|;
+comment|/**      * Hash table contains lookup based on 3-byte sequence; key is hash      * of such triplet, value is offset in buffer.      */
 DECL|field|_hashTable
 specifier|private
 name|int
@@ -226,7 +227,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/*     ///////////////////////////////////////////////////////////////////////     // Public API     ///////////////////////////////////////////////////////////////////////      */
-comment|/**      * Method to close once encoder is no longer in use. Note: after calling      * this method, further calls to {@link #_encodeChunk} will fail      */
+comment|/**      * Method to close once encoder is no longer in use. Note: after calling      * this method, further calls to {@link #encodeChunk} will fail      */
 DECL|method|close
 specifier|public
 name|void
@@ -654,7 +655,7 @@ operator|++
 name|outPos
 expr_stmt|;
 name|int
-name|hash
+name|seen
 init|=
 name|first
 argument_list|(
@@ -663,6 +664,7 @@ argument_list|,
 literal|0
 argument_list|)
 decl_stmt|;
+comment|// past 4 bytes we have seen... (last one is LSB)
 name|int
 name|literals
 init|=
@@ -697,10 +699,10 @@ literal|2
 index|]
 decl_stmt|;
 comment|// next
-name|hash
+name|seen
 operator|=
 operator|(
-name|hash
+name|seen
 operator|<<
 literal|8
 operator|)
@@ -716,7 +718,7 @@ name|off
 init|=
 name|hash
 argument_list|(
-name|hash
+name|seen
 argument_list|)
 decl_stmt|;
 name|int
@@ -743,7 +745,7 @@ name|inPos
 comment|// can't refer forward (i.e. leftovers)
 operator|||
 name|ref
-operator|<
+argument_list|<
 name|firstPos
 comment|// or to previous block
 operator|||
@@ -753,10 +755,8 @@ operator|=
 name|inPos
 operator|-
 name|ref
-operator|-
-literal|1
 operator|)
-operator|>=
+argument_list|>
 name|MAX_OFF
 operator|||
 name|in
@@ -780,7 +780,7 @@ call|(
 name|byte
 call|)
 argument_list|(
-name|hash
+name|seen
 operator|>>
 literal|8
 argument_list|)
@@ -794,7 +794,7 @@ call|(
 name|byte
 call|)
 argument_list|(
-name|hash
+name|seen
 operator|>>
 literal|16
 argument_list|)
@@ -939,6 +939,10 @@ name|len
 operator|-=
 literal|2
 expr_stmt|;
+operator|--
+name|off
+expr_stmt|;
+comment|// was off by one earlier
 if|if
 condition|(
 name|len
@@ -1029,7 +1033,7 @@ name|inPos
 operator|+=
 name|len
 expr_stmt|;
-name|hash
+name|seen
 operator|=
 name|first
 argument_list|(
@@ -1038,10 +1042,10 @@ argument_list|,
 name|inPos
 argument_list|)
 expr_stmt|;
-name|hash
+name|seen
 operator|=
 operator|(
-name|hash
+name|seen
 operator|<<
 literal|8
 operator|)
@@ -1061,17 +1065,19 @@ name|hashTable
 index|[
 name|hash
 argument_list|(
-name|hash
+name|seen
 argument_list|)
 index|]
 operator|=
 name|inPos
-operator|++
 expr_stmt|;
-name|hash
+operator|++
+name|inPos
+expr_stmt|;
+name|seen
 operator|=
 operator|(
-name|hash
+name|seen
 operator|<<
 literal|8
 operator|)
@@ -1092,27 +1098,27 @@ name|hashTable
 index|[
 name|hash
 argument_list|(
-name|hash
+name|seen
 argument_list|)
 index|]
 operator|=
 name|inPos
+expr_stmt|;
 operator|++
+name|inPos
 expr_stmt|;
 block|}
-name|inEnd
-operator|+=
-literal|4
-expr_stmt|;
 comment|// try offlining the tail
 return|return
-name|tryCompressTail
+name|handleTail
 argument_list|(
 name|in
 argument_list|,
 name|inPos
 argument_list|,
 name|inEnd
+operator|+
+literal|4
 argument_list|,
 name|out
 argument_list|,
@@ -1122,10 +1128,10 @@ name|literals
 argument_list|)
 return|;
 block|}
-DECL|method|tryCompressTail
+DECL|method|handleTail
 specifier|private
 name|int
-name|tryCompressTail
+name|handleTail
 parameter_list|(
 name|byte
 index|[]

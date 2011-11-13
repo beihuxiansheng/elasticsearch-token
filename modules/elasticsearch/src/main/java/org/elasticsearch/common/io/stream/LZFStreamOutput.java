@@ -128,6 +128,14 @@ name|_position
 init|=
 literal|0
 decl_stmt|;
+comment|/**      * Configuration setting that governs whether basic 'flush()' should      * first complete a block or not.      *<p>      * Default value is 'true'      *      * @since 0.8      */
+DECL|field|_cfgFinishBlockOnFlush
+specifier|protected
+name|boolean
+name|_cfgFinishBlockOnFlush
+init|=
+literal|true
+decl_stmt|;
 DECL|field|neverClose
 specifier|private
 specifier|final
@@ -282,6 +290,16 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// ES, check if length is 0, and don't write in this case
+if|if
+condition|(
+name|length
+operator|==
+literal|0
+condition|)
+block|{
+return|return;
+block|}
 specifier|final
 name|int
 name|BUFFER_LEN
@@ -428,6 +446,8 @@ name|IOException
 block|{
 if|if
 condition|(
+name|_cfgFinishBlockOnFlush
+operator|&&
 name|_position
 operator|>
 literal|0
@@ -453,9 +473,17 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|flush
+if|if
+condition|(
+name|_position
+operator|>
+literal|0
+condition|)
+block|{
+name|writeCompressedBlock
 argument_list|()
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|neverClose
@@ -470,7 +498,7 @@ return|return;
 block|}
 name|_outputStream
 operator|.
-name|close
+name|flush
 argument_list|()
 expr_stmt|;
 name|_encoder
@@ -503,6 +531,11 @@ name|buf
 argument_list|)
 expr_stmt|;
 block|}
+name|_outputStream
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|reset
 annotation|@
@@ -602,7 +635,7 @@ name|encodeAndWriteChunk
 argument_list|(
 name|_outputBuffer
 argument_list|,
-literal|0
+name|offset
 argument_list|,
 name|chunkLen
 argument_list|,

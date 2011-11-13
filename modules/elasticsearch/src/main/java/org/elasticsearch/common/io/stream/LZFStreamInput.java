@@ -46,6 +46,22 @@ name|compress
 operator|.
 name|lzf
 operator|.
+name|ChunkDecoder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|compress
+operator|.
+name|lzf
+operator|.
 name|LZFChunk
 import|;
 end_import
@@ -62,7 +78,9 @@ name|compress
 operator|.
 name|lzf
 operator|.
-name|LZFDecoder
+name|util
+operator|.
+name|ChunkDecoderFactory
 import|;
 end_import
 
@@ -98,6 +116,14 @@ name|LZFStreamInput
 extends|extends
 name|StreamInput
 block|{
+comment|/**      * Underlying decoder in use.      */
+DECL|field|_decoder
+specifier|private
+specifier|final
+name|ChunkDecoder
+name|_decoder
+decl_stmt|;
+comment|/**      * Object that handles details of buffer recycling      */
 DECL|field|_recycler
 specifier|private
 specifier|final
@@ -117,10 +143,10 @@ name|boolean
 name|inputStreamClosed
 decl_stmt|;
 comment|/**      * Flag that indicates whether we force full reads (reading of as many      * bytes as requested), or 'optimal' reads (up to as many as available,      * but at least one). Default is false, meaning that 'optimal' read      * is used.      */
-DECL|field|cfgFullReads
+DECL|field|_cfgFullReads
 specifier|protected
 name|boolean
-name|cfgFullReads
+name|_cfgFullReads
 init|=
 literal|true
 decl_stmt|;
@@ -204,6 +230,13 @@ name|instance
 argument_list|()
 expr_stmt|;
 block|}
+name|_decoder
+operator|=
+name|ChunkDecoderFactory
+operator|.
+name|optimalInstance
+argument_list|()
+expr_stmt|;
 name|inputStream
 operator|=
 name|in
@@ -393,7 +426,7 @@ operator|==
 name|length
 operator|||
 operator|!
-name|cfgFullReads
+name|_cfgFullReads
 condition|)
 block|{
 return|return
@@ -745,9 +778,9 @@ return|;
 block|}
 name|bufferLength
 operator|=
-name|LZFDecoder
+name|_decoder
 operator|.
-name|decompressChunk
+name|decodeChunk
 argument_list|(
 name|inputStream
 argument_list|,
