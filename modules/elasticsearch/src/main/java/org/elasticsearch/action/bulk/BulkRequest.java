@@ -987,6 +987,13 @@ name|equals
 argument_list|(
 name|currentFieldName
 argument_list|)
+operator|||
+literal|"_percolate"
+operator|.
+name|equals
+argument_list|(
+name|currentFieldName
+argument_list|)
 condition|)
 block|{
 name|percolate
