@@ -3195,6 +3195,11 @@ name|BuilderContext
 argument_list|(
 name|context
 operator|.
+name|indexSettings
+argument_list|()
+argument_list|,
+name|context
+operator|.
 name|path
 argument_list|()
 argument_list|)
@@ -3672,6 +3677,11 @@ init|=
 operator|new
 name|BuilderContext
 argument_list|(
+name|context
+operator|.
+name|indexSettings
+argument_list|()
+argument_list|,
 name|context
 operator|.
 name|path
