@@ -1026,6 +1026,10 @@ name|CustomScoreQueryParser
 operator|.
 name|ScriptScoreFunction
 argument_list|(
+name|script
+argument_list|,
+name|vars
+argument_list|,
 name|searchScript
 argument_list|)
 expr_stmt|;
