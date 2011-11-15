@@ -385,6 +385,15 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|parentDoc
+operator|==
+literal|0
+condition|)
+block|{
+return|return;
+block|}
 name|int
 name|prevParentDoc
 init|=
