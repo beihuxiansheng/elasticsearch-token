@@ -152,7 +152,7 @@ name|fetch
 operator|.
 name|explain
 operator|.
-name|ExplainSearchHitPhase
+name|ExplainFetchSubPhase
 import|;
 end_import
 
@@ -168,7 +168,7 @@ name|fetch
 operator|.
 name|matchedfilters
 operator|.
-name|MatchedFiltersSearchHitPhase
+name|MatchedFiltersFetchSubPhase
 import|;
 end_import
 
@@ -184,7 +184,7 @@ name|fetch
 operator|.
 name|script
 operator|.
-name|ScriptFieldsSearchHitPhase
+name|ScriptFieldsFetchSubPhase
 import|;
 end_import
 
@@ -200,7 +200,7 @@ name|fetch
 operator|.
 name|version
 operator|.
-name|VersionSearchHitPhase
+name|VersionFetchSubPhase
 import|;
 end_import
 
@@ -334,7 +334,7 @@ argument_list|()
 expr_stmt|;
 name|bind
 argument_list|(
-name|ExplainSearchHitPhase
+name|ExplainFetchSubPhase
 operator|.
 name|class
 argument_list|)
@@ -344,7 +344,7 @@ argument_list|()
 expr_stmt|;
 name|bind
 argument_list|(
-name|ScriptFieldsSearchHitPhase
+name|ScriptFieldsFetchSubPhase
 operator|.
 name|class
 argument_list|)
@@ -354,7 +354,7 @@ argument_list|()
 expr_stmt|;
 name|bind
 argument_list|(
-name|VersionSearchHitPhase
+name|VersionFetchSubPhase
 operator|.
 name|class
 argument_list|)
@@ -364,7 +364,7 @@ argument_list|()
 expr_stmt|;
 name|bind
 argument_list|(
-name|MatchedFiltersSearchHitPhase
+name|MatchedFiltersFetchSubPhase
 operator|.
 name|class
 argument_list|)
