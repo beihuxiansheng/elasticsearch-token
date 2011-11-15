@@ -249,7 +249,7 @@ decl_stmt|;
 name|boolean
 name|globalHighlightFilter
 init|=
-literal|true
+literal|false
 decl_stmt|;
 name|int
 name|globalFragmentSize
