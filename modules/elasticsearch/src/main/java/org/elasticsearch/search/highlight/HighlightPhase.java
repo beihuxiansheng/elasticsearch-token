@@ -1780,6 +1780,9 @@ name|highlighter
 argument_list|,
 name|context
 operator|.
+name|parsedQuery
+argument_list|()
+operator|.
 name|query
 argument_list|()
 argument_list|,
