@@ -1320,6 +1320,17 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// nullify the request so it won't execute on the replicas
+name|request
+operator|.
+name|items
+argument_list|()
+index|[
+name|i
+index|]
+operator|=
+literal|null
+expr_stmt|;
 block|}
 block|}
 elseif|else
@@ -1542,6 +1553,17 @@ name|e
 argument_list|)
 argument_list|)
 argument_list|)
+expr_stmt|;
+comment|// nullify the request so it won't execute on the replicas
+name|request
+operator|.
+name|items
+argument_list|()
+index|[
+name|i
+index|]
+operator|=
+literal|null
 expr_stmt|;
 block|}
 block|}
@@ -1935,6 +1957,15 @@ index|[
 name|i
 index|]
 decl_stmt|;
+if|if
+condition|(
+name|item
+operator|==
+literal|null
+condition|)
+block|{
+continue|continue;
+block|}
 if|if
 condition|(
 name|item
