@@ -1071,20 +1071,6 @@ argument_list|(
 name|cachedEntry
 argument_list|)
 expr_stmt|;
-comment|// update the data in the context, so it can be compressed and stored compressed outside...
-name|context
-operator|.
-name|source
-argument_list|(
-name|value
-argument_list|,
-literal|0
-argument_list|,
-name|value
-operator|.
-name|length
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 block|}
