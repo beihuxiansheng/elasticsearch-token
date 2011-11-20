@@ -1665,10 +1665,7 @@ name|XContentMapValues
 operator|.
 name|nodeIntegerValue
 argument_list|(
-name|settings
-operator|.
-name|settings
-argument_list|()
+name|indexSettings
 operator|.
 name|get
 argument_list|(
@@ -1686,10 +1683,7 @@ name|XContentMapValues
 operator|.
 name|nodeIntegerValue
 argument_list|(
-name|settings
-operator|.
-name|settings
-argument_list|()
+name|indexSettings
 operator|.
 name|get
 argument_list|(
