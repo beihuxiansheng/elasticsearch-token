@@ -521,6 +521,8 @@ specifier|public
 name|void
 name|testRecoverAfterMasterNodes
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|logger
 operator|.
@@ -952,6 +954,13 @@ literal|"node.master"
 argument_list|,
 literal|true
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|300
 argument_list|)
 expr_stmt|;
 name|assertThat
