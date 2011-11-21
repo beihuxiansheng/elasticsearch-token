@@ -706,13 +706,6 @@ name|filter
 argument_list|)
 expr_stmt|;
 block|}
-name|query
-operator|.
-name|setBoost
-argument_list|(
-name|boost
-argument_list|)
-expr_stmt|;
 name|MapperService
 operator|.
 name|SmartNameObjectMapper
@@ -913,6 +906,13 @@ argument_list|,
 name|scoreMode
 argument_list|)
 decl_stmt|;
+name|joinQuery
+operator|.
+name|setBoost
+argument_list|(
+name|boost
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|scope
