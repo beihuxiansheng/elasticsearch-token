@@ -3763,6 +3763,25 @@ name|resolved
 operator|&&
 name|context
 operator|.
+name|parser
+argument_list|()
+operator|.
+name|textLength
+argument_list|()
+operator|==
+literal|0
+condition|)
+block|{
+comment|// empty string with no mapping, treat it like null value
+return|return;
+block|}
+if|if
+condition|(
+operator|!
+name|resolved
+operator|&&
+name|context
+operator|.
 name|root
 argument_list|()
 operator|.
