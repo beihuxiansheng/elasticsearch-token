@@ -110,7 +110,7 @@ name|builder
 operator|.
 name|startObject
 argument_list|(
-name|CustomBoostFactorQueryParser
+name|IndicesQueryParser
 operator|.
 name|NAME
 argument_list|)
