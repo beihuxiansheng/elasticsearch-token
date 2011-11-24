@@ -392,7 +392,7 @@ specifier|static
 name|int
 name|BYTES_LIMIT
 init|=
-literal|10
+literal|1
 operator|*
 literal|1024
 operator|*
