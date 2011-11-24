@@ -151,7 +151,7 @@ operator|.
 name|class
 expr_stmt|;
 block|}
-comment|// ES: Because of this: https://github.com/ning/compress/issues/13, disable the optimized by default
+comment|// ES: Seems like: https://github.com/ning/compress/issues/13, is fixed, so enable by defualt, but only from 0.19
 if|if
 condition|(
 operator|!
@@ -166,7 +166,7 @@ argument_list|(
 literal|"compress.lzf.decoder.optimized"
 argument_list|)
 argument_list|,
-literal|false
+literal|true
 argument_list|)
 condition|)
 block|{
