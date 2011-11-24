@@ -1623,6 +1623,8 @@ operator|.
 name|fieldFilter
 argument_list|(
 name|type
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 if|if

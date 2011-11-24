@@ -861,6 +861,8 @@ parameter_list|(
 name|String
 name|value
 parameter_list|,
+annotation|@
+name|Nullable
 name|QueryParseContext
 name|context
 parameter_list|)
@@ -930,6 +932,11 @@ name|fieldFilter
 parameter_list|(
 name|String
 name|value
+parameter_list|,
+annotation|@
+name|Nullable
+name|QueryParseContext
+name|context
 parameter_list|)
 block|{
 return|return

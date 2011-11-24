@@ -108,6 +108,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Nullable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|util
 operator|.
 name|concurrent
@@ -490,6 +502,8 @@ parameter_list|(
 name|String
 name|value
 parameter_list|,
+annotation|@
+name|Nullable
 name|QueryParseContext
 name|context
 parameter_list|)
@@ -543,6 +557,11 @@ name|fieldFilter
 parameter_list|(
 name|String
 name|value
+parameter_list|,
+annotation|@
+name|Nullable
+name|QueryParseContext
+name|context
 parameter_list|)
 function_decl|;
 comment|/**      * Constructs a range query based on the mapper.      */
