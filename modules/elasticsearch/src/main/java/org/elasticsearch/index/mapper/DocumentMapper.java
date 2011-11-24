@@ -414,6 +414,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|LinkedHashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -678,9 +688,18 @@ name|RootMapper
 argument_list|>
 name|rootMappers
 init|=
-name|Maps
-operator|.
-name|newHashMap
+operator|new
+name|LinkedHashMap
+argument_list|<
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|RootMapper
+argument_list|>
+argument_list|,
+name|RootMapper
+argument_list|>
 argument_list|()
 decl_stmt|;
 DECL|field|indexAnalyzer
@@ -862,7 +881,7 @@ argument_list|,
 name|idFieldMapper
 argument_list|)
 expr_stmt|;
-comment|// add default mappers
+comment|// add default mappers, order is important (for example analyzer should come before the rest to set context.analyzer)
 name|this
 operator|.
 name|rootMappers
@@ -929,12 +948,12 @@ name|rootMappers
 operator|.
 name|put
 argument_list|(
-name|AllFieldMapper
+name|AnalyzerMapper
 operator|.
 name|class
 argument_list|,
 operator|new
-name|AllFieldMapper
+name|AnalyzerMapper
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -944,12 +963,12 @@ name|rootMappers
 operator|.
 name|put
 argument_list|(
-name|AnalyzerMapper
+name|AllFieldMapper
 operator|.
 name|class
 argument_list|,
 operator|new
-name|AnalyzerMapper
+name|AllFieldMapper
 argument_list|()
 argument_list|)
 expr_stmt|;
