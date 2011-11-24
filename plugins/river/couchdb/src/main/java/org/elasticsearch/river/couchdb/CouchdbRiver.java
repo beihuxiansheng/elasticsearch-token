@@ -2426,9 +2426,10 @@ operator|.
 name|jsonBuilder
 argument_list|()
 decl_stmt|;
+comment|//builder.startObject();
 name|builder
 operator|.
-name|startObject
+name|startArray
 argument_list|()
 expr_stmt|;
 for|for
@@ -2454,9 +2455,10 @@ expr_stmt|;
 block|}
 name|builder
 operator|.
-name|endObject
+name|endArray
 argument_list|()
 expr_stmt|;
+comment|//builder.endObject();
 name|lastSeqAsString
 operator|=
 name|builder
