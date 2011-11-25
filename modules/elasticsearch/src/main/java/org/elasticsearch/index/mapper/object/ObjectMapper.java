@@ -3081,6 +3081,8 @@ throw|throw
 operator|new
 name|StrictDynamicMappingException
 argument_list|(
+name|fullPath
+argument_list|,
 name|currentFieldName
 argument_list|)
 throw|;
@@ -3623,6 +3625,8 @@ throw|throw
 operator|new
 name|StrictDynamicMappingException
 argument_list|(
+name|fullPath
+argument_list|,
 name|currentFieldName
 argument_list|)
 throw|;

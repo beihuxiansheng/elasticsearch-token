@@ -1874,7 +1874,7 @@ name|index
 argument_list|,
 name|type
 argument_list|,
-literal|"typing to auto create mapping, but dynamic mapping is disabled"
+literal|"trying to auto create mapping, but dynamic mapping is disabled"
 argument_list|)
 throw|;
 block|}

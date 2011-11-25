@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  */
 end_comment
 
 begin_class
@@ -45,6 +45,9 @@ specifier|public
 name|StrictDynamicMappingException
 parameter_list|(
 name|String
+name|path
+parameter_list|,
+name|String
 name|fieldName
 parameter_list|)
 block|{
@@ -53,6 +56,10 @@ argument_list|(
 literal|"mapping set to strict, dynamic introduction of ["
 operator|+
 name|fieldName
+operator|+
+literal|"] within ["
+operator|+
+name|path
 operator|+
 literal|"] is not allowed"
 argument_list|)
