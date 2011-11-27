@@ -966,12 +966,18 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// TODO: change to use our own counter that uses the scheduler in ThreadPool
 name|collector
 operator|=
 operator|new
 name|TimeLimitingCollector
 argument_list|(
 name|collector
+argument_list|,
+name|TimeLimitingCollector
+operator|.
+name|getGlobalCounter
+argument_list|()
 argument_list|,
 name|searchContext
 operator|.

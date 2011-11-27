@@ -1329,6 +1329,21 @@ operator|=
 name|NO_MORE_DOCS
 return|;
 block|}
+comment|// CHANGE: Remove this and if parentTarget is 0, we can simply call nextdoc
+comment|// Every parent must have at least one child:
+comment|// assert parentTarget != 0;
+if|if
+condition|(
+name|parentTarget
+operator|==
+literal|0
+condition|)
+block|{
+return|return
+name|nextDoc
+argument_list|()
+return|;
+block|}
 specifier|final
 name|int
 name|prevParentDoc
@@ -1343,11 +1358,8 @@ literal|1
 argument_list|)
 decl_stmt|;
 comment|//System.out.println("  rolled back to prevParentDoc=" + prevParentDoc + " vs parentDoc=" + parentDoc);
-assert|assert
-name|prevParentDoc
-operator|>=
-name|parentDoc
-assert|;
+comment|// CHANGE: Commented out the assert because it might happen with a single nested and parent doc reader
+comment|//assert prevParentDoc>= parentDoc;
 if|if
 condition|(
 name|prevParentDoc

@@ -4361,7 +4361,7 @@ index|]
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"hlighting<em>bug</em> present in elasticsearch "
+literal|"highlighting<em>bug</em> present in elasticsearch "
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5028,7 +5028,7 @@ index|]
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"hlighting<em>test</em> for *&amp;? elasticsearch "
+literal|"highlighting<em>test</em> for *&amp;? elasticsearch "
 argument_list|)
 argument_list|)
 expr_stmt|;

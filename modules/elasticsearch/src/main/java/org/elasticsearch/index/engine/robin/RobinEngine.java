@@ -5236,6 +5236,10 @@ decl_stmt|;
 name|IndexReader
 name|newReader
 init|=
+name|IndexReader
+operator|.
+name|openIfChanged
+argument_list|(
 name|current
 operator|.
 name|resource
@@ -5243,9 +5247,7 @@ argument_list|()
 operator|.
 name|reader
 argument_list|()
-operator|.
-name|reopen
-argument_list|(
+argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
@@ -5253,13 +5255,7 @@ if|if
 condition|(
 name|newReader
 operator|!=
-name|current
-operator|.
-name|resource
-argument_list|()
-operator|.
-name|reader
-argument_list|()
+literal|null
 condition|)
 block|{
 name|ExtendedIndexSearcher
@@ -6599,7 +6595,7 @@ else|else
 block|{
 name|indexWriter
 operator|.
-name|optimize
+name|forceMerge
 argument_list|(
 name|optimize
 operator|.

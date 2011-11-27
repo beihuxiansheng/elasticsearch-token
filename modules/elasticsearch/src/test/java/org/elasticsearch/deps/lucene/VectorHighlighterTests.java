@@ -837,15 +837,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|CustomFieldQuery
-operator|.
-name|reader
-operator|.
-name|set
-argument_list|(
-name|reader
-argument_list|)
-expr_stmt|;
 name|fragment
 operator|=
 name|highlighter
@@ -856,6 +847,8 @@ operator|new
 name|CustomFieldQuery
 argument_list|(
 name|prefixQuery
+argument_list|,
+name|reader
 argument_list|,
 name|highlighter
 argument_list|)
