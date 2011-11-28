@@ -385,6 +385,12 @@ name|transport
 operator|=
 name|transport
 expr_stmt|;
+name|this
+operator|.
+name|http
+operator|=
+name|http
+expr_stmt|;
 block|}
 comment|/**      * The attributes of the node.      */
 DECL|method|attributes
