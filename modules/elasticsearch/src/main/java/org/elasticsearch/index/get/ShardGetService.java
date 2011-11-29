@@ -2368,6 +2368,26 @@ expr_stmt|;
 block|}
 block|}
 block|}
+comment|// if source is not enabled, don't return it even though we have it from the translog
+if|if
+condition|(
+name|sourceRequested
+operator|&&
+operator|!
+name|docMapper
+operator|.
+name|sourceMapper
+argument_list|()
+operator|.
+name|enabled
+argument_list|()
+condition|)
+block|{
+name|sourceRequested
+operator|=
+literal|false
+expr_stmt|;
+block|}
 return|return
 operator|new
 name|GetResult
