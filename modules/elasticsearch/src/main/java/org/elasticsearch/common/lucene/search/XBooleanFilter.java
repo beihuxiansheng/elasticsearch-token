@@ -418,6 +418,18 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// if no should clauses match, return null (act as min_should_match set to 1)
+if|if
+condition|(
+name|res
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 if|if
 condition|(
 name|notFilters
