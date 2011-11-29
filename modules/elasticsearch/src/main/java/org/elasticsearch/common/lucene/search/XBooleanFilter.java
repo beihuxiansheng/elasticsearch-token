@@ -106,20 +106,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|OpenBitSetDISI
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -549,24 +535,6 @@ block|}
 block|}
 return|return
 name|res
-return|;
-block|}
-comment|/**      * Provide a SortedVIntList when it is definitely smaller      * than an OpenBitSet.      *      * @deprecated Either use CachingWrapperFilter, or      *             switch to a different DocIdSet implementation yourself.      *             This method will be removed in Lucene 4.0      */
-DECL|method|finalResult
-specifier|protected
-specifier|final
-name|DocIdSet
-name|finalResult
-parameter_list|(
-name|OpenBitSetDISI
-name|result
-parameter_list|,
-name|int
-name|maxDocs
-parameter_list|)
-block|{
-return|return
-name|result
 return|;
 block|}
 comment|/**      * Adds a new FilterClause to the Boolean Filter container      *      * @param filterClause A FilterClause object containing a Filter and an Occur parameter      */
