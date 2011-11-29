@@ -48,6 +48,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Bits
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -68,6 +82,8 @@ class|class
 name|DocSet
 extends|extends
 name|DocIdSet
+implements|implements
+name|Bits
 block|{
 DECL|field|EMPTY_DOC_SET
 specifier|public
@@ -89,8 +105,6 @@ parameter_list|(
 name|int
 name|doc
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 return|return
 literal|false
@@ -136,6 +150,17 @@ return|return
 literal|0
 return|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|int
+name|length
+parameter_list|()
+block|{
+return|return
+literal|0
+return|;
+block|}
 block|}
 decl_stmt|;
 DECL|method|get
@@ -147,8 +172,6 @@ parameter_list|(
 name|int
 name|doc
 parameter_list|)
-throws|throws
-name|IOException
 function_decl|;
 DECL|method|sizeInBytes
 specifier|public

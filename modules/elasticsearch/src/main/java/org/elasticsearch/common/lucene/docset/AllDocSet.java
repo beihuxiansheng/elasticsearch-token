@@ -99,6 +99,18 @@ return|return
 literal|true
 return|;
 block|}
+DECL|method|length
+annotation|@
+name|Override
+specifier|public
+name|int
+name|length
+parameter_list|()
+block|{
+return|return
+name|maxDoc
+return|;
+block|}
 DECL|method|get
 annotation|@
 name|Override
@@ -109,8 +121,6 @@ parameter_list|(
 name|int
 name|doc
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 return|return
 name|doc

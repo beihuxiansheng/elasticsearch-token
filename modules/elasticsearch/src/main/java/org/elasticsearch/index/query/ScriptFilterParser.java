@@ -64,6 +64,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ElasticSearchIllegalArgumentException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|ElasticSearchIllegalStateException
 import|;
 end_import
@@ -1004,8 +1014,6 @@ parameter_list|(
 name|int
 name|doc
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|searchScript
 operator|.
@@ -1070,7 +1078,7 @@ return|;
 block|}
 throw|throw
 operator|new
-name|IOException
+name|ElasticSearchIllegalArgumentException
 argument_list|(
 literal|"Can't handle type ["
 operator|+
