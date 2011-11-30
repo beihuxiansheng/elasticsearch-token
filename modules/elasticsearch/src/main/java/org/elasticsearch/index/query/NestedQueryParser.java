@@ -533,7 +533,7 @@ literal|"scoreMode"
 operator|.
 name|equals
 argument_list|(
-name|scoreMode
+name|currentFieldName
 argument_list|)
 condition|)
 block|{
