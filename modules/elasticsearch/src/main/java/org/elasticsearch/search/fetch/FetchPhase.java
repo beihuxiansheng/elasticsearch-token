@@ -1490,6 +1490,16 @@ name|subReader
 argument_list|,
 name|subDoc
 argument_list|,
+name|context
+operator|.
+name|searcher
+argument_list|()
+operator|.
+name|getIndexReader
+argument_list|()
+argument_list|,
+name|docId
+argument_list|,
 name|doc
 argument_list|)
 expr_stmt|;
