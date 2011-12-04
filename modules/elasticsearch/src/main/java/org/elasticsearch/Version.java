@@ -711,7 +711,7 @@ name|Version
 operator|.
 name|CURRENT
 operator|+
-literal|"JVM: "
+literal|", JVM: "
 operator|+
 name|JvmInfo
 operator|.
