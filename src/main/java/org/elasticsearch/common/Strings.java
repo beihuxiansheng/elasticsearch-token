@@ -119,7 +119,7 @@ specifier|final
 name|String
 name|TOP_PATH
 init|=
-literal|".."
+literal|"src/test"
 decl_stmt|;
 DECL|field|CURRENT_PATH
 specifier|private
