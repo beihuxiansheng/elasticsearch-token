@@ -18,9 +18,9 @@ end_package
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
@@ -70,103 +70,7 @@ name|lang
 operator|.
 name|reflect
 operator|.
-name|Constructor
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
-name|Field
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
-name|GenericArrayType
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
-name|Member
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
-name|Method
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
-name|ParameterizedType
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
-name|Type
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
-name|TypeVariable
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
-name|WildcardType
+name|*
 import|;
 end_import
 
@@ -182,9 +86,9 @@ end_import
 
 begin_import
 import|import static
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
@@ -192,7 +96,23 @@ name|base
 operator|.
 name|Preconditions
 operator|.
-name|*
+name|checkArgument
+import|;
+end_import
+
+begin_import
+import|import static
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|base
+operator|.
+name|Preconditions
+operator|.
+name|checkNotNull
 import|;
 end_import
 
@@ -210,12 +130,12 @@ name|internal
 operator|.
 name|MoreTypes
 operator|.
-name|*
+name|canonicalize
 import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a generic type {@code T}. Java doesn't yet provide a way to  * represent generic types, so this class does. Forces clients to create a  * subclass of this class which enables retrieval the type information even at  * runtime.  *  *<p>For example, to create a type literal for {@code List<String>}, you can  * create an empty anonymous inner class:  *  *<p>  * {@code TypeLiteral<List<String>> list = new TypeLiteral<List<String>>() {};}  *  *<p>This syntax cannot be used to create type literals that have wildcard  * parameters, such as {@code Class<?>} or {@code List<? extends CharSequence>}.  * Such type literals must be constructed programatically, either by {@link  * Method#getGenericReturnType extracting types from members} or by using the  * {@link Types} factory class.  *  *<p>Along with modeling generic types, this class can resolve type parameters.  * For example, to figure out what type {@code keySet()} returns on a {@code  * Map<Integer, String>}, use this code:<pre>   {@code  *  *   TypeLiteral<Map<Integer, String>> mapType  *       = new TypeLiteral<Map<Integer, String>>() {};  *   TypeLiteral<?> keySetType  *       = mapType.getReturnType(Map.class.getMethod("keySet"));  *   System.out.println(keySetType); // prints "Set<Integer>"}</pre>  *  * @author crazybob@google.com (Bob Lee)  * @author jessewilson@google.com (Jesse Wilson)  */
+comment|/**  * Represents a generic type {@code T}. Java doesn't yet provide a way to  * represent generic types, so this class does. Forces clients to create a  * subclass of this class which enables retrieval the type information even at  * runtime.  *<p/>  *<p>For example, to create a type literal for {@code List<String>}, you can  * create an empty anonymous inner class:  *<p/>  *<p/>  * {@code TypeLiteral<List<String>> list = new TypeLiteral<List<String>>() {};}  *<p/>  *<p>This syntax cannot be used to create type literals that have wildcard  * parameters, such as {@code Class<?>} or {@code List<? extends CharSequence>}.  * Such type literals must be constructed programatically, either by {@link  * Method#getGenericReturnType extracting types from members} or by using the  * {@link Types} factory class.  *<p/>  *<p>Along with modeling generic types, this class can resolve type parameters.  * For example, to figure out what type {@code keySet()} returns on a {@code  * Map<Integer, String>}, use this code:<pre>   {@code  *<p/>  *   TypeLiteral<Map<Integer, String>> mapType  *       = new TypeLiteral<Map<Integer, String>>() {};  *   TypeLiteral<?> keySetType  *       = mapType.getReturnType(Map.class.getMethod("keySet"));  *   System.out.println(keySetType); // prints "Set<Integer>"}</pre>  *  * @author crazybob@google.com (Bob Lee)  * @author jessewilson@google.com (Jesse Wilson)  */
 end_comment
 
 begin_class
@@ -247,7 +167,7 @@ specifier|final
 name|int
 name|hashCode
 decl_stmt|;
-comment|/**      * Constructs a new type literal. Derives represented class from type      * parameter.      *      *<p>Clients create an empty anonymous subclass. Doing so embeds the type      * parameter in the anonymous class's type hierarchy so we can reconstitute it      * at runtime despite erasure.      */
+comment|/**      * Constructs a new type literal. Derives represented class from type      * parameter.      *<p/>      *<p>Clients create an empty anonymous subclass. Doing so embeds the type      * parameter in the anonymous class's type hierarchy so we can reconstitute it      * at runtime despite erasure.      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -300,12 +220,12 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Unsafe. Constructs a type literal manually.      */
-DECL|method|TypeLiteral
 annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
+DECL|method|TypeLiteral
 name|TypeLiteral
 parameter_list|(
 name|Type
@@ -519,9 +439,9 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-DECL|method|hashCode
 annotation|@
 name|Override
+DECL|method|hashCode
 specifier|public
 specifier|final
 name|int
@@ -534,9 +454,9 @@ operator|.
 name|hashCode
 return|;
 block|}
-DECL|method|equals
 annotation|@
 name|Override
+DECL|method|equals
 specifier|public
 specifier|final
 name|boolean
@@ -571,9 +491,9 @@ name|type
 argument_list|)
 return|;
 block|}
-DECL|method|toString
 annotation|@
 name|Override
+DECL|method|toString
 specifier|public
 specifier|final
 name|String

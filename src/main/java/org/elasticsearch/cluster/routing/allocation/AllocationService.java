@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -54,91 +54,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|IndexRoutingTable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|MutableShardRouting
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|RoutingNode
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|RoutingNodes
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|RoutingTable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|ShardRouting
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|ShardRoutingState
+name|*
 import|;
 end_import
 
@@ -290,6 +206,22 @@ end_import
 
 begin_import
 import|import static
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|Sets
+operator|.
+name|newHashSet
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|elasticsearch
@@ -300,28 +232,12 @@ name|routing
 operator|.
 name|ShardRoutingState
 operator|.
-name|*
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Sets
-operator|.
-name|*
+name|INITIALIZING
 import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -395,9 +311,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|AllocationService
 annotation|@
 name|Inject
+DECL|method|AllocationService
 specifier|public
 name|AllocationService
 parameter_list|(
@@ -429,7 +345,7 @@ operator|=
 name|shardsAllocators
 expr_stmt|;
 block|}
-comment|/**      * Applies the started shards. Note, shards can be called several times within this method.      *      *<p>If the same instance of the routing table is returned, then no change has been made.      */
+comment|/**      * Applies the started shards. Note, shards can be called several times within this method.      *<p/>      *<p>If the same instance of the routing table is returned, then no change has been made.      */
 DECL|method|applyStartedShards
 specifier|public
 name|RoutingAllocation
@@ -560,7 +476,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Applies the failed shards. Note, shards can be called several times within this method.      *      *<p>If the same instance of the routing table is returned, then no change has been made.      */
+comment|/**      * Applies the failed shards. Note, shards can be called several times within this method.      *<p/>      *<p>If the same instance of the routing table is returned, then no change has been made.      */
 DECL|method|applyFailedShard
 specifier|public
 name|RoutingAllocation
@@ -684,7 +600,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Reroutes the routing table based on the live nodes.      *      *<p>If the same instance of the routing table is returned, then no change has been made.      */
+comment|/**      * Reroutes the routing table based on the live nodes.      *<p/>      *<p>If the same instance of the routing table is returned, then no change has been made.      */
 DECL|method|reroute
 specifier|public
 name|RoutingAllocation

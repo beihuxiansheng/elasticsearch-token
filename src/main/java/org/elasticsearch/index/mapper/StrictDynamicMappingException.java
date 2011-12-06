@@ -65,9 +65,9 @@ literal|"] is not allowed"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|status
 annotation|@
 name|Override
+DECL|method|status
 specifier|public
 name|RestStatus
 name|status

@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -98,9 +98,9 @@ literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|status
 annotation|@
 name|Override
+DECL|method|status
 specifier|public
 name|RestStatus
 name|status

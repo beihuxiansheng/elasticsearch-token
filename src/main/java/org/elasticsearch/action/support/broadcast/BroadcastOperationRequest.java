@@ -97,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -183,9 +183,9 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|validate
 annotation|@
 name|Override
+DECL|method|validate
 specifier|public
 name|ActionRequestValidationException
 name|validate
@@ -196,9 +196,9 @@ literal|null
 return|;
 block|}
 comment|/**      * Should the listener be called on a separate thread if needed.      */
-DECL|method|listenerThreaded
 annotation|@
 name|Override
+DECL|method|listenerThreaded
 specifier|public
 name|boolean
 name|listenerThreaded
@@ -211,9 +211,9 @@ name|listenerThreaded
 return|;
 block|}
 comment|/**      * Should the listener be called on a separate thread if needed.      */
-DECL|method|listenerThreaded
 annotation|@
 name|Override
+DECL|method|listenerThreaded
 specifier|public
 name|BroadcastOperationRequest
 name|listenerThreaded
@@ -301,9 +301,9 @@ name|void
 name|beforeLocalFork
 parameter_list|()
 block|{      }
-DECL|method|writeTo
 annotation|@
 name|Override
+DECL|method|writeTo
 specifier|public
 name|void
 name|writeTo
@@ -368,9 +368,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|readFrom
 annotation|@
 name|Override
+DECL|method|readFrom
 specifier|public
 name|void
 name|readFrom

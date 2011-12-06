@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -71,40 +71,6 @@ operator|.
 name|client
 operator|.
 name|Client
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|joda
-operator|.
-name|time
-operator|.
-name|DateTimeZone
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|joda
-operator|.
-name|time
-operator|.
-name|format
-operator|.
-name|ISODateTimeFormat
 import|;
 end_import
 
@@ -400,6 +366,32 @@ begin_import
 import|import
 name|org
 operator|.
+name|joda
+operator|.
+name|time
+operator|.
+name|DateTimeZone
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|joda
+operator|.
+name|time
+operator|.
+name|format
+operator|.
+name|ISODateTimeFormat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|testng
 operator|.
 name|annotations
@@ -456,7 +448,7 @@ name|xcontent
 operator|.
 name|XContentFactory
 operator|.
-name|*
+name|jsonBuilder
 import|;
 end_import
 
@@ -472,7 +464,7 @@ name|query
 operator|.
 name|FilterBuilders
 operator|.
-name|*
+name|termFilter
 import|;
 end_import
 
@@ -516,7 +508,7 @@ name|hamcrest
 operator|.
 name|MatcherAssert
 operator|.
-name|*
+name|assertThat
 import|;
 end_import
 
@@ -533,7 +525,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -549,9 +541,9 @@ specifier|private
 name|Client
 name|client
 decl_stmt|;
-DECL|method|createNodes
 annotation|@
 name|BeforeClass
+DECL|method|createNodes
 specifier|public
 name|void
 name|createNodes
@@ -647,9 +639,9 @@ return|return
 literal|5
 return|;
 block|}
-DECL|method|closeNodes
 annotation|@
 name|AfterClass
+DECL|method|closeNodes
 specifier|public
 name|void
 name|closeNodes
@@ -1138,9 +1130,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|testSearchFilter
 annotation|@
 name|Test
+DECL|method|testSearchFilter
 specifier|public
 name|void
 name|testSearchFilter
@@ -1766,9 +1758,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|testFacetsWithSize0
 annotation|@
 name|Test
+DECL|method|testFacetsWithSize0
 specifier|public
 name|void
 name|testFacetsWithSize0
@@ -2397,9 +2389,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|testTermsIndexFacet
 annotation|@
 name|Test
+DECL|method|testTermsIndexFacet
 specifier|public
 name|void
 name|testTermsIndexFacet
@@ -2893,9 +2885,9 @@ block|{
 comment|// ignore
 block|}
 block|}
-DECL|method|testFilterFacets
 annotation|@
 name|Test
+DECL|method|testFilterFacets
 specifier|public
 name|void
 name|testFilterFacets
@@ -3246,9 +3238,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|testTermsFacetsMissing
 annotation|@
 name|Test
+DECL|method|testTermsFacetsMissing
 specifier|public
 name|void
 name|testTermsFacetsMissing
@@ -3659,9 +3651,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|testTermsFacetsNoHint
 annotation|@
 name|Test
+DECL|method|testTermsFacetsNoHint
 specifier|public
 name|void
 name|testTermsFacetsNoHint
@@ -3675,9 +3667,9 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testTermsFacetsMapHint
 annotation|@
 name|Test
+DECL|method|testTermsFacetsMapHint
 specifier|public
 name|void
 name|testTermsFacetsMapHint
@@ -8406,9 +8398,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|testTermFacetWithEqualTermDistribution
 annotation|@
 name|Test
+DECL|method|testTermFacetWithEqualTermDistribution
 specifier|public
 name|void
 name|testTermFacetWithEqualTermDistribution
@@ -8842,9 +8834,9 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|testStatsFacets
 annotation|@
 name|Test
+DECL|method|testStatsFacets
 specifier|public
 name|void
 name|testStatsFacets
@@ -9796,9 +9788,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|testHistoFacetEdge
 annotation|@
 name|Test
+DECL|method|testHistoFacetEdge
 specifier|public
 name|void
 name|testHistoFacetEdge
@@ -10280,9 +10272,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|testHistoFacets
 annotation|@
 name|Test
+DECL|method|testHistoFacets
 specifier|public
 name|void
 name|testHistoFacets
@@ -14341,9 +14333,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|testRangeFacets
 annotation|@
 name|Test
+DECL|method|testRangeFacets
 specifier|public
 name|void
 name|testRangeFacets
@@ -17030,9 +17022,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|testDateHistoFacets
 annotation|@
 name|Test
+DECL|method|testDateHistoFacets
 specifier|public
 name|void
 name|testDateHistoFacets
@@ -18284,9 +18276,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|testTermsStatsFacets
 annotation|@
 name|Test
+DECL|method|testTermsStatsFacets
 specifier|public
 name|void
 name|testTermsStatsFacets
@@ -21257,9 +21249,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|testNumericTermsStatsFacets
 annotation|@
 name|Test
+DECL|method|testNumericTermsStatsFacets
 specifier|public
 name|void
 name|testNumericTermsStatsFacets
@@ -22183,9 +22175,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|testTermsStatsFacets2
 annotation|@
 name|Test
+DECL|method|testTermsStatsFacets2
 specifier|public
 name|void
 name|testTermsStatsFacets2
@@ -22527,9 +22519,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|testQueryFacet
 annotation|@
 name|Test
+DECL|method|testQueryFacet
 specifier|public
 name|void
 name|testQueryFacet

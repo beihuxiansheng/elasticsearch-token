@@ -302,7 +302,7 @@ name|action
 operator|.
 name|Actions
 operator|.
-name|*
+name|addValidationError
 import|;
 end_import
 
@@ -318,7 +318,7 @@ name|unit
 operator|.
 name|TimeValue
 operator|.
-name|*
+name|readTimeValue
 import|;
 end_import
 
@@ -332,12 +332,12 @@ name|search
 operator|.
 name|Scroll
 operator|.
-name|*
+name|readScroll
 import|;
 end_import
 
 begin_comment
-comment|/**  * A request to execute search against one or more indices (or all). Best created using  * {@link org.elasticsearch.client.Requests#searchRequest(String...)}.  *  *<p>Note, the search {@link #source(org.elasticsearch.search.builder.SearchSourceBuilder)}  * is required. The search source is the different search options, including facets and such.  *  *<p>There is an option to specify an addition search source using the {@link #extraSource(org.elasticsearch.search.builder.SearchSourceBuilder)}.  *  * @author kimchy (shay.banon)  * @see org.elasticsearch.client.Requests#searchRequest(String...)  * @see org.elasticsearch.client.Client#search(SearchRequest)  * @see SearchResponse  */
+comment|/**  * A request to execute search against one or more indices (or all). Best created using  * {@link org.elasticsearch.client.Requests#searchRequest(String...)}.  *<p/>  *<p>Note, the search {@link #source(org.elasticsearch.search.builder.SearchSourceBuilder)}  * is required. The search source is the different search options, including facets and such.  *<p/>  *<p>There is an option to specify an addition search source using the {@link #extraSource(org.elasticsearch.search.builder.SearchSourceBuilder)}.  *  *  * @see org.elasticsearch.client.Requests#searchRequest(String...)  * @see org.elasticsearch.client.Client#search(SearchRequest)  * @see SearchResponse  */
 end_comment
 
 begin_class
@@ -374,23 +374,23 @@ name|String
 index|[]
 name|indices
 decl_stmt|;
-DECL|field|queryHint
 annotation|@
 name|Nullable
+DECL|field|queryHint
 specifier|private
 name|String
 name|queryHint
 decl_stmt|;
-DECL|field|routing
 annotation|@
 name|Nullable
+DECL|field|routing
 specifier|private
 name|String
 name|routing
 decl_stmt|;
-DECL|field|preference
 annotation|@
 name|Nullable
+DECL|field|preference
 specifier|private
 name|String
 name|preference
@@ -522,9 +522,9 @@ operator|=
 name|source
 expr_stmt|;
 block|}
-DECL|method|validate
 annotation|@
 name|Override
+DECL|method|validate
 specifier|public
 name|ActionRequestValidationException
 name|validate
@@ -643,9 +643,9 @@ name|beforeLocalFork
 parameter_list|()
 block|{     }
 comment|/**      * Should the listener be called on a separate thread if needed.      */
-DECL|method|listenerThreaded
 annotation|@
 name|Override
+DECL|method|listenerThreaded
 specifier|public
 name|boolean
 name|listenerThreaded
@@ -677,9 +677,9 @@ name|this
 return|;
 block|}
 comment|/**      * Should the listener be called on a separate thread if needed.      */
-DECL|method|listenerThreaded
 annotation|@
 name|Override
+DECL|method|listenerThreaded
 specifier|public
 name|SearchRequest
 name|listenerThreaded
@@ -1868,9 +1868,9 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-DECL|method|readFrom
 annotation|@
 name|Override
+DECL|method|readFrom
 specifier|public
 name|void
 name|readFrom
@@ -2169,9 +2169,9 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|writeTo
 annotation|@
 name|Override
+DECL|method|writeTo
 specifier|public
 name|void
 name|writeTo

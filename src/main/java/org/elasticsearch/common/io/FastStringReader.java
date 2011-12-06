@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -53,7 +53,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A character stream whose source is a string that is<b>not thread safe</b>  *  * @author kimchy (shay.banon  *         )  */
+comment|/**  * A character stream whose source is a string that is<b>not thread safe</b>  *  * (shay.banon  *         )  */
 end_comment
 
 begin_class
@@ -139,9 +139,9 @@ literal|"Stream closed"
 argument_list|)
 throw|;
 block|}
-DECL|method|length
 annotation|@
 name|Override
+DECL|method|length
 specifier|public
 name|int
 name|length
@@ -151,9 +151,9 @@ return|return
 name|length
 return|;
 block|}
-DECL|method|charAt
 annotation|@
 name|Override
+DECL|method|charAt
 specifier|public
 name|char
 name|charAt
@@ -171,9 +171,9 @@ name|index
 argument_list|)
 return|;
 block|}
-DECL|method|subSequence
 annotation|@
 name|Override
+DECL|method|subSequence
 specifier|public
 name|CharSequence
 name|subSequence
@@ -197,9 +197,9 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Reads a single character.      *      * @return The character read, or -1 if the end of the stream has been      *         reached      * @throws IOException If an I/O error occurs      */
-DECL|method|read
 annotation|@
 name|Override
+DECL|method|read
 specifier|public
 name|int
 name|read
@@ -231,9 +231,9 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Reads characters into a portion of an array.      *      * @param cbuf Destination buffer      * @param off  Offset at which to start writing characters      * @param len  Maximum number of characters to read      * @return The number of characters read, or -1 if the end of the      *         stream has been reached      * @throws IOException If an I/O error occurs      */
-DECL|method|read
 annotation|@
 name|Override
+DECL|method|read
 specifier|public
 name|int
 name|read
@@ -313,9 +313,9 @@ name|n
 return|;
 block|}
 comment|/**      * Skips the specified number of characters in the stream. Returns      * the number of characters that were skipped.      *<p/>      *<p>The<code>ns</code> parameter may be negative, even though the      *<code>skip</code> method of the {@link Reader} superclass throws      * an exception in this case. Negative values of<code>ns</code> cause the      * stream to skip backwards. Negative return values indicate a skip      * backwards. It is not possible to skip backwards past the beginning of      * the string.      *<p/>      *<p>If the entire string has been read or skipped, then this method has      * no effect and always returns 0.      *      * @throws IOException If an I/O error occurs      */
-DECL|method|skip
 annotation|@
 name|Override
+DECL|method|skip
 specifier|public
 name|long
 name|skip
@@ -374,9 +374,9 @@ name|n
 return|;
 block|}
 comment|/**      * Tells whether this stream is ready to be read.      *      * @return True if the next read() is guaranteed not to block for input      * @throws IOException If the stream is closed      */
-DECL|method|ready
 annotation|@
 name|Override
+DECL|method|ready
 specifier|public
 name|boolean
 name|ready
@@ -392,9 +392,9 @@ literal|true
 return|;
 block|}
 comment|/**      * Tells whether this stream supports the mark() operation, which it does.      */
-DECL|method|markSupported
 annotation|@
 name|Override
+DECL|method|markSupported
 specifier|public
 name|boolean
 name|markSupported
@@ -405,9 +405,9 @@ literal|true
 return|;
 block|}
 comment|/**      * Marks the present position in the stream.  Subsequent calls to reset()      * will reposition the stream to this point.      *      * @param readAheadLimit Limit on the number of characters that may be      *                       read while still preserving the mark.  Because      *                       the stream's input comes from a string, there      *                       is no actual limit, so this argument must not      *                       be negative, but is otherwise ignored.      * @throws IllegalArgumentException If readAheadLimit is< 0      * @throws IOException              If an I/O error occurs      */
-DECL|method|mark
 annotation|@
 name|Override
+DECL|method|mark
 specifier|public
 name|void
 name|mark
@@ -442,9 +442,9 @@ name|next
 expr_stmt|;
 block|}
 comment|/**      * Resets the stream to the most recent mark, or to the beginning of the      * string if it has never been marked.      *      * @throws IOException If an I/O error occurs      */
-DECL|method|reset
 annotation|@
 name|Override
+DECL|method|reset
 specifier|public
 name|void
 name|reset
@@ -473,9 +473,9 @@ operator|-
 literal|1
 expr_stmt|;
 block|}
-DECL|method|toString
 annotation|@
 name|Override
+DECL|method|toString
 specifier|public
 name|String
 name|toString

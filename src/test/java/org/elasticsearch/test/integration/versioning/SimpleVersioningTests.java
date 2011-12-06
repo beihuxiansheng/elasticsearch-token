@@ -224,7 +224,7 @@ name|query
 operator|.
 name|QueryBuilders
 operator|.
-name|*
+name|matchAllQuery
 import|;
 end_import
 
@@ -236,7 +236,7 @@ name|hamcrest
 operator|.
 name|MatcherAssert
 operator|.
-name|*
+name|assertThat
 import|;
 end_import
 
@@ -248,12 +248,24 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|instanceOf
 import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -274,9 +286,9 @@ specifier|private
 name|Client
 name|client2
 decl_stmt|;
-DECL|method|createNodes
 annotation|@
 name|BeforeClass
+DECL|method|createNodes
 specifier|public
 name|void
 name|createNodes
@@ -332,9 +344,9 @@ literal|"server2"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|closeNodes
 annotation|@
 name|AfterClass
+DECL|method|closeNodes
 specifier|public
 name|void
 name|closeNodes
@@ -349,9 +361,9 @@ name|closeAllNodes
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testExternalVersioningInitialDelete
 annotation|@
 name|Test
+DECL|method|testExternalVersioningInitialDelete
 specifier|public
 name|void
 name|testExternalVersioningInitialDelete
@@ -560,9 +572,9 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testExternalVersioning
 annotation|@
 name|Test
+DECL|method|testExternalVersioning
 specifier|public
 name|void
 name|testExternalVersioning
@@ -1036,9 +1048,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testSimpleVersioning
 annotation|@
 name|Test
+DECL|method|testSimpleVersioning
 specifier|public
 name|void
 name|testSimpleVersioning
@@ -1853,9 +1865,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testSimpleVersioningWithFlush
 annotation|@
 name|Test
+DECL|method|testSimpleVersioningWithFlush
 specifier|public
 name|void
 name|testSimpleVersioningWithFlush
@@ -2496,9 +2508,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|testVersioningWithBulk
 annotation|@
 name|Test
+DECL|method|testVersioningWithBulk
 specifier|public
 name|void
 name|testVersioningWithBulk

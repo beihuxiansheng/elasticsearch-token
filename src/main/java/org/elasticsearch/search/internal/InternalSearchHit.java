@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -15,6 +15,20 @@ operator|.
 name|internal
 package|;
 end_package
+
+begin_import
+import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|ImmutableMap
+import|;
+end_import
 
 begin_import
 import|import
@@ -73,20 +87,6 @@ operator|.
 name|common
 operator|.
 name|Unicode
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
 import|;
 end_import
 
@@ -318,7 +318,23 @@ name|lucene
 operator|.
 name|Lucene
 operator|.
-name|*
+name|readExplanation
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|lucene
+operator|.
+name|Lucene
+operator|.
+name|writeExplanation
 import|;
 end_import
 
@@ -332,7 +348,7 @@ name|search
 operator|.
 name|SearchShardTarget
 operator|.
-name|*
+name|readSearchShardTarget
 import|;
 end_import
 
@@ -348,7 +364,7 @@ name|highlight
 operator|.
 name|HighlightField
 operator|.
-name|*
+name|readHighlightField
 import|;
 end_import
 
@@ -364,12 +380,12 @@ name|internal
 operator|.
 name|InternalSearchHitField
 operator|.
-name|*
+name|readSearchHitField
 import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -483,9 +499,9 @@ specifier|private
 name|Explanation
 name|explanation
 decl_stmt|;
-DECL|field|shard
 annotation|@
 name|Nullable
+DECL|field|shard
 specifier|private
 name|SearchShardTarget
 name|shard
@@ -606,9 +622,9 @@ operator|=
 name|score
 expr_stmt|;
 block|}
-DECL|method|score
 annotation|@
 name|Override
+DECL|method|score
 specifier|public
 name|float
 name|score
@@ -620,9 +636,9 @@ operator|.
 name|score
 return|;
 block|}
-DECL|method|getScore
 annotation|@
 name|Override
+DECL|method|getScore
 specifier|public
 name|float
 name|getScore
@@ -649,9 +665,9 @@ operator|=
 name|version
 expr_stmt|;
 block|}
-DECL|method|version
 annotation|@
 name|Override
+DECL|method|version
 specifier|public
 name|long
 name|version
@@ -663,9 +679,9 @@ operator|.
 name|version
 return|;
 block|}
-DECL|method|getVersion
 annotation|@
 name|Override
+DECL|method|getVersion
 specifier|public
 name|long
 name|getVersion
@@ -677,9 +693,9 @@ operator|.
 name|version
 return|;
 block|}
-DECL|method|index
 annotation|@
 name|Override
+DECL|method|index
 specifier|public
 name|String
 name|index
@@ -692,9 +708,9 @@ name|index
 argument_list|()
 return|;
 block|}
-DECL|method|getIndex
 annotation|@
 name|Override
+DECL|method|getIndex
 specifier|public
 name|String
 name|getIndex
@@ -705,9 +721,9 @@ name|index
 argument_list|()
 return|;
 block|}
-DECL|method|id
 annotation|@
 name|Override
+DECL|method|id
 specifier|public
 name|String
 name|id
@@ -717,9 +733,9 @@ return|return
 name|id
 return|;
 block|}
-DECL|method|getId
 annotation|@
 name|Override
+DECL|method|getId
 specifier|public
 name|String
 name|getId
@@ -730,9 +746,9 @@ name|id
 argument_list|()
 return|;
 block|}
-DECL|method|type
 annotation|@
 name|Override
+DECL|method|type
 specifier|public
 name|String
 name|type
@@ -742,9 +758,9 @@ return|return
 name|type
 return|;
 block|}
-DECL|method|getType
 annotation|@
 name|Override
+DECL|method|getType
 specifier|public
 name|String
 name|getType
@@ -755,9 +771,9 @@ name|type
 argument_list|()
 return|;
 block|}
-DECL|method|source
 annotation|@
 name|Override
+DECL|method|source
 specifier|public
 name|byte
 index|[]
@@ -822,9 +838,9 @@ operator|.
 name|source
 return|;
 block|}
-DECL|method|isSourceEmpty
 annotation|@
 name|Override
+DECL|method|isSourceEmpty
 specifier|public
 name|boolean
 name|isSourceEmpty
@@ -836,9 +852,9 @@ operator|==
 literal|null
 return|;
 block|}
-DECL|method|getSource
 annotation|@
 name|Override
+DECL|method|getSource
 specifier|public
 name|Map
 argument_list|<
@@ -854,9 +870,9 @@ name|sourceAsMap
 argument_list|()
 return|;
 block|}
-DECL|method|sourceAsString
 annotation|@
 name|Override
+DECL|method|sourceAsString
 specifier|public
 name|String
 name|sourceAsString
@@ -890,9 +906,9 @@ block|{
 literal|"unchecked"
 block|}
 argument_list|)
-DECL|method|sourceAsMap
 annotation|@
 name|Override
+DECL|method|sourceAsMap
 specifier|public
 name|Map
 argument_list|<
@@ -1004,9 +1020,9 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|iterator
 annotation|@
 name|Override
+DECL|method|iterator
 specifier|public
 name|Iterator
 argument_list|<
@@ -1025,9 +1041,9 @@ name|iterator
 argument_list|()
 return|;
 block|}
-DECL|method|field
 annotation|@
 name|Override
+DECL|method|field
 specifier|public
 name|SearchHitField
 name|field
@@ -1046,9 +1062,9 @@ name|fieldName
 argument_list|)
 return|;
 block|}
-DECL|method|fields
 annotation|@
 name|Override
+DECL|method|fields
 specifier|public
 name|Map
 argument_list|<
@@ -1095,9 +1111,9 @@ operator|.
 name|fields
 return|;
 block|}
-DECL|method|getFields
 annotation|@
 name|Override
+DECL|method|getFields
 specifier|public
 name|Map
 argument_list|<
@@ -1149,9 +1165,9 @@ return|return
 name|highlightFields
 return|;
 block|}
-DECL|method|highlightFields
 annotation|@
 name|Override
+DECL|method|highlightFields
 specifier|public
 name|Map
 argument_list|<
@@ -1182,9 +1198,9 @@ operator|.
 name|highlightFields
 return|;
 block|}
-DECL|method|getHighlightFields
 annotation|@
 name|Override
+DECL|method|getHighlightFields
 specifier|public
 name|Map
 argument_list|<
@@ -1238,9 +1254,9 @@ operator|=
 name|sortValues
 expr_stmt|;
 block|}
-DECL|method|sortValues
 annotation|@
 name|Override
+DECL|method|sortValues
 specifier|public
 name|Object
 index|[]
@@ -1251,9 +1267,9 @@ return|return
 name|sortValues
 return|;
 block|}
-DECL|method|getSortValues
 annotation|@
 name|Override
+DECL|method|getSortValues
 specifier|public
 name|Object
 index|[]
@@ -1265,9 +1281,9 @@ name|sortValues
 argument_list|()
 return|;
 block|}
-DECL|method|explanation
 annotation|@
 name|Override
+DECL|method|explanation
 specifier|public
 name|Explanation
 name|explanation
@@ -1277,9 +1293,9 @@ return|return
 name|explanation
 return|;
 block|}
-DECL|method|getExplanation
 annotation|@
 name|Override
+DECL|method|getExplanation
 specifier|public
 name|Explanation
 name|getExplanation
@@ -1306,9 +1322,9 @@ operator|=
 name|explanation
 expr_stmt|;
 block|}
-DECL|method|shard
 annotation|@
 name|Override
+DECL|method|shard
 specifier|public
 name|SearchShardTarget
 name|shard
@@ -1318,9 +1334,9 @@ return|return
 name|shard
 return|;
 block|}
-DECL|method|getShard
 annotation|@
 name|Override
+DECL|method|getShard
 specifier|public
 name|SearchShardTarget
 name|getShard
@@ -1377,9 +1393,9 @@ operator|.
 name|matchedFilters
 return|;
 block|}
-DECL|method|getMatchedFilters
 annotation|@
 name|Override
+DECL|method|getMatchedFilters
 specifier|public
 name|String
 index|[]
@@ -1555,9 +1571,9 @@ literal|"details"
 argument_list|)
 decl_stmt|;
 block|}
-DECL|method|toXContent
 annotation|@
 name|Override
+DECL|method|toXContent
 specifier|public
 name|XContentBuilder
 name|toXContent
@@ -2201,9 +2217,9 @@ return|return
 name|hit
 return|;
 block|}
-DECL|method|readFrom
 annotation|@
 name|Override
+DECL|method|readFrom
 specifier|public
 name|void
 name|readFrom
@@ -3371,9 +3387,9 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|writeTo
 annotation|@
 name|Override
+DECL|method|writeTo
 specifier|public
 name|void
 name|writeTo

@@ -20,9 +20,9 @@ end_package
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
@@ -399,9 +399,9 @@ name|privateElements
 argument_list|)
 return|;
 block|}
-DECL|method|toString
 annotation|@
 name|Override
+DECL|method|toString
 specifier|public
 name|String
 name|toString

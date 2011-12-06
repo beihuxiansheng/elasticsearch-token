@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -18,13 +18,15 @@ end_package
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
-name|Nullable
+name|base
+operator|.
+name|Charsets
 import|;
 end_import
 
@@ -36,9 +38,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|base
-operator|.
-name|Charsets
+name|Nullable
 import|;
 end_import
 
@@ -79,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -487,7 +487,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Decodes a bit of an URL encoded by a browser.      *<p>      * This is equivalent to calling {@link #decodeComponent(String, Charset)}      * with the UTF-8 charset (recommended to comply with RFC 3986, Section 2).      *      * @param s The string to decode (can be empty).      * @return The decoded string, or {@code s} if there's nothing to decode.      *         If the string to decode is {@code null}, returns an empty string.      * @throws IllegalArgumentException if the string contains a malformed      *                                  escape sequence.      */
+comment|/**      * Decodes a bit of an URL encoded by a browser.      *<p/>      * This is equivalent to calling {@link #decodeComponent(String, Charset)}      * with the UTF-8 charset (recommended to comply with RFC 3986, Section 2).      *      * @param s The string to decode (can be empty).      * @return The decoded string, or {@code s} if there's nothing to decode.      *         If the string to decode is {@code null}, returns an empty string.      * @throws IllegalArgumentException if the string contains a malformed      *                                  escape sequence.      */
 DECL|method|decodeComponent
 specifier|public
 specifier|static
@@ -510,7 +510,7 @@ name|UTF_8
 argument_list|)
 return|;
 block|}
-comment|/**      * Decodes a bit of an URL encoded by a browser.      *<p>      * The string is expected to be encoded as per RFC 3986, Section 2.      * This is the encoding used by JavaScript functions {@code encodeURI}      * and {@code encodeURIComponent}, but not {@code escape}.  For example      * in this encoding,&eacute; (in Unicode {@code U+00E9} or in UTF-8      * {@code 0xC3 0xA9}) is encoded as {@code %C3%A9} or {@code %c3%a9}.      *<p>      * This is essentially equivalent to calling      *<code>{@link java.net.URLDecoder URLDecoder}.{@link      * java.net.URLDecoder#decode(String, String)}</code>      * except that it's over 2x faster and generates less garbage for the GC.      * Actually this function doesn't allocate any memory if there's nothing      * to decode, the argument itself is returned.      *      * @param s       The string to decode (can be empty).      * @param charset The charset to use to decode the string (should really      *                be {@link Charsets#UTF_8}.      * @return The decoded string, or {@code s} if there's nothing to decode.      *         If the string to decode is {@code null}, returns an empty string.      * @throws IllegalArgumentException if the string contains a malformed      *                                  escape sequence.      */
+comment|/**      * Decodes a bit of an URL encoded by a browser.      *<p/>      * The string is expected to be encoded as per RFC 3986, Section 2.      * This is the encoding used by JavaScript functions {@code encodeURI}      * and {@code encodeURIComponent}, but not {@code escape}.  For example      * in this encoding,&eacute; (in Unicode {@code U+00E9} or in UTF-8      * {@code 0xC3 0xA9}) is encoded as {@code %C3%A9} or {@code %c3%a9}.      *<p/>      * This is essentially equivalent to calling      *<code>{@link java.net.URLDecoder URLDecoder}.{@link      * java.net.URLDecoder#decode(String, String)}</code>      * except that it's over 2x faster and generates less garbage for the GC.      * Actually this function doesn't allocate any memory if there's nothing      * to decode, the argument itself is returned.      *      * @param s       The string to decode (can be empty).      * @param charset The charset to use to decode the string (should really      *                be {@link Charsets#UTF_8}.      * @return The decoded string, or {@code s} if there's nothing to decode.      *         If the string to decode is {@code null}, returns an empty string.      * @throws IllegalArgumentException if the string contains a malformed      *                                  escape sequence.      */
 annotation|@
 name|SuppressWarnings
 argument_list|(

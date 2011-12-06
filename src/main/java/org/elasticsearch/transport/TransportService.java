@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -13,6 +13,20 @@ operator|.
 name|transport
 package|;
 end_package
+
+begin_import
+import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|ImmutableMap
+import|;
+end_import
 
 begin_import
 import|import
@@ -35,20 +49,6 @@ operator|.
 name|node
 operator|.
 name|DiscoveryNode
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
 import|;
 end_import
 
@@ -292,12 +292,12 @@ name|ImmutableSettings
 operator|.
 name|Builder
 operator|.
-name|*
+name|EMPTY_SETTINGS
 import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -475,9 +475,9 @@ name|threadPool
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|TransportService
 annotation|@
 name|Inject
+DECL|method|TransportService
 specifier|public
 name|TransportService
 parameter_list|(
@@ -509,9 +509,9 @@ operator|=
 name|threadPool
 expr_stmt|;
 block|}
-DECL|method|doStart
 annotation|@
 name|Override
+DECL|method|doStart
 specifier|protected
 name|void
 name|doStart
@@ -574,9 +574,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|doStop
 annotation|@
 name|Override
+DECL|method|doStop
 specifier|protected
 name|void
 name|doStop
@@ -590,9 +590,9 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|doClose
 annotation|@
 name|Override
+DECL|method|doClose
 specifier|protected
 name|void
 name|doClose
@@ -809,7 +809,7 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set to<tt>true</tt> to indicate that a {@link ConnectTransportException} should be thrown when      * sending a message (otherwise, it will be passed to the response handler). Defaults to<tt>false</tt>.      *      *<p>This is useful when logic based on connect failure is needed without having to wrap the handler,      * for example, in case of retries across several nodes.      */
+comment|/**      * Set to<tt>true</tt> to indicate that a {@link ConnectTransportException} should be thrown when      * sending a message (otherwise, it will be passed to the response handler). Defaults to<tt>false</tt>.      *<p/>      *<p>This is useful when logic based on connect failure is needed without having to wrap the handler,      * for example, in case of retries across several nodes.      */
 DECL|method|throwConnectException
 specifier|public
 name|void
@@ -1403,9 +1403,9 @@ operator|new
 name|MeanMetric
 argument_list|()
 decl_stmt|;
-DECL|method|received
 annotation|@
 name|Override
+DECL|method|received
 specifier|public
 name|void
 name|received
@@ -1422,9 +1422,9 @@ name|size
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|sent
 annotation|@
 name|Override
+DECL|method|sent
 specifier|public
 name|void
 name|sent
@@ -1441,9 +1441,9 @@ name|size
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|handler
 annotation|@
 name|Override
+DECL|method|handler
 specifier|public
 name|TransportRequestHandler
 name|handler
@@ -1461,9 +1461,9 @@ name|action
 argument_list|)
 return|;
 block|}
-DECL|method|remove
 annotation|@
 name|Override
+DECL|method|remove
 specifier|public
 name|TransportResponseHandler
 name|remove
@@ -1577,9 +1577,9 @@ name|handler
 argument_list|()
 return|;
 block|}
-DECL|method|raiseNodeConnected
 annotation|@
 name|Override
+DECL|method|raiseNodeConnected
 specifier|public
 name|void
 name|raiseNodeConnected
@@ -1628,9 +1628,9 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|raiseNodeDisconnected
 annotation|@
 name|Override
+DECL|method|raiseNodeDisconnected
 specifier|public
 name|void
 name|raiseNodeDisconnected
@@ -1838,9 +1838,9 @@ return|return
 name|sentTime
 return|;
 block|}
-DECL|method|run
 annotation|@
 name|Override
+DECL|method|run
 specifier|public
 name|void
 name|run

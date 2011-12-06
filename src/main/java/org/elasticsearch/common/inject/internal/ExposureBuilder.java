@@ -186,9 +186,9 @@ argument_list|>
 name|annotationType
 parameter_list|)
 block|{
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
@@ -230,9 +230,9 @@ name|Annotation
 name|annotation
 parameter_list|)
 block|{
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
@@ -288,9 +288,9 @@ return|return
 name|source
 return|;
 block|}
-DECL|method|toString
 annotation|@
 name|Override
+DECL|method|toString
 specifier|public
 name|String
 name|toString

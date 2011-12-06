@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
 name|jsr166y
 operator|.
 name|LinkedTransferQueue
@@ -38,16 +28,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
 name|jsr166y
 operator|.
 name|TransferQueue
@@ -155,7 +135,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A thread pool based on {@link org.elasticsearch.common.util.concurrent.jsr166y.TransferQueue}.  *  *<p>Limited compared to ExecutorServer in what it does, but focused on speed.  *  * @author kimchy (shay.banon)  */
+comment|/**  * A thread pool based on {@link jsr166y.TransferQueue}.  *<p/>  *<p>Limited compared to ExecutorServer in what it does, but focused on speed.  *  *  */
 end_comment
 
 begin_class
@@ -239,7 +219,7 @@ specifier|final
 name|ThreadFactory
 name|threadFactory
 decl_stmt|;
-comment|/**      * runState provides the main lifecyle control, taking on values:      *      * RUNNING:  Accept new tasks and process queued tasks      * SHUTDOWN: Don't accept new tasks, but process queued tasks      * STOP:     Don't accept new tasks, don't process queued tasks,      * and interrupt in-progress tasks      * TERMINATED: Same as STOP, plus all threads have terminated      *      * The numerical order among these values matters, to allow      * ordered comparisons. The runState monotonically increases over      * time, but need not hit each state. The transitions are:      *      * RUNNING -> SHUTDOWN      * On invocation of shutdown(), perhaps implicitly in finalize()      * (RUNNING or SHUTDOWN) -> STOP      * On invocation of shutdownNow()      * SHUTDOWN -> TERMINATED      * When both queue and pool are empty      * STOP -> TERMINATED      * When pool is empty      */
+comment|/**      * runState provides the main lifecyle control, taking on values:      *<p/>      * RUNNING:  Accept new tasks and process queued tasks      * SHUTDOWN: Don't accept new tasks, but process queued tasks      * STOP:     Don't accept new tasks, don't process queued tasks,      * and interrupt in-progress tasks      * TERMINATED: Same as STOP, plus all threads have terminated      *<p/>      * The numerical order among these values matters, to allow      * ordered comparisons. The runState monotonically increases over      * time, but need not hit each state. The transitions are:      *<p/>      * RUNNING -> SHUTDOWN      * On invocation of shutdown(), perhaps implicitly in finalize()      * (RUNNING or SHUTDOWN) -> STOP      * On invocation of shutdownNow()      * SHUTDOWN -> TERMINATED      * When both queue and pool are empty      * STOP -> TERMINATED      * When pool is empty      */
 DECL|field|runState
 specifier|volatile
 name|int
@@ -555,9 +535,9 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|execute
 annotation|@
 name|Override
+DECL|method|execute
 specifier|public
 name|void
 name|execute
@@ -1003,9 +983,9 @@ throw|;
 block|}
 block|}
 block|}
-DECL|method|shutdown
 annotation|@
 name|Override
+DECL|method|shutdown
 specifier|public
 name|void
 name|shutdown
@@ -1088,9 +1068,9 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|shutdownNow
 annotation|@
 name|Override
+DECL|method|shutdownNow
 specifier|public
 name|List
 argument_list|<
@@ -1188,9 +1168,9 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|isShutdown
 annotation|@
 name|Override
+DECL|method|isShutdown
 specifier|public
 name|boolean
 name|isShutdown
@@ -1202,9 +1182,9 @@ operator|!=
 name|RUNNING
 return|;
 block|}
-DECL|method|isTerminated
 annotation|@
 name|Override
+DECL|method|isTerminated
 specifier|public
 name|boolean
 name|isTerminated
@@ -1216,9 +1196,9 @@ operator|==
 name|TERMINATED
 return|;
 block|}
-DECL|method|awaitTermination
 annotation|@
 name|Override
+DECL|method|awaitTermination
 specifier|public
 name|boolean
 name|awaitTermination
@@ -1895,7 +1875,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Transitions to TERMINATED state if either (SHUTDOWN and pool      * and queue empty) or (STOP and pool empty), otherwise unless      * stopped, ensuring that there is at least one live thread to      * handle queued tasks.      *      * This method is called from the three places in which      * termination can occur: in workerDone on exit of the last thread      * after pool has been shut down, or directly within calls to      * shutdown or shutdownNow, if there are no live threads.      */
+comment|/**      * Transitions to TERMINATED state if either (SHUTDOWN and pool      * and queue empty) or (STOP and pool empty), otherwise unless      * stopped, ensuring that there is at least one live thread to      * handle queued tasks.      *<p/>      * This method is called from the three places in which      * termination can occur: in workerDone on exit of the last thread      * after pool has been shut down, or directly within calls to      * shutdown or shutdownNow, if there are no live threads.      */
 DECL|method|tryTerminate
 specifier|private
 name|void

@@ -17,7 +17,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Allows to iterate over unrelated shards.  *  * @author kimchy (shay.banon)  */
+comment|/**  * Allows to iterate over unrelated shards.  *  *  */
 end_comment
 
 begin_interface

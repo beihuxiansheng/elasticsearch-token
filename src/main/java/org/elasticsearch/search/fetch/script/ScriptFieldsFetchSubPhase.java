@@ -20,11 +20,15 @@ end_package
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
-name|ElasticSearchException
+name|common
+operator|.
+name|collect
+operator|.
+name|ImmutableMap
 import|;
 end_import
 
@@ -34,11 +38,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
+name|ElasticSearchException
 import|;
 end_import
 
@@ -167,7 +167,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -178,16 +178,16 @@ name|ScriptFieldsFetchSubPhase
 implements|implements
 name|FetchSubPhase
 block|{
-DECL|method|ScriptFieldsFetchSubPhase
 annotation|@
 name|Inject
+DECL|method|ScriptFieldsFetchSubPhase
 specifier|public
 name|ScriptFieldsFetchSubPhase
 parameter_list|()
 block|{     }
-DECL|method|parseElements
 annotation|@
 name|Override
+DECL|method|parseElements
 specifier|public
 name|Map
 argument_list|<
@@ -242,9 +242,9 @@ name|build
 argument_list|()
 return|;
 block|}
-DECL|method|hitsExecutionNeeded
 annotation|@
 name|Override
+DECL|method|hitsExecutionNeeded
 specifier|public
 name|boolean
 name|hitsExecutionNeeded
@@ -257,9 +257,9 @@ return|return
 literal|false
 return|;
 block|}
-DECL|method|hitsExecute
 annotation|@
 name|Override
+DECL|method|hitsExecute
 specifier|public
 name|void
 name|hitsExecute
@@ -274,9 +274,9 @@ parameter_list|)
 throws|throws
 name|ElasticSearchException
 block|{     }
-DECL|method|hitExecutionNeeded
 annotation|@
 name|Override
+DECL|method|hitExecutionNeeded
 specifier|public
 name|boolean
 name|hitExecutionNeeded
@@ -292,9 +292,9 @@ name|hasScriptFields
 argument_list|()
 return|;
 block|}
-DECL|method|hitExecute
 annotation|@
 name|Override
+DECL|method|hitExecute
 specifier|public
 name|void
 name|hitExecute

@@ -142,67 +142,7 @@ name|elasticsearch
 operator|.
 name|rest
 operator|.
-name|BaseRestHandler
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|rest
-operator|.
-name|RestChannel
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|rest
-operator|.
-name|RestController
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|rest
-operator|.
-name|RestRequest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|rest
-operator|.
-name|XContentRestResponse
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|rest
-operator|.
-name|XContentThrowableRestResponse
+name|*
 import|;
 end_import
 
@@ -228,7 +168,23 @@ name|RestRequest
 operator|.
 name|Method
 operator|.
-name|*
+name|GET
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|rest
+operator|.
+name|RestRequest
+operator|.
+name|Method
+operator|.
+name|POST
 import|;
 end_import
 
@@ -242,7 +198,7 @@ name|rest
 operator|.
 name|RestStatus
 operator|.
-name|*
+name|OK
 import|;
 end_import
 
@@ -260,12 +216,12 @@ name|support
 operator|.
 name|RestXContentBuilder
 operator|.
-name|*
+name|restContentBuilder
 import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -276,9 +232,9 @@ name|RestAnalyzeAction
 extends|extends
 name|BaseRestHandler
 block|{
-DECL|method|RestAnalyzeAction
 annotation|@
 name|Inject
+DECL|method|RestAnalyzeAction
 specifier|public
 name|RestAnalyzeAction
 parameter_list|(
@@ -322,9 +278,9 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|handleRequest
 annotation|@
 name|Override
+DECL|method|handleRequest
 specifier|public
 name|void
 name|handleRequest

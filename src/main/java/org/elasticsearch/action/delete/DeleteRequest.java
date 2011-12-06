@@ -174,12 +174,12 @@ name|action
 operator|.
 name|Actions
 operator|.
-name|*
+name|addValidationError
 import|;
 end_import
 
 begin_comment
-comment|/**  * A request to delete a document from an index based on its type and id. Best created using  * {@link org.elasticsearch.client.Requests#deleteRequest(String)}.  *  *<p>The operation requires the {@link #index()}, {@link #type(String)} and {@link #id(String)} to  * be set.  *  * @author kimchy (shay.banon)  * @see DeleteResponse  * @see org.elasticsearch.client.Client#delete(DeleteRequest)  * @see org.elasticsearch.client.Requests#deleteRequest(String)  */
+comment|/**  * A request to delete a document from an index based on its type and id. Best created using  * {@link org.elasticsearch.client.Requests#deleteRequest(String)}.  *<p/>  *<p>The operation requires the {@link #index()}, {@link #type(String)} and {@link #id(String)} to  * be set.  *  *  * @see DeleteResponse  * @see org.elasticsearch.client.Client#delete(DeleteRequest)  * @see org.elasticsearch.client.Requests#deleteRequest(String)  */
 end_comment
 
 begin_class
@@ -200,9 +200,9 @@ specifier|private
 name|String
 name|id
 decl_stmt|;
-DECL|field|routing
 annotation|@
 name|Nullable
+DECL|field|routing
 specifier|private
 name|String
 name|routing
@@ -281,9 +281,9 @@ specifier|public
 name|DeleteRequest
 parameter_list|()
 block|{     }
-DECL|method|validate
 annotation|@
 name|Override
+DECL|method|validate
 specifier|public
 name|ActionRequestValidationException
 name|validate
@@ -336,9 +336,9 @@ name|validationException
 return|;
 block|}
 comment|/**      * Sets the index the delete will happen on.      */
-DECL|method|index
 annotation|@
 name|Override
+DECL|method|index
 specifier|public
 name|DeleteRequest
 name|index
@@ -359,9 +359,9 @@ name|this
 return|;
 block|}
 comment|/**      * Should the listener be called on a separate thread if needed.      */
-DECL|method|listenerThreaded
 annotation|@
 name|Override
+DECL|method|listenerThreaded
 specifier|public
 name|DeleteRequest
 name|listenerThreaded
@@ -382,9 +382,9 @@ name|this
 return|;
 block|}
 comment|/**      * Controls if the operation will be executed on a separate thread when executed locally. Defaults      * to<tt>true</tt> when running in embedded mode.      */
-DECL|method|operationThreaded
 annotation|@
 name|Override
+DECL|method|operationThreaded
 specifier|public
 name|DeleteRequest
 name|operationThreaded
@@ -405,9 +405,9 @@ name|this
 return|;
 block|}
 comment|/**      * Set the replication type for this operation.      */
-DECL|method|replicationType
 annotation|@
 name|Override
+DECL|method|replicationType
 specifier|public
 name|DeleteRequest
 name|replicationType
@@ -428,9 +428,9 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the consistency level of write. Defaults to {@link org.elasticsearch.action.WriteConsistencyLevel#DEFAULT}      */
-DECL|method|consistencyLevel
 annotation|@
 name|Override
+DECL|method|consistencyLevel
 specifier|public
 name|DeleteRequest
 name|consistencyLevel
@@ -462,9 +462,9 @@ name|type
 return|;
 block|}
 comment|/**      * Sets the type of the document to delete.      */
-DECL|method|type
 annotation|@
 name|Required
+DECL|method|type
 specifier|public
 name|DeleteRequest
 name|type
@@ -495,9 +495,9 @@ name|id
 return|;
 block|}
 comment|/**      * Sets the id of the document to delete.      */
-DECL|method|id
 annotation|@
 name|Required
+DECL|method|id
 specifier|public
 name|DeleteRequest
 name|id
@@ -714,9 +714,9 @@ operator|.
 name|versionType
 return|;
 block|}
-DECL|method|readFrom
 annotation|@
 name|Override
+DECL|method|readFrom
 specifier|public
 name|void
 name|readFrom
@@ -791,9 +791,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|writeTo
 annotation|@
 name|Override
+DECL|method|writeTo
 specifier|public
 name|void
 name|writeTo
@@ -882,9 +882,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|toString
 annotation|@
 name|Override
+DECL|method|toString
 specifier|public
 name|String
 name|toString

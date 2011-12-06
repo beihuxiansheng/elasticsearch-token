@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -17,6 +17,14 @@ operator|.
 name|fs
 package|;
 end_package
+
+begin_import
+import|import
+name|jsr166y
+operator|.
+name|ThreadLocalRandom
+import|;
+end_import
 
 begin_import
 import|import
@@ -89,24 +97,6 @@ operator|.
 name|settings
 operator|.
 name|Settings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|jsr166y
-operator|.
-name|ThreadLocalRandom
 import|;
 end_import
 
@@ -267,7 +257,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -316,9 +306,9 @@ name|syncOnEachOperation
 init|=
 literal|false
 decl_stmt|;
-DECL|method|FsTranslog
 annotation|@
 name|Inject
+DECL|method|FsTranslog
 specifier|public
 name|FsTranslog
 parameter_list|(
@@ -462,9 +452,9 @@ return|return
 name|locations
 return|;
 block|}
-DECL|method|currentId
 annotation|@
 name|Override
+DECL|method|currentId
 specifier|public
 name|long
 name|currentId
@@ -496,9 +486,9 @@ name|id
 argument_list|()
 return|;
 block|}
-DECL|method|estimatedNumberOfOperations
 annotation|@
 name|Override
+DECL|method|estimatedNumberOfOperations
 specifier|public
 name|int
 name|estimatedNumberOfOperations
@@ -529,9 +519,9 @@ name|estimatedNumberOfOperations
 argument_list|()
 return|;
 block|}
-DECL|method|memorySizeInBytes
 annotation|@
 name|Override
+DECL|method|memorySizeInBytes
 specifier|public
 name|long
 name|memorySizeInBytes
@@ -541,9 +531,9 @@ return|return
 literal|0
 return|;
 block|}
-DECL|method|translogSizeInBytes
 annotation|@
 name|Override
+DECL|method|translogSizeInBytes
 specifier|public
 name|long
 name|translogSizeInBytes
@@ -574,9 +564,9 @@ name|translogSizeInBytes
 argument_list|()
 return|;
 block|}
-DECL|method|clearUnreferenced
 annotation|@
 name|Override
+DECL|method|clearUnreferenced
 specifier|public
 name|void
 name|clearUnreferenced
@@ -700,9 +690,9 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|newTranslog
 annotation|@
 name|Override
+DECL|method|newTranslog
 specifier|public
 name|void
 name|newTranslog
@@ -895,9 +885,9 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|newTransientTranslog
 annotation|@
 name|Override
+DECL|method|newTransientTranslog
 specifier|public
 name|void
 name|newTransientTranslog
@@ -1048,9 +1038,9 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|makeTransientCurrent
 annotation|@
 name|Override
+DECL|method|makeTransientCurrent
 specifier|public
 name|void
 name|makeTransientCurrent
@@ -1114,9 +1104,9 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|revertTransient
 annotation|@
 name|Override
+DECL|method|revertTransient
 specifier|public
 name|void
 name|revertTransient
@@ -1276,9 +1266,9 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|add
 annotation|@
 name|Override
+DECL|method|add
 specifier|public
 name|Location
 name|add
@@ -1478,9 +1468,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|snapshot
 annotation|@
 name|Override
+DECL|method|snapshot
 specifier|public
 name|FsChannelSnapshot
 name|snapshot
@@ -1519,9 +1509,9 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|snapshot
 annotation|@
 name|Override
+DECL|method|snapshot
 specifier|public
 name|Snapshot
 name|snapshot
@@ -1564,9 +1554,9 @@ return|return
 name|snap
 return|;
 block|}
-DECL|method|sync
 annotation|@
 name|Override
+DECL|method|sync
 specifier|public
 name|void
 name|sync
@@ -1594,9 +1584,9 @@ name|sync
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|syncOnEachOperation
 annotation|@
 name|Override
+DECL|method|syncOnEachOperation
 specifier|public
 name|void
 name|syncOnEachOperation
@@ -1612,9 +1602,9 @@ operator|=
 name|syncOnEachOperation
 expr_stmt|;
 block|}
-DECL|method|close
 annotation|@
 name|Override
+DECL|method|close
 specifier|public
 name|void
 name|close

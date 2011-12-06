@@ -63,7 +63,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Binds types (picked using a Matcher) to an type listener. Registrations are created explicitly in  * a module using {@link org.elasticsearch.common.inject.Binder#bindListener(Matcher, TypeListener)} statements:  *  *<pre>  *     register(only(new TypeLiteral&lt;PaymentService&lt;CreditCard>>() {}), listener);</pre>  *  * @author jessewilson@google.com (Jesse Wilson)  * @since 2.0  */
+comment|/**  * Binds types (picked using a Matcher) to an type listener. Registrations are created explicitly in  * a module using {@link org.elasticsearch.common.inject.Binder#bindListener(Matcher, TypeListener)} statements:  *<p/>  *<pre>  *     register(only(new TypeLiteral&lt;PaymentService&lt;CreditCard>>() {}), listener);</pre>  *  * @author jessewilson@google.com (Jesse Wilson)  * @since 2.0  */
 end_comment
 
 begin_class

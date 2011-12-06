@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -61,7 +61,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Query that matches documents matching boolean combinations of other queries.  *  * @author kimchy (shay.banon)  */
+comment|/**  * A Query that matches documents matching boolean combinations of other queries.  *  *  */
 end_comment
 
 begin_class
@@ -241,7 +241,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Specifies a minimum number of the optional (should) boolean clauses which must be satisfied.      *      *<p>By default no optional clauses are necessary for a match      * (unless there are no required clauses).  If this method is used,      * then the specified number of clauses is required.      *      *<p>Use of this method is totally independent of specifying that      * any specific clauses are required (or prohibited).  This number will      * only be compared against the number of matching optional clauses.      *      * @param minimumNumberShouldMatch the number of optional clauses that must match      */
+comment|/**      * Specifies a minimum number of the optional (should) boolean clauses which must be satisfied.      *<p/>      *<p>By default no optional clauses are necessary for a match      * (unless there are no required clauses).  If this method is used,      * then the specified number of clauses is required.      *<p/>      *<p>Use of this method is totally independent of specifying that      * any specific clauses are required (or prohibited).  This number will      * only be compared against the number of matching optional clauses.      *      * @param minimumNumberShouldMatch the number of optional clauses that must match      */
 DECL|method|minimumNumberShouldMatch
 specifier|public
 name|BoolQueryBuilder
@@ -288,9 +288,9 @@ name|isEmpty
 argument_list|()
 return|;
 block|}
-DECL|method|doXContent
 annotation|@
 name|Override
+DECL|method|doXContent
 specifier|protected
 name|void
 name|doXContent

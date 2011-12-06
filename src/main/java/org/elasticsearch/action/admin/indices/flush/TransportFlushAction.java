@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -272,9 +272,9 @@ end_import
 
 begin_import
 import|import static
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
@@ -282,12 +282,12 @@ name|collect
 operator|.
 name|Lists
 operator|.
-name|*
+name|newArrayList
 import|;
 end_import
 
 begin_comment
-comment|/**  * Flush Action.  *  * @author kimchy (shay.banon)  */
+comment|/**  * Flush Action.  *  *  */
 end_comment
 
 begin_class
@@ -313,9 +313,9 @@ specifier|final
 name|IndicesService
 name|indicesService
 decl_stmt|;
-DECL|method|TransportFlushAction
 annotation|@
 name|Inject
+DECL|method|TransportFlushAction
 specifier|public
 name|TransportFlushAction
 parameter_list|(
@@ -353,9 +353,9 @@ operator|=
 name|indicesService
 expr_stmt|;
 block|}
-DECL|method|executor
 annotation|@
 name|Override
+DECL|method|executor
 specifier|protected
 name|String
 name|executor
@@ -369,9 +369,9 @@ operator|.
 name|MANAGEMENT
 return|;
 block|}
-DECL|method|transportAction
 annotation|@
 name|Override
+DECL|method|transportAction
 specifier|protected
 name|String
 name|transportAction
@@ -387,9 +387,9 @@ operator|.
 name|FLUSH
 return|;
 block|}
-DECL|method|transportShardAction
 annotation|@
 name|Override
+DECL|method|transportShardAction
 specifier|protected
 name|String
 name|transportShardAction
@@ -399,9 +399,9 @@ return|return
 literal|"indices/flush/shard"
 return|;
 block|}
-DECL|method|newRequest
 annotation|@
 name|Override
+DECL|method|newRequest
 specifier|protected
 name|FlushRequest
 name|newRequest
@@ -413,9 +413,9 @@ name|FlushRequest
 argument_list|()
 return|;
 block|}
-DECL|method|ignoreNonActiveExceptions
 annotation|@
 name|Override
+DECL|method|ignoreNonActiveExceptions
 specifier|protected
 name|boolean
 name|ignoreNonActiveExceptions
@@ -425,9 +425,9 @@ return|return
 literal|true
 return|;
 block|}
-DECL|method|newResponse
 annotation|@
 name|Override
+DECL|method|newResponse
 specifier|protected
 name|FlushResponse
 name|newResponse
@@ -560,9 +560,9 @@ name|shardFailures
 argument_list|)
 return|;
 block|}
-DECL|method|newShardRequest
 annotation|@
 name|Override
+DECL|method|newShardRequest
 specifier|protected
 name|ShardFlushRequest
 name|newShardRequest
@@ -574,9 +574,9 @@ name|ShardFlushRequest
 argument_list|()
 return|;
 block|}
-DECL|method|newShardRequest
 annotation|@
 name|Override
+DECL|method|newShardRequest
 specifier|protected
 name|ShardFlushRequest
 name|newShardRequest
@@ -606,9 +606,9 @@ name|request
 argument_list|)
 return|;
 block|}
-DECL|method|newShardResponse
 annotation|@
 name|Override
+DECL|method|newShardResponse
 specifier|protected
 name|ShardFlushResponse
 name|newShardResponse
@@ -620,9 +620,9 @@ name|ShardFlushResponse
 argument_list|()
 return|;
 block|}
-DECL|method|shardOperation
 annotation|@
 name|Override
+DECL|method|shardOperation
 specifier|protected
 name|ShardFlushResponse
 name|shardOperation
@@ -706,9 +706,9 @@ argument_list|)
 return|;
 block|}
 comment|/**      * The refresh request works against *all* shards.      */
-DECL|method|shards
 annotation|@
 name|Override
+DECL|method|shards
 specifier|protected
 name|GroupShardsIterator
 name|shards

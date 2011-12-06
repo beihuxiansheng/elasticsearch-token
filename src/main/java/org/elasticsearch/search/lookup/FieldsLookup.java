@@ -18,6 +18,20 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|Maps
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -47,20 +61,6 @@ operator|.
 name|elasticsearch
 operator|.
 name|ElasticSearchParseException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Maps
 import|;
 end_import
 
@@ -149,7 +149,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -288,9 +288,9 @@ name|clearCache
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|get
 annotation|@
 name|Override
+DECL|method|get
 specifier|public
 name|Object
 name|get
@@ -309,9 +309,9 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-DECL|method|containsKey
 annotation|@
 name|Override
+DECL|method|containsKey
 specifier|public
 name|boolean
 name|containsKey
@@ -345,9 +345,9 @@ literal|false
 return|;
 block|}
 block|}
-DECL|method|size
 annotation|@
 name|Override
+DECL|method|size
 specifier|public
 name|int
 name|size
@@ -359,9 +359,9 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
-DECL|method|isEmpty
 annotation|@
 name|Override
+DECL|method|isEmpty
 specifier|public
 name|boolean
 name|isEmpty
@@ -373,9 +373,9 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
-DECL|method|keySet
 annotation|@
 name|Override
+DECL|method|keySet
 specifier|public
 name|Set
 name|keySet
@@ -387,9 +387,9 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
-DECL|method|values
 annotation|@
 name|Override
+DECL|method|values
 specifier|public
 name|Collection
 name|values
@@ -401,9 +401,9 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
-DECL|method|entrySet
 annotation|@
 name|Override
+DECL|method|entrySet
 specifier|public
 name|Set
 name|entrySet
@@ -415,9 +415,9 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
-DECL|method|put
 annotation|@
 name|Override
+DECL|method|put
 specifier|public
 name|Object
 name|put
@@ -435,9 +435,9 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
-DECL|method|remove
 annotation|@
 name|Override
+DECL|method|remove
 specifier|public
 name|Object
 name|remove
@@ -452,9 +452,9 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
-DECL|method|clear
 annotation|@
 name|Override
+DECL|method|clear
 specifier|public
 name|void
 name|clear
@@ -466,9 +466,9 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
-DECL|method|putAll
 annotation|@
 name|Override
+DECL|method|putAll
 specifier|public
 name|void
 name|putAll
@@ -483,9 +483,9 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
-DECL|method|containsValue
 annotation|@
 name|Override
+DECL|method|containsValue
 specifier|public
 name|boolean
 name|containsValue

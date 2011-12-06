@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -42,9 +42,9 @@ name|PercolatorModule
 extends|extends
 name|AbstractModule
 block|{
-DECL|method|configure
 annotation|@
 name|Override
+DECL|method|configure
 specifier|protected
 name|void
 name|configure

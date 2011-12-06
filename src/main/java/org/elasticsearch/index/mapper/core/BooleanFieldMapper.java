@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -188,7 +188,7 @@ name|support
 operator|.
 name|XContentMapValues
 operator|.
-name|*
+name|nodeBooleanValue
 import|;
 end_import
 
@@ -204,7 +204,7 @@ name|mapper
 operator|.
 name|MapperBuilders
 operator|.
-name|*
+name|booleanField
 import|;
 end_import
 
@@ -222,12 +222,12 @@ name|core
 operator|.
 name|TypeParsers
 operator|.
-name|*
+name|parseField
 import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_comment
@@ -354,9 +354,9 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|index
 annotation|@
 name|Override
+DECL|method|index
 specifier|public
 name|Builder
 name|index
@@ -376,9 +376,9 @@ name|index
 argument_list|)
 return|;
 block|}
-DECL|method|store
 annotation|@
 name|Override
+DECL|method|store
 specifier|public
 name|Builder
 name|store
@@ -398,9 +398,9 @@ name|store
 argument_list|)
 return|;
 block|}
-DECL|method|termVector
 annotation|@
 name|Override
+DECL|method|termVector
 specifier|public
 name|Builder
 name|termVector
@@ -420,9 +420,9 @@ name|termVector
 argument_list|)
 return|;
 block|}
-DECL|method|boost
 annotation|@
 name|Override
+DECL|method|boost
 specifier|public
 name|Builder
 name|boost
@@ -440,9 +440,9 @@ name|boost
 argument_list|)
 return|;
 block|}
-DECL|method|indexName
 annotation|@
 name|Override
+DECL|method|indexName
 specifier|public
 name|Builder
 name|indexName
@@ -460,9 +460,9 @@ name|indexName
 argument_list|)
 return|;
 block|}
-DECL|method|omitTermFreqAndPositions
 annotation|@
 name|Override
+DECL|method|omitTermFreqAndPositions
 specifier|public
 name|Builder
 name|omitTermFreqAndPositions
@@ -480,9 +480,9 @@ name|omitTermFreqAndPositions
 argument_list|)
 return|;
 block|}
-DECL|method|build
 annotation|@
 name|Override
+DECL|method|build
 specifier|public
 name|BooleanFieldMapper
 name|build
@@ -527,9 +527,9 @@ name|Mapper
 operator|.
 name|TypeParser
 block|{
-DECL|method|parse
 annotation|@
 name|Override
+DECL|method|parse
 specifier|public
 name|Mapper
 operator|.
@@ -712,9 +712,9 @@ operator|=
 name|nullValue
 expr_stmt|;
 block|}
-DECL|method|useFieldQueryWithQueryString
 annotation|@
 name|Override
+DECL|method|useFieldQueryWithQueryString
 specifier|public
 name|boolean
 name|useFieldQueryWithQueryString
@@ -724,9 +724,9 @@ return|return
 literal|true
 return|;
 block|}
-DECL|method|value
 annotation|@
 name|Override
+DECL|method|value
 specifier|public
 name|Boolean
 name|value
@@ -757,9 +757,9 @@ operator|.
 name|FALSE
 return|;
 block|}
-DECL|method|valueFromString
 annotation|@
 name|Override
+DECL|method|valueFromString
 specifier|public
 name|Boolean
 name|valueFromString
@@ -787,9 +787,9 @@ operator|.
 name|FALSE
 return|;
 block|}
-DECL|method|valueAsString
 annotation|@
 name|Override
+DECL|method|valueAsString
 specifier|public
 name|String
 name|valueAsString
@@ -816,9 +816,9 @@ else|:
 literal|"false"
 return|;
 block|}
-DECL|method|indexedValue
 annotation|@
 name|Override
+DECL|method|indexedValue
 specifier|public
 name|String
 name|indexedValue
@@ -865,9 +865,9 @@ return|return
 literal|"F"
 return|;
 block|}
-DECL|method|parseCreateField
 annotation|@
 name|Override
+DECL|method|parseCreateField
 specifier|protected
 name|Field
 name|parseCreateField
@@ -986,9 +986,9 @@ name|termVector
 argument_list|)
 return|;
 block|}
-DECL|method|contentType
 annotation|@
 name|Override
+DECL|method|contentType
 specifier|protected
 name|String
 name|contentType
@@ -998,9 +998,9 @@ return|return
 name|CONTENT_TYPE
 return|;
 block|}
-DECL|method|doXContentBody
 annotation|@
 name|Override
+DECL|method|doXContentBody
 specifier|protected
 name|void
 name|doXContentBody

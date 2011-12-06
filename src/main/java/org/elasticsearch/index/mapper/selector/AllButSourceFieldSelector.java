@@ -65,7 +65,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A field selector that loads all fields except the source field.  *  * @author kimchy (shay.banon)  */
+comment|/**  * A field selector that loads all fields except the source field.  *  *  */
 end_comment
 
 begin_class
@@ -87,9 +87,9 @@ operator|new
 name|AllButSourceFieldSelector
 argument_list|()
 decl_stmt|;
-DECL|method|accept
 annotation|@
 name|Override
+DECL|method|accept
 specifier|public
 name|FieldSelectorResult
 name|accept
@@ -122,9 +122,9 @@ operator|.
 name|LOAD
 return|;
 block|}
-DECL|method|reset
 annotation|@
 name|Override
+DECL|method|reset
 specifier|public
 name|void
 name|reset

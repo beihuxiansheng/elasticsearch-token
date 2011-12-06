@@ -18,9 +18,9 @@ end_package
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
@@ -32,9 +32,9 @@ end_import
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
@@ -163,9 +163,9 @@ operator|=
 name|initializer
 expr_stmt|;
 block|}
-DECL|method|visit
 annotation|@
 name|Override
+DECL|method|visit
 specifier|public
 parameter_list|<
 name|T
@@ -1086,9 +1086,9 @@ return|return
 literal|true
 return|;
 block|}
-DECL|method|visit
 annotation|@
 name|Override
+DECL|method|visit
 specifier|public
 name|Boolean
 name|visit

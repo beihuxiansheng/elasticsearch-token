@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -66,11 +66,9 @@ begin_import
 import|import
 name|java
 operator|.
-name|util
+name|io
 operator|.
-name|regex
-operator|.
-name|Pattern
+name|IOException
 import|;
 end_import
 
@@ -90,14 +88,16 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|util
 operator|.
-name|IOException
+name|regex
+operator|.
+name|Pattern
 import|;
 end_import
 
 begin_comment
-comment|/**  * A TokenFilter which applies a Pattern to each token in the stream,  * replacing match occurances with the specified replacement string.  *  *<p>  *<b>Note:</b> Depending on the input and the pattern used and the input  * TokenStream, this TokenFilter may produce Tokens whose text is the empty  * string.  *</p>  *   * @see Pattern  */
+comment|/**  * A TokenFilter which applies a Pattern to each token in the stream,  * replacing match occurances with the specified replacement string.  *<p/>  *<p>  *<b>Note:</b> Depending on the input and the pattern used and the input  * TokenStream, this TokenFilter may produce Tokens whose text is the empty  * string.  *</p>  *  * @see Pattern  */
 end_comment
 
 begin_class
@@ -146,7 +146,7 @@ specifier|final
 name|Matcher
 name|m
 decl_stmt|;
-comment|/**    * Constructs an instance to replace either the first, or all occurances    *    * @param in the TokenStream to process    * @param p the patterm to apply to each Token    * @param replacement the "replacement string" to substitute, if null a    *        blank string will be used. Note that this is not the literal    *        string that will be used, '$' and '\' have special meaning.    * @param all if true, all matches will be replaced otherwise just the first match.    * @see Matcher#quoteReplacement    */
+comment|/**      * Constructs an instance to replace either the first, or all occurances      *      * @param in          the TokenStream to process      * @param p           the patterm to apply to each Token      * @param replacement the "replacement string" to substitute, if null a      *                    blank string will be used. Note that this is not the literal      *                    string that will be used, '$' and '\' have special meaning.      * @param all         if true, all matches will be replaced otherwise just the first match.      * @see Matcher#quoteReplacement      */
 DECL|method|PatternReplaceFilter
 specifier|public
 name|PatternReplaceFilter

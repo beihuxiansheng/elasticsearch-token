@@ -27,7 +27,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -168,9 +168,9 @@ operator|+
 name|size
 expr_stmt|;
 block|}
-DECL|method|reset
 annotation|@
 name|Override
+DECL|method|reset
 specifier|public
 name|ShardsIterator
 name|reset
@@ -188,9 +188,9 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|remaining
 annotation|@
 name|Override
+DECL|method|remaining
 specifier|public
 name|int
 name|remaining
@@ -202,9 +202,9 @@ operator|-
 name|counter
 return|;
 block|}
-DECL|method|firstOrNull
 annotation|@
 name|Override
+DECL|method|firstOrNull
 specifier|public
 name|ShardRouting
 name|firstOrNull
@@ -230,9 +230,9 @@ name|index
 argument_list|)
 return|;
 block|}
-DECL|method|nextOrNull
 annotation|@
 name|Override
+DECL|method|nextOrNull
 specifier|public
 name|ShardRouting
 name|nextOrNull
@@ -315,9 +315,9 @@ argument_list|)
 return|;
 block|}
 block|}
-DECL|method|size
 annotation|@
 name|Override
+DECL|method|size
 specifier|public
 name|int
 name|size
@@ -327,9 +327,9 @@ return|return
 name|size
 return|;
 block|}
-DECL|method|sizeActive
 annotation|@
 name|Override
+DECL|method|sizeActive
 specifier|public
 name|int
 name|sizeActive
@@ -377,9 +377,9 @@ return|return
 name|count
 return|;
 block|}
-DECL|method|assignedReplicasIncludingRelocating
 annotation|@
 name|Override
+DECL|method|assignedReplicasIncludingRelocating
 specifier|public
 name|int
 name|assignedReplicasIncludingRelocating
@@ -474,9 +474,9 @@ return|return
 name|count
 return|;
 block|}
-DECL|method|asUnordered
 annotation|@
 name|Override
+DECL|method|asUnordered
 specifier|public
 name|Iterable
 argument_list|<

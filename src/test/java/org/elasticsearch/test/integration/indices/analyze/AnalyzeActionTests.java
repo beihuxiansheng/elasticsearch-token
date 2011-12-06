@@ -128,7 +128,7 @@ name|hamcrest
 operator|.
 name|MatcherAssert
 operator|.
-name|*
+name|assertThat
 import|;
 end_import
 
@@ -140,12 +140,12 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|equalTo
 import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -161,9 +161,9 @@ specifier|private
 name|Client
 name|client
 decl_stmt|;
-DECL|method|createNodes
 annotation|@
 name|BeforeClass
+DECL|method|createNodes
 specifier|public
 name|void
 name|createNodes
@@ -187,9 +187,9 @@ name|getClient
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|closeNodes
 annotation|@
 name|AfterClass
+DECL|method|closeNodes
 specifier|public
 name|void
 name|closeNodes
@@ -217,9 +217,9 @@ literal|"server1"
 argument_list|)
 return|;
 block|}
-DECL|method|simpleAnalyzerTests
 annotation|@
 name|Test
+DECL|method|simpleAnalyzerTests
 specifier|public
 name|void
 name|simpleAnalyzerTests
@@ -407,9 +407,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|analyzerWithFieldOrTypeTests
 annotation|@
 name|Test
+DECL|method|analyzerWithFieldOrTypeTests
 specifier|public
 name|void
 name|analyzerWithFieldOrTypeTests

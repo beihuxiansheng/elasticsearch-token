@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -141,7 +141,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -270,9 +270,9 @@ name|mem
 argument_list|()
 return|;
 block|}
-DECL|method|toXContent
 annotation|@
 name|Override
+DECL|method|toXContent
 specifier|public
 name|XContentBuilder
 name|toXContent
@@ -582,9 +582,9 @@ return|return
 name|stats
 return|;
 block|}
-DECL|method|readFrom
 annotation|@
 name|Override
+DECL|method|readFrom
 specifier|public
 name|void
 name|readFrom
@@ -646,9 +646,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|writeTo
 annotation|@
 name|Override
+DECL|method|writeTo
 specifier|public
 name|void
 name|writeTo
@@ -803,9 +803,9 @@ return|return
 name|mem
 return|;
 block|}
-DECL|method|readFrom
 annotation|@
 name|Override
+DECL|method|readFrom
 specifier|public
 name|void
 name|readFrom
@@ -838,9 +838,9 @@ name|readLong
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|writeTo
 annotation|@
 name|Override
+DECL|method|writeTo
 specifier|public
 name|void
 name|writeTo
@@ -1021,9 +1021,9 @@ return|return
 name|cpu
 return|;
 block|}
-DECL|method|readFrom
 annotation|@
 name|Override
+DECL|method|readFrom
 specifier|public
 name|void
 name|readFrom
@@ -1063,9 +1063,9 @@ name|readLong
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|writeTo
 annotation|@
 name|Override
+DECL|method|writeTo
 specifier|public
 name|void
 name|writeTo
@@ -1105,7 +1105,7 @@ name|total
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**          * Get the Process cpu usage.          *          *<p>Supported Platforms: All.          */
+comment|/**          * Get the Process cpu usage.          *<p/>          *<p>Supported Platforms: All.          */
 DECL|method|percent
 specifier|public
 name|short
@@ -1116,7 +1116,7 @@ return|return
 name|percent
 return|;
 block|}
-comment|/**          * Get the Process cpu usage.          *          *<p>Supported Platforms: All.          */
+comment|/**          * Get the Process cpu usage.          *<p/>          *<p>Supported Platforms: All.          */
 DECL|method|getPercent
 specifier|public
 name|short
@@ -1128,7 +1128,7 @@ name|percent
 argument_list|()
 return|;
 block|}
-comment|/**          * Get the Process cpu kernel time.          *          *<p>Supported Platforms: All.          */
+comment|/**          * Get the Process cpu kernel time.          *<p/>          *<p>Supported Platforms: All.          */
 DECL|method|sys
 specifier|public
 name|TimeValue
@@ -1143,7 +1143,7 @@ name|sys
 argument_list|)
 return|;
 block|}
-comment|/**          * Get the Process cpu kernel time.          *          *<p>Supported Platforms: All.          */
+comment|/**          * Get the Process cpu kernel time.          *<p/>          *<p>Supported Platforms: All.          */
 DECL|method|getSys
 specifier|public
 name|TimeValue
@@ -1155,7 +1155,7 @@ name|sys
 argument_list|()
 return|;
 block|}
-comment|/**          * Get the Process cpu user time.          *          *<p>Supported Platforms: All.          */
+comment|/**          * Get the Process cpu user time.          *<p/>          *<p>Supported Platforms: All.          */
 DECL|method|user
 specifier|public
 name|TimeValue
@@ -1170,7 +1170,7 @@ name|user
 argument_list|)
 return|;
 block|}
-comment|/**          * Get the Process cpu time (sum of User and Sys).          *          * Supported Platforms: All.          */
+comment|/**          * Get the Process cpu time (sum of User and Sys).          *<p/>          * Supported Platforms: All.          */
 DECL|method|total
 specifier|public
 name|TimeValue
@@ -1185,7 +1185,7 @@ name|total
 argument_list|)
 return|;
 block|}
-comment|/**          * Get the Process cpu time (sum of User and Sys).          *          * Supported Platforms: All.          */
+comment|/**          * Get the Process cpu time (sum of User and Sys).          *<p/>          * Supported Platforms: All.          */
 DECL|method|getTotal
 specifier|public
 name|TimeValue
@@ -1197,7 +1197,7 @@ name|total
 argument_list|()
 return|;
 block|}
-comment|/**          * Get the Process cpu user time.          *          *<p>Supported Platforms: All.          */
+comment|/**          * Get the Process cpu user time.          *<p/>          *<p>Supported Platforms: All.          */
 DECL|method|getUser
 specifier|public
 name|TimeValue

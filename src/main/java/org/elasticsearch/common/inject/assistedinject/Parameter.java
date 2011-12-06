@@ -28,63 +28,7 @@ name|common
 operator|.
 name|inject
 operator|.
-name|BindingAnnotation
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|inject
-operator|.
-name|ConfigurationException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|inject
-operator|.
-name|Injector
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|inject
-operator|.
-name|Key
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|inject
-operator|.
-name|Provider
+name|*
 import|;
 end_import
 
@@ -126,9 +70,9 @@ end_import
 
 begin_import
 import|import static
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
@@ -136,7 +80,7 @@ name|base
 operator|.
 name|Preconditions
 operator|.
-name|*
+name|checkArgument
 import|;
 end_import
 
@@ -464,7 +408,7 @@ literal|false
 return|;
 block|}
 block|}
-comment|/**      * Replace annotation instances with annotation types, this is only      * appropriate for testing if a key is bound and not for injecting.      *      * See Guice bug 125,      * http://code.google.com/p/google-guice/issues/detail?id=125      */
+comment|/**      * Replace annotation instances with annotation types, this is only      * appropriate for testing if a key is bound and not for injecting.      *<p/>      * See Guice bug 125,      * http://code.google.com/p/google-guice/issues/detail?id=125      */
 DECL|method|fixAnnotations
 specifier|public
 name|Key

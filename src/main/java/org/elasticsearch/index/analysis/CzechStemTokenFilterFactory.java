@@ -120,9 +120,9 @@ name|CzechStemTokenFilterFactory
 extends|extends
 name|AbstractTokenFilterFactory
 block|{
-DECL|method|CzechStemTokenFilterFactory
 annotation|@
 name|Inject
+DECL|method|CzechStemTokenFilterFactory
 specifier|public
 name|CzechStemTokenFilterFactory
 parameter_list|(
@@ -157,9 +157,9 @@ name|settings
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|create
 annotation|@
 name|Override
+DECL|method|create
 specifier|public
 name|TokenStream
 name|create

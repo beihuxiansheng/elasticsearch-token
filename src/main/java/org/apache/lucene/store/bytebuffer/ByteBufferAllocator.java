@@ -51,7 +51,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A byte buffer allocator simple allocates byte buffers, and handles releasing  * them. Implementation can include special direct buffer cleaning when releasing  * a buffer, as well as caching of byte buffers.  *  *<p>There are two types of buffers that can be allocated, small and big. This  * comes in handy when knowing in advance (more or less) the size of the buffers  * needed (large files or small), as well as in caching implementations.  */
+comment|/**  * A byte buffer allocator simple allocates byte buffers, and handles releasing  * them. Implementation can include special direct buffer cleaning when releasing  * a buffer, as well as caching of byte buffers.  *<p/>  *<p>There are two types of buffers that can be allocated, small and big. This  * comes in handy when knowing in advance (more or less) the size of the buffers  * needed (large files or small), as well as in caching implementations.  */
 end_comment
 
 begin_interface

@@ -131,7 +131,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -147,9 +147,9 @@ argument_list|,
 name|AnalyzeResponse
 argument_list|>
 block|{
-DECL|method|ClientTransportAnalyzeAction
 annotation|@
 name|Inject
+DECL|method|ClientTransportAnalyzeAction
 specifier|public
 name|ClientTransportAnalyzeAction
 parameter_list|(
@@ -172,9 +172,9 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|action
 annotation|@
 name|Override
+DECL|method|action
 specifier|protected
 name|String
 name|action

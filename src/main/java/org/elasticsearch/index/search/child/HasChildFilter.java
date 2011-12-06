@@ -151,7 +151,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -253,9 +253,9 @@ operator|=
 name|searchContext
 expr_stmt|;
 block|}
-DECL|method|query
 annotation|@
 name|Override
+DECL|method|query
 specifier|public
 name|Query
 name|query
@@ -265,9 +265,9 @@ return|return
 name|query
 return|;
 block|}
-DECL|method|requiresProcessing
 annotation|@
 name|Override
+DECL|method|requiresProcessing
 specifier|public
 name|boolean
 name|requiresProcessing
@@ -279,9 +279,9 @@ operator|==
 literal|null
 return|;
 block|}
-DECL|method|collector
 annotation|@
 name|Override
+DECL|method|collector
 specifier|public
 name|Collector
 name|collector
@@ -297,9 +297,9 @@ name|searchContext
 argument_list|)
 return|;
 block|}
-DECL|method|processCollector
 annotation|@
 name|Override
+DECL|method|processCollector
 specifier|public
 name|void
 name|processCollector
@@ -323,9 +323,9 @@ name|parentDocs
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|scope
 annotation|@
 name|Override
+DECL|method|scope
 specifier|public
 name|String
 name|scope
@@ -337,9 +337,9 @@ operator|.
 name|scope
 return|;
 block|}
-DECL|method|clear
 annotation|@
 name|Override
+DECL|method|clear
 specifier|public
 name|void
 name|clear
@@ -350,9 +350,9 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-DECL|method|getDocIdSet
 annotation|@
 name|Override
+DECL|method|getDocIdSet
 specifier|public
 name|DocIdSet
 name|getDocIdSet
@@ -376,9 +376,9 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-DECL|method|toString
 annotation|@
 name|Override
+DECL|method|toString
 specifier|public
 name|String
 name|toString

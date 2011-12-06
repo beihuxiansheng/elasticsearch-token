@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -445,9 +445,9 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|doXContent
 annotation|@
 name|Override
+DECL|method|doXContent
 specifier|protected
 name|void
 name|doXContent

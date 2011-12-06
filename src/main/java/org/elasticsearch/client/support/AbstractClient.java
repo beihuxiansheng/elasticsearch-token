@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -219,7 +219,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -231,9 +231,9 @@ name|AbstractClient
 implements|implements
 name|InternalClient
 block|{
-DECL|method|prepareIndex
 annotation|@
 name|Override
+DECL|method|prepareIndex
 specifier|public
 name|IndexRequestBuilder
 name|prepareIndex
@@ -249,9 +249,9 @@ literal|null
 argument_list|)
 return|;
 block|}
-DECL|method|prepareIndex
 annotation|@
 name|Override
+DECL|method|prepareIndex
 specifier|public
 name|IndexRequestBuilder
 name|prepareIndex
@@ -274,9 +274,9 @@ literal|null
 argument_list|)
 return|;
 block|}
-DECL|method|prepareIndex
 annotation|@
 name|Override
+DECL|method|prepareIndex
 specifier|public
 name|IndexRequestBuilder
 name|prepareIndex
@@ -313,9 +313,9 @@ name|id
 argument_list|)
 return|;
 block|}
-DECL|method|prepareDelete
 annotation|@
 name|Override
+DECL|method|prepareDelete
 specifier|public
 name|DeleteRequestBuilder
 name|prepareDelete
@@ -331,9 +331,9 @@ literal|null
 argument_list|)
 return|;
 block|}
-DECL|method|prepareDelete
 annotation|@
 name|Override
+DECL|method|prepareDelete
 specifier|public
 name|DeleteRequestBuilder
 name|prepareDelete
@@ -368,9 +368,9 @@ name|id
 argument_list|)
 return|;
 block|}
-DECL|method|prepareBulk
 annotation|@
 name|Override
+DECL|method|prepareBulk
 specifier|public
 name|BulkRequestBuilder
 name|prepareBulk
@@ -384,9 +384,9 @@ name|this
 argument_list|)
 return|;
 block|}
-DECL|method|prepareDeleteByQuery
 annotation|@
 name|Override
+DECL|method|prepareDeleteByQuery
 specifier|public
 name|DeleteByQueryRequestBuilder
 name|prepareDeleteByQuery
@@ -409,9 +409,9 @@ name|indices
 argument_list|)
 return|;
 block|}
-DECL|method|prepareGet
 annotation|@
 name|Override
+DECL|method|prepareGet
 specifier|public
 name|GetRequestBuilder
 name|prepareGet
@@ -427,9 +427,9 @@ literal|null
 argument_list|)
 return|;
 block|}
-DECL|method|prepareGet
 annotation|@
 name|Override
+DECL|method|prepareGet
 specifier|public
 name|GetRequestBuilder
 name|prepareGet
@@ -464,9 +464,9 @@ name|id
 argument_list|)
 return|;
 block|}
-DECL|method|prepareMultiGet
 annotation|@
 name|Override
+DECL|method|prepareMultiGet
 specifier|public
 name|MultiGetRequestBuilder
 name|prepareMultiGet
@@ -480,9 +480,9 @@ name|this
 argument_list|)
 return|;
 block|}
-DECL|method|prepareSearch
 annotation|@
 name|Override
+DECL|method|prepareSearch
 specifier|public
 name|SearchRequestBuilder
 name|prepareSearch
@@ -505,9 +505,9 @@ name|indices
 argument_list|)
 return|;
 block|}
-DECL|method|prepareSearchScroll
 annotation|@
 name|Override
+DECL|method|prepareSearchScroll
 specifier|public
 name|SearchScrollRequestBuilder
 name|prepareSearchScroll
@@ -526,9 +526,9 @@ name|scrollId
 argument_list|)
 return|;
 block|}
-DECL|method|prepareCount
 annotation|@
 name|Override
+DECL|method|prepareCount
 specifier|public
 name|CountRequestBuilder
 name|prepareCount
@@ -551,9 +551,9 @@ name|indices
 argument_list|)
 return|;
 block|}
-DECL|method|prepareMoreLikeThis
 annotation|@
 name|Override
+DECL|method|prepareMoreLikeThis
 specifier|public
 name|MoreLikeThisRequestBuilder
 name|prepareMoreLikeThis
@@ -582,9 +582,9 @@ name|id
 argument_list|)
 return|;
 block|}
-DECL|method|preparePercolate
 annotation|@
 name|Override
+DECL|method|preparePercolate
 specifier|public
 name|PercolateRequestBuilder
 name|preparePercolate

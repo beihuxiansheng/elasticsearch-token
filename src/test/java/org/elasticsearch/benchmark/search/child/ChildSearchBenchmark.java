@@ -214,7 +214,7 @@ name|client
 operator|.
 name|Requests
 operator|.
-name|*
+name|createIndexRequest
 import|;
 end_import
 
@@ -230,7 +230,23 @@ name|metadata
 operator|.
 name|IndexMetaData
 operator|.
-name|*
+name|SETTING_NUMBER_OF_REPLICAS
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|metadata
+operator|.
+name|IndexMetaData
+operator|.
+name|SETTING_NUMBER_OF_SHARDS
 import|;
 end_import
 
@@ -246,7 +262,7 @@ name|settings
 operator|.
 name|ImmutableSettings
 operator|.
-name|*
+name|settingsBuilder
 import|;
 end_import
 
@@ -262,7 +278,7 @@ name|xcontent
 operator|.
 name|XContentFactory
 operator|.
-name|*
+name|jsonBuilder
 import|;
 end_import
 
@@ -292,12 +308,12 @@ name|node
 operator|.
 name|NodeBuilder
 operator|.
-name|*
+name|nodeBuilder
 import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class

@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -57,7 +57,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Similar to {@link java.io.ByteArrayOutputStream} just not synced.  *  * @author kimchy (Shay Banon)  */
+comment|/**  * Similar to {@link java.io.ByteArrayOutputStream} just not synced.  *  *  */
 end_comment
 
 begin_class
@@ -83,7 +83,7 @@ specifier|protected
 name|int
 name|count
 decl_stmt|;
-comment|/**      * Creates a new byte array output stream. The buffer capacity is      * initially 1024 bytes, though its size increases if necessary.      *      * ES: We use 1024 bytes since we mainly use this to build json/smile      * content in memory, and rarely does the 32 byte default in ByteArrayOutputStream fits...      */
+comment|/**      * Creates a new byte array output stream. The buffer capacity is      * initially 1024 bytes, though its size increases if necessary.      *<p/>      * ES: We use 1024 bytes since we mainly use this to build json/smile      * content in memory, and rarely does the 32 byte default in ByteArrayOutputStream fits...      */
 DECL|method|FastByteArrayOutputStream
 specifier|public
 name|FastByteArrayOutputStream
@@ -194,7 +194,7 @@ operator|=
 name|newcount
 expr_stmt|;
 block|}
-comment|/**      * Writes<code>len</code> bytes from the specified byte array      * starting at offset<code>off</code> to this byte array output stream.      *      *<b>NO checks for bounds, parameters must be ok!</b>      *      * @param b   the data.      * @param off the start offset in the data.      * @param len the number of bytes to write.      */
+comment|/**      * Writes<code>len</code> bytes from the specified byte array      * starting at offset<code>off</code> to this byte array output stream.      *<p/>      *<b>NO checks for bounds, parameters must be ok!</b>      *      * @param b   the data.      * @param off the start offset in the data.      * @param len the number of bytes to write.      */
 DECL|method|write
 specifier|public
 name|void

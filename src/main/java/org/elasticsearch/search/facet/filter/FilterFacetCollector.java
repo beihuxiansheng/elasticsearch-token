@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -42,63 +42,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|DeletionAwareConstantScoreQuery
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|Filter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|FilteredQuery
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|Query
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|TotalHitCountCollector
+name|*
 import|;
 end_import
 
@@ -217,7 +161,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -274,9 +218,9 @@ operator|=
 name|filter
 expr_stmt|;
 block|}
-DECL|method|optimizedGlobalExecution
 annotation|@
 name|Override
+DECL|method|optimizedGlobalExecution
 specifier|public
 name|void
 name|optimizedGlobalExecution
@@ -387,9 +331,9 @@ name|getTotalHits
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|doSetNextReader
 annotation|@
 name|Override
+DECL|method|doSetNextReader
 specifier|protected
 name|void
 name|doSetNextReader
@@ -420,9 +364,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|doCollect
 annotation|@
 name|Override
+DECL|method|doCollect
 specifier|protected
 name|void
 name|doCollect
@@ -448,9 +392,9 @@ operator|++
 expr_stmt|;
 block|}
 block|}
-DECL|method|facet
 annotation|@
 name|Override
+DECL|method|facet
 specifier|public
 name|Facet
 name|facet

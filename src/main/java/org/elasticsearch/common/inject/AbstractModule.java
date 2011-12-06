@@ -142,9 +142,9 @@ end_import
 
 begin_import
 import|import static
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
@@ -152,12 +152,28 @@ name|base
 operator|.
 name|Preconditions
 operator|.
-name|*
+name|checkNotNull
+import|;
+end_import
+
+begin_import
+import|import static
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|base
+operator|.
+name|Preconditions
+operator|.
+name|checkState
 import|;
 end_import
 
 begin_comment
-comment|/**  * A support class for {@link Module}s which reduces repetition and results in  * a more readable configuration. Simply extend this class, implement {@link  * #configure()}, and call the inherited methods which mirror those found in  * {@link Binder}. For example:  *  *<pre>  * public class MyModule extends AbstractModule {  *   protected void configure() {  *     bind(Service.class).to(ServiceImpl.class).in(Singleton.class);  *     bind(CreditCardPaymentService.class);  *     bind(PaymentService.class).to(CreditCardPaymentService.class);  *     bindConstant().annotatedWith(Names.named("port")).to(8080);  *   }  * }  *</pre>  *  * @author crazybob@google.com (Bob Lee)  */
+comment|/**  * A support class for {@link Module}s which reduces repetition and results in  * a more readable configuration. Simply extend this class, implement {@link  * #configure()}, and call the inherited methods which mirror those found in  * {@link Binder}. For example:  *<p/>  *<pre>  * public class MyModule extends AbstractModule {  *   protected void configure() {  *     bind(Service.class).to(ServiceImpl.class).in(Singleton.class);  *     bind(CreditCardPaymentService.class);  *     bind(PaymentService.class).to(CreditCardPaymentService.class);  *     bindConstant().annotatedWith(Names.named("port")).to(8080);  *   }  * }  *</pre>  *  * @author crazybob@google.com (Bob Lee)  */
 end_comment
 
 begin_class

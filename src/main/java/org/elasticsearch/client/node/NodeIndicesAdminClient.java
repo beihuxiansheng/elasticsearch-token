@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -1223,7 +1223,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -1362,9 +1362,9 @@ specifier|final
 name|TransportDeleteIndexTemplateAction
 name|deleteIndexTemplateAction
 decl_stmt|;
-DECL|method|NodeIndicesAdminClient
 annotation|@
 name|Inject
+DECL|method|NodeIndicesAdminClient
 specifier|public
 name|NodeIndicesAdminClient
 parameter_list|(
@@ -1562,9 +1562,9 @@ operator|=
 name|deleteIndexTemplateAction
 expr_stmt|;
 block|}
-DECL|method|threadPool
 annotation|@
 name|Override
+DECL|method|threadPool
 specifier|public
 name|ThreadPool
 name|threadPool
@@ -1576,9 +1576,9 @@ operator|.
 name|threadPool
 return|;
 block|}
-DECL|method|exists
 annotation|@
 name|Override
+DECL|method|exists
 specifier|public
 name|ActionFuture
 argument_list|<
@@ -1599,9 +1599,9 @@ name|request
 argument_list|)
 return|;
 block|}
-DECL|method|exists
 annotation|@
 name|Override
+DECL|method|exists
 specifier|public
 name|void
 name|exists
@@ -1626,9 +1626,9 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|stats
 annotation|@
 name|Override
+DECL|method|stats
 specifier|public
 name|ActionFuture
 argument_list|<
@@ -1649,9 +1649,9 @@ name|request
 argument_list|)
 return|;
 block|}
-DECL|method|stats
 annotation|@
 name|Override
+DECL|method|stats
 specifier|public
 name|void
 name|stats
@@ -1676,9 +1676,9 @@ name|lister
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|status
 annotation|@
 name|Override
+DECL|method|status
 specifier|public
 name|ActionFuture
 argument_list|<
@@ -1699,9 +1699,9 @@ name|request
 argument_list|)
 return|;
 block|}
-DECL|method|status
 annotation|@
 name|Override
+DECL|method|status
 specifier|public
 name|void
 name|status
@@ -1726,9 +1726,9 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|segments
 annotation|@
 name|Override
+DECL|method|segments
 specifier|public
 name|ActionFuture
 argument_list|<
@@ -1749,9 +1749,9 @@ name|request
 argument_list|)
 return|;
 block|}
-DECL|method|segments
 annotation|@
 name|Override
+DECL|method|segments
 specifier|public
 name|void
 name|segments
@@ -1776,9 +1776,9 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|create
 annotation|@
 name|Override
+DECL|method|create
 specifier|public
 name|ActionFuture
 argument_list|<
@@ -1799,9 +1799,9 @@ name|request
 argument_list|)
 return|;
 block|}
-DECL|method|create
 annotation|@
 name|Override
+DECL|method|create
 specifier|public
 name|void
 name|create
@@ -1826,9 +1826,9 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|delete
 annotation|@
 name|Override
+DECL|method|delete
 specifier|public
 name|ActionFuture
 argument_list|<
@@ -1849,9 +1849,9 @@ name|request
 argument_list|)
 return|;
 block|}
-DECL|method|delete
 annotation|@
 name|Override
+DECL|method|delete
 specifier|public
 name|void
 name|delete
@@ -1876,9 +1876,9 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|close
 annotation|@
 name|Override
+DECL|method|close
 specifier|public
 name|ActionFuture
 argument_list|<
@@ -1899,9 +1899,9 @@ name|request
 argument_list|)
 return|;
 block|}
-DECL|method|close
 annotation|@
 name|Override
+DECL|method|close
 specifier|public
 name|void
 name|close
@@ -1926,9 +1926,9 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|open
 annotation|@
 name|Override
+DECL|method|open
 specifier|public
 name|ActionFuture
 argument_list|<
@@ -1949,9 +1949,9 @@ name|request
 argument_list|)
 return|;
 block|}
-DECL|method|open
 annotation|@
 name|Override
+DECL|method|open
 specifier|public
 name|void
 name|open
@@ -1976,9 +1976,9 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|refresh
 annotation|@
 name|Override
+DECL|method|refresh
 specifier|public
 name|ActionFuture
 argument_list|<
@@ -1999,9 +1999,9 @@ name|request
 argument_list|)
 return|;
 block|}
-DECL|method|refresh
 annotation|@
 name|Override
+DECL|method|refresh
 specifier|public
 name|void
 name|refresh
@@ -2026,9 +2026,9 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|flush
 annotation|@
 name|Override
+DECL|method|flush
 specifier|public
 name|ActionFuture
 argument_list|<
@@ -2049,9 +2049,9 @@ name|request
 argument_list|)
 return|;
 block|}
-DECL|method|flush
 annotation|@
 name|Override
+DECL|method|flush
 specifier|public
 name|void
 name|flush
@@ -2076,9 +2076,9 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|optimize
 annotation|@
 name|Override
+DECL|method|optimize
 specifier|public
 name|ActionFuture
 argument_list|<
@@ -2099,9 +2099,9 @@ name|request
 argument_list|)
 return|;
 block|}
-DECL|method|optimize
 annotation|@
 name|Override
+DECL|method|optimize
 specifier|public
 name|void
 name|optimize
@@ -2126,9 +2126,9 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|putMapping
 annotation|@
 name|Override
+DECL|method|putMapping
 specifier|public
 name|ActionFuture
 argument_list|<
@@ -2149,9 +2149,9 @@ name|request
 argument_list|)
 return|;
 block|}
-DECL|method|putMapping
 annotation|@
 name|Override
+DECL|method|putMapping
 specifier|public
 name|void
 name|putMapping
@@ -2176,9 +2176,9 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|deleteMapping
 annotation|@
 name|Override
+DECL|method|deleteMapping
 specifier|public
 name|ActionFuture
 argument_list|<
@@ -2199,9 +2199,9 @@ name|request
 argument_list|)
 return|;
 block|}
-DECL|method|deleteMapping
 annotation|@
 name|Override
+DECL|method|deleteMapping
 specifier|public
 name|void
 name|deleteMapping
@@ -2226,9 +2226,9 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|gatewaySnapshot
 annotation|@
 name|Override
+DECL|method|gatewaySnapshot
 specifier|public
 name|ActionFuture
 argument_list|<
@@ -2249,9 +2249,9 @@ name|request
 argument_list|)
 return|;
 block|}
-DECL|method|gatewaySnapshot
 annotation|@
 name|Override
+DECL|method|gatewaySnapshot
 specifier|public
 name|void
 name|gatewaySnapshot
@@ -2276,9 +2276,9 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|aliases
 annotation|@
 name|Override
+DECL|method|aliases
 specifier|public
 name|ActionFuture
 argument_list|<
@@ -2299,9 +2299,9 @@ name|request
 argument_list|)
 return|;
 block|}
-DECL|method|aliases
 annotation|@
 name|Override
+DECL|method|aliases
 specifier|public
 name|void
 name|aliases
@@ -2326,9 +2326,9 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|clearCache
 annotation|@
 name|Override
+DECL|method|clearCache
 specifier|public
 name|ActionFuture
 argument_list|<
@@ -2349,9 +2349,9 @@ name|request
 argument_list|)
 return|;
 block|}
-DECL|method|clearCache
 annotation|@
 name|Override
+DECL|method|clearCache
 specifier|public
 name|void
 name|clearCache
@@ -2376,9 +2376,9 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|updateSettings
 annotation|@
 name|Override
+DECL|method|updateSettings
 specifier|public
 name|ActionFuture
 argument_list|<
@@ -2399,9 +2399,9 @@ name|request
 argument_list|)
 return|;
 block|}
-DECL|method|updateSettings
 annotation|@
 name|Override
+DECL|method|updateSettings
 specifier|public
 name|void
 name|updateSettings
@@ -2426,9 +2426,9 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|analyze
 annotation|@
 name|Override
+DECL|method|analyze
 specifier|public
 name|ActionFuture
 argument_list|<
@@ -2449,9 +2449,9 @@ name|request
 argument_list|)
 return|;
 block|}
-DECL|method|analyze
 annotation|@
 name|Override
+DECL|method|analyze
 specifier|public
 name|void
 name|analyze
@@ -2476,9 +2476,9 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|putTemplate
 annotation|@
 name|Override
+DECL|method|putTemplate
 specifier|public
 name|ActionFuture
 argument_list|<
@@ -2499,9 +2499,9 @@ name|request
 argument_list|)
 return|;
 block|}
-DECL|method|putTemplate
 annotation|@
 name|Override
+DECL|method|putTemplate
 specifier|public
 name|void
 name|putTemplate
@@ -2526,9 +2526,9 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|deleteTemplate
-annotation|@
-name|Override
 specifier|public
 name|ActionFuture
 argument_list|<
@@ -2549,9 +2549,9 @@ name|request
 argument_list|)
 return|;
 block|}
-DECL|method|deleteTemplate
 annotation|@
 name|Override
+DECL|method|deleteTemplate
 specifier|public
 name|void
 name|deleteTemplate

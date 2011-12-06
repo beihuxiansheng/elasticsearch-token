@@ -155,7 +155,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -188,9 +188,9 @@ name|EMPTY_SETTINGS
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|NoneBloomCache
 annotation|@
 name|Inject
+DECL|method|NoneBloomCache
 specifier|public
 name|NoneBloomCache
 parameter_list|(
@@ -211,9 +211,9 @@ name|indexSettings
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|filter
 annotation|@
 name|Override
+DECL|method|filter
 specifier|public
 name|BloomFilter
 name|filter
@@ -234,17 +234,17 @@ operator|.
 name|NONE
 return|;
 block|}
-DECL|method|clear
 annotation|@
 name|Override
+DECL|method|clear
 specifier|public
 name|void
 name|clear
 parameter_list|()
 block|{     }
-DECL|method|clear
 annotation|@
 name|Override
+DECL|method|clear
 specifier|public
 name|void
 name|clear
@@ -253,9 +253,9 @@ name|IndexReader
 name|reader
 parameter_list|)
 block|{     }
-DECL|method|sizeInBytes
 annotation|@
 name|Override
+DECL|method|sizeInBytes
 specifier|public
 name|long
 name|sizeInBytes
@@ -265,9 +265,9 @@ return|return
 literal|0
 return|;
 block|}
-DECL|method|sizeInBytes
 annotation|@
 name|Override
+DECL|method|sizeInBytes
 specifier|public
 name|long
 name|sizeInBytes
@@ -280,9 +280,9 @@ return|return
 literal|0
 return|;
 block|}
-DECL|method|close
 annotation|@
 name|Override
+DECL|method|close
 specifier|public
 name|void
 name|close

@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -235,7 +235,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_interface
@@ -281,7 +281,7 @@ name|long
 name|translogSizeInBytes
 parameter_list|()
 function_decl|;
-comment|/**      * Creates a new transaction log internally.      *      *<p>Can only be called by one thread.      */
+comment|/**      * Creates a new transaction log internally.      *<p/>      *<p>Can only be called by one thread.      */
 DECL|method|newTranslog
 name|void
 name|newTranslog
@@ -292,7 +292,7 @@ parameter_list|)
 throws|throws
 name|TranslogException
 function_decl|;
-comment|/**      * Creates a new transient translog, where added ops will be added to the current one, and to      * it.      *      *<p>Can only be called by one thread.      */
+comment|/**      * Creates a new transient translog, where added ops will be added to the current one, and to      * it.      *<p/>      *<p>Can only be called by one thread.      */
 DECL|method|newTransientTranslog
 name|void
 name|newTransientTranslog
@@ -303,7 +303,7 @@ parameter_list|)
 throws|throws
 name|TranslogException
 function_decl|;
-comment|/**      * Swaps the transient translog to be the current one.      *      *<p>Can only be called by one thread.      */
+comment|/**      * Swaps the transient translog to be the current one.      *<p/>      *<p>Can only be called by one thread.      */
 DECL|method|makeTransientCurrent
 name|void
 name|makeTransientCurrent
@@ -372,7 +372,7 @@ name|boolean
 name|syncOnEachOperation
 parameter_list|)
 function_decl|;
-comment|/**      * Closes the transaction log.      *      *<p>Can only be called by one thread.      */
+comment|/**      * Closes the transaction log.      *<p/>      *<p>Can only be called by one thread.      */
 DECL|method|close
 name|void
 name|close
@@ -960,9 +960,9 @@ operator|.
 name|length
 expr_stmt|;
 block|}
-DECL|method|opType
 annotation|@
 name|Override
+DECL|method|opType
 specifier|public
 name|Type
 name|opType
@@ -974,9 +974,9 @@ operator|.
 name|CREATE
 return|;
 block|}
-DECL|method|estimateSize
 annotation|@
 name|Override
+DECL|method|estimateSize
 specifier|public
 name|long
 name|estimateSize
@@ -1127,9 +1127,9 @@ operator|.
 name|version
 return|;
 block|}
-DECL|method|readSource
 annotation|@
 name|Override
+DECL|method|readSource
 specifier|public
 name|Source
 name|readSource
@@ -1317,9 +1317,9 @@ name|ttl
 argument_list|)
 return|;
 block|}
-DECL|method|readFrom
 annotation|@
 name|Override
+DECL|method|readFrom
 specifier|public
 name|void
 name|readFrom
@@ -1479,9 +1479,9 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|writeTo
 annotation|@
 name|Override
+DECL|method|writeTo
 specifier|public
 name|void
 name|writeTo
@@ -1831,9 +1831,9 @@ operator|.
 name|length
 expr_stmt|;
 block|}
-DECL|method|opType
 annotation|@
 name|Override
+DECL|method|opType
 specifier|public
 name|Type
 name|opType
@@ -1845,9 +1845,9 @@ operator|.
 name|SAVE
 return|;
 block|}
-DECL|method|estimateSize
 annotation|@
 name|Override
+DECL|method|estimateSize
 specifier|public
 name|long
 name|estimateSize
@@ -1998,9 +1998,9 @@ operator|.
 name|version
 return|;
 block|}
-DECL|method|readSource
 annotation|@
 name|Override
+DECL|method|readSource
 specifier|public
 name|Source
 name|readSource
@@ -2188,9 +2188,9 @@ name|ttl
 argument_list|)
 return|;
 block|}
-DECL|method|readFrom
 annotation|@
 name|Override
+DECL|method|readFrom
 specifier|public
 name|void
 name|readFrom
@@ -2350,9 +2350,9 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|writeTo
 annotation|@
 name|Override
+DECL|method|writeTo
 specifier|public
 name|void
 name|writeTo
@@ -2555,9 +2555,9 @@ operator|=
 name|uid
 expr_stmt|;
 block|}
-DECL|method|opType
 annotation|@
 name|Override
+DECL|method|opType
 specifier|public
 name|Type
 name|opType
@@ -2569,9 +2569,9 @@ operator|.
 name|DELETE
 return|;
 block|}
-DECL|method|estimateSize
 annotation|@
 name|Override
+DECL|method|estimateSize
 specifier|public
 name|long
 name|estimateSize
@@ -2627,9 +2627,9 @@ operator|.
 name|version
 return|;
 block|}
-DECL|method|readSource
 annotation|@
 name|Override
+DECL|method|readSource
 specifier|public
 name|Source
 name|readSource
@@ -2648,9 +2648,9 @@ literal|"trying to read doc source from delete operation"
 argument_list|)
 throw|;
 block|}
-DECL|method|readFrom
 annotation|@
 name|Override
+DECL|method|readFrom
 specifier|public
 name|void
 name|readFrom
@@ -2704,9 +2704,9 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|writeTo
 annotation|@
 name|Override
+DECL|method|writeTo
 specifier|public
 name|void
 name|writeTo
@@ -2767,9 +2767,9 @@ name|byte
 index|[]
 name|source
 decl_stmt|;
-DECL|field|filteringAliases
 annotation|@
 name|Nullable
+DECL|field|filteringAliases
 specifier|private
 name|String
 index|[]
@@ -2863,9 +2863,9 @@ operator|=
 name|filteringAliases
 expr_stmt|;
 block|}
-DECL|method|opType
 annotation|@
 name|Override
+DECL|method|opType
 specifier|public
 name|Type
 name|opType
@@ -2877,9 +2877,9 @@ operator|.
 name|DELETE_BY_QUERY
 return|;
 block|}
-DECL|method|estimateSize
 annotation|@
 name|Override
+DECL|method|estimateSize
 specifier|public
 name|long
 name|estimateSize
@@ -2930,9 +2930,9 @@ operator|.
 name|types
 return|;
 block|}
-DECL|method|readSource
 annotation|@
 name|Override
+DECL|method|readSource
 specifier|public
 name|Source
 name|readSource
@@ -2951,9 +2951,9 @@ literal|"trying to read doc source from delete_by_query operation"
 argument_list|)
 throw|;
 block|}
-DECL|method|readFrom
 annotation|@
 name|Override
+DECL|method|readFrom
 specifier|public
 name|void
 name|readFrom
@@ -3123,9 +3123,9 @@ block|}
 block|}
 block|}
 block|}
-DECL|method|writeTo
 annotation|@
 name|Override
+DECL|method|writeTo
 specifier|public
 name|void
 name|writeTo

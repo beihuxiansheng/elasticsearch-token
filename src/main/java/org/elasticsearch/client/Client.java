@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -507,7 +507,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A client provides a one stop interface for performing actions/operations against the cluster.  *  *<p>All operations performed are asynchronous by nature. Each action/operation has two flavors, the first  * simply returns an {@link org.elasticsearch.action.ActionFuture}, while the second accepts an  * {@link org.elasticsearch.action.ActionListener}.  *  *<p>A client can either be retrieved from a {@link org.elasticsearch.node.Node} started, or connected remotely  * to one or more nodes using {@link org.elasticsearch.client.transport.TransportClient}.  *  * @author kimchy (shay.banon)  * @see org.elasticsearch.node.Node#client()  * @see org.elasticsearch.client.transport.TransportClient  */
+comment|/**  * A client provides a one stop interface for performing actions/operations against the cluster.  *<p/>  *<p>All operations performed are asynchronous by nature. Each action/operation has two flavors, the first  * simply returns an {@link org.elasticsearch.action.ActionFuture}, while the second accepts an  * {@link org.elasticsearch.action.ActionListener}.  *<p/>  *<p>A client can either be retrieved from a {@link org.elasticsearch.node.Node} started, or connected remotely  * to one or more nodes using {@link org.elasticsearch.client.transport.TransportClient}.  *  *  * @see org.elasticsearch.node.Node#client()  * @see org.elasticsearch.client.transport.TransportClient  */
 end_comment
 
 begin_interface
@@ -528,7 +528,7 @@ name|AdminClient
 name|admin
 parameter_list|()
 function_decl|;
-comment|/**      * Index a JSON source associated with a given index and type.      *      *<p>The id is optional, if it is not provided, one will be generated automatically.      *      * @param request The index request      * @return The result future      * @see Requests#indexRequest(String)      */
+comment|/**      * Index a JSON source associated with a given index and type.      *<p/>      *<p>The id is optional, if it is not provided, one will be generated automatically.      *      * @param request The index request      * @return The result future      * @see Requests#indexRequest(String)      */
 DECL|method|index
 name|ActionFuture
 argument_list|<
@@ -540,7 +540,7 @@ name|IndexRequest
 name|request
 parameter_list|)
 function_decl|;
-comment|/**      * Index a document associated with a given index and type.      *      *<p>The id is optional, if it is not provided, one will be generated automatically.      *      * @param request  The index request      * @param listener A listener to be notified with a result      * @see Requests#indexRequest(String)      */
+comment|/**      * Index a document associated with a given index and type.      *<p/>      *<p>The id is optional, if it is not provided, one will be generated automatically.      *      * @param request  The index request      * @param listener A listener to be notified with a result      * @see Requests#indexRequest(String)      */
 DECL|method|index
 name|void
 name|index
@@ -555,13 +555,13 @@ argument_list|>
 name|listener
 parameter_list|)
 function_decl|;
-comment|/**      * Index a document associated with a given index and type.      *      *<p>The id is optional, if it is not provided, one will be generated automatically.      */
+comment|/**      * Index a document associated with a given index and type.      *<p/>      *<p>The id is optional, if it is not provided, one will be generated automatically.      */
 DECL|method|prepareIndex
 name|IndexRequestBuilder
 name|prepareIndex
 parameter_list|()
 function_decl|;
-comment|/**      * Index a document associated with a given index and type.      *      *<p>The id is optional, if it is not provided, one will be generated automatically.      *      * @param index The index to index the document to      * @param type  The type to index the document to      */
+comment|/**      * Index a document associated with a given index and type.      *<p/>      *<p>The id is optional, if it is not provided, one will be generated automatically.      *      * @param index The index to index the document to      * @param type  The type to index the document to      */
 DECL|method|prepareIndex
 name|IndexRequestBuilder
 name|prepareIndex
@@ -573,7 +573,7 @@ name|String
 name|type
 parameter_list|)
 function_decl|;
-comment|/**      * Index a document associated with a given index and type.      *      *<p>The id is optional, if it is not provided, one will be generated automatically.      *      * @param index The index to index the document to      * @param type  The type to index the document to      * @param id    The id of the document      */
+comment|/**      * Index a document associated with a given index and type.      *<p/>      *<p>The id is optional, if it is not provided, one will be generated automatically.      *      * @param index The index to index the document to      * @param type  The type to index the document to      * @param id    The id of the document      */
 DECL|method|prepareIndex
 name|IndexRequestBuilder
 name|prepareIndex

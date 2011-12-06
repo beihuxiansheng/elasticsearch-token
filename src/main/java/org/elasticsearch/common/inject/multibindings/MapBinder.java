@@ -20,9 +20,9 @@ end_package
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
@@ -42,77 +42,7 @@ name|common
 operator|.
 name|inject
 operator|.
-name|Binder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|inject
-operator|.
-name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|inject
-operator|.
-name|Key
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|inject
-operator|.
-name|Module
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|inject
-operator|.
-name|Provider
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|inject
-operator|.
-name|TypeLiteral
+name|*
 import|;
 end_import
 
@@ -276,12 +206,30 @@ name|util
 operator|.
 name|Types
 operator|.
-name|*
+name|newParameterizedType
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|inject
+operator|.
+name|util
+operator|.
+name|Types
+operator|.
+name|newParameterizedTypeWithOwner
 import|;
 end_import
 
 begin_comment
-comment|/**  * An API to bind multiple map entries separately, only to later inject them as  * a complete map. MapBinder is intended for use in your application's module:  *<pre><code>  * public class SnacksModule extends AbstractModule {  *   protected void configure() {  *     MapBinder&lt;String, Snack&gt; mapbinder  *         = MapBinder.newMapBinder(binder(), String.class, Snack.class);  *     mapbinder.addBinding("twix").toInstance(new Twix());  *     mapbinder.addBinding("snickers").toProvider(SnickersProvider.class);  *     mapbinder.addBinding("skittles").to(Skittles.class);  *   }  * }</code></pre>  *  *<p>With this binding, a {@link Map}{@code<String, Snack>} can now be  * injected:  *<pre><code>  * class SnackMachine {  *   {@literal @}Inject  *   public SnackMachine(Map&lt;String, Snack&gt; snacks) { ... }  * }</code></pre>  *  *<p>In addition to binding {@code Map<K, V>}, a mapbinder will also bind  * {@code Map<K, Provider<V>>} for lazy value provision:  *<pre><code>  * class SnackMachine {  *   {@literal @}Inject  *   public SnackMachine(Map&lt;String, Provider&lt;Snack&gt;&gt; snackProviders) { ... }  * }</code></pre>  *  *<p>Creating mapbindings from different modules is supported. For example, it  * is okay to have both {@code CandyModule} and {@code ChipsModule} both  * create their own {@code MapBinder<String, Snack>}, and to each contribute  * bindings to the snacks map. When that map is injected, it will contain  * entries from both modules.  *  *<p>Values are resolved at map injection time. If a value is bound to a  * provider, that provider's get method will be called each time the map is  * injected (unless the binding is also scoped, or a map of providers is injected).  *  *<p>Annotations are used to create different maps of the same key/value  * type. Each distinct annotation gets its own independent map.  *  *<p><strong>Keys must be distinct.</strong> If the same key is bound more than  * once, map injection will fail.  *  *<p><strong>Keys must be non-null.</strong> {@code addBinding(null)} will  * throw an unchecked exception.  *  *<p><strong>Values must be non-null to use map injection.</strong> If any  * value is null, map injection will fail (although injecting a map of providers  * will not).  *  * @author dpb@google.com (David P. Baker)  */
+comment|/**  * An API to bind multiple map entries separately, only to later inject them as  * a complete map. MapBinder is intended for use in your application's module:  *<pre><code>  * public class SnacksModule extends AbstractModule {  *   protected void configure() {  *     MapBinder&lt;String, Snack&gt; mapbinder  *         = MapBinder.newMapBinder(binder(), String.class, Snack.class);  *     mapbinder.addBinding("twix").toInstance(new Twix());  *     mapbinder.addBinding("snickers").toProvider(SnickersProvider.class);  *     mapbinder.addBinding("skittles").to(Skittles.class);  *   }  * }</code></pre>  *<p/>  *<p>With this binding, a {@link Map}{@code<String, Snack>} can now be  * injected:  *<pre><code>  * class SnackMachine {  *   {@literal @}Inject  *   public SnackMachine(Map&lt;String, Snack&gt; snacks) { ... }  * }</code></pre>  *<p/>  *<p>In addition to binding {@code Map<K, V>}, a mapbinder will also bind  * {@code Map<K, Provider<V>>} for lazy value provision:  *<pre><code>  * class SnackMachine {  *   {@literal @}Inject  *   public SnackMachine(Map&lt;String, Provider&lt;Snack&gt;&gt; snackProviders) { ... }  * }</code></pre>  *<p/>  *<p>Creating mapbindings from different modules is supported. For example, it  * is okay to have both {@code CandyModule} and {@code ChipsModule} both  * create their own {@code MapBinder<String, Snack>}, and to each contribute  * bindings to the snacks map. When that map is injected, it will contain  * entries from both modules.  *<p/>  *<p>Values are resolved at map injection time. If a value is bound to a  * provider, that provider's get method will be called each time the map is  * injected (unless the binding is also scoped, or a map of providers is injected).  *<p/>  *<p>Annotations are used to create different maps of the same key/value  * type. Each distinct annotation gets its own independent map.  *<p/>  *<p><strong>Keys must be distinct.</strong> If the same key is bound more than  * once, map injection will fail.  *<p/>  *<p><strong>Keys must be non-null.</strong> {@code addBinding(null)} will  * throw an unchecked exception.  *<p/>  *<p><strong>Values must be non-null to use map injection.</strong> If any  * value is null, map injection will fail (although injecting a map of providers  * will not).  *  * @author dpb@google.com (David P. Baker)  */
 end_comment
 
 begin_class
@@ -1134,7 +1082,7 @@ return|return
 name|mapBinder
 return|;
 block|}
-comment|/**      * Returns a binding builder used to add a new entry in the map. Each      * key must be distinct (and non-null). Bound providers will be evaluated each      * time the map is injected.      *      *<p>It is an error to call this method without also calling one of the      * {@code to} methods on the returned binding builder.      *      *<p>Scoping elements independently is supported. Use the {@code in} method      * to specify a binding scope.      */
+comment|/**      * Returns a binding builder used to add a new entry in the map. Each      * key must be distinct (and non-null). Bound providers will be evaluated each      * time the map is injected.      *<p/>      *<p>It is an error to call this method without also calling one of the      * {@code to} methods on the returned binding builder.      *<p/>      *<p>Scoping elements independently is supported. Use the {@code in} method      * to specify a binding scope.      */
 DECL|method|addBinding
 specifier|public
 specifier|abstract
@@ -1148,7 +1096,7 @@ name|K
 name|key
 parameter_list|)
 function_decl|;
-comment|/**      * The actual mapbinder plays several roles:      *      *<p>As a MapBinder, it acts as a factory for LinkedBindingBuilders for      * each of the map's values. It delegates to a {@link Multibinder} of      * entries (keys to value providers).      *      *<p>As a Module, it installs the binding to the map itself, as well as to      * a corresponding map whose values are providers. It uses the entry set      * multibinder to construct the map and the provider map.      *      *<p>As a module, this implements equals() and hashcode() in order to trick      * Guice into executing its configure() method only once. That makes it so      * that multiple mapbinders can be created for the same target map, but      * only one is bound. Since the list of bindings is retrieved from the      * injector itself (and not the mapbinder), each mapbinder has access to      * all contributions from all equivalent mapbinders.      *      *<p>Rather than binding a single Map.Entry&lt;K, V&gt;, the map binder      * binds keys and values independently. This allows the values to be properly      * scoped.      *      *<p>We use a subclass to hide 'implements Module' from the public API.      */
+comment|/**      * The actual mapbinder plays several roles:      *<p/>      *<p>As a MapBinder, it acts as a factory for LinkedBindingBuilders for      * each of the map's values. It delegates to a {@link Multibinder} of      * entries (keys to value providers).      *<p/>      *<p>As a Module, it installs the binding to the map itself, as well as to      * a corresponding map whose values are providers. It uses the entry set      * multibinder to construct the map and the provider map.      *<p/>      *<p>As a module, this implements equals() and hashcode() in order to trick      * Guice into executing its configure() method only once. That makes it so      * that multiple mapbinders can be created for the same target map, but      * only one is bound. Since the list of bindings is retrieved from the      * injector itself (and not the mapbinder), each mapbinder has access to      * all contributions from all equivalent mapbinders.      *<p/>      *<p>Rather than binding a single Map.Entry&lt;K, V&gt;, the map binder      * binds keys and values independently. This allows the values to be properly      * scoped.      *<p/>      *<p>We use a subclass to hide 'implements Module' from the public API.      */
 DECL|class|RealMapBinder
 specifier|private
 specifier|static
@@ -1336,9 +1284,9 @@ name|binder
 expr_stmt|;
 block|}
 comment|/**          * This creates two bindings. One for the {@code Map.Entry<K, Provider<V>>}          * and another for {@code V}.          */
-DECL|method|addBinding
 annotation|@
 name|Override
+DECL|method|addBinding
 specifier|public
 name|LinkedBindingBuilder
 argument_list|<
@@ -1856,9 +1804,9 @@ operator|==
 literal|null
 return|;
 block|}
-DECL|method|equals
 annotation|@
 name|Override
+DECL|method|equals
 specifier|public
 name|boolean
 name|equals
@@ -1892,9 +1840,9 @@ name|mapKey
 argument_list|)
 return|;
 block|}
-DECL|method|hashCode
 annotation|@
 name|Override
+DECL|method|hashCode
 specifier|public
 name|int
 name|hashCode
@@ -1999,9 +1947,9 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
-DECL|method|equals
 annotation|@
 name|Override
+DECL|method|equals
 specifier|public
 name|boolean
 name|equals
@@ -2062,9 +2010,9 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-DECL|method|hashCode
 annotation|@
 name|Override
+DECL|method|hashCode
 specifier|public
 name|int
 name|hashCode
@@ -2100,9 +2048,9 @@ argument_list|()
 operator|)
 return|;
 block|}
-DECL|method|toString
 annotation|@
 name|Override
+DECL|method|toString
 specifier|public
 name|String
 name|toString

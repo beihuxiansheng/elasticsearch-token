@@ -65,7 +65,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -327,9 +327,9 @@ operator|=
 name|ordinals
 expr_stmt|;
 block|}
-DECL|method|computeSizeInBytes
 annotation|@
 name|Override
+DECL|method|computeSizeInBytes
 specifier|protected
 name|long
 name|computeSizeInBytes
@@ -378,9 +378,9 @@ return|return
 name|size
 return|;
 block|}
-DECL|method|multiValued
 annotation|@
 name|Override
+DECL|method|multiValued
 specifier|public
 name|boolean
 name|multiValued
@@ -390,9 +390,9 @@ return|return
 literal|true
 return|;
 block|}
-DECL|method|hasValue
 annotation|@
 name|Override
+DECL|method|hasValue
 specifier|public
 name|boolean
 name|hasValue
@@ -429,9 +429,9 @@ return|return
 literal|false
 return|;
 block|}
-DECL|method|forEachValueInDoc
 annotation|@
 name|Override
+DECL|method|forEachValueInDoc
 specifier|public
 name|void
 name|forEachValueInDoc
@@ -510,9 +510,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|forEachValueInDoc
 annotation|@
 name|Override
+DECL|method|forEachValueInDoc
 specifier|public
 name|void
 name|forEachValueInDoc
@@ -563,9 +563,9 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|forEachValueInDoc
 annotation|@
 name|Override
+DECL|method|forEachValueInDoc
 specifier|public
 name|void
 name|forEachValueInDoc
@@ -616,9 +616,9 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|forEachValueInDoc
 annotation|@
 name|Override
+DECL|method|forEachValueInDoc
 specifier|public
 name|void
 name|forEachValueInDoc
@@ -692,9 +692,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|forEachValueInDoc
 annotation|@
 name|Override
+DECL|method|forEachValueInDoc
 specifier|public
 name|void
 name|forEachValueInDoc
@@ -768,9 +768,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|forEachValueInDoc
 annotation|@
 name|Override
+DECL|method|forEachValueInDoc
 specifier|public
 name|void
 name|forEachValueInDoc
@@ -844,9 +844,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|forEachOrdinalInDoc
 annotation|@
 name|Override
+DECL|method|forEachOrdinalInDoc
 specifier|public
 name|void
 name|forEachOrdinalInDoc
@@ -919,9 +919,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|doubleValues
 annotation|@
 name|Override
+DECL|method|doubleValues
 specifier|public
 name|double
 index|[]
@@ -1055,9 +1055,9 @@ return|return
 name|doubles
 return|;
 block|}
-DECL|method|value
 annotation|@
 name|Override
+DECL|method|value
 specifier|public
 name|byte
 name|value
@@ -1102,9 +1102,9 @@ return|return
 literal|0
 return|;
 block|}
-DECL|method|values
 annotation|@
 name|Override
+DECL|method|values
 specifier|public
 name|byte
 index|[]

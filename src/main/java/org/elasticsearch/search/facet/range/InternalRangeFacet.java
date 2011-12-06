@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -20,9 +20,9 @@ end_package
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
@@ -151,7 +151,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -223,9 +223,9 @@ return|;
 block|}
 block|}
 decl_stmt|;
-DECL|method|streamType
 annotation|@
 name|Override
+DECL|method|streamType
 specifier|public
 name|String
 name|streamType
@@ -274,9 +274,9 @@ operator|=
 name|entries
 expr_stmt|;
 block|}
-DECL|method|name
 annotation|@
 name|Override
+DECL|method|name
 specifier|public
 name|String
 name|name
@@ -288,9 +288,9 @@ operator|.
 name|name
 return|;
 block|}
-DECL|method|getName
 annotation|@
 name|Override
+DECL|method|getName
 specifier|public
 name|String
 name|getName
@@ -301,9 +301,9 @@ name|name
 argument_list|()
 return|;
 block|}
-DECL|method|type
 annotation|@
 name|Override
+DECL|method|type
 specifier|public
 name|String
 name|type
@@ -315,9 +315,9 @@ operator|.
 name|TYPE
 return|;
 block|}
-DECL|method|getType
 annotation|@
 name|Override
+DECL|method|getType
 specifier|public
 name|String
 name|getType
@@ -329,9 +329,9 @@ operator|.
 name|TYPE
 return|;
 block|}
-DECL|method|entries
 annotation|@
 name|Override
+DECL|method|entries
 specifier|public
 name|List
 argument_list|<
@@ -349,9 +349,9 @@ name|entries
 argument_list|)
 return|;
 block|}
-DECL|method|getEntries
 annotation|@
 name|Override
+DECL|method|getEntries
 specifier|public
 name|List
 argument_list|<
@@ -365,9 +365,9 @@ name|entries
 argument_list|()
 return|;
 block|}
-DECL|method|iterator
 annotation|@
 name|Override
+DECL|method|iterator
 specifier|public
 name|Iterator
 argument_list|<
@@ -414,9 +414,9 @@ return|return
 name|facet
 return|;
 block|}
-DECL|method|readFrom
 annotation|@
 name|Override
+DECL|method|readFrom
 specifier|public
 name|void
 name|readFrom
@@ -577,9 +577,9 @@ name|entry
 expr_stmt|;
 block|}
 block|}
-DECL|method|writeTo
 annotation|@
 name|Override
+DECL|method|writeTo
 specifier|public
 name|void
 name|writeTo
@@ -902,9 +902,9 @@ literal|"max"
 argument_list|)
 decl_stmt|;
 block|}
-DECL|method|toXContent
 annotation|@
 name|Override
+DECL|method|toXContent
 specifier|public
 name|XContentBuilder
 name|toXContent

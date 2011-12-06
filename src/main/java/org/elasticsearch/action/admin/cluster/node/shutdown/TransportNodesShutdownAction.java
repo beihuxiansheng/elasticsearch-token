@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -21,6 +21,20 @@ operator|.
 name|shutdown
 package|;
 end_package
+
+begin_import
+import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|Sets
+import|;
+end_import
 
 begin_import
 import|import
@@ -117,20 +131,6 @@ operator|.
 name|node
 operator|.
 name|DiscoveryNode
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Sets
 import|;
 end_import
 
@@ -272,55 +272,7 @@ name|elasticsearch
 operator|.
 name|transport
 operator|.
-name|BaseTransportRequestHandler
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|transport
-operator|.
-name|TransportChannel
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|transport
-operator|.
-name|TransportException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|transport
-operator|.
-name|TransportService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|transport
-operator|.
-name|VoidTransportResponseHandler
+name|*
 import|;
 end_import
 
@@ -357,7 +309,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -397,9 +349,9 @@ specifier|final
 name|TimeValue
 name|delay
 decl_stmt|;
-DECL|method|TransportNodesShutdownAction
 annotation|@
 name|Inject
+DECL|method|TransportNodesShutdownAction
 specifier|public
 name|TransportNodesShutdownAction
 parameter_list|(
@@ -492,9 +444,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|executor
 annotation|@
 name|Override
+DECL|method|executor
 specifier|protected
 name|String
 name|executor
@@ -508,9 +460,9 @@ operator|.
 name|CACHED
 return|;
 block|}
-DECL|method|transportAction
 annotation|@
 name|Override
+DECL|method|transportAction
 specifier|protected
 name|String
 name|transportAction
@@ -528,9 +480,9 @@ operator|.
 name|SHUTDOWN
 return|;
 block|}
-DECL|method|newRequest
 annotation|@
 name|Override
+DECL|method|newRequest
 specifier|protected
 name|NodesShutdownRequest
 name|newRequest
@@ -542,9 +494,9 @@ name|NodesShutdownRequest
 argument_list|()
 return|;
 block|}
-DECL|method|newResponse
 annotation|@
 name|Override
+DECL|method|newResponse
 specifier|protected
 name|NodesShutdownResponse
 name|newResponse
@@ -556,9 +508,9 @@ name|NodesShutdownResponse
 argument_list|()
 return|;
 block|}
-DECL|method|processBeforeDelegationToMaster
 annotation|@
 name|Override
+DECL|method|processBeforeDelegationToMaster
 specifier|protected
 name|void
 name|processBeforeDelegationToMaster
@@ -633,9 +585,9 @@ block|}
 block|}
 block|}
 block|}
-DECL|method|masterOperation
 annotation|@
 name|Override
+DECL|method|masterOperation
 specifier|protected
 name|NodesShutdownResponse
 name|masterOperation
@@ -1400,9 +1352,9 @@ name|ACTION
 init|=
 literal|"/cluster/nodes/shutdown/node"
 decl_stmt|;
-DECL|method|newInstance
 annotation|@
 name|Override
+DECL|method|newInstance
 specifier|public
 name|NodeShutdownRequest
 name|newInstance
@@ -1414,9 +1366,9 @@ name|NodeShutdownRequest
 argument_list|()
 return|;
 block|}
-DECL|method|executor
 annotation|@
 name|Override
+DECL|method|executor
 specifier|public
 name|String
 name|executor
@@ -1430,9 +1382,9 @@ operator|.
 name|SAME
 return|;
 block|}
-DECL|method|messageReceived
 annotation|@
 name|Override
+DECL|method|messageReceived
 specifier|public
 name|void
 name|messageReceived
@@ -1721,9 +1673,9 @@ operator|=
 name|exit
 expr_stmt|;
 block|}
-DECL|method|readFrom
 annotation|@
 name|Override
+DECL|method|readFrom
 specifier|public
 name|void
 name|readFrom
@@ -1742,9 +1694,9 @@ name|readBoolean
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|writeTo
 annotation|@
 name|Override
+DECL|method|writeTo
 specifier|public
 name|void
 name|writeTo

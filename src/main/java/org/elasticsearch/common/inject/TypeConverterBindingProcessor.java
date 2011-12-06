@@ -937,9 +937,9 @@ block|}
 end_function
 
 begin_function
-DECL|method|visit
 annotation|@
 name|Override
+DECL|method|visit
 specifier|public
 name|Boolean
 name|visit

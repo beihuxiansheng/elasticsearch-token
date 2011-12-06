@@ -234,15 +234,17 @@ end_import
 
 begin_import
 import|import static
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
-name|action
+name|common
 operator|.
-name|Actions
+name|collect
 operator|.
-name|*
+name|Maps
+operator|.
+name|newHashMap
 import|;
 end_import
 
@@ -252,13 +254,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|action
 operator|.
-name|collect
+name|Actions
 operator|.
-name|Maps
-operator|.
-name|*
+name|addValidationError
 import|;
 end_import
 
@@ -276,7 +276,7 @@ name|ImmutableSettings
 operator|.
 name|Builder
 operator|.
-name|*
+name|EMPTY_SETTINGS
 import|;
 end_import
 
@@ -292,7 +292,23 @@ name|settings
 operator|.
 name|ImmutableSettings
 operator|.
-name|*
+name|readSettingsFromStream
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|ImmutableSettings
+operator|.
+name|writeSettingsToStream
 import|;
 end_import
 
@@ -308,12 +324,12 @@ name|unit
 operator|.
 name|TimeValue
 operator|.
-name|*
+name|readTimeValue
 import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -406,9 +422,9 @@ operator|=
 name|name
 expr_stmt|;
 block|}
-DECL|method|validate
 annotation|@
 name|Override
+DECL|method|validate
 specifier|public
 name|ActionRequestValidationException
 name|validate
@@ -1028,9 +1044,9 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-DECL|method|readFrom
 annotation|@
 name|Override
+DECL|method|readFrom
 specifier|public
 name|void
 name|readFrom
@@ -1137,9 +1153,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|writeTo
 annotation|@
 name|Override
+DECL|method|writeTo
 specifier|public
 name|void
 name|writeTo

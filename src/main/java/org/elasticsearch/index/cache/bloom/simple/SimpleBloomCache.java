@@ -345,7 +345,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -400,9 +400,9 @@ operator|new
 name|Object
 argument_list|()
 decl_stmt|;
-DECL|method|SimpleBloomCache
 annotation|@
 name|Inject
+DECL|method|SimpleBloomCache
 specifier|public
 name|SimpleBloomCache
 parameter_list|(
@@ -465,9 +465,9 @@ name|newConcurrentMap
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|close
 annotation|@
 name|Override
+DECL|method|close
 specifier|public
 name|void
 name|close
@@ -479,9 +479,9 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|clear
 annotation|@
 name|Override
+DECL|method|clear
 specifier|public
 name|void
 name|clear
@@ -493,9 +493,9 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|finished
 annotation|@
 name|Override
+DECL|method|finished
 specifier|public
 name|void
 name|finished
@@ -510,9 +510,9 @@ name|reader
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|clear
 annotation|@
 name|Override
+DECL|method|clear
 specifier|public
 name|void
 name|clear
@@ -554,9 +554,9 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|sizeInBytes
 annotation|@
 name|Override
+DECL|method|sizeInBytes
 specifier|public
 name|long
 name|sizeInBytes
@@ -610,9 +610,9 @@ return|return
 name|sizeInBytes
 return|;
 block|}
-DECL|method|sizeInBytes
 annotation|@
 name|Override
+DECL|method|sizeInBytes
 specifier|public
 name|long
 name|sizeInBytes
@@ -674,9 +674,9 @@ return|return
 name|sizeInBytes
 return|;
 block|}
-DECL|method|filter
 annotation|@
 name|Override
+DECL|method|filter
 specifier|public
 name|BloomFilter
 name|filter
@@ -1060,9 +1060,9 @@ block|{
 literal|"StringEquality"
 block|}
 argument_list|)
-DECL|method|run
 annotation|@
 name|Override
+DECL|method|run
 specifier|public
 name|void
 name|run

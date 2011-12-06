@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -353,7 +353,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -388,9 +388,9 @@ specifier|final
 name|ScheduledFuture
 name|flushScheduler
 decl_stmt|;
-DECL|method|LocalIndexShardGateway
 annotation|@
 name|Inject
+DECL|method|LocalIndexShardGateway
 specifier|public
 name|LocalIndexShardGateway
 parameter_list|(
@@ -515,9 +515,9 @@ literal|null
 expr_stmt|;
 block|}
 block|}
-DECL|method|toString
 annotation|@
 name|Override
+DECL|method|toString
 specifier|public
 name|String
 name|toString
@@ -527,9 +527,9 @@ return|return
 literal|"local"
 return|;
 block|}
-DECL|method|recoveryStatus
 annotation|@
 name|Override
+DECL|method|recoveryStatus
 specifier|public
 name|RecoveryStatus
 name|recoveryStatus
@@ -539,9 +539,9 @@ return|return
 name|recoveryStatus
 return|;
 block|}
-DECL|method|recover
 annotation|@
 name|Override
+DECL|method|recover
 specifier|public
 name|void
 name|recover
@@ -1187,9 +1187,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|type
 annotation|@
 name|Override
+DECL|method|type
 specifier|public
 name|String
 name|type
@@ -1199,9 +1199,9 @@ return|return
 literal|"local"
 return|;
 block|}
-DECL|method|snapshot
 annotation|@
 name|Override
+DECL|method|snapshot
 specifier|public
 name|SnapshotStatus
 name|snapshot
@@ -1214,9 +1214,9 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|lastSnapshotStatus
 annotation|@
 name|Override
+DECL|method|lastSnapshotStatus
 specifier|public
 name|SnapshotStatus
 name|lastSnapshotStatus
@@ -1226,9 +1226,9 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|currentSnapshotStatus
 annotation|@
 name|Override
+DECL|method|currentSnapshotStatus
 specifier|public
 name|SnapshotStatus
 name|currentSnapshotStatus
@@ -1238,9 +1238,9 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|requiresSnapshot
 annotation|@
 name|Override
+DECL|method|requiresSnapshot
 specifier|public
 name|boolean
 name|requiresSnapshot
@@ -1250,9 +1250,9 @@ return|return
 literal|false
 return|;
 block|}
-DECL|method|requiresSnapshotScheduling
 annotation|@
 name|Override
+DECL|method|requiresSnapshotScheduling
 specifier|public
 name|boolean
 name|requiresSnapshotScheduling
@@ -1262,9 +1262,9 @@ return|return
 literal|false
 return|;
 block|}
-DECL|method|close
 annotation|@
 name|Override
+DECL|method|close
 specifier|public
 name|void
 name|close
@@ -1289,9 +1289,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|obtainSnapshotLock
 annotation|@
 name|Override
+DECL|method|obtainSnapshotLock
 specifier|public
 name|SnapshotLock
 name|obtainSnapshotLock
@@ -1310,9 +1310,9 @@ name|Sync
 implements|implements
 name|Runnable
 block|{
-DECL|method|run
 annotation|@
 name|Override
+DECL|method|run
 specifier|public
 name|void
 name|run

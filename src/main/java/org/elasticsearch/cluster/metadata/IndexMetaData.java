@@ -18,6 +18,34 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|ImmutableMap
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|ImmutableSet
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -61,34 +89,6 @@ operator|.
 name|common
 operator|.
 name|Preconditions
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableSet
 import|;
 end_import
 
@@ -309,7 +309,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -1130,9 +1130,9 @@ name|mappingType
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Nullable
 DECL|method|includeFilters
-annotation|@
-name|Nullable
 specifier|public
 name|DiscoveryNodeFilters
 name|includeFilters
@@ -1142,9 +1142,9 @@ return|return
 name|includeFilters
 return|;
 block|}
+annotation|@
+name|Nullable
 DECL|method|excludeFilters
-annotation|@
-name|Nullable
 specifier|public
 name|DiscoveryNodeFilters
 name|excludeFilters
@@ -1154,9 +1154,9 @@ return|return
 name|excludeFilters
 return|;
 block|}
-DECL|method|equals
 annotation|@
 name|Override
+DECL|method|equals
 specifier|public
 name|boolean
 name|equals
@@ -1274,9 +1274,9 @@ return|return
 literal|true
 return|;
 block|}
-DECL|method|hashCode
 annotation|@
 name|Override
+DECL|method|hashCode
 specifier|public
 name|int
 name|hashCode

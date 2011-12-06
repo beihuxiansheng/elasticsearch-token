@@ -17,7 +17,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * The following calculations are taken from:  * http://www.cs.wisc.edu/~cao/papers/summary-cache/node8.html  * "Bloom Filters - the math"  *  * This class's static methods are meant to facilitate the use of the Bloom  * Filter class by helping to choose correct values of 'bits per element' and  * 'number of hash functions, k'.  */
+comment|/**  * The following calculations are taken from:  * http://www.cs.wisc.edu/~cao/papers/summary-cache/node8.html  * "Bloom Filters - the math"  *<p/>  * This class's static methods are meant to facilitate the use of the Bloom  * Filter class by helping to choose correct values of 'bits per element' and  * 'number of hash functions, k'.  */
 end_comment
 
 begin_class

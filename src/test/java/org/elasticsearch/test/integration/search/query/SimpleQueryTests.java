@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -174,7 +174,7 @@ name|xcontent
 operator|.
 name|XContentFactory
 operator|.
-name|*
+name|jsonBuilder
 import|;
 end_import
 
@@ -218,7 +218,7 @@ name|hamcrest
 operator|.
 name|MatcherAssert
 operator|.
-name|*
+name|assertThat
 import|;
 end_import
 
@@ -230,12 +230,24 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|anyOf
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|equalTo
 import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -251,9 +263,9 @@ specifier|private
 name|Client
 name|client
 decl_stmt|;
-DECL|method|createNodes
 annotation|@
 name|BeforeClass
+DECL|method|createNodes
 specifier|public
 name|void
 name|createNodes
@@ -272,9 +284,9 @@ name|getClient
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|closeNodes
 annotation|@
 name|AfterClass
+DECL|method|closeNodes
 specifier|public
 name|void
 name|closeNodes
@@ -302,9 +314,9 @@ literal|"node1"
 argument_list|)
 return|;
 block|}
-DECL|method|passQueryAsStringTest
 annotation|@
 name|Test
+DECL|method|passQueryAsStringTest
 specifier|public
 name|void
 name|passQueryAsStringTest
@@ -445,9 +457,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|queryStringAnalyzedWildcard
 annotation|@
 name|Test
+DECL|method|queryStringAnalyzedWildcard
 specifier|public
 name|void
 name|queryStringAnalyzedWildcard
@@ -776,9 +788,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|typeFilterTypeIndexedTests
 annotation|@
 name|Test
+DECL|method|typeFilterTypeIndexedTests
 specifier|public
 name|void
 name|typeFilterTypeIndexedTests
@@ -792,9 +804,9 @@ literal|"not_analyzed"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|typeFilterTypeNotIndexedTests
 annotation|@
 name|Test
+DECL|method|typeFilterTypeNotIndexedTests
 specifier|public
 name|void
 name|typeFilterTypeNotIndexedTests
@@ -1285,9 +1297,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|idsFilterTestsIdIndexed
 annotation|@
 name|Test
+DECL|method|idsFilterTestsIdIndexed
 specifier|public
 name|void
 name|idsFilterTestsIdIndexed
@@ -1301,9 +1313,9 @@ literal|"not_analyzed"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|idsFilterTestsIdNotIndexed
 annotation|@
 name|Test
+DECL|method|idsFilterTestsIdNotIndexed
 specifier|public
 name|void
 name|idsFilterTestsIdNotIndexed
@@ -1993,9 +2005,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testLimitFilter
 annotation|@
 name|Test
+DECL|method|testLimitFilter
 specifier|public
 name|void
 name|testLimitFilter
@@ -2225,9 +2237,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|filterExistsMissingTests
 annotation|@
 name|Test
+DECL|method|filterExistsMissingTests
 specifier|public
 name|void
 name|filterExistsMissingTests
@@ -3273,9 +3285,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|passQueryAsJSONStringTest
 annotation|@
 name|Test
+DECL|method|passQueryAsJSONStringTest
 specifier|public
 name|void
 name|passQueryAsJSONStringTest
@@ -3486,9 +3498,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testFiltersWithCustomCacheKey
 annotation|@
 name|Test
+DECL|method|testFiltersWithCustomCacheKey
 specifier|public
 name|void
 name|testFiltersWithCustomCacheKey

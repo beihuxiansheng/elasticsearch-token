@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -443,7 +443,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -455,9 +455,9 @@ name|AbstractIndicesAdminClient
 implements|implements
 name|InternalIndicesAdminClient
 block|{
-DECL|method|prepareExists
 annotation|@
 name|Override
+DECL|method|prepareExists
 specifier|public
 name|IndicesExistsRequestBuilder
 name|prepareExists
@@ -477,9 +477,9 @@ name|indices
 argument_list|)
 return|;
 block|}
-DECL|method|prepareAliases
 annotation|@
 name|Override
+DECL|method|prepareAliases
 specifier|public
 name|IndicesAliasesRequestBuilder
 name|prepareAliases
@@ -493,9 +493,9 @@ name|this
 argument_list|)
 return|;
 block|}
-DECL|method|prepareClearCache
 annotation|@
 name|Override
+DECL|method|prepareClearCache
 specifier|public
 name|ClearIndicesCacheRequestBuilder
 name|prepareClearCache
@@ -518,9 +518,9 @@ name|indices
 argument_list|)
 return|;
 block|}
-DECL|method|prepareCreate
 annotation|@
 name|Override
+DECL|method|prepareCreate
 specifier|public
 name|CreateIndexRequestBuilder
 name|prepareCreate
@@ -539,9 +539,9 @@ name|index
 argument_list|)
 return|;
 block|}
-DECL|method|prepareDelete
 annotation|@
 name|Override
+DECL|method|prepareDelete
 specifier|public
 name|DeleteIndexRequestBuilder
 name|prepareDelete
@@ -561,9 +561,9 @@ name|indices
 argument_list|)
 return|;
 block|}
-DECL|method|prepareClose
 annotation|@
 name|Override
+DECL|method|prepareClose
 specifier|public
 name|CloseIndexRequestBuilder
 name|prepareClose
@@ -582,9 +582,9 @@ name|index
 argument_list|)
 return|;
 block|}
-DECL|method|prepareOpen
 annotation|@
 name|Override
+DECL|method|prepareOpen
 specifier|public
 name|OpenIndexRequestBuilder
 name|prepareOpen
@@ -603,9 +603,9 @@ name|index
 argument_list|)
 return|;
 block|}
-DECL|method|prepareFlush
 annotation|@
 name|Override
+DECL|method|prepareFlush
 specifier|public
 name|FlushRequestBuilder
 name|prepareFlush
@@ -628,9 +628,9 @@ name|indices
 argument_list|)
 return|;
 block|}
-DECL|method|prepareGatewaySnapshot
 annotation|@
 name|Override
+DECL|method|prepareGatewaySnapshot
 specifier|public
 name|GatewaySnapshotRequestBuilder
 name|prepareGatewaySnapshot
@@ -653,9 +653,9 @@ name|indices
 argument_list|)
 return|;
 block|}
-DECL|method|preparePutMapping
 annotation|@
 name|Override
+DECL|method|preparePutMapping
 specifier|public
 name|PutMappingRequestBuilder
 name|preparePutMapping
@@ -678,9 +678,9 @@ name|indices
 argument_list|)
 return|;
 block|}
-DECL|method|prepareDeleteMapping
 annotation|@
 name|Override
+DECL|method|prepareDeleteMapping
 specifier|public
 name|DeleteMappingRequestBuilder
 name|prepareDeleteMapping
@@ -703,9 +703,9 @@ name|indices
 argument_list|)
 return|;
 block|}
-DECL|method|prepareOptimize
 annotation|@
 name|Override
+DECL|method|prepareOptimize
 specifier|public
 name|OptimizeRequestBuilder
 name|prepareOptimize
@@ -728,9 +728,9 @@ name|indices
 argument_list|)
 return|;
 block|}
-DECL|method|prepareRefresh
 annotation|@
 name|Override
+DECL|method|prepareRefresh
 specifier|public
 name|RefreshRequestBuilder
 name|prepareRefresh
@@ -753,9 +753,9 @@ name|indices
 argument_list|)
 return|;
 block|}
-DECL|method|prepareStats
 annotation|@
 name|Override
+DECL|method|prepareStats
 specifier|public
 name|IndicesStatsRequestBuilder
 name|prepareStats
@@ -778,9 +778,9 @@ name|indices
 argument_list|)
 return|;
 block|}
-DECL|method|prepareStatus
 annotation|@
 name|Override
+DECL|method|prepareStatus
 specifier|public
 name|IndicesStatusRequestBuilder
 name|prepareStatus
@@ -803,9 +803,9 @@ name|indices
 argument_list|)
 return|;
 block|}
-DECL|method|prepareSegments
 annotation|@
 name|Override
+DECL|method|prepareSegments
 specifier|public
 name|IndicesSegmentsRequestBuilder
 name|prepareSegments
@@ -828,9 +828,9 @@ name|indices
 argument_list|)
 return|;
 block|}
-DECL|method|prepareUpdateSettings
 annotation|@
 name|Override
+DECL|method|prepareUpdateSettings
 specifier|public
 name|UpdateSettingsRequestBuilder
 name|prepareUpdateSettings
@@ -853,9 +853,9 @@ name|indices
 argument_list|)
 return|;
 block|}
-DECL|method|prepareAnalyze
 annotation|@
 name|Override
+DECL|method|prepareAnalyze
 specifier|public
 name|AnalyzeRequestBuilder
 name|prepareAnalyze
@@ -879,9 +879,9 @@ name|text
 argument_list|)
 return|;
 block|}
-DECL|method|preparePutTemplate
 annotation|@
 name|Override
+DECL|method|preparePutTemplate
 specifier|public
 name|PutIndexTemplateRequestBuilder
 name|preparePutTemplate
@@ -900,9 +900,9 @@ name|name
 argument_list|)
 return|;
 block|}
-DECL|method|prepareDeleteTemplate
 annotation|@
 name|Override
+DECL|method|prepareDeleteTemplate
 specifier|public
 name|DeleteIndexTemplateRequestBuilder
 name|prepareDeleteTemplate

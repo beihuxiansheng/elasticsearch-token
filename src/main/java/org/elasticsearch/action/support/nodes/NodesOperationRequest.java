@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -111,7 +111,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -173,9 +173,9 @@ operator|=
 name|nodesIds
 expr_stmt|;
 block|}
-DECL|method|listenerThreaded
 annotation|@
 name|Override
+DECL|method|listenerThreaded
 specifier|public
 name|NodesOperationRequest
 name|listenerThreaded
@@ -194,9 +194,9 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|listenerThreaded
 annotation|@
 name|Override
+DECL|method|listenerThreaded
 specifier|public
 name|boolean
 name|listenerThreaded
@@ -270,9 +270,9 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|validate
 annotation|@
 name|Override
+DECL|method|validate
 specifier|public
 name|ActionRequestValidationException
 name|validate
@@ -282,9 +282,9 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|readFrom
 annotation|@
 name|Override
+DECL|method|readFrom
 specifier|public
 name|void
 name|readFrom
@@ -353,9 +353,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|writeTo
 annotation|@
 name|Override
+DECL|method|writeTo
 specifier|public
 name|void
 name|writeTo

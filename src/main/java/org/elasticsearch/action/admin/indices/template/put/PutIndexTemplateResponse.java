@@ -93,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A response for a put index template action.  *  * @author kimchy (shay.banon)  */
+comment|/**  * A response for a put index template action.  *  *  */
 end_comment
 
 begin_class
@@ -150,9 +150,9 @@ name|acknowledged
 argument_list|()
 return|;
 block|}
-DECL|method|readFrom
 annotation|@
 name|Override
+DECL|method|readFrom
 specifier|public
 name|void
 name|readFrom
@@ -171,9 +171,9 @@ name|readBoolean
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|writeTo
 annotation|@
 name|Override
+DECL|method|writeTo
 specifier|public
 name|void
 name|writeTo

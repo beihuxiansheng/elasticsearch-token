@@ -18,6 +18,20 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|ImmutableList
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -55,20 +69,6 @@ operator|.
 name|search
 operator|.
 name|Scorer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableList
 import|;
 end_import
 
@@ -131,7 +131,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -188,9 +188,9 @@ operator|.
 name|filter
 return|;
 block|}
-DECL|method|setFilter
 annotation|@
 name|Override
+DECL|method|setFilter
 specifier|public
 name|void
 name|setFilter
@@ -238,9 +238,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|setScorer
 annotation|@
 name|Override
+DECL|method|setScorer
 specifier|public
 name|void
 name|setScorer
@@ -253,9 +253,9 @@ name|IOException
 block|{
 comment|// usually, there is nothing to do here
 block|}
-DECL|method|acceptsDocsOutOfOrder
 annotation|@
 name|Override
+DECL|method|acceptsDocsOutOfOrder
 specifier|public
 name|boolean
 name|acceptsDocsOutOfOrder
@@ -266,9 +266,9 @@ literal|true
 return|;
 comment|// when working on FieldData, docs can be out of order
 block|}
-DECL|method|setNextReader
 annotation|@
 name|Override
+DECL|method|setNextReader
 specifier|public
 name|void
 name|setNextReader
@@ -329,9 +329,9 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-DECL|method|collect
 annotation|@
 name|Override
+DECL|method|collect
 specifier|public
 name|void
 name|collect

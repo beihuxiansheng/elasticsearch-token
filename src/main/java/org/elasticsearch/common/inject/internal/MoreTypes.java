@@ -20,9 +20,9 @@ end_package
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
@@ -34,9 +34,9 @@ end_import
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
@@ -144,9 +144,9 @@ end_import
 
 begin_import
 import|import static
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
@@ -154,7 +154,23 @@ name|base
 operator|.
 name|Preconditions
 operator|.
-name|*
+name|checkArgument
+import|;
+end_import
+
+begin_import
+import|import static
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|base
+operator|.
+name|Preconditions
+operator|.
+name|checkNotNull
 import|;
 end_import
 
@@ -2697,9 +2713,9 @@ return|return
 literal|true
 return|;
 block|}
-DECL|method|equals
 annotation|@
 name|Override
+DECL|method|equals
 specifier|public
 name|boolean
 name|equals
@@ -2726,9 +2742,9 @@ name|other
 argument_list|)
 return|;
 block|}
-DECL|method|hashCode
 annotation|@
 name|Override
+DECL|method|hashCode
 specifier|public
 name|int
 name|hashCode
@@ -2743,9 +2759,9 @@ name|this
 argument_list|)
 return|;
 block|}
-DECL|method|toString
 annotation|@
 name|Override
+DECL|method|toString
 specifier|public
 name|String
 name|toString
@@ -2831,9 +2847,9 @@ name|componentType
 argument_list|)
 return|;
 block|}
-DECL|method|equals
 annotation|@
 name|Override
+DECL|method|equals
 specifier|public
 name|boolean
 name|equals
@@ -2860,9 +2876,9 @@ name|o
 argument_list|)
 return|;
 block|}
-DECL|method|hashCode
 annotation|@
 name|Override
+DECL|method|hashCode
 specifier|public
 name|int
 name|hashCode
@@ -2877,9 +2893,9 @@ name|this
 argument_list|)
 return|;
 block|}
-DECL|method|toString
 annotation|@
 name|Override
+DECL|method|toString
 specifier|public
 name|String
 name|toString
@@ -3136,9 +3152,9 @@ argument_list|)
 operator|)
 return|;
 block|}
-DECL|method|equals
 annotation|@
 name|Override
+DECL|method|equals
 specifier|public
 name|boolean
 name|equals
@@ -3165,9 +3181,9 @@ name|other
 argument_list|)
 return|;
 block|}
-DECL|method|hashCode
 annotation|@
 name|Override
+DECL|method|hashCode
 specifier|public
 name|int
 name|hashCode
@@ -3182,9 +3198,9 @@ name|this
 argument_list|)
 return|;
 block|}
-DECL|method|toString
 annotation|@
 name|Override
+DECL|method|toString
 specifier|public
 name|String
 name|toString
@@ -3411,9 +3427,9 @@ return|return
 name|synthetic
 return|;
 block|}
-DECL|method|toString
 annotation|@
 name|Override
+DECL|method|toString
 specifier|public
 name|String
 name|toString

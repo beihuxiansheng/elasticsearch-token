@@ -161,7 +161,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -348,9 +348,9 @@ operator|.
 name|parentDocs
 return|;
 block|}
-DECL|method|setScorer
 annotation|@
 name|Override
+DECL|method|setScorer
 specifier|public
 name|void
 name|setScorer
@@ -361,9 +361,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{      }
-DECL|method|collect
 annotation|@
 name|Override
+DECL|method|collect
 specifier|public
 name|void
 name|collect
@@ -514,9 +514,9 @@ return|return;
 block|}
 block|}
 block|}
-DECL|method|setNextReader
 annotation|@
 name|Override
+DECL|method|setNextReader
 specifier|public
 name|void
 name|setNextReader
@@ -548,9 +548,9 @@ name|parentType
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|acceptsDocsOutOfOrder
 annotation|@
 name|Override
+DECL|method|acceptsDocsOutOfOrder
 specifier|public
 name|boolean
 name|acceptsDocsOutOfOrder

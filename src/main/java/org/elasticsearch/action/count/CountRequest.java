@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -277,7 +277,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A request to count the number of documents matching a specific query. Best created with  * {@link org.elasticsearch.client.Requests#countRequest(String...)}.  *  *<p>The request requires the query source to be set either using {@link #query(org.elasticsearch.index.query.QueryBuilder)},  * or {@link #query(byte[])}.  *  * @author kimchy (shay.banon)  * @see CountResponse  * @see org.elasticsearch.client.Client#count(CountRequest)  * @see org.elasticsearch.client.Requests#countRequest(String...)  */
+comment|/**  * A request to count the number of documents matching a specific query. Best created with  * {@link org.elasticsearch.client.Requests#countRequest(String...)}.  *<p/>  *<p>The request requires the query source to be set either using {@link #query(org.elasticsearch.index.query.QueryBuilder)},  * or {@link #query(byte[])}.  *  *  * @see CountResponse  * @see org.elasticsearch.client.Client#count(CountRequest)  * @see org.elasticsearch.client.Requests#countRequest(String...)  */
 end_comment
 
 begin_class
@@ -316,16 +316,16 @@ name|minScore
 init|=
 name|DEFAULT_MIN_SCORE
 decl_stmt|;
-DECL|field|queryHint
 annotation|@
 name|Nullable
+DECL|field|queryHint
 specifier|protected
 name|String
 name|queryHint
 decl_stmt|;
-DECL|field|routing
 annotation|@
 name|Nullable
+DECL|field|routing
 specifier|protected
 name|String
 name|routing
@@ -387,9 +387,9 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-DECL|method|validate
 annotation|@
 name|Override
+DECL|method|validate
 specifier|public
 name|ActionRequestValidationException
 name|validate
@@ -418,9 +418,9 @@ name|queryHint
 return|;
 block|}
 comment|/**      * Controls the operation threading model.      */
-DECL|method|operationThreading
 annotation|@
 name|Override
+DECL|method|operationThreading
 specifier|public
 name|CountRequest
 name|operationThreading
@@ -440,9 +440,9 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|beforeStart
 annotation|@
 name|Override
+DECL|method|beforeStart
 specifier|protected
 name|void
 name|beforeStart
@@ -479,9 +479,9 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Should the listener be called on a separate thread if needed.      */
-DECL|method|listenerThreaded
 annotation|@
 name|Override
+DECL|method|listenerThreaded
 specifier|public
 name|CountRequest
 name|listenerThreaded
@@ -601,9 +601,9 @@ name|querySourceLength
 return|;
 block|}
 comment|/**      * The query source to execute.      *      * @see org.elasticsearch.index.query.QueryBuilders      */
-DECL|method|query
 annotation|@
 name|Required
+DECL|method|query
 specifier|public
 name|CountRequest
 name|query
@@ -655,9 +655,9 @@ name|this
 return|;
 block|}
 comment|/**      * The query source to execute in the form of a map.      */
-DECL|method|query
 annotation|@
 name|Required
+DECL|method|query
 specifier|public
 name|CountRequest
 name|query
@@ -713,9 +713,9 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|query
 annotation|@
 name|Required
+DECL|method|query
 specifier|public
 name|CountRequest
 name|query
@@ -782,9 +782,9 @@ throw|;
 block|}
 block|}
 comment|/**      * The query source to execute. It is preferable to use either {@link #query(byte[])}      * or {@link #query(org.elasticsearch.index.query.QueryBuilder)}.      */
-DECL|method|query
 annotation|@
 name|Required
+DECL|method|query
 specifier|public
 name|CountRequest
 name|query
@@ -838,9 +838,9 @@ name|this
 return|;
 block|}
 comment|/**      * The query source to execute.      */
-DECL|method|query
 annotation|@
 name|Required
+DECL|method|query
 specifier|public
 name|CountRequest
 name|query
@@ -866,9 +866,9 @@ argument_list|)
 return|;
 block|}
 comment|/**      * The query source to execute.      */
-DECL|method|query
 annotation|@
 name|Required
+DECL|method|query
 specifier|public
 name|CountRequest
 name|query
@@ -1008,9 +1008,9 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|readFrom
 annotation|@
 name|Override
+DECL|method|readFrom
 specifier|public
 name|void
 name|readFrom
@@ -1148,9 +1148,9 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|writeTo
 annotation|@
 name|Override
+DECL|method|writeTo
 specifier|public
 name|void
 name|writeTo
@@ -1283,9 +1283,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|toString
 annotation|@
 name|Override
+DECL|method|toString
 specifier|public
 name|String
 name|toString

@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -1414,7 +1414,7 @@ operator|<=
 name|maxUlps
 return|;
 block|}
-comment|/**      * Returns true iff both arguments are null or have same dimensions      * and all their elements are {@link #equals(double,double) equals}      *      * @param x first array      * @param y second array      * @return true if the values are both null or have same dimension      *         and equal elements      * @since 1.2      */
+comment|/**      * Returns true iff both arguments are null or have same dimensions      * and all their elements are {@link #equals(double, double) equals}      *      * @param x first array      * @param y second array      * @return true if the values are both null or have same dimension      *         and equal elements      * @since 1.2      */
 DECL|method|equals
 specifier|public
 specifier|static
@@ -3289,7 +3289,7 @@ name|TWO_PI
 argument_list|)
 return|;
 block|}
-comment|/**      *<p>Normalizes an array to make it sum to a specified value.      * Returns the result of the transformation<pre>      *    x |-> x * normalizedSum / sum      *</pre>      * applied to each non-NaN element x of the input array, where sum is the      * sum of the non-NaN entries in the input array.</p>      *      *<p>Throws IllegalArgumentException if<code>normalizedSum</code> is infinite      * or NaN and ArithmeticException if the input array contains any infinite elements      * or sums to 0</p>      *      *<p>Ignores (i.e., copies unchanged to the output array) NaNs in the input array.</p>      *      * @param values        input array to be normalized      * @param normalizedSum target sum for the normalized array      * @return normalized array      * @throws ArithmeticException      if the input array contains infinite elements or sums to zero      * @throws IllegalArgumentException if the target sum is infinite or NaN      * @since 2.1      */
+comment|/**      *<p>Normalizes an array to make it sum to a specified value.      * Returns the result of the transformation<pre>      *    x |-> x * normalizedSum / sum      *</pre>      * applied to each non-NaN element x of the input array, where sum is the      * sum of the non-NaN entries in the input array.</p>      *<p/>      *<p>Throws IllegalArgumentException if<code>normalizedSum</code> is infinite      * or NaN and ArithmeticException if the input array contains any infinite elements      * or sums to 0</p>      *<p/>      *<p>Ignores (i.e., copies unchanged to the output array) NaNs in the input array.</p>      *      * @param values        input array to be normalized      * @param normalizedSum target sum for the normalized array      * @return normalized array      * @throws ArithmeticException      if the input array contains infinite elements or sums to zero      * @throws IllegalArgumentException if the target sum is infinite or NaN      * @since 2.1      */
 DECL|method|normalizeArray
 specifier|public
 specifier|static

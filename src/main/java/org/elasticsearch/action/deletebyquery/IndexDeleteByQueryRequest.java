@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -15,6 +15,20 @@ operator|.
 name|deletebyquery
 package|;
 end_package
+
+begin_import
+import|import
+name|gnu
+operator|.
+name|trove
+operator|.
+name|set
+operator|.
+name|hash
+operator|.
+name|THashSet
+import|;
+end_import
 
 begin_import
 import|import
@@ -120,24 +134,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|trove
-operator|.
-name|set
-operator|.
-name|hash
-operator|.
-name|THashSet
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|unit
 operator|.
 name|TimeValue
@@ -188,12 +184,12 @@ name|action
 operator|.
 name|Actions
 operator|.
-name|*
+name|addValidationError
 import|;
 end_import
 
 begin_comment
-comment|/**  * Delete by query request to execute on a specific index.  *  * @author kimchy (shay.banon)  */
+comment|/**  * Delete by query request to execute on a specific index.  *  *  */
 end_comment
 
 begin_class
@@ -220,9 +216,9 @@ name|Strings
 operator|.
 name|EMPTY_ARRAY
 decl_stmt|;
-DECL|field|routing
 annotation|@
 name|Nullable
+DECL|field|routing
 specifier|private
 name|Set
 argument_list|<
@@ -230,9 +226,9 @@ name|String
 argument_list|>
 name|routing
 decl_stmt|;
-DECL|field|filteringAliases
 annotation|@
 name|Nullable
+DECL|field|filteringAliases
 specifier|private
 name|String
 index|[]
@@ -340,9 +336,9 @@ return|return
 name|querySource
 return|;
 block|}
-DECL|method|validate
 annotation|@
 name|Override
+DECL|method|validate
 specifier|public
 name|ActionRequestValidationException
 name|validate
@@ -377,9 +373,9 @@ return|return
 name|validationException
 return|;
 block|}
-DECL|method|querySource
 annotation|@
 name|Required
+DECL|method|querySource
 specifier|public
 name|IndexDeleteByQueryRequest
 name|querySource
@@ -398,9 +394,9 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-DECL|method|querySource
 annotation|@
 name|Required
+DECL|method|querySource
 specifier|public
 name|IndexDeleteByQueryRequest
 name|querySource

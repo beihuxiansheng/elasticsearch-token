@@ -396,12 +396,12 @@ name|action
 operator|.
 name|Actions
 operator|.
-name|*
+name|addValidationError
 import|;
 end_import
 
 begin_comment
-comment|/**  * Index request to index a typed JSON document into a specific index and make it searchable. Best  * created using {@link org.elasticsearch.client.Requests#indexRequest(String)}.  *  *<p>The index requires the {@link #index()}, {@link #type(String)}, {@link #id(String)} and  * {@link #source(byte[])} to be set.  *  *<p>The source (content to index) can be set in its bytes form using ({@link #source(byte[])}),  * its string form ({@link #source(String)}) or using a {@link org.elasticsearch.common.xcontent.XContentBuilder}  * ({@link #source(org.elasticsearch.common.xcontent.XContentBuilder)}).  *  *<p>If the {@link #id(String)} is not set, it will be automatically generated.  *  * @author kimchy (shay.banon)  * @see IndexResponse  * @see org.elasticsearch.client.Requests#indexRequest(String)  * @see org.elasticsearch.client.Client#index(IndexRequest)  */
+comment|/**  * Index request to index a typed JSON document into a specific index and make it searchable. Best  * created using {@link org.elasticsearch.client.Requests#indexRequest(String)}.  *<p/>  *<p>The index requires the {@link #index()}, {@link #type(String)}, {@link #id(String)} and  * {@link #source(byte[])} to be set.  *<p/>  *<p>The source (content to index) can be set in its bytes form using ({@link #source(byte[])}),  * its string form ({@link #source(String)}) or using a {@link org.elasticsearch.common.xcontent.XContentBuilder}  * ({@link #source(org.elasticsearch.common.xcontent.XContentBuilder)}).  *<p/>  *<p>If the {@link #id(String)} is not set, it will be automatically generated.  *  *  * @see IndexResponse  * @see org.elasticsearch.client.Requests#indexRequest(String)  * @see org.elasticsearch.client.Client#index(IndexRequest)  */
 end_comment
 
 begin_class
@@ -529,23 +529,23 @@ specifier|private
 name|String
 name|id
 decl_stmt|;
-DECL|field|routing
 annotation|@
 name|Nullable
+DECL|field|routing
 specifier|private
 name|String
 name|routing
 decl_stmt|;
-DECL|field|parent
 annotation|@
 name|Nullable
+DECL|field|parent
 specifier|private
 name|String
 name|parent
 decl_stmt|;
-DECL|field|timestamp
 annotation|@
 name|Nullable
+DECL|field|timestamp
 specifier|private
 name|String
 name|timestamp
@@ -680,9 +680,9 @@ operator|=
 name|id
 expr_stmt|;
 block|}
-DECL|method|validate
 annotation|@
 name|Override
+DECL|method|validate
 specifier|public
 name|ActionRequestValidationException
 name|validate
@@ -735,9 +735,9 @@ name|validationException
 return|;
 block|}
 comment|/**      * Before we fork on a local thread, make sure we copy over the bytes if they are unsafe      */
-DECL|method|beforeLocalFork
 annotation|@
 name|Override
+DECL|method|beforeLocalFork
 specifier|public
 name|void
 name|beforeLocalFork
@@ -755,9 +755,9 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Sets the index the index operation will happen on.      */
-DECL|method|index
 annotation|@
 name|Override
+DECL|method|index
 specifier|public
 name|IndexRequest
 name|index
@@ -798,9 +798,9 @@ name|this
 return|;
 block|}
 comment|/**      * Should the listener be called on a separate thread if needed.      */
-DECL|method|listenerThreaded
 annotation|@
 name|Override
+DECL|method|listenerThreaded
 specifier|public
 name|IndexRequest
 name|listenerThreaded
@@ -821,9 +821,9 @@ name|this
 return|;
 block|}
 comment|/**      * Controls if the operation will be executed on a separate thread when executed locally. Defaults      * to<tt>true</tt> when running in embedded mode.      */
-DECL|method|operationThreaded
 annotation|@
 name|Override
+DECL|method|operationThreaded
 specifier|public
 name|IndexRequest
 name|operationThreaded
@@ -855,9 +855,9 @@ name|type
 return|;
 block|}
 comment|/**      * Sets the type of the indexed document.      */
-DECL|method|type
 annotation|@
 name|Required
+DECL|method|type
 specifier|public
 name|IndexRequest
 name|type
@@ -1200,9 +1200,9 @@ name|sourceLength
 return|;
 block|}
 comment|/**      * Index the Map as a {@link org.elasticsearch.client.Requests#INDEX_CONTENT_TYPE}.      *      * @param source The map to index      */
-DECL|method|source
 annotation|@
 name|Required
+DECL|method|source
 specifier|public
 name|IndexRequest
 name|source
@@ -1223,9 +1223,9 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Index the Map as the provided content type.      *      * @param source The map to index      */
-DECL|method|source
 annotation|@
 name|Required
+DECL|method|source
 specifier|public
 name|IndexRequest
 name|source
@@ -1286,10 +1286,10 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Sets the document source to index.      *      *<p>Note, its preferable to either set it using {@link #source(org.elasticsearch.common.xcontent.XContentBuilder)}      * or using the {@link #source(byte[])}.      */
-DECL|method|source
+comment|/**      * Sets the document source to index.      *<p/>      *<p>Note, its preferable to either set it using {@link #source(org.elasticsearch.common.xcontent.XContentBuilder)}      * or using the {@link #source(byte[])}.      */
 annotation|@
 name|Required
+DECL|method|source
 specifier|public
 name|IndexRequest
 name|source
@@ -1343,9 +1343,9 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the content source to index.      */
-DECL|method|source
 annotation|@
 name|Required
+DECL|method|source
 specifier|public
 name|IndexRequest
 name|source
@@ -1403,9 +1403,9 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|source
 annotation|@
 name|Required
+DECL|method|source
 specifier|public
 name|IndexRequest
 name|source
@@ -1468,9 +1468,9 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|source
 annotation|@
 name|Required
+DECL|method|source
 specifier|public
 name|IndexRequest
 name|source
@@ -1546,9 +1546,9 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|source
 annotation|@
 name|Required
+DECL|method|source
 specifier|public
 name|IndexRequest
 name|source
@@ -1637,9 +1637,9 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|source
 annotation|@
 name|Required
+DECL|method|source
 specifier|public
 name|IndexRequest
 name|source
@@ -1766,9 +1766,9 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Sets the document to index in bytes form (assumed to be safe to be used from different      * threads).      *      * @param source The source to index      * @param offset The offset in the byte array      * @param length The length of the data      */
-DECL|method|source
 annotation|@
 name|Required
+DECL|method|source
 specifier|public
 name|IndexRequest
 name|source
@@ -1798,9 +1798,9 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Sets the document to index in bytes form.      *      * @param source The source to index      * @param offset The offset in the byte array      * @param length The length of the data      * @param unsafe Is the byte array safe to be used form a different thread      */
-DECL|method|source
 annotation|@
 name|Required
+DECL|method|source
 specifier|public
 name|IndexRequest
 name|source
@@ -1978,9 +1978,9 @@ throw|;
 block|}
 block|}
 comment|/**      * Set the replication type for this operation.      */
-DECL|method|replicationType
 annotation|@
 name|Override
+DECL|method|replicationType
 specifier|public
 name|IndexRequest
 name|replicationType
@@ -2001,9 +2001,9 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the consistency level of write. Defaults to {@link org.elasticsearch.action.WriteConsistencyLevel#DEFAULT}      */
-DECL|method|consistencyLevel
 annotation|@
 name|Override
+DECL|method|consistencyLevel
 specifier|public
 name|IndexRequest
 name|consistencyLevel
@@ -2554,9 +2554,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|readFrom
 annotation|@
 name|Override
+DECL|method|readFrom
 specifier|public
 name|void
 name|readFrom
@@ -2737,9 +2737,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|writeTo
 annotation|@
 name|Override
+DECL|method|writeTo
 specifier|public
 name|void
 name|writeTo
@@ -2984,9 +2984,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|toString
 annotation|@
 name|Override
+DECL|method|toString
 specifier|public
 name|String
 name|toString

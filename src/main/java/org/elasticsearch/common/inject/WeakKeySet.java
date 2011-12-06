@@ -18,9 +18,9 @@ end_package
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
@@ -50,7 +50,7 @@ specifier|final
 class|class
 name|WeakKeySet
 block|{
-comment|/**      * We store strings rather than keys so we don't hold strong references.      *      *<p>One potential problem with this approach is that parent and child injectors cannot define      * keys whose class names are equal but class loaders are different. This shouldn't be an issue      * in practice.      */
+comment|/**      * We store strings rather than keys so we don't hold strong references.      *<p/>      *<p>One potential problem with this approach is that parent and child injectors cannot define      * keys whose class names are equal but class loaders are different. This shouldn't be an issue      * in practice.      */
 DECL|field|backingSet
 specifier|private
 name|Set

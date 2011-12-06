@@ -128,12 +128,12 @@ name|settings
 operator|.
 name|ImmutableSettings
 operator|.
-name|*
+name|settingsBuilder
 import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -144,9 +144,9 @@ name|TransportClientDocumentActionsTests
 extends|extends
 name|DocumentActionsTests
 block|{
-DECL|method|getClient1
 annotation|@
 name|Override
+DECL|method|getClient1
 specifier|protected
 name|Client
 name|getClient1
@@ -227,9 +227,9 @@ return|return
 name|client
 return|;
 block|}
-DECL|method|getClient2
 annotation|@
 name|Override
+DECL|method|getClient2
 specifier|protected
 name|Client
 name|getClient2

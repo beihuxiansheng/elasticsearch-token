@@ -153,7 +153,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -173,16 +173,16 @@ name|NAME
 init|=
 literal|"has_child"
 decl_stmt|;
-DECL|method|HasChildFilterParser
 annotation|@
 name|Inject
+DECL|method|HasChildFilterParser
 specifier|public
 name|HasChildFilterParser
 parameter_list|()
 block|{     }
-DECL|method|names
 annotation|@
 name|Override
+DECL|method|names
 specifier|public
 name|String
 index|[]
@@ -205,9 +205,9 @@ argument_list|)
 block|}
 return|;
 block|}
-DECL|method|parse
 annotation|@
 name|Override
+DECL|method|parse
 specifier|public
 name|Filter
 name|parse

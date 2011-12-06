@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -49,7 +49,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An interface allowing to transfer an object to "XContent" using an {@link XContentBuilder}.  *  * @author kimchy (shay.banon)  */
+comment|/**  * An interface allowing to transfer an object to "XContent" using an {@link XContentBuilder}.  *  *  */
 end_comment
 
 begin_interface
@@ -223,9 +223,9 @@ operator|=
 name|params
 expr_stmt|;
 block|}
-DECL|method|param
 annotation|@
 name|Override
+DECL|method|param
 specifier|public
 name|String
 name|param
@@ -243,9 +243,9 @@ name|key
 argument_list|)
 return|;
 block|}
-DECL|method|param
 annotation|@
 name|Override
+DECL|method|param
 specifier|public
 name|String
 name|param
@@ -282,9 +282,9 @@ return|return
 name|value
 return|;
 block|}
-DECL|method|paramAsBoolean
 annotation|@
 name|Override
+DECL|method|paramAsBoolean
 specifier|public
 name|boolean
 name|paramAsBoolean
@@ -310,9 +310,9 @@ name|defaultValue
 argument_list|)
 return|;
 block|}
-DECL|method|paramAsBooleanOptional
 annotation|@
 name|Override
+DECL|method|paramAsBooleanOptional
 specifier|public
 name|Boolean
 name|paramAsBooleanOptional

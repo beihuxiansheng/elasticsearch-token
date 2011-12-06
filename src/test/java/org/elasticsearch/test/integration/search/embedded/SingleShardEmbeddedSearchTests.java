@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -19,6 +19,44 @@ operator|.
 name|embedded
 package|;
 end_package
+
+begin_import
+import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|Maps
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|Sets
+import|;
+end_import
+
+begin_import
+import|import
+name|gnu
+operator|.
+name|trove
+operator|.
+name|ExtTIntArrayList
+import|;
+end_import
 
 begin_import
 import|import
@@ -43,48 +81,6 @@ operator|.
 name|client
 operator|.
 name|Client
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Maps
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Sets
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|trove
-operator|.
-name|ExtTIntArrayList
 import|;
 end_import
 
@@ -124,55 +120,7 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|Scroll
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|SearchContextMissingException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|SearchHit
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|SearchService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|SearchShardTarget
+name|*
 import|;
 end_import
 
@@ -444,15 +392,17 @@ end_import
 
 begin_import
 import|import static
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
-name|client
+name|common
 operator|.
-name|Requests
+name|collect
 operator|.
-name|*
+name|Lists
+operator|.
+name|newArrayList
 import|;
 end_import
 
@@ -462,13 +412,25 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|client
 operator|.
-name|collect
+name|Requests
 operator|.
-name|Lists
+name|indexRequest
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
 operator|.
-name|*
+name|elasticsearch
+operator|.
+name|client
+operator|.
+name|Requests
+operator|.
+name|refreshRequest
 import|;
 end_import
 
@@ -484,7 +446,7 @@ name|settings
 operator|.
 name|ImmutableSettings
 operator|.
-name|*
+name|settingsBuilder
 import|;
 end_import
 
@@ -500,7 +462,23 @@ name|query
 operator|.
 name|QueryBuilders
 operator|.
-name|*
+name|matchAllQuery
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryBuilders
+operator|.
+name|termQuery
 import|;
 end_import
 
@@ -516,7 +494,7 @@ name|builder
 operator|.
 name|SearchSourceBuilder
 operator|.
-name|*
+name|searchSource
 import|;
 end_import
 
@@ -528,7 +506,7 @@ name|hamcrest
 operator|.
 name|MatcherAssert
 operator|.
-name|*
+name|assertThat
 import|;
 end_import
 
@@ -540,12 +518,12 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|equalTo
 import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -581,9 +559,9 @@ return|return
 literal|true
 return|;
 block|}
-DECL|method|createNodeAndInitWithData
 annotation|@
 name|BeforeClass
+DECL|method|createNodeAndInitWithData
 specifier|public
 name|void
 name|createNodeAndInitWithData
@@ -788,9 +766,9 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|closeNode
 annotation|@
 name|AfterClass
+DECL|method|closeNode
 specifier|public
 name|void
 name|closeNode
@@ -800,9 +778,9 @@ name|closeAllNodes
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|verifyOptimizeSingleShardSetting
 annotation|@
 name|Test
+DECL|method|verifyOptimizeSingleShardSetting
 specifier|public
 name|void
 name|verifyOptimizeSingleShardSetting
@@ -823,9 +801,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testDirectDfs
 annotation|@
 name|Test
+DECL|method|testDirectDfs
 specifier|public
 name|void
 name|testDirectDfs
@@ -946,9 +924,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testDirectQuery
 annotation|@
 name|Test
+DECL|method|testDirectQuery
 specifier|public
 name|void
 name|testDirectQuery
@@ -1000,9 +978,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testDirectFetch
 annotation|@
 name|Test
+DECL|method|testDirectFetch
 specifier|public
 name|void
 name|testDirectFetch
@@ -1160,9 +1138,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testScan
 annotation|@
 name|Test
+DECL|method|testScan
 specifier|public
 name|void
 name|testScan
@@ -1523,9 +1501,9 @@ block|{
 comment|// ignore
 block|}
 block|}
-DECL|method|testQueryThenFetch
 annotation|@
 name|Test
+DECL|method|testQueryThenFetch
 specifier|public
 name|void
 name|testQueryThenFetch
@@ -1742,9 +1720,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testQueryThenFetchIterateWithFrom
 annotation|@
 name|Test
+DECL|method|testQueryThenFetchIterateWithFrom
 specifier|public
 name|void
 name|testQueryThenFetchIterateWithFrom
@@ -2321,9 +2299,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testQueryThenFetchIterateWithFromSortedByAge
 annotation|@
 name|Test
+DECL|method|testQueryThenFetchIterateWithFromSortedByAge
 specifier|public
 name|void
 name|testQueryThenFetchIterateWithFromSortedByAge
@@ -2927,9 +2905,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testQueryAndFetch
 annotation|@
 name|Test
+DECL|method|testQueryAndFetch
 specifier|public
 name|void
 name|testQueryAndFetch
@@ -3047,9 +3025,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testQueryAndFetchIterateWithFrom
 annotation|@
 name|Test
+DECL|method|testQueryAndFetchIterateWithFrom
 specifier|public
 name|void
 name|testQueryAndFetchIterateWithFrom
@@ -3499,9 +3477,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testDfsQueryThenFetch
 annotation|@
 name|Test
+DECL|method|testDfsQueryThenFetch
 specifier|public
 name|void
 name|testDfsQueryThenFetch
@@ -3750,9 +3728,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testQueryFetchKeepAliveTimeout
 annotation|@
 name|Test
+DECL|method|testQueryFetchKeepAliveTimeout
 specifier|public
 name|void
 name|testQueryFetchKeepAliveTimeout

@@ -254,12 +254,12 @@ name|ImmutableSettings
 operator|.
 name|Builder
 operator|.
-name|*
+name|EMPTY_SETTINGS
 import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class

@@ -102,12 +102,12 @@ name|action
 operator|.
 name|Actions
 operator|.
-name|*
+name|addValidationError
 import|;
 end_import
 
 begin_comment
-comment|/**  * A request to analyze a text associated with a specific index. Allow to provide  * the actual analyzer name to perform the analysis with.  *  * @author kimchy  */
+comment|/**  * A request to analyze a text associated with a specific index. Allow to provide  * the actual analyzer name to perform the analysis with.  */
 end_comment
 
 begin_class
@@ -273,9 +273,9 @@ name|field
 return|;
 block|}
 comment|/**      * if this operation hits a node with a local relevant shard, should it be preferred      * to be executed on, or just do plain round robin. Defaults to<tt>true</tt>      */
-DECL|method|preferLocal
 annotation|@
 name|Override
+DECL|method|preferLocal
 specifier|public
 name|AnalyzeRequest
 name|preferLocal
@@ -295,9 +295,9 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|validate
 annotation|@
 name|Override
+DECL|method|validate
 specifier|public
 name|ActionRequestValidationException
 name|validate
@@ -349,9 +349,9 @@ return|return
 name|validationException
 return|;
 block|}
-DECL|method|readFrom
 annotation|@
 name|Override
+DECL|method|readFrom
 specifier|public
 name|void
 name|readFrom
@@ -416,9 +416,9 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|writeTo
 annotation|@
 name|Override
+DECL|method|writeTo
 specifier|public
 name|void
 name|writeTo

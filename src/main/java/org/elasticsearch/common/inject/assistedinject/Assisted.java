@@ -80,7 +80,7 @@ name|annotation
 operator|.
 name|RetentionPolicy
 operator|.
-name|*
+name|RUNTIME
 import|;
 end_import
 

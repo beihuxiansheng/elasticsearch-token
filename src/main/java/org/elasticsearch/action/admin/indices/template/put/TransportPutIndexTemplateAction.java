@@ -205,7 +205,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Put index template action.  *  * @author kimchy (shay.banon)  */
+comment|/**  * Put index template action.  *  *  */
 end_comment
 
 begin_class
@@ -227,9 +227,9 @@ specifier|final
 name|MetaDataIndexTemplateService
 name|indexTemplateService
 decl_stmt|;
-DECL|method|TransportPutIndexTemplateAction
 annotation|@
 name|Inject
+DECL|method|TransportPutIndexTemplateAction
 specifier|public
 name|TransportPutIndexTemplateAction
 parameter_list|(
@@ -267,9 +267,9 @@ operator|=
 name|indexTemplateService
 expr_stmt|;
 block|}
-DECL|method|executor
 annotation|@
 name|Override
+DECL|method|executor
 specifier|protected
 name|String
 name|executor
@@ -283,9 +283,9 @@ operator|.
 name|MANAGEMENT
 return|;
 block|}
-DECL|method|transportAction
 annotation|@
 name|Override
+DECL|method|transportAction
 specifier|protected
 name|String
 name|transportAction
@@ -301,9 +301,9 @@ operator|.
 name|PUT_INDEX_TEMPLATE
 return|;
 block|}
-DECL|method|newRequest
 annotation|@
 name|Override
+DECL|method|newRequest
 specifier|protected
 name|PutIndexTemplateRequest
 name|newRequest
@@ -315,9 +315,9 @@ name|PutIndexTemplateRequest
 argument_list|()
 return|;
 block|}
-DECL|method|newResponse
 annotation|@
 name|Override
+DECL|method|newResponse
 specifier|protected
 name|PutIndexTemplateResponse
 name|newResponse
@@ -329,9 +329,9 @@ name|PutIndexTemplateResponse
 argument_list|()
 return|;
 block|}
-DECL|method|checkBlock
 annotation|@
 name|Override
+DECL|method|checkBlock
 specifier|protected
 name|ClusterBlockException
 name|checkBlock
@@ -359,9 +359,9 @@ literal|""
 argument_list|)
 return|;
 block|}
-DECL|method|masterOperation
 annotation|@
 name|Override
+DECL|method|masterOperation
 specifier|protected
 name|PutIndexTemplateResponse
 name|masterOperation

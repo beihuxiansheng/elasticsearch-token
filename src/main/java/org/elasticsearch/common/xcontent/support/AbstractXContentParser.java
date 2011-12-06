@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -65,7 +65,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -77,9 +77,9 @@ name|AbstractXContentParser
 implements|implements
 name|XContentParser
 block|{
-DECL|method|booleanValue
 annotation|@
 name|Override
+DECL|method|booleanValue
 specifier|public
 name|boolean
 name|booleanValue
@@ -152,9 +152,9 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-DECL|method|shortValue
 annotation|@
 name|Override
+DECL|method|shortValue
 specifier|public
 name|short
 name|shortValue
@@ -201,9 +201,9 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-DECL|method|intValue
 annotation|@
 name|Override
+DECL|method|intValue
 specifier|public
 name|int
 name|intValue
@@ -250,9 +250,9 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-DECL|method|longValue
 annotation|@
 name|Override
+DECL|method|longValue
 specifier|public
 name|long
 name|longValue
@@ -299,9 +299,9 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-DECL|method|floatValue
 annotation|@
 name|Override
+DECL|method|floatValue
 specifier|public
 name|float
 name|floatValue
@@ -348,9 +348,9 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-DECL|method|doubleValue
 annotation|@
 name|Override
+DECL|method|doubleValue
 specifier|public
 name|double
 name|doubleValue
@@ -397,9 +397,9 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-DECL|method|textOrNull
 annotation|@
 name|Override
+DECL|method|textOrNull
 specifier|public
 name|String
 name|textOrNull
@@ -426,9 +426,9 @@ name|text
 argument_list|()
 return|;
 block|}
-DECL|method|map
 annotation|@
 name|Override
+DECL|method|map
 specifier|public
 name|Map
 argument_list|<
@@ -450,9 +450,9 @@ name|this
 argument_list|)
 return|;
 block|}
-DECL|method|mapOrdered
 annotation|@
 name|Override
+DECL|method|mapOrdered
 specifier|public
 name|Map
 argument_list|<
@@ -474,9 +474,9 @@ name|this
 argument_list|)
 return|;
 block|}
-DECL|method|mapAndClose
 annotation|@
 name|Override
+DECL|method|mapAndClose
 specifier|public
 name|Map
 argument_list|<

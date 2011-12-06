@@ -105,7 +105,7 @@ argument_list|>
 name|getExposedKeys
 parameter_list|()
 function_decl|;
-comment|/**      * Returns an arbitrary object containing information about the "place" where this key was      * exposed. Used by Guice in the production of descriptive error messages.      *      *<p>Tools might specially handle types they know about; {@code StackTraceElement} is a good      * example. Tools should simply call {@code toString()} on the source object if the type is      * unfamiliar.      *      * @param key one of the keys exposed by this module.      */
+comment|/**      * Returns an arbitrary object containing information about the "place" where this key was      * exposed. Used by Guice in the production of descriptive error messages.      *<p/>      *<p>Tools might specially handle types they know about; {@code StackTraceElement} is a good      * example. Tools should simply call {@code toString()} on the source object if the type is      * unfamiliar.      *      * @param key one of the keys exposed by this module.      */
 DECL|method|getExposedSource
 name|Object
 name|getExposedSource

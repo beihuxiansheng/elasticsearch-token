@@ -20,9 +20,9 @@ end_package
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
@@ -74,9 +74,9 @@ end_import
 
 begin_import
 import|import static
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
@@ -84,12 +84,12 @@ name|base
 operator|.
 name|Preconditions
 operator|.
-name|*
+name|checkNotNull
 import|;
 end_import
 
 begin_comment
-comment|/**  * Utility for joining pieces of text separated by a delimiter. It can handle  * iterators, collections, arrays, and varargs, and can append to any  * {@link Appendable} or just return a {@link String}. For example,  * {@code join(":", "a", "b", "c")} returns {@code "a:b:c"}.  *  *<p>All methods of this class throw {@link NullPointerException} when a value  * of {@code null} is supplied for any parameter. The elements within the  * collection, iterator, array, or varargs parameter list<i>may</i> be null --  * these will be represented in the output by the string {@code "null"}.  *  * @author Kevin Bourrillion  */
+comment|/**  * Utility for joining pieces of text separated by a delimiter. It can handle  * iterators, collections, arrays, and varargs, and can append to any  * {@link Appendable} or just return a {@link String}. For example,  * {@code join(":", "a", "b", "c")} returns {@code "a:b:c"}.  *<p/>  *<p>All methods of this class throw {@link NullPointerException} when a value  * of {@code null} is supplied for any parameter. The elements within the  * collection, iterator, array, or varargs parameter list<i>may</i> be null --  * these will be represented in the output by the string {@code "null"}.  *  * @author Kevin Bourrillion  */
 end_comment
 
 begin_class
@@ -104,7 +104,7 @@ specifier|private
 name|Join
 parameter_list|()
 block|{     }
-comment|/**      * Returns a string containing the {@code tokens}, converted to strings if      * necessary, separated by {@code delimiter}. If {@code tokens} is empty, it      * returns an empty string.      *      *<p>Each token will be converted to a {@link CharSequence} using      * {@link String#valueOf(Object)}, if it isn't a {@link CharSequence} already.      * Note that this implies that null tokens will be appended as the      * four-character string {@code "null"}.      *      * @param delimiter a string to append between every element, but not at the      *                  beginning or end      * @param tokens    objects to append      * @return a string consisting of the joined elements      */
+comment|/**      * Returns a string containing the {@code tokens}, converted to strings if      * necessary, separated by {@code delimiter}. If {@code tokens} is empty, it      * returns an empty string.      *<p/>      *<p>Each token will be converted to a {@link CharSequence} using      * {@link String#valueOf(Object)}, if it isn't a {@link CharSequence} already.      * Note that this implies that null tokens will be appended as the      * four-character string {@code "null"}.      *      * @param delimiter a string to append between every element, but not at the      *                  beginning or end      * @param tokens    objects to append      * @return a string consisting of the joined elements      */
 DECL|method|join
 specifier|public
 specifier|static
@@ -133,7 +133,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a string containing the {@code tokens}, converted to strings if      * necessary, separated by {@code delimiter}. If {@code tokens} is empty, it      * returns an empty string.      *      *<p>Each token will be converted to a {@link CharSequence} using      * {@link String#valueOf(Object)}, if it isn't a {@link CharSequence} already.      * Note that this implies that null tokens will be appended as the      * four-character string {@code "null"}.      *      * @param delimiter a string to append between every element, but not at the      *                  beginning or end      * @param tokens    objects to append      * @return a string consisting of the joined elements      */
+comment|/**      * Returns a string containing the {@code tokens}, converted to strings if      * necessary, separated by {@code delimiter}. If {@code tokens} is empty, it      * returns an empty string.      *<p/>      *<p>Each token will be converted to a {@link CharSequence} using      * {@link String#valueOf(Object)}, if it isn't a {@link CharSequence} already.      * Note that this implies that null tokens will be appended as the      * four-character string {@code "null"}.      *      * @param delimiter a string to append between every element, but not at the      *                  beginning or end      * @param tokens    objects to append      * @return a string consisting of the joined elements      */
 DECL|method|join
 specifier|public
 specifier|static
@@ -162,7 +162,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a string containing the {@code tokens}, converted to strings if      * necessary, separated by {@code delimiter}.      *      *<p>Each token will be converted to a {@link CharSequence} using      * {@link String#valueOf(Object)}, if it isn't a {@link CharSequence} already.      * Note that this implies that null tokens will be appended as the      * four-character string {@code "null"}.      *      * @param delimiter   a string to append between every element, but not at the      *                    beginning or end      * @param firstToken  the first object to append      * @param otherTokens subsequent objects to append      * @return a string consisting of the joined elements      */
+comment|/**      * Returns a string containing the {@code tokens}, converted to strings if      * necessary, separated by {@code delimiter}.      *<p/>      *<p>Each token will be converted to a {@link CharSequence} using      * {@link String#valueOf(Object)}, if it isn't a {@link CharSequence} already.      * Note that this implies that null tokens will be appended as the      * four-character string {@code "null"}.      *      * @param delimiter   a string to append between every element, but not at the      *                    beginning or end      * @param firstToken  the first object to append      * @param otherTokens subsequent objects to append      * @return a string consisting of the joined elements      */
 DECL|method|join
 specifier|public
 specifier|static
@@ -203,7 +203,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a string containing the {@code tokens}, converted to strings if      * necessary, separated by {@code delimiter}. If {@code tokens} is empty, it      * returns an empty string.      *      *<p>Each token will be converted to a {@link CharSequence} using      * {@link String#valueOf(Object)}, if it isn't a {@link CharSequence} already.      * Note that this implies that null tokens will be appended as the      * four-character string {@code "null"}.      *      * @param delimiter a string to append between every element, but not at the      *                  beginning or end      * @param tokens    objects to append      * @return a string consisting of the joined elements      */
+comment|/**      * Returns a string containing the {@code tokens}, converted to strings if      * necessary, separated by {@code delimiter}. If {@code tokens} is empty, it      * returns an empty string.      *<p/>      *<p>Each token will be converted to a {@link CharSequence} using      * {@link String#valueOf(Object)}, if it isn't a {@link CharSequence} already.      * Note that this implies that null tokens will be appended as the      * four-character string {@code "null"}.      *      * @param delimiter a string to append between every element, but not at the      *                  beginning or end      * @param tokens    objects to append      * @return a string consisting of the joined elements      */
 DECL|method|join
 specifier|public
 specifier|static
@@ -243,7 +243,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns a string containing the contents of {@code map}, with entries      * separated by {@code entryDelimiter}, and keys and values separated with      * {@code keyValueSeparator}.      *      *<p>Each key and value will be converted to a {@link CharSequence} using      * {@link String#valueOf(Object)}, if it isn't a {@link CharSequence} already.      * Note that this implies that null tokens will be appended as the      * four-character string {@code "null"}.      *      * @param keyValueSeparator a string to append between every key and its      *                          associated value      * @param entryDelimiter    a string to append between every entry, but not at      *                          the beginning or end      * @param map               the map containing the data to join      * @return a string consisting of the joined entries of the map; empty if the      *         map is empty      */
+comment|/**      * Returns a string containing the contents of {@code map}, with entries      * separated by {@code entryDelimiter}, and keys and values separated with      * {@code keyValueSeparator}.      *<p/>      *<p>Each key and value will be converted to a {@link CharSequence} using      * {@link String#valueOf(Object)}, if it isn't a {@link CharSequence} already.      * Note that this implies that null tokens will be appended as the      * four-character string {@code "null"}.      *      * @param keyValueSeparator a string to append between every key and its      *                          associated value      * @param entryDelimiter    a string to append between every entry, but not at      *                          the beginning or end      * @param map               the map containing the data to join      * @return a string consisting of the joined entries of the map; empty if the      *         map is empty      */
 DECL|method|join
 specifier|public
 specifier|static
@@ -283,7 +283,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/**      * Appends each of the {@code tokens} to {@code appendable}, separated by      * {@code delimiter}.      *      *<p>Each token will be converted to a {@link CharSequence} using      * {@link String#valueOf(Object)}, if it isn't a {@link CharSequence} already.      * Note that this implies that null tokens will be appended as the      * four-character string {@code "null"}.      *      * @param appendable the object to append the results to      * @param delimiter  a string to append between every element, but not at the      *                   beginning or end      * @param tokens     objects to append      * @return the same {@code Appendable} instance that was passed in      * @throws JoinException if an {@link IOException} occurs      */
+comment|/**      * Appends each of the {@code tokens} to {@code appendable}, separated by      * {@code delimiter}.      *<p/>      *<p>Each token will be converted to a {@link CharSequence} using      * {@link String#valueOf(Object)}, if it isn't a {@link CharSequence} already.      * Note that this implies that null tokens will be appended as the      * four-character string {@code "null"}.      *      * @param appendable the object to append the results to      * @param delimiter  a string to append between every element, but not at the      *                   beginning or end      * @param tokens     objects to append      * @return the same {@code Appendable} instance that was passed in      * @throws JoinException if an {@link IOException} occurs      */
 DECL|method|join
 specifier|public
 specifier|static
@@ -322,7 +322,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Appends each of the {@code tokens} to {@code appendable}, separated by      * {@code delimiter}.      *      *<p>Each token will be converted to a {@link CharSequence} using      * {@link String#valueOf(Object)}, if it isn't a {@link CharSequence} already.      * Note that this implies that null tokens will be appended as the      * four-character string {@code "null"}.      *      * @param appendable the object to append the results to      * @param delimiter  a string to append between every element, but not at the      *                   beginning or end      * @param tokens     objects to append      * @return the same {@code Appendable} instance that was passed in      * @throws JoinException if an {@link IOException} occurs      */
+comment|/**      * Appends each of the {@code tokens} to {@code appendable}, separated by      * {@code delimiter}.      *<p/>      *<p>Each token will be converted to a {@link CharSequence} using      * {@link String#valueOf(Object)}, if it isn't a {@link CharSequence} already.      * Note that this implies that null tokens will be appended as the      * four-character string {@code "null"}.      *      * @param appendable the object to append the results to      * @param delimiter  a string to append between every element, but not at the      *                   beginning or end      * @param tokens     objects to append      * @return the same {@code Appendable} instance that was passed in      * @throws JoinException if an {@link IOException} occurs      */
 DECL|method|join
 specifier|public
 specifier|static
@@ -361,7 +361,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Appends each of the {@code tokens} to {@code appendable}, separated by      * {@code delimiter}.      *      *<p>Each token will be converted to a {@link CharSequence} using      * {@link String#valueOf(Object)}, if it isn't a {@link CharSequence} already.      * Note that this implies that null tokens will be appended as the      * four-character string {@code "null"}.      *      * @param appendable  the object to append the results to      * @param delimiter   a string to append between every element, but not at the      *                    beginning or end      * @param firstToken  the first object to append      * @param otherTokens subsequent objects to append      * @return the same {@code Appendable} instance that was passed in      * @throws JoinException if an {@link IOException} occurs      */
+comment|/**      * Appends each of the {@code tokens} to {@code appendable}, separated by      * {@code delimiter}.      *<p/>      *<p>Each token will be converted to a {@link CharSequence} using      * {@link String#valueOf(Object)}, if it isn't a {@link CharSequence} already.      * Note that this implies that null tokens will be appended as the      * four-character string {@code "null"}.      *      * @param appendable  the object to append the results to      * @param delimiter   a string to append between every element, but not at the      *                    beginning or end      * @param firstToken  the first object to append      * @param otherTokens subsequent objects to append      * @return the same {@code Appendable} instance that was passed in      * @throws JoinException if an {@link IOException} occurs      */
 DECL|method|join
 specifier|public
 specifier|static
@@ -412,7 +412,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Appends each of the {@code tokens} to {@code appendable}, separated by      * {@code delimiter}.      *      *<p>Each token will be converted to a {@link CharSequence} using      * {@link String#valueOf(Object)}, if it isn't a {@link CharSequence} already.      * Note that this implies that null tokens will be appended as the      * four-character string {@code "null"}.      *      * @param appendable the object to append the results to      * @param delimiter  a string to append between every element, but not at the      *                   beginning or end      * @param tokens     objects to append      * @return the same {@code Appendable} instance that was passed in      * @throws JoinException if an {@link IOException} occurs      */
+comment|/**      * Appends each of the {@code tokens} to {@code appendable}, separated by      * {@code delimiter}.      *<p/>      *<p>Each token will be converted to a {@link CharSequence} using      * {@link String#valueOf(Object)}, if it isn't a {@link CharSequence} already.      * Note that this implies that null tokens will be appended as the      * four-character string {@code "null"}.      *      * @param appendable the object to append the results to      * @param delimiter  a string to append between every element, but not at the      *                   beginning or end      * @param tokens     objects to append      * @return the same {@code Appendable} instance that was passed in      * @throws JoinException if an {@link IOException} occurs      */
 DECL|method|join
 specifier|public
 specifier|static
@@ -514,7 +514,7 @@ return|return
 name|appendable
 return|;
 block|}
-comment|/**      * Appends the contents of {@code map} to {@code appendable}, with entries      * separated by {@code entryDelimiter}, and keys and values separated with      * {@code keyValueSeparator}.      *      *<p>Each key and value will be converted to a {@link CharSequence} using      * {@link String#valueOf(Object)}, if it isn't a {@link CharSequence} already.      * Note that this implies that null tokens will be appended as the      * four-character string {@code "null"}.      *      * @param appendable        the object to append the results to      * @param keyValueSeparator a string to append between every key and its      *                          associated value      * @param entryDelimiter    a string to append between every entry, but not at      *                          the beginning or end      * @param map               the map containing the data to join      * @return the same {@code Appendable} instance that was passed in      */
+comment|/**      * Appends the contents of {@code map} to {@code appendable}, with entries      * separated by {@code entryDelimiter}, and keys and values separated with      * {@code keyValueSeparator}.      *<p/>      *<p>Each key and value will be converted to a {@link CharSequence} using      * {@link String#valueOf(Object)}, if it isn't a {@link CharSequence} already.      * Note that this implies that null tokens will be appended as the      * four-character string {@code "null"}.      *      * @param appendable        the object to append the results to      * @param keyValueSeparator a string to append between every key and its      *                          associated value      * @param entryDelimiter    a string to append between every entry, but not at      *                          the beginning or end      * @param map               the map containing the data to join      * @return the same {@code Appendable} instance that was passed in      */
 DECL|method|join
 specifier|public
 specifier|static

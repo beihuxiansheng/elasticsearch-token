@@ -73,7 +73,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -84,9 +84,9 @@ name|FacetBinaryParseElement
 extends|extends
 name|FacetParseElement
 block|{
-DECL|method|FacetBinaryParseElement
 annotation|@
 name|Inject
+DECL|method|FacetBinaryParseElement
 specifier|public
 name|FacetBinaryParseElement
 parameter_list|(
@@ -100,9 +100,9 @@ name|facetProcessors
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|parse
 annotation|@
 name|Override
+DECL|method|parse
 specifier|public
 name|void
 name|parse

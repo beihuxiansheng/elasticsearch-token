@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -15,6 +15,14 @@ operator|.
 name|service
 package|;
 end_package
+
+begin_import
+import|import
+name|jsr166y
+operator|.
+name|LinkedTransferQueue
+import|;
+end_import
 
 begin_import
 import|import
@@ -44,79 +52,7 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterChangedEvent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|ClusterService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|ClusterState
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|ClusterStateListener
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|ClusterStateUpdateTask
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|ProcessedClusterStateUpdateTask
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|TimeoutClusterStateListener
+name|*
 import|;
 end_import
 
@@ -282,24 +218,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|jsr166y
-operator|.
-name|LinkedTransferQueue
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|discovery
 operator|.
 name|Discovery
@@ -444,7 +362,7 @@ name|concurrent
 operator|.
 name|Executors
 operator|.
-name|*
+name|newSingleThreadExecutor
 import|;
 end_import
 
@@ -458,7 +376,21 @@ name|cluster
 operator|.
 name|ClusterState
 operator|.
-name|*
+name|Builder
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|ClusterState
+operator|.
+name|newClusterStateBuilder
 import|;
 end_import
 
@@ -476,12 +408,12 @@ name|concurrent
 operator|.
 name|EsExecutors
 operator|.
-name|*
+name|daemonThreadFactory
 import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -641,9 +573,9 @@ specifier|volatile
 name|ScheduledFuture
 name|reconnectToNodes
 decl_stmt|;
-DECL|method|InternalClusterService
 annotation|@
 name|Inject
+DECL|method|InternalClusterService
 specifier|public
 name|InternalClusterService
 parameter_list|(
@@ -776,9 +708,9 @@ name|block
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|doStart
 annotation|@
 name|Override
+DECL|method|doStart
 specifier|protected
 name|void
 name|doStart
@@ -837,9 +769,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|doStop
 annotation|@
 name|Override
+DECL|method|doStop
 specifier|protected
 name|void
 name|doStop
@@ -905,9 +837,9 @@ block|{
 comment|// ignore
 block|}
 block|}
-DECL|method|doClose
 annotation|@
 name|Override
+DECL|method|doClose
 specifier|protected
 name|void
 name|doClose
@@ -915,9 +847,9 @@ parameter_list|()
 throws|throws
 name|ElasticSearchException
 block|{     }
-DECL|method|localNode
 annotation|@
 name|Override
+DECL|method|localNode
 specifier|public
 name|DiscoveryNode
 name|localNode
@@ -930,9 +862,9 @@ name|localNode
 argument_list|()
 return|;
 block|}
-DECL|method|operationRouting
 annotation|@
 name|Override
+DECL|method|operationRouting
 specifier|public
 name|OperationRouting
 name|operationRouting
@@ -2090,9 +2022,9 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|run
 annotation|@
 name|Override
+DECL|method|run
 specifier|public
 name|void
 name|run
@@ -2144,9 +2076,9 @@ name|ReconnectToNodes
 implements|implements
 name|Runnable
 block|{
-DECL|method|run
 annotation|@
 name|Override
+DECL|method|run
 specifier|public
 name|void
 name|run

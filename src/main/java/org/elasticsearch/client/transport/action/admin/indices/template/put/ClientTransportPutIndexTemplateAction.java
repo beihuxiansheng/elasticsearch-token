@@ -137,7 +137,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -153,9 +153,9 @@ argument_list|,
 name|PutIndexTemplateResponse
 argument_list|>
 block|{
-DECL|method|ClientTransportPutIndexTemplateAction
 annotation|@
 name|Inject
+DECL|method|ClientTransportPutIndexTemplateAction
 specifier|public
 name|ClientTransportPutIndexTemplateAction
 parameter_list|(
@@ -178,9 +178,9 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|action
 annotation|@
 name|Override
+DECL|method|action
 specifier|protected
 name|String
 name|action

@@ -190,7 +190,7 @@ name|query
 operator|.
 name|FilterBuilders
 operator|.
-name|*
+name|hasChildFilter
 import|;
 end_import
 
@@ -222,7 +222,7 @@ name|facet
 operator|.
 name|FacetBuilders
 operator|.
-name|*
+name|termsFacet
 import|;
 end_import
 
@@ -234,7 +234,7 @@ name|hamcrest
 operator|.
 name|MatcherAssert
 operator|.
-name|*
+name|assertThat
 import|;
 end_import
 
@@ -251,7 +251,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -267,9 +267,9 @@ specifier|private
 name|Client
 name|client
 decl_stmt|;
-DECL|method|createNodes
 annotation|@
 name|BeforeClass
+DECL|method|createNodes
 specifier|public
 name|void
 name|createNodes
@@ -293,9 +293,9 @@ name|getClient
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|closeNodes
 annotation|@
 name|AfterClass
+DECL|method|closeNodes
 specifier|public
 name|void
 name|closeNodes
@@ -323,9 +323,9 @@ literal|"node1"
 argument_list|)
 return|;
 block|}
-DECL|method|simpleChildQuery
 annotation|@
 name|Test
+DECL|method|simpleChildQuery
 specifier|public
 name|void
 name|simpleChildQuery
@@ -2516,9 +2516,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|simpleChildQueryWithFlush
 annotation|@
 name|Test
+DECL|method|simpleChildQueryWithFlush
 specifier|public
 name|void
 name|simpleChildQueryWithFlush
@@ -4042,9 +4042,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|simpleChildQueryWithFlushAnd3Shards
 annotation|@
 name|Test
+DECL|method|simpleChildQueryWithFlushAnd3Shards
 specifier|public
 name|void
 name|simpleChildQueryWithFlushAnd3Shards
@@ -5568,9 +5568,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testScopedFacet
 annotation|@
 name|Test
+DECL|method|testScopedFacet
 specifier|public
 name|void
 name|testScopedFacet
@@ -6209,9 +6209,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testDeletedParent
 annotation|@
 name|Test
+DECL|method|testDeletedParent
 specifier|public
 name|void
 name|testDeletedParent
@@ -7108,9 +7108,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testDfsSearchType
 annotation|@
 name|Test
+DECL|method|testDfsSearchType
 specifier|public
 name|void
 name|testDfsSearchType

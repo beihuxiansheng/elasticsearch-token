@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -71,7 +71,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -118,9 +118,9 @@ argument_list|>
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|get
-annotation|@
-name|Override
 specifier|public
 name|T
 name|get
@@ -138,9 +138,9 @@ name|key
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|remove
-annotation|@
-name|Override
 specifier|public
 name|T
 name|remove
@@ -158,9 +158,9 @@ name|key
 argument_list|)
 return|;
 block|}
-DECL|method|put
 annotation|@
 name|Override
+DECL|method|put
 specifier|public
 name|T
 name|put
@@ -183,9 +183,9 @@ name|value
 argument_list|)
 return|;
 block|}
-DECL|method|putIfAbsent
 annotation|@
 name|Override
+DECL|method|putIfAbsent
 specifier|public
 name|T
 name|putIfAbsent
@@ -209,9 +209,9 @@ argument_list|)
 return|;
 block|}
 comment|// MAP DELEGATION
-DECL|method|isEmpty
 annotation|@
 name|Override
+DECL|method|isEmpty
 specifier|public
 name|boolean
 name|isEmpty
@@ -224,9 +224,9 @@ name|isEmpty
 argument_list|()
 return|;
 block|}
-DECL|method|size
 annotation|@
 name|Override
+DECL|method|size
 specifier|public
 name|int
 name|size
@@ -239,9 +239,9 @@ name|size
 argument_list|()
 return|;
 block|}
-DECL|method|get
 annotation|@
 name|Override
+DECL|method|get
 specifier|public
 name|T
 name|get
@@ -259,9 +259,9 @@ name|key
 argument_list|)
 return|;
 block|}
-DECL|method|containsKey
 annotation|@
 name|Override
+DECL|method|containsKey
 specifier|public
 name|boolean
 name|containsKey
@@ -279,9 +279,9 @@ name|key
 argument_list|)
 return|;
 block|}
-DECL|method|containsValue
 annotation|@
 name|Override
+DECL|method|containsValue
 specifier|public
 name|boolean
 name|containsValue
@@ -389,9 +389,9 @@ name|m
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|remove
 annotation|@
 name|Override
+DECL|method|remove
 specifier|public
 name|T
 name|remove
@@ -409,9 +409,9 @@ name|key
 argument_list|)
 return|;
 block|}
-DECL|method|remove
 annotation|@
 name|Override
+DECL|method|remove
 specifier|public
 name|boolean
 name|remove
@@ -485,9 +485,9 @@ name|value
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|clear
-annotation|@
-name|Override
 specifier|public
 name|void
 name|clear
@@ -499,9 +499,9 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|keySet
 annotation|@
 name|Override
+DECL|method|keySet
 specifier|public
 name|Set
 argument_list|<
@@ -517,9 +517,9 @@ name|keySet
 argument_list|()
 return|;
 block|}
-DECL|method|values
 annotation|@
 name|Override
+DECL|method|values
 specifier|public
 name|Collection
 argument_list|<
@@ -535,9 +535,9 @@ name|values
 argument_list|()
 return|;
 block|}
-DECL|method|entrySet
 annotation|@
 name|Override
+DECL|method|entrySet
 specifier|public
 name|Set
 argument_list|<
@@ -590,9 +590,9 @@ name|elements
 argument_list|()
 return|;
 block|}
-DECL|method|equals
 annotation|@
 name|Override
+DECL|method|equals
 specifier|public
 name|boolean
 name|equals
@@ -610,9 +610,9 @@ name|o
 argument_list|)
 return|;
 block|}
-DECL|method|hashCode
 annotation|@
 name|Override
+DECL|method|hashCode
 specifier|public
 name|int
 name|hashCode
@@ -625,9 +625,9 @@ name|hashCode
 argument_list|()
 return|;
 block|}
-DECL|method|toString
 annotation|@
 name|Override
+DECL|method|toString
 specifier|public
 name|String
 name|toString

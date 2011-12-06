@@ -22,6 +22,14 @@ end_package
 
 begin_import
 import|import
+name|jsr166y
+operator|.
+name|ThreadLocalRandom
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -132,24 +140,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|jsr166y
-operator|.
-name|ThreadLocalRandom
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -171,7 +161,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class

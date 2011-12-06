@@ -66,9 +66,9 @@ end_import
 
 begin_import
 import|import static
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
@@ -76,7 +76,7 @@ name|base
 operator|.
 name|Preconditions
 operator|.
-name|*
+name|checkNotNull
 import|;
 end_import
 
@@ -206,9 +206,9 @@ return|return
 name|source
 return|;
 block|}
-DECL|method|toString
 annotation|@
 name|Override
+DECL|method|toString
 specifier|public
 name|String
 name|toString

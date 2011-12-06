@@ -20,6 +20,34 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|ImmutableMap
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|Lists
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -53,34 +81,6 @@ operator|.
 name|elasticsearch
 operator|.
 name|ElasticSearchException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Lists
 import|;
 end_import
 
@@ -201,7 +201,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -212,9 +212,9 @@ name|MatchedFiltersFetchSubPhase
 implements|implements
 name|FetchSubPhase
 block|{
-DECL|method|parseElements
 annotation|@
 name|Override
+DECL|method|parseElements
 specifier|public
 name|Map
 argument_list|<
@@ -234,9 +234,9 @@ name|of
 argument_list|()
 return|;
 block|}
-DECL|method|hitsExecutionNeeded
 annotation|@
 name|Override
+DECL|method|hitsExecutionNeeded
 specifier|public
 name|boolean
 name|hitsExecutionNeeded
@@ -249,9 +249,9 @@ return|return
 literal|false
 return|;
 block|}
-DECL|method|hitsExecute
 annotation|@
 name|Override
+DECL|method|hitsExecute
 specifier|public
 name|void
 name|hitsExecute
@@ -266,9 +266,9 @@ parameter_list|)
 throws|throws
 name|ElasticSearchException
 block|{     }
-DECL|method|hitExecutionNeeded
 annotation|@
 name|Override
+DECL|method|hitExecutionNeeded
 specifier|public
 name|boolean
 name|hitExecutionNeeded
@@ -291,9 +291,9 @@ name|isEmpty
 argument_list|()
 return|;
 block|}
-DECL|method|hitExecute
 annotation|@
 name|Override
+DECL|method|hitExecute
 specifier|public
 name|void
 name|hitExecute

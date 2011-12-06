@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -223,7 +223,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -306,9 +306,9 @@ operator|new
 name|ApplySettings
 argument_list|()
 decl_stmt|;
-DECL|method|LogDocMergePolicyProvider
 annotation|@
 name|Inject
+DECL|method|LogDocMergePolicyProvider
 specifier|public
 name|LogDocMergePolicyProvider
 parameter_list|(
@@ -459,9 +459,9 @@ name|applySettings
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|close
 annotation|@
 name|Override
+DECL|method|close
 specifier|public
 name|void
 name|close
@@ -480,9 +480,9 @@ name|applySettings
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|newMergePolicy
 annotation|@
 name|Override
+DECL|method|newMergePolicy
 specifier|public
 name|LogDocMergePolicy
 name|newMergePolicy
@@ -586,9 +586,9 @@ name|IndexSettingsService
 operator|.
 name|Listener
 block|{
-DECL|method|onRefreshSettings
 annotation|@
 name|Override
+DECL|method|onRefreshSettings
 specifier|public
 name|void
 name|onRefreshSettings
@@ -899,9 +899,9 @@ operator|=
 name|provider
 expr_stmt|;
 block|}
-DECL|method|close
 annotation|@
 name|Override
+DECL|method|close
 specifier|public
 name|void
 name|close
@@ -978,9 +978,9 @@ name|provider
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|enableMerge
 annotation|@
 name|Override
+DECL|method|enableMerge
 specifier|public
 name|void
 name|enableMerge
@@ -996,9 +996,9 @@ name|TRUE
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|disableMerge
 annotation|@
 name|Override
+DECL|method|disableMerge
 specifier|public
 name|void
 name|disableMerge
@@ -1014,9 +1014,9 @@ name|FALSE
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|isMergeEnabled
 annotation|@
 name|Override
+DECL|method|isMergeEnabled
 specifier|public
 name|boolean
 name|isMergeEnabled
@@ -1033,9 +1033,9 @@ operator|.
 name|TRUE
 return|;
 block|}
-DECL|method|close
 annotation|@
 name|Override
+DECL|method|close
 specifier|public
 name|void
 name|close
@@ -1052,9 +1052,9 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|findMerges
 annotation|@
 name|Override
+DECL|method|findMerges
 specifier|public
 name|MergeSpecification
 name|findMerges
@@ -1090,9 +1090,9 @@ name|infos
 argument_list|)
 return|;
 block|}
-DECL|method|findForcedMerges
 annotation|@
 name|Override
+DECL|method|findForcedMerges
 specifier|public
 name|MergeSpecification
 name|findForcedMerges
@@ -1143,9 +1143,9 @@ name|segmentsToMerge
 argument_list|)
 return|;
 block|}
-DECL|method|findForcedDeletesMerges
 annotation|@
 name|Override
+DECL|method|findForcedDeletesMerges
 specifier|public
 name|MergeSpecification
 name|findForcedDeletesMerges

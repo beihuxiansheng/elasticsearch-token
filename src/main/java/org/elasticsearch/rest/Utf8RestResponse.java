@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An http response that is built on top of {@link org.apache.lucene.util.UnicodeUtil.UTF8Result}.  *  *<p>Note, this class assumes that the utf8 result is not thread safe.  *  * @author kimchy (shay.banon)  */
+comment|/**  * An http response that is built on top of {@link org.apache.lucene.util.UnicodeUtil.UTF8Result}.  *<p/>  *<p>Note, this class assumes that the utf8 result is not thread safe.  *  *  */
 end_comment
 
 begin_class
@@ -204,9 +204,9 @@ operator|=
 name|suffixUtf8Result
 expr_stmt|;
 block|}
-DECL|method|contentThreadSafe
 annotation|@
 name|Override
+DECL|method|contentThreadSafe
 specifier|public
 name|boolean
 name|contentThreadSafe
@@ -216,9 +216,9 @@ return|return
 literal|false
 return|;
 block|}
-DECL|method|contentType
 annotation|@
 name|Override
+DECL|method|contentType
 specifier|public
 name|String
 name|contentType
@@ -228,9 +228,9 @@ return|return
 literal|"text/plain; charset=UTF-8"
 return|;
 block|}
-DECL|method|content
 annotation|@
 name|Override
+DECL|method|content
 specifier|public
 name|byte
 index|[]
@@ -243,9 +243,9 @@ operator|.
 name|result
 return|;
 block|}
-DECL|method|contentLength
 annotation|@
 name|Override
+DECL|method|contentLength
 specifier|public
 name|int
 name|contentLength
@@ -257,9 +257,9 @@ operator|.
 name|length
 return|;
 block|}
-DECL|method|status
 annotation|@
 name|Override
+DECL|method|status
 specifier|public
 name|RestStatus
 name|status
@@ -269,9 +269,9 @@ return|return
 name|status
 return|;
 block|}
-DECL|method|prefixContent
 annotation|@
 name|Override
+DECL|method|prefixContent
 specifier|public
 name|byte
 index|[]
@@ -290,9 +290,9 @@ else|:
 literal|null
 return|;
 block|}
-DECL|method|prefixContentLength
 annotation|@
 name|Override
+DECL|method|prefixContentLength
 specifier|public
 name|int
 name|prefixContentLength
@@ -310,9 +310,9 @@ else|:
 literal|0
 return|;
 block|}
-DECL|method|suffixContent
 annotation|@
 name|Override
+DECL|method|suffixContent
 specifier|public
 name|byte
 index|[]
@@ -331,9 +331,9 @@ else|:
 literal|null
 return|;
 block|}
-DECL|method|suffixContentLength
 annotation|@
 name|Override
+DECL|method|suffixContentLength
 specifier|public
 name|int
 name|suffixContentLength

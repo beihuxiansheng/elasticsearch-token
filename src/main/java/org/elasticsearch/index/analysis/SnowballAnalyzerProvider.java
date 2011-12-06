@@ -18,6 +18,34 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|ImmutableMap
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|ImmutableSet
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -91,34 +119,6 @@ operator|.
 name|snowball
 operator|.
 name|SnowballAnalyzer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableSet
 import|;
 end_import
 
@@ -229,7 +229,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Creates a SnowballAnalyzer initialized with stopwords and Snowball filter. Only  * supports Dutch, English (default), French, German and German2 where stopwords  * are readily available. For other languages available with the Lucene Snowball  * Stemmer, use them directly with the SnowballFilter and a CustomAnalyzer.  * Configuration of language is done with the "language" attribute or the analyzer.  * Also supports additional stopwords via "stopwords" attribute  *  * The SnowballAnalyzer comes with a StandardFilter, LowerCaseFilter, StopFilter  * and the SnowballFilter.  *  * @author kimchy (Shay Banon)  * @author harryf (Harry Fuecks)  */
+comment|/**  * Creates a SnowballAnalyzer initialized with stopwords and Snowball filter. Only  * supports Dutch, English (default), French, German and German2 where stopwords  * are readily available. For other languages available with the Lucene Snowball  * Stemmer, use them directly with the SnowballFilter and a CustomAnalyzer.  * Configuration of language is done with the "language" attribute or the analyzer.  * Also supports additional stopwords via "stopwords" attribute  *<p/>  * The SnowballAnalyzer comes with a StandardFilter, LowerCaseFilter, StopFilter  * and the SnowballFilter.  *  *  */
 end_comment
 
 begin_class
@@ -329,9 +329,9 @@ specifier|final
 name|SnowballAnalyzer
 name|analyzer
 decl_stmt|;
-DECL|method|SnowballAnalyzerProvider
 annotation|@
 name|Inject
+DECL|method|SnowballAnalyzerProvider
 specifier|public
 name|SnowballAnalyzerProvider
 parameter_list|(
@@ -450,9 +450,9 @@ name|stopWords
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|get
 annotation|@
 name|Override
+DECL|method|get
 specifier|public
 name|SnowballAnalyzer
 name|get

@@ -282,7 +282,7 @@ name|RestRequest
 operator|.
 name|Method
 operator|.
-name|*
+name|GET
 import|;
 end_import
 
@@ -296,12 +296,12 @@ name|rest
 operator|.
 name|RestStatus
 operator|.
-name|*
+name|OK
 import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -318,9 +318,9 @@ specifier|final
 name|SettingsFilter
 name|settingsFilter
 decl_stmt|;
-DECL|method|RestGetIndexTemplateAction
 annotation|@
 name|Inject
+DECL|method|RestGetIndexTemplateAction
 specifier|public
 name|RestGetIndexTemplateAction
 parameter_list|(
@@ -362,9 +362,9 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|handleRequest
 annotation|@
 name|Override
+DECL|method|handleRequest
 specifier|public
 name|void
 name|handleRequest

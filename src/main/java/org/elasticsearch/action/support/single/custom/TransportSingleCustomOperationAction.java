@@ -242,55 +242,7 @@ name|elasticsearch
 operator|.
 name|transport
 operator|.
-name|BaseTransportRequestHandler
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|transport
-operator|.
-name|BaseTransportResponseHandler
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|transport
-operator|.
-name|TransportChannel
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|transport
-operator|.
-name|TransportException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|transport
-operator|.
-name|TransportService
+name|*
 import|;
 end_import
 
@@ -305,7 +257,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -438,9 +390,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|doExecute
 annotation|@
 name|Override
+DECL|method|doExecute
 specifier|protected
 name|void
 name|doExecute
@@ -1277,9 +1229,9 @@ argument_list|<
 name|Request
 argument_list|>
 block|{
-DECL|method|newInstance
 annotation|@
 name|Override
+DECL|method|newInstance
 specifier|public
 name|Request
 name|newInstance
@@ -1290,9 +1242,9 @@ name|newRequest
 argument_list|()
 return|;
 block|}
-DECL|method|messageReceived
 annotation|@
 name|Override
+DECL|method|messageReceived
 specifier|public
 name|void
 name|messageReceived
@@ -1408,9 +1360,9 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|executor
 annotation|@
 name|Override
+DECL|method|executor
 specifier|public
 name|String
 name|executor
@@ -1435,9 +1387,9 @@ argument_list|<
 name|ShardSingleOperationRequest
 argument_list|>
 block|{
-DECL|method|newInstance
 annotation|@
 name|Override
+DECL|method|newInstance
 specifier|public
 name|ShardSingleOperationRequest
 name|newInstance
@@ -1449,9 +1401,9 @@ name|ShardSingleOperationRequest
 argument_list|()
 return|;
 block|}
-DECL|method|executor
 annotation|@
 name|Override
+DECL|method|executor
 specifier|public
 name|String
 name|executor
@@ -1461,9 +1413,9 @@ return|return
 name|executor
 return|;
 block|}
-DECL|method|messageReceived
 annotation|@
 name|Override
+DECL|method|messageReceived
 specifier|public
 name|void
 name|messageReceived
@@ -1569,9 +1521,9 @@ return|return
 name|shardId
 return|;
 block|}
-DECL|method|readFrom
 annotation|@
 name|Override
+DECL|method|readFrom
 specifier|public
 name|void
 name|readFrom
@@ -1602,9 +1554,9 @@ name|readVInt
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|writeTo
 annotation|@
 name|Override
+DECL|method|writeTo
 specifier|public
 name|void
 name|writeTo

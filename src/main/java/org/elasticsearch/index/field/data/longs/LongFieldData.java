@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -19,6 +19,20 @@ operator|.
 name|longs
 package|;
 end_package
+
+begin_import
+import|import
+name|gnu
+operator|.
+name|trove
+operator|.
+name|list
+operator|.
+name|array
+operator|.
+name|TLongArrayList
+import|;
+end_import
 
 begin_import
 import|import
@@ -68,59 +82,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|joda
-operator|.
-name|time
-operator|.
-name|DateTimeZone
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|joda
-operator|.
-name|time
-operator|.
-name|MutableDateTime
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|thread
 operator|.
 name|ThreadLocals
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|trove
-operator|.
-name|list
-operator|.
-name|array
-operator|.
-name|TLongArrayList
 import|;
 end_import
 
@@ -176,6 +140,30 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|joda
+operator|.
+name|time
+operator|.
+name|DateTimeZone
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|joda
+operator|.
+name|time
+operator|.
+name|MutableDateTime
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -185,7 +173,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -314,9 +302,9 @@ operator|=
 name|values
 expr_stmt|;
 block|}
-DECL|method|computeSizeInBytes
 annotation|@
 name|Override
+DECL|method|computeSizeInBytes
 specifier|protected
 name|long
 name|computeSizeInBytes
@@ -439,9 +427,9 @@ name|int
 name|docId
 parameter_list|)
 function_decl|;
-DECL|method|docFieldData
 annotation|@
 name|Override
+DECL|method|docFieldData
 specifier|public
 name|LongDocFieldData
 name|docFieldData
@@ -459,9 +447,9 @@ name|docId
 argument_list|)
 return|;
 block|}
-DECL|method|createFieldData
 annotation|@
 name|Override
+DECL|method|createFieldData
 specifier|protected
 name|LongDocFieldData
 name|createFieldData
@@ -475,9 +463,9 @@ name|this
 argument_list|)
 return|;
 block|}
-DECL|method|forEachValue
 annotation|@
 name|Override
+DECL|method|forEachValue
 specifier|public
 name|void
 name|forEachValue
@@ -520,9 +508,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|stringValue
 annotation|@
 name|Override
+DECL|method|stringValue
 specifier|public
 name|String
 name|stringValue
@@ -540,9 +528,9 @@ name|docId
 argument_list|)
 return|;
 block|}
-DECL|method|byteValue
 annotation|@
 name|Override
+DECL|method|byteValue
 specifier|public
 name|byte
 name|byteValue
@@ -561,9 +549,9 @@ name|docId
 argument_list|)
 return|;
 block|}
-DECL|method|shortValue
 annotation|@
 name|Override
+DECL|method|shortValue
 specifier|public
 name|short
 name|shortValue
@@ -582,9 +570,9 @@ name|docId
 argument_list|)
 return|;
 block|}
-DECL|method|intValue
 annotation|@
 name|Override
+DECL|method|intValue
 specifier|public
 name|int
 name|intValue
@@ -603,9 +591,9 @@ name|docId
 argument_list|)
 return|;
 block|}
-DECL|method|longValue
 annotation|@
 name|Override
+DECL|method|longValue
 specifier|public
 name|long
 name|longValue
@@ -621,9 +609,9 @@ name|docId
 argument_list|)
 return|;
 block|}
-DECL|method|floatValue
 annotation|@
 name|Override
+DECL|method|floatValue
 specifier|public
 name|float
 name|floatValue
@@ -642,9 +630,9 @@ name|docId
 argument_list|)
 return|;
 block|}
-DECL|method|doubleValue
 annotation|@
 name|Override
+DECL|method|doubleValue
 specifier|public
 name|double
 name|doubleValue
@@ -663,9 +651,9 @@ name|docId
 argument_list|)
 return|;
 block|}
-DECL|method|type
 annotation|@
 name|Override
+DECL|method|type
 specifier|public
 name|FieldDataType
 name|type
@@ -886,9 +874,9 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|collectTerm
 annotation|@
 name|Override
+DECL|method|collectTerm
 specifier|public
 name|void
 name|collectTerm
@@ -912,9 +900,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|buildSingleValue
 annotation|@
 name|Override
+DECL|method|buildSingleValue
 specifier|public
 name|LongFieldData
 name|buildSingleValue
@@ -942,9 +930,9 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-DECL|method|buildMultiValue
 annotation|@
 name|Override
+DECL|method|buildMultiValue
 specifier|public
 name|LongFieldData
 name|buildMultiValue

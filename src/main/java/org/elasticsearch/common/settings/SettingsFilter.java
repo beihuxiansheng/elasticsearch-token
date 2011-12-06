@@ -53,7 +53,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -97,9 +97,9 @@ name|Filter
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|method|SettingsFilter
 annotation|@
 name|Inject
+DECL|method|SettingsFilter
 specifier|public
 name|SettingsFilter
 parameter_list|(

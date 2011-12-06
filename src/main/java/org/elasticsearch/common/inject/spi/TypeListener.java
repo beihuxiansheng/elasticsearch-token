@@ -33,7 +33,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Listens for Guice to encounter injectable types. If a given type has its constructor injected in  * one situation but only its methods and fields injected in another, Guice will notify this  * listener once.  *  *<p>Useful for extra type checking, {@linkplain TypeEncounter#register(InjectionListener)  * registering injection listeners}, and {@linkplain TypeEncounter#bindInterceptor(  *org.elasticsearch.common.inject.matcher.Matcher, org.aopalliance.intercept.MethodInterceptor[])  * binding method interceptors}.  *  * @since 2.0  */
+comment|/**  * Listens for Guice to encounter injectable types. If a given type has its constructor injected in  * one situation but only its methods and fields injected in another, Guice will notify this  * listener once.  *<p/>  *<p>Useful for extra type checking, {@linkplain TypeEncounter#register(InjectionListener)  * registering injection listeners}, and {@linkplain TypeEncounter#bindInterceptor(  *org.elasticsearch.common.inject.matcher.Matcher, org.aopalliance.intercept.MethodInterceptor[])  * binding method interceptors}.  *  * @since 2.0  */
 end_comment
 
 begin_interface

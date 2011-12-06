@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -569,7 +569,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Execute a search based on a JSON String in QueryDSL format.      *      * Throws a RuntimeException if there are any shard failures to      * elevate the visibility of the problem.      */
+comment|/**      * Execute a search based on a JSON String in QueryDSL format.      *<p/>      * Throws a RuntimeException if there are any shard failures to      * elevate the visibility of the problem.      */
 DECL|method|executeSearch
 specifier|public
 name|List
@@ -818,7 +818,7 @@ return|return
 name|id
 return|;
 block|}
-comment|/**      * Perform the has_child query for the doc.      *      * Since it might take time to get indexed, it      * loops until it finds the doc.      */
+comment|/**      * Perform the has_child query for the doc.      *<p/>      * Since it might take time to get indexed, it      * loops until it finds the doc.      */
 DECL|method|searchDocByChild
 specifier|public
 name|void
@@ -931,7 +931,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Program to loop on:      * create parent/child doc      * search for the doc      * delete the doc      * repeat the above until shard failure.      *      * Eventually fails with:      *      * [shard [[74wz0lrXRSmSOsJOqgPvlw][acme][1]], reason [RemoteTransportException      * [[Kismet][inet[/10.10.30.52:9300]][search/phase/query]]; nested:      * QueryPhaseExecutionException[[acme][1]:      * query[ConstantScore(child_filter[contentFiles      * /content](filtered(file:mission      * file:statement)->FilterCacheFilterWrapper(      * _type:contentFiles)))],from[0],size[10]: Query Failed [Failed to execute      * child query [filtered(file:mission      * file:statement)->FilterCacheFilterWrapper(_type:contentFiles)]]]; nested:      * ]]      *      * @param args      */
+comment|/**      * Program to loop on:      * create parent/child doc      * search for the doc      * delete the doc      * repeat the above until shard failure.      *<p/>      * Eventually fails with:      *<p/>      * [shard [[74wz0lrXRSmSOsJOqgPvlw][acme][1]], reason [RemoteTransportException      * [[Kismet][inet[/10.10.30.52:9300]][search/phase/query]]; nested:      * QueryPhaseExecutionException[[acme][1]:      * query[ConstantScore(child_filter[contentFiles      * /content](filtered(file:mission      * file:statement)->FilterCacheFilterWrapper(      * _type:contentFiles)))],from[0],size[10]: Query Failed [Failed to execute      * child query [filtered(file:mission      * file:statement)->FilterCacheFilterWrapper(_type:contentFiles)]]]; nested:      * ]]      *      * @param args      */
 DECL|method|main
 specifier|public
 specifier|static

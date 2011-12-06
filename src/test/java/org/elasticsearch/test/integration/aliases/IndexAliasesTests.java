@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -346,15 +346,17 @@ end_import
 
 begin_import
 import|import static
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
-name|client
+name|common
 operator|.
-name|Requests
+name|collect
 operator|.
-name|*
+name|Sets
+operator|.
+name|newHashSet
 import|;
 end_import
 
@@ -364,11 +366,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|client
 operator|.
-name|collect
-operator|.
-name|Sets
+name|Requests
 operator|.
 name|*
 import|;
@@ -402,7 +402,7 @@ name|query
 operator|.
 name|FilterBuilders
 operator|.
-name|*
+name|termFilter
 import|;
 end_import
 
@@ -414,7 +414,7 @@ name|hamcrest
 operator|.
 name|MatcherAssert
 operator|.
-name|*
+name|assertThat
 import|;
 end_import
 
@@ -431,7 +431,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -469,9 +469,9 @@ operator|new
 name|Random
 argument_list|()
 decl_stmt|;
-DECL|method|startNodes
 annotation|@
 name|BeforeClass
+DECL|method|startNodes
 specifier|public
 name|void
 name|startNodes
@@ -509,9 +509,9 @@ name|client2
 block|}
 expr_stmt|;
 block|}
-DECL|method|closeNodes
 annotation|@
 name|AfterClass
+DECL|method|closeNodes
 specifier|public
 name|void
 name|closeNodes
@@ -577,9 +577,9 @@ argument_list|)
 index|]
 return|;
 block|}
-DECL|method|testAliases
 annotation|@
 name|Test
+DECL|method|testAliases
 specifier|public
 name|void
 name|testAliases
@@ -1055,9 +1055,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testFailedFilter
 annotation|@
 name|Test
+DECL|method|testFailedFilter
 specifier|public
 name|void
 name|testFailedFilter
@@ -1227,9 +1227,9 @@ block|{
 comment|// all is well
 block|}
 block|}
-DECL|method|testFilteringAliases
 annotation|@
 name|Test
+DECL|method|testFilteringAliases
 specifier|public
 name|void
 name|testFilteringAliases
@@ -1463,9 +1463,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testSearchingFilteringAliasesSingleIndex
 annotation|@
 name|Test
+DECL|method|testSearchingFilteringAliasesSingleIndex
 specifier|public
 name|void
 name|testSearchingFilteringAliasesSingleIndex
@@ -2152,9 +2152,9 @@ literal|"4"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testSearchingFilteringAliasesTwoIndices
 annotation|@
 name|Test
+DECL|method|testSearchingFilteringAliasesTwoIndices
 specifier|public
 name|void
 name|testSearchingFilteringAliasesTwoIndices
@@ -3307,9 +3307,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testSearchingFilteringAliasesMultipleIndices
 annotation|@
 name|Test
+DECL|method|testSearchingFilteringAliasesMultipleIndices
 specifier|public
 name|void
 name|testSearchingFilteringAliasesMultipleIndices
@@ -4528,9 +4528,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testDeletingByQueryFilteringAliases
 annotation|@
 name|Test
+DECL|method|testDeletingByQueryFilteringAliases
 specifier|public
 name|void
 name|testDeletingByQueryFilteringAliases
@@ -5570,9 +5570,9 @@ literal|"4"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testWaitForAliasCreationMultipleShards
 annotation|@
 name|Test
+DECL|method|testWaitForAliasCreationMultipleShards
 specifier|public
 name|void
 name|testWaitForAliasCreationMultipleShards
@@ -5788,9 +5788,9 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|testWaitForAliasCreationSingleShard
 annotation|@
 name|Test
+DECL|method|testWaitForAliasCreationSingleShard
 specifier|public
 name|void
 name|testWaitForAliasCreationSingleShard
@@ -6028,9 +6028,9 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|testWaitForAliasSimultaneousUpdate
 annotation|@
 name|Test
+DECL|method|testWaitForAliasSimultaneousUpdate
 specifier|public
 name|void
 name|testWaitForAliasSimultaneousUpdate
@@ -6290,9 +6290,9 @@ name|shutdown
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testWaitForAliasTimeout
 annotation|@
 name|Test
+DECL|method|testWaitForAliasTimeout
 specifier|public
 name|void
 name|testWaitForAliasTimeout
@@ -6653,9 +6653,9 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testSameAlias
 annotation|@
 name|Test
+DECL|method|testSameAlias
 specifier|public
 name|void
 name|testSameAlias

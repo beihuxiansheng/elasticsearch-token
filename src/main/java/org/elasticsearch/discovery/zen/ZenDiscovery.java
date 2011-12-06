@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -15,6 +15,20 @@ operator|.
 name|zen
 package|;
 end_package
+
+begin_import
+import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|Sets
+import|;
+end_import
 
 begin_import
 import|import
@@ -44,55 +58,7 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterName
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|ClusterService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|ClusterState
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|ClusterStateUpdateTask
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|ProcessedClusterStateUpdateTask
+name|*
 import|;
 end_import
 
@@ -189,20 +155,6 @@ operator|.
 name|common
 operator|.
 name|UUID
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Sets
 import|;
 end_import
 
@@ -520,6 +472,22 @@ end_import
 
 begin_import
 import|import static
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|Lists
+operator|.
+name|newArrayList
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|elasticsearch
@@ -528,7 +496,7 @@ name|cluster
 operator|.
 name|ClusterState
 operator|.
-name|*
+name|newClusterStateBuilder
 import|;
 end_import
 
@@ -544,23 +512,7 @@ name|node
 operator|.
 name|DiscoveryNodes
 operator|.
-name|*
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Lists
-operator|.
-name|*
+name|newNodesBuilder
 import|;
 end_import
 
@@ -576,12 +528,12 @@ name|unit
 operator|.
 name|TimeValue
 operator|.
-name|*
+name|timeValueSeconds
 import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -729,9 +681,9 @@ operator|new
 name|AtomicBoolean
 argument_list|()
 decl_stmt|;
-DECL|method|ZenDiscovery
 annotation|@
 name|Inject
+DECL|method|ZenDiscovery
 specifier|public
 name|ZenDiscovery
 parameter_list|(
@@ -971,9 +923,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|doStart
 annotation|@
 name|Override
+DECL|method|doStart
 specifier|protected
 name|void
 name|doStart
@@ -1069,9 +1021,9 @@ name|asyncJoinCluster
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|doStop
 annotation|@
 name|Override
+DECL|method|doStop
 specifier|protected
 name|void
 name|doStop
@@ -1276,9 +1228,9 @@ comment|// ignore
 block|}
 block|}
 block|}
-DECL|method|doClose
 annotation|@
 name|Override
+DECL|method|doClose
 specifier|protected
 name|void
 name|doClose
@@ -1312,9 +1264,9 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|localNode
 annotation|@
 name|Override
+DECL|method|localNode
 specifier|public
 name|DiscoveryNode
 name|localNode
@@ -1324,9 +1276,9 @@ return|return
 name|localNode
 return|;
 block|}
-DECL|method|addListener
 annotation|@
 name|Override
+DECL|method|addListener
 specifier|public
 name|void
 name|addListener
@@ -1345,9 +1297,9 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|removeListener
 annotation|@
 name|Override
+DECL|method|removeListener
 specifier|public
 name|void
 name|removeListener
@@ -1366,9 +1318,9 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|nodeDescription
 annotation|@
 name|Override
+DECL|method|nodeDescription
 specifier|public
 name|String
 name|nodeDescription
@@ -1388,9 +1340,9 @@ name|id
 argument_list|()
 return|;
 block|}
-DECL|method|nodes
 annotation|@
 name|Override
+DECL|method|nodes
 specifier|public
 name|DiscoveryNodes
 name|nodes
@@ -1436,9 +1388,9 @@ name|build
 argument_list|()
 return|;
 block|}
-DECL|method|publish
 annotation|@
 name|Override
+DECL|method|publish
 specifier|public
 name|void
 name|publish
@@ -3660,9 +3612,9 @@ name|PublishClusterStateAction
 operator|.
 name|NewClusterStateListener
 block|{
-DECL|method|onNewClusterState
 annotation|@
 name|Override
+DECL|method|onNewClusterState
 specifier|public
 name|void
 name|onNewClusterState
@@ -3687,9 +3639,9 @@ name|MembershipAction
 operator|.
 name|MembershipListener
 block|{
-DECL|method|onJoin
 annotation|@
 name|Override
+DECL|method|onJoin
 specifier|public
 name|ClusterState
 name|onJoin
@@ -3705,9 +3657,9 @@ name|node
 argument_list|)
 return|;
 block|}
-DECL|method|onLeave
 annotation|@
 name|Override
+DECL|method|onLeave
 specifier|public
 name|void
 name|onLeave
@@ -3732,9 +3684,9 @@ name|NodesFaultDetection
 operator|.
 name|Listener
 block|{
-DECL|method|onNodeFailure
 annotation|@
 name|Override
+DECL|method|onNodeFailure
 specifier|public
 name|void
 name|onNodeFailure
@@ -3764,9 +3716,9 @@ name|MasterFaultDetection
 operator|.
 name|Listener
 block|{
-DECL|method|onMasterFailure
 annotation|@
 name|Override
+DECL|method|onMasterFailure
 specifier|public
 name|void
 name|onMasterFailure
@@ -3786,9 +3738,9 @@ name|reason
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|onDisconnectedFromMaster
 annotation|@
 name|Override
+DECL|method|onDisconnectedFromMaster
 specifier|public
 name|void
 name|onDisconnectedFromMaster

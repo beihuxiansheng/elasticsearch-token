@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -15,6 +15,20 @@ operator|.
 name|transport
 package|;
 end_package
+
+begin_import
+import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|ImmutableList
+import|;
+end_import
 
 begin_import
 import|import
@@ -436,20 +450,6 @@ name|common
 operator|.
 name|collect
 operator|.
-name|ImmutableList
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
 name|Tuple
 import|;
 end_import
@@ -714,12 +714,12 @@ name|settings
 operator|.
 name|ImmutableSettings
 operator|.
-name|*
+name|settingsBuilder
 import|;
 end_import
 
 begin_comment
-comment|/**  * The transport client allows to create a client that is not part of the cluster, but simply connects to one  * or more nodes directly by adding their respective addresses using {@link #addTransportAddress(org.elasticsearch.common.transport.TransportAddress)}.  *  *<p>The transport client important modules used is the {@link org.elasticsearch.transport.TransportModule} which is  * started in client mode (only connects, no bind).  *  * @author kimchy (shay.banon)  */
+comment|/**  * The transport client allows to create a client that is not part of the cluster, but simply connects to one  * or more nodes directly by adding their respective addresses using {@link #addTransportAddress(org.elasticsearch.common.transport.TransportAddress)}.  *<p/>  *<p>The transport client important modules used is the {@link org.elasticsearch.transport.TransportModule} which is  * started in client mode (only connects, no bind).  *  *  */
 end_comment
 
 begin_class
@@ -1075,7 +1075,7 @@ name|transportAddresses
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns the current connected transport nodes that this client will use.      *      *<p>The nodes include all the nodes that are currently alive based on the transport      * addresses provided.      */
+comment|/**      * Returns the current connected transport nodes that this client will use.      *<p/>      *<p>The nodes include all the nodes that are currently alive based on the transport      * addresses provided.      */
 DECL|method|connectedNodes
 specifier|public
 name|ImmutableList
@@ -1092,7 +1092,7 @@ name|connectedNodes
 argument_list|()
 return|;
 block|}
-comment|/**      * Adds a transport address that will be used to connect to.      *      *<p>The Node this transport address represents will be used if its possible to connect to it.      * If it is unavailable, it will be automatically connected to once it is up.      *      *<p>In order to get the list of all the current connected nodes, please see {@link #connectedNodes()}.      */
+comment|/**      * Adds a transport address that will be used to connect to.      *<p/>      *<p>The Node this transport address represents will be used if its possible to connect to it.      * If it is unavailable, it will be automatically connected to once it is up.      *<p/>      *<p>In order to get the list of all the current connected nodes, please see {@link #connectedNodes()}.      */
 DECL|method|addTransportAddress
 specifier|public
 name|TransportClient
@@ -1135,9 +1135,9 @@ name|this
 return|;
 block|}
 comment|/**      * Closes the client.      */
-DECL|method|close
 annotation|@
 name|Override
+DECL|method|close
 specifier|public
 name|void
 name|close
@@ -1270,9 +1270,9 @@ name|clearReferencesThreadLocals
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|threadPool
 annotation|@
 name|Override
+DECL|method|threadPool
 specifier|public
 name|ThreadPool
 name|threadPool
@@ -1285,9 +1285,9 @@ name|threadPool
 argument_list|()
 return|;
 block|}
-DECL|method|admin
 annotation|@
 name|Override
+DECL|method|admin
 specifier|public
 name|AdminClient
 name|admin
@@ -1300,9 +1300,9 @@ name|admin
 argument_list|()
 return|;
 block|}
-DECL|method|index
 annotation|@
 name|Override
+DECL|method|index
 specifier|public
 name|ActionFuture
 argument_list|<
@@ -1323,9 +1323,9 @@ name|request
 argument_list|)
 return|;
 block|}
-DECL|method|index
 annotation|@
 name|Override
+DECL|method|index
 specifier|public
 name|void
 name|index
@@ -1350,9 +1350,9 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|delete
 annotation|@
 name|Override
+DECL|method|delete
 specifier|public
 name|ActionFuture
 argument_list|<
@@ -1373,9 +1373,9 @@ name|request
 argument_list|)
 return|;
 block|}
-DECL|method|delete
 annotation|@
 name|Override
+DECL|method|delete
 specifier|public
 name|void
 name|delete
@@ -1400,9 +1400,9 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|bulk
 annotation|@
 name|Override
+DECL|method|bulk
 specifier|public
 name|ActionFuture
 argument_list|<
@@ -1423,9 +1423,9 @@ name|request
 argument_list|)
 return|;
 block|}
-DECL|method|bulk
 annotation|@
 name|Override
+DECL|method|bulk
 specifier|public
 name|void
 name|bulk
@@ -1450,9 +1450,9 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|deleteByQuery
 annotation|@
 name|Override
+DECL|method|deleteByQuery
 specifier|public
 name|ActionFuture
 argument_list|<
@@ -1473,9 +1473,9 @@ name|request
 argument_list|)
 return|;
 block|}
-DECL|method|deleteByQuery
 annotation|@
 name|Override
+DECL|method|deleteByQuery
 specifier|public
 name|void
 name|deleteByQuery
@@ -1500,9 +1500,9 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|get
 annotation|@
 name|Override
+DECL|method|get
 specifier|public
 name|ActionFuture
 argument_list|<
@@ -1523,9 +1523,9 @@ name|request
 argument_list|)
 return|;
 block|}
-DECL|method|get
 annotation|@
 name|Override
+DECL|method|get
 specifier|public
 name|void
 name|get
@@ -1550,9 +1550,9 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|multiGet
 annotation|@
 name|Override
+DECL|method|multiGet
 specifier|public
 name|ActionFuture
 argument_list|<
@@ -1573,9 +1573,9 @@ name|request
 argument_list|)
 return|;
 block|}
-DECL|method|multiGet
 annotation|@
 name|Override
+DECL|method|multiGet
 specifier|public
 name|void
 name|multiGet
@@ -1600,9 +1600,9 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|count
 annotation|@
 name|Override
+DECL|method|count
 specifier|public
 name|ActionFuture
 argument_list|<
@@ -1623,9 +1623,9 @@ name|request
 argument_list|)
 return|;
 block|}
-DECL|method|count
 annotation|@
 name|Override
+DECL|method|count
 specifier|public
 name|void
 name|count
@@ -1650,9 +1650,9 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|search
 annotation|@
 name|Override
+DECL|method|search
 specifier|public
 name|ActionFuture
 argument_list|<
@@ -1673,9 +1673,9 @@ name|request
 argument_list|)
 return|;
 block|}
-DECL|method|search
 annotation|@
 name|Override
+DECL|method|search
 specifier|public
 name|void
 name|search
@@ -1700,9 +1700,9 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|searchScroll
 annotation|@
 name|Override
+DECL|method|searchScroll
 specifier|public
 name|ActionFuture
 argument_list|<
@@ -1723,9 +1723,9 @@ name|request
 argument_list|)
 return|;
 block|}
-DECL|method|searchScroll
 annotation|@
 name|Override
+DECL|method|searchScroll
 specifier|public
 name|void
 name|searchScroll
@@ -1750,9 +1750,9 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|moreLikeThis
 annotation|@
 name|Override
+DECL|method|moreLikeThis
 specifier|public
 name|ActionFuture
 argument_list|<
@@ -1773,9 +1773,9 @@ name|request
 argument_list|)
 return|;
 block|}
-DECL|method|moreLikeThis
 annotation|@
 name|Override
+DECL|method|moreLikeThis
 specifier|public
 name|void
 name|moreLikeThis
@@ -1800,9 +1800,9 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|percolate
-annotation|@
-name|Override
 specifier|public
 name|ActionFuture
 argument_list|<
@@ -1823,9 +1823,9 @@ name|request
 argument_list|)
 return|;
 block|}
-DECL|method|percolate
 annotation|@
 name|Override
+DECL|method|percolate
 specifier|public
 name|void
 name|percolate

@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -312,12 +312,12 @@ name|action
 operator|.
 name|Actions
 operator|.
-name|*
+name|addValidationError
 import|;
 end_import
 
 begin_comment
-comment|/**  * A request to delete all documents that matching a specific query. Best created with  * {@link org.elasticsearch.client.Requests#deleteByQueryRequest(String...)}.  *  *<p>The request requires the query source to be set either using {@link #query(org.elasticsearch.index.query.QueryBuilder)},  * or {@link #query(byte[])}.  *  * @author kimchy (shay.banon)  * @see DeleteByQueryResponse  * @see org.elasticsearch.client.Requests#deleteByQueryRequest(String...)  * @see org.elasticsearch.client.Client#deleteByQuery(DeleteByQueryRequest)  */
+comment|/**  * A request to delete all documents that matching a specific query. Best created with  * {@link org.elasticsearch.client.Requests#deleteByQueryRequest(String...)}.  *<p/>  *<p>The request requires the query source to be set either using {@link #query(org.elasticsearch.index.query.QueryBuilder)},  * or {@link #query(byte[])}.  *  *  * @see DeleteByQueryResponse  * @see org.elasticsearch.client.Requests#deleteByQueryRequest(String...)  * @see org.elasticsearch.client.Client#deleteByQuery(DeleteByQueryRequest)  */
 end_comment
 
 begin_class
@@ -370,9 +370,9 @@ name|Strings
 operator|.
 name|EMPTY_ARRAY
 decl_stmt|;
-DECL|field|routing
 annotation|@
 name|Nullable
+DECL|field|routing
 specifier|private
 name|String
 name|routing
@@ -400,9 +400,9 @@ name|DeleteByQueryRequest
 parameter_list|()
 block|{     }
 comment|/**      * Should the listener be called on a separate thread if needed.      */
-DECL|method|listenerThreaded
 annotation|@
 name|Override
+DECL|method|listenerThreaded
 specifier|public
 name|DeleteByQueryRequest
 name|listenerThreaded
@@ -422,9 +422,9 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|validate
 annotation|@
 name|Override
+DECL|method|validate
 specifier|public
 name|ActionRequestValidationException
 name|validate
@@ -525,9 +525,9 @@ name|querySource
 return|;
 block|}
 comment|/**      * The query source to execute.      *      * @see org.elasticsearch.index.query.QueryBuilders      */
-DECL|method|query
 annotation|@
 name|Required
+DECL|method|query
 specifier|public
 name|DeleteByQueryRequest
 name|query
@@ -579,9 +579,9 @@ name|this
 return|;
 block|}
 comment|/**      * The query source to execute. It is preferable to use either {@link #query(byte[])}      * or {@link #query(org.elasticsearch.index.query.QueryBuilder)}.      */
-DECL|method|query
 annotation|@
 name|Required
+DECL|method|query
 specifier|public
 name|DeleteByQueryRequest
 name|query
@@ -635,9 +635,9 @@ name|this
 return|;
 block|}
 comment|/**      * The query source to execute in the form of a map.      */
-DECL|method|query
 annotation|@
 name|Required
+DECL|method|query
 specifier|public
 name|DeleteByQueryRequest
 name|query
@@ -693,9 +693,9 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|query
 annotation|@
 name|Required
+DECL|method|query
 specifier|public
 name|DeleteByQueryRequest
 name|query
@@ -762,9 +762,9 @@ throw|;
 block|}
 block|}
 comment|/**      * The query source to execute.      */
-DECL|method|query
 annotation|@
 name|Required
+DECL|method|query
 specifier|public
 name|DeleteByQueryRequest
 name|query
@@ -790,9 +790,9 @@ argument_list|)
 return|;
 block|}
 comment|/**      * The query source to execute.      */
-DECL|method|query
 annotation|@
 name|Required
+DECL|method|query
 specifier|public
 name|DeleteByQueryRequest
 name|query
@@ -853,9 +853,9 @@ name|types
 return|;
 block|}
 comment|/**      * A comma separated list of routing values to control the shards the search will be executed on.      */
-DECL|method|routing
 annotation|@
 name|Override
+DECL|method|routing
 specifier|public
 name|String
 name|routing
@@ -1263,9 +1263,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|toString
 annotation|@
 name|Override
+DECL|method|toString
 specifier|public
 name|String
 name|toString

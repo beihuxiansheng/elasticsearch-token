@@ -221,7 +221,7 @@ return|;
 block|}
 block|}
 decl_stmt|;
-comment|/**      * No scope; the same as not applying any scope at all.  Each time the      * Injector obtains an instance of an object with "no scope", it injects this      * instance then immediately forgets it.  When the next request for the same      * binding arrives it will need to obtain the instance over again.      *      *<p>This exists only in case a class has been annotated with a scope      * annotation such as {@link Singleton @Singleton}, and you need to override      * this to "no scope" in your binding.      *      * @since 2.0      */
+comment|/**      * No scope; the same as not applying any scope at all.  Each time the      * Injector obtains an instance of an object with "no scope", it injects this      * instance then immediately forgets it.  When the next request for the same      * binding arrives it will need to obtain the instance over again.      *<p/>      *<p>This exists only in case a class has been annotated with a scope      * annotation such as {@link Singleton @Singleton}, and you need to override      * this to "no scope" in your binding.      *      * @since 2.0      */
 DECL|field|NO_SCOPE
 specifier|public
 specifier|static

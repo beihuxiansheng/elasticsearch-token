@@ -81,7 +81,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Simple helper class used for loading  * {@link ChunkDecoder} implementations, based on criteria  * such as "fastest available".  *<p>  * Yes, it looks butt-ugly, but does the job. Nonetheless, if anyone  * has lipstick for this pig, let me know.  *  * @since 0.9  */
+comment|/**  * Simple helper class used for loading  * {@link ChunkDecoder} implementations, based on criteria  * such as "fastest available".  *<p/>  * Yes, it looks butt-ugly, but does the job. Nonetheless, if anyone  * has lipstick for this pig, let me know.  *  * @since 0.9  */
 end_comment
 
 begin_class

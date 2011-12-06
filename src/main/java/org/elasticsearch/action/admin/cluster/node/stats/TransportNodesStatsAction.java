@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -21,6 +21,20 @@ operator|.
 name|stats
 package|;
 end_package
+
+begin_import
+import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|Lists
+import|;
+end_import
 
 begin_import
 import|import
@@ -97,20 +111,6 @@ operator|.
 name|cluster
 operator|.
 name|ClusterService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Lists
 import|;
 end_import
 
@@ -205,7 +205,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -233,9 +233,9 @@ specifier|final
 name|NodeService
 name|nodeService
 decl_stmt|;
-DECL|method|TransportNodesStatsAction
 annotation|@
 name|Inject
+DECL|method|TransportNodesStatsAction
 specifier|public
 name|TransportNodesStatsAction
 parameter_list|(
@@ -278,9 +278,9 @@ operator|=
 name|nodeService
 expr_stmt|;
 block|}
-DECL|method|executor
 annotation|@
 name|Override
+DECL|method|executor
 specifier|protected
 name|String
 name|executor
@@ -294,9 +294,9 @@ operator|.
 name|MANAGEMENT
 return|;
 block|}
-DECL|method|transportAction
 annotation|@
 name|Override
+DECL|method|transportAction
 specifier|protected
 name|String
 name|transportAction
@@ -314,9 +314,9 @@ operator|.
 name|STATS
 return|;
 block|}
-DECL|method|transportNodeAction
 annotation|@
 name|Override
+DECL|method|transportNodeAction
 specifier|protected
 name|String
 name|transportNodeAction
@@ -326,9 +326,9 @@ return|return
 literal|"/cluster/nodes/stats/node"
 return|;
 block|}
-DECL|method|newResponse
 annotation|@
 name|Override
+DECL|method|newResponse
 specifier|protected
 name|NodesStatsResponse
 name|newResponse
@@ -421,9 +421,9 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-DECL|method|newRequest
 annotation|@
 name|Override
+DECL|method|newRequest
 specifier|protected
 name|NodesStatsRequest
 name|newRequest
@@ -435,9 +435,9 @@ name|NodesStatsRequest
 argument_list|()
 return|;
 block|}
-DECL|method|newNodeRequest
 annotation|@
 name|Override
+DECL|method|newNodeRequest
 specifier|protected
 name|NodeStatsRequest
 name|newNodeRequest
@@ -449,9 +449,9 @@ name|NodeStatsRequest
 argument_list|()
 return|;
 block|}
-DECL|method|newNodeRequest
 annotation|@
 name|Override
+DECL|method|newNodeRequest
 specifier|protected
 name|NodeStatsRequest
 name|newNodeRequest
@@ -471,9 +471,9 @@ name|nodeId
 argument_list|)
 return|;
 block|}
-DECL|method|newNodeResponse
 annotation|@
 name|Override
+DECL|method|newNodeResponse
 specifier|protected
 name|NodeStats
 name|newNodeResponse
@@ -485,9 +485,9 @@ name|NodeStats
 argument_list|()
 return|;
 block|}
-DECL|method|nodeOperation
 annotation|@
 name|Override
+DECL|method|nodeOperation
 specifier|protected
 name|NodeStats
 name|nodeOperation
@@ -505,9 +505,9 @@ name|stats
 argument_list|()
 return|;
 block|}
-DECL|method|accumulateExceptions
 annotation|@
 name|Override
+DECL|method|accumulateExceptions
 specifier|protected
 name|boolean
 name|accumulateExceptions

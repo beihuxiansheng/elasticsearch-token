@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -109,7 +109,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A base class for any script type that is used during the search process (custom score, facets, and so on).  *  *<p>If the script returns a specific numeric type, consider overriding the type specific base classes  * such as {@link AbstractDoubleSearchScript}, {@link AbstractFloatSearchScript} and {@link AbstractLongSearchScript}  * for better performance.  *  *<p>The use is required to implement the {@link #run()} method.  */
+comment|/**  * A base class for any script type that is used during the search process (custom score, facets, and so on).  *<p/>  *<p>If the script returns a specific numeric type, consider overriding the type specific base classes  * such as {@link AbstractDoubleSearchScript}, {@link AbstractFloatSearchScript} and {@link AbstractLongSearchScript}  * for better performance.  *<p/>  *<p>The use is required to implement the {@link #run()} method.  */
 end_comment
 
 begin_class
@@ -209,9 +209,9 @@ operator|=
 name|lookup
 expr_stmt|;
 block|}
-DECL|method|setScorer
 annotation|@
 name|Override
+DECL|method|setScorer
 specifier|public
 name|void
 name|setScorer
@@ -228,9 +228,9 @@ name|scorer
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|setNextReader
 annotation|@
 name|Override
+DECL|method|setNextReader
 specifier|public
 name|void
 name|setNextReader
@@ -247,9 +247,9 @@ name|reader
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|setNextDocId
 annotation|@
 name|Override
+DECL|method|setNextDocId
 specifier|public
 name|void
 name|setNextDocId
@@ -266,9 +266,9 @@ name|doc
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|setNextSource
 annotation|@
 name|Override
+DECL|method|setNextSource
 specifier|public
 name|void
 name|setNextSource
@@ -293,9 +293,9 @@ name|source
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|setNextScore
 annotation|@
 name|Override
+DECL|method|setNextScore
 specifier|public
 name|void
 name|setNextScore
@@ -311,9 +311,9 @@ operator|=
 name|score
 expr_stmt|;
 block|}
-DECL|method|runAsFloat
 annotation|@
 name|Override
+DECL|method|runAsFloat
 specifier|public
 name|float
 name|runAsFloat
@@ -332,9 +332,9 @@ name|floatValue
 argument_list|()
 return|;
 block|}
-DECL|method|runAsLong
 annotation|@
 name|Override
+DECL|method|runAsLong
 specifier|public
 name|long
 name|runAsLong
@@ -353,9 +353,9 @@ name|longValue
 argument_list|()
 return|;
 block|}
-DECL|method|runAsDouble
 annotation|@
 name|Override
+DECL|method|runAsDouble
 specifier|public
 name|double
 name|runAsDouble

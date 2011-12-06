@@ -194,7 +194,7 @@ name|unit
 operator|.
 name|TimeValue
 operator|.
-name|*
+name|timeValueSeconds
 import|;
 end_import
 
@@ -208,12 +208,12 @@ name|rest
 operator|.
 name|RestStatus
 operator|.
-name|*
+name|OK
 import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -224,9 +224,9 @@ name|RestDeleteIndexTemplateAction
 extends|extends
 name|BaseRestHandler
 block|{
-DECL|method|RestDeleteIndexTemplateAction
 annotation|@
 name|Inject
+DECL|method|RestDeleteIndexTemplateAction
 specifier|public
 name|RestDeleteIndexTemplateAction
 parameter_list|(
@@ -263,9 +263,9 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|handleRequest
 annotation|@
 name|Override
+DECL|method|handleRequest
 specifier|public
 name|void
 name|handleRequest

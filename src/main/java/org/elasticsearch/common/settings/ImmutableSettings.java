@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -15,6 +15,34 @@ operator|.
 name|settings
 package|;
 end_package
+
+begin_import
+import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|ImmutableMap
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|Lists
+import|;
+end_import
 
 begin_import
 import|import
@@ -49,34 +77,6 @@ operator|.
 name|common
 operator|.
 name|Strings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Lists
 import|;
 end_import
 
@@ -306,47 +306,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|LinkedHashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Properties
+name|*
 import|;
 end_import
 
@@ -372,7 +332,7 @@ name|common
 operator|.
 name|Strings
 operator|.
-name|*
+name|toCamelCase
 import|;
 end_import
 
@@ -388,7 +348,7 @@ name|unit
 operator|.
 name|ByteSizeValue
 operator|.
-name|*
+name|parseBytesSizeValue
 import|;
 end_import
 
@@ -404,7 +364,7 @@ name|unit
 operator|.
 name|SizeValue
 operator|.
-name|*
+name|parseSizeValue
 import|;
 end_import
 
@@ -420,12 +380,12 @@ name|unit
 operator|.
 name|TimeValue
 operator|.
-name|*
+name|parseTimeValue
 import|;
 end_import
 
 begin_comment
-comment|/**  * An immutable implementation of {@link Settings}.  *  * @author kimchy (shay.banon)  */
+comment|/**  * An immutable implementation of {@link Settings}.  *  *  */
 end_comment
 
 begin_class
@@ -497,9 +457,9 @@ else|:
 name|classLoader
 expr_stmt|;
 block|}
-DECL|method|getClassLoader
 annotation|@
 name|Override
+DECL|method|getClassLoader
 specifier|public
 name|ClassLoader
 name|getClassLoader
@@ -511,9 +471,9 @@ operator|.
 name|classLoader
 return|;
 block|}
-DECL|method|getAsMap
 annotation|@
 name|Override
+DECL|method|getAsMap
 specifier|public
 name|ImmutableMap
 argument_list|<
@@ -530,9 +490,9 @@ operator|.
 name|settings
 return|;
 block|}
-DECL|method|getComponentSettings
 annotation|@
 name|Override
+DECL|method|getComponentSettings
 specifier|public
 name|Settings
 name|getComponentSettings
@@ -591,9 +551,9 @@ name|component
 argument_list|)
 return|;
 block|}
-DECL|method|getComponentSettings
 annotation|@
 name|Override
+DECL|method|getComponentSettings
 specifier|public
 name|Settings
 name|getComponentSettings
@@ -686,9 +646,9 @@ name|settingPrefix
 argument_list|)
 return|;
 block|}
-DECL|method|getByPrefix
 annotation|@
 name|Override
+DECL|method|getByPrefix
 specifier|public
 name|Settings
 name|getByPrefix
@@ -794,9 +754,9 @@ name|build
 argument_list|()
 return|;
 block|}
-DECL|method|get
 annotation|@
 name|Override
+DECL|method|get
 specifier|public
 name|String
 name|get
@@ -839,9 +799,9 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-DECL|method|get
 annotation|@
 name|Override
+DECL|method|get
 specifier|public
 name|String
 name|get
@@ -873,9 +833,9 @@ else|:
 name|retVal
 return|;
 block|}
-DECL|method|getAsFloat
 annotation|@
 name|Override
+DECL|method|getAsFloat
 specifier|public
 name|Float
 name|getAsFloat
@@ -942,9 +902,9 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|getAsDouble
 annotation|@
 name|Override
+DECL|method|getAsDouble
 specifier|public
 name|Double
 name|getAsDouble
@@ -1011,9 +971,9 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|getAsInt
 annotation|@
 name|Override
+DECL|method|getAsInt
 specifier|public
 name|Integer
 name|getAsInt
@@ -1080,9 +1040,9 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|getAsLong
 annotation|@
 name|Override
+DECL|method|getAsLong
 specifier|public
 name|Long
 name|getAsLong
@@ -1149,9 +1109,9 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|getAsBoolean
 annotation|@
 name|Override
+DECL|method|getAsBoolean
 specifier|public
 name|Boolean
 name|getAsBoolean
@@ -1177,9 +1137,9 @@ name|defaultValue
 argument_list|)
 return|;
 block|}
-DECL|method|getAsTime
 annotation|@
 name|Override
+DECL|method|getAsTime
 specifier|public
 name|TimeValue
 name|getAsTime
@@ -1203,9 +1163,9 @@ name|defaultValue
 argument_list|)
 return|;
 block|}
-DECL|method|getAsBytesSize
 annotation|@
 name|Override
+DECL|method|getAsBytesSize
 specifier|public
 name|ByteSizeValue
 name|getAsBytesSize
@@ -1231,9 +1191,9 @@ name|defaultValue
 argument_list|)
 return|;
 block|}
-DECL|method|getAsSize
 annotation|@
 name|Override
+DECL|method|getAsSize
 specifier|public
 name|SizeValue
 name|getAsSize
@@ -1266,9 +1226,9 @@ block|{
 literal|"unchecked"
 block|}
 argument_list|)
-DECL|method|getAsClass
 annotation|@
 name|Override
+DECL|method|getAsClass
 specifier|public
 parameter_list|<
 name|T
@@ -1366,9 +1326,9 @@ block|{
 literal|"unchecked"
 block|}
 argument_list|)
-DECL|method|getAsClass
 annotation|@
 name|Override
+DECL|method|getAsClass
 specifier|public
 parameter_list|<
 name|T
@@ -1616,9 +1576,9 @@ block|}
 block|}
 block|}
 block|}
-DECL|method|getAsArray
 annotation|@
 name|Override
+DECL|method|getAsArray
 specifier|public
 name|String
 index|[]
@@ -1641,9 +1601,9 @@ name|EMPTY_ARRAY
 argument_list|)
 return|;
 block|}
-DECL|method|getAsArray
 annotation|@
 name|Override
+DECL|method|getAsArray
 specifier|public
 name|String
 index|[]
@@ -1797,9 +1757,9 @@ index|]
 argument_list|)
 return|;
 block|}
-DECL|method|getGroups
 annotation|@
 name|Override
+DECL|method|getGroups
 specifier|public
 name|Map
 argument_list|<
@@ -3453,7 +3413,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Runs across all the settings set on this builder and replaces<tt>${...}</tt> elements in the          * each setting value according to the following logic:          *          *<p>First, tries to resolve it against a System property ({@link System#getProperty(String)}), next,          * tries and resolve it against an environment variable ({@link System#getenv(String)}), and last, tries          * and replace it with another setting already set on this builder.          */
+comment|/**          * Runs across all the settings set on this builder and replaces<tt>${...}</tt> elements in the          * each setting value according to the following logic:          *<p/>          *<p>First, tries to resolve it against a System property ({@link System#getProperty(String)}), next,          * tries and resolve it against an environment variable ({@link System#getenv(String)}), and last, tries          * and replace it with another setting already set on this builder.          */
 DECL|method|replacePropertyPlaceholders
 specifier|public
 name|Builder

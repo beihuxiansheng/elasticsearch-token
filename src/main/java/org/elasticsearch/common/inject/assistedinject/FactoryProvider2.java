@@ -20,9 +20,9 @@ end_package
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
@@ -34,9 +34,9 @@ end_import
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
@@ -48,9 +48,9 @@ end_import
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
@@ -62,9 +62,9 @@ end_import
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
@@ -222,9 +222,9 @@ end_import
 
 begin_import
 import|import static
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
@@ -232,7 +232,7 @@ name|base
 operator|.
 name|Preconditions
 operator|.
-name|*
+name|checkState
 import|;
 end_import
 
@@ -250,7 +250,7 @@ name|internal
 operator|.
 name|Annotations
 operator|.
-name|*
+name|getKey
 import|;
 end_import
 
@@ -850,9 +850,9 @@ throw|;
 block|}
 block|}
 comment|/**      * At injector-creation time, we initialize the invocation handler. At this time we make sure      * all factory methods will be able to build the target types.      */
-DECL|method|initialize
 annotation|@
 name|Inject
+DECL|method|initialize
 name|void
 name|initialize
 parameter_list|(
@@ -1256,9 +1256,9 @@ name|e
 throw|;
 block|}
 block|}
-DECL|method|toString
 annotation|@
 name|Override
+DECL|method|toString
 specifier|public
 name|String
 name|toString
@@ -1287,9 +1287,9 @@ name|getTypeLiteral
 argument_list|()
 return|;
 block|}
-DECL|method|equals
 annotation|@
 name|Override
+DECL|method|equals
 specifier|public
 name|boolean
 name|equals

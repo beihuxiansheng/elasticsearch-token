@@ -57,7 +57,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -82,9 +82,9 @@ name|similarity
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|score
 annotation|@
 name|Override
+DECL|method|score
 specifier|public
 name|float
 name|score
@@ -96,9 +96,9 @@ return|return
 literal|0
 return|;
 block|}
-DECL|method|docID
 annotation|@
 name|Override
+DECL|method|docID
 specifier|public
 name|int
 name|docID
@@ -108,9 +108,9 @@ return|return
 name|NO_MORE_DOCS
 return|;
 block|}
-DECL|method|nextDoc
 annotation|@
 name|Override
+DECL|method|nextDoc
 specifier|public
 name|int
 name|nextDoc
@@ -122,9 +122,9 @@ return|return
 name|NO_MORE_DOCS
 return|;
 block|}
-DECL|method|advance
 annotation|@
 name|Override
+DECL|method|advance
 specifier|public
 name|int
 name|advance

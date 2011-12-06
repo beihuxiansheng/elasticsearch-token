@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -283,9 +283,9 @@ specifier|final
 name|boolean
 name|realtime
 decl_stmt|;
-DECL|method|TransportShardMultiGetAction
 annotation|@
 name|Inject
+DECL|method|TransportShardMultiGetAction
 specifier|public
 name|TransportShardMultiGetAction
 parameter_list|(
@@ -345,9 +345,9 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|executor
 annotation|@
 name|Override
+DECL|method|executor
 specifier|protected
 name|String
 name|executor
@@ -361,9 +361,9 @@ operator|.
 name|SEARCH
 return|;
 block|}
-DECL|method|transportAction
 annotation|@
 name|Override
+DECL|method|transportAction
 specifier|protected
 name|String
 name|transportAction
@@ -373,9 +373,9 @@ return|return
 literal|"indices/mget/shard"
 return|;
 block|}
-DECL|method|transportShardAction
 annotation|@
 name|Override
+DECL|method|transportShardAction
 specifier|protected
 name|String
 name|transportShardAction
@@ -385,9 +385,9 @@ return|return
 literal|"indices/mget/shard/s"
 return|;
 block|}
-DECL|method|newRequest
 annotation|@
 name|Override
+DECL|method|newRequest
 specifier|protected
 name|MultiGetShardRequest
 name|newRequest
@@ -399,9 +399,9 @@ name|MultiGetShardRequest
 argument_list|()
 return|;
 block|}
-DECL|method|newResponse
 annotation|@
 name|Override
+DECL|method|newResponse
 specifier|protected
 name|MultiGetShardResponse
 name|newResponse
@@ -413,9 +413,9 @@ name|MultiGetShardResponse
 argument_list|()
 return|;
 block|}
-DECL|method|checkBlock
 annotation|@
 name|Override
+DECL|method|checkBlock
 specifier|protected
 name|void
 name|checkBlock
@@ -445,9 +445,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|shards
 annotation|@
 name|Override
+DECL|method|shards
 specifier|protected
 name|ShardIterator
 name|shards
@@ -489,9 +489,9 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-DECL|method|doExecute
 annotation|@
 name|Override
+DECL|method|doExecute
 specifier|protected
 name|void
 name|doExecute
@@ -534,9 +534,9 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|shardOperation
 annotation|@
 name|Override
+DECL|method|shardOperation
 specifier|protected
 name|MultiGetShardResponse
 name|shardOperation

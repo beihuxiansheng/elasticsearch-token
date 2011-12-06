@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -273,7 +273,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -442,9 +442,9 @@ operator|.
 name|OMIT_TERM_FREQ_AND_POSITIONS
 expr_stmt|;
 block|}
-DECL|method|store
 annotation|@
 name|Override
+DECL|method|store
 specifier|public
 name|T
 name|store
@@ -464,9 +464,9 @@ name|store
 argument_list|)
 return|;
 block|}
-DECL|method|boost
 annotation|@
 name|Override
+DECL|method|boost
 specifier|public
 name|T
 name|boost
@@ -484,9 +484,9 @@ name|boost
 argument_list|)
 return|;
 block|}
-DECL|method|indexName
 annotation|@
 name|Override
+DECL|method|indexName
 specifier|public
 name|T
 name|indexName
@@ -504,9 +504,9 @@ name|indexName
 argument_list|)
 return|;
 block|}
-DECL|method|includeInAll
 annotation|@
 name|Override
+DECL|method|includeInAll
 specifier|public
 name|T
 name|includeInAll
@@ -760,9 +760,9 @@ name|fuzzyFactor
 argument_list|)
 return|;
 block|}
-DECL|method|includeInAll
 annotation|@
 name|Override
+DECL|method|includeInAll
 specifier|public
 name|void
 name|includeInAll
@@ -786,9 +786,9 @@ name|includeInAll
 expr_stmt|;
 block|}
 block|}
-DECL|method|includeInAllIfNotSet
 annotation|@
 name|Override
+DECL|method|includeInAllIfNotSet
 specifier|public
 name|void
 name|includeInAllIfNotSet
@@ -838,9 +838,9 @@ name|precisionStep
 return|;
 block|}
 comment|/**      * Use the field query created here when matching on numbers.      */
-DECL|method|useFieldQueryWithQueryString
 annotation|@
 name|Override
+DECL|method|useFieldQueryWithQueryString
 specifier|public
 name|boolean
 name|useFieldQueryWithQueryString
@@ -851,9 +851,9 @@ literal|true
 return|;
 block|}
 comment|/**      * Numeric field level query are basically range queries with same value and included. That's the recommended      * way to execute it.      */
-DECL|method|fieldQuery
 annotation|@
 name|Override
+DECL|method|fieldQuery
 specifier|public
 name|Query
 name|fieldQuery
@@ -880,9 +880,9 @@ literal|true
 argument_list|)
 return|;
 block|}
-DECL|method|fuzzyQuery
 annotation|@
 name|Override
+DECL|method|fuzzyQuery
 specifier|public
 specifier|abstract
 name|Query
@@ -901,9 +901,9 @@ name|int
 name|maxExpansions
 parameter_list|)
 function_decl|;
-DECL|method|fuzzyQuery
 annotation|@
 name|Override
+DECL|method|fuzzyQuery
 specifier|public
 specifier|abstract
 name|Query
@@ -923,9 +923,9 @@ name|maxExpansions
 parameter_list|)
 function_decl|;
 comment|/**      * Numeric field level filter are basically range queries with same value and included. That's the recommended      * way to execute it.      */
-DECL|method|fieldFilter
 annotation|@
 name|Override
+DECL|method|fieldFilter
 specifier|public
 name|Filter
 name|fieldFilter
@@ -952,9 +952,9 @@ literal|true
 argument_list|)
 return|;
 block|}
-DECL|method|rangeQuery
 annotation|@
 name|Override
+DECL|method|rangeQuery
 specifier|public
 specifier|abstract
 name|Query
@@ -973,9 +973,9 @@ name|boolean
 name|includeUpper
 parameter_list|)
 function_decl|;
-DECL|method|rangeFilter
 annotation|@
 name|Override
+DECL|method|rangeFilter
 specifier|public
 specifier|abstract
 name|Filter
@@ -1018,9 +1018,9 @@ name|includeUpper
 parameter_list|)
 function_decl|;
 comment|/**      * Override the default behavior (to return the string, and return the actual Number instance).      */
-DECL|method|valueForSearch
 annotation|@
 name|Override
+DECL|method|valueForSearch
 specifier|public
 name|Object
 name|valueForSearch
@@ -1036,9 +1036,9 @@ name|field
 argument_list|)
 return|;
 block|}
-DECL|method|valueAsString
 annotation|@
 name|Override
+DECL|method|valueAsString
 specifier|public
 name|String
 name|valueAsString
@@ -1068,9 +1068,9 @@ name|toString
 argument_list|()
 return|;
 block|}
-DECL|method|merge
 annotation|@
 name|Override
+DECL|method|merge
 specifier|public
 name|void
 name|merge
@@ -1176,9 +1176,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|close
 annotation|@
 name|Override
+DECL|method|close
 specifier|public
 name|void
 name|close
@@ -1190,9 +1190,9 @@ name|remove
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|fieldDataType
 annotation|@
 name|Override
+DECL|method|fieldDataType
 specifier|public
 specifier|abstract
 name|FieldDataType
@@ -1327,9 +1327,9 @@ name|NO
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|stringValue
 annotation|@
 name|Override
+DECL|method|stringValue
 specifier|public
 name|String
 name|stringValue
@@ -1339,9 +1339,9 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|readerValue
 annotation|@
 name|Override
+DECL|method|readerValue
 specifier|public
 name|Reader
 name|readerValue

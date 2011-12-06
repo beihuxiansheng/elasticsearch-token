@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -232,9 +232,9 @@ specifier|final
 name|ByteBufferCache
 name|byteBufferCache
 decl_stmt|;
-DECL|method|ByteBufferDirectoryService
 annotation|@
 name|Inject
+DECL|method|ByteBufferDirectoryService
 specifier|public
 name|ByteBufferDirectoryService
 parameter_list|(
@@ -267,9 +267,9 @@ operator|=
 name|byteBufferCache
 expr_stmt|;
 block|}
-DECL|method|build
 annotation|@
 name|Override
+DECL|method|build
 specifier|public
 name|Directory
 index|[]
@@ -289,9 +289,9 @@ argument_list|)
 block|}
 return|;
 block|}
-DECL|method|renameFile
 annotation|@
 name|Override
+DECL|method|renameFile
 specifier|public
 name|void
 name|renameFile
@@ -323,9 +323,9 @@ name|to
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|fullDelete
 annotation|@
 name|Override
+DECL|method|fullDelete
 specifier|public
 name|void
 name|fullDelete

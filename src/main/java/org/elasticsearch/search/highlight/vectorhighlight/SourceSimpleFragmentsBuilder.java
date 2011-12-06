@@ -125,7 +125,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -201,9 +201,9 @@ index|[
 literal|0
 index|]
 decl_stmt|;
-DECL|method|getFields
 annotation|@
 name|Override
+DECL|method|getFields
 specifier|protected
 name|Field
 index|[]

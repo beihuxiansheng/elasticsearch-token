@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -79,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -482,9 +482,9 @@ operator|=
 name|ordinals
 expr_stmt|;
 block|}
-DECL|method|computeSizeInBytes
 annotation|@
 name|Override
+DECL|method|computeSizeInBytes
 specifier|protected
 name|long
 name|computeSizeInBytes
@@ -533,9 +533,9 @@ return|return
 name|size
 return|;
 block|}
-DECL|method|multiValued
 annotation|@
 name|Override
+DECL|method|multiValued
 specifier|public
 name|boolean
 name|multiValued
@@ -545,9 +545,9 @@ return|return
 literal|true
 return|;
 block|}
-DECL|method|hasValue
 annotation|@
 name|Override
+DECL|method|hasValue
 specifier|public
 name|boolean
 name|hasValue
@@ -584,9 +584,9 @@ return|return
 literal|false
 return|;
 block|}
-DECL|method|forEachValueInDoc
 annotation|@
 name|Override
+DECL|method|forEachValueInDoc
 specifier|public
 name|void
 name|forEachValueInDoc
@@ -670,9 +670,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|forEachValueInDoc
 annotation|@
 name|Override
+DECL|method|forEachValueInDoc
 specifier|public
 name|void
 name|forEachValueInDoc
@@ -728,9 +728,9 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|forEachOrdinalInDoc
 annotation|@
 name|Override
+DECL|method|forEachOrdinalInDoc
 specifier|public
 name|void
 name|forEachOrdinalInDoc
@@ -803,9 +803,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|value
 annotation|@
 name|Override
+DECL|method|value
 specifier|public
 name|GeoPoint
 name|value
@@ -873,9 +873,9 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|values
 annotation|@
 name|Override
+DECL|method|values
 specifier|public
 name|GeoPoint
 index|[]
@@ -1066,9 +1066,9 @@ return|return
 name|points
 return|;
 block|}
-DECL|method|latValue
 annotation|@
 name|Override
+DECL|method|latValue
 specifier|public
 name|double
 name|latValue
@@ -1113,9 +1113,9 @@ return|return
 literal|0
 return|;
 block|}
-DECL|method|lonValue
 annotation|@
 name|Override
+DECL|method|lonValue
 specifier|public
 name|double
 name|lonValue
@@ -1160,9 +1160,9 @@ return|return
 literal|0
 return|;
 block|}
-DECL|method|latValues
 annotation|@
 name|Override
+DECL|method|latValues
 specifier|public
 name|double
 index|[]
@@ -1296,9 +1296,9 @@ return|return
 name|doubles
 return|;
 block|}
-DECL|method|lonValues
 annotation|@
 name|Override
+DECL|method|lonValues
 specifier|public
 name|double
 index|[]

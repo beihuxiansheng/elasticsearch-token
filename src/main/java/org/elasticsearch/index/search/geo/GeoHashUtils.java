@@ -20,11 +20,7 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
+name|gnu
 operator|.
 name|trove
 operator|.

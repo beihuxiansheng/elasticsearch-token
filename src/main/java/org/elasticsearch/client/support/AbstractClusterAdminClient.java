@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -265,7 +265,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -277,9 +277,9 @@ name|AbstractClusterAdminClient
 implements|implements
 name|InternalClusterAdminClient
 block|{
-DECL|method|prepareHealth
 annotation|@
 name|Override
+DECL|method|prepareHealth
 specifier|public
 name|ClusterHealthRequestBuilder
 name|prepareHealth
@@ -302,9 +302,9 @@ name|indices
 argument_list|)
 return|;
 block|}
-DECL|method|prepareState
 annotation|@
 name|Override
+DECL|method|prepareState
 specifier|public
 name|ClusterStateRequestBuilder
 name|prepareState
@@ -318,9 +318,9 @@ name|this
 argument_list|)
 return|;
 block|}
-DECL|method|prepareReroute
 annotation|@
 name|Override
+DECL|method|prepareReroute
 specifier|public
 name|ClusterRerouteRequestBuilder
 name|prepareReroute
@@ -334,9 +334,9 @@ name|this
 argument_list|)
 return|;
 block|}
-DECL|method|prepareUpdateSettings
 annotation|@
 name|Override
+DECL|method|prepareUpdateSettings
 specifier|public
 name|ClusterUpdateSettingsRequestBuilder
 name|prepareUpdateSettings
@@ -350,9 +350,9 @@ name|this
 argument_list|)
 return|;
 block|}
-DECL|method|prepareNodesInfo
 annotation|@
 name|Override
+DECL|method|prepareNodesInfo
 specifier|public
 name|NodesInfoRequestBuilder
 name|prepareNodesInfo
@@ -375,9 +375,9 @@ name|nodesIds
 argument_list|)
 return|;
 block|}
-DECL|method|prepareNodesStats
 annotation|@
 name|Override
+DECL|method|prepareNodesStats
 specifier|public
 name|NodesStatsRequestBuilder
 name|prepareNodesStats
@@ -400,9 +400,9 @@ name|nodesIds
 argument_list|)
 return|;
 block|}
-DECL|method|prepareNodesRestart
 annotation|@
 name|Override
+DECL|method|prepareNodesRestart
 specifier|public
 name|NodesRestartRequestBuilder
 name|prepareNodesRestart
@@ -425,9 +425,9 @@ name|nodesIds
 argument_list|)
 return|;
 block|}
-DECL|method|prepareNodesShutdown
 annotation|@
 name|Override
+DECL|method|prepareNodesShutdown
 specifier|public
 name|NodesShutdownRequestBuilder
 name|prepareNodesShutdown
@@ -450,9 +450,9 @@ name|nodesIds
 argument_list|)
 return|;
 block|}
-DECL|method|preparePingSingle
 annotation|@
 name|Override
+DECL|method|preparePingSingle
 specifier|public
 name|SinglePingRequestBuilder
 name|preparePingSingle
@@ -466,9 +466,9 @@ name|this
 argument_list|)
 return|;
 block|}
-DECL|method|preparePingSingle
 annotation|@
 name|Override
+DECL|method|preparePingSingle
 specifier|public
 name|SinglePingRequestBuilder
 name|preparePingSingle
@@ -503,9 +503,9 @@ name|id
 argument_list|)
 return|;
 block|}
-DECL|method|preparePingBroadcast
 annotation|@
 name|Override
+DECL|method|preparePingBroadcast
 specifier|public
 name|BroadcastPingRequestBuilder
 name|preparePingBroadcast
@@ -528,9 +528,9 @@ name|indices
 argument_list|)
 return|;
 block|}
-DECL|method|preparePingReplication
 annotation|@
 name|Override
+DECL|method|preparePingReplication
 specifier|public
 name|ReplicationPingRequestBuilder
 name|preparePingReplication

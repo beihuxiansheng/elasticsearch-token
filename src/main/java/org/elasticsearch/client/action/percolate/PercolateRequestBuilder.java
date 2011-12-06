@@ -125,7 +125,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -268,7 +268,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the document source to index.      *      *<p>Note, its preferable to either set it using {@link #setSource(org.elasticsearch.common.xcontent.XContentBuilder)}      * or using the {@link #setSource(byte[])}.      */
+comment|/**      * Sets the document source to index.      *<p/>      *<p>Note, its preferable to either set it using {@link #setSource(org.elasticsearch.common.xcontent.XContentBuilder)}      * or using the {@link #setSource(byte[])}.      */
 DECL|method|setSource
 specifier|public
 name|PercolateRequestBuilder
@@ -464,9 +464,9 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|doExecute
 annotation|@
 name|Override
+DECL|method|doExecute
 specifier|protected
 name|void
 name|doExecute

@@ -73,7 +73,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_comment
@@ -130,9 +130,9 @@ name|numHits
 index|]
 expr_stmt|;
 block|}
-DECL|method|fieldDataType
 annotation|@
 name|Override
+DECL|method|fieldDataType
 specifier|public
 name|FieldDataType
 name|fieldDataType
@@ -146,9 +146,9 @@ operator|.
 name|BYTE
 return|;
 block|}
-DECL|method|compare
 annotation|@
 name|Override
+DECL|method|compare
 specifier|public
 name|int
 name|compare
@@ -172,9 +172,9 @@ name|slot2
 index|]
 return|;
 block|}
-DECL|method|compareBottom
 annotation|@
 name|Override
+DECL|method|compareBottom
 specifier|public
 name|int
 name|compareBottom
@@ -194,9 +194,9 @@ name|doc
 argument_list|)
 return|;
 block|}
-DECL|method|copy
 annotation|@
 name|Override
+DECL|method|copy
 specifier|public
 name|void
 name|copy
@@ -221,9 +221,9 @@ name|doc
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|setBottom
 annotation|@
 name|Override
+DECL|method|setBottom
 specifier|public
 name|void
 name|setBottom
@@ -243,9 +243,9 @@ name|bottom
 index|]
 expr_stmt|;
 block|}
-DECL|method|value
 annotation|@
 name|Override
+DECL|method|value
 specifier|public
 name|Comparable
 name|value

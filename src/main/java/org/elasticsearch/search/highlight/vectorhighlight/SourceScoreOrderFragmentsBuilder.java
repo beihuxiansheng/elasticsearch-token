@@ -125,7 +125,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -187,9 +187,9 @@ operator|=
 name|searchContext
 expr_stmt|;
 block|}
-DECL|method|getFields
 annotation|@
 name|Override
+DECL|method|getFields
 specifier|protected
 name|Field
 index|[]

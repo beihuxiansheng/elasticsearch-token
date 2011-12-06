@@ -18,9 +18,9 @@ end_package
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
@@ -32,9 +32,9 @@ end_import
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
@@ -88,9 +88,9 @@ end_import
 
 begin_import
 import|import static
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
@@ -98,7 +98,7 @@ name|base
 operator|.
 name|Preconditions
 operator|.
-name|*
+name|checkArgument
 import|;
 end_import
 
@@ -248,9 +248,9 @@ return|return
 name|messages
 return|;
 block|}
-DECL|method|getMessage
 annotation|@
 name|Override
+DECL|method|getMessage
 specifier|public
 name|String
 name|getMessage

@@ -208,12 +208,12 @@ name|action
 operator|.
 name|Actions
 operator|.
-name|*
+name|addValidationError
 import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -348,9 +348,9 @@ name|type
 return|;
 block|}
 comment|/**      * Before we fork on a local thread, make sure we copy over the bytes if they are unsafe      */
-DECL|method|beforeLocalFork
 annotation|@
 name|Override
+DECL|method|beforeLocalFork
 specifier|public
 name|void
 name|beforeLocalFork
@@ -453,9 +453,9 @@ operator|.
 name|sourceLength
 return|;
 block|}
-DECL|method|source
 annotation|@
 name|Required
+DECL|method|source
 specifier|public
 name|PercolateRequest
 name|source
@@ -477,9 +477,9 @@ name|SMILE
 argument_list|)
 return|;
 block|}
-DECL|method|source
 annotation|@
 name|Required
+DECL|method|source
 specifier|public
 name|PercolateRequest
 name|source
@@ -540,9 +540,9 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|source
 annotation|@
 name|Required
+DECL|method|source
 specifier|public
 name|PercolateRequest
 name|source
@@ -595,9 +595,9 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|source
 annotation|@
 name|Required
+DECL|method|source
 specifier|public
 name|PercolateRequest
 name|source
@@ -678,9 +678,9 @@ name|length
 argument_list|)
 return|;
 block|}
-DECL|method|source
 annotation|@
 name|Required
+DECL|method|source
 specifier|public
 name|PercolateRequest
 name|source
@@ -709,9 +709,9 @@ literal|false
 argument_list|)
 return|;
 block|}
-DECL|method|source
 annotation|@
 name|Required
+DECL|method|source
 specifier|public
 name|PercolateRequest
 name|source
@@ -759,9 +759,9 @@ name|this
 return|;
 block|}
 comment|/**      * if this operation hits a node with a local relevant shard, should it be preferred      * to be executed on, or just do plain round robin. Defaults to<tt>true</tt>      */
-DECL|method|preferLocal
 annotation|@
 name|Override
+DECL|method|preferLocal
 specifier|public
 name|PercolateRequest
 name|preferLocal
@@ -781,9 +781,9 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|validate
 annotation|@
 name|Override
+DECL|method|validate
 specifier|public
 name|ActionRequestValidationException
 name|validate
@@ -852,9 +852,9 @@ return|return
 name|validationException
 return|;
 block|}
-DECL|method|readFrom
 annotation|@
 name|Override
+DECL|method|readFrom
 specifier|public
 name|void
 name|readFrom
@@ -917,9 +917,9 @@ name|source
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|writeTo
 annotation|@
 name|Override
+DECL|method|writeTo
 specifier|public
 name|void
 name|writeTo

@@ -396,9 +396,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|toString
 annotation|@
 name|Override
+DECL|method|toString
 specifier|public
 name|String
 name|toString

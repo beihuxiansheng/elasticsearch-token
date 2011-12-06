@@ -73,9 +73,9 @@ name|errors
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|visit
 annotation|@
 name|Override
+DECL|method|visit
 specifier|public
 name|Boolean
 name|visit

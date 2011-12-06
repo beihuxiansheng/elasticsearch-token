@@ -232,7 +232,7 @@ name|search
 operator|.
 name|SearchType
 operator|.
-name|*
+name|QUERY_THEN_FETCH
 import|;
 end_import
 
@@ -246,7 +246,7 @@ name|client
 operator|.
 name|Requests
 operator|.
-name|*
+name|searchRequest
 import|;
 end_import
 
@@ -262,7 +262,7 @@ name|unit
 operator|.
 name|TimeValue
 operator|.
-name|*
+name|timeValueMinutes
 import|;
 end_import
 
@@ -278,7 +278,7 @@ name|xcontent
 operator|.
 name|XContentFactory
 operator|.
-name|*
+name|jsonBuilder
 import|;
 end_import
 
@@ -310,7 +310,23 @@ name|builder
 operator|.
 name|SearchSourceBuilder
 operator|.
-name|*
+name|highlight
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|builder
+operator|.
+name|SearchSourceBuilder
+operator|.
+name|searchSource
 import|;
 end_import
 
@@ -322,7 +338,7 @@ name|hamcrest
 operator|.
 name|MatcherAssert
 operator|.
-name|*
+name|assertThat
 import|;
 end_import
 
@@ -334,12 +350,24 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|instanceOf
 import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -355,9 +383,9 @@ specifier|private
 name|Client
 name|client
 decl_stmt|;
-DECL|method|createNodes
 annotation|@
 name|BeforeClass
+DECL|method|createNodes
 specifier|public
 name|void
 name|createNodes
@@ -381,9 +409,9 @@ name|getClient
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|closeNodes
 annotation|@
 name|AfterClass
+DECL|method|closeNodes
 specifier|public
 name|void
 name|closeNodes
@@ -411,9 +439,9 @@ literal|"server1"
 argument_list|)
 return|;
 block|}
-DECL|method|testSourceLookupHighlightingUsingPlainHighlighter
 annotation|@
 name|Test
+DECL|method|testSourceLookupHighlightingUsingPlainHighlighter
 specifier|public
 name|void
 name|testSourceLookupHighlightingUsingPlainHighlighter
@@ -942,9 +970,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|testSourceLookupHighlightingUsingFastVectorHighlighter
 annotation|@
 name|Test
+DECL|method|testSourceLookupHighlightingUsingFastVectorHighlighter
 specifier|public
 name|void
 name|testSourceLookupHighlightingUsingFastVectorHighlighter
@@ -1473,9 +1501,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|testPlainHighlighter
 annotation|@
 name|Test
+DECL|method|testPlainHighlighter
 specifier|public
 name|void
 name|testPlainHighlighter
@@ -2272,9 +2300,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testFastVectorHighlighter
 annotation|@
 name|Test
+DECL|method|testFastVectorHighlighter
 specifier|public
 name|void
 name|testFastVectorHighlighter
@@ -3099,9 +3127,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testFastVectorHighlighterManyDocs
 annotation|@
 name|Test
+DECL|method|testFastVectorHighlighterManyDocs
 specifier|public
 name|void
 name|testFastVectorHighlighterManyDocs
@@ -3793,9 +3821,9 @@ name|endObject
 argument_list|()
 return|;
 block|}
-DECL|method|testSameContent
 annotation|@
 name|Test
+DECL|method|testSameContent
 specifier|public
 name|void
 name|testSameContent
@@ -4095,9 +4123,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|testFastVectorHighlighterOffsetParameter
 annotation|@
 name|Test
+DECL|method|testFastVectorHighlighterOffsetParameter
 specifier|public
 name|void
 name|testFastVectorHighlighterOffsetParameter
@@ -4408,9 +4436,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|testEscapeHtml
 annotation|@
 name|Test
+DECL|method|testEscapeHtml
 specifier|public
 name|void
 name|testEscapeHtml
@@ -4716,9 +4744,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|testEscapeHtml_vector
 annotation|@
 name|Test
+DECL|method|testEscapeHtml_vector
 specifier|public
 name|void
 name|testEscapeHtml_vector

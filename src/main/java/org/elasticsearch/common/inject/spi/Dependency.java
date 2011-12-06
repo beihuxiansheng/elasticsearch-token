@@ -20,9 +20,9 @@ end_package
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
@@ -34,9 +34,9 @@ end_import
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
@@ -97,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A variable that can be resolved by an injector.  *  *<p>Use {@link #get} to build a freestanding dependency, or {@link InjectionPoint} to build one  * that's attached to a constructor, method or field.  *  * @author crazybob@google.com (Bob Lee)  * @author jessewilson@google.com (Jesse Wilson)  * @since 2.0  */
+comment|/**  * A variable that can be resolved by an injector.  *<p/>  *<p>Use {@link #get} to build a freestanding dependency, or {@link InjectionPoint} to build one  * that's attached to a constructor, method or field.  *  * @author crazybob@google.com (Bob Lee)  * @author jessewilson@google.com (Jesse Wilson)  * @since 2.0  */
 end_comment
 
 begin_class
@@ -330,9 +330,9 @@ return|return
 name|parameterIndex
 return|;
 block|}
-DECL|method|hashCode
 annotation|@
 name|Override
+DECL|method|hashCode
 specifier|public
 name|int
 name|hashCode
@@ -351,9 +351,9 @@ name|key
 argument_list|)
 return|;
 block|}
-DECL|method|equals
 annotation|@
 name|Override
+DECL|method|equals
 specifier|public
 name|boolean
 name|equals
@@ -419,9 +419,9 @@ literal|false
 return|;
 block|}
 block|}
-DECL|method|toString
 annotation|@
 name|Override
+DECL|method|toString
 specifier|public
 name|String
 name|toString

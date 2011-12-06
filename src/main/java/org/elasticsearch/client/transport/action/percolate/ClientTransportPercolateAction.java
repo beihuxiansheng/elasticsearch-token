@@ -119,7 +119,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -135,9 +135,9 @@ argument_list|,
 name|PercolateResponse
 argument_list|>
 block|{
-DECL|method|ClientTransportPercolateAction
 annotation|@
 name|Inject
+DECL|method|ClientTransportPercolateAction
 specifier|public
 name|ClientTransportPercolateAction
 parameter_list|(
@@ -160,9 +160,9 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|action
 annotation|@
 name|Override
+DECL|method|action
 specifier|protected
 name|String
 name|action

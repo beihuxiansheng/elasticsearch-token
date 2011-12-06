@@ -69,7 +69,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Abstract base class for creating an injector from module elements.  *  *<p>Extending classes must return {@code true} from any overridden  * {@code visit*()} methods, in order for the element processor to remove the  * handled element.  *  * @author jessewilson@google.com (Jesse Wilson)  */
+comment|/**  * Abstract base class for creating an injector from module elements.  *<p/>  *<p>Extending classes must return {@code true} from any overridden  * {@code visit*()} methods, in order for the element processor to remove the  * handled element.  *  * @author jessewilson@google.com (Jesse Wilson)  */
 end_comment
 
 begin_class

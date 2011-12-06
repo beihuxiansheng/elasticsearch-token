@@ -90,9 +90,9 @@ end_import
 
 begin_import
 import|import static
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
@@ -100,12 +100,28 @@ name|base
 operator|.
 name|Preconditions
 operator|.
-name|*
+name|checkArgument
+import|;
+end_import
+
+begin_import
+import|import static
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|base
+operator|.
+name|Preconditions
+operator|.
+name|checkNotNull
 import|;
 end_import
 
 begin_comment
-comment|/**  * Binding key consisting of an injection type and an optional annotation.  * Matches the type and annotation at a point of injection.  *  *<p>For example, {@code Key.get(Service.class, Transactional.class)} will  * match:  *  *<pre>  *   {@literal @}Inject  *   public void setService({@literal @}Transactional Service service) {  *     ...  *   }  *</pre>  *  *<p>{@code Key} supports generic types via subclassing just like {@link  * TypeLiteral}.  *  *<p>Keys do not differentiate between primitive types (int, char, etc.) and  * their correpsonding wrapper types (Integer, Character, etc.). Primitive  * types will be replaced with their wrapper types when keys are created.  *  * @author crazybob@google.com (Bob Lee)  */
+comment|/**  * Binding key consisting of an injection type and an optional annotation.  * Matches the type and annotation at a point of injection.  *<p/>  *<p>For example, {@code Key.get(Service.class, Transactional.class)} will  * match:  *<p/>  *<pre>  *   {@literal @}Inject  *   public void setService({@literal @}Transactional Service service) {  *     ...  *   }  *</pre>  *<p/>  *<p>{@code Key} supports generic types via subclassing just like {@link  * TypeLiteral}.  *<p/>  *<p>Keys do not differentiate between primitive types (int, char, etc.) and  * their correpsonding wrapper types (Integer, Character, etc.). Primitive  * types will be replaced with their wrapper types when keys are created.  *  * @author crazybob@google.com (Bob Lee)  */
 end_comment
 
 begin_class
@@ -138,7 +154,7 @@ specifier|final
 name|int
 name|hashCode
 decl_stmt|;
-comment|/**      * Constructs a new key. Derives the type from this class's type parameter.      *      *<p>Clients create an empty anonymous subclass. Doing so embeds the type      * parameter in the anonymous class's type hierarchy so we can reconstitute it      * at runtime despite erasure.      *      *<p>Example usage for a binding of type {@code Foo} annotated with      * {@code @Bar}:      *      *<p>{@code new Key<Foo>(Bar.class) {}}.      */
+comment|/**      * Constructs a new key. Derives the type from this class's type parameter.      *<p/>      *<p>Clients create an empty anonymous subclass. Doing so embeds the type      * parameter in the anonymous class's type hierarchy so we can reconstitute it      * at runtime despite erasure.      *<p/>      *<p>Example usage for a binding of type {@code Foo} annotated with      * {@code @Bar}:      *<p/>      *<p>{@code new Key<Foo>(Bar.class) {}}.      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -192,7 +208,7 @@ name|computeHashCode
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Constructs a new key. Derives the type from this class's type parameter.      *      *<p>Clients create an empty anonymous subclass. Doing so embeds the type      * parameter in the anonymous class's type hierarchy so we can reconstitute it      * at runtime despite erasure.      *      *<p>Example usage for a binding of type {@code Foo} annotated with      * {@code @Bar}:      *      *<p>{@code new Key<Foo>(new Bar()) {}}.      */
+comment|/**      * Constructs a new key. Derives the type from this class's type parameter.      *<p/>      *<p>Clients create an empty anonymous subclass. Doing so embeds the type      * parameter in the anonymous class's type hierarchy so we can reconstitute it      * at runtime despite erasure.      *<p/>      *<p>Example usage for a binding of type {@code Foo} annotated with      * {@code @Bar}:      *<p/>      *<p>{@code new Key<Foo>(new Bar()) {}}.      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -242,7 +258,7 @@ name|computeHashCode
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Constructs a new key. Derives the type from this class's type parameter.      *      *<p>Clients create an empty anonymous subclass. Doing so embeds the type      * parameter in the anonymous class's type hierarchy so we can reconstitute it      * at runtime despite erasure.      *      *<p>Example usage for a binding of type {@code Foo}:      *      *<p>{@code new Key<Foo>() {}}.      */
+comment|/**      * Constructs a new key. Derives the type from this class's type parameter.      *<p/>      *<p>Clients create an empty anonymous subclass. Doing so embeds the type      * parameter in the anonymous class's type hierarchy so we can reconstitute it      * at runtime despite erasure.      *<p/>      *<p>Example usage for a binding of type {@code Foo}:      *<p/>      *<p>{@code new Key<Foo>() {}}.      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -541,9 +557,9 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-DECL|method|equals
 annotation|@
 name|Override
+DECL|method|equals
 specifier|public
 specifier|final
 name|boolean
@@ -615,9 +631,9 @@ name|typeLiteral
 argument_list|)
 return|;
 block|}
-DECL|method|hashCode
 annotation|@
 name|Override
+DECL|method|hashCode
 specifier|public
 specifier|final
 name|int
@@ -630,9 +646,9 @@ operator|.
 name|hashCode
 return|;
 block|}
-DECL|method|toString
 annotation|@
 name|Override
+DECL|method|toString
 specifier|public
 specifier|final
 name|String
@@ -1453,9 +1469,9 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|toString
 annotation|@
 name|Override
+DECL|method|toString
 specifier|public
 name|String
 name|toString
@@ -1553,9 +1569,9 @@ name|annotationType
 argument_list|()
 return|;
 block|}
-DECL|method|equals
 annotation|@
 name|Override
+DECL|method|equals
 specifier|public
 name|boolean
 name|equals
@@ -1597,9 +1613,9 @@ name|annotation
 argument_list|)
 return|;
 block|}
-DECL|method|hashCode
 annotation|@
 name|Override
+DECL|method|hashCode
 specifier|public
 name|int
 name|hashCode
@@ -1612,9 +1628,9 @@ name|hashCode
 argument_list|()
 return|;
 block|}
-DECL|method|toString
 annotation|@
 name|Override
+DECL|method|toString
 specifier|public
 name|String
 name|toString
@@ -1733,9 +1749,9 @@ return|return
 name|annotationType
 return|;
 block|}
-DECL|method|equals
 annotation|@
 name|Override
+DECL|method|equals
 specifier|public
 name|boolean
 name|equals
@@ -1777,9 +1793,9 @@ name|annotationType
 argument_list|)
 return|;
 block|}
-DECL|method|hashCode
 annotation|@
 name|Override
+DECL|method|hashCode
 specifier|public
 name|int
 name|hashCode
@@ -1792,9 +1808,9 @@ name|hashCode
 argument_list|()
 return|;
 block|}
-DECL|method|toString
 annotation|@
 name|Override
+DECL|method|toString
 specifier|public
 name|String
 name|toString

@@ -20,9 +20,9 @@ end_package
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
@@ -34,9 +34,9 @@ end_import
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
@@ -603,7 +603,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -616,9 +616,9 @@ name|AbstractComponent
 implements|implements
 name|FacetProcessor
 block|{
-DECL|method|TermsFacetProcessor
 annotation|@
 name|Inject
+DECL|method|TermsFacetProcessor
 specifier|public
 name|TermsFacetProcessor
 parameter_list|(
@@ -637,9 +637,9 @@ name|registerStreams
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|types
 annotation|@
 name|Override
+DECL|method|types
 specifier|public
 name|String
 index|[]
@@ -657,9 +657,9 @@ name|TYPE
 block|}
 return|;
 block|}
-DECL|method|parse
 annotation|@
 name|Override
+DECL|method|parse
 specifier|public
 name|FacetCollector
 name|parse
@@ -1966,9 +1966,9 @@ name|params
 argument_list|)
 return|;
 block|}
-DECL|method|reduce
 annotation|@
 name|Override
+DECL|method|reduce
 specifier|public
 name|Facet
 name|reduce

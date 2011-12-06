@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -139,7 +139,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -259,9 +259,9 @@ operator|=
 name|totalOperations
 expr_stmt|;
 block|}
-DECL|method|translogId
 annotation|@
 name|Override
+DECL|method|translogId
 specifier|public
 name|long
 name|translogId
@@ -273,9 +273,9 @@ operator|.
 name|id
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|position
-annotation|@
-name|Override
 specifier|public
 name|long
 name|position
@@ -287,9 +287,9 @@ operator|.
 name|position
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|length
-annotation|@
-name|Override
 specifier|public
 name|long
 name|length
@@ -301,9 +301,9 @@ operator|.
 name|length
 return|;
 block|}
-DECL|method|estimatedTotalOperations
 annotation|@
 name|Override
+DECL|method|estimatedTotalOperations
 specifier|public
 name|int
 name|estimatedTotalOperations
@@ -315,9 +315,9 @@ operator|.
 name|totalOperations
 return|;
 block|}
-DECL|method|stream
 annotation|@
 name|Override
+DECL|method|stream
 specifier|public
 name|InputStream
 name|stream
@@ -338,9 +338,9 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-DECL|method|lengthInBytes
 annotation|@
 name|Override
+DECL|method|lengthInBytes
 specifier|public
 name|long
 name|lengthInBytes
@@ -352,9 +352,9 @@ operator|-
 name|position
 return|;
 block|}
-DECL|method|hasNext
 annotation|@
 name|Override
+DECL|method|hasNext
 specifier|public
 name|boolean
 name|hasNext
@@ -542,9 +542,9 @@ literal|false
 return|;
 block|}
 block|}
-DECL|method|next
 annotation|@
 name|Override
+DECL|method|next
 specifier|public
 name|Translog
 operator|.
@@ -558,9 +558,9 @@ operator|.
 name|lastOperationRead
 return|;
 block|}
-DECL|method|seekForward
 annotation|@
 name|Override
+DECL|method|seekForward
 specifier|public
 name|void
 name|seekForward
@@ -576,9 +576,9 @@ operator|+=
 name|length
 expr_stmt|;
 block|}
-DECL|method|release
 annotation|@
 name|Override
+DECL|method|release
 specifier|public
 name|boolean
 name|release

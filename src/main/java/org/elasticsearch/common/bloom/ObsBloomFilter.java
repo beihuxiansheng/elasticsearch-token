@@ -453,9 +453,9 @@ return|return
 name|result
 return|;
 block|}
-DECL|method|add
 annotation|@
 name|Override
+DECL|method|add
 specifier|public
 name|void
 name|add
@@ -524,9 +524,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|isPresent
 annotation|@
 name|Override
+DECL|method|isPresent
 specifier|public
 name|boolean
 name|isPresent
@@ -636,9 +636,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|sizeInBytes
 annotation|@
 name|Override
+DECL|method|sizeInBytes
 specifier|public
 name|long
 name|sizeInBytes

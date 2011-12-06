@@ -20,9 +20,9 @@ end_package
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
@@ -34,9 +34,9 @@ end_import
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
@@ -48,9 +48,9 @@ end_import
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
@@ -70,119 +70,7 @@ name|common
 operator|.
 name|inject
 operator|.
-name|Binder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|inject
-operator|.
-name|Binding
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|inject
-operator|.
-name|ConfigurationException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|inject
-operator|.
-name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|inject
-operator|.
-name|Injector
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|inject
-operator|.
-name|Key
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|inject
-operator|.
-name|Module
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|inject
-operator|.
-name|Provider
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|inject
-operator|.
-name|TypeLiteral
+name|*
 import|;
 end_import
 
@@ -347,7 +235,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An API to bind multiple values separately, only to later inject them as a  * complete collection. Multibinder is intended for use in your application's  * module:  *<pre><code>  * public class SnacksModule extends AbstractModule {  *   protected void configure() {  *     Multibinder&lt;Snack&gt; multibinder  *         = Multibinder.newSetBinder(binder(), Snack.class);  *     multibinder.addBinding().toInstance(new Twix());  *     multibinder.addBinding().toProvider(SnickersProvider.class);  *     multibinder.addBinding().to(Skittles.class);  *   }  * }</code></pre>  *  *<p>With this binding, a {@link Set}{@code<Snack>} can now be injected:  *<pre><code>  * class SnackMachine {  *   {@literal @}Inject  *   public SnackMachine(Set&lt;Snack&gt; snacks) { ... }  * }</code></pre>  *  *<p>Create multibindings from different modules is supported. For example, it  * is okay to have both {@code CandyModule} and {@code ChipsModule} to both  * create their own {@code Multibinder<Snack>}, and to each contribute bindings  * to the set of snacks. When that set is injected, it will contain elements  * from both modules.  *  *<p>Elements are resolved at set injection time. If an element is bound to a  * provider, that provider's get method will be called each time the set is  * injected (unless the binding is also scoped).  *  *<p>Annotations are be used to create different sets of the same element  * type. Each distinct annotation gets its own independent collection of  * elements.  *  *<p><strong>Elements must be distinct.</strong> If multiple bound elements  * have the same value, set injection will fail.  *  *<p><strong>Elements must be non-null.</strong> If any set element is null,  * set injection will fail.  *  * @author jessewilson@google.com (Jesse Wilson)  */
+comment|/**  * An API to bind multiple values separately, only to later inject them as a  * complete collection. Multibinder is intended for use in your application's  * module:  *<pre><code>  * public class SnacksModule extends AbstractModule {  *   protected void configure() {  *     Multibinder&lt;Snack&gt; multibinder  *         = Multibinder.newSetBinder(binder(), Snack.class);  *     multibinder.addBinding().toInstance(new Twix());  *     multibinder.addBinding().toProvider(SnickersProvider.class);  *     multibinder.addBinding().to(Skittles.class);  *   }  * }</code></pre>  *<p/>  *<p>With this binding, a {@link Set}{@code<Snack>} can now be injected:  *<pre><code>  * class SnackMachine {  *   {@literal @}Inject  *   public SnackMachine(Set&lt;Snack&gt; snacks) { ... }  * }</code></pre>  *<p/>  *<p>Create multibindings from different modules is supported. For example, it  * is okay to have both {@code CandyModule} and {@code ChipsModule} to both  * create their own {@code Multibinder<Snack>}, and to each contribute bindings  * to the set of snacks. When that set is injected, it will contain elements  * from both modules.  *<p/>  *<p>Elements are resolved at set injection time. If an element is bound to a  * provider, that provider's get method will be called each time the set is  * injected (unless the binding is also scoped).  *<p/>  *<p>Annotations are be used to create different sets of the same element  * type. Each distinct annotation gets its own independent collection of  * elements.  *<p/>  *<p><strong>Elements must be distinct.</strong> If multiple bound elements  * have the same value, set injection will fail.  *<p/>  *<p><strong>Elements must be non-null.</strong> If any set element is null,  * set injection will fail.  *  * @author jessewilson@google.com (Jesse Wilson)  */
 end_comment
 
 begin_class
@@ -822,7 +710,7 @@ name|type
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a binding builder used to add a new element in the set. Each      * bound element must have a distinct value. Bound providers will be      * evaluated each time the set is injected.      *      *<p>It is an error to call this method without also calling one of the      * {@code to} methods on the returned binding builder.      *      *<p>Scoping elements independently is supported. Use the {@code in} method      * to specify a binding scope.      */
+comment|/**      * Returns a binding builder used to add a new element in the set. Each      * bound element must have a distinct value. Bound providers will be      * evaluated each time the set is injected.      *<p/>      *<p>It is an error to call this method without also calling one of the      * {@code to} methods on the returned binding builder.      *<p/>      *<p>Scoping elements independently is supported. Use the {@code in} method      * to specify a binding scope.      */
 DECL|method|addBinding
 specifier|public
 specifier|abstract
@@ -833,7 +721,7 @@ argument_list|>
 name|addBinding
 parameter_list|()
 function_decl|;
-comment|/**      * The actual multibinder plays several roles:      *      *<p>As a Multibinder, it acts as a factory for LinkedBindingBuilders for      * each of the set's elements. Each binding is given an annotation that      * identifies it as a part of this set.      *      *<p>As a Module, it installs the binding to the set itself. As a module,      * this implements equals() and hashcode() in order to trick Guice into      * executing its configure() method only once. That makes it so that      * multiple multibinders can be created for the same target collection, but      * only one is bound. Since the list of bindings is retrieved from the      * injector itself (and not the multibinder), each multibinder has access to      * all contributions from all multibinders.      *      *<p>As a Provider, this constructs the set instances.      *      *<p>We use a subclass to hide 'implements Module, Provider' from the public      * API.      */
+comment|/**      * The actual multibinder plays several roles:      *<p/>      *<p>As a Multibinder, it acts as a factory for LinkedBindingBuilders for      * each of the set's elements. Each binding is given an annotation that      * identifies it as a part of this set.      *<p/>      *<p>As a Module, it installs the binding to the set itself. As a module,      * this implements equals() and hashcode() in order to trick Guice into      * executing its configure() method only once. That makes it so that      * multiple multibinders can be created for the same target collection, but      * only one is bound. Since the list of bindings is retrieved from the      * injector itself (and not the multibinder), each multibinder has access to      * all contributions from all multibinders.      *<p/>      *<p>As a Provider, this constructs the set instances.      *<p/>      *<p>We use a subclass to hide 'implements Module, Provider' from the public      * API.      */
 DECL|class|RealMultibinder
 specifier|static
 specifier|final
@@ -1023,9 +911,9 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|addBinding
 annotation|@
 name|Override
+DECL|method|addBinding
 specifier|public
 name|LinkedBindingBuilder
 argument_list|<
@@ -1064,9 +952,9 @@ argument_list|)
 return|;
 block|}
 comment|/**          * Invoked by Guice at Injector-creation time to prepare providers for each          * element in this set. At this time the set's size is known, but its          * contents are only evaluated when get() is invoked.          */
-DECL|method|initialize
 annotation|@
 name|Inject
+DECL|method|initialize
 name|void
 name|initialize
 parameter_list|(
@@ -1371,9 +1259,9 @@ return|return
 name|dependencies
 return|;
 block|}
-DECL|method|equals
 annotation|@
 name|Override
+DECL|method|equals
 specifier|public
 name|boolean
 name|equals
@@ -1405,9 +1293,9 @@ name|setKey
 argument_list|)
 return|;
 block|}
-DECL|method|hashCode
 annotation|@
 name|Override
+DECL|method|hashCode
 specifier|public
 name|int
 name|hashCode
@@ -1420,9 +1308,9 @@ name|hashCode
 argument_list|()
 return|;
 block|}
-DECL|method|toString
 annotation|@
 name|Override
+DECL|method|toString
 specifier|public
 name|String
 name|toString

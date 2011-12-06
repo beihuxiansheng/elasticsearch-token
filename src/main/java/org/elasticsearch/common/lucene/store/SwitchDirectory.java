@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -17,6 +17,20 @@ operator|.
 name|store
 package|;
 end_package
+
+begin_import
+import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|ImmutableSet
+import|;
+end_import
 
 begin_import
 import|import
@@ -66,20 +80,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableSet
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|index
 operator|.
 name|store
@@ -111,7 +111,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Directory instance that switches files between  * two other Directory instances.  *  *<p>Files with the specified extensions are placed in the  * primary directory; others are placed in the secondary  * directory.  *  * @author kimchy (shay.banon)  */
+comment|/**  * A Directory instance that switches files between  * two other Directory instances.  *<p/>  *<p>Files with the specified extensions are placed in the  * primary directory; others are placed in the secondary  * directory.  *  *  */
 end_comment
 
 begin_class
@@ -244,9 +244,9 @@ return|return
 name|secondaryDir
 return|;
 block|}
-DECL|method|close
 annotation|@
 name|Override
+DECL|method|close
 specifier|public
 name|void
 name|close
@@ -281,9 +281,9 @@ literal|false
 expr_stmt|;
 block|}
 block|}
-DECL|method|listAll
 annotation|@
 name|Override
+DECL|method|listAll
 specifier|public
 name|String
 index|[]
@@ -446,9 +446,9 @@ name|secondaryDir
 return|;
 block|}
 block|}
-DECL|method|fileExists
 annotation|@
 name|Override
+DECL|method|fileExists
 specifier|public
 name|boolean
 name|fileExists
@@ -471,9 +471,9 @@ name|name
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|fileModified
-annotation|@
-name|Override
 specifier|public
 name|long
 name|fileModified
@@ -496,9 +496,9 @@ name|name
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|touchFile
-annotation|@
-name|Override
 specifier|public
 name|void
 name|touchFile
@@ -520,9 +520,9 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|deleteFile
-annotation|@
-name|Override
 specifier|public
 name|void
 name|deleteFile
@@ -544,9 +544,9 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|fileLength
 annotation|@
 name|Override
+DECL|method|fileLength
 specifier|public
 name|long
 name|fileLength
@@ -569,9 +569,9 @@ name|name
 argument_list|)
 return|;
 block|}
-DECL|method|createOutput
 annotation|@
 name|Override
+DECL|method|createOutput
 specifier|public
 name|IndexOutput
 name|createOutput
@@ -594,9 +594,9 @@ name|name
 argument_list|)
 return|;
 block|}
-DECL|method|sync
 annotation|@
 name|Override
+DECL|method|sync
 specifier|public
 name|void
 name|sync
@@ -685,9 +685,9 @@ name|secondaryNames
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|sync
 annotation|@
 name|Override
+DECL|method|sync
 specifier|public
 name|void
 name|sync
@@ -709,9 +709,9 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|forceSync
 annotation|@
 name|Override
+DECL|method|forceSync
 specifier|public
 name|void
 name|forceSync
@@ -761,9 +761,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|openInput
 annotation|@
 name|Override
+DECL|method|openInput
 specifier|public
 name|IndexInput
 name|openInput

@@ -50,7 +50,7 @@ name|annotation
 operator|.
 name|ElementType
 operator|.
-name|*
+name|TYPE
 import|;
 end_import
 
@@ -64,7 +64,7 @@ name|annotation
 operator|.
 name|RetentionPolicy
 operator|.
-name|*
+name|RUNTIME
 import|;
 end_import
 

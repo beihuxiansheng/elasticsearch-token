@@ -22,13 +22,15 @@ end_package
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
-name|BytesWrap
+name|collect
+operator|.
+name|ImmutableMap
 import|;
 end_import
 
@@ -40,9 +42,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|collect
-operator|.
-name|ImmutableMap
+name|BytesWrap
 import|;
 end_import
 
@@ -79,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -136,9 +136,9 @@ operator|=
 name|types
 expr_stmt|;
 block|}
-DECL|method|readerCacheKey
 annotation|@
 name|Override
+DECL|method|readerCacheKey
 specifier|public
 name|Object
 name|readerCacheKey
@@ -150,9 +150,9 @@ operator|.
 name|readerCacheKey
 return|;
 block|}
-DECL|method|type
 annotation|@
 name|Override
+DECL|method|type
 specifier|public
 name|IdReaderTypeCache
 name|type
@@ -170,9 +170,9 @@ name|type
 argument_list|)
 return|;
 block|}
-DECL|method|parentIdByDoc
 annotation|@
 name|Override
+DECL|method|parentIdByDoc
 specifier|public
 name|BytesWrap
 name|parentIdByDoc
@@ -214,9 +214,9 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|docById
 annotation|@
 name|Override
+DECL|method|docById
 specifier|public
 name|int
 name|docById

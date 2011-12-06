@@ -212,7 +212,7 @@ name|action
 operator|.
 name|Actions
 operator|.
-name|*
+name|addValidationError
 import|;
 end_import
 
@@ -228,12 +228,12 @@ name|unit
 operator|.
 name|TimeValue
 operator|.
-name|*
+name|readTimeValue
 import|;
 end_import
 
 begin_comment
-comment|/**  * Puts mapping definition registered under a specific type into one or more indices. Best created with  * {@link org.elasticsearch.client.Requests#putMappingRequest(String...)}.  *  *<p>If the mappings already exists, the new mappings will be merged with the new one. If there are elements  * that can't be merged are detected, the request will be rejected unless the {@link #ignoreConflicts(boolean)}  * is set. In such a case, the duplicate mappings will be rejected.  *  * @author kimchy (shay.banon)  * @see org.elasticsearch.client.Requests#putMappingRequest(String...)  * @see org.elasticsearch.client.IndicesAdminClient#putMapping(PutMappingRequest)  * @see PutMappingResponse  */
+comment|/**  * Puts mapping definition registered under a specific type into one or more indices. Best created with  * {@link org.elasticsearch.client.Requests#putMappingRequest(String...)}.  *<p/>  *<p>If the mappings already exists, the new mappings will be merged with the new one. If there are elements  * that can't be merged are detected, the request will be rejected unless the {@link #ignoreConflicts(boolean)}  * is set. In such a case, the duplicate mappings will be rejected.  *  *  * @see org.elasticsearch.client.Requests#putMappingRequest(String...)  * @see org.elasticsearch.client.IndicesAdminClient#putMapping(PutMappingRequest)  * @see PutMappingResponse  */
 end_comment
 
 begin_class
@@ -303,9 +303,9 @@ operator|=
 name|indices
 expr_stmt|;
 block|}
-DECL|method|validate
 annotation|@
 name|Override
+DECL|method|validate
 specifier|public
 name|ActionRequestValidationException
 name|validate
@@ -399,9 +399,9 @@ name|mappingType
 return|;
 block|}
 comment|/**      * The type of the mappings.      */
-DECL|method|type
 annotation|@
 name|Required
+DECL|method|type
 specifier|public
 name|PutMappingRequest
 name|type
@@ -431,9 +431,9 @@ name|mappingSource
 return|;
 block|}
 comment|/**      * The mapping source definition.      */
-DECL|method|source
 annotation|@
 name|Required
+DECL|method|source
 specifier|public
 name|PutMappingRequest
 name|source
@@ -472,9 +472,9 @@ throw|;
 block|}
 block|}
 comment|/**      * The mapping source definition.      */
-DECL|method|source
 annotation|@
 name|Required
+DECL|method|source
 specifier|public
 name|PutMappingRequest
 name|source
@@ -536,9 +536,9 @@ throw|;
 block|}
 block|}
 comment|/**      * The mapping source definition.      */
-DECL|method|source
 annotation|@
 name|Required
+DECL|method|source
 specifier|public
 name|PutMappingRequest
 name|source
@@ -642,9 +642,9 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|readFrom
 annotation|@
 name|Override
+DECL|method|readFrom
 specifier|public
 name|void
 name|readFrom
@@ -739,9 +739,9 @@ name|readBoolean
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|writeTo
 annotation|@
 name|Override
+DECL|method|writeTo
 specifier|public
 name|void
 name|writeTo

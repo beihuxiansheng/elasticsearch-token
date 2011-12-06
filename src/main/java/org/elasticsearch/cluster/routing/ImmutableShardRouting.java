@@ -18,9 +18,9 @@ end_package
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
@@ -113,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -431,9 +431,9 @@ operator|=
 name|version
 expr_stmt|;
 block|}
-DECL|method|index
 annotation|@
 name|Override
+DECL|method|index
 specifier|public
 name|String
 name|index
@@ -445,9 +445,9 @@ operator|.
 name|index
 return|;
 block|}
-DECL|method|getIndex
 annotation|@
 name|Override
+DECL|method|getIndex
 specifier|public
 name|String
 name|getIndex
@@ -458,9 +458,9 @@ name|index
 argument_list|()
 return|;
 block|}
-DECL|method|id
 annotation|@
 name|Override
+DECL|method|id
 specifier|public
 name|int
 name|id
@@ -472,9 +472,9 @@ operator|.
 name|shardId
 return|;
 block|}
-DECL|method|getId
 annotation|@
 name|Override
+DECL|method|getId
 specifier|public
 name|int
 name|getId
@@ -485,9 +485,9 @@ name|id
 argument_list|()
 return|;
 block|}
-DECL|method|version
 annotation|@
 name|Override
+DECL|method|version
 specifier|public
 name|long
 name|version
@@ -499,9 +499,9 @@ operator|.
 name|version
 return|;
 block|}
-DECL|method|unassigned
 annotation|@
 name|Override
+DECL|method|unassigned
 specifier|public
 name|boolean
 name|unassigned
@@ -515,9 +515,9 @@ operator|.
 name|UNASSIGNED
 return|;
 block|}
-DECL|method|initializing
 annotation|@
 name|Override
+DECL|method|initializing
 specifier|public
 name|boolean
 name|initializing
@@ -531,9 +531,9 @@ operator|.
 name|INITIALIZING
 return|;
 block|}
-DECL|method|active
 annotation|@
 name|Override
+DECL|method|active
 specifier|public
 name|boolean
 name|active
@@ -547,9 +547,9 @@ name|relocating
 argument_list|()
 return|;
 block|}
-DECL|method|started
 annotation|@
 name|Override
+DECL|method|started
 specifier|public
 name|boolean
 name|started
@@ -563,9 +563,9 @@ operator|.
 name|STARTED
 return|;
 block|}
-DECL|method|relocating
 annotation|@
 name|Override
+DECL|method|relocating
 specifier|public
 name|boolean
 name|relocating
@@ -579,9 +579,9 @@ operator|.
 name|RELOCATING
 return|;
 block|}
-DECL|method|assignedToNode
 annotation|@
 name|Override
+DECL|method|assignedToNode
 specifier|public
 name|boolean
 name|assignedToNode
@@ -593,9 +593,9 @@ operator|!=
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|currentNodeId
-annotation|@
-name|Override
 specifier|public
 name|String
 name|currentNodeId
@@ -607,9 +607,9 @@ operator|.
 name|currentNodeId
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|relocatingNodeId
-annotation|@
-name|Override
 specifier|public
 name|String
 name|relocatingNodeId
@@ -621,9 +621,9 @@ operator|.
 name|relocatingNodeId
 return|;
 block|}
-DECL|method|primary
 annotation|@
 name|Override
+DECL|method|primary
 specifier|public
 name|boolean
 name|primary
@@ -635,9 +635,9 @@ operator|.
 name|primary
 return|;
 block|}
-DECL|method|state
 annotation|@
 name|Override
+DECL|method|state
 specifier|public
 name|ShardRoutingState
 name|state
@@ -649,9 +649,9 @@ operator|.
 name|state
 return|;
 block|}
-DECL|method|shardId
 annotation|@
 name|Override
+DECL|method|shardId
 specifier|public
 name|ShardId
 name|shardId
@@ -682,9 +682,9 @@ return|return
 name|shardIdentifier
 return|;
 block|}
-DECL|method|shardsIt
 annotation|@
 name|Override
+DECL|method|shardsIt
 specifier|public
 name|ShardIterator
 name|shardsIt
@@ -806,9 +806,9 @@ name|in
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|readFromThin
 annotation|@
 name|Override
+DECL|method|readFromThin
 specifier|public
 name|void
 name|readFromThin
@@ -878,9 +878,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|readFrom
 annotation|@
 name|Override
+DECL|method|readFrom
 specifier|public
 name|void
 name|readFrom
@@ -1008,9 +1008,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|writeTo
 annotation|@
 name|Override
+DECL|method|writeTo
 specifier|public
 name|void
 name|writeTo
@@ -1303,9 +1303,9 @@ return|return
 name|result
 return|;
 block|}
-DECL|method|toString
 annotation|@
 name|Override
+DECL|method|toString
 specifier|public
 name|String
 name|toString
@@ -1316,9 +1316,9 @@ name|shortSummary
 argument_list|()
 return|;
 block|}
-DECL|method|shortSummary
 annotation|@
 name|Override
+DECL|method|shortSummary
 specifier|public
 name|String
 name|shortSummary

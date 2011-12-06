@@ -102,63 +102,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|FieldInfo
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|IndexReader
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|Payload
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|Term
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|TermPositions
+name|*
 import|;
 end_import
 
@@ -209,7 +153,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -709,9 +653,9 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|setIndexOptions
 annotation|@
 name|Override
+DECL|method|setIndexOptions
 specifier|public
 name|void
 name|setIndexOptions
@@ -724,9 +668,9 @@ parameter_list|)
 block|{
 comment|// never allow to set this, since we want payload!
 block|}
-DECL|method|setOmitTermFreqAndPositions
 annotation|@
 name|Override
+DECL|method|setOmitTermFreqAndPositions
 specifier|public
 name|void
 name|setOmitTermFreqAndPositions
@@ -765,9 +709,9 @@ operator|=
 name|uid
 expr_stmt|;
 block|}
-DECL|method|stringValue
 annotation|@
 name|Override
+DECL|method|stringValue
 specifier|public
 name|String
 name|stringValue
@@ -777,9 +721,9 @@ return|return
 name|uid
 return|;
 block|}
-DECL|method|readerValue
 annotation|@
 name|Override
+DECL|method|readerValue
 specifier|public
 name|Reader
 name|readerValue
@@ -817,9 +761,9 @@ operator|=
 name|version
 expr_stmt|;
 block|}
-DECL|method|tokenStreamValue
 annotation|@
 name|Override
+DECL|method|tokenStreamValue
 specifier|public
 name|TokenStream
 name|tokenStreamValue
@@ -892,9 +836,9 @@ operator|=
 name|field
 expr_stmt|;
 block|}
-DECL|method|reset
 annotation|@
 name|Override
+DECL|method|reset
 specifier|public
 name|void
 name|reset
@@ -907,9 +851,9 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
-DECL|method|incrementToken
 annotation|@
 name|Override
+DECL|method|incrementToken
 specifier|public
 specifier|final
 name|boolean

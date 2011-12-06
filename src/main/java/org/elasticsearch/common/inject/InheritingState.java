@@ -18,9 +18,9 @@ end_package
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
@@ -32,9 +32,9 @@ end_import
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
@@ -162,9 +162,9 @@ end_import
 
 begin_import
 import|import static
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
@@ -172,7 +172,7 @@ name|base
 operator|.
 name|Preconditions
 operator|.
-name|*
+name|checkNotNull
 import|;
 end_import
 
@@ -783,9 +783,9 @@ name|key
 argument_list|)
 return|;
 block|}
-DECL|method|clearBlacklisted
 annotation|@
 name|Override
+DECL|method|clearBlacklisted
 specifier|public
 name|void
 name|clearBlacklisted

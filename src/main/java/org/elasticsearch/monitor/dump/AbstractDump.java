@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -18,13 +18,15 @@ end_package
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
-name|Nullable
+name|collect
+operator|.
+name|ImmutableMap
 import|;
 end_import
 
@@ -36,9 +38,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|collect
-operator|.
-name|ImmutableMap
+name|Nullable
 import|;
 end_import
 
@@ -73,7 +73,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -179,9 +179,9 @@ operator|=
 name|context
 expr_stmt|;
 block|}
-DECL|method|timestamp
 annotation|@
 name|Override
+DECL|method|timestamp
 specifier|public
 name|long
 name|timestamp
@@ -191,9 +191,9 @@ return|return
 name|timestamp
 return|;
 block|}
-DECL|method|context
 annotation|@
 name|Override
+DECL|method|context
 specifier|public
 name|Map
 argument_list|<
@@ -210,9 +210,9 @@ operator|.
 name|context
 return|;
 block|}
-DECL|method|cause
 annotation|@
 name|Override
+DECL|method|cause
 specifier|public
 name|String
 name|cause
@@ -222,9 +222,9 @@ return|return
 name|cause
 return|;
 block|}
-DECL|method|files
 annotation|@
 name|Override
+DECL|method|files
 specifier|public
 name|File
 index|[]
@@ -247,9 +247,9 @@ index|]
 argument_list|)
 return|;
 block|}
-DECL|method|createFile
 annotation|@
 name|Override
+DECL|method|createFile
 specifier|public
 name|File
 name|createFile
@@ -291,9 +291,9 @@ parameter_list|)
 throws|throws
 name|DumpException
 function_decl|;
-DECL|method|createFileOutputStream
 annotation|@
 name|Override
+DECL|method|createFileOutputStream
 specifier|public
 name|OutputStream
 name|createFileOutputStream
@@ -338,9 +338,9 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|createFileWriter
 annotation|@
 name|Override
+DECL|method|createFileWriter
 specifier|public
 name|Writer
 name|createFileWriter

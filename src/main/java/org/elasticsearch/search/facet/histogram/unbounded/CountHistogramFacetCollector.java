@@ -22,6 +22,20 @@ end_package
 
 begin_import
 import|import
+name|gnu
+operator|.
+name|trove
+operator|.
+name|map
+operator|.
+name|hash
+operator|.
+name|TLongLongHashMap
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -43,24 +57,6 @@ operator|.
 name|common
 operator|.
 name|CacheRecycler
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|trove
-operator|.
-name|map
-operator|.
-name|hash
-operator|.
-name|TLongLongHashMap
 import|;
 end_import
 
@@ -225,7 +221,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A histogram facet collector that uses the same field as the key as well as the  * value.  *  * @author kimchy (shay.banon)  */
+comment|/**  * A histogram facet collector that uses the same field as the key as well as the  * value.  *  *  */
 end_comment
 
 begin_class
@@ -422,9 +418,9 @@ name|interval
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|doCollect
 annotation|@
 name|Override
+DECL|method|doCollect
 specifier|protected
 name|void
 name|doCollect
@@ -445,9 +441,9 @@ name|histoProc
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|doSetNextReader
 annotation|@
 name|Override
+DECL|method|doSetNextReader
 specifier|protected
 name|void
 name|doSetNextReader
@@ -478,9 +474,9 @@ name|indexFieldName
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|facet
 annotation|@
 name|Override
+DECL|method|facet
 specifier|public
 name|Facet
 name|facet
@@ -575,9 +571,9 @@ operator|=
 name|interval
 expr_stmt|;
 block|}
-DECL|method|onValue
 annotation|@
 name|Override
+DECL|method|onValue
 specifier|public
 name|void
 name|onValue

@@ -149,7 +149,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -403,9 +403,9 @@ return|return
 name|analyzeToken
 return|;
 block|}
-DECL|method|readFrom
 annotation|@
 name|Override
+DECL|method|readFrom
 specifier|public
 name|void
 name|readFrom
@@ -461,9 +461,9 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|writeTo
 annotation|@
 name|Override
+DECL|method|writeTo
 specifier|public
 name|void
 name|writeTo
@@ -595,9 +595,9 @@ name|tokens
 argument_list|()
 return|;
 block|}
-DECL|method|iterator
 annotation|@
 name|Override
+DECL|method|iterator
 specifier|public
 name|Iterator
 argument_list|<
@@ -613,9 +613,9 @@ name|iterator
 argument_list|()
 return|;
 block|}
-DECL|method|toXContent
 annotation|@
 name|Override
+DECL|method|toXContent
 specifier|public
 name|XContentBuilder
 name|toXContent
@@ -894,9 +894,9 @@ return|return
 name|builder
 return|;
 block|}
-DECL|method|readFrom
 annotation|@
 name|Override
+DECL|method|readFrom
 specifier|public
 name|void
 name|readFrom
@@ -955,9 +955,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|writeTo
 annotation|@
 name|Override
+DECL|method|writeTo
 specifier|public
 name|void
 name|writeTo

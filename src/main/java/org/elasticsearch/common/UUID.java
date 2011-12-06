@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -65,7 +65,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A UUID taken from java UUID that simply holds less data.  *  * @author kimchy (Shay Banon)  */
+comment|/**  * A UUID taken from java UUID that simply holds less data.  *  *  */
 end_comment
 
 begin_class
@@ -231,7 +231,7 @@ operator|=
 name|leastSigBits
 expr_stmt|;
 block|}
-comment|/**      * Static factory to retrieve a type 4 (pseudo randomly generated) UUID.      *      * The<code>UUID</code> is generated using a cryptographically strong      * pseudo random number generator.      *      * @return a randomly generated<tt>UUID</tt>.      */
+comment|/**      * Static factory to retrieve a type 4 (pseudo randomly generated) UUID.      *<p/>      * The<code>UUID</code> is generated using a cryptographically strong      * pseudo random number generator.      *      * @return a randomly generated<tt>UUID</tt>.      */
 DECL|method|randomUUID
 specifier|public
 specifier|static
@@ -758,7 +758,7 @@ name|mostSigBits
 return|;
 block|}
 comment|// Object Inherited Methods
-comment|/**      * Returns a<code>String</code> object representing this      *<code>UUID</code>.      *      *<p>The UUID string representation is as described by this BNF :      *<blockquote><pre>      * {@code      * UUID                   =<time_low> "-"<time_mid> "-"      *<time_high_and_version> "-"      *<variant_and_sequence> "-"      *<node>      * time_low               = 4*<hexOctet>      * time_mid               = 2*<hexOctet>      * time_high_and_version  = 2*<hexOctet>      * variant_and_sequence   = 2*<hexOctet>      * node                   = 6*<hexOctet>      * hexOctet               =<hexDigit><hexDigit>      * hexDigit               =      *       "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"      *       | "a" | "b" | "c" | "d" | "e" | "f"      *       | "A" | "B" | "C" | "D" | "E" | "F"      * }</pre></blockquote>      *      * @return a string representation of this<tt>UUID</tt>.      */
+comment|/**      * Returns a<code>String</code> object representing this      *<code>UUID</code>.      *<p/>      *<p>The UUID string representation is as described by this BNF :      *<blockquote><pre>      * {@code      * UUID                   =<time_low> "-"<time_mid> "-"      *<time_high_and_version> "-"      *<variant_and_sequence> "-"      *<node>      * time_low               = 4*<hexOctet>      * time_mid               = 2*<hexOctet>      * time_high_and_version  = 2*<hexOctet>      * variant_and_sequence   = 2*<hexOctet>      * node                   = 6*<hexOctet>      * hexOctet               =<hexDigit><hexDigit>      * hexDigit               =      *       "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"      *       | "a" | "b" | "c" | "d" | "e" | "f"      *       | "A" | "B" | "C" | "D" | "E" | "F"      * }</pre></blockquote>      *      * @return a string representation of this<tt>UUID</tt>.      */
 DECL|method|toString
 specifier|public
 name|String
@@ -944,7 +944,7 @@ operator|)
 return|;
 block|}
 comment|// Comparison Operations
-comment|/**      * Compares this UUID with the specified UUID.      *      *<p>The first of two UUIDs follows the second if the most significant      * field in which the UUIDs differ is greater for the first UUID.      *      * @param val<tt>UUID</tt> to which this<tt>UUID</tt> is to be compared.      * @return -1, 0 or 1 as this<tt>UUID</tt> is less than, equal      *         to, or greater than<tt>val</tt>.      */
+comment|/**      * Compares this UUID with the specified UUID.      *<p/>      *<p>The first of two UUIDs follows the second if the most significant      * field in which the UUIDs differ is greater for the first UUID.      *      * @param val<tt>UUID</tt> to which this<tt>UUID</tt> is to be compared.      * @return -1, 0 or 1 as this<tt>UUID</tt> is less than, equal      *         to, or greater than<tt>val</tt>.      */
 DECL|method|compareTo
 specifier|public
 name|int

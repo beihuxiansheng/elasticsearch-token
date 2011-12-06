@@ -28,9 +28,9 @@ name|SingleShardNoOptimizationEmbeddedSearchTests
 extends|extends
 name|SingleShardEmbeddedSearchTests
 block|{
-DECL|method|optimizeSingleShard
 annotation|@
 name|Override
+DECL|method|optimizeSingleShard
 specifier|protected
 name|boolean
 name|optimizeSingleShard

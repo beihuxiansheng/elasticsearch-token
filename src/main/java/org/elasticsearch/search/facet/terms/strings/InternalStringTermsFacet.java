@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -19,6 +19,46 @@ operator|.
 name|strings
 package|;
 end_package
+
+begin_import
+import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|ImmutableList
+import|;
+end_import
+
+begin_import
+import|import
+name|gnu
+operator|.
+name|trove
+operator|.
+name|iterator
+operator|.
+name|TObjectIntIterator
+import|;
+end_import
+
+begin_import
+import|import
+name|gnu
+operator|.
+name|trove
+operator|.
+name|map
+operator|.
+name|hash
+operator|.
+name|TObjectIntHashMap
+import|;
+end_import
 
 begin_import
 import|import
@@ -54,20 +94,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|collect
-operator|.
-name|ImmutableList
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|io
 operator|.
 name|stream
@@ -89,40 +115,6 @@ operator|.
 name|stream
 operator|.
 name|StreamOutput
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|trove
-operator|.
-name|iterator
-operator|.
-name|TObjectIntIterator
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|trove
-operator|.
-name|map
-operator|.
-name|hash
-operator|.
-name|TObjectIntHashMap
 import|;
 end_import
 
@@ -251,7 +243,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -321,9 +313,9 @@ return|;
 block|}
 block|}
 decl_stmt|;
-DECL|method|streamType
 annotation|@
 name|Override
+DECL|method|streamType
 specifier|public
 name|String
 name|streamType
@@ -395,9 +387,9 @@ return|return
 name|term
 return|;
 block|}
-DECL|method|termAsNumber
 annotation|@
 name|Override
+DECL|method|termAsNumber
 specifier|public
 name|Number
 name|termAsNumber
@@ -412,9 +404,9 @@ name|term
 argument_list|)
 return|;
 block|}
-DECL|method|getTermAsNumber
 annotation|@
 name|Override
+DECL|method|getTermAsNumber
 specifier|public
 name|Number
 name|getTermAsNumber
@@ -446,9 +438,9 @@ name|count
 argument_list|()
 return|;
 block|}
-DECL|method|compareTo
 annotation|@
 name|Override
+DECL|method|compareTo
 specifier|public
 name|int
 name|compareTo
@@ -616,9 +608,9 @@ operator|=
 name|total
 expr_stmt|;
 block|}
-DECL|method|name
 annotation|@
 name|Override
+DECL|method|name
 specifier|public
 name|String
 name|name
@@ -630,9 +622,9 @@ operator|.
 name|name
 return|;
 block|}
-DECL|method|getName
 annotation|@
 name|Override
+DECL|method|getName
 specifier|public
 name|String
 name|getName
@@ -644,9 +636,9 @@ operator|.
 name|name
 return|;
 block|}
-DECL|method|type
 annotation|@
 name|Override
+DECL|method|type
 specifier|public
 name|String
 name|type
@@ -656,9 +648,9 @@ return|return
 name|TYPE
 return|;
 block|}
-DECL|method|getType
 annotation|@
 name|Override
+DECL|method|getType
 specifier|public
 name|String
 name|getType
@@ -669,9 +661,9 @@ name|type
 argument_list|()
 return|;
 block|}
-DECL|method|entries
 annotation|@
 name|Override
+DECL|method|entries
 specifier|public
 name|List
 argument_list|<
@@ -710,9 +702,9 @@ operator|)
 name|entries
 return|;
 block|}
-DECL|method|getEntries
 annotation|@
 name|Override
+DECL|method|getEntries
 specifier|public
 name|List
 argument_list|<
@@ -726,7 +718,6 @@ name|entries
 argument_list|()
 return|;
 block|}
-DECL|method|iterator
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -736,6 +727,7 @@ block|}
 argument_list|)
 annotation|@
 name|Override
+DECL|method|iterator
 specifier|public
 name|Iterator
 argument_list|<
@@ -754,9 +746,9 @@ name|iterator
 argument_list|()
 return|;
 block|}
-DECL|method|missingCount
 annotation|@
 name|Override
+DECL|method|missingCount
 specifier|public
 name|long
 name|missingCount
@@ -768,9 +760,9 @@ operator|.
 name|missing
 return|;
 block|}
-DECL|method|getMissingCount
 annotation|@
 name|Override
+DECL|method|getMissingCount
 specifier|public
 name|long
 name|getMissingCount
@@ -781,9 +773,9 @@ name|missingCount
 argument_list|()
 return|;
 block|}
-DECL|method|totalCount
 annotation|@
 name|Override
+DECL|method|totalCount
 specifier|public
 name|long
 name|totalCount
@@ -795,9 +787,9 @@ operator|.
 name|total
 return|;
 block|}
-DECL|method|getTotalCount
 annotation|@
 name|Override
+DECL|method|getTotalCount
 specifier|public
 name|long
 name|getTotalCount
@@ -808,9 +800,9 @@ name|totalCount
 argument_list|()
 return|;
 block|}
-DECL|method|otherCount
 annotation|@
 name|Override
+DECL|method|otherCount
 specifier|public
 name|long
 name|otherCount
@@ -841,9 +833,9 @@ return|return
 name|other
 return|;
 block|}
-DECL|method|getOtherCount
 annotation|@
 name|Override
+DECL|method|getOtherCount
 specifier|public
 name|long
 name|getOtherCount
@@ -854,9 +846,9 @@ name|otherCount
 argument_list|()
 return|;
 block|}
-DECL|method|reduce
 annotation|@
 name|Override
+DECL|method|reduce
 specifier|public
 name|Facet
 name|reduce
@@ -1177,9 +1169,9 @@ literal|"count"
 argument_list|)
 decl_stmt|;
 block|}
-DECL|method|toXContent
 annotation|@
 name|Override
+DECL|method|toXContent
 specifier|public
 name|XContentBuilder
 name|toXContent
@@ -1347,9 +1339,9 @@ return|return
 name|facet
 return|;
 block|}
-DECL|method|readFrom
 annotation|@
 name|Override
+DECL|method|readFrom
 specifier|public
 name|void
 name|readFrom
@@ -1455,9 +1447,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|writeTo
 annotation|@
 name|Override
+DECL|method|writeTo
 specifier|public
 name|void
 name|writeTo

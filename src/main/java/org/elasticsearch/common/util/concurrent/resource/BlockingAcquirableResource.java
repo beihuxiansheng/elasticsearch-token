@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -35,7 +35,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A wrapper around a resource that can be released. Note, release should not be  * called directly on the resource itself.  *  *<p>Yea, I now, the fact that the resource itself is releasable basically means that  * users of this class should take care... .  *  * @author kimchy (shay.banon)  */
+comment|/**  * A wrapper around a resource that can be released. Note, release should not be  * called directly on the resource itself.  *<p/>  *<p>Yea, I now, the fact that the resource itself is releasable basically means that  * users of this class should take care... .  *  *  */
 end_comment
 
 begin_class
@@ -94,9 +94,9 @@ operator|=
 name|resource
 expr_stmt|;
 block|}
-DECL|method|resource
 annotation|@
 name|Override
+DECL|method|resource
 specifier|public
 name|T
 name|resource
@@ -107,9 +107,9 @@ name|resource
 return|;
 block|}
 comment|/**      * Acquires the resource, returning<tt>true</tt> if it was acquired.      */
-DECL|method|acquire
 annotation|@
 name|Override
+DECL|method|acquire
 specifier|public
 specifier|synchronized
 name|boolean
@@ -133,9 +133,9 @@ literal|true
 return|;
 block|}
 comment|/**      * Releases the resource, will close it if there are no more acquirers.      */
-DECL|method|release
 annotation|@
 name|Override
+DECL|method|release
 specifier|public
 specifier|synchronized
 name|void
@@ -150,9 +150,9 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Marks the resource to be closed. Will close it if there are no current      * acquires.      */
-DECL|method|markForClose
 annotation|@
 name|Override
+DECL|method|markForClose
 specifier|public
 specifier|synchronized
 name|void
@@ -167,9 +167,9 @@ name|checkIfCanClose
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|forceClose
 annotation|@
 name|Override
+DECL|method|forceClose
 specifier|public
 name|void
 name|forceClose

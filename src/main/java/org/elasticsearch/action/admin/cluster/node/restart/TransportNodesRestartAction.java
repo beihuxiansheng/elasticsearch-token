@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -282,9 +282,9 @@ end_import
 
 begin_import
 import|import static
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
@@ -292,7 +292,7 @@ name|collect
 operator|.
 name|Lists
 operator|.
-name|*
+name|newArrayList
 import|;
 end_import
 
@@ -308,12 +308,12 @@ name|unit
 operator|.
 name|TimeValue
 operator|.
-name|*
+name|readTimeValue
 import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -358,9 +358,9 @@ operator|new
 name|AtomicBoolean
 argument_list|()
 decl_stmt|;
-DECL|method|TransportNodesRestartAction
 annotation|@
 name|Inject
+DECL|method|TransportNodesRestartAction
 specifier|public
 name|TransportNodesRestartAction
 parameter_list|(
@@ -414,9 +414,9 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|doExecute
 annotation|@
 name|Override
+DECL|method|doExecute
 specifier|protected
 name|void
 name|doExecute
@@ -443,9 +443,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|executor
 annotation|@
 name|Override
+DECL|method|executor
 specifier|protected
 name|String
 name|executor
@@ -459,9 +459,9 @@ operator|.
 name|CACHED
 return|;
 block|}
-DECL|method|transportAction
 annotation|@
 name|Override
+DECL|method|transportAction
 specifier|protected
 name|String
 name|transportAction
@@ -479,9 +479,9 @@ operator|.
 name|RESTART
 return|;
 block|}
-DECL|method|transportNodeAction
 annotation|@
 name|Override
+DECL|method|transportNodeAction
 specifier|protected
 name|String
 name|transportNodeAction
@@ -491,9 +491,9 @@ return|return
 literal|"/cluster/nodes/restart/node"
 return|;
 block|}
-DECL|method|newResponse
 annotation|@
 name|Override
+DECL|method|newResponse
 specifier|protected
 name|NodesRestartResponse
 name|newResponse
@@ -592,9 +592,9 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-DECL|method|newRequest
 annotation|@
 name|Override
+DECL|method|newRequest
 specifier|protected
 name|NodesRestartRequest
 name|newRequest
@@ -606,9 +606,9 @@ name|NodesRestartRequest
 argument_list|()
 return|;
 block|}
-DECL|method|newNodeRequest
 annotation|@
 name|Override
+DECL|method|newNodeRequest
 specifier|protected
 name|NodeRestartRequest
 name|newNodeRequest
@@ -620,9 +620,9 @@ name|NodeRestartRequest
 argument_list|()
 return|;
 block|}
-DECL|method|newNodeRequest
 annotation|@
 name|Override
+DECL|method|newNodeRequest
 specifier|protected
 name|NodeRestartRequest
 name|newNodeRequest
@@ -646,9 +646,9 @@ name|delay
 argument_list|)
 return|;
 block|}
-DECL|method|newNodeResponse
 annotation|@
 name|Override
+DECL|method|newNodeResponse
 specifier|protected
 name|NodesRestartResponse
 operator|.
@@ -664,9 +664,9 @@ name|NodeRestartResponse
 argument_list|()
 return|;
 block|}
-DECL|method|nodeOperation
 annotation|@
 name|Override
+DECL|method|nodeOperation
 specifier|protected
 name|NodesRestartResponse
 operator|.
@@ -905,9 +905,9 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-DECL|method|accumulateExceptions
 annotation|@
 name|Override
+DECL|method|accumulateExceptions
 specifier|protected
 name|boolean
 name|accumulateExceptions
@@ -957,9 +957,9 @@ operator|=
 name|delay
 expr_stmt|;
 block|}
-DECL|method|readFrom
 annotation|@
 name|Override
+DECL|method|readFrom
 specifier|public
 name|void
 name|readFrom
@@ -985,9 +985,9 @@ name|in
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|writeTo
 annotation|@
 name|Override
+DECL|method|writeTo
 specifier|public
 name|void
 name|writeTo

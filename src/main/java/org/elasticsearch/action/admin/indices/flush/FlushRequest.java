@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -95,7 +95,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A flush request to flush one or more indices. The flush process of an index basically frees memory from the index  * by flushing data to the index storage and clearing the internal transaction log. By default, ElasticSearch uses  * memory heuristics in order to automatically trigger flush operations as required in order to clear memory.  *  *<p>Best created with {@link org.elasticsearch.client.Requests#flushRequest(String...)}.  *  * @author kimchy (shay.banon)  * @see org.elasticsearch.client.Requests#flushRequest(String...)  * @see org.elasticsearch.client.IndicesAdminClient#flush(FlushRequest)  * @see FlushResponse  */
+comment|/**  * A flush request to flush one or more indices. The flush process of an index basically frees memory from the index  * by flushing data to the index storage and clearing the internal transaction log. By default, ElasticSearch uses  * memory heuristics in order to automatically trigger flush operations as required in order to clear memory.  *<p/>  *<p>Best created with {@link org.elasticsearch.client.Requests#flushRequest(String...)}.  *  *  * @see org.elasticsearch.client.Requests#flushRequest(String...)  * @see org.elasticsearch.client.IndicesAdminClient#flush(FlushRequest)  * @see FlushResponse  */
 end_comment
 
 begin_class
@@ -253,9 +253,9 @@ name|this
 return|;
 block|}
 comment|/**      * Should the listener be called on a separate thread if needed.      */
-DECL|method|listenerThreaded
 annotation|@
 name|Override
+DECL|method|listenerThreaded
 specifier|public
 name|FlushRequest
 name|listenerThreaded
@@ -276,9 +276,9 @@ name|this
 return|;
 block|}
 comment|/**      * Controls the operation threading model.      */
-DECL|method|operationThreading
 annotation|@
 name|Override
+DECL|method|operationThreading
 specifier|public
 name|FlushRequest
 name|operationThreading
@@ -298,9 +298,9 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|writeTo
 annotation|@
 name|Override
+DECL|method|writeTo
 specifier|public
 name|void
 name|writeTo
@@ -340,9 +340,9 @@ name|force
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|readFrom
 annotation|@
 name|Override
+DECL|method|readFrom
 specifier|public
 name|void
 name|readFrom

@@ -22,13 +22,11 @@ end_package
 
 begin_import
 import|import
-name|org
+name|gnu
 operator|.
-name|elasticsearch
+name|trove
 operator|.
-name|common
-operator|.
-name|BytesWrap
+name|ExtTObjectIntHasMap
 import|;
 end_import
 
@@ -40,9 +38,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|trove
-operator|.
-name|ExtTObjectIntHasMap
+name|BytesWrap
 import|;
 end_import
 
@@ -63,7 +59,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class

@@ -164,7 +164,7 @@ name|settings
 operator|.
 name|ImmutableSettings
 operator|.
-name|*
+name|settingsBuilder
 import|;
 end_import
 
@@ -180,7 +180,7 @@ name|xcontent
 operator|.
 name|XContentFactory
 operator|.
-name|*
+name|jsonBuilder
 import|;
 end_import
 
@@ -196,7 +196,23 @@ name|query
 operator|.
 name|QueryBuilders
 operator|.
-name|*
+name|matchAllQuery
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryBuilders
+operator|.
+name|termQuery
 import|;
 end_import
 
@@ -208,7 +224,7 @@ name|hamcrest
 operator|.
 name|MatcherAssert
 operator|.
-name|*
+name|assertThat
 import|;
 end_import
 
@@ -220,12 +236,24 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|hasItem
 import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -241,9 +269,9 @@ specifier|private
 name|Client
 name|client
 decl_stmt|;
-DECL|method|createNodes
 annotation|@
 name|BeforeClass
+DECL|method|createNodes
 specifier|public
 name|void
 name|createNodes
@@ -267,9 +295,9 @@ name|getClient
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|closeNodes
 annotation|@
 name|AfterClass
+DECL|method|closeNodes
 specifier|public
 name|void
 name|closeNodes
@@ -297,9 +325,9 @@ literal|"node1"
 argument_list|)
 return|;
 block|}
-DECL|method|percolateOnRecreatedIndex
 annotation|@
 name|Test
+DECL|method|percolateOnRecreatedIndex
 specifier|public
 name|void
 name|percolateOnRecreatedIndex
@@ -619,9 +647,9 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|registerPercolatorAndThenCreateAnIndex
 annotation|@
 name|Test
+DECL|method|registerPercolatorAndThenCreateAnIndex
 specifier|public
 name|void
 name|registerPercolatorAndThenCreateAnIndex
@@ -956,9 +984,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|createIndexAndThenRegisterPercolator
 annotation|@
 name|Test
+DECL|method|createIndexAndThenRegisterPercolator
 specifier|public
 name|void
 name|createIndexAndThenRegisterPercolator
@@ -1392,9 +1420,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|percolateOnIndexOperation
 annotation|@
 name|Test
+DECL|method|percolateOnIndexOperation
 specifier|public
 name|void
 name|percolateOnIndexOperation
@@ -1961,9 +1989,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|multiplePercolators
 annotation|@
 name|Test
+DECL|method|multiplePercolators
 specifier|public
 name|void
 name|multiplePercolators
@@ -2384,9 +2412,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|dynamicAddingRemovingQueries
 annotation|@
 name|Test
+DECL|method|dynamicAddingRemovingQueries
 specifier|public
 name|void
 name|dynamicAddingRemovingQueries

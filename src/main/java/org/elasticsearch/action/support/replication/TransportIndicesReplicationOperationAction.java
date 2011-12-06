@@ -291,9 +291,9 @@ specifier|final
 name|String
 name|transportAction
 decl_stmt|;
-DECL|method|TransportIndicesReplicationOperationAction
 annotation|@
 name|Inject
+DECL|method|TransportIndicesReplicationOperationAction
 specifier|public
 name|TransportIndicesReplicationOperationAction
 parameter_list|(
@@ -362,9 +362,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|doExecute
 annotation|@
 name|Override
+DECL|method|doExecute
 specifier|protected
 name|void
 name|doExecute
@@ -743,9 +743,9 @@ argument_list|<
 name|Request
 argument_list|>
 block|{
-DECL|method|newInstance
 annotation|@
 name|Override
+DECL|method|newInstance
 specifier|public
 name|Request
 name|newInstance
@@ -756,9 +756,9 @@ name|newRequestInstance
 argument_list|()
 return|;
 block|}
-DECL|method|executor
 annotation|@
 name|Override
+DECL|method|executor
 specifier|public
 name|String
 name|executor
@@ -772,9 +772,9 @@ operator|.
 name|SAME
 return|;
 block|}
-DECL|method|messageReceived
 annotation|@
 name|Override
+DECL|method|messageReceived
 specifier|public
 name|void
 name|messageReceived

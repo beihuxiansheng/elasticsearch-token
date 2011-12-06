@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -242,63 +242,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|Mapper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|MapperParsingException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|MergeContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|MergeMappingException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|ParseContext
+name|*
 import|;
 end_import
 
@@ -350,7 +294,7 @@ name|support
 operator|.
 name|XContentMapValues
 operator|.
-name|*
+name|nodeDoubleValue
 import|;
 end_import
 
@@ -366,7 +310,7 @@ name|mapper
 operator|.
 name|MapperBuilders
 operator|.
-name|*
+name|doubleField
 import|;
 end_import
 
@@ -384,12 +328,12 @@ name|core
 operator|.
 name|TypeParsers
 operator|.
-name|*
+name|parseNumberField
 import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -493,9 +437,9 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|build
 annotation|@
 name|Override
+DECL|method|build
 specifier|public
 name|DoubleFieldMapper
 name|build
@@ -554,9 +498,9 @@ name|Mapper
 operator|.
 name|TypeParser
 block|{
-DECL|method|parse
 annotation|@
 name|Override
+DECL|method|parse
 specifier|public
 name|Mapper
 operator|.
@@ -784,9 +728,9 @@ name|toString
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|maxPrecisionStep
 annotation|@
 name|Override
+DECL|method|maxPrecisionStep
 specifier|protected
 name|int
 name|maxPrecisionStep
@@ -796,9 +740,9 @@ return|return
 literal|64
 return|;
 block|}
-DECL|method|value
 annotation|@
 name|Override
+DECL|method|value
 specifier|public
 name|Double
 name|value
@@ -836,9 +780,9 @@ name|value
 argument_list|)
 return|;
 block|}
-DECL|method|valueFromString
 annotation|@
 name|Override
+DECL|method|valueFromString
 specifier|public
 name|Double
 name|valueFromString
@@ -856,9 +800,9 @@ name|value
 argument_list|)
 return|;
 block|}
-DECL|method|indexedValue
 annotation|@
 name|Override
+DECL|method|indexedValue
 specifier|public
 name|String
 name|indexedValue
@@ -881,9 +825,9 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-DECL|method|fuzzyQuery
 annotation|@
 name|Override
+DECL|method|fuzzyQuery
 specifier|public
 name|Query
 name|fuzzyQuery
@@ -947,9 +891,9 @@ literal|true
 argument_list|)
 return|;
 block|}
-DECL|method|fuzzyQuery
 annotation|@
 name|Override
+DECL|method|fuzzyQuery
 specifier|public
 name|Query
 name|fuzzyQuery
@@ -1010,9 +954,9 @@ literal|true
 argument_list|)
 return|;
 block|}
-DECL|method|rangeQuery
 annotation|@
 name|Override
+DECL|method|rangeQuery
 specifier|public
 name|Query
 name|rangeQuery
@@ -1074,9 +1018,9 @@ name|includeUpper
 argument_list|)
 return|;
 block|}
-DECL|method|rangeFilter
 annotation|@
 name|Override
+DECL|method|rangeFilter
 specifier|public
 name|Filter
 name|rangeFilter
@@ -1178,9 +1122,9 @@ name|includeUpper
 argument_list|)
 return|;
 block|}
-DECL|method|rangeFilter
 annotation|@
 name|Override
+DECL|method|rangeFilter
 specifier|public
 name|Filter
 name|rangeFilter
@@ -1245,9 +1189,9 @@ name|includeUpper
 argument_list|)
 return|;
 block|}
-DECL|method|customBoost
 annotation|@
 name|Override
+DECL|method|customBoost
 specifier|protected
 name|boolean
 name|customBoost
@@ -1257,9 +1201,9 @@ return|return
 literal|true
 return|;
 block|}
-DECL|method|parseCreateField
 annotation|@
 name|Override
+DECL|method|parseCreateField
 specifier|protected
 name|Fieldable
 name|parseCreateField
@@ -1741,9 +1685,9 @@ return|return
 name|field
 return|;
 block|}
-DECL|method|fieldDataType
 annotation|@
 name|Override
+DECL|method|fieldDataType
 specifier|public
 name|FieldDataType
 name|fieldDataType
@@ -1757,9 +1701,9 @@ operator|.
 name|DOUBLE
 return|;
 block|}
-DECL|method|contentType
 annotation|@
 name|Override
+DECL|method|contentType
 specifier|protected
 name|String
 name|contentType
@@ -1769,9 +1713,9 @@ return|return
 name|CONTENT_TYPE
 return|;
 block|}
-DECL|method|merge
 annotation|@
 name|Override
+DECL|method|merge
 specifier|public
 name|void
 name|merge
@@ -1853,9 +1797,9 @@ name|nullValueAsString
 expr_stmt|;
 block|}
 block|}
-DECL|method|doXContentBody
 annotation|@
 name|Override
+DECL|method|doXContentBody
 specifier|protected
 name|void
 name|doXContentBody
@@ -2122,9 +2066,9 @@ operator|=
 name|number
 expr_stmt|;
 block|}
-DECL|method|tokenStreamValue
 annotation|@
 name|Override
+DECL|method|tokenStreamValue
 specifier|public
 name|TokenStream
 name|tokenStreamValue
@@ -2151,9 +2095,9 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|numericAsString
 annotation|@
 name|Override
+DECL|method|numericAsString
 specifier|public
 name|String
 name|numericAsString

@@ -22,6 +22,20 @@ end_package
 
 begin_import
 import|import
+name|gnu
+operator|.
+name|trove
+operator|.
+name|list
+operator|.
+name|array
+operator|.
+name|TByteArrayList
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -57,24 +71,6 @@ operator|.
 name|common
 operator|.
 name|RamUsage
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|trove
-operator|.
-name|list
-operator|.
-name|array
-operator|.
-name|TByteArrayList
 import|;
 end_import
 
@@ -139,7 +135,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -198,9 +194,9 @@ operator|=
 name|values
 expr_stmt|;
 block|}
-DECL|method|computeSizeInBytes
 annotation|@
 name|Override
+DECL|method|computeSizeInBytes
 specifier|protected
 name|long
 name|computeSizeInBytes
@@ -253,9 +249,9 @@ name|int
 name|docId
 parameter_list|)
 function_decl|;
-DECL|method|docFieldData
 annotation|@
 name|Override
+DECL|method|docFieldData
 specifier|public
 name|ByteDocFieldData
 name|docFieldData
@@ -273,9 +269,9 @@ name|docId
 argument_list|)
 return|;
 block|}
-DECL|method|createFieldData
 annotation|@
 name|Override
+DECL|method|createFieldData
 specifier|protected
 name|ByteDocFieldData
 name|createFieldData
@@ -289,9 +285,9 @@ name|this
 argument_list|)
 return|;
 block|}
-DECL|method|forEachValue
 annotation|@
 name|Override
+DECL|method|forEachValue
 specifier|public
 name|void
 name|forEachValue
@@ -334,9 +330,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|stringValue
 annotation|@
 name|Override
+DECL|method|stringValue
 specifier|public
 name|String
 name|stringValue
@@ -357,9 +353,9 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-DECL|method|byteValue
 annotation|@
 name|Override
+DECL|method|byteValue
 specifier|public
 name|byte
 name|byteValue
@@ -375,9 +371,9 @@ name|docId
 argument_list|)
 return|;
 block|}
-DECL|method|shortValue
 annotation|@
 name|Override
+DECL|method|shortValue
 specifier|public
 name|short
 name|shortValue
@@ -393,9 +389,9 @@ name|docId
 argument_list|)
 return|;
 block|}
-DECL|method|intValue
 annotation|@
 name|Override
+DECL|method|intValue
 specifier|public
 name|int
 name|intValue
@@ -414,9 +410,9 @@ name|docId
 argument_list|)
 return|;
 block|}
-DECL|method|longValue
 annotation|@
 name|Override
+DECL|method|longValue
 specifier|public
 name|long
 name|longValue
@@ -435,9 +431,9 @@ name|docId
 argument_list|)
 return|;
 block|}
-DECL|method|floatValue
 annotation|@
 name|Override
+DECL|method|floatValue
 specifier|public
 name|float
 name|floatValue
@@ -456,9 +452,9 @@ name|docId
 argument_list|)
 return|;
 block|}
-DECL|method|doubleValue
 annotation|@
 name|Override
+DECL|method|doubleValue
 specifier|public
 name|double
 name|doubleValue
@@ -477,9 +473,9 @@ name|docId
 argument_list|)
 return|;
 block|}
-DECL|method|type
 annotation|@
 name|Override
+DECL|method|type
 specifier|public
 name|FieldDataType
 name|type
@@ -656,9 +652,9 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|collectTerm
 annotation|@
 name|Override
+DECL|method|collectTerm
 specifier|public
 name|void
 name|collectTerm
@@ -685,9 +681,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|buildSingleValue
 annotation|@
 name|Override
+DECL|method|buildSingleValue
 specifier|public
 name|ByteFieldData
 name|buildSingleValue
@@ -715,9 +711,9 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-DECL|method|buildMultiValue
 annotation|@
 name|Override
+DECL|method|buildMultiValue
 specifier|public
 name|ByteFieldData
 name|buildMultiValue

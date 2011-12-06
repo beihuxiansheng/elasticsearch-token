@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -373,7 +373,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Performs the delete operation.  *  * @author kimchy (shay.banon)  */
+comment|/**  * Performs the delete operation.  *  *  */
 end_comment
 
 begin_class
@@ -409,9 +409,9 @@ specifier|final
 name|TransportIndexDeleteAction
 name|indexDeleteAction
 decl_stmt|;
-DECL|method|TransportDeleteAction
 annotation|@
 name|Inject
+DECL|method|TransportDeleteAction
 specifier|public
 name|TransportDeleteAction
 parameter_list|(
@@ -481,9 +481,9 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|executor
 annotation|@
 name|Override
+DECL|method|executor
 specifier|protected
 name|String
 name|executor
@@ -497,9 +497,9 @@ operator|.
 name|INDEX
 return|;
 block|}
-DECL|method|doExecute
 annotation|@
 name|Override
+DECL|method|doExecute
 specifier|protected
 name|void
 name|doExecute
@@ -908,9 +908,9 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|checkWriteConsistency
 annotation|@
 name|Override
+DECL|method|checkWriteConsistency
 specifier|protected
 name|boolean
 name|checkWriteConsistency
@@ -920,9 +920,9 @@ return|return
 literal|true
 return|;
 block|}
-DECL|method|newRequestInstance
 annotation|@
 name|Override
+DECL|method|newRequestInstance
 specifier|protected
 name|DeleteRequest
 name|newRequestInstance
@@ -934,9 +934,9 @@ name|DeleteRequest
 argument_list|()
 return|;
 block|}
-DECL|method|newReplicaRequestInstance
 annotation|@
 name|Override
+DECL|method|newReplicaRequestInstance
 specifier|protected
 name|DeleteRequest
 name|newReplicaRequestInstance
@@ -948,9 +948,9 @@ name|DeleteRequest
 argument_list|()
 return|;
 block|}
-DECL|method|newResponseInstance
 annotation|@
 name|Override
+DECL|method|newResponseInstance
 specifier|protected
 name|DeleteResponse
 name|newResponseInstance
@@ -962,9 +962,9 @@ name|DeleteResponse
 argument_list|()
 return|;
 block|}
-DECL|method|transportAction
 annotation|@
 name|Override
+DECL|method|transportAction
 specifier|protected
 name|String
 name|transportAction
@@ -976,9 +976,9 @@ operator|.
 name|DELETE
 return|;
 block|}
-DECL|method|checkBlock
 annotation|@
 name|Override
+DECL|method|checkBlock
 specifier|protected
 name|void
 name|checkBlock
@@ -1008,9 +1008,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|shardOperationOnPrimary
 annotation|@
 name|Override
+DECL|method|shardOperationOnPrimary
 specifier|protected
 name|PrimaryResponse
 argument_list|<
@@ -1202,9 +1202,9 @@ literal|null
 argument_list|)
 return|;
 block|}
-DECL|method|shardOperationOnReplica
 annotation|@
 name|Override
+DECL|method|shardOperationOnReplica
 specifier|protected
 name|void
 name|shardOperationOnReplica
@@ -1319,9 +1319,9 @@ comment|// ignore
 block|}
 block|}
 block|}
-DECL|method|shards
 annotation|@
 name|Override
+DECL|method|shards
 specifier|protected
 name|ShardIterator
 name|shards

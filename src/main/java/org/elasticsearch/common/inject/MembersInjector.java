@@ -29,7 +29,7 @@ parameter_list|<
 name|T
 parameter_list|>
 block|{
-comment|/**      * Injects dependencies into the fields and methods of {@code instance}. Ignores the presence or      * absence of an injectable constructor.      *      *<p>Whenever Guice creates an instance, it performs this injection automatically (after first      * performing constructor injection), so if you're able to let Guice create all your objects for      * you, you'll never need to use this method.      *      * @param instance to inject members on. May be {@code null}.      */
+comment|/**      * Injects dependencies into the fields and methods of {@code instance}. Ignores the presence or      * absence of an injectable constructor.      *<p/>      *<p>Whenever Guice creates an instance, it performs this injection automatically (after first      * performing constructor injection), so if you're able to let Guice create all your objects for      * you, you'll never need to use this method.      *      * @param instance to inject members on. May be {@code null}.      */
 DECL|method|injectMembers
 name|void
 name|injectMembers

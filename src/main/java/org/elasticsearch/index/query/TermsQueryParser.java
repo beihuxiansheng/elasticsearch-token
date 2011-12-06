@@ -164,9 +164,9 @@ end_import
 
 begin_import
 import|import static
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
@@ -174,7 +174,7 @@ name|collect
 operator|.
 name|Lists
 operator|.
-name|*
+name|newArrayList
 import|;
 end_import
 
@@ -192,7 +192,25 @@ name|search
 operator|.
 name|Queries
 operator|.
-name|*
+name|fixNegativeQueryIfNeeded
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|Queries
+operator|.
+name|optimizeQuery
 import|;
 end_import
 
@@ -210,12 +228,12 @@ name|support
 operator|.
 name|QueryParsers
 operator|.
-name|*
+name|wrapSmartNameQuery
 import|;
 end_import
 
 begin_comment
-comment|/**  *<pre>  * "terms" : {  *  "field_name" : [ "value1", "value2" ]  *  "minimum_match" : 1  * }  *</pre>  *  * @author kimchy (shay.banon)  */
+comment|/**  *<pre>  * "terms" : {  *  "field_name" : [ "value1", "value2" ]  *  "minimum_match" : 1  * }  *</pre>  *  *  */
 end_comment
 
 begin_class
@@ -235,16 +253,16 @@ name|NAME
 init|=
 literal|"terms"
 decl_stmt|;
-DECL|method|TermsQueryParser
 annotation|@
 name|Inject
+DECL|method|TermsQueryParser
 specifier|public
 name|TermsQueryParser
 parameter_list|()
 block|{     }
-DECL|method|names
 annotation|@
 name|Override
+DECL|method|names
 specifier|public
 name|String
 index|[]
@@ -263,9 +281,9 @@ block|}
 return|;
 comment|// allow both "in" and "terms" (since its similar to the "terms" filter)
 block|}
-DECL|method|parse
 annotation|@
 name|Override
+DECL|method|parse
 specifier|public
 name|Query
 name|parse

@@ -18,9 +18,9 @@ end_package
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
@@ -32,9 +32,9 @@ end_import
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
@@ -56,71 +56,7 @@ name|inject
 operator|.
 name|internal
 operator|.
-name|BindingImpl
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|inject
-operator|.
-name|internal
-operator|.
-name|Errors
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|inject
-operator|.
-name|internal
-operator|.
-name|ErrorsException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|inject
-operator|.
-name|internal
-operator|.
-name|InternalContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|inject
-operator|.
-name|internal
-operator|.
-name|Stopwatch
+name|*
 import|;
 end_import
 
@@ -181,7 +117,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Builds a tree of injectors. This is a primary injector, plus child injectors needed for each  * {@link Binder#newPrivateBinder() private environment}. The primary injector is not necessarily a  * top-level injector.  *  *<p>Injector construction happens in two phases.  *<ol>  *<li>Static building. In this phase, we interpret commands, create bindings, and inspect  * dependencies. During this phase, we hold a lock to ensure consistency with parent injectors.  * No user code is executed in this phase.</li>  *<li>Dynamic injection. In this phase, we call user code. We inject members that requested  * injection. This may require user's objects be created and their providers be called. And we  * create eager singletons. In this phase, user code may have started other threads. This phase  * is not executed for injectors created using {@link Stage#TOOL the tool stage}</li>  *</ol>  *  * @author crazybob@google.com (Bob Lee)  * @author jessewilson@google.com (Jesse Wilson)  */
+comment|/**  * Builds a tree of injectors. This is a primary injector, plus child injectors needed for each  * {@link Binder#newPrivateBinder() private environment}. The primary injector is not necessarily a  * top-level injector.  *<p/>  *<p>Injector construction happens in two phases.  *<ol>  *<li>Static building. In this phase, we interpret commands, create bindings, and inspect  * dependencies. During this phase, we hold a lock to ensure consistency with parent injectors.  * No user code is executed in this phase.</li>  *<li>Dynamic injection. In this phase, we call user code. We inject members that requested  * injection. This may require user's objects be created and their providers be called. And we  * create eager singletons. In this phase, user code may have started other threads. This phase  * is not executed for injectors created using {@link Stage#TOOL the tool stage}</li>  *</ol>  *  * @author crazybob@google.com (Bob Lee)  * @author jessewilson@google.com (Jesse Wilson)  */
 end_comment
 
 begin_class

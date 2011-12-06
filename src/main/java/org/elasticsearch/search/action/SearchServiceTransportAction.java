@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -307,7 +307,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An encapsulation of {@link org.elasticsearch.search.SearchService} operations exposed through  * transport.  *  * @author kimchy (Shay Banon)  */
+comment|/**  * An encapsulation of {@link org.elasticsearch.search.SearchService} operations exposed through  * transport.  *  *  */
 end_comment
 
 begin_class
@@ -355,9 +355,9 @@ operator|=
 name|logger
 expr_stmt|;
 block|}
-DECL|method|handleException
 annotation|@
 name|Override
+DECL|method|handleException
 specifier|public
 name|void
 name|handleException
@@ -407,9 +407,9 @@ argument_list|(
 name|logger
 argument_list|)
 decl_stmt|;
-DECL|method|SearchServiceTransportAction
 annotation|@
 name|Inject
+DECL|method|SearchServiceTransportAction
 specifier|public
 name|SearchServiceTransportAction
 parameter_list|(
@@ -2365,9 +2365,9 @@ name|ACTION
 init|=
 literal|"search/freeContext"
 decl_stmt|;
-DECL|method|newInstance
 annotation|@
 name|Override
+DECL|method|newInstance
 specifier|public
 name|LongStreamable
 name|newInstance
@@ -2379,9 +2379,9 @@ name|LongStreamable
 argument_list|()
 return|;
 block|}
-DECL|method|messageReceived
 annotation|@
 name|Override
+DECL|method|messageReceived
 specifier|public
 name|void
 name|messageReceived
@@ -2415,9 +2415,9 @@ name|INSTANCE
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|executor
 annotation|@
 name|Override
+DECL|method|executor
 specifier|public
 name|String
 name|executor
@@ -2450,9 +2450,9 @@ name|ACTION
 init|=
 literal|"search/phase/dfs"
 decl_stmt|;
-DECL|method|newInstance
 annotation|@
 name|Override
+DECL|method|newInstance
 specifier|public
 name|InternalSearchRequest
 name|newInstance
@@ -2464,9 +2464,9 @@ name|InternalSearchRequest
 argument_list|()
 return|;
 block|}
-DECL|method|messageReceived
 annotation|@
 name|Override
+DECL|method|messageReceived
 specifier|public
 name|void
 name|messageReceived
@@ -2498,9 +2498,9 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|executor
 annotation|@
 name|Override
+DECL|method|executor
 specifier|public
 name|String
 name|executor
@@ -2533,9 +2533,9 @@ name|ACTION
 init|=
 literal|"search/phase/query"
 decl_stmt|;
-DECL|method|newInstance
 annotation|@
 name|Override
+DECL|method|newInstance
 specifier|public
 name|InternalSearchRequest
 name|newInstance
@@ -2547,9 +2547,9 @@ name|InternalSearchRequest
 argument_list|()
 return|;
 block|}
-DECL|method|messageReceived
 annotation|@
 name|Override
+DECL|method|messageReceived
 specifier|public
 name|void
 name|messageReceived
@@ -2581,9 +2581,9 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|executor
 annotation|@
 name|Override
+DECL|method|executor
 specifier|public
 name|String
 name|executor
@@ -2616,9 +2616,9 @@ name|ACTION
 init|=
 literal|"search/phase/query/id"
 decl_stmt|;
-DECL|method|newInstance
 annotation|@
 name|Override
+DECL|method|newInstance
 specifier|public
 name|QuerySearchRequest
 name|newInstance
@@ -2630,9 +2630,9 @@ name|QuerySearchRequest
 argument_list|()
 return|;
 block|}
-DECL|method|messageReceived
 annotation|@
 name|Override
+DECL|method|messageReceived
 specifier|public
 name|void
 name|messageReceived
@@ -2664,9 +2664,9 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|executor
 annotation|@
 name|Override
+DECL|method|executor
 specifier|public
 name|String
 name|executor
@@ -2699,9 +2699,9 @@ name|ACTION
 init|=
 literal|"search/phase/query/scroll"
 decl_stmt|;
-DECL|method|newInstance
 annotation|@
 name|Override
+DECL|method|newInstance
 specifier|public
 name|InternalScrollSearchRequest
 name|newInstance
@@ -2713,9 +2713,9 @@ name|InternalScrollSearchRequest
 argument_list|()
 return|;
 block|}
-DECL|method|messageReceived
 annotation|@
 name|Override
+DECL|method|messageReceived
 specifier|public
 name|void
 name|messageReceived
@@ -2747,9 +2747,9 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|executor
 annotation|@
 name|Override
+DECL|method|executor
 specifier|public
 name|String
 name|executor
@@ -2782,9 +2782,9 @@ name|ACTION
 init|=
 literal|"search/phase/query+fetch"
 decl_stmt|;
-DECL|method|newInstance
 annotation|@
 name|Override
+DECL|method|newInstance
 specifier|public
 name|InternalSearchRequest
 name|newInstance
@@ -2796,9 +2796,9 @@ name|InternalSearchRequest
 argument_list|()
 return|;
 block|}
-DECL|method|messageReceived
 annotation|@
 name|Override
+DECL|method|messageReceived
 specifier|public
 name|void
 name|messageReceived
@@ -2830,9 +2830,9 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|executor
 annotation|@
 name|Override
+DECL|method|executor
 specifier|public
 name|String
 name|executor
@@ -2865,9 +2865,9 @@ name|ACTION
 init|=
 literal|"search/phase/query/query+fetch"
 decl_stmt|;
-DECL|method|newInstance
 annotation|@
 name|Override
+DECL|method|newInstance
 specifier|public
 name|QuerySearchRequest
 name|newInstance
@@ -2879,9 +2879,9 @@ name|QuerySearchRequest
 argument_list|()
 return|;
 block|}
-DECL|method|messageReceived
 annotation|@
 name|Override
+DECL|method|messageReceived
 specifier|public
 name|void
 name|messageReceived
@@ -2913,9 +2913,9 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|executor
 annotation|@
 name|Override
+DECL|method|executor
 specifier|public
 name|String
 name|executor
@@ -2948,9 +2948,9 @@ name|ACTION
 init|=
 literal|"search/phase/fetch/id"
 decl_stmt|;
-DECL|method|newInstance
 annotation|@
 name|Override
+DECL|method|newInstance
 specifier|public
 name|FetchSearchRequest
 name|newInstance
@@ -2962,9 +2962,9 @@ name|FetchSearchRequest
 argument_list|()
 return|;
 block|}
-DECL|method|messageReceived
 annotation|@
 name|Override
+DECL|method|messageReceived
 specifier|public
 name|void
 name|messageReceived
@@ -2996,9 +2996,9 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|executor
 annotation|@
 name|Override
+DECL|method|executor
 specifier|public
 name|String
 name|executor
@@ -3031,9 +3031,9 @@ name|ACTION
 init|=
 literal|"search/phase/query+fetch/scroll"
 decl_stmt|;
-DECL|method|newInstance
 annotation|@
 name|Override
+DECL|method|newInstance
 specifier|public
 name|InternalScrollSearchRequest
 name|newInstance
@@ -3045,9 +3045,9 @@ name|InternalScrollSearchRequest
 argument_list|()
 return|;
 block|}
-DECL|method|messageReceived
 annotation|@
 name|Override
+DECL|method|messageReceived
 specifier|public
 name|void
 name|messageReceived
@@ -3079,9 +3079,9 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|executor
 annotation|@
 name|Override
+DECL|method|executor
 specifier|public
 name|String
 name|executor
@@ -3114,9 +3114,9 @@ name|ACTION
 init|=
 literal|"search/phase/scan"
 decl_stmt|;
-DECL|method|newInstance
 annotation|@
 name|Override
+DECL|method|newInstance
 specifier|public
 name|InternalSearchRequest
 name|newInstance
@@ -3128,9 +3128,9 @@ name|InternalSearchRequest
 argument_list|()
 return|;
 block|}
-DECL|method|messageReceived
 annotation|@
 name|Override
+DECL|method|messageReceived
 specifier|public
 name|void
 name|messageReceived
@@ -3162,9 +3162,9 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|executor
 annotation|@
 name|Override
+DECL|method|executor
 specifier|public
 name|String
 name|executor
@@ -3197,9 +3197,9 @@ name|ACTION
 init|=
 literal|"search/phase/scan/scroll"
 decl_stmt|;
-DECL|method|newInstance
 annotation|@
 name|Override
+DECL|method|newInstance
 specifier|public
 name|InternalScrollSearchRequest
 name|newInstance
@@ -3211,9 +3211,9 @@ name|InternalScrollSearchRequest
 argument_list|()
 return|;
 block|}
-DECL|method|messageReceived
 annotation|@
 name|Override
+DECL|method|messageReceived
 specifier|public
 name|void
 name|messageReceived
@@ -3245,9 +3245,9 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|executor
 annotation|@
 name|Override
+DECL|method|executor
 specifier|public
 name|String
 name|executor

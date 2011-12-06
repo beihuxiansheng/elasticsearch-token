@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -19,6 +19,30 @@ operator|.
 name|support
 package|;
 end_package
+
+begin_import
+import|import
+name|com
+operator|.
+name|googlecode
+operator|.
+name|concurrentlinkedhashmap
+operator|.
+name|EvictionListener
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|googlecode
+operator|.
+name|concurrentlinkedhashmap
+operator|.
+name|Weigher
+import|;
+end_import
 
 begin_import
 import|import
@@ -69,34 +93,6 @@ operator|.
 name|elasticsearch
 operator|.
 name|ElasticSearchException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|concurrentlinkedhashmap
-operator|.
-name|EvictionListener
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|concurrentlinkedhashmap
-operator|.
-name|Weigher
 import|;
 end_import
 
@@ -371,9 +367,9 @@ argument_list|>
 name|cache
 parameter_list|()
 function_decl|;
-DECL|method|close
 annotation|@
 name|Override
+DECL|method|close
 specifier|public
 name|void
 name|close
@@ -385,9 +381,9 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|clear
 annotation|@
 name|Override
+DECL|method|clear
 specifier|public
 name|void
 name|clear
@@ -501,9 +497,9 @@ block|}
 block|}
 block|}
 block|}
-DECL|method|finished
 annotation|@
 name|Override
+DECL|method|finished
 specifier|public
 name|void
 name|finished
@@ -518,9 +514,9 @@ name|reader
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|clear
 annotation|@
 name|Override
+DECL|method|clear
 specifier|public
 name|void
 name|clear
@@ -633,9 +629,9 @@ block|}
 block|}
 block|}
 block|}
-DECL|method|entriesStats
 annotation|@
 name|Override
+DECL|method|entriesStats
 specifier|public
 name|EntriesStats
 name|entriesStats
@@ -675,9 +671,9 @@ name|seenReadersCount
 argument_list|)
 return|;
 block|}
-DECL|method|evictions
 annotation|@
 name|Override
+DECL|method|evictions
 specifier|public
 name|long
 name|evictions
@@ -690,9 +686,9 @@ name|count
 argument_list|()
 return|;
 block|}
-DECL|method|cache
 annotation|@
 name|Override
+DECL|method|cache
 specifier|public
 name|Filter
 name|cache
@@ -734,9 +730,9 @@ name|this
 argument_list|)
 return|;
 block|}
-DECL|method|isCached
 annotation|@
 name|Override
+DECL|method|isCached
 specifier|public
 name|boolean
 name|isCached
@@ -793,9 +789,9 @@ operator|=
 name|cache
 expr_stmt|;
 block|}
-DECL|method|getDocIdSet
 annotation|@
 name|Override
+DECL|method|getDocIdSet
 specifier|public
 name|DocIdSet
 name|getDocIdSet
@@ -1122,9 +1118,9 @@ name|FACTOR
 init|=
 literal|10l
 decl_stmt|;
-DECL|method|weightOf
 annotation|@
 name|Override
+DECL|method|weightOf
 specifier|public
 name|int
 name|weightOf
@@ -1172,9 +1168,9 @@ name|weight
 return|;
 block|}
 block|}
-DECL|method|onEviction
 annotation|@
 name|Override
+DECL|method|onEviction
 specifier|public
 name|void
 name|onEviction
@@ -1300,9 +1296,9 @@ return|return
 name|filterKey
 return|;
 block|}
-DECL|method|equals
 annotation|@
 name|Override
+DECL|method|equals
 specifier|public
 name|boolean
 name|equals
@@ -1348,9 +1344,9 @@ argument_list|)
 operator|)
 return|;
 block|}
-DECL|method|hashCode
 annotation|@
 name|Override
+DECL|method|hashCode
 specifier|public
 name|int
 name|hashCode

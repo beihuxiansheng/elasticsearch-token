@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -15,6 +15,34 @@ operator|.
 name|aliases
 package|;
 end_package
+
+begin_import
+import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|ImmutableMap
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|UnmodifiableIterator
+import|;
+end_import
 
 begin_import
 import|import
@@ -67,34 +95,6 @@ operator|.
 name|common
 operator|.
 name|Nullable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|UnmodifiableIterator
 import|;
 end_import
 
@@ -282,12 +282,12 @@ name|collect
 operator|.
 name|MapBuilder
 operator|.
-name|*
+name|newMapBuilder
 import|;
 end_import
 
 begin_comment
-comment|/**  * @author imotov  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -335,9 +335,9 @@ operator|new
 name|Object
 argument_list|()
 decl_stmt|;
-DECL|method|IndexAliasesService
 annotation|@
 name|Inject
+DECL|method|IndexAliasesService
 specifier|public
 name|IndexAliasesService
 parameter_list|(
@@ -436,7 +436,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns the filter associated with listed filtering aliases.      *      *<p>The list of filtering aliases should be obtained by calling MetaData.filteringAliases.      * Returns<tt>null</tt> if no filtering is required.</p>      */
+comment|/**      * Returns the filter associated with listed filtering aliases.      *<p/>      *<p>The list of filtering aliases should be obtained by calling MetaData.filteringAliases.      * Returns<tt>null</tt> if no filtering is required.</p>      */
 DECL|method|aliasFilter
 specifier|public
 name|Filter
@@ -806,9 +806,9 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|iterator
 annotation|@
 name|Override
+DECL|method|iterator
 specifier|public
 name|UnmodifiableIterator
 argument_list|<

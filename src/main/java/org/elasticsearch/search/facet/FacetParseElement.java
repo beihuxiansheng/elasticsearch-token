@@ -18,6 +18,20 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|Lists
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -27,20 +41,6 @@ operator|.
 name|search
 operator|.
 name|Filter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Lists
 import|;
 end_import
 
@@ -197,7 +197,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<pre>  * facets : {  *  facet1: {  *      query : { ... },  *      global : false  *  },  *  facet2: {  *      terms : {  *          name : "myfield",  *          size : 12  *      },  *      global : false  *  }  * }  *</pre>  *  * @author kimchy (shay.banon)  */
+comment|/**  *<pre>  * facets : {  *  facet1: {  *      query : { ... },  *      global : false  *  },  *  facet2: {  *      terms : {  *          name : "myfield",  *          size : 12  *      },  *      global : false  *  }  * }  *</pre>  *  *  */
 end_comment
 
 begin_class
@@ -214,9 +214,9 @@ specifier|final
 name|FacetProcessors
 name|facetProcessors
 decl_stmt|;
-DECL|method|FacetParseElement
 annotation|@
 name|Inject
+DECL|method|FacetParseElement
 specifier|public
 name|FacetParseElement
 parameter_list|(
@@ -231,9 +231,9 @@ operator|=
 name|facetProcessors
 expr_stmt|;
 block|}
-DECL|method|parse
 annotation|@
 name|Override
+DECL|method|parse
 specifier|public
 name|void
 name|parse

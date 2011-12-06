@@ -18,9 +18,9 @@ end_package
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
@@ -69,7 +69,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -89,9 +89,9 @@ name|FacetProcessor
 argument_list|>
 name|processors
 decl_stmt|;
-DECL|method|FacetProcessors
 annotation|@
 name|Inject
+DECL|method|FacetProcessors
 specifier|public
 name|FacetProcessors
 parameter_list|(

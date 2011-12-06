@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -109,7 +109,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_comment
@@ -257,9 +257,9 @@ operator|=
 name|field
 expr_stmt|;
 block|}
-DECL|method|compare
 annotation|@
 name|Override
+DECL|method|compare
 specifier|public
 name|int
 name|compare
@@ -358,9 +358,9 @@ name|val2
 argument_list|)
 return|;
 block|}
-DECL|method|compareBottom
 annotation|@
 name|Override
+DECL|method|compareBottom
 specifier|public
 name|int
 name|compareBottom
@@ -483,9 +483,9 @@ argument_list|)
 return|;
 block|}
 block|}
-DECL|method|copy
 annotation|@
 name|Override
+DECL|method|copy
 specifier|public
 name|void
 name|copy
@@ -536,9 +536,9 @@ operator|=
 name|currentReaderGen
 expr_stmt|;
 block|}
-DECL|method|setNextReader
 annotation|@
 name|Override
+DECL|method|setNextReader
 specifier|public
 name|void
 name|setNextReader
@@ -632,9 +632,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|setBottom
 annotation|@
 name|Override
+DECL|method|setBottom
 specifier|public
 name|void
 name|setBottom
@@ -770,9 +770,9 @@ block|}
 block|}
 block|}
 block|}
-DECL|method|value
 annotation|@
 name|Override
+DECL|method|value
 specifier|public
 name|Comparable
 name|value

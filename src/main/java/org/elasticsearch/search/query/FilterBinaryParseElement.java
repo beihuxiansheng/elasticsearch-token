@@ -71,7 +71,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -82,9 +82,9 @@ name|FilterBinaryParseElement
 implements|implements
 name|SearchParseElement
 block|{
-DECL|method|parse
 annotation|@
 name|Override
+DECL|method|parse
 specifier|public
 name|void
 name|parse

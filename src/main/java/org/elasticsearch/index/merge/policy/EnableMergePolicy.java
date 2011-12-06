@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Allows to control if merge should be enabled on the current thread or not. Defaults to  * not being enabled.  *  *<p>This allows us to disable merging for things like adding docs or refresh (which might block  * if no threads are there to handle the merge) and do it on flush (for example) or on explicit API call.  *  * @author kimchy (shay.banon)  */
+comment|/**  * Allows to control if merge should be enabled on the current thread or not. Defaults to  * not being enabled.  *<p/>  *<p>This allows us to disable merging for things like adding docs or refresh (which might block  * if no threads are there to handle the merge) and do it on flush (for example) or on explicit API call.  *  *  */
 end_comment
 
 begin_interface

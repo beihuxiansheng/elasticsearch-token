@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -323,6 +323,20 @@ operator|.
 name|network
 operator|.
 name|NetworkService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|ImmutableSettings
 import|;
 end_import
 
@@ -824,24 +838,8 @@ name|TimeUnit
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|ImmutableSettings
-operator|.
-name|*
-import|;
-end_import
-
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -902,6 +900,8 @@ name|ElasticSearchException
 block|{
 name|this
 argument_list|(
+name|ImmutableSettings
+operator|.
 name|Builder
 operator|.
 name|EMPTY_SETTINGS
@@ -1320,9 +1320,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|settings
 annotation|@
 name|Override
+DECL|method|settings
 specifier|public
 name|Settings
 name|settings
@@ -1334,9 +1334,9 @@ operator|.
 name|settings
 return|;
 block|}
-DECL|method|client
 annotation|@
 name|Override
+DECL|method|client
 specifier|public
 name|Client
 name|client
@@ -1664,9 +1664,9 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|stop
 annotation|@
 name|Override
+DECL|method|stop
 specifier|public
 name|Node
 name|stop
@@ -2634,9 +2634,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|isClosed
 annotation|@
 name|Override
+DECL|method|isClosed
 specifier|public
 name|boolean
 name|isClosed

@@ -50,7 +50,7 @@ name|annotation
 operator|.
 name|ElementType
 operator|.
-name|*
+name|ANNOTATION_TYPE
 import|;
 end_import
 
@@ -64,12 +64,12 @@ name|annotation
 operator|.
 name|RetentionPolicy
 operator|.
-name|*
+name|RUNTIME
 import|;
 end_import
 
 begin_comment
-comment|/**  * Annotates annotations which are used for scoping. Only one such annotation  * may apply to a single implementation class. You must also annotate scope  * annotations with {@code @Retention(RUNTIME)}. For example:  *  *<pre>  *   {@code @}Retention(RUNTIME)  *   {@code @}Target(TYPE)  *   {@code @}ScopeAnnotation  *   public {@code @}interface SessionScoped {}  *</pre>  *  * @author crazybob@google.com (Bob Lee)  */
+comment|/**  * Annotates annotations which are used for scoping. Only one such annotation  * may apply to a single implementation class. You must also annotate scope  * annotations with {@code @Retention(RUNTIME)}. For example:  *<p/>  *<pre>  *   {@code @}Retention(RUNTIME)  *   {@code @}Target(TYPE)  *   {@code @}ScopeAnnotation  *   public {@code @}interface SessionScoped {}  *</pre>  *  * @author crazybob@google.com (Bob Lee)  */
 end_comment
 
 begin_annotation_defn

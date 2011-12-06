@@ -138,7 +138,7 @@ name|settings
 operator|.
 name|ImmutableSettings
 operator|.
-name|*
+name|settingsBuilder
 import|;
 end_import
 
@@ -150,7 +150,7 @@ name|hamcrest
 operator|.
 name|MatcherAssert
 operator|.
-name|*
+name|assertThat
 import|;
 end_import
 
@@ -162,12 +162,24 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|nullValue
 import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -180,9 +192,9 @@ name|ConcurrentDocumentOperationTests
 extends|extends
 name|AbstractNodesTests
 block|{
-DECL|method|closeNodes
 annotation|@
 name|AfterMethod
+DECL|method|closeNodes
 specifier|public
 name|void
 name|closeNodes
@@ -192,9 +204,9 @@ name|closeAllNodes
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|concurrentOperationOnSameDocTest
 annotation|@
 name|Test
+DECL|method|concurrentOperationOnSameDocTest
 specifier|public
 name|void
 name|concurrentOperationOnSameDocTest

@@ -139,7 +139,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -159,16 +159,16 @@ name|NAME
 init|=
 literal|"top_children"
 decl_stmt|;
-DECL|method|TopChildrenQueryParser
 annotation|@
 name|Inject
+DECL|method|TopChildrenQueryParser
 specifier|public
 name|TopChildrenQueryParser
 parameter_list|()
 block|{     }
-DECL|method|names
 annotation|@
 name|Override
+DECL|method|names
 specifier|public
 name|String
 index|[]
@@ -191,9 +191,9 @@ argument_list|)
 block|}
 return|;
 block|}
-DECL|method|parse
 annotation|@
 name|Override
+DECL|method|parse
 specifier|public
 name|Query
 name|parse

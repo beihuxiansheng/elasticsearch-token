@@ -22,6 +22,28 @@ end_package
 
 begin_import
 import|import
+name|gnu
+operator|.
+name|trove
+operator|.
+name|ExtTObjectIntHasMap
+import|;
+end_import
+
+begin_import
+import|import
+name|gnu
+operator|.
+name|trove
+operator|.
+name|impl
+operator|.
+name|Constants
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -151,36 +173,6 @@ operator|.
 name|settings
 operator|.
 name|Settings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|trove
-operator|.
-name|ExtTObjectIntHasMap
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|trove
-operator|.
-name|impl
-operator|.
-name|Constants
 import|;
 end_import
 
@@ -369,7 +361,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -397,9 +389,9 @@ name|SimpleIdReaderCache
 argument_list|>
 name|idReaders
 decl_stmt|;
-DECL|method|SimpleIdCache
 annotation|@
 name|Inject
+DECL|method|SimpleIdCache
 specifier|public
 name|SimpleIdCache
 parameter_list|(
@@ -427,9 +419,9 @@ name|newConcurrentMap
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|close
 annotation|@
 name|Override
+DECL|method|close
 specifier|public
 name|void
 name|close
@@ -441,9 +433,9 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|clear
 annotation|@
 name|Override
+DECL|method|clear
 specifier|public
 name|void
 name|clear
@@ -455,9 +447,9 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|finished
 annotation|@
 name|Override
+DECL|method|finished
 specifier|public
 name|void
 name|finished
@@ -472,9 +464,9 @@ name|reader
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|clear
 annotation|@
 name|Override
+DECL|method|clear
 specifier|public
 name|void
 name|clear
@@ -494,9 +486,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|reader
 annotation|@
 name|Override
+DECL|method|reader
 specifier|public
 name|IdReaderCache
 name|reader
@@ -517,7 +509,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-DECL|method|iterator
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -527,6 +518,7 @@ block|}
 argument_list|)
 annotation|@
 name|Override
+DECL|method|iterator
 specifier|public
 name|Iterator
 argument_list|<
@@ -555,9 +547,9 @@ block|{
 literal|"StringEquality"
 block|}
 argument_list|)
-DECL|method|refresh
 annotation|@
 name|Override
+DECL|method|refresh
 specifier|public
 name|void
 name|refresh

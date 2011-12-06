@@ -201,7 +201,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -223,9 +223,9 @@ specifier|final
 name|IndicesService
 name|indicesService
 decl_stmt|;
-DECL|method|TransportPercolateAction
 annotation|@
 name|Inject
+DECL|method|TransportPercolateAction
 specifier|public
 name|TransportPercolateAction
 parameter_list|(
@@ -263,9 +263,9 @@ operator|=
 name|indicesService
 expr_stmt|;
 block|}
-DECL|method|executor
 annotation|@
 name|Override
+DECL|method|executor
 specifier|protected
 name|String
 name|executor
@@ -279,9 +279,9 @@ operator|.
 name|PERCOLATE
 return|;
 block|}
-DECL|method|newRequest
 annotation|@
 name|Override
+DECL|method|newRequest
 specifier|protected
 name|PercolateRequest
 name|newRequest
@@ -293,9 +293,9 @@ name|PercolateRequest
 argument_list|()
 return|;
 block|}
-DECL|method|newResponse
 annotation|@
 name|Override
+DECL|method|newResponse
 specifier|protected
 name|PercolateResponse
 name|newResponse
@@ -307,9 +307,9 @@ name|PercolateResponse
 argument_list|()
 return|;
 block|}
-DECL|method|transportAction
 annotation|@
 name|Override
+DECL|method|transportAction
 specifier|protected
 name|String
 name|transportAction
@@ -321,9 +321,9 @@ operator|.
 name|PERCOLATE
 return|;
 block|}
-DECL|method|transportShardAction
 annotation|@
 name|Override
+DECL|method|transportShardAction
 specifier|protected
 name|String
 name|transportShardAction
@@ -333,9 +333,9 @@ return|return
 literal|"indices/percolate/shard"
 return|;
 block|}
-DECL|method|shards
 annotation|@
 name|Override
+DECL|method|shards
 specifier|protected
 name|ShardsIterator
 name|shards
@@ -383,9 +383,9 @@ name|randomAllActiveShardsIt
 argument_list|()
 return|;
 block|}
-DECL|method|shardOperation
 annotation|@
 name|Override
+DECL|method|shardOperation
 specifier|protected
 name|PercolateResponse
 name|shardOperation

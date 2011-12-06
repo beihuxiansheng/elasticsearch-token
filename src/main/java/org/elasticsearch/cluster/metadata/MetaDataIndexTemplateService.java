@@ -18,6 +18,20 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|Maps
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -81,20 +95,6 @@ operator|.
 name|common
 operator|.
 name|Strings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Maps
 import|;
 end_import
 
@@ -201,7 +201,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -218,9 +218,9 @@ specifier|final
 name|ClusterService
 name|clusterService
 decl_stmt|;
-DECL|method|MetaDataIndexTemplateService
 annotation|@
 name|Inject
+DECL|method|MetaDataIndexTemplateService
 specifier|public
 name|MetaDataIndexTemplateService
 parameter_list|(

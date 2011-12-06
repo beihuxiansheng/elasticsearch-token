@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -18,11 +18,7 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
+name|gnu
 operator|.
 name|trove
 operator|.
@@ -34,11 +30,7 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
+name|gnu
 operator|.
 name|trove
 operator|.
@@ -86,9 +78,9 @@ end_import
 
 begin_import
 import|import static
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
@@ -96,12 +88,12 @@ name|collect
 operator|.
 name|Lists
 operator|.
-name|*
+name|newArrayList
 import|;
 end_import
 
 begin_comment
-comment|/**  * A query that parses a query string and runs it. There are two modes that this operates. The first,  * when no field is added (using {@link #field(String)}, will run the query once and non prefixed fields  * will use the {@link #defaultField(String)} set. The second, when one or more fields are added  * (using {@link #field(String)}), will run the parsed query against the provided fields, and combine  * them either using DisMax or a plain boolean query (see {@link #useDisMax(boolean)}).  *  * @author kimchy (shay.baon)  */
+comment|/**  * A query that parses a query string and runs it. There are two modes that this operates. The first,  * when no field is added (using {@link #field(String)}, will run the query once and non prefixed fields  * will use the {@link #defaultField(String)} set. The second, when one or more fields are added  * (using {@link #field(String)}), will run the parsed query against the provided fields, and combine  * them either using DisMax or a plain boolean query (see {@link #useDisMax(boolean)}).  *  * (shay.baon)  */
 end_comment
 
 begin_class
@@ -426,7 +418,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the boolean operator of the query parser used to parse the query string.      *      *<p>In default mode ({@link FieldQueryBuilder.Operator#OR}) terms without any modifiers      * are considered optional: for example<code>capital of Hungary</code> is equal to      *<code>capital OR of OR Hungary</code>.      *      *<p>In {@link FieldQueryBuilder.Operator#AND} mode terms are considered to be in conjunction: the      * above mentioned query is parsed as<code>capital AND of AND Hungary</code>      */
+comment|/**      * Sets the boolean operator of the query parser used to parse the query string.      *<p/>      *<p>In default mode ({@link FieldQueryBuilder.Operator#OR}) terms without any modifiers      * are considered optional: for example<code>capital of Hungary</code> is equal to      *<code>capital OR of OR Hungary</code>.      *<p/>      *<p>In {@link FieldQueryBuilder.Operator#AND} mode terms are considered to be in conjunction: the      * above mentioned query is parsed as<code>capital AND of AND Hungary</code>      */
 DECL|method|defaultOperator
 specifier|public
 name|QueryStringQueryBuilder
@@ -466,7 +458,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set to true if phrase queries will be automatically generated      * when the analyzer returns more than one term from whitespace      * delimited text.      * NOTE: this behavior may not be suitable for all languages.      *<p>      * Set to false if phrase queries should only be generated when      * surrounded by double quotes.      */
+comment|/**      * Set to true if phrase queries will be automatically generated      * when the analyzer returns more than one term from whitespace      * delimited text.      * NOTE: this behavior may not be suitable for all languages.      *<p/>      * Set to false if phrase queries should only be generated when      * surrounded by double quotes.      */
 DECL|method|autoGeneratePhraseQueries
 specifier|public
 name|QueryStringQueryBuilder
@@ -526,7 +518,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set to<tt>true</tt> to enable position increments in result query. Defaults to      *<tt>true</tt>.      *      *<p>When set, result phrase and multi-phrase queries will be aware of position increments.      * Useful when e.g. a StopFilter increases the position increment of the token that follows an omitted token.      */
+comment|/**      * Set to<tt>true</tt> to enable position increments in result query. Defaults to      *<tt>true</tt>.      *<p/>      *<p>When set, result phrase and multi-phrase queries will be aware of position increments.      * Useful when e.g. a StopFilter increases the position increment of the token that follows an omitted token.      */
 DECL|method|enablePositionIncrements
 specifier|public
 name|QueryStringQueryBuilder
@@ -684,9 +676,9 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|doXContent
 annotation|@
 name|Override
+DECL|method|doXContent
 specifier|protected
 name|void
 name|doXContent

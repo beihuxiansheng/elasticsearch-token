@@ -22,6 +22,20 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|Lists
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -208,20 +222,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|collect
-operator|.
-name|Lists
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|inject
 operator|.
 name|Inject
@@ -341,7 +341,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -363,9 +363,9 @@ specifier|final
 name|IndicesService
 name|indicesService
 decl_stmt|;
-DECL|method|TransportAnalyzeAction
 annotation|@
 name|Inject
+DECL|method|TransportAnalyzeAction
 specifier|public
 name|TransportAnalyzeAction
 parameter_list|(
@@ -403,9 +403,9 @@ operator|=
 name|indicesService
 expr_stmt|;
 block|}
-DECL|method|executor
 annotation|@
 name|Override
+DECL|method|executor
 specifier|protected
 name|String
 name|executor
@@ -419,9 +419,9 @@ operator|.
 name|INDEX
 return|;
 block|}
-DECL|method|newRequest
 annotation|@
 name|Override
+DECL|method|newRequest
 specifier|protected
 name|AnalyzeRequest
 name|newRequest
@@ -433,9 +433,9 @@ name|AnalyzeRequest
 argument_list|()
 return|;
 block|}
-DECL|method|newResponse
 annotation|@
 name|Override
+DECL|method|newResponse
 specifier|protected
 name|AnalyzeResponse
 name|newResponse
@@ -447,9 +447,9 @@ name|AnalyzeResponse
 argument_list|()
 return|;
 block|}
-DECL|method|transportAction
 annotation|@
 name|Override
+DECL|method|transportAction
 specifier|protected
 name|String
 name|transportAction
@@ -465,9 +465,9 @@ operator|.
 name|ANALYZE
 return|;
 block|}
-DECL|method|transportShardAction
 annotation|@
 name|Override
+DECL|method|transportShardAction
 specifier|protected
 name|String
 name|transportShardAction
@@ -477,9 +477,9 @@ return|return
 literal|"indices/analyze/shard"
 return|;
 block|}
-DECL|method|shards
 annotation|@
 name|Override
+DECL|method|shards
 specifier|protected
 name|ShardsIterator
 name|shards
@@ -527,9 +527,9 @@ name|randomAllActiveShardsIt
 argument_list|()
 return|;
 block|}
-DECL|method|shardOperation
 annotation|@
 name|Override
+DECL|method|shardOperation
 specifier|protected
 name|AnalyzeResponse
 name|shardOperation

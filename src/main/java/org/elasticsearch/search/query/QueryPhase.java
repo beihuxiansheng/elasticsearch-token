@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -15,6 +15,20 @@ operator|.
 name|query
 package|;
 end_package
+
+begin_import
+import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|ImmutableMap
+import|;
+end_import
 
 begin_import
 import|import
@@ -40,105 +54,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Collector
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|Filter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|FilteredQuery
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|Query
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|ScoreDoc
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|Scorer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|SortField
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|TopDocs
+name|*
 import|;
 end_import
 
@@ -153,20 +69,6 @@ operator|.
 name|search
 operator|.
 name|SearchType
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
 import|;
 end_import
 
@@ -373,7 +275,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (Shay Banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -390,9 +292,9 @@ specifier|final
 name|FacetPhase
 name|facetPhase
 decl_stmt|;
-DECL|method|QueryPhase
 annotation|@
 name|Inject
+DECL|method|QueryPhase
 specifier|public
 name|QueryPhase
 parameter_list|(
@@ -407,9 +309,9 @@ operator|=
 name|facetPhase
 expr_stmt|;
 block|}
-DECL|method|parseElements
 annotation|@
 name|Override
+DECL|method|parseElements
 specifier|public
 name|Map
 argument_list|<
@@ -589,9 +491,9 @@ name|build
 argument_list|()
 return|;
 block|}
-DECL|method|preProcess
 annotation|@
 name|Override
+DECL|method|preProcess
 specifier|public
 name|void
 name|preProcess
@@ -1564,9 +1466,9 @@ name|totalHits
 init|=
 literal|0
 decl_stmt|;
-DECL|method|setScorer
 annotation|@
 name|Override
+DECL|method|setScorer
 specifier|public
 name|void
 name|setScorer
@@ -1577,9 +1479,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{         }
-DECL|method|collect
 annotation|@
 name|Override
+DECL|method|collect
 specifier|public
 name|void
 name|collect
@@ -1594,9 +1496,9 @@ name|totalHits
 operator|++
 expr_stmt|;
 block|}
-DECL|method|setNextReader
 annotation|@
 name|Override
+DECL|method|setNextReader
 specifier|public
 name|void
 name|setNextReader
@@ -1610,9 +1512,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{         }
-DECL|method|acceptsDocsOutOfOrder
 annotation|@
 name|Override
+DECL|method|acceptsDocsOutOfOrder
 specifier|public
 name|boolean
 name|acceptsDocsOutOfOrder
@@ -1783,9 +1685,9 @@ literal|0f
 argument_list|)
 return|;
 block|}
-DECL|method|setScorer
 annotation|@
 name|Override
+DECL|method|setScorer
 specifier|public
 name|void
 name|setScorer
@@ -1803,9 +1705,9 @@ operator|=
 name|scorer
 expr_stmt|;
 block|}
-DECL|method|collect
 annotation|@
 name|Override
+DECL|method|collect
 specifier|public
 name|void
 name|collect
@@ -1861,9 +1763,9 @@ name|StopCollectingException
 throw|;
 block|}
 block|}
-DECL|method|setNextReader
 annotation|@
 name|Override
+DECL|method|setNextReader
 specifier|public
 name|void
 name|setNextReader
@@ -1884,9 +1786,9 @@ operator|=
 name|docBase
 expr_stmt|;
 block|}
-DECL|method|acceptsDocsOutOfOrder
 annotation|@
 name|Override
+DECL|method|acceptsDocsOutOfOrder
 specifier|public
 name|boolean
 name|acceptsDocsOutOfOrder
@@ -1914,9 +1816,9 @@ name|StopCollectingException
 extends|extends
 name|RuntimeException
 block|{
-DECL|method|fillInStackTrace
 annotation|@
 name|Override
+DECL|method|fillInStackTrace
 specifier|public
 name|Throwable
 name|fillInStackTrace

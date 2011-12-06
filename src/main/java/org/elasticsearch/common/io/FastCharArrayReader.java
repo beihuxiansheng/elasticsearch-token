@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -37,7 +37,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -106,7 +106,7 @@ operator|.
 name|length
 expr_stmt|;
 block|}
-comment|/**      * Creates a CharArrayReader from the specified array of chars.      *      *<p> The resulting reader will start reading at the given      *<tt>offset</tt>.  The total number of<tt>char</tt> values that can be      * read from this reader will be either<tt>length</tt> or      *<tt>buf.length-offset</tt>, whichever is smaller.      *      * @param buf    Input buffer (not copied)      * @param offset Offset of the first char to read      * @param length Number of chars to read      * @throws IllegalArgumentException If<tt>offset</tt> is negative or greater than      *<tt>buf.length</tt>, or if<tt>length</tt> is negative, or if      *                                  the sum of these two values is negative.      */
+comment|/**      * Creates a CharArrayReader from the specified array of chars.      *<p/>      *<p> The resulting reader will start reading at the given      *<tt>offset</tt>.  The total number of<tt>char</tt> values that can be      * read from this reader will be either<tt>length</tt> or      *<tt>buf.length-offset</tt>, whichever is smaller.      *      * @param buf    Input buffer (not copied)      * @param offset Offset of the first char to read      * @param length Number of chars to read      * @throws IllegalArgumentException If<tt>offset</tt> is negative or greater than      *<tt>buf.length</tt>, or if<tt>length</tt> is negative, or if      *                                  the sum of these two values is negative.      */
 DECL|method|FastCharArrayReader
 specifier|public
 name|FastCharArrayReader
@@ -398,7 +398,7 @@ return|return
 name|len
 return|;
 block|}
-comment|/**      * Skips characters.  Returns the number of characters that were skipped.      *      *<p>The<code>n</code> parameter may be negative, even though the      *<code>skip</code> method of the {@link Reader} superclass throws      * an exception in this case. If<code>n</code> is negative, then      * this method does nothing and returns<code>0</code>.      *      * @param n The number of characters to skip      * @return The number of characters actually skipped      * @throws IOException If the stream is closed, or an I/O error occurs      */
+comment|/**      * Skips characters.  Returns the number of characters that were skipped.      *<p/>      *<p>The<code>n</code> parameter may be negative, even though the      *<code>skip</code> method of the {@link Reader} superclass throws      * an exception in this case. If<code>n</code> is negative, then      * this method does nothing and returns<code>0</code>.      *      * @param n The number of characters to skip      * @return The number of characters actually skipped      * @throws IOException If the stream is closed, or an I/O error occurs      */
 DECL|method|skip
 specifier|public
 name|long

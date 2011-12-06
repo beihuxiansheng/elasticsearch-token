@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -22,19 +22,7 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|ElasticSearchIllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
+name|codehaus
 operator|.
 name|jackson
 operator|.
@@ -46,13 +34,21 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|common
+name|codehaus
 operator|.
 name|jackson
 operator|.
 name|JsonToken
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|ElasticSearchIllegalStateException
 import|;
 end_import
 
@@ -97,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -128,9 +124,9 @@ operator|=
 name|parser
 expr_stmt|;
 block|}
-DECL|method|contentType
 annotation|@
 name|Override
+DECL|method|contentType
 specifier|public
 name|XContentType
 name|contentType
@@ -142,9 +138,9 @@ operator|.
 name|JSON
 return|;
 block|}
-DECL|method|nextToken
 annotation|@
 name|Override
+DECL|method|nextToken
 specifier|public
 name|Token
 name|nextToken
@@ -162,9 +158,9 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-DECL|method|skipChildren
 annotation|@
 name|Override
+DECL|method|skipChildren
 specifier|public
 name|void
 name|skipChildren
@@ -178,9 +174,9 @@ name|skipChildren
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|currentToken
 annotation|@
 name|Override
+DECL|method|currentToken
 specifier|public
 name|Token
 name|currentToken
@@ -196,9 +192,9 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-DECL|method|numberType
 annotation|@
 name|Override
+DECL|method|numberType
 specifier|public
 name|NumberType
 name|numberType
@@ -216,9 +212,9 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-DECL|method|estimatedNumberType
 annotation|@
 name|Override
+DECL|method|estimatedNumberType
 specifier|public
 name|boolean
 name|estimatedNumberType
@@ -228,9 +224,9 @@ return|return
 literal|true
 return|;
 block|}
-DECL|method|currentName
 annotation|@
 name|Override
+DECL|method|currentName
 specifier|public
 name|String
 name|currentName
@@ -245,9 +241,9 @@ name|getCurrentName
 argument_list|()
 return|;
 block|}
-DECL|method|doBooleanValue
 annotation|@
 name|Override
+DECL|method|doBooleanValue
 specifier|protected
 name|boolean
 name|doBooleanValue
@@ -262,9 +258,9 @@ name|getBooleanValue
 argument_list|()
 return|;
 block|}
-DECL|method|text
 annotation|@
 name|Override
+DECL|method|text
 specifier|public
 name|String
 name|text
@@ -279,9 +275,9 @@ name|getText
 argument_list|()
 return|;
 block|}
-DECL|method|hasTextCharacters
 annotation|@
 name|Override
+DECL|method|hasTextCharacters
 specifier|public
 name|boolean
 name|hasTextCharacters
@@ -294,9 +290,9 @@ name|hasTextCharacters
 argument_list|()
 return|;
 block|}
-DECL|method|textCharacters
 annotation|@
 name|Override
+DECL|method|textCharacters
 specifier|public
 name|char
 index|[]
@@ -312,9 +308,9 @@ name|getTextCharacters
 argument_list|()
 return|;
 block|}
-DECL|method|textLength
 annotation|@
 name|Override
+DECL|method|textLength
 specifier|public
 name|int
 name|textLength
@@ -329,9 +325,9 @@ name|getTextLength
 argument_list|()
 return|;
 block|}
-DECL|method|textOffset
 annotation|@
 name|Override
+DECL|method|textOffset
 specifier|public
 name|int
 name|textOffset
@@ -346,9 +342,9 @@ name|getTextOffset
 argument_list|()
 return|;
 block|}
-DECL|method|numberValue
 annotation|@
 name|Override
+DECL|method|numberValue
 specifier|public
 name|Number
 name|numberValue
@@ -363,9 +359,9 @@ name|getNumberValue
 argument_list|()
 return|;
 block|}
-DECL|method|doShortValue
 annotation|@
 name|Override
+DECL|method|doShortValue
 specifier|public
 name|short
 name|doShortValue
@@ -380,9 +376,9 @@ name|getShortValue
 argument_list|()
 return|;
 block|}
-DECL|method|doIntValue
 annotation|@
 name|Override
+DECL|method|doIntValue
 specifier|public
 name|int
 name|doIntValue
@@ -397,9 +393,9 @@ name|getIntValue
 argument_list|()
 return|;
 block|}
-DECL|method|doLongValue
 annotation|@
 name|Override
+DECL|method|doLongValue
 specifier|public
 name|long
 name|doLongValue
@@ -414,9 +410,9 @@ name|getLongValue
 argument_list|()
 return|;
 block|}
-DECL|method|doFloatValue
 annotation|@
 name|Override
+DECL|method|doFloatValue
 specifier|public
 name|float
 name|doFloatValue
@@ -431,9 +427,9 @@ name|getFloatValue
 argument_list|()
 return|;
 block|}
-DECL|method|doDoubleValue
 annotation|@
 name|Override
+DECL|method|doDoubleValue
 specifier|public
 name|double
 name|doDoubleValue
@@ -448,9 +444,9 @@ name|getDoubleValue
 argument_list|()
 return|;
 block|}
-DECL|method|binaryValue
 annotation|@
 name|Override
+DECL|method|binaryValue
 specifier|public
 name|byte
 index|[]
@@ -466,9 +462,9 @@ name|getBinaryValue
 argument_list|()
 return|;
 block|}
-DECL|method|close
 annotation|@
 name|Override
+DECL|method|close
 specifier|public
 name|void
 name|close

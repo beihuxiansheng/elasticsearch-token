@@ -245,7 +245,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * @return The smallest BloomFilter that can provide the given false positive      *         probability rate for the given number of elements.      *      *         Asserts that the given probability can be satisfied using this filter.      */
+comment|/**      * @return The smallest BloomFilter that can provide the given false positive      *         probability rate for the given number of elements.      *<p/>      *         Asserts that the given probability can be satisfied using this filter.      */
 DECL|method|getFilter
 specifier|public
 specifier|static

@@ -56,7 +56,7 @@ name|settings
 operator|.
 name|ImmutableSettings
 operator|.
-name|*
+name|settingsBuilder
 import|;
 end_import
 
@@ -72,9 +72,9 @@ name|AbstractZenNodesTests
 extends|extends
 name|AbstractNodesTests
 block|{
-DECL|method|setUpZenDiscoSettings
 annotation|@
 name|BeforeClass
+DECL|method|setUpZenDiscoSettings
 specifier|public
 name|void
 name|setUpZenDiscoSettings

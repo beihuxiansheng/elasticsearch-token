@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -110,91 +110,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|InternalMapper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|Mapper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|MapperParsingException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|MergeContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|MergeMappingException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|ParseContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|RootMapper
+name|*
 import|;
 end_import
 
@@ -264,7 +180,7 @@ name|support
 operator|.
 name|XContentMapValues
 operator|.
-name|*
+name|nodeBooleanValue
 import|;
 end_import
 
@@ -280,7 +196,7 @@ name|mapper
 operator|.
 name|MapperBuilders
 operator|.
-name|*
+name|routing
 import|;
 end_import
 
@@ -298,12 +214,12 @@ name|core
 operator|.
 name|TypeParsers
 operator|.
-name|*
+name|parseField
 import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -521,9 +437,9 @@ return|return
 name|builder
 return|;
 block|}
-DECL|method|build
 annotation|@
 name|Override
+DECL|method|build
 specifier|public
 name|RoutingFieldMapper
 name|build
@@ -557,9 +473,9 @@ name|Mapper
 operator|.
 name|TypeParser
 block|{
-DECL|method|parse
 annotation|@
 name|Override
+DECL|method|parse
 specifier|public
 name|Mapper
 operator|.
@@ -883,9 +799,9 @@ name|field
 argument_list|)
 return|;
 block|}
-DECL|method|value
 annotation|@
 name|Override
+DECL|method|value
 specifier|public
 name|String
 name|value
@@ -901,9 +817,9 @@ name|stringValue
 argument_list|()
 return|;
 block|}
-DECL|method|valueFromString
 annotation|@
 name|Override
+DECL|method|valueFromString
 specifier|public
 name|String
 name|valueFromString
@@ -916,9 +832,9 @@ return|return
 name|value
 return|;
 block|}
-DECL|method|valueAsString
 annotation|@
 name|Override
+DECL|method|valueAsString
 specifier|public
 name|String
 name|valueAsString
@@ -934,9 +850,9 @@ name|field
 argument_list|)
 return|;
 block|}
-DECL|method|indexedValue
 annotation|@
 name|Override
+DECL|method|indexedValue
 specifier|public
 name|String
 name|indexedValue
@@ -949,9 +865,9 @@ return|return
 name|value
 return|;
 block|}
-DECL|method|validate
 annotation|@
 name|Override
+DECL|method|validate
 specifier|public
 name|void
 name|validate
@@ -1097,9 +1013,9 @@ throw|;
 block|}
 block|}
 block|}
-DECL|method|preParse
 annotation|@
 name|Override
+DECL|method|preParse
 specifier|public
 name|void
 name|preParse
@@ -1118,9 +1034,9 @@ name|context
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|postParse
 annotation|@
 name|Override
+DECL|method|postParse
 specifier|public
 name|void
 name|postParse
@@ -1131,9 +1047,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{     }
-DECL|method|parse
 annotation|@
 name|Override
+DECL|method|parse
 specifier|public
 name|void
 name|parse
@@ -1148,9 +1064,9 @@ comment|// no need ot parse here, we either get the routing in the sourceToParse
 comment|// or we don't have routing, if we get it in sourceToParse, we process it in preParse
 comment|// which will always be called
 block|}
-DECL|method|includeInObject
 annotation|@
 name|Override
+DECL|method|includeInObject
 specifier|public
 name|boolean
 name|includeInObject
@@ -1160,9 +1076,9 @@ return|return
 literal|true
 return|;
 block|}
-DECL|method|parseCreateField
 annotation|@
 name|Override
+DECL|method|parseCreateField
 specifier|protected
 name|Field
 name|parseCreateField
@@ -1253,9 +1169,9 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|contentType
 annotation|@
 name|Override
+DECL|method|contentType
 specifier|protected
 name|String
 name|contentType
@@ -1265,9 +1181,9 @@ return|return
 name|CONTENT_TYPE
 return|;
 block|}
-DECL|method|toXContent
 annotation|@
 name|Override
+DECL|method|toXContent
 specifier|public
 name|XContentBuilder
 name|toXContent
@@ -1417,9 +1333,9 @@ return|return
 name|builder
 return|;
 block|}
-DECL|method|merge
 annotation|@
 name|Override
+DECL|method|merge
 specifier|public
 name|void
 name|merge

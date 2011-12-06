@@ -16,9 +16,9 @@ end_package
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
@@ -85,7 +85,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -98,9 +98,9 @@ name|AbstractModule
 implements|implements
 name|SpawnModules
 block|{
-DECL|method|spawnModules
 annotation|@
 name|Override
+DECL|method|spawnModules
 specifier|public
 name|Iterable
 argument_list|<
@@ -122,9 +122,9 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-DECL|method|configure
 annotation|@
 name|Override
+DECL|method|configure
 specifier|protected
 name|void
 name|configure

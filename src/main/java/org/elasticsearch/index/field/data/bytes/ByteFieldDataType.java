@@ -107,7 +107,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -121,9 +121,9 @@ argument_list|<
 name|ByteFieldData
 argument_list|>
 block|{
-DECL|method|newFieldComparatorSource
 annotation|@
 name|Override
+DECL|method|newFieldComparatorSource
 specifier|public
 name|ExtendedFieldComparatorSource
 name|newFieldComparatorSource
@@ -407,9 +407,9 @@ block|}
 block|}
 return|;
 block|}
-DECL|method|load
 annotation|@
 name|Override
+DECL|method|load
 specifier|public
 name|ByteFieldData
 name|load

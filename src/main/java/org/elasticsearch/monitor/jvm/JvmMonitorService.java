@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. ElasticSearch licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -18,11 +18,15 @@ end_package
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
-name|ElasticSearchException
+name|common
+operator|.
+name|collect
+operator|.
+name|ImmutableSet
 import|;
 end_import
 
@@ -32,11 +36,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableSet
+name|ElasticSearchException
 import|;
 end_import
 
@@ -180,7 +180,23 @@ name|unit
 operator|.
 name|TimeValue
 operator|.
-name|*
+name|timeValueMillis
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|unit
+operator|.
+name|TimeValue
+operator|.
+name|timeValueSeconds
 import|;
 end_import
 
@@ -198,7 +214,7 @@ name|summary
 operator|.
 name|SummaryDumpContributor
 operator|.
-name|*
+name|SUMMARY
 import|;
 end_import
 
@@ -216,7 +232,7 @@ name|thread
 operator|.
 name|ThreadDumpContributor
 operator|.
-name|*
+name|THREAD_DUMP
 import|;
 end_import
 
@@ -232,7 +248,7 @@ name|jvm
 operator|.
 name|DeadlockAnalyzer
 operator|.
-name|*
+name|deadlockAnalyzer
 import|;
 end_import
 
@@ -248,12 +264,28 @@ name|jvm
 operator|.
 name|JvmStats
 operator|.
-name|*
+name|GarbageCollector
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|monitor
+operator|.
+name|jvm
+operator|.
+name|JvmStats
+operator|.
+name|jvmStats
 import|;
 end_import
 
 begin_comment
-comment|/**  * @author kimchy (shay.banon)  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -303,9 +335,9 @@ specifier|volatile
 name|ScheduledFuture
 name|scheduledFuture
 decl_stmt|;
-DECL|method|JvmMonitorService
 annotation|@
 name|Inject
+DECL|method|JvmMonitorService
 specifier|public
 name|JvmMonitorService
 parameter_list|(
@@ -403,9 +435,9 @@ name|gcThreshold
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|doStart
 annotation|@
 name|Override
+DECL|method|doStart
 specifier|protected
 name|void
 name|doStart
@@ -435,9 +467,9 @@ name|interval
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|doStop
 annotation|@
 name|Override
+DECL|method|doStop
 specifier|protected
 name|void
 name|doStop
@@ -461,9 +493,9 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|doClose
 annotation|@
 name|Override
+DECL|method|doClose
 specifier|protected
 name|void
 name|doClose
@@ -511,9 +543,9 @@ specifier|public
 name|JvmMonitor
 parameter_list|()
 block|{         }
-DECL|method|run
 annotation|@
 name|Override
+DECL|method|run
 specifier|public
 name|void
 name|run
