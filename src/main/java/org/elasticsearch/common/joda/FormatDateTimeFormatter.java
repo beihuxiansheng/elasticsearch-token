@@ -20,22 +20,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|Immutable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|joda
 operator|.
 name|time
@@ -47,12 +31,10 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A simple wrapper around {@link DateTimeFormatter} that retains the  * format that was used to create it.  *  *  */
+comment|/**  * A simple wrapper around {@link DateTimeFormatter} that retains the  * format that was used to create it.  */
 end_comment
 
 begin_class
-annotation|@
-name|Immutable
 DECL|class|FormatDateTimeFormatter
 specifier|public
 class|class

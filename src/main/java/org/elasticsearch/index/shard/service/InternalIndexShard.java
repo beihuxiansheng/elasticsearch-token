@@ -290,22 +290,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ThreadSafe
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|index
 operator|.
 name|aliases
@@ -727,8 +711,6 @@ comment|/**  *  */
 end_comment
 
 begin_class
-annotation|@
-name|ThreadSafe
 DECL|class|InternalIndexShard
 specifier|public
 class|class

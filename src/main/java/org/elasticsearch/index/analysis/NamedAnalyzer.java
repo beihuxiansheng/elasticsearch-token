@@ -60,22 +60,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|Immutable
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -95,12 +79,10 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Named analyzer is an analyzer wrapper around an actual analyzer ({@link #analyzer} that is associated  * with a name ({@link #name()}.  *  *  */
+comment|/**  * Named analyzer is an analyzer wrapper around an actual analyzer ({@link #analyzer} that is associated  * with a name ({@link #name()}.  */
 end_comment
 
 begin_class
-annotation|@
-name|Immutable
 DECL|class|NamedAnalyzer
 specifier|public
 specifier|final

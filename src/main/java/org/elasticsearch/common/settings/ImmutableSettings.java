@@ -230,38 +230,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|Immutable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ThreadSafe
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -385,14 +353,10 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An immutable implementation of {@link Settings}.  *  *  */
+comment|/**  * An immutable implementation of {@link Settings}.  */
 end_comment
 
 begin_class
-annotation|@
-name|ThreadSafe
-annotation|@
-name|Immutable
 DECL|class|ImmutableSettings
 specifier|public
 class|class

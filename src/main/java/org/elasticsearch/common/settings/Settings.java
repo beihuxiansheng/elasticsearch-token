@@ -74,22 +74,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ThreadSafe
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -99,12 +83,10 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Immutable settings allowing to control the configuration.  *<p/>  *<p>Using {@link ImmutableSettings#settingsBuilder()} in order to create a builder  * which in turn can create an immutable implementation of settings.  *  *  * @see ImmutableSettings  */
+comment|/**  * Immutable settings allowing to control the configuration.  *<p/>  *<p>Using {@link ImmutableSettings#settingsBuilder()} in order to create a builder  * which in turn can create an immutable implementation of settings.  *  * @see ImmutableSettings  */
 end_comment
 
 begin_interface
-annotation|@
-name|ThreadSafe
 DECL|interface|Settings
 specifier|public
 interface|interface

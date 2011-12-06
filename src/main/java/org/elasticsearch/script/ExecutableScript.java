@@ -14,29 +14,11 @@ name|script
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|NotThreadSafe
-import|;
-end_import
-
 begin_comment
-comment|/**  * An executable script, can't be used concurrently.  *  *  */
+comment|/**  * An executable script, can't be used concurrently.  */
 end_comment
 
 begin_interface
-annotation|@
-name|NotThreadSafe
 DECL|interface|ExecutableScript
 specifier|public
 interface|interface

@@ -18,22 +18,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|NotThreadSafe
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -53,12 +37,10 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A character stream whose source is a string that is<b>not thread safe</b>  *  * (shay.banon  *         )  */
+comment|/**  * A character stream whose source is a string that is<b>not thread safe</b>  *<p/>  * (shay.banon  * )  */
 end_comment
 
 begin_class
-annotation|@
-name|NotThreadSafe
 DECL|class|FastStringReader
 specifier|public
 class|class

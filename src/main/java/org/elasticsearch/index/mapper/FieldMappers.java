@@ -60,22 +60,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|Immutable
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -85,12 +69,10 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A holder for several {@link FieldMapper}.  *  *  */
+comment|/**  * A holder for several {@link FieldMapper}.  */
 end_comment
 
 begin_class
-annotation|@
-name|Immutable
 DECL|class|FieldMappers
 specifier|public
 class|class

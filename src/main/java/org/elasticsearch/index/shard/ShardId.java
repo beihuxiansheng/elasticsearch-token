@@ -70,22 +70,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|Immutable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|index
 operator|.
 name|Index
@@ -113,12 +97,10 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Allows for shard level components to be injected with the shard id.  *  *  */
+comment|/**  * Allows for shard level components to be injected with the shard id.  */
 end_comment
 
 begin_class
-annotation|@
-name|Immutable
 DECL|class|ShardId
 specifier|public
 class|class

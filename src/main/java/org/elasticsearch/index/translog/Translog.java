@@ -160,38 +160,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|NotThreadSafe
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ThreadSafe
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|index
 operator|.
 name|engine
@@ -239,8 +207,6 @@ comment|/**  *  */
 end_comment
 
 begin_interface
-annotation|@
-name|ThreadSafe
 DECL|interface|Translog
 specifier|public
 interface|interface
@@ -439,8 +405,6 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * A snapshot of the transaction log, allows to iterate over all the transaction log operations.      */
-annotation|@
-name|NotThreadSafe
 DECL|interface|Snapshot
 specifier|static
 interface|interface

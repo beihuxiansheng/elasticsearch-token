@@ -108,22 +108,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|NotThreadSafe
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|xcontent
 operator|.
 name|XContentParser
@@ -205,8 +189,6 @@ comment|/**  *  */
 end_comment
 
 begin_class
-annotation|@
-name|NotThreadSafe
 DECL|class|ParseContext
 specifier|public
 class|class
