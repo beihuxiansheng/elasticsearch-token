@@ -16,22 +16,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|AbstractFuture
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -73,6 +57,22 @@ operator|.
 name|stream
 operator|.
 name|Streamable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|BaseFuture
 import|;
 end_import
 
@@ -127,7 +127,7 @@ extends|extends
 name|Streamable
 parameter_list|>
 extends|extends
-name|AbstractFuture
+name|BaseFuture
 argument_list|<
 name|V
 argument_list|>
