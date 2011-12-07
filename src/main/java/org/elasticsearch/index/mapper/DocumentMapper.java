@@ -1308,6 +1308,13 @@ operator|new
 name|Object
 argument_list|()
 decl_stmt|;
+DECL|field|initMappersAdded
+specifier|private
+name|boolean
+name|initMappersAdded
+init|=
+literal|true
+decl_stmt|;
 DECL|method|DocumentMapper
 specifier|public
 name|DocumentMapper
@@ -2235,6 +2242,22 @@ argument_list|,
 name|listener
 argument_list|)
 expr_stmt|;
+comment|// on a newly created instance of document mapper, we always consider it as new mappers that have been added
+if|if
+condition|(
+name|initMappersAdded
+condition|)
+block|{
+name|context
+operator|.
+name|addedMapper
+argument_list|()
+expr_stmt|;
+name|initMappersAdded
+operator|=
+literal|false
+expr_stmt|;
+block|}
 comment|// will result in START_OBJECT
 name|int
 name|countDownTokens
