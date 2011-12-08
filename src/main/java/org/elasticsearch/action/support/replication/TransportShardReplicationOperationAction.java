@@ -2598,8 +2598,9 @@ expr_stmt|;
 comment|// now, trick the counter so it won't decrease to 0 and notify the listeners
 name|replicaCounter
 operator|=
-operator|-
-literal|100
+name|Integer
+operator|.
+name|MIN_VALUE
 expr_stmt|;
 block|}
 comment|// we add one to the replica count to do the postPrimaryOperation
