@@ -243,8 +243,6 @@ parameter_list|,
 name|Environment
 name|environment
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|super
 argument_list|(
@@ -672,9 +670,9 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|ElasticSearchIllegalStateException
 argument_list|(
-literal|"Failed to obtain node lock on "
+literal|"Failed to obtain node lock, is the following location writable?: "
 operator|+
 name|Arrays
 operator|.
