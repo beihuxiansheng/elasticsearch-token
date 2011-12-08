@@ -362,6 +362,14 @@ name|TimeValue
 name|defaultRefreshInterval
 parameter_list|()
 function_decl|;
+DECL|method|enableGcDeletes
+name|void
+name|enableGcDeletes
+parameter_list|(
+name|boolean
+name|enableGcDeletes
+parameter_list|)
+function_decl|;
 DECL|method|updateIndexingBufferSize
 name|void
 name|updateIndexingBufferSize
