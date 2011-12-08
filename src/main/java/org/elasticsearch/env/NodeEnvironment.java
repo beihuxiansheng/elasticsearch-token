@@ -182,6 +182,16 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -664,7 +674,17 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"Failed to obtain node lock"
+literal|"Failed to obtain node lock on "
+operator|+
+name|Arrays
+operator|.
+name|toString
+argument_list|(
+name|environment
+operator|.
+name|dataWithClusterFiles
+argument_list|()
+argument_list|)
 argument_list|,
 name|lastException
 argument_list|)
