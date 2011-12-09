@@ -36,16 +36,6 @@ end_import
 
 begin_import
 import|import
-name|gnu
-operator|.
-name|trove
-operator|.
-name|ExtTLongObjectHashMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -85,6 +75,20 @@ operator|.
 name|stream
 operator|.
 name|StreamOutput
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|trove
+operator|.
+name|ExtTLongObjectHashMap
 import|;
 end_import
 
@@ -316,6 +320,12 @@ operator|.
 name|count
 operator|=
 name|count
+expr_stmt|;
+name|this
+operator|.
+name|totalCount
+operator|=
+name|totalCount
 expr_stmt|;
 name|this
 operator|.
@@ -1001,11 +1011,6 @@ operator|.
 name|popLongObjectMap
 argument_list|()
 decl_stmt|;
-name|map
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
 for|for
 control|(
 name|Facet

@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|gnu
-operator|.
-name|trove
-operator|.
-name|ExtTLongObjectHashMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -51,6 +41,20 @@ operator|.
 name|common
 operator|.
 name|CacheRecycler
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|trove
+operator|.
+name|ExtTLongObjectHashMap
 import|;
 end_import
 
@@ -229,7 +233,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A histogram facet collector that uses different fields for the key and the value.  *  *  */
+comment|/**  * A histogram facet collector that uses different fields for the key and the value.  */
 end_comment
 
 begin_class
