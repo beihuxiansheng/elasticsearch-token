@@ -24,6 +24,20 @@ name|google
 operator|.
 name|common
 operator|.
+name|base
+operator|.
+name|Charsets
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
 name|collect
 operator|.
 name|ImmutableMap
@@ -900,7 +914,9 @@ operator|.
 name|openStream
 argument_list|()
 argument_list|,
-literal|"UTF-8"
+name|Charsets
+operator|.
+name|UTF_8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -929,11 +945,13 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"using dynamic[{}], default mapping: location[{}] and source[{}]"
+literal|"using dynamic[{}], default mapping: default_mapping_location[{}], loaded_from[{}] and source[{}]"
 argument_list|,
 name|dynamic
 argument_list|,
 name|defaultMappingLocation
+argument_list|,
+name|defaultMappingUrl
 argument_list|,
 name|defaultMappingSource
 argument_list|)
