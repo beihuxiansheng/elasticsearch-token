@@ -239,7 +239,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Node information (static, does not change over time).  *  *  */
+comment|/**  * Node information (static, does not change over time).  */
 end_comment
 
 begin_class
@@ -250,7 +250,7 @@ name|NodeInfo
 extends|extends
 name|NodeOperationResponse
 block|{
-DECL|field|attributes
+DECL|field|serviceAttributes
 specifier|private
 name|ImmutableMap
 argument_list|<
@@ -258,7 +258,7 @@ name|String
 argument_list|,
 name|String
 argument_list|>
-name|attributes
+name|serviceAttributes
 decl_stmt|;
 DECL|field|settings
 specifier|private
@@ -312,7 +312,7 @@ name|String
 argument_list|,
 name|String
 argument_list|>
-name|attributes
+name|serviceAttributes
 parameter_list|,
 name|Settings
 name|settings
@@ -345,9 +345,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|attributes
+name|serviceAttributes
 operator|=
-name|attributes
+name|serviceAttributes
 expr_stmt|;
 name|this
 operator|.
@@ -392,8 +392,8 @@ operator|=
 name|http
 expr_stmt|;
 block|}
-comment|/**      * The attributes of the node.      */
-DECL|method|attributes
+comment|/**      * The service attributes of the node.      */
+DECL|method|serviceAttributes
 specifier|public
 name|ImmutableMap
 argument_list|<
@@ -401,17 +401,17 @@ name|String
 argument_list|,
 name|String
 argument_list|>
-name|attributes
+name|serviceAttributes
 parameter_list|()
 block|{
 return|return
 name|this
 operator|.
-name|attributes
+name|serviceAttributes
 return|;
 block|}
 comment|/**      * The attributes of the node.      */
-DECL|method|getAttributes
+DECL|method|getServiceAttributes
 specifier|public
 name|ImmutableMap
 argument_list|<
@@ -419,11 +419,11 @@ name|String
 argument_list|,
 name|String
 argument_list|>
-name|getAttributes
+name|getServiceAttributes
 parameter_list|()
 block|{
 return|return
-name|attributes
+name|serviceAttributes
 argument_list|()
 return|;
 block|}
@@ -692,7 +692,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|attributes
+name|serviceAttributes
 operator|=
 name|builder
 operator|.
@@ -841,7 +841,7 @@ name|out
 operator|.
 name|writeVInt
 argument_list|(
-name|attributes
+name|serviceAttributes
 operator|.
 name|size
 argument_list|()
@@ -859,7 +859,7 @@ name|String
 argument_list|>
 name|entry
 range|:
-name|attributes
+name|serviceAttributes
 operator|.
 name|entrySet
 argument_list|()
