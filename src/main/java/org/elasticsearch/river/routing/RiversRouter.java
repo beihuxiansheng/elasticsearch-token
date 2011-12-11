@@ -666,25 +666,6 @@ block|{
 comment|// no river, we need to add it to the routing with no node allocation
 try|try
 block|{
-name|client
-operator|.
-name|admin
-argument_list|()
-operator|.
-name|indices
-argument_list|()
-operator|.
-name|prepareRefresh
-argument_list|(
-name|riverIndexName
-argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
-expr_stmt|;
 name|GetResponse
 name|getResponse
 init|=
