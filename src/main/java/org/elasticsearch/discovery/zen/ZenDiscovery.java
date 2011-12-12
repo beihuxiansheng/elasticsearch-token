@@ -960,6 +960,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setNodeService
 specifier|public
 name|void
