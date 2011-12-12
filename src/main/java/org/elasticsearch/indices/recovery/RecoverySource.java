@@ -370,12 +370,6 @@ init|=
 literal|"index/shard/recovery/startRecovery"
 decl_stmt|;
 block|}
-DECL|field|threadPool
-specifier|private
-specifier|final
-name|ThreadPool
-name|threadPool
-decl_stmt|;
 DECL|field|transportService
 specifier|private
 specifier|final
@@ -403,9 +397,6 @@ parameter_list|(
 name|Settings
 name|settings
 parameter_list|,
-name|ThreadPool
-name|threadPool
-parameter_list|,
 name|TransportService
 name|transportService
 parameter_list|,
@@ -420,12 +411,6 @@ name|super
 argument_list|(
 name|settings
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|threadPool
-operator|=
-name|threadPool
 expr_stmt|;
 name|this
 operator|.
