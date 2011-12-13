@@ -310,6 +310,8 @@ DECL|method|NodeInfo
 specifier|public
 name|NodeInfo
 parameter_list|(
+annotation|@
+name|Nullable
 name|String
 name|hostname
 parameter_list|,
