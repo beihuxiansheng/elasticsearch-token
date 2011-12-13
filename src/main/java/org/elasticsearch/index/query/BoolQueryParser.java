@@ -213,10 +213,17 @@ name|getAsInt
 argument_list|(
 literal|"index.query.bool.max_clause_count"
 argument_list|,
+name|settings
+operator|.
+name|getAsInt
+argument_list|(
+literal|"indices.query.bool.max_clause_count"
+argument_list|,
 name|BooleanQuery
 operator|.
 name|getMaxClauseCount
 argument_list|()
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
