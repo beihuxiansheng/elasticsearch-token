@@ -327,7 +327,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A query parser that uses the {@link MapperService} in order to build smarter  * queries based on the mapping information.  *<p/>  *<p>Also breaks fields with [type].[name] into a boolean query that must include the type  * as well as the query on the name.  *  *  */
+comment|/**  * A query parser that uses the {@link MapperService} in order to build smarter  * queries based on the mapping information.  *<p/>  *<p>Also breaks fields with [type].[name] into a boolean query that must include the type  * as well as the query on the name.  */
 end_comment
 
 begin_class
@@ -1360,16 +1360,62 @@ return|;
 block|}
 else|else
 block|{
-return|return
+comment|// build a boolean query with prefix on each one...
+name|List
+argument_list|<
+name|BooleanClause
+argument_list|>
+name|clauses
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|BooleanClause
+argument_list|>
+argument_list|()
+decl_stmt|;
+for|for
+control|(
+name|String
+name|token
+range|:
+name|tlist
+control|)
+block|{
+name|clauses
+operator|.
+name|add
+argument_list|(
+operator|new
+name|BooleanClause
+argument_list|(
 name|super
 operator|.
 name|getPrefixQuery
 argument_list|(
 name|field
 argument_list|,
-name|termStr
+name|token
+argument_list|)
+argument_list|,
+name|BooleanClause
+operator|.
+name|Occur
+operator|.
+name|SHOULD
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|getBooleanQuery
+argument_list|(
+name|clauses
+argument_list|,
+literal|true
 argument_list|)
 return|;
+comment|//return super.getPrefixQuery(field, termStr);
 comment|/* this means that the analyzer used either added or consumed * (common for a stemmer) tokens, and we can't build a PrefixQuery */
 comment|//            throw new ParseException("Cannot build PrefixQuery with analyzer "
 comment|//                    + getAnalyzer().getClass()
