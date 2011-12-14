@@ -301,6 +301,8 @@ argument_list|(
 name|usAsParentFilter
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|String
 name|currentFieldName
 init|=
@@ -768,6 +770,25 @@ name|filter
 operator|=
 name|childFilter
 expr_stmt|;
+if|if
+condition|(
+name|usAsParentFilter
+operator|.
+name|filter
+operator|==
+literal|null
+condition|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"HELLO"
+argument_list|)
+expr_stmt|;
+block|}
 comment|// wrap the child query to only work on the nested path type
 name|query
 operator|=
@@ -829,14 +850,6 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|// restore the thread local one...
-name|parentFilterContext
-operator|.
-name|set
-argument_list|(
-name|currentParentFilterContext
-argument_list|)
-expr_stmt|;
 name|BlockJoinQuery
 name|joinQuery
 init|=
@@ -880,6 +893,18 @@ block|}
 return|return
 name|joinQuery
 return|;
+block|}
+finally|finally
+block|{
+comment|// restore the thread local one...
+name|parentFilterContext
+operator|.
+name|set
+argument_list|(
+name|currentParentFilterContext
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|field|parentFilterContext
 specifier|static

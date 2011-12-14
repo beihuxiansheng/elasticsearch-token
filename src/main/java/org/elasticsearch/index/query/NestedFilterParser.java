@@ -321,6 +321,8 @@ argument_list|(
 name|usAsParentFilter
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|String
 name|currentFieldName
 init|=
@@ -801,16 +803,6 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|// restore the thread local one...
-name|NestedQueryParser
-operator|.
-name|parentFilterContext
-operator|.
-name|set
-argument_list|(
-name|currentParentFilterContext
-argument_list|)
-expr_stmt|;
 name|BlockJoinQuery
 name|joinQuery
 init|=
@@ -894,6 +886,20 @@ block|}
 return|return
 name|joinFilter
 return|;
+block|}
+finally|finally
+block|{
+comment|// restore the thread local one...
+name|NestedQueryParser
+operator|.
+name|parentFilterContext
+operator|.
+name|set
+argument_list|(
+name|currentParentFilterContext
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class
