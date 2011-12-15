@@ -2547,7 +2547,11 @@ throw|throw
 operator|new
 name|MapperParsingException
 argument_list|(
-literal|"failed to parse date field, tried both date format ["
+literal|"failed to parse date field ["
+operator|+
+name|value
+operator|+
+literal|"], tried both date format ["
 operator|+
 name|dateTimeFormatter
 operator|.
@@ -2611,6 +2615,9 @@ operator|.
 name|UTC
 argument_list|)
 decl_stmt|;
+name|int
+name|location
+init|=
 name|dateTimeFormatter
 operator|.
 name|parser
@@ -2624,7 +2631,88 @@ name|value
 argument_list|,
 literal|0
 argument_list|)
-expr_stmt|;
+decl_stmt|;
+comment|// if we parsed all the string value, we are good
+if|if
+condition|(
+name|location
+operator|==
+name|value
+operator|.
+name|length
+argument_list|()
+condition|)
+block|{
+return|return
+name|dateTime
+operator|.
+name|getMillis
+argument_list|()
+return|;
+block|}
+comment|// if we did not manage to parse, or the year is really high year which is unreasonable
+comment|// see if its a number
+if|if
+condition|(
+name|location
+operator|<=
+literal|0
+operator|||
+name|dateTime
+operator|.
+name|getYear
+argument_list|()
+operator|>
+literal|5000
+condition|)
+block|{
+try|try
+block|{
+name|long
+name|time
+init|=
+name|Long
+operator|.
+name|parseLong
+argument_list|(
+name|value
+argument_list|)
+decl_stmt|;
+return|return
+name|timeUnit
+operator|.
+name|toMillis
+argument_list|(
+name|time
+argument_list|)
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|NumberFormatException
+name|e1
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|MapperParsingException
+argument_list|(
+literal|"failed to parse date field ["
+operator|+
+name|value
+operator|+
+literal|"], tried both date format ["
+operator|+
+name|dateTimeFormatter
+operator|.
+name|format
+argument_list|()
+operator|+
+literal|"], and timestamp number"
+argument_list|)
+throw|;
+block|}
+block|}
 return|return
 name|dateTime
 operator|.
@@ -2669,7 +2757,11 @@ throw|throw
 operator|new
 name|MapperParsingException
 argument_list|(
-literal|"failed to parse date field, tried both date format ["
+literal|"failed to parse date field ["
+operator|+
+name|value
+operator|+
+literal|"], tried both date format ["
 operator|+
 name|dateTimeFormatter
 operator|.
