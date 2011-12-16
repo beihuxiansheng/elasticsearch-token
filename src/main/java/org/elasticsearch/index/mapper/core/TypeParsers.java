@@ -1169,7 +1169,7 @@ literal|"Wrong value for pathType ["
 operator|+
 name|path
 operator|+
-literal|"] for objet ["
+literal|"] for object ["
 operator|+
 name|name
 operator|+
