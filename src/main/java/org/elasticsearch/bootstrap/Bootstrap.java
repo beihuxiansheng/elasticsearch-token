@@ -112,20 +112,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|jline
-operator|.
-name|ANSI
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|jna
 operator|.
 name|Natives
@@ -173,20 +159,6 @@ operator|.
 name|log4j
 operator|.
 name|LogConfigurator
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|os
-operator|.
-name|OsUtils
 import|;
 end_import
 
@@ -318,18 +290,6 @@ end_import
 
 begin_import
 import|import static
-name|jline
-operator|.
-name|ANSIBuffer
-operator|.
-name|ANSICodes
-operator|.
-name|attrib
-import|;
-end_import
-
-begin_import
-import|import static
 name|org
 operator|.
 name|elasticsearch
@@ -347,7 +307,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A main entry point when starting from the command line.  *  *  */
+comment|/**  * A main entry point when starting from the command line.  */
 end_comment
 
 begin_class
@@ -754,34 +714,6 @@ argument_list|(
 literal|"es-pidfile"
 argument_list|)
 decl_stmt|;
-comment|// enable jline by default when running form "main" (and not on windows)
-if|if
-condition|(
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"jline.enabled"
-argument_list|)
-operator|==
-literal|null
-operator|&&
-operator|!
-name|OsUtils
-operator|.
-name|WINDOWS
-condition|)
-block|{
-name|System
-operator|.
-name|setProperty
-argument_list|(
-literal|"jline.enabled"
-argument_list|,
-literal|"true"
-argument_list|)
-expr_stmt|;
-block|}
 name|boolean
 name|foreground
 init|=
@@ -1297,60 +1229,6 @@ argument_list|(
 literal|"}: "
 argument_list|)
 decl_stmt|;
-try|try
-block|{
-if|if
-condition|(
-name|ANSI
-operator|.
-name|isEnabled
-argument_list|()
-condition|)
-block|{
-name|errorMessage
-operator|.
-name|append
-argument_list|(
-name|attrib
-argument_list|(
-name|ANSI
-operator|.
-name|Code
-operator|.
-name|FG_RED
-argument_list|)
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|stage
-argument_list|)
-operator|.
-name|append
-argument_list|(
-literal|" Failed ..."
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|attrib
-argument_list|(
-name|ANSI
-operator|.
-name|Code
-operator|.
-name|OFF
-argument_list|)
-argument_list|)
-operator|.
-name|append
-argument_list|(
-literal|"\n"
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
 name|errorMessage
 operator|.
 name|append
@@ -1363,27 +1241,6 @@ argument_list|(
 literal|" Failed ...\n"
 argument_list|)
 expr_stmt|;
-block|}
-block|}
-catch|catch
-parameter_list|(
-name|Throwable
-name|t
-parameter_list|)
-block|{
-name|errorMessage
-operator|.
-name|append
-argument_list|(
-name|stage
-argument_list|)
-operator|.
-name|append
-argument_list|(
-literal|" Failed ...\n"
-argument_list|)
-expr_stmt|;
-block|}
 if|if
 condition|(
 name|e
