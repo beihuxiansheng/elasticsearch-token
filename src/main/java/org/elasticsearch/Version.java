@@ -325,7 +325,7 @@ argument_list|)
 return|;
 block|}
 DECL|method|fromId
-specifier|private
+specifier|public
 specifier|static
 name|Version
 name|fromId
