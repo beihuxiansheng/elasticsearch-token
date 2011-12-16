@@ -646,7 +646,7 @@ condition|)
 block|{
 name|qpSettings
 operator|.
-name|analyzer
+name|forcedAnalyzer
 argument_list|(
 name|parseContext
 operator|.
@@ -962,19 +962,9 @@ name|nextToken
 argument_list|()
 expr_stmt|;
 block|}
-if|if
-condition|(
 name|qpSettings
 operator|.
-name|analyzer
-argument_list|()
-operator|==
-literal|null
-condition|)
-block|{
-name|qpSettings
-operator|.
-name|analyzer
+name|defaultAnalyzer
 argument_list|(
 name|parseContext
 operator|.
@@ -985,7 +975,6 @@ name|searchAnalyzer
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|qpSettings
