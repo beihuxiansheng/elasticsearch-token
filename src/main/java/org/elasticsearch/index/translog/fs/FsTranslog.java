@@ -787,7 +787,7 @@ block|{
 name|newFile
 operator|=
 operator|new
-name|FsTranslogFile
+name|SimpleFsTranslogFile
 argument_list|(
 name|shardId
 argument_list|,
@@ -986,7 +986,7 @@ operator|.
 name|trans
 operator|=
 operator|new
-name|FsTranslogFile
+name|SimpleFsTranslogFile
 argument_list|(
 name|shardId
 argument_list|,

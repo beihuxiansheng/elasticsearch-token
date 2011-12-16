@@ -171,18 +171,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|TimeUnit
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -314,20 +302,9 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"cluster.routing.schedule"
-argument_list|,
-literal|200
-argument_list|,
-name|TimeUnit
-operator|.
-name|MILLISECONDS
-argument_list|)
-operator|.
-name|put
-argument_list|(
 literal|"index.refresh_interval"
 argument_list|,
-literal|"-1"
+literal|"1s"
 argument_list|)
 operator|.
 name|put
@@ -348,7 +325,7 @@ name|put
 argument_list|(
 literal|"gateway.type"
 argument_list|,
-literal|"local"
+literal|"none"
 argument_list|)
 operator|.
 name|put
