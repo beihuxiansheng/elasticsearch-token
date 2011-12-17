@@ -566,7 +566,7 @@ name|indices
 operator|.
 name|memory
 operator|.
-name|IndexingMemoryBufferController
+name|IndexingMemoryController
 import|;
 end_import
 
@@ -1463,7 +1463,7 @@ name|injector
 operator|.
 name|getInstance
 argument_list|(
-name|IndexingMemoryBufferController
+name|IndexingMemoryController
 operator|.
 name|class
 argument_list|)
@@ -1795,7 +1795,7 @@ name|injector
 operator|.
 name|getInstance
 argument_list|(
-name|IndexingMemoryBufferController
+name|IndexingMemoryController
 operator|.
 name|class
 argument_list|)
@@ -2191,7 +2191,7 @@ name|injector
 operator|.
 name|getInstance
 argument_list|(
-name|IndexingMemoryBufferController
+name|IndexingMemoryController
 operator|.
 name|class
 argument_list|)

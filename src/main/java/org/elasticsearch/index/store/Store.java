@@ -1633,7 +1633,6 @@ block|}
 block|}
 comment|/**      * The idea of the store directory is to cache file level meta data, as well as md5 of it      */
 DECL|class|StoreDirectory
-specifier|protected
 class|class
 name|StoreDirectory
 extends|extends

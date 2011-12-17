@@ -141,10 +141,10 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|FsSimpleTranslogTests
+DECL|class|FsBufferedTranslogTests
 specifier|public
 class|class
-name|FsSimpleTranslogTests
+name|FsBufferedTranslogTests
 extends|extends
 name|AbstractSimpleTranslogTests
 block|{
@@ -175,7 +175,7 @@ name|FsTranslogFile
 operator|.
 name|Type
 operator|.
-name|SIMPLE
+name|BUFFERED
 operator|.
 name|name
 argument_list|()
