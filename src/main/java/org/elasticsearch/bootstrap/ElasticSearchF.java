@@ -54,7 +54,7 @@ name|System
 operator|.
 name|setProperty
 argument_list|(
-literal|"es-foreground"
+literal|"es.foreground"
 argument_list|,
 literal|"yes"
 argument_list|)
