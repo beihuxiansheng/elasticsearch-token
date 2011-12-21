@@ -785,7 +785,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-literal|", usable_space ["
+literal|"], usable_space ["
 argument_list|)
 operator|.
 name|append
@@ -802,7 +802,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-literal|"\n"
+literal|"]\n"
 argument_list|)
 expr_stmt|;
 block|}
