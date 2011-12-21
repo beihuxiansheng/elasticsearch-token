@@ -1194,8 +1194,20 @@ name|PutIndexTemplateRequestBuilder
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|Nullable
+import|;
+end_import
+
 begin_comment
-comment|/**  * Administrative actions/operations against indices.  *  *  * @see AdminClient#indices()  */
+comment|/**  * Administrative actions/operations against indices.  *  * @see AdminClient#indices()  */
 end_comment
 
 begin_interface
@@ -1858,9 +1870,20 @@ DECL|method|prepareAnalyze
 name|AnalyzeRequestBuilder
 name|prepareAnalyze
 parameter_list|(
+annotation|@
+name|Nullable
 name|String
 name|index
 parameter_list|,
+name|String
+name|text
+parameter_list|)
+function_decl|;
+comment|/**      * Analyze text.      *      * @param text The text to analyze      */
+DECL|method|prepareAnalyze
+name|AnalyzeRequestBuilder
+name|prepareAnalyze
+parameter_list|(
 name|String
 name|text
 parameter_list|)

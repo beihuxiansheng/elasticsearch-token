@@ -442,6 +442,18 @@ name|InternalIndicesAdminClient
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|Nullable
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -860,6 +872,8 @@ specifier|public
 name|AnalyzeRequestBuilder
 name|prepareAnalyze
 parameter_list|(
+annotation|@
+name|Nullable
 name|String
 name|index
 parameter_list|,
@@ -874,6 +888,29 @@ argument_list|(
 name|this
 argument_list|,
 name|index
+argument_list|,
+name|text
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|prepareAnalyze
+specifier|public
+name|AnalyzeRequestBuilder
+name|prepareAnalyze
+parameter_list|(
+name|String
+name|text
+parameter_list|)
+block|{
+return|return
+operator|new
+name|AnalyzeRequestBuilder
+argument_list|(
+name|this
+argument_list|,
+literal|null
 argument_list|,
 name|text
 argument_list|)
