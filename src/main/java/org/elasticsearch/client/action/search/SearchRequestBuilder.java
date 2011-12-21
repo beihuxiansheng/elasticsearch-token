@@ -273,7 +273,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A search action request builder.  *  *  */
+comment|/**  * A search action request builder.  */
 end_comment
 
 begin_class
@@ -1671,10 +1671,10 @@ name|this
 return|;
 block|}
 comment|/**      * The encoder to set for highlighting      */
-DECL|method|setEncoder
+DECL|method|setHighlighterEncoder
 specifier|public
 name|SearchRequestBuilder
-name|setEncoder
+name|setHighlighterEncoder
 parameter_list|(
 name|String
 name|encoder

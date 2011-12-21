@@ -4627,7 +4627,7 @@ literal|"test"
 argument_list|)
 argument_list|)
 operator|.
-name|setEncoder
+name|setHighlighterEncoder
 argument_list|(
 literal|"html"
 argument_list|)
@@ -4945,7 +4945,7 @@ literal|"test"
 argument_list|)
 argument_list|)
 operator|.
-name|setEncoder
+name|setHighlighterEncoder
 argument_list|(
 literal|"html"
 argument_list|)
