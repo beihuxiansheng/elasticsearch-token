@@ -1,8 +1,4 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
-begin_comment
-comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. Elastic Search licenses this  * file to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
-end_comment
-
 begin_package
 DECL|package|org.apache.lucene.store.bytebuffer
 package|package
@@ -17,6 +13,10 @@ operator|.
 name|bytebuffer
 package|;
 end_package
+
+begin_comment
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+end_comment
 
 begin_import
 import|import
@@ -137,7 +137,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A memory based directory that uses {@link java.nio.ByteBuffer} in order to store the directory content.  *<p/>  *<p>The benefit of using {@link java.nio.ByteBuffer} is the fact that it can be stored in "native" memory  * outside of the JVM heap, thus not incurring the GC overhead of large in memory index.  *<p/>  *<p>Each "file" is segmented into one or more byte buffers.  *<p/>  *<p>If constructed with {@link ByteBufferAllocator}, it allows to control the allocation and release of  * byte buffer. For example, custom implementations can include caching of byte buffers.  *  *  */
+comment|/**  * A memory based directory that uses {@link java.nio.ByteBuffer} in order to store the directory content.  *<p/>  *<p>The benefit of using {@link java.nio.ByteBuffer} is the fact that it can be stored in "native" memory  * outside of the JVM heap, thus not incurring the GC overhead of large in memory index.  *<p/>  *<p>Each "file" is segmented into one or more byte buffers.  *<p/>  *<p>If constructed with {@link ByteBufferAllocator}, it allows to control the allocation and release of  * byte buffer. For example, custom implementations can include caching of byte buffers.  */
 end_comment
 
 begin_class
@@ -437,6 +437,10 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
+name|java
+operator|.
+name|lang
+operator|.
 name|InterruptedException
 name|ie
 parameter_list|)
@@ -520,7 +524,7 @@ argument_list|)
 throw|;
 name|file
 operator|.
-name|clean
+name|delete
 argument_list|()
 expr_stmt|;
 block|}
@@ -654,7 +658,7 @@ condition|)
 block|{
 name|existing
 operator|.
-name|clean
+name|delete
 argument_list|()
 expr_stmt|;
 block|}
@@ -662,6 +666,8 @@ return|return
 operator|new
 name|ByteBufferIndexOutput
 argument_list|(
+name|name
+argument_list|,
 name|allocator
 argument_list|,
 name|allocatorType
@@ -710,6 +716,8 @@ return|return
 operator|new
 name|ByteBufferIndexInput
 argument_list|(
+name|name
+argument_list|,
 name|file
 argument_list|)
 return|;
