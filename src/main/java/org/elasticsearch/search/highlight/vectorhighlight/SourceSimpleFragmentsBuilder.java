@@ -262,7 +262,7 @@ operator|.
 name|names
 argument_list|()
 operator|.
-name|fullName
+name|sourcePath
 argument_list|()
 argument_list|)
 decl_stmt|;

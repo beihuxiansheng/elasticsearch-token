@@ -915,6 +915,14 @@ name|buildFullName
 argument_list|(
 name|context
 argument_list|)
+argument_list|,
+name|context
+operator|.
+name|path
+argument_list|()
+operator|.
+name|sourcePath
+argument_list|()
 argument_list|)
 return|;
 block|}
