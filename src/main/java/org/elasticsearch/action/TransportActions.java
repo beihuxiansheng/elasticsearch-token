@@ -51,6 +51,15 @@ name|COUNT
 init|=
 literal|"indices/count"
 decl_stmt|;
+DECL|field|VALIDATE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|VALIDATE
+init|=
+literal|"indices/validate"
+decl_stmt|;
 DECL|field|DELETE
 specifier|public
 specifier|static
