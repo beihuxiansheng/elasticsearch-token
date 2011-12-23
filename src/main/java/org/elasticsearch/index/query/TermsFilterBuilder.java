@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A filer for a field based on several terms matching on any of them.  *  *  */
+comment|/**  * A filer for a field based on several terms matching on any of them.  */
 end_comment
 
 begin_class
@@ -79,6 +79,11 @@ DECL|field|filterName
 specifier|private
 name|String
 name|filterName
+decl_stmt|;
+DECL|field|execution
+specifier|private
+name|String
+name|execution
 decl_stmt|;
 comment|/**      * A filer for a field based on several terms matching on any of them.      *      * @param name   The field name      * @param values The terms      */
 DECL|method|TermsFilterBuilder
@@ -379,6 +384,26 @@ operator|=
 name|values
 expr_stmt|;
 block|}
+comment|/**      * Sets the execution mode for the terms filter. Cane be either "plain", "bool"      * "and". Defaults to "plain".      */
+DECL|method|execution
+specifier|public
+name|TermsFilterBuilder
+name|execution
+parameter_list|(
+name|String
+name|execution
+parameter_list|)
+block|{
+name|this
+operator|.
+name|execution
+operator|=
+name|execution
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Sets the filter name for the filter that can be used when searching for matched_filters per hit.      */
 DECL|method|filterName
 specifier|public
@@ -491,6 +516,23 @@ operator|.
 name|endArray
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|execution
+operator|!=
+literal|null
+condition|)
+block|{
+name|builder
+operator|.
+name|field
+argument_list|(
+literal|"execution"
+argument_list|,
+name|execution
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|filterName
