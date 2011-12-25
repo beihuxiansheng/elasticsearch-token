@@ -65,7 +65,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Script sort builder allows to sort based on a custom script expression.  *  *  */
+comment|/**  * Script sort builder allows to sort based on a custom script expression.  */
 end_comment
 
 begin_class
@@ -289,6 +289,23 @@ argument_list|(
 literal|"reverse"
 argument_list|,
 literal|true
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|lang
+operator|!=
+literal|null
+condition|)
+block|{
+name|builder
+operator|.
+name|field
+argument_list|(
+literal|"lang"
+argument_list|,
+name|lang
 argument_list|)
 expr_stmt|;
 block|}
