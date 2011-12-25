@@ -896,7 +896,7 @@ name|status
 argument_list|)
 decl_stmt|;
 name|HandlesStreamInput
-name|handlesStream
+name|wrappedStream
 decl_stmt|;
 if|if
 condition|(
@@ -908,7 +908,7 @@ name|status
 argument_list|)
 condition|)
 block|{
-name|handlesStream
+name|wrappedStream
 operator|=
 name|CachedStreamInput
 operator|.
@@ -920,7 +920,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|handlesStream
+name|wrappedStream
 operator|=
 name|CachedStreamInput
 operator|.
@@ -942,7 +942,7 @@ name|handleRequest
 argument_list|(
 name|channel
 argument_list|,
-name|handlesStream
+name|wrappedStream
 argument_list|,
 name|requestId
 argument_list|)
@@ -1034,7 +1034,7 @@ condition|)
 block|{
 name|handlerResponseError
 argument_list|(
-name|handlesStream
+name|wrappedStream
 argument_list|,
 name|handler
 argument_list|)
@@ -1044,7 +1044,7 @@ else|else
 block|{
 name|handleResponse
 argument_list|(
-name|handlesStream
+name|wrappedStream
 argument_list|,
 name|handler
 argument_list|)
@@ -1133,7 +1133,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|handlesStream
+name|wrappedStream
 operator|.
 name|cleanHandles
 argument_list|()
