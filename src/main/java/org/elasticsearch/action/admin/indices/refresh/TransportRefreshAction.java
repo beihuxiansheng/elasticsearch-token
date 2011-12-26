@@ -198,6 +198,18 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|IndexShardMissingException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|engine
 operator|.
 name|Engine
@@ -323,7 +335,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Refresh action.  *  *  */
+comment|/**  * Refresh action.  */
 end_comment
 
 begin_class
@@ -498,6 +510,17 @@ condition|(
 name|actual
 operator|instanceof
 name|IndexMissingException
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+if|if
+condition|(
+name|actual
+operator|instanceof
+name|IndexShardMissingException
 condition|)
 block|{
 return|return
