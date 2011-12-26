@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A single field name and values part of a {@link SearchHit}.  *  *  * @see SearchHit  */
+comment|/**  * A single field name and values part of a {@link SearchHit}.  *  * @see SearchHit  */
 end_comment
 
 begin_interface
@@ -71,13 +71,19 @@ parameter_list|()
 function_decl|;
 comment|/**      * The first value of the hit.      */
 DECL|method|value
-name|Object
+parameter_list|<
+name|V
+parameter_list|>
+name|V
 name|value
 parameter_list|()
 function_decl|;
 comment|/**      * The first value of the hit.      */
 DECL|method|getValue
-name|Object
+parameter_list|<
+name|V
+parameter_list|>
+name|V
 name|getValue
 parameter_list|()
 function_decl|;
