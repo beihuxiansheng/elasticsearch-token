@@ -354,7 +354,7 @@ specifier|final
 name|String
 name|SETTING_READ_ONLY
 init|=
-literal|"cluster.read_only"
+literal|"cluster.blocks.read_only"
 decl_stmt|;
 DECL|field|CLUSTER_READ_ONLY_BLOCK
 specifier|public
@@ -368,7 +368,7 @@ name|ClusterBlock
 argument_list|(
 literal|6
 argument_list|,
-literal|"cluster read-only"
+literal|"cluster read-only (api)"
 argument_list|,
 literal|false
 argument_list|,
@@ -4289,6 +4289,18 @@ return|;
 block|}
 DECL|method|transientSettings
 specifier|public
+name|Settings
+name|transientSettings
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|transientSettings
+return|;
+block|}
+DECL|method|transientSettings
+specifier|public
 name|Builder
 name|transientSettings
 parameter_list|(
@@ -4304,6 +4316,18 @@ name|settings
 expr_stmt|;
 return|return
 name|this
+return|;
+block|}
+DECL|method|persistentSettings
+specifier|public
+name|Settings
+name|persistentSettings
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|persistentSettings
 return|;
 block|}
 DECL|method|persistentSettings

@@ -383,7 +383,7 @@ name|ClusterBlock
 argument_list|(
 literal|5
 argument_list|,
-literal|"index read-only"
+literal|"index read-only (api)"
 argument_list|,
 literal|false
 argument_list|,
@@ -687,7 +687,7 @@ specifier|final
 name|String
 name|SETTING_READ_ONLY
 init|=
-literal|"index.read_only"
+literal|"index.blocks.read_only"
 decl_stmt|;
 DECL|field|index
 specifier|private
@@ -1077,34 +1077,6 @@ parameter_list|()
 block|{
 return|return
 name|totalNumberOfShards
-argument_list|()
-return|;
-block|}
-DECL|method|readOnly
-specifier|public
-name|boolean
-name|readOnly
-parameter_list|()
-block|{
-return|return
-name|settings
-operator|.
-name|getAsBoolean
-argument_list|(
-name|SETTING_READ_ONLY
-argument_list|,
-literal|false
-argument_list|)
-return|;
-block|}
-DECL|method|getreadOnly
-specifier|public
-name|boolean
-name|getreadOnly
-parameter_list|()
-block|{
-return|return
-name|readOnly
 argument_list|()
 return|;
 block|}
