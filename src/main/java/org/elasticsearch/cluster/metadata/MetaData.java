@@ -402,7 +402,7 @@ argument_list|()
 operator|.
 name|add
 argument_list|(
-literal|"cluster.read_only"
+name|SETTING_READ_ONLY
 argument_list|)
 operator|.
 name|build
