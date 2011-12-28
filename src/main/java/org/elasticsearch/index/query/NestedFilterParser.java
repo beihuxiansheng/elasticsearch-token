@@ -771,26 +771,11 @@ name|NonNestedDocsFilter
 operator|.
 name|INSTANCE
 expr_stmt|;
-if|if
-condition|(
-name|mapper
-operator|.
-name|hasDocMapper
-argument_list|()
-condition|)
-block|{
-comment|// filter based on the type...
-name|parentFilter
-operator|=
-name|mapper
-operator|.
-name|docMapper
-argument_list|()
-operator|.
-name|typeFilter
-argument_list|()
-expr_stmt|;
-block|}
+comment|// don't do special parent filtering, since we might have same nested mapping on two different types
+comment|//if (mapper.hasDocMapper()) {
+comment|//    // filter based on the type...
+comment|//    parentFilter = mapper.docMapper().typeFilter();
+comment|//}
 name|parentFilter
 operator|=
 name|parseContext
