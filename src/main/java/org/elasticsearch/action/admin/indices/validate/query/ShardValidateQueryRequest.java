@@ -4,7 +4,7 @@ comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more cont
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.action.validate
+DECL|package|org.elasticsearch.action.admin.indices.validate.query
 package|package
 name|org
 operator|.
@@ -12,7 +12,13 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
+name|admin
+operator|.
+name|indices
+operator|.
 name|validate
+operator|.
+name|query
 package|;
 end_package
 
@@ -103,9 +109,9 @@ comment|/**  * Internal validate request executed directly against a specific in
 end_comment
 
 begin_class
-DECL|class|ShardValidateRequest
+DECL|class|ShardValidateQueryRequest
 class|class
-name|ShardValidateRequest
+name|ShardValidateQueryRequest
 extends|extends
 name|BroadcastShardOperationRequest
 block|{
@@ -143,13 +149,13 @@ name|String
 index|[]
 name|filteringAliases
 decl_stmt|;
-DECL|method|ShardValidateRequest
-name|ShardValidateRequest
+DECL|method|ShardValidateQueryRequest
+name|ShardValidateQueryRequest
 parameter_list|()
 block|{      }
-DECL|method|ShardValidateRequest
+DECL|method|ShardValidateQueryRequest
 specifier|public
-name|ShardValidateRequest
+name|ShardValidateQueryRequest
 parameter_list|(
 name|String
 name|index
@@ -163,7 +169,7 @@ name|String
 index|[]
 name|filteringAliases
 parameter_list|,
-name|ValidateRequest
+name|ValidateQueryRequest
 name|request
 parameter_list|)
 block|{

@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_package
-DECL|package|org.elasticsearch.client.action.validate
+DECL|package|org.elasticsearch.client.action.admin.indices.validate.query
 package|package
 name|org
 operator|.
@@ -10,7 +10,13 @@ name|client
 operator|.
 name|action
 operator|.
+name|admin
+operator|.
+name|indices
+operator|.
 name|validate
+operator|.
+name|query
 package|;
 end_package
 
@@ -23,6 +29,46 @@ operator|.
 name|action
 operator|.
 name|ActionListener
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|admin
+operator|.
+name|indices
+operator|.
+name|validate
+operator|.
+name|query
+operator|.
+name|ValidateQueryRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|admin
+operator|.
+name|indices
+operator|.
+name|validate
+operator|.
+name|query
+operator|.
+name|ValidateQueryResponse
 import|;
 end_import
 
@@ -48,37 +94,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
-operator|.
-name|validate
-operator|.
-name|ValidateRequest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|validate
-operator|.
-name|ValidateResponse
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|client
 operator|.
-name|Client
+name|IndicesAdminClient
 import|;
 end_import
 
@@ -91,10 +109,14 @@ operator|.
 name|client
 operator|.
 name|action
+operator|.
+name|admin
+operator|.
+name|indices
 operator|.
 name|support
 operator|.
-name|BaseRequestBuilder
+name|BaseIndicesRequestBuilder
 import|;
 end_import
 
@@ -117,23 +139,23 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|ValidateRequestBuilder
+DECL|class|ValidateQueryRequestBuilder
 specifier|public
 class|class
-name|ValidateRequestBuilder
+name|ValidateQueryRequestBuilder
 extends|extends
-name|BaseRequestBuilder
+name|BaseIndicesRequestBuilder
 argument_list|<
-name|ValidateRequest
+name|ValidateQueryRequest
 argument_list|,
-name|ValidateResponse
+name|ValidateQueryResponse
 argument_list|>
 block|{
-DECL|method|ValidateRequestBuilder
+DECL|method|ValidateQueryRequestBuilder
 specifier|public
-name|ValidateRequestBuilder
+name|ValidateQueryRequestBuilder
 parameter_list|(
-name|Client
+name|IndicesAdminClient
 name|client
 parameter_list|)
 block|{
@@ -142,7 +164,7 @@ argument_list|(
 name|client
 argument_list|,
 operator|new
-name|ValidateRequest
+name|ValidateQueryRequest
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -150,7 +172,7 @@ block|}
 comment|/**      * Sets the indices the query validation will run against.      */
 DECL|method|setIndices
 specifier|public
-name|ValidateRequestBuilder
+name|ValidateQueryRequestBuilder
 name|setIndices
 parameter_list|(
 name|String
@@ -172,7 +194,7 @@ block|}
 comment|/**      * The types of documents the query will run against. Defaults to all types.      */
 DECL|method|setTypes
 specifier|public
-name|ValidateRequestBuilder
+name|ValidateQueryRequestBuilder
 name|setTypes
 parameter_list|(
 name|String
@@ -194,7 +216,7 @@ block|}
 comment|/**      * The query source to validate.      *      * @see org.elasticsearch.index.query.QueryBuilders      */
 DECL|method|setQuery
 specifier|public
-name|ValidateRequestBuilder
+name|ValidateQueryRequestBuilder
 name|setQuery
 parameter_list|(
 name|QueryBuilder
@@ -215,7 +237,7 @@ block|}
 comment|/**      * The query source to validate.      *      * @see org.elasticsearch.index.query.QueryBuilders      */
 DECL|method|setQuery
 specifier|public
-name|ValidateRequestBuilder
+name|ValidateQueryRequestBuilder
 name|setQuery
 parameter_list|(
 name|byte
@@ -237,7 +259,7 @@ block|}
 comment|/**      * Controls the operation threading model.      */
 DECL|method|setOperationThreading
 specifier|public
-name|ValidateRequestBuilder
+name|ValidateQueryRequestBuilder
 name|setOperationThreading
 parameter_list|(
 name|BroadcastOperationThreading
@@ -258,7 +280,7 @@ block|}
 comment|/**      * Should the listener be called on a separate thread if needed.      */
 DECL|method|setListenerThreaded
 specifier|public
-name|ValidateRequestBuilder
+name|ValidateQueryRequestBuilder
 name|setListenerThreaded
 parameter_list|(
 name|boolean
@@ -285,14 +307,14 @@ name|doExecute
 parameter_list|(
 name|ActionListener
 argument_list|<
-name|ValidateResponse
+name|ValidateQueryResponse
 argument_list|>
 name|listener
 parameter_list|)
 block|{
 name|client
 operator|.
-name|validate
+name|validateQuery
 argument_list|(
 name|request
 argument_list|,

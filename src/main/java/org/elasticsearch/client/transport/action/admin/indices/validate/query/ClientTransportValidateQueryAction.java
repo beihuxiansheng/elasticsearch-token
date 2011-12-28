@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_package
-DECL|package|org.elasticsearch.client.transport.action.validate
+DECL|package|org.elasticsearch.client.transport.action.admin.indices.validate.query
 package|package
 name|org
 operator|.
@@ -12,7 +12,13 @@ name|transport
 operator|.
 name|action
 operator|.
+name|admin
+operator|.
+name|indices
+operator|.
 name|validate
+operator|.
+name|query
 package|;
 end_package
 
@@ -36,9 +42,15 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
+name|admin
+operator|.
+name|indices
+operator|.
 name|validate
 operator|.
-name|ValidateRequest
+name|query
+operator|.
+name|ValidateQueryRequest
 import|;
 end_import
 
@@ -50,9 +62,15 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
+name|admin
+operator|.
+name|indices
+operator|.
 name|validate
 operator|.
-name|ValidateResponse
+name|query
+operator|.
+name|ValidateQueryResponse
 import|;
 end_import
 
@@ -119,23 +137,23 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|ClientTransportValidateAction
+DECL|class|ClientTransportValidateQueryAction
 specifier|public
 class|class
-name|ClientTransportValidateAction
+name|ClientTransportValidateQueryAction
 extends|extends
 name|BaseClientTransportAction
 argument_list|<
-name|ValidateRequest
+name|ValidateQueryRequest
 argument_list|,
-name|ValidateResponse
+name|ValidateQueryResponse
 argument_list|>
 block|{
 annotation|@
 name|Inject
-DECL|method|ClientTransportValidateAction
+DECL|method|ClientTransportValidateQueryAction
 specifier|public
-name|ClientTransportValidateAction
+name|ClientTransportValidateQueryAction
 parameter_list|(
 name|Settings
 name|settings
@@ -150,7 +168,7 @@ name|settings
 argument_list|,
 name|transportService
 argument_list|,
-name|ValidateResponse
+name|ValidateQueryResponse
 operator|.
 name|class
 argument_list|)
@@ -167,7 +185,11 @@ block|{
 return|return
 name|TransportActions
 operator|.
-name|VALIDATE
+name|Admin
+operator|.
+name|Indices
+operator|.
+name|VALIDATE_QUERY
 return|;
 block|}
 block|}

@@ -8,7 +8,7 @@ comment|/**  * Validate action.  */
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.action.validate
+DECL|package|org.elasticsearch.action.admin.indices.validate.query
 package|package
 name|org
 operator|.
@@ -16,7 +16,13 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
+name|admin
+operator|.
+name|indices
+operator|.
 name|validate
+operator|.
+name|query
 package|;
 end_package
 

@@ -4,7 +4,7 @@ comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more cont
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.action.validate
+DECL|package|org.elasticsearch.action.admin.indices.validate.query
 package|package
 name|org
 operator|.
@@ -12,7 +12,13 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
+name|admin
+operator|.
+name|indices
+operator|.
 name|validate
+operator|.
+name|query
 package|;
 end_package
 
@@ -93,18 +99,6 @@ operator|.
 name|client
 operator|.
 name|Requests
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|Nullable
 import|;
 end_import
 
@@ -281,10 +275,10 @@ comment|/**  * A request to validate a specific query.  *<p/>  *<p>The request r
 end_comment
 
 begin_class
-DECL|class|ValidateRequest
+DECL|class|ValidateQueryRequest
 specifier|public
 class|class
-name|ValidateRequest
+name|ValidateQueryRequest
 extends|extends
 name|BroadcastOperationRequest
 block|{
@@ -330,14 +324,14 @@ name|Strings
 operator|.
 name|EMPTY_ARRAY
 decl_stmt|;
-DECL|method|ValidateRequest
-name|ValidateRequest
+DECL|method|ValidateQueryRequest
+name|ValidateQueryRequest
 parameter_list|()
 block|{     }
 comment|/**      * Constructs a new validate request against the provided indices. No indices provided means it will      * run against all indices.      */
-DECL|method|ValidateRequest
+DECL|method|ValidateQueryRequest
 specifier|public
-name|ValidateRequest
+name|ValidateQueryRequest
 parameter_list|(
 name|String
 modifier|...
@@ -375,7 +369,7 @@ annotation|@
 name|Override
 DECL|method|operationThreading
 specifier|public
-name|ValidateRequest
+name|ValidateQueryRequest
 name|operationThreading
 parameter_list|(
 name|BroadcastOperationThreading
@@ -436,7 +430,7 @@ annotation|@
 name|Override
 DECL|method|listenerThreaded
 specifier|public
-name|ValidateRequest
+name|ValidateQueryRequest
 name|listenerThreaded
 parameter_list|(
 name|boolean
@@ -456,7 +450,7 @@ return|;
 block|}
 DECL|method|indices
 specifier|public
-name|ValidateRequest
+name|ValidateQueryRequest
 name|indices
 parameter_list|(
 name|String
@@ -508,7 +502,7 @@ annotation|@
 name|Required
 DECL|method|query
 specifier|public
-name|ValidateRequest
+name|ValidateQueryRequest
 name|query
 parameter_list|(
 name|QueryBuilder
@@ -562,7 +556,7 @@ annotation|@
 name|Required
 DECL|method|query
 specifier|public
-name|ValidateRequest
+name|ValidateQueryRequest
 name|query
 parameter_list|(
 name|Map
@@ -620,7 +614,7 @@ annotation|@
 name|Required
 DECL|method|query
 specifier|public
-name|ValidateRequest
+name|ValidateQueryRequest
 name|query
 parameter_list|(
 name|XContentBuilder
@@ -689,7 +683,7 @@ annotation|@
 name|Required
 DECL|method|query
 specifier|public
-name|ValidateRequest
+name|ValidateQueryRequest
 name|query
 parameter_list|(
 name|String
@@ -745,7 +739,7 @@ annotation|@
 name|Required
 DECL|method|query
 specifier|public
-name|ValidateRequest
+name|ValidateQueryRequest
 name|query
 parameter_list|(
 name|byte
@@ -773,7 +767,7 @@ annotation|@
 name|Required
 DECL|method|query
 specifier|public
-name|ValidateRequest
+name|ValidateQueryRequest
 name|query
 parameter_list|(
 name|byte
@@ -834,7 +828,7 @@ block|}
 comment|/**      * The types of documents the query will run against. Defaults to all types.      */
 DECL|method|types
 specifier|public
-name|ValidateRequest
+name|ValidateQueryRequest
 name|types
 parameter_list|(
 name|String

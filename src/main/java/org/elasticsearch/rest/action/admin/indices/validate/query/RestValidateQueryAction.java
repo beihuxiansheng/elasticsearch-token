@@ -4,7 +4,7 @@ comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more cont
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.rest.action.validate
+DECL|package|org.elasticsearch.rest.action.admin.indices.validate.query
 package|package
 name|org
 operator|.
@@ -14,7 +14,13 @@ name|rest
 operator|.
 name|action
 operator|.
+name|admin
+operator|.
+name|indices
+operator|.
 name|validate
+operator|.
+name|query
 package|;
 end_package
 
@@ -54,9 +60,15 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
+name|admin
+operator|.
+name|indices
+operator|.
 name|validate
 operator|.
-name|ValidateRequest
+name|query
+operator|.
+name|ValidateQueryRequest
 import|;
 end_import
 
@@ -68,9 +80,15 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
+name|admin
+operator|.
+name|indices
+operator|.
 name|validate
 operator|.
-name|ValidateResponse
+name|query
+operator|.
+name|ValidateQueryResponse
 import|;
 end_import
 
@@ -283,18 +301,18 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|RestValidateAction
+DECL|class|RestValidateQueryAction
 specifier|public
 class|class
-name|RestValidateAction
+name|RestValidateQueryAction
 extends|extends
 name|BaseRestHandler
 block|{
 annotation|@
 name|Inject
-DECL|method|RestValidateAction
+DECL|method|RestValidateQueryAction
 specifier|public
-name|RestValidateAction
+name|RestValidateQueryAction
 parameter_list|(
 name|Settings
 name|settings
@@ -319,7 +337,7 @@ name|registerHandler
 argument_list|(
 name|GET
 argument_list|,
-literal|"/_validate"
+literal|"/_validate/query"
 argument_list|,
 name|this
 argument_list|)
@@ -330,7 +348,7 @@ name|registerHandler
 argument_list|(
 name|POST
 argument_list|,
-literal|"/_validate"
+literal|"/_validate/query"
 argument_list|,
 name|this
 argument_list|)
@@ -341,7 +359,7 @@ name|registerHandler
 argument_list|(
 name|GET
 argument_list|,
-literal|"/{index}/_validate"
+literal|"/{index}/_validate/query"
 argument_list|,
 name|this
 argument_list|)
@@ -352,7 +370,7 @@ name|registerHandler
 argument_list|(
 name|POST
 argument_list|,
-literal|"/{index}/_validate"
+literal|"/{index}/_validate/query"
 argument_list|,
 name|this
 argument_list|)
@@ -363,7 +381,7 @@ name|registerHandler
 argument_list|(
 name|GET
 argument_list|,
-literal|"/{index}/{type}/_validate"
+literal|"/{index}/{type}/_validate/query"
 argument_list|,
 name|this
 argument_list|)
@@ -374,7 +392,7 @@ name|registerHandler
 argument_list|(
 name|POST
 argument_list|,
-literal|"/{index}/{type}/_validate"
+literal|"/{index}/{type}/_validate/query"
 argument_list|,
 name|this
 argument_list|)
@@ -396,11 +414,11 @@ name|RestChannel
 name|channel
 parameter_list|)
 block|{
-name|ValidateRequest
-name|validateRequest
+name|ValidateQueryRequest
+name|validateQueryRequest
 init|=
 operator|new
-name|ValidateRequest
+name|ValidateQueryRequest
 argument_list|(
 name|RestActions
 operator|.
@@ -416,7 +434,7 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// we just send back a response, no need to fork a listener
-name|validateRequest
+name|validateQueryRequest
 operator|.
 name|listenerThreaded
 argument_list|(
@@ -461,7 +479,7 @@ operator|.
 name|SINGLE_THREAD
 expr_stmt|;
 block|}
-name|validateRequest
+name|validateQueryRequest
 operator|.
 name|operationThreading
 argument_list|(
@@ -476,7 +494,7 @@ name|hasContent
 argument_list|()
 condition|)
 block|{
-name|validateRequest
+name|validateQueryRequest
 operator|.
 name|query
 argument_list|(
@@ -518,7 +536,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|validateRequest
+name|validateQueryRequest
 operator|.
 name|query
 argument_list|(
@@ -546,7 +564,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|validateRequest
+name|validateQueryRequest
 operator|.
 name|query
 argument_list|(
@@ -556,7 +574,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-name|validateRequest
+name|validateQueryRequest
 operator|.
 name|types
 argument_list|(
@@ -642,14 +660,20 @@ return|return;
 block|}
 name|client
 operator|.
-name|validate
+name|admin
+argument_list|()
+operator|.
+name|indices
+argument_list|()
+operator|.
+name|validateQuery
 argument_list|(
-name|validateRequest
+name|validateQueryRequest
 argument_list|,
 operator|new
 name|ActionListener
 argument_list|<
-name|ValidateResponse
+name|ValidateQueryResponse
 argument_list|>
 argument_list|()
 block|{
@@ -659,7 +683,7 @@ specifier|public
 name|void
 name|onResponse
 parameter_list|(
-name|ValidateResponse
+name|ValidateQueryResponse
 name|response
 parameter_list|)
 block|{
