@@ -578,7 +578,7 @@ literal|null
 argument_list|,
 name|routingMap
 argument_list|,
-literal|null
+literal|"_local"
 argument_list|)
 return|;
 block|}
