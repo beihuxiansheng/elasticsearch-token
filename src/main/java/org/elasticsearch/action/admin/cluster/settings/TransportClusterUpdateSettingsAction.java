@@ -693,6 +693,11 @@ operator|!
 name|changed
 condition|)
 block|{
+name|latch
+operator|.
+name|countDown
+argument_list|()
+expr_stmt|;
 return|return
 name|currentState
 return|;
