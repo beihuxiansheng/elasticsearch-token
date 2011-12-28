@@ -710,7 +710,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"FilterCacheFilterWrapper(animal:cat)"
+literal|"cache(animal:cat)"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -730,7 +730,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"BooleanFilter( FilterCacheFilterWrapper(animal:cat) FilterCacheFilterWrapper(animal:dog))"
+literal|"BooleanFilter( cache(animal:cat) cache(animal:dog))"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -828,7 +828,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"BooleanFilter( FilterCacheFilterWrapper(animal:canine) FilterCacheFilterWrapper(animal:feline))"
+literal|"BooleanFilter( cache(animal:canine) cache(animal:feline))"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -908,7 +908,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"FilterCacheFilterWrapper(animal:dog)"
+literal|"cache(animal:dog)"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -928,7 +928,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"BooleanFilter( FilterCacheFilterWrapper(animal:dog) FilterCacheFilterWrapper(animal:cat))"
+literal|"BooleanFilter( cache(animal:dog) cache(animal:cat))"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -982,7 +982,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"BooleanFilter( FilterCacheFilterWrapper(animal:canine) FilterCacheFilterWrapper(animal:feline))"
+literal|"BooleanFilter( cache(animal:canine) cache(animal:feline))"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1044,13 +1044,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-argument_list|(
-name|expectedExceptions
-operator|=
-name|InvalidAliasNameException
-operator|.
-name|class
-argument_list|)
 DECL|method|testUnknownAliasFilter
 specifier|public
 name|void
@@ -1099,6 +1092,8 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|indexAliasesService
 operator|.
 name|aliasFilter
@@ -1106,6 +1101,18 @@ argument_list|(
 literal|"unknown"
 argument_list|)
 expr_stmt|;
+assert|assert
+literal|false
+assert|;
+block|}
+catch|catch
+parameter_list|(
+name|InvalidAliasNameException
+name|e
+parameter_list|)
+block|{
+comment|// all is well
+block|}
 block|}
 block|}
 end_class

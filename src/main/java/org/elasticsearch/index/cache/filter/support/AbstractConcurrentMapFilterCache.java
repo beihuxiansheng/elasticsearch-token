@@ -215,7 +215,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A base concurrent filter cache that accepts the actual cache to use.  *  *  */
+comment|/**  * A base concurrent filter cache that accepts the actual cache to use.  */
 end_comment
 
 begin_class
@@ -882,7 +882,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"FilterCacheFilterWrapper("
+literal|"cache("
 operator|+
 name|filter
 operator|+

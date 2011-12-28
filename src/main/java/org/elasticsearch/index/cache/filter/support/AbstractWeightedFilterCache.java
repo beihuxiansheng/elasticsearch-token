@@ -1032,7 +1032,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"FilterCacheFilterWrapper("
+literal|"cache("
 operator|+
 name|filter
 operator|+
