@@ -288,6 +288,15 @@ name|DELETE_INDEX_TEMPLATE
 init|=
 literal|"indices/deleteIndexTemplate"
 decl_stmt|;
+DECL|field|VALIDATE_QUERY
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|VALIDATE_QUERY
+init|=
+literal|"indices/validateQuery"
+decl_stmt|;
 DECL|class|Gateway
 specifier|public
 specifier|static
