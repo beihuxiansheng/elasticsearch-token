@@ -24,6 +24,14 @@ end_package
 
 begin_import
 import|import
+name|jsr166y
+operator|.
+name|ThreadLocalRandom
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -221,22 +229,6 @@ operator|.
 name|query
 operator|.
 name|QueryParsingException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|shard
-operator|.
-name|service
-operator|.
-name|IndexShard
 import|;
 end_import
 
@@ -568,7 +560,7 @@ name|ClusterState
 name|clusterState
 parameter_list|)
 block|{
-comment|// Hard-code routing to limit request to a single shard.
+comment|// Hard-code routing to limit request to a single shard, but still, randomize it...
 name|Map
 argument_list|<
 name|String
@@ -587,7 +579,20 @@ argument_list|()
 operator|.
 name|resolveSearchRouting
 argument_list|(
-literal|"0"
+name|Integer
+operator|.
+name|toString
+argument_list|(
+name|ThreadLocalRandom
+operator|.
+name|current
+argument_list|()
+operator|.
+name|nextInt
+argument_list|(
+literal|1000
+argument_list|)
+argument_list|)
 argument_list|,
 name|request
 operator|.
