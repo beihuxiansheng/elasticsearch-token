@@ -977,6 +977,19 @@ name|QueryScorer
 argument_list|(
 name|query
 argument_list|,
+name|field
+operator|.
+name|requireFieldMatch
+argument_list|()
+condition|?
+name|mapper
+operator|.
+name|names
+argument_list|()
+operator|.
+name|indexName
+argument_list|()
+else|:
 literal|null
 argument_list|)
 decl_stmt|;
@@ -1926,6 +1939,9 @@ name|fragmentsBuilder
 operator|=
 name|fragmentsBuilder
 expr_stmt|;
+comment|// parameters to FVH are not requires since:
+comment|// first two booleans are not relevant since they are set on the CustomFieldQuery (phrase and fieldMatch)
+comment|// fragment builders are used explicitly
 name|entry
 operator|.
 name|fvh
@@ -1975,9 +1991,12 @@ operator|.
 name|topLevelReader
 argument_list|()
 argument_list|,
-name|entry
+literal|true
+argument_list|,
+name|field
 operator|.
-name|fvh
+name|requireFieldMatch
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|cache
