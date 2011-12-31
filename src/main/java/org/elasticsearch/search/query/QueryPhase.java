@@ -1189,8 +1189,6 @@ operator|new
 name|CountCollector
 argument_list|()
 decl_stmt|;
-try|try
-block|{
 name|searchContext
 operator|.
 name|searcher
@@ -1203,17 +1201,6 @@ argument_list|,
 name|countCollector
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|ScanCollector
-operator|.
-name|StopCollectingException
-name|e
-parameter_list|)
-block|{
-comment|// all is well
-block|}
 name|topDocs
 operator|=
 name|countCollector
