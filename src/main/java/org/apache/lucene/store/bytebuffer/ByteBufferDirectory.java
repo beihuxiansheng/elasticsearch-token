@@ -136,6 +136,20 @@ name|ConcurrentHashMap
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicLong
+import|;
+end_import
+
 begin_comment
 comment|/**  * A memory based directory that uses {@link java.nio.ByteBuffer} in order to store the directory content.  *<p/>  *<p>The benefit of using {@link java.nio.ByteBuffer} is the fact that it can be stored in "native" memory  * outside of the JVM heap, thus not incurring the GC overhead of large in memory index.  *<p/>  *<p>Each "file" is segmented into one or more byte buffers.  *<p/>  *<p>If constructed with {@link ByteBufferAllocator}, it allows to control the allocation and release of  * byte buffer. For example, custom implementations can include caching of byte buffers.  */
 end_comment
@@ -179,6 +193,15 @@ specifier|private
 specifier|final
 name|boolean
 name|internalAllocator
+decl_stmt|;
+DECL|field|sizeInBytes
+specifier|final
+name|AtomicLong
+name|sizeInBytes
+init|=
+operator|new
+name|AtomicLong
+argument_list|()
 decl_stmt|;
 comment|/**      * Constructs a new directory using {@link PlainByteBufferAllocator}.      */
 DECL|method|ByteBufferDirectory
@@ -266,6 +289,20 @@ parameter_list|)
 block|{
 comment|// will not happen
 block|}
+block|}
+comment|/**      * Returns the size in bytes of the directory, chunk by buffer size.      */
+DECL|method|sizeInBytes
+specifier|public
+name|long
+name|sizeInBytes
+parameter_list|()
+block|{
+return|return
+name|sizeInBytes
+operator|.
+name|get
+argument_list|()
+return|;
 block|}
 DECL|method|sync
 specifier|public
@@ -522,6 +559,19 @@ argument_list|(
 name|name
 argument_list|)
 throw|;
+name|sizeInBytes
+operator|.
+name|addAndGet
+argument_list|(
+operator|-
+name|file
+operator|.
+name|sizeInBytes
+operator|.
+name|get
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|file
 operator|.
 name|delete
@@ -656,6 +706,19 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|sizeInBytes
+operator|.
+name|addAndGet
+argument_list|(
+operator|-
+name|existing
+operator|.
+name|sizeInBytes
+operator|.
+name|get
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|existing
 operator|.
 name|delete
