@@ -2820,7 +2820,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|DocumentAlreadyExistsEngineException
+name|DocumentAlreadyExistsException
 argument_list|(
 name|shardId
 argument_list|,
@@ -2868,7 +2868,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|DocumentAlreadyExistsEngineException
+name|DocumentAlreadyExistsException
 argument_list|(
 name|shardId
 argument_list|,

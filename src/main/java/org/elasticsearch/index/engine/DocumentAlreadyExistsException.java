@@ -47,16 +47,16 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|DocumentMissingEngineException
+DECL|class|DocumentAlreadyExistsException
 specifier|public
 class|class
-name|DocumentMissingEngineException
+name|DocumentAlreadyExistsException
 extends|extends
 name|EngineException
 block|{
-DECL|method|DocumentMissingEngineException
+DECL|method|DocumentAlreadyExistsException
 specifier|public
-name|DocumentMissingEngineException
+name|DocumentAlreadyExistsException
 parameter_list|(
 name|ShardId
 name|shardId
@@ -80,7 +80,7 @@ literal|"]["
 operator|+
 name|id
 operator|+
-literal|"]: document missing"
+literal|"]: document already exists"
 argument_list|)
 expr_stmt|;
 block|}

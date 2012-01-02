@@ -358,7 +358,7 @@ name|index
 operator|.
 name|engine
 operator|.
-name|DocumentMissingEngineException
+name|DocumentMissingException
 import|;
 end_import
 
@@ -372,7 +372,7 @@ name|index
 operator|.
 name|engine
 operator|.
-name|DocumentSourceMissingEngineException
+name|DocumentSourceMissingException
 import|;
 end_import
 
@@ -1130,7 +1130,7 @@ operator|.
 name|onFailure
 argument_list|(
 operator|new
-name|DocumentMissingEngineException
+name|DocumentMissingException
 argument_list|(
 operator|new
 name|ShardId
@@ -1176,7 +1176,7 @@ operator|.
 name|onFailure
 argument_list|(
 operator|new
-name|DocumentSourceMissingEngineException
+name|DocumentSourceMissingException
 argument_list|(
 operator|new
 name|ShardId

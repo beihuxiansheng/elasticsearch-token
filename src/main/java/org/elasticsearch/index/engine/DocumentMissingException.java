@@ -47,16 +47,16 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|DocumentSourceMissingEngineException
+DECL|class|DocumentMissingException
 specifier|public
 class|class
-name|DocumentSourceMissingEngineException
+name|DocumentMissingException
 extends|extends
 name|EngineException
 block|{
-DECL|method|DocumentSourceMissingEngineException
+DECL|method|DocumentMissingException
 specifier|public
-name|DocumentSourceMissingEngineException
+name|DocumentMissingException
 parameter_list|(
 name|ShardId
 name|shardId
@@ -80,7 +80,7 @@ literal|"]["
 operator|+
 name|id
 operator|+
-literal|"]: document source missing"
+literal|"]: document missing"
 argument_list|)
 expr_stmt|;
 block|}
@@ -95,7 +95,7 @@ block|{
 return|return
 name|RestStatus
 operator|.
-name|BAD_REQUEST
+name|CONFLICT
 return|;
 block|}
 block|}

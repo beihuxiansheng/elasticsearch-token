@@ -366,7 +366,7 @@ name|index
 operator|.
 name|engine
 operator|.
-name|DocumentMissingEngineException
+name|DocumentMissingException
 import|;
 end_import
 
@@ -2780,7 +2780,7 @@ assert|;
 block|}
 catch|catch
 parameter_list|(
-name|DocumentMissingEngineException
+name|DocumentMissingException
 name|e
 parameter_list|)
 block|{

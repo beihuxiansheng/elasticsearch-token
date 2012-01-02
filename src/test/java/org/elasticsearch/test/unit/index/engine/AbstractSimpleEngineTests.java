@@ -582,26 +582,6 @@ begin_import
 import|import static
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|unit
-operator|.
-name|index
-operator|.
-name|engine
-operator|.
-name|EngineSearcherTotalHitsMatcher
-operator|.
-name|engineSearcherTotalHits
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
 name|hamcrest
 operator|.
 name|MatcherAssert
@@ -7693,7 +7673,7 @@ assert|;
 block|}
 catch|catch
 parameter_list|(
-name|DocumentAlreadyExistsEngineException
+name|DocumentAlreadyExistsException
 name|e
 parameter_list|)
 block|{
@@ -7834,7 +7814,7 @@ assert|;
 block|}
 catch|catch
 parameter_list|(
-name|DocumentAlreadyExistsEngineException
+name|DocumentAlreadyExistsException
 name|e
 parameter_list|)
 block|{

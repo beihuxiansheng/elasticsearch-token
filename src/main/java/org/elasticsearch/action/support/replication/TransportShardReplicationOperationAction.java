@@ -298,7 +298,7 @@ name|index
 operator|.
 name|engine
 operator|.
-name|DocumentAlreadyExistsEngineException
+name|DocumentAlreadyExistsException
 import|;
 end_import
 
@@ -988,7 +988,7 @@ if|if
 condition|(
 name|cause
 operator|instanceof
-name|DocumentAlreadyExistsEngineException
+name|DocumentAlreadyExistsException
 condition|)
 block|{
 return|return

@@ -47,16 +47,16 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|DocumentAlreadyExistsEngineException
+DECL|class|DocumentSourceMissingException
 specifier|public
 class|class
-name|DocumentAlreadyExistsEngineException
+name|DocumentSourceMissingException
 extends|extends
 name|EngineException
 block|{
-DECL|method|DocumentAlreadyExistsEngineException
+DECL|method|DocumentSourceMissingException
 specifier|public
-name|DocumentAlreadyExistsEngineException
+name|DocumentSourceMissingException
 parameter_list|(
 name|ShardId
 name|shardId
@@ -80,7 +80,7 @@ literal|"]["
 operator|+
 name|id
 operator|+
-literal|"]: document already exists"
+literal|"]: document source missing"
 argument_list|)
 expr_stmt|;
 block|}
@@ -95,7 +95,7 @@ block|{
 return|return
 name|RestStatus
 operator|.
-name|CONFLICT
+name|BAD_REQUEST
 return|;
 block|}
 block|}
