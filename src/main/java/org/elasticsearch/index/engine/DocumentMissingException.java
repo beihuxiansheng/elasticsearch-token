@@ -95,7 +95,7 @@ block|{
 return|return
 name|RestStatus
 operator|.
-name|CONFLICT
+name|NOT_FOUND
 return|;
 block|}
 block|}
