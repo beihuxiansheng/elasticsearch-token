@@ -1482,6 +1482,8 @@ argument_list|,
 name|dataOffset
 argument_list|,
 name|dataLength
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|Map

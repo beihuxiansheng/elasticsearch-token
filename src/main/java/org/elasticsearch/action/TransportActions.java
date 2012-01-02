@@ -42,6 +42,15 @@ name|INDEX
 init|=
 literal|"indices/index/shard/index"
 decl_stmt|;
+DECL|field|UPDATE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|UPDATE
+init|=
+literal|"update"
+decl_stmt|;
 DECL|field|COUNT
 specifier|public
 specifier|static

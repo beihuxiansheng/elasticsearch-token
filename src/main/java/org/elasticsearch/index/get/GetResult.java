@@ -702,6 +702,17 @@ operator|.
 name|source
 return|;
 block|}
+comment|/**      * Internal source representation, might be compressed....      */
+DECL|method|internalSourceRef
+specifier|public
+name|BytesHolder
+name|internalSourceRef
+parameter_list|()
+block|{
+return|return
+name|source
+return|;
+block|}
 comment|/**      * Is the source empty (not available) or not.      */
 DECL|method|isSourceEmpty
 specifier|public

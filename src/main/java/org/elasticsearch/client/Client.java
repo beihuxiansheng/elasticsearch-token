@@ -324,6 +324,34 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|action
+operator|.
+name|update
+operator|.
+name|UpdateRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|update
+operator|.
+name|UpdateResponse
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|client
 operator|.
 name|action
@@ -500,6 +528,22 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|client
+operator|.
+name|action
+operator|.
+name|update
+operator|.
+name|UpdateRequestBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|Nullable
@@ -507,7 +551,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A client provides a one stop interface for performing actions/operations against the cluster.  *<p/>  *<p>All operations performed are asynchronous by nature. Each action/operation has two flavors, the first  * simply returns an {@link org.elasticsearch.action.ActionFuture}, while the second accepts an  * {@link org.elasticsearch.action.ActionListener}.  *<p/>  *<p>A client can either be retrieved from a {@link org.elasticsearch.node.Node} started, or connected remotely  * to one or more nodes using {@link org.elasticsearch.client.transport.TransportClient}.  *  *  * @see org.elasticsearch.node.Node#client()  * @see org.elasticsearch.client.transport.TransportClient  */
+comment|/**  * A client provides a one stop interface for performing actions/operations against the cluster.  *<p/>  *<p>All operations performed are asynchronous by nature. Each action/operation has two flavors, the first  * simply returns an {@link org.elasticsearch.action.ActionFuture}, while the second accepts an  * {@link org.elasticsearch.action.ActionListener}.  *<p/>  *<p>A client can either be retrieved from a {@link org.elasticsearch.node.Node} started, or connected remotely  * to one or more nodes using {@link org.elasticsearch.client.transport.TransportClient}.  *  * @see org.elasticsearch.node.Node#client()  * @see org.elasticsearch.client.transport.TransportClient  */
 end_comment
 
 begin_interface
@@ -560,6 +604,54 @@ DECL|method|prepareIndex
 name|IndexRequestBuilder
 name|prepareIndex
 parameter_list|()
+function_decl|;
+comment|/**      * Updates a document based on a script.      *      * @param request The update request      * @return The result future      */
+DECL|method|update
+name|ActionFuture
+argument_list|<
+name|UpdateResponse
+argument_list|>
+name|update
+parameter_list|(
+name|UpdateRequest
+name|request
+parameter_list|)
+function_decl|;
+comment|/**      * Updates a document based on a script.      *      * @param request  The update request      * @param listener A listener to be notified with a result      */
+DECL|method|update
+name|void
+name|update
+parameter_list|(
+name|UpdateRequest
+name|request
+parameter_list|,
+name|ActionListener
+argument_list|<
+name|UpdateResponse
+argument_list|>
+name|listener
+parameter_list|)
+function_decl|;
+comment|/**      * Updates a document based on a script.      */
+DECL|method|prepareUpdate
+name|UpdateRequestBuilder
+name|prepareUpdate
+parameter_list|()
+function_decl|;
+comment|/**      * Updates a document based on a script.      */
+DECL|method|prepareUpdate
+name|UpdateRequestBuilder
+name|prepareUpdate
+parameter_list|(
+name|String
+name|index
+parameter_list|,
+name|String
+name|type
+parameter_list|,
+name|String
+name|id
+parameter_list|)
 function_decl|;
 comment|/**      * Index a document associated with a given index and type.      *<p/>      *<p>The id is optional, if it is not provided, one will be generated automatically.      *      * @param index The index to index the document to      * @param type  The type to index the document to      */
 DECL|method|prepareIndex

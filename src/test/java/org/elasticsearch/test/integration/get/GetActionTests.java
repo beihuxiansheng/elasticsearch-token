@@ -4,7 +4,7 @@ comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more cont
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.test.integration.document
+DECL|package|org.elasticsearch.test.integration.get
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|test
 operator|.
 name|integration
 operator|.
-name|document
+name|get
 package|;
 end_package
 
