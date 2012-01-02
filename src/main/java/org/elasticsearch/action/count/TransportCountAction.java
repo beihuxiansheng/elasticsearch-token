@@ -408,7 +408,11 @@ name|transportShardAction
 parameter_list|()
 block|{
 return|return
-literal|"indices/count/shard"
+name|TransportActions
+operator|.
+name|COUNT
+operator|+
+literal|"/shard"
 return|;
 block|}
 annotation|@

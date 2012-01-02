@@ -257,7 +257,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Performs the get operation.  *  *  */
+comment|/**  * Performs the get operation.  */
 end_comment
 
 begin_class
@@ -377,7 +377,11 @@ name|transportShardAction
 parameter_list|()
 block|{
 return|return
-literal|"indices/get/shard"
+name|TransportActions
+operator|.
+name|GET
+operator|+
+literal|"/shard"
 return|;
 block|}
 annotation|@

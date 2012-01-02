@@ -330,7 +330,11 @@ name|transportShardAction
 parameter_list|()
 block|{
 return|return
-literal|"indices/percolate/shard"
+name|TransportActions
+operator|.
+name|PERCOLATE
+operator|+
+literal|"/shard"
 return|;
 block|}
 annotation|@

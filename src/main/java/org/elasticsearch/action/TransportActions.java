@@ -31,7 +31,7 @@ specifier|final
 name|String
 name|BULK
 init|=
-literal|"indices/bulk"
+literal|"bulk"
 decl_stmt|;
 DECL|field|INDEX
 specifier|public
@@ -40,7 +40,7 @@ specifier|final
 name|String
 name|INDEX
 init|=
-literal|"indices/index/shard/index"
+literal|"index"
 decl_stmt|;
 DECL|field|UPDATE
 specifier|public
@@ -58,7 +58,7 @@ specifier|final
 name|String
 name|COUNT
 init|=
-literal|"indices/count"
+literal|"count"
 decl_stmt|;
 DECL|field|DELETE
 specifier|public
@@ -67,7 +67,7 @@ specifier|final
 name|String
 name|DELETE
 init|=
-literal|"indices/index/shard/delete"
+literal|"delete"
 decl_stmt|;
 DECL|field|DELETE_BY_QUERY
 specifier|public
@@ -76,7 +76,7 @@ specifier|final
 name|String
 name|DELETE_BY_QUERY
 init|=
-literal|"indices/deleteByQuery"
+literal|"deleteByQuery"
 decl_stmt|;
 DECL|field|GET
 specifier|public
@@ -85,7 +85,7 @@ specifier|final
 name|String
 name|GET
 init|=
-literal|"indices/get"
+literal|"get"
 decl_stmt|;
 DECL|field|MULTI_GET
 specifier|public
@@ -94,7 +94,7 @@ specifier|final
 name|String
 name|MULTI_GET
 init|=
-literal|"indices/mget"
+literal|"mget"
 decl_stmt|;
 DECL|field|SEARCH
 specifier|public
@@ -103,7 +103,7 @@ specifier|final
 name|String
 name|SEARCH
 init|=
-literal|"indices/search"
+literal|"search"
 decl_stmt|;
 DECL|field|SEARCH_SCROLL
 specifier|public
@@ -112,16 +112,7 @@ specifier|final
 name|String
 name|SEARCH_SCROLL
 init|=
-literal|"indices/searchScroll"
-decl_stmt|;
-DECL|field|TERMS
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|TERMS
-init|=
-literal|"indices/terms"
+literal|"searchScroll"
 decl_stmt|;
 DECL|field|MORE_LIKE_THIS
 specifier|public
@@ -130,7 +121,7 @@ specifier|final
 name|String
 name|MORE_LIKE_THIS
 init|=
-literal|"indices/moreLikeThis"
+literal|"mlt"
 decl_stmt|;
 DECL|field|PERCOLATE
 specifier|public
@@ -139,7 +130,7 @@ specifier|final
 name|String
 name|PERCOLATE
 init|=
-literal|"indices/percolate"
+literal|"percolate"
 decl_stmt|;
 DECL|class|Admin
 specifier|public
@@ -160,7 +151,7 @@ specifier|final
 name|String
 name|CREATE
 init|=
-literal|"indices/createIndex"
+literal|"indices/create"
 decl_stmt|;
 DECL|field|DELETE
 specifier|public
@@ -169,7 +160,7 @@ specifier|final
 name|String
 name|DELETE
 init|=
-literal|"indices/deleteIndex"
+literal|"indices/delete"
 decl_stmt|;
 DECL|field|OPEN
 specifier|public
@@ -178,7 +169,7 @@ specifier|final
 name|String
 name|OPEN
 init|=
-literal|"indices/openIndex"
+literal|"indices/open"
 decl_stmt|;
 DECL|field|CLOSE
 specifier|public
@@ -187,7 +178,7 @@ specifier|final
 name|String
 name|CLOSE
 init|=
-literal|"indices/closeIndex"
+literal|"indices/close"
 decl_stmt|;
 DECL|field|FLUSH
 specifier|public
