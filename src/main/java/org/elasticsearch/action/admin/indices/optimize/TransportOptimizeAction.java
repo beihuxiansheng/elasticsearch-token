@@ -287,7 +287,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Optimize index/indices action.  *  *  */
+comment|/**  * Optimize index/indices action.  */
 end_comment
 
 begin_class
@@ -395,18 +395,6 @@ operator|.
 name|Indices
 operator|.
 name|OPTIMIZE
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|transportShardAction
-specifier|protected
-name|String
-name|transportShardAction
-parameter_list|()
-block|{
-return|return
-literal|"indices/optimize/shard"
 return|;
 block|}
 annotation|@

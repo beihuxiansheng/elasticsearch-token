@@ -369,8 +369,10 @@ name|this
 operator|.
 name|transportShardAction
 operator|=
-name|transportShardAction
+name|transportAction
 argument_list|()
+operator|+
+literal|"/s"
 expr_stmt|;
 name|this
 operator|.
@@ -436,13 +438,6 @@ specifier|protected
 specifier|abstract
 name|String
 name|transportAction
-parameter_list|()
-function_decl|;
-DECL|method|transportShardAction
-specifier|protected
-specifier|abstract
-name|String
-name|transportShardAction
 parameter_list|()
 function_decl|;
 DECL|method|executor

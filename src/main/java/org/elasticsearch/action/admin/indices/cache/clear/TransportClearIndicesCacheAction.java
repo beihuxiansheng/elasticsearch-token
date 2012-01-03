@@ -273,7 +273,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Indices clear cache action.  *  *  */
+comment|/**  * Indices clear cache action.  */
 end_comment
 
 begin_class
@@ -373,18 +373,6 @@ operator|.
 name|Cache
 operator|.
 name|CLEAR
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|transportShardAction
-specifier|protected
-name|String
-name|transportShardAction
-parameter_list|()
-block|{
-return|return
-literal|"indices/cache/clear/shard"
 return|;
 block|}
 annotation|@

@@ -348,8 +348,10 @@ name|this
 operator|.
 name|transportNodeAction
 operator|=
-name|transportNodeAction
+name|transportAction
 argument_list|()
+operator|+
+literal|"/n"
 expr_stmt|;
 name|this
 operator|.
@@ -415,13 +417,6 @@ specifier|protected
 specifier|abstract
 name|String
 name|transportAction
-parameter_list|()
-function_decl|;
-DECL|method|transportNodeAction
-specifier|protected
-specifier|abstract
-name|String
-name|transportNodeAction
 parameter_list|()
 function_decl|;
 DECL|method|transportCompress

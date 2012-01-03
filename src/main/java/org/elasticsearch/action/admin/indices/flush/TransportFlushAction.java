@@ -287,7 +287,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Flush Action.  *  *  */
+comment|/**  * Flush Action.  */
 end_comment
 
 begin_class
@@ -385,18 +385,6 @@ operator|.
 name|Indices
 operator|.
 name|FLUSH
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|transportShardAction
-specifier|protected
-name|String
-name|transportShardAction
-parameter_list|()
-block|{
-return|return
-literal|"indices/flush/shard"
 return|;
 block|}
 annotation|@
