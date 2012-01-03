@@ -474,22 +474,6 @@ name|ClusterState
 name|state
 parameter_list|)
 block|{      }
-DECL|method|retryRequired
-specifier|protected
-name|boolean
-name|retryRequired
-parameter_list|(
-name|ShardIterator
-name|shardIt
-parameter_list|,
-name|ClusterState
-name|state
-parameter_list|)
-block|{
-return|return
-literal|false
-return|;
-block|}
 DECL|method|retryOnFailure
 specifier|protected
 name|boolean
