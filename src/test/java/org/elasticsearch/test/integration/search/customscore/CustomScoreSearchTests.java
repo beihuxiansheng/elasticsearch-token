@@ -1812,7 +1812,7 @@ argument_list|,
 literal|"value4"
 argument_list|)
 argument_list|,
-literal|"_score * 2"
+literal|"2"
 argument_list|)
 operator|.
 name|add
@@ -1824,7 +1824,7 @@ argument_list|,
 literal|"value2"
 argument_list|)
 argument_list|,
-literal|"_score * 3"
+literal|"3"
 argument_list|)
 argument_list|)
 operator|.

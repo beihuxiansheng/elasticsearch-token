@@ -97,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A query that allows for a pluggable boost function to be applied to it.  *  *  */
+comment|/**  * A query that allows for a pluggable boost function to be applied to it.  */
 end_comment
 
 begin_class
@@ -497,7 +497,7 @@ name|functionExplanation
 init|=
 name|function
 operator|.
-name|explain
+name|explainScore
 argument_list|(
 name|doc
 argument_list|,
