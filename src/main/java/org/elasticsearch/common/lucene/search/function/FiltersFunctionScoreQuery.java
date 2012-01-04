@@ -908,6 +908,11 @@ init|=
 name|getValue
 argument_list|()
 operator|*
+name|subQueryExpl
+operator|.
+name|getValue
+argument_list|()
+operator|*
 name|functionExplanation
 operator|.
 name|getValue
@@ -1076,7 +1081,7 @@ name|doc
 argument_list|)
 decl_stmt|;
 name|float
-name|sc
+name|factor
 init|=
 name|functionExplanation
 operator|.
@@ -1088,11 +1093,11 @@ operator|++
 expr_stmt|;
 name|total
 operator|+=
-name|sc
+name|factor
 expr_stmt|;
 name|multiply
 operator|*=
-name|sc
+name|factor
 expr_stmt|;
 name|max
 operator|=
@@ -1100,7 +1105,7 @@ name|Math
 operator|.
 name|max
 argument_list|(
-name|sc
+name|factor
 argument_list|,
 name|max
 argument_list|)
@@ -1111,7 +1116,7 @@ name|Math
 operator|.
 name|min
 argument_list|(
-name|sc
+name|factor
 argument_list|,
 name|min
 argument_list|)
@@ -1124,7 +1129,7 @@ name|ComplexExplanation
 argument_list|(
 literal|true
 argument_list|,
-name|sc
+name|factor
 argument_list|,
 literal|"custom score, product of:"
 argument_list|)
@@ -1187,7 +1192,7 @@ literal|0
 condition|)
 block|{
 name|float
-name|sc
+name|factor
 init|=
 literal|0
 decl_stmt|;
@@ -1199,7 +1204,7 @@ block|{
 case|case
 name|Avg
 case|:
-name|sc
+name|factor
 operator|=
 name|total
 operator|/
@@ -1209,7 +1214,7 @@ break|break;
 case|case
 name|Max
 case|:
-name|sc
+name|factor
 operator|=
 name|max
 expr_stmt|;
@@ -1217,7 +1222,7 @@ break|break;
 case|case
 name|Min
 case|:
-name|sc
+name|factor
 operator|=
 name|min
 expr_stmt|;
@@ -1225,7 +1230,7 @@ break|break;
 case|case
 name|Total
 case|:
-name|sc
+name|factor
 operator|=
 name|total
 expr_stmt|;
@@ -1233,17 +1238,25 @@ break|break;
 case|case
 name|Multiply
 case|:
-name|sc
+name|factor
 operator|=
 name|multiply
 expr_stmt|;
 break|break;
 block|}
+name|float
 name|sc
-operator|*=
+init|=
+name|factor
+operator|*
+name|subQueryExpl
+operator|.
 name|getValue
 argument_list|()
-expr_stmt|;
+operator|*
+name|getValue
+argument_list|()
+decl_stmt|;
 name|Explanation
 name|res
 init|=
