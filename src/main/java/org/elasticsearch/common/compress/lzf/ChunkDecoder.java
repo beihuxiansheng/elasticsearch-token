@@ -713,9 +713,7 @@ if|if
 condition|(
 name|ptr
 operator|!=
-name|data
-operator|.
-name|length
+name|end
 condition|)
 block|{
 throw|throw
