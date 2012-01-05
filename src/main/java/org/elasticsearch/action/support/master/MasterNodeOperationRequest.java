@@ -87,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A based request for master based operation.  *  *  */
+comment|/**  * A based request for master based operation.  */
 end_comment
 
 begin_class
@@ -99,10 +99,11 @@ name|MasterNodeOperationRequest
 implements|implements
 name|ActionRequest
 block|{
-DECL|field|masterNodeTimeout
-specifier|private
+DECL|field|DEFAULT_MASTER_NODE_TIMEOUT
+specifier|public
+specifier|static
 name|TimeValue
-name|masterNodeTimeout
+name|DEFAULT_MASTER_NODE_TIMEOUT
 init|=
 name|TimeValue
 operator|.
@@ -110,6 +111,13 @@ name|timeValueSeconds
 argument_list|(
 literal|30
 argument_list|)
+decl_stmt|;
+DECL|field|masterNodeTimeout
+specifier|private
+name|TimeValue
+name|masterNodeTimeout
+init|=
+name|DEFAULT_MASTER_NODE_TIMEOUT
 decl_stmt|;
 annotation|@
 name|Override
