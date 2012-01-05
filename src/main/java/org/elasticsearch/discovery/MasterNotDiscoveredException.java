@@ -24,6 +24,18 @@ name|ElasticSearchException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|rest
+operator|.
+name|RestStatus
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -46,6 +58,20 @@ argument_list|(
 literal|""
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|status
+specifier|public
+name|RestStatus
+name|status
+parameter_list|()
+block|{
+return|return
+name|RestStatus
+operator|.
+name|SERVICE_UNAVAILABLE
+return|;
 block|}
 block|}
 end_class
