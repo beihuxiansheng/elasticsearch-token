@@ -277,15 +277,27 @@ argument_list|(
 name|invocationHandler
 argument_list|)
 expr_stmt|;
+comment|// ES: Replace, since we don't use bytecode gen, just get the type class loader, or system if its null
+comment|//ClassLoader classLoader = BytecodeGen.getClassLoader(expectedType);
 name|ClassLoader
 name|classLoader
 init|=
-name|BytecodeGen
+name|expectedType
 operator|.
 name|getClassLoader
-argument_list|(
+argument_list|()
+operator|==
+literal|null
+condition|?
+name|ClassLoader
+operator|.
+name|getSystemClassLoader
+argument_list|()
+else|:
 name|expectedType
-argument_list|)
+operator|.
+name|getClassLoader
+argument_list|()
 decl_stmt|;
 return|return
 name|expectedType

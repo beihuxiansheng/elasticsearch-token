@@ -259,7 +259,7 @@ name|combine
 argument_list|(
 name|ImmutableSet
 operator|.
-name|of
+name|copyOf
 argument_list|(
 name|modules
 argument_list|)

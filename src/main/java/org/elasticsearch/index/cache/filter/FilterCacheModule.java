@@ -72,9 +72,9 @@ name|cache
 operator|.
 name|filter
 operator|.
-name|node
+name|weighted
 operator|.
-name|NodeFilterCache
+name|WeightedFilterCache
 import|;
 end_import
 
@@ -153,7 +153,7 @@ name|FilterCacheSettings
 operator|.
 name|FILTER_CACHE_TYPE
 argument_list|,
-name|NodeFilterCache
+name|WeightedFilterCache
 operator|.
 name|class
 argument_list|,
