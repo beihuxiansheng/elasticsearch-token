@@ -113,7 +113,7 @@ literal|30
 argument_list|)
 decl_stmt|;
 DECL|field|masterNodeTimeout
-specifier|private
+specifier|protected
 name|TimeValue
 name|masterNodeTimeout
 init|=
