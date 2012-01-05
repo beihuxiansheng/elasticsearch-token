@@ -112,6 +112,18 @@ name|NodeService
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|rest
+operator|.
+name|RestStatus
+import|;
+end_import
+
 begin_comment
 comment|/**  * A pluggable module allowing to implement discovery of other nodes, publishing of the cluster  * state to all nodes, electing a master of the cluster that raises cluster state change  * events.  */
 end_comment
@@ -142,6 +154,10 @@ argument_list|,
 literal|true
 argument_list|,
 literal|true
+argument_list|,
+name|RestStatus
+operator|.
+name|SERVICE_UNAVAILABLE
 argument_list|,
 name|ClusterBlockLevel
 operator|.

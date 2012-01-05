@@ -235,6 +235,18 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|rest
+operator|.
+name|RestStatus
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -277,6 +289,10 @@ argument_list|,
 literal|false
 argument_list|,
 literal|false
+argument_list|,
+name|RestStatus
+operator|.
+name|FORBIDDEN
 argument_list|,
 name|ClusterBlockLevel
 operator|.
