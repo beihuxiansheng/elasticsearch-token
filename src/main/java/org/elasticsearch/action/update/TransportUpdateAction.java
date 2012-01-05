@@ -1640,11 +1640,7 @@ condition|)
 block|{
 if|if
 condition|(
-operator|(
 name|retryCount
-operator|+
-literal|1
-operator|)
 operator|<
 name|request
 operator|.
@@ -1863,11 +1859,7 @@ condition|)
 block|{
 if|if
 condition|(
-operator|(
 name|retryCount
-operator|+
-literal|1
-operator|)
 operator|<
 name|request
 operator|.
