@@ -446,6 +446,13 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
+literal|"discovery.type"
+argument_list|,
+literal|"zen"
+argument_list|)
+operator|.
+name|put
+argument_list|(
 literal|"discovery.zen.minimum_master_nodes"
 argument_list|,
 literal|2
@@ -1916,6 +1923,13 @@ name|settings
 init|=
 name|settingsBuilder
 argument_list|()
+operator|.
+name|put
+argument_list|(
+literal|"discovery.type"
+argument_list|,
+literal|"zen"
+argument_list|)
 operator|.
 name|put
 argument_list|(
