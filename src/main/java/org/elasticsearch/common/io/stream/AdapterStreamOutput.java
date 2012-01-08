@@ -32,6 +32,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|Nullable
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -291,6 +303,8 @@ specifier|public
 name|void
 name|writeBytesHolder
 parameter_list|(
+annotation|@
+name|Nullable
 name|BytesHolder
 name|bytes
 parameter_list|)
