@@ -1031,11 +1031,15 @@ operator|.
 name|DeleteByQuery
 argument_list|(
 operator|new
+name|BytesHolder
+argument_list|(
+operator|new
 name|byte
 index|[]
 block|{
 literal|4
 block|}
+argument_list|)
 argument_list|,
 literal|null
 argument_list|)
@@ -1262,6 +1266,9 @@ argument_list|(
 name|deleteByQuery
 operator|.
 name|source
+argument_list|()
+operator|.
+name|copyBytes
 argument_list|()
 argument_list|,
 name|equalTo

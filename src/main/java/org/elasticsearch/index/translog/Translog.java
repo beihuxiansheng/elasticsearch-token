@@ -2241,8 +2241,7 @@ name|Operation
 block|{
 DECL|field|source
 specifier|private
-name|byte
-index|[]
+name|BytesHolder
 name|source
 decl_stmt|;
 annotation|@
@@ -2301,8 +2300,7 @@ DECL|method|DeleteByQuery
 specifier|public
 name|DeleteByQuery
 parameter_list|(
-name|byte
-index|[]
+name|BytesHolder
 name|source
 parameter_list|,
 name|String
@@ -2367,14 +2365,14 @@ return|return
 name|source
 operator|.
 name|length
+argument_list|()
 operator|+
 literal|8
 return|;
 block|}
 DECL|method|source
 specifier|public
-name|byte
-index|[]
+name|BytesHolder
 name|source
 parameter_list|()
 block|{
@@ -2453,21 +2451,10 @@ decl_stmt|;
 comment|// version
 name|source
 operator|=
-operator|new
-name|byte
-index|[
 name|in
 operator|.
-name|readVInt
+name|readBytesReference
 argument_list|()
-index|]
-expr_stmt|;
-name|in
-operator|.
-name|readFully
-argument_list|(
-name|source
-argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -2624,16 +2611,7 @@ expr_stmt|;
 comment|// version
 name|out
 operator|.
-name|writeVInt
-argument_list|(
-name|source
-operator|.
-name|length
-argument_list|)
-expr_stmt|;
-name|out
-operator|.
-name|writeBytes
+name|writeBytesHolder
 argument_list|(
 name|source
 argument_list|)

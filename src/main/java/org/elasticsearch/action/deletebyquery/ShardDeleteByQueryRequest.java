@@ -66,6 +66,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|BytesHolder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|Nullable
 import|;
 end_import
@@ -171,7 +183,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Delete by query request to execute on a specific shard.  *  *  */
+comment|/**  * Delete by query request to execute on a specific shard.  */
 end_comment
 
 begin_class
@@ -189,8 +201,7 @@ name|shardId
 decl_stmt|;
 DECL|field|querySource
 specifier|private
-name|byte
-index|[]
+name|BytesHolder
 name|querySource
 decl_stmt|;
 DECL|field|types
@@ -356,9 +367,7 @@ name|shardId
 return|;
 block|}
 DECL|method|querySource
-specifier|public
-name|byte
-index|[]
+name|BytesHolder
 name|querySource
 parameter_list|()
 block|{
@@ -427,21 +436,10 @@ argument_list|)
 expr_stmt|;
 name|querySource
 operator|=
-operator|new
-name|byte
-index|[
 name|in
 operator|.
-name|readVInt
+name|readBytesReference
 argument_list|()
-index|]
-expr_stmt|;
-name|in
-operator|.
-name|readFully
-argument_list|(
-name|querySource
-argument_list|)
 expr_stmt|;
 name|shardId
 operator|=
@@ -626,16 +624,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeVInt
-argument_list|(
-name|querySource
-operator|.
-name|length
-argument_list|)
-expr_stmt|;
-name|out
-operator|.
-name|writeBytes
+name|writeBytesHolder
 argument_list|(
 name|querySource
 argument_list|)
@@ -782,6 +771,19 @@ operator|.
 name|fromBytes
 argument_list|(
 name|querySource
+operator|.
+name|bytes
+argument_list|()
+argument_list|,
+name|querySource
+operator|.
+name|offset
+argument_list|()
+argument_list|,
+name|querySource
+operator|.
+name|length
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
