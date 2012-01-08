@@ -340,7 +340,7 @@ name|bytes
 init|=
 name|in
 operator|.
-name|readBytesHolder
+name|readBytesReference
 argument_list|()
 decl_stmt|;
 name|querySource
