@@ -230,22 +230,6 @@ return|return
 name|bytes
 return|;
 block|}
-comment|/**      * Returns the number of read bytes by this stream so far.      */
-DECL|method|readBytes
-specifier|public
-name|int
-name|readBytes
-parameter_list|()
-block|{
-return|return
-name|buffer
-operator|.
-name|readerIndex
-argument_list|()
-operator|-
-name|startIndex
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|available
