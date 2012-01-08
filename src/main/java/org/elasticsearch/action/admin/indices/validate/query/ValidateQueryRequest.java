@@ -515,7 +515,7 @@ name|bos
 init|=
 name|queryBuilder
 operator|.
-name|buildAsUnsafeBytes
+name|buildAsBytes
 argument_list|()
 decl_stmt|;
 name|this
@@ -546,7 +546,7 @@ name|this
 operator|.
 name|querySourceUnsafe
 operator|=
-literal|true
+literal|false
 expr_stmt|;
 return|return
 name|this
