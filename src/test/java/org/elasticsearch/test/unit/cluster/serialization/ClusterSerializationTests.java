@@ -658,6 +658,8 @@ name|outStream
 operator|.
 name|copiedByteArray
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|RoutingTable

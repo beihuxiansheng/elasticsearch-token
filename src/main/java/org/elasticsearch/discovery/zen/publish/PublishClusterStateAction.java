@@ -443,7 +443,6 @@ expr_stmt|;
 block|}
 block|}
 DECL|class|PublishClusterStateRequest
-specifier|private
 class|class
 name|PublishClusterStateRequest
 implements|implements
@@ -600,6 +599,8 @@ argument_list|(
 name|request
 operator|.
 name|clusterStateInBytes
+argument_list|,
+literal|false
 argument_list|)
 argument_list|)
 decl_stmt|;

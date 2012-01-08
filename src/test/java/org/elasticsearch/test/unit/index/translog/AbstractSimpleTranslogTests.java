@@ -1121,6 +1121,9 @@ name|create
 operator|.
 name|source
 argument_list|()
+operator|.
+name|copyBytes
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -1166,6 +1169,9 @@ argument_list|(
 name|index
 operator|.
 name|source
+argument_list|()
+operator|.
+name|copyBytes
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1499,6 +1505,9 @@ name|create
 operator|.
 name|source
 argument_list|()
+operator|.
+name|copyBytes
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -1660,6 +1669,9 @@ argument_list|(
 name|index
 operator|.
 name|source
+argument_list|()
+operator|.
+name|copyBytes
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1900,6 +1912,9 @@ argument_list|(
 name|index
 operator|.
 name|source
+argument_list|()
+operator|.
+name|copyBytes
 argument_list|()
 argument_list|,
 name|equalTo

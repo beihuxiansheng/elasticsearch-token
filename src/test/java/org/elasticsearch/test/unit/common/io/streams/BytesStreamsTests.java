@@ -247,6 +247,8 @@ name|out
 operator|.
 name|copiedByteArray
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|assertThat

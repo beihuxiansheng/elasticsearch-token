@@ -524,6 +524,8 @@ argument_list|,
 literal|0
 argument_list|,
 name|opSize
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
