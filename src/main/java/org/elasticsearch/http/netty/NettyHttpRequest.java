@@ -18,6 +18,20 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|base
+operator|.
+name|Charsets
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -71,18 +85,6 @@ operator|.
 name|http
 operator|.
 name|HttpMethod
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|charset
-operator|.
-name|Charset
 import|;
 end_import
 
@@ -456,15 +458,12 @@ name|boolean
 name|contentUnsafe
 parameter_list|()
 block|{
+comment|// the netty HTTP handling always copy over the buffer to its own buffer, either in NioWorker internally
+comment|// when reading, or using a cumalation buffer
 return|return
-name|request
-operator|.
-name|getContent
-argument_list|()
-operator|.
-name|hasArray
-argument_list|()
+literal|false
 return|;
+comment|//return request.getContent().hasArray();
 block|}
 annotation|@
 name|Override
@@ -585,19 +584,6 @@ return|return
 literal|0
 return|;
 block|}
-DECL|field|UTF8
-specifier|private
-specifier|static
-name|Charset
-name|UTF8
-init|=
-name|Charset
-operator|.
-name|forName
-argument_list|(
-literal|"UTF-8"
-argument_list|)
-decl_stmt|;
 annotation|@
 name|Override
 DECL|method|contentAsString
@@ -614,7 +600,9 @@ argument_list|()
 operator|.
 name|toString
 argument_list|(
-name|UTF8
+name|Charsets
+operator|.
+name|UTF_8
 argument_list|)
 return|;
 block|}
