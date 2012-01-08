@@ -437,7 +437,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The recovery target handles recoveries of peer shards of the shard+node to recover to.  *<p/>  *<p>Note, it can be safely assumed that there will only be a single recovery per shard (index+id) and  * not several of them (since we don't allocate several shard replicas to the same node).  *  *  */
+comment|/**  * The recovery target handles recoveries of peer shards of the shard+node to recover to.  *<p/>  *<p>Note, it can be safely assumed that there will only be a single recovery per shard (index+id) and  * not several of them (since we don't allocate several shard replicas to the same node).  */
 end_comment
 
 begin_class
@@ -3328,7 +3328,10 @@ name|pause
 argument_list|(
 name|request
 operator|.
-name|contentLength
+name|content
+argument_list|()
+operator|.
+name|length
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -3341,10 +3344,24 @@ name|request
 operator|.
 name|content
 argument_list|()
+operator|.
+name|bytes
+argument_list|()
 argument_list|,
 name|request
 operator|.
-name|contentLength
+name|content
+argument_list|()
+operator|.
+name|offset
+argument_list|()
+argument_list|,
+name|request
+operator|.
+name|content
+argument_list|()
+operator|.
+name|length
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -3356,7 +3373,7 @@ name|addAndGet
 argument_list|(
 name|request
 operator|.
-name|contentLength
+name|length
 argument_list|()
 argument_list|)
 expr_stmt|;
