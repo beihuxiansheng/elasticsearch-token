@@ -1640,6 +1640,16 @@ name|DiscoveryNode
 name|node
 parameter_list|)
 block|{
+if|if
+condition|(
+name|lifecycle
+operator|.
+name|stoppedOrClosed
+argument_list|()
+condition|)
+block|{
+return|return;
+block|}
 name|threadPool
 operator|.
 name|cached
