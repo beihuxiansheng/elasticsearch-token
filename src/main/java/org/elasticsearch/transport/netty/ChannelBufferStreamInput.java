@@ -24,6 +24,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|BytesHolder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|io
 operator|.
 name|stream
@@ -67,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Netty {@link org.jboss.netty.buffer.ChannelBuffer} based {@link org.elasticsearch.common.io.stream.StreamInput}.  *  *  */
+comment|/**  * A Netty {@link org.jboss.netty.buffer.ChannelBuffer} based {@link org.elasticsearch.common.io.stream.StreamInput}.  */
 end_comment
 
 begin_class
@@ -147,6 +159,76 @@ operator|.
 name|markReaderIndex
 argument_list|()
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|readBytesReference
+specifier|public
+name|BytesHolder
+name|readBytesReference
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+comment|// netty always copies a buffer, either in NioWorker in its read handler, where it copies to a fresh
+comment|// buffer, or in the cumlation buffer, which is cleaned each time
+comment|// so: we can actually return a reference if this is an array backed buffer
+if|if
+condition|(
+operator|!
+name|buffer
+operator|.
+name|hasArray
+argument_list|()
+condition|)
+block|{
+return|return
+name|super
+operator|.
+name|readBytesReference
+argument_list|()
+return|;
+block|}
+name|int
+name|size
+init|=
+name|readVInt
+argument_list|()
+decl_stmt|;
+name|BytesHolder
+name|bytes
+init|=
+operator|new
+name|BytesHolder
+argument_list|(
+name|buffer
+operator|.
+name|array
+argument_list|()
+argument_list|,
+name|buffer
+operator|.
+name|arrayOffset
+argument_list|()
+operator|+
+name|buffer
+operator|.
+name|readerIndex
+argument_list|()
+argument_list|,
+name|size
+argument_list|)
+decl_stmt|;
+name|buffer
+operator|.
+name|skipBytes
+argument_list|(
+name|size
+argument_list|)
+expr_stmt|;
+return|return
+name|bytes
+return|;
 block|}
 comment|/**      * Returns the number of read bytes by this stream so far.      */
 DECL|method|readBytes

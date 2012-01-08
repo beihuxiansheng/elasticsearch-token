@@ -708,7 +708,6 @@ name|dataLen
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO: we can potentially create a cumulation buffer cache, pop/push style
 if|if
 condition|(
 operator|!
@@ -858,6 +857,8 @@ name|markedReaderIndex
 operator|+
 name|size
 decl_stmt|;
+comment|// netty always copies a buffer, either in NioWorker in its read handler, where it copies to a fresh
+comment|// buffer, or in the cumlation buffer, which is cleaned each time
 name|StreamInput
 name|streamIn
 init|=
