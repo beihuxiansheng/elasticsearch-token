@@ -199,7 +199,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Node statistics (static, does not change over time).  *  *  */
+comment|/**  * Node statistics (static, does not change over time).  */
 end_comment
 
 begin_class
@@ -210,36 +210,57 @@ name|NodeStats
 extends|extends
 name|NodeOperationResponse
 block|{
+annotation|@
+name|Nullable
+DECL|field|hostname
+specifier|private
+name|String
+name|hostname
+decl_stmt|;
+annotation|@
+name|Nullable
 DECL|field|indices
 specifier|private
 name|NodeIndicesStats
 name|indices
 decl_stmt|;
+annotation|@
+name|Nullable
 DECL|field|os
 specifier|private
 name|OsStats
 name|os
 decl_stmt|;
+annotation|@
+name|Nullable
 DECL|field|process
 specifier|private
 name|ProcessStats
 name|process
 decl_stmt|;
+annotation|@
+name|Nullable
 DECL|field|jvm
 specifier|private
 name|JvmStats
 name|jvm
 decl_stmt|;
+annotation|@
+name|Nullable
 DECL|field|network
 specifier|private
 name|NetworkStats
 name|network
 decl_stmt|;
+annotation|@
+name|Nullable
 DECL|field|transport
 specifier|private
 name|TransportStats
 name|transport
 decl_stmt|;
+annotation|@
+name|Nullable
 DECL|field|http
 specifier|private
 name|HttpStats
@@ -256,21 +277,38 @@ parameter_list|(
 name|DiscoveryNode
 name|node
 parameter_list|,
+annotation|@
+name|Nullable
+name|String
+name|hostname
+parameter_list|,
+annotation|@
+name|Nullable
 name|NodeIndicesStats
 name|indices
 parameter_list|,
+annotation|@
+name|Nullable
 name|OsStats
 name|os
 parameter_list|,
+annotation|@
+name|Nullable
 name|ProcessStats
 name|process
 parameter_list|,
+annotation|@
+name|Nullable
 name|JvmStats
 name|jvm
 parameter_list|,
+annotation|@
+name|Nullable
 name|NetworkStats
 name|network
 parameter_list|,
+annotation|@
+name|Nullable
 name|TransportStats
 name|transport
 parameter_list|,
@@ -287,6 +325,12 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
+name|hostname
+operator|=
+name|hostname
+expr_stmt|;
+name|this
+operator|.
 name|indices
 operator|=
 name|indices
@@ -328,7 +372,37 @@ operator|=
 name|http
 expr_stmt|;
 block|}
+annotation|@
+name|Nullable
+DECL|method|hostname
+specifier|public
+name|String
+name|hostname
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|hostname
+return|;
+block|}
+annotation|@
+name|Nullable
+DECL|method|getHostname
+specifier|public
+name|String
+name|getHostname
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|hostname
+return|;
+block|}
 comment|/**      * Indices level stats.      */
+annotation|@
+name|Nullable
 DECL|method|indices
 specifier|public
 name|NodeIndicesStats
@@ -342,6 +416,8 @@ name|indices
 return|;
 block|}
 comment|/**      * Indices level stats.      */
+annotation|@
+name|Nullable
 DECL|method|getIndices
 specifier|public
 name|NodeIndicesStats
@@ -354,6 +430,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Operating System level statistics.      */
+annotation|@
+name|Nullable
 DECL|method|os
 specifier|public
 name|OsStats
@@ -367,6 +445,8 @@ name|os
 return|;
 block|}
 comment|/**      * Operating System level statistics.      */
+annotation|@
+name|Nullable
 DECL|method|getOs
 specifier|public
 name|OsStats
@@ -379,6 +459,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Process level statistics.      */
+annotation|@
+name|Nullable
 DECL|method|process
 specifier|public
 name|ProcessStats
@@ -390,6 +472,8 @@ name|process
 return|;
 block|}
 comment|/**      * Process level statistics.      */
+annotation|@
+name|Nullable
 DECL|method|getProcess
 specifier|public
 name|ProcessStats
@@ -402,6 +486,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * JVM level statistics.      */
+annotation|@
+name|Nullable
 DECL|method|jvm
 specifier|public
 name|JvmStats
@@ -413,6 +499,8 @@ name|jvm
 return|;
 block|}
 comment|/**      * JVM level statistics.      */
+annotation|@
+name|Nullable
 DECL|method|getJvm
 specifier|public
 name|JvmStats
@@ -425,6 +513,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Network level statistics.      */
+annotation|@
+name|Nullable
 DECL|method|network
 specifier|public
 name|NetworkStats
@@ -436,6 +526,8 @@ name|network
 return|;
 block|}
 comment|/**      * Network level statistics.      */
+annotation|@
+name|Nullable
 DECL|method|getNetwork
 specifier|public
 name|NetworkStats
@@ -447,6 +539,8 @@ name|network
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Nullable
 DECL|method|transport
 specifier|public
 name|TransportStats
@@ -459,6 +553,8 @@ operator|.
 name|transport
 return|;
 block|}
+annotation|@
+name|Nullable
 DECL|method|getTransport
 specifier|public
 name|TransportStats
@@ -470,6 +566,8 @@ name|transport
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Nullable
 DECL|method|http
 specifier|public
 name|HttpStats
@@ -482,6 +580,8 @@ operator|.
 name|http
 return|;
 block|}
+annotation|@
+name|Nullable
 DECL|method|getHttp
 specifier|public
 name|HttpStats
@@ -543,6 +643,22 @@ argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|in
+operator|.
+name|readBoolean
+argument_list|()
+condition|)
+block|{
+name|hostname
+operator|=
+name|in
+operator|.
+name|readUTF
+argument_list|()
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|in
@@ -690,6 +806,38 @@ argument_list|(
 name|out
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|hostname
+operator|==
+literal|null
+condition|)
+block|{
+name|out
+operator|.
+name|writeBoolean
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|out
+operator|.
+name|writeBoolean
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|out
+operator|.
+name|writeUTF
+argument_list|(
+name|hostname
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|indices
