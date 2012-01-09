@@ -250,6 +250,8 @@ name|NodeInfo
 extends|extends
 name|NodeOperationResponse
 block|{
+annotation|@
+name|Nullable
 DECL|field|serviceAttributes
 specifier|private
 name|ImmutableMap
@@ -267,36 +269,50 @@ specifier|private
 name|String
 name|hostname
 decl_stmt|;
+annotation|@
+name|Nullable
 DECL|field|settings
 specifier|private
 name|Settings
 name|settings
 decl_stmt|;
+annotation|@
+name|Nullable
 DECL|field|os
 specifier|private
 name|OsInfo
 name|os
 decl_stmt|;
+annotation|@
+name|Nullable
 DECL|field|process
 specifier|private
 name|ProcessInfo
 name|process
 decl_stmt|;
+annotation|@
+name|Nullable
 DECL|field|jvm
 specifier|private
 name|JvmInfo
 name|jvm
 decl_stmt|;
+annotation|@
+name|Nullable
 DECL|field|network
 specifier|private
 name|NetworkInfo
 name|network
 decl_stmt|;
+annotation|@
+name|Nullable
 DECL|field|transport
 specifier|private
 name|TransportInfo
 name|transport
 decl_stmt|;
+annotation|@
+name|Nullable
 DECL|field|http
 specifier|private
 name|HttpInfo
@@ -318,6 +334,8 @@ parameter_list|,
 name|DiscoveryNode
 name|node
 parameter_list|,
+annotation|@
+name|Nullable
 name|ImmutableMap
 argument_list|<
 name|String
@@ -326,21 +344,33 @@ name|String
 argument_list|>
 name|serviceAttributes
 parameter_list|,
+annotation|@
+name|Nullable
 name|Settings
 name|settings
 parameter_list|,
+annotation|@
+name|Nullable
 name|OsInfo
 name|os
 parameter_list|,
+annotation|@
+name|Nullable
 name|ProcessInfo
 name|process
 parameter_list|,
+annotation|@
+name|Nullable
 name|JvmInfo
 name|jvm
 parameter_list|,
+annotation|@
+name|Nullable
 name|NetworkInfo
 name|network
 parameter_list|,
+annotation|@
+name|Nullable
 name|TransportInfo
 name|transport
 parameter_list|,
@@ -440,6 +470,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * The service attributes of the node.      */
+annotation|@
+name|Nullable
 DECL|method|serviceAttributes
 specifier|public
 name|ImmutableMap
@@ -458,6 +490,8 @@ name|serviceAttributes
 return|;
 block|}
 comment|/**      * The attributes of the node.      */
+annotation|@
+name|Nullable
 DECL|method|getServiceAttributes
 specifier|public
 name|ImmutableMap
@@ -475,6 +509,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * The settings of the node.      */
+annotation|@
+name|Nullable
 DECL|method|settings
 specifier|public
 name|Settings
@@ -488,6 +524,8 @@ name|settings
 return|;
 block|}
 comment|/**      * The settings of the node.      */
+annotation|@
+name|Nullable
 DECL|method|getSettings
 specifier|public
 name|Settings
@@ -500,6 +538,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Operating System level information.      */
+annotation|@
+name|Nullable
 DECL|method|os
 specifier|public
 name|OsInfo
@@ -513,6 +553,8 @@ name|os
 return|;
 block|}
 comment|/**      * Operating System level information.      */
+annotation|@
+name|Nullable
 DECL|method|getOs
 specifier|public
 name|OsInfo
@@ -525,6 +567,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Process level information.      */
+annotation|@
+name|Nullable
 DECL|method|process
 specifier|public
 name|ProcessInfo
@@ -536,6 +580,8 @@ name|process
 return|;
 block|}
 comment|/**      * Process level information.      */
+annotation|@
+name|Nullable
 DECL|method|getProcess
 specifier|public
 name|ProcessInfo
@@ -548,6 +594,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * JVM level information.      */
+annotation|@
+name|Nullable
 DECL|method|jvm
 specifier|public
 name|JvmInfo
@@ -559,6 +607,8 @@ name|jvm
 return|;
 block|}
 comment|/**      * JVM level information.      */
+annotation|@
+name|Nullable
 DECL|method|getJvm
 specifier|public
 name|JvmInfo
@@ -571,6 +621,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Network level information.      */
+annotation|@
+name|Nullable
 DECL|method|network
 specifier|public
 name|NetworkInfo
@@ -582,6 +634,8 @@ name|network
 return|;
 block|}
 comment|/**      * Network level information.      */
+annotation|@
+name|Nullable
 DECL|method|getNetwork
 specifier|public
 name|NetworkInfo
@@ -593,6 +647,8 @@ name|network
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Nullable
 DECL|method|transport
 specifier|public
 name|TransportInfo
@@ -603,6 +659,8 @@ return|return
 name|transport
 return|;
 block|}
+annotation|@
+name|Nullable
 DECL|method|getTransport
 specifier|public
 name|TransportInfo
@@ -614,6 +672,8 @@ name|transport
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Nullable
 DECL|method|http
 specifier|public
 name|HttpInfo
@@ -624,6 +684,8 @@ return|return
 name|http
 return|;
 block|}
+annotation|@
+name|Nullable
 DECL|method|getHttp
 specifier|public
 name|HttpInfo
@@ -701,6 +763,14 @@ name|readUTF
 argument_list|()
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|in
+operator|.
+name|readBoolean
+argument_list|()
+condition|)
+block|{
 name|ImmutableMap
 operator|.
 name|Builder
@@ -762,6 +832,15 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|in
+operator|.
+name|readBoolean
+argument_list|()
+condition|)
+block|{
 name|settings
 operator|=
 name|ImmutableSettings
@@ -771,6 +850,7 @@ argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|in
@@ -932,6 +1012,31 @@ name|hostname
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|serviceAttributes
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+name|out
+operator|.
+name|writeBoolean
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|out
+operator|.
+name|writeBoolean
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|out
 operator|.
 name|writeVInt
@@ -981,6 +1086,31 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+if|if
+condition|(
+name|settings
+operator|==
+literal|null
+condition|)
+block|{
+name|out
+operator|.
+name|writeBoolean
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|out
+operator|.
+name|writeBoolean
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|ImmutableSettings
 operator|.
 name|writeSettingsToStream
@@ -990,6 +1120,7 @@ argument_list|,
 name|out
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|os
