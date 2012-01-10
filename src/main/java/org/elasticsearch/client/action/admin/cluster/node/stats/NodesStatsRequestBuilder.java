@@ -264,6 +264,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Should the node thread pool stats be returned.      */
+DECL|method|setThreadPool
+specifier|public
+name|NodesStatsRequestBuilder
+name|setThreadPool
+parameter_list|(
+name|boolean
+name|threadPool
+parameter_list|)
+block|{
+name|request
+operator|.
+name|threadPool
+argument_list|(
+name|threadPool
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Should the node Network stats be returned.      */
 DECL|method|setNetwork
 specifier|public
