@@ -1730,6 +1730,13 @@ expr_stmt|;
 return|return;
 block|}
 block|}
+name|listener
+operator|.
+name|onFailure
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 argument_list|)
