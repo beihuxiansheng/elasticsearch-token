@@ -1603,6 +1603,12 @@ name|settings
 operator|.
 name|getAsInt
 argument_list|(
+literal|"max"
+argument_list|,
+name|settings
+operator|.
+name|getAsInt
+argument_list|(
 literal|"size"
 argument_list|,
 name|defaultSettings
@@ -1620,6 +1626,7 @@ name|availableProcessors
 argument_list|()
 operator|*
 literal|5
+argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1721,6 +1728,12 @@ name|settings
 operator|.
 name|getAsInt
 argument_list|(
+literal|"max"
+argument_list|,
+name|settings
+operator|.
+name|getAsInt
+argument_list|(
 literal|"size"
 argument_list|,
 name|defaultSettings
@@ -1738,6 +1751,7 @@ name|availableProcessors
 argument_list|()
 operator|*
 literal|5
+argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
