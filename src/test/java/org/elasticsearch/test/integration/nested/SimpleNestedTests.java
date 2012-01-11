@@ -296,6 +296,18 @@ name|equalTo
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|notNullValue
+import|;
+end_import
+
 begin_class
 annotation|@
 name|Test
@@ -689,6 +701,17 @@ name|equalTo
 argument_list|(
 literal|true
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|getResponse
+operator|.
+name|source
+argument_list|()
+argument_list|,
+name|notNullValue
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// check the numDocs

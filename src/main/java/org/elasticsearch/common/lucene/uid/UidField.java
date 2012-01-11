@@ -222,6 +222,8 @@ name|reader
 expr_stmt|;
 block|}
 block|}
+comment|// this works fine for nested docs since they don't have the payload which has the version
+comment|// so we iterate till we find the one with the payload
 DECL|method|loadDocIdAndVersion
 specifier|public
 specifier|static
