@@ -472,6 +472,15 @@ name|MinScoreParseElement
 argument_list|()
 argument_list|)
 operator|.
+name|put
+argument_list|(
+literal|"timeout"
+argument_list|,
+operator|new
+name|TimeoutParseElement
+argument_list|()
+argument_list|)
+operator|.
 name|putAll
 argument_list|(
 name|facetPhase
@@ -700,6 +709,16 @@ parameter_list|)
 throws|throws
 name|QueryPhaseExecutionException
 block|{
+name|searchContext
+operator|.
+name|queryResult
+argument_list|()
+operator|.
+name|searchTimedOut
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 comment|// set the filter on the searcher
 if|if
 condition|(

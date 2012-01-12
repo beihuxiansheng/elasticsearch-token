@@ -432,16 +432,6 @@ argument_list|)
 expr_stmt|;
 name|internalRequest
 operator|.
-name|timeout
-argument_list|(
-name|request
-operator|.
-name|timeout
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|internalRequest
-operator|.
 name|filteringAliases
 argument_list|(
 name|filteringAliases
