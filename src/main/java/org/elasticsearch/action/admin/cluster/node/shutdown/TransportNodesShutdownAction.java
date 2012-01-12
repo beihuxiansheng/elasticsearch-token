@@ -401,6 +401,12 @@ name|this
 operator|.
 name|disabled
 operator|=
+name|settings
+operator|.
+name|getAsBoolean
+argument_list|(
+literal|"action.disable_shutdown"
+argument_list|,
 name|componentSettings
 operator|.
 name|getAsBoolean
@@ -408,6 +414,7 @@ argument_list|(
 literal|"disabled"
 argument_list|,
 literal|false
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|this
