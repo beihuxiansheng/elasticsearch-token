@@ -91,6 +91,8 @@ comment|/**  *  */
 end_comment
 
 begin_class
+annotation|@
+name|Test
 DECL|class|GeoUtilsTests
 specifier|public
 class|class
