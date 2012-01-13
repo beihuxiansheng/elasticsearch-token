@@ -205,7 +205,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Delete index action.  *  *  */
+comment|/**  * Delete index action.  */
 end_comment
 
 begin_class
@@ -298,7 +298,9 @@ name|Admin
 operator|.
 name|Indices
 operator|.
-name|DELETE_INDEX_TEMPLATE
+name|Template
+operator|.
+name|DELETE
 return|;
 block|}
 annotation|@

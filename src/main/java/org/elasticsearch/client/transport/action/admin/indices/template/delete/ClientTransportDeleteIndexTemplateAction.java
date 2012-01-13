@@ -193,7 +193,9 @@ name|Admin
 operator|.
 name|Indices
 operator|.
-name|DELETE_INDEX_TEMPLATE
+name|Template
+operator|.
+name|DELETE
 return|;
 block|}
 block|}

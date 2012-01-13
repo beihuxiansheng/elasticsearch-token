@@ -193,7 +193,9 @@ name|Admin
 operator|.
 name|Indices
 operator|.
-name|PUT_INDEX_TEMPLATE
+name|Template
+operator|.
+name|PUT
 return|;
 block|}
 block|}

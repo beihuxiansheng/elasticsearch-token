@@ -189,7 +189,9 @@ name|Admin
 operator|.
 name|Indices
 operator|.
-name|VALIDATE_QUERY
+name|Validate
+operator|.
+name|QUERY
 return|;
 block|}
 block|}

@@ -205,7 +205,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Put index template action.  *  *  */
+comment|/**  * Put index template action.  */
 end_comment
 
 begin_class
@@ -298,7 +298,9 @@ name|Admin
 operator|.
 name|Indices
 operator|.
-name|PUT_INDEX_TEMPLATE
+name|Template
+operator|.
+name|PUT
 return|;
 block|}
 annotation|@
