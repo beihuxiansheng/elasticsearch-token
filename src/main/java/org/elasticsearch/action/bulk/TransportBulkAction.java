@@ -196,7 +196,7 @@ name|action
 operator|.
 name|support
 operator|.
-name|BaseAction
+name|TransportAction
 import|;
 end_import
 
@@ -464,7 +464,7 @@ specifier|public
 class|class
 name|TransportBulkAction
 extends|extends
-name|BaseAction
+name|TransportAction
 argument_list|<
 name|BulkRequest
 argument_list|,

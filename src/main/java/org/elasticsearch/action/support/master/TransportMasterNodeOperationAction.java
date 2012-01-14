@@ -62,7 +62,7 @@ name|action
 operator|.
 name|support
 operator|.
-name|BaseAction
+name|TransportAction
 import|;
 end_import
 
@@ -219,7 +219,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A base class for operations that needs to be performed on the master node.  *  *  */
+comment|/**  * A base class for operations that needs to be performed on the master node.  */
 end_comment
 
 begin_class
@@ -238,7 +238,7 @@ extends|extends
 name|ActionResponse
 parameter_list|>
 extends|extends
-name|BaseAction
+name|TransportAction
 argument_list|<
 name|Request
 argument_list|,

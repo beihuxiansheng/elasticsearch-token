@@ -99,11 +99,11 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|BaseAction
+DECL|class|TransportAction
 specifier|public
 specifier|abstract
 class|class
-name|BaseAction
+name|TransportAction
 parameter_list|<
 name|Request
 extends|extends
@@ -115,13 +115,6 @@ name|ActionResponse
 parameter_list|>
 extends|extends
 name|AbstractComponent
-implements|implements
-name|Action
-argument_list|<
-name|Request
-argument_list|,
-name|Response
-argument_list|>
 block|{
 DECL|field|threadPool
 specifier|protected
@@ -129,9 +122,9 @@ specifier|final
 name|ThreadPool
 name|threadPool
 decl_stmt|;
-DECL|method|BaseAction
+DECL|method|TransportAction
 specifier|protected
-name|BaseAction
+name|TransportAction
 parameter_list|(
 name|Settings
 name|settings
@@ -152,8 +145,6 @@ operator|=
 name|threadPool
 expr_stmt|;
 block|}
-annotation|@
-name|Override
 DECL|method|execute
 specifier|public
 name|ActionFuture
@@ -197,8 +188,6 @@ return|return
 name|future
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|execute
 specifier|public
 name|void

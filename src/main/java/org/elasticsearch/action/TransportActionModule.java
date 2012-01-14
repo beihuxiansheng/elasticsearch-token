@@ -940,7 +940,7 @@ name|action
 operator|.
 name|support
 operator|.
-name|BaseAction
+name|TransportAction
 import|;
 end_import
 
@@ -1044,7 +1044,7 @@ name|Class
 argument_list|<
 name|?
 extends|extends
-name|BaseAction
+name|TransportAction
 argument_list|>
 name|action
 decl_stmt|;
@@ -1065,7 +1065,7 @@ name|Class
 argument_list|<
 name|?
 extends|extends
-name|BaseAction
+name|TransportAction
 argument_list|>
 name|action
 parameter_list|,
@@ -1112,7 +1112,7 @@ name|Class
 argument_list|<
 name|?
 extends|extends
-name|BaseAction
+name|TransportAction
 argument_list|>
 name|action
 parameter_list|,
@@ -1859,7 +1859,7 @@ name|MapBinder
 argument_list|<
 name|String
 argument_list|,
-name|BaseAction
+name|TransportAction
 argument_list|>
 name|actionsBinder
 init|=
@@ -1874,7 +1874,7 @@ name|String
 operator|.
 name|class
 argument_list|,
-name|BaseAction
+name|TransportAction
 operator|.
 name|class
 argument_list|)

@@ -50,7 +50,7 @@ name|action
 operator|.
 name|support
 operator|.
-name|BaseAction
+name|TransportAction
 import|;
 end_import
 
@@ -268,7 +268,7 @@ extends|extends
 name|BroadcastShardOperationResponse
 parameter_list|>
 extends|extends
-name|BaseAction
+name|TransportAction
 argument_list|<
 name|Request
 argument_list|,

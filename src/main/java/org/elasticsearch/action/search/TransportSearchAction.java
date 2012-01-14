@@ -66,7 +66,7 @@ name|action
 operator|.
 name|support
 operator|.
-name|BaseAction
+name|TransportAction
 import|;
 end_import
 
@@ -228,7 +228,7 @@ specifier|public
 class|class
 name|TransportSearchAction
 extends|extends
-name|BaseAction
+name|TransportAction
 argument_list|<
 name|SearchRequest
 argument_list|,

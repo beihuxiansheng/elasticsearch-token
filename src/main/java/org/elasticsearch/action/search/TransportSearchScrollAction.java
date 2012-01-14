@@ -124,7 +124,7 @@ name|action
 operator|.
 name|support
 operator|.
-name|BaseAction
+name|TransportAction
 import|;
 end_import
 
@@ -250,7 +250,7 @@ specifier|public
 class|class
 name|TransportSearchScrollAction
 extends|extends
-name|BaseAction
+name|TransportAction
 argument_list|<
 name|SearchScrollRequest
 argument_list|,

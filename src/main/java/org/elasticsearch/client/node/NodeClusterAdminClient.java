@@ -698,7 +698,7 @@ name|action
 operator|.
 name|support
 operator|.
-name|BaseAction
+name|TransportAction
 import|;
 end_import
 
@@ -882,7 +882,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|BaseAction
+name|TransportAction
 argument_list|>
 name|actions
 parameter_list|)

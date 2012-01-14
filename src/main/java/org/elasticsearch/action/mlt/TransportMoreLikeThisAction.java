@@ -172,7 +172,7 @@ name|action
 operator|.
 name|support
 operator|.
-name|BaseAction
+name|TransportAction
 import|;
 end_import
 
@@ -467,7 +467,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The more like this action.  *  *  */
+comment|/**  * The more like this action.  */
 end_comment
 
 begin_class
@@ -476,7 +476,7 @@ specifier|public
 class|class
 name|TransportMoreLikeThisAction
 extends|extends
-name|BaseAction
+name|TransportAction
 argument_list|<
 name|MoreLikeThisRequest
 argument_list|,
