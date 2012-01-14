@@ -1660,7 +1660,6 @@ expr_stmt|;
 comment|// It is an approximation of exact TTL value, could be improved
 block|}
 block|}
-comment|// TODO percolate?
 comment|// TODO: external version type, does it make sense here? does not seem like it...
 if|if
 condition|(
@@ -1758,6 +1757,14 @@ name|ttl
 argument_list|(
 name|ttl
 argument_list|)
+operator|.
+name|percolate
+argument_list|(
+name|request
+operator|.
+name|percolate
+argument_list|()
+argument_list|)
 decl_stmt|;
 name|indexRequest
 operator|.
@@ -1816,6 +1823,16 @@ name|version
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|update
+operator|.
+name|matches
+argument_list|(
+name|response
+operator|.
+name|matches
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|listener
 operator|.
 name|onResponse
