@@ -19,10 +19,10 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|Actions
+DECL|class|ValidateActions
 specifier|public
 class|class
-name|Actions
+name|ValidateActions
 block|{
 DECL|method|addValidationError
 specifier|public

@@ -240,7 +240,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|Actions
+name|ValidateActions
 operator|.
 name|addValidationError
 import|;
@@ -279,7 +279,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A request to add/remove aliases for one or more indices.  *  *  */
+comment|/**  * A request to add/remove aliases for one or more indices.  */
 end_comment
 
 begin_class

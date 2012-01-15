@@ -250,14 +250,14 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|Actions
+name|ValidateActions
 operator|.
 name|addValidationError
 import|;
 end_import
 
 begin_comment
-comment|/**  * A bulk request holds an ordered {@link IndexRequest}s and {@link DeleteRequest}s and allows to executes  * it in a single batch.  *  *  * @see org.elasticsearch.client.Client#bulk(BulkRequest)  */
+comment|/**  * A bulk request holds an ordered {@link IndexRequest}s and {@link DeleteRequest}s and allows to executes  * it in a single batch.  *  * @see org.elasticsearch.client.Client#bulk(BulkRequest)  */
 end_comment
 
 begin_class

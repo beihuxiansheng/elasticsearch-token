@@ -52,7 +52,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|Actions
+name|ValidateActions
 import|;
 end_import
 
@@ -234,7 +234,7 @@ condition|)
 block|{
 name|validationException
 operator|=
-name|Actions
+name|ValidateActions
 operator|.
 name|addValidationError
 argument_list|(

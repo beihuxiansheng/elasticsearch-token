@@ -82,7 +82,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|Actions
+name|ValidateActions
 import|;
 end_import
 
@@ -319,7 +319,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A more like this request allowing to search for documents that a "like" the provided document. The document  * to check against to fetched based on the index, type and id provided. Best created with {@link org.elasticsearch.client.Requests#moreLikeThisRequest(String)}.  *<p/>  *<p>Note, the {@link #index()}, {@link #type(String)} and {@link #id(String)} are required.  *  *  * @see org.elasticsearch.client.Client#moreLikeThis(MoreLikeThisRequest)  * @see org.elasticsearch.client.Requests#moreLikeThisRequest(String)  * @see org.elasticsearch.action.search.SearchResponse  */
+comment|/**  * A more like this request allowing to search for documents that a "like" the provided document. The document  * to check against to fetched based on the index, type and id provided. Best created with {@link org.elasticsearch.client.Requests#moreLikeThisRequest(String)}.  *<p/>  *<p>Note, the {@link #index()}, {@link #type(String)} and {@link #id(String)} are required.  *  * @see org.elasticsearch.client.Client#moreLikeThis(MoreLikeThisRequest)  * @see org.elasticsearch.client.Requests#moreLikeThisRequest(String)  * @see org.elasticsearch.action.search.SearchResponse  */
 end_comment
 
 begin_class
@@ -1617,7 +1617,7 @@ condition|)
 block|{
 name|validationException
 operator|=
-name|Actions
+name|ValidateActions
 operator|.
 name|addValidationError
 argument_list|(
@@ -1636,7 +1636,7 @@ condition|)
 block|{
 name|validationException
 operator|=
-name|Actions
+name|ValidateActions
 operator|.
 name|addValidationError
 argument_list|(
@@ -1655,7 +1655,7 @@ condition|)
 block|{
 name|validationException
 operator|=
-name|Actions
+name|ValidateActions
 operator|.
 name|addValidationError
 argument_list|(

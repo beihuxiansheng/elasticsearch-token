@@ -112,7 +112,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|Actions
+name|ValidateActions
 operator|.
 name|addValidationError
 import|;
@@ -151,7 +151,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A request to open an index.  *  *  */
+comment|/**  * A request to open an index.  */
 end_comment
 
 begin_class
