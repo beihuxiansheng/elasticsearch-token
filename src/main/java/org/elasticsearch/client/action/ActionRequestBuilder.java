@@ -69,10 +69,10 @@ comment|/**  *  */
 end_comment
 
 begin_interface
-DECL|interface|RequestBuilder
+DECL|interface|ActionRequestBuilder
 specifier|public
 interface|interface
-name|RequestBuilder
+name|ActionRequestBuilder
 parameter_list|<
 name|Request
 extends|extends
@@ -83,6 +83,11 @@ extends|extends
 name|ActionResponse
 parameter_list|>
 block|{
+DECL|method|request
+name|Request
+name|request
+parameter_list|()
+function_decl|;
 DECL|method|execute
 name|ListenableActionFuture
 argument_list|<

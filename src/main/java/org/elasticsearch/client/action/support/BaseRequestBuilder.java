@@ -102,7 +102,7 @@ name|client
 operator|.
 name|action
 operator|.
-name|RequestBuilder
+name|ActionRequestBuilder
 import|;
 end_import
 
@@ -140,7 +140,7 @@ extends|extends
 name|ActionResponse
 parameter_list|>
 implements|implements
-name|RequestBuilder
+name|ActionRequestBuilder
 argument_list|<
 name|Request
 argument_list|,
