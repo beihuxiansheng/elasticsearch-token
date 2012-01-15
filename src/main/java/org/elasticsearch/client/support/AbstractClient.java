@@ -22,8 +22,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|client
-operator|.
 name|action
 operator|.
 name|bulk
@@ -37,8 +35,6 @@ import|import
 name|org
 operator|.
 name|elasticsearch
-operator|.
-name|client
 operator|.
 name|action
 operator|.
@@ -54,8 +50,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|client
-operator|.
 name|action
 operator|.
 name|delete
@@ -69,8 +63,6 @@ import|import
 name|org
 operator|.
 name|elasticsearch
-operator|.
-name|client
 operator|.
 name|action
 operator|.
@@ -86,8 +78,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|client
-operator|.
 name|action
 operator|.
 name|get
@@ -101,8 +91,6 @@ import|import
 name|org
 operator|.
 name|elasticsearch
-operator|.
-name|client
 operator|.
 name|action
 operator|.
@@ -118,8 +106,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|client
-operator|.
 name|action
 operator|.
 name|index
@@ -133,8 +119,6 @@ import|import
 name|org
 operator|.
 name|elasticsearch
-operator|.
-name|client
 operator|.
 name|action
 operator|.
@@ -150,8 +134,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|client
-operator|.
 name|action
 operator|.
 name|percolate
@@ -165,8 +147,6 @@ import|import
 name|org
 operator|.
 name|elasticsearch
-operator|.
-name|client
 operator|.
 name|action
 operator|.
@@ -182,8 +162,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|client
-operator|.
 name|action
 operator|.
 name|search
@@ -197,8 +175,6 @@ import|import
 name|org
 operator|.
 name|elasticsearch
-operator|.
-name|client
 operator|.
 name|action
 operator|.

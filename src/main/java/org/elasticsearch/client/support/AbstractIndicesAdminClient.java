@@ -22,8 +22,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|client
-operator|.
 name|action
 operator|.
 name|admin
@@ -42,8 +40,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|client
-operator|.
 name|action
 operator|.
 name|admin
@@ -61,8 +57,6 @@ import|import
 name|org
 operator|.
 name|elasticsearch
-operator|.
-name|client
 operator|.
 name|action
 operator|.
@@ -84,8 +78,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|client
-operator|.
 name|action
 operator|.
 name|admin
@@ -103,8 +95,6 @@ import|import
 name|org
 operator|.
 name|elasticsearch
-operator|.
-name|client
 operator|.
 name|action
 operator|.
@@ -124,8 +114,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|client
-operator|.
 name|action
 operator|.
 name|admin
@@ -143,8 +131,6 @@ import|import
 name|org
 operator|.
 name|elasticsearch
-operator|.
-name|client
 operator|.
 name|action
 operator|.
@@ -164,8 +150,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|client
-operator|.
 name|action
 operator|.
 name|admin
@@ -183,8 +167,6 @@ import|import
 name|org
 operator|.
 name|elasticsearch
-operator|.
-name|client
 operator|.
 name|action
 operator|.
@@ -206,8 +188,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|client
-operator|.
 name|action
 operator|.
 name|admin
@@ -227,8 +207,6 @@ import|import
 name|org
 operator|.
 name|elasticsearch
-operator|.
-name|client
 operator|.
 name|action
 operator|.
@@ -250,8 +228,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|client
-operator|.
 name|action
 operator|.
 name|admin
@@ -269,8 +245,6 @@ import|import
 name|org
 operator|.
 name|elasticsearch
-operator|.
-name|client
 operator|.
 name|action
 operator|.
@@ -290,8 +264,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|client
-operator|.
 name|action
 operator|.
 name|admin
@@ -309,8 +281,6 @@ import|import
 name|org
 operator|.
 name|elasticsearch
-operator|.
-name|client
 operator|.
 name|action
 operator|.
@@ -330,8 +300,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|client
-operator|.
 name|action
 operator|.
 name|admin
@@ -349,8 +317,6 @@ import|import
 name|org
 operator|.
 name|elasticsearch
-operator|.
-name|client
 operator|.
 name|action
 operator|.
@@ -370,8 +336,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|client
-operator|.
 name|action
 operator|.
 name|admin
@@ -389,8 +353,6 @@ import|import
 name|org
 operator|.
 name|elasticsearch
-operator|.
-name|client
 operator|.
 name|action
 operator|.
@@ -412,8 +374,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|client
-operator|.
 name|action
 operator|.
 name|admin
@@ -433,8 +393,6 @@ import|import
 name|org
 operator|.
 name|elasticsearch
-operator|.
-name|client
 operator|.
 name|action
 operator|.
