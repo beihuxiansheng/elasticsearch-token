@@ -241,6 +241,25 @@ return|return
 name|index
 return|;
 block|}
+DECL|method|index
+specifier|public
+name|CloseIndexRequest
+name|index
+parameter_list|(
+name|String
+name|index
+parameter_list|)
+block|{
+name|this
+operator|.
+name|index
+operator|=
+name|index
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Timeout to wait for the index deletion to be acknowledged by current cluster nodes. Defaults      * to<tt>10s</tt>.      */
 DECL|method|timeout
 name|TimeValue

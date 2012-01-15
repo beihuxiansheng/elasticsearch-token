@@ -84,7 +84,15 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|TransportActions
+name|admin
+operator|.
+name|cluster
+operator|.
+name|node
+operator|.
+name|info
+operator|.
+name|NodeInfo
 import|;
 end_import
 
@@ -104,7 +112,7 @@ name|node
 operator|.
 name|info
 operator|.
-name|NodeInfo
+name|NodesInfoAction
 import|;
 end_import
 
@@ -1548,15 +1556,9 @@ name|submitRequest
 argument_list|(
 name|node
 argument_list|,
-name|TransportActions
+name|NodesInfoAction
 operator|.
-name|Admin
-operator|.
-name|Cluster
-operator|.
-name|Node
-operator|.
-name|INFO
+name|NAME
 argument_list|,
 name|Requests
 operator|.
@@ -1826,15 +1828,9 @@ name|sendRequest
 argument_list|(
 name|listedNode
 argument_list|,
-name|TransportActions
+name|NodesInfoAction
 operator|.
-name|Admin
-operator|.
-name|Cluster
-operator|.
-name|Node
-operator|.
-name|INFO
+name|NAME
 argument_list|,
 name|Requests
 operator|.

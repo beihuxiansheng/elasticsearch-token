@@ -475,6 +475,25 @@ return|return
 name|index
 return|;
 block|}
+DECL|method|index
+specifier|public
+name|CreateIndexRequest
+name|index
+parameter_list|(
+name|String
+name|index
+parameter_list|)
+block|{
+name|this
+operator|.
+name|index
+operator|=
+name|index
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * The settings to created the index with.      */
 DECL|method|settings
 name|Settings

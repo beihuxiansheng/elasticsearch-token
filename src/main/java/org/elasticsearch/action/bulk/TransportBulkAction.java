@@ -100,18 +100,6 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|TransportActions
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
 name|admin
 operator|.
 name|indices
@@ -581,9 +569,9 @@ name|transportService
 operator|.
 name|registerHandler
 argument_list|(
-name|TransportActions
+name|BulkAction
 operator|.
-name|BULK
+name|NAME
 argument_list|,
 operator|new
 name|TransportHandler
@@ -2105,9 +2093,9 @@ name|warn
 argument_list|(
 literal|"Failed to send error response for action ["
 operator|+
-name|TransportActions
+name|BulkAction
 operator|.
-name|BULK
+name|NAME
 operator|+
 literal|"] and request ["
 operator|+

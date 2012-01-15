@@ -44,7 +44,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|TransportActionModule
+name|ActionModule
 import|;
 end_import
 
@@ -1264,8 +1264,10 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|TransportActionModule
-argument_list|()
+name|ActionModule
+argument_list|(
+literal|false
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|modules

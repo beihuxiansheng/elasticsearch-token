@@ -225,7 +225,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A response of a search request.  *  *  */
+comment|/**  * A response of a search request.  */
 end_comment
 
 begin_class
@@ -270,6 +270,7 @@ name|long
 name|tookInMillis
 decl_stmt|;
 DECL|method|SearchResponse
+specifier|public
 name|SearchResponse
 parameter_list|()
 block|{     }
