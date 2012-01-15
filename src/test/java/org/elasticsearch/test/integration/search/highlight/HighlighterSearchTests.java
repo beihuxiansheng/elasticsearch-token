@@ -5397,7 +5397,7 @@ index|]
 argument_list|,
 name|equalTo
 argument_list|(
-literal|" is a<em>test</em> "
+literal|"this is a<em>test</em> "
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5834,7 +5834,7 @@ index|]
 argument_list|,
 name|equalTo
 argument_list|(
-literal|" is a<em>test</em> "
+literal|"this is a<em>test</em> "
 argument_list|)
 argument_list|)
 expr_stmt|;
