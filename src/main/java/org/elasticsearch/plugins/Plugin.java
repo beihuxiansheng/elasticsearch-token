@@ -79,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An extension point allowing to plug in custom functionality.  *  *  */
+comment|/**  * An extension point allowing to plug in custom functionality.  *<p/>  * A plugin can be dynamically injected with {@link Module} by implementing<tt>onModule(AnyModule)</tt> method  * removing the need to override {@link #processModule(org.elasticsearch.common.inject.Module)} and check using  * instanceof.  */
 end_comment
 
 begin_interface
@@ -184,6 +184,7 @@ argument_list|>
 name|shardServices
 parameter_list|()
 function_decl|;
+comment|/**      * Process a specific module. Note, its simpler to implement a custom<tt>onModule(AnyModule module)</tt>      * method, which will be automatically be called by the relevant type.      */
 DECL|method|processModule
 name|void
 name|processModule

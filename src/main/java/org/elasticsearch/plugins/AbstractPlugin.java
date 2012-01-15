@@ -107,7 +107,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A base class for a plugin.  *  *  */
+comment|/**  * A base class for a plugin.  *<p/>  * A plugin can be dynamically injected with {@link Module} by implementing<tt>onModule(AnyModule)</tt> method  * removing the need to override {@link #processModule(org.elasticsearch.common.inject.Module)} and check using  * instanceof.  */
 end_comment
 
 begin_class
