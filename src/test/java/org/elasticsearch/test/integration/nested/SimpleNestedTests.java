@@ -752,7 +752,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|3
+literal|3l
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1208,7 +1208,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|6
+literal|6l
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1568,7 +1568,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|3
+literal|3l
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2001,7 +2001,7 @@ name|equalTo
 argument_list|(
 name|total
 operator|*
-literal|3
+literal|3l
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2099,7 +2099,7 @@ argument_list|(
 operator|(
 name|total
 operator|*
-literal|3
+literal|3l
 operator|)
 operator|-
 literal|3
@@ -2217,7 +2217,7 @@ specifier|private
 name|void
 name|noChildrenNestedDeleteByQuery
 parameter_list|(
-name|int
+name|long
 name|total
 parameter_list|,
 name|int
@@ -2988,7 +2988,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|7
+literal|7l
 argument_list|)
 argument_list|)
 expr_stmt|;

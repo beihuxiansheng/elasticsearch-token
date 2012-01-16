@@ -31,19 +31,19 @@ class|class
 name|DocsStatus
 block|{
 DECL|field|numDocs
-name|int
+name|long
 name|numDocs
 init|=
 literal|0
 decl_stmt|;
 DECL|field|maxDoc
-name|int
+name|long
 name|maxDoc
 init|=
 literal|0
 decl_stmt|;
 DECL|field|deletedDocs
-name|int
+name|long
 name|deletedDocs
 init|=
 literal|0
@@ -51,7 +51,7 @@ decl_stmt|;
 comment|/**      * The number of docs.      */
 DECL|method|numDocs
 specifier|public
-name|int
+name|long
 name|numDocs
 parameter_list|()
 block|{
@@ -62,7 +62,7 @@ block|}
 comment|/**      * The number of docs.      */
 DECL|method|getNumDocs
 specifier|public
-name|int
+name|long
 name|getNumDocs
 parameter_list|()
 block|{
@@ -74,7 +74,7 @@ block|}
 comment|/**      * The max doc.      */
 DECL|method|maxDoc
 specifier|public
-name|int
+name|long
 name|maxDoc
 parameter_list|()
 block|{
@@ -85,7 +85,7 @@ block|}
 comment|/**      * The max doc.      */
 DECL|method|getMaxDoc
 specifier|public
-name|int
+name|long
 name|getMaxDoc
 parameter_list|()
 block|{
@@ -97,7 +97,7 @@ block|}
 comment|/**      * The number of deleted docs in the index.      */
 DECL|method|deletedDocs
 specifier|public
-name|int
+name|long
 name|deletedDocs
 parameter_list|()
 block|{
@@ -108,7 +108,7 @@ block|}
 comment|/**      * The number of deleted docs in the index.      */
 DECL|method|getDeletedDocs
 specifier|public
-name|int
+name|long
 name|getDeletedDocs
 parameter_list|()
 block|{
