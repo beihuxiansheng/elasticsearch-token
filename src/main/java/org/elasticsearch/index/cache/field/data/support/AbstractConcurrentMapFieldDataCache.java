@@ -650,6 +650,8 @@ operator|==
 literal|null
 condition|)
 block|{
+try|try
+block|{
 name|fieldData
 operator|=
 name|FieldData
@@ -672,6 +674,51 @@ argument_list|,
 name|fieldData
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|OutOfMemoryError
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"loading field ["
+operator|+
+name|fieldName
+operator|+
+literal|"] caused out of memory failure"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+specifier|final
+name|OutOfMemoryError
+name|outOfMemoryError
+init|=
+operator|new
+name|OutOfMemoryError
+argument_list|(
+literal|"loading field ["
+operator|+
+name|fieldName
+operator|+
+literal|"] caused out of memory failure"
+argument_list|)
+decl_stmt|;
+name|outOfMemoryError
+operator|.
+name|initCause
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+throw|throw
+name|outOfMemoryError
+throw|;
+block|}
 block|}
 block|}
 block|}
