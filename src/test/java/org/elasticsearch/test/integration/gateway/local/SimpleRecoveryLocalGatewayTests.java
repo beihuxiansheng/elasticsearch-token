@@ -3114,6 +3114,13 @@ argument_list|,
 literal|1
 argument_list|)
 operator|.
+name|put
+argument_list|(
+literal|"gateway.recover_after_nodes"
+argument_list|,
+literal|2
+argument_list|)
+operator|.
 name|build
 argument_list|()
 argument_list|)
@@ -3140,6 +3147,13 @@ argument_list|(
 literal|"index.number_of_shards"
 argument_list|,
 literal|1
+argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"gateway.recover_after_nodes"
+argument_list|,
+literal|2
 argument_list|)
 operator|.
 name|build
