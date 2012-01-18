@@ -430,7 +430,7 @@ name|ThreadPool
 operator|.
 name|Names
 operator|.
-name|MANAGEMENT
+name|REFRESH
 return|;
 block|}
 annotation|@

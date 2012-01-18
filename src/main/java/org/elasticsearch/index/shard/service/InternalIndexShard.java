@@ -4520,8 +4520,14 @@ return|return;
 block|}
 name|threadPool
 operator|.
-name|cached
-argument_list|()
+name|executor
+argument_list|(
+name|ThreadPool
+operator|.
+name|Names
+operator|.
+name|REFRESH
+argument_list|)
 operator|.
 name|execute
 argument_list|(
