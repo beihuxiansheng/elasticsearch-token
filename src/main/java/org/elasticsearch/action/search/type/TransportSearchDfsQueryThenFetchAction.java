@@ -1070,9 +1070,7 @@ name|AsyncAction
 operator|.
 name|this
 operator|.
-name|shardFailures
-operator|.
-name|add
+name|addShardFailure
 argument_list|(
 operator|new
 name|ShardSearchFailure
@@ -1728,9 +1726,7 @@ name|AsyncAction
 operator|.
 name|this
 operator|.
-name|shardFailures
-operator|.
-name|add
+name|addShardFailure
 argument_list|(
 operator|new
 name|ShardSearchFailure
