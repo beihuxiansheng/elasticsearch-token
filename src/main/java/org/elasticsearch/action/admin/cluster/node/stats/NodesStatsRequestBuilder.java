@@ -262,6 +262,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Should the node file system stats be returned.      */
+DECL|method|setFs
+specifier|public
+name|NodesStatsRequestBuilder
+name|setFs
+parameter_list|(
+name|boolean
+name|fs
+parameter_list|)
+block|{
+name|request
+operator|.
+name|fs
+argument_list|(
+name|fs
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Should the node Transport stats be returned.      */
 DECL|method|setTransport
 specifier|public
