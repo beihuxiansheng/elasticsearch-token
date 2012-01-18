@@ -146,6 +146,28 @@ block|}
 comment|/**      * Defaults to return an empty list.      */
 annotation|@
 name|Override
+DECL|method|modules
+specifier|public
+name|Collection
+argument_list|<
+name|Module
+argument_list|>
+name|modules
+parameter_list|(
+name|Settings
+name|settings
+parameter_list|)
+block|{
+return|return
+name|ImmutableList
+operator|.
+name|of
+argument_list|()
+return|;
+block|}
+comment|/**      * Defaults to return an empty list.      */
+annotation|@
+name|Override
 DECL|method|services
 specifier|public
 name|Collection
@@ -194,6 +216,28 @@ block|}
 comment|/**      * Defaults to return an empty list.      */
 annotation|@
 name|Override
+DECL|method|indexModules
+specifier|public
+name|Collection
+argument_list|<
+name|Module
+argument_list|>
+name|indexModules
+parameter_list|(
+name|Settings
+name|settings
+parameter_list|)
+block|{
+return|return
+name|ImmutableList
+operator|.
+name|of
+argument_list|()
+return|;
+block|}
+comment|/**      * Defaults to return an empty list.      */
+annotation|@
+name|Override
 DECL|method|indexServices
 specifier|public
 name|Collection
@@ -231,6 +275,28 @@ argument_list|>
 argument_list|>
 name|shardModules
 parameter_list|()
+block|{
+return|return
+name|ImmutableList
+operator|.
+name|of
+argument_list|()
+return|;
+block|}
+comment|/**      * Defaults to return an empty list.      */
+annotation|@
+name|Override
+DECL|method|shardModules
+specifier|public
+name|Collection
+argument_list|<
+name|Module
+argument_list|>
+name|shardModules
+parameter_list|(
+name|Settings
+name|settings
+parameter_list|)
 block|{
 return|return
 name|ImmutableList

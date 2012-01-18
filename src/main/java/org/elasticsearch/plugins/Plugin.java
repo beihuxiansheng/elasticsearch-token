@@ -100,7 +100,7 @@ name|String
 name|description
 parameter_list|()
 function_decl|;
-comment|/**      * Node level modules.      */
+comment|/**      * Node level modules (classes, will automatically be created).      */
 DECL|method|modules
 name|Collection
 argument_list|<
@@ -113,6 +113,18 @@ argument_list|>
 argument_list|>
 name|modules
 parameter_list|()
+function_decl|;
+comment|/**      * Node level modules (instances)      *      * @param settings The node level settings.      */
+DECL|method|modules
+name|Collection
+argument_list|<
+name|Module
+argument_list|>
+name|modules
+parameter_list|(
+name|Settings
+name|settings
+parameter_list|)
 function_decl|;
 comment|/**      * Node level services that will be automatically started/stopped/closed.      */
 DECL|method|services
@@ -142,6 +154,18 @@ argument_list|>
 name|indexModules
 parameter_list|()
 function_decl|;
+comment|/**      * Per index modules.      */
+DECL|method|indexModules
+name|Collection
+argument_list|<
+name|Module
+argument_list|>
+name|indexModules
+parameter_list|(
+name|Settings
+name|settings
+parameter_list|)
+function_decl|;
 comment|/**      * Per index services that will be automatically closed.      */
 DECL|method|indexServices
 name|Collection
@@ -169,6 +193,18 @@ argument_list|>
 argument_list|>
 name|shardModules
 parameter_list|()
+function_decl|;
+comment|/**      * Per index shard module.      */
+DECL|method|shardModules
+name|Collection
+argument_list|<
+name|Module
+argument_list|>
+name|shardModules
+parameter_list|(
+name|Settings
+name|settings
+parameter_list|)
 function_decl|;
 comment|/**      * Per index shard service that will be automatically closed.      */
 DECL|method|shardServices
