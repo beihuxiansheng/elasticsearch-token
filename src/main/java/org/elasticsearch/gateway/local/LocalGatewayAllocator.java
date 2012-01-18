@@ -1024,7 +1024,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"recovery.initial_shards"
+literal|"index.recovery.initial_shards"
 argument_list|,
 name|this
 operator|.
