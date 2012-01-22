@@ -186,9 +186,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|gateway
+name|indices
 operator|.
-name|GatewayService
+name|IndexMissingException
 import|;
 end_import
 
@@ -198,9 +198,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|indices
+name|rest
 operator|.
-name|IndexMissingException
+name|RestStatus
 import|;
 end_import
 
@@ -1754,9 +1754,9 @@ argument_list|()
 operator|.
 name|hasGlobalBlock
 argument_list|(
-name|GatewayService
+name|RestStatus
 operator|.
-name|STATE_NOT_RECOVERED_BLOCK
+name|SERVICE_UNAVAILABLE
 argument_list|)
 condition|)
 block|{
