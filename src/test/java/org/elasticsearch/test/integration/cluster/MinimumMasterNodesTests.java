@@ -1081,6 +1081,9 @@ operator|.
 name|prepareHealth
 argument_list|()
 operator|.
+name|setWaitForYellowStatus
+argument_list|()
+operator|.
 name|setWaitForNodes
 argument_list|(
 literal|"2"

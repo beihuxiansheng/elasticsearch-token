@@ -117,8 +117,8 @@ DECL|method|onFailure
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|String
+name|message
 parameter_list|)
 function_decl|;
 block|}
