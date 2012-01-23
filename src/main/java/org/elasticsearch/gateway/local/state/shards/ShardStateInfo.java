@@ -20,6 +20,18 @@ name|shards
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|Nullable
+import|;
+end_import
+
 begin_comment
 comment|/**  */
 end_comment
@@ -36,12 +48,24 @@ specifier|final
 name|long
 name|version
 decl_stmt|;
+comment|// can be null if we don't know...
+annotation|@
+name|Nullable
+DECL|field|primary
+specifier|public
+specifier|final
+name|Boolean
+name|primary
+decl_stmt|;
 DECL|method|ShardStateInfo
 specifier|public
 name|ShardStateInfo
 parameter_list|(
 name|long
 name|version
+parameter_list|,
+name|Boolean
+name|primary
 parameter_list|)
 block|{
 name|this
@@ -49,6 +73,12 @@ operator|.
 name|version
 operator|=
 name|version
+expr_stmt|;
+name|this
+operator|.
+name|primary
+operator|=
+name|primary
 expr_stmt|;
 block|}
 block|}
