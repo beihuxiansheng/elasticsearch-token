@@ -1083,7 +1083,9 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"disabled, failed to setup multicast discovery on {}: {}"
+literal|"disabled, failed to setup multicast discovery on port [{}], [{}]: {}"
+argument_list|,
+name|port
 argument_list|,
 name|multicastInterface
 argument_list|,
