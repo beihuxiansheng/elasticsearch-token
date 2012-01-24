@@ -3188,6 +3188,8 @@ operator|+
 name|source
 operator|+
 literal|"]"
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
