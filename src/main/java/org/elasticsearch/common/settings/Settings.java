@@ -36,6 +36,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|Version
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|unit
@@ -372,6 +382,20 @@ name|getAsArray
 parameter_list|(
 name|String
 name|settingPrefix
+parameter_list|)
+throws|throws
+name|SettingsException
+function_decl|;
+comment|/**      * Retruns a parsed version.      */
+DECL|method|getAsVersion
+name|Version
+name|getAsVersion
+parameter_list|(
+name|String
+name|setting
+parameter_list|,
+name|Version
+name|defaultVersion
 parameter_list|)
 throws|throws
 name|SettingsException

@@ -705,6 +705,15 @@ name|SETTING_READ_ONLY
 init|=
 literal|"index.blocks.read_only"
 decl_stmt|;
+DECL|field|SETTING_VERSION_CREATED
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SETTING_VERSION_CREATED
+init|=
+literal|"index.version.created"
+decl_stmt|;
 DECL|field|index
 specifier|private
 specifier|final
