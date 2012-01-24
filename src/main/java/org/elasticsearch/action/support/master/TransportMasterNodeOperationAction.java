@@ -903,7 +903,13 @@ name|onFailure
 argument_list|(
 operator|new
 name|MasterNotDiscoveredException
-argument_list|()
+argument_list|(
+literal|"waited for ["
+operator|+
+name|timeout
+operator|+
+literal|"]"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
