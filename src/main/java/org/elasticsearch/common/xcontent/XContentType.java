@@ -17,7 +17,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * The content type of {@link org.elasticsearch.common.xcontent.XContent}.  *  *  */
+comment|/**  * The content type of {@link org.elasticsearch.common.xcontent.XContent}.  */
 end_comment
 
 begin_enum
@@ -44,6 +44,17 @@ return|return
 literal|"application/json; charset=UTF-8"
 return|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|shortName
+parameter_list|()
+block|{
+return|return
+literal|"json"
+return|;
+block|}
 block|}
 block|,
 comment|/**      * The jackson based smile binary format. Fast and compact binary format.      */
@@ -62,6 +73,17 @@ parameter_list|()
 block|{
 return|return
 literal|"application/smile"
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|shortName
+parameter_list|()
+block|{
+return|return
+literal|"smile"
 return|;
 block|}
 block|}
@@ -167,6 +189,13 @@ specifier|public
 specifier|abstract
 name|String
 name|restContentType
+parameter_list|()
+function_decl|;
+DECL|method|shortName
+specifier|public
+specifier|abstract
+name|String
+name|shortName
 parameter_list|()
 function_decl|;
 block|}
