@@ -233,7 +233,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<pre>  * "terms" : {  *  "field_name" : [ "value1", "value2" ]  *  "minimum_match" : 1  * }  *</pre>  *  *  */
+comment|/**  *<pre>  * "terms" : {  *  "field_name" : [ "value1", "value2" ]  *  "minimum_match" : 1  * }  *</pre>  */
 end_comment
 
 begin_class
@@ -530,6 +530,25 @@ name|floatValue
 argument_list|()
 expr_stmt|;
 block|}
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|QueryParsingException
+argument_list|(
+name|parseContext
+operator|.
+name|index
+argument_list|()
+argument_list|,
+literal|"[terms] query does not support ["
+operator|+
+name|currentFieldName
+operator|+
+literal|"]"
+argument_list|)
+throw|;
 block|}
 block|}
 name|FieldMapper

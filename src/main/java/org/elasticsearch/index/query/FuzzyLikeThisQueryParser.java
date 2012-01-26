@@ -137,7 +137,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<pre>  * {  *  fuzzy_like_this : {  *      maxNumTerms : 12,  *      boost : 1.1,  *      fields : ["field1", "field2"]  *      likeText : "..."  *  }  * }  *</pre>  *  *  */
+comment|/**  *<pre>  * {  *  fuzzy_like_this : {  *      maxNumTerms : 12,  *      boost : 1.1,  *      fields : ["field1", "field2"]  *      likeText : "..."  *  }  * }  *</pre>  */
 end_comment
 
 begin_class
@@ -483,6 +483,25 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|QueryParsingException
+argument_list|(
+name|parseContext
+operator|.
+name|index
+argument_list|()
+argument_list|,
+literal|"[flt] query does not support ["
+operator|+
+name|currentFieldName
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
 block|}
 elseif|else
 if|if
@@ -547,6 +566,25 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|QueryParsingException
+argument_list|(
+name|parseContext
+operator|.
+name|index
+argument_list|()
+argument_list|,
+literal|"[flt] query does not support ["
+operator|+
+name|currentFieldName
+operator|+
+literal|"]"
+argument_list|)
+throw|;
 block|}
 block|}
 block|}

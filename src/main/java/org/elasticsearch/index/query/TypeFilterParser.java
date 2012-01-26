@@ -209,7 +209,7 @@ operator|.
 name|index
 argument_list|()
 argument_list|,
-literal|"type filter should have a value field, and the type name"
+literal|"[type] filter should have a value field, and the type name"
 argument_list|)
 throw|;
 block|}
@@ -241,7 +241,7 @@ operator|.
 name|index
 argument_list|()
 argument_list|,
-literal|"type filter should have a value field, and the type name"
+literal|"[type] filter should have a value field, and the type name"
 argument_list|)
 throw|;
 block|}
@@ -272,7 +272,7 @@ operator|.
 name|index
 argument_list|()
 argument_list|,
-literal|"type filter should have a value field, and the type name"
+literal|"[type] filter should have a value field, and the type name"
 argument_list|)
 throw|;
 block|}

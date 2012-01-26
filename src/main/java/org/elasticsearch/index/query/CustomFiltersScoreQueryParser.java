@@ -459,6 +459,25 @@ name|map
 argument_list|()
 expr_stmt|;
 block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|QueryParsingException
+argument_list|(
+name|parseContext
+operator|.
+name|index
+argument_list|()
+argument_list|,
+literal|"[custom_filters_score] query does not support ["
+operator|+
+name|currentFieldName
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
 block|}
 elseif|else
 if|if
@@ -701,6 +720,25 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|QueryParsingException
+argument_list|(
+name|parseContext
+operator|.
+name|index
+argument_list|()
+argument_list|,
+literal|"[custom_filters_score] query does not support ["
+operator|+
+name|currentFieldName
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
 block|}
 elseif|else
 if|if
@@ -904,7 +942,7 @@ operator|.
 name|index
 argument_list|()
 argument_list|,
-literal|"illegal score_mode for nested query ["
+literal|"[custom_filters_score] illegal score_mode ["
 operator|+
 name|sScoreMode
 operator|+
@@ -912,6 +950,25 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|QueryParsingException
+argument_list|(
+name|parseContext
+operator|.
+name|index
+argument_list|()
+argument_list|,
+literal|"[custom_filters_score] query does not support ["
+operator|+
+name|currentFieldName
+operator|+
+literal|"]"
+argument_list|)
+throw|;
 block|}
 block|}
 block|}

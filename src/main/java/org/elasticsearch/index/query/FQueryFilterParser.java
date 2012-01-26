@@ -115,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The "fquery" filter is the same as the {@link QueryFilterParser} except that it allows also to  * associate a name with the query filter.  *  *  */
+comment|/**  * The "fquery" filter is the same as the {@link QueryFilterParser} except that it allows also to  * associate a name with the query filter.  */
 end_comment
 
 begin_class
@@ -282,6 +282,25 @@ name|parseInnerQuery
 argument_list|()
 expr_stmt|;
 block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|QueryParsingException
+argument_list|(
+name|parseContext
+operator|.
+name|index
+argument_list|()
+argument_list|,
+literal|"[fquery] filter does not support ["
+operator|+
+name|currentFieldName
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
 block|}
 elseif|else
 if|if
@@ -360,6 +379,25 @@ name|text
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|QueryParsingException
+argument_list|(
+name|parseContext
+operator|.
+name|index
+argument_list|()
+argument_list|,
+literal|"[fquery] filter does not support ["
+operator|+
+name|currentFieldName
+operator|+
+literal|"]"
+argument_list|)
+throw|;
 block|}
 block|}
 block|}
