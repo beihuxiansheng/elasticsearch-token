@@ -1524,6 +1524,11 @@ operator|.
 name|waitForYellowStatus
 argument_list|()
 operator|.
+name|waitForNodes
+argument_list|(
+literal|"2"
+argument_list|)
+operator|.
 name|waitForActiveShards
 argument_list|(
 literal|4
