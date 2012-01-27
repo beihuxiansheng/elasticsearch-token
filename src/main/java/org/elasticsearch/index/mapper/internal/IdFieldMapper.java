@@ -1017,10 +1017,7 @@ name|UidFilter
 argument_list|(
 name|context
 operator|.
-name|mapperService
-argument_list|()
-operator|.
-name|types
+name|queryTypes
 argument_list|()
 argument_list|,
 name|ImmutableList
@@ -1091,10 +1088,7 @@ name|UidFilter
 argument_list|(
 name|context
 operator|.
-name|mapperService
-argument_list|()
-operator|.
-name|types
+name|queryTypes
 argument_list|()
 argument_list|,
 name|ImmutableList

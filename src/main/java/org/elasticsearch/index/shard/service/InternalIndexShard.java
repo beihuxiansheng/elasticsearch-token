@@ -474,6 +474,20 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|query
+operator|.
+name|QueryParseContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|refresh
 operator|.
 name|RefreshStats
@@ -2549,6 +2563,15 @@ expr_stmt|;
 block|}
 else|else
 block|{
+try|try
+block|{
+name|QueryParseContext
+operator|.
+name|setTypes
+argument_list|(
+name|types
+argument_list|)
+expr_stmt|;
 name|query
 operator|=
 name|queryParserService
@@ -2565,6 +2588,15 @@ operator|.
 name|query
 argument_list|()
 expr_stmt|;
+block|}
+finally|finally
+block|{
+name|QueryParseContext
+operator|.
+name|removeTypes
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 comment|// wrap it in filter, cache it, and constant score it
 comment|// Don't cache it, since it might be very different queries each time...
