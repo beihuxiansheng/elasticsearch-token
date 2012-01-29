@@ -808,25 +808,6 @@ name|filter
 operator|=
 name|childFilter
 expr_stmt|;
-if|if
-condition|(
-name|usAsParentFilter
-operator|.
-name|filter
-operator|==
-literal|null
-condition|)
-block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"HELLO"
-argument_list|)
-expr_stmt|;
-block|}
 comment|// wrap the child query to only work on the nested path type
 name|query
 operator|=
