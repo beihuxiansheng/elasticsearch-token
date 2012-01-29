@@ -385,6 +385,13 @@ name|shard
 operator|.
 name|active
 argument_list|()
+operator|&&
+name|shard
+operator|.
+name|relocatingNodeId
+argument_list|()
+operator|==
+literal|null
 condition|)
 block|{
 return|return
@@ -482,6 +489,13 @@ name|shard
 operator|.
 name|active
 argument_list|()
+operator|&&
+name|shard
+operator|.
+name|relocatingNodeId
+argument_list|()
+operator|==
+literal|null
 condition|)
 block|{
 return|return

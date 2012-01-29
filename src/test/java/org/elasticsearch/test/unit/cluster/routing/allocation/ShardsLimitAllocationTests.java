@@ -916,13 +916,6 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"cluster.routing.allocation.allow_rebalance"
-argument_list|,
-literal|"always"
-argument_list|)
-operator|.
-name|put
-argument_list|(
 literal|"cluster.routing.allocation.cluster_concurrent_rebalance"
 argument_list|,
 operator|-
