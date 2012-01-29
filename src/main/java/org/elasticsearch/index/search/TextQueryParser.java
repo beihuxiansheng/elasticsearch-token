@@ -565,10 +565,7 @@ condition|(
 name|smartNameFieldMappers
 operator|!=
 literal|null
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 name|smartNameFieldMappers
 operator|.
 name|hasMapper
@@ -582,13 +579,6 @@ operator|.
 name|mapper
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|mapper
-operator|!=
-literal|null
-condition|)
-block|{
 name|field
 operator|=
 name|mapper
@@ -599,8 +589,6 @@ operator|.
 name|indexName
 argument_list|()
 expr_stmt|;
-block|}
-block|}
 block|}
 if|if
 condition|(

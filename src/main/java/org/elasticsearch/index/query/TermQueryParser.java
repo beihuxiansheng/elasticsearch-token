@@ -452,10 +452,7 @@ condition|(
 name|smartNameFieldMappers
 operator|!=
 literal|null
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 name|smartNameFieldMappers
 operator|.
 name|hasMapper
@@ -536,7 +533,6 @@ argument_list|,
 name|parseContext
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 if|if
