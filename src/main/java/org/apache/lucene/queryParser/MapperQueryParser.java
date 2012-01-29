@@ -1326,9 +1326,7 @@ condition|)
 block|{
 name|query
 operator|=
-name|super
-operator|.
-name|getPrefixQuery
+name|getPossiblyAnalyzedPrefixQuery
 argument_list|(
 name|currentMapper
 operator|.
@@ -1355,9 +1353,7 @@ return|;
 block|}
 block|}
 return|return
-name|super
-operator|.
-name|getPrefixQuery
+name|getPossiblyAnalyzedPrefixQuery
 argument_list|(
 name|field
 argument_list|,
