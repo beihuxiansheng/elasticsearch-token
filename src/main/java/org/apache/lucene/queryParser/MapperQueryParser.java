@@ -792,7 +792,7 @@ if|if
 condition|(
 name|fieldMappers
 operator|.
-name|hasDocMapper
+name|explicitTypeInNameWithDocMapper
 argument_list|()
 condition|)
 block|{
@@ -1247,7 +1247,7 @@ if|if
 condition|(
 name|fieldMappers
 operator|.
-name|hasDocMapper
+name|explicitTypeInNameWithDocMapper
 argument_list|()
 condition|)
 block|{

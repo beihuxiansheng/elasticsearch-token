@@ -4080,6 +4080,20 @@ operator|.
 name|explicitTypeInName
 return|;
 block|}
+DECL|method|explicitTypeInNameWithDocMapper
+specifier|public
+name|boolean
+name|explicitTypeInNameWithDocMapper
+parameter_list|()
+block|{
+return|return
+name|explicitTypeInName
+operator|&&
+name|docMapper
+operator|!=
+literal|null
+return|;
+block|}
 comment|/**          * The best effort search analyzer associated with this field.          */
 DECL|method|searchAnalyzer
 specifier|public

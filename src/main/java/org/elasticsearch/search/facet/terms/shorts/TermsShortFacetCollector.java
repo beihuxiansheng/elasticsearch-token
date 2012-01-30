@@ -549,12 +549,7 @@ if|if
 condition|(
 name|smartMappers
 operator|.
-name|hasDocMapper
-argument_list|()
-operator|&&
-name|smartMappers
-operator|.
-name|explicitTypeInName
+name|explicitTypeInNameWithDocMapper
 argument_list|()
 condition|)
 block|{

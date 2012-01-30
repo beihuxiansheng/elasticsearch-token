@@ -221,7 +221,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A histogram facet collector that uses the same field as the key as well as the  * value.  *  *  */
+comment|/**  * A histogram facet collector that uses the same field as the key as well as the  * value.  */
 end_comment
 
 begin_class
@@ -355,12 +355,7 @@ if|if
 condition|(
 name|smartMappers
 operator|.
-name|hasDocMapper
-argument_list|()
-operator|&&
-name|smartMappers
-operator|.
-name|explicitTypeInName
+name|explicitTypeInNameWithDocMapper
 argument_list|()
 condition|)
 block|{

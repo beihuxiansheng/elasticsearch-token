@@ -436,7 +436,7 @@ if|if
 condition|(
 name|smartNameFieldMappers
 operator|.
-name|hasDocMapper
+name|explicitTypeInNameWithDocMapper
 argument_list|()
 condition|)
 block|{
