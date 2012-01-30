@@ -3019,7 +3019,14 @@ name|CompressedString
 argument_list|(
 name|builder
 operator|.
-name|string
+name|underlyingBytes
+argument_list|()
+argument_list|,
+literal|0
+argument_list|,
+name|builder
+operator|.
+name|underlyingBytesLength
 argument_list|()
 argument_list|)
 expr_stmt|;
