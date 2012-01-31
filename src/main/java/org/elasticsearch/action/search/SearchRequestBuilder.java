@@ -2015,6 +2015,13 @@ argument_list|>
 name|listener
 parameter_list|)
 block|{
+if|if
+condition|(
+name|sourceBuilder
+operator|!=
+literal|null
+condition|)
+block|{
 name|request
 operator|.
 name|source
@@ -2023,6 +2030,7 @@ name|sourceBuilder
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|client
 operator|.
 name|search
