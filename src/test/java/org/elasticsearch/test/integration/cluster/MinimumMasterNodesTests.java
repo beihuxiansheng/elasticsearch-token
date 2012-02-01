@@ -1510,6 +1510,13 @@ argument_list|,
 name|settings
 argument_list|)
 expr_stmt|;
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|200
+argument_list|)
+expr_stmt|;
 name|clusterHealthResponse
 operator|=
 name|client
@@ -1530,6 +1537,9 @@ name|setWaitForNodes
 argument_list|(
 literal|"2"
 argument_list|)
+operator|.
+name|setWaitForGreenStatus
+argument_list|()
 operator|.
 name|execute
 argument_list|()
