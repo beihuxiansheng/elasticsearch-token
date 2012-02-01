@@ -1467,7 +1467,29 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"   phase2: recovered ["
+literal|"   phase2: start took ["
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|timeValueMillis
+argument_list|(
+name|recoveryStatus
+operator|.
+name|startTime
+argument_list|)
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"]\n"
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|"         : recovered ["
 argument_list|)
 operator|.
 name|append
