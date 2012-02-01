@@ -102,22 +102,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|internal
-operator|.
-name|AllFieldMapper
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -651,9 +635,10 @@ name|addTerms
 argument_list|(
 name|likeText
 argument_list|,
-name|AllFieldMapper
+name|parseContext
 operator|.
-name|NAME
+name|defaultField
+argument_list|()
 argument_list|,
 name|minSimilarity
 argument_list|,

@@ -118,22 +118,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|internal
-operator|.
-name|AllFieldMapper
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -250,9 +234,10 @@ operator|new
 name|String
 index|[]
 block|{
-name|AllFieldMapper
+name|parseContext
 operator|.
-name|NAME
+name|defaultField
+argument_list|()
 block|}
 argument_list|)
 expr_stmt|;
