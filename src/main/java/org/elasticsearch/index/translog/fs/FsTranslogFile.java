@@ -334,6 +334,11 @@ name|void
 name|sync
 parameter_list|()
 function_decl|;
+DECL|method|syncNeeded
+name|boolean
+name|syncNeeded
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
