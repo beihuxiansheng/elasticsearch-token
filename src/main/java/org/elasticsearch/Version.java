@@ -80,6 +80,16 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Serializable
+import|;
+end_import
+
 begin_comment
 comment|/**  */
 end_comment
@@ -89,6 +99,8 @@ DECL|class|Version
 specifier|public
 class|class
 name|Version
+implements|implements
+name|Serializable
 block|{
 comment|// The logic for ID is: XXYYZZAA, where XX is major version, YY is minor version, ZZ is revision, and AA is Beta/RC indicator
 comment|// AA values below 50 are beta builds, and below 99 are RC builds, with 99 indicating a release
