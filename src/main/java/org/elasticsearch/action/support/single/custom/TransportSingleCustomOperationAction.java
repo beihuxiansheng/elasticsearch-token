@@ -779,11 +779,6 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|shardsIt
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
 name|onFailure
 argument_list|(
 literal|null
