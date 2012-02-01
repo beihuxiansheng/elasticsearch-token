@@ -405,6 +405,20 @@ return|return
 name|sourcePath
 return|;
 block|}
+comment|/**          * The index name term that can be used as a factory.          */
+DECL|method|indexNameTerm
+specifier|public
+name|Term
+name|indexNameTerm
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|indexNameTermFactory
+return|;
+block|}
+comment|/**          * Creates a new index term based on the provided value.          */
 DECL|method|createIndexNameTerm
 specifier|public
 name|Term
