@@ -1872,8 +1872,6 @@ block|{
 name|rejectedExecutionHandler
 operator|=
 operator|new
-name|ThreadPoolExecutor
-operator|.
 name|AbortPolicy
 argument_list|()
 expr_stmt|;
@@ -2747,6 +2745,41 @@ block|{
 comment|// ignore
 block|}
 block|}
+block|}
+block|}
+comment|/**      * A handler for rejected tasks that throws a      *<tt>RejectedExecutionException</tt>.      */
+DECL|class|AbortPolicy
+specifier|public
+specifier|static
+class|class
+name|AbortPolicy
+implements|implements
+name|RejectedExecutionHandler
+block|{
+comment|/**          * Creates an<tt>AbortPolicy</tt>.          */
+DECL|method|AbortPolicy
+specifier|public
+name|AbortPolicy
+parameter_list|()
+block|{         }
+comment|/**          * Always throws RejectedExecutionException.          *          * @param r the runnable task requested to be executed          * @param e the executor attempting to execute this task          * @throws RejectedExecutionException always.          */
+DECL|method|rejectedExecution
+specifier|public
+name|void
+name|rejectedExecution
+parameter_list|(
+name|Runnable
+name|r
+parameter_list|,
+name|ThreadPoolExecutor
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|ThreadPoolRejectedException
+argument_list|()
+throw|;
 block|}
 block|}
 DECL|class|ExecutorHolder
