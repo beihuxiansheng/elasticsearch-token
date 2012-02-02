@@ -15,31 +15,19 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Rest pre processor allowing to pre process REST requests.  *<p/>  * Experimental interface.  */
+comment|/**  * A filter chain allowing to continue and process the rest request.  */
 end_comment
 
 begin_interface
-DECL|interface|RestPreProcessor
+DECL|interface|RestFilterChain
 specifier|public
 interface|interface
-name|RestPreProcessor
+name|RestFilterChain
 block|{
-comment|/**      * Optionally, the order the processor will work on. Execution is done from lowest value to highest.      * It is a good practice to allow to configure this for the relevant processor.      */
-DECL|method|order
-name|int
-name|order
-parameter_list|()
-function_decl|;
-comment|/**      * Should this processor also process external (non REST) requests, like plugin site requests.      */
-DECL|method|handleExternal
-name|boolean
-name|handleExternal
-parameter_list|()
-function_decl|;
-comment|/**      * Process the request, returning<tt>false</tt> if no further processing should be done. Note,      * make sure to send a response if returning<tt>false</tt>, otherwise, no response will be sent.      *<p/>      * It is recommended that the process method will not do blocking calls, or heavily cache data      * if a blocking call is done.      */
-DECL|method|process
-name|boolean
-name|process
+comment|/**      * Continue processing the request. Should only be called if a response has not been sent      * through the channel.      */
+DECL|method|continueProcessing
+name|void
+name|continueProcessing
 parameter_list|(
 name|RestRequest
 name|request
