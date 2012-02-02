@@ -440,7 +440,7 @@ expr_stmt|;
 block|}
 name|nodeService
 operator|.
-name|putNodeAttribute
+name|putAttribute
 argument_list|(
 literal|"http_address"
 argument_list|,
@@ -469,7 +469,7 @@ name|ElasticSearchException
 block|{
 name|nodeService
 operator|.
-name|removeNodeAttribute
+name|removeAttribute
 argument_list|(
 literal|"http_address"
 argument_list|)
