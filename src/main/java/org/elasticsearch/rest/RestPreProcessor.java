@@ -36,7 +36,7 @@ name|boolean
 name|handleExternal
 parameter_list|()
 function_decl|;
-comment|/**      * Process the request, returning<tt>false</tt> if no further processing should be done. Note,      * make sure to send a response if returning<tt>false</tt>, otherwise, no response will be sent.      */
+comment|/**      * Process the request, returning<tt>false</tt> if no further processing should be done. Note,      * make sure to send a response if returning<tt>false</tt>, otherwise, no response will be sent.      *<p/>      * It is recommended that the process method will not do blocking calls, or heavily cache data      * if a blocking call is done.      */
 DECL|method|process
 name|boolean
 name|process
