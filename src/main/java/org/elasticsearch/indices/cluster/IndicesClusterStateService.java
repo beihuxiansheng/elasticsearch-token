@@ -2083,19 +2083,9 @@ comment|// we only create / update here
 continue|continue;
 block|}
 comment|// if the index meta data didn't change, no need check for refreshed settings
-if|if
-condition|(
-operator|!
-name|event
-operator|.
-name|indexMetaDataChanged
-argument_list|(
-name|indexMetaData
-argument_list|)
-condition|)
-block|{
-continue|continue;
-block|}
+comment|//if (!event.indexMetaDataChanged(indexMetaData)) {
+comment|//    continue;
+comment|//}
 name|List
 argument_list|<
 name|String
