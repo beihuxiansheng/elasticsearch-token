@@ -584,6 +584,13 @@ operator|.
 name|readBoolean
 argument_list|()
 expr_stmt|;
+name|fs
+operator|=
+name|in
+operator|.
+name|readBoolean
+argument_list|()
+expr_stmt|;
 name|transport
 operator|=
 name|in
@@ -659,6 +666,13 @@ operator|.
 name|writeBoolean
 argument_list|(
 name|network
+argument_list|)
+expr_stmt|;
+name|out
+operator|.
+name|writeBoolean
+argument_list|(
+name|fs
 argument_list|)
 expr_stmt|;
 name|out
