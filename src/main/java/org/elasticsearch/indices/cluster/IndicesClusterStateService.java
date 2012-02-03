@@ -1940,6 +1940,17 @@ name|ClusterChangedEvent
 name|event
 parameter_list|)
 block|{
+if|if
+condition|(
+operator|!
+name|event
+operator|.
+name|metaDataChanged
+argument_list|()
+condition|)
+block|{
+return|return;
+block|}
 for|for
 control|(
 name|IndexMetaData
@@ -1969,6 +1980,20 @@ argument_list|)
 condition|)
 block|{
 comment|// we only create / update here
+continue|continue;
+block|}
+comment|// if the index meta data didn't change, no need check for refreshed settings
+if|if
+condition|(
+operator|!
+name|event
+operator|.
+name|indexMetaDataChanged
+argument_list|(
+name|indexMetaData
+argument_list|)
+condition|)
+block|{
 continue|continue;
 block|}
 name|String
@@ -2055,6 +2080,20 @@ argument_list|)
 condition|)
 block|{
 comment|// we only create / update here
+continue|continue;
+block|}
+comment|// if the index meta data didn't change, no need check for refreshed settings
+if|if
+condition|(
+operator|!
+name|event
+operator|.
+name|indexMetaDataChanged
+argument_list|(
+name|indexMetaData
+argument_list|)
+condition|)
+block|{
 continue|continue;
 block|}
 name|List
