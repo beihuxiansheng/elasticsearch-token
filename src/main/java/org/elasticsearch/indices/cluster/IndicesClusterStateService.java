@@ -2082,10 +2082,6 @@ block|{
 comment|// we only create / update here
 continue|continue;
 block|}
-comment|// if the index meta data didn't change, no need check for refreshed settings
-comment|//if (!event.indexMetaDataChanged(indexMetaData)) {
-comment|//    continue;
-comment|//}
 name|List
 argument_list|<
 name|String
