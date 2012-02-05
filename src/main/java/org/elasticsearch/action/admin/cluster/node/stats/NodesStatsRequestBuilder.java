@@ -120,6 +120,22 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets all the request flags.      */
+DECL|method|all
+specifier|public
+name|NodesStatsRequestBuilder
+name|all
+parameter_list|()
+block|{
+name|request
+operator|.
+name|all
+argument_list|()
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Clears all stats flags.      */
 DECL|method|clear
 specifier|public

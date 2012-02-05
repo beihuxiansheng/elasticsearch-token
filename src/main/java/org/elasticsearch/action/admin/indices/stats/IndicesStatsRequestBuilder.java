@@ -97,6 +97,23 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Sets all flags to return all stats.      */
+DECL|method|all
+specifier|public
+name|IndicesStatsRequestBuilder
+name|all
+parameter_list|()
+block|{
+name|request
+operator|.
+name|all
+argument_list|()
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Clears all stats.      */
 DECL|method|clear
 specifier|public
 name|IndicesStatsRequestBuilder
