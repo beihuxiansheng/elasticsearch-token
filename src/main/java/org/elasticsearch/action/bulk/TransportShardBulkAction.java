@@ -556,7 +556,7 @@ name|ThreadPool
 operator|.
 name|Names
 operator|.
-name|INDEX
+name|BULK
 return|;
 block|}
 annotation|@
