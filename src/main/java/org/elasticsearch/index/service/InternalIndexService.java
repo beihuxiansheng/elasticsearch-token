@@ -1761,6 +1761,8 @@ argument_list|(
 operator|new
 name|IndexShardModule
 argument_list|(
+name|indexSettings
+argument_list|,
 name|shardId
 argument_list|)
 argument_list|)

@@ -236,6 +236,16 @@ operator|.
 name|asEagerSingleton
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|JmxService
+operator|.
+name|shouldExport
+argument_list|(
+name|settings
+argument_list|)
+condition|)
+block|{
 name|bindListener
 argument_list|(
 name|Matchers
@@ -250,6 +260,7 @@ name|jmxService
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|class|JmxExporterTypeListener
 specifier|private

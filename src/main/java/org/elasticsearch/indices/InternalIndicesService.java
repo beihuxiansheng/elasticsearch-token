@@ -2030,7 +2030,9 @@ name|add
 argument_list|(
 operator|new
 name|IndexModule
-argument_list|()
+argument_list|(
+name|indexSettings
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|modules
