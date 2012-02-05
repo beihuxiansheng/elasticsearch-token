@@ -680,6 +680,14 @@ name|cause
 argument_list|(
 literal|"auto(index api)"
 argument_list|)
+operator|.
+name|masterNodeTimeout
+argument_list|(
+name|request
+operator|.
+name|timeout
+argument_list|()
+argument_list|)
 argument_list|,
 operator|new
 name|ActionListener
