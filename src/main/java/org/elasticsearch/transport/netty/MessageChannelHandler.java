@@ -340,8 +340,8 @@ expr_stmt|;
 block|}
 comment|// similar logic to FrameDecoder, we don't use FrameDecoder because we can use the data len header value
 comment|// to guess the size of the cumulation buffer to allocate
-comment|// Also strange, is that the FrameDecoder always allocated a cumulation, even if the input bufer is enough
-comment|// so we don't allocate a cumulation buffer unless we really need to here (need to post this to the mailing list)
+comment|// we don't reuse the cumalation buffer, so it won't grow out of control per channel, as well as
+comment|// being able to "readBytesReference" from it without worry
 annotation|@
 name|Override
 DECL|method|messageReceived
