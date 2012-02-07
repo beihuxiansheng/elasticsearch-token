@@ -136,6 +136,22 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets to reutrn all the data.      */
+DECL|method|all
+specifier|public
+name|NodesInfoRequestBuilder
+name|all
+parameter_list|()
+block|{
+name|request
+operator|.
+name|all
+argument_list|()
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Should the node settings be returned.      */
 DECL|method|setSettings
 specifier|public
