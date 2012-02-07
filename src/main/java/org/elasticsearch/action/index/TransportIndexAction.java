@@ -611,7 +611,7 @@ name|getAsBoolean
 argument_list|(
 literal|"action.wait_on_mapping_change"
 argument_list|,
-literal|true
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
