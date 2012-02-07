@@ -1366,7 +1366,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"[gc][{}][{}][{}] duration [{}], collections [{}], total [{}]/[{}], memory [{}]->[{}]/[{}]"
+literal|"[gc][{}][{}][{}] duration [{}], collections [{}]/[{}], total [{}]/[{}], memory [{}]->[{}]/[{}]"
 argument_list|,
 name|gc
 operator|.
@@ -1388,6 +1388,21 @@ name|collectionTime
 argument_list|)
 argument_list|,
 name|collections
+argument_list|,
+name|TimeValue
+operator|.
+name|timeValueMillis
+argument_list|(
+name|currentJvmStats
+operator|.
+name|timestamp
+argument_list|()
+operator|-
+name|lastJvmStats
+operator|.
+name|timestamp
+argument_list|()
+argument_list|)
 argument_list|,
 name|TimeValue
 operator|.
@@ -1444,7 +1459,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"[gc][{}][{}][{}] duration [{}], collections [{}], total [{}]/[{}], memory [{}]->[{}]/[{}]"
+literal|"[gc][{}][{}][{}] duration [{}], collections [{}]/[{}], total [{}]/[{}], memory [{}]->[{}]/[{}]"
 argument_list|,
 name|gc
 operator|.
@@ -1466,6 +1481,21 @@ name|collectionTime
 argument_list|)
 argument_list|,
 name|collections
+argument_list|,
+name|TimeValue
+operator|.
+name|timeValueMillis
+argument_list|(
+name|currentJvmStats
+operator|.
+name|timestamp
+argument_list|()
+operator|-
+name|lastJvmStats
+operator|.
+name|timestamp
+argument_list|()
+argument_list|)
 argument_list|,
 name|TimeValue
 operator|.
@@ -1527,7 +1557,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"[gc][{}][{}][{}] duration [{}], collections [{}], total [{}]/[{}], memory [{}]->[{}]/[{}]"
+literal|"[gc][{}][{}][{}] duration [{}], collections [{}]/[{}], total [{}]/[{}], memory [{}]->[{}]/[{}]"
 argument_list|,
 name|gc
 operator|.
@@ -1549,6 +1579,21 @@ name|collectionTime
 argument_list|)
 argument_list|,
 name|collections
+argument_list|,
+name|TimeValue
+operator|.
+name|timeValueMillis
+argument_list|(
+name|currentJvmStats
+operator|.
+name|timestamp
+argument_list|()
+operator|-
+name|lastJvmStats
+operator|.
+name|timestamp
+argument_list|()
+argument_list|)
 argument_list|,
 name|TimeValue
 operator|.
