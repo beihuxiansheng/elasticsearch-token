@@ -516,7 +516,7 @@ name|JvmStats
 operator|.
 name|enableLastGc
 operator|=
-literal|false
+name|enableLastGc
 expr_stmt|;
 block|}
 DECL|method|jvmStats
