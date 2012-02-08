@@ -383,9 +383,11 @@ operator|.
 name|sendResponse
 argument_list|(
 operator|new
-name|StringRestResponse
+name|XContentThrowableRestResponse
 argument_list|(
-name|INTERNAL_SERVER_ERROR
+name|request
+argument_list|,
+name|e
 argument_list|)
 argument_list|)
 expr_stmt|;

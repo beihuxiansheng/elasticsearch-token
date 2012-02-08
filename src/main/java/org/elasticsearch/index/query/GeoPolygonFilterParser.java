@@ -253,7 +253,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<pre>  * {  *     "pin.location" : {  *         "points" : [  *              { "lat" : 12, "lon" : 40},  *              {}  *         ]  *     }  * }  *</pre>  *  *  */
+comment|/**  *<pre>  * {  *     "pin.location" : {  *         "points" : [  *              { "lat" : 12, "lon" : 40},  *              {}  *         ]  *     }  * }  *</pre>  */
 end_comment
 
 begin_class
@@ -901,6 +901,25 @@ expr_stmt|;
 block|}
 block|}
 block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|QueryParsingException
+argument_list|(
+name|parseContext
+operator|.
+name|index
+argument_list|()
+argument_list|,
+literal|"[geo_polygon] filter does not support ["
+operator|+
+name|currentFieldName
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
 block|}
 block|}
 block|}
@@ -1007,6 +1026,25 @@ operator|.
 name|booleanValue
 argument_list|()
 expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|QueryParsingException
+argument_list|(
+name|parseContext
+operator|.
+name|index
+argument_list|()
+argument_list|,
+literal|"[geo_polygon] filter does not support ["
+operator|+
+name|currentFieldName
+operator|+
+literal|"]"
+argument_list|)
+throw|;
 block|}
 block|}
 block|}

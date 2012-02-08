@@ -107,7 +107,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A base class for a plugin.  *  *  */
+comment|/**  * A base class for a plugin.  *<p/>  * A plugin can be dynamically injected with {@link Module} by implementing<tt>onModule(AnyModule)</tt> method  * removing the need to override {@link #processModule(org.elasticsearch.common.inject.Module)} and check using  * instanceof.  */
 end_comment
 
 begin_class
@@ -135,6 +135,28 @@ argument_list|>
 argument_list|>
 name|modules
 parameter_list|()
+block|{
+return|return
+name|ImmutableList
+operator|.
+name|of
+argument_list|()
+return|;
+block|}
+comment|/**      * Defaults to return an empty list.      */
+annotation|@
+name|Override
+DECL|method|modules
+specifier|public
+name|Collection
+argument_list|<
+name|Module
+argument_list|>
+name|modules
+parameter_list|(
+name|Settings
+name|settings
+parameter_list|)
 block|{
 return|return
 name|ImmutableList
@@ -194,6 +216,28 @@ block|}
 comment|/**      * Defaults to return an empty list.      */
 annotation|@
 name|Override
+DECL|method|indexModules
+specifier|public
+name|Collection
+argument_list|<
+name|Module
+argument_list|>
+name|indexModules
+parameter_list|(
+name|Settings
+name|settings
+parameter_list|)
+block|{
+return|return
+name|ImmutableList
+operator|.
+name|of
+argument_list|()
+return|;
+block|}
+comment|/**      * Defaults to return an empty list.      */
+annotation|@
+name|Override
 DECL|method|indexServices
 specifier|public
 name|Collection
@@ -231,6 +275,28 @@ argument_list|>
 argument_list|>
 name|shardModules
 parameter_list|()
+block|{
+return|return
+name|ImmutableList
+operator|.
+name|of
+argument_list|()
+return|;
+block|}
+comment|/**      * Defaults to return an empty list.      */
+annotation|@
+name|Override
+DECL|method|shardModules
+specifier|public
+name|Collection
+argument_list|<
+name|Module
+argument_list|>
+name|shardModules
+parameter_list|(
+name|Settings
+name|settings
+parameter_list|)
 block|{
 return|return
 name|ImmutableList

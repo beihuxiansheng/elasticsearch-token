@@ -38,7 +38,27 @@ name|java
 operator|.
 name|io
 operator|.
+name|EOFException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|BufferUnderflowException
 import|;
 end_import
 
@@ -53,7 +73,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  */
 end_comment
 
 begin_class
@@ -114,21 +134,48 @@ specifier|final
 name|int
 name|BUFFER_SIZE
 decl_stmt|;
+DECL|field|closed
+specifier|private
+specifier|volatile
+name|boolean
+name|closed
+init|=
+literal|false
+decl_stmt|;
 DECL|method|ByteBufferIndexInput
 specifier|public
 name|ByteBufferIndexInput
 parameter_list|(
+name|String
+name|name
+parameter_list|,
 name|ByteBufferFile
 name|file
 parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|super
+argument_list|(
+literal|"BBIndexInput(name="
+operator|+
+name|name
+operator|+
+literal|")"
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|file
 operator|=
 name|file
+expr_stmt|;
+name|this
+operator|.
+name|file
+operator|.
+name|incRef
+argument_list|()
 expr_stmt|;
 name|this
 operator|.
@@ -167,7 +214,24 @@ name|void
 name|close
 parameter_list|()
 block|{
-comment|// nothing to do here
+comment|// we protected from double closing the index input since
+comment|// some tests do that...
+if|if
+condition|(
+name|closed
+condition|)
+block|{
+return|return;
+block|}
+name|closed
+operator|=
+literal|true
+expr_stmt|;
+name|file
+operator|.
+name|decRef
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -181,32 +245,135 @@ return|return
 name|length
 return|;
 block|}
-comment|//    @Override
-comment|//    public short readShort() throws IOException {
-comment|//        try {
-comment|//            return currentBuffer.getShort();
-comment|//        } catch (BufferUnderflowException e) {
-comment|//            return super.readShort();
-comment|//        }
-comment|//    }
-comment|//
-comment|//    @Override
-comment|//    public int readInt() throws IOException {
-comment|//        try {
-comment|//            return currentBuffer.getInt();
-comment|//        } catch (BufferUnderflowException e) {
-comment|//            return super.readInt();
-comment|//        }
-comment|//    }
-comment|//
-comment|//    @Override
-comment|//    public long readLong() throws IOException {
-comment|//        try {
-comment|//            return currentBuffer.getLong();
-comment|//        } catch (BufferUnderflowException e) {
-comment|//            return super.readLong();
-comment|//        }
-comment|//    }
+annotation|@
+name|Override
+DECL|method|readShort
+specifier|public
+name|short
+name|readShort
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+try|try
+block|{
+name|currentBuffer
+operator|.
+name|mark
+argument_list|()
+expr_stmt|;
+return|return
+name|currentBuffer
+operator|.
+name|getShort
+argument_list|()
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|BufferUnderflowException
+name|e
+parameter_list|)
+block|{
+name|currentBuffer
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
+return|return
+name|super
+operator|.
+name|readShort
+argument_list|()
+return|;
+block|}
+block|}
+annotation|@
+name|Override
+DECL|method|readInt
+specifier|public
+name|int
+name|readInt
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+try|try
+block|{
+name|currentBuffer
+operator|.
+name|mark
+argument_list|()
+expr_stmt|;
+return|return
+name|currentBuffer
+operator|.
+name|getInt
+argument_list|()
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|BufferUnderflowException
+name|e
+parameter_list|)
+block|{
+name|currentBuffer
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
+return|return
+name|super
+operator|.
+name|readInt
+argument_list|()
+return|;
+block|}
+block|}
+annotation|@
+name|Override
+DECL|method|readLong
+specifier|public
+name|long
+name|readLong
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+try|try
+block|{
+name|currentBuffer
+operator|.
+name|mark
+argument_list|()
+expr_stmt|;
+return|return
+name|currentBuffer
+operator|.
+name|getLong
+argument_list|()
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|BufferUnderflowException
+name|e
+parameter_list|)
+block|{
+name|currentBuffer
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
+return|return
+name|super
+operator|.
+name|readLong
+argument_list|()
+return|;
+block|}
+block|}
 annotation|@
 name|Override
 DECL|method|readByte
@@ -391,62 +558,11 @@ operator|/
 name|BUFFER_SIZE
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|currentBufferIndex
-operator|>=
-name|file
-operator|.
-name|numBuffers
-argument_list|()
-condition|)
-block|{
-comment|// if we are past EOF, don't throw one here, instead, move it to the last position in the last buffer
-name|currentBufferIndex
-operator|=
-name|file
-operator|.
-name|numBuffers
-argument_list|()
-operator|-
-literal|1
-expr_stmt|;
-name|currentBuffer
-operator|=
-name|currentBufferIndex
-operator|==
-operator|-
-literal|1
-condition|?
-name|EMPTY_BUFFER
-else|:
-name|file
-operator|.
-name|getBuffer
-argument_list|(
-name|currentBufferIndex
-argument_list|)
-expr_stmt|;
-name|currentBuffer
-operator|.
-name|position
-argument_list|(
-name|currentBuffer
-operator|.
-name|limit
-argument_list|()
-argument_list|)
-expr_stmt|;
-return|return;
-block|}
-else|else
-block|{
 name|switchCurrentBuffer
 argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 try|try
 block|{
@@ -464,6 +580,8 @@ name|BUFFER_SIZE
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// Grrr, need to wrap in IllegalArgumentException since tests (if not other places)
+comment|// expect an IOException...
 block|}
 catch|catch
 parameter_list|(
@@ -471,16 +589,25 @@ name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{
-name|currentBuffer
-operator|.
-name|position
+name|IOException
+name|ioException
+init|=
+operator|new
+name|IOException
 argument_list|(
-name|currentBuffer
+literal|"seeking past position"
+argument_list|)
+decl_stmt|;
+name|ioException
 operator|.
-name|limit
-argument_list|()
+name|initCause
+argument_list|(
+name|e
 argument_list|)
 expr_stmt|;
+throw|throw
+name|ioException
+throw|;
 block|}
 block|}
 DECL|method|switchCurrentBuffer
@@ -504,6 +631,7 @@ name|numBuffers
 argument_list|()
 condition|)
 block|{
+comment|// end of file reached, no more buffers left
 if|if
 condition|(
 name|enforceEOF
@@ -511,11 +639,32 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|EOFException
 argument_list|(
-literal|"Read past EOF"
+literal|"Read past EOF (resource: "
+operator|+
+name|this
+operator|+
+literal|")"
 argument_list|)
 throw|;
+block|}
+else|else
+block|{
+comment|// Force EOF if a read takes place at this position
+name|currentBufferIndex
+operator|--
+expr_stmt|;
+name|currentBuffer
+operator|.
+name|position
+argument_list|(
+name|currentBuffer
+operator|.
+name|limit
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 else|else
@@ -582,22 +731,50 @@ operator|)
 name|buflen
 argument_list|)
 expr_stmt|;
+block|}
+comment|// we need to enforce EOF here as well...
+if|if
+condition|(
+operator|!
+name|currentBuffer
+operator|.
+name|hasRemaining
+argument_list|()
+condition|)
+block|{
 if|if
 condition|(
 name|enforceEOF
-operator|&&
-name|buflen
-operator|==
-literal|0
 condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|EOFException
 argument_list|(
-literal|"Read past EOF"
+literal|"Read past EOF (resource: "
+operator|+
+name|this
+operator|+
+literal|")"
 argument_list|)
 throw|;
+block|}
+else|else
+block|{
+comment|// Force EOF if a read takes place at this position
+name|currentBufferIndex
+operator|--
+expr_stmt|;
+name|currentBuffer
+operator|.
+name|position
+argument_list|(
+name|currentBuffer
+operator|.
+name|limit
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}
@@ -621,6 +798,14 @@ operator|.
 name|clone
 argument_list|()
 decl_stmt|;
+name|cloned
+operator|.
+name|file
+operator|.
+name|incRef
+argument_list|()
+expr_stmt|;
+comment|// inc ref on cloned one
 if|if
 condition|(
 name|currentBuffer

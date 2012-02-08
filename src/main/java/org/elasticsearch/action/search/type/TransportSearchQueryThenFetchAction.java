@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|gnu
-operator|.
-name|trove
-operator|.
-name|ExtTIntArrayList
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -119,6 +109,20 @@ operator|.
 name|settings
 operator|.
 name|Settings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|trove
+operator|.
+name|ExtTIntArrayList
 import|;
 end_import
 
@@ -1113,9 +1117,7 @@ name|AsyncAction
 operator|.
 name|this
 operator|.
-name|shardFailures
-operator|.
-name|add
+name|addShardFailure
 argument_list|(
 operator|new
 name|ShardSearchFailure

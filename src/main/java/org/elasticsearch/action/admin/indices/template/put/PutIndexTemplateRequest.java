@@ -256,7 +256,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|Actions
+name|ValidateActions
 operator|.
 name|addValidationError
 import|;
@@ -329,7 +329,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * A request to create an index template.  */
 end_comment
 
 begin_class
@@ -598,7 +598,7 @@ return|return
 name|create
 return|;
 block|}
-comment|/**      * The settings to created the index template with.      */
+comment|/**      * The settings to create the index template with.      */
 DECL|method|settings
 specifier|public
 name|PutIndexTemplateRequest
@@ -618,7 +618,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The settings to created the index template with.      */
+comment|/**      * The settings to create the index template with.      */
 DECL|method|settings
 specifier|public
 name|PutIndexTemplateRequest
@@ -643,7 +643,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The settings to crete the index template with (either json/yaml/properties format)      */
+comment|/**      * The settings to crete the index template with (either json/yaml/properties format).      */
 DECL|method|settings
 specifier|public
 name|PutIndexTemplateRequest
@@ -674,7 +674,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The settings to crete the index template with (either json/yaml/properties format)      */
+comment|/**      * The settings to crete the index template with (either json/yaml/properties format).      */
 DECL|method|settings
 specifier|public
 name|PutIndexTemplateRequest

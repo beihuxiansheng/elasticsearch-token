@@ -38,18 +38,6 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|TransportActions
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
 name|support
 operator|.
 name|master
@@ -203,7 +191,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Delete index action.  *  *  */
+comment|/**  * Delete index action.  */
 end_comment
 
 begin_class
@@ -290,13 +278,9 @@ name|transportAction
 parameter_list|()
 block|{
 return|return
-name|TransportActions
+name|CloseIndexAction
 operator|.
-name|Admin
-operator|.
-name|Indices
-operator|.
-name|CLOSE
+name|NAME
 return|;
 block|}
 annotation|@
@@ -341,6 +325,27 @@ name|ClusterState
 name|state
 parameter_list|)
 block|{
+name|request
+operator|.
+name|index
+argument_list|(
+name|clusterService
+operator|.
+name|state
+argument_list|()
+operator|.
+name|metaData
+argument_list|()
+operator|.
+name|concreteIndex
+argument_list|(
+name|request
+operator|.
+name|index
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
 return|return
 name|state
 operator|.

@@ -254,7 +254,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|Actions
+name|ValidateActions
 operator|.
 name|addValidationError
 import|;
@@ -327,7 +327,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A request to create an index. Best created with {@link org.elasticsearch.client.Requests#createIndexRequest(String)}.  *<p/>  *<p>The index created can optionally be created with {@link #settings(org.elasticsearch.common.settings.Settings)}.  *  *  * @see org.elasticsearch.client.IndicesAdminClient#create(CreateIndexRequest)  * @see org.elasticsearch.client.Requests#createIndexRequest(String)  * @see CreateIndexResponse  */
+comment|/**  * A request to create an index. Best created with {@link org.elasticsearch.client.Requests#createIndexRequest(String)}.  *<p/>  *<p>The index created can optionally be created with {@link #settings(org.elasticsearch.common.settings.Settings)}.  *  * @see org.elasticsearch.client.IndicesAdminClient#create(CreateIndexRequest)  * @see org.elasticsearch.client.Requests#createIndexRequest(String)  * @see CreateIndexResponse  */
 end_comment
 
 begin_class
@@ -473,6 +473,25 @@ parameter_list|()
 block|{
 return|return
 name|index
+return|;
+block|}
+DECL|method|index
+specifier|public
+name|CreateIndexRequest
+name|index
+parameter_list|(
+name|String
+name|index
+parameter_list|)
+block|{
+name|this
+operator|.
+name|index
+operator|=
+name|index
+expr_stmt|;
+return|return
+name|this
 return|;
 block|}
 comment|/**      * The settings to created the index with.      */
@@ -947,6 +966,28 @@ argument_list|,
 literal|null
 argument_list|)
 argument_list|)
+return|;
+block|}
+comment|/**      * A timeout value in case the master has not been discovered yet or disconnected.      */
+annotation|@
+name|Override
+DECL|method|masterNodeTimeout
+specifier|public
+name|CreateIndexRequest
+name|masterNodeTimeout
+parameter_list|(
+name|TimeValue
+name|timeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|masterNodeTimeout
+operator|=
+name|timeout
+expr_stmt|;
+return|return
+name|this
 return|;
 block|}
 annotation|@

@@ -141,7 +141,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<pre>  * {  *  fuzzy_like_This_field : {  *      field1 : {  *          maxNumTerms : 12,  *          boost : 1.1,  *          likeText : "..."  *      }  * }  *</pre>  *  *  */
+comment|/**  *<pre>  * {  *  fuzzy_like_This_field : {  *      field1 : {  *          maxNumTerms : 12,  *          boost : 1.1,  *          likeText : "..."  *      }  * }  *</pre>  */
 end_comment
 
 begin_class
@@ -265,15 +265,30 @@ operator|.
 name|nextToken
 argument_list|()
 decl_stmt|;
-assert|assert
+if|if
+condition|(
 name|token
-operator|==
+operator|!=
 name|XContentParser
 operator|.
 name|Token
 operator|.
 name|FIELD_NAME
-assert|;
+condition|)
+block|{
+throw|throw
+operator|new
+name|QueryParsingException
+argument_list|(
+name|parseContext
+operator|.
+name|index
+argument_list|()
+argument_list|,
+literal|"[flt_field] query malformed, no field"
+argument_list|)
+throw|;
+block|}
 name|String
 name|fieldName
 init|=
@@ -290,15 +305,30 @@ operator|.
 name|nextToken
 argument_list|()
 expr_stmt|;
-assert|assert
+if|if
+condition|(
 name|token
-operator|==
+operator|!=
 name|XContentParser
 operator|.
 name|Token
 operator|.
 name|START_OBJECT
-assert|;
+condition|)
+block|{
+throw|throw
+operator|new
+name|QueryParsingException
+argument_list|(
+name|parseContext
+operator|.
+name|index
+argument_list|()
+argument_list|,
+literal|"[flt_field] query malformed, no start_object"
+argument_list|)
+throw|;
+block|}
 name|String
 name|currentFieldName
 init|=
@@ -525,6 +555,25 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|QueryParsingException
+argument_list|(
+name|parseContext
+operator|.
+name|index
+argument_list|()
+argument_list|,
+literal|"[flt_field] query does not support ["
+operator|+
+name|currentFieldName
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
 block|}
 block|}
 if|if
@@ -671,6 +720,30 @@ operator|.
 name|nextToken
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|token
+operator|!=
+name|XContentParser
+operator|.
+name|Token
+operator|.
+name|END_OBJECT
+condition|)
+block|{
+throw|throw
+operator|new
+name|QueryParsingException
+argument_list|(
+name|parseContext
+operator|.
+name|index
+argument_list|()
+argument_list|,
+literal|"[flt_field] query malformed, no end_object"
+argument_list|)
+throw|;
+block|}
 assert|assert
 name|token
 operator|==

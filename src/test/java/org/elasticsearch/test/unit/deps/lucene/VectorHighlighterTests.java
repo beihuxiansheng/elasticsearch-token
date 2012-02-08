@@ -455,13 +455,14 @@ name|notNullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
+name|assertThat
 argument_list|(
 name|fragment
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"e big<b>bad</b> dog "
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

@@ -112,6 +112,8 @@ operator|.
 name|getMessage
 argument_list|()
 decl_stmt|;
+comment|// the netty HTTP handling always copy over the buffer to its own buffer, either in NioWorker internally
+comment|// when reading, or using a cumalation buffer
 name|serverTransport
 operator|.
 name|dispatchRequest

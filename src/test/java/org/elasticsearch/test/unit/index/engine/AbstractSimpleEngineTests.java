@@ -582,26 +582,6 @@ begin_import
 import|import static
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|unit
-operator|.
-name|index
-operator|.
-name|engine
-operator|.
-name|EngineSearcherTotalHitsMatcher
-operator|.
-name|engineSearcherTotalHits
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
 name|hamcrest
 operator|.
 name|MatcherAssert
@@ -3944,6 +3924,9 @@ name|create1
 operator|.
 name|source
 argument_list|()
+operator|.
+name|copyBytes
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -4318,6 +4301,9 @@ argument_list|(
 name|create3
 operator|.
 name|source
+argument_list|()
+operator|.
+name|copyBytes
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4894,6 +4880,9 @@ name|create
 operator|.
 name|source
 argument_list|()
+operator|.
+name|copyBytes
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -5214,6 +5203,9 @@ name|create
 operator|.
 name|source
 argument_list|()
+operator|.
+name|copyBytes
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -5356,6 +5348,9 @@ argument_list|(
 name|create
 operator|.
 name|source
+argument_list|()
+operator|.
+name|copyBytes
 argument_list|()
 argument_list|,
 name|equalTo
@@ -7693,7 +7688,7 @@ assert|;
 block|}
 catch|catch
 parameter_list|(
-name|DocumentAlreadyExistsEngineException
+name|DocumentAlreadyExistsException
 name|e
 parameter_list|)
 block|{
@@ -7834,7 +7829,7 @@ assert|;
 block|}
 catch|catch
 parameter_list|(
-name|DocumentAlreadyExistsEngineException
+name|DocumentAlreadyExistsException
 name|e
 parameter_list|)
 block|{

@@ -110,7 +110,7 @@ name|cache
 operator|.
 name|filter
 operator|.
-name|IndicesNodeFilterCache
+name|IndicesFilterCache
 import|;
 end_import
 
@@ -138,7 +138,7 @@ name|indices
 operator|.
 name|memory
 operator|.
-name|IndexingMemoryBufferController
+name|IndexingMemoryController
 import|;
 end_import
 
@@ -373,7 +373,7 @@ argument_list|()
 expr_stmt|;
 name|bind
 argument_list|(
-name|IndexingMemoryBufferController
+name|IndexingMemoryController
 operator|.
 name|class
 argument_list|)
@@ -383,7 +383,7 @@ argument_list|()
 expr_stmt|;
 name|bind
 argument_list|(
-name|IndicesNodeFilterCache
+name|IndicesFilterCache
 operator|.
 name|class
 argument_list|)

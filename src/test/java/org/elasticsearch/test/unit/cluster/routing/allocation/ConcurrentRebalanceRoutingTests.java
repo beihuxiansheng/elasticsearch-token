@@ -248,6 +248,22 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|ImmutableSettings
+operator|.
+name|settingsBuilder
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|unit
@@ -261,22 +277,6 @@ operator|.
 name|RoutingAllocationTests
 operator|.
 name|newNode
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|ImmutableSettings
-operator|.
-name|settingsBuilder
 import|;
 end_import
 
@@ -361,13 +361,6 @@ argument_list|(
 literal|"cluster.routing.allocation.concurrent_recoveries"
 argument_list|,
 literal|10
-argument_list|)
-operator|.
-name|put
-argument_list|(
-literal|"cluster.routing.allocation.allow_rebalance"
-argument_list|,
-literal|"always"
 argument_list|)
 operator|.
 name|put

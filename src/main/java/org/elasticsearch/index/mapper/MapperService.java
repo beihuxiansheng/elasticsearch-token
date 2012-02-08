@@ -24,9 +24,37 @@ name|google
 operator|.
 name|common
 operator|.
+name|base
+operator|.
+name|Charsets
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
 name|collect
 operator|.
 name|ImmutableMap
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|Iterators
 import|;
 end_import
 
@@ -572,7 +600,7 @@ decl_stmt|;
 DECL|field|mappers
 specifier|private
 specifier|volatile
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -598,7 +626,7 @@ decl_stmt|;
 DECL|field|nameFieldMappers
 specifier|private
 specifier|volatile
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -614,7 +642,7 @@ decl_stmt|;
 DECL|field|indexNameFieldMappers
 specifier|private
 specifier|volatile
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -630,7 +658,7 @@ decl_stmt|;
 DECL|field|fullNameFieldMappers
 specifier|private
 specifier|volatile
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -646,7 +674,7 @@ decl_stmt|;
 DECL|field|objectMappers
 specifier|private
 specifier|volatile
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -900,7 +928,9 @@ operator|.
 name|openStream
 argument_list|()
 argument_list|,
-literal|"UTF-8"
+name|Charsets
+operator|.
+name|UTF_8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -929,11 +959,13 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"using dynamic[{}], default mapping: location[{}] and source[{}]"
+literal|"using dynamic[{}], default mapping: default_mapping_location[{}], loaded_from[{}] and source[{}]"
 argument_list|,
 name|dynamic
 argument_list|,
 name|defaultMappingLocation
+argument_list|,
+name|defaultMappingUrl
 argument_list|,
 name|defaultMappingSource
 argument_list|)
@@ -963,6 +995,18 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+DECL|method|hasNested
+specifier|public
+name|boolean
+name|hasNested
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|hasNested
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|iterator
@@ -975,6 +1019,10 @@ name|iterator
 parameter_list|()
 block|{
 return|return
+name|Iterators
+operator|.
+name|unmodifiableIterator
+argument_list|(
 name|mappers
 operator|.
 name|values
@@ -982,6 +1030,7 @@ argument_list|()
 operator|.
 name|iterator
 argument_list|()
+argument_list|)
 return|;
 block|}
 DECL|method|analysisService
@@ -1064,7 +1113,7 @@ argument_list|,
 name|mapper
 argument_list|)
 operator|.
-name|immutableMap
+name|map
 argument_list|()
 expr_stmt|;
 block|}
@@ -1266,7 +1315,7 @@ argument_list|,
 name|mapper
 argument_list|)
 operator|.
-name|immutableMap
+name|map
 argument_list|()
 expr_stmt|;
 if|if
@@ -1339,7 +1388,7 @@ argument_list|(
 name|type
 argument_list|)
 operator|.
-name|immutableMap
+name|map
 argument_list|()
 expr_stmt|;
 name|removeObjectFieldMappers
@@ -1428,7 +1477,7 @@ name|name
 argument_list|()
 argument_list|)
 operator|.
-name|immutableMap
+name|map
 argument_list|()
 expr_stmt|;
 block|}
@@ -1454,7 +1503,7 @@ argument_list|,
 name|mappers
 argument_list|)
 operator|.
-name|immutableMap
+name|map
 argument_list|()
 expr_stmt|;
 block|}
@@ -1516,7 +1565,7 @@ name|indexName
 argument_list|()
 argument_list|)
 operator|.
-name|immutableMap
+name|map
 argument_list|()
 expr_stmt|;
 block|}
@@ -1542,7 +1591,7 @@ argument_list|,
 name|mappers
 argument_list|)
 operator|.
-name|immutableMap
+name|map
 argument_list|()
 expr_stmt|;
 block|}
@@ -1604,7 +1653,7 @@ name|fullName
 argument_list|()
 argument_list|)
 operator|.
-name|immutableMap
+name|map
 argument_list|()
 expr_stmt|;
 block|}
@@ -1630,7 +1679,7 @@ argument_list|,
 name|mappers
 argument_list|)
 operator|.
-name|immutableMap
+name|map
 argument_list|()
 expr_stmt|;
 block|}
@@ -1702,7 +1751,7 @@ name|fullPath
 argument_list|()
 argument_list|)
 operator|.
-name|immutableMap
+name|map
 argument_list|()
 expr_stmt|;
 block|}
@@ -1725,7 +1774,7 @@ argument_list|,
 name|mappers
 argument_list|)
 operator|.
-name|immutableMap
+name|map
 argument_list|()
 expr_stmt|;
 block|}
@@ -4031,6 +4080,20 @@ operator|.
 name|explicitTypeInName
 return|;
 block|}
+DECL|method|explicitTypeInNameWithDocMapper
+specifier|public
+name|boolean
+name|explicitTypeInNameWithDocMapper
+parameter_list|()
+block|{
+return|return
+name|explicitTypeInName
+operator|&&
+name|docMapper
+operator|!=
+literal|null
+return|;
+block|}
 comment|/**          * The best effort search analyzer associated with this field.          */
 DECL|method|searchAnalyzer
 specifier|public
@@ -4962,7 +5025,7 @@ argument_list|,
 name|mappers
 argument_list|)
 operator|.
-name|immutableMap
+name|map
 argument_list|()
 expr_stmt|;
 name|mappers
@@ -5028,7 +5091,7 @@ argument_list|,
 name|mappers
 argument_list|)
 operator|.
-name|immutableMap
+name|map
 argument_list|()
 expr_stmt|;
 name|mappers
@@ -5094,7 +5157,7 @@ argument_list|,
 name|mappers
 argument_list|)
 operator|.
-name|immutableMap
+name|map
 argument_list|()
 expr_stmt|;
 block|}
@@ -5175,7 +5238,7 @@ argument_list|,
 name|mappers
 argument_list|)
 operator|.
-name|immutableMap
+name|map
 argument_list|()
 expr_stmt|;
 comment|// update the hasNested flag

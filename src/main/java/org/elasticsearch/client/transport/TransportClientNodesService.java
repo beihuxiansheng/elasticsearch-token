@@ -84,7 +84,15 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|TransportActions
+name|admin
+operator|.
+name|cluster
+operator|.
+name|node
+operator|.
+name|info
+operator|.
+name|NodeInfo
 import|;
 end_import
 
@@ -104,7 +112,7 @@ name|node
 operator|.
 name|info
 operator|.
-name|NodeInfo
+name|NodesInfoAction
 import|;
 end_import
 
@@ -374,6 +382,12 @@ specifier|final
 name|TimeValue
 name|nodesSamplerInterval
 decl_stmt|;
+DECL|field|pingTimeout
+specifier|private
+specifier|final
+name|long
+name|pingTimeout
+decl_stmt|;
 DECL|field|clusterName
 specifier|private
 specifier|final
@@ -526,6 +540,25 @@ argument_list|(
 literal|5
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|pingTimeout
+operator|=
+name|componentSettings
+operator|.
+name|getAsTime
+argument_list|(
+literal|"ping_timeout"
+argument_list|,
+name|timeValueSeconds
+argument_list|(
+literal|5
+argument_list|)
+argument_list|)
+operator|.
+name|millis
+argument_list|()
 expr_stmt|;
 if|if
 condition|(
@@ -1420,6 +1453,8 @@ name|void
 name|run
 parameter_list|()
 block|{
+try|try
+block|{
 name|nodesSampler
 operator|.
 name|sample
@@ -1446,6 +1481,23 @@ operator|.
 name|CACHED
 argument_list|,
 name|this
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"failed to sample"
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -1525,13 +1577,11 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Failed to connect to node "
-operator|+
-name|node
-operator|+
-literal|", removed from nodes list"
+literal|"failed to connect to node [{}], removed from nodes list"
 argument_list|,
 name|e
+argument_list|,
+name|node
 argument_list|)
 expr_stmt|;
 continue|continue;
@@ -1548,21 +1598,25 @@ name|submitRequest
 argument_list|(
 name|node
 argument_list|,
-name|TransportActions
+name|NodesInfoAction
 operator|.
-name|Admin
-operator|.
-name|Cluster
-operator|.
-name|Node
-operator|.
-name|INFO
+name|NAME
 argument_list|,
 name|Requests
 operator|.
 name|nodesInfoRequest
 argument_list|(
 literal|"_local"
+argument_list|)
+argument_list|,
+name|TransportRequestOptions
+operator|.
+name|options
+argument_list|()
+operator|.
+name|withTimeout
+argument_list|(
+name|pingTimeout
 argument_list|)
 argument_list|,
 operator|new
@@ -1609,7 +1663,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Node {} not part of the cluster {}, ignoring..."
+literal|"node {} not part of the cluster {}, ignoring..."
 argument_list|,
 name|node
 argument_list|,
@@ -1636,12 +1690,19 @@ parameter_list|)
 block|{
 name|logger
 operator|.
-name|warn
+name|info
 argument_list|(
-literal|"failed to get node info for {}"
+literal|"failed to get node info for {}, disconnecting..."
 argument_list|,
 name|e
 argument_list|,
+name|node
+argument_list|)
+expr_stmt|;
+name|transportService
+operator|.
+name|disconnectFromNode
+argument_list|(
 name|node
 argument_list|)
 expr_stmt|;
@@ -1812,6 +1873,19 @@ parameter_list|()
 block|{
 try|try
 block|{
+if|if
+condition|(
+operator|!
+name|transportService
+operator|.
+name|nodeConnected
+argument_list|(
+name|listedNode
+argument_list|)
+condition|)
+block|{
+try|try
+block|{
 name|transportService
 operator|.
 name|connectToNode
@@ -1819,28 +1893,52 @@ argument_list|(
 name|listedNode
 argument_list|)
 expr_stmt|;
-comment|// make sure we are connected to it
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"failed to connect to node [{}], removed from nodes list"
+argument_list|,
+name|e
+argument_list|,
+name|listedNode
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+block|}
 name|transportService
 operator|.
 name|sendRequest
 argument_list|(
 name|listedNode
 argument_list|,
-name|TransportActions
+name|NodesInfoAction
 operator|.
-name|Admin
-operator|.
-name|Cluster
-operator|.
-name|Node
-operator|.
-name|INFO
+name|NAME
 argument_list|,
 name|Requests
 operator|.
 name|nodesInfoRequest
 argument_list|(
 literal|"_all"
+argument_list|)
+argument_list|,
+name|TransportRequestOptions
+operator|.
+name|options
+argument_list|()
+operator|.
+name|withTimeout
+argument_list|(
+name|pingTimeout
 argument_list|)
 argument_list|,
 operator|new
@@ -1908,20 +2006,25 @@ name|void
 name|handleException
 parameter_list|(
 name|TransportException
-name|exp
+name|e
 parameter_list|)
 block|{
 name|logger
 operator|.
-name|debug
+name|info
 argument_list|(
-literal|"Failed to get node info from "
-operator|+
-name|listedNode
-operator|+
-literal|", removed from nodes list"
+literal|"failed to get node info for {}, disconnecting..."
 argument_list|,
-name|exp
+name|e
+argument_list|,
+name|listedNode
+argument_list|)
+expr_stmt|;
+name|transportService
+operator|.
+name|disconnectFromNode
+argument_list|(
+name|listedNode
 argument_list|)
 expr_stmt|;
 name|latch
@@ -1942,15 +2045,20 @@ parameter_list|)
 block|{
 name|logger
 operator|.
-name|debug
+name|info
 argument_list|(
-literal|"Failed to get node info from "
-operator|+
-name|listedNode
-operator|+
-literal|", removed from nodes list"
+literal|"failed to get node info for {}, disconnecting..."
 argument_list|,
 name|e
+argument_list|,
+name|listedNode
+argument_list|)
+expr_stmt|;
+name|transportService
+operator|.
+name|disconnectFromNode
+argument_list|(
+name|listedNode
 argument_list|)
 expr_stmt|;
 name|latch
@@ -2027,7 +2135,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Node {} not part of the cluster {}, ignoring..."
+literal|"node {} not part of the cluster {}, ignoring..."
 argument_list|,
 name|nodeInfo
 operator|.
@@ -2120,7 +2228,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Failed to connect to discovered node ["
+literal|"failed to connect to discovered node ["
 operator|+
 name|node
 operator|+

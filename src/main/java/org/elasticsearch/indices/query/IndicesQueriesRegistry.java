@@ -218,7 +218,9 @@ name|queryParsers
 argument_list|,
 operator|new
 name|QueryStringQueryParser
-argument_list|()
+argument_list|(
+name|settings
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|addQueryParser
@@ -274,7 +276,9 @@ name|queryParsers
 argument_list|,
 operator|new
 name|FieldQueryParser
-argument_list|()
+argument_list|(
+name|settings
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|addQueryParser

@@ -40,18 +40,6 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|TransportActions
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
 name|support
 operator|.
 name|master
@@ -205,7 +193,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Put index template action.  *  *  */
+comment|/**  * Put index template action.  */
 end_comment
 
 begin_class
@@ -292,13 +280,9 @@ name|transportAction
 parameter_list|()
 block|{
 return|return
-name|TransportActions
+name|PutIndexTemplateAction
 operator|.
-name|Admin
-operator|.
-name|Indices
-operator|.
-name|PUT_INDEX_TEMPLATE
+name|NAME
 return|;
 block|}
 annotation|@

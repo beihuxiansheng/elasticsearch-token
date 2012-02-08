@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A sort builder to sort based on a document field.  *  *  */
+comment|/**  * A sort builder to sort based on a document field.  */
 end_comment
 
 begin_class
@@ -67,6 +67,11 @@ DECL|field|missing
 specifier|private
 name|Object
 name|missing
+decl_stmt|;
+DECL|field|ignoreUnampped
+specifier|private
+name|Boolean
+name|ignoreUnampped
 decl_stmt|;
 comment|/**      * Constructs a new sort based on a document field.      *      * @param fieldName The field name.      */
 DECL|method|FieldSortBuilder
@@ -123,6 +128,26 @@ operator|.
 name|missing
 operator|=
 name|missing
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets if the field does not exists in the index, it should be ignored and not sorted by or not. Defaults      * to<tt>false</tt> (not ignoring).      */
+DECL|method|ignoreUnmapped
+specifier|public
+name|FieldSortBuilder
+name|ignoreUnmapped
+parameter_list|(
+name|boolean
+name|ignoreUnmapped
+parameter_list|)
+block|{
+name|this
+operator|.
+name|ignoreUnampped
+operator|=
+name|ignoreUnmapped
 expr_stmt|;
 return|return
 name|this
@@ -185,6 +210,23 @@ argument_list|(
 literal|"missing"
 argument_list|,
 name|missing
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|ignoreUnampped
+operator|!=
+literal|null
+condition|)
+block|{
+name|builder
+operator|.
+name|field
+argument_list|(
+literal|"ignore_unmapped"
+argument_list|,
+name|ignoreUnampped
 argument_list|)
 expr_stmt|;
 block|}

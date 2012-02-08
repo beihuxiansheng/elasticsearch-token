@@ -24,6 +24,20 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|cache
+operator|.
+name|Cache
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -192,18 +206,6 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|ConcurrentHashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
 name|ConcurrentMap
 import|;
 end_import
@@ -234,7 +236,7 @@ name|ConcurrentMap
 argument_list|<
 name|Object
 argument_list|,
-name|ConcurrentMap
+name|Cache
 argument_list|<
 name|String
 argument_list|,
@@ -273,24 +275,13 @@ argument_list|,
 name|indexSettings
 argument_list|)
 expr_stmt|;
-comment|// weak keys is fine, it will only be cleared once IndexReader references will be removed
-comment|// (assuming clear(...) will not be called)
 name|this
 operator|.
 name|cache
 operator|=
-operator|new
-name|ConcurrentHashMap
-argument_list|<
-name|Object
-argument_list|,
-name|ConcurrentMap
-argument_list|<
-name|String
-argument_list|,
-name|FieldData
-argument_list|>
-argument_list|>
+name|ConcurrentCollections
+operator|.
+name|newConcurrentMap
 argument_list|()
 expr_stmt|;
 block|}
@@ -327,7 +318,7 @@ name|Entry
 argument_list|<
 name|Object
 argument_list|,
-name|ConcurrentMap
+name|Cache
 argument_list|<
 name|String
 argument_list|,
@@ -347,7 +338,7 @@ operator|.
 name|getValue
 argument_list|()
 operator|.
-name|remove
+name|invalidate
 argument_list|(
 name|fieldName
 argument_list|)
@@ -396,14 +387,6 @@ name|IndexReader
 name|reader
 parameter_list|)
 block|{
-name|ConcurrentMap
-argument_list|<
-name|String
-argument_list|,
-name|FieldData
-argument_list|>
-name|map
-init|=
 name|cache
 operator|.
 name|remove
@@ -413,21 +396,7 @@ operator|.
 name|getCoreCacheKey
 argument_list|()
 argument_list|)
-decl_stmt|;
-comment|// help soft/weak handling GC
-if|if
-condition|(
-name|map
-operator|!=
-literal|null
-condition|)
-block|{
-name|map
-operator|.
-name|clear
-argument_list|()
 expr_stmt|;
-block|}
 block|}
 annotation|@
 name|Override
@@ -445,7 +414,7 @@ literal|0
 decl_stmt|;
 for|for
 control|(
-name|ConcurrentMap
+name|Cache
 argument_list|<
 name|String
 argument_list|,
@@ -465,6 +434,9 @@ name|FieldData
 name|fieldData
 range|:
 name|map
+operator|.
+name|asMap
+argument_list|()
 operator|.
 name|values
 argument_list|()
@@ -501,7 +473,7 @@ literal|0
 decl_stmt|;
 for|for
 control|(
-name|ConcurrentMap
+name|Cache
 argument_list|<
 name|String
 argument_list|,
@@ -520,7 +492,7 @@ name|fieldData
 init|=
 name|map
 operator|.
-name|get
+name|getIfPresent
 argument_list|(
 name|fieldName
 argument_list|)
@@ -564,7 +536,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|ConcurrentMap
+name|Cache
 argument_list|<
 name|String
 argument_list|,
@@ -645,7 +617,7 @@ name|fieldData
 init|=
 name|fieldDataCache
 operator|.
-name|get
+name|getIfPresent
 argument_list|(
 name|fieldName
 argument_list|)
@@ -666,7 +638,7 @@ name|fieldData
 operator|=
 name|fieldDataCache
 operator|.
-name|get
+name|getIfPresent
 argument_list|(
 name|fieldName
 argument_list|)
@@ -677,6 +649,8 @@ name|fieldData
 operator|==
 literal|null
 condition|)
+block|{
+try|try
 block|{
 name|fieldData
 operator|=
@@ -701,6 +675,51 @@ name|fieldData
 argument_list|)
 expr_stmt|;
 block|}
+catch|catch
+parameter_list|(
+name|OutOfMemoryError
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"loading field ["
+operator|+
+name|fieldName
+operator|+
+literal|"] caused out of memory failure"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+specifier|final
+name|OutOfMemoryError
+name|outOfMemoryError
+init|=
+operator|new
+name|OutOfMemoryError
+argument_list|(
+literal|"loading field ["
+operator|+
+name|fieldName
+operator|+
+literal|"] caused out of memory failure"
+argument_list|)
+decl_stmt|;
+name|outOfMemoryError
+operator|.
+name|initCause
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+throw|throw
+name|outOfMemoryError
+throw|;
+block|}
+block|}
 block|}
 block|}
 return|return
@@ -709,7 +728,8 @@ return|;
 block|}
 DECL|method|buildFieldDataMap
 specifier|protected
-name|ConcurrentMap
+specifier|abstract
+name|Cache
 argument_list|<
 name|String
 argument_list|,
@@ -717,14 +737,7 @@ name|FieldData
 argument_list|>
 name|buildFieldDataMap
 parameter_list|()
-block|{
-return|return
-name|ConcurrentCollections
-operator|.
-name|newConcurrentMap
-argument_list|()
-return|;
-block|}
+function_decl|;
 block|}
 end_class
 

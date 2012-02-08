@@ -100,18 +100,6 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|TransportActions
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
 name|admin
 operator|.
 name|indices
@@ -196,7 +184,7 @@ name|action
 operator|.
 name|support
 operator|.
-name|BaseAction
+name|TransportAction
 import|;
 end_import
 
@@ -221,6 +209,20 @@ operator|.
 name|cluster
 operator|.
 name|ClusterState
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|block
+operator|.
+name|ClusterBlockLevel
 import|;
 end_import
 
@@ -450,7 +452,7 @@ specifier|public
 class|class
 name|TransportBulkAction
 extends|extends
-name|BaseAction
+name|TransportAction
 argument_list|<
 name|BulkRequest
 argument_list|,
@@ -567,9 +569,9 @@ name|transportService
 operator|.
 name|registerHandler
 argument_list|(
-name|TransportActions
+name|BulkAction
 operator|.
-name|BULK
+name|NAME
 argument_list|,
 operator|new
 name|TransportHandler
@@ -951,6 +953,19 @@ operator|.
 name|state
 argument_list|()
 decl_stmt|;
+comment|// TODO use timeout to wait here if its blocked...
+name|clusterState
+operator|.
+name|blocks
+argument_list|()
+operator|.
+name|globalBlockedRaiseException
+argument_list|(
+name|ClusterBlockLevel
+operator|.
+name|WRITE
+argument_list|)
+expr_stmt|;
 name|MetaData
 name|metaData
 init|=
@@ -1079,6 +1094,29 @@ name|DeleteRequest
 operator|)
 name|request
 decl_stmt|;
+name|deleteRequest
+operator|.
+name|routing
+argument_list|(
+name|clusterState
+operator|.
+name|metaData
+argument_list|()
+operator|.
+name|resolveIndexRouting
+argument_list|(
+name|deleteRequest
+operator|.
+name|routing
+argument_list|()
+argument_list|,
+name|deleteRequest
+operator|.
+name|index
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|deleteRequest
 operator|.
 name|index
@@ -2055,9 +2093,9 @@ name|warn
 argument_list|(
 literal|"Failed to send error response for action ["
 operator|+
-name|TransportActions
+name|BulkAction
 operator|.
-name|BULK
+name|NAME
 operator|+
 literal|"] and request ["
 operator|+

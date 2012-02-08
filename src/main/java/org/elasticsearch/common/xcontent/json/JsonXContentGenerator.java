@@ -1205,6 +1205,23 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// the start of the parser
+if|if
+condition|(
+name|parser
+operator|.
+name|currentToken
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+name|parser
+operator|.
+name|nextToken
+argument_list|()
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|parser

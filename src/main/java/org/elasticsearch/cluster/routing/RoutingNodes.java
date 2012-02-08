@@ -541,6 +541,8 @@ argument_list|,
 operator|new
 name|RoutingNode
 argument_list|(
+name|nodeId
+argument_list|,
 name|clusterState
 operator|.
 name|nodes

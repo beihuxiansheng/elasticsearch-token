@@ -74,7 +74,7 @@ name|action
 operator|.
 name|support
 operator|.
-name|BaseAction
+name|TransportAction
 import|;
 end_import
 
@@ -250,7 +250,7 @@ extends|extends
 name|NodeOperationResponse
 parameter_list|>
 extends|extends
-name|BaseAction
+name|TransportAction
 argument_list|<
 name|Request
 argument_list|,
@@ -348,8 +348,10 @@ name|this
 operator|.
 name|transportNodeAction
 operator|=
-name|transportNodeAction
+name|transportAction
 argument_list|()
+operator|+
+literal|"/n"
 expr_stmt|;
 name|this
 operator|.
@@ -415,13 +417,6 @@ specifier|protected
 specifier|abstract
 name|String
 name|transportAction
-parameter_list|()
-function_decl|;
-DECL|method|transportNodeAction
-specifier|protected
-specifier|abstract
-name|String
-name|transportNodeAction
 parameter_list|()
 function_decl|;
 DECL|method|transportCompress

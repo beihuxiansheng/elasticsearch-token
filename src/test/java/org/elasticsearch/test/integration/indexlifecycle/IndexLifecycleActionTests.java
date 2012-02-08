@@ -393,6 +393,14 @@ argument_list|,
 literal|1
 argument_list|)
 operator|.
+name|put
+argument_list|(
+literal|"cluster.routing.schedule"
+argument_list|,
+literal|"20ms"
+argument_list|)
+comment|// reroute every 20ms so we identify new nodes fast
+operator|.
 name|build
 argument_list|()
 decl_stmt|;
@@ -1634,6 +1642,14 @@ name|SETTING_NUMBER_OF_REPLICAS
 argument_list|,
 literal|0
 argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"cluster.routing.schedule"
+argument_list|,
+literal|"20ms"
+argument_list|)
+comment|// reroute every 20ms so we identify new nodes fast
 operator|.
 name|build
 argument_list|()
@@ -2936,6 +2952,14 @@ name|SETTING_NUMBER_OF_REPLICAS
 argument_list|,
 literal|0
 argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"cluster.routing.schedule"
+argument_list|,
+literal|"20ms"
+argument_list|)
+comment|// reroute every 20ms so we identify new nodes fast
 operator|.
 name|build
 argument_list|()

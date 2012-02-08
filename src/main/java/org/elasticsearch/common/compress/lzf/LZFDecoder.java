@@ -98,10 +98,10 @@ index|[]
 name|inputBuffer
 parameter_list|,
 name|int
-name|inputPtr
+name|offset
 parameter_list|,
 name|int
-name|inputLen
+name|length
 parameter_list|)
 throws|throws
 name|IOException
@@ -115,6 +115,10 @@ operator|.
 name|decode
 argument_list|(
 name|inputBuffer
+argument_list|,
+name|offset
+argument_list|,
+name|length
 argument_list|)
 return|;
 block|}
@@ -164,10 +168,10 @@ index|[]
 name|sourceBuffer
 parameter_list|,
 name|int
-name|inPtr
+name|offset
 parameter_list|,
 name|int
-name|inLength
+name|length
 parameter_list|,
 specifier|final
 name|byte
@@ -187,9 +191,9 @@ name|decode
 argument_list|(
 name|sourceBuffer
 argument_list|,
-name|inPtr
+name|offset
 argument_list|,
-name|inLength
+name|length
 argument_list|,
 name|targetBuffer
 argument_list|)
@@ -206,7 +210,7 @@ index|[]
 name|data
 parameter_list|,
 name|int
-name|ptr
+name|offset
 parameter_list|,
 name|int
 name|length
@@ -221,7 +225,7 @@ name|calculateUncompressedSize
 argument_list|(
 name|data
 argument_list|,
-name|ptr
+name|offset
 argument_list|,
 name|length
 argument_list|)

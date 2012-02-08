@@ -194,16 +194,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Map
 import|;
 end_import
@@ -2315,7 +2305,7 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|List
+name|Iterable
 name|value
 parameter_list|)
 throws|throws
@@ -2355,7 +2345,7 @@ parameter_list|(
 name|XContentBuilderString
 name|name
 parameter_list|,
-name|List
+name|Iterable
 name|value
 parameter_list|)
 throws|throws
@@ -3210,7 +3200,7 @@ if|if
 condition|(
 name|value
 operator|instanceof
-name|List
+name|Iterable
 condition|)
 block|{
 name|field
@@ -3218,7 +3208,7 @@ argument_list|(
 name|name
 argument_list|,
 operator|(
-name|List
+name|Iterable
 operator|)
 name|value
 argument_list|)
@@ -3696,7 +3686,7 @@ if|if
 condition|(
 name|value
 operator|instanceof
-name|List
+name|Iterable
 condition|)
 block|{
 name|field
@@ -3704,7 +3694,7 @@ argument_list|(
 name|name
 argument_list|,
 operator|(
-name|List
+name|Iterable
 operator|)
 name|value
 argument_list|)

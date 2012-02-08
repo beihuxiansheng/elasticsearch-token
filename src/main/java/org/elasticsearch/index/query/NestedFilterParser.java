@@ -321,6 +321,8 @@ argument_list|(
 name|usAsParentFilter
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|String
 name|currentFieldName
 init|=
@@ -416,6 +418,25 @@ operator|.
 name|parseInnerFilter
 argument_list|()
 expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|QueryParsingException
+argument_list|(
+name|parseContext
+operator|.
+name|index
+argument_list|()
+argument_list|,
+literal|"[nested] filter does not support ["
+operator|+
+name|currentFieldName
+operator|+
+literal|"]"
+argument_list|)
+throw|;
 block|}
 block|}
 elseif|else
@@ -552,6 +573,25 @@ name|text
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|QueryParsingException
+argument_list|(
+name|parseContext
+operator|.
+name|index
+argument_list|()
+argument_list|,
+literal|"[nested] filter does not support ["
+operator|+
+name|currentFieldName
+operator|+
+literal|"]"
+argument_list|)
+throw|;
 block|}
 block|}
 block|}
@@ -769,26 +809,11 @@ name|NonNestedDocsFilter
 operator|.
 name|INSTANCE
 expr_stmt|;
-if|if
-condition|(
-name|mapper
-operator|.
-name|hasDocMapper
-argument_list|()
-condition|)
-block|{
-comment|// filter based on the type...
-name|parentFilter
-operator|=
-name|mapper
-operator|.
-name|docMapper
-argument_list|()
-operator|.
-name|typeFilter
-argument_list|()
-expr_stmt|;
-block|}
+comment|// don't do special parent filtering, since we might have same nested mapping on two different types
+comment|//if (mapper.hasDocMapper()) {
+comment|//    // filter based on the type...
+comment|//    parentFilter = mapper.docMapper().typeFilter();
+comment|//}
 name|parentFilter
 operator|=
 name|parseContext
@@ -801,16 +826,6 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|// restore the thread local one...
-name|NestedQueryParser
-operator|.
-name|parentFilterContext
-operator|.
-name|set
-argument_list|(
-name|currentParentFilterContext
-argument_list|)
-expr_stmt|;
 name|BlockJoinQuery
 name|joinQuery
 init|=
@@ -894,6 +909,20 @@ block|}
 return|return
 name|joinFilter
 return|;
+block|}
+finally|finally
+block|{
+comment|// restore the thread local one...
+name|NestedQueryParser
+operator|.
+name|parentFilterContext
+operator|.
+name|set
+argument_list|(
+name|currentParentFilterContext
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class

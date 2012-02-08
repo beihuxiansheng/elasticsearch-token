@@ -2087,10 +2087,6 @@ argument_list|()
 operator|.
 name|setNextSource
 argument_list|(
-name|SourceLookup
-operator|.
-name|sourceAsMap
-argument_list|(
 name|source
 operator|.
 name|source
@@ -2111,7 +2107,6 @@ name|source
 operator|.
 name|length
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

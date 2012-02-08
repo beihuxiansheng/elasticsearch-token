@@ -195,7 +195,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Shard instance (actual allocated shard) status.  *  *  */
+comment|/**  * Shard instance (actual allocated shard) status.  */
 end_comment
 
 begin_class
@@ -715,7 +715,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeInt
+name|writeLong
 argument_list|(
 name|docs
 operator|.
@@ -725,7 +725,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeInt
+name|writeLong
 argument_list|(
 name|docs
 operator|.
@@ -735,7 +735,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeInt
+name|writeLong
 argument_list|(
 name|docs
 operator|.
@@ -1186,7 +1186,7 @@ name|numDocs
 operator|=
 name|in
 operator|.
-name|readInt
+name|readLong
 argument_list|()
 expr_stmt|;
 name|docs
@@ -1195,7 +1195,7 @@ name|maxDoc
 operator|=
 name|in
 operator|.
-name|readInt
+name|readLong
 argument_list|()
 expr_stmt|;
 name|docs
@@ -1204,7 +1204,7 @@ name|deletedDocs
 operator|=
 name|in
 operator|.
-name|readInt
+name|readLong
 argument_list|()
 expr_stmt|;
 block|}

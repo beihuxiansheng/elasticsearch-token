@@ -116,7 +116,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|Actions
+name|ValidateActions
 operator|.
 name|addValidationError
 import|;
@@ -305,6 +305,25 @@ parameter_list|()
 block|{
 return|return
 name|scrollId
+return|;
+block|}
+DECL|method|scrollId
+specifier|public
+name|SearchScrollRequest
+name|scrollId
+parameter_list|(
+name|String
+name|scrollId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|scrollId
+operator|=
+name|scrollId
+expr_stmt|;
+return|return
+name|this
 return|;
 block|}
 comment|/**      * If set, will enable scrolling of the search request.      */

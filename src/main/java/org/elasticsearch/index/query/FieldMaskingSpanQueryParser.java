@@ -313,7 +313,7 @@ operator|.
 name|index
 argument_list|()
 argument_list|,
-literal|"field_masking_span [query] must be of type span query"
+literal|"[field_masking_span] query] must be of type span query"
 argument_list|)
 throw|;
 block|}
@@ -324,6 +324,25 @@ name|SpanQuery
 operator|)
 name|query
 expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|QueryParsingException
+argument_list|(
+name|parseContext
+operator|.
+name|index
+argument_list|()
+argument_list|,
+literal|"[field_masking_span] query does not support ["
+operator|+
+name|currentFieldName
+operator|+
+literal|"]"
+argument_list|)
+throw|;
 block|}
 block|}
 else|else
@@ -364,6 +383,25 @@ operator|.
 name|text
 argument_list|()
 expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|QueryParsingException
+argument_list|(
+name|parseContext
+operator|.
+name|index
+argument_list|()
+argument_list|,
+literal|"[field_masking_span] query does not support ["
+operator|+
+name|currentFieldName
+operator|+
+literal|"]"
+argument_list|)
+throw|;
 block|}
 block|}
 block|}

@@ -112,7 +112,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|Actions
+name|ValidateActions
 operator|.
 name|addValidationError
 import|;
@@ -151,7 +151,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A request to delete an index. Best created with {@link org.elasticsearch.client.Requests#deleteIndexRequest(String)}.  *  *  */
+comment|/**  * A request to delete an index. Best created with {@link org.elasticsearch.client.Requests#deleteIndexRequest(String)}.  */
 end_comment
 
 begin_class

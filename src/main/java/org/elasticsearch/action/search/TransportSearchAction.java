@@ -36,18 +36,6 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|TransportActions
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
 name|search
 operator|.
 name|type
@@ -66,7 +54,7 @@ name|action
 operator|.
 name|support
 operator|.
-name|BaseAction
+name|TransportAction
 import|;
 end_import
 
@@ -228,7 +216,7 @@ specifier|public
 class|class
 name|TransportSearchAction
 extends|extends
-name|BaseAction
+name|TransportAction
 argument_list|<
 name|SearchRequest
 argument_list|,
@@ -386,9 +374,9 @@ name|transportService
 operator|.
 name|registerHandler
 argument_list|(
-name|TransportActions
+name|SearchAction
 operator|.
-name|SEARCH
+name|NAME
 argument_list|,
 operator|new
 name|TransportHandler

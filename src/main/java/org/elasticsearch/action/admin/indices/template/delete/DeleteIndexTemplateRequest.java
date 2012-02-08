@@ -114,7 +114,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|Actions
+name|ValidateActions
 operator|.
 name|addValidationError
 import|;
@@ -153,7 +153,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A request to delete an index template.  *  *  */
+comment|/**  * A request to delete an index template.  */
 end_comment
 
 begin_class

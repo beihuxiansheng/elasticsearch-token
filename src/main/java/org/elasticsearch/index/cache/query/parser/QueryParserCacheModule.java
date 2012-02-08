@@ -76,9 +76,9 @@ name|query
 operator|.
 name|parser
 operator|.
-name|weak
+name|resident
 operator|.
-name|WeakQueryParserCache
+name|ResidentQueryParserCache
 import|;
 end_import
 
@@ -138,7 +138,7 @@ name|getAsClass
 argument_list|(
 literal|"index.cache.query.parser.type"
 argument_list|,
-name|WeakQueryParserCache
+name|ResidentQueryParserCache
 operator|.
 name|class
 argument_list|,

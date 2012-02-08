@@ -316,17 +316,6 @@ literal|10
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|doStart
-specifier|protected
-name|void
-name|doStart
-parameter_list|()
-throws|throws
-name|ElasticSearchException
-block|{
 name|clusterService
 operator|.
 name|addPriority
@@ -337,10 +326,30 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|doStart
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|ElasticSearchException
+block|{     }
+annotation|@
+name|Override
 DECL|method|doStop
 specifier|protected
 name|void
 name|doStop
+parameter_list|()
+throws|throws
+name|ElasticSearchException
+block|{     }
+annotation|@
+name|Override
+DECL|method|doClose
+specifier|protected
+name|void
+name|doClose
 parameter_list|()
 throws|throws
 name|ElasticSearchException
@@ -372,16 +381,6 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|doClose
-specifier|protected
-name|void
-name|doClose
-parameter_list|()
-throws|throws
-name|ElasticSearchException
-block|{     }
 annotation|@
 name|Override
 DECL|method|clusterChanged

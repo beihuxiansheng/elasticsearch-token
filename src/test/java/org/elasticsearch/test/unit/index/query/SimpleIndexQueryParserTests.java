@@ -2778,6 +2778,9 @@ argument_list|)
 operator|.
 name|buildAsBytes
 argument_list|()
+operator|.
+name|copiedByteArray
+argument_list|()
 argument_list|)
 operator|.
 name|query
@@ -3010,6 +3013,9 @@ argument_list|)
 operator|.
 name|buildAsBytes
 argument_list|()
+operator|.
+name|copiedByteArray
+argument_list|()
 argument_list|)
 operator|.
 name|query
@@ -3178,6 +3184,9 @@ literal|2.0f
 argument_list|)
 operator|.
 name|buildAsBytes
+argument_list|()
+operator|.
+name|copiedByteArray
 argument_list|()
 argument_list|)
 operator|.
@@ -3500,6 +3509,9 @@ literal|34
 argument_list|)
 operator|.
 name|buildAsBytes
+argument_list|()
+operator|.
+name|copiedByteArray
 argument_list|()
 argument_list|)
 operator|.

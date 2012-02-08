@@ -22,16 +22,6 @@ end_package
 
 begin_import
 import|import
-name|gnu
-operator|.
-name|trove
-operator|.
-name|ExtTLongObjectHashMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -71,6 +61,20 @@ operator|.
 name|stream
 operator|.
 name|StreamOutput
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|trove
+operator|.
+name|ExtTLongObjectHashMap
 import|;
 end_import
 
@@ -551,8 +555,6 @@ decl_stmt|;
 DECL|field|tEntries
 name|ExtTLongObjectHashMap
 argument_list|<
-name|InternalFullHistogramFacet
-operator|.
 name|FullEntry
 argument_list|>
 name|tEntries

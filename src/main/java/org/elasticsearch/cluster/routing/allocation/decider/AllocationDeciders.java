@@ -263,6 +263,15 @@ name|nodeSettingsService
 argument_list|)
 argument_list|)
 operator|.
+name|add
+argument_list|(
+operator|new
+name|ShardsLimitAllocationDecider
+argument_list|(
+name|settings
+argument_list|)
+argument_list|)
+operator|.
 name|build
 argument_list|()
 argument_list|)

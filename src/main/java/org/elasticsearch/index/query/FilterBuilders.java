@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A static factory for simple "import static" usage.  *  *  */
+comment|/**  * A static factory for simple "import static" usage.  */
 end_comment
 
 begin_class
@@ -440,6 +440,30 @@ name|name
 parameter_list|,
 name|Object
 modifier|...
+name|values
+parameter_list|)
+block|{
+return|return
+operator|new
+name|TermsFilterBuilder
+argument_list|(
+name|name
+argument_list|,
+name|values
+argument_list|)
+return|;
+block|}
+comment|/**      * A filer for a field based on several terms matching on any of them.      *      * @param name   The field name      * @param values The terms      */
+DECL|method|termsFilter
+specifier|public
+specifier|static
+name|TermsFilterBuilder
+name|termsFilter
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|Iterable
 name|values
 parameter_list|)
 block|{

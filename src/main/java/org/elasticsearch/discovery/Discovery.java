@@ -82,8 +82,50 @@ name|LifecycleComponent
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|inject
+operator|.
+name|internal
+operator|.
+name|Nullable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|node
+operator|.
+name|service
+operator|.
+name|NodeService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|rest
+operator|.
+name|RestStatus
+import|;
+end_import
+
 begin_comment
-comment|/**  * A pluggable module allowing to implement discovery of other nodes, publishing of the cluster  * state to all nodes, electing a master of the cluster that raises cluster state change  * events.  *  *  */
+comment|/**  * A pluggable module allowing to implement discovery of other nodes, publishing of the cluster  * state to all nodes, electing a master of the cluster that raises cluster state change  * events.  */
 end_comment
 
 begin_interface
@@ -112,6 +154,10 @@ argument_list|,
 literal|true
 argument_list|,
 literal|true
+argument_list|,
+name|RestStatus
+operator|.
+name|SERVICE_UNAVAILABLE
 argument_list|,
 name|ClusterBlockLevel
 operator|.
@@ -143,6 +189,17 @@ DECL|method|nodeDescription
 name|String
 name|nodeDescription
 parameter_list|()
+function_decl|;
+comment|/**      * Here as a hack to solve dep injection problem...      */
+DECL|method|setNodeService
+name|void
+name|setNodeService
+parameter_list|(
+annotation|@
+name|Nullable
+name|NodeService
+name|nodeService
+parameter_list|)
 function_decl|;
 comment|/**      * Publish all the changes to the cluster from the master (can be called just by the master). The publish      * process should not publish this state to the master as well! (the master is sending it...).      */
 DECL|method|publish

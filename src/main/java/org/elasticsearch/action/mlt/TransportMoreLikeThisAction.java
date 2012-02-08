@@ -74,18 +74,6 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|TransportActions
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
 name|get
 operator|.
 name|GetRequest
@@ -172,7 +160,7 @@ name|action
 operator|.
 name|support
 operator|.
-name|BaseAction
+name|TransportAction
 import|;
 end_import
 
@@ -467,7 +455,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The more like this action.  *  *  */
+comment|/**  * The more like this action.  */
 end_comment
 
 begin_class
@@ -476,7 +464,7 @@ specifier|public
 class|class
 name|TransportMoreLikeThisAction
 extends|extends
-name|BaseAction
+name|TransportAction
 argument_list|<
 name|MoreLikeThisRequest
 argument_list|,
@@ -570,9 +558,9 @@ name|transportService
 operator|.
 name|registerHandler
 argument_list|(
-name|TransportActions
+name|MoreLikeThisAction
 operator|.
-name|MORE_LIKE_THIS
+name|NAME
 argument_list|,
 operator|new
 name|TransportHandler

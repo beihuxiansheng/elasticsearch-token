@@ -320,7 +320,7 @@ name|put
 argument_list|(
 literal|"consolePattern"
 argument_list|,
-literal|"org.elasticsearch.common.logging.log4j.JLinePatternLayout"
+literal|"org.apache.log4j.PatternLayout"
 argument_list|)
 operator|.
 name|put

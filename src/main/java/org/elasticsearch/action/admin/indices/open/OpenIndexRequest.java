@@ -112,7 +112,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|Actions
+name|ValidateActions
 operator|.
 name|addValidationError
 import|;
@@ -151,7 +151,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A request to open an index.  *  *  */
+comment|/**  * A request to open an index.  */
 end_comment
 
 begin_class
@@ -239,6 +239,25 @@ parameter_list|()
 block|{
 return|return
 name|index
+return|;
+block|}
+DECL|method|index
+specifier|public
+name|OpenIndexRequest
+name|index
+parameter_list|(
+name|String
+name|index
+parameter_list|)
+block|{
+name|this
+operator|.
+name|index
+operator|=
+name|index
+expr_stmt|;
+return|return
+name|this
 return|;
 block|}
 comment|/**      * Timeout to wait for the index deletion to be acknowledged by current cluster nodes. Defaults      * to<tt>10s</tt>.      */

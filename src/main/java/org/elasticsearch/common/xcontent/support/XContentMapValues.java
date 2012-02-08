@@ -883,8 +883,17 @@ range|:
 name|includes
 control|)
 block|{
+comment|// check for prefix as well, something like: obj1.arr1.*
+comment|// note, this does not work well with middle matches, like obj1.*.obj3
 if|if
 condition|(
+name|include
+operator|.
+name|startsWith
+argument_list|(
+name|path
+argument_list|)
+operator|||
 name|Regex
 operator|.
 name|simpleMatch

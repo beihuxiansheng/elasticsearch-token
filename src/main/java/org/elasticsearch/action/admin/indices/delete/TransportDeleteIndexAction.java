@@ -60,18 +60,6 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|TransportActions
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
 name|admin
 operator|.
 name|indices
@@ -313,7 +301,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Delete index action.  *  *  */
+comment|/**  * Delete index action.  */
 end_comment
 
 begin_class
@@ -434,13 +422,9 @@ name|transportAction
 parameter_list|()
 block|{
 return|return
-name|TransportActions
+name|DeleteIndexAction
 operator|.
-name|Admin
-operator|.
-name|Indices
-operator|.
-name|DELETE
+name|NAME
 return|;
 block|}
 annotation|@

@@ -340,8 +340,8 @@ expr_stmt|;
 block|}
 comment|// similar logic to FrameDecoder, we don't use FrameDecoder because we can use the data len header value
 comment|// to guess the size of the cumulation buffer to allocate
-comment|// Also strange, is that the FrameDecoder always allocated a cumulation, even if the input bufer is enough
-comment|// so we don't allocate a cumulation buffer unless we really need to here (need to post this to the mailing list)
+comment|// we don't reuse the cumalation buffer, so it won't grow out of control per channel, as well as
+comment|// being able to "readBytesReference" from it without worry
 annotation|@
 name|Override
 DECL|method|messageReceived
@@ -708,7 +708,6 @@ name|dataLen
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO: we can potentially create a cumulation buffer cache, pop/push style
 if|if
 condition|(
 operator|!
@@ -858,6 +857,8 @@ name|markedReaderIndex
 operator|+
 name|size
 decl_stmt|;
+comment|// netty always copies a buffer, either in NioWorker in its read handler, where it copies to a fresh
+comment|// buffer, or in the cumlation buffer, which is cleaned each time
 name|StreamInput
 name|streamIn
 init|=
@@ -896,7 +897,7 @@ name|status
 argument_list|)
 decl_stmt|;
 name|HandlesStreamInput
-name|handlesStream
+name|wrappedStream
 decl_stmt|;
 if|if
 condition|(
@@ -908,7 +909,7 @@ name|status
 argument_list|)
 condition|)
 block|{
-name|handlesStream
+name|wrappedStream
 operator|=
 name|CachedStreamInput
 operator|.
@@ -920,7 +921,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|handlesStream
+name|wrappedStream
 operator|=
 name|CachedStreamInput
 operator|.
@@ -942,7 +943,7 @@ name|handleRequest
 argument_list|(
 name|channel
 argument_list|,
-name|handlesStream
+name|wrappedStream
 argument_list|,
 name|requestId
 argument_list|)
@@ -1034,7 +1035,7 @@ condition|)
 block|{
 name|handlerResponseError
 argument_list|(
-name|handlesStream
+name|wrappedStream
 argument_list|,
 name|handler
 argument_list|)
@@ -1044,7 +1045,7 @@ else|else
 block|{
 name|handleResponse
 argument_list|(
-name|handlesStream
+name|wrappedStream
 argument_list|,
 name|handler
 argument_list|)
@@ -1133,7 +1134,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|handlesStream
+name|wrappedStream
 operator|.
 name|cleanHandles
 argument_list|()

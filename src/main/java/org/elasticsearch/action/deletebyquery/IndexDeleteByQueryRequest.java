@@ -66,7 +66,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Nullable
+name|BytesHolder
 import|;
 end_import
 
@@ -78,7 +78,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Required
+name|Nullable
 import|;
 end_import
 
@@ -142,20 +142,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|QueryBuilder
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -182,14 +168,14 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|Actions
+name|ValidateActions
 operator|.
 name|addValidationError
 import|;
 end_import
 
 begin_comment
-comment|/**  * Delete by query request to execute on a specific index.  *  *  */
+comment|/**  * Delete by query request to execute on a specific index.  */
 end_comment
 
 begin_class
@@ -202,8 +188,7 @@ name|IndexReplicationOperationRequest
 block|{
 DECL|field|querySource
 specifier|private
-name|byte
-index|[]
+name|BytesHolder
 name|querySource
 decl_stmt|;
 DECL|field|types
@@ -327,8 +312,7 @@ name|IndexDeleteByQueryRequest
 parameter_list|()
 block|{     }
 DECL|method|querySource
-name|byte
-index|[]
+name|BytesHolder
 name|querySource
 parameter_list|()
 block|{
@@ -371,49 +355,6 @@ expr_stmt|;
 block|}
 return|return
 name|validationException
-return|;
-block|}
-annotation|@
-name|Required
-DECL|method|querySource
-specifier|public
-name|IndexDeleteByQueryRequest
-name|querySource
-parameter_list|(
-name|QueryBuilder
-name|queryBuilder
-parameter_list|)
-block|{
-return|return
-name|querySource
-argument_list|(
-name|queryBuilder
-operator|.
-name|buildAsBytes
-argument_list|()
-argument_list|)
-return|;
-block|}
-annotation|@
-name|Required
-DECL|method|querySource
-specifier|public
-name|IndexDeleteByQueryRequest
-name|querySource
-parameter_list|(
-name|byte
-index|[]
-name|querySource
-parameter_list|)
-block|{
-name|this
-operator|.
-name|querySource
-operator|=
-name|querySource
-expr_stmt|;
-return|return
-name|this
 return|;
 block|}
 DECL|method|routing
@@ -491,21 +432,10 @@ argument_list|)
 expr_stmt|;
 name|querySource
 operator|=
-operator|new
-name|byte
-index|[
 name|in
 operator|.
-name|readVInt
+name|readBytesReference
 argument_list|()
-index|]
-expr_stmt|;
-name|in
-operator|.
-name|readFully
-argument_list|(
-name|querySource
-argument_list|)
 expr_stmt|;
 name|int
 name|typesSize
@@ -681,16 +611,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeVInt
-argument_list|(
-name|querySource
-operator|.
-name|length
-argument_list|)
-expr_stmt|;
-name|out
-operator|.
-name|writeBytes
+name|writeBytesHolder
 argument_list|(
 name|querySource
 argument_list|)

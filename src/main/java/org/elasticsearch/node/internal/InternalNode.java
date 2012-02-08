@@ -44,7 +44,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|TransportActionModule
+name|ActionModule
 import|;
 end_import
 
@@ -538,7 +538,7 @@ name|cache
 operator|.
 name|filter
 operator|.
-name|IndicesNodeFilterCache
+name|IndicesFilterCache
 import|;
 end_import
 
@@ -566,7 +566,7 @@ name|indices
 operator|.
 name|memory
 operator|.
-name|IndexingMemoryBufferController
+name|IndexingMemoryController
 import|;
 end_import
 
@@ -1017,6 +1017,21 @@ operator|.
 name|v2
 argument_list|()
 expr_stmt|;
+name|NodeEnvironment
+name|nodeEnvironment
+init|=
+operator|new
+name|NodeEnvironment
+argument_list|(
+name|this
+operator|.
+name|settings
+argument_list|,
+name|this
+operator|.
+name|environment
+argument_list|)
+decl_stmt|;
 name|ModulesBuilder
 name|modules
 init|=
@@ -1118,7 +1133,9 @@ name|add
 argument_list|(
 operator|new
 name|NodeEnvironmentModule
-argument_list|()
+argument_list|(
+name|nodeEnvironment
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|modules
@@ -1247,8 +1264,10 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|TransportActionModule
-argument_list|()
+name|ActionModule
+argument_list|(
+literal|false
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|modules
@@ -1446,7 +1465,7 @@ name|injector
 operator|.
 name|getInstance
 argument_list|(
-name|IndexingMemoryBufferController
+name|IndexingMemoryController
 operator|.
 name|class
 argument_list|)
@@ -1778,7 +1797,7 @@ name|injector
 operator|.
 name|getInstance
 argument_list|(
-name|IndexingMemoryBufferController
+name|IndexingMemoryController
 operator|.
 name|class
 argument_list|)
@@ -2162,7 +2181,7 @@ name|injector
 operator|.
 name|getInstance
 argument_list|(
-name|IndicesNodeFilterCache
+name|IndicesFilterCache
 operator|.
 name|class
 argument_list|)
@@ -2174,7 +2193,7 @@ name|injector
 operator|.
 name|getInstance
 argument_list|(
-name|IndexingMemoryBufferController
+name|IndexingMemoryController
 operator|.
 name|class
 argument_list|)

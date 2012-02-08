@@ -4,9 +4,13 @@ comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more cont
 end_comment
 
 begin_package
-DECL|package|gnu.trove
+DECL|package|org.elasticsearch.common.trove
 package|package
-name|gnu
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
 operator|.
 name|trove
 package|;

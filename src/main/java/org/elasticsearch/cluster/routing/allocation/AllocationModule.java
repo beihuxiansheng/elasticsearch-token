@@ -34,20 +34,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Lists
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -61,24 +47,6 @@ operator|.
 name|allocator
 operator|.
 name|ShardsAllocatorModule
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|allocation
-operator|.
-name|decider
-operator|.
-name|AllocationDecider
 import|;
 end_import
 
@@ -156,16 +124,6 @@ name|Settings
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -185,24 +143,6 @@ specifier|private
 specifier|final
 name|Settings
 name|settings
-decl_stmt|;
-DECL|field|allocations
-specifier|private
-name|List
-argument_list|<
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|AllocationDecider
-argument_list|>
-argument_list|>
-name|allocations
-init|=
-name|Lists
-operator|.
-name|newArrayList
-argument_list|()
 decl_stmt|;
 DECL|method|AllocationModule
 specifier|public

@@ -63,7 +63,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Numeric histogram facet.  *  *  */
+comment|/**  * Numeric histogram facet.  */
 end_comment
 
 begin_interface
@@ -157,6 +157,17 @@ operator|==
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|o2
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|0
+return|;
+block|}
 return|return
 literal|1
 return|;
@@ -247,6 +258,17 @@ operator|==
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|o2
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|0
+return|;
+block|}
 return|return
 literal|1
 return|;
@@ -337,6 +359,17 @@ operator|==
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|o2
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|0
+return|;
+block|}
 return|return
 literal|1
 return|;

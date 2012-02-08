@@ -1006,18 +1006,6 @@ parameter_list|()
 block|{
 try|try
 block|{
-if|if
-condition|(
-name|indexShard
-operator|.
-name|state
-argument_list|()
-operator|==
-name|IndexShardState
-operator|.
-name|STARTED
-condition|)
-block|{
 name|indexShard
 operator|.
 name|flush
@@ -1029,7 +1017,6 @@ name|Flush
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 catch|catch
 parameter_list|(

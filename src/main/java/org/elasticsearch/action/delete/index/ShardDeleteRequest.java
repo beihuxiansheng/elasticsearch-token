@@ -96,14 +96,14 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|Actions
+name|ValidateActions
 operator|.
 name|addValidationError
 import|;
 end_import
 
 begin_comment
-comment|/**  * Delete by query request to execute on a specific shard.  *  *  */
+comment|/**  * Delete by query request to execute on a specific shard.  */
 end_comment
 
 begin_class
