@@ -208,16 +208,6 @@ name|StreamCorruptedException
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
-name|SocketAddress
-import|;
-end_import
-
 begin_comment
 comment|/**  * A handler (must be the last one!) that does size based frame decoding and forwards the actual message  * to the relevant action.  */
 end_comment
@@ -339,9 +329,11 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// similar logic to FrameDecoder, we don't use FrameDecoder because we can use the data len header value
-comment|// to guess the size of the cumulation buffer to allocate
-comment|// we don't reuse the cumalation buffer, so it won't grow out of control per channel, as well as
-comment|// being able to "readBytesReference" from it without worry
+comment|// to guess the size of the cumulation buffer to allocate, and because we make a fresh copy of the cumulation
+comment|// buffer so we can readBytesReference from it without other request writing into the same one in case
+comment|// two one message and a partial next message exists within the same input
+comment|// we can readBytesReference because NioWorker always copies the input buffer into a fresh buffer, and we
+comment|// don't reuse cumumlation buffer
 annotation|@
 name|Override
 DECL|method|messageReceived
@@ -446,10 +438,7 @@ argument_list|()
 argument_list|,
 name|cumulation
 argument_list|,
-name|e
-operator|.
-name|getRemoteAddress
-argument_list|()
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -469,10 +458,7 @@ argument_list|()
 argument_list|,
 name|input
 argument_list|,
-name|e
-operator|.
-name|getRemoteAddress
-argument_list|()
+literal|false
 argument_list|)
 decl_stmt|;
 if|if
@@ -602,32 +588,41 @@ name|int
 name|callDecode
 parameter_list|(
 name|ChannelHandlerContext
-name|context
+name|ctx
 parameter_list|,
 name|Channel
 name|channel
 parameter_list|,
 name|ChannelBuffer
-name|cumulation
+name|buffer
 parameter_list|,
-name|SocketAddress
-name|remoteAddress
+name|boolean
+name|cumulationBuffer
 parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|int
+name|actualSize
+init|=
+literal|0
+decl_stmt|;
 while|while
 condition|(
-name|cumulation
+name|buffer
 operator|.
 name|readable
 argument_list|()
 condition|)
 block|{
+name|actualSize
+operator|=
+literal|0
+expr_stmt|;
 comment|// Changes from Frame Decoder, to combine SizeHeader and this decoder into one...
 if|if
 condition|(
-name|cumulation
+name|buffer
 operator|.
 name|readableBytes
 argument_list|()
@@ -641,11 +636,11 @@ block|}
 name|int
 name|dataLen
 init|=
-name|cumulation
+name|buffer
 operator|.
 name|getInt
 argument_list|(
-name|cumulation
+name|buffer
 operator|.
 name|readerIndex
 argument_list|()
@@ -668,16 +663,15 @@ name|dataLen
 argument_list|)
 throw|;
 block|}
-name|int
 name|actualSize
-init|=
+operator|=
 name|dataLen
 operator|+
 literal|4
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
-name|cumulation
+name|buffer
 operator|.
 name|readableBytes
 argument_list|()
@@ -685,11 +679,9 @@ operator|<
 name|actualSize
 condition|)
 block|{
-return|return
-name|actualSize
-return|;
+break|break;
 block|}
-name|cumulation
+name|buffer
 operator|.
 name|skipBytes
 argument_list|(
@@ -698,11 +690,11 @@ argument_list|)
 expr_stmt|;
 name|process
 argument_list|(
-name|context
+name|ctx
 argument_list|,
 name|channel
 argument_list|,
-name|cumulation
+name|buffer
 argument_list|,
 name|dataLen
 argument_list|)
@@ -710,8 +702,20 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-operator|!
+name|cumulationBuffer
+condition|)
+block|{
+assert|assert
+name|buffer
+operator|==
+name|this
+operator|.
 name|cumulation
+assert|;
+if|if
+condition|(
+operator|!
+name|buffer
 operator|.
 name|readable
 argument_list|()
@@ -724,8 +728,87 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-return|return
+elseif|else
+if|if
+condition|(
+name|buffer
+operator|.
+name|readerIndex
+argument_list|()
+operator|>
 literal|0
+condition|)
+block|{
+comment|// make a fresh copy of the cumalation buffer, so we
+comment|// can readBytesReference from it, and also, don't keep it around
+comment|// its not that big of an overhead since discardReadBytes in the next round messageReceived will
+comment|// copy over the bytes to the start again
+if|if
+condition|(
+name|actualSize
+operator|>
+literal|0
+condition|)
+block|{
+name|this
+operator|.
+name|cumulation
+operator|=
+name|ChannelBuffers
+operator|.
+name|dynamicBuffer
+argument_list|(
+name|actualSize
+argument_list|,
+name|ctx
+operator|.
+name|getChannel
+argument_list|()
+operator|.
+name|getConfig
+argument_list|()
+operator|.
+name|getBufferFactory
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|this
+operator|.
+name|cumulation
+operator|=
+name|ChannelBuffers
+operator|.
+name|dynamicBuffer
+argument_list|(
+name|ctx
+operator|.
+name|getChannel
+argument_list|()
+operator|.
+name|getConfig
+argument_list|()
+operator|.
+name|getBufferFactory
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+name|this
+operator|.
+name|cumulation
+operator|.
+name|writeBytes
+argument_list|(
+name|buffer
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+return|return
+name|actualSize
 return|;
 block|}
 DECL|method|cleanup
@@ -789,7 +872,7 @@ argument_list|()
 argument_list|,
 name|cumulation
 argument_list|,
-literal|null
+literal|true
 argument_list|)
 expr_stmt|;
 block|}

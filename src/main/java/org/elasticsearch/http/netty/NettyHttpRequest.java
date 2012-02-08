@@ -458,9 +458,7 @@ name|boolean
 name|contentUnsafe
 parameter_list|()
 block|{
-comment|// the netty HTTP handling always copy over the buffer to its own buffer, either in NioWorker internally
-comment|// when reading, or using a cumalation buffer
-comment|// also, HttpMessageDecoder#content variable gets freshly created for each request and not reused across
+comment|// HttpMessageDecoder#content variable gets freshly created for each request and not reused across
 comment|// requests
 return|return
 literal|false
