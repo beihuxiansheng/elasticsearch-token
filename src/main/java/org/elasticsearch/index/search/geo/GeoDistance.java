@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Geo distance calculation.  *  *  */
+comment|/**  * Geo distance calculation.  */
 end_comment
 
 begin_enum
@@ -189,7 +189,6 @@ name|DistanceUnit
 name|unit
 parameter_list|)
 block|{
-comment|// TODO: we might want to normalize longitude as we did in LatLng...
 name|double
 name|longitudeDifference
 init|=
@@ -352,7 +351,6 @@ name|DistanceUnit
 name|unit
 parameter_list|)
 block|{
-comment|// TODO: we might want to normalize longitude as we did in LatLng...
 name|double
 name|longitudeDifference
 init|=
@@ -1521,7 +1519,6 @@ name|double
 name|targetLongitude
 parameter_list|)
 block|{
-comment|// TODO: we might want to normalize longitude as we did in LatLng...
 name|double
 name|longitudeDifference
 init|=
@@ -1707,7 +1704,6 @@ name|double
 name|targetLongitude
 parameter_list|)
 block|{
-comment|// TODO: we might want to normalize longitude as we did in LatLng...
 name|double
 name|longitudeDifference
 init|=
