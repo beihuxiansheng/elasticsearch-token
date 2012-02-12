@@ -2551,6 +2551,17 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+name|tokenFiltersBindings
+operator|.
+name|processTokenFilter
+argument_list|(
+literal|"trim"
+argument_list|,
+name|TrimTokenFilterFactory
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
