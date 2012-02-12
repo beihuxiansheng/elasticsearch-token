@@ -298,20 +298,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
-operator|.
-name|ValidateActions
-operator|.
-name|addValidationError
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|search
 operator|.
 name|Scroll
@@ -514,27 +500,10 @@ name|validationException
 init|=
 literal|null
 decl_stmt|;
-if|if
-condition|(
-name|source
-operator|==
-literal|null
-operator|&&
-name|extraSource
-operator|==
-literal|null
-condition|)
-block|{
-name|validationException
-operator|=
-name|addValidationError
-argument_list|(
-literal|"search source is missing"
-argument_list|,
-name|validationException
-argument_list|)
-expr_stmt|;
-block|}
+comment|// no need to check, we resolve to match all query
+comment|//        if (source == null&& extraSource == null) {
+comment|//            validationException = addValidationError("search source is missing", validationException);
+comment|//        }
 return|return
 name|validationException
 return|;
