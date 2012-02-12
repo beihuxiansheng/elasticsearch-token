@@ -34,18 +34,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Classes
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|io
 operator|.
 name|Streams
@@ -149,7 +137,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The environment of where things exists.  *  *  */
+comment|/**  * The environment of where things exists.  */
 end_comment
 
 begin_class
@@ -158,6 +146,12 @@ specifier|public
 class|class
 name|Environment
 block|{
+DECL|field|settings
+specifier|private
+specifier|final
+name|Settings
+name|settings
+decl_stmt|;
 DECL|field|homeFile
 specifier|private
 specifier|final
@@ -227,6 +221,12 @@ name|Settings
 name|settings
 parameter_list|)
 block|{
+name|this
+operator|.
+name|settings
+operator|=
+name|settings
+expr_stmt|;
 if|if
 condition|(
 name|settings
@@ -603,6 +603,19 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * The settings used to build this environment.      */
+DECL|method|settings
+specifier|public
+name|Settings
+name|settings
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|settings
+return|;
+block|}
 comment|/**      * The home of the installation.      */
 DECL|method|homeFile
 specifier|public
@@ -864,9 +877,9 @@ comment|// try and load it from the classpath directly
 name|URL
 name|resource
 init|=
-name|Classes
+name|settings
 operator|.
-name|getDefaultClassLoader
+name|getClassLoader
 argument_list|()
 operator|.
 name|getResource
@@ -899,9 +912,9 @@ condition|)
 block|{
 name|resource
 operator|=
-name|Classes
+name|settings
 operator|.
-name|getDefaultClassLoader
+name|getClassLoader
 argument_list|()
 operator|.
 name|getResource

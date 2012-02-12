@@ -1380,6 +1380,14 @@ operator|new
 name|ThrowableObjectInputStream
 argument_list|(
 name|buffer
+argument_list|,
+name|transport
+operator|.
+name|settings
+argument_list|()
+operator|.
+name|getClassLoader
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|error

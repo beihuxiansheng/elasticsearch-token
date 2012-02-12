@@ -1835,13 +1835,6 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"settingsType"
-argument_list|,
-literal|"index"
-argument_list|)
-operator|.
-name|put
-argument_list|(
 name|this
 operator|.
 name|settings

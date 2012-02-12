@@ -48,6 +48,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Nullable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|unit
 operator|.
 name|ByteSizeValue
@@ -132,10 +144,18 @@ name|String
 name|prefix
 parameter_list|)
 function_decl|;
-comment|/**      * The class loader associated with this settings.      */
+comment|/**      * The class loader associated with this settings, or {@link org.elasticsearch.common.Classes#getDefaultClassLoader()}      * if not set.      */
 DECL|method|getClassLoader
 name|ClassLoader
 name|getClassLoader
+parameter_list|()
+function_decl|;
+comment|/**      * The class loader associated with this settings, but only if explicitly set, otherwise<tt>null</tt>.      */
+annotation|@
+name|Nullable
+DECL|method|getClassLoaderIfSet
+name|ClassLoader
+name|getClassLoaderIfSet
 parameter_list|()
 function_decl|;
 comment|/**      * The settings as a {@link java.util.Map}.      */

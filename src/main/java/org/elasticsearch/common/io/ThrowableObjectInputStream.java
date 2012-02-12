@@ -18,6 +18,18 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|Classes
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -331,12 +343,9 @@ condition|)
 block|{
 name|classLoader
 operator|=
-name|Thread
+name|Classes
 operator|.
-name|currentThread
-argument_list|()
-operator|.
-name|getContextClassLoader
+name|getDefaultClassLoader
 argument_list|()
 expr_stmt|;
 block|}
