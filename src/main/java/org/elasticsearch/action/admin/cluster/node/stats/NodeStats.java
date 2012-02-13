@@ -634,6 +634,7 @@ comment|/**      * File system level stats.      */
 annotation|@
 name|Nullable
 DECL|method|fs
+specifier|public
 name|FsStats
 name|fs
 parameter_list|()
@@ -646,6 +647,7 @@ comment|/**      * File system level stats.      */
 annotation|@
 name|Nullable
 DECL|method|getFs
+specifier|public
 name|FsStats
 name|getFs
 parameter_list|()
