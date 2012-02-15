@@ -318,7 +318,7 @@ argument_list|)
 expr_stmt|;
 name|clusterService
 operator|.
-name|addPriority
+name|addFirst
 argument_list|(
 name|this
 argument_list|)

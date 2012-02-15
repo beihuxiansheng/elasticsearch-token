@@ -886,10 +886,10 @@ operator|.
 name|clusterState
 return|;
 block|}
-DECL|method|addPriority
+DECL|method|addFirst
 specifier|public
 name|void
-name|addPriority
+name|addFirst
 parameter_list|(
 name|ClusterStateListener
 name|listener

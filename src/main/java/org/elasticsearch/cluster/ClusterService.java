@@ -97,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The cluster service allowing to both register for cluster state events ({@link ClusterStateListener})  * and submit state update tasks ({@link ClusterStateUpdateTask}.  *  *  */
+comment|/**  * The cluster service allowing to both register for cluster state events ({@link ClusterStateListener})  * and submit state update tasks ({@link ClusterStateUpdateTask}.  */
 end_comment
 
 begin_interface
@@ -141,9 +141,9 @@ name|operationRouting
 parameter_list|()
 function_decl|;
 comment|/**      * Adds a priority listener for updated cluster states.      */
-DECL|method|addPriority
+DECL|method|addFirst
 name|void
-name|addPriority
+name|addFirst
 parameter_list|(
 name|ClusterStateListener
 name|listener
