@@ -1019,10 +1019,10 @@ comment|//    @Override public int read(byte[] b, int off, int len) throws IOExc
 comment|//        readBytes(b, off, len);
 comment|//        return len;
 comment|//    }
-specifier|public
 annotation|@
 name|Nullable
 DECL|method|readMap
+specifier|public
 name|Map
 argument_list|<
 name|String
@@ -1043,7 +1043,7 @@ argument_list|,
 name|Object
 argument_list|>
 operator|)
-name|readFieldValue
+name|readGenericValue
 argument_list|()
 return|;
 block|}
@@ -1054,12 +1054,12 @@ block|{
 literal|"unchecked"
 block|}
 argument_list|)
-specifier|private
 annotation|@
 name|Nullable
-DECL|method|readFieldValue
+DECL|method|readGenericValue
+specifier|public
 name|Object
-name|readFieldValue
+name|readGenericValue
 parameter_list|()
 throws|throws
 name|IOException
@@ -1235,7 +1235,7 @@ name|list
 operator|.
 name|add
 argument_list|(
-name|readFieldValue
+name|readGenericValue
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1288,7 +1288,7 @@ index|[
 name|i
 index|]
 operator|=
-name|readFieldValue
+name|readGenericValue
 argument_list|()
 expr_stmt|;
 block|}
@@ -1366,13 +1366,26 @@ argument_list|(
 name|readUTF
 argument_list|()
 argument_list|,
-name|readFieldValue
+name|readGenericValue
 argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
 return|return
 name|map
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|type
+operator|==
+literal|11
+condition|)
+block|{
+return|return
+name|readByte
+argument_list|()
 return|;
 block|}
 else|else
