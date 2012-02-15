@@ -22,6 +22,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|Closeable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -45,6 +55,8 @@ DECL|interface|XContentParser
 specifier|public
 interface|interface
 name|XContentParser
+extends|extends
+name|Closeable
 block|{
 DECL|enum|Token
 enum|enum

@@ -507,7 +507,7 @@ name|contentLength
 argument_list|()
 argument_list|)
 operator|.
-name|mapAndClose
+name|mapOrderedAndClose
 argument_list|()
 decl_stmt|;
 if|if
