@@ -578,8 +578,7 @@ block|{
 return|return
 name|this
 operator|.
-name|refresh
-argument_list|()
+name|refreshStats
 return|;
 block|}
 DECL|method|getRefresh
