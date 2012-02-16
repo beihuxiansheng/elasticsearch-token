@@ -675,6 +675,11 @@ name|includeLower
 parameter_list|,
 name|boolean
 name|includeUpper
+parameter_list|,
+annotation|@
+name|Nullable
+name|QueryParseContext
+name|context
 parameter_list|)
 function_decl|;
 comment|/**      * Constructs a range query filter based on the mapper.      */
@@ -693,6 +698,11 @@ name|includeLower
 parameter_list|,
 name|boolean
 name|includeUpper
+parameter_list|,
+annotation|@
+name|Nullable
+name|QueryParseContext
+name|context
 parameter_list|)
 function_decl|;
 DECL|method|fieldDataType

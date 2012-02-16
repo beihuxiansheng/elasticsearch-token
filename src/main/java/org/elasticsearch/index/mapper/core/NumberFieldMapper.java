@@ -877,6 +877,8 @@ argument_list|,
 literal|true
 argument_list|,
 literal|true
+argument_list|,
+name|context
 argument_list|)
 return|;
 block|}
@@ -949,6 +951,8 @@ argument_list|,
 literal|true
 argument_list|,
 literal|true
+argument_list|,
+name|context
 argument_list|)
 return|;
 block|}
@@ -971,6 +975,11 @@ name|includeLower
 parameter_list|,
 name|boolean
 name|includeUpper
+parameter_list|,
+annotation|@
+name|Nullable
+name|QueryParseContext
+name|context
 parameter_list|)
 function_decl|;
 annotation|@
@@ -992,6 +1001,11 @@ name|includeLower
 parameter_list|,
 name|boolean
 name|includeUpper
+parameter_list|,
+annotation|@
+name|Nullable
+name|QueryParseContext
+name|context
 parameter_list|)
 function_decl|;
 comment|/**      * A range filter based on the field data cache.      */
@@ -1015,6 +1029,11 @@ name|includeLower
 parameter_list|,
 name|boolean
 name|includeUpper
+parameter_list|,
+annotation|@
+name|Nullable
+name|QueryParseContext
+name|context
 parameter_list|)
 function_decl|;
 comment|/**      * Override the default behavior (to return the string, and return the actual Number instance).      */

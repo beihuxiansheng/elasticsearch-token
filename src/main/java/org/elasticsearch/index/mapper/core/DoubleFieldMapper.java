@@ -1046,6 +1046,11 @@ name|includeLower
 parameter_list|,
 name|boolean
 name|includeUpper
+parameter_list|,
+annotation|@
+name|Nullable
+name|QueryParseContext
+name|context
 parameter_list|)
 block|{
 return|return
@@ -1158,6 +1163,11 @@ name|includeLower
 parameter_list|,
 name|boolean
 name|includeUpper
+parameter_list|,
+annotation|@
+name|Nullable
+name|QueryParseContext
+name|context
 parameter_list|)
 block|{
 return|return
@@ -1265,6 +1275,11 @@ name|includeLower
 parameter_list|,
 name|boolean
 name|includeUpper
+parameter_list|,
+annotation|@
+name|Nullable
+name|QueryParseContext
+name|context
 parameter_list|)
 block|{
 return|return
