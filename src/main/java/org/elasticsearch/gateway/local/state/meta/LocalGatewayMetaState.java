@@ -1671,7 +1671,7 @@ name|indices
 init|=
 name|nodeEnv
 operator|.
-name|finalAllIndices
+name|findAllIndices
 argument_list|()
 decl_stmt|;
 for|for
