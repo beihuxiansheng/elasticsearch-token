@@ -1753,6 +1753,14 @@ operator|.
 name|percolate
 argument_list|()
 argument_list|)
+operator|.
+name|refresh
+argument_list|(
+name|request
+operator|.
+name|refresh
+argument_list|()
+argument_list|)
 decl_stmt|;
 name|indexRequest
 operator|.
