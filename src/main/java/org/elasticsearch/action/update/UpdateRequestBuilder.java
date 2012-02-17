@@ -477,6 +477,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Causes the updated document to be percolated. The parameter is the percolate query      * to use to reduce the percolated queries that are going to run against this doc. Can be      * set to<tt>*</tt> to indicate that all percolate queries should be run.      */
+DECL|method|setPercolate
+specifier|public
+name|UpdateRequestBuilder
+name|setPercolate
+parameter_list|(
+name|String
+name|percolate
+parameter_list|)
+block|{
+name|request
+operator|.
+name|percolate
+argument_list|(
+name|percolate
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|doExecute
