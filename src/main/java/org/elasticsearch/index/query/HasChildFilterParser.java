@@ -317,6 +317,7 @@ name|currentFieldName
 argument_list|)
 condition|)
 block|{
+comment|// TODO we need to set the type, but, `query` can come before `type`...
 comment|// since we switch types, make sure we change the context
 name|String
 index|[]
