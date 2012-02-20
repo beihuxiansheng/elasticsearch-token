@@ -953,6 +953,39 @@ name|String
 name|scrollId
 parameter_list|)
 function_decl|;
+comment|/**      * Performs multiple search requests.      */
+DECL|method|multiSearch
+name|ActionFuture
+argument_list|<
+name|MultiSearchResponse
+argument_list|>
+name|multiSearch
+parameter_list|(
+name|MultiSearchRequest
+name|request
+parameter_list|)
+function_decl|;
+comment|/**      * Performs multiple search requests.      */
+DECL|method|multiSearch
+name|void
+name|multiSearch
+parameter_list|(
+name|MultiSearchRequest
+name|request
+parameter_list|,
+name|ActionListener
+argument_list|<
+name|MultiSearchResponse
+argument_list|>
+name|listener
+parameter_list|)
+function_decl|;
+comment|/**      * Performs multiple search requests.      */
+DECL|method|prepareMultiSearch
+name|MultiSearchRequestBuilder
+name|prepareMultiSearch
+parameter_list|()
+function_decl|;
 comment|/**      * A more like this action to search for documents that are "like" a specific document.      *      * @param request The more like this request      * @return The response future      */
 DECL|method|moreLikeThis
 name|ActionFuture
