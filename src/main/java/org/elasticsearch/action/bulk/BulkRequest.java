@@ -515,6 +515,8 @@ operator|-
 name|from
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 comment|// move pointers
 name|from
 operator|=
@@ -1316,6 +1318,15 @@ operator|=
 name|nextMarker
 operator|+
 literal|1
+expr_stmt|;
+block|}
+block|}
+finally|finally
+block|{
+name|parser
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 block|}
