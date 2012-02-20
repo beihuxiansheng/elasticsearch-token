@@ -87,10 +87,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|BulkActionTests
+DECL|class|BulkRequestTests
 specifier|public
 class|class
-name|BulkActionTests
+name|BulkRequestTests
 block|{
 annotation|@
 name|Test
