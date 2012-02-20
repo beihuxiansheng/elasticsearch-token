@@ -378,6 +378,15 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// now parse the action
+if|if
+condition|(
+name|nextMarker
+operator|-
+name|from
+operator|>
+literal|0
+condition|)
+block|{
 name|XContentParser
 name|parser
 init|=
@@ -654,6 +663,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 comment|// move pointers
 name|from
