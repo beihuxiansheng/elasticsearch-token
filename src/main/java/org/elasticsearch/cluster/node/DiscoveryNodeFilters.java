@@ -472,6 +472,13 @@ name|equals
 argument_list|(
 name|attr
 argument_list|)
+operator|||
+literal|"name"
+operator|.
+name|equals
+argument_list|(
+name|attr
+argument_list|)
 condition|)
 block|{
 for|for
