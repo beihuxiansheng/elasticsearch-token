@@ -278,6 +278,22 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|ImmutableSettings
+operator|.
+name|settingsBuilder
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|unit
@@ -291,22 +307,6 @@ operator|.
 name|RoutingAllocationTests
 operator|.
 name|newNode
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|ImmutableSettings
-operator|.
-name|settingsBuilder
 import|;
 end_import
 
@@ -331,18 +331,6 @@ operator|.
 name|Matchers
 operator|.
 name|equalTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|notNullValue
 import|;
 end_import
 
@@ -918,16 +906,14 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-name|assertThat
-argument_list|(
-literal|"failed to find relocating replica"
-argument_list|,
+comment|// we might have primary relocating, and the test is only for replicas, so only test in the case of replica allocation
+if|if
+condition|(
 name|indexShardRoutingTable
-argument_list|,
-name|notNullValue
-argument_list|()
-argument_list|)
-expr_stmt|;
+operator|!=
+literal|null
+condition|)
+block|{
 name|logger
 operator|.
 name|info
@@ -1074,6 +1060,7 @@ literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class
