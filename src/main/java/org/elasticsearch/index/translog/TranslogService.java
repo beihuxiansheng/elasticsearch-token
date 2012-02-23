@@ -1049,7 +1049,7 @@ name|ThreadPool
 operator|.
 name|Names
 operator|.
-name|MANAGEMENT
+name|FLUSH
 argument_list|)
 operator|.
 name|execute

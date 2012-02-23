@@ -366,7 +366,7 @@ name|ThreadPool
 operator|.
 name|Names
 operator|.
-name|MANAGEMENT
+name|SNAPSHOT
 return|;
 block|}
 annotation|@
