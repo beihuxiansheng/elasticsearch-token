@@ -65,7 +65,7 @@ block|{
 DECL|method|newScalingExecutorService
 specifier|public
 specifier|static
-name|ThreadPoolExecutor
+name|EsThreadPoolExecutor
 name|newScalingExecutorService
 parameter_list|(
 name|int
@@ -98,11 +98,11 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 comment|// we force the execution, since we might run into concurrency issues in offer for ScalingBlockingQueue
-name|ThreadPoolExecutor
+name|EsThreadPoolExecutor
 name|executor
 init|=
 operator|new
-name|ThreadPoolExecutor
+name|EsThreadPoolExecutor
 argument_list|(
 name|min
 argument_list|,
@@ -134,7 +134,7 @@ block|}
 DECL|method|newBlockingExecutorService
 specifier|public
 specifier|static
-name|ThreadPoolExecutor
+name|EsThreadPoolExecutor
 name|newBlockingExecutorService
 parameter_list|(
 name|int
@@ -177,11 +177,11 @@ argument_list|(
 name|capacity
 argument_list|)
 decl_stmt|;
-name|ThreadPoolExecutor
+name|EsThreadPoolExecutor
 name|executor
 init|=
 operator|new
-name|ThreadPoolExecutor
+name|EsThreadPoolExecutor
 argument_list|(
 name|min
 argument_list|,
