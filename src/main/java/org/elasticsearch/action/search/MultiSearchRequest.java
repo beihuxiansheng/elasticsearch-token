@@ -347,6 +347,22 @@ condition|)
 block|{
 break|break;
 block|}
+comment|// support first line with \n
+if|if
+condition|(
+name|nextMarker
+operator|==
+literal|0
+condition|)
+block|{
+name|from
+operator|=
+name|nextMarker
+operator|+
+literal|1
+expr_stmt|;
+continue|continue;
+block|}
 name|SearchRequest
 name|searchRequest
 init|=
