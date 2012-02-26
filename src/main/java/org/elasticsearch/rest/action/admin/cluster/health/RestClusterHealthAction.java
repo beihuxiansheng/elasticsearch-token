@@ -605,25 +605,11 @@ name|RestStatus
 operator|.
 name|OK
 decl_stmt|;
-if|if
-condition|(
-name|response
-operator|.
-name|status
-argument_list|()
-operator|==
-name|ClusterHealthStatus
-operator|.
-name|RED
-condition|)
-block|{
-name|status
-operator|=
-name|RestStatus
-operator|.
-name|SERVICE_UNAVAILABLE
-expr_stmt|;
-block|}
+comment|// not sure..., we handle the health API, so we are not unavailable
+comment|// in any case, "/" should be used for
+comment|//if (response.status() == ClusterHealthStatus.RED) {
+comment|//    status = RestStatus.SERVICE_UNAVAILABLE;
+comment|//}
 name|XContentBuilder
 name|builder
 init|=
