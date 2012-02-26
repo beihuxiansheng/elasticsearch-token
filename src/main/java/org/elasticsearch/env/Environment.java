@@ -749,6 +749,11 @@ parameter_list|)
 throws|throws
 name|FailedToResolveConfigException
 block|{
+name|String
+name|origPath
+init|=
+name|path
+decl_stmt|;
 comment|// first, try it as a path on the file system
 name|File
 name|f1
@@ -942,7 +947,7 @@ name|FailedToResolveConfigException
 argument_list|(
 literal|"Failed to resolve config path ["
 operator|+
-name|path
+name|origPath
 operator|+
 literal|"], tried file path ["
 operator|+
