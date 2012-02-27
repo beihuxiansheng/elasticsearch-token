@@ -337,7 +337,7 @@ name|metaData
 argument_list|()
 argument_list|)
 operator|.
-name|remoteTemplate
+name|removeTemplate
 argument_list|(
 name|request
 operator|.

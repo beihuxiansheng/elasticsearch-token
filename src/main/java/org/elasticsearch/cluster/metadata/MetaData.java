@@ -4172,10 +4172,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|remoteTemplate
+DECL|method|removeTemplate
 specifier|public
 name|Builder
-name|remoteTemplate
+name|removeTemplate
 parameter_list|(
 name|String
 name|templateName
