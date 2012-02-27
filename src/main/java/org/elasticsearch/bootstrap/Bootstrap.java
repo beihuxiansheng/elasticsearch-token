@@ -789,8 +789,6 @@ operator|.
 name|pid
 argument_list|()
 argument_list|)
-operator|+
-literal|"\n"
 argument_list|)
 expr_stmt|;
 name|rafPidFile
