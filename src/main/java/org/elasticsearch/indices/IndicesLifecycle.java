@@ -20,6 +20,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|ShardRouting
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|Nullable
@@ -83,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A global component allowing to register for lifecycle of an index (create/closed) and  * an index shard (created/closed).  *  *  */
+comment|/**  * A global component allowing to register for lifecycle of an index (create/closed) and  * an index shard (created/closed).  */
 end_comment
 
 begin_interface
@@ -118,6 +132,24 @@ specifier|static
 class|class
 name|Listener
 block|{
+comment|/**          * Called when the shard routing has changed state.          *          * @param indexShard The index shard          * @param oldRouting The old routing state (can be null)          * @param newRouting The new routing state          */
+DECL|method|shardRoutingChanged
+specifier|public
+name|void
+name|shardRoutingChanged
+parameter_list|(
+name|IndexShard
+name|indexShard
+parameter_list|,
+annotation|@
+name|Nullable
+name|ShardRouting
+name|oldRouting
+parameter_list|,
+name|ShardRouting
+name|newRouting
+parameter_list|)
+block|{          }
 comment|/**          * Called before the index gets created.          */
 DECL|method|beforeIndexCreated
 specifier|public
