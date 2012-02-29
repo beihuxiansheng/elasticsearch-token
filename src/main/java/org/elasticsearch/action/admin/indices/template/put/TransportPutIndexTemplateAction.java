@@ -471,6 +471,14 @@ operator|.
 name|mappings
 argument_list|()
 argument_list|)
+operator|.
+name|create
+argument_list|(
+name|request
+operator|.
+name|create
+argument_list|()
+argument_list|)
 argument_list|,
 operator|new
 name|MetaDataIndexTemplateService
