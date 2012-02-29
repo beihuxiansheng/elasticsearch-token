@@ -177,6 +177,13 @@ specifier|private
 name|long
 name|postOffset
 decl_stmt|;
+DECL|field|preZoneAdjustLargeInterval
+specifier|private
+name|boolean
+name|preZoneAdjustLargeInterval
+init|=
+literal|false
+decl_stmt|;
 DECL|method|Builder
 specifier|public
 name|Builder
@@ -237,6 +244,25 @@ operator|.
 name|preTz
 operator|=
 name|preTz
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|preZoneAdjustLargeInterval
+specifier|public
+name|Builder
+name|preZoneAdjustLargeInterval
+parameter_list|(
+name|boolean
+name|preZoneAdjustLargeInterval
+parameter_list|)
+block|{
+name|this
+operator|.
+name|preZoneAdjustLargeInterval
+operator|=
+name|preZoneAdjustLargeInterval
 expr_stmt|;
 return|return
 name|this
@@ -367,6 +393,8 @@ block|}
 elseif|else
 if|if
 condition|(
+name|preZoneAdjustLargeInterval
+operator|||
 name|field
 operator|.
 name|getDurationField
@@ -446,6 +474,8 @@ block|}
 elseif|else
 if|if
 condition|(
+name|preZoneAdjustLargeInterval
+operator|||
 name|interval
 operator|<
 name|DateTimeConstants
@@ -620,7 +650,7 @@ argument_list|(
 name|time
 argument_list|)
 expr_stmt|;
-comment|// now, time is still in local, move it to UTC
+comment|// now, time is still in local, move it to UTC (or the adjustLargeInterval flag is set)
 name|time
 operator|=
 name|time
