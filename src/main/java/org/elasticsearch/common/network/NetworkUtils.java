@@ -1041,10 +1041,7 @@ name|allInterfaces
 operator|.
 name|add
 argument_list|(
-name|interfaces
-operator|.
-name|nextElement
-argument_list|()
+name|intf
 argument_list|)
 expr_stmt|;
 name|Enumeration
