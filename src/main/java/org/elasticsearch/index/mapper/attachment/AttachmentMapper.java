@@ -225,7 +225,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<pre>  *      field1 : "..."  *</pre>  *<p>Or:  *<pre>  * {  *      file1 : {  *          _content_type : "application/pdf",  *          _name : "..../something.pdf",  *          content : ""  *      }  * }  *</pre>  *  *  */
+comment|/**  *<pre>  *      field1 : "..."  *</pre>  *<p>Or:  *<pre>  * {  *      file1 : {  *          _content_type : "application/pdf",  *          _content_length : "500000000",  *          _name : "..../something.pdf",  *          content : ""  *      }  * }  *</pre>  *  * _content_length = Specify the maximum amount of characters to extract from the attachment. If not specified, then the default for  *                   tika is 100,000 characters. Caution is required when setting large values as this can cause memory issues.  *  */
 end_comment
 
 begin_class
@@ -1313,6 +1313,11 @@ name|contentType
 init|=
 literal|null
 decl_stmt|;
+name|int
+name|contentLength
+init|=
+literal|100000
+decl_stmt|;
 name|String
 name|name
 init|=
@@ -1468,6 +1473,37 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+elseif|else
+if|if
+condition|(
+name|token
+operator|==
+name|XContentParser
+operator|.
+name|Token
+operator|.
+name|VALUE_NUMBER
+condition|)
+block|{
+if|if
+condition|(
+literal|"_content_length"
+operator|.
+name|equals
+argument_list|(
+name|currentFieldName
+argument_list|)
+condition|)
+block|{
+name|contentLength
+operator|=
+name|parser
+operator|.
+name|intValue
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 block|}
 block|}
 name|Metadata
@@ -1520,6 +1556,15 @@ name|parsedContent
 decl_stmt|;
 try|try
 block|{
+comment|// Set the maximum length of strings returned by the parseToString method, -1 sets no limit
+name|tika
+argument_list|()
+operator|.
+name|setMaxStringLength
+argument_list|(
+name|contentLength
+argument_list|)
+expr_stmt|;
 name|parsedContent
 operator|=
 name|tika
@@ -1547,7 +1592,11 @@ throw|throw
 operator|new
 name|MapperParsingException
 argument_list|(
-literal|"Failed to extract text for ["
+literal|"Failed to extract ["
+operator|+
+name|contentLength
+operator|+
+literal|"] characters of text for ["
 operator|+
 name|name
 operator|+
