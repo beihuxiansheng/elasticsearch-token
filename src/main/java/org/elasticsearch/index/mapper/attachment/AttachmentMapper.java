@@ -1557,14 +1557,6 @@ decl_stmt|;
 try|try
 block|{
 comment|// Set the maximum length of strings returned by the parseToString method, -1 sets no limit
-name|tika
-argument_list|()
-operator|.
-name|setMaxStringLength
-argument_list|(
-name|contentLength
-argument_list|)
-expr_stmt|;
 name|parsedContent
 operator|=
 name|tika
@@ -1579,6 +1571,8 @@ name|content
 argument_list|)
 argument_list|,
 name|metadata
+argument_list|,
+name|contentLength
 argument_list|)
 expr_stmt|;
 block|}

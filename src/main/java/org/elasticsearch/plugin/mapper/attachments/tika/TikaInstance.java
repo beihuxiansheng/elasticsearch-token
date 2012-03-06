@@ -20,18 +20,6 @@ name|tika
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|tika
-operator|.
-name|Tika
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -46,17 +34,17 @@ DECL|field|tika
 specifier|private
 specifier|static
 specifier|final
-name|Tika
+name|TikaExtended
 name|tika
 init|=
 operator|new
-name|Tika
+name|TikaExtended
 argument_list|()
 decl_stmt|;
 DECL|method|tika
 specifier|public
 specifier|static
-name|Tika
+name|TikaExtended
 name|tika
 parameter_list|()
 block|{
