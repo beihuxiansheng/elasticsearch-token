@@ -495,11 +495,6 @@ literal|null
 decl_stmt|;
 comment|//From http://docs.amazonwebservices.com/AmazonS3/latest/dev/DeletingMultipleObjectsUsingJava.html
 comment|//we can do at most 1K objects per delete
-name|int
-name|objectCount
-init|=
-literal|0
-decl_stmt|;
 comment|//We don't know the bucket name until first object listing
 name|DeleteObjectsRequest
 name|multiObjectDeleteRequest
@@ -587,9 +582,6 @@ name|getObjectSummaries
 argument_list|()
 control|)
 block|{
-name|objectCount
-operator|++
-expr_stmt|;
 name|keys
 operator|.
 name|add
@@ -607,7 +599,10 @@ expr_stmt|;
 comment|//Every 500 objects batch the delete request
 if|if
 condition|(
-name|objectCount
+name|keys
+operator|.
+name|size
+argument_list|()
 operator|>
 literal|500
 condition|)
@@ -642,10 +637,6 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-name|objectCount
-operator|=
-literal|0
-expr_stmt|;
 block|}
 block|}
 if|if
@@ -668,9 +659,11 @@ block|}
 block|}
 if|if
 condition|(
-name|objectCount
-operator|>
-literal|0
+operator|!
+name|keys
+operator|.
+name|isEmpty
+argument_list|()
 condition|)
 block|{
 name|multiObjectDeleteRequest
