@@ -225,7 +225,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<pre>  *      field1 : "..."  *</pre>  *<p>Or:  *<pre>  * {  *      file1 : {  *          _content_type : "application/pdf",  *          _content_length : "500000000",  *          _name : "..../something.pdf",  *          content : ""  *      }  * }  *</pre>  *  * _content_length = Specify the maximum amount of characters to extract from the attachment. If not specified, then the default for  *                   tika is 100,000 characters. Caution is required when setting large values as this can cause memory issues.  *  */
+comment|/**  *<pre>  *      field1 : "..."  *</pre>  *<p>Or:  *<pre>  * {  *      file1 : {  *          _content_type : "application/pdf",  *          _content_length : "500000000",  *          _name : "..../something.pdf",  *          content : ""  *      }  * }  *</pre>  *<p/>  * _content_length = Specify the maximum amount of characters to extract from the attachment. If not specified, then the default for  * tika is 100,000 characters. Caution is required when setting large values as this can cause memory issues.  */
 end_comment
 
 begin_class
@@ -292,6 +292,13 @@ init|=
 name|Defaults
 operator|.
 name|PATH_TYPE
+decl_stmt|;
+DECL|field|defaultIndexedChars
+specifier|private
+name|Integer
+name|defaultIndexedChars
+init|=
+literal|null
 decl_stmt|;
 DECL|field|contentBuilder
 specifier|private
@@ -405,6 +412,25 @@ operator|.
 name|pathType
 operator|=
 name|pathType
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|defaultIndexedChars
+specifier|public
+name|Builder
+name|defaultIndexedChars
+parameter_list|(
+name|int
+name|defaultIndexedChars
+parameter_list|)
+block|{
+name|this
+operator|.
+name|defaultIndexedChars
+operator|=
+name|defaultIndexedChars
 expr_stmt|;
 return|return
 name|this
@@ -660,6 +686,47 @@ argument_list|(
 name|origPathType
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|defaultIndexedChars
+operator|!=
+literal|null
+operator|&&
+name|context
+operator|.
+name|indexSettings
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|defaultIndexedChars
+operator|=
+name|context
+operator|.
+name|indexSettings
+argument_list|()
+operator|.
+name|getAsInt
+argument_list|(
+literal|"index.mapping.attachment.indexed_chars"
+argument_list|,
+literal|100000
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|defaultIndexedChars
+operator|==
+literal|null
+condition|)
+block|{
+name|defaultIndexedChars
+operator|=
+literal|100000
+expr_stmt|;
+block|}
 return|return
 operator|new
 name|AttachmentMapper
@@ -667,6 +734,8 @@ argument_list|(
 name|name
 argument_list|,
 name|pathType
+argument_list|,
+name|defaultIndexedChars
 argument_list|,
 name|contentMapper
 argument_list|,
@@ -683,7 +752,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      *<pre>      *  field1 : { type : "attachment" }      *</pre>      * Or:      *<pre>      *  field1 : {      *      type : "attachment",      *      fields : {      *          field1 : {type : "binary"},      *          title : {store : "yes"},      *          date : {store : "yes"}      *      }      * }      *</pre>      *      *      */
+comment|/**      *<pre>      *  field1 : { type : "attachment" }      *</pre>      * Or:      *<pre>      *  field1 : {      *      type : "attachment",      *      fields : {      *          field1 : {type : "binary"},      *          title : {store : "yes"},      *          date : {store : "yes"}      *      }      * }      *</pre>      */
 DECL|class|TypeParser
 specifier|public
 specifier|static
@@ -1161,6 +1230,12 @@ operator|.
 name|Type
 name|pathType
 decl_stmt|;
+DECL|field|defaultIndexedChars
+specifier|private
+specifier|final
+name|int
+name|defaultIndexedChars
+decl_stmt|;
 DECL|field|contentMapper
 specifier|private
 specifier|final
@@ -1209,6 +1284,9 @@ operator|.
 name|Type
 name|pathType
 parameter_list|,
+name|int
+name|defaultIndexedChars
+parameter_list|,
 name|StringFieldMapper
 name|contentMapper
 parameter_list|,
@@ -1239,6 +1317,12 @@ operator|.
 name|pathType
 operator|=
 name|pathType
+expr_stmt|;
+name|this
+operator|.
+name|defaultIndexedChars
+operator|=
+name|defaultIndexedChars
 expr_stmt|;
 name|this
 operator|.
@@ -1314,9 +1398,9 @@ init|=
 literal|null
 decl_stmt|;
 name|int
-name|contentLength
+name|indexedChars
 init|=
-literal|100000
+name|defaultIndexedChars
 decl_stmt|;
 name|String
 name|name
@@ -1487,7 +1571,14 @@ condition|)
 block|{
 if|if
 condition|(
-literal|"_content_length"
+literal|"_indexed_chars"
+operator|.
+name|equals
+argument_list|(
+name|currentFieldName
+argument_list|)
+operator|||
+literal|"_indexedChars"
 operator|.
 name|equals
 argument_list|(
@@ -1495,7 +1586,7 @@ name|currentFieldName
 argument_list|)
 condition|)
 block|{
-name|contentLength
+name|indexedChars
 operator|=
 name|parser
 operator|.
@@ -1572,7 +1663,7 @@ argument_list|)
 argument_list|,
 name|metadata
 argument_list|,
-name|contentLength
+name|indexedChars
 argument_list|)
 expr_stmt|;
 block|}
@@ -1588,7 +1679,7 @@ name|MapperParsingException
 argument_list|(
 literal|"Failed to extract ["
 operator|+
-name|contentLength
+name|indexedChars
 operator|+
 literal|"] characters of text for ["
 operator|+

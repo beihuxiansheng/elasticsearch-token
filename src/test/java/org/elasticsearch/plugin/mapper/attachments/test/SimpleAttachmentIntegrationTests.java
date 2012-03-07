@@ -839,7 +839,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"_content_length"
+literal|"_indexed_chars"
 argument_list|,
 name|CONTENT_LENGTH_LIMIT
 argument_list|)
@@ -1064,7 +1064,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"_content_length"
+literal|"_indexed_chars"
 argument_list|,
 name|CONTENT_LENGTH_LIMIT
 argument_list|)
