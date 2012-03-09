@@ -46,7 +46,7 @@ DECL|method|ExtendedIndexSearcher
 specifier|public
 name|ExtendedIndexSearcher
 parameter_list|(
-name|IndexSearcher
+name|ExtendedIndexSearcher
 name|searcher
 parameter_list|)
 block|{
@@ -55,6 +55,16 @@ argument_list|(
 name|searcher
 operator|.
 name|getIndexReader
+argument_list|()
+argument_list|,
+name|searcher
+operator|.
+name|subReaders
+argument_list|()
+argument_list|,
+name|searcher
+operator|.
+name|docStarts
 argument_list|()
 argument_list|)
 expr_stmt|;
