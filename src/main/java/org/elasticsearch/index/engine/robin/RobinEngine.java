@@ -871,6 +871,9 @@ specifier|volatile
 name|IndexWriter
 name|indexWriter
 decl_stmt|;
+comment|// TODO LUCENE MONITOR 3.6: Replace this with SearchManager (3.6) once its out, it will not allow for forceClose, but maybe its a good thing...
+comment|// in any case, if we want to retain forceClose, we can call release multiple times...
+comment|// we won't need AcquirableResource any more as well, and close will not need to replace it with a closeable one
 DECL|field|nrtResource
 specifier|private
 specifier|volatile
@@ -7462,6 +7465,15 @@ operator|.
 name|forceClose
 argument_list|()
 expr_stmt|;
+comment|// replace the NRT resource with a closed one, meaning that
+name|this
+operator|.
+name|nrtResource
+operator|=
+operator|new
+name|ClosedNrtResource
+argument_list|()
+expr_stmt|;
 block|}
 comment|// no need to commit in this case!, we snapshot before we close the shard, so translog and all sync'ed
 if|if
@@ -8313,7 +8325,6 @@ argument_list|)
 return|;
 block|}
 DECL|class|RobinSearchResult
-specifier|private
 specifier|static
 class|class
 name|RobinSearchResult
@@ -8523,6 +8534,68 @@ operator|.
 name|translogLocation
 return|;
 block|}
+block|}
+DECL|class|ClosedNrtResource
+class|class
+name|ClosedNrtResource
+implements|implements
+name|AcquirableResource
+argument_list|<
+name|ReaderSearcherHolder
+argument_list|>
+block|{
+annotation|@
+name|Override
+DECL|method|resource
+specifier|public
+name|ReaderSearcherHolder
+name|resource
+parameter_list|()
+block|{
+return|return
+literal|null
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|acquire
+specifier|public
+name|boolean
+name|acquire
+parameter_list|()
+block|{
+throw|throw
+operator|new
+name|EngineClosedException
+argument_list|(
+name|shardId
+argument_list|)
+throw|;
+block|}
+annotation|@
+name|Override
+DECL|method|release
+specifier|public
+name|void
+name|release
+parameter_list|()
+block|{         }
+annotation|@
+name|Override
+DECL|method|markForClose
+specifier|public
+name|void
+name|markForClose
+parameter_list|()
+block|{         }
+annotation|@
+name|Override
+DECL|method|forceClose
+specifier|public
+name|void
+name|forceClose
+parameter_list|()
+block|{         }
 block|}
 block|}
 end_class
