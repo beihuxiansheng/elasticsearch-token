@@ -358,7 +358,7 @@ parameter_list|)
 block|{
 name|threadPool
 operator|.
-name|cached
+name|generic
 argument_list|()
 operator|.
 name|execute
@@ -417,7 +417,7 @@ parameter_list|)
 block|{
 name|threadPool
 operator|.
-name|cached
+name|generic
 argument_list|()
 operator|.
 name|execute

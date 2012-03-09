@@ -4292,7 +4292,7 @@ name|ThreadPool
 operator|.
 name|Names
 operator|.
-name|CACHED
+name|GENERIC
 argument_list|,
 operator|new
 name|Runnable
@@ -4795,7 +4795,7 @@ name|shardRouting
 decl_stmt|;
 name|threadPool
 operator|.
-name|cached
+name|generic
 argument_list|()
 operator|.
 name|execute

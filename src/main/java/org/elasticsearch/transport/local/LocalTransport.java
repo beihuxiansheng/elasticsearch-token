@@ -950,7 +950,7 @@ argument_list|)
 expr_stmt|;
 name|threadPool
 operator|.
-name|cached
+name|generic
 argument_list|()
 operator|.
 name|execute

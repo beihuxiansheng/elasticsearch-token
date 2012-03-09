@@ -280,7 +280,7 @@ name|ThreadPool
 operator|.
 name|Names
 operator|.
-name|CACHED
+name|GENERIC
 decl_stmt|;
 specifier|final
 name|boolean

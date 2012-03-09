@@ -380,7 +380,7 @@ operator|.
 name|threadPool
 argument_list|()
 operator|.
-name|cached
+name|generic
 argument_list|()
 operator|.
 name|execute
@@ -596,7 +596,7 @@ operator|.
 name|threadPool
 argument_list|()
 operator|.
-name|cached
+name|generic
 argument_list|()
 operator|.
 name|execute

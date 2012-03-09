@@ -251,7 +251,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A fault detection that pings the master periodically to see if its alive.  *  *  */
+comment|/**  * A fault detection that pings the master periodically to see if its alive.  */
 end_comment
 
 begin_class
@@ -1048,7 +1048,7 @@ parameter_list|()
 block|{
 name|threadPool
 operator|.
-name|cached
+name|generic
 argument_list|()
 operator|.
 name|execute
@@ -1111,7 +1111,7 @@ condition|)
 block|{
 name|threadPool
 operator|.
-name|cached
+name|generic
 argument_list|()
 operator|.
 name|execute

@@ -729,7 +729,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * There are 3 types of connections per node, low/med/high. Low if for batch oriented APIs (like recovery or  * batch) with high payload that will cause regular request. (like search or single index) to take  * longer. Med is for the typical search / single doc index. And High is for ping type requests (like FD).  *  *  */
+comment|/**  * There are 3 types of connections per node, low/med/high. Low if for batch oriented APIs (like recovery or  * batch) with high payload that will cause regular request. (like search or single index) to take  * longer. Med is for the typical search / single doc index. And High is for ping type requests (like FD).  */
 end_comment
 
 begin_class
@@ -2195,7 +2195,7 @@ decl_stmt|;
 comment|// make sure we run it on another thread than a possible IO handler thread
 name|threadPool
 operator|.
-name|cached
+name|generic
 argument_list|()
 operator|.
 name|execute

@@ -761,7 +761,7 @@ name|ThreadPool
 operator|.
 name|Names
 operator|.
-name|CACHED
+name|GENERIC
 argument_list|,
 operator|new
 name|ReconnectToNodes
@@ -1073,7 +1073,7 @@ name|ThreadPool
 operator|.
 name|Names
 operator|.
-name|CACHED
+name|GENERIC
 argument_list|,
 name|notifyTimeout
 argument_list|)
@@ -1925,7 +1925,7 @@ condition|)
 block|{
 name|threadPool
 operator|.
-name|cached
+name|generic
 argument_list|()
 operator|.
 name|execute
@@ -2350,7 +2350,7 @@ name|ThreadPool
 operator|.
 name|Names
 operator|.
-name|CACHED
+name|GENERIC
 argument_list|,
 name|this
 argument_list|)

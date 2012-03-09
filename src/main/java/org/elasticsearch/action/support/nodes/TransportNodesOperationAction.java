@@ -682,7 +682,7 @@ block|{
 comment|// nothing to notify
 name|threadPool
 operator|.
-name|cached
+name|generic
 argument_list|()
 operator|.
 name|execute

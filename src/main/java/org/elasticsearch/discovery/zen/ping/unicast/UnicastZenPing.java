@@ -1139,7 +1139,7 @@ name|ThreadPool
 operator|.
 name|Names
 operator|.
-name|CACHED
+name|GENERIC
 argument_list|,
 operator|new
 name|Runnable
@@ -1181,7 +1181,7 @@ name|ThreadPool
 operator|.
 name|Names
 operator|.
-name|CACHED
+name|GENERIC
 argument_list|,
 operator|new
 name|Runnable

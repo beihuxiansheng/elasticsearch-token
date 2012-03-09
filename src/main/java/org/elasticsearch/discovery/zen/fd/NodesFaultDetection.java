@@ -269,7 +269,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A fault detection of multiple nodes.  *  *  */
+comment|/**  * A fault detection of multiple nodes.  */
 end_comment
 
 begin_class
@@ -946,7 +946,7 @@ parameter_list|)
 block|{
 name|threadPool
 operator|.
-name|cached
+name|generic
 argument_list|()
 operator|.
 name|execute

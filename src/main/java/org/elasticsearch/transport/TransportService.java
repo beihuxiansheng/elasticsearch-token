@@ -1073,7 +1073,7 @@ name|ThreadPool
 operator|.
 name|Names
 operator|.
-name|CACHED
+name|GENERIC
 argument_list|,
 name|timeoutHandler
 argument_list|)
@@ -1194,7 +1194,7 @@ name|ThreadPool
 operator|.
 name|Names
 operator|.
-name|CACHED
+name|GENERIC
 argument_list|)
 operator|.
 name|execute
@@ -1591,7 +1591,7 @@ parameter_list|)
 block|{
 name|threadPool
 operator|.
-name|cached
+name|generic
 argument_list|()
 operator|.
 name|execute
@@ -1652,7 +1652,7 @@ return|return;
 block|}
 name|threadPool
 operator|.
-name|cached
+name|generic
 argument_list|()
 operator|.
 name|execute
@@ -1749,7 +1749,7 @@ comment|// callback that an exception happened, but on a different thread since 
 comment|// want handlers to worry about stack overflows
 name|threadPool
 operator|.
-name|cached
+name|generic
 argument_list|()
 operator|.
 name|execute

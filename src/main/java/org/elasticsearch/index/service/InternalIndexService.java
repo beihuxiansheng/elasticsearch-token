@@ -1474,7 +1474,7 @@ literal|null
 condition|?
 name|threadPool
 operator|.
-name|cached
+name|generic
 argument_list|()
 else|:
 name|executor

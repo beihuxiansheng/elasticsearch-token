@@ -257,7 +257,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Called by shards in the cluster when their mapping was dynamically updated and it needs to be updated  * in the cluster state meta data (and broadcast to all members).  *  *  */
+comment|/**  * Called by shards in the cluster when their mapping was dynamically updated and it needs to be updated  * in the cluster state meta data (and broadcast to all members).  */
 end_comment
 
 begin_class
@@ -348,7 +348,7 @@ name|ThreadPool
 operator|.
 name|Names
 operator|.
-name|CACHED
+name|GENERIC
 return|;
 block|}
 annotation|@
