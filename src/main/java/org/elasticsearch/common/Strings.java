@@ -2918,7 +2918,7 @@ operator|(
 name|parts
 operator|.
 name|length
-operator|>
+operator|!=
 literal|0
 condition|?
 name|parts
