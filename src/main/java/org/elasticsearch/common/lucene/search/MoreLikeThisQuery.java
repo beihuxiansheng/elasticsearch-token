@@ -431,6 +431,14 @@ name|percentTermsToMatch
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|bq
+operator|.
+name|setBoost
+argument_list|(
+name|getBoost
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
 name|bq
 return|;
