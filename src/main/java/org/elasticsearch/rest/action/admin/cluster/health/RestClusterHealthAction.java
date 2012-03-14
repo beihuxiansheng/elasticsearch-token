@@ -450,7 +450,7 @@ literal|"cluster"
 operator|.
 name|equals
 argument_list|(
-literal|"sLevel"
+name|sLevel
 argument_list|)
 condition|)
 block|{
