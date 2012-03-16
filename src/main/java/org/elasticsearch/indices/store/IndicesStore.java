@@ -434,7 +434,7 @@ literal|"dangling_timeout"
 argument_list|,
 name|TimeValue
 operator|.
-name|timeValueMinutes
+name|timeValueHours
 argument_list|(
 literal|2
 argument_list|)
