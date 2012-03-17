@@ -116,6 +116,17 @@ operator|new
 name|MatchAllDocsFilter
 argument_list|()
 decl_stmt|;
+DECL|field|MATCH_NO_FILTER
+specifier|public
+specifier|final
+specifier|static
+name|Filter
+name|MATCH_NO_FILTER
+init|=
+operator|new
+name|MatchNoDocsFilter
+argument_list|()
+decl_stmt|;
 DECL|field|disjuncts
 specifier|private
 specifier|final

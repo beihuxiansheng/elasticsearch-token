@@ -723,6 +723,17 @@ name|MissingFilterParser
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|addFilterParser
+argument_list|(
+name|filterParsers
+argument_list|,
+operator|new
+name|IndicesFilterParser
+argument_list|(
+name|clusterService
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|filterParsers
