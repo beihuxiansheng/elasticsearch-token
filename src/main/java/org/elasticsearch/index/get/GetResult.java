@@ -1402,7 +1402,7 @@ name|type
 operator|=
 name|in
 operator|.
-name|readUTF
+name|readOptionalUTF
 argument_list|()
 expr_stmt|;
 name|id
@@ -1546,7 +1546,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeUTF
+name|writeOptionalUTF
 argument_list|(
 name|type
 argument_list|)
