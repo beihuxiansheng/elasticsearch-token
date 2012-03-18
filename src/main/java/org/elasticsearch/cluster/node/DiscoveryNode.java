@@ -344,7 +344,7 @@ name|settings
 operator|.
 name|get
 argument_list|(
-literal|"data"
+literal|"node.data"
 argument_list|)
 decl_stmt|;
 if|if
