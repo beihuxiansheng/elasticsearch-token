@@ -1097,6 +1097,18 @@ argument_list|(
 name|fragmenter
 argument_list|)
 expr_stmt|;
+comment|// always highlight across all data
+name|entry
+operator|.
+name|highlighter
+operator|.
+name|setMaxDocCharsToAnalyze
+argument_list|(
+name|Integer
+operator|.
+name|MAX_VALUE
+argument_list|)
+expr_stmt|;
 name|cache
 operator|.
 name|mappers
