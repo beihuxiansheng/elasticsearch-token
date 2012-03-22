@@ -549,7 +549,7 @@ init|=
 operator|new
 name|XContentBuilderString
 argument_list|(
-literal|"free"
+literal|"used"
 argument_list|)
 decl_stmt|;
 DECL|field|USED_IN_BYTES
@@ -561,7 +561,7 @@ init|=
 operator|new
 name|XContentBuilderString
 argument_list|(
-literal|"free_in_bytes"
+literal|"used_in_bytes"
 argument_list|)
 decl_stmt|;
 DECL|field|FREE_PERCENT
