@@ -640,7 +640,7 @@ literal|false
 return|;
 block|}
 return|return
-literal|false
+literal|true
 return|;
 block|}
 DECL|method|blocksChanged
