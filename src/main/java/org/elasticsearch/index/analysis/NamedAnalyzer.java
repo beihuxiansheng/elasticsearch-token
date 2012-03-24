@@ -85,7 +85,6 @@ end_comment
 begin_class
 DECL|class|NamedAnalyzer
 specifier|public
-specifier|final
 class|class
 name|NamedAnalyzer
 extends|extends
