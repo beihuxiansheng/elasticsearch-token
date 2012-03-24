@@ -136,6 +136,16 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -270,6 +280,31 @@ name|fieldData
 argument_list|,
 name|points
 argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"GeoPolygonFilter("
+operator|+
+name|fieldName
+operator|+
+literal|", "
+operator|+
+name|Arrays
+operator|.
+name|toString
+argument_list|(
+name|points
+argument_list|)
+operator|+
+literal|")"
 return|;
 block|}
 DECL|class|GeoPolygonDocSet

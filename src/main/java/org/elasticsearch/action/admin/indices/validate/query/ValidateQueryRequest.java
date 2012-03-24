@@ -326,6 +326,11 @@ specifier|private
 name|boolean
 name|querySourceUnsafe
 decl_stmt|;
+DECL|field|explain
+specifier|private
+name|boolean
+name|explain
+decl_stmt|;
 DECL|field|types
 specifier|private
 name|String
@@ -847,6 +852,34 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Indicate if detailed information about query is requested      */
+DECL|method|explain
+specifier|public
+name|void
+name|explain
+parameter_list|(
+name|boolean
+name|explain
+parameter_list|)
+block|{
+name|this
+operator|.
+name|explain
+operator|=
+name|explain
+expr_stmt|;
+block|}
+comment|/**      * Indicates if detailed information about query is requested      */
+DECL|method|explain
+specifier|public
+name|boolean
+name|explain
+parameter_list|()
+block|{
+return|return
+name|explain
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|readFrom
@@ -950,6 +983,13 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+name|explain
+operator|=
+name|in
+operator|.
+name|readBoolean
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -1007,6 +1047,13 @@ name|type
 argument_list|)
 expr_stmt|;
 block|}
+name|out
+operator|.
+name|writeBoolean
+argument_list|(
+name|explain
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -1048,7 +1095,9 @@ argument_list|,
 name|querySourceLength
 argument_list|)
 operator|+
-literal|"]"
+literal|"], explain:"
+operator|+
+name|explain
 return|;
 block|}
 block|}

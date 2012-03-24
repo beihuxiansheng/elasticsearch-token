@@ -326,6 +326,30 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"GeoBoundingBoxFilter("
+operator|+
+name|fieldName
+operator|+
+literal|", "
+operator|+
+name|topLeft
+operator|+
+literal|", "
+operator|+
+name|bottomRight
+operator|+
+literal|")"
+return|;
+block|}
 DECL|class|Meridian180GeoBoundingBoxDocSet
 specifier|public
 specifier|static

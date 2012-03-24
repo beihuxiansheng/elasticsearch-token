@@ -212,6 +212,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Indicates if detailed information about the query should be returned.      *      * @see org.elasticsearch.index.query.QueryBuilders      */
+DECL|method|setExplain
+specifier|public
+name|ValidateQueryRequestBuilder
+name|setExplain
+parameter_list|(
+name|boolean
+name|explain
+parameter_list|)
+block|{
+name|request
+operator|.
+name|explain
+argument_list|(
+name|explain
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Controls the operation threading model.      */
 DECL|method|setOperationThreading
 specifier|public

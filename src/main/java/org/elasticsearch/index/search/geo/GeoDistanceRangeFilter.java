@@ -964,6 +964,42 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"GeoDistanceRangeFilter("
+operator|+
+name|fieldName
+operator|+
+literal|", "
+operator|+
+name|geoDistance
+operator|+
+literal|", ["
+operator|+
+name|inclusiveLowerPoint
+operator|+
+literal|" - "
+operator|+
+name|inclusiveUpperPoint
+operator|+
+literal|"], "
+operator|+
+name|lat
+operator|+
+literal|", "
+operator|+
+name|lon
+operator|+
+literal|")"
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|hashCode
 specifier|public
 name|int
