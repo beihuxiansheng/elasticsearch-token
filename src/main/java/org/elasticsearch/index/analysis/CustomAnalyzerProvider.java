@@ -113,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A custom analyzer that is built out of a single {@link org.apache.lucene.analysis.Tokenizer} and a list  * of {@link org.apache.lucene.analysis.TokenFilter}s.  *  *  */
+comment|/**  * A custom analyzer that is built out of a single {@link org.apache.lucene.analysis.Tokenizer} and a list  * of {@link org.apache.lucene.analysis.TokenFilter}s.  */
 end_comment
 
 begin_class
@@ -394,6 +394,31 @@ name|tokenFilter
 argument_list|)
 expr_stmt|;
 block|}
+name|int
+name|positionOffsetGap
+init|=
+name|analyzerSettings
+operator|.
+name|getAsInt
+argument_list|(
+literal|"position_offset_gap"
+argument_list|,
+literal|0
+argument_list|)
+decl_stmt|;
+name|int
+name|offsetGap
+init|=
+name|analyzerSettings
+operator|.
+name|getAsInt
+argument_list|(
+literal|"offset_gap"
+argument_list|,
+operator|-
+literal|1
+argument_list|)
+decl_stmt|;
 name|this
 operator|.
 name|customAnalyzer
@@ -430,6 +455,10 @@ name|size
 argument_list|()
 index|]
 argument_list|)
+argument_list|,
+name|positionOffsetGap
+argument_list|,
+name|offsetGap
 argument_list|)
 expr_stmt|;
 block|}
