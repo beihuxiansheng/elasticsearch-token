@@ -152,6 +152,10 @@ begin_comment
 comment|/**  * Extends the Tika class, so as to provide a way for setting the maximumStringLength on a per parse document basis.  */
 end_comment
 
+begin_comment
+comment|// TODO: https://issues.apache.org/jira/browse/TIKA-870, once Tika 1.2 is out, we don't need this class anymore
+end_comment
+
 begin_class
 DECL|class|TikaExtended
 specifier|public
