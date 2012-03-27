@@ -46,6 +46,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|BytesHolder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|io
 operator|.
 name|stream
@@ -93,7 +105,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A single search hit.  *  *  * @see SearchHits  */
+comment|/**  * A single search hit.  *  * @see SearchHits  */
 end_comment
 
 begin_interface
@@ -171,7 +183,13 @@ name|long
 name|getVersion
 parameter_list|()
 function_decl|;
-comment|/**      * The source of the document (can be<tt>null</tt>).      */
+comment|/**      * Returns bytes reference, also un compress the source if needed.      */
+DECL|method|sourceRef
+name|BytesHolder
+name|sourceRef
+parameter_list|()
+function_decl|;
+comment|/**      * The source of the document (can be<tt>null</tt>). Note, its a copy of the source      * into a byte array, consider using {@link #sourceRef()} so there won't be a need to copy.      */
 DECL|method|source
 name|byte
 index|[]
