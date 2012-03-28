@@ -573,6 +573,10 @@ operator|.
 name|createParser
 argument_list|(
 name|source
+argument_list|,
+name|offset
+argument_list|,
+name|length
 argument_list|)
 decl_stmt|;
 try|try
