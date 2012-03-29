@@ -1614,6 +1614,9 @@ operator|.
 name|options
 argument_list|()
 operator|.
+name|withHighType
+argument_list|()
+operator|.
 name|withTimeout
 argument_list|(
 name|pingTimeout
@@ -1939,6 +1942,9 @@ argument_list|,
 name|TransportRequestOptions
 operator|.
 name|options
+argument_list|()
+operator|.
+name|withHighType
 argument_list|()
 operator|.
 name|withTimeout
