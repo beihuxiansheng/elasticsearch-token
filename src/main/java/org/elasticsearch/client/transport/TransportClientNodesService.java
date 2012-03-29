@@ -1904,12 +1904,17 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"failed to connect to node [{}], removed from nodes list"
+literal|"failed to connect to node [{}], ignoring..."
 argument_list|,
 name|e
 argument_list|,
 name|listedNode
 argument_list|)
+expr_stmt|;
+name|latch
+operator|.
+name|countDown
+argument_list|()
 expr_stmt|;
 return|return;
 block|}
