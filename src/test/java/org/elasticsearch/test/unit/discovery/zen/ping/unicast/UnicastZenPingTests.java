@@ -473,6 +473,8 @@ argument_list|,
 name|transportServiceA
 argument_list|,
 name|clusterName
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|zenPingA
@@ -542,6 +544,8 @@ argument_list|,
 name|transportServiceB
 argument_list|,
 name|clusterName
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|zenPingB

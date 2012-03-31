@@ -45,7 +45,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * A pluggable provider of the list of unicast hosts to use for unicast discovery.  */
 end_comment
 
 begin_interface
@@ -54,6 +54,7 @@ specifier|public
 interface|interface
 name|UnicastHostsProvider
 block|{
+comment|/**      * Builds the dynamic list of unicast hosts to be used for unicast discovery.      */
 DECL|method|buildDynamicNodes
 name|List
 argument_list|<
