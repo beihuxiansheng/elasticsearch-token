@@ -372,6 +372,28 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Explicitly specify the fields that will be returned. By default, nothing is returned.      */
+DECL|method|setFields
+specifier|public
+name|UpdateRequestBuilder
+name|setFields
+parameter_list|(
+name|String
+modifier|...
+name|fields
+parameter_list|)
+block|{
+name|request
+operator|.
+name|fields
+argument_list|(
+name|fields
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Sets the number of retries of a version conflict occurs because the document was updated between      * getting it and updating it. Defaults to 1.      */
 DECL|method|setRetryOnConflict
 specifier|public
