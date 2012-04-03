@@ -979,6 +979,8 @@ condition|(
 name|extractFieldNames
 operator|!=
 literal|null
+operator|||
+name|sourceRequested
 condition|)
 block|{
 name|fieldSelectorMapper
