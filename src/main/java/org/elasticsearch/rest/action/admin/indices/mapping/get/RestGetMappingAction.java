@@ -304,6 +304,20 @@ name|rest
 operator|.
 name|RestStatus
 operator|.
+name|NOT_FOUND
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|rest
+operator|.
+name|RestStatus
+operator|.
 name|OK
 import|;
 end_import
@@ -520,6 +534,11 @@ parameter_list|)
 block|{
 try|try
 block|{
+name|boolean
+name|foundAny
+init|=
+literal|false
+decl_stmt|;
 name|MetaData
 name|metaData
 init|=
@@ -554,16 +573,6 @@ name|length
 operator|==
 literal|1
 operator|&&
-name|types
-operator|.
-name|size
-argument_list|()
-operator|==
-literal|1
-condition|)
-block|{
-if|if
-condition|(
 name|metaData
 operator|.
 name|indices
@@ -599,6 +608,22 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+if|if
+condition|(
+name|indices
+operator|.
+name|length
+operator|==
+literal|1
+operator|&&
+name|types
+operator|.
+name|size
+argument_list|()
+operator|==
+literal|1
+condition|)
+block|{
 name|boolean
 name|foundType
 init|=
@@ -652,6 +677,10 @@ block|{
 comment|// filter this type out...
 continue|continue;
 block|}
+name|foundAny
+operator|=
+literal|true
+expr_stmt|;
 name|foundType
 operator|=
 literal|true
@@ -781,6 +810,10 @@ block|{
 comment|// filter this type out...
 continue|continue;
 block|}
+name|foundAny
+operator|=
+literal|true
+expr_stmt|;
 name|builder
 operator|.
 name|field
@@ -823,7 +856,11 @@ name|XContentRestResponse
 argument_list|(
 name|request
 argument_list|,
+name|foundAny
+condition|?
 name|OK
+else|:
+name|NOT_FOUND
 argument_list|,
 name|builder
 argument_list|)
