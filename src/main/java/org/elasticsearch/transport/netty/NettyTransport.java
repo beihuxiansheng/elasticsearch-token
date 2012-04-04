@@ -1338,7 +1338,7 @@ name|getAsInt
 argument_list|(
 literal|"transport.connections_per_node.med"
 argument_list|,
-literal|4
+literal|6
 argument_list|)
 argument_list|)
 expr_stmt|;
