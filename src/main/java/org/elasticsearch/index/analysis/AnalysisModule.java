@@ -3307,6 +3307,17 @@ name|analyzersBindings
 operator|.
 name|processAnalyzer
 argument_list|(
+literal|"latvian"
+argument_list|,
+name|LatvianAnalyzerProvider
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|analyzersBindings
+operator|.
+name|processAnalyzer
+argument_list|(
 literal|"norwegian"
 argument_list|,
 name|NorwegianAnalyzerProvider
