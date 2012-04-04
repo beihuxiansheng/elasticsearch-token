@@ -59,16 +59,16 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Query builder which allows building a query thanks to a JSON string or binary data. This is useful when you want  * to use the Java Builder API but still have JSON query strings at hand that you want to combine with other  * query builders.  *<p/>  * Example usage in a boolean query :  *<pre>  * {@code  *      BoolQueryBuilder bool = new BoolQueryBuilder();  *      bool.must(new WrapperQueryBuilder("{\"term\": {\"field\":\"value\"}}");  *      bool.must(new TermQueryBuilder("field2","value2");  * }  *</pre>  */
+comment|/**  * A Filter builder which allows building a filter thanks to a JSON string or binary data. This is useful when you want  * to use the Java Builder API but still have JSON filter strings at hand that you want to combine with other  * query builders.  */
 end_comment
 
 begin_class
-DECL|class|WrapperQueryBuilder
+DECL|class|WrapperFilterBuilder
 specifier|public
 class|class
-name|WrapperQueryBuilder
+name|WrapperFilterBuilder
 extends|extends
-name|BaseQueryBuilder
+name|BaseFilterBuilder
 block|{
 DECL|field|source
 specifier|private
@@ -89,10 +89,9 @@ specifier|final
 name|int
 name|length
 decl_stmt|;
-comment|/**      * Builds a JSONQueryBuilder using the provided JSON query string.      */
-DECL|method|WrapperQueryBuilder
+DECL|method|WrapperFilterBuilder
 specifier|public
-name|WrapperQueryBuilder
+name|WrapperFilterBuilder
 parameter_list|(
 name|String
 name|source
@@ -128,9 +127,9 @@ operator|.
 name|length
 expr_stmt|;
 block|}
-DECL|method|WrapperQueryBuilder
+DECL|method|WrapperFilterBuilder
 specifier|public
-name|WrapperQueryBuilder
+name|WrapperFilterBuilder
 parameter_list|(
 name|byte
 index|[]
@@ -182,7 +181,7 @@ name|builder
 operator|.
 name|startObject
 argument_list|(
-name|WrapperQueryParser
+name|WrapperFilterParser
 operator|.
 name|NAME
 argument_list|)
@@ -191,7 +190,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"query"
+literal|"filter"
 argument_list|,
 name|source
 argument_list|,

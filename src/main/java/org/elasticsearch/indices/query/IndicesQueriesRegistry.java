@@ -734,6 +734,15 @@ name|clusterService
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|addFilterParser
+argument_list|(
+name|filterParsers
+argument_list|,
+operator|new
+name|WrapperFilterParser
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|filterParsers
