@@ -122,6 +122,13 @@ operator|.
 name|getPid
 argument_list|()
 expr_stmt|;
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"sigar loaded successfully"
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -133,7 +140,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"Failed to load sigar"
+literal|"failed to load sigar"
 argument_list|,
 name|t
 argument_list|)
