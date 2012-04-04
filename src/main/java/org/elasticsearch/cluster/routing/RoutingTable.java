@@ -1720,17 +1720,8 @@ operator|==
 literal|null
 condition|)
 block|{
-throw|throw
-operator|new
-name|IndexMissingException
-argument_list|(
-operator|new
-name|Index
-argument_list|(
-name|index
-argument_list|)
-argument_list|)
-throw|;
+comment|// ignore index missing failure, its closed...
+continue|continue;
 block|}
 name|int
 name|currentNumberOfReplicas
