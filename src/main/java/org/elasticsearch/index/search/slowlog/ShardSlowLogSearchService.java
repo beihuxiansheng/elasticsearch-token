@@ -1570,6 +1570,11 @@ argument_list|,
 name|reformat
 argument_list|)
 argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"], "
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch
@@ -1651,6 +1656,11 @@ argument_list|()
 argument_list|,
 name|reformat
 argument_list|)
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"], "
 argument_list|)
 expr_stmt|;
 block|}
