@@ -545,6 +545,12 @@ specifier|final
 name|WriteConsistencyLevel
 name|defaultWriteConsistencyLevel
 decl_stmt|;
+DECL|field|transportOptions
+specifier|protected
+specifier|final
+name|TransportRequestOptions
+name|transportOptions
+decl_stmt|;
 DECL|field|transportAction
 specifier|final
 name|String
@@ -668,6 +674,13 @@ operator|new
 name|ReplicaOperationTransportHandler
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|transportOptions
+operator|=
+name|transportOptions
+argument_list|()
 expr_stmt|;
 name|this
 operator|.
@@ -2116,7 +2129,6 @@ argument_list|,
 name|request
 argument_list|,
 name|transportOptions
-argument_list|()
 argument_list|,
 operator|new
 name|BaseTransportResponseHandler
@@ -3073,7 +3085,6 @@ argument_list|,
 name|shardRequest
 argument_list|,
 name|transportOptions
-argument_list|()
 argument_list|,
 operator|new
 name|VoidTransportResponseHandler

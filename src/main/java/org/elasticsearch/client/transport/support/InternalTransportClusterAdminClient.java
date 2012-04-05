@@ -325,6 +325,8 @@ argument_list|,
 operator|new
 name|TransportActionNodeProxy
 argument_list|(
+name|settings
+argument_list|,
 name|action
 argument_list|,
 name|transportService

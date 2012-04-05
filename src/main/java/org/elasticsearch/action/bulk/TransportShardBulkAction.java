@@ -617,20 +617,15 @@ name|TransportRequestOptions
 name|transportOptions
 parameter_list|()
 block|{
-comment|// low type since we don't want the large bulk requests to cause high latency on typical requests
 return|return
-name|TransportRequestOptions
+name|BulkAction
 operator|.
-name|options
-argument_list|()
+name|INSTANCE
 operator|.
-name|withCompress
+name|transportOptions
 argument_list|(
-literal|true
+name|settings
 argument_list|)
-operator|.
-name|withLowType
-argument_list|()
 return|;
 block|}
 annotation|@
