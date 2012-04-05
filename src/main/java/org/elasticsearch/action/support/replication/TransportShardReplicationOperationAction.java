@@ -1765,15 +1765,6 @@ argument_list|,
 name|request
 argument_list|)
 expr_stmt|;
-name|shardIt
-operator|=
-name|shards
-argument_list|(
-name|clusterState
-argument_list|,
-name|request
-argument_list|)
-expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
