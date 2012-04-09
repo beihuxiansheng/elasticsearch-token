@@ -774,10 +774,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|addTokenizerFactory
+DECL|method|addTokenizer
 specifier|public
 name|AnalysisModule
-name|addTokenizerFactory
+name|addTokenizer
 parameter_list|(
 name|String
 name|name
