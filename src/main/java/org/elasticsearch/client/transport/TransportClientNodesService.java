@@ -1889,6 +1889,15 @@ condition|)
 block|{
 try|try
 block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"connecting to node [{}]"
+argument_list|,
+name|listedNode
+argument_list|)
+expr_stmt|;
 name|transportService
 operator|.
 name|connectToNode
@@ -2214,8 +2223,28 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|transportService
+operator|.
+name|nodeConnected
+argument_list|(
+name|node
+argument_list|)
+condition|)
+block|{
 try|try
 block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"connecting to node [{}]"
+argument_list|,
+name|node
+argument_list|)
+expr_stmt|;
 name|transportService
 operator|.
 name|connectToNode
@@ -2248,6 +2277,7 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 name|nodes
