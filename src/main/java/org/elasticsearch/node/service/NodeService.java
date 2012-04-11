@@ -813,6 +813,11 @@ operator|.
 name|localNode
 argument_list|()
 argument_list|,
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
+argument_list|,
 name|hostname
 argument_list|,
 name|indicesService
@@ -933,6 +938,11 @@ name|nodes
 argument_list|()
 operator|.
 name|localNode
+argument_list|()
+argument_list|,
+name|System
+operator|.
+name|currentTimeMillis
 argument_list|()
 argument_list|,
 name|hostname
