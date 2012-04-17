@@ -243,7 +243,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<pre>  * {  *     "name.lat" : 1.1,  *     "name.lon" : 1.2,  * }  *</pre>  *  *  */
+comment|/**  *<pre>  * {  *     "name.lat" : 1.1,  *     "name.lon" : 1.2,  * }  *</pre>  */
 end_comment
 
 begin_class
@@ -753,6 +753,7 @@ operator|.
 name|VALUE_NULL
 condition|)
 block|{                     }
+elseif|else
 if|if
 condition|(
 name|token
@@ -984,6 +985,7 @@ operator|.
 name|VALUE_NULL
 condition|)
 block|{                     }
+elseif|else
 if|if
 condition|(
 name|token
@@ -1049,6 +1051,7 @@ operator|.
 name|VALUE_NULL
 condition|)
 block|{                     }
+elseif|else
 if|if
 condition|(
 name|token
@@ -1524,12 +1527,23 @@ expr_stmt|;
 block|}
 block|}
 block|}
-name|double
+name|Double
 name|from
+init|=
+literal|null
 decl_stmt|;
-name|double
+name|Double
 name|to
+init|=
+literal|null
 decl_stmt|;
+if|if
+condition|(
+name|vFrom
+operator|!=
+literal|null
+condition|)
+block|{
 if|if
 condition|(
 name|vFrom
@@ -1589,6 +1603,14 @@ operator|.
 name|MILES
 argument_list|)
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|vTo
+operator|!=
+literal|null
+condition|)
+block|{
 if|if
 condition|(
 name|vTo
@@ -1648,6 +1670,7 @@ operator|.
 name|MILES
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|normalizeLat

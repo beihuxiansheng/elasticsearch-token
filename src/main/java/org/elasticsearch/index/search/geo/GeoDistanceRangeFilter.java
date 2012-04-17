@@ -517,6 +517,9 @@ name|Double
 operator|.
 name|POSITIVE_INFINITY
 expr_stmt|;
+comment|// we disable bounding box in this case, since the upper point is all and we create bounding box up to the
+comment|// upper point it will effectively include all
+comment|// TODO we can create a bounding box up to from and "not" it
 name|optimizeBbox
 operator|=
 literal|null
