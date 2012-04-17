@@ -174,7 +174,7 @@ operator|-
 literal|1
 operator|&&
 name|rewrite
-operator|!=
+operator|==
 literal|null
 condition|)
 block|{
