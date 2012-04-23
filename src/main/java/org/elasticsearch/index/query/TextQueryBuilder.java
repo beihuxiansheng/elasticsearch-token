@@ -282,6 +282,25 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|prefixLength
+specifier|public
+name|TextQueryBuilder
+name|prefixLength
+parameter_list|(
+name|int
+name|prefixLength
+parameter_list|)
+block|{
+name|this
+operator|.
+name|prefixLength
+operator|=
+name|prefixLength
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * When using fuzzy or prefix type query, the number of term expansions to use. Defaults to unbounded      * so its recommended to set it to a reasonable value for faster execution.      */
 DECL|method|maxExpansions
 specifier|public
