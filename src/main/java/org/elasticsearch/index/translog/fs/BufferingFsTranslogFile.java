@@ -322,18 +322,25 @@ block|{
 name|flushBuffer
 argument_list|()
 expr_stmt|;
+comment|// we use the channel to write, since on windows, writing to the RAF might not be reflected
+comment|// when reading through the channel
 name|raf
 operator|.
-name|raf
+name|channel
 argument_list|()
 operator|.
 name|write
+argument_list|(
+name|ByteBuffer
+operator|.
+name|wrap
 argument_list|(
 name|data
 argument_list|,
 name|from
 argument_list|,
 name|size
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|lastWrittenPosition
@@ -437,18 +444,25 @@ operator|>
 literal|0
 condition|)
 block|{
+comment|// we use the channel to write, since on windows, writing to the RAF might not be reflected
+comment|// when reading through the channel
 name|raf
 operator|.
-name|raf
+name|channel
 argument_list|()
 operator|.
 name|write
+argument_list|(
+name|ByteBuffer
+operator|.
+name|wrap
 argument_list|(
 name|buffer
 argument_list|,
 literal|0
 argument_list|,
 name|bufferCount
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|lastWrittenPosition
