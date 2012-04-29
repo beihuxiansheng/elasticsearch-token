@@ -73,6 +73,11 @@ specifier|static
 interface|interface
 name|Listener
 block|{
+DECL|method|executor
+name|String
+name|executor
+parameter_list|()
+function_decl|;
 DECL|method|warm
 name|void
 name|warm
