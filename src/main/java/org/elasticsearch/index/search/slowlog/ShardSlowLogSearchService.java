@@ -322,6 +322,7 @@ annotation|@
 name|Override
 DECL|method|onRefreshSettings
 specifier|public
+specifier|synchronized
 name|void
 name|onRefreshSettings
 parameter_list|(
