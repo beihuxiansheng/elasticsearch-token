@@ -3523,17 +3523,6 @@ operator|.
 name|builder
 argument_list|()
 operator|.
-name|version
-argument_list|(
-name|clusterState
-operator|.
-name|routingTable
-argument_list|()
-operator|.
-name|version
-argument_list|()
-argument_list|)
-operator|.
 name|build
 argument_list|()
 decl_stmt|;

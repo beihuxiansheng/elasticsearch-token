@@ -1295,6 +1295,20 @@ operator|.
 name|nodeToDisconnect
 control|)
 block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"[{}] disconnecting from {}"
+argument_list|,
+name|sendPingsHandler
+operator|.
+name|id
+argument_list|()
+argument_list|,
+name|node
+argument_list|)
+expr_stmt|;
 name|transportService
 operator|.
 name|disconnectFromNode
@@ -1705,6 +1719,20 @@ operator|!
 name|nodeFoundByAddress
 condition|)
 block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"[{}] connecting (light) to {}"
+argument_list|,
+name|sendPingsHandler
+operator|.
+name|id
+argument_list|()
+argument_list|,
+name|nodeToSend
+argument_list|)
+expr_stmt|;
 name|transportService
 operator|.
 name|connectToNodeLight
@@ -1715,6 +1743,20 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"[{}] connecting to {}"
+argument_list|,
+name|sendPingsHandler
+operator|.
+name|id
+argument_list|()
+argument_list|,
+name|nodeToSend
+argument_list|)
+expr_stmt|;
 name|transportService
 operator|.
 name|connectToNode
@@ -1723,7 +1765,34 @@ name|nodeToSend
 argument_list|)
 expr_stmt|;
 block|}
-comment|// we are connected, send the ping request
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"[{}] connected to {}"
+argument_list|,
+name|sendPingsHandler
+operator|.
+name|id
+argument_list|()
+argument_list|,
+name|node
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|receivedResponses
+operator|.
+name|containsKey
+argument_list|(
+name|sendPingsHandler
+operator|.
+name|id
+argument_list|()
+argument_list|)
+condition|)
+block|{
+comment|// we are connected and still in progress, send the ping request
 name|sendPingRequestToNode
 argument_list|(
 name|sendPingsHandler
@@ -1742,6 +1811,30 @@ argument_list|,
 name|nodeToSend
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// connect took too long, just log it and bail
+name|latch
+operator|.
+name|countDown
+argument_list|()
+expr_stmt|;
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"[{}] connect to {} was too long outside of ping window, bailing"
+argument_list|,
+name|sendPingsHandler
+operator|.
+name|id
+argument_list|()
+argument_list|,
+name|node
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -1865,7 +1958,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"[{}] connecting to {}"
+literal|"[{}] sending to {}"
 argument_list|,
 name|id
 argument_list|,
