@@ -690,7 +690,7 @@ name|time
 init|=
 name|System
 operator|.
-name|currentTimeMillis
+name|nanoTime
 argument_list|()
 decl_stmt|;
 name|fieldData
@@ -720,7 +720,7 @@ name|took
 init|=
 name|System
 operator|.
-name|currentTimeMillis
+name|nanoTime
 argument_list|()
 operator|-
 name|time
@@ -745,12 +745,14 @@ name|reader
 argument_list|,
 name|TimeValue
 operator|.
-name|timeValueMillis
+name|timeValueNanos
 argument_list|(
 name|took
 argument_list|)
 argument_list|,
 name|took
+operator|/
+literal|1000
 argument_list|)
 expr_stmt|;
 block|}
