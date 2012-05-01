@@ -268,6 +268,9 @@ name|void
 name|clear
 parameter_list|(
 name|String
+name|reason
+parameter_list|,
+name|String
 name|fieldName
 parameter_list|)
 block|{      }
@@ -277,7 +280,10 @@ DECL|method|clear
 specifier|public
 name|void
 name|clear
-parameter_list|()
+parameter_list|(
+name|String
+name|reason
+parameter_list|)
 block|{     }
 annotation|@
 name|Override

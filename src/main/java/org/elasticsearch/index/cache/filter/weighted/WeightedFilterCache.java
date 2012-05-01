@@ -514,7 +514,9 @@ throws|throws
 name|ElasticSearchException
 block|{
 name|clear
-argument_list|()
+argument_list|(
+literal|"close"
+argument_list|)
 expr_stmt|;
 name|indicesFilterCache
 operator|.
@@ -533,8 +535,20 @@ DECL|method|clear
 specifier|public
 name|void
 name|clear
-parameter_list|()
+parameter_list|(
+name|String
+name|reason
+parameter_list|)
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"full cache clear, reason [{}]"
+argument_list|,
+name|reason
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|Object

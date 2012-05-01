@@ -160,7 +160,10 @@ function_decl|;
 DECL|method|clear
 name|void
 name|clear
-parameter_list|()
+parameter_list|(
+name|String
+name|reason
+parameter_list|)
 function_decl|;
 DECL|method|entriesStats
 name|EntriesStats

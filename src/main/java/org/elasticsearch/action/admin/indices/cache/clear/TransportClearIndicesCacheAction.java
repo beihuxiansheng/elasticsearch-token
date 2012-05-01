@@ -677,7 +677,9 @@ name|filter
 argument_list|()
 operator|.
 name|clear
-argument_list|()
+argument_list|(
+literal|"api"
+argument_list|)
 expr_stmt|;
 block|}
 if|if
@@ -720,7 +722,9 @@ name|fieldData
 argument_list|()
 operator|.
 name|clear
-argument_list|()
+argument_list|(
+literal|"api"
+argument_list|)
 expr_stmt|;
 block|}
 else|else
@@ -746,6 +750,8 @@ argument_list|()
 operator|.
 name|clear
 argument_list|(
+literal|"api"
+argument_list|,
 name|field
 argument_list|)
 expr_stmt|;
@@ -847,6 +853,8 @@ argument_list|()
 operator|.
 name|clear
 argument_list|(
+literal|"api"
+argument_list|,
 name|field
 argument_list|)
 expr_stmt|;
@@ -860,7 +868,9 @@ name|cache
 argument_list|()
 operator|.
 name|clear
-argument_list|()
+argument_list|(
+literal|"api"
+argument_list|)
 expr_stmt|;
 block|}
 block|}

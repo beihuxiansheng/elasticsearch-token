@@ -232,7 +232,10 @@ DECL|method|clear
 specifier|public
 name|void
 name|clear
-parameter_list|()
+parameter_list|(
+name|String
+name|reason
+parameter_list|)
 block|{
 comment|// nothing to do here
 block|}

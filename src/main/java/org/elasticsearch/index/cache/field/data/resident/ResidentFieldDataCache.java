@@ -744,7 +744,9 @@ name|changed
 condition|)
 block|{
 name|clear
-argument_list|()
+argument_list|(
+literal|"update_settings"
+argument_list|)
 expr_stmt|;
 block|}
 block|}
