@@ -566,7 +566,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|Throwable
 name|e
 parameter_list|)
 block|{
@@ -575,6 +575,8 @@ operator|.
 name|warn
 argument_list|(
 literal|"[{}][{}] failed to warm [{}]"
+argument_list|,
+name|e
 argument_list|,
 name|shardId
 operator|.
