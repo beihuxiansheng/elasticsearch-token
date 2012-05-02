@@ -319,6 +319,15 @@ operator|==
 literal|null
 condition|)
 break|break;
+comment|// different from serial merge, call mergeInit here so we get the correct stats
+comment|// mergeInit can be called several times without side affects (checks on merge.info not being null)
+name|writer
+operator|.
+name|mergeInit
+argument_list|(
+name|merge
+argument_list|)
+expr_stmt|;
 name|int
 name|totalNumDocs
 init|=
