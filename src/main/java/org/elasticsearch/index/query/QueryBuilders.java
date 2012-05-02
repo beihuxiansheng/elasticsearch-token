@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A static factory for simple "import static" usage.  *  *  */
+comment|/**  * A static factory for simple "import static" usage.  */
 end_comment
 
 begin_class
@@ -941,6 +941,8 @@ parameter_list|(
 name|QueryBuilder
 name|queryBuilder
 parameter_list|,
+annotation|@
+name|Nullable
 name|FilterBuilder
 name|filterBuilder
 parameter_list|)
@@ -965,6 +967,8 @@ parameter_list|(
 name|QueryBuilder
 name|queryBuilder
 parameter_list|,
+annotation|@
+name|Nullable
 name|FilterBuilder
 name|filterBuilder
 parameter_list|)

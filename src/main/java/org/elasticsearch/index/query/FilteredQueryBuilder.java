@@ -24,6 +24,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Nullable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|xcontent
 operator|.
 name|XContentBuilder
@@ -41,7 +53,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A query that applies a filter to the results of another query.  *  *  */
+comment|/**  * A query that applies a filter to the results of another query.  */
 end_comment
 
 begin_class
@@ -72,7 +84,7 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-comment|/**      * A query that applies a filter to the results of another query.      *      * @param queryBuilder  The query to apply the filter to      * @param filterBuilder The filter to apply on the query      */
+comment|/**      * A query that applies a filter to the results of another query.      *      * @param queryBuilder  The query to apply the filter to      * @param filterBuilder The filter to apply on the query (Can be null)      */
 DECL|method|FilteredQueryBuilder
 specifier|public
 name|FilteredQueryBuilder
@@ -80,6 +92,8 @@ parameter_list|(
 name|QueryBuilder
 name|queryBuilder
 parameter_list|,
+annotation|@
+name|Nullable
 name|FilterBuilder
 name|filterBuilder
 parameter_list|)
@@ -158,6 +172,13 @@ argument_list|,
 name|params
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|filterBuilder
+operator|!=
+literal|null
+condition|)
+block|{
 name|builder
 operator|.
 name|field
@@ -174,6 +195,7 @@ argument_list|,
 name|params
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|boost

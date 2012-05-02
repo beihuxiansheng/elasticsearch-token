@@ -475,6 +475,7 @@ literal|"[filtered] requires 'query' element"
 argument_list|)
 throw|;
 block|}
+comment|// we allow for null filter, so it makes compositions on the client side to be simpler
 if|if
 condition|(
 name|filter
@@ -482,18 +483,9 @@ operator|==
 literal|null
 condition|)
 block|{
-throw|throw
-operator|new
-name|QueryParsingException
-argument_list|(
-name|parseContext
-operator|.
-name|index
-argument_list|()
-argument_list|,
-literal|"[filtered] requires 'filter' element"
-argument_list|)
-throw|;
+return|return
+name|query
+return|;
 block|}
 comment|// cache if required
 if|if
