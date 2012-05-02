@@ -362,6 +362,7 @@ argument_list|(
 name|totalSizeInBytes
 argument_list|)
 expr_stmt|;
+comment|// sadly, segment name is not available since mergeInit is called from merge itself...
 if|if
 condition|(
 name|logger
@@ -374,13 +375,28 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"merge [{}] starting..., merging [{}]/[{}], into [{}]"
+literal|"merge [{}] starting..., merging [{}] segments, [{}] docs, [{}] size, into [{}] estimated_size"
 argument_list|,
+name|merge
+operator|.
+name|info
+operator|==
+literal|null
+condition|?
+literal|"_na_"
+else|:
 name|merge
 operator|.
 name|info
 operator|.
 name|name
+argument_list|,
+name|merge
+operator|.
+name|segments
+operator|.
+name|size
+argument_list|()
 argument_list|,
 name|totalNumDocs
 argument_list|,
@@ -491,6 +507,14 @@ argument_list|,
 name|merge
 operator|.
 name|info
+operator|==
+literal|null
+condition|?
+literal|"_na_"
+else|:
+name|merge
+operator|.
+name|info
 operator|.
 name|name
 argument_list|,
@@ -518,6 +542,14 @@ name|trace
 argument_list|(
 literal|"merge [{}] done, took [{}]"
 argument_list|,
+name|merge
+operator|.
+name|info
+operator|==
+literal|null
+condition|?
+literal|"_na_"
+else|:
 name|merge
 operator|.
 name|info
