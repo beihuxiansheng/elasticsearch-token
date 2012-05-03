@@ -1035,6 +1035,12 @@ condition|(
 name|previous
 operator|==
 literal|null
+operator|&&
+operator|(
+name|reader
+operator|instanceof
+name|SegmentReader
+operator|)
 condition|)
 block|{
 operator|(

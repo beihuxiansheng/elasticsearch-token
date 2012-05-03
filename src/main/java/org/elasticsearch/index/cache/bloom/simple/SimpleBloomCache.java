@@ -719,6 +719,13 @@ operator|==
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|reader
+operator|instanceof
+name|SegmentReader
+condition|)
+block|{
 operator|(
 operator|(
 name|SegmentReader
@@ -731,6 +738,7 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+block|}
 name|fieldCache
 operator|=
 name|ConcurrentCollections

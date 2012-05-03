@@ -601,6 +601,13 @@ block|{
 comment|// no need, continue
 continue|continue;
 block|}
+if|if
+condition|(
+name|reader
+operator|instanceof
+name|SegmentReader
+condition|)
+block|{
 operator|(
 operator|(
 name|SegmentReader
@@ -613,6 +620,7 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+block|}
 name|HashMap
 argument_list|<
 name|String

@@ -1515,7 +1515,7 @@ block|}
 block|}
 block|}
 DECL|method|addQuery
-specifier|public
+specifier|private
 specifier|synchronized
 name|void
 name|addQuery
@@ -2288,6 +2288,8 @@ name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
+try|try
+block|{
 if|if
 condition|(
 name|request
@@ -2525,6 +2527,10 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+block|}
+finally|finally
+block|{
+comment|// explicitly clear the reader, since we can only register on callback on SegmentReader
 name|indexCache
 operator|.
 name|clear
@@ -2535,6 +2541,7 @@ name|getIndexReader
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 operator|new
 name|Response

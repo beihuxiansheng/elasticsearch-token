@@ -646,6 +646,13 @@ operator|=
 name|buildFieldDataMap
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|reader
+operator|instanceof
+name|SegmentReader
+condition|)
+block|{
 operator|(
 operator|(
 name|SegmentReader
@@ -658,6 +665,7 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+block|}
 name|cache
 operator|.
 name|put
