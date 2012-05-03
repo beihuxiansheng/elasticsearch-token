@@ -756,10 +756,10 @@ operator|.
 name|listedNodes
 return|;
 block|}
-DECL|method|addTransportAddress
+DECL|method|addTransportAddresses
 specifier|public
 name|TransportClientNodesService
-name|addTransportAddress
+name|addTransportAddresses
 parameter_list|(
 name|TransportAddress
 modifier|...
