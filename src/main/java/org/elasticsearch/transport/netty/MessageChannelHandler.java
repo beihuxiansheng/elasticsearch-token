@@ -705,13 +705,6 @@ condition|(
 name|cumulationBuffer
 condition|)
 block|{
-assert|assert
-name|buffer
-operator|==
-name|this
-operator|.
-name|cumulation
-assert|;
 if|if
 condition|(
 operator|!

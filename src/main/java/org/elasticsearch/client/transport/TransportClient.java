@@ -1066,6 +1066,23 @@ name|connectedNodes
 argument_list|()
 return|;
 block|}
+comment|/**      * Returns the listed nodes in the transport client (ones added to it).      */
+DECL|method|listedNodes
+specifier|public
+name|ImmutableList
+argument_list|<
+name|DiscoveryNode
+argument_list|>
+name|listedNodes
+parameter_list|()
+block|{
+return|return
+name|nodesService
+operator|.
+name|listedNodes
+argument_list|()
+return|;
+block|}
 comment|/**      * Adds a transport address that will be used to connect to.      *<p/>      *<p>The Node this transport address represents will be used if its possible to connect to it.      * If it is unavailable, it will be automatically connected to once it is up.      *<p/>      *<p>In order to get the list of all the current connected nodes, please see {@link #connectedNodes()}.      */
 DECL|method|addTransportAddress
 specifier|public
@@ -1073,6 +1090,7 @@ name|TransportClient
 name|addTransportAddress
 parameter_list|(
 name|TransportAddress
+modifier|...
 name|transportAddress
 parameter_list|)
 block|{
