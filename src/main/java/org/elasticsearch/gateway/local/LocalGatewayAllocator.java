@@ -1026,9 +1026,16 @@ name|get
 argument_list|(
 literal|"index.recovery.initial_shards"
 argument_list|,
+name|settings
+operator|.
+name|get
+argument_list|(
+literal|"index.recovery.initial_shards"
+argument_list|,
 name|this
 operator|.
 name|initialShards
+argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
