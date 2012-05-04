@@ -405,7 +405,14 @@ name|getAsBoolean
 argument_list|(
 literal|"index.warm.enabled"
 argument_list|,
+name|settings
+operator|.
+name|getAsBoolean
+argument_list|(
+literal|"index.warm.enabled"
+argument_list|,
 literal|true
+argument_list|)
 argument_list|)
 condition|)
 block|{
