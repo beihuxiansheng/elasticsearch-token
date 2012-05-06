@@ -66,6 +66,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|BytesHolder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|io
 operator|.
 name|FastStringReader
@@ -113,7 +125,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A JSON based content implementation using Jackson.  *  *  */
+comment|/**  * A JSON based content implementation using Jackson.  */
 end_comment
 
 begin_class
@@ -391,6 +403,39 @@ name|offset
 argument_list|,
 name|length
 argument_list|)
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|createParser
+specifier|public
+name|XContentParser
+name|createParser
+parameter_list|(
+name|BytesHolder
+name|bytes
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+return|return
+name|createParser
+argument_list|(
+name|bytes
+operator|.
+name|bytes
+argument_list|()
+argument_list|,
+name|bytes
+operator|.
+name|offset
+argument_list|()
+argument_list|,
+name|bytes
+operator|.
+name|length
+argument_list|()
 argument_list|)
 return|;
 block|}

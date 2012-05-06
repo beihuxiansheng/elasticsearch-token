@@ -629,7 +629,7 @@ return|;
 block|}
 DECL|method|types
 specifier|public
-name|void
+name|InternalSearchRequest
 name|types
 parameter_list|(
 name|String
@@ -643,6 +643,9 @@ name|types
 operator|=
 name|types
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 annotation|@
 name|Override

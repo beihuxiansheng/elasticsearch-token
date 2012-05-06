@@ -58,6 +58,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|BytesHolder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|xcontent
 operator|.
 name|json
@@ -123,7 +135,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A one stop to use {@link org.elasticsearch.common.xcontent.XContent} and {@link XContentBuilder}.  *  *  */
+comment|/**  * A one stop to use {@link org.elasticsearch.common.xcontent.XContent} and {@link XContentBuilder}.  */
 end_comment
 
 begin_class
@@ -537,6 +549,37 @@ argument_list|,
 name|data
 operator|.
 name|length
+argument_list|)
+return|;
+block|}
+comment|/**      * Guesses the content type based on the provided bytes.      */
+DECL|method|xContent
+specifier|public
+specifier|static
+name|XContent
+name|xContent
+parameter_list|(
+name|BytesHolder
+name|bytes
+parameter_list|)
+block|{
+return|return
+name|xContent
+argument_list|(
+name|bytes
+operator|.
+name|bytes
+argument_list|()
+argument_list|,
+name|bytes
+operator|.
+name|offset
+argument_list|()
+argument_list|,
+name|bytes
+operator|.
+name|length
+argument_list|()
 argument_list|)
 return|;
 block|}

@@ -18,6 +18,18 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|BytesHolder
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -27,7 +39,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A generic abstraction on top of handling content, inspired by JSON and pull parsing.  *  *  */
+comment|/**  * A generic abstraction on top of handling content, inspired by JSON and pull parsing.  */
 end_comment
 
 begin_interface
@@ -117,6 +129,17 @@ name|offset
 parameter_list|,
 name|int
 name|length
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
+comment|/**      * Creates a parser over the provided bytes.      */
+DECL|method|createParser
+name|XContentParser
+name|createParser
+parameter_list|(
+name|BytesHolder
+name|bytes
 parameter_list|)
 throws|throws
 name|IOException
