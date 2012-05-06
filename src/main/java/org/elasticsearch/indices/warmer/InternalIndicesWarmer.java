@@ -403,13 +403,13 @@ argument_list|()
 operator|.
 name|getAsBoolean
 argument_list|(
-literal|"index.warm.enabled"
+literal|"index.warmer.enabled"
 argument_list|,
 name|settings
 operator|.
 name|getAsBoolean
 argument_list|(
-literal|"index.warm.enabled"
+literal|"index.warmer.enabled"
 argument_list|,
 literal|true
 argument_list|)
