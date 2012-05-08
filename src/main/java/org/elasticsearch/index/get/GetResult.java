@@ -1357,17 +1357,6 @@ name|version
 argument_list|)
 expr_stmt|;
 block|}
-name|builder
-operator|.
-name|field
-argument_list|(
-name|Fields
-operator|.
-name|EXISTS
-argument_list|,
-literal|true
-argument_list|)
-expr_stmt|;
 name|toXContentEmbedded
 argument_list|(
 name|builder
