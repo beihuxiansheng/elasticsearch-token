@@ -54,7 +54,9 @@ name|index
 operator|.
 name|shard
 operator|.
-name|ShardId
+name|service
+operator|.
+name|IndexShard
 import|;
 end_import
 
@@ -82,8 +84,8 @@ DECL|method|warm
 name|void
 name|warm
 parameter_list|(
-name|ShardId
-name|shardId
+name|IndexShard
+name|indexShard
 parameter_list|,
 name|IndexMetaData
 name|indexMetaData
