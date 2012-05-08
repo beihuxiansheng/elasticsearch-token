@@ -1250,7 +1250,7 @@ name|add
 argument_list|(
 name|Tuple
 operator|.
-name|create
+name|tuple
 argument_list|(
 name|indexRequest
 operator|.

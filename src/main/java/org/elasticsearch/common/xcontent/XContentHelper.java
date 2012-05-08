@@ -440,7 +440,7 @@ block|{
 return|return
 name|Tuple
 operator|.
-name|create
+name|tuple
 argument_list|(
 name|contentType
 argument_list|,
@@ -456,7 +456,7 @@ block|{
 return|return
 name|Tuple
 operator|.
-name|create
+name|tuple
 argument_list|(
 name|contentType
 argument_list|,
