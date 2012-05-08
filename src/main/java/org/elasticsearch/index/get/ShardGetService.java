@@ -2161,6 +2161,27 @@ argument_list|(
 name|field
 argument_list|)
 decl_stmt|;
+comment|// only if the field is stored or source is enabled we should add it..
+if|if
+condition|(
+name|docMapper
+operator|.
+name|sourceMapper
+argument_list|()
+operator|.
+name|enabled
+argument_list|()
+operator|||
+name|x
+operator|==
+literal|null
+operator|||
+name|x
+operator|.
+name|stored
+argument_list|()
+condition|)
+block|{
 name|value
 operator|=
 name|searchLookup
@@ -2196,6 +2217,7 @@ operator|)
 name|value
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
