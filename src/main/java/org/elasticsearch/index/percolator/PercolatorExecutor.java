@@ -2617,6 +2617,11 @@ operator|.
 name|ExistsCollector
 argument_list|()
 decl_stmt|;
+DECL|field|fieldData
+specifier|private
+name|FieldData
+name|fieldData
+decl_stmt|;
 DECL|method|QueryCollector
 name|QueryCollector
 parameter_list|(
@@ -2675,11 +2680,6 @@ operator|=
 name|matches
 expr_stmt|;
 block|}
-DECL|field|fieldData
-specifier|private
-name|FieldData
-name|fieldData
-decl_stmt|;
 annotation|@
 name|Override
 DECL|method|setScorer
@@ -2758,6 +2758,11 @@ block|}
 comment|// run the query
 try|try
 block|{
+name|collector
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
 name|searcher
 operator|.
 name|search
