@@ -1253,7 +1253,7 @@ name|queryParser
 init|=
 name|parseContext
 operator|.
-name|singleQueryParser
+name|queryParser
 argument_list|(
 name|qpSettings
 argument_list|)
