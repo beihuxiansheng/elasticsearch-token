@@ -605,6 +605,7 @@ literal|"Shutdown is disabled"
 argument_list|)
 throw|;
 block|}
+specifier|final
 name|Set
 argument_list|<
 name|DiscoveryNode
@@ -734,10 +735,7 @@ init|=
 operator|new
 name|CountDownLatch
 argument_list|(
-name|state
-operator|.
 name|nodes
-argument_list|()
 operator|.
 name|size
 argument_list|()
@@ -749,10 +747,7 @@ specifier|final
 name|DiscoveryNode
 name|node
 range|:
-name|state
-operator|.
 name|nodes
-argument_list|()
 control|)
 block|{
 if|if
