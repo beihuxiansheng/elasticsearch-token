@@ -506,6 +506,12 @@ name|Analyzer
 name|searchAnalyzer
 parameter_list|()
 function_decl|;
+comment|/**      * The analyzer that will be used for quoted search on the field.      */
+DECL|method|searchQuoteAnalyzer
+name|Analyzer
+name|searchQuoteAnalyzer
+parameter_list|()
+function_decl|;
 comment|/**      * Returns the value that will be used as a result for search. Can be only of specific types... .      */
 DECL|method|valueForSearch
 name|Object

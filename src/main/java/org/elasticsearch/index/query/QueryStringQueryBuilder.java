@@ -93,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A query that parses a query string and runs it. There are two modes that this operates. The first,  * when no field is added (using {@link #field(String)}, will run the query once and non prefixed fields  * will use the {@link #defaultField(String)} set. The second, when one or more fields are added  * (using {@link #field(String)}), will run the parsed query against the provided fields, and combine  * them either using DisMax or a plain boolean query (see {@link #useDisMax(boolean)}).  *  * (shay.baon)  */
+comment|/**  * A query that parses a query string and runs it. There are two modes that this operates. The first,  * when no field is added (using {@link #field(String)}, will run the query once and non prefixed fields  * will use the {@link #defaultField(String)} set. The second, when one or more fields are added  * (using {@link #field(String)}), will run the parsed query against the provided fields, and combine  * them either using DisMax or a plain boolean query (see {@link #useDisMax(boolean)}).  *<p/>  * (shay.baon)  */
 end_comment
 
 begin_class
@@ -136,6 +136,16 @@ DECL|field|analyzer
 specifier|private
 name|String
 name|analyzer
+decl_stmt|;
+DECL|field|quoteAnalyzer
+specifier|private
+name|String
+name|quoteAnalyzer
+decl_stmt|;
+DECL|field|quoteFieldSuffix
+specifier|private
+name|String
+name|quoteFieldSuffix
 decl_stmt|;
 DECL|field|autoGeneratePhraseQueries
 specifier|private
@@ -458,6 +468,26 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The optional analyzer used to analyze the query string for phrase searches. Note, if a field has search (quote) analyzer      * defined for it, then it will be used automatically. Defaults to the smart search analyzer.      */
+DECL|method|quoteAnalyzer
+specifier|public
+name|QueryStringQueryBuilder
+name|quoteAnalyzer
+parameter_list|(
+name|String
+name|analyzer
+parameter_list|)
+block|{
+name|this
+operator|.
+name|quoteAnalyzer
+operator|=
+name|analyzer
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Set to true if phrase queries will be automatically generated      * when the analyzer returns more than one term from whitespace      * delimited text.      * NOTE: this behavior may not be suitable for all languages.      *<p/>      * Set to false if phrase queries should only be generated when      * surrounded by double quotes.      */
 DECL|method|autoGeneratePhraseQueries
 specifier|public
@@ -676,6 +706,26 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * An optional field name suffix to automatically try and add to the field searched when using quoted text.      */
+DECL|method|quoteFieldSuffix
+specifier|public
+name|QueryStringQueryBuilder
+name|quoteFieldSuffix
+parameter_list|(
+name|String
+name|quoteFieldSuffix
+parameter_list|)
+block|{
+name|this
+operator|.
+name|quoteFieldSuffix
+operator|=
+name|quoteFieldSuffix
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|doXContent
@@ -878,6 +928,23 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|quoteAnalyzer
+operator|!=
+literal|null
+condition|)
+block|{
+name|builder
+operator|.
+name|field
+argument_list|(
+literal|"quote_analyzer"
+argument_list|,
+name|quoteAnalyzer
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|autoGeneratePhraseQueries
 operator|!=
 literal|null
@@ -1064,6 +1131,23 @@ argument_list|(
 literal|"minimum_should_match"
 argument_list|,
 name|minimumShouldMatch
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|quoteFieldSuffix
+operator|!=
+literal|null
+condition|)
+block|{
+name|builder
+operator|.
+name|field
+argument_list|(
+literal|"quote_field_suffix"
+argument_list|,
+name|quoteFieldSuffix
 argument_list|)
 expr_stmt|;
 block|}
