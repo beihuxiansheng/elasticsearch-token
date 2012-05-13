@@ -1129,6 +1129,54 @@ operator|.
 name|newHashMap
 argument_list|()
 decl_stmt|;
+comment|// if its a _percolator index, don't index the query object
+if|if
+condition|(
+name|request
+operator|.
+name|index
+operator|.
+name|equals
+argument_list|(
+name|PercolatorService
+operator|.
+name|INDEX_NAME
+argument_list|)
+condition|)
+block|{
+name|mappings
+operator|.
+name|put
+argument_list|(
+name|MapperService
+operator|.
+name|DEFAULT_MAPPING
+argument_list|,
+name|parseMapping
+argument_list|(
+literal|"{\n"
+operator|+
+literal|"    \"_default_\":{\n"
+operator|+
+literal|"        \"properties\" : {\n"
+operator|+
+literal|"            \"query\" : {\n"
+operator|+
+literal|"                \"type\" : \"object\",\n"
+operator|+
+literal|"                \"enabled\" : false\n"
+operator|+
+literal|"            }\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"}"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 for|for
 control|(
 name|Map
