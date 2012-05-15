@@ -16,6 +16,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ExceptionsHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|Version
 import|;
 end_import
@@ -1441,9 +1451,17 @@ literal|"failed to extract plugin ["
 operator|+
 name|pluginFile
 operator|+
-literal|"]"
+literal|"]: "
+operator|+
+name|ExceptionsHelper
+operator|.
+name|detailedMessage
+argument_list|(
+name|e
+argument_list|)
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
 finally|finally
 block|{
