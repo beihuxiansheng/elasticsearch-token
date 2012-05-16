@@ -229,6 +229,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the parent id of this document. Will simply set the routing to this value, as it is only      * used for routing with delete requests.      */
+DECL|method|setParent
+specifier|public
+name|DeleteRequestBuilder
+name|setParent
+parameter_list|(
+name|String
+name|parent
+parameter_list|)
+block|{
+name|request
+operator|.
+name|parent
+argument_list|(
+name|parent
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Controls the shard routing of the delete request. Using this value to hash the shard      * and not the id.      */
 DECL|method|setRouting
 specifier|public
