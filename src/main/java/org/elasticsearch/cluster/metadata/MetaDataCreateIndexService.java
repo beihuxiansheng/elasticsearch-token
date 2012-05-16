@@ -3250,6 +3250,8 @@ name|warn
 argument_list|(
 literal|"[{}] failed to read template [{}] from config"
 argument_list|,
+name|e
+argument_list|,
 name|request
 operator|.
 name|index
