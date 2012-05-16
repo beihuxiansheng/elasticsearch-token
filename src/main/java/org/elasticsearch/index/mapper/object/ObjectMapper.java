@@ -1617,6 +1617,36 @@ operator|.
 name|CONTENT_TYPE
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|propNode
+operator|.
+name|size
+argument_list|()
+operator|==
+literal|1
+operator|&&
+name|propNode
+operator|.
+name|get
+argument_list|(
+literal|"enabled"
+argument_list|)
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// if there is a single property with the enabled flag on it, make it an object
+comment|// (usually, setting enabled to false to not index any type, including core values, which
+comment|// non enabled object type supports).
+name|type
+operator|=
+name|ObjectMapper
+operator|.
+name|CONTENT_TYPE
+expr_stmt|;
+block|}
 else|else
 block|{
 throw|throw
