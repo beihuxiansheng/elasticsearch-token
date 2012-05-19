@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * An indexing listener for indexing, delete, events.  */
 end_comment
 
 begin_class
@@ -41,6 +41,7 @@ specifier|abstract
 class|class
 name|IndexingOperationListener
 block|{
+comment|/**      * Called before the indexing occurs.      */
 DECL|method|preCreate
 specifier|public
 name|Engine
@@ -58,6 +59,19 @@ return|return
 name|create
 return|;
 block|}
+comment|/**      * Called after the indexing occurs, under a locking scheme to maintain      * concurrent updates to the same doc.      *<p/>      * Note, long operations should not occur under this callback.      */
+DECL|method|postCreateUnderLock
+specifier|public
+name|void
+name|postCreateUnderLock
+parameter_list|(
+name|Engine
+operator|.
+name|Create
+name|create
+parameter_list|)
+block|{      }
+comment|/**      * Called after the indexing operation occurred.      */
 DECL|method|postCreate
 specifier|public
 name|void
@@ -69,6 +83,7 @@ name|Create
 name|create
 parameter_list|)
 block|{      }
+comment|/**      * Called before the indexing occurs.      */
 DECL|method|preIndex
 specifier|public
 name|Engine
@@ -86,6 +101,19 @@ return|return
 name|index
 return|;
 block|}
+comment|/**      * Called after the indexing occurs, under a locking scheme to maintain      * concurrent updates to the same doc.      *<p/>      * Note, long operations should not occur under this callback.      */
+DECL|method|postIndexUnderLock
+specifier|public
+name|void
+name|postIndexUnderLock
+parameter_list|(
+name|Engine
+operator|.
+name|Index
+name|index
+parameter_list|)
+block|{      }
+comment|/**      * Called after the indexing operation occurred.      */
 DECL|method|postIndex
 specifier|public
 name|void
@@ -97,6 +125,7 @@ name|Index
 name|index
 parameter_list|)
 block|{      }
+comment|/**      * Called before the delete occurs.      */
 DECL|method|preDelete
 specifier|public
 name|Engine
@@ -114,6 +143,19 @@ return|return
 name|delete
 return|;
 block|}
+comment|/**      * Called after the delete occurs, under a locking scheme to maintain      * concurrent updates to the same doc.      *<p/>      * Note, long operations should not occur under this callback.      */
+DECL|method|postDeleteUnderLock
+specifier|public
+name|void
+name|postDeleteUnderLock
+parameter_list|(
+name|Engine
+operator|.
+name|Delete
+name|delete
+parameter_list|)
+block|{      }
+comment|/**      * Called after the delete operation occurred.      */
 DECL|method|postDelete
 specifier|public
 name|void
