@@ -943,7 +943,7 @@ name|index
 argument_list|()
 argument_list|)
 operator|.
-name|mapping
+name|mappingOrDefault
 argument_list|(
 name|indexRequest
 operator|.
