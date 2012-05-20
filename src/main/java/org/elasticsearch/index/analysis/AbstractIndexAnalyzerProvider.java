@@ -262,10 +262,12 @@ name|logger
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Returns the injected name of the analyzer.      */
 annotation|@
 name|Override
 DECL|method|name
 specifier|public
+specifier|final
 name|String
 name|name
 parameter_list|()
@@ -280,6 +282,7 @@ annotation|@
 name|Override
 DECL|method|scope
 specifier|public
+specifier|final
 name|AnalyzerScope
 name|scope
 parameter_list|()
