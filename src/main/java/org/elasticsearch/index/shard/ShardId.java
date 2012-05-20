@@ -242,7 +242,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Index Shard ["
+literal|"["
 operator|+
 name|index
 operator|.

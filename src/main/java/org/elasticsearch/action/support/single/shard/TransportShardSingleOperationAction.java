@@ -734,14 +734,11 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-name|shardRouting
-operator|.
-name|shortSummary
-argument_list|()
-operator|+
-literal|": Failed to execute [{}]"
+literal|"{}: failed to execute [{}]"
 argument_list|,
 name|e
+argument_list|,
+name|shardRouting
 argument_list|,
 name|request
 argument_list|)
@@ -825,14 +822,14 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+literal|"{}: failed to execute [{}]"
+argument_list|,
+name|failure
+argument_list|,
 name|shardIt
 operator|.
 name|shardId
 argument_list|()
-operator|+
-literal|": Failed to execute [{}]"
-argument_list|,
-name|failure
 argument_list|,
 name|request
 argument_list|)
@@ -1233,7 +1230,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to send response for get"
+literal|"failed to send response for get"
 argument_list|,
 name|e1
 argument_list|)

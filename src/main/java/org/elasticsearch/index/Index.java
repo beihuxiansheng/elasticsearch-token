@@ -156,7 +156,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Index ["
+literal|"["
 operator|+
 name|name
 operator|+
