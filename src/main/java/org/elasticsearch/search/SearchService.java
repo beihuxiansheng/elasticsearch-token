@@ -4173,10 +4173,10 @@ parameter_list|,
 name|IndexMetaData
 name|indexMetaData
 parameter_list|,
-name|Engine
+name|IndicesWarmer
 operator|.
-name|Searcher
-name|search
+name|WarmerContext
+name|warmerContext
 parameter_list|)
 block|{
 name|IndexWarmersMetaData
@@ -4304,7 +4304,10 @@ name|createContext
 argument_list|(
 name|request
 argument_list|,
-name|search
+name|warmerContext
+operator|.
+name|newSearcher
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|queryPhase
