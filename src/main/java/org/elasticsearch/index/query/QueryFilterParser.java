@@ -151,6 +151,17 @@ operator|.
 name|parseInnerQuery
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|query
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 return|return
 operator|new
 name|QueryWrapperFilter

@@ -821,6 +821,8 @@ name|namedFilters
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Nullable
 DECL|method|parseInnerQuery
 specifier|public
 name|Query
@@ -1030,6 +1032,8 @@ return|return
 name|result
 return|;
 block|}
+annotation|@
+name|Nullable
 DECL|method|parseInnerFilter
 specifier|public
 name|Filter

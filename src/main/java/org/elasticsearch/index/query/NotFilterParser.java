@@ -177,6 +177,11 @@ init|=
 literal|null
 decl_stmt|;
 name|boolean
+name|filterFound
+init|=
+literal|false
+decl_stmt|;
+name|boolean
 name|cache
 init|=
 literal|false
@@ -269,9 +274,17 @@ operator|.
 name|parseInnerFilter
 argument_list|()
 expr_stmt|;
+name|filterFound
+operator|=
+literal|true
+expr_stmt|;
 block|}
 else|else
 block|{
+name|filterFound
+operator|=
+literal|true
+expr_stmt|;
 comment|// its the filter, and the name is the field
 name|filter
 operator|=
@@ -385,9 +398,8 @@ block|}
 block|}
 if|if
 condition|(
-name|filter
-operator|==
-literal|null
+operator|!
+name|filterFound
 condition|)
 block|{
 throw|throw
@@ -402,6 +414,17 @@ argument_list|,
 literal|"filter is required when using `not` filter"
 argument_list|)
 throw|;
+block|}
+if|if
+condition|(
+name|filter
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
 block|}
 name|Filter
 name|notFilter

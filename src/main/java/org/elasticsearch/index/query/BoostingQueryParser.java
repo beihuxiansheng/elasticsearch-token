@@ -156,10 +156,20 @@ name|positiveQuery
 init|=
 literal|null
 decl_stmt|;
+name|boolean
+name|positiveQueryFound
+init|=
+literal|false
+decl_stmt|;
 name|Query
 name|negativeQuery
 init|=
 literal|null
+decl_stmt|;
+name|boolean
+name|negativeQueryFound
+init|=
+literal|false
 decl_stmt|;
 name|float
 name|boost
@@ -249,6 +259,10 @@ operator|.
 name|parseInnerQuery
 argument_list|()
 expr_stmt|;
+name|positiveQueryFound
+operator|=
+literal|true
+expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -267,6 +281,10 @@ name|parseContext
 operator|.
 name|parseInnerQuery
 argument_list|()
+expr_stmt|;
+name|negativeQueryFound
+operator|=
+literal|true
 expr_stmt|;
 block|}
 else|else
@@ -368,6 +386,9 @@ condition|(
 name|positiveQuery
 operator|==
 literal|null
+operator|&&
+operator|!
+name|positiveQueryFound
 condition|)
 block|{
 throw|throw
@@ -388,6 +409,9 @@ condition|(
 name|negativeQuery
 operator|==
 literal|null
+operator|&&
+operator|!
+name|negativeQueryFound
 condition|)
 block|{
 throw|throw
@@ -423,6 +447,22 @@ argument_list|,
 literal|"[boosting] query requires 'negative_boost' to be set'"
 argument_list|)
 throw|;
+block|}
+comment|// parsers returned null
+if|if
+condition|(
+name|positiveQuery
+operator|==
+literal|null
+operator|||
+name|negativeQuery
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
 block|}
 name|BoostingQuery
 name|boostingQuery

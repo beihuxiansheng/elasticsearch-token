@@ -32,6 +32,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|Nullable
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -57,7 +69,9 @@ index|[]
 name|names
 parameter_list|()
 function_decl|;
-comment|/**      * Parses the into a query from the current parser location. Will be at "START_OBJECT" location,      * and should end when the token is at the matching "END_OBJECT".      */
+comment|/**      * Parses the into a query from the current parser location. Will be at "START_OBJECT" location,      * and should end when the token is at the matching "END_OBJECT".      *<p/>      * Returns<tt>null</tt> if this query should be ignored in the context of the DSL.      */
+annotation|@
+name|Nullable
 DECL|method|parse
 name|Query
 name|parse

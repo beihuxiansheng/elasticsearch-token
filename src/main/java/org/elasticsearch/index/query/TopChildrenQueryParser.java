@@ -219,6 +219,11 @@ name|query
 init|=
 literal|null
 decl_stmt|;
+name|boolean
+name|queryFound
+init|=
+literal|false
+decl_stmt|;
 name|float
 name|boost
 init|=
@@ -324,6 +329,10 @@ name|currentFieldName
 argument_list|)
 condition|)
 block|{
+name|queryFound
+operator|=
+literal|true
+expr_stmt|;
 comment|// TODO we need to set the type, but, `query` can come before `type`... (see HasChildFilterParser)
 comment|// since we switch types, make sure we change the context
 name|String
@@ -548,9 +557,8 @@ block|}
 block|}
 if|if
 condition|(
-name|query
-operator|==
-literal|null
+operator|!
+name|queryFound
 condition|)
 block|{
 throw|throw
@@ -585,6 +593,17 @@ argument_list|,
 literal|"[child] requires 'type' field"
 argument_list|)
 throw|;
+block|}
+if|if
+condition|(
+name|query
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
 block|}
 name|DocumentMapper
 name|childDocMapper

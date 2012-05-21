@@ -254,6 +254,11 @@ name|filter
 init|=
 literal|null
 decl_stmt|;
+name|boolean
+name|filterFound
+init|=
+literal|false
+decl_stmt|;
 name|Set
 argument_list|<
 name|String
@@ -341,6 +346,10 @@ name|currentFieldName
 argument_list|)
 condition|)
 block|{
+name|filterFound
+operator|=
+literal|true
+expr_stmt|;
 name|filter
 operator|=
 name|parseContext
@@ -593,9 +602,8 @@ block|}
 block|}
 if|if
 condition|(
-name|filter
-operator|==
-literal|null
+operator|!
+name|filterFound
 condition|)
 block|{
 throw|throw
@@ -631,6 +639,17 @@ argument_list|,
 literal|"[indices] requires 'indices' element"
 argument_list|)
 throw|;
+block|}
+if|if
+condition|(
+name|filter
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
 block|}
 name|String
 index|[]

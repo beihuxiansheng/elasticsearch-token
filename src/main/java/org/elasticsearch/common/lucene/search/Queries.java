@@ -104,6 +104,17 @@ name|MatchAllDocsFilter
 argument_list|()
 argument_list|)
 decl_stmt|;
+DECL|field|NO_MATCH_QUERY
+specifier|public
+specifier|final
+specifier|static
+name|Query
+name|NO_MATCH_QUERY
+init|=
+name|MatchNoDocsQuery
+operator|.
+name|INSTANCE
+decl_stmt|;
 comment|/**      * A match all docs filter. Note, requires no caching!.      */
 DECL|field|MATCH_ALL_FILTER
 specifier|public

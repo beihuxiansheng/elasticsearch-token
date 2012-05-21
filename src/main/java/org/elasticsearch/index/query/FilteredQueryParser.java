@@ -218,10 +218,20 @@ name|query
 init|=
 literal|null
 decl_stmt|;
+name|boolean
+name|queryFound
+init|=
+literal|false
+decl_stmt|;
 name|Filter
 name|filter
 init|=
 literal|null
+decl_stmt|;
+name|boolean
+name|filterFound
+init|=
+literal|false
 decl_stmt|;
 name|float
 name|boost
@@ -309,6 +319,10 @@ name|currentFieldName
 argument_list|)
 condition|)
 block|{
+name|queryFound
+operator|=
+literal|true
+expr_stmt|;
 name|query
 operator|=
 name|parseContext
@@ -328,6 +342,10 @@ name|currentFieldName
 argument_list|)
 condition|)
 block|{
+name|filterFound
+operator|=
+literal|true
+expr_stmt|;
 name|filter
 operator|=
 name|parseContext
@@ -457,9 +475,8 @@ block|}
 block|}
 if|if
 condition|(
-name|query
-operator|==
-literal|null
+operator|!
+name|queryFound
 condition|)
 block|{
 throw|throw
@@ -475,7 +492,17 @@ literal|"[filtered] requires 'query' element"
 argument_list|)
 throw|;
 block|}
-comment|// we allow for null filter, so it makes compositions on the client side to be simpler
+if|if
+condition|(
+name|query
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 if|if
 condition|(
 name|filter
@@ -483,9 +510,27 @@ operator|==
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+operator|!
+name|filterFound
+condition|)
+block|{
+comment|// we allow for null filter, so it makes compositions on the client side to be simpler
 return|return
 name|query
 return|;
+block|}
+else|else
+block|{
+comment|// the filter was provided, but returned null, meaning we should discard it, this means no
+comment|// matches for this query...
+return|return
+name|Queries
+operator|.
+name|NO_MATCH_QUERY
+return|;
+block|}
 block|}
 comment|// cache if required
 if|if

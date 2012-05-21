@@ -270,6 +270,11 @@ name|query
 init|=
 literal|null
 decl_stmt|;
+name|boolean
+name|queryFound
+init|=
+literal|false
+decl_stmt|;
 name|Set
 argument_list|<
 name|String
@@ -363,6 +368,10 @@ name|parseContext
 operator|.
 name|parseInnerQuery
 argument_list|()
+expr_stmt|;
+name|queryFound
+operator|=
+literal|true
 expr_stmt|;
 block|}
 elseif|else
@@ -609,9 +618,8 @@ block|}
 block|}
 if|if
 condition|(
-name|query
-operator|==
-literal|null
+operator|!
+name|queryFound
 condition|)
 block|{
 throw|throw
@@ -626,6 +634,17 @@ argument_list|,
 literal|"[indices] requires 'query' element"
 argument_list|)
 throw|;
+block|}
+if|if
+condition|(
+name|query
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
 block|}
 if|if
 condition|(

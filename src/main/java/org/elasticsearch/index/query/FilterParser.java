@@ -32,6 +32,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|Nullable
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -58,6 +70,8 @@ name|names
 parameter_list|()
 function_decl|;
 comment|/**      * Parses the into a filter from the current parser location. Will be at "START_OBJECT" location,      * and should end when the token is at the matching "END_OBJECT".      */
+annotation|@
+name|Nullable
 DECL|method|parse
 name|Filter
 name|parse

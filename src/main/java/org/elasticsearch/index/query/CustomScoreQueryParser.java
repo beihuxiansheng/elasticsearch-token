@@ -247,6 +247,11 @@ name|query
 init|=
 literal|null
 decl_stmt|;
+name|boolean
+name|queryFound
+init|=
+literal|false
+decl_stmt|;
 name|float
 name|boost
 init|=
@@ -347,6 +352,10 @@ name|parseContext
 operator|.
 name|parseInnerQuery
 argument_list|()
+expr_stmt|;
+name|queryFound
+operator|=
+literal|true
 expr_stmt|;
 block|}
 elseif|else
@@ -476,9 +485,8 @@ block|}
 block|}
 if|if
 condition|(
-name|query
-operator|==
-literal|null
+operator|!
+name|queryFound
 condition|)
 block|{
 throw|throw
@@ -513,6 +521,17 @@ argument_list|,
 literal|"[custom_score] requires 'script' field"
 argument_list|)
 throw|;
+block|}
+if|if
+condition|(
+name|query
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
 block|}
 name|SearchScript
 name|searchScript
