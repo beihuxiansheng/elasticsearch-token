@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Constructs a filter that only match on documents that the field has a value in them.  *  *  */
+comment|/**  * Constructs a filter that only match on documents that the field has a value in them.  */
 end_comment
 
 begin_class
@@ -62,6 +62,16 @@ specifier|private
 name|String
 name|filterName
 decl_stmt|;
+DECL|field|nullValue
+specifier|private
+name|Boolean
+name|nullValue
+decl_stmt|;
+DECL|field|existence
+specifier|private
+name|Boolean
+name|existence
+decl_stmt|;
 DECL|method|MissingFilterBuilder
 specifier|public
 name|MissingFilterBuilder
@@ -76,6 +86,46 @@ name|name
 operator|=
 name|name
 expr_stmt|;
+block|}
+comment|/**      * Should the missing filter automatically include fields with null value configured in the      * mappings. Defaults to<tt>false</tt>.      */
+DECL|method|nullValue
+specifier|public
+name|MissingFilterBuilder
+name|nullValue
+parameter_list|(
+name|boolean
+name|nullValue
+parameter_list|)
+block|{
+name|this
+operator|.
+name|nullValue
+operator|=
+name|nullValue
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Should hte missing filter include documents where the field doesn't exists in the docs.      * Defaults to<tt>true</tt>.      */
+DECL|method|existence
+specifier|public
+name|MissingFilterBuilder
+name|existence
+parameter_list|(
+name|boolean
+name|existence
+parameter_list|)
+block|{
+name|this
+operator|.
+name|existence
+operator|=
+name|existence
+expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**      * Sets the filter name for the filter that can be used when searching for matched_filters per hit.      */
 DECL|method|filterName
@@ -131,6 +181,40 @@ argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|nullValue
+operator|!=
+literal|null
+condition|)
+block|{
+name|builder
+operator|.
+name|field
+argument_list|(
+literal|"null_value"
+argument_list|,
+name|nullValue
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|existence
+operator|!=
+literal|null
+condition|)
+block|{
+name|builder
+operator|.
+name|field
+argument_list|(
+literal|"existence"
+argument_list|,
+name|existence
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|filterName

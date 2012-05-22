@@ -711,6 +711,14 @@ name|QueryParseContext
 name|context
 parameter_list|)
 function_decl|;
+comment|/**      * Null value filter, returns<tt>null</tt> if there is no null value associated with the field.      */
+annotation|@
+name|Nullable
+DECL|method|nullValueFilter
+name|Filter
+name|nullValueFilter
+parameter_list|()
+function_decl|;
 DECL|method|fieldDataType
 name|FieldDataType
 name|fieldDataType
