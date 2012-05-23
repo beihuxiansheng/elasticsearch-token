@@ -857,6 +857,12 @@ argument_list|(
 name|request
 argument_list|,
 name|foundAny
+operator|||
+name|indices
+operator|.
+name|length
+operator|==
+literal|0
 condition|?
 name|OK
 else|:
