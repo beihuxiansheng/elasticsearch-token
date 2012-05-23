@@ -534,6 +534,15 @@ name|value
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|QueryParsers
+operator|.
+name|setRewriteMethod
+argument_list|(
+name|query
+argument_list|,
+name|rewriteMethod
+argument_list|)
+expr_stmt|;
 name|query
 operator|.
 name|setRewriteMethod

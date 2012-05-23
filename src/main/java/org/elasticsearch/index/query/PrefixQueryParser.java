@@ -500,6 +500,8 @@ operator|.
 name|parseRewriteMethod
 argument_list|(
 name|rewriteMethod
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|Query
