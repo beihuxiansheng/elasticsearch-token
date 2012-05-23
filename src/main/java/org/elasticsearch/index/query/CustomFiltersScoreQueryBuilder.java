@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A query that uses a filters with a script associated with them to compute the score.  *  *  */
+comment|/**  * A query that uses a filters with a script associated with them to compute the score.  */
 end_comment
 
 begin_class
@@ -118,6 +118,11 @@ name|boost
 init|=
 operator|-
 literal|1
+decl_stmt|;
+DECL|field|maxBoost
+specifier|private
+name|Float
+name|maxBoost
 decl_stmt|;
 DECL|field|params
 specifier|private
@@ -404,6 +409,25 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|maxBoost
+specifier|public
+name|CustomFiltersScoreQueryBuilder
+name|maxBoost
+parameter_list|(
+name|float
+name|maxBoost
+parameter_list|)
+block|{
+name|this
+operator|.
+name|maxBoost
+operator|=
+name|maxBoost
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Sets the boost for this query.  Documents matching this query will (in addition to the normal      * weightings) have their score multiplied by the boost provided.      */
 DECL|method|boost
 specifier|public
@@ -585,6 +609,23 @@ argument_list|(
 literal|"score_mode"
 argument_list|,
 name|scoreMode
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|maxBoost
+operator|!=
+literal|null
+condition|)
+block|{
+name|builder
+operator|.
+name|field
+argument_list|(
+literal|"max_boost"
+argument_list|,
+name|maxBoost
 argument_list|)
 expr_stmt|;
 block|}
