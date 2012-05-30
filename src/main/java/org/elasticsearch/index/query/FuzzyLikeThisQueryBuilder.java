@@ -51,6 +51,11 @@ class|class
 name|FuzzyLikeThisQueryBuilder
 extends|extends
 name|BaseQueryBuilder
+implements|implements
+name|BoostableQueryBuilder
+argument_list|<
+name|FuzzyLikeThisQueryBuilder
+argument_list|>
 block|{
 DECL|field|fields
 specifier|private

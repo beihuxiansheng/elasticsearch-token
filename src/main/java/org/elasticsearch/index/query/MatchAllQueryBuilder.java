@@ -51,6 +51,11 @@ class|class
 name|MatchAllQueryBuilder
 extends|extends
 name|BaseQueryBuilder
+implements|implements
+name|BoostableQueryBuilder
+argument_list|<
+name|MatchAllQueryBuilder
+argument_list|>
 block|{
 DECL|field|normsField
 specifier|private

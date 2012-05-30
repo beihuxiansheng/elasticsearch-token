@@ -51,6 +51,11 @@ class|class
 name|TermsQueryBuilder
 extends|extends
 name|BaseQueryBuilder
+implements|implements
+name|BoostableQueryBuilder
+argument_list|<
+name|TermsQueryBuilder
+argument_list|>
 block|{
 DECL|field|name
 specifier|private

@@ -63,6 +63,11 @@ class|class
 name|FilteredQueryBuilder
 extends|extends
 name|BaseQueryBuilder
+implements|implements
+name|BoostableQueryBuilder
+argument_list|<
+name|FilteredQueryBuilder
+argument_list|>
 block|{
 DECL|field|queryBuilder
 specifier|private

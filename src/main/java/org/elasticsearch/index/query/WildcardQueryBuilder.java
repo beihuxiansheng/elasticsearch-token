@@ -51,6 +51,11 @@ class|class
 name|WildcardQueryBuilder
 extends|extends
 name|BaseQueryBuilder
+implements|implements
+name|BoostableQueryBuilder
+argument_list|<
+name|WildcardQueryBuilder
+argument_list|>
 block|{
 DECL|field|name
 specifier|private

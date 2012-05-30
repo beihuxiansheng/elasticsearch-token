@@ -75,6 +75,11 @@ class|class
 name|CustomScoreQueryBuilder
 extends|extends
 name|BaseQueryBuilder
+implements|implements
+name|BoostableQueryBuilder
+argument_list|<
+name|CustomScoreQueryBuilder
+argument_list|>
 block|{
 DECL|field|queryBuilder
 specifier|private

@@ -71,6 +71,11 @@ class|class
 name|BoolQueryBuilder
 extends|extends
 name|BaseQueryBuilder
+implements|implements
+name|BoostableQueryBuilder
+argument_list|<
+name|BoolQueryBuilder
+argument_list|>
 block|{
 DECL|field|mustClauses
 specifier|private

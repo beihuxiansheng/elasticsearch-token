@@ -51,6 +51,11 @@ class|class
 name|TextQueryBuilder
 extends|extends
 name|BaseQueryBuilder
+implements|implements
+name|BoostableQueryBuilder
+argument_list|<
+name|TextQueryBuilder
+argument_list|>
 block|{
 DECL|enum|Operator
 specifier|public

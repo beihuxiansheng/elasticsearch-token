@@ -51,6 +51,11 @@ class|class
 name|MoreLikeThisFieldQueryBuilder
 extends|extends
 name|BaseQueryBuilder
+implements|implements
+name|BoostableQueryBuilder
+argument_list|<
+name|MoreLikeThisFieldQueryBuilder
+argument_list|>
 block|{
 DECL|field|name
 specifier|private

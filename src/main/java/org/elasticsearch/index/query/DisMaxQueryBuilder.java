@@ -77,6 +77,11 @@ class|class
 name|DisMaxQueryBuilder
 extends|extends
 name|BaseQueryBuilder
+implements|implements
+name|BoostableQueryBuilder
+argument_list|<
+name|DisMaxQueryBuilder
+argument_list|>
 block|{
 DECL|field|queries
 specifier|private

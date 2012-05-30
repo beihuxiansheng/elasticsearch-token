@@ -51,6 +51,11 @@ class|class
 name|RangeQueryBuilder
 extends|extends
 name|BaseQueryBuilder
+implements|implements
+name|BoostableQueryBuilder
+argument_list|<
+name|RangeQueryBuilder
+argument_list|>
 block|{
 DECL|field|name
 specifier|private

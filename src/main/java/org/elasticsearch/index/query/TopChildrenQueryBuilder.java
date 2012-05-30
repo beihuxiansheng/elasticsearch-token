@@ -51,6 +51,11 @@ class|class
 name|TopChildrenQueryBuilder
 extends|extends
 name|BaseQueryBuilder
+implements|implements
+name|BoostableQueryBuilder
+argument_list|<
+name|TopChildrenQueryBuilder
+argument_list|>
 block|{
 DECL|field|queryBuilder
 specifier|private

@@ -51,6 +51,11 @@ class|class
 name|BoostingQueryBuilder
 extends|extends
 name|BaseQueryBuilder
+implements|implements
+name|BoostableQueryBuilder
+argument_list|<
+name|BoostingQueryBuilder
+argument_list|>
 block|{
 DECL|field|positiveQuery
 specifier|private

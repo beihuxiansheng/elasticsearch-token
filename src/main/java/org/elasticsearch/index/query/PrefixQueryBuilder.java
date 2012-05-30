@@ -51,6 +51,11 @@ class|class
 name|PrefixQueryBuilder
 extends|extends
 name|BaseQueryBuilder
+implements|implements
+name|BoostableQueryBuilder
+argument_list|<
+name|PrefixQueryBuilder
+argument_list|>
 block|{
 DECL|field|name
 specifier|private

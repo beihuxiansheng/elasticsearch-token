@@ -103,6 +103,11 @@ class|class
 name|QueryStringQueryBuilder
 extends|extends
 name|BaseQueryBuilder
+implements|implements
+name|BoostableQueryBuilder
+argument_list|<
+name|QueryStringQueryBuilder
+argument_list|>
 block|{
 DECL|enum|Operator
 specifier|public

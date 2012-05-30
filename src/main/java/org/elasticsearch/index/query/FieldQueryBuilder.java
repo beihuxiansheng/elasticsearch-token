@@ -51,6 +51,11 @@ class|class
 name|FieldQueryBuilder
 extends|extends
 name|BaseQueryBuilder
+implements|implements
+name|BoostableQueryBuilder
+argument_list|<
+name|FieldQueryBuilder
+argument_list|>
 block|{
 DECL|enum|Operator
 specifier|public

@@ -63,6 +63,11 @@ extends|extends
 name|BaseQueryBuilder
 implements|implements
 name|SpanQueryBuilder
+implements|,
+name|BoostableQueryBuilder
+argument_list|<
+name|SpanNearQueryBuilder
+argument_list|>
 block|{
 DECL|field|clauses
 specifier|private

@@ -99,6 +99,11 @@ class|class
 name|CustomFiltersScoreQueryBuilder
 extends|extends
 name|BaseQueryBuilder
+implements|implements
+name|BoostableQueryBuilder
+argument_list|<
+name|CustomFiltersScoreQueryBuilder
+argument_list|>
 block|{
 DECL|field|queryBuilder
 specifier|private

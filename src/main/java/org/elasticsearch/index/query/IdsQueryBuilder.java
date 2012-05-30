@@ -81,6 +81,11 @@ class|class
 name|IdsQueryBuilder
 extends|extends
 name|BaseQueryBuilder
+implements|implements
+name|BoostableQueryBuilder
+argument_list|<
+name|IdsQueryBuilder
+argument_list|>
 block|{
 DECL|field|types
 specifier|private
