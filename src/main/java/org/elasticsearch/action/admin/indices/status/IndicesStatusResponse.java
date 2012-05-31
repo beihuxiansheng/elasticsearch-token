@@ -1926,7 +1926,7 @@ name|field
 argument_list|(
 name|Fields
 operator|.
-name|SIZE
+name|SIZE_IN_BYTES
 argument_list|,
 name|gatewayRecoveryStatus
 operator|.
