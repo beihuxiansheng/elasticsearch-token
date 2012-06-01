@@ -390,6 +390,13 @@ argument_list|(
 name|indices
 argument_list|)
 decl_stmt|;
+name|clusterStateRequest
+operator|.
+name|listenerThreaded
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 name|client
 operator|.
 name|admin

@@ -508,6 +508,14 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// no need for a threaded listener
+name|request
+operator|.
+name|listenerThreaded
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 name|execute
 argument_list|(
 name|request

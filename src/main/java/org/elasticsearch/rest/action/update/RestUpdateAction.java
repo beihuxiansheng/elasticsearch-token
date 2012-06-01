@@ -379,6 +379,13 @@ argument_list|)
 decl_stmt|;
 name|updateRequest
 operator|.
+name|listenerThreaded
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+name|updateRequest
+operator|.
 name|routing
 argument_list|(
 name|request
@@ -508,14 +515,6 @@ literal|"percolate"
 argument_list|,
 literal|null
 argument_list|)
-argument_list|)
-expr_stmt|;
-comment|// we just send a response, no need to fork
-name|updateRequest
-operator|.
-name|listenerThreaded
-argument_list|(
-literal|false
 argument_list|)
 expr_stmt|;
 name|updateRequest

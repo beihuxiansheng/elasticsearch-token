@@ -295,7 +295,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<pre>  * { "index" : { "_index" : "test", "_type" : "type1", "_id" : "1" }  * { "type1" : { "field1" : "value1" } }  * { "delete" : { "_index" : "test", "_type" : "type1", "_id" : "2" } }  * { "create" : { "_index" : "test", "_type" : "type1", "_id" : "1" }  * { "type1" : { "field1" : "value1" } }  *</pre>  *  *  */
+comment|/**  *<pre>  * { "index" : { "_index" : "test", "_type" : "type1", "_id" : "1" }  * { "type1" : { "field1" : "value1" } }  * { "delete" : { "_index" : "test", "_type" : "type1", "_id" : "2" } }  * { "create" : { "_index" : "test", "_type" : "type1", "_id" : "1" }  * { "type1" : { "field1" : "value1" } }  *</pre>  */
 end_comment
 
 begin_class
@@ -420,6 +420,13 @@ operator|.
 name|bulkRequest
 argument_list|()
 decl_stmt|;
+name|bulkRequest
+operator|.
+name|listenerThreaded
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 name|String
 name|defaultIndex
 init|=

@@ -259,6 +259,11 @@ operator|.
 name|clusterStateRequest
 argument_list|()
 operator|.
+name|listenerThreaded
+argument_list|(
+literal|false
+argument_list|)
+operator|.
 name|filterRoutingTable
 argument_list|(
 literal|true

@@ -445,7 +445,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|// we just send back a response, no need to fork a listener
 name|countRequest
 operator|.
 name|listenerThreaded

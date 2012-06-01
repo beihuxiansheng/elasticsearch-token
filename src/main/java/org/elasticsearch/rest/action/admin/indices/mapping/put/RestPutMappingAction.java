@@ -376,6 +376,13 @@ argument_list|)
 decl_stmt|;
 name|putMappingRequest
 operator|.
+name|listenerThreaded
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+name|putMappingRequest
+operator|.
 name|type
 argument_list|(
 name|request

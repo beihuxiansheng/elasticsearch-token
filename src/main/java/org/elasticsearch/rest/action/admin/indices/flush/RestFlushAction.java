@@ -373,7 +373,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|// we just send back a response, no need to fork a listener
 name|flushRequest
 operator|.
 name|listenerThreaded

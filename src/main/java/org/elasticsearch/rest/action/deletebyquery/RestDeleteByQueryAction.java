@@ -407,7 +407,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|// we just build a response and send it, no need to fork a thread
 name|deleteByQueryRequest
 operator|.
 name|listenerThreaded

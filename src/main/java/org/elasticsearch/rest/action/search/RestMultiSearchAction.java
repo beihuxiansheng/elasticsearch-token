@@ -353,6 +353,13 @@ operator|new
 name|MultiSearchRequest
 argument_list|()
 decl_stmt|;
+name|multiSearchRequest
+operator|.
+name|listenerThreaded
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 name|String
 index|[]
 name|indices

@@ -300,7 +300,6 @@ literal|"id"
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|// no need to have a threaded listener since we just send back a response
 name|getRequest
 operator|.
 name|listenerThreaded
@@ -308,7 +307,6 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
-comment|// if we have a local operation, execute it on a thread since we don't spawn
 name|getRequest
 operator|.
 name|operationThreaded

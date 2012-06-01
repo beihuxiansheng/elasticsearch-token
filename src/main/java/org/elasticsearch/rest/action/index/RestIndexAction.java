@@ -454,6 +454,20 @@ argument_list|)
 decl_stmt|;
 name|indexRequest
 operator|.
+name|listenerThreaded
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+name|indexRequest
+operator|.
+name|operationThreaded
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|indexRequest
+operator|.
 name|routing
 argument_list|(
 name|request
@@ -811,22 +825,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// we just send a response, no need to fork
-name|indexRequest
-operator|.
-name|listenerThreaded
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-comment|// we don't spawn, then fork if local
-name|indexRequest
-operator|.
-name|operationThreaded
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
 name|client
 operator|.
 name|index

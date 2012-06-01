@@ -162,7 +162,21 @@ name|rest
 operator|.
 name|RestStatus
 operator|.
-name|*
+name|NOT_FOUND
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|rest
+operator|.
+name|RestStatus
+operator|.
+name|OK
 import|;
 end_import
 
@@ -279,7 +293,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|// we just send back a response, no need to fork a listener
 name|indicesExistsRequest
 operator|.
 name|listenerThreaded

@@ -370,6 +370,13 @@ argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|updateSettingsRequest
+operator|.
+name|listenerThreaded
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 name|ImmutableSettings
 operator|.
 name|Builder

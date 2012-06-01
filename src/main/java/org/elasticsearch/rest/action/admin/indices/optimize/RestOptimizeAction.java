@@ -387,6 +387,13 @@ argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|optimizeRequest
+operator|.
+name|listenerThreaded
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|optimizeRequest
@@ -472,14 +479,6 @@ operator|.
 name|refresh
 argument_list|()
 argument_list|)
-argument_list|)
-expr_stmt|;
-comment|// we just send back a response, no need to fork a listener
-name|optimizeRequest
-operator|.
-name|listenerThreaded
-argument_list|(
-literal|false
 argument_list|)
 expr_stmt|;
 name|BroadcastOperationThreading

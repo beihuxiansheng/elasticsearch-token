@@ -375,6 +375,13 @@ argument_list|(
 name|scrollId
 argument_list|)
 decl_stmt|;
+name|searchScrollRequest
+operator|.
+name|listenerThreaded
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|String
@@ -411,13 +418,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|searchScrollRequest
-operator|.
-name|listenerThreaded
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 name|SearchOperationThreading
 name|operationThreading
 init|=

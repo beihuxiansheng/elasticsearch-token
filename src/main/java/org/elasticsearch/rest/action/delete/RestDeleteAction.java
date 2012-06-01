@@ -357,6 +357,20 @@ argument_list|)
 decl_stmt|;
 name|deleteRequest
 operator|.
+name|listenerThreaded
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+name|deleteRequest
+operator|.
+name|operationThreaded
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|deleteRequest
+operator|.
 name|parent
 argument_list|(
 name|request
@@ -422,22 +436,6 @@ name|parseVersion
 argument_list|(
 name|request
 argument_list|)
-argument_list|)
-expr_stmt|;
-comment|// we just send a response, no need to fork
-name|deleteRequest
-operator|.
-name|listenerThreaded
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-comment|// we don't spawn, then fork if local
-name|deleteRequest
-operator|.
-name|operationThreaded
-argument_list|(
-literal|true
 argument_list|)
 expr_stmt|;
 name|deleteRequest

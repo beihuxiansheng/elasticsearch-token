@@ -393,6 +393,13 @@ argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|clearIndicesCacheRequest
+operator|.
+name|listenerThreaded
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|clearIndicesCacheRequest
@@ -478,14 +485,6 @@ operator|.
 name|fields
 argument_list|()
 argument_list|)
-argument_list|)
-expr_stmt|;
-comment|// we just send back a response, no need to fork a listener
-name|clearIndicesCacheRequest
-operator|.
-name|listenerThreaded
-argument_list|(
-literal|false
 argument_list|)
 expr_stmt|;
 name|BroadcastOperationThreading

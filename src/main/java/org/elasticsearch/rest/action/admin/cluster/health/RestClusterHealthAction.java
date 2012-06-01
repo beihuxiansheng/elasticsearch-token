@@ -302,6 +302,13 @@ argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|clusterHealthRequest
+operator|.
+name|listenerThreaded
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 name|int
 name|level
 init|=

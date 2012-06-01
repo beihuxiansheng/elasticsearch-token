@@ -358,6 +358,13 @@ operator|new
 name|IndicesAliasesRequest
 argument_list|()
 decl_stmt|;
+name|indicesAliasesRequest
+operator|.
+name|listenerThreaded
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 comment|// {
