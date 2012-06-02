@@ -731,7 +731,7 @@ name|Loggers
 operator|.
 name|getLogger
 argument_list|(
-name|MonitorModule
+name|SigarService
 operator|.
 name|class
 argument_list|)
