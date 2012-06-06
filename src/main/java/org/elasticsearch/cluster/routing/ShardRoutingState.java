@@ -151,7 +151,7 @@ throw|throw
 operator|new
 name|ElasticSearchIllegalStateException
 argument_list|(
-literal|"No should routing state mapped for ["
+literal|"No routing state mapped for ["
 operator|+
 name|value
 operator|+
