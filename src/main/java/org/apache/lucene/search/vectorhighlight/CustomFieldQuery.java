@@ -711,14 +711,14 @@ if|if
 condition|(
 name|sourceFilter
 operator|instanceof
-name|PublicTermsFilter
+name|XTermsFilter
 condition|)
 block|{
-name|PublicTermsFilter
+name|XTermsFilter
 name|termsFilter
 init|=
 operator|(
-name|PublicTermsFilter
+name|XTermsFilter
 operator|)
 name|sourceFilter
 decl_stmt|;

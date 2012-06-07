@@ -98,7 +98,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|PublicTermsFilter
+name|Query
 import|;
 end_import
 
@@ -112,7 +112,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Query
+name|XTermsFilter
 import|;
 end_import
 
@@ -1173,12 +1173,29 @@ argument_list|)
 return|;
 block|}
 comment|// we use all types, cause we don't know if its exact or not...
-name|PublicTermsFilter
-name|filter
+name|Term
+index|[]
+name|typesTerms
 init|=
 operator|new
-name|PublicTermsFilter
+name|Term
+index|[
+name|context
+operator|.
+name|mapperService
 argument_list|()
+operator|.
+name|types
+argument_list|()
+operator|.
+name|size
+argument_list|()
+index|]
+decl_stmt|;
+name|int
+name|i
+init|=
+literal|0
 decl_stmt|;
 for|for
 control|(
@@ -1194,10 +1211,12 @@ name|types
 argument_list|()
 control|)
 block|{
-name|filter
-operator|.
-name|addTerm
-argument_list|(
+name|typesTerms
+index|[
+name|i
+operator|++
+index|]
+operator|=
 name|names
 operator|.
 name|createIndexNameTerm
@@ -1211,11 +1230,14 @@ argument_list|,
 name|value
 argument_list|)
 argument_list|)
-argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|filter
+operator|new
+name|XTermsFilter
+argument_list|(
+name|typesTerms
+argument_list|)
 return|;
 block|}
 comment|/**      * We don't need to analyzer the text, and we need to convert it to UID...      */
