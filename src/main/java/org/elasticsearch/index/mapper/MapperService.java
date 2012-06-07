@@ -5212,7 +5212,7 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
-name|searchAnalyzer
+name|searchQuoteAnalyzer
 argument_list|()
 operator|!=
 literal|null
@@ -5260,7 +5260,7 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
-name|searchAnalyzer
+name|searchQuoteAnalyzer
 argument_list|()
 operator|!=
 literal|null
@@ -5400,7 +5400,7 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
-name|searchAnalyzer
+name|searchQuoteAnalyzer
 argument_list|()
 operator|!=
 literal|null
@@ -5448,7 +5448,7 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
-name|searchAnalyzer
+name|searchQuoteAnalyzer
 argument_list|()
 operator|!=
 literal|null
@@ -5586,7 +5586,7 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
-name|searchAnalyzer
+name|searchQuoteAnalyzer
 argument_list|()
 operator|!=
 literal|null
@@ -5636,7 +5636,7 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
-name|searchAnalyzer
+name|searchQuoteAnalyzer
 argument_list|()
 operator|!=
 literal|null
@@ -5780,7 +5780,7 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
-name|searchAnalyzer
+name|searchQuoteAnalyzer
 argument_list|()
 operator|!=
 literal|null
@@ -5830,7 +5830,7 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
-name|searchAnalyzer
+name|searchQuoteAnalyzer
 argument_list|()
 operator|!=
 literal|null
