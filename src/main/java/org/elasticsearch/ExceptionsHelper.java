@@ -235,16 +235,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|t
-operator|.
-name|getMessage
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
 name|sb
 operator|.
 name|append
@@ -257,6 +247,18 @@ operator|.
 name|getSimpleName
 argument_list|()
 argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|t
+operator|.
+name|getMessage
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|sb
 operator|.
 name|append
 argument_list|(
@@ -280,6 +282,7 @@ argument_list|(
 literal|"]"
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!
@@ -293,7 +296,6 @@ argument_list|(
 literal|"; "
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 name|t
 operator|=
