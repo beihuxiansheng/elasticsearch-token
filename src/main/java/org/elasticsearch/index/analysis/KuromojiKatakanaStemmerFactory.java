@@ -178,9 +178,6 @@ name|JapaneseKatakanaStemFilter
 operator|.
 name|DEFAULT_MINIMUM_LENGTH
 argument_list|)
-operator|.
-name|intValue
-argument_list|()
 expr_stmt|;
 block|}
 annotation|@
