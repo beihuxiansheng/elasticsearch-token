@@ -1023,6 +1023,8 @@ literal|null
 condition|?
 name|searchQuotedAnalyzer
 else|:
+name|this
+operator|.
 name|searchAnalyzer
 expr_stmt|;
 block|}
