@@ -118,6 +118,26 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|operation
+operator|.
+name|hash
+operator|.
+name|djb
+operator|.
+name|DjbHashFunction
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|Nullable
@@ -1331,10 +1351,10 @@ name|Object
 index|[
 name|indexConcurrency
 operator|*
-literal|10
+literal|50
 index|]
 expr_stmt|;
-comment|// we multiply it by 10 to have enough...
+comment|// we multiply it to have enough...
 for|for
 control|(
 name|int
@@ -7526,10 +7546,12 @@ block|{
 name|int
 name|hash
 init|=
-name|id
+name|DjbHashFunction
 operator|.
-name|hashCode
-argument_list|()
+name|DJB_HASH
+argument_list|(
+name|id
+argument_list|)
 decl_stmt|;
 comment|// abs returns Integer.MIN_VALUE, so we need to protect against it...
 if|if
