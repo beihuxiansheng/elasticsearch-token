@@ -651,6 +651,7 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+block|}
 name|fragInfos
 operator|=
 name|getWeightedFragInfoList
@@ -658,7 +659,6 @@ argument_list|(
 name|fragInfos
 argument_list|)
 expr_stmt|;
-block|}
 name|StringBuilder
 name|buffer
 init|=
