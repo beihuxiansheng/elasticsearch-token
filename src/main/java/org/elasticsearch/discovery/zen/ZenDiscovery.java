@@ -3111,6 +3111,19 @@ operator|.
 name|state
 argument_list|()
 expr_stmt|;
+comment|// validate the join request, will throw a failure if it fails, which will get back to the
+comment|// node calling the join request
+name|membership
+operator|.
+name|sendValidateJoinRequestBlocking
+argument_list|(
+name|node
+argument_list|,
+name|state
+argument_list|,
+name|pingTimeout
+argument_list|)
+expr_stmt|;
 name|clusterService
 operator|.
 name|submitStateUpdateTask
