@@ -20,6 +20,14 @@ end_package
 
 begin_import
 import|import
+name|jsr166e
+operator|.
+name|ConcurrentHashMapV8
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
