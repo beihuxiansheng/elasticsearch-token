@@ -536,7 +536,12 @@ operator|.
 name|addDynamicSettings
 argument_list|(
 literal|"indices.ttl.interval"
-argument_list|,
+argument_list|)
+expr_stmt|;
+name|IndexMetaData
+operator|.
+name|addDynamicSettings
+argument_list|(
 literal|"index.ttl.disable_purge"
 argument_list|)
 expr_stmt|;
