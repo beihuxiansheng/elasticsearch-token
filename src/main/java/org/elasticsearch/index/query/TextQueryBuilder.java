@@ -40,6 +40,16 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+
 begin_comment
 comment|/**  * Text query is a query that analyzes the text and constructs a query as the result of the analysis. It  * can construct different queries based on the type provided.  */
 end_comment
