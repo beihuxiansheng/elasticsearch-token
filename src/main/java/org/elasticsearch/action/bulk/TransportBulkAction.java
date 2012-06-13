@@ -1830,7 +1830,11 @@ name|toString
 argument_list|()
 operator|.
 name|toLowerCase
-argument_list|()
+argument_list|(
+name|Locale
+operator|.
+name|ENGLISH
+argument_list|)
 argument_list|,
 operator|new
 name|BulkItemResponse
