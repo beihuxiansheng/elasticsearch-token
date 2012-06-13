@@ -421,6 +421,13 @@ argument_list|,
 name|indices
 argument_list|,
 name|types
+argument_list|,
+name|request
+operator|.
+name|param
+argument_list|(
+literal|"search_type"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

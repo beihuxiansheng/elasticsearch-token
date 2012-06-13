@@ -292,6 +292,11 @@ name|Nullable
 name|String
 index|[]
 name|types
+parameter_list|,
+annotation|@
+name|Nullable
+name|String
+name|searchType
 parameter_list|)
 throws|throws
 name|Exception
@@ -393,6 +398,13 @@ name|types
 argument_list|)
 expr_stmt|;
 block|}
+name|searchRequest
+operator|.
+name|searchType
+argument_list|(
+name|searchType
+argument_list|)
+expr_stmt|;
 comment|// now parse the action
 if|if
 condition|(
