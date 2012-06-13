@@ -584,10 +584,10 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the index request to be used if the document does not exists. Otherwise, a {@link org.elasticsearch.index.engine.DocumentMissingException}      * is thrown.      */
-DECL|method|setDoc
+DECL|method|setUpsert
 specifier|public
 name|UpdateRequestBuilder
-name|setDoc
+name|setUpsert
 parameter_list|(
 name|IndexRequest
 name|indexRequest
@@ -595,7 +595,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|doc
+name|upsert
 argument_list|(
 name|indexRequest
 argument_list|)
@@ -605,10 +605,10 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the doc source of the update request to be used when the document does not exists.      */
-DECL|method|setDoc
+DECL|method|setUpsert
 specifier|public
 name|UpdateRequestBuilder
-name|setDoc
+name|setUpsert
 parameter_list|(
 name|XContentBuilder
 name|source
@@ -616,7 +616,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|doc
+name|upsert
 argument_list|(
 name|source
 argument_list|)
@@ -626,10 +626,10 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the doc source of the update request to be used when the document does not exists.      */
-DECL|method|setDoc
+DECL|method|setUpsert
 specifier|public
 name|UpdateRequestBuilder
-name|setDoc
+name|setUpsert
 parameter_list|(
 name|Map
 name|source
@@ -637,7 +637,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|doc
+name|upsert
 argument_list|(
 name|source
 argument_list|)
@@ -647,10 +647,10 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the doc source of the update request to be used when the document does not exists.      */
-DECL|method|setDoc
+DECL|method|setUpsert
 specifier|public
 name|UpdateRequestBuilder
-name|setDoc
+name|setUpsert
 parameter_list|(
 name|Map
 name|source
@@ -661,7 +661,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|doc
+name|upsert
 argument_list|(
 name|source
 argument_list|,
@@ -673,10 +673,10 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the doc source of the update request to be used when the document does not exists.      */
-DECL|method|setDoc
+DECL|method|setUpsert
 specifier|public
 name|UpdateRequestBuilder
-name|setDoc
+name|setUpsert
 parameter_list|(
 name|String
 name|source
@@ -684,7 +684,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|doc
+name|upsert
 argument_list|(
 name|source
 argument_list|)
@@ -694,10 +694,10 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the doc source of the update request to be used when the document does not exists.      */
-DECL|method|setDoc
+DECL|method|setUpsert
 specifier|public
 name|UpdateRequestBuilder
-name|setDoc
+name|setUpsert
 parameter_list|(
 name|byte
 index|[]
@@ -706,7 +706,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|doc
+name|upsert
 argument_list|(
 name|source
 argument_list|)
@@ -716,10 +716,10 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the doc source of the update request to be used when the document does not exists.      */
-DECL|method|setDoc
+DECL|method|setUpsert
 specifier|public
 name|UpdateRequestBuilder
-name|setDoc
+name|setUpsert
 parameter_list|(
 name|byte
 index|[]
@@ -734,7 +734,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|doc
+name|upsert
 argument_list|(
 name|source
 argument_list|,

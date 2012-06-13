@@ -866,7 +866,7 @@ name|content
 operator|.
 name|containsKey
 argument_list|(
-literal|"doc"
+literal|"upsert"
 argument_list|)
 condition|)
 block|{
@@ -888,7 +888,7 @@ name|content
 operator|.
 name|get
 argument_list|(
-literal|"doc"
+literal|"upsert"
 argument_list|)
 argument_list|,
 name|xContentType
@@ -995,7 +995,7 @@ argument_list|)
 expr_stmt|;
 name|updateRequest
 operator|.
-name|doc
+name|upsert
 argument_list|(
 name|indexRequest
 argument_list|)

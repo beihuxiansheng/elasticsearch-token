@@ -563,7 +563,7 @@ argument_list|,
 literal|"1"
 argument_list|)
 operator|.
-name|setDoc
+name|setUpsert
 argument_list|(
 name|XContentFactory
 operator|.
@@ -663,7 +663,7 @@ argument_list|,
 literal|"1"
 argument_list|)
 operator|.
-name|setDoc
+name|setUpsert
 argument_list|(
 name|XContentFactory
 operator|.
