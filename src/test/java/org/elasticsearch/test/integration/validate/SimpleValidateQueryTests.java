@@ -1120,7 +1120,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"ConstantScore(UidFilter([_uid:type1#1]))"
+literal|"ConstantScore(_uid:type1#1)"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1145,7 +1145,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"ConstantScore(UidFilter([_uid:type1#1, _uid:type1#2]))"
+literal|"ConstantScore(_uid:type1#1 _uid:type1#2)"
 argument_list|)
 argument_list|)
 expr_stmt|;

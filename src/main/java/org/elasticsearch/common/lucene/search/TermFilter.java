@@ -104,6 +104,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|lucene
+operator|.
+name|Lucene
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -198,7 +212,9 @@ init|=
 operator|new
 name|int
 index|[
-literal|32
+name|Lucene
+operator|.
+name|BATCH_ENUM_DOCS
 index|]
 decl_stmt|;
 name|int
@@ -208,7 +224,9 @@ init|=
 operator|new
 name|int
 index|[
-literal|32
+name|Lucene
+operator|.
+name|BATCH_ENUM_DOCS
 index|]
 decl_stmt|;
 name|int

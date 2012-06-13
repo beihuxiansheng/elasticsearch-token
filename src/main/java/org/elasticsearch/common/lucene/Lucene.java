@@ -318,6 +318,15 @@ index|[
 literal|0
 index|]
 decl_stmt|;
+DECL|field|BATCH_ENUM_DOCS
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|BATCH_ENUM_DOCS
+init|=
+literal|32
+decl_stmt|;
 DECL|method|parseVersion
 specifier|public
 specifier|static
