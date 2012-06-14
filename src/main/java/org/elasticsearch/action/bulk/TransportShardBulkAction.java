@@ -1419,7 +1419,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"[{}][{}] failed to bulk item (index) {}"
+literal|"[{}][{}] failed to execute bulk item (index) {}"
 argument_list|,
 name|e
 argument_list|,
@@ -1444,7 +1444,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"[{}][{}] failed to bulk item (index) {}"
+literal|"[{}][{}] failed to execute bulk item (index) {}"
 argument_list|,
 name|e
 argument_list|,
@@ -1713,7 +1713,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"[{}][{}] failed to bulk item (delete) {}"
+literal|"[{}][{}] failed to execute bulk item (delete) {}"
 argument_list|,
 name|e
 argument_list|,
@@ -1738,7 +1738,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"[{}][{}] failed to bulk item (delete) {}"
+literal|"[{}][{}] failed to execute bulk item (delete) {}"
 argument_list|,
 name|e
 argument_list|,
