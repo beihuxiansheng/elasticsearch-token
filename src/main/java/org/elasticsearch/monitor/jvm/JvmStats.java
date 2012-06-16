@@ -408,6 +408,11 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+comment|// always disable lastG, some reports it gives are strange...
+name|defaultEnableLastGc
+operator|=
+literal|false
+expr_stmt|;
 name|boolean
 name|enableLastGc
 init|=
