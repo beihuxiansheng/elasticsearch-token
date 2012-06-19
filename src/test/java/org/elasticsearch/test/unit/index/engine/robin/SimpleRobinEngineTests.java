@@ -173,18 +173,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|threadpool
-operator|.
-name|ThreadPool
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -234,9 +222,7 @@ name|shardId
 argument_list|,
 name|EMPTY_SETTINGS
 argument_list|,
-operator|new
-name|ThreadPool
-argument_list|()
+name|threadPool
 argument_list|,
 operator|new
 name|IndexSettingsService

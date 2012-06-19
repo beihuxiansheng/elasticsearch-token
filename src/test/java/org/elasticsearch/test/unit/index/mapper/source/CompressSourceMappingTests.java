@@ -32,9 +32,7 @@ name|common
 operator|.
 name|compress
 operator|.
-name|lzf
-operator|.
-name|LZF
+name|CompressorFactory
 import|;
 end_import
 
@@ -72,15 +70,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|test
-operator|.
-name|unit
-operator|.
 name|index
 operator|.
 name|mapper
 operator|.
-name|MapperTests
+name|ParsedDocument
 import|;
 end_import
 
@@ -90,11 +84,15 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|test
+operator|.
+name|unit
+operator|.
 name|index
 operator|.
 name|mapper
 operator|.
-name|ParsedDocument
+name|MapperTests
 import|;
 end_import
 
@@ -249,7 +247,7 @@ argument_list|)
 decl_stmt|;
 name|assertThat
 argument_list|(
-name|LZF
+name|CompressorFactory
 operator|.
 name|isCompressed
 argument_list|(
@@ -376,7 +374,7 @@ argument_list|)
 decl_stmt|;
 name|assertThat
 argument_list|(
-name|LZF
+name|CompressorFactory
 operator|.
 name|isCompressed
 argument_list|(
@@ -496,7 +494,7 @@ argument_list|)
 decl_stmt|;
 name|assertThat
 argument_list|(
-name|LZF
+name|CompressorFactory
 operator|.
 name|isCompressed
 argument_list|(
@@ -579,7 +577,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|LZF
+name|CompressorFactory
 operator|.
 name|isCompressed
 argument_list|(

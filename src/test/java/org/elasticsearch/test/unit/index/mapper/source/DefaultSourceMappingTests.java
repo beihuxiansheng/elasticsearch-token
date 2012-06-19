@@ -44,11 +44,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|compress
-operator|.
-name|lzf
-operator|.
-name|LZF
+name|BytesHolder
 import|;
 end_import
 
@@ -62,9 +58,7 @@ name|common
 operator|.
 name|compress
 operator|.
-name|lzf
-operator|.
-name|LZFDecoder
+name|CompressorFactory
 import|;
 end_import
 
@@ -726,7 +720,7 @@ argument_list|)
 decl_stmt|;
 name|assertThat
 argument_list|(
-name|LZF
+name|CompressorFactory
 operator|.
 name|isCompressed
 argument_list|(
@@ -756,9 +750,12 @@ name|byte
 index|[]
 name|uncompressed
 init|=
-name|LZFDecoder
+name|CompressorFactory
 operator|.
-name|decode
+name|uncompressIfNeeded
+argument_list|(
+operator|new
+name|BytesHolder
 argument_list|(
 name|doc
 operator|.
@@ -775,6 +772,10 @@ operator|.
 name|sourceLength
 argument_list|()
 argument_list|)
+argument_list|)
+operator|.
+name|copyBytes
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -839,7 +840,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|LZF
+name|CompressorFactory
 operator|.
 name|isCompressed
 argument_list|(
@@ -867,9 +868,12 @@ argument_list|)
 expr_stmt|;
 name|uncompressed
 operator|=
-name|LZFDecoder
+name|CompressorFactory
 operator|.
-name|decode
+name|uncompressIfNeeded
+argument_list|(
+operator|new
+name|BytesHolder
 argument_list|(
 name|doc
 operator|.
@@ -886,6 +890,10 @@ operator|.
 name|sourceLength
 argument_list|()
 argument_list|)
+argument_list|)
+operator|.
+name|copyBytes
+argument_list|()
 expr_stmt|;
 name|assertThat
 argument_list|(

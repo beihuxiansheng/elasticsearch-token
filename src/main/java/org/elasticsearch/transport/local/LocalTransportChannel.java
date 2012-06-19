@@ -74,7 +74,7 @@ name|io
 operator|.
 name|stream
 operator|.
-name|HandlesStreamOutput
+name|StreamOutput
 import|;
 end_import
 
@@ -318,12 +318,12 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
-name|HandlesStreamOutput
+name|StreamOutput
 name|stream
 init|=
 name|cachedEntry
 operator|.
-name|cachedHandlesBytes
+name|cachedHandles
 argument_list|()
 decl_stmt|;
 name|stream
@@ -361,6 +361,11 @@ name|writeTo
 argument_list|(
 name|stream
 argument_list|)
+expr_stmt|;
+name|stream
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 specifier|final
 name|byte
