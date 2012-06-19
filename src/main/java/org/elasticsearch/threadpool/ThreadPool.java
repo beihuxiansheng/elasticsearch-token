@@ -1878,6 +1878,8 @@ name|EsExecutors
 operator|.
 name|daemonThreadFactory
 argument_list|(
+name|this
+operator|.
 name|settings
 argument_list|,
 literal|"["
