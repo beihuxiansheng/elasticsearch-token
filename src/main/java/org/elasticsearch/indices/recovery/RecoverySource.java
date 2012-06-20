@@ -1110,12 +1110,12 @@ argument_list|)
 decl_stmt|;
 name|indexInput
 operator|=
-name|snapshot
+name|shard
 operator|.
-name|getDirectory
+name|store
 argument_list|()
 operator|.
-name|openInput
+name|openInputRaw
 argument_list|(
 name|name
 argument_list|)

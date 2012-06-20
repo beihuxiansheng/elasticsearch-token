@@ -3903,7 +3903,7 @@ name|indexOutput
 operator|=
 name|store
 operator|.
-name|createOutputWithNoChecksum
+name|createOutputRaw
 argument_list|(
 name|fileInfo
 operator|.
@@ -4419,9 +4419,12 @@ try|try
 block|{
 name|indexInput
 operator|=
-name|dir
+name|indexShard
 operator|.
-name|openInput
+name|store
+argument_list|()
+operator|.
+name|openInputRaw
 argument_list|(
 name|fileInfo
 operator|.

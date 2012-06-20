@@ -3268,7 +3268,7 @@ operator|.
 name|store
 argument_list|()
 operator|.
-name|createOutputWithNoChecksum
+name|createOutputRaw
 argument_list|(
 name|name
 argument_list|)
