@@ -127,6 +127,7 @@ specifier|final
 name|long
 name|metaDataPointer
 decl_stmt|;
+comment|// need to have a growing segment long array list here...
 DECL|field|offsets
 specifier|private
 name|TLongArrayList
