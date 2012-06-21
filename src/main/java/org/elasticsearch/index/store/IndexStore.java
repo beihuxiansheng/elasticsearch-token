@@ -20,6 +20,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
+name|StoreRateLimiting
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -38,7 +52,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|IndexComponent
+name|CloseableIndexComponent
 import|;
 end_import
 
@@ -58,6 +72,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
+name|store
+operator|.
+name|IndicesStore
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -67,7 +95,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Index store is an index level information of the {@link Store} each shard will use.  *  *  */
+comment|/**  * Index store is an index level information of the {@link Store} each shard will use.  */
 end_comment
 
 begin_interface
@@ -76,12 +104,23 @@ specifier|public
 interface|interface
 name|IndexStore
 extends|extends
-name|IndexComponent
+name|CloseableIndexComponent
 block|{
 comment|/**      * Is the store a persistent store that can survive full restarts.      */
 DECL|method|persistent
 name|boolean
 name|persistent
+parameter_list|()
+function_decl|;
+DECL|method|indicesStore
+name|IndicesStore
+name|indicesStore
+parameter_list|()
+function_decl|;
+comment|/**      * Returns the rate limiting, either of the index is explicitly configured, or      * the node level one (defaults to the node level one).      */
+DECL|method|rateLimiting
+name|StoreRateLimiting
+name|rateLimiting
 parameter_list|()
 function_decl|;
 comment|/**      * The shard store class that should be used for each shard.      */

@@ -93,7 +93,7 @@ block|}
 comment|/**      * Pauses, if necessary, to keep the instantaneous IO      * rate at or below the target. NOTE: multiple threads      * may safely use this, however the implementation is      * not perfectly thread safe but likely in practice this      * is harmless (just means in some rare cases the rate      * might exceed the target).  It's best to call this      * with a biggish count, not one byte at a time.      */
 DECL|method|pause
 specifier|public
-name|void
+name|long
 name|pause
 parameter_list|(
 name|long
@@ -143,6 +143,11 @@ expr_stmt|;
 block|}
 comment|// While loop because Thread.sleep doesn't alway sleep
 comment|// enough:
+name|long
+name|totalPauseTime
+init|=
+literal|0
+decl_stmt|;
 while|while
 condition|(
 literal|true
@@ -188,6 +193,10 @@ literal|1000000
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|totalPauseTime
+operator|+=
+name|pauseNS
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -216,6 +225,9 @@ continue|continue;
 block|}
 break|break;
 block|}
+return|return
+name|totalPauseTime
+return|;
 block|}
 block|}
 end_class

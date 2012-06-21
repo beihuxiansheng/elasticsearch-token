@@ -58,6 +58,11 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
+DECL|method|throttleTimeInNanos
+name|long
+name|throttleTimeInNanos
+parameter_list|()
+function_decl|;
 DECL|method|renameFile
 name|void
 name|renameFile

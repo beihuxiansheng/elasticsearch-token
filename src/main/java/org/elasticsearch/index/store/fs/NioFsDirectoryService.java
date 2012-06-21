@@ -42,7 +42,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|NIOFSDirectory
+name|XNIOFSDirectory
 import|;
 end_import
 
@@ -257,7 +257,7 @@ name|i
 index|]
 operator|=
 operator|new
-name|NIOFSDirectory
+name|XNIOFSDirectory
 argument_list|(
 name|locations
 index|[
@@ -266,6 +266,10 @@ index|]
 argument_list|,
 name|buildLockFactory
 argument_list|()
+argument_list|,
+name|this
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 block|}

@@ -42,7 +42,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|SimpleFSDirectory
+name|XSimpleFSDirectory
 import|;
 end_import
 
@@ -257,7 +257,7 @@ name|i
 index|]
 operator|=
 operator|new
-name|SimpleFSDirectory
+name|XSimpleFSDirectory
 argument_list|(
 name|locations
 index|[
@@ -266,6 +266,10 @@ index|]
 argument_list|,
 name|buildLockFactory
 argument_list|()
+argument_list|,
+name|this
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 block|}

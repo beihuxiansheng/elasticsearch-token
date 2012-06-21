@@ -154,6 +154,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
+name|store
+operator|.
+name|IndicesStore
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -213,6 +227,9 @@ parameter_list|,
 name|IndexService
 name|indexService
 parameter_list|,
+name|IndicesStore
+name|indicesStore
+parameter_list|,
 name|NodeEnvironment
 name|nodeEnv
 parameter_list|)
@@ -224,6 +241,8 @@ argument_list|,
 name|indexSettings
 argument_list|,
 name|indexService
+argument_list|,
+name|indicesStore
 argument_list|)
 expr_stmt|;
 name|this
