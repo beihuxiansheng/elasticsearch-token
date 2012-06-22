@@ -419,6 +419,11 @@ operator|.
 name|readVInt
 argument_list|()
 expr_stmt|;
+name|hashCode
+operator|=
+name|computeHashCode
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Override

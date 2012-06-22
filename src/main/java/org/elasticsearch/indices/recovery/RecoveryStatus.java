@@ -113,6 +113,21 @@ block|,
 DECL|enum constant|DONE
 name|DONE
 block|}
+DECL|field|recoveryThread
+specifier|volatile
+name|Thread
+name|recoveryThread
+decl_stmt|;
+DECL|field|canceled
+specifier|volatile
+name|boolean
+name|canceled
+decl_stmt|;
+DECL|field|sentCanceledToSource
+specifier|volatile
+name|boolean
+name|sentCanceledToSource
+decl_stmt|;
 DECL|field|openIndexOutputs
 name|ConcurrentMap
 argument_list|<

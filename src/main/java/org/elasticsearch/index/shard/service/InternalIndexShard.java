@@ -1428,7 +1428,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"suspect illegal state: trying to move shard from primary mode to backup mode"
+literal|"suspect illegal state: trying to move shard from primary mode to replica mode"
 argument_list|)
 expr_stmt|;
 block|}

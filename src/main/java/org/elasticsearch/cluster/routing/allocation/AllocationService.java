@@ -1704,6 +1704,11 @@ name|initializing
 argument_list|()
 decl_stmt|;
 name|boolean
+name|remove
+init|=
+literal|false
+decl_stmt|;
+name|boolean
 name|currentNodeIsDead
 init|=
 literal|false
@@ -1762,10 +1767,9 @@ name|currentNodeIsDead
 operator|=
 literal|true
 expr_stmt|;
-name|shardsIterator
-operator|.
 name|remove
-argument_list|()
+operator|=
+literal|true
 expr_stmt|;
 block|}
 comment|// move source shard back to active state and cancel relocation mode.
@@ -1823,6 +1827,16 @@ name|changed
 operator|=
 literal|true
 expr_stmt|;
+name|remove
+operator|=
+literal|true
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|remove
+condition|)
+block|{
 name|shardsIterator
 operator|.
 name|remove
