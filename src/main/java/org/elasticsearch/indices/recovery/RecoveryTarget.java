@@ -1971,7 +1971,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IOException
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -2787,13 +2787,15 @@ comment|// first, we go and move files that were created with the recovery id su
 comment|// the actual names, its ok if we have a corrupted index here, since we have replicas
 comment|// to recover from in case of a full cluster shutdown just when this code executes...
 name|String
-name|suffix
+name|prefix
 init|=
-literal|"."
+literal|"recovery."
 operator|+
 name|onGoingRecovery
 operator|.
 name|startTime
+operator|+
+literal|"."
 decl_stmt|;
 name|Set
 argument_list|<
@@ -2827,9 +2829,9 @@ if|if
 condition|(
 name|existingFile
 operator|.
-name|endsWith
+name|startsWith
 argument_list|(
-name|suffix
+name|prefix
 argument_list|)
 condition|)
 block|{
@@ -2841,14 +2843,12 @@ name|existingFile
 operator|.
 name|substring
 argument_list|(
-literal|0
-argument_list|,
-name|existingFile
+name|prefix
 operator|.
 name|length
 argument_list|()
-operator|-
-name|suffix
+argument_list|,
+name|existingFile
 operator|.
 name|length
 argument_list|()
@@ -2912,9 +2912,9 @@ argument_list|()
 operator|.
 name|renameFile
 argument_list|(
-name|fileToRename
+name|prefix
 operator|+
-name|suffix
+name|fileToRename
 argument_list|,
 name|fileToRename
 argument_list|)
@@ -3252,13 +3252,15 @@ condition|)
 block|{
 name|name
 operator|=
-name|name
-operator|+
-literal|"."
+literal|"recovery."
 operator|+
 name|onGoingRecovery
 operator|.
 name|startTime
+operator|+
+literal|"."
+operator|+
+name|name
 expr_stmt|;
 block|}
 name|indexOutput
