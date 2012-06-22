@@ -422,7 +422,7 @@ name|IndexMetaData
 operator|.
 name|addDynamicSettings
 argument_list|(
-literal|"index.store.compress.stored_fields"
+literal|"index.store.compress.stored"
 argument_list|)
 expr_stmt|;
 block|}
@@ -452,7 +452,7 @@ name|settings
 operator|.
 name|getAsBoolean
 argument_list|(
-literal|"index.store.compress.stored_fields"
+literal|"index.store.compress.stored"
 argument_list|,
 name|Store
 operator|.
@@ -476,7 +476,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"updating [compress.stored_fields] from [{}] to [{}]"
+literal|"updating [index.store.compress.stored] from [{}] to [{}]"
 argument_list|,
 name|Store
 operator|.
@@ -695,7 +695,7 @@ name|componentSettings
 operator|.
 name|getAsBoolean
 argument_list|(
-literal|"compress.stored_fields"
+literal|"compress.stored"
 argument_list|,
 literal|false
 argument_list|)
@@ -704,7 +704,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"using compress.stored_fields [{}]"
+literal|"using compress.stored [{}]"
 argument_list|,
 name|compressedStoredFields
 argument_list|)
