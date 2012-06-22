@@ -700,6 +700,15 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"using compress.stored_fields [{}]"
+argument_list|,
+name|compressedStoredFields
+argument_list|)
+expr_stmt|;
 name|indexSettingsService
 operator|.
 name|addListener
