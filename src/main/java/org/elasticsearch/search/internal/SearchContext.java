@@ -2171,6 +2171,7 @@ name|SearchLookup
 name|lookup
 parameter_list|()
 block|{
+comment|// TODO: The types should take into account the parsing context in QueryParserContext...
 if|if
 condition|(
 name|searchLookup
@@ -2187,6 +2188,11 @@ name|mapperService
 argument_list|()
 argument_list|,
 name|fieldDataCache
+argument_list|()
+argument_list|,
+name|request
+operator|.
+name|types
 argument_list|()
 argument_list|)
 expr_stmt|;

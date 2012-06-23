@@ -1197,6 +1197,8 @@ argument_list|(
 name|mapperService
 argument_list|,
 name|fieldDataCache
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|vars
