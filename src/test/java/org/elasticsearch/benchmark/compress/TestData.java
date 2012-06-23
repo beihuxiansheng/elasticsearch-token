@@ -308,6 +308,16 @@ return|return
 literal|true
 return|;
 block|}
+DECL|method|currentText
+specifier|public
+name|String
+name|currentText
+parameter_list|()
+block|{
+return|return
+name|text
+return|;
+block|}
 comment|/**      */
 DECL|method|current
 specifier|public
