@@ -38,7 +38,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|thread
+name|util
+operator|.
+name|concurrent
 operator|.
 name|ThreadLocals
 import|;

@@ -546,9 +546,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|thread
+name|transport
 operator|.
-name|ThreadLocals
+name|TransportAddress
 import|;
 end_import
 
@@ -560,9 +560,11 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|transport
+name|util
 operator|.
-name|TransportAddress
+name|concurrent
+operator|.
+name|ThreadLocals
 import|;
 end_import
 

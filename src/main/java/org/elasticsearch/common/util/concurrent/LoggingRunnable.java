@@ -4,7 +4,7 @@ comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more cont
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.common.thread
+DECL|package|org.elasticsearch.common.util.concurrent
 package|package
 name|org
 operator|.
@@ -12,7 +12,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|thread
+name|util
+operator|.
+name|concurrent
 package|;
 end_package
 

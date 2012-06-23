@@ -1179,7 +1179,7 @@ name|daemonThreadFactory
 argument_list|(
 name|settings
 argument_list|,
-literal|"[scheduler]"
+literal|"scheduler"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1898,11 +1898,7 @@ name|this
 operator|.
 name|settings
 argument_list|,
-literal|"["
-operator|+
 name|name
-operator|+
-literal|"]"
 argument_list|)
 decl_stmt|;
 if|if

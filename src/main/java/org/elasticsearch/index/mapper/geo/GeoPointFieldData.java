@@ -66,9 +66,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|thread
+name|unit
 operator|.
-name|ThreadLocals
+name|DistanceUnit
 import|;
 end_import
 
@@ -80,9 +80,11 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|unit
+name|util
 operator|.
-name|DistanceUnit
+name|concurrent
+operator|.
+name|ThreadLocals
 import|;
 end_import
 

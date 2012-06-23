@@ -1173,7 +1173,7 @@ block|}
 block|}
 block|}
 argument_list|,
-literal|"es[keepAlive]"
+literal|"elasticsearch[keepAlive]"
 argument_list|)
 expr_stmt|;
 name|keepAliveThread
