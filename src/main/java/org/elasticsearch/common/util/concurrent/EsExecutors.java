@@ -584,7 +584,7 @@ block|{
 comment|//should never happen since we never wait
 throw|throw
 operator|new
-name|RejectedExecutionException
+name|EsRejectedExecutionException
 argument_list|(
 name|e
 argument_list|)
@@ -662,21 +662,8 @@ name|successful
 condition|)
 throw|throw
 operator|new
-name|RejectedExecutionException
-argument_list|(
-literal|"Rejected execution after waiting "
-operator|+
-name|waitTime
-operator|+
-literal|" ms for task ["
-operator|+
-name|r
-operator|.
-name|getClass
+name|EsRejectedExecutionException
 argument_list|()
-operator|+
-literal|"] to be executed."
-argument_list|)
 throw|;
 block|}
 catch|catch
@@ -687,7 +674,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|RejectedExecutionException
+name|EsRejectedExecutionException
 argument_list|(
 name|e
 argument_list|)
