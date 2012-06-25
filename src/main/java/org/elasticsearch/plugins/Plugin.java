@@ -118,6 +118,8 @@ comment|/**      * Node level modules (instances)      *      * @param settings 
 DECL|method|modules
 name|Collection
 argument_list|<
+name|?
+extends|extends
 name|Module
 argument_list|>
 name|modules
@@ -158,6 +160,8 @@ comment|/**      * Per index modules.      */
 DECL|method|indexModules
 name|Collection
 argument_list|<
+name|?
+extends|extends
 name|Module
 argument_list|>
 name|indexModules
@@ -198,6 +202,8 @@ comment|/**      * Per index shard module.      */
 DECL|method|shardModules
 name|Collection
 argument_list|<
+name|?
+extends|extends
 name|Module
 argument_list|>
 name|shardModules
