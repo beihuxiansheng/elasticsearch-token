@@ -290,7 +290,7 @@ name|System
 operator|.
 name|getProperty
 argument_list|(
-literal|"es.config"
+literal|"es.default.config"
 argument_list|)
 argument_list|)
 argument_list|)
