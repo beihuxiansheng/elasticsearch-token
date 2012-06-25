@@ -74,7 +74,7 @@ name|search
 operator|.
 name|vectorhighlight
 operator|.
-name|SimpleFragmentsBuilder
+name|XSimpleFragmentsBuilder
 import|;
 end_import
 
@@ -150,7 +150,7 @@ specifier|public
 class|class
 name|SourceSimpleFragmentsBuilder
 extends|extends
-name|SimpleFragmentsBuilder
+name|XSimpleFragmentsBuilder
 block|{
 DECL|field|mapper
 specifier|private

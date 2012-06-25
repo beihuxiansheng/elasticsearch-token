@@ -1920,7 +1920,7 @@ block|{
 name|fragmentsBuilder
 operator|=
 operator|new
-name|SimpleFragmentsBuilder
+name|XSimpleFragmentsBuilder
 argument_list|(
 name|field
 operator|.
@@ -2011,7 +2011,7 @@ block|{
 name|fragmentsBuilder
 operator|=
 operator|new
-name|ScoreOrderFragmentsBuilder
+name|XScoreOrderFragmentsBuilder
 argument_list|(
 name|field
 operator|.
@@ -2066,7 +2066,7 @@ block|{
 name|fragmentsBuilder
 operator|=
 operator|new
-name|SimpleFragmentsBuilder
+name|XSimpleFragmentsBuilder
 argument_list|(
 name|field
 operator|.

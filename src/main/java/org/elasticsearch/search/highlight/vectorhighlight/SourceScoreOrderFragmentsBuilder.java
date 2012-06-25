@@ -74,7 +74,7 @@ name|search
 operator|.
 name|vectorhighlight
 operator|.
-name|ScoreOrderFragmentsBuilder
+name|XScoreOrderFragmentsBuilder
 import|;
 end_import
 
@@ -150,7 +150,7 @@ specifier|public
 class|class
 name|SourceScoreOrderFragmentsBuilder
 extends|extends
-name|ScoreOrderFragmentsBuilder
+name|XScoreOrderFragmentsBuilder
 block|{
 DECL|field|mapper
 specifier|private
