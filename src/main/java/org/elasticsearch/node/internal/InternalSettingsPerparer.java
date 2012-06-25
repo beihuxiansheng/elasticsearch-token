@@ -164,6 +164,20 @@ name|boolean
 name|loadConfigSettings
 parameter_list|)
 block|{
+comment|// ignore this prefixes when getting properties from es. and elasticsearch.
+name|String
+index|[]
+name|ignorePrefixes
+init|=
+operator|new
+name|String
+index|[]
+block|{
+literal|"es.default."
+block|,
+literal|"elasticsearch.default."
+block|}
+decl_stmt|;
 comment|// just create enough settings to build the environment
 name|ImmutableSettings
 operator|.
@@ -206,6 +220,8 @@ name|System
 operator|.
 name|getProperties
 argument_list|()
+argument_list|,
+name|ignorePrefixes
 argument_list|)
 operator|.
 name|putProperties
@@ -216,6 +232,8 @@ name|System
 operator|.
 name|getProperties
 argument_list|()
+argument_list|,
+name|ignorePrefixes
 argument_list|)
 operator|.
 name|replacePropertyPlaceholders
@@ -446,6 +464,8 @@ name|System
 operator|.
 name|getProperties
 argument_list|()
+argument_list|,
+name|ignorePrefixes
 argument_list|)
 operator|.
 name|putProperties
@@ -456,6 +476,8 @@ name|System
 operator|.
 name|getProperties
 argument_list|()
+argument_list|,
+name|ignorePrefixes
 argument_list|)
 operator|.
 name|replacePropertyPlaceholders
