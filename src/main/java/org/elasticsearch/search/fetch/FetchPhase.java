@@ -1092,6 +1092,8 @@ argument_list|(
 name|context
 argument_list|,
 name|doc
+argument_list|,
+name|fieldSelector
 argument_list|)
 decl_stmt|;
 name|DocumentMapper
@@ -1844,9 +1846,13 @@ name|context
 parameter_list|,
 name|Document
 name|doc
+parameter_list|,
+annotation|@
+name|Nullable
+name|ResetFieldSelector
+name|fieldSelector
 parameter_list|)
 block|{
-comment|// TODO we might want to use FieldData here to speed things up, so we don't have to load it at all...
 name|String
 name|sUid
 init|=
@@ -1920,6 +1926,10 @@ argument_list|,
 literal|"Failed to load uid from the index, missing internal _uid field, current fields in the doc ["
 operator|+
 name|fieldNames
+operator|+
+literal|"], selector ["
+operator|+
+name|fieldSelector
 operator|+
 literal|"]"
 argument_list|)

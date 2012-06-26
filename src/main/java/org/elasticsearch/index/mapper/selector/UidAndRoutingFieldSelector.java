@@ -193,6 +193,18 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"uid_and_routing"
+return|;
+block|}
 block|}
 end_class
 

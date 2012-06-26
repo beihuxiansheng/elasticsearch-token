@@ -65,7 +65,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A field selector that loads all fields except the source field.  *  *  */
+comment|/**  * A field selector that loads all fields except the source field.  */
 end_comment
 
 begin_class
@@ -130,6 +130,18 @@ name|void
 name|reset
 parameter_list|()
 block|{     }
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"all_but_source"
+return|;
+block|}
 block|}
 end_class
 

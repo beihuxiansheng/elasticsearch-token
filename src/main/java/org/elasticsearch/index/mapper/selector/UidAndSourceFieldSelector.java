@@ -81,7 +81,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An optimized field selector that loads just the uid and the source.  *  *  */
+comment|/**  * An optimized field selector that loads just the uid and the source.  */
 end_comment
 
 begin_class
@@ -192,6 +192,18 @@ name|match
 operator|=
 literal|0
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"uid_and_source"
+return|;
 block|}
 block|}
 end_class

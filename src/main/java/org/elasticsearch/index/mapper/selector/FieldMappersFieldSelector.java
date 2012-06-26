@@ -204,6 +204,22 @@ name|void
 name|reset
 parameter_list|()
 block|{     }
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"fields("
+operator|+
+name|names
+operator|+
+literal|")"
+return|;
+block|}
 block|}
 end_class
 
