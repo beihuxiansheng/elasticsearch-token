@@ -197,6 +197,9 @@ name|String
 name|NAME
 init|=
 literal|"_uid"
+operator|.
+name|intern
+argument_list|()
 decl_stmt|;
 DECL|field|TERM_FACTORY
 specifier|public

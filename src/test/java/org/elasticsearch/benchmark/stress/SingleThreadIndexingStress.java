@@ -419,6 +419,11 @@ name|COUNT
 init|=
 literal|200000
 decl_stmt|;
+name|int
+name|ID_RANGE
+init|=
+literal|100
+decl_stmt|;
 name|System
 operator|.
 name|out
@@ -465,6 +470,8 @@ operator|.
 name|toString
 argument_list|(
 name|i
+operator|%
+name|ID_RANGE
 argument_list|)
 argument_list|)
 operator|.

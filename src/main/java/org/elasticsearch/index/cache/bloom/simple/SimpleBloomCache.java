@@ -1063,6 +1063,17 @@ literal|null
 decl_stmt|;
 try|try
 block|{
+name|UnicodeUtil
+operator|.
+name|UTF8Result
+name|utf8Result
+init|=
+operator|new
+name|UnicodeUtil
+operator|.
+name|UTF8Result
+argument_list|()
+decl_stmt|;
 name|BloomFilter
 name|filter
 init|=
@@ -1123,11 +1134,6 @@ name|field
 condition|)
 break|break;
 comment|// LUCENE MONITOR: 4.0, move to use bytes!
-name|UnicodeUtil
-operator|.
-name|UTF8Result
-name|utf8Result
-init|=
 name|Unicode
 operator|.
 name|fromStringAsUtf8
@@ -1136,8 +1142,10 @@ name|term
 operator|.
 name|text
 argument_list|()
+argument_list|,
+name|utf8Result
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|termDocs
 operator|.
 name|seek
