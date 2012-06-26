@@ -4,7 +4,7 @@ comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more cont
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.test.unit.index.mapper.geopoint
+DECL|package|org.elasticsearch.test.unit.index.mapper.geo
 package|package
 name|org
 operator|.
@@ -18,7 +18,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|geopoint
+name|geo
 package|;
 end_package
 
