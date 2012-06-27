@@ -1110,6 +1110,26 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+else|else
+block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"not adding {}, state {} is not pending or running"
+argument_list|,
+name|instance
+operator|.
+name|getInstanceId
+argument_list|()
+argument_list|,
+name|state
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 name|logger
