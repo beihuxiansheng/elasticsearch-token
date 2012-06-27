@@ -610,7 +610,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"using explicit ec2 region [{}]"
+literal|"using explicit ec2 endpoint [{}]"
 argument_list|,
 name|endpoint
 argument_list|)

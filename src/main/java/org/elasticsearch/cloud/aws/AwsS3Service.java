@@ -512,7 +512,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"using explicit s3 region [{}]"
+literal|"using explicit s3 endpoint [{}]"
 argument_list|,
 name|endpoint
 argument_list|)
