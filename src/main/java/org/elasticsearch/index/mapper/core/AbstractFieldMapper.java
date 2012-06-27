@@ -1145,6 +1145,7 @@ name|IndexOptions
 operator|.
 name|DOCS_AND_FREQS_AND_POSITIONS
 expr_stmt|;
+comment|// automatically set to keyword analyzer if its indexed and not analyzed
 if|if
 condition|(
 name|indexAnalyzer
@@ -1155,6 +1156,11 @@ operator|!
 name|index
 operator|.
 name|isAnalyzed
+argument_list|()
+operator|&&
+name|index
+operator|.
+name|isIndexed
 argument_list|()
 condition|)
 block|{
@@ -1176,6 +1182,7 @@ operator|=
 name|indexAnalyzer
 expr_stmt|;
 block|}
+comment|// automatically set to keyword analyzer if its indexed and not analyzed
 if|if
 condition|(
 name|searchAnalyzer
@@ -1186,6 +1193,11 @@ operator|!
 name|index
 operator|.
 name|isAnalyzed
+argument_list|()
+operator|&&
+name|index
+operator|.
+name|isIndexed
 argument_list|()
 condition|)
 block|{
