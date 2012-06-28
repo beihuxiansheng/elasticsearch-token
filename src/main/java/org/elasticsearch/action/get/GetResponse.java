@@ -185,7 +185,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The response of a get action.  *  *  * @see GetRequest  * @see org.elasticsearch.client.Client#get(GetRequest)  */
+comment|/**  * The response of a get action.  *  * @see GetRequest  * @see org.elasticsearch.client.Client#get(GetRequest)  */
 end_comment
 
 begin_class
@@ -373,6 +373,19 @@ name|source
 argument_list|()
 return|;
 block|}
+comment|/**      * The source of the document if exists.      */
+DECL|method|getSourceAsBytes
+specifier|public
+name|byte
+index|[]
+name|getSourceAsBytes
+parameter_list|()
+block|{
+return|return
+name|source
+argument_list|()
+return|;
+block|}
 comment|/**      * Returns bytes reference, also un compress the source if needed.      */
 DECL|method|sourceRef
 specifier|public
@@ -383,6 +396,18 @@ block|{
 return|return
 name|getResult
 operator|.
+name|sourceRef
+argument_list|()
+return|;
+block|}
+comment|/**      * Returns bytes reference, also un compress the source if needed.      */
+DECL|method|getSourceAsBytesRef
+specifier|public
+name|BytesHolder
+name|getSourceAsBytesRef
+parameter_list|()
+block|{
+return|return
 name|sourceRef
 argument_list|()
 return|;
@@ -411,6 +436,17 @@ block|{
 return|return
 name|getResult
 operator|.
+name|sourceAsString
+argument_list|()
+return|;
+block|}
+DECL|method|getSourceAsString
+specifier|public
+name|String
+name|getSourceAsString
+parameter_list|()
+block|{
+return|return
 name|sourceAsString
 argument_list|()
 return|;

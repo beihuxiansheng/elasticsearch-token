@@ -189,6 +189,12 @@ name|BytesHolder
 name|sourceRef
 parameter_list|()
 function_decl|;
+comment|/**      * Returns bytes reference, also un compress the source if needed.      */
+DECL|method|getSourceRef
+name|BytesHolder
+name|getSourceRef
+parameter_list|()
+function_decl|;
 comment|/**      * The source of the document (can be<tt>null</tt>). Note, its a copy of the source      * into a byte array, consider using {@link #sourceRef()} so there won't be a need to copy.      */
 DECL|method|source
 name|byte
@@ -217,6 +223,12 @@ comment|/**      * The source of the document as string (can be<tt>null</tt>).  
 DECL|method|sourceAsString
 name|String
 name|sourceAsString
+parameter_list|()
+function_decl|;
+comment|/**      * The source of the document as string (can be<tt>null</tt>).      */
+DECL|method|getSourceAsString
+name|String
+name|getSourceAsString
 parameter_list|()
 function_decl|;
 comment|/**      * The source of the document as a map (can be<tt>null</tt>).      */
