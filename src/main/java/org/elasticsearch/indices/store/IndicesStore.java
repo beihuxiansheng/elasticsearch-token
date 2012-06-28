@@ -815,8 +815,9 @@ block|{
 continue|continue;
 block|}
 comment|// only delete an unallocated shard if all (other shards) are started
-if|if
-condition|(
+name|int
+name|startedShardsCount
+init|=
 name|indexShardRoutingTable
 operator|.
 name|countWithState
@@ -825,6 +826,14 @@ name|ShardRoutingState
 operator|.
 name|STARTED
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|startedShardsCount
+operator|>
+literal|0
+operator|&&
+name|startedShardsCount
 operator|==
 name|indexShardRoutingTable
 operator|.
