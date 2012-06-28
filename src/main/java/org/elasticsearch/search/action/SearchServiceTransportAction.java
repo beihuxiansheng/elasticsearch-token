@@ -307,7 +307,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An encapsulation of {@link org.elasticsearch.search.SearchService} operations exposed through  * transport.  *  *  */
+comment|/**  * An encapsulation of {@link org.elasticsearch.search.SearchService} operations exposed through  * transport.  */
 end_comment
 
 begin_class
@@ -2423,12 +2423,14 @@ name|String
 name|executor
 parameter_list|()
 block|{
+comment|// freeing the context is cheap,
+comment|// no need for fork it to another thread
 return|return
 name|ThreadPool
 operator|.
 name|Names
 operator|.
-name|SEARCH
+name|SAME
 return|;
 block|}
 block|}
