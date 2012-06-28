@@ -1080,8 +1080,9 @@ comment|// buffer, or in the cumlation buffer, which is cleaned each time
 name|StreamInput
 name|streamIn
 init|=
-operator|new
-name|ChannelBufferStreamInput
+name|ChannelBufferStreamInputFactory
+operator|.
+name|create
 argument_list|(
 name|buffer
 argument_list|,
