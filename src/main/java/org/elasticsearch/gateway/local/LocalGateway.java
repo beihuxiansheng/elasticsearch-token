@@ -1216,6 +1216,8 @@ condition|)
 block|{
 return|return;
 block|}
+comment|// order is important, first metaState, and then shardsState
+comment|// so dangling indices will be recorded
 name|metaState
 operator|.
 name|clusterChanged
