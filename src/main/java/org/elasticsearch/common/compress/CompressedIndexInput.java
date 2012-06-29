@@ -806,7 +806,12 @@ operator|++
 expr_stmt|;
 name|currentUncompressedChunkPointer
 operator|=
+operator|(
+operator|(
+name|long
+operator|)
 name|currentOffsetIdx
+operator|)
 operator|*
 name|uncompressed
 operator|.
