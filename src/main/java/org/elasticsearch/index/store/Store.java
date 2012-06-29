@@ -2612,6 +2612,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**          * Returns the *actual* file length, not the uncompressed one if compression is enabled, this          * messes things up when using compound file format, but it shouldn't be used in any case...          */
 annotation|@
 name|Override
 DECL|method|fileLength

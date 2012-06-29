@@ -122,6 +122,7 @@ specifier|private
 name|long
 name|lastModified
 decl_stmt|;
+comment|// the actual file size on "disk", if compressed, the compressed size
 DECL|field|length
 specifier|private
 name|long
@@ -260,6 +261,7 @@ operator|.
 name|lastModified
 return|;
 block|}
+comment|/**      * the actual file size on "disk", if compressed, the compressed size      */
 DECL|method|length
 specifier|public
 name|long
