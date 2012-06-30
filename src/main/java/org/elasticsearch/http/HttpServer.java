@@ -1236,6 +1236,15 @@ argument_list|,
 literal|"image/vnd.microsoft.icon"
 argument_list|)
 expr_stmt|;
+name|mimeTypes
+operator|.
+name|put
+argument_list|(
+literal|"mp3"
+argument_list|,
+literal|"audio/mpeg"
+argument_list|)
+expr_stmt|;
 name|DEFAULT_MIME_TYPES
 operator|=
 name|ImmutableMap
