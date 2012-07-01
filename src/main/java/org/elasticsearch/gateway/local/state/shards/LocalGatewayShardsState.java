@@ -951,69 +951,17 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+comment|// REMOVED: don't delete shard state, rely on IndicesStore to delete the shard location
+comment|//          only once all shards are allocated on another node
 comment|// now, go over the current ones and delete ones that are not in the new one
-for|for
-control|(
-name|Map
-operator|.
-name|Entry
-argument_list|<
-name|ShardId
-argument_list|,
-name|ShardStateInfo
-argument_list|>
-name|entry
-range|:
-name|currentState
-operator|.
-name|entrySet
-argument_list|()
-control|)
-block|{
-name|ShardId
-name|shardId
-init|=
-name|entry
-operator|.
-name|getKey
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-operator|!
-name|newState
-operator|.
-name|containsKey
-argument_list|(
-name|shardId
-argument_list|)
-condition|)
-block|{
-if|if
-condition|(
-operator|!
-name|metaState
-operator|.
-name|isDangling
-argument_list|(
-name|shardId
-operator|.
-name|index
-argument_list|()
-operator|.
-name|name
-argument_list|()
-argument_list|)
-condition|)
-block|{
-name|deleteShardState
-argument_list|(
-name|shardId
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-block|}
+comment|//        for (Map.Entry<ShardId, ShardStateInfo> entry : currentState.entrySet()) {
+comment|//            ShardId shardId = entry.getKey();
+comment|//            if (!newState.containsKey(shardId)) {
+comment|//                if (!metaState.isDangling(shardId.index().name())) {
+comment|//                    deleteShardState(shardId);
+comment|//                }
+comment|//            }
+comment|//        }
 name|this
 operator|.
 name|currentState
