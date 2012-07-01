@@ -1115,6 +1115,24 @@ argument_list|(
 name|status
 argument_list|)
 decl_stmt|;
+comment|// we have additional bytes to read, outside of the header
+name|boolean
+name|hasBytesToRead
+init|=
+operator|(
+name|size
+operator|-
+operator|(
+name|TransportStreams
+operator|.
+name|HEADER_SIZE
+operator|-
+literal|4
+operator|)
+operator|)
+operator|!=
+literal|0
+decl_stmt|;
 name|StreamInput
 name|wrappedStream
 decl_stmt|;
@@ -1126,6 +1144,8 @@ name|statusIsCompress
 argument_list|(
 name|status
 argument_list|)
+operator|&&
+name|hasBytesToRead
 operator|&&
 name|buffer
 operator|.
@@ -1198,6 +1218,21 @@ name|buffer
 operator|.
 name|readableBytes
 argument_list|()
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"] readable bytes with message size ["
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|size
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"] "
 argument_list|)
 operator|.
 name|append
