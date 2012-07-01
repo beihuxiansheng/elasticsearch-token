@@ -832,6 +832,17 @@ elseif|else
 if|if
 condition|(
 name|indexShouldExists
+operator|&&
+name|indexShard
+operator|.
+name|store
+argument_list|()
+operator|.
+name|indexStore
+argument_list|()
+operator|.
+name|persistent
+argument_list|()
 condition|)
 block|{
 throw|throw
