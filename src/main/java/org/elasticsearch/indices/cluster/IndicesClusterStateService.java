@@ -1461,7 +1461,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"[{}] deleting index"
+literal|"[{}] cleaning index, no longer part of the metadata"
 argument_list|,
 name|index
 argument_list|)
@@ -1471,11 +1471,11 @@ try|try
 block|{
 name|indicesService
 operator|.
-name|deleteIndex
+name|cleanIndex
 argument_list|(
 name|index
 argument_list|,
-literal|"deleting index"
+literal|"index no longer part of the metadata"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1489,7 +1489,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"failed to delete index"
+literal|"failed to clean index"
 argument_list|,
 name|e
 argument_list|)

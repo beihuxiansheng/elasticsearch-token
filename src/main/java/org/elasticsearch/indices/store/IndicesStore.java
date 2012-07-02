@@ -930,8 +930,8 @@ block|}
 block|}
 block|}
 block|}
-comment|// do the reverse, and delete dangling indices / shards that might remain on that node
-comment|// this can happen when deleting a closed index, or when a node joins and it has deleted indices / shards
+comment|// do the reverse, and delete dangling shards that might remain on that node
+comment|// but are allocated on other nodes
 if|if
 condition|(
 name|nodeEnv

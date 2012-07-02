@@ -673,6 +673,8 @@ parameter_list|)
 throws|throws
 name|ElasticSearchException
 block|{
+try|try
+block|{
 return|return
 operator|new
 name|NodeLocalGatewayMetaState
@@ -684,10 +686,27 @@ argument_list|()
 argument_list|,
 name|metaState
 operator|.
-name|currentMetaData
+name|loadMetaState
 argument_list|()
 argument_list|)
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|ElasticSearchException
+argument_list|(
+literal|"failed to load metadata"
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 annotation|@
 name|Override
