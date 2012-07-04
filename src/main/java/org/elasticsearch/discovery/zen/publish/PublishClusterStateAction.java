@@ -333,7 +333,7 @@ name|stream
 init|=
 name|cachedEntry
 operator|.
-name|cachedHandles
+name|handles
 argument_list|(
 name|CompressorFactory
 operator|.

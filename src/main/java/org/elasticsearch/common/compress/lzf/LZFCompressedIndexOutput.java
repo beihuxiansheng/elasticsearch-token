@@ -123,6 +123,9 @@ class|class
 name|LZFCompressedIndexOutput
 extends|extends
 name|CompressedIndexOutput
+argument_list|<
+name|LZFCompressorContext
+argument_list|>
 block|{
 DECL|field|recycler
 specifier|private
@@ -149,6 +152,10 @@ block|{
 name|super
 argument_list|(
 name|out
+argument_list|,
+name|LZFCompressorContext
+operator|.
+name|INSTANCE
 argument_list|)
 expr_stmt|;
 name|this
@@ -174,6 +181,14 @@ name|LZFChunk
 operator|.
 name|MAX_CHUNK_LEN
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|uncompressedLength
+operator|=
+name|LZFChunk
+operator|.
+name|MAX_CHUNK_LEN
 expr_stmt|;
 name|this
 operator|.

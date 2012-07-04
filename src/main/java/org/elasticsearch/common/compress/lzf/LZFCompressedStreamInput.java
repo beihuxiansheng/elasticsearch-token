@@ -98,16 +98,6 @@ name|IOException
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|InputStream
-import|;
-end_import
-
 begin_comment
 comment|/**  */
 end_comment
@@ -119,6 +109,9 @@ class|class
 name|LZFCompressedStreamInput
 extends|extends
 name|CompressedStreamInput
+argument_list|<
+name|LZFCompressorContext
+argument_list|>
 block|{
 DECL|field|recycler
 specifier|private
@@ -155,6 +148,10 @@ block|{
 name|super
 argument_list|(
 name|in
+argument_list|,
+name|LZFCompressorContext
+operator|.
+name|INSTANCE
 argument_list|)
 expr_stmt|;
 name|this
@@ -221,7 +218,7 @@ specifier|public
 name|int
 name|uncompress
 parameter_list|(
-name|InputStream
+name|StreamInput
 name|in
 parameter_list|,
 name|byte

@@ -148,7 +148,7 @@ operator|.
 name|popEntry
 argument_list|()
 operator|.
-name|cachedBytes
+name|bytes
 argument_list|()
 decl_stmt|;
 name|out

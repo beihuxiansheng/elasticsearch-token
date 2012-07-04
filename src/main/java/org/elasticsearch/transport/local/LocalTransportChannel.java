@@ -323,7 +323,7 @@ name|stream
 init|=
 name|cachedEntry
 operator|.
-name|cachedHandles
+name|handles
 argument_list|()
 decl_stmt|;
 name|stream
@@ -464,7 +464,7 @@ name|stream
 operator|=
 name|cachedEntry
 operator|.
-name|cachedBytes
+name|bytes
 argument_list|()
 expr_stmt|;
 name|writeResponseExceptionHeader
@@ -524,11 +524,16 @@ name|NotSerializableException
 name|e
 parameter_list|)
 block|{
+name|cachedEntry
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
 name|stream
 operator|=
 name|cachedEntry
 operator|.
-name|cachedBytes
+name|bytes
 argument_list|()
 expr_stmt|;
 name|writeResponseExceptionHeader

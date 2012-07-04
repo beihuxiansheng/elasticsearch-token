@@ -1612,7 +1612,7 @@ name|JSON
 argument_list|,
 name|cachedEntry
 operator|.
-name|cachedBytes
+name|bytes
 argument_list|()
 argument_list|)
 decl_stmt|;

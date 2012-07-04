@@ -1539,7 +1539,7 @@ name|out
 init|=
 name|cachedEntry
 operator|.
-name|cachedHandles
+name|handles
 argument_list|()
 decl_stmt|;
 name|out

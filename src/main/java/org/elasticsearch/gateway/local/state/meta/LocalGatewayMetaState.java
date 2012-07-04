@@ -1878,7 +1878,7 @@ name|format
 argument_list|,
 name|cachedEntry
 operator|.
-name|cachedBytes
+name|bytes
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -2243,7 +2243,7 @@ name|format
 argument_list|,
 name|cachedEntry
 operator|.
-name|cachedBytes
+name|bytes
 argument_list|()
 argument_list|)
 decl_stmt|;

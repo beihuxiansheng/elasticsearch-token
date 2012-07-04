@@ -947,7 +947,7 @@ name|streamOutput
 operator|=
 name|cachedEntry
 operator|.
-name|cachedBytes
+name|bytes
 argument_list|(
 name|CompressorFactory
 operator|.
@@ -962,7 +962,7 @@ name|streamOutput
 operator|=
 name|cachedEntry
 operator|.
-name|cachedBytes
+name|bytes
 argument_list|()
 expr_stmt|;
 block|}

@@ -1004,7 +1004,7 @@ name|streamOutput
 init|=
 name|cachedEntry
 operator|.
-name|cachedBytes
+name|bytes
 argument_list|(
 name|CompressorFactory
 operator|.

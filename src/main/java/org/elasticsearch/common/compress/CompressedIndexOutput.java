@@ -90,6 +90,11 @@ specifier|public
 specifier|abstract
 class|class
 name|CompressedIndexOutput
+parameter_list|<
+name|T
+extends|extends
+name|CompressorContext
+parameter_list|>
 extends|extends
 name|IndexOutput
 block|{
@@ -98,11 +103,22 @@ specifier|final
 name|IndexOutput
 name|out
 decl_stmt|;
+DECL|field|context
+specifier|protected
+specifier|final
+name|T
+name|context
+decl_stmt|;
 DECL|field|uncompressed
 specifier|protected
 name|byte
 index|[]
 name|uncompressed
+decl_stmt|;
+DECL|field|uncompressedLength
+specifier|protected
+name|int
+name|uncompressedLength
 decl_stmt|;
 DECL|field|position
 specifier|private
@@ -143,6 +159,9 @@ name|CompressedIndexOutput
 parameter_list|(
 name|IndexOutput
 name|out
+parameter_list|,
+name|T
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -152,6 +171,12 @@ operator|.
 name|out
 operator|=
 name|out
+expr_stmt|;
+name|this
+operator|.
+name|context
+operator|=
+name|context
 expr_stmt|;
 name|writeHeader
 argument_list|(
@@ -212,9 +237,7 @@ if|if
 condition|(
 name|position
 operator|>=
-name|uncompressed
-operator|.
-name|length
+name|uncompressedLength
 condition|)
 block|{
 name|flushBuffer
@@ -267,9 +290,7 @@ specifier|final
 name|int
 name|BUFFER_LEN
 init|=
-name|uncompressed
-operator|.
-name|length
+name|uncompressedLength
 decl_stmt|;
 comment|// simple case first: buffering only (for trivially short writes)
 name|int
@@ -449,9 +470,7 @@ specifier|final
 name|int
 name|BUFFER_LEN
 init|=
-name|uncompressed
-operator|.
-name|length
+name|uncompressedLength
 decl_stmt|;
 comment|// simple case first: buffering only (for trivially short writes)
 name|int

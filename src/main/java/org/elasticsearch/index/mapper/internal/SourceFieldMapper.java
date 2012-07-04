@@ -1703,7 +1703,7 @@ name|streamOutput
 operator|=
 name|cachedEntry
 operator|.
-name|cachedBytes
+name|bytes
 argument_list|(
 name|CompressorFactory
 operator|.
@@ -1718,7 +1718,7 @@ name|streamOutput
 operator|=
 name|cachedEntry
 operator|.
-name|cachedBytes
+name|bytes
 argument_list|()
 expr_stmt|;
 block|}
@@ -1874,7 +1874,7 @@ name|formatContentType
 argument_list|,
 name|cachedEntry
 operator|.
-name|cachedBytes
+name|bytes
 argument_list|(
 name|CompressorFactory
 operator|.
@@ -1917,7 +1917,7 @@ name|streamOutput
 init|=
 name|cachedEntry
 operator|.
-name|cachedBytes
+name|bytes
 argument_list|(
 name|CompressorFactory
 operator|.
@@ -2079,7 +2079,7 @@ name|streamOutput
 init|=
 name|cachedEntry
 operator|.
-name|cachedBytes
+name|bytes
 argument_list|(
 name|CompressorFactory
 operator|.
@@ -2222,7 +2222,7 @@ name|formatContentType
 argument_list|,
 name|cachedEntry
 operator|.
-name|cachedBytes
+name|bytes
 argument_list|()
 argument_list|)
 decl_stmt|;

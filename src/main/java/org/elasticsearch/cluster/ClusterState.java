@@ -951,7 +951,7 @@ name|os
 init|=
 name|cachedEntry
 operator|.
-name|cachedBytes
+name|bytes
 argument_list|()
 decl_stmt|;
 name|writeTo

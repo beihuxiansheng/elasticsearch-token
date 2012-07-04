@@ -52,16 +52,6 @@ name|IOException
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|InputStream
-import|;
-end_import
-
 begin_comment
 comment|/**  */
 end_comment
@@ -72,6 +62,11 @@ specifier|public
 specifier|abstract
 class|class
 name|CompressedStreamInput
+parameter_list|<
+name|T
+extends|extends
+name|CompressorContext
+parameter_list|>
 extends|extends
 name|StreamInput
 block|{
@@ -80,6 +75,12 @@ specifier|private
 specifier|final
 name|StreamInput
 name|in
+decl_stmt|;
+DECL|field|context
+specifier|protected
+specifier|final
+name|CompressorContext
+name|context
 decl_stmt|;
 DECL|field|closed
 specifier|private
@@ -112,6 +113,9 @@ name|CompressedStreamInput
 parameter_list|(
 name|StreamInput
 name|in
+parameter_list|,
+name|T
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -121,6 +125,12 @@ operator|.
 name|in
 operator|=
 name|in
+expr_stmt|;
+name|this
+operator|.
+name|context
+operator|=
+name|context
 expr_stmt|;
 name|readHeader
 argument_list|(
@@ -648,7 +658,7 @@ specifier|abstract
 name|int
 name|uncompress
 parameter_list|(
-name|InputStream
+name|StreamInput
 name|in
 parameter_list|,
 name|byte

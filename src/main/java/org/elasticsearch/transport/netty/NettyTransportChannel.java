@@ -481,7 +481,7 @@ name|stream
 operator|=
 name|cachedEntry
 operator|.
-name|cachedBytes
+name|bytes
 argument_list|()
 expr_stmt|;
 name|writeResponseExceptionHeader
@@ -543,11 +543,16 @@ name|NotSerializableException
 name|e
 parameter_list|)
 block|{
+name|cachedEntry
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
 name|stream
 operator|=
 name|cachedEntry
 operator|.
-name|cachedBytes
+name|bytes
 argument_list|()
 expr_stmt|;
 name|writeResponseExceptionHeader
