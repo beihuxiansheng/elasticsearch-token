@@ -706,6 +706,11 @@ operator|.
 name|setWaitForGreenStatus
 argument_list|()
 operator|.
+name|setWaitForRelocatingShards
+argument_list|(
+literal|0
+argument_list|)
+operator|.
 name|setTimeout
 argument_list|(
 literal|"10m"
