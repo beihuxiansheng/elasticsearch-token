@@ -33,12 +33,14 @@ comment|/**  * To be implemented by {@link SearchScript} which can provided an {
 end_comment
 
 begin_interface
-DECL|interface|ExplanableSearchScript
+DECL|interface|ExplainableSearchScript
 specifier|public
 interface|interface
-name|ExplanableSearchScript
+name|ExplainableSearchScript
+extends|extends
+name|SearchScript
 block|{
-comment|/**      * Build the explanation of the current document being scored      *       * @return      */
+comment|/**      * Build the explanation of the current document being scored      */
 DECL|method|explain
 name|Explanation
 name|explain

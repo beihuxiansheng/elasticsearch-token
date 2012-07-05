@@ -53,7 +53,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A search script.  *   * @see ExplanableSearchScript for script which can explain a score  */
+comment|/**  * A search script.  *  * @see ExplainableSearchScript for script which can explain a score  */
 end_comment
 
 begin_interface

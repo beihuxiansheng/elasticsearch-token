@@ -142,7 +142,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ExplanableSearchScript
+name|ExplainableSearchScript
 import|;
 end_import
 
@@ -793,7 +793,7 @@ if|if
 condition|(
 name|script
 operator|instanceof
-name|ExplanableSearchScript
+name|ExplainableSearchScript
 condition|)
 block|{
 name|script
@@ -817,7 +817,7 @@ name|exp
 operator|=
 operator|(
 operator|(
-name|ExplanableSearchScript
+name|ExplainableSearchScript
 operator|)
 name|script
 operator|)
