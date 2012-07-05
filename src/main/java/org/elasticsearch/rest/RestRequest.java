@@ -22,22 +22,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|io
-operator|.
-name|stream
-operator|.
-name|StreamInput
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|unit
 operator|.
 name|ByteSizeValue
@@ -150,12 +134,6 @@ comment|/**      * Is the byte array content safe or unsafe for usage on other t
 DECL|method|contentUnsafe
 name|boolean
 name|contentUnsafe
-parameter_list|()
-function_decl|;
-comment|/**      * The content as a stream.      */
-DECL|method|contentStream
-name|StreamInput
-name|contentStream
 parameter_list|()
 function_decl|;
 DECL|method|contentByteArray
