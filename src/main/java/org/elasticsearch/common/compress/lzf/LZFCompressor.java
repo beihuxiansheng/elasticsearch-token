@@ -316,9 +316,16 @@ name|get
 argument_list|(
 literal|"compress.lzf.decoder"
 argument_list|,
-literal|"optimal"
+literal|null
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|decoderType
+operator|!=
+literal|null
+condition|)
+block|{
 if|if
 condition|(
 literal|"optimal"
@@ -436,6 +443,7 @@ name|getSimpleName
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 annotation|@
