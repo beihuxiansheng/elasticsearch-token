@@ -76,7 +76,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|BytesHolder
+name|StopWatch
 import|;
 end_import
 
@@ -88,7 +88,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|StopWatch
+name|bytes
+operator|.
+name|BytesArray
 import|;
 end_import
 
@@ -1263,11 +1265,11 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|BytesHolder
+name|BytesArray
 name|content
 init|=
 operator|new
-name|BytesHolder
+name|BytesArray
 argument_list|(
 name|buf
 argument_list|,

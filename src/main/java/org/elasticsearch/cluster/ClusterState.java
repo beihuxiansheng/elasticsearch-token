@@ -964,7 +964,13 @@ expr_stmt|;
 return|return
 name|os
 operator|.
-name|copiedByteArray
+name|bytes
+argument_list|()
+operator|.
+name|copyBytesArray
+argument_list|()
+operator|.
+name|toBytes
 argument_list|()
 return|;
 block|}

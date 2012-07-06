@@ -936,7 +936,13 @@ operator|.
 name|bytes
 argument_list|()
 operator|.
-name|copiedByteArray
+name|bytes
+argument_list|()
+operator|.
+name|copyBytesArray
+argument_list|()
+operator|.
+name|toBytes
 argument_list|()
 decl_stmt|;
 name|transportServiceAdapter

@@ -685,7 +685,10 @@ name|this
 argument_list|,
 name|context
 operator|.
-name|sourceLength
+name|source
+argument_list|()
+operator|.
+name|length
 argument_list|()
 argument_list|)
 return|;

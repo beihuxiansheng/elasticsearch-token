@@ -241,7 +241,7 @@ operator|.
 name|endObject
 argument_list|()
 operator|.
-name|copiedBytes
+name|bytes
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -368,7 +368,7 @@ operator|.
 name|endObject
 argument_list|()
 operator|.
-name|copiedBytes
+name|bytes
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -488,7 +488,7 @@ operator|.
 name|endObject
 argument_list|()
 operator|.
-name|copiedBytes
+name|bytes
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -571,7 +571,7 @@ operator|.
 name|endObject
 argument_list|()
 operator|.
-name|copiedBytes
+name|bytes
 argument_list|()
 argument_list|)
 expr_stmt|;

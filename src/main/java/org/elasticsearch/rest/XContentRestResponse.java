@@ -326,7 +326,10 @@ block|{
 return|return
 name|builder
 operator|.
-name|underlyingBytes
+name|bytes
+argument_list|()
+operator|.
+name|array
 argument_list|()
 return|;
 block|}
@@ -343,7 +346,10 @@ block|{
 return|return
 name|builder
 operator|.
-name|underlyingBytesLength
+name|bytes
+argument_list|()
+operator|.
+name|length
 argument_list|()
 return|;
 block|}

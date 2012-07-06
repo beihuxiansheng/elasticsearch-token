@@ -134,9 +134,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|inject
+name|bytes
 operator|.
-name|Inject
+name|BytesReference
 import|;
 end_import
 
@@ -148,9 +148,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|io
+name|inject
 operator|.
-name|BytesStream
+name|Inject
 import|;
 end_import
 
@@ -479,7 +479,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|BytesStream
+name|BytesReference
 name|bytes
 init|=
 name|RestActions
@@ -494,16 +494,6 @@ operator|.
 name|query
 argument_list|(
 name|bytes
-operator|.
-name|underlyingBytes
-argument_list|()
-argument_list|,
-literal|0
-argument_list|,
-name|bytes
-operator|.
-name|size
-argument_list|()
 argument_list|,
 literal|false
 argument_list|)

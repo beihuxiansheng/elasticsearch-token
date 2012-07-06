@@ -46,7 +46,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|BytesHolder
+name|bytes
+operator|.
+name|BytesReference
 import|;
 end_import
 
@@ -185,13 +187,13 @@ parameter_list|()
 function_decl|;
 comment|/**      * Returns bytes reference, also un compress the source if needed.      */
 DECL|method|sourceRef
-name|BytesHolder
+name|BytesReference
 name|sourceRef
 parameter_list|()
 function_decl|;
 comment|/**      * Returns bytes reference, also un compress the source if needed.      */
 DECL|method|getSourceRef
-name|BytesHolder
+name|BytesReference
 name|getSourceRef
 parameter_list|()
 function_decl|;

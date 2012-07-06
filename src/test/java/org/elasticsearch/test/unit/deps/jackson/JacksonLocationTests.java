@@ -197,7 +197,10 @@ name|data
 init|=
 name|os
 operator|.
-name|copiedByteArray
+name|bytes
+argument_list|()
+operator|.
+name|toBytes
 argument_list|()
 decl_stmt|;
 name|JsonParser

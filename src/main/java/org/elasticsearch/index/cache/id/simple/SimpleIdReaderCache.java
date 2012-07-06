@@ -42,7 +42,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|BytesWrap
+name|bytes
+operator|.
+name|HashedBytesArray
 import|;
 end_import
 
@@ -174,7 +176,7 @@ annotation|@
 name|Override
 DECL|method|parentIdByDoc
 specifier|public
-name|BytesWrap
+name|HashedBytesArray
 name|parentIdByDoc
 parameter_list|(
 name|String
@@ -224,7 +226,7 @@ parameter_list|(
 name|String
 name|type
 parameter_list|,
-name|BytesWrap
+name|HashedBytesArray
 name|id
 parameter_list|)
 block|{
@@ -262,10 +264,10 @@ block|}
 comment|/**      * Returns an already stored instance if exists, if not, returns null;      */
 DECL|method|canReuse
 specifier|public
-name|BytesWrap
+name|HashedBytesArray
 name|canReuse
 parameter_list|(
-name|BytesWrap
+name|HashedBytesArray
 name|id
 parameter_list|)
 block|{
@@ -280,7 +282,7 @@ name|values
 argument_list|()
 control|)
 block|{
-name|BytesWrap
+name|HashedBytesArray
 name|wrap
 init|=
 name|typeCache

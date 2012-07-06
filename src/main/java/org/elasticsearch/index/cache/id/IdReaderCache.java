@@ -26,7 +26,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|BytesWrap
+name|bytes
+operator|.
+name|HashedBytesArray
 import|;
 end_import
 
@@ -54,7 +56,7 @@ name|type
 parameter_list|)
 function_decl|;
 DECL|method|parentIdByDoc
-name|BytesWrap
+name|HashedBytesArray
 name|parentIdByDoc
 parameter_list|(
 name|String
@@ -71,7 +73,7 @@ parameter_list|(
 name|String
 name|type
 parameter_list|,
-name|BytesWrap
+name|HashedBytesArray
 name|id
 parameter_list|)
 function_decl|;

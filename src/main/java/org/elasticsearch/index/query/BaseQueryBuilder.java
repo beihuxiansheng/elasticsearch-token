@@ -24,9 +24,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|io
+name|bytes
 operator|.
-name|BytesStream
+name|BytesReference
 import|;
 end_import
 
@@ -153,7 +153,7 @@ annotation|@
 name|Override
 DECL|method|buildAsBytes
 specifier|public
-name|BytesStream
+name|BytesReference
 name|buildAsBytes
 parameter_list|()
 throws|throws
@@ -172,7 +172,7 @@ annotation|@
 name|Override
 DECL|method|buildAsBytes
 specifier|public
-name|BytesStream
+name|BytesReference
 name|buildAsBytes
 parameter_list|(
 name|XContentType
@@ -203,7 +203,7 @@ expr_stmt|;
 return|return
 name|builder
 operator|.
-name|underlyingStream
+name|bytes
 argument_list|()
 return|;
 block|}

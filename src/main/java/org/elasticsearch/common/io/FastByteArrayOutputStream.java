@@ -18,6 +18,34 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|bytes
+operator|.
+name|BytesArray
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|bytes
+operator|.
+name|BytesReference
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -57,7 +85,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Similar to {@link java.io.ByteArrayOutputStream} just not synced.  *  *  */
+comment|/**  * Similar to {@link java.io.ByteArrayOutputStream} just not synced.  */
 end_comment
 
 begin_class
@@ -315,35 +343,25 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-comment|/**      * Creates a newly allocated byte array. Its size is the current      * size of this output stream and the valid contents of the buffer      * have been copied into it.      *      * @return the current contents of this output stream, as a byte array.      * @see java.io.ByteArrayOutputStream#size()      */
-DECL|method|copiedByteArray
-specifier|public
-name|byte
-name|copiedByteArray
-argument_list|()
-index|[]
-block|{
-return|return
-name|Arrays
-operator|.
-name|copyOf
-argument_list|(
-name|buf
-argument_list|,
-name|count
-argument_list|)
-return|;
-block|}
 comment|/**      * Returns the underlying byte array. Note, use {@link #size()} in order to know      * the length of it.      */
-DECL|method|underlyingBytes
+annotation|@
+name|Override
+DECL|method|bytes
 specifier|public
-name|byte
-index|[]
-name|underlyingBytes
+name|BytesReference
+name|bytes
 parameter_list|()
 block|{
 return|return
+operator|new
+name|BytesArray
+argument_list|(
 name|buf
+argument_list|,
+literal|0
+argument_list|,
+name|count
+argument_list|)
 return|;
 block|}
 comment|/**      * Returns the current size of the buffer.      *      * @return the value of the<code>count</code> field, which is the number      *         of valid bytes in this output stream.      * @see java.io.ByteArrayOutputStream#count      */

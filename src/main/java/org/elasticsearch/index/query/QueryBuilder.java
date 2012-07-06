@@ -24,9 +24,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|io
+name|bytes
 operator|.
-name|BytesStream
+name|BytesReference
 import|;
 end_import
 
@@ -71,14 +71,14 @@ extends|extends
 name|ToXContent
 block|{
 DECL|method|buildAsBytes
-name|BytesStream
+name|BytesReference
 name|buildAsBytes
 parameter_list|()
 throws|throws
 name|QueryBuilderException
 function_decl|;
 DECL|method|buildAsBytes
-name|BytesStream
+name|BytesReference
 name|buildAsBytes
 parameter_list|(
 name|XContentType

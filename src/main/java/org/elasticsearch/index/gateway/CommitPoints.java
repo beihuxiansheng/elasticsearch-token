@@ -655,7 +655,10 @@ expr_stmt|;
 return|return
 name|builder
 operator|.
-name|copiedBytes
+name|bytes
+argument_list|()
+operator|.
+name|toBytes
 argument_list|()
 return|;
 block|}

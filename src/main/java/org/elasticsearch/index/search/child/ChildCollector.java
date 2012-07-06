@@ -82,7 +82,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|BytesWrap
+name|bytes
+operator|.
+name|HashedBytesArray
 import|;
 end_import
 
@@ -374,7 +376,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|BytesWrap
+name|HashedBytesArray
 name|parentId
 init|=
 name|typeCache

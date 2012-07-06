@@ -225,7 +225,10 @@ name|BytesStreamInput
 argument_list|(
 name|bytesOut
 operator|.
-name|copiedByteArray
+name|bytes
+argument_list|()
+operator|.
+name|toBytes
 argument_list|()
 argument_list|,
 literal|false

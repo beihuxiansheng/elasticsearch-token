@@ -28,7 +28,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|BytesWrap
+name|bytes
+operator|.
+name|HashedBytesArray
 import|;
 end_import
 
@@ -85,14 +87,14 @@ specifier|private
 specifier|final
 name|ExtTObjectIntHasMap
 argument_list|<
-name|BytesWrap
+name|HashedBytesArray
 argument_list|>
 name|idToDoc
 decl_stmt|;
 DECL|field|parentIdsValues
 specifier|private
 specifier|final
-name|BytesWrap
+name|HashedBytesArray
 index|[]
 name|parentIdsValues
 decl_stmt|;
@@ -112,11 +114,11 @@ name|type
 parameter_list|,
 name|ExtTObjectIntHasMap
 argument_list|<
-name|BytesWrap
+name|HashedBytesArray
 argument_list|>
 name|idToDoc
 parameter_list|,
-name|BytesWrap
+name|HashedBytesArray
 index|[]
 name|parentIdsValues
 parameter_list|,
@@ -171,7 +173,7 @@ return|;
 block|}
 DECL|method|parentIdByDoc
 specifier|public
-name|BytesWrap
+name|HashedBytesArray
 name|parentIdByDoc
 parameter_list|(
 name|int
@@ -193,7 +195,7 @@ specifier|public
 name|int
 name|docById
 parameter_list|(
-name|BytesWrap
+name|HashedBytesArray
 name|id
 parameter_list|)
 block|{
@@ -209,10 +211,10 @@ block|}
 comment|/**      * Returns an already stored instance if exists, if not, returns null;      */
 DECL|method|canReuse
 specifier|public
-name|BytesWrap
+name|HashedBytesArray
 name|canReuse
 parameter_list|(
-name|BytesWrap
+name|HashedBytesArray
 name|id
 parameter_list|)
 block|{

@@ -78,7 +78,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|BytesWrap
+name|bytes
+operator|.
+name|HashedBytesArray
 import|;
 end_import
 
@@ -771,7 +773,7 @@ name|typeBuilder
 argument_list|)
 expr_stmt|;
 block|}
-name|BytesWrap
+name|HashedBytesArray
 name|idAsBytes
 init|=
 name|checkIfCanReuse
@@ -779,7 +781,7 @@ argument_list|(
 name|builders
 argument_list|,
 operator|new
-name|BytesWrap
+name|HashedBytesArray
 argument_list|(
 name|uid
 operator|.
@@ -1022,7 +1024,7 @@ name|typeBuilder
 argument_list|)
 expr_stmt|;
 block|}
-name|BytesWrap
+name|HashedBytesArray
 name|idAsBytes
 init|=
 name|checkIfCanReuse
@@ -1030,7 +1032,7 @@ argument_list|(
 name|builders
 argument_list|,
 operator|new
-name|BytesWrap
+name|HashedBytesArray
 argument_list|(
 name|uid
 operator|.
@@ -1238,7 +1240,7 @@ operator|.
 name|toArray
 argument_list|(
 operator|new
-name|BytesWrap
+name|HashedBytesArray
 index|[
 name|typeBuilderEntry
 operator|.
@@ -1297,7 +1299,7 @@ block|}
 block|}
 DECL|method|checkIfCanReuse
 specifier|private
-name|BytesWrap
+name|HashedBytesArray
 name|checkIfCanReuse
 parameter_list|(
 name|Map
@@ -1313,11 +1315,11 @@ argument_list|>
 argument_list|>
 name|builders
 parameter_list|,
-name|BytesWrap
+name|HashedBytesArray
 name|idAsBytes
 parameter_list|)
 block|{
-name|BytesWrap
+name|HashedBytesArray
 name|finalIdAsBytes
 decl_stmt|;
 comment|// go over and see if we can reuse this id
@@ -1456,14 +1458,14 @@ DECL|field|idToDoc
 specifier|final
 name|ExtTObjectIntHasMap
 argument_list|<
-name|BytesWrap
+name|HashedBytesArray
 argument_list|>
 name|idToDoc
 init|=
 operator|new
 name|ExtTObjectIntHasMap
 argument_list|<
-name|BytesWrap
+name|HashedBytesArray
 argument_list|>
 argument_list|(
 name|Constants
@@ -1482,14 +1484,14 @@ DECL|field|parentIdsValues
 specifier|final
 name|ArrayList
 argument_list|<
-name|BytesWrap
+name|HashedBytesArray
 argument_list|>
 name|parentIdsValues
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|BytesWrap
+name|HashedBytesArray
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -1536,10 +1538,10 @@ block|}
 comment|/**          * Returns an already stored instance if exists, if not, returns null;          */
 DECL|method|canReuse
 specifier|public
-name|BytesWrap
+name|HashedBytesArray
 name|canReuse
 parameter_list|(
-name|BytesWrap
+name|HashedBytesArray
 name|id
 parameter_list|)
 block|{

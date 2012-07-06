@@ -288,7 +288,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|BytesHolder
+name|Nullable
 import|;
 end_import
 
@@ -300,7 +300,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Nullable
+name|bytes
+operator|.
+name|BytesReference
 import|;
 end_import
 
@@ -1391,12 +1393,12 @@ argument_list|)
 expr_stmt|;
 comment|// we fetch it from the index request so we don't generate the bytes twice, its already done in the index request
 specifier|final
-name|BytesHolder
+name|BytesReference
 name|updateSourceBytes
 init|=
 name|indexRequest
 operator|.
-name|underlyingSourceBytes
+name|source
 argument_list|()
 decl_stmt|;
 name|indexAction
@@ -1630,25 +1632,6 @@ name|getResult
 operator|.
 name|internalSourceRef
 argument_list|()
-operator|.
-name|bytes
-argument_list|()
-argument_list|,
-name|getResult
-operator|.
-name|internalSourceRef
-argument_list|()
-operator|.
-name|offset
-argument_list|()
-argument_list|,
-name|getResult
-operator|.
-name|internalSourceRef
-argument_list|()
-operator|.
-name|length
-argument_list|()
 argument_list|,
 literal|true
 argument_list|)
@@ -1856,7 +1839,7 @@ name|updatedSourceAsMap
 argument_list|,
 name|indexRequest
 operator|.
-name|underlyingSourceAsMap
+name|sourceAsMap
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2248,12 +2231,12 @@ argument_list|)
 expr_stmt|;
 comment|// we fetch it from the index request so we don't generate the bytes twice, its already done in the index request
 specifier|final
-name|BytesHolder
+name|BytesReference
 name|updateSourceBytes
 init|=
 name|indexRequest
 operator|.
-name|underlyingSourceBytes
+name|source
 argument_list|()
 decl_stmt|;
 name|indexAction
@@ -2821,7 +2804,7 @@ parameter_list|,
 annotation|@
 name|Nullable
 specifier|final
-name|BytesHolder
+name|BytesReference
 name|sourceAsBytes
 parameter_list|)
 block|{

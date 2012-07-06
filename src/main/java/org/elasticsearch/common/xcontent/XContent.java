@@ -24,7 +24,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|BytesHolder
+name|bytes
+operator|.
+name|BytesReference
 import|;
 end_import
 
@@ -138,7 +140,7 @@ DECL|method|createParser
 name|XContentParser
 name|createParser
 parameter_list|(
-name|BytesHolder
+name|BytesReference
 name|bytes
 parameter_list|)
 throws|throws

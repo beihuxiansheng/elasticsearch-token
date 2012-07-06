@@ -76,9 +76,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|io
+name|bytes
 operator|.
-name|BytesStream
+name|BytesReference
 import|;
 end_import
 
@@ -396,7 +396,7 @@ block|}
 DECL|method|parseQuerySource
 specifier|public
 specifier|static
-name|BytesStream
+name|BytesReference
 name|parseQuerySource
 parameter_list|(
 name|RestRequest

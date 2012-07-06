@@ -116,7 +116,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|BytesWrap
+name|bytes
+operator|.
+name|HashedBytesArray
 import|;
 end_import
 
@@ -581,7 +583,7 @@ name|readerIndex
 index|]
 decl_stmt|;
 comment|// find the parent id
-name|BytesWrap
+name|HashedBytesArray
 name|parentId
 init|=
 name|context

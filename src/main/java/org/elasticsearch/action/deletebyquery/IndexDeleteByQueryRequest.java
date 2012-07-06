@@ -66,18 +66,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|BytesHolder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|Nullable
 import|;
 end_import
@@ -91,6 +79,20 @@ operator|.
 name|common
 operator|.
 name|Strings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|bytes
+operator|.
+name|BytesReference
 import|;
 end_import
 
@@ -188,7 +190,7 @@ name|IndexReplicationOperationRequest
 block|{
 DECL|field|querySource
 specifier|private
-name|BytesHolder
+name|BytesReference
 name|querySource
 decl_stmt|;
 DECL|field|types
@@ -312,7 +314,7 @@ name|IndexDeleteByQueryRequest
 parameter_list|()
 block|{     }
 DECL|method|querySource
-name|BytesHolder
+name|BytesReference
 name|querySource
 parameter_list|()
 block|{
@@ -611,9 +613,11 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeBytesHolder
+name|writeBytesReference
 argument_list|(
 name|querySource
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|out

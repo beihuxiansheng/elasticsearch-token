@@ -24,7 +24,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|BytesHolder
+name|Nullable
 import|;
 end_import
 
@@ -36,7 +36,23 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Nullable
+name|bytes
+operator|.
+name|BytesArray
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|bytes
+operator|.
+name|BytesReference
 import|;
 end_import
 
@@ -150,7 +166,7 @@ name|checksum
 decl_stmt|;
 DECL|field|content
 specifier|private
-name|BytesHolder
+name|BytesReference
 name|content
 decl_stmt|;
 DECL|method|RecoveryFileChunkRequest
@@ -175,7 +191,7 @@ parameter_list|,
 name|String
 name|checksum
 parameter_list|,
-name|BytesHolder
+name|BytesArray
 name|content
 parameter_list|)
 block|{
@@ -272,7 +288,7 @@ return|;
 block|}
 DECL|method|content
 specifier|public
-name|BytesHolder
+name|BytesReference
 name|content
 parameter_list|()
 block|{
@@ -451,9 +467,11 @@ expr_stmt|;
 block|}
 name|out
 operator|.
-name|writeBytesHolder
+name|writeBytesReference
 argument_list|(
 name|content
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}

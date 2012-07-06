@@ -558,7 +558,10 @@ name|data
 init|=
 name|bos
 operator|.
-name|copiedByteArray
+name|bytes
+argument_list|()
+operator|.
+name|toBytes
 argument_list|()
 decl_stmt|;
 name|String

@@ -503,10 +503,11 @@ operator|.
 name|bytes
 argument_list|()
 operator|.
-name|underlyingBytes
+name|bytes
 argument_list|()
 operator|.
 name|length
+argument_list|()
 operator|>
 name|BYTES_LIMIT
 condition|)

@@ -76,7 +76,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|BytesHolder
+name|Strings
 import|;
 end_import
 
@@ -88,7 +88,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Strings
+name|bytes
+operator|.
+name|BytesArray
 import|;
 end_import
 
@@ -799,13 +801,13 @@ operator|.
 name|uncompressIfNeeded
 argument_list|(
 operator|new
-name|BytesHolder
+name|BytesArray
 argument_list|(
 name|value
 argument_list|)
 argument_list|)
 operator|.
-name|bytes
+name|toBytes
 argument_list|()
 return|;
 block|}
@@ -1039,7 +1041,13 @@ operator|.
 name|bytes
 argument_list|()
 operator|.
-name|copiedByteArray
+name|bytes
+argument_list|()
+operator|.
+name|copyBytesArray
+argument_list|()
+operator|.
+name|toBytes
 argument_list|()
 expr_stmt|;
 name|CachedStreamOutput

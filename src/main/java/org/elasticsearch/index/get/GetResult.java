@@ -48,7 +48,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|BytesHolder
+name|bytes
+operator|.
+name|BytesReference
 import|;
 end_import
 
@@ -344,7 +346,7 @@ name|sourceAsMap
 decl_stmt|;
 DECL|field|source
 specifier|private
-name|BytesHolder
+name|BytesReference
 name|source
 decl_stmt|;
 DECL|field|sourceAsBytes
@@ -376,7 +378,7 @@ parameter_list|,
 name|boolean
 name|exists
 parameter_list|,
-name|BytesHolder
+name|BytesReference
 name|source
 parameter_list|,
 name|Map
@@ -603,7 +605,7 @@ operator|=
 name|sourceRef
 argument_list|()
 operator|.
-name|copyBytes
+name|toBytes
 argument_list|()
 expr_stmt|;
 return|return
@@ -615,7 +617,7 @@ block|}
 comment|/**      * Returns bytes reference, also un compress the source if needed.      */
 DECL|method|sourceRef
 specifier|public
-name|BytesHolder
+name|BytesReference
 name|sourceRef
 parameter_list|()
 block|{
@@ -660,7 +662,7 @@ block|}
 comment|/**      * Internal source representation, might be compressed....      */
 DECL|method|internalSourceRef
 specifier|public
-name|BytesHolder
+name|BytesReference
 name|internalSourceRef
 parameter_list|()
 block|{
@@ -699,7 +701,7 @@ return|return
 literal|null
 return|;
 block|}
-name|BytesHolder
+name|BytesReference
 name|source
 init|=
 name|sourceRef
@@ -783,19 +785,6 @@ operator|.
 name|sourceAsMap
 argument_list|(
 name|source
-operator|.
-name|bytes
-argument_list|()
-argument_list|,
-name|source
-operator|.
-name|offset
-argument_list|()
-argument_list|,
-name|source
-operator|.
-name|length
-argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
@@ -1017,19 +1006,6 @@ operator|.
 name|restDocumentSource
 argument_list|(
 name|source
-operator|.
-name|bytes
-argument_list|()
-argument_list|,
-name|source
-operator|.
-name|offset
-argument_list|()
-argument_list|,
-name|source
-operator|.
-name|length
-argument_list|()
 argument_list|,
 name|builder
 argument_list|,
@@ -1556,9 +1532,11 @@ condition|)
 block|{
 name|out
 operator|.
-name|writeBytesHolder
+name|writeBytesReference
 argument_list|(
 name|source
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 if|if

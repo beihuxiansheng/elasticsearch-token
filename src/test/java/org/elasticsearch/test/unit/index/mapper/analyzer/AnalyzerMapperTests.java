@@ -84,15 +84,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|test
-operator|.
-name|unit
-operator|.
 name|index
 operator|.
 name|mapper
 operator|.
-name|MapperTests
+name|ParsedDocument
 import|;
 end_import
 
@@ -102,11 +98,15 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|test
+operator|.
+name|unit
+operator|.
 name|index
 operator|.
 name|mapper
 operator|.
-name|ParsedDocument
+name|MapperTests
 import|;
 end_import
 
@@ -319,7 +319,7 @@ operator|.
 name|endObject
 argument_list|()
 operator|.
-name|copiedBytes
+name|bytes
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -464,7 +464,7 @@ operator|.
 name|endObject
 argument_list|()
 operator|.
-name|copiedBytes
+name|bytes
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -713,7 +713,7 @@ operator|.
 name|endObject
 argument_list|()
 operator|.
-name|copiedBytes
+name|bytes
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -858,7 +858,7 @@ operator|.
 name|endObject
 argument_list|()
 operator|.
-name|copiedBytes
+name|bytes
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1121,7 +1121,7 @@ operator|.
 name|endObject
 argument_list|()
 operator|.
-name|copiedBytes
+name|bytes
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1266,7 +1266,7 @@ operator|.
 name|endObject
 argument_list|()
 operator|.
-name|copiedBytes
+name|bytes
 argument_list|()
 argument_list|)
 expr_stmt|;
