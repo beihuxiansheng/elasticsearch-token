@@ -823,7 +823,9 @@ name|script
 operator|)
 operator|.
 name|explain
-argument_list|()
+argument_list|(
+name|subQueryExpl
+argument_list|)
 expr_stmt|;
 block|}
 else|else
@@ -848,10 +850,9 @@ name|Explanation
 argument_list|(
 name|score
 argument_list|,
-literal|"script score function: product of:"
+literal|"script score function: composed of:"
 argument_list|)
 expr_stmt|;
-block|}
 name|exp
 operator|.
 name|addDetail
@@ -859,6 +860,7 @@ argument_list|(
 name|subQueryExpl
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|exp
 return|;

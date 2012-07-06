@@ -40,11 +40,14 @@ name|ExplainableSearchScript
 extends|extends
 name|SearchScript
 block|{
-comment|/**      * Build the explanation of the current document being scored      */
+comment|/**      * Build the explanation of the current document being scored      *       * @param subQueryExpl the explanation of the subQuery       */
 DECL|method|explain
 name|Explanation
 name|explain
-parameter_list|()
+parameter_list|(
+name|Explanation
+name|subQueryExpl
+parameter_list|)
 function_decl|;
 block|}
 end_interface
