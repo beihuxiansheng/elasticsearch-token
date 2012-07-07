@@ -399,7 +399,10 @@ name|source
 argument_list|(
 name|request
 operator|.
-name|contentAsString
+name|content
+argument_list|()
+operator|.
+name|toUtf8
 argument_list|()
 argument_list|)
 expr_stmt|;

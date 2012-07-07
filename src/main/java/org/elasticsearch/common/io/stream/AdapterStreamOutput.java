@@ -275,9 +275,6 @@ annotation|@
 name|Nullable
 name|BytesReference
 name|bytes
-parameter_list|,
-name|boolean
-name|withLength
 parameter_list|)
 throws|throws
 name|IOException
@@ -287,8 +284,6 @@ operator|.
 name|writeBytesReference
 argument_list|(
 name|bytes
-argument_list|,
-name|withLength
 argument_list|)
 expr_stmt|;
 block|}

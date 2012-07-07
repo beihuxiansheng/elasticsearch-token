@@ -34,22 +34,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|io
-operator|.
-name|stream
-operator|.
-name|StreamOutput
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -111,20 +95,7 @@ name|StreamInput
 name|streamInput
 parameter_list|()
 function_decl|;
-comment|/**      * Writes the bytes into the output, with an optional length header (variable encoded).      */
-DECL|method|writeTo
-name|void
-name|writeTo
-parameter_list|(
-name|StreamOutput
-name|out
-parameter_list|,
-name|boolean
-name|withLength
-parameter_list|)
-throws|throws
-name|IOException
-function_decl|;
+comment|/**      * Writes the bytes directly to the output stream.      */
 DECL|method|writeTo
 name|void
 name|writeTo
@@ -171,6 +142,12 @@ comment|/**      * The offset into the underlying byte array.      */
 DECL|method|arrayOffset
 name|int
 name|arrayOffset
+parameter_list|()
+function_decl|;
+comment|/**      * Converts to a string based on utf8.      */
+DECL|method|toUtf8
+name|String
+name|toUtf8
 parameter_list|()
 function_decl|;
 block|}

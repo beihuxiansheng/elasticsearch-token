@@ -1891,13 +1891,11 @@ name|defaultCompressor
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|streamOutput
-operator|.
-name|writeBytesReference
-argument_list|(
 name|source
-argument_list|,
-literal|false
+operator|.
+name|writeTo
+argument_list|(
+name|streamOutput
 argument_list|)
 expr_stmt|;
 name|streamOutput

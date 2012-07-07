@@ -470,8 +470,6 @@ operator|.
 name|writeBytesReference
 argument_list|(
 name|content
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 block|}

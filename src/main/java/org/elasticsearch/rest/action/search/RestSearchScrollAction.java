@@ -362,7 +362,10 @@ name|scrollId
 operator|=
 name|request
 operator|.
-name|contentAsString
+name|content
+argument_list|()
+operator|.
+name|toUtf8
 argument_list|()
 expr_stmt|;
 block|}

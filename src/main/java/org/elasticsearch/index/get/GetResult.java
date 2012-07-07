@@ -1535,8 +1535,6 @@ operator|.
 name|writeBytesReference
 argument_list|(
 name|source
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 if|if
