@@ -1256,6 +1256,13 @@ condition|(
 name|tcpSendBufferSize
 operator|!=
 literal|null
+operator|&&
+name|tcpSendBufferSize
+operator|.
+name|bytes
+argument_list|()
+operator|>
+literal|0
 condition|)
 block|{
 name|serverBootstrap
@@ -1276,6 +1283,13 @@ condition|(
 name|tcpReceiveBufferSize
 operator|!=
 literal|null
+operator|&&
+name|tcpReceiveBufferSize
+operator|.
+name|bytes
+argument_list|()
+operator|>
+literal|0
 condition|)
 block|{
 name|serverBootstrap
