@@ -82,7 +82,19 @@ block|{
 throw|throw
 operator|new
 name|EsRejectedExecutionException
+argument_list|(
+literal|"rejected execution of ["
+operator|+
+name|r
+operator|.
+name|getClass
 argument_list|()
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"]"
+argument_list|)
 throw|;
 block|}
 block|}
