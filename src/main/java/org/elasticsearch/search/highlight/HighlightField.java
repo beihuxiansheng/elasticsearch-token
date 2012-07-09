@@ -24,18 +24,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Strings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|io
 operator|.
 name|stream
@@ -78,6 +66,34 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|text
+operator|.
+name|StringText
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|text
+operator|.
+name|Text
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -97,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A field highlighted with its highlighted fragments.  *  *  */
+comment|/**  * A field highlighted with its highlighted fragments.  */
 end_comment
 
 begin_class
@@ -115,7 +131,7 @@ name|name
 decl_stmt|;
 DECL|field|fragments
 specifier|private
-name|String
+name|Text
 index|[]
 name|fragments
 decl_stmt|;
@@ -130,7 +146,7 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|String
+name|Text
 index|[]
 name|fragments
 parameter_list|)
@@ -174,7 +190,7 @@ block|}
 comment|/**      * The highlighted fragments.<tt>null</tt> if failed to highlight (for example, the field is not stored).      */
 DECL|method|fragments
 specifier|public
-name|String
+name|Text
 index|[]
 name|fragments
 parameter_list|()
@@ -186,7 +202,7 @@ block|}
 comment|/**      * The highlighted fragments.<tt>null</tt> if failed to highlight (for example, the field is not stored).      */
 DECL|method|getFragments
 specifier|public
-name|String
+name|Text
 index|[]
 name|getFragments
 parameter_list|()
@@ -296,7 +312,7 @@ condition|)
 block|{
 name|fragments
 operator|=
-name|Strings
+name|StringText
 operator|.
 name|EMPTY_ARRAY
 expr_stmt|;
@@ -306,7 +322,7 @@ block|{
 name|fragments
 operator|=
 operator|new
-name|String
+name|Text
 index|[
 name|size
 index|]
@@ -333,7 +349,7 @@ index|]
 operator|=
 name|in
 operator|.
-name|readUTF
+name|readText
 argument_list|()
 expr_stmt|;
 block|}
@@ -395,7 +411,7 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|String
+name|Text
 name|fragment
 range|:
 name|fragments
@@ -403,7 +419,7 @@ control|)
 block|{
 name|out
 operator|.
-name|writeUTF
+name|writeText
 argument_list|(
 name|fragment
 argument_list|)
