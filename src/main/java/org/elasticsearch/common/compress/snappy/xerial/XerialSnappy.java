@@ -32,6 +32,16 @@ name|Snappy
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|PrintStream
+import|;
+end_import
+
 begin_comment
 comment|/**  */
 end_comment
@@ -66,8 +76,24 @@ decl_stmt|;
 name|boolean
 name|availableX
 decl_stmt|;
+comment|// Yuck!, we need to do this since snappy 1.0.4.1 does e.printStackTrace
+comment|// when failing to load the snappy library, and we don't want it displayed...
+name|PrintStream
+name|err
+init|=
+name|System
+operator|.
+name|err
+decl_stmt|;
 try|try
 block|{
+name|System
+operator|.
+name|setErr
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
 name|byte
 index|[]
 name|tests
@@ -104,6 +130,16 @@ expr_stmt|;
 name|failureX
 operator|=
 name|e
+expr_stmt|;
+block|}
+finally|finally
+block|{
+name|System
+operator|.
+name|setErr
+argument_list|(
+name|err
+argument_list|)
 expr_stmt|;
 block|}
 name|available
