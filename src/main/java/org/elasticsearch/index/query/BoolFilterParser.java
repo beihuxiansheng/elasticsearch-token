@@ -779,9 +779,9 @@ name|boolFilter
 operator|.
 name|getMustFilters
 argument_list|()
-operator|!=
+operator|==
 literal|null
-operator|&&
+operator|||
 name|boolFilter
 operator|.
 name|getMustFilters
@@ -796,9 +796,9 @@ name|boolFilter
 operator|.
 name|getNotFilters
 argument_list|()
-operator|!=
+operator|==
 literal|null
-operator|&&
+operator|||
 name|boolFilter
 operator|.
 name|getNotFilters
@@ -813,9 +813,9 @@ name|boolFilter
 operator|.
 name|getShouldFilters
 argument_list|()
-operator|!=
+operator|==
 literal|null
-operator|&&
+operator|||
 name|boolFilter
 operator|.
 name|getShouldFilters
