@@ -1516,6 +1516,13 @@ literal|true
 argument_list|)
 condition|)
 block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"performing state recovery..."
+argument_list|)
+expr_stmt|;
 name|gateway
 operator|.
 name|performStateRecovery
@@ -1544,6 +1551,13 @@ literal|true
 argument_list|)
 condition|)
 block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"performing state recovery..."
+argument_list|)
+expr_stmt|;
 name|gateway
 operator|.
 name|performStateRecovery
@@ -1594,6 +1608,13 @@ name|ClusterState
 name|recoveredState
 parameter_list|)
 block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"successful state recovery, importing cluster state..."
+argument_list|)
+expr_stmt|;
 name|clusterService
 operator|.
 name|submitStateUpdateTask
