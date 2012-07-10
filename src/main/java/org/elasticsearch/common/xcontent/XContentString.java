@@ -18,11 +18,13 @@ end_package
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|codehaus
+name|fasterxml
 operator|.
 name|jackson
+operator|.
+name|core
 operator|.
 name|io
 operator|.
