@@ -1199,23 +1199,6 @@ name|ClusterChangedEvent
 name|event
 parameter_list|)
 block|{
-comment|// nothing to do until we actually recover from the gateway or any other block indicates we need to disable persistency
-if|if
-condition|(
-name|event
-operator|.
-name|state
-argument_list|()
-operator|.
-name|blocks
-argument_list|()
-operator|.
-name|disableStatePersistence
-argument_list|()
-condition|)
-block|{
-return|return;
-block|}
 comment|// order is important, first metaState, and then shardsState
 comment|// so dangling indices will be recorded
 name|metaState
