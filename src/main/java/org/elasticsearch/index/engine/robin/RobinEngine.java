@@ -1497,6 +1497,19 @@ name|unlock
 argument_list|()
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|preValue
+operator|.
+name|bytes
+argument_list|()
+operator|!=
+name|indexingBufferSize
+operator|.
+name|bytes
+argument_list|()
+condition|)
+block|{
 comment|// its inactive, make sure we do a full flush in this case, since the memory
 comment|// changes only after a "data" change has happened to the writer
 if|if
@@ -1514,6 +1527,17 @@ operator|.
 name|INACTIVE_SHARD_INDEXING_BUFFER
 condition|)
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"updating index_buffer_size from [{}] to (inactive) [{}]"
+argument_list|,
+name|preValue
+argument_list|,
+name|indexingBufferSize
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|flush
@@ -1558,6 +1582,21 @@ argument_list|(
 literal|"failed to flush after setting shard to inactive"
 argument_list|,
 name|e
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"updating index_buffer_size from [{}] to [{}]"
+argument_list|,
+name|preValue
+argument_list|,
+name|indexingBufferSize
 argument_list|)
 expr_stmt|;
 block|}
