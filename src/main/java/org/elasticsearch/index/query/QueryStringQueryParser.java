@@ -1779,6 +1779,16 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|qpSettings
+operator|.
+name|queryTypes
+argument_list|(
+name|parseContext
+operator|.
+name|queryTypes
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|Query
 name|query
 init|=
