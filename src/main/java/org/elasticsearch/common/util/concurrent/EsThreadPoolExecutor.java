@@ -82,9 +82,9 @@ name|workQueue
 argument_list|,
 name|threadFactory
 argument_list|,
+operator|new
 name|EsAbortPolicy
-operator|.
-name|INSTANCE
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
