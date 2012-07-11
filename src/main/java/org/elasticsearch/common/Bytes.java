@@ -14,6 +14,20 @@ name|common
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|monitor
+operator|.
+name|jvm
+operator|.
+name|JvmUtils
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -24,6 +38,211 @@ specifier|public
 class|class
 name|Bytes
 block|{
+comment|/**      * Returns an array size>= minTargetSize, generally      * over-allocating exponentially to achieve amortized      * linear-time cost as the array grows.      *<p/>      * NOTE: this was originally borrowed from Python 2.4.2      * listobject.c sources (attribution in LICENSE.txt), but      * has now been substantially changed based on      * discussions from java-dev thread with subject "Dynamic      * array reallocation algorithms", started on Jan 12      * 2010.      *      * @param minTargetSize   Minimum required value to be returned.      * @param bytesPerElement Bytes used by each element of      *                        the array.  See constants in {@link RamUsageEstimator}.      * @lucene.internal      */
+DECL|method|oversize
+specifier|public
+specifier|static
+name|int
+name|oversize
+parameter_list|(
+name|int
+name|minTargetSize
+parameter_list|,
+name|int
+name|bytesPerElement
+parameter_list|)
+block|{
+if|if
+condition|(
+name|minTargetSize
+operator|<
+literal|0
+condition|)
+block|{
+comment|// catch usage that accidentally overflows int
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"invalid array size "
+operator|+
+name|minTargetSize
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|minTargetSize
+operator|==
+literal|0
+condition|)
+block|{
+comment|// wait until at least one element is requested
+return|return
+literal|0
+return|;
+block|}
+comment|// asymptotic exponential growth by 1/8th, favors
+comment|// spending a bit more CPU to not tie up too much wasted
+comment|// RAM:
+name|int
+name|extra
+init|=
+name|minTargetSize
+operator|>>
+literal|3
+decl_stmt|;
+if|if
+condition|(
+name|extra
+operator|<
+literal|3
+condition|)
+block|{
+comment|// for very small arrays, where constant overhead of
+comment|// realloc is presumably relatively high, we grow
+comment|// faster
+name|extra
+operator|=
+literal|3
+expr_stmt|;
+block|}
+name|int
+name|newSize
+init|=
+name|minTargetSize
+operator|+
+name|extra
+decl_stmt|;
+comment|// add 7 to allow for worst case byte alignment addition below:
+if|if
+condition|(
+name|newSize
+operator|+
+literal|7
+operator|<
+literal|0
+condition|)
+block|{
+comment|// int overflowed -- return max allowed array size
+return|return
+name|Integer
+operator|.
+name|MAX_VALUE
+return|;
+block|}
+if|if
+condition|(
+name|JvmUtils
+operator|.
+name|JRE_IS_64BIT
+condition|)
+block|{
+comment|// round up to 8 byte alignment in 64bit env
+switch|switch
+condition|(
+name|bytesPerElement
+condition|)
+block|{
+case|case
+literal|4
+case|:
+comment|// round up to multiple of 2
+return|return
+operator|(
+name|newSize
+operator|+
+literal|1
+operator|)
+operator|&
+literal|0x7ffffffe
+return|;
+case|case
+literal|2
+case|:
+comment|// round up to multiple of 4
+return|return
+operator|(
+name|newSize
+operator|+
+literal|3
+operator|)
+operator|&
+literal|0x7ffffffc
+return|;
+case|case
+literal|1
+case|:
+comment|// round up to multiple of 8
+return|return
+operator|(
+name|newSize
+operator|+
+literal|7
+operator|)
+operator|&
+literal|0x7ffffff8
+return|;
+case|case
+literal|8
+case|:
+comment|// no rounding
+default|default:
+comment|// odd (invalid?) size
+return|return
+name|newSize
+return|;
+block|}
+block|}
+else|else
+block|{
+comment|// round up to 4 byte alignment in 64bit env
+switch|switch
+condition|(
+name|bytesPerElement
+condition|)
+block|{
+case|case
+literal|2
+case|:
+comment|// round up to multiple of 2
+return|return
+operator|(
+name|newSize
+operator|+
+literal|1
+operator|)
+operator|&
+literal|0x7ffffffe
+return|;
+case|case
+literal|1
+case|:
+comment|// round up to multiple of 4
+return|return
+operator|(
+name|newSize
+operator|+
+literal|3
+operator|)
+operator|&
+literal|0x7ffffffc
+return|;
+case|case
+literal|4
+case|:
+case|case
+literal|8
+case|:
+comment|// no rounding
+default|default:
+comment|// odd (invalid?) size
+return|return
+name|newSize
+return|;
+block|}
+block|}
+block|}
 DECL|field|EMPTY_ARRAY
 specifier|public
 specifier|static
