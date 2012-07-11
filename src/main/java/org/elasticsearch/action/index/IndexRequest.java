@@ -2421,9 +2421,9 @@ condition|)
 block|{
 name|timestamp
 operator|=
-name|String
+name|Long
 operator|.
-name|valueOf
+name|toString
 argument_list|(
 name|System
 operator|.

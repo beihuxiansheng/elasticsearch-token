@@ -862,6 +862,7 @@ name|ts
 decl_stmt|;
 try|try
 block|{
+comment|// if we manage to parse it, its a millisecond timestamp, just return the string as is
 name|ts
 operator|=
 name|Long
@@ -871,6 +872,9 @@ argument_list|(
 name|timestampAsString
 argument_list|)
 expr_stmt|;
+return|return
+name|timestampAsString
+return|;
 block|}
 catch|catch
 parameter_list|(
@@ -909,9 +913,9 @@ throw|;
 block|}
 block|}
 return|return
-name|String
+name|Long
 operator|.
-name|valueOf
+name|toString
 argument_list|(
 name|ts
 argument_list|)
