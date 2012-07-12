@@ -46,7 +46,19 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|ArrayBlockingQueue
+name|BlockingQueue
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|LinkedBlockingQueue
 import|;
 end_import
 
@@ -65,7 +77,7 @@ block|{
 DECL|field|smallCache
 specifier|private
 specifier|final
-name|ArrayBlockingQueue
+name|BlockingQueue
 argument_list|<
 name|ByteBuffer
 argument_list|>
@@ -74,7 +86,7 @@ decl_stmt|;
 DECL|field|largeCache
 specifier|private
 specifier|final
-name|ArrayBlockingQueue
+name|BlockingQueue
 argument_list|<
 name|ByteBuffer
 argument_list|>
@@ -115,7 +127,7 @@ operator|.
 name|smallCache
 operator|=
 operator|new
-name|ArrayBlockingQueue
+name|LinkedBlockingQueue
 argument_list|<
 name|ByteBuffer
 argument_list|>
@@ -130,7 +142,7 @@ operator|.
 name|largeCache
 operator|=
 operator|new
-name|ArrayBlockingQueue
+name|LinkedBlockingQueue
 argument_list|<
 name|ByteBuffer
 argument_list|>
