@@ -225,7 +225,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Node statistics (static, does not change over time).  */
+comment|/**  * Node statistics (dynamic, changes depending on when created).  */
 end_comment
 
 begin_class
