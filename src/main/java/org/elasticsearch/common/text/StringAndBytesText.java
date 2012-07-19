@@ -268,6 +268,7 @@ name|String
 name|string
 parameter_list|()
 block|{
+comment|// TODO: we can optimize the conversion based on the bytes reference API similar to UnicodeUtil
 if|if
 condition|(
 name|text
@@ -311,6 +312,10 @@ name|bytes
 operator|.
 name|length
 argument_list|()
+argument_list|,
+name|Charsets
+operator|.
+name|UTF_8
 argument_list|)
 expr_stmt|;
 block|}
