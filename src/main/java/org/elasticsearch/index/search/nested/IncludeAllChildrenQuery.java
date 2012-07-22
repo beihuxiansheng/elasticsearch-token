@@ -688,7 +688,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|visitSubScorers
-specifier|protected
+specifier|public
 name|void
 name|visitSubScorers
 parameter_list|(
