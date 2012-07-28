@@ -198,6 +198,25 @@ init|=
 name|readVInt
 argument_list|()
 decl_stmt|;
+return|return
+name|readBytesReference
+argument_list|(
+name|length
+argument_list|)
+return|;
+block|}
+comment|/**      * Reads a bytes reference from this stream, might hold an actual reference to the underlying      * bytes of the stream.      */
+DECL|method|readBytesReference
+specifier|public
+name|BytesReference
+name|readBytesReference
+parameter_list|(
+name|int
+name|length
+parameter_list|)
+throws|throws
+name|IOException
+block|{
 if|if
 condition|(
 name|length
@@ -823,12 +842,20 @@ throws|throws
 name|IOException
 block|{
 comment|// use StringAndBytes so we can cache the string if its ever converted to it
+name|int
+name|length
+init|=
+name|readInt
+argument_list|()
+decl_stmt|;
 return|return
 operator|new
 name|StringAndBytesText
 argument_list|(
 name|readBytesReference
-argument_list|()
+argument_list|(
+name|length
+argument_list|)
 argument_list|)
 return|;
 block|}
