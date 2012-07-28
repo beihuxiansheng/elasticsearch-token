@@ -594,7 +594,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|NUMBER_OF_ITERATIONS
+literal|1
 condition|;
 name|i
 operator|++
