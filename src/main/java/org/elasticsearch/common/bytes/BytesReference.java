@@ -34,6 +34,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|jboss
+operator|.
+name|netty
+operator|.
+name|buffer
+operator|.
+name|ChannelBuffer
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -123,6 +137,12 @@ comment|/**      * Returns the bytes copied over as a byte array.      */
 DECL|method|copyBytesArray
 name|BytesArray
 name|copyBytesArray
+parameter_list|()
+function_decl|;
+comment|/**      * Returns the bytes as a channel buffer.      */
+DECL|method|toChannelBuffer
+name|ChannelBuffer
+name|toChannelBuffer
 parameter_list|()
 function_decl|;
 comment|/**      * Is there an underlying byte array for this bytes reference.      */
