@@ -306,7 +306,7 @@ specifier|final
 name|int
 name|NUMBER_OF_CLIENTS
 init|=
-literal|1
+literal|10
 decl_stmt|;
 specifier|final
 name|int
