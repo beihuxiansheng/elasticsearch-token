@@ -322,7 +322,7 @@ argument_list|,
 operator|new
 name|ByteSizeValue
 argument_list|(
-literal|100
+literal|512
 argument_list|,
 name|ByteSizeUnit
 operator|.
@@ -370,7 +370,7 @@ argument_list|,
 operator|new
 name|ByteSizeValue
 argument_list|(
-literal|100
+literal|512
 argument_list|,
 name|ByteSizeUnit
 operator|.
