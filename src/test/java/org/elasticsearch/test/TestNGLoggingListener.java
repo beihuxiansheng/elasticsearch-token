@@ -233,7 +233,7 @@ name|logger
 operator|.
 name|error
 argument_list|(
-literal|"==> Test Success [{}]"
+literal|"==> Test Failure [{}]"
 argument_list|,
 name|extractTestName
 argument_list|(
