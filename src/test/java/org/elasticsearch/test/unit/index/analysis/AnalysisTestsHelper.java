@@ -22,16 +22,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -258,11 +248,21 @@ name|Assert
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_class
-DECL|class|AnalysisHelper
+DECL|class|AnalysisTestsHelper
 specifier|public
 class|class
-name|AnalysisHelper
+name|AnalysisTestsHelper
 block|{
 DECL|method|createAnalysisServiceFromClassPath
 specifier|public
