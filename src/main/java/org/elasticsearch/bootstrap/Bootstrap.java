@@ -1173,7 +1173,13 @@ block|}
 block|}
 block|}
 argument_list|,
-literal|"elasticsearch[keepAlive]"
+literal|"elasticsearch[keepAlive/"
+operator|+
+name|Version
+operator|.
+name|CURRENT
+operator|+
+literal|"]"
 argument_list|)
 expr_stmt|;
 name|keepAliveThread
