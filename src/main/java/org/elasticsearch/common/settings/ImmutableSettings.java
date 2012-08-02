@@ -2492,7 +2492,7 @@ operator|.
 name|map
 return|;
 block|}
-comment|/**          * Removes the provided setting.          */
+comment|/**          * Removes the provided setting from the internal map holding the current list of settings.          */
 DECL|method|remove
 specifier|public
 name|String
