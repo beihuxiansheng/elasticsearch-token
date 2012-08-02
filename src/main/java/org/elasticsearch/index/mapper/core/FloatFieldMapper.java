@@ -512,6 +512,8 @@ argument_list|,
 name|omitTermFreqAndPositions
 argument_list|,
 name|nullValue
+argument_list|,
+name|ignoreMalformed
 argument_list|)
 decl_stmt|;
 name|fieldMapper
@@ -693,6 +695,9 @@ name|omitTermFreqAndPositions
 parameter_list|,
 name|Float
 name|nullValue
+parameter_list|,
+name|boolean
+name|ignoreMalformed
 parameter_list|)
 block|{
 name|super
@@ -712,6 +717,8 @@ argument_list|,
 name|omitNorms
 argument_list|,
 name|omitTermFreqAndPositions
+argument_list|,
+name|ignoreMalformed
 argument_list|,
 operator|new
 name|NamedAnalyzer
@@ -1356,10 +1363,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|parseCreateField
+DECL|method|innerParseCreateField
 specifier|protected
 name|Fieldable
-name|parseCreateField
+name|innerParseCreateField
 parameter_list|(
 name|ParseContext
 name|context

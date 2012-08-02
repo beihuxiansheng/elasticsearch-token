@@ -867,6 +867,8 @@ name|omitNorms
 argument_list|,
 name|omitTermFreqAndPositions
 argument_list|,
+literal|false
+argument_list|,
 operator|new
 name|NamedAnalyzer
 argument_list|(
@@ -1490,10 +1492,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|parseCreateField
+DECL|method|innerParseCreateField
 specifier|protected
 name|Fieldable
-name|parseCreateField
+name|innerParseCreateField
 parameter_list|(
 name|ParseContext
 name|context

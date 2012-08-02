@@ -696,6 +696,8 @@ argument_list|,
 name|timeUnit
 argument_list|,
 name|parseUpperInclusive
+argument_list|,
+name|ignoreMalformed
 argument_list|)
 decl_stmt|;
 name|fieldMapper
@@ -959,6 +961,9 @@ name|timeUnit
 parameter_list|,
 name|boolean
 name|parseUpperInclusive
+parameter_list|,
+name|boolean
+name|ignoreMalformed
 parameter_list|)
 block|{
 name|super
@@ -978,6 +983,8 @@ argument_list|,
 name|omitNorms
 argument_list|,
 name|omitTermFreqAndPositions
+argument_list|,
+name|ignoreMalformed
 argument_list|,
 operator|new
 name|NamedAnalyzer
@@ -1957,10 +1964,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|parseCreateField
+DECL|method|innerParseCreateField
 specifier|protected
 name|Fieldable
-name|parseCreateField
+name|innerParseCreateField
 parameter_list|(
 name|ParseContext
 name|context
