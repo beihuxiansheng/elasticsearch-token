@@ -2572,7 +2572,7 @@ name|assertThat
 argument_list|(
 name|ttl
 argument_list|,
-name|lessThan
+name|lessThanOrEqualTo
 argument_list|(
 literal|3600000L
 argument_list|)
