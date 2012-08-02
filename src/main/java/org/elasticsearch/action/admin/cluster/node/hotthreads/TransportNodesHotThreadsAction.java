@@ -530,6 +530,15 @@ name|request
 operator|.
 name|interval
 argument_list|)
+operator|.
+name|threadElementsSnapshotCount
+argument_list|(
+name|request
+operator|.
+name|request
+operator|.
+name|snapshots
+argument_list|)
 decl_stmt|;
 try|try
 block|{
