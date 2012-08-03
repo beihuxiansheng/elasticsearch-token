@@ -3224,7 +3224,14 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|""
+literal|"failed to load global state from [{}]"
+argument_list|,
+name|e
+argument_list|,
+name|stateFile
+operator|.
+name|getAbsolutePath
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
