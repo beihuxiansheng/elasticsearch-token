@@ -306,7 +306,7 @@ name|ThreadPool
 operator|.
 name|Names
 operator|.
-name|CACHE
+name|GENERIC
 return|;
 block|}
 annotation|@

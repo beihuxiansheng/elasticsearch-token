@@ -443,6 +443,16 @@ argument_list|(
 name|threadId
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|cpu
+operator|==
+operator|-
+literal|1
+condition|)
+block|{
+continue|continue;
+block|}
 name|ThreadInfo
 name|info
 init|=
@@ -455,6 +465,27 @@ argument_list|,
 literal|0
 argument_list|)
 decl_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+name|info
+operator|.
+name|getThreadName
+argument_list|()
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|info
+operator|==
+literal|null
+condition|)
+block|{
+continue|continue;
+block|}
 name|threadInfos
 operator|.
 name|put
@@ -518,6 +549,23 @@ argument_list|(
 name|threadId
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|cpu
+operator|==
+operator|-
+literal|1
+condition|)
+block|{
+name|threadInfos
+operator|.
+name|remove
+argument_list|(
+name|threadId
+argument_list|)
+expr_stmt|;
+continue|continue;
+block|}
 name|ThreadInfo
 name|info
 init|=
@@ -530,6 +578,22 @@ argument_list|,
 literal|0
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|info
+operator|==
+literal|null
+condition|)
+block|{
+name|threadInfos
+operator|.
+name|remove
+argument_list|(
+name|threadId
+argument_list|)
+expr_stmt|;
+continue|continue;
+block|}
 name|MyThreadInfo
 name|data
 init|=
@@ -554,6 +618,16 @@ argument_list|(
 name|cpu
 argument_list|,
 name|info
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|threadInfos
+operator|.
+name|remove
+argument_list|(
+name|threadId
 argument_list|)
 expr_stmt|;
 block|}
@@ -688,18 +762,6 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-comment|//        for(MyThreadInfo inf : hotties) {
-comment|//            if(inf.deltaDone) {
-comment|//                System.out.format("%5.2f %d/%d %d/%d %s%n",
-comment|//                    inf.cpuTime/1E7,
-comment|//                    inf.blockedCount,
-comment|//                    inf.blockedTime,
-comment|//                    inf.waitedCount,
-comment|//                    inf.waitedtime,
-comment|//                    inf.info.getThreadName()
-comment|//                    );
-comment|//            }
-comment|//        }
 comment|// analyse N stack traces for M busiest threads
 name|long
 index|[]
@@ -818,11 +880,10 @@ name|t
 operator|++
 control|)
 block|{
-name|double
-name|value
+name|long
+name|time
 init|=
-operator|-
-literal|1
+literal|0
 decl_stmt|;
 if|if
 condition|(
@@ -834,7 +895,7 @@ name|type
 argument_list|)
 condition|)
 block|{
-name|value
+name|time
 operator|=
 name|hotties
 operator|.
@@ -844,8 +905,6 @@ name|t
 argument_list|)
 operator|.
 name|cpuTime
-operator|/
-literal|1E7
 expr_stmt|;
 block|}
 elseif|else
@@ -859,7 +918,7 @@ name|type
 argument_list|)
 condition|)
 block|{
-name|value
+name|time
 operator|=
 name|hotties
 operator|.
@@ -869,8 +928,6 @@ name|t
 argument_list|)
 operator|.
 name|waitedTime
-operator|/
-literal|1E7
 expr_stmt|;
 block|}
 elseif|else
@@ -884,7 +941,7 @@ name|type
 argument_list|)
 condition|)
 block|{
-name|value
+name|time
 operator|=
 name|hotties
 operator|.
@@ -894,10 +951,27 @@ name|t
 argument_list|)
 operator|.
 name|blockedTime
-operator|/
-literal|1E7
 expr_stmt|;
 block|}
+name|double
+name|percent
+init|=
+operator|(
+operator|(
+operator|(
+name|double
+operator|)
+name|time
+operator|)
+operator|/
+name|interval
+operator|.
+name|nanos
+argument_list|()
+operator|)
+operator|*
+literal|100
+decl_stmt|;
 name|sb
 operator|.
 name|append
@@ -906,9 +980,18 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"%n%4.1f%% %s usage by thread '%s'%n"
+literal|"%n%4.1f%% (%s out of %s) %s usage by thread '%s'%n"
 argument_list|,
-name|value
+name|percent
+argument_list|,
+name|TimeValue
+operator|.
+name|timeValueNanos
+argument_list|(
+name|time
+argument_list|)
+argument_list|,
+name|interval
 argument_list|,
 name|type
 argument_list|,
@@ -1421,6 +1504,12 @@ operator|.
 name|cpuTime
 operator|=
 name|cpuTime
+expr_stmt|;
+name|this
+operator|.
+name|info
+operator|=
+name|info
 expr_stmt|;
 block|}
 DECL|method|setDelta
