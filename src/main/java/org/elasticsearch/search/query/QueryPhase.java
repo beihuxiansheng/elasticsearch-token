@@ -801,11 +801,6 @@ name|TopDocsPhase
 operator|)
 name|scopePhase
 decl_stmt|;
-name|topDocsPhase
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
 name|int
 name|numDocs
 init|=
@@ -847,6 +842,11 @@ condition|(
 literal|true
 condition|)
 block|{
+name|topDocsPhase
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|topDocsPhase
