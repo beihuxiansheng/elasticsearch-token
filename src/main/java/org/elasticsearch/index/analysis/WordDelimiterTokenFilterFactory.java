@@ -556,9 +556,7 @@ name|WordDelimiterFilter
 argument_list|(
 name|tokenStream
 argument_list|,
-name|WordDelimiterIterator
-operator|.
-name|DEFAULT_WORD_DELIM_TABLE
+name|charTypeTable
 argument_list|,
 name|generateWordParts
 condition|?
