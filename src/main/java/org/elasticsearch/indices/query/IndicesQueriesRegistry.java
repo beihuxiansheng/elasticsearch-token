@@ -192,6 +192,15 @@ argument_list|(
 name|queryParsers
 argument_list|,
 operator|new
+name|MultiMatchQueryParser
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|addQueryParser
+argument_list|(
+name|queryParsers
+argument_list|,
+operator|new
 name|NestedQueryParser
 argument_list|()
 argument_list|)

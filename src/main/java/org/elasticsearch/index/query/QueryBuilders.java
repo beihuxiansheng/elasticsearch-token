@@ -142,6 +142,32 @@ name|BOOLEAN
 argument_list|)
 return|;
 block|}
+comment|/**      * Creates a match query with type "BOOLEAN" for the provided field name and text.      *      * @param fieldNames The field names.      * @param text The query text (to be analyzed).      */
+DECL|method|multiMatchQuery
+specifier|public
+specifier|static
+name|MultiMatchQueryBuilder
+name|multiMatchQuery
+parameter_list|(
+name|Object
+name|text
+parameter_list|,
+name|String
+modifier|...
+name|fieldNames
+parameter_list|)
+block|{
+return|return
+operator|new
+name|MultiMatchQueryBuilder
+argument_list|(
+name|text
+argument_list|,
+name|fieldNames
+argument_list|)
+return|;
+comment|// BOOLEAN is the default
+block|}
 comment|/**      * Creates a text query with type "PHRASE" for the provided field name and text.      *      * @param name The field name.      * @param text The query text (to be analyzed).      * @deprecated use {@link #textPhraseQuery(String, Object)} instead      */
 DECL|method|textPhrase
 specifier|public
