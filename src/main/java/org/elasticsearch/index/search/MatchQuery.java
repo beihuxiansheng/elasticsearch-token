@@ -303,10 +303,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|TextQueryParser
+DECL|class|MatchQuery
 specifier|public
 class|class
-name|TextQueryParser
+name|MatchQuery
 block|{
 DECL|enum|Type
 specifier|public
@@ -412,9 +412,9 @@ operator|.
 name|RewriteMethod
 name|fuzzyRewriteMethod
 decl_stmt|;
-DECL|method|TextQueryParser
+DECL|method|MatchQuery
 specifier|public
-name|TextQueryParser
+name|MatchQuery
 parameter_list|(
 name|QueryParseContext
 name|parseContext

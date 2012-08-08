@@ -51,20 +51,20 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Text query is a query that analyzes the text and constructs a query as the result of the analysis. It  * can construct different queries based on the type provided.  */
+comment|/**  * Match query is a query that analyzes the text and constructs a query as the result of the analysis. It  * can construct different queries based on the type provided.  */
 end_comment
 
 begin_class
-DECL|class|TextQueryBuilder
+DECL|class|MatchQueryBuilder
 specifier|public
 class|class
-name|TextQueryBuilder
+name|MatchQueryBuilder
 extends|extends
 name|BaseQueryBuilder
 implements|implements
 name|BoostableQueryBuilder
 argument_list|<
-name|TextQueryBuilder
+name|MatchQueryBuilder
 argument_list|>
 block|{
 DECL|enum|Operator
@@ -169,9 +169,9 @@ init|=
 literal|null
 decl_stmt|;
 comment|/**      * Constructs a new text query.      */
-DECL|method|TextQueryBuilder
+DECL|method|MatchQueryBuilder
 specifier|public
-name|TextQueryBuilder
+name|MatchQueryBuilder
 parameter_list|(
 name|String
 name|name
@@ -196,7 +196,7 @@ block|}
 comment|/**      * Sets the type of the text query.      */
 DECL|method|type
 specifier|public
-name|TextQueryBuilder
+name|MatchQueryBuilder
 name|type
 parameter_list|(
 name|Type
@@ -216,7 +216,7 @@ block|}
 comment|/**      * Sets the operator to use when using a boolean query. Defaults to<tt>OR</tt>.      */
 DECL|method|operator
 specifier|public
-name|TextQueryBuilder
+name|MatchQueryBuilder
 name|operator
 parameter_list|(
 name|Operator
@@ -236,7 +236,7 @@ block|}
 comment|/**      * Explicitly set the analyzer to use. Defaults to use explicit mapping config for the field, or, if not      * set, the default search analyzer.      */
 DECL|method|analyzer
 specifier|public
-name|TextQueryBuilder
+name|MatchQueryBuilder
 name|analyzer
 parameter_list|(
 name|String
@@ -256,7 +256,7 @@ block|}
 comment|/**      * Set the boost to apply to the query.      */
 DECL|method|boost
 specifier|public
-name|TextQueryBuilder
+name|MatchQueryBuilder
 name|boost
 parameter_list|(
 name|float
@@ -276,7 +276,7 @@ block|}
 comment|/**      * Set the phrase slop if evaluated to a phrase query type.      */
 DECL|method|slop
 specifier|public
-name|TextQueryBuilder
+name|MatchQueryBuilder
 name|slop
 parameter_list|(
 name|int
@@ -296,7 +296,7 @@ block|}
 comment|/**      * Sets the minimum similarity used when evaluated to a fuzzy query type. Defaults to "0.5".      */
 DECL|method|fuzziness
 specifier|public
-name|TextQueryBuilder
+name|MatchQueryBuilder
 name|fuzziness
 parameter_list|(
 name|Object
@@ -318,7 +318,7 @@ return|;
 block|}
 DECL|method|prefixLength
 specifier|public
-name|TextQueryBuilder
+name|MatchQueryBuilder
 name|prefixLength
 parameter_list|(
 name|int
@@ -338,7 +338,7 @@ block|}
 comment|/**      * When using fuzzy or prefix type query, the number of term expansions to use. Defaults to unbounded      * so its recommended to set it to a reasonable value for faster execution.      */
 DECL|method|maxExpansions
 specifier|public
-name|TextQueryBuilder
+name|MatchQueryBuilder
 name|maxExpansions
 parameter_list|(
 name|int
@@ -357,7 +357,7 @@ return|;
 block|}
 DECL|method|minimumShouldMatch
 specifier|public
-name|TextQueryBuilder
+name|MatchQueryBuilder
 name|minimumShouldMatch
 parameter_list|(
 name|String
@@ -376,7 +376,7 @@ return|;
 block|}
 DECL|method|rewrite
 specifier|public
-name|TextQueryBuilder
+name|MatchQueryBuilder
 name|rewrite
 parameter_list|(
 name|String
@@ -395,7 +395,7 @@ return|;
 block|}
 DECL|method|fuzzyRewrite
 specifier|public
-name|TextQueryBuilder
+name|MatchQueryBuilder
 name|fuzzyRewrite
 parameter_list|(
 name|String
@@ -432,7 +432,7 @@ name|builder
 operator|.
 name|startObject
 argument_list|(
-name|TextQueryParser
+name|MatchQueryParser
 operator|.
 name|NAME
 argument_list|)
