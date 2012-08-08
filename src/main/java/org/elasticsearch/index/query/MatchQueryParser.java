@@ -1021,10 +1021,6 @@ operator|new
 name|MatchQuery
 argument_list|(
 name|parseContext
-argument_list|,
-name|fieldName
-argument_list|,
-name|text
 argument_list|)
 decl_stmt|;
 name|tQP
@@ -1091,6 +1087,10 @@ operator|.
 name|parse
 argument_list|(
 name|type
+argument_list|,
+name|fieldName
+argument_list|,
+name|text
 argument_list|)
 decl_stmt|;
 if|if
