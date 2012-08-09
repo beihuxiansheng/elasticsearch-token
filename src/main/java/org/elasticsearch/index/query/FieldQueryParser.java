@@ -1345,6 +1345,17 @@ name|queryString
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|query
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 name|query
 operator|.
 name|setBoost
