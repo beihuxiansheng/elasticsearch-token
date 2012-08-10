@@ -68,6 +68,22 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|FieldInfo
+operator|.
+name|IndexOptions
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|Term
 import|;
 end_import
@@ -489,9 +505,9 @@ name|boolean
 name|omitNorms
 parameter_list|()
 function_decl|;
-DECL|method|omitTermFreqAndPositions
-name|boolean
-name|omitTermFreqAndPositions
+DECL|method|indexOptions
+name|IndexOptions
+name|indexOptions
 parameter_list|()
 function_decl|;
 comment|/**      * The analyzer that will be used to index the field.      */

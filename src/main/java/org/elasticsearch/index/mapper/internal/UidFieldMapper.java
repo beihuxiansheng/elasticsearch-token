@@ -270,16 +270,6 @@ name|OMIT_NORMS
 init|=
 literal|true
 decl_stmt|;
-DECL|field|OMIT_TERM_FREQ_AND_POSITIONS
-specifier|public
-specifier|static
-specifier|final
-name|boolean
-name|OMIT_TERM_FREQ_AND_POSITIONS
-init|=
-literal|false
-decl_stmt|;
-comment|// we store payload
 block|}
 DECL|class|Builder
 specifier|public
@@ -502,7 +492,7 @@ name|OMIT_NORMS
 argument_list|,
 name|Defaults
 operator|.
-name|OMIT_TERM_FREQ_AND_POSITIONS
+name|INDEX_OPTIONS
 argument_list|,
 name|Lucene
 operator|.

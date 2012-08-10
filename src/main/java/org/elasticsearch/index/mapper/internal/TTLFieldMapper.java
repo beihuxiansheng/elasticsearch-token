@@ -745,7 +745,7 @@ name|OMIT_NORMS
 argument_list|,
 name|Defaults
 operator|.
-name|OMIT_TERM_FREQ_AND_POSITIONS
+name|INDEX_OPTIONS
 argument_list|,
 name|Defaults
 operator|.
