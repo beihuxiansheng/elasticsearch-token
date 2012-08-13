@@ -1311,6 +1311,11 @@ argument_list|(
 name|geoJson
 argument_list|)
 decl_stmt|;
+name|parser
+operator|.
+name|nextToken
+argument_list|()
+expr_stmt|;
 name|assertEquals
 argument_list|(
 name|GeoJSONShapeParser
