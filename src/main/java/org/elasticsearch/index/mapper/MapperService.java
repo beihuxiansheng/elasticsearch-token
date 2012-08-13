@@ -1242,6 +1242,27 @@ operator|.
 name|type
 argument_list|()
 operator|.
+name|length
+argument_list|()
+operator|==
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|InvalidTypeNameException
+argument_list|(
+literal|"mapping type name is empty"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|mapper
+operator|.
+name|type
+argument_list|()
+operator|.
 name|charAt
 argument_list|(
 literal|0
