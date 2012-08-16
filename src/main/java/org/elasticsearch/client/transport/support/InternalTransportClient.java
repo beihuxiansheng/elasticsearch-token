@@ -212,6 +212,12 @@ name|AbstractClient
 implements|implements
 name|InternalClient
 block|{
+DECL|field|settings
+specifier|private
+specifier|final
+name|Settings
+name|settings
+decl_stmt|;
 DECL|field|threadPool
 specifier|private
 specifier|final
@@ -271,6 +277,12 @@ argument_list|>
 name|actions
 parameter_list|)
 block|{
+name|this
+operator|.
+name|settings
+operator|=
+name|settings
+expr_stmt|;
 name|this
 operator|.
 name|threadPool
@@ -365,6 +377,20 @@ name|close
 parameter_list|()
 block|{
 comment|// nothing to do here
+block|}
+annotation|@
+name|Override
+DECL|method|settings
+specifier|public
+name|Settings
+name|settings
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|settings
+return|;
 block|}
 annotation|@
 name|Override
