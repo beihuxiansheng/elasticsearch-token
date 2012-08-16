@@ -345,9 +345,9 @@ parameter_list|)
 block|{
 name|logger
 operator|.
-name|warn
+name|debug
 argument_list|(
-literal|"Failed to clean thread locals"
+literal|"failed to clean thread locals"
 argument_list|,
 name|e
 argument_list|)
