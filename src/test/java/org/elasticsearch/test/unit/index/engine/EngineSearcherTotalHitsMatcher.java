@@ -200,9 +200,6 @@ name|searcher
 argument_list|()
 argument_list|,
 name|query
-argument_list|,
-operator|-
-literal|1f
 argument_list|)
 decl_stmt|;
 return|return

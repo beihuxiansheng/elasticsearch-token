@@ -393,9 +393,6 @@ argument_list|(
 name|searcher
 argument_list|,
 name|mltQuery
-argument_list|,
-operator|-
-literal|1
 argument_list|)
 decl_stmt|;
 name|assertThat

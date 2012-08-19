@@ -478,7 +478,7 @@ return|;
 block|}
 DECL|method|filteringAliases
 specifier|public
-name|void
+name|InternalSearchRequest
 name|filteringAliases
 parameter_list|(
 name|String
@@ -492,6 +492,9 @@ name|filteringAliases
 operator|=
 name|filteringAliases
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 DECL|method|types
 specifier|public

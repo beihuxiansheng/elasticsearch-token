@@ -2560,6 +2560,8 @@ return|;
 block|}
 block|}
 comment|/**      * A filter for search. If a filter is required, will return it, otherwise, will return<tt>null</tt>.      */
+annotation|@
+name|Nullable
 DECL|method|searchFilter
 specifier|public
 name|Filter

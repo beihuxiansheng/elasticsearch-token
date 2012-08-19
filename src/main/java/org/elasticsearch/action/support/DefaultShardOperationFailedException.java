@@ -385,6 +385,30 @@ name|reason
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"["
+operator|+
+name|index
+operator|+
+literal|"]["
+operator|+
+name|shardId
+operator|+
+literal|"] failed, reason ["
+operator|+
+name|reason
+operator|+
+literal|"]"
+return|;
+block|}
 block|}
 end_class
 

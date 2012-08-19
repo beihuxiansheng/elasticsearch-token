@@ -330,8 +330,6 @@ argument_list|(
 name|searcher
 argument_list|,
 name|query
-argument_list|,
-literal|0
 argument_list|)
 argument_list|,
 name|equalTo
@@ -381,8 +379,6 @@ argument_list|(
 name|searcher
 argument_list|,
 name|query
-argument_list|,
-literal|0
 argument_list|)
 argument_list|,
 name|equalTo
@@ -439,8 +435,6 @@ argument_list|(
 name|searcher
 argument_list|,
 name|query
-argument_list|,
-literal|0
 argument_list|)
 argument_list|,
 name|equalTo
@@ -484,8 +478,6 @@ argument_list|(
 name|searcher
 argument_list|,
 name|query
-argument_list|,
-literal|0
 argument_list|)
 argument_list|,
 name|equalTo

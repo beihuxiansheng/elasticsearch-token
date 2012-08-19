@@ -470,9 +470,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
-argument_list|,
-operator|-
-literal|1
 argument_list|)
 argument_list|,
 name|equalTo
@@ -513,9 +510,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
-argument_list|,
-operator|-
-literal|1
 argument_list|)
 argument_list|,
 name|equalTo
@@ -602,9 +596,6 @@ name|ConstantScoreQuery
 argument_list|(
 name|cachedFilter
 argument_list|)
-argument_list|,
-operator|-
-literal|1
 argument_list|)
 argument_list|,
 name|equalTo
@@ -626,9 +617,6 @@ name|DeletionAwareConstantScoreQuery
 argument_list|(
 name|cachedFilter
 argument_list|)
-argument_list|,
-operator|-
-literal|1
 argument_list|)
 argument_list|,
 name|equalTo
@@ -654,9 +642,6 @@ argument_list|()
 argument_list|,
 name|cachedFilter
 argument_list|)
-argument_list|,
-operator|-
-literal|1
 argument_list|)
 argument_list|,
 name|equalTo
