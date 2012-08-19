@@ -20,14 +20,6 @@ end_package
 
 begin_import
 import|import
-name|jsr166y
-operator|.
-name|LinkedTransferQueue
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -154,6 +146,22 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ConcurrentCollections
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|search
 operator|.
 name|SearchShardTarget
@@ -263,6 +271,16 @@ operator|.
 name|util
 operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Queue
 import|;
 end_import
 
@@ -468,7 +486,7 @@ decl_stmt|;
 DECL|field|shardFailures
 specifier|private
 specifier|volatile
-name|LinkedTransferQueue
+name|Queue
 argument_list|<
 name|ShardSearchFailure
 argument_list|>
@@ -599,7 +617,7 @@ index|[]
 name|buildShardFailures
 parameter_list|()
 block|{
-name|LinkedTransferQueue
+name|Queue
 argument_list|<
 name|ShardSearchFailure
 argument_list|>
@@ -652,11 +670,9 @@ condition|)
 block|{
 name|shardFailures
 operator|=
-operator|new
-name|LinkedTransferQueue
-argument_list|<
-name|ShardSearchFailure
-argument_list|>
+name|ConcurrentCollections
+operator|.
+name|newQueue
 argument_list|()
 expr_stmt|;
 block|}

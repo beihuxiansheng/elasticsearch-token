@@ -18,14 +18,6 @@ end_package
 
 begin_import
 import|import
-name|jsr166y
-operator|.
-name|LinkedTransferQueue
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -209,6 +201,22 @@ operator|.
 name|unit
 operator|.
 name|TimeValue
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ConcurrentCollections
 import|;
 end_import
 
@@ -528,11 +536,9 @@ name|NotifyTimeout
 argument_list|>
 name|onGoingTimeouts
 init|=
-operator|new
-name|LinkedTransferQueue
-argument_list|<
-name|NotifyTimeout
-argument_list|>
+name|ConcurrentCollections
+operator|.
+name|newQueue
 argument_list|()
 decl_stmt|;
 DECL|field|clusterState

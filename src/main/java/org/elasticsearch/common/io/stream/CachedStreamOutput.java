@@ -20,14 +20,6 @@ end_package
 
 begin_import
 import|import
-name|jsr166y
-operator|.
-name|LinkedTransferQueue
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -65,6 +57,22 @@ operator|.
 name|unit
 operator|.
 name|ByteSizeValue
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ConcurrentCollections
 import|;
 end_import
 
@@ -763,11 +771,9 @@ condition|)
 block|{
 name|ref
 operator|=
-operator|new
-name|LinkedTransferQueue
-argument_list|<
-name|Entry
-argument_list|>
+name|ConcurrentCollections
+operator|.
+name|newQueue
 argument_list|()
 expr_stmt|;
 name|counter

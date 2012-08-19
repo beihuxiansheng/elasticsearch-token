@@ -18,14 +18,6 @@ end_package
 
 begin_import
 import|import
-name|jsr166y
-operator|.
-name|LinkedTransferQueue
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -253,18 +245,6 @@ operator|.
 name|util
 operator|.
 name|Set
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ConcurrentHashMap
 import|;
 end_import
 
@@ -1736,11 +1716,9 @@ name|LocalDiscovery
 argument_list|>
 name|members
 init|=
-operator|new
-name|LinkedTransferQueue
-argument_list|<
-name|LocalDiscovery
-argument_list|>
+name|ConcurrentCollections
+operator|.
+name|newQueue
 argument_list|()
 decl_stmt|;
 DECL|method|members

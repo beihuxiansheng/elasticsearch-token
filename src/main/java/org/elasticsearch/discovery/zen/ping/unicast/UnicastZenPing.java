@@ -36,14 +36,6 @@ end_import
 
 begin_import
 import|import
-name|jsr166y
-operator|.
-name|LinkedTransferQueue
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -564,11 +556,9 @@ name|PingResponse
 argument_list|>
 name|temporalResponses
 init|=
-operator|new
-name|LinkedTransferQueue
-argument_list|<
-name|PingResponse
-argument_list|>
+name|ConcurrentCollections
+operator|.
+name|newQueue
 argument_list|()
 decl_stmt|;
 DECL|field|hostsProviders
