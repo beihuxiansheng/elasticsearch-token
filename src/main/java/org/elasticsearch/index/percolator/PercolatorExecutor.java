@@ -2302,7 +2302,7 @@ operator|.
 name|doc
 argument_list|()
 operator|.
-name|mappersAdded
+name|mappingsModified
 argument_list|()
 argument_list|)
 return|;

@@ -145,10 +145,10 @@ specifier|final
 name|BytesReference
 name|source
 decl_stmt|;
-DECL|field|mappersAdded
+DECL|field|mappingsModified
 specifier|private
 name|boolean
-name|mappersAdded
+name|mappingsModified
 decl_stmt|;
 DECL|field|parent
 specifier|private
@@ -187,7 +187,7 @@ name|BytesReference
 name|source
 parameter_list|,
 name|boolean
-name|mappersAdded
+name|mappingsModified
 parameter_list|)
 block|{
 name|this
@@ -215,7 +215,7 @@ name|analyzer
 argument_list|,
 name|source
 argument_list|,
-name|mappersAdded
+name|mappingsModified
 argument_list|)
 expr_stmt|;
 block|}
@@ -254,7 +254,7 @@ name|BytesReference
 name|source
 parameter_list|,
 name|boolean
-name|mappersAdded
+name|mappingsModified
 parameter_list|)
 block|{
 name|this
@@ -313,9 +313,9 @@ name|analyzer
 expr_stmt|;
 name|this
 operator|.
-name|mappersAdded
+name|mappingsModified
 operator|=
-name|mappersAdded
+name|mappingsModified
 expr_stmt|;
 block|}
 DECL|method|uid
@@ -480,15 +480,15 @@ operator|.
 name|parent
 return|;
 block|}
-comment|/**      * Has the parsed document caused for new mappings to be added.      */
-DECL|method|mappersAdded
+comment|/**      * Has the parsed document caused mappings to be modified?      */
+DECL|method|mappingsModified
 specifier|public
 name|boolean
-name|mappersAdded
+name|mappingsModified
 parameter_list|()
 block|{
 return|return
-name|mappersAdded
+name|mappingsModified
 return|;
 block|}
 DECL|method|toString

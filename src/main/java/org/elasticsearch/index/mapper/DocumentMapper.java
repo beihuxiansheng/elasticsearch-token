@@ -2339,7 +2339,7 @@ condition|)
 block|{
 name|context
 operator|.
-name|addedMapper
+name|setMappingsModified
 argument_list|()
 expr_stmt|;
 name|initMappersAdded
@@ -2665,7 +2665,7 @@ argument_list|()
 argument_list|,
 name|context
 operator|.
-name|mappersAdded
+name|mappingsModified
 argument_list|()
 argument_list|)
 operator|.

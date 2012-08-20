@@ -1481,7 +1481,7 @@ operator|.
 name|parsedDoc
 argument_list|()
 operator|.
-name|mappersAdded
+name|mappingsModified
 argument_list|()
 condition|)
 block|{
