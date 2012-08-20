@@ -335,6 +335,16 @@ name|entry
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|customBoost
+specifier|public
+name|boolean
+name|customBoost
+parameter_list|()
+block|{
+return|return
+name|customBoost
+return|;
+block|}
 DECL|method|clear
 specifier|public
 name|void

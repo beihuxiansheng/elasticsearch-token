@@ -447,6 +447,13 @@ name|Defaults
 operator|.
 name|ENABLED
 decl_stmt|;
+comment|// an internal flag, automatically set if we encounter boosting
+DECL|field|autoBoost
+name|boolean
+name|autoBoost
+init|=
+literal|false
+decl_stmt|;
 DECL|method|Builder
 specifier|public
 name|Builder
@@ -603,6 +610,8 @@ argument_list|,
 name|searchAnalyzer
 argument_list|,
 name|enabled
+argument_list|,
+name|autoBoost
 argument_list|)
 return|;
 block|}
@@ -724,6 +733,27 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|fieldName
+operator|.
+name|equals
+argument_list|(
+literal|"auto_boost"
+argument_list|)
+condition|)
+block|{
+name|builder
+operator|.
+name|autoBoost
+operator|=
+name|nodeBooleanValue
+argument_list|(
+name|fieldNode
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 return|return
 name|builder
@@ -734,6 +764,17 @@ DECL|field|enabled
 specifier|private
 name|boolean
 name|enabled
+decl_stmt|;
+comment|// The autoBoost flag is automatically set based on indexed docs on the mappings
+comment|// if a doc is indexed with a specific boost value and part of _all, it is automatically
+comment|// set to true. This allows to optimize (automatically, which we like) for the common case
+comment|// where fields don't usually have boost associated with them, and we don't need to use the
+comment|// special SpanTermQuery to look at payloads
+DECL|field|autoBoost
+specifier|private
+specifier|volatile
+name|boolean
+name|autoBoost
 decl_stmt|;
 DECL|method|AllFieldMapper
 specifier|public
@@ -769,6 +810,8 @@ argument_list|,
 name|Defaults
 operator|.
 name|ENABLED
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -803,6 +846,9 @@ name|searchAnalyzer
 parameter_list|,
 name|boolean
 name|enabled
+parameter_list|,
+name|boolean
+name|autoBoost
 parameter_list|)
 block|{
 name|super
@@ -846,6 +892,12 @@ name|enabled
 operator|=
 name|enabled
 expr_stmt|;
+name|this
+operator|.
+name|autoBoost
+operator|=
+name|autoBoost
+expr_stmt|;
 block|}
 DECL|method|enabled
 specifier|public
@@ -870,6 +922,20 @@ name|Term
 name|term
 parameter_list|)
 block|{
+if|if
+condition|(
+operator|!
+name|autoBoost
+condition|)
+block|{
+return|return
+operator|new
+name|TermQuery
+argument_list|(
+name|term
+argument_list|)
+return|;
+block|}
 if|if
 condition|(
 name|indexOptions
@@ -1028,6 +1094,32 @@ operator|.
 name|reset
 argument_list|()
 expr_stmt|;
+comment|// if the autoBoost flag is not set, and we indexed a doc with custom boost, make
+comment|// sure to update the flag, and notify mappings on change
+if|if
+condition|(
+operator|!
+name|autoBoost
+operator|&&
+name|context
+operator|.
+name|allEntries
+argument_list|()
+operator|.
+name|customBoost
+argument_list|()
+condition|)
+block|{
+name|autoBoost
+operator|=
+literal|true
+expr_stmt|;
+name|context
+operator|.
+name|setMappingsModified
+argument_list|()
+expr_stmt|;
+block|}
 name|Analyzer
 name|analyzer
 init|=
@@ -1269,6 +1361,23 @@ argument_list|(
 literal|"enabled"
 argument_list|,
 name|enabled
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|autoBoost
+operator|!=
+literal|false
+condition|)
+block|{
+name|builder
+operator|.
+name|field
+argument_list|(
+literal|"auto_boost"
+argument_list|,
+name|autoBoost
 argument_list|)
 expr_stmt|;
 block|}
