@@ -367,6 +367,8 @@ name|loadDocIdAndVersion
 argument_list|(
 name|reader
 argument_list|,
+literal|0
+argument_list|,
 operator|new
 name|Term
 argument_list|(
@@ -458,6 +460,8 @@ operator|.
 name|loadDocIdAndVersion
 argument_list|(
 name|reader
+argument_list|,
+literal|0
 argument_list|,
 operator|new
 name|Term
@@ -555,6 +559,8 @@ name|loadDocIdAndVersion
 argument_list|(
 name|reader
 argument_list|,
+literal|0
+argument_list|,
 operator|new
 name|Term
 argument_list|(
@@ -646,6 +652,8 @@ name|loadDocIdAndVersion
 argument_list|(
 name|reader
 argument_list|,
+literal|0
+argument_list|,
 operator|new
 name|Term
 argument_list|(
@@ -714,6 +722,8 @@ operator|.
 name|loadDocIdAndVersion
 argument_list|(
 name|reader
+argument_list|,
+literal|0
 argument_list|,
 operator|new
 name|Term

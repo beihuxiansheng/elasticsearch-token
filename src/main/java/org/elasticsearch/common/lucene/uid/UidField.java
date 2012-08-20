@@ -176,6 +176,12 @@ specifier|final
 name|int
 name|docId
 decl_stmt|;
+DECL|field|docStart
+specifier|public
+specifier|final
+name|int
+name|docStart
+decl_stmt|;
 DECL|field|version
 specifier|public
 specifier|final
@@ -200,6 +206,9 @@ name|version
 parameter_list|,
 name|IndexReader
 name|reader
+parameter_list|,
+name|int
+name|docStart
 parameter_list|)
 block|{
 name|this
@@ -220,6 +229,12 @@ name|reader
 operator|=
 name|reader
 expr_stmt|;
+name|this
+operator|.
+name|docStart
+operator|=
+name|docStart
+expr_stmt|;
 block|}
 block|}
 comment|// this works fine for nested docs since they don't have the payload which has the version
@@ -231,7 +246,10 @@ name|DocIdAndVersion
 name|loadDocIdAndVersion
 parameter_list|(
 name|IndexReader
-name|reader
+name|subReader
+parameter_list|,
+name|int
+name|docStart
 parameter_list|,
 name|Term
 name|term
@@ -253,7 +271,7 @@ try|try
 block|{
 name|uid
 operator|=
-name|reader
+name|subReader
 operator|.
 name|termPositions
 argument_list|(
@@ -343,7 +361,9 @@ argument_list|(
 name|payload
 argument_list|)
 argument_list|,
-name|reader
+name|subReader
+argument_list|,
+name|docStart
 argument_list|)
 return|;
 block|}
@@ -364,7 +384,9 @@ argument_list|,
 operator|-
 literal|2
 argument_list|,
-name|reader
+name|subReader
+argument_list|,
+name|docStart
 argument_list|)
 return|;
 block|}
@@ -383,7 +405,9 @@ argument_list|,
 operator|-
 literal|2
 argument_list|,
-name|reader
+name|subReader
+argument_list|,
+name|docStart
 argument_list|)
 return|;
 block|}
