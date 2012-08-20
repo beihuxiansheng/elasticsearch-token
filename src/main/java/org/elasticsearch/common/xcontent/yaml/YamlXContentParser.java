@@ -4,7 +4,7 @@ comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more cont
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.common.settings.loader
+DECL|package|org.elasticsearch.common.xcontent.yaml
 package|package
 name|org
 operator|.
@@ -12,11 +12,25 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|settings
+name|xcontent
 operator|.
-name|loader
+name|yaml
 package|;
 end_package
+
+begin_import
+import|import
+name|com
+operator|.
+name|fasterxml
+operator|.
+name|jackson
+operator|.
+name|core
+operator|.
+name|JsonParser
+import|;
+end_import
 
 begin_import
 import|import
@@ -32,18 +46,48 @@ name|XContentType
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|json
+operator|.
+name|JsonXContentParser
+import|;
+end_import
+
 begin_comment
-comment|/**  * Settings loader that loads (parses) the settings in a json format by flattening them  * into a map.  */
+comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|JsonSettingsLoader
+DECL|class|YamlXContentParser
 specifier|public
 class|class
-name|JsonSettingsLoader
+name|YamlXContentParser
 extends|extends
-name|XContentSettingsLoader
+name|JsonXContentParser
 block|{
+DECL|method|YamlXContentParser
+specifier|public
+name|YamlXContentParser
+parameter_list|(
+name|JsonParser
+name|parser
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|parser
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|contentType
@@ -55,7 +99,7 @@ block|{
 return|return
 name|XContentType
 operator|.
-name|JSON
+name|YAML
 return|;
 block|}
 block|}

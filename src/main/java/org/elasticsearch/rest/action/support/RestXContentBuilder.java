@@ -157,9 +157,16 @@ name|fromRestContentType
 argument_list|(
 name|request
 operator|.
+name|param
+argument_list|(
+literal|"format"
+argument_list|,
+name|request
+operator|.
 name|header
 argument_list|(
 literal|"Content-Type"
+argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
