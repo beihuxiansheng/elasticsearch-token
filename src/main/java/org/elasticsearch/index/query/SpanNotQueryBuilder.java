@@ -224,7 +224,7 @@ expr_stmt|;
 if|if
 condition|(
 name|boost
-operator|==
+operator|!=
 operator|-
 literal|1
 condition|)
