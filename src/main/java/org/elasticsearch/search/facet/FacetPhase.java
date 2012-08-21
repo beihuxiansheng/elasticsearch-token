@@ -638,11 +638,13 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// we can clear the filter, since we are anyhow going to iterate over it
+comment|// so no need to double check it...
 name|filter
 operator|=
 name|facetCollector
 operator|.
-name|getFilter
+name|getAndClearFilter
 argument_list|()
 expr_stmt|;
 block|}
