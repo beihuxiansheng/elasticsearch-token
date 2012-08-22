@@ -61,7 +61,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Query that matches documents matching boolean combinations of other queries.  *  *  */
+comment|/**  * A Query that matches documents matching boolean combinations of other queries.  */
 end_comment
 
 begin_class
@@ -135,13 +135,10 @@ specifier|private
 name|Boolean
 name|disableCoord
 decl_stmt|;
-DECL|field|minimumNumberShouldMatch
+DECL|field|minimumShouldMatch
 specifier|private
-name|int
-name|minimumNumberShouldMatch
-init|=
-operator|-
-literal|1
+name|String
+name|minimumShouldMatch
 decl_stmt|;
 comment|/**      * Adds a query that<b>must</b> appear in the matching documents.      */
 DECL|method|must
@@ -258,9 +255,34 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|minimumNumberShouldMatch
+name|minimumShouldMatch
 operator|=
+name|Integer
+operator|.
+name|toString
+argument_list|(
 name|minimumNumberShouldMatch
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the minimum should match using the special syntax (for example, supporting percentage).      */
+DECL|method|minimumShouldMatch
+specifier|public
+name|BoolQueryBuilder
+name|minimumShouldMatch
+parameter_list|(
+name|String
+name|minimumShouldMatch
+parameter_list|)
+block|{
+name|this
+operator|.
+name|minimumShouldMatch
+operator|=
+name|minimumShouldMatch
 expr_stmt|;
 return|return
 name|this
@@ -386,19 +408,18 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|minimumNumberShouldMatch
+name|minimumShouldMatch
 operator|!=
-operator|-
-literal|1
+literal|null
 condition|)
 block|{
 name|builder
 operator|.
 name|field
 argument_list|(
-literal|"minimum_number_should_match"
+literal|"minimum_should_match"
 argument_list|,
-name|minimumNumberShouldMatch
+name|minimumShouldMatch
 argument_list|)
 expr_stmt|;
 block|}
