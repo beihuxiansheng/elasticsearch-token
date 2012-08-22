@@ -2117,11 +2117,21 @@ name|indexService
 init|=
 name|indicesService
 operator|.
-name|indexServiceSafe
+name|indexService
 argument_list|(
 name|index
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|indexService
+operator|==
+literal|null
+condition|)
+block|{
+comment|// got deleted on us, ignore (closing the node)
+return|return;
+block|}
 name|MapperService
 name|mapperService
 init|=
@@ -3561,7 +3571,7 @@ name|indexService
 init|=
 name|indicesService
 operator|.
-name|indexServiceSafe
+name|indexService
 argument_list|(
 name|shardRouting
 operator|.
@@ -3569,6 +3579,16 @@ name|index
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|indexService
+operator|==
+literal|null
+condition|)
+block|{
+comment|// got deleted on us, ignore
+return|return;
+block|}
 specifier|final
 name|int
 name|shardId
