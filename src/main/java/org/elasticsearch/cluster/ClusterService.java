@@ -176,6 +176,24 @@ name|ClusterStateListener
 name|listener
 parameter_list|)
 function_decl|;
+comment|/**      * Add a listener for on/off local node master events      */
+DECL|method|add
+name|void
+name|add
+parameter_list|(
+name|LocalNodeMasterListener
+name|listener
+parameter_list|)
+function_decl|;
+comment|/**      * Remove the given listener for on/off local master events      */
+DECL|method|remove
+name|void
+name|remove
+parameter_list|(
+name|LocalNodeMasterListener
+name|listener
+parameter_list|)
+function_decl|;
 comment|/**      * Adds a cluster state listener that will timeout after the provided timeout.      */
 DECL|method|add
 name|void
