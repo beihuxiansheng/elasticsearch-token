@@ -1004,12 +1004,6 @@ literal|"bulk process already closed"
 argument_list|)
 throw|;
 block|}
-name|this
-operator|.
-name|closed
-operator|=
-literal|true
-expr_stmt|;
 if|if
 condition|(
 operator|!
