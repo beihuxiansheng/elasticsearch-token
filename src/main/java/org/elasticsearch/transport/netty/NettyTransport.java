@@ -528,6 +528,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|nio
+operator|.
+name|channels
+operator|.
+name|CancelledKeyException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|*
@@ -3262,6 +3274,13 @@ operator|.
 name|getCause
 argument_list|()
 argument_list|)
+operator|||
+name|e
+operator|.
+name|getCause
+argument_list|()
+operator|instanceof
+name|CancelledKeyException
 condition|)
 block|{
 if|if
@@ -3276,7 +3295,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"(Ignoring) Exception caught on netty layer ["
+literal|"(Ignoring) exception caught on netty layer ["
 operator|+
 name|ctx
 operator|.
@@ -3299,7 +3318,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Exception caught on netty layer ["
+literal|"exception caught on netty layer ["
 operator|+
 name|ctx
 operator|.
