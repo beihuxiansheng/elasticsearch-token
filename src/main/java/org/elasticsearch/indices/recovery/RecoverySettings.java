@@ -408,7 +408,7 @@ name|getAsInt
 argument_list|(
 literal|"index.shard.recovery.concurrent_streams"
 argument_list|,
-literal|5
+literal|3
 argument_list|)
 argument_list|)
 expr_stmt|;
