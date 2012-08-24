@@ -348,6 +348,28 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Explicitly specify the fields that will be returned for the explained document. By default, nothing is returned.      */
+DECL|method|setFields
+specifier|public
+name|ExplainRequestBuilder
+name|setFields
+parameter_list|(
+name|String
+modifier|...
+name|fields
+parameter_list|)
+block|{
+name|request
+operator|.
+name|fields
+argument_list|(
+name|fields
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Sets the full source of the explain request (for example, wrapping an actual query).      */
 DECL|method|setSource
 specifier|public
