@@ -623,6 +623,34 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|locks
+operator|.
+name|ReadWriteLock
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|locks
+operator|.
+name|ReentrantReadWriteLock
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -914,6 +942,18 @@ specifier|final
 name|Object
 index|[]
 name|connectMutex
+decl_stmt|;
+comment|// this lock is here to make sure we close this transport and disconnect all the client nodes
+comment|// connections while no connect operations is going on... (this might help with 100% CPU when stopping the transport?)
+DECL|field|globalLock
+specifier|private
+specifier|final
+name|ReadWriteLock
+name|globalLock
+init|=
+operator|new
+name|ReentrantReadWriteLock
+argument_list|()
 decl_stmt|;
 DECL|method|NettyTransport
 specifier|public
@@ -2655,6 +2695,14 @@ name|void
 name|run
 parameter_list|()
 block|{
+name|globalLock
+operator|.
+name|writeLock
+argument_list|()
+operator|.
+name|lock
+argument_list|()
+expr_stmt|;
 try|try
 block|{
 for|for
@@ -2821,6 +2869,14 @@ block|}
 block|}
 finally|finally
 block|{
+name|globalLock
+operator|.
+name|writeLock
+argument_list|()
+operator|.
+name|unlock
+argument_list|()
+expr_stmt|;
 name|latch
 operator|.
 name|countDown
@@ -3597,7 +3653,7 @@ throw|throw
 operator|new
 name|ElasticSearchIllegalStateException
 argument_list|(
-literal|"Can't add nodes to a stopped transport"
+literal|"can't add nodes to a stopped transport"
 argument_list|)
 throw|;
 block|}
@@ -3614,7 +3670,34 @@ name|ConnectTransportException
 argument_list|(
 literal|null
 argument_list|,
-literal|"Can't connect to a null node"
+literal|"can't connect to a null node"
+argument_list|)
+throw|;
+block|}
+name|globalLock
+operator|.
+name|readLock
+argument_list|()
+operator|.
+name|lock
+argument_list|()
+expr_stmt|;
+try|try
+block|{
+if|if
+condition|(
+operator|!
+name|lifecycle
+operator|.
+name|started
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|ElasticSearchIllegalStateException
+argument_list|(
+literal|"can't add nodes to a stopped transport"
 argument_list|)
 throw|;
 block|}
@@ -3629,6 +3712,23 @@ argument_list|()
 argument_list|)
 init|)
 block|{
+if|if
+condition|(
+operator|!
+name|lifecycle
+operator|.
+name|started
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|ElasticSearchIllegalStateException
+argument_list|(
+literal|"can't add nodes to a stopped transport"
+argument_list|)
+throw|;
+block|}
 try|try
 block|{
 name|NodeChannels
@@ -3798,6 +3898,18 @@ name|e
 argument_list|)
 throw|;
 block|}
+block|}
+block|}
+finally|finally
+block|{
+name|globalLock
+operator|.
+name|readLock
+argument_list|()
+operator|.
+name|unlock
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 DECL|method|connectToChannelsLight
