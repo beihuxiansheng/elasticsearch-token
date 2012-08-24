@@ -616,7 +616,7 @@ throw|throw
 operator|new
 name|ElasticSearchIllegalArgumentException
 argument_list|(
-literal|"No custom index metadata factoy registered for type ["
+literal|"No custom index metadata factory registered for type ["
 operator|+
 name|type
 operator|+

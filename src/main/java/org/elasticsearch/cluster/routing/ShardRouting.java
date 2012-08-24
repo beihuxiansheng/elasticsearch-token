@@ -70,6 +70,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|ToXContent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|index
 operator|.
 name|shard
@@ -99,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Shard routing represents the state of a shard instance allocated in the cluster.  *  *  */
+comment|/**  * Shard routing represents the state of a shard instance allocated in the cluster.  */
 end_comment
 
 begin_interface
@@ -111,6 +125,8 @@ extends|extends
 name|Streamable
 extends|,
 name|Serializable
+extends|,
+name|ToXContent
 block|{
 comment|/**      * The shard id.      */
 DECL|method|shardId
