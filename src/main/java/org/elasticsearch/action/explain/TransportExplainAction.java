@@ -694,7 +694,7 @@ argument_list|)
 argument_list|,
 literal|null
 argument_list|,
-name|indexShard
+name|result
 operator|.
 name|searcher
 argument_list|()
