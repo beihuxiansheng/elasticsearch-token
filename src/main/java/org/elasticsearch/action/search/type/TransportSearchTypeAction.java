@@ -684,7 +684,10 @@ operator|.
 name|indices
 argument_list|()
 argument_list|,
-literal|false
+name|request
+operator|.
+name|ignoreIndices
+argument_list|()
 argument_list|,
 literal|true
 argument_list|)
