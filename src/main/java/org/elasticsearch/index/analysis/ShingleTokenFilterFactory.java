@@ -272,9 +272,9 @@ name|ShingleFilter
 argument_list|(
 name|tokenStream
 argument_list|,
-name|maxShingleSize
-argument_list|,
 name|minShingleSize
+argument_list|,
+name|maxShingleSize
 argument_list|)
 decl_stmt|;
 name|filter
