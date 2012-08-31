@@ -475,6 +475,11 @@ argument_list|,
 name|enabled
 argument_list|,
 name|defaultTTL
+argument_list|,
+name|ignoreMalformed
+argument_list|(
+name|context
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -677,6 +682,10 @@ argument_list|,
 name|Defaults
 operator|.
 name|DEFAULT
+argument_list|,
+name|Defaults
+operator|.
+name|IGNORE_MALFORMED
 argument_list|)
 expr_stmt|;
 block|}
@@ -699,6 +708,9 @@ name|enabled
 parameter_list|,
 name|long
 name|defaultTTL
+parameter_list|,
+name|boolean
+name|ignoreMalformed
 parameter_list|)
 block|{
 name|super
@@ -751,9 +763,7 @@ name|Defaults
 operator|.
 name|NULL_VALUE
 argument_list|,
-name|Defaults
-operator|.
-name|IGNORE_MALFORMED
+name|ignoreMalformed
 argument_list|)
 expr_stmt|;
 name|this

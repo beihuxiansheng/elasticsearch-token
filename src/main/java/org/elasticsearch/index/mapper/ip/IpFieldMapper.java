@@ -799,6 +799,11 @@ argument_list|,
 name|indexOptions
 argument_list|,
 name|nullValue
+argument_list|,
+name|ignoreMalformed
+argument_list|(
+name|context
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|fieldMapper
@@ -972,6 +977,9 @@ name|indexOptions
 parameter_list|,
 name|String
 name|nullValue
+parameter_list|,
+name|boolean
+name|ignoreMalformed
 parameter_list|)
 block|{
 name|super
@@ -992,7 +1000,7 @@ name|omitNorms
 argument_list|,
 name|indexOptions
 argument_list|,
-literal|false
+name|ignoreMalformed
 argument_list|,
 operator|new
 name|NamedAnalyzer

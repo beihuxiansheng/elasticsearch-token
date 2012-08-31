@@ -573,6 +573,11 @@ argument_list|,
 name|dateTimeFormatter
 argument_list|,
 name|parseUpperInclusive
+argument_list|,
+name|ignoreMalformed
+argument_list|(
+name|context
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -793,6 +798,10 @@ argument_list|,
 name|Defaults
 operator|.
 name|PARSE_UPPER_INCLUSIVE
+argument_list|,
+name|Defaults
+operator|.
+name|IGNORE_MALFORMED
 argument_list|)
 expr_stmt|;
 block|}
@@ -821,6 +830,9 @@ name|dateTimeFormatter
 parameter_list|,
 name|boolean
 name|parseUpperInclusive
+parameter_list|,
+name|boolean
+name|ignoreMalformed
 parameter_list|)
 block|{
 name|super
@@ -882,9 +894,7 @@ comment|/*always milliseconds*/
 argument_list|,
 name|parseUpperInclusive
 argument_list|,
-name|Defaults
-operator|.
-name|IGNORE_MALFORMED
+name|ignoreMalformed
 argument_list|)
 expr_stmt|;
 name|this

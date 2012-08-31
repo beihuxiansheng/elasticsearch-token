@@ -536,6 +536,9 @@ argument_list|,
 name|nullValue
 argument_list|,
 name|ignoreMalformed
+argument_list|(
+name|context
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|fieldMapper
