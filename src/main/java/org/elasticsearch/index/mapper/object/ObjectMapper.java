@@ -2340,6 +2340,27 @@ block|{
 comment|// the object is null ("obj1" : null), simply bail
 return|return;
 block|}
+if|if
+condition|(
+name|token
+operator|.
+name|isValue
+argument_list|()
+condition|)
+block|{
+comment|// if we are parsing an object but it is just a value
+throw|throw
+operator|new
+name|MapperParsingException
+argument_list|(
+literal|"object mapping for ["
+operator|+
+name|name
+operator|+
+literal|"] tried to parse as object, but found a concrete value"
+argument_list|)
+throw|;
+block|}
 name|Document
 name|restoreDoc
 init|=
