@@ -238,6 +238,18 @@ name|ConcurrentMap
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -786,9 +798,14 @@ argument_list|(
 name|took
 argument_list|)
 argument_list|,
+name|TimeUnit
+operator|.
+name|NANOSECONDS
+operator|.
+name|toMillis
+argument_list|(
 name|took
-operator|/
-literal|1000
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
