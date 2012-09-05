@@ -2273,6 +2273,16 @@ operator|.
 name|dynamic
 return|;
 block|}
+DECL|method|allowValue
+specifier|protected
+name|boolean
+name|allowValue
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 DECL|method|parse
 specifier|public
 name|void
@@ -2346,9 +2356,14 @@ name|token
 operator|.
 name|isValue
 argument_list|()
+operator|&&
+operator|!
+name|allowValue
+argument_list|()
 condition|)
 block|{
-comment|// if we are parsing an object but it is just a value
+comment|// if we are parsing an object but it is just a value, its only allowed on root level parsers with there
+comment|// is a field name with the same name as the type
 throw|throw
 operator|new
 name|MapperParsingException
@@ -3349,6 +3364,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|String
+name|arrayFieldName
+init|=
+name|lastFieldName
+decl_stmt|;
 name|Mapper
 name|mapper
 init|=
@@ -3489,6 +3509,30 @@ argument_list|,
 name|lastFieldName
 argument_list|)
 expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|token
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|MapperParsingException
+argument_list|(
+literal|"object mapping for ["
+operator|+
+name|name
+operator|+
+literal|"] with array for ["
+operator|+
+name|arrayFieldName
+operator|+
+literal|"] tried to parse as array, but got EOF, is there a mismatch in types for the same field?"
+argument_list|)
+throw|;
 block|}
 else|else
 block|{
