@@ -356,6 +356,16 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|request
+operator|.
+name|hasParam
+argument_list|(
+literal|"ignore_indices"
+argument_list|)
+condition|)
+block|{
 name|indicesSegmentsRequest
 operator|.
 name|ignoreIndices
@@ -373,6 +383,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|BroadcastOperationThreading
 name|operationThreading
 init|=

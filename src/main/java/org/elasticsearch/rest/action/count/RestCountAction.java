@@ -459,6 +459,16 @@ argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|request
+operator|.
+name|hasParam
+argument_list|(
+literal|"ignore_indices"
+argument_list|)
+condition|)
+block|{
 name|countRequest
 operator|.
 name|ignoreIndices
@@ -476,6 +486,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|countRequest
 operator|.
 name|listenerThreaded

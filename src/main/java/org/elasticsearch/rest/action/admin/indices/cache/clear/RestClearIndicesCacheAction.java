@@ -414,6 +414,16 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|request
+operator|.
+name|hasParam
+argument_list|(
+literal|"ignore_indices"
+argument_list|)
+condition|)
+block|{
 name|clearIndicesCacheRequest
 operator|.
 name|ignoreIndices
@@ -431,6 +441,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 try|try
 block|{
 name|clearIndicesCacheRequest
