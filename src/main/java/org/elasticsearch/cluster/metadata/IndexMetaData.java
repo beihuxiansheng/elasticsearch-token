@@ -2259,7 +2259,7 @@ name|Builder
 name|index
 parameter_list|(
 name|String
-name|name
+name|index
 parameter_list|)
 block|{
 name|this
