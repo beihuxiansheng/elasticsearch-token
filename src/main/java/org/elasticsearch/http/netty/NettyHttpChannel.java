@@ -503,7 +503,7 @@ argument_list|)
 argument_list|)
 condition|)
 block|{
-comment|// add support for cross origin
+comment|// Add support for cross-origin Ajax requests (CORS)
 name|resp
 operator|.
 name|addHeader
@@ -525,7 +525,7 @@ operator|.
 name|OPTIONS
 condition|)
 block|{
-comment|// also add more access control parameters
+comment|// Allow Ajax requests based on the CORS "preflight" request
 name|resp
 operator|.
 name|addHeader
@@ -541,7 +541,7 @@ name|addHeader
 argument_list|(
 literal|"Access-Control-Allow-Methods"
 argument_list|,
-literal|"PUT, DELETE"
+literal|"OPTIONS, HEAD, GET, POST, PUT, DELETE"
 argument_list|)
 expr_stmt|;
 name|resp
@@ -550,7 +550,7 @@ name|addHeader
 argument_list|(
 literal|"Access-Control-Allow-Headers"
 argument_list|,
-literal|"X-Requested-With"
+literal|"X-Requested-With, Content-Type, Content-Length"
 argument_list|)
 expr_stmt|;
 block|}
