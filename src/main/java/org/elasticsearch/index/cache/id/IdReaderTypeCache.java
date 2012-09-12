@@ -42,6 +42,7 @@ specifier|public
 interface|interface
 name|IdReaderTypeCache
 block|{
+comment|/**      * @param docId The Lucene docId of the child document to return the parent _uid for.      * @return The parent _uid for the specified docId (which is a child document)      */
 DECL|method|parentIdByDoc
 name|HashedBytesArray
 name|parentIdByDoc
@@ -50,12 +51,22 @@ name|int
 name|docId
 parameter_list|)
 function_decl|;
+comment|/**      * @param uid The uid of the document to return the lucene docId for      * @return The lucene docId for the specified uid      */
 DECL|method|docById
 name|int
 name|docById
 parameter_list|(
 name|HashedBytesArray
-name|id
+name|uid
+parameter_list|)
+function_decl|;
+comment|/**      * @param docId The lucene docId of the document to return _uid for      * @return The _uid of the specified docId      */
+DECL|method|idByDoc
+name|HashedBytesArray
+name|idByDoc
+parameter_list|(
+name|int
+name|docId
 parameter_list|)
 function_decl|;
 block|}

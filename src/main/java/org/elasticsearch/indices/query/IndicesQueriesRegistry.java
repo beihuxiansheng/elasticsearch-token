@@ -561,6 +561,15 @@ argument_list|(
 name|filterParsers
 argument_list|,
 operator|new
+name|HasParentFilterParser
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|addFilterParser
+argument_list|(
+name|filterParsers
+argument_list|,
+operator|new
 name|NestedFilterParser
 argument_list|()
 argument_list|)
