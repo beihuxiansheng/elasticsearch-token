@@ -624,7 +624,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|resolveNodes
+name|resolveNodesIds
 argument_list|(
 name|request
 operator|.

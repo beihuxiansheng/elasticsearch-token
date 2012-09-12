@@ -1075,19 +1075,19 @@ condition|)
 return|return
 literal|true
 return|;
+comment|// we check on instanceof so we also handle the MutableShardRouting case as well
 if|if
 condition|(
 name|o
 operator|==
 literal|null
 operator|||
-name|getClass
-argument_list|()
-operator|!=
+operator|!
+operator|(
 name|o
-operator|.
-name|getClass
-argument_list|()
+operator|instanceof
+name|ImmutableShardRouting
+operator|)
 condition|)
 return|return
 literal|false

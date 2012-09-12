@@ -93,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A pluggable logic allowing to control if allocation of a shard is allowed on a specific node.  *  *  */
+comment|/**  * A pluggable logic allowing to control if allocation of a shard is allowed on a specific node.  */
 end_comment
 
 begin_class
@@ -125,6 +125,17 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|allowed
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 block|}
 block|,
 DECL|enum constant|NO
@@ -135,6 +146,17 @@ name|Override
 specifier|public
 name|boolean
 name|allocate
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|allowed
 parameter_list|()
 block|{
 return|return
@@ -157,13 +179,33 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|allowed
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 block|}
 block|;
+comment|/**          * It can be allocated *now* on a node. Note, it might be {@link #allowed()} to be allocated          * on a node, yet, allocate will be<tt>false</tt> since its being throttled for example.          */
 DECL|method|allocate
 specifier|public
 specifier|abstract
 name|boolean
 name|allocate
+parameter_list|()
+function_decl|;
+comment|/**          * Is allocation allowed on a node. Note, this does not mean that we should allocate *now*,          * though, in extreme cases, we might "force" allocation.          */
+DECL|method|allowed
+specifier|public
+specifier|abstract
+name|boolean
+name|allowed
 parameter_list|()
 function_decl|;
 block|}
