@@ -109,6 +109,11 @@ name|IndexReader
 name|reader
 parameter_list|)
 function_decl|;
+DECL|method|sizeInBytes
+name|long
+name|sizeInBytes
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

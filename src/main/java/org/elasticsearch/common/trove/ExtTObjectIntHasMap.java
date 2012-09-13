@@ -144,6 +144,18 @@ name|index
 index|]
 return|;
 block|}
+DECL|method|_valuesSize
+specifier|public
+name|int
+name|_valuesSize
+parameter_list|()
+block|{
+return|return
+name|_values
+operator|.
+name|length
+return|;
+block|}
 block|}
 end_class
 

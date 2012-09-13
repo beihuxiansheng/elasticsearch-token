@@ -69,6 +69,12 @@ name|int
 name|docId
 parameter_list|)
 function_decl|;
+comment|/**      * @return The size in bytes for this particular instance      */
+DECL|method|sizeInBytes
+name|long
+name|sizeInBytes
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

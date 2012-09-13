@@ -77,6 +77,11 @@ name|HashedBytesArray
 name|id
 parameter_list|)
 function_decl|;
+DECL|method|sizeInBytes
+name|long
+name|sizeInBytes
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

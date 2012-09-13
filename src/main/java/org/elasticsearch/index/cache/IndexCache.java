@@ -520,6 +520,11 @@ name|bloomCache
 operator|.
 name|sizeInBytes
 argument_list|()
+argument_list|,
+name|idCache
+operator|.
+name|sizeInBytes
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|latestCacheStatsTimestamp
@@ -598,6 +603,11 @@ operator|.
 name|count
 argument_list|,
 name|bloomCache
+operator|.
+name|sizeInBytes
+argument_list|()
+argument_list|,
+name|idCache
 operator|.
 name|sizeInBytes
 argument_list|()
