@@ -233,6 +233,15 @@ argument_list|(
 name|queryParsers
 argument_list|,
 operator|new
+name|HasParentQueryParser
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|addQueryParser
+argument_list|(
+name|queryParsers
+argument_list|,
+operator|new
 name|TopChildrenQueryParser
 argument_list|()
 argument_list|)
