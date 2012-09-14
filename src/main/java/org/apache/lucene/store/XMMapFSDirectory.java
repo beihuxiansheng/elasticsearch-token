@@ -72,7 +72,7 @@ specifier|public
 class|class
 name|XMMapFSDirectory
 extends|extends
-name|NIOFSDirectory
+name|MMapDirectory
 block|{
 DECL|field|rateLimitingProvider
 specifier|private
