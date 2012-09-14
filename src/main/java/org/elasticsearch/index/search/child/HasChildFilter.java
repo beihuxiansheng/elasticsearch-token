@@ -800,6 +800,13 @@ name|void
 name|clear
 parameter_list|()
 block|{
+if|if
+condition|(
+name|collectedUids
+operator|!=
+literal|null
+condition|)
+block|{
 name|CacheRecycler
 operator|.
 name|pushHashSet
@@ -807,6 +814,7 @@ argument_list|(
 name|collectedUids
 argument_list|)
 expr_stmt|;
+block|}
 name|collectedUids
 operator|=
 literal|null
