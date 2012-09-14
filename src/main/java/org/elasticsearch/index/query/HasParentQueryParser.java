@@ -386,7 +386,7 @@ operator|.
 name|index
 argument_list|()
 argument_list|,
-literal|"[has_parent] filter does not support ["
+literal|"[has_parent] query does not support ["
 operator|+
 name|currentFieldName
 operator|+
@@ -512,7 +512,7 @@ operator|.
 name|index
 argument_list|()
 argument_list|,
-literal|"[has_parent] filter does not support ["
+literal|"[has_parent] query does not support ["
 operator|+
 name|currentFieldName
 operator|+
@@ -537,7 +537,7 @@ operator|.
 name|index
 argument_list|()
 argument_list|,
-literal|"[parent] filter requires 'query' field"
+literal|"[parent] query requires 'query' field"
 argument_list|)
 throw|;
 block|}
@@ -568,7 +568,7 @@ operator|.
 name|index
 argument_list|()
 argument_list|,
-literal|"[parent] filter requires 'parent_type' field"
+literal|"[parent] query requires 'parent_type' field"
 argument_list|)
 throw|;
 block|}
@@ -601,7 +601,7 @@ operator|.
 name|index
 argument_list|()
 argument_list|,
-literal|"[parent] filter configured 'parent_type' ["
+literal|"[parent] query configured 'parent_type' ["
 operator|+
 name|parentType
 operator|+
