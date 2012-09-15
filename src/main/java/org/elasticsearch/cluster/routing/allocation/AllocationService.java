@@ -719,11 +719,27 @@ name|nodes
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// we ignore disable allocation, because commands are explicit
+name|allocation
+operator|.
+name|ignoreDisable
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|commands
 operator|.
 name|execute
 argument_list|(
 name|allocation
+argument_list|)
+expr_stmt|;
+comment|// we revert the ignore disable flag, since when rerouting, we want the original setting to take place
+name|allocation
+operator|.
+name|ignoreDisable
+argument_list|(
+literal|false
 argument_list|)
 expr_stmt|;
 comment|// the assumption is that commands will move / act on shards (or fail through exceptions)
