@@ -2377,7 +2377,7 @@ name|routingTable
 argument_list|()
 argument_list|)
 operator|.
-name|add
+name|addAsNew
 argument_list|(
 name|updatedState
 operator|.
@@ -2390,8 +2390,6 @@ name|request
 operator|.
 name|index
 argument_list|)
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|RoutingAllocation

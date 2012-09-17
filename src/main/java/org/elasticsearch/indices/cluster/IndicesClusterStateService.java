@@ -4141,7 +4141,7 @@ name|indexShouldExists
 init|=
 name|indexShardRouting
 operator|.
-name|allocatedPostApi
+name|primaryAllocatedPostApi
 argument_list|()
 decl_stmt|;
 name|IndexShardGatewayService

@@ -386,6 +386,13 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
+literal|"cluster.routing.allocation.disable_new_allocation"
+argument_list|,
+literal|true
+argument_list|)
+operator|.
+name|put
+argument_list|(
 literal|"cluster.routing.allocation.disable_allocation"
 argument_list|,
 literal|true
@@ -1194,6 +1201,13 @@ name|commonSettings
 init|=
 name|settingsBuilder
 argument_list|()
+operator|.
+name|put
+argument_list|(
+literal|"cluster.routing.allocation.disable_new_allocation"
+argument_list|,
+literal|true
+argument_list|)
 operator|.
 name|put
 argument_list|(

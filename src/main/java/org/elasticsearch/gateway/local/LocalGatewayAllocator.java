@@ -811,7 +811,7 @@ name|id
 argument_list|()
 argument_list|)
 operator|.
-name|allocatedPostApi
+name|primaryAllocatedPostApi
 argument_list|()
 condition|)
 block|{

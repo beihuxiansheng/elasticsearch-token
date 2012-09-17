@@ -892,7 +892,7 @@ name|routingTable
 argument_list|()
 argument_list|)
 operator|.
-name|add
+name|addAsRecovery
 argument_list|(
 name|updatedState
 operator|.
@@ -905,8 +905,6 @@ name|request
 operator|.
 name|index
 argument_list|)
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|RoutingAllocation

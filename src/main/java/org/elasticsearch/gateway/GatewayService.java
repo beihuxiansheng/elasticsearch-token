@@ -1833,12 +1833,9 @@ control|)
 block|{
 name|routingTableBuilder
 operator|.
-name|add
+name|addAsRecovery
 argument_list|(
 name|indexMetaData
-argument_list|,
-literal|false
-comment|/* not from API */
 argument_list|)
 expr_stmt|;
 block|}

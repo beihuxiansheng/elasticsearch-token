@@ -849,11 +849,9 @@ argument_list|)
 expr_stmt|;
 name|routingTableBuilder
 operator|.
-name|add
+name|addAsRecovery
 argument_list|(
 name|indexMetaData
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|sb
