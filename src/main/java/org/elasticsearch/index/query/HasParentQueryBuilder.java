@@ -130,7 +130,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Expert: Sets the low level parent to child filtering implementation. Can be: 'indirect' or 'uid'      *      * This option is experimental and will be removed.      */
+comment|/**      * Expert: Sets the low level parent to child filtering implementation. Can be: 'bitset' or 'uid'      *      * This option is experimental and will be removed.      */
 DECL|method|executionType
 specifier|public
 name|HasParentQueryBuilder
