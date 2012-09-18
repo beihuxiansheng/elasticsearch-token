@@ -337,6 +337,14 @@ name|numHits
 init|=
 literal|0
 decl_stmt|;
+comment|// Need to know if this query is properly used, otherwise the results are unexpected for example in the count api
+DECL|field|properlyInvoked
+specifier|private
+name|boolean
+name|properlyInvoked
+init|=
+literal|false
+decl_stmt|;
 comment|// Note, the query is expected to already be filtered to only child type docs
 DECL|method|TopChildrenQuery
 specifier|public
@@ -439,6 +447,10 @@ name|void
 name|clear
 parameter_list|()
 block|{
+name|properlyInvoked
+operator|=
+literal|true
+expr_stmt|;
 name|parentDocs
 operator|=
 literal|null
@@ -1063,6 +1075,20 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+operator|!
+name|properlyInvoked
+condition|)
+block|{
+throw|throw
+operator|new
+name|ElasticSearchIllegalStateException
+argument_list|(
+literal|"top_children query hasn't executed properly"
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 name|parentDocs

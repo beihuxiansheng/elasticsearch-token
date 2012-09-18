@@ -634,6 +634,21 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|parentDocs
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|ElasticSearchIllegalStateException
+argument_list|(
+literal|"has_child filter/query hasn't executed properly"
+argument_list|)
+throw|;
+block|}
 comment|// ok to return null
 return|return
 name|parentDocs
@@ -764,6 +779,21 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|collectedUids
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|ElasticSearchIllegalStateException
+argument_list|(
+literal|"has_child filter/query hasn't executed properly"
+argument_list|)
+throw|;
+block|}
 name|IdReaderTypeCache
 name|idReaderTypeCache
 init|=
