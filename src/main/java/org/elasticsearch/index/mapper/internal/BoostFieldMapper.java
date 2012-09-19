@@ -883,7 +883,9 @@ name|omitNorms
 argument_list|,
 name|indexOptions
 argument_list|,
-literal|false
+name|Defaults
+operator|.
+name|IGNORE_MALFORMED
 argument_list|,
 operator|new
 name|NamedAnalyzer
