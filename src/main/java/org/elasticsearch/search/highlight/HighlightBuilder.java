@@ -788,7 +788,7 @@ name|Boolean
 name|requireFieldMatch
 decl_stmt|;
 DECL|method|Field
-specifier|private
+specifier|public
 name|Field
 parameter_list|(
 name|String
