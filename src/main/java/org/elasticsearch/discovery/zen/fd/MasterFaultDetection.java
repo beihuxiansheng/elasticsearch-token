@@ -1518,7 +1518,7 @@ name|notifyMasterFailure
 argument_list|(
 name|masterToPing
 argument_list|,
-literal|"no longer master"
+literal|"not master"
 argument_list|)
 expr_stmt|;
 return|return;
