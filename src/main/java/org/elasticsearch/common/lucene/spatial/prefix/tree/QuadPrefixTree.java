@@ -94,17 +94,11 @@ end_import
 
 begin_import
 import|import
-name|com
+name|java
 operator|.
-name|spatial4j
+name|io
 operator|.
-name|core
-operator|.
-name|shape
-operator|.
-name|simple
-operator|.
-name|PointImpl
+name|PrintStream
 import|;
 end_import
 
@@ -147,6 +141,20 @@ operator|.
 name|List
 import|;
 end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+
+begin_comment
+comment|/**  * @lucene.experimental  */
+end_comment
 
 begin_class
 DECL|class|QuadPrefixTree
@@ -521,7 +529,10 @@ DECL|method|printInfo
 specifier|public
 name|void
 name|printInfo
-parameter_list|()
+parameter_list|(
+name|PrintStream
+name|out
+parameter_list|)
 block|{
 name|NumberFormat
 name|nf
@@ -529,7 +540,11 @@ init|=
 name|NumberFormat
 operator|.
 name|getNumberInstance
-argument_list|()
+argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|)
 decl_stmt|;
 name|nf
 operator|.
@@ -567,8 +582,6 @@ name|i
 operator|++
 control|)
 block|{
-name|System
-operator|.
 name|out
 operator|.
 name|println
@@ -634,16 +647,28 @@ name|double
 name|dist
 parameter_list|)
 block|{
+if|if
+condition|(
+name|dist
+operator|==
+literal|0
+condition|)
+comment|//short circuit
+return|return
+name|maxLevels
+return|;
 for|for
 control|(
 name|int
 name|i
 init|=
-literal|1
+literal|0
 init|;
 name|i
 operator|<
 name|maxLevels
+operator|-
+literal|1
 condition|;
 name|i
 operator|++
@@ -658,7 +683,7 @@ name|levelW
 index|[
 name|i
 index|]
-operator|||
+operator|&&
 name|dist
 operator|>
 name|levelH
@@ -669,6 +694,8 @@ condition|)
 block|{
 return|return
 name|i
+operator|+
+literal|1
 return|;
 block|}
 block|}
@@ -719,8 +746,9 @@ operator|new
 name|StringBuilder
 argument_list|()
 argument_list|,
-operator|new
-name|PointImpl
+name|ctx
+operator|.
+name|makePoint
 argument_list|(
 name|p
 operator|.
@@ -1082,7 +1110,7 @@ name|rectangle
 init|=
 name|ctx
 operator|.
-name|makeRect
+name|makeRectangle
 argument_list|(
 name|cx
 operator|-
@@ -1109,8 +1137,6 @@ operator|.
 name|relate
 argument_list|(
 name|rectangle
-argument_list|,
-name|ctx
 argument_list|)
 decl_stmt|;
 if|if
@@ -1708,7 +1734,7 @@ block|}
 return|return
 name|ctx
 operator|.
-name|makeRect
+name|makeRectangle
 argument_list|(
 name|xmin
 argument_list|,

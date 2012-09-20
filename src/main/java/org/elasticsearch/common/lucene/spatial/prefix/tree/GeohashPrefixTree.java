@@ -44,6 +44,20 @@ name|spatial4j
 operator|.
 name|core
 operator|.
+name|io
+operator|.
+name|GeohashUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|spatial4j
+operator|.
+name|core
+operator|.
 name|shape
 operator|.
 name|Point
@@ -80,20 +94,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|spatial4j
-operator|.
-name|core
-operator|.
-name|util
-operator|.
-name|GeohashUtils
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -123,7 +123,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A SpatialPrefixGrid based on Geohashes.  Uses {@link GeohashUtils} to do all the geohash work.  */
+comment|/**  * A SpatialPrefixGrid based on Geohashes.  Uses {@link GeohashUtils} to do all the geohash work.  *  * @lucene.experimental  */
 end_comment
 
 begin_class
@@ -209,7 +209,7 @@ name|maxLevels
 argument_list|)
 throw|;
 block|}
-comment|/** Any more than this and there's no point (double lat& lon are the same). */
+comment|/**    * Any more than this and there's no point (double lat& lon are the same).    */
 DECL|method|getMaxLevelsPossible
 specifier|public
 specifier|static
@@ -234,6 +234,16 @@ name|double
 name|dist
 parameter_list|)
 block|{
+if|if
+condition|(
+name|dist
+operator|==
+literal|0
+condition|)
+return|return
+name|maxLevels
+return|;
+comment|//short circuit
 specifier|final
 name|int
 name|level

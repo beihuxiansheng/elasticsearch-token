@@ -156,7 +156,8 @@ operator|)
 name|shape
 operator|)
 operator|.
-name|geo
+name|getGeom
+argument_list|()
 decl_stmt|;
 if|if
 condition|(

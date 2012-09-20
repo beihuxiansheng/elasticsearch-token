@@ -117,7 +117,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Spatial Prefix Tree, or Trie, which decomposes shapes into prefixed strings at variable lengths corresponding to  * variable precision.  Each string corresponds to a spatial region.  *  * Implementations of this class should be thread-safe and immutable once initialized.  */
+comment|/**  * A spatial Prefix Tree, or Trie, which decomposes shapes into prefixed strings at variable lengths corresponding to  * variable precision.  Each string corresponds to a spatial region.  *<p/>  * Implementations of this class should be thread-safe and immutable once initialized.  *  * @lucene.experimental  */
 end_comment
 
 begin_class
@@ -228,101 +228,7 @@ operator|+
 literal|")"
 return|;
 block|}
-comment|/**    * See {@link com.spatial4j.core.query.SpatialArgs#getDistPrecision()}.    * A grid level looked up via {@link #getLevelForDistance(double)} is returned.    *    * @param shape    * @param precision 0-0.5    * @return 1-maxLevels    */
-DECL|method|getMaxLevelForPrecision
-specifier|public
-name|int
-name|getMaxLevelForPrecision
-parameter_list|(
-name|Shape
-name|shape
-parameter_list|,
-name|double
-name|precision
-parameter_list|)
-block|{
-if|if
-condition|(
-name|precision
-argument_list|<
-literal|0
-operator|||
-name|precision
-argument_list|>
-literal|0.5
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Precision "
-operator|+
-name|precision
-operator|+
-literal|" must be between [0-0.5]"
-argument_list|)
-throw|;
-block|}
-if|if
-condition|(
-name|precision
-operator|==
-literal|0
-operator|||
-name|shape
-operator|instanceof
-name|Point
-condition|)
-block|{
-return|return
-name|maxLevels
-return|;
-block|}
-name|double
-name|bboxArea
-init|=
-name|shape
-operator|.
-name|getBoundingBox
-argument_list|()
-operator|.
-name|getArea
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|bboxArea
-operator|==
-literal|0
-condition|)
-block|{
-return|return
-name|maxLevels
-return|;
-block|}
-name|double
-name|avgSideLenFromCenter
-init|=
-name|Math
-operator|.
-name|sqrt
-argument_list|(
-name|bboxArea
-argument_list|)
-operator|/
-literal|2
-decl_stmt|;
-return|return
-name|getLevelForDistance
-argument_list|(
-name|avgSideLenFromCenter
-operator|*
-name|precision
-argument_list|)
-return|;
-block|}
-comment|/**    * Returns the level of the smallest grid size with a side length that is greater or equal to the provided    * distance.    *    * @param dist>= 0    * @return level [1-maxLevels]    */
+comment|/**    * Returns the level of the largest grid in which its longest side is less    * than or equal to the provided distance (in degrees). Consequently {@code    * dist} acts as an error epsilon declaring the amount of detail needed in the    * grid, such that you can get a grid with just the right amount of    * precision.    *    * @param dist>= 0    * @return level [1 to maxLevels]    */
 DECL|method|getLevelForDistance
 specifier|public
 specifier|abstract

@@ -26,7 +26,7 @@ name|core
 operator|.
 name|shape
 operator|.
-name|simple
+name|impl
 operator|.
 name|PointImpl
 import|;
@@ -83,6 +83,10 @@ argument_list|(
 literal|0
 argument_list|,
 literal|0
+argument_list|,
+name|GeoShapeConstants
+operator|.
+name|SPATIAL_CONTEXT
 argument_list|)
 expr_stmt|;
 name|xSPATIAL4J_AVAILABLE
