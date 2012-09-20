@@ -26,6 +26,24 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
+name|admin
+operator|.
+name|cluster
+operator|.
+name|health
+operator|.
+name|ClusterHealthResponse
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
 name|search
 operator|.
 name|MultiSearchResponse
@@ -168,31 +186,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|equalTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|notNullValue
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|nullValue
+name|*
 import|;
 end_import
 
@@ -307,6 +301,9 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+name|ClusterHealthResponse
+name|clusterHealthResponse
+init|=
 name|client
 operator|.
 name|admin
@@ -318,7 +315,7 @@ operator|.
 name|prepareHealth
 argument_list|()
 operator|.
-name|setWaitForGreenStatus
+name|setWaitForYellowStatus
 argument_list|()
 operator|.
 name|execute
@@ -326,6 +323,19 @@ argument_list|()
 operator|.
 name|actionGet
 argument_list|()
+decl_stmt|;
+name|assertThat
+argument_list|(
+name|clusterHealthResponse
+operator|.
+name|timedOut
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|false
+argument_list|)
+argument_list|)
 expr_stmt|;
 try|try
 block|{
@@ -363,7 +373,7 @@ parameter_list|(
 name|IndexMissingException
 name|e
 parameter_list|)
-block|{}
+block|{         }
 name|MultiSearchResponse
 name|multiSearchResponse
 init|=
@@ -466,7 +476,7 @@ parameter_list|(
 name|IndexMissingException
 name|e
 parameter_list|)
-block|{}
+block|{         }
 try|try
 block|{
 name|client
@@ -501,7 +511,7 @@ parameter_list|(
 name|IndexMissingException
 name|e
 parameter_list|)
-block|{}
+block|{         }
 try|try
 block|{
 name|client
@@ -536,7 +546,7 @@ parameter_list|(
 name|IndexMissingException
 name|e
 parameter_list|)
-block|{}
+block|{         }
 try|try
 block|{
 name|client
@@ -571,7 +581,7 @@ parameter_list|(
 name|IndexMissingException
 name|e
 parameter_list|)
-block|{}
+block|{         }
 try|try
 block|{
 name|client
@@ -606,7 +616,7 @@ parameter_list|(
 name|IndexMissingException
 name|e
 parameter_list|)
-block|{}
+block|{         }
 try|try
 block|{
 name|client
@@ -641,7 +651,7 @@ parameter_list|(
 name|IndexMissingException
 name|e
 parameter_list|)
-block|{}
+block|{         }
 try|try
 block|{
 name|client
@@ -676,7 +686,7 @@ parameter_list|(
 name|IndexMissingException
 name|e
 parameter_list|)
-block|{}
+block|{         }
 try|try
 block|{
 name|client
@@ -711,7 +721,7 @@ parameter_list|(
 name|IndexMissingException
 name|e
 parameter_list|)
-block|{}
+block|{         }
 try|try
 block|{
 name|client
@@ -746,7 +756,7 @@ parameter_list|(
 name|IndexMissingException
 name|e
 parameter_list|)
-block|{}
+block|{         }
 try|try
 block|{
 name|client
@@ -781,7 +791,7 @@ parameter_list|(
 name|IndexMissingException
 name|e
 parameter_list|)
-block|{}
+block|{         }
 name|client
 operator|.
 name|prepareSearch
@@ -1185,6 +1195,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+name|clusterHealthResponse
+operator|=
 name|client
 operator|.
 name|admin
@@ -1196,7 +1208,7 @@ operator|.
 name|prepareHealth
 argument_list|()
 operator|.
-name|setWaitForGreenStatus
+name|setWaitForYellowStatus
 argument_list|()
 operator|.
 name|execute
@@ -1204,6 +1216,19 @@ argument_list|()
 operator|.
 name|actionGet
 argument_list|()
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|clusterHealthResponse
+operator|.
+name|timedOut
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|false
+argument_list|)
+argument_list|)
 expr_stmt|;
 name|client
 operator|.
@@ -1507,6 +1532,9 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+name|ClusterHealthResponse
+name|clusterHealthResponse
+init|=
 name|client
 operator|.
 name|admin
@@ -1518,7 +1546,7 @@ operator|.
 name|prepareHealth
 argument_list|()
 operator|.
-name|setWaitForGreenStatus
+name|setWaitForYellowStatus
 argument_list|()
 operator|.
 name|execute
@@ -1526,6 +1554,19 @@ argument_list|()
 operator|.
 name|actionGet
 argument_list|()
+decl_stmt|;
+name|assertThat
+argument_list|(
+name|clusterHealthResponse
+operator|.
+name|timedOut
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|false
+argument_list|)
+argument_list|)
 expr_stmt|;
 name|client
 operator|.
@@ -1569,6 +1610,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+name|clusterHealthResponse
+operator|=
 name|client
 operator|.
 name|admin
@@ -1580,7 +1623,7 @@ operator|.
 name|prepareHealth
 argument_list|()
 operator|.
-name|setWaitForGreenStatus
+name|setWaitForYellowStatus
 argument_list|()
 operator|.
 name|execute
@@ -1588,6 +1631,19 @@ argument_list|()
 operator|.
 name|actionGet
 argument_list|()
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|clusterHealthResponse
+operator|.
+name|timedOut
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|false
+argument_list|)
+argument_list|)
 expr_stmt|;
 try|try
 block|{
