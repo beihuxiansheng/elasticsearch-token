@@ -4,7 +4,7 @@ comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more cont
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.action.admin.indices.exists
+DECL|package|org.elasticsearch.action.admin.indices.exists.indices
 package|package
 name|org
 operator|.
@@ -17,6 +17,8 @@ operator|.
 name|indices
 operator|.
 name|exists
+operator|.
+name|indices
 package|;
 end_package
 

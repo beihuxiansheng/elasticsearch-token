@@ -86,6 +86,8 @@ name|indices
 operator|.
 name|exists
 operator|.
+name|indices
+operator|.
 name|IndicesExistsResponse
 import|;
 end_import

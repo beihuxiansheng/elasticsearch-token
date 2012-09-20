@@ -272,6 +272,8 @@ name|indices
 operator|.
 name|exists
 operator|.
+name|indices
+operator|.
 name|IndicesExistsRequest
 import|;
 end_import
@@ -855,7 +857,7 @@ name|indices
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates an indices exists request.      *      * @param indices The indices to check if they exists or not.      * @return The indices exists request      * @see org.elasticsearch.client.IndicesAdminClient#exists(org.elasticsearch.action.admin.indices.exists.IndicesExistsRequest)      */
+comment|/**      * Creates an indices exists request.      *      * @param indices The indices to check if they exists or not.      * @return The indices exists request      * @see org.elasticsearch.client.IndicesAdminClient#exists(org.elasticsearch.action.admin.indices.exists.indices.IndicesExistsRequest)      */
 DECL|method|indicesExistsRequest
 specifier|public
 specifier|static
