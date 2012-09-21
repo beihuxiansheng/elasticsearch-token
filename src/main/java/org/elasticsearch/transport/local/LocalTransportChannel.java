@@ -152,7 +152,7 @@ name|transport
 operator|.
 name|support
 operator|.
-name|TransportStreams
+name|TransportStatus
 import|;
 end_import
 
@@ -340,9 +340,9 @@ literal|0
 decl_stmt|;
 name|status
 operator|=
-name|TransportStreams
+name|TransportStatus
 operator|.
-name|statusSetResponse
+name|setResponse
 argument_list|(
 name|status
 argument_list|)
@@ -688,18 +688,18 @@ literal|0
 decl_stmt|;
 name|status
 operator|=
-name|TransportStreams
+name|TransportStatus
 operator|.
-name|statusSetResponse
+name|setResponse
 argument_list|(
 name|status
 argument_list|)
 expr_stmt|;
 name|status
 operator|=
-name|TransportStreams
+name|TransportStatus
 operator|.
-name|statusSetError
+name|setError
 argument_list|(
 name|status
 argument_list|)

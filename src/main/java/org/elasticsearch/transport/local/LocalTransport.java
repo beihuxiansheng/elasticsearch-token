@@ -214,7 +214,7 @@ name|transport
 operator|.
 name|support
 operator|.
-name|TransportStreams
+name|TransportStatus
 import|;
 end_import
 
@@ -864,9 +864,9 @@ literal|0
 decl_stmt|;
 name|status
 operator|=
-name|TransportStreams
+name|TransportStatus
 operator|.
-name|statusSetRequest
+name|setRequest
 argument_list|(
 name|status
 argument_list|)
@@ -1085,9 +1085,9 @@ decl_stmt|;
 name|boolean
 name|isRequest
 init|=
-name|TransportStreams
+name|TransportStatus
 operator|.
-name|statusIsRequest
+name|isRequest
 argument_list|(
 name|status
 argument_list|)
@@ -1130,9 +1130,9 @@ condition|)
 block|{
 if|if
 condition|(
-name|TransportStreams
+name|TransportStatus
 operator|.
-name|statusIsError
+name|isError
 argument_list|(
 name|status
 argument_list|)
