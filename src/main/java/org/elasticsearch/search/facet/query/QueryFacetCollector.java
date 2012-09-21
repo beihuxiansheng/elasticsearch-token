@@ -494,7 +494,7 @@ if|if
 condition|(
 name|Queries
 operator|.
-name|isMatchAllQuery
+name|isConstantMatchAllQuery
 argument_list|(
 name|fQuery
 operator|.

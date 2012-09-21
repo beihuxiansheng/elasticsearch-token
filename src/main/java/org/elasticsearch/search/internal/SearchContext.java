@@ -1231,7 +1231,7 @@ if|if
 condition|(
 name|Queries
 operator|.
-name|isMatchAllQuery
+name|isConstantMatchAllQuery
 argument_list|(
 name|query
 argument_list|()
