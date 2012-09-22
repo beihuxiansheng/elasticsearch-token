@@ -2190,6 +2190,13 @@ argument_list|(
 name|input
 argument_list|)
 decl_stmt|;
+name|input
+operator|.
+name|setVersion
+argument_list|(
+name|version
+argument_list|)
+expr_stmt|;
 name|id
 operator|=
 name|input
