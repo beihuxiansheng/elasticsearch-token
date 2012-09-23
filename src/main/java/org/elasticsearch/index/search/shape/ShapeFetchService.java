@@ -62,6 +62,20 @@ name|action
 operator|.
 name|get
 operator|.
+name|GetRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|get
+operator|.
 name|GetResponse
 import|;
 end_import
@@ -144,7 +158,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|XContentParser
+name|XContentHelper
 import|;
 end_import
 
@@ -158,9 +172,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|json
-operator|.
-name|JsonXContent
+name|XContentParser
 import|;
 end_import
 
@@ -217,7 +229,7 @@ operator|=
 name|client
 expr_stmt|;
 block|}
-comment|/**      * Fetches the Shape with the given ID in the given type and index.      *      * @param id ID of the Shape to fetch      * @param type Index type where the Shape is indexed      * @param index Index where the Shape is indexed      * @param shapeField Name of the field in the Shape Document where the Shape itself is located      * @return Shape with the given ID      * @throws IOException Can be thrown while parsing the Shape Document and extracting the Shape      */
+comment|/**      * Fetches the Shape with the given ID in the given type and index.      *      * @param id         ID of the Shape to fetch      * @param type       Index type where the Shape is indexed      * @param index      Index where the Shape is indexed      * @param shapeField Name of the field in the Shape Document where the Shape itself is located      * @return Shape with the given ID      * @throws IOException Can be thrown while parsing the Shape Document and extracting the Shape      */
 DECL|method|fetch
 specifier|public
 name|Shape
@@ -243,7 +255,10 @@ name|response
 init|=
 name|client
 operator|.
-name|prepareGet
+name|get
+argument_list|(
+operator|new
+name|GetRequest
 argument_list|(
 name|index
 argument_list|,
@@ -252,13 +267,11 @@ argument_list|,
 name|id
 argument_list|)
 operator|.
-name|setPreference
+name|preference
 argument_list|(
 literal|"_local"
 argument_list|)
-operator|.
-name|execute
-argument_list|()
+argument_list|)
 operator|.
 name|actionGet
 argument_list|()
@@ -297,15 +310,13 @@ try|try
 block|{
 name|parser
 operator|=
-name|JsonXContent
-operator|.
-name|jsonXContent
+name|XContentHelper
 operator|.
 name|createParser
 argument_list|(
 name|response
 operator|.
-name|source
+name|sourceRef
 argument_list|()
 argument_list|)
 expr_stmt|;
