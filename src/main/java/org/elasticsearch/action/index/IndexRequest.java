@@ -544,7 +544,7 @@ specifier|public
 name|IndexRequest
 parameter_list|()
 block|{     }
-comment|/**      * Constructs a new index request against the specific index. The {@link #type(String)},      * {@link #id(String)} and {@link #source(byte[])} must be set.      */
+comment|/**      * Constructs a new index request against the specific index. The {@link #type(String)}      * {@link #source(byte[])} must be set.       */
 DECL|method|IndexRequest
 specifier|public
 name|IndexRequest
@@ -558,6 +558,31 @@ operator|.
 name|index
 operator|=
 name|index
+expr_stmt|;
+block|}
+comment|/**      * Constructs a new index request against the specific index and type. The       * {@link #source(byte[])} must be set.      */
+DECL|method|IndexRequest
+specifier|public
+name|IndexRequest
+parameter_list|(
+name|String
+name|index
+parameter_list|,
+name|String
+name|type
+parameter_list|)
+block|{
+name|this
+operator|.
+name|index
+operator|=
+name|index
+expr_stmt|;
+name|this
+operator|.
+name|type
+operator|=
+name|type
 expr_stmt|;
 block|}
 comment|/**      * Constructs a new index request against the index, type, id and using the source.      *      * @param index The index to index into      * @param type  The type to index into      * @param id    The id of document      */
