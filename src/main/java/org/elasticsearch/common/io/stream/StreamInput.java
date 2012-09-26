@@ -1637,6 +1637,13 @@ return|return
 name|readBytesReference
 argument_list|()
 return|;
+case|case
+literal|15
+case|:
+return|return
+name|readText
+argument_list|()
+return|;
 default|default:
 throw|throw
 operator|new

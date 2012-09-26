@@ -685,7 +685,7 @@ decl_stmt|;
 DECL|field|request
 specifier|private
 specifier|final
-name|InternalSearchRequest
+name|ShardSearchRequest
 name|request
 decl_stmt|;
 DECL|field|shardTarget
@@ -944,7 +944,7 @@ parameter_list|(
 name|long
 name|id
 parameter_list|,
-name|InternalSearchRequest
+name|ShardSearchRequest
 name|request
 parameter_list|,
 name|SearchShardTarget
@@ -1321,7 +1321,7 @@ return|;
 block|}
 DECL|method|request
 specifier|public
-name|InternalSearchRequest
+name|ShardSearchRequest
 name|request
 parameter_list|()
 block|{

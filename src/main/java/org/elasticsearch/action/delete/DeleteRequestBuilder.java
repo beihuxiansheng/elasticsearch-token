@@ -50,7 +50,9 @@ name|action
 operator|.
 name|support
 operator|.
-name|BaseRequestBuilder
+name|replication
+operator|.
+name|ReplicationType
 import|;
 end_import
 
@@ -66,7 +68,7 @@ name|support
 operator|.
 name|replication
 operator|.
-name|ReplicationType
+name|ShardReplicationOperationRequestBuilder
 import|;
 end_import
 
@@ -79,6 +81,20 @@ operator|.
 name|client
 operator|.
 name|Client
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|client
+operator|.
+name|internal
+operator|.
+name|InternalClient
 import|;
 end_import
 
@@ -116,11 +132,13 @@ specifier|public
 class|class
 name|DeleteRequestBuilder
 extends|extends
-name|BaseRequestBuilder
+name|ShardReplicationOperationRequestBuilder
 argument_list|<
 name|DeleteRequest
 argument_list|,
 name|DeleteResponse
+argument_list|,
+name|DeleteRequestBuilder
 argument_list|>
 block|{
 DECL|method|DeleteRequestBuilder
@@ -133,6 +151,9 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+operator|(
+name|InternalClient
+operator|)
 name|client
 argument_list|,
 operator|new
@@ -156,6 +177,9 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+operator|(
+name|InternalClient
+operator|)
 name|client
 argument_list|,
 operator|new
@@ -165,27 +189,6 @@ name|index
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-comment|/**      * Sets the index the delete will happen on.      */
-DECL|method|setIndex
-specifier|public
-name|DeleteRequestBuilder
-name|setIndex
-parameter_list|(
-name|String
-name|index
-parameter_list|)
-block|{
-name|request
-operator|.
-name|index
-argument_list|(
-name|index
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
 block|}
 comment|/**      * Sets the type of the document to delete.      */
 DECL|method|setType
@@ -334,48 +337,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Should the listener be called on a separate thread if needed.      */
-DECL|method|setListenerThreaded
-specifier|public
-name|DeleteRequestBuilder
-name|setListenerThreaded
-parameter_list|(
-name|boolean
-name|threadedListener
-parameter_list|)
-block|{
-name|request
-operator|.
-name|listenerThreaded
-argument_list|(
-name|threadedListener
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Controls if the operation will be executed on a separate thread when executed locally. Defaults      * to<tt>true</tt> when running in embedded mode.      */
-DECL|method|setOperationThreaded
-specifier|public
-name|DeleteRequestBuilder
-name|setOperationThreaded
-parameter_list|(
-name|boolean
-name|threadedOperation
-parameter_list|)
-block|{
-name|request
-operator|.
-name|operationThreaded
-argument_list|(
-name|threadedOperation
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**      * Set the replication type for this operation.      */
 DECL|method|setReplicationType
 specifier|public
@@ -432,7 +393,12 @@ argument_list|>
 name|listener
 parameter_list|)
 block|{
+operator|(
+operator|(
+name|Client
+operator|)
 name|client
+operator|)
 operator|.
 name|delete
 argument_list|(

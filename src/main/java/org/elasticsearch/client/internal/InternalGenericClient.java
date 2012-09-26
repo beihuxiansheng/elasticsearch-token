@@ -4,13 +4,15 @@ comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more cont
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.transport
+DECL|package|org.elasticsearch.client.internal
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|transport
+name|client
+operator|.
+name|internal
 package|;
 end_package
 
@@ -20,39 +22,25 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|threadpool
 operator|.
-name|io
-operator|.
-name|stream
-operator|.
-name|Streamable
+name|ThreadPool
 import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  */
 end_comment
 
 begin_interface
-DECL|interface|ActionTransportRequestHandler
+DECL|interface|InternalGenericClient
 specifier|public
 interface|interface
-name|ActionTransportRequestHandler
-parameter_list|<
-name|T
-extends|extends
-name|Streamable
-parameter_list|>
-extends|extends
-name|TransportRequestHandler
-argument_list|<
-name|T
-argument_list|>
+name|InternalGenericClient
 block|{
-DECL|method|action
-name|String
-name|action
+DECL|method|threadPool
+name|ThreadPool
+name|threadPool
 parameter_list|()
 function_decl|;
 block|}

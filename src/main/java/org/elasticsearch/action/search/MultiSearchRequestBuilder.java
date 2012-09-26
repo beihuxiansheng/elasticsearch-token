@@ -36,9 +36,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|support
-operator|.
-name|BaseRequestBuilder
+name|ActionRequestBuilder
 import|;
 end_import
 
@@ -68,6 +66,20 @@ name|Client
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|client
+operator|.
+name|internal
+operator|.
+name|InternalClient
+import|;
+end_import
+
 begin_comment
 comment|/**  * A request builder for multiple search requests.  */
 end_comment
@@ -78,11 +90,13 @@ specifier|public
 class|class
 name|MultiSearchRequestBuilder
 extends|extends
-name|BaseRequestBuilder
+name|ActionRequestBuilder
 argument_list|<
 name|MultiSearchRequest
 argument_list|,
 name|MultiSearchResponse
+argument_list|,
+name|MultiSearchRequestBuilder
 argument_list|>
 block|{
 DECL|method|MultiSearchRequestBuilder
@@ -95,6 +109,9 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+operator|(
+name|InternalClient
+operator|)
 name|client
 argument_list|,
 operator|new
@@ -103,7 +120,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Add a search request to execute. Note, the order is important, the search response will be returned in the      * same order as the search requests.      *      * If ignoreIndices has been set on the search request, then the ignoreIndices of the multi search request      * will not be used (if set).      */
+comment|/**      * Add a search request to execute. Note, the order is important, the search response will be returned in the      * same order as the search requests.      *<p/>      * If ignoreIndices has been set on the search request, then the ignoreIndices of the multi search request      * will not be used (if set).      */
 DECL|method|add
 specifier|public
 name|MultiSearchRequestBuilder
@@ -259,7 +276,12 @@ argument_list|>
 name|listener
 parameter_list|)
 block|{
+operator|(
+operator|(
+name|Client
+operator|)
 name|client
+operator|)
 operator|.
 name|multiSearch
 argument_list|(

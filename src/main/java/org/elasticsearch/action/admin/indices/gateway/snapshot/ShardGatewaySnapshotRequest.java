@@ -104,6 +104,9 @@ name|index
 parameter_list|,
 name|int
 name|shardId
+parameter_list|,
+name|GatewaySnapshotRequest
+name|request
 parameter_list|)
 block|{
 name|super
@@ -111,6 +114,8 @@ argument_list|(
 name|index
 argument_list|,
 name|shardId
+argument_list|,
+name|request
 argument_list|)
 expr_stmt|;
 block|}

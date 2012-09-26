@@ -133,16 +133,6 @@ specifier|private
 name|BytesReference
 name|querySource
 decl_stmt|;
-DECL|field|querySourceOffset
-specifier|private
-name|int
-name|querySourceOffset
-decl_stmt|;
-DECL|field|querySourceLength
-specifier|private
-name|int
-name|querySourceLength
-decl_stmt|;
 DECL|field|types
 specifier|private
 name|String
@@ -190,6 +180,8 @@ argument_list|(
 name|index
 argument_list|,
 name|shardId
+argument_list|,
+name|request
 argument_list|)
 expr_stmt|;
 name|this

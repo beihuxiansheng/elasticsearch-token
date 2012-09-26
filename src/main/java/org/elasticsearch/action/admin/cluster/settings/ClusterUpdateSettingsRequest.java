@@ -255,6 +255,9 @@ class|class
 name|ClusterUpdateSettingsRequest
 extends|extends
 name|MasterNodeOperationRequest
+argument_list|<
+name|ClusterUpdateSettingsRequest
+argument_list|>
 block|{
 DECL|field|transientSettings
 specifier|private

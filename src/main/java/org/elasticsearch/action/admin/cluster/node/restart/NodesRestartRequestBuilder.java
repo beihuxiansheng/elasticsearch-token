@@ -42,13 +42,11 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|admin
-operator|.
-name|cluster
-operator|.
 name|support
 operator|.
-name|BaseClusterRequestBuilder
+name|nodes
+operator|.
+name|NodesOperationRequestBuilder
 import|;
 end_import
 
@@ -61,6 +59,20 @@ operator|.
 name|client
 operator|.
 name|ClusterAdminClient
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|client
+operator|.
+name|internal
+operator|.
+name|InternalClusterAdminClient
 import|;
 end_import
 
@@ -88,11 +100,13 @@ specifier|public
 class|class
 name|NodesRestartRequestBuilder
 extends|extends
-name|BaseClusterRequestBuilder
+name|NodesOperationRequestBuilder
 argument_list|<
 name|NodesRestartRequest
 argument_list|,
 name|NodesRestartResponse
+argument_list|,
+name|NodesRestartRequestBuilder
 argument_list|>
 block|{
 DECL|method|NodesRestartRequestBuilder
@@ -105,6 +119,9 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+operator|(
+name|InternalClusterAdminClient
+operator|)
 name|clusterClient
 argument_list|,
 operator|new
@@ -112,28 +129,6 @@ name|NodesRestartRequest
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
-comment|/**      * The nodes ids to restart.      */
-DECL|method|setNodesIds
-specifier|public
-name|NodesRestartRequestBuilder
-name|setNodesIds
-parameter_list|(
-name|String
-modifier|...
-name|nodesIds
-parameter_list|)
-block|{
-name|request
-operator|.
-name|nodesIds
-argument_list|(
-name|nodesIds
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
 block|}
 comment|/**      * The delay for the restart to occur. Defaults to<tt>1s</tt>.      */
 DECL|method|setDelay
@@ -191,7 +186,12 @@ argument_list|>
 name|listener
 parameter_list|)
 block|{
+operator|(
+operator|(
+name|ClusterAdminClient
+operator|)
 name|client
+operator|)
 operator|.
 name|nodesRestart
 argument_list|(

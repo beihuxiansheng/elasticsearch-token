@@ -62,22 +62,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|io
-operator|.
-name|stream
-operator|.
-name|Streamable
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -123,7 +107,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The response of delete by query action. Holds the {@link IndexDeleteByQueryResponse}s from all the  * different indices.  *  *  */
+comment|/**  * The response of delete by query action. Holds the {@link IndexDeleteByQueryResponse}s from all the  * different indices.  */
 end_comment
 
 begin_class
@@ -133,8 +117,6 @@ class|class
 name|DeleteByQueryResponse
 implements|implements
 name|ActionResponse
-implements|,
-name|Streamable
 implements|,
 name|Iterable
 argument_list|<

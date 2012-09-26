@@ -89,6 +89,9 @@ class|class
 name|IndicesStatsRequest
 extends|extends
 name|BroadcastOperationRequest
+argument_list|<
+name|IndicesStatsRequest
+argument_list|>
 block|{
 DECL|field|docs
 specifier|private
@@ -169,26 +172,6 @@ name|groups
 init|=
 literal|null
 decl_stmt|;
-DECL|method|indices
-specifier|public
-name|IndicesStatsRequest
-name|indices
-parameter_list|(
-name|String
-modifier|...
-name|indices
-parameter_list|)
-block|{
-name|this
-operator|.
-name|indices
-operator|=
-name|indices
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**      * Sets all flags to return all stats.      */
 DECL|method|all
 specifier|public

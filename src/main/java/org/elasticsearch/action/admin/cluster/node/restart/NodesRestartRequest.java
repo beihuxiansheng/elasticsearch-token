@@ -111,7 +111,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A request to restart one ore more nodes (or the whole cluster).  *  *  */
+comment|/**  * A request to restart one ore more nodes (or the whole cluster).  */
 end_comment
 
 begin_class
@@ -121,6 +121,9 @@ class|class
 name|NodesRestartRequest
 extends|extends
 name|NodesOperationRequest
+argument_list|<
+name|NodesRestartRequest
+argument_list|>
 block|{
 DECL|field|delay
 name|TimeValue

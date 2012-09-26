@@ -46,9 +46,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|support
-operator|.
-name|BaseRequestBuilder
+name|ActionRequestBuilder
 import|;
 end_import
 
@@ -75,6 +73,20 @@ operator|.
 name|client
 operator|.
 name|Client
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|client
+operator|.
+name|internal
+operator|.
+name|InternalClient
 import|;
 end_import
 
@@ -262,11 +274,13 @@ specifier|public
 class|class
 name|SearchRequestBuilder
 extends|extends
-name|BaseRequestBuilder
+name|ActionRequestBuilder
 argument_list|<
 name|SearchRequest
 argument_list|,
 name|SearchResponse
+argument_list|,
+name|SearchRequestBuilder
 argument_list|>
 block|{
 DECL|field|sourceBuilder
@@ -284,6 +298,9 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+operator|(
+name|InternalClient
+operator|)
 name|client
 argument_list|,
 operator|new
@@ -608,27 +625,6 @@ operator|.
 name|operationThreading
 argument_list|(
 name|operationThreading
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Should the listener be called on a separate thread if needed.      */
-DECL|method|setListenerThreaded
-specifier|public
-name|SearchRequestBuilder
-name|setListenerThreaded
-parameter_list|(
-name|boolean
-name|listenerThreaded
-parameter_list|)
-block|{
-name|request
-operator|.
-name|listenerThreaded
-argument_list|(
-name|listenerThreaded
 argument_list|)
 expr_stmt|;
 return|return
@@ -2318,7 +2314,12 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+operator|(
+operator|(
+name|Client
+operator|)
 name|client
+operator|)
 operator|.
 name|search
 argument_list|(

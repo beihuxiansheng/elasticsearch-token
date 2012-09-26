@@ -1109,6 +1109,7 @@ name|IndexShardStatsRequest
 extends|extends
 name|BroadcastShardOperationRequest
 block|{
+comment|// TODO if there are many indices, the request might hold a large indices array..., we don't really need to serialize it
 DECL|field|request
 name|IndicesStatsRequest
 name|request
@@ -1135,6 +1136,8 @@ argument_list|(
 name|index
 argument_list|,
 name|shardId
+argument_list|,
+name|request
 argument_list|)
 expr_stmt|;
 name|this

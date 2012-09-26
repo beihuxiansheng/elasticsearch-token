@@ -605,6 +605,8 @@ argument_list|<
 name|Request
 argument_list|,
 name|Response
+argument_list|,
+name|RequestBuilder
 argument_list|>
 parameter_list|>
 name|RequestBuilder

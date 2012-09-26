@@ -91,6 +91,9 @@ class|class
 name|NodesStatsRequest
 extends|extends
 name|NodesOperationRequest
+argument_list|<
+name|NodesStatsRequest
+argument_list|>
 block|{
 DECL|field|indices
 specifier|private

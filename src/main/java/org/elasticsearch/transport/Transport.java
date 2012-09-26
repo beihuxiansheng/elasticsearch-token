@@ -50,22 +50,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|io
-operator|.
-name|stream
-operator|.
-name|Streamable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|transport
 operator|.
 name|BoundTransportAddress
@@ -193,11 +177,6 @@ parameter_list|)
 function_decl|;
 comment|/**      * Sends the request to the node.      */
 DECL|method|sendRequest
-parameter_list|<
-name|T
-extends|extends
-name|Streamable
-parameter_list|>
 name|void
 name|sendRequest
 parameter_list|(
@@ -210,8 +189,8 @@ parameter_list|,
 name|String
 name|action
 parameter_list|,
-name|Streamable
-name|message
+name|TransportRequest
+name|request
 parameter_list|,
 name|TransportRequestOptions
 name|options

@@ -117,6 +117,9 @@ class|class
 name|NodesHotThreadsRequest
 extends|extends
 name|NodesOperationRequest
+argument_list|<
+name|NodesHotThreadsRequest
+argument_list|>
 block|{
 DECL|field|threads
 name|int

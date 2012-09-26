@@ -117,6 +117,9 @@ class|class
 name|DeleteMappingRequest
 extends|extends
 name|MasterNodeOperationRequest
+argument_list|<
+name|DeleteMappingRequest
+argument_list|>
 block|{
 DECL|field|indices
 specifier|private
@@ -303,7 +306,7 @@ index|]
 operator|=
 name|in
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 expr_stmt|;
 block|}
@@ -319,7 +322,7 @@ name|mappingType
 operator|=
 name|in
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 expr_stmt|;
 block|}
@@ -380,7 +383,7 @@ control|)
 block|{
 name|out
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 name|index
 argument_list|)
@@ -413,7 +416,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 name|mappingType
 argument_list|)

@@ -1400,6 +1400,8 @@ init|=
 operator|new
 name|FetchSearchRequest
 argument_list|(
+name|request
+argument_list|,
 name|queryResults
 operator|.
 name|get

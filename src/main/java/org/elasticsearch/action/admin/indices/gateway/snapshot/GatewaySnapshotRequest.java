@@ -39,7 +39,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Gateway snapshot allows to explicitly perform a snapshot through the gateway of one or more indices (backup them).  * By default, each index gateway periodically snapshot changes, though it can be disabled and be controlled completely  * through this API. Best created using {@link org.elasticsearch.client.Requests#gatewaySnapshotRequest(String...)}.  *  *  * @see org.elasticsearch.client.Requests#gatewaySnapshotRequest(String...)  * @see org.elasticsearch.client.IndicesAdminClient#gatewaySnapshot(GatewaySnapshotRequest)  * @see GatewaySnapshotResponse  */
+comment|/**  * Gateway snapshot allows to explicitly perform a snapshot through the gateway of one or more indices (backup them).  * By default, each index gateway periodically snapshot changes, though it can be disabled and be controlled completely  * through this API. Best created using {@link org.elasticsearch.client.Requests#gatewaySnapshotRequest(String...)}.  *  * @see org.elasticsearch.client.Requests#gatewaySnapshotRequest(String...)  * @see org.elasticsearch.client.IndicesAdminClient#gatewaySnapshot(GatewaySnapshotRequest)  * @see GatewaySnapshotResponse  */
 end_comment
 
 begin_class
@@ -49,6 +49,9 @@ class|class
 name|GatewaySnapshotRequest
 extends|extends
 name|BroadcastOperationRequest
+argument_list|<
+name|GatewaySnapshotRequest
+argument_list|>
 block|{
 DECL|method|GatewaySnapshotRequest
 name|GatewaySnapshotRequest
@@ -70,29 +73,6 @@ name|indices
 operator|=
 name|indices
 expr_stmt|;
-block|}
-comment|/**      * Should the listener be called on a separate thread if needed.      */
-annotation|@
-name|Override
-DECL|method|listenerThreaded
-specifier|public
-name|GatewaySnapshotRequest
-name|listenerThreaded
-parameter_list|(
-name|boolean
-name|threadedListener
-parameter_list|)
-block|{
-name|super
-operator|.
-name|listenerThreaded
-argument_list|(
-name|threadedListener
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
 block|}
 block|}
 end_class

@@ -187,6 +187,9 @@ class|class
 name|IndexDeleteByQueryRequest
 extends|extends
 name|IndexReplicationOperationRequest
+argument_list|<
+name|IndexDeleteByQueryRequest
+argument_list|>
 block|{
 DECL|field|querySource
 specifier|private
@@ -484,7 +487,7 @@ index|]
 operator|=
 name|in
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 expr_stmt|;
 block|}
@@ -536,7 +539,7 @@ name|add
 argument_list|(
 name|in
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -587,7 +590,7 @@ index|]
 operator|=
 name|in
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 expr_stmt|;
 block|}
@@ -637,7 +640,7 @@ control|)
 block|{
 name|out
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 name|type
 argument_list|)
@@ -670,7 +673,7 @@ control|)
 block|{
 name|out
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 name|r
 argument_list|)
@@ -713,7 +716,7 @@ control|)
 block|{
 name|out
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 name|alias
 argument_list|)

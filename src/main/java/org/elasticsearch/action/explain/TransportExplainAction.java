@@ -344,7 +344,7 @@ name|search
 operator|.
 name|internal
 operator|.
-name|InternalSearchRequest
+name|SearchContext
 import|;
 end_import
 
@@ -358,7 +358,7 @@ name|search
 operator|.
 name|internal
 operator|.
-name|SearchContext
+name|ShardSearchRequest
 import|;
 end_import
 
@@ -682,7 +682,7 @@ argument_list|(
 literal|0
 argument_list|,
 operator|new
-name|InternalSearchRequest
+name|ShardSearchRequest
 argument_list|()
 operator|.
 name|types

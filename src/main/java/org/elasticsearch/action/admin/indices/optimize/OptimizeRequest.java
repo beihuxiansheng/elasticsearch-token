@@ -95,7 +95,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A request to optimize one or more indices. In order to optimize on all the indices, pass an empty array or  *<tt>null</tt> for the indices.  *<p/>  *<p>{@link #waitForMerge(boolean)} allows to control if the call will block until the optimize completes and  * defaults to<tt>true</tt>.  *<p/>  *<p>{@link #maxNumSegments(int)} allows to control the number of segments to optimize down to. By default, will  * cause the optimize process to optimize down to half the configured number of segments.  *  *  * @see org.elasticsearch.client.Requests#optimizeRequest(String...)  * @see org.elasticsearch.client.IndicesAdminClient#optimize(OptimizeRequest)  * @see OptimizeResponse  */
+comment|/**  * A request to optimize one or more indices. In order to optimize on all the indices, pass an empty array or  *<tt>null</tt> for the indices.  *<p/>  *<p>{@link #waitForMerge(boolean)} allows to control if the call will block until the optimize completes and  * defaults to<tt>true</tt>.  *<p/>  *<p>{@link #maxNumSegments(int)} allows to control the number of segments to optimize down to. By default, will  * cause the optimize process to optimize down to half the configured number of segments.  *  * @see org.elasticsearch.client.Requests#optimizeRequest(String...)  * @see org.elasticsearch.client.IndicesAdminClient#optimize(OptimizeRequest)  * @see OptimizeResponse  */
 end_comment
 
 begin_class
@@ -105,6 +105,9 @@ class|class
 name|OptimizeRequest
 extends|extends
 name|BroadcastOperationRequest
+argument_list|<
+name|OptimizeRequest
+argument_list|>
 block|{
 DECL|class|Defaults
 specifier|public
@@ -234,50 +237,6 @@ specifier|public
 name|OptimizeRequest
 parameter_list|()
 block|{      }
-annotation|@
-name|Override
-DECL|method|listenerThreaded
-specifier|public
-name|OptimizeRequest
-name|listenerThreaded
-parameter_list|(
-name|boolean
-name|threadedListener
-parameter_list|)
-block|{
-name|super
-operator|.
-name|listenerThreaded
-argument_list|(
-name|threadedListener
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|operationThreading
-specifier|public
-name|OptimizeRequest
-name|operationThreading
-parameter_list|(
-name|BroadcastOperationThreading
-name|operationThreading
-parameter_list|)
-block|{
-name|super
-operator|.
-name|operationThreading
-argument_list|(
-name|operationThreading
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**      * Should the call block until the optimize completes. Defaults to<tt>true</tt>.      */
 DECL|method|waitForMerge
 specifier|public

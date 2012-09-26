@@ -68,13 +68,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|index
 operator|.
-name|io
+name|shard
 operator|.
-name|stream
-operator|.
-name|Streamable
+name|ShardId
 import|;
 end_import
 
@@ -84,11 +82,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|transport
 operator|.
-name|shard
-operator|.
-name|ShardId
+name|TransportRequest
 import|;
 end_import
 
@@ -120,8 +116,8 @@ begin_class
 DECL|class|RecoveryCleanFilesRequest
 class|class
 name|RecoveryCleanFilesRequest
-implements|implements
-name|Streamable
+extends|extends
+name|TransportRequest
 block|{
 DECL|field|recoveryId
 specifier|private
@@ -228,6 +224,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|super
+operator|.
+name|readFrom
+argument_list|(
+name|in
+argument_list|)
+expr_stmt|;
 name|recoveryId
 operator|=
 name|in
@@ -282,7 +285,7 @@ name|add
 argument_list|(
 name|in
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -301,6 +304,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|super
+operator|.
+name|writeTo
+argument_list|(
+name|out
+argument_list|)
+expr_stmt|;
 name|out
 operator|.
 name|writeLong
@@ -335,7 +345,7 @@ control|)
 block|{
 name|out
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 name|snapshotFile
 argument_list|)

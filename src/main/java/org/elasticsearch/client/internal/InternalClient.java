@@ -42,18 +42,6 @@ name|Settings
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|threadpool
-operator|.
-name|ThreadPool
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -65,15 +53,12 @@ interface|interface
 name|InternalClient
 extends|extends
 name|Client
+extends|,
+name|InternalGenericClient
 block|{
 DECL|method|settings
 name|Settings
 name|settings
-parameter_list|()
-function_decl|;
-DECL|method|threadPool
-name|ThreadPool
-name|threadPool
 parameter_list|()
 function_decl|;
 block|}

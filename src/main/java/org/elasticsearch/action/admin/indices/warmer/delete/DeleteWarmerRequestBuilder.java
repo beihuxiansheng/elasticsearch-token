@@ -42,13 +42,11 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|admin
-operator|.
-name|indices
-operator|.
 name|support
 operator|.
-name|BaseIndicesRequestBuilder
+name|master
+operator|.
+name|MasterNodeOperationRequestBuilder
 import|;
 end_import
 
@@ -70,11 +68,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|client
 operator|.
-name|unit
+name|internal
 operator|.
-name|TimeValue
+name|InternalIndicesAdminClient
 import|;
 end_import
 
@@ -88,11 +86,13 @@ specifier|public
 class|class
 name|DeleteWarmerRequestBuilder
 extends|extends
-name|BaseIndicesRequestBuilder
+name|MasterNodeOperationRequestBuilder
 argument_list|<
 name|DeleteWarmerRequest
 argument_list|,
 name|DeleteWarmerResponse
+argument_list|,
+name|DeleteWarmerRequestBuilder
 argument_list|>
 block|{
 DECL|method|DeleteWarmerRequestBuilder
@@ -105,6 +105,9 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+operator|(
+name|InternalIndicesAdminClient
+operator|)
 name|indicesClient
 argument_list|,
 operator|new
@@ -155,27 +158,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the master node timeout in case the master has not yet been discovered.      */
-DECL|method|setMasterNodeTimeout
-specifier|public
-name|DeleteWarmerRequestBuilder
-name|setMasterNodeTimeout
-parameter_list|(
-name|TimeValue
-name|timeout
-parameter_list|)
-block|{
-name|request
-operator|.
-name|masterNodeTimeout
-argument_list|(
-name|timeout
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|doExecute
@@ -190,7 +172,12 @@ argument_list|>
 name|listener
 parameter_list|)
 block|{
+operator|(
+operator|(
+name|IndicesAdminClient
+operator|)
 name|client
+operator|)
 operator|.
 name|deleteWarmer
 argument_list|(

@@ -54,13 +54,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|index
 operator|.
-name|io
+name|shard
 operator|.
-name|stream
-operator|.
-name|Streamable
+name|ShardId
 import|;
 end_import
 
@@ -70,11 +68,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|transport
 operator|.
-name|shard
-operator|.
-name|ShardId
+name|TransportRequest
 import|;
 end_import
 
@@ -96,8 +92,8 @@ begin_class
 DECL|class|RecoveryPrepareForTranslogOperationsRequest
 class|class
 name|RecoveryPrepareForTranslogOperationsRequest
-implements|implements
-name|Streamable
+extends|extends
+name|TransportRequest
 block|{
 DECL|field|recoveryId
 specifier|private
@@ -171,6 +167,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|super
+operator|.
+name|readFrom
+argument_list|(
+name|in
+argument_list|)
+expr_stmt|;
 name|recoveryId
 operator|=
 name|in
@@ -201,6 +204,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|super
+operator|.
+name|writeTo
+argument_list|(
+name|out
+argument_list|)
+expr_stmt|;
 name|out
 operator|.
 name|writeLong

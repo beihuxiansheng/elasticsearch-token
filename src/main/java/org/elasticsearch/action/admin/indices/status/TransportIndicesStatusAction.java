@@ -1679,6 +1679,8 @@ argument_list|(
 name|index
 argument_list|,
 name|shardId
+argument_list|,
+name|request
 argument_list|)
 expr_stmt|;
 name|recovery

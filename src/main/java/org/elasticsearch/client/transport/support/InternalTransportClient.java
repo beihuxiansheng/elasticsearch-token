@@ -419,6 +419,11 @@ name|adminClient
 return|;
 block|}
 annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+annotation|@
 name|Override
 DECL|method|execute
 specifier|public
@@ -438,6 +443,8 @@ argument_list|<
 name|Request
 argument_list|,
 name|Response
+argument_list|,
+name|RequestBuilder
 argument_list|>
 parameter_list|>
 name|ActionFuture
@@ -526,6 +533,11 @@ argument_list|)
 return|;
 block|}
 annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+annotation|@
 name|Override
 DECL|method|execute
 specifier|public
@@ -545,6 +557,8 @@ argument_list|<
 name|Request
 argument_list|,
 name|Response
+argument_list|,
+name|RequestBuilder
 argument_list|>
 parameter_list|>
 name|void

@@ -312,7 +312,7 @@ name|search
 operator|.
 name|internal
 operator|.
-name|InternalSearchRequest
+name|ShardSearchRequest
 import|;
 end_import
 
@@ -2078,6 +2078,8 @@ argument_list|()
 operator|.
 name|id
 argument_list|()
+argument_list|,
+name|request
 argument_list|)
 expr_stmt|;
 block|}
@@ -2094,7 +2096,7 @@ parameter_list|(
 name|DiscoveryNode
 name|node
 parameter_list|,
-name|InternalSearchRequest
+name|ShardSearchRequest
 name|request
 parameter_list|,
 name|SearchServiceListener

@@ -289,6 +289,9 @@ class|class
 name|IndicesAliasesRequest
 extends|extends
 name|MasterNodeOperationRequest
+argument_list|<
+name|IndicesAliasesRequest
+argument_list|>
 block|{
 DECL|field|aliasActions
 specifier|private

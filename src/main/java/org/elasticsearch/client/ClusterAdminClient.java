@@ -585,6 +585,8 @@ argument_list|<
 name|Request
 argument_list|,
 name|Response
+argument_list|,
+name|RequestBuilder
 argument_list|>
 parameter_list|>
 name|ActionFuture
@@ -626,6 +628,8 @@ argument_list|<
 name|Request
 argument_list|,
 name|Response
+argument_list|,
+name|RequestBuilder
 argument_list|>
 parameter_list|>
 name|void
@@ -670,6 +674,8 @@ argument_list|<
 name|Request
 argument_list|,
 name|Response
+argument_list|,
+name|RequestBuilder
 argument_list|>
 parameter_list|>
 name|RequestBuilder

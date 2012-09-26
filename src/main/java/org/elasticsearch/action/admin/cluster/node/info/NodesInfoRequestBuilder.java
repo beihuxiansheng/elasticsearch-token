@@ -42,13 +42,11 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|admin
-operator|.
-name|cluster
-operator|.
 name|support
 operator|.
-name|BaseClusterRequestBuilder
+name|nodes
+operator|.
+name|NodesOperationRequestBuilder
 import|;
 end_import
 
@@ -64,6 +62,20 @@ name|ClusterAdminClient
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|client
+operator|.
+name|internal
+operator|.
+name|InternalClusterAdminClient
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -74,11 +86,13 @@ specifier|public
 class|class
 name|NodesInfoRequestBuilder
 extends|extends
-name|BaseClusterRequestBuilder
+name|NodesOperationRequestBuilder
 argument_list|<
 name|NodesInfoRequest
 argument_list|,
 name|NodesInfoResponse
+argument_list|,
+name|NodesInfoRequestBuilder
 argument_list|>
 block|{
 DECL|method|NodesInfoRequestBuilder
@@ -91,6 +105,9 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+operator|(
+name|InternalClusterAdminClient
+operator|)
 name|clusterClient
 argument_list|,
 operator|new
@@ -98,27 +115,6 @@ name|NodesInfoRequest
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
-DECL|method|setNodesIds
-specifier|public
-name|NodesInfoRequestBuilder
-name|setNodesIds
-parameter_list|(
-name|String
-modifier|...
-name|nodesIds
-parameter_list|)
-block|{
-name|request
-operator|.
-name|nodesIds
-argument_list|(
-name|nodesIds
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
 block|}
 comment|/**      * Clears all info flags.      */
 DECL|method|clear
@@ -334,7 +330,12 @@ argument_list|>
 name|listener
 parameter_list|)
 block|{
+operator|(
+operator|(
+name|ClusterAdminClient
+operator|)
 name|client
+operator|)
 operator|.
 name|nodesInfo
 argument_list|(

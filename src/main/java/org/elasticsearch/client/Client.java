@@ -470,6 +470,8 @@ argument_list|<
 name|Request
 argument_list|,
 name|Response
+argument_list|,
+name|RequestBuilder
 argument_list|>
 parameter_list|>
 name|ActionFuture
@@ -512,6 +514,8 @@ argument_list|<
 name|Request
 argument_list|,
 name|Response
+argument_list|,
+name|RequestBuilder
 argument_list|>
 parameter_list|>
 name|void
@@ -557,6 +561,8 @@ argument_list|<
 name|Request
 argument_list|,
 name|Response
+argument_list|,
+name|RequestBuilder
 argument_list|>
 parameter_list|>
 name|RequestBuilder
@@ -1109,7 +1115,7 @@ name|String
 name|type
 parameter_list|)
 function_decl|;
-comment|/**      * Computes a score explanation for the specified request.      *      * @param index The index this explain is targeted for      * @param type The type this explain is targeted for      * @param id The document identifier this explain is targeted for      */
+comment|/**      * Computes a score explanation for the specified request.      *      * @param index The index this explain is targeted for      * @param type  The type this explain is targeted for      * @param id    The document identifier this explain is targeted for      */
 DECL|method|prepareExplain
 name|ExplainRequestBuilder
 name|prepareExplain
@@ -1136,7 +1142,7 @@ name|ExplainRequest
 name|request
 parameter_list|)
 function_decl|;
-comment|/**      * Computes a score explanation for the specified request.      *      * @param request The request encapsulating the query and document identifier to compute a score explanation for      * @param listener  A listener to be notified of the result      */
+comment|/**      * Computes a score explanation for the specified request.      *      * @param request  The request encapsulating the query and document identifier to compute a score explanation for      * @param listener A listener to be notified of the result      */
 DECL|method|explain
 name|void
 name|explain

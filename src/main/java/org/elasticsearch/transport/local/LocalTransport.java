@@ -798,11 +798,6 @@ annotation|@
 name|Override
 DECL|method|sendRequest
 specifier|public
-parameter_list|<
-name|T
-extends|extends
-name|Streamable
-parameter_list|>
 name|void
 name|sendRequest
 parameter_list|(
@@ -819,8 +814,8 @@ name|String
 name|action
 parameter_list|,
 specifier|final
-name|Streamable
-name|message
+name|TransportRequest
+name|request
 parameter_list|,
 name|TransportRequestOptions
 name|options
@@ -881,12 +876,12 @@ expr_stmt|;
 comment|// 0 for request, 1 for response.
 name|stream
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 name|action
 argument_list|)
 expr_stmt|;
-name|message
+name|request
 operator|.
 name|writeTo
 argument_list|(
@@ -1250,7 +1245,7 @@ name|action
 init|=
 name|stream
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -1302,15 +1297,15 @@ argument_list|)
 throw|;
 block|}
 specifier|final
-name|Streamable
-name|streamable
+name|TransportRequest
+name|request
 init|=
 name|handler
 operator|.
 name|newInstance
 argument_list|()
 decl_stmt|;
-name|streamable
+name|request
 operator|.
 name|readFrom
 argument_list|(
@@ -1321,7 +1316,7 @@ name|handler
 operator|.
 name|messageReceived
 argument_list|(
-name|streamable
+name|request
 argument_list|,
 name|transportChannel
 argument_list|)

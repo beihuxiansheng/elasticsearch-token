@@ -14,22 +14,6 @@ name|transport
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|io
-operator|.
-name|stream
-operator|.
-name|Streamable
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -42,7 +26,7 @@ name|TransportRequestHandler
 parameter_list|<
 name|T
 extends|extends
-name|Streamable
+name|TransportRequest
 parameter_list|>
 block|{
 DECL|method|newInstance

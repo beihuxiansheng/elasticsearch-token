@@ -95,7 +95,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A refresh request making all operations performed since the last refresh available for search. The (near) real-time  * capabilities depends on the index engine used. For example, the robin one requires refresh to be called, but by  * default a refresh is scheduled periodically.  *  *  * @see org.elasticsearch.client.Requests#refreshRequest(String...)  * @see org.elasticsearch.client.IndicesAdminClient#refresh(RefreshRequest)  * @see RefreshResponse  */
+comment|/**  * A refresh request making all operations performed since the last refresh available for search. The (near) real-time  * capabilities depends on the index engine used. For example, the robin one requires refresh to be called, but by  * default a refresh is scheduled periodically.  *  * @see org.elasticsearch.client.Requests#refreshRequest(String...)  * @see org.elasticsearch.client.IndicesAdminClient#refresh(RefreshRequest)  * @see RefreshResponse  */
 end_comment
 
 begin_class
@@ -105,6 +105,9 @@ class|class
 name|RefreshRequest
 extends|extends
 name|BroadcastOperationRequest
+argument_list|<
+name|RefreshRequest
+argument_list|>
 block|{
 DECL|field|waitForOperations
 specifier|private
@@ -139,52 +142,6 @@ operator|.
 name|THREAD_PER_SHARD
 argument_list|)
 expr_stmt|;
-block|}
-comment|/**      * Should the listener be called on a separate thread if needed.      */
-annotation|@
-name|Override
-DECL|method|listenerThreaded
-specifier|public
-name|RefreshRequest
-name|listenerThreaded
-parameter_list|(
-name|boolean
-name|threadedListener
-parameter_list|)
-block|{
-name|super
-operator|.
-name|listenerThreaded
-argument_list|(
-name|threadedListener
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Controls the operation threading model.      */
-annotation|@
-name|Override
-DECL|method|operationThreading
-specifier|public
-name|RefreshRequest
-name|operationThreading
-parameter_list|(
-name|BroadcastOperationThreading
-name|operationThreading
-parameter_list|)
-block|{
-name|super
-operator|.
-name|operationThreading
-argument_list|(
-name|operationThreading
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
 block|}
 DECL|method|waitForOperations
 specifier|public

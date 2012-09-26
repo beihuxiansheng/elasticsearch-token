@@ -64,7 +64,9 @@ name|action
 operator|.
 name|support
 operator|.
-name|BaseRequestBuilder
+name|replication
+operator|.
+name|ReplicationType
 import|;
 end_import
 
@@ -78,9 +80,11 @@ name|action
 operator|.
 name|support
 operator|.
-name|replication
+name|single
 operator|.
-name|ReplicationType
+name|instance
+operator|.
+name|InstanceShardOperationRequestBuilder
 import|;
 end_import
 
@@ -102,11 +106,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|client
 operator|.
-name|bytes
+name|internal
 operator|.
-name|BytesReference
+name|InternalClient
 import|;
 end_import
 
@@ -118,9 +122,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|unit
+name|bytes
 operator|.
-name|TimeValue
+name|BytesReference
 import|;
 end_import
 
@@ -172,11 +176,13 @@ specifier|public
 class|class
 name|UpdateRequestBuilder
 extends|extends
-name|BaseRequestBuilder
+name|InstanceShardOperationRequestBuilder
 argument_list|<
 name|UpdateRequest
 argument_list|,
 name|UpdateResponse
+argument_list|,
+name|UpdateRequestBuilder
 argument_list|>
 block|{
 DECL|method|UpdateRequestBuilder
@@ -189,6 +195,9 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+operator|(
+name|InternalClient
+operator|)
 name|client
 argument_list|,
 operator|new
@@ -216,6 +225,9 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+operator|(
+name|InternalClient
+operator|)
 name|client
 argument_list|,
 operator|new
@@ -229,27 +241,6 @@ name|id
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-comment|/**      * Sets the index the document will exists on.      */
-DECL|method|setIndex
-specifier|public
-name|UpdateRequestBuilder
-name|setIndex
-parameter_list|(
-name|String
-name|index
-parameter_list|)
-block|{
-name|request
-operator|.
-name|index
-argument_list|(
-name|index
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
 block|}
 comment|/**      * Sets the type of the indexed document.      */
 DECL|method|setType
@@ -465,48 +456,6 @@ operator|.
 name|retryOnConflict
 argument_list|(
 name|retryOnConflict
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * A timeout to wait if the index operation can't be performed immediately. Defaults to<tt>1m</tt>.      */
-DECL|method|setTimeout
-specifier|public
-name|UpdateRequestBuilder
-name|setTimeout
-parameter_list|(
-name|TimeValue
-name|timeout
-parameter_list|)
-block|{
-name|request
-operator|.
-name|timeout
-argument_list|(
-name|timeout
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * A timeout to wait if the index operation can't be performed immediately. Defaults to<tt>1m</tt>.      */
-DECL|method|setTimeout
-specifier|public
-name|UpdateRequestBuilder
-name|setTimeout
-parameter_list|(
-name|String
-name|timeout
-parameter_list|)
-block|{
-name|request
-operator|.
-name|timeout
-argument_list|(
-name|timeout
 argument_list|)
 expr_stmt|;
 return|return
@@ -1039,7 +988,12 @@ argument_list|>
 name|listener
 parameter_list|)
 block|{
+operator|(
+operator|(
+name|Client
+operator|)
 name|client
+operator|)
 operator|.
 name|update
 argument_list|(

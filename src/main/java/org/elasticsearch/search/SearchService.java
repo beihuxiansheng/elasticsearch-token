@@ -464,7 +464,7 @@ name|search
 operator|.
 name|internal
 operator|.
-name|InternalSearchRequest
+name|SearchContext
 import|;
 end_import
 
@@ -478,7 +478,7 @@ name|search
 operator|.
 name|internal
 operator|.
-name|SearchContext
+name|ShardSearchRequest
 import|;
 end_import
 
@@ -1128,7 +1128,7 @@ specifier|public
 name|DfsSearchResult
 name|executeDfsPhase
 parameter_list|(
-name|InternalSearchRequest
+name|ShardSearchRequest
 name|request
 parameter_list|)
 throws|throws
@@ -1218,7 +1218,7 @@ specifier|public
 name|QuerySearchResult
 name|executeScan
 parameter_list|(
-name|InternalSearchRequest
+name|ShardSearchRequest
 name|request
 parameter_list|)
 throws|throws
@@ -1544,7 +1544,7 @@ specifier|public
 name|QuerySearchResult
 name|executeQueryPhase
 parameter_list|(
-name|InternalSearchRequest
+name|ShardSearchRequest
 name|request
 parameter_list|)
 throws|throws
@@ -2054,7 +2054,7 @@ specifier|public
 name|QueryFetchSearchResult
 name|executeFetchPhase
 parameter_list|(
-name|InternalSearchRequest
+name|ShardSearchRequest
 name|request
 parameter_list|)
 throws|throws
@@ -3120,7 +3120,7 @@ DECL|method|createContext
 name|SearchContext
 name|createContext
 parameter_list|(
-name|InternalSearchRequest
+name|ShardSearchRequest
 name|request
 parameter_list|)
 throws|throws
@@ -3139,7 +3139,7 @@ DECL|method|createContext
 name|SearchContext
 name|createContext
 parameter_list|(
-name|InternalSearchRequest
+name|ShardSearchRequest
 name|request
 parameter_list|,
 annotation|@
@@ -4173,11 +4173,11 @@ operator|.
 name|nanoTime
 argument_list|()
 decl_stmt|;
-name|InternalSearchRequest
+name|ShardSearchRequest
 name|request
 init|=
 operator|new
-name|InternalSearchRequest
+name|ShardSearchRequest
 argument_list|(
 name|indexShard
 operator|.

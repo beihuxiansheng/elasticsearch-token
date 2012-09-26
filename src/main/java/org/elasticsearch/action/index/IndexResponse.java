@@ -76,22 +76,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|io
-operator|.
-name|stream
-operator|.
-name|Streamable
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -121,7 +105,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A response of an index operation,  *  *  * @see org.elasticsearch.action.index.IndexRequest  * @see org.elasticsearch.client.Client#index(IndexRequest)  */
+comment|/**  * A response of an index operation,  *  * @see org.elasticsearch.action.index.IndexRequest  * @see org.elasticsearch.client.Client#index(IndexRequest)  */
 end_comment
 
 begin_class
@@ -131,8 +115,6 @@ class|class
 name|IndexResponse
 implements|implements
 name|ActionResponse
-implements|,
-name|Streamable
 block|{
 DECL|field|index
 specifier|private

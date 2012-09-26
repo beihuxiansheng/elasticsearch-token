@@ -28,18 +28,6 @@ name|ClusterAdminClient
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|threadpool
-operator|.
-name|ThreadPool
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -51,13 +39,9 @@ interface|interface
 name|InternalClusterAdminClient
 extends|extends
 name|ClusterAdminClient
-block|{
-DECL|method|threadPool
-name|ThreadPool
-name|threadPool
-parameter_list|()
-function_decl|;
-block|}
+extends|,
+name|InternalGenericClient
+block|{ }
 end_interface
 
 end_unit

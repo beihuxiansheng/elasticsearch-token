@@ -104,6 +104,8 @@ parameter_list|<
 name|Request
 parameter_list|,
 name|Response
+parameter_list|,
+name|RequestBuilder
 parameter_list|>
 parameter_list|>
 extends|extends

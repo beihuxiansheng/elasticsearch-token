@@ -55,6 +55,9 @@ class|class
 name|IndicesSegmentsRequest
 extends|extends
 name|BroadcastOperationRequest
+argument_list|<
+name|IndicesSegmentsRequest
+argument_list|>
 block|{
 DECL|method|IndicesSegmentsRequest
 specifier|public

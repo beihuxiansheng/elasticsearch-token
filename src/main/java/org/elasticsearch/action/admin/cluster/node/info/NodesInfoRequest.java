@@ -91,6 +91,9 @@ class|class
 name|NodesInfoRequest
 extends|extends
 name|NodesOperationRequest
+argument_list|<
+name|NodesInfoRequest
+argument_list|>
 block|{
 DECL|field|settings
 specifier|private

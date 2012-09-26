@@ -189,6 +189,9 @@ class|class
 name|ClusterRerouteRequest
 extends|extends
 name|MasterNodeOperationRequest
+argument_list|<
+name|ClusterRerouteRequest
+argument_list|>
 block|{
 DECL|field|commands
 name|AllocationCommands

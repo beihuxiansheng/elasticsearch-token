@@ -42,13 +42,11 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|admin
-operator|.
-name|indices
-operator|.
 name|support
 operator|.
-name|BaseIndicesRequestBuilder
+name|master
+operator|.
+name|MasterNodeOperationRequestBuilder
 import|;
 end_import
 
@@ -64,6 +62,20 @@ name|IndicesAdminClient
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|client
+operator|.
+name|internal
+operator|.
+name|InternalIndicesAdminClient
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -74,11 +86,13 @@ specifier|public
 class|class
 name|IndicesExistsRequestBuilder
 extends|extends
-name|BaseIndicesRequestBuilder
+name|MasterNodeOperationRequestBuilder
 argument_list|<
 name|IndicesExistsRequest
 argument_list|,
 name|IndicesExistsResponse
+argument_list|,
+name|IndicesExistsRequestBuilder
 argument_list|>
 block|{
 DECL|method|IndicesExistsRequestBuilder
@@ -95,6 +109,9 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+operator|(
+name|InternalIndicesAdminClient
+operator|)
 name|indicesClient
 argument_list|,
 operator|new
@@ -140,7 +157,12 @@ argument_list|>
 name|listener
 parameter_list|)
 block|{
+operator|(
+operator|(
+name|IndicesAdminClient
+operator|)
 name|client
+operator|)
 operator|.
 name|exists
 argument_list|(

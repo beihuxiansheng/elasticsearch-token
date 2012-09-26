@@ -36,9 +36,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|support
-operator|.
-name|BaseRequestBuilder
+name|ActionRequestBuilder
 import|;
 end_import
 
@@ -51,6 +49,20 @@ operator|.
 name|client
 operator|.
 name|Client
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|client
+operator|.
+name|internal
+operator|.
+name|InternalClient
 import|;
 end_import
 
@@ -76,11 +88,13 @@ specifier|public
 class|class
 name|MultiGetRequestBuilder
 extends|extends
-name|BaseRequestBuilder
+name|ActionRequestBuilder
 argument_list|<
 name|MultiGetRequest
 argument_list|,
 name|MultiGetResponse
+argument_list|,
+name|MultiGetRequestBuilder
 argument_list|>
 block|{
 DECL|method|MultiGetRequestBuilder
@@ -93,6 +107,9 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+operator|(
+name|InternalClient
+operator|)
 name|client
 argument_list|,
 operator|new
@@ -303,27 +320,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Should the listener be called on a separate thread if needed.      */
-DECL|method|setListenerThreaded
-specifier|public
-name|MultiGetRequestBuilder
-name|setListenerThreaded
-parameter_list|(
-name|boolean
-name|threadedListener
-parameter_list|)
-block|{
-name|request
-operator|.
-name|listenerThreaded
-argument_list|(
-name|threadedListener
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|doExecute
@@ -338,7 +334,12 @@ argument_list|>
 name|listener
 parameter_list|)
 block|{
+operator|(
+operator|(
+name|Client
+operator|)
 name|client
+operator|)
 operator|.
 name|multiGet
 argument_list|(

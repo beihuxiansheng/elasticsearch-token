@@ -42,13 +42,11 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|admin
-operator|.
-name|indices
-operator|.
 name|support
 operator|.
-name|BaseIndicesRequestBuilder
+name|master
+operator|.
+name|MasterNodeOperationRequestBuilder
 import|;
 end_import
 
@@ -61,6 +59,20 @@ operator|.
 name|client
 operator|.
 name|IndicesAdminClient
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|client
+operator|.
+name|internal
+operator|.
+name|InternalIndicesAdminClient
 import|;
 end_import
 
@@ -124,11 +136,13 @@ specifier|public
 class|class
 name|PutMappingRequestBuilder
 extends|extends
-name|BaseIndicesRequestBuilder
+name|MasterNodeOperationRequestBuilder
 argument_list|<
 name|PutMappingRequest
 argument_list|,
 name|PutMappingResponse
+argument_list|,
+name|PutMappingRequestBuilder
 argument_list|>
 block|{
 DECL|method|PutMappingRequestBuilder
@@ -141,6 +155,9 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+operator|(
+name|InternalIndicesAdminClient
+operator|)
 name|indicesClient
 argument_list|,
 operator|new
@@ -298,27 +315,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the master node timeout in case the master has not yet been discovered.      */
-DECL|method|setMasterNodeTimeout
-specifier|public
-name|PutMappingRequestBuilder
-name|setMasterNodeTimeout
-parameter_list|(
-name|TimeValue
-name|timeout
-parameter_list|)
-block|{
-name|request
-operator|.
-name|masterNodeTimeout
-argument_list|(
-name|timeout
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**      * If there is already a mapping definition registered against the type, then it will be merged. If there are      * elements that can't be merged are detected, the request will be rejected unless the      * {@link #setIgnoreConflicts(boolean)} is set. In such a case, the duplicate mappings will be rejected.      */
 DECL|method|setIgnoreConflicts
 specifier|public
@@ -354,7 +350,12 @@ argument_list|>
 name|listener
 parameter_list|)
 block|{
+operator|(
+operator|(
+name|IndicesAdminClient
+operator|)
 name|client
+operator|)
 operator|.
 name|putMapping
 argument_list|(

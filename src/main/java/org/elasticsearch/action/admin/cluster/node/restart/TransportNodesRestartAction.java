@@ -611,8 +611,6 @@ argument_list|(
 name|nodeId
 argument_list|,
 name|request
-operator|.
-name|delay
 argument_list|)
 return|;
 block|}
@@ -911,12 +909,14 @@ parameter_list|(
 name|String
 name|nodeId
 parameter_list|,
-name|TimeValue
-name|delay
+name|NodesRestartRequest
+name|request
 parameter_list|)
 block|{
 name|super
 argument_list|(
+name|request
+argument_list|,
 name|nodeId
 argument_list|)
 expr_stmt|;
@@ -924,6 +924,8 @@ name|this
 operator|.
 name|delay
 operator|=
+name|request
+operator|.
 name|delay
 expr_stmt|;
 block|}

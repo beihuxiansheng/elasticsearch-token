@@ -587,6 +587,8 @@ name|shard
 operator|.
 name|id
 argument_list|()
+argument_list|,
+name|request
 argument_list|)
 return|;
 block|}

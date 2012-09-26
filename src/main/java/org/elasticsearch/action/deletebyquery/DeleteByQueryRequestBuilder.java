@@ -50,7 +50,9 @@ name|action
 operator|.
 name|support
 operator|.
-name|BaseRequestBuilder
+name|replication
+operator|.
+name|IndicesReplicationOperationRequestBuilder
 import|;
 end_import
 
@@ -88,11 +90,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|client
 operator|.
-name|bytes
+name|internal
 operator|.
-name|BytesReference
+name|InternalClient
 import|;
 end_import
 
@@ -104,9 +106,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|unit
+name|bytes
 operator|.
-name|TimeValue
+name|BytesReference
 import|;
 end_import
 
@@ -158,11 +160,13 @@ specifier|public
 class|class
 name|DeleteByQueryRequestBuilder
 extends|extends
-name|BaseRequestBuilder
+name|IndicesReplicationOperationRequestBuilder
 argument_list|<
 name|DeleteByQueryRequest
 argument_list|,
 name|DeleteByQueryResponse
+argument_list|,
+name|DeleteByQueryRequestBuilder
 argument_list|>
 block|{
 DECL|method|DeleteByQueryRequestBuilder
@@ -175,6 +179,9 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+operator|(
+name|InternalClient
+operator|)
 name|client
 argument_list|,
 operator|new
@@ -182,28 +189,6 @@ name|DeleteByQueryRequest
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
-comment|/**      * The indices the delete by query will run against.      */
-DECL|method|setIndices
-specifier|public
-name|DeleteByQueryRequestBuilder
-name|setIndices
-parameter_list|(
-name|String
-modifier|...
-name|indices
-parameter_list|)
-block|{
-name|request
-operator|.
-name|indices
-argument_list|(
-name|indices
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
 block|}
 comment|/**      * The types of documents the query will run against. Defaults to all types.      */
 DECL|method|setTypes
@@ -467,48 +452,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * A timeout to wait if the delete by query operation can't be performed immediately. Defaults to<tt>1m</tt>.      */
-DECL|method|setTimeout
-specifier|public
-name|DeleteByQueryRequestBuilder
-name|setTimeout
-parameter_list|(
-name|TimeValue
-name|timeout
-parameter_list|)
-block|{
-name|request
-operator|.
-name|timeout
-argument_list|(
-name|timeout
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * A timeout to wait if the delete by query operation can't be performed immediately. Defaults to<tt>1m</tt>.      */
-DECL|method|setTimeout
-specifier|public
-name|DeleteByQueryRequestBuilder
-name|setTimeout
-parameter_list|(
-name|String
-name|timeout
-parameter_list|)
-block|{
-name|request
-operator|.
-name|timeout
-argument_list|(
-name|timeout
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**      * The replication type to use with this operation.      */
 DECL|method|setReplicationType
 specifier|public
@@ -571,27 +514,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Should the listener be called on a separate thread if needed.      */
-DECL|method|setListenerThreaded
-specifier|public
-name|DeleteByQueryRequestBuilder
-name|setListenerThreaded
-parameter_list|(
-name|boolean
-name|threadedListener
-parameter_list|)
-block|{
-name|request
-operator|.
-name|listenerThreaded
-argument_list|(
-name|threadedListener
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|doExecute
@@ -606,7 +528,12 @@ argument_list|>
 name|listener
 parameter_list|)
 block|{
+operator|(
+operator|(
+name|Client
+operator|)
 name|client
+operator|)
 operator|.
 name|deleteByQuery
 argument_list|(

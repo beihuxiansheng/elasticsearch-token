@@ -85,6 +85,9 @@ class|class
 name|BulkShardRequest
 extends|extends
 name|ShardReplicationOperationRequest
+argument_list|<
+name|BulkShardRequest
+argument_list|>
 block|{
 DECL|field|shardId
 specifier|private

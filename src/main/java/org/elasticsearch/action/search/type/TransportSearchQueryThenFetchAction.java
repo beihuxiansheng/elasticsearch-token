@@ -218,7 +218,7 @@ name|search
 operator|.
 name|internal
 operator|.
-name|InternalSearchRequest
+name|InternalSearchResponse
 import|;
 end_import
 
@@ -232,7 +232,7 @@ name|search
 operator|.
 name|internal
 operator|.
-name|InternalSearchResponse
+name|ShardSearchRequest
 import|;
 end_import
 
@@ -479,7 +479,7 @@ parameter_list|(
 name|DiscoveryNode
 name|node
 parameter_list|,
-name|InternalSearchRequest
+name|ShardSearchRequest
 name|request
 parameter_list|,
 name|SearchServiceListener
@@ -664,6 +664,8 @@ init|=
 operator|new
 name|FetchSearchRequest
 argument_list|(
+name|request
+argument_list|,
 name|queryResults
 operator|.
 name|get
@@ -799,6 +801,8 @@ init|=
 operator|new
 name|FetchSearchRequest
 argument_list|(
+name|request
+argument_list|,
 name|queryResults
 operator|.
 name|get
@@ -912,6 +916,8 @@ init|=
 operator|new
 name|FetchSearchRequest
 argument_list|(
+name|request
+argument_list|,
 name|queryResults
 operator|.
 name|get

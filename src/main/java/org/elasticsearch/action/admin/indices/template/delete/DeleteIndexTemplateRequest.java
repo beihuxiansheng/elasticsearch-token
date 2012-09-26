@@ -163,6 +163,9 @@ class|class
 name|DeleteIndexTemplateRequest
 extends|extends
 name|MasterNodeOperationRequest
+argument_list|<
+name|DeleteIndexTemplateRequest
+argument_list|>
 block|{
 DECL|field|name
 specifier|private
@@ -321,7 +324,7 @@ name|name
 operator|=
 name|in
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 expr_stmt|;
 name|timeout
@@ -354,7 +357,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 name|name
 argument_list|)

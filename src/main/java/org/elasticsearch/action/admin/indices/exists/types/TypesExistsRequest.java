@@ -131,6 +131,9 @@ class|class
 name|TypesExistsRequest
 extends|extends
 name|MasterNodeOperationRequest
+argument_list|<
+name|TypesExistsRequest
+argument_list|>
 block|{
 DECL|field|indices
 specifier|private

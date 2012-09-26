@@ -40,13 +40,13 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|admin
-operator|.
-name|indices
-operator|.
 name|support
 operator|.
-name|BaseIndicesRequestBuilder
+name|single
+operator|.
+name|custom
+operator|.
+name|SingleCustomOperationRequestBuilder
 import|;
 end_import
 
@@ -62,6 +62,20 @@ name|IndicesAdminClient
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|client
+operator|.
+name|internal
+operator|.
+name|InternalIndicesAdminClient
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -72,11 +86,13 @@ specifier|public
 class|class
 name|AnalyzeRequestBuilder
 extends|extends
-name|BaseIndicesRequestBuilder
+name|SingleCustomOperationRequestBuilder
 argument_list|<
 name|AnalyzeRequest
 argument_list|,
 name|AnalyzeResponse
+argument_list|,
+name|AnalyzeRequestBuilder
 argument_list|>
 block|{
 DECL|method|AnalyzeRequestBuilder
@@ -89,6 +105,9 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+operator|(
+name|InternalIndicesAdminClient
+operator|)
 name|indicesClient
 argument_list|,
 operator|new
@@ -113,6 +132,9 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+operator|(
+name|InternalIndicesAdminClient
+operator|)
 name|indicesClient
 argument_list|,
 operator|new
@@ -231,27 +253,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * if this operation hits a node with a local relevant shard, should it be preferred      * to be executed on, or just do plain round robin. Defaults to<tt>true</tt>      */
-DECL|method|setPreferLocal
-specifier|public
-name|AnalyzeRequestBuilder
-name|setPreferLocal
-parameter_list|(
-name|boolean
-name|preferLocal
-parameter_list|)
-block|{
-name|request
-operator|.
-name|preferLocal
-argument_list|(
-name|preferLocal
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|doExecute
@@ -266,7 +267,12 @@ argument_list|>
 name|listener
 parameter_list|)
 block|{
+operator|(
+operator|(
+name|IndicesAdminClient
+operator|)
 name|client
+operator|)
 operator|.
 name|analyze
 argument_list|(

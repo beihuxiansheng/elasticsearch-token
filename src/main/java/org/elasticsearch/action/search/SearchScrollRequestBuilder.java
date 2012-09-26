@@ -36,9 +36,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|support
-operator|.
-name|BaseRequestBuilder
+name|ActionRequestBuilder
 import|;
 end_import
 
@@ -51,6 +49,20 @@ operator|.
 name|client
 operator|.
 name|Client
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|client
+operator|.
+name|internal
+operator|.
+name|InternalClient
 import|;
 end_import
 
@@ -90,11 +102,13 @@ specifier|public
 class|class
 name|SearchScrollRequestBuilder
 extends|extends
-name|BaseRequestBuilder
+name|ActionRequestBuilder
 argument_list|<
 name|SearchScrollRequest
 argument_list|,
 name|SearchResponse
+argument_list|,
+name|SearchScrollRequestBuilder
 argument_list|>
 block|{
 DECL|method|SearchScrollRequestBuilder
@@ -107,6 +121,9 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+operator|(
+name|InternalClient
+operator|)
 name|client
 argument_list|,
 operator|new
@@ -128,6 +145,9 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+operator|(
+name|InternalClient
+operator|)
 name|client
 argument_list|,
 operator|new
@@ -278,7 +298,12 @@ argument_list|>
 name|listener
 parameter_list|)
 block|{
+operator|(
+operator|(
+name|Client
+operator|)
 name|client
+operator|)
 operator|.
 name|searchScroll
 argument_list|(
