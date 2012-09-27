@@ -46,6 +46,20 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|ibm
+operator|.
+name|icu
+operator|.
+name|util
+operator|.
+name|ULocale
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -183,16 +197,6 @@ operator|.
 name|io
 operator|.
 name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Locale
 import|;
 end_import
 
@@ -384,7 +388,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|Locale
+name|ULocale
 name|locale
 decl_stmt|;
 name|String
@@ -424,7 +428,7 @@ block|{
 name|locale
 operator|=
 operator|new
-name|Locale
+name|ULocale
 argument_list|(
 name|language
 argument_list|,
@@ -439,7 +443,7 @@ block|{
 name|locale
 operator|=
 operator|new
-name|Locale
+name|ULocale
 argument_list|(
 name|language
 argument_list|,
@@ -453,7 +457,7 @@ block|{
 name|locale
 operator|=
 operator|new
-name|Locale
+name|ULocale
 argument_list|(
 name|language
 argument_list|)
