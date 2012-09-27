@@ -139,7 +139,7 @@ DECL|class|ExplainResponse
 specifier|public
 class|class
 name|ExplainResponse
-implements|implements
+extends|extends
 name|ActionResponse
 block|{
 DECL|field|exists
@@ -347,6 +347,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|super
+operator|.
+name|readFrom
+argument_list|(
+name|in
+argument_list|)
+expr_stmt|;
 name|exists
 operator|=
 name|in
@@ -400,6 +407,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|super
+operator|.
+name|writeTo
+argument_list|(
+name|out
+argument_list|)
+expr_stmt|;
 name|out
 operator|.
 name|writeBoolean

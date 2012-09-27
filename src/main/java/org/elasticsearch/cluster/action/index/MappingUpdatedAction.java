@@ -562,7 +562,7 @@ specifier|public
 specifier|static
 class|class
 name|MappingUpdatedResponse
-implements|implements
+extends|extends
 name|ActionResponse
 block|{
 annotation|@
@@ -577,7 +577,15 @@ name|in
 parameter_list|)
 throws|throws
 name|IOException
-block|{         }
+block|{
+name|super
+operator|.
+name|readFrom
+argument_list|(
+name|in
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|writeTo
@@ -590,7 +598,15 @@ name|out
 parameter_list|)
 throws|throws
 name|IOException
-block|{         }
+block|{
+name|super
+operator|.
+name|writeTo
+argument_list|(
+name|out
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|class|MappingUpdatedRequest
 specifier|public

@@ -16,22 +16,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|io
-operator|.
-name|stream
-operator|.
-name|Streamable
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -41,7 +25,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A transport channel allows to send a response to a request on the channel.  *  *  */
+comment|/**  * A transport channel allows to send a response to a request on the channel.  */
 end_comment
 
 begin_interface
@@ -59,8 +43,8 @@ DECL|method|sendResponse
 name|void
 name|sendResponse
 parameter_list|(
-name|Streamable
-name|message
+name|TransportResponse
+name|response
 parameter_list|)
 throws|throws
 name|IOException
@@ -69,8 +53,8 @@ DECL|method|sendResponse
 name|void
 name|sendResponse
 parameter_list|(
-name|Streamable
-name|message
+name|TransportResponse
+name|response
 parameter_list|,
 name|TransportResponseOptions
 name|options

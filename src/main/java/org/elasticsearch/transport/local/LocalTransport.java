@@ -1383,8 +1383,8 @@ name|handler
 parameter_list|)
 block|{
 specifier|final
-name|Streamable
-name|streamable
+name|TransportResponse
+name|response
 init|=
 name|handler
 operator|.
@@ -1393,7 +1393,7 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
-name|streamable
+name|response
 operator|.
 name|readFrom
 argument_list|(
@@ -1416,7 +1416,7 @@ name|TransportSerializationException
 argument_list|(
 literal|"Failed to deserialize response of type ["
 operator|+
-name|streamable
+name|response
 operator|.
 name|getClass
 argument_list|()
@@ -1468,7 +1468,7 @@ name|handler
 operator|.
 name|handleResponse
 argument_list|(
-name|streamable
+name|response
 argument_list|)
 expr_stmt|;
 block|}

@@ -62,22 +62,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|io
-operator|.
-name|stream
-operator|.
-name|Streamable
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -87,7 +71,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Delete by query response executed on a specific index.  *  *  */
+comment|/**  * Delete by query response executed on a specific index.  */
 end_comment
 
 begin_class
@@ -95,10 +79,8 @@ DECL|class|IndexDeleteByQueryResponse
 specifier|public
 class|class
 name|IndexDeleteByQueryResponse
-implements|implements
+extends|extends
 name|ActionResponse
-implements|,
-name|Streamable
 block|{
 DECL|field|index
 specifier|private
@@ -257,11 +239,18 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|super
+operator|.
+name|readFrom
+argument_list|(
+name|in
+argument_list|)
+expr_stmt|;
 name|index
 operator|=
 name|in
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 expr_stmt|;
 name|successfulShards
@@ -292,9 +281,16 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|super
+operator|.
+name|writeTo
+argument_list|(
+name|out
+argument_list|)
+expr_stmt|;
 name|out
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 name|index
 argument_list|)

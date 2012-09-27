@@ -109,9 +109,9 @@ DECL|class|PercolateResponse
 specifier|public
 class|class
 name|PercolateResponse
-implements|implements
+extends|extends
 name|ActionResponse
-implements|,
+implements|implements
 name|Iterable
 argument_list|<
 name|String
@@ -193,6 +193,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|super
+operator|.
+name|readFrom
+argument_list|(
+name|in
+argument_list|)
+expr_stmt|;
 name|int
 name|size
 init|=
@@ -233,7 +240,7 @@ name|add
 argument_list|(
 name|in
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -252,6 +259,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|super
+operator|.
+name|writeTo
+argument_list|(
+name|out
+argument_list|)
+expr_stmt|;
 name|out
 operator|.
 name|writeVInt
@@ -272,7 +286,7 @@ control|)
 block|{
 name|out
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 name|match
 argument_list|)

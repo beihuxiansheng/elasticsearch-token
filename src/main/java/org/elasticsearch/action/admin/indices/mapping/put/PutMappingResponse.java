@@ -68,22 +68,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|io
-operator|.
-name|stream
-operator|.
-name|Streamable
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -93,7 +77,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The response of put mapping operation.  *  *  */
+comment|/**  * The response of put mapping operation.  */
 end_comment
 
 begin_class
@@ -101,10 +85,8 @@ DECL|class|PutMappingResponse
 specifier|public
 class|class
 name|PutMappingResponse
-implements|implements
+extends|extends
 name|ActionResponse
-implements|,
-name|Streamable
 block|{
 DECL|field|acknowledged
 specifier|private
@@ -165,6 +147,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|super
+operator|.
+name|readFrom
+argument_list|(
+name|in
+argument_list|)
+expr_stmt|;
 name|acknowledged
 operator|=
 name|in
@@ -186,6 +175,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|super
+operator|.
+name|writeTo
+argument_list|(
+name|out
+argument_list|)
+expr_stmt|;
 name|out
 operator|.
 name|writeBoolean

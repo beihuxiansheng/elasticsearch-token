@@ -132,22 +132,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|io
-operator|.
-name|stream
-operator|.
-name|Streamable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|logging
 operator|.
 name|ESLogger
@@ -919,8 +903,8 @@ name|handler
 parameter_list|)
 block|{
 specifier|final
-name|Streamable
-name|streamable
+name|TransportResponse
+name|response
 init|=
 name|handler
 operator|.
@@ -929,7 +913,7 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
-name|streamable
+name|response
 operator|.
 name|readFrom
 argument_list|(
@@ -952,7 +936,7 @@ name|TransportSerializationException
 argument_list|(
 literal|"Failed to deserialize response of type ["
 operator|+
-name|streamable
+name|response
 operator|.
 name|getClass
 argument_list|()
@@ -989,7 +973,7 @@ name|handler
 operator|.
 name|handleResponse
 argument_list|(
-name|streamable
+name|response
 argument_list|)
 expr_stmt|;
 block|}
@@ -1012,7 +996,7 @@ name|ResponseHandler
 argument_list|(
 name|handler
 argument_list|,
-name|streamable
+name|response
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1259,7 +1243,7 @@ name|action
 init|=
 name|buffer
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -1466,11 +1450,11 @@ specifier|final
 name|TransportResponseHandler
 name|handler
 decl_stmt|;
-DECL|field|streamable
+DECL|field|response
 specifier|private
 specifier|final
-name|Streamable
-name|streamable
+name|TransportResponse
+name|response
 decl_stmt|;
 DECL|method|ResponseHandler
 specifier|public
@@ -1479,8 +1463,8 @@ parameter_list|(
 name|TransportResponseHandler
 name|handler
 parameter_list|,
-name|Streamable
-name|streamable
+name|TransportResponse
+name|response
 parameter_list|)
 block|{
 name|this
@@ -1491,9 +1475,9 @@ name|handler
 expr_stmt|;
 name|this
 operator|.
-name|streamable
+name|response
 operator|=
-name|streamable
+name|response
 expr_stmt|;
 block|}
 annotation|@
@@ -1517,7 +1501,7 @@ name|handler
 operator|.
 name|handleResponse
 argument_list|(
-name|streamable
+name|response
 argument_list|)
 expr_stmt|;
 block|}

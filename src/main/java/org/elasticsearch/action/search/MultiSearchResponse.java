@@ -169,9 +169,9 @@ DECL|class|MultiSearchResponse
 specifier|public
 class|class
 name|MultiSearchResponse
-implements|implements
+extends|extends
 name|ActionResponse
-implements|,
+implements|implements
 name|Iterable
 argument_list|<
 name|MultiSearchResponse
@@ -370,7 +370,7 @@ name|failureMessage
 operator|=
 name|in
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 expr_stmt|;
 block|}
@@ -414,7 +414,7 @@ else|else
 block|{
 name|out
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 name|failureMessage
 argument_list|)
@@ -509,6 +509,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|super
+operator|.
+name|readFrom
+argument_list|(
+name|in
+argument_list|)
+expr_stmt|;
 name|items
 operator|=
 operator|new
@@ -564,6 +571,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|super
+operator|.
+name|writeTo
+argument_list|(
+name|out
+argument_list|)
+expr_stmt|;
 name|out
 operator|.
 name|writeVInt

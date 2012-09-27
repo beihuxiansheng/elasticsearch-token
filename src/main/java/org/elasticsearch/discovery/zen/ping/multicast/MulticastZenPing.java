@@ -1849,7 +1849,9 @@ name|channel
 operator|.
 name|sendResponse
 argument_list|(
-name|VoidStreamable
+name|TransportResponse
+operator|.
+name|Empty
 operator|.
 name|INSTANCE
 argument_list|)
@@ -3153,7 +3155,7 @@ argument_list|,
 name|multicastPingResponse
 argument_list|,
 operator|new
-name|VoidTransportResponseHandler
+name|EmptyTransportResponseHandler
 argument_list|(
 name|ThreadPool
 operator|.
@@ -3226,7 +3228,7 @@ argument_list|,
 name|multicastPingResponse
 argument_list|,
 operator|new
-name|VoidTransportResponseHandler
+name|EmptyTransportResponseHandler
 argument_list|(
 name|ThreadPool
 operator|.

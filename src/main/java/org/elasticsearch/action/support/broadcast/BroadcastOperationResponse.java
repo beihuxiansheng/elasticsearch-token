@@ -135,7 +135,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Base class for all broadcast operation based responses.  *  *  */
+comment|/**  * Base class for all broadcast operation based responses.  */
 end_comment
 
 begin_class
@@ -144,7 +144,7 @@ specifier|public
 specifier|abstract
 class|class
 name|BroadcastOperationResponse
-implements|implements
+extends|extends
 name|ActionResponse
 block|{
 DECL|field|totalShards
@@ -365,6 +365,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|super
+operator|.
+name|readFrom
+argument_list|(
+name|in
+argument_list|)
+expr_stmt|;
 name|totalShards
 operator|=
 name|in
@@ -453,6 +460,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|super
+operator|.
+name|writeTo
+argument_list|(
+name|out
+argument_list|)
+expr_stmt|;
 name|out
 operator|.
 name|writeVInt

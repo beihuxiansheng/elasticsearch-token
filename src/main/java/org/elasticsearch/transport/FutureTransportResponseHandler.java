@@ -20,22 +20,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|io
-operator|.
-name|stream
-operator|.
-name|Streamable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|threadpool
 operator|.
 name|ThreadPool
@@ -43,7 +27,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A response handler to be used when all interaction will be done through the {@link TransportFuture}.  *  *  */
+comment|/**  * A response handler to be used when all interaction will be done through the {@link TransportFuture}.  */
 end_comment
 
 begin_class
@@ -55,7 +39,7 @@ name|FutureTransportResponseHandler
 parameter_list|<
 name|T
 extends|extends
-name|Streamable
+name|TransportResponse
 parameter_list|>
 extends|extends
 name|BaseTransportResponseHandler

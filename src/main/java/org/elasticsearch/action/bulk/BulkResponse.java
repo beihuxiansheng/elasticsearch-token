@@ -109,7 +109,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A response of a bulk execution. Holding a response for each item responding (in order) of the  * bulk requests. Each item holds the index/type/id is operated on, and if it failed or not (with the  * failure message).  *  *  */
+comment|/**  * A response of a bulk execution. Holding a response for each item responding (in order) of the  * bulk requests. Each item holds the index/type/id is operated on, and if it failed or not (with the  * failure message).  */
 end_comment
 
 begin_class
@@ -117,9 +117,9 @@ DECL|class|BulkResponse
 specifier|public
 class|class
 name|BulkResponse
-implements|implements
+extends|extends
 name|ActionResponse
-implements|,
+implements|implements
 name|Iterable
 argument_list|<
 name|BulkItemResponse
@@ -423,6 +423,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|super
+operator|.
+name|readFrom
+argument_list|(
+name|in
+argument_list|)
+expr_stmt|;
 name|responses
 operator|=
 operator|new
@@ -485,6 +492,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|super
+operator|.
+name|writeTo
+argument_list|(
+name|out
+argument_list|)
+expr_stmt|;
 name|out
 operator|.
 name|writeVInt

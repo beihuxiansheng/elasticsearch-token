@@ -1018,7 +1018,7 @@ name|FILES_INFO
 argument_list|,
 name|recoveryInfoFilesRequest
 argument_list|,
-name|VoidTransportResponseHandler
+name|EmptyTransportResponseHandler
 operator|.
 name|INSTANCE_SAME
 argument_list|)
@@ -1338,7 +1338,7 @@ operator|.
 name|withLowType
 argument_list|()
 argument_list|,
-name|VoidTransportResponseHandler
+name|EmptyTransportResponseHandler
 operator|.
 name|INSTANCE_SAME
 argument_list|)
@@ -1478,7 +1478,7 @@ argument_list|,
 name|snapshotFiles
 argument_list|)
 argument_list|,
-name|VoidTransportResponseHandler
+name|EmptyTransportResponseHandler
 operator|.
 name|INSTANCE_SAME
 argument_list|)
@@ -1680,7 +1680,7 @@ name|shardId
 argument_list|()
 argument_list|)
 argument_list|,
-name|VoidTransportResponseHandler
+name|EmptyTransportResponseHandler
 operator|.
 name|INSTANCE_SAME
 argument_list|)
@@ -1964,7 +1964,7 @@ name|shardId
 argument_list|()
 argument_list|)
 argument_list|,
-name|VoidTransportResponseHandler
+name|EmptyTransportResponseHandler
 operator|.
 name|INSTANCE_SAME
 argument_list|)
@@ -2262,7 +2262,7 @@ operator|.
 name|withLowType
 argument_list|()
 argument_list|,
-name|VoidTransportResponseHandler
+name|EmptyTransportResponseHandler
 operator|.
 name|INSTANCE_SAME
 argument_list|)
@@ -2347,7 +2347,7 @@ operator|.
 name|withLowType
 argument_list|()
 argument_list|,
-name|VoidTransportResponseHandler
+name|EmptyTransportResponseHandler
 operator|.
 name|INSTANCE_SAME
 argument_list|)

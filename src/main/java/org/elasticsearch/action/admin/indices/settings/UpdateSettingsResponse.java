@@ -66,22 +66,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|io
-operator|.
-name|stream
-operator|.
-name|Streamable
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -91,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A response for a update settings action.  *  *  */
+comment|/**  * A response for a update settings action.  */
 end_comment
 
 begin_class
@@ -99,10 +83,8 @@ DECL|class|UpdateSettingsResponse
 specifier|public
 class|class
 name|UpdateSettingsResponse
-implements|implements
+extends|extends
 name|ActionResponse
-implements|,
-name|Streamable
 block|{
 DECL|method|UpdateSettingsResponse
 name|UpdateSettingsResponse
@@ -120,7 +102,15 @@ name|in
 parameter_list|)
 throws|throws
 name|IOException
-block|{     }
+block|{
+name|super
+operator|.
+name|readFrom
+argument_list|(
+name|in
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|writeTo
@@ -133,7 +123,15 @@ name|out
 parameter_list|)
 throws|throws
 name|IOException
-block|{     }
+block|{
+name|super
+operator|.
+name|writeTo
+argument_list|(
+name|out
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

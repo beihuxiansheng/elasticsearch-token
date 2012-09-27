@@ -95,7 +95,7 @@ DECL|class|ClusterRerouteResponse
 specifier|public
 class|class
 name|ClusterRerouteResponse
-implements|implements
+extends|extends
 name|ActionResponse
 block|{
 DECL|field|state
@@ -158,6 +158,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|super
+operator|.
+name|readFrom
+argument_list|(
+name|in
+argument_list|)
+expr_stmt|;
 name|state
 operator|=
 name|ClusterState
@@ -185,6 +192,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|super
+operator|.
+name|writeTo
+argument_list|(
+name|out
+argument_list|)
+expr_stmt|;
 name|ClusterState
 operator|.
 name|Builder

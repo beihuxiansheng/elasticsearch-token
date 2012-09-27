@@ -110,22 +110,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|io
-operator|.
-name|stream
-operator|.
-name|Streamable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|settings
 operator|.
 name|Settings
@@ -1598,8 +1582,8 @@ specifier|private
 specifier|static
 class|class
 name|PingResponse
-implements|implements
-name|Streamable
+extends|extends
+name|TransportResponse
 block|{
 DECL|method|PingResponse
 specifier|private
@@ -1618,7 +1602,15 @@ name|in
 parameter_list|)
 throws|throws
 name|IOException
-block|{         }
+block|{
+name|super
+operator|.
+name|readFrom
+argument_list|(
+name|in
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|writeTo
@@ -1631,7 +1623,15 @@ name|out
 parameter_list|)
 throws|throws
 name|IOException
-block|{         }
+block|{
+name|super
+operator|.
+name|writeTo
+argument_list|(
+name|out
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class

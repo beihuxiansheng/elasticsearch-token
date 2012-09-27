@@ -102,22 +102,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|io
-operator|.
-name|stream
-operator|.
-name|Streamable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|metrics
 operator|.
 name|MeanMetric
@@ -831,7 +815,7 @@ specifier|public
 parameter_list|<
 name|T
 extends|extends
-name|Streamable
+name|TransportResponse
 parameter_list|>
 name|TransportFuture
 argument_list|<
@@ -879,7 +863,7 @@ specifier|public
 parameter_list|<
 name|T
 extends|extends
-name|Streamable
+name|TransportResponse
 parameter_list|>
 name|TransportFuture
 argument_list|<
@@ -945,7 +929,7 @@ specifier|public
 parameter_list|<
 name|T
 extends|extends
-name|Streamable
+name|TransportResponse
 parameter_list|>
 name|void
 name|sendRequest
@@ -993,7 +977,7 @@ specifier|public
 parameter_list|<
 name|T
 extends|extends
-name|Streamable
+name|TransportResponse
 parameter_list|>
 name|void
 name|sendRequest
@@ -2055,7 +2039,7 @@ name|RequestHolder
 parameter_list|<
 name|T
 extends|extends
-name|Streamable
+name|TransportResponse
 parameter_list|>
 block|{
 DECL|field|handler

@@ -68,13 +68,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|transport
 operator|.
-name|io
-operator|.
-name|stream
-operator|.
-name|Streamable
+name|TransportResponse
 import|;
 end_import
 
@@ -106,8 +102,8 @@ begin_class
 DECL|class|RecoveryResponse
 class|class
 name|RecoveryResponse
-implements|implements
-name|Streamable
+extends|extends
+name|TransportResponse
 block|{
 DECL|field|phase1FileNames
 name|List
@@ -210,6 +206,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|super
+operator|.
+name|readFrom
+argument_list|(
+name|in
+argument_list|)
+expr_stmt|;
 name|int
 name|size
 init|=
@@ -456,6 +459,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|super
+operator|.
+name|writeTo
+argument_list|(
+name|out
+argument_list|)
+expr_stmt|;
 name|out
 operator|.
 name|writeVInt

@@ -14,22 +14,6 @@ name|transport
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|io
-operator|.
-name|stream
-operator|.
-name|Streamable
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -42,7 +26,7 @@ name|TransportResponseHandler
 parameter_list|<
 name|T
 extends|extends
-name|Streamable
+name|TransportResponse
 parameter_list|>
 block|{
 comment|/**      * creates a new instance of the return type from the remote call.      * called by the infra before de-serializing the response.      *      * @return a new response copy.      */
