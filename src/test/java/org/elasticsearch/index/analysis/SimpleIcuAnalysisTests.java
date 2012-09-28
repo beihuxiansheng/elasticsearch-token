@@ -152,16 +152,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|hamcrest
-operator|.
-name|MatcherAssert
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|testng
 operator|.
 name|annotations
@@ -185,6 +175,18 @@ operator|.
 name|Builder
 operator|.
 name|EMPTY_SETTINGS
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|MatcherAssert
+operator|.
+name|assertThat
 import|;
 end_import
 
@@ -333,8 +335,6 @@ argument_list|(
 literal|"icu_tokenizer"
 argument_list|)
 decl_stmt|;
-name|MatcherAssert
-operator|.
 name|assertThat
 argument_list|(
 name|tokenizerFactory
@@ -357,8 +357,6 @@ argument_list|(
 literal|"icu_normalizer"
 argument_list|)
 decl_stmt|;
-name|MatcherAssert
-operator|.
 name|assertThat
 argument_list|(
 name|filterFactory
@@ -380,8 +378,6 @@ argument_list|(
 literal|"icu_folding"
 argument_list|)
 expr_stmt|;
-name|MatcherAssert
-operator|.
 name|assertThat
 argument_list|(
 name|filterFactory
@@ -403,8 +399,6 @@ argument_list|(
 literal|"icu_collation"
 argument_list|)
 expr_stmt|;
-name|MatcherAssert
-operator|.
 name|assertThat
 argument_list|(
 name|filterFactory
@@ -426,8 +420,6 @@ argument_list|(
 literal|"icu_transform"
 argument_list|)
 expr_stmt|;
-name|MatcherAssert
-operator|.
 name|assertThat
 argument_list|(
 name|filterFactory
