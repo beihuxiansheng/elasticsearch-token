@@ -940,8 +940,6 @@ decl_stmt|;
 name|Settings
 name|settings
 init|=
-name|settings
-operator|=
 name|settingsBuilder
 argument_list|()
 operator|.
@@ -986,10 +984,7 @@ operator|=
 operator|new
 name|PluginsService
 argument_list|(
-name|tuple
-operator|.
-name|v1
-argument_list|()
+name|settings
 argument_list|,
 name|tuple
 operator|.
@@ -1010,6 +1005,8 @@ name|CompressorFactory
 operator|.
 name|configure
 argument_list|(
+name|this
+operator|.
 name|settings
 argument_list|)
 expr_stmt|;
@@ -1027,6 +1024,8 @@ argument_list|(
 operator|new
 name|PluginsModule
 argument_list|(
+name|this
+operator|.
 name|settings
 argument_list|,
 name|pluginsService
@@ -1051,6 +1050,8 @@ argument_list|(
 operator|new
 name|SettingsModule
 argument_list|(
+name|this
+operator|.
 name|settings
 argument_list|)
 argument_list|)
@@ -1071,6 +1072,8 @@ argument_list|(
 operator|new
 name|ClusterNameModule
 argument_list|(
+name|this
+operator|.
 name|settings
 argument_list|)
 argument_list|)
@@ -1082,6 +1085,8 @@ argument_list|(
 operator|new
 name|ThreadPoolModule
 argument_list|(
+name|this
+operator|.
 name|settings
 argument_list|)
 argument_list|)
@@ -1102,6 +1107,8 @@ argument_list|(
 operator|new
 name|TransportModule
 argument_list|(
+name|this
+operator|.
 name|settings
 argument_list|)
 argument_list|)
