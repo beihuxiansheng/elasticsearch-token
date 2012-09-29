@@ -961,7 +961,7 @@ name|Names
 operator|.
 name|REFRESH
 argument_list|,
-literal|"cached"
+literal|"scaling"
 argument_list|,
 name|groupSettings
 operator|.
@@ -979,7 +979,14 @@ name|put
 argument_list|(
 literal|"keep_alive"
 argument_list|,
-literal|"1m"
+literal|"5m"
+argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"size"
+argument_list|,
+literal|10
 argument_list|)
 operator|.
 name|build
