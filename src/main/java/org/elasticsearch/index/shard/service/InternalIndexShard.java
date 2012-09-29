@@ -4315,7 +4315,6 @@ block|}
 block|}
 block|}
 DECL|class|EngineRefresher
-specifier|private
 class|class
 name|EngineRefresher
 implements|implements
@@ -4565,7 +4564,6 @@ expr_stmt|;
 block|}
 block|}
 DECL|class|EngineMerger
-specifier|private
 class|class
 name|EngineMerger
 implements|implements
