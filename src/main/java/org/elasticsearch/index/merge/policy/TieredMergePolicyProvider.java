@@ -455,7 +455,7 @@ name|getAsDouble
 argument_list|(
 literal|"segments_per_tier"
 argument_list|,
-literal|9.2d
+literal|10.0d
 argument_list|)
 expr_stmt|;
 name|this
