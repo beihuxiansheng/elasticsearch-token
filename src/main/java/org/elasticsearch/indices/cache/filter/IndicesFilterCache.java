@@ -718,7 +718,7 @@ name|TimeValue
 operator|.
 name|timeValueSeconds
 argument_list|(
-literal|1
+literal|60
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -732,7 +732,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"using [node] filter cache with size [{}], actual_size [{}]"
+literal|"using [node] weighted filter cache with size [{}], actual_size [{}], expire [{}], clean_interval [{}]"
 argument_list|,
 name|size
 argument_list|,
@@ -741,6 +741,10 @@ name|ByteSizeValue
 argument_list|(
 name|sizeInBytes
 argument_list|)
+argument_list|,
+name|expire
+argument_list|,
+name|cleanInterval
 argument_list|)
 expr_stmt|;
 name|nodeSettingsService
