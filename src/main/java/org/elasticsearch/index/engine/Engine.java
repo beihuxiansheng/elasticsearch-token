@@ -556,6 +556,14 @@ parameter_list|)
 throws|throws
 name|EngineException
 function_decl|;
+comment|/**      * Snapshots the index and returns a handle to it. Will always try and "commit" the      * lucene index to make sure we have a "fresh" copy of the files to snapshot.      */
+DECL|method|snapshotIndex
+name|SnapshotIndexCommit
+name|snapshotIndex
+parameter_list|()
+throws|throws
+name|EngineException
+function_decl|;
 DECL|method|recover
 name|void
 name|recover
@@ -624,7 +632,6 @@ throws|throws
 name|ElasticSearchException
 function_decl|;
 block|}
-comment|/**      */
 DECL|interface|SnapshotHandler
 specifier|static
 interface|interface
@@ -837,12 +844,32 @@ specifier|static
 class|class
 name|Flush
 block|{
-DECL|field|full
+DECL|enum|Type
+specifier|public
+specifier|static
+enum|enum
+name|Type
+block|{
+comment|/**              * A flush that causes a new writer to be created.              */
+DECL|enum constant|NEW_WRITER
+name|NEW_WRITER
+block|,
+comment|/**              * A flush that just commits the writer, without cleaning the translog.              */
+DECL|enum constant|COMMIT
+name|COMMIT
+block|,
+comment|/**              * A flush that does a commit, as well as clears the translog.              */
+DECL|enum constant|COMMIT_TRANSLOG
+name|COMMIT_TRANSLOG
+block|}
+DECL|field|type
 specifier|private
-name|boolean
-name|full
+name|Type
+name|type
 init|=
-literal|false
+name|Type
+operator|.
+name|COMMIT_TRANSLOG
 decl_stmt|;
 DECL|field|refresh
 specifier|private
@@ -858,6 +885,14 @@ name|force
 init|=
 literal|false
 decl_stmt|;
+comment|/**          * Should the flush operation wait if there is an ongoing flush operation.          */
+DECL|field|waitIfOngoing
+specifier|private
+name|boolean
+name|waitIfOngoing
+init|=
+literal|false
+decl_stmt|;
 comment|/**          * Should a refresh be performed after flushing. Defaults to<tt>false</tt>.          */
 DECL|method|refresh
 specifier|public
@@ -891,34 +926,33 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Should a "full" flush be issued, basically cleaning as much memory as possible.          */
-DECL|method|full
+DECL|method|type
 specifier|public
-name|boolean
-name|full
+name|Type
+name|type
 parameter_list|()
 block|{
 return|return
 name|this
 operator|.
-name|full
+name|type
 return|;
 block|}
 comment|/**          * Should a "full" flush be issued, basically cleaning as much memory as possible.          */
-DECL|method|full
+DECL|method|type
 specifier|public
 name|Flush
-name|full
+name|type
 parameter_list|(
-name|boolean
-name|full
+name|Type
+name|type
 parameter_list|)
 block|{
 name|this
 operator|.
-name|full
+name|type
 operator|=
-name|full
+name|type
 expr_stmt|;
 return|return
 name|this
@@ -950,6 +984,37 @@ operator|.
 name|force
 operator|=
 name|force
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|waitIfOngoing
+specifier|public
+name|boolean
+name|waitIfOngoing
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|waitIfOngoing
+return|;
+block|}
+DECL|method|waitIfOngoing
+specifier|public
+name|Flush
+name|waitIfOngoing
+parameter_list|(
+name|boolean
+name|waitIfOngoing
+parameter_list|)
+block|{
+name|this
+operator|.
+name|waitIfOngoing
+operator|=
+name|waitIfOngoing
 expr_stmt|;
 return|return
 name|this
@@ -964,9 +1029,9 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"full["
+literal|"type["
 operator|+
-name|full
+name|type
 operator|+
 literal|"], refresh["
 operator|+
