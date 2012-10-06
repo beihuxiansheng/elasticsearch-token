@@ -1646,6 +1646,8 @@ argument_list|(
 name|source
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|XContentParser
 operator|.
 name|Token
@@ -1840,6 +1842,15 @@ name|docBuilder
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+block|}
+finally|finally
+block|{
+name|parser
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 return|return
 name|this
