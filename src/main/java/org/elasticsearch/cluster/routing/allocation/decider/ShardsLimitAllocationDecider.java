@@ -343,7 +343,7 @@ annotation|@
 name|Override
 DECL|method|canRemain
 specifier|public
-name|boolean
+name|Decision
 name|canRemain
 parameter_list|(
 name|ShardRouting
@@ -399,7 +399,9 @@ literal|0
 condition|)
 block|{
 return|return
-literal|true
+name|Decision
+operator|.
+name|YES
 return|;
 block|}
 name|int
@@ -488,11 +490,15 @@ name|totalShardsPerNode
 condition|)
 block|{
 return|return
-literal|false
+name|Decision
+operator|.
+name|NO
 return|;
 block|}
 return|return
-literal|true
+name|Decision
+operator|.
+name|YES
 return|;
 block|}
 block|}

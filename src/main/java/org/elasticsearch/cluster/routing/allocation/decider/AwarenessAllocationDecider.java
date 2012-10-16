@@ -635,7 +635,7 @@ annotation|@
 name|Override
 DECL|method|canRemain
 specifier|public
-name|boolean
+name|Decision
 name|canRemain
 parameter_list|(
 name|ShardRouting
@@ -659,6 +659,14 @@ name|allocation
 argument_list|,
 literal|false
 argument_list|)
+condition|?
+name|Decision
+operator|.
+name|YES
+else|:
+name|Decision
+operator|.
+name|NO
 return|;
 block|}
 DECL|method|underCapacity

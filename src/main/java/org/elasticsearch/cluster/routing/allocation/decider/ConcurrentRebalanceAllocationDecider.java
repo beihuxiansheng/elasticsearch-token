@@ -308,7 +308,7 @@ annotation|@
 name|Override
 DECL|method|canRebalance
 specifier|public
-name|boolean
+name|Decision
 name|canRebalance
 parameter_list|(
 name|ShardRouting
@@ -327,7 +327,9 @@ literal|1
 condition|)
 block|{
 return|return
-literal|true
+name|Decision
+operator|.
+name|YES
 return|;
 block|}
 name|int
@@ -406,11 +408,15 @@ name|clusterConcurrentRebalance
 condition|)
 block|{
 return|return
-literal|false
+name|Decision
+operator|.
+name|NO
 return|;
 block|}
 return|return
-literal|true
+name|Decision
+operator|.
+name|YES
 return|;
 block|}
 block|}

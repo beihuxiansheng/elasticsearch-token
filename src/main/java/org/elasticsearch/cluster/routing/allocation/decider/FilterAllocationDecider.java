@@ -361,7 +361,7 @@ annotation|@
 name|Override
 DECL|method|canRemain
 specifier|public
-name|boolean
+name|Decision
 name|canRemain
 parameter_list|(
 name|ShardRouting
@@ -375,7 +375,6 @@ name|allocation
 parameter_list|)
 block|{
 return|return
-operator|!
 name|shouldFilter
 argument_list|(
 name|shardRouting
@@ -384,6 +383,14 @@ name|node
 argument_list|,
 name|allocation
 argument_list|)
+condition|?
+name|Decision
+operator|.
+name|NO
+else|:
+name|Decision
+operator|.
+name|YES
 return|;
 block|}
 DECL|method|shouldFilter

@@ -134,7 +134,7 @@ annotation|@
 name|Override
 DECL|method|canRebalance
 specifier|public
-name|boolean
+name|Decision
 name|canRebalance
 parameter_list|(
 name|ShardRouting
@@ -195,12 +195,16 @@ argument_list|()
 condition|)
 block|{
 return|return
-literal|false
+name|Decision
+operator|.
+name|NO
 return|;
 block|}
 block|}
 return|return
-literal|true
+name|Decision
+operator|.
+name|YES
 return|;
 block|}
 block|}

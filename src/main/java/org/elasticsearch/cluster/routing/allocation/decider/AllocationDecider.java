@@ -119,9 +119,10 @@ name|settings
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Are we allowed to rebalance this shard?      */
 DECL|method|canRebalance
 specifier|public
-name|boolean
+name|Decision
 name|canRebalance
 parameter_list|(
 name|ShardRouting
@@ -132,9 +133,12 @@ name|allocation
 parameter_list|)
 block|{
 return|return
-literal|true
+name|Decision
+operator|.
+name|ALWAYS
 return|;
 block|}
+comment|/**      * Can the provided shard routing be allocated on the node.      */
 DECL|method|canAllocate
 specifier|public
 name|Decision
@@ -159,7 +163,7 @@ block|}
 comment|/**      * Can the provided shard routing remain on the node?      */
 DECL|method|canRemain
 specifier|public
-name|boolean
+name|Decision
 name|canRemain
 parameter_list|(
 name|ShardRouting
@@ -173,7 +177,9 @@ name|allocation
 parameter_list|)
 block|{
 return|return
-literal|true
+name|Decision
+operator|.
+name|ALWAYS
 return|;
 block|}
 block|}
