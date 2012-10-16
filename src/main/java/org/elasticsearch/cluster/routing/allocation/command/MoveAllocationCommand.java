@@ -136,7 +136,7 @@ name|allocation
 operator|.
 name|decider
 operator|.
-name|AllocationDecider
+name|Decision
 import|;
 end_import
 
@@ -957,8 +957,6 @@ name|id
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|AllocationDecider
-operator|.
 name|Decision
 name|decision
 init|=
@@ -978,11 +976,16 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-operator|!
 name|decision
 operator|.
-name|allowed
+name|type
 argument_list|()
+operator|==
+name|Decision
+operator|.
+name|Type
+operator|.
+name|NO
 condition|)
 block|{
 throw|throw
@@ -1001,17 +1004,24 @@ literal|", to "
 operator|+
 name|toDiscoNode
 operator|+
-literal|", since its not allowed"
+literal|", since its not allowed, reason: "
+operator|+
+name|decision
 argument_list|)
 throw|;
 block|}
 if|if
 condition|(
-operator|!
 name|decision
 operator|.
-name|allocate
+name|type
 argument_list|()
+operator|==
+name|Decision
+operator|.
+name|Type
+operator|.
+name|THROTTLE
 condition|)
 block|{
 comment|// its being throttled, maybe have a flag to take it into account and fail? for now, just do it since the "user" wants it...

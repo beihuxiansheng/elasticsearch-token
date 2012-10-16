@@ -258,7 +258,7 @@ name|allocation
 operator|.
 name|decider
 operator|.
-name|AllocationDecider
+name|Decision
 import|;
 end_import
 
@@ -1343,8 +1343,6 @@ name|id
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|AllocationDecider
-operator|.
 name|Decision
 name|decision
 init|=
@@ -1365,10 +1363,13 @@ decl_stmt|;
 if|if
 condition|(
 name|decision
-operator|==
-name|AllocationDecider
 operator|.
+name|type
+argument_list|()
+operator|==
 name|Decision
+operator|.
+name|Type
 operator|.
 name|THROTTLE
 condition|)
@@ -1385,10 +1386,13 @@ elseif|else
 if|if
 condition|(
 name|decision
-operator|==
-name|AllocationDecider
 operator|.
+name|type
+argument_list|()
+operator|==
 name|Decision
+operator|.
+name|Type
 operator|.
 name|NO
 condition|)
@@ -1703,8 +1707,9 @@ continue|continue;
 block|}
 comment|// if we can't allocate it on a node, ignore it, for example, this handles
 comment|// cases for only allocating a replica after a primary
-if|if
-condition|(
+name|Decision
+name|decision
+init|=
 name|allocation
 operator|.
 name|deciders
@@ -1718,9 +1723,19 @@ name|node
 argument_list|,
 name|allocation
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|decision
 operator|.
-name|allocate
+name|type
 argument_list|()
+operator|==
+name|Decision
+operator|.
+name|Type
+operator|.
+name|YES
 condition|)
 block|{
 name|canBeAllocatedToAtLeastOneNode
@@ -1854,8 +1869,9 @@ block|}
 comment|// check if we can allocate on that node...
 comment|// we only check for NO, since if this node is THROTTLING and it has enough "same data"
 comment|// then we will try and assign it next time
-if|if
-condition|(
+name|Decision
+name|decision
+init|=
 name|allocation
 operator|.
 name|deciders
@@ -1869,10 +1885,17 @@ name|node
 argument_list|,
 name|allocation
 argument_list|)
-operator|==
-name|AllocationDecider
+decl_stmt|;
+if|if
+condition|(
+name|decision
 operator|.
+name|type
+argument_list|()
+operator|==
 name|Decision
+operator|.
+name|Type
 operator|.
 name|NO
 condition|)
@@ -2048,8 +2071,9 @@ literal|null
 condition|)
 block|{
 comment|// we only check on THROTTLE since we checked before before on NO
-if|if
-condition|(
+name|Decision
+name|decision
+init|=
 name|allocation
 operator|.
 name|deciders
@@ -2063,10 +2087,17 @@ name|lastNodeMatched
 argument_list|,
 name|allocation
 argument_list|)
-operator|==
-name|AllocationDecider
+decl_stmt|;
+if|if
+condition|(
+name|decision
 operator|.
+name|type
+argument_list|()
+operator|==
 name|Decision
+operator|.
+name|Type
 operator|.
 name|THROTTLE
 condition|)

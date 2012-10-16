@@ -218,7 +218,7 @@ name|allocation
 operator|.
 name|decider
 operator|.
-name|AllocationDecider
+name|Decision
 import|;
 end_import
 
@@ -795,8 +795,9 @@ block|{
 continue|continue;
 block|}
 comment|// if its THROTTLING, we are not going to allocate it to this node, so ignore it as well
-if|if
-condition|(
+name|Decision
+name|decision
+init|=
 name|allocation
 operator|.
 name|deciders
@@ -810,9 +811,19 @@ name|node
 argument_list|,
 name|allocation
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|decision
 operator|.
-name|allocate
+name|type
 argument_list|()
+operator|==
+name|Decision
+operator|.
+name|Type
+operator|.
+name|YES
 condition|)
 block|{
 name|canBeAllocatedToAtLeastOneNode
@@ -961,10 +972,13 @@ name|node
 argument_list|,
 name|allocation
 argument_list|)
-operator|==
-name|AllocationDecider
 operator|.
+name|type
+argument_list|()
+operator|==
 name|Decision
+operator|.
+name|Type
 operator|.
 name|NO
 condition|)
@@ -1468,10 +1482,13 @@ name|lastNodeMatched
 argument_list|,
 name|allocation
 argument_list|)
-operator|==
-name|AllocationDecider
 operator|.
+name|type
+argument_list|()
+operator|==
 name|Decision
+operator|.
+name|Type
 operator|.
 name|THROTTLE
 condition|)
