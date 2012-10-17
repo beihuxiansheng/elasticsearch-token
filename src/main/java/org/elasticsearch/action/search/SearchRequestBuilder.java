@@ -1877,6 +1877,28 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The highlighter type to use.      */
+DECL|method|setHighlighterType
+specifier|public
+name|SearchRequestBuilder
+name|setHighlighterType
+parameter_list|(
+name|String
+name|type
+parameter_list|)
+block|{
+name|highlightBuilder
+argument_list|()
+operator|.
+name|highlighterType
+argument_list|(
+name|type
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Sets the source of the request as a json string. Note, settings anything other      * than the search type will cause this source to be overridden, consider using      * {@link #setExtraSource(String)}.      */
 DECL|method|setSource
 specifier|public
