@@ -1141,6 +1141,25 @@ name|filterBuilder
 argument_list|)
 return|;
 block|}
+comment|/**      * A query that wraps another query and simply returns a constant score equal to the      * query boost for every document in the query.      *      * @param queryBuilder The query to wrap in a constant score query      */
+DECL|method|constantScoreQuery
+specifier|public
+specifier|static
+name|ConstantScoreQueryBuilder
+name|constantScoreQuery
+parameter_list|(
+name|QueryBuilder
+name|queryBuilder
+parameter_list|)
+block|{
+return|return
+operator|new
+name|ConstantScoreQueryBuilder
+argument_list|(
+name|queryBuilder
+argument_list|)
+return|;
+block|}
 comment|/**      * A query that simply applies the boost fact to the wrapped query (multiplies it).      *      * @param queryBuilder The query to apply the boost factor to.      */
 DECL|method|customBoostFactorQuery
 specifier|public
