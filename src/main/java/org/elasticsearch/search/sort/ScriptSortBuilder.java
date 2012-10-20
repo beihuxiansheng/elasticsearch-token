@@ -174,6 +174,31 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets parameters for the script.      *      * @param params The script parameters      */
+DECL|method|setParams
+specifier|public
+name|ScriptSortBuilder
+name|setParams
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|params
+parameter_list|)
+block|{
+name|this
+operator|.
+name|params
+operator|=
+name|params
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Sets the sort order.      */
 annotation|@
 name|Override
