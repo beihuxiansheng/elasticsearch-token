@@ -1108,13 +1108,52 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
+comment|// even though changes happened, they resulted in 0 actual changes to metadata
+comment|// i.e. remove and add the same alias to the same index
+if|if
+condition|(
+name|updatedState
+operator|.
+name|metaData
+argument_list|()
+operator|.
+name|aliases
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|currentState
+operator|.
+name|metaData
+argument_list|()
+operator|.
+name|aliases
+argument_list|()
+argument_list|)
+condition|)
+block|{
+name|listener
+operator|.
+name|onResponse
+argument_list|(
+operator|new
+name|Response
+argument_list|(
+literal|true
+argument_list|)
+argument_list|)
+expr_stmt|;
+return|return
+name|currentState
+return|;
+block|}
 comment|// wait for responses from other nodes if needed
 name|int
 name|responseCount
 init|=
 name|updatedState
 operator|.
-name|getNodes
+name|nodes
 argument_list|()
 operator|.
 name|size
@@ -1134,7 +1173,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"Waiting for [{}] notifications with version [{}]"
+literal|"waiting for [{}] notifications with version [{}]"
 argument_list|,
 name|responseCount
 argument_list|,
