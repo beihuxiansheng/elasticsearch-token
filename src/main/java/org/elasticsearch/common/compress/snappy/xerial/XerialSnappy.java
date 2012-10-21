@@ -22,6 +22,20 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|io
+operator|.
+name|NullOutputStream
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|xerial
@@ -91,7 +105,13 @@ name|System
 operator|.
 name|setErr
 argument_list|(
-literal|null
+operator|new
+name|PrintStream
+argument_list|(
+operator|new
+name|NullOutputStream
+argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|byte
