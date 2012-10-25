@@ -2035,7 +2035,7 @@ block|}
 DECL|method|getSegmentInfo
 specifier|public
 specifier|static
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|getSegmentInfo
 parameter_list|(
 name|SegmentReader
@@ -2046,7 +2046,7 @@ try|try
 block|{
 return|return
 operator|(
-name|SegmentInfo
+name|SegmentInfoPerCommit
 operator|)
 name|segmentReaderSegmentInfoField
 operator|.
