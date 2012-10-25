@@ -8484,7 +8484,7 @@ expr_stmt|;
 name|indexWriter
 operator|=
 operator|new
-name|XIndexWriter
+name|IndexWriter
 argument_list|(
 name|store
 operator|.
@@ -8492,10 +8492,6 @@ name|directory
 argument_list|()
 argument_list|,
 name|config
-argument_list|,
-name|logger
-argument_list|,
-name|bloomCache
 argument_list|)
 expr_stmt|;
 block|}
