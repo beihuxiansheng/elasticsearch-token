@@ -26,6 +26,8 @@ name|lucene
 operator|.
 name|analysis
 operator|.
+name|core
+operator|.
 name|KeywordAnalyzer
 import|;
 end_import
