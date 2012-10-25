@@ -174,15 +174,6 @@ operator|.
 name|init
 argument_list|()
 expr_stmt|;
-comment|// LUCENE 4 UPGRADE: StringHelper?
-name|field
-operator|=
-name|field
-operator|.
-name|intern
-argument_list|()
-expr_stmt|;
-comment|//StringHelper.intern(field);
 name|ArrayList
 argument_list|<
 name|int
@@ -241,6 +232,29 @@ argument_list|(
 name|field
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|terms
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+name|loader
+operator|.
+name|buildSingleValue
+argument_list|(
+name|field
+argument_list|,
+operator|new
+name|int
+index|[
+literal|0
+index|]
+argument_list|)
+return|;
+comment|// Return empty field data if field doesn't exists.
+block|}
 name|TermsEnum
 name|termsEnum
 init|=
