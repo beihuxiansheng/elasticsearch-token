@@ -44,6 +44,20 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|AtomicReader
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|IndexReader
 import|;
 end_import
@@ -59,6 +73,20 @@ operator|.
 name|search
 operator|.
 name|FieldCache
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|BytesRef
 import|;
 end_import
 
@@ -291,7 +319,7 @@ annotation|@
 name|Override
 DECL|method|stringValue
 specifier|public
-name|String
+name|BytesRef
 name|stringValue
 parameter_list|(
 name|int
@@ -299,6 +327,9 @@ name|docId
 parameter_list|)
 block|{
 return|return
+operator|new
+name|BytesRef
+argument_list|(
 name|Integer
 operator|.
 name|toString
@@ -306,6 +337,7 @@ argument_list|(
 name|value
 argument_list|(
 name|docId
+argument_list|)
 argument_list|)
 argument_list|)
 return|;
@@ -342,6 +374,9 @@ name|proc
 operator|.
 name|onValue
 argument_list|(
+operator|new
+name|BytesRef
+argument_list|(
 name|Integer
 operator|.
 name|toString
@@ -350,6 +385,7 @@ name|values
 index|[
 name|i
 index|]
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -592,7 +628,7 @@ specifier|static
 name|IntFieldData
 name|load
 parameter_list|(
-name|IndexReader
+name|AtomicReader
 name|reader
 parameter_list|,
 name|String
@@ -661,7 +697,7 @@ specifier|public
 name|void
 name|collectTerm
 parameter_list|(
-name|String
+name|BytesRef
 name|term
 parameter_list|)
 block|{

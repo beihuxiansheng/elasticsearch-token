@@ -58,7 +58,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|AtomicReaderContext
 import|;
 end_import
 
@@ -73,6 +73,20 @@ operator|.
 name|search
 operator|.
 name|Scorer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|BytesRef
 import|;
 end_import
 
@@ -732,11 +746,8 @@ specifier|protected
 name|void
 name|doSetNextReader
 parameter_list|(
-name|IndexReader
-name|reader
-parameter_list|,
-name|int
-name|docBase
+name|AtomicReaderContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -749,7 +760,10 @@ name|cache
 argument_list|(
 name|keyFieldDataType
 argument_list|,
+name|context
+operator|.
 name|reader
+argument_list|()
 argument_list|,
 name|keyFieldName
 argument_list|)
@@ -765,7 +779,10 @@ name|script
 operator|.
 name|setNextReader
 argument_list|(
+name|context
+operator|.
 name|reader
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -784,7 +801,10 @@ name|cache
 argument_list|(
 name|valueFieldDataType
 argument_list|,
+name|context
+operator|.
 name|reader
+argument_list|()
 argument_list|,
 name|valueFieldName
 argument_list|)
@@ -1020,11 +1040,12 @@ name|FieldData
 operator|.
 name|StringValueInDocProc
 block|{
+comment|// LUCENE 4 UPGRADE: check if hashcode is not too expensive
 DECL|field|entries
 specifier|final
 name|ExtTHashMap
 argument_list|<
-name|String
+name|BytesRef
 argument_list|,
 name|InternalTermsStatsStringFacet
 operator|.
@@ -1065,7 +1086,7 @@ parameter_list|(
 name|int
 name|docId
 parameter_list|,
-name|String
+name|BytesRef
 name|value
 parameter_list|)
 block|{
@@ -1273,7 +1294,7 @@ parameter_list|(
 name|int
 name|docId
 parameter_list|,
-name|String
+name|BytesRef
 name|value
 parameter_list|)
 block|{

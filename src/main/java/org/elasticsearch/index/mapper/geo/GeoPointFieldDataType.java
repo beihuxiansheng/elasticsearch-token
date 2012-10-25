@@ -28,7 +28,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|AtomicReader
 import|;
 end_import
 
@@ -209,12 +209,16 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|int
+name|SortField
+operator|.
+name|Type
 name|reducedType
 parameter_list|()
 block|{
 return|return
 name|SortField
+operator|.
+name|Type
 operator|.
 name|STRING
 return|;
@@ -229,7 +233,7 @@ specifier|public
 name|GeoPointFieldData
 name|load
 parameter_list|(
-name|IndexReader
+name|AtomicReader
 name|reader
 parameter_list|,
 name|String

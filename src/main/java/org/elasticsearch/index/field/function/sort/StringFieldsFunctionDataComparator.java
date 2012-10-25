@@ -213,7 +213,9 @@ annotation|@
 name|Override
 DECL|method|reducedType
 specifier|public
-name|int
+name|SortField
+operator|.
+name|Type
 name|reducedType
 parameter_list|()
 block|{

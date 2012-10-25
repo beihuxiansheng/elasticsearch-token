@@ -24,11 +24,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
+name|apache
 operator|.
-name|common
+name|lucene
 operator|.
-name|RamUsage
+name|util
+operator|.
+name|BytesRef
 import|;
 end_import
 
@@ -40,7 +42,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Strings
+name|RamUsage
 import|;
 end_import
 
@@ -72,6 +74,20 @@ name|SingleValueStringFieldData
 extends|extends
 name|StringFieldData
 block|{
+DECL|field|EMPTY_ARRAY
+specifier|private
+specifier|static
+specifier|final
+name|BytesRef
+index|[]
+name|EMPTY_ARRAY
+init|=
+operator|new
+name|BytesRef
+index|[
+literal|0
+index|]
+decl_stmt|;
 DECL|field|valuesCache
 specifier|private
 specifier|static
@@ -81,7 +97,7 @@ name|ThreadLocals
 operator|.
 name|CleanableValue
 argument_list|<
-name|String
+name|BytesRef
 index|[]
 argument_list|>
 argument_list|>
@@ -94,7 +110,7 @@ name|ThreadLocals
 operator|.
 name|CleanableValue
 argument_list|<
-name|String
+name|BytesRef
 index|[]
 argument_list|>
 argument_list|>
@@ -107,7 +123,7 @@ name|ThreadLocals
 operator|.
 name|CleanableValue
 argument_list|<
-name|String
+name|BytesRef
 index|[]
 argument_list|>
 name|initialValue
@@ -119,12 +135,12 @@ name|ThreadLocals
 operator|.
 name|CleanableValue
 argument_list|<
-name|String
+name|BytesRef
 index|[]
 argument_list|>
 argument_list|(
 operator|new
-name|String
+name|BytesRef
 index|[
 literal|1
 index|]
@@ -152,7 +168,7 @@ name|int
 index|[]
 name|ordinals
 parameter_list|,
-name|String
+name|BytesRef
 index|[]
 name|values
 parameter_list|)
@@ -322,7 +338,7 @@ annotation|@
 name|Override
 DECL|method|value
 specifier|public
-name|String
+name|BytesRef
 name|value
 parameter_list|(
 name|int
@@ -343,7 +359,7 @@ annotation|@
 name|Override
 DECL|method|values
 specifier|public
-name|String
+name|BytesRef
 index|[]
 name|values
 parameter_list|(
@@ -367,12 +383,10 @@ literal|0
 condition|)
 block|{
 return|return
-name|Strings
-operator|.
 name|EMPTY_ARRAY
 return|;
 block|}
-name|String
+name|BytesRef
 index|[]
 name|ret
 init|=

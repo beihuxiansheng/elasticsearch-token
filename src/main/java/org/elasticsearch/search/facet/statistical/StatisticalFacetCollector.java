@@ -28,7 +28,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|AtomicReaderContext
 import|;
 end_import
 
@@ -357,11 +357,8 @@ specifier|protected
 name|void
 name|doSetNextReader
 parameter_list|(
-name|IndexReader
-name|reader
-parameter_list|,
-name|int
-name|docBase
+name|AtomicReaderContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -377,7 +374,10 @@ name|cache
 argument_list|(
 name|fieldDataType
 argument_list|,
+name|context
+operator|.
 name|reader
+argument_list|()
 argument_list|,
 name|indexFieldName
 argument_list|)

@@ -58,7 +58,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|AtomicReaderContext
 import|;
 end_import
 
@@ -679,10 +679,14 @@ operator|.
 name|searcher
 argument_list|()
 operator|.
-name|subReaders
+name|getIndexReader
 argument_list|()
 operator|.
-name|length
+name|leaves
+argument_list|()
+operator|.
+name|size
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -693,11 +697,8 @@ specifier|protected
 name|void
 name|doSetNextReader
 parameter_list|(
-name|IndexReader
-name|reader
-parameter_list|,
-name|int
-name|docBase
+name|AtomicReaderContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -762,7 +763,10 @@ name|cache
 argument_list|(
 name|fieldDataType
 argument_list|,
+name|context
+operator|.
 name|reader
+argument_list|()
 argument_list|,
 name|indexFieldName
 argument_list|)
@@ -1494,7 +1498,7 @@ name|int
 name|size
 parameter_list|)
 block|{
-name|initialize
+name|super
 argument_list|(
 name|size
 argument_list|)

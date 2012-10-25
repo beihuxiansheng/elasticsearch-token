@@ -18,6 +18,20 @@ name|data
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|BytesRef
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -106,7 +120,7 @@ return|;
 block|}
 DECL|method|stringValue
 specifier|public
-name|String
+name|BytesRef
 name|stringValue
 parameter_list|()
 block|{
@@ -121,7 +135,7 @@ return|;
 block|}
 DECL|method|getStringValue
 specifier|public
-name|String
+name|BytesRef
 name|getStringValue
 parameter_list|()
 block|{
