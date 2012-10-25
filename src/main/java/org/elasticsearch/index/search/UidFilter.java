@@ -246,6 +246,7 @@ specifier|final
 name|BloomCache
 name|bloomCache
 decl_stmt|;
+comment|// LUCENE 4 UPGRADE: We removed the bloom cache, so once we rewrite this filter, do it without
 DECL|method|UidFilter
 specifier|public
 name|UidFilter
