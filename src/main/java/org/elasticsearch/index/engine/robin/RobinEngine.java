@@ -6512,7 +6512,7 @@ condition|)
 block|{
 name|indexWriter
 operator|.
-name|expungeDeletes
+name|forceMergeDeletes
 argument_list|(
 literal|false
 argument_list|)
