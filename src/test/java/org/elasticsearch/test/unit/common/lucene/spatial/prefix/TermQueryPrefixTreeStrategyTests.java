@@ -1192,10 +1192,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testContainsRelation
+DECL|method|testWithinRelation
 specifier|public
 name|void
-name|testContainsRelation
+name|testWithinRelation
 parameter_list|()
 throws|throws
 name|IOException
@@ -1230,7 +1230,7 @@ name|filter
 init|=
 name|STRATEGY
 operator|.
-name|createContainsFilter
+name|createWithinFilter
 argument_list|(
 name|rectangle
 argument_list|)
@@ -1258,7 +1258,7 @@ name|query
 init|=
 name|STRATEGY
 operator|.
-name|createContainsQuery
+name|createWithinQuery
 argument_list|(
 name|rectangle
 argument_list|)
@@ -1330,7 +1330,7 @@ name|filter
 operator|=
 name|STRATEGY
 operator|.
-name|createContainsFilter
+name|createWithinFilter
 argument_list|(
 name|polygon
 argument_list|)
@@ -1357,7 +1357,7 @@ name|query
 operator|=
 name|STRATEGY
 operator|.
-name|createContainsQuery
+name|createWithinQuery
 argument_list|(
 name|polygon
 argument_list|)

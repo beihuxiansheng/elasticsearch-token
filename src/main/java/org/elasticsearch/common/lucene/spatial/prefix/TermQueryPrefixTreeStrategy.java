@@ -272,12 +272,12 @@ name|TermQueryPrefixTreeStrategy
 extends|extends
 name|SpatialStrategy
 block|{
-DECL|field|CONTAINS_BUFFER_DISTANCE
+DECL|field|WITHIN_BUFFER_DISTANCE
 specifier|private
 specifier|static
 specifier|final
 name|double
-name|CONTAINS_BUFFER_DISTANCE
+name|WITHIN_BUFFER_DISTANCE
 init|=
 literal|0.5
 decl_stmt|;
@@ -748,10 +748,10 @@ block|}
 comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
-DECL|method|createContainsFilter
+DECL|method|createWithinFilter
 specifier|public
 name|Filter
-name|createContainsFilter
+name|createWithinFilter
 parameter_list|(
 name|Shape
 name|shape
@@ -784,7 +784,7 @@ name|bufferOp
 argument_list|(
 name|shapeGeometry
 argument_list|,
-name|CONTAINS_BUFFER_DISTANCE
+name|WITHIN_BUFFER_DISTANCE
 argument_list|,
 name|BUFFER_PARAMETERS
 argument_list|)
@@ -845,10 +845,10 @@ block|}
 comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
-DECL|method|createContainsQuery
+DECL|method|createWithinQuery
 specifier|public
 name|Query
-name|createContainsQuery
+name|createWithinQuery
 parameter_list|(
 name|Shape
 name|shape
@@ -881,7 +881,7 @@ name|bufferOp
 argument_list|(
 name|shapeGeometry
 argument_list|,
-name|CONTAINS_BUFFER_DISTANCE
+name|WITHIN_BUFFER_DISTANCE
 argument_list|,
 name|BUFFER_PARAMETERS
 argument_list|)

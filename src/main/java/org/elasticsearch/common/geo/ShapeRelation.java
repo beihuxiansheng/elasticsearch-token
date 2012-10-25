@@ -48,10 +48,10 @@ argument_list|(
 literal|"disjoint"
 argument_list|)
 block|,
-DECL|enum constant|CONTAINS
-name|CONTAINS
+DECL|enum constant|WITHIN
+name|WITHIN
 argument_list|(
-literal|"contains"
+literal|"within"
 argument_list|)
 block|;
 DECL|field|relationName

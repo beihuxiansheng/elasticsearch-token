@@ -435,10 +435,10 @@ name|shape
 argument_list|)
 return|;
 case|case
-name|CONTAINS
+name|WITHIN
 case|:
 return|return
-name|createContainsFilter
+name|createWithinFilter
 argument_list|(
 name|shape
 argument_list|)
@@ -497,10 +497,10 @@ name|shape
 argument_list|)
 return|;
 case|case
-name|CONTAINS
+name|WITHIN
 case|:
 return|return
-name|createContainsQuery
+name|createWithinQuery
 argument_list|(
 name|shape
 argument_list|)
@@ -576,22 +576,22 @@ name|shape
 parameter_list|)
 function_decl|;
 comment|/**      * Creates a Filter that will find all indexed Shapes that are properly      * contained within the given Shape (the indexed Shapes will not have      * any area outside of the given Shape).      *      * @param shape Shape to find the contained Shapes of      * @return Filter for finding the contained indexed Shapes      */
-DECL|method|createContainsFilter
+DECL|method|createWithinFilter
 specifier|public
 specifier|abstract
 name|Filter
-name|createContainsFilter
+name|createWithinFilter
 parameter_list|(
 name|Shape
 name|shape
 parameter_list|)
 function_decl|;
 comment|/**      * Creates a Query that will find all indexed Shapes that are properly      * contained within the given Shape (the indexed Shapes will not have      * any area outside of the given Shape).      *      * @param shape Shape to find the contained Shapes of      * @return Query for finding the contained indexed Shapes      */
-DECL|method|createContainsQuery
+DECL|method|createWithinQuery
 specifier|public
 specifier|abstract
 name|Query
-name|createContainsQuery
+name|createWithinQuery
 parameter_list|(
 name|Shape
 name|shape
