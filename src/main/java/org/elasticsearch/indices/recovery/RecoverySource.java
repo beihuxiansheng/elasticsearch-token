@@ -54,6 +54,20 @@ name|lucene
 operator|.
 name|store
 operator|.
+name|IOContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
 name|IndexInput
 import|;
 end_import
@@ -1129,6 +1143,7 @@ argument_list|(
 name|name
 argument_list|)
 decl_stmt|;
+comment|// TODO: maybe use IOContext.READONCE?
 name|indexInput
 operator|=
 name|shard
@@ -1139,6 +1154,10 @@ operator|.
 name|openInputRaw
 argument_list|(
 name|name
+argument_list|,
+name|IOContext
+operator|.
+name|READ
 argument_list|)
 expr_stmt|;
 name|boolean

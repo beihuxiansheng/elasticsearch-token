@@ -98,6 +98,20 @@ name|lucene
 operator|.
 name|store
 operator|.
+name|IOContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
 name|IndexInput
 import|;
 end_import
@@ -4411,6 +4425,7 @@ literal|null
 decl_stmt|;
 try|try
 block|{
+comment|// TODO: maybe use IOContext.READONCE?
 name|indexInput
 operator|=
 name|indexShard
@@ -4424,6 +4439,10 @@ name|fileInfo
 operator|.
 name|physicalName
 argument_list|()
+argument_list|,
+name|IOContext
+operator|.
+name|READ
 argument_list|)
 expr_stmt|;
 name|indexInput
