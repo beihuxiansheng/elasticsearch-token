@@ -90,20 +90,6 @@ name|common
 operator|.
 name|bytes
 operator|.
-name|BytesReference
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|bytes
-operator|.
 name|HashedBytesArray
 import|;
 end_import
@@ -233,20 +219,6 @@ operator|.
 name|id
 operator|.
 name|IdReaderCache
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|Uid
 import|;
 end_import
 
@@ -451,7 +423,7 @@ specifier|public
 name|IdReaderCache
 name|reader
 parameter_list|(
-name|IndexReader
+name|AtomicReader
 name|reader
 parameter_list|)
 block|{
@@ -553,7 +525,7 @@ name|Object
 argument_list|,
 name|Map
 argument_list|<
-name|BytesReference
+name|String
 argument_list|,
 name|TypeBuilder
 argument_list|>
@@ -567,7 +539,7 @@ name|Object
 argument_list|,
 name|Map
 argument_list|<
-name|BytesReference
+name|String
 argument_list|,
 name|TypeBuilder
 argument_list|>
@@ -629,7 +601,7 @@ expr_stmt|;
 block|}
 name|Map
 argument_list|<
-name|BytesReference
+name|String
 argument_list|,
 name|TypeBuilder
 argument_list|>
@@ -638,7 +610,7 @@ init|=
 operator|new
 name|HashMap
 argument_list|<
-name|BytesReference
+name|String
 argument_list|,
 name|TypeBuilder
 argument_list|>
@@ -741,6 +713,9 @@ name|typeAndId
 index|[
 literal|0
 index|]
+operator|.
+name|toUtf8
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -766,6 +741,9 @@ name|typeAndId
 index|[
 literal|0
 index|]
+operator|.
+name|toUtf8
+argument_list|()
 argument_list|,
 name|typeBuilder
 argument_list|)
@@ -882,7 +860,7 @@ continue|continue;
 block|}
 name|Map
 argument_list|<
-name|BytesReference
+name|String
 argument_list|,
 name|TypeBuilder
 argument_list|>
@@ -983,6 +961,9 @@ name|typeAndId
 index|[
 literal|0
 index|]
+operator|.
+name|toUtf8
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -1008,6 +989,9 @@ name|typeAndId
 index|[
 literal|0
 index|]
+operator|.
+name|toUtf8
+argument_list|()
 argument_list|,
 name|typeBuilder
 argument_list|)
@@ -1128,7 +1112,7 @@ name|Object
 argument_list|,
 name|Map
 argument_list|<
-name|BytesReference
+name|String
 argument_list|,
 name|TypeBuilder
 argument_list|>
@@ -1143,7 +1127,7 @@ control|)
 block|{
 name|MapBuilder
 argument_list|<
-name|BytesReference
+name|String
 argument_list|,
 name|SimpleIdReaderTypeCache
 argument_list|>
@@ -1160,7 +1144,7 @@ name|Map
 operator|.
 name|Entry
 argument_list|<
-name|BytesReference
+name|String
 argument_list|,
 name|TypeBuilder
 argument_list|>
@@ -1318,7 +1302,7 @@ name|Object
 argument_list|,
 name|Map
 argument_list|<
-name|BytesReference
+name|String
 argument_list|,
 name|TypeBuilder
 argument_list|>
@@ -1369,7 +1353,7 @@ for|for
 control|(
 name|Map
 argument_list|<
-name|BytesReference
+name|String
 argument_list|,
 name|TypeBuilder
 argument_list|>
