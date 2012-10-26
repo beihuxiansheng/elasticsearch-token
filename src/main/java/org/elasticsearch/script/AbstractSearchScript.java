@@ -24,7 +24,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|AtomicReader
 import|;
 end_import
 
@@ -235,7 +235,7 @@ specifier|public
 name|void
 name|setNextReader
 parameter_list|(
-name|IndexReader
+name|AtomicReader
 name|reader
 parameter_list|)
 block|{
