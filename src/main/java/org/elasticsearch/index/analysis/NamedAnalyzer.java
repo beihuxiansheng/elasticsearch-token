@@ -40,17 +40,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|AnalyzerWrapper
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|Reader
+name|CustomAnalyzerWrapper
 import|;
 end_import
 
@@ -64,7 +54,7 @@ specifier|public
 class|class
 name|NamedAnalyzer
 extends|extends
-name|AnalyzerWrapper
+name|CustomAnalyzerWrapper
 block|{
 DECL|field|name
 specifier|private
