@@ -1127,23 +1127,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|// we should close this searcher, since its a new one we create each time, and we use the IndexReader
-try|try
-block|{
-name|searcher
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-comment|// ignore any exception here
-block|}
 name|engineSearcher
 operator|.
 name|release

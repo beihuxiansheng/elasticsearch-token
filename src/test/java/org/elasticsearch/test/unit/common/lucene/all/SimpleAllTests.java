@@ -835,11 +835,6 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|searcher
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|indexWriter
 operator|.
 name|close
@@ -1232,11 +1227,6 @@ argument_list|(
 literal|1
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|searcher
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
 name|indexWriter
 operator|.
@@ -1764,11 +1754,6 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|searcher
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|indexWriter
 operator|.
 name|close
@@ -2294,11 +2279,6 @@ argument_list|(
 literal|1
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|searcher
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
 name|indexWriter
 operator|.
