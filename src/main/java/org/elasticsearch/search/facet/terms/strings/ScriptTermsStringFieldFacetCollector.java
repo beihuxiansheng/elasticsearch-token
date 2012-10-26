@@ -771,7 +771,11 @@ name|excluded
 operator|.
 name|contains
 argument_list|(
+operator|new
+name|BytesRef
+argument_list|(
 name|value
+argument_list|)
 argument_list|)
 condition|)
 block|{
