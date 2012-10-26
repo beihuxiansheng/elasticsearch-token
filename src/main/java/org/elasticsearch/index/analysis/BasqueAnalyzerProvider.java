@@ -26,7 +26,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|CharArraySet
+name|eu
+operator|.
+name|BasqueAnalyzer
 import|;
 end_import
 
@@ -40,9 +42,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|eu
+name|util
 operator|.
-name|BasqueAnalyzer
+name|CharArraySet
 import|;
 end_import
 
@@ -220,6 +222,8 @@ argument_list|,
 name|CharArraySet
 operator|.
 name|EMPTY_SET
+argument_list|,
+name|version
 argument_list|)
 argument_list|)
 expr_stmt|;

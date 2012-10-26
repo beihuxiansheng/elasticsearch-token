@@ -26,7 +26,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|LowerCaseTokenizer
+name|Tokenizer
 import|;
 end_import
 
@@ -40,7 +40,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|Tokenizer
+name|core
+operator|.
+name|LowerCaseTokenizer
 import|;
 end_import
 

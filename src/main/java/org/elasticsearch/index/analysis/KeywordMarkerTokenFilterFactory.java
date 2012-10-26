@@ -26,7 +26,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|CharArraySet
+name|TokenStream
 import|;
 end_import
 
@@ -39,6 +39,8 @@ operator|.
 name|lucene
 operator|.
 name|analysis
+operator|.
+name|miscellaneous
 operator|.
 name|KeywordMarkerFilter
 import|;
@@ -54,7 +56,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|TokenStream
+name|util
+operator|.
+name|CharArraySet
 import|;
 end_import
 

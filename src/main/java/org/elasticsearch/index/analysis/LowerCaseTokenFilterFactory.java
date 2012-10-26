@@ -26,7 +26,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|LowerCaseFilter
+name|TokenStream
 import|;
 end_import
 
@@ -40,7 +40,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|TokenStream
+name|core
+operator|.
+name|LowerCaseFilter
 import|;
 end_import
 

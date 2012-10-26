@@ -26,7 +26,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|ASCIIFoldingFilter
+name|TokenStream
 import|;
 end_import
 
@@ -40,7 +40,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|TokenStream
+name|miscellaneous
+operator|.
+name|ASCIIFoldingFilter
 import|;
 end_import
 

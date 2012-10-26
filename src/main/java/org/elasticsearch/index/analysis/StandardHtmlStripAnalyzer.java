@@ -284,8 +284,8 @@ block|{
 annotation|@
 name|Override
 specifier|protected
-name|boolean
-name|reset
+name|void
+name|setReader
 parameter_list|(
 specifier|final
 name|Reader
@@ -303,14 +303,13 @@ operator|.
 name|DEFAULT_MAX_TOKEN_LENGTH
 argument_list|)
 expr_stmt|;
-return|return
 name|super
 operator|.
-name|reset
+name|setReader
 argument_list|(
 name|reader
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 block|}
 return|;

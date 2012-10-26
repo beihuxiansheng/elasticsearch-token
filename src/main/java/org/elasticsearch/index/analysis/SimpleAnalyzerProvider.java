@@ -26,6 +26,8 @@ name|lucene
 operator|.
 name|analysis
 operator|.
+name|core
+operator|.
 name|SimpleAnalyzer
 import|;
 end_import
