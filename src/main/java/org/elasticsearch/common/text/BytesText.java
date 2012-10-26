@@ -44,16 +44,6 @@ name|BytesReference
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Comparator
-import|;
-end_import
-
 begin_comment
 comment|/**  * A {@link BytesReference} representation of the text, will always convert on the fly to a {@link String}.  */
 end_comment
@@ -249,8 +239,6 @@ name|utf8SortedAsUnicodeSortOrder
 operator|.
 name|compare
 argument_list|(
-name|text
-operator|.
 name|bytes
 argument_list|()
 argument_list|,
