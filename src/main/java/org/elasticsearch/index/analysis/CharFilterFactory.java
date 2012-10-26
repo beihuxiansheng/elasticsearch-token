@@ -18,15 +18,11 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|io
 operator|.
-name|lucene
-operator|.
-name|analysis
-operator|.
-name|CharStream
+name|Reader
 import|;
 end_import
 
@@ -46,10 +42,10 @@ name|name
 parameter_list|()
 function_decl|;
 DECL|method|create
-name|CharStream
+name|Reader
 name|create
 parameter_list|(
-name|CharStream
+name|Reader
 name|tokenStream
 parameter_list|)
 function_decl|;

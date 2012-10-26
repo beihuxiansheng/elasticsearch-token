@@ -4349,10 +4349,10 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|CharStream
+name|Reader
 name|create
 parameter_list|(
-name|CharStream
+name|Reader
 name|tokenStream
 parameter_list|)
 block|{
@@ -4395,10 +4395,10 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|CharStream
+name|Reader
 name|create
 parameter_list|(
-name|CharStream
+name|Reader
 name|tokenStream
 parameter_list|)
 block|{
