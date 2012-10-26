@@ -54,7 +54,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|AtomicReaderContext
 import|;
 end_import
 
@@ -281,8 +281,8 @@ specifier|public
 name|void
 name|setNextReader
 parameter_list|(
-name|AtomicReader
-name|reader
+name|AtomicReaderContext
+name|context
 parameter_list|)
 block|{
 if|if
@@ -291,7 +291,10 @@ name|this
 operator|.
 name|reader
 operator|==
+name|context
+operator|.
 name|reader
+argument_list|()
 condition|)
 block|{
 comment|// if we are called with the same reader, don't invalidate source
@@ -301,7 +304,10 @@ name|this
 operator|.
 name|reader
 operator|=
+name|context
+operator|.
 name|reader
+argument_list|()
 expr_stmt|;
 name|clearCache
 argument_list|()

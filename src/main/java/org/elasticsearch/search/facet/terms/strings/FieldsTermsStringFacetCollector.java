@@ -927,9 +927,6 @@ operator|.
 name|setNextReader
 argument_list|(
 name|context
-operator|.
-name|reader
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
