@@ -56,6 +56,20 @@ name|common
 operator|.
 name|bytes
 operator|.
+name|BytesReference
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|bytes
+operator|.
 name|HashedBytesArray
 import|;
 end_import
@@ -105,7 +119,7 @@ block|{
 DECL|field|type
 specifier|private
 specifier|final
-name|String
+name|BytesReference
 name|type
 decl_stmt|;
 DECL|field|idToDoc
@@ -150,7 +164,7 @@ DECL|method|SimpleIdReaderTypeCache
 specifier|public
 name|SimpleIdReaderTypeCache
 parameter_list|(
-name|String
+name|BytesReference
 name|type
 parameter_list|,
 name|ExtTObjectIntHasMap
@@ -212,7 +226,7 @@ expr_stmt|;
 block|}
 DECL|method|type
 specifier|public
-name|String
+name|BytesReference
 name|type
 parameter_list|()
 block|{

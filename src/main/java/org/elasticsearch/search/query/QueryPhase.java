@@ -543,7 +543,10 @@ operator|.
 name|searcher
 argument_list|()
 operator|.
-name|subReaders
+name|getTopReaderContext
+argument_list|()
+operator|.
+name|leaves
 argument_list|()
 argument_list|)
 expr_stmt|;
