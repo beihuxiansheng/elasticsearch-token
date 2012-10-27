@@ -190,7 +190,7 @@ specifier|public
 class|class
 name|UidField
 extends|extends
-name|AbstractField
+name|Field
 block|{
 DECL|class|DocIdAndVersion
 specifier|public

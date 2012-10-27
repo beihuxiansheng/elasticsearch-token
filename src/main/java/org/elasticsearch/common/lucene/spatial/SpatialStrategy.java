@@ -92,20 +92,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|document
-operator|.
-name|Fieldable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|search
 operator|.
 name|Filter
@@ -336,7 +322,7 @@ block|}
 comment|/**      * Converts the given Shape into its indexable format.  Implementations      * should not store the Shape value as well.      *      * @param shape Shape to convert ints its indexable format      * @return Fieldable for indexing the Shape      */
 DECL|method|createField
 specifier|public
-name|Fieldable
+name|Field
 name|createField
 parameter_list|(
 name|Shape
@@ -394,6 +380,7 @@ argument_list|(
 name|nodes
 argument_list|)
 expr_stmt|;
+comment|// LUCENE 4 Upgrade: We should pass in the FieldType and use it here
 return|return
 operator|new
 name|Field

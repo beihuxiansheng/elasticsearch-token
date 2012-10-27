@@ -54,20 +54,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|document
-operator|.
-name|Fieldable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|index
 operator|.
 name|FieldInfo
@@ -1066,7 +1052,7 @@ annotation|@
 name|Override
 DECL|method|parseCreateField
 specifier|protected
-name|Fieldable
+name|Field
 name|parseCreateField
 parameter_list|(
 name|ParseContext
@@ -1223,7 +1209,7 @@ specifier|public
 name|Void
 name|value
 parameter_list|(
-name|Fieldable
+name|Field
 name|field
 parameter_list|)
 block|{
@@ -1253,7 +1239,7 @@ specifier|public
 name|String
 name|valueAsString
 parameter_list|(
-name|Fieldable
+name|Field
 name|field
 parameter_list|)
 block|{
@@ -1268,7 +1254,7 @@ specifier|public
 name|Object
 name|valueForSearch
 parameter_list|(
-name|Fieldable
+name|Field
 name|field
 parameter_list|)
 block|{
