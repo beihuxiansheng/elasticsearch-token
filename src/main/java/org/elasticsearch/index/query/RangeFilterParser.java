@@ -374,9 +374,7 @@ operator|=
 name|parser
 operator|.
 name|bytesOrNull
-argument_list|(
-name|from
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 elseif|else
@@ -395,9 +393,7 @@ operator|=
 name|parser
 operator|.
 name|bytesOrNull
-argument_list|(
-name|to
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 elseif|else
@@ -468,9 +464,7 @@ operator|=
 name|parser
 operator|.
 name|bytesOrNull
-argument_list|(
-name|from
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|includeLower
 operator|=
@@ -500,9 +494,7 @@ operator|=
 name|parser
 operator|.
 name|bytesOrNull
-argument_list|(
-name|from
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|includeLower
 operator|=
@@ -525,9 +517,7 @@ operator|=
 name|parser
 operator|.
 name|bytesOrNull
-argument_list|(
-name|to
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|includeUpper
 operator|=
@@ -557,9 +547,7 @@ operator|=
 name|parser
 operator|.
 name|bytesOrNull
-argument_list|(
-name|to
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|includeUpper
 operator|=

@@ -310,9 +310,7 @@ init|=
 name|parser
 operator|.
 name|bytes
-argument_list|(
-literal|null
-argument_list|)
+argument_list|()
 decl_stmt|;
 comment|// move to the next token
 name|parser
