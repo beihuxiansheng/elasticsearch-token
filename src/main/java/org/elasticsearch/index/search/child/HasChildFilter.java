@@ -1003,7 +1003,6 @@ name|doc
 parameter_list|)
 block|{
 return|return
-operator|!
 name|acceptDocs
 operator|.
 name|get

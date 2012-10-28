@@ -849,7 +849,6 @@ name|doc
 parameter_list|)
 block|{
 return|return
-operator|!
 name|acceptDocs
 operator|.
 name|get
@@ -1360,6 +1359,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
+operator|!
 name|acceptDocs
 operator|.
 name|get

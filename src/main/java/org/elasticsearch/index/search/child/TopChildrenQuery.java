@@ -687,7 +687,6 @@ operator|!=
 operator|-
 literal|1
 operator|&&
-operator|!
 name|indexReader
 operator|.
 name|getLiveDocs
