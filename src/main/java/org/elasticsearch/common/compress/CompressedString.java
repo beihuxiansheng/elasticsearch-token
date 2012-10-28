@@ -26,7 +26,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|UnicodeUtil
+name|BytesRef
 import|;
 end_import
 
@@ -345,9 +345,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|UnicodeUtil
-operator|.
-name|UTF8Result
+name|BytesRef
 name|result
 init|=
 name|Unicode
@@ -370,9 +368,11 @@ name|compress
 argument_list|(
 name|result
 operator|.
-name|result
+name|bytes
 argument_list|,
-literal|0
+name|result
+operator|.
+name|offset
 argument_list|,
 name|result
 operator|.

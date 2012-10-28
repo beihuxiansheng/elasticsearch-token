@@ -62,6 +62,13 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
+DECL|method|contentOffset
+name|int
+name|contentOffset
+parameter_list|()
+throws|throws
+name|IOException
+function_decl|;
 DECL|method|prefixContent
 name|byte
 index|[]
@@ -73,6 +80,11 @@ name|int
 name|prefixContentLength
 parameter_list|()
 function_decl|;
+DECL|method|prefixContentOffset
+name|int
+name|prefixContentOffset
+parameter_list|()
+function_decl|;
 DECL|method|suffixContent
 name|byte
 index|[]
@@ -82,6 +94,11 @@ function_decl|;
 DECL|method|suffixContentLength
 name|int
 name|suffixContentLength
+parameter_list|()
+function_decl|;
+DECL|method|suffixContentOffset
+name|int
+name|suffixContentOffset
 parameter_list|()
 function_decl|;
 DECL|method|status
