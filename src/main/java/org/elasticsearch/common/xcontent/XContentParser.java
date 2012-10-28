@@ -46,6 +46,20 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|BytesRef
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -337,6 +351,26 @@ DECL|method|textOrNull
 name|String
 name|textOrNull
 parameter_list|()
+throws|throws
+name|IOException
+function_decl|;
+DECL|method|bytesOrNull
+name|BytesRef
+name|bytesOrNull
+parameter_list|(
+name|BytesRef
+name|spare
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
+DECL|method|bytes
+name|BytesRef
+name|bytes
+parameter_list|(
+name|BytesRef
+name|spare
+parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
