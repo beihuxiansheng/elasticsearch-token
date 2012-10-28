@@ -439,7 +439,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|storeTermVectors
-specifier|protected
+specifier|public
 name|T
 name|storeTermVectors
 parameter_list|(
@@ -459,7 +459,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|storeTermVectorOffsets
-specifier|protected
+specifier|public
 name|T
 name|storeTermVectorOffsets
 parameter_list|(
@@ -479,7 +479,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|storeTermVectorPositions
-specifier|protected
+specifier|public
 name|T
 name|storeTermVectorPositions
 parameter_list|(
@@ -499,7 +499,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|storeTermVectorPayloads
-specifier|protected
+specifier|public
 name|T
 name|storeTermVectorPayloads
 parameter_list|(
@@ -519,7 +519,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|tokenized
-specifier|protected
+specifier|public
 name|T
 name|tokenized
 parameter_list|(

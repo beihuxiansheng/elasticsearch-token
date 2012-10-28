@@ -431,10 +431,11 @@ name|value
 parameter_list|)
 block|{
 return|return
-name|indexNameTermFactory
-operator|.
-name|createTerm
+operator|new
+name|Term
 argument_list|(
+name|indexName
+argument_list|,
 name|value
 argument_list|)
 return|;
