@@ -642,14 +642,6 @@ argument_list|(
 name|types
 argument_list|,
 name|ids
-argument_list|,
-name|parseContext
-operator|.
-name|indexCache
-argument_list|()
-operator|.
-name|bloomCache
-argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// no need for constant score filter, since we don't cache the filter, and it always takes deletes into account

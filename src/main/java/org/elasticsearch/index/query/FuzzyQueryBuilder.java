@@ -97,8 +97,6 @@ DECL|field|transpositions
 specifier|private
 name|Boolean
 name|transpositions
-init|=
-literal|true
 decl_stmt|;
 comment|/**      * Constructs a new term query.      *      * @param name  The name of the field      * @param value The value of the term      */
 DECL|method|FuzzyQueryBuilder
@@ -334,8 +332,9 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-operator|!
 name|transpositions
+operator|!=
+literal|null
 condition|)
 block|{
 name|builder

@@ -52,7 +52,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|queryParser
+name|queryparser
+operator|.
+name|classic
 operator|.
 name|MapperQueryParser
 import|;
@@ -66,7 +68,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|queryParser
+name|queryparser
+operator|.
+name|classic
 operator|.
 name|QueryParserSettings
 import|;
@@ -109,6 +113,8 @@ operator|.
 name|lucene
 operator|.
 name|search
+operator|.
+name|similarities
 operator|.
 name|Similarity
 import|;

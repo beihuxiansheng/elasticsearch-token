@@ -302,7 +302,7 @@ decl_stmt|;
 name|boolean
 name|transpositions
 init|=
-literal|true
+literal|false
 decl_stmt|;
 name|MultiTermQuery
 operator|.

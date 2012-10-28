@@ -173,6 +173,13 @@ specifier|private
 name|Boolean
 name|lenient
 decl_stmt|;
+DECL|field|fuzzyTranspositions
+specifier|private
+name|Boolean
+name|fuzzyTranspositions
+init|=
+literal|null
+decl_stmt|;
 comment|/**      * Constructs a new text query.      */
 DECL|method|MatchQueryBuilder
 specifier|public
@@ -412,6 +419,26 @@ operator|.
 name|fuzzyRewrite
 operator|=
 name|fuzzyRewrite
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|fuzzyTranspositions
+specifier|public
+name|MatchQueryBuilder
+name|fuzzyTranspositions
+parameter_list|(
+name|boolean
+name|fuzzyTranspositions
+parameter_list|)
+block|{
+comment|//LUCENE 4 UPGRADE add documentation
+name|this
+operator|.
+name|fuzzyTranspositions
+operator|=
+name|fuzzyTranspositions
 expr_stmt|;
 return|return
 name|this
@@ -675,6 +702,24 @@ argument_list|(
 literal|"fuzzy_rewrite"
 argument_list|,
 name|fuzzyRewrite
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|fuzzyTranspositions
+operator|!=
+literal|null
+condition|)
+block|{
+comment|//LUCENE 4 UPGRADE we need to document this& test this
+name|builder
+operator|.
+name|field
+argument_list|(
+literal|"fuzzy_transpositions"
+argument_list|,
+name|fuzzyTranspositions
 argument_list|)
 expr_stmt|;
 block|}
