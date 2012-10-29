@@ -268,7 +268,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|ResetFieldSelector
+name|BaseFieldVisitor
 import|;
 end_import
 
@@ -1463,12 +1463,12 @@ return|;
 block|}
 DECL|method|fieldSelector
 specifier|public
-name|ResetFieldSelector
+name|BaseFieldVisitor
 name|fieldSelector
 parameter_list|()
 block|{
 return|return
-name|SourceFieldSelector
+name|SourceFieldVisitor
 operator|.
 name|INSTANCE
 return|;
