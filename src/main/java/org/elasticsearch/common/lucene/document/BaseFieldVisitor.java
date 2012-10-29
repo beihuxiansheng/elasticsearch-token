@@ -51,14 +51,6 @@ name|BaseFieldVisitor
 extends|extends
 name|StoredFieldVisitor
 block|{
-comment|// LUCENE 4 UPGRADE: Some field visitors need to be cleared before they can be reused. Maybe a better way.
-DECL|method|reset
-specifier|public
-specifier|abstract
-name|void
-name|reset
-parameter_list|()
-function_decl|;
 comment|// LUCENE 4 UPGRADE: Added for now to make everything work. Want to make use of Document as less as possible.
 DECL|method|createDocument
 specifier|public

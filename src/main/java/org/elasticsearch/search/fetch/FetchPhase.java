@@ -792,9 +792,9 @@ block|{
 comment|// we ask for script fields, and no field names, don't load the source
 name|fieldVisitor
 operator|=
+operator|new
 name|UidFieldVisitor
-operator|.
-name|INSTANCE
+argument_list|()
 expr_stmt|;
 name|sourceRequested
 operator|=
@@ -829,9 +829,9 @@ condition|)
 block|{
 name|fieldVisitor
 operator|=
+operator|new
 name|UidFieldVisitor
-operator|.
-name|INSTANCE
+argument_list|()
 expr_stmt|;
 name|sourceRequested
 operator|=
@@ -1061,9 +1061,9 @@ else|else
 block|{
 name|fieldVisitor
 operator|=
+operator|new
 name|UidFieldVisitor
-operator|.
-name|INSTANCE
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -2017,17 +2017,9 @@ block|{
 if|if
 condition|(
 name|fieldVisitor
-operator|!=
+operator|==
 literal|null
 condition|)
-block|{
-name|fieldVisitor
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-block|}
-else|else
 block|{
 return|return
 name|context

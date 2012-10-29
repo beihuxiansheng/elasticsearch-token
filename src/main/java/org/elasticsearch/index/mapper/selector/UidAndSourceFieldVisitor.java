@@ -136,10 +136,6 @@ begin_comment
 comment|/**  * An optimized field selector that loads just the uid and the source.  */
 end_comment
 
-begin_comment
-comment|// LUCENE 4 UPGRADE: change into singleton
-end_comment
-
 begin_class
 DECL|class|UidAndSourceFieldVisitor
 specifier|public
@@ -274,23 +270,6 @@ name|Status
 operator|.
 name|NO
 return|;
-block|}
-annotation|@
-name|Override
-DECL|method|reset
-specifier|public
-name|void
-name|reset
-parameter_list|()
-block|{
-name|uid
-operator|=
-literal|null
-expr_stmt|;
-name|source
-operator|=
-literal|null
-expr_stmt|;
 block|}
 annotation|@
 name|Override

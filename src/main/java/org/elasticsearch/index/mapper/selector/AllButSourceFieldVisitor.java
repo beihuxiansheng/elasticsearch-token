@@ -78,10 +78,6 @@ begin_comment
 comment|/**  * A field selector that loads all fields except the source field.  */
 end_comment
 
-begin_comment
-comment|// LUCENE 4 UPGRADE: change into singleton
-end_comment
-
 begin_class
 DECL|class|AllButSourceFieldVisitor
 specifier|public

@@ -122,10 +122,6 @@ begin_comment
 comment|/**  * An optimized field selector that loads just the uid and the routing.  */
 end_comment
 
-begin_comment
-comment|// LUCENE 4 UPGRADE: change into singleton
-end_comment
-
 begin_class
 DECL|class|UidAndRoutingFieldVisitor
 specifier|public
@@ -316,23 +312,6 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-block|}
-annotation|@
-name|Override
-DECL|method|reset
-specifier|public
-name|void
-name|reset
-parameter_list|()
-block|{
-name|uid
-operator|=
-literal|null
-expr_stmt|;
-name|routing
-operator|=
-literal|null
-expr_stmt|;
 block|}
 DECL|method|uid
 specifier|public

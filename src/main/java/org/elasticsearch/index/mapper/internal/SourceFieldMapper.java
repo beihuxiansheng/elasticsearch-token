@@ -1468,9 +1468,9 @@ name|fieldSelector
 parameter_list|()
 block|{
 return|return
+operator|new
 name|SourceFieldVisitor
-operator|.
-name|INSTANCE
+argument_list|()
 return|;
 block|}
 annotation|@
