@@ -40,7 +40,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|Fieldable
+name|Field
 import|;
 end_import
 
@@ -318,6 +318,9 @@ name|mapper
 operator|.
 name|value
 argument_list|(
+operator|(
+name|Field
+operator|)
 name|field
 argument_list|)
 expr_stmt|;
@@ -385,6 +388,9 @@ name|mapper
 operator|.
 name|value
 argument_list|(
+operator|(
+name|Field
+operator|)
 name|field
 argument_list|)
 argument_list|)
