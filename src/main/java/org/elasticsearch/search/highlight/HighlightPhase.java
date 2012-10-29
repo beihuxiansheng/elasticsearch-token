@@ -1366,12 +1366,13 @@ argument_list|()
 operator|.
 name|indexAnalyzer
 argument_list|()
+decl_stmt|;
 name|TokenStream
 name|tokenStream
-operator|=
+init|=
 name|analyzer
 operator|.
-name|reusableTokenStream
+name|tokenStream
 argument_list|(
 name|mapper
 operator|.
