@@ -1711,7 +1711,7 @@ operator|.
 name|rootDoc
 argument_list|()
 operator|.
-name|getFieldable
+name|getField
 argument_list|(
 name|UidFieldMapper
 operator|.
@@ -2173,7 +2173,7 @@ operator|.
 name|rootDoc
 argument_list|()
 operator|.
-name|getFieldable
+name|getField
 argument_list|(
 name|UidFieldMapper
 operator|.
