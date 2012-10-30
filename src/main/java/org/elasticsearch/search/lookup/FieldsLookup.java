@@ -716,14 +716,6 @@ name|e
 argument_list|)
 throw|;
 block|}
-finally|finally
-block|{
-name|fieldVisitor
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 return|return
 name|data
