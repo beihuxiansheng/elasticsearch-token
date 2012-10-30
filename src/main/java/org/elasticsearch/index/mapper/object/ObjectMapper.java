@@ -3137,6 +3137,15 @@ name|newMapper
 operator|=
 literal|true
 expr_stmt|;
+comment|// remove the current field name from path, since template search and the object builder add it as well...
+name|context
+operator|.
+name|path
+argument_list|()
+operator|.
+name|remove
+argument_list|()
+expr_stmt|;
 name|Mapper
 operator|.
 name|Builder
@@ -3188,15 +3197,6 @@ name|pathType
 argument_list|)
 expr_stmt|;
 block|}
-comment|// remove the current field name from path, since the object builder adds it as well...
-name|context
-operator|.
-name|path
-argument_list|()
-operator|.
-name|remove
-argument_list|()
-expr_stmt|;
 name|BuilderContext
 name|builderContext
 init|=
@@ -3228,7 +3228,7 @@ argument_list|(
 name|objectMapper
 argument_list|)
 expr_stmt|;
-comment|// now re add it
+comment|// ...now re add it
 name|context
 operator|.
 name|path
