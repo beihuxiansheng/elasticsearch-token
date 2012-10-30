@@ -1129,6 +1129,16 @@ name|searchContext
 operator|.
 name|sort
 argument_list|()
+argument_list|,
+name|searchContext
+operator|.
+name|trackScores
+argument_list|()
+argument_list|,
+name|searchContext
+operator|.
+name|trackScores
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
