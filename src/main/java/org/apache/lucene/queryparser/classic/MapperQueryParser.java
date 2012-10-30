@@ -2434,6 +2434,7 @@ condition|)
 block|{
 try|try
 block|{
+comment|//LUCENE 4 UPGRADE I disabled transpositions here by default - maybe this needs to be changed
 name|Query
 name|fuzzyQuery
 init|=
@@ -2451,6 +2452,8 @@ name|settings
 operator|.
 name|fuzzyMaxExpansions
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 return|return

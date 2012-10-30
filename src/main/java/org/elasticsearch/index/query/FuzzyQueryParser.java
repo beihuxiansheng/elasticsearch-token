@@ -663,6 +663,8 @@ argument_list|,
 name|prefixLength
 argument_list|,
 name|maxExpansions
+argument_list|,
+name|transpositions
 argument_list|)
 expr_stmt|;
 block|}

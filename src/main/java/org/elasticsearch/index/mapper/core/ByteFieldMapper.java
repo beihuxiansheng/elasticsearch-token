@@ -960,6 +960,9 @@ name|prefixLength
 parameter_list|,
 name|int
 name|maxExpansions
+parameter_list|,
+name|boolean
+name|transpositions
 parameter_list|)
 block|{
 name|byte
@@ -1050,6 +1053,9 @@ name|prefixLength
 parameter_list|,
 name|int
 name|maxExpansions
+parameter_list|,
+name|boolean
+name|transpositions
 parameter_list|)
 block|{
 name|byte

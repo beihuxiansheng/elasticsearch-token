@@ -2145,6 +2145,8 @@ argument_list|,
 name|fuzzyPrefixLength
 argument_list|,
 name|maxExpansions
+argument_list|,
+name|transpositions
 argument_list|)
 decl_stmt|;
 if|if

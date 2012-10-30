@@ -1089,6 +1089,9 @@ name|prefixLength
 parameter_list|,
 name|int
 name|maxExpansions
+parameter_list|,
+name|boolean
+name|transpositions
 parameter_list|)
 function_decl|;
 annotation|@
@@ -1110,6 +1113,9 @@ name|prefixLength
 parameter_list|,
 name|int
 name|maxExpansions
+parameter_list|,
+name|boolean
+name|transpositions
 parameter_list|)
 function_decl|;
 comment|/**      * Numeric field level filter are basically range queries with same value and included. That's the recommended      * way to execute it.      */
