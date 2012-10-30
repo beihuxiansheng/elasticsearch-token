@@ -122,9 +122,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|document
+name|index
 operator|.
-name|Fieldable
+name|Term
 import|;
 end_import
 
@@ -136,9 +136,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
+name|queries
 operator|.
-name|Term
+name|FilterClause
 import|;
 end_import
 
@@ -167,20 +167,6 @@ operator|.
 name|search
 operator|.
 name|Filter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|FilterClause
 import|;
 end_import
 
@@ -2786,12 +2772,13 @@ index|[
 name|i
 index|]
 operator|=
+operator|new
+name|Term
+argument_list|(
 name|TypeFieldMapper
 operator|.
-name|TERM_FACTORY
-operator|.
-name|createTerm
-argument_list|(
+name|NAME
+argument_list|,
 name|types
 index|[
 name|i
@@ -2849,12 +2836,13 @@ argument_list|(
 operator|new
 name|TermFilter
 argument_list|(
+operator|new
+name|Term
+argument_list|(
 name|TypeFieldMapper
 operator|.
-name|TERM_FACTORY
-operator|.
-name|createTerm
-argument_list|(
+name|NAME
+argument_list|,
 name|type
 argument_list|)
 argument_list|)
