@@ -511,7 +511,7 @@ return|;
 block|}
 comment|// LUCENE 4 UPGRADE: HashedBytesArray or BytesRef as return type?
 DECL|method|splitUidIntoTypeAndId
-specifier|private
+specifier|public
 specifier|static
 name|HashedBytesArray
 index|[]
