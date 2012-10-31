@@ -254,6 +254,7 @@ operator|==
 literal|1
 condition|)
 block|{
+comment|// LUCENE 4 UPGRADE: For leave this null, until we figure out how to deal with deleted docs...
 return|return
 name|filters
 operator|.
@@ -266,7 +267,7 @@ name|getDocIdSet
 argument_list|(
 name|context
 argument_list|,
-name|acceptDocs
+literal|null
 argument_list|)
 return|;
 block|}
@@ -296,6 +297,7 @@ range|:
 name|filters
 control|)
 block|{
+comment|// LUCENE 4 UPGRADE: For leave this null, until we figure out how to deal with deleted docs...
 name|DocIdSet
 name|set
 init|=
@@ -305,7 +307,7 @@ name|getDocIdSet
 argument_list|(
 name|context
 argument_list|,
-name|acceptDocs
+literal|null
 argument_list|)
 decl_stmt|;
 if|if

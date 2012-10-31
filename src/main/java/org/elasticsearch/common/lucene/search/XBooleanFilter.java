@@ -28,7 +28,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|AtomicReaderContext
 import|;
 end_import
 
@@ -85,6 +85,20 @@ operator|.
 name|search
 operator|.
 name|Filter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Bits
 import|;
 end_import
 
@@ -221,8 +235,11 @@ parameter_list|,
 name|int
 name|index
 parameter_list|,
-name|IndexReader
-name|reader
+name|AtomicReaderContext
+name|context
+parameter_list|,
+name|Bits
+name|acceptedDocs
 parameter_list|)
 throws|throws
 name|IOException
@@ -239,7 +256,9 @@ argument_list|)
 operator|.
 name|getDocIdSet
 argument_list|(
-name|reader
+name|context
+argument_list|,
+name|acceptedDocs
 argument_list|)
 decl_stmt|;
 if|if
@@ -318,8 +337,11 @@ specifier|public
 name|DocIdSet
 name|getDocIdSet
 parameter_list|(
-name|IndexReader
-name|reader
+name|AtomicReaderContext
+name|context
+parameter_list|,
+name|Bits
+name|acceptedDocs
 parameter_list|)
 throws|throws
 name|IOException
@@ -351,6 +373,7 @@ operator|==
 literal|1
 condition|)
 block|{
+comment|// LUCENE 4 UPGRADE: For leave acceptedDocs null, until we figure out how to deal with deleted docs...
 return|return
 name|shouldFilters
 operator|.
@@ -361,7 +384,9 @@ argument_list|)
 operator|.
 name|getDocIdSet
 argument_list|(
-name|reader
+name|context
+argument_list|,
+literal|null
 argument_list|)
 return|;
 block|}
@@ -387,6 +412,7 @@ operator|==
 literal|1
 condition|)
 block|{
+comment|// LUCENE 4 UPGRADE: For leave acceptedDocs null, until we figure out how to deal with deleted docs...
 return|return
 name|mustFilters
 operator|.
@@ -397,7 +423,9 @@ argument_list|)
 operator|.
 name|getDocIdSet
 argument_list|(
-name|reader
+name|context
+argument_list|,
+literal|null
 argument_list|)
 return|;
 block|}
@@ -426,6 +454,7 @@ name|i
 operator|++
 control|)
 block|{
+comment|// LUCENE 4 UPGRADE: For leave acceptedDocs null, until we figure out how to deal with deleted docs...
 specifier|final
 name|DocIdSet
 name|disi
@@ -436,7 +465,9 @@ name|shouldFilters
 argument_list|,
 name|i
 argument_list|,
-name|reader
+name|context
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 if|if
@@ -458,7 +489,10 @@ operator|=
 operator|new
 name|FixedBitSet
 argument_list|(
+name|context
+operator|.
 name|reader
+argument_list|()
 operator|.
 name|maxDoc
 argument_list|()
@@ -531,7 +565,10 @@ operator|=
 operator|new
 name|FixedBitSet
 argument_list|(
+name|context
+operator|.
 name|reader
+argument_list|()
 operator|.
 name|maxDoc
 argument_list|()
@@ -543,7 +580,10 @@ name|set
 argument_list|(
 literal|0
 argument_list|,
+name|context
+operator|.
 name|reader
+argument_list|()
 operator|.
 name|maxDoc
 argument_list|()
@@ -551,6 +591,7 @@ argument_list|)
 expr_stmt|;
 comment|// NOTE: may set bits on deleted docs
 block|}
+comment|// LUCENE 4 UPGRADE: For leave acceptedDocs null, until we figure out how to deal with deleted docs...
 specifier|final
 name|DocIdSet
 name|disi
@@ -561,7 +602,9 @@ name|notFilters
 argument_list|,
 name|i
 argument_list|,
-name|reader
+name|context
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 if|if
@@ -608,6 +651,7 @@ name|i
 operator|++
 control|)
 block|{
+comment|// LUCENE 4 UPGRADE: For leave acceptedDocs null, until we figure out how to deal with deleted docs...
 specifier|final
 name|DocIdSet
 name|disi
@@ -618,7 +662,9 @@ name|mustFilters
 argument_list|,
 name|i
 argument_list|,
-name|reader
+name|context
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 if|if
@@ -644,7 +690,10 @@ operator|=
 operator|new
 name|FixedBitSet
 argument_list|(
+name|context
+operator|.
 name|reader
+argument_list|()
 operator|.
 name|maxDoc
 argument_list|()
@@ -1212,20 +1261,10 @@ condition|)
 block|{
 for|for
 control|(
-name|int
-name|i
-init|=
-literal|0
-init|;
-name|i
-operator|<
+name|Filter
+name|filter
+range|:
 name|filters
-operator|.
-name|size
-argument_list|()
-condition|;
-name|i
-operator|++
 control|)
 block|{
 name|buffer
@@ -1246,12 +1285,7 @@ name|buffer
 operator|.
 name|append
 argument_list|(
-name|filters
-operator|.
-name|get
-argument_list|(
-name|i
-argument_list|)
+name|filter
 operator|.
 name|toString
 argument_list|()
