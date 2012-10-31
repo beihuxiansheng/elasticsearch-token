@@ -407,12 +407,17 @@ argument_list|)
 argument_list|)
 condition|)
 block|{
+comment|// LUCENE 4 UPGRADE: Is this the right IOContext?
 name|IndexInput
 name|in
 init|=
 name|openInput
 argument_list|(
 name|name
+argument_list|,
+name|IOContext
+operator|.
+name|READONCE
 argument_list|)
 decl_stmt|;
 try|try
