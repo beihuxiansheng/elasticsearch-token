@@ -454,6 +454,17 @@ operator|=
 name|index
 expr_stmt|;
 block|}
+DECL|method|getTerms
+specifier|public
+name|Term
+index|[]
+name|getTerms
+parameter_list|()
+block|{
+return|return
+name|filterTerms
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|getDocIdSet
