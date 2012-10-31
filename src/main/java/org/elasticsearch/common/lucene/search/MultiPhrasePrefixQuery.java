@@ -20,6 +20,20 @@ end_package
 
 begin_import
 import|import
+name|gnu
+operator|.
+name|trove
+operator|.
+name|set
+operator|.
+name|hash
+operator|.
+name|THashSet
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -583,14 +597,14 @@ argument_list|(
 name|sizeMinus1
 argument_list|)
 decl_stmt|;
-name|List
+name|Set
 argument_list|<
 name|Term
 argument_list|>
 name|terms
 init|=
 operator|new
-name|ArrayList
+name|THashSet
 argument_list|<
 name|Term
 argument_list|>
@@ -675,7 +689,7 @@ specifier|private
 name|void
 name|getPrefixTerms
 parameter_list|(
-name|List
+name|Set
 argument_list|<
 name|Term
 argument_list|>
@@ -692,6 +706,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// SlowCompositeReaderWrapper could be used... but this would merge all terms from each segment into one terms
+comment|// instance, which is very expensive. Therefore I think it is better to iterate over each leaf individually.
 name|TermsEnum
 name|termsEnum
 init|=
@@ -799,6 +815,7 @@ control|)
 block|{
 if|if
 condition|(
+operator|!
 name|StringHelper
 operator|.
 name|startsWith
