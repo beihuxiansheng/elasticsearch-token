@@ -258,6 +258,8 @@ operator|.
 name|getDocIdSet
 argument_list|(
 name|context
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
