@@ -58,6 +58,8 @@ name|lucene
 operator|.
 name|analysis
 operator|.
+name|core
+operator|.
 name|KeywordAnalyzer
 import|;
 end_import
@@ -764,7 +766,7 @@ name|add
 argument_list|(
 name|foundDocument
 operator|.
-name|getFieldable
+name|getField
 argument_list|(
 literal|"id"
 argument_list|)
@@ -1391,8 +1393,6 @@ name|IOUtils
 operator|.
 name|close
 argument_list|(
-name|indexSearcher
-argument_list|,
 name|indexReader
 argument_list|,
 name|directory
