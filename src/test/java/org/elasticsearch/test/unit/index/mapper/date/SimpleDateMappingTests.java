@@ -471,13 +471,18 @@ operator|.
 name|rootDoc
 argument_list|()
 operator|.
-name|getFieldable
+name|getField
 argument_list|(
 literal|"date_field"
 argument_list|)
 operator|.
-name|tokenStreamValue
+name|tokenStream
+argument_list|(
+name|defaultMapper
+operator|.
+name|indexAnalyzer
 argument_list|()
+argument_list|)
 argument_list|,
 name|notNullValue
 argument_list|()
@@ -799,7 +804,7 @@ operator|.
 name|rootDoc
 argument_list|()
 operator|.
-name|getFieldable
+name|getField
 argument_list|(
 literal|"field1"
 argument_list|)
@@ -815,7 +820,7 @@ operator|.
 name|rootDoc
 argument_list|()
 operator|.
-name|getFieldable
+name|getField
 argument_list|(
 literal|"field2"
 argument_list|)
@@ -1005,7 +1010,7 @@ operator|.
 name|rootDoc
 argument_list|()
 operator|.
-name|getFieldable
+name|getField
 argument_list|(
 literal|"field3"
 argument_list|)

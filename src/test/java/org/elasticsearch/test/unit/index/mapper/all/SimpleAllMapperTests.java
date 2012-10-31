@@ -343,7 +343,7 @@ name|AllField
 operator|)
 name|doc
 operator|.
-name|getFieldable
+name|getField
 argument_list|(
 literal|"_all"
 argument_list|)
@@ -538,7 +538,7 @@ name|AllField
 operator|)
 name|doc
 operator|.
-name|getFieldable
+name|getField
 argument_list|(
 literal|"_all"
 argument_list|)
@@ -733,7 +733,7 @@ name|AllField
 operator|)
 name|doc
 operator|.
-name|getFieldable
+name|getField
 argument_list|(
 literal|"_all"
 argument_list|)
@@ -954,7 +954,7 @@ name|AllField
 operator|)
 name|doc
 operator|.
-name|getFieldable
+name|getField
 argument_list|(
 literal|"_all"
 argument_list|)
@@ -1111,7 +1111,7 @@ name|AllField
 operator|)
 name|doc
 operator|.
-name|getFieldable
+name|getField
 argument_list|(
 literal|"_all"
 argument_list|)
@@ -1305,7 +1305,7 @@ name|AllField
 operator|)
 name|doc
 operator|.
-name|getFieldable
+name|getField
 argument_list|(
 literal|"_all"
 argument_list|)
