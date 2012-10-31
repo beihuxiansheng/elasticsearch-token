@@ -1444,11 +1444,6 @@ operator|.
 name|length
 argument_list|()
 argument_list|,
-name|file
-operator|.
-name|lastModified
-argument_list|()
-argument_list|,
 name|checksums
 operator|.
 name|get
