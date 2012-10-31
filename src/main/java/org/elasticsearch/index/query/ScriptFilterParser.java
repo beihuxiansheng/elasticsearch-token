@@ -1021,9 +1021,6 @@ operator|.
 name|setNextReader
 argument_list|(
 name|context
-operator|.
-name|reader
-argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// LUCENE 4 UPGRADE: we can simply wrap this here since it is not cacheable and if we are not top level we will get a null passed anyway

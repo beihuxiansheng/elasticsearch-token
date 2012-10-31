@@ -28,7 +28,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|AtomicReaderContext
 import|;
 end_import
 
@@ -229,11 +229,8 @@ specifier|public
 name|void
 name|setNextReader
 parameter_list|(
-name|IndexReader
-name|reader
-parameter_list|,
-name|int
-name|docBase
+name|AtomicReaderContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -242,9 +239,7 @@ name|collector
 operator|.
 name|setNextReader
 argument_list|(
-name|reader
-argument_list|,
-name|docBase
+name|context
 argument_list|)
 expr_stmt|;
 name|docSet
@@ -253,13 +248,16 @@ name|DocSets
 operator|.
 name|convert
 argument_list|(
+name|context
+operator|.
 name|reader
+argument_list|()
 argument_list|,
 name|filter
 operator|.
 name|getDocIdSet
 argument_list|(
-name|reader
+name|context
 argument_list|)
 argument_list|)
 expr_stmt|;

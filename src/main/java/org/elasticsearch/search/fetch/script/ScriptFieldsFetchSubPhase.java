@@ -333,7 +333,7 @@ name|setNextReader
 argument_list|(
 name|hitContext
 operator|.
-name|reader
+name|readerContext
 argument_list|()
 argument_list|)
 expr_stmt|;
