@@ -7838,6 +7838,9 @@ argument_list|)
 operator|.
 name|term
 argument_list|()
+operator|.
+name|string
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -7879,6 +7882,9 @@ literal|1
 argument_list|)
 operator|.
 name|term
+argument_list|()
+operator|.
+name|string
 argument_list|()
 argument_list|,
 name|equalTo
