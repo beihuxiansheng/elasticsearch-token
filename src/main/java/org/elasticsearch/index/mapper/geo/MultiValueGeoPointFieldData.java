@@ -22,6 +22,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|BytesRef
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -652,12 +666,16 @@ expr_stmt|;
 block|}
 break|break;
 block|}
+comment|//LUCENE 4 UPGRADE: Make GeoHashUtils works with BytesRef instead of String
 name|proc
 operator|.
 name|onValue
 argument_list|(
 name|docId
 argument_list|,
+operator|new
+name|BytesRef
+argument_list|(
 name|GeoHashUtils
 operator|.
 name|encode
@@ -671,6 +689,7 @@ name|lon
 index|[
 name|loc
 index|]
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
