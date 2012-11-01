@@ -214,7 +214,9 @@ argument_list|(
 operator|new
 name|StoredField
 argument_list|(
-literal|"_uid"
+name|UidFieldMapper
+operator|.
+name|NAME
 argument_list|,
 name|uid
 argument_list|)

@@ -212,7 +212,9 @@ argument_list|(
 operator|new
 name|StoredField
 argument_list|(
-literal|"_source"
+name|SourceFieldMapper
+operator|.
+name|NAME
 argument_list|,
 name|source
 argument_list|)
