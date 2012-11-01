@@ -311,7 +311,7 @@ name|lastIndexVersion
 operator|!=
 name|indexCommit
 operator|.
-name|getVersion
+name|getGeneration
 argument_list|()
 return|;
 block|}

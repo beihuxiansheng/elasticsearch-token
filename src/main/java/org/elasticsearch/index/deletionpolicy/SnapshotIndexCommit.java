@@ -200,7 +200,7 @@ name|deletionPolicy
 operator|.
 name|release
 argument_list|(
-name|getVersion
+name|getGeneration
 argument_list|()
 argument_list|)
 return|;
@@ -221,7 +221,7 @@ name|deletionPolicy
 operator|.
 name|isHeld
 argument_list|(
-name|getVersion
+name|getGeneration
 argument_list|()
 argument_list|)
 condition|)

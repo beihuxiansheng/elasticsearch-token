@@ -1582,7 +1582,7 @@ name|lastIndexVersion
 operator|!=
 name|snapshotIndexCommit
 operator|.
-name|getVersion
+name|getGeneration
 argument_list|()
 operator|||
 name|lastTranslogId
@@ -1641,7 +1641,7 @@ name|lastIndexVersion
 operator|=
 name|snapshotIndexCommit
 operator|.
-name|getVersion
+name|getGeneration
 argument_list|()
 expr_stmt|;
 name|lastTranslogId
