@@ -962,7 +962,7 @@ name|includeInAll
 argument_list|,
 name|mapper
 operator|.
-name|index
+name|indexed
 argument_list|()
 argument_list|)
 return|;
@@ -976,10 +976,8 @@ parameter_list|(
 name|Boolean
 name|specificIncludeInAll
 parameter_list|,
-name|Field
-operator|.
-name|Index
-name|index
+name|boolean
+name|indexed
 parameter_list|)
 block|{
 if|if
@@ -1007,13 +1005,7 @@ literal|null
 condition|)
 block|{
 return|return
-name|index
-operator|!=
-name|Field
-operator|.
-name|Index
-operator|.
-name|NO
+name|indexed
 return|;
 block|}
 return|return
