@@ -2012,11 +2012,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|fieldVisitor
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
 name|Document
 name|doc
 decl_stmt|;
