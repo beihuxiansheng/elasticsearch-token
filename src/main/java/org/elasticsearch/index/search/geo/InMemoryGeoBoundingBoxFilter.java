@@ -28,7 +28,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|AtomicReaderContext
 import|;
 end_import
 
@@ -57,6 +57,20 @@ operator|.
 name|search
 operator|.
 name|Filter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Bits
 import|;
 end_import
 
@@ -251,8 +265,11 @@ specifier|public
 name|DocIdSet
 name|getDocIdSet
 parameter_list|(
-name|IndexReader
-name|reader
+name|AtomicReaderContext
+name|context
+parameter_list|,
+name|Bits
+name|acceptedDocs
 parameter_list|)
 throws|throws
 name|IOException
@@ -272,7 +289,10 @@ name|GeoPointFieldDataType
 operator|.
 name|TYPE
 argument_list|,
+name|context
+operator|.
 name|reader
+argument_list|()
 argument_list|,
 name|fieldName
 argument_list|)
@@ -293,7 +313,10 @@ return|return
 operator|new
 name|Meridian180GeoBoundingBoxDocSet
 argument_list|(
+name|context
+operator|.
 name|reader
+argument_list|()
 operator|.
 name|maxDoc
 argument_list|()
@@ -312,7 +335,10 @@ return|return
 operator|new
 name|GeoBoundingBoxDocSet
 argument_list|(
+name|context
+operator|.
 name|reader
+argument_list|()
 operator|.
 name|maxDoc
 argument_list|()
