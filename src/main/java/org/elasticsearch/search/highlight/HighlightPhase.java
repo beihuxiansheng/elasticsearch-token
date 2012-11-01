@@ -1208,9 +1208,6 @@ name|textsToHighlight
 operator|=
 operator|(
 name|List
-argument_list|<
-name|Object
-argument_list|>
 operator|)
 name|fieldVisitor
 operator|.

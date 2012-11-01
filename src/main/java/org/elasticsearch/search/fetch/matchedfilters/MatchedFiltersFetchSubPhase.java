@@ -371,10 +371,13 @@ name|getDocIdSet
 argument_list|(
 name|hitContext
 operator|.
-name|reader
+name|readerContext
 argument_list|()
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
+comment|// null is fine, since we filter by hitContext.docId()
 if|if
 condition|(
 name|docIdSet
