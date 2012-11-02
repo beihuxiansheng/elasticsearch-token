@@ -176,6 +176,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|internal
+operator|.
+name|UidFieldMapper
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -671,23 +687,11 @@ name|name
 argument_list|,
 name|uid
 argument_list|,
-name|Field
+name|UidFieldMapper
 operator|.
-name|Store
+name|Defaults
 operator|.
-name|YES
-argument_list|,
-name|Field
-operator|.
-name|Index
-operator|.
-name|ANALYZED
-argument_list|,
-name|Field
-operator|.
-name|TermVector
-operator|.
-name|NO
+name|UID_FIELD_TYPE
 argument_list|)
 expr_stmt|;
 name|this
@@ -702,7 +706,6 @@ name|version
 operator|=
 name|version
 expr_stmt|;
-comment|//        this.indexOptions = FieldInfo.IndexOptions.DOCS_AND_FREQS_AND_POSITIONS;
 name|this
 operator|.
 name|tokenStream
