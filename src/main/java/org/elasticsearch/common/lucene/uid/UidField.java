@@ -28,6 +28,20 @@ name|lucene
 operator|.
 name|analysis
 operator|.
+name|Analyzer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|analysis
+operator|.
 name|TokenStream
 import|;
 end_import
@@ -286,6 +300,7 @@ block|}
 block|}
 comment|// this works fine for nested docs since they don't have the payload which has the version
 comment|// so we iterate till we find the one with the payload
+comment|// LUCENE 4 UPGRADE: We can get rid of the do while loop, since there is only one _uid value (live docs are taken into account)
 DECL|method|loadDocIdAndVersion
 specifier|public
 specifier|static
@@ -323,6 +338,10 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|uid
+operator|==
+literal|null
+operator|||
 name|uid
 operator|.
 name|nextDoc
@@ -488,6 +507,7 @@ return|;
 block|}
 block|}
 comment|/**      * Load the version for the uid from the reader, returning -1 if no doc exists, or -2 if      * no version is available (for backward comp.)      */
+comment|// LUCENE 4 UPGRADE: We can get rid of the do while loop, since there is only one _uid value (live docs are taken into account)
 DECL|method|loadVersion
 specifier|public
 specifier|static
@@ -518,6 +538,10 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|uid
+operator|==
+literal|null
+operator|||
 name|uid
 operator|.
 name|nextDoc
@@ -661,12 +685,6 @@ specifier|private
 name|long
 name|version
 decl_stmt|;
-DECL|field|tokenStream
-specifier|private
-specifier|final
-name|UidPayloadTokenStream
-name|tokenStream
-decl_stmt|;
 DECL|method|UidField
 specifier|public
 name|UidField
@@ -684,8 +702,6 @@ block|{
 name|super
 argument_list|(
 name|name
-argument_list|,
-name|uid
 argument_list|,
 name|UidFieldMapper
 operator|.
@@ -799,11 +815,16 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|tokenStreamValue
+DECL|method|tokenStream
 specifier|public
 name|TokenStream
-name|tokenStreamValue
-parameter_list|()
+name|tokenStream
+parameter_list|(
+name|Analyzer
+name|analyzer
+parameter_list|)
+throws|throws
+name|IOException
 block|{
 return|return
 name|tokenStream
