@@ -1012,14 +1012,6 @@ name|of
 argument_list|(
 name|value
 argument_list|)
-argument_list|,
-name|context
-operator|.
-name|indexCache
-argument_list|()
-operator|.
-name|bloomCache
-argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// no need for constant score filter, since we don't cache the filter, and it always takes deletes into account
@@ -1083,14 +1075,6 @@ name|of
 argument_list|(
 name|value
 argument_list|)
-argument_list|,
-name|context
-operator|.
-name|indexCache
-argument_list|()
-operator|.
-name|bloomCache
-argument_list|()
 argument_list|)
 return|;
 block|}

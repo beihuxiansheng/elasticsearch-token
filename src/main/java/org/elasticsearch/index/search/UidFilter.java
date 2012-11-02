@@ -26,63 +26,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReader
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|AtomicReaderContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|DocsEnum
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|Term
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|TermsEnum
+name|*
 import|;
 end_import
 
@@ -211,6 +155,10 @@ operator|.
 name|List
 import|;
 end_import
+
+begin_comment
+comment|// LUCENE 4 UPGRADE: we can potentially use TermsFilter here, specifically, now when we don't do bloom filter, batching, and with optimization on single field terms
+end_comment
 
 begin_class
 DECL|class|UidFilter
@@ -347,7 +295,6 @@ comment|// - If we have a single id, we can create a SingleIdDocIdSet to save on
 comment|// - We can use sorted int array DocIdSet to reserve memory compared to OpenBitSet in some cases
 annotation|@
 name|Override
-comment|// LUCENE 4 UPGRADE: this filter does respect acceptDocs maybe we need to change this
 DECL|method|getDocIdSet
 specifier|public
 name|DocIdSet
@@ -454,8 +401,6 @@ operator|.
 name|NO_MORE_DOCS
 condition|)
 block|{
-comment|// no need for batching, its on the UID, there will be only
-comment|// one doc
 if|if
 condition|(
 name|set
