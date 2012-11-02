@@ -938,6 +938,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
+comment|// LUCENE 4 UPGRADE: when ew move into feature mode, we need to support DOCS_AND_FREQS_AND_POSITIONS_AND_OFFSETS
 DECL|method|nodeIndexOptionValue
 specifier|private
 specifier|static
