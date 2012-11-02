@@ -70,7 +70,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|DirectoryReader
 import|;
 end_import
 
@@ -195,6 +195,20 @@ operator|.
 name|stream
 operator|.
 name|BytesStreamInput
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|lucene
+operator|.
+name|Lucene
 import|;
 end_import
 
@@ -3752,7 +3766,7 @@ try|try
 block|{
 if|if
 condition|(
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|indexExists
 argument_list|(
@@ -3765,15 +3779,18 @@ condition|)
 block|{
 name|version
 operator|=
-name|IndexReader
+name|Lucene
 operator|.
-name|getCurrentVersion
+name|readSegmentInfos
 argument_list|(
 name|store
 operator|.
 name|directory
 argument_list|()
 argument_list|)
+operator|.
+name|getVersion
+argument_list|()
 expr_stmt|;
 block|}
 block|}
