@@ -421,6 +421,8 @@ literal|"ignore_indices"
 argument_list|)
 condition|)
 block|{
+name|ignoreIndices
+operator|=
 name|IgnoreIndices
 operator|.
 name|fromString
