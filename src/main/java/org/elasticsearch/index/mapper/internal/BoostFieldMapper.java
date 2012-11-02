@@ -1490,10 +1490,7 @@ condition|)
 block|{
 name|context
 operator|.
-name|doc
-argument_list|()
-operator|.
-name|setBoost
+name|docBoost
 argument_list|(
 name|value
 argument_list|)
@@ -1545,10 +1542,7 @@ return|;
 block|}
 name|context
 operator|.
-name|doc
-argument_list|()
-operator|.
-name|setBoost
+name|docBoost
 argument_list|(
 name|value
 argument_list|)
