@@ -290,7 +290,7 @@ name|term
 operator|=
 name|termsEnum
 operator|.
-name|term
+name|next
 argument_list|()
 control|)
 block|{
@@ -411,6 +411,9 @@ index|]
 operator|++
 expr_stmt|;
 block|}
+name|t
+operator|++
+expr_stmt|;
 block|}
 block|}
 catch|catch

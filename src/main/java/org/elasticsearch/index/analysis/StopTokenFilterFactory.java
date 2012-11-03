@@ -304,10 +304,7 @@ name|onOrAfter
 argument_list|(
 name|Version
 operator|.
-name|parseLeniently
-argument_list|(
-literal|"LUCENE_29"
-argument_list|)
+name|LUCENE_30
 argument_list|)
 argument_list|)
 expr_stmt|;
