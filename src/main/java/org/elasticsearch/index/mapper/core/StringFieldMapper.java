@@ -625,6 +625,12 @@ if|if
 condition|(
 operator|!
 name|omitNormsSet
+operator|&&
+name|boost
+operator|==
+name|Defaults
+operator|.
+name|BOOST
 condition|)
 block|{
 name|fieldType
