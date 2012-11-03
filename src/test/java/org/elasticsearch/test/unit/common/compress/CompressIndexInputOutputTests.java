@@ -2228,7 +2228,7 @@ name|reader
 operator|.
 name|document
 argument_list|(
-name|i
+name|doc
 argument_list|,
 name|visitor
 argument_list|)
