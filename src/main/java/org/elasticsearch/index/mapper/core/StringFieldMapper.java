@@ -317,15 +317,6 @@ static|static
 block|{
 name|STRING_FIELD_TYPE
 operator|.
-name|setIndexOptions
-argument_list|(
-name|IndexOptions
-operator|.
-name|DOCS_ONLY
-argument_list|)
-expr_stmt|;
-name|STRING_FIELD_TYPE
-operator|.
 name|freeze
 argument_list|()
 expr_stmt|;
@@ -623,6 +614,7 @@ operator|.
 name|indexed
 argument_list|()
 operator|&&
+operator|!
 name|fieldType
 operator|.
 name|tokenized
