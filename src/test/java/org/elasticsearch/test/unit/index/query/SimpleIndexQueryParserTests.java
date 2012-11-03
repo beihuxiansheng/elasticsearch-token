@@ -1030,7 +1030,9 @@ name|longToPrefixCoded
 argument_list|(
 name|val
 argument_list|,
-literal|0
+name|NumericUtils
+operator|.
+name|PRECISION_STEP_DEFAULT
 argument_list|,
 name|bytesRef
 argument_list|)
