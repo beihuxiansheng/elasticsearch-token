@@ -680,6 +680,14 @@ argument_list|,
 name|parentId
 argument_list|)
 decl_stmt|;
+name|Bits
+name|liveDocs
+init|=
+name|indexReader
+operator|.
+name|getLiveDocs
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|parentDocId
@@ -687,15 +695,18 @@ operator|!=
 operator|-
 literal|1
 operator|&&
-name|indexReader
-operator|.
-name|getLiveDocs
-argument_list|()
+operator|(
+name|liveDocs
+operator|==
+literal|null
+operator|||
+name|liveDocs
 operator|.
 name|get
 argument_list|(
 name|parentDocId
 argument_list|)
+operator|)
 condition|)
 block|{
 comment|// we found a match, add it and break

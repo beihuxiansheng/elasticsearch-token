@@ -388,6 +388,10 @@ parameter_list|)
 block|{
 return|return
 name|liveDocs
+operator|==
+literal|null
+operator|||
+name|liveDocs
 operator|.
 name|get
 argument_list|(
