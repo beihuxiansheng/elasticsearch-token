@@ -731,9 +731,9 @@ name|fieldType
 operator|.
 name|omitNorms
 argument_list|()
-operator|||
+operator|&&
 name|boost
-operator|!=
+operator|==
 literal|1.0f
 argument_list|)
 expr_stmt|;
