@@ -1709,6 +1709,13 @@ return|return
 name|readText
 argument_list|()
 return|;
+case|case
+literal|16
+case|:
+return|return
+name|readShort
+argument_list|()
+return|;
 default|default:
 throw|throw
 operator|new
