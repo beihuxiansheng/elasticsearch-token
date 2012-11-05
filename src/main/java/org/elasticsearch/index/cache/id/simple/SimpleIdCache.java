@@ -76,16 +76,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|bytes
@@ -657,19 +647,10 @@ decl_stmt|;
 if|if
 condition|(
 name|terms
-operator|==
+operator|!=
 literal|null
 condition|)
 block|{
-comment|// Should not happen
-throw|throw
-operator|new
-name|ElasticSearchIllegalArgumentException
-argument_list|(
-literal|"Id cache needs _uid field"
-argument_list|)
-throw|;
-block|}
 name|TermsEnum
 name|termsEnum
 init|=
@@ -841,6 +822,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
+block|}
 comment|// now, go and load the docId->parentId map
 for|for
 control|(
@@ -907,19 +889,10 @@ decl_stmt|;
 if|if
 condition|(
 name|terms
-operator|==
+operator|!=
 literal|null
 condition|)
 block|{
-comment|// Should not happen
-throw|throw
-operator|new
-name|ElasticSearchIllegalArgumentException
-argument_list|(
-literal|"Id cache needs _parent field"
-argument_list|)
-throw|;
-block|}
 name|TermsEnum
 name|termsEnum
 init|=
@@ -1116,6 +1089,7 @@ operator|.
 name|t
 operator|++
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
