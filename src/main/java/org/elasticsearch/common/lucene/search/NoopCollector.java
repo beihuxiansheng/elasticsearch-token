@@ -40,20 +40,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
-operator|.
-name|IndexReader
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|search
 operator|.
 name|Collector
@@ -145,13 +131,7 @@ name|context
 parameter_list|)
 throws|throws
 name|IOException
-block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|()
-throw|;
-block|}
+block|{     }
 annotation|@
 name|Override
 DECL|method|acceptsDocsOutOfOrder
