@@ -44,7 +44,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|MultipleFieldsVisitor
+name|AbstractMultipleFieldsVisitor
 import|;
 end_import
 
@@ -84,7 +84,7 @@ specifier|public
 class|class
 name|AllButSourceFieldVisitor
 extends|extends
-name|MultipleFieldsVisitor
+name|AbstractMultipleFieldsVisitor
 block|{
 annotation|@
 name|Override
@@ -120,12 +120,9 @@ name|NO
 return|;
 block|}
 return|return
-name|super
+name|Status
 operator|.
-name|needsField
-argument_list|(
-name|fieldInfo
-argument_list|)
+name|YES
 return|;
 block|}
 annotation|@

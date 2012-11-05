@@ -59,6 +59,14 @@ name|Document
 name|createDocument
 parameter_list|()
 function_decl|;
+comment|// LUCENE 4 UPGRADE: Added for now for compatibility with Selectors
+DECL|method|reset
+specifier|public
+specifier|abstract
+name|void
+name|reset
+parameter_list|()
+function_decl|;
 block|}
 end_class
 
