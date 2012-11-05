@@ -233,6 +233,11 @@ literal|"a bb ccc dddd eeeee"
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|test
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
 name|CharTermAttribute
 name|termAttribute
 init|=
