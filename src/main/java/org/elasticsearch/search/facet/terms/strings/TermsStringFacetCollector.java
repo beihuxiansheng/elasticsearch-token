@@ -1492,6 +1492,7 @@ argument_list|(
 name|docId
 argument_list|)
 expr_stmt|;
+comment|// LUCENE 4 UPGRADE: needs optimization
 name|script
 operator|.
 name|setNextVar
@@ -1499,6 +1500,9 @@ argument_list|(
 literal|"term"
 argument_list|,
 name|value
+operator|.
+name|utf8ToString
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|Object
