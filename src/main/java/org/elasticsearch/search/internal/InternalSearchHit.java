@@ -1320,6 +1320,7 @@ name|sortValues
 parameter_list|)
 block|{
 comment|// LUCENE 4 UPGRADE: There must be a better way
+comment|// we want to convert to a Text object here, and not BytesRef
 if|if
 condition|(
 name|sortValues
@@ -2410,14 +2411,14 @@ name|id
 operator|=
 name|in
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 expr_stmt|;
 name|type
 operator|=
 name|in
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 expr_stmt|;
 name|version
@@ -3228,7 +3229,7 @@ index|]
 operator|=
 name|in
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 expr_stmt|;
 block|}
@@ -3373,24 +3374,15 @@ operator|==
 literal|9
 condition|)
 block|{
-comment|// LUCENE 4 UPGRADE: There must be a better way
 name|sortValues
 index|[
 name|i
 index|]
 operator|=
-operator|new
-name|StringAndBytesText
-argument_list|(
-operator|new
-name|BytesArray
-argument_list|(
 name|in
 operator|.
-name|readBytesRef
+name|readText
 argument_list|()
-argument_list|)
-argument_list|)
 expr_stmt|;
 block|}
 else|else
@@ -3453,7 +3445,7 @@ index|]
 operator|=
 name|in
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 expr_stmt|;
 block|}
@@ -3598,14 +3590,14 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 name|id
 argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 name|type
 argument_list|)
@@ -3836,7 +3828,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 operator|(
 name|String
@@ -4065,11 +4057,9 @@ block|}
 elseif|else
 if|if
 condition|(
-name|type
-operator|==
-name|BytesRef
-operator|.
-name|class
+name|sortValue
+operator|instanceof
+name|Text
 condition|)
 block|{
 name|out
@@ -4084,10 +4074,10 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeBytesRef
+name|writeText
 argument_list|(
 operator|(
-name|BytesRef
+name|Text
 operator|)
 name|sortValue
 argument_list|)
@@ -4148,7 +4138,7 @@ control|)
 block|{
 name|out
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 name|matchedFilter
 argument_list|)
