@@ -1918,8 +1918,10 @@ elseif|else
 if|if
 condition|(
 name|value
-operator|instanceof
+operator|==
 name|Short
+operator|.
+name|class
 condition|)
 block|{
 name|writeByte
