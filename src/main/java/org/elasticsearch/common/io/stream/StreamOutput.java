@@ -1917,7 +1917,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|value
+name|type
 operator|==
 name|Short
 operator|.
