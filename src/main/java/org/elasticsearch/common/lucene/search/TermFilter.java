@@ -214,7 +214,6 @@ return|return
 literal|null
 return|;
 block|}
-comment|// LUCENE 4 UPGRADE: For leave acceptedDocs null, until we figure out how to deal with deleted docs...
 name|DocsEnum
 name|docsEnum
 init|=
@@ -222,7 +221,7 @@ name|termsEnum
 operator|.
 name|docs
 argument_list|(
-literal|null
+name|acceptDocs
 argument_list|,
 literal|null
 argument_list|)
