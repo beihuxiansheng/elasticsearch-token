@@ -477,14 +477,10 @@ name|info
 parameter_list|()
 block|{
 return|return
-operator|new
-name|HttpInfo
-argument_list|(
 name|transport
 operator|.
-name|boundAddress
+name|info
 argument_list|()
-argument_list|)
 return|;
 block|}
 DECL|method|stats

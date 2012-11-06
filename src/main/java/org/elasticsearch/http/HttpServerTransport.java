@@ -62,6 +62,11 @@ name|BoundTransportAddress
 name|boundAddress
 parameter_list|()
 function_decl|;
+DECL|method|info
+name|HttpInfo
+name|info
+parameter_list|()
+function_decl|;
 DECL|method|stats
 name|HttpStats
 name|stats
