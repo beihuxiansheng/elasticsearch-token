@@ -26,6 +26,20 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|BytesRef
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|PriorityQueue
 import|;
 end_import
@@ -61,26 +75,6 @@ operator|.
 name|io
 operator|.
 name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|text
-operator|.
-name|Collator
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Locale
 import|;
 end_import
 
@@ -239,7 +233,7 @@ return|return
 name|fields
 return|;
 block|}
-comment|/**      * Returns whether<code>a</code> is less relevant than<code>b</code>.      *      * @param a ScoreDoc      * @param b ScoreDoc      * @return<code>true</code> if document<code>a</code> should be sorted after document<code>b</code>.      */
+comment|/**      * Returns whether<code>a</code> is less relevant than<code>b</code>.      *      * @param docA ScoreDoc      * @param docB ScoreDoc      * @return<code>true</code> if document<code>a</code> should be sorted after document<code>b</code>.      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -320,11 +314,11 @@ name|STRING
 condition|)
 block|{
 specifier|final
-name|String
+name|BytesRef
 name|s1
 init|=
 operator|(
-name|String
+name|BytesRef
 operator|)
 name|docA
 operator|.
@@ -334,11 +328,11 @@ name|i
 index|]
 decl_stmt|;
 specifier|final
-name|String
+name|BytesRef
 name|s2
 init|=
 operator|(
-name|String
+name|BytesRef
 operator|)
 name|docB
 operator|.

@@ -246,11 +246,12 @@ name|buildSingleValue
 argument_list|(
 name|field
 argument_list|,
-operator|new
-name|int
-index|[
+name|ordinals
+operator|.
+name|get
+argument_list|(
 literal|0
-index|]
+argument_list|)
 argument_list|)
 return|;
 comment|// Return empty field data if field doesn't exists.

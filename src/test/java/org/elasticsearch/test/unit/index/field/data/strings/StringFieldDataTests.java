@@ -601,9 +601,6 @@ argument_list|)
 operator|.
 name|getValue
 argument_list|()
-operator|.
-name|utf8ToString
-argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -683,9 +680,6 @@ argument_list|()
 index|[
 literal|0
 index|]
-operator|.
-name|utf8ToString
-argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
