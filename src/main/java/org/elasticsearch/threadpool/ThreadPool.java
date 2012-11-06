@@ -1380,6 +1380,12 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
+name|int
+name|largest
+init|=
+operator|-
+literal|1
+decl_stmt|;
 if|if
 condition|(
 name|holder
@@ -1421,6 +1427,13 @@ operator|=
 name|threadPoolExecutor
 operator|.
 name|getActiveCount
+argument_list|()
+expr_stmt|;
+name|largest
+operator|=
+name|threadPoolExecutor
+operator|.
+name|getLargestPoolSize
 argument_list|()
 expr_stmt|;
 name|RejectedExecutionHandler
@@ -1470,6 +1483,8 @@ argument_list|,
 name|active
 argument_list|,
 name|rejected
+argument_list|,
+name|largest
 argument_list|)
 argument_list|)
 expr_stmt|;
