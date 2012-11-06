@@ -422,13 +422,6 @@ operator|.
 name|length
 argument_list|)
 expr_stmt|;
-name|writeVInt
-argument_list|(
-name|bytes
-operator|.
-name|offset
-argument_list|)
-expr_stmt|;
 name|write
 argument_list|(
 name|bytes
