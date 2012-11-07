@@ -1136,6 +1136,9 @@ name|loc
 init|=
 name|index
 decl_stmt|;
+name|index
+operator|++
+expr_stmt|;
 if|if
 condition|(
 name|loc
@@ -1197,9 +1200,6 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
-name|index
-operator|++
-expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
