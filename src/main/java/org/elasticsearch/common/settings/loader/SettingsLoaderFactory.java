@@ -70,6 +70,13 @@ name|endsWith
 argument_list|(
 literal|".yml"
 argument_list|)
+operator|||
+name|resourceName
+operator|.
+name|endsWith
+argument_list|(
+literal|".yaml"
+argument_list|)
 condition|)
 block|{
 return|return
