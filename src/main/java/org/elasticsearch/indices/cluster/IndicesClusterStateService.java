@@ -2509,6 +2509,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// we don't apply default, since it has been applied when the mappings were parsed initially
 name|mapperService
 operator|.
 name|add
@@ -2519,6 +2520,8 @@ name|mappingSource
 operator|.
 name|string
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 if|if
@@ -2648,6 +2651,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// we don't apply default, since it has been applied when the mappings were parsed initially
 name|mapperService
 operator|.
 name|add
@@ -2658,6 +2662,8 @@ name|mappingSource
 operator|.
 name|string
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 if|if

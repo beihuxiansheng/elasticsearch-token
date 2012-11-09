@@ -820,6 +820,7 @@ name|type
 argument_list|)
 condition|)
 block|{
+comment|// don't apply the default mapping, it has been applied when the mapping was created
 name|indexService
 operator|.
 name|mapperService
@@ -844,6 +845,8 @@ argument_list|()
 operator|.
 name|string
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -1246,6 +1249,8 @@ argument_list|()
 operator|.
 name|string
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -2090,6 +2095,8 @@ argument_list|()
 operator|.
 name|string
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -2578,6 +2585,7 @@ argument_list|(
 name|index
 argument_list|)
 decl_stmt|;
+comment|// don't apply default mapping, we already applied them when we parsed it
 name|indexService
 operator|.
 name|mapperService
@@ -2597,6 +2605,8 @@ argument_list|()
 operator|.
 name|string
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 if|if

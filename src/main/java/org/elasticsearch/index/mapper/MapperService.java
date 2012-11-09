@@ -1150,6 +1150,9 @@ name|type
 parameter_list|,
 name|String
 name|mappingSource
+parameter_list|,
+name|boolean
+name|applyDefault
 parameter_list|)
 block|{
 if|if
@@ -1214,6 +1217,8 @@ argument_list|(
 name|type
 argument_list|,
 name|mappingSource
+argument_list|,
+name|applyDefault
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2388,7 +2393,7 @@ name|map
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Just parses and returns the mapper without adding it.      */
+comment|/**      * Just parses and returns the mapper without adding it, while still applying default mapping.      */
 DECL|method|parse
 specifier|public
 name|DocumentMapper
@@ -2404,6 +2409,34 @@ throws|throws
 name|MapperParsingException
 block|{
 return|return
+name|parse
+argument_list|(
+name|mappingType
+argument_list|,
+name|mappingSource
+argument_list|,
+literal|true
+argument_list|)
+return|;
+block|}
+DECL|method|parse
+specifier|public
+name|DocumentMapper
+name|parse
+parameter_list|(
+name|String
+name|mappingType
+parameter_list|,
+name|String
+name|mappingSource
+parameter_list|,
+name|boolean
+name|applyDefault
+parameter_list|)
+throws|throws
+name|MapperParsingException
+block|{
+return|return
 name|documentParser
 operator|.
 name|parse
@@ -2412,7 +2445,11 @@ name|mappingType
 argument_list|,
 name|mappingSource
 argument_list|,
+name|applyDefault
+condition|?
 name|defaultMappingSource
+else|:
+literal|null
 argument_list|)
 return|;
 block|}
@@ -2547,6 +2584,8 @@ argument_list|(
 name|type
 argument_list|,
 literal|null
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 return|return

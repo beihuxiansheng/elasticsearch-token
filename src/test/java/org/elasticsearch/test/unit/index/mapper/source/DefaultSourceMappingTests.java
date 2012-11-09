@@ -1385,6 +1385,8 @@ operator|.
 name|DEFAULT_MAPPING
 argument_list|,
 name|defaultMapping
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|DocumentMapper
@@ -1496,6 +1498,8 @@ operator|.
 name|DEFAULT_MAPPING
 argument_list|,
 name|defaultMapping
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|String
@@ -1545,6 +1549,8 @@ argument_list|(
 literal|"my_type"
 argument_list|,
 name|mapping
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|DocumentMapper

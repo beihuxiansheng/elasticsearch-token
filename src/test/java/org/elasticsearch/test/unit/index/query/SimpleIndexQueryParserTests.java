@@ -885,6 +885,8 @@ argument_list|(
 literal|"person"
 argument_list|,
 name|mapping
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|injector
