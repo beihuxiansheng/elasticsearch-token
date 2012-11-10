@@ -92,16 +92,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Map
 import|;
 end_import
@@ -123,7 +113,7 @@ literal|true
 decl_stmt|;
 DECL|field|tieBreaker
 specifier|private
-name|int
+name|float
 name|tieBreaker
 decl_stmt|;
 DECL|method|setUseDisMax
@@ -147,7 +137,7 @@ specifier|public
 name|void
 name|setTieBreaker
 parameter_list|(
-name|int
+name|float
 name|tieBreaker
 parameter_list|)
 block|{
