@@ -30,7 +30,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|AtomicReaderContext
 import|;
 end_import
 
@@ -527,11 +527,8 @@ specifier|protected
 name|void
 name|doSetNextReader
 parameter_list|(
-name|IndexReader
-name|reader
-parameter_list|,
-name|int
-name|docBase
+name|AtomicReaderContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -540,14 +537,14 @@ name|keyScript
 operator|.
 name|setNextReader
 argument_list|(
-name|reader
+name|context
 argument_list|)
 expr_stmt|;
 name|valueScript
 operator|.
 name|setNextReader
 argument_list|(
-name|reader
+name|context
 argument_list|)
 expr_stmt|;
 block|}

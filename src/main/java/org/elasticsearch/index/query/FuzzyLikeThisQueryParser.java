@@ -52,7 +52,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|search
+name|sandbox
+operator|.
+name|queries
 operator|.
 name|FuzzyLikeThisQuery
 import|;

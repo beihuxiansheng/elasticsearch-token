@@ -44,7 +44,21 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|AtomicReaderContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|BytesRef
 import|;
 end_import
 
@@ -408,7 +422,7 @@ specifier|private
 specifier|final
 name|ImmutableSet
 argument_list|<
-name|String
+name|BytesRef
 argument_list|>
 name|excluded
 decl_stmt|;
@@ -444,7 +458,7 @@ name|context
 parameter_list|,
 name|ImmutableSet
 argument_list|<
-name|String
+name|BytesRef
 argument_list|>
 name|excluded
 parameter_list|,
@@ -688,10 +702,14 @@ operator|.
 name|searcher
 argument_list|()
 operator|.
-name|subReaders
+name|getIndexReader
 argument_list|()
 operator|.
-name|length
+name|leaves
+argument_list|()
+operator|.
+name|size
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -702,11 +720,8 @@ specifier|protected
 name|void
 name|doSetNextReader
 parameter_list|(
-name|IndexReader
-name|reader
-parameter_list|,
-name|int
-name|docBase
+name|AtomicReaderContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -771,7 +786,10 @@ name|cache
 argument_list|(
 name|fieldDataType
 argument_list|,
+name|context
+operator|.
 name|reader
+argument_list|()
 argument_list|,
 name|indexFieldName
 argument_list|)
@@ -946,7 +964,7 @@ operator|.
 name|top
 argument_list|()
 decl_stmt|;
-name|String
+name|BytesRef
 name|value
 init|=
 name|agg
@@ -1043,6 +1061,7 @@ condition|)
 block|{
 continue|continue;
 block|}
+comment|// LUCENE 4 UPGRADE: use Lucene's RegexCapabilities
 if|if
 condition|(
 name|matcher
@@ -1055,6 +1074,9 @@ operator|.
 name|reset
 argument_list|(
 name|value
+operator|.
+name|utf8ToString
+argument_list|()
 argument_list|)
 operator|.
 name|matches
@@ -1065,13 +1087,13 @@ continue|continue;
 block|}
 name|InternalStringTermsFacet
 operator|.
-name|StringEntry
+name|TermEntry
 name|entry
 init|=
 operator|new
 name|InternalStringTermsFacet
 operator|.
-name|StringEntry
+name|TermEntry
 argument_list|(
 name|value
 argument_list|,
@@ -1089,14 +1111,14 @@ block|}
 block|}
 name|InternalStringTermsFacet
 operator|.
-name|StringEntry
+name|TermEntry
 index|[]
 name|list
 init|=
 operator|new
 name|InternalStringTermsFacet
 operator|.
-name|StringEntry
+name|TermEntry
 index|[
 name|ordered
 operator|.
@@ -1132,7 +1154,7 @@ operator|=
 operator|(
 name|InternalStringTermsFacet
 operator|.
-name|StringEntry
+name|TermEntry
 operator|)
 name|ordered
 operator|.
@@ -1185,7 +1207,7 @@ name|BoundedTreeSet
 argument_list|<
 name|InternalStringTermsFacet
 operator|.
-name|StringEntry
+name|TermEntry
 argument_list|>
 name|ordered
 init|=
@@ -1194,7 +1216,7 @@ name|BoundedTreeSet
 argument_list|<
 name|InternalStringTermsFacet
 operator|.
-name|StringEntry
+name|TermEntry
 argument_list|>
 argument_list|(
 name|comparatorType
@@ -1223,7 +1245,7 @@ operator|.
 name|top
 argument_list|()
 decl_stmt|;
-name|String
+name|BytesRef
 name|value
 init|=
 name|agg
@@ -1320,6 +1342,7 @@ condition|)
 block|{
 continue|continue;
 block|}
+comment|// LUCENE 4 UPGRADE: use Lucene's RegexCapabilities
 if|if
 condition|(
 name|matcher
@@ -1332,6 +1355,9 @@ operator|.
 name|reset
 argument_list|(
 name|value
+operator|.
+name|utf8ToString
+argument_list|()
 argument_list|)
 operator|.
 name|matches
@@ -1342,13 +1368,13 @@ continue|continue;
 block|}
 name|InternalStringTermsFacet
 operator|.
-name|StringEntry
+name|TermEntry
 name|entry
 init|=
 operator|new
 name|InternalStringTermsFacet
 operator|.
-name|StringEntry
+name|TermEntry
 argument_list|(
 name|value
 argument_list|,
@@ -1412,7 +1438,7 @@ name|OrdinalInDocProc
 block|{
 DECL|field|values
 specifier|final
-name|String
+name|BytesRef
 index|[]
 name|values
 decl_stmt|;
@@ -1429,7 +1455,7 @@ init|=
 literal|0
 decl_stmt|;
 DECL|field|current
-name|String
+name|BytesRef
 name|current
 decl_stmt|;
 DECL|field|total
@@ -1545,7 +1571,7 @@ name|int
 name|size
 parameter_list|)
 block|{
-name|initialize
+name|super
 argument_list|(
 name|size
 argument_list|)

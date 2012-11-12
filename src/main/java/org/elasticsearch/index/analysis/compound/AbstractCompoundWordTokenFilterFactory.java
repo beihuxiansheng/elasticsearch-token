@@ -38,6 +38,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|analysis
+operator|.
+name|util
+operator|.
+name|CharArraySet
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|ElasticSearchIllegalArgumentException
@@ -154,16 +170,6 @@ name|IndexSettings
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
-import|;
-end_import
-
 begin_comment
 comment|/**  * Contains the common configuration settings between subclasses of this class.  */
 end_comment
@@ -204,10 +210,7 @@ decl_stmt|;
 DECL|field|wordList
 specifier|protected
 specifier|final
-name|Set
-argument_list|<
-name|?
-argument_list|>
+name|CharArraySet
 name|wordList
 decl_stmt|;
 annotation|@

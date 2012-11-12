@@ -42,7 +42,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Similarity
+name|Weight
 import|;
 end_import
 
@@ -72,13 +72,13 @@ DECL|method|EmptyScorer
 specifier|public
 name|EmptyScorer
 parameter_list|(
-name|Similarity
-name|similarity
+name|Weight
+name|weight
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|similarity
+name|weight
 argument_list|)
 expr_stmt|;
 block|}
@@ -88,6 +88,20 @@ DECL|method|score
 specifier|public
 name|float
 name|score
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+return|return
+literal|0
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|freq
+specifier|public
+name|float
+name|freq
 parameter_list|()
 throws|throws
 name|IOException

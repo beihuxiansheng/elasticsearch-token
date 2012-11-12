@@ -596,7 +596,7 @@ name|get
 argument_list|(
 name|commit
 operator|.
-name|getVersion
+name|getGeneration
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -621,7 +621,7 @@ name|put
 argument_list|(
 name|commit
 operator|.
-name|getVersion
+name|getGeneration
 argument_list|()
 argument_list|,
 name|snapshotHolder

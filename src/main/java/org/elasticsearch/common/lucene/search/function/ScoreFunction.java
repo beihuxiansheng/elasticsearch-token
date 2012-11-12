@@ -30,7 +30,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|AtomicReaderContext
 import|;
 end_import
 
@@ -62,8 +62,8 @@ DECL|method|setNextReader
 name|void
 name|setNextReader
 parameter_list|(
-name|IndexReader
-name|reader
+name|AtomicReaderContext
+name|context
 parameter_list|)
 function_decl|;
 DECL|method|score

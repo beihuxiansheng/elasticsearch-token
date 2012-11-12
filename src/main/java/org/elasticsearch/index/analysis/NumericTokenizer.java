@@ -108,6 +108,8 @@ block|{
 name|super
 argument_list|(
 name|numericTokenStream
+argument_list|,
+name|reader
 argument_list|)
 expr_stmt|;
 name|this
@@ -123,9 +125,7 @@ operator|=
 name|extra
 expr_stmt|;
 name|reset
-argument_list|(
-name|reader
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|NumericTokenizer
@@ -151,6 +151,8 @@ block|{
 name|super
 argument_list|(
 name|numericTokenStream
+argument_list|,
+name|reader
 argument_list|)
 expr_stmt|;
 name|this
@@ -167,8 +169,6 @@ name|extra
 expr_stmt|;
 name|reset
 argument_list|(
-name|reader
-argument_list|,
 name|buffer
 argument_list|)
 expr_stmt|;
@@ -179,10 +179,7 @@ DECL|method|reset
 specifier|public
 name|void
 name|reset
-parameter_list|(
-name|Reader
-name|input
-parameter_list|)
+parameter_list|()
 throws|throws
 name|IOException
 block|{
@@ -198,8 +195,6 @@ index|]
 decl_stmt|;
 name|reset
 argument_list|(
-name|input
-argument_list|,
 name|buffer
 argument_list|)
 expr_stmt|;
@@ -209,9 +204,6 @@ specifier|public
 name|void
 name|reset
 parameter_list|(
-name|Reader
-name|input
-parameter_list|,
 name|char
 index|[]
 name|buffer
@@ -219,13 +211,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|super
-operator|.
-name|reset
-argument_list|(
-name|input
-argument_list|)
-expr_stmt|;
 name|int
 name|len
 init|=

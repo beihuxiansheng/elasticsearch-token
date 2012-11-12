@@ -4,17 +4,17 @@ comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more cont
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.common.lucene.document
+DECL|package|org.apache.lucene.queryparser.classic
 package|package
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|common
+name|apache
 operator|.
 name|lucene
 operator|.
-name|document
+name|queryparser
+operator|.
+name|classic
 package|;
 end_package
 
@@ -26,28 +26,46 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|document
+name|search
 operator|.
-name|FieldSelector
+name|Query
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryParseContext
 import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  *  */
 end_comment
 
 begin_interface
-DECL|interface|ResetFieldSelector
+DECL|interface|FieldQueryExtension
 specifier|public
 interface|interface
-name|ResetFieldSelector
-extends|extends
-name|FieldSelector
+name|FieldQueryExtension
 block|{
-DECL|method|reset
-name|void
-name|reset
-parameter_list|()
+DECL|method|query
+name|Query
+name|query
+parameter_list|(
+name|QueryParseContext
+name|parseContext
+parameter_list|,
+name|String
+name|queryText
+parameter_list|)
 function_decl|;
 block|}
 end_interface

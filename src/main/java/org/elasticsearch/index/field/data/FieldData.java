@@ -28,7 +28,21 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|AtomicReader
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|BytesRef
 import|;
 end_import
 
@@ -268,7 +282,7 @@ function_decl|;
 DECL|method|stringValue
 specifier|public
 specifier|abstract
-name|String
+name|BytesRef
 name|stringValue
 parameter_list|(
 name|int
@@ -295,7 +309,7 @@ DECL|method|onValue
 name|void
 name|onValue
 parameter_list|(
-name|String
+name|BytesRef
 name|value
 parameter_list|)
 function_decl|;
@@ -326,7 +340,7 @@ parameter_list|(
 name|int
 name|docId
 parameter_list|,
-name|String
+name|BytesRef
 name|value
 parameter_list|)
 function_decl|;
@@ -387,7 +401,7 @@ parameter_list|(
 name|FieldDataType
 name|type
 parameter_list|,
-name|IndexReader
+name|AtomicReader
 name|reader
 parameter_list|,
 name|String

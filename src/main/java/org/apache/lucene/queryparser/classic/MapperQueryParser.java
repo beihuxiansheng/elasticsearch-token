@@ -4,7 +4,7 @@ comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more cont
 end_comment
 
 begin_package
-DECL|package|org.apache.lucene.queryParser
+DECL|package|org.apache.lucene.queryparser.classic
 package|package
 name|org
 operator|.
@@ -12,7 +12,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|queryParser
+name|queryparser
+operator|.
+name|classic
 package|;
 end_package
 
@@ -1688,7 +1690,10 @@ name|String
 name|part2
 parameter_list|,
 name|boolean
-name|inclusive
+name|startInclusive
+parameter_list|,
+name|boolean
+name|endInclusive
 parameter_list|)
 throws|throws
 name|ParseException
@@ -1766,7 +1771,9 @@ name|part1
 argument_list|,
 name|part2
 argument_list|,
-name|inclusive
+name|startInclusive
+argument_list|,
+name|endInclusive
 argument_list|)
 return|;
 block|}
@@ -1814,7 +1821,9 @@ name|part1
 argument_list|,
 name|part2
 argument_list|,
-name|inclusive
+name|startInclusive
+argument_list|,
+name|endInclusive
 argument_list|)
 decl_stmt|;
 if|if
@@ -1892,7 +1901,9 @@ name|part1
 argument_list|,
 name|part2
 argument_list|,
-name|inclusive
+name|startInclusive
+argument_list|,
+name|endInclusive
 argument_list|)
 decl_stmt|;
 if|if
@@ -1962,7 +1973,9 @@ name|part1
 argument_list|,
 name|part2
 argument_list|,
-name|inclusive
+name|startInclusive
+argument_list|,
+name|endInclusive
 argument_list|)
 return|;
 block|}
@@ -1982,7 +1995,10 @@ name|String
 name|part2
 parameter_list|,
 name|boolean
-name|inclusive
+name|startInclusive
+parameter_list|,
+name|boolean
+name|endInclusive
 parameter_list|)
 block|{
 name|currentMapper
@@ -2038,9 +2054,9 @@ name|part1
 argument_list|,
 name|part2
 argument_list|,
-name|inclusive
+name|startInclusive
 argument_list|,
-name|inclusive
+name|startInclusive
 argument_list|,
 name|parseContext
 argument_list|)
@@ -2089,7 +2105,9 @@ name|part1
 argument_list|,
 name|part2
 argument_list|,
-name|inclusive
+name|startInclusive
+argument_list|,
+name|endInclusive
 argument_list|)
 return|;
 block|}
@@ -2386,6 +2404,7 @@ condition|)
 block|{
 try|try
 block|{
+comment|//LUCENE 4 UPGRADE I disabled transpositions here by default - maybe this needs to be changed
 name|Query
 name|fuzzyQuery
 init|=
@@ -2403,6 +2422,8 @@ name|settings
 operator|.
 name|fuzzyMaxExpansions
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 return|return
@@ -2470,6 +2491,37 @@ name|int
 name|prefixLength
 parameter_list|)
 block|{
+name|String
+name|text
+init|=
+name|term
+operator|.
+name|text
+argument_list|()
+decl_stmt|;
+name|int
+name|numEdits
+init|=
+name|FuzzyQuery
+operator|.
+name|floatToEdits
+argument_list|(
+name|minimumSimilarity
+argument_list|,
+name|text
+operator|.
+name|codePointCount
+argument_list|(
+literal|0
+argument_list|,
+name|text
+operator|.
+name|length
+argument_list|()
+argument_list|)
+argument_list|)
+decl_stmt|;
+comment|//LUCENE 4 UPGRADE I disabled transpositions here by default - maybe this needs to be changed
 name|FuzzyQuery
 name|query
 init|=
@@ -2478,7 +2530,7 @@ name|FuzzyQuery
 argument_list|(
 name|term
 argument_list|,
-name|minimumSimilarity
+name|numEdits
 argument_list|,
 name|prefixLength
 argument_list|,
@@ -2486,6 +2538,8 @@ name|settings
 operator|.
 name|fuzzyMaxExpansions
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|QueryParsers
@@ -3026,7 +3080,7 @@ operator|=
 name|getAnalyzer
 argument_list|()
 operator|.
-name|reusableTokenStream
+name|tokenStream
 argument_list|(
 name|field
 argument_list|,
@@ -3768,7 +3822,7 @@ init|=
 name|getAnalyzer
 argument_list|()
 operator|.
-name|reusableTokenStream
+name|tokenStream
 argument_list|(
 name|field
 argument_list|,
@@ -3919,7 +3973,7 @@ init|=
 name|getAnalyzer
 argument_list|()
 operator|.
-name|reusableTokenStream
+name|tokenStream
 argument_list|(
 name|field
 argument_list|,

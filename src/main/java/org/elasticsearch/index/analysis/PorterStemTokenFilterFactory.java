@@ -26,7 +26,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|PorterStemFilter
+name|TokenStream
 import|;
 end_import
 
@@ -40,7 +40,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|TokenStream
+name|en
+operator|.
+name|PorterStemFilter
 import|;
 end_import
 

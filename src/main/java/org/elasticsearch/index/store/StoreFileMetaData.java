@@ -117,11 +117,6 @@ specifier|private
 name|String
 name|name
 decl_stmt|;
-DECL|field|lastModified
-specifier|private
-name|long
-name|lastModified
-decl_stmt|;
 comment|// the actual file size on "disk", if compressed, the compressed size
 DECL|field|length
 specifier|private
@@ -140,6 +135,7 @@ name|Directory
 name|directory
 decl_stmt|;
 DECL|method|StoreFileMetaData
+specifier|private
 name|StoreFileMetaData
 parameter_list|()
 block|{     }
@@ -153,9 +149,6 @@ parameter_list|,
 name|long
 name|length
 parameter_list|,
-name|long
-name|lastModified
-parameter_list|,
 name|String
 name|checksum
 parameter_list|)
@@ -165,8 +158,6 @@ argument_list|(
 name|name
 argument_list|,
 name|length
-argument_list|,
-name|lastModified
 argument_list|,
 name|checksum
 argument_list|,
@@ -184,9 +175,6 @@ parameter_list|,
 name|long
 name|length
 parameter_list|,
-name|long
-name|lastModified
-parameter_list|,
 name|String
 name|checksum
 parameter_list|,
@@ -201,12 +189,6 @@ operator|.
 name|name
 operator|=
 name|name
-expr_stmt|;
-name|this
-operator|.
-name|lastModified
-operator|=
-name|lastModified
 expr_stmt|;
 name|this
 operator|.
@@ -247,18 +229,6 @@ parameter_list|()
 block|{
 return|return
 name|name
-return|;
-block|}
-DECL|method|lastModified
-specifier|public
-name|long
-name|lastModified
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|lastModified
 return|;
 block|}
 comment|/**      * the actual file size on "disk", if compressed, the compressed size      */
@@ -400,7 +370,7 @@ name|name
 operator|=
 name|in
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 expr_stmt|;
 name|length
@@ -422,7 +392,7 @@ name|checksum
 operator|=
 name|in
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 expr_stmt|;
 block|}
@@ -442,7 +412,7 @@ name|IOException
 block|{
 name|out
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 name|name
 argument_list|)
@@ -480,7 +450,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 name|checksum
 argument_list|)

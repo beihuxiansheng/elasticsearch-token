@@ -40,9 +40,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|ru
+name|snowball
 operator|.
-name|RussianStemFilter
+name|SnowballFilter
 import|;
 end_import
 
@@ -178,9 +178,11 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|RussianStemFilter
+name|SnowballFilter
 argument_list|(
 name|tokenStream
+argument_list|,
+literal|"Russian"
 argument_list|)
 return|;
 block|}

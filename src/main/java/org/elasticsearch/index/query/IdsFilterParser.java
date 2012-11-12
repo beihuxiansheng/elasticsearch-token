@@ -624,14 +624,6 @@ argument_list|(
 name|types
 argument_list|,
 name|ids
-argument_list|,
-name|parseContext
-operator|.
-name|indexCache
-argument_list|()
-operator|.
-name|bloomCache
-argument_list|()
 argument_list|)
 decl_stmt|;
 if|if

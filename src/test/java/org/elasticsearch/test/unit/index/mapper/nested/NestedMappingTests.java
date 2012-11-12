@@ -3272,7 +3272,7 @@ argument_list|(
 literal|6
 argument_list|)
 operator|.
-name|getFieldables
+name|getFields
 argument_list|(
 literal|"nested1.field1"
 argument_list|)
@@ -3297,7 +3297,7 @@ argument_list|(
 literal|6
 argument_list|)
 operator|.
-name|getFieldables
+name|getFields
 argument_list|(
 literal|"nested1.nested2.field2"
 argument_list|)
@@ -4099,7 +4099,7 @@ argument_list|(
 literal|6
 argument_list|)
 operator|.
-name|getFieldables
+name|getFields
 argument_list|(
 literal|"nested1.nested2.field2"
 argument_list|)

@@ -398,6 +398,8 @@ name|merge
 operator|.
 name|info
 operator|.
+name|info
+operator|.
 name|name
 argument_list|,
 name|merge
@@ -525,6 +527,8 @@ name|merge
 operator|.
 name|info
 operator|.
+name|info
+operator|.
 name|name
 argument_list|,
 name|TimeValue
@@ -560,6 +564,8 @@ condition|?
 literal|"_na_"
 else|:
 name|merge
+operator|.
+name|info
 operator|.
 name|info
 operator|.

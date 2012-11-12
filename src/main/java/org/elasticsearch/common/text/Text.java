@@ -39,6 +39,11 @@ DECL|interface|Text
 specifier|public
 interface|interface
 name|Text
+extends|extends
+name|Comparable
+argument_list|<
+name|Text
+argument_list|>
 block|{
 comment|/**      * Are bytes available without the need to be converted into bytes when calling {@link #bytes()}.      */
 DECL|method|hasBytes

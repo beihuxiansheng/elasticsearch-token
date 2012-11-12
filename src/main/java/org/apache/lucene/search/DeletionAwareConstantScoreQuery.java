@@ -52,6 +52,10 @@ begin_comment
 comment|// TODO Lucene 4.0 won't need this, since live docs are "and'ed" while scoring
 end_comment
 
+begin_comment
+comment|// LUCENE 4 UPGRADE: we probably don't need this anymore, because of acceptDocs
+end_comment
+
 begin_class
 DECL|class|DeletionAwareConstantScoreQuery
 specifier|public

@@ -28,7 +28,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|AtomicReader
 import|;
 end_import
 
@@ -43,6 +43,20 @@ operator|.
 name|search
 operator|.
 name|FieldComparatorSource
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|SortField
 import|;
 end_import
 
@@ -329,7 +343,7 @@ DECL|method|load
 name|T
 name|load
 parameter_list|(
-name|IndexReader
+name|AtomicReader
 name|reader
 parameter_list|,
 name|String
@@ -352,7 +366,9 @@ block|{
 DECL|method|reducedType
 specifier|public
 specifier|abstract
-name|int
+name|SortField
+operator|.
+name|Type
 name|reducedType
 parameter_list|()
 function_decl|;

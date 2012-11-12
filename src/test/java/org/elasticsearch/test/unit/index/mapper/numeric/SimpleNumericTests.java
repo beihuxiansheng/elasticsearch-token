@@ -675,7 +675,7 @@ operator|.
 name|rootDoc
 argument_list|()
 operator|.
-name|getFieldable
+name|getField
 argument_list|(
 literal|"field1"
 argument_list|)
@@ -691,7 +691,7 @@ operator|.
 name|rootDoc
 argument_list|()
 operator|.
-name|getFieldable
+name|getField
 argument_list|(
 literal|"field2"
 argument_list|)
@@ -881,7 +881,7 @@ operator|.
 name|rootDoc
 argument_list|()
 operator|.
-name|getFieldable
+name|getField
 argument_list|(
 literal|"field3"
 argument_list|)

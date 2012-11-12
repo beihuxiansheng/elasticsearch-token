@@ -70,7 +70,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|DirectoryReader
 import|;
 end_import
 
@@ -85,6 +85,20 @@ operator|.
 name|store
 operator|.
 name|Directory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
+name|IOContext
 import|;
 end_import
 
@@ -181,6 +195,20 @@ operator|.
 name|stream
 operator|.
 name|BytesStreamInput
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|lucene
+operator|.
+name|Lucene
 import|;
 end_import
 
@@ -3738,7 +3766,7 @@ try|try
 block|{
 if|if
 condition|(
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|indexExists
 argument_list|(
@@ -3751,15 +3779,18 @@ condition|)
 block|{
 name|version
 operator|=
-name|IndexReader
+name|Lucene
 operator|.
-name|getCurrentVersion
+name|readSegmentInfos
 argument_list|(
 name|store
 operator|.
 name|directory
 argument_list|()
 argument_list|)
+operator|.
+name|getVersion
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -4411,6 +4442,7 @@ literal|null
 decl_stmt|;
 try|try
 block|{
+comment|// TODO: maybe use IOContext.READONCE?
 name|indexInput
 operator|=
 name|indexShard
@@ -4424,6 +4456,10 @@ name|fileInfo
 operator|.
 name|physicalName
 argument_list|()
+argument_list|,
+name|IOContext
+operator|.
+name|READ
 argument_list|)
 expr_stmt|;
 name|indexInput

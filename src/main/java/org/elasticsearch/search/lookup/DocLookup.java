@@ -40,7 +40,21 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|AtomicReader
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|AtomicReaderContext
 import|;
 end_import
 
@@ -287,7 +301,7 @@ name|types
 decl_stmt|;
 DECL|field|reader
 specifier|private
-name|IndexReader
+name|AtomicReader
 name|reader
 decl_stmt|;
 DECL|field|scorer
@@ -367,8 +381,8 @@ specifier|public
 name|void
 name|setNextReader
 parameter_list|(
-name|IndexReader
-name|reader
+name|AtomicReaderContext
+name|context
 parameter_list|)
 block|{
 if|if
@@ -377,7 +391,10 @@ name|this
 operator|.
 name|reader
 operator|==
+name|context
+operator|.
 name|reader
+argument_list|()
 condition|)
 block|{
 comment|// if we are called with the same reader, don't invalidate source
@@ -387,7 +404,10 @@ name|this
 operator|.
 name|reader
 operator|=
+name|context
+operator|.
 name|reader
+argument_list|()
 expr_stmt|;
 name|this
 operator|.

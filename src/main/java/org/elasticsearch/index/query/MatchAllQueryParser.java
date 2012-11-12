@@ -339,14 +339,14 @@ operator|.
 name|MATCH_ALL_QUERY
 return|;
 block|}
+comment|//LUCENE 4 UPGRADE norms field is not supported anymore need to find another way or drop the functionality
+comment|//MatchAllDocsQuery query = new MatchAllDocsQuery(normsField);
 name|MatchAllDocsQuery
 name|query
 init|=
 operator|new
 name|MatchAllDocsQuery
-argument_list|(
-name|normsField
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|query
 operator|.

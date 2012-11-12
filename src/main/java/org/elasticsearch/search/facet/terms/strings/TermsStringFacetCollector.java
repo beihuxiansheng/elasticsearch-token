@@ -84,7 +84,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|AtomicReaderContext
 import|;
 end_import
 
@@ -99,6 +99,20 @@ operator|.
 name|search
 operator|.
 name|Scorer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|BytesRef
 import|;
 end_import
 
@@ -565,7 +579,7 @@ name|context
 parameter_list|,
 name|ImmutableSet
 argument_list|<
-name|String
+name|BytesRef
 argument_list|>
 name|excluded
 parameter_list|,
@@ -789,7 +803,7 @@ argument_list|(
 name|CacheRecycler
 operator|.
 expr|<
-name|String
+name|BytesRef
 operator|>
 name|popObjectIntMap
 argument_list|()
@@ -806,7 +820,7 @@ argument_list|(
 name|CacheRecycler
 operator|.
 expr|<
-name|String
+name|BytesRef
 operator|>
 name|popObjectIntMap
 argument_list|()
@@ -830,15 +844,18 @@ try|try
 block|{
 for|for
 control|(
-name|IndexReader
-name|reader
+name|AtomicReaderContext
+name|readerContext
 range|:
 name|context
 operator|.
 name|searcher
 argument_list|()
 operator|.
-name|subReaders
+name|getTopReaderContext
+argument_list|()
+operator|.
+name|leaves
 argument_list|()
 control|)
 block|{
@@ -851,7 +868,10 @@ name|cache
 argument_list|(
 name|fieldDataType
 argument_list|,
+name|readerContext
+operator|.
 name|reader
+argument_list|()
 argument_list|,
 name|indexFieldName
 argument_list|)
@@ -921,11 +941,8 @@ specifier|protected
 name|void
 name|doSetNextReader
 parameter_list|(
-name|IndexReader
-name|reader
-parameter_list|,
-name|int
-name|docBase
+name|AtomicReaderContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -938,7 +955,10 @@ name|cache
 argument_list|(
 name|fieldDataType
 argument_list|,
+name|context
+operator|.
 name|reader
+argument_list|()
 argument_list|,
 name|indexFieldName
 argument_list|)
@@ -954,7 +974,7 @@ name|script
 operator|.
 name|setNextReader
 argument_list|(
-name|reader
+name|context
 argument_list|)
 expr_stmt|;
 block|}
@@ -992,7 +1012,7 @@ parameter_list|()
 block|{
 name|TObjectIntHashMap
 argument_list|<
-name|String
+name|BytesRef
 argument_list|>
 name|facets
 init|=
@@ -1031,7 +1051,7 @@ operator|.
 expr|<
 name|InternalStringTermsFacet
 operator|.
-name|StringEntry
+name|TermEntry
 operator|>
 name|of
 argument_list|()
@@ -1077,7 +1097,7 @@ for|for
 control|(
 name|TObjectIntIterator
 argument_list|<
-name|String
+name|BytesRef
 argument_list|>
 name|it
 init|=
@@ -1105,7 +1125,7 @@ argument_list|(
 operator|new
 name|InternalStringTermsFacet
 operator|.
-name|StringEntry
+name|TermEntry
 argument_list|(
 name|it
 operator|.
@@ -1122,14 +1142,14 @@ expr_stmt|;
 block|}
 name|InternalStringTermsFacet
 operator|.
-name|StringEntry
+name|TermEntry
 index|[]
 name|list
 init|=
 operator|new
 name|InternalStringTermsFacet
 operator|.
-name|StringEntry
+name|TermEntry
 index|[
 name|ordered
 operator|.
@@ -1166,7 +1186,7 @@ operator|(
 operator|(
 name|InternalStringTermsFacet
 operator|.
-name|StringEntry
+name|TermEntry
 operator|)
 name|ordered
 operator|.
@@ -1217,7 +1237,7 @@ name|BoundedTreeSet
 argument_list|<
 name|InternalStringTermsFacet
 operator|.
-name|StringEntry
+name|TermEntry
 argument_list|>
 name|ordered
 init|=
@@ -1226,7 +1246,7 @@ name|BoundedTreeSet
 argument_list|<
 name|InternalStringTermsFacet
 operator|.
-name|StringEntry
+name|TermEntry
 argument_list|>
 argument_list|(
 name|comparatorType
@@ -1241,7 +1261,7 @@ for|for
 control|(
 name|TObjectIntIterator
 argument_list|<
-name|String
+name|BytesRef
 argument_list|>
 name|it
 init|=
@@ -1269,7 +1289,7 @@ argument_list|(
 operator|new
 name|InternalStringTermsFacet
 operator|.
-name|StringEntry
+name|TermEntry
 argument_list|(
 name|it
 operator|.
@@ -1330,7 +1350,7 @@ specifier|private
 specifier|final
 name|ImmutableSet
 argument_list|<
-name|String
+name|BytesRef
 argument_list|>
 name|excluded
 decl_stmt|;
@@ -1352,13 +1372,13 @@ name|AggregatorValueProc
 parameter_list|(
 name|TObjectIntHashMap
 argument_list|<
-name|String
+name|BytesRef
 argument_list|>
 name|facets
 parameter_list|,
 name|ImmutableSet
 argument_list|<
-name|String
+name|BytesRef
 argument_list|>
 name|excluded
 parameter_list|,
@@ -1414,7 +1434,7 @@ parameter_list|(
 name|int
 name|docId
 parameter_list|,
-name|String
+name|BytesRef
 name|value
 parameter_list|)
 block|{
@@ -1434,6 +1454,7 @@ condition|)
 block|{
 return|return;
 block|}
+comment|// LUCENE 4 UPGRADE: use Lucene's RegexCapabilities
 if|if
 condition|(
 name|matcher
@@ -1446,6 +1467,9 @@ operator|.
 name|reset
 argument_list|(
 name|value
+operator|.
+name|utf8ToString
+argument_list|()
 argument_list|)
 operator|.
 name|matches
@@ -1468,6 +1492,7 @@ argument_list|(
 name|docId
 argument_list|)
 expr_stmt|;
+comment|// LUCENE 4 UPGRADE: needs optimization
 name|script
 operator|.
 name|setNextVar
@@ -1475,6 +1500,9 @@ argument_list|(
 literal|"term"
 argument_list|,
 name|value
+operator|.
+name|utf8ToString
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|Object
@@ -1517,12 +1545,17 @@ block|}
 block|}
 else|else
 block|{
+comment|// LUCENE 4 UPGRADE: should be possible to convert directly to BR
 name|value
 operator|=
+operator|new
+name|BytesRef
+argument_list|(
 name|scriptValue
 operator|.
 name|toString
 argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -1551,12 +1584,13 @@ name|FieldData
 operator|.
 name|StringValueProc
 block|{
+comment|// LUCENE 4 UPGRADE: check if hashcode is not too expensive
 DECL|field|facets
 specifier|private
 specifier|final
 name|TObjectIntHashMap
 argument_list|<
-name|String
+name|BytesRef
 argument_list|>
 name|facets
 decl_stmt|;
@@ -1580,7 +1614,7 @@ name|StaticAggregatorValueProc
 parameter_list|(
 name|TObjectIntHashMap
 argument_list|<
-name|String
+name|BytesRef
 argument_list|>
 name|facets
 parameter_list|)
@@ -1599,7 +1633,7 @@ specifier|public
 name|void
 name|onValue
 parameter_list|(
-name|String
+name|BytesRef
 name|value
 parameter_list|)
 block|{
@@ -1623,7 +1657,7 @@ parameter_list|(
 name|int
 name|docId
 parameter_list|,
-name|String
+name|BytesRef
 name|value
 parameter_list|)
 block|{
@@ -1662,7 +1696,7 @@ specifier|public
 specifier|final
 name|TObjectIntHashMap
 argument_list|<
-name|String
+name|BytesRef
 argument_list|>
 name|facets
 parameter_list|()

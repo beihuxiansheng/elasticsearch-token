@@ -783,7 +783,7 @@ annotation|@
 name|Override
 DECL|method|clone
 specifier|public
-name|Object
+name|IndexInput
 name|clone
 parameter_list|()
 block|{

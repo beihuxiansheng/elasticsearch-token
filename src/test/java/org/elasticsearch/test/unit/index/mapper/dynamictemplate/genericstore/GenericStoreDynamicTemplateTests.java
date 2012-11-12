@@ -46,9 +46,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|document
+name|index
 operator|.
-name|Fieldable
+name|IndexableField
 import|;
 end_import
 
@@ -247,12 +247,12 @@ operator|.
 name|rootDoc
 argument_list|()
 decl_stmt|;
-name|Fieldable
+name|IndexableField
 name|f
 init|=
 name|doc
 operator|.
-name|getFieldable
+name|getField
 argument_list|(
 literal|"name"
 argument_list|)
@@ -287,7 +287,10 @@ name|assertThat
 argument_list|(
 name|f
 operator|.
-name|isStored
+name|fieldType
+argument_list|()
+operator|.
+name|stored
 argument_list|()
 argument_list|,
 name|equalTo
@@ -345,7 +348,7 @@ name|f
 operator|=
 name|doc
 operator|.
-name|getFieldable
+name|getField
 argument_list|(
 literal|"age"
 argument_list|)
@@ -367,7 +370,10 @@ name|assertThat
 argument_list|(
 name|f
 operator|.
-name|isStored
+name|fieldType
+argument_list|()
+operator|.
+name|stored
 argument_list|()
 argument_list|,
 name|equalTo

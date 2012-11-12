@@ -56,7 +56,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|DirectoryReader
 import|;
 end_import
 
@@ -4753,6 +4753,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|//LUCENE 4 UPGRADE: currently passing 'null' codec to fixIndex, when we have proper support for a codec service
+comment|// we'll us that to figure out the codec that should be used
 DECL|method|checkIndex
 specifier|private
 name|void
@@ -4781,7 +4783,7 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|indexExists
 argument_list|(
@@ -4918,6 +4920,8 @@ operator|.
 name|fixIndex
 argument_list|(
 name|status
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 if|if

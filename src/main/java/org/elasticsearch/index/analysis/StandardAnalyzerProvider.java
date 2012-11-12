@@ -26,6 +26,8 @@ name|lucene
 operator|.
 name|analysis
 operator|.
+name|core
+operator|.
 name|StopAnalyzer
 import|;
 end_import
@@ -43,6 +45,22 @@ operator|.
 name|standard
 operator|.
 name|StandardAnalyzer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|analysis
+operator|.
+name|util
+operator|.
+name|CharArraySet
 import|;
 end_import
 
@@ -128,16 +146,6 @@ name|IndexSettings
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -198,10 +206,7 @@ argument_list|,
 name|settings
 argument_list|)
 expr_stmt|;
-name|Set
-argument_list|<
-name|?
-argument_list|>
+name|CharArraySet
 name|stopWords
 init|=
 name|Analysis

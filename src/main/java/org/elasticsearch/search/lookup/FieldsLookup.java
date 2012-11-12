@@ -40,7 +40,21 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|AtomicReader
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|AtomicReaderContext
 import|;
 end_import
 
@@ -88,7 +102,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|SingleFieldSelector
+name|SingleFieldVisitor
 import|;
 end_import
 
@@ -199,7 +213,7 @@ name|types
 decl_stmt|;
 DECL|field|reader
 specifier|private
-name|IndexReader
+name|AtomicReader
 name|reader
 decl_stmt|;
 DECL|field|docId
@@ -226,14 +240,14 @@ operator|.
 name|newHashMap
 argument_list|()
 decl_stmt|;
-DECL|field|fieldSelector
+DECL|field|fieldVisitor
 specifier|private
 specifier|final
-name|SingleFieldSelector
-name|fieldSelector
+name|SingleFieldVisitor
+name|fieldVisitor
 init|=
 operator|new
-name|SingleFieldSelector
+name|SingleFieldVisitor
 argument_list|()
 decl_stmt|;
 DECL|method|FieldsLookup
@@ -267,8 +281,8 @@ specifier|public
 name|void
 name|setNextReader
 parameter_list|(
-name|IndexReader
-name|reader
+name|AtomicReaderContext
+name|context
 parameter_list|)
 block|{
 if|if
@@ -277,7 +291,10 @@ name|this
 operator|.
 name|reader
 operator|==
+name|context
+operator|.
 name|reader
+argument_list|()
 condition|)
 block|{
 comment|// if we are called with the same reader, don't invalidate source
@@ -287,7 +304,10 @@ name|this
 operator|.
 name|reader
 operator|=
+name|context
+operator|.
 name|reader
+argument_list|()
 expr_stmt|;
 name|clearCache
 argument_list|()
@@ -637,7 +657,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|fieldSelector
+name|fieldVisitor
 operator|.
 name|name
 argument_list|(
@@ -655,18 +675,24 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|data
-operator|.
-name|doc
-argument_list|(
 name|reader
 operator|.
 name|document
 argument_list|(
 name|docId
 argument_list|,
-name|fieldSelector
+name|fieldVisitor
 argument_list|)
+expr_stmt|;
+comment|// LUCENE 4 UPGRADE: Only one field we don't need document
+name|data
+operator|.
+name|doc
+argument_list|(
+name|fieldVisitor
+operator|.
+name|createDocument
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -689,6 +715,14 @@ argument_list|,
 name|e
 argument_list|)
 throw|;
+block|}
+finally|finally
+block|{
+name|fieldVisitor
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 return|return

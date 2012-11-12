@@ -70,7 +70,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|AtomicReaderContext
 import|;
 end_import
 
@@ -673,15 +673,18 @@ try|try
 block|{
 for|for
 control|(
-name|IndexReader
-name|reader
+name|AtomicReaderContext
+name|readerContext
 range|:
 name|context
 operator|.
 name|searcher
 argument_list|()
 operator|.
-name|subReaders
+name|getTopReaderContext
+argument_list|()
+operator|.
+name|leaves
 argument_list|()
 control|)
 block|{
@@ -697,7 +700,10 @@ name|cache
 argument_list|(
 name|fieldDataType
 argument_list|,
+name|readerContext
+operator|.
 name|reader
+argument_list|()
 argument_list|,
 name|indexFieldName
 argument_list|)
@@ -767,11 +773,8 @@ specifier|protected
 name|void
 name|doSetNextReader
 parameter_list|(
-name|IndexReader
-name|reader
-parameter_list|,
-name|int
-name|docBase
+name|AtomicReaderContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -787,7 +790,10 @@ name|cache
 argument_list|(
 name|fieldDataType
 argument_list|,
+name|context
+operator|.
 name|reader
+argument_list|()
 argument_list|,
 name|indexFieldName
 argument_list|)
@@ -803,7 +809,7 @@ name|script
 operator|.
 name|setNextReader
 argument_list|(
-name|reader
+name|context
 argument_list|)
 expr_stmt|;
 block|}

@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A custom directory that allows to forceSync (since the actual directory might disable it)  *  *  */
+comment|/**  * A custom directory that allows to forceSync (since the actual directory might disable it)  */
 end_comment
 
 begin_interface
@@ -38,7 +38,7 @@ specifier|public
 interface|interface
 name|ForceSyncDirectory
 block|{
-comment|/**      * Similar to {@link org.apache.lucene.store.Directory#sync(String)} but forces it even if its      * disabled.      */
+comment|/**      * Similar to {@link org.apache.lucene.store.Directory#sync(java.util.Collection)} but forces it even if its      * disabled.      */
 DECL|method|forceSync
 name|void
 name|forceSync

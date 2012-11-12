@@ -26,7 +26,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|Fieldable
+name|Field
 import|;
 end_import
 
@@ -1721,7 +1721,7 @@ parameter_list|(
 name|FieldMapper
 name|fieldMapper
 parameter_list|,
-name|Fieldable
+name|Field
 name|field
 parameter_list|,
 name|Object
@@ -1812,7 +1812,7 @@ parameter_list|,
 name|FieldMapper
 name|fieldMapper
 parameter_list|,
-name|Fieldable
+name|Field
 name|field
 parameter_list|)
 block|{

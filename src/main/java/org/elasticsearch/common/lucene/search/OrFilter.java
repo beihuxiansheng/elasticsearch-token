@@ -42,6 +42,20 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|AtomicReaderContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|IndexReader
 import|;
 end_import
@@ -71,6 +85,20 @@ operator|.
 name|search
 operator|.
 name|Filter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Bits
 import|;
 end_import
 
@@ -207,8 +235,11 @@ specifier|public
 name|DocIdSet
 name|getDocIdSet
 parameter_list|(
-name|IndexReader
-name|reader
+name|AtomicReaderContext
+name|context
+parameter_list|,
+name|Bits
+name|acceptDocs
 parameter_list|)
 throws|throws
 name|IOException
@@ -223,6 +254,7 @@ operator|==
 literal|1
 condition|)
 block|{
+comment|// LUCENE 4 UPGRADE: For leave acceptedDocs null, until we figure out how to deal with deleted docs...
 return|return
 name|filters
 operator|.
@@ -233,7 +265,9 @@ argument_list|)
 operator|.
 name|getDocIdSet
 argument_list|(
-name|reader
+name|context
+argument_list|,
+literal|null
 argument_list|)
 return|;
 block|}
@@ -263,6 +297,7 @@ range|:
 name|filters
 control|)
 block|{
+comment|// LUCENE 4 UPGRADE: For leave acceptedDocs null, until we figure out how to deal with deleted docs...
 name|DocIdSet
 name|set
 init|=
@@ -270,7 +305,9 @@ name|filter
 operator|.
 name|getDocIdSet
 argument_list|(
-name|reader
+name|context
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 if|if

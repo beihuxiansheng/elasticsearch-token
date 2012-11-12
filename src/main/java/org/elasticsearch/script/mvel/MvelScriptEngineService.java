@@ -26,7 +26,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|AtomicReaderContext
 import|;
 end_import
 
@@ -855,15 +855,15 @@ specifier|public
 name|void
 name|setNextReader
 parameter_list|(
-name|IndexReader
-name|reader
+name|AtomicReaderContext
+name|context
 parameter_list|)
 block|{
 name|lookup
 operator|.
 name|setNextReader
 argument_list|(
-name|reader
+name|context
 argument_list|)
 expr_stmt|;
 block|}

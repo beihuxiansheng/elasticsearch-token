@@ -109,7 +109,7 @@ argument_list|>
 name|comparator
 parameter_list|)
 block|{
-name|initialize
+name|super
 argument_list|(
 name|size
 argument_list|)

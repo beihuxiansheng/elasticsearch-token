@@ -98,7 +98,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|AtomicReaderContext
 import|;
 end_import
 
@@ -113,6 +113,20 @@ operator|.
 name|search
 operator|.
 name|Scorer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|BytesRef
 import|;
 end_import
 
@@ -453,7 +467,7 @@ name|context
 parameter_list|,
 name|ImmutableSet
 argument_list|<
-name|String
+name|BytesRef
 argument_list|>
 name|excluded
 parameter_list|,
@@ -724,15 +738,18 @@ try|try
 block|{
 for|for
 control|(
-name|IndexReader
-name|reader
+name|AtomicReaderContext
+name|readerContext
 range|:
 name|context
 operator|.
 name|searcher
 argument_list|()
 operator|.
-name|subReaders
+name|getTopReaderContext
+argument_list|()
+operator|.
+name|leaves
 argument_list|()
 control|)
 block|{
@@ -748,7 +765,10 @@ name|cache
 argument_list|(
 name|fieldDataType
 argument_list|,
+name|readerContext
+operator|.
 name|reader
+argument_list|()
 argument_list|,
 name|indexFieldName
 argument_list|)
@@ -818,11 +838,8 @@ specifier|protected
 name|void
 name|doSetNextReader
 parameter_list|(
-name|IndexReader
-name|reader
-parameter_list|,
-name|int
-name|docBase
+name|AtomicReaderContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -838,7 +855,10 @@ name|cache
 argument_list|(
 name|fieldDataType
 argument_list|,
+name|context
+operator|.
 name|reader
+argument_list|()
 argument_list|,
 name|indexFieldName
 argument_list|)
@@ -854,7 +874,7 @@ name|script
 operator|.
 name|setNextReader
 argument_list|(
-name|reader
+name|context
 argument_list|)
 expr_stmt|;
 block|}
@@ -1235,7 +1255,7 @@ name|facets
 parameter_list|,
 name|Set
 argument_list|<
-name|String
+name|BytesRef
 argument_list|>
 name|excluded
 parameter_list|,
@@ -1284,7 +1304,7 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|String
+name|BytesRef
 name|s
 range|:
 name|excluded
@@ -1301,6 +1321,9 @@ operator|.
 name|parseShort
 argument_list|(
 name|s
+operator|.
+name|utf8ToString
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
