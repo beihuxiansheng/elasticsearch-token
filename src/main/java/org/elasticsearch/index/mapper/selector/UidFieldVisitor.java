@@ -207,6 +207,13 @@ operator|new
 name|Document
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|uid
+operator|!=
+literal|null
+condition|)
+block|{
 name|document
 operator|.
 name|add
@@ -222,6 +229,7 @@ name|uid
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|document
 return|;
