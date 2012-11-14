@@ -635,6 +635,13 @@ name|value
 argument_list|)
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|method
+operator|!=
+literal|null
+condition|)
+block|{
 name|prefixQuery
 operator|.
 name|setRewriteMethod
@@ -642,6 +649,7 @@ argument_list|(
 name|method
 argument_list|)
 expr_stmt|;
+block|}
 name|query
 operator|=
 name|prefixQuery
