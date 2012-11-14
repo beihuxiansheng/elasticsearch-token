@@ -70,7 +70,9 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|Term
+name|FieldInfo
+operator|.
+name|IndexOptions
 import|;
 end_import
 
@@ -84,9 +86,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|FieldInfo
-operator|.
-name|IndexOptions
+name|Term
 import|;
 end_import
 
@@ -127,6 +127,22 @@ operator|.
 name|xcontent
 operator|.
 name|XContentBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|codec
+operator|.
+name|postingsformat
+operator|.
+name|PostingsFormatProvider
 import|;
 end_import
 
@@ -451,6 +467,8 @@ argument_list|,
 name|fieldType
 argument_list|,
 name|enabled
+argument_list|,
+name|provider
 argument_list|)
 return|;
 block|}
@@ -635,6 +653,8 @@ argument_list|,
 name|Defaults
 operator|.
 name|ENABLED
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -656,6 +676,9 @@ name|fieldType
 parameter_list|,
 name|boolean
 name|enabled
+parameter_list|,
+name|PostingsFormatProvider
+name|provider
 parameter_list|)
 block|{
 name|super
@@ -683,6 +706,8 @@ argument_list|,
 name|Lucene
 operator|.
 name|KEYWORD_ANALYZER
+argument_list|,
+name|provider
 argument_list|)
 expr_stmt|;
 name|this

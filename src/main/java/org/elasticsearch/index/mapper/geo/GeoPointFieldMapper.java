@@ -136,6 +136,22 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|codec
+operator|.
+name|postingsformat
+operator|.
+name|PostingsFormatProvider
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|field
 operator|.
 name|data
@@ -375,7 +391,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Parsing: We handle:  *<p/>  * - "field" : "geo_hash"  * - "field" : "lat,lon"  * - "field" : {  * "lat" : 1.1,  * "lon" : 2.1  * }  *  *  */
+comment|/**  * Parsing: We handle:  *<p/>  * - "field" : "geo_hash"  * - "field" : "lat,lon"  * - "field" : {  * "lat" : 1.1,  * "lon" : 2.1  * }  */
 end_comment
 
 begin_class
@@ -3503,6 +3519,8 @@ argument_list|,
 name|indexAnalyzer
 argument_list|,
 name|searchAnalyzer
+argument_list|,
+name|provider
 argument_list|)
 decl_stmt|;
 name|fieldMapper
@@ -3542,6 +3560,9 @@ name|indexAnalyzer
 parameter_list|,
 name|NamedAnalyzer
 name|searchAnalyzer
+parameter_list|,
+name|PostingsFormatProvider
+name|provider
 parameter_list|)
 block|{
 name|super
@@ -3557,6 +3578,8 @@ argument_list|,
 name|indexAnalyzer
 argument_list|,
 name|searchAnalyzer
+argument_list|,
+name|provider
 argument_list|)
 expr_stmt|;
 block|}

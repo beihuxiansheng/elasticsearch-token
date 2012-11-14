@@ -210,6 +210,22 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|codec
+operator|.
+name|postingsformat
+operator|.
+name|PostingsFormatProvider
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|field
 operator|.
 name|data
@@ -787,6 +803,9 @@ name|indexAnalyzer
 parameter_list|,
 name|NamedAnalyzer
 name|searchAnalyzer
+parameter_list|,
+name|PostingsFormatProvider
+name|provider
 parameter_list|)
 block|{
 comment|// LUCENE 4 UPGRADE: Since we can't do anything before the super call, we have to push the boost check down to subclasses
@@ -801,6 +820,8 @@ argument_list|,
 name|indexAnalyzer
 argument_list|,
 name|searchAnalyzer
+argument_list|,
+name|provider
 argument_list|)
 expr_stmt|;
 if|if
