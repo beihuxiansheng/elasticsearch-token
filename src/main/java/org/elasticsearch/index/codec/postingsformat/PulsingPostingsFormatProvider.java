@@ -110,11 +110,15 @@ begin_comment
 comment|/**  */
 end_comment
 
+begin_comment
+comment|// LUCENE UPGRADE: Upgrade Pulsing40PostingsFormat to next version
+end_comment
+
 begin_class
-DECL|class|Pulsing40PostingsFormatProvider
+DECL|class|PulsingPostingsFormatProvider
 specifier|public
 class|class
-name|Pulsing40PostingsFormatProvider
+name|PulsingPostingsFormatProvider
 extends|extends
 name|AbstractPostingsFormatProvider
 block|{
@@ -144,9 +148,9 @@ name|postingsFormat
 decl_stmt|;
 annotation|@
 name|Inject
-DECL|method|Pulsing40PostingsFormatProvider
+DECL|method|PulsingPostingsFormatProvider
 specifier|public
-name|Pulsing40PostingsFormatProvider
+name|PulsingPostingsFormatProvider
 parameter_list|(
 annotation|@
 name|Assisted

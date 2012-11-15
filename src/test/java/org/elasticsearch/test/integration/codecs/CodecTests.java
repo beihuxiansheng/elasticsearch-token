@@ -379,7 +379,7 @@ name|put
 argument_list|(
 literal|"codec.postings_format.test1.type"
 argument_list|,
-literal|"pulsing40"
+literal|"pulsing"
 argument_list|)
 argument_list|)
 operator|.
