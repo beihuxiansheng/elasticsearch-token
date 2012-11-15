@@ -929,9 +929,20 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|context
+comment|// so, caching uid stream and field is fine
+comment|// since we don't do any mapping parsing without immediate indexing
+comment|// and, when percolating, we don't index the uid
+name|UidField
+name|field
+init|=
+name|fieldCache
 operator|.
-name|uid
+name|get
+argument_list|()
+decl_stmt|;
+name|field
+operator|.
+name|setUid
 argument_list|(
 name|Uid
 operator|.
@@ -954,25 +965,11 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// so, caching uid stream and field is fine
-comment|// since we don't do any mapping parsing without immediate indexing
-comment|// and, when percolating, we don't index the uid
-name|UidField
-name|field
-init|=
-name|fieldCache
-operator|.
-name|get
-argument_list|()
-decl_stmt|;
-name|field
-operator|.
-name|setUid
-argument_list|(
 name|context
 operator|.
 name|uid
-argument_list|()
+argument_list|(
+name|field
 argument_list|)
 expr_stmt|;
 return|return

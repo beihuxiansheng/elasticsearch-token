@@ -1815,6 +1815,9 @@ name|doc
 operator|.
 name|uid
 argument_list|()
+operator|.
+name|uid
+argument_list|()
 argument_list|)
 argument_list|,
 name|doc
@@ -1967,6 +1970,9 @@ operator|.
 name|term
 argument_list|(
 name|doc
+operator|.
+name|uid
+argument_list|()
 operator|.
 name|uid
 argument_list|()

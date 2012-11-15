@@ -60,6 +60,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|lucene
+operator|.
+name|uid
+operator|.
+name|UidField
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -91,7 +107,7 @@ block|{
 DECL|field|uid
 specifier|private
 specifier|final
-name|String
+name|UidField
 name|uid
 decl_stmt|;
 DECL|field|id
@@ -192,7 +208,11 @@ parameter_list|)
 block|{
 name|this
 argument_list|(
+operator|new
+name|UidField
+argument_list|(
 name|uid
+argument_list|)
 argument_list|,
 name|id
 argument_list|,
@@ -223,7 +243,7 @@ DECL|method|ParsedDocument
 specifier|public
 name|ParsedDocument
 parameter_list|(
-name|String
+name|UidField
 name|uid
 parameter_list|,
 name|String
@@ -320,7 +340,7 @@ expr_stmt|;
 block|}
 DECL|method|uid
 specifier|public
-name|String
+name|UidField
 name|uid
 parameter_list|()
 block|{

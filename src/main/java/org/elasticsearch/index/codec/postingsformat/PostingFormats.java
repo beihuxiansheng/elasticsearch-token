@@ -305,6 +305,12 @@ argument_list|(
 operator|new
 name|Pulsing40PostingsFormat
 argument_list|()
+argument_list|,
+operator|new
+name|BloomFilterPostingsFormatProvider
+operator|.
+name|CustomBloomFilterFactory
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -346,6 +352,12 @@ name|BloomFilteringPostingsFormat
 argument_list|(
 operator|new
 name|Lucene40PostingsFormat
+argument_list|()
+argument_list|,
+operator|new
+name|BloomFilterPostingsFormatProvider
+operator|.
+name|CustomBloomFilterFactory
 argument_list|()
 argument_list|)
 argument_list|)
