@@ -244,10 +244,10 @@ return|;
 block|}
 annotation|@
 name|Test
-DECL|method|testIndexOptionsWithConfiguredPostingsFormat
+DECL|method|testFieldsWithCustomPostingsFormat
 specifier|public
 name|void
-name|testIndexOptionsWithConfiguredPostingsFormat
+name|testFieldsWithCustomPostingsFormat
 parameter_list|()
 throws|throws
 name|Exception
@@ -527,10 +527,10 @@ block|}
 block|}
 annotation|@
 name|Test
-DECL|method|testIndexOptionsWithSimpleTextCodec
+DECL|method|testIndexingWithSimpleTextCodec
 specifier|public
 name|void
-name|testIndexOptionsWithSimpleTextCodec
+name|testIndexingWithSimpleTextCodec
 parameter_list|()
 throws|throws
 name|Exception
