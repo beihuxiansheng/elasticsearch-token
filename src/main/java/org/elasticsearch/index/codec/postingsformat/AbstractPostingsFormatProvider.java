@@ -18,8 +18,22 @@ name|postingsformat
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|codecs
+operator|.
+name|PostingsFormat
+import|;
+end_import
+
 begin_comment
-comment|/**  */
+comment|/**  * Simple abstract {@link PostingsFormat} requiring a name for the provider;  */
 end_comment
 
 begin_class

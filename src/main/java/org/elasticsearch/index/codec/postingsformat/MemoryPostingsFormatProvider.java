@@ -109,7 +109,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * A {@link PostingsFormatProvider} for Lucenes {@link MemoryPostingsFormat}.  * This postings format offers the following parameters:  *<ul>  *<li><tt>pack_fst</tt>:<code>true</code> iff the in memory structure should  * be packed once its build. Packed will reduce the size for the data-structure  * in memory but requires more memory during building. Default is<code>false</code></li>  *   *<li><tt>acceptable_overhead_ratio</tt>: the compression overhead used to  * compress internal structures. See {@link PackedInts} for details. Default is {@value PackedInts#DEFAULT}</li>  *</ul>  */
 end_comment
 
 begin_class
@@ -188,6 +188,7 @@ operator|.
 name|DEFAULT
 argument_list|)
 expr_stmt|;
+comment|// TODO this should really be an ENUM?
 name|this
 operator|.
 name|postingsFormat

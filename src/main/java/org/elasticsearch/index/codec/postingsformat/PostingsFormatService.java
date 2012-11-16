@@ -130,6 +130,20 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|codec
+operator|.
+name|CodecService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|settings
 operator|.
 name|IndexSettings
@@ -147,7 +161,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * The {@link PostingsFormatService} provides access to  * all configured {@link PostingsFormatProvider} instances by  * {@link PostingsFormatProvider#name() name}.   *   * @see CodecService   *   */
 end_comment
 
 begin_class
@@ -279,7 +293,9 @@ name|indexSettings
 operator|.
 name|getGroups
 argument_list|(
-literal|"index.codec.postings_format"
+name|PostingsFormatProvider
+operator|.
+name|POSTINGS_FORMAT_SETTINGS_PREFIX
 argument_list|)
 decl_stmt|;
 for|for
