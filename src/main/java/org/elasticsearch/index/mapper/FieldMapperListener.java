@@ -55,14 +55,14 @@ name|Aggregator
 extends|extends
 name|FieldMapperListener
 block|{
-DECL|field|fieldMappers
+DECL|field|mappers
 specifier|public
 specifier|final
 name|List
 argument_list|<
 name|FieldMapper
 argument_list|>
-name|fieldMappers
+name|mappers
 init|=
 operator|new
 name|ArrayList
@@ -82,7 +82,7 @@ name|FieldMapper
 name|fieldMapper
 parameter_list|)
 block|{
-name|fieldMappers
+name|mappers
 operator|.
 name|add
 argument_list|(

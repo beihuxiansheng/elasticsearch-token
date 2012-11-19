@@ -71,14 +71,14 @@ name|Aggregator
 extends|extends
 name|ObjectMapperListener
 block|{
-DECL|field|objectMappers
+DECL|field|mappers
 specifier|public
 specifier|final
 name|List
 argument_list|<
 name|ObjectMapper
 argument_list|>
-name|objectMappers
+name|mappers
 init|=
 operator|new
 name|ArrayList
@@ -98,7 +98,7 @@ name|ObjectMapper
 name|objectMapper
 parameter_list|)
 block|{
-name|objectMappers
+name|mappers
 operator|.
 name|add
 argument_list|(

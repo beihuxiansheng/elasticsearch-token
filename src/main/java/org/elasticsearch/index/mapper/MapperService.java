@@ -1420,7 +1420,7 @@ name|addFieldMappers
 argument_list|(
 name|fieldMappersAgg
 operator|.
-name|fieldMappers
+name|mappers
 operator|.
 name|toArray
 argument_list|(
@@ -1429,7 +1429,7 @@ name|FieldMapper
 index|[
 name|fieldMappersAgg
 operator|.
-name|fieldMappers
+name|mappers
 operator|.
 name|size
 argument_list|()
@@ -1468,7 +1468,7 @@ name|addObjectMappers
 argument_list|(
 name|objectMappersAgg
 operator|.
-name|objectMappers
+name|mappers
 operator|.
 name|toArray
 argument_list|(
@@ -1477,7 +1477,7 @@ name|ObjectMapper
 index|[
 name|objectMappersAgg
 operator|.
-name|objectMappers
+name|mappers
 operator|.
 name|size
 argument_list|()
