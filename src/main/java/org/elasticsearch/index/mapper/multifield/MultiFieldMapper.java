@@ -1581,25 +1581,16 @@ block|}
 block|}
 block|}
 comment|// call it outside of the mutex
-for|for
-control|(
-name|FieldMapper
-name|fieldMapper
-range|:
-name|mappersToAddToDocMapper
-control|)
-block|{
 name|mergeContext
 operator|.
 name|docMapper
 argument_list|()
 operator|.
-name|addFieldMapper
+name|addFieldMappers
 argument_list|(
-name|fieldMapper
+name|mappersToAddToDocMapper
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 annotation|@
 name|Override

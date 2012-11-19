@@ -56,10 +56,11 @@ begin_comment
 comment|/**  *  */
 end_comment
 
-begin_interface
-DECL|interface|ObjectMapperListener
+begin_class
+DECL|class|ObjectMapperListener
 specifier|public
-interface|interface
+specifier|abstract
+class|class
 name|ObjectMapperListener
 block|{
 DECL|class|Aggregator
@@ -67,7 +68,7 @@ specifier|public
 specifier|static
 class|class
 name|Aggregator
-implements|implements
+extends|extends
 name|ObjectMapperListener
 block|{
 DECL|field|objectMappers
@@ -107,6 +108,8 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|objectMapper
+specifier|public
+specifier|abstract
 name|void
 name|objectMapper
 parameter_list|(
@@ -114,8 +117,33 @@ name|ObjectMapper
 name|objectMapper
 parameter_list|)
 function_decl|;
+DECL|method|objectMappers
+specifier|public
+name|void
+name|objectMappers
+parameter_list|(
+name|ObjectMapper
+modifier|...
+name|objectMappers
+parameter_list|)
+block|{
+for|for
+control|(
+name|ObjectMapper
+name|objectMapper
+range|:
+name|objectMappers
+control|)
+block|{
+name|objectMapper
+argument_list|(
+name|objectMapper
+argument_list|)
+expr_stmt|;
 block|}
-end_interface
+block|}
+block|}
+end_class
 
 end_unit
 

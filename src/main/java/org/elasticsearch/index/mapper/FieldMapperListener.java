@@ -40,10 +40,11 @@ begin_comment
 comment|/**  *  */
 end_comment
 
-begin_interface
-DECL|interface|FieldMapperListener
+begin_class
+DECL|class|FieldMapperListener
 specifier|public
-interface|interface
+specifier|abstract
+class|class
 name|FieldMapperListener
 block|{
 DECL|class|Aggregator
@@ -51,7 +52,7 @@ specifier|public
 specifier|static
 class|class
 name|Aggregator
-implements|implements
+extends|extends
 name|FieldMapperListener
 block|{
 DECL|field|fieldMappers
@@ -91,6 +92,8 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|fieldMapper
+specifier|public
+specifier|abstract
 name|void
 name|fieldMapper
 parameter_list|(
@@ -98,8 +101,33 @@ name|FieldMapper
 name|fieldMapper
 parameter_list|)
 function_decl|;
+DECL|method|fieldMappers
+specifier|public
+name|void
+name|fieldMappers
+parameter_list|(
+name|FieldMapper
+modifier|...
+name|fieldMappers
+parameter_list|)
+block|{
+for|for
+control|(
+name|FieldMapper
+name|mapper
+range|:
+name|fieldMappers
+control|)
+block|{
+name|fieldMapper
+argument_list|(
+name|mapper
+argument_list|)
+expr_stmt|;
 block|}
-end_interface
+block|}
+block|}
+end_class
 
 end_unit
 
