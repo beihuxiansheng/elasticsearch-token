@@ -1915,7 +1915,7 @@ operator|.
 name|similarityService
 argument_list|()
 operator|.
-name|defaultSearchSimilarity
+name|similarity
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2378,7 +2378,7 @@ operator|.
 name|similarityService
 argument_list|()
 operator|.
-name|defaultSearchSimilarity
+name|similarity
 argument_list|()
 argument_list|)
 argument_list|)

@@ -8272,7 +8272,7 @@ name|setSimilarity
 argument_list|(
 name|similarityService
 operator|.
-name|defaultIndexSimilarity
+name|similarity
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -9056,7 +9056,7 @@ name|setSimilarity
 argument_list|(
 name|similarityService
 operator|.
-name|defaultSearchSimilarity
+name|similarity
 argument_list|()
 argument_list|)
 expr_stmt|;

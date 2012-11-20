@@ -3580,6 +3580,8 @@ argument_list|,
 name|searchAnalyzer
 argument_list|,
 name|provider
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 block|}

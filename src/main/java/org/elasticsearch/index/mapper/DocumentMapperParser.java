@@ -392,6 +392,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|similarity
+operator|.
+name|SimilarityLookupService
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -448,6 +462,12 @@ specifier|private
 specifier|final
 name|PostingsFormatService
 name|postingsFormatService
+decl_stmt|;
+DECL|field|similarityLookupService
+specifier|private
+specifier|final
+name|SimilarityLookupService
+name|similarityLookupService
 decl_stmt|;
 DECL|field|rootObjectTypeParser
 specifier|private
@@ -511,6 +531,9 @@ name|analysisService
 parameter_list|,
 name|PostingsFormatService
 name|postingsFormatService
+parameter_list|,
+name|SimilarityLookupService
+name|similarityLookupService
 parameter_list|)
 block|{
 name|this
@@ -526,6 +549,8 @@ argument_list|,
 name|analysisService
 argument_list|,
 name|postingsFormatService
+argument_list|,
+name|similarityLookupService
 argument_list|)
 expr_stmt|;
 block|}
@@ -546,6 +571,9 @@ name|analysisService
 parameter_list|,
 name|PostingsFormatService
 name|postingsFormatService
+parameter_list|,
+name|SimilarityLookupService
+name|similarityLookupService
 parameter_list|)
 block|{
 name|super
@@ -566,6 +594,12 @@ operator|.
 name|postingsFormatService
 operator|=
 name|postingsFormatService
+expr_stmt|;
+name|this
+operator|.
+name|similarityLookupService
+operator|=
+name|similarityLookupService
 expr_stmt|;
 name|MapBuilder
 argument_list|<
@@ -1116,6 +1150,8 @@ name|postingsFormatService
 argument_list|,
 name|analysisService
 argument_list|,
+name|similarityLookupService
+argument_list|,
 name|typeParsers
 argument_list|)
 return|;
@@ -1345,6 +1381,8 @@ argument_list|(
 name|postingsFormatService
 argument_list|,
 name|analysisService
+argument_list|,
+name|similarityLookupService
 argument_list|,
 name|typeParsers
 argument_list|)

@@ -174,6 +174,20 @@ name|QueryParseContext
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|similarity
+operator|.
+name|SimilarityProvider
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -529,6 +543,12 @@ comment|/**      * The analyzer that will be used for quoted search on the field
 DECL|method|searchQuoteAnalyzer
 name|Analyzer
 name|searchQuoteAnalyzer
+parameter_list|()
+function_decl|;
+comment|/**      * Similarity used for scoring queries on the field      */
+DECL|method|similarity
+name|SimilarityProvider
+name|similarity
 parameter_list|()
 function_decl|;
 comment|/**      * Returns the value that will be used as a result for search. Can be only of specific types... .      */

@@ -280,6 +280,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|similarity
+operator|.
+name|SimilarityProvider
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -806,6 +820,9 @@ name|searchAnalyzer
 parameter_list|,
 name|PostingsFormatProvider
 name|provider
+parameter_list|,
+name|SimilarityProvider
+name|similarity
 parameter_list|)
 block|{
 comment|// LUCENE 4 UPGRADE: Since we can't do anything before the super call, we have to push the boost check down to subclasses
@@ -822,6 +839,8 @@ argument_list|,
 name|searchAnalyzer
 argument_list|,
 name|provider
+argument_list|,
+name|similarity
 argument_list|)
 expr_stmt|;
 if|if

@@ -336,6 +336,17 @@ operator|.
 name|reader
 argument_list|()
 expr_stmt|;
+name|setSimilarity
+argument_list|(
+name|searcher
+operator|.
+name|searcher
+argument_list|()
+operator|.
+name|getSimilarity
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|dfSource
 specifier|public

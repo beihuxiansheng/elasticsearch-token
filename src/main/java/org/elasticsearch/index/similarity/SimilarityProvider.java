@@ -52,6 +52,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|Settings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|index
 operator|.
 name|IndexComponent
@@ -59,7 +73,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Provider for {@link Similarity} instances  */
 end_comment
 
 begin_interface
@@ -67,29 +81,39 @@ DECL|interface|SimilarityProvider
 specifier|public
 interface|interface
 name|SimilarityProvider
-parameter_list|<
-name|T
-extends|extends
-name|Similarity
-parameter_list|>
-extends|extends
-name|IndexComponent
-extends|,
-name|Provider
-argument_list|<
-name|T
-argument_list|>
 block|{
+comment|/**      * Returns the name associated with the Provider      *      * @return Name of the Provider      */
 DECL|method|name
 name|String
 name|name
 parameter_list|()
 function_decl|;
+comment|/**      * Returns the {@link Similarity} the Provider is for      *      * @return Provided {@link Similarity}      */
 DECL|method|get
-name|T
+name|Similarity
 name|get
 parameter_list|()
 function_decl|;
+comment|/**      * Factory for creating {@link SimilarityProvider} instances      */
+DECL|interface|Factory
+specifier|public
+specifier|static
+interface|interface
+name|Factory
+block|{
+comment|/**          * Creates a new {@link SimilarityProvider} instance          *          * @param name Name of the provider          * @param settings Settings to be used by the Provider          * @return {@link SimilarityProvider} instance created by the Factory          */
+DECL|method|create
+name|SimilarityProvider
+name|create
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|Settings
+name|settings
+parameter_list|)
+function_decl|;
+block|}
 block|}
 end_interface
 

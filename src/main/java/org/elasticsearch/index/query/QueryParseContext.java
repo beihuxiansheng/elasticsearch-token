@@ -656,7 +656,7 @@ name|indexQueryParser
 operator|.
 name|similarityService
 operator|.
-name|defaultSearchSimilarity
+name|similarity
 argument_list|()
 else|:
 literal|null
