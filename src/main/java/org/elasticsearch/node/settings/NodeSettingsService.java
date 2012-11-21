@@ -378,11 +378,6 @@ operator|.
 name|getLogger
 argument_list|(
 name|component
-argument_list|,
-name|entry
-operator|.
-name|getValue
-argument_list|()
 argument_list|)
 operator|.
 name|setLevel
