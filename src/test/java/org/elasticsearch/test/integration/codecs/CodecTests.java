@@ -492,7 +492,7 @@ name|QueryBuilders
 operator|.
 name|matchQuery
 argument_list|(
-literal|"field1"
+literal|"field2"
 argument_list|,
 literal|"quick brown"
 argument_list|)
@@ -503,7 +503,12 @@ name|MatchQueryBuilder
 operator|.
 name|Type
 operator|.
-name|BOOLEAN
+name|PHRASE
+argument_list|)
+operator|.
+name|slop
+argument_list|(
+literal|0
 argument_list|)
 argument_list|)
 operator|.
@@ -525,7 +530,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|1l
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -558,7 +563,7 @@ argument_list|)
 operator|.
 name|slop
 argument_list|(
-literal|2
+literal|0
 argument_list|)
 argument_list|)
 operator|.
@@ -753,7 +758,7 @@ name|QueryBuilders
 operator|.
 name|matchQuery
 argument_list|(
-literal|"field1"
+literal|"field2"
 argument_list|,
 literal|"quick brown"
 argument_list|)
@@ -764,7 +769,12 @@ name|MatchQueryBuilder
 operator|.
 name|Type
 operator|.
-name|BOOLEAN
+name|PHRASE
+argument_list|)
+operator|.
+name|slop
+argument_list|(
+literal|0
 argument_list|)
 argument_list|)
 operator|.
@@ -786,7 +796,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|1l
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -819,7 +829,7 @@ argument_list|)
 operator|.
 name|slop
 argument_list|(
-literal|2
+literal|0
 argument_list|)
 argument_list|)
 operator|.
