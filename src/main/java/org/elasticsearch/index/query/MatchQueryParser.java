@@ -1131,11 +1131,37 @@ name|text
 argument_list|()
 expr_stmt|;
 comment|// move to the next token
+name|token
+operator|=
 name|parser
 operator|.
 name|nextToken
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|token
+operator|!=
+name|XContentParser
+operator|.
+name|Token
+operator|.
+name|END_OBJECT
+condition|)
+block|{
+throw|throw
+operator|new
+name|QueryParsingException
+argument_list|(
+name|parseContext
+operator|.
+name|index
+argument_list|()
+argument_list|,
+literal|"[match] query parsed in simplified form, with direct field name, but included more options than just the field name, possibly use its 'options' form, with 'query' element?"
+argument_list|)
+throw|;
+block|}
 block|}
 if|if
 condition|(
