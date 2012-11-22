@@ -690,7 +690,23 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-literal|"{ \"text_phrase\" : { \"field2\" : \"quick brown\", \"slop\" : \"2\" }}"
+name|QueryBuilders
+operator|.
+name|matchQuery
+argument_list|(
+literal|"field1"
+argument_list|,
+literal|"quick brown"
+argument_list|)
+operator|.
+name|type
+argument_list|(
+name|MatchQueryBuilder
+operator|.
+name|Type
+operator|.
+name|BOOLEAN
+argument_list|)
 argument_list|)
 operator|.
 name|execute
@@ -711,7 +727,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|2l
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -724,7 +740,28 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-literal|"{ \"text_phrase\" : { \"field1\" : \"quick brown\", \"slop\" : \"2\" }}"
+name|QueryBuilders
+operator|.
+name|matchQuery
+argument_list|(
+literal|"field1"
+argument_list|,
+literal|"quick brown"
+argument_list|)
+operator|.
+name|type
+argument_list|(
+name|MatchQueryBuilder
+operator|.
+name|Type
+operator|.
+name|PHRASE
+argument_list|)
+operator|.
+name|slop
+argument_list|(
+literal|2
+argument_list|)
 argument_list|)
 operator|.
 name|execute
@@ -953,7 +990,23 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-literal|"{ \"text_phrase\" : { \"field2\" : \"quick brown\", \"slop\" : \"2\" }}"
+name|QueryBuilders
+operator|.
+name|matchQuery
+argument_list|(
+literal|"field1"
+argument_list|,
+literal|"quick brown"
+argument_list|)
+operator|.
+name|type
+argument_list|(
+name|MatchQueryBuilder
+operator|.
+name|Type
+operator|.
+name|BOOLEAN
+argument_list|)
 argument_list|)
 operator|.
 name|execute
@@ -974,7 +1027,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|2l
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -987,7 +1040,28 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-literal|"{ \"text_phrase\" : { \"field1\" : \"quick brown\", \"slop\" : \"2\" }}"
+name|QueryBuilders
+operator|.
+name|matchQuery
+argument_list|(
+literal|"field1"
+argument_list|,
+literal|"quick brown"
+argument_list|)
+operator|.
+name|type
+argument_list|(
+name|MatchQueryBuilder
+operator|.
+name|Type
+operator|.
+name|PHRASE
+argument_list|)
+operator|.
+name|slop
+argument_list|(
+literal|2
+argument_list|)
 argument_list|)
 operator|.
 name|execute
