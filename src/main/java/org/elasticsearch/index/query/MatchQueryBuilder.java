@@ -97,6 +97,18 @@ comment|/**          * The text is analyzed and used in a phrase query, with the
 DECL|enum constant|PHRASE_PREFIX
 name|PHRASE_PREFIX
 block|}
+DECL|enum|ZeroTermsQuery
+specifier|public
+specifier|static
+enum|enum
+name|ZeroTermsQuery
+block|{
+DECL|enum constant|NONE
+name|NONE
+block|,
+DECL|enum constant|ALL
+name|ALL
+block|}
 DECL|field|name
 specifier|private
 specifier|final
@@ -179,6 +191,11 @@ name|Boolean
 name|fuzzyTranspositions
 init|=
 literal|null
+decl_stmt|;
+DECL|field|zeroTermsQuery
+specifier|private
+name|ZeroTermsQuery
+name|zeroTermsQuery
 decl_stmt|;
 comment|/**      * Constructs a new text query.      */
 DECL|method|MatchQueryBuilder
@@ -464,6 +481,25 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|zeroTermsQuery
+specifier|public
+name|MatchQueryBuilder
+name|zeroTermsQuery
+parameter_list|(
+name|ZeroTermsQuery
+name|zeroTermsQuery
+parameter_list|)
+block|{
+name|this
+operator|.
+name|zeroTermsQuery
+operator|=
+name|zeroTermsQuery
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|doXContent
@@ -737,6 +773,26 @@ argument_list|(
 literal|"lenient"
 argument_list|,
 name|lenient
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|zeroTermsQuery
+operator|!=
+literal|null
+condition|)
+block|{
+name|builder
+operator|.
+name|field
+argument_list|(
+literal|"zero_terms_query"
+argument_list|,
+name|zeroTermsQuery
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
