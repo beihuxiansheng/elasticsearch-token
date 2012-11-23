@@ -141,7 +141,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * {@link RoutingNodes} represents a copy the routing information contained in  * the {@link ClusterState cluster state}.  */
 end_comment
 
 begin_class

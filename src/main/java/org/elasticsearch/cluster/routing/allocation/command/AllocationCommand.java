@@ -131,7 +131,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * This interface defines the basic methods of commands for allocation  */
 end_comment
 
 begin_interface
@@ -140,6 +140,7 @@ specifier|public
 interface|interface
 name|AllocationCommand
 block|{
+comment|/**      * Factory to create {@link AllocationCommand}s      * @param<T> Type of {@link AllocationCommand}s created by this {@link Factory}      */
 DECL|interface|Factory
 interface|interface
 name|Factory
@@ -149,6 +150,7 @@ extends|extends
 name|AllocationCommand
 parameter_list|>
 block|{
+comment|/**          * Reads an {@link AllocationCommand} of type<code>T</code> from a {@link StreamInput}          * @param in {@link StreamInput} to read the {@link AllocationCommand} from           * @return {@link AllocationCommand} read from the {@link StreamInput}          * @throws IOException if something happens during reading          */
 DECL|method|readFrom
 name|T
 name|readFrom
@@ -159,6 +161,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/**          * Writes an {@link AllocationCommand} to a {@link StreamOutput}          * @param command {@link AllocationCommand} to write          * @param out {@link StreamOutput} to write the {@link AllocationCommand} to          * @throws IOException if something happens during writing the command          */
 DECL|method|writeTo
 name|void
 name|writeTo
@@ -172,6 +175,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/**          * Reads an {@link AllocationCommand} of type<code>T</code> from a {@link XContentParser}          * @param parser {@link XContentParser} to use          * @return {@link AllocationCommand} read          * @throws IOException if something happens during reading          */
 DECL|method|fromXContent
 name|T
 name|fromXContent
@@ -182,6 +186,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/**          * Writes an {@link AllocationCommand} using an {@link XContentBuilder}          * @param command {@link AllocationCommand} to write          * @param builder {@link XContentBuilder} to use          * @param params parameters to use when writing the command           * @throws IOException if something happens during writing the command          */
 DECL|method|toXContent
 name|void
 name|toXContent
@@ -201,11 +206,13 @@ throws|throws
 name|IOException
 function_decl|;
 block|}
+comment|/**      * Get the name of the command      * @return name of the command      */
 DECL|method|name
 name|String
 name|name
 parameter_list|()
 function_decl|;
+comment|/**      * Executes the command on a {@link RoutingAllocation} setup      * @param allocation {@link RoutingAllocation} to modify      * @throws ElasticSearchException if something happens during reconfiguration      */
 DECL|method|execute
 name|void
 name|execute

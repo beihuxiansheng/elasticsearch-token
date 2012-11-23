@@ -37,7 +37,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * This class implements a compilation of {@link ShardIterator}s. Each {@link ShardIterator}  * iterated by this {@link Iterable} represents a group of shards.  *   */
 end_comment
 
 begin_class
@@ -78,6 +78,7 @@ operator|=
 name|iterators
 expr_stmt|;
 block|}
+comment|/**      * Returns the total number of shards within all groups       * @return total number of shards      */
 DECL|method|totalSize
 specifier|public
 name|int
@@ -109,6 +110,7 @@ return|return
 name|size
 return|;
 block|}
+comment|/**      * Returns the total number of shards plus the number of empty groups      * @return number of shards and empty groups       */
 DECL|method|totalSizeWith1ForEmpty
 specifier|public
 name|int
@@ -160,6 +162,7 @@ return|return
 name|size
 return|;
 block|}
+comment|/**      * Return the number of groups      * @return number of groups      */
 DECL|method|size
 specifier|public
 name|int
@@ -173,6 +176,7 @@ name|size
 argument_list|()
 return|;
 block|}
+comment|/**      * Return all group iterators      * @return      */
 DECL|method|iterators
 specifier|public
 name|Collection

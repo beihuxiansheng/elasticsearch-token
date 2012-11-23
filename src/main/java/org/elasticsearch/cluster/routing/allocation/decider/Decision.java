@@ -45,7 +45,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * This abstract class defining basic {@link Decision} used during shard  * allocation process.  *   * @see AllocationDecider  */
 end_comment
 
 begin_class
@@ -115,6 +115,7 @@ operator|.
 name|THROTTLE
 argument_list|)
 decl_stmt|;
+comment|/**      * Creates a simple decision       * @param type {@link Type} of the decision      * @param explanation explanation of the decision      * @param explanationParams additional parameters for the decision      * @return new {@link Decision} instance      */
 DECL|method|single
 specifier|public
 specifier|static
@@ -144,6 +145,7 @@ name|explanationParams
 argument_list|)
 return|;
 block|}
+comment|/**      * This enumeration defines the       * possible types of decisions       */
 DECL|enum|Type
 specifier|public
 specifier|static
@@ -159,6 +161,7 @@ block|,
 DECL|enum constant|THROTTLE
 name|THROTTLE
 block|}
+comment|/**      * Get the {@link Type} of this decision      * @return {@link Type} of this decision      */
 DECL|method|type
 specifier|public
 specifier|abstract
@@ -166,6 +169,7 @@ name|Type
 name|type
 parameter_list|()
 function_decl|;
+comment|/**      * Simple class representing a single decision      */
 DECL|class|Single
 specifier|public
 specifier|static
@@ -193,6 +197,7 @@ name|Object
 index|[]
 name|explanationParams
 decl_stmt|;
+comment|/**          * Creates a new {@link Single} decision of a given type           * @param type {@link Type} of the decision          */
 DECL|method|Single
 specifier|public
 name|Single
@@ -215,6 +220,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**          * Creates a new {@link Single} decision of a given type          *            * @param type {@link Type} of the decision          * @param explanation An explanation of this {@link Decision}          * @param explanationParams A set of additional parameters          */
 DECL|method|Single
 specifier|public
 name|Single
@@ -249,6 +255,8 @@ operator|=
 name|explanationParams
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|type
 specifier|public
 name|Type
@@ -300,6 +308,7 @@ literal|")"
 return|;
 block|}
 block|}
+comment|/**      * Simple class representing a list of decisions      */
 DECL|class|Multi
 specifier|public
 specifier|static
@@ -322,6 +331,7 @@ operator|.
 name|newArrayList
 argument_list|()
 decl_stmt|;
+comment|/**          * Add a decission to this {@link Multi}decision instance          * @param decision {@link Decision} to add          * @return {@link Multi}decision instance with the given decision added          */
 DECL|method|add
 specifier|public
 name|Multi

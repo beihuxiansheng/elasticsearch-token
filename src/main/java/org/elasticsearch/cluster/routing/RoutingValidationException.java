@@ -17,7 +17,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  *  */
+comment|/**  * This class defines {@link RoutingException}s related to  * the validation of routing  */
 end_comment
 
 begin_class

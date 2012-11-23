@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * The {@link PlainShardIterator} is a {@link ShardsIterator} which iterates all  * shards or a given {@link ShardId shard id}  */
 end_comment
 
 begin_class
@@ -60,6 +60,7 @@ specifier|final
 name|ShardId
 name|shardId
 decl_stmt|;
+comment|/**      * Creates a {@link PlainShardIterator} instance that iterates over a subset of the given shards      * this the a given<code>shardId</code>.      *       * @param shardId shard id of the group       * @param shards shards to iterate      */
 DECL|method|PlainShardIterator
 specifier|public
 name|PlainShardIterator
@@ -86,6 +87,7 @@ operator|=
 name|shardId
 expr_stmt|;
 block|}
+comment|/**      * Creates a {@link PlainShardIterator} instance that iterates over a subset of the given shards      * this the a given<code>shardId</code>.      *       * @param shardId shard id of the group       * @param shards shards to iterate      * @param index the offset in the shards list to start the iteration from      */
 DECL|method|PlainShardIterator
 specifier|public
 name|PlainShardIterator

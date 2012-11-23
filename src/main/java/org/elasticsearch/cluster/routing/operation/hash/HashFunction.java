@@ -21,7 +21,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Simple hash function interface used for shard routing.  */
 end_comment
 
 begin_interface
@@ -30,6 +30,7 @@ specifier|public
 interface|interface
 name|HashFunction
 block|{
+comment|/**      * Calculate a hash value for routing       * @param routing String to calculate the hash value from       * @return hash value of the given routing string      */
 DECL|method|hash
 name|int
 name|hash
@@ -38,6 +39,7 @@ name|String
 name|routing
 parameter_list|)
 function_decl|;
+comment|/**      * Calculate a hash value for routing and its type      * @param type types name      * @param routing String to calculate the hash value from       * @return hash value of the given type and routing string      */
 DECL|method|hash
 name|int
 name|hash

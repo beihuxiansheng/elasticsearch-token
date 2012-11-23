@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * This {@link RoutingAllocation} holds a list of started shards within a  * cluster  */
 end_comment
 
 begin_class
@@ -149,6 +149,7 @@ operator|=
 name|startedShards
 expr_stmt|;
 block|}
+comment|/**      * Get started shards      * @return list of started shards      */
 DECL|method|startedShards
 specifier|public
 name|List

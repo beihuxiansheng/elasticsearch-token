@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * This class implements the efficient hash function  * developed by<i>Daniel J. Bernstein</i>.  */
 end_comment
 
 begin_class

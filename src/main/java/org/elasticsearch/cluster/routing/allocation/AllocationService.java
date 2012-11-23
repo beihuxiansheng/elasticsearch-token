@@ -307,7 +307,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * This service manages the node allocation of a cluster. For this reason the  * {@link AllocationService} keeps {@link AllocationDeciders} to choose nodes  * for shard allocation. This class also manages new nodes joining the cluster  * and rerouting of shards.  */
 end_comment
 
 begin_class
@@ -415,7 +415,7 @@ operator|=
 name|shardsAllocators
 expr_stmt|;
 block|}
-comment|/**      * Applies the started shards. Note, shards can be called several times within this method.      *<p/>      *<p>If the same instance of the routing table is returned, then no change has been made.      */
+comment|/**      * Applies the started shards. Note, shards can be called several times within this method.      *<p/>      *<p>If the same instance of the routing table is returned, then no change has been made.</p>      */
 DECL|method|applyStartedShards
 specifier|public
 name|RoutingAllocation
@@ -557,7 +557,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Applies the failed shards. Note, shards can be called several times within this method.      *<p/>      *<p>If the same instance of the routing table is returned, then no change has been made.      */
+comment|/**      * Applies the failed shards. Note, shards can be called several times within this method.      *<p/>      *<p>If the same instance of the routing table is returned, then no change has been made.</p>      */
 DECL|method|applyFailedShard
 specifier|public
 name|RoutingAllocation

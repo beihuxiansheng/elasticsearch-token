@@ -27,7 +27,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * A base {@link Exception}s for all exceptions thrown by routing related operations.  */
 end_comment
 
 begin_class

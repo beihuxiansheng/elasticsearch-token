@@ -207,7 +207,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * The {@link IndexRoutingTable} represents routing information for a single  * index. The routing table maintains a list of all shards in the index. A  * single shard in this context has one more instances namely exactly one  * {@link ShardRouting#primary() primary} and 1 or more replicas. In other  * words, each instance of a shard is considered a replica while only one  * replica per shard is a<tt>primary</tt> replica. The<tt>primary</tt> replica  * can be seen as the "leader" of the shard acting as the primary entry point  * for operations on a specific shard.   *<p>  * Note: The term replica is not directly  * reflected in the routing table or in releated classes, replicas are  * represented as {@link ShardRouting}.  *</p>  */
 end_comment
 
 begin_class
@@ -389,6 +389,7 @@ name|build
 argument_list|()
 expr_stmt|;
 block|}
+comment|/**      * Return the index id      * @return id of the index      */
 DECL|method|index
 specifier|public
 name|String
@@ -401,6 +402,7 @@ operator|.
 name|index
 return|;
 block|}
+comment|/**      * Return the index id      * @return id of the index      */
 DECL|method|getIndex
 specifier|public
 name|String
@@ -412,6 +414,7 @@ name|index
 argument_list|()
 return|;
 block|}
+comment|/**      * creates a new {@link IndexRoutingTable} with all shard versions normalized      * @return new {@link IndexRoutingTable}      */
 DECL|method|normalizeVersions
 specifier|public
 name|IndexRoutingTable
@@ -720,6 +723,7 @@ name|iterator
 argument_list|()
 return|;
 block|}
+comment|/**      * Calculates the number of nodes that hold one or more shards of this index      * {@link IndexRoutingTable} excluding the nodes with the node ids give as      * the<code>excludedNodes</code> parameter.      *       * @param excludedNodes      *            id of nodes that will be excluded      * @return number of distinct nodes this index has at least one shard allocated on      */
 DECL|method|numberOfNodesShardsAreAllocatedOn
 specifier|public
 name|int
@@ -884,6 +888,7 @@ name|shardId
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns<code>true</code> if all shards are primary and active. Otherwise<code>false</code>.      */
 DECL|method|allPrimaryShardsActive
 specifier|public
 name|boolean
@@ -901,6 +906,7 @@ name|size
 argument_list|()
 return|;
 block|}
+comment|/**      * Calculates the number of primary shards in active state in routing table         * @return number of active primary shards      */
 DECL|method|primaryShardsActive
 specifier|public
 name|int
@@ -940,6 +946,7 @@ return|return
 name|counter
 return|;
 block|}
+comment|/**      * Returns<code>true</code> if all primary shards are in      * {@link ShardRoutingState#UNASSIGNED} state. Otherwise<code>false</code>.      */
 DECL|method|allPrimaryShardsUnassigned
 specifier|public
 name|boolean
@@ -956,6 +963,7 @@ name|size
 argument_list|()
 return|;
 block|}
+comment|/**      * Calculates the number of primary shards in the routing table the are in      * {@link ShardRoutingState#UNASSIGNED} state.      */
 DECL|method|primaryShardsUnassigned
 specifier|public
 name|int
@@ -995,6 +1003,7 @@ return|return
 name|counter
 return|;
 block|}
+comment|/**      * Returns a {@link List} of shards that match one of the states listed in {@link ShardRoutingState states}      * @param states a set of {@link ShardRoutingState states}      * @return a {@link List} of shards that match one of the given {@link ShardRoutingState states}      */
 DECL|method|shardsWithState
 specifier|public
 name|List
@@ -1042,7 +1051,7 @@ return|return
 name|shards
 return|;
 block|}
-comment|/**      * An iterator over all shards (including replicas).      */
+comment|/**      * Returns an unordered iterator over all shards (including replicas).      */
 DECL|method|randomAllShardsIt
 specifier|public
 name|ShardsIterator
@@ -1062,6 +1071,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns an unordered iterator over all active shards (including replicas).      */
 DECL|method|randomAllActiveShardsIt
 specifier|public
 name|ShardsIterator
@@ -1134,7 +1144,7 @@ name|set
 argument_list|)
 return|;
 block|}
-comment|/**      * A groups shards iterator where each groups is a single {@link ShardRouting} and a group      * is created for each shard routing.      *<p/>      *<p>This basically means that components that use the {@link GroupShardsIterator} will iterate      * over *all* the shards (all the replicas) within the index.      */
+comment|/**      * A groups shards iterator where each groups is a single {@link ShardRouting} and a group      * is created for each shard routing.      *<p/>      *<p>This basically means that components that use the {@link GroupShardsIterator} will iterate      * over *all* the shards (all the replicas) within the index.</p>      */
 DECL|method|groupByAllIt
 specifier|public
 name|GroupShardsIterator
@@ -1246,6 +1256,7 @@ operator|=
 name|index
 expr_stmt|;
 block|}
+comment|/**          * Reads an {@link IndexRoutingTable} from an {@link StreamInput}          * @param in {@link StreamInput} to read the {@link IndexRoutingTable} from          * @return {@link IndexRoutingTable} read          *           * @throws IOException if something happens during read          */
 DECL|method|readFrom
 specifier|public
 specifier|static
@@ -1322,6 +1333,7 @@ name|build
 argument_list|()
 return|;
 block|}
+comment|/**          * Writes an {@link IndexRoutingTable} to a {@link StreamOutput}.          * @param index {@link IndexRoutingTable} to write          * @param out {@link StreamOutput} to write to          * @throws IOException if something happens during write           */
 DECL|method|writeTo
 specifier|public
 specifier|static

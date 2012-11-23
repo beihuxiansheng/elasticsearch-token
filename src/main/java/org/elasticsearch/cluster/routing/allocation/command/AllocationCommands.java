@@ -217,7 +217,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * A simple {@link AllocationCommand} composite managing several  * {@link AllocationCommand} implementations  */
 end_comment
 
 begin_class
@@ -433,6 +433,7 @@ operator|.
 name|newArrayList
 argument_list|()
 decl_stmt|;
+comment|/**      * Creates a new set of {@link AllocationCommands}      *         * @param commands {@link AllocationCommand}s that are wrapped by this instance      */
 DECL|method|AllocationCommands
 specifier|public
 name|AllocationCommands
@@ -465,6 +466,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Adds a set of commands to this collection      * @param commands Array of commands to add to this instance      * @return {@link AllocationCommands} with the given commands added      */
 DECL|method|add
 specifier|public
 name|AllocationCommands
@@ -501,6 +503,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Get the commands wrapped by this instance      * @return {@link List} of commands      */
 DECL|method|commands
 specifier|public
 name|List
@@ -516,6 +519,7 @@ operator|.
 name|commands
 return|;
 block|}
+comment|/**      * Executes all wrapped commands on a given {@link RoutingAllocation}      * @param allocation {@link RoutingAllocation} to apply this command to      * @throws ElasticSearchException if something happens during execution      */
 DECL|method|execute
 specifier|public
 name|void
@@ -544,6 +548,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Reads a {@link AllocationCommands} from a {@link StreamInput}      * @param in {@link StreamInput} to read from      * @return {@link AllocationCommands} read      *       * @throws IOException if something happens during read      */
 DECL|method|readFrom
 specifier|public
 specifier|static
@@ -614,6 +619,7 @@ return|return
 name|commands
 return|;
 block|}
+comment|/**      * Writes {@link AllocationCommands} to a {@link StreamOutput}      *       * @param commands Commands to write      * @param out {@link StreamOutput} to write the commands to      * @throws IOException if something happens during write      */
 DECL|method|writeTo
 specifier|public
 specifier|static
@@ -678,7 +684,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      *<pre>      *     {      *         "commands" : [      *              {"allocate" : {"index" : "test", "shard" : 0, "node" : "test"}}      *         ]      *     }      *</pre>      */
+comment|/**      * Reads {@link AllocationCommands} from a {@link XContentParser}      *<pre>      *     {      *         "commands" : [      *              {"allocate" : {"index" : "test", "shard" : 0, "node" : "test"}}      *         ]      *     }      *</pre>      * @param parser {@link XContentParser} to read the commands from      * @return {@link AllocationCommands} read      * @throws IOException if something bad happens while reading the stream       */
 DECL|method|fromXContent
 specifier|public
 specifier|static
@@ -953,6 +959,7 @@ return|return
 name|commands
 return|;
 block|}
+comment|/**      * Writes {@link AllocationCommands} to a {@link XContentBuilder}      *       * @param commands {@link AllocationCommands} to write      * @param builder {@link XContentBuilder} to use      * @param params Parameters to use for building      * @throws IOException if something bad happens while building the content      */
 DECL|method|toXContent
 specifier|public
 specifier|static

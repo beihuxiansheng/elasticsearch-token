@@ -127,7 +127,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * {@link ImmutableShardRouting} immutably encapsulates information about shard  * routings like id, state, version, etc.  */
 end_comment
 
 begin_class
@@ -715,6 +715,7 @@ name|asList
 argument_list|)
 return|;
 block|}
+comment|/**      * Reads a {@link ImmutableShardRouting} instance of a shard from an {@link InputStream}      *       * @param in {@link InputStream} to read the entry from      * @return {@link ImmutableShardRouting} instances read from the given {@link InputStream}      *       * @throws IOException if some exception occurs during the read operations      */
 DECL|method|readShardRoutingEntry
 specifier|public
 specifier|static
@@ -745,6 +746,7 @@ return|return
 name|entry
 return|;
 block|}
+comment|/**      * Reads a routingentry from an inputstream with given<code>index</code> and      *<code>shardId</code>.      *       * @param in inputstream to read the entry from      * @param index shards index      * @param id id of the shard      * @return Shard routing entry read      *       * @throws IOException if some exception occurs during the read operations      */
 DECL|method|readShardRoutingEntry
 specifier|public
 specifier|static
@@ -785,6 +787,7 @@ return|return
 name|entry
 return|;
 block|}
+comment|/**      * Read information from an inputstream with given<code>index</code> and      *<code>shardId</code>.      *       * @param in inputstream to read the entry from      * @param index shards index      * @param id id of the shard      *       * @throws IOException if some exception occurs during the read operations      */
 DECL|method|readFrom
 specifier|public
 name|void
@@ -921,7 +924,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Does not write index name and shard id      */
+comment|/**      * Writes shard information to {@link StreamOutput} without writing index name and shard id      * @param out {@link StreamOutput} to write shard information to      * @throws IOException if something happens during write      */
 DECL|method|writeToThin
 specifier|public
 name|void

@@ -17,7 +17,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  *  */
+comment|/**  * This exception defines illegal states of shard routing  */
 end_comment
 
 begin_class
@@ -90,6 +90,7 @@ operator|=
 name|shard
 expr_stmt|;
 block|}
+comment|/**      * Returns the shard instance referenced by this exception      * @return shard instance referenced by this exception      */
 DECL|method|shard
 specifier|public
 name|ShardRouting

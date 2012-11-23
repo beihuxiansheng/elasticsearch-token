@@ -131,7 +131,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Holds several {@link AllocationDecider}s and combines them into a single allocation decision.  */
+comment|/**  * A composite {@link AllocationDecider} combining the "decision" of multiple  * {@link AllocationDecider} implementations into a single allocation decision.  */
 end_comment
 
 begin_class
@@ -149,6 +149,7 @@ name|AllocationDecider
 index|[]
 name|allocations
 decl_stmt|;
+comment|/**      * Create a new {@link AllocationDeciders} instance      * @param settings  settings to use      * @param nodeSettingsService per-node settings to use      */
 DECL|method|AllocationDeciders
 specifier|public
 name|AllocationDeciders

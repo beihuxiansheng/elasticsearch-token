@@ -17,7 +17,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Convenience class that provides access to {@link RoutingTable.Builder} and  * {@link IndexRoutingTable.Builder}. These builder classes should be used to  * build {@link RoutingTable} and {@link IndexRoutingTable} instances,  * repectively.  */
 end_comment
 
 begin_class
@@ -31,7 +31,10 @@ DECL|method|RoutingBuilders
 specifier|private
 name|RoutingBuilders
 parameter_list|()
-block|{      }
+block|{
+comment|//no instance
+block|}
+comment|/**      * Returns a new {@link RoutingTable.Builder} instance      */
 DECL|method|routingTable
 specifier|public
 specifier|static
@@ -49,6 +52,7 @@ name|Builder
 argument_list|()
 return|;
 block|}
+comment|/**      * Returns a new {@link IndexRoutingTable.Builder} instance      */
 DECL|method|indexRoutingTable
 specifier|public
 specifier|static

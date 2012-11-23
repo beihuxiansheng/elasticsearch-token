@@ -79,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * This {@link RoutingAllocation} keeps a shard which routing  * allocation has faild   */
 end_comment
 
 begin_class

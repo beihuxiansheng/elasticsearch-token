@@ -116,6 +116,10 @@ name|List
 import|;
 end_import
 
+begin_comment
+comment|/**  * This {@link AllocationDecider} controls re-balancing operations based on the  * cluster wide active shard state. This decided can not be configured in  * real-time and should be pre-cluster start via  *<tt>cluster.routing.allocation.allow_rebalance</tt>. This setting respects the following  * values:  *<ul>  *<li><tt>indices_primaries_active</tt> - Re-balancing is allowed only once all  * primary shards on all indices are active.</li>  *   *<li><tt>indices_all_active</tt> - Re-balancing is allowed only once all  * shards on all indices are active.</li>  *   *<li><tt>always</tt> - Re-balancing is allowed once a shard replication group  * is active</li>  *</ul>  */
+end_comment
+
 begin_class
 DECL|class|ClusterRebalanceAllocationDecider
 specifier|public
@@ -124,18 +128,22 @@ name|ClusterRebalanceAllocationDecider
 extends|extends
 name|AllocationDecider
 block|{
+comment|/**      * An enum representation for the configured re-balance type.       */
 DECL|enum|ClusterRebalanceType
 specifier|public
 specifier|static
 enum|enum
 name|ClusterRebalanceType
 block|{
+comment|/**          * Re-balancing is allowed once a shard replication group is active          */
 DECL|enum constant|ALWAYS
 name|ALWAYS
 block|,
+comment|/**          * Re-balancing is allowed only once all primary shards on all indices are active.          */
 DECL|enum constant|INDICES_PRIMARIES_ACTIVE
 name|INDICES_PRIMARIES_ACTIVE
 block|,
+comment|/**          * Re-balancing is allowed only once all shards on all indices are active.           */
 DECL|enum constant|INDICES_ALL_ACTIVE
 name|INDICES_ALL_ACTIVE
 block|}

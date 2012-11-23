@@ -263,7 +263,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A command that cancel relocation, or recovery of a given shard on a node.  */
+comment|/**  * A command that cancels relocation, or recovery of a given shard on a node.  */
 end_comment
 
 begin_class
@@ -283,6 +283,7 @@ name|NAME
 init|=
 literal|"cancel"
 decl_stmt|;
+comment|/**      * Factory creating {@link CancelAllocationCommand}s      */
 DECL|class|Factory
 specifier|public
 specifier|static
@@ -750,6 +751,7 @@ specifier|final
 name|boolean
 name|allowPrimary
 decl_stmt|;
+comment|/**      * Creates a new {@link CancelAllocationCommand}      *       * @param shardId id of the shard which allocation should be canceled      * @param node id of the node that manages the shard which allocation should be canceled      * @param allowPrimary       */
 DECL|method|CancelAllocationCommand
 specifier|public
 name|CancelAllocationCommand
@@ -795,6 +797,7 @@ return|return
 name|NAME
 return|;
 block|}
+comment|/**      * Get the id of the shard which allocation should be canceled      * @return id of the shard which allocation should be canceled      */
 DECL|method|shardId
 specifier|public
 name|ShardId
@@ -807,6 +810,7 @@ operator|.
 name|shardId
 return|;
 block|}
+comment|/**      * Get the id of the node that manages the shard which allocation should be canceled      * @return id of the node that manages the shard which allocation should be canceled      */
 DECL|method|node
 specifier|public
 name|String

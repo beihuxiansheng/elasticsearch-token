@@ -27,7 +27,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The state of the shard as defined by the cluster.  *  *  */
+comment|/**  * Represents the current state of a {@link ShardRouting} as defined by the  * cluster.  */
 end_comment
 
 begin_enum
@@ -95,6 +95,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
+comment|/**      * Byte value of this {@link ShardRoutingState}      * @return Byte value of this {@link ShardRoutingState}      */
 DECL|method|value
 specifier|public
 name|byte

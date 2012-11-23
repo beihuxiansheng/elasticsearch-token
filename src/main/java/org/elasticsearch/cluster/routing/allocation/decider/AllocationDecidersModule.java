@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * This module configures several {@link AllocationDecider}s  * that make configuration specific decisions if shards can be allocated on certain nodes.  * @see Decision  * @see AllocationDecider  */
 end_comment
 
 begin_class

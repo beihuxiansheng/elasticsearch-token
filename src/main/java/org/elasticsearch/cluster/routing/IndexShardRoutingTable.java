@@ -191,7 +191,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * {@link IndexShardRoutingTable} encapsulates all instances or a single shard.  * Each ElasticSearch index consists of multiple shards each shards encapsulates  * a disjoint set of the index data and earch shard has one more more instances  * refered to as replicas of a shard. Given that, this class encapsulates all  * replicas (instances) for a single index shard.  */
 end_comment
 
 begin_class
@@ -730,7 +730,7 @@ name|primaryAllocatedPostApi
 argument_list|)
 return|;
 block|}
-comment|/**      * Has this shard group primary shard been allocated post API creation. Will be set to      *<tt>true</tt> if it was created because of recovery action.      */
+comment|/**      * Has this shard group primary shard been allocated post API creation. Will be set to      *<code>true</code> if it was created because of recovery action.      */
 DECL|method|primaryAllocatedPostApi
 specifier|public
 name|boolean
@@ -741,6 +741,7 @@ return|return
 name|primaryAllocatedPostApi
 return|;
 block|}
+comment|/**      * Returns the shards id      * @return id of the shard      */
 DECL|method|shardId
 specifier|public
 name|ShardId
@@ -751,6 +752,7 @@ return|return
 name|shardId
 return|;
 block|}
+comment|/**      * Returns the shards id      * @return id of the shard      */
 DECL|method|getShardId
 specifier|public
 name|ShardId
@@ -780,6 +782,7 @@ name|iterator
 argument_list|()
 return|;
 block|}
+comment|/**      * Returns the number of this shards instances.      */
 DECL|method|size
 specifier|public
 name|int
@@ -793,6 +796,7 @@ name|size
 argument_list|()
 return|;
 block|}
+comment|/**      * Returns the number of this shards instances.      */
 DECL|method|getSize
 specifier|public
 name|int
@@ -804,6 +808,7 @@ name|size
 argument_list|()
 return|;
 block|}
+comment|/**      * Returns a {@link ImmutableList} of shards      * @return a {@link ImmutableList} of shards      */
 DECL|method|shards
 specifier|public
 name|ImmutableList
@@ -819,6 +824,7 @@ operator|.
 name|shards
 return|;
 block|}
+comment|/**      * Returns a {@link ImmutableList} of shards      * @return a {@link ImmutableList} of shards      */
 DECL|method|getShards
 specifier|public
 name|ImmutableList
@@ -833,6 +839,7 @@ name|shards
 argument_list|()
 return|;
 block|}
+comment|/**      * Returns a {@link ImmutableList} of active shards      * @return a {@link ImmutableList} of shards      */
 DECL|method|activeShards
 specifier|public
 name|ImmutableList
@@ -848,6 +855,7 @@ operator|.
 name|activeShards
 return|;
 block|}
+comment|/**      * Returns a {@link ImmutableList} of active shards      * @return a {@link ImmutableList} of shards      */
 DECL|method|getActiveShards
 specifier|public
 name|ImmutableList
@@ -862,6 +870,7 @@ name|activeShards
 argument_list|()
 return|;
 block|}
+comment|/**      * Returns a {@link ImmutableList} of assigned shards      * @return a {@link ImmutableList} of shards      */
 DECL|method|assignedShards
 specifier|public
 name|ImmutableList
@@ -877,6 +886,7 @@ operator|.
 name|assignedShards
 return|;
 block|}
+comment|/**      * Returns a {@link ImmutableList} of assigned shards      * @return a {@link ImmutableList} of shards      */
 DECL|method|getAssignedShards
 specifier|public
 name|ImmutableList
@@ -892,6 +902,7 @@ operator|.
 name|assignedShards
 return|;
 block|}
+comment|/**      * Returns the number of shards in a specific state      * @param state state of the shards to count      * @return number of shards in<code>state</code>      */
 DECL|method|countWithState
 specifier|public
 name|int

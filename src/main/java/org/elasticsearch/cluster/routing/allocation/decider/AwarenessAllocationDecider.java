@@ -211,7 +211,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * This {@link AllocationDecider} controls shard allocation based on  *<tt>awareness</tt> key-value pairs defined in the node configuration.  * Awareness explicitly controls where replicas should be allocated based on  * attributes like node or physical rack locations. Awareness attributes accept  * arbitrary configuration keys like a rack data-center identifier. For example  * the setting:  *   *<pre>  * cluster.routing.allocation.awareness.attributes: rack_id  *</pre>  *   * will cause allocations to be distributed over different racks such that  * ideally at least one replicas of the all shard is available on the same rack.  * To enable allocation awareness in this example nodes should contain a value  * for the<tt>rack_id</tt> key like:  *   *<pre>  * node.rack_id:1  *</pre>  *   * Awareness can also be used to prevent over-allocation in the case of node or  * even "zone" failure. For example in cloud-computing infrastructures like  * Amazone AWS a cluster might span over multiple "zones". Awareness can be used  * to distribute replicas to individual zones by setting:  *   *<pre>  * cluster.routing.allocation.awareness.attributes: zone  *</pre>  *   * and forcing allocation to be aware of the following zone the data resides in:  *   *<pre>  * cluster.routing.allocation.awareness.force.zone.values: zone1,zone2  *</pre>  *   * In contrast to regular awareness this setting will prevent over-allocation on  *<tt>zone1</tt> even if<tt>zone2</tt> fails partially or becomes entirely  * unavailable. Nodes that belong to a certain zone / group should be started  * with the zone id configured on the node-level settings like:  *   *<pre>  * node.zone: zone1  *</pre>  */
 end_comment
 
 begin_class
@@ -429,6 +429,7 @@ index|[]
 argument_list|>
 name|forcedAwarenessAttributes
 decl_stmt|;
+comment|/**      * Creates a new {@link AwarenessAllocationDecider} instance      */
 DECL|method|AwarenessAllocationDecider
 specifier|public
 name|AwarenessAllocationDecider
@@ -444,6 +445,7 @@ name|EMPTY_SETTINGS
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Creates a new {@link AwarenessAllocationDecider} instance from given settings      * @param settings {@link Settings} to use      */
 DECL|method|AwarenessAllocationDecider
 specifier|public
 name|AwarenessAllocationDecider
@@ -580,6 +582,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Get the attributes defined by this instance       * @return attributes defined by this instance      */
 DECL|method|awarenessAttributes
 specifier|public
 name|String

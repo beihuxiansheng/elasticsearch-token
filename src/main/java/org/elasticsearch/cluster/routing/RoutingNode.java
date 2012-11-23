@@ -87,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * A {@link RoutingNode} represents a cluster node associated with a single {@link DiscoveryNode} including all shards  * that are hosted on that nodes. Each {@link RoutingNode} has a unique node id that can be used to identify the node.  */
 end_comment
 
 begin_class
@@ -202,6 +202,7 @@ name|iterator
 argument_list|()
 return|;
 block|}
+comment|/**      * Returns the nodes {@link DiscoveryNode}.      *       * @return discoveryNode of this node      */
 DECL|method|node
 specifier|public
 name|DiscoveryNode
@@ -214,6 +215,7 @@ operator|.
 name|node
 return|;
 block|}
+comment|/**      * Get the id of this node       * @return id of the node      */
 DECL|method|nodeId
 specifier|public
 name|String
@@ -226,6 +228,7 @@ operator|.
 name|nodeId
 return|;
 block|}
+comment|/**      * Get a list of shards hosted on this node        * @return list of shards      */
 DECL|method|shards
 specifier|public
 name|List
@@ -241,6 +244,7 @@ operator|.
 name|shards
 return|;
 block|}
+comment|/**      * Add a new shard to this node      * @param shard Shard to crate on this Node      */
 DECL|method|add
 specifier|public
 name|void
@@ -328,6 +332,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Remove a shard from this node      * @param shardId id of the shard to remove      */
 DECL|method|removeByShardId
 specifier|public
 name|void
@@ -383,6 +388,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
+comment|/**      * Determine the number of shards with a specific state      * @param states set of states which should be counted      * @return number of shards       */
 DECL|method|numberOfShardsWithState
 specifier|public
 name|int
@@ -434,6 +440,7 @@ return|return
 name|count
 return|;
 block|}
+comment|/**      * Determine the shards with a specific state      * @param states set of states which should be listed      * @return List of shards       */
 DECL|method|shardsWithState
 specifier|public
 name|List
@@ -496,6 +503,7 @@ return|return
 name|shards
 return|;
 block|}
+comment|/**      * Determine the shards of an index with a specific state       * @param index id of the index      * @param states set of states which should be listed      * @return a list of shards      */
 DECL|method|shardsWithState
 specifier|public
 name|List
@@ -577,6 +585,7 @@ return|return
 name|shards
 return|;
 block|}
+comment|/**      * Get the number of shard that not match the given states      * @param state set states to exclude      * @return number of shards which state is listed      */
 DECL|method|numberOfShardsNotWithState
 specifier|public
 name|int
@@ -618,7 +627,7 @@ return|return
 name|count
 return|;
 block|}
-comment|/**      * The number fo shards on this node that will not be eventually relocated.      */
+comment|/**      * The number of shards on this node that will not be eventually relocated.      */
 DECL|method|numberOfOwningShards
 specifier|public
 name|int

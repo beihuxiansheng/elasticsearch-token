@@ -27,7 +27,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * A simple {@link ShardsIterator} that iterates a list or sub-list of  * {@link ShardRouting shard routings}.  */
 end_comment
 
 begin_class

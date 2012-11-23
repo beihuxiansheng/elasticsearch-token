@@ -78,6 +78,7 @@ specifier|public
 interface|interface
 name|GatewayAllocator
 block|{
+comment|/**      * Apply all shards        * @param allocation      */
 DECL|method|applyStartedShards
 name|void
 name|applyStartedShards

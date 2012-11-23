@@ -153,7 +153,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Instances of this class keeps explanations of decisions that have been made by allocation.  * An {@link AllocationExplanation} consists of a set of per node explanations.  * Since {@link NodeExplanation}s are related to shards an {@link AllocationExplanation} maps  * a shards id to a set of {@link NodeExplanation}s.    */
 end_comment
 
 begin_class
@@ -175,6 +175,7 @@ operator|new
 name|AllocationExplanation
 argument_list|()
 decl_stmt|;
+comment|/**      * Instances of this class keep messages and informations about nodes of an allocation      */
 DECL|class|NodeExplanation
 specifier|public
 specifier|static
@@ -193,6 +194,7 @@ specifier|final
 name|String
 name|description
 decl_stmt|;
+comment|/**          * Creates a new {@link NodeExplanation}          *            * @param node node referenced by {@link This} {@link NodeExplanation}          * @param description a message associated with the given node           */
 DECL|method|NodeExplanation
 specifier|public
 name|NodeExplanation
@@ -217,6 +219,7 @@ operator|=
 name|description
 expr_stmt|;
 block|}
+comment|/**          * The node referenced by the explanation          * @return referenced node          */
 DECL|method|node
 specifier|public
 name|DiscoveryNode
@@ -227,6 +230,7 @@ return|return
 name|node
 return|;
 block|}
+comment|/**          * Get the explanation for the node          * @return explanation for the node          */
 DECL|method|description
 specifier|public
 name|String
@@ -257,6 +261,7 @@ operator|.
 name|newHashMap
 argument_list|()
 decl_stmt|;
+comment|/**      * Create and add a node explanation to this explanation referencing a shard        * @param shardId id the of the referenced shard      * @param nodeExplanation Explanation itself      * @return AllocationExplanation involving the explanation       */
 DECL|method|add
 specifier|public
 name|AllocationExplanation
@@ -317,6 +322,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * List of explanations involved by this AllocationExplanation      * @return Map of shard ids and corresponding explanations        */
 DECL|method|explanations
 specifier|public
 name|Map
@@ -337,6 +343,7 @@ operator|.
 name|explanations
 return|;
 block|}
+comment|/**      * Read an {@link AllocationExplanation} from an {@link StreamInput}      * @param in {@link StreamInput} to read from      * @return a new {@link AllocationExplanation} read from the stream       * @throws IOException if something bad happened while reading      */
 DECL|method|readAllocationExplanation
 specifier|public
 specifier|static

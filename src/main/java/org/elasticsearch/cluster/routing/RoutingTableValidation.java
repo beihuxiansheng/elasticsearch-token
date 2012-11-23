@@ -195,7 +195,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Encapsulates the result of a routing table validation and provides access to  * validation failures.  */
 end_comment
 
 begin_class

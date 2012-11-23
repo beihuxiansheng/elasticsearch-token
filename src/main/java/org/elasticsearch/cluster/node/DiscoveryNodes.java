@@ -249,7 +249,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * This class holds all {@link DiscoveryNode} in the cluster and provides convinience methods to  * access, modify merge / diff discovery nodes.    */
 end_comment
 
 begin_class
@@ -449,6 +449,7 @@ name|masterNodeId
 argument_list|)
 return|;
 block|}
+comment|/**      * Get the number of known nodes       * @return number of nodes      */
 DECL|method|size
 specifier|public
 name|int
@@ -462,6 +463,7 @@ name|size
 argument_list|()
 return|;
 block|}
+comment|/**      * Get the number of known nodes       * @return number of nodes      */
 DECL|method|getSize
 specifier|public
 name|int
@@ -473,6 +475,7 @@ name|size
 argument_list|()
 return|;
 block|}
+comment|/**      * Get a {@link Map} of the discovered nodes arranged by their ids       * @return {@link Map} of the discovered nodes arranged by their ids      */
 DECL|method|nodes
 specifier|public
 name|ImmutableMap
@@ -490,6 +493,7 @@ operator|.
 name|nodes
 return|;
 block|}
+comment|/**      * Get a {@link Map} of the discovered nodes arranged by their ids       * @return {@link Map} of the discovered nodes arranged by their ids      */
 DECL|method|getNodes
 specifier|public
 name|ImmutableMap
@@ -506,6 +510,7 @@ name|nodes
 argument_list|()
 return|;
 block|}
+comment|/**      * Get a {@link Map} of the discovered data nodes arranged by their ids       * @return {@link Map} of the discovered data nodes arranged by their ids      */
 DECL|method|dataNodes
 specifier|public
 name|ImmutableMap
@@ -523,6 +528,7 @@ operator|.
 name|dataNodes
 return|;
 block|}
+comment|/**      * Get a {@link Map} of the discovered data nodes arranged by their ids       * @return {@link Map} of the discovered data nodes arranged by their ids      */
 DECL|method|getDataNodes
 specifier|public
 name|ImmutableMap
@@ -539,6 +545,7 @@ name|dataNodes
 argument_list|()
 return|;
 block|}
+comment|/**      * Get a {@link Map} of the discovered master nodes arranged by their ids       * @return {@link Map} of the discovered master nodes arranged by their ids      */
 DECL|method|masterNodes
 specifier|public
 name|ImmutableMap
@@ -556,6 +563,7 @@ operator|.
 name|masterNodes
 return|;
 block|}
+comment|/**      * Get a {@link Map} of the discovered master nodes arranged by their ids       * @return {@link Map} of the discovered master nodes arranged by their ids      */
 DECL|method|getMasterNodes
 specifier|public
 name|ImmutableMap
@@ -572,6 +580,7 @@ name|masterNodes
 argument_list|()
 return|;
 block|}
+comment|/**      * Get a {@link Map} of the discovered master and data nodes arranged by their ids       * @return {@link Map} of the discovered master and data nodes arranged by their ids      */
 DECL|method|masterAndDataNodes
 specifier|public
 name|ImmutableMap
@@ -608,6 +617,7 @@ name|immutableMap
 argument_list|()
 return|;
 block|}
+comment|/**      * Get a node by its id      * @param nodeId id of the wanted node       * @return wanted node if it exists. Otherwise<code>null</code>      */
 DECL|method|get
 specifier|public
 name|DiscoveryNode
@@ -626,6 +636,7 @@ name|nodeId
 argument_list|)
 return|;
 block|}
+comment|/**      * Determine if a given node exists      * @param nodeId id of the node which existence should be verified      * @return<code>true</code> if the node exists. Otherwise<code>false</code>      */
 DECL|method|nodeExists
 specifier|public
 name|boolean
@@ -644,6 +655,7 @@ name|nodeId
 argument_list|)
 return|;
 block|}
+comment|/**      * Get the id of the master node       * @return id of the master      */
 DECL|method|masterNodeId
 specifier|public
 name|String
@@ -656,6 +668,7 @@ operator|.
 name|masterNodeId
 return|;
 block|}
+comment|/**      * Get the id of the master node       * @return id of the master      */
 DECL|method|getMasterNodeId
 specifier|public
 name|String
@@ -667,6 +680,7 @@ name|masterNodeId
 argument_list|()
 return|;
 block|}
+comment|/**      * Get the id of the local node       * @return id of the local node      */
 DECL|method|localNodeId
 specifier|public
 name|String
@@ -679,6 +693,7 @@ operator|.
 name|localNodeId
 return|;
 block|}
+comment|/**      * Get the id of the local node       * @return id of the local node      */
 DECL|method|getLocalNodeId
 specifier|public
 name|String
@@ -690,6 +705,7 @@ name|localNodeId
 argument_list|()
 return|;
 block|}
+comment|/**      * Get the local node       * @return local node      */
 DECL|method|localNode
 specifier|public
 name|DiscoveryNode
@@ -705,6 +721,7 @@ name|localNodeId
 argument_list|)
 return|;
 block|}
+comment|/**      * Get the local node       * @return local node      */
 DECL|method|getLocalNode
 specifier|public
 name|DiscoveryNode
@@ -716,6 +733,7 @@ name|localNode
 argument_list|()
 return|;
 block|}
+comment|/**      * Get the master node       * @return master node      */
 DECL|method|masterNode
 specifier|public
 name|DiscoveryNode
@@ -731,6 +749,7 @@ name|masterNodeId
 argument_list|)
 return|;
 block|}
+comment|/**      * Get the master node       * @return master node      */
 DECL|method|getMasterNode
 specifier|public
 name|DiscoveryNode
@@ -742,6 +761,7 @@ name|masterNode
 argument_list|()
 return|;
 block|}
+comment|/**      * Get a node by its address       * @param address {@link TransportAddress} of the wanted node      * @return node identified by the given address or<code>null</code> if no such node exists      */
 DECL|method|findByAddress
 specifier|public
 name|DiscoveryNode
@@ -824,6 +844,7 @@ argument_list|)
 operator|)
 return|;
 block|}
+comment|/**      * Resolve a node with a given id      * @param node id of the node to discover      * @return discovered node matching the given id      * @throws ElasticSearchIllegalArgumentException if more than one node matches the request or no nodes have been resolved      */
 DECL|method|resolveNode
 specifier|public
 name|DiscoveryNode

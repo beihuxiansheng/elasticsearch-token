@@ -188,25 +188,25 @@ name|boolean
 name|started
 parameter_list|()
 function_decl|;
-comment|/**      * The shard is in relocating mode.      */
+comment|/**      * Returns<code>true</code> iff the this shard is currently relocating to      * another node. Otherwise<code>false</code>      *       * @see ShardRoutingState#RELOCATING      */
 DECL|method|relocating
 name|boolean
 name|relocating
 parameter_list|()
 function_decl|;
-comment|/**      * Relocating or started.      */
+comment|/**      * Returns<code>true</code> iff the this shard is currently      * {@link ShardRoutingState#STARTED started} or      * {@link ShardRoutingState#RELOCATING relocating} to another node.      * Otherwise<code>false</code>      */
 DECL|method|active
 name|boolean
 name|active
 parameter_list|()
 function_decl|;
-comment|/**      * The shard is assigned to a node.      */
+comment|/**      * Returns<code>true</code> iff this shard is assigned to a node ie. not      * {@link ShardRoutingState#UNASSIGNED unassigned}. Otherwise<code>false</code>      */
 DECL|method|assignedToNode
 name|boolean
 name|assignedToNode
 parameter_list|()
 function_decl|;
-comment|/**      * The current node id the shard is allocated to.      */
+comment|/**      * The current node id the shard is allocated on.      */
 DECL|method|currentNodeId
 name|String
 name|currentNodeId
@@ -218,7 +218,7 @@ name|String
 name|relocatingNodeId
 parameter_list|()
 function_decl|;
-comment|/**      * Is this a primary shard.      */
+comment|/**      * Returns<code>true</code> iff this shard is a primary.      */
 DECL|method|primary
 name|boolean
 name|primary

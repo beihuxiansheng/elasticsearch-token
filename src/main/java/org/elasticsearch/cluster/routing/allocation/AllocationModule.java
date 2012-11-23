@@ -125,7 +125,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * The {@link AllocationModule} manages several  * modules related to the allocation process. To do so  * it manages a {@link ShardsAllocatorModule} and an {@link AllocationDecidersModule}.  */
 end_comment
 
 begin_class
@@ -144,6 +144,7 @@ specifier|final
 name|Settings
 name|settings
 decl_stmt|;
+comment|//TODO: Documentation
 DECL|method|AllocationModule
 specifier|public
 name|AllocationModule

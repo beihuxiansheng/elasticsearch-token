@@ -158,6 +158,10 @@ name|List
 import|;
 end_import
 
+begin_comment
+comment|/**  * Similar to the {@link ClusterRebalanceAllocationDecider} this  * {@link AllocationDecider} controls the number of currently in-progress  * re-balance (relocation) operations and restricts node allocations if the  * configured threashold is reached. The default number of concurrent rebalance  * operations is set to<tt>2</tt>  *<p>  * Re-balance operations can be controlled in real-time via the cluster update API using  *<tt>cluster.routing.allocation.cluster_concurrent_rebalance</tt>. Iff this  * setting is set to<tt>-1</tt> the number of concurrent re-balance operations  * are unlimited.  *   */
+end_comment
+
 begin_class
 DECL|class|ConcurrentRebalanceAllocationDecider
 specifier|public

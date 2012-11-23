@@ -722,6 +722,7 @@ specifier|final
 name|boolean
 name|allowPrimary
 decl_stmt|;
+comment|/**      * Create a new {@link AllocateAllocationCommand}      *       * @param shardId {@link ShardId} of the shrad to assign      * @param node Node to assign the shard to      * @param allowPrimary should the node be allow to allocate the shard as primary      */
 DECL|method|AllocateAllocationCommand
 specifier|public
 name|AllocateAllocationCommand
@@ -767,6 +768,7 @@ return|return
 name|NAME
 return|;
 block|}
+comment|/**      * Get the shards id       * @return id of the shard      */
 DECL|method|shardId
 specifier|public
 name|ShardId
@@ -779,6 +781,7 @@ operator|.
 name|shardId
 return|;
 block|}
+comment|/**      * Get the id of the Node      * @return id of the Node      */
 DECL|method|node
 specifier|public
 name|String
@@ -791,6 +794,7 @@ operator|.
 name|node
 return|;
 block|}
+comment|/**      * Determine if primary allocation is allowed       * @return<code>true</code> if primary allocation is allowed. Otherwise<code>false</code>       */
 DECL|method|allowPrimary
 specifier|public
 name|boolean

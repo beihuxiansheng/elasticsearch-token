@@ -93,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A pluggable logic allowing to control if allocation of a shard is allowed on a specific node.  */
+comment|/**  * {@link AllocationDecider} is an abstract base class that allows to make  * dynamic cluster- or index-wide shard allocation decisions on a per-node  * basis.  */
 end_comment
 
 begin_class
@@ -105,6 +105,7 @@ name|AllocationDecider
 extends|extends
 name|AbstractComponent
 block|{
+comment|/**      * Initializes a new {@link AllocationDecider}      * @param settings {@link Settings} used by this {@link AllocationDecider}      */
 DECL|method|AllocationDecider
 specifier|protected
 name|AllocationDecider
@@ -119,7 +120,7 @@ name|settings
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Are we allowed to rebalance this shard?      */
+comment|/**      * Returns a {@link Decision} whether the given shard routing can be      * re-balanced to the given allocation. The default is      * {@link Decision#ALWAYS}.      */
 DECL|method|canRebalance
 specifier|public
 name|Decision
@@ -138,7 +139,7 @@ operator|.
 name|ALWAYS
 return|;
 block|}
-comment|/**      * Can the provided shard routing be allocated on the node.      */
+comment|/**      * Returns a {@link Decision} whether the given shard routing can be      * allocated on the given node. The default is {@link Decision#ALWAYS}.      */
 DECL|method|canAllocate
 specifier|public
 name|Decision
@@ -160,7 +161,7 @@ operator|.
 name|ALWAYS
 return|;
 block|}
-comment|/**      * Can the provided shard routing remain on the node?      */
+comment|/**      * Returns a {@link Decision} whether the given shard routing can be remain      * on the given node. The default is {@link Decision#ALWAYS}.      */
 DECL|method|canRemain
 specifier|public
 name|Decision

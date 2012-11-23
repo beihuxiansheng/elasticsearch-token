@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * This class implements a simple hash function based on Java Build-In {@link Object#hashCode()}  */
 end_comment
 
 begin_class

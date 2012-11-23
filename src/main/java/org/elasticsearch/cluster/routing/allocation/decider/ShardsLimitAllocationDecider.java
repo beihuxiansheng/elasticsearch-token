@@ -86,6 +86,20 @@ name|cluster
 operator|.
 name|routing
 operator|.
+name|ShardRoutingState
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
 name|allocation
 operator|.
 name|RoutingAllocation
@@ -131,7 +145,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * This {@link AllocationDecider} limits the number of shards per node on a per  * index basis. The allocator prevents a single node to hold more than  * {@value #INDEX_TOTAL_SHARDS_PER_NODE} per index during the allocation  * process. The limits of this decider can be changed in real-time via a the  * index settings API.  *<p>  * If {@value #INDEX_TOTAL_SHARDS_PER_NODE} is reset to a negative value shards  * per index are unlimited per node. Shards currently in the  * {@link ShardRoutingState#RELOCATING relocating} state are ignored by this  * {@link AllocationDecider} until the shard changed its state to either  * {@link ShardRoutingState#STARTED started},  * {@link ShardRoutingState#INITIALIZING inializing} or  * {@link ShardRoutingState#UNASSIGNED unassigned}  *<p>  * Note: Reducing the number of shards per node via the index update API can  * trigger relocation and significant additional load on the clusters nodes.  *</p>  */
 end_comment
 
 begin_class
@@ -142,6 +156,7 @@ name|ShardsLimitAllocationDecider
 extends|extends
 name|AllocationDecider
 block|{
+comment|/**      * Controls the maximum number of shards per index on a single elastic      * search node. Negative values are interpreted as unlimited.      */
 DECL|field|INDEX_TOTAL_SHARDS_PER_NODE
 specifier|public
 specifier|static

@@ -17,7 +17,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Similar to {@link ImmutableShardRouting} this class keeps metadata of the current shard. But unlike  * {@link ImmutableShardRouting} the information kept in this class can be modified.  * These modifications include changing the primary state, relocating and assigning the shard  * represented by this class  */
 end_comment
 
 begin_class
@@ -148,6 +148,7 @@ name|version
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Assign this shard to a node.      *       * @param nodeId id of the node to assign this shard to      */
 DECL|method|assignToNode
 specifier|public
 name|void
@@ -230,6 +231,7 @@ argument_list|)
 assert|;
 block|}
 block|}
+comment|/**      * Relocate the shard to another node.      *       * @param relocatingNodeId id of the node to relocate the shard      */
 DECL|method|relocate
 specifier|public
 name|void
@@ -262,6 +264,7 @@ operator|=
 name|relocatingNodeId
 expr_stmt|;
 block|}
+comment|/**      * Cancel relocation of a shard. The shards state must be set      * to<code>RELOCATING</code>.      */
 DECL|method|cancelRelocation
 specifier|public
 name|void
@@ -298,6 +301,7 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+comment|/**      * Set the shards state to<code>UNASSIGNED</code>.      * //TODO document the state      */
 DECL|method|deassignNode
 specifier|public
 name|void
@@ -333,6 +337,7 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+comment|/**      * Set the shards state to<code>STARTED</code>. The shards state must be      *<code>INITIALIZING</code> or<code>RELOCATING</code>. Any relocation will be      * canceled.       */
 DECL|method|moveToStarted
 specifier|public
 name|void
@@ -366,6 +371,7 @@ operator|.
 name|STARTED
 expr_stmt|;
 block|}
+comment|/**      * Make the shard primary unless it's not Primary      * //TODO: doc exception      */
 DECL|method|moveToPrimary
 specifier|public
 name|void
@@ -395,6 +401,7 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+comment|/**      * Set the primary shard to non-primary      */
 DECL|method|moveFromPrimary
 specifier|public
 name|void
@@ -416,7 +423,7 @@ name|IllegalShardRoutingStateException
 argument_list|(
 name|this
 argument_list|,
-literal|"Already primary, can't move to replica"
+literal|"Not primary, can't move to replica"
 argument_list|)
 throw|;
 block|}

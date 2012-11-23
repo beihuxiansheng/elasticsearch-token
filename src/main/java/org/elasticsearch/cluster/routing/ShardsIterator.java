@@ -17,7 +17,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Allows to iterate over unrelated shards.  *  *  */
+comment|/**  * Allows to iterate over unrelated shards.  */
 end_comment
 
 begin_interface
@@ -26,23 +26,25 @@ specifier|public
 interface|interface
 name|ShardsIterator
 block|{
-comment|/**      * Resets the iterator.      */
+comment|/**      * Resets the iterator to its initial state.      */
 DECL|method|reset
 name|ShardsIterator
 name|reset
 parameter_list|()
 function_decl|;
-comment|/**      * The number of shard routing instances.      */
+comment|/**      * The number of shard routing instances.      * @return  number of shard routing instances in this iterator      */
 DECL|method|size
 name|int
 name|size
 parameter_list|()
 function_decl|;
+comment|/**      * The number of active shard routing instances      * @return number of active shard routing instances      */
 DECL|method|sizeActive
 name|int
 name|sizeActive
 parameter_list|()
 function_decl|;
+comment|/**      * Returns the number of replicas in this iterator that are not in the      * {@link ShardRoutingState#UNASSIGNED}. The returned double-counts replicas      * that are in the state {@link ShardRoutingState#RELOCATING}      */
 DECL|method|assignedReplicasIncludingRelocating
 name|int
 name|assignedReplicasIncludingRelocating
@@ -60,16 +62,21 @@ name|ShardRouting
 name|firstOrNull
 parameter_list|()
 function_decl|;
+comment|/**      * Return the number of shards remaining in this {@link ShardsIterator}      * @return number of shard remaining      */
 DECL|method|remaining
 name|int
 name|remaining
 parameter_list|()
 function_decl|;
+annotation|@
+name|Override
 DECL|method|hashCode
 name|int
 name|hashCode
 parameter_list|()
 function_decl|;
+annotation|@
+name|Override
 DECL|method|equals
 name|boolean
 name|equals

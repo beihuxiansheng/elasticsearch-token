@@ -152,6 +152,24 @@ name|allocation
 operator|.
 name|decider
 operator|.
+name|AllocationDecider
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|allocation
+operator|.
+name|decider
+operator|.
 name|Decision
 import|;
 end_import
@@ -271,7 +289,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * A {@link ShardsAllocator} that tries to balance shards across nodes in the  * cluster such that each node holds approximatly the same number of shards. The  * allocations algorithm operates on a cluster ie. is index-agnostic. While the  * number of shards per node might be balanced across the cluster a single node  * can hold mulitple shards from a single index such that the shard of an index  * are not necessarily balanced across nodes. Yet, due to high-level  * {@link AllocationDecider decisions} multiple instances of the same shard  * won't be allocated on the same node.  *<p>  * During {@link #rebalance(RoutingAllocation) re-balancing} the allocator takes  * shards from the<tt>most busy</tt> nodes and tries to relocate the shards to  * the least busy node until the number of shards per node are equal for all  * nodes in the cluster or until no shards can be relocated anymore.  *</p>  */
 end_comment
 
 begin_class
@@ -346,6 +364,8 @@ operator|.
 name|routingNodes
 argument_list|()
 decl_stmt|;
+comment|/*           * 1. order nodes by the number of shards allocated on them least one first (this takes relocation into account)          *    ie. if a shard is relocating the target nodes shard count is incremented.          * 2. iterate over the unassigned shards          *    2a. find the least busy node in the cluster that allows allocation for the current unassigned shard          *    2b. if a node is found add the shard to the node and remove it from the unassigned shards          * 3. iterate over the remaining unassigned shards and try to allocate them on next possible node          */
+comment|// order nodes by number of shards (asc)
 name|RoutingNode
 index|[]
 name|nodes
@@ -619,6 +639,7 @@ name|RoutingAllocation
 name|allocation
 parameter_list|)
 block|{
+comment|// take shards form busy nodes and move them to less busy nodes
 name|boolean
 name|changed
 init|=
@@ -737,6 +758,7 @@ operator|++
 expr_stmt|;
 continue|continue;
 block|}
+comment|// Take a started shard from a "busy" node and move it to less busy node and go on
 name|boolean
 name|relocated
 init|=

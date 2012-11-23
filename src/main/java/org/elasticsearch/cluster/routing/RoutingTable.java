@@ -199,7 +199,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Represents a global cluster-wide routing table for all indices including the  * version of the current routing state.   * @see IndexRoutingTable  */
 end_comment
 
 begin_class
@@ -277,6 +277,7 @@ name|indicesRouting
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Returns the version of the {@link RoutingTable}.      * @return version of the {@link RoutingTable}      */
 DECL|method|version
 specifier|public
 name|long
