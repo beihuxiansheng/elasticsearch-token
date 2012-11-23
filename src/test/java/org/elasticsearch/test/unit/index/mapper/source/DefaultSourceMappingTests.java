@@ -1386,7 +1386,7 @@ argument_list|()
 decl_stmt|;
 name|mapperService
 operator|.
-name|add
+name|merge
 argument_list|(
 name|MapperService
 operator|.
@@ -1499,7 +1499,7 @@ argument_list|()
 decl_stmt|;
 name|mapperService
 operator|.
-name|add
+name|merge
 argument_list|(
 name|MapperService
 operator|.
@@ -1552,7 +1552,7 @@ argument_list|()
 decl_stmt|;
 name|mapperService
 operator|.
-name|add
+name|merge
 argument_list|(
 literal|"my_type"
 argument_list|,

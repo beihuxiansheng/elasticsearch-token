@@ -2512,7 +2512,7 @@ block|}
 comment|// we don't apply default, since it has been applied when the mappings were parsed initially
 name|mapperService
 operator|.
-name|add
+name|merge
 argument_list|(
 name|mappingType
 argument_list|,
@@ -2654,7 +2654,7 @@ block|}
 comment|// we don't apply default, since it has been applied when the mappings were parsed initially
 name|mapperService
 operator|.
-name|add
+name|merge
 argument_list|(
 name|mappingType
 argument_list|,

@@ -1894,7 +1894,7 @@ try|try
 block|{
 name|mapperService
 operator|.
-name|add
+name|merge
 argument_list|(
 name|MapperService
 operator|.
@@ -2003,7 +2003,7 @@ block|{
 comment|// apply the default here, its the first time we parse it
 name|mapperService
 operator|.
-name|add
+name|merge
 argument_list|(
 name|entry
 operator|.

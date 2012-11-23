@@ -944,7 +944,7 @@ operator|.
 name|class
 argument_list|)
 operator|.
-name|add
+name|merge
 argument_list|(
 literal|"person"
 argument_list|,
