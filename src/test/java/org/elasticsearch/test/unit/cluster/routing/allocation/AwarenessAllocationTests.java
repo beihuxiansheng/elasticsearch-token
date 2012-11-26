@@ -86,6 +86,20 @@ name|cluster
 operator|.
 name|routing
 operator|.
+name|ShardRouting
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
 name|ShardRoutingState
 import|;
 end_import
@@ -375,7 +389,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Building initial routing table"
+literal|"Building initial routing table for 'moveShardOnceNewNodeWithAttributeAdded1'"
 argument_list|)
 expr_stmt|;
 name|MetaData
@@ -1086,7 +1100,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Building initial routing table"
+literal|"Building initial routing table for 'moveShardOnceNewNodeWithAttributeAdded2'"
 argument_list|)
 expr_stmt|;
 name|MetaData
@@ -1821,6 +1835,27 @@ argument_list|,
 literal|"rack_id"
 argument_list|)
 operator|.
+name|put
+argument_list|(
+literal|"cluster.routing.allocation.balance.index"
+argument_list|,
+literal|0.0f
+argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"cluster.routing.allocation.balance.replica"
+argument_list|,
+literal|1.0f
+argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"cluster.routing.allocation.balance.primary"
+argument_list|,
+literal|0.0f
+argument_list|)
+operator|.
 name|build
 argument_list|()
 argument_list|)
@@ -1829,7 +1864,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Building initial routing table"
+literal|"Building initial routing table for 'moveShardOnceNewNodeWithAttributeAdded3'"
 argument_list|)
 expr_stmt|;
 name|MetaData
@@ -1987,6 +2022,114 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
+for|for
+control|(
+name|ShardRouting
+name|shard
+range|:
+name|clusterState
+operator|.
+name|routingNodes
+argument_list|()
+operator|.
+name|shardsWithState
+argument_list|(
+name|INITIALIZING
+argument_list|)
+control|)
+block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+name|shard
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+for|for
+control|(
+name|ShardRouting
+name|shard
+range|:
+name|clusterState
+operator|.
+name|routingNodes
+argument_list|()
+operator|.
+name|shardsWithState
+argument_list|(
+name|STARTED
+argument_list|)
+control|)
+block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+name|shard
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+for|for
+control|(
+name|ShardRouting
+name|shard
+range|:
+name|clusterState
+operator|.
+name|routingNodes
+argument_list|()
+operator|.
+name|shardsWithState
+argument_list|(
+name|RELOCATING
+argument_list|)
+control|)
+block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+name|shard
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+for|for
+control|(
+name|ShardRouting
+name|shard
+range|:
+name|clusterState
+operator|.
+name|routingNodes
+argument_list|()
+operator|.
+name|shardsWithState
+argument_list|(
+name|UNASSIGNED
+argument_list|)
+control|)
+block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+name|shard
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|assertThat
 argument_list|(
 name|clusterState
@@ -2710,7 +2853,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Building initial routing table"
+literal|"Building initial routing table for 'moveShardOnceNewNodeWithAttributeAdded4'"
 argument_list|)
 expr_stmt|;
 name|MetaData
@@ -3604,7 +3747,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Building initial routing table"
+literal|"Building initial routing table for 'moveShardOnceNewNodeWithAttributeAdded5'"
 argument_list|)
 expr_stmt|;
 name|MetaData
@@ -4451,7 +4594,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Building initial routing table"
+literal|"Building initial routing table for 'moveShardOnceNewNodeWithAttributeAdded6'"
 argument_list|)
 expr_stmt|;
 name|MetaData
@@ -5339,7 +5482,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Building initial routing table"
+literal|"Building initial routing table for 'fullAwareness1'"
 argument_list|)
 expr_stmt|;
 name|MetaData
@@ -6036,7 +6179,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Building initial routing table"
+literal|"Building initial routing table for 'fullAwareness2'"
 argument_list|)
 expr_stmt|;
 name|MetaData
@@ -6757,6 +6900,27 @@ argument_list|,
 literal|"rack_id"
 argument_list|)
 operator|.
+name|put
+argument_list|(
+literal|"cluster.routing.allocation.balance.index"
+argument_list|,
+literal|0.0f
+argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"cluster.routing.allocation.balance.replica"
+argument_list|,
+literal|1.0f
+argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"cluster.routing.allocation.balance.primary"
+argument_list|,
+literal|0.0f
+argument_list|)
+operator|.
 name|build
 argument_list|()
 argument_list|)
@@ -6765,7 +6929,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Building initial routing table"
+literal|"Building initial routing table for 'fullAwareness3'"
 argument_list|)
 expr_stmt|;
 name|MetaData

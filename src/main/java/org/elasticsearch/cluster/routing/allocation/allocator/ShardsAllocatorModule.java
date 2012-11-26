@@ -196,7 +196,7 @@ name|shardsAllocator
 operator|==
 literal|null
 condition|?
-name|EvenShardsCountAllocator
+name|BalancedShardsAllocator
 operator|.
 name|class
 else|:

@@ -224,7 +224,7 @@ name|NoneGatewayAllocator
 argument_list|()
 argument_list|,
 operator|new
-name|EvenShardsCountAllocator
+name|BalancedShardsAllocator
 argument_list|(
 name|settings
 argument_list|)
