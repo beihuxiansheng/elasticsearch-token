@@ -78,15 +78,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|common
+name|apache
 operator|.
 name|lucene
 operator|.
-name|docset
+name|util
 operator|.
-name|DocSet
+name|Bits
 import|;
 end_import
 
@@ -102,7 +100,7 @@ name|lucene
 operator|.
 name|docset
 operator|.
-name|DocSets
+name|DocIdSets
 import|;
 end_import
 
@@ -142,7 +140,7 @@ name|filter
 decl_stmt|;
 DECL|field|docSet
 specifier|private
-name|DocSet
+name|Bits
 name|docSet
 decl_stmt|;
 DECL|method|FilteredCollector
@@ -244,9 +242,9 @@ argument_list|)
 expr_stmt|;
 name|docSet
 operator|=
-name|DocSets
+name|DocIdSets
 operator|.
-name|convert
+name|toSafeBits
 argument_list|(
 name|context
 operator|.

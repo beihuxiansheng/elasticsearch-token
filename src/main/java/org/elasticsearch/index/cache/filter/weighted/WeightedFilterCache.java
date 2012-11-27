@@ -164,6 +164,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|FixedBitSet
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|ElasticSearchException
@@ -196,23 +210,7 @@ name|lucene
 operator|.
 name|docset
 operator|.
-name|DocSet
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|lucene
-operator|.
-name|docset
-operator|.
-name|DocSets
+name|DocIdSets
 import|;
 end_import
 
@@ -420,7 +418,7 @@ name|WeightedFilterCache
 operator|.
 name|FilterCacheKey
 argument_list|,
-name|DocSet
+name|DocIdSet
 argument_list|>
 block|{
 DECL|field|indicesFilterCache
@@ -914,7 +912,7 @@ name|Cache
 argument_list|<
 name|FilterCacheKey
 argument_list|,
-name|DocSet
+name|DocIdSet
 argument_list|>
 name|innerCache
 init|=
@@ -925,7 +923,7 @@ operator|.
 name|cache
 argument_list|()
 decl_stmt|;
-name|DocSet
+name|DocIdSet
 name|cacheValue
 init|=
 name|innerCache
@@ -1023,14 +1021,13 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|// we pass down the acceptDocs so things like TermFilter will be able to make use of it
-comment|// but we don't wrap it with accept docs in "our own filters", we rely on it being applied
-comment|// on the top level
+comment|// we can't pass down acceptedDocs provided, because we are caching the result, and acceptedDocs
+comment|// might be specific to a query AST, we do pass down the live docs to make sure we optimize the execution
 name|cacheValue
 operator|=
-name|DocSets
+name|DocIdSets
 operator|.
-name|cacheable
+name|toCacheable
 argument_list|(
 name|context
 operator|.
@@ -1043,7 +1040,13 @@ name|getDocIdSet
 argument_list|(
 name|context
 argument_list|,
-name|acceptDocs
+name|context
+operator|.
+name|reader
+argument_list|()
+operator|.
+name|getLiveDocs
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1055,10 +1058,10 @@ name|totalMetric
 operator|.
 name|inc
 argument_list|(
-name|cacheValue
-operator|.
 name|sizeInBytes
-argument_list|()
+argument_list|(
+name|cacheValue
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|innerCache
@@ -1071,13 +1074,15 @@ name|cacheValue
 argument_list|)
 expr_stmt|;
 block|}
-comment|// return null if its EMPTY, this allows for further optimizations to ignore filters
+comment|// note, we don't wrap the return value with a BitsFilteredDocIdSet.wrap(docIdSet, acceptDocs) because
+comment|// we rely on our custom XFilteredQuery to do the wrapping if needed, so we don't have the wrap each
+comment|// filter on its own
 return|return
 name|cacheValue
 operator|==
-name|DocSet
+name|DocIdSet
 operator|.
-name|EMPTY_DOC_SET
+name|EMPTY_DOCIDSET
 condition|?
 literal|null
 else|:
@@ -1165,7 +1170,7 @@ name|WeightedFilterCache
 operator|.
 name|FilterCacheKey
 argument_list|,
-name|DocSet
+name|DocIdSet
 argument_list|>
 block|{
 annotation|@
@@ -1178,7 +1183,7 @@ parameter_list|(
 name|FilterCacheKey
 name|key
 parameter_list|,
-name|DocSet
+name|DocIdSet
 name|value
 parameter_list|)
 block|{
@@ -1192,10 +1197,10 @@ name|Math
 operator|.
 name|min
 argument_list|(
-name|value
-operator|.
 name|sizeInBytes
-argument_list|()
+argument_list|(
+name|value
+argument_list|)
 argument_list|,
 name|Integer
 operator|.
@@ -1226,7 +1231,7 @@ name|RemovalNotification
 argument_list|<
 name|FilterCacheKey
 argument_list|,
-name|DocSet
+name|DocIdSet
 argument_list|>
 name|removalNotification
 parameter_list|)
@@ -1259,16 +1264,55 @@ name|totalMetric
 operator|.
 name|dec
 argument_list|(
+name|sizeInBytes
+argument_list|(
 name|removalNotification
 operator|.
 name|getValue
 argument_list|()
-operator|.
-name|sizeInBytes
-argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+DECL|method|sizeInBytes
+specifier|static
+name|long
+name|sizeInBytes
+parameter_list|(
+name|DocIdSet
+name|set
+parameter_list|)
+block|{
+if|if
+condition|(
+name|set
+operator|instanceof
+name|FixedBitSet
+condition|)
+block|{
+return|return
+operator|(
+operator|(
+name|FixedBitSet
+operator|)
+name|set
+operator|)
+operator|.
+name|getBits
+argument_list|()
+operator|.
+name|length
+operator|*
+literal|8
+operator|+
+literal|16
+return|;
+block|}
+comment|// only for empty ones
+return|return
+literal|1
+return|;
 block|}
 DECL|class|FilterCacheKey
 specifier|public

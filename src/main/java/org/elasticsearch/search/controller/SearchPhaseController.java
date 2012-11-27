@@ -98,20 +98,6 @@ end_import
 
 begin_import
 import|import
-name|gnu
-operator|.
-name|trove
-operator|.
-name|map
-operator|.
-name|hash
-operator|.
-name|TObjectIntHashMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -189,6 +175,22 @@ operator|.
 name|inject
 operator|.
 name|Inject
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|ShardFieldDocSortedHitQueue
 import|;
 end_import
 

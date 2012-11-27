@@ -1396,7 +1396,7 @@ control|)
 block|{
 name|filter
 operator|.
-name|addShould
+name|add
 argument_list|(
 operator|new
 name|PrefixFilter
@@ -1418,6 +1418,12 @@ name|value
 argument_list|)
 argument_list|)
 argument_list|)
+argument_list|,
+name|BooleanClause
+operator|.
+name|Occur
+operator|.
+name|SHOULD
 argument_list|)
 expr_stmt|;
 block|}

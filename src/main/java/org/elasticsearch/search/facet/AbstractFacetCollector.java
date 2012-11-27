@@ -76,15 +76,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|common
+name|apache
 operator|.
 name|lucene
 operator|.
-name|docset
+name|util
 operator|.
-name|DocSet
+name|Bits
 import|;
 end_import
 
@@ -100,7 +98,7 @@ name|lucene
 operator|.
 name|docset
 operator|.
-name|DocSets
+name|DocIdSets
 import|;
 end_import
 
@@ -154,10 +152,10 @@ specifier|protected
 name|Filter
 name|filter
 decl_stmt|;
-DECL|field|docSet
+DECL|field|bits
 specifier|private
-name|DocSet
-name|docSet
+name|Bits
+name|bits
 init|=
 literal|null
 decl_stmt|;
@@ -309,11 +307,11 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|docSet
+name|bits
 operator|=
-name|DocSets
+name|DocIdSets
 operator|.
-name|convert
+name|toSafeBits
 argument_list|(
 name|context
 operator|.
@@ -370,7 +368,7 @@ name|IOException
 block|{
 if|if
 condition|(
-name|docSet
+name|bits
 operator|==
 literal|null
 condition|)
@@ -384,7 +382,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|docSet
+name|bits
 operator|.
 name|get
 argument_list|(

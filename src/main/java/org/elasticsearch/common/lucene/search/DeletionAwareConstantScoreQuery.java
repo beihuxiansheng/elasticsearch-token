@@ -4,11 +4,13 @@ comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more cont
 end_comment
 
 begin_package
-DECL|package|org.apache.lucene.search
+DECL|package|org.elasticsearch.common.lucene.search
 package|package
 name|org
 operator|.
-name|apache
+name|elasticsearch
+operator|.
+name|common
 operator|.
 name|lucene
 operator|.
@@ -20,15 +22,27 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|common
+name|apache
 operator|.
 name|lucene
 operator|.
 name|search
 operator|.
-name|NotDeletedFilter
+name|ConstantScoreQuery
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|Filter
 import|;
 end_import
 

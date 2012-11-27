@@ -606,7 +606,7 @@ if|if
 condition|(
 name|combined
 operator|.
-name|getShouldFilters
+name|clauses
 argument_list|()
 operator|.
 name|size
@@ -623,7 +623,7 @@ if|if
 condition|(
 name|combined
 operator|.
-name|getShouldFilters
+name|clauses
 argument_list|()
 operator|.
 name|size
@@ -635,13 +635,16 @@ block|{
 return|return
 name|combined
 operator|.
-name|getShouldFilters
+name|clauses
 argument_list|()
 operator|.
 name|get
 argument_list|(
 literal|0
 argument_list|)
+operator|.
+name|getFilter
+argument_list|()
 return|;
 block|}
 return|return

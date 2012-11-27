@@ -120,6 +120,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|DocIdSet
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|cluster
@@ -181,22 +195,6 @@ operator|.
 name|inject
 operator|.
 name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|lucene
-operator|.
-name|docset
-operator|.
-name|DocSet
 import|;
 end_import
 
@@ -372,7 +370,7 @@ name|WeightedFilterCache
 operator|.
 name|FilterCacheKey
 argument_list|,
-name|DocSet
+name|DocIdSet
 argument_list|>
 block|{
 DECL|field|threadPool
@@ -389,7 +387,7 @@ name|WeightedFilterCache
 operator|.
 name|FilterCacheKey
 argument_list|,
-name|DocSet
+name|DocIdSet
 argument_list|>
 name|cache
 decl_stmt|;
@@ -450,7 +448,7 @@ name|WeightedFilterCache
 operator|.
 name|FilterCacheKey
 argument_list|,
-name|DocSet
+name|DocIdSet
 argument_list|>
 argument_list|>
 name|removalListeners
@@ -627,7 +625,7 @@ name|WeightedFilterCache
 operator|.
 name|FilterCacheKey
 argument_list|,
-name|DocSet
+name|DocIdSet
 argument_list|>
 name|oldCache
 init|=
@@ -786,7 +784,7 @@ name|WeightedFilterCache
 operator|.
 name|FilterCacheKey
 argument_list|,
-name|DocSet
+name|DocIdSet
 argument_list|>
 name|cacheBuilder
 init|=
@@ -949,7 +947,7 @@ name|WeightedFilterCache
 operator|.
 name|FilterCacheKey
 argument_list|,
-name|DocSet
+name|DocIdSet
 argument_list|>
 name|listener
 parameter_list|)
@@ -1043,7 +1041,7 @@ name|WeightedFilterCache
 operator|.
 name|FilterCacheKey
 argument_list|,
-name|DocSet
+name|DocIdSet
 argument_list|>
 name|cache
 parameter_list|()
@@ -1067,7 +1065,7 @@ name|WeightedFilterCache
 operator|.
 name|FilterCacheKey
 argument_list|,
-name|DocSet
+name|DocIdSet
 argument_list|>
 name|removalNotification
 parameter_list|)
@@ -1097,7 +1095,7 @@ name|WeightedFilterCache
 operator|.
 name|FilterCacheKey
 argument_list|,
-name|DocSet
+name|DocIdSet
 argument_list|>
 name|listener
 init|=

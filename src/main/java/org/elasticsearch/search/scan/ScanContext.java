@@ -94,7 +94,7 @@ name|lucene
 operator|.
 name|docset
 operator|.
-name|AllDocSet
+name|AllDocIdSet
 import|;
 end_import
 
@@ -760,7 +760,7 @@ return|;
 block|}
 return|return
 operator|new
-name|AllDocSet
+name|AllDocIdSet
 argument_list|(
 name|context
 operator|.

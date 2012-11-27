@@ -848,7 +848,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"BooleanFilter( cache(animal:cat) cache(animal:dog))"
+literal|"BooleanFilter(cache(animal:cat) cache(animal:dog))"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -946,7 +946,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"BooleanFilter( cache(animal:canine) cache(animal:feline))"
+literal|"BooleanFilter(cache(animal:canine) cache(animal:feline))"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1046,7 +1046,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"BooleanFilter( cache(animal:dog) cache(animal:cat))"
+literal|"BooleanFilter(cache(animal:dog) cache(animal:cat))"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1100,7 +1100,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"BooleanFilter( cache(animal:canine) cache(animal:feline))"
+literal|"BooleanFilter(cache(animal:canine) cache(animal:feline))"
 argument_list|)
 argument_list|)
 expr_stmt|;

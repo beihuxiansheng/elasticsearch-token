@@ -98,23 +98,7 @@ name|lucene
 operator|.
 name|docset
 operator|.
-name|DocSet
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|lucene
-operator|.
-name|docset
-operator|.
-name|GetDocSet
+name|MatchDocIdSet
 import|;
 end_import
 
@@ -271,7 +255,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A numeric filter that can be much faster than {@link org.apache.lucene.search.NumericRangeFilter} at the  * expense of loading numeric values of the field to memory using {@link org.elasticsearch.index.cache.field.data.FieldDataCache}.  *  *  */
+comment|/**  * A numeric filter that can be much faster than {@link org.apache.lucene.search.NumericRangeFilter} at the  * expense of loading numeric values of the field to memory using {@link org.elasticsearch.index.cache.field.data.FieldDataCache}.  */
 end_comment
 
 begin_class
@@ -833,9 +817,7 @@ operator|.
 name|MAX_VALUE
 condition|)
 return|return
-name|DocSet
-operator|.
-name|EMPTY_DOC_SET
+literal|null
 return|;
 name|inclusiveLowerPoint
 operator|=
@@ -891,9 +873,7 @@ operator|.
 name|MIN_VALUE
 condition|)
 return|return
-name|DocSet
-operator|.
-name|EMPTY_DOC_SET
+literal|null
 return|;
 name|inclusiveUpperPoint
 operator|=
@@ -929,9 +909,7 @@ operator|>
 name|inclusiveUpperPoint
 condition|)
 return|return
-name|DocSet
-operator|.
-name|EMPTY_DOC_SET
+literal|null
 return|;
 specifier|final
 name|ByteFieldData
@@ -962,7 +940,7 @@ argument_list|)
 decl_stmt|;
 return|return
 operator|new
-name|GetDocSet
+name|MatchDocIdSet
 argument_list|(
 name|ctx
 operator|.
@@ -971,6 +949,8 @@ argument_list|()
 operator|.
 name|maxDoc
 argument_list|()
+argument_list|,
+name|acceptedDocs
 argument_list|)
 block|{
 annotation|@
@@ -980,18 +960,15 @@ name|boolean
 name|isCacheable
 parameter_list|()
 block|{
-comment|// not cacheable for several reasons:
-comment|// 1. It is only relevant when _cache is set to true, and then, we really want to create in mem bitset
-comment|// 2. Its already fast without in mem bitset, since it works with field data
 return|return
-literal|false
+literal|true
 return|;
 block|}
 annotation|@
 name|Override
-specifier|public
+specifier|protected
 name|boolean
-name|get
+name|matchDoc
 parameter_list|(
 name|int
 name|doc
@@ -1184,9 +1161,7 @@ operator|.
 name|MAX_VALUE
 condition|)
 return|return
-name|DocSet
-operator|.
-name|EMPTY_DOC_SET
+literal|null
 return|;
 name|inclusiveLowerPoint
 operator|=
@@ -1242,9 +1217,7 @@ operator|.
 name|MIN_VALUE
 condition|)
 return|return
-name|DocSet
-operator|.
-name|EMPTY_DOC_SET
+literal|null
 return|;
 name|inclusiveUpperPoint
 operator|=
@@ -1280,9 +1253,7 @@ operator|>
 name|inclusiveUpperPoint
 condition|)
 return|return
-name|DocSet
-operator|.
-name|EMPTY_DOC_SET
+literal|null
 return|;
 specifier|final
 name|ShortFieldData
@@ -1313,7 +1284,7 @@ argument_list|)
 decl_stmt|;
 return|return
 operator|new
-name|GetDocSet
+name|MatchDocIdSet
 argument_list|(
 name|ctx
 operator|.
@@ -1322,6 +1293,8 @@ argument_list|()
 operator|.
 name|maxDoc
 argument_list|()
+argument_list|,
+name|acceptedDocs
 argument_list|)
 block|{
 annotation|@
@@ -1331,18 +1304,15 @@ name|boolean
 name|isCacheable
 parameter_list|()
 block|{
-comment|// not cacheable for several reasons:
-comment|// 1. It is only relevant when _cache is set to true, and then, we really want to create in mem bitset
-comment|// 2. Its already fast without in mem bitset, since it works with field data
 return|return
-literal|false
+literal|true
 return|;
 block|}
 annotation|@
 name|Override
-specifier|public
+specifier|protected
 name|boolean
-name|get
+name|matchDoc
 parameter_list|(
 name|int
 name|doc
@@ -1535,9 +1505,7 @@ operator|.
 name|MAX_VALUE
 condition|)
 return|return
-name|DocSet
-operator|.
-name|EMPTY_DOC_SET
+literal|null
 return|;
 name|inclusiveLowerPoint
 operator|=
@@ -1588,9 +1556,7 @@ operator|.
 name|MIN_VALUE
 condition|)
 return|return
-name|DocSet
-operator|.
-name|EMPTY_DOC_SET
+literal|null
 return|;
 name|inclusiveUpperPoint
 operator|=
@@ -1621,9 +1587,7 @@ operator|>
 name|inclusiveUpperPoint
 condition|)
 return|return
-name|DocSet
-operator|.
-name|EMPTY_DOC_SET
+literal|null
 return|;
 specifier|final
 name|IntFieldData
@@ -1654,7 +1618,7 @@ argument_list|)
 decl_stmt|;
 return|return
 operator|new
-name|GetDocSet
+name|MatchDocIdSet
 argument_list|(
 name|ctx
 operator|.
@@ -1663,6 +1627,8 @@ argument_list|()
 operator|.
 name|maxDoc
 argument_list|()
+argument_list|,
+name|acceptedDocs
 argument_list|)
 block|{
 annotation|@
@@ -1672,18 +1638,15 @@ name|boolean
 name|isCacheable
 parameter_list|()
 block|{
-comment|// not cacheable for several reasons:
-comment|// 1. It is only relevant when _cache is set to true, and then, we really want to create in mem bitset
-comment|// 2. Its already fast without in mem bitset, since it works with field data
 return|return
-literal|false
+literal|true
 return|;
 block|}
 annotation|@
 name|Override
-specifier|public
+specifier|protected
 name|boolean
-name|get
+name|matchDoc
 parameter_list|(
 name|int
 name|doc
@@ -1876,9 +1839,7 @@ operator|.
 name|MAX_VALUE
 condition|)
 return|return
-name|DocSet
-operator|.
-name|EMPTY_DOC_SET
+literal|null
 return|;
 name|inclusiveLowerPoint
 operator|=
@@ -1929,9 +1890,7 @@ operator|.
 name|MIN_VALUE
 condition|)
 return|return
-name|DocSet
-operator|.
-name|EMPTY_DOC_SET
+literal|null
 return|;
 name|inclusiveUpperPoint
 operator|=
@@ -1962,9 +1921,7 @@ operator|>
 name|inclusiveUpperPoint
 condition|)
 return|return
-name|DocSet
-operator|.
-name|EMPTY_DOC_SET
+literal|null
 return|;
 specifier|final
 name|LongFieldData
@@ -1995,7 +1952,7 @@ argument_list|)
 decl_stmt|;
 return|return
 operator|new
-name|GetDocSet
+name|MatchDocIdSet
 argument_list|(
 name|ctx
 operator|.
@@ -2004,6 +1961,8 @@ argument_list|()
 operator|.
 name|maxDoc
 argument_list|()
+argument_list|,
+name|acceptedDocs
 argument_list|)
 block|{
 annotation|@
@@ -2013,18 +1972,15 @@ name|boolean
 name|isCacheable
 parameter_list|()
 block|{
-comment|// not cacheable for several reasons:
-comment|// 1. It is only relevant when _cache is set to true, and then, we really want to create in mem bitset
-comment|// 2. Its already fast without in mem bitset, since it works with field data
 return|return
-literal|false
+literal|true
 return|;
 block|}
 annotation|@
 name|Override
-specifier|public
+specifier|protected
 name|boolean
-name|get
+name|matchDoc
 parameter_list|(
 name|int
 name|doc
@@ -2224,9 +2180,7 @@ name|f
 argument_list|)
 condition|)
 return|return
-name|DocSet
-operator|.
-name|EMPTY_DOC_SET
+literal|null
 return|;
 name|int
 name|i
@@ -2297,9 +2251,7 @@ name|f
 argument_list|)
 condition|)
 return|return
-name|DocSet
-operator|.
-name|EMPTY_DOC_SET
+literal|null
 return|;
 name|int
 name|i
@@ -2345,9 +2297,7 @@ operator|>
 name|inclusiveUpperPoint
 condition|)
 return|return
-name|DocSet
-operator|.
-name|EMPTY_DOC_SET
+literal|null
 return|;
 specifier|final
 name|FloatFieldData
@@ -2378,7 +2328,7 @@ argument_list|)
 decl_stmt|;
 return|return
 operator|new
-name|GetDocSet
+name|MatchDocIdSet
 argument_list|(
 name|ctx
 operator|.
@@ -2387,6 +2337,8 @@ argument_list|()
 operator|.
 name|maxDoc
 argument_list|()
+argument_list|,
+name|acceptedDocs
 argument_list|)
 block|{
 annotation|@
@@ -2396,18 +2348,15 @@ name|boolean
 name|isCacheable
 parameter_list|()
 block|{
-comment|// not cacheable for several reasons:
-comment|// 1. It is only relevant when _cache is set to true, and then, we really want to create in mem bitset
-comment|// 2. Its already fast without in mem bitset, since it works with field data
 return|return
-literal|false
+literal|true
 return|;
 block|}
 annotation|@
 name|Override
-specifier|public
+specifier|protected
 name|boolean
-name|get
+name|matchDoc
 parameter_list|(
 name|int
 name|doc
@@ -2607,9 +2556,7 @@ name|f
 argument_list|)
 condition|)
 return|return
-name|DocSet
-operator|.
-name|EMPTY_DOC_SET
+literal|null
 return|;
 name|long
 name|i
@@ -2680,9 +2627,7 @@ name|f
 argument_list|)
 condition|)
 return|return
-name|DocSet
-operator|.
-name|EMPTY_DOC_SET
+literal|null
 return|;
 name|long
 name|i
@@ -2728,9 +2673,7 @@ operator|>
 name|inclusiveUpperPoint
 condition|)
 return|return
-name|DocSet
-operator|.
-name|EMPTY_DOC_SET
+literal|null
 return|;
 specifier|final
 name|DoubleFieldData
@@ -2761,7 +2704,7 @@ argument_list|)
 decl_stmt|;
 return|return
 operator|new
-name|GetDocSet
+name|MatchDocIdSet
 argument_list|(
 name|ctx
 operator|.
@@ -2770,6 +2713,8 @@ argument_list|()
 operator|.
 name|maxDoc
 argument_list|()
+argument_list|,
+name|acceptedDocs
 argument_list|)
 block|{
 annotation|@
@@ -2779,18 +2724,15 @@ name|boolean
 name|isCacheable
 parameter_list|()
 block|{
-comment|// not cacheable for several reasons:
-comment|// 1. It is only relevant when _cache is set to true, and then, we really want to create in mem bitset
-comment|// 2. Its already fast without in mem bitset, since it works with field data
 return|return
-literal|false
+literal|true
 return|;
 block|}
 annotation|@
 name|Override
-specifier|public
+specifier|protected
 name|boolean
-name|get
+name|matchDoc
 parameter_list|(
 name|int
 name|doc

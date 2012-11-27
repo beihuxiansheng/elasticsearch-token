@@ -40,20 +40,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
-operator|.
-name|IndexReader
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|search
 operator|.
 name|DocIdSet
@@ -100,7 +86,7 @@ name|lucene
 operator|.
 name|docset
 operator|.
-name|AllDocSet
+name|AllDocIdSet
 import|;
 end_import
 
@@ -115,7 +101,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A filter that matches on all docs.  *  *  */
+comment|/**  * A filter that matches on all docs.  */
 end_comment
 
 begin_class
@@ -144,7 +130,7 @@ name|IOException
 block|{
 return|return
 operator|new
-name|AllDocSet
+name|AllDocIdSet
 argument_list|(
 name|context
 operator|.

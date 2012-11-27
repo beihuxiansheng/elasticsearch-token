@@ -82,11 +82,23 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Nullable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|lucene
 operator|.
 name|docset
 operator|.
-name|GetDocSet
+name|MatchDocIdSet
 import|;
 end_import
 
@@ -321,6 +333,8 @@ operator|.
 name|maxDoc
 argument_list|()
 argument_list|,
+name|acceptedDocs
+argument_list|,
 name|fieldData
 argument_list|,
 name|topLeft
@@ -342,6 +356,8 @@ argument_list|()
 operator|.
 name|maxDoc
 argument_list|()
+argument_list|,
+name|acceptedDocs
 argument_list|,
 name|fieldData
 argument_list|,
@@ -382,7 +398,7 @@ specifier|static
 class|class
 name|Meridian180GeoBoundingBoxDocSet
 extends|extends
-name|GetDocSet
+name|MatchDocIdSet
 block|{
 DECL|field|fieldData
 specifier|private
@@ -409,6 +425,11 @@ parameter_list|(
 name|int
 name|maxDoc
 parameter_list|,
+annotation|@
+name|Nullable
+name|Bits
+name|acceptDocs
+parameter_list|,
 name|GeoPointFieldData
 name|fieldData
 parameter_list|,
@@ -422,6 +443,8 @@ block|{
 name|super
 argument_list|(
 name|maxDoc
+argument_list|,
+name|acceptDocs
 argument_list|)
 expr_stmt|;
 name|this
@@ -451,19 +474,16 @@ name|boolean
 name|isCacheable
 parameter_list|()
 block|{
-comment|// not cacheable for several reasons:
-comment|// 1. It is only relevant when _cache is set to true, and then, we really want to create in mem bitset
-comment|// 2. Its already fast without in mem bitset, since it works with field data
 return|return
-literal|false
+literal|true
 return|;
 block|}
 annotation|@
 name|Override
-DECL|method|get
-specifier|public
+DECL|method|matchDoc
+specifier|protected
 name|boolean
-name|get
+name|matchDoc
 parameter_list|(
 name|int
 name|doc
@@ -657,7 +677,7 @@ specifier|static
 class|class
 name|GeoBoundingBoxDocSet
 extends|extends
-name|GetDocSet
+name|MatchDocIdSet
 block|{
 DECL|field|fieldData
 specifier|private
@@ -684,6 +704,11 @@ parameter_list|(
 name|int
 name|maxDoc
 parameter_list|,
+annotation|@
+name|Nullable
+name|Bits
+name|acceptDocs
+parameter_list|,
 name|GeoPointFieldData
 name|fieldData
 parameter_list|,
@@ -697,6 +722,8 @@ block|{
 name|super
 argument_list|(
 name|maxDoc
+argument_list|,
+name|acceptDocs
 argument_list|)
 expr_stmt|;
 name|this
@@ -726,19 +753,16 @@ name|boolean
 name|isCacheable
 parameter_list|()
 block|{
-comment|// not cacheable for several reasons:
-comment|// 1. It is only relevant when _cache is set to true, and then, we really want to create in mem bitset
-comment|// 2. Its already fast without in mem bitset, since it works with field data
 return|return
-literal|false
+literal|true
 return|;
 block|}
 annotation|@
 name|Override
-DECL|method|get
-specifier|public
+DECL|method|matchDoc
+specifier|protected
 name|boolean
-name|get
+name|matchDoc
 parameter_list|(
 name|int
 name|doc
