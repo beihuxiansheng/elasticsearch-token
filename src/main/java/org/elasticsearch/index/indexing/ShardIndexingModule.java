@@ -30,6 +30,22 @@ name|AbstractModule
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|indexing
+operator|.
+name|slowlog
+operator|.
+name|ShardSlowLogIndexingService
+import|;
+end_import
+
 begin_comment
 comment|/**  */
 end_comment
@@ -53,6 +69,16 @@ block|{
 name|bind
 argument_list|(
 name|ShardIndexingService
+operator|.
+name|class
+argument_list|)
+operator|.
+name|asEagerSingleton
+argument_list|()
+expr_stmt|;
+name|bind
+argument_list|(
+name|ShardSlowLogIndexingService
 operator|.
 name|class
 argument_list|)
