@@ -396,6 +396,13 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"shared gateway has been deprecated, please use the (default) local gateway"
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Inject
