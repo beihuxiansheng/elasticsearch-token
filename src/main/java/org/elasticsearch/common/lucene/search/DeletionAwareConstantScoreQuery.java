@@ -47,27 +47,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
-end_comment
-
-begin_comment
-comment|// LUCENE MONITOR: Against ConstantScoreQuery, basically added logic in the doc iterator to take deletions into account
-end_comment
-
-begin_comment
-comment|// So it can basically be cached safely even with a reader that changes deletions but remain with teh same cache key
-end_comment
-
-begin_comment
-comment|// See more: https://issues.apache.org/jira/browse/LUCENE-2468
-end_comment
-
-begin_comment
-comment|// TODO Lucene 4.0 won't need this, since live docs are "and'ed" while scoring
-end_comment
-
-begin_comment
-comment|// LUCENE 4 UPGRADE: we probably don't need this anymore, because of acceptDocs
+comment|/**  * We still need sometimes to exclude deletes, because we don't remove them always with acceptDocs on filters  */
 end_comment
 
 begin_class
