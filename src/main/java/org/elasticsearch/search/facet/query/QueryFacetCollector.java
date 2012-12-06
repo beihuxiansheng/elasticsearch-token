@@ -88,7 +88,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|DeletionAwareConstantScoreQuery
+name|Queries
 import|;
 end_import
 
@@ -104,7 +104,23 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Queries
+name|XConstantScoreQuery
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|XFilteredQuery
 import|;
 end_import
 
@@ -390,7 +406,7 @@ block|{
 name|query
 operator|=
 operator|new
-name|FilteredQuery
+name|XFilteredQuery
 argument_list|(
 name|query
 argument_list|,
@@ -426,7 +442,7 @@ block|{
 name|query
 operator|=
 operator|new
-name|FilteredQuery
+name|XFilteredQuery
 argument_list|(
 name|query
 argument_list|,
@@ -501,14 +517,14 @@ if|if
 condition|(
 name|query
 operator|instanceof
-name|FilteredQuery
+name|XFilteredQuery
 condition|)
 block|{
-name|FilteredQuery
+name|XFilteredQuery
 name|fQuery
 init|=
 operator|(
-name|FilteredQuery
+name|XFilteredQuery
 operator|)
 name|query
 decl_stmt|;
@@ -538,13 +554,13 @@ if|if
 condition|(
 name|query
 operator|instanceof
-name|DeletionAwareConstantScoreQuery
+name|XConstantScoreQuery
 condition|)
 block|{
 return|return
 operator|(
 operator|(
-name|DeletionAwareConstantScoreQuery
+name|XConstantScoreQuery
 operator|)
 name|query
 operator|)

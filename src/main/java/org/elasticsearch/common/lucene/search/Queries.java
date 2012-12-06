@@ -97,7 +97,7 @@ name|Query
 name|MATCH_ALL_QUERY
 init|=
 operator|new
-name|DeletionAwareConstantScoreQuery
+name|XConstantScoreQuery
 argument_list|(
 operator|new
 name|MatchAllDocsFilter
@@ -534,14 +534,14 @@ if|if
 condition|(
 name|query
 operator|instanceof
-name|DeletionAwareConstantScoreQuery
+name|XConstantScoreQuery
 condition|)
 block|{
-name|DeletionAwareConstantScoreQuery
+name|XConstantScoreQuery
 name|scoreQuery
 init|=
 operator|(
-name|DeletionAwareConstantScoreQuery
+name|XConstantScoreQuery
 operator|)
 name|query
 decl_stmt|;

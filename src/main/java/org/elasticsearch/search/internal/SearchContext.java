@@ -68,20 +68,6 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|FilteredQuery
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
 name|Query
 import|;
 end_import
@@ -162,7 +148,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|DeletionAwareConstantScoreQuery
+name|Queries
 import|;
 end_import
 
@@ -178,7 +164,23 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Queries
+name|XConstantScoreQuery
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|XFilteredQuery
 import|;
 end_import
 
@@ -1283,7 +1285,7 @@ name|Query
 name|q
 init|=
 operator|new
-name|DeletionAwareConstantScoreQuery
+name|XConstantScoreQuery
 argument_list|(
 name|filterCache
 argument_list|()
@@ -1326,7 +1328,7 @@ operator|new
 name|ParsedQuery
 argument_list|(
 operator|new
-name|FilteredQuery
+name|XFilteredQuery
 argument_list|(
 name|query
 argument_list|()

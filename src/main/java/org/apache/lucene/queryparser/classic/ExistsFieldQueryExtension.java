@@ -72,7 +72,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|DeletionAwareConstantScoreQuery
+name|XConstantScoreQuery
 import|;
 end_import
 
@@ -265,7 +265,7 @@ argument_list|)
 expr_stmt|;
 return|return
 operator|new
-name|DeletionAwareConstantScoreQuery
+name|XConstantScoreQuery
 argument_list|(
 name|filter
 argument_list|)

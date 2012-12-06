@@ -1384,7 +1384,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"ConstantScore(NotDeleted(GeoPolygonFilter(pin.location, [[40.0, -70.0], [30.0, -80.0], [20.0, -90.0]])))"
+literal|"ConstantScore(GeoPolygonFilter(pin.location, [[40.0, -70.0], [30.0, -80.0], [20.0, -90.0]]))"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1420,7 +1420,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"ConstantScore(NotDeleted(GeoBoundingBoxFilter(pin.location, [40.0, -80.0], [20.0, -70.0])))"
+literal|"ConstantScore(GeoBoundingBoxFilter(pin.location, [40.0, -80.0], [20.0, -70.0]))"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1466,7 +1466,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"ConstantScore(NotDeleted(GeoDistanceFilter(pin.location, PLANE, 15.0, 10.0, 20.0)))"
+literal|"ConstantScore(GeoDistanceFilter(pin.location, PLANE, 15.0, 10.0, 20.0))"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1512,7 +1512,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"ConstantScore(NotDeleted(GeoDistanceFilter(pin.location, PLANE, 15.0, 10.0, 20.0)))"
+literal|"ConstantScore(GeoDistanceFilter(pin.location, PLANE, 15.0, 10.0, 20.0))"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1559,7 +1559,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"ConstantScore(NotDeleted(GeoDistanceRangeFilter(pin.location, PLANE, [15.0 - 25.0], 10.0, 20.0)))"
+literal|"ConstantScore(GeoDistanceRangeFilter(pin.location, PLANE, [15.0 - 25.0], 10.0, 20.0))"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1630,7 +1630,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"ConstantScore(NotDeleted(cache(foo:1 foo:2 foo:3)))"
+literal|"ConstantScore(cache(foo:1 foo:2 foo:3))"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1657,7 +1657,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"ConstantScore(NotDeleted(NotFilter(cache(foo:bar))))"
+literal|"ConstantScore(NotFilter(cache(foo:bar)))"
 argument_list|)
 argument_list|)
 expr_stmt|;

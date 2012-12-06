@@ -96,7 +96,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|DeletionAwareConstantScoreQuery
+name|XConstantScoreQuery
 import|;
 end_import
 
@@ -544,7 +544,7 @@ name|Query
 name|query1
 init|=
 operator|new
-name|DeletionAwareConstantScoreQuery
+name|XConstantScoreQuery
 argument_list|(
 name|filter
 argument_list|)

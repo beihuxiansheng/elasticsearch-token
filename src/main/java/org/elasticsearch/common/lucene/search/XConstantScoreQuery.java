@@ -51,10 +51,10 @@ comment|/**  * We still need sometimes to exclude deletes, because we don't remo
 end_comment
 
 begin_class
-DECL|class|DeletionAwareConstantScoreQuery
+DECL|class|XConstantScoreQuery
 specifier|public
 class|class
-name|DeletionAwareConstantScoreQuery
+name|XConstantScoreQuery
 extends|extends
 name|ConstantScoreQuery
 block|{
@@ -64,9 +64,9 @@ specifier|final
 name|Filter
 name|actualFilter
 decl_stmt|;
-DECL|method|DeletionAwareConstantScoreQuery
+DECL|method|XConstantScoreQuery
 specifier|public
-name|DeletionAwareConstantScoreQuery
+name|XConstantScoreQuery
 parameter_list|(
 name|Filter
 name|filter
@@ -75,7 +75,7 @@ block|{
 name|super
 argument_list|(
 operator|new
-name|NotDeletedFilter
+name|ApplyAcceptedDocsFilter
 argument_list|(
 name|filter
 argument_list|)
