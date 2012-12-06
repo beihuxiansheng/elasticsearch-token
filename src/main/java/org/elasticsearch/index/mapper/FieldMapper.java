@@ -38,20 +38,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|document
-operator|.
-name|Field
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|index
 operator|.
 name|FieldInfo
@@ -556,8 +542,8 @@ DECL|method|valueForSearch
 name|Object
 name|valueForSearch
 parameter_list|(
-name|Field
-name|field
+name|Object
+name|value
 parameter_list|)
 function_decl|;
 comment|/**      * Returns the actual value of the field.      */
@@ -565,8 +551,8 @@ DECL|method|value
 name|T
 name|value
 parameter_list|(
-name|Field
-name|field
+name|Object
+name|value
 parameter_list|)
 function_decl|;
 DECL|method|valueFromString
@@ -582,8 +568,8 @@ DECL|method|valueAsString
 name|String
 name|valueAsString
 parameter_list|(
-name|Field
-name|field
+name|Object
+name|value
 parameter_list|)
 function_decl|;
 comment|/**      * Returns the indexed value.      */

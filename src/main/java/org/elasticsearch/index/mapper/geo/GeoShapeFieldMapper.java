@@ -1184,8 +1184,8 @@ specifier|public
 name|String
 name|value
 parameter_list|(
-name|Field
-name|field
+name|Object
+name|value
 parameter_list|)
 block|{
 throw|throw
@@ -1222,8 +1222,8 @@ specifier|public
 name|String
 name|valueAsString
 parameter_list|(
-name|Field
-name|field
+name|Object
+name|value
 parameter_list|)
 block|{
 throw|throw

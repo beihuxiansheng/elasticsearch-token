@@ -981,7 +981,7 @@ operator|.
 name|dateTimeFormatter
 return|;
 block|}
-comment|/**      * Override the default behavior to return a timestamp      */
+comment|/**      * Override the default behavior to return a timestamp      *      * @param value      */
 annotation|@
 name|Override
 DECL|method|valueForSearch
@@ -989,14 +989,14 @@ specifier|public
 name|Object
 name|valueForSearch
 parameter_list|(
-name|Field
-name|field
+name|Object
+name|value
 parameter_list|)
 block|{
 return|return
 name|value
 argument_list|(
-name|field
+name|value
 argument_list|)
 return|;
 block|}
@@ -1007,21 +1007,21 @@ specifier|public
 name|String
 name|valueAsString
 parameter_list|(
-name|Field
-name|field
+name|Object
+name|value
 parameter_list|)
 block|{
 name|Long
-name|value
+name|val
 init|=
 name|value
 argument_list|(
-name|field
+name|value
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|value
+name|val
 operator|==
 literal|null
 condition|)
@@ -1031,7 +1031,7 @@ literal|null
 return|;
 block|}
 return|return
-name|value
+name|val
 operator|.
 name|toString
 argument_list|()

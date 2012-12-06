@@ -1284,7 +1284,7 @@ name|QueryParseContext
 name|context
 parameter_list|)
 function_decl|;
-comment|/**      * Override the default behavior (to return the string, and return the actual Number instance).      */
+comment|/**      * Override the default behavior (to return the string, and return the actual Number instance).      *      * @param value      */
 annotation|@
 name|Override
 DECL|method|valueForSearch
@@ -1292,14 +1292,14 @@ specifier|public
 name|Object
 name|valueForSearch
 parameter_list|(
-name|Field
-name|field
+name|Object
+name|value
 parameter_list|)
 block|{
 return|return
 name|value
 argument_list|(
-name|field
+name|value
 argument_list|)
 return|;
 block|}
@@ -1310,8 +1310,8 @@ specifier|public
 name|String
 name|valueAsString
 parameter_list|(
-name|Field
-name|field
+name|Object
+name|value
 parameter_list|)
 block|{
 name|Number
@@ -1319,7 +1319,7 @@ name|num
 init|=
 name|value
 argument_list|(
-name|field
+name|value
 argument_list|)
 decl_stmt|;
 return|return

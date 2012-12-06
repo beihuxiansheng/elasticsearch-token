@@ -579,8 +579,7 @@ parameter_list|,
 name|String
 name|type
 parameter_list|,
-name|byte
-index|[]
+name|BytesReference
 name|source
 parameter_list|,
 name|Map
@@ -615,16 +614,6 @@ operator|.
 name|source
 operator|=
 name|source
-operator|==
-literal|null
-condition|?
-literal|null
-else|:
-operator|new
-name|BytesArray
-argument_list|(
-name|source
-argument_list|)
 expr_stmt|;
 name|this
 operator|.
