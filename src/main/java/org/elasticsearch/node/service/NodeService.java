@@ -331,7 +331,7 @@ decl_stmt|;
 DECL|field|version
 specifier|private
 specifier|final
-name|String
+name|Version
 name|version
 decl_stmt|;
 annotation|@
@@ -436,9 +436,6 @@ operator|=
 name|Version
 operator|.
 name|CURRENT
-operator|.
-name|toString
-argument_list|()
 expr_stmt|;
 block|}
 DECL|method|setHttpServer
