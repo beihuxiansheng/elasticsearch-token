@@ -2350,18 +2350,29 @@ block|}
 block|}
 comment|// CHANGE: Add custom random access strategy, allowing to set the threshold
 comment|// CHANGE: Add filter first filter strategy
-DECL|field|FILTER_FIRST_FILTER_STRATEGY
+DECL|field|ALWAYS_RANDOM_ACCESS_FILTER_STRATEGY
 specifier|public
 specifier|static
 specifier|final
 name|FilterStrategy
-name|FILTER_FIRST_FILTER_STRATEGY
+name|ALWAYS_RANDOM_ACCESS_FILTER_STRATEGY
 init|=
 operator|new
 name|CustomRandomAccessFilterStrategy
 argument_list|(
 literal|0
 argument_list|)
+decl_stmt|;
+DECL|field|CUSTOM_FILTER_STRATEGY
+specifier|public
+specifier|static
+specifier|final
+name|CustomRandomAccessFilterStrategy
+name|CUSTOM_FILTER_STRATEGY
+init|=
+operator|new
+name|CustomRandomAccessFilterStrategy
+argument_list|()
 decl_stmt|;
 comment|/**      * A {@link FilterStrategy} that conditionally uses a random access filter if      * the given {@link DocIdSet} supports random access (returns a non-null value      * from {@link DocIdSet#bits()}) and      * {@link RandomAccessFilterStrategy#useRandomAccess(Bits, int)} returns      *<code>true</code>. Otherwise this strategy falls back to a "zig-zag join" (      * {@link XFilteredQuery#LEAP_FROG_FILTER_FIRST_STRATEGY}) strategy .      */
 DECL|class|CustomRandomAccessFilterStrategy
