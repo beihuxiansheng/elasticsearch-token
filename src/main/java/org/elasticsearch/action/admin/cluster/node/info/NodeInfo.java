@@ -42,6 +42,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|Version
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|action
 operator|.
 name|support
@@ -283,7 +293,7 @@ name|hostname
 decl_stmt|;
 DECL|field|version
 specifier|private
-name|String
+name|Version
 name|version
 decl_stmt|;
 annotation|@
@@ -355,7 +365,7 @@ name|Nullable
 name|String
 name|hostname
 parameter_list|,
-name|String
+name|Version
 name|version
 parameter_list|,
 name|DiscoveryNode
@@ -516,7 +526,7 @@ block|}
 comment|/**      * The current ES version      */
 DECL|method|version
 specifier|public
-name|String
+name|Version
 name|version
 parameter_list|()
 block|{
@@ -527,7 +537,7 @@ block|}
 comment|/**      * The current ES version      */
 DECL|method|getVersion
 specifier|public
-name|String
+name|Version
 name|getVersion
 parameter_list|()
 block|{
@@ -859,10 +869,12 @@ expr_stmt|;
 block|}
 name|version
 operator|=
-name|in
+name|Version
 operator|.
-name|readOptionalString
-argument_list|()
+name|readVersion
+argument_list|(
+name|in
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -1133,9 +1145,11 @@ expr_stmt|;
 block|}
 name|out
 operator|.
-name|writeOptionalString
+name|writeVInt
 argument_list|(
 name|version
+operator|.
+name|id
 argument_list|)
 expr_stmt|;
 if|if
