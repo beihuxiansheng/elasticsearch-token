@@ -178,6 +178,19 @@ block|,
 literal|"elasticsearch.default."
 block|}
 decl_stmt|;
+name|boolean
+name|useSystemProperties
+init|=
+operator|!
+name|pSettings
+operator|.
+name|getAsBoolean
+argument_list|(
+literal|"config.ignore_system_properties"
+argument_list|,
+literal|false
+argument_list|)
+decl_stmt|;
 comment|// just create enough settings to build the environment
 name|ImmutableSettings
 operator|.
@@ -191,6 +204,13 @@ name|put
 argument_list|(
 name|pSettings
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|useSystemProperties
+condition|)
+block|{
+name|settingsBuilder
 operator|.
 name|putProperties
 argument_list|(
@@ -235,10 +255,13 @@ argument_list|()
 argument_list|,
 name|ignorePrefixes
 argument_list|)
+expr_stmt|;
+block|}
+name|settingsBuilder
 operator|.
 name|replacePropertyPlaceholders
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 name|Environment
 name|environment
 init|=
@@ -261,6 +284,11 @@ name|loadFromEnv
 init|=
 literal|true
 decl_stmt|;
+if|if
+condition|(
+name|useSystemProperties
+condition|)
+block|{
 comment|// if its default, then load it, but also load form env
 if|if
 condition|(
@@ -365,6 +393,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 if|if
 condition|(
 name|loadFromEnv
@@ -455,6 +484,13 @@ name|put
 argument_list|(
 name|pSettings
 argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|useSystemProperties
+condition|)
+block|{
+name|settingsBuilder
 operator|.
 name|putProperties
 argument_list|(
@@ -479,6 +515,9 @@ argument_list|()
 argument_list|,
 name|ignorePrefixes
 argument_list|)
+expr_stmt|;
+block|}
+name|settingsBuilder
 operator|.
 name|replacePropertyPlaceholders
 argument_list|()
