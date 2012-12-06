@@ -141,14 +141,6 @@ name|Filter
 name|filterToCache
 parameter_list|)
 function_decl|;
-DECL|method|isCached
-name|boolean
-name|isCached
-parameter_list|(
-name|Filter
-name|filter
-parameter_list|)
-function_decl|;
 DECL|method|clear
 name|void
 name|clear
