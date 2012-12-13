@@ -304,6 +304,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Locale
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -366,8 +376,15 @@ argument_list|)
 block|;
 DECL|field|id
 specifier|private
+specifier|final
 name|byte
 name|id
+decl_stmt|;
+DECL|field|lowercase
+specifier|private
+specifier|final
+name|String
+name|lowercase
 decl_stmt|;
 DECL|method|OpType
 name|OpType
@@ -382,6 +399,22 @@ name|id
 operator|=
 name|id
 expr_stmt|;
+name|this
+operator|.
+name|lowercase
+operator|=
+name|this
+operator|.
+name|toString
+argument_list|()
+operator|.
+name|toLowerCase
+argument_list|(
+name|Locale
+operator|.
+name|ENGLISH
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**          * The internal representation of the operation type.          */
 DECL|method|id
@@ -392,6 +425,18 @@ parameter_list|()
 block|{
 return|return
 name|id
+return|;
+block|}
+DECL|method|lowercase
+specifier|public
+name|String
+name|lowercase
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|lowercase
 return|;
 block|}
 comment|/**          * Constructs the operation type from its internal representation.          */
@@ -544,7 +589,7 @@ specifier|public
 name|IndexRequest
 parameter_list|()
 block|{     }
-comment|/**      * Constructs a new index request against the specific index. The {@link #type(String)}      * {@link #source(byte[])} must be set.       */
+comment|/**      * Constructs a new index request against the specific index. The {@link #type(String)}      * {@link #source(byte[])} must be set.      */
 DECL|method|IndexRequest
 specifier|public
 name|IndexRequest
@@ -560,7 +605,7 @@ operator|=
 name|index
 expr_stmt|;
 block|}
-comment|/**      * Constructs a new index request against the specific index and type. The       * {@link #source(byte[])} must be set.      */
+comment|/**      * Constructs a new index request against the specific index and type. The      * {@link #source(byte[])} must be set.      */
 DECL|method|IndexRequest
 specifier|public
 name|IndexRequest
