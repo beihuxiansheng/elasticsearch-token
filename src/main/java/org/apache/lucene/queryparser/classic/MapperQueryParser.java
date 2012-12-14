@@ -3357,6 +3357,13 @@ return|;
 block|}
 if|if
 condition|(
+literal|"*"
+operator|.
+name|equals
+argument_list|(
+name|actualField
+argument_list|)
+operator|||
 literal|"_all"
 operator|.
 name|equals
