@@ -86,6 +86,10 @@ begin_comment
 comment|/**  * Abstract {@link FragmentsBuilder} implementation that detects whether highlight hits occurred on a field that is  * multivalued (Basically fields that have the same name) and splits the highlight snippets according to a single field  * boundary. This avoids that a highlight hit is shown as one hit whilst it is actually a hit on multiple fields.  */
 end_comment
 
+begin_comment
+comment|// LUCENE 4.1: once its out, remove this class and let subclasses extend BaseFragmentsBuilder instead.
+end_comment
+
 begin_class
 DECL|class|AbstractFragmentsBuilder
 specifier|public
