@@ -823,6 +823,30 @@ name|query
 argument_list|)
 return|;
 block|}
+comment|/**      * A Query that matches documents containing terms with a specified regular expression.      *      * @param name   The name of the field      * @param regexp The regular expression      */
+DECL|method|regexpQuery
+specifier|public
+specifier|static
+name|RegexpQueryBuilder
+name|regexpQuery
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|String
+name|regexp
+parameter_list|)
+block|{
+return|return
+operator|new
+name|RegexpQueryBuilder
+argument_list|(
+name|name
+argument_list|,
+name|regexp
+argument_list|)
+return|;
+block|}
 comment|/**      * A query that parses a query string and runs it. There are two modes that this operates. The first,      * when no field is added (using {@link QueryStringQueryBuilder#field(String)}, will run the query once and non prefixed fields      * will use the {@link QueryStringQueryBuilder#defaultField(String)} set. The second, when one or more fields are added      * (using {@link QueryStringQueryBuilder#field(String)}), will run the parsed query against the provided fields, and combine      * them either using DisMax or a plain boolean query (see {@link QueryStringQueryBuilder#useDisMax(boolean)}).      *      * @param queryString The query string to run      */
 DECL|method|queryString
 specifier|public

@@ -665,6 +665,30 @@ name|prefix
 argument_list|)
 return|;
 block|}
+comment|/**      * A filter that restricts search results to field values that match a given regular expression.      *      * @param name   The field name      * @param regexp The regular expression      */
+DECL|method|regexpFilter
+specifier|public
+specifier|static
+name|RegexpFilterBuilder
+name|regexpFilter
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|String
+name|regexp
+parameter_list|)
+block|{
+return|return
+operator|new
+name|RegexpFilterBuilder
+argument_list|(
+name|name
+argument_list|,
+name|regexp
+argument_list|)
+return|;
+block|}
 comment|/**      * A filter that restricts search results to values that are within the given range.      *      * @param name The field name      */
 DECL|method|rangeFilter
 specifier|public

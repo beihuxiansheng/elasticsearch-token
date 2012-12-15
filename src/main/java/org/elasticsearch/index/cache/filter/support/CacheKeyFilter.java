@@ -337,6 +337,16 @@ return|return
 name|key
 return|;
 block|}
+DECL|method|wrappedFilter
+specifier|public
+name|Filter
+name|wrappedFilter
+parameter_list|()
+block|{
+return|return
+name|filter
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|getDocIdSet
