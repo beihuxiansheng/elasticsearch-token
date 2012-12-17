@@ -325,6 +325,11 @@ specifier|private
 name|String
 name|id
 decl_stmt|;
+DECL|field|routing
+specifier|private
+name|String
+name|routing
+decl_stmt|;
 DECL|field|fields
 specifier|private
 name|String
@@ -569,6 +574,33 @@ expr_stmt|;
 return|return
 name|this
 return|;
+block|}
+comment|/**      * @return The routing for this request. This used for the `get` part of the mlt request.      */
+DECL|method|routing
+specifier|public
+name|String
+name|routing
+parameter_list|()
+block|{
+return|return
+name|routing
+return|;
+block|}
+DECL|method|routing
+specifier|public
+name|void
+name|routing
+parameter_list|(
+name|String
+name|routing
+parameter_list|)
+block|{
+name|this
+operator|.
+name|routing
+operator|=
+name|routing
+expr_stmt|;
 block|}
 comment|/**      * The fields of the document to use in order to find documents "like" this one. Defaults to run      * against all the document fields.      */
 DECL|method|fields

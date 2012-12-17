@@ -258,6 +258,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the routing. Required if routing isn't id based.      */
+DECL|method|setRouting
+specifier|public
+name|MoreLikeThisRequestBuilder
+name|setRouting
+parameter_list|(
+name|String
+name|routing
+parameter_list|)
+block|{
+name|request
+operator|.
+name|routing
+argument_list|(
+name|routing
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * The percent of the terms to match for each field. Defaults to<tt>0.3f</tt>.      */
 DECL|method|setPercentTermsToMatch
 specifier|public
