@@ -471,9 +471,9 @@ name|boolean
 name|indexed
 parameter_list|()
 function_decl|;
-DECL|method|analyzed
+DECL|method|tokenized
 name|boolean
-name|analyzed
+name|tokenized
 parameter_list|()
 function_decl|;
 DECL|method|stored

@@ -1871,7 +1871,7 @@ operator|.
 name|indexed
 argument_list|()
 operator|||
-name|analyzed
+name|tokenized
 argument_list|()
 operator|!=
 name|Defaults
@@ -1893,7 +1893,7 @@ argument_list|(
 name|indexed
 argument_list|()
 argument_list|,
-name|analyzed
+name|tokenized
 argument_list|()
 argument_list|)
 argument_list|)
