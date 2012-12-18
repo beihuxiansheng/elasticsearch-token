@@ -1145,7 +1145,7 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
-name|postingFormatProvider
+name|postingsFormatProvider
 argument_list|()
 argument_list|,
 name|instanceOf
@@ -1171,7 +1171,7 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
-name|postingFormatProvider
+name|postingsFormatProvider
 argument_list|()
 operator|.
 name|get
@@ -1200,7 +1200,7 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
-name|postingFormatProvider
+name|postingsFormatProvider
 argument_list|()
 argument_list|,
 name|instanceOf
@@ -1230,7 +1230,7 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
-name|postingFormatProvider
+name|postingsFormatProvider
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -1418,7 +1418,7 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
-name|postingFormatProvider
+name|postingsFormatProvider
 argument_list|()
 argument_list|,
 name|instanceOf
@@ -1444,7 +1444,7 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
-name|postingFormatProvider
+name|postingsFormatProvider
 argument_list|()
 operator|.
 name|get
@@ -1473,7 +1473,7 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
-name|postingFormatProvider
+name|postingsFormatProvider
 argument_list|()
 argument_list|,
 name|instanceOf
@@ -1503,7 +1503,7 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
-name|postingFormatProvider
+name|postingsFormatProvider
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -1691,7 +1691,7 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
-name|postingFormatProvider
+name|postingsFormatProvider
 argument_list|()
 argument_list|,
 name|instanceOf
@@ -1717,7 +1717,7 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
-name|postingFormatProvider
+name|postingsFormatProvider
 argument_list|()
 operator|.
 name|get
@@ -1746,7 +1746,7 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
-name|postingFormatProvider
+name|postingsFormatProvider
 argument_list|()
 argument_list|,
 name|instanceOf
@@ -1776,7 +1776,7 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
-name|postingFormatProvider
+name|postingsFormatProvider
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -1971,7 +1971,7 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
-name|postingFormatProvider
+name|postingsFormatProvider
 argument_list|()
 argument_list|,
 name|instanceOf
@@ -1997,7 +1997,7 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
-name|postingFormatProvider
+name|postingsFormatProvider
 argument_list|()
 operator|.
 name|get
@@ -2026,7 +2026,7 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
-name|postingFormatProvider
+name|postingsFormatProvider
 argument_list|()
 argument_list|,
 name|instanceOf
@@ -2056,7 +2056,7 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
-name|postingFormatProvider
+name|postingsFormatProvider
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -2307,7 +2307,7 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
-name|postingFormatProvider
+name|postingsFormatProvider
 argument_list|()
 argument_list|,
 name|instanceOf
@@ -2333,7 +2333,7 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
-name|postingFormatProvider
+name|postingsFormatProvider
 argument_list|()
 operator|.
 name|get
@@ -2362,7 +2362,7 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
-name|postingFormatProvider
+name|postingsFormatProvider
 argument_list|()
 argument_list|,
 name|instanceOf
@@ -2388,7 +2388,7 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
-name|postingFormatProvider
+name|postingsFormatProvider
 argument_list|()
 operator|.
 name|get
@@ -2417,7 +2417,7 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
-name|postingFormatProvider
+name|postingsFormatProvider
 argument_list|()
 argument_list|,
 name|instanceOf
@@ -2447,7 +2447,7 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
-name|postingFormatProvider
+name|postingsFormatProvider
 argument_list|()
 decl_stmt|;
 name|assertThat

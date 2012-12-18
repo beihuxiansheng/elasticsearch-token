@@ -298,7 +298,7 @@ name|UidFieldMapper
 operator|.
 name|Defaults
 operator|.
-name|UID_FIELD_TYPE
+name|FIELD_TYPE
 argument_list|)
 argument_list|)
 expr_stmt|;

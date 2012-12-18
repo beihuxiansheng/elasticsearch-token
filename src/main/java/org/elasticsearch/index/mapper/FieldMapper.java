@@ -797,9 +797,9 @@ name|FieldDataType
 name|fieldDataType
 parameter_list|()
 function_decl|;
-DECL|method|postingFormatProvider
+DECL|method|postingsFormatProvider
 name|PostingsFormatProvider
-name|postingFormatProvider
+name|postingsFormatProvider
 parameter_list|()
 function_decl|;
 block|}

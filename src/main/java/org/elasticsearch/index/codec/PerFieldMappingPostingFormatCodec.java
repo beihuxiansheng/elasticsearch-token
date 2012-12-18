@@ -152,7 +152,7 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
-name|postingFormatProvider
+name|postingsFormatProvider
 argument_list|()
 decl_stmt|;
 return|return

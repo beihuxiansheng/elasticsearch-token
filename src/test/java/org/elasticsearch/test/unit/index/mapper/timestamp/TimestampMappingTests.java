@@ -580,7 +580,7 @@ name|TimestampFieldMapper
 operator|.
 name|Defaults
 operator|.
-name|TIMESTAMP_FIELD_TYPE
+name|FIELD_TYPE
 operator|.
 name|stored
 argument_list|()
@@ -603,7 +603,7 @@ name|TimestampFieldMapper
 operator|.
 name|Defaults
 operator|.
-name|TIMESTAMP_FIELD_TYPE
+name|FIELD_TYPE
 operator|.
 name|indexed
 argument_list|()

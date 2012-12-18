@@ -260,7 +260,7 @@ name|IntegerFieldMapper
 operator|.
 name|Defaults
 operator|.
-name|INTEGER_FIELD_TYPE
+name|FIELD_TYPE
 argument_list|)
 decl_stmt|;
 static|static

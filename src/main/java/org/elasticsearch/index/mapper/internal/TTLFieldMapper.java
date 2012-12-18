@@ -349,7 +349,7 @@ name|LongFieldMapper
 operator|.
 name|Defaults
 operator|.
-name|LONG_FIELD_TYPE
+name|FIELD_TYPE
 argument_list|)
 decl_stmt|;
 static|static

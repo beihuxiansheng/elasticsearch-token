@@ -761,7 +761,7 @@ name|IdFieldMapper
 operator|.
 name|Defaults
 operator|.
-name|ID_FIELD_TYPE
+name|FIELD_TYPE
 argument_list|)
 decl_stmt|;
 name|fieldType
@@ -2512,7 +2512,6 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// fire up any new mappers if exists
-comment|// we do it here so postParse can rely on having them as part of this doc mapper
 if|if
 condition|(
 operator|!
