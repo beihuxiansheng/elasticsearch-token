@@ -1396,6 +1396,9 @@ operator|.
 name|routingFieldMapper
 argument_list|()
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|stored
 argument_list|()
 condition|)
@@ -1431,6 +1434,9 @@ operator|.
 name|parentFieldMapper
 argument_list|()
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|stored
 argument_list|()
 condition|)
@@ -1459,6 +1465,9 @@ operator|.
 name|timestampFieldMapper
 argument_list|()
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|stored
 argument_list|()
 condition|)
@@ -1485,6 +1494,9 @@ operator|&&
 name|docMapper
 operator|.
 name|TTLFieldMapper
+argument_list|()
+operator|.
+name|fieldType
 argument_list|()
 operator|.
 name|stored
@@ -1541,6 +1553,9 @@ name|SizeFieldMapper
 operator|.
 name|class
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|stored
 argument_list|()
@@ -1755,6 +1770,9 @@ operator|==
 literal|null
 operator|||
 name|x
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|stored
 argument_list|()
@@ -2298,6 +2316,9 @@ operator|!
 name|x
 operator|.
 name|mapper
+argument_list|()
+operator|.
+name|fieldType
 argument_list|()
 operator|.
 name|stored

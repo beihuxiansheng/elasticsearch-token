@@ -1045,6 +1045,9 @@ name|includeInAll
 argument_list|,
 name|mapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|indexed
 argument_list|()
 argument_list|)

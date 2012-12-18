@@ -982,6 +982,9 @@ block|{
 comment|// if all defaults, no need to write it at all
 if|if
 condition|(
+name|fieldType
+argument_list|()
+operator|.
 name|stored
 argument_list|()
 operator|==
@@ -1012,6 +1015,9 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|fieldType
+argument_list|()
+operator|.
 name|stored
 argument_list|()
 operator|!=
@@ -1029,6 +1035,9 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
+name|fieldType
+argument_list|()
+operator|.
 name|stored
 argument_list|()
 argument_list|)

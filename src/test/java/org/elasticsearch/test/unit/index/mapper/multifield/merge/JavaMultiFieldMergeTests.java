@@ -285,6 +285,9 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|indexed
 argument_list|()
 argument_list|,
@@ -460,6 +463,9 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|indexed
 argument_list|()
 argument_list|,
@@ -482,6 +488,9 @@ literal|"name"
 argument_list|)
 operator|.
 name|mapper
+argument_list|()
+operator|.
+name|fieldType
 argument_list|()
 operator|.
 name|indexed
@@ -707,6 +716,9 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|indexed
 argument_list|()
 argument_list|,
@@ -729,6 +741,9 @@ literal|"name"
 argument_list|)
 operator|.
 name|mapper
+argument_list|()
+operator|.
+name|fieldType
 argument_list|()
 operator|.
 name|indexed
@@ -900,6 +915,9 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|indexed
 argument_list|()
 argument_list|,
@@ -922,6 +940,9 @@ literal|"name"
 argument_list|)
 operator|.
 name|mapper
+argument_list|()
+operator|.
+name|fieldType
 argument_list|()
 operator|.
 name|indexed

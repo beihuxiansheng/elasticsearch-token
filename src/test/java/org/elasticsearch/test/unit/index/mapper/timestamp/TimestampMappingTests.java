@@ -571,6 +571,9 @@ operator|.
 name|timestampFieldMapper
 argument_list|()
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|stored
 argument_list|()
 argument_list|,
@@ -592,6 +595,9 @@ argument_list|(
 name|docMapper
 operator|.
 name|timestampFieldMapper
+argument_list|()
+operator|.
+name|fieldType
 argument_list|()
 operator|.
 name|indexed
@@ -762,6 +768,9 @@ operator|.
 name|timestampFieldMapper
 argument_list|()
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|stored
 argument_list|()
 argument_list|,
@@ -776,6 +785,9 @@ argument_list|(
 name|docMapper
 operator|.
 name|timestampFieldMapper
+argument_list|()
+operator|.
+name|fieldType
 argument_list|()
 operator|.
 name|indexed

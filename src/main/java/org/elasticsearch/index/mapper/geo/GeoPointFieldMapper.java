@@ -3202,6 +3202,9 @@ if|if
 condition|(
 name|geoStringMapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|stored
 argument_list|()
 operator|!=
@@ -3217,6 +3220,9 @@ argument_list|(
 literal|"store"
 argument_list|,
 name|geoStringMapper
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|stored
 argument_list|()

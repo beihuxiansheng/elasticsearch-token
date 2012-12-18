@@ -1693,10 +1693,16 @@ block|}
 if|if
 condition|(
 operator|!
+name|fieldType
+argument_list|()
+operator|.
 name|indexed
 argument_list|()
 operator|&&
 operator|!
+name|fieldType
+argument_list|()
+operator|.
 name|stored
 argument_list|()
 condition|)

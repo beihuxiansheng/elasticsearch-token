@@ -2300,6 +2300,9 @@ name|mapper
 argument_list|,
 name|mapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|stored
 argument_list|()
 condition|?

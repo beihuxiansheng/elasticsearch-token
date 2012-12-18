@@ -929,6 +929,9 @@ block|{
 if|if
 condition|(
 operator|!
+name|fieldType
+argument_list|()
+operator|.
 name|stored
 argument_list|()
 condition|)

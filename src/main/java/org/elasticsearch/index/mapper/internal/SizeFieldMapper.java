@@ -792,6 +792,9 @@ name|Defaults
 operator|.
 name|ENABLED
 operator|&&
+name|fieldType
+argument_list|()
+operator|.
 name|stored
 argument_list|()
 operator|==
@@ -836,6 +839,9 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|fieldType
+argument_list|()
+operator|.
 name|stored
 argument_list|()
 operator|!=
@@ -853,6 +859,9 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
+name|fieldType
+argument_list|()
+operator|.
 name|stored
 argument_list|()
 argument_list|)

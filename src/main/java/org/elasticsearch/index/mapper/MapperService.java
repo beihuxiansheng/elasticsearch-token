@@ -2858,6 +2858,9 @@ operator|.
 name|typeMapper
 argument_list|()
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|indexed
 argument_list|()
 condition|)

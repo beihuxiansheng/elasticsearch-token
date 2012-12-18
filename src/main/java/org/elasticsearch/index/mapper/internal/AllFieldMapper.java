@@ -1309,6 +1309,8 @@ name|Defaults
 operator|.
 name|ENABLED
 operator|&&
+name|fieldType
+operator|.
 name|stored
 argument_list|()
 operator|==
@@ -1319,6 +1321,8 @@ operator|.
 name|stored
 argument_list|()
 operator|&&
+name|fieldType
+operator|.
 name|storeTermVectors
 argument_list|()
 operator|==
@@ -1387,6 +1391,8 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|fieldType
+operator|.
 name|stored
 argument_list|()
 operator|!=
@@ -1404,6 +1410,8 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
+name|fieldType
+operator|.
 name|stored
 argument_list|()
 argument_list|)
@@ -1411,6 +1419,8 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|fieldType
+operator|.
 name|storeTermVectors
 argument_list|()
 operator|!=
@@ -1428,6 +1438,8 @@ name|field
 argument_list|(
 literal|"store_term_vector"
 argument_list|,
+name|fieldType
+operator|.
 name|storeTermVectors
 argument_list|()
 argument_list|)
@@ -1435,6 +1447,8 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|fieldType
+operator|.
 name|storeTermVectorOffsets
 argument_list|()
 operator|!=
@@ -1452,6 +1466,8 @@ name|field
 argument_list|(
 literal|"store_term_vector_offsets"
 argument_list|,
+name|fieldType
+operator|.
 name|storeTermVectorOffsets
 argument_list|()
 argument_list|)
@@ -1459,6 +1475,8 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|fieldType
+operator|.
 name|storeTermVectorPositions
 argument_list|()
 operator|!=
@@ -1476,6 +1494,8 @@ name|field
 argument_list|(
 literal|"store_term_vector_positions"
 argument_list|,
+name|fieldType
+operator|.
 name|storeTermVectorPositions
 argument_list|()
 argument_list|)
@@ -1483,6 +1503,8 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|fieldType
+operator|.
 name|storeTermVectorPayloads
 argument_list|()
 operator|!=
@@ -1500,6 +1522,8 @@ name|field
 argument_list|(
 literal|"store_term_vector_payloads"
 argument_list|,
+name|fieldType
+operator|.
 name|storeTermVectorPayloads
 argument_list|()
 argument_list|)

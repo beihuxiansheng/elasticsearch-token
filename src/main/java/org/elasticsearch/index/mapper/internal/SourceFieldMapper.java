@@ -1550,6 +1550,8 @@ block|}
 if|if
 condition|(
 operator|!
+name|fieldType
+operator|.
 name|stored
 argument_list|()
 condition|)

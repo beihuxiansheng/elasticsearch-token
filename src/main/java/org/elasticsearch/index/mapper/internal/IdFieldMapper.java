@@ -950,6 +950,8 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|fieldType
+operator|.
 name|indexed
 argument_list|()
 operator|||
@@ -1015,6 +1017,8 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|fieldType
+operator|.
 name|indexed
 argument_list|()
 operator|||
@@ -1077,6 +1081,8 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|fieldType
+operator|.
 name|indexed
 argument_list|()
 operator|||
@@ -1259,6 +1265,8 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|fieldType
+operator|.
 name|indexed
 argument_list|()
 operator|||
@@ -1409,6 +1417,8 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|fieldType
+operator|.
 name|indexed
 argument_list|()
 operator|||
@@ -1598,6 +1608,8 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|fieldType
+operator|.
 name|indexed
 argument_list|()
 operator|||

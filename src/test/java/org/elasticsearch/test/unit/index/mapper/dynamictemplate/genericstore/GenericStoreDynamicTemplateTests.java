@@ -335,6 +335,9 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|stored
 argument_list|()
 argument_list|,
@@ -415,6 +418,9 @@ argument_list|(
 name|fieldMappers
 operator|.
 name|mapper
+argument_list|()
+operator|.
+name|fieldType
 argument_list|()
 operator|.
 name|stored

@@ -1142,10 +1142,14 @@ block|{
 if|if
 condition|(
 operator|!
+name|fieldType
+operator|.
 name|indexed
 argument_list|()
 operator|&&
 operator|!
+name|fieldType
+operator|.
 name|stored
 argument_list|()
 condition|)
@@ -1217,6 +1221,8 @@ block|{
 comment|// if all are defaults, no sense to write it at all
 if|if
 condition|(
+name|fieldType
+operator|.
 name|indexed
 argument_list|()
 operator|==
@@ -1227,6 +1233,8 @@ operator|.
 name|indexed
 argument_list|()
 operator|&&
+name|fieldType
+operator|.
 name|stored
 argument_list|()
 operator|==
@@ -1263,6 +1271,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|fieldType
+operator|.
 name|indexed
 argument_list|()
 operator|!=
@@ -1280,6 +1290,8 @@ name|field
 argument_list|(
 literal|"index"
 argument_list|,
+name|fieldType
+operator|.
 name|indexed
 argument_list|()
 argument_list|)
@@ -1287,6 +1299,8 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|fieldType
+operator|.
 name|stored
 argument_list|()
 operator|!=
@@ -1304,6 +1318,8 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
+name|fieldType
+operator|.
 name|stored
 argument_list|()
 argument_list|)
