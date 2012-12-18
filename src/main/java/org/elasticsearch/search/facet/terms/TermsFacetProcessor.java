@@ -903,14 +903,10 @@ name|builder
 operator|.
 name|add
 argument_list|(
-operator|new
-name|BytesRef
-argument_list|(
 name|parser
 operator|.
-name|text
+name|bytes
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
