@@ -559,7 +559,7 @@ name|equalTo
 argument_list|(
 name|nested1Mapper
 operator|.
-name|nestedTypePath
+name|nestedTypePathAsString
 argument_list|()
 argument_list|)
 argument_list|)
@@ -752,7 +752,7 @@ name|equalTo
 argument_list|(
 name|nested1Mapper
 operator|.
-name|nestedTypePath
+name|nestedTypePathAsString
 argument_list|()
 argument_list|)
 argument_list|)
@@ -826,7 +826,7 @@ name|equalTo
 argument_list|(
 name|nested1Mapper
 operator|.
-name|nestedTypePath
+name|nestedTypePathAsString
 argument_list|()
 argument_list|)
 argument_list|)

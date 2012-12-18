@@ -463,7 +463,6 @@ name|Names
 name|names
 parameter_list|()
 function_decl|;
-comment|// LUCENE 4 UPGRADE Consider replacing these all with fieldType() and letting consumer pick and choose
 DECL|method|fieldType
 name|FieldType
 name|fieldType
