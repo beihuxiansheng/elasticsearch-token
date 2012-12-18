@@ -211,7 +211,15 @@ name|size
 operator|+=
 name|RamUsage
 operator|.
+name|NUM_BYTES_OBJECT_REF
+operator|+
+name|RamUsage
+operator|.
 name|NUM_BYTES_OBJECT_HEADER
+operator|+
+name|RamUsage
+operator|.
+name|NUM_BYTES_ARRAY_HEADER
 operator|+
 operator|(
 name|value
