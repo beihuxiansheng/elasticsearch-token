@@ -1381,7 +1381,7 @@ annotation|@
 name|Override
 DECL|method|indexedValue
 specifier|public
-name|String
+name|BytesRef
 name|indexedValue
 parameter_list|(
 name|String
@@ -1417,9 +1417,6 @@ argument_list|)
 expr_stmt|;
 return|return
 name|bytesRef
-operator|.
-name|utf8ToString
-argument_list|()
 return|;
 block|}
 annotation|@
