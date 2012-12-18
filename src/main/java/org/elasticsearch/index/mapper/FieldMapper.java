@@ -223,12 +223,6 @@ specifier|final
 name|String
 name|sourcePath
 decl_stmt|;
-DECL|field|indexNameTermFactory
-specifier|private
-specifier|final
-name|Term
-name|indexNameTermFactory
-decl_stmt|;
 DECL|method|Names
 specifier|public
 name|Names
@@ -355,18 +349,6 @@ operator|.
 name|intern
 argument_list|()
 expr_stmt|;
-name|this
-operator|.
-name|indexNameTermFactory
-operator|=
-operator|new
-name|Term
-argument_list|(
-name|indexName
-argument_list|,
-literal|""
-argument_list|)
-expr_stmt|;
 block|}
 comment|/**          * The logical name of the field.          */
 DECL|method|name
@@ -421,19 +403,6 @@ parameter_list|()
 block|{
 return|return
 name|sourcePath
-return|;
-block|}
-comment|/**          * The index name term that can be used as a factory.          */
-DECL|method|indexNameTerm
-specifier|public
-name|Term
-name|indexNameTerm
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|indexNameTermFactory
 return|;
 block|}
 comment|/**          * Creates a new index term based on the provided value.          */
