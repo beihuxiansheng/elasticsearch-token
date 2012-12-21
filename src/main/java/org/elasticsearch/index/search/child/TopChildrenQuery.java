@@ -1285,17 +1285,6 @@ operator|.
 name|this
 return|;
 block|}
-DECL|method|getValue
-specifier|public
-name|float
-name|getValue
-parameter_list|()
-block|{
-return|return
-name|getBoost
-argument_list|()
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|getValueForNormalization
