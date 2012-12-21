@@ -763,7 +763,7 @@ specifier|final
 name|int
 name|CONTENT_LENGTH_LIMIT
 init|=
-literal|18
+literal|20
 decl_stmt|;
 name|node
 operator|.
