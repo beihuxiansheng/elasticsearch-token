@@ -330,6 +330,7 @@ index|[]
 argument_list|>
 name|parentDocs
 decl_stmt|;
+comment|// Actual value can get lost during query rewriting in dfs phase, but this isn't an issue now.
 DECL|field|numHits
 specifier|private
 name|int
@@ -338,12 +339,19 @@ init|=
 literal|0
 decl_stmt|;
 comment|// Need to know if this query is properly used, otherwise the results are unexpected for example in the count api
+comment|// Need to use boolean array instead of boolean primitive... b/c during query rewriting in dfs phase
 DECL|field|properlyInvoked
 specifier|private
 name|boolean
+index|[]
 name|properlyInvoked
 init|=
+operator|new
+name|boolean
+index|[]
+block|{
 literal|false
+block|}
 decl_stmt|;
 comment|// Note, the query is expected to already be filtered to only child type docs
 DECL|method|TopChildrenQuery
@@ -448,6 +456,9 @@ name|clear
 parameter_list|()
 block|{
 name|properlyInvoked
+index|[
+literal|0
+index|]
 operator|=
 literal|true
 expr_stmt|;
@@ -1112,6 +1123,9 @@ if|if
 condition|(
 operator|!
 name|properlyInvoked
+index|[
+literal|0
+index|]
 condition|)
 block|{
 throw|throw
