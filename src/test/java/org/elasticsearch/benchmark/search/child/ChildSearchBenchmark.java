@@ -1832,8 +1832,11 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|constantScoreQuery
+name|filteredQuery
 argument_list|(
+name|matchAllQuery
+argument_list|()
+argument_list|,
 name|hasParentFilter
 argument_list|(
 literal|"parent"
@@ -1960,8 +1963,11 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|constantScoreQuery
+name|filteredQuery
 argument_list|(
+name|matchAllQuery
+argument_list|()
+argument_list|,
 name|hasParentFilter
 argument_list|(
 literal|"parent"
@@ -2129,8 +2135,11 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|constantScoreQuery
+name|filteredQuery
 argument_list|(
+name|matchAllQuery
+argument_list|()
+argument_list|,
 name|hasParentFilter
 argument_list|(
 literal|"parent"
@@ -2476,7 +2485,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"--> Running has_child query"
+literal|"--> Running has_child query with score type"
 argument_list|)
 expr_stmt|;
 comment|// run parent child score query
@@ -2768,7 +2777,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"--> Running has_parent query"
+literal|"--> Running has_parent query with score type"
 argument_list|)
 expr_stmt|;
 comment|// run parent child score query
