@@ -80,6 +80,11 @@ name|boost
 init|=
 literal|1.0f
 decl_stmt|;
+DECL|field|scoreType
+specifier|private
+name|String
+name|scoreType
+decl_stmt|;
 DECL|field|executionType
 specifier|private
 name|String
@@ -149,7 +154,27 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Expert: Sets the low level child to parent filtering implementation. Can be: 'bitset' or 'uid'      *      * This option is experimental and will be removed.      */
+comment|/**      * Defines how the scores from the matching child documents are mapped into the parent document.      */
+DECL|method|scoreType
+specifier|public
+name|HasChildQueryBuilder
+name|scoreType
+parameter_list|(
+name|String
+name|executionType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|scoreType
+operator|=
+name|executionType
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Expert: Sets the low level child to parent filtering implementation. Can be: 'bitset' or 'uid'      * Only applicable when score_type is set to none.      *<p/>      * This option is experimental and will be removed.      */
 DECL|method|executionType
 specifier|public
 name|HasChildQueryBuilder
@@ -255,7 +280,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|executionType
+name|scoreType
 operator|!=
 literal|null
 condition|)
@@ -264,9 +289,9 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"execution_type"
+literal|"score_type"
 argument_list|,
-name|executionType
+name|scoreType
 argument_list|)
 expr_stmt|;
 block|}

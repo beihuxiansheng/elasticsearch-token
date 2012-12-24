@@ -687,7 +687,7 @@ throw|throw
 operator|new
 name|ElasticSearchIllegalStateException
 argument_list|(
-literal|"has_parent filter/query hasn't executed properly"
+literal|"has_parent filter hasn't executed properly"
 argument_list|)
 throw|;
 block|}
@@ -1108,7 +1108,7 @@ throw|throw
 operator|new
 name|ElasticSearchIllegalStateException
 argument_list|(
-literal|"has_parent filter/query hasn't executed properly"
+literal|"has_parent filter hasn't executed properly"
 argument_list|)
 throw|;
 block|}
