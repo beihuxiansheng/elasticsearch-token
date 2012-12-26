@@ -788,6 +788,20 @@ name|NO_MATCH_QUERY
 return|;
 block|}
 block|}
+if|if
+condition|(
+name|filter
+operator|==
+name|Queries
+operator|.
+name|MATCH_ALL_FILTER
+condition|)
+block|{
+comment|// this is an instance of match all filter, just execute the query
+return|return
+name|query
+return|;
+block|}
 comment|// cache if required
 if|if
 condition|(
