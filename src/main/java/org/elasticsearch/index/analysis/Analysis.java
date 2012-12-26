@@ -1421,7 +1421,7 @@ block|{
 return|return
 name|resolveNamedStopWords
 argument_list|(
-name|stopWords
+name|pathLoadedStopWords
 argument_list|,
 name|version
 argument_list|,
