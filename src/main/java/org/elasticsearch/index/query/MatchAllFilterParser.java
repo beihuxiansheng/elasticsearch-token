@@ -180,6 +180,7 @@ decl_stmt|;
 while|while
 condition|(
 operator|(
+operator|(
 name|token
 operator|=
 name|parser
@@ -193,6 +194,15 @@ operator|.
 name|Token
 operator|.
 name|END_OBJECT
+operator|&&
+name|token
+operator|!=
+name|XContentParser
+operator|.
+name|Token
+operator|.
+name|END_ARRAY
+operator|)
 condition|)
 block|{         }
 return|return
