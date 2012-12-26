@@ -153,7 +153,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a failure to search on a specific shard.  *  *  */
+comment|/**  * Represents a failure to search on a specific shard.  */
 end_comment
 
 begin_class
@@ -259,7 +259,7 @@ operator|(
 operator|(
 name|ElasticSearchException
 operator|)
-name|t
+name|actual
 operator|)
 operator|.
 name|status
