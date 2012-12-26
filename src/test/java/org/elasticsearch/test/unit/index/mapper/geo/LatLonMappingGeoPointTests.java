@@ -42,16 +42,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|Numbers
@@ -83,6 +73,20 @@ operator|.
 name|mapper
 operator|.
 name|DocumentMapper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|MapperParsingException
 import|;
 end_import
 
@@ -645,7 +649,7 @@ assert|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticSearchIllegalArgumentException
+name|MapperParsingException
 name|e
 parameter_list|)
 block|{          }
@@ -702,7 +706,7 @@ assert|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticSearchIllegalArgumentException
+name|MapperParsingException
 name|e
 parameter_list|)
 block|{          }
@@ -760,7 +764,7 @@ assert|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticSearchIllegalArgumentException
+name|MapperParsingException
 name|e
 parameter_list|)
 block|{          }
@@ -817,7 +821,7 @@ assert|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticSearchIllegalArgumentException
+name|MapperParsingException
 name|e
 parameter_list|)
 block|{          }

@@ -38,7 +38,7 @@ specifier|public
 class|class
 name|StrictDynamicMappingException
 extends|extends
-name|MapperException
+name|MapperParsingException
 block|{
 DECL|method|StrictDynamicMappingException
 specifier|public

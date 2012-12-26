@@ -1740,7 +1740,7 @@ throw|throw
 operator|new
 name|MapperParsingException
 argument_list|(
-literal|"Failed to parse ["
+literal|"failed to parse ["
 operator|+
 name|names
 operator|.

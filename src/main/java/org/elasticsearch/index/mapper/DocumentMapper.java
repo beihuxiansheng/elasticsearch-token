@@ -2694,6 +2694,21 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
+comment|// if its already a mapper parsing exception, no need to wrap it...
+if|if
+condition|(
+name|e
+operator|instanceof
+name|MapperParsingException
+condition|)
+block|{
+throw|throw
+operator|(
+name|MapperParsingException
+operator|)
+name|e
+throw|;
+block|}
 throw|throw
 operator|new
 name|MapperParsingException
