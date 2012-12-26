@@ -412,14 +412,6 @@ return|return
 literal|null
 return|;
 block|}
-name|AtomicReader
-name|reader
-init|=
-name|context
-operator|.
-name|reader
-argument_list|()
-decl_stmt|;
 name|SloppySimScorer
 name|sloppySimScorer
 init|=

@@ -425,7 +425,7 @@ name|context
 argument_list|,
 name|scoreDocsInOrder
 argument_list|,
-name|topScorer
+literal|false
 argument_list|,
 name|acceptDocs
 argument_list|)
