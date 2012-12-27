@@ -920,7 +920,7 @@ argument_list|(
 name|currentFieldName
 argument_list|)
 operator|||
-literal|"type"
+literal|"types"
 operator|.
 name|equals
 argument_list|(
