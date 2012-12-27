@@ -1063,6 +1063,13 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|200
+argument_list|)
+expr_stmt|;
 name|nodesInfoResponse
 operator|=
 name|client2
