@@ -1225,10 +1225,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|fieldQuery
+DECL|method|termQuery
 specifier|public
 name|Query
-name|fieldQuery
+name|termQuery
 parameter_list|(
 name|String
 name|value
@@ -1249,7 +1249,7 @@ block|{
 return|return
 name|super
 operator|.
-name|fieldQuery
+name|termQuery
 argument_list|(
 name|value
 argument_list|,
@@ -1261,7 +1261,7 @@ return|return
 operator|new
 name|ConstantScoreQuery
 argument_list|(
-name|fieldFilter
+name|termFilter
 argument_list|(
 name|value
 argument_list|,
@@ -1272,10 +1272,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|fieldFilter
+DECL|method|termFilter
 specifier|public
 name|Filter
-name|fieldFilter
+name|termFilter
 parameter_list|(
 name|String
 name|value
@@ -1296,7 +1296,7 @@ block|{
 return|return
 name|super
 operator|.
-name|fieldFilter
+name|termFilter
 argument_list|(
 name|value
 argument_list|,
@@ -1375,10 +1375,10 @@ block|}
 comment|/**      * We don't need to analyzer the text, and we need to convert it to UID...      */
 annotation|@
 name|Override
-DECL|method|useFieldQueryWithQueryString
+DECL|method|useTermQueryWithQueryString
 specifier|public
 name|boolean
-name|useFieldQueryWithQueryString
+name|useTermQueryWithQueryString
 parameter_list|()
 block|{
 return|return

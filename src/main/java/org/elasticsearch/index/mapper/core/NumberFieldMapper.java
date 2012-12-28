@@ -1082,10 +1082,10 @@ function_decl|;
 comment|/**      * Use the field query created here when matching on numbers.      */
 annotation|@
 name|Override
-DECL|method|useFieldQueryWithQueryString
+DECL|method|useTermQueryWithQueryString
 specifier|public
 name|boolean
-name|useFieldQueryWithQueryString
+name|useTermQueryWithQueryString
 parameter_list|()
 block|{
 return|return
@@ -1095,10 +1095,10 @@ block|}
 comment|/**      * Numeric field level query are basically range queries with same value and included. That's the recommended      * way to execute it.      */
 annotation|@
 name|Override
-DECL|method|fieldQuery
+DECL|method|termQuery
 specifier|public
 name|Query
-name|fieldQuery
+name|termQuery
 parameter_list|(
 name|String
 name|value
@@ -1175,10 +1175,10 @@ function_decl|;
 comment|/**      * Numeric field level filter are basically range queries with same value and included. That's the recommended      * way to execute it.      */
 annotation|@
 name|Override
-DECL|method|fieldFilter
+DECL|method|termFilter
 specifier|public
 name|Filter
-name|fieldFilter
+name|termFilter
 parameter_list|(
 name|String
 name|value

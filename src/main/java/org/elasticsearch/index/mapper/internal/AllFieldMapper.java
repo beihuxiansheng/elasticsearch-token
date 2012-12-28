@@ -961,10 +961,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|fieldQuery
+DECL|method|termQuery
 specifier|public
 name|Query
-name|fieldQuery
+name|termQuery
 parameter_list|(
 name|String
 name|value

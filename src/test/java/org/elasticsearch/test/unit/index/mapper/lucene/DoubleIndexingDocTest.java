@@ -451,7 +451,7 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
-name|fieldQuery
+name|termQuery
 argument_list|(
 literal|"value1"
 argument_list|,
@@ -492,7 +492,7 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
-name|fieldQuery
+name|termQuery
 argument_list|(
 literal|"1"
 argument_list|,
@@ -533,7 +533,7 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
-name|fieldQuery
+name|termQuery
 argument_list|(
 literal|"1.1"
 argument_list|,
@@ -574,7 +574,7 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
-name|fieldQuery
+name|termQuery
 argument_list|(
 literal|"2010-01-01"
 argument_list|,
@@ -615,7 +615,7 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
-name|fieldQuery
+name|termQuery
 argument_list|(
 literal|"1"
 argument_list|,
@@ -656,7 +656,7 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
-name|fieldQuery
+name|termQuery
 argument_list|(
 literal|"2"
 argument_list|,
@@ -697,7 +697,7 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
-name|fieldQuery
+name|termQuery
 argument_list|(
 literal|"3"
 argument_list|,

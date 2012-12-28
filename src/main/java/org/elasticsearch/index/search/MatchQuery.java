@@ -772,7 +772,7 @@ literal|null
 operator|&&
 name|mapper
 operator|.
-name|useFieldQueryWithQueryString
+name|useTermQueryWithQueryString
 argument_list|()
 condition|)
 block|{
@@ -813,7 +813,7 @@ name|wrapSmartNameQuery
 argument_list|(
 name|mapper
 operator|.
-name|fieldQuery
+name|termQuery
 argument_list|(
 name|text
 argument_list|,
@@ -865,7 +865,7 @@ name|wrapSmartNameQuery
 argument_list|(
 name|mapper
 operator|.
-name|fieldQuery
+name|termQuery
 argument_list|(
 name|text
 argument_list|,

@@ -1421,7 +1421,7 @@ literal|null
 return|;
 block|}
 return|return
-name|fieldFilter
+name|termFilter
 argument_list|(
 name|nullValue
 argument_list|,

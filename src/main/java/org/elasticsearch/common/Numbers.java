@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A set of utlities around numbers.  *  *  */
+comment|/**  * A set of utilities for numbers.  */
 end_comment
 
 begin_class

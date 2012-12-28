@@ -892,10 +892,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|useFieldQueryWithQueryString
+DECL|method|useTermQueryWithQueryString
 specifier|public
 name|boolean
-name|useFieldQueryWithQueryString
+name|useTermQueryWithQueryString
 parameter_list|()
 block|{
 return|return

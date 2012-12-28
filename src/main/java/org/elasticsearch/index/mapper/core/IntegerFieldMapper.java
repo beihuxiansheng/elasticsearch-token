@@ -1206,10 +1206,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|fieldQuery
+DECL|method|termQuery
 specifier|public
 name|Query
-name|fieldQuery
+name|termQuery
 parameter_list|(
 name|String
 name|value
@@ -1323,10 +1323,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|fieldFilter
+DECL|method|termFilter
 specifier|public
 name|Filter
-name|fieldFilter
+name|termFilter
 parameter_list|(
 name|String
 name|value

@@ -848,7 +848,7 @@ name|cacheFilter
 argument_list|(
 name|fieldMapper
 operator|.
-name|fieldFilter
+name|termFilter
 argument_list|(
 name|term
 argument_list|,
@@ -975,7 +975,7 @@ name|add
 argument_list|(
 name|fieldMapper
 operator|.
-name|fieldFilter
+name|termFilter
 argument_list|(
 name|term
 argument_list|,
@@ -1100,7 +1100,7 @@ name|cacheFilter
 argument_list|(
 name|fieldMapper
 operator|.
-name|fieldFilter
+name|termFilter
 argument_list|(
 name|term
 argument_list|,
@@ -1223,7 +1223,7 @@ name|add
 argument_list|(
 name|fieldMapper
 operator|.
-name|fieldFilter
+name|termFilter
 argument_list|(
 name|term
 argument_list|,
@@ -1340,7 +1340,7 @@ name|cacheFilter
 argument_list|(
 name|fieldMapper
 operator|.
-name|fieldFilter
+name|termFilter
 argument_list|(
 name|term
 argument_list|,
@@ -1463,7 +1463,7 @@ name|add
 argument_list|(
 name|fieldMapper
 operator|.
-name|fieldFilter
+name|termFilter
 argument_list|(
 name|term
 argument_list|,

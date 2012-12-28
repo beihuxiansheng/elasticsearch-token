@@ -700,7 +700,7 @@ name|BooleanClause
 argument_list|(
 name|mapper
 operator|.
-name|fieldQuery
+name|termQuery
 argument_list|(
 name|value
 argument_list|,

@@ -679,7 +679,7 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
-name|fieldFilter
+name|termFilter
 argument_list|(
 name|value
 argument_list|,
@@ -707,7 +707,7 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
-name|fieldFilter
+name|termFilter
 argument_list|(
 name|value
 argument_list|,
