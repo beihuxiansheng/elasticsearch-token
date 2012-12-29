@@ -186,6 +186,16 @@ name|SimilarityProvider
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -549,6 +559,22 @@ name|termFilter
 parameter_list|(
 name|Object
 name|value
+parameter_list|,
+annotation|@
+name|Nullable
+name|QueryParseContext
+name|context
+parameter_list|)
+function_decl|;
+DECL|method|termsFilter
+name|Filter
+name|termsFilter
+parameter_list|(
+name|List
+argument_list|<
+name|Object
+argument_list|>
+name|values
 parameter_list|,
 annotation|@
 name|Nullable
