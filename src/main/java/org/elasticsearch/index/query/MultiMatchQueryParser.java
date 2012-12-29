@@ -265,8 +265,8 @@ operator|.
 name|parser
 argument_list|()
 decl_stmt|;
-name|String
-name|text
+name|Object
+name|value
 init|=
 literal|null
 decl_stmt|;
@@ -619,11 +619,11 @@ name|currentFieldName
 argument_list|)
 condition|)
 block|{
-name|text
+name|value
 operator|=
 name|parser
 operator|.
-name|text
+name|objectText
 argument_list|()
 expr_stmt|;
 block|}
@@ -1188,7 +1188,7 @@ block|}
 block|}
 if|if
 condition|(
-name|text
+name|value
 operator|==
 literal|null
 condition|)
@@ -1238,7 +1238,7 @@ name|type
 argument_list|,
 name|fieldNameWithBoosts
 argument_list|,
-name|text
+name|value
 argument_list|)
 decl_stmt|;
 if|if

@@ -702,8 +702,8 @@ parameter_list|,
 name|String
 name|fieldName
 parameter_list|,
-name|String
-name|text
+name|Object
+name|value
 parameter_list|)
 block|{
 name|FieldMapper
@@ -815,7 +815,7 @@ name|mapper
 operator|.
 name|termQuery
 argument_list|(
-name|text
+name|value
 argument_list|,
 name|parseContext
 argument_list|)
@@ -867,7 +867,7 @@ name|mapper
 operator|.
 name|termQuery
 argument_list|(
-name|text
+name|value
 argument_list|,
 name|parseContext
 argument_list|)
@@ -1046,7 +1046,10 @@ argument_list|,
 operator|new
 name|FastStringReader
 argument_list|(
-name|text
+name|value
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

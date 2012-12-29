@@ -178,8 +178,8 @@ name|Float
 argument_list|>
 name|fieldNames
 parameter_list|,
-name|String
-name|text
+name|Object
+name|value
 parameter_list|)
 block|{
 if|if
@@ -238,7 +238,7 @@ operator|.
 name|getKey
 argument_list|()
 argument_list|,
-name|text
+name|value
 argument_list|)
 return|;
 block|}
@@ -256,7 +256,7 @@ operator|.
 name|getKey
 argument_list|()
 argument_list|,
-name|text
+name|value
 argument_list|)
 decl_stmt|;
 name|query
@@ -310,7 +310,7 @@ name|type
 argument_list|,
 name|fieldName
 argument_list|,
-name|text
+name|value
 argument_list|)
 decl_stmt|;
 name|Float
@@ -395,7 +395,7 @@ name|type
 argument_list|,
 name|fieldName
 argument_list|,
-name|text
+name|value
 argument_list|)
 decl_stmt|;
 name|Float

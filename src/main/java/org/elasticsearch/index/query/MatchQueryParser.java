@@ -397,8 +397,8 @@ operator|.
 name|currentName
 argument_list|()
 decl_stmt|;
-name|String
-name|text
+name|Object
+name|value
 init|=
 literal|null
 decl_stmt|;
@@ -500,11 +500,11 @@ name|currentFieldName
 argument_list|)
 condition|)
 block|{
-name|text
+name|value
 operator|=
 name|parser
 operator|.
-name|text
+name|objectText
 argument_list|()
 expr_stmt|;
 block|}
@@ -1123,11 +1123,11 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|text
+name|value
 operator|=
 name|parser
 operator|.
-name|text
+name|objectText
 argument_list|()
 expr_stmt|;
 comment|// move to the next token
@@ -1165,7 +1165,7 @@ block|}
 block|}
 if|if
 condition|(
-name|text
+name|value
 operator|==
 literal|null
 condition|)
@@ -1194,7 +1194,7 @@ name|type
 argument_list|,
 name|fieldName
 argument_list|,
-name|text
+name|value
 argument_list|)
 decl_stmt|;
 if|if

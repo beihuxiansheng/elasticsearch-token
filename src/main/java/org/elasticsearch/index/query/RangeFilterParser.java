@@ -48,13 +48,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|elasticsearch
 operator|.
-name|lucene
+name|common
 operator|.
-name|util
+name|inject
 operator|.
-name|BytesRef
+name|Inject
 import|;
 end_import
 
@@ -66,9 +66,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|inject
+name|lucene
 operator|.
-name|Inject
+name|BytesRefs
 import|;
 end_import
 
@@ -232,12 +232,12 @@ name|fieldName
 init|=
 literal|null
 decl_stmt|;
-name|BytesRef
+name|Object
 name|from
 init|=
 literal|null
 decl_stmt|;
-name|BytesRef
+name|Object
 name|to
 init|=
 literal|null
@@ -373,7 +373,7 @@ name|from
 operator|=
 name|parser
 operator|.
-name|bytesOrNull
+name|objectBytes
 argument_list|()
 expr_stmt|;
 block|}
@@ -392,7 +392,7 @@ name|to
 operator|=
 name|parser
 operator|.
-name|bytesOrNull
+name|objectBytes
 argument_list|()
 expr_stmt|;
 block|}
@@ -463,7 +463,7 @@ name|from
 operator|=
 name|parser
 operator|.
-name|bytesOrNull
+name|objectBytes
 argument_list|()
 expr_stmt|;
 name|includeLower
@@ -493,7 +493,7 @@ name|from
 operator|=
 name|parser
 operator|.
-name|bytesOrNull
+name|objectBytes
 argument_list|()
 expr_stmt|;
 name|includeLower
@@ -516,7 +516,7 @@ name|to
 operator|=
 name|parser
 operator|.
-name|bytesOrNull
+name|objectBytes
 argument_list|()
 expr_stmt|;
 name|includeUpper
@@ -546,7 +546,7 @@ name|to
 operator|=
 name|parser
 operator|.
-name|bytesOrNull
+name|objectBytes
 argument_list|()
 expr_stmt|;
 name|includeUpper
@@ -727,7 +727,6 @@ name|hasMapper
 argument_list|()
 condition|)
 block|{
-comment|//LUCENE 4 UPGRADE range filter should use bytesref too?
 name|filter
 operator|=
 name|smartNameFieldMappers
@@ -738,26 +737,8 @@ operator|.
 name|rangeFilter
 argument_list|(
 name|from
-operator|!=
-literal|null
-condition|?
-name|from
-operator|.
-name|utf8ToString
-argument_list|()
-else|:
-literal|null
 argument_list|,
 name|to
-operator|!=
-literal|null
-condition|?
-name|to
-operator|.
-name|utf8ToString
-argument_list|()
-else|:
-literal|null
 argument_list|,
 name|includeLower
 argument_list|,
@@ -782,9 +763,19 @@ name|TermRangeFilter
 argument_list|(
 name|fieldName
 argument_list|,
+name|BytesRefs
+operator|.
+name|toBytesRef
+argument_list|(
 name|from
+argument_list|)
 argument_list|,
+name|BytesRefs
+operator|.
+name|toBytesRef
+argument_list|(
 name|to
+argument_list|)
 argument_list|,
 name|includeLower
 argument_list|,
