@@ -100,9 +100,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
+name|search
 operator|.
-name|Term
+name|*
 import|;
 end_import
 
@@ -114,9 +114,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|search
+name|util
 operator|.
-name|*
+name|BytesRef
 import|;
 end_import
 
@@ -392,12 +392,12 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
-name|Term
+name|BytesRef
 index|[]
 name|nodeTerms
 init|=
 operator|new
-name|Term
+name|BytesRef
 index|[
 name|nodes
 operator|.
@@ -428,10 +428,8 @@ index|[
 name|i
 index|]
 operator|=
-name|getFieldName
-argument_list|()
-operator|.
-name|createIndexNameTerm
+operator|new
+name|BytesRef
 argument_list|(
 name|nodes
 operator|.
@@ -449,6 +447,12 @@ return|return
 operator|new
 name|XTermsFilter
 argument_list|(
+name|getFieldName
+argument_list|()
+operator|.
+name|indexName
+argument_list|()
+argument_list|,
 name|nodeTerms
 argument_list|)
 return|;
