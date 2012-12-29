@@ -966,7 +966,7 @@ specifier|public
 name|Query
 name|termQuery
 parameter_list|(
-name|String
+name|Object
 name|value
 parameter_list|,
 name|QueryParseContext
@@ -981,7 +981,10 @@ argument_list|()
 operator|.
 name|createIndexNameTerm
 argument_list|(
+name|indexedValueForSearch
+argument_list|(
 name|value
+argument_list|)
 argument_list|)
 argument_list|)
 return|;

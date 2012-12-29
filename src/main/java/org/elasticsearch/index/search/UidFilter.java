@@ -82,6 +82,20 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|BytesRef
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|FixedBitSet
 import|;
 end_import
@@ -186,7 +200,7 @@ name|types
 parameter_list|,
 name|List
 argument_list|<
-name|String
+name|BytesRef
 argument_list|>
 name|ids
 parameter_list|)
@@ -224,7 +238,7 @@ control|)
 block|{
 for|for
 control|(
-name|String
+name|BytesRef
 name|id
 range|:
 name|ids
@@ -245,7 +259,7 @@ name|NAME
 argument_list|,
 name|Uid
 operator|.
-name|createUid
+name|createUidAsBytes
 argument_list|(
 name|type
 argument_list|,

@@ -521,7 +521,7 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
-name|indexedValue
+name|indexedValueForSearch
 argument_list|(
 name|value
 argument_list|)

@@ -515,27 +515,26 @@ name|Object
 name|value
 parameter_list|)
 function_decl|;
-comment|/**      * Returns the indexed value.      */
-DECL|method|indexedValue
+comment|/**      * Returns the indexed value used to construct search "values".      */
+DECL|method|indexedValueForSearch
 name|BytesRef
-name|indexedValue
+name|indexedValueForSearch
 parameter_list|(
-name|String
+name|Object
 name|value
 parameter_list|)
 function_decl|;
-comment|/**      * Should the field query {@link #termQuery(String, org.elasticsearch.index.query.QueryParseContext)}  be used when detecting this      * field in query string.      */
+comment|/**      * Should the field query {@link #termQuery(Object, org.elasticsearch.index.query.QueryParseContext)}  be used when detecting this      * field in query string.      */
 DECL|method|useTermQueryWithQueryString
 name|boolean
 name|useTermQueryWithQueryString
 parameter_list|()
 function_decl|;
-comment|/**      * A field query for the specified value.      */
 DECL|method|termQuery
 name|Query
 name|termQuery
 parameter_list|(
-name|String
+name|Object
 name|value
 parameter_list|,
 annotation|@
@@ -548,7 +547,7 @@ DECL|method|termFilter
 name|Filter
 name|termFilter
 parameter_list|(
-name|String
+name|Object
 name|value
 parameter_list|,
 annotation|@
@@ -561,10 +560,10 @@ DECL|method|rangeQuery
 name|Query
 name|rangeQuery
 parameter_list|(
-name|String
+name|Object
 name|lowerTerm
 parameter_list|,
-name|String
+name|Object
 name|upperTerm
 parameter_list|,
 name|boolean
@@ -583,10 +582,10 @@ DECL|method|rangeFilter
 name|Filter
 name|rangeFilter
 parameter_list|(
-name|String
+name|Object
 name|lowerTerm
 parameter_list|,
-name|String
+name|Object
 name|upperTerm
 parameter_list|,
 name|boolean

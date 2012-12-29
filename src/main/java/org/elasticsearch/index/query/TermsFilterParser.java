@@ -722,7 +722,7 @@ name|createIndexNameTerm
 argument_list|(
 name|fieldMapper
 operator|.
-name|indexedValue
+name|indexedValueForSearch
 argument_list|(
 name|terms
 operator|.
