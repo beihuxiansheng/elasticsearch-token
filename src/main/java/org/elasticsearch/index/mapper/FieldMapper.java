@@ -506,27 +506,10 @@ name|Object
 name|value
 parameter_list|)
 function_decl|;
-DECL|method|valueFromString
-name|T
-name|valueFromString
-parameter_list|(
-name|String
-name|value
-parameter_list|)
-function_decl|;
 comment|/**      * Returns the value that will be used as a result for search. Can be only of specific types... .      */
 DECL|method|valueForSearch
 name|Object
 name|valueForSearch
-parameter_list|(
-name|Object
-name|value
-parameter_list|)
-function_decl|;
-comment|/**      * Returns the actual value of the field as string.      */
-DECL|method|valueAsString
-name|String
-name|valueAsString
 parameter_list|(
 name|Object
 name|value

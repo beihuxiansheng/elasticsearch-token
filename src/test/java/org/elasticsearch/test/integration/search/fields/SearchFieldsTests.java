@@ -4388,7 +4388,9 @@ argument_list|(
 operator|(
 name|Object
 operator|)
-literal|"true"
+name|Boolean
+operator|.
+name|TRUE
 argument_list|)
 argument_list|)
 expr_stmt|;

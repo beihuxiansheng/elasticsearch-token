@@ -20,6 +20,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|BytesRef
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -63,16 +77,6 @@ operator|.
 name|io
 operator|.
 name|OutputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Comparator
 import|;
 end_import
 
@@ -428,6 +432,18 @@ comment|/**      * Converts to a string based on utf8.      */
 DECL|method|toUtf8
 name|String
 name|toUtf8
+parameter_list|()
+function_decl|;
+comment|/**      * Converts to Lucene BytesRef.      */
+DECL|method|toBytesRef
+name|BytesRef
+name|toBytesRef
+parameter_list|()
+function_decl|;
+comment|/**      * Converts to a copied Lucene BytesRef.      */
+DECL|method|copyBytesRef
+name|BytesRef
+name|copyBytesRef
 parameter_list|()
 function_decl|;
 block|}

@@ -880,7 +880,7 @@ name|Number
 operator|)
 name|mapper
 operator|.
-name|valueFromString
+name|value
 argument_list|(
 name|sFrom
 argument_list|)
@@ -898,7 +898,7 @@ name|Number
 operator|)
 name|mapper
 operator|.
-name|valueFromString
+name|value
 argument_list|(
 name|sTo
 argument_list|)

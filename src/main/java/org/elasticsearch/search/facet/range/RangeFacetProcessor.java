@@ -872,7 +872,7 @@ name|Number
 operator|)
 name|mapper
 operator|.
-name|valueFromString
+name|value
 argument_list|(
 name|entry
 operator|.
@@ -903,7 +903,7 @@ name|Number
 operator|)
 name|mapper
 operator|.
-name|valueFromString
+name|value
 argument_list|(
 name|entry
 operator|.
