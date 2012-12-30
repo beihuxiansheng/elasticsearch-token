@@ -694,7 +694,7 @@ name|Fields
 operator|.
 name|LARGEST
 argument_list|,
-name|rejected
+name|largest
 argument_list|)
 expr_stmt|;
 block|}
