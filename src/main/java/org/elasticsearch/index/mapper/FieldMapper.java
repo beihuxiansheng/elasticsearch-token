@@ -703,7 +703,7 @@ DECL|method|regexpQuery
 name|Query
 name|regexpQuery
 parameter_list|(
-name|String
+name|Object
 name|value
 parameter_list|,
 name|int
@@ -726,7 +726,7 @@ DECL|method|regexpFilter
 name|Filter
 name|regexpFilter
 parameter_list|(
-name|String
+name|Object
 name|value
 parameter_list|,
 name|int

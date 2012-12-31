@@ -2425,7 +2425,7 @@ specifier|public
 name|Query
 name|regexpQuery
 parameter_list|(
-name|String
+name|Object
 name|value
 parameter_list|,
 name|int
@@ -2490,7 +2490,7 @@ specifier|public
 name|Filter
 name|regexpFilter
 parameter_list|(
-name|String
+name|Object
 name|value
 parameter_list|,
 name|int
