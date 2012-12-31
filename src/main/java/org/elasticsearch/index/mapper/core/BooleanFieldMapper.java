@@ -1193,9 +1193,13 @@ name|createIndexNameTerm
 argument_list|(
 name|nullValue
 condition|?
-literal|"T"
+name|Values
+operator|.
+name|TRUE
 else|:
-literal|"F"
+name|Values
+operator|.
+name|FALSE
 argument_list|)
 argument_list|)
 return|;

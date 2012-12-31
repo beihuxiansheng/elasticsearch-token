@@ -2332,7 +2332,7 @@ specifier|public
 name|Query
 name|prefixQuery
 parameter_list|(
-name|String
+name|Object
 name|value
 parameter_list|,
 annotation|@
@@ -2392,7 +2392,7 @@ specifier|public
 name|Filter
 name|prefixFilter
 parameter_list|(
-name|String
+name|Object
 name|value
 parameter_list|,
 annotation|@

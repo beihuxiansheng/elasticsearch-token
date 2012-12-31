@@ -670,7 +670,7 @@ DECL|method|prefixQuery
 name|Query
 name|prefixQuery
 parameter_list|(
-name|String
+name|Object
 name|value
 parameter_list|,
 annotation|@
@@ -690,7 +690,7 @@ DECL|method|prefixFilter
 name|Filter
 name|prefixFilter
 parameter_list|(
-name|String
+name|Object
 name|value
 parameter_list|,
 annotation|@

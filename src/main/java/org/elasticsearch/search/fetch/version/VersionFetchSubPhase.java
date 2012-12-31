@@ -288,7 +288,7 @@ operator|.
 name|uid
 argument_list|()
 operator|.
-name|toString
+name|toBytesRef
 argument_list|()
 argument_list|)
 argument_list|)

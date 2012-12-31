@@ -1010,7 +1010,7 @@ name|NAME
 argument_list|,
 name|Uid
 operator|.
-name|createUid
+name|createUidAsBytes
 argument_list|(
 name|typeX
 argument_list|,
@@ -1144,7 +1144,7 @@ name|NAME
 argument_list|,
 name|Uid
 operator|.
-name|createUid
+name|createUidAsBytes
 argument_list|(
 name|type
 argument_list|,

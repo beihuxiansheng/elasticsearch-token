@@ -1492,7 +1492,7 @@ name|NAME
 argument_list|,
 name|uid
 operator|.
-name|toString
+name|toBytesRef
 argument_list|()
 argument_list|)
 argument_list|)

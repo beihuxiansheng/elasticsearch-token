@@ -623,7 +623,7 @@ name|NAME
 argument_list|,
 name|Uid
 operator|.
-name|createUid
+name|createUidAsBytes
 argument_list|(
 name|request
 operator|.
