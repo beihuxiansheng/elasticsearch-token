@@ -355,10 +355,7 @@ name|Term
 argument_list|(
 name|TypeFieldMapper
 operator|.
-name|TERM_FACTORY
-operator|.
-name|field
-argument_list|()
+name|NAME
 argument_list|,
 name|type
 argument_list|)
