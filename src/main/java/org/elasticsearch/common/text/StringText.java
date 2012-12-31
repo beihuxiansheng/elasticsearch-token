@@ -163,6 +163,11 @@ specifier|final
 name|String
 name|text
 decl_stmt|;
+DECL|field|hash
+specifier|private
+name|int
+name|hash
+decl_stmt|;
 DECL|method|StringText
 specifier|public
 name|StringText
@@ -259,12 +264,24 @@ name|hashCode
 parameter_list|()
 block|{
 comment|// we use bytes here so we can be consistent with other text implementations
-return|return
+if|if
+condition|(
+name|hash
+operator|==
+literal|0
+condition|)
+block|{
+name|hash
+operator|=
 name|bytes
 argument_list|()
 operator|.
 name|hashCode
 argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|hash
 return|;
 block|}
 annotation|@

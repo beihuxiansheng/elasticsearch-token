@@ -30,6 +30,16 @@ name|BytesReference
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Serializable
+import|;
+end_import
+
 begin_comment
 comment|/**  * Text represents a (usually) long text data. We use this abstraction instead of {@link String}  * so we can represent it in a more optimized manner in memory as well as serializing it over the  * network as well as converting it to json format.  */
 end_comment
@@ -44,6 +54,8 @@ name|Comparable
 argument_list|<
 name|Text
 argument_list|>
+extends|,
+name|Serializable
 block|{
 comment|/**      * Are bytes available without the need to be converted into bytes when calling {@link #bytes()}.      */
 DECL|method|hasBytes
