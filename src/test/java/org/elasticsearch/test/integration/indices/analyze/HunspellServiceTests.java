@@ -166,6 +166,18 @@ name|testng
 operator|.
 name|annotations
 operator|.
+name|AfterTest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|testng
+operator|.
+name|annotations
+operator|.
 name|Test
 import|;
 end_import
@@ -219,7 +231,7 @@ extends|extends
 name|AbstractNodesTests
 block|{
 annotation|@
-name|AfterClass
+name|AfterTest
 DECL|method|closeNodes
 specifier|public
 name|void
