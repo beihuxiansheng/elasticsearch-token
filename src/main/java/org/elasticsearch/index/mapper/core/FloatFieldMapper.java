@@ -2312,12 +2312,7 @@ operator|.
 name|stored
 argument_list|()
 condition|?
-name|Numbers
-operator|.
-name|floatToBytes
-argument_list|(
 name|number
-argument_list|)
 else|:
 literal|null
 argument_list|,

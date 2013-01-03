@@ -2350,12 +2350,7 @@ operator|.
 name|stored
 argument_list|()
 condition|?
-operator|new
-name|byte
-index|[]
-block|{
 name|number
-block|}
 else|:
 literal|null
 argument_list|,
