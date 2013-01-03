@@ -154,19 +154,7 @@ name|testng
 operator|.
 name|annotations
 operator|.
-name|AfterClass
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|testng
-operator|.
-name|annotations
-operator|.
-name|AfterTest
+name|AfterMethod
 import|;
 end_import
 
@@ -231,7 +219,7 @@ extends|extends
 name|AbstractNodesTests
 block|{
 annotation|@
-name|AfterTest
+name|AfterMethod
 DECL|method|closeNodes
 specifier|public
 name|void
