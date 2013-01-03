@@ -46,6 +46,18 @@ name|ESLoggerFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|logging
+operator|.
+name|LogManager
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -58,6 +70,21 @@ name|JdkESLoggerFactory
 extends|extends
 name|ESLoggerFactory
 block|{
+annotation|@
+name|Override
+DECL|method|rootLogger
+specifier|protected
+name|ESLogger
+name|rootLogger
+parameter_list|()
+block|{
+return|return
+name|getLogger
+argument_list|(
+literal|""
+argument_list|)
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|newInstance
