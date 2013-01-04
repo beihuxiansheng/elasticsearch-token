@@ -1322,6 +1322,18 @@ name|Object
 name|value
 parameter_list|)
 block|{
+if|if
+condition|(
+name|value
+operator|instanceof
+name|String
+condition|)
+block|{
+comment|// assume its the string that was indexed, just return it... (for example, with get)
+return|return
+name|value
+return|;
+block|}
 name|Long
 name|val
 init|=
