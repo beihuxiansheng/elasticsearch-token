@@ -3038,7 +3038,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 operator|(
-name|Integer
+name|Long
 operator|)
 name|getResponse
 operator|.
@@ -3052,7 +3052,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|42
+literal|42l
 argument_list|)
 argument_list|)
 expr_stmt|;

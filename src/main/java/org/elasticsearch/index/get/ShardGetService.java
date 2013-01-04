@@ -2383,6 +2383,27 @@ argument_list|(
 name|field
 argument_list|)
 expr_stmt|;
+comment|// normalize the data if needed (mainly for binary fields, to convert from base64 strings to bytes)
+if|if
+condition|(
+name|value
+operator|!=
+literal|null
+condition|)
+block|{
+name|value
+operator|=
+name|x
+operator|.
+name|mapper
+argument_list|()
+operator|.
+name|valueForSearch
+argument_list|(
+name|value
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 if|if
