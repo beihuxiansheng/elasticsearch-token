@@ -1732,10 +1732,8 @@ if|if
 condition|(
 name|getResponse
 operator|.
-name|source
+name|isSourceEmpty
 argument_list|()
-operator|==
-literal|null
 condition|)
 block|{
 return|return;
