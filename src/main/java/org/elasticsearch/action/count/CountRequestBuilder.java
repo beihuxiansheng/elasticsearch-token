@@ -181,27 +181,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * A query hint to optionally later be used when routing the request.      */
-DECL|method|setQueryHint
-specifier|public
-name|CountRequestBuilder
-name|setQueryHint
-parameter_list|(
-name|String
-name|queryHint
-parameter_list|)
-block|{
-name|request
-operator|.
-name|queryHint
-argument_list|(
-name|queryHint
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**      * A comma separated list of routing values to control the shards the search will be executed on.      */
 DECL|method|setRouting
 specifier|public

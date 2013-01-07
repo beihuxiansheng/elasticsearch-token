@@ -702,8 +702,6 @@ argument_list|()
 argument_list|,
 name|concreteIndices
 argument_list|,
-literal|null
-argument_list|,
 name|routingMap
 argument_list|,
 literal|"_local"

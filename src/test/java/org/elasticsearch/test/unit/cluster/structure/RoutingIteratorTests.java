@@ -3094,8 +3094,6 @@ block|}
 argument_list|,
 literal|null
 argument_list|,
-literal|null
-argument_list|,
 literal|"_shards:0"
 argument_list|)
 decl_stmt|;
@@ -3155,8 +3153,6 @@ index|[]
 block|{
 literal|"test"
 block|}
-argument_list|,
-literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -3220,8 +3216,6 @@ index|[]
 block|{
 literal|"test"
 block|}
-argument_list|,
-literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -3301,8 +3295,6 @@ index|[]
 block|{
 literal|"test"
 block|}
-argument_list|,
-literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -3393,8 +3385,6 @@ block|}
 argument_list|,
 literal|null
 argument_list|,
-literal|null
-argument_list|,
 literal|"_shards:0;_prefer_node:node1"
 argument_list|)
 expr_stmt|;
@@ -3476,8 +3466,6 @@ index|[]
 block|{
 literal|"test"
 block|}
-argument_list|,
-literal|null
 argument_list|,
 literal|null
 argument_list|,

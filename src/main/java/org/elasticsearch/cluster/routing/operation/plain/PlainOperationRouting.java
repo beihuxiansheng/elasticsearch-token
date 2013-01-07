@@ -843,11 +843,6 @@ name|concreteIndices
 parameter_list|,
 annotation|@
 name|Nullable
-name|String
-name|queryHint
-parameter_list|,
-annotation|@
-name|Nullable
 name|Map
 argument_list|<
 name|String
@@ -1084,11 +1079,6 @@ parameter_list|,
 name|String
 index|[]
 name|concreteIndices
-parameter_list|,
-annotation|@
-name|Nullable
-name|String
-name|queryHint
 parameter_list|,
 annotation|@
 name|Nullable
