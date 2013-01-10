@@ -2750,11 +2750,23 @@ name|listener
 parameter_list|)
 function_decl|;
 comment|/**      * Gets an index template.      *      * @param name The name of the template.      */
+annotation|@
+name|Deprecated
 DECL|method|prepareGetTemplates
 name|GetIndexTemplatesRequestBuilder
 name|prepareGetTemplates
 parameter_list|(
 name|String
+name|name
+parameter_list|)
+function_decl|;
+comment|/**      * Gets an index template (optional).      */
+DECL|method|prepareGetTemplates
+name|GetIndexTemplatesRequestBuilder
+name|prepareGetTemplates
+parameter_list|(
+name|String
+modifier|...
 name|name
 parameter_list|)
 function_decl|;
