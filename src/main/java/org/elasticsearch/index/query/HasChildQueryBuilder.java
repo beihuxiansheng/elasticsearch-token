@@ -161,14 +161,14 @@ name|HasChildQueryBuilder
 name|scoreType
 parameter_list|(
 name|String
-name|executionType
+name|scoreType
 parameter_list|)
 block|{
 name|this
 operator|.
 name|scoreType
 operator|=
-name|executionType
+name|scoreType
 expr_stmt|;
 return|return
 name|this

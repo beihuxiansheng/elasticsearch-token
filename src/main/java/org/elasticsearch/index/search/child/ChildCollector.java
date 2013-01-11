@@ -54,20 +54,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
-operator|.
-name|IndexReader
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|search
 operator|.
 name|Collector
@@ -405,7 +391,7 @@ name|scorer
 parameter_list|)
 throws|throws
 name|IOException
-block|{      }
+block|{     }
 annotation|@
 name|Override
 DECL|method|collect
@@ -419,6 +405,15 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|typeCache
+operator|==
+literal|null
+condition|)
+block|{
+return|return;
+block|}
 name|HashedBytesArray
 name|parentId
 init|=

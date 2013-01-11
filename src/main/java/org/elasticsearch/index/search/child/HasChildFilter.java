@@ -1102,6 +1102,14 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// It can happen that for particular segment no document exist for an specific type. This prevents NPE
+if|if
+condition|(
+name|typeCache
+operator|!=
+literal|null
+condition|)
+block|{
 name|collectedUids
 operator|.
 name|add
@@ -1114,6 +1122,7 @@ name|doc
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override

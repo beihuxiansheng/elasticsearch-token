@@ -850,6 +850,15 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|typeCache
+operator|==
+literal|null
+condition|)
+block|{
+return|return;
+block|}
 name|HashedBytesArray
 name|parentUid
 init|=
