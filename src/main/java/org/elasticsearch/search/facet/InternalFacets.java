@@ -639,7 +639,7 @@ name|type
 init|=
 name|in
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 decl_stmt|;
 name|Facet
@@ -712,7 +712,7 @@ name|facet
 decl_stmt|;
 name|out
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 name|internalFacet
 operator|.

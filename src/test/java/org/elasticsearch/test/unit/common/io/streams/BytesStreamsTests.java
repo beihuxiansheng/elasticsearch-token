@@ -225,14 +225,14 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 literal|"hello"
 argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 literal|"goodbye"
 argument_list|)
@@ -397,7 +397,7 @@ name|assertThat
 argument_list|(
 name|in
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -410,7 +410,7 @@ name|assertThat
 argument_list|(
 name|in
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 argument_list|,
 name|equalTo

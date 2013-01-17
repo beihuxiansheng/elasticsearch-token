@@ -1342,7 +1342,7 @@ name|put
 argument_list|(
 name|in
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 argument_list|,
 name|Stats
@@ -1435,7 +1435,7 @@ control|)
 block|{
 name|out
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 name|entry
 operator|.

@@ -2459,7 +2459,7 @@ name|index
 init|=
 name|in
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 decl_stmt|;
 return|return
@@ -2588,7 +2588,7 @@ name|IOException
 block|{
 name|out
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 name|indexShard
 operator|.

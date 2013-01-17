@@ -504,7 +504,7 @@ name|description
 operator|=
 name|in
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 expr_stmt|;
 name|levels
@@ -597,7 +597,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 name|description
 argument_list|)

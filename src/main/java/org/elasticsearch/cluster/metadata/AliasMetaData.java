@@ -1469,7 +1469,7 @@ name|IOException
 block|{
 name|out
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 name|aliasMetaData
 operator|.
@@ -1533,7 +1533,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 name|aliasMetaData
 operator|.
@@ -1571,7 +1571,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 name|aliasMetaData
 operator|.
@@ -1608,7 +1608,7 @@ name|alias
 init|=
 name|in
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 decl_stmt|;
 name|CompressedString
@@ -1651,7 +1651,7 @@ name|indexRouting
 operator|=
 name|in
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 expr_stmt|;
 block|}
@@ -1672,7 +1672,7 @@ name|searchRouting
 operator|=
 name|in
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 expr_stmt|;
 block|}

@@ -2754,7 +2754,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 name|nodes
 operator|.
@@ -2827,7 +2827,7 @@ name|masterNodeId
 argument_list|(
 name|in
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 argument_list|)
 expr_stmt|;

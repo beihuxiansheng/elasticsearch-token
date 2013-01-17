@@ -863,7 +863,7 @@ name|hostname
 operator|=
 name|in
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 expr_stmt|;
 block|}
@@ -928,12 +928,12 @@ name|put
 argument_list|(
 name|in
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 argument_list|,
 name|in
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1137,7 +1137,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 name|hostname
 argument_list|)
@@ -1207,7 +1207,7 @@ control|)
 block|{
 name|out
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 name|entry
 operator|.
@@ -1217,7 +1217,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 name|entry
 operator|.

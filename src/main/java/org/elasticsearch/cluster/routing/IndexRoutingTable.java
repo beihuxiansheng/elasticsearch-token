@@ -1274,7 +1274,7 @@ name|index
 init|=
 name|in
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 decl_stmt|;
 name|Builder
@@ -1351,7 +1351,7 @@ name|IOException
 block|{
 name|out
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 name|index
 operator|.

@@ -431,7 +431,7 @@ name|name
 operator|=
 name|in
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 expr_stmt|;
 name|entries
@@ -501,7 +501,7 @@ name|fromAsString
 operator|=
 name|in
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 expr_stmt|;
 block|}
@@ -519,7 +519,7 @@ name|toAsString
 operator|=
 name|in
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 expr_stmt|;
 block|}
@@ -592,7 +592,7 @@ name|IOException
 block|{
 name|out
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 name|name
 argument_list|)
@@ -660,7 +660,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 name|entry
 operator|.
@@ -696,7 +696,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 name|entry
 operator|.

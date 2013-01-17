@@ -170,7 +170,7 @@ name|id
 operator|=
 name|in
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 expr_stmt|;
 block|}
@@ -189,7 +189,7 @@ name|IOException
 block|{
 name|out
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 name|id
 argument_list|)

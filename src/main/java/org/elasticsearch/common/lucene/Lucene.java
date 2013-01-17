@@ -784,7 +784,7 @@ name|field
 operator|=
 name|in
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 expr_stmt|;
 block|}
@@ -908,7 +908,7 @@ index|]
 operator|=
 name|in
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 expr_stmt|;
 block|}
@@ -1334,7 +1334,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 name|sortField
 operator|.
@@ -1514,7 +1514,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 operator|(
 name|String
@@ -1977,7 +1977,7 @@ name|description
 init|=
 name|in
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 decl_stmt|;
 name|Explanation
@@ -2065,7 +2065,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 name|explanation
 operator|.

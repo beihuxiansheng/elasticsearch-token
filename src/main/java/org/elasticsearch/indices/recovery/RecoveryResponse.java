@@ -251,7 +251,7 @@ name|add
 argument_list|(
 name|in
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -335,7 +335,7 @@ name|add
 argument_list|(
 name|in
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -486,7 +486,7 @@ control|)
 block|{
 name|out
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 name|name
 argument_list|)
@@ -538,7 +538,7 @@ control|)
 block|{
 name|out
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 name|name
 argument_list|)

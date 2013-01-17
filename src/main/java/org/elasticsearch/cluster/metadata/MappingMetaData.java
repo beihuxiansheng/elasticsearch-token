@@ -3016,7 +3016,7 @@ name|IOException
 block|{
 name|out
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 name|mappingMd
 operator|.
@@ -3055,7 +3055,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 name|mappingMd
 operator|.
@@ -3111,7 +3111,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 name|mappingMd
 operator|.
@@ -3167,7 +3167,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 name|mappingMd
 operator|.
@@ -3191,7 +3191,7 @@ expr_stmt|;
 block|}
 name|out
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 name|mappingMd
 operator|.
@@ -3408,7 +3408,7 @@ name|type
 init|=
 name|in
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 decl_stmt|;
 name|CompressedString
@@ -3435,7 +3435,7 @@ argument_list|()
 condition|?
 name|in
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 else|:
 literal|null
@@ -3460,7 +3460,7 @@ argument_list|()
 condition|?
 name|in
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 else|:
 literal|null
@@ -3485,14 +3485,14 @@ argument_list|()
 condition|?
 name|in
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 else|:
 literal|null
 argument_list|,
 name|in
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 argument_list|)
 decl_stmt|;

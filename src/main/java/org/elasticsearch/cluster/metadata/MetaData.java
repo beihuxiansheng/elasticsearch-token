@@ -6376,7 +6376,7 @@ name|type
 init|=
 name|in
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 decl_stmt|;
 name|Custom
@@ -6558,7 +6558,7 @@ control|)
 block|{
 name|out
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 name|entry
 operator|.

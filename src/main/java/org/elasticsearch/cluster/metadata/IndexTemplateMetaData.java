@@ -2001,7 +2001,7 @@ name|Builder
 argument_list|(
 name|in
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -2021,7 +2021,7 @@ name|template
 argument_list|(
 name|in
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2066,7 +2066,7 @@ name|putMapping
 argument_list|(
 name|in
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 argument_list|,
 name|CompressedString
@@ -2106,7 +2106,7 @@ name|type
 init|=
 name|in
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 decl_stmt|;
 name|IndexMetaData
@@ -2160,7 +2160,7 @@ name|IOException
 block|{
 name|out
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 name|indexTemplateMetaData
 operator|.
@@ -2180,7 +2180,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 name|indexTemplateMetaData
 operator|.
@@ -2236,7 +2236,7 @@ control|)
 block|{
 name|out
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 name|entry
 operator|.
@@ -2293,7 +2293,7 @@ control|)
 block|{
 name|out
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 name|entry
 operator|.

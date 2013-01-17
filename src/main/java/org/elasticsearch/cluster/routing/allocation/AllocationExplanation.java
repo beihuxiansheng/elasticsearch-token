@@ -490,7 +490,7 @@ name|node
 argument_list|,
 name|in
 operator|.
-name|readUTF
+name|readString
 argument_list|()
 argument_list|)
 argument_list|)
@@ -625,7 +625,7 @@ expr_stmt|;
 block|}
 name|out
 operator|.
-name|writeUTF
+name|writeString
 argument_list|(
 name|nodeExplanation
 operator|.
