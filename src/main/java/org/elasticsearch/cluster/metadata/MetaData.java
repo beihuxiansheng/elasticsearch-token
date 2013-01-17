@@ -4327,10 +4327,10 @@ operator|.
 name|numberOfShards
 return|;
 block|}
-DECL|method|getnumberOfShards
+DECL|method|getNumberOfShards
 specifier|public
 name|int
-name|getnumberOfShards
+name|getNumberOfShards
 parameter_list|()
 block|{
 return|return
