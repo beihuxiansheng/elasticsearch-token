@@ -206,6 +206,20 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|mapper
+operator|.
+name|FieldMapper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|settings
 operator|.
 name|IndexSettings
@@ -541,8 +555,10 @@ parameter_list|>
 name|IFD
 name|getForField
 parameter_list|(
-name|String
-name|fieldName
+name|FieldMapper
+operator|.
+name|Names
+name|fieldNames
 parameter_list|,
 name|FieldDataType
 name|type
@@ -665,7 +681,10 @@ name|ElasticSearchIllegalArgumentException
 argument_list|(
 literal|"failed to find field data builder for field "
 operator|+
-name|fieldName
+name|fieldNames
+operator|.
+name|fullName
+argument_list|()
 operator|+
 literal|", and type "
 operator|+
@@ -753,7 +772,10 @@ name|cacheType
 operator|+
 literal|"] for field ["
 operator|+
-name|fieldName
+name|fieldNames
+operator|.
+name|fullName
+argument_list|()
 operator|+
 literal|"]"
 argument_list|)
@@ -781,7 +803,7 @@ name|index
 argument_list|,
 name|indexSettings
 argument_list|,
-name|fieldName
+name|fieldNames
 argument_list|,
 name|type
 argument_list|,
@@ -792,7 +814,10 @@ name|loadedFieldData
 operator|.
 name|put
 argument_list|(
-name|fieldName
+name|fieldNames
+operator|.
+name|indexName
+argument_list|()
 argument_list|,
 name|fieldData
 argument_list|)

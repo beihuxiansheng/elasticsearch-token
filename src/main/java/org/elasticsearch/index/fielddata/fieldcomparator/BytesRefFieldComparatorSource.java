@@ -169,7 +169,10 @@ name|equals
 argument_list|(
 name|indexFieldData
 operator|.
-name|getFieldName
+name|getFieldNames
+argument_list|()
+operator|.
+name|indexName
 argument_list|()
 argument_list|)
 assert|;

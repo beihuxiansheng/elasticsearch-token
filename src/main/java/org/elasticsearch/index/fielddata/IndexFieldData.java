@@ -116,6 +116,20 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|mapper
+operator|.
+name|FieldMapper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|settings
 operator|.
 name|IndexSettings
@@ -140,9 +154,11 @@ extends|extends
 name|IndexComponent
 block|{
 comment|/**      * The field name.      */
-DECL|method|getFieldName
-name|String
-name|getFieldName
+DECL|method|getFieldNames
+name|FieldMapper
+operator|.
+name|Names
+name|getFieldNames
 parameter_list|()
 function_decl|;
 comment|/**      * Are the values ordered? (in ascending manner).      */
@@ -225,8 +241,10 @@ name|IndexSettings
 name|Settings
 name|indexSettings
 parameter_list|,
-name|String
-name|fieldName
+name|FieldMapper
+operator|.
+name|Names
+name|fieldNames
 parameter_list|,
 name|FieldDataType
 name|type
