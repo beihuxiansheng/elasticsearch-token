@@ -949,6 +949,7 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
+specifier|final
 name|DocumentMapper
 name|docMapper
 init|=
@@ -970,6 +971,28 @@ name|type
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|docMapper
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|ElasticSearchException
+argument_list|(
+literal|"No DocumentMapper found for type ["
+operator|+
+name|request
+operator|.
+name|type
+argument_list|()
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
 specifier|final
 name|Set
 argument_list|<
