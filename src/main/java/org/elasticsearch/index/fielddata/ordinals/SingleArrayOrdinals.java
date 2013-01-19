@@ -391,7 +391,7 @@ index|[
 literal|0
 index|]
 operator|=
-name|docId
+name|ordinal
 expr_stmt|;
 return|return
 name|intsScratch
