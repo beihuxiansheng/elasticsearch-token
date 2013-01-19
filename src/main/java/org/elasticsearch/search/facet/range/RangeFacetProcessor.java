@@ -982,14 +982,6 @@ operator|.
 name|getForField
 argument_list|(
 name|keyFieldMapper
-operator|.
-name|names
-argument_list|()
-argument_list|,
-name|keyFieldMapper
-operator|.
-name|fieldDataType2
-argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -1064,14 +1056,6 @@ operator|.
 name|getForField
 argument_list|(
 name|valueFieldMapper
-operator|.
-name|names
-argument_list|()
-argument_list|,
-name|valueFieldMapper
-operator|.
-name|fieldDataType2
-argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// we have a value field, and its different than the key
