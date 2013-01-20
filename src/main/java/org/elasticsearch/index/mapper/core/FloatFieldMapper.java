@@ -923,13 +923,21 @@ name|FieldDataType
 name|fieldDataType2
 parameter_list|()
 block|{
-throw|throw
+return|return
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|fielddata
+operator|.
+name|FieldDataType
 argument_list|(
-literal|"not implemented"
+literal|"float"
 argument_list|)
-throw|;
+return|;
 block|}
 annotation|@
 name|Override
