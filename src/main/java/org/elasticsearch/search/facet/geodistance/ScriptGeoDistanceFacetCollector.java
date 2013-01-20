@@ -68,11 +68,23 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|mapper
+name|fielddata
 operator|.
-name|geo
+name|GeoPointValues
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|GeoPointFieldData
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|fielddata
+operator|.
+name|IndexGeoPointFieldData
 import|;
 end_import
 
@@ -168,8 +180,8 @@ parameter_list|(
 name|String
 name|facetName
 parameter_list|,
-name|String
-name|fieldName
+name|IndexGeoPointFieldData
+name|indexFieldData
 parameter_list|,
 name|double
 name|lat
@@ -211,7 +223,7 @@ name|super
 argument_list|(
 name|facetName
 argument_list|,
-name|fieldName
+name|indexFieldData
 argument_list|,
 name|lat
 argument_list|,
@@ -367,9 +379,9 @@ specifier|static
 class|class
 name|Aggregator
 implements|implements
-name|GeoPointFieldData
+name|GeoPointValues
 operator|.
-name|ValueInDocProc
+name|LatLonValueInDocProc
 block|{
 DECL|field|fixedSourceDistance
 specifier|private
@@ -421,6 +433,17 @@ operator|=
 name|entries
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|onMissing
+specifier|public
+name|void
+name|onMissing
+parameter_list|(
+name|int
+name|docId
+parameter_list|)
+block|{         }
 annotation|@
 name|Override
 DECL|method|onValue
