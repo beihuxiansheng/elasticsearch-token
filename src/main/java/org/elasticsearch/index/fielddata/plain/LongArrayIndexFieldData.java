@@ -343,7 +343,7 @@ block|{
 return|return
 name|NumericType
 operator|.
-name|DOUBLE
+name|LONG
 return|;
 block|}
 annotation|@
