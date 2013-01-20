@@ -162,7 +162,7 @@ name|fielddata
 operator|.
 name|fieldcomparator
 operator|.
-name|DoubleValuesComparatorSource
+name|ByteValuesComparatorSource
 import|;
 end_import
 
@@ -993,7 +993,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|DoubleValuesComparatorSource
+name|ByteValuesComparatorSource
 argument_list|(
 name|this
 argument_list|,
