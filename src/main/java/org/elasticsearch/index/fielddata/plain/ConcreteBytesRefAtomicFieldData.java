@@ -750,6 +750,22 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|makeSafe
+specifier|public
+name|BytesRef
+name|makeSafe
+parameter_list|(
+name|BytesRef
+name|bytes
+parameter_list|)
+block|{
+comment|// no need to do anything, its already concrete bytes...
+return|return
+name|bytes
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|getValue
 specifier|public
 name|BytesRef
@@ -1747,6 +1763,33 @@ name|docId
 argument_list|)
 operator|!=
 literal|0
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|makeSafe
+specifier|public
+name|HashedBytesRef
+name|makeSafe
+parameter_list|(
+name|HashedBytesRef
+name|bytes
+parameter_list|)
+block|{
+comment|// we just need to create a copy of the bytes ref, no need
+comment|// to create a copy of the actual BytesRef, as its concrete
+return|return
+operator|new
+name|HashedBytesRef
+argument_list|(
+name|bytes
+operator|.
+name|bytes
+argument_list|,
+name|bytes
+operator|.
+name|hash
+argument_list|)
 return|;
 block|}
 annotation|@

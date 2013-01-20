@@ -495,6 +495,12 @@ operator|.
 name|getHashedBytesValues
 argument_list|()
 expr_stmt|;
+name|aggregator
+operator|.
+name|keyValues
+operator|=
+name|keyValues
+expr_stmt|;
 if|if
 condition|(
 name|script
@@ -780,6 +786,10 @@ name|missing
 init|=
 literal|0
 decl_stmt|;
+DECL|field|keyValues
+name|HashedBytesValues
+name|keyValues
+decl_stmt|;
 DECL|field|valueValues
 name|DoubleValues
 name|valueValues
@@ -825,13 +835,14 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// we use "unsafe" hashedBytes, and only copy over if we "miss" on the map, and need to put it there
 name|value
 operator|=
-name|value
+name|keyValues
 operator|.
-name|deepCopy
-argument_list|()
+name|makeSafe
+argument_list|(
+name|value
+argument_list|)
 expr_stmt|;
 name|stringEntry
 operator|=
@@ -1052,13 +1063,14 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// we use "unsafe" hashedBytes, and only copy over if we "miss" on the map, and need to put it there
 name|value
 operator|=
-name|value
+name|keyValues
 operator|.
-name|deepCopy
-argument_list|()
+name|makeSafe
+argument_list|(
+name|value
+argument_list|)
 expr_stmt|;
 name|stringEntry
 operator|=

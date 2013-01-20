@@ -82,6 +82,12 @@ specifier|public
 interface|interface
 name|BytesValues
 block|{
+comment|/**      * Is one of the documents in this field data values is multi valued?      */
+DECL|method|isMultiValued
+name|boolean
+name|isMultiValued
+parameter_list|()
+function_decl|;
 comment|/**      * Is there a value for this doc?      */
 DECL|method|hasValue
 name|boolean
@@ -91,11 +97,14 @@ name|int
 name|docId
 parameter_list|)
 function_decl|;
-comment|/**      * Is one of the documents in this field data values is multi valued?      */
-DECL|method|isMultiValued
-name|boolean
-name|isMultiValued
-parameter_list|()
+comment|/**      * Converts the provided bytes to "safe" ones from a "non" safe call made (if needed).      */
+DECL|method|makeSafe
+name|BytesRef
+name|makeSafe
+parameter_list|(
+name|BytesRef
+name|bytes
+parameter_list|)
 function_decl|;
 comment|/**      * Returns a bytes value for a docId. Note, the content of it might be shared across invocation.      */
 DECL|method|getValue
@@ -440,6 +449,21 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|isMultiValued
+specifier|public
+name|boolean
+name|isMultiValued
+parameter_list|()
+block|{
+return|return
+name|values
+operator|.
+name|isMultiValued
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|hasValue
 specifier|public
 name|boolean
@@ -460,17 +484,23 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|isMultiValued
+DECL|method|makeSafe
 specifier|public
-name|boolean
-name|isMultiValued
-parameter_list|()
+name|BytesRef
+name|makeSafe
+parameter_list|(
+name|BytesRef
+name|bytes
+parameter_list|)
 block|{
+comment|// we need to make a copy, since we use scratch to provide it
 return|return
-name|values
+name|BytesRef
 operator|.
-name|isMultiValued
-argument_list|()
+name|deepCopyOf
+argument_list|(
+name|bytes
+argument_list|)
 return|;
 block|}
 annotation|@
