@@ -403,11 +403,11 @@ name|tuple
 argument_list|(
 literal|"string"
 argument_list|,
-literal|"packed_bytes"
+literal|"paged_bytes"
 argument_list|)
 argument_list|,
 operator|new
-name|PackedBytesIndexFieldData
+name|PagesBytesIndexFieldData
 operator|.
 name|Builder
 argument_list|()

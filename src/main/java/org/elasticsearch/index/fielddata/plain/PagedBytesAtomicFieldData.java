@@ -171,10 +171,10 @@ comment|/**  */
 end_comment
 
 begin_class
-DECL|class|PackedBytesAtomicFieldData
+DECL|class|PagedBytesAtomicFieldData
 specifier|public
 class|class
-name|PackedBytesAtomicFieldData
+name|PagedBytesAtomicFieldData
 implements|implements
 name|AtomicOrdinalFieldData
 argument_list|<
@@ -220,9 +220,9 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-DECL|method|PackedBytesAtomicFieldData
+DECL|method|PagedBytesAtomicFieldData
 specifier|public
-name|PackedBytesAtomicFieldData
+name|PagedBytesAtomicFieldData
 parameter_list|(
 name|PagedBytes
 operator|.

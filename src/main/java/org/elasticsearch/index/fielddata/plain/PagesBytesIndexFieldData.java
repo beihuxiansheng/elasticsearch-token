@@ -275,19 +275,19 @@ comment|/**  */
 end_comment
 
 begin_class
-DECL|class|PackedBytesIndexFieldData
+DECL|class|PagesBytesIndexFieldData
 specifier|public
 class|class
-name|PackedBytesIndexFieldData
+name|PagesBytesIndexFieldData
 extends|extends
 name|AbstractIndexFieldData
 argument_list|<
-name|PackedBytesAtomicFieldData
+name|PagedBytesAtomicFieldData
 argument_list|>
 implements|implements
 name|IndexOrdinalFieldData
 argument_list|<
-name|PackedBytesAtomicFieldData
+name|PagedBytesAtomicFieldData
 argument_list|>
 block|{
 DECL|class|Builder
@@ -329,7 +329,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|PackedBytesIndexFieldData
+name|PagesBytesIndexFieldData
 argument_list|(
 name|index
 argument_list|,
@@ -344,9 +344,9 @@ argument_list|)
 return|;
 block|}
 block|}
-DECL|method|PackedBytesIndexFieldData
+DECL|method|PagesBytesIndexFieldData
 specifier|public
-name|PackedBytesIndexFieldData
+name|PagesBytesIndexFieldData
 parameter_list|(
 name|Index
 name|index
@@ -398,7 +398,7 @@ annotation|@
 name|Override
 DECL|method|load
 specifier|public
-name|PackedBytesAtomicFieldData
+name|PagedBytesAtomicFieldData
 name|load
 parameter_list|(
 name|AtomicReaderContext
@@ -459,7 +459,7 @@ annotation|@
 name|Override
 DECL|method|loadDirect
 specifier|public
-name|PackedBytesAtomicFieldData
+name|PagedBytesAtomicFieldData
 name|loadDirect
 parameter_list|(
 name|AtomicReaderContext
@@ -534,7 +534,7 @@ argument_list|)
 decl_stmt|;
 return|return
 operator|new
-name|PackedBytesAtomicFieldData
+name|PagedBytesAtomicFieldData
 argument_list|(
 name|bytes
 operator|.
@@ -1032,7 +1032,7 @@ condition|)
 block|{
 return|return
 operator|new
-name|PackedBytesAtomicFieldData
+name|PagedBytesAtomicFieldData
 argument_list|(
 name|bytesReader
 argument_list|,
@@ -1102,7 +1102,7 @@ expr_stmt|;
 block|}
 return|return
 operator|new
-name|PackedBytesAtomicFieldData
+name|PagedBytesAtomicFieldData
 argument_list|(
 name|bytesReader
 argument_list|,

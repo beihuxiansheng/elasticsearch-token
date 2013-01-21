@@ -701,7 +701,7 @@ name|length
 operator|=
 name|value
 operator|.
-name|offset
+name|length
 expr_stmt|;
 block|}
 return|return

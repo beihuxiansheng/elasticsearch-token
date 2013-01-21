@@ -212,11 +212,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|field
+name|fielddata
 operator|.
-name|data
-operator|.
-name|FieldDataType
+name|IndexFieldData
 import|;
 end_import
 
@@ -1359,9 +1357,9 @@ name|out
 argument_list|,
 operator|(
 operator|(
-name|FieldDataType
+name|IndexFieldData
 operator|.
-name|ExtendedFieldComparatorSource
+name|XFieldComparatorSource
 operator|)
 name|sortField
 operator|.

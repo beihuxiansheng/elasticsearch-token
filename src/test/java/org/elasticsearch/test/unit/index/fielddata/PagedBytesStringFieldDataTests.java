@@ -67,10 +67,10 @@ end_comment
 begin_class
 annotation|@
 name|Test
-DECL|class|PackedBytesStringFieldDataTests
+DECL|class|PagedBytesStringFieldDataTests
 specifier|public
 class|class
-name|PackedBytesStringFieldDataTests
+name|PagedBytesStringFieldDataTests
 extends|extends
 name|StringFieldDataTests
 block|{
@@ -88,7 +88,7 @@ name|FieldDataType
 argument_list|(
 literal|"string"
 argument_list|,
-literal|"packed_bytes"
+literal|"paged_bytes"
 argument_list|,
 name|ImmutableMap
 operator|.
