@@ -407,7 +407,7 @@ literal|"paged_bytes"
 argument_list|)
 argument_list|,
 operator|new
-name|PagesBytesIndexFieldData
+name|PagedBytesIndexFieldData
 operator|.
 name|Builder
 argument_list|()

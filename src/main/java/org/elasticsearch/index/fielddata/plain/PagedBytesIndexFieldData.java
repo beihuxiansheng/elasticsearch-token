@@ -275,10 +275,10 @@ comment|/**  */
 end_comment
 
 begin_class
-DECL|class|PagesBytesIndexFieldData
+DECL|class|PagedBytesIndexFieldData
 specifier|public
 class|class
-name|PagesBytesIndexFieldData
+name|PagedBytesIndexFieldData
 extends|extends
 name|AbstractIndexFieldData
 argument_list|<
@@ -329,7 +329,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|PagesBytesIndexFieldData
+name|PagedBytesIndexFieldData
 argument_list|(
 name|index
 argument_list|,
@@ -344,9 +344,9 @@ argument_list|)
 return|;
 block|}
 block|}
-DECL|method|PagesBytesIndexFieldData
+DECL|method|PagedBytesIndexFieldData
 specifier|public
-name|PagesBytesIndexFieldData
+name|PagedBytesIndexFieldData
 parameter_list|(
 name|Index
 name|index
