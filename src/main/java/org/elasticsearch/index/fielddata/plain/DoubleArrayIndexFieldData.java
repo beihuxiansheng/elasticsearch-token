@@ -464,25 +464,9 @@ literal|null
 condition|)
 block|{
 return|return
-operator|new
 name|DoubleArrayAtomicFieldData
 operator|.
-name|SingleFixedSet
-argument_list|(
-operator|new
-name|double
-index|[
-literal|1
-index|]
-argument_list|,
-literal|0
-argument_list|,
-operator|new
-name|FixedBitSet
-argument_list|(
-literal|1
-argument_list|)
-argument_list|)
+name|EMPTY
 return|;
 block|}
 comment|// TODO: how can we guess the number of terms? numerics end up creating more terms per value...
