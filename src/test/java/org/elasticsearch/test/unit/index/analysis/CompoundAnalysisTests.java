@@ -788,6 +788,11 @@ argument_list|,
 name|analyzer
 argument_list|)
 decl_stmt|;
+name|stream
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
 name|CharTermAttribute
 name|termAtt
 init|=

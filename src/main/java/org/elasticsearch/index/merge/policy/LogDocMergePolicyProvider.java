@@ -1017,6 +1017,9 @@ specifier|public
 name|MergeSpecification
 name|findMerges
 parameter_list|(
+name|MergeTrigger
+name|trigger
+parameter_list|,
 name|SegmentInfos
 name|infos
 parameter_list|)
@@ -1044,6 +1047,8 @@ name|super
 operator|.
 name|findMerges
 argument_list|(
+name|trigger
+argument_list|,
 name|infos
 argument_list|)
 return|;

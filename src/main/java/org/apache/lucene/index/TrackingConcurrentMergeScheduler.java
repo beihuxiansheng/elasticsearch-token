@@ -398,13 +398,6 @@ expr_stmt|;
 block|}
 try|try
 block|{
-name|TrackingMergeScheduler
-operator|.
-name|setCurrentMerge
-argument_list|(
-name|merge
-argument_list|)
-expr_stmt|;
 name|super
 operator|.
 name|doMerge
@@ -415,11 +408,6 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-name|TrackingMergeScheduler
-operator|.
-name|removeCurrentMerge
-argument_list|()
-expr_stmt|;
 name|long
 name|took
 init|=

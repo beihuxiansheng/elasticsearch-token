@@ -58,7 +58,7 @@ name|codecs
 operator|.
 name|pulsing
 operator|.
-name|Pulsing40PostingsFormat
+name|Pulsing41PostingsFormat
 import|;
 end_import
 
@@ -143,7 +143,7 @@ decl_stmt|;
 DECL|field|postingsFormat
 specifier|private
 specifier|final
-name|Pulsing40PostingsFormat
+name|Pulsing41PostingsFormat
 name|postingsFormat
 decl_stmt|;
 annotation|@
@@ -216,7 +216,7 @@ operator|.
 name|postingsFormat
 operator|=
 operator|new
-name|Pulsing40PostingsFormat
+name|Pulsing41PostingsFormat
 argument_list|(
 name|freqCutOff
 argument_list|,

@@ -3157,6 +3157,11 @@ name|termStr
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|source
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -3984,6 +3989,11 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|source
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
 name|CharTermAttribute
 name|termAtt
 init|=
@@ -4135,6 +4145,11 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|source
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
 name|CharTermAttribute
 name|termAtt
 init|=

@@ -1581,6 +1581,11 @@ name|text
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|tokenStream
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
 name|TextFragment
 index|[]
 name|bestTextFragments

@@ -976,7 +976,7 @@ return|;
 block|}
 DECL|method|freq
 specifier|public
-name|float
+name|int
 name|freq
 parameter_list|()
 throws|throws

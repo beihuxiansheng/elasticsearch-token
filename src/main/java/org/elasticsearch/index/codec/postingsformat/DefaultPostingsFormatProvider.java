@@ -56,9 +56,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene40
+name|lucene41
 operator|.
-name|Lucene40PostingsFormat
+name|Lucene41PostingsFormat
 import|;
 end_import
 
@@ -137,7 +137,7 @@ decl_stmt|;
 DECL|field|postingsFormat
 specifier|private
 specifier|final
-name|Lucene40PostingsFormat
+name|Lucene41PostingsFormat
 name|postingsFormat
 decl_stmt|;
 annotation|@
@@ -197,7 +197,7 @@ operator|.
 name|postingsFormat
 operator|=
 operator|new
-name|Lucene40PostingsFormat
+name|Lucene41PostingsFormat
 argument_list|(
 name|minBlockSize
 argument_list|,

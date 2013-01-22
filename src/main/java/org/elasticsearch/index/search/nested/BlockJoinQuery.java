@@ -875,7 +875,7 @@ name|parentScore
 decl_stmt|;
 DECL|field|parentFreq
 specifier|private
-name|float
+name|int
 name|parentFreq
 decl_stmt|;
 DECL|field|nextChildDoc
@@ -1217,12 +1217,12 @@ condition|)
 do|;
 continue|continue;
 block|}
-name|float
+name|int
 name|totalScore
 init|=
 literal|0
 decl_stmt|;
-name|float
+name|int
 name|totalFreq
 init|=
 literal|0
@@ -1234,7 +1234,7 @@ name|Float
 operator|.
 name|NEGATIVE_INFINITY
 decl_stmt|;
-name|float
+name|int
 name|maxFreq
 init|=
 literal|0
@@ -1317,7 +1317,7 @@ name|score
 argument_list|()
 decl_stmt|;
 specifier|final
-name|float
+name|int
 name|childFreq
 init|=
 name|childScorer
@@ -1481,7 +1481,7 @@ annotation|@
 name|Override
 DECL|method|freq
 specifier|public
-name|float
+name|int
 name|freq
 parameter_list|()
 throws|throws

@@ -40,6 +40,20 @@ name|lucene
 operator|.
 name|search
 operator|.
+name|FilteredQuery
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
 name|Query
 import|;
 end_import
@@ -264,7 +278,7 @@ operator|.
 name|Token
 name|token
 decl_stmt|;
-name|XFilteredQuery
+name|FilteredQuery
 operator|.
 name|FilterStrategy
 name|filterStrategy
@@ -433,7 +447,7 @@ condition|)
 block|{
 name|filterStrategy
 operator|=
-name|XFilteredQuery
+name|FilteredQuery
 operator|.
 name|QUERY_FIRST_FILTER_STRATEGY
 expr_stmt|;
@@ -483,7 +497,7 @@ condition|)
 block|{
 name|filterStrategy
 operator|=
-name|XFilteredQuery
+name|FilteredQuery
 operator|.
 name|LEAP_FROG_QUERY_FIRST_STRATEGY
 expr_stmt|;
@@ -588,7 +602,7 @@ condition|)
 block|{
 name|filterStrategy
 operator|=
-name|XFilteredQuery
+name|FilteredQuery
 operator|.
 name|LEAP_FROG_QUERY_FIRST_STRATEGY
 expr_stmt|;
@@ -613,7 +627,7 @@ condition|)
 block|{
 name|filterStrategy
 operator|=
-name|XFilteredQuery
+name|FilteredQuery
 operator|.
 name|LEAP_FROG_FILTER_FIRST_STRATEGY
 expr_stmt|;

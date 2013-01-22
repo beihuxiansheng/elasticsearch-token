@@ -1847,7 +1847,7 @@ argument_list|)
 expr_stmt|;
 name|indexWriter
 operator|.
-name|commit
+name|setCommitData
 argument_list|(
 name|MapBuilder
 operator|.
@@ -1879,6 +1879,11 @@ operator|.
 name|map
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|indexWriter
+operator|.
+name|commit
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -1896,7 +1901,7 @@ argument_list|)
 expr_stmt|;
 name|indexWriter
 operator|.
-name|commit
+name|setCommitData
 argument_list|(
 name|MapBuilder
 operator|.
@@ -1928,6 +1933,11 @@ operator|.
 name|map
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|indexWriter
+operator|.
+name|commit
+argument_list|()
 expr_stmt|;
 block|}
 name|translog
@@ -5404,7 +5414,7 @@ argument_list|()
 decl_stmt|;
 name|indexWriter
 operator|.
-name|commit
+name|setCommitData
 argument_list|(
 name|MapBuilder
 operator|.
@@ -5433,6 +5443,11 @@ operator|.
 name|map
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|indexWriter
+operator|.
+name|commit
+argument_list|()
 expr_stmt|;
 name|translog
 operator|.
@@ -5654,7 +5669,7 @@ argument_list|)
 expr_stmt|;
 name|indexWriter
 operator|.
-name|commit
+name|setCommitData
 argument_list|(
 name|MapBuilder
 operator|.
@@ -5683,6 +5698,11 @@ operator|.
 name|map
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|indexWriter
+operator|.
+name|commit
+argument_list|()
 expr_stmt|;
 if|if
 condition|(
@@ -5939,7 +5959,7 @@ argument_list|()
 decl_stmt|;
 name|indexWriter
 operator|.
-name|commit
+name|setCommitData
 argument_list|(
 name|MapBuilder
 operator|.
@@ -5968,6 +5988,11 @@ operator|.
 name|map
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|indexWriter
+operator|.
+name|commit
+argument_list|()
 expr_stmt|;
 block|}
 catch|catch

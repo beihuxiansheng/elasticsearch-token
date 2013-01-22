@@ -2143,7 +2143,6 @@ literal|2
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//    assertThat(search.hits().hits()[0].highlightFields().get("titleTV").fragments()[0], equalTo("This is a test on the highlighting<em>bug</em> present in elasticsearch"));
 name|assertThat
 argument_list|(
 name|search
@@ -2176,11 +2175,11 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"highlighting<em>bug</em> present in elasticsearch"
+literal|"This is a test on the highlighting<em>bug</em> present in elasticsearch"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// FastVectorHighlighter starts highlighting from startOffset - margin
+comment|//        assertThat(search.hits().hits()[0].highlightFields().get("titleTV").fragments()[0].string(), equalTo("highlighting<em>bug</em> present in elasticsearch")); // FastVectorHighlighter starts highlighting from startOffset - margin
 name|assertThat
 argument_list|(
 name|search
@@ -2348,7 +2347,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"text to<em>highlight</em>"
+literal|"some text to<em>highlight</em>"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5916,7 +5915,7 @@ name|addHighlightedField
 argument_list|(
 literal|"title"
 argument_list|,
-literal|50
+literal|30
 argument_list|,
 literal|1
 argument_list|,
@@ -6548,7 +6547,7 @@ name|addHighlightedField
 argument_list|(
 literal|"title"
 argument_list|,
-literal|50
+literal|30
 argument_list|,
 literal|1
 argument_list|,

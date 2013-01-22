@@ -34,13 +34,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
+name|apache
 operator|.
-name|cluster
+name|lucene
 operator|.
-name|metadata
+name|store
 operator|.
-name|MetaData
+name|RateLimiter
 import|;
 end_import
 
@@ -50,9 +50,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|cluster
 operator|.
-name|RateLimiter
+name|metadata
+operator|.
+name|MetaData
 import|;
 end_import
 
@@ -283,6 +285,8 @@ DECL|field|rateLimiter
 specifier|private
 specifier|volatile
 name|RateLimiter
+operator|.
+name|SimpleRateLimiter
 name|rateLimiter
 decl_stmt|;
 annotation|@
@@ -478,6 +482,8 @@ name|rateLimiter
 operator|=
 operator|new
 name|RateLimiter
+operator|.
+name|SimpleRateLimiter
 argument_list|(
 name|maxSizePerSec
 operator|.
@@ -724,7 +730,7 @@ condition|)
 block|{
 name|rateLimiter
 operator|.
-name|setMaxRate
+name|setMbPerSec
 argument_list|(
 name|maxSizePerSec
 operator|.
@@ -739,6 +745,8 @@ name|rateLimiter
 operator|=
 operator|new
 name|RateLimiter
+operator|.
+name|SimpleRateLimiter
 argument_list|(
 name|maxSizePerSec
 operator|.

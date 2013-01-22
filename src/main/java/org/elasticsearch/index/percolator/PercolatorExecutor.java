@@ -70,7 +70,7 @@ name|index
 operator|.
 name|memory
 operator|.
-name|CustomMemoryIndex
+name|MemoryIndex
 import|;
 end_import
 
@@ -1801,13 +1801,15 @@ name|ElasticSearchException
 block|{
 comment|// first, parse the source doc into a MemoryIndex
 specifier|final
-name|CustomMemoryIndex
+name|MemoryIndex
 name|memoryIndex
 init|=
 operator|new
-name|CustomMemoryIndex
+name|MemoryIndex
 argument_list|()
 decl_stmt|;
+comment|// TODO MemoryIndex now supports a reset call that reuses the internal memory
+comment|// maybe we can utilize this here.
 comment|// TODO: This means percolation does not support nested docs...
 for|for
 control|(
@@ -1885,6 +1887,11 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|tokenStream
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
 name|memoryIndex
 operator|.
 name|addField
