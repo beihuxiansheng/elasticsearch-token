@@ -403,9 +403,9 @@ return|return
 operator|new
 name|ScriptDocValues
 operator|.
-name|NumericDouble
+name|NumericLong
 argument_list|(
-name|getDoubleValues
+name|getLongValues
 argument_list|()
 argument_list|)
 return|;
@@ -2198,9 +2198,9 @@ return|return
 operator|new
 name|ScriptDocValues
 operator|.
-name|NumericDouble
+name|NumericLong
 argument_list|(
-name|getDoubleValues
+name|getLongValues
 argument_list|()
 argument_list|)
 return|;
@@ -3404,9 +3404,9 @@ return|return
 operator|new
 name|ScriptDocValues
 operator|.
-name|NumericDouble
+name|NumericLong
 argument_list|(
-name|getDoubleValues
+name|getLongValues
 argument_list|()
 argument_list|)
 return|;

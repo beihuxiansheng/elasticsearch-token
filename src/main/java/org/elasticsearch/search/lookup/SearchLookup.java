@@ -78,13 +78,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|cache
+name|fielddata
 operator|.
-name|field
-operator|.
-name|data
-operator|.
-name|FieldDataCache
+name|IndexFieldDataService
 import|;
 end_import
 
@@ -144,8 +140,8 @@ parameter_list|(
 name|MapperService
 name|mapperService
 parameter_list|,
-name|FieldDataCache
-name|fieldDataCache
+name|IndexFieldDataService
+name|fieldDataService
 parameter_list|,
 annotation|@
 name|Nullable
@@ -161,7 +157,7 @@ name|DocLookup
 argument_list|(
 name|mapperService
 argument_list|,
-name|fieldDataCache
+name|fieldDataService
 argument_list|,
 name|types
 argument_list|)

@@ -148,9 +148,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|cache
+name|engine
 operator|.
-name|IndexCache
+name|Engine
 import|;
 end_import
 
@@ -162,9 +162,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|engine
+name|fielddata
 operator|.
-name|Engine
+name|IndexFieldDataService
 import|;
 end_import
 
@@ -466,11 +466,11 @@ specifier|final
 name|MapperService
 name|mapperService
 decl_stmt|;
-DECL|field|indexCache
+DECL|field|fieldDataService
 specifier|private
 specifier|final
-name|IndexCache
-name|indexCache
+name|IndexFieldDataService
+name|fieldDataService
 decl_stmt|;
 DECL|field|indexShard
 specifier|private
@@ -527,8 +527,8 @@ parameter_list|,
 name|MapperService
 name|mapperService
 parameter_list|,
-name|IndexCache
-name|indexCache
+name|IndexFieldDataService
+name|fieldDataService
 parameter_list|)
 block|{
 name|super
@@ -552,9 +552,9 @@ name|mapperService
 expr_stmt|;
 name|this
 operator|.
-name|indexCache
+name|fieldDataService
 operator|=
-name|indexCache
+name|fieldDataService
 expr_stmt|;
 block|}
 DECL|method|stats
@@ -1597,10 +1597,7 @@ name|SearchLookup
 argument_list|(
 name|mapperService
 argument_list|,
-name|indexCache
-operator|.
-name|fieldData
-argument_list|()
+name|fieldDataService
 argument_list|,
 operator|new
 name|String
@@ -1712,10 +1709,7 @@ name|SearchLookup
 argument_list|(
 name|mapperService
 argument_list|,
-name|indexCache
-operator|.
-name|fieldData
-argument_list|()
+name|fieldDataService
 argument_list|,
 operator|new
 name|String
@@ -2226,10 +2220,7 @@ name|SearchLookup
 argument_list|(
 name|mapperService
 argument_list|,
-name|indexCache
-operator|.
-name|fieldData
-argument_list|()
+name|fieldDataService
 argument_list|,
 operator|new
 name|String
@@ -2361,10 +2352,7 @@ name|SearchLookup
 argument_list|(
 name|mapperService
 argument_list|,
-name|indexCache
-operator|.
-name|fieldData
-argument_list|()
+name|fieldDataService
 argument_list|,
 operator|new
 name|String

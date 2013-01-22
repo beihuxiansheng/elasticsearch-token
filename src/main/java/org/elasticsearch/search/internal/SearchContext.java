@@ -2432,7 +2432,7 @@ argument_list|(
 name|mapperService
 argument_list|()
 argument_list|,
-name|fieldDataCache
+name|fieldData
 argument_list|()
 argument_list|,
 name|request
