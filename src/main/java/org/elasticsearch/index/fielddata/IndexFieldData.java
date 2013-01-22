@@ -38,6 +38,20 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|index
+operator|.
+name|IndexReader
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|search
 operator|.
 name|FieldComparatorSource
@@ -203,6 +217,14 @@ DECL|method|clear
 name|void
 name|clear
 parameter_list|()
+function_decl|;
+DECL|method|clear
+name|void
+name|clear
+parameter_list|(
+name|IndexReader
+name|reader
+parameter_list|)
 function_decl|;
 comment|// we need this extended source we we have custom comparators to reuse our field data
 comment|// in this case, we need to reduce type that will be used when search results are reduced
