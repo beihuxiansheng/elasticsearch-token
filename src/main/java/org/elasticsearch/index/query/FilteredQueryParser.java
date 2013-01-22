@@ -416,7 +416,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-literal|"query_filter"
+literal|"query_first"
 operator|.
 name|equals
 argument_list|(
