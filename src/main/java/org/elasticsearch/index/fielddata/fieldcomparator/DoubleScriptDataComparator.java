@@ -4,7 +4,7 @@ comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more cont
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.field.function.sort
+DECL|package|org.elasticsearch.index.fielddata.fieldcomparator
 package|package
 name|org
 operator|.
@@ -12,11 +12,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|field
+name|fielddata
 operator|.
-name|function
-operator|.
-name|sort
+name|fieldcomparator
 package|;
 end_package
 
@@ -84,11 +82,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|field
+name|fielddata
 operator|.
-name|data
-operator|.
-name|FieldDataType
+name|IndexFieldData
 import|;
 end_import
 
@@ -123,10 +119,10 @@ comment|// LUCENE MONITOR: Monitor against FieldComparator.Double
 end_comment
 
 begin_class
-DECL|class|DoubleFieldsFunctionDataComparator
+DECL|class|DoubleScriptDataComparator
 specifier|public
 class|class
-name|DoubleFieldsFunctionDataComparator
+name|DoubleScriptDataComparator
 extends|extends
 name|FieldComparator
 argument_list|<
@@ -136,9 +132,9 @@ block|{
 DECL|method|comparatorSource
 specifier|public
 specifier|static
-name|FieldDataType
+name|IndexFieldData
 operator|.
-name|ExtendedFieldComparatorSource
+name|XFieldComparatorSource
 name|comparatorSource
 parameter_list|(
 name|SearchScript
@@ -159,9 +155,9 @@ specifier|static
 class|class
 name|InnerSource
 extends|extends
-name|FieldDataType
+name|IndexFieldData
 operator|.
-name|ExtendedFieldComparatorSource
+name|XFieldComparatorSource
 block|{
 DECL|field|script
 specifier|private
@@ -208,7 +204,7 @@ name|IOException
 block|{
 return|return
 operator|new
-name|DoubleFieldsFunctionDataComparator
+name|DoubleScriptDataComparator
 argument_list|(
 name|numHits
 argument_list|,
@@ -253,9 +249,9 @@ specifier|private
 name|double
 name|bottom
 decl_stmt|;
-DECL|method|DoubleFieldsFunctionDataComparator
+DECL|method|DoubleScriptDataComparator
 specifier|public
-name|DoubleFieldsFunctionDataComparator
+name|DoubleScriptDataComparator
 parameter_list|(
 name|int
 name|numHits

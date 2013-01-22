@@ -66,13 +66,11 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|field
+name|fielddata
 operator|.
-name|function
+name|fieldcomparator
 operator|.
-name|sort
-operator|.
-name|DoubleFieldsFunctionDataComparator
+name|DoubleScriptDataComparator
 import|;
 end_import
 
@@ -84,13 +82,11 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|field
+name|fielddata
 operator|.
-name|function
+name|fieldcomparator
 operator|.
-name|sort
-operator|.
-name|StringFieldsFunctionDataComparator
+name|StringScriptDataComparator
 import|;
 end_import
 
@@ -480,7 +476,7 @@ condition|)
 block|{
 name|fieldComparatorSource
 operator|=
-name|StringFieldsFunctionDataComparator
+name|StringScriptDataComparator
 operator|.
 name|comparatorSource
 argument_list|(
@@ -501,7 +497,7 @@ condition|)
 block|{
 name|fieldComparatorSource
 operator|=
-name|DoubleFieldsFunctionDataComparator
+name|DoubleScriptDataComparator
 operator|.
 name|comparatorSource
 argument_list|(

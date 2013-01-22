@@ -756,7 +756,7 @@ argument_list|()
 argument_list|,
 name|mapper
 operator|.
-name|fieldDataType2
+name|fieldDataType
 argument_list|()
 argument_list|)
 return|;

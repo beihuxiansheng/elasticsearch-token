@@ -918,7 +918,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|fieldDataType2
+DECL|method|fieldDataType
 specifier|public
 name|org
 operator|.
@@ -929,7 +929,7 @@ operator|.
 name|fielddata
 operator|.
 name|FieldDataType
-name|fieldDataType2
+name|fieldDataType
 parameter_list|()
 block|{
 throw|throw
