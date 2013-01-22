@@ -676,6 +676,19 @@ expr_stmt|;
 block|}
 block|}
 block|}
+DECL|method|stats
+specifier|public
+name|FieldDataStats
+name|stats
+parameter_list|()
+block|{
+comment|// TODO: compute the memory size here...
+return|return
+operator|new
+name|FieldDataStats
+argument_list|()
+return|;
+block|}
 DECL|method|getForField
 specifier|public
 parameter_list|<
