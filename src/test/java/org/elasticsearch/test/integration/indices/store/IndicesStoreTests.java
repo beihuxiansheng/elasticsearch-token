@@ -674,7 +674,10 @@ argument_list|)
 expr_stmt|;
 name|clusterHealth
 operator|=
-name|client1
+name|client
+argument_list|(
+literal|"server2"
+argument_list|)
 operator|.
 name|admin
 argument_list|()
