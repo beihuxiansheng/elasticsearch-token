@@ -753,6 +753,8 @@ operator|new
 name|FieldDataType
 argument_list|(
 literal|"string"
+argument_list|,
+literal|"paged_bytes"
 argument_list|)
 return|;
 block|}

@@ -771,9 +771,6 @@ name|rangeFilter
 argument_list|(
 name|parseContext
 operator|.
-name|indexCache
-argument_list|()
-operator|.
 name|fieldData
 argument_list|()
 argument_list|,
