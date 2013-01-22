@@ -1510,6 +1510,8 @@ argument_list|(
 name|queryRewritten
 argument_list|,
 name|filter
+argument_list|,
+name|strategy
 argument_list|)
 decl_stmt|;
 name|rewritten
