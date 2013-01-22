@@ -150,9 +150,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|field
-operator|.
-name|data
+name|fielddata
 operator|.
 name|FieldDataType
 import|;
