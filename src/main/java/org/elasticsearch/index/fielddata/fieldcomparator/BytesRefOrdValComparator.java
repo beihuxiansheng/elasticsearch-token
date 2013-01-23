@@ -1652,6 +1652,17 @@ literal|null
 decl_stmt|;
 if|if
 condition|(
+name|docToOrd
+operator|.
+name|ordinals
+argument_list|()
+operator|.
+name|hasSingleArrayBackingStorage
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
 name|ordsStorage
 operator|instanceof
 name|byte
@@ -1726,6 +1737,7 @@ argument_list|,
 name|docBase
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// Don't specialize the long[] case since it's not
 comment|// possible, ie, worse case is MAX_INT-1 docs with

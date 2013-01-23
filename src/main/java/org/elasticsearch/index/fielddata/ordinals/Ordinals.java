@@ -24,18 +24,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|RamUsage
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|index
 operator|.
 name|fielddata
@@ -56,6 +44,12 @@ specifier|public
 interface|interface
 name|Ordinals
 block|{
+comment|/**      * Are the ordinals backed by a single ordinals array?      */
+DECL|method|hasSingleArrayBackingStorage
+name|boolean
+name|hasSingleArrayBackingStorage
+parameter_list|()
+function_decl|;
 comment|/**      * Returns the backing storage for this ordinals.      */
 DECL|method|getBackingStorage
 name|Object
