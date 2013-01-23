@@ -38,9 +38,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|mapper
+name|common
 operator|.
 name|geo
 operator|.

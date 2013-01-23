@@ -94,6 +94,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|geo
+operator|.
+name|GeoPoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|lucene
 operator|.
 name|docset
@@ -132,22 +146,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|geo
-operator|.
-name|GeoPoint
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -181,7 +179,7 @@ block|{
 DECL|field|points
 specifier|private
 specifier|final
-name|Point
+name|GeoPoint
 index|[]
 name|points
 decl_stmt|;
@@ -195,7 +193,7 @@ DECL|method|GeoPolygonFilter
 specifier|public
 name|GeoPolygonFilter
 parameter_list|(
-name|Point
+name|GeoPoint
 index|[]
 name|points
 parameter_list|,
@@ -218,7 +216,7 @@ expr_stmt|;
 block|}
 DECL|method|points
 specifier|public
-name|Point
+name|GeoPoint
 index|[]
 name|points
 parameter_list|()
@@ -341,7 +339,7 @@ decl_stmt|;
 DECL|field|points
 specifier|private
 specifier|final
-name|Point
+name|GeoPoint
 index|[]
 name|points
 decl_stmt|;
@@ -360,7 +358,7 @@ parameter_list|,
 name|GeoPointValues
 name|values
 parameter_list|,
-name|Point
+name|GeoPoint
 index|[]
 name|points
 parameter_list|)
@@ -522,7 +520,7 @@ specifier|static
 name|boolean
 name|pointInPolygon
 parameter_list|(
-name|Point
+name|GeoPoint
 index|[]
 name|points
 parameter_list|,
@@ -574,6 +572,7 @@ name|i
 index|]
 operator|.
 name|lon
+argument_list|()
 operator|<
 name|lon
 operator|&&
@@ -583,6 +582,7 @@ name|j
 index|]
 operator|.
 name|lon
+argument_list|()
 operator|>=
 name|lon
 operator|||
@@ -592,6 +592,7 @@ name|j
 index|]
 operator|.
 name|lon
+argument_list|()
 operator|<
 name|lon
 operator|&&
@@ -601,6 +602,7 @@ name|i
 index|]
 operator|.
 name|lon
+argument_list|()
 operator|>=
 name|lon
 condition|)
@@ -613,6 +615,7 @@ name|i
 index|]
 operator|.
 name|lat
+argument_list|()
 operator|+
 operator|(
 name|lon
@@ -623,6 +626,7 @@ name|i
 index|]
 operator|.
 name|lon
+argument_list|()
 operator|)
 operator|/
 operator|(
@@ -632,6 +636,7 @@ name|j
 index|]
 operator|.
 name|lon
+argument_list|()
 operator|-
 name|points
 index|[
@@ -639,6 +644,7 @@ name|i
 index|]
 operator|.
 name|lon
+argument_list|()
 operator|)
 operator|*
 operator|(
@@ -648,6 +654,7 @@ name|j
 index|]
 operator|.
 name|lat
+argument_list|()
 operator|-
 name|points
 index|[
@@ -655,6 +662,7 @@ name|i
 index|]
 operator|.
 name|lat
+argument_list|()
 operator|)
 operator|<
 name|lat

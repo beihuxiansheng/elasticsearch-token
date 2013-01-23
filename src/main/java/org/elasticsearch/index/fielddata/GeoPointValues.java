@@ -32,13 +32,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|common
 operator|.
-name|fielddata
+name|geo
 operator|.
-name|util
-operator|.
-name|GeoPointArrayRef
+name|GeoPoint
 import|;
 end_import
 
@@ -50,11 +48,11 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|mapper
+name|fielddata
 operator|.
-name|geo
+name|util
 operator|.
-name|GeoPoint
+name|GeoPointArrayRef
 import|;
 end_import
 

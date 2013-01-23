@@ -54,9 +54,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|xcontent
+name|geo
 operator|.
-name|XContentFactory
+name|GeoDistance
 import|;
 end_import
 
@@ -66,13 +66,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|common
 operator|.
-name|search
+name|xcontent
 operator|.
-name|geo
-operator|.
-name|GeoDistance
+name|XContentFactory
 import|;
 end_import
 

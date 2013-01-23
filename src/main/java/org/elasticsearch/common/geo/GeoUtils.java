@@ -4,15 +4,13 @@ comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more cont
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.search.geo
+DECL|package|org.elasticsearch.common.geo
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|search
+name|common
 operator|.
 name|geo
 package|;
@@ -28,7 +26,7 @@ specifier|public
 class|class
 name|GeoUtils
 block|{
-comment|/**      * Normalize longitude to lie within the -180 (exclusive) to 180 (inclusive) range.      *      * @param lon Longitude to normalize      * @see #normalizePoint(Point)      * @return The normalized longitude.      */
+comment|/**      * Normalize longitude to lie within the -180 (exclusive) to 180 (inclusive) range.      *      * @param lon Longitude to normalize      * @return The normalized longitude.      */
 DECL|method|normalizeLon
 specifier|public
 specifier|static
@@ -48,7 +46,7 @@ literal|360
 argument_list|)
 return|;
 block|}
-comment|/**      * Normalize latitude to lie within the -90 to 90 (both inclusive) range.      *<p>      * Note: You should not normalize longitude and latitude separately,      *       because when normalizing latitude it may be necessary to      *       add a shift of 180&deg; in the longitude.      *       For this purpose, you should call the      *       {@link #normalizePoint(Point)} function.      *      * @param lat Latitude to normalize      * @see #normalizePoint(Point)      * @return The normalized latitude.      */
+comment|/**      * Normalize latitude to lie within the -90 to 90 (both inclusive) range.      *<p/>      * Note: You should not normalize longitude and latitude separately,      * because when normalizing latitude it may be necessary to      * add a shift of 180&deg; in the longitude.      * For this purpose, you should call the      * {@link #normalizePoint(GeoPoint)} function.      *      * @param lat Latitude to normalize      * @return The normalized latitude.      * @see #normalizePoint(GeoPoint)      */
 DECL|method|normalizeLat
 specifier|public
 specifier|static
@@ -103,14 +101,14 @@ return|return
 name|lat
 return|;
 block|}
-comment|/**      * Normalize the geo {@code Point} for its coordinates to lie within their      * respective normalized ranges.      *<p>      * Note: A shift of 180&deg; is applied in the longitude if necessary,      *       in order to normalize properly the latitude.      *      * @param point The point to normalize in-place.      */
+comment|/**      * Normalize the geo {@code Point} for its coordinates to lie within their      * respective normalized ranges.      *<p/>      * Note: A shift of 180&deg; is applied in the longitude if necessary,      * in order to normalize properly the latitude.      *      * @param point The point to normalize in-place.      */
 DECL|method|normalizePoint
 specifier|public
 specifier|static
 name|void
 name|normalizePoint
 parameter_list|(
-name|Point
+name|GeoPoint
 name|point
 parameter_list|)
 block|{
@@ -124,14 +122,14 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Normalize the geo {@code Point} for the given coordinates to lie within      * their respective normalized ranges.      *      * You can control which coordinate gets normalized with the two flags.      *<p>      * Note: A shift of 180&deg; is applied in the longitude if necessary,      *       in order to normalize properly the latitude.      *       If normalizing latitude but not longitude, it is assumed that      *       the longitude is in the form x+k*360, with x in ]-180;180],      *       and k is meaningful to the application.      *       Therefore x will be adjusted while keeping k preserved.      *      * @param point The point to normalize in-place.      * @param normLat Whether to normalize latitude or leave it as is.      * @param normLon Whether to normalize longitude.      */
+comment|/**      * Normalize the geo {@code Point} for the given coordinates to lie within      * their respective normalized ranges.      *<p/>      * You can control which coordinate gets normalized with the two flags.      *<p/>      * Note: A shift of 180&deg; is applied in the longitude if necessary,      * in order to normalize properly the latitude.      * If normalizing latitude but not longitude, it is assumed that      * the longitude is in the form x+k*360, with x in ]-180;180],      * and k is meaningful to the application.      * Therefore x will be adjusted while keeping k preserved.      *      * @param point   The point to normalize in-place.      * @param normLat Whether to normalize latitude or leave it as is.      * @param normLon Whether to normalize longitude.      */
 DECL|method|normalizePoint
 specifier|public
 specifier|static
 name|void
 name|normalizePoint
 parameter_list|(
-name|Point
+name|GeoPoint
 name|point
 parameter_list|,
 name|boolean
@@ -141,19 +139,31 @@ name|boolean
 name|normLon
 parameter_list|)
 block|{
+name|double
+name|lat
+init|=
+name|point
+operator|.
+name|lat
+argument_list|()
+decl_stmt|;
+name|double
+name|lon
+init|=
+name|point
+operator|.
+name|lon
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|normLat
 condition|)
 block|{
-name|point
-operator|.
 name|lat
 operator|=
 name|centeredModulus
 argument_list|(
-name|point
-operator|.
 name|lat
 argument_list|,
 literal|360
@@ -166,44 +176,32 @@ literal|true
 decl_stmt|;
 if|if
 condition|(
-name|point
-operator|.
 name|lat
 operator|<
 operator|-
 literal|90
 condition|)
 block|{
-name|point
-operator|.
 name|lat
 operator|=
 operator|-
 literal|180
 operator|-
-name|point
-operator|.
 name|lat
 expr_stmt|;
 block|}
 elseif|else
 if|if
 condition|(
-name|point
-operator|.
 name|lat
 operator|>
 literal|90
 condition|)
 block|{
-name|point
-operator|.
 name|lat
 operator|=
 literal|180
 operator|-
-name|point
-operator|.
 name|lat
 expr_stmt|;
 block|}
@@ -225,8 +223,6 @@ condition|(
 name|normLon
 condition|)
 block|{
-name|point
-operator|.
 name|lon
 operator|+=
 literal|180
@@ -237,14 +233,10 @@ block|{
 comment|// Longitude won't be normalized,
 comment|// keep it in the form x+k*360 (with x in ]-180;180])
 comment|// by only changing x, assuming k is meaningful for the user application.
-name|point
-operator|.
 name|lon
 operator|+=
 name|normalizeLon
 argument_list|(
-name|point
-operator|.
 name|lon
 argument_list|)
 operator|>
@@ -263,20 +255,25 @@ condition|(
 name|normLon
 condition|)
 block|{
-name|point
-operator|.
 name|lon
 operator|=
 name|centeredModulus
 argument_list|(
-name|point
-operator|.
 name|lon
 argument_list|,
 literal|360
 argument_list|)
 expr_stmt|;
 block|}
+name|point
+operator|.
+name|reset
+argument_list|(
+name|lat
+argument_list|,
+name|lon
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|centeredModulus
 specifier|private

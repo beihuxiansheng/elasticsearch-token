@@ -54,6 +54,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|geo
+operator|.
+name|GeoDistance
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|unit
 operator|.
 name|DistanceUnit
@@ -85,22 +99,6 @@ operator|.
 name|query
 operator|.
 name|FilterBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|search
-operator|.
-name|geo
-operator|.
-name|GeoDistance
 import|;
 end_import
 
@@ -163,7 +161,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A geo distance builder allowing to create a facet of distances from a specific location including the  * number of hits within each distance range, and aggregated data (like totals of either the distance or  * cusotm value fields).  *  *  */
+comment|/**  * A geo distance builder allowing to create a facet of distances from a specific location including the  * number of hits within each distance range, and aggregated data (like totals of either the distance or  * cusotm value fields).  */
 end_comment
 
 begin_class

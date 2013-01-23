@@ -28,13 +28,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|search
+name|common
 operator|.
 name|geo
 operator|.
-name|GeoUtils
+name|GeoPoint
 import|;
 end_import
 
@@ -44,13 +42,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|search
+name|common
 operator|.
 name|geo
 operator|.
-name|Point
+name|GeoUtils
 import|;
 end_import
 
@@ -595,7 +591,7 @@ comment|// be shifted by 180
 name|assertNormalizedPoint
 argument_list|(
 operator|new
-name|Point
+name|GeoPoint
 argument_list|(
 literal|90.5
 argument_list|,
@@ -603,7 +599,7 @@ literal|10
 argument_list|)
 argument_list|,
 operator|new
-name|Point
+name|GeoPoint
 argument_list|(
 literal|89.5
 argument_list|,
@@ -2632,10 +2628,10 @@ specifier|static
 name|void
 name|assertNormalizedPoint
 parameter_list|(
-name|Point
+name|GeoPoint
 name|input
 parameter_list|,
-name|Point
+name|GeoPoint
 name|expected
 parameter_list|)
 block|{

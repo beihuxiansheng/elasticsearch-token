@@ -4,15 +4,13 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.search.geo
+DECL|package|org.elasticsearch.common.geo
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|search
+name|common
 operator|.
 name|geo
 package|;
@@ -441,33 +439,29 @@ block|}
 DECL|method|decode
 specifier|public
 specifier|static
-name|double
-index|[]
+name|GeoPoint
 name|decode
 parameter_list|(
 name|String
 name|geohash
 parameter_list|)
 block|{
-name|double
-index|[]
-name|ret
+name|GeoPoint
+name|point
 init|=
 operator|new
-name|double
-index|[
-literal|2
-index|]
+name|GeoPoint
+argument_list|()
 decl_stmt|;
 name|decode
 argument_list|(
 name|geohash
 argument_list|,
-name|ret
+name|point
 argument_list|)
 expr_stmt|;
 return|return
-name|ret
+name|point
 return|;
 block|}
 comment|/**      * Decodes the given geohash into a latitude and longitude      *      * @param geohash Geohash to deocde      * @return Array with the latitude at index 0, and longitude at index 1      */
@@ -480,8 +474,7 @@ parameter_list|(
 name|String
 name|geohash
 parameter_list|,
-name|double
-index|[]
+name|GeoPoint
 name|ret
 parameter_list|)
 block|{
@@ -647,11 +640,11 @@ expr_stmt|;
 block|}
 block|}
 comment|//        latitude = (latInterval[0] + latInterval[1]) / 2D;
+comment|//        longitude = (lngInterval[0] + lngInterval[1]) / 2D;
 name|ret
-index|[
-literal|0
-index|]
-operator|=
+operator|.
+name|reset
+argument_list|(
 operator|(
 name|latInterval0
 operator|+
@@ -659,13 +652,7 @@ name|latInterval1
 operator|)
 operator|/
 literal|2D
-expr_stmt|;
-comment|//        longitude = (lngInterval[0] + lngInterval[1]) / 2D;
-name|ret
-index|[
-literal|1
-index|]
-operator|=
+argument_list|,
 operator|(
 name|lngInterval0
 operator|+
@@ -673,6 +660,7 @@ name|lngInterval1
 operator|)
 operator|/
 literal|2D
+argument_list|)
 expr_stmt|;
 comment|//        return ret;
 block|}

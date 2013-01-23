@@ -24,6 +24,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|geo
+operator|.
+name|GeoDistance
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|unit
 operator|.
 name|DistanceUnit
@@ -46,22 +60,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|search
-operator|.
-name|geo
-operator|.
-name|GeoDistance
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -71,7 +69,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A geo distance based sorting on a geo point like field.  *  *  */
+comment|/**  * A geo distance based sorting on a geo point like field.  */
 end_comment
 
 begin_class
