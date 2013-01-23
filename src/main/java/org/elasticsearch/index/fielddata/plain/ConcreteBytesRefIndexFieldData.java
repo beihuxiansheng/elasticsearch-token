@@ -136,7 +136,7 @@ name|fielddata
 operator|.
 name|ordinals
 operator|.
-name|MultiFlatArrayOrdinals
+name|Ordinals
 import|;
 end_import
 
@@ -849,12 +849,20 @@ argument_list|()
 index|]
 argument_list|)
 argument_list|,
-operator|new
-name|MultiFlatArrayOrdinals
+name|Ordinals
+operator|.
+name|Factories
+operator|.
+name|createFromFlatOrdinals
 argument_list|(
 name|nativeOrdinals
 argument_list|,
 name|termOrd
+argument_list|,
+name|fieldDataType
+operator|.
+name|getOptions
+argument_list|()
 argument_list|)
 argument_list|)
 return|;
