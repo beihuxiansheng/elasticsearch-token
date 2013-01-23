@@ -122,19 +122,16 @@ name|storageOrdinals
 decl_stmt|;
 comment|// The n-th bit to shift the index of the storage array to inside the lookup pointer
 DECL|field|storageShift
-specifier|private
 specifier|final
 name|int
 name|storageShift
 decl_stmt|;
 DECL|field|numOrds
-specifier|private
 specifier|final
 name|int
 name|numOrds
 decl_stmt|;
 DECL|field|numDocs
-specifier|private
 specifier|final
 name|int
 name|numDocs
