@@ -115,6 +115,8 @@ comment|/**  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|LZFCompressedIndexInput
 specifier|public
 class|class

@@ -65,10 +65,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * @deprecated Used only for backward comp. to read old compressed files, since we now use codec based compression  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|CompressedIndexInput
 specifier|public
 specifier|abstract
