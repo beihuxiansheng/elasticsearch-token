@@ -787,9 +787,9 @@ name|loadedFieldData
 operator|.
 name|get
 argument_list|(
-name|type
+name|fieldNames
 operator|.
-name|getType
+name|indexName
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -811,9 +811,9 @@ name|loadedFieldData
 operator|.
 name|get
 argument_list|(
-name|type
+name|fieldNames
 operator|.
-name|getType
+name|indexName
 argument_list|()
 argument_list|)
 expr_stmt|;
