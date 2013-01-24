@@ -79,6 +79,45 @@ name|Script
 name|getScriptValues
 parameter_list|()
 function_decl|;
+DECL|interface|WithOrdinals
+interface|interface
+name|WithOrdinals
+parameter_list|<
+name|Script
+extends|extends
+name|ScriptDocValues
+parameter_list|>
+extends|extends
+name|AtomicFieldData
+argument_list|<
+name|Script
+argument_list|>
+block|{
+comment|/**          * Use a non thread safe (lightweight) view of the values as bytes.          */
+DECL|method|getBytesValues
+name|BytesValues
+operator|.
+name|WithOrdinals
+name|getBytesValues
+parameter_list|()
+function_decl|;
+comment|/**          * Use a non thread safe (lightweight) view of the values as bytes.          */
+DECL|method|getHashedBytesValues
+name|HashedBytesValues
+operator|.
+name|WithOrdinals
+name|getHashedBytesValues
+parameter_list|()
+function_decl|;
+comment|/**          * Use a non thread safe (lightweight) view of the values as strings.          */
+DECL|method|getStringValues
+name|StringValues
+operator|.
+name|WithOrdinals
+name|getStringValues
+parameter_list|()
+function_decl|;
+block|}
 block|}
 end_interface
 

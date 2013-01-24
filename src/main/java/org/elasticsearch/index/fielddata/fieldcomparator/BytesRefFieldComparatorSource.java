@@ -62,20 +62,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|fielddata
-operator|.
-name|IndexOrdinalFieldData
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -185,7 +171,9 @@ argument_list|()
 operator|&&
 name|indexFieldData
 operator|instanceof
-name|IndexOrdinalFieldData
+name|IndexFieldData
+operator|.
+name|WithOrdinals
 condition|)
 block|{
 return|return
@@ -193,7 +181,9 @@ operator|new
 name|BytesRefOrdValComparator
 argument_list|(
 operator|(
-name|IndexOrdinalFieldData
+name|IndexFieldData
+operator|.
+name|WithOrdinals
 operator|)
 name|indexFieldData
 argument_list|,

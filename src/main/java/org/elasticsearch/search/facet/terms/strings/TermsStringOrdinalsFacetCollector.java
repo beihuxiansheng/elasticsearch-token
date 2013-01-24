@@ -112,7 +112,7 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|IndexOrdinalFieldData
+name|BytesValues
 import|;
 end_import
 
@@ -126,7 +126,7 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|OrdinalsBytesValues
+name|IndexFieldData
 import|;
 end_import
 
@@ -301,7 +301,9 @@ block|{
 DECL|field|indexFieldData
 specifier|private
 specifier|final
-name|IndexOrdinalFieldData
+name|IndexFieldData
+operator|.
+name|WithOrdinals
 name|indexFieldData
 decl_stmt|;
 DECL|field|comparatorType
@@ -332,7 +334,9 @@ name|minCount
 decl_stmt|;
 DECL|field|values
 specifier|private
-name|OrdinalsBytesValues
+name|BytesValues
+operator|.
+name|WithOrdinals
 name|values
 decl_stmt|;
 DECL|field|aggregators
@@ -379,7 +383,9 @@ parameter_list|(
 name|String
 name|facetName
 parameter_list|,
-name|IndexOrdinalFieldData
+name|IndexFieldData
+operator|.
+name|WithOrdinals
 name|indexFieldData
 parameter_list|,
 name|int
@@ -1275,7 +1281,9 @@ name|OrdinalInDocProc
 block|{
 DECL|field|values
 specifier|final
-name|OrdinalsBytesValues
+name|BytesValues
+operator|.
+name|WithOrdinals
 name|values
 decl_stmt|;
 DECL|field|counts
@@ -1302,7 +1310,9 @@ DECL|method|ReaderAggregator
 specifier|public
 name|ReaderAggregator
 parameter_list|(
-name|OrdinalsBytesValues
+name|BytesValues
+operator|.
+name|WithOrdinals
 name|values
 parameter_list|)
 block|{

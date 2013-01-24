@@ -276,6 +276,44 @@ name|cache
 parameter_list|)
 function_decl|;
 block|}
+DECL|interface|WithOrdinals
+specifier|public
+interface|interface
+name|WithOrdinals
+parameter_list|<
+name|FD
+extends|extends
+name|AtomicFieldData
+operator|.
+name|WithOrdinals
+parameter_list|>
+extends|extends
+name|IndexFieldData
+argument_list|<
+name|FD
+argument_list|>
+block|{
+comment|/**          * Loads the atomic field data for the reader, possibly cached.          */
+DECL|method|load
+name|FD
+name|load
+parameter_list|(
+name|AtomicReaderContext
+name|context
+parameter_list|)
+function_decl|;
+comment|/**          * Loads directly the atomic field data for the reader, ignoring any caching involved.          */
+DECL|method|loadDirect
+name|FD
+name|loadDirect
+parameter_list|(
+name|AtomicReaderContext
+name|context
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+block|}
 block|}
 end_interface
 
