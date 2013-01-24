@@ -150,6 +150,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|settings
+operator|.
+name|Settings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|xcontent
 operator|.
 name|XContentBuilder
@@ -789,6 +803,11 @@ name|provider
 parameter_list|,
 name|SimilarityProvider
 name|similarity
+parameter_list|,
+annotation|@
+name|Nullable
+name|Settings
+name|fieldDataSettings
 parameter_list|)
 block|{
 comment|// LUCENE 4 UPGRADE: Since we can't do anything before the super call, we have to push the boost check down to subclasses
@@ -807,6 +826,8 @@ argument_list|,
 name|provider
 argument_list|,
 name|similarity
+argument_list|,
+name|fieldDataSettings
 argument_list|)
 expr_stmt|;
 if|if

@@ -94,6 +94,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Nullable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|Strings
 import|;
 end_import
@@ -125,6 +137,20 @@ operator|.
 name|search
 operator|.
 name|TermFilter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|Settings
 import|;
 end_import
 
@@ -707,6 +733,8 @@ argument_list|,
 name|provider
 argument_list|,
 name|similarity
+argument_list|,
+name|fieldDataSettings
 argument_list|)
 return|;
 block|}
@@ -860,6 +888,11 @@ name|provider
 parameter_list|,
 name|SimilarityProvider
 name|similarity
+parameter_list|,
+annotation|@
+name|Nullable
+name|Settings
+name|fieldDataSettings
 parameter_list|)
 block|{
 name|super
@@ -881,6 +914,8 @@ argument_list|,
 name|provider
 argument_list|,
 name|similarity
+argument_list|,
+name|fieldDataSettings
 argument_list|)
 expr_stmt|;
 name|this
@@ -906,10 +941,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|fieldDataType
+DECL|method|defaultFieldDataType
 specifier|public
 name|FieldDataType
-name|fieldDataType
+name|defaultFieldDataType
 parameter_list|()
 block|{
 comment|// TODO have a special boolean type?

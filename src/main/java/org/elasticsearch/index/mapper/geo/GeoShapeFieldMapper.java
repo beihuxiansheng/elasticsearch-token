@@ -985,6 +985,8 @@ argument_list|,
 name|provider
 argument_list|,
 literal|null
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|this
@@ -1018,19 +1020,15 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|fieldDataType
+DECL|method|defaultFieldDataType
 specifier|public
 name|FieldDataType
-name|fieldDataType
+name|defaultFieldDataType
 parameter_list|()
 block|{
-throw|throw
-operator|new
-name|ElasticSearchIllegalArgumentException
-argument_list|(
-literal|"field data on geo_shape field is not supported"
-argument_list|)
-throw|;
+return|return
+literal|null
+return|;
 block|}
 annotation|@
 name|Override
