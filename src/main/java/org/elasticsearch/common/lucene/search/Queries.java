@@ -689,6 +689,7 @@ literal|"<"
 argument_list|)
 decl_stmt|;
 DECL|method|calculateMinShouldMatch
+specifier|public
 specifier|static
 name|int
 name|calculateMinShouldMatch

@@ -156,6 +156,30 @@ name|BOOLEAN
 argument_list|)
 return|;
 block|}
+comment|/**      * Creates a common query for the provided field name and text.      *      * @param name The field name.      * @param text The query text (to be analyzed).      */
+DECL|method|commonTerms
+specifier|public
+specifier|static
+name|CommonTermsQueryBuilder
+name|commonTerms
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|Object
+name|text
+parameter_list|)
+block|{
+return|return
+operator|new
+name|CommonTermsQueryBuilder
+argument_list|(
+name|name
+argument_list|,
+name|text
+argument_list|)
+return|;
+block|}
 comment|/**      * Creates a match query with type "BOOLEAN" for the provided field name and text.      *      * @param fieldNames The field names.      * @param text The query text (to be analyzed).      */
 DECL|method|multiMatchQuery
 specifier|public
