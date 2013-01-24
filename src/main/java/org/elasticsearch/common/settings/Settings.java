@@ -420,6 +420,15 @@ parameter_list|)
 throws|throws
 name|SettingsException
 function_decl|;
+comment|/**      * Returns the settings as delimited string.      */
+DECL|method|toDelimitedString
+name|String
+name|toDelimitedString
+parameter_list|(
+name|char
+name|delimiter
+parameter_list|)
+function_decl|;
 comment|/**      * A settings builder interface.      */
 DECL|interface|Builder
 interface|interface
