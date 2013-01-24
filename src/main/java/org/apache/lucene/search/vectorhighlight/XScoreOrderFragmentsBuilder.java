@@ -76,7 +76,7 @@ specifier|public
 class|class
 name|XScoreOrderFragmentsBuilder
 extends|extends
-name|AbstractFragmentsBuilder
+name|BaseFragmentsBuilder
 block|{
 comment|/**      * a constructor.      */
 DECL|method|XScoreOrderFragmentsBuilder
@@ -86,6 +86,11 @@ parameter_list|()
 block|{
 name|super
 argument_list|()
+expr_stmt|;
+name|setDiscreteMultiValueHighlighting
+argument_list|(
+literal|true
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * a constructor.      *      * @param preTags  array of pre-tags for markup terms.      * @param postTags array of post-tags for markup terms.      */
@@ -109,6 +114,11 @@ argument_list|,
 name|postTags
 argument_list|)
 expr_stmt|;
+name|setDiscreteMultiValueHighlighting
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|XScoreOrderFragmentsBuilder
 specifier|public
@@ -121,6 +131,11 @@ block|{
 name|super
 argument_list|(
 name|bs
+argument_list|)
+expr_stmt|;
+name|setDiscreteMultiValueHighlighting
+argument_list|(
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -147,6 +162,11 @@ argument_list|,
 name|postTags
 argument_list|,
 name|bs
+argument_list|)
+expr_stmt|;
+name|setDiscreteMultiValueHighlighting
+argument_list|(
+literal|true
 argument_list|)
 expr_stmt|;
 block|}

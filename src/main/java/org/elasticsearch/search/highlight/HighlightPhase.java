@@ -1925,7 +1925,7 @@ block|{
 name|FragListBuilder
 name|fragListBuilder
 decl_stmt|;
-name|AbstractFragmentsBuilder
+name|BaseFragmentsBuilder
 name|fragmentsBuilder
 decl_stmt|;
 name|BoundaryScanner
