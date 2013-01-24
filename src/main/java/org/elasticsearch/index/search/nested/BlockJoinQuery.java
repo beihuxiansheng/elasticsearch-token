@@ -1222,11 +1222,6 @@ name|totalScore
 init|=
 literal|0
 decl_stmt|;
-name|int
-name|totalFreq
-init|=
-literal|0
-decl_stmt|;
 name|float
 name|maxScore
 init|=
@@ -1240,6 +1235,10 @@ init|=
 literal|0
 decl_stmt|;
 name|childDocUpto
+operator|=
+literal|0
+expr_stmt|;
+name|parentFreq
 operator|=
 literal|0
 expr_stmt|;
@@ -1358,7 +1357,7 @@ name|totalScore
 operator|+=
 name|childScore
 expr_stmt|;
-name|totalFreq
+name|parentFreq
 operator|+=
 name|childFreq
 expr_stmt|;
@@ -1409,12 +1408,6 @@ name|totalScore
 operator|/
 name|childDocUpto
 expr_stmt|;
-name|parentFreq
-operator|=
-name|totalFreq
-operator|/
-name|childDocUpto
-expr_stmt|;
 break|break;
 case|case
 name|Max
@@ -1423,10 +1416,6 @@ name|parentScore
 operator|=
 name|maxScore
 expr_stmt|;
-name|parentFreq
-operator|=
-name|maxFreq
-expr_stmt|;
 break|break;
 case|case
 name|Total
@@ -1434,10 +1423,6 @@ case|:
 name|parentScore
 operator|=
 name|totalScore
-expr_stmt|;
-name|parentFreq
-operator|=
-name|totalFreq
 expr_stmt|;
 break|break;
 case|case
