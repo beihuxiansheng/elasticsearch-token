@@ -2406,6 +2406,19 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+DECL|method|builder
+specifier|public
+specifier|static
+name|Builder
+name|builder
+parameter_list|()
+block|{
+return|return
+operator|new
+name|Builder
+argument_list|()
+return|;
+block|}
 comment|/**      * Returns a builder to be used in order to build settings.      */
 DECL|method|settingsBuilder
 specifier|public

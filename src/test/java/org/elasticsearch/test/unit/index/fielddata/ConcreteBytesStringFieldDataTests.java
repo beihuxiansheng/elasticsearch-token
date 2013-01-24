@@ -22,15 +22,15 @@ end_package
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|google
+name|elasticsearch
 operator|.
 name|common
 operator|.
-name|collect
+name|settings
 operator|.
-name|ImmutableMap
+name|ImmutableSettings
 import|;
 end_import
 
@@ -88,17 +88,17 @@ name|FieldDataType
 argument_list|(
 literal|"string"
 argument_list|,
-literal|"concrete_bytes"
-argument_list|,
-name|ImmutableMap
+name|ImmutableSettings
 operator|.
-expr|<
-name|String
-argument_list|,
-name|String
-operator|>
-name|of
+name|builder
 argument_list|()
+operator|.
+name|put
+argument_list|(
+literal|"format"
+argument_list|,
+literal|"concrete_bytes"
+argument_list|)
 argument_list|)
 return|;
 block|}

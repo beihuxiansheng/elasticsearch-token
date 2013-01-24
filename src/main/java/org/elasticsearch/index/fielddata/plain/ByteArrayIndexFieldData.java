@@ -969,7 +969,7 @@ name|termOrd
 argument_list|,
 name|fieldDataType
 operator|.
-name|getOptions
+name|getSettings
 argument_list|()
 argument_list|)
 argument_list|)
