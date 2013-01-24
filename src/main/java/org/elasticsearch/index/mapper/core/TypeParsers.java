@@ -205,6 +205,15 @@ name|INDEX_OPTIONS_POSITIONS
 init|=
 literal|"positions"
 decl_stmt|;
+DECL|field|INDEX_OPTIONS_OFFSETS
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|INDEX_OPTIONS_OFFSETS
+init|=
+literal|"offsets"
+decl_stmt|;
 DECL|method|parseNumberField
 specifier|public
 specifier|static
@@ -1077,7 +1086,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|// LUCENE 4 UPGRADE: when ew move into feature mode, we need to support DOCS_AND_FREQS_AND_POSITIONS_AND_OFFSETS
 DECL|method|nodeIndexOptionValue
 specifier|private
 specifier|static
@@ -1098,6 +1106,23 @@ operator|.
 name|toString
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|INDEX_OPTIONS_OFFSETS
+operator|.
+name|equalsIgnoreCase
+argument_list|(
+name|value
+argument_list|)
+condition|)
+block|{
+return|return
+name|IndexOptions
+operator|.
+name|DOCS_AND_FREQS_AND_POSITIONS_AND_OFFSETS
+return|;
+block|}
+elseif|else
 if|if
 condition|(
 name|INDEX_OPTIONS_POSITIONS

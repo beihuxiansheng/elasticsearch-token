@@ -4079,6 +4079,14 @@ name|indexOption
 condition|)
 block|{
 case|case
+name|DOCS_AND_FREQS_AND_POSITIONS_AND_OFFSETS
+case|:
+return|return
+name|TypeParsers
+operator|.
+name|INDEX_OPTIONS_OFFSETS
+return|;
+case|case
 name|DOCS_AND_FREQS
 case|:
 return|return
