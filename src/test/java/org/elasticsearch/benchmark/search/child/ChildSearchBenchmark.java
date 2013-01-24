@@ -2446,7 +2446,7 @@ operator|.
 name|getIndices
 argument_list|()
 operator|.
-name|cache
+name|getCache
 argument_list|()
 operator|.
 name|getIdCacheSize
@@ -3100,7 +3100,7 @@ operator|.
 name|getIndices
 argument_list|()
 operator|.
-name|cache
+name|getCache
 argument_list|()
 operator|.
 name|getIdCacheSize

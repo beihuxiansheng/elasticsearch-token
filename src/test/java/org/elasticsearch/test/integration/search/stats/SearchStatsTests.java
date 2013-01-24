@@ -758,7 +758,7 @@ operator|.
 name|indices
 argument_list|()
 operator|.
-name|search
+name|getSearch
 argument_list|()
 operator|.
 name|total
@@ -786,7 +786,7 @@ operator|.
 name|indices
 argument_list|()
 operator|.
-name|search
+name|getSearch
 argument_list|()
 operator|.
 name|total
