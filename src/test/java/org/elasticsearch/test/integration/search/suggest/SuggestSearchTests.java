@@ -291,8 +291,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-try|try
-block|{
 name|client
 operator|.
 name|admin
@@ -302,9 +300,7 @@ name|indices
 argument_list|()
 operator|.
 name|prepareDelete
-argument_list|(
-literal|"test"
-argument_list|)
+argument_list|()
 operator|.
 name|execute
 argument_list|()
@@ -312,15 +308,6 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-comment|// ignore
-block|}
 name|client
 operator|.
 name|admin
@@ -1163,8 +1150,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-try|try
-block|{
 name|client
 operator|.
 name|admin
@@ -1174,9 +1159,7 @@ name|indices
 argument_list|()
 operator|.
 name|prepareDelete
-argument_list|(
-literal|"test"
-argument_list|)
+argument_list|()
 operator|.
 name|execute
 argument_list|()
@@ -1184,15 +1167,6 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-comment|// ignore
-block|}
 name|client
 operator|.
 name|admin
@@ -1205,6 +1179,26 @@ name|prepareCreate
 argument_list|(
 literal|"test"
 argument_list|)
+operator|.
+name|execute
+argument_list|()
+operator|.
+name|actionGet
+argument_list|()
+expr_stmt|;
+name|client
+operator|.
+name|admin
+argument_list|()
+operator|.
+name|cluster
+argument_list|()
+operator|.
+name|prepareHealth
+argument_list|()
+operator|.
+name|setWaitForYellowStatus
+argument_list|()
 operator|.
 name|execute
 argument_list|()
@@ -1616,8 +1610,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-try|try
-block|{
 name|client
 operator|.
 name|admin
@@ -1627,9 +1619,7 @@ name|indices
 argument_list|()
 operator|.
 name|prepareDelete
-argument_list|(
-literal|"test"
-argument_list|)
+argument_list|()
 operator|.
 name|execute
 argument_list|()
@@ -1637,15 +1627,6 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-comment|// ignore
-block|}
 name|client
 operator|.
 name|admin
@@ -2479,8 +2460,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-try|try
-block|{
 name|client
 operator|.
 name|admin
@@ -2490,9 +2469,7 @@ name|indices
 argument_list|()
 operator|.
 name|prepareDelete
-argument_list|(
-literal|"test"
-argument_list|)
+argument_list|()
 operator|.
 name|execute
 argument_list|()
@@ -2500,15 +2477,6 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-comment|// ignore
-block|}
 name|client
 operator|.
 name|admin
