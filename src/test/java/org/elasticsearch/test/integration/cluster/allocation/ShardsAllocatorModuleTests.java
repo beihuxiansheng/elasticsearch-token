@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_package
-DECL|package|org.elasticsearch.test.unit.cluster.routing.allocation
+DECL|package|org.elasticsearch.test.integration.cluster.allocation
 package|package
 name|org
 operator|.
@@ -8,11 +8,9 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|unit
+name|integration
 operator|.
 name|cluster
-operator|.
-name|routing
 operator|.
 name|allocation
 package|;
