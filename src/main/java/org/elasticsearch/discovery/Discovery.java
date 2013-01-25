@@ -74,6 +74,22 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|allocation
+operator|.
+name|AllocationService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|component
@@ -199,6 +215,15 @@ annotation|@
 name|Nullable
 name|NodeService
 name|nodeService
+parameter_list|)
+function_decl|;
+comment|/**      * Another hack to solve dep injection problem..., note, this will be called before      * any start is called.      */
+DECL|method|setAllocationService
+name|void
+name|setAllocationService
+parameter_list|(
+name|AllocationService
+name|allocationService
 parameter_list|)
 function_decl|;
 comment|/**      * Publish all the changes to the cluster from the master (can be called just by the master). The publish      * process should not publish this state to the master as well! (the master is sending it...).      */
