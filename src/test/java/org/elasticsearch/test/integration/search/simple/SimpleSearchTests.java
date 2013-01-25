@@ -307,7 +307,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"number_of_shards"
+literal|"index.number_of_shards"
 argument_list|,
 literal|1
 argument_list|)
@@ -546,7 +546,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"number_of_shards"
+literal|"index.number_of_shards"
 argument_list|,
 literal|1
 argument_list|)

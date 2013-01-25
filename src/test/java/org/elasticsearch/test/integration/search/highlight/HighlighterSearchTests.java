@@ -581,7 +581,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"number_of_shards"
+literal|"index.number_of_shards"
 argument_list|,
 literal|2
 argument_list|)
@@ -1145,7 +1145,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"number_of_shards"
+literal|"index.number_of_shards"
 argument_list|,
 literal|2
 argument_list|)
@@ -1709,7 +1709,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"number_of_shards"
+literal|"index.number_of_shards"
 argument_list|,
 literal|2
 argument_list|)
@@ -5467,7 +5467,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"number_of_shards"
+literal|"index.number_of_shards"
 argument_list|,
 literal|2
 argument_list|)
@@ -5772,7 +5772,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"number_of_shards"
+literal|"index.number_of_shards"
 argument_list|,
 literal|2
 argument_list|)
@@ -6088,7 +6088,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"number_of_shards"
+literal|"index.number_of_shards"
 argument_list|,
 literal|2
 argument_list|)
@@ -6399,7 +6399,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"number_of_shards"
+literal|"index.number_of_shards"
 argument_list|,
 literal|2
 argument_list|)
@@ -6706,7 +6706,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"number_of_shards"
+literal|"index.number_of_shards"
 argument_list|,
 literal|2
 argument_list|)
@@ -7149,7 +7149,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"number_of_shards"
+literal|"index.number_of_shards"
 argument_list|,
 literal|2
 argument_list|)
@@ -7592,7 +7592,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"number_of_shards"
+literal|"index.number_of_shards"
 argument_list|,
 literal|2
 argument_list|)
@@ -8035,7 +8035,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"number_of_shards"
+literal|"index.number_of_shards"
 argument_list|,
 literal|2
 argument_list|)
@@ -8491,7 +8491,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"number_of_shards"
+literal|"index.number_of_shards"
 argument_list|,
 literal|2
 argument_list|)
@@ -8785,7 +8785,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"number_of_shards"
+literal|"index.number_of_shards"
 argument_list|,
 literal|2
 argument_list|)
@@ -9369,14 +9369,14 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"number_of_shards"
+literal|"index.number_of_shards"
 argument_list|,
 literal|1
 argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"number_of_replicas"
+literal|"index.number_of_replicas"
 argument_list|,
 literal|0
 argument_list|)
@@ -10807,14 +10807,14 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"number_of_shards"
+literal|"index.number_of_shards"
 argument_list|,
 literal|1
 argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"number_of_replicas"
+literal|"index.number_of_replicas"
 argument_list|,
 literal|0
 argument_list|)
