@@ -316,7 +316,7 @@ argument_list|(
 literal|"string"
 argument_list|,
 operator|new
-name|ConcreteBytesRefIndexFieldData
+name|PagedBytesIndexFieldData
 operator|.
 name|Builder
 argument_list|()
