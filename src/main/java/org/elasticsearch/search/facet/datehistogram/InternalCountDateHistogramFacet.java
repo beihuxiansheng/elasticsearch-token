@@ -796,9 +796,6 @@ specifier|public
 name|Facet
 name|reduce
 parameter_list|(
-name|String
-name|name
-parameter_list|,
 name|List
 argument_list|<
 name|Facet

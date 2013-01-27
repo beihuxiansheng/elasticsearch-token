@@ -17,7 +17,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A search facet.  *  *  */
+comment|/**  * A search facet.  */
 end_comment
 
 begin_interface

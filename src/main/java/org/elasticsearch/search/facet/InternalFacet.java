@@ -100,6 +100,16 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -120,6 +130,17 @@ DECL|method|streamType
 name|String
 name|streamType
 parameter_list|()
+function_decl|;
+DECL|method|reduce
+name|Facet
+name|reduce
+parameter_list|(
+name|List
+argument_list|<
+name|Facet
+argument_list|>
+name|facets
+parameter_list|)
 function_decl|;
 DECL|interface|Stream
 specifier|public

@@ -54,16 +54,6 @@ name|IOException
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -95,20 +85,6 @@ name|context
 parameter_list|)
 throws|throws
 name|IOException
-function_decl|;
-DECL|method|reduce
-name|Facet
-name|reduce
-parameter_list|(
-name|String
-name|name
-parameter_list|,
-name|List
-argument_list|<
-name|Facet
-argument_list|>
-name|facets
-parameter_list|)
 function_decl|;
 block|}
 end_interface
