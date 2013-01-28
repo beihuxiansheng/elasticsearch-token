@@ -1374,6 +1374,16 @@ return|return
 literal|true
 return|;
 block|}
+DECL|method|getField
+specifier|public
+name|String
+name|getField
+parameter_list|()
+block|{
+return|return
+name|field
+return|;
+block|}
 block|}
 end_class
 
