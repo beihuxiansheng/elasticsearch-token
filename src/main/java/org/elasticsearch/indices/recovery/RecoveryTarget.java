@@ -1791,6 +1791,29 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+if|if
+condition|(
+name|cause
+operator|instanceof
+name|DelayRecoveryException
+condition|)
+block|{
+name|listener
+operator|.
+name|onRetryRecovery
+argument_list|(
+name|TimeValue
+operator|.
+name|timeValueMillis
+argument_list|(
+literal|500
+argument_list|)
+argument_list|,
+name|recoveryStatus
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 comment|// here, we check against ignore recovery options
 comment|// in general, no need to clean the shard on ignored recovery, since we want to try and reuse it later
 comment|// it will get deleted in the IndicesStore if all are allocated and no shard exists on this node...
