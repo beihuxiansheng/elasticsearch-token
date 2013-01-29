@@ -152,8 +152,6 @@ parameter_list|()
 block|{
 return|return
 name|numDocs
-operator|+
-literal|1
 return|;
 block|}
 annotation|@

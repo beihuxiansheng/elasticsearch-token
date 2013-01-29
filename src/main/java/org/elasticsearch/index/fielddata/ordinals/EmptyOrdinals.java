@@ -138,7 +138,7 @@ name|getNumOrds
 parameter_list|()
 block|{
 return|return
-literal|1
+literal|0
 return|;
 block|}
 annotation|@

@@ -53,6 +53,7 @@ end_comment
 begin_class
 DECL|class|MultiFlatArrayOrdinals
 specifier|public
+specifier|final
 class|class
 name|MultiFlatArrayOrdinals
 implements|implements
