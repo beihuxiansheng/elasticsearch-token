@@ -323,6 +323,12 @@ name|SimpleIdReaderCache
 argument_list|>
 name|idReaders
 decl_stmt|;
+DECL|field|reuse
+specifier|private
+specifier|final
+name|boolean
+name|reuse
+decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|SimpleIdCache
@@ -351,6 +357,19 @@ name|ConcurrentCollections
 operator|.
 name|newConcurrentMap
 argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|reuse
+operator|=
+name|componentSettings
+operator|.
+name|getAsBoolean
+argument_list|(
+literal|"reuse"
+argument_list|,
+literal|false
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -1309,6 +1328,11 @@ name|HashedBytesArray
 name|finalIdAsBytes
 decl_stmt|;
 comment|// go over and see if we can reuse this id
+if|if
+condition|(
+name|reuse
+condition|)
+block|{
 for|for
 control|(
 name|SimpleIdReaderCache
@@ -1341,6 +1365,8 @@ name|finalIdAsBytes
 return|;
 block|}
 block|}
+block|}
+comment|// even if we don't enable reuse, at least check on the current "live" builders that we are handling
 for|for
 control|(
 name|Map
