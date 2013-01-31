@@ -369,29 +369,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Marks the facet to run in a specific scope.      */
-annotation|@
-name|Override
-DECL|method|scope
-specifier|public
-name|HistogramScriptFacetBuilder
-name|scope
-parameter_list|(
-name|String
-name|scope
-parameter_list|)
-block|{
-name|super
-operator|.
-name|scope
-argument_list|(
-name|scope
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**      * Sets the bounds from and to for the facet. Both performs bounds check and includes only      * values within the bounds, and improves performance.      */
 DECL|method|bounds
 specifier|public

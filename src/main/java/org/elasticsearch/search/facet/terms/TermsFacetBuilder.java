@@ -123,7 +123,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Term facets allow to collect frequency of terms within one (or more) field.  *  *  */
+comment|/**  * Term facets allow to collect frequency of terms within one (or more) field.  */
 end_comment
 
 begin_class
@@ -236,29 +236,6 @@ operator|.
 name|global
 argument_list|(
 name|global
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Marks the facet to run in a specific scope.      */
-annotation|@
-name|Override
-DECL|method|scope
-specifier|public
-name|TermsFacetBuilder
-name|scope
-parameter_list|(
-name|String
-name|scope
-parameter_list|)
-block|{
-name|super
-operator|.
-name|scope
-argument_list|(
-name|scope
 argument_list|)
 expr_stmt|;
 return|return

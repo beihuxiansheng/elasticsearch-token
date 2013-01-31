@@ -559,29 +559,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Marks the facet to run in a specific scope.      */
-annotation|@
-name|Override
-DECL|method|scope
-specifier|public
-name|DateHistogramFacetBuilder
-name|scope
-parameter_list|(
-name|String
-name|scope
-parameter_list|)
-block|{
-name|super
-operator|.
-name|scope
-argument_list|(
-name|scope
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**      * An additional filter used to further filter down the set of documents the facet will run on.      */
 annotation|@
 name|Override

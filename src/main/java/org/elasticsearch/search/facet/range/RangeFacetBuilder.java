@@ -109,7 +109,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A facet builder of range facets.  *  *  */
+comment|/**  * A facet builder of range facets.  */
 end_comment
 
 begin_class
@@ -408,29 +408,6 @@ operator|.
 name|global
 argument_list|(
 name|global
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Marks the facet to run in a specific scope.      */
-annotation|@
-name|Override
-DECL|method|scope
-specifier|public
-name|RangeFacetBuilder
-name|scope
-parameter_list|(
-name|String
-name|scope
-parameter_list|)
-block|{
-name|super
-operator|.
-name|scope
-argument_list|(
-name|scope
 argument_list|)
 expr_stmt|;
 return|return
