@@ -734,6 +734,8 @@ init|=
 operator|new
 name|TopChildrenQuery
 argument_list|(
+name|searchContext
+argument_list|,
 name|query
 argument_list|,
 name|childType
