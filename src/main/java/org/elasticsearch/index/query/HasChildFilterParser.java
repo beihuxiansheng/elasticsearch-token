@@ -262,11 +262,6 @@ init|=
 literal|null
 decl_stmt|;
 name|String
-name|scope
-init|=
-literal|null
-decl_stmt|;
-name|String
 name|executionType
 init|=
 literal|"uid"
@@ -534,13 +529,18 @@ name|currentFieldName
 argument_list|)
 condition|)
 block|{
-name|scope
-operator|=
-name|parser
+throw|throw
+operator|new
+name|QueryParsingException
+argument_list|(
+name|parseContext
 operator|.
-name|text
+name|index
 argument_list|()
-expr_stmt|;
+argument_list|,
+literal|"the [_scope] support in [has_child] filter has been removed, use a filter as a facet_filter in the relevant global facet"
+argument_list|)
+throw|;
 block|}
 elseif|else
 if|if
@@ -772,7 +772,7 @@ name|create
 argument_list|(
 name|query
 argument_list|,
-name|scope
+literal|null
 argument_list|,
 name|parentType
 argument_list|,

@@ -197,7 +197,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<pre>  * facets : {  *  facet1: {  *      query : { ... },  *      global : false  *  },  *  facet2: {  *      terms : {  *          name : "myfield",  *          size : 12  *      },  *      global : false  *  }  * }  *</pre>  *  *  */
+comment|/**  *<pre>  * facets : {  *  facet1: {  *      query : { ... },  *      global : false  *  },  *  facet2: {  *      terms : {  *          name : "myfield",  *          size : 12  *      },  *      global : false  *  }  * }  *</pre>  */
 end_comment
 
 begin_class
@@ -530,13 +530,15 @@ name|facetFieldName
 argument_list|)
 condition|)
 block|{
-name|scope
-operator|=
-name|parser
-operator|.
-name|text
-argument_list|()
-expr_stmt|;
+throw|throw
+operator|new
+name|SearchParseException
+argument_list|(
+name|context
+argument_list|,
+literal|"the [scope] support in facets have been removed"
+argument_list|)
+throw|;
 block|}
 elseif|else
 if|if
