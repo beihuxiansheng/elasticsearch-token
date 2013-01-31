@@ -52,6 +52,8 @@ name|FuzzyQueryBuilder
 extends|extends
 name|BaseQueryBuilder
 implements|implements
+name|MultiTermQueryBuilder
+implements|,
 name|BoostableQueryBuilder
 argument_list|<
 name|FuzzyQueryBuilder
