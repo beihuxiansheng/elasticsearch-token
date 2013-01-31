@@ -620,10 +620,6 @@ name|PRECISION_STEP
 argument_list|,
 name|Defaults
 operator|.
-name|FUZZY_FACTOR
-argument_list|,
-name|Defaults
-operator|.
 name|BOOST
 argument_list|,
 name|fieldType
