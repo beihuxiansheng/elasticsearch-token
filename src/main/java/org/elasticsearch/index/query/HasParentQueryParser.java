@@ -1005,8 +1005,6 @@ argument_list|,
 name|childTypes
 argument_list|,
 name|childFilter
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|searchContext
@@ -1033,8 +1031,6 @@ argument_list|(
 name|executionType
 argument_list|,
 name|innerQuery
-argument_list|,
-literal|null
 argument_list|,
 name|parentType
 argument_list|,

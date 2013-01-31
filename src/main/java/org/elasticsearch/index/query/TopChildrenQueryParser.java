@@ -736,8 +736,6 @@ name|TopChildrenQuery
 argument_list|(
 name|query
 argument_list|,
-literal|null
-argument_list|,
 name|childType
 argument_list|,
 name|parentType

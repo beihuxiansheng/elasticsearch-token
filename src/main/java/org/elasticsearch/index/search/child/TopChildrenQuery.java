@@ -183,11 +183,6 @@ specifier|private
 name|Query
 name|query
 decl_stmt|;
-DECL|field|scope
-specifier|private
-name|String
-name|scope
-decl_stmt|;
 DECL|field|parentType
 specifier|private
 name|String
@@ -256,9 +251,6 @@ name|Query
 name|query
 parameter_list|,
 name|String
-name|scope
-parameter_list|,
-name|String
 name|childType
 parameter_list|,
 name|String
@@ -279,12 +271,6 @@ operator|.
 name|query
 operator|=
 name|query
-expr_stmt|;
-name|this
-operator|.
-name|scope
-operator|=
-name|scope
 expr_stmt|;
 name|this
 operator|.

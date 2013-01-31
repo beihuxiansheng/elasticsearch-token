@@ -772,8 +772,6 @@ name|create
 argument_list|(
 name|query
 argument_list|,
-literal|null
-argument_list|,
 name|parentType
 argument_list|,
 name|childType

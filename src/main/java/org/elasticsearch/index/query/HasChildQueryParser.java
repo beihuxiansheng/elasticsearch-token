@@ -801,8 +801,6 @@ name|childType
 argument_list|,
 name|parentFilter
 argument_list|,
-literal|null
-argument_list|,
 name|innerQuery
 argument_list|,
 name|scoreType
@@ -830,8 +828,6 @@ operator|.
 name|create
 argument_list|(
 name|innerQuery
-argument_list|,
-literal|null
 argument_list|,
 name|parentType
 argument_list|,
