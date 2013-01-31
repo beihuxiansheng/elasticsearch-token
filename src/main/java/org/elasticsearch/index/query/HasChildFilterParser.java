@@ -785,7 +785,7 @@ argument_list|)
 decl_stmt|;
 name|searchContext
 operator|.
-name|addScopePhase
+name|addRewrite
 argument_list|(
 name|childFilter
 argument_list|)

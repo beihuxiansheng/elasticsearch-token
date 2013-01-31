@@ -1011,7 +1011,7 @@ argument_list|)
 decl_stmt|;
 name|searchContext
 operator|.
-name|addScopePhase
+name|addRewrite
 argument_list|(
 name|parentQuery
 argument_list|)
@@ -1043,7 +1043,7 @@ argument_list|)
 decl_stmt|;
 name|searchContext
 operator|.
-name|addScopePhase
+name|addRewrite
 argument_list|(
 name|hasParentFilter
 argument_list|)
