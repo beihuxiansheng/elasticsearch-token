@@ -188,6 +188,8 @@ operator|)
 name|indexFieldData
 argument_list|,
 name|numHits
+argument_list|,
+name|reversed
 argument_list|)
 return|;
 block|}
@@ -198,6 +200,8 @@ argument_list|(
 name|indexFieldData
 argument_list|,
 name|numHits
+argument_list|,
+name|reversed
 argument_list|)
 return|;
 block|}

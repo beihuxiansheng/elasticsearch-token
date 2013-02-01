@@ -297,6 +297,8 @@ argument_list|,
 name|dMissingValue
 argument_list|,
 name|numHits
+argument_list|,
+name|reversed
 argument_list|)
 return|;
 block|}
