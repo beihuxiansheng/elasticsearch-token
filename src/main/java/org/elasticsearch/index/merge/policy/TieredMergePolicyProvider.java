@@ -548,6 +548,19 @@ name|int
 operator|)
 name|segmentsPerTier
 decl_stmt|;
+comment|// max merge at once should be at least 2
+if|if
+condition|(
+name|newMaxMergeAtOnce
+operator|<=
+literal|1
+condition|)
+block|{
+name|newMaxMergeAtOnce
+operator|=
+literal|2
+expr_stmt|;
+block|}
 name|logger
 operator|.
 name|debug
