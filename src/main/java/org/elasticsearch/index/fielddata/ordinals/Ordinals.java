@@ -74,10 +74,16 @@ name|int
 name|getNumDocs
 parameter_list|()
 function_decl|;
-comment|/**      * The number of ordinals.      */
+comment|/**      * The number of ordinals, excluding the "0" ordinal indicating a missing value.      */
 DECL|method|getNumOrds
 name|int
 name|getNumOrds
+parameter_list|()
+function_decl|;
+comment|/**      * Returns total unique ord count; this includes +1 for      * the null ord (always 0).      */
+DECL|method|getMaxOrd
+name|int
+name|getMaxOrd
 parameter_list|()
 function_decl|;
 comment|/**      * Returns a lightweight (non thread safe) view iterator of the ordinals.      */
@@ -103,10 +109,16 @@ name|int
 name|getNumDocs
 parameter_list|()
 function_decl|;
-comment|/**          * The number of ordinals.          */
+comment|/**          * The number of ordinals, excluding the "0" ordinal (indicating a missing value).          */
 DECL|method|getNumOrds
 name|int
 name|getNumOrds
+parameter_list|()
+function_decl|;
+comment|/**          * Returns total unique ord count; this includes +1 for          * the null ord (always 0).          */
+DECL|method|getMaxOrd
+name|int
+name|getMaxOrd
 parameter_list|()
 function_decl|;
 comment|/**          * Is one of the docs maps to more than one ordinal?          */
