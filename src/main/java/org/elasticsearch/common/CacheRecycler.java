@@ -299,6 +299,7 @@ block|}
 comment|// ----- ExtTHashMap -----
 DECL|field|hashMap
 specifier|private
+specifier|final
 specifier|static
 name|SoftWrapper
 argument_list|<
@@ -459,6 +460,7 @@ block|}
 comment|// ----- THashSet -----
 DECL|field|hashSet
 specifier|private
+specifier|final
 specifier|static
 name|SoftWrapper
 argument_list|<
@@ -611,6 +613,7 @@ block|}
 comment|// ------ ExtTDoubleObjectHashMap -----
 DECL|field|doubleObjectHashMap
 specifier|private
+specifier|final
 specifier|static
 name|SoftWrapper
 argument_list|<
@@ -757,6 +760,7 @@ block|}
 comment|// ----- ExtTLongObjectHashMap ----
 DECL|field|longObjectHashMap
 specifier|private
+specifier|final
 specifier|static
 name|SoftWrapper
 argument_list|<
@@ -903,6 +907,7 @@ block|}
 comment|// ----- TLongLongHashMap ----
 DECL|field|longLongHashMap
 specifier|private
+specifier|final
 specifier|static
 name|SoftWrapper
 argument_list|<
@@ -1038,6 +1043,7 @@ block|}
 comment|// ----- TIntIntHashMap ----
 DECL|field|intIntHashMap
 specifier|private
+specifier|final
 specifier|static
 name|SoftWrapper
 argument_list|<
@@ -1173,6 +1179,7 @@ block|}
 comment|// ----- TFloatIntHashMap ---
 DECL|field|floatIntHashMap
 specifier|private
+specifier|final
 specifier|static
 name|SoftWrapper
 argument_list|<
@@ -1308,6 +1315,7 @@ block|}
 comment|// ----- TDoubleIntHashMap ---
 DECL|field|doubleIntHashMap
 specifier|private
+specifier|final
 specifier|static
 name|SoftWrapper
 argument_list|<
@@ -1443,6 +1451,7 @@ block|}
 comment|// ----- TByteIntHashMap ---
 DECL|field|byteIntHashMap
 specifier|private
+specifier|final
 specifier|static
 name|SoftWrapper
 argument_list|<
@@ -1578,6 +1587,7 @@ block|}
 comment|// ----- TShortIntHashMap ---
 DECL|field|shortIntHashMap
 specifier|private
+specifier|final
 specifier|static
 name|SoftWrapper
 argument_list|<
@@ -1713,6 +1723,7 @@ block|}
 comment|// ----- TLongIntHashMap ----
 DECL|field|longIntHashMap
 specifier|private
+specifier|final
 specifier|static
 name|SoftWrapper
 argument_list|<
@@ -1848,6 +1859,7 @@ block|}
 comment|// ------ TObjectIntHashMap -----
 DECL|field|objectIntHashMap
 specifier|private
+specifier|final
 specifier|static
 name|SoftWrapper
 argument_list|<
@@ -2002,6 +2014,7 @@ block|}
 comment|// ------ TIntObjectHashMap -----
 DECL|field|intObjectHashMap
 specifier|private
+specifier|final
 specifier|static
 name|SoftWrapper
 argument_list|<
@@ -2165,6 +2178,7 @@ block|}
 comment|// ------ TObjectFloatHashMap -----
 DECL|field|objectFloatHashMap
 specifier|private
+specifier|final
 specifier|static
 name|SoftWrapper
 argument_list|<
@@ -2319,6 +2333,7 @@ block|}
 comment|// ----- int[] -----
 DECL|field|objectArray
 specifier|private
+specifier|final
 specifier|static
 name|SoftWrapper
 argument_list|<
@@ -2498,6 +2513,7 @@ expr_stmt|;
 block|}
 DECL|field|intArray
 specifier|private
+specifier|final
 specifier|static
 name|SoftWrapper
 argument_list|<
