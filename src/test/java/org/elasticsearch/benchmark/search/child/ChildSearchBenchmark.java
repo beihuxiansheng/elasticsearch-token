@@ -1295,38 +1295,6 @@ name|getHeapUsed
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|String
-index|[]
-name|executionTypes
-init|=
-operator|new
-name|String
-index|[]
-block|{
-literal|"uid"
-comment|/*, "bitset"*/
-block|}
-decl_stmt|;
-comment|// either uid (faster, in general a bit more memory) or bitset (slower, but in general a bit less memory)
-for|for
-control|(
-name|String
-name|executionType
-range|:
-name|executionTypes
-control|)
-block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"--> Running has_child filter with execution type "
-operator|+
-name|executionType
-argument_list|)
-expr_stmt|;
 comment|// run parent child constant query
 for|for
 control|(
@@ -1370,11 +1338,6 @@ literal|"tag"
 argument_list|,
 literal|"tag1"
 argument_list|)
-argument_list|)
-operator|.
-name|executionType
-argument_list|(
-name|executionType
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1503,11 +1466,6 @@ literal|"tag"
 argument_list|,
 literal|"tag1"
 argument_list|)
-argument_list|)
-operator|.
-name|executionType
-argument_list|(
-name|executionType
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1603,11 +1561,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"--> has_child["
-operator|+
-name|executionType
-operator|+
-literal|"] filter Query Avg: "
+literal|"--> has_child filter Query Avg: "
 operator|+
 operator|(
 name|totalQueryTime
@@ -1624,11 +1578,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"--> Running has_child["
-operator|+
-name|executionType
-operator|+
-literal|"] filter with match_all child query"
+literal|"--> Running has_child filter with match_all child query"
 argument_list|)
 expr_stmt|;
 name|totalQueryTime
@@ -1673,11 +1623,6 @@ literal|"child"
 argument_list|,
 name|matchAllQuery
 argument_list|()
-argument_list|)
-operator|.
-name|executionType
-argument_list|(
-name|executionType
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1784,11 +1729,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"--> has_child["
-operator|+
-name|executionType
-operator|+
-literal|"] filter with match_all child query, Query Avg: "
+literal|"--> has_child filter with match_all child query, Query Avg: "
 operator|+
 operator|(
 name|totalQueryTime
@@ -1797,28 +1738,6 @@ name|QUERY_COUNT
 operator|)
 operator|+
 literal|"ms"
-argument_list|)
-expr_stmt|;
-block|}
-for|for
-control|(
-name|String
-name|executionType
-range|:
-name|executionTypes
-control|)
-block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"--> Running has_parent filter with "
-operator|+
-name|executionType
-operator|+
-literal|" execution type"
 argument_list|)
 expr_stmt|;
 comment|// run parent child constant query
@@ -1865,11 +1784,6 @@ argument_list|,
 literal|"test1"
 argument_list|)
 argument_list|)
-operator|.
-name|executionType
-argument_list|(
-name|executionType
-argument_list|)
 argument_list|)
 argument_list|)
 operator|.
@@ -1998,11 +1912,6 @@ argument_list|,
 literal|"test1"
 argument_list|)
 argument_list|)
-operator|.
-name|executionType
-argument_list|(
-name|executionType
-argument_list|)
 argument_list|)
 argument_list|)
 operator|.
@@ -2097,11 +2006,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"--> has_parent["
-operator|+
-name|executionType
-operator|+
-literal|"] filter Query Avg: "
+literal|"--> has_parent filter Query Avg: "
 operator|+
 operator|(
 name|totalQueryTime
@@ -2118,11 +2023,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"--> Running has_parent["
-operator|+
-name|executionType
-operator|+
-literal|"] filter with match_all parent query "
+literal|"--> Running has_parent filter with match_all parent query "
 argument_list|)
 expr_stmt|;
 name|totalQueryTime
@@ -2168,11 +2069,6 @@ argument_list|,
 name|matchAllQuery
 argument_list|()
 argument_list|)
-operator|.
-name|executionType
-argument_list|(
-name|executionType
-argument_list|)
 argument_list|)
 argument_list|)
 operator|.
@@ -2267,11 +2163,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"--> has_parent["
-operator|+
-name|executionType
-operator|+
-literal|"] filter with match_all parent query, Query Avg: "
+literal|"--> has_parent filter with match_all parent query, Query Avg: "
 operator|+
 operator|(
 name|totalQueryTime
@@ -2282,7 +2174,6 @@ operator|+
 literal|"ms"
 argument_list|)
 expr_stmt|;
-block|}
 name|System
 operator|.
 name|out
