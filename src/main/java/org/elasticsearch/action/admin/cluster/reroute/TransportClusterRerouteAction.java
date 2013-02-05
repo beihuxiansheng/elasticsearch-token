@@ -122,6 +122,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Priority
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|inject
 operator|.
 name|Inject
@@ -387,6 +399,10 @@ operator|.
 name|submitStateUpdateTask
 argument_list|(
 literal|"cluster_reroute (api)"
+argument_list|,
+name|Priority
+operator|.
+name|URGENT
 argument_list|,
 operator|new
 name|ProcessedClusterStateUpdateTask

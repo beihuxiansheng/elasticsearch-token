@@ -76,6 +76,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Priority
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|component
 operator|.
 name|LifecycleComponent
@@ -207,6 +219,23 @@ name|listener
 parameter_list|)
 function_decl|;
 comment|/**      * Submits a task that will update the cluster state.      */
+DECL|method|submitStateUpdateTask
+name|void
+name|submitStateUpdateTask
+parameter_list|(
+specifier|final
+name|String
+name|source
+parameter_list|,
+name|Priority
+name|priority
+parameter_list|,
+specifier|final
+name|ClusterStateUpdateTask
+name|updateTask
+parameter_list|)
+function_decl|;
+comment|/**      * Submits a task that will update the cluster state (the task has a default priority of {@link Priority#NORMAL}).      */
 DECL|method|submitStateUpdateTask
 name|void
 name|submitStateUpdateTask
