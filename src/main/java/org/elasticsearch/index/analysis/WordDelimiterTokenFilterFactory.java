@@ -367,7 +367,7 @@ name|flags
 operator||=
 name|getFlag
 argument_list|(
-name|GENERATE_WORD_PARTS
+name|GENERATE_NUMBER_PARTS
 argument_list|,
 name|settings
 argument_list|,
@@ -573,16 +573,16 @@ name|getAsBoolean
 argument_list|(
 name|key
 argument_list|,
-literal|true
+name|defaultValue
 argument_list|)
 condition|)
 block|{
 return|return
-literal|0
+name|flag
 return|;
 block|}
 return|return
-name|flag
+literal|0
 return|;
 block|}
 comment|// source => type
