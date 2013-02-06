@@ -2767,6 +2767,35 @@ operator|)
 name|e
 throw|;
 block|}
+comment|// Throw a more meaningful message if the document is empty.
+if|if
+condition|(
+name|source
+operator|.
+name|source
+argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|source
+operator|.
+name|source
+argument_list|()
+operator|.
+name|length
+argument_list|()
+operator|==
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|MapperParsingException
+argument_list|(
+literal|"failed to parse, document is empty"
+argument_list|)
+throw|;
+block|}
 throw|throw
 operator|new
 name|MapperParsingException
