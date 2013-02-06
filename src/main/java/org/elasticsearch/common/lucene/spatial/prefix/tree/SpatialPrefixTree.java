@@ -614,12 +614,33 @@ name|subCells
 operator|.
 name|size
 argument_list|()
-operator|<
+operator|==
 name|node
 operator|.
 name|getSubCellsSize
 argument_list|()
+operator|&&
+operator|!
+name|inclParents
 condition|)
+block|{
+comment|// A bottom level (i.e. detail level) optimization where all boxes intersect, so use parent cell.
+comment|// Can optimize at only one of index time or query/filter time; the !inclParents
+comment|// condition above means we do not optimize at index time.
+name|node
+operator|.
+name|setLeaf
+argument_list|()
+expr_stmt|;
+name|result
+operator|.
+name|add
+argument_list|(
+name|node
+argument_list|)
+expr_stmt|;
+block|}
+else|else
 block|{
 if|if
 condition|(
@@ -651,22 +672,6 @@ operator|.
 name|addAll
 argument_list|(
 name|subCells
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-comment|//a bottom level (i.e. detail level) optimization where all boxes intersect, so use parent cell.
-name|node
-operator|.
-name|setLeaf
-argument_list|()
-expr_stmt|;
-name|result
-operator|.
-name|add
-argument_list|(
-name|node
 argument_list|)
 expr_stmt|;
 block|}
