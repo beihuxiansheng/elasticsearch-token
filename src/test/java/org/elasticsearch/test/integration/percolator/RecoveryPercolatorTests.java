@@ -431,13 +431,6 @@ literal|"gateway.type"
 argument_list|,
 literal|"local"
 argument_list|)
-operator|.
-name|put
-argument_list|(
-literal|"action.wait_on_mapping_change"
-argument_list|,
-literal|true
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|Client
@@ -829,13 +822,6 @@ argument_list|(
 literal|"gateway.type"
 argument_list|,
 literal|"local"
-argument_list|)
-operator|.
-name|put
-argument_list|(
-literal|"action.wait_on_mapping_change"
-argument_list|,
-literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
