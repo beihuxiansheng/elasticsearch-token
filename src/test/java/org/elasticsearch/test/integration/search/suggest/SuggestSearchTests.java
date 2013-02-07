@@ -3182,6 +3182,11 @@ name|setSuggestMode
 argument_list|(
 literal|"always"
 argument_list|)
+operator|.
+name|setShardSize
+argument_list|(
+literal|50
+argument_list|)
 argument_list|)
 operator|.
 name|addSuggestion
