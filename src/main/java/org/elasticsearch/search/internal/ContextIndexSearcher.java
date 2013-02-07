@@ -366,6 +366,14 @@ assert|assert
 name|currentState
 operator|==
 name|stage
+operator|:
+literal|"Expected stage "
+operator|+
+name|stage
+operator|+
+literal|" but was stage "
+operator|+
+name|currentState
 assert|;
 name|this
 operator|.
