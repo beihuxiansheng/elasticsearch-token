@@ -1569,7 +1569,7 @@ argument_list|)
 operator|+
 literal|"]"
 argument_list|,
-name|e
+name|e2
 argument_list|)
 throw|;
 block|}
