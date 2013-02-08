@@ -135,6 +135,9 @@ specifier|final
 name|IndexFieldData
 operator|.
 name|WithOrdinals
+argument_list|<
+name|?
+argument_list|>
 name|indexFieldData
 decl_stmt|;
 comment|/* Ords for each slot.        @lucene.internal */
@@ -217,6 +220,9 @@ parameter_list|(
 name|IndexFieldData
 operator|.
 name|WithOrdinals
+argument_list|<
+name|?
+argument_list|>
 name|indexFieldData
 parameter_list|,
 name|int

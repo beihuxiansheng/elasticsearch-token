@@ -88,6 +88,9 @@ DECL|field|indexFieldData
 specifier|private
 specifier|final
 name|IndexFieldData
+argument_list|<
+name|?
+argument_list|>
 name|indexFieldData
 decl_stmt|;
 DECL|method|BytesRefFieldComparatorSource
@@ -95,6 +98,9 @@ specifier|public
 name|BytesRefFieldComparatorSource
 parameter_list|(
 name|IndexFieldData
+argument_list|<
+name|?
+argument_list|>
 name|indexFieldData
 parameter_list|)
 block|{
@@ -184,6 +190,9 @@ operator|(
 name|IndexFieldData
 operator|.
 name|WithOrdinals
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|indexFieldData
 argument_list|,

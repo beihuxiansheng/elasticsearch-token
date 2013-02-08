@@ -185,6 +185,11 @@ name|Override
 DECL|method|newComparator
 specifier|public
 name|FieldComparator
+argument_list|<
+name|?
+extends|extends
+name|Number
+argument_list|>
 name|newComparator
 parameter_list|(
 name|String

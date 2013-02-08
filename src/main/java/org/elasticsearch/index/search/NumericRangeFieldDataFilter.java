@@ -794,7 +794,7 @@ return|return
 literal|null
 return|;
 specifier|final
-name|ByteValues
+name|LongValues
 name|values
 init|=
 name|indexFieldData
@@ -804,7 +804,7 @@ argument_list|(
 name|ctx
 argument_list|)
 operator|.
-name|getByteValues
+name|getLongValues
 argument_list|()
 decl_stmt|;
 return|return
@@ -843,7 +843,7 @@ name|int
 name|doc
 parameter_list|)
 block|{
-name|ByteValues
+name|LongValues
 operator|.
 name|Iter
 name|iter
@@ -863,7 +863,7 @@ name|hasNext
 argument_list|()
 condition|)
 block|{
-name|byte
+name|long
 name|value
 init|=
 name|iter
@@ -1083,7 +1083,7 @@ return|return
 literal|null
 return|;
 specifier|final
-name|ShortValues
+name|LongValues
 name|values
 init|=
 name|indexFieldData
@@ -1093,7 +1093,7 @@ argument_list|(
 name|ctx
 argument_list|)
 operator|.
-name|getShortValues
+name|getLongValues
 argument_list|()
 decl_stmt|;
 return|return
@@ -1132,7 +1132,7 @@ name|int
 name|doc
 parameter_list|)
 block|{
-name|ShortValues
+name|LongValues
 operator|.
 name|Iter
 name|iter
@@ -1152,7 +1152,7 @@ name|hasNext
 argument_list|()
 condition|)
 block|{
-name|short
+name|long
 name|value
 init|=
 name|iter
@@ -1362,7 +1362,7 @@ return|return
 literal|null
 return|;
 specifier|final
-name|IntValues
+name|LongValues
 name|values
 init|=
 name|indexFieldData
@@ -1372,7 +1372,7 @@ argument_list|(
 name|ctx
 argument_list|)
 operator|.
-name|getIntValues
+name|getLongValues
 argument_list|()
 decl_stmt|;
 return|return
@@ -1411,7 +1411,7 @@ name|int
 name|doc
 parameter_list|)
 block|{
-name|IntValues
+name|LongValues
 operator|.
 name|Iter
 name|iter
@@ -1431,7 +1431,7 @@ name|hasNext
 argument_list|()
 condition|)
 block|{
-name|int
+name|long
 name|value
 init|=
 name|iter
@@ -1962,7 +1962,7 @@ return|return
 literal|null
 return|;
 specifier|final
-name|FloatValues
+name|DoubleValues
 name|values
 init|=
 name|indexFieldData
@@ -1972,7 +1972,7 @@ argument_list|(
 name|ctx
 argument_list|)
 operator|.
-name|getFloatValues
+name|getDoubleValues
 argument_list|()
 decl_stmt|;
 return|return
@@ -2011,7 +2011,7 @@ name|int
 name|doc
 parameter_list|)
 block|{
-name|FloatValues
+name|DoubleValues
 operator|.
 name|Iter
 name|iter
@@ -2031,7 +2031,7 @@ name|hasNext
 argument_list|()
 condition|)
 block|{
-name|float
+name|double
 name|value
 init|=
 name|iter

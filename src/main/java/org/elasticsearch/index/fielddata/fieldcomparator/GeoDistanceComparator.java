@@ -145,6 +145,9 @@ DECL|field|indexFieldData
 specifier|protected
 specifier|final
 name|IndexGeoPointFieldData
+argument_list|<
+name|?
+argument_list|>
 name|indexFieldData
 decl_stmt|;
 DECL|field|lat
@@ -204,6 +207,9 @@ name|int
 name|numHits
 parameter_list|,
 name|IndexGeoPointFieldData
+argument_list|<
+name|?
+argument_list|>
 name|indexFieldData
 parameter_list|,
 name|double

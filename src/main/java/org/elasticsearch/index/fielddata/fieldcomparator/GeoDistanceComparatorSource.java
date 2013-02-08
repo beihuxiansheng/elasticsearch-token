@@ -130,6 +130,9 @@ DECL|field|indexFieldData
 specifier|private
 specifier|final
 name|IndexGeoPointFieldData
+argument_list|<
+name|?
+argument_list|>
 name|indexFieldData
 decl_stmt|;
 DECL|field|lat
@@ -161,6 +164,9 @@ specifier|public
 name|GeoDistanceComparatorSource
 parameter_list|(
 name|IndexGeoPointFieldData
+argument_list|<
+name|?
+argument_list|>
 name|indexFieldData
 parameter_list|,
 name|double

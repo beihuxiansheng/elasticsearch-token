@@ -114,6 +114,9 @@ DECL|field|indexFieldData
 specifier|private
 specifier|final
 name|IndexNumericFieldData
+argument_list|<
+name|?
+argument_list|>
 name|indexFieldData
 decl_stmt|;
 DECL|field|missingValue
@@ -127,6 +130,9 @@ specifier|public
 name|ShortValuesComparatorSource
 parameter_list|(
 name|IndexNumericFieldData
+argument_list|<
+name|?
+argument_list|>
 name|indexFieldData
 parameter_list|,
 annotation|@
