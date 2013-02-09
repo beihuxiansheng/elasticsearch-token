@@ -236,7 +236,7 @@ operator|!
 operator|(
 name|command
 operator|instanceof
-name|PrioritizedRunnable
+name|Comparable
 operator|)
 condition|)
 block|{
