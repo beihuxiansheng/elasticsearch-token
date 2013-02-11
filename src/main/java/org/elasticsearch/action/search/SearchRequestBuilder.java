@@ -1928,7 +1928,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Delegates to {@link org.elasticsearch.search.suggest.SuggestBuilder#addSuggestion(org.elasticsearch.search.suggest.SuggestBuilder.Suggestion)}.      */
+comment|/**      * Delegates to {@link org.elasticsearch.search.suggest.SuggestBuilder#addSuggestion(org.elasticsearch.search.suggest.SuggestBuilder.SuggestionBuilder)}.      */
 DECL|method|addSuggestion
 specifier|public
 name|SearchRequestBuilder
@@ -1936,7 +1936,10 @@ name|addSuggestion
 parameter_list|(
 name|SuggestBuilder
 operator|.
-name|Suggestion
+name|SuggestionBuilder
+argument_list|<
+name|?
+argument_list|>
 name|suggestion
 parameter_list|)
 block|{
