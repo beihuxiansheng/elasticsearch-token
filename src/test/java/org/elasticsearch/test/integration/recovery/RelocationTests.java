@@ -961,20 +961,66 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|//    @Test
-comment|//    public void testPrimaryRelocationWhileBulkIndexingWith1RelocationAnd1Writer() throws Exception {
-comment|//        testPrimaryRelocationWhileIndexing(1, 1, true);
-comment|//    }
-comment|//
-comment|//    @Test
-comment|//    public void testPrimaryRelocationWhileBulkIndexingWith10RelocationAnd1Writer() throws Exception {
-comment|//        testPrimaryRelocationWhileIndexing(10, 1, true);
-comment|//    }
-comment|//
-comment|//    @Test
-comment|//    public void testPrimaryRelocationWhileBulkIndexingWith10RelocationAnd5Writers() throws Exception {
-comment|//        testPrimaryRelocationWhileIndexing(10, 5, true);
-comment|//    }
+annotation|@
+name|Test
+DECL|method|testPrimaryRelocationWhileBulkIndexingWith1RelocationAnd1Writer
+specifier|public
+name|void
+name|testPrimaryRelocationWhileBulkIndexingWith1RelocationAnd1Writer
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|testPrimaryRelocationWhileIndexing
+argument_list|(
+literal|1
+argument_list|,
+literal|1
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testPrimaryRelocationWhileBulkIndexingWith10RelocationAnd1Writer
+specifier|public
+name|void
+name|testPrimaryRelocationWhileBulkIndexingWith10RelocationAnd1Writer
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|testPrimaryRelocationWhileIndexing
+argument_list|(
+literal|10
+argument_list|,
+literal|1
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testPrimaryRelocationWhileBulkIndexingWith10RelocationAnd5Writers
+specifier|public
+name|void
+name|testPrimaryRelocationWhileBulkIndexingWith10RelocationAnd5Writers
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|testPrimaryRelocationWhileIndexing
+argument_list|(
+literal|10
+argument_list|,
+literal|5
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testPrimaryRelocationWhileIndexing
 specifier|private
 name|void
@@ -2155,6 +2201,66 @@ argument_list|,
 literal|5
 argument_list|,
 literal|false
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testReplicaRelocationWhileBulkIndexingWith1RelocationAnd1Writer
+specifier|public
+name|void
+name|testReplicaRelocationWhileBulkIndexingWith1RelocationAnd1Writer
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|testReplicaRelocationWhileIndexing
+argument_list|(
+literal|1
+argument_list|,
+literal|1
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testReplicaRelocationWhileBulkIndexingWith10RelocationAnd1Writer
+specifier|public
+name|void
+name|testReplicaRelocationWhileBulkIndexingWith10RelocationAnd1Writer
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|testReplicaRelocationWhileIndexing
+argument_list|(
+literal|10
+argument_list|,
+literal|1
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testReplicaRelocationWhileBulkIndexingWith10RelocationAnd5Writers
+specifier|public
+name|void
+name|testReplicaRelocationWhileBulkIndexingWith10RelocationAnd5Writers
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|testReplicaRelocationWhileIndexing
+argument_list|(
+literal|10
+argument_list|,
+literal|5
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
