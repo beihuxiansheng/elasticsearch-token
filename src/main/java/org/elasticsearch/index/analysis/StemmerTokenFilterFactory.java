@@ -1115,6 +1115,13 @@ name|equalsIgnoreCase
 argument_list|(
 name|language
 argument_list|)
+operator|||
+literal|"minimalNorwegian"
+operator|.
+name|equals
+argument_list|(
+name|language
+argument_list|)
 condition|)
 block|{
 return|return
