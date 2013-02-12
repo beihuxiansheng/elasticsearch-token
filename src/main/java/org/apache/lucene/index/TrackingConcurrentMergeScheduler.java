@@ -311,8 +311,7 @@ name|totalSizeInBytes
 init|=
 name|merge
 operator|.
-name|totalBytesSize
-argument_list|()
+name|estimatedMergeBytes
 decl_stmt|;
 name|long
 name|time
