@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -39,6 +29,16 @@ operator|.
 name|fielddata
 operator|.
 name|IndexNumericFieldData
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
 import|;
 end_import
 
@@ -81,8 +81,8 @@ parameter_list|,
 name|int
 name|numHits
 parameter_list|,
-name|boolean
-name|reversed
+name|SortMode
+name|sortMode
 parameter_list|)
 block|{
 name|super
@@ -91,7 +91,7 @@ name|indexFieldData
 argument_list|,
 name|missingValue
 argument_list|,
-name|reversed
+name|sortMode
 argument_list|)
 expr_stmt|;
 name|this

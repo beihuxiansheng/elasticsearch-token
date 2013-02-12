@@ -147,10 +147,10 @@ name|int
 index|[]
 name|ords
 decl_stmt|;
-DECL|field|reversed
+DECL|field|sortMode
 specifier|final
-name|boolean
-name|reversed
+name|SortMode
+name|sortMode
 decl_stmt|;
 comment|/* Values for each slot.        @lucene.internal */
 DECL|field|values
@@ -228,8 +228,8 @@ parameter_list|,
 name|int
 name|numHits
 parameter_list|,
-name|boolean
-name|reversed
+name|SortMode
+name|sortMode
 parameter_list|)
 block|{
 name|this
@@ -240,9 +240,9 @@ name|indexFieldData
 expr_stmt|;
 name|this
 operator|.
-name|reversed
+name|sortMode
 operator|=
-name|reversed
+name|sortMode
 expr_stmt|;
 name|ords
 operator|=
@@ -2190,7 +2190,7 @@ name|readerOrds
 argument_list|,
 name|doc
 argument_list|,
-name|reversed
+name|sortMode
 argument_list|)
 decl_stmt|;
 if|if
@@ -2254,7 +2254,7 @@ name|readerOrds
 argument_list|,
 name|doc
 argument_list|,
-name|reversed
+name|sortMode
 argument_list|)
 decl_stmt|;
 name|ords
@@ -2350,7 +2350,7 @@ name|termsIndex
 argument_list|,
 name|doc
 argument_list|,
-name|reversed
+name|sortMode
 argument_list|)
 decl_stmt|;
 if|if
@@ -2411,8 +2411,8 @@ parameter_list|,
 name|int
 name|docId
 parameter_list|,
-name|boolean
-name|reversed
+name|SortMode
+name|sortMode
 parameter_list|)
 block|{
 name|BytesValues
@@ -2470,7 +2470,11 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|reversed
+name|sortMode
+operator|==
+name|SortMode
+operator|.
+name|MAX
 condition|)
 block|{
 if|if
@@ -2537,8 +2541,8 @@ parameter_list|,
 name|int
 name|docId
 parameter_list|,
-name|boolean
-name|reversed
+name|SortMode
+name|sortMode
 parameter_list|)
 block|{
 name|Ordinals
@@ -2586,7 +2590,11 @@ condition|)
 block|{
 if|if
 condition|(
-name|reversed
+name|sortMode
+operator|==
+name|SortMode
+operator|.
+name|MAX
 condition|)
 block|{
 if|if

@@ -42,7 +42,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|*
+name|AtomicReader
 import|;
 end_import
 
@@ -54,9 +54,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|search
+name|index
 operator|.
-name|FieldCache
+name|AtomicReaderContext
 import|;
 end_import
 
@@ -68,11 +68,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|search
+name|index
 operator|.
-name|FieldCache
-operator|.
-name|StopFillCacheException
+name|Terms
 import|;
 end_import
 
@@ -220,9 +218,9 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|ordinals
+name|fieldcomparator
 operator|.
-name|Ordinals
+name|SortMode
 import|;
 end_import
 
@@ -238,7 +236,7 @@ name|fielddata
 operator|.
 name|ordinals
 operator|.
-name|OrdinalsBuilder
+name|Ordinals
 import|;
 end_import
 
@@ -257,6 +255,22 @@ operator|.
 name|Ordinals
 operator|.
 name|Docs
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|fielddata
+operator|.
+name|ordinals
+operator|.
+name|OrdinalsBuilder
 import|;
 end_import
 
@@ -817,6 +831,9 @@ annotation|@
 name|Nullable
 name|Object
 name|missingValue
+parameter_list|,
+name|SortMode
+name|sortMode
 parameter_list|)
 block|{
 return|return
@@ -826,6 +843,8 @@ argument_list|(
 name|this
 argument_list|,
 name|missingValue
+argument_list|,
+name|sortMode
 argument_list|)
 return|;
 block|}

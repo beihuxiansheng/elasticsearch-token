@@ -125,6 +125,12 @@ specifier|final
 name|Object
 name|missingValue
 decl_stmt|;
+DECL|field|sortMode
+specifier|private
+specifier|final
+name|SortMode
+name|sortMode
+decl_stmt|;
 DECL|method|FloatValuesComparatorSource
 specifier|public
 name|FloatValuesComparatorSource
@@ -139,6 +145,9 @@ annotation|@
 name|Nullable
 name|Object
 name|missingValue
+parameter_list|,
+name|SortMode
+name|sortMode
 parameter_list|)
 block|{
 name|this
@@ -152,6 +161,12 @@ operator|.
 name|missingValue
 operator|=
 name|missingValue
+expr_stmt|;
+name|this
+operator|.
+name|sortMode
+operator|=
+name|sortMode
 expr_stmt|;
 block|}
 annotation|@
@@ -304,7 +319,7 @@ name|dMissingValue
 argument_list|,
 name|numHits
 argument_list|,
-name|reversed
+name|sortMode
 argument_list|)
 return|;
 block|}

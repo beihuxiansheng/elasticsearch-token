@@ -93,6 +93,12 @@ name|?
 argument_list|>
 name|indexFieldData
 decl_stmt|;
+DECL|field|sortMode
+specifier|private
+specifier|final
+name|SortMode
+name|sortMode
+decl_stmt|;
 DECL|method|BytesRefFieldComparatorSource
 specifier|public
 name|BytesRefFieldComparatorSource
@@ -102,6 +108,9 @@ argument_list|<
 name|?
 argument_list|>
 name|indexFieldData
+parameter_list|,
+name|SortMode
+name|sortMode
 parameter_list|)
 block|{
 name|this
@@ -109,6 +118,12 @@ operator|.
 name|indexFieldData
 operator|=
 name|indexFieldData
+expr_stmt|;
+name|this
+operator|.
+name|sortMode
+operator|=
+name|sortMode
 expr_stmt|;
 block|}
 annotation|@
@@ -198,7 +213,7 @@ name|indexFieldData
 argument_list|,
 name|numHits
 argument_list|,
-name|reversed
+name|sortMode
 argument_list|)
 return|;
 block|}
@@ -210,7 +225,7 @@ name|indexFieldData
 argument_list|,
 name|numHits
 argument_list|,
-name|reversed
+name|sortMode
 argument_list|)
 return|;
 block|}

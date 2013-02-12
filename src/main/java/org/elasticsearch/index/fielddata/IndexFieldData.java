@@ -130,6 +130,22 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|fielddata
+operator|.
+name|fieldcomparator
+operator|.
+name|SortMode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|mapper
 operator|.
 name|FieldMapper
@@ -210,6 +226,9 @@ annotation|@
 name|Nullable
 name|Object
 name|missingValue
+parameter_list|,
+name|SortMode
+name|sortMode
 parameter_list|)
 function_decl|;
 comment|/**      * Clears any resources associated with this field data.      */

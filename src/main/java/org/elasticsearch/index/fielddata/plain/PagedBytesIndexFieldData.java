@@ -236,6 +236,22 @@ name|index
 operator|.
 name|fielddata
 operator|.
+name|fieldcomparator
+operator|.
+name|SortMode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|fielddata
+operator|.
 name|ordinals
 operator|.
 name|Ordinals
@@ -920,6 +936,9 @@ annotation|@
 name|Nullable
 name|Object
 name|missingValue
+parameter_list|,
+name|SortMode
+name|sortMode
 parameter_list|)
 block|{
 comment|// TODO support "missingValue" for sortMissingValue options here...
@@ -928,6 +947,8 @@ operator|new
 name|BytesRefFieldComparatorSource
 argument_list|(
 name|this
+argument_list|,
+name|sortMode
 argument_list|)
 return|;
 block|}
