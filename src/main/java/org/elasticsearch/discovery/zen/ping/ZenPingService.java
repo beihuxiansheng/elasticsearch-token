@@ -286,18 +286,6 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|ConcurrentHashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
 name|ConcurrentMap
 import|;
 end_import
@@ -780,6 +768,13 @@ name|InterruptedException
 name|e
 parameter_list|)
 block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"pingAndWait interrupted"
+argument_list|)
+expr_stmt|;
 return|return
 literal|null
 return|;

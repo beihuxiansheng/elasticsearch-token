@@ -1722,6 +1722,13 @@ literal|null
 condition|)
 block|{
 comment|// we are already joining, ignore...
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"a join thread already running"
+argument_list|)
+expr_stmt|;
 return|return;
 block|}
 name|threadPool
@@ -1810,6 +1817,13 @@ operator|==
 literal|null
 condition|)
 block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"no masterNode returned"
+argument_list|)
+expr_stmt|;
 name|retry
 operator|=
 literal|true
@@ -3755,6 +3769,13 @@ operator|==
 literal|null
 condition|)
 block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"No full ping responses"
+argument_list|)
+expr_stmt|;
 return|return
 literal|null
 return|;
