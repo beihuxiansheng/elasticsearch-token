@@ -4221,7 +4221,8 @@ argument_list|()
 argument_list|,
 name|SearchType
 operator|.
-name|COUNT
+name|QUERY_THEN_FETCH
+comment|/* we don't use COUNT so sorting will also kick in whatever warming logic*/
 argument_list|)
 operator|.
 name|source
