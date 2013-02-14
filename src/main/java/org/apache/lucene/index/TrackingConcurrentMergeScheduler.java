@@ -306,6 +306,7 @@ operator|.
 name|totalNumDocs
 argument_list|()
 decl_stmt|;
+comment|// don't used #totalBytesSize() since need to be executed under IW lock, might be fixed in future Lucene version
 name|long
 name|totalSizeInBytes
 init|=
