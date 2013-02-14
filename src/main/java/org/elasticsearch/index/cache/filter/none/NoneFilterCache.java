@@ -231,6 +231,23 @@ specifier|public
 name|void
 name|clear
 parameter_list|(
+name|String
+name|reason
+parameter_list|,
+name|String
+index|[]
+name|keys
+parameter_list|)
+block|{
+comment|// nothing to do there
+block|}
+annotation|@
+name|Override
+DECL|method|clear
+specifier|public
+name|void
+name|clear
+parameter_list|(
 name|IndexReader
 name|reader
 parameter_list|)
