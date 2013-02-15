@@ -815,6 +815,12 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+argument_list|(
+name|enabled
+operator|=
+literal|false
+argument_list|)
+comment|// LUCENE MONITIR enable this test again once Lucene4.2 is out. This bug is fixed in Lucene 4.2
 DECL|method|testEdgeCases
 specifier|public
 name|void
@@ -1160,7 +1166,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getTotalHits
@@ -1176,7 +1182,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|hits
@@ -1194,7 +1200,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
