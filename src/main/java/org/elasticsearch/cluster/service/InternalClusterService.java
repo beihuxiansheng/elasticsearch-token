@@ -1089,6 +1089,7 @@ specifier|public
 name|void
 name|add
 parameter_list|(
+specifier|final
 name|TimeValue
 name|timeout
 parameter_list|,
@@ -1112,6 +1113,22 @@ argument_list|()
 expr_stmt|;
 return|return;
 block|}
+comment|// call the post added notification on the same event thread
+name|updateTasksExecutor
+operator|.
+name|execute
+argument_list|(
+operator|new
+name|Runnable
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|run
+parameter_list|()
+block|{
 name|NotifyTimeout
 name|notifyTimeout
 init|=
@@ -1156,22 +1173,6 @@ argument_list|(
 name|listener
 argument_list|)
 expr_stmt|;
-comment|// call the post added notification on the same event thread
-name|updateTasksExecutor
-operator|.
-name|execute
-argument_list|(
-operator|new
-name|Runnable
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|run
-parameter_list|()
-block|{
 name|listener
 operator|.
 name|postAdded
