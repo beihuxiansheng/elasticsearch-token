@@ -252,7 +252,7 @@ name|search
 operator|.
 name|facet
 operator|.
-name|AbstractFacetBuilder
+name|FacetBuilder
 import|;
 end_import
 
@@ -522,7 +522,7 @@ DECL|field|facets
 specifier|private
 name|List
 argument_list|<
-name|AbstractFacetBuilder
+name|FacetBuilder
 argument_list|>
 name|facets
 decl_stmt|;
@@ -1229,7 +1229,7 @@ specifier|public
 name|SearchSourceBuilder
 name|facet
 parameter_list|(
-name|AbstractFacetBuilder
+name|FacetBuilder
 name|facet
 parameter_list|)
 block|{
@@ -2799,7 +2799,7 @@ argument_list|()
 expr_stmt|;
 for|for
 control|(
-name|AbstractFacetBuilder
+name|FacetBuilder
 name|facet
 range|:
 name|facets

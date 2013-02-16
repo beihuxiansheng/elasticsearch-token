@@ -22,37 +22,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|BytesRef
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|ElasticSearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|bytes
-operator|.
-name|BytesReference
 import|;
 end_import
 
@@ -105,7 +77,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Terms facet allows to return facets of the most popular terms within the search query.  *  *  */
+comment|/**  * Terms facet allows to return facets of the most popular terms within the search query.  */
 end_comment
 
 begin_interface
@@ -143,29 +115,14 @@ argument_list|<
 name|Entry
 argument_list|>
 block|{
-DECL|method|term
-name|Text
-name|term
-parameter_list|()
-function_decl|;
 DECL|method|getTerm
 name|Text
 name|getTerm
 parameter_list|()
 function_decl|;
-DECL|method|termAsNumber
-name|Number
-name|termAsNumber
-parameter_list|()
-function_decl|;
 DECL|method|getTermAsNumber
 name|Number
 name|getTermAsNumber
-parameter_list|()
-function_decl|;
-DECL|method|count
-name|int
-name|count
 parameter_list|()
 function_decl|;
 DECL|method|getCount
@@ -215,12 +172,12 @@ name|i
 init|=
 name|o2
 operator|.
-name|count
+name|getCount
 argument_list|()
 operator|-
 name|o1
 operator|.
-name|count
+name|getCount
 argument_list|()
 decl_stmt|;
 if|if
@@ -650,21 +607,9 @@ throw|;
 block|}
 block|}
 comment|/**      * The number of docs missing a value.      */
-DECL|method|missingCount
-name|long
-name|missingCount
-parameter_list|()
-function_decl|;
-comment|/**      * The number of docs missing a value.      */
 DECL|method|getMissingCount
 name|long
 name|getMissingCount
-parameter_list|()
-function_decl|;
-comment|/**      * The total count of terms.      */
-DECL|method|totalCount
-name|long
-name|totalCount
 parameter_list|()
 function_decl|;
 comment|/**      * The total count of terms.      */
@@ -674,28 +619,9 @@ name|getTotalCount
 parameter_list|()
 function_decl|;
 comment|/**      * The count of terms other than the one provided by the entries.      */
-DECL|method|otherCount
-name|long
-name|otherCount
-parameter_list|()
-function_decl|;
-comment|/**      * The count of terms other than the one provided by the entries.      */
 DECL|method|getOtherCount
 name|long
 name|getOtherCount
-parameter_list|()
-function_decl|;
-comment|/**      * The terms and counts.      */
-DECL|method|entries
-name|List
-argument_list|<
-name|?
-extends|extends
-name|TermsFacet
-operator|.
-name|Entry
-argument_list|>
-name|entries
 parameter_list|()
 function_decl|;
 comment|/**      * The terms and counts.      */

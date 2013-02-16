@@ -7758,7 +7758,7 @@ name|assertThat
 argument_list|(
 name|termsFacet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|size
@@ -7774,7 +7774,7 @@ name|assertThat
 argument_list|(
 name|termsFacet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -7782,7 +7782,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|term
+name|getTerm
 argument_list|()
 operator|.
 name|string
@@ -7798,7 +7798,7 @@ name|assertThat
 argument_list|(
 name|termsFacet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -7806,7 +7806,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -7819,7 +7819,7 @@ name|assertThat
 argument_list|(
 name|termsFacet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -7827,7 +7827,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|term
+name|getTerm
 argument_list|()
 operator|.
 name|string
@@ -7843,7 +7843,7 @@ name|assertThat
 argument_list|(
 name|termsFacet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -7851,7 +7851,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo

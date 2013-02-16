@@ -208,7 +208,7 @@ name|search
 operator|.
 name|facet
 operator|.
-name|AbstractFacetBuilder
+name|FacetBuilder
 import|;
 end_import
 
@@ -1471,7 +1471,7 @@ specifier|public
 name|SearchRequestBuilder
 name|addFacet
 parameter_list|(
-name|AbstractFacetBuilder
+name|FacetBuilder
 name|facet
 parameter_list|)
 block|{

@@ -90,13 +90,13 @@ DECL|method|FacetBinaryParseElement
 specifier|public
 name|FacetBinaryParseElement
 parameter_list|(
-name|FacetProcessors
-name|facetProcessors
+name|FacetParsers
+name|facetParsers
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|facetProcessors
+name|facetParsers
 argument_list|)
 expr_stmt|;
 block|}

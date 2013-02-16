@@ -3219,7 +3219,7 @@ argument_list|,
 literal|"test1"
 argument_list|)
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3244,7 +3244,7 @@ argument_list|,
 literal|"all"
 argument_list|)
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo

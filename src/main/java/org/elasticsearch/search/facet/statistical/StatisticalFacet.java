@@ -33,7 +33,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Numeric statistical information.  *  *  */
+comment|/**  * Numeric statistical information.  */
 end_comment
 
 begin_interface
@@ -55,21 +55,9 @@ init|=
 literal|"statistical"
 decl_stmt|;
 comment|/**      * The number of values counted.      */
-DECL|method|count
-name|long
-name|count
-parameter_list|()
-function_decl|;
-comment|/**      * The number of values counted.      */
 DECL|method|getCount
 name|long
 name|getCount
-parameter_list|()
-function_decl|;
-comment|/**      * The total (sum) of values.      */
-DECL|method|total
-name|double
-name|total
 parameter_list|()
 function_decl|;
 comment|/**      * The total (sum) of values.      */
@@ -79,21 +67,9 @@ name|getTotal
 parameter_list|()
 function_decl|;
 comment|/**      * The sum of squares of the values.      */
-DECL|method|sumOfSquares
-name|double
-name|sumOfSquares
-parameter_list|()
-function_decl|;
-comment|/**      * The sum of squares of the values.      */
 DECL|method|getSumOfSquares
 name|double
 name|getSumOfSquares
-parameter_list|()
-function_decl|;
-comment|/**      * The mean (average) of the values.      */
-DECL|method|mean
-name|double
-name|mean
 parameter_list|()
 function_decl|;
 comment|/**      * The mean (average) of the values.      */
@@ -103,21 +79,9 @@ name|getMean
 parameter_list|()
 function_decl|;
 comment|/**      * The minimum value.      */
-DECL|method|min
-name|double
-name|min
-parameter_list|()
-function_decl|;
-comment|/**      * The minimum value.      */
 DECL|method|getMin
 name|double
 name|getMin
-parameter_list|()
-function_decl|;
-comment|/**      * The maximum value.      */
-DECL|method|max
-name|double
-name|max
 parameter_list|()
 function_decl|;
 comment|/**      * The maximum value.      */
@@ -127,21 +91,9 @@ name|getMax
 parameter_list|()
 function_decl|;
 comment|/**      * Variance of the values.      */
-DECL|method|variance
-name|double
-name|variance
-parameter_list|()
-function_decl|;
-comment|/**      * Variance of the values.      */
 DECL|method|getVariance
 name|double
 name|getVariance
-parameter_list|()
-function_decl|;
-comment|/**      * Standard deviation of the values.      */
-DECL|method|stdDeviation
-name|double
-name|stdDeviation
 parameter_list|()
 function_decl|;
 comment|/**      * Standard deviation of the values.      */

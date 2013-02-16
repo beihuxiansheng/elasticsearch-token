@@ -33,7 +33,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A query facets returns the count (number of hits) for a facet based on a query.  *  *  */
+comment|/**  * A query facets returns the count (number of hits) for a facet based on a query.  */
 end_comment
 
 begin_interface
@@ -54,12 +54,6 @@ name|TYPE
 init|=
 literal|"filter"
 decl_stmt|;
-comment|/**      * The count of the facet.      */
-DECL|method|count
-name|long
-name|count
-parameter_list|()
-function_decl|;
 comment|/**      * The count of the facet.      */
 DECL|method|getCount
 name|long

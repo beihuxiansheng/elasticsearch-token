@@ -2283,14 +2283,14 @@ if|if
 condition|(
 name|facet
 operator|.
-name|name
+name|getName
 argument_list|()
 operator|.
 name|equals
 argument_list|(
 name|facet1
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|)
 condition|)

@@ -27,21 +27,9 @@ interface|interface
 name|Facet
 block|{
 comment|/**      * The "logical" name of the search facet.      */
-DECL|method|name
-name|String
-name|name
-parameter_list|()
-function_decl|;
-comment|/**      * The "logical" name of the search facet.      */
 DECL|method|getName
 name|String
 name|getName
-parameter_list|()
-function_decl|;
-comment|/**      * The type of the facet.      */
-DECL|method|type
-name|String
-name|type
 parameter_list|()
 function_decl|;
 comment|/**      * The type of the facet.      */

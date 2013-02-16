@@ -84,7 +84,7 @@ name|search
 operator|.
 name|facet
 operator|.
-name|AbstractFacetBuilder
+name|FacetBuilder
 import|;
 end_import
 
@@ -108,7 +108,7 @@ specifier|public
 class|class
 name|QueryFacetBuilder
 extends|extends
-name|AbstractFacetBuilder
+name|FacetBuilder
 block|{
 DECL|field|query
 specifier|private

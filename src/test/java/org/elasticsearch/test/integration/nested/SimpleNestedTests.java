@@ -4333,7 +4333,7 @@ name|assertThat
 argument_list|(
 name|termsStatsFacet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|size
@@ -4349,7 +4349,7 @@ name|assertThat
 argument_list|(
 name|termsStatsFacet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -4357,7 +4357,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|term
+name|getTerm
 argument_list|()
 operator|.
 name|string
@@ -4373,7 +4373,7 @@ name|assertThat
 argument_list|(
 name|termsStatsFacet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -4381,7 +4381,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4394,7 +4394,7 @@ name|assertThat
 argument_list|(
 name|termsStatsFacet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -4402,7 +4402,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|total
+name|getTotal
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4415,7 +4415,7 @@ name|assertThat
 argument_list|(
 name|termsStatsFacet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -4423,7 +4423,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|term
+name|getTerm
 argument_list|()
 operator|.
 name|string
@@ -4439,7 +4439,7 @@ name|assertThat
 argument_list|(
 name|termsStatsFacet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -4447,7 +4447,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4460,7 +4460,7 @@ name|assertThat
 argument_list|(
 name|termsStatsFacet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -4468,7 +4468,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|total
+name|getTotal
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4481,7 +4481,7 @@ name|assertThat
 argument_list|(
 name|termsStatsFacet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -4489,7 +4489,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|term
+name|getTerm
 argument_list|()
 operator|.
 name|string
@@ -4505,7 +4505,7 @@ name|assertThat
 argument_list|(
 name|termsStatsFacet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -4513,7 +4513,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4526,7 +4526,7 @@ name|assertThat
 argument_list|(
 name|termsStatsFacet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -4534,7 +4534,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|total
+name|getTotal
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4547,7 +4547,7 @@ name|assertThat
 argument_list|(
 name|termsStatsFacet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -4555,7 +4555,7 @@ argument_list|(
 literal|3
 argument_list|)
 operator|.
-name|term
+name|getTerm
 argument_list|()
 operator|.
 name|string
@@ -4571,7 +4571,7 @@ name|assertThat
 argument_list|(
 name|termsStatsFacet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -4579,7 +4579,7 @@ argument_list|(
 literal|3
 argument_list|)
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4592,7 +4592,7 @@ name|assertThat
 argument_list|(
 name|termsStatsFacet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -4600,7 +4600,7 @@ argument_list|(
 literal|3
 argument_list|)
 operator|.
-name|total
+name|getTotal
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4610,214 +4610,27 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// test scope ones
-name|searchResponse
-operator|=
-name|client
-operator|.
-name|prepareSearch
-argument_list|(
-literal|"test"
-argument_list|)
-operator|.
-name|setQuery
-argument_list|(
-name|nestedQuery
-argument_list|(
-literal|"nested1.nested2"
-argument_list|,
-name|termQuery
-argument_list|(
-literal|"nested1.nested2.field2_1"
-argument_list|,
-literal|"blue"
-argument_list|)
-argument_list|)
-argument_list|)
-operator|.
-name|addFacet
-argument_list|(
-name|FacetBuilders
-operator|.
-name|termsStatsFacet
-argument_list|(
-literal|"facet1"
-argument_list|)
-operator|.
-name|keyField
-argument_list|(
-literal|"nested1.nested2.field2_1"
-argument_list|)
-operator|.
-name|valueField
-argument_list|(
-literal|"nested1.nested2.field2_2"
-argument_list|)
-operator|.
-name|nested
-argument_list|(
-literal|"nested1.nested2"
-argument_list|)
-operator|.
-name|facetFilter
-argument_list|(
-name|nestedFilter
-argument_list|(
-literal|"nested1.nested2"
-argument_list|,
-name|termQuery
-argument_list|(
-literal|"nested1.nested2.field2_1"
-argument_list|,
-literal|"blue"
-argument_list|)
-argument_list|)
-operator|.
-name|join
-argument_list|(
-literal|false
-argument_list|)
-argument_list|)
-argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
-expr_stmt|;
-name|assertThat
-argument_list|(
-name|Arrays
-operator|.
-name|toString
-argument_list|(
-name|searchResponse
-operator|.
-name|shardFailures
-argument_list|()
-argument_list|)
-argument_list|,
-name|searchResponse
-operator|.
-name|failedShards
-argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|0
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertThat
-argument_list|(
-name|searchResponse
-operator|.
-name|hits
-argument_list|()
-operator|.
-name|totalHits
-argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|2l
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|termsStatsFacet
-operator|=
-name|searchResponse
-operator|.
-name|facets
-argument_list|()
-operator|.
-name|facet
-argument_list|(
-literal|"facet1"
-argument_list|)
-expr_stmt|;
-name|assertThat
-argument_list|(
-name|termsStatsFacet
-operator|.
-name|entries
-argument_list|()
-operator|.
-name|size
-argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|1
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertThat
-argument_list|(
-name|termsStatsFacet
-operator|.
-name|entries
-argument_list|()
-operator|.
-name|get
-argument_list|(
-literal|0
-argument_list|)
-operator|.
-name|term
-argument_list|()
-operator|.
-name|string
-argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|"blue"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertThat
-argument_list|(
-name|termsStatsFacet
-operator|.
-name|entries
-argument_list|()
-operator|.
-name|get
-argument_list|(
-literal|0
-argument_list|)
-operator|.
-name|count
-argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|3l
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertThat
-argument_list|(
-name|termsStatsFacet
-operator|.
-name|entries
-argument_list|()
-operator|.
-name|get
-argument_list|(
-literal|0
-argument_list|)
-operator|.
-name|total
-argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|8d
-argument_list|)
-argument_list|)
-expr_stmt|;
+comment|//        searchResponse = client.prepareSearch("test")
+comment|//                .setQuery(
+comment|//                        nestedQuery("nested1.nested2", termQuery("nested1.nested2.field2_1", "blue"))
+comment|//                )
+comment|//                .addFacet(
+comment|//                        FacetBuilders.termsStatsFacet("facet1")
+comment|//                                .keyField("nested1.nested2.field2_1")
+comment|//                                .valueField("nested1.nested2.field2_2")
+comment|//                                .nested("nested1.nested2")
+comment|//                                .facetFilter(nestedFilter("nested1.nested2", termQuery("nested1.nested2.field2_1", "blue")).join(false))
+comment|//                )
+comment|//                .execute().actionGet();
+comment|//
+comment|//        assertThat(Arrays.toString(searchResponse.shardFailures()), searchResponse.failedShards(), equalTo(0));
+comment|//        assertThat(searchResponse.hits().totalHits(), equalTo(2l));
+comment|//
+comment|//        termsStatsFacet = searchResponse.facets().facet("facet1");
+comment|//        assertThat(termsStatsFacet.getEntries().size(), equalTo(1));
+comment|//        assertThat(termsStatsFacet.getEntries().get(0).getTerm().string(), equalTo("blue"));
+comment|//        assertThat(termsStatsFacet.getEntries().get(0).getCount(), equalTo(3l));
+comment|//        assertThat(termsStatsFacet.getEntries().get(0).getTotal(), equalTo(8d));
 block|}
 annotation|@
 name|Test

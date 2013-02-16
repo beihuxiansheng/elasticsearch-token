@@ -72,7 +72,7 @@ name|facet
 operator|.
 name|datehistogram
 operator|.
-name|DateHistogramFacetProcessor
+name|DateHistogramFacetParser
 import|;
 end_import
 
@@ -88,7 +88,7 @@ name|facet
 operator|.
 name|filter
 operator|.
-name|FilterFacetProcessor
+name|FilterFacetParser
 import|;
 end_import
 
@@ -104,7 +104,7 @@ name|facet
 operator|.
 name|geodistance
 operator|.
-name|GeoDistanceFacetProcessor
+name|GeoDistanceFacetParser
 import|;
 end_import
 
@@ -120,7 +120,7 @@ name|facet
 operator|.
 name|histogram
 operator|.
-name|HistogramFacetProcessor
+name|HistogramFacetParser
 import|;
 end_import
 
@@ -136,7 +136,7 @@ name|facet
 operator|.
 name|query
 operator|.
-name|QueryFacetProcessor
+name|QueryFacetParser
 import|;
 end_import
 
@@ -152,7 +152,7 @@ name|facet
 operator|.
 name|range
 operator|.
-name|RangeFacetProcessor
+name|RangeFacetParser
 import|;
 end_import
 
@@ -168,7 +168,7 @@ name|facet
 operator|.
 name|statistical
 operator|.
-name|StatisticalFacetProcessor
+name|StatisticalFacetParser
 import|;
 end_import
 
@@ -184,7 +184,7 @@ name|facet
 operator|.
 name|terms
 operator|.
-name|TermsFacetProcessor
+name|TermsFacetParser
 import|;
 end_import
 
@@ -200,7 +200,7 @@ name|facet
 operator|.
 name|termsstats
 operator|.
-name|TermsStatsFacetProcessor
+name|TermsStatsFacetParser
 import|;
 end_import
 
@@ -234,7 +234,7 @@ name|Class
 argument_list|<
 name|?
 extends|extends
-name|FacetProcessor
+name|FacetParser
 argument_list|>
 argument_list|>
 name|processors
@@ -253,7 +253,7 @@ name|processors
 operator|.
 name|add
 argument_list|(
-name|FilterFacetProcessor
+name|FilterFacetParser
 operator|.
 name|class
 argument_list|)
@@ -262,7 +262,7 @@ name|processors
 operator|.
 name|add
 argument_list|(
-name|QueryFacetProcessor
+name|QueryFacetParser
 operator|.
 name|class
 argument_list|)
@@ -271,7 +271,7 @@ name|processors
 operator|.
 name|add
 argument_list|(
-name|GeoDistanceFacetProcessor
+name|GeoDistanceFacetParser
 operator|.
 name|class
 argument_list|)
@@ -280,7 +280,7 @@ name|processors
 operator|.
 name|add
 argument_list|(
-name|HistogramFacetProcessor
+name|HistogramFacetParser
 operator|.
 name|class
 argument_list|)
@@ -289,7 +289,7 @@ name|processors
 operator|.
 name|add
 argument_list|(
-name|DateHistogramFacetProcessor
+name|DateHistogramFacetParser
 operator|.
 name|class
 argument_list|)
@@ -298,7 +298,7 @@ name|processors
 operator|.
 name|add
 argument_list|(
-name|RangeFacetProcessor
+name|RangeFacetParser
 operator|.
 name|class
 argument_list|)
@@ -307,7 +307,7 @@ name|processors
 operator|.
 name|add
 argument_list|(
-name|StatisticalFacetProcessor
+name|StatisticalFacetParser
 operator|.
 name|class
 argument_list|)
@@ -316,7 +316,7 @@ name|processors
 operator|.
 name|add
 argument_list|(
-name|TermsFacetProcessor
+name|TermsFacetParser
 operator|.
 name|class
 argument_list|)
@@ -325,7 +325,7 @@ name|processors
 operator|.
 name|add
 argument_list|(
-name|TermsStatsFacetProcessor
+name|TermsStatsFacetParser
 operator|.
 name|class
 argument_list|)
@@ -340,7 +340,7 @@ name|Class
 argument_list|<
 name|?
 extends|extends
-name|FacetProcessor
+name|FacetParser
 argument_list|>
 name|facetProcessor
 parameter_list|)
@@ -363,7 +363,7 @@ parameter_list|()
 block|{
 name|Multibinder
 argument_list|<
-name|FacetProcessor
+name|FacetParser
 argument_list|>
 name|multibinder
 init|=
@@ -374,7 +374,7 @@ argument_list|(
 name|binder
 argument_list|()
 argument_list|,
-name|FacetProcessor
+name|FacetParser
 operator|.
 name|class
 argument_list|)
@@ -385,7 +385,7 @@ name|Class
 argument_list|<
 name|?
 extends|extends
-name|FacetProcessor
+name|FacetParser
 argument_list|>
 name|processor
 range|:
@@ -405,7 +405,7 @@ expr_stmt|;
 block|}
 name|bind
 argument_list|(
-name|FacetProcessors
+name|FacetParsers
 operator|.
 name|class
 argument_list|)

@@ -370,7 +370,7 @@ name|put
 argument_list|(
 name|facet
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 name|facet

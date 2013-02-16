@@ -92,17 +92,6 @@ init|=
 literal|"histogram"
 decl_stmt|;
 comment|/**      * An ordered list of histogram facet entries.      */
-DECL|method|entries
-name|List
-argument_list|<
-name|?
-extends|extends
-name|Entry
-argument_list|>
-name|entries
-parameter_list|()
-function_decl|;
-comment|/**      * An ordered list of histogram facet entries.      */
 DECL|method|getEntries
 name|List
 argument_list|<
@@ -188,12 +177,12 @@ return|return
 operator|(
 name|o1
 operator|.
-name|key
+name|getKey
 argument_list|()
 operator|<
 name|o2
 operator|.
-name|key
+name|getKey
 argument_list|()
 condition|?
 operator|-
@@ -202,12 +191,12 @@ else|:
 operator|(
 name|o1
 operator|.
-name|key
+name|getKey
 argument_list|()
 operator|==
 name|o2
 operator|.
-name|key
+name|getKey
 argument_list|()
 condition|?
 literal|0
@@ -289,12 +278,12 @@ return|return
 operator|(
 name|o1
 operator|.
-name|count
+name|getCount
 argument_list|()
 operator|<
 name|o2
 operator|.
-name|count
+name|getCount
 argument_list|()
 condition|?
 operator|-
@@ -303,12 +292,12 @@ else|:
 operator|(
 name|o1
 operator|.
-name|count
+name|getCount
 argument_list|()
 operator|==
 name|o2
 operator|.
-name|count
+name|getCount
 argument_list|()
 condition|?
 literal|0
@@ -390,12 +379,12 @@ return|return
 operator|(
 name|o1
 operator|.
-name|total
+name|getTotal
 argument_list|()
 operator|<
 name|o2
 operator|.
-name|total
+name|getTotal
 argument_list|()
 condition|?
 operator|-
@@ -404,12 +393,12 @@ else|:
 operator|(
 name|o1
 operator|.
-name|total
+name|getTotal
 argument_list|()
 operator|==
 name|o2
 operator|.
-name|total
+name|getTotal
 argument_list|()
 condition|?
 literal|0
@@ -645,21 +634,9 @@ interface|interface
 name|Entry
 block|{
 comment|/**          * The key value of the histogram.          */
-DECL|method|key
-name|long
-name|key
-parameter_list|()
-function_decl|;
-comment|/**          * The key value of the histogram.          */
 DECL|method|getKey
 name|long
 name|getKey
-parameter_list|()
-function_decl|;
-comment|/**          * The number of hits that fall within that key "range" or "interval".          */
-DECL|method|count
-name|long
-name|count
 parameter_list|()
 function_decl|;
 comment|/**          * The number of hits that fall within that key "range" or "interval".          */
@@ -669,21 +646,9 @@ name|getCount
 parameter_list|()
 function_decl|;
 comment|/**          * The total count of values aggregated to compute the total.          */
-DECL|method|totalCount
-name|long
-name|totalCount
-parameter_list|()
-function_decl|;
-comment|/**          * The total count of values aggregated to compute the total.          */
 DECL|method|getTotalCount
 name|long
 name|getTotalCount
-parameter_list|()
-function_decl|;
-comment|/**          * The sum / total of the value field that fall within this key "interval".          */
-DECL|method|total
-name|double
-name|total
 parameter_list|()
 function_decl|;
 comment|/**          * The sum / total of the value field that fall within this key "interval".          */
@@ -693,33 +658,15 @@ name|getTotal
 parameter_list|()
 function_decl|;
 comment|/**          * The mean of this facet interval.          */
-DECL|method|mean
-name|double
-name|mean
-parameter_list|()
-function_decl|;
-comment|/**          * The mean of this facet interval.          */
 DECL|method|getMean
 name|double
 name|getMean
 parameter_list|()
 function_decl|;
 comment|/**          * The minimum value.          */
-DECL|method|min
-name|double
-name|min
-parameter_list|()
-function_decl|;
-comment|/**          * The minimum value.          */
 DECL|method|getMin
 name|double
 name|getMin
-parameter_list|()
-function_decl|;
-comment|/**          * The maximum value.          */
-DECL|method|max
-name|double
-name|max
 parameter_list|()
 function_decl|;
 comment|/**          * The maximum value.          */

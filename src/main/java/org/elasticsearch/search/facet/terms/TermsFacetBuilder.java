@@ -98,7 +98,7 @@ name|search
 operator|.
 name|facet
 operator|.
-name|AbstractFacetBuilder
+name|FacetBuilder
 import|;
 end_import
 
@@ -132,7 +132,7 @@ specifier|public
 class|class
 name|TermsFacetBuilder
 extends|extends
-name|AbstractFacetBuilder
+name|FacetBuilder
 block|{
 DECL|field|fieldName
 specifier|private

@@ -1028,7 +1028,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|size
@@ -1044,7 +1044,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -1052,7 +1052,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|to
+name|getTo
 argument_list|()
 argument_list|,
 name|closeTo
@@ -1067,7 +1067,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -1075,7 +1075,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1088,7 +1088,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -1096,7 +1096,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|total
+name|getTotal
 argument_list|()
 argument_list|,
 name|not
@@ -1114,7 +1114,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -1122,7 +1122,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|from
+name|getFrom
 argument_list|()
 argument_list|,
 name|closeTo
@@ -1137,7 +1137,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -1145,7 +1145,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|to
+name|getTo
 argument_list|()
 argument_list|,
 name|closeTo
@@ -1160,7 +1160,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -1168,7 +1168,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1181,7 +1181,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -1189,7 +1189,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|total
+name|getTotal
 argument_list|()
 argument_list|,
 name|not
@@ -1207,7 +1207,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -1215,7 +1215,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|from
+name|getFrom
 argument_list|()
 argument_list|,
 name|closeTo
@@ -1230,7 +1230,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -1238,7 +1238,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|to
+name|getTo
 argument_list|()
 argument_list|,
 name|closeTo
@@ -1253,7 +1253,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -1261,7 +1261,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1274,7 +1274,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -1282,7 +1282,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|total
+name|getTotal
 argument_list|()
 argument_list|,
 name|not
@@ -1300,7 +1300,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -1308,7 +1308,7 @@ argument_list|(
 literal|3
 argument_list|)
 operator|.
-name|from
+name|getFrom
 argument_list|()
 argument_list|,
 name|closeTo
@@ -1323,7 +1323,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -1331,7 +1331,7 @@ argument_list|(
 literal|3
 argument_list|)
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1344,7 +1344,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -1352,7 +1352,7 @@ argument_list|(
 literal|3
 argument_list|)
 operator|.
-name|total
+name|getTotal
 argument_list|()
 argument_list|,
 name|not
@@ -1475,7 +1475,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|size
@@ -1491,7 +1491,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -1499,7 +1499,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|to
+name|getTo
 argument_list|()
 argument_list|,
 name|closeTo
@@ -1514,7 +1514,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -1522,7 +1522,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1535,7 +1535,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -1543,7 +1543,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|total
+name|getTotal
 argument_list|()
 argument_list|,
 name|closeTo
@@ -1558,7 +1558,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -1566,7 +1566,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|from
+name|getFrom
 argument_list|()
 argument_list|,
 name|closeTo
@@ -1581,7 +1581,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -1589,7 +1589,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|to
+name|getTo
 argument_list|()
 argument_list|,
 name|closeTo
@@ -1604,7 +1604,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -1612,7 +1612,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1625,7 +1625,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -1633,7 +1633,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|total
+name|getTotal
 argument_list|()
 argument_list|,
 name|closeTo
@@ -1648,7 +1648,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -1656,7 +1656,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|from
+name|getFrom
 argument_list|()
 argument_list|,
 name|closeTo
@@ -1671,7 +1671,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -1679,7 +1679,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|to
+name|getTo
 argument_list|()
 argument_list|,
 name|closeTo
@@ -1694,7 +1694,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -1702,7 +1702,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1715,7 +1715,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -1723,7 +1723,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|total
+name|getTotal
 argument_list|()
 argument_list|,
 name|closeTo
@@ -1738,7 +1738,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -1746,7 +1746,7 @@ argument_list|(
 literal|3
 argument_list|)
 operator|.
-name|from
+name|getFrom
 argument_list|()
 argument_list|,
 name|closeTo
@@ -1761,7 +1761,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -1769,7 +1769,7 @@ argument_list|(
 literal|3
 argument_list|)
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1782,7 +1782,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -1790,7 +1790,7 @@ argument_list|(
 literal|3
 argument_list|)
 operator|.
-name|total
+name|getTotal
 argument_list|()
 argument_list|,
 name|closeTo
@@ -1910,7 +1910,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|size
@@ -1926,7 +1926,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -1934,7 +1934,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|to
+name|getTo
 argument_list|()
 argument_list|,
 name|closeTo
@@ -1949,7 +1949,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -1957,7 +1957,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1970,7 +1970,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -1978,7 +1978,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|total
+name|getTotal
 argument_list|()
 argument_list|,
 name|closeTo
@@ -1993,7 +1993,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -2001,7 +2001,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|from
+name|getFrom
 argument_list|()
 argument_list|,
 name|closeTo
@@ -2016,7 +2016,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -2024,7 +2024,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|to
+name|getTo
 argument_list|()
 argument_list|,
 name|closeTo
@@ -2039,7 +2039,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -2047,7 +2047,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2060,7 +2060,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -2068,7 +2068,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|total
+name|getTotal
 argument_list|()
 argument_list|,
 name|closeTo
@@ -2083,7 +2083,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -2091,7 +2091,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|from
+name|getFrom
 argument_list|()
 argument_list|,
 name|closeTo
@@ -2106,7 +2106,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -2114,7 +2114,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|to
+name|getTo
 argument_list|()
 argument_list|,
 name|closeTo
@@ -2129,7 +2129,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -2137,7 +2137,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2150,7 +2150,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -2158,7 +2158,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|total
+name|getTotal
 argument_list|()
 argument_list|,
 name|closeTo
@@ -2173,7 +2173,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -2181,7 +2181,7 @@ argument_list|(
 literal|3
 argument_list|)
 operator|.
-name|from
+name|getFrom
 argument_list|()
 argument_list|,
 name|closeTo
@@ -2196,7 +2196,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -2204,7 +2204,7 @@ argument_list|(
 literal|3
 argument_list|)
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2217,7 +2217,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -2225,7 +2225,7 @@ argument_list|(
 literal|3
 argument_list|)
 operator|.
-name|total
+name|getTotal
 argument_list|()
 argument_list|,
 name|closeTo
@@ -2690,7 +2690,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|size
@@ -2706,7 +2706,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -2714,7 +2714,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|from
+name|getFrom
 argument_list|()
 argument_list|,
 name|closeTo
@@ -2729,7 +2729,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -2737,7 +2737,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|to
+name|getTo
 argument_list|()
 argument_list|,
 name|closeTo
@@ -2752,7 +2752,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -2760,7 +2760,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2773,7 +2773,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -2781,7 +2781,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|from
+name|getFrom
 argument_list|()
 argument_list|,
 name|closeTo
@@ -2796,7 +2796,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -2804,7 +2804,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|to
+name|getTo
 argument_list|()
 argument_list|,
 name|closeTo
@@ -2819,7 +2819,7 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
-name|entries
+name|getEntries
 argument_list|()
 operator|.
 name|get
@@ -2827,7 +2827,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
