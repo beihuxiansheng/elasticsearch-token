@@ -8402,6 +8402,26 @@ operator|.
 name|this
 operator|.
 name|termIndexDivisor
+operator|||
+name|indexConcurrency
+operator|!=
+name|RobinEngine
+operator|.
+name|this
+operator|.
+name|indexConcurrency
+operator|||
+operator|!
+name|codecName
+operator|.
+name|equals
+argument_list|(
+name|RobinEngine
+operator|.
+name|this
+operator|.
+name|codecName
+argument_list|)
 condition|)
 block|{
 name|rwl
@@ -8587,7 +8607,7 @@ name|codecName
 operator|=
 name|codecName
 expr_stmt|;
-comment|// TODO: Lucene 4, I think once someones changes codec, it should be reflected immediately
+comment|// we want to flush in this case, so the new codec will be reflected right away...
 name|requiresFlushing
 operator|=
 literal|true
