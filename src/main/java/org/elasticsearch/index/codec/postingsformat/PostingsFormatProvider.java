@@ -109,7 +109,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link PostingsFormatProvider} acts as a named container for specific  * {@link PostingsFormat} implementations. Custom {@link PostingsFormat}  * implementations can be exposed via  * {@link CodecModule#addPostingFormat(String, Class)}  *<p>  * Each {@link PostingsFormatProvider} must provide a unique name for its  * postings format in order to map the postings format to a specific field via  * the mapping API. The name provided via {@link #name()} is used to lookup the  * postings format in {@link PostingsFormatService#get(String)} and should be  * identical to the values used in the field mappings.  *</p>  *<p>  * {@link PostingsFormatProvider} instances are initialized with a  * {@link Settings} subset below the  * {@value PostingsFormatProvider#POSTINGS_FORMAT_SETTINGS_PREFIX} prefix and  * will only see the sub-tree below their mapping name. For instance a postings  * format<tt>ElasticFantastic</tt> will see settings below  *<tt>index.codec.postings_format.elastic_fantastic</tt> given that the  * postings format is exposed via  *<tt>index.codec.postings_format.elastic_fantastic.type : "ElasticFantastic"</tt>.  *</p>  *   * @see CodecModule  */
+comment|/**  * A {@link PostingsFormatProvider} acts as a named container for specific  * {@link PostingsFormat} implementations. Custom {@link PostingsFormat}  * implementations can be exposed via  * {@link CodecModule#addPostingFormat(String, Class)}  *<p>  * Each {@link PostingsFormatProvider} must provide a unique name for its  * postings format in order to map the postings format to a specific field via  * the mapping API. The name provided via {@link #name()} is used to lookup the  * postings format in {@link PostingsFormatService#get(String)} and should be  * identical to the values used in the field mappings.  *</p>  *<p>  * {@link PostingsFormatProvider} instances are initialized with a  * {@link Settings} subset below the  * {@value PostingsFormatProvider#POSTINGS_FORMAT_SETTINGS_PREFIX} prefix and  * will only see the sub-tree below their mapping name. For instance a postings  * format<tt>ElasticFantastic</tt> will see settings below  *<tt>index.codec.postings_format.elastic_fantastic</tt> given that the  * postings format is exposed via  *<tt>index.codec.postings_format.elastic_fantastic.type : "ElasticFantastic"</tt>.  *</p>  *  * @see CodecModule  */
 end_comment
 
 begin_interface
@@ -134,7 +134,7 @@ specifier|static
 class|class
 name|Helper
 block|{
-comment|/**          * Looks up and creates {@link PostingsFormatProvider} for the given name.          *<p>          * The settings for the created {@link PostingsFormatProvider} is taken from the given index settings.           * All settings with the {@value PostingsFormatProvider#POSTINGS_FORMAT_SETTINGS_PREFIX} prefix          * and the formats name as the key are passed to the factory.          *</p>            *            * @param indexSettings the index settings to configure the postings format           * @param name the name of the postings format to lookup          * @param postingFormatFactories the factory mapping to lookup the {@link Factory} to create the {@link PostingsFormatProvider}          * @return a fully configured {@link PostingsFormatProvider} for the given name.          * @throws ElasticSearchIllegalArgumentException if the no {@link PostingsFormatProvider} for the given name parameter could be found.          */
+comment|/**          * Looks up and creates {@link PostingsFormatProvider} for the given name.          *<p>          * The settings for the created {@link PostingsFormatProvider} is taken from the given index settings.          * All settings with the {@value PostingsFormatProvider#POSTINGS_FORMAT_SETTINGS_PREFIX} prefix          * and the formats name as the key are passed to the factory.          *</p>          *          * @param indexSettings          the index settings to configure the postings format          * @param name                   the name of the postings format to lookup          * @param postingFormatFactories the factory mapping to lookup the {@link Factory} to create the {@link PostingsFormatProvider}          * @return a fully configured {@link PostingsFormatProvider} for the given name.          * @throws ElasticSearchIllegalArgumentException          *          if the no {@link PostingsFormatProvider} for the given name parameter could be found.          */
 DECL|method|lookup
 specifier|public
 specifier|static
@@ -244,7 +244,7 @@ name|String
 name|name
 parameter_list|()
 function_decl|;
-comment|/**      * A simple factory used to create {@link PostingsFormatProvider} used by      * delegating providers like {@link BloomFilterPostingsFormatProvider} or      * {@link PulsingPostingsFormatProvider}. Those providers wrap other      * postings formats to enrich their capabilities.      */
+comment|/**      * A simple factory used to create {@link PostingsFormatProvider} used by      * delegating providers like {@link BloomFilterLucenePostingsFormatProvider} or      * {@link PulsingPostingsFormatProvider}. Those providers wrap other      * postings formats to enrich their capabilities.      */
 DECL|interface|Factory
 specifier|public
 interface|interface
