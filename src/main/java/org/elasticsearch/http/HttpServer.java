@@ -730,16 +730,20 @@ name|sitePath
 operator|=
 literal|null
 expr_stmt|;
-comment|// TODO This is a path in the form of "/_plugin/head", without a trailing "/", which messes up
-comment|// resources fetching if it does not exists, a better solution would be to send a redirect
+comment|// If a trailing / is missing, we redirect to the right page #2654
 name|channel
 operator|.
 name|sendResponse
 argument_list|(
 operator|new
-name|StringRestResponse
+name|HttpRedirectRestResponse
 argument_list|(
-name|NOT_FOUND
+name|request
+operator|.
+name|rawPath
+argument_list|()
+operator|+
+literal|"/"
 argument_list|)
 argument_list|)
 expr_stmt|;
