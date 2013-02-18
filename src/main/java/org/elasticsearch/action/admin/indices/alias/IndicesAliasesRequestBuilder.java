@@ -349,7 +349,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|timeout
+name|setTimeout
 argument_list|(
 name|timeout
 argument_list|)

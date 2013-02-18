@@ -648,7 +648,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|operationThreading
+name|getOperationThreading
 argument_list|()
 operator|==
 name|SearchOperationThreading
@@ -762,7 +762,7 @@ name|localAsync
 init|=
 name|request
 operator|.
-name|operationThreading
+name|getOperationThreading
 argument_list|()
 operator|==
 name|SearchOperationThreading
@@ -1164,7 +1164,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|scroll
+name|getScroll
 argument_list|()
 operator|!=
 literal|null
@@ -1176,7 +1176,7 @@ name|buildScrollId
 argument_list|(
 name|request
 operator|.
-name|searchType
+name|getSearchType
 argument_list|()
 argument_list|,
 name|dfsResults

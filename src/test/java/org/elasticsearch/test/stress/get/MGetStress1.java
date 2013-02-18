@@ -524,7 +524,7 @@ if|if
 condition|(
 name|item
 operator|.
-name|failed
+name|isFailed
 argument_list|()
 condition|)
 block|{
@@ -538,7 +538,7 @@ literal|"item failed... "
 operator|+
 name|item
 operator|.
-name|failure
+name|getFailure
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -554,7 +554,7 @@ name|remove
 argument_list|(
 name|item
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -574,7 +574,7 @@ literal|"got id twice "
 operator|+
 name|item
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;

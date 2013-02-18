@@ -526,7 +526,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|valid
+name|isValid
 argument_list|()
 argument_list|,
 name|equalTo
@@ -566,7 +566,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|valid
+name|isValid
 argument_list|()
 argument_list|,
 name|equalTo
@@ -606,7 +606,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|valid
+name|isValid
 argument_list|()
 argument_list|,
 name|equalTo
@@ -646,7 +646,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|valid
+name|isValid
 argument_list|()
 argument_list|,
 name|equalTo
@@ -686,7 +686,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|valid
+name|isValid
 argument_list|()
 argument_list|,
 name|equalTo
@@ -726,7 +726,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|valid
+name|isValid
 argument_list|()
 argument_list|,
 name|equalTo
@@ -766,7 +766,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|valid
+name|isValid
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1136,7 +1136,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|valid
+name|isValid
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1149,7 +1149,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|queryExplanations
+name|getQueryExplanation
 argument_list|()
 operator|.
 name|size
@@ -1165,7 +1165,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|queryExplanations
+name|getQueryExplanation
 argument_list|()
 operator|.
 name|get
@@ -1173,7 +1173,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|error
+name|getError
 argument_list|()
 argument_list|,
 name|containsString
@@ -1186,7 +1186,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|queryExplanations
+name|getQueryExplanation
 argument_list|()
 operator|.
 name|get
@@ -1194,7 +1194,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 argument_list|,
 name|nullValue
@@ -2013,7 +2013,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|valid
+name|isValid
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2026,7 +2026,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|queryExplanations
+name|getQueryExplanation
 argument_list|()
 operator|.
 name|size
@@ -2042,7 +2042,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|queryExplanations
+name|getQueryExplanation
 argument_list|()
 operator|.
 name|get
@@ -2050,7 +2050,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|error
+name|getError
 argument_list|()
 argument_list|,
 name|containsString
@@ -2063,7 +2063,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|queryExplanations
+name|getQueryExplanation
 argument_list|()
 operator|.
 name|get
@@ -2071,7 +2071,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 argument_list|,
 name|nullValue
@@ -2119,7 +2119,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|valid
+name|isValid
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2132,7 +2132,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|queryExplanations
+name|getQueryExplanation
 argument_list|()
 operator|.
 name|size
@@ -2148,7 +2148,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|queryExplanations
+name|getQueryExplanation
 argument_list|()
 operator|.
 name|get
@@ -2156,7 +2156,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|error
+name|getError
 argument_list|()
 argument_list|,
 name|containsString
@@ -2169,7 +2169,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|queryExplanations
+name|getQueryExplanation
 argument_list|()
 operator|.
 name|get
@@ -2177,7 +2177,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 argument_list|,
 name|nullValue
@@ -2227,7 +2227,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|valid
+name|isValid
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2240,7 +2240,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|queryExplanations
+name|getQueryExplanation
 argument_list|()
 operator|.
 name|size
@@ -2256,7 +2256,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|queryExplanations
+name|getQueryExplanation
 argument_list|()
 operator|.
 name|get
@@ -2264,7 +2264,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2277,7 +2277,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|queryExplanations
+name|getQueryExplanation
 argument_list|()
 operator|.
 name|get
@@ -2285,7 +2285,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|error
+name|getError
 argument_list|()
 argument_list|,
 name|nullValue
@@ -2335,7 +2335,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|valid
+name|isValid
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2348,7 +2348,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|queryExplanations
+name|getQueryExplanation
 argument_list|()
 operator|.
 name|size
@@ -2364,7 +2364,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|queryExplanations
+name|getQueryExplanation
 argument_list|()
 operator|.
 name|get
@@ -2372,7 +2372,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2385,7 +2385,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|queryExplanations
+name|getQueryExplanation
 argument_list|()
 operator|.
 name|get
@@ -2393,7 +2393,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|error
+name|getError
 argument_list|()
 argument_list|,
 name|nullValue
@@ -2457,7 +2457,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|queryExplanations
+name|getQueryExplanation
 argument_list|()
 operator|.
 name|size
@@ -2473,7 +2473,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|queryExplanations
+name|getQueryExplanation
 argument_list|()
 operator|.
 name|get
@@ -2481,7 +2481,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|error
+name|getError
 argument_list|()
 argument_list|,
 name|nullValue
@@ -2492,7 +2492,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|queryExplanations
+name|getQueryExplanation
 argument_list|()
 operator|.
 name|get
@@ -2500,7 +2500,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 argument_list|,
 name|matcher
@@ -2510,7 +2510,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|valid
+name|isValid
 argument_list|()
 argument_list|,
 name|equalTo

@@ -453,17 +453,6 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Does the document exists.      */
-DECL|method|exists
-specifier|public
-name|boolean
-name|exists
-parameter_list|()
-block|{
-return|return
-name|exists
-return|;
-block|}
-comment|/**      * Does the document exists.      */
 DECL|method|isExists
 specifier|public
 name|boolean
@@ -472,19 +461,6 @@ parameter_list|()
 block|{
 return|return
 name|exists
-return|;
-block|}
-comment|/**      * The index the document was fetched from.      */
-DECL|method|index
-specifier|public
-name|String
-name|index
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|index
 return|;
 block|}
 comment|/**      * The index the document was fetched from.      */
@@ -499,17 +475,6 @@ name|index
 return|;
 block|}
 comment|/**      * The type of the document.      */
-DECL|method|type
-specifier|public
-name|String
-name|type
-parameter_list|()
-block|{
-return|return
-name|type
-return|;
-block|}
-comment|/**      * The type of the document.      */
 DECL|method|getType
 specifier|public
 name|String
@@ -518,17 +483,6 @@ parameter_list|()
 block|{
 return|return
 name|type
-return|;
-block|}
-comment|/**      * The id of the document.      */
-DECL|method|id
-specifier|public
-name|String
-name|id
-parameter_list|()
-block|{
-return|return
-name|id
 return|;
 block|}
 comment|/**      * The id of the document.      */
@@ -543,19 +497,6 @@ name|id
 return|;
 block|}
 comment|/**      * The version of the doc.      */
-DECL|method|version
-specifier|public
-name|long
-name|version
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|version
-return|;
-block|}
-comment|/**      * The version of the doc.      */
 DECL|method|getVersion
 specifier|public
 name|long
@@ -563,8 +504,6 @@ name|getVersion
 parameter_list|()
 block|{
 return|return
-name|this
-operator|.
 name|version
 return|;
 block|}
@@ -807,23 +746,6 @@ name|sourceAsMap
 argument_list|()
 return|;
 block|}
-DECL|method|fields
-specifier|public
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|GetField
-argument_list|>
-name|fields
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|fields
-return|;
-block|}
 DECL|method|getFields
 specifier|public
 name|Map
@@ -1050,7 +972,7 @@ if|if
 condition|(
 name|field
 operator|.
-name|values
+name|getValues
 argument_list|()
 operator|.
 name|isEmpty
@@ -1063,7 +985,7 @@ if|if
 condition|(
 name|field
 operator|.
-name|values
+name|getValues
 argument_list|()
 operator|.
 name|size
@@ -1078,12 +1000,12 @@ name|field
 argument_list|(
 name|field
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 name|field
 operator|.
-name|values
+name|getValues
 argument_list|()
 operator|.
 name|get
@@ -1101,7 +1023,7 @@ name|field
 argument_list|(
 name|field
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1117,7 +1039,7 @@ name|value
 range|:
 name|field
 operator|.
-name|values
+name|getValues
 argument_list|()
 control|)
 block|{
@@ -1165,7 +1087,7 @@ block|{
 if|if
 condition|(
 operator|!
-name|exists
+name|isExists
 argument_list|()
 condition|)
 block|{
@@ -1467,7 +1389,7 @@ name|put
 argument_list|(
 name|field
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 name|field

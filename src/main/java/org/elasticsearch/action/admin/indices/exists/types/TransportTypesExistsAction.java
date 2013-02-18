@@ -314,7 +314,7 @@ name|METADATA
 argument_list|,
 name|request
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 argument_list|)
 return|;
@@ -348,12 +348,12 @@ name|concreteIndices
 argument_list|(
 name|request
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 argument_list|,
 name|request
 operator|.
-name|ignoreIndices
+name|getIgnoreIndices
 argument_list|()
 argument_list|,
 literal|false
@@ -453,7 +453,7 @@ name|type
 range|:
 name|request
 operator|.
-name|types
+name|getTypes
 argument_list|()
 control|)
 block|{

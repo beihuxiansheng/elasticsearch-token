@@ -149,7 +149,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|transientSettings
+name|setTransientSettings
 argument_list|(
 name|settings
 argument_list|)
@@ -171,7 +171,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|transientSettings
+name|setTransientSettings
 argument_list|(
 name|settings
 argument_list|)
@@ -191,7 +191,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|transientSettings
+name|setTransientSettings
 argument_list|(
 name|settings
 argument_list|)
@@ -211,7 +211,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|transientSettings
+name|setTransientSettings
 argument_list|(
 name|settings
 argument_list|)
@@ -231,7 +231,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|persistentSettings
+name|setPersistentSettings
 argument_list|(
 name|settings
 argument_list|)
@@ -253,7 +253,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|persistentSettings
+name|setPersistentSettings
 argument_list|(
 name|settings
 argument_list|)
@@ -273,7 +273,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|persistentSettings
+name|setPersistentSettings
 argument_list|(
 name|settings
 argument_list|)
@@ -293,7 +293,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|persistentSettings
+name|setPersistentSettings
 argument_list|(
 name|settings
 argument_list|)

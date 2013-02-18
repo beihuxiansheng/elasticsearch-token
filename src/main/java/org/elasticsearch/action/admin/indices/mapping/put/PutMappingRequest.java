@@ -233,7 +233,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Puts mapping definition registered under a specific type into one or more indices. Best created with  * {@link org.elasticsearch.client.Requests#putMappingRequest(String...)}.  *<p/>  *<p>If the mappings already exists, the new mappings will be merged with the new one. If there are elements  * that can't be merged are detected, the request will be rejected unless the {@link #ignoreConflicts(boolean)}  * is set. In such a case, the duplicate mappings will be rejected.  *  * @see org.elasticsearch.client.Requests#putMappingRequest(String...)  * @see org.elasticsearch.client.IndicesAdminClient#putMapping(PutMappingRequest)  * @see PutMappingResponse  */
+comment|/**  * Puts mapping definition registered under a specific type into one or more indices. Best created with  * {@link org.elasticsearch.client.Requests#putMappingRequest(String...)}.  *<p/>  *<p>If the mappings already exists, the new mappings will be merged with the new one. If there are elements  * that can't be merged are detected, the request will be rejected unless the {@link #setIgnoreConflicts(boolean)}  * is set. In such a case, the duplicate mappings will be rejected.  *  * @see org.elasticsearch.client.Requests#putMappingRequest(String...)  * @see org.elasticsearch.client.IndicesAdminClient#putMapping(PutMappingRequest)  * @see PutMappingResponse  */
 end_comment
 
 begin_class
@@ -253,15 +253,15 @@ name|String
 index|[]
 name|indices
 decl_stmt|;
-DECL|field|mappingType
+DECL|field|type
 specifier|private
 name|String
-name|mappingType
+name|type
 decl_stmt|;
-DECL|field|mappingSource
+DECL|field|source
 specifier|private
 name|String
-name|mappingSource
+name|source
 decl_stmt|;
 DECL|field|timeout
 specifier|private
@@ -321,7 +321,7 @@ literal|null
 decl_stmt|;
 if|if
 condition|(
-name|mappingType
+name|type
 operator|==
 literal|null
 condition|)
@@ -338,7 +338,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|mappingSource
+name|source
 operator|==
 literal|null
 condition|)
@@ -358,10 +358,10 @@ name|validationException
 return|;
 block|}
 comment|/**      * Sets the indices this put mapping operation will execute on.      */
-DECL|method|indices
+DECL|method|setIndices
 specifier|public
 name|PutMappingRequest
-name|indices
+name|setIndices
 parameter_list|(
 name|String
 index|[]
@@ -379,11 +379,11 @@ name|this
 return|;
 block|}
 comment|/**      * The indices the mappings will be put.      */
-DECL|method|indices
+DECL|method|getIndices
 specifier|public
 name|String
 index|[]
-name|indices
+name|getIndices
 parameter_list|()
 block|{
 return|return
@@ -391,55 +391,56 @@ name|indices
 return|;
 block|}
 comment|/**      * The mapping type.      */
-DECL|method|type
+DECL|method|getType
 specifier|public
 name|String
-name|type
+name|getType
 parameter_list|()
 block|{
 return|return
-name|mappingType
+name|type
 return|;
 block|}
 comment|/**      * The type of the mappings.      */
 annotation|@
 name|Required
-DECL|method|type
+DECL|method|setType
 specifier|public
 name|PutMappingRequest
-name|type
+name|setType
 parameter_list|(
 name|String
-name|mappingType
+name|type
 parameter_list|)
 block|{
 name|this
 operator|.
-name|mappingType
+name|type
 operator|=
-name|mappingType
+name|type
 expr_stmt|;
 return|return
 name|this
 return|;
 block|}
 comment|/**      * The mapping source definition.      */
-DECL|method|source
+DECL|method|getSource
+specifier|public
 name|String
-name|source
+name|getSource
 parameter_list|()
 block|{
 return|return
-name|mappingSource
+name|source
 return|;
 block|}
 comment|/**      * The mapping source definition.      */
 annotation|@
 name|Required
-DECL|method|source
+DECL|method|setSource
 specifier|public
 name|PutMappingRequest
-name|source
+name|setSource
 parameter_list|(
 name|XContentBuilder
 name|mappingBuilder
@@ -448,7 +449,7 @@ block|{
 try|try
 block|{
 return|return
-name|source
+name|setSource
 argument_list|(
 name|mappingBuilder
 operator|.
@@ -477,10 +478,10 @@ block|}
 comment|/**      * The mapping source definition.      */
 annotation|@
 name|Required
-DECL|method|source
+DECL|method|setSource
 specifier|public
 name|PutMappingRequest
-name|source
+name|setSource
 parameter_list|(
 name|Map
 name|mappingSource
@@ -508,7 +509,7 @@ name|mappingSource
 argument_list|)
 expr_stmt|;
 return|return
-name|source
+name|setSource
 argument_list|(
 name|builder
 operator|.
@@ -541,10 +542,10 @@ block|}
 comment|/**      * The mapping source definition.      */
 annotation|@
 name|Required
-DECL|method|source
+DECL|method|setSource
 specifier|public
 name|PutMappingRequest
-name|source
+name|setSource
 parameter_list|(
 name|String
 name|mappingSource
@@ -552,7 +553,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|mappingSource
+name|source
 operator|=
 name|mappingSource
 expr_stmt|;
@@ -561,9 +562,10 @@ name|this
 return|;
 block|}
 comment|/**      * Timeout to wait till the put mapping gets acknowledged of all current cluster nodes. Defaults to      *<tt>10s</tt>.      */
-DECL|method|timeout
+DECL|method|getTimeout
+specifier|public
 name|TimeValue
-name|timeout
+name|getTimeout
 parameter_list|()
 block|{
 return|return
@@ -571,10 +573,10 @@ name|timeout
 return|;
 block|}
 comment|/**      * Timeout to wait till the put mapping gets acknowledged of all current cluster nodes. Defaults to      *<tt>10s</tt>.      */
-DECL|method|timeout
+DECL|method|setTimeout
 specifier|public
 name|PutMappingRequest
-name|timeout
+name|setTimeout
 parameter_list|(
 name|TimeValue
 name|timeout
@@ -591,17 +593,17 @@ name|this
 return|;
 block|}
 comment|/**      * Timeout to wait till the put mapping gets acknowledged of all current cluster nodes. Defaults to      *<tt>10s</tt>.      */
-DECL|method|timeout
+DECL|method|setTimeout
 specifier|public
 name|PutMappingRequest
-name|timeout
+name|setTimeout
 parameter_list|(
 name|String
 name|timeout
 parameter_list|)
 block|{
 return|return
-name|timeout
+name|setTimeout
 argument_list|(
 name|TimeValue
 operator|.
@@ -614,22 +616,22 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * If there is already a mapping definition registered against the type, then it will be merged. If there are      * elements that can't be merged are detected, the request will be rejected unless the      * {@link #ignoreConflicts(boolean)} is set. In such a case, the duplicate mappings will be rejected.      */
-DECL|method|ignoreConflicts
+comment|/**      * If there is already a mapping definition registered against the type, then it will be merged. If there are      * elements that can't be merged are detected, the request will be rejected unless the      * {@link #setIgnoreConflicts(boolean)} is set. In such a case, the duplicate mappings will be rejected.      */
+DECL|method|isIgnoreConflicts
 specifier|public
 name|boolean
-name|ignoreConflicts
+name|isIgnoreConflicts
 parameter_list|()
 block|{
 return|return
 name|ignoreConflicts
 return|;
 block|}
-comment|/**      * If there is already a mapping definition registered against the type, then it will be merged. If there are      * elements that can't be merged are detected, the request will be rejected unless the      * {@link #ignoreConflicts(boolean)} is set. In such a case, the duplicate mappings will be rejected.      */
-DECL|method|ignoreConflicts
+comment|/**      * If there is already a mapping definition registered against the type, then it will be merged. If there are      * elements that can't be merged are detected, the request will be rejected unless the      * {@link #setIgnoreConflicts(boolean)} is set. In such a case, the duplicate mappings will be rejected.      */
+DECL|method|setIgnoreConflicts
 specifier|public
 name|PutMappingRequest
-name|ignoreConflicts
+name|setIgnoreConflicts
 parameter_list|(
 name|boolean
 name|ignoreDuplicates
@@ -672,14 +674,14 @@ operator|.
 name|readStringArray
 argument_list|()
 expr_stmt|;
-name|mappingType
+name|type
 operator|=
 name|in
 operator|.
 name|readOptionalString
 argument_list|()
 expr_stmt|;
-name|mappingSource
+name|source
 operator|=
 name|in
 operator|.
@@ -732,14 +734,14 @@ name|out
 operator|.
 name|writeOptionalString
 argument_list|(
-name|mappingType
+name|type
 argument_list|)
 expr_stmt|;
 name|out
 operator|.
 name|writeString
 argument_list|(
-name|mappingSource
+name|source
 argument_list|)
 expr_stmt|;
 name|timeout

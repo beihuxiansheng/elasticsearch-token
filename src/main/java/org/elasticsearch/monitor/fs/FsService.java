@@ -181,7 +181,7 @@ argument_list|()
 operator|-
 name|cachedStats
 operator|.
-name|timestamp
+name|getTimestamp
 argument_list|()
 operator|)
 operator|>

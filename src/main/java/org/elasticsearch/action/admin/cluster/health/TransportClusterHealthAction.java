@@ -374,7 +374,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|waitForStatus
+name|getWaitForStatus
 argument_list|()
 operator|==
 literal|null
@@ -388,7 +388,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|waitForRelocatingShards
+name|getWaitForRelocatingShards
 argument_list|()
 operator|==
 operator|-
@@ -403,7 +403,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|waitForActiveShards
+name|getWaitForActiveShards
 argument_list|()
 operator|==
 operator|-
@@ -418,7 +418,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|waitForNodes
+name|getWaitForNodes
 argument_list|()
 operator|.
 name|isEmpty
@@ -433,7 +433,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|length
@@ -481,7 +481,7 @@ argument_list|()
 operator|+
 name|request
 operator|.
-name|timeout
+name|getTimeout
 argument_list|()
 operator|.
 name|millis
@@ -519,14 +519,14 @@ if|if
 condition|(
 name|request
 operator|.
-name|waitForStatus
+name|getWaitForStatus
 argument_list|()
 operator|!=
 literal|null
 operator|&&
 name|response
 operator|.
-name|status
+name|getStatus
 argument_list|()
 operator|.
 name|value
@@ -534,7 +534,7 @@ argument_list|()
 operator|<=
 name|request
 operator|.
-name|waitForStatus
+name|getWaitForStatus
 argument_list|()
 operator|.
 name|value
@@ -549,7 +549,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|waitForRelocatingShards
+name|getWaitForRelocatingShards
 argument_list|()
 operator|!=
 operator|-
@@ -557,12 +557,12 @@ literal|1
 operator|&&
 name|response
 operator|.
-name|relocatingShards
+name|getRelocatingShards
 argument_list|()
 operator|<=
 name|request
 operator|.
-name|waitForRelocatingShards
+name|getWaitForRelocatingShards
 argument_list|()
 condition|)
 block|{
@@ -574,7 +574,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|waitForActiveShards
+name|getWaitForActiveShards
 argument_list|()
 operator|!=
 operator|-
@@ -582,12 +582,12 @@ literal|1
 operator|&&
 name|response
 operator|.
-name|activeShards
+name|getActiveShards
 argument_list|()
 operator|>=
 name|request
 operator|.
-name|waitForActiveShards
+name|getWaitForActiveShards
 argument_list|()
 condition|)
 block|{
@@ -599,7 +599,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|length
@@ -618,7 +618,7 @@ name|concreteIndices
 argument_list|(
 name|request
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -649,7 +649,7 @@ condition|(
 operator|!
 name|request
 operator|.
-name|waitForNodes
+name|getWaitForNodes
 argument_list|()
 operator|.
 name|isEmpty
@@ -660,7 +660,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|waitForNodes
+name|getWaitForNodes
 argument_list|()
 operator|.
 name|startsWith
@@ -678,7 +678,7 @@ name|parseInt
 argument_list|(
 name|request
 operator|.
-name|waitForNodes
+name|getWaitForNodes
 argument_list|()
 operator|.
 name|substring
@@ -691,7 +691,7 @@ if|if
 condition|(
 name|response
 operator|.
-name|numberOfNodes
+name|getNumberOfNodes
 argument_list|()
 operator|>=
 name|expected
@@ -707,7 +707,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|waitForNodes
+name|getWaitForNodes
 argument_list|()
 operator|.
 name|startsWith
@@ -725,7 +725,7 @@ name|parseInt
 argument_list|(
 name|request
 operator|.
-name|waitForNodes
+name|getWaitForNodes
 argument_list|()
 operator|.
 name|substring
@@ -734,7 +734,7 @@ literal|3
 argument_list|,
 name|request
 operator|.
-name|waitForNodes
+name|getWaitForNodes
 argument_list|()
 operator|.
 name|length
@@ -748,7 +748,7 @@ if|if
 condition|(
 name|response
 operator|.
-name|numberOfNodes
+name|getNumberOfNodes
 argument_list|()
 operator|>=
 name|expected
@@ -764,7 +764,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|waitForNodes
+name|getWaitForNodes
 argument_list|()
 operator|.
 name|startsWith
@@ -782,7 +782,7 @@ name|parseInt
 argument_list|(
 name|request
 operator|.
-name|waitForNodes
+name|getWaitForNodes
 argument_list|()
 operator|.
 name|substring
@@ -795,7 +795,7 @@ if|if
 condition|(
 name|response
 operator|.
-name|numberOfNodes
+name|getNumberOfNodes
 argument_list|()
 operator|<=
 name|expected
@@ -811,7 +811,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|waitForNodes
+name|getWaitForNodes
 argument_list|()
 operator|.
 name|startsWith
@@ -829,7 +829,7 @@ name|parseInt
 argument_list|(
 name|request
 operator|.
-name|waitForNodes
+name|getWaitForNodes
 argument_list|()
 operator|.
 name|substring
@@ -838,7 +838,7 @@ literal|3
 argument_list|,
 name|request
 operator|.
-name|waitForNodes
+name|getWaitForNodes
 argument_list|()
 operator|.
 name|length
@@ -852,7 +852,7 @@ if|if
 condition|(
 name|response
 operator|.
-name|numberOfNodes
+name|getNumberOfNodes
 argument_list|()
 operator|<=
 name|expected
@@ -868,7 +868,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|waitForNodes
+name|getWaitForNodes
 argument_list|()
 operator|.
 name|startsWith
@@ -886,7 +886,7 @@ name|parseInt
 argument_list|(
 name|request
 operator|.
-name|waitForNodes
+name|getWaitForNodes
 argument_list|()
 operator|.
 name|substring
@@ -899,7 +899,7 @@ if|if
 condition|(
 name|response
 operator|.
-name|numberOfNodes
+name|getNumberOfNodes
 argument_list|()
 operator|>
 name|expected
@@ -915,7 +915,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|waitForNodes
+name|getWaitForNodes
 argument_list|()
 operator|.
 name|startsWith
@@ -933,7 +933,7 @@ name|parseInt
 argument_list|(
 name|request
 operator|.
-name|waitForNodes
+name|getWaitForNodes
 argument_list|()
 operator|.
 name|substring
@@ -942,7 +942,7 @@ literal|3
 argument_list|,
 name|request
 operator|.
-name|waitForNodes
+name|getWaitForNodes
 argument_list|()
 operator|.
 name|length
@@ -956,7 +956,7 @@ if|if
 condition|(
 name|response
 operator|.
-name|numberOfNodes
+name|getNumberOfNodes
 argument_list|()
 operator|>
 name|expected
@@ -972,7 +972,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|waitForNodes
+name|getWaitForNodes
 argument_list|()
 operator|.
 name|startsWith
@@ -990,7 +990,7 @@ name|parseInt
 argument_list|(
 name|request
 operator|.
-name|waitForNodes
+name|getWaitForNodes
 argument_list|()
 operator|.
 name|substring
@@ -1003,7 +1003,7 @@ if|if
 condition|(
 name|response
 operator|.
-name|numberOfNodes
+name|getNumberOfNodes
 argument_list|()
 operator|<
 name|expected
@@ -1019,7 +1019,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|waitForNodes
+name|getWaitForNodes
 argument_list|()
 operator|.
 name|startsWith
@@ -1037,7 +1037,7 @@ name|parseInt
 argument_list|(
 name|request
 operator|.
-name|waitForNodes
+name|getWaitForNodes
 argument_list|()
 operator|.
 name|substring
@@ -1046,7 +1046,7 @@ literal|3
 argument_list|,
 name|request
 operator|.
-name|waitForNodes
+name|getWaitForNodes
 argument_list|()
 operator|.
 name|length
@@ -1060,7 +1060,7 @@ if|if
 condition|(
 name|response
 operator|.
-name|numberOfNodes
+name|getNumberOfNodes
 argument_list|()
 operator|<
 name|expected
@@ -1082,7 +1082,7 @@ name|parseInt
 argument_list|(
 name|request
 operator|.
-name|waitForNodes
+name|getWaitForNodes
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1090,7 +1090,7 @@ if|if
 condition|(
 name|response
 operator|.
-name|numberOfNodes
+name|getNumberOfNodes
 argument_list|()
 operator|==
 name|expected
@@ -1248,7 +1248,7 @@ name|concreteIndicesIgnoreMissing
 argument_list|(
 name|request
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 argument_list|)
 control|)
@@ -1482,7 +1482,7 @@ name|put
 argument_list|(
 name|shardHealth
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|shardHealth
@@ -1501,7 +1501,7 @@ if|if
 condition|(
 name|shardHealth
 operator|.
-name|primaryActive
+name|isPrimaryActive
 argument_list|()
 condition|)
 block|{
@@ -1558,7 +1558,7 @@ condition|(
 operator|!
 name|indexHealth
 operator|.
-name|validationFailures
+name|getValidationFailures
 argument_list|()
 operator|.
 name|isEmpty
@@ -1579,7 +1579,7 @@ if|if
 condition|(
 name|indexHealth
 operator|.
-name|shards
+name|getShards
 argument_list|()
 operator|.
 name|isEmpty
@@ -1610,7 +1610,7 @@ if|if
 condition|(
 name|shardHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 operator|==
 name|ClusterHealthStatus
@@ -1632,7 +1632,7 @@ if|if
 condition|(
 name|shardHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 operator|==
 name|ClusterHealthStatus
@@ -1659,7 +1659,7 @@ name|put
 argument_list|(
 name|indexHealth
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|indexHealth
@@ -1728,7 +1728,7 @@ condition|(
 operator|!
 name|response
 operator|.
-name|validationFailures
+name|getValidationFailures
 argument_list|()
 operator|.
 name|isEmpty
@@ -1783,7 +1783,7 @@ if|if
 condition|(
 name|indexHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 operator|==
 name|ClusterHealthStatus
@@ -1805,7 +1805,7 @@ if|if
 condition|(
 name|indexHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 operator|==
 name|ClusterHealthStatus

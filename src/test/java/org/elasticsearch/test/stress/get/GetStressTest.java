@@ -454,7 +454,7 @@ condition|(
 operator|!
 name|getResponse
 operator|.
-name|exists
+name|isExists
 argument_list|()
 condition|)
 block|{

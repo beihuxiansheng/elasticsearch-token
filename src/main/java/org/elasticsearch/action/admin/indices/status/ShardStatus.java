@@ -293,19 +293,6 @@ name|shardRouting
 expr_stmt|;
 block|}
 comment|/**      * The shard routing information (cluster wide shard state).      */
-DECL|method|shardRouting
-specifier|public
-name|ShardRouting
-name|shardRouting
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|shardRouting
-return|;
-block|}
-comment|/**      * The shard routing information (cluster wide shard state).      */
 DECL|method|getShardRouting
 specifier|public
 name|ShardRouting
@@ -313,19 +300,9 @@ name|getShardRouting
 parameter_list|()
 block|{
 return|return
+name|this
+operator|.
 name|shardRouting
-argument_list|()
-return|;
-block|}
-comment|/**      * The shard state (index/local state).      */
-DECL|method|state
-specifier|public
-name|IndexShardState
-name|state
-parameter_list|()
-block|{
-return|return
-name|state
 return|;
 block|}
 comment|/**      * The shard state (index/local state).      */
@@ -337,18 +314,6 @@ parameter_list|()
 block|{
 return|return
 name|state
-argument_list|()
-return|;
-block|}
-comment|/**      * The current size of the shard index storage.      */
-DECL|method|storeSize
-specifier|public
-name|ByteSizeValue
-name|storeSize
-parameter_list|()
-block|{
-return|return
-name|storeSize
 return|;
 block|}
 comment|/**      * The current size of the shard index storage.      */
@@ -360,18 +325,6 @@ parameter_list|()
 block|{
 return|return
 name|storeSize
-argument_list|()
-return|;
-block|}
-comment|/**      * The transaction log id.      */
-DECL|method|translogId
-specifier|public
-name|long
-name|translogId
-parameter_list|()
-block|{
-return|return
-name|translogId
 return|;
 block|}
 comment|/**      * The transaction log id.      */
@@ -383,18 +336,6 @@ parameter_list|()
 block|{
 return|return
 name|translogId
-argument_list|()
-return|;
-block|}
-comment|/**      * The number of transaction operations in the transaction log.      */
-DECL|method|translogOperations
-specifier|public
-name|long
-name|translogOperations
-parameter_list|()
-block|{
-return|return
-name|translogOperations
 return|;
 block|}
 comment|/**      * The number of transaction operations in the transaction log.      */
@@ -406,18 +347,6 @@ parameter_list|()
 block|{
 return|return
 name|translogOperations
-argument_list|()
-return|;
-block|}
-comment|/**      * Docs level information for the shard index,<tt>null</tt> if not applicable.      */
-DECL|method|docs
-specifier|public
-name|DocsStatus
-name|docs
-parameter_list|()
-block|{
-return|return
-name|docs
 return|;
 block|}
 comment|/**      * Docs level information for the shard index,<tt>null</tt> if not applicable.      */
@@ -429,20 +358,6 @@ parameter_list|()
 block|{
 return|return
 name|docs
-argument_list|()
-return|;
-block|}
-comment|/**      * Index merge statistics.      */
-DECL|method|mergeStats
-specifier|public
-name|MergeStats
-name|mergeStats
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|mergeStats
 return|;
 block|}
 comment|/**      * Index merge statistics.      */
@@ -459,19 +374,6 @@ name|mergeStats
 return|;
 block|}
 comment|/**      * Refresh stats.      */
-DECL|method|refreshStats
-specifier|public
-name|RefreshStats
-name|refreshStats
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|refreshStats
-return|;
-block|}
-comment|/**      * Refresh stats.      */
 DECL|method|getRefreshStats
 specifier|public
 name|RefreshStats
@@ -479,20 +381,9 @@ name|getRefreshStats
 parameter_list|()
 block|{
 return|return
-name|refreshStats
-argument_list|()
-return|;
-block|}
-DECL|method|flushStats
-specifier|public
-name|FlushStats
-name|flushStats
-parameter_list|()
-block|{
-return|return
 name|this
 operator|.
-name|flushStats
+name|refreshStats
 return|;
 block|}
 DECL|method|getFlushStats
@@ -508,17 +399,6 @@ name|flushStats
 return|;
 block|}
 comment|/**      * Peer recovery status (<tt>null</tt> if not applicable). Both real time if an on going recovery      * is in progress and summary once it is done.      */
-DECL|method|peerRecoveryStatus
-specifier|public
-name|PeerRecoveryStatus
-name|peerRecoveryStatus
-parameter_list|()
-block|{
-return|return
-name|peerRecoveryStatus
-return|;
-block|}
-comment|/**      * Peer recovery status (<tt>null</tt> if not applicable). Both real time if an on going recovery      * is in progress and summary once it done.      */
 DECL|method|getPeerRecoveryStatus
 specifier|public
 name|PeerRecoveryStatus
@@ -527,18 +407,6 @@ parameter_list|()
 block|{
 return|return
 name|peerRecoveryStatus
-argument_list|()
-return|;
-block|}
-comment|/**      * Gateway recovery status (<tt>null</tt> if not applicable). Both real time if an on going recovery      * is in progress adn summary once it is done.      */
-DECL|method|gatewayRecoveryStatus
-specifier|public
-name|GatewayRecoveryStatus
-name|gatewayRecoveryStatus
-parameter_list|()
-block|{
-return|return
-name|gatewayRecoveryStatus
 return|;
 block|}
 comment|/**      * Gateway recovery status (<tt>null</tt> if not applicable). Both real time if an on going recovery      * is in progress adn summary once it is done.      */
@@ -550,18 +418,6 @@ parameter_list|()
 block|{
 return|return
 name|gatewayRecoveryStatus
-argument_list|()
-return|;
-block|}
-comment|/**      * The current on going snapshot to the gateway or the last one if none is on going.      */
-DECL|method|gatewaySnapshotStatus
-specifier|public
-name|GatewaySnapshotStatus
-name|gatewaySnapshotStatus
-parameter_list|()
-block|{
-return|return
-name|gatewaySnapshotStatus
 return|;
 block|}
 comment|/**      * The current on going snapshot to the gateway or the last one if none is on going.      */
@@ -573,7 +429,6 @@ parameter_list|()
 block|{
 return|return
 name|gatewaySnapshotStatus
-argument_list|()
 return|;
 block|}
 DECL|method|readIndexShardStatus
@@ -719,7 +574,7 @@ name|writeLong
 argument_list|(
 name|docs
 operator|.
-name|numDocs
+name|getNumDocs
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -729,7 +584,7 @@ name|writeLong
 argument_list|(
 name|docs
 operator|.
-name|maxDoc
+name|getMaxDoc
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -739,7 +594,7 @@ name|writeLong
 argument_list|(
 name|docs
 operator|.
-name|deletedDocs
+name|getDeletedDocs
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -995,7 +850,7 @@ name|writeVInt
 argument_list|(
 name|gatewaySnapshotStatus
 operator|.
-name|expectedNumberOfOperations
+name|getExpectedNumberOfOperations
 argument_list|()
 argument_list|)
 expr_stmt|;

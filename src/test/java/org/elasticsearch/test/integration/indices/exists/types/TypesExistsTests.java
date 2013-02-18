@@ -342,7 +342,7 @@ name|assertThat
 argument_list|(
 name|healthResponse
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -382,7 +382,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -421,7 +421,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -460,7 +460,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -506,7 +506,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -552,7 +552,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -591,7 +591,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -630,7 +630,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -671,7 +671,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -712,7 +712,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo

@@ -49,17 +49,6 @@ init|=
 literal|0
 decl_stmt|;
 comment|/**      * The number of docs.      */
-DECL|method|numDocs
-specifier|public
-name|long
-name|numDocs
-parameter_list|()
-block|{
-return|return
-name|numDocs
-return|;
-block|}
-comment|/**      * The number of docs.      */
 DECL|method|getNumDocs
 specifier|public
 name|long
@@ -68,18 +57,6 @@ parameter_list|()
 block|{
 return|return
 name|numDocs
-argument_list|()
-return|;
-block|}
-comment|/**      * The max doc.      */
-DECL|method|maxDoc
-specifier|public
-name|long
-name|maxDoc
-parameter_list|()
-block|{
-return|return
-name|maxDoc
 return|;
 block|}
 comment|/**      * The max doc.      */
@@ -91,18 +68,6 @@ parameter_list|()
 block|{
 return|return
 name|maxDoc
-argument_list|()
-return|;
-block|}
-comment|/**      * The number of deleted docs in the index.      */
-DECL|method|deletedDocs
-specifier|public
-name|long
-name|deletedDocs
-parameter_list|()
-block|{
-return|return
-name|deletedDocs
 return|;
 block|}
 comment|/**      * The number of deleted docs in the index.      */
@@ -114,7 +79,6 @@ parameter_list|()
 block|{
 return|return
 name|deletedDocs
-argument_list|()
 return|;
 block|}
 block|}

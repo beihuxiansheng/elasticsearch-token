@@ -357,29 +357,31 @@ return|return
 name|validationException
 return|;
 block|}
-DECL|method|indices
+DECL|method|getIndices
+specifier|public
 name|String
 index|[]
-name|indices
+name|getIndices
 parameter_list|()
 block|{
 return|return
 name|indices
 return|;
 block|}
-DECL|method|settings
+DECL|method|getSettings
+specifier|public
 name|Settings
-name|settings
+name|getSettings
 parameter_list|()
 block|{
 return|return
 name|settings
 return|;
 block|}
-DECL|method|indices
+DECL|method|setIndices
 specifier|public
 name|UpdateSettingsRequest
-name|indices
+name|setIndices
 parameter_list|(
 name|String
 modifier|...
@@ -397,10 +399,10 @@ name|this
 return|;
 block|}
 comment|/**      * The settings to created the index with.      */
-DECL|method|settings
+DECL|method|setSettings
 specifier|public
 name|UpdateSettingsRequest
-name|settings
+name|setSettings
 parameter_list|(
 name|Settings
 name|settings
@@ -417,10 +419,10 @@ name|this
 return|;
 block|}
 comment|/**      * The settings to created the index with.      */
-DECL|method|settings
+DECL|method|setSettings
 specifier|public
 name|UpdateSettingsRequest
-name|settings
+name|setSettings
 parameter_list|(
 name|Settings
 operator|.
@@ -442,10 +444,10 @@ name|this
 return|;
 block|}
 comment|/**      * The settings to crete the index with (either json/yaml/properties format)      */
-DECL|method|settings
+DECL|method|setSettings
 specifier|public
 name|UpdateSettingsRequest
-name|settings
+name|setSettings
 parameter_list|(
 name|String
 name|source
@@ -473,10 +475,10 @@ name|this
 return|;
 block|}
 comment|/**      * The settings to crete the index with (either json/yaml/properties format)      */
-DECL|method|settings
+DECL|method|setSettings
 specifier|public
 name|UpdateSettingsRequest
-name|settings
+name|setSettings
 parameter_list|(
 name|Map
 name|source
@@ -503,7 +505,7 @@ argument_list|(
 name|source
 argument_list|)
 expr_stmt|;
-name|settings
+name|setSettings
 argument_list|(
 name|builder
 operator|.

@@ -138,10 +138,10 @@ operator|=
 name|hotThreads
 expr_stmt|;
 block|}
-DECL|method|hotThreads
+DECL|method|getHotThreads
 specifier|public
 name|String
-name|hotThreads
+name|getHotThreads
 parameter_list|()
 block|{
 return|return

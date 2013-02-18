@@ -297,14 +297,14 @@ argument_list|()
 decl_stmt|;
 name|clusterStateRequest
 operator|.
-name|listenerThreaded
+name|setListenerThreaded
 argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
 name|clusterStateRequest
 operator|.
-name|masterNodeTimeout
+name|setMasterNodeTimeout
 argument_list|(
 name|TimeValue
 operator|.
@@ -316,7 +316,7 @@ argument_list|)
 expr_stmt|;
 name|clusterStateRequest
 operator|.
-name|local
+name|setLocal
 argument_list|(
 literal|true
 argument_list|)
@@ -326,7 +326,7 @@ operator|.
 name|filterAll
 argument_list|()
 operator|.
-name|filterBlocks
+name|setFilterBlocks
 argument_list|(
 literal|false
 argument_list|)
@@ -371,7 +371,7 @@ if|if
 condition|(
 name|response
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|blocks

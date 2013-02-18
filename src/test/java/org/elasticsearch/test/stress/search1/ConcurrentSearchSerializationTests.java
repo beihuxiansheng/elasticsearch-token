@@ -513,7 +513,7 @@ name|hit
 range|:
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 control|)
 block|{

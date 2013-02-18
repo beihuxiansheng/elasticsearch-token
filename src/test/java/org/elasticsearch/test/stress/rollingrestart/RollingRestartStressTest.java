@@ -1087,7 +1087,7 @@ if|if
 condition|(
 name|clusterHealth
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 condition|)
 block|{
@@ -1194,7 +1194,7 @@ if|if
 condition|(
 name|clusterHealth
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 condition|)
 block|{
@@ -1392,7 +1392,7 @@ name|shardStatus
 range|:
 name|status
 operator|.
-name|index
+name|getIndex
 argument_list|(
 literal|"test"
 argument_list|)
@@ -1403,7 +1403,7 @@ name|shard
 init|=
 name|shardStatus
 operator|.
-name|shards
+name|getShards
 argument_list|()
 index|[
 literal|0
@@ -1417,7 +1417,7 @@ literal|"shard [{}], docs [{}]"
 argument_list|,
 name|shard
 operator|.
-name|shardId
+name|getShardId
 argument_list|()
 argument_list|,
 name|shard
@@ -1425,7 +1425,7 @@ operator|.
 name|getDocs
 argument_list|()
 operator|.
-name|numDocs
+name|getNumDocs
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1441,18 +1441,18 @@ if|if
 condition|(
 name|shard
 operator|.
-name|docs
+name|getDocs
 argument_list|()
 operator|.
-name|numDocs
+name|getNumDocs
 argument_list|()
 operator|!=
 name|shardStatu
 operator|.
-name|docs
+name|getDocs
 argument_list|()
 operator|.
-name|numDocs
+name|getNumDocs
 argument_list|()
 condition|)
 block|{
@@ -1464,18 +1464,18 @@ literal|"shard doc number does not match!, got {} and {}"
 argument_list|,
 name|shard
 operator|.
-name|docs
+name|getDocs
 argument_list|()
 operator|.
-name|numDocs
+name|getNumDocs
 argument_list|()
 argument_list|,
 name|shardStatu
 operator|.
-name|docs
+name|getDocs
 argument_list|()
 operator|.
-name|numDocs
+name|getNumDocs
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1535,7 +1535,7 @@ literal|"indexed [{}], count [{}], [{}]"
 argument_list|,
 name|count
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|indexCounter
@@ -1545,7 +1545,7 @@ argument_list|()
 argument_list|,
 name|count
 operator|.
-name|count
+name|getCount
 argument_list|()
 operator|==
 name|indexCounter
@@ -1562,7 +1562,7 @@ if|if
 condition|(
 name|count
 operator|.
-name|count
+name|getCount
 argument_list|()
 operator|!=
 name|indexCounter
@@ -1634,7 +1634,7 @@ literal|"Verifying versions for {} hits..."
 argument_list|,
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|totalHits
@@ -1657,7 +1657,7 @@ name|prepareSearchScroll
 argument_list|(
 name|searchResponse
 operator|.
-name|scrollId
+name|getScrollId
 argument_list|()
 argument_list|)
 operator|.
@@ -1681,7 +1681,7 @@ if|if
 condition|(
 name|searchResponse
 operator|.
-name|failedShards
+name|getFailedShards
 argument_list|()
 operator|>
 literal|0
@@ -1699,7 +1699,7 @@ name|toString
 argument_list|(
 name|searchResponse
 operator|.
-name|shardFailures
+name|getShardFailures
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1712,7 +1712,7 @@ name|hit
 range|:
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 control|)
 block|{
@@ -1785,7 +1785,7 @@ name|version
 operator|=
 name|getResponse
 operator|.
-name|version
+name|getVersion
 argument_list|()
 expr_stmt|;
 block|}
@@ -1797,7 +1797,7 @@ name|version
 operator|!=
 name|getResponse
 operator|.
-name|version
+name|getVersion
 argument_list|()
 condition|)
 block|{
@@ -1816,7 +1816,7 @@ name|version
 argument_list|,
 name|getResponse
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1828,7 +1828,7 @@ if|if
 condition|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|hits

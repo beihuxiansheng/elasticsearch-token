@@ -243,19 +243,6 @@ name|message
 expr_stmt|;
 block|}
 comment|/**          * The index name of the action.          */
-DECL|method|index
-specifier|public
-name|String
-name|index
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|index
-return|;
-block|}
-comment|/**          * The index name of the action.          */
 DECL|method|getIndex
 specifier|public
 name|String
@@ -263,19 +250,9 @@ name|getIndex
 parameter_list|()
 block|{
 return|return
+name|this
+operator|.
 name|index
-argument_list|()
-return|;
-block|}
-comment|/**          * The type of the action.          */
-DECL|method|type
-specifier|public
-name|String
-name|type
-parameter_list|()
-block|{
-return|return
-name|type
 return|;
 block|}
 comment|/**          * The type of the action.          */
@@ -287,18 +264,6 @@ parameter_list|()
 block|{
 return|return
 name|type
-argument_list|()
-return|;
-block|}
-comment|/**          * The id of the action.          */
-DECL|method|id
-specifier|public
-name|String
-name|id
-parameter_list|()
-block|{
-return|return
-name|id
 return|;
 block|}
 comment|/**          * The id of the action.          */
@@ -309,22 +274,7 @@ name|getId
 parameter_list|()
 block|{
 return|return
-name|this
-operator|.
 name|id
-return|;
-block|}
-comment|/**          * The failure message.          */
-DECL|method|message
-specifier|public
-name|String
-name|message
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|message
 return|;
 block|}
 comment|/**          * The failure message.          */
@@ -335,8 +285,9 @@ name|getMessage
 parameter_list|()
 block|{
 return|return
+name|this
+operator|.
 name|message
-argument_list|()
 return|;
 block|}
 DECL|method|readFailure
@@ -480,11 +431,11 @@ operator|=
 name|responses
 expr_stmt|;
 block|}
-DECL|method|responses
+DECL|method|getResponses
 specifier|public
 name|MultiGetItemResponse
 index|[]
-name|responses
+name|getResponses
 parameter_list|()
 block|{
 return|return
@@ -555,7 +506,7 @@ if|if
 condition|(
 name|response
 operator|.
-name|failed
+name|isFailed
 argument_list|()
 condition|)
 block|{
@@ -569,7 +520,7 @@ name|failure
 init|=
 name|response
 operator|.
-name|failure
+name|getFailure
 argument_list|()
 decl_stmt|;
 name|builder
@@ -582,7 +533,7 @@ name|_INDEX
 argument_list|,
 name|failure
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -596,7 +547,7 @@ name|_TYPE
 argument_list|,
 name|failure
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -610,7 +561,7 @@ name|_ID
 argument_list|,
 name|failure
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -624,7 +575,7 @@ name|ERROR
 argument_list|,
 name|failure
 operator|.
-name|message
+name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;

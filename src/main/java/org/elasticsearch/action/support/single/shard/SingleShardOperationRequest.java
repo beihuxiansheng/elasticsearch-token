@@ -187,10 +187,10 @@ return|return
 name|validationException
 return|;
 block|}
-DECL|method|index
+DECL|method|getIndex
 specifier|public
 name|String
-name|index
+name|getIndex
 parameter_list|()
 block|{
 return|return
@@ -203,11 +203,11 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|index
+DECL|method|setIndex
 specifier|public
 specifier|final
 name|T
-name|index
+name|setIndex
 parameter_list|(
 name|String
 name|index
@@ -227,10 +227,10 @@ name|this
 return|;
 block|}
 comment|/**      * Controls if the operation will be executed on a separate thread when executed locally.      */
-DECL|method|operationThreaded
+DECL|method|isOperationThreaded
 specifier|public
 name|boolean
-name|operationThreaded
+name|isOperationThreaded
 parameter_list|()
 block|{
 return|return
@@ -243,11 +243,11 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|operationThreaded
+DECL|method|setOperationThreaded
 specifier|public
 specifier|final
 name|T
-name|operationThreaded
+name|setOperationThreaded
 parameter_list|(
 name|boolean
 name|threadedOperation

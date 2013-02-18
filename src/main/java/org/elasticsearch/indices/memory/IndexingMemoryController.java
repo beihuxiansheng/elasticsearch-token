@@ -1009,7 +1009,7 @@ operator|.
 name|mergeStats
 argument_list|()
 operator|.
-name|current
+name|getCurrent
 argument_list|()
 operator|==
 literal|0

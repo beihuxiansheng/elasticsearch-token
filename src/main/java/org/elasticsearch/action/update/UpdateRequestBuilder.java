@@ -254,7 +254,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|type
+name|setType
 argument_list|(
 name|type
 argument_list|)
@@ -275,7 +275,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|id
+name|setId
 argument_list|(
 name|id
 argument_list|)
@@ -296,7 +296,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|routing
+name|setRouting
 argument_list|(
 name|routing
 argument_list|)
@@ -316,7 +316,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|parent
+name|setParent
 argument_list|(
 name|parent
 argument_list|)
@@ -337,7 +337,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|script
+name|setScript
 argument_list|(
 name|script
 argument_list|)
@@ -358,7 +358,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|scriptLang
+name|setScriptLang
 argument_list|(
 name|scriptLang
 argument_list|)
@@ -384,7 +384,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|scriptParams
+name|setScriptParams
 argument_list|(
 name|scriptParams
 argument_list|)
@@ -432,7 +432,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|fields
+name|setFields
 argument_list|(
 name|fields
 argument_list|)
@@ -453,7 +453,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|retryOnConflict
+name|setRetryOnConflict
 argument_list|(
 name|retryOnConflict
 argument_list|)
@@ -474,7 +474,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|refresh
+name|setRefresh
 argument_list|(
 name|refresh
 argument_list|)
@@ -495,7 +495,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|replicationType
+name|setReplicationType
 argument_list|(
 name|replicationType
 argument_list|)
@@ -516,7 +516,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|consistencyLevel
+name|setConsistencyLevel
 argument_list|(
 name|consistencyLevel
 argument_list|)
@@ -537,7 +537,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|percolate
+name|setPercolate
 argument_list|(
 name|percolate
 argument_list|)
@@ -558,7 +558,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|doc
+name|setDoc
 argument_list|(
 name|indexRequest
 argument_list|)
@@ -579,7 +579,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|doc
+name|setDoc
 argument_list|(
 name|source
 argument_list|)
@@ -600,7 +600,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|doc
+name|setDoc
 argument_list|(
 name|source
 argument_list|)
@@ -624,7 +624,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|doc
+name|setDoc
 argument_list|(
 name|source
 argument_list|,
@@ -647,7 +647,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|doc
+name|setDoc
 argument_list|(
 name|source
 argument_list|)
@@ -669,7 +669,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|doc
+name|setDoc
 argument_list|(
 name|source
 argument_list|)
@@ -697,7 +697,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|doc
+name|setDoc
 argument_list|(
 name|source
 argument_list|,
@@ -711,10 +711,10 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the index request to be used if the document does not exists. Otherwise, a {@link org.elasticsearch.index.engine.DocumentMissingException}      * is thrown.      */
-DECL|method|setUpsert
+DECL|method|setUpsertRequest
 specifier|public
 name|UpdateRequestBuilder
-name|setUpsert
+name|setUpsertRequest
 parameter_list|(
 name|IndexRequest
 name|indexRequest
@@ -722,7 +722,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|upsert
+name|setUpsertRequest
 argument_list|(
 name|indexRequest
 argument_list|)
@@ -732,10 +732,10 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the doc source of the update request to be used when the document does not exists.      */
-DECL|method|setUpsert
+DECL|method|setUpsertRequest
 specifier|public
 name|UpdateRequestBuilder
-name|setUpsert
+name|setUpsertRequest
 parameter_list|(
 name|XContentBuilder
 name|source
@@ -743,7 +743,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|upsert
+name|setUpsertRequest
 argument_list|(
 name|source
 argument_list|)
@@ -753,10 +753,10 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the doc source of the update request to be used when the document does not exists.      */
-DECL|method|setUpsert
+DECL|method|setUpsertRequest
 specifier|public
 name|UpdateRequestBuilder
-name|setUpsert
+name|setUpsertRequest
 parameter_list|(
 name|Map
 name|source
@@ -764,7 +764,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|upsert
+name|setUpsertRequest
 argument_list|(
 name|source
 argument_list|)
@@ -774,10 +774,10 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the doc source of the update request to be used when the document does not exists.      */
-DECL|method|setUpsert
+DECL|method|setUpsertRequest
 specifier|public
 name|UpdateRequestBuilder
-name|setUpsert
+name|setUpsertRequest
 parameter_list|(
 name|Map
 name|source
@@ -788,7 +788,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|upsert
+name|setUpsertRequest
 argument_list|(
 name|source
 argument_list|,
@@ -800,10 +800,10 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the doc source of the update request to be used when the document does not exists.      */
-DECL|method|setUpsert
+DECL|method|setUpsertRequest
 specifier|public
 name|UpdateRequestBuilder
-name|setUpsert
+name|setUpsertRequest
 parameter_list|(
 name|String
 name|source
@@ -811,7 +811,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|upsert
+name|setUpsertRequest
 argument_list|(
 name|source
 argument_list|)
@@ -821,10 +821,10 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the doc source of the update request to be used when the document does not exists.      */
-DECL|method|setUpsert
+DECL|method|setUpsertRequest
 specifier|public
 name|UpdateRequestBuilder
-name|setUpsert
+name|setUpsertRequest
 parameter_list|(
 name|byte
 index|[]
@@ -833,7 +833,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|upsert
+name|setUpsertRequest
 argument_list|(
 name|source
 argument_list|)
@@ -843,10 +843,10 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the doc source of the update request to be used when the document does not exists.      */
-DECL|method|setUpsert
+DECL|method|setUpsertRequest
 specifier|public
 name|UpdateRequestBuilder
-name|setUpsert
+name|setUpsertRequest
 parameter_list|(
 name|byte
 index|[]
@@ -861,7 +861,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|upsert
+name|setUpsertRequest
 argument_list|(
 name|source
 argument_list|,
@@ -887,7 +887,7 @@ name|Exception
 block|{
 name|request
 operator|.
-name|source
+name|setSource
 argument_list|(
 name|source
 argument_list|)
@@ -910,7 +910,7 @@ name|Exception
 block|{
 name|request
 operator|.
-name|source
+name|setSource
 argument_list|(
 name|source
 argument_list|)
@@ -939,7 +939,7 @@ name|Exception
 block|{
 name|request
 operator|.
-name|source
+name|setSource
 argument_list|(
 name|source
 argument_list|,
@@ -965,7 +965,7 @@ name|Exception
 block|{
 name|request
 operator|.
-name|source
+name|setSource
 argument_list|(
 name|source
 argument_list|)

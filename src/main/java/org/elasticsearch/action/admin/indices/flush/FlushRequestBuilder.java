@@ -125,7 +125,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|refresh
+name|setRefresh
 argument_list|(
 name|refresh
 argument_list|)
@@ -145,7 +145,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|full
+name|setFull
 argument_list|(
 name|full
 argument_list|)

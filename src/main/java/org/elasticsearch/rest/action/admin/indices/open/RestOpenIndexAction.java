@@ -289,14 +289,14 @@ argument_list|)
 decl_stmt|;
 name|openIndexRequest
 operator|.
-name|listenerThreaded
+name|setListenerThreaded
 argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
 name|openIndexRequest
 operator|.
-name|timeout
+name|setTimeout
 argument_list|(
 name|request
 operator|.
@@ -374,7 +374,7 @@ name|ACKNOWLEDGED
 argument_list|,
 name|response
 operator|.
-name|acknowledged
+name|isAcknowledged
 argument_list|()
 argument_list|)
 operator|.

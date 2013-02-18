@@ -328,7 +328,7 @@ name|assertThat
 argument_list|(
 name|clusterHealthResponse
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1221,7 +1221,7 @@ name|assertThat
 argument_list|(
 name|clusterHealthResponse
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1559,7 +1559,7 @@ name|assertThat
 argument_list|(
 name|clusterHealthResponse
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1636,7 +1636,7 @@ name|assertThat
 argument_list|(
 name|clusterHealthResponse
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo

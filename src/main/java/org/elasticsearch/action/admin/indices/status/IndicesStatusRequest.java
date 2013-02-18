@@ -148,10 +148,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Should the status include recovery information. Defaults to<tt>false</tt>.      */
-DECL|method|recovery
+DECL|method|setRecovery
 specifier|public
 name|IndicesStatusRequest
-name|recovery
+name|setRecovery
 parameter_list|(
 name|boolean
 name|recovery
@@ -167,10 +167,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|recovery
+DECL|method|isRecovery
 specifier|public
 name|boolean
-name|recovery
+name|isRecovery
 parameter_list|()
 block|{
 return|return
@@ -180,10 +180,10 @@ name|recovery
 return|;
 block|}
 comment|/**      * Should the status include recovery information. Defaults to<tt>false</tt>.      */
-DECL|method|snapshot
+DECL|method|setSnapshot
 specifier|public
 name|IndicesStatusRequest
-name|snapshot
+name|setSnapshot
 parameter_list|(
 name|boolean
 name|snapshot
@@ -199,10 +199,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|snapshot
+DECL|method|isSnapshot
 specifier|public
 name|boolean
-name|snapshot
+name|isSnapshot
 parameter_list|()
 block|{
 return|return

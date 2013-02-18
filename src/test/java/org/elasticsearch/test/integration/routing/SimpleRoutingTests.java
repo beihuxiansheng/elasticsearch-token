@@ -442,7 +442,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -498,7 +498,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -571,7 +571,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -604,7 +604,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -682,7 +682,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -715,7 +715,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -807,7 +807,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -863,7 +863,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -953,7 +953,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -986,7 +986,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1076,7 +1076,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1109,7 +1109,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1279,7 +1279,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1335,7 +1335,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1388,7 +1388,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|totalHits
@@ -1449,7 +1449,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|totalHits
@@ -1487,7 +1487,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1545,7 +1545,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|totalHits
@@ -1583,7 +1583,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1677,7 +1677,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|totalHits
@@ -1710,7 +1710,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1768,7 +1768,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|totalHits
@@ -1806,7 +1806,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1864,7 +1864,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|totalHits
@@ -1902,7 +1902,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1962,7 +1962,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|totalHits
@@ -2002,7 +2002,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2064,7 +2064,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|totalHits
@@ -2106,7 +2106,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2393,7 +2393,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2466,7 +2466,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2499,7 +2499,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2578,12 +2578,12 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|type
+name|setType
 argument_list|(
 literal|"type1"
 argument_list|)
 operator|.
-name|id
+name|setId
 argument_list|(
 literal|"1"
 argument_list|)
@@ -2646,7 +2646,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2679,7 +2679,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2969,7 +2969,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3025,7 +3025,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3262,7 +3262,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3318,7 +3318,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3534,7 +3534,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3590,7 +3590,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo

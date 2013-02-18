@@ -157,7 +157,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|types
+name|setTypes
 argument_list|(
 name|types
 argument_list|)
@@ -178,7 +178,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|query
+name|setQuery
 argument_list|(
 name|queryBuilder
 argument_list|)
@@ -199,7 +199,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|query
+name|setQuery
 argument_list|(
 name|querySource
 argument_list|,
@@ -225,7 +225,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|query
+name|setQuery
 argument_list|(
 name|querySource
 argument_list|,
@@ -249,7 +249,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|query
+name|setQuery
 argument_list|(
 name|querySource
 argument_list|)
@@ -270,7 +270,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|explain
+name|setExplain
 argument_list|(
 name|explain
 argument_list|)

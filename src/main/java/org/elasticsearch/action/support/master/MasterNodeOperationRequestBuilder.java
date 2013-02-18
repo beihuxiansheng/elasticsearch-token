@@ -150,7 +150,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|masterNodeTimeout
+name|setMasterNodeTimeout
 argument_list|(
 name|timeout
 argument_list|)
@@ -180,7 +180,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|masterNodeTimeout
+name|setMasterNodeTimeout
 argument_list|(
 name|timeout
 argument_list|)

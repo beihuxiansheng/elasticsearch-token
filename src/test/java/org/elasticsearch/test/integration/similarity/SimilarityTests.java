@@ -134,57 +134,9 @@ name|index
 operator|.
 name|query
 operator|.
-name|FilterBuilders
-operator|.
-name|numericRangeFilter
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|QueryBuilders
-operator|.
-name|filteredQuery
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
 name|QueryBuilders
 operator|.
 name|matchQuery
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|QueryBuilders
-operator|.
-name|queryString
 import|;
 end_import
 
@@ -522,7 +474,7 @@ name|assertThat
 argument_list|(
 name|bm25SearchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|totalHits
@@ -539,7 +491,7 @@ name|bm25Score
 init|=
 name|bm25SearchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|hits
@@ -579,7 +531,7 @@ name|assertThat
 argument_list|(
 name|defaultSearchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|totalHits
@@ -596,7 +548,7 @@ name|defaultScore
 init|=
 name|defaultSearchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|hits

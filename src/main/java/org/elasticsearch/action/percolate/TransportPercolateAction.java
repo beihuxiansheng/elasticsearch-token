@@ -381,7 +381,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|index
+name|setIndex
 argument_list|(
 name|state
 operator|.
@@ -392,7 +392,7 @@ name|concreteIndex
 argument_list|(
 name|request
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 argument_list|)
@@ -411,7 +411,7 @@ name|READ
 argument_list|,
 name|request
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 return|;
@@ -440,7 +440,7 @@ name|index
 argument_list|(
 name|request
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 operator|.
@@ -473,7 +473,7 @@ name|indexServiceSafe
 argument_list|(
 name|request
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -501,12 +501,12 @@ name|SourceRequest
 argument_list|(
 name|request
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|,
 name|request
 operator|.
-name|source
+name|getSource
 argument_list|()
 argument_list|)
 argument_list|)

@@ -628,7 +628,7 @@ name|indexServiceSafe
 argument_list|(
 name|request
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 operator|.
@@ -636,7 +636,7 @@ name|shardInjectorSafe
 argument_list|(
 name|request
 operator|.
-name|shardId
+name|getShardId
 argument_list|()
 argument_list|)
 operator|.
@@ -660,12 +660,12 @@ name|ShardGatewaySnapshotResponse
 argument_list|(
 name|request
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|request
 operator|.
-name|shardId
+name|getShardId
 argument_list|()
 argument_list|)
 return|;

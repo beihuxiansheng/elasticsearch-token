@@ -1959,7 +1959,7 @@ name|put
 argument_list|(
 name|nodeStoreFilesMetaData
 operator|.
-name|node
+name|getNode
 argument_list|()
 argument_list|,
 name|nodeStoreFilesMetaData

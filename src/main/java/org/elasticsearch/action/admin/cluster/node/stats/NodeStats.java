@@ -448,18 +448,6 @@ operator|=
 name|http
 expr_stmt|;
 block|}
-DECL|method|timestamp
-specifier|public
-name|long
-name|timestamp
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|timestamp
-return|;
-block|}
 DECL|method|getTimestamp
 specifier|public
 name|long
@@ -470,20 +458,6 @@ return|return
 name|this
 operator|.
 name|timestamp
-return|;
-block|}
-annotation|@
-name|Nullable
-DECL|method|hostname
-specifier|public
-name|String
-name|hostname
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|hostname
 return|;
 block|}
 annotation|@
@@ -503,21 +477,6 @@ block|}
 comment|/**      * Indices level stats.      */
 annotation|@
 name|Nullable
-DECL|method|indices
-specifier|public
-name|NodeIndicesStats
-name|indices
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|indices
-return|;
-block|}
-comment|/**      * Indices level stats.      */
-annotation|@
-name|Nullable
 DECL|method|getIndices
 specifier|public
 name|NodeIndicesStats
@@ -525,23 +484,9 @@ name|getIndices
 parameter_list|()
 block|{
 return|return
-name|indices
-argument_list|()
-return|;
-block|}
-comment|/**      * Operating System level statistics.      */
-annotation|@
-name|Nullable
-DECL|method|os
-specifier|public
-name|OsStats
-name|os
-parameter_list|()
-block|{
-return|return
 name|this
 operator|.
-name|os
+name|indices
 return|;
 block|}
 comment|/**      * Operating System level statistics.      */
@@ -554,21 +499,9 @@ name|getOs
 parameter_list|()
 block|{
 return|return
+name|this
+operator|.
 name|os
-argument_list|()
-return|;
-block|}
-comment|/**      * Process level statistics.      */
-annotation|@
-name|Nullable
-DECL|method|process
-specifier|public
-name|ProcessStats
-name|process
-parameter_list|()
-block|{
-return|return
-name|process
 return|;
 block|}
 comment|/**      * Process level statistics.      */
@@ -582,20 +515,6 @@ parameter_list|()
 block|{
 return|return
 name|process
-argument_list|()
-return|;
-block|}
-comment|/**      * JVM level statistics.      */
-annotation|@
-name|Nullable
-DECL|method|jvm
-specifier|public
-name|JvmStats
-name|jvm
-parameter_list|()
-block|{
-return|return
-name|jvm
 return|;
 block|}
 comment|/**      * JVM level statistics.      */
@@ -609,22 +528,6 @@ parameter_list|()
 block|{
 return|return
 name|jvm
-argument_list|()
-return|;
-block|}
-comment|/**      * Thread Pool level statistics.      */
-annotation|@
-name|Nullable
-DECL|method|threadPool
-specifier|public
-name|ThreadPoolStats
-name|threadPool
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|threadPool
 return|;
 block|}
 comment|/**      * Thread Pool level statistics.      */
@@ -637,21 +540,9 @@ name|getThreadPool
 parameter_list|()
 block|{
 return|return
+name|this
+operator|.
 name|threadPool
-argument_list|()
-return|;
-block|}
-comment|/**      * Network level statistics.      */
-annotation|@
-name|Nullable
-DECL|method|network
-specifier|public
-name|NetworkStats
-name|network
-parameter_list|()
-block|{
-return|return
-name|network
 return|;
 block|}
 comment|/**      * Network level statistics.      */
@@ -665,20 +556,6 @@ parameter_list|()
 block|{
 return|return
 name|network
-argument_list|()
-return|;
-block|}
-comment|/**      * File system level stats.      */
-annotation|@
-name|Nullable
-DECL|method|fs
-specifier|public
-name|FsStats
-name|fs
-parameter_list|()
-block|{
-return|return
-name|fs
 return|;
 block|}
 comment|/**      * File system level stats.      */
@@ -692,21 +569,6 @@ parameter_list|()
 block|{
 return|return
 name|fs
-argument_list|()
-return|;
-block|}
-annotation|@
-name|Nullable
-DECL|method|transport
-specifier|public
-name|TransportStats
-name|transport
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|transport
 return|;
 block|}
 annotation|@
@@ -718,22 +580,9 @@ name|getTransport
 parameter_list|()
 block|{
 return|return
-name|transport
-argument_list|()
-return|;
-block|}
-annotation|@
-name|Nullable
-DECL|method|http
-specifier|public
-name|HttpStats
-name|http
-parameter_list|()
-block|{
-return|return
 name|this
 operator|.
-name|http
+name|transport
 return|;
 block|}
 annotation|@
@@ -745,8 +594,9 @@ name|getHttp
 parameter_list|()
 block|{
 return|return
+name|this
+operator|.
 name|http
-argument_list|()
 return|;
 block|}
 DECL|method|readNodeStats

@@ -935,7 +935,7 @@ name|indexServiceSafe
 argument_list|(
 name|request
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -951,7 +951,7 @@ name|shardSafe
 argument_list|(
 name|request
 operator|.
-name|shardId
+name|getShardId
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1314,7 +1314,7 @@ name|shardInjector
 argument_list|(
 name|request
 operator|.
-name|shardId
+name|getShardId
 argument_list|()
 argument_list|)
 operator|.
@@ -1489,7 +1489,7 @@ name|shardInjector
 argument_list|(
 name|request
 operator|.
-name|shardId
+name|getShardId
 argument_list|()
 argument_list|)
 operator|.
@@ -1687,14 +1687,14 @@ name|recovery
 operator|=
 name|request
 operator|.
-name|recovery
+name|isRecovery
 argument_list|()
 expr_stmt|;
 name|snapshot
 operator|=
 name|request
 operator|.
-name|snapshot
+name|isSnapshot
 argument_list|()
 expr_stmt|;
 block|}

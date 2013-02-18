@@ -109,27 +109,15 @@ operator|=
 name|acknowledged
 expr_stmt|;
 block|}
-comment|/**      * Has the index creation been acknowledged by all current cluster nodes within the      * provided {@link CreateIndexRequest#timeout(org.elasticsearch.common.unit.TimeValue)}.      */
-DECL|method|acknowledged
+comment|/**      * Has the index creation been acknowledged by all current cluster nodes within the      * provided {@link CreateIndexRequest#setTimeout(org.elasticsearch.common.unit.TimeValue)}.      */
+DECL|method|isAcknowledged
 specifier|public
 name|boolean
-name|acknowledged
+name|isAcknowledged
 parameter_list|()
 block|{
 return|return
 name|acknowledged
-return|;
-block|}
-comment|/**      * Has the index creation been acknowledged by all current cluster nodes within the      * provided {@link CreateIndexRequest#timeout(org.elasticsearch.common.unit.TimeValue)}.      */
-DECL|method|getAcknowledged
-specifier|public
-name|boolean
-name|getAcknowledged
-parameter_list|()
-block|{
-return|return
-name|acknowledged
-argument_list|()
 return|;
 block|}
 annotation|@

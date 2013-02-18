@@ -138,7 +138,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|index
+name|setIndex
 argument_list|(
 name|index
 argument_list|)
@@ -168,7 +168,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|operationThreaded
+name|setOperationThreaded
 argument_list|(
 name|threadedOperation
 argument_list|)

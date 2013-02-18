@@ -915,7 +915,7 @@ name|assertThat
 argument_list|(
 name|percolate
 operator|.
-name|matches
+name|getMatches
 argument_list|()
 operator|.
 name|size
@@ -983,7 +983,7 @@ name|assertThat
 argument_list|(
 name|percolate
 operator|.
-name|matches
+name|getMatches
 argument_list|()
 operator|.
 name|size
@@ -1262,7 +1262,7 @@ name|assertThat
 argument_list|(
 name|percolate
 operator|.
-name|matches
+name|getMatches
 argument_list|()
 operator|.
 name|size
@@ -1344,7 +1344,7 @@ name|assertThat
 argument_list|(
 name|percolate
 operator|.
-name|matches
+name|getMatches
 argument_list|()
 operator|.
 name|size
@@ -1422,7 +1422,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1695,7 +1695,7 @@ name|assertThat
 argument_list|(
 name|index
 operator|.
-name|matches
+name|getMatches
 argument_list|()
 operator|.
 name|size
@@ -1711,7 +1711,7 @@ name|assertThat
 argument_list|(
 name|index
 operator|.
-name|matches
+name|getMatches
 argument_list|()
 argument_list|,
 name|hasItem
@@ -1777,7 +1777,7 @@ name|assertThat
 argument_list|(
 name|index
 operator|.
-name|matches
+name|getMatches
 argument_list|()
 operator|.
 name|size
@@ -1793,7 +1793,7 @@ name|assertThat
 argument_list|(
 name|index
 operator|.
-name|matches
+name|getMatches
 argument_list|()
 argument_list|,
 name|hasItem
@@ -1859,7 +1859,7 @@ name|assertThat
 argument_list|(
 name|index
 operator|.
-name|matches
+name|getMatches
 argument_list|()
 operator|.
 name|size
@@ -1967,14 +1967,14 @@ name|index
 init|=
 name|bulkItemResponse
 operator|.
-name|response
+name|getResponse
 argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
 name|index
 operator|.
-name|matches
+name|getMatches
 argument_list|()
 operator|.
 name|size
@@ -1990,7 +1990,7 @@ name|assertThat
 argument_list|(
 name|index
 operator|.
-name|matches
+name|getMatches
 argument_list|()
 argument_list|,
 name|hasItem
@@ -2317,7 +2317,7 @@ name|assertThat
 argument_list|(
 name|percolate
 operator|.
-name|matches
+name|getMatches
 argument_list|()
 operator|.
 name|size
@@ -2333,7 +2333,7 @@ name|assertThat
 argument_list|(
 name|percolate
 operator|.
-name|matches
+name|getMatches
 argument_list|()
 argument_list|,
 name|hasItem
@@ -2398,7 +2398,7 @@ name|assertThat
 argument_list|(
 name|percolate
 operator|.
-name|matches
+name|getMatches
 argument_list|()
 operator|.
 name|size
@@ -2414,7 +2414,7 @@ name|assertThat
 argument_list|(
 name|percolate
 operator|.
-name|matches
+name|getMatches
 argument_list|()
 argument_list|,
 name|hasItem
@@ -2680,7 +2680,7 @@ name|assertThat
 argument_list|(
 name|percolate
 operator|.
-name|matches
+name|getMatches
 argument_list|()
 operator|.
 name|size
@@ -2696,7 +2696,7 @@ name|assertThat
 argument_list|(
 name|percolate
 operator|.
-name|matches
+name|getMatches
 argument_list|()
 argument_list|,
 name|hasItem
@@ -2821,7 +2821,7 @@ name|assertThat
 argument_list|(
 name|percolate
 operator|.
-name|matches
+name|getMatches
 argument_list|()
 operator|.
 name|size
@@ -2837,7 +2837,7 @@ name|assertThat
 argument_list|(
 name|percolate
 operator|.
-name|matches
+name|getMatches
 argument_list|()
 argument_list|,
 name|hasItem
@@ -2974,7 +2974,7 @@ name|assertThat
 argument_list|(
 name|percolate
 operator|.
-name|matches
+name|getMatches
 argument_list|()
 operator|.
 name|size
@@ -2990,7 +2990,7 @@ name|assertThat
 argument_list|(
 name|percolate
 operator|.
-name|matches
+name|getMatches
 argument_list|()
 argument_list|,
 name|hasItem
@@ -3084,7 +3084,7 @@ name|assertThat
 argument_list|(
 name|percolate
 operator|.
-name|matches
+name|getMatches
 argument_list|()
 operator|.
 name|size
@@ -3415,7 +3415,7 @@ name|assertThat
 argument_list|(
 name|percolate
 operator|.
-name|matches
+name|getMatches
 argument_list|()
 operator|.
 name|size
@@ -3431,7 +3431,7 @@ name|assertThat
 argument_list|(
 name|percolate
 operator|.
-name|matches
+name|getMatches
 argument_list|()
 argument_list|,
 name|hasItem

@@ -350,7 +350,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|indices
+name|setIndices
 argument_list|(
 name|indices
 argument_list|)
@@ -372,7 +372,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|types
+name|setTypes
 argument_list|(
 name|types
 argument_list|)
@@ -393,7 +393,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|searchType
+name|setSearchType
 argument_list|(
 name|searchType
 argument_list|)
@@ -416,7 +416,7 @@ name|ElasticSearchIllegalArgumentException
 block|{
 name|request
 operator|.
-name|searchType
+name|setSearchType
 argument_list|(
 name|searchType
 argument_list|)
@@ -437,7 +437,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|scroll
+name|setScroll
 argument_list|(
 name|scroll
 argument_list|)
@@ -458,7 +458,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|scroll
+name|setScroll
 argument_list|(
 name|keepAlive
 argument_list|)
@@ -479,7 +479,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|scroll
+name|setScroll
 argument_list|(
 name|keepAlive
 argument_list|)
@@ -544,7 +544,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|routing
+name|setRouting
 argument_list|(
 name|routing
 argument_list|)
@@ -566,7 +566,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|routing
+name|setRouting
 argument_list|(
 name|routing
 argument_list|)
@@ -587,7 +587,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|preference
+name|setPreference
 argument_list|(
 name|preference
 argument_list|)
@@ -608,7 +608,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|operationThreading
+name|setOperationThreading
 argument_list|(
 name|operationThreading
 argument_list|)
@@ -629,7 +629,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|operationThreading
+name|setOperationThreading
 argument_list|(
 name|operationThreading
 argument_list|)
@@ -651,7 +651,7 @@ block|{
 name|request
 argument_list|()
 operator|.
-name|ignoreIndices
+name|setIgnoreIndices
 argument_list|(
 name|ignoreIndices
 argument_list|)
@@ -2008,7 +2008,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|source
+name|setSource
 argument_list|(
 name|source
 argument_list|)
@@ -2029,7 +2029,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|extraSource
+name|setExtraSource
 argument_list|(
 name|source
 argument_list|)
@@ -2050,7 +2050,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|source
+name|setSource
 argument_list|(
 name|source
 argument_list|,
@@ -2076,7 +2076,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|source
+name|setSource
 argument_list|(
 name|source
 argument_list|,
@@ -2100,7 +2100,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|source
+name|setSource
 argument_list|(
 name|source
 argument_list|)
@@ -2121,7 +2121,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|extraSource
+name|setExtraSource
 argument_list|(
 name|source
 argument_list|,
@@ -2147,7 +2147,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|extraSource
+name|setExtraSource
 argument_list|(
 name|source
 argument_list|,
@@ -2171,7 +2171,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|extraSource
+name|setExtraSource
 argument_list|(
 name|source
 argument_list|)
@@ -2199,7 +2199,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|source
+name|setSource
 argument_list|(
 name|source
 argument_list|,
@@ -2231,7 +2231,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|extraSource
+name|setExtraSource
 argument_list|(
 name|source
 argument_list|,
@@ -2256,7 +2256,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|source
+name|setSource
 argument_list|(
 name|builder
 argument_list|)
@@ -2277,7 +2277,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|extraSource
+name|setExtraSource
 argument_list|(
 name|builder
 argument_list|)
@@ -2298,7 +2298,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|source
+name|setSource
 argument_list|(
 name|source
 argument_list|)
@@ -2318,7 +2318,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|extraSource
+name|setExtraSource
 argument_list|(
 name|source
 argument_list|)
@@ -2392,7 +2392,7 @@ condition|)
 block|{
 name|request
 operator|.
-name|source
+name|setSource
 argument_list|(
 name|sourceBuilder
 argument_list|()
@@ -2426,7 +2426,7 @@ condition|)
 block|{
 name|request
 operator|.
-name|source
+name|setSource
 argument_list|(
 name|sourceBuilder
 argument_list|()

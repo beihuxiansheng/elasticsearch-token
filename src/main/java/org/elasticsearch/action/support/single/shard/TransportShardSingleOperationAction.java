@@ -514,7 +514,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|index
+name|setIndex
 argument_list|(
 name|state
 operator|.
@@ -525,7 +525,7 @@ name|concreteIndex
 argument_list|(
 name|request
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 argument_list|)
@@ -849,7 +849,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|operationThreaded
+name|isOperationThreaded
 argument_list|()
 condition|)
 block|{
@@ -1132,7 +1132,7 @@ block|{
 comment|// no need to have a threaded listener since we just send back a response
 name|request
 operator|.
-name|listenerThreaded
+name|setListenerThreaded
 argument_list|(
 literal|false
 argument_list|)
@@ -1140,7 +1140,7 @@ expr_stmt|;
 comment|// if we have a local operation, execute it on a thread since we don't spawn
 name|request
 operator|.
-name|operationThreaded
+name|setOperationThreaded
 argument_list|(
 literal|true
 argument_list|)

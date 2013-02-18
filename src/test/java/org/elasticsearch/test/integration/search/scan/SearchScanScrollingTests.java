@@ -1196,7 +1196,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|totalHits
@@ -1222,7 +1222,7 @@ name|prepareSearchScroll
 argument_list|(
 name|searchResponse
 operator|.
-name|scrollId
+name|getScrollId
 argument_list|()
 argument_list|)
 operator|.
@@ -1246,7 +1246,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|totalHits
@@ -1262,7 +1262,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|failedShards
+name|getFailedShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1278,7 +1278,7 @@ name|hit
 range|:
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 control|)
 block|{
@@ -1322,7 +1322,7 @@ if|if
 condition|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|hits

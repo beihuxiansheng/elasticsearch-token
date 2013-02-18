@@ -324,7 +324,7 @@ argument_list|)
 decl_stmt|;
 name|typesExistsRequest
 operator|.
-name|listenerThreaded
+name|setListenerThreaded
 argument_list|(
 literal|false
 argument_list|)
@@ -341,7 +341,7 @@ condition|)
 block|{
 name|typesExistsRequest
 operator|.
-name|ignoreIndices
+name|setIgnoreIndices
 argument_list|(
 name|IgnoreIndices
 operator|.
@@ -392,7 +392,7 @@ if|if
 condition|(
 name|response
 operator|.
-name|exists
+name|isExists
 argument_list|()
 condition|)
 block|{

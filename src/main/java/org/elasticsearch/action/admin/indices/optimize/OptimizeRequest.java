@@ -95,7 +95,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A request to optimize one or more indices. In order to optimize on all the indices, pass an empty array or  *<tt>null</tt> for the indices.  *<p/>  *<p>{@link #waitForMerge(boolean)} allows to control if the call will block until the optimize completes and  * defaults to<tt>true</tt>.  *<p/>  *<p>{@link #maxNumSegments(int)} allows to control the number of segments to optimize down to. By default, will  * cause the optimize process to optimize down to half the configured number of segments.  *  * @see org.elasticsearch.client.Requests#optimizeRequest(String...)  * @see org.elasticsearch.client.IndicesAdminClient#optimize(OptimizeRequest)  * @see OptimizeResponse  */
+comment|/**  * A request to optimize one or more indices. In order to optimize on all the indices, pass an empty array or  *<tt>null</tt> for the indices.  *<p/>  *<p>{@link #setWaitForMerge(boolean)} allows to control if the call will block until the optimize completes and  * defaults to<tt>true</tt>.  *<p/>  *<p>{@link #setMaxNumSegments(int)} allows to control the number of segments to optimize down to. By default, will  * cause the optimize process to optimize down to half the configured number of segments.  *  * @see org.elasticsearch.client.Requests#optimizeRequest(String...)  * @see org.elasticsearch.client.IndicesAdminClient#optimize(OptimizeRequest)  * @see OptimizeResponse  */
 end_comment
 
 begin_class
@@ -224,7 +224,7 @@ name|indices
 argument_list|)
 expr_stmt|;
 comment|// we want to do the optimize in parallel on local shards...
-name|operationThreading
+name|setOperationThreading
 argument_list|(
 name|BroadcastOperationThreading
 operator|.
@@ -238,10 +238,10 @@ name|OptimizeRequest
 parameter_list|()
 block|{      }
 comment|/**      * Should the call block until the optimize completes. Defaults to<tt>true</tt>.      */
-DECL|method|waitForMerge
+DECL|method|isWaitForMerge
 specifier|public
 name|boolean
-name|waitForMerge
+name|isWaitForMerge
 parameter_list|()
 block|{
 return|return
@@ -249,10 +249,10 @@ name|waitForMerge
 return|;
 block|}
 comment|/**      * Should the call block until the optimize completes. Defaults to<tt>true</tt>.      */
-DECL|method|waitForMerge
+DECL|method|setWaitForMerge
 specifier|public
 name|OptimizeRequest
-name|waitForMerge
+name|setWaitForMerge
 parameter_list|(
 name|boolean
 name|waitForMerge
@@ -269,10 +269,10 @@ name|this
 return|;
 block|}
 comment|/**      * Will optimize the index down to<= maxNumSegments. By default, will cause the optimize      * process to optimize down to half the configured number of segments.      */
-DECL|method|maxNumSegments
+DECL|method|getMaxNumSegments
 specifier|public
 name|int
-name|maxNumSegments
+name|getMaxNumSegments
 parameter_list|()
 block|{
 return|return
@@ -280,10 +280,10 @@ name|maxNumSegments
 return|;
 block|}
 comment|/**      * Will optimize the index down to<= maxNumSegments. By default, will cause the optimize      * process to optimize down to half the configured number of segments.      */
-DECL|method|maxNumSegments
+DECL|method|setMaxNumSegments
 specifier|public
 name|OptimizeRequest
-name|maxNumSegments
+name|setMaxNumSegments
 parameter_list|(
 name|int
 name|maxNumSegments
@@ -300,10 +300,10 @@ name|this
 return|;
 block|}
 comment|/**      * Should the optimization only expunge deletes from the index, without full optimization.      * Defaults to full optimization (<tt>false</tt>).      */
-DECL|method|onlyExpungeDeletes
+DECL|method|isOnlyExpungeDeletes
 specifier|public
 name|boolean
-name|onlyExpungeDeletes
+name|isOnlyExpungeDeletes
 parameter_list|()
 block|{
 return|return
@@ -311,10 +311,10 @@ name|onlyExpungeDeletes
 return|;
 block|}
 comment|/**      * Should the optimization only expunge deletes from the index, without full optimization.      * Defaults to full optimization (<tt>false</tt>).      */
-DECL|method|onlyExpungeDeletes
+DECL|method|setOnlyExpungeDeletes
 specifier|public
 name|OptimizeRequest
-name|onlyExpungeDeletes
+name|setOnlyExpungeDeletes
 parameter_list|(
 name|boolean
 name|onlyExpungeDeletes
@@ -331,10 +331,10 @@ name|this
 return|;
 block|}
 comment|/**      * Should flush be performed after the optimization. Defaults to<tt>true</tt>.      */
-DECL|method|flush
+DECL|method|isFlush
 specifier|public
 name|boolean
-name|flush
+name|isFlush
 parameter_list|()
 block|{
 return|return
@@ -342,10 +342,10 @@ name|flush
 return|;
 block|}
 comment|/**      * Should flush be performed after the optimization. Defaults to<tt>true</tt>.      */
-DECL|method|flush
+DECL|method|setFlush
 specifier|public
 name|OptimizeRequest
-name|flush
+name|setFlush
 parameter_list|(
 name|boolean
 name|flush
@@ -362,10 +362,10 @@ name|this
 return|;
 block|}
 comment|/**      * Should refresh be performed after the optimization. Defaults to<tt>true</tt>.      */
-DECL|method|refresh
+DECL|method|isRefresh
 specifier|public
 name|boolean
-name|refresh
+name|isRefresh
 parameter_list|()
 block|{
 return|return
@@ -373,10 +373,10 @@ name|refresh
 return|;
 block|}
 comment|/**      * Should refresh be performed after the optimization. Defaults to<tt>true</tt>.      */
-DECL|method|refresh
+DECL|method|setRefresh
 specifier|public
 name|OptimizeRequest
-name|refresh
+name|setRefresh
 parameter_list|(
 name|boolean
 name|refresh

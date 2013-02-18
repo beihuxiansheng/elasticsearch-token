@@ -295,14 +295,14 @@ argument_list|)
 decl_stmt|;
 name|nodesRestartRequest
 operator|.
-name|listenerThreaded
+name|setListenerThreaded
 argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
 name|nodesRestartRequest
 operator|.
-name|delay
+name|setDelay
 argument_list|(
 name|request
 operator|.
@@ -312,7 +312,7 @@ literal|"delay"
 argument_list|,
 name|nodesRestartRequest
 operator|.
-name|delay
+name|getDelay
 argument_list|()
 argument_list|)
 argument_list|)
@@ -369,7 +369,7 @@ literal|"cluster_name"
 argument_list|,
 name|result
 operator|.
-name|clusterName
+name|getClusterName
 argument_list|()
 operator|.
 name|value
@@ -399,7 +399,7 @@ name|startObject
 argument_list|(
 name|nodeInfo
 operator|.
-name|node
+name|getNode
 argument_list|()
 operator|.
 name|id
@@ -414,7 +414,7 @@ literal|"name"
 argument_list|,
 name|nodeInfo
 operator|.
-name|node
+name|getNode
 argument_list|()
 operator|.
 name|name

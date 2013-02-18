@@ -386,19 +386,6 @@ operator|=
 name|shards
 expr_stmt|;
 block|}
-DECL|method|shards
-specifier|public
-name|ShardStatus
-index|[]
-name|shards
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|shards
-return|;
-block|}
 DECL|method|getShards
 specifier|public
 name|ShardStatus
@@ -428,17 +415,17 @@ name|position
 index|]
 return|;
 block|}
-DECL|method|index
+DECL|method|getIndex
 specifier|public
 name|IndexStatus
-name|index
+name|getIndex
 parameter_list|(
 name|String
 name|index
 parameter_list|)
 block|{
 return|return
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|get
@@ -456,22 +443,6 @@ argument_list|,
 name|IndexStatus
 argument_list|>
 name|getIndices
-parameter_list|()
-block|{
-return|return
-name|indices
-argument_list|()
-return|;
-block|}
-DECL|method|indices
-specifier|public
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|IndexStatus
-argument_list|>
-name|indices
 parameter_list|()
 block|{
 if|if
@@ -521,7 +492,7 @@ name|add
 argument_list|(
 name|shard
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -557,7 +528,7 @@ if|if
 condition|(
 name|shard
 operator|.
-name|shardRouting
+name|getShardRouting
 argument_list|()
 operator|.
 name|index
@@ -640,7 +611,7 @@ name|out
 operator|.
 name|writeVInt
 argument_list|(
-name|shards
+name|getShards
 argument_list|()
 operator|.
 name|length
@@ -651,7 +622,7 @@ control|(
 name|ShardStatus
 name|status
 range|:
-name|shards
+name|getShards
 argument_list|()
 control|)
 block|{
@@ -784,7 +755,7 @@ control|(
 name|IndexStatus
 name|indexStatus
 range|:
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|values
@@ -797,7 +768,7 @@ name|startObject
 argument_list|(
 name|indexStatus
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|XContentBuilder
@@ -820,7 +791,7 @@ if|if
 condition|(
 name|indexStatus
 operator|.
-name|storeSize
+name|getStoreSize
 argument_list|()
 operator|!=
 literal|null
@@ -836,7 +807,7 @@ name|PRIMARY_SIZE
 argument_list|,
 name|indexStatus
 operator|.
-name|primaryStoreSize
+name|getPrimaryStoreSize
 argument_list|()
 operator|.
 name|toString
@@ -853,7 +824,7 @@ name|PRIMARY_SIZE_IN_BYTES
 argument_list|,
 name|indexStatus
 operator|.
-name|primaryStoreSize
+name|getPrimaryStoreSize
 argument_list|()
 operator|.
 name|bytes
@@ -870,7 +841,7 @@ name|SIZE
 argument_list|,
 name|indexStatus
 operator|.
-name|storeSize
+name|getStoreSize
 argument_list|()
 operator|.
 name|toString
@@ -887,7 +858,7 @@ name|SIZE_IN_BYTES
 argument_list|,
 name|indexStatus
 operator|.
-name|storeSize
+name|getStoreSize
 argument_list|()
 operator|.
 name|bytes
@@ -904,7 +875,7 @@ if|if
 condition|(
 name|indexStatus
 operator|.
-name|translogOperations
+name|getTranslogOperations
 argument_list|()
 operator|!=
 operator|-
@@ -930,7 +901,7 @@ name|OPERATIONS
 argument_list|,
 name|indexStatus
 operator|.
-name|translogOperations
+name|getTranslogOperations
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -944,7 +915,7 @@ if|if
 condition|(
 name|indexStatus
 operator|.
-name|docs
+name|getDocs
 argument_list|()
 operator|!=
 literal|null
@@ -969,10 +940,10 @@ name|NUM_DOCS
 argument_list|,
 name|indexStatus
 operator|.
-name|docs
+name|getDocs
 argument_list|()
 operator|.
-name|numDocs
+name|getNumDocs
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -986,10 +957,10 @@ name|MAX_DOC
 argument_list|,
 name|indexStatus
 operator|.
-name|docs
+name|getDocs
 argument_list|()
 operator|.
-name|maxDoc
+name|getMaxDoc
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1003,10 +974,10 @@ name|DELETED_DOCS
 argument_list|,
 name|indexStatus
 operator|.
-name|docs
+name|getDocs
 argument_list|()
 operator|.
-name|deletedDocs
+name|getDeletedDocs
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1021,7 +992,7 @@ name|mergeStats
 init|=
 name|indexStatus
 operator|.
-name|mergeStats
+name|getMergeStats
 argument_list|()
 decl_stmt|;
 if|if
@@ -1046,7 +1017,7 @@ name|refreshStats
 init|=
 name|indexStatus
 operator|.
-name|refreshStats
+name|getRefreshStats
 argument_list|()
 decl_stmt|;
 if|if
@@ -1071,7 +1042,7 @@ name|flushStats
 init|=
 name|indexStatus
 operator|.
-name|flushStats
+name|getFlushStats
 argument_list|()
 decl_stmt|;
 if|if
@@ -1118,7 +1089,7 @@ name|toString
 argument_list|(
 name|indexShardStatus
 operator|.
-name|shardId
+name|getShardId
 argument_list|()
 operator|.
 name|id
@@ -1156,7 +1127,7 @@ name|STATE
 argument_list|,
 name|shardStatus
 operator|.
-name|shardRouting
+name|getShardRouting
 argument_list|()
 operator|.
 name|state
@@ -1171,7 +1142,7 @@ name|PRIMARY
 argument_list|,
 name|shardStatus
 operator|.
-name|shardRouting
+name|getShardRouting
 argument_list|()
 operator|.
 name|primary
@@ -1186,7 +1157,7 @@ name|NODE
 argument_list|,
 name|shardStatus
 operator|.
-name|shardRouting
+name|getShardRouting
 argument_list|()
 operator|.
 name|currentNodeId
@@ -1201,7 +1172,7 @@ name|RELOCATING_NODE
 argument_list|,
 name|shardStatus
 operator|.
-name|shardRouting
+name|getShardRouting
 argument_list|()
 operator|.
 name|relocatingNodeId
@@ -1216,7 +1187,7 @@ name|SHARD
 argument_list|,
 name|shardStatus
 operator|.
-name|shardRouting
+name|getShardRouting
 argument_list|()
 operator|.
 name|shardId
@@ -1234,7 +1205,7 @@ name|INDEX
 argument_list|,
 name|shardStatus
 operator|.
-name|shardRouting
+name|getShardRouting
 argument_list|()
 operator|.
 name|shardId
@@ -1260,7 +1231,7 @@ name|STATE
 argument_list|,
 name|shardStatus
 operator|.
-name|state
+name|getState
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1268,7 +1239,7 @@ if|if
 condition|(
 name|shardStatus
 operator|.
-name|storeSize
+name|getStoreSize
 argument_list|()
 operator|!=
 literal|null
@@ -1293,7 +1264,7 @@ name|SIZE
 argument_list|,
 name|shardStatus
 operator|.
-name|storeSize
+name|getStoreSize
 argument_list|()
 operator|.
 name|toString
@@ -1310,7 +1281,7 @@ name|SIZE_IN_BYTES
 argument_list|,
 name|shardStatus
 operator|.
-name|storeSize
+name|getStoreSize
 argument_list|()
 operator|.
 name|bytes
@@ -1327,7 +1298,7 @@ if|if
 condition|(
 name|shardStatus
 operator|.
-name|translogId
+name|getTranslogId
 argument_list|()
 operator|!=
 operator|-
@@ -1353,7 +1324,7 @@ name|ID
 argument_list|,
 name|shardStatus
 operator|.
-name|translogId
+name|getTranslogId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1367,7 +1338,7 @@ name|OPERATIONS
 argument_list|,
 name|shardStatus
 operator|.
-name|translogOperations
+name|getTranslogOperations
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1381,7 +1352,7 @@ if|if
 condition|(
 name|shardStatus
 operator|.
-name|docs
+name|getDocs
 argument_list|()
 operator|!=
 literal|null
@@ -1406,10 +1377,10 @@ name|NUM_DOCS
 argument_list|,
 name|shardStatus
 operator|.
-name|docs
+name|getDocs
 argument_list|()
 operator|.
-name|numDocs
+name|getNumDocs
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1423,10 +1394,10 @@ name|MAX_DOC
 argument_list|,
 name|shardStatus
 operator|.
-name|docs
+name|getDocs
 argument_list|()
 operator|.
-name|maxDoc
+name|getMaxDoc
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1440,10 +1411,10 @@ name|DELETED_DOCS
 argument_list|,
 name|shardStatus
 operator|.
-name|docs
+name|getDocs
 argument_list|()
 operator|.
-name|deletedDocs
+name|getDeletedDocs
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1457,7 +1428,7 @@ name|mergeStats
 operator|=
 name|shardStatus
 operator|.
-name|mergeStats
+name|getMergeStats
 argument_list|()
 expr_stmt|;
 if|if
@@ -1481,7 +1452,7 @@ name|refreshStats
 operator|=
 name|shardStatus
 operator|.
-name|refreshStats
+name|getRefreshStats
 argument_list|()
 expr_stmt|;
 if|if
@@ -1505,7 +1476,7 @@ name|flushStats
 operator|=
 name|shardStatus
 operator|.
-name|flushStats
+name|getFlushStats
 argument_list|()
 expr_stmt|;
 if|if
@@ -1529,7 +1500,7 @@ if|if
 condition|(
 name|shardStatus
 operator|.
-name|peerRecoveryStatus
+name|getPeerRecoveryStatus
 argument_list|()
 operator|!=
 literal|null
@@ -1540,7 +1511,7 @@ name|peerRecoveryStatus
 init|=
 name|shardStatus
 operator|.
-name|peerRecoveryStatus
+name|getPeerRecoveryStatus
 argument_list|()
 decl_stmt|;
 name|builder
@@ -1562,7 +1533,7 @@ name|STAGE
 argument_list|,
 name|peerRecoveryStatus
 operator|.
-name|stage
+name|getStage
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1576,7 +1547,7 @@ name|START_TIME_IN_MILLIS
 argument_list|,
 name|peerRecoveryStatus
 operator|.
-name|startTime
+name|getStartTime
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1590,7 +1561,7 @@ name|TIME
 argument_list|,
 name|peerRecoveryStatus
 operator|.
-name|time
+name|getTime
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1604,7 +1575,7 @@ name|TIME_IN_MILLIS
 argument_list|,
 name|peerRecoveryStatus
 operator|.
-name|time
+name|getTime
 argument_list|()
 operator|.
 name|millis
@@ -1630,7 +1601,7 @@ name|PROGRESS
 argument_list|,
 name|peerRecoveryStatus
 operator|.
-name|indexRecoveryProgress
+name|getIndexRecoveryProgress
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1644,7 +1615,7 @@ name|SIZE
 argument_list|,
 name|peerRecoveryStatus
 operator|.
-name|indexSize
+name|getIndexSize
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1658,7 +1629,7 @@ name|SIZE_IN_BYTES
 argument_list|,
 name|peerRecoveryStatus
 operator|.
-name|indexSize
+name|getIndexSize
 argument_list|()
 operator|.
 name|bytes
@@ -1675,7 +1646,7 @@ name|REUSED_SIZE
 argument_list|,
 name|peerRecoveryStatus
 operator|.
-name|reusedIndexSize
+name|getReusedIndexSize
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1689,7 +1660,7 @@ name|REUSED_SIZE_IN_BYTES
 argument_list|,
 name|peerRecoveryStatus
 operator|.
-name|reusedIndexSize
+name|getReusedIndexSize
 argument_list|()
 operator|.
 name|bytes
@@ -1706,7 +1677,7 @@ name|EXPECTED_RECOVERED_SIZE
 argument_list|,
 name|peerRecoveryStatus
 operator|.
-name|expectedRecoveredIndexSize
+name|getExpectedRecoveredIndexSize
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1720,7 +1691,7 @@ name|EXPECTED_RECOVERED_SIZE_IN_BYTES
 argument_list|,
 name|peerRecoveryStatus
 operator|.
-name|expectedRecoveredIndexSize
+name|getExpectedRecoveredIndexSize
 argument_list|()
 operator|.
 name|bytes
@@ -1737,7 +1708,7 @@ name|RECOVERED_SIZE
 argument_list|,
 name|peerRecoveryStatus
 operator|.
-name|recoveredIndexSize
+name|getRecoveredIndexSize
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1751,7 +1722,7 @@ name|RECOVERED_SIZE_IN_BYTES
 argument_list|,
 name|peerRecoveryStatus
 operator|.
-name|recoveredIndexSize
+name|getRecoveredIndexSize
 argument_list|()
 operator|.
 name|bytes
@@ -1782,7 +1753,7 @@ name|RECOVERED
 argument_list|,
 name|peerRecoveryStatus
 operator|.
-name|recoveredTranslogOperations
+name|getRecoveredTranslogOperations
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1801,7 +1772,7 @@ if|if
 condition|(
 name|shardStatus
 operator|.
-name|gatewayRecoveryStatus
+name|getGatewayRecoveryStatus
 argument_list|()
 operator|!=
 literal|null
@@ -1812,7 +1783,7 @@ name|gatewayRecoveryStatus
 init|=
 name|shardStatus
 operator|.
-name|gatewayRecoveryStatus
+name|getGatewayRecoveryStatus
 argument_list|()
 decl_stmt|;
 name|builder
@@ -1834,7 +1805,7 @@ name|STAGE
 argument_list|,
 name|gatewayRecoveryStatus
 operator|.
-name|stage
+name|getStage
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1848,7 +1819,7 @@ name|START_TIME_IN_MILLIS
 argument_list|,
 name|gatewayRecoveryStatus
 operator|.
-name|startTime
+name|getStartTime
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1862,7 +1833,7 @@ name|TIME
 argument_list|,
 name|gatewayRecoveryStatus
 operator|.
-name|time
+name|getTime
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1876,7 +1847,7 @@ name|TIME_IN_MILLIS
 argument_list|,
 name|gatewayRecoveryStatus
 operator|.
-name|time
+name|getTime
 argument_list|()
 operator|.
 name|millis
@@ -1902,7 +1873,7 @@ name|PROGRESS
 argument_list|,
 name|gatewayRecoveryStatus
 operator|.
-name|indexRecoveryProgress
+name|getIndexRecoveryProgress
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1916,7 +1887,7 @@ name|SIZE
 argument_list|,
 name|gatewayRecoveryStatus
 operator|.
-name|indexSize
+name|getIndexSize
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1930,7 +1901,7 @@ name|SIZE_IN_BYTES
 argument_list|,
 name|gatewayRecoveryStatus
 operator|.
-name|indexSize
+name|getIndexSize
 argument_list|()
 operator|.
 name|bytes
@@ -1947,7 +1918,7 @@ name|REUSED_SIZE
 argument_list|,
 name|gatewayRecoveryStatus
 operator|.
-name|reusedIndexSize
+name|getReusedIndexSize
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1961,7 +1932,7 @@ name|REUSED_SIZE_IN_BYTES
 argument_list|,
 name|gatewayRecoveryStatus
 operator|.
-name|reusedIndexSize
+name|getReusedIndexSize
 argument_list|()
 operator|.
 name|bytes
@@ -1978,7 +1949,7 @@ name|EXPECTED_RECOVERED_SIZE
 argument_list|,
 name|gatewayRecoveryStatus
 operator|.
-name|expectedRecoveredIndexSize
+name|getExpectedRecoveredIndexSize
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1992,7 +1963,7 @@ name|EXPECTED_RECOVERED_SIZE_IN_BYTES
 argument_list|,
 name|gatewayRecoveryStatus
 operator|.
-name|expectedRecoveredIndexSize
+name|getExpectedRecoveredIndexSize
 argument_list|()
 operator|.
 name|bytes
@@ -2009,7 +1980,7 @@ name|RECOVERED_SIZE
 argument_list|,
 name|gatewayRecoveryStatus
 operator|.
-name|recoveredIndexSize
+name|getRecoveredIndexSize
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2023,7 +1994,7 @@ name|RECOVERED_SIZE_IN_BYTES
 argument_list|,
 name|gatewayRecoveryStatus
 operator|.
-name|recoveredIndexSize
+name|getRecoveredIndexSize
 argument_list|()
 operator|.
 name|bytes
@@ -2054,7 +2025,7 @@ name|RECOVERED
 argument_list|,
 name|gatewayRecoveryStatus
 operator|.
-name|recoveredTranslogOperations
+name|getRecoveredTranslogOperations
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2073,7 +2044,7 @@ if|if
 condition|(
 name|shardStatus
 operator|.
-name|gatewaySnapshotStatus
+name|getGatewaySnapshotStatus
 argument_list|()
 operator|!=
 literal|null
@@ -2084,7 +2055,7 @@ name|gatewaySnapshotStatus
 init|=
 name|shardStatus
 operator|.
-name|gatewaySnapshotStatus
+name|getGatewaySnapshotStatus
 argument_list|()
 decl_stmt|;
 name|builder
@@ -2106,7 +2077,7 @@ name|STAGE
 argument_list|,
 name|gatewaySnapshotStatus
 operator|.
-name|stage
+name|getStage
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2120,7 +2091,7 @@ name|START_TIME_IN_MILLIS
 argument_list|,
 name|gatewaySnapshotStatus
 operator|.
-name|startTime
+name|getStartTime
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2134,7 +2105,7 @@ name|TIME
 argument_list|,
 name|gatewaySnapshotStatus
 operator|.
-name|time
+name|getTime
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2148,7 +2119,7 @@ name|TIME_IN_MILLIS
 argument_list|,
 name|gatewaySnapshotStatus
 operator|.
-name|time
+name|getTime
 argument_list|()
 operator|.
 name|millis
@@ -2174,7 +2145,7 @@ name|SIZE
 argument_list|,
 name|gatewaySnapshotStatus
 operator|.
-name|indexSize
+name|getIndexSize
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2188,7 +2159,7 @@ name|SIZE_IN_BYTES
 argument_list|,
 name|gatewaySnapshotStatus
 operator|.
-name|indexSize
+name|getIndexSize
 argument_list|()
 operator|.
 name|bytes
@@ -2219,7 +2190,7 @@ name|EXPECTED_OPERATIONS
 argument_list|,
 name|gatewaySnapshotStatus
 operator|.
-name|expectedNumberOfOperations
+name|getExpectedNumberOfOperations
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -308,7 +308,7 @@ literal|"Done Cluster Health, status "
 operator|+
 name|clusterHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -316,7 +316,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -329,7 +329,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|,
 name|equalTo
@@ -482,7 +482,7 @@ literal|"Done Cluster Health, status "
 operator|+
 name|clusterHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -490,7 +490,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -503,7 +503,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|,
 name|equalTo
@@ -664,7 +664,7 @@ literal|"Done Cluster Health, status "
 operator|+
 name|clusterHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -672,7 +672,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -685,7 +685,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|,
 name|equalTo

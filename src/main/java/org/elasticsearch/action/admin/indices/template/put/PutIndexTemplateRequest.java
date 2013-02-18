@@ -546,10 +546,10 @@ name|validationException
 return|;
 block|}
 comment|/**      * Sets the name of the index template.      */
-DECL|method|name
+DECL|method|setName
 specifier|public
 name|PutIndexTemplateRequest
-name|name
+name|setName
 parameter_list|(
 name|String
 name|name
@@ -566,10 +566,10 @@ name|this
 return|;
 block|}
 comment|/**      * The name of the index template.      */
-DECL|method|name
+DECL|method|getName
 specifier|public
 name|String
-name|name
+name|getName
 parameter_list|()
 block|{
 return|return

@@ -535,7 +535,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|index
+name|setIndex
 argument_list|(
 name|state
 operator|.
@@ -546,7 +546,7 @@ name|concreteIndex
 argument_list|(
 name|request
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1198,7 +1198,7 @@ name|add
 argument_list|(
 name|request
 operator|.
-name|timeout
+name|getTimeout
 argument_list|()
 argument_list|,
 operator|new
@@ -1351,7 +1351,7 @@ name|ShardId
 argument_list|(
 name|request
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 operator|-
@@ -1483,7 +1483,7 @@ block|{
 comment|// no need to have a threaded listener since we just send back a response
 name|request
 operator|.
-name|listenerThreaded
+name|setListenerThreaded
 argument_list|(
 literal|false
 argument_list|)

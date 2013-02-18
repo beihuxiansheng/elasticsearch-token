@@ -410,7 +410,7 @@ argument_list|)
 decl_stmt|;
 name|explainRequest
 operator|.
-name|parent
+name|setParent
 argument_list|(
 name|request
 operator|.
@@ -422,7 +422,7 @@ argument_list|)
 expr_stmt|;
 name|explainRequest
 operator|.
-name|routing
+name|setRouting
 argument_list|(
 name|request
 operator|.
@@ -434,7 +434,7 @@ argument_list|)
 expr_stmt|;
 name|explainRequest
 operator|.
-name|preference
+name|setPreference
 argument_list|(
 name|request
 operator|.
@@ -474,7 +474,7 @@ condition|)
 block|{
 name|explainRequest
 operator|.
-name|source
+name|setSource
 argument_list|(
 name|request
 operator|.
@@ -498,7 +498,7 @@ condition|)
 block|{
 name|explainRequest
 operator|.
-name|source
+name|setSource
 argument_list|(
 operator|new
 name|BytesArray
@@ -685,14 +685,14 @@ argument_list|()
 decl_stmt|;
 name|explainSourceBuilder
 operator|.
-name|query
+name|setQuery
 argument_list|(
 name|queryStringBuilder
 argument_list|)
 expr_stmt|;
 name|explainRequest
 operator|.
-name|source
+name|setSource
 argument_list|(
 name|explainSourceBuilder
 argument_list|)
@@ -735,7 +735,7 @@ condition|)
 block|{
 name|explainRequest
 operator|.
-name|fields
+name|setFields
 argument_list|(
 name|sFields
 argument_list|)
@@ -790,7 +790,7 @@ name|OK
 argument_list|,
 name|response
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|)
 operator|.
@@ -802,7 +802,7 @@ name|_INDEX
 argument_list|,
 name|explainRequest
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 operator|.
@@ -814,7 +814,7 @@ name|_TYPE
 argument_list|,
 name|explainRequest
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|)
 operator|.
@@ -826,7 +826,7 @@ name|_ID
 argument_list|,
 name|explainRequest
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 operator|.
@@ -838,7 +838,7 @@ name|MATCHED
 argument_list|,
 name|response
 operator|.
-name|match
+name|isMatch
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -865,7 +865,7 @@ name|builder
 argument_list|,
 name|response
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -880,7 +880,7 @@ name|getResult
 init|=
 name|response
 operator|.
-name|getResult
+name|getGetResult
 argument_list|()
 decl_stmt|;
 if|if
@@ -901,7 +901,7 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|.
-name|getResult
+name|getGetResult
 argument_list|()
 operator|.
 name|toXContentEmbedded
@@ -933,7 +933,7 @@ name|request
 argument_list|,
 name|response
 operator|.
-name|exists
+name|isExists
 argument_list|()
 condition|?
 name|OK

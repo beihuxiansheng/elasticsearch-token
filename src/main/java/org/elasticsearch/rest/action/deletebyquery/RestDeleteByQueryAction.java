@@ -409,7 +409,7 @@ argument_list|)
 decl_stmt|;
 name|deleteByQueryRequest
 operator|.
-name|listenerThreaded
+name|setListenerThreaded
 argument_list|(
 literal|false
 argument_list|)
@@ -426,7 +426,7 @@ condition|)
 block|{
 name|deleteByQueryRequest
 operator|.
-name|query
+name|setQuery
 argument_list|(
 name|request
 operator|.
@@ -461,7 +461,7 @@ condition|)
 block|{
 name|deleteByQueryRequest
 operator|.
-name|query
+name|setQuery
 argument_list|(
 name|source
 argument_list|)
@@ -481,7 +481,7 @@ argument_list|)
 decl_stmt|;
 name|deleteByQueryRequest
 operator|.
-name|query
+name|setQuery
 argument_list|(
 name|bytes
 argument_list|,
@@ -492,7 +492,7 @@ block|}
 block|}
 name|deleteByQueryRequest
 operator|.
-name|types
+name|setTypes
 argument_list|(
 name|splitTypes
 argument_list|(
@@ -507,7 +507,7 @@ argument_list|)
 expr_stmt|;
 name|deleteByQueryRequest
 operator|.
-name|timeout
+name|setTimeout
 argument_list|(
 name|request
 operator|.
@@ -523,7 +523,7 @@ argument_list|)
 expr_stmt|;
 name|deleteByQueryRequest
 operator|.
-name|routing
+name|setRouting
 argument_list|(
 name|request
 operator|.
@@ -552,7 +552,7 @@ condition|)
 block|{
 name|deleteByQueryRequest
 operator|.
-name|replicationType
+name|setReplicationType
 argument_list|(
 name|ReplicationType
 operator|.
@@ -582,7 +582,7 @@ condition|)
 block|{
 name|deleteByQueryRequest
 operator|.
-name|consistencyLevel
+name|setConsistencyLevel
 argument_list|(
 name|WriteConsistencyLevel
 operator|.
@@ -723,7 +723,7 @@ name|indexDeleteByQueryResponse
 range|:
 name|result
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|values
@@ -736,7 +736,7 @@ name|startObject
 argument_list|(
 name|indexDeleteByQueryResponse
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|XContentBuilder
@@ -761,7 +761,7 @@ literal|"total"
 argument_list|,
 name|indexDeleteByQueryResponse
 operator|.
-name|totalShards
+name|getTotalShards
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -773,7 +773,7 @@ literal|"successful"
 argument_list|,
 name|indexDeleteByQueryResponse
 operator|.
-name|successfulShards
+name|getSuccessfulShards
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -785,7 +785,7 @@ literal|"failed"
 argument_list|,
 name|indexDeleteByQueryResponse
 operator|.
-name|failedShards
+name|getFailedShards
 argument_list|()
 argument_list|)
 expr_stmt|;

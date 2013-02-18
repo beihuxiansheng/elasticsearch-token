@@ -365,7 +365,7 @@ argument_list|)
 decl_stmt|;
 name|putRequest
 operator|.
-name|listenerThreaded
+name|setListenerThreaded
 argument_list|(
 literal|false
 argument_list|)
@@ -565,7 +565,7 @@ name|ACKNOWLEDGED
 argument_list|,
 name|response
 operator|.
-name|acknowledged
+name|isAcknowledged
 argument_list|()
 argument_list|)
 operator|.

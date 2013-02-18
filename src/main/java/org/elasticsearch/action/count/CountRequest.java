@@ -263,7 +263,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A request to count the number of documents matching a specific query. Best created with  * {@link org.elasticsearch.client.Requests#countRequest(String...)}.  *<p/>  *<p>The request requires the query source to be set either using {@link #query(org.elasticsearch.index.query.QueryBuilder)},  * or {@link #query(byte[])}.  *  * @see CountResponse  * @see org.elasticsearch.client.Client#count(CountRequest)  * @see org.elasticsearch.client.Requests#countRequest(String...)  */
+comment|/**  * A request to count the number of documents matching a specific query. Best created with  * {@link org.elasticsearch.client.Requests#countRequest(String...)}.  *<p/>  *<p>The request requires the query source to be set either using {@link #setQuery(org.elasticsearch.index.query.QueryBuilder)},  * or {@link #setQuery(byte[])}.  *  * @see CountResponse  * @see org.elasticsearch.client.Client#count(CountRequest)  * @see org.elasticsearch.client.Requests#countRequest(String...)  */
 end_comment
 
 begin_class
@@ -399,9 +399,10 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * The minimum score of the documents to include in the count.      */
-DECL|method|minScore
+DECL|method|getMinScore
+specifier|public
 name|float
-name|minScore
+name|getMinScore
 parameter_list|()
 block|{
 return|return
@@ -409,10 +410,10 @@ name|minScore
 return|;
 block|}
 comment|/**      * The minimum score of the documents to include in the count. Defaults to<tt>-1</tt> which means all      * documents will be included in the count.      */
-DECL|method|minScore
+DECL|method|setMinScore
 specifier|public
 name|CountRequest
-name|minScore
+name|setMinScore
 parameter_list|(
 name|float
 name|minScore
@@ -429,9 +430,10 @@ name|this
 return|;
 block|}
 comment|/**      * The query source to execute.      */
-DECL|method|querySource
+DECL|method|getQuerySource
+specifier|public
 name|BytesReference
-name|querySource
+name|getQuerySource
 parameter_list|()
 block|{
 return|return
@@ -441,10 +443,10 @@ block|}
 comment|/**      * The query source to execute.      *      * @see org.elasticsearch.index.query.QueryBuilders      */
 annotation|@
 name|Required
-DECL|method|query
+DECL|method|setQuery
 specifier|public
 name|CountRequest
-name|query
+name|setQuery
 parameter_list|(
 name|QueryBuilder
 name|queryBuilder
@@ -472,10 +474,10 @@ block|}
 comment|/**      * The query source to execute in the form of a map.      */
 annotation|@
 name|Required
-DECL|method|query
+DECL|method|setQuery
 specifier|public
 name|CountRequest
-name|query
+name|setQuery
 parameter_list|(
 name|Map
 name|querySource
@@ -501,7 +503,7 @@ name|querySource
 argument_list|)
 expr_stmt|;
 return|return
-name|query
+name|setQuery
 argument_list|(
 name|builder
 argument_list|)
@@ -530,10 +532,10 @@ block|}
 block|}
 annotation|@
 name|Required
-DECL|method|query
+DECL|method|setQuery
 specifier|public
 name|CountRequest
-name|query
+name|setQuery
 parameter_list|(
 name|XContentBuilder
 name|builder
@@ -558,13 +560,13 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The query source to execute. It is preferable to use either {@link #query(byte[])}      * or {@link #query(org.elasticsearch.index.query.QueryBuilder)}.      */
+comment|/**      * The query source to execute. It is preferable to use either {@link #setQuery(byte[])}      * or {@link #setQuery(org.elasticsearch.index.query.QueryBuilder)}.      */
 annotation|@
 name|Required
-DECL|method|query
+DECL|method|setQuery
 specifier|public
 name|CountRequest
-name|query
+name|setQuery
 parameter_list|(
 name|String
 name|querySource
@@ -593,10 +595,10 @@ block|}
 comment|/**      * The query source to execute.      */
 annotation|@
 name|Required
-DECL|method|query
+DECL|method|setQuery
 specifier|public
 name|CountRequest
-name|query
+name|setQuery
 parameter_list|(
 name|byte
 index|[]
@@ -604,7 +606,7 @@ name|querySource
 parameter_list|)
 block|{
 return|return
-name|query
+name|setQuery
 argument_list|(
 name|querySource
 argument_list|,
@@ -621,10 +623,10 @@ block|}
 comment|/**      * The query source to execute.      */
 annotation|@
 name|Required
-DECL|method|query
+DECL|method|setQuery
 specifier|public
 name|CountRequest
-name|query
+name|setQuery
 parameter_list|(
 name|byte
 index|[]
@@ -641,7 +643,7 @@ name|unsafe
 parameter_list|)
 block|{
 return|return
-name|query
+name|setQuery
 argument_list|(
 operator|new
 name|BytesArray
@@ -659,10 +661,10 @@ return|;
 block|}
 annotation|@
 name|Required
-DECL|method|query
+DECL|method|setQuery
 specifier|public
 name|CountRequest
-name|query
+name|setQuery
 parameter_list|(
 name|BytesReference
 name|querySource
@@ -688,10 +690,11 @@ name|this
 return|;
 block|}
 comment|/**      * The types of documents the query will run against. Defaults to all types.      */
-DECL|method|types
+DECL|method|getTypes
+specifier|public
 name|String
 index|[]
-name|types
+name|getTypes
 parameter_list|()
 block|{
 return|return
@@ -701,10 +704,10 @@ name|types
 return|;
 block|}
 comment|/**      * The types of documents the query will run against. Defaults to all types.      */
-DECL|method|types
+DECL|method|setTypes
 specifier|public
 name|CountRequest
-name|types
+name|setTypes
 parameter_list|(
 name|String
 modifier|...
@@ -722,10 +725,10 @@ name|this
 return|;
 block|}
 comment|/**      * A comma separated list of routing values to control the shards the search will be executed on.      */
-DECL|method|routing
+DECL|method|getRouting
 specifier|public
 name|String
-name|routing
+name|getRouting
 parameter_list|()
 block|{
 return|return
@@ -735,10 +738,10 @@ name|routing
 return|;
 block|}
 comment|/**      * A comma separated list of routing values to control the shards the search will be executed on.      */
-DECL|method|routing
+DECL|method|setRouting
 specifier|public
 name|CountRequest
-name|routing
+name|setRouting
 parameter_list|(
 name|String
 name|routing
@@ -755,10 +758,10 @@ name|this
 return|;
 block|}
 comment|/**      * The routing values to control the shards that the search will be executed on.      */
-DECL|method|routing
+DECL|method|setRouting
 specifier|public
 name|CountRequest
-name|routing
+name|setRouting
 parameter_list|(
 name|String
 modifier|...

@@ -599,7 +599,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|totalHits
@@ -618,7 +618,7 @@ name|hit
 range|:
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 control|)
 block|{

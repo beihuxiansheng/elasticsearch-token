@@ -634,13 +634,13 @@ name|toString
 argument_list|(
 name|search
 operator|.
-name|shardFailures
+name|getShardFailures
 argument_list|()
 argument_list|)
 argument_list|,
 name|search
 operator|.
-name|failedShards
+name|getFailedShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -653,7 +653,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 argument_list|,
 name|notNullValue
@@ -664,7 +664,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -683,7 +683,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -707,7 +707,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -734,7 +734,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -769,7 +769,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -804,7 +804,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -847,7 +847,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -890,7 +890,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -972,13 +972,13 @@ name|toString
 argument_list|(
 name|search
 operator|.
-name|shardFailures
+name|getShardFailures
 argument_list|()
 argument_list|)
 argument_list|,
 name|search
 operator|.
-name|failedShards
+name|getFailedShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -991,7 +991,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 argument_list|,
 name|notNullValue
@@ -1002,7 +1002,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -1021,7 +1021,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -1045,7 +1045,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -1072,7 +1072,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -1107,7 +1107,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -1150,7 +1150,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -1193,7 +1193,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -1377,13 +1377,13 @@ name|toString
 argument_list|(
 name|search
 operator|.
-name|shardFailures
+name|getShardFailures
 argument_list|()
 argument_list|)
 argument_list|,
 name|search
 operator|.
-name|failedShards
+name|getFailedShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1396,7 +1396,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 argument_list|,
 name|notNullValue
@@ -1407,7 +1407,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -1426,7 +1426,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -1450,7 +1450,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -1477,7 +1477,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -1512,7 +1512,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -1586,13 +1586,13 @@ name|toString
 argument_list|(
 name|search
 operator|.
-name|shardFailures
+name|getShardFailures
 argument_list|()
 argument_list|)
 argument_list|,
 name|search
 operator|.
-name|failedShards
+name|getFailedShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1605,7 +1605,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 argument_list|,
 name|notNullValue
@@ -1616,7 +1616,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -1635,7 +1635,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -1659,7 +1659,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -1686,7 +1686,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -2126,13 +2126,13 @@ name|toString
 argument_list|(
 name|search
 operator|.
-name|shardFailures
+name|getShardFailures
 argument_list|()
 argument_list|)
 argument_list|,
 name|search
 operator|.
-name|failedShards
+name|getFailedShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2145,7 +2145,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 argument_list|,
 name|notNullValue
@@ -2156,7 +2156,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -2175,7 +2175,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -2199,7 +2199,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -2226,7 +2226,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -2261,7 +2261,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -2304,7 +2304,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -2328,7 +2328,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -2355,7 +2355,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -2390,7 +2390,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -2422,7 +2422,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -2454,7 +2454,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -2489,7 +2489,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -2524,7 +2524,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -2556,7 +2556,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -2588,7 +2588,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -2623,7 +2623,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -2666,7 +2666,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -2709,7 +2709,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -2752,7 +2752,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -2776,7 +2776,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -3274,13 +3274,13 @@ name|toString
 argument_list|(
 name|search
 operator|.
-name|shardFailures
+name|getShardFailures
 argument_list|()
 argument_list|)
 argument_list|,
 name|search
 operator|.
-name|failedShards
+name|getFailedShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3293,7 +3293,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 argument_list|,
 name|notNullValue
@@ -3304,7 +3304,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -3323,7 +3323,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -3347,7 +3347,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -3374,7 +3374,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -3409,7 +3409,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -3452,7 +3452,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -3495,7 +3495,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -3538,7 +3538,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -3562,7 +3562,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -3589,7 +3589,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -3624,7 +3624,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -3667,7 +3667,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -3710,7 +3710,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -3756,7 +3756,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -3780,7 +3780,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -3807,7 +3807,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -3842,7 +3842,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -3885,7 +3885,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -3928,7 +3928,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -3971,7 +3971,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -3995,7 +3995,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -4022,7 +4022,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -4057,7 +4057,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -4100,7 +4100,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -4143,7 +4143,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -4186,7 +4186,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -4229,7 +4229,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -4272,7 +4272,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -4315,7 +4315,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -4358,7 +4358,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -4401,7 +4401,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions
@@ -4444,7 +4444,7 @@ name|assertThat
 argument_list|(
 name|search
 operator|.
-name|suggest
+name|getSuggest
 argument_list|()
 operator|.
 name|getSuggestions

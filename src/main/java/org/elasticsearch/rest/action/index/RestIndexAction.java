@@ -454,21 +454,21 @@ argument_list|)
 decl_stmt|;
 name|indexRequest
 operator|.
-name|listenerThreaded
+name|setListenerThreaded
 argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
 name|indexRequest
 operator|.
-name|operationThreaded
+name|setOperationThreaded
 argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
 name|indexRequest
 operator|.
-name|routing
+name|setRouting
 argument_list|(
 name|request
 operator|.
@@ -480,7 +480,7 @@ argument_list|)
 expr_stmt|;
 name|indexRequest
 operator|.
-name|parent
+name|setParent
 argument_list|(
 name|request
 operator|.
@@ -493,7 +493,7 @@ expr_stmt|;
 comment|// order is important, set it after routing, so it will set the routing
 name|indexRequest
 operator|.
-name|timestamp
+name|setTimestamp
 argument_list|(
 name|request
 operator|.
@@ -515,7 +515,7 @@ condition|)
 block|{
 name|indexRequest
 operator|.
-name|ttl
+name|setTtl
 argument_list|(
 name|request
 operator|.
@@ -533,7 +533,7 @@ expr_stmt|;
 block|}
 name|indexRequest
 operator|.
-name|source
+name|setSource
 argument_list|(
 name|request
 operator|.
@@ -548,7 +548,7 @@ argument_list|)
 expr_stmt|;
 name|indexRequest
 operator|.
-name|timeout
+name|setTimeout
 argument_list|(
 name|request
 operator|.
@@ -564,7 +564,7 @@ argument_list|)
 expr_stmt|;
 name|indexRequest
 operator|.
-name|refresh
+name|setRefresh
 argument_list|(
 name|request
 operator|.
@@ -574,14 +574,14 @@ literal|"refresh"
 argument_list|,
 name|indexRequest
 operator|.
-name|refresh
+name|isRefresh
 argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|indexRequest
 operator|.
-name|version
+name|setVersion
 argument_list|(
 name|RestActions
 operator|.
@@ -593,7 +593,7 @@ argument_list|)
 expr_stmt|;
 name|indexRequest
 operator|.
-name|versionType
+name|setVersionType
 argument_list|(
 name|VersionType
 operator|.
@@ -608,14 +608,14 @@ argument_list|)
 argument_list|,
 name|indexRequest
 operator|.
-name|versionType
+name|getVersionType
 argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|indexRequest
 operator|.
-name|percolate
+name|setPercolate
 argument_list|(
 name|request
 operator|.
@@ -656,7 +656,7 @@ condition|)
 block|{
 name|indexRequest
 operator|.
-name|opType
+name|setOpType
 argument_list|(
 name|IndexRequest
 operator|.
@@ -679,7 +679,7 @@ condition|)
 block|{
 name|indexRequest
 operator|.
-name|opType
+name|setOpType
 argument_list|(
 name|IndexRequest
 operator|.
@@ -774,7 +774,7 @@ condition|)
 block|{
 name|indexRequest
 operator|.
-name|replicationType
+name|setReplicationType
 argument_list|(
 name|ReplicationType
 operator|.
@@ -804,7 +804,7 @@ condition|)
 block|{
 name|indexRequest
 operator|.
-name|consistencyLevel
+name|setConsistencyLevel
 argument_list|(
 name|WriteConsistencyLevel
 operator|.
@@ -872,7 +872,7 @@ name|_INDEX
 argument_list|,
 name|response
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 operator|.
@@ -884,7 +884,7 @@ name|_TYPE
 argument_list|,
 name|response
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|)
 operator|.
@@ -896,7 +896,7 @@ name|_ID
 argument_list|,
 name|response
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 operator|.
@@ -908,7 +908,7 @@ name|_VERSION
 argument_list|,
 name|response
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -916,7 +916,7 @@ if|if
 condition|(
 name|response
 operator|.
-name|matches
+name|getMatches
 argument_list|()
 operator|!=
 literal|null
@@ -938,7 +938,7 @@ name|match
 range|:
 name|response
 operator|.
-name|matches
+name|getMatches
 argument_list|()
 control|)
 block|{
@@ -970,7 +970,7 @@ if|if
 condition|(
 name|response
 operator|.
-name|version
+name|getVersion
 argument_list|()
 operator|==
 literal|1

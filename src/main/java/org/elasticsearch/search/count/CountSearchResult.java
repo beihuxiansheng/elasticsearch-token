@@ -168,10 +168,10 @@ operator|.
 name|id
 return|;
 block|}
-DECL|method|totalHits
+DECL|method|getTotalHits
 specifier|public
 name|long
-name|totalHits
+name|getTotalHits
 parameter_list|()
 block|{
 return|return

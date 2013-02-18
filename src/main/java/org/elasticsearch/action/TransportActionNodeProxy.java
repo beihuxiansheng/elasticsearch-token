@@ -292,7 +292,7 @@ argument_list|()
 decl_stmt|;
 name|request
 operator|.
-name|listenerThreaded
+name|setListenerThreaded
 argument_list|(
 literal|false
 argument_list|)
@@ -377,7 +377,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|listenerThreaded
+name|isListenerThreaded
 argument_list|()
 condition|)
 block|{

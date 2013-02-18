@@ -2558,7 +2558,7 @@ name|put
 argument_list|(
 name|nodeShardState
 operator|.
-name|node
+name|getNode
 argument_list|()
 argument_list|,
 name|nodeShardState
@@ -2923,7 +2923,7 @@ name|put
 argument_list|(
 name|nodeStoreFilesMetaData
 operator|.
-name|node
+name|getNode
 argument_list|()
 argument_list|,
 name|nodeStoreFilesMetaData

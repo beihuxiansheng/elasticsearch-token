@@ -126,7 +126,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|waitForMerge
+name|setWaitForMerge
 argument_list|(
 name|waitForMerge
 argument_list|)
@@ -147,7 +147,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|maxNumSegments
+name|setMaxNumSegments
 argument_list|(
 name|maxNumSegments
 argument_list|)
@@ -168,7 +168,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|onlyExpungeDeletes
+name|setOnlyExpungeDeletes
 argument_list|(
 name|onlyExpungeDeletes
 argument_list|)
@@ -189,7 +189,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|flush
+name|setFlush
 argument_list|(
 name|flush
 argument_list|)
@@ -210,7 +210,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|refresh
+name|setRefresh
 argument_list|(
 name|refresh
 argument_list|)

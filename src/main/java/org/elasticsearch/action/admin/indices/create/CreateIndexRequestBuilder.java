@@ -231,7 +231,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|index
+name|setIndex
 argument_list|(
 name|index
 argument_list|)
@@ -252,7 +252,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|settings
+name|setSettings
 argument_list|(
 name|settings
 argument_list|)
@@ -275,7 +275,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|settings
+name|setSettings
 argument_list|(
 name|settings
 argument_list|)
@@ -296,7 +296,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|settings
+name|setSettings
 argument_list|(
 name|builder
 argument_list|)
@@ -317,7 +317,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|settings
+name|setSettings
 argument_list|(
 name|source
 argument_list|)
@@ -343,7 +343,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|settings
+name|setSettings
 argument_list|(
 name|source
 argument_list|)
@@ -367,7 +367,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|mapping
+name|addMapping
 argument_list|(
 name|type
 argument_list|,
@@ -379,10 +379,10 @@ name|this
 return|;
 block|}
 comment|/**      * The cause for this index creation.      */
-DECL|method|cause
+DECL|method|setCause
 specifier|public
 name|CreateIndexRequestBuilder
-name|cause
+name|setCause
 parameter_list|(
 name|String
 name|cause
@@ -390,7 +390,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|cause
+name|setCause
 argument_list|(
 name|cause
 argument_list|)
@@ -414,7 +414,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|mapping
+name|addMapping
 argument_list|(
 name|type
 argument_list|,
@@ -445,7 +445,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|mapping
+name|addMapping
 argument_list|(
 name|type
 argument_list|,
@@ -468,7 +468,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|source
+name|setSource
 argument_list|(
 name|source
 argument_list|)
@@ -489,7 +489,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|source
+name|setSource
 argument_list|(
 name|source
 argument_list|)
@@ -511,7 +511,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|source
+name|setSource
 argument_list|(
 name|source
 argument_list|)
@@ -539,7 +539,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|source
+name|setSource
 argument_list|(
 name|source
 argument_list|,
@@ -569,7 +569,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|source
+name|setSource
 argument_list|(
 name|source
 argument_list|)
@@ -578,10 +578,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|setCustom
+DECL|method|addCustom
 specifier|public
 name|CreateIndexRequestBuilder
-name|setCustom
+name|addCustom
 parameter_list|(
 name|IndexMetaData
 operator|.
@@ -591,7 +591,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|custom
+name|addCustom
 argument_list|(
 name|custom
 argument_list|)
@@ -612,7 +612,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|source
+name|setSource
 argument_list|(
 name|source
 argument_list|)
@@ -633,7 +633,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|timeout
+name|setTimeout
 argument_list|(
 name|timeout
 argument_list|)
@@ -654,7 +654,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|timeout
+name|setTimeout
 argument_list|(
 name|timeout
 argument_list|)

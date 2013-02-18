@@ -212,7 +212,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|state
+name|getState
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -253,7 +253,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|state
+name|getState
 argument_list|()
 expr_stmt|;
 name|assertThat

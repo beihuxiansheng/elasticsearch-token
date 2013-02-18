@@ -587,7 +587,7 @@ name|AtomicInteger
 argument_list|(
 name|scrollId
 operator|.
-name|context
+name|getContext
 argument_list|()
 operator|.
 name|length
@@ -602,7 +602,7 @@ name|AtomicInteger
 argument_list|(
 name|scrollId
 operator|.
-name|context
+name|getContext
 argument_list|()
 operator|.
 name|length
@@ -694,7 +694,7 @@ if|if
 condition|(
 name|scrollId
 operator|.
-name|context
+name|getContext
 argument_list|()
 operator|.
 name|length
@@ -736,7 +736,7 @@ name|target
 range|:
 name|scrollId
 operator|.
-name|context
+name|getContext
 argument_list|()
 control|)
 block|{
@@ -819,7 +819,7 @@ literal|"] not available for scroll request ["
 operator|+
 name|scrollId
 operator|.
-name|source
+name|getSource
 argument_list|()
 operator|+
 literal|"]"
@@ -858,7 +858,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|operationThreading
+name|getOperationThreading
 argument_list|()
 operator|==
 name|SearchOperationThreading
@@ -902,7 +902,7 @@ name|target
 range|:
 name|scrollId
 operator|.
-name|context
+name|getContext
 argument_list|()
 control|)
 block|{
@@ -963,7 +963,7 @@ name|localAsync
 init|=
 name|request
 operator|.
-name|operationThreading
+name|getOperationThreading
 argument_list|()
 operator|==
 name|SearchOperationThreading
@@ -983,7 +983,7 @@ name|target
 range|:
 name|scrollId
 operator|.
-name|context
+name|getContext
 argument_list|()
 control|)
 block|{
@@ -1094,7 +1094,7 @@ name|target
 range|:
 name|scrollId
 operator|.
-name|context
+name|getContext
 argument_list|()
 control|)
 block|{
@@ -1141,7 +1141,7 @@ literal|"] not available for scroll request ["
 operator|+
 name|scrollId
 operator|.
-name|source
+name|getSource
 argument_list|()
 operator|+
 literal|"]"
@@ -1387,7 +1387,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|scroll
+name|getScroll
 argument_list|()
 operator|!=
 literal|null
@@ -1397,7 +1397,7 @@ name|scrollId
 operator|=
 name|request
 operator|.
-name|scrollId
+name|getScrollId
 argument_list|()
 expr_stmt|;
 block|}
@@ -1423,7 +1423,7 @@ name|this
 operator|.
 name|scrollId
 operator|.
-name|context
+name|getContext
 argument_list|()
 operator|.
 name|length

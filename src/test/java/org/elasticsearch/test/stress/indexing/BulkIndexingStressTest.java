@@ -294,12 +294,12 @@ name|NUMBER_OF_INDICES
 argument_list|)
 argument_list|)
 operator|.
-name|type
+name|setType
 argument_list|(
 literal|"type"
 argument_list|)
 operator|.
-name|source
+name|setSource
 argument_list|(
 literal|"field"
 argument_list|,

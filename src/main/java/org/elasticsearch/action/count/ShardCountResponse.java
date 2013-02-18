@@ -122,9 +122,10 @@ operator|=
 name|count
 expr_stmt|;
 block|}
-DECL|method|count
+DECL|method|getCount
+specifier|public
 name|long
-name|count
+name|getCount
 parameter_list|()
 block|{
 return|return

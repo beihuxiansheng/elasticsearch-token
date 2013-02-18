@@ -590,7 +590,7 @@ argument_list|,
 name|nodesIds
 argument_list|)
 operator|.
-name|timeout
+name|setTimeout
 argument_list|(
 name|timeout
 argument_list|)

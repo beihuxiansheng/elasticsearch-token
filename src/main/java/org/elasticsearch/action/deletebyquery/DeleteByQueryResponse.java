@@ -162,22 +162,6 @@ argument_list|()
 return|;
 block|}
 comment|/**      * The responses from all the different indices.      */
-DECL|method|indices
-specifier|public
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|IndexDeleteByQueryResponse
-argument_list|>
-name|indices
-parameter_list|()
-block|{
-return|return
-name|indices
-return|;
-block|}
-comment|/**      * The responses from all the different indices.      */
 DECL|method|getIndices
 specifier|public
 name|Map
@@ -194,10 +178,10 @@ name|indices
 return|;
 block|}
 comment|/**      * The response of a specific index.      */
-DECL|method|index
+DECL|method|getIndex
 specifier|public
 name|IndexDeleteByQueryResponse
-name|index
+name|getIndex
 parameter_list|(
 name|String
 name|index
@@ -275,7 +259,7 @@ name|put
 argument_list|(
 name|response
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|response

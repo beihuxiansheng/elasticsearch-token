@@ -422,7 +422,7 @@ argument_list|()
 decl_stmt|;
 name|bulkRequest
 operator|.
-name|listenerThreaded
+name|setListenerThreaded
 argument_list|(
 literal|false
 argument_list|)
@@ -660,7 +660,7 @@ name|TOOK
 argument_list|,
 name|response
 operator|.
-name|tookInMillis
+name|getTookInMillis
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -692,7 +692,7 @@ name|startObject
 argument_list|(
 name|itemResponse
 operator|.
-name|opType
+name|getOpType
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -706,7 +706,7 @@ name|_INDEX
 argument_list|,
 name|itemResponse
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -720,7 +720,7 @@ name|_TYPE
 argument_list|,
 name|itemResponse
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -734,7 +734,7 @@ name|_ID
 argument_list|,
 name|itemResponse
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -743,7 +743,7 @@ name|version
 init|=
 name|itemResponse
 operator|.
-name|version
+name|getVersion
 argument_list|()
 decl_stmt|;
 if|if
@@ -764,7 +764,7 @@ name|_VERSION
 argument_list|,
 name|itemResponse
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -773,7 +773,7 @@ if|if
 condition|(
 name|itemResponse
 operator|.
-name|failed
+name|isFailed
 argument_list|()
 condition|)
 block|{
@@ -787,10 +787,10 @@ name|ERROR
 argument_list|,
 name|itemResponse
 operator|.
-name|failure
+name|getFailure
 argument_list|()
 operator|.
-name|message
+name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -813,7 +813,7 @@ if|if
 condition|(
 name|itemResponse
 operator|.
-name|response
+name|getResponse
 argument_list|()
 operator|instanceof
 name|IndexResponse
@@ -824,14 +824,14 @@ name|indexResponse
 init|=
 name|itemResponse
 operator|.
-name|response
+name|getResponse
 argument_list|()
 decl_stmt|;
 if|if
 condition|(
 name|indexResponse
 operator|.
-name|matches
+name|getMatches
 argument_list|()
 operator|!=
 literal|null
@@ -853,7 +853,7 @@ name|match
 range|:
 name|indexResponse
 operator|.
-name|matches
+name|getMatches
 argument_list|()
 control|)
 block|{

@@ -471,7 +471,7 @@ literal|"health: "
 operator|+
 name|health
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -483,7 +483,7 @@ literal|"active shards: "
 operator|+
 name|health
 operator|.
-name|activeShards
+name|getActiveShards
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -495,7 +495,7 @@ literal|"active primary shards: "
 operator|+
 name|health
 operator|.
-name|activePrimaryShards
+name|getActivePrimaryShards
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -503,7 +503,7 @@ if|if
 condition|(
 name|health
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 condition|)
 block|{
@@ -538,7 +538,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|state
+name|getState
 argument_list|()
 decl_stmt|;
 for|for
@@ -642,7 +642,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|count
+name|getCount
 argument_list|()
 decl_stmt|;
 if|if

@@ -777,7 +777,7 @@ if|if
 condition|(
 name|clusterHealth
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 condition|)
 block|{
@@ -835,7 +835,7 @@ literal|"*** index_count [{}], expected_count [{}]"
 argument_list|,
 name|count
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|indexCounter
@@ -896,7 +896,7 @@ literal|"index_count [{}], expected_count [{}]"
 argument_list|,
 name|count
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|indexCounter
@@ -909,7 +909,7 @@ if|if
 condition|(
 name|count
 operator|.
-name|count
+name|getCount
 argument_list|()
 operator|!=
 name|indexCounter
@@ -926,7 +926,7 @@ literal|"!!! count does not match, index_count [{}], expected_count [{}]"
 argument_list|,
 name|count
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|indexCounter
@@ -1003,7 +1003,7 @@ literal|"index_count [{}], expected_count [{}]"
 argument_list|,
 name|search
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|totalHits
@@ -1019,7 +1019,7 @@ if|if
 condition|(
 name|count
 operator|.
-name|count
+name|getCount
 argument_list|()
 operator|!=
 name|indexCounter
@@ -1036,7 +1036,7 @@ literal|"!!! search does not match, index_count [{}], expected_count [{}]"
 argument_list|,
 name|search
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|totalHits
@@ -1293,12 +1293,12 @@ name|numberOfIndices
 operator|)
 argument_list|)
 operator|.
-name|type
+name|setType
 argument_list|(
 literal|"type1"
 argument_list|)
 operator|.
-name|source
+name|setSource
 argument_list|(
 name|json
 argument_list|)

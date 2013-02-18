@@ -139,10 +139,10 @@ literal|null
 return|;
 block|}
 comment|/**      * Controls if the operation will be executed on a separate thread when executed locally.      */
-DECL|method|operationThreaded
+DECL|method|isOperationThreaded
 specifier|public
 name|boolean
-name|operationThreaded
+name|isOperationThreaded
 parameter_list|()
 block|{
 return|return
@@ -155,11 +155,11 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|operationThreaded
+DECL|method|setOperationThreaded
 specifier|public
 specifier|final
 name|T
-name|operationThreaded
+name|setOperationThreaded
 parameter_list|(
 name|boolean
 name|threadedOperation
@@ -184,11 +184,11 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|preferLocal
+DECL|method|setPreferLocal
 specifier|public
 specifier|final
 name|T
-name|preferLocal
+name|setPreferLocal
 parameter_list|(
 name|boolean
 name|preferLocal
@@ -208,10 +208,10 @@ name|this
 return|;
 block|}
 comment|/**      * if this operation hits a node with a local relevant shard, should it be preferred      * to be executed on, or just do plain round robin. Defaults to<tt>true</tt>      */
-DECL|method|preferLocalShard
+DECL|method|isPreferLocal
 specifier|public
 name|boolean
-name|preferLocalShard
+name|isPreferLocal
 parameter_list|()
 block|{
 return|return

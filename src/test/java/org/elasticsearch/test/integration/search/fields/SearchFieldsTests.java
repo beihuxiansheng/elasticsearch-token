@@ -723,7 +723,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getTotalHits
@@ -739,7 +739,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|hits
@@ -757,7 +757,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -781,7 +781,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -838,7 +838,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getTotalHits
@@ -854,7 +854,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|hits
@@ -872,7 +872,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -896,7 +896,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -952,7 +952,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getTotalHits
@@ -968,7 +968,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|hits
@@ -986,7 +986,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -1010,7 +1010,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -1066,7 +1066,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getTotalHits
@@ -1082,7 +1082,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|hits
@@ -1100,7 +1100,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -1119,7 +1119,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -1143,7 +1143,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -1175,7 +1175,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -1236,7 +1236,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getTotalHits
@@ -1252,7 +1252,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|hits
@@ -1270,7 +1270,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -1289,7 +1289,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -1313,7 +1313,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -1345,7 +1345,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -1790,13 +1790,13 @@ name|toString
 argument_list|(
 name|response
 operator|.
-name|shardFailures
+name|getShardFailures
 argument_list|()
 argument_list|)
 argument_list|,
 name|response
 operator|.
-name|shardFailures
+name|getShardFailures
 argument_list|()
 operator|.
 name|length
@@ -1811,7 +1811,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|totalHits
@@ -1827,7 +1827,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -1848,7 +1848,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -1872,7 +1872,7 @@ name|Double
 operator|)
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -1909,7 +1909,7 @@ name|Double
 operator|)
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -1946,7 +1946,7 @@ name|Long
 operator|)
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -1980,7 +1980,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -2004,7 +2004,7 @@ name|Double
 operator|)
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -2041,7 +2041,7 @@ name|Double
 operator|)
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -2078,7 +2078,7 @@ name|Long
 operator|)
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -2112,7 +2112,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -2136,7 +2136,7 @@ name|Double
 operator|)
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -2173,7 +2173,7 @@ name|Double
 operator|)
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -2210,7 +2210,7 @@ name|Long
 operator|)
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -2316,7 +2316,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|totalHits
@@ -2332,7 +2332,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -2356,7 +2356,7 @@ name|Double
 operator|)
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -2390,7 +2390,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -2414,7 +2414,7 @@ name|Double
 operator|)
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -2448,7 +2448,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -2472,7 +2472,7 @@ name|Double
 operator|)
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -2748,13 +2748,13 @@ name|toString
 argument_list|(
 name|response
 operator|.
-name|shardFailures
+name|getShardFailures
 argument_list|()
 argument_list|)
 argument_list|,
 name|response
 operator|.
-name|shardFailures
+name|getShardFailures
 argument_list|()
 operator|.
 name|length
@@ -2775,7 +2775,7 @@ name|sObj1
 init|=
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -2813,7 +2813,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -2842,7 +2842,7 @@ name|sObj1
 operator|=
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -2880,7 +2880,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -2915,7 +2915,7 @@ name|sObj2
 init|=
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -3000,7 +3000,7 @@ name|List
 operator|)
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -3073,7 +3073,7 @@ name|List
 operator|)
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -3341,13 +3341,13 @@ name|toString
 argument_list|(
 name|response
 operator|.
-name|shardFailures
+name|getShardFailures
 argument_list|()
 argument_list|)
 argument_list|,
 name|response
 operator|.
-name|shardFailures
+name|getShardFailures
 argument_list|()
 operator|.
 name|length
@@ -3368,7 +3368,7 @@ name|partial1
 init|=
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -3459,7 +3459,7 @@ name|partial2
 init|=
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -4076,7 +4076,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getTotalHits
@@ -4092,7 +4092,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|hits
@@ -4110,7 +4110,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -4134,7 +4134,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -4166,7 +4166,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -4198,7 +4198,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -4230,7 +4230,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -4262,7 +4262,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -4294,7 +4294,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -4360,7 +4360,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -4392,7 +4392,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -4430,7 +4430,7 @@ name|BytesReference
 operator|)
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt

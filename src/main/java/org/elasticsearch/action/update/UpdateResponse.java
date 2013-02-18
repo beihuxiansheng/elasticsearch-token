@@ -211,19 +211,6 @@ name|version
 expr_stmt|;
 block|}
 comment|/**      * The index the document was indexed into.      */
-DECL|method|index
-specifier|public
-name|String
-name|index
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|index
-return|;
-block|}
-comment|/**      * The index the document was indexed into.      */
 DECL|method|getIndex
 specifier|public
 name|String
@@ -231,20 +218,9 @@ name|getIndex
 parameter_list|()
 block|{
 return|return
-name|index
-return|;
-block|}
-comment|/**      * The type of the document indexed.      */
-DECL|method|type
-specifier|public
-name|String
-name|type
-parameter_list|()
-block|{
-return|return
 name|this
 operator|.
-name|type
+name|index
 return|;
 block|}
 comment|/**      * The type of the document indexed.      */
@@ -255,20 +231,9 @@ name|getType
 parameter_list|()
 block|{
 return|return
-name|type
-return|;
-block|}
-comment|/**      * The id of the document indexed.      */
-DECL|method|id
-specifier|public
-name|String
-name|id
-parameter_list|()
-block|{
-return|return
 name|this
 operator|.
-name|id
+name|type
 return|;
 block|}
 comment|/**      * The id of the document indexed.      */
@@ -279,20 +244,9 @@ name|getId
 parameter_list|()
 block|{
 return|return
-name|id
-return|;
-block|}
-comment|/**      * Returns the version of the doc indexed.      */
-DECL|method|version
-specifier|public
-name|long
-name|version
-parameter_list|()
-block|{
-return|return
 name|this
 operator|.
-name|version
+name|id
 return|;
 block|}
 comment|/**      * Returns the version of the doc indexed.      */
@@ -303,24 +257,9 @@ name|getVersion
 parameter_list|()
 block|{
 return|return
-name|version
-argument_list|()
-return|;
-block|}
-comment|/**      * Returns the percolate queries matches.<tt>null</tt> if no percolation was requested.      */
-DECL|method|matches
-specifier|public
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|matches
-parameter_list|()
-block|{
-return|return
 name|this
 operator|.
-name|matches
+name|version
 return|;
 block|}
 comment|/**      * Returns the percolate queries matches.<tt>null</tt> if no percolation was requested.      */
@@ -339,9 +278,9 @@ operator|.
 name|matches
 return|;
 block|}
-DECL|method|getResult
+DECL|method|setGetResult
 name|void
-name|getResult
+name|setGetResult
 parameter_list|(
 name|GetResult
 name|getResult
@@ -353,18 +292,6 @@ name|getResult
 operator|=
 name|getResult
 expr_stmt|;
-block|}
-DECL|method|getResult
-specifier|public
-name|GetResult
-name|getResult
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|getResult
-return|;
 block|}
 DECL|method|getGetResult
 specifier|public
@@ -379,10 +306,10 @@ name|getResult
 return|;
 block|}
 comment|/**      * Internal.      */
-DECL|method|matches
+DECL|method|setMatches
 specifier|public
 name|void
-name|matches
+name|setMatches
 parameter_list|(
 name|List
 argument_list|<

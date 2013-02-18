@@ -111,27 +111,15 @@ operator|=
 name|acknowledged
 expr_stmt|;
 block|}
-comment|/**      * Has the put mapping creation been acknowledged by all current cluster nodes within the      * provided {@link PutMappingRequest#timeout(org.elasticsearch.common.unit.TimeValue)}.      */
-DECL|method|acknowledged
+comment|/**      * Has the put mapping creation been acknowledged by all current cluster nodes within the      * provided {@link PutMappingRequest#setTimeout(org.elasticsearch.common.unit.TimeValue)}.      */
+DECL|method|isAcknowledged
 specifier|public
 name|boolean
-name|acknowledged
+name|isAcknowledged
 parameter_list|()
 block|{
 return|return
 name|acknowledged
-return|;
-block|}
-comment|/**      * Has the put mapping creation been acknowledged by all current cluster nodes within the      * provided {@link PutMappingRequest#timeout(org.elasticsearch.common.unit.TimeValue)}.      */
-DECL|method|getAcknowledged
-specifier|public
-name|boolean
-name|getAcknowledged
-parameter_list|()
-block|{
-return|return
-name|acknowledged
-argument_list|()
 return|;
 block|}
 annotation|@

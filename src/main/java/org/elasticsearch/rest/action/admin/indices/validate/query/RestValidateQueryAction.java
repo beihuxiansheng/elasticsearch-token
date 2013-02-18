@@ -483,7 +483,7 @@ argument_list|)
 decl_stmt|;
 name|validateQueryRequest
 operator|.
-name|listenerThreaded
+name|setListenerThreaded
 argument_list|(
 literal|false
 argument_list|)
@@ -500,7 +500,7 @@ condition|)
 block|{
 name|validateQueryRequest
 operator|.
-name|ignoreIndices
+name|setIgnoreIndices
 argument_list|(
 name|IgnoreIndices
 operator|.
@@ -556,7 +556,7 @@ expr_stmt|;
 block|}
 name|validateQueryRequest
 operator|.
-name|operationThreading
+name|setOperationThreading
 argument_list|(
 name|operationThreading
 argument_list|)
@@ -571,7 +571,7 @@ condition|)
 block|{
 name|validateQueryRequest
 operator|.
-name|query
+name|setQuery
 argument_list|(
 name|request
 operator|.
@@ -606,7 +606,7 @@ condition|)
 block|{
 name|validateQueryRequest
 operator|.
-name|query
+name|setQuery
 argument_list|(
 name|source
 argument_list|)
@@ -633,7 +633,7 @@ condition|)
 block|{
 name|validateQueryRequest
 operator|.
-name|query
+name|setQuery
 argument_list|(
 name|querySource
 argument_list|,
@@ -645,7 +645,7 @@ block|}
 block|}
 name|validateQueryRequest
 operator|.
-name|types
+name|setTypes
 argument_list|(
 name|splitTypes
 argument_list|(
@@ -672,7 +672,7 @@ condition|)
 block|{
 name|validateQueryRequest
 operator|.
-name|explain
+name|setExplain
 argument_list|(
 literal|true
 argument_list|)
@@ -682,7 +682,7 @@ else|else
 block|{
 name|validateQueryRequest
 operator|.
-name|explain
+name|setExplain
 argument_list|(
 literal|false
 argument_list|)
@@ -811,7 +811,7 @@ literal|"valid"
 argument_list|,
 name|response
 operator|.
-name|valid
+name|isValid
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -826,7 +826,7 @@ if|if
 condition|(
 name|response
 operator|.
-name|queryExplanations
+name|getQueryExplanation
 argument_list|()
 operator|!=
 literal|null
@@ -834,7 +834,7 @@ operator|&&
 operator|!
 name|response
 operator|.
-name|queryExplanations
+name|getQueryExplanation
 argument_list|()
 operator|.
 name|isEmpty
@@ -855,7 +855,7 @@ name|explanation
 range|:
 name|response
 operator|.
-name|queryExplanations
+name|getQueryExplanation
 argument_list|()
 control|)
 block|{
@@ -868,7 +868,7 @@ if|if
 condition|(
 name|explanation
 operator|.
-name|index
+name|getIndex
 argument_list|()
 operator|!=
 literal|null
@@ -882,7 +882,7 @@ literal|"index"
 argument_list|,
 name|explanation
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|XContentBuilder
@@ -901,7 +901,7 @@ literal|"valid"
 argument_list|,
 name|explanation
 operator|.
-name|valid
+name|isValid
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -909,7 +909,7 @@ if|if
 condition|(
 name|explanation
 operator|.
-name|error
+name|getError
 argument_list|()
 operator|!=
 literal|null
@@ -923,7 +923,7 @@ literal|"error"
 argument_list|,
 name|explanation
 operator|.
-name|error
+name|getError
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -932,7 +932,7 @@ if|if
 condition|(
 name|explanation
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 operator|!=
 literal|null
@@ -946,7 +946,7 @@ literal|"explanation"
 argument_list|,
 name|explanation
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 argument_list|)
 expr_stmt|;

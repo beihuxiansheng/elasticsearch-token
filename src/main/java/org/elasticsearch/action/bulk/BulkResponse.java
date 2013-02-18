@@ -166,10 +166,10 @@ name|tookInMillis
 expr_stmt|;
 block|}
 comment|/**      * How long the bulk execution took.      */
-DECL|method|took
+DECL|method|getTook
 specifier|public
 name|TimeValue
-name|took
+name|getTook
 parameter_list|()
 block|{
 return|return
@@ -178,29 +178,6 @@ name|TimeValue
 argument_list|(
 name|tookInMillis
 argument_list|)
-return|;
-block|}
-comment|/**      * How long the bulk execution took.      */
-DECL|method|getTook
-specifier|public
-name|TimeValue
-name|getTook
-parameter_list|()
-block|{
-return|return
-name|took
-argument_list|()
-return|;
-block|}
-comment|/**      * How long the bulk execution took in milliseconds.      */
-DECL|method|tookInMillis
-specifier|public
-name|long
-name|tookInMillis
-parameter_list|()
-block|{
-return|return
-name|tookInMillis
 return|;
 block|}
 comment|/**      * How long the bulk execution took in milliseconds.      */
@@ -212,7 +189,6 @@ parameter_list|()
 block|{
 return|return
 name|tookInMillis
-argument_list|()
 return|;
 block|}
 comment|/**      * Has anything failed with the execution.      */
@@ -234,7 +210,7 @@ if|if
 condition|(
 name|response
 operator|.
-name|failed
+name|isFailed
 argument_list|()
 condition|)
 block|{
@@ -296,7 +272,7 @@ if|if
 condition|(
 name|response
 operator|.
-name|failed
+name|isFailed
 argument_list|()
 condition|)
 block|{
@@ -321,7 +297,7 @@ name|append
 argument_list|(
 name|response
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 operator|.
@@ -334,7 +310,7 @@ name|append
 argument_list|(
 name|response
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|)
 operator|.
@@ -347,7 +323,7 @@ name|append
 argument_list|(
 name|response
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 operator|.
@@ -360,7 +336,7 @@ name|append
 argument_list|(
 name|response
 operator|.
-name|failureMessage
+name|getFailureMessage
 argument_list|()
 argument_list|)
 operator|.
@@ -379,11 +355,11 @@ argument_list|()
 return|;
 block|}
 comment|/**      * The items representing each action performed in the bulk operation (in the same order!).      */
-DECL|method|items
+DECL|method|getItems
 specifier|public
 name|BulkItemResponse
 index|[]
-name|items
+name|getItems
 parameter_list|()
 block|{
 return|return

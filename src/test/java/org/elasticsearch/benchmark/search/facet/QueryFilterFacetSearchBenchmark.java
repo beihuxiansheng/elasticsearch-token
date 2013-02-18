@@ -672,12 +672,12 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|type
+name|setType
 argument_list|(
 literal|"type1"
 argument_list|)
 operator|.
-name|id
+name|setId
 argument_list|(
 name|Integer
 operator|.
@@ -687,7 +687,7 @@ name|counter
 argument_list|)
 argument_list|)
 operator|.
-name|source
+name|setSource
 argument_list|(
 name|builder
 argument_list|)
@@ -853,7 +853,7 @@ if|if
 condition|(
 name|clusterHealthResponse
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 condition|)
 block|{
@@ -904,7 +904,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|count
+name|getCount
 argument_list|()
 expr_stmt|;
 name|System
@@ -980,7 +980,7 @@ name|totalQueryTime
 operator|+=
 name|searchResponse
 operator|.
-name|tookInMillis
+name|getTookInMillis
 argument_list|()
 expr_stmt|;
 block|}
@@ -1081,7 +1081,7 @@ name|totalQueryTime
 operator|+=
 name|searchResponse
 operator|.
-name|tookInMillis
+name|getTookInMillis
 argument_list|()
 expr_stmt|;
 block|}
@@ -1196,7 +1196,7 @@ name|totalQueryTime
 operator|+=
 name|searchResponse
 operator|.
-name|tookInMillis
+name|getTookInMillis
 argument_list|()
 expr_stmt|;
 block|}
@@ -1311,7 +1311,7 @@ name|totalQueryTime
 operator|+=
 name|searchResponse
 operator|.
-name|tookInMillis
+name|getTookInMillis
 argument_list|()
 expr_stmt|;
 block|}

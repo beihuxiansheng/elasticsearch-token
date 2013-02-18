@@ -301,7 +301,7 @@ name|field
 argument_list|(
 literal|"cluster_name"
 argument_list|,
-name|clusterName
+name|getClusterName
 argument_list|()
 operator|.
 name|value
@@ -329,7 +329,7 @@ name|startObject
 argument_list|(
 name|nodeStats
 operator|.
-name|node
+name|getNode
 argument_list|()
 operator|.
 name|id
@@ -350,7 +350,7 @@ literal|"timestamp"
 argument_list|,
 name|nodeStats
 operator|.
-name|timestamp
+name|getTimestamp
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -362,7 +362,7 @@ literal|"name"
 argument_list|,
 name|nodeStats
 operator|.
-name|node
+name|getNode
 argument_list|()
 operator|.
 name|name
@@ -383,7 +383,7 @@ literal|"transport_address"
 argument_list|,
 name|nodeStats
 operator|.
-name|node
+name|getNode
 argument_list|()
 operator|.
 name|address
@@ -397,7 +397,7 @@ if|if
 condition|(
 name|nodeStats
 operator|.
-name|hostname
+name|getHostname
 argument_list|()
 operator|!=
 literal|null
@@ -411,7 +411,7 @@ literal|"hostname"
 argument_list|,
 name|nodeStats
 operator|.
-name|hostname
+name|getHostname
 argument_list|()
 argument_list|,
 name|XContentBuilder
@@ -427,7 +427,7 @@ condition|(
 operator|!
 name|nodeStats
 operator|.
-name|node
+name|getNode
 argument_list|()
 operator|.
 name|attributes
@@ -458,7 +458,7 @@ name|attr
 range|:
 name|nodeStats
 operator|.
-name|node
+name|getNode
 argument_list|()
 operator|.
 name|attributes
@@ -494,7 +494,7 @@ if|if
 condition|(
 name|nodeStats
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 operator|!=
 literal|null
@@ -502,7 +502,7 @@ condition|)
 block|{
 name|nodeStats
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|toXContent
@@ -517,7 +517,7 @@ if|if
 condition|(
 name|nodeStats
 operator|.
-name|os
+name|getOs
 argument_list|()
 operator|!=
 literal|null
@@ -525,7 +525,7 @@ condition|)
 block|{
 name|nodeStats
 operator|.
-name|os
+name|getOs
 argument_list|()
 operator|.
 name|toXContent
@@ -540,7 +540,7 @@ if|if
 condition|(
 name|nodeStats
 operator|.
-name|process
+name|getProcess
 argument_list|()
 operator|!=
 literal|null
@@ -548,7 +548,7 @@ condition|)
 block|{
 name|nodeStats
 operator|.
-name|process
+name|getProcess
 argument_list|()
 operator|.
 name|toXContent
@@ -563,7 +563,7 @@ if|if
 condition|(
 name|nodeStats
 operator|.
-name|jvm
+name|getJvm
 argument_list|()
 operator|!=
 literal|null
@@ -571,7 +571,7 @@ condition|)
 block|{
 name|nodeStats
 operator|.
-name|jvm
+name|getJvm
 argument_list|()
 operator|.
 name|toXContent
@@ -586,7 +586,7 @@ if|if
 condition|(
 name|nodeStats
 operator|.
-name|threadPool
+name|getThreadPool
 argument_list|()
 operator|!=
 literal|null
@@ -594,7 +594,7 @@ condition|)
 block|{
 name|nodeStats
 operator|.
-name|threadPool
+name|getThreadPool
 argument_list|()
 operator|.
 name|toXContent
@@ -609,7 +609,7 @@ if|if
 condition|(
 name|nodeStats
 operator|.
-name|network
+name|getNetwork
 argument_list|()
 operator|!=
 literal|null
@@ -617,7 +617,7 @@ condition|)
 block|{
 name|nodeStats
 operator|.
-name|network
+name|getNetwork
 argument_list|()
 operator|.
 name|toXContent
@@ -632,7 +632,7 @@ if|if
 condition|(
 name|nodeStats
 operator|.
-name|fs
+name|getFs
 argument_list|()
 operator|!=
 literal|null
@@ -640,7 +640,7 @@ condition|)
 block|{
 name|nodeStats
 operator|.
-name|fs
+name|getFs
 argument_list|()
 operator|.
 name|toXContent
@@ -655,7 +655,7 @@ if|if
 condition|(
 name|nodeStats
 operator|.
-name|transport
+name|getTransport
 argument_list|()
 operator|!=
 literal|null
@@ -663,7 +663,7 @@ condition|)
 block|{
 name|nodeStats
 operator|.
-name|transport
+name|getTransport
 argument_list|()
 operator|.
 name|toXContent
@@ -678,7 +678,7 @@ if|if
 condition|(
 name|nodeStats
 operator|.
-name|http
+name|getHttp
 argument_list|()
 operator|!=
 literal|null
@@ -686,7 +686,7 @@ condition|)
 block|{
 name|nodeStats
 operator|.
-name|http
+name|getHttp
 argument_list|()
 operator|.
 name|toXContent

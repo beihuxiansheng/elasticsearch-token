@@ -169,19 +169,6 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * The shard routing information (cluster wide shard state).      */
-DECL|method|shardRouting
-specifier|public
-name|ShardRouting
-name|shardRouting
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|shardRouting
-return|;
-block|}
-comment|/**      * The shard routing information (cluster wide shard state).      */
 DECL|method|getShardRouting
 specifier|public
 name|ShardRouting
@@ -189,20 +176,9 @@ name|getShardRouting
 parameter_list|()
 block|{
 return|return
-name|shardRouting
-argument_list|()
-return|;
-block|}
-DECL|method|stats
-specifier|public
-name|CommonStats
-name|stats
-parameter_list|()
-block|{
-return|return
 name|this
 operator|.
-name|stats
+name|shardRouting
 return|;
 block|}
 DECL|method|getStats
@@ -212,8 +188,9 @@ name|getStats
 parameter_list|()
 block|{
 return|return
+name|this
+operator|.
 name|stats
-argument_list|()
 return|;
 block|}
 DECL|method|readShardStats

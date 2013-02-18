@@ -166,7 +166,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|type
+name|setType
 argument_list|(
 name|type
 argument_list|)
@@ -187,7 +187,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|id
+name|setId
 argument_list|(
 name|id
 argument_list|)
@@ -208,7 +208,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|parent
+name|setParent
 argument_list|(
 name|parent
 argument_list|)
@@ -229,7 +229,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|routing
+name|setRouting
 argument_list|(
 name|routing
 argument_list|)
@@ -250,7 +250,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|preference
+name|setPreference
 argument_list|(
 name|preference
 argument_list|)
@@ -272,7 +272,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|fields
+name|setFields
 argument_list|(
 name|fields
 argument_list|)
@@ -293,7 +293,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|refresh
+name|setRefresh
 argument_list|(
 name|refresh
 argument_list|)
@@ -313,7 +313,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|realtime
+name|setRealtime
 argument_list|(
 name|realtime
 argument_list|)

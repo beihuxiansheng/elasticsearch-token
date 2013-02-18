@@ -285,7 +285,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A more like this request allowing to search for documents that a "like" the provided document. The document  * to check against to fetched based on the index, type and id provided. Best created with {@link org.elasticsearch.client.Requests#moreLikeThisRequest(String)}.  *<p/>  *<p>Note, the {@link #index()}, {@link #type(String)} and {@link #id(String)} are required.  *  * @see org.elasticsearch.client.Client#moreLikeThis(MoreLikeThisRequest)  * @see org.elasticsearch.client.Requests#moreLikeThisRequest(String)  * @see org.elasticsearch.action.search.SearchResponse  */
+comment|/**  * A more like this request allowing to search for documents that a "like" the provided document. The document  * to check against to fetched based on the index, type and id provided. Best created with {@link org.elasticsearch.client.Requests#moreLikeThisRequest(String)}.  *<p/>  *<p>Note, the {@link #getIndex()}, {@link #setType(String)} and {@link #setId(String)} are required.  *  * @see org.elasticsearch.client.Client#moreLikeThis(MoreLikeThisRequest)  * @see org.elasticsearch.client.Requests#moreLikeThisRequest(String)  * @see org.elasticsearch.action.search.SearchResponse  */
 end_comment
 
 begin_class
@@ -467,7 +467,7 @@ DECL|method|MoreLikeThisRequest
 name|MoreLikeThisRequest
 parameter_list|()
 block|{     }
-comment|/**      * Constructs a new more like this request for a document that will be fetch from the provided index.      * Use {@link #type(String)} and {@link #id(String)} to specify the document to load.      */
+comment|/**      * Constructs a new more like this request for a document that will be fetch from the provided index.      * Use {@link #setType(String)} and {@link #setId(String)} to specify the document to load.      */
 DECL|method|MoreLikeThisRequest
 specifier|public
 name|MoreLikeThisRequest
@@ -484,30 +484,31 @@ name|index
 expr_stmt|;
 block|}
 comment|/**      * The index to load the document from which the "like" query will run with.      */
-DECL|method|index
+DECL|method|getIndex
 specifier|public
 name|String
-name|index
+name|getIndex
 parameter_list|()
 block|{
 return|return
 name|index
 return|;
 block|}
-comment|/**      * The type of document to load from which the "like" query will rutn with.      */
-DECL|method|type
+comment|/**      * The type of document to load from which the "like" query will run with.      */
+DECL|method|getType
 specifier|public
 name|String
-name|type
+name|getType
 parameter_list|()
 block|{
 return|return
 name|type
 return|;
 block|}
-DECL|method|index
+DECL|method|setIndex
+specifier|public
 name|void
-name|index
+name|setIndex
 parameter_list|(
 name|String
 name|index
@@ -523,10 +524,10 @@ block|}
 comment|/**      * The type of document to load from which the "like" query will execute with.      */
 annotation|@
 name|Required
-DECL|method|type
+DECL|method|setType
 specifier|public
 name|MoreLikeThisRequest
-name|type
+name|setType
 parameter_list|(
 name|String
 name|type
@@ -543,10 +544,10 @@ name|this
 return|;
 block|}
 comment|/**      * The id of document to load from which the "like" query will execute with.      */
-DECL|method|id
+DECL|method|getId
 specifier|public
 name|String
-name|id
+name|getId
 parameter_list|()
 block|{
 return|return
@@ -556,10 +557,10 @@ block|}
 comment|/**      * The id of document to load from which the "like" query will execute with.      */
 annotation|@
 name|Required
-DECL|method|id
+DECL|method|setId
 specifier|public
 name|MoreLikeThisRequest
-name|id
+name|setId
 parameter_list|(
 name|String
 name|id
@@ -576,20 +577,20 @@ name|this
 return|;
 block|}
 comment|/**      * @return The routing for this request. This used for the `get` part of the mlt request.      */
-DECL|method|routing
+DECL|method|getRouting
 specifier|public
 name|String
-name|routing
+name|getRouting
 parameter_list|()
 block|{
 return|return
 name|routing
 return|;
 block|}
-DECL|method|routing
+DECL|method|setRouting
 specifier|public
 name|void
-name|routing
+name|setRouting
 parameter_list|(
 name|String
 name|routing
@@ -603,11 +604,11 @@ name|routing
 expr_stmt|;
 block|}
 comment|/**      * The fields of the document to use in order to find documents "like" this one. Defaults to run      * against all the document fields.      */
-DECL|method|fields
+DECL|method|getFields
 specifier|public
 name|String
 index|[]
-name|fields
+name|getFields
 parameter_list|()
 block|{
 return|return
@@ -617,10 +618,10 @@ name|fields
 return|;
 block|}
 comment|/**      * The fields of the document to use in order to find documents "like" this one. Defaults to run      * against all the document fields.      */
-DECL|method|fields
+DECL|method|setFields
 specifier|public
 name|MoreLikeThisRequest
-name|fields
+name|setFields
 parameter_list|(
 name|String
 modifier|...
@@ -638,10 +639,10 @@ name|this
 return|;
 block|}
 comment|/**      * The percent of the terms to match for each field. Defaults to<tt>0.3f</tt>.      */
-DECL|method|percentTermsToMatch
+DECL|method|setPercentTermsToMatch
 specifier|public
 name|MoreLikeThisRequest
-name|percentTermsToMatch
+name|setPercentTermsToMatch
 parameter_list|(
 name|float
 name|percentTermsToMatch
@@ -658,10 +659,10 @@ name|this
 return|;
 block|}
 comment|/**      * The percent of the terms to match for each field. Defaults to<tt>0.3f</tt>.      */
-DECL|method|percentTermsToMatch
+DECL|method|getPercentTermsToMatch
 specifier|public
 name|float
-name|percentTermsToMatch
+name|getPercentTermsToMatch
 parameter_list|()
 block|{
 return|return
@@ -671,10 +672,10 @@ name|percentTermsToMatch
 return|;
 block|}
 comment|/**      * The frequency below which terms will be ignored in the source doc. Defaults to<tt>2</tt>.      */
-DECL|method|minTermFreq
+DECL|method|setMinTermFreq
 specifier|public
 name|MoreLikeThisRequest
-name|minTermFreq
+name|setMinTermFreq
 parameter_list|(
 name|int
 name|minTermFreq
@@ -691,10 +692,10 @@ name|this
 return|;
 block|}
 comment|/**      * The frequency below which terms will be ignored in the source doc. Defaults to<tt>2</tt>.      */
-DECL|method|minTermFreq
+DECL|method|getMinTermFreq
 specifier|public
 name|int
-name|minTermFreq
+name|getMinTermFreq
 parameter_list|()
 block|{
 return|return
@@ -704,10 +705,10 @@ name|minTermFreq
 return|;
 block|}
 comment|/**      * The maximum number of query terms that will be included in any generated query. Defaults to<tt>25</tt>.      */
-DECL|method|maxQueryTerms
+DECL|method|setMaxQueryTerms
 specifier|public
 name|MoreLikeThisRequest
-name|maxQueryTerms
+name|setMaxQueryTerms
 parameter_list|(
 name|int
 name|maxQueryTerms
@@ -724,10 +725,10 @@ name|this
 return|;
 block|}
 comment|/**      * The maximum number of query terms that will be included in any generated query. Defaults to<tt>25</tt>.      */
-DECL|method|maxQueryTerms
+DECL|method|getMaxQueryTerms
 specifier|public
 name|int
-name|maxQueryTerms
+name|getMaxQueryTerms
 parameter_list|()
 block|{
 return|return
@@ -737,10 +738,10 @@ name|maxQueryTerms
 return|;
 block|}
 comment|/**      * Any word in this set is considered "uninteresting" and ignored.      *<p/>      *<p>Even if your Analyzer allows stopwords, you might want to tell the MoreLikeThis code to ignore them, as      * for the purposes of document similarity it seems reasonable to assume that "a stop word is never interesting".      *<p/>      *<p>Defaults to no stop words.      */
-DECL|method|stopWords
+DECL|method|setStopWords
 specifier|public
 name|MoreLikeThisRequest
-name|stopWords
+name|setStopWords
 parameter_list|(
 name|String
 modifier|...
@@ -758,11 +759,11 @@ name|this
 return|;
 block|}
 comment|/**      * Any word in this set is considered "uninteresting" and ignored.      *<p/>      *<p>Even if your Analyzer allows stopwords, you might want to tell the MoreLikeThis code to ignore them, as      * for the purposes of document similarity it seems reasonable to assume that "a stop word is never interesting".      *<p/>      *<p>Defaults to no stop words.      */
-DECL|method|stopWords
+DECL|method|getStopWords
 specifier|public
 name|String
 index|[]
-name|stopWords
+name|getStopWords
 parameter_list|()
 block|{
 return|return
@@ -772,10 +773,10 @@ name|stopWords
 return|;
 block|}
 comment|/**      * The frequency at which words will be ignored which do not occur in at least this      * many docs. Defaults to<tt>5</tt>.      */
-DECL|method|minDocFreq
+DECL|method|setMinDocFreq
 specifier|public
 name|MoreLikeThisRequest
-name|minDocFreq
+name|setMinDocFreq
 parameter_list|(
 name|int
 name|minDocFreq
@@ -792,10 +793,10 @@ name|this
 return|;
 block|}
 comment|/**      * The frequency at which words will be ignored which do not occur in at least this      * many docs. Defaults to<tt>5</tt>.      */
-DECL|method|minDocFreq
+DECL|method|getMinDocFreq
 specifier|public
 name|int
-name|minDocFreq
+name|getMinDocFreq
 parameter_list|()
 block|{
 return|return
@@ -805,10 +806,10 @@ name|minDocFreq
 return|;
 block|}
 comment|/**      * The maximum frequency in which words may still appear. Words that appear      * in more than this many docs will be ignored. Defaults to unbounded.      */
-DECL|method|maxDocFreq
+DECL|method|setMaxDocFreq
 specifier|public
 name|MoreLikeThisRequest
-name|maxDocFreq
+name|setMaxDocFreq
 parameter_list|(
 name|int
 name|maxDocFreq
@@ -825,10 +826,10 @@ name|this
 return|;
 block|}
 comment|/**      * The maximum frequency in which words may still appear. Words that appear      * in more than this many docs will be ignored. Defaults to unbounded.      */
-DECL|method|maxDocFreq
+DECL|method|getMaxDocFreq
 specifier|public
 name|int
-name|maxDocFreq
+name|getMaxDocFreq
 parameter_list|()
 block|{
 return|return
@@ -838,10 +839,10 @@ name|maxDocFreq
 return|;
 block|}
 comment|/**      * The minimum word length below which words will be ignored. Defaults to<tt>0</tt>.      */
-DECL|method|minWordLen
+DECL|method|setMinWordLen
 specifier|public
 name|MoreLikeThisRequest
-name|minWordLen
+name|setMinWordLen
 parameter_list|(
 name|int
 name|minWordLen
@@ -858,10 +859,10 @@ name|this
 return|;
 block|}
 comment|/**      * The minimum word length below which words will be ignored. Defaults to<tt>0</tt>.      */
-DECL|method|minWordLen
+DECL|method|getMinWordLen
 specifier|public
 name|int
-name|minWordLen
+name|getMinWordLen
 parameter_list|()
 block|{
 return|return
@@ -871,10 +872,10 @@ name|minWordLen
 return|;
 block|}
 comment|/**      * The maximum word length above which words will be ignored. Defaults to unbounded.      */
-DECL|method|maxWordLen
+DECL|method|setMaxWordLen
 specifier|public
 name|MoreLikeThisRequest
-name|maxWordLen
+name|setMaxWordLen
 parameter_list|(
 name|int
 name|maxWordLen
@@ -891,10 +892,10 @@ name|this
 return|;
 block|}
 comment|/**      * The maximum word length above which words will be ignored. Defaults to unbounded.      */
-DECL|method|maxWordLen
+DECL|method|getMaxWordLen
 specifier|public
 name|int
-name|maxWordLen
+name|getMaxWordLen
 parameter_list|()
 block|{
 return|return
@@ -904,10 +905,10 @@ name|maxWordLen
 return|;
 block|}
 comment|/**      * The boost factor to use when boosting terms. Defaults to<tt>1</tt>.      */
-DECL|method|boostTerms
+DECL|method|setBoostTerms
 specifier|public
 name|MoreLikeThisRequest
-name|boostTerms
+name|setBoostTerms
 parameter_list|(
 name|float
 name|boostTerms
@@ -924,10 +925,10 @@ name|this
 return|;
 block|}
 comment|/**      * The boost factor to use when boosting terms. Defaults to<tt>1</tt>.      */
-DECL|method|boostTerms
+DECL|method|getBoostTerms
 specifier|public
 name|float
-name|boostTerms
+name|getBoostTerms
 parameter_list|()
 block|{
 return|return
@@ -960,10 +961,10 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * An optional search source request allowing to control the search request for the      * more like this documents.      */
-DECL|method|searchSource
+DECL|method|setSearchSource
 specifier|public
 name|MoreLikeThisRequest
-name|searchSource
+name|setSearchSource
 parameter_list|(
 name|SearchSourceBuilder
 name|sourceBuilder
@@ -993,10 +994,10 @@ name|this
 return|;
 block|}
 comment|/**      * An optional search source request allowing to control the search request for the      * more like this documents.      */
-DECL|method|searchSource
+DECL|method|setSearchSource
 specifier|public
 name|MoreLikeThisRequest
-name|searchSource
+name|setSearchSource
 parameter_list|(
 name|String
 name|searchSource
@@ -1022,10 +1023,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|searchSource
+DECL|method|setSearchSource
 specifier|public
 name|MoreLikeThisRequest
-name|searchSource
+name|setSearchSource
 parameter_list|(
 name|Map
 name|searchSource
@@ -1051,7 +1052,7 @@ name|searchSource
 argument_list|)
 expr_stmt|;
 return|return
-name|searchSource
+name|setSearchSource
 argument_list|(
 name|builder
 argument_list|)
@@ -1078,10 +1079,10 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|searchSource
+DECL|method|setSearchSource
 specifier|public
 name|MoreLikeThisRequest
-name|searchSource
+name|setSearchSource
 parameter_list|(
 name|XContentBuilder
 name|builder
@@ -1107,10 +1108,10 @@ name|this
 return|;
 block|}
 comment|/**      * An optional search source request allowing to control the search request for the      * more like this documents.      */
-DECL|method|searchSource
+DECL|method|setSearchSource
 specifier|public
 name|MoreLikeThisRequest
-name|searchSource
+name|setSearchSource
 parameter_list|(
 name|byte
 index|[]
@@ -1118,7 +1119,7 @@ name|searchSource
 parameter_list|)
 block|{
 return|return
-name|searchSource
+name|setSearchSource
 argument_list|(
 name|searchSource
 argument_list|,
@@ -1133,10 +1134,10 @@ argument_list|)
 return|;
 block|}
 comment|/**      * An optional search source request allowing to control the search request for the      * more like this documents.      */
-DECL|method|searchSource
+DECL|method|setSearchSource
 specifier|public
 name|MoreLikeThisRequest
-name|searchSource
+name|setSearchSource
 parameter_list|(
 name|byte
 index|[]
@@ -1153,7 +1154,7 @@ name|unsafe
 parameter_list|)
 block|{
 return|return
-name|searchSource
+name|setSearchSource
 argument_list|(
 operator|new
 name|BytesArray
@@ -1170,10 +1171,10 @@ argument_list|)
 return|;
 block|}
 comment|/**      * An optional search source request allowing to control the search request for the      * more like this documents.      */
-DECL|method|searchSource
+DECL|method|setSearchSource
 specifier|public
 name|MoreLikeThisRequest
-name|searchSource
+name|setSearchSource
 parameter_list|(
 name|BytesReference
 name|searchSource
@@ -1199,10 +1200,10 @@ name|this
 return|;
 block|}
 comment|/**      * An optional search source request allowing to control the search request for the      * more like this documents.      */
-DECL|method|searchSource
+DECL|method|getSearchSource
 specifier|public
 name|BytesReference
-name|searchSource
+name|getSearchSource
 parameter_list|()
 block|{
 return|return
@@ -1211,10 +1212,10 @@ operator|.
 name|searchSource
 return|;
 block|}
-DECL|method|searchSourceUnsafe
+DECL|method|isSearchSourceUnsafe
 specifier|public
 name|boolean
-name|searchSourceUnsafe
+name|isSearchSourceUnsafe
 parameter_list|()
 block|{
 return|return
@@ -1222,10 +1223,10 @@ name|searchSourceUnsafe
 return|;
 block|}
 comment|/**      * The search type of the mlt search query.      */
-DECL|method|searchType
+DECL|method|setSearchType
 specifier|public
 name|MoreLikeThisRequest
-name|searchType
+name|setSearchType
 parameter_list|(
 name|SearchType
 name|searchType
@@ -1242,10 +1243,10 @@ name|this
 return|;
 block|}
 comment|/**      * The search type of the mlt search query.      */
-DECL|method|searchType
+DECL|method|setSearchType
 specifier|public
 name|MoreLikeThisRequest
-name|searchType
+name|setSearchType
 parameter_list|(
 name|String
 name|searchType
@@ -1254,7 +1255,7 @@ throws|throws
 name|ElasticSearchIllegalArgumentException
 block|{
 return|return
-name|searchType
+name|setSearchType
 argument_list|(
 name|SearchType
 operator|.
@@ -1266,10 +1267,10 @@ argument_list|)
 return|;
 block|}
 comment|/**      * The search type of the mlt search query.      */
-DECL|method|searchType
+DECL|method|getSearchType
 specifier|public
 name|SearchType
-name|searchType
+name|getSearchType
 parameter_list|()
 block|{
 return|return
@@ -1279,10 +1280,10 @@ name|searchType
 return|;
 block|}
 comment|/**      * The indices the resulting mlt query will run against. If not set, will run      * against the index the document was fetched from.      */
-DECL|method|searchIndices
+DECL|method|setSearchIndices
 specifier|public
 name|MoreLikeThisRequest
-name|searchIndices
+name|setSearchIndices
 parameter_list|(
 name|String
 modifier|...
@@ -1300,11 +1301,11 @@ name|this
 return|;
 block|}
 comment|/**      * The indices the resulting mlt query will run against. If not set, will run      * against the index the document was fetched from.      */
-DECL|method|searchIndices
+DECL|method|getSearchIndices
 specifier|public
 name|String
 index|[]
-name|searchIndices
+name|getSearchIndices
 parameter_list|()
 block|{
 return|return
@@ -1314,10 +1315,10 @@ name|searchIndices
 return|;
 block|}
 comment|/**      * The types the resulting mlt query will run against. If not set, will run      * against the type of the document fetched.      */
-DECL|method|searchTypes
+DECL|method|setSearchTypes
 specifier|public
 name|MoreLikeThisRequest
-name|searchTypes
+name|setSearchTypes
 parameter_list|(
 name|String
 modifier|...
@@ -1335,11 +1336,11 @@ name|this
 return|;
 block|}
 comment|/**      * The types the resulting mlt query will run against. If not set, will run      * against the type of the document fetched.      */
-DECL|method|searchTypes
+DECL|method|getSearchTypes
 specifier|public
 name|String
 index|[]
-name|searchTypes
+name|getSearchTypes
 parameter_list|()
 block|{
 return|return
@@ -1349,10 +1350,10 @@ name|searchTypes
 return|;
 block|}
 comment|/**      * Optional search query hint.      */
-DECL|method|searchQueryHint
+DECL|method|setSearchQueryHint
 specifier|public
 name|MoreLikeThisRequest
-name|searchQueryHint
+name|setSearchQueryHint
 parameter_list|(
 name|String
 name|searchQueryHint
@@ -1369,10 +1370,10 @@ name|this
 return|;
 block|}
 comment|/**      * Optional search query hint.      */
-DECL|method|searchQueryHint
+DECL|method|getSearchQueryHint
 specifier|public
 name|String
-name|searchQueryHint
+name|getSearchQueryHint
 parameter_list|()
 block|{
 return|return
@@ -1382,10 +1383,10 @@ name|searchQueryHint
 return|;
 block|}
 comment|/**      * An optional search scroll request to be able to continue and scroll the search      * operation.      */
-DECL|method|searchScroll
+DECL|method|setSearchScroll
 specifier|public
 name|MoreLikeThisRequest
-name|searchScroll
+name|setSearchScroll
 parameter_list|(
 name|Scroll
 name|searchScroll
@@ -1402,10 +1403,10 @@ name|this
 return|;
 block|}
 comment|/**      * An optional search scroll request to be able to continue and scroll the search      * operation.      */
-DECL|method|searchScroll
+DECL|method|getSearchScroll
 specifier|public
 name|Scroll
-name|searchScroll
+name|getSearchScroll
 parameter_list|()
 block|{
 return|return
@@ -1415,10 +1416,10 @@ name|searchScroll
 return|;
 block|}
 comment|/**      * The number of documents to return, defaults to 10.      */
-DECL|method|searchSize
+DECL|method|setSearchSize
 specifier|public
 name|MoreLikeThisRequest
-name|searchSize
+name|setSearchSize
 parameter_list|(
 name|int
 name|size
@@ -1434,10 +1435,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|searchSize
+DECL|method|getSearchSize
 specifier|public
 name|int
-name|searchSize
+name|getSearchSize
 parameter_list|()
 block|{
 return|return
@@ -1447,10 +1448,10 @@ name|searchSize
 return|;
 block|}
 comment|/**      * From which search result set to return.      */
-DECL|method|searchFrom
+DECL|method|setSearchFrom
 specifier|public
 name|MoreLikeThisRequest
-name|searchFrom
+name|setSearchFrom
 parameter_list|(
 name|int
 name|from
@@ -1466,10 +1467,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|searchFrom
+DECL|method|getSearchFrom
 specifier|public
 name|int
-name|searchFrom
+name|getSearchFrom
 parameter_list|()
 block|{
 return|return

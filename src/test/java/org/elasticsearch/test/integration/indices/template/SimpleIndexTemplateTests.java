@@ -674,7 +674,7 @@ if|if
 condition|(
 name|searchResponse
 operator|.
-name|failedShards
+name|getFailedShards
 argument_list|()
 operator|>
 literal|0
@@ -692,7 +692,7 @@ name|toString
 argument_list|(
 name|searchResponse
 operator|.
-name|shardFailures
+name|getShardFailures
 argument_list|()
 argument_list|)
 argument_list|)
@@ -702,7 +702,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|failedShards
+name|getFailedShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -715,7 +715,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|totalHits
@@ -731,7 +731,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|hits
@@ -749,7 +749,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -778,7 +778,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -897,7 +897,7 @@ if|if
 condition|(
 name|searchResponse
 operator|.
-name|failedShards
+name|getFailedShards
 argument_list|()
 operator|>
 literal|0
@@ -915,7 +915,7 @@ name|toString
 argument_list|(
 name|searchResponse
 operator|.
-name|shardFailures
+name|getShardFailures
 argument_list|()
 argument_list|)
 argument_list|)
@@ -925,7 +925,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|failedShards
+name|getFailedShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -938,7 +938,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|totalHits
@@ -954,7 +954,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|hits
@@ -972,7 +972,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -1001,7 +1001,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt

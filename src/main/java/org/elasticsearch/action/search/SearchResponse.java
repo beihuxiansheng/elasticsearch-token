@@ -458,20 +458,6 @@ name|OK
 return|;
 block|}
 comment|/**      * The search hits.      */
-DECL|method|hits
-specifier|public
-name|SearchHits
-name|hits
-parameter_list|()
-block|{
-return|return
-name|internalResponse
-operator|.
-name|hits
-argument_list|()
-return|;
-block|}
-comment|/**      * The search hits.      */
 DECL|method|getHits
 specifier|public
 name|SearchHits
@@ -479,34 +465,9 @@ name|getHits
 parameter_list|()
 block|{
 return|return
+name|internalResponse
+operator|.
 name|hits
-argument_list|()
-return|;
-block|}
-comment|/**      * The search facets.      */
-DECL|method|facets
-specifier|public
-name|Facets
-name|facets
-parameter_list|()
-block|{
-return|return
-name|internalResponse
-operator|.
-name|facets
-argument_list|()
-return|;
-block|}
-DECL|method|suggest
-specifier|public
-name|Suggest
-name|suggest
-parameter_list|()
-block|{
-return|return
-name|internalResponse
-operator|.
-name|suggest
 argument_list|()
 return|;
 block|}
@@ -518,21 +479,22 @@ name|getFacets
 parameter_list|()
 block|{
 return|return
+name|internalResponse
+operator|.
 name|facets
 argument_list|()
 return|;
 block|}
-comment|/**      * Has the search operation timed out.      */
-DECL|method|timedOut
+DECL|method|getSuggest
 specifier|public
-name|boolean
-name|timedOut
+name|Suggest
+name|getSuggest
 parameter_list|()
 block|{
 return|return
 name|internalResponse
 operator|.
-name|timedOut
+name|suggest
 argument_list|()
 return|;
 block|}
@@ -544,23 +506,10 @@ name|isTimedOut
 parameter_list|()
 block|{
 return|return
+name|internalResponse
+operator|.
 name|timedOut
 argument_list|()
-return|;
-block|}
-comment|/**      * How long the search took.      */
-DECL|method|took
-specifier|public
-name|TimeValue
-name|took
-parameter_list|()
-block|{
-return|return
-operator|new
-name|TimeValue
-argument_list|(
-name|tookInMillis
-argument_list|)
 return|;
 block|}
 comment|/**      * How long the search took.      */
@@ -571,19 +520,11 @@ name|getTook
 parameter_list|()
 block|{
 return|return
-name|took
-argument_list|()
-return|;
-block|}
-comment|/**      * How long the search took in milliseconds.      */
-DECL|method|tookInMillis
-specifier|public
-name|long
+operator|new
+name|TimeValue
+argument_list|(
 name|tookInMillis
-parameter_list|()
-block|{
-return|return
-name|tookInMillis
+argument_list|)
 return|;
 block|}
 comment|/**      * How long the search took in milliseconds.      */
@@ -595,18 +536,6 @@ parameter_list|()
 block|{
 return|return
 name|tookInMillis
-argument_list|()
-return|;
-block|}
-comment|/**      * The total number of shards the search was executed on.      */
-DECL|method|totalShards
-specifier|public
-name|int
-name|totalShards
-parameter_list|()
-block|{
-return|return
-name|totalShards
 return|;
 block|}
 comment|/**      * The total number of shards the search was executed on.      */
@@ -621,17 +550,6 @@ name|totalShards
 return|;
 block|}
 comment|/**      * The successful number of shards the search was executed on.      */
-DECL|method|successfulShards
-specifier|public
-name|int
-name|successfulShards
-parameter_list|()
-block|{
-return|return
-name|successfulShards
-return|;
-block|}
-comment|/**      * The successful number of shards the search was executed on.      */
 DECL|method|getSuccessfulShards
 specifier|public
 name|int
@@ -643,19 +561,6 @@ name|successfulShards
 return|;
 block|}
 comment|/**      * The failed number of shards the search was executed on.      */
-DECL|method|failedShards
-specifier|public
-name|int
-name|failedShards
-parameter_list|()
-block|{
-return|return
-name|totalShards
-operator|-
-name|successfulShards
-return|;
-block|}
-comment|/**      * The failed number of shards the search was executed on.      */
 DECL|method|getFailedShards
 specifier|public
 name|int
@@ -663,22 +568,9 @@ name|getFailedShards
 parameter_list|()
 block|{
 return|return
-name|failedShards
-argument_list|()
-return|;
-block|}
-comment|/**      * The failures that occurred during the search.      */
-DECL|method|shardFailures
-specifier|public
-name|ShardSearchFailure
-index|[]
-name|shardFailures
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|shardFailures
+name|totalShards
+operator|-
+name|successfulShards
 return|;
 block|}
 comment|/**      * The failures that occurred during the search.      */
@@ -690,21 +582,12 @@ name|getShardFailures
 parameter_list|()
 block|{
 return|return
+name|this
+operator|.
 name|shardFailures
 return|;
 block|}
-comment|/**      * If scrolling was enabled ({@link SearchRequest#scroll(org.elasticsearch.search.Scroll)}, the      * scroll id that can be used to continue scrolling.      */
-DECL|method|scrollId
-specifier|public
-name|String
-name|scrollId
-parameter_list|()
-block|{
-return|return
-name|scrollId
-return|;
-block|}
-comment|/**      * If scrolling was enabled ({@link SearchRequest#scroll(org.elasticsearch.search.Scroll)}, the      * scroll id that can be used to continue scrolling.      */
+comment|/**      * If scrolling was enabled ({@link SearchRequest#setScroll(org.elasticsearch.search.Scroll)}, the      * scroll id that can be used to continue scrolling.      */
 DECL|method|getScrollId
 specifier|public
 name|String
@@ -920,7 +803,7 @@ name|Fields
 operator|.
 name|TIMED_OUT
 argument_list|,
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -941,7 +824,7 @@ name|Fields
 operator|.
 name|TOTAL
 argument_list|,
-name|totalShards
+name|getTotalShards
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -953,7 +836,7 @@ name|Fields
 operator|.
 name|SUCCESSFUL
 argument_list|,
-name|successfulShards
+name|getSuccessfulShards
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -965,7 +848,7 @@ name|Fields
 operator|.
 name|FAILED
 argument_list|,
-name|failedShards
+name|getFailedShards
 argument_list|()
 argument_list|)
 expr_stmt|;

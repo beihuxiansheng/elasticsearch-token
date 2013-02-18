@@ -706,7 +706,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|operationThreaded
+name|isOperationThreaded
 argument_list|()
 condition|)
 block|{
@@ -823,7 +823,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|preferLocalShard
+name|isPreferLocal
 argument_list|()
 condition|)
 block|{
@@ -879,7 +879,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|operationThreaded
+name|isOperationThreaded
 argument_list|()
 condition|)
 block|{
@@ -1150,7 +1150,7 @@ condition|(
 operator|!
 name|request
 operator|.
-name|preferLocalShard
+name|isPreferLocal
 argument_list|()
 condition|)
 block|{
@@ -1158,7 +1158,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|operationThreaded
+name|isOperationThreaded
 argument_list|()
 condition|)
 block|{
@@ -1435,7 +1435,7 @@ block|{
 comment|// no need to have a threaded listener since we just send back a response
 name|request
 operator|.
-name|listenerThreaded
+name|setListenerThreaded
 argument_list|(
 literal|false
 argument_list|)
@@ -1443,7 +1443,7 @@ expr_stmt|;
 comment|// if we have a local operation, execute it on a thread since we don't spawn
 name|request
 operator|.
-name|operationThreaded
+name|setOperationThreaded
 argument_list|(
 literal|true
 argument_list|)

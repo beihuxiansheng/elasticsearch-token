@@ -408,7 +408,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo

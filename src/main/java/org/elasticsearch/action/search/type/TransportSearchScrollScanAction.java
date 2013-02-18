@@ -639,7 +639,7 @@ name|AtomicInteger
 argument_list|(
 name|scrollId
 operator|.
-name|context
+name|getContext
 argument_list|()
 operator|.
 name|length
@@ -654,7 +654,7 @@ name|AtomicInteger
 argument_list|(
 name|scrollId
 operator|.
-name|context
+name|getContext
 argument_list|()
 operator|.
 name|length
@@ -746,7 +746,7 @@ if|if
 condition|(
 name|scrollId
 operator|.
-name|context
+name|getContext
 argument_list|()
 operator|.
 name|length
@@ -776,7 +776,7 @@ name|this
 operator|.
 name|scrollId
 operator|.
-name|attributes
+name|getAttributes
 argument_list|()
 operator|.
 name|get
@@ -813,7 +813,7 @@ name|internalResponse
 argument_list|,
 name|request
 operator|.
-name|scrollId
+name|getScrollId
 argument_list|()
 argument_list|,
 literal|0
@@ -846,7 +846,7 @@ name|target
 range|:
 name|scrollId
 operator|.
-name|context
+name|getContext
 argument_list|()
 control|)
 block|{
@@ -929,7 +929,7 @@ literal|"] not available for scroll request ["
 operator|+
 name|scrollId
 operator|.
-name|source
+name|getSource
 argument_list|()
 operator|+
 literal|"]"
@@ -968,7 +968,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|operationThreading
+name|getOperationThreading
 argument_list|()
 operator|==
 name|SearchOperationThreading
@@ -1012,7 +1012,7 @@ name|target
 range|:
 name|scrollId
 operator|.
-name|context
+name|getContext
 argument_list|()
 control|)
 block|{
@@ -1073,7 +1073,7 @@ name|localAsync
 init|=
 name|request
 operator|.
-name|operationThreading
+name|getOperationThreading
 argument_list|()
 operator|==
 name|SearchOperationThreading
@@ -1093,7 +1093,7 @@ name|target
 range|:
 name|scrollId
 operator|.
-name|context
+name|getContext
 argument_list|()
 control|)
 block|{
@@ -1204,7 +1204,7 @@ name|target
 range|:
 name|scrollId
 operator|.
-name|context
+name|getContext
 argument_list|()
 control|)
 block|{
@@ -1251,7 +1251,7 @@ literal|"] not available for scroll request ["
 operator|+
 name|scrollId
 operator|.
-name|source
+name|getSource
 argument_list|()
 operator|+
 literal|"]"
@@ -1631,7 +1631,7 @@ name|this
 operator|.
 name|scrollId
 operator|.
-name|attributes
+name|getAttributes
 argument_list|()
 operator|.
 name|get
@@ -1696,7 +1696,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|scroll
+name|getScroll
 argument_list|()
 operator|!=
 literal|null
@@ -1713,7 +1713,7 @@ name|this
 operator|.
 name|scrollId
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|,
 name|queryFetchResults
@@ -1725,7 +1725,7 @@ name|this
 operator|.
 name|scrollId
 operator|.
-name|attributes
+name|getAttributes
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1746,7 +1746,7 @@ name|this
 operator|.
 name|scrollId
 operator|.
-name|context
+name|getContext
 argument_list|()
 operator|.
 name|length

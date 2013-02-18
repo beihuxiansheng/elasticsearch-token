@@ -172,17 +172,17 @@ operator|new
 name|ExplainRequest
 argument_list|()
 operator|.
-name|index
+name|setIndex
 argument_list|(
 name|index
 argument_list|)
 operator|.
-name|type
+name|setType
 argument_list|(
 name|type
 argument_list|)
 operator|.
-name|id
+name|setId
 argument_list|(
 name|id
 argument_list|)
@@ -202,7 +202,7 @@ block|{
 name|request
 argument_list|()
 operator|.
-name|type
+name|setType
 argument_list|(
 name|type
 argument_list|)
@@ -224,7 +224,7 @@ block|{
 name|request
 argument_list|()
 operator|.
-name|id
+name|setId
 argument_list|(
 name|id
 argument_list|)
@@ -246,7 +246,7 @@ block|{
 name|request
 argument_list|()
 operator|.
-name|routing
+name|setRouting
 argument_list|(
 name|routing
 argument_list|)
@@ -268,7 +268,7 @@ block|{
 name|request
 argument_list|()
 operator|.
-name|parent
+name|setParent
 argument_list|(
 name|parent
 argument_list|)
@@ -290,7 +290,7 @@ block|{
 name|request
 argument_list|()
 operator|.
-name|preference
+name|setPreference
 argument_list|(
 name|preference
 argument_list|)
@@ -312,7 +312,7 @@ block|{
 name|sourceBuilder
 argument_list|()
 operator|.
-name|query
+name|setQuery
 argument_list|(
 name|query
 argument_list|)
@@ -334,7 +334,7 @@ block|{
 name|sourceBuilder
 argument_list|()
 operator|.
-name|query
+name|setQuery
 argument_list|(
 name|query
 argument_list|)
@@ -356,7 +356,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|fields
+name|setFields
 argument_list|(
 name|fields
 argument_list|)
@@ -381,7 +381,7 @@ block|{
 name|request
 argument_list|()
 operator|.
-name|source
+name|setSource
 argument_list|(
 name|source
 argument_list|,
@@ -405,7 +405,7 @@ block|{
 name|request
 argument_list|()
 operator|.
-name|operationThreaded
+name|setOperationThreaded
 argument_list|(
 name|threadedOperation
 argument_list|)
@@ -435,7 +435,7 @@ condition|)
 block|{
 name|request
 operator|.
-name|source
+name|setSource
 argument_list|(
 name|sourceBuilder
 argument_list|)

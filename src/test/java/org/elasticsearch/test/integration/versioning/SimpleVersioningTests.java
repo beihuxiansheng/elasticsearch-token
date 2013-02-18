@@ -465,7 +465,7 @@ name|assertThat
 argument_list|(
 name|deleteResponse
 operator|.
-name|notFound
+name|isNotFound
 argument_list|()
 argument_list|,
 name|equalTo
@@ -696,7 +696,7 @@ name|assertThat
 argument_list|(
 name|indexResponse
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|,
 name|equalTo
@@ -747,7 +747,7 @@ name|assertThat
 argument_list|(
 name|indexResponse
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|,
 name|equalTo
@@ -868,7 +868,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|,
 name|equalTo
@@ -914,7 +914,7 @@ name|assertThat
 argument_list|(
 name|deleteResponse
 operator|.
-name|notFound
+name|isNotFound
 argument_list|()
 argument_list|,
 name|equalTo
@@ -927,7 +927,7 @@ name|assertThat
 argument_list|(
 name|deleteResponse
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1025,7 +1025,7 @@ name|assertThat
 argument_list|(
 name|deleteResponse
 operator|.
-name|notFound
+name|isNotFound
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1038,7 +1038,7 @@ name|assertThat
 argument_list|(
 name|deleteResponse
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1160,7 +1160,7 @@ name|assertThat
 argument_list|(
 name|indexResponse
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1204,7 +1204,7 @@ name|assertThat
 argument_list|(
 name|indexResponse
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1584,7 +1584,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1639,7 +1639,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -1697,7 +1697,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -1745,7 +1745,7 @@ name|assertThat
 argument_list|(
 name|deleteResponse
 operator|.
-name|notFound
+name|isNotFound
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1758,7 +1758,7 @@ name|assertThat
 argument_list|(
 name|deleteResponse
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1842,7 +1842,7 @@ name|assertThat
 argument_list|(
 name|deleteResponse
 operator|.
-name|notFound
+name|isNotFound
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1855,7 +1855,7 @@ name|assertThat
 argument_list|(
 name|deleteResponse
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1977,7 +1977,7 @@ name|assertThat
 argument_list|(
 name|indexResponse
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2038,7 +2038,7 @@ name|assertThat
 argument_list|(
 name|indexResponse
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2435,7 +2435,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2489,7 +2489,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -2639,7 +2639,7 @@ name|assertThat
 argument_list|(
 name|bulkResponse
 operator|.
-name|items
+name|getItems
 argument_list|()
 operator|.
 name|length
@@ -2655,20 +2655,20 @@ name|indexResponse
 init|=
 name|bulkResponse
 operator|.
-name|items
+name|getItems
 argument_list|()
 index|[
 literal|0
 index|]
 operator|.
-name|response
+name|getResponse
 argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
 name|indexResponse
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|,
 name|equalTo

@@ -337,7 +337,7 @@ name|assertThat
 argument_list|(
 name|analyzeResponse
 operator|.
-name|tokens
+name|getTokens
 argument_list|()
 operator|.
 name|size
@@ -356,7 +356,7 @@ name|token
 init|=
 name|analyzeResponse
 operator|.
-name|tokens
+name|getTokens
 argument_list|()
 operator|.
 name|get
@@ -368,7 +368,7 @@ name|assertThat
 argument_list|(
 name|token
 operator|.
-name|term
+name|getTerm
 argument_list|()
 argument_list|,
 name|equalTo
@@ -381,7 +381,7 @@ name|assertThat
 argument_list|(
 name|token
 operator|.
-name|startOffset
+name|getStartOffset
 argument_list|()
 argument_list|,
 name|equalTo
@@ -394,7 +394,7 @@ name|assertThat
 argument_list|(
 name|token
 operator|.
-name|endOffset
+name|getEndOffset
 argument_list|()
 argument_list|,
 name|equalTo
@@ -463,7 +463,7 @@ name|assertThat
 argument_list|(
 name|analyzeResponse
 operator|.
-name|tokens
+name|getTokens
 argument_list|()
 operator|.
 name|size
@@ -510,7 +510,7 @@ name|assertThat
 argument_list|(
 name|analyzeResponse
 operator|.
-name|tokens
+name|getTokens
 argument_list|()
 operator|.
 name|size
@@ -526,7 +526,7 @@ name|assertThat
 argument_list|(
 name|analyzeResponse
 operator|.
-name|tokens
+name|getTokens
 argument_list|()
 operator|.
 name|get
@@ -534,7 +534,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|term
+name|getTerm
 argument_list|()
 argument_list|,
 name|equalTo
@@ -713,7 +713,7 @@ name|assertThat
 argument_list|(
 name|analyzeResponse
 operator|.
-name|tokens
+name|getTokens
 argument_list|()
 operator|.
 name|size
@@ -732,7 +732,7 @@ name|token
 init|=
 name|analyzeResponse
 operator|.
-name|tokens
+name|getTokens
 argument_list|()
 operator|.
 name|get
@@ -744,7 +744,7 @@ name|assertThat
 argument_list|(
 name|token
 operator|.
-name|term
+name|getTerm
 argument_list|()
 argument_list|,
 name|equalTo
@@ -757,7 +757,7 @@ name|assertThat
 argument_list|(
 name|token
 operator|.
-name|startOffset
+name|getStartOffset
 argument_list|()
 argument_list|,
 name|equalTo
@@ -770,7 +770,7 @@ name|assertThat
 argument_list|(
 name|token
 operator|.
-name|endOffset
+name|getEndOffset
 argument_list|()
 argument_list|,
 name|equalTo

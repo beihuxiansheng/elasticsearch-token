@@ -717,12 +717,12 @@ name|concreteIndices
 argument_list|(
 name|request
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 argument_list|,
 name|request
 operator|.
-name|ignoreIndices
+name|getIgnoreIndices
 argument_list|()
 argument_list|,
 literal|true
@@ -917,7 +917,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|operationThreading
+name|getOperationThreading
 argument_list|()
 operator|==
 name|BroadcastOperationThreading
@@ -1013,7 +1013,7 @@ name|localAsync
 init|=
 name|request
 operator|.
-name|operationThreading
+name|getOperationThreading
 argument_list|()
 operator|==
 name|BroadcastOperationThreading
@@ -1831,7 +1831,7 @@ block|{
 comment|// we just send back a response, no need to fork a listener
 name|request
 operator|.
-name|listenerThreaded
+name|setListenerThreaded
 argument_list|(
 literal|false
 argument_list|)
@@ -1841,7 +1841,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|operationThreading
+name|getOperationThreading
 argument_list|()
 operator|==
 name|BroadcastOperationThreading
@@ -1851,7 +1851,7 @@ condition|)
 block|{
 name|request
 operator|.
-name|operationThreading
+name|setOperationThreading
 argument_list|(
 name|BroadcastOperationThreading
 operator|.

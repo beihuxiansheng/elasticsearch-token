@@ -140,7 +140,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|indices
+name|setIndices
 argument_list|(
 name|indices
 argument_list|)
@@ -160,7 +160,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|timeout
+name|setTimeout
 argument_list|(
 name|timeout
 argument_list|)
@@ -180,7 +180,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|timeout
+name|setTimeout
 argument_list|(
 name|timeout
 argument_list|)
@@ -200,7 +200,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|waitForStatus
+name|setWaitForStatus
 argument_list|(
 name|waitForStatus
 argument_list|)
@@ -217,7 +217,7 @@ parameter_list|()
 block|{
 name|request
 operator|.
-name|waitForGreenStatus
+name|setWaitForGreenStatus
 argument_list|()
 expr_stmt|;
 return|return
@@ -232,7 +232,7 @@ parameter_list|()
 block|{
 name|request
 operator|.
-name|waitForYellowStatus
+name|setWaitForYellowStatus
 argument_list|()
 expr_stmt|;
 return|return
@@ -250,7 +250,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|waitForRelocatingShards
+name|setWaitForRelocatingShards
 argument_list|(
 name|waitForRelocatingShards
 argument_list|)
@@ -270,7 +270,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|waitForActiveShards
+name|setWaitForActiveShards
 argument_list|(
 name|waitForActiveShards
 argument_list|)
@@ -291,7 +291,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|waitForNodes
+name|setWaitForNodes
 argument_list|(
 name|waitForNodes
 argument_list|)

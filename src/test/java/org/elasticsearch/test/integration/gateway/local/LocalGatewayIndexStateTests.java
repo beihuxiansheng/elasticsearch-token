@@ -661,7 +661,7 @@ if|if
 condition|(
 name|health
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 condition|)
 block|{
@@ -704,7 +704,7 @@ name|assertThat
 argument_list|(
 name|health
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -743,7 +743,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|metaData
@@ -850,7 +850,7 @@ if|if
 condition|(
 name|health
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 condition|)
 block|{
@@ -893,7 +893,7 @@ name|assertThat
 argument_list|(
 name|health
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -931,7 +931,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|metaData
@@ -1162,7 +1162,7 @@ name|assertThat
 argument_list|(
 name|health
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1198,7 +1198,7 @@ name|assertThat
 argument_list|(
 name|stateResponse
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|metaData
@@ -1226,7 +1226,7 @@ name|assertThat
 argument_list|(
 name|stateResponse
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|routingTable
@@ -1253,7 +1253,7 @@ name|assertThat
 argument_list|(
 name|stateResponse
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|routingTable
@@ -1369,7 +1369,7 @@ name|assertThat
 argument_list|(
 name|stateResponse
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|metaData
@@ -1397,7 +1397,7 @@ name|assertThat
 argument_list|(
 name|stateResponse
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|routingTable
@@ -1450,7 +1450,7 @@ name|assertThat
 argument_list|(
 name|health
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1463,7 +1463,7 @@ name|assertThat
 argument_list|(
 name|health
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1602,7 +1602,7 @@ name|assertThat
 argument_list|(
 name|health
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1615,7 +1615,7 @@ name|assertThat
 argument_list|(
 name|health
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1696,7 +1696,7 @@ name|assertThat
 argument_list|(
 name|health
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1709,7 +1709,7 @@ name|assertThat
 argument_list|(
 name|health
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1746,7 +1746,7 @@ name|assertThat
 argument_list|(
 name|stateResponse
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|metaData
@@ -1774,7 +1774,7 @@ name|assertThat
 argument_list|(
 name|stateResponse
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|routingTable
@@ -1801,7 +1801,7 @@ name|assertThat
 argument_list|(
 name|stateResponse
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|routingTable
@@ -1862,7 +1862,7 @@ name|assertThat
 argument_list|(
 name|getResponse
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1926,7 +1926,7 @@ name|assertThat
 argument_list|(
 name|stateResponse
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|metaData
@@ -1954,7 +1954,7 @@ name|assertThat
 argument_list|(
 name|stateResponse
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|routingTable
@@ -2070,7 +2070,7 @@ name|assertThat
 argument_list|(
 name|health
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2105,7 +2105,7 @@ name|assertThat
 argument_list|(
 name|stateResponse
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|metaData
@@ -2133,7 +2133,7 @@ name|assertThat
 argument_list|(
 name|stateResponse
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|routingTable
@@ -2271,7 +2271,7 @@ name|assertThat
 argument_list|(
 name|health
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2306,7 +2306,7 @@ name|assertThat
 argument_list|(
 name|stateResponse
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|metaData
@@ -2334,7 +2334,7 @@ name|assertThat
 argument_list|(
 name|stateResponse
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|routingTable
@@ -2361,7 +2361,7 @@ name|assertThat
 argument_list|(
 name|stateResponse
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|routingTable
@@ -2421,7 +2421,7 @@ name|assertThat
 argument_list|(
 name|getResponse
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2693,7 +2693,7 @@ name|assertThat
 argument_list|(
 name|health
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2741,7 +2741,7 @@ name|assertThat
 argument_list|(
 name|clusterStateResponse
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|metaData
@@ -2971,7 +2971,7 @@ name|assertThat
 argument_list|(
 name|health
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3219,7 +3219,7 @@ name|assertThat
 argument_list|(
 name|health
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3272,7 +3272,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3338,7 +3338,7 @@ name|assertThat
 argument_list|(
 name|stateResponse
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|metaData
@@ -3366,7 +3366,7 @@ name|assertThat
 argument_list|(
 name|stateResponse
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|routingTable
@@ -3451,7 +3451,7 @@ name|assertThat
 argument_list|(
 name|health
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3489,7 +3489,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3535,7 +3535,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3741,7 +3741,7 @@ name|assertThat
 argument_list|(
 name|health
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3794,7 +3794,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3826,7 +3826,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3949,7 +3949,7 @@ name|assertThat
 argument_list|(
 name|health
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3997,7 +3997,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4047,7 +4047,7 @@ name|assertThat
 argument_list|(
 name|health
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4085,7 +4085,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4290,7 +4290,7 @@ name|assertThat
 argument_list|(
 name|health
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4343,7 +4343,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4375,7 +4375,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4498,7 +4498,7 @@ name|assertThat
 argument_list|(
 name|health
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4546,7 +4546,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4596,7 +4596,7 @@ name|assertThat
 argument_list|(
 name|health
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4634,7 +4634,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|metaData
@@ -4728,7 +4728,7 @@ name|assertThat
 argument_list|(
 name|health
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4766,7 +4766,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4971,7 +4971,7 @@ name|assertThat
 argument_list|(
 name|health
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -5024,7 +5024,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -5056,7 +5056,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -5179,7 +5179,7 @@ name|assertThat
 argument_list|(
 name|health
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -5228,7 +5228,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -5348,7 +5348,7 @@ name|assertThat
 argument_list|(
 name|health
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -5388,7 +5388,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -5426,7 +5426,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -5631,7 +5631,7 @@ name|assertThat
 argument_list|(
 name|health
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -5684,7 +5684,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -5808,7 +5808,7 @@ name|assertThat
 argument_list|(
 name|health
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -5848,7 +5848,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -5930,7 +5930,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -5961,7 +5961,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo

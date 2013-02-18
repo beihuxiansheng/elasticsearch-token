@@ -857,7 +857,7 @@ name|nodeInfo
 init|=
 name|nodesInfoResponse
 operator|.
-name|nodes
+name|getNodes
 argument_list|()
 index|[
 name|i
@@ -1112,7 +1112,7 @@ name|nodeInfo
 init|=
 name|nodesInfoResponse
 operator|.
-name|nodes
+name|getNodes
 argument_list|()
 index|[
 name|i

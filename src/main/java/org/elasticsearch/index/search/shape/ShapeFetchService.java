@@ -267,12 +267,12 @@ argument_list|,
 name|id
 argument_list|)
 operator|.
-name|preference
+name|setPreference
 argument_list|(
 literal|"_local"
 argument_list|)
 operator|.
-name|operationThreaded
+name|setOperationThreaded
 argument_list|(
 literal|false
 argument_list|)
@@ -286,7 +286,7 @@ condition|(
 operator|!
 name|response
 operator|.
-name|exists
+name|isExists
 argument_list|()
 condition|)
 block|{
@@ -321,7 +321,7 @@ name|createParser
 argument_list|(
 name|response
 operator|.
-name|sourceRef
+name|getSourceAsBytesRef
 argument_list|()
 argument_list|)
 expr_stmt|;

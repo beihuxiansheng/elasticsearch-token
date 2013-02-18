@@ -497,21 +497,6 @@ block|}
 comment|/**      * System's hostname.<code>null</code> in case of UnknownHostException      */
 annotation|@
 name|Nullable
-DECL|method|hostname
-specifier|public
-name|String
-name|hostname
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|hostname
-return|;
-block|}
-comment|/**      * System's hostname.<code>null</code> in case of UnknownHostException      */
-annotation|@
-name|Nullable
 DECL|method|getHostname
 specifier|public
 name|String
@@ -519,19 +504,9 @@ name|getHostname
 parameter_list|()
 block|{
 return|return
+name|this
+operator|.
 name|hostname
-argument_list|()
-return|;
-block|}
-comment|/**      * The current ES version      */
-DECL|method|version
-specifier|public
-name|Version
-name|version
-parameter_list|()
-block|{
-return|return
-name|version
 return|;
 block|}
 comment|/**      * The current ES version      */
@@ -543,30 +518,9 @@ parameter_list|()
 block|{
 return|return
 name|version
-argument_list|()
 return|;
 block|}
 comment|/**      * The service attributes of the node.      */
-annotation|@
-name|Nullable
-DECL|method|serviceAttributes
-specifier|public
-name|ImmutableMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-name|serviceAttributes
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|serviceAttributes
-return|;
-block|}
-comment|/**      * The attributes of the node.      */
 annotation|@
 name|Nullable
 DECL|method|getServiceAttributes
@@ -581,23 +535,9 @@ name|getServiceAttributes
 parameter_list|()
 block|{
 return|return
-name|serviceAttributes
-argument_list|()
-return|;
-block|}
-comment|/**      * The settings of the node.      */
-annotation|@
-name|Nullable
-DECL|method|settings
-specifier|public
-name|Settings
-name|settings
-parameter_list|()
-block|{
-return|return
 name|this
 operator|.
-name|settings
+name|serviceAttributes
 return|;
 block|}
 comment|/**      * The settings of the node.      */
@@ -610,23 +550,9 @@ name|getSettings
 parameter_list|()
 block|{
 return|return
-name|settings
-argument_list|()
-return|;
-block|}
-comment|/**      * Operating System level information.      */
-annotation|@
-name|Nullable
-DECL|method|os
-specifier|public
-name|OsInfo
-name|os
-parameter_list|()
-block|{
-return|return
 name|this
 operator|.
-name|os
+name|settings
 return|;
 block|}
 comment|/**      * Operating System level information.      */
@@ -639,21 +565,9 @@ name|getOs
 parameter_list|()
 block|{
 return|return
+name|this
+operator|.
 name|os
-argument_list|()
-return|;
-block|}
-comment|/**      * Process level information.      */
-annotation|@
-name|Nullable
-DECL|method|process
-specifier|public
-name|ProcessInfo
-name|process
-parameter_list|()
-block|{
-return|return
-name|process
 return|;
 block|}
 comment|/**      * Process level information.      */
@@ -667,20 +581,6 @@ parameter_list|()
 block|{
 return|return
 name|process
-argument_list|()
-return|;
-block|}
-comment|/**      * JVM level information.      */
-annotation|@
-name|Nullable
-DECL|method|jvm
-specifier|public
-name|JvmInfo
-name|jvm
-parameter_list|()
-block|{
-return|return
-name|jvm
 return|;
 block|}
 comment|/**      * JVM level information.      */
@@ -694,21 +594,6 @@ parameter_list|()
 block|{
 return|return
 name|jvm
-argument_list|()
-return|;
-block|}
-annotation|@
-name|Nullable
-DECL|method|threadPool
-specifier|public
-name|ThreadPoolInfo
-name|threadPool
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|threadPool
 return|;
 block|}
 annotation|@
@@ -720,21 +605,9 @@ name|getThreadPool
 parameter_list|()
 block|{
 return|return
+name|this
+operator|.
 name|threadPool
-argument_list|()
-return|;
-block|}
-comment|/**      * Network level information.      */
-annotation|@
-name|Nullable
-DECL|method|network
-specifier|public
-name|NetworkInfo
-name|network
-parameter_list|()
-block|{
-return|return
-name|network
 return|;
 block|}
 comment|/**      * Network level information.      */
@@ -748,19 +621,6 @@ parameter_list|()
 block|{
 return|return
 name|network
-argument_list|()
-return|;
-block|}
-annotation|@
-name|Nullable
-DECL|method|transport
-specifier|public
-name|TransportInfo
-name|transport
-parameter_list|()
-block|{
-return|return
-name|transport
 return|;
 block|}
 annotation|@
@@ -773,19 +633,6 @@ parameter_list|()
 block|{
 return|return
 name|transport
-argument_list|()
-return|;
-block|}
-annotation|@
-name|Nullable
-DECL|method|http
-specifier|public
-name|HttpInfo
-name|http
-parameter_list|()
-block|{
-return|return
-name|http
 return|;
 block|}
 annotation|@
@@ -798,7 +645,6 @@ parameter_list|()
 block|{
 return|return
 name|http
-argument_list|()
 return|;
 block|}
 DECL|method|readNodeInfo
@@ -1154,7 +1000,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|serviceAttributes
+name|getServiceAttributes
 argument_list|()
 operator|==
 literal|null

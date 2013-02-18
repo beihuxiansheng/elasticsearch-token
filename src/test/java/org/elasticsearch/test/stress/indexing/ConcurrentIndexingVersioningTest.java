@@ -562,7 +562,7 @@ if|if
 condition|(
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|totalHits
@@ -585,7 +585,7 @@ literal|"] FAIL, HITS ["
 operator|+
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|totalHits
@@ -623,7 +623,7 @@ if|if
 condition|(
 name|getResponse
 operator|.
-name|exists
+name|isExists
 argument_list|()
 condition|)
 block|{
@@ -632,7 +632,7 @@ name|version
 init|=
 name|getResponse
 operator|.
-name|version
+name|getVersion
 argument_list|()
 decl_stmt|;
 for|for
@@ -677,7 +677,7 @@ condition|(
 operator|!
 name|getResponse
 operator|.
-name|exists
+name|isExists
 argument_list|()
 condition|)
 block|{
@@ -702,7 +702,7 @@ name|version
 operator|!=
 name|getResponse
 operator|.
-name|version
+name|getVersion
 argument_list|()
 condition|)
 block|{
@@ -724,7 +724,7 @@ literal|"], ["
 operator|+
 name|getResponse
 operator|.
-name|version
+name|getVersion
 argument_list|()
 operator|+
 literal|"]"
@@ -777,7 +777,7 @@ if|if
 condition|(
 name|getResponse
 operator|.
-name|exists
+name|isExists
 argument_list|()
 condition|)
 block|{

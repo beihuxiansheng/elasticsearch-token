@@ -250,10 +250,10 @@ name|shardId
 return|;
 block|}
 comment|/**      * Sets the preference to execute the search. Defaults to randomize across shards. Can be set to      *<tt>_local</tt> to prefer local shards,<tt>_primary</tt> to execute only on primary shards, or      * a custom value, which guarantees that the same order will be used across different requests.      */
-DECL|method|preference
+DECL|method|setPreference
 specifier|public
 name|MultiGetShardRequest
-name|preference
+name|setPreference
 parameter_list|(
 name|String
 name|preference
@@ -269,10 +269,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|preference
+DECL|method|getPreference
 specifier|public
 name|String
-name|preference
+name|getPreference
 parameter_list|()
 block|{
 return|return
@@ -281,10 +281,10 @@ operator|.
 name|preference
 return|;
 block|}
-DECL|method|realtime
+DECL|method|isRealtime
 specifier|public
 name|boolean
-name|realtime
+name|isRealtime
 parameter_list|()
 block|{
 return|return
@@ -301,10 +301,10 @@ operator|.
 name|realtime
 return|;
 block|}
-DECL|method|realtime
+DECL|method|setRealtime
 specifier|public
 name|MultiGetShardRequest
-name|realtime
+name|setRealtime
 parameter_list|(
 name|Boolean
 name|realtime
@@ -320,10 +320,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|refresh
+DECL|method|isRefresh
 specifier|public
 name|boolean
-name|refresh
+name|isRefresh
 parameter_list|()
 block|{
 return|return
@@ -332,10 +332,10 @@ operator|.
 name|refresh
 return|;
 block|}
-DECL|method|refresh
+DECL|method|setRefresh
 specifier|public
 name|MultiGetShardRequest
-name|refresh
+name|setRefresh
 parameter_list|(
 name|boolean
 name|refresh

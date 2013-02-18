@@ -537,7 +537,7 @@ name|add
 argument_list|(
 name|request
 operator|.
-name|masterNodeTimeout
+name|getMasterNodeTimeout
 argument_list|()
 argument_list|,
 operator|new
@@ -797,7 +797,7 @@ name|add
 argument_list|(
 name|request
 operator|.
-name|masterNodeTimeout
+name|getMasterNodeTimeout
 argument_list|()
 argument_list|,
 operator|new
@@ -1058,7 +1058,7 @@ name|add
 argument_list|(
 name|request
 operator|.
-name|masterNodeTimeout
+name|getMasterNodeTimeout
 argument_list|()
 argument_list|,
 operator|new
@@ -1297,7 +1297,7 @@ block|{
 comment|// we just send back a response, no need to fork a listener
 name|request
 operator|.
-name|listenerThreaded
+name|setListenerThreaded
 argument_list|(
 literal|false
 argument_list|)

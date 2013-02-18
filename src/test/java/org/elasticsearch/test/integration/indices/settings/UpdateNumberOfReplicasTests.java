@@ -391,7 +391,7 @@ literal|"Done Cluster Health, status "
 operator|+
 name|clusterHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -399,7 +399,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -412,7 +412,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|,
 name|equalTo
@@ -427,7 +427,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|get
@@ -435,7 +435,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|activePrimaryShards
+name|getActivePrimaryShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -448,7 +448,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|get
@@ -456,7 +456,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|numberOfReplicas
+name|getNumberOfReplicas
 argument_list|()
 argument_list|,
 name|equalTo
@@ -469,7 +469,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|get
@@ -477,7 +477,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|activeShards
+name|getActiveShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -601,7 +601,7 @@ name|assertThat
 argument_list|(
 name|countResponse
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -699,7 +699,7 @@ literal|"Done Cluster Health, status "
 operator|+
 name|clusterHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -707,7 +707,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -720,7 +720,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|,
 name|equalTo
@@ -735,7 +735,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|get
@@ -743,7 +743,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|activePrimaryShards
+name|getActivePrimaryShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -756,7 +756,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|get
@@ -764,7 +764,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|numberOfReplicas
+name|getNumberOfReplicas
 argument_list|()
 argument_list|,
 name|equalTo
@@ -777,7 +777,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|get
@@ -785,7 +785,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|activeShards
+name|getActiveShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -855,7 +855,7 @@ literal|"Done Cluster Health, status "
 operator|+
 name|clusterHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -863,7 +863,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -876,7 +876,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|,
 name|equalTo
@@ -891,7 +891,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|get
@@ -899,7 +899,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|activePrimaryShards
+name|getActivePrimaryShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -912,7 +912,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|get
@@ -920,7 +920,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|numberOfReplicas
+name|getNumberOfReplicas
 argument_list|()
 argument_list|,
 name|equalTo
@@ -933,7 +933,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|get
@@ -941,7 +941,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|activeShards
+name|getActiveShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -989,7 +989,7 @@ name|assertThat
 argument_list|(
 name|countResponse
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1087,7 +1087,7 @@ literal|"Done Cluster Health, status "
 operator|+
 name|clusterHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1095,7 +1095,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1108,7 +1108,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1123,7 +1123,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|get
@@ -1131,7 +1131,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|activePrimaryShards
+name|getActivePrimaryShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1144,7 +1144,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|get
@@ -1152,7 +1152,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|numberOfReplicas
+name|getNumberOfReplicas
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1165,7 +1165,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|get
@@ -1173,7 +1173,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|activeShards
+name|getActiveShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1221,7 +1221,7 @@ name|assertThat
 argument_list|(
 name|countResponse
 operator|.
-name|shardFailures
+name|getShardFailures
 argument_list|()
 operator|.
 name|toString
@@ -1229,7 +1229,7 @@ argument_list|()
 argument_list|,
 name|countResponse
 operator|.
-name|failedShards
+name|getFailedShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1242,7 +1242,7 @@ name|assertThat
 argument_list|(
 name|countResponse
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1350,7 +1350,7 @@ literal|"--> done cluster health, status "
 operator|+
 name|clusterHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1358,7 +1358,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1371,7 +1371,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1386,7 +1386,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|get
@@ -1394,7 +1394,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|activePrimaryShards
+name|getActivePrimaryShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1407,7 +1407,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|get
@@ -1415,7 +1415,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|numberOfReplicas
+name|getNumberOfReplicas
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1428,7 +1428,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|get
@@ -1436,7 +1436,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|activeShards
+name|getActiveShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1499,7 +1499,7 @@ literal|"--> done cluster health, status "
 operator|+
 name|clusterHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1507,7 +1507,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1520,7 +1520,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1535,7 +1535,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|get
@@ -1543,7 +1543,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|activePrimaryShards
+name|getActivePrimaryShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1556,7 +1556,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|get
@@ -1564,7 +1564,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|numberOfReplicas
+name|getNumberOfReplicas
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1577,7 +1577,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|get
@@ -1585,7 +1585,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|activeShards
+name|getActiveShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1648,7 +1648,7 @@ literal|"--> done cluster health, status "
 operator|+
 name|clusterHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1656,7 +1656,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1669,7 +1669,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1684,7 +1684,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|get
@@ -1692,7 +1692,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|activePrimaryShards
+name|getActivePrimaryShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1705,7 +1705,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|get
@@ -1713,7 +1713,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|numberOfReplicas
+name|getNumberOfReplicas
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1726,7 +1726,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|get
@@ -1734,7 +1734,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|activeShards
+name|getActiveShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1797,7 +1797,7 @@ literal|"--> done cluster health, status "
 operator|+
 name|clusterHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1805,7 +1805,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1818,7 +1818,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1833,7 +1833,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|get
@@ -1841,7 +1841,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|activePrimaryShards
+name|getActivePrimaryShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1854,7 +1854,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|get
@@ -1862,7 +1862,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|numberOfReplicas
+name|getNumberOfReplicas
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1875,7 +1875,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|get
@@ -1883,7 +1883,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|activeShards
+name|getActiveShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1990,7 +1990,7 @@ literal|"--> done cluster health, status "
 operator|+
 name|clusterHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1998,7 +1998,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2011,7 +2011,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2026,7 +2026,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|get
@@ -2034,7 +2034,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|activePrimaryShards
+name|getActivePrimaryShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2047,7 +2047,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|get
@@ -2055,7 +2055,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|numberOfReplicas
+name|getNumberOfReplicas
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2068,7 +2068,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|get
@@ -2076,7 +2076,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|activeShards
+name|getActiveShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2139,7 +2139,7 @@ literal|"--> done cluster health, status "
 operator|+
 name|clusterHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2147,7 +2147,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2160,7 +2160,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2175,7 +2175,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|get
@@ -2183,7 +2183,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|activePrimaryShards
+name|getActivePrimaryShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2196,7 +2196,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|get
@@ -2204,7 +2204,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|numberOfReplicas
+name|getNumberOfReplicas
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2217,7 +2217,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|get
@@ -2225,7 +2225,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|activeShards
+name|getActiveShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2288,7 +2288,7 @@ literal|"--> done cluster health, status "
 operator|+
 name|clusterHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2296,7 +2296,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2309,7 +2309,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2324,7 +2324,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|get
@@ -2332,7 +2332,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|activePrimaryShards
+name|getActivePrimaryShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2345,7 +2345,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|get
@@ -2353,7 +2353,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|numberOfReplicas
+name|getNumberOfReplicas
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2366,7 +2366,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|get
@@ -2374,7 +2374,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|activeShards
+name|getActiveShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2437,7 +2437,7 @@ literal|"--> done cluster health, status "
 operator|+
 name|clusterHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2445,7 +2445,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2458,7 +2458,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2473,7 +2473,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|get
@@ -2481,7 +2481,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|activePrimaryShards
+name|getActivePrimaryShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2494,7 +2494,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|get
@@ -2502,7 +2502,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|numberOfReplicas
+name|getNumberOfReplicas
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2515,7 +2515,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|get
@@ -2523,7 +2523,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|activeShards
+name|getActiveShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2642,7 +2642,7 @@ literal|"--> done cluster health, status "
 operator|+
 name|clusterHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2650,7 +2650,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2663,7 +2663,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2678,7 +2678,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|get
@@ -2686,7 +2686,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|activePrimaryShards
+name|getActivePrimaryShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2699,7 +2699,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|get
@@ -2707,7 +2707,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|numberOfReplicas
+name|getNumberOfReplicas
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2720,7 +2720,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|get
@@ -2728,7 +2728,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|activeShards
+name|getActiveShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2835,7 +2835,7 @@ literal|"--> done cluster health, status "
 operator|+
 name|clusterHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2843,7 +2843,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2856,7 +2856,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2871,7 +2871,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|get
@@ -2879,7 +2879,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|activePrimaryShards
+name|getActivePrimaryShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2892,7 +2892,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|get
@@ -2900,7 +2900,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|numberOfReplicas
+name|getNumberOfReplicas
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2913,7 +2913,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|get
@@ -2921,7 +2921,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|activeShards
+name|getActiveShards
 argument_list|()
 argument_list|,
 name|equalTo

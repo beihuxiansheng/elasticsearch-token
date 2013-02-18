@@ -267,10 +267,10 @@ name|dryRun
 return|;
 block|}
 comment|/**      * Sets the source for the request.      */
-DECL|method|source
+DECL|method|setSource
 specifier|public
 name|ClusterRerouteRequest
-name|source
+name|setSource
 parameter_list|(
 name|BytesReference
 name|source

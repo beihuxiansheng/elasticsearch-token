@@ -353,7 +353,7 @@ name|parseScrollId
 argument_list|(
 name|request
 operator|.
-name|scrollId
+name|getScrollId
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -361,7 +361,7 @@ if|if
 condition|(
 name|scrollId
 operator|.
-name|type
+name|getType
 argument_list|()
 operator|.
 name|equals
@@ -387,7 +387,7 @@ if|if
 condition|(
 name|scrollId
 operator|.
-name|type
+name|getType
 argument_list|()
 operator|.
 name|equals
@@ -413,7 +413,7 @@ if|if
 condition|(
 name|scrollId
 operator|.
-name|type
+name|getType
 argument_list|()
 operator|.
 name|equals
@@ -444,7 +444,7 @@ literal|"Scroll id type ["
 operator|+
 name|scrollId
 operator|.
-name|type
+name|getType
 argument_list|()
 operator|+
 literal|"] unrecognized"
@@ -511,7 +511,7 @@ block|{
 comment|// no need for a threaded listener
 name|request
 operator|.
-name|listenerThreaded
+name|setListenerThreaded
 argument_list|(
 literal|false
 argument_list|)

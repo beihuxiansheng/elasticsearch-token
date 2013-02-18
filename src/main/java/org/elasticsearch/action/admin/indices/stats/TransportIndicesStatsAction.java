@@ -852,7 +852,7 @@ name|indexServiceSafe
 argument_list|(
 name|request
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -868,7 +868,7 @@ name|shardSafe
 argument_list|(
 name|request
 operator|.
-name|shardId
+name|getShardId
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -890,7 +890,7 @@ name|request
 operator|.
 name|request
 operator|.
-name|docs
+name|isDocs
 argument_list|()
 condition|)
 block|{
@@ -912,7 +912,7 @@ name|request
 operator|.
 name|request
 operator|.
-name|store
+name|isStore
 argument_list|()
 condition|)
 block|{
@@ -934,7 +934,7 @@ name|request
 operator|.
 name|request
 operator|.
-name|indexing
+name|isIndexing
 argument_list|()
 condition|)
 block|{
@@ -952,7 +952,7 @@ name|request
 operator|.
 name|request
 operator|.
-name|types
+name|getTypes
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -963,7 +963,7 @@ name|request
 operator|.
 name|request
 operator|.
-name|get
+name|isGet
 argument_list|()
 condition|)
 block|{
@@ -985,13 +985,13 @@ name|request
 operator|.
 name|request
 operator|.
-name|search
+name|isSearch
 argument_list|()
 condition|)
 block|{
 name|stats
 operator|.
-name|stats
+name|getStats
 argument_list|()
 operator|.
 name|search
@@ -1004,7 +1004,7 @@ name|request
 operator|.
 name|request
 operator|.
-name|groups
+name|getGroups
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1015,7 +1015,7 @@ name|request
 operator|.
 name|request
 operator|.
-name|merge
+name|isMerge
 argument_list|()
 condition|)
 block|{
@@ -1037,7 +1037,7 @@ name|request
 operator|.
 name|request
 operator|.
-name|refresh
+name|isRefresh
 argument_list|()
 condition|)
 block|{
@@ -1059,7 +1059,7 @@ name|request
 operator|.
 name|request
 operator|.
-name|flush
+name|isFlush
 argument_list|()
 condition|)
 block|{
@@ -1081,7 +1081,7 @@ name|request
 operator|.
 name|request
 operator|.
-name|warmer
+name|isWarmer
 argument_list|()
 condition|)
 block|{

@@ -145,7 +145,7 @@ operator|new
 name|PutWarmerRequest
 argument_list|()
 operator|.
-name|name
+name|setName
 argument_list|(
 name|name
 argument_list|)
@@ -185,7 +185,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|name
+name|setName
 argument_list|(
 name|name
 argument_list|)
@@ -206,7 +206,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|searchRequest
+name|setSearchRequest
 argument_list|(
 name|searchRequest
 argument_list|)
@@ -227,7 +227,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|searchRequest
+name|setSearchRequest
 argument_list|(
 name|searchRequest
 argument_list|)

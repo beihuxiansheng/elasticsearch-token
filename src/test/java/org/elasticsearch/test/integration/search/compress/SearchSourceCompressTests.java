@@ -608,7 +608,7 @@ name|assertThat
 argument_list|(
 name|getResponse
 operator|.
-name|source
+name|getSourceAsBytes
 argument_list|()
 argument_list|,
 name|equalTo
@@ -656,7 +656,7 @@ name|assertThat
 argument_list|(
 name|getResponse
 operator|.
-name|source
+name|getSourceAsBytes
 argument_list|()
 argument_list|,
 name|equalTo
@@ -727,7 +727,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getTotalHits
@@ -743,7 +743,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt

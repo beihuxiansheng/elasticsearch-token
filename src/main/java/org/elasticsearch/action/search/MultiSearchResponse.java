@@ -258,19 +258,6 @@ block|}
 comment|/**          * The actual failure message, null if its not a failure.          */
 annotation|@
 name|Nullable
-DECL|method|failureMessage
-specifier|public
-name|String
-name|failureMessage
-parameter_list|()
-block|{
-return|return
-name|failureMessage
-return|;
-block|}
-comment|/**          * The actual failure message, null if its not a failure.          */
-annotation|@
-name|Nullable
 DECL|method|getFailureMessage
 specifier|public
 name|String
@@ -279,21 +266,6 @@ parameter_list|()
 block|{
 return|return
 name|failureMessage
-return|;
-block|}
-comment|/**          * The actual search response, null if its a failure.          */
-annotation|@
-name|Nullable
-DECL|method|response
-specifier|public
-name|SearchResponse
-name|response
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|response
 return|;
 block|}
 comment|/**          * The actual search response, null if its a failure.          */
@@ -490,20 +462,6 @@ argument_list|)
 return|;
 block|}
 comment|/**      * The list of responses, the order is the same as the one provided in the request.      */
-DECL|method|responses
-specifier|public
-name|Item
-index|[]
-name|responses
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|items
-return|;
-block|}
-comment|/**      * The list of responses, the order is the same as the one provided in the request.      */
 DECL|method|getResponses
 specifier|public
 name|Item
@@ -681,7 +639,7 @@ name|ERROR
 argument_list|,
 name|item
 operator|.
-name|failureMessage
+name|getFailureMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -700,7 +658,7 @@ argument_list|()
 expr_stmt|;
 name|item
 operator|.
-name|response
+name|getResponse
 argument_list|()
 operator|.
 name|toXContent

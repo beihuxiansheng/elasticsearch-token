@@ -203,7 +203,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|nodes
@@ -281,7 +281,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|nodes
@@ -321,7 +321,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|nodes
@@ -380,7 +380,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|nodes
@@ -458,7 +458,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|nodes
@@ -498,7 +498,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|nodes
@@ -607,7 +607,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|nodes
@@ -685,7 +685,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|nodes
@@ -725,7 +725,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|nodes
@@ -794,7 +794,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|nodes
@@ -834,7 +834,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|nodes
@@ -874,7 +874,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|nodes
@@ -926,7 +926,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|nodes
@@ -966,7 +966,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|nodes

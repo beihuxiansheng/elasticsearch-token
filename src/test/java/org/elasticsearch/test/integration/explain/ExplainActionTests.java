@@ -66,20 +66,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|get
-operator|.
-name|GetField
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|query
 operator|.
 name|FilterBuilders
@@ -220,31 +206,7 @@ name|testng
 operator|.
 name|Assert
 operator|.
-name|assertFalse
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|testng
-operator|.
-name|Assert
-operator|.
-name|assertNotNull
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|testng
-operator|.
-name|Assert
-operator|.
-name|assertTrue
+name|*
 import|;
 end_import
 
@@ -464,7 +426,7 @@ name|assertFalse
 argument_list|(
 name|response
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -473,7 +435,7 @@ name|assertFalse
 argument_list|(
 name|response
 operator|.
-name|match
+name|isMatch
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -533,7 +495,7 @@ name|assertTrue
 argument_list|(
 name|response
 operator|.
-name|match
+name|isMatch
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -541,7 +503,7 @@ name|assertNotNull
 argument_list|(
 name|response
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -549,7 +511,7 @@ name|assertTrue
 argument_list|(
 name|response
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 operator|.
 name|isMatch
@@ -560,7 +522,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 operator|.
 name|getValue
@@ -631,7 +593,7 @@ name|assertTrue
 argument_list|(
 name|response
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -639,7 +601,7 @@ name|assertFalse
 argument_list|(
 name|response
 operator|.
-name|match
+name|isMatch
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -647,7 +609,7 @@ name|assertNotNull
 argument_list|(
 name|response
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -655,7 +617,7 @@ name|assertFalse
 argument_list|(
 name|response
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 operator|.
 name|isMatch
@@ -741,7 +703,7 @@ name|assertTrue
 argument_list|(
 name|response
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -749,7 +711,7 @@ name|assertFalse
 argument_list|(
 name|response
 operator|.
-name|match
+name|isMatch
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -757,7 +719,7 @@ name|assertNotNull
 argument_list|(
 name|response
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -765,7 +727,7 @@ name|assertFalse
 argument_list|(
 name|response
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 operator|.
 name|isMatch
@@ -776,7 +738,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 operator|.
 name|getDetails
@@ -826,7 +788,7 @@ name|assertFalse
 argument_list|(
 name|response
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -834,7 +796,7 @@ name|assertFalse
 argument_list|(
 name|response
 operator|.
-name|match
+name|isMatch
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1030,7 +992,7 @@ name|assertTrue
 argument_list|(
 name|response
 operator|.
-name|match
+name|isMatch
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1038,7 +1000,7 @@ name|assertNotNull
 argument_list|(
 name|response
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1046,7 +1008,7 @@ name|assertTrue
 argument_list|(
 name|response
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 operator|.
 name|isMatch
@@ -1057,7 +1019,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 operator|.
 name|getValue
@@ -1073,10 +1035,10 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|getResult
+name|getGetResult
 argument_list|()
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1089,10 +1051,10 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|getResult
+name|getGetResult
 argument_list|()
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1105,10 +1067,10 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|getResult
+name|getGetResult
 argument_list|()
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|size
@@ -1124,10 +1086,10 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|getResult
+name|getGetResult
 argument_list|()
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -1188,7 +1150,7 @@ name|assertTrue
 argument_list|(
 name|response
 operator|.
-name|match
+name|isMatch
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1196,10 +1158,10 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|getResult
+name|getGetResult
 argument_list|()
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|size
@@ -1229,7 +1191,7 @@ argument_list|>
 operator|)
 name|response
 operator|.
-name|getResult
+name|getGetResult
 argument_list|()
 operator|.
 name|field
@@ -1480,7 +1442,7 @@ name|assertTrue
 argument_list|(
 name|response
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1488,7 +1450,7 @@ name|assertFalse
 argument_list|(
 name|response
 operator|.
-name|match
+name|isMatch
 argument_list|()
 argument_list|)
 expr_stmt|;

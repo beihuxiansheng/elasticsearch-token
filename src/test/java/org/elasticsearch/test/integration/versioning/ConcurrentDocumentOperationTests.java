@@ -518,7 +518,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|sourceAsMap
+name|getSourceAsMap
 argument_list|()
 decl_stmt|;
 for|for
@@ -567,7 +567,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|sourceAsMap
+name|getSourceAsMap
 argument_list|()
 argument_list|,
 name|equalTo

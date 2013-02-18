@@ -286,7 +286,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|exists
+name|isExists
 argument_list|()
 condition|)
 block|{
@@ -325,7 +325,7 @@ if|if
 condition|(
 name|clusterHealthResponse
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 condition|)
 block|{
@@ -353,7 +353,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|count
+name|getCount
 argument_list|()
 expr_stmt|;
 name|System
@@ -517,7 +517,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|count
+name|getCount
 argument_list|()
 decl_stmt|;
 if|if
@@ -726,7 +726,7 @@ if|if
 condition|(
 name|clusterHealthResponse
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 condition|)
 block|{
@@ -762,7 +762,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|state
+name|getState
 argument_list|()
 decl_stmt|;
 name|System
@@ -880,7 +880,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|count
+name|getCount
 argument_list|()
 decl_stmt|;
 if|if

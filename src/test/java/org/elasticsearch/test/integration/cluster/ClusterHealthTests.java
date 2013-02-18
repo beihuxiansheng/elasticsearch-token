@@ -208,7 +208,7 @@ name|assertThat
 argument_list|(
 name|healthResponse
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -221,7 +221,7 @@ name|assertThat
 argument_list|(
 name|healthResponse
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|,
 name|equalTo

@@ -152,19 +152,6 @@ name|IndexDeleteResponse
 parameter_list|()
 block|{      }
 comment|/**      * The index the delete by query operation was executed against.      */
-DECL|method|index
-specifier|public
-name|String
-name|index
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|index
-return|;
-block|}
-comment|/**      * The index the delete by query operation was executed against.      */
 DECL|method|getIndex
 specifier|public
 name|String
@@ -172,20 +159,9 @@ name|getIndex
 parameter_list|()
 block|{
 return|return
+name|this
+operator|.
 name|index
-return|;
-block|}
-comment|/**      * The total number of shards the delete by query was executed on.      */
-DECL|method|totalShards
-specifier|public
-name|int
-name|totalShards
-parameter_list|()
-block|{
-return|return
-name|failedShards
-operator|+
-name|successfulShards
 return|;
 block|}
 comment|/**      * The total number of shards the delete by query was executed on.      */
@@ -196,18 +172,8 @@ name|getTotalShards
 parameter_list|()
 block|{
 return|return
-name|totalShards
-argument_list|()
-return|;
-block|}
-comment|/**      * The successful number of shards the delete by query was executed on.      */
-DECL|method|successfulShards
-specifier|public
-name|int
-name|successfulShards
-parameter_list|()
-block|{
-return|return
+name|failedShards
+operator|+
 name|successfulShards
 return|;
 block|}
@@ -223,17 +189,6 @@ name|successfulShards
 return|;
 block|}
 comment|/**      * The failed number of shards the delete by query was executed on.      */
-DECL|method|failedShards
-specifier|public
-name|int
-name|failedShards
-parameter_list|()
-block|{
-return|return
-name|failedShards
-return|;
-block|}
-comment|/**      * The failed number of shards the delete by query was executed on.      */
 DECL|method|getFailedShards
 specifier|public
 name|int
@@ -244,11 +199,11 @@ return|return
 name|failedShards
 return|;
 block|}
-DECL|method|responses
+DECL|method|getResponses
 specifier|public
 name|ShardDeleteResponse
 index|[]
-name|responses
+name|getResponses
 parameter_list|()
 block|{
 return|return

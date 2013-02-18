@@ -112,26 +112,14 @@ name|acknowledged
 expr_stmt|;
 block|}
 comment|/**      * Has the put warmer been ack'ed.      */
-DECL|method|acknowledged
+DECL|method|isAcknowledged
 specifier|public
 name|boolean
-name|acknowledged
+name|isAcknowledged
 parameter_list|()
 block|{
 return|return
 name|acknowledged
-return|;
-block|}
-comment|/**      * Has the put warmer been ack'ed.      */
-DECL|method|getAcknowledged
-specifier|public
-name|boolean
-name|getAcknowledged
-parameter_list|()
-block|{
-return|return
-name|acknowledged
-argument_list|()
 return|;
 block|}
 annotation|@

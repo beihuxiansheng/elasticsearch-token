@@ -344,7 +344,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|indices
+name|setIndices
 argument_list|(
 name|clusterService
 operator|.
@@ -358,7 +358,7 @@ name|concreteIndices
 argument_list|(
 name|request
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 argument_list|)
 argument_list|)
@@ -401,7 +401,7 @@ name|METADATA
 argument_list|,
 name|request
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 argument_list|)
 return|;
@@ -433,7 +433,7 @@ decl_stmt|;
 comment|// update to concrete indices
 name|request
 operator|.
-name|indices
+name|setIndices
 argument_list|(
 name|clusterState
 operator|.
@@ -444,7 +444,7 @@ name|concreteIndices
 argument_list|(
 name|request
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 argument_list|)
 argument_list|)
@@ -498,17 +498,17 @@ name|PutRequest
 argument_list|(
 name|request
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 argument_list|,
 name|request
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|,
 name|request
 operator|.
-name|source
+name|getSource
 argument_list|()
 argument_list|)
 operator|.
@@ -516,7 +516,7 @@ name|ignoreConflicts
 argument_list|(
 name|request
 operator|.
-name|ignoreConflicts
+name|isIgnoreConflicts
 argument_list|()
 argument_list|)
 operator|.
@@ -524,7 +524,7 @@ name|timeout
 argument_list|(
 name|request
 operator|.
-name|timeout
+name|getTimeout
 argument_list|()
 argument_list|)
 argument_list|,

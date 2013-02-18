@@ -700,7 +700,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -753,7 +753,7 @@ name|assertThat
 argument_list|(
 name|clusterHealthResponse
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -844,7 +844,7 @@ name|assertThat
 argument_list|(
 name|clusterHealthResponse
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -889,7 +889,7 @@ name|assertThat
 argument_list|(
 name|clusterHealthResponse
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -943,7 +943,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1411,7 +1411,7 @@ condition|(
 operator|!
 name|bulkItemResponse
 operator|.
-name|failed
+name|isFailed
 argument_list|()
 condition|)
 block|{
@@ -1433,7 +1433,7 @@ name|indexerId
 argument_list|,
 name|bulkItemResponse
 operator|.
-name|failure
+name|getFailure
 argument_list|()
 operator|.
 name|getId
@@ -1441,7 +1441,7 @@ argument_list|()
 argument_list|,
 name|bulkItemResponse
 operator|.
-name|failure
+name|getFailure
 argument_list|()
 operator|.
 name|getMessage
@@ -1609,7 +1609,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|count
+name|getCount
 argument_list|()
 operator|<
 literal|2000
@@ -1788,7 +1788,7 @@ name|assertThat
 argument_list|(
 name|clusterHealthResponse
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1833,7 +1833,7 @@ name|assertThat
 argument_list|(
 name|clusterHealthResponse
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1995,7 +1995,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 decl_stmt|;
 name|ranOnce
@@ -2454,7 +2454,7 @@ name|assertThat
 argument_list|(
 name|healthResponse
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2509,7 +2509,7 @@ name|assertThat
 argument_list|(
 name|healthResponse
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2763,7 +2763,7 @@ condition|(
 operator|!
 name|bulkItemResponse
 operator|.
-name|failed
+name|isFailed
 argument_list|()
 condition|)
 block|{
@@ -2785,7 +2785,7 @@ name|indexerId
 argument_list|,
 name|bulkItemResponse
 operator|.
-name|failure
+name|getFailure
 argument_list|()
 operator|.
 name|getId
@@ -2793,7 +2793,7 @@ argument_list|()
 argument_list|,
 name|bulkItemResponse
 operator|.
-name|failure
+name|getFailure
 argument_list|()
 operator|.
 name|getMessage
@@ -2961,7 +2961,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|count
+name|getCount
 argument_list|()
 operator|<
 literal|2000
@@ -3140,7 +3140,7 @@ name|assertThat
 argument_list|(
 name|clusterHealthResponse
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3185,7 +3185,7 @@ name|assertThat
 argument_list|(
 name|clusterHealthResponse
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3347,7 +3347,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 decl_stmt|;
 name|ranOnce

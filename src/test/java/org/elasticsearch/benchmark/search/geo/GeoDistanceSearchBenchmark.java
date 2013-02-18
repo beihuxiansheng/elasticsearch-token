@@ -289,7 +289,7 @@ if|if
 condition|(
 name|clusterHealthResponse
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 condition|)
 block|{
@@ -357,7 +357,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|exists
+name|isExists
 argument_list|()
 condition|)
 block|{
@@ -390,7 +390,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|)
 expr_stmt|;

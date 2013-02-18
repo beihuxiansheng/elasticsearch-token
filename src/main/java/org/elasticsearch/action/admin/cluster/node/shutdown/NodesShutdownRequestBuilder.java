@@ -164,7 +164,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|delay
+name|setDelay
 argument_list|(
 name|delay
 argument_list|)
@@ -185,7 +185,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|delay
+name|setDelay
 argument_list|(
 name|delay
 argument_list|)
@@ -206,7 +206,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|exit
+name|setExit
 argument_list|(
 name|exit
 argument_list|)

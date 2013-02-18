@@ -375,7 +375,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -436,7 +436,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -502,7 +502,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -559,7 +559,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -614,7 +614,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -680,7 +680,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -736,7 +736,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -791,7 +791,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -857,7 +857,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo

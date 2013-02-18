@@ -368,7 +368,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|settings
+name|setSettings
 argument_list|(
 name|settingsBuilder
 argument_list|()
@@ -486,7 +486,7 @@ name|assertThat
 argument_list|(
 name|refreshResponse
 operator|.
-name|totalShards
+name|getTotalShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -499,7 +499,7 @@ name|assertThat
 argument_list|(
 name|refreshResponse
 operator|.
-name|successfulShards
+name|getSuccessfulShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -512,7 +512,7 @@ name|assertThat
 argument_list|(
 name|refreshResponse
 operator|.
-name|failedShards
+name|getFailedShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -553,7 +553,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|source
+name|setSource
 argument_list|(
 name|Unicode
 operator|.
@@ -571,7 +571,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|totalShards
+name|getTotalShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -584,7 +584,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|successfulShards
+name|getSuccessfulShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -597,7 +597,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|failedShards
+name|getFailedShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -668,7 +668,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -705,15 +705,15 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|waitForYellowStatus
+name|setWaitForYellowStatus
 argument_list|()
 operator|.
-name|waitForRelocatingShards
+name|setWaitForRelocatingShards
 argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|waitForActiveShards
+name|setWaitForActiveShards
 argument_list|(
 literal|6
 argument_list|)
@@ -730,7 +730,7 @@ literal|"Done Cluster Health, status "
 operator|+
 name|clusterHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -738,7 +738,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -751,7 +751,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|,
 name|equalTo
@@ -766,7 +766,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|activeShards
+name|getActiveShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -803,7 +803,7 @@ name|assertThat
 argument_list|(
 name|refreshResponse
 operator|.
-name|totalShards
+name|getTotalShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -816,7 +816,7 @@ name|assertThat
 argument_list|(
 name|refreshResponse
 operator|.
-name|successfulShards
+name|getSuccessfulShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -829,7 +829,7 @@ name|assertThat
 argument_list|(
 name|refreshResponse
 operator|.
-name|failedShards
+name|getFailedShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -870,7 +870,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|source
+name|setSource
 argument_list|(
 name|Unicode
 operator|.
@@ -888,7 +888,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|totalShards
+name|getTotalShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -901,7 +901,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|successfulShards
+name|getSuccessfulShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -914,7 +914,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|failedShards
+name|getFailedShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -992,17 +992,17 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|type
+name|setType
 argument_list|(
 literal|"type1"
 argument_list|)
 operator|.
-name|id
+name|setId
 argument_list|(
 name|id
 argument_list|)
 operator|.
-name|source
+name|setSource
 argument_list|(
 name|source
 argument_list|(
@@ -1014,7 +1014,7 @@ name|age
 argument_list|)
 argument_list|)
 operator|.
-name|consistencyLevel
+name|setConsistencyLevel
 argument_list|(
 name|WriteConsistencyLevel
 operator|.

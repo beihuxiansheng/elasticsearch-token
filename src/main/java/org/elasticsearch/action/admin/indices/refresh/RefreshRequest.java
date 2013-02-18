@@ -135,7 +135,7 @@ name|indices
 argument_list|)
 expr_stmt|;
 comment|// we want to do the refresh in parallel on local shards...
-name|operationThreading
+name|setOperationThreading
 argument_list|(
 name|BroadcastOperationThreading
 operator|.
@@ -143,20 +143,20 @@ name|THREAD_PER_SHARD
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|waitForOperations
+DECL|method|isWaitForOperations
 specifier|public
 name|boolean
-name|waitForOperations
+name|isWaitForOperations
 parameter_list|()
 block|{
 return|return
 name|waitForOperations
 return|;
 block|}
-DECL|method|waitForOperations
+DECL|method|setWaitForOperations
 specifier|public
 name|RefreshRequest
-name|waitForOperations
+name|setWaitForOperations
 parameter_list|(
 name|boolean
 name|waitForOperations

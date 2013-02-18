@@ -427,7 +427,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -492,7 +492,7 @@ name|assertThat
 argument_list|(
 name|countResponse
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -522,7 +522,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|state
+name|getState
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -620,7 +620,7 @@ name|assertThat
 argument_list|(
 name|countResponse
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -649,7 +649,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|state
+name|getState
 argument_list|()
 expr_stmt|;
 name|assertThat

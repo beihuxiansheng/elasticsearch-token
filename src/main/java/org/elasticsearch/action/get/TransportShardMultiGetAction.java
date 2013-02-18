@@ -436,7 +436,7 @@ name|READ
 argument_list|,
 name|request
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 return|;
@@ -470,7 +470,7 @@ argument_list|()
 argument_list|,
 name|request
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|request
@@ -480,7 +480,7 @@ argument_list|()
 argument_list|,
 name|request
 operator|.
-name|preference
+name|getPreference
 argument_list|()
 argument_list|)
 return|;
@@ -545,7 +545,7 @@ name|indexServiceSafe
 argument_list|(
 name|request
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -563,13 +563,13 @@ if|if
 condition|(
 name|request
 operator|.
-name|refresh
+name|isRefresh
 argument_list|()
 operator|&&
 operator|!
 name|request
 operator|.
-name|realtime
+name|isRealtime
 argument_list|()
 condition|)
 block|{
@@ -671,7 +671,7 @@ name|fields
 argument_list|,
 name|request
 operator|.
-name|realtime
+name|isRealtime
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -712,7 +712,7 @@ name|e
 argument_list|,
 name|request
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|shardId
@@ -742,7 +742,7 @@ name|Failure
 argument_list|(
 name|request
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|type

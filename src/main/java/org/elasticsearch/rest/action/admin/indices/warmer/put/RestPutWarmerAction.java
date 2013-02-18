@@ -318,7 +318,7 @@ argument_list|)
 decl_stmt|;
 name|putWarmerRequest
 operator|.
-name|listenerThreaded
+name|setListenerThreaded
 argument_list|(
 literal|false
 argument_list|)
@@ -342,7 +342,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 operator|.
-name|types
+name|setTypes
 argument_list|(
 name|RestActions
 operator|.
@@ -357,7 +357,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 operator|.
-name|source
+name|setSource
 argument_list|(
 name|request
 operator|.
@@ -372,7 +372,7 @@ argument_list|)
 decl_stmt|;
 name|putWarmerRequest
 operator|.
-name|searchRequest
+name|setSearchRequest
 argument_list|(
 name|searchRequest
 argument_list|)
@@ -436,7 +436,7 @@ literal|"acknowledged"
 argument_list|,
 name|response
 operator|.
-name|acknowledged
+name|isAcknowledged
 argument_list|()
 argument_list|)
 expr_stmt|;

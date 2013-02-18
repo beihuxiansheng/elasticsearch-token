@@ -125,17 +125,6 @@ name|node
 expr_stmt|;
 block|}
 comment|/**      * The node this information relates to.      */
-DECL|method|node
-specifier|public
-name|DiscoveryNode
-name|node
-parameter_list|()
-block|{
-return|return
-name|node
-return|;
-block|}
-comment|/**      * The node this information relates to.      */
 DECL|method|getNode
 specifier|public
 name|DiscoveryNode
@@ -144,7 +133,6 @@ parameter_list|()
 block|{
 return|return
 name|node
-argument_list|()
 return|;
 block|}
 annotation|@

@@ -281,7 +281,7 @@ argument_list|()
 decl_stmt|;
 name|clusterRerouteRequest
 operator|.
-name|listenerThreaded
+name|setListenerThreaded
 argument_list|(
 literal|false
 argument_list|)
@@ -315,7 +315,7 @@ try|try
 block|{
 name|clusterRerouteRequest
 operator|.
-name|source
+name|setSource
 argument_list|(
 name|request
 operator|.
@@ -455,7 +455,7 @@ expr_stmt|;
 block|}
 name|response
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|settingsFilter

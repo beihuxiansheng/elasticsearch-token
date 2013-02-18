@@ -1231,7 +1231,7 @@ argument_list|)
 argument_list|,
 name|response
 operator|.
-name|took
+name|getTook
 argument_list|()
 argument_list|)
 expr_stmt|;

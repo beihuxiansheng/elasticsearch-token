@@ -311,7 +311,7 @@ argument_list|)
 decl_stmt|;
 name|indicesExistsRequest
 operator|.
-name|listenerThreaded
+name|setListenerThreaded
 argument_list|(
 literal|false
 argument_list|)
@@ -351,7 +351,7 @@ if|if
 condition|(
 name|response
 operator|.
-name|exists
+name|isExists
 argument_list|()
 condition|)
 block|{

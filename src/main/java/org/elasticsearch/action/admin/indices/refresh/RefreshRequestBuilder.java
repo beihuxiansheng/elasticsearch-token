@@ -125,7 +125,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|waitForOperations
+name|setWaitForOperations
 argument_list|(
 name|waitForOperations
 argument_list|)

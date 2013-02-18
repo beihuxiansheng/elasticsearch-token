@@ -360,7 +360,7 @@ argument_list|()
 decl_stmt|;
 name|indicesAliasesRequest
 operator|.
-name|listenerThreaded
+name|setListenerThreaded
 argument_list|(
 literal|false
 argument_list|)
@@ -380,7 +380,7 @@ comment|//     ]
 comment|// }
 name|indicesAliasesRequest
 operator|.
-name|timeout
+name|setTimeout
 argument_list|(
 name|request
 operator|.
@@ -1078,7 +1078,7 @@ literal|"acknowledged"
 argument_list|,
 name|response
 operator|.
-name|acknowledged
+name|isAcknowledged
 argument_list|()
 argument_list|)
 operator|.

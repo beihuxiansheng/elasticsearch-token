@@ -329,12 +329,12 @@ name|updateSettings
 argument_list|(
 name|request
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 argument_list|,
 name|request
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 argument_list|,
 operator|new

@@ -247,21 +247,10 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * A boolean denoting whether the query is valid.      */
-DECL|method|valid
+DECL|method|isValid
 specifier|public
 name|boolean
-name|valid
-parameter_list|()
-block|{
-return|return
-name|valid
-return|;
-block|}
-comment|/**      * A boolean denoting whether the query is valid.      */
-DECL|method|getValid
-specifier|public
-name|boolean
-name|getValid
+name|isValid
 parameter_list|()
 block|{
 return|return
@@ -269,7 +258,7 @@ name|valid
 return|;
 block|}
 comment|/**      * The list of query explanations.      */
-DECL|method|queryExplanations
+DECL|method|getQueryExplanation
 specifier|public
 name|List
 argument_list|<
@@ -277,7 +266,7 @@ name|?
 extends|extends
 name|QueryExplanation
 argument_list|>
-name|queryExplanations
+name|getQueryExplanation
 parameter_list|()
 block|{
 if|if
@@ -294,20 +283,6 @@ name|of
 argument_list|()
 return|;
 block|}
-return|return
-name|queryExplanations
-return|;
-block|}
-comment|/**      * The list of query explanations.      */
-DECL|method|getQueryExplanation
-specifier|public
-name|List
-argument_list|<
-name|QueryExplanation
-argument_list|>
-name|getQueryExplanation
-parameter_list|()
-block|{
 return|return
 name|queryExplanations
 return|;

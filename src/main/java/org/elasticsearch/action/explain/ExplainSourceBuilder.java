@@ -142,10 +142,10 @@ specifier|private
 name|BytesReference
 name|queryBinary
 decl_stmt|;
-DECL|method|query
+DECL|method|setQuery
 specifier|public
 name|ExplainSourceBuilder
-name|query
+name|setQuery
 parameter_list|(
 name|QueryBuilder
 name|query
@@ -161,10 +161,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|query
+DECL|method|setQuery
 specifier|public
 name|ExplainSourceBuilder
-name|query
+name|setQuery
 parameter_list|(
 name|BytesReference
 name|queryBinary

@@ -173,7 +173,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|requests
+name|getRequests
 argument_list|()
 operator|.
 name|size
@@ -189,7 +189,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|requests
+name|getRequests
 argument_list|()
 operator|.
 name|get
@@ -197,7 +197,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 index|[
 literal|0
@@ -213,7 +213,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|requests
+name|getRequests
 argument_list|()
 operator|.
 name|get
@@ -221,7 +221,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|types
+name|getTypes
 argument_list|()
 operator|.
 name|length
@@ -236,7 +236,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|requests
+name|getRequests
 argument_list|()
 operator|.
 name|get
@@ -244,7 +244,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 index|[
 literal|0
@@ -260,7 +260,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|requests
+name|getRequests
 argument_list|()
 operator|.
 name|get
@@ -268,7 +268,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|types
+name|getTypes
 argument_list|()
 index|[
 literal|0
@@ -284,7 +284,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|requests
+name|getRequests
 argument_list|()
 operator|.
 name|get
@@ -292,7 +292,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 argument_list|,
 name|nullValue
@@ -303,7 +303,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|requests
+name|getRequests
 argument_list|()
 operator|.
 name|get
@@ -311,7 +311,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|types
+name|getTypes
 argument_list|()
 operator|.
 name|length
@@ -326,7 +326,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|requests
+name|getRequests
 argument_list|()
 operator|.
 name|get
@@ -334,7 +334,7 @@ argument_list|(
 literal|3
 argument_list|)
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 argument_list|,
 name|nullValue
@@ -345,7 +345,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|requests
+name|getRequests
 argument_list|()
 operator|.
 name|get
@@ -353,7 +353,7 @@ argument_list|(
 literal|3
 argument_list|)
 operator|.
-name|types
+name|getTypes
 argument_list|()
 operator|.
 name|length
@@ -368,7 +368,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|requests
+name|getRequests
 argument_list|()
 operator|.
 name|get
@@ -376,7 +376,7 @@ argument_list|(
 literal|3
 argument_list|)
 operator|.
-name|searchType
+name|getSearchType
 argument_list|()
 argument_list|,
 name|equalTo
@@ -391,7 +391,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|requests
+name|getRequests
 argument_list|()
 operator|.
 name|get
@@ -399,7 +399,7 @@ argument_list|(
 literal|4
 argument_list|)
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 argument_list|,
 name|nullValue
@@ -410,7 +410,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|requests
+name|getRequests
 argument_list|()
 operator|.
 name|get
@@ -418,7 +418,7 @@ argument_list|(
 literal|4
 argument_list|)
 operator|.
-name|types
+name|getTypes
 argument_list|()
 operator|.
 name|length
@@ -481,7 +481,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|requests
+name|getRequests
 argument_list|()
 operator|.
 name|size
@@ -497,7 +497,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|requests
+name|getRequests
 argument_list|()
 operator|.
 name|get
@@ -505,7 +505,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 index|[
 literal|0
@@ -521,7 +521,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|requests
+name|getRequests
 argument_list|()
 operator|.
 name|get
@@ -529,7 +529,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|types
+name|getTypes
 argument_list|()
 operator|.
 name|length
@@ -544,7 +544,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|requests
+name|getRequests
 argument_list|()
 operator|.
 name|get
@@ -552,7 +552,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 index|[
 literal|0
@@ -568,7 +568,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|requests
+name|getRequests
 argument_list|()
 operator|.
 name|get
@@ -576,7 +576,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|types
+name|getTypes
 argument_list|()
 index|[
 literal|0
@@ -592,7 +592,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|requests
+name|getRequests
 argument_list|()
 operator|.
 name|get
@@ -600,7 +600,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 argument_list|,
 name|nullValue
@@ -611,7 +611,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|requests
+name|getRequests
 argument_list|()
 operator|.
 name|get
@@ -619,7 +619,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|types
+name|getTypes
 argument_list|()
 operator|.
 name|length
@@ -634,7 +634,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|requests
+name|getRequests
 argument_list|()
 operator|.
 name|get
@@ -642,7 +642,7 @@ argument_list|(
 literal|3
 argument_list|)
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 argument_list|,
 name|nullValue
@@ -653,7 +653,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|requests
+name|getRequests
 argument_list|()
 operator|.
 name|get
@@ -661,7 +661,7 @@ argument_list|(
 literal|3
 argument_list|)
 operator|.
-name|types
+name|getTypes
 argument_list|()
 operator|.
 name|length
@@ -676,7 +676,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|requests
+name|getRequests
 argument_list|()
 operator|.
 name|get
@@ -684,7 +684,7 @@ argument_list|(
 literal|3
 argument_list|)
 operator|.
-name|searchType
+name|getSearchType
 argument_list|()
 argument_list|,
 name|equalTo
@@ -699,7 +699,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|requests
+name|getRequests
 argument_list|()
 operator|.
 name|get
@@ -707,7 +707,7 @@ argument_list|(
 literal|4
 argument_list|)
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 argument_list|,
 name|nullValue
@@ -718,7 +718,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|requests
+name|getRequests
 argument_list|()
 operator|.
 name|get
@@ -726,7 +726,7 @@ argument_list|(
 literal|4
 argument_list|)
 operator|.
-name|types
+name|getTypes
 argument_list|()
 operator|.
 name|length
@@ -789,7 +789,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|requests
+name|getRequests
 argument_list|()
 operator|.
 name|size
@@ -805,7 +805,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|requests
+name|getRequests
 argument_list|()
 operator|.
 name|get
@@ -813,7 +813,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 index|[
 literal|0
@@ -829,7 +829,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|requests
+name|getRequests
 argument_list|()
 operator|.
 name|get
@@ -837,7 +837,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 index|[
 literal|1
@@ -853,7 +853,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|requests
+name|getRequests
 argument_list|()
 operator|.
 name|get
@@ -861,7 +861,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 index|[
 literal|0
@@ -877,7 +877,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|requests
+name|getRequests
 argument_list|()
 operator|.
 name|get
@@ -885,7 +885,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 index|[
 literal|1
@@ -901,7 +901,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|requests
+name|getRequests
 argument_list|()
 operator|.
 name|get
@@ -909,7 +909,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|types
+name|getTypes
 argument_list|()
 index|[
 literal|0
@@ -925,7 +925,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|requests
+name|getRequests
 argument_list|()
 operator|.
 name|get
@@ -933,7 +933,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 index|[
 literal|0
@@ -949,7 +949,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|requests
+name|getRequests
 argument_list|()
 operator|.
 name|get
@@ -957,7 +957,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 index|[
 literal|1
@@ -973,7 +973,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|requests
+name|getRequests
 argument_list|()
 operator|.
 name|get
@@ -981,7 +981,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|types
+name|getTypes
 argument_list|()
 index|[
 literal|0
@@ -997,7 +997,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|requests
+name|getRequests
 argument_list|()
 operator|.
 name|get
@@ -1005,7 +1005,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|types
+name|getTypes
 argument_list|()
 index|[
 literal|1
@@ -1021,7 +1021,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|requests
+name|getRequests
 argument_list|()
 operator|.
 name|get
@@ -1029,7 +1029,7 @@ argument_list|(
 literal|3
 argument_list|)
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 argument_list|,
 name|nullValue
@@ -1040,7 +1040,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|requests
+name|getRequests
 argument_list|()
 operator|.
 name|get
@@ -1048,7 +1048,7 @@ argument_list|(
 literal|3
 argument_list|)
 operator|.
-name|types
+name|getTypes
 argument_list|()
 operator|.
 name|length
@@ -1063,7 +1063,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|requests
+name|getRequests
 argument_list|()
 operator|.
 name|get
@@ -1071,7 +1071,7 @@ argument_list|(
 literal|3
 argument_list|)
 operator|.
-name|searchType
+name|getSearchType
 argument_list|()
 argument_list|,
 name|equalTo

@@ -351,7 +351,7 @@ argument_list|)
 decl_stmt|;
 name|indicesSegmentsRequest
 operator|.
-name|listenerThreaded
+name|setListenerThreaded
 argument_list|(
 literal|false
 argument_list|)
@@ -368,7 +368,7 @@ condition|)
 block|{
 name|indicesSegmentsRequest
 operator|.
-name|ignoreIndices
+name|setIgnoreIndices
 argument_list|(
 name|IgnoreIndices
 operator|.
@@ -422,7 +422,7 @@ expr_stmt|;
 block|}
 name|indicesSegmentsRequest
 operator|.
-name|operationThreading
+name|setOperationThreading
 argument_list|(
 name|operationThreading
 argument_list|)

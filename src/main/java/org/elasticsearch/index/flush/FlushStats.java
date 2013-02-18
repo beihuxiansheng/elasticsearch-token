@@ -240,10 +240,10 @@ name|totalTimeInMillis
 expr_stmt|;
 block|}
 comment|/**      * The total number of flush executed.      */
-DECL|method|total
+DECL|method|getTotal
 specifier|public
 name|long
-name|total
+name|getTotal
 parameter_list|()
 block|{
 return|return
@@ -253,10 +253,10 @@ name|total
 return|;
 block|}
 comment|/**      * The total time merges have been executed (in milliseconds).      */
-DECL|method|totalTimeInMillis
+DECL|method|getTotalTimeInMillis
 specifier|public
 name|long
-name|totalTimeInMillis
+name|getTotalTimeInMillis
 parameter_list|()
 block|{
 return|return
@@ -266,10 +266,10 @@ name|totalTimeInMillis
 return|;
 block|}
 comment|/**      * The total time merges have been executed.      */
-DECL|method|totalTime
+DECL|method|getTotalTime
 specifier|public
 name|TimeValue
-name|totalTime
+name|getTotalTime
 parameter_list|()
 block|{
 return|return
@@ -354,7 +354,7 @@ name|Fields
 operator|.
 name|TOTAL_TIME
 argument_list|,
-name|totalTime
+name|getTotalTime
 argument_list|()
 operator|.
 name|toString

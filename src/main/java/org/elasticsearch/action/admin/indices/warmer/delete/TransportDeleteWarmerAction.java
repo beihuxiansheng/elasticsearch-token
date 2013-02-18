@@ -446,7 +446,7 @@ block|{
 comment|// update to concrete indices
 name|request
 operator|.
-name|indices
+name|setIndices
 argument_list|(
 name|clusterService
 operator|.
@@ -460,7 +460,7 @@ name|concreteIndices
 argument_list|(
 name|request
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 argument_list|)
 argument_list|)
@@ -503,7 +503,7 @@ name|METADATA
 argument_list|,
 name|request
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 argument_list|)
 return|;
@@ -557,7 +557,7 @@ literal|"delete_warmer ["
 operator|+
 name|request
 operator|.
-name|name
+name|getName
 argument_list|()
 operator|+
 literal|"]"
@@ -608,7 +608,7 @@ name|index
 range|:
 name|request
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 control|)
 block|{
@@ -693,7 +693,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|name
+name|getName
 argument_list|()
 operator|==
 literal|null
@@ -704,7 +704,7 @@ name|simpleMatch
 argument_list|(
 name|request
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 name|entry
@@ -811,7 +811,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|name
+name|getName
 argument_list|()
 operator|==
 literal|null
@@ -828,7 +828,7 @@ name|IndexWarmerMissingException
 argument_list|(
 name|request
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|)
 throw|;
@@ -848,7 +848,7 @@ name|index
 range|:
 name|request
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 control|)
 block|{
@@ -924,7 +924,7 @@ name|simpleMatch
 argument_list|(
 name|request
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 name|entry

@@ -315,24 +315,6 @@ argument_list|>
 name|getIndices
 parameter_list|()
 block|{
-return|return
-name|this
-operator|.
-name|indices
-argument_list|()
-return|;
-block|}
-DECL|method|indices
-specifier|public
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|IndexSegments
-argument_list|>
-name|indices
-parameter_list|()
-block|{
 if|if
 condition|(
 name|indicesSegments
@@ -382,7 +364,7 @@ name|add
 argument_list|(
 name|shard
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -420,7 +402,7 @@ if|if
 condition|(
 name|shard
 operator|.
-name|shardRouting
+name|getShardRouting
 argument_list|()
 operator|.
 name|index
@@ -617,7 +599,7 @@ control|(
 name|IndexSegments
 name|indexSegments
 range|:
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|values
@@ -630,7 +612,7 @@ name|startObject
 argument_list|(
 name|indexSegments
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|XContentBuilder
@@ -667,7 +649,7 @@ name|toString
 argument_list|(
 name|indexSegment
 operator|.
-name|shardId
+name|getShardId
 argument_list|()
 operator|.
 name|id
@@ -707,7 +689,7 @@ name|STATE
 argument_list|,
 name|shardSegments
 operator|.
-name|shardRouting
+name|getShardRouting
 argument_list|()
 operator|.
 name|state
@@ -724,7 +706,7 @@ name|PRIMARY
 argument_list|,
 name|shardSegments
 operator|.
-name|shardRouting
+name|getShardRouting
 argument_list|()
 operator|.
 name|primary
@@ -741,7 +723,7 @@ name|NODE
 argument_list|,
 name|shardSegments
 operator|.
-name|shardRouting
+name|getShardRouting
 argument_list|()
 operator|.
 name|currentNodeId
@@ -752,7 +734,7 @@ if|if
 condition|(
 name|shardSegments
 operator|.
-name|shardRouting
+name|getShardRouting
 argument_list|()
 operator|.
 name|relocatingNodeId
@@ -771,7 +753,7 @@ name|RELOCATING_NODE
 argument_list|,
 name|shardSegments
 operator|.
-name|shardRouting
+name|getShardRouting
 argument_list|()
 operator|.
 name|relocatingNodeId
@@ -794,7 +776,7 @@ name|NUM_COMMITTED_SEGMENTS
 argument_list|,
 name|shardSegments
 operator|.
-name|numberOfCommitted
+name|getNumberOfCommitted
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -808,7 +790,7 @@ name|NUM_SEARCH_SEGMENTS
 argument_list|,
 name|shardSegments
 operator|.
-name|numberOfSearch
+name|getNumberOfSearch
 argument_list|()
 argument_list|)
 expr_stmt|;

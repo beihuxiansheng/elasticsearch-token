@@ -344,10 +344,10 @@ name|currentSizeInBytes
 expr_stmt|;
 block|}
 comment|/**      * The total number of merges executed.      */
-DECL|method|total
+DECL|method|getTotal
 specifier|public
 name|long
-name|total
+name|getTotal
 parameter_list|()
 block|{
 return|return
@@ -357,10 +357,10 @@ name|total
 return|;
 block|}
 comment|/**      * The total time merges have been executed (in milliseconds).      */
-DECL|method|totalTimeInMillis
+DECL|method|getTotalTimeInMillis
 specifier|public
 name|long
-name|totalTimeInMillis
+name|getTotalTimeInMillis
 parameter_list|()
 block|{
 return|return
@@ -370,10 +370,10 @@ name|totalTimeInMillis
 return|;
 block|}
 comment|/**      * The total time merges have been executed.      */
-DECL|method|totalTime
+DECL|method|getTotalTime
 specifier|public
 name|TimeValue
-name|totalTime
+name|getTotalTime
 parameter_list|()
 block|{
 return|return
@@ -384,10 +384,10 @@ name|totalTimeInMillis
 argument_list|)
 return|;
 block|}
-DECL|method|totalNumDocs
+DECL|method|getTotalNumDocs
 specifier|public
 name|long
-name|totalNumDocs
+name|getTotalNumDocs
 parameter_list|()
 block|{
 return|return
@@ -396,10 +396,10 @@ operator|.
 name|totalNumDocs
 return|;
 block|}
-DECL|method|totalSizeInBytes
+DECL|method|getTotalSizeInBytes
 specifier|public
 name|long
-name|totalSizeInBytes
+name|getTotalSizeInBytes
 parameter_list|()
 block|{
 return|return
@@ -408,10 +408,10 @@ operator|.
 name|totalSizeInBytes
 return|;
 block|}
-DECL|method|totalSize
+DECL|method|getTotalSize
 specifier|public
 name|ByteSizeValue
-name|totalSize
+name|getTotalSize
 parameter_list|()
 block|{
 return|return
@@ -423,10 +423,10 @@ argument_list|)
 return|;
 block|}
 comment|/**      * The current number of merges executing.      */
-DECL|method|current
+DECL|method|getCurrent
 specifier|public
 name|long
-name|current
+name|getCurrent
 parameter_list|()
 block|{
 return|return
@@ -435,10 +435,10 @@ operator|.
 name|current
 return|;
 block|}
-DECL|method|currentNumDocs
+DECL|method|getCurrentNumDocs
 specifier|public
 name|long
-name|currentNumDocs
+name|getCurrentNumDocs
 parameter_list|()
 block|{
 return|return
@@ -447,10 +447,10 @@ operator|.
 name|currentNumDocs
 return|;
 block|}
-DECL|method|currentSizeInBytes
+DECL|method|getCurrentSizeInBytes
 specifier|public
 name|long
-name|currentSizeInBytes
+name|getCurrentSizeInBytes
 parameter_list|()
 block|{
 return|return
@@ -459,10 +459,10 @@ operator|.
 name|currentSizeInBytes
 return|;
 block|}
-DECL|method|currentSize
+DECL|method|getCurrentSize
 specifier|public
 name|ByteSizeValue
-name|currentSize
+name|getCurrentSize
 parameter_list|()
 block|{
 return|return
@@ -558,7 +558,7 @@ name|Fields
 operator|.
 name|CURRENT_SIZE
 argument_list|,
-name|currentSize
+name|getCurrentSize
 argument_list|()
 operator|.
 name|toString
@@ -595,7 +595,7 @@ name|Fields
 operator|.
 name|TOTAL_TIME
 argument_list|,
-name|totalTime
+name|getTotalTime
 argument_list|()
 operator|.
 name|toString
@@ -632,7 +632,7 @@ name|Fields
 operator|.
 name|TOTAL_SIZE
 argument_list|,
-name|totalSize
+name|getTotalSize
 argument_list|()
 operator|.
 name|toString

@@ -567,7 +567,7 @@ if|if
 condition|(
 name|percolate
 operator|.
-name|matches
+name|getMatches
 argument_list|()
 operator|.
 name|size

@@ -654,7 +654,7 @@ name|shouldAutoCreate
 argument_list|(
 name|request
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|clusterService
@@ -679,20 +679,20 @@ name|CreateIndexRequest
 argument_list|(
 name|request
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 operator|.
-name|cause
+name|setCause
 argument_list|(
 literal|"auto(index api)"
 argument_list|)
 operator|.
-name|masterNodeTimeout
+name|setMasterNodeTimeout
 argument_list|(
 name|request
 operator|.
-name|timeout
+name|getTimeout
 argument_list|()
 argument_list|)
 argument_list|,
@@ -831,12 +831,12 @@ name|aliasOrIndex
 init|=
 name|request
 operator|.
-name|index
+name|getIndex
 argument_list|()
 decl_stmt|;
 name|request
 operator|.
-name|index
+name|setIndex
 argument_list|(
 name|metaData
 operator|.
@@ -844,7 +844,7 @@ name|concreteIndex
 argument_list|(
 name|request
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 argument_list|)
@@ -862,7 +862,7 @@ name|hasIndex
 argument_list|(
 name|request
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 condition|)
@@ -875,7 +875,7 @@ name|index
 argument_list|(
 name|request
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 operator|.
@@ -883,7 +883,7 @@ name|mappingOrDefault
 argument_list|(
 name|request
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1072,7 +1072,7 @@ name|WRITE
 argument_list|,
 name|request
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 return|;
@@ -1106,22 +1106,22 @@ argument_list|()
 argument_list|,
 name|request
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|request
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|,
 name|request
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|request
 operator|.
-name|routing
+name|getRouting
 argument_list|()
 argument_list|)
 return|;
@@ -1166,7 +1166,7 @@ name|index
 argument_list|(
 name|request
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 operator|.
@@ -1174,7 +1174,7 @@ name|mappingOrDefault
 argument_list|(
 name|request
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1197,7 +1197,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|routing
+name|getRouting
 argument_list|()
 operator|==
 literal|null
@@ -1209,17 +1209,17 @@ name|RoutingMissingException
 argument_list|(
 name|request
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|request
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|,
 name|request
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 throw|;
@@ -1236,7 +1236,7 @@ name|shardRequest
 operator|.
 name|request
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 operator|.
@@ -1256,7 +1256,7 @@ name|source
 argument_list|(
 name|request
 operator|.
-name|source
+name|getSource
 argument_list|()
 argument_list|)
 operator|.
@@ -1264,7 +1264,7 @@ name|type
 argument_list|(
 name|request
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|)
 operator|.
@@ -1272,7 +1272,7 @@ name|id
 argument_list|(
 name|request
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 operator|.
@@ -1280,7 +1280,7 @@ name|routing
 argument_list|(
 name|request
 operator|.
-name|routing
+name|getRouting
 argument_list|()
 argument_list|)
 operator|.
@@ -1288,7 +1288,7 @@ name|parent
 argument_list|(
 name|request
 operator|.
-name|parent
+name|getParent
 argument_list|()
 argument_list|)
 operator|.
@@ -1296,7 +1296,7 @@ name|timestamp
 argument_list|(
 name|request
 operator|.
-name|timestamp
+name|getTimestamp
 argument_list|()
 argument_list|)
 operator|.
@@ -1304,7 +1304,7 @@ name|ttl
 argument_list|(
 name|request
 operator|.
-name|ttl
+name|getTtl
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1320,7 +1320,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|opType
+name|getOpType
 argument_list|()
 operator|==
 name|IndexRequest
@@ -1346,7 +1346,7 @@ name|version
 argument_list|(
 name|request
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|)
 operator|.
@@ -1354,7 +1354,7 @@ name|versionType
 argument_list|(
 name|request
 operator|.
-name|versionType
+name|getVersionType
 argument_list|()
 argument_list|)
 operator|.
@@ -1406,7 +1406,7 @@ name|version
 argument_list|(
 name|request
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|)
 operator|.
@@ -1414,7 +1414,7 @@ name|versionType
 argument_list|(
 name|request
 operator|.
-name|versionType
+name|getVersionType
 argument_list|()
 argument_list|)
 operator|.
@@ -1452,7 +1452,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|refresh
+name|isRefresh
 argument_list|()
 condition|)
 block|{
@@ -1501,7 +1501,7 @@ block|}
 comment|// update the version on the request, so it will be used for the replicas
 name|request
 operator|.
-name|version
+name|setVersion
 argument_list|(
 name|version
 argument_list|)
@@ -1514,17 +1514,17 @@ name|IndexResponse
 argument_list|(
 name|request
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|request
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|,
 name|request
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|version
@@ -1592,7 +1592,7 @@ name|hasLength
 argument_list|(
 name|request
 operator|.
-name|percolate
+name|getPercolate
 argument_list|()
 argument_list|)
 condition|)
@@ -1608,7 +1608,7 @@ name|indexServiceSafe
 argument_list|(
 name|request
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1638,7 +1638,7 @@ argument_list|()
 argument_list|,
 name|request
 operator|.
-name|percolate
+name|getPercolate
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1648,7 +1648,7 @@ operator|.
 name|response
 argument_list|()
 operator|.
-name|matches
+name|setMatches
 argument_list|(
 name|percolate
 operator|.
@@ -1698,7 +1698,7 @@ name|shardRequest
 operator|.
 name|request
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 operator|.
@@ -1725,7 +1725,7 @@ name|source
 argument_list|(
 name|request
 operator|.
-name|source
+name|getSource
 argument_list|()
 argument_list|)
 operator|.
@@ -1733,7 +1733,7 @@ name|type
 argument_list|(
 name|request
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|)
 operator|.
@@ -1741,7 +1741,7 @@ name|id
 argument_list|(
 name|request
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 operator|.
@@ -1749,7 +1749,7 @@ name|routing
 argument_list|(
 name|request
 operator|.
-name|routing
+name|getRouting
 argument_list|()
 argument_list|)
 operator|.
@@ -1757,7 +1757,7 @@ name|parent
 argument_list|(
 name|request
 operator|.
-name|parent
+name|getParent
 argument_list|()
 argument_list|)
 operator|.
@@ -1765,7 +1765,7 @@ name|timestamp
 argument_list|(
 name|request
 operator|.
-name|timestamp
+name|getTimestamp
 argument_list|()
 argument_list|)
 operator|.
@@ -1773,7 +1773,7 @@ name|ttl
 argument_list|(
 name|request
 operator|.
-name|ttl
+name|getTtl
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1781,7 +1781,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|opType
+name|getOpType
 argument_list|()
 operator|==
 name|IndexRequest
@@ -1807,7 +1807,7 @@ name|version
 argument_list|(
 name|request
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|)
 operator|.
@@ -1848,7 +1848,7 @@ name|version
 argument_list|(
 name|request
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|)
 operator|.
@@ -1875,7 +1875,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|refresh
+name|isRefresh
 argument_list|()
 condition|)
 block|{
@@ -1936,7 +1936,7 @@ name|indexServiceSafe
 argument_list|(
 name|request
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 operator|.
@@ -1953,7 +1953,7 @@ name|documentMapper
 argument_list|(
 name|request
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1983,12 +1983,12 @@ name|MappingUpdatedRequest
 argument_list|(
 name|request
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|request
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|,
 name|documentMapper
@@ -2050,14 +2050,14 @@ literal|"Failed to update master on updated mapping for index ["
 operator|+
 name|request
 operator|.
-name|index
+name|getIndex
 argument_list|()
 operator|+
 literal|"], type ["
 operator|+
 name|request
 operator|.
-name|type
+name|getType
 argument_list|()
 operator|+
 literal|"] and source ["
@@ -2108,14 +2108,14 @@ literal|"Failed to update master on updated mapping for index ["
 operator|+
 name|request
 operator|.
-name|index
+name|getIndex
 argument_list|()
 operator|+
 literal|"], type ["
 operator|+
 name|request
 operator|.
-name|type
+name|getType
 argument_list|()
 operator|+
 literal|"]"

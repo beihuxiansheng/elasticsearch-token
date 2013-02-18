@@ -372,7 +372,7 @@ argument_list|)
 decl_stmt|;
 name|updateSettingsRequest
 operator|.
-name|listenerThreaded
+name|setListenerThreaded
 argument_list|(
 literal|false
 argument_list|)
@@ -601,7 +601,7 @@ expr_stmt|;
 block|}
 name|updateSettingsRequest
 operator|.
-name|settings
+name|setSettings
 argument_list|(
 name|updateSettings
 argument_list|)

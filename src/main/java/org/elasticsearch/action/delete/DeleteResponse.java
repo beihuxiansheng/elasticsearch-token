@@ -164,19 +164,6 @@ name|notFound
 expr_stmt|;
 block|}
 comment|/**      * The index the document was deleted from.      */
-DECL|method|index
-specifier|public
-name|String
-name|index
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|index
-return|;
-block|}
-comment|/**      * The index the document was deleted from.      */
 DECL|method|getIndex
 specifier|public
 name|String
@@ -184,20 +171,9 @@ name|getIndex
 parameter_list|()
 block|{
 return|return
-name|index
-return|;
-block|}
-comment|/**      * The type of the document deleted.      */
-DECL|method|type
-specifier|public
-name|String
-name|type
-parameter_list|()
-block|{
-return|return
 name|this
 operator|.
-name|type
+name|index
 return|;
 block|}
 comment|/**      * The type of the document deleted.      */
@@ -208,20 +184,9 @@ name|getType
 parameter_list|()
 block|{
 return|return
-name|type
-return|;
-block|}
-comment|/**      * The id of the document deleted.      */
-DECL|method|id
-specifier|public
-name|String
-name|id
-parameter_list|()
-block|{
-return|return
 name|this
 operator|.
-name|id
+name|type
 return|;
 block|}
 comment|/**      * The id of the document deleted.      */
@@ -232,20 +197,9 @@ name|getId
 parameter_list|()
 block|{
 return|return
-name|id
-return|;
-block|}
-comment|/**      * The version of the delete operation.      */
-DECL|method|version
-specifier|public
-name|long
-name|version
-parameter_list|()
-block|{
-return|return
 name|this
 operator|.
-name|version
+name|id
 return|;
 block|}
 comment|/**      * The version of the delete operation.      */
@@ -259,17 +213,6 @@ return|return
 name|this
 operator|.
 name|version
-return|;
-block|}
-comment|/**      * Returns<tt>true</tt> if there was no doc found to delete.      */
-DECL|method|notFound
-specifier|public
-name|boolean
-name|notFound
-parameter_list|()
-block|{
-return|return
-name|notFound
 return|;
 block|}
 comment|/**      * Returns<tt>true</tt> if there was no doc found to delete.      */

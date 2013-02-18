@@ -127,7 +127,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|filterCache
+name|setFilterCache
 argument_list|(
 name|filterCache
 argument_list|)
@@ -147,7 +147,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|fieldDataCache
+name|setFieldDataCache
 argument_list|(
 name|fieldDataCache
 argument_list|)
@@ -168,7 +168,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|fields
+name|setFields
 argument_list|(
 name|fields
 argument_list|)
@@ -189,7 +189,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|filterKeys
+name|setFilterKeys
 argument_list|(
 name|filterKeys
 argument_list|)
@@ -209,7 +209,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|idCache
+name|setIdCache
 argument_list|(
 name|idCache
 argument_list|)

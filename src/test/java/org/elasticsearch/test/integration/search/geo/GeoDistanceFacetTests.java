@@ -999,7 +999,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|totalHits
@@ -1016,7 +1016,7 @@ name|facet
 init|=
 name|searchResponse
 operator|.
-name|facets
+name|getFacets
 argument_list|()
 operator|.
 name|facet
@@ -1447,7 +1447,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|totalHits
@@ -1463,7 +1463,7 @@ name|facet
 operator|=
 name|searchResponse
 operator|.
-name|facets
+name|getFacets
 argument_list|()
 operator|.
 name|facet
@@ -1882,7 +1882,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|totalHits
@@ -1898,7 +1898,7 @@ name|facet
 operator|=
 name|searchResponse
 operator|.
-name|facets
+name|getFacets
 argument_list|()
 operator|.
 name|facet
@@ -2642,13 +2642,13 @@ name|toString
 argument_list|(
 name|searchResponse
 operator|.
-name|shardFailures
+name|getShardFailures
 argument_list|()
 argument_list|)
 argument_list|,
 name|searchResponse
 operator|.
-name|failedShards
+name|getFailedShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2661,7 +2661,7 @@ name|assertThat
 argument_list|(
 name|searchResponse
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|totalHits
@@ -2678,7 +2678,7 @@ name|facet
 init|=
 name|searchResponse
 operator|.
-name|facets
+name|getFacets
 argument_list|()
 operator|.
 name|facet

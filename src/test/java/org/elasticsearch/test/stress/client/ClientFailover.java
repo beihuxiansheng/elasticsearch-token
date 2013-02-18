@@ -401,7 +401,7 @@ if|if
 condition|(
 name|health
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 condition|)
 block|{
@@ -454,7 +454,7 @@ if|if
 condition|(
 name|health
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 condition|)
 block|{

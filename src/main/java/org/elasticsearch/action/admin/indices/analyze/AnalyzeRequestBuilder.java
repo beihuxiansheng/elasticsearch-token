@@ -159,7 +159,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|index
+name|setIndex
 argument_list|(
 name|index
 argument_list|)
@@ -180,7 +180,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|analyzer
+name|setAnalyzer
 argument_list|(
 name|analyzer
 argument_list|)
@@ -201,7 +201,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|field
+name|setField
 argument_list|(
 name|field
 argument_list|)
@@ -222,7 +222,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|tokenizer
+name|setTokenizer
 argument_list|(
 name|tokenizer
 argument_list|)
@@ -244,7 +244,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|tokenFilters
+name|setTokenFilters
 argument_list|(
 name|tokenFilters
 argument_list|)

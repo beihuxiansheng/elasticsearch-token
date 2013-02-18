@@ -682,7 +682,7 @@ if|if
 condition|(
 name|getResult
 operator|.
-name|exists
+name|isExists
 argument_list|()
 condition|)
 block|{
@@ -876,7 +876,7 @@ if|if
 condition|(
 name|getResult
 operator|.
-name|exists
+name|isExists
 argument_list|()
 condition|)
 block|{
@@ -1877,7 +1877,7 @@ expr_stmt|;
 block|}
 name|getField
 operator|.
-name|values
+name|getValues
 argument_list|()
 operator|.
 name|add
@@ -2488,7 +2488,7 @@ expr_stmt|;
 block|}
 name|getField
 operator|.
-name|values
+name|getValues
 argument_list|()
 operator|.
 name|add

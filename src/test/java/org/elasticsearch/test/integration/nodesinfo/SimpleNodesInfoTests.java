@@ -245,7 +245,7 @@ argument_list|(
 name|clusterHealthRequest
 argument_list|()
 operator|.
-name|waitForGreenStatus
+name|setWaitForGreenStatus
 argument_list|()
 argument_list|)
 operator|.
@@ -260,7 +260,7 @@ literal|"--> done cluster_health, status "
 operator|+
 name|clusterHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -368,7 +368,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|nodes
+name|getNodes
 argument_list|()
 operator|.
 name|length
@@ -383,7 +383,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|nodesMap
+name|getNodesMap
 argument_list|()
 operator|.
 name|get
@@ -399,7 +399,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|nodesMap
+name|getNodesMap
 argument_list|()
 operator|.
 name|get
@@ -437,7 +437,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|nodes
+name|getNodes
 argument_list|()
 operator|.
 name|length
@@ -452,7 +452,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|nodesMap
+name|getNodesMap
 argument_list|()
 operator|.
 name|get
@@ -468,7 +468,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|nodesMap
+name|getNodesMap
 argument_list|()
 operator|.
 name|get
@@ -508,7 +508,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|nodes
+name|getNodes
 argument_list|()
 operator|.
 name|length
@@ -523,7 +523,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|nodesMap
+name|getNodesMap
 argument_list|()
 operator|.
 name|get
@@ -563,7 +563,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|nodes
+name|getNodes
 argument_list|()
 operator|.
 name|length
@@ -578,7 +578,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|nodesMap
+name|getNodesMap
 argument_list|()
 operator|.
 name|get
@@ -618,7 +618,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|nodes
+name|getNodes
 argument_list|()
 operator|.
 name|length
@@ -633,7 +633,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|nodesMap
+name|getNodesMap
 argument_list|()
 operator|.
 name|get
@@ -673,7 +673,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|nodes
+name|getNodes
 argument_list|()
 operator|.
 name|length
@@ -688,7 +688,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|nodesMap
+name|getNodesMap
 argument_list|()
 operator|.
 name|get

@@ -353,7 +353,7 @@ argument_list|(
 name|INDEX_NAME
 argument_list|)
 operator|.
-name|mapping
+name|addMapping
 argument_list|(
 name|CHILD_TYPE_NAME
 argument_list|,
@@ -590,7 +590,7 @@ argument_list|(
 name|INDEX_NAME
 argument_list|)
 operator|.
-name|source
+name|setSource
 argument_list|(
 name|source
 argument_list|)
@@ -697,7 +697,7 @@ name|hit
 range|:
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 control|)
 block|{

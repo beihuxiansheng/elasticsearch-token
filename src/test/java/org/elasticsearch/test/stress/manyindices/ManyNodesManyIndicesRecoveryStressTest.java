@@ -720,7 +720,7 @@ literal|"--> cluster health timed out..., active shards ["
 operator|+
 name|clusterHealth
 operator|.
-name|activeShards
+name|getActiveShards
 argument_list|()
 operator|+
 literal|"]"
@@ -791,7 +791,7 @@ if|if
 condition|(
 name|count
 operator|.
-name|count
+name|getCount
 argument_list|()
 operator|!=
 name|NUM_DOCS
@@ -811,7 +811,7 @@ literal|"], got ["
 operator|+
 name|count
 operator|.
-name|count
+name|getCount
 argument_list|()
 operator|+
 literal|"] for index ["

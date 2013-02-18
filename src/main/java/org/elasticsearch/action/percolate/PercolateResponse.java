@@ -147,13 +147,13 @@ operator|=
 name|matches
 expr_stmt|;
 block|}
-DECL|method|matches
+DECL|method|getMatches
 specifier|public
 name|List
 argument_list|<
 name|String
 argument_list|>
-name|matches
+name|getMatches
 parameter_list|()
 block|{
 return|return

@@ -582,7 +582,7 @@ name|assertThat
 argument_list|(
 name|percolate
 operator|.
-name|matches
+name|getMatches
 argument_list|()
 operator|.
 name|size
@@ -655,10 +655,10 @@ argument_list|(
 name|clusterHealthRequest
 argument_list|()
 operator|.
-name|waitForYellowStatus
+name|setWaitForYellowStatus
 argument_list|()
 operator|.
-name|waitForActiveShards
+name|setWaitForActiveShards
 argument_list|(
 literal|1
 argument_list|)
@@ -675,7 +675,7 @@ literal|"Done Cluster Health, status "
 operator|+
 name|clusterHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -683,7 +683,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -696,7 +696,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|,
 name|equalTo
@@ -755,7 +755,7 @@ name|assertThat
 argument_list|(
 name|percolate
 operator|.
-name|matches
+name|getMatches
 argument_list|()
 operator|.
 name|size
@@ -946,7 +946,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1004,7 +1004,7 @@ name|assertThat
 argument_list|(
 name|percolate
 operator|.
-name|matches
+name|getMatches
 argument_list|()
 operator|.
 name|size
@@ -1077,10 +1077,10 @@ argument_list|(
 name|clusterHealthRequest
 argument_list|()
 operator|.
-name|waitForYellowStatus
+name|setWaitForYellowStatus
 argument_list|()
 operator|.
-name|waitForActiveShards
+name|setWaitForActiveShards
 argument_list|(
 literal|1
 argument_list|)
@@ -1097,7 +1097,7 @@ literal|"Done Cluster Health, status "
 operator|+
 name|clusterHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1105,7 +1105,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1118,7 +1118,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1150,7 +1150,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1228,10 +1228,10 @@ argument_list|(
 name|clusterHealthRequest
 argument_list|()
 operator|.
-name|waitForYellowStatus
+name|setWaitForYellowStatus
 argument_list|()
 operator|.
-name|waitForActiveShards
+name|setWaitForActiveShards
 argument_list|(
 literal|1
 argument_list|)
@@ -1248,7 +1248,7 @@ literal|"Done Cluster Health, status "
 operator|+
 name|clusterHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1256,7 +1256,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1269,7 +1269,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1301,7 +1301,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1358,7 +1358,7 @@ name|assertThat
 argument_list|(
 name|percolate
 operator|.
-name|matches
+name|getMatches
 argument_list|()
 operator|.
 name|size
@@ -1451,7 +1451,7 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1508,7 +1508,7 @@ name|assertThat
 argument_list|(
 name|percolate
 operator|.
-name|matches
+name|getMatches
 argument_list|()
 operator|.
 name|size

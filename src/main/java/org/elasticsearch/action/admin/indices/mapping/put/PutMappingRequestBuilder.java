@@ -178,7 +178,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|indices
+name|setIndices
 argument_list|(
 name|indices
 argument_list|)
@@ -201,7 +201,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|type
+name|setType
 argument_list|(
 name|type
 argument_list|)
@@ -222,7 +222,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|source
+name|setSource
 argument_list|(
 name|mappingBuilder
 argument_list|)
@@ -243,7 +243,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|source
+name|setSource
 argument_list|(
 name|mappingSource
 argument_list|)
@@ -264,7 +264,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|source
+name|setSource
 argument_list|(
 name|mappingSource
 argument_list|)
@@ -285,7 +285,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|timeout
+name|setTimeout
 argument_list|(
 name|timeout
 argument_list|)
@@ -306,7 +306,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|timeout
+name|setTimeout
 argument_list|(
 name|timeout
 argument_list|)
@@ -327,7 +327,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|ignoreConflicts
+name|setIgnoreConflicts
 argument_list|(
 name|ignoreConflicts
 argument_list|)

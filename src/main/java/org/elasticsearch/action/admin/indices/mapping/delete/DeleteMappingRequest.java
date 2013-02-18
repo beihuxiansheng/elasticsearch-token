@@ -127,10 +127,10 @@ name|String
 index|[]
 name|indices
 decl_stmt|;
-DECL|field|mappingType
+DECL|field|type
 specifier|private
 name|String
-name|mappingType
+name|type
 decl_stmt|;
 DECL|method|DeleteMappingRequest
 name|DeleteMappingRequest
@@ -168,7 +168,7 @@ literal|null
 decl_stmt|;
 if|if
 condition|(
-name|mappingType
+name|type
 operator|==
 literal|null
 condition|)
@@ -188,10 +188,10 @@ name|validationException
 return|;
 block|}
 comment|/**      * Sets the indices this put mapping operation will execute on.      */
-DECL|method|indices
+DECL|method|setIndices
 specifier|public
 name|DeleteMappingRequest
-name|indices
+name|setIndices
 parameter_list|(
 name|String
 index|[]
@@ -209,11 +209,11 @@ name|this
 return|;
 block|}
 comment|/**      * The indices the mappings will be put.      */
-DECL|method|indices
+DECL|method|setIndices
 specifier|public
 name|String
 index|[]
-name|indices
+name|setIndices
 parameter_list|()
 block|{
 return|return
@@ -221,31 +221,31 @@ name|indices
 return|;
 block|}
 comment|/**      * The mapping type.      */
-DECL|method|type
+DECL|method|getType
 specifier|public
 name|String
-name|type
+name|getType
 parameter_list|()
 block|{
 return|return
-name|mappingType
+name|type
 return|;
 block|}
 comment|/**      * The type of the mappings to remove.      */
-DECL|method|type
+DECL|method|setType
 specifier|public
 name|DeleteMappingRequest
-name|type
+name|setType
 parameter_list|(
 name|String
-name|mappingType
+name|type
 parameter_list|)
 block|{
 name|this
 operator|.
-name|mappingType
+name|type
 operator|=
-name|mappingType
+name|type
 expr_stmt|;
 return|return
 name|this
@@ -318,7 +318,7 @@ name|readBoolean
 argument_list|()
 condition|)
 block|{
-name|mappingType
+name|type
 operator|=
 name|in
 operator|.
@@ -392,7 +392,7 @@ block|}
 block|}
 if|if
 condition|(
-name|mappingType
+name|type
 operator|==
 literal|null
 condition|)
@@ -418,7 +418,7 @@ name|out
 operator|.
 name|writeString
 argument_list|(
-name|mappingType
+name|type
 argument_list|)
 expr_stmt|;
 block|}

@@ -247,7 +247,7 @@ literal|"total"
 argument_list|,
 name|response
 operator|.
-name|totalShards
+name|getTotalShards
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -259,7 +259,7 @@ literal|"successful"
 argument_list|,
 name|response
 operator|.
-name|successfulShards
+name|getSuccessfulShards
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -271,7 +271,7 @@ literal|"failed"
 argument_list|,
 name|response
 operator|.
-name|failedShards
+name|getFailedShards
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -280,7 +280,7 @@ condition|(
 operator|!
 name|response
 operator|.
-name|shardFailures
+name|getShardFailures
 argument_list|()
 operator|.
 name|isEmpty
@@ -301,7 +301,7 @@ name|shardFailure
 range|:
 name|response
 operator|.
-name|shardFailures
+name|getShardFailures
 argument_list|()
 control|)
 block|{

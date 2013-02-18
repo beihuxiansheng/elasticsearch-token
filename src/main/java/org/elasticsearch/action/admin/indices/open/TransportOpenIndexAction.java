@@ -327,7 +327,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|index
+name|setIndex
 argument_list|(
 name|clusterService
 operator|.
@@ -341,7 +341,7 @@ name|concreteIndex
 argument_list|(
 name|request
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 argument_list|)
@@ -360,7 +360,7 @@ name|METADATA
 argument_list|,
 name|request
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 return|;
@@ -430,7 +430,7 @@ name|Request
 argument_list|(
 name|request
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 operator|.
@@ -438,7 +438,7 @@ name|timeout
 argument_list|(
 name|request
 operator|.
-name|timeout
+name|getTimeout
 argument_list|()
 argument_list|)
 argument_list|,

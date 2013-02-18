@@ -375,7 +375,7 @@ argument_list|(
 name|clusterHealthRequest
 argument_list|()
 operator|.
-name|waitForYellowStatus
+name|setWaitForYellowStatus
 argument_list|()
 argument_list|)
 operator|.
@@ -390,7 +390,7 @@ literal|"Done Cluster Health, status "
 operator|+
 name|clusterHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -398,7 +398,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -411,7 +411,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|,
 name|equalTo
@@ -434,17 +434,17 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|type
+name|setType
 argument_list|(
 literal|"type1"
 argument_list|)
 operator|.
-name|id
+name|setId
 argument_list|(
 literal|"1"
 argument_list|)
 operator|.
-name|source
+name|setSource
 argument_list|(
 name|source
 argument_list|(
@@ -487,7 +487,7 @@ name|assertThat
 argument_list|(
 name|flushResponse
 operator|.
-name|totalShards
+name|getTotalShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -500,7 +500,7 @@ name|assertThat
 argument_list|(
 name|flushResponse
 operator|.
-name|successfulShards
+name|getSuccessfulShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -513,7 +513,7 @@ name|assertThat
 argument_list|(
 name|flushResponse
 operator|.
-name|failedShards
+name|getFailedShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -534,17 +534,17 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|type
+name|setType
 argument_list|(
 literal|"type1"
 argument_list|)
 operator|.
-name|id
+name|setId
 argument_list|(
 literal|"2"
 argument_list|)
 operator|.
-name|source
+name|setSource
 argument_list|(
 name|source
 argument_list|(
@@ -587,7 +587,7 @@ name|assertThat
 argument_list|(
 name|refreshResponse
 operator|.
-name|totalShards
+name|getTotalShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -600,7 +600,7 @@ name|assertThat
 argument_list|(
 name|refreshResponse
 operator|.
-name|successfulShards
+name|getSuccessfulShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -613,7 +613,7 @@ name|assertThat
 argument_list|(
 name|refreshResponse
 operator|.
-name|failedShards
+name|getFailedShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -661,7 +661,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|query
+name|setQuery
 argument_list|(
 name|termQuery
 argument_list|(
@@ -671,7 +671,7 @@ literal|"type1"
 argument_list|)
 argument_list|)
 operator|.
-name|operationThreading
+name|setOperationThreading
 argument_list|(
 name|BroadcastOperationThreading
 operator|.
@@ -686,7 +686,7 @@ name|assertThat
 argument_list|(
 name|countResponse
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -699,7 +699,7 @@ name|assertThat
 argument_list|(
 name|countResponse
 operator|.
-name|totalShards
+name|getTotalShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -712,7 +712,7 @@ name|assertThat
 argument_list|(
 name|countResponse
 operator|.
-name|successfulShards
+name|getSuccessfulShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -725,7 +725,7 @@ name|assertThat
 argument_list|(
 name|countResponse
 operator|.
-name|failedShards
+name|getFailedShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -765,7 +765,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|query
+name|setQuery
 argument_list|(
 name|termQuery
 argument_list|(
@@ -775,7 +775,7 @@ literal|"type1"
 argument_list|)
 argument_list|)
 operator|.
-name|operationThreading
+name|setOperationThreading
 argument_list|(
 name|BroadcastOperationThreading
 operator|.
@@ -790,7 +790,7 @@ name|assertThat
 argument_list|(
 name|countResponse
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -803,7 +803,7 @@ name|assertThat
 argument_list|(
 name|countResponse
 operator|.
-name|totalShards
+name|getTotalShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -816,7 +816,7 @@ name|assertThat
 argument_list|(
 name|countResponse
 operator|.
-name|successfulShards
+name|getSuccessfulShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -829,7 +829,7 @@ name|assertThat
 argument_list|(
 name|countResponse
 operator|.
-name|failedShards
+name|getFailedShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -869,7 +869,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|query
+name|setQuery
 argument_list|(
 name|termQuery
 argument_list|(
@@ -879,7 +879,7 @@ literal|"type1"
 argument_list|)
 argument_list|)
 operator|.
-name|operationThreading
+name|setOperationThreading
 argument_list|(
 name|BroadcastOperationThreading
 operator|.
@@ -894,7 +894,7 @@ name|assertThat
 argument_list|(
 name|countResponse
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -907,7 +907,7 @@ name|assertThat
 argument_list|(
 name|countResponse
 operator|.
-name|totalShards
+name|getTotalShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -920,7 +920,7 @@ name|assertThat
 argument_list|(
 name|countResponse
 operator|.
-name|successfulShards
+name|getSuccessfulShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -933,7 +933,7 @@ name|assertThat
 argument_list|(
 name|countResponse
 operator|.
-name|failedShards
+name|getFailedShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -974,7 +974,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|query
+name|setQuery
 argument_list|(
 name|Unicode
 operator|.
@@ -992,7 +992,7 @@ name|assertThat
 argument_list|(
 name|countResponse
 operator|.
-name|count
+name|getCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1005,7 +1005,7 @@ name|assertThat
 argument_list|(
 name|countResponse
 operator|.
-name|totalShards
+name|getTotalShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1018,7 +1018,7 @@ name|assertThat
 argument_list|(
 name|countResponse
 operator|.
-name|successfulShards
+name|getSuccessfulShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1031,7 +1031,7 @@ name|assertThat
 argument_list|(
 name|countResponse
 operator|.
-name|failedShards
+name|getFailedShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1047,7 +1047,7 @@ name|exp
 range|:
 name|countResponse
 operator|.
-name|shardFailures
+name|getShardFailures
 argument_list|()
 control|)
 block|{

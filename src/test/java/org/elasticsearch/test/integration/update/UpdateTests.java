@@ -562,7 +562,7 @@ decl_stmt|;
 comment|// simple script
 name|request
 operator|.
-name|source
+name|setSource
 argument_list|(
 name|XContentFactory
 operator|.
@@ -587,7 +587,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|script
+name|getScript
 argument_list|()
 argument_list|,
 name|equalTo
@@ -611,7 +611,7 @@ argument_list|)
 expr_stmt|;
 name|request
 operator|.
-name|source
+name|setSource
 argument_list|(
 name|XContentFactory
 operator|.
@@ -651,7 +651,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|script
+name|getScript
 argument_list|()
 argument_list|,
 name|equalTo
@@ -664,7 +664,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|scriptParams
+name|getScriptParams
 argument_list|()
 operator|.
 name|get
@@ -695,7 +695,7 @@ argument_list|)
 expr_stmt|;
 name|request
 operator|.
-name|source
+name|setSource
 argument_list|(
 name|XContentFactory
 operator|.
@@ -735,7 +735,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|script
+name|getScript
 argument_list|()
 argument_list|,
 name|equalTo
@@ -748,7 +748,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|scriptParams
+name|getScriptParams
 argument_list|()
 operator|.
 name|get
@@ -780,7 +780,7 @@ argument_list|)
 expr_stmt|;
 name|request
 operator|.
-name|source
+name|setSource
 argument_list|(
 name|XContentFactory
 operator|.
@@ -850,7 +850,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|script
+name|getScript
 argument_list|()
 argument_list|,
 name|equalTo
@@ -863,7 +863,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|scriptParams
+name|getScriptParams
 argument_list|()
 operator|.
 name|get
@@ -894,10 +894,10 @@ name|convertToMap
 argument_list|(
 name|request
 operator|.
-name|upsertRequest
+name|getUpsertRequest
 argument_list|()
 operator|.
-name|source
+name|getSource
 argument_list|()
 argument_list|,
 literal|true
@@ -966,7 +966,7 @@ argument_list|)
 expr_stmt|;
 name|request
 operator|.
-name|source
+name|setSource
 argument_list|(
 name|XContentFactory
 operator|.
@@ -1036,7 +1036,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|script
+name|getScript
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1049,7 +1049,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|scriptParams
+name|getScriptParams
 argument_list|()
 operator|.
 name|get
@@ -1074,10 +1074,10 @@ name|convertToMap
 argument_list|(
 name|request
 operator|.
-name|upsertRequest
+name|getUpsertRequest
 argument_list|()
 operator|.
-name|source
+name|getSource
 argument_list|()
 argument_list|,
 literal|true
@@ -1146,7 +1146,7 @@ argument_list|)
 expr_stmt|;
 name|request
 operator|.
-name|source
+name|setSource
 argument_list|(
 name|XContentFactory
 operator|.
@@ -1216,7 +1216,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|script
+name|getScript
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1229,7 +1229,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|scriptParams
+name|getScriptParams
 argument_list|()
 operator|.
 name|get
@@ -1254,10 +1254,10 @@ name|convertToMap
 argument_list|(
 name|request
 operator|.
-name|upsertRequest
+name|getUpsertRequest
 argument_list|()
 operator|.
-name|source
+name|getSource
 argument_list|()
 argument_list|,
 literal|true
@@ -1327,7 +1327,7 @@ argument_list|)
 expr_stmt|;
 name|request
 operator|.
-name|source
+name|setSource
 argument_list|(
 name|XContentFactory
 operator|.
@@ -1381,10 +1381,10 @@ name|doc
 init|=
 name|request
 operator|.
-name|doc
+name|getDoc
 argument_list|()
 operator|.
-name|sourceAsMap
+name|getSourceAsMap
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -1474,7 +1474,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1487,7 +1487,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1509,7 +1509,7 @@ argument_list|,
 literal|"1"
 argument_list|)
 operator|.
-name|setUpsert
+name|setUpsertRequest
 argument_list|(
 name|XContentFactory
 operator|.
@@ -1580,7 +1580,7 @@ name|assertThat
 argument_list|(
 name|getResponse
 operator|.
-name|sourceAsMap
+name|getSourceAsMap
 argument_list|()
 operator|.
 name|get
@@ -1609,7 +1609,7 @@ argument_list|,
 literal|"1"
 argument_list|)
 operator|.
-name|setUpsert
+name|setUpsertRequest
 argument_list|(
 name|XContentFactory
 operator|.
@@ -1680,7 +1680,7 @@ name|assertThat
 argument_list|(
 name|getResponse
 operator|.
-name|sourceAsMap
+name|getSourceAsMap
 argument_list|()
 operator|.
 name|get
@@ -1739,7 +1739,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1752,7 +1752,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1777,7 +1777,7 @@ argument_list|,
 literal|"1"
 argument_list|)
 operator|.
-name|setUpsert
+name|setUpsertRequest
 argument_list|(
 name|XContentFactory
 operator|.
@@ -1881,7 +1881,7 @@ argument_list|,
 literal|"1"
 argument_list|)
 operator|.
-name|setUpsert
+name|setUpsertRequest
 argument_list|(
 name|XContentFactory
 operator|.
@@ -2032,7 +2032,7 @@ argument_list|,
 literal|"1"
 argument_list|)
 operator|.
-name|setUpsert
+name|setUpsertRequest
 argument_list|(
 name|XContentFactory
 operator|.
@@ -2164,7 +2164,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2177,7 +2177,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2277,7 +2277,7 @@ name|assertThat
 argument_list|(
 name|updateResponse
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2325,7 +2325,7 @@ name|assertThat
 argument_list|(
 name|getResponse
 operator|.
-name|sourceAsMap
+name|getSourceAsMap
 argument_list|()
 operator|.
 name|get
@@ -2378,7 +2378,7 @@ name|assertThat
 argument_list|(
 name|updateResponse
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2426,7 +2426,7 @@ name|assertThat
 argument_list|(
 name|getResponse
 operator|.
-name|sourceAsMap
+name|getSourceAsMap
 argument_list|()
 operator|.
 name|get
@@ -2473,7 +2473,7 @@ name|assertThat
 argument_list|(
 name|updateResponse
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2521,7 +2521,7 @@ name|assertThat
 argument_list|(
 name|getResponse
 operator|.
-name|sourceAsMap
+name|getSourceAsMap
 argument_list|()
 operator|.
 name|get
@@ -2568,7 +2568,7 @@ name|assertThat
 argument_list|(
 name|updateResponse
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2616,7 +2616,7 @@ name|assertThat
 argument_list|(
 name|getResponse
 operator|.
-name|exists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2730,7 +2730,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2743,7 +2743,7 @@ name|assertThat
 argument_list|(
 name|clusterHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2787,7 +2787,7 @@ name|assertThat
 argument_list|(
 name|updateResponse
 operator|.
-name|matches
+name|getMatches
 argument_list|()
 operator|.
 name|size
@@ -2868,12 +2868,12 @@ name|Number
 operator|)
 name|getResponse
 operator|.
-name|field
+name|getField
 argument_list|(
 literal|"_ttl"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 operator|)
 operator|.
@@ -2944,12 +2944,12 @@ name|Number
 operator|)
 name|getResponse
 operator|.
-name|field
+name|getField
 argument_list|(
 literal|"_ttl"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 operator|)
 operator|.
@@ -3021,12 +3021,12 @@ name|Number
 operator|)
 name|getResponse
 operator|.
-name|field
+name|getField
 argument_list|(
 literal|"_ttl"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 operator|)
 operator|.
@@ -3138,12 +3138,12 @@ name|Number
 operator|)
 name|getResponse
 operator|.
-name|field
+name|getField
 argument_list|(
 literal|"_timestamp"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 operator|)
 operator|.
@@ -3220,7 +3220,7 @@ name|assertThat
 argument_list|(
 name|updateResponse
 operator|.
-name|getResult
+name|getGetResult
 argument_list|()
 argument_list|,
 name|notNullValue
@@ -3231,7 +3231,7 @@ name|assertThat
 argument_list|(
 name|updateResponse
 operator|.
-name|getResult
+name|getGetResult
 argument_list|()
 operator|.
 name|sourceRef
@@ -3245,7 +3245,7 @@ name|assertThat
 argument_list|(
 name|updateResponse
 operator|.
-name|getResult
+name|getGetResult
 argument_list|()
 operator|.
 name|field
@@ -3253,7 +3253,7 @@ argument_list|(
 literal|"field"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 argument_list|,
 name|notNullValue
@@ -3364,7 +3364,7 @@ name|assertThat
 argument_list|(
 name|getResponse
 operator|.
-name|sourceAsMap
+name|getSourceAsMap
 argument_list|()
 operator|.
 name|get
@@ -3385,7 +3385,7 @@ name|assertThat
 argument_list|(
 name|getResponse
 operator|.
-name|sourceAsMap
+name|getSourceAsMap
 argument_list|()
 operator|.
 name|get
@@ -3482,7 +3482,7 @@ name|assertThat
 argument_list|(
 name|getResponse
 operator|.
-name|sourceAsMap
+name|getSourceAsMap
 argument_list|()
 operator|.
 name|get
@@ -3503,7 +3503,7 @@ name|assertThat
 argument_list|(
 name|getResponse
 operator|.
-name|sourceAsMap
+name|getSourceAsMap
 argument_list|()
 operator|.
 name|get
@@ -3724,7 +3724,7 @@ name|Map
 operator|)
 name|getResponse
 operator|.
-name|sourceAsMap
+name|getSourceAsMap
 argument_list|()
 operator|.
 name|get

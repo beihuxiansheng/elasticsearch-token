@@ -413,7 +413,7 @@ name|assertThat
 argument_list|(
 name|health
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -449,7 +449,7 @@ name|assertThat
 argument_list|(
 name|stateResponse
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|metaData
@@ -477,7 +477,7 @@ name|assertThat
 argument_list|(
 name|stateResponse
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|routingTable
@@ -504,7 +504,7 @@ name|assertThat
 argument_list|(
 name|stateResponse
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|routingTable
@@ -620,7 +620,7 @@ name|assertThat
 argument_list|(
 name|stateResponse
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|metaData
@@ -648,7 +648,7 @@ name|assertThat
 argument_list|(
 name|stateResponse
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|routingTable
@@ -811,7 +811,7 @@ name|assertThat
 argument_list|(
 name|health
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|,
 name|equalTo
@@ -846,7 +846,7 @@ name|assertThat
 argument_list|(
 name|stateResponse
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|metaData
@@ -874,7 +874,7 @@ name|assertThat
 argument_list|(
 name|stateResponse
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|routingTable
@@ -901,7 +901,7 @@ name|assertThat
 argument_list|(
 name|stateResponse
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|routingTable
@@ -1128,7 +1128,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|acknowledged
+name|isAcknowledged
 argument_list|()
 argument_list|,
 name|equalTo

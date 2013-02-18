@@ -376,14 +376,14 @@ argument_list|)
 decl_stmt|;
 name|putMappingRequest
 operator|.
-name|listenerThreaded
+name|setListenerThreaded
 argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
 name|putMappingRequest
 operator|.
-name|type
+name|setType
 argument_list|(
 name|request
 operator|.
@@ -395,7 +395,7 @@ argument_list|)
 expr_stmt|;
 name|putMappingRequest
 operator|.
-name|source
+name|setSource
 argument_list|(
 name|request
 operator|.
@@ -408,7 +408,7 @@ argument_list|)
 expr_stmt|;
 name|putMappingRequest
 operator|.
-name|timeout
+name|setTimeout
 argument_list|(
 name|request
 operator|.
@@ -425,7 +425,7 @@ argument_list|)
 expr_stmt|;
 name|putMappingRequest
 operator|.
-name|ignoreConflicts
+name|setIgnoreConflicts
 argument_list|(
 name|request
 operator|.
@@ -435,7 +435,7 @@ literal|"ignore_conflicts"
 argument_list|,
 name|putMappingRequest
 operator|.
-name|ignoreConflicts
+name|isIgnoreConflicts
 argument_list|()
 argument_list|)
 argument_list|)
@@ -499,7 +499,7 @@ literal|"acknowledged"
 argument_list|,
 name|response
 operator|.
-name|acknowledged
+name|isAcknowledged
 argument_list|()
 argument_list|)
 expr_stmt|;

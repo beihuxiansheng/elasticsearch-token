@@ -125,7 +125,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A request to get a document (its source) from an index based on its type (optional) and id. Best created using  * {@link org.elasticsearch.client.Requests#getRequest(String)}.  *<p/>  *<p>The operation requires the {@link #index()}, {@link #type(String)} and {@link #id(String)}  * to be set.  *  * @see org.elasticsearch.action.get.GetResponse  * @see org.elasticsearch.client.Requests#getRequest(String)  * @see org.elasticsearch.client.Client#get(GetRequest)  */
+comment|/**  * A request to get a document (its source) from an index based on its type (optional) and id. Best created using  * {@link org.elasticsearch.client.Requests#getRequest(String)}.  *<p/>  *<p>The operation requires the {@link #getIndex()}, {@link #setType(String)} and {@link #setId(String)}  * to be set.  *  * @see org.elasticsearch.action.get.GetResponse  * @see org.elasticsearch.client.Requests#getRequest(String)  * @see org.elasticsearch.client.Client#get(GetRequest)  */
 end_comment
 
 begin_class
@@ -185,7 +185,7 @@ operator|=
 literal|"_all"
 expr_stmt|;
 block|}
-comment|/**      * Constructs a new get request against the specified index. The {@link #type(String)} and {@link #id(String)}      * must be set.      */
+comment|/**      * Constructs a new get request against the specified index. The {@link #setType(String)} and {@link #setId(String)}      * must be set.      */
 DECL|method|GetRequest
 specifier|public
 name|GetRequest
@@ -298,10 +298,10 @@ name|validationException
 return|;
 block|}
 comment|/**      * Sets the type of the document to fetch.      */
-DECL|method|type
+DECL|method|setType
 specifier|public
 name|GetRequest
-name|type
+name|setType
 parameter_list|(
 annotation|@
 name|Nullable
@@ -334,10 +334,10 @@ block|}
 comment|/**      * Sets the id of the document to fetch.      */
 annotation|@
 name|Required
-DECL|method|id
+DECL|method|setId
 specifier|public
 name|GetRequest
-name|id
+name|setId
 parameter_list|(
 name|String
 name|id
@@ -354,10 +354,10 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the parent id of this document. Will simply set the routing to this value, as it is only      * used for routing with delete requests.      */
-DECL|method|parent
+DECL|method|setParent
 specifier|public
 name|GetRequest
-name|parent
+name|setParent
 parameter_list|(
 name|String
 name|parent
@@ -380,10 +380,10 @@ name|this
 return|;
 block|}
 comment|/**      * Controls the shard routing of the request. Using this value to hash the shard      * and not the id.      */
-DECL|method|routing
+DECL|method|setRouting
 specifier|public
 name|GetRequest
-name|routing
+name|setRouting
 parameter_list|(
 name|String
 name|routing
@@ -400,10 +400,10 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the preference to execute the search. Defaults to randomize across shards. Can be set to      *<tt>_local</tt> to prefer local shards,<tt>_primary</tt> to execute only on primary shards, or      * a custom value, which guarantees that the same order will be used across different requests.      */
-DECL|method|preference
+DECL|method|setPreference
 specifier|public
 name|GetRequest
-name|preference
+name|setPreference
 parameter_list|(
 name|String
 name|preference
@@ -419,30 +419,30 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|type
+DECL|method|getType
 specifier|public
 name|String
-name|type
+name|getType
 parameter_list|()
 block|{
 return|return
 name|type
 return|;
 block|}
-DECL|method|id
+DECL|method|getId
 specifier|public
 name|String
-name|id
+name|getId
 parameter_list|()
 block|{
 return|return
 name|id
 return|;
 block|}
-DECL|method|routing
+DECL|method|getRouting
 specifier|public
 name|String
-name|routing
+name|getRouting
 parameter_list|()
 block|{
 return|return
@@ -451,10 +451,10 @@ operator|.
 name|routing
 return|;
 block|}
-DECL|method|preference
+DECL|method|getPreference
 specifier|public
 name|String
-name|preference
+name|getPreference
 parameter_list|()
 block|{
 return|return
@@ -464,10 +464,10 @@ name|preference
 return|;
 block|}
 comment|/**      * Explicitly specify the fields that will be returned. By default, the<tt>_source</tt>      * field will be returned.      */
-DECL|method|fields
+DECL|method|setFields
 specifier|public
 name|GetRequest
-name|fields
+name|setFields
 parameter_list|(
 name|String
 modifier|...
@@ -485,11 +485,11 @@ name|this
 return|;
 block|}
 comment|/**      * Explicitly specify the fields that will be returned. By default, the<tt>_source</tt>      * field will be returned.      */
-DECL|method|fields
+DECL|method|getFields
 specifier|public
 name|String
 index|[]
-name|fields
+name|getFields
 parameter_list|()
 block|{
 return|return
@@ -499,10 +499,10 @@ name|fields
 return|;
 block|}
 comment|/**      * Should a refresh be executed before this get operation causing the operation to      * return the latest value. Note, heavy get should not set this to<tt>true</tt>. Defaults      * to<tt>false</tt>.      */
-DECL|method|refresh
+DECL|method|setRefresh
 specifier|public
 name|GetRequest
-name|refresh
+name|setRefresh
 parameter_list|(
 name|boolean
 name|refresh
@@ -518,10 +518,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|refresh
+DECL|method|isRefresh
 specifier|public
 name|boolean
-name|refresh
+name|isRefresh
 parameter_list|()
 block|{
 return|return
@@ -530,10 +530,10 @@ operator|.
 name|refresh
 return|;
 block|}
-DECL|method|realtime
+DECL|method|isRealtime
 specifier|public
 name|boolean
-name|realtime
+name|isRealtime
 parameter_list|()
 block|{
 return|return
@@ -550,10 +550,10 @@ operator|.
 name|realtime
 return|;
 block|}
-DECL|method|realtime
+DECL|method|setRealtime
 specifier|public
 name|GetRequest
-name|realtime
+name|setRealtime
 parameter_list|(
 name|Boolean
 name|realtime

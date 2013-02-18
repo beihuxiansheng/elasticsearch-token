@@ -432,7 +432,7 @@ name|WRITE
 argument_list|,
 name|request
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 return|;
@@ -474,7 +474,7 @@ name|shardRequest
 operator|.
 name|request
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 operator|.
@@ -496,17 +496,17 @@ name|prepareDelete
 argument_list|(
 name|request
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|,
 name|request
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|request
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|)
 operator|.
@@ -531,7 +531,7 @@ expr_stmt|;
 comment|// update the version to happen on the replicas
 name|request
 operator|.
-name|version
+name|setVersion
 argument_list|(
 name|delete
 operator|.
@@ -543,7 +543,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|refresh
+name|isRefresh
 argument_list|()
 condition|)
 block|{
@@ -637,7 +637,7 @@ name|shardRequest
 operator|.
 name|request
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 operator|.
@@ -659,17 +659,17 @@ name|prepareDelete
 argument_list|(
 name|request
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|,
 name|request
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|request
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|)
 operator|.
@@ -695,7 +695,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|refresh
+name|isRefresh
 argument_list|()
 condition|)
 block|{
@@ -756,7 +756,7 @@ argument_list|()
 argument_list|,
 name|request
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -780,7 +780,7 @@ argument_list|()
 operator|==
 name|request
 operator|.
-name|shardId
+name|getShardId
 argument_list|()
 condition|)
 block|{
@@ -797,7 +797,7 @@ literal|"No shards iterator found for shard ["
 operator|+
 name|request
 operator|.
-name|shardId
+name|getShardId
 argument_list|()
 operator|+
 literal|"]"

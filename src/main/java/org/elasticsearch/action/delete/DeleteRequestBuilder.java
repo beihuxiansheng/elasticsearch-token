@@ -202,7 +202,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|type
+name|setType
 argument_list|(
 name|type
 argument_list|)
@@ -223,7 +223,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|id
+name|setId
 argument_list|(
 name|id
 argument_list|)
@@ -244,7 +244,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|parent
+name|setParent
 argument_list|(
 name|parent
 argument_list|)
@@ -265,7 +265,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|routing
+name|setRouting
 argument_list|(
 name|routing
 argument_list|)
@@ -286,7 +286,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|refresh
+name|setRefresh
 argument_list|(
 name|refresh
 argument_list|)
@@ -307,7 +307,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|version
+name|setVersion
 argument_list|(
 name|version
 argument_list|)
@@ -328,7 +328,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|versionType
+name|setVersionType
 argument_list|(
 name|versionType
 argument_list|)
@@ -349,7 +349,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|replicationType
+name|setReplicationType
 argument_list|(
 name|replicationType
 argument_list|)
@@ -370,7 +370,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|consistencyLevel
+name|setConsistencyLevel
 argument_list|(
 name|consistencyLevel
 argument_list|)

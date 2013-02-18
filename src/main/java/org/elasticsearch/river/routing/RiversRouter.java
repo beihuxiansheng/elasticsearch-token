@@ -690,7 +690,7 @@ if|if
 condition|(
 name|getResponse
 operator|.
-name|exists
+name|isExists
 argument_list|()
 condition|)
 block|{
@@ -703,7 +703,7 @@ name|nodeStringValue
 argument_list|(
 name|getResponse
 operator|.
-name|sourceAsMap
+name|getSourceAsMap
 argument_list|()
 operator|.
 name|get

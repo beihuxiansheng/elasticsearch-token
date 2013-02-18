@@ -1631,7 +1631,7 @@ name|exit
 operator|=
 name|request
 operator|.
-name|exit
+name|isExit
 argument_list|()
 expr_stmt|;
 block|}

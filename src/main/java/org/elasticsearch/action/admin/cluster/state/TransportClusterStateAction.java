@@ -341,7 +341,7 @@ block|{
 return|return
 name|request
 operator|.
-name|local
+name|isLocal
 argument_list|()
 return|;
 block|}
@@ -382,7 +382,7 @@ condition|(
 operator|!
 name|request
 operator|.
-name|filterNodes
+name|isFilterNodes
 argument_list|()
 condition|)
 block|{
@@ -402,7 +402,7 @@ condition|(
 operator|!
 name|request
 operator|.
-name|filterRoutingTable
+name|isFilterRoutingTable
 argument_list|()
 condition|)
 block|{
@@ -432,7 +432,7 @@ condition|(
 operator|!
 name|request
 operator|.
-name|filterBlocks
+name|isFilterBlocks
 argument_list|()
 condition|)
 block|{
@@ -452,7 +452,7 @@ condition|(
 operator|!
 name|request
 operator|.
-name|filterMetaData
+name|isFilterMetaData
 argument_list|()
 condition|)
 block|{
@@ -468,7 +468,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|filteredIndices
+name|getFilteredIndices
 argument_list|()
 operator|.
 name|length
@@ -477,7 +477,7 @@ literal|0
 operator|&&
 name|request
 operator|.
-name|filteredIndexTemplates
+name|getFilteredIndexTemplates
 argument_list|()
 operator|.
 name|length
@@ -500,7 +500,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|filteredIndices
+name|getFilteredIndices
 argument_list|()
 operator|.
 name|length
@@ -521,7 +521,7 @@ name|concreteIndicesIgnoreMissing
 argument_list|(
 name|request
 operator|.
-name|filteredIndices
+name|getFilteredIndices
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -569,7 +569,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|filteredIndexTemplates
+name|getFilteredIndexTemplates
 argument_list|()
 operator|.
 name|length
@@ -584,7 +584,7 @@ name|templateName
 range|:
 name|request
 operator|.
-name|filteredIndexTemplates
+name|getFilteredIndexTemplates
 argument_list|()
 control|)
 block|{

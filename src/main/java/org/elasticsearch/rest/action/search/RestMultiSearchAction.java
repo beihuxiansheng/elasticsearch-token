@@ -369,7 +369,7 @@ argument_list|()
 decl_stmt|;
 name|multiSearchRequest
 operator|.
-name|listenerThreaded
+name|setListenerThreaded
 argument_list|(
 literal|false
 argument_list|)

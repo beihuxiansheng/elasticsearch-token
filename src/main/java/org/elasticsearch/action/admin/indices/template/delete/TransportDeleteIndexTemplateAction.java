@@ -408,7 +408,7 @@ name|RemoveRequest
 argument_list|(
 name|request
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|)
 argument_list|,

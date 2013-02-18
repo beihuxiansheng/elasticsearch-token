@@ -381,7 +381,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A search source builder allowing to easily build search source. Simple construction  * using {@link org.elasticsearch.search.builder.SearchSourceBuilder#searchSource()}.  *  * @see org.elasticsearch.action.search.SearchRequest#source(SearchSourceBuilder)  */
+comment|/**  * A search source builder allowing to easily build search source. Simple construction  * using {@link org.elasticsearch.search.builder.SearchSourceBuilder#searchSource()}.  *  * @see org.elasticsearch.action.search.SearchRequest#setSource(SearchSourceBuilder)  */
 end_comment
 
 begin_class

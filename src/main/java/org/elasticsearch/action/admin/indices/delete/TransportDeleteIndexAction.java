@@ -500,12 +500,12 @@ name|indicesOrAliases
 init|=
 name|request
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 decl_stmt|;
 name|request
 operator|.
-name|indices
+name|setIndices
 argument_list|(
 name|state
 operator|.
@@ -516,7 +516,7 @@ name|concreteIndices
 argument_list|(
 name|request
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 argument_list|)
 argument_list|)
@@ -571,7 +571,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|length
@@ -695,7 +695,7 @@ name|METADATA
 argument_list|,
 name|request
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 argument_list|)
 return|;
@@ -721,7 +721,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|length
@@ -774,7 +774,7 @@ name|CountDownLatch
 argument_list|(
 name|request
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 operator|.
 name|length
@@ -788,7 +788,7 @@ name|index
 range|:
 name|request
 operator|.
-name|indices
+name|getIndices
 argument_list|()
 control|)
 block|{
@@ -808,7 +808,7 @@ name|timeout
 argument_list|(
 name|request
 operator|.
-name|timeout
+name|getTimeout
 argument_list|()
 argument_list|)
 argument_list|,
@@ -889,7 +889,7 @@ operator|.
 name|INDEX_NAME
 argument_list|)
 operator|.
-name|type
+name|setType
 argument_list|(
 name|index
 argument_list|)

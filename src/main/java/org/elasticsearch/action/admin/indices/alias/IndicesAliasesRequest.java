@@ -685,12 +685,13 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|aliasActions
+DECL|method|getAliasActions
+specifier|public
 name|List
 argument_list|<
 name|AliasAction
 argument_list|>
-name|aliasActions
+name|getAliasActions
 parameter_list|()
 block|{
 return|return
@@ -700,9 +701,10 @@ name|aliasActions
 return|;
 block|}
 comment|/**      * Timeout to wait till the put mapping gets acknowledged of all current cluster nodes. Defaults to      *<tt>10s</tt>.      */
-DECL|method|timeout
+DECL|method|getTimeout
+specifier|public
 name|TimeValue
-name|timeout
+name|getTimeout
 parameter_list|()
 block|{
 return|return
@@ -710,10 +712,10 @@ name|timeout
 return|;
 block|}
 comment|/**      * Timeout to wait till the alias operations get acknowledged of all current cluster nodes. Defaults to      *<tt>10s</tt>.      */
-DECL|method|timeout
+DECL|method|setTimeout
 specifier|public
 name|IndicesAliasesRequest
-name|timeout
+name|setTimeout
 parameter_list|(
 name|TimeValue
 name|timeout
@@ -730,17 +732,17 @@ name|this
 return|;
 block|}
 comment|/**      * Timeout to wait till the alias operations get acknowledged of all current cluster nodes. Defaults to      *<tt>10s</tt>.      */
-DECL|method|timeout
+DECL|method|setTimeout
 specifier|public
 name|IndicesAliasesRequest
-name|timeout
+name|setTimeout
 parameter_list|(
 name|String
 name|timeout
 parameter_list|)
 block|{
 return|return
-name|timeout
+name|setTimeout
 argument_list|(
 name|TimeValue
 operator|.

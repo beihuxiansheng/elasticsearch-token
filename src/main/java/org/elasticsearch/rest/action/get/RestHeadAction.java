@@ -270,21 +270,21 @@ argument_list|)
 decl_stmt|;
 name|getRequest
 operator|.
-name|listenerThreaded
+name|setListenerThreaded
 argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
 name|getRequest
 operator|.
-name|operationThreaded
+name|setOperationThreaded
 argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
 name|getRequest
 operator|.
-name|refresh
+name|setRefresh
 argument_list|(
 name|request
 operator|.
@@ -294,14 +294,14 @@ literal|"refresh"
 argument_list|,
 name|getRequest
 operator|.
-name|refresh
+name|isRefresh
 argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|getRequest
 operator|.
-name|parent
+name|setParent
 argument_list|(
 name|request
 operator|.
@@ -313,7 +313,7 @@ argument_list|)
 expr_stmt|;
 name|getRequest
 operator|.
-name|routing
+name|setRouting
 argument_list|(
 name|request
 operator|.
@@ -325,7 +325,7 @@ argument_list|)
 expr_stmt|;
 name|getRequest
 operator|.
-name|preference
+name|setPreference
 argument_list|(
 name|request
 operator|.
@@ -337,7 +337,7 @@ argument_list|)
 expr_stmt|;
 name|getRequest
 operator|.
-name|realtime
+name|setRealtime
 argument_list|(
 name|request
 operator|.
@@ -352,7 +352,7 @@ expr_stmt|;
 comment|// don't get any fields back...
 name|getRequest
 operator|.
-name|fields
+name|setFields
 argument_list|(
 name|Strings
 operator|.
@@ -390,7 +390,7 @@ condition|(
 operator|!
 name|response
 operator|.
-name|exists
+name|isExists
 argument_list|()
 condition|)
 block|{

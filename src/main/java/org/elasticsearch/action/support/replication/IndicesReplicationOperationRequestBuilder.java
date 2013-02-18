@@ -162,7 +162,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|timeout
+name|setTimeout
 argument_list|(
 name|timeout
 argument_list|)
@@ -192,7 +192,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|timeout
+name|setTimeout
 argument_list|(
 name|timeout
 argument_list|)
@@ -222,7 +222,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|indices
+name|setIndices
 argument_list|(
 name|indices
 argument_list|)
@@ -251,7 +251,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|replicationType
+name|setReplicationType
 argument_list|(
 name|replicationType
 argument_list|)
@@ -280,7 +280,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|replicationType
+name|setReplicationType
 argument_list|(
 name|replicationType
 argument_list|)
@@ -309,7 +309,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|consistencyLevel
+name|setConsistencyLevel
 argument_list|(
 name|consistencyLevel
 argument_list|)

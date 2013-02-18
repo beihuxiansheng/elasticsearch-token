@@ -322,14 +322,14 @@ argument_list|)
 decl_stmt|;
 name|deleteMappingRequest
 operator|.
-name|listenerThreaded
+name|setListenerThreaded
 argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
 name|deleteMappingRequest
 operator|.
-name|type
+name|setType
 argument_list|(
 name|request
 operator|.

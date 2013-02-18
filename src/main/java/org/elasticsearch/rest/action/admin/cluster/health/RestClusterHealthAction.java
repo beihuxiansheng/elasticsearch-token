@@ -304,7 +304,7 @@ argument_list|)
 decl_stmt|;
 name|clusterHealthRequest
 operator|.
-name|local
+name|setLocal
 argument_list|(
 name|request
 operator|.
@@ -314,14 +314,14 @@ literal|"local"
 argument_list|,
 name|clusterHealthRequest
 operator|.
-name|local
+name|getLocal
 argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|clusterHealthRequest
 operator|.
-name|listenerThreaded
+name|setListenerThreaded
 argument_list|(
 literal|false
 argument_list|)
@@ -335,7 +335,7 @@ try|try
 block|{
 name|clusterHealthRequest
 operator|.
-name|masterNodeTimeout
+name|setMasterNodeTimeout
 argument_list|(
 name|request
 operator|.
@@ -345,14 +345,14 @@ literal|"master_timeout"
 argument_list|,
 name|clusterHealthRequest
 operator|.
-name|masterNodeTimeout
+name|getMasterNodeTimeout
 argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|clusterHealthRequest
 operator|.
-name|timeout
+name|setTimeout
 argument_list|(
 name|request
 operator|.
@@ -362,7 +362,7 @@ literal|"timeout"
 argument_list|,
 name|clusterHealthRequest
 operator|.
-name|timeout
+name|getTimeout
 argument_list|()
 argument_list|)
 argument_list|)
@@ -386,7 +386,7 @@ condition|)
 block|{
 name|clusterHealthRequest
 operator|.
-name|waitForStatus
+name|setWaitForStatus
 argument_list|(
 name|ClusterHealthStatus
 operator|.
@@ -402,7 +402,7 @@ expr_stmt|;
 block|}
 name|clusterHealthRequest
 operator|.
-name|waitForRelocatingShards
+name|setWaitForRelocatingShards
 argument_list|(
 name|request
 operator|.
@@ -412,14 +412,14 @@ literal|"wait_for_relocating_shards"
 argument_list|,
 name|clusterHealthRequest
 operator|.
-name|waitForRelocatingShards
+name|getWaitForRelocatingShards
 argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|clusterHealthRequest
 operator|.
-name|waitForActiveShards
+name|setWaitForActiveShards
 argument_list|(
 name|request
 operator|.
@@ -429,14 +429,14 @@ literal|"wait_for_active_shards"
 argument_list|,
 name|clusterHealthRequest
 operator|.
-name|waitForActiveShards
+name|getWaitForActiveShards
 argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|clusterHealthRequest
 operator|.
-name|waitForNodes
+name|setWaitForNodes
 argument_list|(
 name|request
 operator|.
@@ -446,7 +446,7 @@ literal|"wait_for_nodes"
 argument_list|,
 name|clusterHealthRequest
 operator|.
-name|waitForNodes
+name|getWaitForNodes
 argument_list|()
 argument_list|)
 argument_list|)
@@ -659,7 +659,7 @@ name|CLUSTER_NAME
 argument_list|,
 name|response
 operator|.
-name|clusterName
+name|getClusterName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -673,7 +673,7 @@ name|STATUS
 argument_list|,
 name|response
 operator|.
-name|status
+name|getStatus
 argument_list|()
 operator|.
 name|name
@@ -693,7 +693,7 @@ name|TIMED_OUT
 argument_list|,
 name|response
 operator|.
-name|timedOut
+name|isTimedOut
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -707,7 +707,7 @@ name|NUMBER_OF_NODES
 argument_list|,
 name|response
 operator|.
-name|numberOfNodes
+name|getNumberOfNodes
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -721,7 +721,7 @@ name|NUMBER_OF_DATA_NODES
 argument_list|,
 name|response
 operator|.
-name|numberOfDataNodes
+name|getNumberOfDataNodes
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -735,7 +735,7 @@ name|ACTIVE_PRIMARY_SHARDS
 argument_list|,
 name|response
 operator|.
-name|activePrimaryShards
+name|getActivePrimaryShards
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -749,7 +749,7 @@ name|ACTIVE_SHARDS
 argument_list|,
 name|response
 operator|.
-name|activeShards
+name|getActiveShards
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -763,7 +763,7 @@ name|RELOCATING_SHARDS
 argument_list|,
 name|response
 operator|.
-name|relocatingShards
+name|getRelocatingShards
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -777,7 +777,7 @@ name|INITIALIZING_SHARDS
 argument_list|,
 name|response
 operator|.
-name|initializingShards
+name|getInitializingShards
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -791,7 +791,7 @@ name|UNASSIGNED_SHARDS
 argument_list|,
 name|response
 operator|.
-name|unassignedShards
+name|getUnassignedShards
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -800,7 +800,7 @@ condition|(
 operator|!
 name|response
 operator|.
-name|validationFailures
+name|getValidationFailures
 argument_list|()
 operator|.
 name|isEmpty
@@ -823,7 +823,7 @@ name|validationFailure
 range|:
 name|response
 operator|.
-name|validationFailures
+name|getValidationFailures
 argument_list|()
 control|)
 block|{
@@ -858,7 +858,7 @@ name|startObject
 argument_list|(
 name|indexHealth
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -867,7 +867,7 @@ condition|(
 operator|!
 name|indexHealth
 operator|.
-name|validationFailures
+name|getValidationFailures
 argument_list|()
 operator|.
 name|isEmpty
@@ -890,7 +890,7 @@ name|validationFailure
 range|:
 name|indexHealth
 operator|.
-name|validationFailures
+name|getValidationFailures
 argument_list|()
 control|)
 block|{
@@ -951,7 +951,7 @@ name|startObject
 argument_list|(
 name|indexHealth
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|XContentBuilder
@@ -971,7 +971,7 @@ name|STATUS
 argument_list|,
 name|indexHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 operator|.
 name|name
@@ -991,7 +991,7 @@ name|NUMBER_OF_SHARDS
 argument_list|,
 name|indexHealth
 operator|.
-name|numberOfShards
+name|getNumberOfShards
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1005,7 +1005,7 @@ name|NUMBER_OF_REPLICAS
 argument_list|,
 name|indexHealth
 operator|.
-name|numberOfReplicas
+name|getNumberOfReplicas
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1019,7 +1019,7 @@ name|ACTIVE_PRIMARY_SHARDS
 argument_list|,
 name|indexHealth
 operator|.
-name|activePrimaryShards
+name|getActivePrimaryShards
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1033,7 +1033,7 @@ name|ACTIVE_SHARDS
 argument_list|,
 name|indexHealth
 operator|.
-name|activeShards
+name|getActiveShards
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1047,7 +1047,7 @@ name|RELOCATING_SHARDS
 argument_list|,
 name|indexHealth
 operator|.
-name|relocatingShards
+name|getRelocatingShards
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1061,7 +1061,7 @@ name|INITIALIZING_SHARDS
 argument_list|,
 name|indexHealth
 operator|.
-name|initializingShards
+name|getInitializingShards
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1075,7 +1075,7 @@ name|UNASSIGNED_SHARDS
 argument_list|,
 name|indexHealth
 operator|.
-name|unassignedShards
+name|getUnassignedShards
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1084,7 +1084,7 @@ condition|(
 operator|!
 name|indexHealth
 operator|.
-name|validationFailures
+name|getValidationFailures
 argument_list|()
 operator|.
 name|isEmpty
@@ -1107,7 +1107,7 @@ name|validationFailure
 range|:
 name|indexHealth
 operator|.
-name|validationFailures
+name|getValidationFailures
 argument_list|()
 control|)
 block|{
@@ -1159,7 +1159,7 @@ name|toString
 argument_list|(
 name|shardHealth
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1174,7 +1174,7 @@ name|STATUS
 argument_list|,
 name|shardHealth
 operator|.
-name|status
+name|getStatus
 argument_list|()
 operator|.
 name|name
@@ -1194,7 +1194,7 @@ name|PRIMARY_ACTIVE
 argument_list|,
 name|shardHealth
 operator|.
-name|primaryActive
+name|isPrimaryActive
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1208,7 +1208,7 @@ name|ACTIVE_SHARDS
 argument_list|,
 name|shardHealth
 operator|.
-name|activeShards
+name|getActiveShards
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1222,7 +1222,7 @@ name|RELOCATING_SHARDS
 argument_list|,
 name|shardHealth
 operator|.
-name|relocatingShards
+name|getRelocatingShards
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1236,7 +1236,7 @@ name|INITIALIZING_SHARDS
 argument_list|,
 name|shardHealth
 operator|.
-name|initializingShards
+name|getInitializingShards
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1250,7 +1250,7 @@ name|UNASSIGNED_SHARDS
 argument_list|,
 name|shardHealth
 operator|.
-name|unassignedShards
+name|getUnassignedShards
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -203,7 +203,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|types
+name|setTypes
 argument_list|(
 name|types
 argument_list|)
@@ -224,7 +224,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|routing
+name|setRouting
 argument_list|(
 name|routing
 argument_list|)
@@ -246,7 +246,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|routing
+name|setRouting
 argument_list|(
 name|routing
 argument_list|)
@@ -267,7 +267,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|query
+name|setQuery
 argument_list|(
 name|queryBuilder
 argument_list|)
@@ -288,7 +288,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|query
+name|setQuery
 argument_list|(
 name|querySource
 argument_list|)
@@ -314,7 +314,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|query
+name|setQuery
 argument_list|(
 name|querySource
 argument_list|)
@@ -335,7 +335,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|query
+name|setQuery
 argument_list|(
 name|builder
 argument_list|)
@@ -357,7 +357,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|query
+name|setQuery
 argument_list|(
 name|querySource
 argument_list|)
@@ -378,7 +378,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|query
+name|setQuery
 argument_list|(
 name|querySource
 argument_list|,
@@ -404,7 +404,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|query
+name|setQuery
 argument_list|(
 name|querySource
 argument_list|,
@@ -437,7 +437,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|query
+name|setQuery
 argument_list|(
 name|querySource
 argument_list|,
@@ -464,7 +464,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|replicationType
+name|setReplicationType
 argument_list|(
 name|replicationType
 argument_list|)
@@ -485,7 +485,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|replicationType
+name|setReplicationType
 argument_list|(
 name|replicationType
 argument_list|)
@@ -505,7 +505,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|consistencyLevel
+name|setConsistencyLevel
 argument_list|(
 name|consistencyLevel
 argument_list|)

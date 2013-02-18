@@ -132,10 +132,10 @@ operator|=
 name|shardId
 expr_stmt|;
 block|}
-DECL|method|index
+DECL|method|getIndex
 specifier|public
 name|String
-name|index
+name|getIndex
 parameter_list|()
 block|{
 return|return
@@ -144,10 +144,10 @@ operator|.
 name|index
 return|;
 block|}
-DECL|method|shardId
+DECL|method|getShardId
 specifier|public
 name|int
-name|shardId
+name|getShardId
 parameter_list|()
 block|{
 return|return

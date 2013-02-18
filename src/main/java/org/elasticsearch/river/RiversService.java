@@ -1494,7 +1494,7 @@ condition|(
 operator|!
 name|getResponse
 operator|.
-name|exists
+name|isExists
 argument_list|()
 condition|)
 block|{
@@ -1748,7 +1748,7 @@ if|if
 condition|(
 name|getResponse
 operator|.
-name|exists
+name|isExists
 argument_list|()
 condition|)
 block|{
@@ -1762,7 +1762,7 @@ argument_list|()
 argument_list|,
 name|getResponse
 operator|.
-name|sourceAsMap
+name|getSourceAsMap
 argument_list|()
 argument_list|)
 expr_stmt|;

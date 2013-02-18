@@ -1843,7 +1843,7 @@ name|equals
 argument_list|(
 name|nodeInfo
 operator|.
-name|clusterName
+name|getClusterName
 argument_list|()
 argument_list|)
 condition|)
@@ -2150,12 +2150,12 @@ operator|.
 name|filterAll
 argument_list|()
 operator|.
-name|filterNodes
+name|setFilterNodes
 argument_list|(
 literal|false
 argument_list|)
 operator|.
-name|local
+name|setLocal
 argument_list|(
 literal|true
 argument_list|)
@@ -2353,7 +2353,7 @@ name|equals
 argument_list|(
 name|clusterStateResponse
 operator|.
-name|clusterName
+name|getClusterName
 argument_list|()
 argument_list|)
 condition|)
@@ -2366,7 +2366,7 @@ literal|"node {} not part of the cluster {}, ignoring..."
 argument_list|,
 name|clusterStateResponse
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|nodes
@@ -2386,7 +2386,7 @@ name|node
 range|:
 name|clusterStateResponse
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|nodes

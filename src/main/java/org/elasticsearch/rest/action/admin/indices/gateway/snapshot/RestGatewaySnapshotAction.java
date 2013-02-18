@@ -341,7 +341,7 @@ argument_list|)
 decl_stmt|;
 name|gatewaySnapshotRequest
 operator|.
-name|listenerThreaded
+name|setListenerThreaded
 argument_list|(
 literal|false
 argument_list|)
@@ -358,7 +358,7 @@ condition|)
 block|{
 name|gatewaySnapshotRequest
 operator|.
-name|ignoreIndices
+name|setIgnoreIndices
 argument_list|(
 name|IgnoreIndices
 operator|.

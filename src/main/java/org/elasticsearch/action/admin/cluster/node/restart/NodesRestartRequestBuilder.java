@@ -142,7 +142,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|delay
+name|setDelay
 argument_list|(
 name|delay
 argument_list|)
@@ -163,7 +163,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|delay
+name|setDelay
 argument_list|(
 name|delay
 argument_list|)

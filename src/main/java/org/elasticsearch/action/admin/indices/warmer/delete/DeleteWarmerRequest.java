@@ -186,9 +186,10 @@ block|}
 comment|/**      * The name to delete.      */
 annotation|@
 name|Nullable
-DECL|method|name
+DECL|method|getName
+specifier|public
 name|String
-name|name
+name|getName
 parameter_list|()
 block|{
 return|return
@@ -196,10 +197,10 @@ name|name
 return|;
 block|}
 comment|/**      * The name (or wildcard expression) of the index warmer to delete, or null      * to delete all warmers.      */
-DECL|method|name
+DECL|method|setName
 specifier|public
 name|DeleteWarmerRequest
-name|name
+name|setName
 parameter_list|(
 annotation|@
 name|Nullable
@@ -218,10 +219,10 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the indices this put mapping operation will execute on.      */
-DECL|method|indices
+DECL|method|setIndices
 specifier|public
 name|DeleteWarmerRequest
-name|indices
+name|setIndices
 parameter_list|(
 name|String
 index|[]
@@ -239,11 +240,11 @@ name|this
 return|;
 block|}
 comment|/**      * The indices the mappings will be put.      */
-DECL|method|indices
+DECL|method|getIndices
 specifier|public
 name|String
 index|[]
-name|indices
+name|getIndices
 parameter_list|()
 block|{
 return|return
