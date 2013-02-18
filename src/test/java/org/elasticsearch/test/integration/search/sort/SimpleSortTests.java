@@ -5795,10 +5795,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testSortLongMVField
+DECL|method|testSortMVField
 specifier|public
 name|void
-name|testSortLongMVField
+name|testSortMVField
 parameter_list|()
 throws|throws
 name|Exception
