@@ -1629,6 +1629,11 @@ operator|.
 name|setWaitForGreenStatus
 argument_list|()
 operator|.
+name|setWaitForNodes
+argument_list|(
+literal|"2"
+argument_list|)
+operator|.
 name|setWaitForActiveShards
 argument_list|(
 literal|4
@@ -1777,6 +1782,11 @@ argument_list|()
 operator|.
 name|setWaitForGreenStatus
 argument_list|()
+operator|.
+name|setWaitForNodes
+argument_list|(
+literal|"1"
+argument_list|)
 operator|.
 name|setWaitForActiveShards
 argument_list|(
@@ -2269,6 +2279,11 @@ operator|.
 name|setWaitForGreenStatus
 argument_list|()
 operator|.
+name|setWaitForNodes
+argument_list|(
+literal|"2"
+argument_list|)
+operator|.
 name|setWaitForActiveShards
 argument_list|(
 literal|4
@@ -2417,6 +2432,11 @@ argument_list|()
 operator|.
 name|setWaitForYellowStatus
 argument_list|()
+operator|.
+name|setWaitForNodes
+argument_list|(
+literal|"1"
+argument_list|)
 operator|.
 name|setWaitForActiveShards
 argument_list|(
