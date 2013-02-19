@@ -596,6 +596,11 @@ argument_list|()
 operator|.
 name|setWaitForGreenStatus
 argument_list|()
+operator|.
+name|setWaitForNodes
+argument_list|(
+literal|"2"
+argument_list|)
 argument_list|)
 operator|.
 name|actionGet
