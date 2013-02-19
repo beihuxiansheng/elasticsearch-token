@@ -1174,6 +1174,27 @@ name|ClusterState
 name|clusterState
 parameter_list|)
 block|{
+if|if
+condition|(
+name|logger
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"Calculating health based on state version [{}]"
+argument_list|,
+name|clusterState
+operator|.
+name|version
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|RoutingTableValidation
 name|validation
 init|=
