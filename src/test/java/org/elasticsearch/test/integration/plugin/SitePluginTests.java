@@ -155,6 +155,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -225,7 +235,28 @@ specifier|public
 name|void
 name|setupPluginDirectory
 parameter_list|()
+throws|throws
+name|Exception
 block|{
+name|File
+name|pluginDir
+init|=
+operator|new
+name|File
+argument_list|(
+name|SitePluginTests
+operator|.
+name|class
+operator|.
+name|getResource
+argument_list|(
+literal|"/org/elasticsearch/test/integration/plugin"
+argument_list|)
+operator|.
+name|toURI
+argument_list|()
+argument_list|)
+decl_stmt|;
 name|putDefaultSettings
 argument_list|(
 name|settingsBuilder
@@ -235,7 +266,10 @@ name|put
 argument_list|(
 literal|"path.plugins"
 argument_list|,
-literal|"target/test-classes/org/elasticsearch/test/integration/plugin/"
+name|pluginDir
+operator|.
+name|getAbsolutePath
+argument_list|()
 argument_list|)
 operator|.
 name|build
