@@ -47,7 +47,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * A holder for a {@link DocIdSet} and the {@link AtomicReaderContext} it is associated with.  */
 end_comment
 
 begin_class
