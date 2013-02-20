@@ -1421,6 +1421,15 @@ control|)
 block|{
 try|try
 block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"releasing lock [{}]"
+argument_list|,
+name|lock
+argument_list|)
+expr_stmt|;
 name|lock
 operator|.
 name|release
@@ -1433,7 +1442,17 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-comment|// ignore
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"failed to release lock [{}]"
+argument_list|,
+name|e
+argument_list|,
+name|lock
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}
