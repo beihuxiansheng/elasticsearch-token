@@ -16,42 +16,12 @@ name|java
 operator|.
 name|io
 operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|Serializable
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|ObjectInputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|ObjectOutputStream
-import|;
-end_import
-
 begin_comment
-comment|/**  * One or more variables that together maintain an initially zero  * {@code double} sum.  When updates (method {@link #add}) are  * contended across threads, the set of variables may grow dynamically  * to reduce contention.  Method {@link #sum} (or, equivalently {@link  * #doubleValue}) returns the current total combined across the  * variables maintaining the sum.  *  *<p>This class extends {@link Number}, but does<em>not</em> define  * methods such as {@code hashCode} and {@code compareTo} because  * instances are expected to be mutated, and so are not useful as  * collection keys.  *  *<p><em>jsr166e note: This class is targeted to be placed in  * java.util.concurrent.atomic<em>  *  * @since 1.8  * @author Doug Lea  */
+comment|/**  * One or more variables that together maintain an initially zero  * {@code double} sum.  When updates (method {@link #add}) are  * contended across threads, the set of variables may grow dynamically  * to reduce contention.  Method {@link #sum} (or, equivalently {@link  * #doubleValue}) returns the current total combined across the  * variables maintaining the sum.  *  *<p>This class extends {@link Number}, but does<em>not</em> define  * methods such as {@code equals}, {@code hashCode} and {@code  * compareTo} because instances are expected to be mutated, and so are  * not useful as collection keys.  *  *<p><em>jsr166e note: This class is targeted to be placed in  * java.util.concurrent.atomic.</em>  *  * @since 1.8  * @author Doug Lea  */
 end_comment
 
 begin_class
@@ -272,7 +242,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Returns the current sum.  The returned value is<em>NOT</em> an      * atomic snapshot: Invocation in the absence of concurrent      * updates returns an accurate result, but concurrent updates that      * occur while the sum is being calculated might not be      * incorporated.  Also, because double-precision arithmetic is not      * strictly associative, the returned result need not be identical      * to the value that would be obtained in a sequential series of      * updates to a single variable.      *      * @return the sum      */
+comment|/**      * Returns the current sum.  The returned value is<em>NOT</em> an      * atomic snapshot; invocation in the absence of concurrent      * updates returns an accurate result, but concurrent updates that      * occur while the sum is being calculated might not be      * incorporated.  Also, because floating-point arithmetic is not      * strictly associative, the returned result need not be identical      * to the value that would be obtained in a sequential series of      * updates to a single variable.      *      * @return the sum      */
 DECL|method|sum
 specifier|public
 name|double
@@ -580,10 +550,18 @@ specifier|private
 name|void
 name|readObject
 parameter_list|(
+name|java
+operator|.
+name|io
+operator|.
 name|ObjectInputStream
 name|s
 parameter_list|)
 throws|throws
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 throws|,
 name|ClassNotFoundException

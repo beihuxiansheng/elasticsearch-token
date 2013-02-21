@@ -16,42 +16,12 @@ name|java
 operator|.
 name|io
 operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|Serializable
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|ObjectInputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|ObjectOutputStream
-import|;
-end_import
-
 begin_comment
-comment|/**  * One or more variables that together maintain a running {@code long}  * maximum with initial value {@code Long.MIN_VALUE}.  When updates  * (method {@link #update}) are contended across threads, the set of  * variables may grow dynamically to reduce contention.  Method {@link  * #max} (or, equivalently, {@link #longValue}) returns the current  * maximum across the variables maintaining updates.  *  *<p>This class extends {@link Number}, but does<em>not</em> define  * methods such as {@code hashCode} and {@code compareTo} because  * instances are expected to be mutated, and so are not useful as  * collection keys.  *  *<p><em>jsr166e note: This class is targeted to be placed in  * java.util.concurrent.atomic<em>  *  * @since 1.8  * @author Doug Lea  */
+comment|/**  * One or more variables that together maintain a running {@code long}  * maximum with initial value {@code Long.MIN_VALUE}.  When updates  * (method {@link #update}) are contended across threads, the set of  * variables may grow dynamically to reduce contention.  Method {@link  * #max} (or, equivalently, {@link #longValue}) returns the current  * maximum across the variables maintaining updates.  *  *<p>This class extends {@link Number}, but does<em>not</em> define  * methods such as {@code equals}, {@code hashCode} and {@code  * compareTo} because instances are expected to be mutated, and so are  * not useful as collection keys.  *  *<p><em>jsr166e note: This class is targeted to be placed in  * java.util.concurrent.atomic.</em>  *  * @since 1.8  * @author Doug Lea  */
 end_comment
 
 begin_class
@@ -253,7 +223,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Returns the current maximum.  The returned value is      *<em>NOT</em> an atomic snapshot: Invocation in the absence of      * concurrent updates returns an accurate result, but concurrent      * updates that occur while the value is being calculated might      * not be incorporated.      *      * @return the maximum      */
+comment|/**      * Returns the current maximum.  The returned value is      *<em>NOT</em> an atomic snapshot; invocation in the absence of      * concurrent updates returns an accurate result, but concurrent      * updates that occur while the value is being calculated might      * not be incorporated.      *      * @return the maximum      */
 DECL|method|max
 specifier|public
 name|long
@@ -564,10 +534,18 @@ specifier|private
 name|void
 name|readObject
 parameter_list|(
+name|java
+operator|.
+name|io
+operator|.
 name|ObjectInputStream
 name|s
 parameter_list|)
 throws|throws
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 throws|,
 name|ClassNotFoundException

@@ -49,7 +49,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A keyed table of adders, that may be useful in computing frequency  * counts and histograms, or may be used as a form of multiset.  A  * {@link LongAdder} is associated with each key. Keys are added to  * the table implicitly upon any attempt to update, or may be added  * explicitly using method {@link #install}.  *  *<p><em>jsr166e note: This class is targeted to be placed in  * java.util.concurrent.atomic<em>  *  * @since 1.8  * @author Doug Lea  */
+comment|/**  * A keyed table of adders, that may be useful in computing frequency  * counts and histograms, or may be used as a form of multiset.  A  * {@link LongAdder} is associated with each key. Keys are added to  * the table implicitly upon any attempt to update, or may be added  * explicitly using method {@link #install}.  *  *<p><em>jsr166e note: This class is targeted to be placed in  * java.util.concurrent.atomic.</em>  *  * @since 1.8  * @author Doug Lea  */
 end_comment
 
 begin_class
@@ -93,17 +93,17 @@ name|CreateAdder
 implements|implements
 name|ConcurrentHashMapV8
 operator|.
-name|MappingFunction
+name|Fun
 argument_list|<
 name|Object
 argument_list|,
 name|LongAdder
 argument_list|>
 block|{
-DECL|method|map
+DECL|method|apply
 specifier|public
 name|LongAdder
-name|map
+name|apply
 parameter_list|(
 name|Object
 name|unused

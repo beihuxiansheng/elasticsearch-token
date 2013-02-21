@@ -4,9 +4,9 @@ comment|/*  * Written by Doug Lea with assistance from members of JCP JSR-166  *
 end_comment
 
 begin_package
-DECL|package|jsr166y
+DECL|package|jsr166e
 package|package
-name|jsr166y
+name|jsr166e
 package|;
 end_package
 
