@@ -1703,6 +1703,22 @@ block|}
 block|}
 block|}
 block|}
+comment|// Throw clean exception when no content is provided Fix #23
+if|if
+condition|(
+name|content
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|MapperParsingException
+argument_list|(
+literal|"No content is provided."
+argument_list|)
+throw|;
+block|}
 name|Metadata
 name|metadata
 init|=
