@@ -491,6 +491,25 @@ name|values
 argument_list|)
 return|;
 block|}
+comment|/**      * A terms lookup filter for the provided field name. A lookup terms filter can      * extract the terms to filter by from another doc in an index.      */
+DECL|method|termsLookupFilter
+specifier|public
+specifier|static
+name|TermsLookupFilterBuilder
+name|termsLookupFilter
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+return|return
+operator|new
+name|TermsLookupFilterBuilder
+argument_list|(
+name|name
+argument_list|)
+return|;
+block|}
 comment|/**      * A filer for a field based on several terms matching on any of them.      *      * @param name   The field name      * @param values The terms      */
 DECL|method|inFilter
 specifier|public

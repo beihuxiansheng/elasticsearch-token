@@ -438,11 +438,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|invalidateCache
+DECL|method|invalidateStatsCache
 specifier|public
 specifier|synchronized
 name|void
-name|invalidateCache
+name|invalidateStatsCache
 parameter_list|()
 block|{
 name|FilterCache
