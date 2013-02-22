@@ -142,10 +142,10 @@ name|queryBuilder
 argument_list|)
 return|;
 block|}
-DECL|method|setRescorer
+DECL|method|rescorer
 specifier|public
 name|RescoreBuilder
-name|setRescorer
+name|rescorer
 parameter_list|(
 name|Rescorer
 name|rescorer
@@ -161,10 +161,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|setWindowSize
+DECL|method|windowSize
 specifier|public
 name|RescoreBuilder
-name|setWindowSize
+name|windowSize
 parameter_list|(
 name|int
 name|windowSize

@@ -1966,7 +1966,7 @@ block|{
 name|rescoreBuilder
 argument_list|()
 operator|.
-name|setRescorer
+name|rescorer
 argument_list|(
 name|rescorer
 argument_list|)
@@ -1987,7 +1987,7 @@ block|{
 name|rescoreBuilder
 argument_list|()
 operator|.
-name|setWindowSize
+name|windowSize
 argument_list|(
 name|window
 argument_list|)
