@@ -1049,6 +1049,10 @@ operator|.
 name|copyBytesArray
 argument_list|()
 expr_stmt|;
+name|sourceUnsafe
+operator|=
+literal|false
+expr_stmt|;
 block|}
 return|return
 name|source
