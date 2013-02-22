@@ -496,10 +496,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|getLocal
+DECL|method|isLocal
 specifier|public
 name|boolean
-name|getLocal
+name|isLocal
 parameter_list|()
 block|{
 return|return

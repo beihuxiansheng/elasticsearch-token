@@ -314,7 +314,7 @@ literal|"local"
 argument_list|,
 name|clusterHealthRequest
 operator|.
-name|getLocal
+name|isLocal
 argument_list|()
 argument_list|)
 argument_list|)
