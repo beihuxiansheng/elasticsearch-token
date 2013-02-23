@@ -134,7 +134,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|getIgnoreIndices
+name|ignoreIndices
 argument_list|()
 operator|==
 name|IgnoreIndices
@@ -144,7 +144,7 @@ operator|&&
 name|request
 argument_list|()
 operator|.
-name|getIgnoreIndices
+name|ignoreIndices
 argument_list|()
 operator|!=
 name|IgnoreIndices
@@ -154,12 +154,12 @@ condition|)
 block|{
 name|request
 operator|.
-name|setIgnoreIndices
+name|ignoreIndices
 argument_list|(
 name|request
 argument_list|()
 operator|.
-name|getIgnoreIndices
+name|ignoreIndices
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -194,7 +194,7 @@ operator|.
 name|request
 argument_list|()
 operator|.
-name|getIgnoreIndices
+name|ignoreIndices
 argument_list|()
 operator|==
 name|IgnoreIndices
@@ -204,7 +204,7 @@ operator|&&
 name|request
 argument_list|()
 operator|.
-name|getIgnoreIndices
+name|ignoreIndices
 argument_list|()
 operator|!=
 name|IgnoreIndices
@@ -217,12 +217,12 @@ operator|.
 name|request
 argument_list|()
 operator|.
-name|setIgnoreIndices
+name|ignoreIndices
 argument_list|(
 name|request
 argument_list|()
 operator|.
-name|getIgnoreIndices
+name|ignoreIndices
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -253,7 +253,7 @@ block|{
 name|request
 argument_list|()
 operator|.
-name|setIgnoreIndices
+name|ignoreIndices
 argument_list|(
 name|ignoreIndices
 argument_list|)

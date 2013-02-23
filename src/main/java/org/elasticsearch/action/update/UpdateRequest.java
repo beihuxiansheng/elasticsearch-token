@@ -486,10 +486,10 @@ name|validationException
 return|;
 block|}
 comment|/**      * The type of the indexed document.      */
-DECL|method|getType
+DECL|method|type
 specifier|public
 name|String
-name|getType
+name|type
 parameter_list|()
 block|{
 return|return
@@ -497,10 +497,10 @@ name|type
 return|;
 block|}
 comment|/**      * Sets the type of the indexed document.      */
-DECL|method|setType
+DECL|method|type
 specifier|public
 name|UpdateRequest
-name|setType
+name|type
 parameter_list|(
 name|String
 name|type
@@ -517,10 +517,10 @@ name|this
 return|;
 block|}
 comment|/**      * The id of the indexed document.      */
-DECL|method|getId
+DECL|method|id
 specifier|public
 name|String
-name|getId
+name|id
 parameter_list|()
 block|{
 return|return
@@ -528,10 +528,10 @@ name|id
 return|;
 block|}
 comment|/**      * Sets the id of the indexed document.      */
-DECL|method|setId
+DECL|method|id
 specifier|public
 name|UpdateRequest
-name|setId
+name|id
 parameter_list|(
 name|String
 name|id
@@ -548,10 +548,10 @@ name|this
 return|;
 block|}
 comment|/**      * Controls the shard routing of the request. Using this value to hash the shard      * and not the id.      */
-DECL|method|setRouting
+DECL|method|routing
 specifier|public
 name|UpdateRequest
-name|setRouting
+name|routing
 parameter_list|(
 name|String
 name|routing
@@ -592,10 +592,10 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the parent id of this document. Will simply set the routing to this value, as it is only      * used for routing with delete requests.      */
-DECL|method|setParent
+DECL|method|parent
 specifier|public
 name|UpdateRequest
-name|setParent
+name|parent
 parameter_list|(
 name|String
 name|parent
@@ -618,10 +618,10 @@ name|this
 return|;
 block|}
 comment|/**      * Controls the shard routing of the request. Using this value to hash the shard      * and not the id.      */
-DECL|method|getRouting
+DECL|method|routing
 specifier|public
 name|String
-name|getRouting
+name|routing
 parameter_list|()
 block|{
 return|return
@@ -630,10 +630,9 @@ operator|.
 name|routing
 return|;
 block|}
-DECL|method|getShardId
-specifier|public
+DECL|method|shardId
 name|int
-name|getShardId
+name|shardId
 parameter_list|()
 block|{
 return|return
@@ -642,10 +641,10 @@ operator|.
 name|shardId
 return|;
 block|}
-DECL|method|getScript
+DECL|method|script
 specifier|public
 name|String
-name|getScript
+name|script
 parameter_list|()
 block|{
 return|return
@@ -654,7 +653,7 @@ operator|.
 name|script
 return|;
 block|}
-DECL|method|getScriptParams
+DECL|method|scriptParams
 specifier|public
 name|Map
 argument_list|<
@@ -662,7 +661,7 @@ name|String
 argument_list|,
 name|Object
 argument_list|>
-name|getScriptParams
+name|scriptParams
 parameter_list|()
 block|{
 return|return
@@ -672,10 +671,10 @@ name|scriptParams
 return|;
 block|}
 comment|/**      * The script to execute. Note, make sure not to send different script each times and instead      * use script params if possible with the same (automatically compiled) script.      */
-DECL|method|setScript
+DECL|method|script
 specifier|public
 name|UpdateRequest
-name|setScript
+name|script
 parameter_list|(
 name|String
 name|script
@@ -692,10 +691,10 @@ name|this
 return|;
 block|}
 comment|/**      * The language of the script to execute.      */
-DECL|method|setScriptLang
+DECL|method|scriptLang
 specifier|public
 name|UpdateRequest
-name|setScriptLang
+name|scriptLang
 parameter_list|(
 name|String
 name|scriptLang
@@ -753,10 +752,10 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the script parameters to use with the script.      */
-DECL|method|setScriptParams
+DECL|method|scriptParams
 specifier|public
 name|UpdateRequest
-name|setScriptParams
+name|scriptParams
 parameter_list|(
 name|Map
 argument_list|<
@@ -800,10 +799,10 @@ name|this
 return|;
 block|}
 comment|/**      * The script to execute. Note, make sure not to send different script each times and instead      * use script params if possible with the same (automatically compiled) script.      */
-DECL|method|setScript
+DECL|method|script
 specifier|public
 name|UpdateRequest
-name|setScript
+name|script
 parameter_list|(
 name|String
 name|script
@@ -858,10 +857,10 @@ name|this
 return|;
 block|}
 comment|/**      * The script to execute. Note, make sure not to send different script each times and instead      * use script params if possible with the same (automatically compiled) script.      *      * @param script       The script to execute      * @param scriptLang   The script language      * @param scriptParams The script parameters      */
-DECL|method|setScript
+DECL|method|script
 specifier|public
 name|UpdateRequest
-name|setScript
+name|script
 parameter_list|(
 name|String
 name|script
@@ -927,10 +926,10 @@ name|this
 return|;
 block|}
 comment|/**      * Explicitly specify the fields that will be returned. By default, nothing is returned.      */
-DECL|method|setFields
+DECL|method|fields
 specifier|public
 name|UpdateRequest
-name|setFields
+name|fields
 parameter_list|(
 name|String
 modifier|...
@@ -948,11 +947,11 @@ name|this
 return|;
 block|}
 comment|/**      * Get the fields to be returned.      */
-DECL|method|getFields
+DECL|method|fields
 specifier|public
 name|String
 index|[]
-name|getFields
+name|fields
 parameter_list|()
 block|{
 return|return
@@ -962,10 +961,10 @@ name|fields
 return|;
 block|}
 comment|/**      * Sets the number of retries of a version conflict occurs because the document was updated between      * getting it and updating it. Defaults to 1.      */
-DECL|method|setRetryOnConflict
+DECL|method|retryOnConflict
 specifier|public
 name|UpdateRequest
-name|setRetryOnConflict
+name|retryOnConflict
 parameter_list|(
 name|int
 name|retryOnConflict
@@ -981,10 +980,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|getRetryOnConflict
+DECL|method|retryOnConflict
 specifier|public
 name|int
-name|getRetryOnConflict
+name|retryOnConflict
 parameter_list|()
 block|{
 return|return
@@ -994,10 +993,10 @@ name|retryOnConflict
 return|;
 block|}
 comment|/**      * Causes the update request document to be percolated. The parameter is the percolate query      * to use to reduce the percolated queries that are going to run against this doc. Can be      * set to<tt>*</tt> to indicate that all percolate queries should be run.      */
-DECL|method|setPercolate
+DECL|method|percolate
 specifier|public
 name|UpdateRequest
-name|setPercolate
+name|percolate
 parameter_list|(
 name|String
 name|percolate
@@ -1013,10 +1012,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|getPercolate
+DECL|method|percolate
 specifier|public
 name|String
-name|getPercolate
+name|percolate
 parameter_list|()
 block|{
 return|return
@@ -1026,10 +1025,10 @@ name|percolate
 return|;
 block|}
 comment|/**      * Should a refresh be executed post this update operation causing the operation to      * be searchable. Note, heavy indexing should not set this to<tt>true</tt>. Defaults      * to<tt>false</tt>.      */
-DECL|method|setRefresh
+DECL|method|refresh
 specifier|public
 name|UpdateRequest
-name|setRefresh
+name|refresh
 parameter_list|(
 name|boolean
 name|refresh
@@ -1045,10 +1044,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|isRefresh
+DECL|method|refresh
 specifier|public
 name|boolean
-name|isRefresh
+name|refresh
 parameter_list|()
 block|{
 return|return
@@ -1058,10 +1057,10 @@ name|refresh
 return|;
 block|}
 comment|/**      * The replication type.      */
-DECL|method|setReplicationType
+DECL|method|replicationType
 specifier|public
 name|ReplicationType
-name|setReplicationType
+name|replicationType
 parameter_list|()
 block|{
 return|return
@@ -1071,10 +1070,10 @@ name|replicationType
 return|;
 block|}
 comment|/**      * Sets the replication type.      */
-DECL|method|setReplicationType
+DECL|method|replicationType
 specifier|public
 name|UpdateRequest
-name|setReplicationType
+name|replicationType
 parameter_list|(
 name|ReplicationType
 name|replicationType
@@ -1090,10 +1089,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|getConsistencyLevel
+DECL|method|consistencyLevel
 specifier|public
 name|WriteConsistencyLevel
-name|getConsistencyLevel
+name|consistencyLevel
 parameter_list|()
 block|{
 return|return
@@ -1103,10 +1102,10 @@ name|consistencyLevel
 return|;
 block|}
 comment|/**      * Sets the consistency level of write. Defaults to {@link org.elasticsearch.action.WriteConsistencyLevel#DEFAULT}      */
-DECL|method|setConsistencyLevel
+DECL|method|consistencyLevel
 specifier|public
 name|UpdateRequest
-name|setConsistencyLevel
+name|consistencyLevel
 parameter_list|(
 name|WriteConsistencyLevel
 name|consistencyLevel
@@ -1123,10 +1122,10 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the doc to use for updates when a script is not specified.      */
-DECL|method|setDoc
+DECL|method|doc
 specifier|public
 name|UpdateRequest
-name|setDoc
+name|doc
 parameter_list|(
 name|IndexRequest
 name|doc
@@ -1143,19 +1142,19 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the doc to use for updates when a script is not specified.      */
-DECL|method|setDoc
+DECL|method|doc
 specifier|public
 name|UpdateRequest
-name|setDoc
+name|doc
 parameter_list|(
 name|XContentBuilder
 name|source
 parameter_list|)
 block|{
-name|getSafeDoc
+name|safeDoc
 argument_list|()
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|source
 argument_list|)
@@ -1165,19 +1164,19 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the doc to use for updates when a script is not specified.      */
-DECL|method|setDoc
+DECL|method|doc
 specifier|public
 name|UpdateRequest
-name|setDoc
+name|doc
 parameter_list|(
 name|Map
 name|source
 parameter_list|)
 block|{
-name|getSafeDoc
+name|safeDoc
 argument_list|()
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|source
 argument_list|)
@@ -1187,10 +1186,10 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the doc to use for updates when a script is not specified.      */
-DECL|method|setDoc
+DECL|method|doc
 specifier|public
 name|UpdateRequest
-name|setDoc
+name|doc
 parameter_list|(
 name|Map
 name|source
@@ -1199,10 +1198,10 @@ name|XContentType
 name|contentType
 parameter_list|)
 block|{
-name|getSafeDoc
+name|safeDoc
 argument_list|()
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|source
 argument_list|,
@@ -1214,19 +1213,19 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the doc to use for updates when a script is not specified.      */
-DECL|method|setDoc
+DECL|method|doc
 specifier|public
 name|UpdateRequest
-name|setDoc
+name|doc
 parameter_list|(
 name|String
 name|source
 parameter_list|)
 block|{
-name|getSafeDoc
+name|safeDoc
 argument_list|()
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|source
 argument_list|)
@@ -1236,20 +1235,20 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the doc to use for updates when a script is not specified.      */
-DECL|method|setDoc
+DECL|method|doc
 specifier|public
 name|UpdateRequest
-name|setDoc
+name|doc
 parameter_list|(
 name|byte
 index|[]
 name|source
 parameter_list|)
 block|{
-name|getSafeDoc
+name|safeDoc
 argument_list|()
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|source
 argument_list|)
@@ -1259,10 +1258,10 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the doc to use for updates when a script is not specified.      */
-DECL|method|setDoc
+DECL|method|doc
 specifier|public
 name|UpdateRequest
-name|setDoc
+name|doc
 parameter_list|(
 name|byte
 index|[]
@@ -1275,10 +1274,10 @@ name|int
 name|length
 parameter_list|)
 block|{
-name|getSafeDoc
+name|safeDoc
 argument_list|()
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|source
 argument_list|,
@@ -1291,10 +1290,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|getDoc
+DECL|method|doc
 specifier|public
 name|IndexRequest
-name|getDoc
+name|doc
 parameter_list|()
 block|{
 return|return
@@ -1303,10 +1302,10 @@ operator|.
 name|doc
 return|;
 block|}
-DECL|method|getSafeDoc
+DECL|method|safeDoc
 specifier|private
 name|IndexRequest
-name|getSafeDoc
+name|safeDoc
 parameter_list|()
 block|{
 if|if
@@ -1328,10 +1327,10 @@ name|doc
 return|;
 block|}
 comment|/**      * Sets the index request to be used if the document does not exists. Otherwise, a {@link org.elasticsearch.index.engine.DocumentMissingException}      * is thrown.      */
-DECL|method|setUpsertRequest
+DECL|method|upsert
 specifier|public
 name|UpdateRequest
-name|setUpsertRequest
+name|upsert
 parameter_list|(
 name|IndexRequest
 name|upsertRequest
@@ -1348,19 +1347,19 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the doc source of the update request to be used when the document does not exists.      */
-DECL|method|setUpsertRequest
+DECL|method|upsert
 specifier|public
 name|UpdateRequest
-name|setUpsertRequest
+name|upsert
 parameter_list|(
 name|XContentBuilder
 name|source
 parameter_list|)
 block|{
-name|getSafeUpsertRequest
+name|safeUpsertRequest
 argument_list|()
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|source
 argument_list|)
@@ -1370,19 +1369,19 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the doc source of the update request to be used when the document does not exists.      */
-DECL|method|setUpsertRequest
+DECL|method|upsert
 specifier|public
 name|UpdateRequest
-name|setUpsertRequest
+name|upsert
 parameter_list|(
 name|Map
 name|source
 parameter_list|)
 block|{
-name|getSafeUpsertRequest
+name|safeUpsertRequest
 argument_list|()
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|source
 argument_list|)
@@ -1392,10 +1391,10 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the doc source of the update request to be used when the document does not exists.      */
-DECL|method|setUpsertRequest
+DECL|method|upsert
 specifier|public
 name|UpdateRequest
-name|setUpsertRequest
+name|upsert
 parameter_list|(
 name|Map
 name|source
@@ -1404,10 +1403,10 @@ name|XContentType
 name|contentType
 parameter_list|)
 block|{
-name|getSafeUpsertRequest
+name|safeUpsertRequest
 argument_list|()
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|source
 argument_list|,
@@ -1419,19 +1418,19 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the doc source of the update request to be used when the document does not exists.      */
-DECL|method|setUpsertRequest
+DECL|method|upsert
 specifier|public
 name|UpdateRequest
-name|setUpsertRequest
+name|upsert
 parameter_list|(
 name|String
 name|source
 parameter_list|)
 block|{
-name|getSafeUpsertRequest
+name|safeUpsertRequest
 argument_list|()
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|source
 argument_list|)
@@ -1441,20 +1440,20 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the doc source of the update request to be used when the document does not exists.      */
-DECL|method|setUpsertRequest
+DECL|method|upsert
 specifier|public
 name|UpdateRequest
-name|setUpsertRequest
+name|upsert
 parameter_list|(
 name|byte
 index|[]
 name|source
 parameter_list|)
 block|{
-name|getSafeUpsertRequest
+name|safeUpsertRequest
 argument_list|()
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|source
 argument_list|)
@@ -1464,10 +1463,10 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the doc source of the update request to be used when the document does not exists.      */
-DECL|method|setUpsertRequest
+DECL|method|upsert
 specifier|public
 name|UpdateRequest
-name|setUpsertRequest
+name|upsert
 parameter_list|(
 name|byte
 index|[]
@@ -1480,10 +1479,10 @@ name|int
 name|length
 parameter_list|)
 block|{
-name|getSafeUpsertRequest
+name|safeUpsertRequest
 argument_list|()
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|source
 argument_list|,
@@ -1496,10 +1495,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|getUpsertRequest
+DECL|method|upsertRequest
 specifier|public
 name|IndexRequest
-name|getUpsertRequest
+name|upsertRequest
 parameter_list|()
 block|{
 return|return
@@ -1508,10 +1507,10 @@ operator|.
 name|upsertRequest
 return|;
 block|}
-DECL|method|getSafeUpsertRequest
+DECL|method|safeUpsertRequest
 specifier|private
 name|IndexRequest
-name|getSafeUpsertRequest
+name|safeUpsertRequest
 parameter_list|()
 block|{
 if|if
@@ -1532,10 +1531,10 @@ return|return
 name|upsertRequest
 return|;
 block|}
-DECL|method|setSource
+DECL|method|source
 specifier|public
 name|UpdateRequest
-name|setSource
+name|source
 parameter_list|(
 name|XContentBuilder
 name|source
@@ -1544,7 +1543,7 @@ throws|throws
 name|Exception
 block|{
 return|return
-name|setSource
+name|source
 argument_list|(
 name|source
 operator|.
@@ -1553,10 +1552,10 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-DECL|method|setSource
+DECL|method|source
 specifier|public
 name|UpdateRequest
-name|setSource
+name|source
 parameter_list|(
 name|byte
 index|[]
@@ -1566,7 +1565,7 @@ throws|throws
 name|Exception
 block|{
 return|return
-name|setSource
+name|source
 argument_list|(
 name|source
 argument_list|,
@@ -1578,10 +1577,10 @@ name|length
 argument_list|)
 return|;
 block|}
-DECL|method|setSource
+DECL|method|source
 specifier|public
 name|UpdateRequest
-name|setSource
+name|source
 parameter_list|(
 name|byte
 index|[]
@@ -1597,7 +1596,7 @@ throws|throws
 name|Exception
 block|{
 return|return
-name|setSource
+name|source
 argument_list|(
 operator|new
 name|BytesArray
@@ -1611,10 +1610,10 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-DECL|method|setSource
+DECL|method|source
 specifier|public
 name|UpdateRequest
-name|setSource
+name|source
 parameter_list|(
 name|BytesReference
 name|source
@@ -1797,10 +1796,10 @@ argument_list|(
 name|parser
 argument_list|)
 expr_stmt|;
-name|getSafeUpsertRequest
+name|safeUpsertRequest
 argument_list|()
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|builder
 argument_list|)
@@ -1834,10 +1833,10 @@ argument_list|(
 name|parser
 argument_list|)
 expr_stmt|;
-name|getSafeDoc
+name|safeDoc
 argument_list|()
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|docBuilder
 argument_list|)
@@ -2189,21 +2188,21 @@ expr_stmt|;
 comment|// make sure the basics are set
 name|doc
 operator|.
-name|setIndex
+name|index
 argument_list|(
 name|index
 argument_list|)
 expr_stmt|;
 name|doc
 operator|.
-name|setType
+name|type
 argument_list|(
 name|type
 argument_list|)
 expr_stmt|;
 name|doc
 operator|.
-name|setId
+name|id
 argument_list|(
 name|id
 argument_list|)
@@ -2287,21 +2286,21 @@ expr_stmt|;
 comment|// make sure the basics are set
 name|upsertRequest
 operator|.
-name|setIndex
+name|index
 argument_list|(
 name|index
 argument_list|)
 expr_stmt|;
 name|upsertRequest
 operator|.
-name|setType
+name|type
 argument_list|(
 name|type
 argument_list|)
 expr_stmt|;
 name|upsertRequest
 operator|.
-name|setId
+name|id
 argument_list|(
 name|id
 argument_list|)

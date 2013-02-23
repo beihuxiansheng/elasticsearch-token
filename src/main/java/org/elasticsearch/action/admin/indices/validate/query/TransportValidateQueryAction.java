@@ -589,7 +589,7 @@ argument_list|()
 argument_list|,
 name|request
 operator|.
-name|getIndices
+name|indices
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -681,7 +681,7 @@ argument_list|)
 argument_list|,
 name|request
 operator|.
-name|getIndices
+name|indices
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -697,7 +697,7 @@ name|clusterState
 argument_list|,
 name|request
 operator|.
-name|getIndices
+name|indices
 argument_list|()
 argument_list|,
 name|concreteIndices
@@ -919,7 +919,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|isExplain
+name|explain
 argument_list|()
 condition|)
 block|{
@@ -1014,7 +1014,7 @@ name|indexServiceSafe
 argument_list|(
 name|request
 operator|.
-name|getIndex
+name|index
 argument_list|()
 argument_list|)
 operator|.
@@ -1030,7 +1030,7 @@ name|indexServiceSafe
 argument_list|(
 name|request
 operator|.
-name|getIndex
+name|index
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1043,7 +1043,7 @@ name|shardSafe
 argument_list|(
 name|request
 operator|.
-name|getShardId
+name|shardId
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1214,12 +1214,12 @@ name|ShardValidateQueryResponse
 argument_list|(
 name|request
 operator|.
-name|getIndex
+name|index
 argument_list|()
 argument_list|,
 name|request
 operator|.
-name|getShardId
+name|shardId
 argument_list|()
 argument_list|,
 name|valid

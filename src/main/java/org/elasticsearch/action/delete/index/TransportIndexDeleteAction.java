@@ -348,7 +348,7 @@ name|IndexDeleteResponse
 argument_list|(
 name|request
 operator|.
-name|getIndex
+name|index
 argument_list|()
 argument_list|,
 name|successfulShards
@@ -451,7 +451,7 @@ name|WRITE
 argument_list|,
 name|request
 operator|.
-name|getIndex
+name|index
 argument_list|()
 argument_list|)
 return|;
@@ -482,7 +482,7 @@ argument_list|()
 argument_list|,
 name|request
 operator|.
-name|getIndex
+name|index
 argument_list|()
 argument_list|)
 return|;

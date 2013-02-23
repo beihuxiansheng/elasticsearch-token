@@ -138,7 +138,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setIndices
+name|indices
 argument_list|(
 name|indices
 argument_list|)
@@ -168,7 +168,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setOperationThreading
+name|operationThreading
 argument_list|(
 name|operationThreading
 argument_list|)
@@ -197,7 +197,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setOperationThreading
+name|operationThreading
 argument_list|(
 name|operationThreading
 argument_list|)
@@ -226,7 +226,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setIgnoreIndices
+name|ignoreIndices
 argument_list|(
 name|ignoreIndices
 argument_list|)

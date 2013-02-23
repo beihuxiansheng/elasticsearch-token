@@ -146,7 +146,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setTimeout
+name|timeout
 argument_list|(
 name|timeout
 argument_list|)
@@ -167,7 +167,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setTimeout
+name|timeout
 argument_list|(
 name|timeout
 argument_list|)

@@ -270,7 +270,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setPreference
+name|preference
 argument_list|(
 name|preference
 argument_list|)
@@ -291,7 +291,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setRefresh
+name|refresh
 argument_list|(
 name|refresh
 argument_list|)
@@ -311,7 +311,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setRealtime
+name|realtime
 argument_list|(
 name|realtime
 argument_list|)

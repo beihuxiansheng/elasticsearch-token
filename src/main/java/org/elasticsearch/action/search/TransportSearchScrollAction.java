@@ -353,7 +353,7 @@ name|parseScrollId
 argument_list|(
 name|request
 operator|.
-name|getScrollId
+name|scrollId
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -511,7 +511,7 @@ block|{
 comment|// no need for a threaded listener
 name|request
 operator|.
-name|setListenerThreaded
+name|listenerThreaded
 argument_list|(
 literal|false
 argument_list|)

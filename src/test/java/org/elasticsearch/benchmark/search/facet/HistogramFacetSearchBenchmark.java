@@ -518,7 +518,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|setSettings
+name|settings
 argument_list|(
 name|settingsBuilder
 argument_list|()
@@ -677,12 +677,12 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|setType
+name|type
 argument_list|(
 literal|"type1"
 argument_list|)
 operator|.
-name|setId
+name|id
 argument_list|(
 name|Integer
 operator|.
@@ -692,7 +692,7 @@ name|counter
 argument_list|)
 argument_list|)
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|source
 argument_list|)

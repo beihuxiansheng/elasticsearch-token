@@ -109,7 +109,7 @@ operator|=
 name|acknowledged
 expr_stmt|;
 block|}
-comment|/**      * Has the index deletion been acknowledged by all current cluster nodes within the      * provided {@link DeleteIndexRequest#setTimeout(org.elasticsearch.common.unit.TimeValue)}.      */
+comment|/**      * Has the index deletion been acknowledged by all current cluster nodes within the      * provided {@link DeleteIndexRequest#timeout(org.elasticsearch.common.unit.TimeValue)}.      */
 DECL|method|isAcknowledged
 specifier|public
 name|boolean

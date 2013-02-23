@@ -188,10 +188,10 @@ name|validationException
 return|;
 block|}
 comment|/**      * Sets the indices this put mapping operation will execute on.      */
-DECL|method|setIndices
+DECL|method|indices
 specifier|public
 name|DeleteMappingRequest
-name|setIndices
+name|indices
 parameter_list|(
 name|String
 index|[]
@@ -209,11 +209,11 @@ name|this
 return|;
 block|}
 comment|/**      * The indices the mappings will be put.      */
-DECL|method|setIndices
+DECL|method|indices
 specifier|public
 name|String
 index|[]
-name|setIndices
+name|indices
 parameter_list|()
 block|{
 return|return
@@ -221,10 +221,10 @@ name|indices
 return|;
 block|}
 comment|/**      * The mapping type.      */
-DECL|method|getType
+DECL|method|type
 specifier|public
 name|String
-name|getType
+name|type
 parameter_list|()
 block|{
 return|return
@@ -232,10 +232,10 @@ name|type
 return|;
 block|}
 comment|/**      * The type of the mappings to remove.      */
-DECL|method|setType
+DECL|method|type
 specifier|public
 name|DeleteMappingRequest
-name|setType
+name|type
 parameter_list|(
 name|String
 name|type

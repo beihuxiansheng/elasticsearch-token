@@ -126,7 +126,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setRecovery
+name|recovery
 argument_list|(
 name|recovery
 argument_list|)
@@ -147,7 +147,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setSnapshot
+name|snapshot
 argument_list|(
 name|snapshot
 argument_list|)

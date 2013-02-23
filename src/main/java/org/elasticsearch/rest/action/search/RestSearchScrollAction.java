@@ -380,7 +380,7 @@ argument_list|)
 decl_stmt|;
 name|searchScrollRequest
 operator|.
-name|setListenerThreaded
+name|listenerThreaded
 argument_list|(
 literal|false
 argument_list|)
@@ -406,7 +406,7 @@ condition|)
 block|{
 name|searchScrollRequest
 operator|.
-name|setScroll
+name|scroll
 argument_list|(
 operator|new
 name|Scroll
@@ -464,7 +464,7 @@ expr_stmt|;
 block|}
 name|searchScrollRequest
 operator|.
-name|setOperationThreading
+name|operationThreading
 argument_list|(
 name|operationThreading
 argument_list|)

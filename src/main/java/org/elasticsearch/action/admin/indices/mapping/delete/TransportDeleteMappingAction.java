@@ -530,7 +530,7 @@ block|{
 comment|// update to concrete indices
 name|request
 operator|.
-name|setIndices
+name|indices
 argument_list|(
 name|clusterService
 operator|.
@@ -544,7 +544,7 @@ name|concreteIndices
 argument_list|(
 name|request
 operator|.
-name|setIndices
+name|indices
 argument_list|()
 argument_list|)
 argument_list|)
@@ -587,7 +587,7 @@ name|METADATA
 argument_list|,
 name|request
 operator|.
-name|setIndices
+name|indices
 argument_list|()
 argument_list|)
 return|;
@@ -644,7 +644,7 @@ name|flushRequest
 argument_list|(
 name|request
 operator|.
-name|setIndices
+name|indices
 argument_list|()
 argument_list|)
 argument_list|,
@@ -675,11 +675,11 @@ name|deleteByQueryRequest
 argument_list|(
 name|request
 operator|.
-name|setIndices
+name|indices
 argument_list|()
 argument_list|)
 operator|.
-name|setQuery
+name|query
 argument_list|(
 name|QueryBuilders
 operator|.
@@ -696,7 +696,7 @@ name|typeFilter
 argument_list|(
 name|request
 operator|.
-name|getType
+name|type
 argument_list|()
 argument_list|)
 argument_list|)
@@ -729,7 +729,7 @@ name|refreshRequest
 argument_list|(
 name|request
 operator|.
-name|setIndices
+name|indices
 argument_list|()
 argument_list|)
 argument_list|,
@@ -761,12 +761,12 @@ name|RemoveRequest
 argument_list|(
 name|request
 operator|.
-name|setIndices
+name|indices
 argument_list|()
 argument_list|,
 name|request
 operator|.
-name|getType
+name|type
 argument_list|()
 argument_list|)
 argument_list|,
@@ -842,12 +842,12 @@ name|RemoveRequest
 argument_list|(
 name|request
 operator|.
-name|setIndices
+name|indices
 argument_list|()
 argument_list|,
 name|request
 operator|.
-name|getType
+name|type
 argument_list|()
 argument_list|)
 argument_list|,

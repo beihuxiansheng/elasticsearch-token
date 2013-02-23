@@ -409,7 +409,7 @@ argument_list|)
 decl_stmt|;
 name|deleteByQueryRequest
 operator|.
-name|setListenerThreaded
+name|listenerThreaded
 argument_list|(
 literal|false
 argument_list|)
@@ -426,7 +426,7 @@ condition|)
 block|{
 name|deleteByQueryRequest
 operator|.
-name|setQuery
+name|query
 argument_list|(
 name|request
 operator|.
@@ -461,7 +461,7 @@ condition|)
 block|{
 name|deleteByQueryRequest
 operator|.
-name|setQuery
+name|query
 argument_list|(
 name|source
 argument_list|)
@@ -481,7 +481,7 @@ argument_list|)
 decl_stmt|;
 name|deleteByQueryRequest
 operator|.
-name|setQuery
+name|query
 argument_list|(
 name|bytes
 argument_list|,
@@ -492,7 +492,7 @@ block|}
 block|}
 name|deleteByQueryRequest
 operator|.
-name|setTypes
+name|types
 argument_list|(
 name|splitTypes
 argument_list|(
@@ -507,7 +507,7 @@ argument_list|)
 expr_stmt|;
 name|deleteByQueryRequest
 operator|.
-name|setTimeout
+name|timeout
 argument_list|(
 name|request
 operator|.
@@ -523,7 +523,7 @@ argument_list|)
 expr_stmt|;
 name|deleteByQueryRequest
 operator|.
-name|setRouting
+name|routing
 argument_list|(
 name|request
 operator|.
@@ -552,7 +552,7 @@ condition|)
 block|{
 name|deleteByQueryRequest
 operator|.
-name|setReplicationType
+name|replicationType
 argument_list|(
 name|ReplicationType
 operator|.
@@ -582,7 +582,7 @@ condition|)
 block|{
 name|deleteByQueryRequest
 operator|.
-name|setConsistencyLevel
+name|consistencyLevel
 argument_list|(
 name|WriteConsistencyLevel
 operator|.

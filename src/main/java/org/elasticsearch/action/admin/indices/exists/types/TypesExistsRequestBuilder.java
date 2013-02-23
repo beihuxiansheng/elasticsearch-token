@@ -186,7 +186,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setIndices
+name|indices
 argument_list|(
 name|indices
 argument_list|)
@@ -208,7 +208,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setTypes
+name|types
 argument_list|(
 name|types
 argument_list|)
@@ -229,7 +229,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setIgnoreIndices
+name|ignoreIndices
 argument_list|(
 name|ignoreIndices
 argument_list|)

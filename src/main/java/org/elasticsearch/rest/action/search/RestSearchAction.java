@@ -496,7 +496,7 @@ argument_list|)
 expr_stmt|;
 name|searchRequest
 operator|.
-name|setListenerThreaded
+name|listenerThreaded
 argument_list|(
 literal|false
 argument_list|)
@@ -544,7 +544,7 @@ expr_stmt|;
 block|}
 name|searchRequest
 operator|.
-name|setOperationThreading
+name|operationThreading
 argument_list|(
 name|operationThreading
 argument_list|)
@@ -829,7 +829,7 @@ condition|)
 block|{
 name|searchRequest
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|request
 operator|.
@@ -864,7 +864,7 @@ condition|)
 block|{
 name|searchRequest
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|source
 argument_list|)
@@ -874,7 +874,7 @@ block|}
 comment|// add extra source based on the request parameters
 name|searchRequest
 operator|.
-name|setExtraSource
+name|extraSource
 argument_list|(
 name|parseSearchSource
 argument_list|(
@@ -884,7 +884,7 @@ argument_list|)
 expr_stmt|;
 name|searchRequest
 operator|.
-name|setSearchType
+name|searchType
 argument_list|(
 name|request
 operator|.
@@ -913,7 +913,7 @@ condition|)
 block|{
 name|searchRequest
 operator|.
-name|setScroll
+name|scroll
 argument_list|(
 operator|new
 name|Scroll
@@ -930,7 +930,7 @@ expr_stmt|;
 block|}
 name|searchRequest
 operator|.
-name|setTypes
+name|types
 argument_list|(
 name|RestActions
 operator|.
@@ -947,7 +947,7 @@ argument_list|)
 expr_stmt|;
 name|searchRequest
 operator|.
-name|setRouting
+name|routing
 argument_list|(
 name|request
 operator|.
@@ -959,7 +959,7 @@ argument_list|)
 expr_stmt|;
 name|searchRequest
 operator|.
-name|setPreference
+name|preference
 argument_list|(
 name|request
 operator|.
@@ -981,7 +981,7 @@ condition|)
 block|{
 name|searchRequest
 operator|.
-name|setIgnoreIndices
+name|ignoreIndices
 argument_list|(
 name|IgnoreIndices
 operator|.

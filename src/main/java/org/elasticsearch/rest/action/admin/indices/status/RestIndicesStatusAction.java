@@ -380,7 +380,7 @@ argument_list|)
 decl_stmt|;
 name|indicesStatusRequest
 operator|.
-name|setListenerThreaded
+name|listenerThreaded
 argument_list|(
 literal|false
 argument_list|)
@@ -397,7 +397,7 @@ condition|)
 block|{
 name|indicesStatusRequest
 operator|.
-name|setIgnoreIndices
+name|ignoreIndices
 argument_list|(
 name|IgnoreIndices
 operator|.
@@ -415,7 +415,7 @@ expr_stmt|;
 block|}
 name|indicesStatusRequest
 operator|.
-name|setRecovery
+name|recovery
 argument_list|(
 name|request
 operator|.
@@ -425,14 +425,14 @@ literal|"recovery"
 argument_list|,
 name|indicesStatusRequest
 operator|.
-name|isRecovery
+name|recovery
 argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|indicesStatusRequest
 operator|.
-name|setSnapshot
+name|snapshot
 argument_list|(
 name|request
 operator|.
@@ -442,7 +442,7 @@ literal|"snapshot"
 argument_list|,
 name|indicesStatusRequest
 operator|.
-name|isSnapshot
+name|snapshot
 argument_list|()
 argument_list|)
 argument_list|)
@@ -485,7 +485,7 @@ expr_stmt|;
 block|}
 name|indicesStatusRequest
 operator|.
-name|setOperationThreading
+name|operationThreading
 argument_list|(
 name|operationThreading
 argument_list|)

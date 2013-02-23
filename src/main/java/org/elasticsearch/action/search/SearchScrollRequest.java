@@ -225,10 +225,10 @@ name|validationException
 return|;
 block|}
 comment|/**      * Controls the the search operation threading model.      */
-DECL|method|getOperationThreading
+DECL|method|operationThreading
 specifier|public
 name|SearchOperationThreading
-name|getOperationThreading
+name|operationThreading
 parameter_list|()
 block|{
 return|return
@@ -238,10 +238,10 @@ name|operationThreading
 return|;
 block|}
 comment|/**      * Controls the the search operation threading model.      */
-DECL|method|setOperationThreading
+DECL|method|operationThreading
 specifier|public
 name|SearchScrollRequest
-name|setOperationThreading
+name|operationThreading
 parameter_list|(
 name|SearchOperationThreading
 name|operationThreading
@@ -258,20 +258,20 @@ name|this
 return|;
 block|}
 comment|/**      * The scroll id used to scroll the search.      */
-DECL|method|getScrollId
+DECL|method|scrollId
 specifier|public
 name|String
-name|getScrollId
+name|scrollId
 parameter_list|()
 block|{
 return|return
 name|scrollId
 return|;
 block|}
-DECL|method|setScrollId
+DECL|method|scrollId
 specifier|public
 name|SearchScrollRequest
-name|setScrollId
+name|scrollId
 parameter_list|(
 name|String
 name|scrollId
@@ -288,10 +288,10 @@ name|this
 return|;
 block|}
 comment|/**      * If set, will enable scrolling of the search request.      */
-DECL|method|getScroll
+DECL|method|scroll
 specifier|public
 name|Scroll
-name|getScroll
+name|scroll
 parameter_list|()
 block|{
 return|return
@@ -299,10 +299,10 @@ name|scroll
 return|;
 block|}
 comment|/**      * If set, will enable scrolling of the search request.      */
-DECL|method|setScroll
+DECL|method|scroll
 specifier|public
 name|SearchScrollRequest
-name|setScroll
+name|scroll
 parameter_list|(
 name|Scroll
 name|scroll
@@ -319,17 +319,17 @@ name|this
 return|;
 block|}
 comment|/**      * If set, will enable scrolling of the search request for the specified timeout.      */
-DECL|method|setScroll
+DECL|method|scroll
 specifier|public
 name|SearchScrollRequest
-name|setScroll
+name|scroll
 parameter_list|(
 name|TimeValue
 name|keepAlive
 parameter_list|)
 block|{
 return|return
-name|setScroll
+name|scroll
 argument_list|(
 operator|new
 name|Scroll
@@ -340,17 +340,17 @@ argument_list|)
 return|;
 block|}
 comment|/**      * If set, will enable scrolling of the search request for the specified timeout.      */
-DECL|method|setScroll
+DECL|method|scroll
 specifier|public
 name|SearchScrollRequest
-name|setScroll
+name|scroll
 parameter_list|(
 name|String
 name|keepAlive
 parameter_list|)
 block|{
 return|return
-name|setScroll
+name|scroll
 argument_list|(
 operator|new
 name|Scroll

@@ -393,14 +393,14 @@ argument_list|)
 decl_stmt|;
 name|updateRequest
 operator|.
-name|setListenerThreaded
+name|listenerThreaded
 argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
 name|updateRequest
 operator|.
-name|setRouting
+name|routing
 argument_list|(
 name|request
 operator|.
@@ -412,7 +412,7 @@ argument_list|)
 expr_stmt|;
 name|updateRequest
 operator|.
-name|setParent
+name|parent
 argument_list|(
 name|request
 operator|.
@@ -425,7 +425,7 @@ expr_stmt|;
 comment|// order is important, set it after routing, so it will set the routing
 name|updateRequest
 operator|.
-name|setTimeout
+name|timeout
 argument_list|(
 name|request
 operator|.
@@ -435,14 +435,14 @@ literal|"timeout"
 argument_list|,
 name|updateRequest
 operator|.
-name|getTimeout
+name|timeout
 argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|updateRequest
 operator|.
-name|setRefresh
+name|refresh
 argument_list|(
 name|request
 operator|.
@@ -452,7 +452,7 @@ literal|"refresh"
 argument_list|,
 name|updateRequest
 operator|.
-name|isRefresh
+name|refresh
 argument_list|()
 argument_list|)
 argument_list|)
@@ -476,7 +476,7 @@ condition|)
 block|{
 name|updateRequest
 operator|.
-name|setReplicationType
+name|replicationType
 argument_list|(
 name|ReplicationType
 operator|.
@@ -506,7 +506,7 @@ condition|)
 block|{
 name|updateRequest
 operator|.
-name|setConsistencyLevel
+name|consistencyLevel
 argument_list|(
 name|WriteConsistencyLevel
 operator|.
@@ -519,7 +519,7 @@ expr_stmt|;
 block|}
 name|updateRequest
 operator|.
-name|setPercolate
+name|percolate
 argument_list|(
 name|request
 operator|.
@@ -533,7 +533,7 @@ argument_list|)
 expr_stmt|;
 name|updateRequest
 operator|.
-name|setScript
+name|script
 argument_list|(
 name|request
 operator|.
@@ -545,7 +545,7 @@ argument_list|)
 expr_stmt|;
 name|updateRequest
 operator|.
-name|setScriptLang
+name|scriptLang
 argument_list|(
 name|request
 operator|.
@@ -648,7 +648,7 @@ condition|)
 block|{
 name|updateRequest
 operator|.
-name|setFields
+name|fields
 argument_list|(
 name|sFields
 argument_list|)
@@ -657,7 +657,7 @@ block|}
 block|}
 name|updateRequest
 operator|.
-name|setRetryOnConflict
+name|retryOnConflict
 argument_list|(
 name|request
 operator|.
@@ -667,7 +667,7 @@ literal|"retry_on_conflict"
 argument_list|,
 name|updateRequest
 operator|.
-name|getRetryOnConflict
+name|retryOnConflict
 argument_list|()
 argument_list|)
 argument_list|)
@@ -685,7 +685,7 @@ try|try
 block|{
 name|updateRequest
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|request
 operator|.
@@ -698,7 +698,7 @@ name|upsertRequest
 init|=
 name|updateRequest
 operator|.
-name|getUpsertRequest
+name|upsertRequest
 argument_list|()
 decl_stmt|;
 if|if
@@ -710,7 +710,7 @@ condition|)
 block|{
 name|upsertRequest
 operator|.
-name|setRouting
+name|routing
 argument_list|(
 name|request
 operator|.
@@ -722,7 +722,7 @@ argument_list|)
 expr_stmt|;
 name|upsertRequest
 operator|.
-name|setParent
+name|parent
 argument_list|(
 name|request
 operator|.
@@ -735,7 +735,7 @@ expr_stmt|;
 comment|// order is important, set it after routing, so it will set the routing
 name|upsertRequest
 operator|.
-name|setTimestamp
+name|timestamp
 argument_list|(
 name|request
 operator|.
@@ -757,7 +757,7 @@ condition|)
 block|{
 name|upsertRequest
 operator|.
-name|setTtl
+name|ttl
 argument_list|(
 name|request
 operator|.
@@ -775,7 +775,7 @@ expr_stmt|;
 block|}
 name|upsertRequest
 operator|.
-name|setVersion
+name|version
 argument_list|(
 name|RestActions
 operator|.
@@ -787,7 +787,7 @@ argument_list|)
 expr_stmt|;
 name|upsertRequest
 operator|.
-name|setVersionType
+name|versionType
 argument_list|(
 name|VersionType
 operator|.
@@ -802,7 +802,7 @@ argument_list|)
 argument_list|,
 name|upsertRequest
 operator|.
-name|getVersionType
+name|versionType
 argument_list|()
 argument_list|)
 argument_list|)
@@ -813,7 +813,7 @@ name|doc
 init|=
 name|updateRequest
 operator|.
-name|getDoc
+name|doc
 argument_list|()
 decl_stmt|;
 if|if
@@ -825,7 +825,7 @@ condition|)
 block|{
 name|doc
 operator|.
-name|setRouting
+name|routing
 argument_list|(
 name|request
 operator|.
@@ -837,7 +837,7 @@ argument_list|)
 expr_stmt|;
 name|doc
 operator|.
-name|setParent
+name|parent
 argument_list|(
 name|request
 operator|.
@@ -850,7 +850,7 @@ expr_stmt|;
 comment|// order is important, set it after routing, so it will set the routing
 name|doc
 operator|.
-name|setTimestamp
+name|timestamp
 argument_list|(
 name|request
 operator|.
@@ -872,7 +872,7 @@ condition|)
 block|{
 name|doc
 operator|.
-name|setTtl
+name|ttl
 argument_list|(
 name|request
 operator|.
@@ -890,7 +890,7 @@ expr_stmt|;
 block|}
 name|doc
 operator|.
-name|setVersion
+name|version
 argument_list|(
 name|RestActions
 operator|.
@@ -902,7 +902,7 @@ argument_list|)
 expr_stmt|;
 name|doc
 operator|.
-name|setVersionType
+name|versionType
 argument_list|(
 name|VersionType
 operator|.
@@ -917,7 +917,7 @@ argument_list|)
 argument_list|,
 name|doc
 operator|.
-name|getVersionType
+name|versionType
 argument_list|()
 argument_list|)
 argument_list|)

@@ -836,7 +836,7 @@ name|indexServiceSafe
 argument_list|(
 name|request
 operator|.
-name|getIndex
+name|index
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -852,7 +852,7 @@ name|shardSafe
 argument_list|(
 name|request
 operator|.
-name|getShardId
+name|shardId
 argument_list|()
 argument_list|)
 decl_stmt|;

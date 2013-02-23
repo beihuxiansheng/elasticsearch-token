@@ -151,7 +151,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setTypes
+name|types
 argument_list|(
 name|types
 argument_list|)
@@ -172,7 +172,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setMinScore
+name|minScore
 argument_list|(
 name|minScore
 argument_list|)
@@ -193,7 +193,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setRouting
+name|routing
 argument_list|(
 name|routing
 argument_list|)
@@ -215,7 +215,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setRouting
+name|routing
 argument_list|(
 name|routing
 argument_list|)
@@ -236,7 +236,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setQuery
+name|query
 argument_list|(
 name|queryBuilder
 argument_list|)
@@ -257,7 +257,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setQuery
+name|query
 argument_list|(
 name|querySource
 argument_list|,
@@ -283,7 +283,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setQuery
+name|query
 argument_list|(
 name|querySource
 argument_list|,
@@ -307,7 +307,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setQuery
+name|query
 argument_list|(
 name|querySource
 argument_list|)

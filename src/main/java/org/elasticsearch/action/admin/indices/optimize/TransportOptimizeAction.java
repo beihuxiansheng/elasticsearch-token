@@ -657,7 +657,7 @@ name|indexServiceSafe
 argument_list|(
 name|request
 operator|.
-name|getIndex
+name|index
 argument_list|()
 argument_list|)
 operator|.
@@ -665,7 +665,7 @@ name|shardSafe
 argument_list|(
 name|request
 operator|.
-name|getShardId
+name|shardId
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -683,7 +683,7 @@ name|waitForMerge
 argument_list|(
 name|request
 operator|.
-name|isWaitForMerge
+name|waitForMerge
 argument_list|()
 argument_list|)
 operator|.
@@ -691,7 +691,7 @@ name|maxNumSegments
 argument_list|(
 name|request
 operator|.
-name|getMaxNumSegments
+name|maxNumSegments
 argument_list|()
 argument_list|)
 operator|.
@@ -699,7 +699,7 @@ name|onlyExpungeDeletes
 argument_list|(
 name|request
 operator|.
-name|isOnlyExpungeDeletes
+name|onlyExpungeDeletes
 argument_list|()
 argument_list|)
 operator|.
@@ -707,7 +707,7 @@ name|flush
 argument_list|(
 name|request
 operator|.
-name|isFlush
+name|flush
 argument_list|()
 argument_list|)
 operator|.
@@ -715,7 +715,7 @@ name|refresh
 argument_list|(
 name|request
 operator|.
-name|isRefresh
+name|refresh
 argument_list|()
 argument_list|)
 argument_list|)
@@ -726,12 +726,12 @@ name|ShardOptimizeResponse
 argument_list|(
 name|request
 operator|.
-name|getIndex
+name|index
 argument_list|()
 argument_list|,
 name|request
 operator|.
-name|getShardId
+name|shardId
 argument_list|()
 argument_list|)
 return|;

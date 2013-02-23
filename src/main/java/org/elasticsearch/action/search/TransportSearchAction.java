@@ -408,14 +408,14 @@ name|optimizeSingleShard
 operator|&&
 name|searchRequest
 operator|.
-name|getSearchType
+name|searchType
 argument_list|()
 operator|!=
 name|SCAN
 operator|&&
 name|searchRequest
 operator|.
-name|getSearchType
+name|searchType
 argument_list|()
 operator|!=
 name|COUNT
@@ -444,12 +444,12 @@ name|concreteIndices
 argument_list|(
 name|searchRequest
 operator|.
-name|getIndices
+name|indices
 argument_list|()
 argument_list|,
 name|searchRequest
 operator|.
-name|getIgnoreIndices
+name|ignoreIndices
 argument_list|()
 argument_list|,
 literal|true
@@ -475,12 +475,12 @@ name|resolveSearchRouting
 argument_list|(
 name|searchRequest
 operator|.
-name|getRouting
+name|routing
 argument_list|()
 argument_list|,
 name|searchRequest
 operator|.
-name|getIndices
+name|indices
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -498,7 +498,7 @@ name|clusterState
 argument_list|,
 name|searchRequest
 operator|.
-name|getIndices
+name|indices
 argument_list|()
 argument_list|,
 name|concreteIndices
@@ -507,7 +507,7 @@ name|routingMap
 argument_list|,
 name|searchRequest
 operator|.
-name|getPreference
+name|preference
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -521,7 +521,7 @@ block|{
 comment|// if we only have one group, then we always want Q_A_F, no need for DFS, and no need to do THEN since we hit one shard
 name|searchRequest
 operator|.
-name|setSearchType
+name|searchType
 argument_list|(
 name|QUERY_AND_FETCH
 argument_list|)
@@ -558,7 +558,7 @@ if|if
 condition|(
 name|searchRequest
 operator|.
-name|getSearchType
+name|searchType
 argument_list|()
 operator|==
 name|DFS_QUERY_THEN_FETCH
@@ -579,7 +579,7 @@ if|if
 condition|(
 name|searchRequest
 operator|.
-name|getSearchType
+name|searchType
 argument_list|()
 operator|==
 name|SearchType
@@ -602,7 +602,7 @@ if|if
 condition|(
 name|searchRequest
 operator|.
-name|getSearchType
+name|searchType
 argument_list|()
 operator|==
 name|SearchType
@@ -625,7 +625,7 @@ if|if
 condition|(
 name|searchRequest
 operator|.
-name|getSearchType
+name|searchType
 argument_list|()
 operator|==
 name|SearchType
@@ -648,7 +648,7 @@ if|if
 condition|(
 name|searchRequest
 operator|.
-name|getSearchType
+name|searchType
 argument_list|()
 operator|==
 name|SearchType
@@ -671,7 +671,7 @@ if|if
 condition|(
 name|searchRequest
 operator|.
-name|getSearchType
+name|searchType
 argument_list|()
 operator|==
 name|SearchType
@@ -734,7 +734,7 @@ block|{
 comment|// no need for a threaded listener
 name|request
 operator|.
-name|setListenerThreaded
+name|listenerThreaded
 argument_list|(
 literal|false
 argument_list|)
@@ -744,7 +744,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|getOperationThreading
+name|operationThreading
 argument_list|()
 operator|==
 name|SearchOperationThreading
@@ -754,7 +754,7 @@ condition|)
 block|{
 name|request
 operator|.
-name|setOperationThreading
+name|operationThreading
 argument_list|(
 name|SearchOperationThreading
 operator|.

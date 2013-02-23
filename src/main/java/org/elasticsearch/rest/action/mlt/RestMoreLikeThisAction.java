@@ -355,7 +355,7 @@ literal|"index"
 argument_list|)
 argument_list|)
 operator|.
-name|setType
+name|type
 argument_list|(
 name|request
 operator|.
@@ -365,7 +365,7 @@ literal|"type"
 argument_list|)
 argument_list|)
 operator|.
-name|setId
+name|id
 argument_list|(
 name|request
 operator|.
@@ -377,7 +377,7 @@ argument_list|)
 decl_stmt|;
 name|mltRequest
 operator|.
-name|setRouting
+name|routing
 argument_list|(
 name|request
 operator|.
@@ -389,7 +389,7 @@ argument_list|)
 expr_stmt|;
 name|mltRequest
 operator|.
-name|setListenerThreaded
+name|listenerThreaded
 argument_list|(
 literal|false
 argument_list|)
@@ -398,7 +398,7 @@ try|try
 block|{
 name|mltRequest
 operator|.
-name|setFields
+name|fields
 argument_list|(
 name|request
 operator|.
@@ -412,7 +412,7 @@ argument_list|)
 expr_stmt|;
 name|mltRequest
 operator|.
-name|setPercentTermsToMatch
+name|percentTermsToMatch
 argument_list|(
 name|request
 operator|.
@@ -427,7 +427,7 @@ argument_list|)
 expr_stmt|;
 name|mltRequest
 operator|.
-name|setMinTermFreq
+name|minTermFreq
 argument_list|(
 name|request
 operator|.
@@ -442,7 +442,7 @@ argument_list|)
 expr_stmt|;
 name|mltRequest
 operator|.
-name|setMaxQueryTerms
+name|maxQueryTerms
 argument_list|(
 name|request
 operator|.
@@ -457,7 +457,7 @@ argument_list|)
 expr_stmt|;
 name|mltRequest
 operator|.
-name|setStopWords
+name|stopWords
 argument_list|(
 name|request
 operator|.
@@ -471,7 +471,7 @@ argument_list|)
 expr_stmt|;
 name|mltRequest
 operator|.
-name|setMinDocFreq
+name|minDocFreq
 argument_list|(
 name|request
 operator|.
@@ -486,7 +486,7 @@ argument_list|)
 expr_stmt|;
 name|mltRequest
 operator|.
-name|setMaxDocFreq
+name|maxDocFreq
 argument_list|(
 name|request
 operator|.
@@ -501,7 +501,7 @@ argument_list|)
 expr_stmt|;
 name|mltRequest
 operator|.
-name|setMinWordLen
+name|minWordLen
 argument_list|(
 name|request
 operator|.
@@ -516,7 +516,7 @@ argument_list|)
 expr_stmt|;
 name|mltRequest
 operator|.
-name|setMaxWordLen
+name|maxWordLen
 argument_list|(
 name|request
 operator|.
@@ -531,7 +531,7 @@ argument_list|)
 expr_stmt|;
 name|mltRequest
 operator|.
-name|setBoostTerms
+name|boostTerms
 argument_list|(
 name|request
 operator|.
@@ -546,7 +546,7 @@ argument_list|)
 expr_stmt|;
 name|mltRequest
 operator|.
-name|setSearchType
+name|searchType
 argument_list|(
 name|SearchType
 operator|.
@@ -563,7 +563,7 @@ argument_list|)
 expr_stmt|;
 name|mltRequest
 operator|.
-name|setSearchIndices
+name|searchIndices
 argument_list|(
 name|request
 operator|.
@@ -577,7 +577,7 @@ argument_list|)
 expr_stmt|;
 name|mltRequest
 operator|.
-name|setSearchTypes
+name|searchTypes
 argument_list|(
 name|request
 operator|.
@@ -591,7 +591,7 @@ argument_list|)
 expr_stmt|;
 name|mltRequest
 operator|.
-name|setSearchQueryHint
+name|searchQueryHint
 argument_list|(
 name|request
 operator|.
@@ -603,7 +603,7 @@ argument_list|)
 expr_stmt|;
 name|mltRequest
 operator|.
-name|setSearchSize
+name|searchSize
 argument_list|(
 name|request
 operator|.
@@ -613,14 +613,14 @@ literal|"search_size"
 argument_list|,
 name|mltRequest
 operator|.
-name|getSearchSize
+name|searchSize
 argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|mltRequest
 operator|.
-name|setSearchFrom
+name|searchFrom
 argument_list|(
 name|request
 operator|.
@@ -630,7 +630,7 @@ literal|"search_from"
 argument_list|,
 name|mltRequest
 operator|.
-name|getSearchFrom
+name|searchFrom
 argument_list|()
 argument_list|)
 argument_list|)
@@ -654,7 +654,7 @@ condition|)
 block|{
 name|mltRequest
 operator|.
-name|setSearchScroll
+name|searchScroll
 argument_list|(
 operator|new
 name|Scroll
@@ -679,7 +679,7 @@ condition|)
 block|{
 name|mltRequest
 operator|.
-name|setSearchSource
+name|searchSource
 argument_list|(
 name|request
 operator|.
@@ -714,7 +714,7 @@ condition|)
 block|{
 name|mltRequest
 operator|.
-name|setSearchSource
+name|searchSource
 argument_list|(
 name|searchSource
 argument_list|)

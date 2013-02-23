@@ -158,10 +158,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * The delay for the restart to occur. Defaults to<tt>1s</tt>.      */
-DECL|method|setDelay
+DECL|method|delay
 specifier|public
 name|NodesRestartRequest
-name|setDelay
+name|delay
 parameter_list|(
 name|TimeValue
 name|delay
@@ -178,17 +178,17 @@ name|this
 return|;
 block|}
 comment|/**      * The delay for the restart to occur. Defaults to<tt>1s</tt>.      */
-DECL|method|setDelay
+DECL|method|delay
 specifier|public
 name|NodesRestartRequest
-name|setDelay
+name|delay
 parameter_list|(
 name|String
 name|delay
 parameter_list|)
 block|{
 return|return
-name|setDelay
+name|delay
 argument_list|(
 name|TimeValue
 operator|.
@@ -201,10 +201,10 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-DECL|method|getDelay
+DECL|method|delay
 specifier|public
 name|TimeValue
-name|getDelay
+name|delay
 parameter_list|()
 block|{
 return|return

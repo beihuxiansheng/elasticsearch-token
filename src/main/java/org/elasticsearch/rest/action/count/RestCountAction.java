@@ -471,7 +471,7 @@ condition|)
 block|{
 name|countRequest
 operator|.
-name|setIgnoreIndices
+name|ignoreIndices
 argument_list|(
 name|IgnoreIndices
 operator|.
@@ -489,7 +489,7 @@ expr_stmt|;
 block|}
 name|countRequest
 operator|.
-name|setListenerThreaded
+name|listenerThreaded
 argument_list|(
 literal|false
 argument_list|)
@@ -534,7 +534,7 @@ expr_stmt|;
 block|}
 name|countRequest
 operator|.
-name|setOperationThreading
+name|operationThreading
 argument_list|(
 name|operationThreading
 argument_list|)
@@ -549,7 +549,7 @@ condition|)
 block|{
 name|countRequest
 operator|.
-name|setQuery
+name|query
 argument_list|(
 name|request
 operator|.
@@ -584,7 +584,7 @@ condition|)
 block|{
 name|countRequest
 operator|.
-name|setQuery
+name|query
 argument_list|(
 name|source
 argument_list|)
@@ -611,7 +611,7 @@ condition|)
 block|{
 name|countRequest
 operator|.
-name|setQuery
+name|query
 argument_list|(
 name|querySource
 argument_list|,
@@ -623,7 +623,7 @@ block|}
 block|}
 name|countRequest
 operator|.
-name|setRouting
+name|routing
 argument_list|(
 name|request
 operator|.
@@ -635,7 +635,7 @@ argument_list|)
 expr_stmt|;
 name|countRequest
 operator|.
-name|setMinScore
+name|minScore
 argument_list|(
 name|request
 operator|.
@@ -649,7 +649,7 @@ argument_list|)
 expr_stmt|;
 name|countRequest
 operator|.
-name|setTypes
+name|types
 argument_list|(
 name|splitTypes
 argument_list|(

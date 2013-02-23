@@ -933,7 +933,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|getOperationThreading
+name|operationThreading
 argument_list|()
 operator|==
 name|SearchOperationThreading
@@ -1040,7 +1040,7 @@ name|localAsync
 init|=
 name|request
 operator|.
-name|getOperationThreading
+name|operationThreading
 argument_list|()
 operator|==
 name|SearchOperationThreading
@@ -1610,7 +1610,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|getScroll
+name|scroll
 argument_list|()
 operator|!=
 literal|null
@@ -1620,7 +1620,7 @@ name|scrollId
 operator|=
 name|request
 operator|.
-name|getScrollId
+name|scrollId
 argument_list|()
 expr_stmt|;
 block|}

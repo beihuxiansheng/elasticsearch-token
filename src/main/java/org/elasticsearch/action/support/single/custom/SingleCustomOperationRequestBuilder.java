@@ -138,7 +138,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setOperationThreaded
+name|operationThreaded
 argument_list|(
 name|threadedOperation
 argument_list|)
@@ -168,7 +168,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setPreferLocal
+name|preferLocal
 argument_list|(
 name|preferLocal
 argument_list|)

@@ -687,12 +687,12 @@ argument_list|(
 name|indexName
 argument_list|)
 operator|.
-name|setType
+name|type
 argument_list|(
 literal|"parent"
 argument_list|)
 operator|.
-name|setId
+name|id
 argument_list|(
 name|Integer
 operator|.
@@ -702,7 +702,7 @@ name|counter
 argument_list|)
 argument_list|)
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|parentSource
 argument_list|(
@@ -746,12 +746,12 @@ argument_list|(
 name|indexName
 argument_list|)
 operator|.
-name|setType
+name|type
 argument_list|(
 literal|"child"
 argument_list|)
 operator|.
-name|setId
+name|id
 argument_list|(
 name|Integer
 operator|.
@@ -765,7 +765,7 @@ operator|+
 name|k
 argument_list|)
 operator|.
-name|setParent
+name|parent
 argument_list|(
 name|Integer
 operator|.
@@ -775,7 +775,7 @@ name|counter
 argument_list|)
 argument_list|)
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|childSource
 argument_list|(

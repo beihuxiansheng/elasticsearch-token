@@ -170,7 +170,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setOperationThreading
+name|operationThreading
 argument_list|(
 name|operationThreading
 argument_list|)
@@ -191,7 +191,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setListenerThreaded
+name|listenerThreaded
 argument_list|(
 name|threadedListener
 argument_list|)
@@ -212,7 +212,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setScrollId
+name|scrollId
 argument_list|(
 name|scrollId
 argument_list|)
@@ -233,7 +233,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setScroll
+name|scroll
 argument_list|(
 name|scroll
 argument_list|)
@@ -254,7 +254,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setScroll
+name|scroll
 argument_list|(
 name|keepAlive
 argument_list|)
@@ -275,7 +275,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setScroll
+name|scroll
 argument_list|(
 name|keepAlive
 argument_list|)

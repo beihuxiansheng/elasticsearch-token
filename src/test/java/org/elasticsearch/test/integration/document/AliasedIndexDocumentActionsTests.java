@@ -153,7 +153,7 @@ argument_list|(
 literal|"test1"
 argument_list|)
 operator|.
-name|setSettings
+name|settings
 argument_list|(
 name|settingsBuilder
 argument_list|()

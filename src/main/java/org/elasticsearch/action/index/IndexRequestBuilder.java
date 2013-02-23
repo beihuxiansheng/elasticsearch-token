@@ -254,7 +254,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setType
+name|type
 argument_list|(
 name|type
 argument_list|)
@@ -275,7 +275,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setId
+name|id
 argument_list|(
 name|id
 argument_list|)
@@ -296,7 +296,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setRouting
+name|routing
 argument_list|(
 name|routing
 argument_list|)
@@ -317,7 +317,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setParent
+name|parent
 argument_list|(
 name|parent
 argument_list|)
@@ -341,7 +341,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|source
 argument_list|,
@@ -364,7 +364,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|source
 argument_list|,
@@ -392,7 +392,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|source
 argument_list|)
@@ -421,7 +421,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|source
 argument_list|,
@@ -444,7 +444,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|source
 argument_list|)
@@ -465,7 +465,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|sourceBuilder
 argument_list|)
@@ -487,7 +487,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|source
 argument_list|)
@@ -515,7 +515,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|source
 argument_list|,
@@ -550,7 +550,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|source
 argument_list|,
@@ -580,7 +580,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|field1
 argument_list|,
@@ -612,7 +612,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|field1
 argument_list|,
@@ -654,7 +654,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|field1
 argument_list|,
@@ -706,7 +706,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|field1
 argument_list|,
@@ -741,7 +741,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setContentType
+name|contentType
 argument_list|(
 name|contentType
 argument_list|)
@@ -764,7 +764,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setOpType
+name|opType
 argument_list|(
 name|opType
 argument_list|)
@@ -785,7 +785,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setOpType
+name|opType
 argument_list|(
 name|opType
 argument_list|)
@@ -806,7 +806,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setCreate
+name|create
 argument_list|(
 name|create
 argument_list|)
@@ -827,7 +827,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setRefresh
+name|refresh
 argument_list|(
 name|refresh
 argument_list|)
@@ -848,7 +848,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setReplicationType
+name|replicationType
 argument_list|(
 name|replicationType
 argument_list|)
@@ -869,7 +869,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setConsistencyLevel
+name|consistencyLevel
 argument_list|(
 name|consistencyLevel
 argument_list|)
@@ -890,7 +890,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setReplicationType
+name|replicationType
 argument_list|(
 name|replicationType
 argument_list|)
@@ -911,7 +911,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setVersion
+name|version
 argument_list|(
 name|version
 argument_list|)
@@ -932,7 +932,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setVersionType
+name|versionType
 argument_list|(
 name|versionType
 argument_list|)
@@ -953,7 +953,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setPercolate
+name|percolate
 argument_list|(
 name|percolate
 argument_list|)
@@ -974,7 +974,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setTimestamp
+name|timestamp
 argument_list|(
 name|timestamp
 argument_list|)
@@ -995,7 +995,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setTtl
+name|ttl
 argument_list|(
 name|ttl
 argument_list|)

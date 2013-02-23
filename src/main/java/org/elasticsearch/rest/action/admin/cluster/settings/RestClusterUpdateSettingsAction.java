@@ -246,7 +246,7 @@ argument_list|()
 decl_stmt|;
 name|clusterUpdateSettingsRequest
 operator|.
-name|setListenerThreaded
+name|listenerThreaded
 argument_list|(
 literal|false
 argument_list|)
@@ -294,7 +294,7 @@ condition|)
 block|{
 name|clusterUpdateSettingsRequest
 operator|.
-name|setTransientSettings
+name|transientSettings
 argument_list|(
 operator|(
 name|Map
@@ -320,7 +320,7 @@ condition|)
 block|{
 name|clusterUpdateSettingsRequest
 operator|.
-name|setPersistentSettings
+name|persistentSettings
 argument_list|(
 operator|(
 name|Map

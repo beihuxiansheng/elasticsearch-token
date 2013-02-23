@@ -150,7 +150,7 @@ name|indices
 argument_list|)
 expr_stmt|;
 comment|// we want to do the refresh in parallel on local shards...
-name|setOperationThreading
+name|operationThreading
 argument_list|(
 name|BroadcastOperationThreading
 operator|.
@@ -159,10 +159,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Should a refresh be performed once the flush is done. Defaults to<tt>false</tt>.      */
-DECL|method|isRefresh
+DECL|method|refresh
 specifier|public
 name|boolean
-name|isRefresh
+name|refresh
 parameter_list|()
 block|{
 return|return
@@ -172,10 +172,10 @@ name|refresh
 return|;
 block|}
 comment|/**      * Should a refresh be performed once the flush is done. Defaults to<tt>false</tt>.      */
-DECL|method|setRefresh
+DECL|method|refresh
 specifier|public
 name|FlushRequest
-name|setRefresh
+name|refresh
 parameter_list|(
 name|boolean
 name|refresh
@@ -192,10 +192,10 @@ name|this
 return|;
 block|}
 comment|/**      * Should a "full" flush be performed.      */
-DECL|method|isFull
+DECL|method|full
 specifier|public
 name|boolean
-name|isFull
+name|full
 parameter_list|()
 block|{
 return|return
@@ -205,10 +205,10 @@ name|full
 return|;
 block|}
 comment|/**      * Should a "full" flush be performed.      */
-DECL|method|setFull
+DECL|method|full
 specifier|public
 name|FlushRequest
-name|setFull
+name|full
 parameter_list|(
 name|boolean
 name|full
@@ -225,10 +225,10 @@ name|this
 return|;
 block|}
 comment|/**      * Force flushing, even if one is possibly not needed.      */
-DECL|method|isForce
+DECL|method|force
 specifier|public
 name|boolean
-name|isForce
+name|force
 parameter_list|()
 block|{
 return|return
@@ -236,10 +236,10 @@ name|force
 return|;
 block|}
 comment|/**      * Force flushing, even if one is possibly not needed.      */
-DECL|method|setForce
+DECL|method|force
 specifier|public
 name|FlushRequest
-name|setForce
+name|force
 parameter_list|(
 name|boolean
 name|force

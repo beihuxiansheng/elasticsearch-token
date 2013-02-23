@@ -471,7 +471,7 @@ name|concreteIndices
 argument_list|(
 name|request
 operator|.
-name|getIndices
+name|indices
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -602,7 +602,7 @@ decl_stmt|;
 comment|// no threading needed, all is done on the index replication one
 name|indexRequest
 operator|.
-name|setListenerThreaded
+name|listenerThreaded
 argument_list|(
 literal|false
 argument_list|)
@@ -877,7 +877,7 @@ block|{
 comment|// no need for a threaded listener, since we just send a response
 name|request
 operator|.
-name|setListenerThreaded
+name|listenerThreaded
 argument_list|(
 literal|false
 argument_list|)

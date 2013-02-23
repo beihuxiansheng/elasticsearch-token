@@ -649,7 +649,7 @@ name|IndexRequest
 argument_list|()
 return|;
 block|}
-comment|/**      * Create an index request against a specific index. Note the {@link IndexRequest#setType(String)} must be      * set as well and optionally the {@link IndexRequest#setId(String)}.      *      * @param index The index name to index the request against      * @return The index request      * @see org.elasticsearch.client.Client#index(org.elasticsearch.action.index.IndexRequest)      */
+comment|/**      * Create an index request against a specific index. Note the {@link IndexRequest#type(String)} must be      * set as well and optionally the {@link IndexRequest#id(String)}.      *      * @param index The index name to index the request against      * @return The index request      * @see org.elasticsearch.client.Client#index(org.elasticsearch.action.index.IndexRequest)      */
 DECL|method|indexRequest
 specifier|public
 specifier|static
@@ -668,7 +668,7 @@ name|index
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a delete request against a specific index. Note the {@link DeleteRequest#setType(String)} and      * {@link DeleteRequest#setId(String)} must be set.      *      * @param index The index name to delete from      * @return The delete request      * @see org.elasticsearch.client.Client#delete(org.elasticsearch.action.delete.DeleteRequest)      */
+comment|/**      * Creates a delete request against a specific index. Note the {@link DeleteRequest#type(String)} and      * {@link DeleteRequest#id(String)} must be set.      *      * @param index The index name to delete from      * @return The delete request      * @see org.elasticsearch.client.Client#delete(org.elasticsearch.action.delete.DeleteRequest)      */
 DECL|method|deleteRequest
 specifier|public
 specifier|static
@@ -721,7 +721,7 @@ name|indices
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a get request to get the JSON source from an index based on a type and id. Note, the      * {@link GetRequest#setType(String)} and {@link GetRequest#setId(String)} must be set.      *      * @param index The index to get the JSON source from      * @return The get request      * @see org.elasticsearch.client.Client#get(org.elasticsearch.action.get.GetRequest)      */
+comment|/**      * Creates a get request to get the JSON source from an index based on a type and id. Note, the      * {@link GetRequest#type(String)} and {@link GetRequest#id(String)} must be set.      *      * @param index The index to get the JSON source from      * @return The get request      * @see org.elasticsearch.client.Client#get(org.elasticsearch.action.get.GetRequest)      */
 DECL|method|getRequest
 specifier|public
 specifier|static

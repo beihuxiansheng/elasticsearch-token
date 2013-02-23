@@ -681,12 +681,12 @@ name|concreteIndices
 argument_list|(
 name|request
 operator|.
-name|getIndices
+name|indices
 argument_list|()
 argument_list|,
 name|request
 operator|.
-name|getIgnoreIndices
+name|ignoreIndices
 argument_list|()
 argument_list|,
 literal|true
@@ -735,12 +735,12 @@ name|resolveSearchRouting
 argument_list|(
 name|request
 operator|.
-name|getRouting
+name|routing
 argument_list|()
 argument_list|,
 name|request
 operator|.
-name|getIndices
+name|indices
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -757,7 +757,7 @@ name|clusterState
 argument_list|,
 name|request
 operator|.
-name|getIndices
+name|indices
 argument_list|()
 argument_list|,
 name|concreteIndices
@@ -766,7 +766,7 @@ name|routingMap
 argument_list|,
 name|request
 operator|.
-name|getPreference
+name|preference
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -807,7 +807,7 @@ name|toString
 argument_list|(
 name|request
 operator|.
-name|getIndices
+name|indices
 argument_list|()
 argument_list|)
 argument_list|,
@@ -915,7 +915,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|getOperationThreading
+name|operationThreading
 argument_list|()
 operator|==
 name|SearchOperationThreading
@@ -1013,7 +1013,7 @@ name|localAsync
 init|=
 name|request
 operator|.
-name|getOperationThreading
+name|operationThreading
 argument_list|()
 operator|==
 name|SearchOperationThreading
@@ -1228,7 +1228,7 @@ argument_list|()
 argument_list|,
 name|request
 operator|.
-name|getIndices
+name|indices
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1998,7 +1998,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|getScroll
+name|scroll
 argument_list|()
 operator|==
 literal|null

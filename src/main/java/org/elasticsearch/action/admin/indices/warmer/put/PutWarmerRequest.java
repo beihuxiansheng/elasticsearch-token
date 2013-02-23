@@ -192,10 +192,10 @@ name|name
 expr_stmt|;
 block|}
 comment|/**      * Sets the name of the warmer.      */
-DECL|method|setName
+DECL|method|name
 specifier|public
 name|PutWarmerRequest
-name|setName
+name|name
 parameter_list|(
 name|String
 name|name
@@ -211,10 +211,9 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|getName
-specifier|public
+DECL|method|name
 name|String
-name|getName
+name|name
 parameter_list|()
 block|{
 return|return
@@ -224,10 +223,10 @@ name|name
 return|;
 block|}
 comment|/**      * Sets the search request to warm.      */
-DECL|method|setSearchRequest
+DECL|method|searchRequest
 specifier|public
 name|PutWarmerRequest
-name|setSearchRequest
+name|searchRequest
 parameter_list|(
 name|SearchRequest
 name|searchRequest
@@ -244,10 +243,10 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the search request to warm.      */
-DECL|method|setSearchRequest
+DECL|method|searchRequest
 specifier|public
 name|PutWarmerRequest
-name|setSearchRequest
+name|searchRequest
 parameter_list|(
 name|SearchRequestBuilder
 name|searchRequest
@@ -268,10 +267,9 @@ return|;
 block|}
 annotation|@
 name|Nullable
-DECL|method|getSearchRequest
-specifier|public
+DECL|method|searchRequest
 name|SearchRequest
-name|getSearchRequest
+name|searchRequest
 parameter_list|()
 block|{
 return|return

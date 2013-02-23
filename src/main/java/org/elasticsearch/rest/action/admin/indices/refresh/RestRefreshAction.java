@@ -389,7 +389,7 @@ argument_list|)
 decl_stmt|;
 name|refreshRequest
 operator|.
-name|setListenerThreaded
+name|listenerThreaded
 argument_list|(
 literal|false
 argument_list|)
@@ -406,7 +406,7 @@ condition|)
 block|{
 name|refreshRequest
 operator|.
-name|setIgnoreIndices
+name|ignoreIndices
 argument_list|(
 name|IgnoreIndices
 operator|.
@@ -460,7 +460,7 @@ expr_stmt|;
 block|}
 name|refreshRequest
 operator|.
-name|setOperationThreading
+name|operationThreading
 argument_list|(
 name|operationThreading
 argument_list|)

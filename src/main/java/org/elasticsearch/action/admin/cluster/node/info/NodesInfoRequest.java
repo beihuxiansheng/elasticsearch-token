@@ -259,10 +259,10 @@ name|this
 return|;
 block|}
 comment|/**      * Should the node settings be returned.      */
-DECL|method|isSettings
+DECL|method|settings
 specifier|public
 name|boolean
-name|isSettings
+name|settings
 parameter_list|()
 block|{
 return|return
@@ -272,10 +272,10 @@ name|settings
 return|;
 block|}
 comment|/**      * Should the node settings be returned.      */
-DECL|method|setSettings
+DECL|method|settings
 specifier|public
 name|NodesInfoRequest
-name|setSettings
+name|settings
 parameter_list|(
 name|boolean
 name|settings
@@ -292,10 +292,10 @@ name|this
 return|;
 block|}
 comment|/**      * Should the node OS be returned.      */
-DECL|method|isOs
+DECL|method|os
 specifier|public
 name|boolean
-name|isOs
+name|os
 parameter_list|()
 block|{
 return|return
@@ -305,10 +305,10 @@ name|os
 return|;
 block|}
 comment|/**      * Should the node OS be returned.      */
-DECL|method|setOs
+DECL|method|os
 specifier|public
 name|NodesInfoRequest
-name|setOs
+name|os
 parameter_list|(
 name|boolean
 name|os
@@ -325,10 +325,10 @@ name|this
 return|;
 block|}
 comment|/**      * Should the node Process be returned.      */
-DECL|method|isProcess
+DECL|method|process
 specifier|public
 name|boolean
-name|isProcess
+name|process
 parameter_list|()
 block|{
 return|return
@@ -338,10 +338,10 @@ name|process
 return|;
 block|}
 comment|/**      * Should the node Process be returned.      */
-DECL|method|setProcess
+DECL|method|process
 specifier|public
 name|NodesInfoRequest
-name|setProcess
+name|process
 parameter_list|(
 name|boolean
 name|process
@@ -358,10 +358,10 @@ name|this
 return|;
 block|}
 comment|/**      * Should the node JVM be returned.      */
-DECL|method|isJvm
+DECL|method|jvm
 specifier|public
 name|boolean
-name|isJvm
+name|jvm
 parameter_list|()
 block|{
 return|return
@@ -371,10 +371,10 @@ name|jvm
 return|;
 block|}
 comment|/**      * Should the node JVM be returned.      */
-DECL|method|setJvm
+DECL|method|jvm
 specifier|public
 name|NodesInfoRequest
-name|setJvm
+name|jvm
 parameter_list|(
 name|boolean
 name|jvm
@@ -391,10 +391,10 @@ name|this
 return|;
 block|}
 comment|/**      * Should the node Thread Pool info be returned.      */
-DECL|method|isThreadPool
+DECL|method|threadPool
 specifier|public
 name|boolean
-name|isThreadPool
+name|threadPool
 parameter_list|()
 block|{
 return|return
@@ -404,10 +404,10 @@ name|threadPool
 return|;
 block|}
 comment|/**      * Should the node Thread Pool info be returned.      */
-DECL|method|setThreadPool
+DECL|method|threadPool
 specifier|public
 name|NodesInfoRequest
-name|setThreadPool
+name|threadPool
 parameter_list|(
 name|boolean
 name|threadPool
@@ -424,10 +424,10 @@ name|this
 return|;
 block|}
 comment|/**      * Should the node Network be returned.      */
-DECL|method|isNetwork
+DECL|method|network
 specifier|public
 name|boolean
-name|isNetwork
+name|network
 parameter_list|()
 block|{
 return|return
@@ -437,10 +437,10 @@ name|network
 return|;
 block|}
 comment|/**      * Should the node Network be returned.      */
-DECL|method|setNetwork
+DECL|method|network
 specifier|public
 name|NodesInfoRequest
-name|setNetwork
+name|network
 parameter_list|(
 name|boolean
 name|network
@@ -457,10 +457,10 @@ name|this
 return|;
 block|}
 comment|/**      * Should the node Transport be returned.      */
-DECL|method|isTransport
+DECL|method|transport
 specifier|public
 name|boolean
-name|isTransport
+name|transport
 parameter_list|()
 block|{
 return|return
@@ -470,10 +470,10 @@ name|transport
 return|;
 block|}
 comment|/**      * Should the node Transport be returned.      */
-DECL|method|setTransport
+DECL|method|transport
 specifier|public
 name|NodesInfoRequest
-name|setTransport
+name|transport
 parameter_list|(
 name|boolean
 name|transport
@@ -490,10 +490,10 @@ name|this
 return|;
 block|}
 comment|/**      * Should the node HTTP be returned.      */
-DECL|method|isHttp
+DECL|method|http
 specifier|public
 name|boolean
-name|isHttp
+name|http
 parameter_list|()
 block|{
 return|return
@@ -503,10 +503,10 @@ name|http
 return|;
 block|}
 comment|/**      * Should the node HTTP be returned.      */
-DECL|method|setHttp
+DECL|method|http
 specifier|public
 name|NodesInfoRequest
-name|setHttp
+name|http
 parameter_list|(
 name|boolean
 name|http

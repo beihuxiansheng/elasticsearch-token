@@ -134,7 +134,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setIndices
+name|indices
 argument_list|(
 name|indices
 argument_list|)

@@ -267,12 +267,12 @@ argument_list|,
 name|id
 argument_list|)
 operator|.
-name|setPreference
+name|preference
 argument_list|(
 literal|"_local"
 argument_list|)
 operator|.
-name|setOperationThreaded
+name|operationThreaded
 argument_list|(
 literal|false
 argument_list|)

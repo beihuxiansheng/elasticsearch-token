@@ -436,7 +436,7 @@ argument_list|()
 argument_list|,
 name|request
 operator|.
-name|getName
+name|name
 argument_list|()
 argument_list|)
 operator|.

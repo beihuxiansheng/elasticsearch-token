@@ -141,7 +141,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setThreads
+name|threads
 argument_list|(
 name|threads
 argument_list|)
@@ -161,7 +161,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setType
+name|type
 argument_list|(
 name|type
 argument_list|)
@@ -181,7 +181,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setInterval
+name|interval
 argument_list|(
 name|interval
 argument_list|)

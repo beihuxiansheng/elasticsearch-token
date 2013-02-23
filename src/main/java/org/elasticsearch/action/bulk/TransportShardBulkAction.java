@@ -742,7 +742,7 @@ name|WRITE
 argument_list|,
 name|request
 operator|.
-name|getIndex
+name|index
 argument_list|()
 argument_list|)
 return|;
@@ -771,7 +771,7 @@ name|index
 argument_list|(
 name|request
 operator|.
-name|getIndex
+name|index
 argument_list|()
 argument_list|)
 operator|.
@@ -779,7 +779,7 @@ name|shard
 argument_list|(
 name|request
 operator|.
-name|getShardId
+name|shardId
 argument_list|()
 argument_list|)
 operator|.
@@ -825,7 +825,7 @@ name|shardRequest
 operator|.
 name|request
 operator|.
-name|getIndex
+name|index
 argument_list|()
 argument_list|)
 operator|.
@@ -866,7 +866,7 @@ name|BulkItemResponse
 index|[
 name|request
 operator|.
-name|getItems
+name|items
 argument_list|()
 operator|.
 name|length
@@ -881,7 +881,7 @@ name|long
 index|[
 name|request
 operator|.
-name|getItems
+name|items
 argument_list|()
 operator|.
 name|length
@@ -898,7 +898,7 @@ name|i
 operator|<
 name|request
 operator|.
-name|getItems
+name|items
 argument_list|()
 operator|.
 name|length
@@ -912,7 +912,7 @@ name|item
 init|=
 name|request
 operator|.
-name|getItems
+name|items
 argument_list|()
 index|[
 name|i
@@ -922,7 +922,7 @@ if|if
 condition|(
 name|item
 operator|.
-name|getRequest
+name|request
 argument_list|()
 operator|instanceof
 name|IndexRequest
@@ -936,7 +936,7 @@ name|IndexRequest
 operator|)
 name|item
 operator|.
-name|getRequest
+name|request
 argument_list|()
 decl_stmt|;
 try|try
@@ -954,7 +954,7 @@ name|index
 argument_list|(
 name|request
 operator|.
-name|getIndex
+name|index
 argument_list|()
 argument_list|)
 operator|.
@@ -962,7 +962,7 @@ name|mappingOrDefault
 argument_list|(
 name|indexRequest
 operator|.
-name|getType
+name|type
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -985,7 +985,7 @@ if|if
 condition|(
 name|indexRequest
 operator|.
-name|getRouting
+name|routing
 argument_list|()
 operator|==
 literal|null
@@ -997,17 +997,17 @@ name|RoutingMissingException
 argument_list|(
 name|indexRequest
 operator|.
-name|getIndex
+name|index
 argument_list|()
 argument_list|,
 name|indexRequest
 operator|.
-name|getType
+name|type
 argument_list|()
 argument_list|,
 name|indexRequest
 operator|.
-name|getId
+name|id
 argument_list|()
 argument_list|)
 throw|;
@@ -1022,7 +1022,7 @@ name|source
 argument_list|(
 name|indexRequest
 operator|.
-name|getSource
+name|source
 argument_list|()
 argument_list|)
 operator|.
@@ -1030,7 +1030,7 @@ name|type
 argument_list|(
 name|indexRequest
 operator|.
-name|getType
+name|type
 argument_list|()
 argument_list|)
 operator|.
@@ -1038,7 +1038,7 @@ name|id
 argument_list|(
 name|indexRequest
 operator|.
-name|getId
+name|id
 argument_list|()
 argument_list|)
 operator|.
@@ -1046,7 +1046,7 @@ name|routing
 argument_list|(
 name|indexRequest
 operator|.
-name|getRouting
+name|routing
 argument_list|()
 argument_list|)
 operator|.
@@ -1054,7 +1054,7 @@ name|parent
 argument_list|(
 name|indexRequest
 operator|.
-name|getParent
+name|parent
 argument_list|()
 argument_list|)
 operator|.
@@ -1062,7 +1062,7 @@ name|timestamp
 argument_list|(
 name|indexRequest
 operator|.
-name|getTimestamp
+name|timestamp
 argument_list|()
 argument_list|)
 operator|.
@@ -1070,7 +1070,7 @@ name|ttl
 argument_list|(
 name|indexRequest
 operator|.
-name|getTtl
+name|ttl
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1086,7 +1086,7 @@ if|if
 condition|(
 name|indexRequest
 operator|.
-name|getOpType
+name|opType
 argument_list|()
 operator|==
 name|IndexRequest
@@ -1112,7 +1112,7 @@ name|version
 argument_list|(
 name|indexRequest
 operator|.
-name|getVersion
+name|version
 argument_list|()
 argument_list|)
 operator|.
@@ -1120,7 +1120,7 @@ name|versionType
 argument_list|(
 name|indexRequest
 operator|.
-name|getVersionType
+name|versionType
 argument_list|()
 argument_list|)
 operator|.
@@ -1172,7 +1172,7 @@ name|version
 argument_list|(
 name|indexRequest
 operator|.
-name|getVersion
+name|version
 argument_list|()
 argument_list|)
 operator|.
@@ -1180,7 +1180,7 @@ name|versionType
 argument_list|(
 name|indexRequest
 operator|.
-name|getVersionType
+name|versionType
 argument_list|()
 argument_list|)
 operator|.
@@ -1221,13 +1221,13 @@ index|]
 operator|=
 name|indexRequest
 operator|.
-name|getVersion
+name|version
 argument_list|()
 expr_stmt|;
 comment|// update the version on request so it will happen on the replicas
 name|indexRequest
 operator|.
-name|setVersion
+name|version
 argument_list|(
 name|version
 argument_list|)
@@ -1269,12 +1269,12 @@ name|tuple
 argument_list|(
 name|indexRequest
 operator|.
-name|getIndex
+name|index
 argument_list|()
 argument_list|,
 name|indexRequest
 operator|.
-name|getType
+name|type
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1289,7 +1289,7 @@ name|hasLength
 argument_list|(
 name|indexRequest
 operator|.
-name|getPercolate
+name|percolate
 argument_list|()
 argument_list|)
 condition|)
@@ -1310,7 +1310,7 @@ name|IndexingOperation
 index|[
 name|request
 operator|.
-name|getItems
+name|items
 argument_list|()
 operator|.
 name|length
@@ -1336,12 +1336,12 @@ name|BulkItemResponse
 argument_list|(
 name|item
 operator|.
-name|getId
+name|id
 argument_list|()
 argument_list|,
 name|indexRequest
 operator|.
-name|getOpType
+name|opType
 argument_list|()
 operator|.
 name|lowercase
@@ -1352,17 +1352,17 @@ name|IndexResponse
 argument_list|(
 name|indexRequest
 operator|.
-name|getIndex
+name|index
 argument_list|()
 argument_list|,
 name|indexRequest
 operator|.
-name|getType
+name|type
 argument_list|()
 argument_list|,
 name|indexRequest
 operator|.
-name|getId
+name|id
 argument_list|()
 argument_list|,
 name|version
@@ -1405,7 +1405,7 @@ name|applyVersion
 argument_list|(
 name|request
 operator|.
-name|getItems
+name|items
 argument_list|()
 index|[
 name|j
@@ -1458,7 +1458,7 @@ name|shardRequest
 operator|.
 name|request
 operator|.
-name|getIndex
+name|index
 argument_list|()
 argument_list|,
 name|shardRequest
@@ -1483,7 +1483,7 @@ name|shardRequest
 operator|.
 name|request
 operator|.
-name|getIndex
+name|index
 argument_list|()
 argument_list|,
 name|shardRequest
@@ -1504,12 +1504,12 @@ name|BulkItemResponse
 argument_list|(
 name|item
 operator|.
-name|getId
+name|id
 argument_list|()
 argument_list|,
 name|indexRequest
 operator|.
-name|getOpType
+name|opType
 argument_list|()
 operator|.
 name|lowercase
@@ -1522,17 +1522,17 @@ name|Failure
 argument_list|(
 name|indexRequest
 operator|.
-name|getIndex
+name|index
 argument_list|()
 argument_list|,
 name|indexRequest
 operator|.
-name|getType
+name|type
 argument_list|()
 argument_list|,
 name|indexRequest
 operator|.
-name|getId
+name|id
 argument_list|()
 argument_list|,
 name|ExceptionsHelper
@@ -1547,7 +1547,7 @@ expr_stmt|;
 comment|// nullify the request so it won't execute on the replicas
 name|request
 operator|.
-name|getItems
+name|items
 argument_list|()
 index|[
 name|i
@@ -1562,7 +1562,7 @@ if|if
 condition|(
 name|item
 operator|.
-name|getRequest
+name|request
 argument_list|()
 operator|instanceof
 name|DeleteRequest
@@ -1576,7 +1576,7 @@ name|DeleteRequest
 operator|)
 name|item
 operator|.
-name|getRequest
+name|request
 argument_list|()
 decl_stmt|;
 try|try
@@ -1592,17 +1592,17 @@ name|prepareDelete
 argument_list|(
 name|deleteRequest
 operator|.
-name|getType
+name|type
 argument_list|()
 argument_list|,
 name|deleteRequest
 operator|.
-name|getId
+name|id
 argument_list|()
 argument_list|,
 name|deleteRequest
 operator|.
-name|getVersion
+name|version
 argument_list|()
 argument_list|)
 operator|.
@@ -1610,7 +1610,7 @@ name|versionType
 argument_list|(
 name|deleteRequest
 operator|.
-name|getVersionType
+name|versionType
 argument_list|()
 argument_list|)
 operator|.
@@ -1635,7 +1635,7 @@ expr_stmt|;
 comment|// update the request with teh version so it will go to the replicas
 name|deleteRequest
 operator|.
-name|setVersion
+name|version
 argument_list|(
 name|delete
 operator|.
@@ -1654,7 +1654,7 @@ name|BulkItemResponse
 argument_list|(
 name|item
 operator|.
-name|getId
+name|id
 argument_list|()
 argument_list|,
 literal|"delete"
@@ -1664,17 +1664,17 @@ name|DeleteResponse
 argument_list|(
 name|deleteRequest
 operator|.
-name|getIndex
+name|index
 argument_list|()
 argument_list|,
 name|deleteRequest
 operator|.
-name|getType
+name|type
 argument_list|()
 argument_list|,
 name|deleteRequest
 operator|.
-name|getId
+name|id
 argument_list|()
 argument_list|,
 name|delete
@@ -1725,7 +1725,7 @@ name|applyVersion
 argument_list|(
 name|request
 operator|.
-name|getItems
+name|items
 argument_list|()
 index|[
 name|j
@@ -1778,7 +1778,7 @@ name|shardRequest
 operator|.
 name|request
 operator|.
-name|getIndex
+name|index
 argument_list|()
 argument_list|,
 name|shardRequest
@@ -1803,7 +1803,7 @@ name|shardRequest
 operator|.
 name|request
 operator|.
-name|getIndex
+name|index
 argument_list|()
 argument_list|,
 name|shardRequest
@@ -1824,7 +1824,7 @@ name|BulkItemResponse
 argument_list|(
 name|item
 operator|.
-name|getId
+name|id
 argument_list|()
 argument_list|,
 literal|"delete"
@@ -1836,17 +1836,17 @@ name|Failure
 argument_list|(
 name|deleteRequest
 operator|.
-name|getIndex
+name|index
 argument_list|()
 argument_list|,
 name|deleteRequest
 operator|.
-name|getType
+name|type
 argument_list|()
 argument_list|,
 name|deleteRequest
 operator|.
-name|getId
+name|id
 argument_list|()
 argument_list|,
 name|ExceptionsHelper
@@ -1861,7 +1861,7 @@ expr_stmt|;
 comment|// nullify the request so it won't execute on the replicas
 name|request
 operator|.
-name|getItems
+name|items
 argument_list|()
 index|[
 name|i
@@ -1911,7 +1911,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|isRefresh
+name|refresh
 argument_list|()
 condition|)
 block|{
@@ -1951,12 +1951,12 @@ name|ShardId
 argument_list|(
 name|request
 operator|.
-name|getIndex
+name|index
 argument_list|()
 argument_list|,
 name|request
 operator|.
-name|getShardId
+name|shardId
 argument_list|()
 argument_list|)
 argument_list|,
@@ -2010,7 +2010,7 @@ name|indexServiceSafe
 argument_list|(
 name|request
 operator|.
-name|getIndex
+name|index
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -2062,7 +2062,7 @@ name|itemRequest
 init|=
 name|request
 operator|.
-name|getItems
+name|items
 argument_list|()
 index|[
 name|i
@@ -2117,7 +2117,7 @@ if|if
 condition|(
 name|itemRequest
 operator|.
-name|getRequest
+name|request
 argument_list|()
 operator|instanceof
 name|IndexRequest
@@ -2131,7 +2131,7 @@ name|IndexRequest
 operator|)
 name|itemRequest
 operator|.
-name|getRequest
+name|request
 argument_list|()
 decl_stmt|;
 if|if
@@ -2143,7 +2143,7 @@ name|hasLength
 argument_list|(
 name|indexRequest
 operator|.
-name|getPercolate
+name|percolate
 argument_list|()
 argument_list|)
 condition|)
@@ -2176,7 +2176,7 @@ argument_list|()
 argument_list|,
 name|indexRequest
 operator|.
-name|getPercolate
+name|percolate
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2216,7 +2216,7 @@ name|e
 argument_list|,
 name|itemRequest
 operator|.
-name|getRequest
+name|request
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2246,7 +2246,7 @@ name|shardRequest
 operator|.
 name|request
 operator|.
-name|getIndex
+name|index
 argument_list|()
 argument_list|)
 operator|.
@@ -2276,7 +2276,7 @@ name|i
 operator|<
 name|request
 operator|.
-name|getItems
+name|items
 argument_list|()
 operator|.
 name|length
@@ -2290,7 +2290,7 @@ name|item
 init|=
 name|request
 operator|.
-name|getItems
+name|items
 argument_list|()
 index|[
 name|i
@@ -2309,7 +2309,7 @@ if|if
 condition|(
 name|item
 operator|.
-name|getRequest
+name|request
 argument_list|()
 operator|instanceof
 name|IndexRequest
@@ -2323,7 +2323,7 @@ name|IndexRequest
 operator|)
 name|item
 operator|.
-name|getRequest
+name|request
 argument_list|()
 decl_stmt|;
 try|try
@@ -2337,7 +2337,7 @@ name|source
 argument_list|(
 name|indexRequest
 operator|.
-name|getSource
+name|source
 argument_list|()
 argument_list|)
 operator|.
@@ -2345,7 +2345,7 @@ name|type
 argument_list|(
 name|indexRequest
 operator|.
-name|getType
+name|type
 argument_list|()
 argument_list|)
 operator|.
@@ -2353,7 +2353,7 @@ name|id
 argument_list|(
 name|indexRequest
 operator|.
-name|getId
+name|id
 argument_list|()
 argument_list|)
 operator|.
@@ -2361,7 +2361,7 @@ name|routing
 argument_list|(
 name|indexRequest
 operator|.
-name|getRouting
+name|routing
 argument_list|()
 argument_list|)
 operator|.
@@ -2369,7 +2369,7 @@ name|parent
 argument_list|(
 name|indexRequest
 operator|.
-name|getParent
+name|parent
 argument_list|()
 argument_list|)
 operator|.
@@ -2377,7 +2377,7 @@ name|timestamp
 argument_list|(
 name|indexRequest
 operator|.
-name|getTimestamp
+name|timestamp
 argument_list|()
 argument_list|)
 operator|.
@@ -2385,7 +2385,7 @@ name|ttl
 argument_list|(
 name|indexRequest
 operator|.
-name|getTtl
+name|ttl
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -2393,7 +2393,7 @@ if|if
 condition|(
 name|indexRequest
 operator|.
-name|getOpType
+name|opType
 argument_list|()
 operator|==
 name|IndexRequest
@@ -2419,7 +2419,7 @@ name|version
 argument_list|(
 name|indexRequest
 operator|.
-name|getVersion
+name|version
 argument_list|()
 argument_list|)
 operator|.
@@ -2460,7 +2460,7 @@ name|version
 argument_list|(
 name|indexRequest
 operator|.
-name|getVersion
+name|version
 argument_list|()
 argument_list|)
 operator|.
@@ -2498,7 +2498,7 @@ if|if
 condition|(
 name|item
 operator|.
-name|getRequest
+name|request
 argument_list|()
 operator|instanceof
 name|DeleteRequest
@@ -2512,7 +2512,7 @@ name|DeleteRequest
 operator|)
 name|item
 operator|.
-name|getRequest
+name|request
 argument_list|()
 decl_stmt|;
 try|try
@@ -2528,17 +2528,17 @@ name|prepareDelete
 argument_list|(
 name|deleteRequest
 operator|.
-name|getType
+name|type
 argument_list|()
 argument_list|,
 name|deleteRequest
 operator|.
-name|getId
+name|id
 argument_list|()
 argument_list|,
 name|deleteRequest
 operator|.
-name|getVersion
+name|version
 argument_list|()
 argument_list|)
 operator|.
@@ -2575,7 +2575,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|isRefresh
+name|refresh
 argument_list|()
 condition|)
 block|{
@@ -2786,7 +2786,7 @@ if|if
 condition|(
 name|item
 operator|.
-name|getRequest
+name|request
 argument_list|()
 operator|instanceof
 name|IndexRequest
@@ -2798,11 +2798,11 @@ name|IndexRequest
 operator|)
 name|item
 operator|.
-name|getRequest
+name|request
 argument_list|()
 operator|)
 operator|.
-name|setVersion
+name|version
 argument_list|(
 name|version
 argument_list|)
@@ -2813,7 +2813,7 @@ if|if
 condition|(
 name|item
 operator|.
-name|getRequest
+name|request
 argument_list|()
 operator|instanceof
 name|DeleteRequest
@@ -2825,11 +2825,11 @@ name|DeleteRequest
 operator|)
 name|item
 operator|.
-name|getRequest
+name|request
 argument_list|()
 operator|)
 operator|.
-name|setVersion
+name|version
 argument_list|(
 name|version
 argument_list|)

@@ -313,7 +313,7 @@ literal|"name"
 argument_list|)
 argument_list|)
 operator|.
-name|setIndices
+name|indices
 argument_list|(
 name|RestActions
 operator|.
@@ -330,7 +330,7 @@ argument_list|)
 decl_stmt|;
 name|deleteWarmerRequest
 operator|.
-name|setListenerThreaded
+name|listenerThreaded
 argument_list|(
 literal|false
 argument_list|)

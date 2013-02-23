@@ -381,7 +381,7 @@ name|aliasAction
 range|:
 name|request
 operator|.
-name|getAliasActions
+name|aliasActions
 argument_list|()
 control|)
 block|{
@@ -489,7 +489,7 @@ name|Request
 argument_list|(
 name|request
 operator|.
-name|getAliasActions
+name|aliasActions
 argument_list|()
 operator|.
 name|toArray
@@ -499,7 +499,7 @@ name|AliasAction
 index|[
 name|request
 operator|.
-name|getAliasActions
+name|aliasActions
 argument_list|()
 operator|.
 name|size
@@ -509,7 +509,7 @@ argument_list|)
 argument_list|,
 name|request
 operator|.
-name|getTimeout
+name|timeout
 argument_list|()
 argument_list|)
 argument_list|,

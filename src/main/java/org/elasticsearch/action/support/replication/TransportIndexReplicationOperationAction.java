@@ -418,7 +418,7 @@ block|}
 comment|// update to concrete index
 name|request
 operator|.
-name|setIndex
+name|index
 argument_list|(
 name|clusterState
 operator|.
@@ -429,7 +429,7 @@ name|concreteIndex
 argument_list|(
 name|request
 operator|.
-name|getIndex
+name|index
 argument_list|()
 argument_list|)
 argument_list|)
@@ -556,7 +556,7 @@ expr_stmt|;
 comment|// optimize for local fork
 name|shardRequest
 operator|.
-name|setOperationThreaded
+name|operationThreaded
 argument_list|(
 literal|true
 argument_list|)
@@ -564,7 +564,7 @@ expr_stmt|;
 comment|// no need for threaded listener, we will fork when its done based on the index request
 name|shardRequest
 operator|.
-name|setListenerThreaded
+name|listenerThreaded
 argument_list|(
 literal|false
 argument_list|)
@@ -836,7 +836,7 @@ block|{
 comment|// no need to use threaded listener, since we just send a response
 name|request
 operator|.
-name|setListenerThreaded
+name|listenerThreaded
 argument_list|(
 literal|false
 argument_list|)

@@ -748,7 +748,7 @@ name|indexServiceSafe
 argument_list|(
 name|request
 operator|.
-name|getIndex
+name|index
 argument_list|()
 argument_list|)
 operator|.
@@ -756,7 +756,7 @@ name|shardSafe
 argument_list|(
 name|request
 operator|.
-name|getShardId
+name|shardId
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -771,7 +771,7 @@ name|Refresh
 argument_list|(
 name|request
 operator|.
-name|isWaitForOperations
+name|waitForOperations
 argument_list|()
 argument_list|)
 argument_list|)
@@ -782,12 +782,12 @@ name|ShardRefreshResponse
 argument_list|(
 name|request
 operator|.
-name|getIndex
+name|index
 argument_list|()
 argument_list|,
 name|request
 operator|.
-name|getShardId
+name|shardId
 argument_list|()
 argument_list|)
 return|;

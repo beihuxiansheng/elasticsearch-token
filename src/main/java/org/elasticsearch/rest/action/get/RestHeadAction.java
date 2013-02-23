@@ -270,21 +270,21 @@ argument_list|)
 decl_stmt|;
 name|getRequest
 operator|.
-name|setListenerThreaded
+name|listenerThreaded
 argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
 name|getRequest
 operator|.
-name|setOperationThreaded
+name|operationThreaded
 argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
 name|getRequest
 operator|.
-name|setRefresh
+name|refresh
 argument_list|(
 name|request
 operator|.
@@ -294,14 +294,14 @@ literal|"refresh"
 argument_list|,
 name|getRequest
 operator|.
-name|isRefresh
+name|refresh
 argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|getRequest
 operator|.
-name|setParent
+name|parent
 argument_list|(
 name|request
 operator|.
@@ -313,7 +313,7 @@ argument_list|)
 expr_stmt|;
 name|getRequest
 operator|.
-name|setRouting
+name|routing
 argument_list|(
 name|request
 operator|.
@@ -325,7 +325,7 @@ argument_list|)
 expr_stmt|;
 name|getRequest
 operator|.
-name|setPreference
+name|preference
 argument_list|(
 name|request
 operator|.
@@ -337,7 +337,7 @@ argument_list|)
 expr_stmt|;
 name|getRequest
 operator|.
-name|setRealtime
+name|realtime
 argument_list|(
 name|request
 operator|.
@@ -352,7 +352,7 @@ expr_stmt|;
 comment|// don't get any fields back...
 name|getRequest
 operator|.
-name|setFields
+name|fields
 argument_list|(
 name|Strings
 operator|.

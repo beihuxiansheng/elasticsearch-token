@@ -353,7 +353,7 @@ argument_list|(
 name|INDEX_NAME
 argument_list|)
 operator|.
-name|addMapping
+name|mapping
 argument_list|(
 name|CHILD_TYPE_NAME
 argument_list|,
@@ -590,7 +590,7 @@ argument_list|(
 name|INDEX_NAME
 argument_list|)
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|source
 argument_list|)

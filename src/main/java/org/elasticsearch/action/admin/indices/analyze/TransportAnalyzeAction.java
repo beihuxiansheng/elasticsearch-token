@@ -610,7 +610,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|getIndex
+name|index
 argument_list|()
 operator|!=
 literal|null
@@ -618,7 +618,7 @@ condition|)
 block|{
 name|request
 operator|.
-name|setIndex
+name|index
 argument_list|(
 name|state
 operator|.
@@ -629,7 +629,7 @@ name|concreteIndex
 argument_list|(
 name|request
 operator|.
-name|getIndex
+name|index
 argument_list|()
 argument_list|)
 argument_list|)
@@ -648,7 +648,7 @@ name|READ
 argument_list|,
 name|request
 operator|.
-name|getIndex
+name|index
 argument_list|()
 argument_list|)
 return|;
@@ -675,7 +675,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|getIndex
+name|index
 argument_list|()
 operator|==
 literal|null
@@ -696,7 +696,7 @@ name|index
 argument_list|(
 name|request
 operator|.
-name|getIndex
+name|index
 argument_list|()
 argument_list|)
 operator|.
@@ -729,7 +729,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|getIndex
+name|index
 argument_list|()
 operator|!=
 literal|null
@@ -743,7 +743,7 @@ name|indexServiceSafe
 argument_list|(
 name|request
 operator|.
-name|getIndex
+name|index
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -767,7 +767,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|getField
+name|field
 argument_list|()
 operator|!=
 literal|null
@@ -800,7 +800,7 @@ name|smartNameFieldMapper
 argument_list|(
 name|request
 operator|.
-name|getField
+name|field
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -873,7 +873,7 @@ literal|null
 operator|&&
 name|request
 operator|.
-name|getAnalyzer
+name|analyzer
 argument_list|()
 operator|!=
 literal|null
@@ -894,7 +894,7 @@ name|analyzer
 argument_list|(
 name|request
 operator|.
-name|getAnalyzer
+name|analyzer
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -912,7 +912,7 @@ name|analyzer
 argument_list|(
 name|request
 operator|.
-name|getAnalyzer
+name|analyzer
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -932,7 +932,7 @@ literal|"failed to find analyzer ["
 operator|+
 name|request
 operator|.
-name|getAnalyzer
+name|analyzer
 argument_list|()
 operator|+
 literal|"]"
@@ -945,7 +945,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|getTokenizer
+name|tokenizer
 argument_list|()
 operator|!=
 literal|null
@@ -970,7 +970,7 @@ name|tokenizerFactoryFactory
 argument_list|(
 name|request
 operator|.
-name|getTokenizer
+name|tokenizer
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -989,7 +989,7 @@ literal|"failed to find global tokenizer under ["
 operator|+
 name|request
 operator|.
-name|getTokenizer
+name|tokenizer
 argument_list|()
 operator|+
 literal|"]"
@@ -1004,7 +1004,7 @@ name|create
 argument_list|(
 name|request
 operator|.
-name|getTokenizer
+name|tokenizer
 argument_list|()
 argument_list|,
 name|ImmutableSettings
@@ -1028,7 +1028,7 @@ name|tokenizer
 argument_list|(
 name|request
 operator|.
-name|getTokenizer
+name|tokenizer
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1047,7 +1047,7 @@ literal|"failed to find tokenizer under ["
 operator|+
 name|request
 operator|.
-name|getTokenizer
+name|tokenizer
 argument_list|()
 operator|+
 literal|"]"
@@ -1069,14 +1069,14 @@ if|if
 condition|(
 name|request
 operator|.
-name|getTokenFilters
+name|tokenFilters
 argument_list|()
 operator|!=
 literal|null
 operator|&&
 name|request
 operator|.
-name|getTokenFilters
+name|tokenFilters
 argument_list|()
 operator|.
 name|length
@@ -1091,7 +1091,7 @@ name|TokenFilterFactory
 index|[
 name|request
 operator|.
-name|getTokenFilters
+name|tokenFilters
 argument_list|()
 operator|.
 name|length
@@ -1108,7 +1108,7 @@ name|i
 operator|<
 name|request
 operator|.
-name|getTokenFilters
+name|tokenFilters
 argument_list|()
 operator|.
 name|length
@@ -1122,7 +1122,7 @@ name|tokenFilterName
 init|=
 name|request
 operator|.
-name|getTokenFilters
+name|tokenFilters
 argument_list|()
 index|[
 name|i
@@ -1160,7 +1160,7 @@ literal|"failed to find global token filter under ["
 operator|+
 name|request
 operator|.
-name|getTokenizer
+name|tokenizer
 argument_list|()
 operator|+
 literal|"]"
@@ -1221,7 +1221,7 @@ literal|"failed to find token filter under ["
 operator|+
 name|request
 operator|.
-name|getTokenizer
+name|tokenizer
 argument_list|()
 operator|+
 literal|"]"
@@ -1247,7 +1247,7 @@ literal|"failed to find token filter under ["
 operator|+
 name|request
 operator|.
-name|getTokenizer
+name|tokenizer
 argument_list|()
 operator|+
 literal|"]"
@@ -1361,7 +1361,7 @@ name|FastStringReader
 argument_list|(
 name|request
 operator|.
-name|getText
+name|text
 argument_list|()
 argument_list|)
 argument_list|)

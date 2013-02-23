@@ -410,7 +410,7 @@ argument_list|)
 decl_stmt|;
 name|explainRequest
 operator|.
-name|setParent
+name|parent
 argument_list|(
 name|request
 operator|.
@@ -422,7 +422,7 @@ argument_list|)
 expr_stmt|;
 name|explainRequest
 operator|.
-name|setRouting
+name|routing
 argument_list|(
 name|request
 operator|.
@@ -434,7 +434,7 @@ argument_list|)
 expr_stmt|;
 name|explainRequest
 operator|.
-name|setPreference
+name|preference
 argument_list|(
 name|request
 operator|.
@@ -474,7 +474,7 @@ condition|)
 block|{
 name|explainRequest
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|request
 operator|.
@@ -498,7 +498,7 @@ condition|)
 block|{
 name|explainRequest
 operator|.
-name|setSource
+name|source
 argument_list|(
 operator|new
 name|BytesArray
@@ -692,7 +692,7 @@ argument_list|)
 expr_stmt|;
 name|explainRequest
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|explainSourceBuilder
 argument_list|)
@@ -735,7 +735,7 @@ condition|)
 block|{
 name|explainRequest
 operator|.
-name|setFields
+name|fields
 argument_list|(
 name|sFields
 argument_list|)
@@ -802,7 +802,7 @@ name|_INDEX
 argument_list|,
 name|explainRequest
 operator|.
-name|getIndex
+name|index
 argument_list|()
 argument_list|)
 operator|.
@@ -814,7 +814,7 @@ name|_TYPE
 argument_list|,
 name|explainRequest
 operator|.
-name|getType
+name|type
 argument_list|()
 argument_list|)
 operator|.
@@ -826,7 +826,7 @@ name|_ID
 argument_list|,
 name|explainRequest
 operator|.
-name|getId
+name|id
 argument_list|()
 argument_list|)
 operator|.

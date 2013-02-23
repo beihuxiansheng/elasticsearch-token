@@ -160,7 +160,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setSettings
+name|settings
 argument_list|(
 name|settings
 argument_list|)
@@ -181,7 +181,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setOs
+name|os
 argument_list|(
 name|os
 argument_list|)
@@ -202,7 +202,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setProcess
+name|process
 argument_list|(
 name|process
 argument_list|)
@@ -223,7 +223,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setJvm
+name|jvm
 argument_list|(
 name|jvm
 argument_list|)
@@ -244,7 +244,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setThreadPool
+name|threadPool
 argument_list|(
 name|threadPool
 argument_list|)
@@ -265,7 +265,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setNetwork
+name|network
 argument_list|(
 name|network
 argument_list|)
@@ -286,7 +286,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setTransport
+name|transport
 argument_list|(
 name|transport
 argument_list|)
@@ -307,7 +307,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setHttp
+name|http
 argument_list|(
 name|http
 argument_list|)

@@ -297,7 +297,7 @@ argument_list|)
 decl_stmt|;
 name|createIndexRequest
 operator|.
-name|setListenerThreaded
+name|listenerThreaded
 argument_list|(
 literal|false
 argument_list|)
@@ -314,7 +314,7 @@ try|try
 block|{
 name|createIndexRequest
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|request
 operator|.
@@ -366,7 +366,7 @@ block|}
 block|}
 name|createIndexRequest
 operator|.
-name|setTimeout
+name|timeout
 argument_list|(
 name|request
 operator|.

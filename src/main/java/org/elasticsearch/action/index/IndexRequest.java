@@ -333,7 +333,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Index request to index a typed JSON document into a specific index and make it searchable. Best  * created using {@link org.elasticsearch.client.Requests#indexRequest(String)}.  *<p/>  *<p>The index requires the {@link #getIndex()}, {@link #setType(String)}, {@link #setId(String)} and  * {@link #setSource(byte[])} to be set.  *<p/>  *<p>The source (content to index) can be set in its bytes form using ({@link #setSource(byte[])}),  * its string form ({@link #setSource(String)}) or using a {@link org.elasticsearch.common.xcontent.XContentBuilder}  * ({@link #setSource(org.elasticsearch.common.xcontent.XContentBuilder)}).  *<p/>  *<p>If the {@link #setId(String)} is not set, it will be automatically generated.  *  * @see IndexResponse  * @see org.elasticsearch.client.Requests#indexRequest(String)  * @see org.elasticsearch.client.Client#index(IndexRequest)  */
+comment|/**  * Index request to index a typed JSON document into a specific index and make it searchable. Best  * created using {@link org.elasticsearch.client.Requests#indexRequest(String)}.  *<p/>  *<p>The index requires the {@link #index()}, {@link #type(String)}, {@link #id(String)} and  * {@link #source(byte[])} to be set.  *<p/>  *<p>The source (content to index) can be set in its bytes form using ({@link #source(byte[])}),  * its string form ({@link #source(String)}) or using a {@link org.elasticsearch.common.xcontent.XContentBuilder}  * ({@link #source(org.elasticsearch.common.xcontent.XContentBuilder)}).  *<p/>  *<p>If the {@link #id(String)} is not set, it will be automatically generated.  *  * @see IndexResponse  * @see org.elasticsearch.client.Requests#indexRequest(String)  * @see org.elasticsearch.client.Client#index(IndexRequest)  */
 end_comment
 
 begin_class
@@ -589,7 +589,7 @@ specifier|public
 name|IndexRequest
 parameter_list|()
 block|{     }
-comment|/**      * Constructs a new index request against the specific index. The {@link #setType(String)}      * {@link #setSource(byte[])} must be set.      */
+comment|/**      * Constructs a new index request against the specific index. The {@link #type(String)}      * {@link #source(byte[])} must be set.      */
 DECL|method|IndexRequest
 specifier|public
 name|IndexRequest
@@ -605,7 +605,7 @@ operator|=
 name|index
 expr_stmt|;
 block|}
-comment|/**      * Constructs a new index request against the specific index and type. The      * {@link #setSource(byte[])} must be set.      */
+comment|/**      * Constructs a new index request against the specific index and type. The      * {@link #source(byte[])} must be set.      */
 DECL|method|IndexRequest
 specifier|public
 name|IndexRequest
@@ -728,15 +728,15 @@ name|beforeLocalFork
 parameter_list|()
 block|{
 comment|// only fork if copy over if source is unsafe
-name|getSafeSource
+name|safeSource
 argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Sets the content type that will be used when generating a document from user provided objects (like Map).      */
-DECL|method|setContentType
+DECL|method|contentType
 specifier|public
 name|IndexRequest
-name|setContentType
+name|contentType
 parameter_list|(
 name|XContentType
 name|contentType
@@ -753,10 +753,10 @@ name|this
 return|;
 block|}
 comment|/**      * The type of the indexed document.      */
-DECL|method|getType
+DECL|method|type
 specifier|public
 name|String
-name|getType
+name|type
 parameter_list|()
 block|{
 return|return
@@ -766,10 +766,10 @@ block|}
 comment|/**      * Sets the type of the indexed document.      */
 annotation|@
 name|Required
-DECL|method|setType
+DECL|method|type
 specifier|public
 name|IndexRequest
-name|setType
+name|type
 parameter_list|(
 name|String
 name|type
@@ -786,10 +786,10 @@ name|this
 return|;
 block|}
 comment|/**      * The id of the indexed document. If not set, will be automatically generated.      */
-DECL|method|getId
+DECL|method|id
 specifier|public
 name|String
-name|getId
+name|id
 parameter_list|()
 block|{
 return|return
@@ -797,10 +797,10 @@ name|id
 return|;
 block|}
 comment|/**      * Sets the id of the indexed document. If not set, will be automatically generated.      */
-DECL|method|setId
+DECL|method|id
 specifier|public
 name|IndexRequest
-name|setId
+name|id
 parameter_list|(
 name|String
 name|id
@@ -817,10 +817,10 @@ name|this
 return|;
 block|}
 comment|/**      * Controls the shard routing of the request. Using this value to hash the shard      * and not the id.      */
-DECL|method|setRouting
+DECL|method|routing
 specifier|public
 name|IndexRequest
-name|setRouting
+name|routing
 parameter_list|(
 name|String
 name|routing
@@ -861,10 +861,10 @@ name|this
 return|;
 block|}
 comment|/**      * Controls the shard routing of the request. Using this value to hash the shard      * and not the id.      */
-DECL|method|getRouting
+DECL|method|routing
 specifier|public
 name|String
-name|getRouting
+name|routing
 parameter_list|()
 block|{
 return|return
@@ -874,10 +874,10 @@ name|routing
 return|;
 block|}
 comment|/**      * Sets the parent id of this document. If routing is not set, automatically set it as the      * routing as well.      */
-DECL|method|setParent
+DECL|method|parent
 specifier|public
 name|IndexRequest
-name|setParent
+name|parent
 parameter_list|(
 name|String
 name|parent
@@ -905,10 +905,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|getParent
+DECL|method|parent
 specifier|public
 name|String
-name|getParent
+name|parent
 parameter_list|()
 block|{
 return|return
@@ -918,10 +918,10 @@ name|parent
 return|;
 block|}
 comment|/**      * Sets the timestamp either as millis since the epoch, or, in the configured date format.      */
-DECL|method|setTimestamp
+DECL|method|timestamp
 specifier|public
 name|IndexRequest
-name|setTimestamp
+name|timestamp
 parameter_list|(
 name|String
 name|timestamp
@@ -937,10 +937,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|getTimestamp
+DECL|method|timestamp
 specifier|public
 name|String
-name|getTimestamp
+name|timestamp
 parameter_list|()
 block|{
 return|return
@@ -950,10 +950,10 @@ name|timestamp
 return|;
 block|}
 comment|/**      * Sets the relative ttl value. It musts be> 0 as it makes little sense otherwise. Setting it      * to<tt>null</tt> will reset to have no ttl.      */
-DECL|method|setTtl
+DECL|method|ttl
 specifier|public
 name|IndexRequest
-name|setTtl
+name|ttl
 parameter_list|(
 name|Long
 name|ttl
@@ -1008,10 +1008,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|getTtl
+DECL|method|ttl
 specifier|public
 name|long
-name|getTtl
+name|ttl
 parameter_list|()
 block|{
 return|return
@@ -1021,20 +1021,20 @@ name|ttl
 return|;
 block|}
 comment|/**      * The source of the document to index, recopied to a new array if it is unsage.      */
-DECL|method|getSource
+DECL|method|source
 specifier|public
 name|BytesReference
-name|getSource
+name|source
 parameter_list|()
 block|{
 return|return
 name|source
 return|;
 block|}
-DECL|method|getSafeSource
+DECL|method|safeSource
 specifier|public
 name|BytesReference
-name|getSafeSource
+name|safeSource
 parameter_list|()
 block|{
 if|if
@@ -1058,7 +1058,7 @@ return|return
 name|source
 return|;
 block|}
-DECL|method|getSourceAsMap
+DECL|method|sourceAsMap
 specifier|public
 name|Map
 argument_list|<
@@ -1066,7 +1066,7 @@ name|String
 argument_list|,
 name|Object
 argument_list|>
-name|getSourceAsMap
+name|sourceAsMap
 parameter_list|()
 block|{
 return|return
@@ -1086,10 +1086,10 @@ block|}
 comment|/**      * Index the Map as a {@link org.elasticsearch.client.Requests#INDEX_CONTENT_TYPE}.      *      * @param source The map to index      */
 annotation|@
 name|Required
-DECL|method|setSource
+DECL|method|source
 specifier|public
 name|IndexRequest
-name|setSource
+name|source
 parameter_list|(
 name|Map
 name|source
@@ -1098,7 +1098,7 @@ throws|throws
 name|ElasticSearchGenerationException
 block|{
 return|return
-name|setSource
+name|source
 argument_list|(
 name|source
 argument_list|,
@@ -1109,10 +1109,10 @@ block|}
 comment|/**      * Index the Map as the provided content type.      *      * @param source The map to index      */
 annotation|@
 name|Required
-DECL|method|setSource
+DECL|method|source
 specifier|public
 name|IndexRequest
-name|setSource
+name|source
 parameter_list|(
 name|Map
 name|source
@@ -1143,7 +1143,7 @@ name|source
 argument_list|)
 expr_stmt|;
 return|return
-name|setSource
+name|source
 argument_list|(
 name|builder
 argument_list|)
@@ -1170,13 +1170,13 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Sets the document source to index.      *<p/>      *<p>Note, its preferable to either set it using {@link #setSource(org.elasticsearch.common.xcontent.XContentBuilder)}      * or using the {@link #setSource(byte[])}.      */
+comment|/**      * Sets the document source to index.      *<p/>      *<p>Note, its preferable to either set it using {@link #source(org.elasticsearch.common.xcontent.XContentBuilder)}      * or using the {@link #source(byte[])}.      */
 annotation|@
 name|Required
-DECL|method|setSource
+DECL|method|source
 specifier|public
 name|IndexRequest
-name|setSource
+name|source
 parameter_list|(
 name|String
 name|source
@@ -1212,10 +1212,10 @@ block|}
 comment|/**      * Sets the content source to index.      */
 annotation|@
 name|Required
-DECL|method|setSource
+DECL|method|source
 specifier|public
 name|IndexRequest
-name|setSource
+name|source
 parameter_list|(
 name|XContentBuilder
 name|sourceBuilder
@@ -1238,10 +1238,10 @@ return|;
 block|}
 annotation|@
 name|Required
-DECL|method|setSource
+DECL|method|source
 specifier|public
 name|IndexRequest
-name|setSource
+name|source
 parameter_list|(
 name|String
 name|field1
@@ -1278,7 +1278,7 @@ name|endObject
 argument_list|()
 expr_stmt|;
 return|return
-name|setSource
+name|source
 argument_list|(
 name|builder
 argument_list|)
@@ -1303,10 +1303,10 @@ block|}
 block|}
 annotation|@
 name|Required
-DECL|method|setSource
+DECL|method|source
 specifier|public
 name|IndexRequest
-name|setSource
+name|source
 parameter_list|(
 name|String
 name|field1
@@ -1356,7 +1356,7 @@ name|endObject
 argument_list|()
 expr_stmt|;
 return|return
-name|setSource
+name|source
 argument_list|(
 name|builder
 argument_list|)
@@ -1381,10 +1381,10 @@ block|}
 block|}
 annotation|@
 name|Required
-DECL|method|setSource
+DECL|method|source
 specifier|public
 name|IndexRequest
-name|setSource
+name|source
 parameter_list|(
 name|String
 name|field1
@@ -1447,7 +1447,7 @@ name|endObject
 argument_list|()
 expr_stmt|;
 return|return
-name|setSource
+name|source
 argument_list|(
 name|builder
 argument_list|)
@@ -1472,10 +1472,10 @@ block|}
 block|}
 annotation|@
 name|Required
-DECL|method|setSource
+DECL|method|source
 specifier|public
 name|IndexRequest
-name|setSource
+name|source
 parameter_list|(
 name|String
 name|field1
@@ -1551,7 +1551,7 @@ name|endObject
 argument_list|()
 expr_stmt|;
 return|return
-name|setSource
+name|source
 argument_list|(
 name|builder
 argument_list|)
@@ -1575,10 +1575,10 @@ throw|;
 block|}
 block|}
 comment|/**      * Sets the document to index in bytes form.      */
-DECL|method|setSource
+DECL|method|source
 specifier|public
 name|IndexRequest
-name|setSource
+name|source
 parameter_list|(
 name|BytesReference
 name|source
@@ -1604,10 +1604,10 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the document to index in bytes form.      */
-DECL|method|setSource
+DECL|method|source
 specifier|public
 name|IndexRequest
-name|setSource
+name|source
 parameter_list|(
 name|byte
 index|[]
@@ -1615,7 +1615,7 @@ name|source
 parameter_list|)
 block|{
 return|return
-name|setSource
+name|source
 argument_list|(
 name|source
 argument_list|,
@@ -1630,10 +1630,10 @@ block|}
 comment|/**      * Sets the document to index in bytes form (assumed to be safe to be used from different      * threads).      *      * @param source The source to index      * @param offset The offset in the byte array      * @param length The length of the data      */
 annotation|@
 name|Required
-DECL|method|setSource
+DECL|method|source
 specifier|public
 name|IndexRequest
-name|setSource
+name|source
 parameter_list|(
 name|byte
 index|[]
@@ -1647,7 +1647,7 @@ name|length
 parameter_list|)
 block|{
 return|return
-name|setSource
+name|source
 argument_list|(
 name|source
 argument_list|,
@@ -1662,10 +1662,10 @@ block|}
 comment|/**      * Sets the document to index in bytes form.      *      * @param source The source to index      * @param offset The offset in the byte array      * @param length The length of the data      * @param unsafe Is the byte array safe to be used form a different thread      */
 annotation|@
 name|Required
-DECL|method|setSource
+DECL|method|source
 specifier|public
 name|IndexRequest
-name|setSource
+name|source
 parameter_list|(
 name|byte
 index|[]
@@ -1706,10 +1706,10 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the type of operation to perform.      */
-DECL|method|setOpType
+DECL|method|opType
 specifier|public
 name|IndexRequest
-name|setOpType
+name|opType
 parameter_list|(
 name|OpType
 name|opType
@@ -1725,11 +1725,11 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a string representation of the {@link #setOpType(org.elasticsearch.action.index.IndexRequest.OpType)}. Can      * be either "index" or "create".      */
-DECL|method|setOpType
+comment|/**      * Sets a string representation of the {@link #opType(org.elasticsearch.action.index.IndexRequest.OpType)}. Can      * be either "index" or "create".      */
+DECL|method|opType
 specifier|public
 name|IndexRequest
-name|setOpType
+name|opType
 parameter_list|(
 name|String
 name|opType
@@ -1748,7 +1748,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|setOpType
+name|opType
 argument_list|(
 name|OpType
 operator|.
@@ -1768,7 +1768,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|setOpType
+name|opType
 argument_list|(
 name|OpType
 operator|.
@@ -1792,10 +1792,10 @@ throw|;
 block|}
 block|}
 comment|/**      * Set to<tt>true</tt> to force this index to use {@link OpType#CREATE}.      */
-DECL|method|setCreate
+DECL|method|create
 specifier|public
 name|IndexRequest
-name|setCreate
+name|create
 parameter_list|(
 name|boolean
 name|create
@@ -1807,7 +1807,7 @@ name|create
 condition|)
 block|{
 return|return
-name|setOpType
+name|opType
 argument_list|(
 name|OpType
 operator|.
@@ -1818,7 +1818,7 @@ block|}
 else|else
 block|{
 return|return
-name|setOpType
+name|opType
 argument_list|(
 name|OpType
 operator|.
@@ -1828,10 +1828,10 @@ return|;
 block|}
 block|}
 comment|/**      * The type of operation to perform.      */
-DECL|method|getOpType
+DECL|method|opType
 specifier|public
 name|OpType
-name|getOpType
+name|opType
 parameter_list|()
 block|{
 return|return
@@ -1841,10 +1841,10 @@ name|opType
 return|;
 block|}
 comment|/**      * Should a refresh be executed post this index operation causing the operation to      * be searchable. Note, heavy indexing should not set this to<tt>true</tt>. Defaults      * to<tt>false</tt>.      */
-DECL|method|setRefresh
+DECL|method|refresh
 specifier|public
 name|IndexRequest
-name|setRefresh
+name|refresh
 parameter_list|(
 name|boolean
 name|refresh
@@ -1860,10 +1860,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|isRefresh
+DECL|method|refresh
 specifier|public
 name|boolean
-name|isRefresh
+name|refresh
 parameter_list|()
 block|{
 return|return
@@ -1873,10 +1873,10 @@ name|refresh
 return|;
 block|}
 comment|/**      * Sets the version, which will cause the index operation to only be performed if a matching      * version exists and no changes happened on the doc since then.      */
-DECL|method|setVersion
+DECL|method|version
 specifier|public
 name|IndexRequest
-name|setVersion
+name|version
 parameter_list|(
 name|long
 name|version
@@ -1892,10 +1892,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|getVersion
+DECL|method|version
 specifier|public
 name|long
-name|getVersion
+name|version
 parameter_list|()
 block|{
 return|return
@@ -1905,10 +1905,10 @@ name|version
 return|;
 block|}
 comment|/**      * Sets the versioning type. Defaults to {@link VersionType#INTERNAL}.      */
-DECL|method|setVersionType
+DECL|method|versionType
 specifier|public
 name|IndexRequest
-name|setVersionType
+name|versionType
 parameter_list|(
 name|VersionType
 name|versionType
@@ -1924,10 +1924,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|getVersionType
+DECL|method|versionType
 specifier|public
 name|VersionType
-name|getVersionType
+name|versionType
 parameter_list|()
 block|{
 return|return
@@ -1937,10 +1937,10 @@ name|versionType
 return|;
 block|}
 comment|/**      * Causes the index request document to be percolated. The parameter is the percolate query      * to use to reduce the percolated queries that are going to run against this doc. Can be      * set to<tt>*</tt> to indicate that all percolate queries should be run.      */
-DECL|method|setPercolate
+DECL|method|percolate
 specifier|public
 name|IndexRequest
-name|setPercolate
+name|percolate
 parameter_list|(
 name|String
 name|percolate
@@ -1956,10 +1956,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|getPercolate
+DECL|method|percolate
 specifier|public
 name|String
-name|getPercolate
+name|percolate
 parameter_list|()
 block|{
 return|return
@@ -1991,7 +1991,7 @@ throws|throws
 name|ElasticSearchException
 block|{
 comment|// resolve the routing if needed
-name|setRouting
+name|routing
 argument_list|(
 name|metaData
 operator|.
@@ -2241,7 +2241,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|setId
+name|id
 argument_list|(
 name|UUID
 operator|.
@@ -2250,7 +2250,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// since we generate the id, change it to CREATE
-name|setOpType
+name|opType
 argument_list|(
 name|IndexRequest
 operator|.

@@ -628,7 +628,7 @@ name|resolveNodesIds
 argument_list|(
 name|request
 operator|.
-name|getNodesIds
+name|nodesIds
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -728,7 +728,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|getTimeout
+name|timeout
 argument_list|()
 operator|!=
 literal|null
@@ -740,7 +740,7 @@ name|withTimeout
 argument_list|(
 name|request
 operator|.
-name|getTimeout
+name|timeout
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1261,7 +1261,7 @@ name|Exception
 block|{
 name|request
 operator|.
-name|setListenerThreaded
+name|listenerThreaded
 argument_list|(
 literal|false
 argument_list|)

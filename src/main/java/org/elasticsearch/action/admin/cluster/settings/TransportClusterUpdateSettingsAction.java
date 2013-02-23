@@ -512,7 +512,7 @@ name|entry
 range|:
 name|request
 operator|.
-name|getTransientSettings
+name|transientSettings
 argument_list|()
 operator|.
 name|getAsMap
@@ -618,7 +618,7 @@ name|entry
 range|:
 name|request
 operator|.
-name|getPersistentSettings
+name|persistentSettings
 argument_list|()
 operator|.
 name|getAsMap

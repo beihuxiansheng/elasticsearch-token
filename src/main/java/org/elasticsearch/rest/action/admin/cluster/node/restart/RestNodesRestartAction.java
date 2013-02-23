@@ -295,14 +295,14 @@ argument_list|)
 decl_stmt|;
 name|nodesRestartRequest
 operator|.
-name|setListenerThreaded
+name|listenerThreaded
 argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
 name|nodesRestartRequest
 operator|.
-name|setDelay
+name|delay
 argument_list|(
 name|request
 operator|.
@@ -312,7 +312,7 @@ literal|"delay"
 argument_list|,
 name|nodesRestartRequest
 operator|.
-name|getDelay
+name|delay
 argument_list|()
 argument_list|)
 argument_list|)

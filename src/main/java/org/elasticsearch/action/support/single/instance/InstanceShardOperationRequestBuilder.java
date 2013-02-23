@@ -151,7 +151,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setIndex
+name|index
 argument_list|(
 name|index
 argument_list|)
@@ -181,7 +181,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setTimeout
+name|timeout
 argument_list|(
 name|timeout
 argument_list|)
@@ -211,7 +211,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setTimeout
+name|timeout
 argument_list|(
 name|timeout
 argument_list|)

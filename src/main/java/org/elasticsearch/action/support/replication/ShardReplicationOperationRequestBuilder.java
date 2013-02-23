@@ -162,7 +162,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setOperationThreaded
+name|operationThreaded
 argument_list|(
 name|threadedOperation
 argument_list|)
@@ -192,7 +192,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setTimeout
+name|timeout
 argument_list|(
 name|timeout
 argument_list|)
@@ -222,7 +222,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setTimeout
+name|timeout
 argument_list|(
 name|timeout
 argument_list|)
@@ -251,7 +251,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setIndex
+name|index
 argument_list|(
 name|index
 argument_list|)
@@ -280,7 +280,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setReplicationType
+name|replicationType
 argument_list|(
 name|replicationType
 argument_list|)
@@ -309,7 +309,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setReplicationType
+name|replicationType
 argument_list|(
 name|replicationType
 argument_list|)
@@ -338,7 +338,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setConsistencyLevel
+name|consistencyLevel
 argument_list|(
 name|consistencyLevel
 argument_list|)

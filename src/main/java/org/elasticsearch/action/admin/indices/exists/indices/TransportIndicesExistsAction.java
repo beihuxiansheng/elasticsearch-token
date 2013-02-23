@@ -327,7 +327,7 @@ name|METADATA
 argument_list|,
 name|request
 operator|.
-name|getIndices
+name|indices
 argument_list|()
 argument_list|)
 return|;
@@ -360,7 +360,7 @@ name|index
 range|:
 name|request
 operator|.
-name|getIndices
+name|indices
 argument_list|()
 control|)
 block|{

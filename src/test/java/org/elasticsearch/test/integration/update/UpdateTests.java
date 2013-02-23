@@ -562,7 +562,7 @@ decl_stmt|;
 comment|// simple script
 name|request
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|XContentFactory
 operator|.
@@ -587,7 +587,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|getScript
+name|script
 argument_list|()
 argument_list|,
 name|equalTo
@@ -611,7 +611,7 @@ argument_list|)
 expr_stmt|;
 name|request
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|XContentFactory
 operator|.
@@ -651,7 +651,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|getScript
+name|script
 argument_list|()
 argument_list|,
 name|equalTo
@@ -664,7 +664,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|getScriptParams
+name|scriptParams
 argument_list|()
 operator|.
 name|get
@@ -695,7 +695,7 @@ argument_list|)
 expr_stmt|;
 name|request
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|XContentFactory
 operator|.
@@ -735,7 +735,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|getScript
+name|script
 argument_list|()
 argument_list|,
 name|equalTo
@@ -748,7 +748,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|getScriptParams
+name|scriptParams
 argument_list|()
 operator|.
 name|get
@@ -780,7 +780,7 @@ argument_list|)
 expr_stmt|;
 name|request
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|XContentFactory
 operator|.
@@ -850,7 +850,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|getScript
+name|script
 argument_list|()
 argument_list|,
 name|equalTo
@@ -863,7 +863,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|getScriptParams
+name|scriptParams
 argument_list|()
 operator|.
 name|get
@@ -894,10 +894,10 @@ name|convertToMap
 argument_list|(
 name|request
 operator|.
-name|getUpsertRequest
+name|upsertRequest
 argument_list|()
 operator|.
-name|getSource
+name|source
 argument_list|()
 argument_list|,
 literal|true
@@ -966,7 +966,7 @@ argument_list|)
 expr_stmt|;
 name|request
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|XContentFactory
 operator|.
@@ -1036,7 +1036,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|getScript
+name|script
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1049,7 +1049,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|getScriptParams
+name|scriptParams
 argument_list|()
 operator|.
 name|get
@@ -1074,10 +1074,10 @@ name|convertToMap
 argument_list|(
 name|request
 operator|.
-name|getUpsertRequest
+name|upsertRequest
 argument_list|()
 operator|.
-name|getSource
+name|source
 argument_list|()
 argument_list|,
 literal|true
@@ -1146,7 +1146,7 @@ argument_list|)
 expr_stmt|;
 name|request
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|XContentFactory
 operator|.
@@ -1216,7 +1216,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|getScript
+name|script
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1229,7 +1229,7 @@ name|assertThat
 argument_list|(
 name|request
 operator|.
-name|getScriptParams
+name|scriptParams
 argument_list|()
 operator|.
 name|get
@@ -1254,10 +1254,10 @@ name|convertToMap
 argument_list|(
 name|request
 operator|.
-name|getUpsertRequest
+name|upsertRequest
 argument_list|()
 operator|.
-name|getSource
+name|source
 argument_list|()
 argument_list|,
 literal|true
@@ -1327,7 +1327,7 @@ argument_list|)
 expr_stmt|;
 name|request
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|XContentFactory
 operator|.
@@ -1381,10 +1381,10 @@ name|doc
 init|=
 name|request
 operator|.
-name|getDoc
+name|doc
 argument_list|()
 operator|.
-name|getSourceAsMap
+name|sourceAsMap
 argument_list|()
 decl_stmt|;
 name|assertThat

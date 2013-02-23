@@ -109,7 +109,7 @@ operator|=
 name|acknowledged
 expr_stmt|;
 block|}
-comment|/**      * Has the index creation been acknowledged by all current cluster nodes within the      * provided {@link CreateIndexRequest#setTimeout(org.elasticsearch.common.unit.TimeValue)}.      */
+comment|/**      * Has the index creation been acknowledged by all current cluster nodes within the      * provided {@link CreateIndexRequest#timeout(org.elasticsearch.common.unit.TimeValue)}.      */
 DECL|method|isAcknowledged
 specifier|public
 name|boolean

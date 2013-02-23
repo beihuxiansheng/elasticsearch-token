@@ -360,7 +360,7 @@ argument_list|()
 decl_stmt|;
 name|indicesAliasesRequest
 operator|.
-name|setListenerThreaded
+name|listenerThreaded
 argument_list|(
 literal|false
 argument_list|)
@@ -380,7 +380,7 @@ comment|//     ]
 comment|// }
 name|indicesAliasesRequest
 operator|.
-name|setTimeout
+name|timeout
 argument_list|(
 name|request
 operator|.

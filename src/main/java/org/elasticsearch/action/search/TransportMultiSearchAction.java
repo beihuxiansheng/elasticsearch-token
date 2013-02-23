@@ -317,7 +317,7 @@ name|Item
 index|[
 name|request
 operator|.
-name|getRequests
+name|requests
 argument_list|()
 operator|.
 name|size
@@ -365,7 +365,7 @@ name|execute
 argument_list|(
 name|request
 operator|.
-name|getRequests
+name|requests
 argument_list|()
 operator|.
 name|get
@@ -543,7 +543,7 @@ block|{
 comment|// no need to use threaded listener, since we just send a response
 name|request
 operator|.
-name|setListenerThreaded
+name|listenerThreaded
 argument_list|(
 literal|false
 argument_list|)

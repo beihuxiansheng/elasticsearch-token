@@ -237,10 +237,9 @@ name|validationException
 return|;
 block|}
 comment|/**      * The index template name to delete.      */
-DECL|method|getName
-specifier|public
+DECL|method|name
 name|String
-name|getName
+name|name
 parameter_list|()
 block|{
 return|return
@@ -248,10 +247,9 @@ name|name
 return|;
 block|}
 comment|/**      * Timeout to wait for the index deletion to be acknowledged by current cluster nodes. Defaults      * to<tt>10s</tt>.      */
-DECL|method|getTimeout
-specifier|public
+DECL|method|timeout
 name|TimeValue
-name|getTimeout
+name|timeout
 parameter_list|()
 block|{
 return|return
@@ -259,10 +257,10 @@ name|timeout
 return|;
 block|}
 comment|/**      * Timeout to wait for the index template deletion to be acknowledged by current cluster nodes. Defaults      * to<tt>10s</tt>.      */
-DECL|method|setTimeout
+DECL|method|timeout
 specifier|public
 name|DeleteIndexTemplateRequest
-name|setTimeout
+name|timeout
 parameter_list|(
 name|TimeValue
 name|timeout
@@ -279,17 +277,17 @@ name|this
 return|;
 block|}
 comment|/**      * Timeout to wait for the index template deletion to be acknowledged by current cluster nodes. Defaults      * to<tt>10s</tt>.      */
-DECL|method|setTimeout
+DECL|method|timeout
 specifier|public
 name|DeleteIndexTemplateRequest
-name|setTimeout
+name|timeout
 parameter_list|(
 name|String
 name|timeout
 parameter_list|)
 block|{
 return|return
-name|setTimeout
+name|timeout
 argument_list|(
 name|TimeValue
 operator|.

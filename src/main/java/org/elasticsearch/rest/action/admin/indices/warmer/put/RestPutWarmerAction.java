@@ -318,7 +318,7 @@ argument_list|)
 decl_stmt|;
 name|putWarmerRequest
 operator|.
-name|setListenerThreaded
+name|listenerThreaded
 argument_list|(
 literal|false
 argument_list|)
@@ -342,7 +342,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 operator|.
-name|setTypes
+name|types
 argument_list|(
 name|RestActions
 operator|.
@@ -357,7 +357,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|request
 operator|.
@@ -372,7 +372,7 @@ argument_list|)
 decl_stmt|;
 name|putWarmerRequest
 operator|.
-name|setSearchRequest
+name|searchRequest
 argument_list|(
 name|searchRequest
 argument_list|)

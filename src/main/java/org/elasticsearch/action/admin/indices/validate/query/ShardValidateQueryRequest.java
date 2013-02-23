@@ -196,7 +196,7 @@ name|querySource
 operator|=
 name|request
 operator|.
-name|getQuerySource
+name|querySource
 argument_list|()
 expr_stmt|;
 name|this
@@ -205,7 +205,7 @@ name|types
 operator|=
 name|request
 operator|.
-name|getTypes
+name|types
 argument_list|()
 expr_stmt|;
 name|this
@@ -214,7 +214,7 @@ name|explain
 operator|=
 name|request
 operator|.
-name|isExplain
+name|explain
 argument_list|()
 expr_stmt|;
 name|this

@@ -254,7 +254,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setType
+name|type
 argument_list|(
 name|type
 argument_list|)
@@ -275,7 +275,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setId
+name|id
 argument_list|(
 name|id
 argument_list|)
@@ -296,7 +296,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setRouting
+name|routing
 argument_list|(
 name|routing
 argument_list|)
@@ -316,7 +316,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setParent
+name|parent
 argument_list|(
 name|parent
 argument_list|)
@@ -337,7 +337,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setScript
+name|script
 argument_list|(
 name|script
 argument_list|)
@@ -358,7 +358,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setScriptLang
+name|scriptLang
 argument_list|(
 name|scriptLang
 argument_list|)
@@ -384,7 +384,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setScriptParams
+name|scriptParams
 argument_list|(
 name|scriptParams
 argument_list|)
@@ -432,7 +432,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setFields
+name|fields
 argument_list|(
 name|fields
 argument_list|)
@@ -453,7 +453,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setRetryOnConflict
+name|retryOnConflict
 argument_list|(
 name|retryOnConflict
 argument_list|)
@@ -474,7 +474,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setRefresh
+name|refresh
 argument_list|(
 name|refresh
 argument_list|)
@@ -495,7 +495,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setReplicationType
+name|replicationType
 argument_list|(
 name|replicationType
 argument_list|)
@@ -516,7 +516,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setConsistencyLevel
+name|consistencyLevel
 argument_list|(
 name|consistencyLevel
 argument_list|)
@@ -537,7 +537,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setPercolate
+name|percolate
 argument_list|(
 name|percolate
 argument_list|)
@@ -558,7 +558,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setDoc
+name|doc
 argument_list|(
 name|indexRequest
 argument_list|)
@@ -579,7 +579,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setDoc
+name|doc
 argument_list|(
 name|source
 argument_list|)
@@ -600,7 +600,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setDoc
+name|doc
 argument_list|(
 name|source
 argument_list|)
@@ -624,7 +624,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setDoc
+name|doc
 argument_list|(
 name|source
 argument_list|,
@@ -647,7 +647,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setDoc
+name|doc
 argument_list|(
 name|source
 argument_list|)
@@ -669,7 +669,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setDoc
+name|doc
 argument_list|(
 name|source
 argument_list|)
@@ -697,7 +697,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setDoc
+name|doc
 argument_list|(
 name|source
 argument_list|,
@@ -722,7 +722,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setUpsertRequest
+name|upsert
 argument_list|(
 name|indexRequest
 argument_list|)
@@ -743,7 +743,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setUpsertRequest
+name|upsert
 argument_list|(
 name|source
 argument_list|)
@@ -764,7 +764,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setUpsertRequest
+name|upsert
 argument_list|(
 name|source
 argument_list|)
@@ -788,7 +788,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setUpsertRequest
+name|upsert
 argument_list|(
 name|source
 argument_list|,
@@ -811,7 +811,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setUpsertRequest
+name|upsert
 argument_list|(
 name|source
 argument_list|)
@@ -833,7 +833,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setUpsertRequest
+name|upsert
 argument_list|(
 name|source
 argument_list|)
@@ -861,7 +861,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setUpsertRequest
+name|upsert
 argument_list|(
 name|source
 argument_list|,
@@ -887,7 +887,7 @@ name|Exception
 block|{
 name|request
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|source
 argument_list|)
@@ -910,7 +910,7 @@ name|Exception
 block|{
 name|request
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|source
 argument_list|)
@@ -939,7 +939,7 @@ name|Exception
 block|{
 name|request
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|source
 argument_list|,
@@ -965,7 +965,7 @@ name|Exception
 block|{
 name|request
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|source
 argument_list|)

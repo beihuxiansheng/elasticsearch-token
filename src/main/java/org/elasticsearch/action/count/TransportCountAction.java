@@ -601,7 +601,7 @@ argument_list|()
 argument_list|,
 name|request
 operator|.
-name|getIndices
+name|indices
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -677,12 +677,12 @@ name|resolveSearchRouting
 argument_list|(
 name|request
 operator|.
-name|getRouting
+name|routing
 argument_list|()
 argument_list|,
 name|request
 operator|.
-name|getIndices
+name|indices
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -698,7 +698,7 @@ name|clusterState
 argument_list|,
 name|request
 operator|.
-name|getIndices
+name|indices
 argument_list|()
 argument_list|,
 name|concreteIndices
@@ -949,7 +949,7 @@ name|indexServiceSafe
 argument_list|(
 name|request
 operator|.
-name|getIndex
+name|index
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -962,7 +962,7 @@ name|shardSafe
 argument_list|(
 name|request
 operator|.
-name|getShardId
+name|shardId
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -982,12 +982,12 @@ argument_list|()
 argument_list|,
 name|request
 operator|.
-name|getIndex
+name|index
 argument_list|()
 argument_list|,
 name|request
 operator|.
-name|getShardId
+name|shardId
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1007,7 +1007,7 @@ name|types
 argument_list|(
 name|request
 operator|.
-name|getTypes
+name|types
 argument_list|()
 argument_list|)
 operator|.
@@ -1015,7 +1015,7 @@ name|filteringAliases
 argument_list|(
 name|request
 operator|.
-name|getFilteringAliases
+name|filteringAliases
 argument_list|()
 argument_list|)
 argument_list|,
@@ -1047,7 +1047,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|getMinScore
+name|minScore
 argument_list|()
 operator|!=
 operator|-
@@ -1060,7 +1060,7 @@ name|minimumScore
 argument_list|(
 name|request
 operator|.
-name|getMinScore
+name|minScore
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1070,7 +1070,7 @@ name|querySource
 init|=
 name|request
 operator|.
-name|getQuerySource
+name|querySource
 argument_list|()
 decl_stmt|;
 if|if
@@ -1095,7 +1095,7 @@ name|setTypes
 argument_list|(
 name|request
 operator|.
-name|getTypes
+name|types
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1155,12 +1155,12 @@ name|ShardCountResponse
 argument_list|(
 name|request
 operator|.
-name|getIndex
+name|index
 argument_list|()
 argument_list|,
 name|request
 operator|.
-name|getShardId
+name|shardId
 argument_list|()
 argument_list|,
 name|count

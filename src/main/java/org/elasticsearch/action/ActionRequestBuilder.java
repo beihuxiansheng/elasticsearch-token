@@ -131,7 +131,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setListenerThreaded
+name|listenerThreaded
 argument_list|(
 name|listenerThreaded
 argument_list|)
@@ -200,7 +200,7 @@ argument_list|>
 argument_list|(
 name|request
 operator|.
-name|isListenerThreaded
+name|listenerThreaded
 argument_list|()
 argument_list|,
 name|client

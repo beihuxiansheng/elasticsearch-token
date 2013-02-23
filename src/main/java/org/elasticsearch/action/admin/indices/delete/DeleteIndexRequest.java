@@ -256,10 +256,10 @@ return|return
 name|validationException
 return|;
 block|}
-DECL|method|setIndices
+DECL|method|indices
 specifier|public
 name|DeleteIndexRequest
-name|setIndices
+name|indices
 parameter_list|(
 name|String
 modifier|...
@@ -277,10 +277,10 @@ name|this
 return|;
 block|}
 comment|/**      * The index to delete.      */
-DECL|method|getIndices
+DECL|method|indices
 name|String
 index|[]
-name|getIndices
+name|indices
 parameter_list|()
 block|{
 return|return
@@ -288,9 +288,9 @@ name|indices
 return|;
 block|}
 comment|/**      * Timeout to wait for the index deletion to be acknowledged by current cluster nodes. Defaults      * to<tt>10s</tt>.      */
-DECL|method|getTimeout
+DECL|method|timeout
 name|TimeValue
-name|getTimeout
+name|timeout
 parameter_list|()
 block|{
 return|return
@@ -298,10 +298,10 @@ name|timeout
 return|;
 block|}
 comment|/**      * Timeout to wait for the index deletion to be acknowledged by current cluster nodes. Defaults      * to<tt>10s</tt>.      */
-DECL|method|setTimeout
+DECL|method|timeout
 specifier|public
 name|DeleteIndexRequest
-name|setTimeout
+name|timeout
 parameter_list|(
 name|TimeValue
 name|timeout
@@ -318,17 +318,17 @@ name|this
 return|;
 block|}
 comment|/**      * Timeout to wait for the index deletion to be acknowledged by current cluster nodes. Defaults      * to<tt>10s</tt>.      */
-DECL|method|setTimeout
+DECL|method|timeout
 specifier|public
 name|DeleteIndexRequest
-name|setTimeout
+name|timeout
 parameter_list|(
 name|String
 name|timeout
 parameter_list|)
 block|{
 return|return
-name|setTimeout
+name|timeout
 argument_list|(
 name|TimeValue
 operator|.

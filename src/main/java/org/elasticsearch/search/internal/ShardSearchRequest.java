@@ -286,7 +286,7 @@ name|searchType
 operator|=
 name|searchRequest
 operator|.
-name|getSearchType
+name|searchType
 argument_list|()
 expr_stmt|;
 name|this
@@ -295,7 +295,7 @@ name|source
 operator|=
 name|searchRequest
 operator|.
-name|getSource
+name|source
 argument_list|()
 expr_stmt|;
 name|this
@@ -304,7 +304,7 @@ name|extraSource
 operator|=
 name|searchRequest
 operator|.
-name|getExtraSource
+name|extraSource
 argument_list|()
 expr_stmt|;
 name|this
@@ -313,7 +313,7 @@ name|scroll
 operator|=
 name|searchRequest
 operator|.
-name|getScroll
+name|scroll
 argument_list|()
 expr_stmt|;
 name|this
@@ -322,7 +322,7 @@ name|types
 operator|=
 name|searchRequest
 operator|.
-name|getTypes
+name|types
 argument_list|()
 expr_stmt|;
 block|}

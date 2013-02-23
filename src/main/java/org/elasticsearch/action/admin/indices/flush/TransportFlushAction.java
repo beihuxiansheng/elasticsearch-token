@@ -642,7 +642,7 @@ name|indexServiceSafe
 argument_list|(
 name|request
 operator|.
-name|getIndex
+name|index
 argument_list|()
 argument_list|)
 operator|.
@@ -650,7 +650,7 @@ name|shardSafe
 argument_list|(
 name|request
 operator|.
-name|getShardId
+name|shardId
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -668,7 +668,7 @@ name|refresh
 argument_list|(
 name|request
 operator|.
-name|isRefresh
+name|refresh
 argument_list|()
 argument_list|)
 operator|.
@@ -676,7 +676,7 @@ name|type
 argument_list|(
 name|request
 operator|.
-name|isFull
+name|full
 argument_list|()
 condition|?
 name|Engine
@@ -700,7 +700,7 @@ name|force
 argument_list|(
 name|request
 operator|.
-name|isForce
+name|force
 argument_list|()
 argument_list|)
 argument_list|)
@@ -711,12 +711,12 @@ name|ShardFlushResponse
 argument_list|(
 name|request
 operator|.
-name|getIndex
+name|index
 argument_list|()
 argument_list|,
 name|request
 operator|.
-name|getShardId
+name|shardId
 argument_list|()
 argument_list|)
 return|;

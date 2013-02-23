@@ -339,7 +339,7 @@ name|METADATA
 argument_list|,
 name|request
 operator|.
-name|getIndex
+name|index
 argument_list|()
 argument_list|)
 return|;
@@ -365,7 +365,7 @@ name|cause
 init|=
 name|request
 operator|.
-name|getCause
+name|cause
 argument_list|()
 decl_stmt|;
 if|if
@@ -434,7 +434,7 @@ name|cause
 argument_list|,
 name|request
 operator|.
-name|getIndex
+name|index
 argument_list|()
 argument_list|)
 operator|.
@@ -442,7 +442,7 @@ name|settings
 argument_list|(
 name|request
 operator|.
-name|getSettings
+name|settings
 argument_list|()
 argument_list|)
 operator|.
@@ -450,7 +450,7 @@ name|mappings
 argument_list|(
 name|request
 operator|.
-name|getMappings
+name|mappings
 argument_list|()
 argument_list|)
 operator|.
@@ -458,7 +458,7 @@ name|customs
 argument_list|(
 name|request
 operator|.
-name|getCustoms
+name|customs
 argument_list|()
 argument_list|)
 operator|.
@@ -466,7 +466,7 @@ name|timeout
 argument_list|(
 name|request
 operator|.
-name|getTimeout
+name|timeout
 argument_list|()
 argument_list|)
 argument_list|,

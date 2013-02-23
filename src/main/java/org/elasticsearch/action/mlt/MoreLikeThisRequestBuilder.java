@@ -224,12 +224,12 @@ argument_list|(
 name|index
 argument_list|)
 operator|.
-name|setType
+name|type
 argument_list|(
 name|type
 argument_list|)
 operator|.
-name|setId
+name|id
 argument_list|(
 name|id
 argument_list|)
@@ -249,7 +249,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setFields
+name|fields
 argument_list|(
 name|fields
 argument_list|)
@@ -270,7 +270,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setRouting
+name|routing
 argument_list|(
 name|routing
 argument_list|)
@@ -291,7 +291,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setPercentTermsToMatch
+name|percentTermsToMatch
 argument_list|(
 name|percentTermsToMatch
 argument_list|)
@@ -312,7 +312,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setMinTermFreq
+name|minTermFreq
 argument_list|(
 name|minTermFreq
 argument_list|)
@@ -333,7 +333,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setMaxQueryTerms
+name|maxQueryTerms
 argument_list|(
 name|maxQueryTerms
 argument_list|)
@@ -355,7 +355,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setStopWords
+name|stopWords
 argument_list|(
 name|stopWords
 argument_list|)
@@ -376,7 +376,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setMinDocFreq
+name|minDocFreq
 argument_list|(
 name|minDocFreq
 argument_list|)
@@ -397,7 +397,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setMaxDocFreq
+name|maxDocFreq
 argument_list|(
 name|maxDocFreq
 argument_list|)
@@ -418,7 +418,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setMinWordLen
+name|minWordLen
 argument_list|(
 name|minWordLen
 argument_list|)
@@ -440,7 +440,7 @@ block|{
 name|request
 argument_list|()
 operator|.
-name|setMaxWordLen
+name|maxWordLen
 argument_list|(
 name|maxWordLen
 argument_list|)
@@ -461,7 +461,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setBoostTerms
+name|boostTerms
 argument_list|(
 name|boostTerms
 argument_list|)
@@ -482,7 +482,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setSearchSource
+name|searchSource
 argument_list|(
 name|sourceBuilder
 argument_list|)
@@ -503,7 +503,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setSearchSource
+name|searchSource
 argument_list|(
 name|searchSource
 argument_list|)
@@ -524,7 +524,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setSearchSource
+name|searchSource
 argument_list|(
 name|searchSource
 argument_list|)
@@ -545,7 +545,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setSearchSource
+name|searchSource
 argument_list|(
 name|builder
 argument_list|)
@@ -567,7 +567,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setSearchSource
+name|searchSource
 argument_list|(
 name|searchSource
 argument_list|)
@@ -588,7 +588,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setSearchType
+name|searchType
 argument_list|(
 name|searchType
 argument_list|)
@@ -611,7 +611,7 @@ name|ElasticSearchIllegalArgumentException
 block|{
 name|request
 operator|.
-name|setSearchType
+name|searchType
 argument_list|(
 name|searchType
 argument_list|)
@@ -633,7 +633,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setSearchIndices
+name|searchIndices
 argument_list|(
 name|searchIndices
 argument_list|)
@@ -655,7 +655,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setSearchTypes
+name|searchTypes
 argument_list|(
 name|searchTypes
 argument_list|)
@@ -676,7 +676,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setSearchScroll
+name|searchScroll
 argument_list|(
 name|searchScroll
 argument_list|)
@@ -697,7 +697,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setSearchSize
+name|searchSize
 argument_list|(
 name|size
 argument_list|)
@@ -718,7 +718,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setSearchFrom
+name|searchFrom
 argument_list|(
 name|from
 argument_list|)

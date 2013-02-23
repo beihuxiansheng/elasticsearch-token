@@ -665,7 +665,7 @@ name|getId
 argument_list|()
 argument_list|)
 operator|.
-name|setPreference
+name|preference
 argument_list|(
 literal|"_local"
 argument_list|)

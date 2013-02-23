@@ -172,7 +172,7 @@ comment|// since we don't have a listener, and we release a possible lock with t
 comment|// there is no need to execute it under a listener thread
 name|request
 operator|.
-name|setListenerThreaded
+name|listenerThreaded
 argument_list|(
 literal|false
 argument_list|)
@@ -207,7 +207,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|isListenerThreaded
+name|listenerThreaded
 argument_list|()
 condition|)
 block|{

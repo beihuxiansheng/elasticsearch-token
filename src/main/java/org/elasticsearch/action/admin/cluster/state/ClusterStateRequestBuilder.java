@@ -141,7 +141,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setFilterBlocks
+name|filterBlocks
 argument_list|(
 name|filter
 argument_list|)
@@ -162,7 +162,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setFilterMetaData
+name|filterMetaData
 argument_list|(
 name|filter
 argument_list|)
@@ -183,7 +183,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setFilterNodes
+name|filterNodes
 argument_list|(
 name|filter
 argument_list|)
@@ -204,7 +204,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setFilterRoutingTable
+name|filterRoutingTable
 argument_list|(
 name|filter
 argument_list|)
@@ -226,7 +226,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setFilteredIndices
+name|filteredIndices
 argument_list|(
 name|indices
 argument_list|)
@@ -247,7 +247,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setFilteredIndexTemplates
+name|filteredIndexTemplates
 argument_list|(
 name|templates
 argument_list|)
@@ -268,7 +268,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setLocal
+name|local
 argument_list|(
 name|local
 argument_list|)

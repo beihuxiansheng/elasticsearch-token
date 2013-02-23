@@ -307,14 +307,14 @@ argument_list|)
 decl_stmt|;
 name|percolateRequest
 operator|.
-name|setListenerThreaded
+name|listenerThreaded
 argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
 name|percolateRequest
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|request
 operator|.
@@ -330,7 +330,7 @@ expr_stmt|;
 comment|// we just send a response, no need to fork
 name|percolateRequest
 operator|.
-name|setListenerThreaded
+name|listenerThreaded
 argument_list|(
 literal|false
 argument_list|)
@@ -338,14 +338,14 @@ expr_stmt|;
 comment|// we don't spawn, then fork if local
 name|percolateRequest
 operator|.
-name|setOperationThreaded
+name|operationThreaded
 argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
 name|percolateRequest
 operator|.
-name|setPreferLocal
+name|preferLocal
 argument_list|(
 name|request
 operator|.
@@ -355,7 +355,7 @@ literal|"prefer_local"
 argument_list|,
 name|percolateRequest
 operator|.
-name|isPreferLocal
+name|preferLocalShard
 argument_list|()
 argument_list|)
 argument_list|)

@@ -393,7 +393,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A request to create an index. Best created with {@link org.elasticsearch.client.Requests#createIndexRequest(String)}.  *<p/>  *<p>The index created can optionally be created with {@link #setSettings(org.elasticsearch.common.settings.Settings)}.  *  * @see org.elasticsearch.client.IndicesAdminClient#create(CreateIndexRequest)  * @see org.elasticsearch.client.Requests#createIndexRequest(String)  * @see CreateIndexResponse  */
+comment|/**  * A request to create an index. Best created with {@link org.elasticsearch.client.Requests#createIndexRequest(String)}.  *<p/>  *<p>The index created can optionally be created with {@link #settings(org.elasticsearch.common.settings.Settings)}.  *  * @see org.elasticsearch.client.IndicesAdminClient#create(CreateIndexRequest)  * @see org.elasticsearch.client.Requests#createIndexRequest(String)  * @see CreateIndexResponse  */
 end_comment
 
 begin_class
@@ -550,19 +550,19 @@ name|validationException
 return|;
 block|}
 comment|/**      * The index name to create.      */
-DECL|method|getIndex
+DECL|method|index
 name|String
-name|getIndex
+name|index
 parameter_list|()
 block|{
 return|return
 name|index
 return|;
 block|}
-DECL|method|setIndex
+DECL|method|index
 specifier|public
 name|CreateIndexRequest
-name|setIndex
+name|index
 parameter_list|(
 name|String
 name|index
@@ -579,9 +579,9 @@ name|this
 return|;
 block|}
 comment|/**      * The settings to created the index with.      */
-DECL|method|getSettings
+DECL|method|settings
 name|Settings
-name|getSettings
+name|settings
 parameter_list|()
 block|{
 return|return
@@ -589,9 +589,9 @@ name|settings
 return|;
 block|}
 comment|/**      * The cause for this index creation.      */
-DECL|method|getCause
+DECL|method|cause
 name|String
-name|getCause
+name|cause
 parameter_list|()
 block|{
 return|return
@@ -599,10 +599,10 @@ name|cause
 return|;
 block|}
 comment|/**      * The settings to created the index with.      */
-DECL|method|setSettings
+DECL|method|settings
 specifier|public
 name|CreateIndexRequest
-name|setSettings
+name|settings
 parameter_list|(
 name|Settings
 name|settings
@@ -619,10 +619,10 @@ name|this
 return|;
 block|}
 comment|/**      * The settings to created the index with.      */
-DECL|method|setSettings
+DECL|method|settings
 specifier|public
 name|CreateIndexRequest
-name|setSettings
+name|settings
 parameter_list|(
 name|Settings
 operator|.
@@ -644,10 +644,10 @@ name|this
 return|;
 block|}
 comment|/**      * The settings to crete the index with (either json/yaml/properties format)      */
-DECL|method|setSettings
+DECL|method|settings
 specifier|public
 name|CreateIndexRequest
-name|setSettings
+name|settings
 parameter_list|(
 name|String
 name|source
@@ -675,10 +675,10 @@ name|this
 return|;
 block|}
 comment|/**      * Allows to set the settings using a json builder.      */
-DECL|method|setSettings
+DECL|method|settings
 specifier|public
 name|CreateIndexRequest
-name|setSettings
+name|settings
 parameter_list|(
 name|XContentBuilder
 name|builder
@@ -686,7 +686,7 @@ parameter_list|)
 block|{
 try|try
 block|{
-name|setSettings
+name|settings
 argument_list|(
 name|builder
 operator|.
@@ -716,10 +716,10 @@ name|this
 return|;
 block|}
 comment|/**      * The settings to crete the index with (either json/yaml/properties format)      */
-DECL|method|setSettings
+DECL|method|settings
 specifier|public
 name|CreateIndexRequest
-name|setSettings
+name|settings
 parameter_list|(
 name|Map
 name|source
@@ -746,7 +746,7 @@ argument_list|(
 name|source
 argument_list|)
 expr_stmt|;
-name|setSettings
+name|settings
 argument_list|(
 name|builder
 operator|.
@@ -780,10 +780,10 @@ name|this
 return|;
 block|}
 comment|/**      * Adds mapping that will be added when the index gets created.      *      * @param type   The mapping type      * @param source The mapping source      */
-DECL|method|addMapping
+DECL|method|mapping
 specifier|public
 name|CreateIndexRequest
-name|addMapping
+name|mapping
 parameter_list|(
 name|String
 name|type
@@ -806,10 +806,10 @@ name|this
 return|;
 block|}
 comment|/**      * The cause for this index creation.      */
-DECL|method|setCause
+DECL|method|cause
 specifier|public
 name|CreateIndexRequest
-name|setCause
+name|cause
 parameter_list|(
 name|String
 name|cause
@@ -826,10 +826,10 @@ name|this
 return|;
 block|}
 comment|/**      * Adds mapping that will be added when the index gets created.      *      * @param type   The mapping type      * @param source The mapping source      */
-DECL|method|addMapping
+DECL|method|mapping
 specifier|public
 name|CreateIndexRequest
-name|addMapping
+name|mapping
 parameter_list|(
 name|String
 name|type
@@ -874,10 +874,10 @@ name|this
 return|;
 block|}
 comment|/**      * Adds mapping that will be added when the index gets created.      *      * @param type   The mapping type      * @param source The mapping source      */
-DECL|method|addMapping
+DECL|method|mapping
 specifier|public
 name|CreateIndexRequest
-name|addMapping
+name|mapping
 parameter_list|(
 name|String
 name|type
@@ -950,7 +950,7 @@ name|source
 argument_list|)
 expr_stmt|;
 return|return
-name|addMapping
+name|mapping
 argument_list|(
 name|type
 argument_list|,
@@ -983,17 +983,17 @@ throw|;
 block|}
 block|}
 comment|/**      * Sets the settings and mappings as a single source.      */
-DECL|method|setSource
+DECL|method|source
 specifier|public
 name|CreateIndexRequest
-name|setSource
+name|source
 parameter_list|(
 name|String
 name|source
 parameter_list|)
 block|{
 return|return
-name|setSource
+name|source
 argument_list|(
 name|source
 operator|.
@@ -1007,17 +1007,17 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Sets the settings and mappings as a single source.      */
-DECL|method|setSource
+DECL|method|source
 specifier|public
 name|CreateIndexRequest
-name|setSource
+name|source
 parameter_list|(
 name|XContentBuilder
 name|source
 parameter_list|)
 block|{
 return|return
-name|setSource
+name|source
 argument_list|(
 name|source
 operator|.
@@ -1027,10 +1027,10 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Sets the settings and mappings as a single source.      */
-DECL|method|setSource
+DECL|method|source
 specifier|public
 name|CreateIndexRequest
-name|setSource
+name|source
 parameter_list|(
 name|byte
 index|[]
@@ -1038,7 +1038,7 @@ name|source
 parameter_list|)
 block|{
 return|return
-name|setSource
+name|source
 argument_list|(
 name|source
 argument_list|,
@@ -1050,10 +1050,10 @@ name|length
 argument_list|)
 return|;
 block|}
-DECL|method|setSource
+DECL|method|source
 specifier|public
 name|CreateIndexRequest
-name|setSource
+name|source
 parameter_list|(
 name|byte
 index|[]
@@ -1067,7 +1067,7 @@ name|length
 parameter_list|)
 block|{
 return|return
-name|setSource
+name|source
 argument_list|(
 operator|new
 name|BytesArray
@@ -1082,10 +1082,10 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Sets the settings and mappings as a single source.      */
-DECL|method|setSource
+DECL|method|source
 specifier|public
 name|CreateIndexRequest
-name|setSource
+name|source
 parameter_list|(
 name|BytesReference
 name|source
@@ -1110,7 +1110,7 @@ condition|)
 block|{
 try|try
 block|{
-name|setSource
+name|source
 argument_list|(
 name|XContentFactory
 operator|.
@@ -1148,7 +1148,7 @@ block|}
 block|}
 else|else
 block|{
-name|setSettings
+name|settings
 argument_list|(
 operator|new
 name|String
@@ -1170,10 +1170,10 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the settings and mappings as a single source.      */
-DECL|method|setSource
+DECL|method|source
 specifier|public
 name|CreateIndexRequest
-name|setSource
+name|source
 parameter_list|(
 name|Map
 argument_list|<
@@ -1229,7 +1229,7 @@ name|found
 operator|=
 literal|true
 expr_stmt|;
-name|setSettings
+name|settings
 argument_list|(
 operator|(
 name|Map
@@ -1300,7 +1300,7 @@ name|entrySet
 argument_list|()
 control|)
 block|{
-name|addMapping
+name|mapping
 argument_list|(
 name|entry1
 operator|.
@@ -1407,7 +1407,7 @@ name|found
 condition|)
 block|{
 comment|// the top level are settings, use them
-name|setSettings
+name|settings
 argument_list|(
 name|source
 argument_list|)
@@ -1417,14 +1417,14 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|getMappings
+DECL|method|mappings
 name|Map
 argument_list|<
 name|String
 argument_list|,
 name|String
 argument_list|>
-name|getMappings
+name|mappings
 parameter_list|()
 block|{
 return|return
@@ -1433,10 +1433,10 @@ operator|.
 name|mappings
 return|;
 block|}
-DECL|method|addCustom
+DECL|method|custom
 specifier|public
 name|CreateIndexRequest
-name|addCustom
+name|custom
 parameter_list|(
 name|IndexMetaData
 operator|.
@@ -1460,7 +1460,7 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|getCustoms
+DECL|method|customs
 name|Map
 argument_list|<
 name|String
@@ -1469,7 +1469,7 @@ name|IndexMetaData
 operator|.
 name|Custom
 argument_list|>
-name|getCustoms
+name|customs
 parameter_list|()
 block|{
 return|return
@@ -1479,9 +1479,9 @@ name|customs
 return|;
 block|}
 comment|/**      * Timeout to wait for the index creation to be acknowledged by current cluster nodes. Defaults      * to<tt>10s</tt>.      */
-DECL|method|getTimeout
+DECL|method|timeout
 name|TimeValue
-name|getTimeout
+name|timeout
 parameter_list|()
 block|{
 return|return
@@ -1489,10 +1489,10 @@ name|timeout
 return|;
 block|}
 comment|/**      * Timeout to wait for the index creation to be acknowledged by current cluster nodes. Defaults      * to<tt>10s</tt>.      */
-DECL|method|setTimeout
+DECL|method|timeout
 specifier|public
 name|CreateIndexRequest
-name|setTimeout
+name|timeout
 parameter_list|(
 name|TimeValue
 name|timeout
@@ -1509,17 +1509,17 @@ name|this
 return|;
 block|}
 comment|/**      * Timeout to wait for the index creation to be acknowledged by current cluster nodes. Defaults      * to<tt>10s</tt>.      */
-DECL|method|setTimeout
+DECL|method|timeout
 specifier|public
 name|CreateIndexRequest
-name|setTimeout
+name|timeout
 parameter_list|(
 name|String
 name|timeout
 parameter_list|)
 block|{
 return|return
-name|setTimeout
+name|timeout
 argument_list|(
 name|TimeValue
 operator|.

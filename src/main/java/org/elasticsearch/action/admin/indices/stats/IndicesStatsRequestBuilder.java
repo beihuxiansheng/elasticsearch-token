@@ -159,7 +159,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setTypes
+name|types
 argument_list|(
 name|types
 argument_list|)
@@ -180,7 +180,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setGroups
+name|groups
 argument_list|(
 name|groups
 argument_list|)
@@ -200,7 +200,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setDocs
+name|docs
 argument_list|(
 name|docs
 argument_list|)
@@ -220,7 +220,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setStore
+name|store
 argument_list|(
 name|store
 argument_list|)
@@ -240,7 +240,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setIndexing
+name|indexing
 argument_list|(
 name|indexing
 argument_list|)
@@ -260,7 +260,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setGet
+name|get
 argument_list|(
 name|get
 argument_list|)
@@ -280,7 +280,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setSearch
+name|search
 argument_list|(
 name|search
 argument_list|)
@@ -300,7 +300,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setMerge
+name|merge
 argument_list|(
 name|merge
 argument_list|)
@@ -320,7 +320,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setRefresh
+name|refresh
 argument_list|(
 name|refresh
 argument_list|)
@@ -340,7 +340,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setFlush
+name|flush
 argument_list|(
 name|flush
 argument_list|)
@@ -360,7 +360,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setWarmer
+name|warmer
 argument_list|(
 name|warmer
 argument_list|)

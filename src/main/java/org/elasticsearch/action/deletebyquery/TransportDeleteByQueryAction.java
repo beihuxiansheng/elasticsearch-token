@@ -277,12 +277,12 @@ name|resolveSearchRouting
 argument_list|(
 name|request
 operator|.
-name|getRouting
+name|routing
 argument_list|()
 argument_list|,
 name|request
 operator|.
-name|getIndices
+name|indices
 argument_list|()
 argument_list|)
 return|;
@@ -507,7 +507,7 @@ name|index
 argument_list|,
 name|request
 operator|.
-name|getIndices
+name|indices
 argument_list|()
 argument_list|)
 decl_stmt|;

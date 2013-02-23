@@ -257,7 +257,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A request to validate a specific query.  *<p/>  *<p>The request requires the query source to be set either using {@link #setQuery(org.elasticsearch.index.query.QueryBuilder)},  * or {@link #setQuery(byte[])}.  */
+comment|/**  * A request to validate a specific query.  *<p/>  *<p>The request requires the query source to be set either using {@link #query(org.elasticsearch.index.query.QueryBuilder)},  * or {@link #query(byte[])}.  */
 end_comment
 
 begin_class
@@ -374,10 +374,9 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * The query source to execute.      */
-DECL|method|getQuerySource
-specifier|public
+DECL|method|querySource
 name|BytesReference
-name|getQuerySource
+name|querySource
 parameter_list|()
 block|{
 return|return
@@ -387,10 +386,10 @@ block|}
 comment|/**      * The query source to execute.      *      * @see org.elasticsearch.index.query.QueryBuilders      */
 annotation|@
 name|Required
-DECL|method|setQuery
+DECL|method|query
 specifier|public
 name|ValidateQueryRequest
-name|setQuery
+name|query
 parameter_list|(
 name|QueryBuilder
 name|queryBuilder
@@ -418,10 +417,10 @@ block|}
 comment|/**      * The query source to execute in the form of a map.      */
 annotation|@
 name|Required
-DECL|method|setQuery
+DECL|method|query
 specifier|public
 name|ValidateQueryRequest
-name|setQuery
+name|query
 parameter_list|(
 name|Map
 name|querySource
@@ -447,7 +446,7 @@ name|querySource
 argument_list|)
 expr_stmt|;
 return|return
-name|setQuery
+name|query
 argument_list|(
 name|builder
 argument_list|)
@@ -476,10 +475,10 @@ block|}
 block|}
 annotation|@
 name|Required
-DECL|method|setQuery
+DECL|method|query
 specifier|public
 name|ValidateQueryRequest
-name|setQuery
+name|query
 parameter_list|(
 name|XContentBuilder
 name|builder
@@ -504,13 +503,13 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The query source to validate. It is preferable to use either {@link #setQuery(byte[])}      * or {@link #setQuery(org.elasticsearch.index.query.QueryBuilder)}.      */
+comment|/**      * The query source to validate. It is preferable to use either {@link #query(byte[])}      * or {@link #query(org.elasticsearch.index.query.QueryBuilder)}.      */
 annotation|@
 name|Required
-DECL|method|setQuery
+DECL|method|query
 specifier|public
 name|ValidateQueryRequest
-name|setQuery
+name|query
 parameter_list|(
 name|String
 name|querySource
@@ -540,10 +539,10 @@ block|}
 comment|/**      * The query source to validate.      */
 annotation|@
 name|Required
-DECL|method|setQuery
+DECL|method|query
 specifier|public
 name|ValidateQueryRequest
-name|setQuery
+name|query
 parameter_list|(
 name|byte
 index|[]
@@ -551,7 +550,7 @@ name|querySource
 parameter_list|)
 block|{
 return|return
-name|setQuery
+name|query
 argument_list|(
 name|querySource
 argument_list|,
@@ -568,10 +567,10 @@ block|}
 comment|/**      * The query source to validate.      */
 annotation|@
 name|Required
-DECL|method|setQuery
+DECL|method|query
 specifier|public
 name|ValidateQueryRequest
-name|setQuery
+name|query
 parameter_list|(
 name|byte
 index|[]
@@ -588,7 +587,7 @@ name|unsafe
 parameter_list|)
 block|{
 return|return
-name|setQuery
+name|query
 argument_list|(
 operator|new
 name|BytesArray
@@ -607,10 +606,10 @@ block|}
 comment|/**      * The query source to validate.      */
 annotation|@
 name|Required
-DECL|method|setQuery
+DECL|method|query
 specifier|public
 name|ValidateQueryRequest
-name|setQuery
+name|query
 parameter_list|(
 name|BytesReference
 name|querySource
@@ -636,11 +635,10 @@ name|this
 return|;
 block|}
 comment|/**      * The types of documents the query will run against. Defaults to all types.      */
-DECL|method|getTypes
-specifier|public
+DECL|method|types
 name|String
 index|[]
-name|getTypes
+name|types
 parameter_list|()
 block|{
 return|return
@@ -650,10 +648,10 @@ name|types
 return|;
 block|}
 comment|/**      * The types of documents the query will run against. Defaults to all types.      */
-DECL|method|setTypes
+DECL|method|types
 specifier|public
 name|ValidateQueryRequest
-name|setTypes
+name|types
 parameter_list|(
 name|String
 modifier|...
@@ -671,10 +669,10 @@ name|this
 return|;
 block|}
 comment|/**      * Indicate if detailed information about query is requested      */
-DECL|method|setExplain
+DECL|method|explain
 specifier|public
 name|void
-name|setExplain
+name|explain
 parameter_list|(
 name|boolean
 name|explain
@@ -688,10 +686,10 @@ name|explain
 expr_stmt|;
 block|}
 comment|/**      * Indicates if detailed information about query is requested      */
-DECL|method|isExplain
+DECL|method|explain
 specifier|public
 name|boolean
-name|isExplain
+name|explain
 parameter_list|()
 block|{
 return|return

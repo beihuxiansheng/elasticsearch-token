@@ -2150,12 +2150,12 @@ operator|.
 name|filterAll
 argument_list|()
 operator|.
-name|setFilterNodes
+name|filterNodes
 argument_list|(
 literal|false
 argument_list|)
 operator|.
-name|setLocal
+name|local
 argument_list|(
 literal|true
 argument_list|)

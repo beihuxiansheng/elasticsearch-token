@@ -587,7 +587,7 @@ operator|.
 name|shardFailures
 return|;
 block|}
-comment|/**      * If scrolling was enabled ({@link SearchRequest#setScroll(org.elasticsearch.search.Scroll)}, the      * scroll id that can be used to continue scrolling.      */
+comment|/**      * If scrolling was enabled ({@link SearchRequest#scroll(org.elasticsearch.search.Scroll)}, the      * scroll id that can be used to continue scrolling.      */
 DECL|method|getScrollId
 specifier|public
 name|String

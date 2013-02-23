@@ -712,7 +712,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|getOperationThreading
+name|operationThreading
 argument_list|()
 operator|==
 name|SearchOperationThreading
@@ -850,7 +850,7 @@ name|localAsync
 init|=
 name|request
 operator|.
-name|getOperationThreading
+name|operationThreading
 argument_list|()
 operator|==
 name|SearchOperationThreading
@@ -1270,7 +1270,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|getScroll
+name|scroll
 argument_list|()
 operator|!=
 literal|null
@@ -1284,7 +1284,7 @@ name|buildScrollId
 argument_list|(
 name|request
 operator|.
-name|getSearchType
+name|searchType
 argument_list|()
 argument_list|,
 name|queryResults

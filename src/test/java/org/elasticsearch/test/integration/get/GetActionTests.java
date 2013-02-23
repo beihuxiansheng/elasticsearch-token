@@ -448,7 +448,7 @@ argument_list|(
 name|clusterHealthRequest
 argument_list|()
 operator|.
-name|setWaitForGreenStatus
+name|waitForGreenStatus
 argument_list|()
 argument_list|)
 operator|.
@@ -1575,7 +1575,7 @@ argument_list|(
 name|clusterHealthRequest
 argument_list|()
 operator|.
-name|setWaitForGreenStatus
+name|waitForGreenStatus
 argument_list|()
 argument_list|)
 operator|.
@@ -2047,7 +2047,7 @@ argument_list|,
 literal|"1"
 argument_list|)
 operator|.
-name|setFields
+name|fields
 argument_list|(
 literal|"field"
 argument_list|)
@@ -2067,7 +2067,7 @@ argument_list|,
 literal|"3"
 argument_list|)
 operator|.
-name|setFields
+name|fields
 argument_list|(
 literal|"field"
 argument_list|)
@@ -2265,7 +2265,7 @@ argument_list|(
 name|clusterHealthRequest
 argument_list|()
 operator|.
-name|setWaitForGreenStatus
+name|waitForGreenStatus
 argument_list|()
 argument_list|)
 operator|.
@@ -2669,7 +2669,7 @@ argument_list|(
 name|clusterHealthRequest
 argument_list|()
 operator|.
-name|setWaitForGreenStatus
+name|waitForGreenStatus
 argument_list|()
 argument_list|)
 operator|.
@@ -3629,7 +3629,7 @@ argument_list|(
 name|clusterHealthRequest
 argument_list|()
 operator|.
-name|setWaitForGreenStatus
+name|waitForGreenStatus
 argument_list|()
 argument_list|)
 operator|.

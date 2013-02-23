@@ -231,7 +231,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setIndex
+name|index
 argument_list|(
 name|index
 argument_list|)
@@ -252,7 +252,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setSettings
+name|settings
 argument_list|(
 name|settings
 argument_list|)
@@ -275,7 +275,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setSettings
+name|settings
 argument_list|(
 name|settings
 argument_list|)
@@ -296,7 +296,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setSettings
+name|settings
 argument_list|(
 name|builder
 argument_list|)
@@ -317,7 +317,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setSettings
+name|settings
 argument_list|(
 name|source
 argument_list|)
@@ -343,7 +343,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setSettings
+name|settings
 argument_list|(
 name|source
 argument_list|)
@@ -367,7 +367,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|addMapping
+name|mapping
 argument_list|(
 name|type
 argument_list|,
@@ -390,7 +390,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setCause
+name|cause
 argument_list|(
 name|cause
 argument_list|)
@@ -414,7 +414,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|addMapping
+name|mapping
 argument_list|(
 name|type
 argument_list|,
@@ -445,7 +445,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|addMapping
+name|mapping
 argument_list|(
 name|type
 argument_list|,
@@ -468,7 +468,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|source
 argument_list|)
@@ -489,7 +489,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|source
 argument_list|)
@@ -511,7 +511,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|source
 argument_list|)
@@ -539,7 +539,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|source
 argument_list|,
@@ -569,7 +569,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|source
 argument_list|)
@@ -591,7 +591,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|addCustom
+name|custom
 argument_list|(
 name|custom
 argument_list|)
@@ -612,7 +612,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setSource
+name|source
 argument_list|(
 name|source
 argument_list|)
@@ -633,7 +633,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setTimeout
+name|timeout
 argument_list|(
 name|timeout
 argument_list|)
@@ -654,7 +654,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setTimeout
+name|timeout
 argument_list|(
 name|timeout
 argument_list|)

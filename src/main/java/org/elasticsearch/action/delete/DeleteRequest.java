@@ -137,7 +137,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A request to delete a document from an index based on its type and id. Best created using  * {@link org.elasticsearch.client.Requests#deleteRequest(String)}.  *<p/>  *<p>The operation requires the {@link #getIndex()}, {@link #setType(String)} and {@link #setId(String)} to  * be set.  *  * @see DeleteResponse  * @see org.elasticsearch.client.Client#delete(DeleteRequest)  * @see org.elasticsearch.client.Requests#deleteRequest(String)  */
+comment|/**  * A request to delete a document from an index based on its type and id. Best created using  * {@link org.elasticsearch.client.Requests#deleteRequest(String)}.  *<p/>  *<p>The operation requires the {@link #index()}, {@link #type(String)} and {@link #id(String)} to  * be set.  *  * @see DeleteResponse  * @see org.elasticsearch.client.Client#delete(DeleteRequest)  * @see org.elasticsearch.client.Requests#deleteRequest(String)  */
 end_comment
 
 begin_class
@@ -187,7 +187,7 @@ name|VersionType
 operator|.
 name|INTERNAL
 decl_stmt|;
-comment|/**      * Constructs a new delete request against the specified index. The {@link #setType(String)} and {@link #setId(String)}      * must be set.      */
+comment|/**      * Constructs a new delete request against the specified index. The {@link #type(String)} and {@link #id(String)}      * must be set.      */
 DECL|method|DeleteRequest
 specifier|public
 name|DeleteRequest
@@ -256,7 +256,7 @@ name|type
 operator|=
 name|request
 operator|.
-name|getType
+name|type
 argument_list|()
 expr_stmt|;
 name|this
@@ -265,7 +265,7 @@ name|id
 operator|=
 name|request
 operator|.
-name|getId
+name|id
 argument_list|()
 expr_stmt|;
 name|this
@@ -274,7 +274,7 @@ name|routing
 operator|=
 name|request
 operator|.
-name|getRouting
+name|routing
 argument_list|()
 expr_stmt|;
 name|this
@@ -283,7 +283,7 @@ name|refresh
 operator|=
 name|request
 operator|.
-name|isRefresh
+name|refresh
 argument_list|()
 expr_stmt|;
 name|this
@@ -292,7 +292,7 @@ name|version
 operator|=
 name|request
 operator|.
-name|getVersion
+name|version
 argument_list|()
 expr_stmt|;
 name|this
@@ -301,7 +301,7 @@ name|versionType
 operator|=
 name|request
 operator|.
-name|getVersionType
+name|versionType
 argument_list|()
 expr_stmt|;
 block|}
@@ -365,10 +365,10 @@ name|validationException
 return|;
 block|}
 comment|/**      * The type of the document to delete.      */
-DECL|method|getType
+DECL|method|type
 specifier|public
 name|String
-name|getType
+name|type
 parameter_list|()
 block|{
 return|return
@@ -378,10 +378,10 @@ block|}
 comment|/**      * Sets the type of the document to delete.      */
 annotation|@
 name|Required
-DECL|method|setType
+DECL|method|type
 specifier|public
 name|DeleteRequest
-name|setType
+name|type
 parameter_list|(
 name|String
 name|type
@@ -398,10 +398,10 @@ name|this
 return|;
 block|}
 comment|/**      * The id of the document to delete.      */
-DECL|method|getId
+DECL|method|id
 specifier|public
 name|String
-name|getId
+name|id
 parameter_list|()
 block|{
 return|return
@@ -411,10 +411,10 @@ block|}
 comment|/**      * Sets the id of the document to delete.      */
 annotation|@
 name|Required
-DECL|method|setId
+DECL|method|id
 specifier|public
 name|DeleteRequest
-name|setId
+name|id
 parameter_list|(
 name|String
 name|id
@@ -431,10 +431,10 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the parent id of this document. Will simply set the routing to this value, as it is only      * used for routing with delete requests.      */
-DECL|method|setParent
+DECL|method|parent
 specifier|public
 name|DeleteRequest
-name|setParent
+name|parent
 parameter_list|(
 name|String
 name|parent
@@ -457,10 +457,10 @@ name|this
 return|;
 block|}
 comment|/**      * Controls the shard routing of the request. Using this value to hash the shard      * and not the id.      */
-DECL|method|setRouting
+DECL|method|routing
 specifier|public
 name|DeleteRequest
-name|setRouting
+name|routing
 parameter_list|(
 name|String
 name|routing
@@ -501,10 +501,10 @@ name|this
 return|;
 block|}
 comment|/**      * Controls the shard routing of the delete request. Using this value to hash the shard      * and not the id.      */
-DECL|method|getRouting
+DECL|method|routing
 specifier|public
 name|String
-name|getRouting
+name|routing
 parameter_list|()
 block|{
 return|return
@@ -514,10 +514,10 @@ name|routing
 return|;
 block|}
 comment|/**      * Should a refresh be executed post this index operation causing the operation to      * be searchable. Note, heavy indexing should not set this to<tt>true</tt>. Defaults      * to<tt>false</tt>.      */
-DECL|method|setRefresh
+DECL|method|refresh
 specifier|public
 name|DeleteRequest
-name|setRefresh
+name|refresh
 parameter_list|(
 name|boolean
 name|refresh
@@ -533,10 +533,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|isRefresh
+DECL|method|refresh
 specifier|public
 name|boolean
-name|isRefresh
+name|refresh
 parameter_list|()
 block|{
 return|return
@@ -546,10 +546,10 @@ name|refresh
 return|;
 block|}
 comment|/**      * Sets the version, which will cause the delete operation to only be performed if a matching      * version exists and no changes happened on the doc since then.      */
-DECL|method|setVersion
+DECL|method|version
 specifier|public
 name|DeleteRequest
-name|setVersion
+name|version
 parameter_list|(
 name|long
 name|version
@@ -565,10 +565,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|getVersion
+DECL|method|version
 specifier|public
 name|long
-name|getVersion
+name|version
 parameter_list|()
 block|{
 return|return
@@ -577,10 +577,10 @@ operator|.
 name|version
 return|;
 block|}
-DECL|method|setVersionType
+DECL|method|versionType
 specifier|public
 name|DeleteRequest
-name|setVersionType
+name|versionType
 parameter_list|(
 name|VersionType
 name|versionType
@@ -596,10 +596,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|getVersionType
+DECL|method|versionType
 specifier|public
 name|VersionType
-name|getVersionType
+name|versionType
 parameter_list|()
 block|{
 return|return
@@ -714,7 +714,7 @@ name|out
 operator|.
 name|writeOptionalString
 argument_list|(
-name|getRouting
+name|routing
 argument_list|()
 argument_list|)
 expr_stmt|;

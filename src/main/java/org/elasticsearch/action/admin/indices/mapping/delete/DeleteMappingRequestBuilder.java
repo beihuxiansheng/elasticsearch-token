@@ -128,7 +128,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setIndices
+name|indices
 argument_list|(
 name|indices
 argument_list|)
@@ -149,7 +149,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setType
+name|type
 argument_list|(
 name|type
 argument_list|)

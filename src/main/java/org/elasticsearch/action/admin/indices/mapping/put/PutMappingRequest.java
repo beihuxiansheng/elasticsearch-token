@@ -233,7 +233,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Puts mapping definition registered under a specific type into one or more indices. Best created with  * {@link org.elasticsearch.client.Requests#putMappingRequest(String...)}.  *<p/>  *<p>If the mappings already exists, the new mappings will be merged with the new one. If there are elements  * that can't be merged are detected, the request will be rejected unless the {@link #setIgnoreConflicts(boolean)}  * is set. In such a case, the duplicate mappings will be rejected.  *  * @see org.elasticsearch.client.Requests#putMappingRequest(String...)  * @see org.elasticsearch.client.IndicesAdminClient#putMapping(PutMappingRequest)  * @see PutMappingResponse  */
+comment|/**  * Puts mapping definition registered under a specific type into one or more indices. Best created with  * {@link org.elasticsearch.client.Requests#putMappingRequest(String...)}.  *<p/>  *<p>If the mappings already exists, the new mappings will be merged with the new one. If there are elements  * that can't be merged are detected, the request will be rejected unless the {@link #ignoreConflicts(boolean)}  * is set. In such a case, the duplicate mappings will be rejected.  *  * @see org.elasticsearch.client.Requests#putMappingRequest(String...)  * @see org.elasticsearch.client.IndicesAdminClient#putMapping(PutMappingRequest)  * @see PutMappingResponse  */
 end_comment
 
 begin_class
@@ -358,10 +358,10 @@ name|validationException
 return|;
 block|}
 comment|/**      * Sets the indices this put mapping operation will execute on.      */
-DECL|method|setIndices
+DECL|method|indices
 specifier|public
 name|PutMappingRequest
-name|setIndices
+name|indices
 parameter_list|(
 name|String
 index|[]
@@ -379,11 +379,11 @@ name|this
 return|;
 block|}
 comment|/**      * The indices the mappings will be put.      */
-DECL|method|getIndices
+DECL|method|indices
 specifier|public
 name|String
 index|[]
-name|getIndices
+name|indices
 parameter_list|()
 block|{
 return|return
@@ -391,10 +391,10 @@ name|indices
 return|;
 block|}
 comment|/**      * The mapping type.      */
-DECL|method|getType
+DECL|method|type
 specifier|public
 name|String
-name|getType
+name|type
 parameter_list|()
 block|{
 return|return
@@ -404,10 +404,10 @@ block|}
 comment|/**      * The type of the mappings.      */
 annotation|@
 name|Required
-DECL|method|setType
+DECL|method|type
 specifier|public
 name|PutMappingRequest
-name|setType
+name|type
 parameter_list|(
 name|String
 name|type
@@ -424,10 +424,10 @@ name|this
 return|;
 block|}
 comment|/**      * The mapping source definition.      */
-DECL|method|getSource
+DECL|method|source
 specifier|public
 name|String
-name|getSource
+name|source
 parameter_list|()
 block|{
 return|return
@@ -437,10 +437,10 @@ block|}
 comment|/**      * The mapping source definition.      */
 annotation|@
 name|Required
-DECL|method|setSource
+DECL|method|source
 specifier|public
 name|PutMappingRequest
-name|setSource
+name|source
 parameter_list|(
 name|XContentBuilder
 name|mappingBuilder
@@ -449,7 +449,7 @@ block|{
 try|try
 block|{
 return|return
-name|setSource
+name|source
 argument_list|(
 name|mappingBuilder
 operator|.
@@ -478,10 +478,10 @@ block|}
 comment|/**      * The mapping source definition.      */
 annotation|@
 name|Required
-DECL|method|setSource
+DECL|method|source
 specifier|public
 name|PutMappingRequest
-name|setSource
+name|source
 parameter_list|(
 name|Map
 name|mappingSource
@@ -509,7 +509,7 @@ name|mappingSource
 argument_list|)
 expr_stmt|;
 return|return
-name|setSource
+name|source
 argument_list|(
 name|builder
 operator|.
@@ -542,10 +542,10 @@ block|}
 comment|/**      * The mapping source definition.      */
 annotation|@
 name|Required
-DECL|method|setSource
+DECL|method|source
 specifier|public
 name|PutMappingRequest
-name|setSource
+name|source
 parameter_list|(
 name|String
 name|mappingSource
@@ -562,10 +562,9 @@ name|this
 return|;
 block|}
 comment|/**      * Timeout to wait till the put mapping gets acknowledged of all current cluster nodes. Defaults to      *<tt>10s</tt>.      */
-DECL|method|getTimeout
-specifier|public
+DECL|method|timeout
 name|TimeValue
-name|getTimeout
+name|timeout
 parameter_list|()
 block|{
 return|return
@@ -573,10 +572,10 @@ name|timeout
 return|;
 block|}
 comment|/**      * Timeout to wait till the put mapping gets acknowledged of all current cluster nodes. Defaults to      *<tt>10s</tt>.      */
-DECL|method|setTimeout
+DECL|method|timeout
 specifier|public
 name|PutMappingRequest
-name|setTimeout
+name|timeout
 parameter_list|(
 name|TimeValue
 name|timeout
@@ -593,17 +592,17 @@ name|this
 return|;
 block|}
 comment|/**      * Timeout to wait till the put mapping gets acknowledged of all current cluster nodes. Defaults to      *<tt>10s</tt>.      */
-DECL|method|setTimeout
+DECL|method|timeout
 specifier|public
 name|PutMappingRequest
-name|setTimeout
+name|timeout
 parameter_list|(
 name|String
 name|timeout
 parameter_list|)
 block|{
 return|return
-name|setTimeout
+name|timeout
 argument_list|(
 name|TimeValue
 operator|.
@@ -616,22 +615,22 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * If there is already a mapping definition registered against the type, then it will be merged. If there are      * elements that can't be merged are detected, the request will be rejected unless the      * {@link #setIgnoreConflicts(boolean)} is set. In such a case, the duplicate mappings will be rejected.      */
-DECL|method|isIgnoreConflicts
+comment|/**      * If there is already a mapping definition registered against the type, then it will be merged. If there are      * elements that can't be merged are detected, the request will be rejected unless the      * {@link #ignoreConflicts(boolean)} is set. In such a case, the duplicate mappings will be rejected.      */
+DECL|method|ignoreConflicts
 specifier|public
 name|boolean
-name|isIgnoreConflicts
+name|ignoreConflicts
 parameter_list|()
 block|{
 return|return
 name|ignoreConflicts
 return|;
 block|}
-comment|/**      * If there is already a mapping definition registered against the type, then it will be merged. If there are      * elements that can't be merged are detected, the request will be rejected unless the      * {@link #setIgnoreConflicts(boolean)} is set. In such a case, the duplicate mappings will be rejected.      */
-DECL|method|setIgnoreConflicts
+comment|/**      * If there is already a mapping definition registered against the type, then it will be merged. If there are      * elements that can't be merged are detected, the request will be rejected unless the      * {@link #ignoreConflicts(boolean)} is set. In such a case, the duplicate mappings will be rejected.      */
+DECL|method|ignoreConflicts
 specifier|public
 name|PutMappingRequest
-name|setIgnoreConflicts
+name|ignoreConflicts
 parameter_list|(
 name|boolean
 name|ignoreDuplicates

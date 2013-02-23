@@ -111,7 +111,7 @@ operator|=
 name|acknowledged
 expr_stmt|;
 block|}
-comment|/**      * Has the put mapping creation been acknowledged by all current cluster nodes within the      * provided {@link PutMappingRequest#setTimeout(org.elasticsearch.common.unit.TimeValue)}.      */
+comment|/**      * Has the put mapping creation been acknowledged by all current cluster nodes within the      * provided {@link PutMappingRequest#timeout(org.elasticsearch.common.unit.TimeValue)}.      */
 DECL|method|isAcknowledged
 specifier|public
 name|boolean

@@ -287,7 +287,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A request to execute search against one or more indices (or all). Best created using  * {@link org.elasticsearch.client.Requests#searchRequest(String...)}.  *<p/>  *<p>Note, the search {@link #setSource(org.elasticsearch.search.builder.SearchSourceBuilder)}  * is required. The search source is the different search options, including facets and such.  *<p/>  *<p>There is an option to specify an addition search source using the {@link #setExtraSource(org.elasticsearch.search.builder.SearchSourceBuilder)}.  *  * @see org.elasticsearch.client.Requests#searchRequest(String...)  * @see org.elasticsearch.client.Client#search(SearchRequest)  * @see SearchResponse  */
+comment|/**  * A request to execute search against one or more indices (or all). Best created using  * {@link org.elasticsearch.client.Requests#searchRequest(String...)}.  *<p/>  *<p>Note, the search {@link #source(org.elasticsearch.search.builder.SearchSourceBuilder)}  * is required. The search source is the different search options, including facets and such.  *<p/>  *<p>There is an option to specify an addition search source using the {@link #extraSource(org.elasticsearch.search.builder.SearchSourceBuilder)}.  *  * @see org.elasticsearch.client.Requests#searchRequest(String...)  * @see org.elasticsearch.client.Client#search(SearchRequest)  * @see SearchResponse  */
 end_comment
 
 begin_class
@@ -527,10 +527,10 @@ name|beforeLocalFork
 parameter_list|()
 block|{     }
 comment|/**      * Sets the indices the search will be executed on.      */
-DECL|method|setIndices
+DECL|method|indices
 specifier|public
 name|SearchRequest
-name|setIndices
+name|indices
 parameter_list|(
 name|String
 modifier|...
@@ -548,10 +548,10 @@ name|this
 return|;
 block|}
 comment|/**      * Controls the the search operation threading model.      */
-DECL|method|getOperationThreading
+DECL|method|operationThreading
 specifier|public
 name|SearchOperationThreading
-name|getOperationThreading
+name|operationThreading
 parameter_list|()
 block|{
 return|return
@@ -561,10 +561,10 @@ name|operationThreading
 return|;
 block|}
 comment|/**      * Controls the the search operation threading model.      */
-DECL|method|setOperationThreading
+DECL|method|operationThreading
 specifier|public
 name|SearchRequest
-name|setOperationThreading
+name|operationThreading
 parameter_list|(
 name|SearchOperationThreading
 name|operationThreading
@@ -581,17 +581,17 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the string representation of the operation threading model. Can be one of      * "no_threads", "single_thread" and "thread_per_shard".      */
-DECL|method|setOperationThreading
+DECL|method|operationThreading
 specifier|public
 name|SearchRequest
-name|setOperationThreading
+name|operationThreading
 parameter_list|(
 name|String
 name|operationThreading
 parameter_list|)
 block|{
 return|return
-name|setOperationThreading
+name|operationThreading
 argument_list|(
 name|SearchOperationThreading
 operator|.
@@ -606,20 +606,20 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-DECL|method|getIgnoreIndices
+DECL|method|ignoreIndices
 specifier|public
 name|IgnoreIndices
-name|getIgnoreIndices
+name|ignoreIndices
 parameter_list|()
 block|{
 return|return
 name|ignoreIndices
 return|;
 block|}
-DECL|method|setIgnoreIndices
+DECL|method|ignoreIndices
 specifier|public
 name|SearchRequest
-name|setIgnoreIndices
+name|ignoreIndices
 parameter_list|(
 name|IgnoreIndices
 name|ignoreIndices
@@ -636,11 +636,11 @@ name|this
 return|;
 block|}
 comment|/**      * The document types to execute the search against. Defaults to be executed against      * all types.      */
-DECL|method|getTypes
+DECL|method|types
 specifier|public
 name|String
 index|[]
-name|getTypes
+name|types
 parameter_list|()
 block|{
 return|return
@@ -648,10 +648,10 @@ name|types
 return|;
 block|}
 comment|/**      * The document types to execute the search against. Defaults to be executed against      * all types.      */
-DECL|method|setTypes
+DECL|method|types
 specifier|public
 name|SearchRequest
-name|setTypes
+name|types
 parameter_list|(
 name|String
 modifier|...
@@ -669,10 +669,10 @@ name|this
 return|;
 block|}
 comment|/**      * A comma separated list of routing values to control the shards the search will be executed on.      */
-DECL|method|getRouting
+DECL|method|routing
 specifier|public
 name|String
-name|getRouting
+name|routing
 parameter_list|()
 block|{
 return|return
@@ -682,10 +682,10 @@ name|routing
 return|;
 block|}
 comment|/**      * A comma separated list of routing values to control the shards the search will be executed on.      */
-DECL|method|setRouting
+DECL|method|routing
 specifier|public
 name|SearchRequest
-name|setRouting
+name|routing
 parameter_list|(
 name|String
 name|routing
@@ -702,10 +702,10 @@ name|this
 return|;
 block|}
 comment|/**      * The routing values to control the shards that the search will be executed on.      */
-DECL|method|setRouting
+DECL|method|routing
 specifier|public
 name|SearchRequest
-name|setRouting
+name|routing
 parameter_list|(
 name|String
 modifier|...
@@ -728,10 +728,10 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the preference to execute the search. Defaults to randomize across shards. Can be set to      *<tt>_local</tt> to prefer local shards,<tt>_primary</tt> to execute only on primary shards, or      * a custom value, which guarantees that the same order will be used across different requests.      */
-DECL|method|setPreference
+DECL|method|preference
 specifier|public
 name|SearchRequest
-name|setPreference
+name|preference
 parameter_list|(
 name|String
 name|preference
@@ -747,10 +747,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|getPreference
+DECL|method|preference
 specifier|public
 name|String
-name|getPreference
+name|preference
 parameter_list|()
 block|{
 return|return
@@ -760,10 +760,10 @@ name|preference
 return|;
 block|}
 comment|/**      * The search type to execute, defaults to {@link SearchType#DEFAULT}.      */
-DECL|method|setSearchType
+DECL|method|searchType
 specifier|public
 name|SearchRequest
-name|setSearchType
+name|searchType
 parameter_list|(
 name|SearchType
 name|searchType
@@ -780,10 +780,10 @@ name|this
 return|;
 block|}
 comment|/**      * The a string representation search type to execute, defaults to {@link SearchType#DEFAULT}. Can be      * one of "dfs_query_then_fetch"/"dfsQueryThenFetch", "dfs_query_and_fetch"/"dfsQueryAndFetch",      * "query_then_fetch"/"queryThenFetch", and "query_and_fetch"/"queryAndFetch".      */
-DECL|method|setSearchType
+DECL|method|searchType
 specifier|public
 name|SearchRequest
-name|setSearchType
+name|searchType
 parameter_list|(
 name|String
 name|searchType
@@ -792,7 +792,7 @@ throws|throws
 name|ElasticSearchIllegalArgumentException
 block|{
 return|return
-name|setSearchType
+name|searchType
 argument_list|(
 name|SearchType
 operator|.
@@ -804,10 +804,10 @@ argument_list|)
 return|;
 block|}
 comment|/**      * The source of the search request.      */
-DECL|method|setSource
+DECL|method|source
 specifier|public
 name|SearchRequest
-name|setSource
+name|source
 parameter_list|(
 name|SearchSourceBuilder
 name|sourceBuilder
@@ -834,11 +834,11 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The source of the search request. Consider using either {@link #setSource(byte[])} or      * {@link #setSource(org.elasticsearch.search.builder.SearchSourceBuilder)}.      */
-DECL|method|setSource
+comment|/**      * The source of the search request. Consider using either {@link #source(byte[])} or      * {@link #source(org.elasticsearch.search.builder.SearchSourceBuilder)}.      */
+DECL|method|source
 specifier|public
 name|SearchRequest
-name|setSource
+name|source
 parameter_list|(
 name|String
 name|source
@@ -865,10 +865,10 @@ name|this
 return|;
 block|}
 comment|/**      * The source of the search request in the form of a map.      */
-DECL|method|setSource
+DECL|method|source
 specifier|public
 name|SearchRequest
-name|setSource
+name|source
 parameter_list|(
 name|Map
 name|source
@@ -894,7 +894,7 @@ name|source
 argument_list|)
 expr_stmt|;
 return|return
-name|setSource
+name|source
 argument_list|(
 name|builder
 argument_list|)
@@ -921,10 +921,10 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|setSource
+DECL|method|source
 specifier|public
 name|SearchRequest
-name|setSource
+name|source
 parameter_list|(
 name|XContentBuilder
 name|builder
@@ -950,10 +950,10 @@ name|this
 return|;
 block|}
 comment|/**      * The search source to execute.      */
-DECL|method|setSource
+DECL|method|source
 specifier|public
 name|SearchRequest
-name|setSource
+name|source
 parameter_list|(
 name|byte
 index|[]
@@ -961,7 +961,7 @@ name|source
 parameter_list|)
 block|{
 return|return
-name|setSource
+name|source
 argument_list|(
 name|source
 argument_list|,
@@ -976,10 +976,10 @@ argument_list|)
 return|;
 block|}
 comment|/**      * The search source to execute.      */
-DECL|method|setSource
+DECL|method|source
 specifier|public
 name|SearchRequest
-name|setSource
+name|source
 parameter_list|(
 name|byte
 index|[]
@@ -993,7 +993,7 @@ name|length
 parameter_list|)
 block|{
 return|return
-name|setSource
+name|source
 argument_list|(
 name|source
 argument_list|,
@@ -1006,10 +1006,10 @@ argument_list|)
 return|;
 block|}
 comment|/**      * The search source to execute.      */
-DECL|method|setSource
+DECL|method|source
 specifier|public
 name|SearchRequest
-name|setSource
+name|source
 parameter_list|(
 name|byte
 index|[]
@@ -1026,7 +1026,7 @@ name|unsafe
 parameter_list|)
 block|{
 return|return
-name|setSource
+name|source
 argument_list|(
 operator|new
 name|BytesArray
@@ -1043,10 +1043,10 @@ argument_list|)
 return|;
 block|}
 comment|/**      * The search source to execute.      */
-DECL|method|setSource
+DECL|method|source
 specifier|public
 name|SearchRequest
-name|setSource
+name|source
 parameter_list|(
 name|BytesReference
 name|source
@@ -1072,10 +1072,10 @@ name|this
 return|;
 block|}
 comment|/**      * The search source to execute.      */
-DECL|method|getSource
+DECL|method|source
 specifier|public
 name|BytesReference
-name|getSource
+name|source
 parameter_list|()
 block|{
 return|return
@@ -1083,10 +1083,10 @@ name|source
 return|;
 block|}
 comment|/**      * Allows to provide additional source that will be used as well.      */
-DECL|method|setExtraSource
+DECL|method|extraSource
 specifier|public
 name|SearchRequest
-name|setExtraSource
+name|extraSource
 parameter_list|(
 name|SearchSourceBuilder
 name|sourceBuilder
@@ -1128,10 +1128,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|setExtraSource
+DECL|method|extraSource
 specifier|public
 name|SearchRequest
-name|setExtraSource
+name|extraSource
 parameter_list|(
 name|Map
 name|extraSource
@@ -1157,7 +1157,7 @@ name|extraSource
 argument_list|)
 expr_stmt|;
 return|return
-name|setExtraSource
+name|extraSource
 argument_list|(
 name|builder
 argument_list|)
@@ -1184,10 +1184,10 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|setExtraSource
+DECL|method|extraSource
 specifier|public
 name|SearchRequest
-name|setExtraSource
+name|extraSource
 parameter_list|(
 name|XContentBuilder
 name|builder
@@ -1213,10 +1213,10 @@ name|this
 return|;
 block|}
 comment|/**      * Allows to provide additional source that will use used as well.      */
-DECL|method|setExtraSource
+DECL|method|extraSource
 specifier|public
 name|SearchRequest
-name|setExtraSource
+name|extraSource
 parameter_list|(
 name|String
 name|source
@@ -1243,10 +1243,10 @@ name|this
 return|;
 block|}
 comment|/**      * Allows to provide additional source that will be used as well.      */
-DECL|method|setExtraSource
+DECL|method|extraSource
 specifier|public
 name|SearchRequest
-name|setExtraSource
+name|extraSource
 parameter_list|(
 name|byte
 index|[]
@@ -1254,7 +1254,7 @@ name|source
 parameter_list|)
 block|{
 return|return
-name|setExtraSource
+name|extraSource
 argument_list|(
 name|source
 argument_list|,
@@ -1269,10 +1269,10 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Allows to provide additional source that will be used as well.      */
-DECL|method|setExtraSource
+DECL|method|extraSource
 specifier|public
 name|SearchRequest
-name|setExtraSource
+name|extraSource
 parameter_list|(
 name|byte
 index|[]
@@ -1286,7 +1286,7 @@ name|length
 parameter_list|)
 block|{
 return|return
-name|setExtraSource
+name|extraSource
 argument_list|(
 name|source
 argument_list|,
@@ -1299,10 +1299,10 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Allows to provide additional source that will be used as well.      */
-DECL|method|setExtraSource
+DECL|method|extraSource
 specifier|public
 name|SearchRequest
-name|setExtraSource
+name|extraSource
 parameter_list|(
 name|byte
 index|[]
@@ -1319,7 +1319,7 @@ name|unsafe
 parameter_list|)
 block|{
 return|return
-name|setExtraSource
+name|extraSource
 argument_list|(
 operator|new
 name|BytesArray
@@ -1336,10 +1336,10 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Allows to provide additional source that will be used as well.      */
-DECL|method|setExtraSource
+DECL|method|extraSource
 specifier|public
 name|SearchRequest
-name|setExtraSource
+name|extraSource
 parameter_list|(
 name|BytesReference
 name|source
@@ -1365,10 +1365,10 @@ name|this
 return|;
 block|}
 comment|/**      * Additional search source to execute.      */
-DECL|method|getExtraSource
+DECL|method|extraSource
 specifier|public
 name|BytesReference
-name|getExtraSource
+name|extraSource
 parameter_list|()
 block|{
 return|return
@@ -1378,10 +1378,10 @@ name|extraSource
 return|;
 block|}
 comment|/**      * The tye of search to execute.      */
-DECL|method|getSearchType
+DECL|method|searchType
 specifier|public
 name|SearchType
-name|getSearchType
+name|searchType
 parameter_list|()
 block|{
 return|return
@@ -1389,11 +1389,11 @@ name|searchType
 return|;
 block|}
 comment|/**      * The indices      */
-DECL|method|getIndices
+DECL|method|indices
 specifier|public
 name|String
 index|[]
-name|getIndices
+name|indices
 parameter_list|()
 block|{
 return|return
@@ -1401,10 +1401,10 @@ name|indices
 return|;
 block|}
 comment|/**      * If set, will enable scrolling of the search request.      */
-DECL|method|getScroll
+DECL|method|scroll
 specifier|public
 name|Scroll
-name|getScroll
+name|scroll
 parameter_list|()
 block|{
 return|return
@@ -1412,10 +1412,10 @@ name|scroll
 return|;
 block|}
 comment|/**      * If set, will enable scrolling of the search request.      */
-DECL|method|setScroll
+DECL|method|scroll
 specifier|public
 name|SearchRequest
-name|setScroll
+name|scroll
 parameter_list|(
 name|Scroll
 name|scroll
@@ -1432,17 +1432,17 @@ name|this
 return|;
 block|}
 comment|/**      * If set, will enable scrolling of the search request for the specified timeout.      */
-DECL|method|setScroll
+DECL|method|scroll
 specifier|public
 name|SearchRequest
-name|setScroll
+name|scroll
 parameter_list|(
 name|TimeValue
 name|keepAlive
 parameter_list|)
 block|{
 return|return
-name|setScroll
+name|scroll
 argument_list|(
 operator|new
 name|Scroll
@@ -1453,17 +1453,17 @@ argument_list|)
 return|;
 block|}
 comment|/**      * If set, will enable scrolling of the search request for the specified timeout.      */
-DECL|method|setScroll
+DECL|method|scroll
 specifier|public
 name|SearchRequest
-name|setScroll
+name|scroll
 parameter_list|(
 name|String
 name|keepAlive
 parameter_list|)
 block|{
 return|return
-name|setScroll
+name|scroll
 argument_list|(
 operator|new
 name|Scroll

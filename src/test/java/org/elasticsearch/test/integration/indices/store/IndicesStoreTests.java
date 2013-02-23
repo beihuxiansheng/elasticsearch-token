@@ -379,7 +379,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|setSettings
+name|settings
 argument_list|(
 name|settingsBuilder
 argument_list|()
@@ -426,7 +426,7 @@ argument_list|(
 name|clusterHealthRequest
 argument_list|()
 operator|.
-name|setWaitForGreenStatus
+name|waitForGreenStatus
 argument_list|()
 argument_list|)
 operator|.
@@ -607,10 +607,10 @@ argument_list|(
 name|clusterHealthRequest
 argument_list|()
 operator|.
-name|setWaitForGreenStatus
+name|waitForGreenStatus
 argument_list|()
 operator|.
-name|setWaitForNodes
+name|waitForNodes
 argument_list|(
 literal|"2"
 argument_list|)
@@ -741,7 +741,7 @@ argument_list|(
 name|clusterHealthRequest
 argument_list|()
 operator|.
-name|setWaitForGreenStatus
+name|waitForGreenStatus
 argument_list|()
 argument_list|)
 operator|.

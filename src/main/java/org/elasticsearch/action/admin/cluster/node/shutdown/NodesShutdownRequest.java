@@ -216,10 +216,10 @@ name|this
 return|;
 block|}
 comment|/**      * The delay for the shutdown to occur. Defaults to<tt>1s</tt>.      */
-DECL|method|setDelay
+DECL|method|delay
 specifier|public
 name|NodesShutdownRequest
-name|setDelay
+name|delay
 parameter_list|(
 name|TimeValue
 name|delay
@@ -235,10 +235,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|getDelay
+DECL|method|delay
 specifier|public
 name|TimeValue
-name|getDelay
+name|delay
 parameter_list|()
 block|{
 return|return
@@ -248,17 +248,17 @@ name|delay
 return|;
 block|}
 comment|/**      * The delay for the shutdown to occur. Defaults to<tt>1s</tt>.      */
-DECL|method|setDelay
+DECL|method|delay
 specifier|public
 name|NodesShutdownRequest
-name|setDelay
+name|delay
 parameter_list|(
 name|String
 name|delay
 parameter_list|)
 block|{
 return|return
-name|setDelay
+name|delay
 argument_list|(
 name|TimeValue
 operator|.
@@ -272,10 +272,10 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Should the JVM be exited as well or not. Defaults to<tt>true</tt>.      */
-DECL|method|setExit
+DECL|method|exit
 specifier|public
 name|NodesShutdownRequest
-name|setExit
+name|exit
 parameter_list|(
 name|boolean
 name|exit
@@ -292,10 +292,10 @@ name|this
 return|;
 block|}
 comment|/**      * Should the JVM be exited as well or not. Defaults to<tt>true</tt>.      */
-DECL|method|isExit
+DECL|method|exit
 specifier|public
 name|boolean
-name|isExit
+name|exit
 parameter_list|()
 block|{
 return|return

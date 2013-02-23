@@ -120,11 +120,11 @@ comment|// since most times, we actually want it to not be threaded...
 comment|//this.listenerThreaded = request.listenerThreaded();
 block|}
 comment|/**      * Should the response listener be executed on a thread or not.      *<p/>      *<p>When not executing on a thread, it will either be executed on the calling thread, or      * on an expensive, IO based, thread.      */
-DECL|method|isListenerThreaded
+DECL|method|listenerThreaded
 specifier|public
 specifier|final
 name|boolean
-name|isListenerThreaded
+name|listenerThreaded
 parameter_list|()
 block|{
 return|return
@@ -139,11 +139,11 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|setListenerThreaded
+DECL|method|listenerThreaded
 specifier|public
 specifier|final
 name|T
-name|setListenerThreaded
+name|listenerThreaded
 parameter_list|(
 name|boolean
 name|listenerThreaded
