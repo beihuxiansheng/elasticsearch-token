@@ -388,7 +388,7 @@ name|TransportBroadcastOperationAction
 argument_list|<
 name|IndicesStatsRequest
 argument_list|,
-name|IndicesStats
+name|IndicesStatsResponse
 argument_list|,
 name|TransportIndicesStatsAction
 operator|.
@@ -598,7 +598,7 @@ annotation|@
 name|Override
 DECL|method|newResponse
 specifier|protected
-name|IndicesStats
+name|IndicesStatsResponse
 name|newResponse
 parameter_list|(
 name|IndicesStatsRequest
@@ -736,7 +736,7 @@ block|}
 block|}
 return|return
 operator|new
-name|IndicesStats
+name|IndicesStatsResponse
 argument_list|(
 name|shards
 operator|.

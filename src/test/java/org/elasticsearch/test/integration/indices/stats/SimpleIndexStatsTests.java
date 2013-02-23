@@ -52,7 +52,7 @@ name|indices
 operator|.
 name|stats
 operator|.
-name|IndicesStats
+name|IndicesStatsResponse
 import|;
 end_import
 
@@ -435,7 +435,7 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|IndicesStats
+name|IndicesStatsResponse
 name|stats
 init|=
 name|client

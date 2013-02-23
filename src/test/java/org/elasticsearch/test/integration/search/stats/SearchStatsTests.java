@@ -54,7 +54,7 @@ name|indices
 operator|.
 name|stats
 operator|.
-name|IndicesStats
+name|IndicesStatsResponse
 import|;
 end_import
 
@@ -505,7 +505,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 block|}
-name|IndicesStats
+name|IndicesStatsResponse
 name|indicesStats
 init|=
 name|client

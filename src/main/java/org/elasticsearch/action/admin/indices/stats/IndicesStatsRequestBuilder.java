@@ -88,7 +88,7 @@ name|BroadcastOperationRequestBuilder
 argument_list|<
 name|IndicesStatsRequest
 argument_list|,
-name|IndicesStats
+name|IndicesStatsResponse
 argument_list|,
 name|IndicesStatsRequestBuilder
 argument_list|>
@@ -378,7 +378,7 @@ name|doExecute
 parameter_list|(
 name|ActionListener
 argument_list|<
-name|IndicesStats
+name|IndicesStatsResponse
 argument_list|>
 name|listener
 parameter_list|)

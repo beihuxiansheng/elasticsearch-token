@@ -62,7 +62,7 @@ name|IndicesAction
 argument_list|<
 name|IndicesStatsRequest
 argument_list|,
-name|IndicesStats
+name|IndicesStatsResponse
 argument_list|,
 name|IndicesStatsRequestBuilder
 argument_list|>
@@ -102,13 +102,13 @@ annotation|@
 name|Override
 DECL|method|newResponse
 specifier|public
-name|IndicesStats
+name|IndicesStatsResponse
 name|newResponse
 parameter_list|()
 block|{
 return|return
 operator|new
-name|IndicesStats
+name|IndicesStatsResponse
 argument_list|()
 return|;
 block|}

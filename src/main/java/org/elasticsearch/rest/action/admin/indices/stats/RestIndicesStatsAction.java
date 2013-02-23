@@ -48,7 +48,7 @@ name|indices
 operator|.
 name|stats
 operator|.
-name|IndicesStats
+name|IndicesStatsRequest
 import|;
 end_import
 
@@ -66,7 +66,7 @@ name|indices
 operator|.
 name|stats
 operator|.
-name|IndicesStatsRequest
+name|IndicesStatsResponse
 import|;
 end_import
 
@@ -910,7 +910,7 @@ argument_list|,
 operator|new
 name|ActionListener
 argument_list|<
-name|IndicesStats
+name|IndicesStatsResponse
 argument_list|>
 argument_list|()
 block|{
@@ -920,7 +920,7 @@ specifier|public
 name|void
 name|onResponse
 parameter_list|(
-name|IndicesStats
+name|IndicesStatsResponse
 name|response
 parameter_list|)
 block|{
@@ -1138,7 +1138,7 @@ argument_list|,
 operator|new
 name|ActionListener
 argument_list|<
-name|IndicesStats
+name|IndicesStatsResponse
 argument_list|>
 argument_list|()
 block|{
@@ -1148,7 +1148,7 @@ specifier|public
 name|void
 name|onResponse
 parameter_list|(
-name|IndicesStats
+name|IndicesStatsResponse
 name|response
 parameter_list|)
 block|{
@@ -1367,7 +1367,7 @@ argument_list|,
 operator|new
 name|ActionListener
 argument_list|<
-name|IndicesStats
+name|IndicesStatsResponse
 argument_list|>
 argument_list|()
 block|{
@@ -1377,7 +1377,7 @@ specifier|public
 name|void
 name|onResponse
 parameter_list|(
-name|IndicesStats
+name|IndicesStatsResponse
 name|response
 parameter_list|)
 block|{
@@ -1661,7 +1661,7 @@ argument_list|,
 operator|new
 name|ActionListener
 argument_list|<
-name|IndicesStats
+name|IndicesStatsResponse
 argument_list|>
 argument_list|()
 block|{
@@ -1671,7 +1671,7 @@ specifier|public
 name|void
 name|onResponse
 parameter_list|(
-name|IndicesStats
+name|IndicesStatsResponse
 name|response
 parameter_list|)
 block|{
@@ -1961,7 +1961,7 @@ argument_list|,
 operator|new
 name|ActionListener
 argument_list|<
-name|IndicesStats
+name|IndicesStatsResponse
 argument_list|>
 argument_list|()
 block|{
@@ -1971,7 +1971,7 @@ specifier|public
 name|void
 name|onResponse
 parameter_list|(
-name|IndicesStats
+name|IndicesStatsResponse
 name|response
 parameter_list|)
 block|{
@@ -2175,7 +2175,7 @@ argument_list|,
 operator|new
 name|ActionListener
 argument_list|<
-name|IndicesStats
+name|IndicesStatsResponse
 argument_list|>
 argument_list|()
 block|{
@@ -2185,7 +2185,7 @@ specifier|public
 name|void
 name|onResponse
 parameter_list|(
-name|IndicesStats
+name|IndicesStatsResponse
 name|response
 parameter_list|)
 block|{
@@ -2404,7 +2404,7 @@ argument_list|,
 operator|new
 name|ActionListener
 argument_list|<
-name|IndicesStats
+name|IndicesStatsResponse
 argument_list|>
 argument_list|()
 block|{
@@ -2414,7 +2414,7 @@ specifier|public
 name|void
 name|onResponse
 parameter_list|(
-name|IndicesStats
+name|IndicesStatsResponse
 name|response
 parameter_list|)
 block|{
@@ -2633,7 +2633,7 @@ argument_list|,
 operator|new
 name|ActionListener
 argument_list|<
-name|IndicesStats
+name|IndicesStatsResponse
 argument_list|>
 argument_list|()
 block|{
@@ -2643,7 +2643,7 @@ specifier|public
 name|void
 name|onResponse
 parameter_list|(
-name|IndicesStats
+name|IndicesStatsResponse
 name|response
 parameter_list|)
 block|{
@@ -2862,7 +2862,7 @@ argument_list|,
 operator|new
 name|ActionListener
 argument_list|<
-name|IndicesStats
+name|IndicesStatsResponse
 argument_list|>
 argument_list|()
 block|{
@@ -2872,7 +2872,7 @@ specifier|public
 name|void
 name|onResponse
 parameter_list|(
-name|IndicesStats
+name|IndicesStatsResponse
 name|response
 parameter_list|)
 block|{
@@ -3091,7 +3091,7 @@ argument_list|,
 operator|new
 name|ActionListener
 argument_list|<
-name|IndicesStats
+name|IndicesStatsResponse
 argument_list|>
 argument_list|()
 block|{
@@ -3101,7 +3101,7 @@ specifier|public
 name|void
 name|onResponse
 parameter_list|(
-name|IndicesStats
+name|IndicesStatsResponse
 name|response
 parameter_list|)
 block|{

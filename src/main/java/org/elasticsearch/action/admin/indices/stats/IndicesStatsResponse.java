@@ -221,10 +221,10 @@ comment|/**  */
 end_comment
 
 begin_class
-DECL|class|IndicesStats
+DECL|class|IndicesStatsResponse
 specifier|public
 class|class
-name|IndicesStats
+name|IndicesStatsResponse
 extends|extends
 name|BroadcastOperationResponse
 implements|implements
@@ -236,12 +236,12 @@ name|ShardStats
 index|[]
 name|shards
 decl_stmt|;
-DECL|method|IndicesStats
-name|IndicesStats
+DECL|method|IndicesStatsResponse
+name|IndicesStatsResponse
 parameter_list|()
 block|{      }
-DECL|method|IndicesStats
-name|IndicesStats
+DECL|method|IndicesStatsResponse
+name|IndicesStatsResponse
 parameter_list|(
 name|ShardStats
 index|[]
