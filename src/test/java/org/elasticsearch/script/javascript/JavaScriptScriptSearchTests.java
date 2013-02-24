@@ -698,7 +698,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|totalHits
@@ -714,7 +714,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -738,7 +738,7 @@ name|Double
 operator|)
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -772,7 +772,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -796,7 +796,7 @@ name|Double
 operator|)
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -896,7 +896,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|totalHits
@@ -912,7 +912,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -936,7 +936,7 @@ name|Double
 operator|)
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -1037,7 +1037,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|totalHits
@@ -1053,7 +1053,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -1077,7 +1077,7 @@ name|Double
 operator|)
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -1111,7 +1111,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -1135,7 +1135,7 @@ name|Double
 operator|)
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -1169,7 +1169,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -1193,7 +1193,7 @@ name|Double
 operator|)
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -1428,7 +1428,7 @@ argument_list|>
 operator|)
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -1466,7 +1466,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -1503,7 +1503,7 @@ argument_list|>
 operator|)
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -1541,7 +1541,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -1584,7 +1584,7 @@ argument_list|>
 operator|)
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -1669,7 +1669,7 @@ name|List
 operator|)
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -2029,7 +2029,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|totalHits
@@ -2049,7 +2049,7 @@ literal|"Hit[0] {} Explanation {}"
 argument_list|,
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -2062,7 +2062,7 @@ argument_list|()
 argument_list|,
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -2082,7 +2082,7 @@ literal|"Hit[1] {} Explanation {}"
 argument_list|,
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -2095,7 +2095,7 @@ argument_list|()
 argument_list|,
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -2111,7 +2111,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -2132,7 +2132,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -2214,7 +2214,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|totalHits
@@ -2234,7 +2234,7 @@ literal|"Hit[0] {} Explanation {}"
 argument_list|,
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -2247,7 +2247,7 @@ argument_list|()
 argument_list|,
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -2267,7 +2267,7 @@ literal|"Hit[1] {} Explanation {}"
 argument_list|,
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -2280,7 +2280,7 @@ argument_list|()
 argument_list|,
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -2296,7 +2296,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -2317,7 +2317,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -2399,7 +2399,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|totalHits
@@ -2419,7 +2419,7 @@ literal|"Hit[0] {} Explanation {}"
 argument_list|,
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -2432,7 +2432,7 @@ argument_list|()
 argument_list|,
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -2452,7 +2452,7 @@ literal|"Hit[1] {} Explanation {}"
 argument_list|,
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -2465,7 +2465,7 @@ argument_list|()
 argument_list|,
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -2481,7 +2481,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -2502,7 +2502,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -2584,7 +2584,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|totalHits
@@ -2604,7 +2604,7 @@ literal|"Hit[0] {} Explanation {}"
 argument_list|,
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -2617,7 +2617,7 @@ argument_list|()
 argument_list|,
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -2637,7 +2637,7 @@ literal|"Hit[1] {} Explanation {}"
 argument_list|,
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -2650,7 +2650,7 @@ argument_list|()
 argument_list|,
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -2666,7 +2666,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -2687,7 +2687,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -2769,7 +2769,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|totalHits
@@ -2789,7 +2789,7 @@ literal|"Hit[0] {} Explanation {}"
 argument_list|,
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -2802,7 +2802,7 @@ argument_list|()
 argument_list|,
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -2822,7 +2822,7 @@ literal|"Hit[1] {} Explanation {}"
 argument_list|,
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -2835,7 +2835,7 @@ argument_list|()
 argument_list|,
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -2851,7 +2851,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -2872,7 +2872,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -2968,7 +2968,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|totalHits
@@ -2988,7 +2988,7 @@ literal|"Hit[0] {} Explanation {}"
 argument_list|,
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -3001,7 +3001,7 @@ argument_list|()
 argument_list|,
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -3021,7 +3021,7 @@ literal|"Hit[1] {} Explanation {}"
 argument_list|,
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
@@ -3034,7 +3034,7 @@ argument_list|()
 argument_list|,
 name|response
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|getAt
