@@ -312,7 +312,7 @@ argument_list|(
 name|getName
 argument_list|()
 argument_list|,
-literal|"Heap dump not enalbed on this JVM"
+literal|"Heap dump not enabled on this JVM"
 argument_list|)
 throw|;
 block|}
