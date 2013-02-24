@@ -351,6 +351,8 @@ specifier|public
 name|void
 name|testDefaultsKuromojiAnalysis
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|AnalysisService
 name|analysisService
@@ -525,7 +527,11 @@ name|tokenStream
 argument_list|(
 literal|null
 argument_list|,
-literal|null
+operator|new
+name|StringReader
+argument_list|(
+literal|""
+argument_list|)
 argument_list|)
 argument_list|,
 name|instanceOf
