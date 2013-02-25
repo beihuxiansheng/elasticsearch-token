@@ -22,101 +22,29 @@ end_package
 
 begin_import
 import|import
-name|java
+name|com
 operator|.
-name|util
+name|google
 operator|.
-name|ArrayList
+name|common
+operator|.
+name|base
+operator|.
+name|Predicate
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|com
 operator|.
-name|util
+name|google
 operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
+name|common
 operator|.
-name|util
+name|collect
 operator|.
-name|Comparator
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashSet
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Iterator
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|TreeSet
+name|Iterables
 import|;
 end_import
 
@@ -168,77 +96,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|IndexRoutingTable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|IndexShardRoutingTable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|MutableShardRouting
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|RoutingNode
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|RoutingNodes
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|ShardRoutingState
+name|*
 import|;
 end_import
 
@@ -418,29 +276,11 @@ end_import
 
 begin_import
 import|import
-name|com
+name|java
 operator|.
-name|google
+name|util
 operator|.
-name|common
-operator|.
-name|base
-operator|.
-name|Predicate
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Iterables
+name|*
 import|;
 end_import
 
@@ -477,7 +317,7 @@ import|;
 end_import
 
 begin_comment
-comment|/** * The {@link BalancedShardsAllocator} re-balances the nodes allocations * within an cluster based on a {@link WeightFunction}. The clusters balance is defined by four parameters which can be set * in the cluster update API that allows changes in real-time: *  *<ul><li><code>cluster.routing.allocation.balance.shard</code> - The<b>shard balance</b> defines the weight factor *               for shards allocated on a {@link RoutingNode}</li> *<li><code>cluster.routing.allocation.balance.index</code> - The<b>index balance</b> defines a factor to the number *               of {@link ShardRouting}s per index allocated on a specific node</li> *<li><code>cluster.routing.allocation.balance.primary</code> - the<b>primary balance</b> defines a weight factor for *               the number of primaries of a specific index allocated on a node</li> *<li><code>cluster.routing.allocation.balance.threshold</code> - A<b>threshold</b> to set the minimal optimization *               value of operations that should be performed</li> *</ul> *  * These parameters are combined in a {@link WeightFunction} that allows calculation of node weights which * are used to re-balance shards based on global as well as per-index factors. */
+comment|/**  * The {@link BalancedShardsAllocator} re-balances the nodes allocations  * within an cluster based on a {@link WeightFunction}. The clusters balance is defined by four parameters which can be set  * in the cluster update API that allows changes in real-time:  *<p/>  *<ul><li><code>cluster.routing.allocation.balance.shard</code> - The<b>shard balance</b> defines the weight factor  * for shards allocated on a {@link RoutingNode}</li>  *<li><code>cluster.routing.allocation.balance.index</code> - The<b>index balance</b> defines a factor to the number  * of {@link org.elasticsearch.cluster.routing.ShardRouting}s per index allocated on a specific node</li>  *<li><code>cluster.routing.allocation.balance.primary</code> - the<b>primary balance</b> defines a weight factor for  * the number of primaries of a specific index allocated on a node</li>  *<li><code>cluster.routing.allocation.balance.threshold</code> - A<b>threshold</b> to set the minimal optimization  * value of operations that should be performed</li>  *</ul>  *<p/>  * These parameters are combined in a {@link WeightFunction} that allows calculation of node weights which  * are used to re-balance shards based on global as well as per-index factors.  */
 end_comment
 
 begin_class
@@ -526,22 +366,6 @@ name|SETTING_PRIMARY_BALANCE_FACTOR
 init|=
 literal|"cluster.routing.allocation.balance.primary"
 decl_stmt|;
-static|static
-block|{
-name|MetaData
-operator|.
-name|addDynamicSettings
-argument_list|(
-name|SETTING_INDEX_BALANCE_FACTOR
-argument_list|,
-name|SETTING_PRIMARY_BALANCE_FACTOR
-argument_list|,
-name|SETTING_SHARD_BALANCE_FACTOR
-argument_list|,
-name|SETTING_THRESHOLD
-argument_list|)
-expr_stmt|;
-block|}
 DECL|class|ApplySettings
 class|class
 name|ApplySettings
@@ -846,7 +670,7 @@ name|node
 argument_list|)
 return|;
 block|}
-comment|/**      * This class is the primary weight function used to create balanced over nodes and shards in the cluster.       * Currently this function has 3 properties:      *<ul>      *<li><code>index balance</code> - balance property over shards per index</li>      *<li><code>shard balance</code> - balance property over shards per cluster</li>      *<li><code>primary balance</code> - balance property over primaries per cluster</li>      *</ul>      *<p>      * Each of these properties are expressed as factor such that the properties factor defines the relative importance of the property for the      * weight function. For example if the weight function should calculate the weights only based on a global (shard) balance the index and primary balance       * can be set to<tt>0.0</tt> and will in turn have no effect on the distribution.        *</p>      * The weight per index is calculated based on the following formula:      *<ul>      *<li>      *<code>weight<sub>index</sub>(node, index) = indexBalance * (node.numShards(index) - avgShardsPerNode(index))</code>      *</li>      *<li>      *<code>weight<sub>node</sub>(node, index) = shardBalance * (node.numShards() - avgShardsPerNode)</code>      *</li>      *<li>      *<code>weight<sub>primary</sub>(node, index) = primaryBalance * (node.numPrimaries() - avgPrimariesPerNode)</code>      *</li>      *</ul>      *<code>weight(node, index) = weight<sub>index</sub>(node, index) + weight<sub>node</sub>(node, index) + weight<sub>primary</sub>(node, index)</code>      *       */
+comment|/**      * This class is the primary weight function used to create balanced over nodes and shards in the cluster.      * Currently this function has 3 properties:      *<ul>      *<li><code>index balance</code> - balance property over shards per index</li>      *<li><code>shard balance</code> - balance property over shards per cluster</li>      *<li><code>primary balance</code> - balance property over primaries per cluster</li>      *</ul>      *<p>      * Each of these properties are expressed as factor such that the properties factor defines the relative importance of the property for the      * weight function. For example if the weight function should calculate the weights only based on a global (shard) balance the index and primary balance      * can be set to<tt>0.0</tt> and will in turn have no effect on the distribution.      *</p>      * The weight per index is calculated based on the following formula:      *<ul>      *<li>      *<code>weight<sub>index</sub>(node, index) = indexBalance * (node.numShards(index) - avgShardsPerNode(index))</code>      *</li>      *<li>      *<code>weight<sub>node</sub>(node, index) = shardBalance * (node.numShards() - avgShardsPerNode)</code>      *</li>      *<li>      *<code>weight<sub>primary</sub>(node, index) = primaryBalance * (node.numPrimaries() - avgPrimariesPerNode)</code>      *</li>      *</ul>      *<code>weight(node, index) = weight<sub>index</sub>(node, index) + weight<sub>node</sub>(node, index) + weight<sub>primary</sub>(node, index)</code>      */
 DECL|class|WeightFunction
 specifier|public
 specifier|static
@@ -1349,7 +1173,7 @@ name|size
 argument_list|()
 return|;
 block|}
-comment|/**          * Returns a new {@link NodeSorter} that sorts the nodes based on their          * current weight with respect to the index passed to the sorter. The          * returned sorter is not sorted. Use {@link NodeSorter#reset(String)}           * to sort based on an index.          */
+comment|/**          * Returns a new {@link NodeSorter} that sorts the nodes based on their          * current weight with respect to the index passed to the sorter. The          * returned sorter is not sorted. Use {@link NodeSorter#reset(String)}          * to sort based on an index.          */
 DECL|method|newNodeSorter
 specifier|private
 name|NodeSorter
@@ -1512,7 +1336,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**          * Balances the nodes on the cluster model according to the weight          * function. The configured threshold is the minimum delta between the          * weight of the maximum node and the minimum node according to the          * {@link WeightFunction}. This weight is calculated per index to          * distribute shards evenly per index. The balancer tries to relocate          * shards only if the delta exceeds the threshold. If the default case          * the threshold is set to<tt>1.0</tt> to enforce gaining relocation          * only, or in other words relocations that move the weight delta closer          * to<tt>0.0</tt>          *           * @return<code>true</code> if the current configuration has been          *         changed, otherwise<code>false</code>          */
+comment|/**          * Balances the nodes on the cluster model according to the weight          * function. The configured threshold is the minimum delta between the          * weight of the maximum node and the minimum node according to the          * {@link WeightFunction}. This weight is calculated per index to          * distribute shards evenly per index. The balancer tries to relocate          * shards only if the delta exceeds the threshold. If the default case          * the threshold is set to<tt>1.0</tt> to enforce gaining relocation          * only, or in other words relocations that move the weight delta closer          * to<tt>0.0</tt>          *          * @return<code>true</code> if the current configuration has been          *         changed, otherwise<code>false</code>          */
 DECL|method|balance
 specifier|public
 name|boolean
@@ -2131,7 +1955,7 @@ return|return
 name|indices
 return|;
 block|}
-comment|/**          * This function executes a move operation moving the given shard from          * the given node to the minimal eligible node with respect to the          * weight function. Iff the shard is moved the shard will be set to          * {@link ShardRoutingState#RELOCATING} and a shadow instance of this          * shard is created with an incremented version in the state          * {@link ShardRoutingState#INITIALIZING}.          *           * @return<code>true</code> iff the shard has successfully been moved.          */
+comment|/**          * This function executes a move operation moving the given shard from          * the given node to the minimal eligible node with respect to the          * weight function. Iff the shard is moved the shard will be set to          * {@link ShardRoutingState#RELOCATING} and a shadow instance of this          * shard is created with an incremented version in the state          * {@link ShardRoutingState#INITIALIZING}.          *          * @return<code>true</code> iff the shard has successfully been moved.          */
 DECL|method|move
 specifier|public
 name|boolean
@@ -2534,7 +2358,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**          *  Allocates all given shards on the minimal eligable node for the shards index          *  with respect to the weight function. All given shards must be unassigned.          */
+comment|/**          * Allocates all given shards on the minimal eligable node for the shards index          * with respect to the weight function. All given shards must be unassigned.          */
 DECL|method|allocateUnassigned
 specifier|private
 name|boolean
@@ -2745,7 +2569,7 @@ name|hasNext
 argument_list|()
 condition|)
 block|{
-comment|/* we treat every index equally here once chunk a time such that we fill up                  	 * nodes with all indices at the same time. Only on shard of a shard a time.                 	 * Although there might be a primary and a shard of a shard in the set but                 	 * primaries will be started first.*/
+comment|/* we treat every index equally here once chunk a time such that we fill up                      * nodes with all indices at the same time. Only on shard of a shard a time.                 	 * Although there might be a primary and a shard of a shard in the set but                 	 * primaries will be started first.*/
 if|if
 condition|(
 name|currentRound
@@ -3253,7 +3077,7 @@ return|return
 name|changed
 return|;
 block|}
-comment|/**          *  Tries to find a relocation from the max node to the minimal node for an arbitrary shard of the given index on the          *  balance model. Iff this method returns a<code>true</code> the relocation has already been executed on the          *  simulation model as well as on the cluster.          */
+comment|/**          * Tries to find a relocation from the max node to the minimal node for an arbitrary shard of the given index on the          * balance model. Iff this method returns a<code>true</code> the relocation has already been executed on the          * simulation model as well as on the cluster.          */
 DECL|method|tryRelocateShard
 specifier|private
 name|boolean

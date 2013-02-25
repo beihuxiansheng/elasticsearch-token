@@ -271,6 +271,7 @@ operator|.
 name|settings
 return|;
 block|}
+comment|/**      * Only settings registered in {@link IndexDynamicSettingsModule} can be changed dynamically.      */
 DECL|method|addListener
 specifier|public
 name|void

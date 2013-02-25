@@ -28,20 +28,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|metadata
-operator|.
-name|MetaData
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|routing
 operator|.
 name|MutableShardRouting
@@ -159,7 +145,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link ThrottlingAllocationDecider} controls the recovery process per node in  * the cluster. It exposes two settings via the cluster update API that allow  * changes in real-time:  *   *<ul>  *<li><tt>cluster.routing.allocation.node_initial_primaries_recoveries</tt> -  * restricts the number of initial primary shard recovery operations on a single  * node. The default is<tt>4</tt></li>  *   *<li><tt>cluster.routing.allocation.node_concurrent_recoveries</tt> -  * restricts the number of concurrent recovery operations on a single node. The  * default is<tt>2</tt></li>  *</ul>  *   * If one of the above thresholds is exceeded per node this allocation decider  * will return {@link Decision#THROTTLE} as a hit to upstream logic to throttle  * the allocation process to prevent overloading nodes due to too many concurrent recovery  * processes.  */
+comment|/**  * {@link ThrottlingAllocationDecider} controls the recovery process per node in  * the cluster. It exposes two settings via the cluster update API that allow  * changes in real-time:  *<p/>  *<ul>  *<li><tt>cluster.routing.allocation.node_initial_primaries_recoveries</tt> -  * restricts the number of initial primary shard recovery operations on a single  * node. The default is<tt>4</tt></li>  *<p/>  *<li><tt>cluster.routing.allocation.node_concurrent_recoveries</tt> -  * restricts the number of concurrent recovery operations on a single node. The  * default is<tt>2</tt></li>  *</ul>  *<p/>  * If one of the above thresholds is exceeded per node this allocation decider  * will return {@link Decision#THROTTLE} as a hit to upstream logic to throttle  * the allocation process to prevent overloading nodes due to too many concurrent recovery  * processes.  */
 end_comment
 
 begin_class
@@ -170,18 +156,24 @@ name|ThrottlingAllocationDecider
 extends|extends
 name|AllocationDecider
 block|{
-static|static
-block|{
-name|MetaData
-operator|.
-name|addDynamicSettings
-argument_list|(
+DECL|field|CLUSTER_ROUTING_ALLOCATION_NODE_INITIAL_PRIMARIES_RECOVERIES
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|CLUSTER_ROUTING_ALLOCATION_NODE_INITIAL_PRIMARIES_RECOVERIES
+init|=
 literal|"cluster.routing.allocation.node_initial_primaries_recoveries"
-argument_list|,
+decl_stmt|;
+DECL|field|CLUSTER_ROUTING_ALLOCATION_NODE_CONCURRENT_RECOVERIES
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|CLUSTER_ROUTING_ALLOCATION_NODE_CONCURRENT_RECOVERIES
+init|=
 literal|"cluster.routing.allocation.node_concurrent_recoveries"
-argument_list|)
-expr_stmt|;
-block|}
+decl_stmt|;
 DECL|field|primariesInitialRecoveries
 specifier|private
 specifier|volatile
@@ -220,16 +212,9 @@ name|settings
 operator|.
 name|getAsInt
 argument_list|(
-literal|"cluster.routing.allocation.node_initial_primaries_recoveries"
-argument_list|,
-name|settings
-operator|.
-name|getAsInt
-argument_list|(
-literal|"cluster.routing.allocation.node_initial_primaries_recoveries"
+name|CLUSTER_ROUTING_ALLOCATION_NODE_INITIAL_PRIMARIES_RECOVERIES
 argument_list|,
 literal|4
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|this
@@ -246,7 +231,7 @@ name|settings
 operator|.
 name|getAsInt
 argument_list|(
-literal|"cluster.routing.allocation.node_concurrent_recoveries"
+name|CLUSTER_ROUTING_ALLOCATION_NODE_CONCURRENT_RECOVERIES
 argument_list|,
 literal|2
 argument_list|)
@@ -555,7 +540,7 @@ name|settings
 operator|.
 name|getAsInt
 argument_list|(
-literal|"cluster.routing.allocation.node_initial_primaries_recoveries"
+name|CLUSTER_ROUTING_ALLOCATION_NODE_INITIAL_PRIMARIES_RECOVERIES
 argument_list|,
 name|ThrottlingAllocationDecider
 operator|.
@@ -606,7 +591,7 @@ name|settings
 operator|.
 name|getAsInt
 argument_list|(
-literal|"cluster.routing.allocation.node_concurrent_recoveries"
+name|CLUSTER_ROUTING_ALLOCATION_NODE_CONCURRENT_RECOVERIES
 argument_list|,
 name|ThrottlingAllocationDecider
 operator|.

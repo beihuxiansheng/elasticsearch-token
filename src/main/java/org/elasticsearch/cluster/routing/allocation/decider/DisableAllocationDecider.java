@@ -28,20 +28,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|metadata
-operator|.
-name|MetaData
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|routing
 operator|.
 name|RoutingNode
@@ -121,7 +107,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This {@link AllocationDecider} prevents cluster-wide shard allocations. The  * behavior of this {@link AllocationDecider} can be changed in real-time via  * the cluster settings API. It respects the following settings:  *<ul>  *<li><tt>cluster.routing.allocation.disable_new_allocation</tt> - if set to  *<code>true</code> no new shard-allocation are allowed. Note: this setting is  * only applied if the allocated shard is a primary and it has not been  * allocated before the this setting was applied.</li>  *   *<li><tt>cluster.routing.allocation.disable_allocation</tt> - if set to  *<code>true</code> cluster wide allocations are disabled</li>  *   *<li><tt>cluster.routing.allocation.disable_replica_allocation</tt> - if set  * to<code>true</code> cluster wide replica allocations are disabled while  * primary shards can still be allocated</li>  *</ul>  *   *<p>  * Note: all of the above settings might be ignored if the allocation happens on  * a shard that explicitly ignores disabled allocations via  * {@link RoutingAllocation#ignoreDisable()}. Which is set if allocation are  * explicit.  *</p>  */
+comment|/**  * This {@link AllocationDecider} prevents cluster-wide shard allocations. The  * behavior of this {@link AllocationDecider} can be changed in real-time via  * the cluster settings API. It respects the following settings:  *<ul>  *<li><tt>cluster.routing.allocation.disable_new_allocation</tt> - if set to  *<code>true</code> no new shard-allocation are allowed. Note: this setting is  * only applied if the allocated shard is a primary and it has not been  * allocated before the this setting was applied.</li>  *<p/>  *<li><tt>cluster.routing.allocation.disable_allocation</tt> - if set to  *<code>true</code> cluster wide allocations are disabled</li>  *<p/>  *<li><tt>cluster.routing.allocation.disable_replica_allocation</tt> - if set  * to<code>true</code> cluster wide replica allocations are disabled while  * primary shards can still be allocated</li>  *</ul>  *<p/>  *<p>  * Note: all of the above settings might be ignored if the allocation happens on  * a shard that explicitly ignores disabled allocations via  * {@link RoutingAllocation#ignoreDisable()}. Which is set if allocation are  * explicit.  *</p>  */
 end_comment
 
 begin_class
@@ -132,20 +118,33 @@ name|DisableAllocationDecider
 extends|extends
 name|AllocationDecider
 block|{
-static|static
-block|{
-name|MetaData
-operator|.
-name|addDynamicSettings
-argument_list|(
+DECL|field|CLUSTER_ROUTING_ALLOCATION_DISABLE_NEW_ALLOCATION
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|CLUSTER_ROUTING_ALLOCATION_DISABLE_NEW_ALLOCATION
+init|=
 literal|"cluster.routing.allocation.disable_new_allocation"
-argument_list|,
+decl_stmt|;
+DECL|field|CLUSTER_ROUTING_ALLOCATION_DISABLE_ALLOCATION
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|CLUSTER_ROUTING_ALLOCATION_DISABLE_ALLOCATION
+init|=
 literal|"cluster.routing.allocation.disable_allocation"
-argument_list|,
+decl_stmt|;
+DECL|field|CLUSTER_ROUTING_ALLOCATION_DISABLE_REPLICA_ALLOCATION
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|CLUSTER_ROUTING_ALLOCATION_DISABLE_REPLICA_ALLOCATION
+init|=
 literal|"cluster.routing.allocation.disable_replica_allocation"
-argument_list|)
-expr_stmt|;
-block|}
+decl_stmt|;
 DECL|class|ApplySettings
 class|class
 name|ApplySettings
@@ -172,7 +171,7 @@ name|settings
 operator|.
 name|getAsBoolean
 argument_list|(
-literal|"cluster.routing.allocation.disable_new_allocation"
+name|CLUSTER_ROUTING_ALLOCATION_DISABLE_NEW_ALLOCATION
 argument_list|,
 name|DisableAllocationDecider
 operator|.
@@ -223,7 +222,7 @@ name|settings
 operator|.
 name|getAsBoolean
 argument_list|(
-literal|"cluster.routing.allocation.disable_allocation"
+name|CLUSTER_ROUTING_ALLOCATION_DISABLE_ALLOCATION
 argument_list|,
 name|DisableAllocationDecider
 operator|.
@@ -274,7 +273,7 @@ name|settings
 operator|.
 name|getAsBoolean
 argument_list|(
-literal|"cluster.routing.allocation.disable_replica_allocation"
+name|CLUSTER_ROUTING_ALLOCATION_DISABLE_REPLICA_ALLOCATION
 argument_list|,
 name|DisableAllocationDecider
 operator|.
@@ -364,7 +363,7 @@ name|settings
 operator|.
 name|getAsBoolean
 argument_list|(
-literal|"cluster.routing.allocation.disable_new_allocation"
+name|CLUSTER_ROUTING_ALLOCATION_DISABLE_NEW_ALLOCATION
 argument_list|,
 literal|false
 argument_list|)
@@ -377,7 +376,7 @@ name|settings
 operator|.
 name|getAsBoolean
 argument_list|(
-literal|"cluster.routing.allocation.disable_allocation"
+name|CLUSTER_ROUTING_ALLOCATION_DISABLE_ALLOCATION
 argument_list|,
 literal|false
 argument_list|)
@@ -390,7 +389,7 @@ name|settings
 operator|.
 name|getAsBoolean
 argument_list|(
-literal|"cluster.routing.allocation.disable_replica_allocation"
+name|CLUSTER_ROUTING_ALLOCATION_DISABLE_REPLICA_ALLOCATION
 argument_list|,
 literal|false
 argument_list|)

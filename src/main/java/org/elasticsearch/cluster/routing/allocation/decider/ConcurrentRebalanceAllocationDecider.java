@@ -28,20 +28,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|metadata
-operator|.
-name|MetaData
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|routing
 operator|.
 name|MutableShardRouting
@@ -159,7 +145,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Similar to the {@link ClusterRebalanceAllocationDecider} this  * {@link AllocationDecider} controls the number of currently in-progress  * re-balance (relocation) operations and restricts node allocations if the  * configured threashold is reached. The default number of concurrent rebalance  * operations is set to<tt>2</tt>  *<p>  * Re-balance operations can be controlled in real-time via the cluster update API using  *<tt>cluster.routing.allocation.cluster_concurrent_rebalance</tt>. Iff this  * setting is set to<tt>-1</tt> the number of concurrent re-balance operations  * are unlimited.  *   */
+comment|/**  * Similar to the {@link ClusterRebalanceAllocationDecider} this  * {@link AllocationDecider} controls the number of currently in-progress  * re-balance (relocation) operations and restricts node allocations if the  * configured threashold is reached. The default number of concurrent rebalance  * operations is set to<tt>2</tt>  *<p/>  * Re-balance operations can be controlled in real-time via the cluster update API using  *<tt>cluster.routing.allocation.cluster_concurrent_rebalance</tt>. Iff this  * setting is set to<tt>-1</tt> the number of concurrent re-balance operations  * are unlimited.  */
 end_comment
 
 begin_class
@@ -170,16 +156,15 @@ name|ConcurrentRebalanceAllocationDecider
 extends|extends
 name|AllocationDecider
 block|{
-static|static
-block|{
-name|MetaData
-operator|.
-name|addDynamicSettings
-argument_list|(
+DECL|field|CLUSTER_ROUTING_ALLOCATION_CLUSTER_CONCURRENT_REBALANCE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|CLUSTER_ROUTING_ALLOCATION_CLUSTER_CONCURRENT_REBALANCE
+init|=
 literal|"cluster.routing.allocation.cluster_concurrent_rebalance"
-argument_list|)
-expr_stmt|;
-block|}
+decl_stmt|;
 DECL|class|ApplySettings
 class|class
 name|ApplySettings
@@ -206,7 +191,7 @@ name|settings
 operator|.
 name|getAsInt
 argument_list|(
-literal|"cluster.routing.allocation.cluster_concurrent_rebalance"
+name|CLUSTER_ROUTING_ALLOCATION_CLUSTER_CONCURRENT_REBALANCE
 argument_list|,
 name|ConcurrentRebalanceAllocationDecider
 operator|.
@@ -284,7 +269,7 @@ name|settings
 operator|.
 name|getAsInt
 argument_list|(
-literal|"cluster.routing.allocation.cluster_concurrent_rebalance"
+name|CLUSTER_ROUTING_ALLOCATION_CLUSTER_CONCURRENT_REBALANCE
 argument_list|,
 literal|2
 argument_list|)

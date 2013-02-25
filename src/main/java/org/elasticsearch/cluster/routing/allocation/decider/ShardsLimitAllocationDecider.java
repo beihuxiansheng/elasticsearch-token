@@ -166,16 +166,6 @@ name|INDEX_TOTAL_SHARDS_PER_NODE
 init|=
 literal|"index.routing.allocation.total_shards_per_node"
 decl_stmt|;
-static|static
-block|{
-name|IndexMetaData
-operator|.
-name|addDynamicSettings
-argument_list|(
-name|INDEX_TOTAL_SHARDS_PER_NODE
-argument_list|)
-expr_stmt|;
-block|}
 annotation|@
 name|Inject
 DECL|method|ShardsLimitAllocationDecider

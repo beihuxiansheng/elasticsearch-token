@@ -70,20 +70,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|metadata
-operator|.
-name|MetaData
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|routing
 operator|.
 name|MutableShardRouting
@@ -211,7 +197,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This {@link AllocationDecider} controls shard allocation based on  *<tt>awareness</tt> key-value pairs defined in the node configuration.  * Awareness explicitly controls where replicas should be allocated based on  * attributes like node or physical rack locations. Awareness attributes accept  * arbitrary configuration keys like a rack data-center identifier. For example  * the setting:  *   *<pre>  * cluster.routing.allocation.awareness.attributes: rack_id  *</pre>  *   * will cause allocations to be distributed over different racks such that  * ideally at least one replicas of the all shard is available on the same rack.  * To enable allocation awareness in this example nodes should contain a value  * for the<tt>rack_id</tt> key like:  *   *<pre>  * node.rack_id:1  *</pre>  *   * Awareness can also be used to prevent over-allocation in the case of node or  * even "zone" failure. For example in cloud-computing infrastructures like  * Amazone AWS a cluster might span over multiple "zones". Awareness can be used  * to distribute replicas to individual zones by setting:  *   *<pre>  * cluster.routing.allocation.awareness.attributes: zone  *</pre>  *   * and forcing allocation to be aware of the following zone the data resides in:  *   *<pre>  * cluster.routing.allocation.awareness.force.zone.values: zone1,zone2  *</pre>  *   * In contrast to regular awareness this setting will prevent over-allocation on  *<tt>zone1</tt> even if<tt>zone2</tt> fails partially or becomes entirely  * unavailable. Nodes that belong to a certain zone / group should be started  * with the zone id configured on the node-level settings like:  *   *<pre>  * node.zone: zone1  *</pre>  */
+comment|/**  * This {@link AllocationDecider} controls shard allocation based on  *<tt>awareness</tt> key-value pairs defined in the node configuration.  * Awareness explicitly controls where replicas should be allocated based on  * attributes like node or physical rack locations. Awareness attributes accept  * arbitrary configuration keys like a rack data-center identifier. For example  * the setting:  *<p/>  *<pre>  * cluster.routing.allocation.awareness.attributes: rack_id  *</pre>  *<p/>  * will cause allocations to be distributed over different racks such that  * ideally at least one replicas of the all shard is available on the same rack.  * To enable allocation awareness in this example nodes should contain a value  * for the<tt>rack_id</tt> key like:  *<p/>  *<pre>  * node.rack_id:1  *</pre>  *<p/>  * Awareness can also be used to prevent over-allocation in the case of node or  * even "zone" failure. For example in cloud-computing infrastructures like  * Amazone AWS a cluster might span over multiple "zones". Awareness can be used  * to distribute replicas to individual zones by setting:  *<p/>  *<pre>  * cluster.routing.allocation.awareness.attributes: zone  *</pre>  *<p/>  * and forcing allocation to be aware of the following zone the data resides in:  *<p/>  *<pre>  * cluster.routing.allocation.awareness.force.zone.values: zone1,zone2  *</pre>  *<p/>  * In contrast to regular awareness this setting will prevent over-allocation on  *<tt>zone1</tt> even if<tt>zone2</tt> fails partially or becomes entirely  * unavailable. Nodes that belong to a certain zone / group should be started  * with the zone id configured on the node-level settings like:  *<p/>  *<pre>  * node.zone: zone1  *</pre>  */
 end_comment
 
 begin_class
@@ -222,18 +208,24 @@ name|AwarenessAllocationDecider
 extends|extends
 name|AllocationDecider
 block|{
-static|static
-block|{
-name|MetaData
-operator|.
-name|addDynamicSettings
-argument_list|(
+DECL|field|CLUSTER_ROUTING_ALLOCATION_AWARENESS_ATTRIBUTES
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|CLUSTER_ROUTING_ALLOCATION_AWARENESS_ATTRIBUTES
+init|=
 literal|"cluster.routing.allocation.awareness.attributes"
-argument_list|,
-literal|"cluster.routing.allocation.awareness.force.*"
-argument_list|)
-expr_stmt|;
-block|}
+decl_stmt|;
+DECL|field|CLUSTER_ROUTING_ALLOCATION_AWARENESS_FORCE_GROUP
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|CLUSTER_ROUTING_ALLOCATION_AWARENESS_FORCE_GROUP
+init|=
+literal|"cluster.routing.allocation.awareness.force."
+decl_stmt|;
 DECL|class|ApplySettings
 class|class
 name|ApplySettings
@@ -261,7 +253,7 @@ name|settings
 operator|.
 name|getAsArray
 argument_list|(
-literal|"cluster.routing.allocation.awareness.attributes"
+name|CLUSTER_ROUTING_ALLOCATION_AWARENESS_ATTRIBUTES
 argument_list|,
 literal|null
 argument_list|)
@@ -334,7 +326,7 @@ name|settings
 operator|.
 name|getGroups
 argument_list|(
-literal|"cluster.routing.allocation.awareness.force."
+name|CLUSTER_ROUTING_ALLOCATION_AWARENESS_FORCE_GROUP
 argument_list|)
 decl_stmt|;
 if|if
@@ -445,7 +437,7 @@ name|EMPTY_SETTINGS
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new {@link AwarenessAllocationDecider} instance from given settings      * @param settings {@link Settings} to use      */
+comment|/**      * Creates a new {@link AwarenessAllocationDecider} instance from given settings      *      * @param settings {@link Settings} to use      */
 DECL|method|AwarenessAllocationDecider
 specifier|public
 name|AwarenessAllocationDecider
@@ -492,7 +484,7 @@ name|settings
 operator|.
 name|getAsArray
 argument_list|(
-literal|"cluster.routing.allocation.awareness.attributes"
+name|CLUSTER_ROUTING_ALLOCATION_AWARENESS_ATTRIBUTES
 argument_list|)
 expr_stmt|;
 name|forcedAwarenessAttributes
@@ -514,7 +506,7 @@ name|settings
 operator|.
 name|getGroups
 argument_list|(
-literal|"cluster.routing.allocation.awareness.force."
+name|CLUSTER_ROUTING_ALLOCATION_AWARENESS_FORCE_GROUP
 argument_list|)
 decl_stmt|;
 for|for
@@ -582,7 +574,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the attributes defined by this instance       * @return attributes defined by this instance      */
+comment|/**      * Get the attributes defined by this instance      *      * @return attributes defined by this instance      */
 DECL|method|awarenessAttributes
 specifier|public
 name|String
