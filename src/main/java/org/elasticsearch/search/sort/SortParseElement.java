@@ -1176,6 +1176,13 @@ name|equals
 argument_list|(
 name|innerJsonName
 argument_list|)
+operator|||
+literal|"nestedPath"
+operator|.
+name|equals
+argument_list|(
+name|innerJsonName
+argument_list|)
 condition|)
 block|{
 name|nestedPath
@@ -1202,6 +1209,13 @@ block|{
 if|if
 condition|(
 literal|"nested_filter"
+operator|.
+name|equals
+argument_list|(
+name|innerJsonName
+argument_list|)
+operator|||
+literal|"nestedFilter"
 operator|.
 name|equals
 argument_list|(
@@ -1501,7 +1515,11 @@ throw|throw
 operator|new
 name|ElasticSearchIllegalArgumentException
 argument_list|(
-literal|"Invalid nested path"
+literal|"failed to find nested object mapping for explicit nested path ["
+operator|+
+name|nestedPath
+operator|+
+literal|"]"
 argument_list|)
 throw|;
 block|}
@@ -1512,6 +1530,30 @@ operator|.
 name|mapper
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|objectMapper
+operator|.
+name|nested
+argument_list|()
+operator|.
+name|isNested
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|ElasticSearchIllegalArgumentException
+argument_list|(
+literal|"mapping for explicit nested path is not mapped as nested: ["
+operator|+
+name|nestedPath
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
 block|}
 else|else
 block|{
