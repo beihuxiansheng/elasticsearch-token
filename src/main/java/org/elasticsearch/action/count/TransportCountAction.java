@@ -705,7 +705,10 @@ name|concreteIndices
 argument_list|,
 name|routingMap
 argument_list|,
-literal|null
+name|request
+operator|.
+name|preference
+argument_list|()
 argument_list|)
 return|;
 block|}
