@@ -107,11 +107,11 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The default postingsformat, maps to {@link Lucene40PostingsFormat}.  *<ul>  *<li><tt>min_block_size</tt>: the minimum block size the default Lucene term  * dictionary uses to encode on-disk blocks.</li>  *   *<li><tt>max_block_size</tt>: the maximum block size the default Lucene term  * dictionary uses to encode on-disk blocks.</li>  *   *<li><tt>freq_cut_off</tt>: the document frequency cut off where pulsing  * in-lines posting lists into the term dictionary. Terms with a document  * frequency less or equal to the cutoff will be in-lined. The default is  *<tt>1</tt></li>  *</ul>  */
+comment|/**  * The default postingsformat, maps to {@link Lucene41PostingsFormat}.  *<ul>  *<li><tt>min_block_size</tt>: the minimum block size the default Lucene term  * dictionary uses to encode on-disk blocks.</li>  *   *<li><tt>max_block_size</tt>: the maximum block size the default Lucene term  * dictionary uses to encode on-disk blocks.</li>  *</ul>  */
 end_comment
 
 begin_comment
-comment|// LUCENE UPGRADE: Upgrade Lucene40PostingsFormat to next version
+comment|// LUCENE UPGRADE: Check if type of field postingsFormat needs to be updated!
 end_comment
 
 begin_class
