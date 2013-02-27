@@ -202,6 +202,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the preference to execute the search. Defaults to randomize across shards. Can be set to      *<tt>_local</tt> to prefer local shards,<tt>_primary</tt> to execute only on primary shards,      * _shards:x,y to operate on shards x& y, or a custom value, which guarantees that the same order      * will be used across different requests.      */
+DECL|method|setPreference
+specifier|public
+name|CountRequestBuilder
+name|setPreference
+parameter_list|(
+name|String
+name|preference
+parameter_list|)
+block|{
+name|request
+operator|.
+name|preference
+argument_list|(
+name|preference
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * The routing values to control the shards that the search will be executed on.      */
 DECL|method|setRouting
 specifier|public

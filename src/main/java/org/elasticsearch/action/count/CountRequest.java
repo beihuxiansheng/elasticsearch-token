@@ -852,6 +852,13 @@ operator|.
 name|readOptionalString
 argument_list|()
 expr_stmt|;
+name|preference
+operator|=
+name|in
+operator|.
+name|readOptionalString
+argument_list|()
+expr_stmt|;
 name|querySourceUnsafe
 operator|=
 literal|false
@@ -903,6 +910,13 @@ operator|.
 name|writeOptionalString
 argument_list|(
 name|routing
+argument_list|)
+expr_stmt|;
+name|out
+operator|.
+name|writeOptionalString
+argument_list|(
+name|preference
 argument_list|)
 expr_stmt|;
 name|out
