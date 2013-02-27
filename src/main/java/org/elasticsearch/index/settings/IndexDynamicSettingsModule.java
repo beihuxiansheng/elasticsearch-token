@@ -461,6 +461,10 @@ name|RobinEngine
 operator|.
 name|INDEX_CODEC
 argument_list|,
+name|RobinEngine
+operator|.
+name|INDEX_FAIL_ON_MERGE_FAILURE
+argument_list|,
 name|ShardSlowLogIndexingService
 operator|.
 name|INDEX_INDEXING_SLOWLOG_THRESHOLD_INDEX_WARN

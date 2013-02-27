@@ -170,7 +170,7 @@ name|index
 operator|.
 name|shard
 operator|.
-name|AbstractIndexShardComponent
+name|ShardId
 import|;
 end_import
 
@@ -180,11 +180,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|threadpool
 operator|.
-name|shard
-operator|.
-name|ShardId
+name|ThreadPool
 import|;
 end_import
 
@@ -230,8 +228,6 @@ specifier|public
 class|class
 name|ConcurrentMergeSchedulerProvider
 extends|extends
-name|AbstractIndexShardComponent
-implements|implements
 name|MergeSchedulerProvider
 block|{
 DECL|field|maxThreadCount
@@ -274,6 +270,9 @@ annotation|@
 name|IndexSettings
 name|Settings
 name|indexSettings
+parameter_list|,
+name|ThreadPool
+name|threadPool
 parameter_list|)
 block|{
 name|super
@@ -281,6 +280,8 @@ argument_list|(
 name|shardId
 argument_list|,
 name|indexSettings
+argument_list|,
+name|threadPool
 argument_list|)
 expr_stmt|;
 comment|// TODO LUCENE MONITOR this will change in Lucene 4.0
@@ -601,6 +602,21 @@ argument_list|(
 literal|"failed to merge"
 argument_list|,
 name|exc
+argument_list|)
+expr_stmt|;
+name|provider
+operator|.
+name|failedMerge
+argument_list|(
+operator|new
+name|MergePolicy
+operator|.
+name|MergeException
+argument_list|(
+name|exc
+argument_list|,
+name|dir
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|super

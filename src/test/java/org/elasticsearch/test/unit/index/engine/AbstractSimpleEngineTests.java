@@ -1203,6 +1203,8 @@ argument_list|(
 name|shardId
 argument_list|,
 name|EMPTY_SETTINGS
+argument_list|,
+name|threadPool
 argument_list|)
 return|;
 block|}
