@@ -333,7 +333,7 @@ block|{
 name|readerValues
 operator|=
 operator|new
-name|MultiValuedBytesWrapper
+name|MultiValueWrapper
 argument_list|(
 name|readerValues
 argument_list|,
@@ -345,12 +345,12 @@ return|return
 name|this
 return|;
 block|}
-DECL|class|MultiValuedBytesWrapper
+DECL|class|MultiValueWrapper
 specifier|private
 specifier|static
 specifier|final
 class|class
-name|MultiValuedBytesWrapper
+name|MultiValueWrapper
 extends|extends
 name|LongValues
 operator|.
@@ -362,9 +362,9 @@ specifier|final
 name|SortMode
 name|sortMode
 decl_stmt|;
-DECL|method|MultiValuedBytesWrapper
+DECL|method|MultiValueWrapper
 specifier|public
-name|MultiValuedBytesWrapper
+name|MultiValueWrapper
 parameter_list|(
 name|LongValues
 name|delegate
