@@ -5465,7 +5465,7 @@ argument_list|)
 operator|.
 name|size
 argument_list|(
-literal|2
+literal|1
 argument_list|)
 argument_list|)
 operator|.
@@ -5598,7 +5598,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2
+literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -8247,7 +8247,7 @@ name|PhraseSuggestionBuilder
 operator|.
 name|StupidBackoff
 argument_list|(
-literal|1.0
+literal|0.1
 argument_list|)
 argument_list|)
 operator|.
