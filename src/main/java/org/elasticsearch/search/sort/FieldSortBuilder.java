@@ -46,6 +46,16 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|ElasticSearchIllegalArgumentException
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -111,6 +121,21 @@ name|String
 name|fieldName
 parameter_list|)
 block|{
+if|if
+condition|(
+name|fieldName
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|ElasticSearchIllegalArgumentException
+argument_list|(
+literal|"fieldName must not be null"
+argument_list|)
+throw|;
+block|}
 name|this
 operator|.
 name|fieldName
