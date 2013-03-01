@@ -234,12 +234,9 @@ decl_stmt|;
 name|Query
 name|query
 init|=
-literal|null
-decl_stmt|;
-name|boolean
-name|queryFound
-init|=
-literal|false
+name|Queries
+operator|.
+name|MATCH_ALL_QUERY
 decl_stmt|;
 name|Filter
 name|filter
@@ -346,10 +343,6 @@ name|currentFieldName
 argument_list|)
 condition|)
 block|{
-name|queryFound
-operator|=
-literal|true
-expr_stmt|;
 name|query
 operator|=
 name|parseContext
@@ -743,25 +736,7 @@ throw|;
 block|}
 block|}
 block|}
-if|if
-condition|(
-operator|!
-name|queryFound
-condition|)
-block|{
-throw|throw
-operator|new
-name|QueryParsingException
-argument_list|(
-name|parseContext
-operator|.
-name|index
-argument_list|()
-argument_list|,
-literal|"[filtered] requires 'query' element"
-argument_list|)
-throw|;
-block|}
+comment|// parsed internally, but returned null during parsing...
 if|if
 condition|(
 name|query
