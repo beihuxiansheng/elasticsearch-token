@@ -2749,6 +2749,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+specifier|final
 name|Map
 argument_list|<
 name|String
@@ -2775,6 +2776,11 @@ name|Suggestion
 argument_list|>
 argument_list|>
 argument_list|()
+decl_stmt|;
+name|boolean
+name|hasSuggestions
+init|=
+literal|false
 decl_stmt|;
 for|for
 control|(
@@ -2807,6 +2813,10 @@ condition|)
 block|{
 continue|continue;
 block|}
+name|hasSuggestions
+operator|=
+literal|true
+expr_stmt|;
 for|for
 control|(
 name|Suggestion
@@ -2980,11 +2990,15 @@ expr_stmt|;
 block|}
 name|suggest
 operator|=
+name|hasSuggestions
+condition|?
 operator|new
 name|Suggest
 argument_list|(
 name|reduced
 argument_list|)
+else|:
+literal|null
 expr_stmt|;
 block|}
 name|InternalSearchHits
