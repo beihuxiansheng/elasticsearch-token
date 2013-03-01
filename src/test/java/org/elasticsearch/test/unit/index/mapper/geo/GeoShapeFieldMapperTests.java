@@ -74,20 +74,6 @@ name|lucene
 operator|.
 name|spatial
 operator|.
-name|SpatialStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|spatial
-operator|.
 name|prefix
 operator|.
 name|PrefixTreeStrategy
@@ -336,7 +322,7 @@ name|strategy
 init|=
 name|geoShapeFieldMapper
 operator|.
-name|spatialStrategy
+name|defaultStrategy
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -525,7 +511,7 @@ name|strategy
 init|=
 name|geoShapeFieldMapper
 operator|.
-name|spatialStrategy
+name|defaultStrategy
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -706,7 +692,7 @@ name|strategy
 init|=
 name|geoShapeFieldMapper
 operator|.
-name|spatialStrategy
+name|defaultStrategy
 argument_list|()
 decl_stmt|;
 name|assertThat
