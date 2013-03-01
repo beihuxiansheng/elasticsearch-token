@@ -528,6 +528,8 @@ init|=
 name|restContentBuilder
 argument_list|(
 name|request
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|builder
