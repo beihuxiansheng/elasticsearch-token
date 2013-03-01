@@ -95,7 +95,7 @@ extends|extends
 name|Number
 parameter_list|>
 extends|extends
-name|FieldComparator
+name|NumberComparatorBase
 argument_list|<
 name|T
 argument_list|>
