@@ -2718,7 +2718,21 @@ parameter_list|(
 name|Option
 name|otherOption
 parameter_list|)
-block|{                 }
+block|{
+name|score
+operator|=
+name|Math
+operator|.
+name|max
+argument_list|(
+name|score
+argument_list|,
+name|otherOption
+operator|.
+name|score
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|equals
