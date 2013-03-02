@@ -441,7 +441,14 @@ name|clusterService
 operator|.
 name|submitStateUpdateTask
 argument_list|(
-literal|"cluster_reroute (api)"
+literal|"cluster_health (wait_for_events ["
+operator|+
+name|request
+operator|.
+name|waitForEvents
+argument_list|()
+operator|+
+literal|"])"
 argument_list|,
 name|request
 operator|.
