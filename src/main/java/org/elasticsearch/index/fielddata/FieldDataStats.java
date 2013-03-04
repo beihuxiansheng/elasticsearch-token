@@ -364,7 +364,11 @@ name|Fields
 operator|.
 name|MEMORY_SIZE
 argument_list|,
-name|memorySize
+name|getMemorySize
+argument_list|()
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|builder
@@ -375,11 +379,7 @@ name|Fields
 operator|.
 name|MEMORY_SIZE_IN_BYTES
 argument_list|,
-name|getMemorySize
-argument_list|()
-operator|.
-name|toString
-argument_list|()
+name|memorySize
 argument_list|)
 expr_stmt|;
 name|builder
