@@ -178,13 +178,36 @@ name|String
 name|setting
 parameter_list|)
 function_decl|;
-comment|/**      * Returns the setting value associated with the setting key. If it does not exists,      * returns the default value provided.      *      * @param setting      The setting key      * @param defaultValue The value to return if no value is associated with the setting      * @return The setting value, or the default value if no value exists      */
+comment|/**      * Returns the setting value associated with the first setting key.      */
+DECL|method|get
+name|String
+name|get
+parameter_list|(
+name|String
+index|[]
+name|settings
+parameter_list|)
+function_decl|;
+comment|/**      * Returns the setting value associated with the setting key. If it does not exists,      * returns the default value provided.      */
 DECL|method|get
 name|String
 name|get
 parameter_list|(
 name|String
 name|setting
+parameter_list|,
+name|String
+name|defaultValue
+parameter_list|)
+function_decl|;
+comment|/**      * Returns the setting value associated with the first setting key, if none exists,      * returns the default value provided.      */
+DECL|method|get
+name|String
+name|get
+parameter_list|(
+name|String
+index|[]
+name|settings
 parameter_list|,
 name|String
 name|defaultValue
@@ -206,7 +229,7 @@ parameter_list|)
 throws|throws
 name|SettingsException
 function_decl|;
-comment|/**      * Returns the setting value (as float) associated with the setting key. If it does not exists,      * returns the default value provided.      *      * @param setting      The setting key      * @param defaultValue The value to return if no value is associated with the setting      * @return The (float) value, or the default value if no value exists.      * @throws SettingsException Failure to parse the setting      */
+comment|/**      * Returns the setting value (as float) associated with the setting key. If it does not exists,      * returns the default value provided.      */
 DECL|method|getAsFloat
 name|Float
 name|getAsFloat
@@ -220,7 +243,22 @@ parameter_list|)
 throws|throws
 name|SettingsException
 function_decl|;
-comment|/**      * Returns the setting value (as double) associated with the setting key. If it does not exists,      * returns the default value provided.      *      * @param setting      The setting key      * @param defaultValue The value to return if no value is associated with the setting      * @return The (double) value, or the default value if no value exists.      * @throws SettingsException Failure to parse the setting      */
+comment|/**      * Returns the setting value (as float) associated with teh first setting key, if none      * exists, returns the default value provided.      */
+DECL|method|getAsFloat
+name|Float
+name|getAsFloat
+parameter_list|(
+name|String
+index|[]
+name|settings
+parameter_list|,
+name|Float
+name|defaultValue
+parameter_list|)
+throws|throws
+name|SettingsException
+function_decl|;
+comment|/**      * Returns the setting value (as double) associated with the setting key. If it does not exists,      * returns the default value provided.      */
 DECL|method|getAsDouble
 name|Double
 name|getAsDouble
@@ -234,7 +272,22 @@ parameter_list|)
 throws|throws
 name|SettingsException
 function_decl|;
-comment|/**      * Returns the setting value (as int) associated with the setting key. If it does not exists,      * returns the default value provided.      *      * @param setting      The setting key      * @param defaultValue The value to return if no value is associated with the setting      * @return The (int) value, or the default value if no value exists.      * @throws SettingsException Failure to parse the setting      */
+comment|/**      * Returns the setting value (as double) associated with teh first setting key, if none      * exists, returns the default value provided.      */
+DECL|method|getAsDouble
+name|Double
+name|getAsDouble
+parameter_list|(
+name|String
+index|[]
+name|settings
+parameter_list|,
+name|Double
+name|defaultValue
+parameter_list|)
+throws|throws
+name|SettingsException
+function_decl|;
+comment|/**      * Returns the setting value (as int) associated with the setting key. If it does not exists,      * returns the default value provided.      */
 DECL|method|getAsInt
 name|Integer
 name|getAsInt
@@ -248,7 +301,22 @@ parameter_list|)
 throws|throws
 name|SettingsException
 function_decl|;
-comment|/**      * Returns the setting value (as long) associated with the setting key. If it does not exists,      * returns the default value provided.      *      * @param setting      The setting key      * @param defaultValue The value to return if no value is associated with the setting      * @return The (long) value, or the default value if no value exists.      * @throws SettingsException Failure to parse the setting      */
+comment|/**      * Returns the setting value (as int) associated with the first setting key. If it does not exists,      * returns the default value provided.      */
+DECL|method|getAsInt
+name|Integer
+name|getAsInt
+parameter_list|(
+name|String
+index|[]
+name|settings
+parameter_list|,
+name|Integer
+name|defaultValue
+parameter_list|)
+throws|throws
+name|SettingsException
+function_decl|;
+comment|/**      * Returns the setting value (as long) associated with the setting key. If it does not exists,      * returns the default value provided.      */
 DECL|method|getAsLong
 name|Long
 name|getAsLong
@@ -262,7 +330,22 @@ parameter_list|)
 throws|throws
 name|SettingsException
 function_decl|;
-comment|/**      * Returns the setting value (as boolean) associated with the setting key. If it does not exists,      * returns the default value provided.      *      * @param setting      The setting key      * @param defaultValue The value to return if no value is associated with the setting      * @return The (boolean) value, or the default value if no value exists.      * @throws SettingsException Failure to parse the setting      */
+comment|/**      * Returns the setting value (as long) associated with the setting key. If it does not exists,      * returns the default value provided.      */
+DECL|method|getAsLong
+name|Long
+name|getAsLong
+parameter_list|(
+name|String
+index|[]
+name|settings
+parameter_list|,
+name|Long
+name|defaultValue
+parameter_list|)
+throws|throws
+name|SettingsException
+function_decl|;
+comment|/**      * Returns the setting value (as boolean) associated with the setting key. If it does not exists,      * returns the default value provided.      */
 DECL|method|getAsBoolean
 name|Boolean
 name|getAsBoolean
@@ -276,7 +359,22 @@ parameter_list|)
 throws|throws
 name|SettingsException
 function_decl|;
-comment|/**      * Returns the setting value (as time) associated with the setting key. If it does not exists,      * returns the default value provided.      *      * @param setting      The setting key      * @param defaultValue The value to return if no value is associated with the setting      * @return The (time) value, or the default value if no value exists.      * @throws SettingsException Failure to parse the setting      * @see TimeValue#parseTimeValue(String, org.elasticsearch.common.unit.TimeValue)      */
+comment|/**      * Returns the setting value (as boolean) associated with the setting key. If it does not exists,      * returns the default value provided.      */
+DECL|method|getAsBoolean
+name|Boolean
+name|getAsBoolean
+parameter_list|(
+name|String
+index|[]
+name|settings
+parameter_list|,
+name|Boolean
+name|defaultValue
+parameter_list|)
+throws|throws
+name|SettingsException
+function_decl|;
+comment|/**      * Returns the setting value (as time) associated with the setting key. If it does not exists,      * returns the default value provided.      */
 DECL|method|getAsTime
 name|TimeValue
 name|getAsTime
@@ -290,7 +388,22 @@ parameter_list|)
 throws|throws
 name|SettingsException
 function_decl|;
-comment|/**      * Returns the setting value (as size) associated with the setting key. If it does not exists,      * returns the default value provided.      *      * @param setting      The setting key      * @param defaultValue The value to return if no value is associated with the setting      * @return The (size) value, or the default value if no value exists.      * @throws SettingsException Failure to parse the setting      * @see org.elasticsearch.common.unit.ByteSizeValue#parseBytesSizeValue(String, org.elasticsearch.common.unit.ByteSizeValue)      */
+comment|/**      * Returns the setting value (as time) associated with the setting key. If it does not exists,      * returns the default value provided.      */
+DECL|method|getAsTime
+name|TimeValue
+name|getAsTime
+parameter_list|(
+name|String
+index|[]
+name|settings
+parameter_list|,
+name|TimeValue
+name|defaultValue
+parameter_list|)
+throws|throws
+name|SettingsException
+function_decl|;
+comment|/**      * Returns the setting value (as size) associated with the setting key. If it does not exists,      * returns the default value provided.      */
 DECL|method|getAsBytesSize
 name|ByteSizeValue
 name|getAsBytesSize
@@ -304,13 +417,43 @@ parameter_list|)
 throws|throws
 name|SettingsException
 function_decl|;
-comment|/**      * Returns the setting value (as size) associated with the setting key. If it does not exists,      * returns the default value provided.      *      * @param setting      The setting key      * @param defaultValue The value to return if no value is associated with the setting      * @return The (size) value, or the default value if no value exists.      * @throws SettingsException Failure to parse the setting      * @see org.elasticsearch.common.unit.ByteSizeValue#parseBytesSizeValue(String, org.elasticsearch.common.unit.ByteSizeValue)      */
+comment|/**      * Returns the setting value (as size) associated with the setting key. If it does not exists,      * returns the default value provided.      */
+DECL|method|getAsBytesSize
+name|ByteSizeValue
+name|getAsBytesSize
+parameter_list|(
+name|String
+index|[]
+name|settings
+parameter_list|,
+name|ByteSizeValue
+name|defaultValue
+parameter_list|)
+throws|throws
+name|SettingsException
+function_decl|;
+comment|/**      * Returns the setting value (as size) associated with the setting key. If it does not exists,      * returns the default value provided.      */
 DECL|method|getAsSize
 name|SizeValue
 name|getAsSize
 parameter_list|(
 name|String
 name|setting
+parameter_list|,
+name|SizeValue
+name|defaultValue
+parameter_list|)
+throws|throws
+name|SettingsException
+function_decl|;
+comment|/**      * Returns the setting value (as size) associated with the setting key. If it does not exists,      * returns the default value provided.      */
+DECL|method|getAsSize
+name|SizeValue
+name|getAsSize
+parameter_list|(
+name|String
+index|[]
+name|settings
 parameter_list|,
 name|SizeValue
 name|defaultValue
