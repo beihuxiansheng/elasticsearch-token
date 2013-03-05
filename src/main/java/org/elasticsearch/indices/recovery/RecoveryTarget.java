@@ -690,9 +690,6 @@ annotation|@
 name|Nullable
 name|IndexShard
 name|indexShard
-parameter_list|,
-name|boolean
-name|delete
 parameter_list|)
 block|{
 if|if

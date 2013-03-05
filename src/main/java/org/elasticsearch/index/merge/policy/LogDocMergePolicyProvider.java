@@ -413,10 +413,7 @@ DECL|method|close
 specifier|public
 name|void
 name|close
-parameter_list|(
-name|boolean
-name|delete
-parameter_list|)
+parameter_list|()
 throws|throws
 name|ElasticSearchException
 block|{

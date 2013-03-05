@@ -34,14 +34,11 @@ specifier|public
 interface|interface
 name|CloseableIndexComponent
 block|{
-comment|/**      * Closes the index component. A boolean indicating if its part of an actual index      * deletion or not is passed.      *      * @param delete<tt>true</tt> if the index is being deleted.      * @throws ElasticSearchException      */
+comment|/**      * Closes the index component. A boolean indicating if its part of an actual index      * deletion or not is passed.      */
 DECL|method|close
 name|void
 name|close
-parameter_list|(
-name|boolean
-name|delete
-parameter_list|)
+parameter_list|()
 throws|throws
 name|ElasticSearchException
 function_decl|;

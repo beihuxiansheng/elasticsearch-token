@@ -323,6 +323,13 @@ comment|// in the none case, we simply start the shard
 comment|// clean the store, there should be nothing there...
 try|try
 block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"deleting shard content"
+argument_list|)
+expr_stmt|;
 name|indexShard
 operator|.
 name|store
@@ -494,10 +501,7 @@ DECL|method|close
 specifier|public
 name|void
 name|close
-parameter_list|(
-name|boolean
-name|delete
-parameter_list|)
+parameter_list|()
 block|{     }
 annotation|@
 name|Override

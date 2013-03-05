@@ -167,23 +167,9 @@ parameter_list|)
 throws|throws
 name|ElasticSearchException
 function_decl|;
-DECL|method|deleteIndex
+DECL|method|removeIndex
 name|void
-name|deleteIndex
-parameter_list|(
-name|String
-name|index
-parameter_list|,
-name|String
-name|reason
-parameter_list|)
-throws|throws
-name|ElasticSearchException
-function_decl|;
-comment|/**      * Cleans the index without actually deleting any content for it.      */
-DECL|method|cleanIndex
-name|void
-name|cleanIndex
+name|removeIndex
 parameter_list|(
 name|String
 name|index

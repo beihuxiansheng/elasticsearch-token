@@ -405,9 +405,6 @@ name|beforeIndexClosed
 parameter_list|(
 name|IndexService
 name|indexService
-parameter_list|,
-name|boolean
-name|delete
 parameter_list|)
 block|{
 for|for
@@ -423,8 +420,6 @@ operator|.
 name|beforeIndexClosed
 argument_list|(
 name|indexService
-argument_list|,
-name|delete
 argument_list|)
 expr_stmt|;
 block|}
@@ -436,9 +431,6 @@ name|afterIndexClosed
 parameter_list|(
 name|Index
 name|index
-parameter_list|,
-name|boolean
-name|delete
 parameter_list|)
 block|{
 for|for
@@ -454,8 +446,6 @@ operator|.
 name|afterIndexClosed
 argument_list|(
 name|index
-argument_list|,
-name|delete
 argument_list|)
 expr_stmt|;
 block|}
@@ -472,9 +462,6 @@ annotation|@
 name|Nullable
 name|IndexShard
 name|indexShard
-parameter_list|,
-name|boolean
-name|delete
 parameter_list|)
 block|{
 for|for
@@ -492,8 +479,6 @@ argument_list|(
 name|shardId
 argument_list|,
 name|indexShard
-argument_list|,
-name|delete
 argument_list|)
 expr_stmt|;
 block|}
@@ -505,9 +490,6 @@ name|afterIndexShardClosed
 parameter_list|(
 name|ShardId
 name|shardId
-parameter_list|,
-name|boolean
-name|delete
 parameter_list|)
 block|{
 for|for
@@ -523,8 +505,6 @@ operator|.
 name|afterIndexShardClosed
 argument_list|(
 name|shardId
-argument_list|,
-name|delete
 argument_list|)
 expr_stmt|;
 block|}

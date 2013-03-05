@@ -257,10 +257,8 @@ parameter_list|()
 block|{
 name|translog
 operator|.
-name|close
-argument_list|(
-literal|true
-argument_list|)
+name|closeWithDelete
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|create

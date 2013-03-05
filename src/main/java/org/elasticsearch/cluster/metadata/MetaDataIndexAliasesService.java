@@ -1250,7 +1250,7 @@ control|)
 block|{
 name|indicesService
 operator|.
-name|cleanIndex
+name|removeIndex
 argument_list|(
 name|index
 argument_list|,

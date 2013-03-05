@@ -2657,7 +2657,7 @@ block|{
 comment|// Index was already partially created - need to clean up
 name|indicesService
 operator|.
-name|deleteIndex
+name|removeIndex
 argument_list|(
 name|request
 operator|.

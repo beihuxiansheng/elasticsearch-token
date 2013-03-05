@@ -162,6 +162,18 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|CloseableIndexComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|engine
 operator|.
 name|Engine
@@ -213,6 +225,8 @@ interface|interface
 name|Translog
 extends|extends
 name|IndexShardComponent
+extends|,
+name|CloseableIndexComponent
 block|{
 DECL|field|TRANSLOG_ID_KEY
 specifier|public
@@ -223,6 +237,11 @@ name|TRANSLOG_ID_KEY
 init|=
 literal|"translog_id"
 decl_stmt|;
+DECL|method|closeWithDelete
+name|void
+name|closeWithDelete
+parameter_list|()
+function_decl|;
 comment|/**      * Returns the id of the current transaction log.      */
 DECL|method|currentId
 name|long
@@ -341,15 +360,6 @@ name|syncOnEachOperation
 parameter_list|(
 name|boolean
 name|syncOnEachOperation
-parameter_list|)
-function_decl|;
-comment|/**      * Closes the transaction log.      *<p/>      *<p>Can only be called by one thread.      */
-DECL|method|close
-name|void
-name|close
-parameter_list|(
-name|boolean
-name|delete
 parameter_list|)
 function_decl|;
 DECL|class|Location

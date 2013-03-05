@@ -1055,7 +1055,7 @@ block|}
 block|}
 name|indicesService
 operator|.
-name|cleanIndex
+name|removeIndex
 argument_list|(
 name|index
 argument_list|,
@@ -1395,11 +1395,11 @@ try|try
 block|{
 name|indicesService
 operator|.
-name|cleanIndex
+name|removeIndex
 argument_list|(
 name|index
 argument_list|,
-literal|"cleaning index (no shards allocated)"
+literal|"removing index (no shards allocated)"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1485,7 +1485,7 @@ try|try
 block|{
 name|indicesService
 operator|.
-name|cleanIndex
+name|removeIndex
 argument_list|(
 name|index
 argument_list|,

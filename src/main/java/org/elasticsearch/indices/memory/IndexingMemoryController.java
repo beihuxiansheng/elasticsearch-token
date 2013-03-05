@@ -1286,9 +1286,6 @@ name|afterIndexShardClosed
 parameter_list|(
 name|ShardId
 name|shardId
-parameter_list|,
-name|boolean
-name|delete
 parameter_list|)
 block|{
 synchronized|synchronized

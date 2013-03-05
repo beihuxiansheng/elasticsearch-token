@@ -435,27 +435,10 @@ DECL|method|close
 specifier|public
 name|void
 name|close
-parameter_list|(
-name|boolean
-name|delete
-parameter_list|)
+parameter_list|()
 throws|throws
 name|ElasticSearchException
-block|{
-if|if
-condition|(
-name|delete
-condition|)
-block|{
-name|blobStore
-operator|.
-name|delete
-argument_list|(
-name|indexPath
-argument_list|)
-expr_stmt|;
-block|}
-block|}
+block|{     }
 block|}
 end_class
 

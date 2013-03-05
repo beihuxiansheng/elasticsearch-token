@@ -200,7 +200,7 @@ name|IndexShard
 name|indexShard
 parameter_list|)
 block|{          }
-comment|/**          * Called before the index get closed.          *          * @param indexService The index service          * @param delete       Does the index gets closed because of a delete command, or because the node is shutting down          */
+comment|/**          * Called before the index get closed.          *          * @param indexService The index service          */
 DECL|method|beforeIndexClosed
 specifier|public
 name|void
@@ -208,12 +208,9 @@ name|beforeIndexClosed
 parameter_list|(
 name|IndexService
 name|indexService
-parameter_list|,
-name|boolean
-name|delete
 parameter_list|)
 block|{          }
-comment|/**          * Called after the index has been closed.          *          * @param index  The index          * @param delete Does the index gets closed because of a delete command, or because the node is shutting down          */
+comment|/**          * Called after the index has been closed.          *          * @param index The index          */
 DECL|method|afterIndexClosed
 specifier|public
 name|void
@@ -221,12 +218,9 @@ name|afterIndexClosed
 parameter_list|(
 name|Index
 name|index
-parameter_list|,
-name|boolean
-name|delete
 parameter_list|)
 block|{          }
-comment|/**          * Called before the index shard gets closed.          *          * @param indexShard The index shard          * @param delete     Does the index shard gets closed because of a delete command, or because the node is shutting down          */
+comment|/**          * Called before the index shard gets closed.          *          * @param indexShard The index shard          */
 DECL|method|beforeIndexShardClosed
 specifier|public
 name|void
@@ -239,12 +233,9 @@ annotation|@
 name|Nullable
 name|IndexShard
 name|indexShard
-parameter_list|,
-name|boolean
-name|delete
 parameter_list|)
 block|{          }
-comment|/**          * Called after the index shard has been closed.          *          * @param shardId The shard id          * @param delete  Does the index shard gets closed because of a delete command, or because the node is shutting down          */
+comment|/**          * Called after the index shard has been closed.          *          * @param shardId The shard id          */
 DECL|method|afterIndexShardClosed
 specifier|public
 name|void
@@ -252,9 +243,6 @@ name|afterIndexShardClosed
 parameter_list|(
 name|ShardId
 name|shardId
-parameter_list|,
-name|boolean
-name|delete
 parameter_list|)
 block|{          }
 block|}
