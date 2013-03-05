@@ -464,12 +464,12 @@ name|channelScore
 argument_list|(
 name|path
 index|[
-literal|0
+name|at
 index|]
 argument_list|,
 name|candidateSet
 index|[
-literal|0
+name|at
 index|]
 operator|.
 name|originalTerm
@@ -479,7 +479,7 @@ name|scoreUnigram
 argument_list|(
 name|path
 index|[
-literal|0
+name|at
 index|]
 argument_list|)
 argument_list|)
