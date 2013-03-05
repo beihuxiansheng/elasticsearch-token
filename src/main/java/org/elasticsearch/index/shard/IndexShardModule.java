@@ -90,18 +90,6 @@ name|ShardIndexWarmerService
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|jmx
-operator|.
-name|JmxService
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -187,27 +175,6 @@ operator|.
 name|asEagerSingleton
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|JmxService
-operator|.
-name|shouldExport
-argument_list|(
-name|settings
-argument_list|)
-condition|)
-block|{
-name|bind
-argument_list|(
-name|IndexShardManagement
-operator|.
-name|class
-argument_list|)
-operator|.
-name|asEagerSingleton
-argument_list|()
-expr_stmt|;
-block|}
 name|bind
 argument_list|(
 name|ShardIndexWarmerService

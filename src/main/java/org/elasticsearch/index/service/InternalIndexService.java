@@ -520,20 +520,6 @@ name|index
 operator|.
 name|shard
 operator|.
-name|IndexShardManagement
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|shard
-operator|.
 name|IndexShardModule
 import|;
 end_import
@@ -2393,27 +2379,6 @@ name|e
 argument_list|)
 expr_stmt|;
 comment|// ignore
-block|}
-comment|// close shard actions
-if|if
-condition|(
-name|indexShard
-operator|!=
-literal|null
-condition|)
-block|{
-name|shardInjector
-operator|.
-name|getInstance
-argument_list|(
-name|IndexShardManagement
-operator|.
-name|class
-argument_list|)
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 comment|// this logic is tricky, we want to close the engine so we rollback the changes done to it
 comment|// and close the shard so no operations are allowed to it

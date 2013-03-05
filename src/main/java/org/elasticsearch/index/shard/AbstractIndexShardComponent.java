@@ -72,34 +72,6 @@ name|IndexSettings
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|jmx
-operator|.
-name|ManagedGroupName
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|shard
-operator|.
-name|IndexShardManagement
-operator|.
-name|buildShardGroupName
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -292,21 +264,6 @@ argument_list|(
 literal|"name"
 argument_list|,
 literal|""
-argument_list|)
-return|;
-block|}
-annotation|@
-name|ManagedGroupName
-DECL|method|managementGroupName
-specifier|public
-name|String
-name|managementGroupName
-parameter_list|()
-block|{
-return|return
-name|buildShardGroupName
-argument_list|(
-name|shardId
 argument_list|)
 return|;
 block|}

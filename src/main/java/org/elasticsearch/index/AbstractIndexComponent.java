@@ -70,32 +70,6 @@ name|IndexSettings
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|jmx
-operator|.
-name|ManagedGroupName
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|IndexServiceManagement
-operator|.
-name|buildIndexGroupName
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -276,21 +250,6 @@ argument_list|(
 literal|"name"
 argument_list|,
 literal|""
-argument_list|)
-return|;
-block|}
-annotation|@
-name|ManagedGroupName
-DECL|method|managementGroupName
-specifier|private
-name|String
-name|managementGroupName
-parameter_list|()
-block|{
-return|return
-name|buildIndexGroupName
-argument_list|(
-name|index
 argument_list|)
 return|;
 block|}
