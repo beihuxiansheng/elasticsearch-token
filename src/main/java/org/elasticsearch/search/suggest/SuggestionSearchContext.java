@@ -182,7 +182,8 @@ specifier|private
 name|int
 name|shardSize
 init|=
-literal|5
+operator|-
+literal|1
 decl_stmt|;
 DECL|method|getText
 specifier|public
@@ -322,7 +323,9 @@ throw|throw
 operator|new
 name|ElasticSearchIllegalArgumentException
 argument_list|(
-literal|"Size must be positive"
+literal|"Size must be positive but was: "
+operator|+
+name|size
 argument_list|)
 throw|;
 block|}
@@ -352,6 +355,23 @@ name|int
 name|shardSize
 parameter_list|)
 block|{
+if|if
+condition|(
+name|shardSize
+operator|<=
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|ElasticSearchIllegalArgumentException
+argument_list|(
+literal|"ShardSize must be positive but was: "
+operator|+
+name|shardSize
+argument_list|)
+throw|;
+block|}
 name|this
 operator|.
 name|shardSize
