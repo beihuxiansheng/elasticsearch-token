@@ -1352,6 +1352,8 @@ condition|)
 block|{
 specifier|final
 name|ShingleTokenFilterFactory
+operator|.
+name|Factory
 name|shingleFilterFactory
 init|=
 name|SuggestUtils
