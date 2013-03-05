@@ -163,7 +163,7 @@ annotation|@
 name|Override
 DECL|method|frequency
 specifier|public
-name|int
+name|long
 name|frequency
 parameter_list|(
 name|BytesRef
@@ -349,7 +349,7 @@ parameter_list|(
 name|BytesRef
 name|term
 parameter_list|,
-name|int
+name|long
 name|frequency
 parameter_list|,
 name|double

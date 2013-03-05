@@ -226,7 +226,7 @@ name|term
 argument_list|)
 expr_stmt|;
 specifier|final
-name|int
+name|long
 name|count
 init|=
 name|frequency
@@ -314,7 +314,7 @@ name|term
 argument_list|)
 expr_stmt|;
 specifier|final
-name|int
+name|long
 name|count
 init|=
 name|frequency

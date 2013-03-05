@@ -1262,7 +1262,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"xorr the got jewel"
+literal|"xorn the god jewel"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1287,7 +1287,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"xorn the god jewel"
+literal|"xorr the got jewel"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1407,7 +1407,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"xorr the got jewel"
+literal|"xorn the god jewel"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1432,7 +1432,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"xorn the god jewel"
+literal|"xorr the got jewel"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2195,7 +2195,7 @@ literal|"body"
 argument_list|,
 name|SuggestMode
 operator|.
-name|SUGGEST_MORE_POPULAR
+name|SUGGEST_ALWAYS
 argument_list|,
 name|ir
 argument_list|,
@@ -2214,7 +2214,7 @@ literal|"body_reverse"
 argument_list|,
 name|SuggestMode
 operator|.
-name|SUGGEST_MORE_POPULAR
+name|SUGGEST_ALWAYS
 argument_list|,
 name|ir
 argument_list|,
@@ -2254,7 +2254,7 @@ argument_list|)
 argument_list|,
 name|generator
 argument_list|,
-literal|5
+literal|10
 argument_list|,
 literal|1
 argument_list|,
@@ -2585,7 +2585,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"xorr the got jewel"
+literal|"zorr the god jewel"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2610,7 +2610,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"zorr the god jewel"
+literal|"gorr the god jewel"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2635,7 +2635,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"gorr the god jewel"
+literal|"tarr the god jewel"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3387,7 +3387,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"xorn the god jewel"
+literal|"xor the god jewel"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3412,7 +3412,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"xor the god jewel"
+literal|"xorn the god jewel"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3437,7 +3437,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"xorr the gog jewel"
+literal|"xorr the got jewel"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3532,7 +3532,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"xorn the god jewel"
+literal|"xor the god jewel"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3557,7 +3557,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"xor the god jewel"
+literal|"xorn the god jewel"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3582,7 +3582,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"xorr the gog jewel"
+literal|"xorr the got jewel"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3893,56 +3893,6 @@ literal|"captain america"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertThat
-argument_list|(
-name|corrections
-index|[
-literal|1
-index|]
-operator|.
-name|join
-argument_list|(
-operator|new
-name|BytesRef
-argument_list|(
-literal|" "
-argument_list|)
-argument_list|)
-operator|.
-name|utf8ToString
-argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|"captain american"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertThat
-argument_list|(
-name|corrections
-index|[
-literal|2
-index|]
-operator|.
-name|join
-argument_list|(
-operator|new
-name|BytesRef
-argument_list|(
-literal|" "
-argument_list|)
-argument_list|)
-operator|.
-name|utf8ToString
-argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|"captain ursa"
-argument_list|)
-argument_list|)
-expr_stmt|;
 name|generator
 operator|=
 operator|new
@@ -4020,56 +3970,6 @@ argument_list|,
 name|equalTo
 argument_list|(
 literal|"captain america"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertThat
-argument_list|(
-name|corrections
-index|[
-literal|1
-index|]
-operator|.
-name|join
-argument_list|(
-operator|new
-name|BytesRef
-argument_list|(
-literal|" "
-argument_list|)
-argument_list|)
-operator|.
-name|utf8ToString
-argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|"captain american"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertThat
-argument_list|(
-name|corrections
-index|[
-literal|2
-index|]
-operator|.
-name|join
-argument_list|(
-operator|new
-name|BytesRef
-argument_list|(
-literal|" "
-argument_list|)
-argument_list|)
-operator|.
-name|utf8ToString
-argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|"captain usw"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4184,7 +4084,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"xorn the god jewel"
+literal|"xor the god jewel"
 argument_list|)
 argument_list|)
 expr_stmt|;

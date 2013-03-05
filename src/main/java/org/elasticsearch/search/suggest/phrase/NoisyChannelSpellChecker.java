@@ -520,7 +520,7 @@ name|currentSet
 operator|!=
 literal|null
 assert|;
-name|int
+name|long
 name|freq
 init|=
 literal|0
