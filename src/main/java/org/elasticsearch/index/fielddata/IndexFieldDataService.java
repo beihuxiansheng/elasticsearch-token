@@ -897,6 +897,11 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|fieldData
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 name|memoryUsedInBytes
 operator|.
 name|dec

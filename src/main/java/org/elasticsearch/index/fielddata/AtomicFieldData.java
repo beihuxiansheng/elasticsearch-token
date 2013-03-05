@@ -79,6 +79,12 @@ name|Script
 name|getScriptValues
 parameter_list|()
 function_decl|;
+comment|/**      * Close the field data.      */
+DECL|method|close
+name|void
+name|close
+parameter_list|()
+function_decl|;
 DECL|interface|WithOrdinals
 interface|interface
 name|WithOrdinals
