@@ -1021,9 +1021,6 @@ operator|.
 name|currentName
 argument_list|()
 expr_stmt|;
-break|break;
-block|}
-block|}
 if|if
 condition|(
 literal|"linear"
@@ -1631,6 +1628,8 @@ operator|+
 literal|"]"
 argument_list|)
 throw|;
+block|}
+block|}
 block|}
 block|}
 DECL|method|ensureNoSmoothing
