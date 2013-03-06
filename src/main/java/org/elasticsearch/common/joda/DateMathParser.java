@@ -1106,17 +1106,21 @@ parameter_list|)
 block|{
 try|try
 block|{
+comment|// we create a date time for inclusive upper range, we "include" by default the day level data
+comment|// so something like 2011-01-01 will include the full first day of 2011.
+comment|// we also use 1970-01-01 as the base for it so we can handle searches like 10:12:55 (just time)
+comment|// since when we index those, the base is 1970-01-01
 name|MutableDateTime
 name|dateTime
 init|=
 operator|new
 name|MutableDateTime
 argument_list|(
-literal|3000
+literal|1970
 argument_list|,
-literal|12
+literal|1
 argument_list|,
-literal|31
+literal|1
 argument_list|,
 literal|23
 argument_list|,
