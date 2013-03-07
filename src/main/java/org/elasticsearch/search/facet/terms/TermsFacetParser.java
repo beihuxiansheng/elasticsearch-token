@@ -422,6 +422,12 @@ name|AbstractComponent
 implements|implements
 name|FacetParser
 block|{
+DECL|field|ordinalsCacheAbove
+specifier|private
+specifier|final
+name|int
+name|ordinalsCacheAbove
+decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|TermsFacetParser
@@ -442,6 +448,20 @@ operator|.
 name|registerStreams
 argument_list|()
 expr_stmt|;
+name|this
+operator|.
+name|ordinalsCacheAbove
+operator|=
+name|componentSettings
+operator|.
+name|getAsInt
+argument_list|(
+literal|"ordinals_cache_above"
+argument_list|,
+literal|10000
+argument_list|)
+expr_stmt|;
+comment|// above 40k we want to cache
 block|}
 annotation|@
 name|Override
@@ -1389,6 +1409,8 @@ argument_list|,
 name|excluded
 argument_list|,
 name|pattern
+argument_list|,
+name|ordinalsCacheAbove
 argument_list|)
 return|;
 block|}
