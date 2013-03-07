@@ -292,6 +292,21 @@ name|IgnoreIndices
 name|ignoreIndices
 parameter_list|)
 block|{
+if|if
+condition|(
+name|ignoreIndices
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"IgnoreIndices must not be null"
+argument_list|)
+throw|;
+block|}
 name|this
 operator|.
 name|ignoreIndices
@@ -363,6 +378,21 @@ name|ReplicationType
 name|replicationType
 parameter_list|)
 block|{
+if|if
+condition|(
+name|replicationType
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"ReplicationType must not be null"
+argument_list|)
+throw|;
+block|}
 name|this
 operator|.
 name|replicationType
@@ -427,6 +457,21 @@ name|WriteConsistencyLevel
 name|consistencyLevel
 parameter_list|)
 block|{
+if|if
+condition|(
+name|consistencyLevel
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"WriteConsistencyLevel must not be null"
+argument_list|)
+throw|;
+block|}
 name|this
 operator|.
 name|consistencyLevel
