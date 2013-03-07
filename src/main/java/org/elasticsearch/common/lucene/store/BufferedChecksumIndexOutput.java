@@ -28,7 +28,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|IndexOutput
+name|BufferedIndexOutput
 import|;
 end_import
 
@@ -42,7 +42,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|OpenBufferedIndexOutput
+name|IndexOutput
 import|;
 end_import
 
@@ -78,7 +78,7 @@ specifier|public
 class|class
 name|BufferedChecksumIndexOutput
 extends|extends
-name|OpenBufferedIndexOutput
+name|BufferedIndexOutput
 block|{
 DECL|field|out
 specifier|private
@@ -107,7 +107,7 @@ comment|// we add 8 to be bigger than the default BufferIndexOutput buffer size 
 comment|// to the output without being copied over to the delegate buffer
 name|super
 argument_list|(
-name|OpenBufferedIndexOutput
+name|BufferedIndexOutput
 operator|.
 name|DEFAULT_BUFFER_SIZE
 operator|+

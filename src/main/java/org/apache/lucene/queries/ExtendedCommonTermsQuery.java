@@ -58,7 +58,7 @@ specifier|public
 class|class
 name|ExtendedCommonTermsQuery
 extends|extends
-name|XCommonTermsQuery
+name|CommonTermsQuery
 block|{
 DECL|method|ExtendedCommonTermsQuery
 specifier|public
@@ -120,10 +120,10 @@ name|minNumShouldMatchSpec
 decl_stmt|;
 annotation|@
 name|Override
-DECL|method|getMinimumNumberShouldMatch
+DECL|method|calcLowFreqMinimumNumberShouldMatch
 specifier|protected
 name|int
-name|getMinimumNumberShouldMatch
+name|calcLowFreqMinimumNumberShouldMatch
 parameter_list|(
 name|int
 name|numOptional

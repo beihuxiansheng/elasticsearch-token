@@ -418,7 +418,7 @@ name|bloomIn
 operator|=
 name|state
 operator|.
-name|dir
+name|directory
 operator|.
 name|openInput
 argument_list|(
@@ -881,8 +881,6 @@ name|BytesRef
 argument_list|>
 name|getComparator
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 return|return
 name|delegateTerms

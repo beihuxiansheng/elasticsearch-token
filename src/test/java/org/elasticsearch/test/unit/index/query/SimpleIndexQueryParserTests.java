@@ -134,7 +134,7 @@ name|spatial
 operator|.
 name|prefix
 operator|.
-name|RecursivePrefixTreeFilter
+name|IntersectsPrefixTreeFilter
 import|;
 end_import
 
@@ -20004,7 +20004,7 @@ argument_list|()
 argument_list|,
 name|instanceOf
 argument_list|(
-name|RecursivePrefixTreeFilter
+name|IntersectsPrefixTreeFilter
 operator|.
 name|class
 argument_list|)
@@ -20077,7 +20077,7 @@ argument_list|()
 argument_list|,
 name|instanceOf
 argument_list|(
-name|RecursivePrefixTreeFilter
+name|IntersectsPrefixTreeFilter
 operator|.
 name|class
 argument_list|)

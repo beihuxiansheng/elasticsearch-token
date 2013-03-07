@@ -40,25 +40,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene40
+name|lucene42
 operator|.
-name|Lucene40Codec
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|codecs
-operator|.
-name|lucene41
-operator|.
-name|Lucene41Codec
+name|Lucene42Codec
 import|;
 end_import
 
@@ -106,7 +90,7 @@ specifier|public
 class|class
 name|PerFieldMappingPostingFormatCodec
 extends|extends
-name|Lucene41Codec
+name|Lucene42Codec
 block|{
 DECL|field|mapperService
 specifier|private

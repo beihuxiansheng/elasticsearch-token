@@ -868,6 +868,15 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+specifier|final
+name|long
+name|sizePointer
+init|=
+name|bytes
+operator|.
+name|getPointer
+argument_list|()
+decl_stmt|;
 name|PagedBytes
 operator|.
 name|Reader
@@ -909,6 +918,8 @@ operator|new
 name|PagedBytesAtomicFieldData
 argument_list|(
 name|bytesReader
+argument_list|,
+name|sizePointer
 argument_list|,
 name|termOrdToBytesOffsetReader
 argument_list|,
