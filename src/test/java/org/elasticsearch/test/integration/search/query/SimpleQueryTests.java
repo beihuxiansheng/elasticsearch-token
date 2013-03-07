@@ -7663,8 +7663,6 @@ literal|"1"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// Note, this test fails, i.e returns 0 results, the reason is that Lucene QP only supports numbers after the ~
-comment|// once this is changed in lucene to support strings, then this test will fail (good!)
 name|searchResponse
 operator|=
 name|client
@@ -7725,7 +7723,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|1l
 argument_list|)
 argument_list|)
 expr_stmt|;
