@@ -1058,12 +1058,12 @@ name|longToPrefixCoded
 argument_list|(
 name|longValue
 argument_list|,
-name|precisionStep
-argument_list|()
+literal|0
 argument_list|,
 name|bytesRef
 argument_list|)
 expr_stmt|;
+comment|// 0 because of exact match
 return|return
 name|bytesRef
 return|;

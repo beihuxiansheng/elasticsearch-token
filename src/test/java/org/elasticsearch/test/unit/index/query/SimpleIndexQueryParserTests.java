@@ -1123,6 +1123,9 @@ name|longToPrefixCoded
 parameter_list|(
 name|long
 name|val
+parameter_list|,
+name|int
+name|shift
 parameter_list|)
 block|{
 name|BytesRef
@@ -1138,9 +1141,7 @@ name|longToPrefixCoded
 argument_list|(
 name|val
 argument_list|,
-name|NumericUtils
-operator|.
-name|PRECISION_STEP_DEFAULT
+name|shift
 argument_list|,
 name|bytesRef
 argument_list|)
@@ -13615,6 +13616,8 @@ argument_list|,
 name|longToPrefixCoded
 argument_list|(
 literal|34
+argument_list|,
+literal|0
 argument_list|)
 argument_list|)
 argument_list|)
@@ -13696,6 +13699,8 @@ argument_list|,
 name|longToPrefixCoded
 argument_list|(
 literal|34
+argument_list|,
+literal|0
 argument_list|)
 argument_list|)
 argument_list|)
@@ -13798,6 +13803,8 @@ argument_list|,
 name|longToPrefixCoded
 argument_list|(
 literal|34
+argument_list|,
+literal|0
 argument_list|)
 argument_list|)
 argument_list|)
@@ -13828,6 +13835,8 @@ argument_list|,
 name|longToPrefixCoded
 argument_list|(
 literal|35
+argument_list|,
+literal|0
 argument_list|)
 argument_list|)
 argument_list|)
@@ -13917,6 +13926,8 @@ argument_list|,
 name|longToPrefixCoded
 argument_list|(
 literal|34
+argument_list|,
+literal|0
 argument_list|)
 argument_list|)
 argument_list|)
@@ -13947,6 +13958,8 @@ argument_list|,
 name|longToPrefixCoded
 argument_list|(
 literal|35
+argument_list|,
+literal|0
 argument_list|)
 argument_list|)
 argument_list|)
@@ -14038,6 +14051,8 @@ argument_list|,
 name|longToPrefixCoded
 argument_list|(
 literal|34
+argument_list|,
+literal|0
 argument_list|)
 argument_list|)
 argument_list|)
@@ -14140,6 +14155,8 @@ argument_list|,
 name|longToPrefixCoded
 argument_list|(
 literal|34
+argument_list|,
+literal|0
 argument_list|)
 argument_list|)
 argument_list|)
@@ -14297,6 +14314,8 @@ argument_list|,
 name|longToPrefixCoded
 argument_list|(
 literal|34
+argument_list|,
+literal|0
 argument_list|)
 argument_list|)
 argument_list|)
@@ -14330,6 +14349,8 @@ argument_list|,
 name|longToPrefixCoded
 argument_list|(
 literal|35
+argument_list|,
+literal|0
 argument_list|)
 argument_list|)
 argument_list|)
@@ -14363,6 +14384,8 @@ argument_list|,
 name|longToPrefixCoded
 argument_list|(
 literal|36
+argument_list|,
+literal|0
 argument_list|)
 argument_list|)
 argument_list|)
@@ -14482,6 +14505,8 @@ argument_list|,
 name|longToPrefixCoded
 argument_list|(
 literal|34
+argument_list|,
+literal|0
 argument_list|)
 argument_list|)
 argument_list|)
@@ -14515,6 +14540,8 @@ argument_list|,
 name|longToPrefixCoded
 argument_list|(
 literal|35
+argument_list|,
+literal|0
 argument_list|)
 argument_list|)
 argument_list|)
@@ -14548,6 +14575,8 @@ argument_list|,
 name|longToPrefixCoded
 argument_list|(
 literal|36
+argument_list|,
+literal|0
 argument_list|)
 argument_list|)
 argument_list|)
@@ -14690,6 +14719,8 @@ argument_list|,
 name|longToPrefixCoded
 argument_list|(
 literal|34
+argument_list|,
+literal|0
 argument_list|)
 argument_list|)
 argument_list|)
@@ -14723,6 +14754,8 @@ argument_list|,
 name|longToPrefixCoded
 argument_list|(
 literal|35
+argument_list|,
+literal|0
 argument_list|)
 argument_list|)
 argument_list|)
@@ -14756,6 +14789,8 @@ argument_list|,
 name|longToPrefixCoded
 argument_list|(
 literal|36
+argument_list|,
+literal|0
 argument_list|)
 argument_list|)
 argument_list|)
@@ -14862,6 +14897,8 @@ argument_list|,
 name|longToPrefixCoded
 argument_list|(
 literal|34
+argument_list|,
+literal|0
 argument_list|)
 argument_list|)
 argument_list|)
@@ -14895,6 +14932,8 @@ argument_list|,
 name|longToPrefixCoded
 argument_list|(
 literal|35
+argument_list|,
+literal|0
 argument_list|)
 argument_list|)
 argument_list|)
@@ -14928,6 +14967,8 @@ argument_list|,
 name|longToPrefixCoded
 argument_list|(
 literal|36
+argument_list|,
+literal|0
 argument_list|)
 argument_list|)
 argument_list|)
@@ -15034,6 +15075,8 @@ argument_list|,
 name|longToPrefixCoded
 argument_list|(
 literal|34
+argument_list|,
+literal|0
 argument_list|)
 argument_list|)
 argument_list|)
@@ -15067,6 +15110,8 @@ argument_list|,
 name|longToPrefixCoded
 argument_list|(
 literal|35
+argument_list|,
+literal|0
 argument_list|)
 argument_list|)
 argument_list|)
@@ -15100,6 +15145,8 @@ argument_list|,
 name|longToPrefixCoded
 argument_list|(
 literal|36
+argument_list|,
+literal|0
 argument_list|)
 argument_list|)
 argument_list|)
