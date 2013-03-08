@@ -340,10 +340,6 @@ specifier|final
 name|CandidateGenerator
 name|generator
 parameter_list|,
-specifier|final
-name|int
-name|numCandidates
-parameter_list|,
 name|float
 name|maxErrors
 parameter_list|,
@@ -662,8 +658,6 @@ operator|.
 name|drawCandidates
 argument_list|(
 name|candidateSet
-argument_list|,
-name|numCandidates
 argument_list|)
 expr_stmt|;
 block|}
@@ -802,9 +796,6 @@ parameter_list|,
 name|CandidateGenerator
 name|generator
 parameter_list|,
-name|int
-name|numCandidates
-parameter_list|,
 name|float
 name|maxErrors
 parameter_list|,
@@ -846,8 +837,6 @@ name|analysisField
 argument_list|)
 argument_list|,
 name|generator
-argument_list|,
-name|numCandidates
 argument_list|,
 name|maxErrors
 argument_list|,

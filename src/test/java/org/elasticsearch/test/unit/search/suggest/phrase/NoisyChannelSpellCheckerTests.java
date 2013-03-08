@@ -974,6 +974,8 @@ argument_list|,
 name|ir
 argument_list|,
 literal|0.95
+argument_list|,
+literal|5
 argument_list|)
 decl_stmt|;
 name|Correction
@@ -993,8 +995,6 @@ literal|"american ame"
 argument_list|)
 argument_list|,
 name|generator
-argument_list|,
-literal|5
 argument_list|,
 literal|1
 argument_list|,
@@ -1063,8 +1063,6 @@ literal|"american ame"
 argument_list|)
 argument_list|,
 name|generator
-argument_list|,
-literal|5
 argument_list|,
 literal|1
 argument_list|,
@@ -1161,8 +1159,6 @@ literal|"Xor the Got-Jewel"
 argument_list|)
 argument_list|,
 name|generator
-argument_list|,
-literal|5
 argument_list|,
 literal|0.5f
 argument_list|,
@@ -1306,8 +1302,6 @@ literal|"Xor the Got-Jewel"
 argument_list|)
 argument_list|,
 name|generator
-argument_list|,
-literal|5
 argument_list|,
 literal|0.5f
 argument_list|,
@@ -1627,8 +1621,6 @@ argument_list|)
 argument_list|,
 name|generator
 argument_list|,
-literal|10
-argument_list|,
 literal|2
 argument_list|,
 literal|4
@@ -1686,6 +1678,8 @@ name|ir
 argument_list|,
 literal|0.85
 argument_list|,
+literal|10
+argument_list|,
 literal|null
 argument_list|,
 name|analyzer
@@ -1706,8 +1700,6 @@ literal|"captian usw"
 argument_list|)
 argument_list|,
 name|generator
-argument_list|,
-literal|10
 argument_list|,
 literal|2
 argument_list|,
@@ -2200,6 +2192,8 @@ argument_list|,
 name|ir
 argument_list|,
 literal|0.95
+argument_list|,
+literal|10
 argument_list|)
 decl_stmt|;
 name|DirectCandidateGenerator
@@ -2220,6 +2214,8 @@ name|ir
 argument_list|,
 literal|0.95
 argument_list|,
+literal|10
+argument_list|,
 name|wrapper
 argument_list|,
 name|wrapper
@@ -2231,6 +2227,8 @@ init|=
 operator|new
 name|MultiCandidateGeneratorWrapper
 argument_list|(
+literal|10
+argument_list|,
 name|forward
 argument_list|,
 name|reverse
@@ -2254,8 +2252,6 @@ argument_list|)
 argument_list|,
 name|generator
 argument_list|,
-literal|10
-argument_list|,
 literal|1
 argument_list|,
 literal|1
@@ -2308,6 +2304,18 @@ literal|"american ace"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|generator
+operator|=
+operator|new
+name|MultiCandidateGeneratorWrapper
+argument_list|(
+literal|5
+argument_list|,
+name|forward
+argument_list|,
+name|reverse
+argument_list|)
+expr_stmt|;
 name|corrections
 operator|=
 name|suggester
@@ -2323,8 +2331,6 @@ literal|"american ame"
 argument_list|)
 argument_list|,
 name|generator
-argument_list|,
-literal|5
 argument_list|,
 literal|1
 argument_list|,
@@ -2393,8 +2399,6 @@ literal|"american cae"
 argument_list|)
 argument_list|,
 name|forward
-argument_list|,
-literal|5
 argument_list|,
 literal|1
 argument_list|,
@@ -2439,8 +2443,6 @@ literal|"america cae"
 argument_list|)
 argument_list|,
 name|generator
-argument_list|,
-literal|5
 argument_list|,
 literal|2
 argument_list|,
@@ -2509,8 +2511,6 @@ literal|"Zorr the Got-Jewel"
 argument_list|)
 argument_list|,
 name|generator
-argument_list|,
-literal|5
 argument_list|,
 literal|0.5f
 argument_list|,
@@ -2655,8 +2655,6 @@ argument_list|)
 argument_list|,
 name|generator
 argument_list|,
-literal|5
-argument_list|,
 literal|0.5f
 argument_list|,
 literal|1
@@ -2724,8 +2722,6 @@ literal|"Xor the Got-Jewel"
 argument_list|)
 argument_list|,
 name|generator
-argument_list|,
-literal|5
 argument_list|,
 literal|0.5f
 argument_list|,
@@ -3152,6 +3148,8 @@ argument_list|,
 name|ir
 argument_list|,
 literal|0.95
+argument_list|,
+literal|5
 argument_list|)
 decl_stmt|;
 name|Correction
@@ -3171,8 +3169,6 @@ literal|"american ame"
 argument_list|)
 argument_list|,
 name|generator
-argument_list|,
-literal|5
 argument_list|,
 literal|1
 argument_list|,
@@ -3242,8 +3238,6 @@ argument_list|)
 argument_list|,
 name|generator
 argument_list|,
-literal|5
-argument_list|,
 literal|1
 argument_list|,
 literal|1
@@ -3312,8 +3306,6 @@ argument_list|)
 argument_list|,
 name|generator
 argument_list|,
-literal|5
-argument_list|,
 literal|0.5f
 argument_list|,
 literal|4
@@ -3457,8 +3449,6 @@ argument_list|)
 argument_list|,
 name|generator
 argument_list|,
-literal|5
-argument_list|,
 literal|0.5f
 argument_list|,
 literal|4
@@ -3601,8 +3591,6 @@ literal|"Xor the Got-Jewel"
 argument_list|)
 argument_list|,
 name|generator
-argument_list|,
-literal|5
 argument_list|,
 literal|0.5f
 argument_list|,
@@ -3851,8 +3839,6 @@ argument_list|)
 argument_list|,
 name|generator
 argument_list|,
-literal|10
-argument_list|,
 literal|2
 argument_list|,
 literal|4
@@ -3910,6 +3896,8 @@ name|ir
 argument_list|,
 literal|0.95
 argument_list|,
+literal|10
+argument_list|,
 literal|null
 argument_list|,
 name|analyzer
@@ -3930,8 +3918,6 @@ literal|"captian usw"
 argument_list|)
 argument_list|,
 name|generator
-argument_list|,
-literal|10
 argument_list|,
 literal|2
 argument_list|,
@@ -4008,8 +3994,6 @@ literal|"Xor the Got-Jewel"
 argument_list|)
 argument_list|,
 name|generator
-argument_list|,
-literal|5
 argument_list|,
 literal|0.5f
 argument_list|,

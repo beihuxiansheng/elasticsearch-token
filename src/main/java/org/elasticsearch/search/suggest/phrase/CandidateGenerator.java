@@ -120,9 +120,6 @@ name|drawCandidates
 parameter_list|(
 name|BytesRef
 name|term
-parameter_list|,
-name|int
-name|numCandidates
 parameter_list|)
 throws|throws
 name|IOException
@@ -147,8 +144,6 @@ return|return
 name|drawCandidates
 argument_list|(
 name|set
-argument_list|,
-name|numCandidates
 argument_list|)
 return|;
 block|}
@@ -203,9 +198,6 @@ name|drawCandidates
 parameter_list|(
 name|CandidateSet
 name|set
-parameter_list|,
-name|int
-name|numCandidates
 parameter_list|)
 throws|throws
 name|IOException

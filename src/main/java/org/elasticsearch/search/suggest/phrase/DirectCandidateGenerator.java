@@ -359,6 +359,12 @@ operator|new
 name|BytesRef
 argument_list|()
 decl_stmt|;
+DECL|field|numCandidates
+specifier|private
+specifier|final
+name|int
+name|numCandidates
+decl_stmt|;
 DECL|method|DirectCandidateGenerator
 specifier|public
 name|DirectCandidateGenerator
@@ -377,6 +383,9 @@ name|reader
 parameter_list|,
 name|double
 name|nonErrorLikelihood
+parameter_list|,
+name|int
+name|numCandidates
 parameter_list|)
 throws|throws
 name|IOException
@@ -392,6 +401,8 @@ argument_list|,
 name|reader
 argument_list|,
 name|nonErrorLikelihood
+argument_list|,
+name|numCandidates
 argument_list|,
 literal|null
 argument_list|,
@@ -418,6 +429,9 @@ parameter_list|,
 name|double
 name|nonErrorLikelihood
 parameter_list|,
+name|int
+name|numCandidates
+parameter_list|,
 name|Analyzer
 name|preFilter
 parameter_list|,
@@ -438,6 +452,12 @@ operator|.
 name|field
 operator|=
 name|field
+expr_stmt|;
+name|this
+operator|.
+name|numCandidates
+operator|=
+name|numCandidates
 expr_stmt|;
 name|this
 operator|.
@@ -690,9 +710,6 @@ name|drawCandidates
 parameter_list|(
 name|CandidateSet
 name|set
-parameter_list|,
-name|int
-name|numCandidates
 parameter_list|)
 throws|throws
 name|IOException

@@ -652,6 +652,13 @@ name|minDocFreq
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|directSpellChecker
+operator|.
+name|setLowerCaseTerms
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 return|return
 name|directSpellChecker
 return|;
