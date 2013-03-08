@@ -246,6 +246,10 @@ begin_comment
 comment|/**  * A query implementation that executes the wrapped parent query and  * connects the matching parent docs to the related child documents  * using the {@link IdReaderTypeCache}.  */
 end_comment
 
+begin_comment
+comment|// TODO We use a score of 0 to indicate a doc was not scored in uidToScore, this means score of 0 can be problematic, if we move to HPCC, we can use lset/...
+end_comment
+
 begin_class
 DECL|class|ParentQuery
 specifier|public
@@ -1337,14 +1341,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|Float
-operator|.
-name|compare
-argument_list|(
 name|currentScore
-argument_list|,
-literal|0
-argument_list|)
 operator|!=
 literal|0
 condition|)
@@ -1423,14 +1420,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|Float
-operator|.
-name|compare
-argument_list|(
 name|currentScore
-argument_list|,
-literal|0
-argument_list|)
 operator|==
 literal|0
 condition|)
