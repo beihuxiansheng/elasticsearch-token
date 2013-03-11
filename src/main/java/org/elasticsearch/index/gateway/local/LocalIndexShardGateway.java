@@ -765,7 +765,7 @@ argument_list|(
 name|shardId
 argument_list|()
 argument_list|,
-literal|"shard allocated for local recovery (post api), should exists, but doesn't, current files: "
+literal|"shard allocated for local recovery (post api), should exist, but doesn't, current files: "
 operator|+
 name|files
 argument_list|,
