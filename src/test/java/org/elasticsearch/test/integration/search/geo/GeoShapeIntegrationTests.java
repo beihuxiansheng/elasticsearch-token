@@ -806,12 +806,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-argument_list|(
-name|enabled
-operator|=
-literal|false
-argument_list|)
-comment|// LUCENE MONITIR enable this test again once Lucene4.2 is out. This bug is fixed in Lucene 4.2
 DECL|method|testEdgeCases
 specifier|public
 name|void
