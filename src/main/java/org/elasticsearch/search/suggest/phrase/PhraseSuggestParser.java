@@ -134,11 +134,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
+name|index
 operator|.
-name|internal
+name|mapper
 operator|.
-name|SearchContext
+name|MapperService
 import|;
 end_import
 
@@ -231,8 +231,8 @@ parameter_list|(
 name|XContentParser
 name|parser
 parameter_list|,
-name|SearchContext
-name|context
+name|MapperService
+name|mapperService
 parameter_list|)
 throws|throws
 name|IOException
@@ -316,7 +316,7 @@ name|parseSuggestContext
 argument_list|(
 name|parser
 argument_list|,
-name|context
+name|mapperService
 argument_list|,
 name|fieldName
 argument_list|,
@@ -646,7 +646,7 @@ name|parseCandidateGenerator
 argument_list|(
 name|parser
 argument_list|,
-name|context
+name|mapperService
 argument_list|,
 name|fieldName
 argument_list|,
@@ -657,8 +657,6 @@ block|}
 block|}
 name|verifyGenerator
 argument_list|(
-name|context
-argument_list|,
 name|generator
 argument_list|)
 expr_stmt|;
@@ -797,10 +795,7 @@ argument_list|()
 operator|==
 literal|null
 condition|?
-name|context
-operator|.
 name|mapperService
-argument_list|()
 operator|.
 name|fieldSearchAnalyzer
 argument_list|(
@@ -1665,9 +1660,6 @@ specifier|private
 name|void
 name|verifyGenerator
 parameter_list|(
-name|SearchContext
-name|context
-parameter_list|,
 name|PhraseSuggestionContext
 operator|.
 name|DirectCandidateGenerator
@@ -1702,8 +1694,8 @@ parameter_list|(
 name|XContentParser
 name|parser
 parameter_list|,
-name|SearchContext
-name|context
+name|MapperService
+name|mapperService
 parameter_list|,
 name|String
 name|fieldName
@@ -1803,10 +1795,7 @@ decl_stmt|;
 name|Analyzer
 name|analyzer
 init|=
-name|context
-operator|.
 name|mapperService
-argument_list|()
 operator|.
 name|analysisService
 argument_list|()
@@ -1872,10 +1861,7 @@ decl_stmt|;
 name|Analyzer
 name|analyzer
 init|=
-name|context
-operator|.
 name|mapperService
-argument_list|()
 operator|.
 name|analysisService
 argument_list|()

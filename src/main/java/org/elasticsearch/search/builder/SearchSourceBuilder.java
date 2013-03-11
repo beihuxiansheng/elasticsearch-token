@@ -1475,7 +1475,9 @@ name|suggestBuilder
 operator|=
 operator|new
 name|SuggestBuilder
-argument_list|()
+argument_list|(
+literal|"suggest"
+argument_list|)
 expr_stmt|;
 block|}
 return|return

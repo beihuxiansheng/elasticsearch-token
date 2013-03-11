@@ -58,11 +58,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
+name|index
 operator|.
-name|internal
+name|mapper
 operator|.
-name|SearchContext
+name|MapperService
 import|;
 end_import
 
@@ -151,8 +151,8 @@ parameter_list|(
 name|XContentParser
 name|parser
 parameter_list|,
-name|SearchContext
-name|context
+name|MapperService
+name|mapperService
 parameter_list|)
 throws|throws
 name|IOException
@@ -234,7 +234,7 @@ name|parseTokenValue
 argument_list|(
 name|parser
 argument_list|,
-name|context
+name|mapperService
 argument_list|,
 name|fieldName
 argument_list|,
@@ -271,8 +271,8 @@ parameter_list|(
 name|XContentParser
 name|parser
 parameter_list|,
-name|SearchContext
-name|context
+name|MapperService
+name|mapperService
 parameter_list|,
 name|String
 name|fieldName
@@ -296,7 +296,7 @@ name|parseSuggestContext
 argument_list|(
 name|parser
 argument_list|,
-name|context
+name|mapperService
 argument_list|,
 name|fieldName
 argument_list|,
