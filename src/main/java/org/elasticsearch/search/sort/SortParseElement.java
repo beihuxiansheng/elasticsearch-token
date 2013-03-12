@@ -911,6 +911,20 @@ name|fieldName
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|ElasticSearchIllegalArgumentException
+argument_list|(
+literal|"sort direction ["
+operator|+
+name|fieldName
+operator|+
+literal|"] not supported"
+argument_list|)
+throw|;
+block|}
 name|addSortField
 argument_list|(
 name|context
@@ -1152,6 +1166,13 @@ name|equals
 argument_list|(
 name|innerJsonName
 argument_list|)
+operator|||
+literal|"mode"
+operator|.
+name|equals
+argument_list|(
+name|innerJsonName
+argument_list|)
 condition|)
 block|{
 name|sortMode
@@ -1192,6 +1213,20 @@ operator|.
 name|text
 argument_list|()
 expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|ElasticSearchIllegalArgumentException
+argument_list|(
+literal|"sort option ["
+operator|+
+name|innerJsonName
+operator|+
+literal|"] not supported"
+argument_list|)
+throw|;
 block|}
 block|}
 elseif|else
@@ -1235,6 +1270,20 @@ argument_list|(
 name|parser
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|ElasticSearchIllegalArgumentException
+argument_list|(
+literal|"sort option ["
+operator|+
+name|innerJsonName
+operator|+
+literal|"] not supported"
+argument_list|)
+throw|;
 block|}
 block|}
 block|}
