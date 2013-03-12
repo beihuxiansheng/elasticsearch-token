@@ -497,9 +497,7 @@ name|INDEX_REFRESH_INTERVAL
 argument_list|,
 name|Validator
 operator|.
-name|TimeValueValidator
-operator|.
-name|INSTANCE
+name|TIME
 argument_list|)
 expr_stmt|;
 name|indexDynamicSettings

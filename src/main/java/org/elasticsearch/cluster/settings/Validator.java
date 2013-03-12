@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * Validates a setting, returning a failure message if applicable.  */
 end_comment
 
 begin_interface
@@ -61,33 +61,19 @@ name|String
 name|value
 parameter_list|)
 function_decl|;
-DECL|class|EmptyValidator
-specifier|public
-specifier|static
-class|class
-name|EmptyValidator
-implements|implements
-name|Validator
-block|{
-DECL|field|INSTANCE
+DECL|field|EMPTY
 specifier|public
 specifier|static
 specifier|final
-name|EmptyValidator
-name|INSTANCE
+name|Validator
+name|EMPTY
 init|=
 operator|new
-name|EmptyValidator
+name|Validator
 argument_list|()
-decl_stmt|;
-DECL|method|EmptyValidator
-specifier|private
-name|EmptyValidator
-parameter_list|()
-block|{          }
+block|{
 annotation|@
 name|Override
-DECL|method|validate
 specifier|public
 name|String
 name|validate
@@ -104,33 +90,20 @@ literal|null
 return|;
 block|}
 block|}
-DECL|class|TimeValueValidator
-specifier|public
-specifier|static
-class|class
-name|TimeValueValidator
-implements|implements
-name|Validator
-block|{
-DECL|field|INSTANCE
+decl_stmt|;
+DECL|field|TIME
 specifier|public
 specifier|static
 specifier|final
-name|TimeValueValidator
-name|INSTANCE
+name|Validator
+name|TIME
 init|=
 operator|new
-name|TimeValueValidator
+name|Validator
 argument_list|()
-decl_stmt|;
-DECL|method|TimeValueValidator
-specifier|private
-name|TimeValueValidator
-parameter_list|()
-block|{          }
+block|{
 annotation|@
 name|Override
-DECL|method|validate
 specifier|public
 name|String
 name|validate
@@ -186,6 +159,7 @@ literal|null
 return|;
 block|}
 block|}
+decl_stmt|;
 block|}
 end_interface
 

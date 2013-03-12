@@ -259,9 +259,7 @@ name|setting
 argument_list|,
 name|Validator
 operator|.
-name|EmptyValidator
-operator|.
-name|INSTANCE
+name|EMPTY
 argument_list|)
 expr_stmt|;
 block|}
@@ -307,9 +305,7 @@ name|setting
 argument_list|,
 name|Validator
 operator|.
-name|EmptyValidator
-operator|.
-name|INSTANCE
+name|EMPTY
 argument_list|)
 expr_stmt|;
 block|}
