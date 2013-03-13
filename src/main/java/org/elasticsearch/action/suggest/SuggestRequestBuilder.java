@@ -18,16 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -162,6 +152,16 @@ name|SuggestionBuilder
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_comment
 comment|/**  * A suggest action request builder.  */
 end_comment
@@ -211,7 +211,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Add a definition for suggestions to the request       */
+comment|/**      * Add a definition for suggestions to the request      */
 DECL|method|addSuggestion
 specifier|public
 parameter_list|<
@@ -352,9 +352,6 @@ operator|.
 name|contentType
 argument_list|)
 decl_stmt|;
-name|XContentBuilder
-name|content
-init|=
 name|suggest
 operator|.
 name|toXContent
@@ -365,17 +362,12 @@ name|ToXContent
 operator|.
 name|EMPTY_PARAMS
 argument_list|)
-decl_stmt|;
-name|content
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
 name|request
 operator|.
 name|suggest
 argument_list|(
-name|content
+name|builder
 operator|.
 name|bytes
 argument_list|()
