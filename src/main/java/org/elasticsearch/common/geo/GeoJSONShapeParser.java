@@ -321,8 +321,6 @@ name|fieldName
 argument_list|)
 condition|)
 block|{
-name|token
-operator|=
 name|parser
 operator|.
 name|nextToken
@@ -376,8 +374,6 @@ name|fieldName
 argument_list|)
 condition|)
 block|{
-name|token
-operator|=
 name|parser
 operator|.
 name|nextToken
@@ -389,6 +385,19 @@ name|parseCoordinates
 argument_list|(
 name|parser
 argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|parser
+operator|.
+name|nextToken
+argument_list|()
+expr_stmt|;
+name|parser
+operator|.
+name|skipChildren
+argument_list|()
 expr_stmt|;
 block|}
 block|}
