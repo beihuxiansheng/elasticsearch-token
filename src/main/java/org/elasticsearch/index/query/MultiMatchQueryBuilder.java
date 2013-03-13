@@ -220,7 +220,7 @@ name|useDisMax
 decl_stmt|;
 DECL|field|tieBreaker
 specifier|private
-name|Integer
+name|Float
 name|tieBreaker
 decl_stmt|;
 DECL|field|lenient
@@ -607,7 +607,7 @@ specifier|public
 name|MultiMatchQueryBuilder
 name|tieBreaker
 parameter_list|(
-name|Integer
+name|Float
 name|tieBreaker
 parameter_list|)
 block|{
