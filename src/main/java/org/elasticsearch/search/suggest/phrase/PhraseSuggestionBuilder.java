@@ -446,7 +446,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets an explict smoothing model used for this suggester. The default is      * {@link #LAPLACE}.      */
+comment|/**      * Sets an explicit smoothing model used for this suggester. The default is      * {@link PhraseSuggester#StupidBackoff}.      */
 DECL|method|smoothingModel
 specifier|public
 name|PhraseSuggestionBuilder
@@ -718,7 +718,7 @@ name|field
 argument_list|)
 return|;
 block|}
-comment|/**      * A "stupid-backoff" smoothing model simialr to<a      * href="http://en.wikipedia.org/wiki/Katz's_back-off_model"> Katz's      * Backoff</a>.      *<p>      * See<a      * href="http://en.wikipedia.org/wiki/N-gram#Smoothing_techniques">N-Gram      * Smoothing</a> for details.      *</p>      */
+comment|/**      * A "stupid-backoff" smoothing model simialr to<a      * href="http://en.wikipedia.org/wiki/Katz's_back-off_model"> Katz's      * Backoff</a>. This model is used as the default if no model is configured.      *<p>      * See<a      * href="http://en.wikipedia.org/wiki/N-gram#Smoothing_techniques">N-Gram      * Smoothing</a> for details.      *</p>      */
 DECL|class|StupidBackoff
 specifier|public
 specifier|static
@@ -785,7 +785,7 @@ name|builder
 return|;
 block|}
 block|}
-comment|/**      * An<a href="http://en.wikipedia.org/wiki/Additive_smoothing">additive      * smoothing</a> model. Laplace is used as the default if no smoothing model      * is configured.      *<p>      * See<a      * href="http://en.wikipedia.org/wiki/N-gram#Smoothing_techniques">N-Gram      * Smoothing</a> for details.      *</p>      */
+comment|/**      * An<a href="http://en.wikipedia.org/wiki/Additive_smoothing">additive      * smoothing</a> model.       *<p>      * See<a      * href="http://en.wikipedia.org/wiki/N-gram#Smoothing_techniques">N-Gram      * Smoothing</a> for details.      *</p>      */
 DECL|class|Laplace
 specifier|public
 specifier|static

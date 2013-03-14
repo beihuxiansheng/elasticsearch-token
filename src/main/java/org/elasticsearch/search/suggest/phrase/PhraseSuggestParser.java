@@ -758,7 +758,7 @@ name|suggestion
 operator|.
 name|setModel
 argument_list|(
-name|LaplaceScorer
+name|StupidBackoffScorer
 operator|.
 name|FACTORY
 argument_list|)
