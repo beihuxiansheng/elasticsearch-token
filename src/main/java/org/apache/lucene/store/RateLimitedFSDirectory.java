@@ -18,6 +18,22 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
+name|IOContext
+operator|.
+name|Context
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -33,22 +49,6 @@ operator|.
 name|util
 operator|.
 name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|store
-operator|.
-name|IOContext
-operator|.
-name|Context
 import|;
 end_import
 
@@ -680,7 +680,7 @@ name|IndexOutput
 name|delegate
 parameter_list|)
 block|{
-comment|// TODO should we make buffer size configurable
+comment|// TODO if Lucene exposed in BufferedIndexOutput#getBufferSize, we could initialize it if the delegate is buffered
 if|if
 condition|(
 name|delegate
