@@ -355,7 +355,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"sort_mode"
+literal|"mode"
 argument_list|,
 name|sortMode
 argument_list|)
