@@ -1246,7 +1246,20 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"[{}] deleting index that is no longer part of the metadata"
+literal|"[{}] deleting index that is no longer part of the metadata (indices: [{}])"
+argument_list|,
+name|current
+operator|.
+name|index
+argument_list|()
+argument_list|,
+name|newMetaData
+operator|.
+name|indices
+argument_list|()
+operator|.
+name|keySet
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|FileSystemUtils
