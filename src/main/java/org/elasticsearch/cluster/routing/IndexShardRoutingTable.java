@@ -325,43 +325,43 @@ name|primary
 init|=
 literal|null
 decl_stmt|;
-name|List
+name|ImmutableList
+operator|.
+name|Builder
 argument_list|<
 name|ShardRouting
 argument_list|>
 name|replicas
 init|=
-operator|new
-name|ArrayList
-argument_list|<
-name|ShardRouting
-argument_list|>
+name|ImmutableList
+operator|.
+name|builder
 argument_list|()
 decl_stmt|;
-name|List
+name|ImmutableList
+operator|.
+name|Builder
 argument_list|<
 name|ShardRouting
 argument_list|>
 name|activeShards
 init|=
-operator|new
-name|ArrayList
-argument_list|<
-name|ShardRouting
-argument_list|>
+name|ImmutableList
+operator|.
+name|builder
 argument_list|()
 decl_stmt|;
-name|List
+name|ImmutableList
+operator|.
+name|Builder
 argument_list|<
 name|ShardRouting
 argument_list|>
 name|assignedShards
 init|=
-operator|new
-name|ArrayList
-argument_list|<
-name|ShardRouting
-argument_list|>
+name|ImmutableList
+operator|.
+name|builder
 argument_list|()
 decl_stmt|;
 for|for
@@ -469,34 +469,28 @@ name|this
 operator|.
 name|replicas
 operator|=
-name|ImmutableList
-operator|.
-name|copyOf
-argument_list|(
 name|replicas
-argument_list|)
+operator|.
+name|build
+argument_list|()
 expr_stmt|;
 name|this
 operator|.
 name|activeShards
 operator|=
-name|ImmutableList
-operator|.
-name|copyOf
-argument_list|(
 name|activeShards
-argument_list|)
+operator|.
+name|build
+argument_list|()
 expr_stmt|;
 name|this
 operator|.
 name|assignedShards
 operator|=
-name|ImmutableList
-operator|.
-name|copyOf
-argument_list|(
 name|assignedShards
-argument_list|)
+operator|.
+name|build
+argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Normalizes all shard routings to the same version.      */
@@ -741,7 +735,7 @@ return|return
 name|primaryAllocatedPostApi
 return|;
 block|}
-comment|/**      * Returns the shards id      * @return id of the shard      */
+comment|/**      * Returns the shards id      *      * @return id of the shard      */
 DECL|method|shardId
 specifier|public
 name|ShardId
@@ -752,7 +746,7 @@ return|return
 name|shardId
 return|;
 block|}
-comment|/**      * Returns the shards id      * @return id of the shard      */
+comment|/**      * Returns the shards id      *      * @return id of the shard      */
 DECL|method|getShardId
 specifier|public
 name|ShardId
@@ -808,7 +802,7 @@ name|size
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns a {@link ImmutableList} of shards      * @return a {@link ImmutableList} of shards      */
+comment|/**      * Returns a {@link ImmutableList} of shards      *      * @return a {@link ImmutableList} of shards      */
 DECL|method|shards
 specifier|public
 name|ImmutableList
@@ -824,7 +818,7 @@ operator|.
 name|shards
 return|;
 block|}
-comment|/**      * Returns a {@link ImmutableList} of shards      * @return a {@link ImmutableList} of shards      */
+comment|/**      * Returns a {@link ImmutableList} of shards      *      * @return a {@link ImmutableList} of shards      */
 DECL|method|getShards
 specifier|public
 name|ImmutableList
@@ -839,7 +833,7 @@ name|shards
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns a {@link ImmutableList} of active shards      * @return a {@link ImmutableList} of shards      */
+comment|/**      * Returns a {@link ImmutableList} of active shards      *      * @return a {@link ImmutableList} of shards      */
 DECL|method|activeShards
 specifier|public
 name|ImmutableList
@@ -855,7 +849,7 @@ operator|.
 name|activeShards
 return|;
 block|}
-comment|/**      * Returns a {@link ImmutableList} of active shards      * @return a {@link ImmutableList} of shards      */
+comment|/**      * Returns a {@link ImmutableList} of active shards      *      * @return a {@link ImmutableList} of shards      */
 DECL|method|getActiveShards
 specifier|public
 name|ImmutableList
@@ -870,7 +864,7 @@ name|activeShards
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns a {@link ImmutableList} of assigned shards      * @return a {@link ImmutableList} of shards      */
+comment|/**      * Returns a {@link ImmutableList} of assigned shards      *      * @return a {@link ImmutableList} of shards      */
 DECL|method|assignedShards
 specifier|public
 name|ImmutableList
@@ -886,7 +880,7 @@ operator|.
 name|assignedShards
 return|;
 block|}
-comment|/**      * Returns a {@link ImmutableList} of assigned shards      * @return a {@link ImmutableList} of shards      */
+comment|/**      * Returns a {@link ImmutableList} of assigned shards      *      * @return a {@link ImmutableList} of shards      */
 DECL|method|getAssignedShards
 specifier|public
 name|ImmutableList
@@ -902,7 +896,7 @@ operator|.
 name|assignedShards
 return|;
 block|}
-comment|/**      * Returns the number of shards in a specific state      * @param state state of the shards to count      * @return number of shards in<code>state</code>      */
+comment|/**      * Returns the number of shards in a specific state      *      * @param state state of the shards to count      * @return number of shards in<code>state</code>      */
 DECL|method|countWithState
 specifier|public
 name|int
