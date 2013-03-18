@@ -448,7 +448,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"random_access_random"
+literal|"random_access_always"
 operator|.
 name|equals
 argument_list|(
