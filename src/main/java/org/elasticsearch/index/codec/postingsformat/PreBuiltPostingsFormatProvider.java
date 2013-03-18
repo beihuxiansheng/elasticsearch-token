@@ -202,6 +202,21 @@ name|PostingsFormat
 name|postingsFormat
 parameter_list|)
 block|{
+if|if
+condition|(
+name|postingsFormat
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"PostingsFormat must not be null"
+argument_list|)
+throw|;
+block|}
 name|this
 operator|.
 name|name

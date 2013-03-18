@@ -593,7 +593,6 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// Should fail when upgrading Lucene with codec changes
 name|assertThat
 argument_list|(
 name|postingsFormatService
@@ -604,6 +603,35 @@ literal|"default"
 argument_list|)
 operator|.
 name|get
+argument_list|()
+argument_list|,
+name|instanceOf
+argument_list|(
+name|ElasticSearch090PostingsFormat
+operator|.
+name|class
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// Should fail when upgrading Lucene with codec changes
+name|assertThat
+argument_list|(
+operator|(
+operator|(
+name|ElasticSearch090PostingsFormat
+operator|)
+name|postingsFormatService
+operator|.
+name|get
+argument_list|(
+literal|"default"
+argument_list|)
+operator|.
+name|get
+argument_list|()
+operator|)
+operator|.
+name|getDefaultWrapped
 argument_list|()
 argument_list|,
 name|instanceOf
@@ -1294,7 +1322,7 @@ argument_list|()
 argument_list|,
 name|instanceOf
 argument_list|(
-name|Lucene41PostingsFormat
+name|ElasticSearch090PostingsFormat
 operator|.
 name|class
 argument_list|)

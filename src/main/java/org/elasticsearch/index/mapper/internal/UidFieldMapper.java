@@ -759,7 +759,7 @@ name|defaultPostingFormat
 parameter_list|()
 block|{
 return|return
-literal|"bloom_default"
+literal|"default"
 return|;
 block|}
 annotation|@
