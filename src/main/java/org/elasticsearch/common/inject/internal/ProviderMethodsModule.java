@@ -389,12 +389,14 @@ if|if
 condition|(
 name|method
 operator|.
-name|isAnnotationPresent
+name|getAnnotation
 argument_list|(
 name|Provides
 operator|.
 name|class
 argument_list|)
+operator|!=
+literal|null
 condition|)
 block|{
 name|result

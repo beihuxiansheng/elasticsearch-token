@@ -267,6 +267,11 @@ name|visitOther
 argument_list|(
 operator|(
 name|Binding
+argument_list|<
+name|?
+extends|extends
+name|T
+argument_list|>
 operator|)
 name|providerBinding
 argument_list|)

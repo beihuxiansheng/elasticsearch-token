@@ -254,12 +254,14 @@ operator|.
 name|annotationType
 argument_list|()
 operator|.
-name|isAnnotationPresent
+name|getAnnotation
 argument_list|(
 name|ScopeAnnotation
 operator|.
 name|class
 argument_list|)
+operator|!=
+literal|null
 condition|)
 block|{
 if|if
@@ -316,12 +318,14 @@ block|{
 return|return
 name|annotationType
 operator|.
-name|isAnnotationPresent
+name|getAnnotation
 argument_list|(
 name|ScopeAnnotation
 operator|.
 name|class
 argument_list|)
+operator|!=
+literal|null
 return|;
 block|}
 comment|/**      * Adds an error if there is a misplaced annotations on {@code type}. Scoping      * annotations are not allowed on abstract classes or interfaces.      */
@@ -512,12 +516,14 @@ operator|.
 name|annotationType
 argument_list|()
 operator|.
-name|isAnnotationPresent
+name|getAnnotation
 argument_list|(
 name|BindingAnnotation
 operator|.
 name|class
 argument_list|)
+operator|!=
+literal|null
 condition|)
 block|{
 if|if

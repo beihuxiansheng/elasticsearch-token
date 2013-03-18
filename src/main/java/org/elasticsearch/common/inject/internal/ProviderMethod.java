@@ -299,12 +299,14 @@ name|exposed
 operator|=
 name|method
 operator|.
-name|isAnnotationPresent
+name|getAnnotation
 argument_list|(
 name|Exposed
 operator|.
 name|class
 argument_list|)
+operator|!=
+literal|null
 expr_stmt|;
 name|method
 operator|.

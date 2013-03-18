@@ -1862,12 +1862,14 @@ block|{
 return|return
 name|annotationType
 operator|.
-name|isAnnotationPresent
+name|getAnnotation
 argument_list|(
 name|BindingAnnotation
 operator|.
 name|class
 argument_list|)
+operator|!=
+literal|null
 return|;
 block|}
 block|}
