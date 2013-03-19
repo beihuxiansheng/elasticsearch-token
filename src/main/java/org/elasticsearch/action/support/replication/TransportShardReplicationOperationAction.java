@@ -2252,7 +2252,7 @@ expr_stmt|;
 block|}
 break|break;
 block|}
-comment|// we should never get here, but here we go
+comment|// we won't find a primary if there are no shards in the shard iterator, retry...
 if|if
 condition|(
 operator|!
