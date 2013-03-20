@@ -642,8 +642,6 @@ name|instanceOf
 argument_list|(
 name|BloomFilterPostingsFormat
 operator|.
-name|BloomFilteredFieldsProducer
-operator|.
 name|BloomFilteredTerms
 operator|.
 name|class
@@ -658,8 +656,6 @@ argument_list|,
 name|instanceOf
 argument_list|(
 name|BloomFilterPostingsFormat
-operator|.
-name|BloomFilteredFieldsProducer
 operator|.
 name|BloomFilteredTerms
 operator|.
@@ -898,8 +894,6 @@ name|instanceOf
 argument_list|(
 name|BloomFilterPostingsFormat
 operator|.
-name|BloomFilteredFieldsProducer
-operator|.
 name|BloomFilteredTerms
 operator|.
 name|class
@@ -916,8 +910,6 @@ argument_list|(
 name|instanceOf
 argument_list|(
 name|BloomFilterPostingsFormat
-operator|.
-name|BloomFilteredFieldsProducer
 operator|.
 name|BloomFilteredTerms
 operator|.
