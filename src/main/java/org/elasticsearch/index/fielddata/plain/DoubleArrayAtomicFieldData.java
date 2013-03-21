@@ -3000,6 +3000,16 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+name|proc
+operator|.
+name|onMissing
+argument_list|(
+name|docId
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}
