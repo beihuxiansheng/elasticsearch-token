@@ -2941,7 +2941,7 @@ operator|.
 name|actionGet
 argument_list|()
 decl_stmt|;
-name|double
+name|Double
 name|resultDistance1
 init|=
 name|searchResponse1
@@ -3027,7 +3027,7 @@ operator|.
 name|actionGet
 argument_list|()
 decl_stmt|;
-name|double
+name|Double
 name|resultDistance2
 init|=
 name|searchResponse2
@@ -3113,7 +3113,7 @@ operator|.
 name|actionGet
 argument_list|()
 decl_stmt|;
-name|double
+name|Double
 name|resultArcDistance3
 init|=
 name|searchResponse3
@@ -3199,7 +3199,7 @@ operator|.
 name|actionGet
 argument_list|()
 decl_stmt|;
-name|double
+name|Double
 name|resultDistance4
 init|=
 name|searchResponse4
@@ -3291,7 +3291,7 @@ operator|.
 name|actionGet
 argument_list|()
 decl_stmt|;
-name|double
+name|Double
 name|resultArcDistance5
 init|=
 name|searchResponse5
@@ -3383,7 +3383,7 @@ operator|.
 name|actionGet
 argument_list|()
 decl_stmt|;
-name|double
+name|Double
 name|resultArcDistance6
 init|=
 name|searchResponse6
