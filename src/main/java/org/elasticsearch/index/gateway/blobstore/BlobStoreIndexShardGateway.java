@@ -3749,7 +3749,7 @@ try|try
 block|{
 if|if
 condition|(
-name|DirectoryReader
+name|Lucene
 operator|.
 name|indexExists
 argument_list|(

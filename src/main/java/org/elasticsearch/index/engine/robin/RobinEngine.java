@@ -54,6 +54,22 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|index
+operator|.
+name|SegmentInfos
+operator|.
+name|FindSegmentsFile
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|search
 operator|.
 name|IndexSearcher
@@ -113,6 +129,20 @@ operator|.
 name|store
 operator|.
 name|AlreadyClosedException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
+name|Directory
 import|;
 end_import
 
@@ -619,6 +649,16 @@ operator|.
 name|threadpool
 operator|.
 name|ThreadPool
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|FileNotFoundException
 import|;
 end_import
 
@@ -1775,7 +1815,7 @@ comment|// commit on a just opened writer will commit even if there are no chang
 comment|// we rely on that for the commit data translog id key
 if|if
 condition|(
-name|DirectoryReader
+name|Lucene
 operator|.
 name|indexExists
 argument_list|(
@@ -8101,7 +8141,7 @@ name|boolean
 name|create
 init|=
 operator|!
-name|DirectoryReader
+name|Lucene
 operator|.
 name|indexExists
 argument_list|(
