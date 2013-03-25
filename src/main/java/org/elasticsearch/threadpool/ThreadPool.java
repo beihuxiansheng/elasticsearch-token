@@ -1001,6 +1001,8 @@ name|Math
 operator|.
 name|min
 argument_list|(
+operator|(
+operator|(
 name|Runtime
 operator|.
 name|getRuntime
@@ -1008,8 +1010,12 @@ argument_list|()
 operator|.
 name|availableProcessors
 argument_list|()
+operator|+
+literal|1
+operator|)
 operator|/
 literal|2
+operator|)
 argument_list|,
 literal|5
 argument_list|)
