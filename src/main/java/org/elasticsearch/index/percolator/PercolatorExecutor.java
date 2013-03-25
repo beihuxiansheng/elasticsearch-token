@@ -2686,11 +2686,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|tokenStream
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
 name|memoryIndex
 operator|.
 name|addField
