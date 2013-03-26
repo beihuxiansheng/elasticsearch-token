@@ -54,7 +54,9 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|XSimpleRateLimiter
+name|RateLimiter
+operator|.
+name|SimpleRateLimiter
 import|;
 end_import
 
@@ -293,7 +295,7 @@ decl_stmt|;
 DECL|field|rateLimiter
 specifier|private
 specifier|volatile
-name|XSimpleRateLimiter
+name|SimpleRateLimiter
 name|rateLimiter
 decl_stmt|;
 annotation|@
@@ -488,7 +490,7 @@ block|{
 name|rateLimiter
 operator|=
 operator|new
-name|XSimpleRateLimiter
+name|SimpleRateLimiter
 argument_list|(
 name|maxSizePerSec
 operator|.
@@ -749,7 +751,7 @@ block|{
 name|rateLimiter
 operator|=
 operator|new
-name|XSimpleRateLimiter
+name|SimpleRateLimiter
 argument_list|(
 name|maxSizePerSec
 operator|.
