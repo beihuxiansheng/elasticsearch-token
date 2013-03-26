@@ -501,9 +501,9 @@ return|return
 operator|new
 name|HashedBytesValues
 operator|.
-name|StringBased
+name|BytesBased
 argument_list|(
-name|getStringValues
+name|getBytesValues
 argument_list|()
 argument_list|)
 return|;
@@ -1805,9 +1805,9 @@ return|return
 operator|new
 name|HashedBytesValues
 operator|.
-name|StringBased
+name|BytesBased
 argument_list|(
-name|getStringValues
+name|getBytesValues
 argument_list|()
 argument_list|)
 return|;
