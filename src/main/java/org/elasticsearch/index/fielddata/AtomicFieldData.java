@@ -61,9 +61,8 @@ name|BytesValues
 name|getBytesValues
 parameter_list|()
 function_decl|;
-comment|/**      * Use a non thread safe (lightweight) view of the values as bytes.      */
 DECL|method|getHashedBytesValues
-name|HashedBytesValues
+name|BytesValues
 name|getHashedBytesValues
 parameter_list|()
 function_decl|;
@@ -107,9 +106,8 @@ name|WithOrdinals
 name|getBytesValues
 parameter_list|()
 function_decl|;
-comment|/**          * Use a non thread safe (lightweight) view of the values as bytes.          */
 DECL|method|getHashedBytesValues
-name|HashedBytesValues
+name|BytesValues
 operator|.
 name|WithOrdinals
 name|getHashedBytesValues

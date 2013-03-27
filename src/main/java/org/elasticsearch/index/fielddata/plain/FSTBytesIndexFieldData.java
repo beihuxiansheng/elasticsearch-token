@@ -383,21 +383,21 @@ comment|/**  */
 end_comment
 
 begin_class
-DECL|class|FSTPackedIndexFieldData
+DECL|class|FSTBytesIndexFieldData
 specifier|public
 class|class
-name|FSTPackedIndexFieldData
+name|FSTBytesIndexFieldData
 extends|extends
 name|AbstractIndexFieldData
 argument_list|<
-name|FSTPackedBytesAtomicFieldData
+name|FSTBytesAtomicFieldData
 argument_list|>
 implements|implements
 name|IndexFieldData
 operator|.
 name|WithOrdinals
 argument_list|<
-name|FSTPackedBytesAtomicFieldData
+name|FSTBytesAtomicFieldData
 argument_list|>
 block|{
 DECL|class|Builder
@@ -439,7 +439,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|FSTPackedIndexFieldData
+name|FSTBytesIndexFieldData
 argument_list|(
 name|index
 argument_list|,
@@ -454,9 +454,9 @@ argument_list|)
 return|;
 block|}
 block|}
-DECL|method|FSTPackedIndexFieldData
+DECL|method|FSTBytesIndexFieldData
 specifier|public
-name|FSTPackedIndexFieldData
+name|FSTBytesIndexFieldData
 parameter_list|(
 name|Index
 name|index
@@ -508,7 +508,7 @@ annotation|@
 name|Override
 DECL|method|load
 specifier|public
-name|FSTPackedBytesAtomicFieldData
+name|FSTBytesAtomicFieldData
 name|load
 parameter_list|(
 name|AtomicReaderContext
@@ -569,7 +569,7 @@ annotation|@
 name|Override
 DECL|method|loadDirect
 specifier|public
-name|FSTPackedBytesAtomicFieldData
+name|FSTBytesAtomicFieldData
 name|loadDirect
 parameter_list|(
 name|AtomicReaderContext
@@ -608,7 +608,7 @@ literal|null
 condition|)
 block|{
 return|return
-name|FSTPackedBytesAtomicFieldData
+name|FSTBytesAtomicFieldData
 operator|.
 name|empty
 argument_list|(
@@ -854,7 +854,7 @@ argument_list|)
 decl_stmt|;
 return|return
 operator|new
-name|FSTPackedBytesAtomicFieldData
+name|FSTBytesAtomicFieldData
 argument_list|(
 name|fst
 argument_list|,

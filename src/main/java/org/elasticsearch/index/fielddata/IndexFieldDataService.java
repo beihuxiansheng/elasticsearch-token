@@ -485,7 +485,7 @@ literal|"fst"
 argument_list|)
 argument_list|,
 operator|new
-name|FSTPackedIndexFieldData
+name|FSTBytesIndexFieldData
 operator|.
 name|Builder
 argument_list|()
