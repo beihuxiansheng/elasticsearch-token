@@ -1167,9 +1167,6 @@ name|searchFilter
 init|=
 name|context
 operator|.
-name|mapperService
-argument_list|()
-operator|.
 name|searchFilter
 argument_list|(
 name|context
@@ -1192,15 +1189,7 @@ name|XFilteredQuery
 argument_list|(
 name|query
 argument_list|,
-name|context
-operator|.
-name|filterCache
-argument_list|()
-operator|.
-name|cache
-argument_list|(
 name|searchFilter
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
