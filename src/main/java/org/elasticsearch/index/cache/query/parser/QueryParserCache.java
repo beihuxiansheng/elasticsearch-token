@@ -77,7 +77,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * The main benefit of the query parser cache is to not parse the same query string on different shards.  * Less about long running query strings.  */
 end_comment
 
 begin_interface

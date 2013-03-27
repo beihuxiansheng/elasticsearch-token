@@ -332,6 +332,23 @@ name|useDisMax
 init|=
 literal|true
 decl_stmt|;
+DECL|method|isCacheable
+specifier|public
+name|boolean
+name|isCacheable
+parameter_list|()
+block|{
+comment|// a hack for now :) to determine if a query string is cacheable
+return|return
+operator|!
+name|queryString
+operator|.
+name|contains
+argument_list|(
+literal|"now"
+argument_list|)
+return|;
+block|}
 DECL|method|queryString
 specifier|public
 name|String

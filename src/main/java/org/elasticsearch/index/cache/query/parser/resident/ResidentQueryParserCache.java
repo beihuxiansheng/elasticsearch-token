@@ -389,6 +389,14 @@ name|Query
 name|query
 parameter_list|)
 block|{
+if|if
+condition|(
+name|queryString
+operator|.
+name|isCacheable
+argument_list|()
+condition|)
+block|{
 name|cache
 operator|.
 name|put
@@ -398,6 +406,7 @@ argument_list|,
 name|query
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
