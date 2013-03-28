@@ -159,6 +159,12 @@ specifier|final
 name|GeoDistance
 name|geoDistance
 decl_stmt|;
+DECL|field|sortMode
+specifier|private
+specifier|final
+name|SortMode
+name|sortMode
+decl_stmt|;
 DECL|method|GeoDistanceComparatorSource
 specifier|public
 name|GeoDistanceComparatorSource
@@ -180,6 +186,9 @@ name|unit
 parameter_list|,
 name|GeoDistance
 name|geoDistance
+parameter_list|,
+name|SortMode
+name|sortMode
 parameter_list|)
 block|{
 name|this
@@ -211,6 +220,12 @@ operator|.
 name|geoDistance
 operator|=
 name|geoDistance
+expr_stmt|;
+name|this
+operator|.
+name|sortMode
+operator|=
+name|sortMode
 expr_stmt|;
 block|}
 annotation|@
@@ -270,7 +285,6 @@ argument_list|(
 name|fieldname
 argument_list|)
 assert|;
-comment|// TODO support multi value?
 return|return
 operator|new
 name|GeoDistanceComparator
@@ -286,6 +300,8 @@ argument_list|,
 name|unit
 argument_list|,
 name|geoDistance
+argument_list|,
+name|sortMode
 argument_list|)
 return|;
 block|}
