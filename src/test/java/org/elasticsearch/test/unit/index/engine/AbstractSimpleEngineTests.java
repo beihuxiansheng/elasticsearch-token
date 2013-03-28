@@ -1454,7 +1454,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|committed
+name|isCommitted
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1472,7 +1472,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|search
+name|isSearch
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1490,7 +1490,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|numDocs
+name|getNumDocs
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1508,7 +1508,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|deletedDocs
+name|getDeletedDocs
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1557,7 +1557,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|committed
+name|isCommitted
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1575,7 +1575,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|search
+name|isSearch
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1593,7 +1593,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|numDocs
+name|getNumDocs
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1611,7 +1611,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|deletedDocs
+name|getDeletedDocs
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1713,7 +1713,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|generation
+name|getGeneration
 argument_list|()
 operator|<
 name|segments
@@ -1723,7 +1723,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|generation
+name|getGeneration
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1741,7 +1741,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|committed
+name|isCommitted
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1759,7 +1759,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|search
+name|isSearch
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1777,7 +1777,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|numDocs
+name|getNumDocs
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1795,7 +1795,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|deletedDocs
+name|getDeletedDocs
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1813,7 +1813,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|committed
+name|isCommitted
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1831,7 +1831,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|search
+name|isSearch
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1849,7 +1849,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|numDocs
+name|getNumDocs
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1867,7 +1867,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|deletedDocs
+name|getDeletedDocs
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1938,7 +1938,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|generation
+name|getGeneration
 argument_list|()
 operator|<
 name|segments
@@ -1948,7 +1948,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|generation
+name|getGeneration
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1966,7 +1966,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|committed
+name|isCommitted
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1984,7 +1984,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|search
+name|isSearch
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2002,7 +2002,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|numDocs
+name|getNumDocs
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2020,7 +2020,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|deletedDocs
+name|getDeletedDocs
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2038,7 +2038,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|committed
+name|isCommitted
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2056,7 +2056,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|search
+name|isSearch
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2074,7 +2074,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|numDocs
+name|getNumDocs
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2092,7 +2092,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|deletedDocs
+name|getDeletedDocs
 argument_list|()
 argument_list|,
 name|equalTo

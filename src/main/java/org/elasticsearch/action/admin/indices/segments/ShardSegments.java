@@ -304,7 +304,7 @@ if|if
 condition|(
 name|segment
 operator|.
-name|committed
+name|isCommitted
 argument_list|()
 condition|)
 block|{
@@ -340,7 +340,7 @@ if|if
 condition|(
 name|segment
 operator|.
-name|search
+name|isSearch
 argument_list|()
 condition|)
 block|{
