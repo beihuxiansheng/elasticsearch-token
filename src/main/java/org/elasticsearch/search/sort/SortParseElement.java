@@ -628,6 +628,16 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|ElasticSearchIllegalArgumentException
+argument_list|(
+literal|"malformed sort format, within the sort array, an object, or an actual string are allowed"
+argument_list|)
+throw|;
+block|}
 block|}
 block|}
 elseif|else
