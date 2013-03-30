@@ -66,12 +66,6 @@ name|BytesValues
 name|getHashedBytesValues
 parameter_list|()
 function_decl|;
-comment|/**      * Use a non thread safe (lightweight) view of the values as strings.      */
-DECL|method|getStringValues
-name|StringValues
-name|getStringValues
-parameter_list|()
-function_decl|;
 comment|/**      * Returns a "scripting" based values.      */
 DECL|method|getScriptValues
 name|Script
@@ -111,14 +105,6 @@ name|BytesValues
 operator|.
 name|WithOrdinals
 name|getHashedBytesValues
-parameter_list|()
-function_decl|;
-comment|/**          * Use a non thread safe (lightweight) view of the values as strings.          */
-DECL|method|getStringValues
-name|StringValues
-operator|.
-name|WithOrdinals
-name|getStringValues
 parameter_list|()
 function_decl|;
 block|}
