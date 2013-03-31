@@ -74,22 +74,6 @@ name|Docs
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|fielddata
-operator|.
-name|util
-operator|.
-name|BytesRefArrayRef
-import|;
-end_import
-
 begin_comment
 comment|/**  */
 end_comment
@@ -690,24 +674,6 @@ specifier|protected
 specifier|final
 name|Docs
 name|ordinals
-decl_stmt|;
-DECL|field|arrayScratch
-specifier|protected
-specifier|final
-name|BytesRefArrayRef
-name|arrayScratch
-init|=
-operator|new
-name|BytesRefArrayRef
-argument_list|(
-operator|new
-name|BytesRef
-index|[
-literal|10
-index|]
-argument_list|,
-literal|0
-argument_list|)
 decl_stmt|;
 DECL|method|WithOrdinals
 specifier|protected
