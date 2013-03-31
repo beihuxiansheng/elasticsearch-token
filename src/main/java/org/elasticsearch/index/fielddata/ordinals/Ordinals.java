@@ -22,15 +22,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
+name|apache
 operator|.
-name|index
-operator|.
-name|fielddata
+name|lucene
 operator|.
 name|util
 operator|.
-name|IntArrayRef
+name|IntsRef
 import|;
 end_import
 
@@ -138,7 +136,7 @@ parameter_list|)
 function_decl|;
 comment|/**          * Returns an array of ordinals matching the docIds, with 0 length one          * for a doc with no ordinals.          */
 DECL|method|getOrds
-name|IntArrayRef
+name|IntsRef
 name|getOrds
 parameter_list|(
 name|int

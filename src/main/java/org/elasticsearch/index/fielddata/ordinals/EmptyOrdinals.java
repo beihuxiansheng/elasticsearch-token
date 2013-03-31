@@ -22,15 +22,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
+name|apache
 operator|.
-name|index
-operator|.
-name|fielddata
+name|lucene
 operator|.
 name|util
 operator|.
-name|IntArrayRef
+name|IntsRef
 import|;
 end_import
 
@@ -185,6 +183,17 @@ specifier|final
 name|EmptyOrdinals
 name|parent
 decl_stmt|;
+DECL|field|EMPTY_INTS_REF
+specifier|public
+specifier|static
+specifier|final
+name|IntsRef
+name|EMPTY_INTS_REF
+init|=
+operator|new
+name|IntsRef
+argument_list|()
+decl_stmt|;
 DECL|method|Docs
 specifier|public
 name|Docs
@@ -282,7 +291,7 @@ annotation|@
 name|Override
 DECL|method|getOrds
 specifier|public
-name|IntArrayRef
+name|IntsRef
 name|getOrds
 parameter_list|(
 name|int
@@ -290,9 +299,7 @@ name|docId
 parameter_list|)
 block|{
 return|return
-name|IntArrayRef
-operator|.
-name|EMPTY
+name|EMPTY_INTS_REF
 return|;
 block|}
 annotation|@

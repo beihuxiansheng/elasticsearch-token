@@ -22,11 +22,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
+name|apache
 operator|.
-name|common
+name|lucene
 operator|.
-name|RamUsage
+name|util
+operator|.
+name|IntsRef
 import|;
 end_import
 
@@ -36,13 +38,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|common
 operator|.
-name|fielddata
-operator|.
-name|util
-operator|.
-name|IntArrayRef
+name|RamUsage
 import|;
 end_import
 
@@ -205,17 +203,21 @@ decl_stmt|;
 DECL|field|intsScratch
 specifier|private
 specifier|final
-name|IntArrayRef
+name|IntsRef
 name|intsScratch
 init|=
 operator|new
-name|IntArrayRef
+name|IntsRef
 argument_list|(
 operator|new
 name|int
 index|[
 literal|1
 index|]
+argument_list|,
+literal|0
+argument_list|,
+literal|1
 argument_list|)
 decl_stmt|;
 DECL|field|iter
@@ -333,7 +335,7 @@ annotation|@
 name|Override
 DECL|method|getOrds
 specifier|public
-name|IntArrayRef
+name|IntsRef
 name|getOrds
 parameter_list|(
 name|int
@@ -342,7 +344,7 @@ parameter_list|)
 block|{
 name|intsScratch
 operator|.
-name|values
+name|ints
 index|[
 literal|0
 index|]

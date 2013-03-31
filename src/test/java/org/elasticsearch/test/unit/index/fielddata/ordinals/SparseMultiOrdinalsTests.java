@@ -26,6 +26,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|IntsRef
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|ElasticSearchException
@@ -107,22 +121,6 @@ operator|.
 name|ordinals
 operator|.
 name|SparseMultiArrayOrdinals
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|fielddata
-operator|.
-name|util
-operator|.
-name|IntArrayRef
 import|;
 end_import
 
@@ -557,7 +555,7 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|IntArrayRef
+name|IntsRef
 name|ref
 init|=
 name|docs
@@ -571,7 +569,7 @@ name|assertThat
 argument_list|(
 name|ref
 operator|.
-name|start
+name|offset
 argument_list|,
 name|equalTo
 argument_list|(
@@ -598,7 +596,7 @@ name|assertThat
 argument_list|(
 name|ref
 operator|.
-name|values
+name|ints
 index|[
 name|i
 index|]
@@ -616,7 +614,7 @@ name|assertThat
 argument_list|(
 name|ref
 operator|.
-name|end
+name|length
 argument_list|,
 name|equalTo
 argument_list|(
@@ -653,7 +651,7 @@ name|assertThat
 argument_list|(
 name|ref
 operator|.
-name|start
+name|offset
 argument_list|,
 name|equalTo
 argument_list|(
@@ -680,7 +678,7 @@ name|assertThat
 argument_list|(
 name|ref
 operator|.
-name|values
+name|ints
 index|[
 name|i
 index|]
@@ -698,7 +696,7 @@ name|assertThat
 argument_list|(
 name|ref
 operator|.
-name|end
+name|length
 argument_list|,
 name|equalTo
 argument_list|(
@@ -735,7 +733,7 @@ name|assertThat
 argument_list|(
 name|ref
 operator|.
-name|start
+name|offset
 argument_list|,
 name|equalTo
 argument_list|(
@@ -747,7 +745,7 @@ name|assertThat
 argument_list|(
 name|ref
 operator|.
-name|values
+name|ints
 index|[
 literal|0
 index|]
@@ -762,7 +760,7 @@ name|assertThat
 argument_list|(
 name|ref
 operator|.
-name|end
+name|length
 argument_list|,
 name|equalTo
 argument_list|(
@@ -799,7 +797,7 @@ name|assertThat
 argument_list|(
 name|ref
 operator|.
-name|start
+name|offset
 argument_list|,
 name|equalTo
 argument_list|(
@@ -826,7 +824,7 @@ name|assertThat
 argument_list|(
 name|ref
 operator|.
-name|values
+name|ints
 index|[
 name|i
 index|]
@@ -844,7 +842,7 @@ name|assertThat
 argument_list|(
 name|ref
 operator|.
-name|end
+name|length
 argument_list|,
 name|equalTo
 argument_list|(
@@ -881,7 +879,7 @@ name|assertThat
 argument_list|(
 name|ref
 operator|.
-name|start
+name|offset
 argument_list|,
 name|equalTo
 argument_list|(
@@ -908,7 +906,7 @@ name|assertThat
 argument_list|(
 name|ref
 operator|.
-name|values
+name|ints
 index|[
 name|i
 index|]
@@ -926,7 +924,7 @@ name|assertThat
 argument_list|(
 name|ref
 operator|.
-name|end
+name|length
 argument_list|,
 name|equalTo
 argument_list|(
@@ -963,7 +961,7 @@ name|assertThat
 argument_list|(
 name|ref
 operator|.
-name|start
+name|offset
 argument_list|,
 name|equalTo
 argument_list|(
@@ -975,7 +973,7 @@ name|assertThat
 argument_list|(
 name|ref
 operator|.
-name|values
+name|ints
 index|[
 literal|0
 index|]
@@ -990,7 +988,7 @@ name|assertThat
 argument_list|(
 name|ref
 operator|.
-name|end
+name|length
 argument_list|,
 name|equalTo
 argument_list|(
@@ -1027,7 +1025,7 @@ name|assertThat
 argument_list|(
 name|ref
 operator|.
-name|start
+name|offset
 argument_list|,
 name|equalTo
 argument_list|(
@@ -1054,7 +1052,7 @@ name|assertThat
 argument_list|(
 name|ref
 operator|.
-name|values
+name|ints
 index|[
 name|i
 index|]
@@ -1072,7 +1070,7 @@ name|assertThat
 argument_list|(
 name|ref
 operator|.
-name|end
+name|length
 argument_list|,
 name|equalTo
 argument_list|(
