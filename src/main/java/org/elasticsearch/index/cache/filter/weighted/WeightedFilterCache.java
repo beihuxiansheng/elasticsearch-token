@@ -1033,15 +1033,24 @@ condition|(
 name|previous
 operator|==
 literal|null
-operator|&&
-operator|(
+condition|)
+block|{
+name|cache
+operator|.
+name|seenReadersCount
+operator|.
+name|inc
+argument_list|()
+expr_stmt|;
+comment|// we add a core closed listener only, for non core IndexReaders we rely on clear being called (percolator for example)
+if|if
+condition|(
 name|context
 operator|.
 name|reader
 argument_list|()
 operator|instanceof
 name|SegmentReader
-operator|)
 condition|)
 block|{
 operator|(
@@ -1059,13 +1068,7 @@ argument_list|(
 name|cache
 argument_list|)
 expr_stmt|;
-name|cache
-operator|.
-name|seenReadersCount
-operator|.
-name|inc
-argument_list|()
-expr_stmt|;
+block|}
 block|}
 block|}
 comment|// we can't pass down acceptedDocs provided, because we are caching the result, and acceptedDocs
