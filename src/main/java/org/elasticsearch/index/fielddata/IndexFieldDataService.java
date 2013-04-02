@@ -1193,6 +1193,8 @@ block|}
 name|IndexFieldDataCache
 name|cache
 decl_stmt|;
+comment|//  we default to node level cache, which in turn defaults to be unbounded
+comment|// this means changing the node level settings is simple, just set the bounds there
 name|String
 name|cacheType
 init|=
@@ -1211,7 +1213,7 @@ name|get
 argument_list|(
 literal|"index.fielddata.cache"
 argument_list|,
-literal|"resident"
+literal|"node"
 argument_list|)
 argument_list|)
 decl_stmt|;
