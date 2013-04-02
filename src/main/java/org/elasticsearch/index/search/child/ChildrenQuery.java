@@ -196,22 +196,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|NoopCollector
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|index
 operator|.
 name|cache
@@ -1790,7 +1774,7 @@ default|default:
 assert|assert
 literal|false
 operator|:
-literal|"Are we missing a sore type here? -- "
+literal|"Are we missing a score type here? -- "
 operator|+
 name|scoreType
 assert|;
