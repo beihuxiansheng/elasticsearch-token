@@ -1187,6 +1187,9 @@ operator|+
 literal|", and type "
 operator|+
 name|type
+operator|.
+name|getType
+argument_list|()
 argument_list|)
 throw|;
 block|}
