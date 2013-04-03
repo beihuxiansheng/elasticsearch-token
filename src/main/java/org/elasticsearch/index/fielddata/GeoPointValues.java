@@ -325,13 +325,9 @@ name|int
 name|docId
 parameter_list|)
 block|{
-throw|throw
-operator|new
-name|ElasticSearchIllegalStateException
-argument_list|(
-literal|"Can't retrieve a value from an empty GeoPointValues"
-argument_list|)
-throw|;
+return|return
+literal|null
+return|;
 block|}
 annotation|@
 name|Override
