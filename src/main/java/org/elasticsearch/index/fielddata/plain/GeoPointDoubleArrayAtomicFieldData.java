@@ -142,6 +142,9 @@ class|class
 name|GeoPointDoubleArrayAtomicFieldData
 extends|extends
 name|AtomicGeoPointFieldData
+argument_list|<
+name|ScriptDocValues
+argument_list|>
 block|{
 DECL|field|EMPTY
 specifier|public
