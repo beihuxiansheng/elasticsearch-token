@@ -290,7 +290,7 @@ argument_list|()
 operator|.
 name|setTimeout
 argument_list|(
-literal|"1s"
+literal|"10s"
 argument_list|)
 operator|.
 name|execute
@@ -417,7 +417,7 @@ argument_list|()
 operator|.
 name|setTimeout
 argument_list|(
-literal|"1s"
+literal|"10s"
 argument_list|)
 operator|.
 name|execute
