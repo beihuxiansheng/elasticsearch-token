@@ -1389,6 +1389,8 @@ argument_list|(
 literal|"enabled"
 argument_list|,
 name|enabledState
+operator|.
+name|enabled
 argument_list|)
 expr_stmt|;
 block|}
