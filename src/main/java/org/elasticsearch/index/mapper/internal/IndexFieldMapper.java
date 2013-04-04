@@ -1073,6 +1073,10 @@ name|FIELD_TYPE
 operator|.
 name|stored
 argument_list|()
+operator|&&
+name|enabledState
+operator|.
+name|enabled
 condition|)
 block|{
 name|builder

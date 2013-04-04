@@ -1367,6 +1367,10 @@ operator|!=
 name|Defaults
 operator|.
 name|DEFAULT
+operator|&&
+name|enabledState
+operator|.
+name|enabled
 condition|)
 block|{
 name|builder
