@@ -71,7 +71,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Utility class for working with Strings that have placeholder values in them. A placeholder takes the form  *<tt>${name}</tt>. Using<tt>PropertyPlaceholder</tt> these placeholders can be substituted for  * user-supplied values.  *<p/>  *<p> Values for substitution can be supplied using a {@link Properties} instance or using a  * {@link PlaceholderResolver}.  *  *  */
+comment|/**  * Utility class for working with Strings that have placeholder values in them. A placeholder takes the form  *<tt>${name}</tt>. Using<tt>PropertyPlaceholder</tt> these placeholders can be substituted for  * user-supplied values.  *<p/>  *<p> Values for substitution can be supplied using a {@link Properties} instance or using a  * {@link PlaceholderResolver}.  */
 end_comment
 
 begin_class
@@ -171,59 +171,6 @@ name|ignoreUnresolvablePlaceholders
 operator|=
 name|ignoreUnresolvablePlaceholders
 expr_stmt|;
-block|}
-comment|/**      * Replaces all placeholders of format<code>${name}</code> with the corresponding property from the supplied {@link      * Properties}.      *      * @param value      the value containing the placeholders to be replaced.      * @param properties the<code>Properties</code> to use for replacement.      * @return the supplied value with placeholders replaced inline.      */
-DECL|method|replacePlaceholders
-specifier|public
-name|String
-name|replacePlaceholders
-parameter_list|(
-name|String
-name|value
-parameter_list|,
-specifier|final
-name|Properties
-name|properties
-parameter_list|)
-block|{
-name|Preconditions
-operator|.
-name|checkNotNull
-argument_list|(
-name|properties
-argument_list|,
-literal|"Argument 'properties' must not be null."
-argument_list|)
-expr_stmt|;
-return|return
-name|replacePlaceholders
-argument_list|(
-name|value
-argument_list|,
-operator|new
-name|PlaceholderResolver
-argument_list|()
-block|{
-specifier|public
-name|String
-name|resolvePlaceholder
-parameter_list|(
-name|String
-name|placeholderName
-parameter_list|)
-block|{
-return|return
-name|properties
-operator|.
-name|getProperty
-argument_list|(
-name|placeholderName
-argument_list|)
-return|;
-block|}
-block|}
-argument_list|)
-return|;
 block|}
 comment|/**      * Replaces all placeholders of format<code>${name}</code> with the value returned from the supplied {@link      * PlaceholderResolver}.      *      * @param value               the value containing the placeholders to be replaced.      * @param placeholderResolver the<code>PlaceholderResolver</code> to use for replacement.      * @return the supplied value with placeholders replaced inline.      */
 DECL|method|replacePlaceholders
@@ -449,6 +396,25 @@ block|{
 name|propVal
 operator|=
 name|defaultValue
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|propVal
+operator|==
+literal|null
+operator|&&
+name|placeholderResolver
+operator|.
+name|shouldIgnoreMissing
+argument_list|(
+name|placeholder
+argument_list|)
+condition|)
+block|{
+name|propVal
+operator|=
+literal|""
 expr_stmt|;
 block|}
 if|if
@@ -717,6 +683,14 @@ comment|/**          * Resolves the supplied placeholder name into the replaceme
 DECL|method|resolvePlaceholder
 name|String
 name|resolvePlaceholder
+parameter_list|(
+name|String
+name|placeholderName
+parameter_list|)
+function_decl|;
+DECL|method|shouldIgnoreMissing
+name|boolean
+name|shouldIgnoreMissing
 parameter_list|(
 name|String
 name|placeholderName
