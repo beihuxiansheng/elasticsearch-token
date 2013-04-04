@@ -698,7 +698,7 @@ parameter_list|(
 name|ShardRouting
 name|shardRouting
 parameter_list|,
-name|Exception
+name|Throwable
 name|e
 parameter_list|)
 block|{
@@ -742,7 +742,7 @@ parameter_list|(
 annotation|@
 name|Nullable
 specifier|final
-name|Exception
+name|Throwable
 name|lastException
 parameter_list|)
 block|{
@@ -762,7 +762,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|Exception
+name|Throwable
 name|failure
 init|=
 name|lastException
@@ -903,7 +903,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|Throwable
 name|e
 parameter_list|)
 block|{
@@ -948,7 +948,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|Throwable
 name|e
 parameter_list|)
 block|{
@@ -1178,7 +1178,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|Throwable
 name|e
 parameter_list|)
 block|{

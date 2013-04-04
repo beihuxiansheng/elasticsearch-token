@@ -81,6 +81,7 @@ end_import
 begin_class
 DECL|class|SlicedLongList
 specifier|public
+specifier|final
 class|class
 name|SlicedLongList
 extends|extends
