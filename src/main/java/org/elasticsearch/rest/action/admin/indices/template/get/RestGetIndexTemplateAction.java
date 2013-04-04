@@ -406,10 +406,8 @@ literal|"name"
 argument_list|)
 argument_list|)
 operator|.
-name|filteredIndices
-argument_list|(
-literal|"_na"
-argument_list|)
+name|filterOutIndices
+argument_list|()
 decl_stmt|;
 name|clusterStateRequest
 operator|.
