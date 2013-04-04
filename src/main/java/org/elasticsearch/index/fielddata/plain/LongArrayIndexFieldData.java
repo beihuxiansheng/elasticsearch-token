@@ -745,6 +745,8 @@ name|build
 argument_list|(
 name|reader
 argument_list|,
+name|fieldDataType
+argument_list|,
 name|builder
 argument_list|,
 name|build
@@ -865,6 +867,8 @@ operator|.
 name|build
 argument_list|(
 name|reader
+argument_list|,
+name|fieldDataType
 argument_list|,
 name|builder
 argument_list|,
@@ -987,6 +991,8 @@ name|build
 argument_list|(
 name|reader
 argument_list|,
+name|fieldDataType
+argument_list|,
 name|builder
 argument_list|,
 name|build
@@ -1093,6 +1099,13 @@ name|build
 operator|.
 name|isMultiValued
 argument_list|()
+operator|&&
+name|CommonSettings
+operator|.
+name|removeOrdsOnSingleValue
+argument_list|(
+name|fieldDataType
+argument_list|)
 condition|)
 block|{
 name|Docs

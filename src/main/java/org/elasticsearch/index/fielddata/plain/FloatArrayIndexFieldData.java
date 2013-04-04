@@ -664,6 +664,13 @@ name|build
 operator|.
 name|isMultiValued
 argument_list|()
+operator|&&
+name|CommonSettings
+operator|.
+name|removeOrdsOnSingleValue
+argument_list|(
+name|fieldDataType
+argument_list|)
 condition|)
 block|{
 name|Docs
