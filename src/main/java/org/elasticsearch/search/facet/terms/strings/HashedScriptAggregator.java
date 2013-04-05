@@ -286,11 +286,11 @@ operator|.
 name|convert
 operator|=
 name|script
-operator|==
+operator|!=
 literal|null
 operator|||
 name|matcher
-operator|==
+operator|!=
 literal|null
 expr_stmt|;
 block|}
@@ -345,7 +345,6 @@ argument_list|,
 name|spare
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|matcher
@@ -353,6 +352,11 @@ operator|!=
 literal|null
 condition|)
 block|{
+assert|assert
+name|convert
+operator|:
+literal|"regexp: [convert == false] but should be true"
+assert|;
 assert|assert
 name|value
 operator|.
@@ -366,6 +370,8 @@ operator|.
 name|toString
 argument_list|()
 argument_list|)
+operator|:
+literal|"not converted"
 assert|;
 if|if
 condition|(
@@ -392,6 +398,11 @@ literal|null
 condition|)
 block|{
 assert|assert
+name|convert
+operator|:
+literal|"script: [convert == false] but should be true"
+assert|;
+assert|assert
 name|value
 operator|.
 name|utf8ToString
@@ -404,6 +415,8 @@ operator|.
 name|toString
 argument_list|()
 argument_list|)
+operator|:
+literal|"not converted"
 assert|;
 name|script
 operator|.
@@ -500,6 +513,20 @@ expr_stmt|;
 return|return;
 block|}
 block|}
+block|}
+assert|assert
+name|convert
+operator|||
+operator|(
+name|matcher
+operator|==
+literal|null
+operator|&&
+name|script
+operator|==
+literal|null
+operator|)
+assert|;
 name|super
 operator|.
 name|onValue
