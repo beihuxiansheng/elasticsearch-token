@@ -497,10 +497,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|getByOrd
+DECL|method|getValueByOrd
 specifier|public
 name|long
-name|getByOrd
+name|getValueByOrd
 parameter_list|(
 name|int
 name|ord
@@ -565,10 +565,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|getByOrd
-specifier|protected
+DECL|method|getValueByOrd
+specifier|public
 name|double
-name|getByOrd
+name|getValueByOrd
 parameter_list|(
 name|int
 name|ord

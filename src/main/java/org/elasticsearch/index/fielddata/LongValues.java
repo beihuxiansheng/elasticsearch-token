@@ -436,7 +436,7 @@ name|docId
 parameter_list|)
 block|{
 return|return
-name|getByOrd
+name|getValueByOrd
 argument_list|(
 name|ordinals
 operator|.
@@ -447,11 +447,11 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-DECL|method|getByOrd
-specifier|protected
+DECL|method|getValueByOrd
+specifier|public
 specifier|abstract
 name|long
-name|getByOrd
+name|getValueByOrd
 parameter_list|(
 name|int
 name|ord
@@ -523,7 +523,7 @@ block|}
 else|else
 block|{
 return|return
-name|getByOrd
+name|getValueByOrd
 argument_list|(
 name|ord
 argument_list|)
@@ -779,7 +779,7 @@ name|value
 init|=
 name|values
 operator|.
-name|getByOrd
+name|getValueByOrd
 argument_list|(
 name|ord
 argument_list|)
