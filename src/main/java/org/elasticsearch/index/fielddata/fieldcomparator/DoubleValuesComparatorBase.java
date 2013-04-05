@@ -355,7 +355,7 @@ name|MultiValueWrapper
 extends|extends
 name|DoubleValues
 operator|.
-name|FilteredDoubleValues
+name|Filtered
 block|{
 DECL|field|sortMode
 specifier|private

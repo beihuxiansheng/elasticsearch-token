@@ -354,7 +354,7 @@ name|MultiValueWrapper
 extends|extends
 name|LongValues
 operator|.
-name|FilteredLongValues
+name|Filtered
 block|{
 DECL|field|sortMode
 specifier|private
