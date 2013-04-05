@@ -503,6 +503,8 @@ name|String
 name|facetName
 parameter_list|)
 block|{
+try|try
+block|{
 return|return
 name|HashedAggregator
 operator|.
@@ -521,6 +523,15 @@ argument_list|,
 name|aggregator
 argument_list|)
 return|;
+block|}
+finally|finally
+block|{
+name|aggregator
+operator|.
+name|release
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 DECL|class|Collector
 class|class

@@ -418,6 +418,8 @@ name|String
 name|facetName
 parameter_list|)
 block|{
+try|try
+block|{
 return|return
 name|HashedAggregator
 operator|.
@@ -436,6 +438,15 @@ argument_list|,
 name|aggregator
 argument_list|)
 return|;
+block|}
+finally|finally
+block|{
+name|aggregator
+operator|.
+name|release
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 DECL|class|Collector
 specifier|final
@@ -734,6 +745,8 @@ name|value
 operator|.
 name|hashCode
 argument_list|()
+argument_list|,
+name|values
 argument_list|)
 expr_stmt|;
 block|}
@@ -823,6 +836,8 @@ name|iter
 operator|.
 name|hash
 argument_list|()
+argument_list|,
+name|values
 argument_list|)
 expr_stmt|;
 block|}
@@ -884,6 +899,8 @@ argument_list|(
 name|spare
 argument_list|,
 name|hash
+argument_list|,
+name|values
 argument_list|)
 expr_stmt|;
 block|}

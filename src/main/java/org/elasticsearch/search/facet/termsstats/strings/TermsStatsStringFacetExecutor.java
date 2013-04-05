@@ -831,6 +831,11 @@ name|aggregator
 operator|.
 name|missing
 expr_stmt|;
+name|aggregator
+operator|.
+name|release
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 DECL|class|Aggregator

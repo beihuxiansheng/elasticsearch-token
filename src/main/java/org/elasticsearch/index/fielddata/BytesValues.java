@@ -441,7 +441,7 @@ implements|implements
 name|Iter
 block|{
 DECL|field|innerOrd
-specifier|private
+specifier|protected
 name|int
 name|innerOrd
 decl_stmt|;
@@ -451,14 +451,14 @@ name|int
 name|ord
 decl_stmt|;
 DECL|field|withOrds
-specifier|private
+specifier|protected
 name|BytesValues
 operator|.
 name|WithOrdinals
 name|withOrds
 decl_stmt|;
 DECL|field|ordsIter
-specifier|private
+specifier|protected
 name|Ordinals
 operator|.
 name|Docs
@@ -467,7 +467,7 @@ name|Iter
 name|ordsIter
 decl_stmt|;
 DECL|field|scratch
-specifier|private
+specifier|protected
 specifier|final
 name|BytesRef
 name|scratch
