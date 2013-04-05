@@ -2325,6 +2325,8 @@ operator|.
 name|NO_DOC
 condition|)
 block|{
+comment|// note, we don't release the searcher here, since it will be released as part of the external
+comment|// API usage, since it still needs it to load data...
 return|return
 operator|new
 name|GetResult
@@ -2343,6 +2345,11 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+name|searcher
+operator|.
+name|release
+argument_list|()
+expr_stmt|;
 comment|//TODO: A better exception goes here
 throw|throw
 operator|new
@@ -2357,14 +2364,11 @@ name|e
 argument_list|)
 throw|;
 block|}
-finally|finally
-block|{
 name|searcher
 operator|.
 name|release
 argument_list|()
 expr_stmt|;
-block|}
 return|return
 name|GetResult
 operator|.
