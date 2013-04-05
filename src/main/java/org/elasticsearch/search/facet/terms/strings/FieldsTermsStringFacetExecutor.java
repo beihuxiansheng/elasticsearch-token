@@ -22,33 +22,15 @@ end_package
 
 begin_import
 import|import
-name|java
+name|com
 operator|.
-name|io
+name|google
 operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
+name|common
 operator|.
-name|util
+name|collect
 operator|.
-name|Arrays
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|regex
-operator|.
-name|Pattern
+name|ImmutableSet
 import|;
 end_import
 
@@ -91,20 +73,6 @@ operator|.
 name|util
 operator|.
 name|BytesRef
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|BoundedTreeSet
 import|;
 end_import
 
@@ -212,44 +180,6 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|facet
-operator|.
-name|terms
-operator|.
-name|strings
-operator|.
-name|HashedAggregator
-operator|.
-name|BytesRefCountIterator
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|facet
-operator|.
-name|terms
-operator|.
-name|support
-operator|.
-name|EntryPriorityQueue
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
 name|internal
 operator|.
 name|SearchContext
@@ -258,29 +188,23 @@ end_import
 
 begin_import
 import|import
-name|com
+name|java
 operator|.
-name|google
+name|io
 operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableList
+name|IOException
 import|;
 end_import
 
 begin_import
 import|import
-name|com
+name|java
 operator|.
-name|google
+name|util
 operator|.
-name|common
+name|regex
 operator|.
-name|collect
-operator|.
-name|ImmutableSet
+name|Pattern
 import|;
 end_import
 
@@ -513,19 +437,44 @@ name|script
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO: we need to support this flag with the new field data...
-comment|//        if (allTerms) {
-comment|//            try {
-comment|//                for (int i = 0; i< fieldsNames.length; i++) {
-comment|//                    for (AtomicReaderContext readerContext : context.searcher().getTopReaderContext().leaves()) {
-comment|//                        FieldData fieldData = fieldDataCache.cache(fieldsDataType[i], readerContext.reader(), indexFieldsNames[i]);
-comment|//                        fieldData.forEachValue(aggregator);
-comment|//                    }
-comment|//                }
-comment|//            } catch (Exception e) {
-comment|//                throw new FacetPhaseExecutionException(facetName, "failed to load all terms", e);
-comment|//            }
-comment|//        }
+if|if
+condition|(
+name|allTerms
+condition|)
+block|{
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+name|fieldsNames
+operator|.
+name|length
+condition|;
+name|i
+operator|++
+control|)
+block|{
+name|TermsStringFacetExecutor
+operator|.
+name|loadAllTerms
+argument_list|(
+name|context
+argument_list|,
+name|indexFieldDatas
+index|[
+name|i
+index|]
+argument_list|,
+name|aggregator
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 annotation|@
 name|Override
