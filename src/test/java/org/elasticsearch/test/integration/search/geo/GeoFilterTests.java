@@ -476,6 +476,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|integration
+operator|.
+name|AbstractSharedClusterTest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|lucene
@@ -586,6 +600,18 @@ name|testng
 operator|.
 name|annotations
 operator|.
+name|BeforeTest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|testng
+operator|.
+name|annotations
+operator|.
 name|Test
 import|;
 end_import
@@ -684,13 +710,8 @@ specifier|public
 class|class
 name|GeoFilterTests
 extends|extends
-name|AbstractNodesTests
+name|AbstractSharedClusterTest
 block|{
-DECL|field|client
-specifier|private
-name|Client
-name|client
-decl_stmt|;
 DECL|field|intersectSupport
 specifier|private
 name|boolean
@@ -707,7 +728,7 @@ name|boolean
 name|withinSupport
 decl_stmt|;
 annotation|@
-name|BeforeClass
+name|BeforeTest
 DECL|method|createNodes
 specifier|public
 name|void
@@ -716,14 +737,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|startNode
+name|cluster
+argument_list|()
+operator|.
+name|ensureAtLeastNumNodes
 argument_list|(
-literal|"server1"
-argument_list|)
-expr_stmt|;
-name|startNode
-argument_list|(
-literal|"server2"
+literal|2
 argument_list|)
 expr_stmt|;
 name|intersectSupport
@@ -752,11 +771,6 @@ name|SpatialOperation
 operator|.
 name|IsWithin
 argument_list|)
-expr_stmt|;
-name|client
-operator|=
-name|getClient
-argument_list|()
 expr_stmt|;
 block|}
 DECL|method|unZipData
@@ -843,36 +857,6 @@ name|out
 operator|.
 name|toByteArray
 argument_list|()
-return|;
-block|}
-annotation|@
-name|AfterClass
-DECL|method|closeNodes
-specifier|public
-name|void
-name|closeNodes
-parameter_list|()
-block|{
-name|client
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-name|closeAllNodes
-argument_list|()
-expr_stmt|;
-block|}
-DECL|method|getClient
-specifier|protected
-name|Client
-name|getClient
-parameter_list|()
-block|{
-return|return
-name|client
-argument_list|(
-literal|"server1"
-argument_list|)
 return|;
 block|}
 annotation|@
@@ -1584,6 +1568,7 @@ name|CreateIndexRequestBuilder
 name|mappingRequest
 init|=
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1612,6 +1597,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1786,6 +1772,7 @@ name|bytes
 argument_list|()
 decl_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -1808,6 +1795,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1829,6 +1817,7 @@ name|SearchResponse
 name|result
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -1885,6 +1874,7 @@ comment|// Point in polygon hole
 name|result
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -1934,6 +1924,7 @@ comment|// Point on polygon border
 name|result
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -1990,6 +1981,7 @@ comment|// Point on hole border
 name|result
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -2051,6 +2043,7 @@ comment|// Point not in polygon
 name|result
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -2097,6 +2090,7 @@ comment|// Point in polygon hole
 name|result
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -2254,6 +2248,7 @@ name|bytes
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -2276,6 +2271,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2296,6 +2292,7 @@ comment|// re-check point on polygon hole
 name|result
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -2481,6 +2478,7 @@ expr_stmt|;
 name|result
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -2527,8 +2525,8 @@ comment|//            .point(170, -10).point(180, 10).point(170, -10).point(10, 
 comment|//            .close();
 comment|//
 comment|//        data = builder.toXContent("area", jsonBuilder().startObject()).endObject().bytes();
-comment|//        client.prepareIndex("shapes", "polygon", "1").setSource(data).execute().actionGet();
-comment|//        client.admin().indices().prepareRefresh().execute().actionGet();
+comment|//        client().prepareIndex("shapes", "polygon", "1").setSource(data).execute().actionGet();
+comment|//        client().admin().indices().prepareRefresh().execute().actionGet();
 block|}
 annotation|@
 name|Test
@@ -2641,6 +2639,7 @@ name|string
 argument_list|()
 decl_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2670,6 +2669,7 @@ name|BulkResponse
 name|bulk
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareBulk
 argument_list|()
@@ -2719,6 +2719,7 @@ literal|"unable to index data"
 assert|;
 block|}
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2744,6 +2745,7 @@ name|SearchResponse
 name|searchResponse
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -2800,6 +2802,7 @@ name|SearchResponse
 name|world
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -2856,6 +2859,7 @@ name|SearchResponse
 name|distance
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()

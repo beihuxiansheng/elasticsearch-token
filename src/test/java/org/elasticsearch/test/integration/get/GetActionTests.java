@@ -116,18 +116,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|client
-operator|.
-name|Client
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|Base64
@@ -212,31 +200,7 @@ name|test
 operator|.
 name|integration
 operator|.
-name|AbstractNodesTests
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|testng
-operator|.
-name|annotations
-operator|.
-name|AfterClass
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|testng
-operator|.
-name|annotations
-operator|.
-name|BeforeClass
+name|AbstractSharedClusterTest
 import|;
 end_import
 
@@ -312,56 +276,8 @@ specifier|public
 class|class
 name|GetActionTests
 extends|extends
-name|AbstractNodesTests
+name|AbstractSharedClusterTest
 block|{
-DECL|field|client
-specifier|protected
-name|Client
-name|client
-decl_stmt|;
-annotation|@
-name|BeforeClass
-DECL|method|startNodes
-specifier|public
-name|void
-name|startNodes
-parameter_list|()
-block|{
-name|startNode
-argument_list|(
-literal|"node1"
-argument_list|)
-expr_stmt|;
-name|startNode
-argument_list|(
-literal|"node2"
-argument_list|)
-expr_stmt|;
-name|client
-operator|=
-name|client
-argument_list|(
-literal|"node1"
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|AfterClass
-DECL|method|closeNodes
-specifier|public
-name|void
-name|closeNodes
-parameter_list|()
-block|{
-name|client
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-name|closeAllNodes
-argument_list|()
-expr_stmt|;
-block|}
 annotation|@
 name|Test
 DECL|method|simpleGetTests
@@ -371,23 +287,7 @@ name|simpleGetTests
 parameter_list|()
 block|{
 name|client
-operator|.
-name|admin
 argument_list|()
-operator|.
-name|indices
-argument_list|()
-operator|.
-name|prepareDelete
-argument_list|()
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
-expr_stmt|;
-name|client
 operator|.
 name|admin
 argument_list|()
@@ -426,6 +326,7 @@ name|ClusterHealthResponse
 name|clusterHealth
 init|=
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -477,6 +378,7 @@ name|GetResponse
 name|response
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -514,6 +416,7 @@ literal|"--> index doc 1"
 argument_list|)
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -551,6 +454,7 @@ expr_stmt|;
 name|response
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -632,6 +536,7 @@ expr_stmt|;
 name|response
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -689,6 +594,7 @@ expr_stmt|;
 name|response
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -770,6 +676,7 @@ expr_stmt|;
 name|response
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -814,6 +721,7 @@ expr_stmt|;
 name|response
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -906,6 +814,7 @@ literal|"--> flush the index, so we load it from it"
 argument_list|)
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -932,6 +841,7 @@ expr_stmt|;
 name|response
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -1013,6 +923,7 @@ expr_stmt|;
 name|response
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -1099,6 +1010,7 @@ expr_stmt|;
 name|response
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -1191,6 +1103,7 @@ literal|"--> update doc 1"
 argument_list|)
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -1228,6 +1141,7 @@ expr_stmt|;
 name|response
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -1307,6 +1221,7 @@ literal|"--> update doc 1 again"
 argument_list|)
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -1337,6 +1252,7 @@ expr_stmt|;
 name|response
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -1412,6 +1328,7 @@ name|DeleteResponse
 name|deleteResponse
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareDelete
 argument_list|(
@@ -1444,6 +1361,7 @@ expr_stmt|;
 name|response
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -1487,6 +1405,7 @@ block|{
 try|try
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1515,6 +1434,7 @@ block|{
 comment|// fine
 block|}
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1553,6 +1473,7 @@ name|ClusterHealthResponse
 name|clusterHealth
 init|=
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1604,6 +1525,7 @@ name|MultiGetResponse
 name|response
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareMultiGet
 argument_list|()
@@ -1676,6 +1598,7 @@ operator|++
 control|)
 block|{
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -1710,6 +1633,7 @@ block|}
 name|response
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareMultiGet
 argument_list|()
@@ -2019,6 +1943,7 @@ comment|// multi get with specific field
 name|response
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareMultiGet
 argument_list|()
@@ -2151,6 +2076,7 @@ throws|throws
 name|Exception
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2168,6 +2094,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2243,6 +2170,7 @@ name|ClusterHealthResponse
 name|clusterHealth
 init|=
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2332,6 +2260,7 @@ name|toString
 argument_list|()
 decl_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -2360,6 +2289,7 @@ name|GetResponse
 name|getResponse
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -2422,6 +2352,7 @@ throws|throws
 name|Exception
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2439,6 +2370,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2691,6 +2623,7 @@ name|ClusterHealthResponse
 name|clusterHealth
 init|=
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2739,6 +2672,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -2844,6 +2778,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -2960,6 +2895,7 @@ name|GetResponse
 name|getResponse
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -3150,6 +3086,7 @@ expr_stmt|;
 name|getResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -3354,6 +3291,7 @@ literal|"--> flush the index, so we load it from it"
 argument_list|)
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -3380,6 +3318,7 @@ expr_stmt|;
 name|getResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -3570,6 +3509,7 @@ expr_stmt|;
 name|getResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -3780,6 +3720,7 @@ block|{
 try|try
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -3933,6 +3874,7 @@ name|string
 argument_list|()
 decl_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -3985,6 +3927,7 @@ name|ClusterHealthResponse
 name|clusterHealth
 init|=
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -4036,6 +3979,7 @@ name|GetResponse
 name|response
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -4068,6 +4012,7 @@ expr_stmt|;
 name|response
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -4098,6 +4043,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -4136,6 +4082,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -4176,6 +4123,7 @@ expr_stmt|;
 name|response
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -4337,6 +4285,7 @@ expr_stmt|;
 name|response
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -4497,6 +4446,7 @@ argument_list|)
 expr_stmt|;
 comment|// Now test values being fetched from stored fields.
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -4518,6 +4468,7 @@ expr_stmt|;
 name|response
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -4666,6 +4617,7 @@ expr_stmt|;
 name|response
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -4823,6 +4775,7 @@ throws|throws
 name|Exception
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -4888,6 +4841,7 @@ name|string
 argument_list|()
 decl_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -4930,6 +4884,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -4978,6 +4933,7 @@ name|GetResponse
 name|responseBeforeFlush
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -4995,6 +4951,7 @@ name|actionGet
 argument_list|()
 decl_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5017,6 +4974,7 @@ name|GetResponse
 name|responseAfterFlush
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -5116,6 +5074,7 @@ throws|throws
 name|Exception
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5181,6 +5140,7 @@ name|string
 argument_list|()
 decl_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5223,6 +5183,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -5271,6 +5232,7 @@ name|GetResponse
 name|responseBeforeFlush
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -5288,6 +5250,7 @@ name|actionGet
 argument_list|()
 decl_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5310,6 +5273,7 @@ name|GetResponse
 name|responseAfterFlush
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -5409,6 +5373,7 @@ throws|throws
 name|Exception
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5481,6 +5446,7 @@ name|string
 argument_list|()
 decl_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5523,6 +5489,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -5578,6 +5545,7 @@ name|GetResponse
 name|responseBeforeFlush
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -5604,6 +5572,7 @@ name|actionGet
 argument_list|()
 decl_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5626,6 +5595,7 @@ name|GetResponse
 name|responseAfterFlush
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(

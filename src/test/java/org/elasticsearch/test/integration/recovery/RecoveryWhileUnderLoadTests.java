@@ -24,6 +24,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|client
+operator|.
+name|Client
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|Priority
@@ -82,19 +94,7 @@ name|test
 operator|.
 name|integration
 operator|.
-name|AbstractNodesTests
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|testng
-operator|.
-name|annotations
-operator|.
-name|AfterMethod
+name|AbstractSharedClusterTest
 import|;
 end_import
 
@@ -200,7 +200,7 @@ specifier|public
 class|class
 name|RecoveryWhileUnderLoadTests
 extends|extends
-name|AbstractNodesTests
+name|AbstractSharedClusterTest
 block|{
 DECL|field|logger
 specifier|private
@@ -218,18 +218,6 @@ name|class
 argument_list|)
 decl_stmt|;
 annotation|@
-name|AfterMethod
-DECL|method|shutdownNodes
-specifier|public
-name|void
-name|shutdownNodes
-parameter_list|()
-block|{
-name|closeAllNodes
-argument_list|()
-expr_stmt|;
-block|}
-annotation|@
 name|Test
 DECL|method|recoverWhileUnderLoadAllocateBackupsTest
 specifier|public
@@ -243,42 +231,15 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> starting [node1] ..."
-argument_list|)
-expr_stmt|;
-name|startNode
-argument_list|(
-literal|"node1"
-argument_list|)
-expr_stmt|;
-name|logger
-operator|.
-name|info
-argument_list|(
 literal|"--> creating test index ..."
 argument_list|)
 expr_stmt|;
-name|client
-argument_list|(
-literal|"node1"
-argument_list|)
-operator|.
-name|admin
-argument_list|()
-operator|.
-name|indices
-argument_list|()
-operator|.
 name|prepareCreate
 argument_list|(
 literal|"test"
+argument_list|,
+literal|1
 argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
 expr_stmt|;
 specifier|final
 name|AtomicLong
@@ -362,6 +323,13 @@ name|indexerId
 init|=
 name|i
 decl_stmt|;
+specifier|final
+name|Client
+name|client
+init|=
+name|client
+argument_list|()
+decl_stmt|;
 name|writers
 index|[
 name|i
@@ -416,9 +384,6 @@ literal|0
 condition|)
 block|{
 name|client
-argument_list|(
-literal|"node1"
-argument_list|)
 operator|.
 name|admin
 argument_list|()
@@ -437,9 +402,6 @@ argument_list|()
 expr_stmt|;
 block|}
 name|client
-argument_list|(
-literal|"node1"
-argument_list|)
 operator|.
 name|prepareIndex
 argument_list|(
@@ -550,9 +512,7 @@ expr_stmt|;
 while|while
 condition|(
 name|client
-argument_list|(
-literal|"node1"
-argument_list|)
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|()
@@ -583,9 +543,7 @@ literal|100
 argument_list|)
 expr_stmt|;
 name|client
-argument_list|(
-literal|"node1"
-argument_list|)
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -619,9 +577,7 @@ argument_list|)
 expr_stmt|;
 comment|// now flush, just to make sure we have some data in the index, not just translog
 name|client
-argument_list|(
-literal|"node1"
-argument_list|)
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -648,9 +604,7 @@ expr_stmt|;
 while|while
 condition|(
 name|client
-argument_list|(
-literal|"node1"
-argument_list|)
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|()
@@ -681,9 +635,7 @@ literal|100
 argument_list|)
 expr_stmt|;
 name|client
-argument_list|(
-literal|"node1"
-argument_list|)
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -712,13 +664,15 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> starting [node2] ..."
+literal|"--> allow 2 nodes for index [test] ..."
 argument_list|)
 expr_stmt|;
 comment|// now start another node, while we index
-name|startNode
+name|allowNodes
 argument_list|(
-literal|"node2"
+literal|"test"
+argument_list|,
+literal|2
 argument_list|)
 expr_stmt|;
 name|logger
@@ -732,9 +686,7 @@ comment|// make sure the cluster state is green, and all has been recovered
 name|assertThat
 argument_list|(
 name|client
-argument_list|(
-literal|"node1"
-argument_list|)
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -762,7 +714,7 @@ argument_list|()
 operator|.
 name|setWaitForNodes
 argument_list|(
-literal|"2"
+literal|">=2"
 argument_list|)
 operator|.
 name|execute
@@ -790,9 +742,7 @@ expr_stmt|;
 while|while
 condition|(
 name|client
-argument_list|(
-literal|"node1"
-argument_list|)
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|()
@@ -823,9 +773,7 @@ literal|100
 argument_list|)
 expr_stmt|;
 name|client
-argument_list|(
-literal|"node1"
-argument_list|)
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -884,9 +832,7 @@ literal|"--> refreshing the index"
 argument_list|)
 expr_stmt|;
 name|client
-argument_list|(
-literal|"node1"
-argument_list|)
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -928,9 +874,7 @@ block|{
 name|assertThat
 argument_list|(
 name|client
-argument_list|(
-literal|"node1"
-argument_list|)
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|()
@@ -975,42 +919,15 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> starting [node1] ..."
-argument_list|)
-expr_stmt|;
-name|startNode
-argument_list|(
-literal|"node1"
-argument_list|)
-expr_stmt|;
-name|logger
-operator|.
-name|info
-argument_list|(
 literal|"--> creating test index ..."
 argument_list|)
 expr_stmt|;
-name|client
-argument_list|(
-literal|"node1"
-argument_list|)
-operator|.
-name|admin
-argument_list|()
-operator|.
-name|indices
-argument_list|()
-operator|.
 name|prepareCreate
 argument_list|(
 literal|"test"
+argument_list|,
+literal|1
 argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
 expr_stmt|;
 specifier|final
 name|AtomicLong
@@ -1094,6 +1011,13 @@ name|indexerId
 init|=
 name|i
 decl_stmt|;
+specifier|final
+name|Client
+name|client
+init|=
+name|client
+argument_list|()
+decl_stmt|;
 name|writers
 index|[
 name|i
@@ -1139,9 +1063,6 @@ name|incrementAndGet
 argument_list|()
 decl_stmt|;
 name|client
-argument_list|(
-literal|"node1"
-argument_list|)
 operator|.
 name|prepareIndex
 argument_list|(
@@ -1252,9 +1173,7 @@ expr_stmt|;
 while|while
 condition|(
 name|client
-argument_list|(
-literal|"node1"
-argument_list|)
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|()
@@ -1285,9 +1204,7 @@ literal|100
 argument_list|)
 expr_stmt|;
 name|client
-argument_list|(
-literal|"node1"
-argument_list|)
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1321,9 +1238,7 @@ argument_list|)
 expr_stmt|;
 comment|// now flush, just to make sure we have some data in the index, not just translog
 name|client
-argument_list|(
-literal|"node1"
-argument_list|)
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1350,9 +1265,7 @@ expr_stmt|;
 while|while
 condition|(
 name|client
-argument_list|(
-literal|"node1"
-argument_list|)
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|()
@@ -1383,9 +1296,7 @@ literal|100
 argument_list|)
 expr_stmt|;
 name|client
-argument_list|(
-literal|"node1"
-argument_list|)
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1414,36 +1325,14 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> starting [node2] ..."
+literal|"--> allow 4 nodes for index [test] ..."
 argument_list|)
 expr_stmt|;
-name|startNode
+name|allowNodes
 argument_list|(
-literal|"node2"
-argument_list|)
-expr_stmt|;
-name|logger
-operator|.
-name|info
-argument_list|(
-literal|"--> starting [node3] ..."
-argument_list|)
-expr_stmt|;
-name|startNode
-argument_list|(
-literal|"node3"
-argument_list|)
-expr_stmt|;
-name|logger
-operator|.
-name|info
-argument_list|(
-literal|"--> starting [node4] ..."
-argument_list|)
-expr_stmt|;
-name|startNode
-argument_list|(
-literal|"node4"
+literal|"test"
+argument_list|,
+literal|4
 argument_list|)
 expr_stmt|;
 name|logger
@@ -1456,9 +1345,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
-argument_list|(
-literal|"node1"
-argument_list|)
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1486,7 +1373,7 @@ argument_list|()
 operator|.
 name|setWaitForNodes
 argument_list|(
-literal|"4"
+literal|">=4"
 argument_list|)
 operator|.
 name|execute
@@ -1514,9 +1401,7 @@ expr_stmt|;
 while|while
 condition|(
 name|client
-argument_list|(
-literal|"node1"
-argument_list|)
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|()
@@ -1547,9 +1432,7 @@ literal|100
 argument_list|)
 expr_stmt|;
 name|client
-argument_list|(
-literal|"node1"
-argument_list|)
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1620,9 +1503,7 @@ literal|"--> refreshing the index"
 argument_list|)
 expr_stmt|;
 name|client
-argument_list|(
-literal|"node1"
-argument_list|)
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1664,9 +1545,7 @@ block|{
 name|assertThat
 argument_list|(
 name|client
-argument_list|(
-literal|"node1"
-argument_list|)
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|()
@@ -1711,54 +1590,15 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> starting [node1] ..."
-argument_list|)
-expr_stmt|;
-name|startNode
-argument_list|(
-literal|"node1"
-argument_list|)
-expr_stmt|;
-name|logger
-operator|.
-name|info
-argument_list|(
-literal|"--> starting [node2] ..."
-argument_list|)
-expr_stmt|;
-name|startNode
-argument_list|(
-literal|"node2"
-argument_list|)
-expr_stmt|;
-name|logger
-operator|.
-name|info
-argument_list|(
 literal|"--> creating test index ..."
 argument_list|)
 expr_stmt|;
-name|client
-argument_list|(
-literal|"node1"
-argument_list|)
-operator|.
-name|admin
-argument_list|()
-operator|.
-name|indices
-argument_list|()
-operator|.
 name|prepareCreate
 argument_list|(
 literal|"test"
+argument_list|,
+literal|2
 argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
 expr_stmt|;
 specifier|final
 name|AtomicLong
@@ -1842,6 +1682,13 @@ name|indexerId
 init|=
 name|i
 decl_stmt|;
+specifier|final
+name|Client
+name|client
+init|=
+name|client
+argument_list|()
+decl_stmt|;
 name|writers
 index|[
 name|i
@@ -1887,9 +1734,6 @@ name|incrementAndGet
 argument_list|()
 decl_stmt|;
 name|client
-argument_list|(
-literal|"node2"
-argument_list|)
 operator|.
 name|prepareIndex
 argument_list|(
@@ -2000,9 +1844,7 @@ expr_stmt|;
 while|while
 condition|(
 name|client
-argument_list|(
-literal|"node1"
-argument_list|)
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|()
@@ -2033,9 +1875,7 @@ literal|100
 argument_list|)
 expr_stmt|;
 name|client
-argument_list|(
-literal|"node1"
-argument_list|)
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2069,9 +1909,7 @@ argument_list|)
 expr_stmt|;
 comment|// now flush, just to make sure we have some data in the index, not just translog
 name|client
-argument_list|(
-literal|"node1"
-argument_list|)
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2098,9 +1936,7 @@ expr_stmt|;
 while|while
 condition|(
 name|client
-argument_list|(
-literal|"node1"
-argument_list|)
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|()
@@ -2131,9 +1967,7 @@ literal|100
 argument_list|)
 expr_stmt|;
 name|client
-argument_list|(
-literal|"node1"
-argument_list|)
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2163,24 +1997,14 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> starting [node3] ..."
+literal|"--> allow 4 nodes for index [test] ..."
 argument_list|)
 expr_stmt|;
-name|startNode
+name|allowNodes
 argument_list|(
-literal|"node3"
-argument_list|)
-expr_stmt|;
-name|logger
-operator|.
-name|info
-argument_list|(
-literal|"--> starting [node4] ..."
-argument_list|)
-expr_stmt|;
-name|startNode
-argument_list|(
-literal|"node4"
+literal|"test"
+argument_list|,
+literal|4
 argument_list|)
 expr_stmt|;
 name|logger
@@ -2193,9 +2017,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
-argument_list|(
-literal|"node1"
-argument_list|)
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2223,7 +2045,7 @@ argument_list|()
 operator|.
 name|setWaitForNodes
 argument_list|(
-literal|"4"
+literal|">=4"
 argument_list|)
 operator|.
 name|execute
@@ -2251,9 +2073,7 @@ expr_stmt|;
 while|while
 condition|(
 name|client
-argument_list|(
-literal|"node1"
-argument_list|)
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|()
@@ -2284,9 +2104,7 @@ literal|100
 argument_list|)
 expr_stmt|;
 name|client
-argument_list|(
-literal|"node1"
-argument_list|)
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2316,12 +2134,14 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> shutting down [node1] ..."
+literal|"--> allow 3 nodes for index [test] ..."
 argument_list|)
 expr_stmt|;
-name|closeNode
+name|allowNodes
 argument_list|(
-literal|"node1"
+literal|"test"
+argument_list|,
+literal|3
 argument_list|)
 expr_stmt|;
 name|logger
@@ -2334,9 +2154,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
-argument_list|(
-literal|"node2"
-argument_list|)
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2364,7 +2182,7 @@ argument_list|()
 operator|.
 name|setWaitForNodes
 argument_list|(
-literal|"3"
+literal|">=3"
 argument_list|)
 operator|.
 name|execute
@@ -2386,12 +2204,14 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> shutting down [node3] ..."
+literal|"--> allow 2 nodes for index [test] ..."
 argument_list|)
 expr_stmt|;
-name|closeNode
+name|allowNodes
 argument_list|(
-literal|"node3"
+literal|"test"
+argument_list|,
+literal|2
 argument_list|)
 expr_stmt|;
 name|logger
@@ -2404,9 +2224,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
-argument_list|(
-literal|"node2"
-argument_list|)
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2434,7 +2252,7 @@ argument_list|()
 operator|.
 name|setWaitForNodes
 argument_list|(
-literal|"2"
+literal|">=2"
 argument_list|)
 operator|.
 name|execute
@@ -2456,12 +2274,14 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> shutting down [node4] ..."
+literal|"--> allow 1 nodes for index [test] ..."
 argument_list|)
 expr_stmt|;
-name|closeNode
+name|allowNodes
 argument_list|(
-literal|"node4"
+literal|"test"
+argument_list|,
+literal|1
 argument_list|)
 expr_stmt|;
 name|logger
@@ -2474,9 +2294,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
-argument_list|(
-literal|"node2"
-argument_list|)
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2504,7 +2322,7 @@ argument_list|()
 operator|.
 name|setWaitForNodes
 argument_list|(
-literal|"1"
+literal|">=1"
 argument_list|)
 operator|.
 name|execute
@@ -2551,9 +2369,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
-argument_list|(
-literal|"node2"
-argument_list|)
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2581,7 +2397,7 @@ argument_list|()
 operator|.
 name|setWaitForNodes
 argument_list|(
-literal|"1"
+literal|">=1"
 argument_list|)
 operator|.
 name|execute
@@ -2607,9 +2423,7 @@ literal|"--> refreshing the index"
 argument_list|)
 expr_stmt|;
 name|client
-argument_list|(
-literal|"node2"
-argument_list|)
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2634,9 +2448,7 @@ literal|"--> verifying indexed content"
 argument_list|)
 expr_stmt|;
 name|client
-argument_list|(
-literal|"node2"
-argument_list|)
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2671,9 +2483,7 @@ block|{
 name|assertThat
 argument_list|(
 name|client
-argument_list|(
-literal|"node2"
-argument_list|)
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|()

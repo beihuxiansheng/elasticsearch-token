@@ -92,18 +92,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|client
-operator|.
-name|Client
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|Priority
@@ -192,7 +180,7 @@ name|test
 operator|.
 name|integration
 operator|.
-name|AbstractNodesTests
+name|AbstractSharedClusterTest
 import|;
 end_import
 
@@ -204,19 +192,7 @@ name|testng
 operator|.
 name|annotations
 operator|.
-name|AfterClass
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|testng
-operator|.
-name|annotations
-operator|.
-name|BeforeClass
+name|BeforeTest
 import|;
 end_import
 
@@ -406,69 +382,8 @@ specifier|public
 class|class
 name|SimpleChildQuerySearchTests
 extends|extends
-name|AbstractNodesTests
+name|AbstractSharedClusterTest
 block|{
-DECL|field|client
-specifier|private
-name|Client
-name|client
-decl_stmt|;
-annotation|@
-name|BeforeClass
-DECL|method|createNodes
-specifier|public
-name|void
-name|createNodes
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|startNode
-argument_list|(
-literal|"node1"
-argument_list|)
-expr_stmt|;
-name|startNode
-argument_list|(
-literal|"node2"
-argument_list|)
-expr_stmt|;
-name|client
-operator|=
-name|getClient
-argument_list|()
-expr_stmt|;
-block|}
-annotation|@
-name|AfterClass
-DECL|method|closeNodes
-specifier|public
-name|void
-name|closeNodes
-parameter_list|()
-block|{
-name|client
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-name|closeAllNodes
-argument_list|()
-expr_stmt|;
-block|}
-DECL|method|getClient
-specifier|protected
-name|Client
-name|getClient
-parameter_list|()
-block|{
-return|return
-name|client
-argument_list|(
-literal|"node1"
-argument_list|)
-return|;
-block|}
 annotation|@
 name|Test
 DECL|method|multiLevelChild
@@ -480,6 +395,7 @@ throws|throws
 name|Exception
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -497,6 +413,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -538,6 +455,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -565,6 +483,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -624,6 +543,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -683,6 +603,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -707,6 +628,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -736,6 +658,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -770,6 +693,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -790,6 +714,7 @@ name|SearchResponse
 name|searchResponse
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -896,6 +821,7 @@ throws|,
 name|IOException
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -913,6 +839,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -954,6 +881,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -981,6 +909,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1041,6 +970,7 @@ argument_list|()
 expr_stmt|;
 comment|// index simple data
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -1065,6 +995,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -1092,6 +1023,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1112,6 +1044,7 @@ name|SearchResponse
 name|searchResponse
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -1201,6 +1134,7 @@ throws|throws
 name|Exception
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1218,6 +1152,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1259,6 +1194,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1286,6 +1222,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1346,6 +1283,7 @@ argument_list|()
 expr_stmt|;
 comment|// index simple data
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -1370,6 +1308,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -1399,6 +1338,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -1428,6 +1368,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -1452,6 +1393,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -1481,6 +1423,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -1510,6 +1453,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1531,6 +1475,7 @@ name|SearchResponse
 name|searchResponse
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -1671,6 +1616,7 @@ comment|// TEST matching on parent
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -1873,6 +1819,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -2075,6 +2022,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -2276,6 +2224,7 @@ comment|// TOP CHILDREN QUERY
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -2383,6 +2332,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -2502,6 +2452,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -2647,6 +2598,7 @@ comment|// HAS CHILD QUERY
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -2766,6 +2718,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -2873,6 +2826,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -3018,6 +2972,7 @@ comment|// HAS CHILD FILTER
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -3128,6 +3083,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -3250,6 +3206,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -3398,6 +3355,7 @@ comment|// HAS PARENT FILTER
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -3529,6 +3487,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -3661,6 +3620,7 @@ comment|// HAS PARENT QUERY
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -3789,6 +3749,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -3926,6 +3887,7 @@ throws|throws
 name|Exception
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -3943,6 +3905,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -3984,6 +3947,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -4011,6 +3975,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -4085,6 +4050,7 @@ argument_list|()
 decl_stmt|;
 comment|// Childless parent
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -4172,6 +4138,7 @@ operator|+
 name|i
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -4196,6 +4163,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -4226,6 +4194,7 @@ operator|+
 name|i
 decl_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -4294,6 +4263,7 @@ argument_list|)
 expr_stmt|;
 block|}
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -4348,6 +4318,7 @@ name|SearchResponse
 name|searchResponse
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -4508,6 +4479,7 @@ throws|throws
 name|Exception
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -4525,6 +4497,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -4566,6 +4539,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -4593,6 +4567,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -4653,6 +4628,7 @@ argument_list|()
 expr_stmt|;
 comment|// index simple data with flushes, so we have many segments
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -4677,6 +4653,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -4694,6 +4671,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -4723,6 +4701,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -4740,6 +4719,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -4769,6 +4749,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -4786,6 +4767,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -4810,6 +4792,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -4827,6 +4810,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -4856,6 +4840,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -4873,6 +4858,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -4902,6 +4888,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -4919,6 +4906,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -4940,6 +4928,7 @@ name|SearchResponse
 name|searchResponse
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -5047,6 +5036,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -5166,6 +5156,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -5311,6 +5302,7 @@ comment|// HAS CHILD QUERY
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -5418,6 +5410,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -5525,6 +5518,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -5670,6 +5664,7 @@ comment|// HAS CHILD FILTER
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -5780,6 +5775,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -5890,6 +5886,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -6046,6 +6043,7 @@ throws|throws
 name|Exception
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -6063,6 +6061,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -6104,6 +6103,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -6131,6 +6131,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -6191,6 +6192,7 @@ argument_list|()
 expr_stmt|;
 comment|// index simple data with flushes, so we have many segments
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -6215,6 +6217,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -6232,6 +6235,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -6261,6 +6265,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -6278,6 +6283,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -6307,6 +6313,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -6324,6 +6331,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -6348,6 +6356,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -6365,6 +6374,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -6394,6 +6404,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -6411,6 +6422,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -6440,6 +6452,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -6457,6 +6470,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -6478,6 +6492,7 @@ name|SearchResponse
 name|searchResponse
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -6585,6 +6600,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -6704,6 +6720,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -6849,6 +6866,7 @@ comment|// HAS CHILD QUERY
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -6956,6 +6974,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -7063,6 +7082,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -7208,6 +7228,7 @@ comment|// HAS CHILD FILTER
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -7318,6 +7339,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -7428,6 +7450,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -7584,6 +7607,7 @@ throws|throws
 name|Exception
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -7601,6 +7625,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -7642,6 +7667,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -7669,6 +7695,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -7729,6 +7756,7 @@ argument_list|()
 expr_stmt|;
 comment|// index simple data
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -7753,6 +7781,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -7782,6 +7811,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -7811,6 +7841,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -7835,6 +7866,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -7864,6 +7896,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -7893,6 +7926,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -7913,6 +7947,7 @@ name|SearchResponse
 name|searchResponse
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -8264,6 +8299,7 @@ throws|throws
 name|Exception
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -8281,6 +8317,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -8322,6 +8359,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -8349,6 +8387,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -8409,6 +8448,7 @@ argument_list|()
 expr_stmt|;
 comment|// index simple data
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -8433,6 +8473,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -8462,6 +8503,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -8491,6 +8533,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -8515,6 +8558,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -8544,6 +8588,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -8573,6 +8618,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -8594,6 +8640,7 @@ name|SearchResponse
 name|searchResponse
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -8734,6 +8781,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -8864,6 +8912,7 @@ argument_list|)
 expr_stmt|;
 comment|// update p1 and see what that we get updated values...
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -8888,6 +8937,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -8907,6 +8957,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -9035,6 +9086,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -9175,6 +9227,7 @@ throws|throws
 name|Exception
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -9192,6 +9245,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -9233,6 +9287,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -9260,6 +9315,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -9320,6 +9376,7 @@ argument_list|()
 expr_stmt|;
 comment|// index simple data
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -9344,6 +9401,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -9373,6 +9431,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -9402,6 +9461,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -9426,6 +9486,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -9455,6 +9516,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -9484,6 +9546,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -9504,6 +9567,7 @@ name|SearchResponse
 name|searchResponse
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -9578,6 +9642,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -9652,6 +9717,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -9735,6 +9801,7 @@ throws|throws
 name|Exception
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -9752,6 +9819,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -9793,6 +9861,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -9820,6 +9889,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -9880,6 +9950,7 @@ argument_list|()
 expr_stmt|;
 comment|// index simple data
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -9904,6 +9975,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -9933,6 +10005,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -9962,6 +10035,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -9986,6 +10060,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -10015,6 +10090,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -10044,6 +10120,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -10064,6 +10141,7 @@ name|SearchResponse
 name|searchResponse
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -10147,6 +10225,7 @@ throws|throws
 name|Exception
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -10164,6 +10243,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -10205,6 +10285,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -10232,6 +10313,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -10332,6 +10414,7 @@ name|i
 argument_list|)
 decl_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -10382,6 +10465,7 @@ operator|++
 control|)
 block|{
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -10438,6 +10522,7 @@ expr_stmt|;
 block|}
 block|}
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -10458,6 +10543,7 @@ name|SearchResponse
 name|searchResponse
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -10565,6 +10651,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -10681,6 +10768,7 @@ throws|throws
 name|Exception
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -10698,6 +10786,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -10739,6 +10828,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -10766,6 +10856,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -10825,6 +10916,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -10849,6 +10941,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -10878,6 +10971,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -10897,6 +10991,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -10921,6 +11016,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -10943,6 +11039,7 @@ name|SearchResponse
 name|searchResponse
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -11031,6 +11128,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -11128,6 +11226,7 @@ throws|throws
 name|Exception
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -11145,6 +11244,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -11186,6 +11286,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -11213,6 +11314,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -11277,6 +11379,7 @@ init|=
 literal|"p1"
 decl_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -11301,6 +11404,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -11332,6 +11436,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -11352,6 +11457,7 @@ name|CountResponse
 name|countResponse
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|(
@@ -11419,6 +11525,7 @@ expr_stmt|;
 name|countResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|(
@@ -11491,6 +11598,7 @@ expr_stmt|;
 name|countResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|(
@@ -11563,6 +11671,7 @@ expr_stmt|;
 name|countResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|(
@@ -11633,6 +11742,7 @@ expr_stmt|;
 name|countResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|(
@@ -11712,6 +11822,7 @@ throws|throws
 name|Exception
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -11729,6 +11840,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -11844,6 +11956,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -11872,6 +11985,7 @@ argument_list|()
 expr_stmt|;
 comment|// Parent 1 and its children
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -11896,6 +12010,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -11929,6 +12044,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -11962,6 +12078,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -11995,6 +12112,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -12028,6 +12146,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -12061,6 +12180,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -12095,6 +12215,7 @@ argument_list|()
 expr_stmt|;
 comment|// Parent 2 and its children
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -12119,6 +12240,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -12152,6 +12274,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -12185,6 +12308,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -12218,6 +12342,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -12251,6 +12376,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -12284,6 +12410,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -12318,6 +12445,7 @@ argument_list|()
 expr_stmt|;
 comment|// Parent 3 and its children
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -12346,6 +12474,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -12383,6 +12512,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -12420,6 +12550,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -12457,6 +12588,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -12494,6 +12626,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -12531,6 +12664,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -12568,6 +12702,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -12605,6 +12740,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -12625,6 +12761,7 @@ name|SearchResponse
 name|response
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -12820,6 +12957,7 @@ expr_stmt|;
 name|response
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -13015,6 +13153,7 @@ expr_stmt|;
 name|response
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -13210,6 +13349,7 @@ expr_stmt|;
 name|response
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -13609,6 +13749,7 @@ throws|throws
 name|Exception
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -13626,6 +13767,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -13726,6 +13868,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -13756,6 +13899,7 @@ name|SearchResponse
 name|response
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -13815,6 +13959,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -13854,6 +13999,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -13913,6 +14059,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -13977,6 +14124,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -14036,6 +14184,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -14111,6 +14260,7 @@ throws|throws
 name|Exception
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -14128,6 +14278,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -14169,6 +14320,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -14196,6 +14348,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -14255,6 +14408,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -14279,6 +14433,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -14308,6 +14463,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -14327,6 +14483,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -14351,6 +14508,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -14373,6 +14531,7 @@ name|SearchResponse
 name|searchResponse
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -14487,6 +14646,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -14610,6 +14770,7 @@ throws|throws
 name|Exception
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -14627,6 +14788,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -14668,6 +14830,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -14695,6 +14858,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -14791,6 +14955,7 @@ name|i
 argument_list|)
 decl_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -14849,6 +15014,7 @@ name|j
 argument_list|)
 decl_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -14884,6 +15050,7 @@ name|j
 expr_stmt|;
 block|}
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -14929,6 +15096,7 @@ name|SearchResponse
 name|searchResponse
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -15136,6 +15304,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -15343,6 +15512,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(

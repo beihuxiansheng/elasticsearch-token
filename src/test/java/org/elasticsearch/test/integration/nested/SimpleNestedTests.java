@@ -126,18 +126,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|client
-operator|.
-name|Client
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|Priority
@@ -284,31 +272,7 @@ name|test
 operator|.
 name|integration
 operator|.
-name|AbstractNodesTests
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|testng
-operator|.
-name|annotations
-operator|.
-name|AfterClass
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|testng
-operator|.
-name|annotations
-operator|.
-name|BeforeClass
+name|AbstractSharedClusterTest
 import|;
 end_import
 
@@ -442,58 +406,8 @@ specifier|public
 class|class
 name|SimpleNestedTests
 extends|extends
-name|AbstractNodesTests
+name|AbstractSharedClusterTest
 block|{
-DECL|field|client
-specifier|private
-name|Client
-name|client
-decl_stmt|;
-annotation|@
-name|BeforeClass
-DECL|method|createNodes
-specifier|public
-name|void
-name|createNodes
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|startNode
-argument_list|(
-literal|"node1"
-argument_list|)
-expr_stmt|;
-name|startNode
-argument_list|(
-literal|"node2"
-argument_list|)
-expr_stmt|;
-name|client
-operator|=
-name|client
-argument_list|(
-literal|"node1"
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|AfterClass
-DECL|method|closeNodes
-specifier|public
-name|void
-name|closeNodes
-parameter_list|()
-block|{
-name|client
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-name|closeAllNodes
-argument_list|()
-expr_stmt|;
-block|}
 annotation|@
 name|Test
 DECL|method|simpleNested
@@ -505,6 +419,7 @@ throws|throws
 name|Exception
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -522,6 +437,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -586,6 +502,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -617,6 +534,7 @@ name|SearchResponse
 name|searchResponse
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -658,6 +576,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -697,6 +616,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -782,6 +702,7 @@ argument_list|()
 expr_stmt|;
 comment|// flush, so we fetch it from the index (as see that we filter nested docs)
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -807,6 +728,7 @@ name|GetResponse
 name|getResponse
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -852,6 +774,7 @@ name|IndicesStatusResponse
 name|statusResponse
 init|=
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -893,6 +816,7 @@ comment|// check that _all is working on nested docs
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -934,6 +858,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -976,6 +901,7 @@ comment|// search for something that matches the nested doc, and see that we don
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -1013,6 +939,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -1055,6 +982,7 @@ comment|// now, do a nested query
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -1124,6 +1052,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -1199,6 +1128,7 @@ argument_list|)
 expr_stmt|;
 comment|// add another doc, one that would match if it was not nested...
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -1284,6 +1214,7 @@ argument_list|()
 expr_stmt|;
 comment|// flush, so we fetch it from the index (as see that we filter nested docs)
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1308,6 +1239,7 @@ expr_stmt|;
 name|statusResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1348,6 +1280,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -1434,6 +1367,7 @@ comment|// filter
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -1526,6 +1460,7 @@ comment|// check with type prefix
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -1613,6 +1548,7 @@ name|DeleteResponse
 name|deleteResponse
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareDelete
 argument_list|(
@@ -1644,6 +1580,7 @@ argument_list|)
 expr_stmt|;
 comment|// flush, so we fetch it from the index (as see that we filter nested docs)
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1668,6 +1605,7 @@ expr_stmt|;
 name|statusResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1708,6 +1646,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -1844,6 +1783,7 @@ throws|throws
 name|Exception
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1861,6 +1801,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1949,6 +1890,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1991,6 +1933,7 @@ operator|++
 control|)
 block|{
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -2081,6 +2024,7 @@ argument_list|()
 expr_stmt|;
 block|}
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2106,6 +2050,7 @@ name|IndicesStatusResponse
 name|statusResponse
 init|=
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2146,6 +2091,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareDeleteByQuery
 argument_list|(
@@ -2179,6 +2125,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2203,6 +2150,7 @@ expr_stmt|;
 name|statusResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2264,6 +2212,7 @@ block|{
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -2367,6 +2316,7 @@ throws|throws
 name|Exception
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2384,6 +2334,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2472,6 +2423,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2514,6 +2466,7 @@ operator|++
 control|)
 block|{
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -2556,6 +2509,7 @@ argument_list|()
 expr_stmt|;
 block|}
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2581,6 +2535,7 @@ name|IndicesStatusResponse
 name|statusResponse
 init|=
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2619,6 +2574,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareDeleteByQuery
 argument_list|(
@@ -2652,6 +2608,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2676,6 +2633,7 @@ expr_stmt|;
 name|statusResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2735,6 +2693,7 @@ block|{
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -2780,6 +2739,7 @@ throws|throws
 name|Exception
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2797,6 +2757,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2884,6 +2845,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2911,6 +2873,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -3050,6 +3013,7 @@ argument_list|()
 expr_stmt|;
 comment|// flush, so we fetch it from the index (as see that we filter nested docs)
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -3075,6 +3039,7 @@ name|GetResponse
 name|getResponse
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -3109,6 +3074,7 @@ name|IndicesStatusResponse
 name|statusResponse
 init|=
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -3151,6 +3117,7 @@ name|SearchResponse
 name|searchResponse
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -3220,6 +3187,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -3289,6 +3257,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -3379,6 +3348,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -3469,6 +3439,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -3559,6 +3530,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -3649,6 +3621,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -3739,6 +3712,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -3871,6 +3845,7 @@ throws|throws
 name|Exception
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -3888,6 +3863,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -3988,6 +3964,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -4015,6 +3992,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -4181,6 +4159,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -4347,6 +4326,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -4367,6 +4347,7 @@ name|SearchResponse
 name|searchResponse
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -4746,6 +4727,7 @@ comment|// test scope ones (collector based)
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -4958,6 +4940,7 @@ comment|// test scope ones (post based)
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -5135,6 +5118,7 @@ throws|throws
 name|Exception
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5152,6 +5136,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5240,6 +5225,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5273,6 +5259,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5300,6 +5287,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -5384,6 +5372,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -5468,6 +5457,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5493,6 +5483,7 @@ name|IndicesStatusResponse
 name|statusResponse
 init|=
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5531,6 +5522,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareDeleteByQuery
 argument_list|(
@@ -5552,6 +5544,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5576,6 +5569,7 @@ expr_stmt|;
 name|statusResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5618,6 +5612,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -5655,6 +5650,7 @@ throws|throws
 name|Exception
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5672,6 +5668,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5736,6 +5733,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5763,6 +5761,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -5841,6 +5840,7 @@ name|SearchResponse
 name|searchResponse
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -5978,6 +5978,7 @@ throws|throws
 name|Exception
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5995,6 +5996,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -6120,6 +6122,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -6147,6 +6150,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -6217,6 +6221,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -6287,6 +6292,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -6357,6 +6363,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -6377,6 +6384,7 @@ name|SearchResponse
 name|searchResponse
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -6588,6 +6596,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -6799,6 +6808,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -7017,6 +7027,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -7241,6 +7252,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -7489,6 +7501,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -7707,6 +7720,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -7925,6 +7939,7 @@ expr_stmt|;
 try|try
 block|{
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -8017,6 +8032,7 @@ throws|throws
 name|Exception
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -8034,6 +8050,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -8129,6 +8146,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -8156,6 +8174,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -8240,6 +8259,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -8325,6 +8345,7 @@ argument_list|()
 expr_stmt|;
 comment|// Doc with missing nested docs if nested filter is used
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -8342,6 +8363,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -8426,6 +8448,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -8446,6 +8469,7 @@ name|SearchResponse
 name|searchResponse
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -8672,6 +8696,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -8907,6 +8932,7 @@ throws|throws
 name|Exception
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -8924,6 +8950,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -9088,6 +9115,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -9116,6 +9144,7 @@ argument_list|()
 expr_stmt|;
 comment|// sum: 11
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -9306,6 +9335,7 @@ argument_list|()
 expr_stmt|;
 comment|// sum: 7
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -9496,6 +9526,7 @@ argument_list|()
 expr_stmt|;
 comment|// sum: 2
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -9685,6 +9716,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -9706,6 +9738,7 @@ name|SearchResponse
 name|searchResponse
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -9932,6 +9965,7 @@ comment|// With nested filter
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -10170,6 +10204,7 @@ comment|// Nested path should be automatically detected, expect same results as 
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -10418,6 +10453,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -10655,6 +10691,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -10750,6 +10787,7 @@ comment|// Check if closest nested type is resolved
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -10983,6 +11021,7 @@ comment|// Sort mode: sum
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -11213,6 +11252,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -11444,6 +11484,7 @@ comment|// Sort mode: sum with filter
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -11687,6 +11728,7 @@ comment|// Sort mode: avg
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -11917,6 +11959,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -12148,6 +12191,7 @@ comment|// Sort mode: avg with filter
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()

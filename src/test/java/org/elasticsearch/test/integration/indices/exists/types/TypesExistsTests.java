@@ -108,7 +108,7 @@ name|test
 operator|.
 name|integration
 operator|.
-name|AbstractNodesTests
+name|AbstractSharedClusterTest
 import|;
 end_import
 
@@ -182,7 +182,7 @@ specifier|public
 class|class
 name|TypesExistsTests
 extends|extends
-name|AbstractNodesTests
+name|AbstractSharedClusterTest
 block|{
 annotation|@
 name|Test
@@ -194,18 +194,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|startNode
-argument_list|(
-literal|"node1"
-argument_list|)
-expr_stmt|;
 name|Client
 name|client
 init|=
 name|client
-argument_list|(
-literal|"node1"
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|client
 operator|.
@@ -742,14 +735,6 @@ argument_list|(
 literal|false
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|client
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-name|closeAllNodes
-argument_list|()
 expr_stmt|;
 block|}
 block|}

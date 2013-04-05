@@ -48,18 +48,6 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|Client
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|client
-operator|.
 name|Requests
 import|;
 end_import
@@ -114,31 +102,7 @@ name|test
 operator|.
 name|integration
 operator|.
-name|AbstractNodesTests
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|testng
-operator|.
-name|annotations
-operator|.
-name|AfterClass
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|testng
-operator|.
-name|annotations
-operator|.
-name|BeforeClass
+name|AbstractSharedClusterTest
 import|;
 end_import
 
@@ -232,69 +196,8 @@ specifier|public
 class|class
 name|AliasRoutingTests
 extends|extends
-name|AbstractNodesTests
+name|AbstractSharedClusterTest
 block|{
-DECL|field|client
-specifier|private
-name|Client
-name|client
-decl_stmt|;
-annotation|@
-name|BeforeClass
-DECL|method|createNodes
-specifier|public
-name|void
-name|createNodes
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|startNode
-argument_list|(
-literal|"node1"
-argument_list|)
-expr_stmt|;
-name|startNode
-argument_list|(
-literal|"node2"
-argument_list|)
-expr_stmt|;
-name|client
-operator|=
-name|getClient
-argument_list|()
-expr_stmt|;
-block|}
-annotation|@
-name|AfterClass
-DECL|method|closeNodes
-specifier|public
-name|void
-name|closeNodes
-parameter_list|()
-block|{
-name|client
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-name|closeAllNodes
-argument_list|()
-expr_stmt|;
-block|}
-DECL|method|getClient
-specifier|protected
-name|Client
-name|getClient
-parameter_list|()
-block|{
-return|return
-name|client
-argument_list|(
-literal|"node1"
-argument_list|)
-return|;
-block|}
 annotation|@
 name|Test
 DECL|method|testAliasCrudRouting
@@ -305,56 +208,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-try|try
-block|{
-name|client
-operator|.
-name|admin
-argument_list|()
-operator|.
-name|indices
-argument_list|()
-operator|.
-name|prepareDelete
+name|createIndex
 argument_list|(
 literal|"test"
 argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-comment|// ignore
-block|}
-name|client
-operator|.
-name|admin
-argument_list|()
-operator|.
-name|indices
-argument_list|()
-operator|.
-name|prepareCreate
-argument_list|(
-literal|"test"
-argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -382,6 +242,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -421,6 +282,7 @@ literal|"--> indexing with id [1], and routing [0] using alias"
 argument_list|)
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -474,6 +336,7 @@ block|{
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -525,6 +388,7 @@ block|{
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -581,6 +445,7 @@ block|{
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -615,6 +480,7 @@ literal|"--> updating with id [1] and routing through alias"
 argument_list|)
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareUpdate
 argument_list|(
@@ -675,6 +541,7 @@ block|{
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -703,6 +570,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -745,6 +613,7 @@ literal|"--> deleting with no routing, should not delete anything"
 argument_list|)
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareDelete
 argument_list|(
@@ -784,6 +653,7 @@ block|{
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -812,6 +682,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -845,6 +716,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -879,6 +751,7 @@ literal|"--> deleting with routing alias, should delete"
 argument_list|)
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareDelete
 argument_list|(
@@ -918,6 +791,7 @@ block|{
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -946,6 +820,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -979,6 +854,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -1013,6 +889,7 @@ literal|"--> indexing with id [1], and routing [0] using alias"
 argument_list|)
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -1066,6 +943,7 @@ block|{
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -1117,6 +995,7 @@ block|{
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -1150,6 +1029,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -1184,6 +1064,7 @@ literal|"--> deleting_by_query with 1 as routing, should not delete anything"
 argument_list|)
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareDeleteByQuery
 argument_list|()
@@ -1206,6 +1087,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1240,6 +1122,7 @@ block|{
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -1268,6 +1151,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -1301,6 +1185,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -1335,6 +1220,7 @@ literal|"--> deleting_by_query with alias0, should delete"
 argument_list|)
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareDeleteByQuery
 argument_list|(
@@ -1354,6 +1240,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1388,6 +1275,7 @@ block|{
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -1416,6 +1304,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -1449,6 +1338,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -1486,56 +1376,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-try|try
-block|{
-name|client
-operator|.
-name|admin
-argument_list|()
-operator|.
-name|indices
-argument_list|()
-operator|.
-name|prepareDelete
+name|createIndex
 argument_list|(
 literal|"test"
 argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-comment|// ignore
-block|}
-name|client
-operator|.
-name|admin
-argument_list|()
-operator|.
-name|indices
-argument_list|()
-operator|.
-name|prepareCreate
-argument_list|(
-literal|"test"
-argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1563,6 +1410,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1642,6 +1490,7 @@ literal|"--> indexing with id [1], and routing [0] using alias"
 argument_list|)
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -1695,6 +1544,7 @@ block|{
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -1746,6 +1596,7 @@ block|{
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -1797,6 +1648,7 @@ block|{
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -1853,6 +1705,7 @@ block|{
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -1891,6 +1744,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|()
@@ -1926,6 +1780,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -1961,6 +1816,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|(
@@ -2016,6 +1872,7 @@ block|{
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -2054,6 +1911,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|()
@@ -2089,6 +1947,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -2124,6 +1983,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|(
@@ -2162,6 +2022,7 @@ literal|"--> indexing with id [2], and routing [1] using alias"
 argument_list|)
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -2215,6 +2076,7 @@ block|{
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -2248,6 +2110,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|()
@@ -2301,6 +2164,7 @@ block|{
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -2339,6 +2203,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|()
@@ -2374,6 +2239,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -2409,6 +2275,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|(
@@ -2464,6 +2331,7 @@ block|{
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -2502,6 +2370,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|()
@@ -2537,6 +2406,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -2572,6 +2442,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|(
@@ -2627,6 +2498,7 @@ block|{
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -2667,6 +2539,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|()
@@ -2704,6 +2577,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -2739,6 +2613,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|(
@@ -2794,6 +2669,7 @@ block|{
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -2831,6 +2707,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|(
@@ -2888,6 +2765,7 @@ block|{
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -2927,6 +2805,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|(
@@ -2986,6 +2865,7 @@ block|{
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -3025,6 +2905,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|(
@@ -3070,94 +2951,18 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-try|try
-block|{
-name|client
-operator|.
-name|admin
-argument_list|()
-operator|.
-name|indices
-argument_list|()
-operator|.
-name|prepareDelete
+name|createIndex
 argument_list|(
 literal|"test-a"
 argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
 expr_stmt|;
-name|client
-operator|.
-name|admin
-argument_list|()
-operator|.
-name|indices
-argument_list|()
-operator|.
-name|prepareDelete
+name|createIndex
 argument_list|(
 literal|"test-b"
 argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-comment|// ignore
-block|}
-name|client
-operator|.
-name|admin
-argument_list|()
-operator|.
-name|indices
-argument_list|()
-operator|.
-name|prepareCreate
-argument_list|(
-literal|"test-a"
-argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
 expr_stmt|;
 name|client
-operator|.
-name|admin
 argument_list|()
-operator|.
-name|indices
-argument_list|()
-operator|.
-name|prepareCreate
-argument_list|(
-literal|"test-b"
-argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
-expr_stmt|;
-name|client
 operator|.
 name|admin
 argument_list|()
@@ -3185,6 +2990,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -3299,6 +3105,7 @@ literal|"--> indexing with id [1], and routing [0] using alias to test-a"
 argument_list|)
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -3352,10 +3159,11 @@ block|{
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
-literal|"test"
+literal|"test-a"
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -3403,6 +3211,7 @@ block|{
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -3437,6 +3246,7 @@ literal|"--> indexing with id [0], and routing [1] using alias to test-b"
 argument_list|)
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -3490,10 +3300,11 @@ block|{
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
-literal|"test"
+literal|"test-a"
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -3541,6 +3352,7 @@ block|{
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -3592,6 +3404,7 @@ block|{
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -3629,6 +3442,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|(
@@ -3686,6 +3500,7 @@ block|{
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -3721,6 +3536,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|(
@@ -3776,6 +3592,7 @@ block|{
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -3813,6 +3630,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|(
@@ -3859,6 +3677,7 @@ block|{
 try|try
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -3878,6 +3697,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -3906,6 +3726,7 @@ block|{
 comment|// ignore
 block|}
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -3925,6 +3746,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -3944,6 +3766,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -3964,6 +3787,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -4003,6 +3827,7 @@ literal|"--> indexing on index_1 which is an alias for index with routing [1]"
 argument_list|)
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -4039,6 +3864,7 @@ literal|"--> indexing on index_2 which is a concrete index"
 argument_list|)
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -4092,6 +3918,7 @@ block|{
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -4139,6 +3966,7 @@ block|{
 try|try
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -4167,6 +3995,7 @@ block|{
 comment|// ignore
 block|}
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -4225,6 +4054,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -4259,6 +4089,7 @@ literal|"--> indexing with id [1], and routing [0]"
 argument_list|)
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -4309,6 +4140,7 @@ expr_stmt|;
 try|try
 block|{
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -4388,6 +4220,7 @@ block|{
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -4427,6 +4260,7 @@ literal|"--> deleting with no routing, should broadcast the delete since _routin
 argument_list|)
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareDelete
 argument_list|(
@@ -4466,6 +4300,7 @@ block|{
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -4494,6 +4329,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -4533,6 +4369,7 @@ literal|"--> indexing with id [1], and routing [0]"
 argument_list|)
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -4581,6 +4418,7 @@ literal|"--> bulk deleting with no routing, should broadcast the delete since _r
 argument_list|)
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareBulk
 argument_list|()
@@ -4612,6 +4450,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -4646,6 +4485,7 @@ block|{
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -4674,6 +4514,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -4719,6 +4560,7 @@ block|{
 try|try
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -4747,6 +4589,7 @@ block|{
 comment|// ignore
 block|}
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -4766,6 +4609,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -4800,6 +4644,7 @@ literal|"--> creating alias with routing [3]"
 argument_list|)
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -4839,6 +4684,7 @@ literal|"--> indexing with id [0], and routing [3]"
 argument_list|)
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -4899,6 +4745,7 @@ block|{
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -4932,6 +4779,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -4967,6 +4815,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|(
@@ -5005,6 +4854,7 @@ literal|"--> creating alias with routing [4]"
 argument_list|)
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5061,6 +4911,7 @@ block|{
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -5096,6 +4947,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|(
@@ -5134,6 +4986,7 @@ literal|"--> creating alias with search routing [3,4] and index routing 4"
 argument_list|)
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5178,6 +5031,7 @@ literal|"--> indexing with id [1], and routing [4]"
 argument_list|)
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -5238,6 +5092,7 @@ block|{
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -5271,6 +5126,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -5304,6 +5160,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -5339,6 +5196,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|(

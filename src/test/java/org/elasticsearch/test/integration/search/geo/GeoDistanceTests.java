@@ -54,18 +54,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|client
-operator|.
-name|Client
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|Priority
@@ -176,7 +164,7 @@ name|test
 operator|.
 name|integration
 operator|.
-name|AbstractNodesTests
+name|AbstractSharedClusterTest
 import|;
 end_import
 
@@ -188,19 +176,7 @@ name|testng
 operator|.
 name|annotations
 operator|.
-name|AfterClass
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|testng
-operator|.
-name|annotations
-operator|.
-name|BeforeClass
+name|BeforeTest
 import|;
 end_import
 
@@ -342,69 +318,8 @@ specifier|public
 class|class
 name|GeoDistanceTests
 extends|extends
-name|AbstractNodesTests
+name|AbstractSharedClusterTest
 block|{
-DECL|field|client
-specifier|private
-name|Client
-name|client
-decl_stmt|;
-annotation|@
-name|BeforeClass
-DECL|method|createNodes
-specifier|public
-name|void
-name|createNodes
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|startNode
-argument_list|(
-literal|"server1"
-argument_list|)
-expr_stmt|;
-name|startNode
-argument_list|(
-literal|"server2"
-argument_list|)
-expr_stmt|;
-name|client
-operator|=
-name|getClient
-argument_list|()
-expr_stmt|;
-block|}
-annotation|@
-name|AfterClass
-DECL|method|closeNodes
-specifier|public
-name|void
-name|closeNodes
-parameter_list|()
-block|{
-name|client
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-name|closeAllNodes
-argument_list|()
-expr_stmt|;
-block|}
-DECL|method|getClient
-specifier|protected
-name|Client
-name|getClient
-parameter_list|()
-block|{
-return|return
-name|client
-argument_list|(
-literal|"server1"
-argument_list|)
-return|;
-block|}
 annotation|@
 name|Test
 DECL|method|simpleDistanceTests
@@ -418,6 +333,7 @@ block|{
 try|try
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -501,6 +417,7 @@ name|string
 argument_list|()
 decl_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -527,6 +444,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -554,6 +472,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -614,6 +533,7 @@ argument_list|()
 expr_stmt|;
 comment|// to NY: 5.286 km
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -674,6 +594,7 @@ argument_list|()
 expr_stmt|;
 comment|// to NY: 0.4621 km
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -734,6 +655,7 @@ argument_list|()
 expr_stmt|;
 comment|// to NY: 1.055 km
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -794,6 +716,7 @@ argument_list|()
 expr_stmt|;
 comment|// to NY: 1.258 km
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -854,6 +777,7 @@ argument_list|()
 expr_stmt|;
 comment|// to NY: 2.029 km
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -914,6 +838,7 @@ argument_list|()
 expr_stmt|;
 comment|// to NY: 8.572 km
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -973,6 +898,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -993,6 +919,7 @@ name|SearchResponse
 name|searchResponse
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -1116,6 +1043,7 @@ block|}
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -1245,6 +1173,7 @@ comment|// now with a PLANE type
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -1376,6 +1305,7 @@ comment|// factor type is really too small for this resolution
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -1494,6 +1424,7 @@ block|}
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -1617,6 +1548,7 @@ block|}
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -1735,6 +1667,7 @@ block|}
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -1858,6 +1791,7 @@ block|}
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -1971,6 +1905,7 @@ block|}
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -2089,6 +2024,7 @@ block|}
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -2164,6 +2100,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -2240,6 +2177,7 @@ comment|// SORTING
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -2465,6 +2403,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -2699,6 +2638,7 @@ throws|throws
 name|Exception
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2771,6 +2711,7 @@ name|string
 argument_list|()
 decl_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2817,6 +2758,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2846,6 +2788,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -2905,6 +2848,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -2995,6 +2939,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -3085,6 +3030,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -3175,6 +3121,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -3196,6 +3143,7 @@ name|SearchResponse
 name|searchResponse
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -3495,6 +3443,7 @@ comment|// Order: Asc, Mode: max
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -3799,6 +3748,7 @@ comment|// Order: Desc
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -4098,6 +4048,7 @@ comment|// Order: Desc, Mode: min
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -4401,6 +4352,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -4704,6 +4656,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -5007,6 +4960,7 @@ expr_stmt|;
 try|try
 block|{
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -5095,6 +5049,7 @@ throws|throws
 name|Exception
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5167,6 +5122,7 @@ name|string
 argument_list|()
 decl_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5213,6 +5169,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5242,6 +5199,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -5332,6 +5290,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -5370,6 +5329,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5391,6 +5351,7 @@ name|SearchResponse
 name|searchResponse
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -5582,6 +5543,7 @@ comment|// Order: Desc
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -5784,6 +5746,7 @@ block|{
 try|try
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5889,6 +5852,7 @@ name|string
 argument_list|()
 decl_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5915,6 +5879,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5942,6 +5907,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -6000,6 +5966,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -6020,6 +5987,7 @@ name|SearchResponse
 name|searchResponse1
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -6106,6 +6074,7 @@ name|SearchResponse
 name|searchResponse2
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -6192,6 +6161,7 @@ name|SearchResponse
 name|searchResponse3
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -6278,6 +6248,7 @@ name|SearchResponse
 name|searchResponse4
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -6364,6 +6335,7 @@ name|SearchResponse
 name|searchResponse5
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -6456,6 +6428,7 @@ name|SearchResponse
 name|searchResponse6
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -6556,6 +6529,7 @@ throws|throws
 name|Exception
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -6681,6 +6655,7 @@ name|string
 argument_list|()
 decl_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -6727,6 +6702,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -6756,6 +6732,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -6836,6 +6813,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -6954,6 +6932,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -7072,6 +7051,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -7190,6 +7170,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -7211,6 +7192,7 @@ name|SearchResponse
 name|searchResponse
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -7510,6 +7492,7 @@ comment|// Order: Asc, Mode: max
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -7814,6 +7797,7 @@ comment|// Order: Desc
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -8113,6 +8097,7 @@ comment|// Order: Desc, Mode: min
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -8416,6 +8401,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -8719,6 +8705,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -9027,6 +9014,7 @@ expr_stmt|;
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -9342,6 +9330,7 @@ expr_stmt|;
 try|try
 block|{
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(

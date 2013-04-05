@@ -54,18 +54,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|client
-operator|.
-name|Client
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|Priority
@@ -136,7 +124,7 @@ name|test
 operator|.
 name|integration
 operator|.
-name|AbstractNodesTests
+name|AbstractSharedClusterTest
 import|;
 end_import
 
@@ -148,19 +136,7 @@ name|testng
 operator|.
 name|annotations
 operator|.
-name|AfterClass
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|testng
-operator|.
-name|annotations
-operator|.
-name|BeforeClass
+name|BeforeTest
 import|;
 end_import
 
@@ -252,69 +228,8 @@ specifier|public
 class|class
 name|SearchScrollTests
 extends|extends
-name|AbstractNodesTests
+name|AbstractSharedClusterTest
 block|{
-DECL|field|client
-specifier|private
-name|Client
-name|client
-decl_stmt|;
-annotation|@
-name|BeforeClass
-DECL|method|createNodes
-specifier|public
-name|void
-name|createNodes
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|startNode
-argument_list|(
-literal|"node1"
-argument_list|)
-expr_stmt|;
-name|startNode
-argument_list|(
-literal|"node2"
-argument_list|)
-expr_stmt|;
-name|client
-operator|=
-name|getClient
-argument_list|()
-expr_stmt|;
-block|}
-annotation|@
-name|AfterClass
-DECL|method|closeNodes
-specifier|public
-name|void
-name|closeNodes
-parameter_list|()
-block|{
-name|client
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-name|closeAllNodes
-argument_list|()
-expr_stmt|;
-block|}
-DECL|method|getClient
-specifier|protected
-name|Client
-name|getClient
-parameter_list|()
-block|{
-return|return
-name|client
-argument_list|(
-literal|"node1"
-argument_list|)
-return|;
-block|}
 annotation|@
 name|Test
 DECL|method|testSimpleScrollQueryThenFetch
@@ -328,6 +243,7 @@ block|{
 try|try
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -356,6 +272,7 @@ block|{
 comment|// ignore
 block|}
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -390,6 +307,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -417,6 +335,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -459,6 +378,7 @@ operator|++
 control|)
 block|{
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -501,6 +421,7 @@ argument_list|()
 expr_stmt|;
 block|}
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -521,6 +442,7 @@ name|SearchResponse
 name|searchResponse
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -640,6 +562,7 @@ block|}
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearchScroll
 argument_list|(
@@ -739,6 +662,7 @@ block|}
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearchScroll
 argument_list|(
@@ -849,6 +773,7 @@ block|{
 try|try
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -877,6 +802,7 @@ block|{
 comment|// ignore
 block|}
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -911,6 +837,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -938,6 +865,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1010,6 +938,7 @@ literal|"2"
 expr_stmt|;
 block|}
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -1045,6 +974,7 @@ argument_list|()
 expr_stmt|;
 block|}
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1065,6 +995,7 @@ name|SearchResponse
 name|searchResponse
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -1206,6 +1137,7 @@ block|{
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearchScroll
 argument_list|(
@@ -1307,6 +1239,7 @@ comment|// and now, the last one is one
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearchScroll
 argument_list|(
@@ -1407,6 +1340,7 @@ comment|// a the last is zero
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearchScroll
 argument_list|(
@@ -1517,6 +1451,7 @@ block|{
 try|try
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1545,6 +1480,7 @@ block|{
 comment|// ignore
 block|}
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1579,6 +1515,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1621,6 +1558,7 @@ operator|++
 control|)
 block|{
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -1680,6 +1618,7 @@ argument_list|()
 expr_stmt|;
 block|}
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1699,6 +1638,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|()
@@ -1727,6 +1667,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|()
@@ -1759,6 +1700,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|()
@@ -1791,6 +1733,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|()
@@ -1823,6 +1766,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|()
@@ -1856,6 +1800,7 @@ name|SearchResponse
 name|searchResponse
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -1937,6 +1882,7 @@ literal|"update"
 argument_list|)
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -1965,6 +1911,7 @@ block|}
 name|searchResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearchScroll
 argument_list|(
@@ -2007,6 +1954,7 @@ literal|0
 condition|)
 do|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2026,6 +1974,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|()
@@ -2054,6 +2003,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|()
@@ -2086,6 +2036,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|()
@@ -2118,6 +2069,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|()
@@ -2150,6 +2102,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|()

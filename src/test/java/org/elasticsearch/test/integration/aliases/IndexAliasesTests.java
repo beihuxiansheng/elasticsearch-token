@@ -424,6 +424,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|integration
+operator|.
+name|AbstractSharedClusterTest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|testng
 operator|.
 name|annotations
@@ -622,162 +636,26 @@ specifier|public
 class|class
 name|IndexAliasesTests
 extends|extends
-name|AbstractNodesTests
+name|AbstractSharedClusterTest
 block|{
-DECL|field|client1
-specifier|protected
-name|Client
-name|client1
-decl_stmt|;
-DECL|field|client2
-specifier|protected
-name|Client
-name|client2
-decl_stmt|;
-DECL|field|clients
-specifier|protected
-name|Client
-index|[]
-name|clients
-decl_stmt|;
-DECL|field|random
-specifier|protected
-name|Random
-name|random
-init|=
-operator|new
-name|Random
-argument_list|()
-decl_stmt|;
 annotation|@
 name|BeforeClass
-DECL|method|startNodes
+DECL|method|createNodes
 specifier|public
 name|void
-name|startNodes
+name|createNodes
 parameter_list|()
+throws|throws
+name|Exception
 block|{
-name|Settings
-name|nodeSettings
-init|=
-name|ImmutableSettings
-operator|.
-name|settingsBuilder
+name|cluster
 argument_list|()
 operator|.
-name|put
+name|ensureAtLeastNumNodes
 argument_list|(
-literal|"action.auto_create_index"
-argument_list|,
-literal|false
-argument_list|)
-operator|.
-name|build
-argument_list|()
-decl_stmt|;
-name|startNode
-argument_list|(
-literal|"server1"
-argument_list|,
-name|nodeSettings
+literal|2
 argument_list|)
 expr_stmt|;
-name|startNode
-argument_list|(
-literal|"server2"
-argument_list|,
-name|nodeSettings
-argument_list|)
-expr_stmt|;
-name|client1
-operator|=
-name|getClient1
-argument_list|()
-expr_stmt|;
-name|client2
-operator|=
-name|getClient2
-argument_list|()
-expr_stmt|;
-name|clients
-operator|=
-operator|new
-name|Client
-index|[]
-block|{
-name|client1
-block|,
-name|client2
-block|}
-expr_stmt|;
-block|}
-annotation|@
-name|AfterClass
-DECL|method|closeNodes
-specifier|public
-name|void
-name|closeNodes
-parameter_list|()
-block|{
-name|client1
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-name|client2
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-name|closeAllNodes
-argument_list|()
-expr_stmt|;
-block|}
-DECL|method|getClient1
-specifier|protected
-name|Client
-name|getClient1
-parameter_list|()
-block|{
-return|return
-name|client
-argument_list|(
-literal|"server1"
-argument_list|)
-return|;
-block|}
-DECL|method|getClient2
-specifier|protected
-name|Client
-name|getClient2
-parameter_list|()
-block|{
-return|return
-name|client
-argument_list|(
-literal|"server2"
-argument_list|)
-return|;
-block|}
-DECL|method|getClient
-specifier|protected
-name|Client
-name|getClient
-parameter_list|()
-block|{
-return|return
-name|clients
-index|[
-name|random
-operator|.
-name|nextInt
-argument_list|(
-name|clients
-operator|.
-name|length
-argument_list|)
-index|]
-return|;
 block|}
 annotation|@
 name|Test
@@ -790,7 +668,8 @@ throws|throws
 name|Exception
 block|{
 comment|// delete all indices
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -814,7 +693,8 @@ argument_list|(
 literal|"--> creating index [test]"
 argument_list|)
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -843,7 +723,8 @@ expr_stmt|;
 name|ClusterHealthResponse
 name|clusterHealth
 init|=
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -903,77 +784,15 @@ name|GREEN
 argument_list|)
 argument_list|)
 expr_stmt|;
-try|try
-block|{
-name|logger
-operator|.
-name|info
-argument_list|(
-literal|"--> indexing against [alias1], should fail"
-argument_list|)
-expr_stmt|;
-name|client1
-operator|.
-name|index
-argument_list|(
-name|indexRequest
-argument_list|(
-literal|"alias1"
-argument_list|)
-operator|.
-name|type
-argument_list|(
-literal|"type1"
-argument_list|)
-operator|.
-name|id
-argument_list|(
-literal|"1"
-argument_list|)
-operator|.
-name|source
-argument_list|(
-name|source
-argument_list|(
-literal|"1"
-argument_list|,
-literal|"test"
-argument_list|)
-argument_list|)
-argument_list|)
-operator|.
-name|actionGet
-argument_list|()
-expr_stmt|;
-assert|assert
-literal|false
-operator|:
-literal|"index [alias1] should not exists"
-assert|;
-block|}
-catch|catch
-parameter_list|(
-name|IndexMissingException
-name|e
-parameter_list|)
-block|{
-name|assertThat
-argument_list|(
-name|e
-operator|.
-name|index
-argument_list|()
-operator|.
-name|name
-argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|"alias1"
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
+comment|//
+comment|//        try {
+comment|//            logger.info("--> indexing against [alias1], should fail");
+comment|//            client().index(indexRequest("alias1").type("type1").id("1").source(source("1", "test"))).actionGet();
+comment|//            assert false : "index [alias1] should not exists";
+comment|//        } catch (IndexMissingException e) {
+comment|//            assertThat(e.index().name(), equalTo("alias1"));
+comment|//        }
+comment|// TODO this is bogus and should have a dedicated test
 name|logger
 operator|.
 name|info
@@ -981,7 +800,8 @@ argument_list|(
 literal|"--> aliasing index [test] with [alias1]"
 argument_list|)
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1015,7 +835,8 @@ expr_stmt|;
 name|IndexResponse
 name|indexResponse
 init|=
-name|client1
+name|client
+argument_list|()
 operator|.
 name|index
 argument_list|(
@@ -1068,7 +889,8 @@ argument_list|(
 literal|"--> creating index [test]"
 argument_list|)
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1096,7 +918,8 @@ argument_list|)
 expr_stmt|;
 name|clusterHealth
 operator|=
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1163,7 +986,8 @@ argument_list|(
 literal|"--> remove [alias1], Aliasing index [test_x] with [alias1]"
 argument_list|)
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1210,7 +1034,8 @@ argument_list|)
 expr_stmt|;
 name|indexResponse
 operator|=
-name|client1
+name|client
+argument_list|()
 operator|.
 name|index
 argument_list|(
@@ -1268,7 +1093,8 @@ throws|throws
 name|Exception
 block|{
 comment|// delete all indices
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1292,7 +1118,8 @@ argument_list|(
 literal|"--> creating index [test]"
 argument_list|)
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1321,7 +1148,8 @@ expr_stmt|;
 name|ClusterHealthResponse
 name|clusterHealth
 init|=
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1390,7 +1218,8 @@ argument_list|(
 literal|"--> aliasing index [test] with [alias1] and filter [t]"
 argument_list|)
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1440,7 +1269,8 @@ throws|throws
 name|Exception
 block|{
 comment|// delete all indices
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1464,7 +1294,8 @@ argument_list|(
 literal|"--> creating index [test]"
 argument_list|)
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1493,7 +1324,8 @@ expr_stmt|;
 name|ClusterHealthResponse
 name|clusterHealth
 init|=
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1570,7 +1402,8 @@ argument_list|,
 literal|"kimchy"
 argument_list|)
 decl_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1607,7 +1440,8 @@ expr_stmt|;
 name|ClusterState
 name|clusterState
 init|=
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1676,7 +1510,8 @@ throws|throws
 name|Exception
 block|{
 comment|// delete all indices
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1700,7 +1535,8 @@ argument_list|(
 literal|"--> creating index [test]"
 argument_list|)
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1729,7 +1565,8 @@ expr_stmt|;
 name|ClusterHealthResponse
 name|clusterHealth
 init|=
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1796,7 +1633,8 @@ argument_list|(
 literal|"--> adding filtering aliases to index [test]"
 argument_list|)
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1820,7 +1658,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1844,7 +1683,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1875,7 +1715,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1906,7 +1747,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1944,7 +1786,8 @@ argument_list|(
 literal|"--> indexing against [test]"
 argument_list|)
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|index
 argument_list|(
@@ -1982,7 +1825,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|index
 argument_list|(
@@ -2020,7 +1864,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|index
 argument_list|(
@@ -2058,7 +1903,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|index
 argument_list|(
@@ -2106,7 +1952,8 @@ expr_stmt|;
 name|SearchResponse
 name|searchResponse
 init|=
-name|client1
+name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -2139,7 +1986,8 @@ argument_list|)
 expr_stmt|;
 name|searchResponse
 operator|=
-name|client1
+name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -2183,7 +2031,8 @@ argument_list|)
 expr_stmt|;
 name|searchResponse
 operator|=
-name|client1
+name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -2236,7 +2085,8 @@ argument_list|)
 expr_stmt|;
 name|searchResponse
 operator|=
-name|client1
+name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -2319,7 +2169,8 @@ argument_list|)
 expr_stmt|;
 name|searchResponse
 operator|=
-name|client1
+name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -2411,7 +2262,8 @@ argument_list|)
 expr_stmt|;
 name|searchResponse
 operator|=
-name|client1
+name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -2496,7 +2348,8 @@ argument_list|)
 expr_stmt|;
 name|searchResponse
 operator|=
-name|client1
+name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -2540,7 +2393,8 @@ argument_list|)
 expr_stmt|;
 name|searchResponse
 operator|=
-name|client1
+name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -2586,7 +2440,8 @@ argument_list|)
 expr_stmt|;
 name|searchResponse
 operator|=
-name|client1
+name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -2634,7 +2489,8 @@ argument_list|)
 expr_stmt|;
 name|searchResponse
 operator|=
-name|client1
+name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -2685,7 +2541,8 @@ throws|throws
 name|Exception
 block|{
 comment|// delete all indices
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2709,7 +2566,8 @@ argument_list|(
 literal|"--> creating index [test1]"
 argument_list|)
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2735,7 +2593,8 @@ argument_list|(
 literal|"--> creating index [test2]"
 argument_list|)
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2764,7 +2623,8 @@ expr_stmt|;
 name|ClusterHealthResponse
 name|clusterHealth
 init|=
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2831,7 +2691,8 @@ argument_list|(
 literal|"--> adding filtering aliases to index [test1]"
 argument_list|)
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2855,7 +2716,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2879,7 +2741,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2910,7 +2773,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2948,7 +2812,8 @@ argument_list|(
 literal|"--> adding filtering aliases to index [test2]"
 argument_list|)
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2972,7 +2837,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2996,7 +2862,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -3034,7 +2901,8 @@ argument_list|(
 literal|"--> indexing against [test1]"
 argument_list|)
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|index
 argument_list|(
@@ -3072,7 +2940,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|index
 argument_list|(
@@ -3110,7 +2979,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|index
 argument_list|(
@@ -3148,7 +3018,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|index
 argument_list|(
@@ -3193,7 +3064,8 @@ argument_list|(
 literal|"--> indexing against [test2]"
 argument_list|)
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|index
 argument_list|(
@@ -3231,7 +3103,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|index
 argument_list|(
@@ -3269,7 +3142,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|index
 argument_list|(
@@ -3307,7 +3181,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|index
 argument_list|(
@@ -3355,7 +3230,8 @@ expr_stmt|;
 name|SearchResponse
 name|searchResponse
 init|=
-name|client1
+name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -3390,7 +3266,8 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|client1
+name|client
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|(
@@ -3429,7 +3306,8 @@ argument_list|)
 expr_stmt|;
 name|searchResponse
 operator|=
-name|client1
+name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -3462,7 +3340,8 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|client1
+name|client
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|(
@@ -3501,7 +3380,8 @@ argument_list|)
 expr_stmt|;
 name|searchResponse
 operator|=
-name|client1
+name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -3544,7 +3424,8 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|client1
+name|client
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|(
@@ -3585,7 +3466,8 @@ argument_list|)
 expr_stmt|;
 name|searchResponse
 operator|=
-name|client1
+name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -3628,7 +3510,8 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|client1
+name|client
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|(
@@ -3669,7 +3552,8 @@ argument_list|)
 expr_stmt|;
 name|searchResponse
 operator|=
-name|client1
+name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -3710,7 +3594,8 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|client1
+name|client
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|(
@@ -3751,7 +3636,8 @@ argument_list|)
 expr_stmt|;
 name|searchResponse
 operator|=
-name|client1
+name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -3792,7 +3678,8 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|client1
+name|client
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|(
@@ -3840,7 +3727,8 @@ throws|throws
 name|Exception
 block|{
 comment|// delete all indices
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -3864,7 +3752,8 @@ argument_list|(
 literal|"--> creating indices"
 argument_list|)
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -3883,7 +3772,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -3902,7 +3792,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -3931,7 +3822,8 @@ expr_stmt|;
 name|ClusterHealthResponse
 name|clusterHealth
 init|=
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -3998,7 +3890,8 @@ argument_list|(
 literal|"--> adding aliases to indices"
 argument_list|)
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -4022,7 +3915,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -4053,7 +3947,8 @@ argument_list|(
 literal|"--> adding filtering aliases to indices"
 argument_list|)
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -4084,7 +3979,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -4115,7 +4011,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -4146,7 +4043,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -4177,7 +4075,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -4215,7 +4114,8 @@ argument_list|(
 literal|"--> indexing against [test1]"
 argument_list|)
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|index
 argument_list|(
@@ -4253,7 +4153,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|index
 argument_list|(
@@ -4291,7 +4192,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|index
 argument_list|(
@@ -4329,7 +4231,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|index
 argument_list|(
@@ -4367,7 +4270,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|index
 argument_list|(
@@ -4405,7 +4309,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|index
 argument_list|(
@@ -4443,7 +4348,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|index
 argument_list|(
@@ -4481,7 +4387,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|index
 argument_list|(
@@ -4519,7 +4426,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|index
 argument_list|(
@@ -4567,7 +4475,8 @@ expr_stmt|;
 name|SearchResponse
 name|searchResponse
 init|=
-name|client1
+name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -4608,7 +4517,8 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|client1
+name|client
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|(
@@ -4642,7 +4552,8 @@ argument_list|)
 expr_stmt|;
 name|searchResponse
 operator|=
-name|client1
+name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -4685,7 +4596,8 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|client1
+name|client
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|(
@@ -4719,7 +4631,8 @@ argument_list|)
 expr_stmt|;
 name|searchResponse
 operator|=
-name|client1
+name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -4760,7 +4673,8 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|client1
+name|client
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|(
@@ -4794,7 +4708,8 @@ argument_list|)
 expr_stmt|;
 name|searchResponse
 operator|=
-name|client1
+name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -4841,7 +4756,8 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|client1
+name|client
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|(
@@ -4877,7 +4793,8 @@ argument_list|)
 expr_stmt|;
 name|searchResponse
 operator|=
-name|client1
+name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -4924,7 +4841,8 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|client1
+name|client
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|(
@@ -4960,7 +4878,8 @@ argument_list|)
 expr_stmt|;
 name|searchResponse
 operator|=
-name|client1
+name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -5013,7 +4932,8 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|client1
+name|client
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|(
@@ -5061,7 +4981,8 @@ throws|throws
 name|Exception
 block|{
 comment|// delete all indices
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5085,7 +5006,8 @@ argument_list|(
 literal|"--> creating index [test1]"
 argument_list|)
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5111,7 +5033,8 @@ argument_list|(
 literal|"--> creating index [test2]"
 argument_list|)
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5140,7 +5063,8 @@ expr_stmt|;
 name|ClusterHealthResponse
 name|clusterHealth
 init|=
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5207,7 +5131,8 @@ argument_list|(
 literal|"--> adding filtering aliases to index [test1]"
 argument_list|)
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5231,7 +5156,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5255,7 +5181,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5286,7 +5213,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5317,7 +5245,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5355,7 +5284,8 @@ argument_list|(
 literal|"--> adding filtering aliases to index [test2]"
 argument_list|)
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5379,7 +5309,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5403,7 +5334,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5434,7 +5366,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5472,7 +5405,8 @@ argument_list|(
 literal|"--> indexing against [test1]"
 argument_list|)
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|index
 argument_list|(
@@ -5510,7 +5444,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|index
 argument_list|(
@@ -5548,7 +5483,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|index
 argument_list|(
@@ -5586,7 +5522,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|index
 argument_list|(
@@ -5631,7 +5568,8 @@ argument_list|(
 literal|"--> indexing against [test2]"
 argument_list|)
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|index
 argument_list|(
@@ -5669,7 +5607,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|index
 argument_list|(
@@ -5707,7 +5646,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|index
 argument_list|(
@@ -5745,7 +5685,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|index
 argument_list|(
@@ -5792,7 +5733,8 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|client1
+name|client
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|(
@@ -5829,7 +5771,8 @@ argument_list|(
 literal|"--> delete by query from a single alias"
 argument_list|)
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|prepareDeleteByQuery
 argument_list|(
@@ -5854,7 +5797,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5880,7 +5824,8 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|client1
+name|client
+argument_list|()
 operator|.
 name|prepareCount
 argument_list|(
@@ -5917,7 +5862,8 @@ argument_list|(
 literal|"--> delete by query from an aliases pointing to two indices"
 argument_list|)
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|prepareDeleteByQuery
 argument_list|(
@@ -5938,7 +5884,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5965,7 +5912,8 @@ expr_stmt|;
 name|SearchResponse
 name|searchResponse
 init|=
-name|client1
+name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -6011,7 +5959,8 @@ argument_list|(
 literal|"--> delete by query from an aliases and an index"
 argument_list|)
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|prepareDeleteByQuery
 argument_list|(
@@ -6034,7 +5983,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -6060,7 +6010,8 @@ argument_list|)
 expr_stmt|;
 name|searchResponse
 operator|=
-name|client1
+name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -6103,7 +6054,8 @@ throws|throws
 name|Exception
 block|{
 comment|// delete all indices
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -6127,7 +6079,8 @@ argument_list|(
 literal|"--> creating index [test]"
 argument_list|)
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -6156,7 +6109,8 @@ expr_stmt|;
 name|ClusterHealthResponse
 name|clusterHealth
 init|=
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -6233,7 +6187,8 @@ control|)
 block|{
 name|assertThat
 argument_list|(
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -6268,7 +6223,8 @@ literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|client2
+name|client
+argument_list|()
 operator|.
 name|index
 argument_list|(
@@ -6321,7 +6277,8 @@ throws|throws
 name|Exception
 block|{
 comment|// delete all indices
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -6345,7 +6302,8 @@ argument_list|(
 literal|"--> creating index [test]"
 argument_list|)
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -6394,7 +6352,8 @@ expr_stmt|;
 name|ClusterHealthResponse
 name|clusterHealth
 init|=
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -6471,7 +6430,7 @@ control|)
 block|{
 name|assertThat
 argument_list|(
-name|getClient
+name|client
 argument_list|()
 operator|.
 name|admin
@@ -6507,7 +6466,7 @@ literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|getClient
+name|client
 argument_list|()
 operator|.
 name|index
@@ -6567,7 +6526,8 @@ init|=
 literal|10
 decl_stmt|;
 comment|// delete all indices
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -6591,7 +6551,8 @@ argument_list|(
 literal|"--> creating index [test]"
 argument_list|)
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -6620,7 +6581,8 @@ expr_stmt|;
 name|ClusterHealthResponse
 name|clusterHealth
 init|=
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -6730,7 +6692,8 @@ parameter_list|()
 block|{
 name|assertThat
 argument_list|(
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -6763,7 +6726,8 @@ literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|client2
+name|client
+argument_list|()
 operator|.
 name|index
 argument_list|(
@@ -6858,7 +6822,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -6882,7 +6847,8 @@ argument_list|(
 literal|"--> creating index [test]"
 argument_list|)
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -6911,7 +6877,8 @@ expr_stmt|;
 name|ClusterHealthResponse
 name|clusterHealth
 init|=
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -6980,7 +6947,8 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|client2
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -7044,7 +7012,8 @@ argument_list|()
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|client2
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -7118,7 +7087,8 @@ argument_list|()
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|client2
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -7199,7 +7169,8 @@ argument_list|()
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|client2
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -7280,7 +7251,8 @@ argument_list|()
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|client2
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -7357,25 +7329,11 @@ expr_stmt|;
 name|AliasMetaData
 name|aliasMetaData
 init|=
-operator|(
-operator|(
-name|InternalNode
-operator|)
-name|node
-argument_list|(
-literal|"server1"
-argument_list|)
-operator|)
-operator|.
-name|injector
+name|cluster
 argument_list|()
 operator|.
-name|getInstance
-argument_list|(
-name|ClusterService
-operator|.
-name|class
-argument_list|)
+name|clusterService
+argument_list|()
 operator|.
 name|state
 argument_list|()
@@ -7426,7 +7384,8 @@ argument_list|()
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|client2
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -7500,7 +7459,8 @@ argument_list|()
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|client2
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -7571,24 +7531,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// delete all indices
-name|client1
-operator|.
-name|admin
-argument_list|()
-operator|.
-name|indices
-argument_list|()
-operator|.
-name|prepareDelete
-argument_list|()
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
-expr_stmt|;
 name|Settings
 name|indexSettings
 init|=
@@ -7621,7 +7563,8 @@ argument_list|(
 literal|"--> creating indices [foobar, test, test123, foobarbaz, bazbar]"
 argument_list|)
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -7645,7 +7588,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -7669,7 +7613,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -7693,7 +7638,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -7717,7 +7663,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -7751,7 +7698,8 @@ expr_stmt|;
 name|ClusterHealthResponse
 name|clusterHealth
 init|=
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -7818,7 +7766,8 @@ argument_list|(
 literal|"--> creating aliases [alias1, alias2]"
 argument_list|)
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -7845,7 +7794,8 @@ expr_stmt|;
 name|IndicesAliasesResponse
 name|indicesAliasesResponse
 init|=
-name|client2
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -7892,7 +7842,8 @@ expr_stmt|;
 name|IndicesGetAliasesResponse
 name|getResponse
 init|=
-name|client2
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -8078,7 +8029,8 @@ expr_stmt|;
 name|IndicesExistsAliasesResponse
 name|existsResponse
 init|=
-name|client2
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -8119,7 +8071,8 @@ argument_list|)
 expr_stmt|;
 name|getResponse
 operator|=
-name|client2
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -8423,7 +8376,8 @@ argument_list|)
 expr_stmt|;
 name|existsResponse
 operator|=
-name|client2
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -8462,7 +8416,8 @@ argument_list|(
 literal|"--> creating aliases [bar, baz, foo]"
 argument_list|)
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -8509,7 +8464,8 @@ argument_list|()
 expr_stmt|;
 name|indicesAliasesResponse
 operator|=
-name|client2
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -8570,7 +8526,8 @@ argument_list|)
 expr_stmt|;
 name|getResponse
 operator|=
-name|client2
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -8944,7 +8901,8 @@ argument_list|)
 expr_stmt|;
 name|existsResponse
 operator|=
-name|client2
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -8992,7 +8950,8 @@ argument_list|)
 expr_stmt|;
 name|getResponse
 operator|=
-name|client2
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -9364,7 +9323,8 @@ argument_list|)
 expr_stmt|;
 name|existsResponse
 operator|=
-name|client2
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -9410,7 +9370,8 @@ argument_list|)
 expr_stmt|;
 name|getResponse
 operator|=
-name|client2
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -9905,7 +9866,8 @@ argument_list|)
 expr_stmt|;
 name|existsResponse
 operator|=
-name|client2
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -9951,7 +9913,8 @@ argument_list|)
 expr_stmt|;
 name|getResponse
 operator|=
-name|client2
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -10120,7 +10083,8 @@ argument_list|)
 expr_stmt|;
 name|existsResponse
 operator|=
-name|client2
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -10167,7 +10131,8 @@ argument_list|)
 expr_stmt|;
 name|getResponse
 operator|=
-name|client2
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -10357,7 +10322,8 @@ argument_list|)
 expr_stmt|;
 name|existsResponse
 operator|=
-name|client2
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -10403,7 +10369,8 @@ argument_list|)
 expr_stmt|;
 name|getResponse
 operator|=
-name|client2
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -10572,7 +10539,8 @@ argument_list|)
 expr_stmt|;
 name|existsResponse
 operator|=
-name|client2
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -10619,7 +10587,8 @@ argument_list|)
 expr_stmt|;
 name|getResponse
 operator|=
-name|client2
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -10711,7 +10680,8 @@ argument_list|)
 expr_stmt|;
 name|existsResponse
 operator|=
-name|client2
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -10750,7 +10720,8 @@ argument_list|)
 expr_stmt|;
 name|indicesAliasesResponse
 operator|=
-name|client2
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -10789,7 +10760,8 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|client2
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -10841,7 +10813,8 @@ expr_stmt|;
 block|}
 name|existsResponse
 operator|=
-name|client2
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()

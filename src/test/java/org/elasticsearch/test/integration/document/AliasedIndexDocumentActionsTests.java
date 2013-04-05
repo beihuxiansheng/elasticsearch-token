@@ -103,7 +103,8 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -138,7 +139,8 @@ argument_list|(
 literal|"--> creating index test"
 argument_list|)
 expr_stmt|;
-name|client1
+name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()

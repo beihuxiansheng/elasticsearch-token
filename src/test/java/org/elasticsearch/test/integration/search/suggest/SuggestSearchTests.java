@@ -450,7 +450,7 @@ name|test
 operator|.
 name|integration
 operator|.
-name|AbstractNodesTests
+name|AbstractSharedClusterTest
 import|;
 end_import
 
@@ -462,19 +462,7 @@ name|testng
 operator|.
 name|annotations
 operator|.
-name|AfterClass
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|testng
-operator|.
-name|annotations
-operator|.
-name|BeforeClass
+name|BeforeTest
 import|;
 end_import
 
@@ -500,69 +488,8 @@ specifier|public
 class|class
 name|SuggestSearchTests
 extends|extends
-name|AbstractNodesTests
+name|AbstractSharedClusterTest
 block|{
-DECL|field|client
-specifier|private
-name|Client
-name|client
-decl_stmt|;
-annotation|@
-name|BeforeClass
-DECL|method|createNodes
-specifier|public
-name|void
-name|createNodes
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|startNode
-argument_list|(
-literal|"server1"
-argument_list|)
-expr_stmt|;
-name|startNode
-argument_list|(
-literal|"server2"
-argument_list|)
-expr_stmt|;
-name|client
-operator|=
-name|getClient
-argument_list|()
-expr_stmt|;
-block|}
-annotation|@
-name|AfterClass
-DECL|method|closeNodes
-specifier|public
-name|void
-name|closeNodes
-parameter_list|()
-block|{
-name|client
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-name|closeAllNodes
-argument_list|()
-expr_stmt|;
-block|}
-DECL|method|getClient
-specifier|protected
-name|Client
-name|getClient
-parameter_list|()
-block|{
-return|return
-name|client
-argument_list|(
-literal|"server1"
-argument_list|)
-return|;
-block|}
 annotation|@
 name|Test
 comment|// see #3037
@@ -750,6 +677,7 @@ name|endObject
 argument_list|()
 decl_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -767,6 +695,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -801,6 +730,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -823,6 +753,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -859,6 +790,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -895,6 +827,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -931,6 +864,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -953,6 +887,7 @@ init|=
 name|searchSuggest
 argument_list|(
 name|client
+argument_list|()
 argument_list|,
 literal|"ice tea"
 argument_list|,
@@ -1022,6 +957,7 @@ operator|=
 name|searchSuggest
 argument_list|(
 name|client
+argument_list|()
 argument_list|,
 literal|"ice tea"
 argument_list|,
@@ -1090,6 +1026,7 @@ throws|throws
 name|Exception
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1107,6 +1044,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1146,6 +1084,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1183,6 +1122,7 @@ operator|++
 control|)
 block|{
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -1222,6 +1162,7 @@ argument_list|()
 expr_stmt|;
 block|}
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1242,6 +1183,7 @@ name|SearchResponse
 name|_search
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -1281,6 +1223,7 @@ init|=
 name|searchSuggest
 argument_list|(
 name|client
+argument_list|()
 argument_list|,
 name|termSuggestion
 argument_list|(
@@ -1432,6 +1375,7 @@ operator|=
 name|searchSuggest
 argument_list|(
 name|client
+argument_list|()
 argument_list|,
 name|termSuggestion
 argument_list|(
@@ -1595,6 +1539,7 @@ throws|throws
 name|Exception
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1612,6 +1557,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1651,6 +1597,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1673,6 +1620,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -1709,6 +1657,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -1745,6 +1694,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -1781,6 +1731,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -1817,6 +1768,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1837,6 +1789,7 @@ name|SearchResponse
 name|_search
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -1876,6 +1829,7 @@ init|=
 name|searchSuggest
 argument_list|(
 name|client
+argument_list|()
 argument_list|,
 name|termSuggestion
 argument_list|(
@@ -2133,6 +2087,7 @@ operator|=
 name|searchSuggest
 argument_list|(
 name|client
+argument_list|()
 argument_list|,
 name|termSuggestion
 argument_list|(
@@ -2368,6 +2323,7 @@ throws|throws
 name|Exception
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2385,6 +2341,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2424,6 +2381,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2451,6 +2409,7 @@ init|=
 name|searchSuggest
 argument_list|(
 name|client
+argument_list|()
 argument_list|,
 name|termSuggestion
 argument_list|(
@@ -2595,6 +2554,7 @@ expr_stmt|;
 name|searchSuggest
 argument_list|(
 name|client
+argument_list|()
 argument_list|,
 name|termSuggestion
 argument_list|(
@@ -2719,6 +2679,7 @@ throws|throws
 name|Exception
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2736,6 +2697,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2775,6 +2737,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2797,6 +2760,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -2840,6 +2804,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -2883,6 +2848,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -2926,6 +2892,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -2969,6 +2936,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2991,6 +2959,7 @@ init|=
 name|searchSuggest
 argument_list|(
 name|client
+argument_list|()
 argument_list|,
 name|termSuggestion
 argument_list|(
@@ -3653,6 +3622,7 @@ throws|throws
 name|Exception
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -3670,6 +3640,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -3709,6 +3680,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -3892,6 +3864,7 @@ operator|++
 control|)
 block|{
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -3933,6 +3906,7 @@ expr_stmt|;
 block|}
 block|}
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -3955,6 +3929,7 @@ init|=
 name|searchSuggest
 argument_list|(
 name|client
+argument_list|()
 argument_list|,
 literal|"prefix_abcd"
 argument_list|,
@@ -5095,6 +5070,7 @@ throws|,
 name|IOException
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5134,6 +5110,7 @@ literal|0
 argument_list|)
 decl_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5161,6 +5138,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5183,6 +5161,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -5219,6 +5198,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5241,6 +5221,7 @@ init|=
 name|searchSuggest
 argument_list|(
 name|client
+argument_list|()
 argument_list|,
 literal|"a an the"
 argument_list|,
@@ -5624,6 +5605,7 @@ name|endObject
 argument_list|()
 decl_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5641,6 +5623,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5675,6 +5658,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5697,6 +5681,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -5733,6 +5718,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -5769,6 +5755,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -5805,6 +5792,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -5827,6 +5815,7 @@ init|=
 name|searchSuggest
 argument_list|(
 name|client
+argument_list|()
 argument_list|,
 literal|"hello word"
 argument_list|,
@@ -6007,6 +5996,7 @@ operator|=
 name|searchSuggest
 argument_list|(
 name|client
+argument_list|()
 argument_list|,
 literal|"hello word"
 argument_list|,
@@ -6196,6 +6186,7 @@ throws|,
 name|IOException
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -6433,6 +6424,7 @@ name|endObject
 argument_list|()
 decl_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -6467,6 +6459,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -6532,6 +6525,7 @@ literal|null
 condition|)
 block|{
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -6583,6 +6577,7 @@ argument_list|()
 expr_stmt|;
 block|}
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -6605,6 +6600,7 @@ init|=
 name|searchSuggest
 argument_list|(
 name|client
+argument_list|()
 argument_list|,
 literal|"american ame"
 argument_list|,
@@ -6653,9 +6649,6 @@ argument_list|(
 literal|1
 argument_list|)
 argument_list|)
-decl_stmt|;
-name|SearchResponse
-name|search
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -6817,6 +6810,7 @@ operator|=
 name|searchSuggest
 argument_list|(
 name|client
+argument_list|()
 argument_list|,
 literal|"Xor the Got-Jewel"
 argument_list|,
@@ -7037,6 +7031,7 @@ operator|=
 name|searchSuggest
 argument_list|(
 name|client
+argument_list|()
 argument_list|,
 literal|"Xorr the God-Jewel"
 argument_list|,
@@ -7262,6 +7257,7 @@ operator|=
 name|searchSuggest
 argument_list|(
 name|client
+argument_list|()
 argument_list|,
 literal|"Xorr the God-Jewel"
 argument_list|,
@@ -7416,6 +7412,7 @@ operator|=
 name|searchSuggest
 argument_list|(
 name|client
+argument_list|()
 argument_list|,
 literal|"Xorr the God-Jewel"
 argument_list|,
@@ -7636,6 +7633,7 @@ operator|=
 name|searchSuggest
 argument_list|(
 name|client
+argument_list|()
 argument_list|,
 literal|"xor the yod-Jewel"
 argument_list|,
@@ -7886,6 +7884,7 @@ operator|=
 name|searchSuggest
 argument_list|(
 name|client
+argument_list|()
 argument_list|,
 literal|"Xor the Got-Jewel"
 argument_list|,
@@ -8055,6 +8054,7 @@ operator|=
 name|searchSuggest
 argument_list|(
 name|client
+argument_list|()
 argument_list|,
 literal|"Xor the Got-Jewel"
 argument_list|,
@@ -8290,6 +8290,7 @@ operator|=
 name|searchSuggest
 argument_list|(
 name|client
+argument_list|()
 argument_list|,
 literal|"Xor the Got-Jewel"
 argument_list|,
@@ -8524,6 +8525,7 @@ operator|=
 name|searchSuggest
 argument_list|(
 name|client
+argument_list|()
 argument_list|,
 literal|"american ame"
 argument_list|,
@@ -8750,6 +8752,7 @@ operator|=
 name|searchSuggest
 argument_list|(
 name|client
+argument_list|()
 argument_list|,
 literal|"Xor the Got-Jewel"
 argument_list|,
@@ -8984,6 +8987,7 @@ operator|=
 name|searchSuggest
 argument_list|(
 name|client
+argument_list|()
 argument_list|,
 literal|"Xor the Got-Jewel"
 argument_list|,
@@ -9214,6 +9218,7 @@ operator|=
 name|searchSuggest
 argument_list|(
 name|client
+argument_list|()
 argument_list|,
 literal|"Xor the Got-Jewel"
 argument_list|,
@@ -9451,6 +9456,7 @@ throws|throws
 name|IOException
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -9706,6 +9712,7 @@ name|endObject
 argument_list|()
 decl_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -9740,6 +9747,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -9767,6 +9775,7 @@ init|=
 literal|"xorr the god jewel"
 decl_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -9821,6 +9830,7 @@ operator|=
 literal|"I got it this time"
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -9871,6 +9881,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -9893,6 +9904,7 @@ init|=
 name|searchSuggest
 argument_list|(
 name|client
+argument_list|()
 argument_list|,
 literal|"Xorr the Gut-Jewel"
 argument_list|,
@@ -10072,6 +10084,7 @@ operator|=
 name|searchSuggest
 argument_list|(
 name|client
+argument_list|()
 argument_list|,
 literal|"Xorr the Gut-Jewel"
 argument_list|,
@@ -10327,6 +10340,7 @@ throws|,
 name|IOException
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -10620,6 +10634,7 @@ name|endObject
 argument_list|()
 decl_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -10654,6 +10669,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -10719,6 +10735,7 @@ literal|null
 condition|)
 block|{
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -10770,6 +10787,7 @@ argument_list|()
 expr_stmt|;
 block|}
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -10788,12 +10806,10 @@ argument_list|()
 expr_stmt|;
 try|try
 block|{
-name|Suggest
-name|suggest
-init|=
 name|searchSuggest
 argument_list|(
 name|client
+argument_list|()
 argument_list|,
 literal|"Xor the Got-Jewel"
 argument_list|,
@@ -10854,7 +10870,7 @@ argument_list|(
 literal|1
 argument_list|)
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 assert|assert
 literal|false
 operator|:
@@ -10869,12 +10885,10 @@ parameter_list|)
 block|{}
 try|try
 block|{
-name|Suggest
-name|suggest
-init|=
 name|searchSuggest
 argument_list|(
 name|client
+argument_list|()
 argument_list|,
 literal|"Xor the Got-Jewel"
 argument_list|,
@@ -10905,7 +10919,7 @@ argument_list|(
 literal|1
 argument_list|)
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 assert|assert
 literal|false
 operator|:
@@ -10920,12 +10934,10 @@ parameter_list|)
 block|{         }
 try|try
 block|{
-name|Suggest
-name|suggest
-init|=
 name|searchSuggest
 argument_list|(
 name|client
+argument_list|()
 argument_list|,
 literal|"Xor the Got-Jewel"
 argument_list|,
@@ -10961,7 +10973,7 @@ argument_list|(
 literal|1
 argument_list|)
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 assert|assert
 literal|false
 operator|:
@@ -10978,6 +10990,7 @@ comment|// don't force unigrams
 name|searchSuggest
 argument_list|(
 name|client
+argument_list|()
 argument_list|,
 literal|"Xor the Got-Jewel"
 argument_list|,
@@ -11025,6 +11038,7 @@ expr_stmt|;
 name|searchSuggest
 argument_list|(
 name|client
+argument_list|()
 argument_list|,
 literal|"Xor the Got-Jewel"
 argument_list|,
@@ -11065,6 +11079,7 @@ init|=
 name|searchSuggest
 argument_list|(
 name|client
+argument_list|()
 argument_list|,
 literal|"Xor the Got-Jewel"
 argument_list|,
@@ -11274,6 +11289,7 @@ operator|=
 name|searchSuggest
 argument_list|(
 name|client
+argument_list|()
 argument_list|,
 literal|"Xor the Got-Jewel"
 argument_list|,
@@ -11494,6 +11510,7 @@ return|return
 name|searchSuggest
 argument_list|(
 name|client
+argument_list|()
 argument_list|,
 literal|null
 argument_list|,
@@ -11524,6 +11541,7 @@ return|return
 name|searchSuggest
 argument_list|(
 name|client
+argument_list|()
 argument_list|,
 name|suggestText
 argument_list|,
@@ -11559,6 +11577,7 @@ name|SearchRequestBuilder
 name|builder
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -11634,6 +11653,7 @@ name|Exception
 block|{
 comment|// test suggestion with explicitly added different shard sizes
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -11651,6 +11671,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -11690,6 +11711,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -11712,6 +11734,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -11755,6 +11778,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -11798,6 +11822,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -11841,6 +11866,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -11863,6 +11889,7 @@ init|=
 name|searchSuggest
 argument_list|(
 name|client
+argument_list|()
 argument_list|,
 literal|"foobar"
 argument_list|,
