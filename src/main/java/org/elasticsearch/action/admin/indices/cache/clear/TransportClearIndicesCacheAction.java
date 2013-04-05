@@ -936,14 +936,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|service
-operator|.
-name|cache
-argument_list|()
-operator|.
-name|invalidateStatsCache
-argument_list|()
-expr_stmt|;
 block|}
 return|return
 operator|new

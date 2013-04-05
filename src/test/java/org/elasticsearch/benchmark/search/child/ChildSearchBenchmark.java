@@ -2494,10 +2494,10 @@ operator|.
 name|getIndices
 argument_list|()
 operator|.
-name|getCache
+name|getIdCache
 argument_list|()
 operator|.
-name|getIdCacheSize
+name|getMemorySize
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -3160,10 +3160,10 @@ operator|.
 name|getIndices
 argument_list|()
 operator|.
-name|getCache
+name|getIdCache
 argument_list|()
 operator|.
-name|getIdCacheSize
+name|getMemorySize
 argument_list|()
 argument_list|)
 expr_stmt|;

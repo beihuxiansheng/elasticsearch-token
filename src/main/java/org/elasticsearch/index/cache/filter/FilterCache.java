@@ -72,6 +72,20 @@ name|IndexComponent
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|service
+operator|.
+name|IndexService
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -128,6 +142,15 @@ name|count
 expr_stmt|;
 block|}
 block|}
+comment|// we need to "inject" the index service to not create cyclic dep
+DECL|method|setIndexService
+name|void
+name|setIndexService
+parameter_list|(
+name|IndexService
+name|indexService
+parameter_list|)
+function_decl|;
 DECL|method|type
 name|String
 name|type
@@ -168,16 +191,6 @@ name|String
 index|[]
 name|keys
 parameter_list|)
-function_decl|;
-DECL|method|entriesStats
-name|EntriesStats
-name|entriesStats
-parameter_list|()
-function_decl|;
-DECL|method|evictions
-name|long
-name|evictions
-parameter_list|()
 function_decl|;
 block|}
 end_interface

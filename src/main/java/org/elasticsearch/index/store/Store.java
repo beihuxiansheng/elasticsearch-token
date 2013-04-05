@@ -1751,6 +1751,7 @@ block|}
 block|}
 comment|/**      * The idea of the store directory is to cache file level meta data, as well as md5 of it      */
 DECL|class|StoreDirectory
+specifier|public
 class|class
 name|StoreDirectory
 extends|extends
@@ -1907,6 +1908,21 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+DECL|method|shardId
+specifier|public
+name|ShardId
+name|shardId
+parameter_list|()
+block|{
+return|return
+name|Store
+operator|.
+name|this
+operator|.
+name|shardId
+argument_list|()
+return|;
 block|}
 DECL|method|delegates
 specifier|public
