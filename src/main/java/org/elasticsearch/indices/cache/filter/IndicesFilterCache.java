@@ -952,10 +952,18 @@ condition|)
 block|{
 return|return;
 block|}
+if|if
+condition|(
 name|key
 operator|.
 name|removalListener
-argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|key
+operator|.
+name|removalListener
 operator|.
 name|onRemoval
 argument_list|(
@@ -963,7 +971,8 @@ name|removalNotification
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The reason we need this class ie because we need to clean all the filters that are associated      * with a reader. We don't want to do it every time a reader closes, since iterating over all the map      * is expensive. There doesn't seem to be a nicer way to do it (and maintaining a list per reader      * of the filters will cost more).      */
+block|}
+comment|/**      * The reason we need this class is because we need to clean all the filters that are associated      * with a reader. We don't want to do it every time a reader closes, since iterating over all the map      * is expensive. There doesn't seem to be a nicer way to do it (and maintaining a list per reader      * of the filters will cost more).      */
 DECL|class|ReaderCleaner
 class|class
 name|ReaderCleaner
