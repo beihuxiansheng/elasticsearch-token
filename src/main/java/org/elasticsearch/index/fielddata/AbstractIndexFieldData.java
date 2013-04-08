@@ -213,8 +213,6 @@ name|cache
 operator|.
 name|clear
 argument_list|(
-name|index
-argument_list|,
 name|fieldNames
 operator|.
 name|indexName
@@ -237,8 +235,6 @@ name|cache
 operator|.
 name|clear
 argument_list|(
-name|index
-argument_list|,
 name|reader
 argument_list|)
 expr_stmt|;

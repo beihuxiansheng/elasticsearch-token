@@ -555,6 +555,16 @@ operator|.
 name|flushStats
 return|;
 block|}
+DECL|method|getFieldData
+specifier|public
+name|FieldDataStats
+name|getFieldData
+parameter_list|()
+block|{
+return|return
+name|fieldDataStats
+return|;
+block|}
 DECL|method|getFilterCache
 specifier|public
 name|FilterCacheStats
