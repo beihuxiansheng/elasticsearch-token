@@ -734,6 +734,8 @@ specifier|static
 enum|enum
 name|Flag
 block|{
+comment|// Do not change the order of these flags we use
+comment|// the ordinal for encoding! Only append to the end!
 DECL|enum constant|Store
 name|Store
 argument_list|(
