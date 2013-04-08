@@ -709,6 +709,15 @@ name|getKey
 argument_list|()
 operator|!=
 literal|null
+operator|&&
+name|notification
+operator|.
+name|getKey
+argument_list|()
+operator|.
+name|listener
+operator|!=
+literal|null
 condition|)
 block|{
 name|IndexFieldCache
