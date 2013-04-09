@@ -1184,7 +1184,7 @@ name|this
 operator|.
 name|total
 operator|=
-name|missing
+name|total
 expr_stmt|;
 block|}
 DECL|method|match
