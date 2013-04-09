@@ -392,6 +392,16 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -821,7 +831,7 @@ specifier|public
 name|T
 name|fieldDataSettings
 parameter_list|(
-name|String
+name|Settings
 name|settings
 parameter_list|)
 block|{
@@ -1324,7 +1334,7 @@ specifier|protected
 name|T
 name|fieldDataSettings
 parameter_list|(
-name|String
+name|Settings
 name|settings
 parameter_list|)
 block|{
@@ -1332,20 +1342,7 @@ name|this
 operator|.
 name|fieldDataSettings
 operator|=
-name|ImmutableSettings
-operator|.
-name|builder
-argument_list|()
-operator|.
-name|loadFromDelimitedString
-argument_list|(
 name|settings
-argument_list|,
-literal|';'
-argument_list|)
-operator|.
-name|build
-argument_list|()
 expr_stmt|;
 return|return
 name|builder
@@ -3822,12 +3819,13 @@ name|field
 argument_list|(
 literal|"fielddata"
 argument_list|,
+operator|(
+name|Map
+operator|)
 name|customFieldDataSettings
 operator|.
-name|toDelimitedString
-argument_list|(
-literal|';'
-argument_list|)
+name|getAsMap
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
