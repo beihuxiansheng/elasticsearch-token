@@ -1726,14 +1726,14 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"prefix_length"
+literal|"prefix_len"
 operator|.
 name|equals
 argument_list|(
 name|fieldName
 argument_list|)
 operator|||
-literal|"prefixLength"
+literal|"prefixLen"
 operator|.
 name|equals
 argument_list|(

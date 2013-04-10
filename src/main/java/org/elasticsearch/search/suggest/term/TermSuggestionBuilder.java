@@ -486,7 +486,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"prefix_length"
+literal|"prefix_len"
 argument_list|,
 name|prefixLength
 argument_list|)
