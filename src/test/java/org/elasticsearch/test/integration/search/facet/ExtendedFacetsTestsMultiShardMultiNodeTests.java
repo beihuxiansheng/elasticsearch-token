@@ -61,7 +61,7 @@ name|numDocs
 parameter_list|()
 block|{
 return|return
-literal|50000
+literal|10000
 return|;
 block|}
 block|}
