@@ -477,13 +477,8 @@ operator|-
 literal|30
 argument_list|)
 operator|.
-name|point
-argument_list|(
-operator|-
-literal|45
-argument_list|,
-literal|30
-argument_list|)
+name|close
+argument_list|()
 decl_stmt|;
 name|Shape
 name|polygon

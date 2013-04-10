@@ -208,7 +208,7 @@ name|query
 operator|.
 name|FilterBuilders
 operator|.
-name|geoShapeFilter
+name|*
 import|;
 end_import
 
@@ -655,7 +655,7 @@ argument_list|(
 name|matchAllQuery
 argument_list|()
 argument_list|,
-name|geoShapeFilter
+name|geoIntersectionFilter
 argument_list|(
 literal|"location"
 argument_list|,
@@ -1132,7 +1132,7 @@ argument_list|(
 name|matchAllQuery
 argument_list|()
 argument_list|,
-name|geoShapeFilter
+name|geoIntersectionFilter
 argument_list|(
 literal|"location"
 argument_list|,
@@ -1556,7 +1556,7 @@ argument_list|(
 name|matchAllQuery
 argument_list|()
 argument_list|,
-name|geoShapeFilter
+name|geoIntersectionFilter
 argument_list|(
 literal|"location"
 argument_list|,
