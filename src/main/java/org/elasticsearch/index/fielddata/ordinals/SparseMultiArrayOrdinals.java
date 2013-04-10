@@ -92,6 +92,9 @@ DECL|field|size
 specifier|private
 name|long
 name|size
+init|=
+operator|-
+literal|1
 decl_stmt|;
 DECL|method|SparseMultiArrayOrdinals
 specifier|public
