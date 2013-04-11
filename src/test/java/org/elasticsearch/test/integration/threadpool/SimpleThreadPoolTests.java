@@ -857,6 +857,13 @@ operator|.
 name|await
 argument_list|()
 expr_stmt|;
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|200
+argument_list|)
+expr_stmt|;
 comment|// Check that node info is correct
 name|NodesInfoResponse
 name|nodesInfoResponse
