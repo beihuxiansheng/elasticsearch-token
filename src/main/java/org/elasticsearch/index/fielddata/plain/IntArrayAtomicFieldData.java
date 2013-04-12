@@ -683,7 +683,7 @@ name|length
 operator|*
 name|RamUsage
 operator|.
-name|NUM_BYTES_DOUBLE
+name|NUM_BYTES_INT
 operator|)
 operator|+
 operator|(
@@ -1022,7 +1022,7 @@ name|length
 operator|*
 name|RamUsage
 operator|.
-name|NUM_BYTES_DOUBLE
+name|NUM_BYTES_INT
 operator|)
 expr_stmt|;
 block|}

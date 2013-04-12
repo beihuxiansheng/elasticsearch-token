@@ -391,7 +391,7 @@ name|length
 operator|*
 name|RamUsage
 operator|.
-name|NUM_BYTES_DOUBLE
+name|NUM_BYTES_LONG
 operator|)
 operator|+
 name|ordinals
@@ -1016,7 +1016,7 @@ name|length
 operator|*
 name|RamUsage
 operator|.
-name|NUM_BYTES_DOUBLE
+name|NUM_BYTES_LONG
 operator|)
 expr_stmt|;
 block|}
