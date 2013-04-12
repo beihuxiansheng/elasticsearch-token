@@ -548,7 +548,11 @@ function_decl|;
 DECL|method|fieldDataStats
 name|FieldDataStats
 name|fieldDataStats
-parameter_list|()
+parameter_list|(
+name|String
+modifier|...
+name|fields
+parameter_list|)
 function_decl|;
 DECL|method|state
 name|IndexShardState

@@ -1993,7 +1993,12 @@ argument_list|(
 name|indexShard
 operator|.
 name|fieldDataStats
+argument_list|(
+name|flags
+operator|.
+name|fieldDataFields
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 break|break;

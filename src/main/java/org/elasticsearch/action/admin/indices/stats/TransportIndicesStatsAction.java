@@ -1160,7 +1160,14 @@ operator|=
 name|indexShard
 operator|.
 name|fieldDataStats
+argument_list|(
+name|request
+operator|.
+name|request
+operator|.
+name|fieldDataFields
 argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 return|return
