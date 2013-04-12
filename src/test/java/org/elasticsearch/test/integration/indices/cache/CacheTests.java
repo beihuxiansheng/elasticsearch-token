@@ -1808,6 +1808,14 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|100
+argument_list|)
+expr_stmt|;
+comment|// Make sure the filter cache entries have been removed...
 name|nodesStats
 operator|=
 name|client
