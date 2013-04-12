@@ -927,6 +927,14 @@ argument_list|(
 literal|"api"
 argument_list|)
 expr_stmt|;
+name|service
+operator|.
+name|fieldData
+argument_list|()
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 name|termsFilterCache
 operator|.
 name|clear
