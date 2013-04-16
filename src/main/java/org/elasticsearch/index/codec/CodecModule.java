@@ -110,6 +110,20 @@ name|common
 operator|.
 name|settings
 operator|.
+name|NoClassSettingsException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
 name|Settings
 import|;
 end_import
@@ -352,6 +366,43 @@ operator|.
 name|getValue
 argument_list|()
 decl_stmt|;
+name|String
+name|sType
+init|=
+name|settings
+operator|.
+name|get
+argument_list|(
+literal|"type"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|sType
+operator|==
+literal|null
+operator|||
+name|sType
+operator|.
+name|trim
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|ElasticSearchIllegalArgumentException
+argument_list|(
+literal|"PostingsFormat Factory ["
+operator|+
+name|name
+operator|+
+literal|"] must have a type associated with it"
+argument_list|)
+throw|;
+block|}
 name|Class
 argument_list|<
 name|?
@@ -359,7 +410,11 @@ extends|extends
 name|PostingsFormatProvider
 argument_list|>
 name|type
-init|=
+decl_stmt|;
+try|try
+block|{
+name|type
+operator|=
 name|settings
 operator|.
 name|getAsClass
@@ -372,24 +427,27 @@ literal|"org.elasticsearch.index.codec.postingsformat."
 argument_list|,
 literal|"PostingsFormatProvider"
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|type
-operator|==
-literal|null
-condition|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|NoClassSettingsException
+name|e
+parameter_list|)
 block|{
-comment|// nothing found, see if its in bindings as a binding name
 throw|throw
 operator|new
 name|ElasticSearchIllegalArgumentException
 argument_list|(
-literal|"PostingsFormat Factory ["
+literal|"The specified type ["
+operator|+
+name|sType
+operator|+
+literal|"] for postingsFormat Factory ["
 operator|+
 name|name
 operator|+
-literal|"] must have a type associated with it"
+literal|"] can't be found"
 argument_list|)
 throw|;
 block|}

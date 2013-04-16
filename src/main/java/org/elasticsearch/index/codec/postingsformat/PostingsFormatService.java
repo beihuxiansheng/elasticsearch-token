@@ -458,7 +458,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|name
+name|provider
 operator|==
 literal|null
 condition|)

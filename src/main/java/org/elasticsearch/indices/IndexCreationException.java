@@ -20,6 +20,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ElasticSearchWrapperException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|index
 operator|.
 name|Index
@@ -49,6 +59,8 @@ class|class
 name|IndexCreationException
 extends|extends
 name|IndexException
+implements|implements
+name|ElasticSearchWrapperException
 block|{
 DECL|method|IndexCreationException
 specifier|public
