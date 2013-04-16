@@ -1707,7 +1707,7 @@ block|{
 return|return
 name|indexShard
 operator|.
-name|primaryShardIt
+name|primaryActiveShardIt
 argument_list|()
 return|;
 block|}
