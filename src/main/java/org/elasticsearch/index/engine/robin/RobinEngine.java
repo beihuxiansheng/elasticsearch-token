@@ -1390,7 +1390,7 @@ name|versionMap
 operator|=
 name|ConcurrentCollections
 operator|.
-name|newConcurrentMap
+name|newConcurrentMapWithAggressiveConcurrency
 argument_list|()
 expr_stmt|;
 name|this

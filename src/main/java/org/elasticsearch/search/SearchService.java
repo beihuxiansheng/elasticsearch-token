@@ -700,7 +700,7 @@ name|activeContexts
 init|=
 name|ConcurrentCollections
 operator|.
-name|newConcurrentMapLong
+name|newConcurrentMapLongWithAggressiveConcurrency
 argument_list|()
 decl_stmt|;
 DECL|field|elementParsers
