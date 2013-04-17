@@ -150,8 +150,6 @@ name|IOException
 block|{
 name|super
 argument_list|(
-name|numericTokenStream
-argument_list|,
 name|reader
 argument_list|)
 expr_stmt|;

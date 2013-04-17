@@ -2061,11 +2061,11 @@ operator|-
 literal|1
 condition|?
 operator|new
-name|XSimpleFragListBuilder
+name|SimpleFragListBuilder
 argument_list|()
 else|:
 operator|new
-name|XSimpleFragListBuilder
+name|SimpleFragListBuilder
 argument_list|(
 name|field
 operator|.

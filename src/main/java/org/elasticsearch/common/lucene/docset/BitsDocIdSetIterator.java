@@ -201,6 +201,23 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|Override
+DECL|method|cost
+specifier|public
+name|long
+name|cost
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|bits
+operator|.
+name|length
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 

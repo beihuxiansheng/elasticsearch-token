@@ -2897,8 +2897,6 @@ name|Reader
 name|reader
 parameter_list|)
 block|{
-try|try
-block|{
 return|return
 operator|new
 name|PatternTokenizer
@@ -2918,21 +2916,6 @@ operator|-
 literal|1
 argument_list|)
 return|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|ElasticSearchIllegalStateException
-argument_list|(
-literal|"failed to parse default pattern"
-argument_list|)
-throw|;
-block|}
 block|}
 block|}
 argument_list|)

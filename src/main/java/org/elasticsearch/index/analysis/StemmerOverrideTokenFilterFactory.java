@@ -42,7 +42,7 @@ name|analysis
 operator|.
 name|miscellaneous
 operator|.
-name|XStemmerOverrideFilter
+name|StemmerOverrideFilter
 import|;
 end_import
 
@@ -58,7 +58,7 @@ name|analysis
 operator|.
 name|miscellaneous
 operator|.
-name|XStemmerOverrideFilter
+name|StemmerOverrideFilter
 operator|.
 name|StemmerOverrideMap
 import|;
@@ -277,16 +277,18 @@ literal|"stemmer override filter requires either `rules` or `rules_path` to be c
 argument_list|)
 throw|;
 block|}
-name|XStemmerOverrideFilter
+name|StemmerOverrideFilter
 operator|.
 name|Builder
 name|builder
 init|=
 operator|new
-name|XStemmerOverrideFilter
+name|StemmerOverrideFilter
 operator|.
 name|Builder
-argument_list|()
+argument_list|(
+literal|false
+argument_list|)
 decl_stmt|;
 name|parseRules
 argument_list|(
@@ -318,13 +320,11 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|XStemmerOverrideFilter
+name|StemmerOverrideFilter
 argument_list|(
 name|tokenStream
 argument_list|,
 name|overrideMap
-argument_list|,
-literal|false
 argument_list|)
 return|;
 block|}
@@ -339,7 +339,7 @@ name|String
 argument_list|>
 name|rules
 parameter_list|,
-name|XStemmerOverrideFilter
+name|StemmerOverrideFilter
 operator|.
 name|Builder
 name|builder

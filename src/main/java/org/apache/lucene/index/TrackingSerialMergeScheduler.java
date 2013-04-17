@@ -579,6 +579,20 @@ name|void
 name|close
 parameter_list|()
 block|{     }
+annotation|@
+name|Override
+DECL|method|clone
+specifier|public
+name|MergeScheduler
+name|clone
+parameter_list|()
+block|{
+comment|// Lucene IW makes a clone internally but since we hold on to this instance
+comment|// the clone will just be the identity.
+return|return
+name|this
+return|;
+block|}
 block|}
 end_class
 

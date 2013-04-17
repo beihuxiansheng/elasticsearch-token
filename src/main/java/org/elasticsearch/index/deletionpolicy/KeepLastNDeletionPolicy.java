@@ -144,9 +144,7 @@ specifier|public
 class|class
 name|KeepLastNDeletionPolicy
 extends|extends
-name|AbstractIndexShardComponent
-implements|implements
-name|IndexDeletionPolicy
+name|AbstractESDeletionPolicy
 block|{
 DECL|field|numToKeep
 specifier|private

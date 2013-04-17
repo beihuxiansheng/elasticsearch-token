@@ -42,6 +42,20 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|MergePolicy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|SegmentInfos
 import|;
 end_import
@@ -949,6 +963,20 @@ name|trigger
 argument_list|,
 name|infos
 argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|clone
+specifier|public
+name|MergePolicy
+name|clone
+parameter_list|()
+block|{
+comment|// Lucene IW makes a clone internally but since we hold on to this instance
+comment|// the clone will just be the identity.
+return|return
+name|this
 return|;
 block|}
 block|}

@@ -2031,6 +2031,20 @@ name|count
 return|;
 comment|// The number of matches in the child doc, which is propagated to parent
 block|}
+annotation|@
+name|Override
+DECL|method|cost
+specifier|public
+name|long
+name|cost
+parameter_list|()
+block|{
+return|return
+name|docs
+operator|.
+name|length
+return|;
+block|}
 block|}
 block|}
 end_class

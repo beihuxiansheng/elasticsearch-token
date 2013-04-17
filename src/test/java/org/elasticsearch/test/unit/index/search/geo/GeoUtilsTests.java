@@ -23,20 +23,50 @@ package|;
 end_package
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
-name|apache
+name|hamcrest
 operator|.
-name|lucene
+name|MatcherAssert
 operator|.
-name|spatial
+name|assertThat
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
 operator|.
-name|prefix
+name|hamcrest
 operator|.
-name|tree
+name|Matchers
 operator|.
-name|GeohashPrefixTree
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|lessThanOrEqualTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|not
 import|;
 end_import
 
@@ -54,7 +84,25 @@ name|prefix
 operator|.
 name|tree
 operator|.
-name|Node
+name|Cell
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|spatial
+operator|.
+name|prefix
+operator|.
+name|tree
+operator|.
+name|GeohashPrefixTree
 import|;
 end_import
 
@@ -141,54 +189,6 @@ operator|.
 name|distance
 operator|.
 name|DistanceUtils
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|equalTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|lessThanOrEqualTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|not
 import|;
 end_import
 
@@ -2782,12 +2782,12 @@ operator|/
 literal|2
 argument_list|)
 decl_stmt|;
-name|Node
+name|Cell
 name|gNode
 init|=
 name|geohashPrefixTree
 operator|.
-name|getWorldNode
+name|getWorldCell
 argument_list|()
 decl_stmt|;
 for|for
@@ -2992,12 +2992,12 @@ argument_list|(
 name|spatialContext
 argument_list|)
 decl_stmt|;
-name|Node
+name|Cell
 name|qNode
 init|=
 name|quadPrefixTree
 operator|.
-name|getWorldNode
+name|getWorldCell
 argument_list|()
 decl_stmt|;
 for|for

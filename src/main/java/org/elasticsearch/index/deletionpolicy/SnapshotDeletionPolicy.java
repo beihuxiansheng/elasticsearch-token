@@ -192,9 +192,7 @@ specifier|public
 class|class
 name|SnapshotDeletionPolicy
 extends|extends
-name|AbstractIndexShardComponent
-implements|implements
-name|IndexDeletionPolicy
+name|AbstractESDeletionPolicy
 block|{
 DECL|field|primary
 specifier|private
@@ -204,6 +202,7 @@ name|primary
 decl_stmt|;
 DECL|field|snapshots
 specifier|private
+specifier|final
 name|ConcurrentMap
 argument_list|<
 name|Long
@@ -574,6 +573,20 @@ name|lastCommit
 argument_list|)
 return|;
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|clone
+specifier|public
+name|IndexDeletionPolicy
+name|clone
+parameter_list|()
+block|{
+comment|// Lucene IW makes a clone internally but since we hold on to this instance
+comment|// the clone will just be the identity. See RobinEngine recovery why we need this.
+return|return
+name|this
+return|;
 block|}
 comment|/**      * Helper method to snapshot a give commit.      */
 DECL|method|snapshot
