@@ -1508,19 +1508,15 @@ name|intersectSupport
 operator|:
 literal|"Intersect relation is not supported"
 assert|;
-comment|//      assert disjointSupport: "Disjoint relation is not supported";
-comment|//      assert withinSupport: "within relation is not supported";
 assert|assert
-operator|!
 name|disjointSupport
 operator|:
-literal|"Disjoint relation is now supported"
+literal|"Disjoint relation is not supported"
 assert|;
 assert|assert
-operator|!
 name|withinSupport
 operator|:
-literal|"within relation is now supported"
+literal|"within relation is not supported"
 assert|;
 name|String
 name|mapping
