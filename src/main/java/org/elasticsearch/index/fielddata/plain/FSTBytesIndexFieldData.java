@@ -546,25 +546,8 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
-comment|// 0 is reserved for "unset"
-name|fstBuilder
-operator|.
-name|add
-argument_list|(
-name|Util
-operator|.
-name|toIntsRef
-argument_list|(
-operator|new
-name|BytesRef
-argument_list|()
-argument_list|,
-name|scratch
-argument_list|)
-argument_list|,
-literal|0l
-argument_list|)
-expr_stmt|;
+comment|// we don't store an ord 0 in the FST since we could have an empty string in there and FST don't support
+comment|// empty strings twice. ie. them merge fails for long output.
 name|TermsEnum
 name|termsEnum
 init|=
@@ -611,6 +594,11 @@ operator|.
 name|nextOrdinal
 argument_list|()
 decl_stmt|;
+assert|assert
+name|termOrd
+operator|>
+literal|0
+assert|;
 name|fstBuilder
 operator|.
 name|add
