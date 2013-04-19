@@ -107,7 +107,7 @@ name|System
 operator|.
 name|getProperty
 argument_list|(
-literal|"ES.RECYCLE"
+literal|"es.cache.recycle"
 argument_list|)
 decl_stmt|;
 if|if
