@@ -280,7 +280,13 @@ parameter_list|(
 name|ExtTHashMap
 name|map
 parameter_list|)
-block|{     }
+block|{
+name|map
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 annotation|@
@@ -319,7 +325,13 @@ parameter_list|(
 name|THashSet
 name|map
 parameter_list|)
-block|{     }
+block|{
+name|map
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 annotation|@
@@ -355,7 +367,13 @@ parameter_list|(
 name|ExtTDoubleObjectHashMap
 name|map
 parameter_list|)
-block|{     }
+block|{
+name|map
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 annotation|@
@@ -391,7 +409,13 @@ parameter_list|(
 name|ExtTLongObjectHashMap
 name|map
 parameter_list|)
-block|{     }
+block|{
+name|map
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|popLongLongMap

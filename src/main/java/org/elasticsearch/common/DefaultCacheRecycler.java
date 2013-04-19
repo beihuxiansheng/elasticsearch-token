@@ -266,6 +266,15 @@ name|DefaultCacheRecycler
 implements|implements
 name|Recycler
 block|{
+DECL|field|QUEUE_MAX_SIZE
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|QUEUE_MAX_SIZE
+init|=
+literal|256
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|clear
@@ -576,6 +585,16 @@ name|ref
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|ref
+operator|.
+name|size
+argument_list|()
+operator|<
+name|QUEUE_MAX_SIZE
+condition|)
+block|{
 name|map
 operator|.
 name|clear
@@ -588,6 +607,7 @@ argument_list|(
 name|map
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// ----- THashSet -----
 DECL|field|hashSet
@@ -732,6 +752,16 @@ name|ref
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|ref
+operator|.
+name|size
+argument_list|()
+operator|<
+name|QUEUE_MAX_SIZE
+condition|)
+block|{
 name|map
 operator|.
 name|clear
@@ -744,6 +774,7 @@ argument_list|(
 name|map
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// ------ ExtTDoubleObjectHashMap -----
 DECL|field|doubleObjectHashMap
@@ -882,6 +913,16 @@ name|ref
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|ref
+operator|.
+name|size
+argument_list|()
+operator|<
+name|QUEUE_MAX_SIZE
+condition|)
+block|{
 name|map
 operator|.
 name|clear
@@ -894,6 +935,7 @@ argument_list|(
 name|map
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// ----- ExtTLongObjectHashMap ----
 DECL|field|longObjectHashMap
@@ -1032,6 +1074,16 @@ name|ref
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|ref
+operator|.
+name|size
+argument_list|()
+operator|<
+name|QUEUE_MAX_SIZE
+condition|)
+block|{
 name|map
 operator|.
 name|clear
@@ -1044,6 +1096,7 @@ argument_list|(
 name|map
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// ----- TLongLongHashMap ----
 DECL|field|longLongHashMap
@@ -1171,6 +1224,16 @@ name|ref
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|ref
+operator|.
+name|size
+argument_list|()
+operator|<
+name|QUEUE_MAX_SIZE
+condition|)
+block|{
 name|map
 operator|.
 name|clear
@@ -1183,6 +1246,7 @@ argument_list|(
 name|map
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// ----- TIntIntHashMap ----
 DECL|field|intIntHashMap
@@ -1310,6 +1374,16 @@ name|ref
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|ref
+operator|.
+name|size
+argument_list|()
+operator|<
+name|QUEUE_MAX_SIZE
+condition|)
+block|{
 name|map
 operator|.
 name|clear
@@ -1322,6 +1396,7 @@ argument_list|(
 name|map
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// ----- TFloatIntHashMap ---
 DECL|field|floatIntHashMap
@@ -1449,6 +1524,16 @@ name|ref
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|ref
+operator|.
+name|size
+argument_list|()
+operator|<
+name|QUEUE_MAX_SIZE
+condition|)
+block|{
 name|map
 operator|.
 name|clear
@@ -1461,6 +1546,7 @@ argument_list|(
 name|map
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// ----- TDoubleIntHashMap ---
 DECL|field|doubleIntHashMap
@@ -1588,6 +1674,16 @@ name|ref
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|ref
+operator|.
+name|size
+argument_list|()
+operator|<
+name|QUEUE_MAX_SIZE
+condition|)
+block|{
 name|map
 operator|.
 name|clear
@@ -1600,6 +1696,7 @@ argument_list|(
 name|map
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// ----- TByteIntHashMap ---
 DECL|field|byteIntHashMap
@@ -1727,6 +1824,16 @@ name|ref
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|ref
+operator|.
+name|size
+argument_list|()
+operator|<
+name|QUEUE_MAX_SIZE
+condition|)
+block|{
 name|map
 operator|.
 name|clear
@@ -1739,6 +1846,7 @@ argument_list|(
 name|map
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// ----- TShortIntHashMap ---
 DECL|field|shortIntHashMap
@@ -1866,6 +1974,16 @@ name|ref
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|ref
+operator|.
+name|size
+argument_list|()
+operator|<
+name|QUEUE_MAX_SIZE
+condition|)
+block|{
 name|map
 operator|.
 name|clear
@@ -1878,6 +1996,7 @@ argument_list|(
 name|map
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// ----- TLongIntHashMap ----
 DECL|field|longIntHashMap
@@ -2005,6 +2124,16 @@ name|ref
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|ref
+operator|.
+name|size
+argument_list|()
+operator|<
+name|QUEUE_MAX_SIZE
+condition|)
+block|{
 name|map
 operator|.
 name|clear
@@ -2017,6 +2146,7 @@ argument_list|(
 name|map
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// ------ TObjectIntHashMap -----
 DECL|field|objectIntHashMap
@@ -2163,6 +2293,16 @@ name|ref
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|ref
+operator|.
+name|size
+argument_list|()
+operator|<
+name|QUEUE_MAX_SIZE
+condition|)
+block|{
 name|map
 operator|.
 name|clear
@@ -2175,6 +2315,7 @@ argument_list|(
 name|map
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// ------ TIntObjectHashMap -----
 DECL|field|intObjectHashMap
@@ -2330,6 +2471,16 @@ name|ref
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|ref
+operator|.
+name|size
+argument_list|()
+operator|<
+name|QUEUE_MAX_SIZE
+condition|)
+block|{
 name|map
 operator|.
 name|clear
@@ -2342,6 +2493,7 @@ argument_list|(
 name|map
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// ------ TObjectFloatHashMap -----
 DECL|field|objectFloatHashMap
@@ -2488,6 +2640,16 @@ name|ref
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|ref
+operator|.
+name|size
+argument_list|()
+operator|<
+name|QUEUE_MAX_SIZE
+condition|)
+block|{
 name|map
 operator|.
 name|clear
@@ -2500,6 +2662,7 @@ argument_list|(
 name|map
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// ----- int[] -----
 DECL|field|objectArray
@@ -2668,6 +2831,16 @@ name|ref
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|ref
+operator|.
+name|size
+argument_list|()
+operator|<
+name|QUEUE_MAX_SIZE
+condition|)
+block|{
 name|Arrays
 operator|.
 name|fill
@@ -2684,6 +2857,7 @@ argument_list|(
 name|objects
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|field|intArray
 specifier|private
@@ -2965,6 +3139,16 @@ name|ref
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|ref
+operator|.
+name|size
+argument_list|()
+operator|<
+name|QUEUE_MAX_SIZE
+condition|)
+block|{
 name|Arrays
 operator|.
 name|fill
@@ -2981,6 +3165,7 @@ argument_list|(
 name|ints
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class
