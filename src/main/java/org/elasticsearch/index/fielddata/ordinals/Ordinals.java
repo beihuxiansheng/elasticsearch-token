@@ -152,36 +152,6 @@ name|int
 name|docId
 parameter_list|)
 function_decl|;
-comment|/**          * Iterates over the ordinals associated with a docId. If there are no values,          * a callback with a value 0 will be done.          */
-DECL|method|forEachOrdinalInDoc
-name|void
-name|forEachOrdinalInDoc
-parameter_list|(
-name|int
-name|docId
-parameter_list|,
-name|OrdinalInDocProc
-name|proc
-parameter_list|)
-function_decl|;
-DECL|interface|OrdinalInDocProc
-specifier|public
-specifier|static
-interface|interface
-name|OrdinalInDocProc
-block|{
-DECL|method|onOrdinal
-name|void
-name|onOrdinal
-parameter_list|(
-name|int
-name|docId
-parameter_list|,
-name|int
-name|ordinal
-parameter_list|)
-function_decl|;
-block|}
 comment|/**          * An iterator over ordinals values.          */
 DECL|interface|Iter
 interface|interface
