@@ -76,16 +76,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ElasticSearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -229,15 +219,17 @@ operator|==
 literal|null
 condition|)
 block|{
-throw|throw
-operator|new
-name|ElasticSearchIllegalArgumentException
+comment|// we don't have stats for this - this might be a must_not clauses etc. that doesn't allow extract terms on the query
+return|return
+name|super
+operator|.
+name|termStatistics
 argument_list|(
-literal|"Not distributed term statistics for term: "
-operator|+
 name|term
+argument_list|,
+name|context
 argument_list|)
-throw|;
+return|;
 block|}
 return|return
 name|termStatistics
@@ -276,15 +268,15 @@ operator|==
 literal|null
 condition|)
 block|{
-throw|throw
-operator|new
-name|ElasticSearchIllegalArgumentException
+comment|// we don't have stats for this - this might be a must_not clauses etc. that doesn't allow extract terms on the query
+return|return
+name|super
+operator|.
+name|collectionStatistics
 argument_list|(
-literal|"Not distributed collection statistics for field: "
-operator|+
 name|field
 argument_list|)
-throw|;
+return|;
 block|}
 return|return
 name|collectionStatistics
