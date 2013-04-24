@@ -78,6 +78,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ElasticSearchIllegalStateException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|Strings
@@ -662,7 +672,7 @@ operator|.
 name|index
 argument_list|()
 argument_list|,
-literal|"[parent] query requires 'query' field"
+literal|"[has_parent] query requires 'query' field"
 argument_list|)
 throw|;
 block|}
@@ -693,7 +703,7 @@ operator|.
 name|index
 argument_list|()
 argument_list|,
-literal|"[parent] query requires 'parent_type' field"
+literal|"[has_parent] query requires 'parent_type' field"
 argument_list|)
 throw|;
 block|}
@@ -726,7 +736,7 @@ operator|.
 name|index
 argument_list|()
 argument_list|,
-literal|"[parent] query configured 'parent_type' ["
+literal|"[has_parent] query configured 'parent_type' ["
 operator|+
 name|parentType
 operator|+
@@ -951,6 +961,21 @@ operator|.
 name|current
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|searchContext
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|ElasticSearchIllegalStateException
+argument_list|(
+literal|"[has_parent] Can't execute, search context not set."
+argument_list|)
+throw|;
+block|}
 name|Query
 name|query
 decl_stmt|;

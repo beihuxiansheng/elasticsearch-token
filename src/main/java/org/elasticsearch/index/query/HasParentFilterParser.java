@@ -50,6 +50,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ElasticSearchIllegalStateException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|Strings
@@ -672,7 +682,7 @@ operator|.
 name|index
 argument_list|()
 argument_list|,
-literal|"[parent] filter requires 'query' field"
+literal|"[has_parent] filter requires 'query' field"
 argument_list|)
 throw|;
 block|}
@@ -703,7 +713,7 @@ operator|.
 name|index
 argument_list|()
 argument_list|,
-literal|"[parent] filter requires 'parent_type' field"
+literal|"[has_parent] filter requires 'parent_type' field"
 argument_list|)
 throw|;
 block|}
@@ -736,7 +746,7 @@ operator|.
 name|index
 argument_list|()
 argument_list|,
-literal|"[parent] filter configured 'parent_type' ["
+literal|"[has_parent] filter configured 'parent_type' ["
 operator|+
 name|parentType
 operator|+
@@ -773,6 +783,22 @@ operator|.
 name|current
 argument_list|()
 decl_stmt|;
+comment|// In case of delete by query api
+if|if
+condition|(
+name|searchContext
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|ElasticSearchIllegalStateException
+argument_list|(
+literal|"[has_parent] Can't execute, search context not set"
+argument_list|)
+throw|;
+block|}
 name|HasParentFilter
 name|parentFilter
 init|=
