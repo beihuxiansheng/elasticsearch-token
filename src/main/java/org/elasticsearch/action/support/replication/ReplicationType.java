@@ -117,7 +117,7 @@ literal|0
 condition|)
 block|{
 return|return
-name|ASYNC
+name|SYNC
 return|;
 block|}
 elseif|else
@@ -129,7 +129,7 @@ literal|1
 condition|)
 block|{
 return|return
-name|SYNC
+name|ASYNC
 return|;
 block|}
 elseif|else
