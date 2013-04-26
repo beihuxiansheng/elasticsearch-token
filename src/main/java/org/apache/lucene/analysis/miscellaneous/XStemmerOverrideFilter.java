@@ -178,6 +178,20 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|Version
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|fst
 operator|.
 name|ByteSequenceOutputs
@@ -233,6 +247,20 @@ operator|.
 name|FST
 operator|.
 name|BytesReader
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|lucene
+operator|.
+name|Lucene
 import|;
 end_import
 
@@ -312,7 +340,6 @@ name|BytesRef
 argument_list|>
 argument_list|()
 decl_stmt|;
-empty_stmt|;
 DECL|field|spare
 specifier|private
 specifier|final
@@ -329,6 +356,26 @@ specifier|final
 name|boolean
 name|ignoreCase
 decl_stmt|;
+static|static
+block|{
+assert|assert
+name|Version
+operator|.
+name|LUCENE_42
+operator|==
+name|Lucene
+operator|.
+name|VERSION
+operator|:
+literal|"Elasticsearch has upgraded to Lucene Version: ["
+operator|+
+name|Lucene
+operator|.
+name|VERSION
+operator|+
+literal|"] this should can be removed"
+assert|;
+block|}
 comment|/**      * Create a new StemmerOverrideFilter, performing dictionary-based stemming      * with the provided<code>dictionary</code>.      *<p>      * Any dictionary-stemmed terms will be marked with {@link KeywordAttribute}      * so that they will not be stemmed with stemmers down the chain.      *</p>      */
 DECL|method|XStemmerOverrideFilter
 specifier|public
