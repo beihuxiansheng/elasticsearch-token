@@ -818,6 +818,9 @@ name|fieldNamesToHighlight
 control|)
 block|{
 name|FieldMapper
+argument_list|<
+name|?
+argument_list|>
 name|mapper
 init|=
 name|documentMapper
@@ -2003,7 +2006,7 @@ block|{
 name|fragmentsBuilder
 operator|=
 operator|new
-name|XSimpleFragmentsBuilder
+name|SimpleFragmentsBuilder
 argument_list|(
 name|field
 operator|.
@@ -2092,7 +2095,7 @@ block|{
 name|fragmentsBuilder
 operator|=
 operator|new
-name|XScoreOrderFragmentsBuilder
+name|ScoreOrderFragmentsBuilder
 argument_list|(
 name|field
 operator|.
@@ -2150,7 +2153,7 @@ block|{
 name|fragmentsBuilder
 operator|=
 operator|new
-name|XSimpleFragmentsBuilder
+name|SimpleFragmentsBuilder
 argument_list|(
 name|field
 operator|.
