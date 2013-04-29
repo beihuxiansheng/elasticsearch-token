@@ -335,7 +335,7 @@ name|settings
 operator|.
 name|get
 argument_list|(
-literal|"version"
+literal|"indices.analysis.hunspell.version"
 argument_list|)
 argument_list|,
 name|Lucene
@@ -491,7 +491,7 @@ name|settings
 operator|.
 name|get
 argument_list|(
-literal|"version"
+literal|"indices.analysis.hunspell.version"
 argument_list|)
 argument_list|,
 name|Lucene
