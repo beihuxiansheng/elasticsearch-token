@@ -1633,7 +1633,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_41
+name|LUCENE_42
 argument_list|)
 decl_stmt|;
 DECL|field|CURRENT
@@ -1645,6 +1645,32 @@ name|CURRENT
 init|=
 name|V_1_0_0_Beta1
 decl_stmt|;
+static|static
+block|{
+assert|assert
+name|CURRENT
+operator|.
+name|luceneVersion
+operator|==
+name|Lucene
+operator|.
+name|VERSION
+operator|:
+literal|"Version must be upgraded to ["
+operator|+
+name|Lucene
+operator|.
+name|VERSION
+operator|+
+literal|"] is still set to ["
+operator|+
+name|CURRENT
+operator|.
+name|luceneVersion
+operator|+
+literal|"]"
+assert|;
+block|}
 DECL|method|readVersion
 specifier|public
 specifier|static
