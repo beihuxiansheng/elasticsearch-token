@@ -745,6 +745,11 @@ name|PostingsFormatProvider
 name|postingsFormatProvider
 parameter_list|()
 function_decl|;
+DECL|method|isNumeric
+name|boolean
+name|isNumeric
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

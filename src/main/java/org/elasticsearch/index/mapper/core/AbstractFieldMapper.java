@@ -4077,6 +4077,18 @@ parameter_list|()
 block|{
 comment|// nothing to do here, sub classes to override if needed
 block|}
+annotation|@
+name|Override
+DECL|method|isNumeric
+specifier|public
+name|boolean
+name|isNumeric
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 block|}
 end_class
 

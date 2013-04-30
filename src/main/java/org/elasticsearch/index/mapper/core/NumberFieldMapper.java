@@ -1436,6 +1436,18 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
+DECL|method|isNumeric
+specifier|public
+name|boolean
+name|isNumeric
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 block|}
 end_class
 

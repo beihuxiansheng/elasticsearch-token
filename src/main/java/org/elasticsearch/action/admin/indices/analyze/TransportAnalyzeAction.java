@@ -789,6 +789,9 @@ argument_list|)
 throw|;
 block|}
 name|FieldMapper
+argument_list|<
+name|?
+argument_list|>
 name|fieldMapper
 init|=
 name|indexService
@@ -811,6 +814,29 @@ operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|fieldMapper
+operator|.
+name|isNumeric
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|ElasticSearchIllegalArgumentException
+argument_list|(
+literal|"Can't process field ["
+operator|+
+name|request
+operator|.
+name|field
+argument_list|()
+operator|+
+literal|"], Analysis requests are not supported on numeric fields"
+argument_list|)
+throw|;
+block|}
 name|analyzer
 operator|=
 name|fieldMapper
