@@ -374,6 +374,7 @@ name|IndexRequest
 name|doc
 decl_stmt|;
 DECL|method|UpdateRequest
+specifier|public
 name|UpdateRequest
 parameter_list|()
 block|{      }
@@ -708,6 +709,16 @@ name|scriptLang
 expr_stmt|;
 return|return
 name|this
+return|;
+block|}
+DECL|method|scriptLang
+specifier|public
+name|String
+name|scriptLang
+parameter_list|()
+block|{
+return|return
+name|scriptLang
 return|;
 block|}
 comment|/**      * Add a script parameter.      */

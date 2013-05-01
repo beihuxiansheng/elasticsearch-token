@@ -279,6 +279,7 @@ name|matches
 return|;
 block|}
 DECL|method|setGetResult
+specifier|public
 name|void
 name|setGetResult
 parameter_list|(
