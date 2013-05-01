@@ -297,7 +297,7 @@ name|getAsBoolean
 argument_list|(
 literal|"dedup"
 argument_list|,
-literal|false
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
