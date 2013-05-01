@@ -32,6 +32,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|rest
+operator|.
+name|RestStatus
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -70,6 +82,12 @@ comment|/**      * The reason of the failure.      */
 DECL|method|reason
 name|String
 name|reason
+parameter_list|()
+function_decl|;
+comment|/**      * The status of the failure.      */
+DECL|method|status
+name|RestStatus
+name|status
 parameter_list|()
 function_decl|;
 block|}

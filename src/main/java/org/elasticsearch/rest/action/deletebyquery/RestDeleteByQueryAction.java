@@ -276,20 +276,6 @@ name|rest
 operator|.
 name|RestStatus
 operator|.
-name|OK
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|rest
-operator|.
-name|RestStatus
-operator|.
 name|PRECONDITION_FAILED
 import|;
 end_import
@@ -742,6 +728,14 @@ argument_list|(
 name|request
 argument_list|)
 decl_stmt|;
+name|RestStatus
+name|restStatus
+init|=
+name|result
+operator|.
+name|status
+argument_list|()
+decl_stmt|;
 name|builder
 operator|.
 name|startObject
@@ -751,7 +745,11 @@ name|field
 argument_list|(
 literal|"ok"
 argument_list|,
-literal|true
+name|restStatus
+operator|==
+name|RestStatus
+operator|.
+name|OK
 argument_list|)
 expr_stmt|;
 name|builder
@@ -864,7 +862,7 @@ name|XContentRestResponse
 argument_list|(
 name|request
 argument_list|,
-name|OK
+name|restStatus
 argument_list|,
 name|builder
 argument_list|)
