@@ -786,6 +786,23 @@ operator|.
 name|MIN
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|sortMode
+operator|==
+name|SortMode
+operator|.
+name|SUM
+condition|)
+block|{
+throw|throw
+operator|new
+name|ElasticSearchIllegalArgumentException
+argument_list|(
+literal|"sort_mode [sum] isn't supported for sorting by geo distance"
+argument_list|)
+throw|;
+block|}
 name|FieldMapper
 name|mapper
 init|=
