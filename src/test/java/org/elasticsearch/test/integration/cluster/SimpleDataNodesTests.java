@@ -334,7 +334,7 @@ name|assertThat
 argument_list|(
 name|client
 argument_list|(
-literal|"nonData1"
+literal|"nonData2"
 argument_list|)
 operator|.
 name|admin
@@ -356,6 +356,11 @@ operator|.
 name|setWaitForNodes
 argument_list|(
 literal|"2"
+argument_list|)
+operator|.
+name|setLocal
+argument_list|(
+literal|true
 argument_list|)
 operator|.
 name|execute
@@ -459,7 +464,7 @@ name|assertThat
 argument_list|(
 name|client
 argument_list|(
-literal|"nonData1"
+literal|"nonData2"
 argument_list|)
 operator|.
 name|admin
@@ -481,6 +486,11 @@ operator|.
 name|setWaitForNodes
 argument_list|(
 literal|"3"
+argument_list|)
+operator|.
+name|setLocal
+argument_list|(
+literal|true
 argument_list|)
 operator|.
 name|execute
