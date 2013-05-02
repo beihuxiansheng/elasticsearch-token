@@ -324,6 +324,16 @@ name|dedup
 argument_list|)
 return|;
 block|}
+DECL|method|dedup
+specifier|public
+name|boolean
+name|dedup
+parameter_list|()
+block|{
+return|return
+name|dedup
+return|;
+block|}
 block|}
 end_class
 
