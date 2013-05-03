@@ -42,6 +42,16 @@ name|Nullable
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
+import|;
+end_import
+
 begin_comment
 comment|/**  * A static factory for simple "import static" usage.  */
 end_comment
@@ -1658,6 +1668,30 @@ argument_list|)
 return|;
 block|}
 comment|/**      * A filer for a field based on several terms matching on any of them.      *      * @param name   The field name      * @param values The terms      */
+DECL|method|termsQuery
+specifier|public
+specifier|static
+name|TermsQueryBuilder
+name|termsQuery
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|Collection
+name|values
+parameter_list|)
+block|{
+return|return
+operator|new
+name|TermsQueryBuilder
+argument_list|(
+name|name
+argument_list|,
+name|values
+argument_list|)
+return|;
+block|}
+comment|/**      * A filer for a field based on several terms matching on any of them.      *      * @param name   The field name      * @param values The terms      */
 DECL|method|inQuery
 specifier|public
 specifier|static
@@ -1794,6 +1828,30 @@ name|name
 parameter_list|,
 name|Object
 modifier|...
+name|values
+parameter_list|)
+block|{
+return|return
+operator|new
+name|TermsQueryBuilder
+argument_list|(
+name|name
+argument_list|,
+name|values
+argument_list|)
+return|;
+block|}
+comment|/**      * A filer for a field based on several terms matching on any of them.      *      * @param name   The field name      * @param values The terms      */
+DECL|method|inQuery
+specifier|public
+specifier|static
+name|TermsQueryBuilder
+name|inQuery
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|Collection
 name|values
 parameter_list|)
 block|{

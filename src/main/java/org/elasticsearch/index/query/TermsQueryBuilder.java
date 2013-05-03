@@ -40,6 +40,16 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -385,6 +395,29 @@ operator|.
 name|values
 operator|=
 name|values
+expr_stmt|;
+block|}
+comment|/**    * A query for a field based on several terms matching on any of them.    *    * @param name    The field name    * @param values  The terms    */
+DECL|method|TermsQueryBuilder
+specifier|public
+name|TermsQueryBuilder
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|Collection
+name|values
+parameter_list|)
+block|{
+name|this
+argument_list|(
+name|name
+argument_list|,
+name|values
+operator|.
+name|toArray
+argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Sets the minimum number of matches across the provided terms. Defaults to<tt>1</tt>.      */
