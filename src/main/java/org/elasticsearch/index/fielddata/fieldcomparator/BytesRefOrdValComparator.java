@@ -1997,8 +1997,6 @@ argument_list|()
 operator|.
 name|getNumOrds
 argument_list|()
-operator|-
-literal|1
 argument_list|)
 return|;
 block|}
