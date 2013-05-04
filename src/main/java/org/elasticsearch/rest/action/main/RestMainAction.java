@@ -22,6 +22,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Constants
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|ExceptionsHelper
@@ -515,6 +529,19 @@ operator|.
 name|CURRENT
 operator|.
 name|snapshot
+argument_list|)
+comment|// We use the lucene version from lucene constants since
+comment|// this includes bugfix release version as well and is already in
+comment|// the right format. We can also be sure that the format is maitained
+comment|// since this is also recorded in lucene segments and has BW compat
+operator|.
+name|field
+argument_list|(
+literal|"lucene_version"
+argument_list|,
+name|Constants
+operator|.
+name|LUCENE_MAIN_VERSION
 argument_list|)
 operator|.
 name|endObject
