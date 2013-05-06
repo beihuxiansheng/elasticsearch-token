@@ -297,6 +297,20 @@ name|source
 argument_list|()
 return|;
 block|}
+comment|/**      * Returns the internal source bytes, as they are returned without munging (for example,      * might still be compressed).      */
+DECL|method|getSourceInternal
+specifier|public
+name|BytesReference
+name|getSourceInternal
+parameter_list|()
+block|{
+return|return
+name|getResult
+operator|.
+name|internalSourceRef
+argument_list|()
+return|;
+block|}
 comment|/**      * Returns bytes reference, also un compress the source if needed.      */
 DECL|method|getSourceAsBytesRef
 specifier|public
