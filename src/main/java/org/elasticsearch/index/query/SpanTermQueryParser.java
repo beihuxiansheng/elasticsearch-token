@@ -567,14 +567,7 @@ name|boost
 argument_list|)
 expr_stmt|;
 return|return
-name|wrapSmartNameQuery
-argument_list|(
 name|query
-argument_list|,
-name|smartNameFieldMappers
-argument_list|,
-name|parseContext
-argument_list|)
 return|;
 block|}
 block|}
