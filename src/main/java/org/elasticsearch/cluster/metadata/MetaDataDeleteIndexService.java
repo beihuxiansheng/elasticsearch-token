@@ -484,6 +484,10 @@ name|index
 operator|+
 literal|"]"
 argument_list|,
+name|Priority
+operator|.
+name|URGENT
+argument_list|,
 operator|new
 name|ClusterStateUpdateTask
 argument_list|()
