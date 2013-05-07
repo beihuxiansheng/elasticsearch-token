@@ -42,6 +42,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -319,6 +329,18 @@ parameter_list|)
 block|{
 name|assertThat
 argument_list|(
+literal|"Unexpectd ShardFailures: "
+operator|+
+name|Arrays
+operator|.
+name|toString
+argument_list|(
+name|resp
+operator|.
+name|getShardFailures
+argument_list|()
+argument_list|)
+argument_list|,
 name|resp
 operator|.
 name|getShardFailures
@@ -334,6 +356,8 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
+literal|"not enough hits"
+argument_list|,
 name|resp
 operator|.
 name|getHits
