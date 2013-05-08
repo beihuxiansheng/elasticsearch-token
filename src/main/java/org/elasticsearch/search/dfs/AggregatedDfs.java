@@ -511,7 +511,7 @@ name|writeVLong
 argument_list|(
 name|DfsSearchResult
 operator|.
-name|makePositive
+name|plusOne
 argument_list|(
 name|stats
 operator|.

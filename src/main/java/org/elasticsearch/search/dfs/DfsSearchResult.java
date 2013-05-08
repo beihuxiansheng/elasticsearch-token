@@ -773,7 +773,7 @@ name|out
 operator|.
 name|writeVLong
 argument_list|(
-name|makePositive
+name|addOne
 argument_list|(
 name|entry
 operator|.
@@ -789,7 +789,7 @@ name|out
 operator|.
 name|writeVLong
 argument_list|(
-name|makePositive
+name|addOne
 argument_list|(
 name|entry
 operator|.
@@ -805,7 +805,7 @@ name|out
 operator|.
 name|writeVLong
 argument_list|(
-name|makePositive
+name|addOne
 argument_list|(
 name|entry
 operator|.
@@ -898,7 +898,7 @@ name|out
 operator|.
 name|writeVLong
 argument_list|(
-name|makePositive
+name|addOne
 argument_list|(
 name|termStatistic
 operator|.
@@ -1027,7 +1027,7 @@ specifier|final
 name|long
 name|docCount
 init|=
-name|toNotAvailable
+name|subOne
 argument_list|(
 name|in
 operator|.
@@ -1039,7 +1039,7 @@ specifier|final
 name|long
 name|sumTotalTermFreq
 init|=
-name|toNotAvailable
+name|subOne
 argument_list|(
 name|in
 operator|.
@@ -1051,7 +1051,7 @@ specifier|final
 name|long
 name|sumDocFreq
 init|=
-name|toNotAvailable
+name|subOne
 argument_list|(
 name|in
 operator|.
@@ -1195,7 +1195,7 @@ specifier|final
 name|long
 name|totalTermFreq
 init|=
-name|toNotAvailable
+name|subOne
 argument_list|(
 name|in
 operator|.
@@ -1225,25 +1225,20 @@ name|termStatistics
 return|;
 block|}
 comment|/*      * optional statistics are set to -1 in lucene by default.      * Since we are using var longs to encode values we add one to each value      * to ensure we don't waste space and don't add negative values.      */
-DECL|method|makePositive
+DECL|method|addOne
 specifier|public
 specifier|static
 name|long
-name|makePositive
+name|addOne
 parameter_list|(
 name|long
 name|value
 parameter_list|)
 block|{
 assert|assert
-name|Math
-operator|.
-name|signum
-argument_list|(
 name|value
 operator|+
 literal|1
-argument_list|)
 operator|>=
 literal|0
 assert|;
@@ -1253,23 +1248,19 @@ operator|+
 literal|1
 return|;
 block|}
-DECL|method|toNotAvailable
+comment|/*      * See #addOne this just subtracting one and asserts that the actual value      * is positive.      */
+DECL|method|subOne
 specifier|public
 specifier|static
 name|long
-name|toNotAvailable
+name|subOne
 parameter_list|(
 name|long
 name|value
 parameter_list|)
 block|{
 assert|assert
-name|Math
-operator|.
-name|signum
-argument_list|(
 name|value
-argument_list|)
 operator|>=
 literal|0
 assert|;
