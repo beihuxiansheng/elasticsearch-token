@@ -171,6 +171,17 @@ operator|.
 name|name
 return|;
 block|}
+DECL|method|version
+specifier|public
+specifier|final
+name|Version
+name|version
+parameter_list|()
+block|{
+return|return
+name|version
+return|;
+block|}
 block|}
 end_class
 
