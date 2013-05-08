@@ -242,6 +242,18 @@ argument_list|)
 index|]
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|name
+specifier|public
+name|String
+name|name
+parameter_list|()
+block|{
+return|return
+literal|"random"
+return|;
+block|}
 block|}
 end_class
 

@@ -177,6 +177,18 @@ name|primary
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|name
+specifier|public
+name|String
+name|name
+parameter_list|()
+block|{
+return|return
+literal|"strict"
+return|;
+block|}
 block|}
 end_class
 

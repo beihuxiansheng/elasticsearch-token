@@ -207,6 +207,18 @@ return|return
 name|directory
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|name
+specifier|public
+name|String
+name|name
+parameter_list|()
+block|{
+return|return
+literal|"least_used"
+return|;
+block|}
 block|}
 end_class
 
