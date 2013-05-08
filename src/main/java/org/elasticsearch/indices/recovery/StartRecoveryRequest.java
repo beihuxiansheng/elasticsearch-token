@@ -212,7 +212,7 @@ DECL|method|StartRecoveryRequest
 name|StartRecoveryRequest
 parameter_list|()
 block|{     }
-comment|/**      * Start recovery request.      *      * @param shardId      * @param sourceNode      The node to recover from      * @param targetNode      Teh node to recover to      * @param markAsRelocated      * @param existingFiles      */
+comment|/**      * Start recovery request.      *      * @param shardId      * @param sourceNode      The node to recover from      * @param targetNode      The node to recover to      * @param markAsRelocated      * @param existingFiles      */
 DECL|method|StartRecoveryRequest
 specifier|public
 name|StartRecoveryRequest
