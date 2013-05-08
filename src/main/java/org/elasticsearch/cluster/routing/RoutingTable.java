@@ -120,6 +120,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|shard
+operator|.
+name|ShardId
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|indices
 operator|.
 name|IndexMissingException
@@ -199,7 +213,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a global cluster-wide routing table for all indices including the  * version of the current routing state.   * @see IndexRoutingTable  */
+comment|/**  * Represents a global cluster-wide routing table for all indices including the  * version of the current routing state.  *  * @see IndexRoutingTable  */
 end_comment
 
 begin_class
@@ -277,7 +291,7 @@ name|indicesRouting
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns the version of the {@link RoutingTable}.      * @return version of the {@link RoutingTable}      */
+comment|/**      * Returns the version of the {@link RoutingTable}.      *      * @return version of the {@link RoutingTable}      */
 DECL|method|version
 specifier|public
 name|long
@@ -1619,6 +1633,51 @@ argument_list|,
 name|shardRoutingEntry
 argument_list|)
 expr_stmt|;
+block|}
+for|for
+control|(
+name|ShardId
+name|shardId
+range|:
+name|routingNodes
+operator|.
+name|getShardsToClearPostAllocationFlag
+argument_list|()
+control|)
+block|{
+name|IndexRoutingTable
+operator|.
+name|Builder
+name|indexRoutingBuilder
+init|=
+name|indexRoutingTableBuilders
+operator|.
+name|get
+argument_list|(
+name|shardId
+operator|.
+name|index
+argument_list|()
+operator|.
+name|name
+argument_list|()
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|indexRoutingBuilder
+operator|!=
+literal|null
+condition|)
+block|{
+name|indexRoutingBuilder
+operator|.
+name|clearPostAllocationFlag
+argument_list|(
+name|shardId
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 for|for
 control|(

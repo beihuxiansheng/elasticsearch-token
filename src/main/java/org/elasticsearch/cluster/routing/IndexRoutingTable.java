@@ -207,7 +207,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The {@link IndexRoutingTable} represents routing information for a single  * index. The routing table maintains a list of all shards in the index. A  * single shard in this context has one more instances namely exactly one  * {@link ShardRouting#primary() primary} and 1 or more replicas. In other  * words, each instance of a shard is considered a replica while only one  * replica per shard is a<tt>primary</tt> replica. The<tt>primary</tt> replica  * can be seen as the "leader" of the shard acting as the primary entry point  * for operations on a specific shard.   *<p>  * Note: The term replica is not directly  * reflected in the routing table or in releated classes, replicas are  * represented as {@link ShardRouting}.  *</p>  */
+comment|/**  * The {@link IndexRoutingTable} represents routing information for a single  * index. The routing table maintains a list of all shards in the index. A  * single shard in this context has one more instances namely exactly one  * {@link ShardRouting#primary() primary} and 1 or more replicas. In other  * words, each instance of a shard is considered a replica while only one  * replica per shard is a<tt>primary</tt> replica. The<tt>primary</tt> replica  * can be seen as the "leader" of the shard acting as the primary entry point  * for operations on a specific shard.  *<p>  * Note: The term replica is not directly  * reflected in the routing table or in releated classes, replicas are  * represented as {@link ShardRouting}.  *</p>  */
 end_comment
 
 begin_class
@@ -389,7 +389,7 @@ name|build
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Return the index id      * @return id of the index      */
+comment|/**      * Return the index id      *      * @return id of the index      */
 DECL|method|index
 specifier|public
 name|String
@@ -402,7 +402,7 @@ operator|.
 name|index
 return|;
 block|}
-comment|/**      * Return the index id      * @return id of the index      */
+comment|/**      * Return the index id      *      * @return id of the index      */
 DECL|method|getIndex
 specifier|public
 name|String
@@ -414,7 +414,7 @@ name|index
 argument_list|()
 return|;
 block|}
-comment|/**      * creates a new {@link IndexRoutingTable} with all shard versions normalized      * @return new {@link IndexRoutingTable}      */
+comment|/**      * creates a new {@link IndexRoutingTable} with all shard versions normalized      *      * @return new {@link IndexRoutingTable}      */
 DECL|method|normalizeVersions
 specifier|public
 name|IndexRoutingTable
@@ -723,7 +723,7 @@ name|iterator
 argument_list|()
 return|;
 block|}
-comment|/**      * Calculates the number of nodes that hold one or more shards of this index      * {@link IndexRoutingTable} excluding the nodes with the node ids give as      * the<code>excludedNodes</code> parameter.      *       * @param excludedNodes      *            id of nodes that will be excluded      * @return number of distinct nodes this index has at least one shard allocated on      */
+comment|/**      * Calculates the number of nodes that hold one or more shards of this index      * {@link IndexRoutingTable} excluding the nodes with the node ids give as      * the<code>excludedNodes</code> parameter.      *      * @param excludedNodes id of nodes that will be excluded      * @return number of distinct nodes this index has at least one shard allocated on      */
 DECL|method|numberOfNodesShardsAreAllocatedOn
 specifier|public
 name|int
@@ -906,7 +906,7 @@ name|size
 argument_list|()
 return|;
 block|}
-comment|/**      * Calculates the number of primary shards in active state in routing table         * @return number of active primary shards      */
+comment|/**      * Calculates the number of primary shards in active state in routing table      *      * @return number of active primary shards      */
 DECL|method|primaryShardsActive
 specifier|public
 name|int
@@ -1003,7 +1003,7 @@ return|return
 name|counter
 return|;
 block|}
-comment|/**      * Returns a {@link List} of shards that match one of the states listed in {@link ShardRoutingState states}      * @param states a set of {@link ShardRoutingState states}      * @return a {@link List} of shards that match one of the given {@link ShardRoutingState states}      */
+comment|/**      * Returns a {@link List} of shards that match one of the states listed in {@link ShardRoutingState states}      *      * @param states a set of {@link ShardRoutingState states}      * @return a {@link List} of shards that match one of the given {@link ShardRoutingState states}      */
 DECL|method|shardsWithState
 specifier|public
 name|List
@@ -1256,7 +1256,7 @@ operator|=
 name|index
 expr_stmt|;
 block|}
-comment|/**          * Reads an {@link IndexRoutingTable} from an {@link StreamInput}          * @param in {@link StreamInput} to read the {@link IndexRoutingTable} from          * @return {@link IndexRoutingTable} read          *           * @throws IOException if something happens during read          */
+comment|/**          * Reads an {@link IndexRoutingTable} from an {@link StreamInput}          *          * @param in {@link StreamInput} to read the {@link IndexRoutingTable} from          * @return {@link IndexRoutingTable} read          * @throws IOException if something happens during read          */
 DECL|method|readFrom
 specifier|public
 specifier|static
@@ -1333,7 +1333,7 @@ name|build
 argument_list|()
 return|;
 block|}
-comment|/**          * Writes an {@link IndexRoutingTable} to a {@link StreamOutput}.          * @param index {@link IndexRoutingTable} to write          * @param out {@link StreamOutput} to write to          * @throws IOException if something happens during write           */
+comment|/**          * Writes an {@link IndexRoutingTable} to a {@link StreamOutput}.          *          * @param index {@link IndexRoutingTable} to write          * @param out   {@link StreamOutput} to write to          * @throws IOException if something happens during write          */
 DECL|method|writeTo
 specifier|public
 specifier|static
@@ -1847,6 +1847,78 @@ name|id
 argument_list|()
 argument_list|,
 name|indexShard
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Clears the post allocation flag for the specified shard          */
+DECL|method|clearPostAllocationFlag
+specifier|public
+name|Builder
+name|clearPostAllocationFlag
+parameter_list|(
+name|ShardId
+name|shardId
+parameter_list|)
+block|{
+assert|assert
+name|this
+operator|.
+name|index
+operator|.
+name|equals
+argument_list|(
+name|shardId
+operator|.
+name|index
+argument_list|()
+operator|.
+name|name
+argument_list|()
+argument_list|)
+assert|;
+name|IndexShardRoutingTable
+name|indexShard
+init|=
+name|shards
+operator|.
+name|get
+argument_list|(
+name|shardId
+operator|.
+name|id
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|shards
+operator|.
+name|put
+argument_list|(
+name|indexShard
+operator|.
+name|shardId
+argument_list|()
+operator|.
+name|id
+argument_list|()
+argument_list|,
+operator|new
+name|IndexShardRoutingTable
+argument_list|(
+name|indexShard
+operator|.
+name|shardId
+argument_list|()
+argument_list|,
+name|indexShard
+operator|.
+name|shards
+argument_list|()
+argument_list|,
+literal|false
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return

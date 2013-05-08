@@ -722,7 +722,7 @@ specifier|final
 name|boolean
 name|allowPrimary
 decl_stmt|;
-comment|/**      * Create a new {@link AllocateAllocationCommand}      *       * @param shardId {@link ShardId} of the shrad to assign      * @param node Node to assign the shard to      * @param allowPrimary should the node be allow to allocate the shard as primary      */
+comment|/**      * Create a new {@link AllocateAllocationCommand}      *      * @param shardId      {@link ShardId} of the shrad to assign      * @param node         Node to assign the shard to      * @param allowPrimary should the node be allow to allocate the shard as primary      */
 DECL|method|AllocateAllocationCommand
 specifier|public
 name|AllocateAllocationCommand
@@ -768,7 +768,7 @@ return|return
 name|NAME
 return|;
 block|}
-comment|/**      * Get the shards id       * @return id of the shard      */
+comment|/**      * Get the shards id      *      * @return id of the shard      */
 DECL|method|shardId
 specifier|public
 name|ShardId
@@ -781,7 +781,7 @@ operator|.
 name|shardId
 return|;
 block|}
-comment|/**      * Get the id of the Node      * @return id of the Node      */
+comment|/**      * Get the id of the Node      *      * @return id of the Node      */
 DECL|method|node
 specifier|public
 name|String
@@ -794,7 +794,7 @@ operator|.
 name|node
 return|;
 block|}
-comment|/**      * Determine if primary allocation is allowed       * @return<code>true</code> if primary allocation is allowed. Otherwise<code>false</code>       */
+comment|/**      * Determine if primary allocation is allowed      *      * @return<code>true</code> if primary allocation is allowed. Otherwise<code>false</code>      */
 DECL|method|allowPrimary
 specifier|public
 name|boolean
@@ -1043,6 +1043,30 @@ argument_list|(
 name|shardRouting
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|shardRouting
+operator|.
+name|primary
+argument_list|()
+condition|)
+block|{
+comment|// we need to clear the post allocation flag, since its an explicit allocation of the primary shard
+comment|// and we want to force allocate it (and create a new index for it)
+name|allocation
+operator|.
+name|routingNodes
+argument_list|()
+operator|.
+name|addClearPostAllocationFlag
+argument_list|(
+name|shardRouting
+operator|.
+name|shardId
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 break|break;
 block|}
 block|}
