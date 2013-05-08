@@ -371,7 +371,7 @@ argument_list|()
 argument_list|,
 name|DfsSearchResult
 operator|.
-name|toNotAvailable
+name|subOne
 argument_list|(
 name|in
 operator|.
@@ -511,7 +511,7 @@ name|writeVLong
 argument_list|(
 name|DfsSearchResult
 operator|.
-name|plusOne
+name|addOne
 argument_list|(
 name|stats
 operator|.
