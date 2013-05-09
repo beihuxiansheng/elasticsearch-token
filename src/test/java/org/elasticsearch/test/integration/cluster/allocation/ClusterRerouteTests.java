@@ -1809,12 +1809,19 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> starting the first node back, will not allocate the shard since it has no data, but the index will be there"
+literal|"--> starting nodes back, will not allocate the shard since it has no data, but the index will be there"
 argument_list|)
 expr_stmt|;
 name|startNode
 argument_list|(
 literal|"node1"
+argument_list|,
+name|commonSettings
+argument_list|)
+expr_stmt|;
+name|startNode
+argument_list|(
+literal|"node2"
 argument_list|,
 name|commonSettings
 argument_list|)
