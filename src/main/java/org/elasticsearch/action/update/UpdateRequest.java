@@ -482,6 +482,27 @@ name|validationException
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|script
+operator|!=
+literal|null
+operator|&&
+name|doc
+operator|!=
+literal|null
+condition|)
+block|{
+name|validationException
+operator|=
+name|addValidationError
+argument_list|(
+literal|"can't provide both script and doc"
+argument_list|,
+name|validationException
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|validationException
 return|;
