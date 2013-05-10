@@ -22,6 +22,20 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|ImmutableList
+import|;
+end_import
+
+begin_import
+import|import
 name|gnu
 operator|.
 name|trove
@@ -31,16 +45,6 @@ operator|.
 name|hash
 operator|.
 name|TObjectIntHashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Arrays
 import|;
 end_import
 
@@ -194,15 +198,11 @@ end_import
 
 begin_import
 import|import
-name|com
+name|java
 operator|.
-name|google
+name|util
 operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableList
+name|Arrays
 import|;
 end_import
 
@@ -322,27 +322,6 @@ name|missing
 operator|++
 expr_stmt|;
 block|}
-block|}
-DECL|method|makesSafe
-specifier|protected
-name|BytesRef
-name|makesSafe
-parameter_list|(
-name|BytesRef
-name|ref
-parameter_list|,
-name|BytesValues
-name|values
-parameter_list|)
-block|{
-return|return
-name|values
-operator|.
-name|makeSafe
-argument_list|(
-name|ref
-argument_list|)
-return|;
 block|}
 DECL|method|addValue
 specifier|public

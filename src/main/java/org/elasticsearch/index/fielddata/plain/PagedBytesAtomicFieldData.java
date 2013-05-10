@@ -720,6 +720,37 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|makeSafe
+specifier|public
+name|BytesRef
+name|makeSafe
+parameter_list|(
+name|BytesRef
+name|bytes
+parameter_list|)
+block|{
+comment|// when we fill from the pages bytes, we just reference an existing buffer slice, its enough
+comment|// to create a shallow copy of the bytes to be safe for "reads".
+return|return
+operator|new
+name|BytesRef
+argument_list|(
+name|bytes
+operator|.
+name|bytes
+argument_list|,
+name|bytes
+operator|.
+name|offset
+argument_list|,
+name|bytes
+operator|.
+name|length
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|ordinals
 specifier|public
 name|Ordinals

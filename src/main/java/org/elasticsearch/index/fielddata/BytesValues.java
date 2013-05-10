@@ -149,7 +149,7 @@ name|int
 name|docId
 parameter_list|)
 function_decl|;
-comment|/**      * Converts the provided bytes to "safe" ones from a "non" safe call made (if needed).      */
+comment|/**      * Converts the provided bytes to "safe" ones from a "non" safe call made (if needed). Note,      * this calls makes the bytes safe for *reads*, not writes (into the same BytesRef). For example,      * it makes it safe to be placed in a map.      */
 DECL|method|makeSafe
 specifier|public
 name|BytesRef

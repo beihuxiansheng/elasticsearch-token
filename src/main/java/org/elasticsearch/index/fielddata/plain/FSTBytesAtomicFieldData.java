@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -233,6 +223,16 @@ operator|.
 name|Ordinals
 operator|.
 name|Docs
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
 import|;
 end_import
 
@@ -704,16 +704,6 @@ name|Ordinals
 operator|.
 name|Docs
 name|ordinals
-decl_stmt|;
-DECL|field|scratch
-specifier|protected
-specifier|final
-name|BytesRef
-name|scratch
-init|=
-operator|new
-name|BytesRef
-argument_list|()
 decl_stmt|;
 comment|// per-thread resources
 DECL|field|in
