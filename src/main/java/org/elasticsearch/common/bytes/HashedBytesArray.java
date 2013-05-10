@@ -146,18 +146,8 @@ name|OutputStream
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Arrays
-import|;
-end_import
-
 begin_comment
-comment|/**  *  */
+comment|/**  * A bytes array reference that caches the hash code.  */
 end_comment
 
 begin_class
@@ -175,13 +165,13 @@ name|byte
 index|[]
 name|bytes
 decl_stmt|;
-comment|// we pre-compute the hashCode for better performance (especially in IdCache)
-DECL|field|hashCode
+comment|/**      * Cache the hash code for the string      */
+DECL|field|hash
 specifier|private
-specifier|final
 name|int
-name|hashCode
+name|hash
 decl_stmt|;
+comment|// Defaults to 0
 DECL|method|HashedBytesArray
 specifier|public
 name|HashedBytesArray
@@ -196,17 +186,6 @@ operator|.
 name|bytes
 operator|=
 name|bytes
-expr_stmt|;
-name|this
-operator|.
-name|hashCode
-operator|=
-name|Arrays
-operator|.
-name|hashCode
-argument_list|(
-name|bytes
-argument_list|)
 expr_stmt|;
 block|}
 DECL|method|HashedBytesArray
@@ -600,13 +579,25 @@ name|int
 name|hashCode
 parameter_list|()
 block|{
-return|return
+if|if
+condition|(
+name|hash
+operator|==
+literal|0
+condition|)
+block|{
+name|hash
+operator|=
 name|Helper
 operator|.
 name|bytesHashCode
 argument_list|(
 name|this
 argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|hash
 return|;
 block|}
 annotation|@
