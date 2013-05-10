@@ -111,7 +111,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * This id cache contains only the ids of parent documents, loaded via the uid or parent field.  * This name IdCache is misleading, parentIdCache would be a better name.  */
 end_comment
 
 begin_interface
