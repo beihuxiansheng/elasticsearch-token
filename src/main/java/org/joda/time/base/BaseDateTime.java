@@ -117,10 +117,6 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * WE COPIED THIS FILE TO REMOVE THE volatile from it!...  */
-end_comment
-
-begin_comment
 comment|/**  * BaseDateTime is an abstract implementation of ReadableDateTime that stores  * data in<code>long</code> and<code>Chronology</code> fields.  *<p/>  * This class should generally not be used directly by API users.  * The {@link ReadableDateTime} interface should be used when different  * kinds of date/time objects are to be referenced.  *<p/>  * BaseDateTime subclasses may be mutable and not thread-safe.  *  * @author Stephen Colebourne  * @author Kandarp Shah  * @author Brian S O'Neill  * @since 1.0  */
 end_comment
 
@@ -149,6 +145,7 @@ operator|-
 literal|6728882245981L
 decl_stmt|;
 comment|/**      * The millis from 1970-01-01T00:00:00Z      */
+comment|// THIS IS THE ES CHANGE not to have it volatile...
 DECL|field|iMillis
 specifier|private
 name|long
@@ -157,6 +154,7 @@ decl_stmt|;
 comment|/**      * The chronology to use      */
 DECL|field|iChronology
 specifier|private
+specifier|volatile
 name|Chronology
 name|iChronology
 decl_stmt|;
