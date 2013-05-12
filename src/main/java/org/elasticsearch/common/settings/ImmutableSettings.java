@@ -46,6 +46,20 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|Maps
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -4561,7 +4575,12 @@ name|String
 argument_list|>
 name|entry
 range|:
+name|Maps
+operator|.
+name|newHashMap
+argument_list|(
 name|map
+argument_list|)
 operator|.
 name|entrySet
 argument_list|()
@@ -4582,6 +4601,8 @@ argument_list|,
 name|placeholderResolver
 argument_list|)
 decl_stmt|;
+comment|// if the values exists and has length, we should maintain it  in the map
+comment|// otherwise, the replace process resolved into removing it
 if|if
 condition|(
 name|Strings
@@ -4602,6 +4623,19 @@ name|getKey
 argument_list|()
 argument_list|,
 name|value
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|map
+operator|.
+name|remove
+argument_list|(
+name|entry
+operator|.
+name|getKey
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
