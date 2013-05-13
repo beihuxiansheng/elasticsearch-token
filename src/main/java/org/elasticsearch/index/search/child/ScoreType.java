@@ -104,6 +104,22 @@ return|return
 name|SUM
 return|;
 block|}
+elseif|else
+if|if
+condition|(
+literal|"total"
+operator|.
+name|equals
+argument_list|(
+name|type
+argument_list|)
+condition|)
+block|{
+comment|// This name is consistent with: ScoreMode.Total
+return|return
+name|SUM
+return|;
+block|}
 throw|throw
 operator|new
 name|ElasticSearchIllegalArgumentException
