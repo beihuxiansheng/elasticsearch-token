@@ -157,7 +157,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"span_multi_term"
+literal|"span_multi"
 decl_stmt|;
 DECL|field|MATCH_NAME
 specifier|public
