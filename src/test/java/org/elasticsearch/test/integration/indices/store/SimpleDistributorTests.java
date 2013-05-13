@@ -151,6 +151,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -360,6 +370,8 @@ specifier|public
 name|void
 name|testDirectoryToString
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|File
 name|dataRoot
@@ -383,7 +395,7 @@ argument_list|,
 literal|"data1"
 argument_list|)
 operator|.
-name|getAbsolutePath
+name|getCanonicalPath
 argument_list|()
 decl_stmt|;
 name|String
@@ -397,7 +409,7 @@ argument_list|,
 literal|"data2"
 argument_list|)
 operator|.
-name|getAbsolutePath
+name|getCanonicalPath
 argument_list|()
 decl_stmt|;
 name|startNode
