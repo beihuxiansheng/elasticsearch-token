@@ -644,6 +644,13 @@ name|equals
 argument_list|(
 name|sScoreMode
 argument_list|)
+operator|||
+literal|"sum"
+operator|.
+name|equals
+argument_list|(
+name|sScoreMode
+argument_list|)
 condition|)
 block|{
 name|scoreMode
