@@ -468,7 +468,7 @@ name|storeString
 argument_list|,
 name|startsWith
 argument_list|(
-literal|"store(least_used[niofs("
+literal|"store(least_used[rate_limited(niofs("
 operator|+
 name|dataPath1
 argument_list|)
@@ -480,7 +480,7 @@ name|storeString
 argument_list|,
 name|containsString
 argument_list|(
-literal|"), niofs("
+literal|"), rate_limited(niofs("
 operator|+
 name|dataPath2
 argument_list|)
@@ -492,7 +492,7 @@ name|storeString
 argument_list|,
 name|endsWith
 argument_list|(
-literal|")])"
+literal|", type=MERGE, rate=20.0)])"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -534,7 +534,7 @@ name|storeString
 argument_list|,
 name|startsWith
 argument_list|(
-literal|"store(random[niofs("
+literal|"store(random[rate_limited(niofs("
 operator|+
 name|dataPath1
 argument_list|)
@@ -546,7 +546,7 @@ name|storeString
 argument_list|,
 name|containsString
 argument_list|(
-literal|"), niofs("
+literal|"), rate_limited(niofs("
 operator|+
 name|dataPath2
 argument_list|)
@@ -558,7 +558,7 @@ name|storeString
 argument_list|,
 name|endsWith
 argument_list|(
-literal|")])"
+literal|", type=MERGE, rate=20.0)])"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -600,7 +600,7 @@ name|storeString
 argument_list|,
 name|startsWith
 argument_list|(
-literal|"store(least_used[mmapfs("
+literal|"store(least_used[rate_limited(mmapfs("
 operator|+
 name|dataPath1
 argument_list|)
@@ -612,7 +612,7 @@ name|storeString
 argument_list|,
 name|containsString
 argument_list|(
-literal|"), mmapfs("
+literal|"), rate_limited(mmapfs("
 operator|+
 name|dataPath2
 argument_list|)
@@ -624,7 +624,7 @@ name|storeString
 argument_list|,
 name|endsWith
 argument_list|(
-literal|")])"
+literal|", type=MERGE, rate=20.0)])"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -666,7 +666,7 @@ name|storeString
 argument_list|,
 name|startsWith
 argument_list|(
-literal|"store(least_used[simplefs("
+literal|"store(least_used[rate_limited(simplefs("
 operator|+
 name|dataPath1
 argument_list|)
@@ -678,7 +678,7 @@ name|storeString
 argument_list|,
 name|containsString
 argument_list|(
-literal|"), simplefs("
+literal|"), rate_limited(simplefs("
 operator|+
 name|dataPath2
 argument_list|)
@@ -690,7 +690,7 @@ name|storeString
 argument_list|,
 name|endsWith
 argument_list|(
-literal|")])"
+literal|", type=MERGE, rate=20.0)])"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -736,7 +736,7 @@ literal|"store(least_used[byte_buffer])"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|createIndexWithRateLimitingStoreType
+name|createIndexWithoutRateLimitingStoreType
 argument_list|(
 literal|"node1"
 argument_list|,
@@ -745,8 +745,6 @@ argument_list|,
 literal|"niofs"
 argument_list|,
 literal|"least_used"
-argument_list|,
-literal|"5mb"
 argument_list|)
 expr_stmt|;
 name|storeString
@@ -776,7 +774,7 @@ name|storeString
 argument_list|,
 name|startsWith
 argument_list|(
-literal|"store(least_used[rate_limited(niofs("
+literal|"store(least_used[niofs("
 operator|+
 name|dataPath1
 argument_list|)
@@ -788,7 +786,7 @@ name|storeString
 argument_list|,
 name|containsString
 argument_list|(
-literal|"), rate_limited(niofs("
+literal|"), niofs("
 operator|+
 name|dataPath2
 argument_list|)
@@ -800,7 +798,7 @@ name|storeString
 argument_list|,
 name|endsWith
 argument_list|(
-literal|", type=MERGE, rate=5.0)])"
+literal|")])"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -959,10 +957,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|createIndexWithRateLimitingStoreType
+DECL|method|createIndexWithoutRateLimitingStoreType
 specifier|private
 name|void
-name|createIndexWithRateLimitingStoreType
+name|createIndexWithoutRateLimitingStoreType
 parameter_list|(
 name|String
 name|nodeId
@@ -975,9 +973,6 @@ name|storeType
 parameter_list|,
 name|String
 name|distributor
-parameter_list|,
-name|String
-name|limit
 parameter_list|)
 block|{
 try|try
@@ -1052,14 +1047,7 @@ name|put
 argument_list|(
 literal|"index.store.throttle.type"
 argument_list|,
-literal|"merge"
-argument_list|)
-operator|.
-name|put
-argument_list|(
-literal|"index.store.throttle.max_bytes_per_sec"
-argument_list|,
-name|limit
+literal|"none"
 argument_list|)
 operator|.
 name|put

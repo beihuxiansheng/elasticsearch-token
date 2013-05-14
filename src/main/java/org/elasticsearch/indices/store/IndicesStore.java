@@ -174,6 +174,20 @@ name|common
 operator|.
 name|unit
 operator|.
+name|ByteSizeUnit
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|unit
+operator|.
 name|ByteSizeValue
 import|;
 end_import
@@ -577,6 +591,7 @@ name|clusterService
 operator|=
 name|clusterService
 expr_stmt|;
+comment|// we limit with 20MB / sec by default with a default type set to merge sice 0.90.1
 name|this
 operator|.
 name|rateLimitingType
@@ -587,7 +602,14 @@ name|get
 argument_list|(
 literal|"throttle.type"
 argument_list|,
-literal|"none"
+name|StoreRateLimiting
+operator|.
+name|Type
+operator|.
+name|MERGE
+operator|.
+name|name
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|rateLimiting
@@ -610,7 +632,11 @@ argument_list|,
 operator|new
 name|ByteSizeValue
 argument_list|(
-literal|0
+literal|20
+argument_list|,
+name|ByteSizeUnit
+operator|.
+name|MB
 argument_list|)
 argument_list|)
 expr_stmt|;
