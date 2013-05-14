@@ -241,6 +241,18 @@ name|INDICES_RECOVERY_CONCURRENT_STREAMS
 init|=
 literal|"indices.recovery.concurrent_streams"
 decl_stmt|;
+DECL|field|INDICES_RECOVERY_MAX_BYTES_PER_SEC
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|INDICES_RECOVERY_MAX_BYTES_PER_SEC
+init|=
+literal|"indices.recovery.max_bytes_per_sec"
+decl_stmt|;
+comment|/**      * Use {@link #INDICES_RECOVERY_MAX_BYTES_PER_SEC} instead      */
+annotation|@
+name|Deprecated
 DECL|field|INDICES_RECOVERY_MAX_SIZE_PER_SEC
 specifier|public
 specifier|static
@@ -286,11 +298,11 @@ specifier|final
 name|ThreadPoolExecutor
 name|concurrentStreamPool
 decl_stmt|;
-DECL|field|maxSizePerSec
+DECL|field|maxBytesPerSec
 specifier|private
 specifier|volatile
 name|ByteSizeValue
-name|maxSizePerSec
+name|maxBytesPerSec
 decl_stmt|;
 DECL|field|rateLimiter
 specifier|private
@@ -455,8 +467,14 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|maxSizePerSec
+name|maxBytesPerSec
 operator|=
+name|componentSettings
+operator|.
+name|getAsBytesSize
+argument_list|(
+literal|"max_bytes_per_sec"
+argument_list|,
 name|componentSettings
 operator|.
 name|getAsBytesSize
@@ -466,13 +484,18 @@ argument_list|,
 operator|new
 name|ByteSizeValue
 argument_list|(
-literal|0
+literal|20
+argument_list|,
+name|ByteSizeUnit
+operator|.
+name|MB
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|maxSizePerSec
+name|maxBytesPerSec
 operator|.
 name|bytes
 argument_list|()
@@ -492,7 +515,7 @@ operator|=
 operator|new
 name|SimpleRateLimiter
 argument_list|(
-name|maxSizePerSec
+name|maxBytesPerSec
 operator|.
 name|mbFrac
 argument_list|()
@@ -503,9 +526,9 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"using max_size_per_sec[{}], concurrent_streams [{}], file_chunk_size [{}], translog_size [{}], translog_ops [{}], and compress [{}]"
+literal|"using max_bytes_per_sec[{}], concurrent_streams [{}], file_chunk_size [{}], translog_size [{}], translog_ops [{}], and compress [{}]"
 argument_list|,
-name|maxSizePerSec
+name|maxBytesPerSec
 argument_list|,
 name|concurrentStreams
 argument_list|,
@@ -663,13 +686,20 @@ name|settings
 operator|.
 name|getAsBytesSize
 argument_list|(
+name|INDICES_RECOVERY_MAX_BYTES_PER_SEC
+argument_list|,
+name|settings
+operator|.
+name|getAsBytesSize
+argument_list|(
 name|INDICES_RECOVERY_MAX_SIZE_PER_SEC
 argument_list|,
 name|RecoverySettings
 operator|.
 name|this
 operator|.
-name|maxSizePerSec
+name|maxBytesPerSec
+argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
@@ -685,7 +715,7 @@ name|RecoverySettings
 operator|.
 name|this
 operator|.
-name|maxSizePerSec
+name|maxBytesPerSec
 argument_list|)
 condition|)
 block|{
@@ -693,13 +723,15 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"updating [indices.recovery.max_size_per_sec] from [{}] to [{}]"
+literal|"updating [{}] from [{}] to [{}]"
+argument_list|,
+name|INDICES_RECOVERY_MAX_BYTES_PER_SEC
 argument_list|,
 name|RecoverySettings
 operator|.
 name|this
 operator|.
-name|maxSizePerSec
+name|maxBytesPerSec
 argument_list|,
 name|maxSizePerSec
 argument_list|)
@@ -708,7 +740,7 @@ name|RecoverySettings
 operator|.
 name|this
 operator|.
-name|maxSizePerSec
+name|maxBytesPerSec
 operator|=
 name|maxSizePerSec
 expr_stmt|;
