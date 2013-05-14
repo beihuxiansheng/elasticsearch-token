@@ -83,6 +83,25 @@ name|int
 name|divisor
 parameter_list|)
 function_decl|;
+comment|/**      * Assigns the underlying missing value to the specified slot, if the actual implementation supports missing value.      *      * @param slot The slot to assign the the missing value to.      */
+DECL|method|missing
+specifier|public
+specifier|abstract
+name|void
+name|missing
+parameter_list|(
+name|int
+name|slot
+parameter_list|)
+function_decl|;
+comment|/**      * Compares the missing value to the bottom.      *      * @return any N< 0 if the bottom value is not competitive with the missing value, any N> 0 if the      * bottom value is competitive with the missing value and 0 if they are equal.      */
+DECL|method|compareBottomMissing
+specifier|public
+specifier|abstract
+name|int
+name|compareBottomMissing
+parameter_list|()
+function_decl|;
 block|}
 end_class
 

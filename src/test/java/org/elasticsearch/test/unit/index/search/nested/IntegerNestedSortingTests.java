@@ -182,6 +182,9 @@ name|fieldName
 parameter_list|,
 name|SortMode
 name|sortMode
+parameter_list|,
+name|Object
+name|missingValue
 parameter_list|)
 block|{
 name|IntArrayIndexFieldData
@@ -198,7 +201,7 @@ name|IntValuesComparatorSource
 argument_list|(
 name|fieldData
 argument_list|,
-literal|null
+name|missingValue
 argument_list|,
 name|sortMode
 argument_list|)

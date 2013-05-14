@@ -283,6 +283,25 @@ operator|/=
 name|divisor
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|missing
+specifier|public
+name|void
+name|missing
+parameter_list|(
+name|int
+name|slot
+parameter_list|)
+block|{
+name|values
+index|[
+name|slot
+index|]
+operator|=
+name|missingValue
+expr_stmt|;
+block|}
 block|}
 end_class
 
