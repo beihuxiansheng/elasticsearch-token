@@ -406,7 +406,7 @@ name|facetParser
 init|=
 name|facetParsers
 operator|.
-name|processor
+name|parser
 argument_list|(
 name|fieldName
 argument_list|)

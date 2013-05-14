@@ -538,6 +538,13 @@ name|equals
 argument_list|(
 name|fieldName
 argument_list|)
+operator|||
+literal|"timeInterval"
+operator|.
+name|equals
+argument_list|(
+name|fieldName
+argument_list|)
 condition|)
 block|{
 name|interval

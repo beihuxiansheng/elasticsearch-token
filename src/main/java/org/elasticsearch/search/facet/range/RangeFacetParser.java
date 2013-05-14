@@ -1057,7 +1057,7 @@ name|facetName
 argument_list|,
 literal|"No mapping found for value_field ["
 operator|+
-name|keyField
+name|valueField
 operator|+
 literal|"]"
 argument_list|)
