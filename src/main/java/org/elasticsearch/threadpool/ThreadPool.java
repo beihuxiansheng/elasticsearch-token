@@ -878,7 +878,7 @@ literal|"size"
 argument_list|,
 name|availableProcessors
 operator|*
-literal|2
+literal|3
 argument_list|)
 operator|.
 name|put
