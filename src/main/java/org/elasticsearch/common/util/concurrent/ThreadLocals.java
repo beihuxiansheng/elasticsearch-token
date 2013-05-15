@@ -538,7 +538,7 @@ name|actualValueClassName
 operator|.
 name|startsWith
 argument_list|(
-literal|"org.lucene"
+literal|"org.apache.lucene"
 argument_list|)
 condition|)
 block|{
