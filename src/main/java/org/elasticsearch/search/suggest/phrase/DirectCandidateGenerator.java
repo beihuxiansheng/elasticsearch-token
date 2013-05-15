@@ -747,6 +747,16 @@ name|spellchecker
 operator|.
 name|setThresholdFrequency
 argument_list|(
+name|this
+operator|.
+name|suggestMode
+operator|==
+name|SuggestMode
+operator|.
+name|SUGGEST_ALWAYS
+condition|?
+literal|0
+else|:
 name|thresholdFrequency
 argument_list|(
 name|frequency
@@ -1227,6 +1237,12 @@ name|long
 operator|)
 name|Math
 operator|.
+name|max
+argument_list|(
+literal|0
+argument_list|,
+name|Math
+operator|.
 name|round
 argument_list|(
 name|termFrequency
@@ -1254,6 +1270,7 @@ operator|)
 operator|)
 operator|+
 literal|1
+argument_list|)
 argument_list|)
 return|;
 block|}
