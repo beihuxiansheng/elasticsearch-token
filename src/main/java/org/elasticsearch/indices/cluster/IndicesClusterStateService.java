@@ -3391,7 +3391,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"[{}][{}] master [{}] marked shard as started, but shard have not been created, mark shard as failed"
+literal|"[{}][{}] master [{}] marked shard as started, but shard has not been created, mark shard as failed"
 argument_list|,
 name|shardRouting
 operator|.
@@ -3419,7 +3419,7 @@ operator|.
 name|masterNode
 argument_list|()
 operator|+
-literal|" marked shard as started, but shard have not been created, mark shard as failed"
+literal|" marked shard as started, but shard has not been created, mark shard as failed"
 argument_list|)
 expr_stmt|;
 continue|continue;
