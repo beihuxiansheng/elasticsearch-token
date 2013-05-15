@@ -3331,7 +3331,7 @@ operator|.
 name|masterNode
 argument_list|()
 argument_list|,
-literal|"new cluster stare received and we monitor the wrong master ["
+literal|"new cluster state received and we are monitoring the wrong master ["
 operator|+
 name|masterFD
 operator|.
