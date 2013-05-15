@@ -1593,6 +1593,13 @@ operator|.
 name|readString
 argument_list|()
 expr_stmt|;
+name|routing
+operator|=
+name|in
+operator|.
+name|readOptionalString
+argument_list|()
+expr_stmt|;
 comment|// no need to pass threading over the network, they are always false when coming throw a thread pool
 name|int
 name|size
@@ -2017,6 +2024,13 @@ operator|.
 name|writeString
 argument_list|(
 name|id
+argument_list|)
+expr_stmt|;
+name|out
+operator|.
+name|writeOptionalString
+argument_list|(
+name|routing
 argument_list|)
 expr_stmt|;
 if|if
