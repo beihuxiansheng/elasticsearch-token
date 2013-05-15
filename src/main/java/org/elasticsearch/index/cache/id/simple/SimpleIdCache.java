@@ -718,7 +718,7 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 comment|// We don't want to load uid of child documents, this allows us to not load uids of child types.
-name|TreeSet
+name|NavigableSet
 argument_list|<
 name|HashedBytesArray
 argument_list|>
