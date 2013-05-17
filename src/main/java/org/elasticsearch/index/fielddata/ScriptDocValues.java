@@ -616,6 +616,17 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
+name|list
+operator|.
+name|grow
+argument_list|(
+name|list
+operator|.
+name|length
+operator|+
+literal|1
+argument_list|)
+expr_stmt|;
 name|UnicodeUtil
 operator|.
 name|UTF8toUTF16
