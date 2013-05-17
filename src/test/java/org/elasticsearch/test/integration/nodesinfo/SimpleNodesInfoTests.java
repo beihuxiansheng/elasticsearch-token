@@ -474,14 +474,6 @@ name|SITE_PLUGIN_NO_DESCRIPTION
 init|=
 literal|"No description found for dummy."
 decl_stmt|;
-DECL|field|JVM_PLUGIN_NO_DESCRIPTION
-specifier|static
-specifier|final
-name|String
-name|JVM_PLUGIN_NO_DESCRIPTION
-init|=
-literal|"No description found for test-no-version-plugin."
-decl_stmt|;
 block|}
 annotation|@
 name|AfterMethod
@@ -1025,6 +1017,13 @@ init|=
 name|startNodeWithPlugins
 argument_list|(
 literal|"node3"
+argument_list|,
+name|TestPlugin
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// The fourth has one java plugin and one site plugin
@@ -1034,6 +1033,13 @@ init|=
 name|startNodeWithPlugins
 argument_list|(
 literal|"node4"
+argument_list|,
+name|TestNoVersionPlugin
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|ClusterHealthResponse
@@ -1207,7 +1213,6 @@ operator|.
 name|EMPTY_LIST
 argument_list|)
 expr_stmt|;
-comment|// Note that we have now 2 JVM plugins as we have already loaded one with node3
 name|assertNodeContainsPlugins
 argument_list|(
 name|response
@@ -1218,12 +1223,6 @@ name|Lists
 operator|.
 name|newArrayList
 argument_list|(
-name|TestPlugin
-operator|.
-name|Fields
-operator|.
-name|NAME
-argument_list|,
 name|TestNoVersionPlugin
 operator|.
 name|Fields
@@ -1235,12 +1234,6 @@ name|Lists
 operator|.
 name|newArrayList
 argument_list|(
-name|TestPlugin
-operator|.
-name|Fields
-operator|.
-name|DESCRIPTION
-argument_list|,
 name|TestNoVersionPlugin
 operator|.
 name|Fields
@@ -1656,6 +1649,10 @@ name|startNodeWithPlugins
 parameter_list|(
 name|String
 name|name
+parameter_list|,
+name|String
+modifier|...
+name|pluginClassNames
 parameter_list|)
 throws|throws
 name|URISyntaxException
@@ -1708,6 +1705,25 @@ argument_list|)
 operator|.
 name|getAbsolutePath
 argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|pluginClassNames
+operator|.
+name|length
+operator|>
+literal|0
+condition|)
+block|{
+name|settings
+operator|.
+name|putArray
+argument_list|(
+literal|"plugin.types"
+argument_list|,
+name|pluginClassNames
 argument_list|)
 expr_stmt|;
 block|}
