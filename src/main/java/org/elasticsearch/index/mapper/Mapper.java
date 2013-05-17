@@ -508,6 +508,11 @@ DECL|method|parse
 name|Mapper
 operator|.
 name|Builder
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|parse
 parameter_list|(
 name|String

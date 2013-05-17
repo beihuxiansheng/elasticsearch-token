@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -106,6 +116,27 @@ specifier|public
 class|class
 name|Joda
 block|{
+DECL|method|forPattern
+specifier|public
+specifier|static
+name|FormatDateTimeFormatter
+name|forPattern
+parameter_list|(
+name|String
+name|input
+parameter_list|)
+block|{
+return|return
+name|forPattern
+argument_list|(
+name|input
+argument_list|,
+name|Locale
+operator|.
+name|ROOT
+argument_list|)
+return|;
+block|}
 comment|/**      * Parses a joda based pattern, including some named ones (similar to the built in Joda ISO ones).      */
 DECL|method|forPattern
 specifier|public
@@ -115,6 +146,9 @@ name|forPattern
 parameter_list|(
 name|String
 name|input
+parameter_list|,
+name|Locale
+name|locale
 parameter_list|)
 block|{
 name|DateTimeFormatter
@@ -625,6 +659,7 @@ argument_list|)
 condition|)
 block|{
 comment|// in this case, we have a separate parser and printer since the dataOptionalTimeParser can't print
+comment|// this sucks we should use the root local by default and not be dependent on the node
 return|return
 operator|new
 name|FormatDateTimeFormatter
@@ -654,6 +689,8 @@ name|DateTimeZone
 operator|.
 name|UTC
 argument_list|)
+argument_list|,
+name|locale
 argument_list|)
 return|;
 block|}
@@ -1299,6 +1336,8 @@ name|DateTimeZone
 operator|.
 name|UTC
 argument_list|)
+argument_list|,
+name|locale
 argument_list|)
 return|;
 block|}
