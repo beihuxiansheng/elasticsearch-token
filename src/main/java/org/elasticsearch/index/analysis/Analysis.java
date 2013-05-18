@@ -1941,6 +1941,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 literal|"IOException while reading %s_path: %s"
 argument_list|,
 name|settingPrefix
@@ -2185,6 +2189,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 literal|"IOException while reading %s_path: %s"
 argument_list|,
 name|settingPrefix

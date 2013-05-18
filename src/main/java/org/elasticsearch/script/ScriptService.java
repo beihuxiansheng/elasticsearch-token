@@ -833,7 +833,9 @@ argument_list|(
 name|file
 argument_list|)
 argument_list|,
-literal|"UTF-8"
+name|Streams
+operator|.
+name|UTF8
 argument_list|)
 argument_list|)
 decl_stmt|;

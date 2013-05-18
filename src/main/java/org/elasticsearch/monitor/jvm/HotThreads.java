@@ -968,6 +968,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 literal|"%n%4.1f%% (%s out of %s) %s usage by thread '%s'%n"
 argument_list|,
 name|percent
@@ -1200,6 +1204,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 literal|"  unique snapshot%n"
 argument_list|)
 argument_list|)
@@ -1229,6 +1237,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 literal|"    %s%n"
 argument_list|,
 name|show
@@ -1250,6 +1262,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 literal|"  %d/%d snapshots sharing following %d elements%n"
 argument_list|,
 name|count
@@ -1289,6 +1305,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 literal|"    %s%n"
 argument_list|,
 name|show

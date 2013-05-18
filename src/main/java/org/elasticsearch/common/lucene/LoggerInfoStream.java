@@ -24,6 +24,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|io
+operator|.
+name|Streams
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|logging
 operator|.
 name|ESLogger
@@ -64,6 +78,16 @@ name|PrintStream
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|UnsupportedEncodingException
+import|;
+end_import
+
 begin_comment
 comment|/**  * A {@link java.io.PrintStream} that logs each {@link #println(String)} into a logger  * under trace level.  *<p/>  *<p>Provides also factory methods that basically append to the logger name provide the  * {@link #SUFFIX}.  *  *  */
 end_comment
@@ -96,6 +120,8 @@ name|ESLogger
 name|logger
 parameter_list|)
 block|{
+try|try
+block|{
 return|return
 operator|new
 name|LoggerInfoStream
@@ -111,6 +137,22 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+catch|catch
+parameter_list|(
+name|UnsupportedEncodingException
+name|e
+parameter_list|)
+block|{
+comment|// no UTF-8 ?
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
+block|}
 comment|/**      * Creates a new {@link LoggerInfoStream} based on the provided name      * by appending to it the {@link #SUFFIX}.      */
 DECL|method|getInfoStream
 specifier|public
@@ -121,6 +163,8 @@ parameter_list|(
 name|String
 name|name
 parameter_list|)
+block|{
+try|try
 block|{
 return|return
 operator|new
@@ -137,13 +181,29 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+catch|catch
+parameter_list|(
+name|UnsupportedEncodingException
+name|e
+parameter_list|)
+block|{
+comment|// no UTF-8 ?
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
+block|}
 DECL|field|logger
 specifier|private
 specifier|final
 name|ESLogger
 name|logger
 decl_stmt|;
-comment|/**      * Constucts a new instance based on the provided logger. Will output      * each {@link #println(String)} operation as a trace level.      */
+comment|/**      * Constucts a new instance based on the provided logger. Will output      * each {@link #println(String)} operation as a trace level.      * @throws UnsupportedEncodingException       */
 DECL|method|LoggerInfoStream
 specifier|public
 name|LoggerInfoStream
@@ -151,6 +211,8 @@ parameter_list|(
 name|ESLogger
 name|logger
 parameter_list|)
+throws|throws
+name|UnsupportedEncodingException
 block|{
 name|super
 argument_list|(
@@ -158,6 +220,15 @@ operator|(
 name|OutputStream
 operator|)
 literal|null
+argument_list|,
+literal|false
+argument_list|,
+name|Streams
+operator|.
+name|UTF8
+operator|.
+name|name
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|this

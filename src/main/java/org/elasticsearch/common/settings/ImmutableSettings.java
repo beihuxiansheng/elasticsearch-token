@@ -2118,7 +2118,11 @@ name|sValue
 argument_list|)
 operator|.
 name|toLowerCase
-argument_list|()
+argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|)
 operator|+
 literal|"."
 operator|+
@@ -4103,7 +4107,9 @@ name|InputStreamReader
 argument_list|(
 name|is
 argument_list|,
-literal|"UTF-8"
+name|Streams
+operator|.
+name|UTF8
 argument_list|)
 argument_list|)
 argument_list|)

@@ -1096,7 +1096,11 @@ name|toString
 argument_list|()
 operator|.
 name|toUpperCase
-argument_list|()
+argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3010,7 +3014,11 @@ name|name
 argument_list|()
 operator|.
 name|toLowerCase
-argument_list|()
+argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

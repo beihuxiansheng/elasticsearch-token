@@ -7341,10 +7341,7 @@ assert|;
 name|SegmentInfoPerCommit
 name|info
 init|=
-name|Lucene
-operator|.
-name|getSegmentInfo
-argument_list|(
+operator|(
 operator|(
 name|SegmentReader
 operator|)
@@ -7352,7 +7349,10 @@ name|reader
 operator|.
 name|reader
 argument_list|()
-argument_list|)
+operator|)
+operator|.
+name|getSegmentInfo
+argument_list|()
 decl_stmt|;
 assert|assert
 operator|!

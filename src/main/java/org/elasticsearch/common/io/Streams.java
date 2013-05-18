@@ -70,6 +70,18 @@ name|*
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|Charset
+import|;
+end_import
+
 begin_comment
 comment|/**  * Simple utility methods for file and stream copying.  * All copy methods use a block size of 4096 bytes,  * and close all affected streams when done.  *<p/>  *<p>Mainly for use within the framework,  * but also useful for application code.  */
 end_comment
@@ -81,6 +93,20 @@ specifier|abstract
 class|class
 name|Streams
 block|{
+DECL|field|UTF8
+specifier|public
+specifier|static
+specifier|final
+name|Charset
+name|UTF8
+init|=
+name|Charset
+operator|.
+name|forName
+argument_list|(
+literal|"UTF-8"
+argument_list|)
+decl_stmt|;
 DECL|field|BUFFER_SIZE
 specifier|public
 specifier|static
@@ -835,7 +861,7 @@ name|InputStreamReader
 argument_list|(
 name|is
 argument_list|,
-literal|"UTF-8"
+name|UTF8
 argument_list|)
 argument_list|)
 return|;
@@ -890,6 +916,8 @@ operator|new
 name|InputStreamReader
 argument_list|(
 name|is
+argument_list|,
+name|UTF8
 argument_list|)
 argument_list|)
 return|;

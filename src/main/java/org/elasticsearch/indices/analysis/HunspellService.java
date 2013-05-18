@@ -236,6 +236,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Locale
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -724,6 +734,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 literal|"Could not find hunspell dictionary [%s]"
 argument_list|,
 name|locale
@@ -802,6 +816,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 literal|"Missing affix file for hunspell dictionary [%s]"
 argument_list|,
 name|locale
@@ -1060,6 +1078,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 literal|"Could not load hunspell dictionary settings from [%s]"
 argument_list|,
 name|file
@@ -1133,6 +1155,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 literal|"Could not load hunspell dictionary settings from [%s]"
 argument_list|,
 name|file
@@ -1176,7 +1202,11 @@ return|return
 name|name
 operator|.
 name|toLowerCase
-argument_list|()
+argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|)
 operator|.
 name|endsWith
 argument_list|(
@@ -1211,7 +1241,11 @@ return|return
 name|name
 operator|.
 name|toLowerCase
-argument_list|()
+argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|)
 operator|.
 name|endsWith
 argument_list|(

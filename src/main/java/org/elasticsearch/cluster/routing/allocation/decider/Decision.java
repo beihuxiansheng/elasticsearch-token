@@ -44,6 +44,16 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+
 begin_comment
 comment|/**  * This abstract class defining basic {@link Decision} used during shard  * allocation process.  *   * @see AllocationDecider  */
 end_comment
@@ -299,6 +309,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 name|explanation
 argument_list|,
 name|explanationParams

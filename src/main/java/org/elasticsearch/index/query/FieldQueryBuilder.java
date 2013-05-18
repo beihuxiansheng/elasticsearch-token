@@ -40,6 +40,16 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+
 begin_comment
 comment|/**  * A query that executes the query string against a field. It is a simplified  * version of {@link QueryStringQueryBuilder} that simply runs against  * a single field.  */
 end_comment
@@ -756,7 +766,11 @@ name|name
 argument_list|()
 operator|.
 name|toLowerCase
-argument_list|()
+argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

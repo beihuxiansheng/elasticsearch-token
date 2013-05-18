@@ -162,6 +162,16 @@ name|ThreadMXBean
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -497,6 +507,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 literal|"\"%s\" Id=%s %s"
 argument_list|,
 name|threadInfo
@@ -534,6 +548,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 literal|" on %s"
 argument_list|,
 name|threadInfo
@@ -560,6 +578,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 literal|" owned by \"%s\" Id=%s"
 argument_list|,
 name|threadInfo

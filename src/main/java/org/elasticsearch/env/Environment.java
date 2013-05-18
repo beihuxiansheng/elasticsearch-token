@@ -733,7 +733,9 @@ operator|.
 name|openStream
 argument_list|()
 argument_list|,
-literal|"UTF-8"
+name|Streams
+operator|.
+name|UTF8
 argument_list|)
 argument_list|)
 return|;

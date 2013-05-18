@@ -390,6 +390,10 @@ argument_list|,
 literal|0
 argument_list|,
 name|count
+argument_list|,
+name|Streams
+operator|.
+name|UTF8
 argument_list|)
 return|;
 block|}

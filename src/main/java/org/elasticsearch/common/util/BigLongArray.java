@@ -16,6 +16,16 @@ name|util
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+
 begin_comment
 comment|/**  * A GC friendly long[].  * Allocating large arrays (that are not short-lived) generate fragmentation  * in old-gen space. This breaks such large long array into fixed size pages  * to avoid that problem.  */
 end_comment
@@ -214,6 +224,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 literal|"%d is not whithin [0, %d)"
 argument_list|,
 name|idx
@@ -274,6 +288,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 literal|"%d is not whithin [0, %d)"
 argument_list|,
 name|idx

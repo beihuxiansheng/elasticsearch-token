@@ -16,6 +16,16 @@ name|os
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -55,7 +65,11 @@ name|trim
 argument_list|()
 operator|.
 name|toLowerCase
-argument_list|()
+argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|)
 operator|.
 name|startsWith
 argument_list|(
@@ -76,7 +90,11 @@ name|trim
 argument_list|()
 operator|.
 name|toLowerCase
-argument_list|()
+argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|)
 operator|.
 name|startsWith
 argument_list|(
@@ -97,7 +115,11 @@ name|trim
 argument_list|()
 operator|.
 name|toLowerCase
-argument_list|()
+argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|)
 operator|.
 name|startsWith
 argument_list|(
@@ -118,7 +140,11 @@ name|trim
 argument_list|()
 operator|.
 name|toLowerCase
-argument_list|()
+argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|)
 operator|.
 name|startsWith
 argument_list|(
@@ -139,7 +165,11 @@ name|trim
 argument_list|()
 operator|.
 name|toLowerCase
-argument_list|()
+argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|)
 operator|.
 name|startsWith
 argument_list|(

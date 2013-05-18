@@ -154,6 +154,16 @@ name|Date
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -176,6 +186,10 @@ operator|new
 name|SimpleDateFormat
 argument_list|(
 literal|"yyyy-MM-dd HH:mm:ss,SSS"
+argument_list|,
+name|Locale
+operator|.
+name|ROOT
 argument_list|)
 decl_stmt|;
 DECL|field|formatterLock

@@ -525,6 +525,10 @@ operator|new
 name|InputStreamReader
 argument_list|(
 name|inputStream
+argument_list|,
+name|Streams
+operator|.
+name|UTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -590,6 +594,10 @@ operator|new
 name|InputStreamReader
 argument_list|(
 name|errStream
+argument_list|,
+name|Streams
+operator|.
+name|UTF8
 argument_list|)
 argument_list|)
 expr_stmt|;
