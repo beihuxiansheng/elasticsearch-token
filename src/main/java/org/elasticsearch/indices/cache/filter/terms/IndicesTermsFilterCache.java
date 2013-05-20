@@ -732,7 +732,10 @@ name|termsFilter
 argument_list|(
 name|values
 argument_list|,
-literal|null
+name|lookup
+operator|.
+name|getQueryParseContext
+argument_list|()
 argument_list|)
 decl_stmt|;
 return|return

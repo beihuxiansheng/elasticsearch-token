@@ -1028,6 +1028,8 @@ argument_list|,
 name|lookupId
 argument_list|,
 name|lookupPath
+argument_list|,
+name|parseContext
 argument_list|)
 decl_stmt|;
 if|if
