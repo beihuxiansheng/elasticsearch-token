@@ -176,22 +176,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|lucene
-operator|.
-name|uid
-operator|.
-name|UidField
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|xcontent
 operator|.
 name|ToXContent
@@ -2477,16 +2461,6 @@ block|{
 comment|// we don't need to add it as a full uid field in nested docs, since we don't need versioning
 comment|// we also rely on this for UidField#loadVersion
 comment|// this is a deeply nested field
-if|if
-condition|(
-name|uidField
-operator|.
-name|stringValue
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
 name|nestedDoc
 operator|.
 name|add
@@ -2511,39 +2485,6 @@ name|NESTED_FIELD_TYPE
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-name|nestedDoc
-operator|.
-name|add
-argument_list|(
-operator|new
-name|Field
-argument_list|(
-name|UidFieldMapper
-operator|.
-name|NAME
-argument_list|,
-operator|(
-operator|(
-name|UidField
-operator|)
-name|uidField
-operator|)
-operator|.
-name|uid
-argument_list|()
-argument_list|,
-name|UidFieldMapper
-operator|.
-name|Defaults
-operator|.
-name|NESTED_FIELD_TYPE
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 comment|// the type of the nested doc starts with __, so we can identify that its a nested one in filters
 comment|// note, we don't prefix it with the type of the doc since it allows us to execute a nested query

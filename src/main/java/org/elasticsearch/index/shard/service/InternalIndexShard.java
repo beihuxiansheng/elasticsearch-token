@@ -1997,7 +1997,7 @@ operator|.
 name|uid
 argument_list|()
 operator|.
-name|uid
+name|stringValue
 argument_list|()
 argument_list|)
 argument_list|,
@@ -2155,7 +2155,7 @@ operator|.
 name|uid
 argument_list|()
 operator|.
-name|uid
+name|stringValue
 argument_list|()
 argument_list|)
 argument_list|,

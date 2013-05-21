@@ -68,7 +68,7 @@ name|lucene
 operator|.
 name|uid
 operator|.
-name|UidField
+name|Versions
 import|;
 end_import
 
@@ -139,6 +139,16 @@ operator|.
 name|internal
 operator|.
 name|SearchContext
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
 import|;
 end_import
 
@@ -263,14 +273,21 @@ comment|// it is going to mean we work on the high level multi reader and not th
 comment|// the case below...
 name|long
 name|version
-init|=
-name|UidField
+decl_stmt|;
+try|try
+block|{
+name|version
+operator|=
+name|Versions
 operator|.
 name|loadVersion
 argument_list|(
 name|hitContext
 operator|.
 name|readerContext
+argument_list|()
+operator|.
+name|reader
 argument_list|()
 argument_list|,
 operator|new
@@ -292,7 +309,24 @@ name|toBytesRef
 argument_list|()
 argument_list|)
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|ElasticSearchException
+argument_list|(
+literal|"Could not query index for _version"
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 name|version

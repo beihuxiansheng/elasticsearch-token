@@ -256,7 +256,7 @@ name|lucene
 operator|.
 name|uid
 operator|.
-name|UidField
+name|Versions
 import|;
 end_import
 
@@ -1475,14 +1475,18 @@ operator|.
 name|uid
 argument_list|()
 decl_stmt|;
+specifier|final
 name|long
 name|version
 init|=
-name|UidField
+name|Versions
 operator|.
 name|loadVersion
 argument_list|(
 name|context
+operator|.
+name|reader
+argument_list|()
 argument_list|,
 operator|new
 name|Term

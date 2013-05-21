@@ -122,7 +122,7 @@ name|lucene
 operator|.
 name|uid
 operator|.
-name|UidField
+name|Versions
 import|;
 end_import
 
@@ -2278,7 +2278,7 @@ name|source
 init|=
 literal|null
 decl_stmt|;
-name|UidField
+name|Versions
 operator|.
 name|DocIdAndVersion
 name|docIdAndVersion
