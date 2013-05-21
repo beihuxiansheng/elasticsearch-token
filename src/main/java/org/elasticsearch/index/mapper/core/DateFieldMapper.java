@@ -1120,7 +1120,7 @@ name|builder
 operator|.
 name|locale
 argument_list|(
-name|parseLocal
+name|parseLocale
 argument_list|(
 name|propNode
 operator|.
@@ -1137,11 +1137,11 @@ return|;
 block|}
 block|}
 comment|// public for test
-DECL|method|parseLocal
+DECL|method|parseLocale
 specifier|public
 specifier|static
 name|Locale
-name|parseLocal
+name|parseLocale
 parameter_list|(
 name|String
 name|locale

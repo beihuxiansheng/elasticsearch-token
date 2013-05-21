@@ -671,7 +671,7 @@ name|equalTo
 argument_list|(
 name|DateFieldMapper
 operator|.
-name|parseLocal
+name|parseLocale
 argument_list|(
 literal|"de"
 argument_list|)
@@ -688,7 +688,7 @@ name|equalTo
 argument_list|(
 name|DateFieldMapper
 operator|.
-name|parseLocal
+name|parseLocale
 argument_list|(
 literal|"de_DE"
 argument_list|)
@@ -711,7 +711,7 @@ name|equalTo
 argument_list|(
 name|DateFieldMapper
 operator|.
-name|parseLocal
+name|parseLocale
 argument_list|(
 literal|"de_DE_DE"
 argument_list|)
@@ -722,7 +722,7 @@ try|try
 block|{
 name|DateFieldMapper
 operator|.
-name|parseLocal
+name|parseLocale
 argument_list|(
 literal|"de_DE_DE_DE"
 argument_list|)
@@ -749,7 +749,7 @@ name|equalTo
 argument_list|(
 name|DateFieldMapper
 operator|.
-name|parseLocal
+name|parseLocale
 argument_list|(
 literal|""
 argument_list|)
@@ -766,7 +766,7 @@ name|equalTo
 argument_list|(
 name|DateFieldMapper
 operator|.
-name|parseLocal
+name|parseLocale
 argument_list|(
 literal|"ROOT"
 argument_list|)
@@ -949,7 +949,7 @@ literal|"date_field_default"
 argument_list|,
 literal|"Wed, 06 Dec 2000 02:55:00 -0800"
 argument_list|)
-comment|// check default - root?
+comment|// check default - no exception is a successs!
 operator|.
 name|endObject
 argument_list|()
@@ -958,6 +958,49 @@ name|bytes
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|assertNumericTokensEqual
+argument_list|(
+name|doc
+argument_list|,
+name|defaultMapper
+argument_list|,
+literal|"date_field_en"
+argument_list|,
+literal|"date_field_de"
+argument_list|)
+expr_stmt|;
+name|assertNumericTokensEqual
+argument_list|(
+name|doc
+argument_list|,
+name|defaultMapper
+argument_list|,
+literal|"date_field_en"
+argument_list|,
+literal|"date_field_default"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|assertNumericTokensEqual
+specifier|private
+name|void
+name|assertNumericTokensEqual
+parameter_list|(
+name|ParsedDocument
+name|doc
+parameter_list|,
+name|DocumentMapper
+name|defaultMapper
+parameter_list|,
+name|String
+name|fieldA
+parameter_list|,
+name|String
+name|fieldB
+parameter_list|)
+throws|throws
+name|IOException
+block|{
 name|assertThat
 argument_list|(
 name|doc
@@ -967,7 +1010,7 @@ argument_list|()
 operator|.
 name|getField
 argument_list|(
-literal|"date_field_en"
+name|fieldA
 argument_list|)
 operator|.
 name|tokenStream
@@ -991,7 +1034,7 @@ argument_list|()
 operator|.
 name|getField
 argument_list|(
-literal|"date_field_de"
+name|fieldB
 argument_list|)
 operator|.
 name|tokenStream
@@ -1016,7 +1059,7 @@ argument_list|()
 operator|.
 name|getField
 argument_list|(
-literal|"date_field_en"
+name|fieldA
 argument_list|)
 operator|.
 name|tokenStream
@@ -1085,7 +1128,7 @@ argument_list|()
 operator|.
 name|getField
 argument_list|(
-literal|"date_field_de"
+name|fieldB
 argument_list|)
 operator|.
 name|tokenStream
