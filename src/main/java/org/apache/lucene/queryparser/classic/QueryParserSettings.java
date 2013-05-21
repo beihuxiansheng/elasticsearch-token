@@ -122,6 +122,15 @@ name|DEFAULT_ANALYZE_WILDCARD
 init|=
 literal|false
 decl_stmt|;
+DECL|field|DEFAULT_BOOST
+specifier|public
+specifier|static
+specifier|final
+name|float
+name|DEFAULT_BOOST
+init|=
+literal|1.f
+decl_stmt|;
 DECL|field|queryString
 specifier|private
 name|String
@@ -137,7 +146,7 @@ specifier|private
 name|float
 name|boost
 init|=
-literal|1.0f
+name|DEFAULT_BOOST
 decl_stmt|;
 DECL|field|defaultOperator
 specifier|private
