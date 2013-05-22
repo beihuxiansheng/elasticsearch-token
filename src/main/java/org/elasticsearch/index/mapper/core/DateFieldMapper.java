@@ -3040,7 +3040,7 @@ literal|"locale"
 argument_list|,
 name|dateTimeFormatter
 operator|.
-name|format
+name|locale
 argument_list|()
 argument_list|)
 expr_stmt|;
