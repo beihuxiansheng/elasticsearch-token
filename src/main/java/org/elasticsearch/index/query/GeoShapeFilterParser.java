@@ -70,7 +70,7 @@ name|common
 operator|.
 name|geo
 operator|.
-name|GeoJSONShapeParser
+name|ShapeRelation
 import|;
 end_import
 
@@ -84,7 +84,9 @@ name|common
 operator|.
 name|geo
 operator|.
-name|ShapeRelation
+name|builders
+operator|.
+name|ShapeBuilder
 import|;
 end_import
 
@@ -349,7 +351,7 @@ name|strategyName
 init|=
 literal|null
 decl_stmt|;
-name|Shape
+name|ShapeBuilder
 name|shape
 init|=
 literal|null
@@ -513,7 +515,7 @@ condition|)
 block|{
 name|shape
 operator|=
-name|GeoJSONShapeParser
+name|ShapeBuilder
 operator|.
 name|parse
 argument_list|(

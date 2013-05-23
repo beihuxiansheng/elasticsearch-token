@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|spatial4j
-operator|.
-name|core
-operator|.
-name|shape
-operator|.
-name|Shape
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -136,7 +122,7 @@ name|common
 operator|.
 name|geo
 operator|.
-name|GeoJSONShapeParser
+name|ShapeRelation
 import|;
 end_import
 
@@ -150,7 +136,9 @@ name|common
 operator|.
 name|geo
 operator|.
-name|ShapeRelation
+name|builders
+operator|.
+name|ShapeBuilder
 import|;
 end_import
 
@@ -364,7 +352,7 @@ name|strategyName
 init|=
 literal|null
 decl_stmt|;
-name|Shape
+name|ShapeBuilder
 name|shape
 init|=
 literal|null
@@ -516,7 +504,7 @@ condition|)
 block|{
 name|shape
 operator|=
-name|GeoJSONShapeParser
+name|ShapeBuilder
 operator|.
 name|parse
 argument_list|(
@@ -1033,7 +1021,7 @@ specifier|static
 name|SpatialArgs
 name|getArgs
 parameter_list|(
-name|Shape
+name|ShapeBuilder
 name|shape
 parameter_list|,
 name|ShapeRelation
@@ -1057,6 +1045,9 @@ operator|.
 name|IsDisjointTo
 argument_list|,
 name|shape
+operator|.
+name|build
+argument_list|()
 argument_list|)
 return|;
 case|case
@@ -1071,6 +1062,9 @@ operator|.
 name|Intersects
 argument_list|,
 name|shape
+operator|.
+name|build
+argument_list|()
 argument_list|)
 return|;
 case|case
@@ -1085,6 +1079,9 @@ operator|.
 name|IsWithin
 argument_list|,
 name|shape
+operator|.
+name|build
+argument_list|()
 argument_list|)
 return|;
 default|default:

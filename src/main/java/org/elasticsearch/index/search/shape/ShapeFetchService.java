@@ -20,20 +20,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|spatial4j
-operator|.
-name|core
-operator|.
-name|shape
-operator|.
-name|Shape
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -116,7 +102,9 @@ name|common
 operator|.
 name|geo
 operator|.
-name|GeoJSONShapeParser
+name|builders
+operator|.
+name|ShapeBuilder
 import|;
 end_import
 
@@ -232,7 +220,7 @@ block|}
 comment|/**      * Fetches the Shape with the given ID in the given type and index.      *      * @param id         ID of the Shape to fetch      * @param type       Index type where the Shape is indexed      * @param index      Index where the Shape is indexed      * @param shapeField Name of the field in the Shape Document where the Shape itself is located      * @return Shape with the given ID      * @throws IOException Can be thrown while parsing the Shape Document and extracting the Shape      */
 DECL|method|fetch
 specifier|public
-name|Shape
+name|ShapeBuilder
 name|fetch
 parameter_list|(
 name|String
@@ -378,7 +366,7 @@ name|nextToken
 argument_list|()
 expr_stmt|;
 return|return
-name|GeoJSONShapeParser
+name|ShapeBuilder
 operator|.
 name|parse
 argument_list|(

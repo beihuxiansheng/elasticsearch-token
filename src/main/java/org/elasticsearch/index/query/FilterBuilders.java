@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|spatial4j
-operator|.
-name|core
-operator|.
-name|shape
-operator|.
-name|Shape
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -67,6 +53,22 @@ operator|.
 name|geo
 operator|.
 name|ShapeRelation
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|geo
+operator|.
+name|builders
+operator|.
+name|ShapeBuilder
 import|;
 end_import
 
@@ -1013,7 +1015,7 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|Shape
+name|ShapeBuilder
 name|shape
 parameter_list|,
 name|ShapeRelation
@@ -1075,7 +1077,7 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|Shape
+name|ShapeBuilder
 name|shape
 parameter_list|)
 block|{
@@ -1133,7 +1135,7 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|Shape
+name|ShapeBuilder
 name|shape
 parameter_list|)
 block|{
@@ -1191,7 +1193,7 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|Shape
+name|ShapeBuilder
 name|shape
 parameter_list|)
 block|{
