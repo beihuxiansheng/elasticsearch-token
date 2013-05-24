@@ -1311,6 +1311,9 @@ decl_stmt|;
 name|long
 name|version
 decl_stmt|;
+name|boolean
+name|created
+decl_stmt|;
 name|Engine
 operator|.
 name|IndexingOperation
@@ -1387,6 +1390,13 @@ name|op
 operator|=
 name|index
 expr_stmt|;
+name|created
+operator|=
+name|index
+operator|.
+name|created
+argument_list|()
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -1446,6 +1456,10 @@ expr_stmt|;
 name|op
 operator|=
 name|create
+expr_stmt|;
+name|created
+operator|=
+literal|true
 expr_stmt|;
 block|}
 if|if
@@ -1528,6 +1542,8 @@ name|id
 argument_list|()
 argument_list|,
 name|version
+argument_list|,
+name|created
 argument_list|)
 decl_stmt|;
 return|return

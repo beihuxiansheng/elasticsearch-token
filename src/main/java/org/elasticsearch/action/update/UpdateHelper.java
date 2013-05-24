@@ -1323,6 +1323,7 @@ comment|// It is an approximation of exact TTL value, could be improved
 block|}
 block|}
 comment|// TODO: external version type, does it make sense here? does not seem like it...
+comment|// TODO: because we use  getResult.getVersion we loose the doc.version. The question is where is the right place?
 if|if
 condition|(
 name|operation
@@ -1590,6 +1591,8 @@ name|getResult
 operator|.
 name|getVersion
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|update
@@ -1669,6 +1672,8 @@ name|getResult
 operator|.
 name|getVersion
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 return|return

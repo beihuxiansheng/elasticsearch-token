@@ -136,6 +136,11 @@ specifier|private
 name|long
 name|version
 decl_stmt|;
+DECL|field|created
+specifier|private
+name|boolean
+name|created
+decl_stmt|;
 DECL|field|matches
 specifier|private
 name|List
@@ -164,6 +169,9 @@ name|id
 parameter_list|,
 name|long
 name|version
+parameter_list|,
+name|boolean
+name|created
 parameter_list|)
 block|{
 name|this
@@ -189,6 +197,12 @@ operator|.
 name|version
 operator|=
 name|version
+expr_stmt|;
+name|this
+operator|.
+name|created
+operator|=
+name|created
 expr_stmt|;
 block|}
 comment|/**      * The index the document was indexed into.      */
@@ -230,7 +244,7 @@ operator|.
 name|id
 return|;
 block|}
-comment|/**      * Returns the version of the doc indexed.      */
+comment|/**      * Returns the current version of the doc indexed.      */
 DECL|method|getVersion
 specifier|public
 name|long
@@ -241,6 +255,19 @@ return|return
 name|this
 operator|.
 name|version
+return|;
+block|}
+comment|/**      * Returns true if the document was created, false if updated.      */
+DECL|method|isCreated
+specifier|public
+name|boolean
+name|isCreated
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|created
 return|;
 block|}
 comment|/**      * Returns the percolate queries matches.<tt>null</tt> if no percolation was requested.      */
@@ -325,6 +352,13 @@ operator|=
 name|in
 operator|.
 name|readLong
+argument_list|()
+expr_stmt|;
+name|created
+operator|=
+name|in
+operator|.
+name|readBoolean
 argument_list|()
 expr_stmt|;
 if|if
@@ -599,6 +633,13 @@ operator|.
 name|writeLong
 argument_list|(
 name|version
+argument_list|)
+expr_stmt|;
+name|out
+operator|.
+name|writeBoolean
+argument_list|(
+name|created
 argument_list|)
 expr_stmt|;
 if|if

@@ -1369,6 +1369,11 @@ name|response
 operator|.
 name|getVersion
 argument_list|()
+argument_list|,
+name|response
+operator|.
+name|isCreated
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|update
@@ -1630,6 +1635,11 @@ name|response
 operator|.
 name|getVersion
 argument_list|()
+argument_list|,
+name|response
+operator|.
+name|isCreated
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|update
@@ -1825,6 +1835,8 @@ name|response
 operator|.
 name|getVersion
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|update

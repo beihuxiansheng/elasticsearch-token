@@ -1335,6 +1335,10 @@ DECL|field|version
 specifier|private
 name|long
 name|version
+init|=
+name|Versions
+operator|.
+name|MATCH_ANY
 decl_stmt|;
 DECL|field|versionType
 specifier|private
@@ -1792,6 +1796,10 @@ DECL|field|version
 specifier|private
 name|long
 name|version
+init|=
+name|Versions
+operator|.
+name|MATCH_ANY
 decl_stmt|;
 DECL|field|versionType
 specifier|private
@@ -1810,6 +1818,11 @@ init|=
 name|Origin
 operator|.
 name|PRIMARY
+decl_stmt|;
+DECL|field|created
+specifier|private
+name|boolean
+name|created
 decl_stmt|;
 DECL|field|startTime
 specifier|private
@@ -1970,6 +1983,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * before indexing holds the version requested, after indexing holds the new version of the document.          */
 DECL|method|version
 specifier|public
 name|long
@@ -2217,6 +2231,33 @@ operator|.
 name|endTime
 return|;
 block|}
+comment|/**          * @return true if object was created          */
+DECL|method|created
+specifier|public
+name|boolean
+name|created
+parameter_list|()
+block|{
+return|return
+name|created
+return|;
+block|}
+DECL|method|created
+specifier|public
+name|void
+name|created
+parameter_list|(
+name|boolean
+name|created
+parameter_list|)
+block|{
+name|this
+operator|.
+name|created
+operator|=
+name|created
+expr_stmt|;
+block|}
 block|}
 DECL|class|Delete
 specifier|static
@@ -2247,6 +2288,10 @@ DECL|field|version
 specifier|private
 name|long
 name|version
+init|=
+name|Versions
+operator|.
+name|MATCH_ANY
 decl_stmt|;
 DECL|field|versionType
 specifier|private
@@ -2416,6 +2461,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * before delete execution this is the version to be deleted. After this is the version of the "delete" transaction record.          */
 DECL|method|version
 specifier|public
 name|long
@@ -2972,8 +3018,9 @@ name|GetResult
 argument_list|(
 literal|false
 argument_list|,
-operator|-
-literal|1
+name|Versions
+operator|.
+name|NOT_FOUND
 argument_list|,
 literal|null
 argument_list|)

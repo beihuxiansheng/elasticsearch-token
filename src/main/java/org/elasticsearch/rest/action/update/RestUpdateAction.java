@@ -1157,10 +1157,8 @@ if|if
 condition|(
 name|response
 operator|.
-name|getVersion
+name|isCreated
 argument_list|()
-operator|==
-literal|1
 condition|)
 block|{
 name|status

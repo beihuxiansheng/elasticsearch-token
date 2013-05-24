@@ -118,6 +118,16 @@ specifier|public
 class|class
 name|Versions
 block|{
+DECL|field|MATCH_ANY
+specifier|public
+specifier|static
+specifier|final
+name|long
+name|MATCH_ANY
+init|=
+literal|0L
+decl_stmt|;
+comment|// Version was not specified by the user
 DECL|field|NOT_FOUND
 specifier|public
 specifier|static

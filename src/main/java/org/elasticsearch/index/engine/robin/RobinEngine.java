@@ -2638,8 +2638,9 @@ condition|)
 block|{
 name|currentVersion
 operator|=
-operator|-
-literal|1
+name|Versions
+operator|.
+name|NOT_FOUND
 expr_stmt|;
 comment|// deleted, and GC
 block|}
@@ -2697,25 +2698,27 @@ if|if
 condition|(
 name|expectedVersion
 operator|!=
-literal|0
+name|Versions
+operator|.
+name|MATCH_ANY
 operator|&&
 name|currentVersion
 operator|!=
-operator|-
-literal|2
+name|Versions
+operator|.
+name|NOT_SET
 condition|)
 block|{
-comment|// -2 means we don't have a version, so ignore...
 comment|// an explicit version is provided, see if there is a conflict
-comment|// if the current version is -1, means we did not find anything, and
-comment|// a version is provided, so we do expect to find a doc under that version
+comment|// if we did not find anything, and a version is provided, so we do expect to find a doc under that version
 comment|// this is important, since we don't allow to preset a version in order to handle deletes
 if|if
 condition|(
 name|currentVersion
 operator|==
-operator|-
-literal|1
+name|Versions
+operator|.
+name|NOT_FOUND
 condition|)
 block|{
 throw|throw
@@ -2734,8 +2737,9 @@ operator|.
 name|id
 argument_list|()
 argument_list|,
-operator|-
-literal|1
+name|Versions
+operator|.
+name|NOT_FOUND
 argument_list|,
 name|expectedVersion
 argument_list|)
@@ -2774,9 +2778,19 @@ block|}
 block|}
 name|updatedVersion
 operator|=
+operator|(
 name|currentVersion
-operator|<
-literal|0
+operator|==
+name|Versions
+operator|.
+name|NOT_SET
+operator|||
+name|currentVersion
+operator|==
+name|Versions
+operator|.
+name|NOT_FOUND
+operator|)
 condition|?
 literal|1
 else|:
@@ -2858,11 +2872,12 @@ if|if
 condition|(
 name|currentVersion
 operator|!=
-operator|-
-literal|2
+name|Versions
+operator|.
+name|NOT_SET
 condition|)
 block|{
-comment|// -2 means we don't have a version, so ignore...
+comment|// we don't have a version, so ignore...
 comment|// if it does not exists, and its considered the first index operation (replicas/recovery are 1 of)
 comment|// then nothing to check
 if|if
@@ -2871,8 +2886,9 @@ operator|!
 operator|(
 name|currentVersion
 operator|==
-operator|-
-literal|1
+name|Versions
+operator|.
+name|NOT_FOUND
 operator|&&
 name|create
 operator|.
@@ -3003,8 +3019,9 @@ if|if
 condition|(
 name|currentVersion
 operator|!=
-operator|-
-literal|1
+name|Versions
+operator|.
+name|NOT_FOUND
 condition|)
 block|{
 comment|// its not deleted, its already there
@@ -3406,8 +3423,9 @@ condition|)
 block|{
 name|currentVersion
 operator|=
-operator|-
-literal|1
+name|Versions
+operator|.
+name|NOT_FOUND
 expr_stmt|;
 comment|// deleted, and GC
 block|}
@@ -3464,25 +3482,27 @@ if|if
 condition|(
 name|expectedVersion
 operator|!=
-literal|0
+name|Versions
+operator|.
+name|MATCH_ANY
 operator|&&
 name|currentVersion
 operator|!=
-operator|-
-literal|2
+name|Versions
+operator|.
+name|NOT_SET
 condition|)
 block|{
-comment|// -2 means we don't have a version, so ignore...
 comment|// an explicit version is provided, see if there is a conflict
-comment|// if the current version is -1, means we did not find anything, and
-comment|// a version is provided, so we do expect to find a doc under that version
+comment|// if we did not find anything, and a version is provided, so we do expect to find a doc under that version
 comment|// this is important, since we don't allow to preset a version in order to handle deletes
 if|if
 condition|(
 name|currentVersion
 operator|==
-operator|-
-literal|1
+name|Versions
+operator|.
+name|NOT_FOUND
 condition|)
 block|{
 throw|throw
@@ -3501,8 +3521,9 @@ operator|.
 name|id
 argument_list|()
 argument_list|,
-operator|-
-literal|1
+name|Versions
+operator|.
+name|NOT_FOUND
 argument_list|,
 name|expectedVersion
 argument_list|)
@@ -3541,9 +3562,19 @@ block|}
 block|}
 name|updatedVersion
 operator|=
+operator|(
 name|currentVersion
-operator|<
-literal|0
+operator|==
+name|Versions
+operator|.
+name|NOT_SET
+operator|||
+name|currentVersion
+operator|==
+name|Versions
+operator|.
+name|NOT_FOUND
+operator|)
 condition|?
 literal|1
 else|:
@@ -3625,11 +3656,12 @@ if|if
 condition|(
 name|currentVersion
 operator|!=
-operator|-
-literal|2
+name|Versions
+operator|.
+name|NOT_SET
 condition|)
 block|{
-comment|// -2 means we don't have a version, so ignore...
+comment|// we don't have a version, so ignore...
 comment|// if it does not exists, and its considered the first index operation (replicas/recovery are 1 of)
 comment|// then nothing to check
 if|if
@@ -3638,8 +3670,9 @@ operator|!
 operator|(
 name|currentVersion
 operator|==
-operator|-
-literal|1
+name|Versions
+operator|.
+name|NOT_FOUND
 operator|&&
 name|index
 operator|.
@@ -3721,11 +3754,19 @@ if|if
 condition|(
 name|currentVersion
 operator|==
-operator|-
-literal|1
+name|Versions
+operator|.
+name|NOT_FOUND
 condition|)
 block|{
 comment|// document does not exists, we can optimize for create
+name|index
+operator|.
+name|created
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|index
@@ -3781,6 +3822,23 @@ block|}
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|versionValue
+operator|!=
+literal|null
+condition|)
+name|index
+operator|.
+name|created
+argument_list|(
+name|versionValue
+operator|.
+name|delete
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// we have a delete which is not GC'ed...
 if|if
 condition|(
 name|index
@@ -4146,8 +4204,9 @@ condition|)
 block|{
 name|currentVersion
 operator|=
-operator|-
-literal|1
+name|Versions
+operator|.
+name|NOT_FOUND
 expr_stmt|;
 comment|// deleted, and GC
 block|}
@@ -4199,24 +4258,27 @@ operator|.
 name|version
 argument_list|()
 operator|!=
-literal|0
+name|Versions
+operator|.
+name|MATCH_ANY
 operator|&&
 name|currentVersion
 operator|!=
-operator|-
-literal|2
+name|Versions
+operator|.
+name|NOT_SET
 condition|)
 block|{
-comment|// -2 means we don't have a version, so ignore...
+comment|// we don't have a version, so ignore...
 comment|// an explicit version is provided, see if there is a conflict
-comment|// if the current version is -1, means we did not find anything, and
-comment|// a version is provided, so we do expect to find a doc under that version
+comment|// if we did not find anything and a version is provided, so we do expect to find a doc under that version
 if|if
 condition|(
 name|currentVersion
 operator|==
-operator|-
-literal|1
+name|Versions
+operator|.
+name|NOT_FOUND
 condition|)
 block|{
 throw|throw
@@ -4235,8 +4297,9 @@ operator|.
 name|id
 argument_list|()
 argument_list|,
-operator|-
-literal|1
+name|Versions
+operator|.
+name|NOT_FOUND
 argument_list|,
 name|delete
 operator|.
@@ -4284,9 +4347,19 @@ block|}
 block|}
 name|updatedVersion
 operator|=
+operator|(
 name|currentVersion
-operator|<
-literal|0
+operator|==
+name|Versions
+operator|.
+name|NOT_SET
+operator|||
+name|currentVersion
+operator|==
+name|Versions
+operator|.
+name|NOT_FOUND
+operator|)
 condition|?
 literal|1
 else|:
@@ -4302,12 +4375,13 @@ if|if
 condition|(
 name|currentVersion
 operator|==
-operator|-
-literal|1
+name|Versions
+operator|.
+name|NOT_FOUND
 condition|)
 block|{
 comment|// its an external version, that's fine, we allow it to be set
-comment|//throw new VersionConflictEngineException(shardId, delete.type(), delete.id(), -1, delete.version());
+comment|//throw new VersionConflictEngineException(shardId, delete.type(), delete.id(), UidField.DocIdAndVersion.Versions.NOT_FOUND, delete.version());
 block|}
 elseif|else
 if|if
@@ -4362,18 +4436,20 @@ if|if
 condition|(
 name|currentVersion
 operator|!=
-operator|-
-literal|2
+name|Versions
+operator|.
+name|NOT_SET
 condition|)
 block|{
-comment|// -2 means we don't have a version in the index, ignore
+comment|// we don't have a version in the index, ignore
 comment|// only check if we have a version for it, otherwise, ignore (see later)
 if|if
 condition|(
 name|currentVersion
 operator|!=
-operator|-
-literal|1
+name|Versions
+operator|.
+name|NOT_FOUND
 condition|)
 block|{
 comment|// with replicas, we only check for previous version, we allow to set a future version
@@ -4448,8 +4524,9 @@ if|if
 condition|(
 name|currentVersion
 operator|==
-operator|-
-literal|1
+name|Versions
+operator|.
+name|NOT_FOUND
 condition|)
 block|{
 comment|// doc does not exists and no prior deletes
@@ -8352,7 +8429,7 @@ block|{
 name|long
 name|gcDeletesInMillis
 init|=
-name|indexSettings
+name|settings
 operator|.
 name|getAsTime
 argument_list|(
