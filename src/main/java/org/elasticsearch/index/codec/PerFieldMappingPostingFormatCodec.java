@@ -52,7 +52,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalStateException
+name|common
+operator|.
+name|logging
+operator|.
+name|ESLogger
 import|;
 end_import
 
@@ -116,6 +120,12 @@ name|PerFieldMappingPostingFormatCodec
 extends|extends
 name|Lucene42Codec
 block|{
+DECL|field|logger
+specifier|private
+specifier|final
+name|ESLogger
+name|logger
+decl_stmt|;
 DECL|field|mapperService
 specifier|private
 specifier|final
@@ -137,6 +147,9 @@ name|mapperService
 parameter_list|,
 name|PostingsFormat
 name|defaultPostingFormat
+parameter_list|,
+name|ESLogger
+name|logger
 parameter_list|)
 block|{
 name|this
@@ -144,6 +157,12 @@ operator|.
 name|mapperService
 operator|=
 name|mapperService
+expr_stmt|;
+name|this
+operator|.
+name|logger
+operator|=
+name|logger
 expr_stmt|;
 name|this
 operator|.
@@ -181,17 +200,18 @@ operator|==
 literal|null
 condition|)
 block|{
-throw|throw
-operator|new
-name|ElasticSearchIllegalStateException
+name|logger
+operator|.
+name|warn
 argument_list|(
-literal|"no index mapper found for field: ["
-operator|+
+literal|"no index mapper found for field: [{}] returning default postings format"
+argument_list|,
 name|field
-operator|+
-literal|"]"
 argument_list|)
-throw|;
+expr_stmt|;
+return|return
+name|defaultPostingFormat
+return|;
 block|}
 name|PostingsFormatProvider
 name|postingsFormat

@@ -364,6 +364,8 @@ argument_list|)
 operator|.
 name|get
 argument_list|()
+argument_list|,
+name|logger
 argument_list|)
 argument_list|)
 expr_stmt|;
