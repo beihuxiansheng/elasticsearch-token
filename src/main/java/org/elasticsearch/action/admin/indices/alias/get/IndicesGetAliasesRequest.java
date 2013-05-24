@@ -213,6 +213,7 @@ block|}
 expr_stmt|;
 block|}
 DECL|method|IndicesGetAliasesRequest
+specifier|public
 name|IndicesGetAliasesRequest
 parameter_list|()
 block|{     }

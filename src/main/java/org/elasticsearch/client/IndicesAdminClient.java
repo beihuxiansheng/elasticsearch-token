@@ -110,6 +110,46 @@ name|indices
 operator|.
 name|alias
 operator|.
+name|exists
+operator|.
+name|IndicesExistsAliasesRequestBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|admin
+operator|.
+name|indices
+operator|.
+name|alias
+operator|.
+name|exists
+operator|.
+name|IndicesExistsAliasesResponse
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|admin
+operator|.
+name|indices
+operator|.
+name|alias
+operator|.
 name|get
 operator|.
 name|IndicesGetAliasesRequest
@@ -2196,7 +2236,7 @@ name|IndicesAliasesRequestBuilder
 name|prepareAliases
 parameter_list|()
 function_decl|;
-comment|/**      * Get specific index aliases.      *      * @param request The result future      */
+comment|/**      * Get specific index aliases that exists in particular indices and / or by name.      *      * @param request The result future      */
 DECL|method|getAliases
 name|ActionFuture
 argument_list|<
@@ -2208,7 +2248,7 @@ name|IndicesGetAliasesRequest
 name|request
 parameter_list|)
 function_decl|;
-comment|/**      * Get specific index aliases.      *      * @param request  The index aliases request      * @param listener A listener to be notified with a result      */
+comment|/**      * Get specific index aliases that exists in particular indices and / or by name.      *      * @param request  The index aliases request      * @param listener A listener to be notified with a result      */
 DECL|method|getAliases
 name|void
 name|getAliases
@@ -2223,7 +2263,7 @@ argument_list|>
 name|listener
 parameter_list|)
 function_decl|;
-comment|/**      * Adds specific index aliases.      */
+comment|/**      * Get specific index aliases that exists in particular indices and / or by name.      */
 DECL|method|prepareGetAliases
 name|IndicesGetAliasesRequestBuilder
 name|prepareGetAliases
@@ -2231,6 +2271,43 @@ parameter_list|(
 name|String
 modifier|...
 name|aliases
+parameter_list|)
+function_decl|;
+comment|/**      * Allows to check to existence of aliases from indices.      */
+DECL|method|prepareExistsAliases
+name|IndicesExistsAliasesRequestBuilder
+name|prepareExistsAliases
+parameter_list|(
+name|String
+modifier|...
+name|aliases
+parameter_list|)
+function_decl|;
+comment|/**      * Check to existence of index aliases.      *      * @param request The result future      */
+DECL|method|existsAliases
+name|ActionFuture
+argument_list|<
+name|IndicesExistsAliasesResponse
+argument_list|>
+name|existsAliases
+parameter_list|(
+name|IndicesGetAliasesRequest
+name|request
+parameter_list|)
+function_decl|;
+comment|/**      * Check the existence of specified index aliases.      *      * @param request  The index aliases request      * @param listener A listener to be notified with a result      */
+DECL|method|existsAliases
+name|void
+name|existsAliases
+parameter_list|(
+name|IndicesGetAliasesRequest
+name|request
+parameter_list|,
+name|ActionListener
+argument_list|<
+name|IndicesExistsAliasesResponse
+argument_list|>
+name|listener
 parameter_list|)
 function_decl|;
 comment|/**      * Clear indices cache.      *      * @param request The clear indices cache request      * @return The result future      * @see Requests#clearIndicesCacheRequest(String...)      */

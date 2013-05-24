@@ -4,7 +4,7 @@ comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more cont
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.action.admin.indices.alias.get
+DECL|package|org.elasticsearch.action.admin.indices.alias.exists
 package|package
 name|org
 operator|.
@@ -18,7 +18,7 @@ name|indices
 operator|.
 name|alias
 operator|.
-name|get
+name|exists
 package|;
 end_package
 
@@ -40,6 +40,26 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|action
+operator|.
+name|admin
+operator|.
+name|indices
+operator|.
+name|alias
+operator|.
+name|get
+operator|.
+name|BaseIndicesAliasesRequestBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|client
 operator|.
 name|IndicesAdminClient
@@ -51,21 +71,21 @@ comment|/**  */
 end_comment
 
 begin_class
-DECL|class|IndicesGetAliasesRequestBuilder
+DECL|class|IndicesExistsAliasesRequestBuilder
 specifier|public
 class|class
-name|IndicesGetAliasesRequestBuilder
+name|IndicesExistsAliasesRequestBuilder
 extends|extends
 name|BaseIndicesAliasesRequestBuilder
 argument_list|<
-name|IndicesGetAliasesResponse
+name|IndicesExistsAliasesResponse
 argument_list|,
-name|IndicesGetAliasesRequestBuilder
+name|IndicesExistsAliasesRequestBuilder
 argument_list|>
 block|{
-DECL|method|IndicesGetAliasesRequestBuilder
+DECL|method|IndicesExistsAliasesRequestBuilder
 specifier|public
-name|IndicesGetAliasesRequestBuilder
+name|IndicesExistsAliasesRequestBuilder
 parameter_list|(
 name|IndicesAdminClient
 name|client
@@ -92,7 +112,7 @@ name|doExecute
 parameter_list|(
 name|ActionListener
 argument_list|<
-name|IndicesGetAliasesResponse
+name|IndicesExistsAliasesResponse
 argument_list|>
 name|listener
 parameter_list|)
@@ -104,7 +124,7 @@ operator|)
 name|client
 operator|)
 operator|.
-name|getAliases
+name|existsAliases
 argument_list|(
 name|request
 argument_list|,
