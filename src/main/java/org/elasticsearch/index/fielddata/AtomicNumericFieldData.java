@@ -97,7 +97,7 @@ return|return
 operator|new
 name|ScriptDocValues
 operator|.
-name|NumericDouble
+name|Doubles
 argument_list|(
 name|getDoubleValues
 argument_list|()
@@ -110,7 +110,7 @@ return|return
 operator|new
 name|ScriptDocValues
 operator|.
-name|NumericLong
+name|Longs
 argument_list|(
 name|getLongValues
 argument_list|()
