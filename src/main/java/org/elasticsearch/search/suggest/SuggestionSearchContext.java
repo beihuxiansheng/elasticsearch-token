@@ -212,7 +212,7 @@ name|text
 expr_stmt|;
 block|}
 DECL|method|SuggestionContext
-specifier|protected
+specifier|public
 name|SuggestionContext
 parameter_list|(
 name|Suggester

@@ -262,6 +262,20 @@ name|QueryPhase
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|suggest
+operator|.
+name|SuggestModule
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -304,6 +318,10 @@ argument_list|()
 argument_list|,
 operator|new
 name|HighlightModule
+argument_list|()
+argument_list|,
+operator|new
+name|SuggestModule
 argument_list|()
 argument_list|)
 return|;

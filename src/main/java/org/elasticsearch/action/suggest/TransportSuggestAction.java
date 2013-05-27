@@ -489,6 +489,9 @@ name|transportService
 parameter_list|,
 name|IndicesService
 name|indicesService
+parameter_list|,
+name|SuggestPhase
+name|suggestPhase
 parameter_list|)
 block|{
 name|super
@@ -512,11 +515,7 @@ name|this
 operator|.
 name|suggestPhase
 operator|=
-operator|new
-name|SuggestPhase
-argument_list|(
-name|settings
-argument_list|)
+name|suggestPhase
 expr_stmt|;
 block|}
 annotation|@

@@ -286,6 +286,9 @@ name|SuggestPhase
 parameter_list|(
 name|Settings
 name|settings
+parameter_list|,
+name|SuggestParseElement
+name|suggestParseElement
 parameter_list|)
 block|{
 name|super
@@ -297,9 +300,7 @@ name|this
 operator|.
 name|parseElement
 operator|=
-operator|new
-name|SuggestParseElement
-argument_list|()
+name|suggestParseElement
 expr_stmt|;
 block|}
 annotation|@
