@@ -496,7 +496,9 @@ block|{
 return|return
 operator|new
 name|TermSuggestParser
-argument_list|()
+argument_list|(
+name|this
+argument_list|)
 return|;
 block|}
 DECL|method|queryTerms
