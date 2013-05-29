@@ -3892,7 +3892,7 @@ throw|;
 block|}
 block|}
 DECL|method|termVectorOptionsToString
-specifier|protected
+specifier|public
 specifier|static
 name|String
 name|termVectorOptionsToString
