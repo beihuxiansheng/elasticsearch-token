@@ -26,6 +26,20 @@ name|common
 operator|.
 name|collect
 operator|.
+name|ImmutableList
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
 name|ImmutableSet
 import|;
 end_import
@@ -373,6 +387,9 @@ block|{
 name|Map
 argument_list|<
 name|FieldMapper
+argument_list|<
+name|?
+argument_list|>
 argument_list|,
 name|org
 operator|.
@@ -409,6 +426,9 @@ block|}
 name|Map
 argument_list|<
 name|FieldMapper
+argument_list|<
+name|?
+argument_list|>
 argument_list|,
 name|org
 operator|.
@@ -428,6 +448,9 @@ operator|(
 name|Map
 argument_list|<
 name|FieldMapper
+argument_list|<
+name|?
+argument_list|>
 argument_list|,
 name|org
 operator|.
@@ -791,6 +814,22 @@ name|indexName
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|textsToHighlight
+operator|==
+literal|null
+condition|)
+block|{
+comment|// Can happen if the document doesn't have the field to highlight
+name|textsToHighlight
+operator|=
+name|ImmutableList
+operator|.
+name|of
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -866,6 +905,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+assert|assert
+name|textsToHighlight
+operator|!=
+literal|null
+assert|;
 comment|// a HACK to make highlighter do highlighting, even though its using the single frag list builder
 name|int
 name|numberOfFragments

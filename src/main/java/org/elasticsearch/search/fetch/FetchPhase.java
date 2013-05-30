@@ -999,12 +999,14 @@ literal|null
 decl_stmt|;
 if|if
 condition|(
+operator|!
 name|fieldsVisitor
 operator|.
 name|fields
 argument_list|()
-operator|!=
-literal|null
+operator|.
+name|isEmpty
+argument_list|()
 condition|)
 block|{
 name|searchFields
