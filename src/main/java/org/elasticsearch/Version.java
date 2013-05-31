@@ -2221,7 +2221,7 @@ return|return
 name|version
 operator|.
 name|id
-operator|>
+operator|<
 name|id
 return|;
 block|}
@@ -2238,7 +2238,7 @@ return|return
 name|version
 operator|.
 name|id
-operator|>=
+operator|<=
 name|id
 return|;
 block|}
@@ -2255,7 +2255,7 @@ return|return
 name|version
 operator|.
 name|id
-operator|<
+operator|>
 name|id
 return|;
 block|}
@@ -2272,7 +2272,7 @@ return|return
 name|version
 operator|.
 name|id
-operator|<=
+operator|>=
 name|id
 return|;
 block|}
