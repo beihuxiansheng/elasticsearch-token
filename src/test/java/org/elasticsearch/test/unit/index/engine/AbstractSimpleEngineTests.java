@@ -1009,6 +1009,13 @@ argument_list|(
 name|uidField
 argument_list|)
 expr_stmt|;
+name|document
+operator|.
+name|add
+argument_list|(
+name|versionField
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|ParsedDocument
