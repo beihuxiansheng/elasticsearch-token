@@ -554,6 +554,7 @@ specifier|public
 class|class
 name|TestCluster
 block|{
+comment|/* some random options to consider      *  "action.auto_create_index"      *  "node.local"      */
 DECL|field|logger
 specifier|protected
 specifier|final
