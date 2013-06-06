@@ -1666,6 +1666,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|cluster
+argument_list|()
+operator|.
+name|ensureAtLeastNumNodes
+argument_list|(
+literal|2
+argument_list|)
+expr_stmt|;
 name|createIndex
 argument_list|(
 literal|"test1"
@@ -1673,7 +1681,7 @@ argument_list|,
 literal|"test2"
 argument_list|)
 expr_stmt|;
-name|ensureYellow
+name|ensureGreen
 argument_list|()
 expr_stmt|;
 name|client
@@ -1720,7 +1728,7 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|ensureYellow
+name|ensureGreen
 argument_list|()
 expr_stmt|;
 try|try
