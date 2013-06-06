@@ -551,7 +551,7 @@ operator|.
 name|index
 argument_list|()
 argument_list|,
-literal|"No value specified for term filter"
+literal|"No value specified for terms filter"
 argument_list|)
 throw|;
 block|}
