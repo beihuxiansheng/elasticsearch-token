@@ -2920,7 +2920,7 @@ name|toString
 argument_list|(
 name|point
 operator|.
-name|lat
+name|lon
 argument_list|()
 argument_list|)
 argument_list|)
