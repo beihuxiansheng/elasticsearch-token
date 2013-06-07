@@ -42,6 +42,24 @@ name|action
 operator|.
 name|admin
 operator|.
+name|cluster
+operator|.
+name|health
+operator|.
+name|ClusterHealthStatus
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|admin
+operator|.
 name|indices
 operator|.
 name|status
@@ -616,6 +634,13 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+name|waitForRelocation
+argument_list|(
+name|ClusterHealthStatus
+operator|.
+name|GREEN
+argument_list|)
+expr_stmt|;
 comment|// flush, so we fetch it from the index (as see that we filter nested docs)
 name|flush
 argument_list|()
@@ -1086,6 +1111,13 @@ argument_list|()
 operator|.
 name|actionGet
 argument_list|()
+expr_stmt|;
+name|waitForRelocation
+argument_list|(
+name|ClusterHealthStatus
+operator|.
+name|GREEN
+argument_list|)
 expr_stmt|;
 comment|// flush, so we fetch it from the index (as see that we filter nested docs)
 name|flush

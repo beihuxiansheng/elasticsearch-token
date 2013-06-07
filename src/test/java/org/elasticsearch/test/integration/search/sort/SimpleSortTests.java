@@ -370,18 +370,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Priority
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|settings
 operator|.
 name|ImmutableSettings
@@ -413,20 +401,6 @@ operator|.
 name|text
 operator|.
 name|Text
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
-name|XContentBuilder
 import|;
 end_import
 
@@ -8490,7 +8464,10 @@ parameter_list|(
 name|SearchPhaseExecutionException
 name|e
 parameter_list|)
-block|{          }
+block|{         }
+name|ensureYellow
+argument_list|()
+expr_stmt|;
 name|SearchResponse
 name|searchResponse
 init|=
