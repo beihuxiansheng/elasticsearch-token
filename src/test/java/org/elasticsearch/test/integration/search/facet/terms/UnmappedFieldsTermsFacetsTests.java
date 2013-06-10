@@ -1747,7 +1747,11 @@ name|client
 argument_list|()
 operator|.
 name|prepareSearch
-argument_list|()
+argument_list|(
+literal|"mapped_idx"
+argument_list|,
+literal|"unmapped_idx"
+argument_list|)
 operator|.
 name|setQuery
 argument_list|(
