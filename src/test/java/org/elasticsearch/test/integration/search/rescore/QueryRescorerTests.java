@@ -82,22 +82,6 @@ name|test
 operator|.
 name|hamcrest
 operator|.
-name|ElasticsearchMatchers
-operator|.
-name|SearchHitHasIdMatcher
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|hamcrest
-operator|.
 name|ElasticsearchAssertions
 operator|.
 name|*
@@ -710,8 +694,7 @@ name|assertFirstHit
 argument_list|(
 name|searchResponse
 argument_list|,
-operator|new
-name|SearchHitHasIdMatcher
+name|hasId
 argument_list|(
 literal|"1"
 argument_list|)
@@ -721,8 +704,7 @@ name|assertSecondHit
 argument_list|(
 name|searchResponse
 argument_list|,
-operator|new
-name|SearchHitHasIdMatcher
+name|hasId
 argument_list|(
 literal|"2"
 argument_list|)
@@ -732,8 +714,7 @@ name|assertThirdHit
 argument_list|(
 name|searchResponse
 argument_list|,
-operator|new
-name|SearchHitHasIdMatcher
+name|hasId
 argument_list|(
 literal|"3"
 argument_list|)
@@ -809,8 +790,7 @@ name|assertFirstHit
 argument_list|(
 name|searchResponse
 argument_list|,
-operator|new
-name|SearchHitHasIdMatcher
+name|hasId
 argument_list|(
 literal|"1"
 argument_list|)
@@ -820,8 +800,7 @@ name|assertSecondHit
 argument_list|(
 name|searchResponse
 argument_list|,
-operator|new
-name|SearchHitHasIdMatcher
+name|hasId
 argument_list|(
 literal|"2"
 argument_list|)
@@ -831,8 +810,7 @@ name|assertThirdHit
 argument_list|(
 name|searchResponse
 argument_list|,
-operator|new
-name|SearchHitHasIdMatcher
+name|hasId
 argument_list|(
 literal|"3"
 argument_list|)
@@ -1487,8 +1465,7 @@ name|assertFirstHit
 argument_list|(
 name|searchResponse
 argument_list|,
-operator|new
-name|SearchHitHasIdMatcher
+name|hasId
 argument_list|(
 literal|"2"
 argument_list|)
@@ -1498,8 +1475,7 @@ name|assertSecondHit
 argument_list|(
 name|searchResponse
 argument_list|,
-operator|new
-name|SearchHitHasIdMatcher
+name|hasId
 argument_list|(
 literal|"6"
 argument_list|)
@@ -1509,8 +1485,7 @@ name|assertThirdHit
 argument_list|(
 name|searchResponse
 argument_list|,
-operator|new
-name|SearchHitHasIdMatcher
+name|hasId
 argument_list|(
 literal|"3"
 argument_list|)
@@ -1634,8 +1609,7 @@ name|assertFirstHit
 argument_list|(
 name|searchResponse
 argument_list|,
-operator|new
-name|SearchHitHasIdMatcher
+name|hasId
 argument_list|(
 literal|"2"
 argument_list|)
@@ -1645,8 +1619,7 @@ name|assertSecondHit
 argument_list|(
 name|searchResponse
 argument_list|,
-operator|new
-name|SearchHitHasIdMatcher
+name|hasId
 argument_list|(
 literal|"6"
 argument_list|)
@@ -1656,8 +1629,7 @@ name|assertThirdHit
 argument_list|(
 name|searchResponse
 argument_list|,
-operator|new
-name|SearchHitHasIdMatcher
+name|hasId
 argument_list|(
 literal|"3"
 argument_list|)
@@ -2798,8 +2770,7 @@ name|assertFirstHit
 argument_list|(
 name|searchResponse
 argument_list|,
-operator|new
-name|SearchHitHasIdMatcher
+name|hasId
 argument_list|(
 literal|"1"
 argument_list|)
@@ -2809,8 +2780,7 @@ name|assertSecondHit
 argument_list|(
 name|searchResponse
 argument_list|,
-operator|new
-name|SearchHitHasIdMatcher
+name|hasId
 argument_list|(
 literal|"2"
 argument_list|)
@@ -2820,8 +2790,7 @@ name|assertThirdHit
 argument_list|(
 name|searchResponse
 argument_list|,
-operator|new
-name|SearchHitHasIdMatcher
+name|hasId
 argument_list|(
 literal|"3"
 argument_list|)
