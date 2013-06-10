@@ -800,11 +800,6 @@ name|void
 name|afterClass
 parameter_list|()
 block|{
-name|TestCluster
-name|toRelease
-init|=
-name|cluster
-decl_stmt|;
 name|cluster
 operator|=
 literal|null
@@ -812,9 +807,7 @@ expr_stmt|;
 name|ClusterManager
 operator|.
 name|releaseCluster
-argument_list|(
-name|toRelease
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|client
