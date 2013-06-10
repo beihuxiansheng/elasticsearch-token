@@ -974,6 +974,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets whether the specified doc parameter should be used as upsert document.      */
+DECL|method|setDocAsUpsert
+specifier|public
+name|UpdateRequestBuilder
+name|setDocAsUpsert
+parameter_list|(
+name|boolean
+name|shouldUpsertDoc
+parameter_list|)
+block|{
+name|request
+operator|.
+name|docAsUpsert
+argument_list|(
+name|shouldUpsertDoc
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|doExecute
