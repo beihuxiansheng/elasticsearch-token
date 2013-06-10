@@ -2120,24 +2120,14 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 block|}
-name|client
+name|flush
 argument_list|()
-operator|.
-name|admin
+expr_stmt|;
+name|optimize
 argument_list|()
-operator|.
-name|indices
-argument_list|()
-operator|.
-name|prepareRefresh
-argument_list|(
-literal|"test"
-argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
+expr_stmt|;
+comment|// make sure we don't have a background merge running
+name|refresh
 argument_list|()
 expr_stmt|;
 for|for
@@ -2186,6 +2176,12 @@ argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
+operator|.
+name|setPreference
+argument_list|(
+literal|"test"
+argument_list|)
+comment|// ensure we hit the same shards for tie-breaking
 operator|.
 name|setQuery
 argument_list|(
@@ -2276,6 +2272,12 @@ operator|.
 name|prepareSearch
 argument_list|()
 operator|.
+name|setPreference
+argument_list|(
+literal|"test"
+argument_list|)
+comment|// ensure we hit the same shards for tie-breaking
+operator|.
 name|setQuery
 argument_list|(
 name|QueryBuilders
@@ -2328,6 +2330,12 @@ argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
+operator|.
+name|setPreference
+argument_list|(
+literal|"test"
+argument_list|)
+comment|// ensure we hit the same shards for tie-breaking
 operator|.
 name|setQuery
 argument_list|(
@@ -2423,6 +2431,12 @@ argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
+operator|.
+name|setPreference
+argument_list|(
+literal|"test"
+argument_list|)
+comment|// ensure we hit the same shards for tie-breaking
 operator|.
 name|setQuery
 argument_list|(
