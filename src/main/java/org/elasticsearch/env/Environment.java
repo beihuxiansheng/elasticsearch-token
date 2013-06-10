@@ -56,6 +56,20 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|base
+operator|.
+name|Charsets
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -733,9 +747,9 @@ operator|.
 name|openStream
 argument_list|()
 argument_list|,
-name|Streams
+name|Charsets
 operator|.
-name|UTF8
+name|UTF_8
 argument_list|)
 argument_list|)
 return|;

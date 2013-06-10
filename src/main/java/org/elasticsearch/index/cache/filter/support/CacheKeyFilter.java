@@ -84,7 +84,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Unicode
+name|Strings
 import|;
 end_import
 
@@ -171,9 +171,9 @@ parameter_list|)
 block|{
 name|this
 argument_list|(
-name|Unicode
+name|Strings
 operator|.
-name|fromStringAsBytes
+name|toUTF8Bytes
 argument_list|(
 name|str
 argument_list|)
@@ -191,21 +191,6 @@ return|return
 name|this
 operator|.
 name|bytes
-return|;
-block|}
-DECL|method|utf8ToString
-specifier|public
-name|String
-name|utf8ToString
-parameter_list|()
-block|{
-return|return
-name|Unicode
-operator|.
-name|fromBytes
-argument_list|(
-name|bytes
-argument_list|)
 return|;
 block|}
 annotation|@

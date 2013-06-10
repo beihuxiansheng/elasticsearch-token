@@ -614,6 +614,20 @@ name|Test
 import|;
 end_import
 
+begin_import
+import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|base
+operator|.
+name|Charsets
+import|;
+end_import
+
 begin_class
 DECL|class|NoisyChannelSpellCheckerTests
 specifier|public
@@ -847,9 +861,9 @@ argument_list|(
 literal|"/config/names.txt"
 argument_list|)
 argument_list|,
-name|Streams
+name|Charsets
 operator|.
-name|UTF8
+name|UTF_8
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -2052,9 +2066,9 @@ argument_list|(
 literal|"/config/names.txt"
 argument_list|)
 argument_list|,
-name|Streams
+name|Charsets
 operator|.
-name|UTF8
+name|UTF_8
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -3025,9 +3039,9 @@ argument_list|(
 literal|"/config/names.txt"
 argument_list|)
 argument_list|,
-name|Streams
+name|Charsets
 operator|.
-name|UTF8
+name|UTF_8
 argument_list|)
 argument_list|)
 decl_stmt|;

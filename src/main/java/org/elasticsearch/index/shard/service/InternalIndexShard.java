@@ -5062,9 +5062,9 @@ name|os
 argument_list|,
 literal|false
 argument_list|,
-name|Streams
+name|Charsets
 operator|.
-name|UTF8
+name|UTF_8
 operator|.
 name|name
 argument_list|()

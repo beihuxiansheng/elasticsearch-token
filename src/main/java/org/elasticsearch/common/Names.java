@@ -96,6 +96,20 @@ name|Streams
 import|;
 end_import
 
+begin_import
+import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|base
+operator|.
+name|Charsets
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -137,9 +151,9 @@ operator|.
 name|openStream
 argument_list|()
 argument_list|,
-name|Streams
+name|Charsets
 operator|.
-name|UTF8
+name|UTF_8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -180,9 +194,9 @@ operator|.
 name|openStream
 argument_list|()
 argument_list|,
-name|Streams
+name|Charsets
 operator|.
-name|UTF8
+name|UTF_8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -305,9 +319,9 @@ name|InputStreamReader
 argument_list|(
 name|nodeNames
 argument_list|,
-name|Streams
+name|Charsets
 operator|.
-name|UTF8
+name|UTF_8
 argument_list|)
 argument_list|)
 decl_stmt|;

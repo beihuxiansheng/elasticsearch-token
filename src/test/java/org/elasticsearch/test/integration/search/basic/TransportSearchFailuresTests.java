@@ -44,20 +44,6 @@ name|client
 operator|.
 name|Requests
 operator|.
-name|createIndexRequest
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|client
-operator|.
-name|Requests
-operator|.
 name|refreshRequest
 import|;
 end_import
@@ -302,18 +288,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Unicode
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|xcontent
 operator|.
 name|XContentBuilder
@@ -343,6 +317,20 @@ operator|.
 name|annotations
 operator|.
 name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|base
+operator|.
+name|Charsets
 import|;
 end_import
 
@@ -567,11 +555,13 @@ argument_list|)
 operator|.
 name|source
 argument_list|(
-name|Unicode
-operator|.
-name|fromStringAsBytes
-argument_list|(
 literal|"{ xxx }"
+operator|.
+name|getBytes
+argument_list|(
+name|Charsets
+operator|.
+name|UTF_8
 argument_list|)
 argument_list|)
 argument_list|)
@@ -885,11 +875,13 @@ argument_list|)
 operator|.
 name|source
 argument_list|(
-name|Unicode
-operator|.
-name|fromStringAsBytes
-argument_list|(
 literal|"{ xxx }"
+operator|.
+name|getBytes
+argument_list|(
+name|Charsets
+operator|.
+name|UTF_8
 argument_list|)
 argument_list|)
 argument_list|)

@@ -120,6 +120,20 @@ name|Streams
 import|;
 end_import
 
+begin_import
+import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|base
+operator|.
+name|Charsets
+import|;
+end_import
+
 begin_comment
 comment|/**  * Base class for commons-math unchecked exceptions.  *  * @version $Revision: 822850 $ $Date: 2009-10-07 14:56:42 -0400 (Wed, 07 Oct 2009) $  * @since 2.0  */
 end_comment
@@ -540,9 +554,9 @@ name|OutputStreamWriter
 argument_list|(
 name|out
 argument_list|,
-name|Streams
+name|Charsets
 operator|.
-name|UTF8
+name|UTF_8
 argument_list|)
 argument_list|)
 decl_stmt|;

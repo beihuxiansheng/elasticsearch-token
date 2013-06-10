@@ -88,6 +88,20 @@ name|BytesReference
 import|;
 end_import
 
+begin_import
+import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|base
+operator|.
+name|Charsets
+import|;
+end_import
+
 begin_comment
 comment|/**  * Similar to {@link java.io.ByteArrayOutputStream} just not synced.  */
 end_comment
@@ -391,9 +405,9 @@ literal|0
 argument_list|,
 name|count
 argument_list|,
-name|Streams
+name|Charsets
 operator|.
-name|UTF8
+name|UTF_8
 argument_list|)
 return|;
 block|}
