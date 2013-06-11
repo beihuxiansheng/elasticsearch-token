@@ -399,7 +399,7 @@ argument_list|)
 decl_stmt|;
 name|indexTemplateService
 operator|.
-name|removeTemplate
+name|removeTemplates
 argument_list|(
 operator|new
 name|MetaDataIndexTemplateService

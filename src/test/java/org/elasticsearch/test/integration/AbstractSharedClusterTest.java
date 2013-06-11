@@ -444,6 +444,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
+name|IndexTemplateMissingException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|testng
 operator|.
 name|annotations
@@ -585,7 +597,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This abstract base testcase reuses a cluster instance internally and might  * start an abitrary number of nodes in the background. This class might in the  * future add random configureation options to created indices etc. unless  * unless they are explicitly defined by the test.  *   *<p>  * This test wipes all indices before a testcase is executed and uses  * elasticsearch features like allocation filters to ensure an index is  * allocated only on a certain number of nodes. The test doesn't expose explicit  * information about the client or which client is returned, clients might be  * node clients or transport clients and the returned client might be rotated.  *</p>  *<p>  * Tests that need more explict control over the cluster or that need to change  * the cluster state aside of per-index settings should not use this class as a  * baseclass. If your test modifies the cluster state with persistent or  * transient settings the baseclass will raise and error.  */
+comment|/**  * This abstract base testcase reuses a cluster instance internally and might  * start an abitrary number of nodes in the background. This class might in the  * future add random configureation options to created indices etc. unless  * unless they are explicitly defined by the test.  *<p/>  *<p>  * This test wipes all indices before a testcase is executed and uses  * elasticsearch features like allocation filters to ensure an index is  * allocated only on a certain number of nodes. The test doesn't expose explicit  * information about the client or which client is returned, clients might be  * node clients or transport clients and the returned client might be rotated.  *</p>  *<p/>  * Tests that need more explict control over the cluster or that need to change  * the cluster state aside of per-index settings should not use this class as a  * baseclass. If your test modifies the cluster state with persistent or  * transient settings the baseclass will raise and error.  */
 end_comment
 
 begin_class
@@ -643,6 +655,9 @@ argument_list|()
 condition|)
 block|{
 name|wipeIndices
+argument_list|()
+expr_stmt|;
+name|wipeTemplates
 argument_list|()
 expr_stmt|;
 block|}
@@ -913,6 +928,79 @@ argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
+block|}
+comment|/**      * Deletes index templates, support wildcard notation.      */
+DECL|method|wipeTemplates
+specifier|public
+specifier|static
+name|void
+name|wipeTemplates
+parameter_list|(
+name|String
+modifier|...
+name|templates
+parameter_list|)
+block|{
+comment|// if nothing is provided, delete all
+if|if
+condition|(
+name|templates
+operator|.
+name|length
+operator|==
+literal|0
+condition|)
+block|{
+name|templates
+operator|=
+operator|new
+name|String
+index|[]
+block|{
+literal|"*"
+block|}
+expr_stmt|;
+block|}
+for|for
+control|(
+name|String
+name|template
+range|:
+name|templates
+control|)
+block|{
+try|try
+block|{
+name|client
+argument_list|()
+operator|.
+name|admin
+argument_list|()
+operator|.
+name|indices
+argument_list|()
+operator|.
+name|prepareDeleteTemplate
+argument_list|(
+name|template
+argument_list|)
+operator|.
+name|execute
+argument_list|()
+operator|.
+name|actionGet
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IndexTemplateMissingException
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+block|}
+block|}
 block|}
 DECL|method|createIndex
 specifier|public
