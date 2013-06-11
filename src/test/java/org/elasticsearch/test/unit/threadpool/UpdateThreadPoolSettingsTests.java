@@ -211,7 +211,7 @@ if|if
 condition|(
 name|info
 operator|.
-name|name
+name|getName
 argument_list|()
 operator|.
 name|equals
@@ -272,7 +272,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|,
 name|equalTo
@@ -292,7 +292,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|keepAlive
+name|getKeepAlive
 argument_list|()
 operator|.
 name|minutes
@@ -353,7 +353,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|,
 name|equalTo
@@ -418,7 +418,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|,
 name|equalTo
@@ -483,7 +483,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|keepAlive
+name|getKeepAlive
 argument_list|()
 operator|.
 name|minutes
@@ -554,7 +554,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|,
 name|equalTo
@@ -575,7 +575,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|keepAlive
+name|getKeepAlive
 argument_list|()
 operator|.
 name|minutes
@@ -649,7 +649,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|keepAlive
+name|getKeepAlive
 argument_list|()
 operator|.
 name|minutes
@@ -702,7 +702,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|,
 name|equalTo
@@ -759,7 +759,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|keepAlive
+name|getKeepAlive
 argument_list|()
 operator|.
 name|minutes
@@ -812,7 +812,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|,
 name|equalTo
@@ -885,7 +885,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|rejectSetting
+name|getRejectSetting
 argument_list|()
 argument_list|,
 name|equalTo
@@ -905,7 +905,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|queueType
+name|getQueueType
 argument_list|()
 argument_list|,
 name|equalTo
@@ -984,7 +984,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1073,7 +1073,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|min
+name|getMin
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1093,7 +1093,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|max
+name|getMax
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1114,7 +1114,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|keepAlive
+name|getKeepAlive
 argument_list|()
 operator|.
 name|minutes
@@ -1185,7 +1185,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1206,7 +1206,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|keepAlive
+name|getKeepAlive
 argument_list|()
 argument_list|,
 name|nullValue
@@ -1225,7 +1225,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|min
+name|getMin
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1245,7 +1245,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|max
+name|getMax
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1366,7 +1366,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|max
+name|getMax
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1386,7 +1386,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|min
+name|getMin
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1457,7 +1457,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1513,7 +1513,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|queueType
+name|getQueueType
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1587,7 +1587,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1607,7 +1607,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|max
+name|getMax
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1652,7 +1652,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|queueType
+name|getQueueType
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1711,7 +1711,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|rejectSetting
+name|getRejectSetting
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1777,7 +1777,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|rejectSetting
+name|getRejectSetting
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1887,7 +1887,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|min
+name|getMin
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1907,7 +1907,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|max
+name|getMax
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1927,7 +1927,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|keepAlive
+name|getKeepAlive
 argument_list|()
 operator|.
 name|minutes
@@ -1950,7 +1950,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2041,7 +2041,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2130,7 +2130,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|min
+name|getMin
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2150,7 +2150,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|max
+name|getMax
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2171,7 +2171,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|keepAlive
+name|getKeepAlive
 argument_list|()
 operator|.
 name|minutes
@@ -2283,7 +2283,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|min
+name|getMin
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2303,7 +2303,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|max
+name|getMax
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2323,7 +2323,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|capacity
+name|getQueueSize
 argument_list|()
 operator|.
 name|singles
@@ -2346,7 +2346,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|waitTime
+name|getWaitTime
 argument_list|()
 operator|.
 name|minutes
@@ -2428,7 +2428,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2517,7 +2517,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|min
+name|getMin
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2537,7 +2537,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|max
+name|getMax
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2558,7 +2558,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|keepAlive
+name|getKeepAlive
 argument_list|()
 operator|.
 name|minutes
@@ -2629,7 +2629,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2650,7 +2650,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|keepAlive
+name|getKeepAlive
 argument_list|()
 operator|.
 name|minutes
@@ -2674,7 +2674,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|min
+name|getMin
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2694,7 +2694,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|max
+name|getMax
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2822,7 +2822,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|min
+name|getMin
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2842,7 +2842,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|max
+name|getMax
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2913,7 +2913,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2969,7 +2969,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|capacity
+name|getQueueSize
 argument_list|()
 operator|.
 name|singles
@@ -3011,7 +3011,7 @@ operator|.
 name|SEARCH
 argument_list|)
 operator|.
-name|waitTime
+name|getWaitTime
 argument_list|()
 operator|.
 name|minutes

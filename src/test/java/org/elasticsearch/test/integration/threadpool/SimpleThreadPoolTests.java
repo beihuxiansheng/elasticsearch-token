@@ -936,7 +936,7 @@ if|if
 condition|(
 name|info
 operator|.
-name|name
+name|getName
 argument_list|()
 operator|.
 name|equals
@@ -951,7 +951,7 @@ name|assertThat
 argument_list|(
 name|info
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|,
 name|equalTo
@@ -964,7 +964,7 @@ name|assertThat
 argument_list|(
 name|info
 operator|.
-name|rejectSetting
+name|getRejectSetting
 argument_list|()
 argument_list|,
 name|equalTo
@@ -977,7 +977,7 @@ name|assertThat
 argument_list|(
 name|info
 operator|.
-name|queueType
+name|getQueueType
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1191,7 +1191,7 @@ if|if
 condition|(
 name|info
 operator|.
-name|name
+name|getName
 argument_list|()
 operator|.
 name|equals
@@ -1206,7 +1206,7 @@ name|assertThat
 argument_list|(
 name|info
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1219,7 +1219,7 @@ name|assertThat
 argument_list|(
 name|info
 operator|.
-name|capacity
+name|getQueueSize
 argument_list|()
 operator|.
 name|singles
@@ -1235,7 +1235,7 @@ name|assertThat
 argument_list|(
 name|info
 operator|.
-name|waitTime
+name|getWaitTime
 argument_list|()
 operator|.
 name|seconds
@@ -1251,7 +1251,7 @@ name|assertThat
 argument_list|(
 name|info
 operator|.
-name|keepAlive
+name|getKeepAlive
 argument_list|()
 operator|.
 name|seconds
@@ -1306,7 +1306,7 @@ name|poolMap
 operator|.
 name|get
 argument_list|(
-literal|"capacity"
+literal|"queue_size"
 argument_list|)
 operator|.
 name|toString
