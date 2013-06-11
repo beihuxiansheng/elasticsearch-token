@@ -172,20 +172,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
-name|XContentParser
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|index
 operator|.
 name|AbstractIndexComponent
@@ -401,16 +387,6 @@ operator|.
 name|similarity
 operator|.
 name|SimilarityLookupService
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
 import|;
 end_import
 
@@ -1915,14 +1891,9 @@ name|Object
 argument_list|>
 name|root
 decl_stmt|;
-name|XContentParser
-name|xContentParser
-init|=
-literal|null
-decl_stmt|;
 try|try
 block|{
-name|xContentParser
+name|root
 operator|=
 name|XContentFactory
 operator|.
@@ -1935,18 +1906,14 @@ name|createParser
 argument_list|(
 name|source
 argument_list|)
-expr_stmt|;
-name|root
-operator|=
-name|xContentParser
 operator|.
-name|mapOrdered
+name|mapOrderedAndClose
 argument_list|()
 expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IOException
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -1954,27 +1921,11 @@ throw|throw
 operator|new
 name|MapperParsingException
 argument_list|(
-literal|"Failed to parse mapping definition"
+literal|"failed to parse mapping definition"
 argument_list|,
 name|e
 argument_list|)
 throw|;
-block|}
-finally|finally
-block|{
-if|if
-condition|(
-name|xContentParser
-operator|!=
-literal|null
-condition|)
-block|{
-name|xContentParser
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 comment|// we always assume the first and single key is the mapping type root
 if|if
@@ -1994,7 +1945,7 @@ throw|throw
 operator|new
 name|MapperParsingException
 argument_list|(
-literal|"Mapping must have the `type` as the root object"
+literal|"mapping must have the `type` as the root object"
 argument_list|)
 throw|;
 block|}
