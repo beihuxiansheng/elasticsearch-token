@@ -422,6 +422,22 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|merge
+operator|.
+name|policy
+operator|.
+name|AbstractMergePolicyProvider
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|indices
 operator|.
 name|IndexAlreadyExistsException
@@ -527,6 +543,16 @@ operator|.
 name|util
 operator|.
 name|Iterator
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Random
 import|;
 end_import
 
@@ -838,6 +864,7 @@ name|builder
 argument_list|()
 return|;
 block|}
+comment|// TODO Randomize MergePolicyProviderBase.INDEX_COMPOUND_FORMAT [true|false|"true"|"false"|[0..1]| toString([0..1])]
 DECL|method|getSettings
 specifier|public
 name|Settings
