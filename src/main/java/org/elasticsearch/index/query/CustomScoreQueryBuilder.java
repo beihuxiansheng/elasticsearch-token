@@ -65,7 +65,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A query that uses a script to compute the score.  *  *  */
+comment|/**  * A query that uses a script to compute or influence the score of documents that match with the inner query or filter.  */
 end_comment
 
 begin_class
@@ -86,6 +86,12 @@ specifier|private
 specifier|final
 name|QueryBuilder
 name|queryBuilder
+decl_stmt|;
+DECL|field|filterBuilder
+specifier|private
+specifier|final
+name|FilterBuilder
+name|filterBuilder
 decl_stmt|;
 DECL|field|script
 specifier|private
@@ -117,7 +123,7 @@ name|params
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * A query that simply applies the boost factor to another query (multiply it).      *      * @param queryBuilder The query to apply the boost factor to.      */
+comment|/**      * Constructs a query that defines how the scores are computed or influenced for documents that match with the      * specified query by a custom defined script.      *      * @param queryBuilder The query that defines what documents are custom scored by this query      */
 DECL|method|CustomScoreQueryBuilder
 specifier|public
 name|CustomScoreQueryBuilder
@@ -131,6 +137,34 @@ operator|.
 name|queryBuilder
 operator|=
 name|queryBuilder
+expr_stmt|;
+name|this
+operator|.
+name|filterBuilder
+operator|=
+literal|null
+expr_stmt|;
+block|}
+comment|/**      * Constructs a query that defines how documents are scored that match with the specified filter.      *      * @param filterBuilder The filter that decides with documents are scored by this query.      */
+DECL|method|CustomScoreQueryBuilder
+specifier|public
+name|CustomScoreQueryBuilder
+parameter_list|(
+name|FilterBuilder
+name|filterBuilder
+parameter_list|)
+block|{
+name|this
+operator|.
+name|filterBuilder
+operator|=
+name|filterBuilder
+expr_stmt|;
+name|this
+operator|.
+name|queryBuilder
+operator|=
+literal|null
 expr_stmt|;
 block|}
 comment|/**      * Sets the boost factor for this query.      */
@@ -306,6 +340,13 @@ operator|.
 name|NAME
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|queryBuilder
+operator|!=
+literal|null
+condition|)
+block|{
 name|builder
 operator|.
 name|field
@@ -322,6 +363,32 @@ argument_list|,
 name|params
 argument_list|)
 expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|filterBuilder
+operator|!=
+literal|null
+condition|)
+block|{
+name|builder
+operator|.
+name|field
+argument_list|(
+literal|"filter"
+argument_list|)
+expr_stmt|;
+name|filterBuilder
+operator|.
+name|toXContent
+argument_list|(
+name|builder
+argument_list|,
+name|params
+argument_list|)
+expr_stmt|;
+block|}
 name|builder
 operator|.
 name|field
