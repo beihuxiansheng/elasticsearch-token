@@ -5286,12 +5286,21 @@ operator|.
 name|id
 argument_list|()
 argument_list|,
+name|anyOf
+argument_list|(
 name|equalTo
 argument_list|(
 literal|"1"
 argument_list|)
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"3"
+argument_list|)
+argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// could be both depending on the order of the docs internally (lucene order)
 name|assertThat
 argument_list|(
 name|searchResponse
