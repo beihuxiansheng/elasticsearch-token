@@ -432,6 +432,11 @@ name|suggestion
 operator|.
 name|getRequireUnigram
 argument_list|()
+argument_list|,
+name|suggestion
+operator|.
+name|getTokenLimit
+argument_list|()
 argument_list|)
 decl_stmt|;
 specifier|final
