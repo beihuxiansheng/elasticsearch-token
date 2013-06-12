@@ -1084,6 +1084,9 @@ argument_list|)
 throw|;
 block|}
 name|FieldMapper
+argument_list|<
+name|?
+argument_list|>
 name|mapper
 init|=
 name|smartMappers
@@ -1174,6 +1177,9 @@ argument_list|)
 condition|)
 block|{
 name|IndexGeoPointFieldData
+argument_list|<
+name|?
+argument_list|>
 name|indexFieldData
 init|=
 name|parseContext
