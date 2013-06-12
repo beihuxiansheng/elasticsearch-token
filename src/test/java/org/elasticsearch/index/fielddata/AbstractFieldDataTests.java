@@ -167,6 +167,16 @@ name|FieldDataType
 name|getFieldDataType
 parameter_list|()
 function_decl|;
+DECL|method|hasDocValues
+specifier|protected
+name|boolean
+name|hasDocValues
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 DECL|method|getForField
 specifier|public
 parameter_list|<
@@ -195,6 +205,9 @@ name|fieldName
 argument_list|)
 argument_list|,
 name|getFieldDataType
+argument_list|()
+argument_list|,
+name|hasDocValues
 argument_list|()
 argument_list|)
 return|;

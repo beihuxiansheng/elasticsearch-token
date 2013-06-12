@@ -807,6 +807,8 @@ name|FieldDataType
 argument_list|(
 literal|"long"
 argument_list|)
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 specifier|final

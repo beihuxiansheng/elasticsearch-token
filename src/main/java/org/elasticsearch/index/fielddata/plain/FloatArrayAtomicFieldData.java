@@ -101,7 +101,7 @@ specifier|abstract
 class|class
 name|FloatArrayAtomicFieldData
 extends|extends
-name|AtomicNumericFieldData
+name|AbstractAtomicNumericFieldData
 block|{
 DECL|method|empty
 specifier|public

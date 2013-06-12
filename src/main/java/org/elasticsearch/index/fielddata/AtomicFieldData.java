@@ -31,7 +31,7 @@ extends|extends
 name|ScriptDocValues
 parameter_list|>
 block|{
-comment|/**      * Does *one* of the docs contain multi values?      */
+comment|/**      * If this method returns false, this means that no document has multiple values. However this method may return true even if all      * documents are single-valued. So this method is useful for performing optimizations when the single-value case makes the problem      * simpler but cannot be used to actually check whether this instance is multi-valued.      */
 DECL|method|isMultiValued
 name|boolean
 name|isMultiValued
@@ -49,7 +49,7 @@ name|int
 name|getNumDocs
 parameter_list|()
 function_decl|;
-comment|/**      * The number of unique values in this atomic field data.      */
+comment|/**      * An upper limit of the number of unique values in this atomic field data.      */
 DECL|method|getNumberUniqueValues
 name|long
 name|getNumberUniqueValues

@@ -617,6 +617,11 @@ argument_list|,
 name|postingsFormat
 argument_list|,
 literal|null
+argument_list|,
+name|context
+operator|.
+name|indexSettings
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -801,6 +806,9 @@ annotation|@
 name|Nullable
 name|Settings
 name|fieldDataSettings
+parameter_list|,
+name|Settings
+name|indexSettings
 parameter_list|)
 block|{
 name|super
@@ -841,7 +849,11 @@ name|postingsFormat
 argument_list|,
 literal|null
 argument_list|,
+literal|null
+argument_list|,
 name|fieldDataSettings
+argument_list|,
+name|indexSettings
 argument_list|)
 expr_stmt|;
 name|this
@@ -899,6 +911,18 @@ name|FieldDataType
 argument_list|(
 literal|"string"
 argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|hasDocValues
+specifier|public
+name|boolean
+name|hasDocValues
+parameter_list|()
+block|{
+return|return
+literal|false
 return|;
 block|}
 annotation|@
@@ -962,11 +986,17 @@ annotation|@
 name|Override
 DECL|method|parseCreateField
 specifier|protected
-name|Field
+name|void
 name|parseCreateField
 parameter_list|(
 name|ParseContext
 name|context
+parameter_list|,
+name|List
+argument_list|<
+name|Field
+argument_list|>
+name|fields
 parameter_list|)
 throws|throws
 name|IOException
@@ -1021,7 +1051,10 @@ argument_list|(
 name|parentId
 argument_list|)
 expr_stmt|;
-return|return
+name|fields
+operator|.
+name|add
+argument_list|(
 operator|new
 name|Field
 argument_list|(
@@ -1046,8 +1079,11 @@ argument_list|)
 argument_list|,
 name|fieldType
 argument_list|)
-return|;
+argument_list|)
+expr_stmt|;
 block|}
+else|else
+block|{
 comment|// otherwise, we are running it post processing of the xcontent
 name|String
 name|parsedParentId
@@ -1111,7 +1147,10 @@ argument_list|)
 throw|;
 block|}
 comment|// we did not add it in the parsing phase, add it now
-return|return
+name|fields
+operator|.
+name|add
+argument_list|(
 operator|new
 name|Field
 argument_list|(
@@ -1136,7 +1175,8 @@ argument_list|)
 argument_list|,
 name|fieldType
 argument_list|)
-return|;
+argument_list|)
+expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -1191,10 +1231,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+block|}
 comment|// we have parent mapping, yet no value was set, ignore it...
-return|return
-literal|null
-return|;
 block|}
 annotation|@
 name|Override

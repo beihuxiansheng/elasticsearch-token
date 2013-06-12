@@ -144,6 +144,22 @@ name|index
 operator|.
 name|codec
 operator|.
+name|docvaluesformat
+operator|.
+name|DocValuesFormatService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|codec
+operator|.
 name|postingsformat
 operator|.
 name|PostingsFormatService
@@ -179,7 +195,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Since Lucene 4.0 low level index segments are read and written through a  * codec layer that allows to use use-case specific file formats&  * data-structures per field. ElasticSearch exposes the full  * {@link Codec} capabilities through this {@link CodecService}.  *   * @see PostingsFormatService  */
+comment|/**  * Since Lucene 4.0 low level index segments are read and written through a  * codec layer that allows to use use-case specific file formats&  * data-structures per field. ElasticSearch exposes the full  * {@link Codec} capabilities through this {@link CodecService}.  *   * @see PostingsFormatService  * @see DocValuesFormatService  */
 end_comment
 
 begin_class
@@ -195,6 +211,12 @@ specifier|private
 specifier|final
 name|PostingsFormatService
 name|postingsFormatService
+decl_stmt|;
+DECL|field|docValuesFormatService
+specifier|private
+specifier|final
+name|DocValuesFormatService
+name|docValuesFormatService
 decl_stmt|;
 DECL|field|mapperService
 specifier|private
@@ -260,6 +282,14 @@ argument_list|,
 name|indexSettings
 argument_list|)
 argument_list|,
+operator|new
+name|DocValuesFormatService
+argument_list|(
+name|index
+argument_list|,
+name|indexSettings
+argument_list|)
+argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
@@ -281,6 +311,9 @@ parameter_list|,
 name|PostingsFormatService
 name|postingsFormatService
 parameter_list|,
+name|DocValuesFormatService
+name|docValuesFormatService
+parameter_list|,
 name|MapperService
 name|mapperService
 parameter_list|)
@@ -297,6 +330,12 @@ operator|.
 name|postingsFormatService
 operator|=
 name|postingsFormatService
+expr_stmt|;
+name|this
+operator|.
+name|docValuesFormatService
+operator|=
+name|docValuesFormatService
 expr_stmt|;
 name|this
 operator|.
@@ -365,6 +404,16 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
+name|docValuesFormatService
+operator|.
+name|get
+argument_list|(
+literal|"default"
+argument_list|)
+operator|.
+name|get
+argument_list|()
+argument_list|,
 name|logger
 argument_list|)
 argument_list|)
@@ -416,6 +465,16 @@ return|return
 name|this
 operator|.
 name|postingsFormatService
+return|;
+block|}
+DECL|method|docValuesFormatService
+specifier|public
+name|DocValuesFormatService
+name|docValuesFormatService
+parameter_list|()
+block|{
+return|return
+name|docValuesFormatService
 return|;
 block|}
 DECL|method|mapperService

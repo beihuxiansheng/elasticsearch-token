@@ -182,6 +182,40 @@ name|equalTo
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Random
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|MatcherAssert
+operator|.
+name|assertThat
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|equalTo
+import|;
+end_import
+
 begin_class
 DECL|class|FilterFieldDataTest
 specifier|public
@@ -519,6 +553,8 @@ literal|"high_freq"
 argument_list|)
 argument_list|,
 name|fieldDataType
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|AtomicFieldData
@@ -698,6 +734,8 @@ literal|"high_freq"
 argument_list|)
 argument_list|,
 name|fieldDataType
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|AtomicFieldData
@@ -853,6 +891,8 @@ literal|"med_freq"
 argument_list|)
 argument_list|,
 name|fieldDataType
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|AtomicFieldData
@@ -1025,6 +1065,8 @@ literal|"med_freq"
 argument_list|)
 argument_list|,
 name|fieldDataType
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|AtomicFieldData
@@ -1223,6 +1265,8 @@ literal|"high_freq"
 argument_list|)
 argument_list|,
 name|fieldDataType
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|AtomicFieldData
@@ -1586,6 +1630,8 @@ literal|"high_freq"
 argument_list|)
 argument_list|,
 name|fieldDataType
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|AtomicFieldData
@@ -1724,6 +1770,8 @@ literal|"high_freq"
 argument_list|)
 argument_list|,
 name|fieldDataType
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|AtomicFieldData

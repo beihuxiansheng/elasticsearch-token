@@ -379,8 +379,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// even though we have this logic in the cache module (where it should be, so posting format with delegates will work properly wiht the pre initialized map)
-comment|// we do it here as well so we can use just this instance for tests
+comment|// This is only needed for tests when guice doesn't have the chance to populate the list of PF factories
 for|for
 control|(
 name|PreBuiltPostingsFormatProvider

@@ -1003,6 +1003,21 @@ name|TTLFieldMapper
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|rootMappers
+operator|.
+name|put
+argument_list|(
+name|VersionFieldMapper
+operator|.
+name|class
+argument_list|,
+operator|new
+name|VersionFieldMapper
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// don't add parent field, by default its "null"
 block|}
 DECL|method|meta

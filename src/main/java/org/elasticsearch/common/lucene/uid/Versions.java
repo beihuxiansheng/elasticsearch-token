@@ -90,6 +90,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|internal
+operator|.
+name|VersionFieldMapper
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -449,9 +465,9 @@ name|reader
 operator|.
 name|getNumericDocValues
 argument_list|(
-name|UidFieldMapper
+name|VersionFieldMapper
 operator|.
-name|VERSION
+name|NAME
 argument_list|)
 decl_stmt|;
 if|if
