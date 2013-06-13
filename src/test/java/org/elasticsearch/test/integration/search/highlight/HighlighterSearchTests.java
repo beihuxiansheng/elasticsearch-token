@@ -679,6 +679,13 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
+literal|"analysis.tokenizer.autocomplete.token_chars"
+argument_list|,
+literal|"letter,digit"
+argument_list|)
+operator|.
+name|put
+argument_list|(
 literal|"analysis.tokenizer.autocomplete.type"
 argument_list|,
 literal|"nGram"
@@ -2172,6 +2179,13 @@ argument_list|(
 literal|"analysis.tokenizer.my_ngramt.min_gram"
 argument_list|,
 literal|1
+argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"analysis.tokenizer.my_ngramt.token_chars"
+argument_list|,
+literal|"letter,digit"
 argument_list|)
 operator|.
 name|put
