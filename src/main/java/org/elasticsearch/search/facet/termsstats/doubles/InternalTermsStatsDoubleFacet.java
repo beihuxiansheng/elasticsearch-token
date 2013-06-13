@@ -22,6 +22,20 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|CollectionUtil
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|google
@@ -854,9 +868,9 @@ operator|.
 name|mutableList
 argument_list|()
 decl_stmt|;
-name|Collections
+name|CollectionUtil
 operator|.
-name|sort
+name|timSort
 argument_list|(
 name|entries
 argument_list|,

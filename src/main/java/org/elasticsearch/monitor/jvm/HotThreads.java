@@ -20,6 +20,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|CollectionUtil
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|ElasticSearchIllegalArgumentException
@@ -640,9 +654,9 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// skip that for now
-name|Collections
+name|CollectionUtil
 operator|.
-name|sort
+name|quickSort
 argument_list|(
 name|hotties
 argument_list|,
