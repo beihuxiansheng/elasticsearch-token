@@ -335,7 +335,7 @@ name|DEFAULT_HIGH_FREQ_OCCUR
 init|=
 name|Occur
 operator|.
-name|MUST
+name|SHOULD
 decl_stmt|;
 DECL|field|DEFAULT_LOW_FREQ_OCCUR
 specifier|static
@@ -345,7 +345,7 @@ name|DEFAULT_LOW_FREQ_OCCUR
 init|=
 name|Occur
 operator|.
-name|MUST
+name|SHOULD
 decl_stmt|;
 DECL|field|DEFAULT_DISABLE_COORDS
 specifier|static
@@ -478,7 +478,7 @@ decl_stmt|;
 name|Occur
 name|lowFreqOccur
 init|=
-name|DEFAULT_HIGH_FREQ_OCCUR
+name|DEFAULT_LOW_FREQ_OCCUR
 decl_stmt|;
 name|float
 name|maxTermFrequency
