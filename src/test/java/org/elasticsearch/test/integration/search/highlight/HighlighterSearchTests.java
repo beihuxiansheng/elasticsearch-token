@@ -2265,7 +2265,7 @@ expr_stmt|;
 name|refresh
 argument_list|()
 expr_stmt|;
-name|ensureYellow
+name|ensureGreen
 argument_list|()
 expr_stmt|;
 name|SearchResponse

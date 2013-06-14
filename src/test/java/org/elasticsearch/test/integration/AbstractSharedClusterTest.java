@@ -1889,6 +1889,11 @@ name|Priority
 operator|.
 name|LANGUID
 argument_list|)
+operator|.
+name|waitForRelocatingShards
+argument_list|(
+literal|0
+argument_list|)
 argument_list|)
 operator|.
 name|actionGet
@@ -2229,6 +2234,9 @@ name|RefreshResponse
 name|refresh
 parameter_list|()
 block|{
+name|waitForRelocation
+argument_list|()
+expr_stmt|;
 comment|// TODO RANDOMIZE with flush?
 name|RefreshResponse
 name|actionGet
@@ -2266,6 +2274,9 @@ name|FlushResponse
 name|flush
 parameter_list|()
 block|{
+name|waitForRelocation
+argument_list|()
+expr_stmt|;
 name|FlushResponse
 name|actionGet
 init|=
@@ -2307,6 +2318,9 @@ name|OptimizeResponse
 name|optimize
 parameter_list|()
 block|{
+name|waitForRelocation
+argument_list|()
+expr_stmt|;
 name|OptimizeResponse
 name|actionGet
 init|=
