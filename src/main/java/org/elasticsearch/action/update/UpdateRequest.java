@@ -527,8 +527,6 @@ operator|==
 literal|null
 operator|&&
 name|docAsUpsert
-operator|==
-literal|true
 condition|)
 block|{
 name|validationException
