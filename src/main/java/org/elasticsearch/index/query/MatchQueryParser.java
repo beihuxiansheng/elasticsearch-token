@@ -1293,7 +1293,7 @@ operator|)
 name|query
 operator|)
 operator|.
-name|setMinimumNumberShouldMatch
+name|setLowFreqMinimumNumberShouldMatch
 argument_list|(
 name|minimumShouldMatch
 argument_list|)
