@@ -2070,6 +2070,11 @@ operator|.
 name|clusterHealthRequest
 argument_list|()
 operator|.
+name|waitForRelocatingShards
+argument_list|(
+literal|0
+argument_list|)
+operator|.
 name|waitForYellowStatus
 argument_list|()
 operator|.

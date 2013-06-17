@@ -187,6 +187,10 @@ argument_list|(
 literal|"test"
 argument_list|,
 literal|"type1"
+argument_list|,
+literal|"id:"
+operator|+
+name|i
 argument_list|)
 operator|.
 name|setSource
@@ -242,6 +246,10 @@ operator|.
 name|getShardFailures
 argument_list|()
 argument_list|)
+operator|+
+literal|" id: "
+operator|+
+name|i
 argument_list|,
 name|searchResponse
 operator|.

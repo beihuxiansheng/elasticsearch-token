@@ -2036,6 +2036,9 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+name|ensureGreen
+argument_list|()
+expr_stmt|;
 name|int
 name|numDocs
 init|=
@@ -2100,6 +2103,9 @@ argument_list|()
 expr_stmt|;
 comment|// make sure we don't have a background merge running
 name|refresh
+argument_list|()
+expr_stmt|;
+name|ensureGreen
 argument_list|()
 expr_stmt|;
 for|for
