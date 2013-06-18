@@ -1087,6 +1087,16 @@ name|indexService
 operator|.
 name|mapperService
 argument_list|()
+argument_list|,
+name|request
+operator|.
+name|index
+argument_list|()
+argument_list|,
+name|request
+operator|.
+name|shardId
+argument_list|()
 argument_list|)
 decl_stmt|;
 specifier|final
