@@ -2813,6 +2813,17 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+name|tokenFiltersBindings
+operator|.
+name|processTokenFilter
+argument_list|(
+literal|"common_grams"
+argument_list|,
+name|CommonGramsTokenFilterFactory
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
