@@ -217,7 +217,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Simple class to build document ID<-> ordinal mapping. Note: Ordinals are  *<tt>1</tt> based monotocially increasing positive integers.<tt>0</tt>  * donates the missing value in this context.  */
+comment|/**  * Simple class to build document ID<-> ordinal mapping. Note: Ordinals are  *<tt>1</tt> based monotonically increasing positive integers.<tt>0</tt>  * donates the missing value in this context.  */
 end_comment
 
 begin_class
@@ -329,6 +329,9 @@ name|maxDoc
 parameter_list|,
 name|Allocator
 name|allocator
+parameter_list|,
+name|float
+name|acceptableOverheadRatio
 parameter_list|)
 throws|throws
 name|IOException
@@ -339,14 +342,6 @@ name|maxDoc
 operator|=
 name|maxDoc
 expr_stmt|;
-comment|// TODO: Make configurable...
-name|float
-name|acceptableOverheadRatio
-init|=
-name|PackedInts
-operator|.
-name|FAST
-decl_stmt|;
 if|if
 condition|(
 name|preDefineBitsRequired
@@ -466,6 +461,10 @@ argument_list|,
 literal|false
 argument_list|,
 name|maxDoc
+argument_list|,
+name|PackedInts
+operator|.
+name|DEFAULT
 argument_list|)
 expr_stmt|;
 block|}
@@ -481,6 +480,9 @@ name|preDefineBitsRequired
 parameter_list|,
 name|int
 name|maxDoc
+parameter_list|,
+name|float
+name|acceptableOverheadRatio
 parameter_list|)
 throws|throws
 name|IOException
@@ -496,6 +498,8 @@ argument_list|,
 operator|new
 name|DirectAllocator
 argument_list|()
+argument_list|,
+name|acceptableOverheadRatio
 argument_list|)
 expr_stmt|;
 block|}
@@ -508,6 +512,9 @@ name|terms
 parameter_list|,
 name|int
 name|maxDoc
+parameter_list|,
+name|float
+name|acceptableOverheadRatio
 parameter_list|)
 throws|throws
 name|IOException
@@ -523,6 +530,8 @@ argument_list|,
 operator|new
 name|DirectAllocator
 argument_list|()
+argument_list|,
+name|acceptableOverheadRatio
 argument_list|)
 expr_stmt|;
 block|}
@@ -1503,6 +1512,7 @@ block|}
 comment|/**      * A {@link TermsEnum} that iterates only full precision prefix coded 64 bit values.      * @see #buildFromTerms(TermsEnum, Bits)      */
 DECL|method|wrapNumeric64Bit
 specifier|public
+specifier|static
 name|TermsEnum
 name|wrapNumeric64Bit
 parameter_list|(
@@ -1557,6 +1567,7 @@ block|}
 comment|/**      * A {@link TermsEnum} that iterates only full precision prefix coded 32 bit values.      * @see #buildFromTerms(TermsEnum, Bits)      */
 DECL|method|wrapNumeric32Bit
 specifier|public
+specifier|static
 name|TermsEnum
 name|wrapNumeric32Bit
 parameter_list|(

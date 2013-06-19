@@ -136,7 +136,7 @@ name|fielddata
 operator|.
 name|plain
 operator|.
-name|LongArrayIndexFieldData
+name|PackedArrayIndexFieldData
 import|;
 end_import
 
@@ -187,7 +187,7 @@ name|Object
 name|missingValue
 parameter_list|)
 block|{
-name|LongArrayIndexFieldData
+name|PackedArrayIndexFieldData
 name|fieldData
 init|=
 name|getForField
