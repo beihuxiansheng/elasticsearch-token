@@ -1035,7 +1035,7 @@ argument_list|)
 expr_stmt|;
 name|indicesStatsRequest
 operator|.
-name|idCache
+name|fieldData
 argument_list|(
 name|request
 operator|.
