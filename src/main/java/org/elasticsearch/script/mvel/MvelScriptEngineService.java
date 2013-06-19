@@ -456,6 +456,9 @@ operator|.
 name|compileExpression
 argument_list|(
 name|script
+operator|.
+name|trim
+argument_list|()
 argument_list|,
 operator|new
 name|ParserContext
