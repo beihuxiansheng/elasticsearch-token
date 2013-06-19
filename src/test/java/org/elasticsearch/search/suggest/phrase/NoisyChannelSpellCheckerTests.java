@@ -3200,7 +3200,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"tarr the god jewel"
+literal|"varr the god jewel"
 argument_list|)
 argument_list|)
 expr_stmt|;
