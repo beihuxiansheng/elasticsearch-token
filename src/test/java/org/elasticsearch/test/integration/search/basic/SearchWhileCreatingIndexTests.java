@@ -132,6 +132,16 @@ name|SearchWhileCreatingIndexTests
 extends|extends
 name|AbstractSharedClusterTest
 block|{
+DECL|method|numberOfNodes
+specifier|protected
+name|int
+name|numberOfNodes
+parameter_list|()
+block|{
+return|return
+literal|1
+return|;
+block|}
 comment|/**      * This test basically verifies that search with a single shard active (cause we indexed to it) and other      * shards possibly not active at all (cause they haven't allocated) will still work.      */
 annotation|@
 name|Test
@@ -141,6 +151,15 @@ name|void
 name|searchWhileCreatingIndex
 parameter_list|()
 block|{
+name|cluster
+argument_list|()
+operator|.
+name|ensureAtMostNumNodes
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+comment|// this test is very fragile with more than one node...
 for|for
 control|(
 name|int
