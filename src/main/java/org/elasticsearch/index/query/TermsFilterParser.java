@@ -1012,6 +1012,21 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// if there are no mappings, then nothing has been indexing yet against this shard, so we can return
+comment|// no match (but not cached!), since the Terms Lookup relies on the fact that there are mappings...
+if|if
+condition|(
+name|fieldMapper
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+name|Queries
+operator|.
+name|MATCH_NO_FILTER
+return|;
+block|}
 comment|// external lookup, use it
 name|TermsLookup
 name|termsLookup
