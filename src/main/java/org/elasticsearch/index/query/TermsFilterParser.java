@@ -1080,6 +1080,16 @@ argument_list|,
 name|termsLookup
 argument_list|)
 decl_stmt|;
+comment|// cache the whole filter by default, or if explicitly told to
+if|if
+condition|(
+name|cache
+operator|==
+literal|null
+operator|||
+name|cache
+condition|)
+block|{
 name|filter
 operator|=
 name|parseContext
@@ -1092,6 +1102,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 comment|// cacheKey is passed as null, so we don't double cache the key
+block|}
 return|return
 name|filter
 return|;
