@@ -798,6 +798,17 @@ block|{
 if|if
 condition|(
 name|filterToCache
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
+if|if
+condition|(
+name|filterToCache
 operator|instanceof
 name|NoCacheFilter
 condition|)

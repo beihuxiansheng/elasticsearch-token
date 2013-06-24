@@ -774,6 +774,17 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|filter
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
+if|if
+condition|(
 name|cacheKey
 operator|!=
 literal|null
