@@ -2766,7 +2766,7 @@ name|assertHitCount
 argument_list|(
 name|world
 argument_list|,
-literal|246
+literal|53
 argument_list|)
 expr_stmt|;
 name|SearchResponse
