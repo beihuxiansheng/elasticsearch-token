@@ -1051,6 +1051,10 @@ operator|!
 name|termsFilterCalled
 condition|)
 block|{
+name|termsFilterCalled
+operator|=
+literal|true
+expr_stmt|;
 name|termsFilter
 operator|=
 name|cache
