@@ -476,24 +476,21 @@ literal|32
 index|]
 return|;
 block|}
-comment|/**      * Calculate all neighbors of a given geohash cell.      * @param geohash Geohash of the defines cell      * @return geohashes of all neighbor cells      */
+comment|/**      * Calculate all neighbors of a given geohash cell.      *      * @param geohash Geohash of the defines cell      * @return geohashes of all neighbor cells      */
 DECL|method|neighbors
 specifier|public
 specifier|static
+name|List
+argument_list|<
 name|String
-index|[]
+argument_list|>
 name|neighbors
 parameter_list|(
 name|String
 name|geohash
 parameter_list|)
 block|{
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|neighbors
-init|=
+return|return
 name|addNeighbors
 argument_list|(
 name|geohash
@@ -512,24 +509,9 @@ argument_list|(
 literal|8
 argument_list|)
 argument_list|)
-decl_stmt|;
-return|return
-name|neighbors
-operator|.
-name|toArray
-argument_list|(
-operator|new
-name|String
-index|[
-name|neighbors
-operator|.
-name|size
-argument_list|()
-index|]
-argument_list|)
 return|;
 block|}
-comment|/**      * Calculate the geohash of a neighbor of a geohash      *       * @param geohash the geohash of a cell      * @param level level of the geohash      * @param dx delta of the first grid coordinate (must be -1, 0 or +1)      * @param dy delta of the second grid coordinate (must be -1, 0 or +1)      * @return geohash of the defined cell      */
+comment|/**      * Calculate the geohash of a neighbor of a geohash      *      * @param geohash the geohash of a cell      * @param level   level of the geohash      * @param dx      delta of the first grid coordinate (must be -1, 0 or +1)      * @param dy      delta of the second grid coordinate (must be -1, 0 or +1)      * @return geohash of the defined cell      */
 DECL|method|neighbor
 specifier|private
 specifier|final
@@ -860,7 +842,7 @@ return|;
 block|}
 block|}
 block|}
-comment|/**      * Add all geohashes of the cells next to a given geohash to a list.      *       * @param geohash Geohash of a specified cell      * @param length level of the given geohash      * @param neighbors list to add the neighbors to      * @return the given list      */
+comment|/**      * Add all geohashes of the cells next to a given geohash to a list.      *      * @param geohash   Geohash of a specified cell      * @param length    level of the given geohash      * @param neighbors list to add the neighbors to      * @return the given list      */
 DECL|method|addNeighbors
 specifier|private
 specifier|static
@@ -1357,7 +1339,7 @@ literal|2D
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Decodes the given geohash into a geohash cell defined by the points nothWest and southEast      *      * @param geohash Geohash to deocde      * @param northWest the point north/west of the cell      * @param southEast the point south/east of the cell      */
+comment|/**      * Decodes the given geohash into a geohash cell defined by the points nothWest and southEast      *      * @param geohash   Geohash to deocde      * @param northWest the point north/west of the cell      * @param southEast the point south/east of the cell      */
 DECL|method|decodeCell
 specifier|public
 specifier|static

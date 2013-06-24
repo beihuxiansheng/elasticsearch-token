@@ -1523,9 +1523,6 @@ name|Filter
 name|termsFilter
 parameter_list|(
 name|List
-argument_list|<
-name|Object
-argument_list|>
 name|values
 parameter_list|,
 annotation|@
