@@ -2614,6 +2614,17 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+name|charFiltersBindings
+operator|.
+name|processCharFilter
+argument_list|(
+literal|"pattern_replace"
+argument_list|,
+name|PatternReplaceCharFilterFactory
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
