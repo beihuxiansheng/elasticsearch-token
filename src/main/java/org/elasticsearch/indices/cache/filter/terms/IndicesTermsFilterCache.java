@@ -985,6 +985,15 @@ specifier|final
 name|IndicesTermsFilterCache
 name|cache
 decl_stmt|;
+DECL|field|termsFilterCalled
+name|boolean
+name|termsFilterCalled
+decl_stmt|;
+DECL|field|termsFilter
+specifier|private
+name|Filter
+name|termsFilter
+decl_stmt|;
 DECL|method|LookupTermsFilter
 name|LookupTermsFilter
 parameter_list|(
@@ -1035,9 +1044,15 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|Filter
-name|filter
-init|=
+comment|// only call the terms filter once per execution (across segments per single search request)
+if|if
+condition|(
+operator|!
+name|termsFilterCalled
+condition|)
+block|{
+name|termsFilter
+operator|=
 name|cache
 operator|.
 name|termsFilter
@@ -1046,10 +1061,11 @@ name|cacheKey
 argument_list|,
 name|lookup
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 if|if
 condition|(
-name|filter
+name|termsFilter
 operator|==
 literal|null
 condition|)
@@ -1057,7 +1073,7 @@ return|return
 literal|null
 return|;
 return|return
-name|filter
+name|termsFilter
 operator|.
 name|getDocIdSet
 argument_list|(
