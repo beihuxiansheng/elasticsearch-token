@@ -714,7 +714,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-block|}
 comment|// apply the minimum score after multi collector so we filter facets as well
 if|if
 condition|(
@@ -739,6 +738,7 @@ name|minimumScore
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// we only compute the doc id set once since within a context, we execute the same query always...
 if|if
