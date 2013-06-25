@@ -528,7 +528,7 @@ name|i
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Writes an int in a variable-length format.  Writes between one and      * five bytes.  Smaller values take fewer bytes.  Negative numbers are not      * supported.      */
+comment|/**      * Writes an int in a variable-length format.  Writes between one and      * five bytes.  Smaller values take fewer bytes.  Negative numbers      * will always use all 5 bytes and are therefore better serialized      * using {@link #writeInt}      */
 DECL|method|writeVInt
 specifier|public
 name|void
@@ -615,7 +615,7 @@ name|i
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Writes an long in a variable-length format.  Writes between one and five      * bytes.  Smaller values take fewer bytes.  Negative numbers are not      * supported.      */
+comment|/**      * Writes an long in a variable-length format.  Writes between one and nine      * bytes.  Smaller values take fewer bytes.  Negative numbers are not      * supported.      */
 DECL|method|writeVLong
 specifier|public
 name|void
@@ -627,6 +627,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+assert|assert
+name|i
+operator|>=
+literal|0
+assert|;
 while|while
 condition|(
 operator|(

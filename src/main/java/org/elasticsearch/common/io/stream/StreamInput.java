@@ -509,7 +509,7 @@ literal|0xFF
 operator|)
 return|;
 block|}
-comment|/**      * Reads an int stored in variable-length format.  Reads between one and      * five bytes.  Smaller values take fewer bytes.  Negative numbers are not      * supported.      */
+comment|/**      * Reads an int stored in variable-length format.  Reads between one and      * five bytes.  Smaller values take fewer bytes.  Negative numbers      * will always use all 5 bytes and are therefore better serialized      * using {@link #readInt}      */
 DECL|method|readVInt
 specifier|public
 name|int
@@ -541,9 +541,11 @@ operator|)
 operator|==
 literal|0
 condition|)
+block|{
 return|return
 name|i
 return|;
+block|}
 name|b
 operator|=
 name|readByte
@@ -569,9 +571,11 @@ operator|)
 operator|==
 literal|0
 condition|)
+block|{
 return|return
 name|i
 return|;
+block|}
 name|b
 operator|=
 name|readByte
@@ -597,9 +601,11 @@ operator|)
 operator|==
 literal|0
 condition|)
+block|{
 return|return
 name|i
 return|;
+block|}
 name|b
 operator|=
 name|readByte
@@ -625,9 +631,11 @@ operator|)
 operator|==
 literal|0
 condition|)
+block|{
 return|return
 name|i
 return|;
+block|}
 name|b
 operator|=
 name|readByte
@@ -718,9 +726,11 @@ operator|)
 operator|==
 literal|0
 condition|)
+block|{
 return|return
 name|i
 return|;
+block|}
 name|b
 operator|=
 name|readByte
@@ -746,9 +756,11 @@ operator|)
 operator|==
 literal|0
 condition|)
+block|{
 return|return
 name|i
 return|;
+block|}
 name|b
 operator|=
 name|readByte
@@ -774,9 +786,11 @@ operator|)
 operator|==
 literal|0
 condition|)
+block|{
 return|return
 name|i
 return|;
+block|}
 name|b
 operator|=
 name|readByte
@@ -802,9 +816,11 @@ operator|)
 operator|==
 literal|0
 condition|)
+block|{
 return|return
 name|i
 return|;
+block|}
 name|b
 operator|=
 name|readByte
@@ -830,9 +846,11 @@ operator|)
 operator|==
 literal|0
 condition|)
+block|{
 return|return
 name|i
 return|;
+block|}
 name|b
 operator|=
 name|readByte
@@ -858,9 +876,11 @@ operator|)
 operator|==
 literal|0
 condition|)
+block|{
 return|return
 name|i
 return|;
+block|}
 name|b
 operator|=
 name|readByte
@@ -886,9 +906,11 @@ operator|)
 operator|==
 literal|0
 condition|)
+block|{
 return|return
 name|i
 return|;
+block|}
 name|b
 operator|=
 name|readByte
@@ -914,9 +936,11 @@ operator|)
 operator|==
 literal|0
 condition|)
+block|{
 return|return
 name|i
 return|;
+block|}
 name|b
 operator|=
 name|readByte
