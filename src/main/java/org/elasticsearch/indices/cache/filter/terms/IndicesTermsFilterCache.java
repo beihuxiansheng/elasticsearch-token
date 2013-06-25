@@ -681,6 +681,14 @@ name|preference
 argument_list|(
 literal|"_local"
 argument_list|)
+operator|.
+name|routing
+argument_list|(
+name|lookup
+operator|.
+name|getRouting
+argument_list|()
+argument_list|)
 argument_list|)
 operator|.
 name|actionGet
