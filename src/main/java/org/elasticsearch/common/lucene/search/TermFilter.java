@@ -224,6 +224,10 @@ argument_list|(
 name|acceptDocs
 argument_list|,
 literal|null
+argument_list|,
+name|DocsEnum
+operator|.
+name|FLAG_NONE
 argument_list|)
 decl_stmt|;
 name|int
