@@ -1936,6 +1936,24 @@ operator|new
 name|Document
 argument_list|()
 decl_stmt|;
+comment|// Add a dummy field (enough to trigger #3237)
+name|document
+operator|.
+name|add
+argument_list|(
+operator|new
+name|StringField
+argument_list|(
+literal|"a"
+argument_list|,
+literal|"b"
+argument_list|,
+name|Store
+operator|.
+name|NO
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|StringField
 name|uid
 init|=
