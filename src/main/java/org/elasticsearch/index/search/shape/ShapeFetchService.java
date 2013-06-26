@@ -390,6 +390,11 @@ else|else
 block|{
 name|parser
 operator|.
+name|nextToken
+argument_list|()
+expr_stmt|;
+name|parser
+operator|.
 name|skipChildren
 argument_list|()
 expr_stmt|;
