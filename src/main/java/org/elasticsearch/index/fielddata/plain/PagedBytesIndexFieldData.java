@@ -613,10 +613,7 @@ name|termsEnum
 operator|.
 name|docs
 argument_list|(
-name|reader
-operator|.
-name|getLiveDocs
-argument_list|()
+literal|null
 argument_list|,
 name|docsEnum
 argument_list|,

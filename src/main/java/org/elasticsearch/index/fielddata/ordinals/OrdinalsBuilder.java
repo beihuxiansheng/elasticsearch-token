@@ -1628,10 +1628,6 @@ parameter_list|(
 specifier|final
 name|TermsEnum
 name|termsEnum
-parameter_list|,
-specifier|final
-name|Bits
-name|liveDocs
 parameter_list|)
 throws|throws
 name|IOException
@@ -1679,7 +1675,7 @@ name|termsEnum
 operator|.
 name|docs
 argument_list|(
-name|liveDocs
+literal|null
 argument_list|,
 name|docsEnum
 argument_list|,

@@ -749,11 +749,6 @@ argument_list|(
 literal|null
 argument_list|)
 argument_list|)
-argument_list|,
-name|reader
-operator|.
-name|getLiveDocs
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|BytesRef

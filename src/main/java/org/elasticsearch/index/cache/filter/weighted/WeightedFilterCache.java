@@ -1051,7 +1051,8 @@ block|}
 block|}
 block|}
 comment|// we can't pass down acceptedDocs provided, because we are caching the result, and acceptedDocs
-comment|// might be specific to a query AST, we do pass down the live docs to make sure we optimize the execution
+comment|// might be specific to a query. We don't pass the live docs either because a cache built for a specific
+comment|// generation of a segment might be reused by an older generation which has fewer deleted documents
 name|cacheValue
 operator|=
 name|DocIdSets
@@ -1069,13 +1070,7 @@ name|getDocIdSet
 argument_list|(
 name|context
 argument_list|,
-name|context
-operator|.
-name|reader
-argument_list|()
-operator|.
-name|getLiveDocs
-argument_list|()
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
