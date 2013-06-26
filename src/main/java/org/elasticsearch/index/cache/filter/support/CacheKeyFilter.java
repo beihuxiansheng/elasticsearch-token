@@ -411,7 +411,7 @@ return|;
 block|}
 block|}
 DECL|method|cacheKey
-name|Key
+name|Object
 name|cacheKey
 parameter_list|()
 function_decl|;

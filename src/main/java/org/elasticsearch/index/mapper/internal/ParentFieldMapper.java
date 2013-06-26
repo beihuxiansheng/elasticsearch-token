@@ -1541,7 +1541,7 @@ block|{
 return|return
 name|super
 operator|.
-name|termFilter
+name|termsFilter
 argument_list|(
 name|values
 argument_list|,
