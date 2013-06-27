@@ -326,6 +326,20 @@ name|IndicesTTLService
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
+name|warmer
+operator|.
+name|InternalIndicesWarmer
+import|;
+end_import
+
 begin_comment
 comment|/**  */
 end_comment
@@ -1104,6 +1118,15 @@ argument_list|(
 name|TranslogService
 operator|.
 name|INDEX_TRANSLOG_DISABLE_FLUSH
+argument_list|)
+expr_stmt|;
+name|indexDynamicSettings
+operator|.
+name|addDynamicSetting
+argument_list|(
+name|InternalIndicesWarmer
+operator|.
+name|INDEX_WARMER_ENABLED
 argument_list|)
 expr_stmt|;
 block|}
