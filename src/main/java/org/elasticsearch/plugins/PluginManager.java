@@ -1903,6 +1903,10 @@ expr_stmt|;
 if|if
 condition|(
 name|plugins
+operator|==
+literal|null
+operator|||
+name|plugins
 operator|.
 name|length
 operator|==
@@ -1927,6 +1931,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
 for|for
 control|(
 name|int
@@ -1961,6 +1967,7 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|main
