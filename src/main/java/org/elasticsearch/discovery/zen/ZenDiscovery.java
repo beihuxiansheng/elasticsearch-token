@@ -1758,7 +1758,7 @@ argument_list|()
 expr_stmt|;
 try|try
 block|{
-name|innterJoinCluster
+name|innerJoinCluster
 argument_list|()
 expr_stmt|;
 block|}
@@ -1774,10 +1774,10 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|innterJoinCluster
+DECL|method|innerJoinCluster
 specifier|private
 name|void
-name|innterJoinCluster
+name|innerJoinCluster
 parameter_list|()
 block|{
 name|boolean
