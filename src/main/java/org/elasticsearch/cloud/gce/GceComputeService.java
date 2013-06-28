@@ -443,6 +443,22 @@ init|=
 literal|"Elasticsearch/GceCloud/1.0"
 decl_stmt|;
 block|}
+DECL|class|Status
+specifier|static
+specifier|final
+class|class
+name|Status
+block|{
+DECL|field|TERMINATED
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|TERMINATED
+init|=
+literal|"TERMINATED"
+decl_stmt|;
+block|}
 DECL|field|discoNodes
 specifier|private
 name|List
@@ -709,6 +725,31 @@ operator|.
 name|getStatus
 argument_list|()
 decl_stmt|;
+comment|// We don't want to connect to TERMINATED status instances
+comment|// See https://github.com/elasticsearch/elasticsearch-cloud-gce/issues/3
+if|if
+condition|(
+name|Status
+operator|.
+name|TERMINATED
+operator|.
+name|equals
+argument_list|(
+name|status
+argument_list|)
+condition|)
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"node {} is TERMINATED. Ignoring"
+argument_list|,
+name|name
+argument_list|)
+expr_stmt|;
+continue|continue;
+block|}
 comment|// see if we need to filter by tag
 name|boolean
 name|filterByTag
