@@ -603,7 +603,7 @@ name|validationException
 operator|=
 name|addValidationError
 argument_list|(
-literal|"can't say to upsert doc without providing doc"
+literal|"doc must be specified if doc_as_upsert is enabled"
 argument_list|,
 name|validationException
 argument_list|)
