@@ -289,6 +289,12 @@ name|childType
 init|=
 literal|null
 decl_stmt|;
+name|int
+name|shortCircuitParentDocSet
+init|=
+literal|8192
+decl_stmt|;
+comment|// Tests show a cut of point between 8192 and 16384.
 name|boolean
 name|cache
 init|=
@@ -647,6 +653,25 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+literal|"short_circuit_cutoff"
+operator|.
+name|equals
+argument_list|(
+name|currentFieldName
+argument_list|)
+condition|)
+block|{
+name|shortCircuitParentDocSet
+operator|=
+name|parser
+operator|.
+name|intValue
+argument_list|()
+expr_stmt|;
+block|}
 else|else
 block|{
 throw|throw
@@ -908,6 +933,8 @@ argument_list|,
 name|parentFilter
 argument_list|,
 name|searchContext
+argument_list|,
+name|shortCircuitParentDocSet
 argument_list|)
 decl_stmt|;
 name|searchContext
