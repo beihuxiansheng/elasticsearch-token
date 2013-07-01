@@ -28,7 +28,7 @@ name|cloud
 operator|.
 name|gce
 operator|.
-name|GceComputeService
+name|GceComputeServiceImpl
 import|;
 end_import
 
@@ -287,7 +287,7 @@ name|services
 operator|.
 name|add
 argument_list|(
-name|GceComputeService
+name|GceComputeServiceImpl
 operator|.
 name|class
 argument_list|)
