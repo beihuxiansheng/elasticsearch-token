@@ -506,7 +506,7 @@ name|TimeValue
 operator|.
 name|timeValueSeconds
 argument_list|(
-literal|5
+literal|0
 argument_list|)
 argument_list|)
 argument_list|)
@@ -615,7 +615,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * We build the list of Nodes from GCE Management API      * Information are cached for 5 seconds by default. Modify `plugins.refresh_interval` property if needed.      * Setting `plugins.refresh_interval` to `-1` will cause infinite caching.      * Setting `plugins.refresh_interval` to `0` will disable caching.      */
+comment|/**      * We build the list of Nodes from GCE Management API      * Information can be cached using `plugins.refresh_interval` property if needed.      * Setting `plugins.refresh_interval` to `-1` will cause infinite caching.      * Setting `plugins.refresh_interval` to `0` will disable caching (default).      */
 annotation|@
 name|Override
 DECL|method|buildDynamicNodes
