@@ -236,6 +236,12 @@ name|ShardIterator
 name|shardsIt
 parameter_list|()
 function_decl|;
+comment|/**      * String identifier to uniquely refer to this shard routing (once it's assigned).      */
+DECL|method|globalId
+name|String
+name|globalId
+parameter_list|()
+function_decl|;
 comment|/**      * Does not write index name and shard id      */
 DECL|method|writeToThin
 name|void
