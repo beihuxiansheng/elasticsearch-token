@@ -790,11 +790,33 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the index request to be used if the document does not exists. Otherwise, a {@link org.elasticsearch.index.engine.DocumentMissingException}      * is thrown.      */
-DECL|method|setUpsertRequest
+comment|/**      * Sets the doc to use for updates when a script is not specified, the doc provided      * is a field and value pairs.      */
+DECL|method|setDoc
 specifier|public
 name|UpdateRequestBuilder
-name|setUpsertRequest
+name|setDoc
+parameter_list|(
+name|Object
+modifier|...
+name|source
+parameter_list|)
+block|{
+name|request
+operator|.
+name|doc
+argument_list|(
+name|source
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the index request to be used if the document does not exists. Otherwise, a {@link org.elasticsearch.index.engine.DocumentMissingException}      * is thrown.      */
+DECL|method|setUpsert
+specifier|public
+name|UpdateRequestBuilder
+name|setUpsert
 parameter_list|(
 name|IndexRequest
 name|indexRequest
@@ -812,10 +834,10 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the doc source of the update request to be used when the document does not exists.      */
-DECL|method|setUpsertRequest
+DECL|method|setUpsert
 specifier|public
 name|UpdateRequestBuilder
-name|setUpsertRequest
+name|setUpsert
 parameter_list|(
 name|XContentBuilder
 name|source
@@ -833,10 +855,10 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the doc source of the update request to be used when the document does not exists.      */
-DECL|method|setUpsertRequest
+DECL|method|setUpsert
 specifier|public
 name|UpdateRequestBuilder
-name|setUpsertRequest
+name|setUpsert
 parameter_list|(
 name|Map
 name|source
@@ -854,10 +876,10 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the doc source of the update request to be used when the document does not exists.      */
-DECL|method|setUpsertRequest
+DECL|method|setUpsert
 specifier|public
 name|UpdateRequestBuilder
-name|setUpsertRequest
+name|setUpsert
 parameter_list|(
 name|Map
 name|source
@@ -880,10 +902,10 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the doc source of the update request to be used when the document does not exists.      */
-DECL|method|setUpsertRequest
+DECL|method|setUpsert
 specifier|public
 name|UpdateRequestBuilder
-name|setUpsertRequest
+name|setUpsert
 parameter_list|(
 name|String
 name|source
@@ -901,10 +923,10 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the doc source of the update request to be used when the document does not exists.      */
-DECL|method|setUpsertRequest
+DECL|method|setUpsert
 specifier|public
 name|UpdateRequestBuilder
-name|setUpsertRequest
+name|setUpsert
 parameter_list|(
 name|byte
 index|[]
@@ -923,10 +945,10 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the doc source of the update request to be used when the document does not exists.      */
-DECL|method|setUpsertRequest
+DECL|method|setUpsert
 specifier|public
 name|UpdateRequestBuilder
-name|setUpsertRequest
+name|setUpsert
 parameter_list|(
 name|byte
 index|[]
@@ -948,6 +970,28 @@ argument_list|,
 name|offset
 argument_list|,
 name|length
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the doc source of the update request to be used when the document does not exists. The doc      * includes field and value pairs.      */
+DECL|method|setUpsert
+specifier|public
+name|UpdateRequestBuilder
+name|setUpsert
+parameter_list|(
+name|Object
+modifier|...
+name|source
+parameter_list|)
+block|{
+name|request
+operator|.
+name|upsert
+argument_list|(
+name|source
 argument_list|)
 expr_stmt|;
 return|return

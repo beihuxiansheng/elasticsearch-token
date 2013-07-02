@@ -729,6 +729,28 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Constructs a simple document with a field name and value pairs.      */
+DECL|method|setSource
+specifier|public
+name|IndexRequestBuilder
+name|setSource
+parameter_list|(
+name|Object
+modifier|...
+name|source
+parameter_list|)
+block|{
+name|request
+operator|.
+name|source
+argument_list|(
+name|source
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * The content type that will be used to generate a document from user provided objects (like Map).      */
 DECL|method|setContentType
 specifier|public

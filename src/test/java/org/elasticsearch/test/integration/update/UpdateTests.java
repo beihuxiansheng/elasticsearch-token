@@ -1337,7 +1337,7 @@ argument_list|,
 literal|"1"
 argument_list|)
 operator|.
-name|setUpsertRequest
+name|setUpsert
 argument_list|(
 name|XContentFactory
 operator|.
@@ -1449,7 +1449,7 @@ argument_list|,
 literal|"1"
 argument_list|)
 operator|.
-name|setUpsertRequest
+name|setUpsert
 argument_list|(
 name|XContentFactory
 operator|.
@@ -1754,7 +1754,7 @@ argument_list|,
 literal|"1"
 argument_list|)
 operator|.
-name|setUpsertRequest
+name|setUpsert
 argument_list|(
 name|XContentFactory
 operator|.
@@ -1859,7 +1859,7 @@ argument_list|,
 literal|"1"
 argument_list|)
 operator|.
-name|setUpsertRequest
+name|setUpsert
 argument_list|(
 name|XContentFactory
 operator|.
@@ -2329,7 +2329,7 @@ argument_list|(
 literal|10
 argument_list|)
 operator|.
-name|setUpsertRequest
+name|setUpsert
 argument_list|(
 literal|"{ \"text\": \"v0\" }"
 argument_list|)
@@ -2413,7 +2413,7 @@ operator|.
 name|EXTERNAL
 argument_list|)
 operator|.
-name|setUpsertRequest
+name|setUpsert
 argument_list|(
 literal|"{ \"text\": \"v0\" }"
 argument_list|)
@@ -2520,7 +2520,7 @@ argument_list|,
 literal|"1"
 argument_list|)
 operator|.
-name|setUpsertRequest
+name|setUpsert
 argument_list|(
 name|XContentFactory
 operator|.
@@ -4704,7 +4704,7 @@ operator|.
 name|MAX_VALUE
 argument_list|)
 operator|.
-name|setUpsertRequest
+name|setUpsert
 argument_list|(
 name|jsonBuilder
 argument_list|()
@@ -4772,7 +4772,7 @@ operator|.
 name|MAX_VALUE
 argument_list|)
 operator|.
-name|setUpsertRequest
+name|setUpsert
 argument_list|(
 name|jsonBuilder
 argument_list|()

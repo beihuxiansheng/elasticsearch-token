@@ -1133,7 +1133,7 @@ argument_list|(
 literal|"ctx._source.field += 1"
 argument_list|)
 operator|.
-name|setUpsertRequest
+name|setUpsert
 argument_list|(
 name|jsonBuilder
 argument_list|()
@@ -3287,7 +3287,7 @@ argument_list|(
 literal|"counter"
 argument_list|)
 operator|.
-name|setUpsertRequest
+name|setUpsert
 argument_list|(
 name|jsonBuilder
 argument_list|()

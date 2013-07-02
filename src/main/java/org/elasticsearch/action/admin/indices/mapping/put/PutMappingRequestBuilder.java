@@ -273,6 +273,28 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * A specialized simplified mapping source method, takes the form of simple properties definition:      * ("field1", "type=string,store=true").      */
+DECL|method|setSource
+specifier|public
+name|PutMappingRequestBuilder
+name|setSource
+parameter_list|(
+name|Object
+modifier|...
+name|source
+parameter_list|)
+block|{
+name|request
+operator|.
+name|source
+argument_list|(
+name|source
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Timeout to wait till the put mapping gets acknowledged of all current cluster nodes. Defaults to      *<tt>10s</tt>.      */
 DECL|method|setTimeout
 specifier|public
