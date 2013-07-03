@@ -640,6 +640,11 @@ name|request
 operator|.
 name|versionType
 argument_list|()
+argument_list|,
+name|request
+operator|.
+name|fetchSourceContext
+argument_list|()
 argument_list|)
 decl_stmt|;
 return|return

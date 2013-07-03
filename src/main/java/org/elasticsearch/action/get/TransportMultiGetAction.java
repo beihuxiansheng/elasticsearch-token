@@ -665,6 +665,11 @@ name|item
 operator|.
 name|versionType
 argument_list|()
+argument_list|,
+name|item
+operator|.
+name|fetchSourceContext
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

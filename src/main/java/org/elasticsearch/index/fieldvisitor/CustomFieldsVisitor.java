@@ -83,7 +83,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * A field visitor that allows to load a selection of the stored fields.  * The Uid field is always loaded.  * The class is optimized for source loading as it is a common use case.  */
 end_comment
 
 begin_class
@@ -94,12 +94,6 @@ name|CustomFieldsVisitor
 extends|extends
 name|FieldsVisitor
 block|{
-DECL|field|loadAllFields
-specifier|private
-specifier|final
-name|boolean
-name|loadAllFields
-decl_stmt|;
 DECL|field|loadSource
 specifier|private
 specifier|final
@@ -131,12 +125,6 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|loadAllFields
-operator|=
-literal|false
-expr_stmt|;
-name|this
-operator|.
 name|loadSource
 operator|=
 name|loadSource
@@ -146,36 +134,6 @@ operator|.
 name|fields
 operator|=
 name|fields
-expr_stmt|;
-block|}
-DECL|method|CustomFieldsVisitor
-specifier|public
-name|CustomFieldsVisitor
-parameter_list|(
-name|boolean
-name|loadAllFields
-parameter_list|,
-name|boolean
-name|loadSource
-parameter_list|)
-block|{
-name|this
-operator|.
-name|loadAllFields
-operator|=
-name|loadAllFields
-expr_stmt|;
-name|this
-operator|.
-name|loadSource
-operator|=
-name|loadSource
-expr_stmt|;
-name|this
-operator|.
-name|fields
-operator|=
-literal|null
 expr_stmt|;
 block|}
 annotation|@
@@ -191,17 +149,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-if|if
-condition|(
-name|loadAllFields
-condition|)
-block|{
-return|return
-name|Status
-operator|.
-name|YES
-return|;
-block|}
 if|if
 condition|(
 name|loadSource
