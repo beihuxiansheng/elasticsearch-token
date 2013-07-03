@@ -1178,6 +1178,8 @@ name|value
 operator|.
 name|toString
 argument_list|()
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -1905,6 +1907,12 @@ argument_list|,
 name|fieldMapper
 argument_list|,
 name|field
+argument_list|,
+operator|!
+name|fields
+operator|.
+name|isEmpty
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2012,6 +2020,9 @@ name|fieldMapper
 parameter_list|,
 name|Field
 name|field
+parameter_list|,
+name|boolean
+name|failOnUnsupportedField
 parameter_list|)
 block|{
 name|addMoreLikeThis
@@ -2037,6 +2048,8 @@ argument_list|)
 operator|.
 name|toString
 argument_list|()
+argument_list|,
+name|failOnUnsupportedField
 argument_list|)
 expr_stmt|;
 block|}
@@ -2056,6 +2069,9 @@ name|fieldName
 parameter_list|,
 name|String
 name|likeText
+parameter_list|,
+name|boolean
+name|failOnUnsupportedField
 parameter_list|)
 block|{
 name|MoreLikeThisFieldQueryBuilder
@@ -2141,6 +2157,11 @@ name|request
 operator|.
 name|stopWords
 argument_list|()
+argument_list|)
+operator|.
+name|failOnUnsupportedField
+argument_list|(
+name|failOnUnsupportedField
 argument_list|)
 decl_stmt|;
 name|boolBuilder

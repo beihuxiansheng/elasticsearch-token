@@ -2253,17 +2253,7 @@ name|super
 argument_list|(
 name|mapper
 argument_list|,
-name|mapper
-operator|.
-name|fieldType
-argument_list|()
-operator|.
-name|stored
-argument_list|()
-condition|?
 name|number
-else|:
-literal|null
 argument_list|,
 name|fieldType
 argument_list|)
