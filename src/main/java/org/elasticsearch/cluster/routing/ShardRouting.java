@@ -188,7 +188,7 @@ name|boolean
 name|started
 parameter_list|()
 function_decl|;
-comment|/**      * Returns<code>true</code> iff the this shard is currently relocating to      * another node. Otherwise<code>false</code>      *       * @see ShardRoutingState#RELOCATING      */
+comment|/**      * Returns<code>true</code> iff the this shard is currently relocating to      * another node. Otherwise<code>false</code>      *      * @see ShardRoutingState#RELOCATING      */
 DECL|method|relocating
 name|boolean
 name|relocating
@@ -234,12 +234,6 @@ comment|/**      * A shard iterator with just this shard in it.      */
 DECL|method|shardsIt
 name|ShardIterator
 name|shardsIt
-parameter_list|()
-function_decl|;
-comment|/**      * String identifier to uniquely refer to this shard routing (once it's assigned).      */
-DECL|method|globalId
-name|String
-name|globalId
 parameter_list|()
 function_decl|;
 comment|/**      * Does not write index name and shard id      */
