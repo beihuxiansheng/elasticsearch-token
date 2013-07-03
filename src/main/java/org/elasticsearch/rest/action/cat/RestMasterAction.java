@@ -416,7 +416,10 @@ operator|.
 name|address
 argument_list|()
 operator|.
-name|getHostString
+name|getAddress
+argument_list|()
+operator|.
+name|getHostAddress
 argument_list|()
 argument_list|)
 operator|.
