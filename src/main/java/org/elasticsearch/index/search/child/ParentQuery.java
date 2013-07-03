@@ -577,11 +577,11 @@ return|return
 literal|false
 return|;
 block|}
-name|HasParentFilter
+name|ParentQuery
 name|that
 init|=
 operator|(
-name|HasParentFilter
+name|ParentQuery
 operator|)
 name|obj
 decl_stmt|;
@@ -594,7 +594,7 @@ name|equals
 argument_list|(
 name|that
 operator|.
-name|parentQuery
+name|originalParentQuery
 argument_list|)
 condition|)
 block|{
