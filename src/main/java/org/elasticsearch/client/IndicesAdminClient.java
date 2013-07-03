@@ -2056,16 +2056,17 @@ argument_list|>
 name|listener
 parameter_list|)
 function_decl|;
-comment|/**      * Closes an index based on the index name.      *      * @param index The index name to close      */
+comment|/**      * Closes one or more indices based on their index name.      *      * @param indices The name of the indices to close      */
 DECL|method|prepareClose
 name|CloseIndexRequestBuilder
 name|prepareClose
 parameter_list|(
 name|String
-name|index
+modifier|...
+name|indices
 parameter_list|)
 function_decl|;
-comment|/**      * OPen an index based on the index name.      *      * @param request The close index request      * @return The result future      * @see org.elasticsearch.client.Requests#openIndexRequest(String)      */
+comment|/**      * Open an index based on the index name.      *      * @param request The close index request      * @return The result future      * @see org.elasticsearch.client.Requests#openIndexRequest(String)      */
 DECL|method|open
 name|ActionFuture
 argument_list|<
@@ -2092,13 +2093,14 @@ argument_list|>
 name|listener
 parameter_list|)
 function_decl|;
-comment|/**      * Opens an index based on the index name.      *      * @param index The index name to close      */
+comment|/**      * Opens one or more indices based on their index name.      *      * @param indices The name of the indices to close      */
 DECL|method|prepareOpen
 name|OpenIndexRequestBuilder
 name|prepareOpen
 parameter_list|(
 name|String
-name|index
+modifier|...
+name|indices
 parameter_list|)
 function_decl|;
 comment|/**      * Explicitly refresh one or more indices (making the content indexed since the last refresh searchable).      *      * @param request The refresh request      * @return The result future      * @see org.elasticsearch.client.Requests#refreshRequest(String...)      */

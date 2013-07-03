@@ -2931,7 +2931,8 @@ name|CloseIndexRequestBuilder
 name|prepareClose
 parameter_list|(
 name|String
-name|index
+modifier|...
+name|indices
 parameter_list|)
 block|{
 return|return
@@ -2940,7 +2941,7 @@ name|CloseIndexRequestBuilder
 argument_list|(
 name|this
 argument_list|,
-name|index
+name|indices
 argument_list|)
 return|;
 block|}
@@ -3009,7 +3010,8 @@ name|OpenIndexRequestBuilder
 name|prepareOpen
 parameter_list|(
 name|String
-name|index
+modifier|...
+name|indices
 parameter_list|)
 block|{
 return|return
@@ -3018,7 +3020,7 @@ name|OpenIndexRequestBuilder
 argument_list|(
 name|this
 argument_list|,
-name|index
+name|indices
 argument_list|)
 return|;
 block|}
