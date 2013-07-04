@@ -234,12 +234,6 @@ name|SearchContext
 operator|.
 name|Rewrite
 block|{
-DECL|field|searchContext
-specifier|private
-specifier|final
-name|SearchContext
-name|searchContext
-decl_stmt|;
 DECL|field|parentType
 specifier|private
 specifier|final
@@ -276,6 +270,7 @@ specifier|final
 name|Query
 name|originalChildQuery
 decl_stmt|;
+comment|// This field will hold the rewritten form of originalChildQuery, so that we can reuse it
 DECL|field|rewrittenChildQuery
 specifier|private
 name|Query
@@ -297,9 +292,6 @@ DECL|method|TopChildrenQuery
 specifier|public
 name|TopChildrenQuery
 parameter_list|(
-name|SearchContext
-name|searchContext
-parameter_list|,
 name|Query
 name|childQuery
 parameter_list|,
@@ -321,12 +313,6 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|searchContext
-operator|=
-name|searchContext
-expr_stmt|;
-name|this
-operator|.
 name|originalChildQuery
 operator|=
 name|childQuery
@@ -362,89 +348,7 @@ operator|=
 name|incrementalFactor
 expr_stmt|;
 block|}
-DECL|method|TopChildrenQuery
-specifier|private
-name|TopChildrenQuery
-parameter_list|(
-name|TopChildrenQuery
-name|existing
-parameter_list|,
-name|Query
-name|rewrittenChildQuery
-parameter_list|)
-block|{
-name|this
-operator|.
-name|searchContext
-operator|=
-name|existing
-operator|.
-name|searchContext
-expr_stmt|;
-name|this
-operator|.
-name|originalChildQuery
-operator|=
-name|existing
-operator|.
-name|originalChildQuery
-expr_stmt|;
-name|this
-operator|.
-name|parentType
-operator|=
-name|existing
-operator|.
-name|parentType
-expr_stmt|;
-name|this
-operator|.
-name|childType
-operator|=
-name|existing
-operator|.
-name|childType
-expr_stmt|;
-name|this
-operator|.
-name|scoreType
-operator|=
-name|existing
-operator|.
-name|scoreType
-expr_stmt|;
-name|this
-operator|.
-name|factor
-operator|=
-name|existing
-operator|.
-name|factor
-expr_stmt|;
-name|this
-operator|.
-name|incrementalFactor
-operator|=
-name|existing
-operator|.
-name|incrementalFactor
-expr_stmt|;
-name|this
-operator|.
-name|parentDocs
-operator|=
-name|existing
-operator|.
-name|parentDocs
-expr_stmt|;
-name|this
-operator|.
-name|rewrittenChildQuery
-operator|=
-name|rewrittenChildQuery
-expr_stmt|;
-block|}
-comment|// Rewrite logic:
+comment|// Rewrite invocation logic:
 comment|// 1) query_then_fetch (default): First contextRewrite and then rewrite is executed
 comment|// 2) dfs_query_then_fetch:: First rewrite and then contextRewrite is executed. During query phase rewrite isn't
 comment|// executed any more because searchContext#queryRewritten() returns true.
@@ -461,9 +365,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|Query
-name|rewritten
-decl_stmt|;
 if|if
 condition|(
 name|rewrittenChildQuery
@@ -471,7 +372,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|rewritten
+name|rewrittenChildQuery
 operator|=
 name|originalChildQuery
 operator|.
@@ -481,69 +382,12 @@ name|reader
 argument_list|)
 expr_stmt|;
 block|}
-else|else
-block|{
-name|rewritten
-operator|=
-name|rewrittenChildQuery
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|rewritten
-operator|==
-name|rewrittenChildQuery
-condition|)
-block|{
+comment|// We can always return the current instance, and we can do this b/c the child query is executed separately
+comment|// before the main query (other scope) in a different IS#search() invocation than the main query.
+comment|// In fact we only need override the rewrite method because for the dfs phase, to get also global document
+comment|// frequency for the child query.
 return|return
 name|this
-return|;
-block|}
-comment|// We need to update the rewritten query also in the SearchContext#rewrites b/c we can run into this situation:
-comment|// 1) During parsing we set SearchContext#rewrites with queries that implement Rewrite.
-comment|// 2) Then during the dfs phase, the main query (which included this query and its child query) gets rewritten
-comment|// and updated in SearchContext. So different TopChildrenQuery instances are in SearchContext#rewrites and in the main query.
-comment|// 3) Then during the query phase first the queries that impl. Rewrite are executed, which will update their own data
-comment|// parentDocs Map. Then when the main query is executed, 0 results are found, b/c the main query holds a different
-comment|// TopChildrenQuery instance then in SearchContext#rewrites
-name|int
-name|index
-init|=
-name|searchContext
-operator|.
-name|rewrites
-argument_list|()
-operator|.
-name|indexOf
-argument_list|(
-name|this
-argument_list|)
-decl_stmt|;
-name|TopChildrenQuery
-name|rewrite
-init|=
-operator|new
-name|TopChildrenQuery
-argument_list|(
-name|this
-argument_list|,
-name|rewritten
-argument_list|)
-decl_stmt|;
-name|searchContext
-operator|.
-name|rewrites
-argument_list|()
-operator|.
-name|set
-argument_list|(
-name|index
-argument_list|,
-name|rewrite
-argument_list|)
-expr_stmt|;
-return|return
-name|rewrite
 return|;
 block|}
 annotation|@
