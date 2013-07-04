@@ -257,16 +257,7 @@ condition|(
 name|set
 operator|==
 literal|null
-condition|)
-block|{
-return|return
-name|DocIdSet
-operator|.
-name|EMPTY_DOCIDSET
-return|;
-block|}
-if|if
-condition|(
+operator|||
 name|set
 operator|==
 name|DocIdSet
