@@ -1339,15 +1339,10 @@ name|shardIds
 parameter_list|()
 block|{
 return|return
-name|ImmutableSet
-operator|.
-name|copyOf
-argument_list|(
 name|shards
 operator|.
 name|keySet
 argument_list|()
-argument_list|)
 return|;
 block|}
 annotation|@
