@@ -975,20 +975,30 @@ continue|continue;
 block|}
 name|boolean
 name|exactIncludeMatch
-init|=
-literal|false
 decl_stmt|;
 if|if
 condition|(
 name|includes
 operator|.
 name|length
-operator|>
+operator|==
 literal|0
 condition|)
 block|{
+comment|// implied match anything
+name|exactIncludeMatch
+operator|=
+literal|true
+expr_stmt|;
+block|}
+else|else
+block|{
+name|exactIncludeMatch
+operator|=
+literal|false
+expr_stmt|;
 name|boolean
-name|atLeastOnOneIncludeMatched
+name|pathIsPrefixOfAnInclude
 init|=
 literal|false
 decl_stmt|;
@@ -1000,8 +1010,44 @@ range|:
 name|includes
 control|)
 block|{
-comment|// check for prefix as well to see if we need to zero in, something like: obj1.arr1.*
+comment|// check for prefix matches as well to see if we need to zero in, something like: obj1.arr1.* or *.field
 comment|// note, this does not work well with middle matches, like obj1.*.obj3
+if|if
+condition|(
+name|include
+operator|.
+name|charAt
+argument_list|(
+literal|0
+argument_list|)
+operator|==
+literal|'*'
+condition|)
+block|{
+if|if
+condition|(
+name|Regex
+operator|.
+name|simpleMatch
+argument_list|(
+name|include
+argument_list|,
+name|path
+argument_list|)
+condition|)
+block|{
+name|exactIncludeMatch
+operator|=
+literal|true
+expr_stmt|;
+break|break;
+block|}
+name|pathIsPrefixOfAnInclude
+operator|=
+literal|true
+expr_stmt|;
+break|break;
+block|}
 if|if
 condition|(
 name|include
@@ -1025,10 +1071,6 @@ name|length
 argument_list|()
 condition|)
 block|{
-name|atLeastOnOneIncludeMatched
-operator|=
-literal|true
-expr_stmt|;
 name|exactIncludeMatch
 operator|=
 literal|true
@@ -1062,7 +1104,7 @@ literal|'.'
 condition|)
 block|{
 comment|// include might may match deeper paths. Dive deeper.
-name|atLeastOnOneIncludeMatched
+name|pathIsPrefixOfAnInclude
 operator|=
 literal|true
 expr_stmt|;
@@ -1081,7 +1123,7 @@ name|path
 argument_list|)
 condition|)
 block|{
-name|atLeastOnOneIncludeMatched
+name|exactIncludeMatch
 operator|=
 literal|true
 expr_stmt|;
@@ -1091,9 +1133,13 @@ block|}
 if|if
 condition|(
 operator|!
-name|atLeastOnOneIncludeMatched
+name|pathIsPrefixOfAnInclude
+operator|&&
+operator|!
+name|exactIncludeMatch
 condition|)
 block|{
+comment|// skip subkeys, not interesting.
 name|sb
 operator|.
 name|setLength
@@ -1260,7 +1306,11 @@ name|innerInto
 argument_list|)
 expr_stmt|;
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|exactIncludeMatch
+condition|)
 block|{
 name|into
 operator|.
