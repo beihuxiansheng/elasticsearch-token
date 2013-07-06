@@ -548,6 +548,21 @@ parameter_list|)
 block|{
 comment|// nothing to do there
 block|}
+annotation|@
+name|Override
+DECL|method|updateBufferSize
+specifier|public
+name|void
+name|updateBufferSize
+parameter_list|(
+name|int
+name|bufferSize
+parameter_list|)
+throws|throws
+name|TranslogException
+block|{
+comment|// nothing to do here...
+block|}
 block|}
 end_class
 

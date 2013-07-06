@@ -329,6 +329,16 @@ parameter_list|)
 throws|throws
 name|TranslogException
 function_decl|;
+DECL|method|updateBufferSize
+name|void
+name|updateBufferSize
+parameter_list|(
+name|int
+name|bufferSize
+parameter_list|)
+throws|throws
+name|TranslogException
+function_decl|;
 DECL|method|sync
 name|void
 name|sync
