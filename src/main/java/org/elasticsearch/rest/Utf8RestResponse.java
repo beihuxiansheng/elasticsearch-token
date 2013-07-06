@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An http response that is built on top of {@link org.apache.lucene.util.BytesRef}.  *<p/>  *<p>Note, this class assumes that the utf8 result is not thread safe.  *  *  */
+comment|/**  * An http response that is built on top of {@link org.apache.lucene.util.BytesRef}.  *<p/>  *<p>Note, this class assumes that the utf8 result is not thread safe.  */
 end_comment
 
 begin_class
@@ -167,7 +167,7 @@ name|contentThreadSafe
 parameter_list|()
 block|{
 return|return
-literal|false
+literal|true
 return|;
 block|}
 annotation|@
