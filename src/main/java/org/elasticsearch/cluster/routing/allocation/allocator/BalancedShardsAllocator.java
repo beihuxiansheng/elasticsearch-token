@@ -36,20 +36,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Iterables
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -96,7 +82,49 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|*
+name|MutableShardRouting
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|RoutingNode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|RoutingNodes
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|ShardRoutingState
 import|;
 end_import
 
@@ -1114,11 +1142,11 @@ specifier|static
 enum|enum
 name|Operation
 block|{
-comment|/**          * Provided during balance operations.           */
+comment|/**          * Provided during balance operations.          */
 DECL|enum constant|BALANCE
 name|BALANCE
 block|,
-comment|/**          * Provided during initial allocation operation for unassigned shards.           */
+comment|/**          * Provided during initial allocation operation for unassigned shards.          */
 DECL|enum constant|ALLOCATE
 name|ALLOCATE
 block|,
@@ -1126,7 +1154,7 @@ comment|/**          * Provided during move operation.          */
 DECL|enum constant|MOVE
 name|MOVE
 block|,
-comment|/**          * Provided when the weight delta is checked against the configured threshold.          * This can be used to ignore tie-breaking weight factors that should not           * solely trigger a relocation unless the delta is above the threshold.           */
+comment|/**          * Provided when the weight delta is checked against the configured threshold.          * This can be used to ignore tie-breaking weight factors that should not          * solely trigger a relocation unless the delta is above the threshold.          */
 DECL|enum constant|THRESHOLD_CHECK
 name|THRESHOLD_CHECK
 block|}
@@ -1460,17 +1488,14 @@ name|size
 argument_list|()
 return|;
 block|}
-comment|/**          * Returns a new {@link NodeSorter} that sorts the nodes based on their          * current weight with respect to the index passed to the sorter. The          * returned sorter is not sorted. Use {@link NodeSorter#reset(String)}          * to sort based on an index.          */
+comment|/**          * Returns a new {@link NodeSorter} that sorts the nodes based on their          * current weight with respect to the index passed to the sorter. The          * returned sorter is not sorted. Use {@link NodeSorter#reset(org.elasticsearch.cluster.routing.allocation.allocator.BalancedShardsAllocator.Operation, String)}          * to sort based on an index.          */
 DECL|method|newNodeSorter
 specifier|private
 name|NodeSorter
 name|newNodeSorter
 parameter_list|()
 block|{
-specifier|final
-name|NodeSorter
-name|sorter
-init|=
+return|return
 operator|new
 name|NodeSorter
 argument_list|(
@@ -1481,9 +1506,6 @@ name|weight
 argument_list|,
 name|this
 argument_list|)
-decl_stmt|;
-return|return
-name|sorter
 return|;
 block|}
 DECL|method|initialize
@@ -1495,19 +1517,6 @@ name|RoutingNodes
 name|routing
 parameter_list|)
 block|{
-name|Collection
-argument_list|<
-name|MutableShardRouting
-argument_list|>
-name|shards
-init|=
-operator|new
-name|ArrayList
-argument_list|<
-name|MutableShardRouting
-argument_list|>
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
 name|logger
@@ -1524,11 +1533,10 @@ literal|"Start distributing Shards"
 argument_list|)
 expr_stmt|;
 block|}
-for|for
-control|(
-name|IndexRoutingTable
-name|index
-range|:
+name|indices
+operator|.
+name|addAll
+argument_list|(
 name|allocation
 operator|.
 name|routingTable
@@ -1537,67 +1545,16 @@ operator|.
 name|indicesRouting
 argument_list|()
 operator|.
-name|values
-argument_list|()
-control|)
-block|{
-name|indices
-operator|.
-name|add
-argument_list|(
-name|index
-operator|.
-name|index
+name|keySet
 argument_list|()
 argument_list|)
 expr_stmt|;
-for|for
-control|(
-name|IndexShardRoutingTable
-name|shard
-range|:
-name|index
-operator|.
-name|getShards
-argument_list|()
-operator|.
-name|values
-argument_list|()
-control|)
-block|{
-name|shards
-operator|.
-name|addAll
+name|buildModelFromAssigned
 argument_list|(
 name|routing
 operator|.
-name|shardsRoutingFor
-argument_list|(
-name|index
-operator|.
-name|index
-argument_list|()
-argument_list|,
-name|shard
-operator|.
-name|shardId
-argument_list|()
-operator|.
-name|id
-argument_list|()
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-name|buildModelFromAssigned
-argument_list|(
-name|Iterables
-operator|.
-name|filter
-argument_list|(
 name|shards
-argument_list|,
+argument_list|(
 name|assignedFilter
 argument_list|)
 argument_list|)
@@ -2985,7 +2942,7 @@ name|values
 argument_list|()
 control|)
 block|{
-comment|/* 	                     * The shard we add is removed below to simulate the 	                     * addition for weight calculation we use Decision.ALWAYS to 	                     * not violate the not null condition. 	                     */
+comment|/*                          * The shard we add is removed below to simulate the 	                     * addition for weight calculation we use Decision.ALWAYS to 	                     * not violate the not null condition. 	                     */
 if|if
 condition|(
 operator|!
