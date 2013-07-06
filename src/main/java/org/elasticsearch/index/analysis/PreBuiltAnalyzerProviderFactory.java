@@ -80,9 +80,6 @@ name|this
 argument_list|(
 operator|new
 name|PreBuiltAnalyzerProvider
-argument_list|<
-name|Analyzer
-argument_list|>
 argument_list|(
 name|name
 argument_list|,
@@ -98,9 +95,6 @@ specifier|public
 name|PreBuiltAnalyzerProviderFactory
 parameter_list|(
 name|PreBuiltAnalyzerProvider
-argument_list|<
-name|Analyzer
-argument_list|>
 name|analyzerProvider
 parameter_list|)
 block|{
@@ -116,9 +110,6 @@ name|Override
 DECL|method|create
 specifier|public
 name|AnalyzerProvider
-argument_list|<
-name|Analyzer
-argument_list|>
 name|create
 parameter_list|(
 name|String

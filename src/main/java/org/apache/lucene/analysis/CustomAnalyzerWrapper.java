@@ -27,7 +27,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Extension to {@link Analyzer} suitable for Analyzers which wrap  * other Analyzers.  *<p/>  * {@link #getWrappedAnalyzer(String)} allows the Analyzer  * to wrap multiple Analyzers which are selected on a per field basis.  *<p/>  * {@link #wrapComponents(String, Analyzer.TokenStreamComponents)} allows the  * TokenStreamComponents of the wrapped Analyzer to then be wrapped  * (such as adding a new {@link TokenFilter} to form new TokenStreamComponents.  */
+comment|/**  * Similar to Lucene {@link AnalyzerWrapper} but actually allows to set the reuse strategy....  * //TODO add to lucene the ability to set it...  */
 end_comment
 
 begin_class
@@ -43,13 +43,14 @@ comment|/**      * Creates a new CustomAnalyzerWrapper.  Since the {@link Analyz
 DECL|method|CustomAnalyzerWrapper
 specifier|protected
 name|CustomAnalyzerWrapper
-parameter_list|()
+parameter_list|(
+name|ReuseStrategy
+name|reuseStrategy
+parameter_list|)
 block|{
 name|super
 argument_list|(
-operator|new
-name|PerFieldReuseStrategy
-argument_list|()
+name|reuseStrategy
 argument_list|)
 expr_stmt|;
 block|}
@@ -64,7 +65,7 @@ name|String
 name|fieldName
 parameter_list|)
 function_decl|;
-comment|/**      * Wraps / alters the given TokenStreamComponents, taken from the wrapped      * Analyzer, to form new components.  It is through this method that new      * TokenFilters can be added by AnalyzerWrappers.      *      *      * @param fieldName Name of the field which is to be analyzed      * @param components TokenStreamComponents taken from the wrapped Analyzer      * @return Wrapped / altered TokenStreamComponents.      */
+comment|/**      * Wraps / alters the given TokenStreamComponents, taken from the wrapped      * Analyzer, to form new components.  It is through this method that new      * TokenFilters can be added by AnalyzerWrappers.      *      * @param fieldName  Name of the field which is to be analyzed      * @param components TokenStreamComponents taken from the wrapped Analyzer      * @return Wrapped / altered TokenStreamComponents.      */
 DECL|method|wrapComponents
 specifier|protected
 specifier|abstract

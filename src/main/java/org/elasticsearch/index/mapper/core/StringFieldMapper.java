@@ -250,20 +250,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|analysis
-operator|.
-name|NamedCustomAnalyzer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|codec
 operator|.
 name|postingsformat
@@ -702,7 +688,7 @@ block|{
 name|indexAnalyzer
 operator|=
 operator|new
-name|NamedCustomAnalyzer
+name|NamedAnalyzer
 argument_list|(
 name|indexAnalyzer
 argument_list|,
@@ -712,7 +698,7 @@ expr_stmt|;
 name|searchAnalyzer
 operator|=
 operator|new
-name|NamedCustomAnalyzer
+name|NamedAnalyzer
 argument_list|(
 name|searchAnalyzer
 argument_list|,
@@ -722,7 +708,7 @@ expr_stmt|;
 name|searchQuotedAnalyzer
 operator|=
 operator|new
-name|NamedCustomAnalyzer
+name|NamedAnalyzer
 argument_list|(
 name|searchQuotedAnalyzer
 argument_list|,
