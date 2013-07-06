@@ -215,6 +215,18 @@ argument_list|(
 name|injector
 argument_list|)
 expr_stmt|;
+comment|// in ES, we always create all instances as if they are eager singletons
+comment|// this allows for considerable memory savings (no need to store construction info) as well as cycles
+operator|(
+operator|(
+name|InjectorImpl
+operator|)
+name|injector
+operator|)
+operator|.
+name|readOnlyAllSingletons
+argument_list|()
+expr_stmt|;
 return|return
 name|injector
 return|;
@@ -251,6 +263,18 @@ name|cleanCaches
 argument_list|(
 name|childInjector
 argument_list|)
+expr_stmt|;
+comment|// in ES, we always create all instances as if they are eager singletons
+comment|// this allows for considerable memory savings (no need to store construction info) as well as cycles
+operator|(
+operator|(
+name|InjectorImpl
+operator|)
+name|childInjector
+operator|)
+operator|.
+name|readOnlyAllSingletons
+argument_list|()
 expr_stmt|;
 return|return
 name|childInjector

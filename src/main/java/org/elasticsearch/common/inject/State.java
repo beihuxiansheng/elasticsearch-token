@@ -392,6 +392,16 @@ name|void
 name|clearBlacklisted
 parameter_list|()
 block|{         }
+annotation|@
+name|Override
+specifier|public
+name|void
+name|makeAllBindingsToEagerSingletons
+parameter_list|(
+name|Injector
+name|injector
+parameter_list|)
+block|{         }
 specifier|public
 name|Object
 name|lock
@@ -581,6 +591,14 @@ DECL|method|clearBlacklisted
 name|void
 name|clearBlacklisted
 parameter_list|()
+function_decl|;
+DECL|method|makeAllBindingsToEagerSingletons
+name|void
+name|makeAllBindingsToEagerSingletons
+parameter_list|(
+name|Injector
+name|injector
+parameter_list|)
 function_decl|;
 block|}
 end_interface
