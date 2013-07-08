@@ -778,6 +778,17 @@ operator|.
 name|getStatus
 argument_list|()
 decl_stmt|;
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"gce instance {} with status {} found."
+argument_list|,
+name|name
+argument_list|,
+name|status
+argument_list|)
+expr_stmt|;
 comment|// We don't want to connect to TERMINATED status instances
 comment|// See https://github.com/elasticsearch/elasticsearch-cloud-gce/issues/3
 if|if
@@ -818,6 +829,17 @@ operator|>
 literal|0
 condition|)
 block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"start filtering instance {} with tags {}."
+argument_list|,
+name|name
+argument_list|,
+name|tags
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|instance
@@ -837,6 +859,15 @@ argument_list|()
 condition|)
 block|{
 comment|// If this instance have no tag, we filter it
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"no tags for this instance but we asked for tags. {} won't be part of the cluster."
+argument_list|,
+name|name
+argument_list|)
+expr_stmt|;
 name|filterByTag
 operator|=
 literal|true
@@ -845,6 +876,23 @@ block|}
 else|else
 block|{
 comment|// check that all tags listed are there on the instance
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"comparing instance tags {} with tags filter {}."
+argument_list|,
+name|instance
+operator|.
+name|getTags
+argument_list|()
+operator|.
+name|getItems
+argument_list|()
+argument_list|,
+name|tags
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|String
@@ -913,12 +961,21 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"filtering out instance {} based tags {}, not part of {}"
+literal|"*** filtering out instance {} based tags {}, not part of {}"
 argument_list|,
 name|name
 argument_list|,
 name|tags
 argument_list|,
+name|instance
+operator|.
+name|getTags
+argument_list|()
+operator|==
+literal|null
+condition|?
+literal|""
+else|:
 name|instance
 operator|.
 name|getTags
@@ -929,6 +986,20 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 continue|continue;
+block|}
+else|else
+block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"*** instance {} with tags {} is added to discovery"
+argument_list|,
+name|name
+argument_list|,
+name|tags
+argument_list|)
+expr_stmt|;
 block|}
 name|String
 name|ip_public
@@ -967,6 +1038,16 @@ literal|null
 condition|)
 block|{
 comment|// Trying to get Public IP Address (For future use)
+if|if
+condition|(
+name|networkInterface
+operator|.
+name|getAccessConfigs
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 for|for
 control|(
 name|AccessConfig
@@ -999,6 +1080,7 @@ name|getNatIP
 argument_list|()
 expr_stmt|;
 break|break;
+block|}
 block|}
 block|}
 block|}

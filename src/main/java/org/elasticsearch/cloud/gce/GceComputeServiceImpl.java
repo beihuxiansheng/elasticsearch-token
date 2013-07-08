@@ -262,6 +262,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Collection
 import|;
 end_import
@@ -349,13 +359,21 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-throw|throw
-operator|new
-name|ElasticSearchException
+name|logger
+operator|.
+name|warn
 argument_list|(
-literal|"Pas glop"
+literal|"can not get list of nodes. Disabling GCE discovery."
 argument_list|)
-throw|;
+expr_stmt|;
+return|return
+operator|new
+name|ArrayList
+argument_list|<
+name|Instance
+argument_list|>
+argument_list|()
+return|;
 block|}
 block|}
 DECL|field|client

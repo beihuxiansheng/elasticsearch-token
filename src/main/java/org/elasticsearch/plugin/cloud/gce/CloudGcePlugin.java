@@ -28,20 +28,6 @@ name|cloud
 operator|.
 name|gce
 operator|.
-name|GceComputeServiceImpl
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cloud
-operator|.
-name|gce
-operator|.
 name|GceModule
 import|;
 end_import
@@ -283,15 +269,7 @@ literal|true
 argument_list|)
 condition|)
 block|{
-name|services
-operator|.
-name|add
-argument_list|(
-name|GceComputeServiceImpl
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
+comment|//            services.add(GceComputeServiceImpl.class);
 block|}
 return|return
 name|services
