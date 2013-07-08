@@ -498,7 +498,7 @@ specifier|public
 name|long
 name|getValueByOrd
 parameter_list|(
-name|int
+name|long
 name|ord
 parameter_list|)
 block|{
@@ -574,7 +574,7 @@ specifier|public
 name|double
 name|getValueByOrd
 parameter_list|(
-name|int
+name|long
 name|ord
 parameter_list|)
 block|{

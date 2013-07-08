@@ -453,7 +453,7 @@ specifier|abstract
 name|long
 name|getValueByOrd
 parameter_list|(
-name|int
+name|long
 name|ord
 parameter_list|)
 function_decl|;
@@ -499,7 +499,7 @@ name|missingValue
 parameter_list|)
 block|{
 specifier|final
-name|int
+name|long
 name|ord
 init|=
 name|ordinals
@@ -697,7 +697,7 @@ name|ordsIter
 decl_stmt|;
 DECL|field|ord
 specifier|private
-name|int
+name|long
 name|ord
 decl_stmt|;
 DECL|field|values

@@ -344,7 +344,7 @@ name|value
 decl_stmt|;
 DECL|field|ord
 specifier|protected
-name|int
+name|long
 name|ord
 decl_stmt|;
 DECL|field|done
@@ -360,7 +360,7 @@ parameter_list|(
 name|BytesRef
 name|value
 parameter_list|,
-name|int
+name|long
 name|ord
 parameter_list|)
 block|{
@@ -442,12 +442,12 @@ name|Iter
 block|{
 DECL|field|innerOrd
 specifier|protected
-name|int
+name|long
 name|innerOrd
 decl_stmt|;
 DECL|field|ord
 specifier|protected
-name|int
+name|long
 name|ord
 decl_stmt|;
 DECL|field|withOrds
@@ -726,7 +726,7 @@ specifier|public
 name|BytesRef
 name|getValueByOrd
 parameter_list|(
-name|int
+name|long
 name|ord
 parameter_list|)
 block|{
@@ -820,7 +820,7 @@ name|docId
 parameter_list|)
 block|{
 specifier|final
-name|int
+name|long
 name|ord
 init|=
 name|ordinals
@@ -905,7 +905,7 @@ specifier|abstract
 name|BytesRef
 name|getValueScratchByOrd
 parameter_list|(
-name|int
+name|long
 name|ord
 parameter_list|,
 name|BytesRef
@@ -943,7 +943,7 @@ specifier|public
 name|BytesRef
 name|getValueScratchByOrd
 parameter_list|(
-name|int
+name|long
 name|ord
 parameter_list|,
 name|BytesRef

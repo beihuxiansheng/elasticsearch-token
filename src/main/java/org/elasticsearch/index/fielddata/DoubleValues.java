@@ -461,7 +461,7 @@ name|missingValue
 parameter_list|)
 block|{
 specifier|final
-name|int
+name|long
 name|ord
 init|=
 name|ordinals
@@ -498,7 +498,7 @@ specifier|abstract
 name|double
 name|getValueByOrd
 parameter_list|(
-name|int
+name|long
 name|ord
 parameter_list|)
 function_decl|;
@@ -676,16 +676,6 @@ name|Iter
 block|{
 DECL|field|ordsIter
 specifier|private
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|fielddata
-operator|.
-name|ordinals
-operator|.
 name|Ordinals
 operator|.
 name|Docs
@@ -695,7 +685,7 @@ name|ordsIter
 decl_stmt|;
 DECL|field|ord
 specifier|private
-name|int
+name|long
 name|ord
 decl_stmt|;
 DECL|field|values

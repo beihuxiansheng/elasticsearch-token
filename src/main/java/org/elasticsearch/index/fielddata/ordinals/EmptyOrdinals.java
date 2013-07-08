@@ -28,7 +28,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|IntsRef
+name|LongsRef
 import|;
 end_import
 
@@ -131,7 +131,7 @@ annotation|@
 name|Override
 DECL|method|getNumOrds
 specifier|public
-name|int
+name|long
 name|getNumOrds
 parameter_list|()
 block|{
@@ -143,7 +143,7 @@ annotation|@
 name|Override
 DECL|method|getMaxOrd
 specifier|public
-name|int
+name|long
 name|getMaxOrd
 parameter_list|()
 block|{
@@ -183,15 +183,15 @@ specifier|final
 name|EmptyOrdinals
 name|parent
 decl_stmt|;
-DECL|field|EMPTY_INTS_REF
+DECL|field|EMPTY_LONGS_REF
 specifier|public
 specifier|static
 specifier|final
-name|IntsRef
-name|EMPTY_INTS_REF
+name|LongsRef
+name|EMPTY_LONGS_REF
 init|=
 operator|new
-name|IntsRef
+name|LongsRef
 argument_list|()
 decl_stmt|;
 DECL|method|Docs
@@ -240,7 +240,7 @@ annotation|@
 name|Override
 DECL|method|getNumOrds
 specifier|public
-name|int
+name|long
 name|getNumOrds
 parameter_list|()
 block|{
@@ -252,7 +252,7 @@ annotation|@
 name|Override
 DECL|method|getMaxOrd
 specifier|public
-name|int
+name|long
 name|getMaxOrd
 parameter_list|()
 block|{
@@ -276,7 +276,7 @@ annotation|@
 name|Override
 DECL|method|getOrd
 specifier|public
-name|int
+name|long
 name|getOrd
 parameter_list|(
 name|int
@@ -291,7 +291,7 @@ annotation|@
 name|Override
 DECL|method|getOrds
 specifier|public
-name|IntsRef
+name|LongsRef
 name|getOrds
 parameter_list|(
 name|int
@@ -299,7 +299,7 @@ name|docId
 parameter_list|)
 block|{
 return|return
-name|EMPTY_INTS_REF
+name|EMPTY_LONGS_REF
 return|;
 block|}
 annotation|@

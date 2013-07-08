@@ -143,7 +143,7 @@ decl_stmt|;
 comment|/* Ords for each slot.        @lucene.internal */
 DECL|field|ords
 specifier|final
-name|int
+name|long
 index|[]
 name|ords
 decl_stmt|;
@@ -191,7 +191,7 @@ literal|1
 decl_stmt|;
 comment|/* Bottom ord (same as ords[bottomSlot] once bottomSlot        is set).  Cached for faster compares.        @lucene.internal */
 DECL|field|bottomOrd
-name|int
+name|long
 name|bottomOrd
 decl_stmt|;
 comment|/* True if current bottom slot matches the current        reader.        @lucene.internal */
@@ -247,7 +247,7 @@ expr_stmt|;
 name|ords
 operator|=
 operator|new
-name|int
+name|long
 index|[
 name|numHits
 index|]
@@ -297,15 +297,20 @@ index|]
 condition|)
 block|{
 return|return
+name|LongValuesComparator
+operator|.
+name|compare
+argument_list|(
 name|ords
 index|[
 name|slot1
 index|]
-operator|-
+argument_list|,
 name|ords
 index|[
 name|slot2
 index|]
+argument_list|)
 return|;
 block|}
 specifier|final
@@ -773,6 +778,9 @@ condition|)
 block|{
 comment|// ord is precisely comparable, even in the equal case
 return|return
+operator|(
+name|int
+operator|)
 name|bottomOrd
 operator|-
 name|docOrd
@@ -1000,6 +1008,9 @@ condition|)
 block|{
 comment|// ord is precisely comparable, even in the equal case
 return|return
+operator|(
+name|int
+operator|)
 name|bottomOrd
 operator|-
 name|docOrd
@@ -1223,6 +1234,9 @@ condition|)
 block|{
 comment|// ord is precisely comparable, even in the equal case
 return|return
+operator|(
+name|int
+operator|)
 name|bottomOrd
 operator|-
 name|docOrd
@@ -1444,7 +1458,7 @@ operator|-
 literal|1
 assert|;
 specifier|final
-name|int
+name|long
 name|docOrd
 init|=
 name|readerOrds
@@ -1461,9 +1475,14 @@ condition|)
 block|{
 comment|// ord is precisely comparable, even in the equal case
 return|return
+name|LongValuesComparator
+operator|.
+name|compare
+argument_list|(
 name|bottomOrd
-operator|-
+argument_list|,
 name|docOrd
+argument_list|)
 return|;
 block|}
 elseif|else
@@ -1504,7 +1523,7 @@ name|doc
 parameter_list|)
 block|{
 specifier|final
-name|int
+name|long
 name|ord
 init|=
 name|readerOrds
@@ -1889,7 +1908,7 @@ block|}
 else|else
 block|{
 specifier|final
-name|int
+name|long
 name|index
 init|=
 name|binarySearch
@@ -1969,7 +1988,7 @@ DECL|method|binarySearch
 specifier|final
 specifier|protected
 specifier|static
-name|int
+name|long
 name|binarySearch
 parameter_list|(
 name|BytesValues
@@ -2004,7 +2023,7 @@ DECL|method|binarySearch
 specifier|final
 specifier|protected
 specifier|static
-name|int
+name|long
 name|binarySearch
 parameter_list|(
 name|BytesValues
@@ -2015,10 +2034,10 @@ parameter_list|,
 name|BytesRef
 name|key
 parameter_list|,
-name|int
+name|long
 name|low
 parameter_list|,
-name|int
+name|long
 name|high
 parameter_list|)
 block|{
@@ -2068,7 +2087,7 @@ operator|<=
 name|high
 condition|)
 block|{
-name|int
+name|long
 name|mid
 init|=
 operator|(
@@ -2218,7 +2237,7 @@ throws|throws
 name|IOException
 block|{
 specifier|final
-name|int
+name|long
 name|docOrd
 init|=
 name|getRelevantOrd
@@ -2237,9 +2256,14 @@ condition|)
 block|{
 comment|// ord is precisely comparable, even in the equal case
 return|return
+name|LongValuesComparator
+operator|.
+name|compare
+argument_list|(
 name|bottomOrd
-operator|-
+argument_list|,
 name|docOrd
+argument_list|)
 return|;
 block|}
 elseif|else
@@ -2282,7 +2306,7 @@ throws|throws
 name|IOException
 block|{
 specifier|final
-name|int
+name|long
 name|ord
 init|=
 name|getRelevantOrd
@@ -2567,7 +2591,7 @@ return|;
 block|}
 DECL|method|getRelevantOrd
 specifier|static
-name|int
+name|long
 name|getRelevantOrd
 parameter_list|(
 name|Ordinals
@@ -2596,7 +2620,7 @@ argument_list|(
 name|docId
 argument_list|)
 decl_stmt|;
-name|int
+name|long
 name|currentVal
 init|=
 name|iter
@@ -2615,7 +2639,7 @@ return|return
 literal|0
 return|;
 block|}
-name|int
+name|long
 name|relevantVal
 init|=
 name|currentVal

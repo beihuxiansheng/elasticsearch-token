@@ -28,7 +28,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|IntsRef
+name|LongsRef
 import|;
 end_import
 
@@ -74,13 +74,13 @@ parameter_list|()
 function_decl|;
 comment|/**      * The number of ordinals, excluding the "0" ordinal indicating a missing value.      */
 DECL|method|getNumOrds
-name|int
+name|long
 name|getNumOrds
 parameter_list|()
 function_decl|;
 comment|/**      * Returns total unique ord count; this includes +1 for      * the null ord (always 0).      */
 DECL|method|getMaxOrd
-name|int
+name|long
 name|getMaxOrd
 parameter_list|()
 function_decl|;
@@ -109,13 +109,13 @@ parameter_list|()
 function_decl|;
 comment|/**          * The number of ordinals, excluding the "0" ordinal (indicating a missing value).          */
 DECL|method|getNumOrds
-name|int
+name|long
 name|getNumOrds
 parameter_list|()
 function_decl|;
 comment|/**          * Returns total unique ord count; this includes +1 for          * the null ord (always 0).          */
 DECL|method|getMaxOrd
-name|int
+name|long
 name|getMaxOrd
 parameter_list|()
 function_decl|;
@@ -127,7 +127,7 @@ parameter_list|()
 function_decl|;
 comment|/**          * The ordinal that maps to the relevant docId. If it has no value, returns          *<tt>0</tt>.          */
 DECL|method|getOrd
-name|int
+name|long
 name|getOrd
 parameter_list|(
 name|int
@@ -136,7 +136,7 @@ parameter_list|)
 function_decl|;
 comment|/**          * Returns an array of ordinals matching the docIds, with 0 length one          * for a doc with no ordinals.          */
 DECL|method|getOrds
-name|IntsRef
+name|LongsRef
 name|getOrds
 parameter_list|(
 name|int
@@ -159,7 +159,7 @@ name|Iter
 block|{
 comment|/**              * Gets the next ordinal. Returning 0 if the iteration is exhausted.              */
 DECL|method|next
-name|int
+name|long
 name|next
 parameter_list|()
 function_decl|;
@@ -185,7 +185,7 @@ annotation|@
 name|Override
 DECL|method|next
 specifier|public
-name|int
+name|long
 name|next
 parameter_list|()
 block|{
@@ -203,7 +203,7 @@ name|Iter
 block|{
 DECL|field|value
 specifier|private
-name|int
+name|long
 name|value
 decl_stmt|;
 DECL|method|reset
@@ -211,7 +211,7 @@ specifier|public
 name|SingleValueIter
 name|reset
 parameter_list|(
-name|int
+name|long
 name|value
 parameter_list|)
 block|{
@@ -229,11 +229,11 @@ annotation|@
 name|Override
 DECL|method|next
 specifier|public
-name|int
+name|long
 name|next
 parameter_list|()
 block|{
-name|int
+name|long
 name|actual
 init|=
 name|value

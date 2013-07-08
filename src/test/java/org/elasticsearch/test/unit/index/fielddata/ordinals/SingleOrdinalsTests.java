@@ -186,7 +186,7 @@ name|Map
 argument_list|<
 name|Integer
 argument_list|,
-name|Integer
+name|Long
 argument_list|>
 name|controlDocToOrdinal
 init|=
@@ -195,7 +195,7 @@ name|HashMap
 argument_list|<
 name|Integer
 argument_list|,
-name|Integer
+name|Long
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -208,7 +208,7 @@ argument_list|(
 name|numDocs
 argument_list|)
 decl_stmt|;
-name|int
+name|long
 name|ordinal
 init|=
 name|builder
@@ -323,7 +323,7 @@ name|Entry
 argument_list|<
 name|Integer
 argument_list|,
-name|Integer
+name|Long
 argument_list|>
 name|entry
 range|:
