@@ -97,14 +97,11 @@ literal|"elasticsearch,dev"
 argument_list|)
 expr_stmt|;
 comment|// We expect having 1 node as part of the cluster, let's test that
-comment|// TODO Fix that test as we don't filter yet on port, each node can see each other
 name|checkNumberOfNodes
 argument_list|(
-literal|2
+literal|1
 argument_list|)
 expr_stmt|;
-comment|// Should be
-comment|// checkNumberOfNodes(1);
 block|}
 annotation|@
 name|Test
@@ -127,14 +124,11 @@ literal|"elasticsearch"
 argument_list|)
 expr_stmt|;
 comment|// We expect having 1 nodes as part of the cluster, let's test that
-comment|// TODO Fix that test as we don't filter yet on port, each node can see each other
 name|checkNumberOfNodes
 argument_list|(
-literal|2
+literal|1
 argument_list|)
 expr_stmt|;
-comment|// Should be
-comment|// checkNumberOfNodes(1);
 block|}
 block|}
 end_class

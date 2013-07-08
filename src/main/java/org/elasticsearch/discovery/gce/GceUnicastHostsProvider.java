@@ -961,7 +961,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"*** filtering out instance {} based tags {}, not part of {}"
+literal|"filtering out instance {} based tags {}, not part of {}"
 argument_list|,
 name|name
 argument_list|,
@@ -993,7 +993,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"*** instance {} with tags {} is added to discovery"
+literal|"instance {} with tags {} is added to discovery"
 argument_list|,
 name|name
 argument_list|,
@@ -1140,6 +1140,100 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|String
+name|address
+init|=
+name|ip_private
+decl_stmt|;
+comment|// Test if we have es_port metadata defined here
+if|if
+condition|(
+name|instance
+operator|.
+name|getMetadata
+argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|instance
+operator|.
+name|getMetadata
+argument_list|()
+operator|.
+name|containsKey
+argument_list|(
+literal|"es_port"
+argument_list|)
+condition|)
+block|{
+name|Object
+name|es_port
+init|=
+name|instance
+operator|.
+name|getMetadata
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|"es_port"
+argument_list|)
+decl_stmt|;
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"es_port is defined with {}"
+argument_list|,
+name|es_port
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|es_port
+operator|instanceof
+name|String
+condition|)
+block|{
+name|address
+operator|=
+name|address
+operator|.
+name|concat
+argument_list|(
+literal|":"
+argument_list|)
+operator|.
+name|concat
+argument_list|(
+operator|(
+name|String
+operator|)
+name|es_port
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// Ignoring other values
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"es_port is instance of {}. Ignoring..."
+argument_list|,
+name|es_port
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|// ip_private is a single IP Address. We need to build a TransportAddress from it
 name|TransportAddress
 index|[]
 name|addresses
@@ -1148,7 +1242,7 @@ name|transportService
 operator|.
 name|addressesFromString
 argument_list|(
-name|ip_private
+name|address
 argument_list|)
 decl_stmt|;
 comment|// we only limit to 1 addresses, makes no sense to ping 100 ports
