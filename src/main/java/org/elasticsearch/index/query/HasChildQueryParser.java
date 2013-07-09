@@ -781,6 +781,34 @@ argument_list|(
 name|parentType
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|parentDocMapper
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|QueryParsingException
+argument_list|(
+name|parseContext
+operator|.
+name|index
+argument_list|()
+argument_list|,
+literal|"[has_child]  Type ["
+operator|+
+name|childType
+operator|+
+literal|"] points to a non existent parent type ["
+operator|+
+name|parentType
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
 comment|// wrap the query with type query
 name|SearchContext
 name|searchContext
