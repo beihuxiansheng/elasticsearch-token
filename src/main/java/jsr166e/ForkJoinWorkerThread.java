@@ -11,7 +11,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A thread managed by a {@link ForkJoinPool}, which executes  * {@link ForkJoinTask}s.  * This class is subclassable solely for the sake of adding  * functionality -- there are no overridable methods dealing with  * scheduling or execution.  However, you can override initialization  * and termination methods surrounding the main task processing loop.  * If you do create such a subclass, you will also need to supply a  * custom {@link ForkJoinPool.ForkJoinWorkerThreadFactory} to use it  * in a {@code ForkJoinPool}.  *  * @since 1.7  * @author Doug Lea  */
+comment|/**  * A thread managed by a {@link ForkJoinPool}, which executes  * {@link ForkJoinTask}s.  * This class is subclassable solely for the sake of adding  * functionality -- there are no overridable methods dealing with  * scheduling or execution.  However, you can override initialization  * and termination methods surrounding the main task processing loop.  * If you do create such a subclass, you will also need to supply a  * custom {@link ForkJoinPool.ForkJoinWorkerThreadFactory} to  * {@linkplain ForkJoinPool#ForkJoinPool use it} in a {@code ForkJoinPool}.  *  * @since 1.7  * @author Doug Lea  */
 end_comment
 
 begin_class
@@ -81,7 +81,7 @@ return|return
 name|pool
 return|;
 block|}
-comment|/**      * Returns the index number of this thread in its pool.  The      * returned value ranges from zero to the maximum number of      * threads (minus one) that have ever been created in the pool.      * This method may be useful for applications that track status or      * collect results per-worker rather than per-task.      *      * @return the index number      */
+comment|/**      * Returns the unique index number of this thread in its pool.      * The returned value ranges from zero to the maximum number of      * threads (minus one) that may exist in the pool, and does not      * change during the lifetime of the thread.  This method may be      * useful for applications that track status or collect results      * per-worker-thread rather than per-task.      *      * @return the index number      */
 DECL|method|getPoolIndex
 specifier|public
 name|int
@@ -92,7 +92,10 @@ return|return
 name|workQueue
 operator|.
 name|poolIndex
+operator|>>>
+literal|1
 return|;
+comment|// ignore odd/even tag bit
 block|}
 comment|/**      * Initializes internal state after construction but before      * processing any tasks. If you override this method, you must      * invoke {@code super.onStart()} at the beginning of the method.      * Initialization requires care: Most fields must have legal      * default values, to ensure that attempted accesses from other      * threads work correctly even before this thread starts      * processing tasks.      */
 DECL|method|onStart

@@ -12,9 +12,13 @@ end_package
 
 begin_import
 import|import
-name|jsr166y
+name|java
 operator|.
-name|ThreadLocalRandom
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
 import|;
 end_import
 
@@ -26,7 +30,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|TimeUnit
+name|ThreadLocalRandom
 import|;
 end_import
 
@@ -87,7 +91,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A capability-based lock with three modes for controlling read/write  * access.  The state of a StampedLock consists of a version and mode.  * Lock acquisition methods return a stamp that represents and  * controls access with respect to a lock state; "try" versions of  * these methods may instead return the special value zero to  * represent failure to acquire access. Lock release and conversion  * methods require stamps as arguments, and fail if they do not match  * the state of the lock. The three modes are:  *  *<ul>  *  *<li><b>Writing.</b> Method {@link #writeLock} possibly blocks  *   waiting for exclusive access, returning a stamp that can be used  *   in method {@link #unlockWrite} to release the lock. Untimed and  *   timed versions of {@code tryWriteLock} are also provided. When  *   the lock is held in write mode, no read locks may be obtained,  *   and all optimistic read validations will fail.</li>  *  *<li><b>Reading.</b> Method {@link #readLock} possibly blocks  *   waiting for non-exclusive access, returning a stamp that can be  *   used in method {@link #unlockRead} to release the lock. Untimed  *   and timed versions of {@code tryReadLock} are also provided.</li>  *  *<li><b>Optimistic Reading.</b> Method {@link #tryOptimisticRead}  *   returns a non-zero stamp only if the lock is not currently held  *   in write mode. Method {@link #validate} returns true if the lock  *   has not been acquired in write mode since obtaining a given  *   stamp.  This mode can be thought of as an extremely weak version  *   of a read-lock, that can be broken by a writer at any time.  The  *   use of optimistic mode for short read-only code segments often  *   reduces contention and improves throughput.  However, its use is  *   inherently fragile.  Optimistic read sections should only read  *   fields and hold them in local variables for later use after  *   validation. Fields read while in optimistic mode may be wildly  *   inconsistent, so usage applies only when you are familiar enough  *   with data representations to check consistency and/or repeatedly  *   invoke method {@code validate()}.  For example, such steps are  *   typically required when first reading an object or array  *   reference, and then accessing one of its fields, elements or  *   methods.</li>  *  *</ul>  *  *<p>This class also supports methods that conditionally provide  * conversions across the three modes. For example, method {@link  * #tryConvertToWriteLock} attempts to "upgrade" a mode, returning  * a valid write stamp if (1) already in writing mode (2) in reading  * mode and there are no other readers or (3) in optimistic mode and  * the lock is available. The forms of these methods are designed to  * help reduce some of the code bloat that otherwise occurs in  * retry-based designs.  *  *<p>StampedLocks are designed for use as internal utilities in the  * development of thread-safe components. Their use relies on  * knowledge of the internal properties of the data, objects, and  * methods they are protecting.  They are not reentrant, so locked  * bodies should not call other unknown methods that may try to  * re-acquire locks (although you may pass a stamp to other methods  * that can use or convert it).  The use of read lock modes relies on  * the associated code sections being side-effect-free.  Unvalidated  * optimistic read sections cannot call methods that are not known to  * tolerate potential inconsistencies.  Stamps use finite  * representations, and are not cryptographically secure (i.e., a  * valid stamp may be guessable). Stamp values may recycle after (no  * sooner than) one year of continuous operation. A stamp held without  * use or validation for longer than this period may fail to validate  * correctly.  StampedLocks are serializable, but always deserialize  * into initial unlocked state, so they are not useful for remote  * locking.  *  *<p>The scheduling policy of StampedLock does not consistently  * prefer readers over writers or vice versa.  All "try" methods are  * best-effort and do not necessarily conform to any scheduling or  * fairness policy. A zero return from any "try" method for acquiring  * or converting locks does not carry any information about the state  * of the lock; a subsequent invocation may succeed.  *  *<p>Because it supports coordinated usage across multiple lock  * modes, this class does not directly implement the {@link Lock} or  * {@link ReadWriteLock} interfaces. However, a StampedLock may be  * viewed {@link #asReadLock()}, {@link #asWriteLock()}, or {@link  * #asReadWriteLock()} in applications requiring only the associated  * set of functionality.  *  *<p><b>Sample Usage.</b> The following illustrates some usage idioms  * in a class that maintains simple two-dimensional points. The sample  * code illustrates some try/catch conventions even though they are  * not strictly needed here because no exceptions can occur in their  * bodies.<br>  *  *<pre>{@code  * class Point {  *   private double x, y;  *   private final StampedLock sl = new StampedLock();  *  *   void move(double deltaX, double deltaY) { // an exclusively locked method  *     long stamp = sl.writeLock();  *     try {  *       x += deltaX;  *       y += deltaY;  *     } finally {  *       sl.unlockWrite(stamp);  *     }  *   }  *  *   double distanceFromOriginV1() { // A read-only method  *     long stamp;  *     if ((stamp = sl.tryOptimisticRead()) != 0L) { // optimistic  *       double currentX = x;  *       double currentY = y;  *       if (sl.validate(stamp))  *         return Math.sqrt(currentX * currentX + currentY * currentY);  *     }  *     stamp = sl.readLock(); // fall back to read lock  *     try {  *       double currentX = x;  *       double currentY = y;  *         return Math.sqrt(currentX * currentX + currentY * currentY);  *     } finally {  *       sl.unlockRead(stamp);  *     }  *   }  *  *   double distanceFromOriginV2() { // combines code paths  *     double currentX = 0.0, currentY = 0.0;  *     for (long stamp = sl.tryOptimisticRead(); ; stamp = sl.readLock()) {  *       try {  *         currentX = x;  *         currentY = y;  *       } finally {  *         if (sl.tryConvertToOptimisticRead(stamp) != 0L) // unlock or validate  *           break;  *       }  *     }  *     return Math.sqrt(currentX * currentX + currentY * currentY);  *   }  *  *   void moveIfAtOrigin(double newX, double newY) { // upgrade  *     // Could instead start with optimistic, not read mode  *     long stamp = sl.readLock();  *     try {  *       while (x == 0.0&& y == 0.0) {  *         long ws = sl.tryConvertToWriteLock(stamp);  *         if (ws != 0L) {  *           stamp = ws;  *           x = newX;  *           y = newY;  *           break;  *         }  *         else {  *           sl.unlockRead(stamp);  *           stamp = sl.writeLock();  *         }  *       }  *     } finally {  *       sl.unlock(stamp);  *     }  *   }  * }}</pre>  *  * @since 1.8  * @author Doug Lea  */
+comment|/**  * A capability-based lock with three modes for controlling read/write  * access.  The state of a StampedLock consists of a version and mode.  * Lock acquisition methods return a stamp that represents and  * controls access with respect to a lock state; "try" versions of  * these methods may instead return the special value zero to  * represent failure to acquire access. Lock release and conversion  * methods require stamps as arguments, and fail if they do not match  * the state of the lock. The three modes are:  *  *<ul>  *  *<li><b>Writing.</b> Method {@link #writeLock} possibly blocks  *   waiting for exclusive access, returning a stamp that can be used  *   in method {@link #unlockWrite} to release the lock. Untimed and  *   timed versions of {@code tryWriteLock} are also provided. When  *   the lock is held in write mode, no read locks may be obtained,  *   and all optimistic read validations will fail.</li>  *  *<li><b>Reading.</b> Method {@link #readLock} possibly blocks  *   waiting for non-exclusive access, returning a stamp that can be  *   used in method {@link #unlockRead} to release the lock. Untimed  *   and timed versions of {@code tryReadLock} are also provided.</li>  *  *<li><b>Optimistic Reading.</b> Method {@link #tryOptimisticRead}  *   returns a non-zero stamp only if the lock is not currently held  *   in write mode. Method {@link #validate} returns true if the lock  *   has not been acquired in write mode since obtaining a given  *   stamp.  This mode can be thought of as an extremely weak version  *   of a read-lock, that can be broken by a writer at any time.  The  *   use of optimistic mode for short read-only code segments often  *   reduces contention and improves throughput.  However, its use is  *   inherently fragile.  Optimistic read sections should only read  *   fields and hold them in local variables for later use after  *   validation. Fields read while in optimistic mode may be wildly  *   inconsistent, so usage applies only when you are familiar enough  *   with data representations to check consistency and/or repeatedly  *   invoke method {@code validate()}.  For example, such steps are  *   typically required when first reading an object or array  *   reference, and then accessing one of its fields, elements or  *   methods.</li>  *  *</ul>  *  *<p>This class also supports methods that conditionally provide  * conversions across the three modes. For example, method {@link  * #tryConvertToWriteLock} attempts to "upgrade" a mode, returning  * a valid write stamp if (1) already in writing mode (2) in reading  * mode and there are no other readers or (3) in optimistic mode and  * the lock is available. The forms of these methods are designed to  * help reduce some of the code bloat that otherwise occurs in  * retry-based designs.  *  *<p>StampedLocks are designed for use as internal utilities in the  * development of thread-safe components. Their use relies on  * knowledge of the internal properties of the data, objects, and  * methods they are protecting.  They are not reentrant, so locked  * bodies should not call other unknown methods that may try to  * re-acquire locks (although you may pass a stamp to other methods  * that can use or convert it).  The use of read lock modes relies on  * the associated code sections being side-effect-free.  Unvalidated  * optimistic read sections cannot call methods that are not known to  * tolerate potential inconsistencies.  Stamps use finite  * representations, and are not cryptographically secure (i.e., a  * valid stamp may be guessable). Stamp values may recycle after (no  * sooner than) one year of continuous operation. A stamp held without  * use or validation for longer than this period may fail to validate  * correctly.  StampedLocks are serializable, but always deserialize  * into initial unlocked state, so they are not useful for remote  * locking.  *  *<p>The scheduling policy of StampedLock does not consistently  * prefer readers over writers or vice versa.  All "try" methods are  * best-effort and do not necessarily conform to any scheduling or  * fairness policy. A zero return from any "try" method for acquiring  * or converting locks does not carry any information about the state  * of the lock; a subsequent invocation may succeed.  *  *<p>Because it supports coordinated usage across multiple lock  * modes, this class does not directly implement the {@link Lock} or  * {@link ReadWriteLock} interfaces. However, a StampedLock may be  * viewed {@link #asReadLock()}, {@link #asWriteLock()}, or {@link  * #asReadWriteLock()} in applications requiring only the associated  * set of functionality.  *  *<p><b>Sample Usage.</b> The following illustrates some usage idioms  * in a class that maintains simple two-dimensional points. The sample  * code illustrates some try/catch conventions even though they are  * not strictly needed here because no exceptions can occur in their  * bodies.<br>  *  *<pre>{@code  * class Point {  *   private double x, y;  *   private final StampedLock sl = new StampedLock();  *  *   void move(double deltaX, double deltaY) { // an exclusively locked method  *     long stamp = sl.writeLock();  *     try {  *       x += deltaX;  *       y += deltaY;  *     } finally {  *       sl.unlockWrite(stamp);  *     }  *   }  *  *   double distanceFromOrigin() { // A read-only method  *     long stamp = sl.tryOptimisticRead();  *     double currentX = x, currentY = y;  *     if (!sl.validate(stamp)) {  *        stamp = sl.readLock();  *        try {  *          currentX = x;  *          currentY = y;  *        } finally {  *           sl.unlockRead(stamp);  *        }  *     }  *     return Math.sqrt(currentX * currentX + currentY * currentY);  *   }  *  *   void moveIfAtOrigin(double newX, double newY) { // upgrade  *     // Could instead start with optimistic, not read mode  *     long stamp = sl.readLock();  *     try {  *       while (x == 0.0&& y == 0.0) {  *         long ws = sl.tryConvertToWriteLock(stamp);  *         if (ws != 0L) {  *           stamp = ws;  *           x = newX;  *           y = newY;  *           break;  *         }  *         else {  *           sl.unlockRead(stamp);  *           stamp = sl.writeLock();  *         }  *       }  *     } finally {  *       sl.unlock(stamp);  *     }  *   }  * }}</pre>  *  * @since 1.8  * @author Doug Lea  */
 end_comment
 
 begin_class
@@ -543,7 +547,7 @@ literal|0L
 operator|)
 return|;
 block|}
-comment|/**      * Exclusively acquires the lock if it is available within the      * given time and the current thread has not been interrupted.      * Behavior under timeout and interruption matches that specified      * for method {@link Lock#tryLock(long,TimeUnit)}.      *      * @return a stamp that can be used to unlock or convert mode,      * or zero if the lock is not available      * @throws InterruptedException if the current thread is interrupted      * before acquiring the lock      */
+comment|/**      * Exclusively acquires the lock if it is available within the      * given time and the current thread has not been interrupted.      * Behavior under timeout and interruption matches that specified      * for method {@link Lock#tryLock(long,TimeUnit)}.      *      * @param time the maximum time to wait for the lock      * @param unit the time unit of the {@code time} argument      * @return a stamp that can be used to unlock or convert mode,      * or zero if the lock is not available      * @throws InterruptedException if the current thread is interrupted      * before acquiring the lock      */
 DECL|method|tryWriteLock
 specifier|public
 name|long
@@ -837,7 +841,7 @@ name|next
 return|;
 block|}
 block|}
-comment|/**      * Non-exclusively acquires the lock if it is available within the      * given time and the current thread has not been interrupted.      * Behavior under timeout and interruption matches that specified      * for method {@link Lock#tryLock(long,TimeUnit)}.      *      * @return a stamp that can be used to unlock or convert mode,      * or zero if the lock is not available      * @throws InterruptedException if the current thread is interrupted      * before acquiring the lock      */
+comment|/**      * Non-exclusively acquires the lock if it is available within the      * given time and the current thread has not been interrupted.      * Behavior under timeout and interruption matches that specified      * for method {@link Lock#tryLock(long,TimeUnit)}.      *      * @param time the maximum time to wait for the lock      * @param unit the time unit of the {@code time} argument      * @return a stamp that can be used to unlock or convert mode,      * or zero if the lock is not available      * @throws InterruptedException if the current thread is interrupted      * before acquiring the lock      */
 DECL|method|tryReadLock
 specifier|public
 name|long
@@ -1074,7 +1078,7 @@ else|:
 literal|0L
 return|;
 block|}
-comment|/**      * Returns true if the lock has not been exclusively acquired      * since issuance of the given stamp. Always returns false if the      * stamp is zero. Always returns true if the stamp represents a      * currently held lock. Invoking this method with a value not      * obtained from {@link #tryOptimisticRead} or a locking method      * for this lock has no defined effect or result.      *      * @return true if the lock has not been exclusively acquired      * since issuance of the given stamp; else false      */
+comment|/**      * Returns true if the lock has not been exclusively acquired      * since issuance of the given stamp. Always returns false if the      * stamp is zero. Always returns true if the stamp represents a      * currently held lock. Invoking this method with a value not      * obtained from {@link #tryOptimisticRead} or a locking method      * for this lock has no defined effect or result.      *      * @param stamp a stamp      * @return {@code true} if the lock has not been exclusively acquired      * since issuance of the given stamp; else false      */
 DECL|method|validate
 specifier|public
 name|boolean
@@ -2071,7 +2075,7 @@ return|return
 literal|0L
 return|;
 block|}
-comment|/**      * Releases the write lock if it is held, without requiring a      * stamp value. This method may be useful for recovery after      * errors.      *      * @return true if the lock was held, else false      */
+comment|/**      * Releases the write lock if it is held, without requiring a      * stamp value. This method may be useful for recovery after      * errors.      *      * @return {@code true} if the lock was held, else false      */
 DECL|method|tryUnlockWrite
 specifier|public
 name|boolean
@@ -2142,7 +2146,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Releases one hold of the read lock if it is held, without      * requiring a stamp value. This method may be useful for recovery      * after errors.      *      * @return true if the read lock was held, else false      */
+comment|/**      * Releases one hold of the read lock if it is held, without      * requiring a stamp value. This method may be useful for recovery      * after errors.      *      * @return {@code true} if the read lock was held, else false      */
 DECL|method|tryUnlockRead
 specifier|public
 name|boolean
@@ -2251,7 +2255,46 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Returns true if the lock is currently held exclusively.      *      * @return true if the lock is currently held exclusively      */
+comment|// status monitoring methods
+comment|/**      * Returns combined state-held and overflow read count for given      * state s.      */
+DECL|method|getReadLockCount
+specifier|private
+name|int
+name|getReadLockCount
+parameter_list|(
+name|long
+name|s
+parameter_list|)
+block|{
+name|long
+name|readers
+decl_stmt|;
+if|if
+condition|(
+operator|(
+name|readers
+operator|=
+name|s
+operator|&
+name|RBITS
+operator|)
+operator|>=
+name|RFULL
+condition|)
+name|readers
+operator|=
+name|RFULL
+operator|+
+name|readerOverflow
+expr_stmt|;
+return|return
+operator|(
+name|int
+operator|)
+name|readers
+return|;
+block|}
+comment|/**      * Returns {@code true} if the lock is currently held exclusively.      *      * @return {@code true} if the lock is currently held exclusively      */
 DECL|method|isWriteLocked
 specifier|public
 name|boolean
@@ -2268,7 +2311,7 @@ operator|!=
 literal|0L
 return|;
 block|}
-comment|/**      * Returns true if the lock is currently held non-exclusively.      *      * @return true if the lock is currently held non-exclusively      */
+comment|/**      * Returns {@code true} if the lock is currently held non-exclusively.      *      * @return {@code true} if the lock is currently held non-exclusively      */
 DECL|method|isReadLocked
 specifier|public
 name|boolean
@@ -2285,38 +2328,71 @@ operator|!=
 literal|0L
 return|;
 block|}
-DECL|method|readObject
-specifier|private
-name|void
-name|readObject
-parameter_list|(
-name|java
-operator|.
-name|io
-operator|.
-name|ObjectInputStream
-name|s
-parameter_list|)
-throws|throws
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-throws|,
-name|ClassNotFoundException
+comment|/**      * Queries the number of read locks held for this lock. This      * method is designed for use in monitoring system state, not for      * synchronization control.      * @return the number of read locks held      */
+DECL|method|getReadLockCount
+specifier|public
+name|int
+name|getReadLockCount
+parameter_list|()
 block|{
-name|s
-operator|.
-name|defaultReadObject
-argument_list|()
-expr_stmt|;
+return|return
+name|getReadLockCount
+argument_list|(
 name|state
-operator|=
-name|ORIGIN
-expr_stmt|;
-comment|// reset to unlocked state
+argument_list|)
+return|;
 block|}
+comment|/**      * Returns a string identifying this lock, as well as its lock      * state.  The state, in brackets, includes the String {@code      * "Unlocked"} or the String {@code "Write-locked"} or the String      * {@code "Read-locks:"} followed by the current number of      * read-locks held.      *      * @return a string identifying this lock, as well as its lock state      */
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+name|long
+name|s
+init|=
+name|state
+decl_stmt|;
+return|return
+name|super
+operator|.
+name|toString
+argument_list|()
+operator|+
+operator|(
+operator|(
+name|s
+operator|&
+name|ABITS
+operator|)
+operator|==
+literal|0L
+condition|?
+literal|"[Unlocked]"
+else|:
+operator|(
+name|s
+operator|&
+name|WBIT
+operator|)
+operator|!=
+literal|0L
+condition|?
+literal|"[Write-locked]"
+else|:
+literal|"[Read-locks:"
+operator|+
+name|getReadLockCount
+argument_list|(
+name|s
+argument_list|)
+operator|+
+literal|"]"
+operator|)
+return|;
+block|}
+comment|// views
 comment|/**      * Returns a plain {@link Lock} view of this StampedLock in which      * the {@link Lock#lock} method is mapped to {@link #readLock},      * and similarly for other methods. The returned Lock does not      * support a {@link Condition}; method {@link      * Lock#newCondition()} throws {@code      * UnsupportedOperationException}.      *      * @return the lock      */
 DECL|method|asReadLock
 specifier|public
@@ -2805,6 +2881,38 @@ condition|)
 break|break;
 block|}
 block|}
+DECL|method|readObject
+specifier|private
+name|void
+name|readObject
+parameter_list|(
+name|java
+operator|.
+name|io
+operator|.
+name|ObjectInputStream
+name|s
+parameter_list|)
+throws|throws
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+throws|,
+name|ClassNotFoundException
+block|{
+name|s
+operator|.
+name|defaultReadObject
+argument_list|()
+expr_stmt|;
+name|state
+operator|=
+name|ORIGIN
+expr_stmt|;
+comment|// reset to unlocked state
+block|}
 comment|// internals
 comment|/**      * Tries to increment readerOverflow by first setting state      * access bits value to RBITS, indicating hold of spinlock,      * then updating, then releasing.      *      * @param s a reader overflow stamp: (s& ABITS)>= RFULL      * @return new stamp on success, else zero      */
 DECL|method|tryIncReaderOverflow
@@ -2816,7 +2924,7 @@ name|long
 name|s
 parameter_list|)
 block|{
-comment|// assert (s& ABITS)>= RFULL
+comment|// assert (s& ABITS)>= RFULL;
 if|if
 condition|(
 operator|(
@@ -2894,7 +3002,7 @@ name|long
 name|s
 parameter_list|)
 block|{
-comment|// assert (s& ABITS)>= RFULL
+comment|// assert (s& ABITS)>= RFULL;
 if|if
 condition|(
 operator|(
@@ -3634,14 +3742,31 @@ argument_list|,
 literal|false
 argument_list|)
 return|;
-name|node
-operator|.
-name|thread
-operator|=
+name|Thread
+name|wt
+init|=
 name|Thread
 operator|.
 name|currentThread
 argument_list|()
+decl_stmt|;
+name|U
+operator|.
+name|putObject
+argument_list|(
+name|wt
+argument_list|,
+name|PARKBLOCKER
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
+comment|// emulate LockSupport.park
+name|node
+operator|.
+name|thread
+operator|=
+name|wt
 expr_stmt|;
 if|if
 condition|(
@@ -3686,6 +3811,17 @@ operator|.
 name|thread
 operator|=
 literal|null
+expr_stmt|;
+name|U
+operator|.
+name|putObject
+argument_list|(
+name|wt
+argument_list|,
+name|PARKBLOCKER
+argument_list|,
+literal|null
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -4123,25 +4259,6 @@ control|)
 block|{
 if|if
 condition|(
-name|interruptible
-operator|&&
-name|Thread
-operator|.
-name|interrupted
-argument_list|()
-condition|)
-return|return
-name|cancelWaiter
-argument_list|(
-name|node
-argument_list|,
-name|p
-argument_list|,
-literal|true
-argument_list|)
-return|;
-if|if
-condition|(
 name|deadline
 operator|==
 literal|0L
@@ -4218,6 +4335,25 @@ literal|null
 expr_stmt|;
 break|break;
 block|}
+name|Thread
+name|wt
+init|=
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+decl_stmt|;
+name|U
+operator|.
+name|putObject
+argument_list|(
+name|wt
+argument_list|,
+name|PARKBLOCKER
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|node
@@ -4237,6 +4373,36 @@ argument_list|,
 name|time
 argument_list|)
 expr_stmt|;
+name|U
+operator|.
+name|putObject
+argument_list|(
+name|wt
+argument_list|,
+name|PARKBLOCKER
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|interruptible
+operator|&&
+name|Thread
+operator|.
+name|interrupted
+argument_list|()
+condition|)
+return|return
+name|cancelWaiter
+argument_list|(
+name|node
+argument_list|,
+name|p
+argument_list|,
+literal|true
+argument_list|)
+return|;
 block|}
 name|group
 operator|=
@@ -4604,14 +4770,30 @@ argument_list|,
 literal|false
 argument_list|)
 return|;
-name|node
-operator|.
-name|thread
-operator|=
+name|Thread
+name|wt
+init|=
 name|Thread
 operator|.
 name|currentThread
 argument_list|()
+decl_stmt|;
+name|U
+operator|.
+name|putObject
+argument_list|(
+name|wt
+argument_list|,
+name|PARKBLOCKER
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
+name|node
+operator|.
+name|thread
+operator|=
+name|wt
 expr_stmt|;
 if|if
 condition|(
@@ -4655,6 +4837,17 @@ operator|.
 name|thread
 operator|=
 literal|null
+expr_stmt|;
+name|U
+operator|.
+name|putObject
+argument_list|(
+name|wt
+argument_list|,
+name|PARKBLOCKER
+argument_list|,
+literal|null
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -5264,6 +5457,13 @@ specifier|final
 name|long
 name|WCOWAIT
 decl_stmt|;
+DECL|field|PARKBLOCKER
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|PARKBLOCKER
+decl_stmt|;
 static|static
 block|{
 try|try
@@ -5374,6 +5574,30 @@ operator|.
 name|getDeclaredField
 argument_list|(
 literal|"cowait"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|tk
+init|=
+name|Thread
+operator|.
+name|class
+decl_stmt|;
+name|PARKBLOCKER
+operator|=
+name|U
+operator|.
+name|objectFieldOffset
+argument_list|(
+name|tk
+operator|.
+name|getDeclaredField
+argument_list|(
+literal|"parkBlocker"
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -37,7 +37,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@code double} array in which elements may be updated atomically.  * See the {@link java.util.concurrent.atomic} package specification  * for description of the properties of atomic variables.  *  *<p><a name="bitEquals">This class compares primitive {@code double}  * values in methods such as {@link #compareAndSet} by comparing their  * bitwise representation using {@link Double#doubleToRawLongBits},  * which differs from both the primitive double {@code ==} operator  * and from {@link Double#equals}, as if implemented by:  *<pre> {@code  * static boolean bitEquals(double x, double y) {  *   long xBits = Double.doubleToRawLongBits(x);  *   long yBits = Double.doubleToRawLongBits(y);  *   return xBits == yBits;  * }}</pre></a>  *  * @author Doug Lea  * @author Martin Buchholz  */
+comment|/**  * A {@code double} array in which elements may be updated atomically.  * See the {@link java.util.concurrent.atomic} package specification  * for description of the properties of atomic variables.  *  *<p id="bitEquals">This class compares primitive {@code double}  * values in methods such as {@link #compareAndSet} by comparing their  * bitwise representation using {@link Double#doubleToRawLongBits},  * which differs from both the primitive double {@code ==} operator  * and from {@link Double#equals}, as if implemented by:  *<pre> {@code  * static boolean bitEquals(double x, double y) {  *   long xBits = Double.doubleToRawLongBits(x);  *   long yBits = Double.doubleToRawLongBits(y);  *   return xBits == yBits;  * }}</pre>  *  * @author Doug Lea  * @author Martin Buchholz  */
 end_comment
 
 begin_class
@@ -473,7 +473,7 @@ name|update
 argument_list|)
 return|;
 block|}
-comment|/**      * Atomically sets the element at position {@code i} to the given      * updated value      * if the current value is<a href="#bitEquals">bitwise equal</a>      * to the expected value.      *      *<p>May<a      * href="http://download.oracle.com/javase/7/docs/api/java/util/concurrent/atomic/package-summary.html#Spurious">      * fail spuriously</a>      * and does not provide ordering guarantees, so is only rarely an      * appropriate alternative to {@code compareAndSet}.      *      * @param i the index      * @param expect the expected value      * @param update the new value      * @return true if successful      */
+comment|/**      * Atomically sets the element at position {@code i} to the given      * updated value      * if the current value is<a href="#bitEquals">bitwise equal</a>      * to the expected value.      *      *<p><a      * href="http://download.oracle.com/javase/7/docs/api/java/util/concurrent/atomic/package-summary.html#Spurious">      * May fail spuriously and does not provide ordering guarantees</a>,      * so is only rarely an appropriate alternative to {@code compareAndSet}.      *      * @param i the index      * @param expect the expected value      * @param update the new value      * @return true if successful      */
 DECL|method|weakCompareAndSet
 specifier|public
 specifier|final
