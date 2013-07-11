@@ -12,13 +12,9 @@ end_package
 
 begin_import
 import|import
-name|java
+name|jsr166y
 operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|TimeUnit
+name|ThreadLocalRandom
 import|;
 end_import
 
@@ -30,7 +26,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|ThreadLocalRandom
+name|TimeUnit
 import|;
 end_import
 
