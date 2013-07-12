@@ -1364,6 +1364,11 @@ argument_list|,
 name|script
 argument_list|,
 name|params
+argument_list|,
+name|context
+operator|.
+name|cacheRecycler
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -1450,6 +1455,11 @@ argument_list|,
 name|excluded
 argument_list|,
 name|searchScript
+argument_list|,
+name|context
+operator|.
+name|cacheRecycler
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -1472,6 +1482,11 @@ argument_list|,
 name|excluded
 argument_list|,
 name|searchScript
+argument_list|,
+name|context
+operator|.
+name|cacheRecycler
+argument_list|()
 argument_list|)
 return|;
 block|}

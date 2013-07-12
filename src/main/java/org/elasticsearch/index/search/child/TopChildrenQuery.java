@@ -104,7 +104,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|cache
+operator|.
+name|recycler
 operator|.
 name|CacheRecycler
 import|;
@@ -234,6 +236,12 @@ name|SearchContext
 operator|.
 name|Rewrite
 block|{
+DECL|field|cacheRecycler
+specifier|private
+specifier|final
+name|CacheRecycler
+name|cacheRecycler
+decl_stmt|;
 DECL|field|parentType
 specifier|private
 specifier|final
@@ -309,6 +317,9 @@ name|factor
 parameter_list|,
 name|int
 name|incrementalFactor
+parameter_list|,
+name|CacheRecycler
+name|cacheRecycler
 parameter_list|)
 block|{
 name|this
@@ -346,6 +357,12 @@ operator|.
 name|incrementalFactor
 operator|=
 name|incrementalFactor
+expr_stmt|;
+name|this
+operator|.
+name|cacheRecycler
+operator|=
+name|cacheRecycler
 expr_stmt|;
 block|}
 comment|// Rewrite invocation logic:
@@ -407,7 +424,7 @@ name|this
 operator|.
 name|parentDocs
 operator|=
-name|CacheRecycler
+name|cacheRecycler
 operator|.
 name|popHashMap
 argument_list|()
@@ -601,7 +618,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|CacheRecycler
+name|cacheRecycler
 operator|.
 name|pushHashMap
 argument_list|(
@@ -641,7 +658,7 @@ argument_list|>
 argument_list|>
 name|parentDocsPerReader
 init|=
-name|CacheRecycler
+name|cacheRecycler
 operator|.
 name|popHashMap
 argument_list|()
@@ -844,7 +861,7 @@ condition|)
 block|{
 name|readerParentDocs
 operator|=
-name|CacheRecycler
+name|cacheRecycler
 operator|.
 name|popIntObjectMap
 argument_list|()
@@ -1032,7 +1049,7 @@ argument_list|,
 name|values
 argument_list|)
 expr_stmt|;
-name|CacheRecycler
+name|cacheRecycler
 operator|.
 name|pushIntObjectMap
 argument_list|(
@@ -1043,7 +1060,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|CacheRecycler
+name|cacheRecycler
 operator|.
 name|pushHashMap
 argument_list|(

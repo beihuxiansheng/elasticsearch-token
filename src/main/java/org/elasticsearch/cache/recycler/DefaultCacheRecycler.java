@@ -4,13 +4,15 @@ comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more cont
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.common
+DECL|package|org.elasticsearch.cache.recycler
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|cache
+operator|.
+name|recycler
 package|;
 end_package
 
@@ -24,133 +26,7 @@ name|map
 operator|.
 name|hash
 operator|.
-name|TByteIntHashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|gnu
-operator|.
-name|trove
-operator|.
-name|map
-operator|.
-name|hash
-operator|.
-name|TDoubleIntHashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|gnu
-operator|.
-name|trove
-operator|.
-name|map
-operator|.
-name|hash
-operator|.
-name|TFloatIntHashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|gnu
-operator|.
-name|trove
-operator|.
-name|map
-operator|.
-name|hash
-operator|.
-name|TIntIntHashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|gnu
-operator|.
-name|trove
-operator|.
-name|map
-operator|.
-name|hash
-operator|.
-name|TIntObjectHashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|gnu
-operator|.
-name|trove
-operator|.
-name|map
-operator|.
-name|hash
-operator|.
-name|TLongIntHashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|gnu
-operator|.
-name|trove
-operator|.
-name|map
-operator|.
-name|hash
-operator|.
-name|TLongLongHashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|gnu
-operator|.
-name|trove
-operator|.
-name|map
-operator|.
-name|hash
-operator|.
-name|TObjectFloatHashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|gnu
-operator|.
-name|trove
-operator|.
-name|map
-operator|.
-name|hash
-operator|.
-name|TObjectIntHashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|gnu
-operator|.
-name|trove
-operator|.
-name|map
-operator|.
-name|hash
-operator|.
-name|TShortIntHashMap
+name|*
 import|;
 end_import
 
@@ -165,38 +41,6 @@ operator|.
 name|hash
 operator|.
 name|THashSet
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|ref
-operator|.
-name|SoftReference
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Arrays
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Queue
 import|;
 end_import
 
@@ -258,13 +102,45 @@ name|ConcurrentCollections
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|lang
+operator|.
+name|ref
+operator|.
+name|SoftReference
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Queue
+import|;
+end_import
+
 begin_class
 DECL|class|DefaultCacheRecycler
 specifier|public
 class|class
 name|DefaultCacheRecycler
 implements|implements
-name|Recycler
+name|CacheRecycler
 block|{
 annotation|@
 name|Override
@@ -448,7 +324,7 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/* (non-Javadoc)      * @see org.elasticsearch.common.Recycler#popHashMap()      */
+comment|/* (non-Javadoc)      * @see org.elasticsearch.common.CacheRecycler#popHashMap()      */
 annotation|@
 name|Override
 annotation|@
@@ -502,7 +378,7 @@ return|return
 name|map
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.elasticsearch.common.Recycler#pushHashMap(org.elasticsearch.common.trove.ExtTHashMap)      */
+comment|/* (non-Javadoc)      * @see org.elasticsearch.common.CacheRecycler#pushHashMap(org.elasticsearch.common.trove.ExtTHashMap)      */
 annotation|@
 name|Override
 DECL|method|pushHashMap
@@ -550,7 +426,7 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/* (non-Javadoc)      * @see org.elasticsearch.common.Recycler#popHashSet()      */
+comment|/* (non-Javadoc)      * @see org.elasticsearch.common.CacheRecycler#popHashSet()      */
 annotation|@
 name|Override
 annotation|@
@@ -598,7 +474,7 @@ return|return
 name|set
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.elasticsearch.common.Recycler#pushHashSet(gnu.trove.set.hash.THashSet)      */
+comment|/* (non-Javadoc)      * @see org.elasticsearch.common.CacheRecycler#pushHashSet(gnu.trove.set.hash.THashSet)      */
 annotation|@
 name|Override
 DECL|method|pushHashSet
@@ -646,7 +522,7 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/* (non-Javadoc)      * @see org.elasticsearch.common.Recycler#popDoubleObjectMap()      */
+comment|/* (non-Javadoc)      * @see org.elasticsearch.common.CacheRecycler#popDoubleObjectMap()      */
 annotation|@
 name|Override
 annotation|@
@@ -691,7 +567,7 @@ return|return
 name|map
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.elasticsearch.common.Recycler#pushDoubleObjectMap(org.elasticsearch.common.trove.ExtTDoubleObjectHashMap)      */
+comment|/* (non-Javadoc)      * @see org.elasticsearch.common.CacheRecycler#pushDoubleObjectMap(org.elasticsearch.common.trove.ExtTDoubleObjectHashMap)      */
 annotation|@
 name|Override
 DECL|method|pushDoubleObjectMap
@@ -739,7 +615,7 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/* (non-Javadoc)      * @see org.elasticsearch.common.Recycler#popLongObjectMap()      */
+comment|/* (non-Javadoc)      * @see org.elasticsearch.common.CacheRecycler#popLongObjectMap()      */
 annotation|@
 name|Override
 annotation|@
@@ -784,7 +660,7 @@ return|return
 name|map
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.elasticsearch.common.Recycler#pushLongObjectMap(org.elasticsearch.common.trove.ExtTLongObjectHashMap)      */
+comment|/* (non-Javadoc)      * @see org.elasticsearch.common.CacheRecycler#pushLongObjectMap(org.elasticsearch.common.trove.ExtTLongObjectHashMap)      */
 annotation|@
 name|Override
 DECL|method|pushLongObjectMap
@@ -832,7 +708,7 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/* (non-Javadoc)      * @see org.elasticsearch.common.Recycler#popLongLongMap()      */
+comment|/* (non-Javadoc)      * @see org.elasticsearch.common.CacheRecycler#popLongLongMap()      */
 annotation|@
 name|Override
 DECL|method|popLongLongMap
@@ -866,7 +742,7 @@ return|return
 name|map
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.elasticsearch.common.Recycler#pushLongLongMap(gnu.trove.map.hash.TLongLongHashMap)      */
+comment|/* (non-Javadoc)      * @see org.elasticsearch.common.CacheRecycler#pushLongLongMap(gnu.trove.map.hash.TLongLongHashMap)      */
 annotation|@
 name|Override
 DECL|method|pushLongLongMap
@@ -914,7 +790,7 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/* (non-Javadoc)      * @see org.elasticsearch.common.Recycler#popIntIntMap()      */
+comment|/* (non-Javadoc)      * @see org.elasticsearch.common.CacheRecycler#popIntIntMap()      */
 annotation|@
 name|Override
 DECL|method|popIntIntMap
@@ -948,7 +824,7 @@ return|return
 name|map
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.elasticsearch.common.Recycler#pushIntIntMap(gnu.trove.map.hash.TIntIntHashMap)      */
+comment|/* (non-Javadoc)      * @see org.elasticsearch.common.CacheRecycler#pushIntIntMap(gnu.trove.map.hash.TIntIntHashMap)      */
 annotation|@
 name|Override
 DECL|method|pushIntIntMap
@@ -996,7 +872,7 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/* (non-Javadoc)      * @see org.elasticsearch.common.Recycler#popFloatIntMap()      */
+comment|/* (non-Javadoc)      * @see org.elasticsearch.common.CacheRecycler#popFloatIntMap()      */
 annotation|@
 name|Override
 DECL|method|popFloatIntMap
@@ -1030,7 +906,7 @@ return|return
 name|map
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.elasticsearch.common.Recycler#pushFloatIntMap(gnu.trove.map.hash.TFloatIntHashMap)      */
+comment|/* (non-Javadoc)      * @see org.elasticsearch.common.CacheRecycler#pushFloatIntMap(gnu.trove.map.hash.TFloatIntHashMap)      */
 annotation|@
 name|Override
 DECL|method|pushFloatIntMap
@@ -1078,7 +954,7 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/* (non-Javadoc)      * @see org.elasticsearch.common.Recycler#popDoubleIntMap()      */
+comment|/* (non-Javadoc)      * @see org.elasticsearch.common.CacheRecycler#popDoubleIntMap()      */
 annotation|@
 name|Override
 DECL|method|popDoubleIntMap
@@ -1112,7 +988,7 @@ return|return
 name|map
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.elasticsearch.common.Recycler#pushDoubleIntMap(gnu.trove.map.hash.TDoubleIntHashMap)      */
+comment|/* (non-Javadoc)      * @see org.elasticsearch.common.CacheRecycler#pushDoubleIntMap(gnu.trove.map.hash.TDoubleIntHashMap)      */
 annotation|@
 name|Override
 DECL|method|pushDoubleIntMap
@@ -1160,7 +1036,7 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/* (non-Javadoc)      * @see org.elasticsearch.common.Recycler#popByteIntMap()      */
+comment|/* (non-Javadoc)      * @see org.elasticsearch.common.CacheRecycler#popByteIntMap()      */
 annotation|@
 name|Override
 DECL|method|popByteIntMap
@@ -1194,7 +1070,7 @@ return|return
 name|map
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.elasticsearch.common.Recycler#pushByteIntMap(gnu.trove.map.hash.TByteIntHashMap)      */
+comment|/* (non-Javadoc)      * @see org.elasticsearch.common.CacheRecycler#pushByteIntMap(gnu.trove.map.hash.TByteIntHashMap)      */
 annotation|@
 name|Override
 DECL|method|pushByteIntMap
@@ -1242,7 +1118,7 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/* (non-Javadoc)      * @see org.elasticsearch.common.Recycler#popShortIntMap()      */
+comment|/* (non-Javadoc)      * @see org.elasticsearch.common.CacheRecycler#popShortIntMap()      */
 annotation|@
 name|Override
 DECL|method|popShortIntMap
@@ -1276,7 +1152,7 @@ return|return
 name|map
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.elasticsearch.common.Recycler#pushShortIntMap(gnu.trove.map.hash.TShortIntHashMap)      */
+comment|/* (non-Javadoc)      * @see org.elasticsearch.common.CacheRecycler#pushShortIntMap(gnu.trove.map.hash.TShortIntHashMap)      */
 annotation|@
 name|Override
 DECL|method|pushShortIntMap
@@ -1324,7 +1200,7 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/* (non-Javadoc)      * @see org.elasticsearch.common.Recycler#popLongIntMap()      */
+comment|/* (non-Javadoc)      * @see org.elasticsearch.common.CacheRecycler#popLongIntMap()      */
 annotation|@
 name|Override
 DECL|method|popLongIntMap
@@ -1382,7 +1258,7 @@ return|return
 name|map
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.elasticsearch.common.Recycler#pushLongIntMap(gnu.trove.map.hash.TLongIntHashMap)      */
+comment|/* (non-Javadoc)      * @see org.elasticsearch.common.CacheRecycler#pushLongIntMap(gnu.trove.map.hash.TLongIntHashMap)      */
 annotation|@
 name|Override
 DECL|method|pushLongIntMap
@@ -1430,7 +1306,7 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/* (non-Javadoc)      * @see org.elasticsearch.common.Recycler#popObjectIntMap()      */
+comment|/* (non-Javadoc)      * @see org.elasticsearch.common.CacheRecycler#popObjectIntMap()      */
 annotation|@
 name|Override
 annotation|@
@@ -1477,7 +1353,7 @@ return|return
 name|map
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.elasticsearch.common.Recycler#pushObjectIntMap(gnu.trove.map.hash.TObjectIntHashMap)      */
+comment|/* (non-Javadoc)      * @see org.elasticsearch.common.CacheRecycler#pushObjectIntMap(gnu.trove.map.hash.TObjectIntHashMap)      */
 annotation|@
 name|Override
 DECL|method|pushObjectIntMap
@@ -1531,7 +1407,7 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/* (non-Javadoc)      * @see org.elasticsearch.common.Recycler#popIntObjectMap()      */
+comment|/* (non-Javadoc)      * @see org.elasticsearch.common.CacheRecycler#popIntObjectMap()      */
 annotation|@
 name|Override
 annotation|@
@@ -1584,7 +1460,7 @@ return|return
 name|map
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.elasticsearch.common.Recycler#pushIntObjectMap(gnu.trove.map.hash.TIntObjectHashMap)      */
+comment|/* (non-Javadoc)      * @see org.elasticsearch.common.CacheRecycler#pushIntObjectMap(gnu.trove.map.hash.TIntObjectHashMap)      */
 annotation|@
 name|Override
 DECL|method|pushIntObjectMap
@@ -1638,7 +1514,7 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/* (non-Javadoc)      * @see org.elasticsearch.common.Recycler#popObjectFloatMap()      */
+comment|/* (non-Javadoc)      * @see org.elasticsearch.common.CacheRecycler#popObjectFloatMap()      */
 annotation|@
 name|Override
 annotation|@
@@ -1686,7 +1562,7 @@ return|return
 name|map
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.elasticsearch.common.Recycler#pushObjectFloatMap(gnu.trove.map.hash.TObjectFloatHashMap)      */
+comment|/* (non-Javadoc)      * @see org.elasticsearch.common.CacheRecycler#pushObjectFloatMap(gnu.trove.map.hash.TObjectFloatHashMap)      */
 annotation|@
 name|Override
 DECL|method|pushObjectFloatMap
@@ -1742,7 +1618,7 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/* (non-Javadoc)      * @see org.elasticsearch.common.Recycler#popObjectArray(int)      */
+comment|/* (non-Javadoc)      * @see org.elasticsearch.common.CacheRecycler#popObjectArray(int)      */
 annotation|@
 name|Override
 DECL|method|popObjectArray
@@ -1837,7 +1713,7 @@ return|return
 name|objects
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.elasticsearch.common.Recycler#pushObjectArray(java.lang.Object[])      */
+comment|/* (non-Javadoc)      * @see org.elasticsearch.common.CacheRecycler#pushObjectArray(java.lang.Object[])      */
 annotation|@
 name|Override
 DECL|method|pushObjectArray
@@ -1891,7 +1767,7 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/* (non-Javadoc)      * @see org.elasticsearch.common.Recycler#popIntArray(int)      */
+comment|/* (non-Javadoc)      * @see org.elasticsearch.common.CacheRecycler#popIntArray(int)      */
 annotation|@
 name|Override
 DECL|method|popIntArray
@@ -1913,7 +1789,7 @@ literal|0
 argument_list|)
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.elasticsearch.common.Recycler#popIntArray(int, int)      */
+comment|/* (non-Javadoc)      * @see org.elasticsearch.common.CacheRecycler#popIntArray(int, int)      */
 annotation|@
 name|Override
 DECL|method|popIntArray

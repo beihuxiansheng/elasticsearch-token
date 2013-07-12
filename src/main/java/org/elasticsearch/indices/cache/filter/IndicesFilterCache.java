@@ -122,7 +122,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|cache
+operator|.
+name|recycler
 operator|.
 name|CacheRecycler
 import|;
@@ -326,6 +328,12 @@ specifier|private
 specifier|final
 name|ThreadPool
 name|threadPool
+decl_stmt|;
+DECL|field|cacheRecycler
+specifier|private
+specifier|final
+name|CacheRecycler
+name|cacheRecycler
 decl_stmt|;
 DECL|field|cache
 specifier|private
@@ -592,6 +600,9 @@ parameter_list|,
 name|ThreadPool
 name|threadPool
 parameter_list|,
+name|CacheRecycler
+name|cacheRecycler
+parameter_list|,
 name|NodeSettingsService
 name|nodeSettingsService
 parameter_list|)
@@ -606,6 +617,12 @@ operator|.
 name|threadPool
 operator|=
 name|threadPool
+expr_stmt|;
+name|this
+operator|.
+name|cacheRecycler
+operator|=
+name|cacheRecycler
 expr_stmt|;
 name|this
 operator|.
@@ -1049,7 +1066,7 @@ name|Object
 argument_list|>
 name|keys
 init|=
-name|CacheRecycler
+name|cacheRecycler
 operator|.
 name|popHashSet
 argument_list|()
@@ -1186,7 +1203,7 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-name|CacheRecycler
+name|cacheRecycler
 operator|.
 name|pushHashSet
 argument_list|(

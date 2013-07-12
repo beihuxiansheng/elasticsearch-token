@@ -122,7 +122,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|cache
+operator|.
+name|recycler
 operator|.
 name|CacheRecycler
 import|;
@@ -280,6 +282,12 @@ name|ScriptTermsStringFieldFacetExecutor
 extends|extends
 name|FacetExecutor
 block|{
+DECL|field|cacheRecycler
+specifier|private
+specifier|final
+name|CacheRecycler
+name|cacheRecycler
+decl_stmt|;
 DECL|field|comparatorType
 specifier|private
 specifier|final
@@ -374,6 +382,9 @@ argument_list|,
 name|Object
 argument_list|>
 name|params
+parameter_list|,
+name|CacheRecycler
+name|cacheRecycler
 parameter_list|)
 block|{
 name|this
@@ -422,6 +433,12 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
+name|cacheRecycler
+operator|=
+name|cacheRecycler
+expr_stmt|;
+name|this
+operator|.
 name|excluded
 operator|=
 name|excluded
@@ -447,7 +464,7 @@ name|this
 operator|.
 name|facets
 operator|=
-name|CacheRecycler
+name|cacheRecycler
 operator|.
 name|popObjectIntMap
 argument_list|()
@@ -494,7 +511,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|CacheRecycler
+name|cacheRecycler
 operator|.
 name|pushObjectIntMap
 argument_list|(
@@ -654,7 +671,7 @@ argument_list|()
 operator|)
 expr_stmt|;
 block|}
-name|CacheRecycler
+name|cacheRecycler
 operator|.
 name|pushObjectIntMap
 argument_list|(
@@ -757,7 +774,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|CacheRecycler
+name|cacheRecycler
 operator|.
 name|pushObjectIntMap
 argument_list|(

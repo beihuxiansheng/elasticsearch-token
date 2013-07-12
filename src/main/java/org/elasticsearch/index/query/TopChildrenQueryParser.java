@@ -801,6 +801,11 @@ argument_list|,
 name|factor
 argument_list|,
 name|incrementalFactor
+argument_list|,
+name|parseContext
+operator|.
+name|cacheRecycler
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|searchContext

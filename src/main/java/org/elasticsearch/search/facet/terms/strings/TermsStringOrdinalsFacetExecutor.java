@@ -110,7 +110,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|cache
+operator|.
+name|recycler
 operator|.
 name|CacheRecycler
 import|;
@@ -354,6 +356,11 @@ operator|.
 name|WithOrdinals
 name|indexFieldData
 decl_stmt|;
+DECL|field|cacheRecycler
+specifier|final
+name|CacheRecycler
+name|cacheRecycler
+decl_stmt|;
 DECL|field|comparatorType
 specifier|private
 specifier|final
@@ -534,6 +541,15 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
+name|this
+operator|.
+name|cacheRecycler
+operator|=
+name|context
+operator|.
+name|cacheRecycler
+argument_list|()
+expr_stmt|;
 name|this
 operator|.
 name|aggregators
@@ -921,7 +937,7 @@ operator|>
 name|ordinalsCacheAbove
 condition|)
 block|{
-name|CacheRecycler
+name|cacheRecycler
 operator|.
 name|pushIntArray
 argument_list|(
@@ -1192,7 +1208,7 @@ operator|>
 name|ordinalsCacheAbove
 condition|)
 block|{
-name|CacheRecycler
+name|cacheRecycler
 operator|.
 name|pushIntArray
 argument_list|(
@@ -1344,6 +1360,8 @@ argument_list|(
 name|values
 argument_list|,
 name|ordinalsCacheAbove
+argument_list|,
+name|cacheRecycler
 argument_list|)
 expr_stmt|;
 name|ordinals
@@ -1554,6 +1572,9 @@ name|values
 parameter_list|,
 name|int
 name|ordinalsCacheLimit
+parameter_list|,
+name|CacheRecycler
+name|cacheRecycler
 parameter_list|)
 block|{
 name|this
@@ -1585,7 +1606,7 @@ name|this
 operator|.
 name|counts
 operator|=
-name|CacheRecycler
+name|cacheRecycler
 operator|.
 name|popIntArray
 argument_list|(

@@ -136,7 +136,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|cache
+operator|.
+name|recycler
 operator|.
 name|CacheRecycler
 import|;
@@ -344,6 +346,11 @@ name|TermsDoubleFacetExecutor
 extends|extends
 name|FacetExecutor
 block|{
+DECL|field|cacheRecycler
+specifier|private
+name|CacheRecycler
+name|cacheRecycler
+decl_stmt|;
 DECL|field|indexFieldData
 specifier|private
 specifier|final
@@ -421,6 +428,9 @@ name|excluded
 parameter_list|,
 name|SearchScript
 name|script
+parameter_list|,
+name|CacheRecycler
+name|cacheRecycler
 parameter_list|)
 block|{
 name|this
@@ -455,9 +465,15 @@ name|excluded
 expr_stmt|;
 name|this
 operator|.
+name|cacheRecycler
+operator|=
+name|cacheRecycler
+expr_stmt|;
+name|this
+operator|.
 name|facets
 operator|=
-name|CacheRecycler
+name|cacheRecycler
 operator|.
 name|popDoubleIntMap
 argument_list|()
@@ -735,7 +751,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|CacheRecycler
+name|cacheRecycler
 operator|.
 name|pushDoubleIntMap
 argument_list|(
@@ -890,7 +906,7 @@ name|pop
 argument_list|()
 expr_stmt|;
 block|}
-name|CacheRecycler
+name|cacheRecycler
 operator|.
 name|pushDoubleIntMap
 argument_list|(
@@ -990,7 +1006,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|CacheRecycler
+name|cacheRecycler
 operator|.
 name|pushDoubleIntMap
 argument_list|(
