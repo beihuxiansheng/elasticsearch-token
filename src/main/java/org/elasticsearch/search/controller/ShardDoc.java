@@ -38,9 +38,9 @@ specifier|public
 interface|interface
 name|ShardDoc
 block|{
-DECL|method|shardTarget
-name|SearchShardTarget
-name|shardTarget
+DECL|method|shardRequestId
+name|int
+name|shardRequestId
 parameter_list|()
 function_decl|;
 DECL|method|docId

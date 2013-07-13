@@ -2739,10 +2739,6 @@ name|TransportSearchAction
 operator|.
 name|class
 argument_list|,
-name|TransportSearchCache
-operator|.
-name|class
-argument_list|,
 name|TransportSearchDfsQueryThenFetchAction
 operator|.
 name|class

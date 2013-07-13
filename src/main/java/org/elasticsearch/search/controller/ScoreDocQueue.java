@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<p>Same as lucene {@link org.apache.lucene.search.HitQueue}.  *  *  */
+comment|/**  *<p>Same as lucene {@link org.apache.lucene.search.HitQueue}.  */
 end_comment
 
 begin_class
@@ -88,16 +88,13 @@ name|c
 init|=
 name|hitA
 operator|.
-name|shardTarget
+name|shardRequestId
 argument_list|()
-operator|.
-name|compareTo
-argument_list|(
+operator|-
 name|hitB
 operator|.
-name|shardTarget
+name|shardRequestId
 argument_list|()
-argument_list|)
 decl_stmt|;
 if|if
 condition|(
