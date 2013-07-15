@@ -978,7 +978,7 @@ name|executeQuery
 parameter_list|(
 specifier|final
 name|int
-name|shardRequestId
+name|shardIndex
 parameter_list|,
 specifier|final
 name|DfsSearchResult
@@ -1035,7 +1035,7 @@ name|queryResults
 operator|.
 name|set
 argument_list|(
-name|shardRequestId
+name|shardIndex
 argument_list|,
 name|result
 argument_list|)
@@ -1094,7 +1094,7 @@ name|this
 operator|.
 name|addShardFailure
 argument_list|(
-name|shardRequestId
+name|shardIndex
 argument_list|,
 operator|new
 name|ShardSearchFailure
@@ -1656,7 +1656,7 @@ name|executeFetch
 parameter_list|(
 specifier|final
 name|int
-name|shardRequestId
+name|shardIndex
 parameter_list|,
 specifier|final
 name|SearchShardTarget
@@ -1710,7 +1710,7 @@ name|fetchResults
 operator|.
 name|set
 argument_list|(
-name|shardRequestId
+name|shardIndex
 argument_list|,
 name|result
 argument_list|)
@@ -1769,7 +1769,7 @@ name|this
 operator|.
 name|addShardFailure
 argument_list|(
-name|shardRequestId
+name|shardIndex
 argument_list|,
 operator|new
 name|ShardSearchFailure

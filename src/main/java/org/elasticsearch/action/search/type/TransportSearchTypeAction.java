@@ -22,6 +22,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|ScoreDoc
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -297,20 +311,6 @@ operator|.
 name|controller
 operator|.
 name|SearchPhaseController
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|controller
-operator|.
-name|ShardDoc
 import|;
 end_import
 
@@ -605,7 +605,7 @@ decl_stmt|;
 DECL|field|sortedShardList
 specifier|protected
 specifier|volatile
-name|ShardDoc
+name|ScoreDoc
 index|[]
 name|sortedShardList
 decl_stmt|;
@@ -855,7 +855,7 @@ init|=
 literal|0
 decl_stmt|;
 name|int
-name|shardRequestId
+name|shardIndex
 init|=
 operator|-
 literal|1
@@ -869,7 +869,7 @@ range|:
 name|shardsIts
 control|)
 block|{
-name|shardRequestId
+name|shardIndex
 operator|++
 expr_stmt|;
 specifier|final
@@ -913,7 +913,7 @@ block|{
 comment|// do the remote operation here, the localAsync flag is not relevant
 name|performFirstPhase
 argument_list|(
-name|shardRequestId
+name|shardIndex
 argument_list|,
 name|shardIt
 argument_list|)
@@ -925,7 +925,7 @@ block|{
 comment|// really, no shards active in this group
 name|onFirstPhaseResult
 argument_list|(
-name|shardRequestId
+name|shardIndex
 argument_list|,
 literal|null
 argument_list|,
@@ -986,7 +986,7 @@ name|run
 parameter_list|()
 block|{
 name|int
-name|shardRequestId
+name|shardIndex
 init|=
 operator|-
 literal|1
@@ -1000,7 +1000,7 @@ range|:
 name|shardsIts
 control|)
 block|{
-name|shardRequestId
+name|shardIndex
 operator|++
 expr_stmt|;
 specifier|final
@@ -1037,7 +1037,7 @@ condition|)
 block|{
 name|performFirstPhase
 argument_list|(
-name|shardRequestId
+name|shardIndex
 argument_list|,
 name|shardIt
 argument_list|)
@@ -1075,7 +1075,7 @@ name|beforeLocalFork
 argument_list|()
 expr_stmt|;
 block|}
-name|shardRequestId
+name|shardIndex
 operator|=
 operator|-
 literal|1
@@ -1089,14 +1089,14 @@ range|:
 name|shardsIts
 control|)
 block|{
-name|shardRequestId
+name|shardIndex
 operator|++
 expr_stmt|;
 specifier|final
 name|int
-name|fShardRequestId
+name|fShardIndex
 init|=
-name|shardRequestId
+name|shardIndex
 decl_stmt|;
 specifier|final
 name|ShardRouting
@@ -1161,7 +1161,7 @@ parameter_list|()
 block|{
 name|performFirstPhase
 argument_list|(
-name|fShardRequestId
+name|fShardIndex
 argument_list|,
 name|shardIt
 argument_list|)
@@ -1175,7 +1175,7 @@ else|else
 block|{
 name|performFirstPhase
 argument_list|(
-name|fShardRequestId
+name|fShardIndex
 argument_list|,
 name|shardIt
 argument_list|)
@@ -1193,7 +1193,7 @@ name|performFirstPhase
 parameter_list|(
 specifier|final
 name|int
-name|shardRequestId
+name|shardIndex
 parameter_list|,
 specifier|final
 name|ShardIterator
@@ -1202,7 +1202,7 @@ parameter_list|)
 block|{
 name|performFirstPhase
 argument_list|(
-name|shardRequestId
+name|shardIndex
 argument_list|,
 name|shardIt
 argument_list|,
@@ -1219,7 +1219,7 @@ name|performFirstPhase
 parameter_list|(
 specifier|final
 name|int
-name|shardRequestId
+name|shardIndex
 parameter_list|,
 specifier|final
 name|ShardIterator
@@ -1240,7 +1240,7 @@ block|{
 comment|// no more active shards... (we should not really get here, but just for safety)
 name|onFirstPhaseResult
 argument_list|(
-name|shardRequestId
+name|shardIndex
 argument_list|,
 literal|null
 argument_list|,
@@ -1274,7 +1274,7 @@ condition|)
 block|{
 name|onFirstPhaseResult
 argument_list|(
-name|shardRequestId
+name|shardIndex
 argument_list|,
 name|shard
 argument_list|,
@@ -1347,7 +1347,7 @@ parameter_list|)
 block|{
 name|onFirstPhaseResult
 argument_list|(
-name|shardRequestId
+name|shardIndex
 argument_list|,
 name|shard
 argument_list|,
@@ -1369,7 +1369,7 @@ parameter_list|)
 block|{
 name|onFirstPhaseResult
 argument_list|(
-name|shardRequestId
+name|shardIndex
 argument_list|,
 name|shard
 argument_list|,
@@ -1390,7 +1390,7 @@ name|void
 name|onFirstPhaseResult
 parameter_list|(
 name|int
-name|shardRequestId
+name|shardIndex
 parameter_list|,
 name|ShardRouting
 name|shard
@@ -1428,7 +1428,7 @@ argument_list|)
 expr_stmt|;
 name|processFirstPhaseResult
 argument_list|(
-name|shardRequestId
+name|shardIndex
 argument_list|,
 name|shard
 argument_list|,
@@ -1531,7 +1531,7 @@ name|onFirstPhaseResult
 parameter_list|(
 specifier|final
 name|int
-name|shardRequestId
+name|shardIndex
 parameter_list|,
 annotation|@
 name|Nullable
@@ -1632,7 +1632,7 @@ block|{
 comment|// no active shards
 name|addShardFailure
 argument_list|(
-name|shardRequestId
+name|shardIndex
 argument_list|,
 operator|new
 name|ShardSearchFailure
@@ -1675,7 +1675,7 @@ else|else
 block|{
 name|addShardFailure
 argument_list|(
-name|shardRequestId
+name|shardIndex
 argument_list|,
 operator|new
 name|ShardSearchFailure
@@ -1834,7 +1834,7 @@ block|}
 block|}
 name|performFirstPhase
 argument_list|(
-name|shardRequestId
+name|shardIndex
 argument_list|,
 name|shardIt
 argument_list|,
@@ -1920,7 +1920,7 @@ block|{
 comment|// no active shards
 name|addShardFailure
 argument_list|(
-name|shardRequestId
+name|shardIndex
 argument_list|,
 operator|new
 name|ShardSearchFailure
@@ -1963,7 +1963,7 @@ else|else
 block|{
 name|addShardFailure
 argument_list|(
-name|shardRequestId
+name|shardIndex
 argument_list|,
 operator|new
 name|ShardSearchFailure
@@ -2089,7 +2089,7 @@ name|addShardFailure
 parameter_list|(
 specifier|final
 name|int
-name|shardRequestId
+name|shardIndex
 parameter_list|,
 name|ShardSearchFailure
 name|failure
@@ -2121,7 +2121,7 @@ name|shardFailures
 operator|.
 name|set
 argument_list|(
-name|shardRequestId
+name|shardIndex
 argument_list|,
 name|failure
 argument_list|)
@@ -2279,7 +2279,7 @@ name|void
 name|processFirstPhaseResult
 parameter_list|(
 name|int
-name|shardRequestId
+name|shardIndex
 parameter_list|,
 name|ShardRouting
 name|shard
@@ -2292,7 +2292,7 @@ name|firstResults
 operator|.
 name|set
 argument_list|(
-name|shardRequestId
+name|shardIndex
 argument_list|,
 name|result
 argument_list|)

@@ -22,6 +22,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|ScoreDoc
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -195,20 +209,6 @@ operator|.
 name|controller
 operator|.
 name|SearchPhaseController
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|controller
-operator|.
-name|ShardDoc
 import|;
 end_import
 
@@ -679,7 +679,7 @@ name|addShardFailure
 parameter_list|(
 specifier|final
 name|int
-name|shardRequestId
+name|shardIndex
 parameter_list|,
 name|ShardSearchFailure
 name|failure
@@ -713,7 +713,7 @@ name|shardFailures
 operator|.
 name|set
 argument_list|(
-name|shardRequestId
+name|shardIndex
 argument_list|,
 name|failure
 argument_list|)
@@ -1112,7 +1112,7 @@ index|]
 decl_stmt|;
 specifier|final
 name|int
-name|shardRequestId
+name|shardIndex
 init|=
 name|i
 decl_stmt|;
@@ -1181,7 +1181,7 @@ parameter_list|()
 block|{
 name|executePhase
 argument_list|(
-name|shardRequestId
+name|shardIndex
 argument_list|,
 name|node
 argument_list|,
@@ -1200,7 +1200,7 @@ else|else
 block|{
 name|executePhase
 argument_list|(
-name|shardRequestId
+name|shardIndex
 argument_list|,
 name|node
 argument_list|,
@@ -1312,7 +1312,7 @@ name|executePhase
 parameter_list|(
 specifier|final
 name|int
-name|shardRequestId
+name|shardIndex
 parameter_list|,
 name|DiscoveryNode
 name|node
@@ -1356,7 +1356,7 @@ name|queryFetchResults
 operator|.
 name|set
 argument_list|(
-name|shardRequestId
+name|shardIndex
 argument_list|,
 name|result
 argument_list|)
@@ -1408,7 +1408,7 @@ expr_stmt|;
 block|}
 name|addShardFailure
 argument_list|(
-name|shardRequestId
+name|shardIndex
 argument_list|,
 operator|new
 name|ShardSearchFailure
@@ -1485,7 +1485,7 @@ name|void
 name|innerFinishHim
 parameter_list|()
 block|{
-name|ShardDoc
+name|ScoreDoc
 index|[]
 name|sortedShardList
 init|=
