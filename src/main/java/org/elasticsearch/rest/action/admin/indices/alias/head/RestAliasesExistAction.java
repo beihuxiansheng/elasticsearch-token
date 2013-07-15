@@ -82,7 +82,7 @@ name|alias
 operator|.
 name|get
 operator|.
-name|IndicesGetAliasesRequest
+name|GetAliasesRequest
 import|;
 end_import
 
@@ -330,11 +330,11 @@ literal|"index"
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|IndicesGetAliasesRequest
+name|GetAliasesRequest
 name|getAliasesRequest
 init|=
 operator|new
-name|IndicesGetAliasesRequest
+name|GetAliasesRequest
 argument_list|(
 name|aliases
 argument_list|)

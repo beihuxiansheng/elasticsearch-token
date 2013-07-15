@@ -95,11 +95,11 @@ comment|/**  */
 end_comment
 
 begin_class
-DECL|class|BaseIndicesAliasesRequestBuilder
+DECL|class|BaseAliasesRequestBuilder
 specifier|public
 specifier|abstract
 class|class
-name|BaseIndicesAliasesRequestBuilder
+name|BaseAliasesRequestBuilder
 parameter_list|<
 name|Response
 extends|extends
@@ -107,7 +107,7 @@ name|ActionResponse
 parameter_list|,
 name|Builder
 extends|extends
-name|BaseIndicesAliasesRequestBuilder
+name|BaseAliasesRequestBuilder
 parameter_list|<
 name|Response
 parameter_list|,
@@ -117,16 +117,16 @@ parameter_list|>
 extends|extends
 name|MasterNodeOperationRequestBuilder
 argument_list|<
-name|IndicesGetAliasesRequest
+name|GetAliasesRequest
 argument_list|,
 name|Response
 argument_list|,
 name|Builder
 argument_list|>
 block|{
-DECL|method|BaseIndicesAliasesRequestBuilder
+DECL|method|BaseAliasesRequestBuilder
 specifier|public
-name|BaseIndicesAliasesRequestBuilder
+name|BaseAliasesRequestBuilder
 parameter_list|(
 name|IndicesAdminClient
 name|client
@@ -144,7 +144,7 @@ operator|)
 name|client
 argument_list|,
 operator|new
-name|IndicesGetAliasesRequest
+name|GetAliasesRequest
 argument_list|(
 name|aliases
 argument_list|)

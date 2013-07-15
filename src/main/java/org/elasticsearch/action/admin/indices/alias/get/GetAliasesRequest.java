@@ -137,14 +137,14 @@ comment|/**  */
 end_comment
 
 begin_class
-DECL|class|IndicesGetAliasesRequest
+DECL|class|GetAliasesRequest
 specifier|public
 class|class
-name|IndicesGetAliasesRequest
+name|GetAliasesRequest
 extends|extends
 name|MasterNodeOperationRequest
 argument_list|<
-name|IndicesGetAliasesRequest
+name|GetAliasesRequest
 argument_list|>
 block|{
 DECL|field|indices
@@ -176,9 +176,9 @@ name|IgnoreIndices
 operator|.
 name|NONE
 decl_stmt|;
-DECL|method|IndicesGetAliasesRequest
+DECL|method|GetAliasesRequest
 specifier|public
-name|IndicesGetAliasesRequest
+name|GetAliasesRequest
 parameter_list|(
 name|String
 index|[]
@@ -192,9 +192,9 @@ operator|=
 name|aliases
 expr_stmt|;
 block|}
-DECL|method|IndicesGetAliasesRequest
+DECL|method|GetAliasesRequest
 specifier|public
-name|IndicesGetAliasesRequest
+name|GetAliasesRequest
 parameter_list|(
 name|String
 name|alias
@@ -212,14 +212,14 @@ name|alias
 block|}
 expr_stmt|;
 block|}
-DECL|method|IndicesGetAliasesRequest
+DECL|method|GetAliasesRequest
 specifier|public
-name|IndicesGetAliasesRequest
+name|GetAliasesRequest
 parameter_list|()
 block|{     }
 DECL|method|indices
 specifier|public
-name|IndicesGetAliasesRequest
+name|GetAliasesRequest
 name|indices
 parameter_list|(
 name|String
@@ -239,7 +239,7 @@ return|;
 block|}
 DECL|method|aliases
 specifier|public
-name|IndicesGetAliasesRequest
+name|GetAliasesRequest
 name|aliases
 parameter_list|(
 name|String
@@ -259,7 +259,7 @@ return|;
 block|}
 DECL|method|ignoreIndices
 specifier|public
-name|IndicesGetAliasesRequest
+name|GetAliasesRequest
 name|ignoreIndices
 parameter_list|(
 name|IgnoreIndices

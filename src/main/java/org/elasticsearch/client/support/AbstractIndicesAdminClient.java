@@ -192,7 +192,7 @@ name|alias
 operator|.
 name|get
 operator|.
-name|IndicesGetAliasesAction
+name|GetAliasesAction
 import|;
 end_import
 
@@ -212,7 +212,7 @@ name|alias
 operator|.
 name|get
 operator|.
-name|IndicesGetAliasesRequest
+name|GetAliasesRequest
 import|;
 end_import
 
@@ -232,7 +232,7 @@ name|alias
 operator|.
 name|get
 operator|.
-name|IndicesGetAliasesRequestBuilder
+name|GetAliasesRequestBuilder
 import|;
 end_import
 
@@ -252,7 +252,7 @@ name|alias
 operator|.
 name|get
 operator|.
-name|IndicesGetAliasesResponse
+name|GetAliasesResponse
 import|;
 end_import
 
@@ -2481,18 +2481,18 @@ DECL|method|getAliases
 specifier|public
 name|ActionFuture
 argument_list|<
-name|IndicesGetAliasesResponse
+name|GetAliasesResponse
 argument_list|>
 name|getAliases
 parameter_list|(
-name|IndicesGetAliasesRequest
+name|GetAliasesRequest
 name|request
 parameter_list|)
 block|{
 return|return
 name|execute
 argument_list|(
-name|IndicesGetAliasesAction
+name|GetAliasesAction
 operator|.
 name|INSTANCE
 argument_list|,
@@ -2507,19 +2507,19 @@ specifier|public
 name|void
 name|getAliases
 parameter_list|(
-name|IndicesGetAliasesRequest
+name|GetAliasesRequest
 name|request
 parameter_list|,
 name|ActionListener
 argument_list|<
-name|IndicesGetAliasesResponse
+name|GetAliasesResponse
 argument_list|>
 name|listener
 parameter_list|)
 block|{
 name|execute
 argument_list|(
-name|IndicesGetAliasesAction
+name|GetAliasesAction
 operator|.
 name|INSTANCE
 argument_list|,
@@ -2533,7 +2533,7 @@ annotation|@
 name|Override
 DECL|method|prepareGetAliases
 specifier|public
-name|IndicesGetAliasesRequestBuilder
+name|GetAliasesRequestBuilder
 name|prepareGetAliases
 parameter_list|(
 name|String
@@ -2543,7 +2543,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|IndicesGetAliasesRequestBuilder
+name|GetAliasesRequestBuilder
 argument_list|(
 name|this
 argument_list|,
@@ -2584,7 +2584,7 @@ specifier|public
 name|void
 name|aliasesExist
 parameter_list|(
-name|IndicesGetAliasesRequest
+name|GetAliasesRequest
 name|request
 parameter_list|,
 name|ActionListener
@@ -2616,7 +2616,7 @@ name|AliasesExistResponse
 argument_list|>
 name|aliasesExist
 parameter_list|(
-name|IndicesGetAliasesRequest
+name|GetAliasesRequest
 name|request
 parameter_list|)
 block|{

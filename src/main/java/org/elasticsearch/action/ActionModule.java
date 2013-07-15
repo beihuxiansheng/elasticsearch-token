@@ -500,7 +500,7 @@ name|alias
 operator|.
 name|get
 operator|.
-name|IndicesGetAliasesAction
+name|GetAliasesAction
 import|;
 end_import
 
@@ -520,7 +520,7 @@ name|alias
 operator|.
 name|get
 operator|.
-name|TransportIndicesGetAliasesAction
+name|TransportGetAliasesAction
 import|;
 end_import
 
@@ -2575,11 +2575,11 @@ argument_list|)
 expr_stmt|;
 name|registerAction
 argument_list|(
-name|IndicesGetAliasesAction
+name|GetAliasesAction
 operator|.
 name|INSTANCE
 argument_list|,
-name|TransportIndicesGetAliasesAction
+name|TransportGetAliasesAction
 operator|.
 name|class
 argument_list|)

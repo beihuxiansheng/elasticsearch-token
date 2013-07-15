@@ -135,10 +135,10 @@ comment|/**  */
 end_comment
 
 begin_class
-DECL|class|IndicesGetAliasesResponse
+DECL|class|GetAliasesResponse
 specifier|public
 class|class
-name|IndicesGetAliasesResponse
+name|GetAliasesResponse
 extends|extends
 name|ActionResponse
 block|{
@@ -167,9 +167,9 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|method|IndicesGetAliasesResponse
+DECL|method|GetAliasesResponse
 specifier|public
-name|IndicesGetAliasesResponse
+name|GetAliasesResponse
 parameter_list|(
 name|Map
 argument_list|<
@@ -190,8 +190,8 @@ operator|=
 name|aliases
 expr_stmt|;
 block|}
-DECL|method|IndicesGetAliasesResponse
-name|IndicesGetAliasesResponse
+DECL|method|GetAliasesResponse
+name|GetAliasesResponse
 parameter_list|()
 block|{     }
 DECL|method|getAliases

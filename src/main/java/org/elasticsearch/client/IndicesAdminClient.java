@@ -152,7 +152,7 @@ name|alias
 operator|.
 name|get
 operator|.
-name|IndicesGetAliasesRequest
+name|GetAliasesRequest
 import|;
 end_import
 
@@ -172,7 +172,7 @@ name|alias
 operator|.
 name|get
 operator|.
-name|IndicesGetAliasesRequestBuilder
+name|GetAliasesRequestBuilder
 import|;
 end_import
 
@@ -192,7 +192,7 @@ name|alias
 operator|.
 name|get
 operator|.
-name|IndicesGetAliasesResponse
+name|GetAliasesResponse
 import|;
 end_import
 
@@ -2394,11 +2394,11 @@ comment|/**      * Get specific index aliases that exists in particular indices 
 DECL|method|getAliases
 name|ActionFuture
 argument_list|<
-name|IndicesGetAliasesResponse
+name|GetAliasesResponse
 argument_list|>
 name|getAliases
 parameter_list|(
-name|IndicesGetAliasesRequest
+name|GetAliasesRequest
 name|request
 parameter_list|)
 function_decl|;
@@ -2407,19 +2407,19 @@ DECL|method|getAliases
 name|void
 name|getAliases
 parameter_list|(
-name|IndicesGetAliasesRequest
+name|GetAliasesRequest
 name|request
 parameter_list|,
 name|ActionListener
 argument_list|<
-name|IndicesGetAliasesResponse
+name|GetAliasesResponse
 argument_list|>
 name|listener
 parameter_list|)
 function_decl|;
 comment|/**      * Get specific index aliases that exists in particular indices and / or by name.      */
 DECL|method|prepareGetAliases
-name|IndicesGetAliasesRequestBuilder
+name|GetAliasesRequestBuilder
 name|prepareGetAliases
 parameter_list|(
 name|String
@@ -2445,7 +2445,7 @@ name|AliasesExistResponse
 argument_list|>
 name|aliasesExist
 parameter_list|(
-name|IndicesGetAliasesRequest
+name|GetAliasesRequest
 name|request
 parameter_list|)
 function_decl|;
@@ -2454,7 +2454,7 @@ DECL|method|aliasesExist
 name|void
 name|aliasesExist
 parameter_list|(
-name|IndicesGetAliasesRequest
+name|GetAliasesRequest
 name|request
 parameter_list|,
 name|ActionListener

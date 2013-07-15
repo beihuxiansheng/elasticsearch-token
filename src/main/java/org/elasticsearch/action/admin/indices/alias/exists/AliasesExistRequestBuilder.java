@@ -50,7 +50,7 @@ name|alias
 operator|.
 name|get
 operator|.
-name|BaseIndicesAliasesRequestBuilder
+name|BaseAliasesRequestBuilder
 import|;
 end_import
 
@@ -76,7 +76,7 @@ specifier|public
 class|class
 name|AliasesExistRequestBuilder
 extends|extends
-name|BaseIndicesAliasesRequestBuilder
+name|BaseAliasesRequestBuilder
 argument_list|<
 name|AliasesExistResponse
 argument_list|,

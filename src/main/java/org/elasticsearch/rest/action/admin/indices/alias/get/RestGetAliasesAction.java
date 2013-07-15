@@ -52,7 +52,7 @@ name|alias
 operator|.
 name|get
 operator|.
-name|IndicesGetAliasesRequest
+name|GetAliasesRequest
 import|;
 end_import
 
@@ -72,7 +72,7 @@ name|alias
 operator|.
 name|get
 operator|.
-name|IndicesGetAliasesResponse
+name|GetAliasesResponse
 import|;
 end_import
 
@@ -307,18 +307,18 @@ comment|/**  */
 end_comment
 
 begin_class
-DECL|class|RestIndicesGetAliasesAction
+DECL|class|RestGetAliasesAction
 specifier|public
 class|class
-name|RestIndicesGetAliasesAction
+name|RestGetAliasesAction
 extends|extends
 name|BaseRestHandler
 block|{
 annotation|@
 name|Inject
-DECL|method|RestIndicesGetAliasesAction
+DECL|method|RestGetAliasesAction
 specifier|public
-name|RestIndicesGetAliasesAction
+name|RestGetAliasesAction
 parameter_list|(
 name|Settings
 name|settings
@@ -408,11 +408,11 @@ literal|"index"
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|IndicesGetAliasesRequest
+name|GetAliasesRequest
 name|getAliasesRequest
 init|=
 operator|new
-name|IndicesGetAliasesRequest
+name|GetAliasesRequest
 argument_list|(
 name|aliases
 argument_list|)
@@ -467,7 +467,7 @@ argument_list|,
 operator|new
 name|ActionListener
 argument_list|<
-name|IndicesGetAliasesResponse
+name|GetAliasesResponse
 argument_list|>
 argument_list|()
 block|{
@@ -477,7 +477,7 @@ specifier|public
 name|void
 name|onResponse
 parameter_list|(
-name|IndicesGetAliasesResponse
+name|GetAliasesResponse
 name|response
 parameter_list|)
 block|{

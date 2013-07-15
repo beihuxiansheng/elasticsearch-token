@@ -54,7 +54,7 @@ name|alias
 operator|.
 name|get
 operator|.
-name|IndicesGetAliasesRequest
+name|GetAliasesRequest
 import|;
 end_import
 
@@ -82,7 +82,7 @@ name|AliasesExistAction
 extends|extends
 name|IndicesAction
 argument_list|<
-name|IndicesGetAliasesRequest
+name|GetAliasesRequest
 argument_list|,
 name|AliasesExistResponse
 argument_list|,

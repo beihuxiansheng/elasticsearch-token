@@ -366,7 +366,7 @@ name|alias
 operator|.
 name|get
 operator|.
-name|RestIndicesGetAliasesAction
+name|RestGetAliasesAction
 import|;
 end_import
 
@@ -1609,7 +1609,7 @@ argument_list|()
 expr_stmt|;
 name|bind
 argument_list|(
-name|RestIndicesGetAliasesAction
+name|RestGetAliasesAction
 operator|.
 name|class
 argument_list|)

@@ -48,7 +48,7 @@ name|alias
 operator|.
 name|get
 operator|.
-name|IndicesGetAliasesRequest
+name|GetAliasesRequest
 import|;
 end_import
 
@@ -156,7 +156,7 @@ name|TransportAliasesExistAction
 extends|extends
 name|TransportMasterNodeOperationAction
 argument_list|<
-name|IndicesGetAliasesRequest
+name|GetAliasesRequest
 argument_list|,
 name|AliasesExistResponse
 argument_list|>
@@ -226,13 +226,13 @@ annotation|@
 name|Override
 DECL|method|newRequest
 specifier|protected
-name|IndicesGetAliasesRequest
+name|GetAliasesRequest
 name|newRequest
 parameter_list|()
 block|{
 return|return
 operator|new
-name|IndicesGetAliasesRequest
+name|GetAliasesRequest
 argument_list|()
 return|;
 block|}
@@ -257,7 +257,7 @@ specifier|protected
 name|AliasesExistResponse
 name|masterOperation
 parameter_list|(
-name|IndicesGetAliasesRequest
+name|GetAliasesRequest
 name|request
 parameter_list|,
 name|ClusterState

@@ -108,7 +108,7 @@ name|alias
 operator|.
 name|get
 operator|.
-name|IndicesGetAliasesResponse
+name|GetAliasesResponse
 import|;
 end_import
 
@@ -7753,7 +7753,7 @@ argument_list|(
 literal|"--> getting alias1"
 argument_list|)
 expr_stmt|;
-name|IndicesGetAliasesResponse
+name|GetAliasesResponse
 name|getResponse
 init|=
 name|client
