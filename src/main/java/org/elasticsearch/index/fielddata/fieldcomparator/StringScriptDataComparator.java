@@ -256,6 +256,7 @@ name|BytesRef
 index|[]
 name|values
 decl_stmt|;
+comment|// TODO maybe we can preallocate or use a sentinel to prevent the conditionals in compare
 DECL|field|bottom
 specifier|private
 name|BytesRef
@@ -263,6 +264,7 @@ name|bottom
 decl_stmt|;
 DECL|field|spare
 specifier|private
+specifier|final
 name|BytesRef
 name|spare
 init|=
@@ -454,6 +456,11 @@ operator|-
 literal|1
 return|;
 block|}
+name|setSpare
+argument_list|(
+name|doc
+argument_list|)
+expr_stmt|;
 return|return
 name|bottom
 operator|.
