@@ -132,7 +132,7 @@ name|alias
 operator|.
 name|exists
 operator|.
-name|IndicesExistsAliasesAction
+name|AliasesExistAction
 import|;
 end_import
 
@@ -152,7 +152,7 @@ name|alias
 operator|.
 name|exists
 operator|.
-name|IndicesExistsAliasesRequestBuilder
+name|AliasesExistRequestBuilder
 import|;
 end_import
 
@@ -172,7 +172,7 @@ name|alias
 operator|.
 name|exists
 operator|.
-name|IndicesExistsAliasesResponse
+name|AliasesExistResponse
 import|;
 end_import
 
@@ -2579,24 +2579,24 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|existsAliases
+DECL|method|aliasesExist
 specifier|public
 name|void
-name|existsAliases
+name|aliasesExist
 parameter_list|(
 name|IndicesGetAliasesRequest
 name|request
 parameter_list|,
 name|ActionListener
 argument_list|<
-name|IndicesExistsAliasesResponse
+name|AliasesExistResponse
 argument_list|>
 name|listener
 parameter_list|)
 block|{
 name|execute
 argument_list|(
-name|IndicesExistsAliasesAction
+name|AliasesExistAction
 operator|.
 name|INSTANCE
 argument_list|,
@@ -2608,13 +2608,13 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|existsAliases
+DECL|method|aliasesExist
 specifier|public
 name|ActionFuture
 argument_list|<
-name|IndicesExistsAliasesResponse
+name|AliasesExistResponse
 argument_list|>
-name|existsAliases
+name|aliasesExist
 parameter_list|(
 name|IndicesGetAliasesRequest
 name|request
@@ -2623,7 +2623,7 @@ block|{
 return|return
 name|execute
 argument_list|(
-name|IndicesExistsAliasesAction
+name|AliasesExistAction
 operator|.
 name|INSTANCE
 argument_list|,
@@ -2633,10 +2633,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|prepareExistsAliases
+DECL|method|prepareAliasesExist
 specifier|public
-name|IndicesExistsAliasesRequestBuilder
-name|prepareExistsAliases
+name|AliasesExistRequestBuilder
+name|prepareAliasesExist
 parameter_list|(
 name|String
 modifier|...
@@ -2645,7 +2645,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|IndicesExistsAliasesRequestBuilder
+name|AliasesExistRequestBuilder
 argument_list|(
 name|this
 argument_list|,

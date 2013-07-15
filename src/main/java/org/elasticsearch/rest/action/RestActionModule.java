@@ -388,7 +388,7 @@ name|alias
 operator|.
 name|head
 operator|.
-name|RestIndicesHeadAliasesAction
+name|RestAliasesExistAction
 import|;
 end_import
 
@@ -1619,7 +1619,7 @@ argument_list|()
 expr_stmt|;
 name|bind
 argument_list|(
-name|RestIndicesHeadAliasesAction
+name|RestAliasesExistAction
 operator|.
 name|class
 argument_list|)

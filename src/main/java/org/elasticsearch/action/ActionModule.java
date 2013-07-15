@@ -460,7 +460,7 @@ name|alias
 operator|.
 name|exists
 operator|.
-name|IndicesExistsAliasesAction
+name|AliasesExistAction
 import|;
 end_import
 
@@ -480,7 +480,7 @@ name|alias
 operator|.
 name|exists
 operator|.
-name|TransportIndicesExistsAliasesAction
+name|TransportAliasesExistAction
 import|;
 end_import
 
@@ -2586,11 +2586,11 @@ argument_list|)
 expr_stmt|;
 name|registerAction
 argument_list|(
-name|IndicesExistsAliasesAction
+name|AliasesExistAction
 operator|.
 name|INSTANCE
 argument_list|,
-name|TransportIndicesExistsAliasesAction
+name|TransportAliasesExistAction
 operator|.
 name|class
 argument_list|)

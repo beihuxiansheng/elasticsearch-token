@@ -62,7 +62,7 @@ name|alias
 operator|.
 name|exists
 operator|.
-name|IndicesExistsAliasesResponse
+name|AliasesExistResponse
 import|;
 end_import
 
@@ -229,18 +229,18 @@ comment|/**  */
 end_comment
 
 begin_class
-DECL|class|RestIndicesHeadAliasesAction
+DECL|class|RestAliasesExistAction
 specifier|public
 class|class
-name|RestIndicesHeadAliasesAction
+name|RestAliasesExistAction
 extends|extends
 name|BaseRestHandler
 block|{
 annotation|@
 name|Inject
-DECL|method|RestIndicesHeadAliasesAction
+DECL|method|RestAliasesExistAction
 specifier|public
-name|RestIndicesHeadAliasesAction
+name|RestAliasesExistAction
 parameter_list|(
 name|Settings
 name|settings
@@ -382,14 +382,14 @@ operator|.
 name|indices
 argument_list|()
 operator|.
-name|existsAliases
+name|aliasesExist
 argument_list|(
 name|getAliasesRequest
 argument_list|,
 operator|new
 name|ActionListener
 argument_list|<
-name|IndicesExistsAliasesResponse
+name|AliasesExistResponse
 argument_list|>
 argument_list|()
 block|{
@@ -399,7 +399,7 @@ specifier|public
 name|void
 name|onResponse
 parameter_list|(
-name|IndicesExistsAliasesResponse
+name|AliasesExistResponse
 name|response
 parameter_list|)
 block|{
