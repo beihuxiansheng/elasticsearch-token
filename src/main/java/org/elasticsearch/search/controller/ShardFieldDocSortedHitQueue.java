@@ -4,17 +4,15 @@ comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more cont
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.common.lucene.search
+DECL|package|org.elasticsearch.search.controller
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|lucene
-operator|.
 name|search
+operator|.
+name|controller
 package|;
 end_package
 
