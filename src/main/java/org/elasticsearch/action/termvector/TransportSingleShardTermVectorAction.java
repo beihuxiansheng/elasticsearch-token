@@ -783,7 +783,12 @@ name|termVectorResponse
 operator|.
 name|setFields
 argument_list|(
-name|topLevelReader
+name|docIdAndVersion
+operator|.
+name|context
+operator|.
+name|reader
+argument_list|()
 operator|.
 name|getTermVectors
 argument_list|(
