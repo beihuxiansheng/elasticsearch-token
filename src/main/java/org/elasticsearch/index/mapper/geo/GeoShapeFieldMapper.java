@@ -1387,6 +1387,15 @@ name|parser
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|shape
+operator|==
+literal|null
+condition|)
+block|{
+return|return;
+block|}
 name|Field
 index|[]
 name|fields
