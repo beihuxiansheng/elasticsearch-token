@@ -2307,7 +2307,7 @@ try|try
 block|{
 name|docIdAndVersion
 operator|.
-name|reader
+name|context
 operator|.
 name|reader
 argument_list|()
@@ -2538,7 +2538,7 @@ name|setNextReader
 argument_list|(
 name|docIdAndVersion
 operator|.
-name|reader
+name|context
 argument_list|)
 expr_stmt|;
 name|searchScript
@@ -2653,7 +2653,7 @@ name|setNextReader
 argument_list|(
 name|docIdAndVersion
 operator|.
-name|reader
+name|context
 argument_list|)
 expr_stmt|;
 name|searchLookup

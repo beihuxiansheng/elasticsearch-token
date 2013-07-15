@@ -172,11 +172,11 @@ specifier|final
 name|long
 name|version
 decl_stmt|;
-DECL|field|reader
+DECL|field|context
 specifier|public
 specifier|final
 name|AtomicReaderContext
-name|reader
+name|context
 decl_stmt|;
 DECL|method|DocIdAndVersion
 specifier|public
@@ -189,7 +189,7 @@ name|long
 name|version
 parameter_list|,
 name|AtomicReaderContext
-name|reader
+name|context
 parameter_list|)
 block|{
 name|this
@@ -206,9 +206,9 @@ name|version
 expr_stmt|;
 name|this
 operator|.
-name|reader
+name|context
 operator|=
-name|reader
+name|context
 expr_stmt|;
 block|}
 block|}

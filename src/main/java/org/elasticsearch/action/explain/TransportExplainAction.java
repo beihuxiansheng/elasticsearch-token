@@ -821,7 +821,7 @@ operator|.
 name|docIdAndVersion
 argument_list|()
 operator|.
-name|reader
+name|context
 operator|.
 name|docBase
 decl_stmt|;
