@@ -4883,10 +4883,6 @@ literal|8d
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// TODO: needed?
-name|refresh
-argument_list|()
-expr_stmt|;
 comment|// test scope ones (post based)
 name|searchResponse
 operator|=
