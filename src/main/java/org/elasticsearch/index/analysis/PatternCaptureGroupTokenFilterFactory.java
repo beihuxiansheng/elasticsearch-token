@@ -26,7 +26,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|TokenStream
+name|pattern
+operator|.
+name|PatternCaptureGroupTokenFilter
 import|;
 end_import
 
@@ -40,9 +42,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|pattern
-operator|.
-name|XPatternCaptureGroupTokenFilter
+name|TokenFilter
 import|;
 end_import
 
@@ -54,9 +54,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|util
+name|analysis
 operator|.
-name|Version
+name|TokenStream
 import|;
 end_import
 
@@ -99,20 +99,6 @@ operator|.
 name|assistedinject
 operator|.
 name|Assisted
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|lucene
-operator|.
-name|Lucene
 import|;
 end_import
 
@@ -189,27 +175,6 @@ specifier|private
 name|boolean
 name|preserveOriginal
 decl_stmt|;
-static|static
-block|{
-comment|// LUCENE MONITOR: this should be in Lucene 4.4 copied from Revision: 1471347.
-assert|assert
-name|Lucene
-operator|.
-name|VERSION
-operator|==
-name|Version
-operator|.
-name|LUCENE_43
-operator|:
-literal|"Elasticsearch has upgraded to Lucene Version: ["
-operator|+
-name|Lucene
-operator|.
-name|VERSION
-operator|+
-literal|"] this class should be removed"
-assert|;
-block|}
 annotation|@
 name|Inject
 DECL|method|PatternCaptureGroupTokenFilterFactory
@@ -322,7 +287,7 @@ annotation|@
 name|Override
 DECL|method|create
 specifier|public
-name|XPatternCaptureGroupTokenFilter
+name|TokenFilter
 name|create
 parameter_list|(
 name|TokenStream
@@ -331,7 +296,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|XPatternCaptureGroupTokenFilter
+name|PatternCaptureGroupTokenFilter
 argument_list|(
 name|tokenStream
 argument_list|,
