@@ -1158,11 +1158,12 @@ comment|// note, we don't wrap the return value with a BitsFilteredDocIdSet.wrap
 comment|// we rely on our custom XFilteredQuery to do the wrapping if needed, so we don't have the wrap each
 comment|// filter on its own
 return|return
-name|cacheValue
-operator|==
-name|DocIdSet
+name|DocIdSets
 operator|.
-name|EMPTY_DOCIDSET
+name|isEmpty
+argument_list|(
+name|cacheValue
+argument_list|)
 condition|?
 literal|null
 else|:

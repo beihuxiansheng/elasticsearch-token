@@ -228,18 +228,6 @@ name|IOException
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
-name|Field
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -259,7 +247,7 @@ name|VERSION
 init|=
 name|Version
 operator|.
-name|LUCENE_43
+name|LUCENE_44
 decl_stmt|;
 DECL|field|ANALYZER_VERSION
 specifier|public
@@ -373,6 +361,22 @@ condition|)
 block|{
 return|return
 name|defaultVersion
+return|;
+block|}
+if|if
+condition|(
+literal|"4.4"
+operator|.
+name|equals
+argument_list|(
+name|version
+argument_list|)
+condition|)
+block|{
+return|return
+name|VERSION
+operator|.
+name|LUCENE_44
 return|;
 block|}
 if|if

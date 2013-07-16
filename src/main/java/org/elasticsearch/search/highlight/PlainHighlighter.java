@@ -1176,7 +1176,7 @@ condition|)
 block|{
 name|CollectionUtil
 operator|.
-name|quickSort
+name|introSort
 argument_list|(
 name|fragsList
 argument_list|,

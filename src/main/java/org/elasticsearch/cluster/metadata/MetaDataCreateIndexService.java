@@ -3375,7 +3375,7 @@ block|}
 block|}
 name|CollectionUtil
 operator|.
-name|quickSort
+name|timSort
 argument_list|(
 name|templates
 argument_list|,

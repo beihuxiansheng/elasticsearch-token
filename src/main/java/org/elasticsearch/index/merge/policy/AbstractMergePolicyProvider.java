@@ -98,12 +98,6 @@ name|INDEX_COMPOUND_FORMAT
 init|=
 literal|"index.compound_format"
 decl_stmt|;
-DECL|field|compoundFormat
-specifier|protected
-specifier|volatile
-name|boolean
-name|compoundFormat
-decl_stmt|;
 DECL|field|noCFSRatio
 specifier|protected
 specifier|volatile
@@ -154,14 +148,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|compoundFormat
-operator|=
-name|noCFSRatio
-operator|!=
-literal|0.0
 expr_stmt|;
 block|}
 DECL|method|parseNoCFSRatio

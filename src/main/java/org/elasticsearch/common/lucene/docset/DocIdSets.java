@@ -194,8 +194,6 @@ literal|null
 operator|||
 name|set
 operator|==
-name|DocIdSet
-operator|.
 name|EMPTY_DOCIDSET
 return|;
 block|}
@@ -234,7 +232,7 @@ operator|instanceof
 name|OpenBitSetIterator
 return|;
 block|}
-comment|/**      * Converts to a cacheable {@link DocIdSet}      *<p/>      * Note, we don't use {@link org.apache.lucene.search.DocIdSet#isCacheable()} because execution      * might be expensive even if its cacheable (i.e. not going back to the reader to execute). We effectively      * always either return {@link DocIdSet#EMPTY_DOCIDSET} or {@link FixedBitSet}.      */
+comment|/**      * Converts to a cacheable {@link DocIdSet}      *<p/>      * Note, we don't use {@link org.apache.lucene.search.DocIdSet#isCacheable()} because execution      * might be expensive even if its cacheable (i.e. not going back to the reader to execute). We effectively      * always either return an empty {@link DocIdSet} or {@link FixedBitSet} but never<code>null</code>.      */
 DECL|method|toCacheable
 specifier|public
 specifier|static
@@ -260,14 +258,10 @@ literal|null
 operator|||
 name|set
 operator|==
-name|DocIdSet
-operator|.
 name|EMPTY_DOCIDSET
 condition|)
 block|{
 return|return
-name|DocIdSet
-operator|.
 name|EMPTY_DOCIDSET
 return|;
 block|}
@@ -287,8 +281,6 @@ literal|null
 condition|)
 block|{
 return|return
-name|DocIdSet
-operator|.
 name|EMPTY_DOCIDSET
 return|;
 block|}
@@ -310,8 +302,6 @@ name|NO_MORE_DOCS
 condition|)
 block|{
 return|return
-name|DocIdSet
-operator|.
 name|EMPTY_DOCIDSET
 return|;
 block|}
@@ -368,6 +358,57 @@ return|return
 name|fixedBitSet
 return|;
 block|}
+comment|/** An empty {@code DocIdSet} instance */
+DECL|field|EMPTY_DOCIDSET
+specifier|protected
+specifier|static
+specifier|final
+name|DocIdSet
+name|EMPTY_DOCIDSET
+init|=
+operator|new
+name|DocIdSet
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|DocIdSetIterator
+name|iterator
+parameter_list|()
+block|{
+return|return
+name|DocIdSetIterator
+operator|.
+name|empty
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|isCacheable
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
+comment|// we explicitly provide no random access, as this filter is 100% sparse and iterator exits faster
+annotation|@
+name|Override
+specifier|public
+name|Bits
+name|bits
+parameter_list|()
+block|{
+return|return
+literal|null
+return|;
+block|}
+block|}
+decl_stmt|;
 comment|/**      * Gets a set to bits.      */
 DECL|method|toSafeBits
 specifier|public

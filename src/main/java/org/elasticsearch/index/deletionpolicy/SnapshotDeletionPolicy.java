@@ -303,11 +303,23 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+operator|!
+name|commits
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+comment|// this might be empty if we create a new index.
+comment|// the behavior has changed in Lucene 4.4 that calls onInit even with an empty commits list.
 name|onCommit
 argument_list|(
 name|commits
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|/**      * Called by Lucene.. Wraps the provided commits with {@link SnapshotIndexCommit}      * and delegates to the wrapped deletion policy.      */
 DECL|method|onCommit
@@ -326,6 +338,15 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+assert|assert
+operator|!
+name|commits
+operator|.
+name|isEmpty
+argument_list|()
+operator|:
+literal|"Commits must not be empty"
+assert|;
 synchronized|synchronized
 init|(
 name|mutex

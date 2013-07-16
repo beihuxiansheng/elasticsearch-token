@@ -118,7 +118,7 @@ name|util
 operator|.
 name|packed
 operator|.
-name|XPagedGrowableWriter
+name|PagedGrowableWriter
 import|;
 end_import
 
@@ -411,7 +411,7 @@ block|}
 comment|// Current position
 DECL|field|positions
 specifier|private
-name|XPagedGrowableWriter
+name|PagedGrowableWriter
 name|positions
 decl_stmt|;
 comment|// First level (0) of ordinals and pointers to the next level
@@ -423,21 +423,21 @@ name|firstOrdinals
 decl_stmt|;
 DECL|field|firstNextLevelSlices
 specifier|private
-name|XPagedGrowableWriter
+name|PagedGrowableWriter
 name|firstNextLevelSlices
 decl_stmt|;
 comment|// Ordinals and pointers for other levels, starting at 1
 DECL|field|ordinals
 specifier|private
 specifier|final
-name|XPagedGrowableWriter
+name|PagedGrowableWriter
 index|[]
 name|ordinals
 decl_stmt|;
 DECL|field|nextLevelSlices
 specifier|private
 specifier|final
-name|XPagedGrowableWriter
+name|PagedGrowableWriter
 index|[]
 name|nextLevelSlices
 decl_stmt|;
@@ -488,7 +488,7 @@ expr_stmt|;
 name|positions
 operator|=
 operator|new
-name|XPagedGrowableWriter
+name|PagedGrowableWriter
 argument_list|(
 name|maxDoc
 argument_list|,
@@ -515,7 +515,7 @@ comment|// over allocate in order to never worry about the array sizes, 24 entri
 name|ordinals
 operator|=
 operator|new
-name|XPagedGrowableWriter
+name|PagedGrowableWriter
 index|[
 literal|24
 index|]
@@ -523,7 +523,7 @@ expr_stmt|;
 name|nextLevelSlices
 operator|=
 operator|new
-name|XPagedGrowableWriter
+name|PagedGrowableWriter
 index|[
 literal|24
 index|]
@@ -584,7 +584,7 @@ name|level
 index|]
 operator|=
 operator|new
-name|XPagedGrowableWriter
+name|PagedGrowableWriter
 argument_list|(
 literal|8L
 operator|*
@@ -738,7 +738,7 @@ block|{
 name|firstNextLevelSlices
 operator|=
 operator|new
-name|XPagedGrowableWriter
+name|PagedGrowableWriter
 argument_list|(
 name|firstOrdinals
 operator|.
@@ -876,7 +876,7 @@ name|level
 index|]
 operator|=
 operator|new
-name|XPagedGrowableWriter
+name|PagedGrowableWriter
 argument_list|(
 name|sizes
 index|[

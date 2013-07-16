@@ -305,7 +305,7 @@ argument_list|()
 decl_stmt|;
 name|CollectionUtil
 operator|.
-name|quickSort
+name|introSort
 argument_list|(
 name|subInfos
 argument_list|,

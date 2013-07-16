@@ -512,7 +512,7 @@ block|}
 block|}
 name|CollectionUtil
 operator|.
-name|quickSort
+name|introSort
 argument_list|(
 name|possibleNodes
 argument_list|,

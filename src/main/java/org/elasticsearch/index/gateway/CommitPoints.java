@@ -191,7 +191,7 @@ parameter_list|)
 block|{
 name|CollectionUtil
 operator|.
-name|quickSort
+name|introSort
 argument_list|(
 name|commitPoints
 argument_list|,

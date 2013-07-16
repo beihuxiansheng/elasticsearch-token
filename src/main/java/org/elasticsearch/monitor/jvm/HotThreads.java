@@ -656,7 +656,7 @@ decl_stmt|;
 comment|// skip that for now
 name|CollectionUtil
 operator|.
-name|quickSort
+name|introSort
 argument_list|(
 name|hotties
 argument_list|,
