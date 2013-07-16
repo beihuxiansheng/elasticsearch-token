@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Exception during indexing a percolator query.  */
 end_comment
 
 begin_class

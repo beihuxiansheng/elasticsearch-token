@@ -19,27 +19,21 @@ comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more cont
 end_comment
 
 begin_comment
-comment|/**  * This class overwrites {@link MemoryIndex} to make the reuse constructor   * visible.   */
+comment|/**  * This class overwrites {@link MemoryIndex} to make the reuse constructor visible.  */
 end_comment
 
 begin_class
-DECL|class|ReusableMemoryIndex
+DECL|class|ExtendedMemoryIndex
 specifier|public
 specifier|final
 class|class
-name|ReusableMemoryIndex
+name|ExtendedMemoryIndex
 extends|extends
 name|MemoryIndex
 block|{
-DECL|field|maxReuseBytes
-specifier|private
-specifier|final
-name|long
-name|maxReuseBytes
-decl_stmt|;
-DECL|method|ReusableMemoryIndex
+DECL|method|ExtendedMemoryIndex
 specifier|public
-name|ReusableMemoryIndex
+name|ExtendedMemoryIndex
 parameter_list|(
 name|boolean
 name|storeOffsets
@@ -55,22 +49,6 @@ argument_list|,
 name|maxReusedBytes
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
-name|maxReuseBytes
-operator|=
-name|maxReusedBytes
-expr_stmt|;
-block|}
-DECL|method|getMaxReuseBytes
-specifier|public
-name|long
-name|getMaxReuseBytes
-parameter_list|()
-block|{
-return|return
-name|maxReuseBytes
-return|;
 block|}
 block|}
 end_class

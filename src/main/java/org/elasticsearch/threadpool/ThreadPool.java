@@ -913,6 +913,15 @@ argument_list|(
 literal|"size"
 argument_list|,
 name|availableProcessors
+operator|*
+literal|3
+argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"queue_size"
+argument_list|,
+literal|1000
 argument_list|)
 operator|.
 name|build

@@ -52,16 +52,6 @@ parameter_list|()
 block|{
 name|bind
 argument_list|(
-name|PercolatorExecutor
-operator|.
-name|class
-argument_list|)
-operator|.
-name|asEagerSingleton
-argument_list|()
-expr_stmt|;
-name|bind
-argument_list|(
 name|PercolatorService
 operator|.
 name|class
