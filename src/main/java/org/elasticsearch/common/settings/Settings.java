@@ -521,7 +521,26 @@ parameter_list|)
 throws|throws
 name|NoClassSettingsException
 function_decl|;
-comment|/**      * The values associated with a setting prefix as an array. The settings array is in the format of:      *<tt>settingPrefix.[index]</tt>.      *<p/>      *<p>It will also automatically load a comma separated list under the settingPrefix and merge with      * the numbered format.      *      * @param settingPrefix The setting prefix to load the array by      * @return The setting array values      * @throws SettingsException      */
+comment|/**      * The values associated with a setting prefix as an array. The settings array is in the format of:      *<tt>settingPrefix.[index]</tt>.      *<p/>      *<p>It will also automatically load a comma separated list under the settingPrefix and merge with      * the numbered format.      *      * @param settingPrefix The setting prefix to load the array by      * @param defaultArray The default array to use if no value is specified      * @param commaDelimited Whether to try to parse a string as a comma-delimited value      * @return The setting array values      * @throws SettingsException      */
+DECL|method|getAsArray
+name|String
+index|[]
+name|getAsArray
+parameter_list|(
+name|String
+name|settingPrefix
+parameter_list|,
+name|String
+index|[]
+name|defaultArray
+parameter_list|,
+name|Boolean
+name|commaDelimited
+parameter_list|)
+throws|throws
+name|SettingsException
+function_decl|;
+comment|/**      * The values associated with a setting prefix as an array. The settings array is in the format of:      *<tt>settingPrefix.[index]</tt>.      *<p/>      *<p>If commaDelimited is true, it will automatically load a comma separated list under the settingPrefix and merge with      * the numbered format.      *      * @param settingPrefix The setting prefix to load the array by      * @return The setting array values      * @throws SettingsException      */
 DECL|method|getAsArray
 name|String
 index|[]
@@ -549,7 +568,7 @@ parameter_list|)
 throws|throws
 name|SettingsException
 function_decl|;
-comment|/**      * Retruns a parsed version.      */
+comment|/**      * Returns a parsed version.      */
 DECL|method|getAsVersion
 name|Version
 name|getAsVersion
