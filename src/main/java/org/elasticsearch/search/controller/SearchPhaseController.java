@@ -1461,7 +1461,7 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 name|QuerySearchResultProvider
-name|queryResultProvider
+name|firstResult
 init|=
 name|results
 operator|.
@@ -1480,7 +1480,7 @@ decl_stmt|;
 name|int
 name|queueSize
 init|=
-name|queryResultProvider
+name|firstResult
 operator|.
 name|queryResult
 argument_list|()
@@ -1488,7 +1488,7 @@ operator|.
 name|from
 argument_list|()
 operator|+
-name|queryResultProvider
+name|firstResult
 operator|.
 name|queryResult
 argument_list|()
@@ -1498,7 +1498,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|queryResultProvider
+name|firstResult
 operator|.
 name|includeFetch
 argument_list|()
@@ -1514,12 +1514,16 @@ name|size
 argument_list|()
 expr_stmt|;
 block|}
+comment|// we don't use TopDocs#merge here because with TopDocs#merge, when pagination, we need to ask for "from + size" topN
+comment|// hits, which ends up creating a "from + size" ScoreDoc[], while in our implementation, we can actually get away with
+comment|// just create "size" ScoreDoc (the reverse order in the queue). would be nice to improve TopDocs#merge to allow for
+comment|// it in which case we won't need this logic...
 name|PriorityQueue
 name|queue
 decl_stmt|;
 if|if
 condition|(
-name|queryResultProvider
+name|firstResult
 operator|.
 name|queryResult
 argument_list|()
@@ -1537,7 +1541,7 @@ init|=
 operator|(
 name|TopFieldDocs
 operator|)
-name|queryResultProvider
+name|firstResult
 operator|.
 name|queryResult
 argument_list|()
@@ -1935,7 +1939,7 @@ block|}
 name|int
 name|resultDocsSize
 init|=
-name|queryResultProvider
+name|firstResult
 operator|.
 name|queryResult
 argument_list|()
@@ -1945,7 +1949,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|queryResultProvider
+name|firstResult
 operator|.
 name|includeFetch
 argument_list|()
@@ -1971,7 +1975,7 @@ name|resultDocsSize
 operator|=
 name|totalNumDocs
 operator|-
-name|queryResultProvider
+name|firstResult
 operator|.
 name|queryResult
 argument_list|()
