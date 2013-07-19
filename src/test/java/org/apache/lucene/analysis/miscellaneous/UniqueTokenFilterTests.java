@@ -28,7 +28,35 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|*
+name|Analyzer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|analysis
+operator|.
+name|TokenStream
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|analysis
+operator|.
+name|Tokenizer
 import|;
 end_import
 
@@ -82,9 +110,7 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
-operator|.
-name|annotations
+name|junit
 operator|.
 name|Test
 import|;
@@ -149,8 +175,6 @@ comment|/**  */
 end_comment
 
 begin_class
-annotation|@
-name|Test
 DECL|class|UniqueTokenFilterTests
 specifier|public
 class|class

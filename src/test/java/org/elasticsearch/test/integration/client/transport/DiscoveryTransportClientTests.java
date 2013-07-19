@@ -80,11 +80,19 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
+name|junit
 operator|.
-name|annotations
+name|After
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|AfterMethod
+name|junit
+operator|.
+name|Ignore
 import|;
 end_import
 
@@ -120,7 +128,7 @@ name|TransportClient
 name|client
 decl_stmt|;
 annotation|@
-name|AfterMethod
+name|After
 DECL|method|closeServers
 specifier|public
 name|void
@@ -145,6 +153,11 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/*@Test*/
+annotation|@
+name|Ignore
+argument_list|(
+literal|"fails for some reason?"
+argument_list|)
 DECL|method|testWithDiscovery
 specifier|public
 name|void

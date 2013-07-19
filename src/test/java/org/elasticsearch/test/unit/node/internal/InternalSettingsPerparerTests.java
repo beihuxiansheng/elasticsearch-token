@@ -78,11 +78,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
+name|junit
 operator|.
-name|annotations
-operator|.
-name|AfterMethod
+name|After
 import|;
 end_import
 
@@ -90,11 +88,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
+name|junit
 operator|.
-name|annotations
-operator|.
-name|BeforeMethod
+name|Before
 import|;
 end_import
 
@@ -102,9 +98,7 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
-operator|.
-name|annotations
+name|junit
 operator|.
 name|Test
 import|;
@@ -157,7 +151,7 @@ class|class
 name|InternalSettingsPerparerTests
 block|{
 annotation|@
-name|BeforeMethod
+name|Before
 DECL|method|setupSystemProperties
 specifier|public
 name|void
@@ -175,7 +169,7 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|AfterMethod
+name|After
 DECL|method|cleanupSystemProperties
 specifier|public
 name|void

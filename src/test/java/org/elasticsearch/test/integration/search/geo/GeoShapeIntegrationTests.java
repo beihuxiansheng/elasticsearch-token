@@ -24,6 +24,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+operator|.
+name|AwaitsFix
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -124,9 +140,7 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
-operator|.
-name|annotations
+name|junit
 operator|.
 name|Test
 import|;
@@ -223,18 +237,6 @@ operator|.
 name|ElasticsearchAssertions
 operator|.
 name|assertHitCount
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
 import|;
 end_import
 
@@ -1191,10 +1193,12 @@ block|}
 comment|// TODO this test causes hangs, blocking on the action get when fetching the shape for some reason
 annotation|@
 name|Test
+annotation|@
+name|AwaitsFix
 argument_list|(
-name|enabled
+name|bugUrl
 operator|=
-literal|false
+literal|"this test causes hangs, blocking on the action get when fetching the shape for some reason"
 argument_list|)
 DECL|method|testIndexedShapeReference
 specifier|public

@@ -106,9 +106,7 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
-operator|.
-name|annotations
+name|junit
 operator|.
 name|Test
 import|;
@@ -150,7 +148,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|equalTo
+name|endsWith
 import|;
 end_import
 
@@ -158,11 +156,11 @@ begin_import
 import|import static
 name|org
 operator|.
-name|testng
+name|hamcrest
 operator|.
-name|Assert
+name|Matchers
 operator|.
-name|assertTrue
+name|equalTo
 import|;
 end_import
 
@@ -494,13 +492,13 @@ name|SearchPhaseExecutionException
 name|e
 parameter_list|)
 block|{
-name|assertTrue
+name|assertThat
 argument_list|(
 name|e
 operator|.
 name|getMessage
 argument_list|()
-operator|.
+argument_list|,
 name|endsWith
 argument_list|(
 literal|"IllegalStateException[field \"field1\" was indexed without position data; cannot run PhraseQuery (term=quick)]; }"
@@ -766,13 +764,13 @@ name|SearchPhaseExecutionException
 name|e
 parameter_list|)
 block|{
-name|assertTrue
+name|assertThat
 argument_list|(
 name|e
 operator|.
 name|getMessage
 argument_list|()
-operator|.
+argument_list|,
 name|endsWith
 argument_list|(
 literal|"IllegalStateException[field \"field1\" was indexed without position data; cannot run PhraseQuery (term=quick)]; }"

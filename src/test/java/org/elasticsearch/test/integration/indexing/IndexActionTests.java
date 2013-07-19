@@ -76,9 +76,7 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
-operator|.
-name|annotations
+name|junit
 operator|.
 name|Test
 import|;
@@ -170,18 +168,6 @@ name|org
 operator|.
 name|hamcrest
 operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
 name|Matchers
 operator|.
 name|equalTo
@@ -197,30 +183,6 @@ operator|.
 name|Matchers
 operator|.
 name|lessThanOrEqualTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|testng
-operator|.
-name|Assert
-operator|.
-name|assertFalse
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|testng
-operator|.
-name|Assert
-operator|.
-name|assertTrue
 import|;
 end_import
 
@@ -571,8 +533,7 @@ specifier|final
 name|Random
 name|random
 init|=
-operator|new
-name|Random
+name|getRandom
 argument_list|()
 decl_stmt|;
 for|for

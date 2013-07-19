@@ -52,9 +52,7 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
-operator|.
-name|annotations
+name|junit
 operator|.
 name|Test
 import|;
@@ -65,14 +63,12 @@ comment|/**  */
 end_comment
 
 begin_class
-annotation|@
-name|Test
 DECL|class|FSTPackedBytesStringFieldDataTests
 specifier|public
 class|class
 name|FSTPackedBytesStringFieldDataTests
 extends|extends
-name|StringFieldDataTests
+name|AbstractStringFieldDataTests
 block|{
 annotation|@
 name|Override

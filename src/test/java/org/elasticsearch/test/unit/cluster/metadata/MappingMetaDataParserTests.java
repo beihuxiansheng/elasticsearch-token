@@ -80,9 +80,7 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
-operator|.
-name|annotations
+name|junit
 operator|.
 name|Test
 import|;
@@ -141,8 +139,6 @@ import|;
 end_import
 
 begin_class
-annotation|@
-name|Test
 DECL|class|MappingMetaDataParserTests
 specifier|public
 class|class

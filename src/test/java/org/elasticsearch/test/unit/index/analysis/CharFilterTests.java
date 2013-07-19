@@ -22,6 +22,50 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|randomizedtesting
+operator|.
+name|annotations
+operator|.
+name|ThreadLeakScope
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|randomizedtesting
+operator|.
+name|annotations
+operator|.
+name|ThreadLeakScope
+operator|.
+name|Scope
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|analysis
+operator|.
+name|BaseTokenStreamTestCase
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -212,9 +256,7 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
-operator|.
-name|annotations
+name|junit
 operator|.
 name|Test
 import|;
@@ -246,35 +288,24 @@ name|settingsBuilder
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|unit
-operator|.
-name|index
-operator|.
-name|analysis
-operator|.
-name|AnalysisTestsHelper
-operator|.
-name|assertSimpleTSOutput
-import|;
-end_import
-
 begin_comment
 comment|/**  */
 end_comment
 
 begin_class
+annotation|@
+name|ThreadLeakScope
+argument_list|(
+name|Scope
+operator|.
+name|NONE
+argument_list|)
 DECL|class|CharFilterTests
 specifier|public
 class|class
 name|CharFilterTests
+extends|extends
+name|BaseTokenStreamTestCase
 block|{
 annotation|@
 name|Test
@@ -433,7 +464,7 @@ argument_list|(
 literal|"custom_with_char_filter"
 argument_list|)
 decl_stmt|;
-name|assertSimpleTSOutput
+name|assertTokenStreamContents
 argument_list|(
 name|analyzer1
 operator|.
@@ -461,7 +492,7 @@ block|}
 argument_list|)
 expr_stmt|;
 comment|// Repeat one more time to make sure that char filter is reinitialized correctly
-name|assertSimpleTSOutput
+name|assertTokenStreamContents
 argument_list|(
 name|analyzer1
 operator|.
@@ -630,7 +661,7 @@ argument_list|(
 literal|"custom_with_char_filter"
 argument_list|)
 decl_stmt|;
-name|assertSimpleTSOutput
+name|assertTokenStreamContents
 argument_list|(
 name|analyzer1
 operator|.
@@ -654,7 +685,7 @@ block|}
 argument_list|)
 expr_stmt|;
 comment|// Repeat one more time to make sure that char filter is reinitialized correctly
-name|assertSimpleTSOutput
+name|assertTokenStreamContents
 argument_list|(
 name|analyzer1
 operator|.

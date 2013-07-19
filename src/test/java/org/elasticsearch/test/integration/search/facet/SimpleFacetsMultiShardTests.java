@@ -20,25 +20,11 @@ name|facet
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|testng
-operator|.
-name|annotations
-operator|.
-name|Test
-import|;
-end_import
-
 begin_comment
 comment|/**  * Tests for several shards case since some facets do optimizations in this case. Make sure  * behavior remains the same.  */
 end_comment
 
 begin_class
-annotation|@
-name|Test
 DECL|class|SimpleFacetsMultiShardTests
 specifier|public
 class|class

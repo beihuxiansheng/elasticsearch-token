@@ -198,9 +198,7 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
-operator|.
-name|annotations
+name|junit
 operator|.
 name|Test
 import|;
@@ -367,8 +365,6 @@ comment|/**  */
 end_comment
 
 begin_class
-annotation|@
-name|Test
 DECL|class|ShardsLimitAllocationTests
 specifier|public
 class|class

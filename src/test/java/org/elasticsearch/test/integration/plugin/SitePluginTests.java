@@ -110,11 +110,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
+name|junit
 operator|.
-name|annotations
-operator|.
-name|AfterMethod
+name|After
 import|;
 end_import
 
@@ -122,11 +120,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
+name|junit
 operator|.
-name|annotations
-operator|.
-name|BeforeClass
+name|Before
 import|;
 end_import
 
@@ -134,21 +130,7 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
-operator|.
-name|annotations
-operator|.
-name|BeforeMethod
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|testng
-operator|.
-name|annotations
+name|junit
 operator|.
 name|Test
 import|;
@@ -165,6 +147,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
+name|URISyntaxException
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -177,18 +169,6 @@ operator|.
 name|ImmutableSettings
 operator|.
 name|settingsBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
 import|;
 end_import
 
@@ -229,14 +209,14 @@ extends|extends
 name|AbstractNodesTests
 block|{
 annotation|@
-name|BeforeClass
-DECL|method|setupPluginDirectory
+name|Before
+DECL|method|startNodes
 specifier|public
 name|void
-name|setupPluginDirectory
+name|startNodes
 parameter_list|()
 throws|throws
-name|Exception
+name|URISyntaxException
 block|{
 name|File
 name|pluginDir
@@ -257,8 +237,10 @@ name|toURI
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|putDefaultSettings
+name|startNode
 argument_list|(
+literal|"test"
+argument_list|,
 name|settingsBuilder
 argument_list|()
 operator|.
@@ -278,21 +260,7 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|BeforeMethod
-DECL|method|startNodes
-specifier|public
-name|void
-name|startNodes
-parameter_list|()
-block|{
-name|startNode
-argument_list|(
-literal|"test"
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|AfterMethod
+name|After
 DECL|method|closeNodes
 specifier|public
 name|void

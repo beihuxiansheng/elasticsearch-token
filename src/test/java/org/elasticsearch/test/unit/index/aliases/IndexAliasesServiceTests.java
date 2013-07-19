@@ -394,9 +394,7 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
-operator|.
-name|annotations
+name|junit
 operator|.
 name|Test
 import|;
@@ -1132,7 +1130,7 @@ block|}
 annotation|@
 name|Test
 argument_list|(
-name|expectedExceptions
+name|expected
 operator|=
 name|InvalidAliasNameException
 operator|.

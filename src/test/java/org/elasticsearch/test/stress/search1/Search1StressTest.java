@@ -232,6 +232,16 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -275,6 +285,11 @@ comment|/**  *  */
 end_comment
 
 begin_class
+annotation|@
+name|Ignore
+argument_list|(
+literal|"Stress Test"
+argument_list|)
 DECL|class|Search1StressTest
 specifier|public
 class|class

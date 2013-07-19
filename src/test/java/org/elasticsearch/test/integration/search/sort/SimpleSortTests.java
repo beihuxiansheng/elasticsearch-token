@@ -224,9 +224,7 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
-operator|.
-name|annotations
+name|junit
 operator|.
 name|Test
 import|;
@@ -297,18 +295,6 @@ operator|.
 name|ElasticsearchAssertions
 operator|.
 name|*
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
 import|;
 end_import
 
@@ -2580,32 +2566,11 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-specifier|final
-name|long
-name|seed
-init|=
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
-decl_stmt|;
-name|logger
-operator|.
-name|info
-argument_list|(
-literal|"testSimpleSorts SEED:[{}]"
-argument_list|,
-name|seed
-argument_list|)
-expr_stmt|;
 name|Random
 name|random
 init|=
-operator|new
-name|Random
-argument_list|(
-name|seed
-argument_list|)
+name|getRandom
+argument_list|()
 decl_stmt|;
 name|prepareCreate
 argument_list|(

@@ -158,6 +158,16 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -173,6 +183,11 @@ comment|/**  * Tests that data don't get corrupted while reading it over the str
 end_comment
 
 begin_class
+annotation|@
+name|Ignore
+argument_list|(
+literal|"Stress Test"
+argument_list|)
 DECL|class|ConcurrentSearchSerializationTests
 specifier|public
 class|class

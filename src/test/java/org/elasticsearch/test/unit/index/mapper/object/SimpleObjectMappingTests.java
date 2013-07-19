@@ -92,7 +92,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MapperTests
+name|MapperTestUtils
 import|;
 end_import
 
@@ -100,9 +100,7 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
-operator|.
-name|annotations
+name|junit
 operator|.
 name|Test
 import|;
@@ -113,13 +111,13 @@ comment|/**  */
 end_comment
 
 begin_class
-annotation|@
-name|Test
 DECL|class|SimpleObjectMappingTests
 specifier|public
 class|class
 name|SimpleObjectMappingTests
 block|{
+annotation|@
+name|Test
 DECL|method|testDifferentInnerObjectTokenFailure
 specifier|public
 name|void
@@ -156,7 +154,7 @@ decl_stmt|;
 name|DocumentMapper
 name|defaultMapper
 init|=
-name|MapperTests
+name|MapperTestUtils
 operator|.
 name|newParser
 argument_list|()

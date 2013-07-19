@@ -24,6 +24,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+operator|.
+name|Slow
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -130,11 +146,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
+name|junit
 operator|.
-name|annotations
-operator|.
-name|AfterMethod
+name|After
 import|;
 end_import
 
@@ -142,9 +156,7 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
-operator|.
-name|annotations
+name|junit
 operator|.
 name|Test
 import|;
@@ -218,18 +230,6 @@ name|org
 operator|.
 name|hamcrest
 operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
 name|Matchers
 operator|.
 name|equalTo
@@ -249,7 +249,7 @@ extends|extends
 name|AbstractNodesTests
 block|{
 annotation|@
-name|AfterMethod
+name|After
 DECL|method|cleanAndCloseNodes
 specifier|public
 name|void
@@ -329,6 +329,8 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+annotation|@
+name|Slow
 DECL|method|testChangeInitialShardsRecovery
 specifier|public
 name|void
@@ -1049,6 +1051,8 @@ block|}
 block|}
 annotation|@
 name|Test
+annotation|@
+name|Slow
 DECL|method|testQuorumRecovery
 specifier|public
 name|void

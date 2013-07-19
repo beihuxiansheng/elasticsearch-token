@@ -92,7 +92,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MapperTests
+name|MapperTestUtils
 import|;
 end_import
 
@@ -100,9 +100,7 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
-operator|.
-name|annotations
+name|junit
 operator|.
 name|Test
 import|;
@@ -155,8 +153,6 @@ import|;
 end_import
 
 begin_class
-annotation|@
-name|Test
 DECL|class|DynamicMappingTests
 specifier|public
 class|class
@@ -230,7 +226,7 @@ decl_stmt|;
 name|DocumentMapper
 name|defaultMapper
 init|=
-name|MapperTests
+name|MapperTestUtils
 operator|.
 name|newParser
 argument_list|()
@@ -382,7 +378,7 @@ decl_stmt|;
 name|DocumentMapper
 name|defaultMapper
 init|=
-name|MapperTests
+name|MapperTestUtils
 operator|.
 name|newParser
 argument_list|()
@@ -532,7 +528,7 @@ decl_stmt|;
 name|DocumentMapper
 name|defaultMapper
 init|=
-name|MapperTests
+name|MapperTestUtils
 operator|.
 name|newParser
 argument_list|()
@@ -675,7 +671,7 @@ decl_stmt|;
 name|DocumentMapper
 name|defaultMapper
 init|=
-name|MapperTests
+name|MapperTestUtils
 operator|.
 name|newParser
 argument_list|()
@@ -849,7 +845,7 @@ decl_stmt|;
 name|DocumentMapper
 name|defaultMapper
 init|=
-name|MapperTests
+name|MapperTestUtils
 operator|.
 name|newParser
 argument_list|()

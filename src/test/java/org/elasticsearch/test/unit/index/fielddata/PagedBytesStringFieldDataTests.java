@@ -48,31 +48,17 @@ name|FieldDataType
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|testng
-operator|.
-name|annotations
-operator|.
-name|Test
-import|;
-end_import
-
 begin_comment
 comment|/**  */
 end_comment
 
 begin_class
-annotation|@
-name|Test
 DECL|class|PagedBytesStringFieldDataTests
 specifier|public
 class|class
 name|PagedBytesStringFieldDataTests
 extends|extends
-name|StringFieldDataTests
+name|AbstractStringFieldDataTests
 block|{
 annotation|@
 name|Override

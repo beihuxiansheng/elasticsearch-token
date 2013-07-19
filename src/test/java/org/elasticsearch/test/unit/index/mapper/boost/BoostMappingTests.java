@@ -92,7 +92,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MapperTests
+name|MapperTestUtils
 import|;
 end_import
 
@@ -100,9 +100,7 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
-operator|.
-name|annotations
+name|junit
 operator|.
 name|Test
 import|;
@@ -137,8 +135,6 @@ comment|/**  */
 end_comment
 
 begin_class
-annotation|@
-name|Test
 DECL|class|BoostMappingTests
 specifier|public
 class|class
@@ -182,7 +178,7 @@ decl_stmt|;
 name|DocumentMapper
 name|mapper
 init|=
-name|MapperTests
+name|MapperTestUtils
 operator|.
 name|newParser
 argument_list|()
@@ -340,7 +336,7 @@ decl_stmt|;
 name|DocumentMapper
 name|mapper
 init|=
-name|MapperTests
+name|MapperTestUtils
 operator|.
 name|newParser
 argument_list|()

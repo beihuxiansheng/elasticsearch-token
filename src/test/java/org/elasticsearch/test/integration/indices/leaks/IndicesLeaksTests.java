@@ -24,6 +24,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+operator|.
+name|BadApple
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -162,11 +178,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
+name|junit
 operator|.
-name|annotations
-operator|.
-name|AfterMethod
+name|After
 import|;
 end_import
 
@@ -174,9 +188,7 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
-operator|.
-name|annotations
+name|junit
 operator|.
 name|Test
 import|;
@@ -220,18 +232,6 @@ name|org
 operator|.
 name|hamcrest
 operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
 name|Matchers
 operator|.
 name|nullValue
@@ -243,8 +243,6 @@ comment|/**  */
 end_comment
 
 begin_class
-annotation|@
-name|Test
 DECL|class|IndicesLeaksTests
 specifier|public
 class|class
@@ -253,7 +251,7 @@ extends|extends
 name|AbstractNodesTests
 block|{
 annotation|@
-name|AfterMethod
+name|After
 DECL|method|closeNodes
 specifier|public
 name|void
@@ -275,6 +273,8 @@ block|}
 argument_list|)
 annotation|@
 name|Test
+annotation|@
+name|BadApple
 DECL|method|testIndexShardLifecycleLeak
 specifier|public
 name|void

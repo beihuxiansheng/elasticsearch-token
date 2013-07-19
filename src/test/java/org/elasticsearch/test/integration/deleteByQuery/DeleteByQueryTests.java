@@ -130,11 +130,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
+name|junit
 operator|.
-name|annotations
-operator|.
-name|BeforeMethod
+name|Assert
 import|;
 end_import
 
@@ -142,9 +140,17 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
+name|junit
 operator|.
-name|annotations
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
 operator|.
 name|Test
 import|;
@@ -186,18 +192,6 @@ name|notNullValue
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|testng
-operator|.
-name|Assert
-operator|.
-name|fail
-import|;
-end_import
-
 begin_class
 DECL|class|DeleteByQueryTests
 specifier|public
@@ -207,7 +201,7 @@ extends|extends
 name|AbstractSharedClusterTest
 block|{
 annotation|@
-name|BeforeMethod
+name|Before
 DECL|method|createNodes
 specifier|public
 name|void
@@ -701,6 +695,8 @@ operator|.
 name|actionGet
 argument_list|()
 decl_stmt|;
+name|Assert
+operator|.
 name|fail
 argument_list|(
 literal|"Exception should have been thrown."

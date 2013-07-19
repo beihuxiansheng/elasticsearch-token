@@ -546,7 +546,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MapperTests
+name|MapperTestUtils
 import|;
 end_import
 
@@ -554,9 +554,7 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
-operator|.
-name|annotations
+name|junit
 operator|.
 name|Test
 import|;
@@ -2325,7 +2323,7 @@ block|}
 annotation|@
 name|Test
 argument_list|(
-name|expectedExceptions
+name|expected
 operator|=
 name|AssertionError
 operator|.
@@ -2719,7 +2717,7 @@ decl_stmt|;
 name|MapperService
 name|mapperService
 init|=
-name|MapperTests
+name|MapperTestUtils
 operator|.
 name|newMapperService
 argument_list|()

@@ -38,9 +38,7 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
-operator|.
-name|annotations
+name|junit
 operator|.
 name|Test
 import|;
@@ -66,7 +64,19 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|closeTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|equalTo
 import|;
 end_import
 
@@ -75,8 +85,6 @@ comment|/**  *  */
 end_comment
 
 begin_class
-annotation|@
-name|Test
 DECL|class|DistanceUnitTests
 specifier|public
 class|class
@@ -85,6 +93,7 @@ block|{
 annotation|@
 name|Test
 DECL|method|testSimpleDistanceUnit
+specifier|public
 name|void
 name|testSimpleDistanceUnit
 parameter_list|()
@@ -226,6 +235,7 @@ block|}
 annotation|@
 name|Test
 DECL|method|testDistanceUnitParsing
+specifier|public
 name|void
 name|testDistanceUnitParsing
 parameter_list|()

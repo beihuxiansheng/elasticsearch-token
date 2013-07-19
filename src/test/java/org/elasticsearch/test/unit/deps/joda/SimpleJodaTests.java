@@ -104,9 +104,7 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
-operator|.
-name|annotations
+name|junit
 operator|.
 name|Test
 import|;
@@ -142,7 +140,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|containsString
+name|*
 import|;
 end_import
 
@@ -150,33 +148,9 @@ begin_import
 import|import static
 name|org
 operator|.
-name|hamcrest
+name|junit
 operator|.
-name|Matchers
-operator|.
-name|equalTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|is
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|testng
-operator|.
-name|AssertJUnit
+name|Assert
 operator|.
 name|fail
 import|;

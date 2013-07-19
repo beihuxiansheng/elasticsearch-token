@@ -132,9 +132,7 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
-operator|.
-name|annotations
+name|junit
 operator|.
 name|*
 import|;
@@ -218,7 +216,7 @@ name|Environment
 name|environment
 decl_stmt|;
 annotation|@
-name|BeforeMethod
+name|Before
 DECL|method|getTestEnvironment
 specifier|public
 name|void
@@ -254,7 +252,7 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|AfterMethod
+name|After
 DECL|method|closeNodes
 specifier|public
 name|void

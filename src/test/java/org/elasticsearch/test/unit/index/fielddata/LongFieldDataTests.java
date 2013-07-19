@@ -228,9 +228,7 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
-operator|.
-name|annotations
+name|junit
 operator|.
 name|Test
 import|;
@@ -263,18 +261,6 @@ operator|.
 name|util
 operator|.
 name|Random
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
 import|;
 end_import
 
@@ -2821,14 +2807,8 @@ block|{
 name|Random
 name|r
 init|=
-operator|new
-name|Random
-argument_list|(
-name|data
-operator|.
-name|ordinal
+name|getRandom
 argument_list|()
-argument_list|)
 decl_stmt|;
 specifier|final
 name|int

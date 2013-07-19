@@ -168,7 +168,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MapperTests
+name|MapperTestUtils
 import|;
 end_import
 
@@ -176,9 +176,7 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
-operator|.
-name|annotations
+name|junit
 operator|.
 name|Test
 import|;
@@ -229,13 +227,13 @@ comment|/**  */
 end_comment
 
 begin_class
-annotation|@
-name|Test
 DECL|class|SimpleNumericTests
 specifier|public
 class|class
 name|SimpleNumericTests
 block|{
+annotation|@
+name|Test
 DECL|method|testNumericDetectionEnabled
 specifier|public
 name|void
@@ -279,7 +277,7 @@ decl_stmt|;
 name|DocumentMapper
 name|defaultMapper
 init|=
-name|MapperTests
+name|MapperTestUtils
 operator|.
 name|newParser
 argument_list|()
@@ -379,6 +377,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNumericDetectionDefault
 specifier|public
 name|void
@@ -415,7 +415,7 @@ decl_stmt|;
 name|DocumentMapper
 name|defaultMapper
 init|=
-name|MapperTests
+name|MapperTestUtils
 operator|.
 name|newParser
 argument_list|()
@@ -515,6 +515,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIgnoreMalformedOption
 specifier|public
 name|void
@@ -618,7 +620,7 @@ decl_stmt|;
 name|DocumentMapper
 name|defaultMapper
 init|=
-name|MapperTests
+name|MapperTestUtils
 operator|.
 name|newParser
 argument_list|()
@@ -830,7 +832,7 @@ argument_list|()
 decl_stmt|;
 name|defaultMapper
 operator|=
-name|MapperTests
+name|MapperTestUtils
 operator|.
 name|newParser
 argument_list|(

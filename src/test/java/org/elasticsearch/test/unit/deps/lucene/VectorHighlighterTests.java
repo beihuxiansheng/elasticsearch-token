@@ -58,20 +58,6 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|FieldType
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|document
-operator|.
 name|TextField
 import|;
 end_import
@@ -224,9 +210,7 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
-operator|.
-name|annotations
+name|junit
 operator|.
 name|Test
 import|;
@@ -261,8 +245,6 @@ comment|/**  *  */
 end_comment
 
 begin_class
-annotation|@
-name|Test
 DECL|class|VectorHighlighterTests
 specifier|public
 class|class
@@ -791,15 +773,6 @@ name|notNullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-name|fragment
-argument_list|)
-expr_stmt|;
 comment|// now check with the custom field query
 name|prefixQuery
 operator|=
@@ -880,15 +853,6 @@ name|fragment
 argument_list|,
 name|notNullValue
 argument_list|()
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-name|fragment
 argument_list|)
 expr_stmt|;
 block|}

@@ -19,68 +19,14 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|client
-operator|.
-name|Requests
-operator|.
-name|clusterHealthRequest
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|ImmutableSettings
-operator|.
-name|settingsBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|equalTo
-import|;
-end_import
-
-begin_import
 import|import
 name|com
 operator|.
-name|beust
+name|google
 operator|.
-name|jcommander
+name|common
 operator|.
-name|internal
+name|collect
 operator|.
 name|Maps
 import|;
@@ -210,11 +156,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
+name|junit
 operator|.
-name|annotations
-operator|.
-name|AfterMethod
+name|After
 import|;
 end_import
 
@@ -222,11 +166,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
+name|junit
 operator|.
-name|annotations
-operator|.
-name|BeforeMethod
+name|Before
 import|;
 end_import
 
@@ -234,9 +176,7 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
-operator|.
-name|annotations
+name|junit
 operator|.
 name|Test
 import|;
@@ -249,6 +189,60 @@ operator|.
 name|util
 operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|client
+operator|.
+name|Requests
+operator|.
+name|clusterHealthRequest
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|ImmutableSettings
+operator|.
+name|settingsBuilder
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|MatcherAssert
+operator|.
+name|assertThat
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|equalTo
 import|;
 end_import
 
@@ -274,7 +268,7 @@ init|=
 literal|"TEST"
 decl_stmt|;
 annotation|@
-name|BeforeMethod
+name|Before
 DECL|method|startNode
 specifier|public
 name|void
@@ -335,7 +329,7 @@ argument_list|()
 expr_stmt|;
 block|}
 annotation|@
-name|AfterMethod
+name|After
 DECL|method|closeNodes
 specifier|public
 name|void

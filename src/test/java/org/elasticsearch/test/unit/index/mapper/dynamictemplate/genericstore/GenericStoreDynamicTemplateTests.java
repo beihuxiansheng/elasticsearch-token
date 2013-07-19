@@ -108,7 +108,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MapperTests
+name|MapperTestUtils
 import|;
 end_import
 
@@ -116,9 +116,7 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
-operator|.
-name|annotations
+name|junit
 operator|.
 name|Test
 import|;
@@ -211,7 +209,7 @@ decl_stmt|;
 name|DocumentMapper
 name|docMapper
 init|=
-name|MapperTests
+name|MapperTestUtils
 operator|.
 name|newParser
 argument_list|()

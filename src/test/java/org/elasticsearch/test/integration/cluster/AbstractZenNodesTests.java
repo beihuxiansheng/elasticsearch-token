@@ -24,11 +24,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|test
+name|common
 operator|.
-name|integration
+name|settings
 operator|.
-name|AbstractNodesTests
+name|Settings
 import|;
 end_import
 
@@ -36,11 +36,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
+name|elasticsearch
 operator|.
-name|annotations
+name|test
 operator|.
-name|BeforeClass
+name|integration
+operator|.
+name|AbstractNodesTests
 import|;
 end_import
 
@@ -73,17 +75,17 @@ extends|extends
 name|AbstractNodesTests
 block|{
 annotation|@
-name|BeforeClass
-DECL|method|setUpZenDiscoSettings
-specifier|public
-name|void
-name|setUpZenDiscoSettings
+name|Override
+DECL|method|getClassDefaultSettings
+specifier|protected
+specifier|final
+name|Settings
+name|getClassDefaultSettings
 parameter_list|()
 block|{
 comment|// we force zen discovery here since it has specific handling for specific master / data nodes
 comment|// and disconnections
-name|putDefaultSettings
-argument_list|(
+return|return
 name|settingsBuilder
 argument_list|()
 operator|.
@@ -93,8 +95,10 @@ literal|"discovery.type"
 argument_list|,
 literal|"zen"
 argument_list|)
-argument_list|)
-expr_stmt|;
+operator|.
+name|build
+argument_list|()
+return|;
 block|}
 block|}
 end_class

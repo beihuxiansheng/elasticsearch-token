@@ -408,7 +408,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MapperTests
+name|MapperTestUtils
 import|;
 end_import
 
@@ -440,17 +440,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
-operator|.
-name|annotations
+name|junit
 operator|.
 name|Test
 import|;
 end_import
 
 begin_class
-annotation|@
-name|Test
 DECL|class|SimpleDateMappingTests
 specifier|public
 class|class
@@ -1028,7 +1024,7 @@ comment|// we serialize and deserialize the mapping to make sure serialization w
 name|DocumentMapper
 name|defaultMapper
 init|=
-name|MapperTests
+name|MapperTestUtils
 operator|.
 name|newParser
 argument_list|()
@@ -1080,7 +1076,7 @@ name|string
 argument_list|()
 decl_stmt|;
 return|return
-name|MapperTests
+name|MapperTestUtils
 operator|.
 name|newParser
 argument_list|()
@@ -2181,7 +2177,7 @@ argument_list|()
 decl_stmt|;
 name|defaultMapper
 operator|=
-name|MapperTests
+name|MapperTestUtils
 operator|.
 name|newParser
 argument_list|(

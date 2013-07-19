@@ -184,7 +184,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MapperTests
+name|MapperTestUtils
 import|;
 end_import
 
@@ -202,9 +202,7 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
-operator|.
-name|annotations
+name|junit
 operator|.
 name|Test
 import|;
@@ -271,8 +269,6 @@ comment|/**  *  */
 end_comment
 
 begin_class
-annotation|@
-name|Test
 DECL|class|SimpleAllMapperTests
 specifier|public
 class|class
@@ -299,7 +295,7 @@ decl_stmt|;
 name|DocumentMapper
 name|docMapper
 init|=
-name|MapperTests
+name|MapperTestUtils
 operator|.
 name|newParser
 argument_list|()
@@ -502,7 +498,7 @@ decl_stmt|;
 name|DocumentMapper
 name|docMapper
 init|=
-name|MapperTests
+name|MapperTestUtils
 operator|.
 name|newParser
 argument_list|()
@@ -705,7 +701,7 @@ decl_stmt|;
 name|DocumentMapper
 name|docMapper
 init|=
-name|MapperTests
+name|MapperTestUtils
 operator|.
 name|newParser
 argument_list|()
@@ -908,7 +904,7 @@ decl_stmt|;
 name|DocumentMapper
 name|docMapper
 init|=
-name|MapperTests
+name|MapperTestUtils
 operator|.
 name|newParser
 argument_list|()
@@ -929,12 +925,11 @@ operator|.
 name|string
 argument_list|()
 decl_stmt|;
-comment|//        System.out.println(builtMapping);
 comment|// reparse it
 name|DocumentMapper
 name|builtDocMapper
 init|=
-name|MapperTests
+name|MapperTestUtils
 operator|.
 name|newParser
 argument_list|()
@@ -1099,7 +1094,7 @@ decl_stmt|;
 name|DocumentMapper
 name|docMapper
 init|=
-name|MapperTests
+name|MapperTestUtils
 operator|.
 name|newParser
 argument_list|()
@@ -1267,7 +1262,7 @@ decl_stmt|;
 name|DocumentMapper
 name|docMapper
 init|=
-name|MapperTests
+name|MapperTestUtils
 operator|.
 name|newParser
 argument_list|()
@@ -1288,20 +1283,11 @@ operator|.
 name|string
 argument_list|()
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-name|builtMapping
-argument_list|)
-expr_stmt|;
 comment|// reparse it
 name|DocumentMapper
 name|builtDocMapper
 init|=
-name|MapperTests
+name|MapperTestUtils
 operator|.
 name|newParser
 argument_list|()

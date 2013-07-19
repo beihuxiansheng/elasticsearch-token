@@ -122,9 +122,7 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
-operator|.
-name|annotations
+name|junit
 operator|.
 name|Test
 import|;
@@ -248,7 +246,7 @@ begin_import
 import|import static
 name|org
 operator|.
-name|testng
+name|junit
 operator|.
 name|Assert
 operator|.

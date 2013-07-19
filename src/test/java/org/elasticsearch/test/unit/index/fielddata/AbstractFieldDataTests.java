@@ -150,11 +150,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
+name|elasticsearch
 operator|.
-name|annotations
+name|test
 operator|.
-name|AfterMethod
+name|integration
+operator|.
+name|ElasticsearchTestCase
 import|;
 end_import
 
@@ -162,11 +164,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
+name|junit
 operator|.
-name|annotations
-operator|.
-name|BeforeMethod
+name|After
 import|;
 end_import
 
@@ -174,26 +174,24 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
+name|junit
 operator|.
-name|annotations
-operator|.
-name|Test
+name|Before
 import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|// we might wanna cut this over to LuceneTestCase
 end_comment
 
 begin_class
-annotation|@
-name|Test
 DECL|class|AbstractFieldDataTests
 specifier|public
 specifier|abstract
 class|class
 name|AbstractFieldDataTests
+extends|extends
+name|ElasticsearchTestCase
 block|{
 DECL|field|ifdService
 specifier|protected
@@ -250,7 +248,7 @@ argument_list|)
 return|;
 block|}
 annotation|@
-name|BeforeMethod
+name|Before
 DECL|method|setup
 specifier|public
 name|void
@@ -358,7 +356,7 @@ name|readerContext
 return|;
 block|}
 annotation|@
-name|AfterMethod
+name|After
 DECL|method|tearDown
 specifier|public
 name|void

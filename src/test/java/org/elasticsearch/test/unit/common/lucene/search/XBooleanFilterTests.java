@@ -252,11 +252,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
+name|junit
 operator|.
-name|annotations
-operator|.
-name|AfterClass
+name|After
 import|;
 end_import
 
@@ -264,11 +262,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
+name|junit
 operator|.
-name|annotations
-operator|.
-name|BeforeClass
+name|Before
 import|;
 end_import
 
@@ -276,9 +272,7 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
-operator|.
-name|annotations
+name|junit
 operator|.
 name|Test
 import|;
@@ -369,7 +363,7 @@ name|AtomicReader
 name|reader
 decl_stmt|;
 annotation|@
-name|BeforeClass
+name|Before
 DECL|method|setup
 specifier|public
 name|void
@@ -570,7 +564,7 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|AfterClass
+name|After
 DECL|method|tearDown
 specifier|public
 name|void

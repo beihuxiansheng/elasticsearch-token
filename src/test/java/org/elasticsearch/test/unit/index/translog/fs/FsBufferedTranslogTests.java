@@ -118,9 +118,7 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
-operator|.
-name|annotations
+name|junit
 operator|.
 name|AfterClass
 import|;
@@ -196,6 +194,7 @@ annotation|@
 name|AfterClass
 DECL|method|cleanup
 specifier|public
+specifier|static
 name|void
 name|cleanup
 parameter_list|()

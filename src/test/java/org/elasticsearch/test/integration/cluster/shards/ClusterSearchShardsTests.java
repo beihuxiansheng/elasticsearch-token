@@ -112,33 +112,7 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
-operator|.
-name|annotations
-operator|.
-name|AfterClass
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|testng
-operator|.
-name|annotations
-operator|.
-name|BeforeClass
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|testng
-operator|.
-name|annotations
+name|junit
 operator|.
 name|Test
 import|;
@@ -196,17 +170,12 @@ name|ClusterSearchShardsTests
 extends|extends
 name|AbstractNodesTests
 block|{
-DECL|field|client
-specifier|private
-name|Client
-name|client
-decl_stmt|;
 annotation|@
-name|BeforeClass
-DECL|method|createNodes
-specifier|public
+name|Override
+DECL|method|beforeClass
+specifier|protected
 name|void
-name|createNodes
+name|beforeClass
 parameter_list|()
 throws|throws
 name|Exception
@@ -241,33 +210,11 @@ literal|"B"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|client
-operator|=
-name|getClient
-argument_list|()
-expr_stmt|;
 block|}
-annotation|@
-name|AfterClass
-DECL|method|closeNodes
+DECL|method|client
 specifier|public
-name|void
-name|closeNodes
-parameter_list|()
-block|{
-name|client
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-name|closeAllNodes
-argument_list|()
-expr_stmt|;
-block|}
-DECL|method|getClient
-specifier|protected
 name|Client
-name|getClient
+name|client
 parameter_list|()
 block|{
 return|return
@@ -290,6 +237,7 @@ block|{
 try|try
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -318,6 +266,7 @@ block|{
 comment|// ignore
 block|}
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -364,6 +313,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -704,6 +654,7 @@ block|{
 try|try
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -732,6 +683,7 @@ block|{
 comment|// ignore
 block|}
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -778,6 +730,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1033,6 +986,7 @@ block|{
 try|try
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1063,6 +1017,7 @@ block|}
 try|try
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1091,6 +1046,7 @@ block|{
 comment|// ignore
 block|}
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1130,6 +1086,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1169,6 +1126,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1220,6 +1178,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1250,6 +1209,7 @@ name|ClusterSearchShardsResponse
 name|response
 init|=
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()

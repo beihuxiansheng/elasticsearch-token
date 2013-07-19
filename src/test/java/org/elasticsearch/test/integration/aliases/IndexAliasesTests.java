@@ -386,11 +386,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
+name|junit
 operator|.
-name|annotations
-operator|.
-name|BeforeClass
+name|Assert
 import|;
 end_import
 
@@ -398,9 +396,7 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
-operator|.
-name|annotations
+name|junit
 operator|.
 name|Test
 import|;
@@ -520,45 +516,9 @@ name|org
 operator|.
 name|hamcrest
 operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
 name|Matchers
 operator|.
 name|*
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|testng
-operator|.
-name|AssertJUnit
-operator|.
-name|assertTrue
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|testng
-operator|.
-name|AssertJUnit
-operator|.
-name|fail
 import|;
 end_import
 
@@ -567,8 +527,6 @@ comment|/**  *  */
 end_comment
 
 begin_class
-annotation|@
-name|Test
 DECL|class|IndexAliasesTests
 specifier|public
 class|class
@@ -576,25 +534,6 @@ name|IndexAliasesTests
 extends|extends
 name|AbstractSharedClusterTest
 block|{
-annotation|@
-name|BeforeClass
-DECL|method|createNodes
-specifier|public
-name|void
-name|createNodes
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|cluster
-argument_list|()
-operator|.
-name|ensureAtLeastNumNodes
-argument_list|(
-literal|2
-argument_list|)
-expr_stmt|;
-block|}
 annotation|@
 name|Test
 DECL|method|testAliases
@@ -10723,6 +10662,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+name|Assert
+operator|.
 name|fail
 argument_list|(
 literal|"Exception should have been thrown"
@@ -10793,7 +10734,7 @@ block|}
 annotation|@
 name|Test
 argument_list|(
-name|expectedExceptions
+name|expected
 operator|=
 name|ActionRequestValidationException
 operator|.
@@ -10839,7 +10780,7 @@ block|}
 annotation|@
 name|Test
 argument_list|(
-name|expectedExceptions
+name|expected
 operator|=
 name|ActionRequestValidationException
 operator|.
@@ -10885,7 +10826,7 @@ block|}
 annotation|@
 name|Test
 argument_list|(
-name|expectedExceptions
+name|expected
 operator|=
 name|ActionRequestValidationException
 operator|.
@@ -10931,7 +10872,7 @@ block|}
 annotation|@
 name|Test
 argument_list|(
-name|expectedExceptions
+name|expected
 operator|=
 name|ActionRequestValidationException
 operator|.
@@ -11157,7 +11098,7 @@ block|}
 annotation|@
 name|Test
 argument_list|(
-name|expectedExceptions
+name|expected
 operator|=
 name|ActionRequestValidationException
 operator|.
@@ -11203,7 +11144,7 @@ block|}
 annotation|@
 name|Test
 argument_list|(
-name|expectedExceptions
+name|expected
 operator|=
 name|ActionRequestValidationException
 operator|.
@@ -11249,7 +11190,7 @@ block|}
 annotation|@
 name|Test
 argument_list|(
-name|expectedExceptions
+name|expected
 operator|=
 name|ActionRequestValidationException
 operator|.
@@ -11295,7 +11236,7 @@ block|}
 annotation|@
 name|Test
 argument_list|(
-name|expectedExceptions
+name|expected
 operator|=
 name|ActionRequestValidationException
 operator|.

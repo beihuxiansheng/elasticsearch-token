@@ -108,11 +108,45 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
-operator|.
-name|annotations
+name|junit
 operator|.
 name|Test
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|node
+operator|.
+name|DiscoveryNodeFilters
+operator|.
+name|OpType
+operator|.
+name|AND
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|node
+operator|.
+name|DiscoveryNodeFilters
+operator|.
+name|OpType
+operator|.
+name|OR
 import|;
 end_import
 
@@ -140,31 +174,11 @@ name|equalTo
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|node
-operator|.
-name|DiscoveryNodeFilters
-operator|.
-name|OpType
-operator|.
-name|*
-import|;
-end_import
-
 begin_comment
 comment|/**  */
 end_comment
 
 begin_class
-annotation|@
-name|Test
 DECL|class|DiscoveryNodeFiltersTests
 specifier|public
 class|class

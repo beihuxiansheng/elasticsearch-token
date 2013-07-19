@@ -86,11 +86,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
+name|junit
 operator|.
-name|annotations
-operator|.
-name|AfterMethod
+name|After
 import|;
 end_import
 
@@ -98,9 +96,7 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
-operator|.
-name|annotations
+name|junit
 operator|.
 name|Test
 import|;
@@ -189,7 +185,7 @@ extends|extends
 name|AbstractNodesTests
 block|{
 annotation|@
-name|AfterMethod
+name|After
 DECL|method|closeNodes
 specifier|public
 name|void

@@ -162,33 +162,7 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
-operator|.
-name|annotations
-operator|.
-name|AfterClass
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|testng
-operator|.
-name|annotations
-operator|.
-name|BeforeClass
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|testng
-operator|.
-name|annotations
+name|junit
 operator|.
 name|Test
 import|;
@@ -255,8 +229,6 @@ comment|/**  */
 end_comment
 
 begin_class
-annotation|@
-name|Test
 DECL|class|CacheTests
 specifier|public
 class|class
@@ -264,17 +236,12 @@ name|CacheTests
 extends|extends
 name|AbstractNodesTests
 block|{
-DECL|field|client
-specifier|private
-name|Client
-name|client
-decl_stmt|;
 annotation|@
-name|BeforeClass
-DECL|method|createNodes
-specifier|public
+name|Override
+DECL|method|beforeClass
+specifier|protected
 name|void
-name|createNodes
+name|beforeClass
 parameter_list|()
 throws|throws
 name|Exception
@@ -297,33 +264,13 @@ literal|"1ms"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|client
-operator|=
-name|getClient
-argument_list|()
-expr_stmt|;
 block|}
 annotation|@
-name|AfterClass
-DECL|method|closeNodes
+name|Override
+DECL|method|client
 specifier|public
-name|void
-name|closeNodes
-parameter_list|()
-block|{
-name|client
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-name|closeAllNodes
-argument_list|()
-expr_stmt|;
-block|}
-DECL|method|getClient
-specifier|protected
 name|Client
-name|getClient
+name|client
 parameter_list|()
 block|{
 return|return
@@ -342,6 +289,7 @@ name|testClearCacheFilterKeys
 parameter_list|()
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -359,6 +307,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -393,6 +342,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -417,6 +367,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -437,6 +388,7 @@ name|NodesStatsResponse
 name|nodesStats
 init|=
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -487,6 +439,7 @@ name|IndicesStatsResponse
 name|indicesStats
 init|=
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -536,6 +489,7 @@ name|SearchResponse
 name|searchResponse
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -590,6 +544,7 @@ expr_stmt|;
 name|nodesStats
 operator|=
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -639,6 +594,7 @@ expr_stmt|;
 name|indicesStats
 operator|=
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -685,6 +641,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -709,6 +666,7 @@ expr_stmt|;
 name|nodesStats
 operator|=
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -758,6 +716,7 @@ expr_stmt|;
 name|indicesStats
 operator|=
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -813,6 +772,7 @@ name|testFieldDataStats
 parameter_list|()
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -830,6 +790,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -864,6 +825,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -892,6 +854,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -920,6 +883,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -940,6 +904,7 @@ name|NodesStatsResponse
 name|nodesStats
 init|=
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -990,6 +955,7 @@ name|IndicesStatsResponse
 name|indicesStats
 init|=
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1037,6 +1003,7 @@ argument_list|)
 expr_stmt|;
 comment|// sort to load it to field data...
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -1057,6 +1024,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -1079,6 +1047,7 @@ expr_stmt|;
 name|nodesStats
 operator|=
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1128,6 +1097,7 @@ expr_stmt|;
 name|indicesStats
 operator|=
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1175,6 +1145,7 @@ argument_list|)
 expr_stmt|;
 comment|// sort to load it to field data...
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -1195,6 +1166,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -1218,6 +1190,7 @@ comment|// now check the per field stats
 name|nodesStats
 operator|=
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1360,6 +1333,7 @@ expr_stmt|;
 name|indicesStats
 operator|=
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1468,6 +1442,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1492,6 +1467,7 @@ expr_stmt|;
 name|nodesStats
 operator|=
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1541,6 +1517,7 @@ expr_stmt|;
 name|indicesStats
 operator|=
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1598,6 +1575,7 @@ throws|throws
 name|Exception
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1615,6 +1593,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1656,6 +1635,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1676,6 +1656,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -1700,6 +1681,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -1724,6 +1706,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1744,6 +1727,7 @@ name|NodesStatsResponse
 name|nodesStats
 init|=
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1819,6 +1803,7 @@ name|IndicesStatsResponse
 name|indicesStats
 init|=
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1890,6 +1875,7 @@ argument_list|)
 expr_stmt|;
 comment|// sort to load it to field data and filter to load filter cache
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -1922,6 +1908,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
@@ -1956,6 +1943,7 @@ expr_stmt|;
 name|nodesStats
 operator|=
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2030,6 +2018,7 @@ expr_stmt|;
 name|indicesStats
 operator|=
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2100,6 +2089,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2127,6 +2117,7 @@ comment|// Make sure the filter cache entries have been removed...
 name|nodesStats
 operator|=
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2201,6 +2192,7 @@ expr_stmt|;
 name|indicesStats
 operator|=
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()

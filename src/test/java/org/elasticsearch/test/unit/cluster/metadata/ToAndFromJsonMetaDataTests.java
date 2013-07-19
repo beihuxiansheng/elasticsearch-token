@@ -80,9 +80,7 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
-operator|.
-name|annotations
+name|junit
 operator|.
 name|Test
 import|;
@@ -203,8 +201,6 @@ comment|/**  *  */
 end_comment
 
 begin_class
-annotation|@
-name|Test
 DECL|class|ToAndFromJsonMetaDataTests
 specifier|public
 class|class
@@ -624,17 +620,7 @@ argument_list|(
 name|metaData
 argument_list|)
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"ToJson: "
-operator|+
-name|metaDataSource
-argument_list|)
-expr_stmt|;
+comment|//        System.out.println("ToJson: " + metaDataSource);
 name|MetaData
 name|parsedMetaData
 init|=

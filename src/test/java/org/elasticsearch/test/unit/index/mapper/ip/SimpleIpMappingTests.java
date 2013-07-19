@@ -22,11 +22,26 @@ name|ip
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Ignore
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
 
 begin_class
+annotation|@
+name|Ignore
+argument_list|(
+literal|"No tests?"
+argument_list|)
 DECL|class|SimpleIpMappingTests
 specifier|public
 class|class

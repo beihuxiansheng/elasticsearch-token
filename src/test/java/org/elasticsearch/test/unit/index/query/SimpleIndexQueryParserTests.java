@@ -58,7 +58,7 @@ name|lucene
 operator|.
 name|queries
 operator|.
-name|ExtendedCommonTermsQuery
+name|BoostingQuery
 import|;
 end_import
 
@@ -72,7 +72,7 @@ name|lucene
 operator|.
 name|queries
 operator|.
-name|BoostingQuery
+name|ExtendedCommonTermsQuery
 import|;
 end_import
 
@@ -217,18 +217,6 @@ operator|.
 name|cluster
 operator|.
 name|ClusterService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|Strings
 import|;
 end_import
 
@@ -724,9 +712,7 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
-operator|.
-name|annotations
+name|junit
 operator|.
 name|AfterClass
 import|;
@@ -736,9 +722,7 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
-operator|.
-name|annotations
+name|junit
 operator|.
 name|BeforeClass
 import|;
@@ -748,9 +732,7 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
-operator|.
-name|annotations
+name|junit
 operator|.
 name|Test
 import|;
@@ -882,6 +864,22 @@ begin_import
 import|import static
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertBooleanSubQuery
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|MatcherAssert
@@ -902,29 +900,11 @@ name|*
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|hamcrest
-operator|.
-name|ElasticsearchAssertions
-operator|.
-name|*
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
 
 begin_class
-annotation|@
-name|Test
 DECL|class|SimpleIndexQueryParserTests
 specifier|public
 class|class
@@ -932,11 +912,13 @@ name|SimpleIndexQueryParserTests
 block|{
 DECL|field|injector
 specifier|private
+specifier|static
 name|Injector
 name|injector
 decl_stmt|;
 DECL|field|queryParser
 specifier|private
+specifier|static
 name|IndexQueryParserService
 name|queryParser
 decl_stmt|;
@@ -944,6 +926,7 @@ annotation|@
 name|BeforeClass
 DECL|method|setupQueryParser
 specifier|public
+specifier|static
 name|void
 name|setupQueryParser
 parameter_list|()
@@ -1157,8 +1140,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
 name|queryParser
 operator|=
 name|injector
@@ -1175,6 +1156,7 @@ annotation|@
 name|AfterClass
 DECL|method|close
 specifier|public
+specifier|static
 name|void
 name|close
 parameter_list|()

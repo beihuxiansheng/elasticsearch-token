@@ -21,46 +21,6 @@ comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more cont
 end_comment
 
 begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|ImmutableSettings
-operator|.
-name|settingsBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|instanceOf
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -204,29 +164,41 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
+name|junit
 operator|.
-name|annotations
-operator|.
-name|AfterMethod
+name|After
 import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
-name|testng
+name|elasticsearch
 operator|.
-name|annotations
+name|common
 operator|.
-name|Test
+name|settings
+operator|.
+name|ImmutableSettings
+operator|.
+name|settingsBuilder
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|instanceOf
 import|;
 end_import
 
 begin_class
-annotation|@
-name|Test
 DECL|class|ShardsAllocatorModuleTests
 specifier|public
 class|class
@@ -235,7 +207,7 @@ extends|extends
 name|AbstractNodesTests
 block|{
 annotation|@
-name|AfterMethod
+name|After
 DECL|method|cleanAndCloseNodes
 specifier|public
 name|void
@@ -409,6 +381,11 @@ argument_list|>
 name|clazz
 parameter_list|)
 block|{
+name|closeNode
+argument_list|(
+literal|"node"
+argument_list|)
+expr_stmt|;
 name|Node
 name|_node
 init|=

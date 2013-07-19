@@ -314,9 +314,17 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
+name|junit
 operator|.
-name|annotations
+name|Assert
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
 operator|.
 name|Test
 import|;
@@ -420,21 +428,7 @@ name|*
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|testng
-operator|.
-name|AssertJUnit
-operator|.
-name|fail
-import|;
-end_import
-
 begin_class
-annotation|@
-name|Test
 DECL|class|SimpleNestedTests
 specifier|public
 class|class
@@ -7941,6 +7935,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+name|Assert
+operator|.
 name|fail
 argument_list|(
 literal|"SearchPhaseExecutionException should have been thrown"
