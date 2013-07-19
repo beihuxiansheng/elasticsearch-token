@@ -597,14 +597,26 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-throw|throw
+comment|// Don't use new "AssertionError("Cannot happen", e)" directly as this is a Java 1.7-only API
+specifier|final
+name|AssertionError
+name|error
+init|=
 operator|new
 name|AssertionError
 argument_list|(
 literal|"Cannot happen"
-argument_list|,
+argument_list|)
+decl_stmt|;
+name|error
+operator|.
+name|initCause
+argument_list|(
 name|e
 argument_list|)
+expr_stmt|;
+throw|throw
+name|error
 throw|;
 block|}
 name|this
