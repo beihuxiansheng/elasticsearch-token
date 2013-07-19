@@ -251,31 +251,11 @@ operator|.
 name|get
 argument_list|(
 literal|"replacement"
+argument_list|,
+literal|""
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|Strings
-operator|.
-name|hasLength
-argument_list|(
-name|replacement
-argument_list|)
-condition|)
-block|{
-throw|throw
-operator|new
-name|ElasticSearchIllegalArgumentException
-argument_list|(
-literal|"replacement is missing for ["
-operator|+
-name|name
-operator|+
-literal|"] char filter of type 'pattern_replace'"
-argument_list|)
-throw|;
-block|}
+comment|// when not set or set to "", use "".
 block|}
 DECL|method|getPattern
 specifier|public
