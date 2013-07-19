@@ -133,6 +133,10 @@ argument_list|,
 name|Flag
 operator|.
 name|Search
+argument_list|,
+name|Flag
+operator|.
+name|Percolate
 argument_list|)
 decl_stmt|;
 DECL|field|types
@@ -764,6 +768,12 @@ DECL|enum constant|Warmer
 name|Warmer
 argument_list|(
 literal|"warmer"
+argument_list|)
+block|,
+DECL|enum constant|Percolate
+name|Percolate
+argument_list|(
+literal|"percolate"
 argument_list|)
 block|;
 DECL|field|restName
