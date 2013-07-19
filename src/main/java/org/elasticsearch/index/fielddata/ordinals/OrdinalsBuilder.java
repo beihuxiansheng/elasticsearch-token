@@ -1667,7 +1667,7 @@ literal|"acceptable_overhead_ratio"
 argument_list|,
 name|PackedInts
 operator|.
-name|COMPACT
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 if|if
