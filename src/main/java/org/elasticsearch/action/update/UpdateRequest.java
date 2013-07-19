@@ -2190,7 +2190,7 @@ name|type
 operator|=
 name|in
 operator|.
-name|readString
+name|readSharedString
 argument_list|()
 expr_stmt|;
 name|id
@@ -2421,7 +2421,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeString
+name|writeSharedString
 argument_list|(
 name|type
 argument_list|)

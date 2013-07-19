@@ -631,7 +631,7 @@ name|index
 operator|=
 name|in
 operator|.
-name|readString
+name|readSharedString
 argument_list|()
 expr_stmt|;
 comment|// no need to serialize threaded* parameters, since they only matter locally
@@ -685,7 +685,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeString
+name|writeSharedString
 argument_list|(
 name|index
 argument_list|)

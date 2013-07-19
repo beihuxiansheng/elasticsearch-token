@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a single item response for an action executed as part of the bulk API. Holds the index/type/id  * of the relevant action, and if it has failed or not (with the failure message incase it failed).  *  *  */
+comment|/**  * Represents a single item response for an action executed as part of the bulk API. Holds the index/type/id  * of the relevant action, and if it has failed or not (with the failure message incase it failed).  */
 end_comment
 
 begin_class
@@ -835,7 +835,7 @@ name|opType
 operator|=
 name|in
 operator|.
-name|readString
+name|readSharedString
 argument_list|()
 expr_stmt|;
 name|byte
@@ -927,12 +927,12 @@ name|Failure
 argument_list|(
 name|in
 operator|.
-name|readString
+name|readSharedString
 argument_list|()
 argument_list|,
 name|in
 operator|.
-name|readString
+name|readSharedString
 argument_list|()
 argument_list|,
 name|in
@@ -970,7 +970,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeString
+name|writeSharedString
 argument_list|(
 name|opType
 argument_list|)
@@ -1086,7 +1086,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeString
+name|writeSharedString
 argument_list|(
 name|failure
 operator|.
@@ -1096,7 +1096,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeString
+name|writeSharedString
 argument_list|(
 name|failure
 operator|.

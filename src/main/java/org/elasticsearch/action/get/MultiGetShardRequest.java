@@ -518,7 +518,7 @@ name|add
 argument_list|(
 name|in
 operator|.
-name|readString
+name|readSharedString
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -758,7 +758,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeString
+name|writeSharedString
 argument_list|(
 name|types
 operator|.
