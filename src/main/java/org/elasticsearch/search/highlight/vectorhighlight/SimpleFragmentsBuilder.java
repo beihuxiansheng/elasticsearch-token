@@ -76,7 +76,7 @@ name|search
 operator|.
 name|vectorhighlight
 operator|.
-name|FieldFragList
+name|XFieldFragList
 operator|.
 name|WeightedFragInfo
 import|;
@@ -116,7 +116,7 @@ name|search
 operator|.
 name|vectorhighlight
 operator|.
-name|SimpleFragmentsBuilder
+name|XSimpleFragmentsBuilder
 block|{
 DECL|field|mapper
 specifier|protected

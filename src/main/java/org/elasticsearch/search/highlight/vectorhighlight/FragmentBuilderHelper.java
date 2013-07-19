@@ -58,7 +58,7 @@ name|search
 operator|.
 name|vectorhighlight
 operator|.
-name|FastVectorHighlighter
+name|XFastVectorHighlighter
 import|;
 end_import
 
@@ -74,7 +74,7 @@ name|search
 operator|.
 name|vectorhighlight
 operator|.
-name|FieldFragList
+name|XFieldFragList
 operator|.
 name|WeightedFragInfo
 import|;
@@ -92,7 +92,7 @@ name|search
 operator|.
 name|vectorhighlight
 operator|.
-name|FieldFragList
+name|XFieldFragList
 operator|.
 name|WeightedFragInfo
 operator|.
@@ -112,7 +112,7 @@ name|search
 operator|.
 name|vectorhighlight
 operator|.
-name|FragmentsBuilder
+name|XFragmentsBuilder
 import|;
 end_import
 
@@ -193,7 +193,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Simple helper class for {@link FastVectorHighlighter} {@link FragmentsBuilder} implemenations.  */
+comment|/**  * Simple helper class for {@link XFastVectorHighlighter} {@link XFragmentsBuilder} implemenations.  */
 end_comment
 
 begin_class
@@ -210,7 +210,7 @@ parameter_list|()
 block|{
 comment|// no instance
 block|}
-comment|/**      * Fixes problems with broken analysis chains if positions and offsets are messed up that can lead to      * {@link StringIndexOutOfBoundsException} in the {@link FastVectorHighlighter}      */
+comment|/**      * Fixes problems with broken analysis chains if positions and offsets are messed up that can lead to      * {@link StringIndexOutOfBoundsException} in the {@link XFastVectorHighlighter}      */
 DECL|method|fixWeightedFragInfo
 specifier|public
 specifier|static

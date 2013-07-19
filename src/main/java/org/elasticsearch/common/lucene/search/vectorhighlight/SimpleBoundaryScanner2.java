@@ -47,7 +47,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A copy of Lucene {@link org.apache.lucene.search.vectorhighlight.SimpleBoundaryScanner}.  *<p/>  * Uses specialized char set to lookup boundary, and fixes a problem with start offset in the  * beginning of the text: https://issues.apache.org/jira/browse/LUCENE-3697 (which has a problem  * with multiple empty fields to highlight...).  */
+comment|/**  * A copy of Lucene {@link org.apache.lucene.search.vectorhighlight.XSimpleBoundaryScanner}.  *<p/>  * Uses specialized char set to lookup boundary, and fixes a problem with start offset in the  * beginning of the text: https://issues.apache.org/jira/browse/LUCENE-3697 (which has a problem  * with multiple empty fields to highlight...).  */
 end_comment
 
 begin_class
