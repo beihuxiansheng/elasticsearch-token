@@ -837,44 +837,6 @@ block|}
 block|}
 if|if
 condition|(
-name|index
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|ElasticSearchIllegalArgumentException
-argument_list|(
-literal|"Alias action ["
-operator|+
-name|action
-operator|+
-literal|"] requires an [index] to be set"
-argument_list|)
-throw|;
-block|}
-if|if
-condition|(
-name|alias
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|ElasticSearchIllegalArgumentException
-argument_list|(
-literal|"Alias action ["
-operator|+
-name|action
-operator|+
-literal|"] requires an [alias] to be set"
-argument_list|)
-throw|;
-block|}
-if|if
-condition|(
 name|type
 operator|==
 name|AliasAction
