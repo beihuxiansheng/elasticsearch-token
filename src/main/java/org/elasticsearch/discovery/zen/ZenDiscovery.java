@@ -1858,6 +1858,10 @@ name|submitStateUpdateTask
 argument_list|(
 literal|"zen-disco-join (elected_as_master)"
 argument_list|,
+name|Priority
+operator|.
+name|URGENT
+argument_list|,
 operator|new
 name|ProcessedClusterStateUpdateTask
 argument_list|()
@@ -2171,7 +2175,7 @@ literal|")"
 argument_list|,
 name|Priority
 operator|.
-name|HIGH
+name|URGENT
 argument_list|,
 operator|new
 name|ClusterStateUpdateTask
@@ -2367,6 +2371,10 @@ literal|"), reason "
 operator|+
 name|reason
 argument_list|,
+name|Priority
+operator|.
+name|URGENT
+argument_list|,
 operator|new
 name|ProcessedClusterStateUpdateTask
 argument_list|()
@@ -2555,6 +2563,10 @@ name|submitStateUpdateTask
 argument_list|(
 literal|"zen-disco-minimum_master_nodes_changed"
 argument_list|,
+name|Priority
+operator|.
+name|URGENT
+argument_list|,
 operator|new
 name|ProcessedClusterStateUpdateTask
 argument_list|()
@@ -2707,7 +2719,7 @@ literal|")"
 argument_list|,
 name|Priority
 operator|.
-name|HIGH
+name|URGENT
 argument_list|,
 operator|new
 name|ProcessedClusterStateUpdateTask
@@ -3043,6 +3055,10 @@ argument_list|()
 operator|+
 literal|"]"
 argument_list|,
+name|Priority
+operator|.
+name|URGENT
+argument_list|,
 operator|new
 name|ClusterStateUpdateTask
 argument_list|()
@@ -3270,6 +3286,10 @@ name|masterNode
 argument_list|()
 operator|+
 literal|"])"
+argument_list|,
+name|Priority
+operator|.
+name|URGENT
 argument_list|,
 operator|new
 name|ProcessedClusterStateUpdateTask
@@ -3652,6 +3672,10 @@ operator|+
 name|node
 operator|+
 literal|"])"
+argument_list|,
+name|Priority
+operator|.
+name|URGENT
 argument_list|,
 operator|new
 name|ClusterStateUpdateTask
@@ -4765,6 +4789,10 @@ operator|.
 name|fromNodeId
 operator|+
 literal|"]"
+argument_list|,
+name|Priority
+operator|.
+name|URGENT
 argument_list|,
 operator|new
 name|ClusterStateUpdateTask
