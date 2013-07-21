@@ -4549,25 +4549,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// We have 5 partitions
-name|assertThat
-argument_list|(
-name|indicesResponse
-operator|.
-name|getTotal
-argument_list|()
-operator|.
-name|getPercolate
-argument_list|()
-operator|.
-name|getTimeInMillis
-argument_list|()
-argument_list|,
-name|greaterThan
-argument_list|(
-literal|0l
-argument_list|)
-argument_list|)
-expr_stmt|;
+comment|// it might be too fast to be counted in milliseconds...
+comment|//assertThat(indicesResponse.getTotal().getPercolate().getTimeInMillis(), greaterThan(0l));
 name|assertThat
 argument_list|(
 name|indicesResponse
@@ -4664,16 +4647,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// We have 5 partitions
-name|assertThat
-argument_list|(
-name|percolateSumTime
-argument_list|,
-name|greaterThan
-argument_list|(
-literal|0l
-argument_list|)
-argument_list|)
-expr_stmt|;
+comment|// it might be too fast to be counted in milliseconds...
+comment|//assertThat(percolateSumTime, greaterThan(0l));
 name|logger
 operator|.
 name|info
@@ -4799,25 +4774,8 @@ literal|10l
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertThat
-argument_list|(
-name|indicesResponse
-operator|.
-name|getTotal
-argument_list|()
-operator|.
-name|getPercolate
-argument_list|()
-operator|.
-name|getTimeInMillis
-argument_list|()
-argument_list|,
-name|greaterThan
-argument_list|(
-literal|0l
-argument_list|)
-argument_list|)
-expr_stmt|;
+comment|// it might be too fast to be counted in milliseconds...
+comment|//assertThat(indicesResponse.getTotal().getPercolate().getTimeInMillis(), greaterThan(0l));
 name|assertThat
 argument_list|(
 name|indicesResponse
@@ -4910,16 +4868,8 @@ literal|10l
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertThat
-argument_list|(
-name|percolateSumTime
-argument_list|,
-name|greaterThan
-argument_list|(
-literal|0l
-argument_list|)
-argument_list|)
-expr_stmt|;
+comment|// it might be too fast to be counted in milliseconds...
+comment|//assertThat(percolateSumTime, greaterThan(0l));
 block|}
 DECL|method|convertFromTextArray
 specifier|public
