@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A task that can update the cluster state.  *  *  */
+comment|/**  * A task that can update the cluster state.  */
 end_comment
 
 begin_interface
@@ -31,6 +31,20 @@ name|execute
 parameter_list|(
 name|ClusterState
 name|currentState
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * A callback called when execute fails.      */
+DECL|method|onFailure
+name|void
+name|onFailure
+parameter_list|(
+name|String
+name|source
+parameter_list|,
+name|Throwable
+name|t
 parameter_list|)
 function_decl|;
 block|}

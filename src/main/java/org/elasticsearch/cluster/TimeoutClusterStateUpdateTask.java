@@ -40,23 +40,11 @@ name|TimeoutClusterStateUpdateTask
 extends|extends
 name|ProcessedClusterStateUpdateTask
 block|{
-comment|/**      * If the cluster state update task wasn't processed by the provided timeout, call      * {@link #onTimeout(TimeValue, String)}.      */
+comment|/**      * If the cluster state update task wasn't processed by the provided timeout, call      * {@link #onFailure(Throwable)}      */
 DECL|method|timeout
 name|TimeValue
 name|timeout
 parameter_list|()
-function_decl|;
-comment|/**      * Called when the cluster sate update task wasn't processed by the provided      * {@link #timeout()}.      */
-DECL|method|onTimeout
-name|void
-name|onTimeout
-parameter_list|(
-name|TimeValue
-name|timeout
-parameter_list|,
-name|String
-name|source
-parameter_list|)
 function_decl|;
 block|}
 end_interface

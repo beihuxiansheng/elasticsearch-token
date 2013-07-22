@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * An extension interface to {@link ClusterStateUpdateTask} that allows to be notified when  * the cluster state update has been processed.  *  *  */
+comment|/**  * An extension interface to {@link ClusterStateUpdateTask} that allows to be notified when  * the cluster state update has been processed.  */
 end_comment
 
 begin_interface
@@ -31,8 +31,14 @@ DECL|method|clusterStateProcessed
 name|void
 name|clusterStateProcessed
 parameter_list|(
+name|String
+name|source
+parameter_list|,
 name|ClusterState
-name|clusterState
+name|oldState
+parameter_list|,
+name|ClusterState
+name|newState
 parameter_list|)
 function_decl|;
 block|}
