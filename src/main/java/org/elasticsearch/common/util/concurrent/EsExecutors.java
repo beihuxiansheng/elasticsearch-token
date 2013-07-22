@@ -93,7 +93,7 @@ block|{
 DECL|method|newSinglePrioritizingThreadExecutor
 specifier|public
 specifier|static
-name|EsThreadPoolExecutor
+name|PrioritizedEsThreadPoolExecutor
 name|newSinglePrioritizingThreadExecutor
 parameter_list|(
 name|ThreadFactory
