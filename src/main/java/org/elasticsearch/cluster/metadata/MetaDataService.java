@@ -129,7 +129,7 @@ operator|=
 operator|new
 name|Semaphore
 index|[
-literal|1
+literal|500
 index|]
 expr_stmt|;
 for|for
