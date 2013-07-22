@@ -4,15 +4,27 @@ comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more cont
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.cluster
+DECL|package|org.elasticsearch.cluster.metadata
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|cluster
+operator|.
+name|metadata
 package|;
 end_package
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|ElasticSearchException
+import|;
+end_import
 
 begin_import
 import|import
@@ -28,38 +40,69 @@ name|TimeValue
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|rest
+operator|.
+name|RestStatus
+import|;
+end_import
+
 begin_comment
-comment|/**  * An extension interface to {@link org.elasticsearch.cluster.ClusterStateUpdateTask} that allows to associate  * a timeout.  */
+comment|/**  */
 end_comment
 
-begin_interface
-DECL|interface|TimeoutClusterStateUpdateTask
+begin_class
+DECL|class|ProcessClusterEventTimeoutException
 specifier|public
-interface|interface
-name|TimeoutClusterStateUpdateTask
+class|class
+name|ProcessClusterEventTimeoutException
 extends|extends
-name|ProcessedClusterStateUpdateTask
+name|ElasticSearchException
 block|{
-comment|/**      * If the cluster state update task wasn't processed by the provided timeout, call      * {@link #onTimeout(TimeValue, String)}.      */
-DECL|method|timeout
-name|TimeValue
-name|timeout
-parameter_list|()
-function_decl|;
-comment|/**      * Called when the cluster sate update task wasn't processed by the provided      * {@link #timeout()}.      */
-DECL|method|onTimeout
-name|void
-name|onTimeout
+DECL|method|ProcessClusterEventTimeoutException
+specifier|public
+name|ProcessClusterEventTimeoutException
 parameter_list|(
 name|TimeValue
-name|timeout
+name|timeValue
 parameter_list|,
 name|String
 name|source
 parameter_list|)
-function_decl|;
+block|{
+name|super
+argument_list|(
+literal|"failed to process cluster event ("
+operator|+
+name|source
+operator|+
+literal|") within "
+operator|+
+name|timeValue
+argument_list|)
+expr_stmt|;
 block|}
-end_interface
+annotation|@
+name|Override
+DECL|method|status
+specifier|public
+name|RestStatus
+name|status
+parameter_list|()
+block|{
+return|return
+name|RestStatus
+operator|.
+name|SERVICE_UNAVAILABLE
+return|;
+block|}
+block|}
+end_class
 
 end_unit
 

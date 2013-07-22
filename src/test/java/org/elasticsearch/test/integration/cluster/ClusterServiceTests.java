@@ -521,6 +521,9 @@ specifier|public
 name|void
 name|onTimeout
 parameter_list|(
+name|TimeValue
+name|timeout
+parameter_list|,
 name|String
 name|source
 parameter_list|)
@@ -552,6 +555,16 @@ return|return
 name|currentState
 return|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|clusterStateProcessed
+parameter_list|(
+name|ClusterState
+name|clusterState
+parameter_list|)
+block|{             }
 block|}
 argument_list|)
 expr_stmt|;

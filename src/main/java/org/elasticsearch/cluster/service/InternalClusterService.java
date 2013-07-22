@@ -1336,6 +1336,11 @@ name|timeoutUpdateTask
 operator|.
 name|onTimeout
 argument_list|(
+name|timeoutUpdateTask
+operator|.
+name|timeout
+argument_list|()
+argument_list|,
 name|task
 operator|.
 name|source

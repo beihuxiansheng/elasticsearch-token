@@ -487,6 +487,14 @@ operator|.
 name|create
 argument_list|()
 argument_list|)
+operator|.
+name|masterTimeout
+argument_list|(
+name|request
+operator|.
+name|masterNodeTimeout
+argument_list|()
+argument_list|)
 argument_list|,
 operator|new
 name|MetaDataIndexTemplateService
