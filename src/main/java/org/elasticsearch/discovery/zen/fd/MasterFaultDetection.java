@@ -1289,7 +1289,7 @@ argument_list|,
 name|options
 argument_list|()
 operator|.
-name|withHighType
+name|withPingType
 argument_list|()
 operator|.
 name|withTimeout
@@ -1634,7 +1634,7 @@ argument_list|,
 name|options
 argument_list|()
 operator|.
-name|withHighType
+name|withPingType
 argument_list|()
 operator|.
 name|withTimeout

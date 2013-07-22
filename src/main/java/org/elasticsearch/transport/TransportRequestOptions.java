@@ -85,6 +85,9 @@ name|MED
 block|,
 DECL|enum constant|HIGH
 name|HIGH
+block|,
+DECL|enum constant|PING
+name|PING
 block|;
 DECL|method|fromString
 specifier|public
@@ -138,6 +141,21 @@ condition|)
 block|{
 return|return
 name|HIGH
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+literal|"ping"
+operator|.
+name|equalsIgnoreCase
+argument_list|(
+name|type
+argument_list|)
+condition|)
+block|{
+return|return
+name|PING
 return|;
 block|}
 else|else
@@ -253,7 +271,26 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * A request that requires very low latency. Usually reserved for ping requests with very small payload.      */
+comment|/**      * A request that requires very low latency.      */
+DECL|method|withPingType
+specifier|public
+name|TransportRequestOptions
+name|withPingType
+parameter_list|()
+block|{
+name|this
+operator|.
+name|type
+operator|=
+name|Type
+operator|.
+name|PING
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * A channel reserved for high prio requests.      */
 DECL|method|withHighType
 specifier|public
 name|TransportRequestOptions
