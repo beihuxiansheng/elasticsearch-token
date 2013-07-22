@@ -274,6 +274,25 @@ name|os
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns a content builder using YAML format ({@link org.elasticsearch.common.xcontent.XContentType#YAML}.      */
+DECL|method|yamlBuilder
+specifier|public
+specifier|static
+name|XContentBuilder
+name|yamlBuilder
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+return|return
+name|contentBuilder
+argument_list|(
+name|XContentType
+operator|.
+name|SMILE
+argument_list|)
+return|;
+block|}
 comment|/**      * Constructs a new yaml builder that will output the result into the provided output stream.      */
 DECL|method|yamlBuilder
 specifier|public
