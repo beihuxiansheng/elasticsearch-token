@@ -296,6 +296,22 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cloud
+operator|.
+name|gce
+operator|.
+name|GceComputeService
+operator|.
+name|Fields
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -310,40 +326,6 @@ name|AbstractComponent
 implements|implements
 name|UnicastHostsProvider
 block|{
-DECL|class|Fields
-specifier|static
-specifier|final
-class|class
-name|Fields
-block|{
-DECL|field|PROJECT
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|PROJECT
-init|=
-literal|"project_id"
-decl_stmt|;
-DECL|field|ZONE
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|ZONE
-init|=
-literal|"zone"
-decl_stmt|;
-DECL|field|REFRESH
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|REFRESH
-init|=
-literal|"refresh_interval"
-decl_stmt|;
-block|}
 DECL|class|Status
 specifier|static
 specifier|final
@@ -671,7 +653,7 @@ expr_stmt|;
 block|}
 name|logger
 operator|.
-name|debug
+name|info
 argument_list|(
 literal|"start building nodes list using GCE API"
 argument_list|)
@@ -1376,6 +1358,18 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"{} node(s) added"
+argument_list|,
+name|cachedDiscoNodes
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|logger
 operator|.
 name|debug

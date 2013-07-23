@@ -577,7 +577,7 @@ argument_list|()
 expr_stmt|;
 name|logger
 operator|.
-name|debug
+name|info
 argument_list|(
 literal|"starting GCE discovery service"
 argument_list|)

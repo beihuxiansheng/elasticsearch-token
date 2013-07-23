@@ -552,6 +552,13 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
+literal|"cloud.gce.refresh_interval"
+argument_list|,
+literal|"5s"
+argument_list|)
+operator|.
+name|put
+argument_list|(
 literal|"node.name"
 argument_list|,
 operator|(
