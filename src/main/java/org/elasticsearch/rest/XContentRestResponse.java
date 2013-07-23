@@ -294,7 +294,7 @@ name|contentThreadSafe
 parameter_list|()
 block|{
 return|return
-literal|false
+literal|true
 return|;
 block|}
 annotation|@

@@ -112,7 +112,7 @@ name|io
 operator|.
 name|stream
 operator|.
-name|CachedStreamOutput
+name|BytesStreamOutput
 import|;
 end_import
 
@@ -274,16 +274,6 @@ operator|.
 name|JSON
 expr_stmt|;
 block|}
-name|CachedStreamOutput
-operator|.
-name|Entry
-name|cachedEntry
-init|=
-name|CachedStreamOutput
-operator|.
-name|popEntry
-argument_list|()
-decl_stmt|;
 name|XContentBuilder
 name|builder
 init|=
@@ -297,12 +287,9 @@ argument_list|(
 name|contentType
 argument_list|)
 argument_list|,
-name|cachedEntry
-operator|.
-name|bytes
+operator|new
+name|BytesStreamOutput
 argument_list|()
-argument_list|,
-name|cachedEntry
 argument_list|)
 decl_stmt|;
 if|if

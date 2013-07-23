@@ -98,6 +98,17 @@ name|StreamOutput
 implements|implements
 name|BytesStream
 block|{
+DECL|field|DEFAULT_SIZE
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|DEFAULT_SIZE
+init|=
+literal|32
+operator|*
+literal|1024
+decl_stmt|;
 comment|/**      * The buffer where data is stored.      */
 DECL|field|buf
 specifier|protected
@@ -118,7 +129,7 @@ parameter_list|()
 block|{
 name|this
 argument_list|(
-literal|1024
+name|DEFAULT_SIZE
 argument_list|)
 expr_stmt|;
 block|}

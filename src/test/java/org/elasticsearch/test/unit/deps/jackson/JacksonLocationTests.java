@@ -30,7 +30,49 @@ name|jackson
 operator|.
 name|core
 operator|.
-name|*
+name|JsonFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|fasterxml
+operator|.
+name|jackson
+operator|.
+name|core
+operator|.
+name|JsonGenerator
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|fasterxml
+operator|.
+name|jackson
+operator|.
+name|core
+operator|.
+name|JsonParser
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|fasterxml
+operator|.
+name|jackson
+operator|.
+name|core
+operator|.
+name|JsonToken
 import|;
 end_import
 
@@ -44,7 +86,9 @@ name|common
 operator|.
 name|io
 operator|.
-name|FastByteArrayOutputStream
+name|stream
+operator|.
+name|BytesStreamOutput
 import|;
 end_import
 
@@ -120,11 +164,11 @@ comment|//    "source" : {
 comment|//         value : "something"
 comment|//    }
 comment|// }
-name|FastByteArrayOutputStream
+name|BytesStreamOutput
 name|os
 init|=
 operator|new
-name|FastByteArrayOutputStream
+name|BytesStreamOutput
 argument_list|()
 decl_stmt|;
 name|JsonGenerator
@@ -137,10 +181,6 @@ operator|.
 name|createJsonGenerator
 argument_list|(
 name|os
-argument_list|,
-name|JsonEncoding
-operator|.
-name|UTF8
 argument_list|)
 decl_stmt|;
 name|gen

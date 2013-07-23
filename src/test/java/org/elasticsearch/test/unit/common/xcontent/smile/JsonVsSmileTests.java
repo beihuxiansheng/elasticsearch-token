@@ -32,7 +32,9 @@ name|common
 operator|.
 name|io
 operator|.
-name|FastByteArrayOutputStream
+name|stream
+operator|.
+name|BytesStreamOutput
 import|;
 end_import
 
@@ -178,11 +180,11 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|FastByteArrayOutputStream
+name|BytesStreamOutput
 name|xsonOs
 init|=
 operator|new
-name|FastByteArrayOutputStream
+name|BytesStreamOutput
 argument_list|()
 decl_stmt|;
 name|XContentGenerator
@@ -202,11 +204,11 @@ argument_list|(
 name|xsonOs
 argument_list|)
 decl_stmt|;
-name|FastByteArrayOutputStream
+name|BytesStreamOutput
 name|jsonOs
 init|=
 operator|new
-name|FastByteArrayOutputStream
+name|BytesStreamOutput
 argument_list|()
 decl_stmt|;
 name|XContentGenerator

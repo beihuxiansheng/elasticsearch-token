@@ -42,7 +42,7 @@ name|common
 operator|.
 name|io
 operator|.
-name|FastByteArrayInputStream
+name|FastStringReader
 import|;
 end_import
 
@@ -56,7 +56,9 @@ name|common
 operator|.
 name|io
 operator|.
-name|FastStringReader
+name|stream
+operator|.
+name|BytesStreamInput
 import|;
 end_import
 
@@ -107,7 +109,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Settings loader that loads (parses) the settings in a properties format.  *  *  */
+comment|/**  * Settings loader that loads (parses) the settings in a properties format.  */
 end_comment
 
 begin_class
@@ -248,13 +250,15 @@ operator|new
 name|Properties
 argument_list|()
 decl_stmt|;
-name|FastByteArrayInputStream
+name|BytesStreamInput
 name|stream
 init|=
 operator|new
-name|FastByteArrayInputStream
+name|BytesStreamInput
 argument_list|(
 name|source
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 try|try

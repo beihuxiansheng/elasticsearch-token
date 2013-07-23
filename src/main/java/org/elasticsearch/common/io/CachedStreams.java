@@ -32,22 +32,6 @@ name|CachedStreamInput
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|io
-operator|.
-name|stream
-operator|.
-name|CachedStreamOutput
-import|;
-end_import
-
 begin_class
 DECL|class|CachedStreams
 specifier|public
@@ -62,11 +46,6 @@ name|clear
 parameter_list|()
 block|{
 name|CachedStreamInput
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
-name|CachedStreamOutput
 operator|.
 name|clear
 argument_list|()

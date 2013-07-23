@@ -46,7 +46,7 @@ name|common
 operator|.
 name|io
 operator|.
-name|FastByteArrayOutputStream
+name|FastCharArrayWriter
 import|;
 end_import
 
@@ -60,7 +60,9 @@ name|common
 operator|.
 name|io
 operator|.
-name|FastCharArrayWriter
+name|stream
+operator|.
+name|BytesStreamOutput
 import|;
 end_import
 
@@ -488,11 +490,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|FastByteArrayOutputStream
+name|BytesStreamOutput
 name|bos
 init|=
 operator|new
-name|FastByteArrayOutputStream
+name|BytesStreamOutput
 argument_list|()
 decl_stmt|;
 name|XContentGenerator
