@@ -74,6 +74,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|cluster
+operator|.
+name|service
+operator|.
+name|PendingClusterTask
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|Priority
@@ -105,6 +119,16 @@ operator|.
 name|unit
 operator|.
 name|TimeValue
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
 import|;
 end_import
 
@@ -248,6 +272,15 @@ specifier|final
 name|ClusterStateUpdateTask
 name|updateTask
 parameter_list|)
+function_decl|;
+comment|/**      * Returns the tasks that are pending.      */
+DECL|method|pendingTasks
+name|List
+argument_list|<
+name|PendingClusterTask
+argument_list|>
+name|pendingTasks
+parameter_list|()
 function_decl|;
 block|}
 end_interface
