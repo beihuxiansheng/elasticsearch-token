@@ -653,7 +653,7 @@ expr_stmt|;
 block|}
 name|logger
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"start building nodes list using GCE API"
 argument_list|)
@@ -1360,7 +1360,7 @@ expr_stmt|;
 block|}
 name|logger
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"{} node(s) added"
 argument_list|,
