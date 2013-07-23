@@ -705,6 +705,10 @@ argument_list|,
 name|index
 argument_list|)
 expr_stmt|;
+name|lastFailure
+operator|=
+name|t
+expr_stmt|;
 if|if
 condition|(
 name|count
