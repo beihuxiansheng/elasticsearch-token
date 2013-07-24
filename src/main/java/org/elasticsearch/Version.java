@@ -2427,11 +2427,29 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"ElasticSearch Version: "
+literal|"Version: "
 operator|+
 name|Version
 operator|.
 name|CURRENT
+operator|+
+literal|", Build: "
+operator|+
+name|Build
+operator|.
+name|CURRENT
+operator|.
+name|hashShort
+argument_list|()
+operator|+
+literal|"/"
+operator|+
+name|Build
+operator|.
+name|CURRENT
+operator|.
+name|timestamp
+argument_list|()
 operator|+
 literal|", JVM: "
 operator|+
@@ -2442,18 +2460,6 @@ argument_list|()
 operator|.
 name|version
 argument_list|()
-operator|+
-literal|"("
-operator|+
-name|JvmInfo
-operator|.
-name|jvmInfo
-argument_list|()
-operator|.
-name|vmVersion
-argument_list|()
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
 block|}

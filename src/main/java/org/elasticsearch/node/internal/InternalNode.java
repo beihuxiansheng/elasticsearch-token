@@ -22,6 +22,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|Build
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|ElasticSearchException
 import|;
 end_import
@@ -1086,7 +1096,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"{{}}[{}]: initializing ..."
+literal|"version[{}], pid[{}], build[{}/{}]"
 argument_list|,
 name|Version
 operator|.
@@ -1099,6 +1109,27 @@ argument_list|()
 operator|.
 name|pid
 argument_list|()
+argument_list|,
+name|Build
+operator|.
+name|CURRENT
+operator|.
+name|hashShort
+argument_list|()
+argument_list|,
+name|Build
+operator|.
+name|CURRENT
+operator|.
+name|timestamp
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"initializing ..."
 argument_list|)
 expr_stmt|;
 if|if
@@ -1536,19 +1567,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"{{}}[{}]: initialized"
-argument_list|,
-name|Version
-operator|.
-name|CURRENT
-argument_list|,
-name|JvmInfo
-operator|.
-name|jvmInfo
-argument_list|()
-operator|.
-name|pid
-argument_list|()
+literal|"initialized"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1620,19 +1639,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"{{}}[{}]: starting ..."
-argument_list|,
-name|Version
-operator|.
-name|CURRENT
-argument_list|,
-name|JvmInfo
-operator|.
-name|jvmInfo
-argument_list|()
-operator|.
-name|pid
-argument_list|()
+literal|"starting ..."
 argument_list|)
 expr_stmt|;
 comment|// hack around dependency injection problem (for now...)
@@ -1885,19 +1892,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"{{}}[{}]: started"
-argument_list|,
-name|Version
-operator|.
-name|CURRENT
-argument_list|,
-name|JvmInfo
-operator|.
-name|jvmInfo
-argument_list|()
-operator|.
-name|pid
-argument_list|()
+literal|"started"
 argument_list|)
 expr_stmt|;
 return|return
@@ -1948,19 +1943,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"{{}}[{}]: stopping ..."
-argument_list|,
-name|Version
-operator|.
-name|CURRENT
-argument_list|,
-name|JvmInfo
-operator|.
-name|jvmInfo
-argument_list|()
-operator|.
-name|pid
-argument_list|()
+literal|"stopping ..."
 argument_list|)
 expr_stmt|;
 name|injector
@@ -2195,19 +2178,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"{{}}[{}]: stopped"
-argument_list|,
-name|Version
-operator|.
-name|CURRENT
-argument_list|,
-name|JvmInfo
-operator|.
-name|jvmInfo
-argument_list|()
-operator|.
-name|pid
-argument_list|()
+literal|"stopped"
 argument_list|)
 expr_stmt|;
 return|return
@@ -2266,19 +2237,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"{{}}[{}]: closing ..."
-argument_list|,
-name|Version
-operator|.
-name|CURRENT
-argument_list|,
-name|JvmInfo
-operator|.
-name|jvmInfo
-argument_list|()
-operator|.
-name|pid
-argument_list|()
+literal|"closing ..."
 argument_list|)
 expr_stmt|;
 name|StopWatch
@@ -2921,19 +2880,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"{{}}[{}]: closed"
-argument_list|,
-name|Version
-operator|.
-name|CURRENT
-argument_list|,
-name|JvmInfo
-operator|.
-name|jvmInfo
-argument_list|()
-operator|.
-name|pid
-argument_list|()
+literal|"closed"
 argument_list|)
 expr_stmt|;
 block|}
