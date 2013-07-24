@@ -124,6 +124,22 @@ begin_import
 import|import static
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertThrows
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|MatcherAssert
@@ -506,10 +522,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// flt field query on a numeric field -> failure
-try|try
-block|{
-name|searchResponse
-operator|=
+name|assertThrows
+argument_list|(
 name|client
 argument_list|()
 operator|.
@@ -528,22 +542,12 @@ argument_list|(
 literal|"42"
 argument_list|)
 argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
+argument_list|,
 name|SearchPhaseExecutionException
-name|e
-parameter_list|)
-block|{
-comment|// OK
-block|}
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 comment|// flt field query on a numeric field but fail_on_unsupported_field set to false
 name|searchResponse
 operator|=
