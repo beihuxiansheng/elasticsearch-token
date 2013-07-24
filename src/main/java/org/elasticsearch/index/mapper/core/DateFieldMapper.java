@@ -3022,6 +3022,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|// only serialize locale if needed, ROOT is the default, so no need to serialize that case as well...
 if|if
 condition|(
 name|dateTimeFormatter
@@ -3030,6 +3031,15 @@ name|locale
 argument_list|()
 operator|!=
 literal|null
+operator|&&
+name|dateTimeFormatter
+operator|.
+name|locale
+argument_list|()
+operator|!=
+name|Locale
+operator|.
+name|ROOT
 condition|)
 block|{
 name|builder
