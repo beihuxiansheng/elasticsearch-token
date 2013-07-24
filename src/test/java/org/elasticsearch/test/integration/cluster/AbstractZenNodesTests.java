@@ -69,6 +69,7 @@ end_comment
 begin_class
 DECL|class|AbstractZenNodesTests
 specifier|public
+specifier|abstract
 class|class
 name|AbstractZenNodesTests
 extends|extends
