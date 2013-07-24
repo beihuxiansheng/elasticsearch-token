@@ -617,21 +617,6 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
-comment|// root dynamic must not be null, since its the default
-if|if
-condition|(
-name|dynamic
-operator|==
-literal|null
-condition|)
-block|{
-name|dynamic
-operator|=
-name|Dynamic
-operator|.
-name|TRUE
-expr_stmt|;
-block|}
 return|return
 operator|new
 name|RootObjectMapper
