@@ -476,6 +476,16 @@ name|nextOrdinal
 argument_list|()
 expr_stmt|;
 block|}
+name|ordAndId
+operator|.
+name|ord
+operator|=
+name|builder
+operator|.
+name|currentOrdinal
+argument_list|()
+expr_stmt|;
+comment|// remap the ordinals in case we have gaps?
 name|builder
 operator|.
 name|addDoc
@@ -725,6 +735,22 @@ control|)
 block|{
 name|assertThat
 argument_list|(
+literal|"index: "
+operator|+
+name|i
+operator|+
+literal|" offset: "
+operator|+
+name|ref
+operator|.
+name|offset
+operator|+
+literal|" len: "
+operator|+
+name|ref
+operator|.
+name|length
+argument_list|,
 name|ref
 operator|.
 name|longs
@@ -866,7 +892,6 @@ class|class
 name|OrdAndId
 block|{
 DECL|field|ord
-specifier|final
 name|long
 name|ord
 decl_stmt|;
