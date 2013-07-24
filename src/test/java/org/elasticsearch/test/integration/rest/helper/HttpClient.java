@@ -22,6 +22,20 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|base
+operator|.
+name|Charsets
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -69,20 +83,6 @@ operator|.
 name|transport
 operator|.
 name|TransportAddress
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|base
-operator|.
-name|Charsets
 import|;
 end_import
 
@@ -162,7 +162,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Map
+name|List
 import|;
 end_import
 
@@ -172,7 +172,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|Map
 import|;
 end_import
 
@@ -220,7 +220,10 @@ literal|"http"
 argument_list|,
 name|address
 operator|.
-name|getHostName
+name|getAddress
+argument_list|()
+operator|.
+name|getHostAddress
 argument_list|()
 argument_list|,
 name|address
