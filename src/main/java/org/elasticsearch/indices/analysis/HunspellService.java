@@ -295,7 +295,7 @@ name|HunspellDictionary
 argument_list|>
 name|dictionaries
 decl_stmt|;
-DECL|field|knownDicitionaries
+DECL|field|knownDictionaries
 specifier|private
 specifier|final
 name|Map
@@ -304,7 +304,7 @@ name|String
 argument_list|,
 name|HunspellDictionary
 argument_list|>
-name|knownDicitionaries
+name|knownDictionaries
 decl_stmt|;
 DECL|field|defaultIgnoreCase
 specifier|private
@@ -376,7 +376,7 @@ name|String
 argument_list|,
 name|HunspellDictionary
 argument_list|>
-name|knownDicitionaries
+name|knownDictionaries
 parameter_list|)
 block|{
 name|super
@@ -386,9 +386,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|knownDicitionaries
+name|knownDictionaries
 operator|=
-name|knownDicitionaries
+name|knownDictionaries
 expr_stmt|;
 name|this
 operator|.
@@ -482,7 +482,7 @@ block|{
 name|HunspellDictionary
 name|dictionary
 init|=
-name|knownDicitionaries
+name|knownDictionaries
 operator|.
 name|get
 argument_list|(
@@ -661,7 +661,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * Loads the hunspell dictionary for the given local.      *      * @param locale       The locale of the hunspell dictionary to be loaded.      * @param nodeSettings The node level settings      * @param env          The node environment (from which the conf path will be resolved)      * @param version      The lucene version      * @return The loaded Hunspell dictionary      * @throws Exception when loading fails (due to IO erros or malformed dictionary files)      */
+comment|/**      * Loads the hunspell dictionary for the given local.      *      * @param locale       The locale of the hunspell dictionary to be loaded.      * @param nodeSettings The node level settings      * @param env          The node environment (from which the conf path will be resolved)      * @param version      The lucene version      * @return The loaded Hunspell dictionary      * @throws Exception when loading fails (due to IO errors or malformed dictionary files)      */
 DECL|method|loadDictionary
 specifier|private
 name|HunspellDictionary
