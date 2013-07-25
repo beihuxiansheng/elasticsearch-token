@@ -3022,6 +3022,18 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+comment|// no changes, return
+name|listener
+operator|.
+name|onResponse
+argument_list|(
+operator|new
+name|Response
+argument_list|(
+literal|true
+argument_list|)
+argument_list|)
+expr_stmt|;
 return|return
 name|currentState
 return|;
