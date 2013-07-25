@@ -638,6 +638,22 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"Build Node [{}] with settings [{}]"
+argument_list|,
+name|id
+argument_list|,
+name|finalSettings
+operator|.
+name|toDelimitedString
+argument_list|(
+literal|','
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|nodes
 operator|.
 name|put
