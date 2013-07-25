@@ -625,7 +625,7 @@ name|builder
 operator|.
 name|put
 argument_list|(
-literal|"index.store"
+literal|"index.store.type"
 argument_list|,
 name|storeType
 argument_list|)
