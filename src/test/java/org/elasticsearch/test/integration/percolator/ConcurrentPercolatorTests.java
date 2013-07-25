@@ -140,6 +140,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|bytes
+operator|.
+name|BytesReference
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|network
 operator|.
 name|NetworkUtils
@@ -612,7 +626,7 @@ name|ensureGreen
 argument_list|()
 expr_stmt|;
 specifier|final
-name|XContentBuilder
+name|BytesReference
 name|onlyField1
 init|=
 name|XContentFactory
@@ -640,9 +654,12 @@ argument_list|()
 operator|.
 name|endObject
 argument_list|()
+operator|.
+name|bytes
+argument_list|()
 decl_stmt|;
 specifier|final
-name|XContentBuilder
+name|BytesReference
 name|onlyField2
 init|=
 name|XContentFactory
@@ -670,9 +687,12 @@ argument_list|()
 operator|.
 name|endObject
 argument_list|()
+operator|.
+name|bytes
+argument_list|()
 decl_stmt|;
 specifier|final
-name|XContentBuilder
+name|BytesReference
 name|bothFields
 init|=
 name|XContentFactory
@@ -706,6 +726,9 @@ name|endObject
 argument_list|()
 operator|.
 name|endObject
+argument_list|()
+operator|.
+name|bytes
 argument_list|()
 decl_stmt|;
 comment|// We need to index a document / define mapping, otherwise field1 doesn't get reconized as number field.
