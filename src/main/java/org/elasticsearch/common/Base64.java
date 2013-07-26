@@ -6434,11 +6434,7 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-name|e
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
+comment|// e.printStackTrace();
 comment|// Just return originally-decoded bytes
 block|}
 comment|// end catch
