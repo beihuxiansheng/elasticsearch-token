@@ -1009,6 +1009,8 @@ name|Long
 name|sendRequestId
 parameter_list|)
 block|{
+try|try
+block|{
 name|transportServiceAdapter
 operator|.
 name|received
@@ -1038,8 +1040,6 @@ argument_list|(
 name|stream
 argument_list|)
 expr_stmt|;
-try|try
-block|{
 name|long
 name|requestId
 init|=
