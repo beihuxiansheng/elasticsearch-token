@@ -18,16 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -51,6 +41,32 @@ operator|.
 name|builders
 operator|.
 name|ShapeBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|functionscore
+operator|.
+name|FunctionScoreQueryBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
 import|;
 end_import
 
@@ -1239,7 +1255,7 @@ name|queryBuilder
 argument_list|)
 return|;
 block|}
-comment|/**      * A query that simply applies the boost fact to the wrapped query (multiplies it).      *      * @param queryBuilder The query to apply the boost factor to.      */
+comment|/**      * A query that simply applies the boost fact to the wrapped query (multiplies it).      *      * @param queryBuilder The query to apply the boost factor to.      * @deprecated use {@link #functionScoreQuery(QueryBuilder)} instead      */
 DECL|method|customBoostFactorQuery
 specifier|public
 specifier|static
@@ -1258,7 +1274,7 @@ name|queryBuilder
 argument_list|)
 return|;
 block|}
-comment|/**      * A query that allows to define a custom scoring script.      *      * @param queryBuilder The query to custom score      */
+comment|/**      * A query that allows to define a custom scoring script.      *      * @param queryBuilder The query to custom score      * @deprecated use {@link #functionScoreQuery(QueryBuilder)} instead      */
 DECL|method|customScoreQuery
 specifier|public
 specifier|static
@@ -1277,7 +1293,7 @@ name|queryBuilder
 argument_list|)
 return|;
 block|}
-comment|/**      * A query that allows to define a custom scoring script, that defines the score for each document that match      * with the specified filter.      *      * @param filterBuilder The filter that defines which documents are scored by a script.      */
+comment|/**      * A query that allows to define a custom scoring script, that defines the score for each document that match      * with the specified filter.      *      * @param filterBuilder The filter that defines which documents are scored by a script.      * @deprecated use {@link #functionScoreQuery(QueryBuilder)} instead      */
 DECL|method|customScoreQuery
 specifier|public
 specifier|static
@@ -1296,6 +1312,7 @@ name|filterBuilder
 argument_list|)
 return|;
 block|}
+comment|/**       * @deprecated use {@link #functionScoreQuery(QueryBuilder)} instead      */
 DECL|method|customFiltersScoreQuery
 specifier|public
 specifier|static
@@ -1311,6 +1328,44 @@ operator|new
 name|CustomFiltersScoreQueryBuilder
 argument_list|(
 name|queryBuilder
+argument_list|)
+return|;
+block|}
+comment|/**      * A query that allows to define a custom scoring function.      *      * @param queryBuilder The query to custom score      * @param scoreFunctionBuilder The score function used to re-score the query      */
+DECL|method|functionScoreQuery
+specifier|public
+specifier|static
+name|FunctionScoreQueryBuilder
+name|functionScoreQuery
+parameter_list|(
+name|QueryBuilder
+name|queryBuilder
+parameter_list|)
+block|{
+return|return
+operator|new
+name|FunctionScoreQueryBuilder
+argument_list|(
+name|queryBuilder
+argument_list|)
+return|;
+block|}
+comment|/**      * A query that allows to define a custom scoring function.      *      * @param filterBuilder The query to custom score      * @param scoreFunctionBuilder The score function used to re-score the query      */
+DECL|method|functionScoreQuery
+specifier|public
+specifier|static
+name|FunctionScoreQueryBuilder
+name|functionScoreQuery
+parameter_list|(
+name|FilterBuilder
+name|filterBuilder
+parameter_list|)
+block|{
+return|return
+operator|new
+name|FunctionScoreQueryBuilder
+argument_list|(
+name|filterBuilder
 argument_list|)
 return|;
 block|}

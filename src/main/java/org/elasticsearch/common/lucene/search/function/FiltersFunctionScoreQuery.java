@@ -1689,7 +1689,7 @@ operator|.
 name|docID
 argument_list|()
 decl_stmt|;
-name|float
+name|double
 name|factor
 init|=
 literal|1.0f
@@ -1761,10 +1761,10 @@ operator|.
 name|Max
 condition|)
 block|{
-name|float
+name|double
 name|maxFactor
 init|=
-name|Float
+name|Double
 operator|.
 name|NEGATIVE_INFINITY
 decl_stmt|;
@@ -1846,10 +1846,10 @@ operator|.
 name|Min
 condition|)
 block|{
-name|float
+name|double
 name|minFactor
 init|=
-name|Float
+name|Double
 operator|.
 name|POSITIVE_INFINITY
 decl_stmt|;
@@ -1981,7 +1981,7 @@ block|}
 else|else
 block|{
 comment|// Avg / Total
-name|float
+name|double
 name|totalFactor
 init|=
 literal|0.0f
@@ -2088,11 +2088,16 @@ name|score
 argument_list|()
 decl_stmt|;
 return|return
+call|(
+name|float
+call|)
+argument_list|(
 name|subQueryBoost
 operator|*
 name|score
 operator|*
 name|factor
+argument_list|)
 return|;
 block|}
 annotation|@
