@@ -7943,15 +7943,6 @@ name|INDEX_GC_DELETES
 init|=
 literal|"index.gc_deletes"
 decl_stmt|;
-DECL|field|INDEX_CODEC
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|INDEX_CODEC
-init|=
-literal|"index.codec"
-decl_stmt|;
 DECL|field|INDEX_FAIL_ON_MERGE_FAILURE
 specifier|public
 specifier|static

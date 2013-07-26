@@ -342,6 +342,14 @@ name|IndexShardComponent
 extends|,
 name|CloseableComponent
 block|{
+DECL|field|INDEX_CODEC
+specifier|static
+specifier|final
+name|String
+name|INDEX_CODEC
+init|=
+literal|"index.codec"
+decl_stmt|;
 DECL|field|INACTIVE_SHARD_INDEXING_BUFFER
 specifier|static
 name|ByteSizeValue
