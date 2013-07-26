@@ -1135,7 +1135,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|Throwable
 name|e
 parameter_list|)
 block|{
@@ -1163,10 +1163,10 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|handler
-operator|.
 name|handleException
 argument_list|(
+name|handler
+argument_list|,
 operator|new
 name|RemoteTransportException
 argument_list|(
@@ -1382,7 +1382,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|Throwable
 name|e
 parameter_list|)
 block|{
@@ -1453,7 +1453,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|Throwable
 name|e
 parameter_list|)
 block|{
@@ -1585,6 +1585,8 @@ name|RemoteTransportException
 operator|)
 name|error
 decl_stmt|;
+try|try
+block|{
 name|handler
 operator|.
 name|handleException
@@ -1592,6 +1594,25 @@ argument_list|(
 name|rtx
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|error
+argument_list|(
+literal|"failed to handle exception response [{}]"
+argument_list|,
+name|t
+argument_list|,
+name|handler
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class

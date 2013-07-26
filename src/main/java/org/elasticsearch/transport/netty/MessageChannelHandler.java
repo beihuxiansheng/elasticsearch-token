@@ -923,7 +923,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|Throwable
 name|e
 parameter_list|)
 block|{
@@ -1152,6 +1152,8 @@ operator|.
 name|SAME
 condition|)
 block|{
+try|try
+block|{
 name|handler
 operator|.
 name|handleException
@@ -1159,6 +1161,25 @@ argument_list|(
 name|rtx
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|error
+argument_list|(
+literal|"failed to handle exception response [{}]"
+argument_list|,
+name|e
+argument_list|,
+name|handler
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 else|else
 block|{
@@ -1205,9 +1226,11 @@ name|logger
 operator|.
 name|error
 argument_list|(
-literal|"Failed to handle exception response"
+literal|"failed to handle exception response [{}]"
 argument_list|,
 name|e
+argument_list|,
+name|handler
 argument_list|)
 expr_stmt|;
 block|}
