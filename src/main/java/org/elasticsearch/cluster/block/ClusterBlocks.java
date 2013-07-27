@@ -96,7 +96,7 @@ name|cluster
 operator|.
 name|metadata
 operator|.
-name|MetaDataStateIndexService
+name|MetaDataIndexStateService
 import|;
 end_import
 
@@ -1373,7 +1373,7 @@ operator|.
 name|index
 argument_list|()
 argument_list|,
-name|MetaDataStateIndexService
+name|MetaDataIndexStateService
 operator|.
 name|INDEX_CLOSED_BLOCK
 argument_list|)

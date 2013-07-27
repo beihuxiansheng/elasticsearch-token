@@ -120,7 +120,7 @@ name|cluster
 operator|.
 name|metadata
 operator|.
-name|MetaDataStateIndexService
+name|MetaDataIndexStateService
 import|;
 end_import
 
@@ -196,7 +196,7 @@ block|{
 DECL|field|stateIndexService
 specifier|private
 specifier|final
-name|MetaDataStateIndexService
+name|MetaDataIndexStateService
 name|stateIndexService
 decl_stmt|;
 annotation|@
@@ -217,7 +217,7 @@ parameter_list|,
 name|ThreadPool
 name|threadPool
 parameter_list|,
-name|MetaDataStateIndexService
+name|MetaDataIndexStateService
 name|stateIndexService
 parameter_list|)
 block|{
@@ -416,7 +416,7 @@ operator|.
 name|openIndex
 argument_list|(
 operator|new
-name|MetaDataStateIndexService
+name|MetaDataIndexStateService
 operator|.
 name|Request
 argument_list|(
@@ -443,7 +443,7 @@ argument_list|()
 argument_list|)
 argument_list|,
 operator|new
-name|MetaDataStateIndexService
+name|MetaDataIndexStateService
 operator|.
 name|Listener
 argument_list|()
@@ -454,7 +454,7 @@ specifier|public
 name|void
 name|onResponse
 parameter_list|(
-name|MetaDataStateIndexService
+name|MetaDataIndexStateService
 operator|.
 name|Response
 name|response

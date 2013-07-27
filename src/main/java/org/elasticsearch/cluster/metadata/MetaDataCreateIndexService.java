@@ -2444,7 +2444,7 @@ name|request
 operator|.
 name|index
 argument_list|,
-name|MetaDataStateIndexService
+name|MetaDataIndexStateService
 operator|.
 name|INDEX_CLOSED_BLOCK
 argument_list|)

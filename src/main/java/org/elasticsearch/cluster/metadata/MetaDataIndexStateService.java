@@ -389,10 +389,10 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|MetaDataStateIndexService
+DECL|class|MetaDataIndexStateService
 specifier|public
 class|class
-name|MetaDataStateIndexService
+name|MetaDataIndexStateService
 extends|extends
 name|AbstractComponent
 block|{
@@ -443,9 +443,9 @@ name|indicesStateUpdatedAction
 decl_stmt|;
 annotation|@
 name|Inject
-DECL|method|MetaDataStateIndexService
+DECL|method|MetaDataIndexStateService
 specifier|public
-name|MetaDataStateIndexService
+name|MetaDataIndexStateService
 parameter_list|(
 name|Settings
 name|settings
