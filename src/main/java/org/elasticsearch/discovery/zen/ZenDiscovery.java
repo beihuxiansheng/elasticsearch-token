@@ -70,6 +70,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|Version
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|cluster
 operator|.
 name|*
@@ -760,6 +770,12 @@ specifier|final
 name|MembershipAction
 name|membership
 decl_stmt|;
+DECL|field|version
+specifier|private
+specifier|final
+name|Version
+name|version
+decl_stmt|;
 DECL|field|pingTimeout
 specifier|private
 specifier|final
@@ -878,6 +894,9 @@ name|discoveryNodeService
 parameter_list|,
 name|ZenPingService
 name|pingService
+parameter_list|,
+name|Version
+name|version
 parameter_list|)
 block|{
 name|super
@@ -920,6 +939,12 @@ operator|.
 name|pingService
 operator|=
 name|pingService
+expr_stmt|;
+name|this
+operator|.
+name|version
+operator|=
+name|version
 expr_stmt|;
 comment|// also support direct discovery.zen settings, for cases when it gets extended
 name|this
@@ -1234,6 +1259,8 @@ name|publishAddress
 argument_list|()
 argument_list|,
 name|nodeAttributes
+argument_list|,
+name|version
 argument_list|)
 expr_stmt|;
 name|latestDiscoNodes

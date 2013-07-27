@@ -399,6 +399,9 @@ name|indicesService
 parameter_list|,
 name|PluginsService
 name|pluginService
+parameter_list|,
+name|Version
+name|version
 parameter_list|)
 block|{
 name|super
@@ -472,9 +475,7 @@ name|this
 operator|.
 name|version
 operator|=
-name|Version
-operator|.
-name|CURRENT
+name|version
 expr_stmt|;
 name|this
 operator|.

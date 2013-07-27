@@ -542,6 +542,12 @@ specifier|final
 name|NetworkService
 name|networkService
 decl_stmt|;
+DECL|field|version
+specifier|private
+specifier|final
+name|Version
+name|version
+decl_stmt|;
 DECL|field|nodesProvider
 specifier|private
 specifier|volatile
@@ -643,6 +649,9 @@ name|transportService
 parameter_list|,
 name|ClusterName
 name|clusterName
+parameter_list|,
+name|Version
+name|version
 parameter_list|)
 block|{
 name|this
@@ -660,6 +669,8 @@ name|NetworkService
 argument_list|(
 name|EMPTY_SETTINGS
 argument_list|)
+argument_list|,
+name|version
 argument_list|)
 expr_stmt|;
 block|}
@@ -681,6 +692,9 @@ name|clusterName
 parameter_list|,
 name|NetworkService
 name|networkService
+parameter_list|,
+name|Version
+name|version
 parameter_list|)
 block|{
 name|super
@@ -711,6 +725,12 @@ operator|.
 name|networkService
 operator|=
 name|networkService
+expr_stmt|;
+name|this
+operator|.
+name|version
+operator|=
+name|version
 expr_stmt|;
 name|this
 operator|.
@@ -1566,9 +1586,7 @@ name|Version
 operator|.
 name|writeVersion
 argument_list|(
-name|Version
-operator|.
-name|CURRENT
+name|version
 argument_list|,
 name|out
 argument_list|)
@@ -2737,9 +2755,7 @@ name|field
 argument_list|(
 literal|"number"
 argument_list|,
-name|Version
-operator|.
-name|CURRENT
+name|version
 operator|.
 name|number
 argument_list|()
@@ -2749,9 +2765,7 @@ name|field
 argument_list|(
 literal|"snapshot_build"
 argument_list|,
-name|Version
-operator|.
-name|CURRENT
+name|version
 operator|.
 name|snapshot
 argument_list|)

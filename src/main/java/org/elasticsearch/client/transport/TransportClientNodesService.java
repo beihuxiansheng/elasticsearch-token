@@ -84,6 +84,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|Version
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|action
 operator|.
 name|ActionListener
@@ -420,6 +430,12 @@ specifier|final
 name|ThreadPool
 name|threadPool
 decl_stmt|;
+DECL|field|version
+specifier|private
+specifier|final
+name|Version
+name|version
+decl_stmt|;
 comment|// nodes that are added to be discovered
 DECL|field|listedNodes
 specifier|private
@@ -520,6 +536,9 @@ name|transportService
 parameter_list|,
 name|ThreadPool
 name|threadPool
+parameter_list|,
+name|Version
+name|version
 parameter_list|)
 block|{
 name|super
@@ -544,6 +563,12 @@ operator|.
 name|threadPool
 operator|=
 name|threadPool
+expr_stmt|;
+name|this
+operator|.
+name|version
+operator|=
+name|version
 expr_stmt|;
 name|this
 operator|.
@@ -905,6 +930,8 @@ name|incrementAndGet
 argument_list|()
 argument_list|,
 name|transportAddress
+argument_list|,
+name|version
 argument_list|)
 decl_stmt|;
 name|logger

@@ -392,9 +392,6 @@ name|String
 name|nodeName
 init|=
 literal|""
-operator|.
-name|intern
-argument_list|()
 decl_stmt|;
 DECL|field|nodeId
 specifier|private
@@ -426,7 +423,6 @@ operator|.
 name|CURRENT
 decl_stmt|;
 DECL|method|DiscoveryNode
-specifier|private
 name|DiscoveryNode
 parameter_list|()
 block|{     }
@@ -439,6 +435,9 @@ name|nodeId
 parameter_list|,
 name|TransportAddress
 name|address
+parameter_list|,
+name|Version
+name|version
 parameter_list|)
 block|{
 name|this
@@ -458,6 +457,8 @@ name|String
 operator|>
 name|of
 argument_list|()
+argument_list|,
+name|version
 argument_list|)
 expr_stmt|;
 block|}
@@ -481,26 +482,17 @@ argument_list|,
 name|String
 argument_list|>
 name|attributes
+parameter_list|,
+name|Version
+name|version
 parameter_list|)
 block|{
 if|if
 condition|(
 name|nodeName
-operator|==
+operator|!=
 literal|null
 condition|)
-block|{
-name|this
-operator|.
-name|nodeName
-operator|=
-literal|""
-operator|.
-name|intern
-argument_list|()
-expr_stmt|;
-block|}
-else|else
 block|{
 name|this
 operator|.
@@ -590,6 +582,12 @@ operator|.
 name|address
 operator|=
 name|address
+expr_stmt|;
+name|this
+operator|.
+name|version
+operator|=
+name|version
 expr_stmt|;
 block|}
 comment|/**      * Should this node form a connection to the provided node.      */

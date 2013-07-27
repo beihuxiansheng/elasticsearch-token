@@ -826,6 +826,12 @@ specifier|final
 name|MetaDataService
 name|metaDataService
 decl_stmt|;
+DECL|field|version
+specifier|private
+specifier|final
+name|Version
+name|version
+decl_stmt|;
 DECL|field|riverIndexName
 specifier|private
 specifier|final
@@ -861,6 +867,9 @@ name|nodeIndexCreatedAction
 parameter_list|,
 name|MetaDataService
 name|metaDataService
+parameter_list|,
+name|Version
+name|version
 parameter_list|,
 annotation|@
 name|RiverIndexName
@@ -914,6 +923,12 @@ operator|.
 name|metaDataService
 operator|=
 name|metaDataService
+expr_stmt|;
+name|this
+operator|.
+name|version
+operator|=
+name|version
 expr_stmt|;
 name|this
 operator|.
@@ -1915,9 +1930,7 @@ name|put
 argument_list|(
 name|SETTING_VERSION_CREATED
 argument_list|,
-name|Version
-operator|.
-name|CURRENT
+name|version
 argument_list|)
 expr_stmt|;
 name|Settings

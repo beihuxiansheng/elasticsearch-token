@@ -250,6 +250,12 @@ name|RestMainAction
 extends|extends
 name|BaseRestHandler
 block|{
+DECL|field|version
+specifier|private
+specifier|final
+name|Version
+name|version
+decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|RestMainAction
@@ -258,6 +264,9 @@ name|RestMainAction
 parameter_list|(
 name|Settings
 name|settings
+parameter_list|,
+name|Version
+name|version
 parameter_list|,
 name|Client
 name|client
@@ -272,6 +281,12 @@ name|settings
 argument_list|,
 name|client
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|version
+operator|=
+name|version
 expr_stmt|;
 name|controller
 operator|.
@@ -522,9 +537,7 @@ name|field
 argument_list|(
 literal|"number"
 argument_list|,
-name|Version
-operator|.
-name|CURRENT
+name|version
 operator|.
 name|number
 argument_list|()
@@ -558,9 +571,7 @@ name|field
 argument_list|(
 literal|"build_snapshot"
 argument_list|,
-name|Version
-operator|.
-name|CURRENT
+name|version
 operator|.
 name|snapshot
 argument_list|)

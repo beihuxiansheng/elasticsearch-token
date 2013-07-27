@@ -1070,6 +1070,13 @@ argument_list|,
 name|loadConfigSettings
 argument_list|)
 decl_stmt|;
+name|Version
+name|version
+init|=
+name|Version
+operator|.
+name|CURRENT
+decl_stmt|;
 name|ESLogger
 name|logger
 init|=
@@ -1098,9 +1105,7 @@ name|info
 argument_list|(
 literal|"version[{}], pid[{}], build[{}/{}]"
 argument_list|,
-name|Version
-operator|.
-name|CURRENT
+name|version
 argument_list|,
 name|JvmInfo
 operator|.
@@ -1256,6 +1261,19 @@ operator|new
 name|ModulesBuilder
 argument_list|()
 decl_stmt|;
+name|modules
+operator|.
+name|add
+argument_list|(
+operator|new
+name|Version
+operator|.
+name|Module
+argument_list|(
+name|version
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|modules
 operator|.
 name|add
