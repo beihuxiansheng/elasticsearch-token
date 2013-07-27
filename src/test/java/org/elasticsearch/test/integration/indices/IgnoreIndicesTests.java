@@ -28,11 +28,11 @@ name|action
 operator|.
 name|admin
 operator|.
-name|cluster
+name|indices
 operator|.
-name|health
+name|close
 operator|.
-name|ClusterHealthResponse
+name|CloseIndexResponse
 import|;
 end_import
 
@@ -75,18 +75,6 @@ operator|.
 name|block
 operator|.
 name|ClusterBlockException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|Priority
 import|;
 end_import
 
@@ -146,33 +134,9 @@ name|org
 operator|.
 name|hamcrest
 operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
 name|Matchers
 operator|.
 name|*
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|fail
 import|;
 end_import
 
@@ -1591,6 +1555,9 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+name|CloseIndexResponse
+name|closeIndexResponse
+init|=
 name|client
 argument_list|()
 operator|.
@@ -1610,9 +1577,19 @@ argument_list|()
 operator|.
 name|actionGet
 argument_list|()
-expr_stmt|;
-name|ensureGreen
+decl_stmt|;
+name|assertThat
+argument_list|(
+name|closeIndexResponse
+operator|.
+name|isAcknowledged
 argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|true
+argument_list|)
+argument_list|)
 expr_stmt|;
 try|try
 block|{
