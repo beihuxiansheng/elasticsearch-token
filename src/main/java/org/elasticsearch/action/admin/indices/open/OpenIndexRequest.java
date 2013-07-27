@@ -208,7 +208,7 @@ DECL|method|OpenIndexRequest
 name|OpenIndexRequest
 parameter_list|()
 block|{     }
-comment|/**      * Constructs a new delete index request for the specified index.      */
+comment|/**      * Constructs a new open index request for the specified index.      */
 DECL|method|OpenIndexRequest
 specifier|public
 name|OpenIndexRequest
@@ -297,7 +297,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Timeout to wait for the index deletion to be acknowledged by current cluster nodes. Defaults      * to<tt>10s</tt>.      */
+comment|/**      * Timeout to wait for the index opening to be acknowledged by current cluster nodes. Defaults      * to<tt>10s</tt>.      */
 DECL|method|timeout
 name|TimeValue
 name|timeout
@@ -307,7 +307,7 @@ return|return
 name|timeout
 return|;
 block|}
-comment|/**      * Timeout to wait for the index deletion to be acknowledged by current cluster nodes. Defaults      * to<tt>10s</tt>.      */
+comment|/**      * Timeout to wait for the index opening to be acknowledged by current cluster nodes. Defaults      * to<tt>10s</tt>.      */
 DECL|method|timeout
 specifier|public
 name|OpenIndexRequest
@@ -327,7 +327,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Timeout to wait for the index deletion to be acknowledged by current cluster nodes. Defaults      * to<tt>10s</tt>.      */
+comment|/**      * Timeout to wait for the index opening to be acknowledged by current cluster nodes. Defaults      * to<tt>10s</tt>.      */
 DECL|method|timeout
 specifier|public
 name|OpenIndexRequest
