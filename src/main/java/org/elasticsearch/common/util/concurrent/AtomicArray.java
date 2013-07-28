@@ -365,7 +365,7 @@ return|return
 name|nonNullList
 return|;
 block|}
-comment|/**      * Copies the content of the underlying atomic array to a normal one. If the supplied array is too small a new one will be allocated.      * If the supplied array's length is longer than needed, the element in the array immediately following the end of the collection is set to      *<tt>null</tt>. All in similar fashion to {@link ArrayList#toArray}      */
+comment|/**      * Copies the content of the underlying atomic array to a normal one.      */
 DECL|method|toArray
 specifier|public
 name|E
