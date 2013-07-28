@@ -94,18 +94,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|RandomStringGenerator
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|settings
 operator|.
 name|ImmutableSettings
@@ -213,18 +201,6 @@ operator|.
 name|XContentFactory
 operator|.
 name|jsonBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
 import|;
 end_import
 
@@ -395,9 +371,7 @@ block|{
 name|String
 name|randomText
 init|=
-name|RandomStringGenerator
-operator|.
-name|randomAlphanumeric
+name|randomAsciiOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -405,9 +379,7 @@ decl_stmt|;
 name|String
 name|randomField
 init|=
-name|RandomStringGenerator
-operator|.
-name|randomAlphanumeric
+name|randomAsciiOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -415,9 +387,7 @@ decl_stmt|;
 name|String
 name|randomSuffix
 init|=
-name|RandomStringGenerator
-operator|.
-name|randomAlphanumeric
+name|randomAsciiOfLength
 argument_list|(
 literal|10
 argument_list|)

@@ -20,6 +20,20 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|randomizedtesting
+operator|.
+name|generators
+operator|.
+name|RandomStrings
+import|;
+end_import
+
+begin_import
+import|import
 name|jsr166y
 operator|.
 name|ThreadLocalRandom
@@ -63,18 +77,6 @@ operator|.
 name|cluster
 operator|.
 name|ClusterState
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|RandomStringGenerator
 import|;
 end_import
 
@@ -154,6 +156,16 @@ name|Date
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Random
+import|;
+end_import
+
 begin_comment
 comment|/**  */
 end_comment
@@ -186,6 +198,13 @@ argument_list|,
 literal|""
 argument_list|)
 expr_stmt|;
+name|Random
+name|random
+init|=
+operator|new
+name|Random
+argument_list|()
+decl_stmt|;
 name|Settings
 name|settings
 init|=
@@ -437,10 +456,12 @@ argument_list|()
 argument_list|,
 literal|"data"
 argument_list|,
-name|RandomStringGenerator
+name|RandomStrings
 operator|.
-name|randomAlphabetic
+name|randomAsciiOfLength
 argument_list|(
+name|random
+argument_list|,
 literal|10000
 argument_list|)
 argument_list|)

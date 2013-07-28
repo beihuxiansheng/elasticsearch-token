@@ -18,6 +18,20 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|randomizedtesting
+operator|.
+name|generators
+operator|.
+name|RandomStrings
+import|;
+end_import
+
+begin_import
+import|import
 name|gnu
 operator|.
 name|trove
@@ -103,18 +117,6 @@ import|import
 name|jsr166y
 operator|.
 name|ThreadLocalRandom
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|RandomStringGenerator
 import|;
 end_import
 
@@ -271,10 +273,15 @@ index|[
 name|i
 index|]
 operator|=
-name|RandomStringGenerator
+name|RandomStrings
 operator|.
-name|randomAlphabetic
+name|randomAsciiOfLength
 argument_list|(
+name|ThreadLocalRandom
+operator|.
+name|current
+argument_list|()
+argument_list|,
 name|STRING_SIZE
 argument_list|)
 expr_stmt|;
