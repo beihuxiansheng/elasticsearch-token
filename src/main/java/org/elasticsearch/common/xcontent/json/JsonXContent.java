@@ -274,7 +274,7 @@ name|JsonXContentGenerator
 argument_list|(
 name|jsonFactory
 operator|.
-name|createJsonGenerator
+name|createGenerator
 argument_list|(
 name|os
 argument_list|,
@@ -304,7 +304,7 @@ name|JsonXContentGenerator
 argument_list|(
 name|jsonFactory
 operator|.
-name|createJsonGenerator
+name|createGenerator
 argument_list|(
 name|writer
 argument_list|)
@@ -330,7 +330,7 @@ name|JsonXContentParser
 argument_list|(
 name|jsonFactory
 operator|.
-name|createJsonParser
+name|createParser
 argument_list|(
 operator|new
 name|FastStringReader
@@ -360,7 +360,7 @@ name|JsonXContentParser
 argument_list|(
 name|jsonFactory
 operator|.
-name|createJsonParser
+name|createParser
 argument_list|(
 name|is
 argument_list|)
@@ -387,7 +387,7 @@ name|JsonXContentParser
 argument_list|(
 name|jsonFactory
 operator|.
-name|createJsonParser
+name|createParser
 argument_list|(
 name|data
 argument_list|)
@@ -420,7 +420,7 @@ name|JsonXContentParser
 argument_list|(
 name|jsonFactory
 operator|.
-name|createJsonParser
+name|createParser
 argument_list|(
 name|data
 argument_list|,

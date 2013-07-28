@@ -123,6 +123,11 @@ comment|/**  */
 end_comment
 
 begin_class
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 DECL|class|Version
 specifier|public
 class|class

@@ -222,7 +222,7 @@ name|YamlXContentGenerator
 argument_list|(
 name|yamlFactory
 operator|.
-name|createJsonGenerator
+name|createGenerator
 argument_list|(
 name|os
 argument_list|,
@@ -252,7 +252,7 @@ name|YamlXContentGenerator
 argument_list|(
 name|yamlFactory
 operator|.
-name|createJsonGenerator
+name|createGenerator
 argument_list|(
 name|writer
 argument_list|)
@@ -278,7 +278,7 @@ name|YamlXContentParser
 argument_list|(
 name|yamlFactory
 operator|.
-name|createJsonParser
+name|createParser
 argument_list|(
 operator|new
 name|FastStringReader
@@ -308,7 +308,7 @@ name|YamlXContentParser
 argument_list|(
 name|yamlFactory
 operator|.
-name|createJsonParser
+name|createParser
 argument_list|(
 name|is
 argument_list|)
@@ -335,7 +335,7 @@ name|YamlXContentParser
 argument_list|(
 name|yamlFactory
 operator|.
-name|createJsonParser
+name|createParser
 argument_list|(
 name|data
 argument_list|)
@@ -368,7 +368,7 @@ name|YamlXContentParser
 argument_list|(
 name|yamlFactory
 operator|.
-name|createJsonParser
+name|createParser
 argument_list|(
 name|data
 argument_list|,
@@ -449,7 +449,7 @@ name|YamlXContentParser
 argument_list|(
 name|yamlFactory
 operator|.
-name|createJsonParser
+name|createParser
 argument_list|(
 name|reader
 argument_list|)

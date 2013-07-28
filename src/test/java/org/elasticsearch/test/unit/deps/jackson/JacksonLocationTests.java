@@ -176,7 +176,7 @@ operator|new
 name|JsonFactory
 argument_list|()
 operator|.
-name|createJsonGenerator
+name|createGenerator
 argument_list|(
 name|os
 argument_list|)
@@ -250,7 +250,7 @@ operator|new
 name|JsonFactory
 argument_list|()
 operator|.
-name|createJsonParser
+name|createParser
 argument_list|(
 name|data
 argument_list|)

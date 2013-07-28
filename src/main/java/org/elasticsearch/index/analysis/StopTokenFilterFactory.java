@@ -189,6 +189,11 @@ comment|/**  *  */
 end_comment
 
 begin_class
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 DECL|class|StopTokenFilterFactory
 specifier|public
 class|class
@@ -287,7 +292,6 @@ argument_list|,
 name|ignoreCase
 argument_list|)
 expr_stmt|;
-comment|// LUCENE 4 UPGRADE: LUCENE_29 constant is no longer defined
 name|this
 operator|.
 name|enablePositionIncrements

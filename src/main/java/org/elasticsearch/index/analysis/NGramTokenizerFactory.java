@@ -18,22 +18,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|analysis
-operator|.
-name|ngram
-operator|.
-name|Lucene43NGramTokenizer
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|google
@@ -57,6 +41,22 @@ operator|.
 name|analysis
 operator|.
 name|Tokenizer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|analysis
+operator|.
+name|ngram
+operator|.
+name|Lucene43NGramTokenizer
 import|;
 end_import
 
@@ -647,6 +647,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 annotation|@
 name|Override
 DECL|method|create

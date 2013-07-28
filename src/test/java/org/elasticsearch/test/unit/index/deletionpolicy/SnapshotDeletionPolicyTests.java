@@ -108,20 +108,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|Version
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -303,7 +289,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A set of tests for {@link org.elasticsearch.index.deletionpolicy.SnapshotDeletionPolicy}.  *  *  */
+comment|/**  * A set of tests for {@link org.elasticsearch.index.deletionpolicy.SnapshotDeletionPolicy}.  */
 end_comment
 
 begin_class
@@ -386,9 +372,9 @@ argument_list|,
 operator|new
 name|IndexWriterConfig
 argument_list|(
-name|Version
+name|Lucene
 operator|.
-name|LUCENE_31
+name|VERSION
 argument_list|,
 name|Lucene
 operator|.

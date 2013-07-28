@@ -193,7 +193,7 @@ name|SmileXContent
 operator|.
 name|smileFactory
 operator|.
-name|createJsonParser
+name|createParser
 argument_list|(
 name|content
 argument_list|)
@@ -254,7 +254,7 @@ name|SmileXContent
 operator|.
 name|smileFactory
 operator|.
-name|createJsonParser
+name|createParser
 argument_list|(
 name|content
 argument_list|)
@@ -324,7 +324,7 @@ name|SmileXContent
 operator|.
 name|smileFactory
 operator|.
-name|createJsonParser
+name|createParser
 argument_list|(
 name|content
 operator|.
@@ -351,7 +351,7 @@ name|SmileXContent
 operator|.
 name|smileFactory
 operator|.
-name|createJsonParser
+name|createParser
 argument_list|(
 name|content
 operator|.
@@ -422,7 +422,7 @@ name|SmileXContent
 operator|.
 name|smileFactory
 operator|.
-name|createJsonParser
+name|createParser
 argument_list|(
 name|content
 argument_list|,

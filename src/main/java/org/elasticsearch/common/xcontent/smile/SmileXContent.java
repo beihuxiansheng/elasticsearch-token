@@ -257,7 +257,7 @@ name|SmileXContentGenerator
 argument_list|(
 name|smileFactory
 operator|.
-name|createJsonGenerator
+name|createGenerator
 argument_list|(
 name|os
 argument_list|,
@@ -287,7 +287,7 @@ name|SmileXContentGenerator
 argument_list|(
 name|smileFactory
 operator|.
-name|createJsonGenerator
+name|createGenerator
 argument_list|(
 name|writer
 argument_list|)
@@ -313,7 +313,7 @@ name|SmileXContentParser
 argument_list|(
 name|smileFactory
 operator|.
-name|createJsonParser
+name|createParser
 argument_list|(
 operator|new
 name|FastStringReader
@@ -343,7 +343,7 @@ name|SmileXContentParser
 argument_list|(
 name|smileFactory
 operator|.
-name|createJsonParser
+name|createParser
 argument_list|(
 name|is
 argument_list|)
@@ -370,7 +370,7 @@ name|SmileXContentParser
 argument_list|(
 name|smileFactory
 operator|.
-name|createJsonParser
+name|createParser
 argument_list|(
 name|data
 argument_list|)
@@ -403,7 +403,7 @@ name|SmileXContentParser
 argument_list|(
 name|smileFactory
 operator|.
-name|createJsonParser
+name|createParser
 argument_list|(
 name|data
 argument_list|,
