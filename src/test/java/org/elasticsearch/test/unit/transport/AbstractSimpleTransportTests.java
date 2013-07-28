@@ -365,7 +365,7 @@ name|put
 argument_list|(
 literal|"name"
 argument_list|,
-literal|"A"
+literal|"TS_A"
 argument_list|)
 operator|.
 name|build
@@ -379,9 +379,9 @@ operator|=
 operator|new
 name|DiscoveryNode
 argument_list|(
-literal|"A"
+literal|"TS_A"
 argument_list|,
-literal|"A"
+literal|"TS_A"
 argument_list|,
 name|serviceA
 operator|.
@@ -417,7 +417,7 @@ name|put
 argument_list|(
 literal|"name"
 argument_list|,
-literal|"B"
+literal|"TS_B"
 argument_list|)
 operator|.
 name|build
@@ -431,9 +431,9 @@ operator|=
 operator|new
 name|DiscoveryNode
 argument_list|(
-literal|"B"
+literal|"TS_B"
 argument_list|,
-literal|"B"
+literal|"TS_B"
 argument_list|,
 name|serviceB
 operator|.
@@ -1854,13 +1854,13 @@ name|DiscoveryNode
 name|node
 parameter_list|)
 block|{
-throw|throw
-operator|new
-name|RuntimeException
-argument_list|(
-literal|"Should not be called"
-argument_list|)
-throw|;
+assert|assert
+literal|false
+operator|:
+literal|"node connected should not be called, all connection have been done previously, node: "
+operator|+
+name|node
+assert|;
 block|}
 annotation|@
 name|Override

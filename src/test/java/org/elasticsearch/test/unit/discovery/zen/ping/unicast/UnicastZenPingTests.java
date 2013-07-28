@@ -416,7 +416,7 @@ init|=
 operator|new
 name|DiscoveryNode
 argument_list|(
-literal|"A"
+literal|"UZP_A"
 argument_list|,
 name|transportServiceA
 operator|.
@@ -484,7 +484,7 @@ init|=
 operator|new
 name|DiscoveryNode
 argument_list|(
-literal|"B"
+literal|"UZP_B"
 argument_list|,
 name|transportServiceA
 operator|.
@@ -620,7 +620,7 @@ argument_list|)
 operator|.
 name|localNodeId
 argument_list|(
-literal|"A"
+literal|"UZP_A"
 argument_list|)
 operator|.
 name|build
@@ -695,7 +695,7 @@ argument_list|)
 operator|.
 name|localNodeId
 argument_list|(
-literal|"B"
+literal|"UZP_B"
 argument_list|)
 operator|.
 name|build
@@ -768,7 +768,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"B"
+literal|"UZP_B"
 argument_list|)
 argument_list|)
 expr_stmt|;
