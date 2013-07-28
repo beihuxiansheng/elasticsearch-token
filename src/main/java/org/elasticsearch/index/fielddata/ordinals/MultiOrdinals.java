@@ -56,6 +56,20 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|RamUsageEstimator
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|packed
 operator|.
 name|AppendingLongBuffer
@@ -100,18 +114,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|RamUsage
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|index
 operator|.
 name|fielddata
@@ -127,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/** {@link Ordinals} implementation which is efficient at storing field data ordinals for multi-valued or sparse fields. */
+comment|/**  * {@link Ordinals} implementation which is efficient at storing field data ordinals for multi-valued or sparse fields.  */
 end_comment
 
 begin_class
@@ -156,7 +158,7 @@ name|OFFSET_INIT_PAGE_COUNT
 init|=
 literal|16
 decl_stmt|;
-comment|/** Return true if this impl is going to be smaller than {@link SinglePackedOrdinals} by at least 20%. */
+comment|/**      * Return true if this impl is going to be smaller than {@link SinglePackedOrdinals} by at least 20%.      */
 DECL|method|significantlySmallerThanSinglePackedOrdinals
 specifier|public
 specifier|static
@@ -883,7 +885,7 @@ name|oversize
 argument_list|(
 name|numValues
 argument_list|,
-name|RamUsage
+name|RamUsageEstimator
 operator|.
 name|NUM_BYTES_LONG
 argument_list|)

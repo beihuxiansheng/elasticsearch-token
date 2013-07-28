@@ -36,11 +36,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
+name|apache
 operator|.
-name|common
+name|lucene
 operator|.
-name|RamUsage
+name|util
+operator|.
+name|RamUsageEstimator
 import|;
 end_import
 
@@ -111,7 +113,7 @@ name|getMemorySizeInBytes
 parameter_list|()
 block|{
 return|return
-name|RamUsage
+name|RamUsageEstimator
 operator|.
 name|NUM_BYTES_OBJECT_REF
 return|;

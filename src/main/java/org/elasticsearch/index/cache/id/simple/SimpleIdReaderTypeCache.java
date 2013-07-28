@@ -38,11 +38,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
+name|apache
 operator|.
-name|common
+name|lucene
 operator|.
-name|RamUsage
+name|util
+operator|.
+name|RamUsageEstimator
 import|;
 end_import
 
@@ -332,7 +334,7 @@ comment|// Ignore type field
 comment|//  sizeInBytes += ((type.length() * RamUsage.NUM_BYTES_CHAR) + (3 * RamUsage.NUM_BYTES_INT)) + RamUsage.NUM_BYTES_OBJECT_HEADER;
 name|sizeInBytes
 operator|+=
-name|RamUsage
+name|RamUsageEstimator
 operator|.
 name|NUM_BYTES_ARRAY_HEADER
 operator|+
@@ -342,7 +344,7 @@ operator|.
 name|_valuesSize
 argument_list|()
 operator|*
-name|RamUsage
+name|RamUsageEstimator
 operator|.
 name|NUM_BYTES_INT
 operator|)
@@ -374,7 +376,7 @@ condition|)
 block|{
 name|sizeInBytes
 operator|+=
-name|RamUsage
+name|RamUsageEstimator
 operator|.
 name|NUM_BYTES_OBJECT_REF
 expr_stmt|;
@@ -391,7 +393,7 @@ name|o
 decl_stmt|;
 name|sizeInBytes
 operator|+=
-name|RamUsage
+name|RamUsageEstimator
 operator|.
 name|NUM_BYTES_OBJECT_HEADER
 operator|+
@@ -401,7 +403,7 @@ operator|.
 name|length
 argument_list|()
 operator|+
-name|RamUsage
+name|RamUsageEstimator
 operator|.
 name|NUM_BYTES_INT
 operator|)
@@ -411,12 +413,12 @@ block|}
 comment|// The docIdToId array contains references to idToDoc for this segment or other segments, so we can use OBJECT_REF
 name|sizeInBytes
 operator|+=
-name|RamUsage
+name|RamUsageEstimator
 operator|.
 name|NUM_BYTES_ARRAY_HEADER
 operator|+
 operator|(
-name|RamUsage
+name|RamUsageEstimator
 operator|.
 name|NUM_BYTES_OBJECT_REF
 operator|*
@@ -442,7 +444,7 @@ condition|)
 block|{
 name|sizeInBytes
 operator|+=
-name|RamUsage
+name|RamUsageEstimator
 operator|.
 name|NUM_BYTES_OBJECT_REF
 expr_stmt|;
@@ -451,7 +453,7 @@ else|else
 block|{
 name|sizeInBytes
 operator|+=
-name|RamUsage
+name|RamUsageEstimator
 operator|.
 name|NUM_BYTES_OBJECT_HEADER
 operator|+
@@ -461,7 +463,7 @@ operator|.
 name|length
 argument_list|()
 operator|+
-name|RamUsage
+name|RamUsageEstimator
 operator|.
 name|NUM_BYTES_INT
 operator|)
@@ -470,19 +472,12 @@ block|}
 block|}
 name|sizeInBytes
 operator|+=
-name|RamUsage
+name|RamUsageEstimator
 operator|.
-name|NUM_BYTES_ARRAY_HEADER
-operator|+
-operator|(
-name|RamUsage
-operator|.
-name|NUM_BYTES_INT
-operator|*
+name|sizeOf
+argument_list|(
 name|parentIdsOrdinals
-operator|.
-name|length
-operator|)
+argument_list|)
 expr_stmt|;
 return|return
 name|sizeInBytes

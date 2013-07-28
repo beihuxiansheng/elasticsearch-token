@@ -42,9 +42,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|packed
-operator|.
-name|PackedInts
+name|RamUsageEstimator
 import|;
 end_import
 
@@ -52,11 +50,15 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
+name|apache
 operator|.
-name|common
+name|lucene
 operator|.
-name|RamUsage
+name|util
+operator|.
+name|packed
+operator|.
+name|PackedInts
 import|;
 end_import
 
@@ -259,7 +261,7 @@ condition|)
 block|{
 name|size
 operator|=
-name|RamUsage
+name|RamUsageEstimator
 operator|.
 name|NUM_BYTES_OBJECT_REF
 operator|+

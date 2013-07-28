@@ -20,16 +20,18 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
+name|apache
 operator|.
-name|common
+name|lucene
 operator|.
-name|RamUsage
+name|util
+operator|.
+name|RamUsageEstimator
 import|;
 end_import
 
 begin_comment
-comment|/** Int array abstraction able to support more than 2B values. This implementation slices data into fixed-sized blocks of  *  configurable length. */
+comment|/**  * Int array abstraction able to support more than 2B values. This implementation slices data into fixed-sized blocks of  * configurable length.  */
 end_comment
 
 begin_class
@@ -43,7 +45,7 @@ name|AbstractBigArray
 implements|implements
 name|IntArray
 block|{
-comment|/** Default page size, 16KB of memory per page. */
+comment|/**      * Default page size, 16KB of memory per page.      */
 DECL|field|DEFAULT_PAGE_SIZE
 specifier|public
 specifier|static
@@ -272,7 +274,7 @@ name|numBytesPerElement
 parameter_list|()
 block|{
 return|return
-name|RamUsage
+name|RamUsageEstimator
 operator|.
 name|NUM_BYTES_INT
 return|;

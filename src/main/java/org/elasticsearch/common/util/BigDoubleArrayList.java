@@ -34,11 +34,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
+name|apache
 operator|.
-name|common
+name|lucene
 operator|.
-name|RamUsage
+name|util
+operator|.
+name|RamUsageEstimator
 import|;
 end_import
 
@@ -53,7 +55,7 @@ import|;
 end_import
 
 begin_comment
-comment|/** Float array abstraction able to support more than 2B values. This implementation slices data into fixed-sized blocks of  *  configurable length. */
+comment|/**  * Float array abstraction able to support more than 2B values. This implementation slices data into fixed-sized blocks of  * configurable length.  */
 end_comment
 
 begin_class
@@ -65,7 +67,7 @@ name|BigDoubleArrayList
 extends|extends
 name|AbstractBigArray
 block|{
-comment|/** Default page size, 16KB of memory per page. */
+comment|/**      * Default page size, 16KB of memory per page.      */
 DECL|field|DEFAULT_PAGE_SIZE
 specifier|private
 specifier|static
@@ -296,7 +298,7 @@ name|numBytesPerElement
 parameter_list|()
 block|{
 return|return
-name|RamUsage
+name|RamUsageEstimator
 operator|.
 name|NUM_BYTES_DOUBLE
 return|;
