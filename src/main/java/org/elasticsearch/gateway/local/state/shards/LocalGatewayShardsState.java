@@ -36,15 +36,15 @@ end_import
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|google
+name|apache
 operator|.
-name|common
+name|lucene
 operator|.
-name|io
+name|util
 operator|.
-name|Closeables
+name|IOUtils
 import|;
 end_import
 
@@ -1778,12 +1778,10 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-name|Closeables
-operator|.
-name|closeQuietly
-argument_list|(
 name|fos
-argument_list|)
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 name|wroteAtLeastOnce
 operator|=
@@ -1803,9 +1801,9 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-name|Closeables
+name|IOUtils
 operator|.
-name|closeQuietly
+name|closeWhileHandlingException
 argument_list|(
 name|fos
 argument_list|)

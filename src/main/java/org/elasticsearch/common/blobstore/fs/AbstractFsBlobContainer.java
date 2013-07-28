@@ -34,15 +34,15 @@ end_import
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|google
+name|apache
 operator|.
-name|common
+name|lucene
 operator|.
-name|io
+name|util
 operator|.
-name|Closeables
+name|IOUtils
 import|;
 end_import
 
@@ -457,9 +457,9 @@ name|FileNotFoundException
 name|e
 parameter_list|)
 block|{
-name|Closeables
+name|IOUtils
 operator|.
-name|closeQuietly
+name|closeWhileHandlingException
 argument_list|(
 name|is
 argument_list|)
@@ -519,9 +519,9 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|Closeables
+name|IOUtils
 operator|.
-name|closeQuietly
+name|closeWhileHandlingException
 argument_list|(
 name|is
 argument_list|)

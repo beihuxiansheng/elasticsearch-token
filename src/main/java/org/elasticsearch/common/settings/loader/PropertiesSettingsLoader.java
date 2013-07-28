@@ -20,15 +20,15 @@ end_package
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|google
+name|apache
 operator|.
-name|common
+name|lucene
 operator|.
-name|io
+name|util
 operator|.
-name|Closeables
+name|IOUtils
 import|;
 end_import
 
@@ -215,9 +215,9 @@ return|;
 block|}
 finally|finally
 block|{
-name|Closeables
+name|IOUtils
 operator|.
-name|closeQuietly
+name|closeWhileHandlingException
 argument_list|(
 name|reader
 argument_list|)
@@ -322,9 +322,9 @@ return|;
 block|}
 finally|finally
 block|{
-name|Closeables
+name|IOUtils
 operator|.
-name|closeQuietly
+name|closeWhileHandlingException
 argument_list|(
 name|stream
 argument_list|)

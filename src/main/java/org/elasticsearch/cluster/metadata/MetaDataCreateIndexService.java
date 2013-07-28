@@ -74,15 +74,15 @@ end_import
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|google
+name|apache
 operator|.
-name|common
+name|lucene
 operator|.
-name|io
+name|util
 operator|.
-name|Closeables
+name|CollectionUtil
 import|;
 end_import
 
@@ -96,7 +96,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|CollectionUtil
+name|IOUtils
 import|;
 end_import
 
@@ -3375,9 +3375,9 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-name|Closeables
+name|IOUtils
 operator|.
-name|closeQuietly
+name|closeWhileHandlingException
 argument_list|(
 name|parser
 argument_list|)
