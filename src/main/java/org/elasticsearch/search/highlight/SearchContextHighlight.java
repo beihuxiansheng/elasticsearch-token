@@ -174,7 +174,7 @@ literal|1
 decl_stmt|;
 DECL|field|boundaryChars
 specifier|private
-name|char
+name|Character
 index|[]
 name|boundaryChars
 init|=
@@ -533,7 +533,7 @@ expr_stmt|;
 block|}
 DECL|method|boundaryChars
 specifier|public
-name|char
+name|Character
 index|[]
 name|boundaryChars
 parameter_list|()
@@ -547,7 +547,7 @@ specifier|public
 name|void
 name|boundaryChars
 parameter_list|(
-name|char
+name|Character
 index|[]
 name|boundaryChars
 parameter_list|)
