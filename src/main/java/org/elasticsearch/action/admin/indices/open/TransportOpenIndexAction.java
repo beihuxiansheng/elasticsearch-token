@@ -193,11 +193,11 @@ argument_list|,
 name|OpenIndexResponse
 argument_list|>
 block|{
-DECL|field|stateIndexService
+DECL|field|indexStateService
 specifier|private
 specifier|final
 name|MetaDataIndexStateService
-name|stateIndexService
+name|indexStateService
 decl_stmt|;
 annotation|@
 name|Inject
@@ -218,7 +218,7 @@ name|ThreadPool
 name|threadPool
 parameter_list|,
 name|MetaDataIndexStateService
-name|stateIndexService
+name|indexStateService
 parameter_list|)
 block|{
 name|super
@@ -234,9 +234,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|stateIndexService
+name|indexStateService
 operator|=
-name|stateIndexService
+name|indexStateService
 expr_stmt|;
 block|}
 annotation|@
@@ -411,7 +411,7 @@ parameter_list|)
 throws|throws
 name|ElasticSearchException
 block|{
-name|stateIndexService
+name|indexStateService
 operator|.
 name|openIndex
 argument_list|(

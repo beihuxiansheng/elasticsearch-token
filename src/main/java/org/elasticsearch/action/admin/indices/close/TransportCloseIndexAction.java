@@ -203,11 +203,11 @@ argument_list|,
 name|CloseIndexResponse
 argument_list|>
 block|{
-DECL|field|stateIndexService
+DECL|field|indexStateService
 specifier|private
 specifier|final
 name|MetaDataIndexStateService
-name|stateIndexService
+name|indexStateService
 decl_stmt|;
 DECL|field|disableCloseAllIndices
 specifier|private
@@ -234,7 +234,7 @@ name|ThreadPool
 name|threadPool
 parameter_list|,
 name|MetaDataIndexStateService
-name|stateIndexService
+name|indexStateService
 parameter_list|)
 block|{
 name|super
@@ -250,9 +250,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|stateIndexService
+name|indexStateService
 operator|=
-name|stateIndexService
+name|indexStateService
 expr_stmt|;
 name|this
 operator|.
@@ -493,7 +493,7 @@ parameter_list|)
 throws|throws
 name|ElasticSearchException
 block|{
-name|stateIndexService
+name|indexStateService
 operator|.
 name|closeIndex
 argument_list|(
