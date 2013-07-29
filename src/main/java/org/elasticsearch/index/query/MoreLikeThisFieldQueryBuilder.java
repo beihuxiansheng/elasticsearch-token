@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A more like this query that runs against a specific field.  *  *  */
+comment|/**  * A more like this query that runs against a specific field.  */
 end_comment
 
 begin_class
@@ -155,7 +155,7 @@ name|analyzer
 decl_stmt|;
 DECL|field|failOnUnsupportedField
 specifier|private
-name|boolean
+name|Boolean
 name|failOnUnsupportedField
 decl_stmt|;
 comment|/**      * A more like this query that runs against a specific field.      *      * @param name The field name to run the query against      */
@@ -711,8 +711,9 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-operator|!
 name|failOnUnsupportedField
+operator|!=
+literal|null
 condition|)
 block|{
 name|builder

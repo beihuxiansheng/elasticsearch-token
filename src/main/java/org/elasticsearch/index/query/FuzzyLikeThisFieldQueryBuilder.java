@@ -102,10 +102,8 @@ name|analyzer
 decl_stmt|;
 DECL|field|failOnUnsupportedField
 specifier|private
-name|boolean
+name|Boolean
 name|failOnUnsupportedField
-init|=
-literal|true
 decl_stmt|;
 comment|/**      * A fuzzy more like this query on the provided field.      *      * @param name the name of the field      */
 DECL|method|FuzzyLikeThisFieldQueryBuilder
@@ -436,8 +434,9 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-operator|!
 name|failOnUnsupportedField
+operator|!=
+literal|null
 condition|)
 block|{
 name|builder

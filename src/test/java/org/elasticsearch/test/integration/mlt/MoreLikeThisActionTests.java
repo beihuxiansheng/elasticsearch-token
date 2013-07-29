@@ -210,11 +210,15 @@ begin_import
 import|import static
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
 name|hamcrest
 operator|.
-name|MatcherAssert
+name|ElasticsearchAssertions
 operator|.
-name|assertThat
+name|assertThrows
 import|;
 end_import
 
@@ -239,18 +243,6 @@ operator|.
 name|Matchers
 operator|.
 name|notNullValue
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|fail
 import|;
 end_import
 
@@ -1792,10 +1784,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// Explicit list of fields including numeric fields -> fail
-try|try
-block|{
-name|searchResponse
-operator|=
+name|assertThrows
+argument_list|(
 name|client
 argument_list|()
 operator|.
@@ -1814,25 +1804,12 @@ literal|"string_value"
 argument_list|,
 literal|"int_value"
 argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
-expr_stmt|;
-name|fail
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
+argument_list|,
 name|SearchPhaseExecutionException
-name|e
-parameter_list|)
-block|{
-comment|// OK
-block|}
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 comment|// mlt query with no field -> OK
 name|searchResponse
 operator|=
@@ -1965,11 +1942,9 @@ literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// mlt query with at least a numeric field -> fail
-try|try
-block|{
-name|searchResponse
-operator|=
+comment|// mlt query with at least a numeric field -> fail by default
+name|assertThrows
+argument_list|(
 name|client
 argument_list|()
 operator|.
@@ -1990,25 +1965,46 @@ argument_list|(
 literal|"index"
 argument_list|)
 argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
-expr_stmt|;
-name|fail
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
+argument_list|,
 name|SearchPhaseExecutionException
-name|e
-parameter_list|)
-block|{
-comment|// OK
-block|}
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+comment|// mlt query with at least a numeric field -> fail by command
+name|assertThrows
+argument_list|(
+name|client
+argument_list|()
+operator|.
+name|prepareSearch
+argument_list|()
+operator|.
+name|setQuery
+argument_list|(
+name|moreLikeThisQuery
+argument_list|(
+literal|"string_value"
+argument_list|,
+literal|"int_value"
+argument_list|)
+operator|.
+name|likeText
+argument_list|(
+literal|"index"
+argument_list|)
+operator|.
+name|failOnUnsupportedField
+argument_list|(
+literal|true
+argument_list|)
+argument_list|)
+argument_list|,
+name|SearchPhaseExecutionException
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 comment|// mlt query with at least a numeric field but fail_on_unsupported_field set to false
 name|searchResponse
 operator|=
@@ -2048,10 +2044,7 @@ literal|false
 argument_list|)
 argument_list|)
 operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
+name|get
 argument_list|()
 expr_stmt|;
 name|assertThat
@@ -2083,11 +2076,9 @@ literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// mlt field query on a numeric field -> failure
-try|try
-block|{
-name|searchResponse
-operator|=
+comment|// mlt field query on a numeric field -> failure by default
+name|assertThrows
+argument_list|(
 name|client
 argument_list|()
 operator|.
@@ -2116,22 +2107,54 @@ argument_list|(
 literal|1
 argument_list|)
 argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
+argument_list|,
 name|SearchPhaseExecutionException
-name|e
-parameter_list|)
-block|{
-comment|// OK
-block|}
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+comment|// mlt field query on a numeric field -> failure by command
+name|assertThrows
+argument_list|(
+name|client
+argument_list|()
+operator|.
+name|prepareSearch
+argument_list|()
+operator|.
+name|setQuery
+argument_list|(
+name|moreLikeThisFieldQuery
+argument_list|(
+literal|"int_value"
+argument_list|)
+operator|.
+name|likeText
+argument_list|(
+literal|"42"
+argument_list|)
+operator|.
+name|minTermFreq
+argument_list|(
+literal|1
+argument_list|)
+operator|.
+name|minDocFreq
+argument_list|(
+literal|1
+argument_list|)
+operator|.
+name|failOnUnsupportedField
+argument_list|(
+literal|true
+argument_list|)
+argument_list|)
+argument_list|,
+name|SearchPhaseExecutionException
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 comment|// mlt field query on a numeric field but fail_on_unsupported_field set to false
 name|searchResponse
 operator|=

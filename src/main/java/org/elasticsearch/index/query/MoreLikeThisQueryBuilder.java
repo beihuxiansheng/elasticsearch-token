@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A more like this query that finds documents that are "like" the provided {@link #likeText(String)}  * which is checked against the fields the query is constructed with.  *  *  */
+comment|/**  * A more like this query that finds documents that are "like" the provided {@link #likeText(String)}  * which is checked against the fields the query is constructed with.  */
 end_comment
 
 begin_class
@@ -156,10 +156,8 @@ name|analyzer
 decl_stmt|;
 DECL|field|failOnUnsupportedField
 specifier|private
-name|boolean
+name|Boolean
 name|failOnUnsupportedField
-init|=
-literal|true
 decl_stmt|;
 comment|/**      * Constructs a new more like this query which uses the "_all" field.      */
 DECL|method|MoreLikeThisQueryBuilder
@@ -757,8 +755,9 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-operator|!
 name|failOnUnsupportedField
+operator|!=
+literal|null
 condition|)
 block|{
 name|builder

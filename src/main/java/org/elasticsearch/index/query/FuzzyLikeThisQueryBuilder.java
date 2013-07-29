@@ -103,12 +103,9 @@ name|analyzer
 decl_stmt|;
 DECL|field|failOnUnsupportedField
 specifier|private
-name|boolean
+name|Boolean
 name|failOnUnsupportedField
-init|=
-literal|true
 decl_stmt|;
-empty_stmt|;
 comment|/**      * Constructs a new fuzzy like this query which uses the "_all" field.      */
 DECL|method|FuzzyLikeThisQueryBuilder
 specifier|public
@@ -481,8 +478,9 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-operator|!
 name|failOnUnsupportedField
+operator|!=
+literal|null
 condition|)
 block|{
 name|builder

@@ -140,33 +140,9 @@ name|org
 operator|.
 name|hamcrest
 operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
 name|Matchers
 operator|.
 name|equalTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|fail
 import|;
 end_import
 
@@ -411,11 +387,9 @@ literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// flt query with at least a numeric field -> fail
-try|try
-block|{
-name|searchResponse
-operator|=
+comment|// flt query with at least a numeric field -> fail by default
+name|assertThrows
+argument_list|(
 name|client
 argument_list|()
 operator|.
@@ -436,25 +410,46 @@ argument_list|(
 literal|"index"
 argument_list|)
 argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
-expr_stmt|;
-name|fail
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
+argument_list|,
 name|SearchPhaseExecutionException
-name|e
-parameter_list|)
-block|{
-comment|// OK
-block|}
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+comment|// flt query with at least a numeric field -> fail by command
+name|assertThrows
+argument_list|(
+name|client
+argument_list|()
+operator|.
+name|prepareSearch
+argument_list|()
+operator|.
+name|setQuery
+argument_list|(
+name|fuzzyLikeThisQuery
+argument_list|(
+literal|"string_value"
+argument_list|,
+literal|"int_value"
+argument_list|)
+operator|.
+name|likeText
+argument_list|(
+literal|"index"
+argument_list|)
+operator|.
+name|failOnUnsupportedField
+argument_list|(
+literal|true
+argument_list|)
+argument_list|)
+argument_list|,
+name|SearchPhaseExecutionException
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 comment|// flt query with at least a numeric field but fail_on_unsupported_field set to false
 name|searchResponse
 operator|=
@@ -519,7 +514,7 @@ literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// flt field query on a numeric field -> failure
+comment|// flt field query on a numeric field -> failure by default
 name|assertThrows
 argument_list|(
 name|client
@@ -538,6 +533,38 @@ operator|.
 name|likeText
 argument_list|(
 literal|"42"
+argument_list|)
+argument_list|)
+argument_list|,
+name|SearchPhaseExecutionException
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+comment|// flt field query on a numeric field -> failure by command
+name|assertThrows
+argument_list|(
+name|client
+argument_list|()
+operator|.
+name|prepareSearch
+argument_list|()
+operator|.
+name|setQuery
+argument_list|(
+name|fuzzyLikeThisFieldQuery
+argument_list|(
+literal|"int_value"
+argument_list|)
+operator|.
+name|likeText
+argument_list|(
+literal|"42"
+argument_list|)
+operator|.
+name|failOnUnsupportedField
+argument_list|(
+literal|true
 argument_list|)
 argument_list|)
 argument_list|,
