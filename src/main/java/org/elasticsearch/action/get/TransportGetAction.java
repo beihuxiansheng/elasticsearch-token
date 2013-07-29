@@ -630,6 +630,16 @@ name|request
 operator|.
 name|realtime
 argument_list|()
+argument_list|,
+name|request
+operator|.
+name|version
+argument_list|()
+argument_list|,
+name|request
+operator|.
+name|versionType
+argument_list|()
 argument_list|)
 decl_stmt|;
 return|return

@@ -1414,11 +1414,6 @@ name|VersionType
 operator|.
 name|INTERNAL
 decl_stmt|;
-name|String
-name|percolate
-init|=
-literal|null
-decl_stmt|;
 name|int
 name|retryOnConflict
 init|=

@@ -84,6 +84,18 @@ name|Nullable
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|VersionType
+import|;
+end_import
+
 begin_comment
 comment|/**  * A get document action request builder.  */
 end_comment
@@ -316,6 +328,48 @@ operator|.
 name|realtime
 argument_list|(
 name|realtime
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the version, which will cause the get operation to only be performed if a matching      * version exists and no changes happened on the doc since then.      */
+DECL|method|setVersion
+specifier|public
+name|GetRequestBuilder
+name|setVersion
+parameter_list|(
+name|long
+name|version
+parameter_list|)
+block|{
+name|request
+operator|.
+name|version
+argument_list|(
+name|version
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the versioning type. Defaults to {@link org.elasticsearch.index.VersionType#INTERNAL}.      */
+DECL|method|setVersionType
+specifier|public
+name|GetRequestBuilder
+name|setVersionType
+parameter_list|(
+name|VersionType
+name|versionType
+parameter_list|)
+block|{
+name|request
+operator|.
+name|versionType
+argument_list|(
+name|versionType
 argument_list|)
 expr_stmt|;
 return|return
