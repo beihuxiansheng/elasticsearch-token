@@ -137,16 +137,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|StringReader
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -248,11 +238,7 @@ name|tokenStream
 argument_list|(
 literal|"test"
 argument_list|,
-operator|new
-name|StringReader
-argument_list|(
 literal|"this test with test"
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|test

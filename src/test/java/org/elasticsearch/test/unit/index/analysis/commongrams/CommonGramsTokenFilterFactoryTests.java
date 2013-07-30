@@ -1070,11 +1070,7 @@ name|tokenStream
 argument_list|(
 literal|"test"
 argument_list|,
-operator|new
-name|StringReader
-argument_list|(
 name|source
-argument_list|)
 argument_list|)
 argument_list|,
 name|expected
@@ -1151,11 +1147,7 @@ name|tokenStream
 argument_list|(
 literal|"test"
 argument_list|,
-operator|new
-name|StringReader
-argument_list|(
 name|source
-argument_list|)
 argument_list|)
 argument_list|,
 name|expected
@@ -1774,11 +1766,7 @@ name|tokenStream
 argument_list|(
 literal|"test"
 argument_list|,
-operator|new
-name|StringReader
-argument_list|(
 name|source
-argument_list|)
 argument_list|)
 argument_list|,
 name|expected
@@ -1847,11 +1835,7 @@ name|tokenStream
 argument_list|(
 literal|"test"
 argument_list|,
-operator|new
-name|StringReader
-argument_list|(
 name|source
-argument_list|)
 argument_list|)
 argument_list|,
 name|expected
