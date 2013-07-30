@@ -1210,6 +1210,8 @@ name|debug
 argument_list|(
 literal|"failed to send to master index {} created event"
 argument_list|,
+name|e
+argument_list|,
 name|index
 argument_list|)
 expr_stmt|;
@@ -1259,6 +1261,8 @@ name|debug
 argument_list|(
 literal|"failed to send to master index {} deleted event"
 argument_list|,
+name|e
+argument_list|,
 name|index
 argument_list|)
 expr_stmt|;
@@ -1283,6 +1287,8 @@ operator|.
 name|indicesStateChanged
 argument_list|()
 condition|)
+block|{
+try|try
 block|{
 name|nodeIndicesStateUpdatedAction
 operator|.
@@ -1314,6 +1320,23 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"failed to send to master indices state change event"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|applyCleanedIndices
