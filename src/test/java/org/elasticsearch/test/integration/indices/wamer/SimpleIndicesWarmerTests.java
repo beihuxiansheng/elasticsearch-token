@@ -178,18 +178,6 @@ name|org
 operator|.
 name|hamcrest
 operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
 name|Matchers
 operator|.
 name|equalTo
@@ -204,19 +192,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|greaterThan
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|is
+name|greaterThanOrEqualTo
 import|;
 end_import
 
@@ -1668,6 +1644,10 @@ argument_list|(
 literal|"index.number_of_shards"
 argument_list|,
 literal|1
+argument_list|,
+literal|"index.number_of_replicas"
+argument_list|,
+literal|0
 argument_list|)
 argument_list|)
 operator|.
@@ -1758,7 +1738,9 @@ argument_list|)
 operator|.
 name|setSource
 argument_list|(
-literal|"{ \"foo\" : \"bar\"}"
+literal|"foo"
+argument_list|,
+literal|"bar"
 argument_list|)
 operator|.
 name|setRefresh
@@ -1788,7 +1770,17 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-literal|"{ \"index.warmer.enabled\": false}"
+name|ImmutableSettings
+operator|.
+name|builder
+argument_list|()
+operator|.
+name|put
+argument_list|(
+literal|"index.warmer.enabled"
+argument_list|,
+literal|false
+argument_list|)
 argument_list|)
 operator|.
 name|execute
@@ -1805,14 +1797,12 @@ argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
-name|warmerRunsAfterDisabling
+name|getWarmerRuns
+argument_list|()
 argument_list|,
-name|is
-argument_list|(
-name|greaterThan
+name|greaterThanOrEqualTo
 argument_list|(
 literal|1L
-argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1830,7 +1820,9 @@ argument_list|)
 operator|.
 name|setSource
 argument_list|(
-literal|"{ \"foo2\" : \"bar2\"}"
+literal|"foo2"
+argument_list|,
+literal|"bar2"
 argument_list|)
 operator|.
 name|setRefresh
@@ -1846,12 +1838,12 @@ argument_list|()
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|warmerRunsAfterDisabling
-argument_list|,
-name|is
-argument_list|(
 name|getWarmerRuns
 argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+name|warmerRunsAfterDisabling
 argument_list|)
 argument_list|)
 expr_stmt|;
