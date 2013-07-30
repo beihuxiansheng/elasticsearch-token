@@ -922,8 +922,6 @@ argument_list|(
 literal|"size"
 argument_list|,
 name|availableProcessors
-operator|*
-literal|3
 argument_list|)
 operator|.
 name|put
