@@ -86,6 +86,18 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
+name|ShardOperationFailedException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
 name|count
 operator|.
 name|CountResponse
@@ -103,6 +115,20 @@ operator|.
 name|search
 operator|.
 name|SearchResponse
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|search
+operator|.
+name|ShardSearchFailure
 import|;
 end_import
 
@@ -212,6 +238,18 @@ name|*
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|fail
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -236,8 +274,8 @@ name|long
 name|expectedHitCount
 parameter_list|)
 block|{
-name|assertThat
-argument_list|(
+if|if
+condition|(
 name|searchResponse
 operator|.
 name|getHits
@@ -245,13 +283,63 @@ argument_list|()
 operator|.
 name|totalHits
 argument_list|()
-argument_list|,
-name|is
-argument_list|(
+operator|!=
 name|expectedHitCount
-argument_list|)
+condition|)
+block|{
+name|String
+name|msg
+init|=
+literal|"Hit count is "
+operator|+
+name|searchResponse
+operator|.
+name|getHits
+argument_list|()
+operator|.
+name|totalHits
+argument_list|()
+operator|+
+literal|" but "
+operator|+
+name|expectedHitCount
+operator|+
+literal|" was expected. "
+operator|+
+name|searchResponse
+operator|.
+name|getFailedShards
+argument_list|()
+operator|+
+literal|" shard failures:"
+decl_stmt|;
+for|for
+control|(
+name|ShardSearchFailure
+name|failure
+range|:
+name|searchResponse
+operator|.
+name|getShardFailures
+argument_list|()
+control|)
+block|{
+name|msg
+operator|+=
+literal|"\n "
+operator|+
+name|failure
+operator|.
+name|toString
+argument_list|()
+expr_stmt|;
+block|}
+name|fail
+argument_list|(
+name|msg
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|assertSearchHits
 specifier|public
@@ -408,6 +496,66 @@ name|expectedHitCount
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|countResponse
+operator|.
+name|getCount
+argument_list|()
+operator|!=
+name|expectedHitCount
+condition|)
+block|{
+name|String
+name|msg
+init|=
+literal|"Count is "
+operator|+
+name|countResponse
+operator|.
+name|getCount
+argument_list|()
+operator|+
+literal|" but "
+operator|+
+name|expectedHitCount
+operator|+
+literal|" was expected. "
+operator|+
+name|countResponse
+operator|.
+name|getFailedShards
+argument_list|()
+operator|+
+literal|" shard failures:"
+decl_stmt|;
+for|for
+control|(
+name|ShardOperationFailedException
+name|failure
+range|:
+name|countResponse
+operator|.
+name|getShardFailures
+argument_list|()
+control|)
+block|{
+name|msg
+operator|+=
+literal|"\n "
+operator|+
+name|failure
+operator|.
+name|toString
+argument_list|()
+expr_stmt|;
+block|}
+name|fail
+argument_list|(
+name|msg
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|assertFirstHit
 specifier|public
