@@ -721,6 +721,20 @@ operator|.
 name|aliasActions
 return|;
 block|}
+DECL|method|getAliasActions
+specifier|public
+name|List
+argument_list|<
+name|AliasAction
+argument_list|>
+name|getAliasActions
+parameter_list|()
+block|{
+return|return
+name|aliasActions
+argument_list|()
+return|;
+block|}
 comment|/**      * Timeout to wait till the put mapping gets acknowledged of all current cluster nodes. Defaults to      *<tt>10s</tt>.      */
 DECL|method|timeout
 name|TimeValue

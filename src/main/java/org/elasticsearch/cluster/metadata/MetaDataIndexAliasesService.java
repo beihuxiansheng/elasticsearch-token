@@ -790,6 +790,7 @@ argument_list|)
 argument_list|)
 throw|;
 block|}
+comment|// TODO: not copy (putAll)
 name|IndexMetaData
 operator|.
 name|Builder

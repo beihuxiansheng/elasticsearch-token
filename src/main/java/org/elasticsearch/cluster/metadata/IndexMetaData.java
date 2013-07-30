@@ -1036,7 +1036,7 @@ decl_stmt|;
 DECL|field|aliases
 specifier|private
 specifier|final
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -1053,7 +1053,7 @@ decl_stmt|;
 DECL|field|mappings
 specifier|private
 specifier|final
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -1064,7 +1064,7 @@ decl_stmt|;
 DECL|field|customs
 specifier|private
 specifier|final
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -1113,7 +1113,7 @@ parameter_list|,
 name|Settings
 name|settings
 parameter_list|,
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -1121,7 +1121,7 @@ name|MappingMetaData
 argument_list|>
 name|mappings
 parameter_list|,
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -1129,7 +1129,7 @@ name|AliasMetaData
 argument_list|>
 name|aliases
 parameter_list|,
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -1548,7 +1548,7 @@ return|;
 block|}
 DECL|method|aliases
 specifier|public
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -1565,7 +1565,7 @@ return|;
 block|}
 DECL|method|getAliases
 specifier|public
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -1581,7 +1581,7 @@ return|;
 block|}
 DECL|method|mappings
 specifier|public
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -1596,7 +1596,7 @@ return|;
 block|}
 DECL|method|getMappings
 specifier|public
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -1676,7 +1676,7 @@ return|;
 block|}
 DECL|method|customs
 specifier|public
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -1693,7 +1693,7 @@ return|;
 block|}
 DECL|method|getCustoms
 specifier|public
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -2731,7 +2731,7 @@ name|putAll
 argument_list|(
 name|aliases
 operator|.
-name|immutableMap
+name|map
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2819,17 +2819,17 @@ name|tmpSettings
 argument_list|,
 name|mappings
 operator|.
-name|immutableMap
+name|readOnlyMap
 argument_list|()
 argument_list|,
 name|tmpAliases
 operator|.
-name|immutableMap
+name|readOnlyMap
 argument_list|()
 argument_list|,
 name|customs
 operator|.
-name|immutableMap
+name|readOnlyMap
 argument_list|()
 argument_list|)
 return|;
