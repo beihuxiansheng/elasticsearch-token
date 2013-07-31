@@ -230,7 +230,7 @@ name|filter
 decl_stmt|;
 comment|// default to not initialized
 DECL|field|count
-name|int
+name|long
 name|count
 init|=
 operator|-
@@ -467,7 +467,7 @@ name|Collector
 block|{
 DECL|field|count
 specifier|private
-name|int
+name|long
 name|count
 init|=
 literal|0

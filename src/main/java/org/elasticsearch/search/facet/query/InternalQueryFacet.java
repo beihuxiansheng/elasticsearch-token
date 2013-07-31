@@ -353,7 +353,7 @@ literal|0
 argument_list|)
 return|;
 block|}
-name|int
+name|long
 name|count
 init|=
 literal|0
