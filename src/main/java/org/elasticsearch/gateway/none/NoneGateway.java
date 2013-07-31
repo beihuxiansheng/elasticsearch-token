@@ -532,14 +532,6 @@ comment|// delete indices that were there before, but are deleted now
 comment|// we need to do it so they won't be detected as dangling
 if|if
 condition|(
-name|nodeEnv
-operator|.
-name|hasNodeFile
-argument_list|()
-condition|)
-block|{
-if|if
-condition|(
 name|currentMetaData
 operator|!=
 literal|null
@@ -588,6 +580,14 @@ name|keySet
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|nodeEnv
+operator|.
+name|hasNodeFile
+argument_list|()
+condition|)
+block|{
 name|FileSystemUtils
 operator|.
 name|deleteRecursively
@@ -607,6 +607,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 try|try
 block|{
 name|nodeIndexDeletedAction
@@ -651,7 +652,6 @@ name|index
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
