@@ -1351,7 +1351,14 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"plugin directory already exists. To update the plugin, uninstall it first using -remove "
+literal|"plugin directory "
+operator|+
+name|extractLocation
+operator|.
+name|getAbsolutePath
+argument_list|()
+operator|+
+literal|" already exists. To update the plugin, uninstall it first using -remove "
 operator|+
 name|name
 operator|+
@@ -1501,6 +1508,24 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"Installed "
+operator|+
+name|name
+operator|+
+literal|" into "
+operator|+
+name|extractLocation
+operator|.
+name|getAbsolutePath
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -1664,6 +1689,24 @@ argument_list|(
 name|toLocation
 argument_list|)
 expr_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"Installed "
+operator|+
+name|name
+operator|+
+literal|" into "
+operator|+
+name|toLocation
+operator|.
+name|getAbsolutePath
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 comment|// try and identify the plugin type, see if it has no .class or .jar files in it
 comment|// so its probably a _site, and it it does not have a _site in it, move everything to _site
@@ -1754,8 +1797,6 @@ argument_list|(
 name|site
 argument_list|)
 expr_stmt|;
-block|}
-block|}
 name|System
 operator|.
 name|out
@@ -1765,8 +1806,17 @@ argument_list|(
 literal|"Installed "
 operator|+
 name|name
+operator|+
+literal|" into "
+operator|+
+name|site
+operator|.
+name|getAbsolutePath
+argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+block|}
 block|}
 DECL|method|removePlugin
 function|public void removePlugin
