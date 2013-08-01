@@ -292,7 +292,8 @@ specifier|public
 name|PercolateRequest
 parameter_list|(
 name|String
-name|index
+index|[]
+name|indices
 parameter_list|,
 name|String
 name|documentType
@@ -300,12 +301,7 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-operator|new
-name|String
-index|[]
-block|{
-name|index
-block|}
+name|indices
 argument_list|)
 expr_stmt|;
 name|this

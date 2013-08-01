@@ -549,9 +549,15 @@ name|client
 argument_list|()
 operator|.
 name|preparePercolate
+argument_list|()
+operator|.
+name|setIndices
 argument_list|(
 literal|"test"
-argument_list|,
+argument_list|)
+operator|.
+name|setDocumentType
+argument_list|(
 literal|"type1"
 argument_list|)
 operator|.
