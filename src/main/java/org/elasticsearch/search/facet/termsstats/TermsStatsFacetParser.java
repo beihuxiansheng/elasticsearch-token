@@ -833,6 +833,26 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|fieldMapper
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|FacetPhaseExecutionException
+argument_list|(
+name|facetName
+argument_list|,
+literal|"failed to find mapping for "
+operator|+
+name|valueField
+argument_list|)
+throw|;
+block|}
+elseif|else
+if|if
+condition|(
 operator|!
 operator|(
 name|fieldMapper
