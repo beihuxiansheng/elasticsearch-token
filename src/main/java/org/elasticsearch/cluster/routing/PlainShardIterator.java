@@ -60,7 +60,7 @@ specifier|final
 name|ShardId
 name|shardId
 decl_stmt|;
-comment|/**      * Creates a {@link PlainShardIterator} instance that iterates over a subset of the given shards      * this the a given<code>shardId</code>.      *       * @param shardId shard id of the group       * @param shards shards to iterate      */
+comment|/**      * Creates a {@link PlainShardIterator} instance that iterates over a subset of the given shards      * this the a given<code>shardId</code>.      *      * @param shardId shard id of the group      * @param shards  shards to iterate      */
 DECL|method|PlainShardIterator
 specifier|public
 name|PlainShardIterator
@@ -87,7 +87,7 @@ operator|=
 name|shardId
 expr_stmt|;
 block|}
-comment|/**      * Creates a {@link PlainShardIterator} instance that iterates over a subset of the given shards      * this the a given<code>shardId</code>.      *       * @param shardId shard id of the group       * @param shards shards to iterate      * @param index the offset in the shards list to start the iteration from      */
+comment|/**      * Creates a {@link PlainShardIterator} instance that iterates over a subset of the given shards      * this the a given<code>shardId</code>.      *      * @param shardId shard id of the group      * @param shards  shards to iterate      * @param index   the offset in the shards list to start the iteration from      */
 DECL|method|PlainShardIterator
 specifier|public
 name|PlainShardIterator
@@ -118,23 +118,6 @@ name|shardId
 operator|=
 name|shardId
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|reset
-specifier|public
-name|ShardIterator
-name|reset
-parameter_list|()
-block|{
-name|super
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-return|return
-name|this
-return|;
 block|}
 annotation|@
 name|Override

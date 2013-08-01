@@ -172,7 +172,7 @@ annotation|@
 name|Override
 DECL|method|reset
 specifier|public
-name|ShardsIterator
+name|void
 name|reset
 parameter_list|()
 block|{
@@ -184,9 +184,6 @@ name|this
 operator|.
 name|index
 expr_stmt|;
-return|return
-name|this
-return|;
 block|}
 annotation|@
 name|Override

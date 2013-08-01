@@ -50,7 +50,7 @@ parameter_list|()
 function_decl|;
 comment|/**      * Resets the iterator.      */
 DECL|method|reset
-name|ShardIterator
+name|void
 name|reset
 parameter_list|()
 function_decl|;

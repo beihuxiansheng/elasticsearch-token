@@ -28,17 +28,17 @@ name|ShardsIterator
 block|{
 comment|/**      * Resets the iterator to its initial state.      */
 DECL|method|reset
-name|ShardsIterator
+name|void
 name|reset
 parameter_list|()
 function_decl|;
-comment|/**      * The number of shard routing instances.      * @return  number of shard routing instances in this iterator      */
+comment|/**      * The number of shard routing instances.      *      * @return number of shard routing instances in this iterator      */
 DECL|method|size
 name|int
 name|size
 parameter_list|()
 function_decl|;
-comment|/**      * The number of active shard routing instances      * @return number of active shard routing instances      */
+comment|/**      * The number of active shard routing instances      *      * @return number of active shard routing instances      */
 DECL|method|sizeActive
 name|int
 name|sizeActive
@@ -62,7 +62,7 @@ name|ShardRouting
 name|firstOrNull
 parameter_list|()
 function_decl|;
-comment|/**      * Return the number of shards remaining in this {@link ShardsIterator}      * @return number of shard remaining      */
+comment|/**      * Return the number of shards remaining in this {@link ShardsIterator}      *      * @return number of shard remaining      */
 DECL|method|remaining
 name|int
 name|remaining
