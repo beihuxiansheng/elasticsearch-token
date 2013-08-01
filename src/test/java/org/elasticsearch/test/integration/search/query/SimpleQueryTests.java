@@ -1008,6 +1008,13 @@ parameter_list|)
 block|{
 name|assertTrue
 argument_list|(
+literal|"wrong exception message "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
 name|e
 operator|.
 name|getMessage

@@ -2636,7 +2636,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|preferAttributesActiveShardsIt
+name|preferAttributesActiveInitializingShardsIt
 argument_list|(
 operator|new
 name|String
@@ -2725,7 +2725,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|preferAttributesActiveShardsIt
+name|preferAttributesActiveInitializingShardsIt
 argument_list|(
 operator|new
 name|String

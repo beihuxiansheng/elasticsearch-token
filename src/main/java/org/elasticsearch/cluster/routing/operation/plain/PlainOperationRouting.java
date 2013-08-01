@@ -320,16 +320,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Collections
 import|;
 end_import
@@ -1424,7 +1414,7 @@ block|{
 return|return
 name|indexShard
 operator|.
-name|activeShardsRandomIt
+name|activeInitializingShardsRandomIt
 argument_list|()
 return|;
 block|}
@@ -1433,7 +1423,7 @@ block|{
 return|return
 name|indexShard
 operator|.
-name|preferAttributesActiveShardsIt
+name|preferAttributesActiveInitializingShardsIt
 argument_list|(
 name|awarenessAttributes
 argument_list|,
@@ -1614,7 +1604,7 @@ block|{
 return|return
 name|indexShard
 operator|.
-name|activeShardsRandomIt
+name|activeInitializingShardsRandomIt
 argument_list|()
 return|;
 block|}
@@ -1623,7 +1613,7 @@ block|{
 return|return
 name|indexShard
 operator|.
-name|preferAttributesActiveShardsIt
+name|preferAttributesActiveInitializingShardsIt
 argument_list|(
 name|awarenessAttributes
 argument_list|,
@@ -1661,7 +1651,7 @@ block|{
 return|return
 name|indexShard
 operator|.
-name|preferNodeActiveShardsIt
+name|preferNodeActiveInitializingShardsIt
 argument_list|(
 name|preference
 operator|.
@@ -1688,7 +1678,7 @@ block|{
 return|return
 name|indexShard
 operator|.
-name|preferNodeActiveShardsIt
+name|preferNodeActiveInitializingShardsIt
 argument_list|(
 name|localNodeId
 argument_list|)
@@ -1707,7 +1697,7 @@ block|{
 return|return
 name|indexShard
 operator|.
-name|primaryActiveShardIt
+name|primaryActiveInitializingShardIt
 argument_list|()
 return|;
 block|}
@@ -1731,7 +1721,7 @@ block|{
 return|return
 name|indexShard
 operator|.
-name|primaryFirstActiveShardsIt
+name|primaryFirstActiveInitializingShardsIt
 argument_list|()
 return|;
 block|}
@@ -1755,7 +1745,7 @@ block|{
 return|return
 name|indexShard
 operator|.
-name|onlyNodeActiveShardsIt
+name|onlyNodeActiveInitializingShardsIt
 argument_list|(
 name|localNodeId
 argument_list|)
@@ -1774,7 +1764,7 @@ block|{
 return|return
 name|indexShard
 operator|.
-name|onlyNodeActiveShardsIt
+name|onlyNodeActiveInitializingShardsIt
 argument_list|(
 name|preference
 operator|.
@@ -1811,7 +1801,7 @@ block|{
 return|return
 name|indexShard
 operator|.
-name|activeShardsIt
+name|activeInitializingShardsIt
 argument_list|(
 name|DjbHashFunction
 operator|.
@@ -1827,7 +1817,7 @@ block|{
 return|return
 name|indexShard
 operator|.
-name|preferAttributesActiveShardsIt
+name|preferAttributesActiveInitializingShardsIt
 argument_list|(
 name|awarenessAttributes
 argument_list|,
