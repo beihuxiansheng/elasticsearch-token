@@ -1819,8 +1819,9 @@ name|TimeValue
 operator|.
 name|timeValueMillis
 argument_list|(
-literal|5
+literal|100
 argument_list|)
+comment|/* enough timeout to catch them in the pending list... */
 argument_list|,
 operator|new
 name|Runnable
@@ -1889,11 +1890,11 @@ name|timedOut
 operator|.
 name|await
 argument_list|(
-literal|500
+literal|2
 argument_list|,
 name|TimeUnit
 operator|.
-name|MILLISECONDS
+name|SECONDS
 argument_list|)
 argument_list|,
 name|equalTo
