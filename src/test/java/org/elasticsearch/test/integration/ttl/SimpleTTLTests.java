@@ -1407,6 +1407,27 @@ literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// Need to run a refresh, in order for the non realtime get to work.
+name|client
+argument_list|()
+operator|.
+name|admin
+argument_list|()
+operator|.
+name|indices
+argument_list|()
+operator|.
+name|prepareRefresh
+argument_list|(
+literal|"test"
+argument_list|)
+operator|.
+name|execute
+argument_list|()
+operator|.
+name|actionGet
+argument_list|()
+expr_stmt|;
 comment|// non realtime get (stored) check
 name|getResponse
 operator|=
