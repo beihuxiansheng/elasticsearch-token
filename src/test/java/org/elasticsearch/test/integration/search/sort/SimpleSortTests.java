@@ -8521,6 +8521,9 @@ argument_list|(
 literal|"test"
 argument_list|)
 expr_stmt|;
+name|ensureYellow
+argument_list|()
+expr_stmt|;
 name|client
 argument_list|()
 operator|.
@@ -8572,9 +8575,6 @@ name|execute
 argument_list|()
 operator|.
 name|actionGet
-argument_list|()
-expr_stmt|;
-name|ensureYellow
 argument_list|()
 expr_stmt|;
 name|logger
@@ -8633,10 +8633,34 @@ parameter_list|(
 name|SearchPhaseExecutionException
 name|e
 parameter_list|)
-block|{         }
-name|ensureYellow
+block|{
+comment|//we check that it's a parse failure rather than a different shard failure
+for|for
+control|(
+name|ShardSearchFailure
+name|shardSearchFailure
+range|:
+name|e
+operator|.
+name|shardFailures
 argument_list|()
+control|)
+block|{
+name|assertThat
+argument_list|(
+name|shardSearchFailure
+operator|.
+name|reason
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"Parse Failure [No mapping found for [kkk] in order to sort on]"
+argument_list|)
+argument_list|)
 expr_stmt|;
+block|}
+block|}
 name|SearchResponse
 name|searchResponse
 init|=
