@@ -56,18 +56,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|client
-operator|.
-name|Client
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|Priority
@@ -171,11 +159,6 @@ name|purgeInterval
 init|=
 literal|200
 decl_stmt|;
-DECL|field|client
-specifier|private
-name|Client
-name|client
-decl_stmt|;
 annotation|@
 name|Override
 DECL|method|beforeClass
@@ -237,24 +220,6 @@ argument_list|,
 name|settings
 argument_list|)
 expr_stmt|;
-name|client
-operator|=
-name|getClient
-argument_list|()
-expr_stmt|;
-block|}
-DECL|method|getClient
-specifier|protected
-name|Client
-name|getClient
-parameter_list|()
-block|{
-return|return
-name|client
-argument_list|(
-literal|"node1"
-argument_list|)
-return|;
 block|}
 annotation|@
 name|Test
@@ -267,6 +232,7 @@ throws|throws
 name|Exception
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -284,6 +250,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -446,6 +413,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -486,6 +454,7 @@ argument_list|)
 expr_stmt|;
 comment|// Index one doc without routing, one doc with routing, one doc with not TTL and no default and one doc with default TTL
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -520,6 +489,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -559,6 +529,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -583,6 +554,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -627,6 +599,7 @@ name|GetResponse
 name|getResponse
 init|=
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -711,6 +684,7 @@ expr_stmt|;
 name|getResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -794,6 +768,7 @@ expr_stmt|;
 name|getResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -877,6 +852,7 @@ expr_stmt|;
 name|getResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -953,6 +929,7 @@ comment|// no TTL provided so no TTL fetched
 name|getResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -996,6 +973,7 @@ comment|// no TTL provided make sure it has default TTL
 name|getResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -1113,6 +1091,7 @@ argument_list|()
 condition|)
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1145,6 +1124,7 @@ argument_list|()
 condition|)
 block|{
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1173,6 +1153,7 @@ name|IndicesStatsResponse
 name|response
 init|=
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1246,6 +1227,7 @@ comment|// realtime get check
 name|getResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -1288,6 +1270,7 @@ expr_stmt|;
 name|getResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -1336,6 +1319,7 @@ comment|// replica realtime get check
 name|getResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -1378,6 +1362,7 @@ expr_stmt|;
 name|getResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -1426,6 +1411,7 @@ comment|// non realtime get (stored) check
 name|getResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -1468,6 +1454,7 @@ expr_stmt|;
 name|getResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -1516,6 +1503,7 @@ comment|// non realtime get going the replica check
 name|getResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
@@ -1558,6 +1546,7 @@ expr_stmt|;
 name|getResponse
 operator|=
 name|client
+argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
