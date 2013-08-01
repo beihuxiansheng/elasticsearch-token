@@ -24,6 +24,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+operator|.
+name|AwaitsFix
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -194,8 +210,16 @@ name|UpdateNumberOfReplicasTests
 extends|extends
 name|AbstractSharedClusterTest
 block|{
+comment|/*      * Comment from Boaz on the dev@ list:      *       * A short update on the failing      * UpdateNumberOfReplicasTest.simpleUpdateNumberOfReplicasTests - Shay and I      * pinned down the source of the problem - it's caused by making searches      * based on dated knowledge of the cluster state and calling shards that      * have been relocating away in the mean time.      *       * I'll be working on a a fix (when searching on a shard that is in the      * process of relocating, fail over to the relocation target if the search      * to the relocation source failed), but will it take a couple of days to      * complete.      */
 annotation|@
 name|Test
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"Boaz is on it ;)"
+argument_list|)
 DECL|method|simpleUpdateNumberOfReplicasTests
 specifier|public
 name|void
