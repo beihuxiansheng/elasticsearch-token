@@ -1289,7 +1289,7 @@ parameter_list|)
 block|{
 name|logger
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Ping execution ejected"
 argument_list|,
