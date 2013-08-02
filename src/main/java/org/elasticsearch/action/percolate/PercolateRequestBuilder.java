@@ -332,6 +332,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Whether only to return total count and don't keep track of the matches (Count percolation).      */
+DECL|method|setOnlyCount
+specifier|public
+name|PercolateRequestBuilder
+name|setOnlyCount
+parameter_list|(
+name|boolean
+name|onlyCount
+parameter_list|)
+block|{
+name|request
+operator|.
+name|onlyCount
+argument_list|(
+name|onlyCount
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 DECL|method|setSource
 specifier|public
 name|PercolateRequestBuilder
