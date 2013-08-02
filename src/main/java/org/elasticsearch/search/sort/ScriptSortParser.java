@@ -440,6 +440,9 @@ name|parseInnerFilter
 argument_list|(
 name|parser
 argument_list|)
+operator|.
+name|filter
+argument_list|()
 expr_stmt|;
 block|}
 block|}

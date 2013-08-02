@@ -1884,6 +1884,9 @@ name|parseInnerFilter
 argument_list|(
 name|parser
 argument_list|)
+operator|.
+name|filter
+argument_list|()
 decl_stmt|;
 name|query
 operator|=
@@ -2296,6 +2299,9 @@ name|parseInnerFilter
 argument_list|(
 name|parser
 argument_list|)
+operator|.
+name|filter
+argument_list|()
 decl_stmt|;
 name|query
 operator|=

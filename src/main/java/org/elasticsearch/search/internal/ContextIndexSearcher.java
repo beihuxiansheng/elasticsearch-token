@@ -675,6 +675,9 @@ name|searchContext
 operator|.
 name|parsedFilter
 argument_list|()
+operator|.
+name|filter
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

@@ -406,6 +406,20 @@ name|index
 operator|.
 name|query
 operator|.
+name|ParsedFilter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
 name|ParsedQuery
 import|;
 end_import
@@ -1004,7 +1018,7 @@ name|query
 decl_stmt|;
 DECL|field|filter
 specifier|private
-name|Filter
+name|ParsedFilter
 name|filter
 decl_stmt|;
 DECL|field|aliasFilter
@@ -2221,7 +2235,7 @@ specifier|public
 name|SearchContext
 name|parsedFilter
 parameter_list|(
-name|Filter
+name|ParsedFilter
 name|filter
 parameter_list|)
 block|{
@@ -2237,7 +2251,7 @@ return|;
 block|}
 DECL|method|parsedFilter
 specifier|public
-name|Filter
+name|ParsedFilter
 name|parsedFilter
 parameter_list|()
 block|{
