@@ -401,12 +401,13 @@ name|SortMode
 name|sortMode
 parameter_list|)
 block|{
-comment|// TODO support "missingValue" for sortMissingValue options here...
 return|return
 operator|new
 name|BytesRefFieldComparatorSource
 argument_list|(
 name|this
+argument_list|,
+name|missingValue
 argument_list|,
 name|sortMode
 argument_list|)

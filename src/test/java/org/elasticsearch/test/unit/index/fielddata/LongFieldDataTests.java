@@ -298,7 +298,7 @@ specifier|public
 class|class
 name|LongFieldDataTests
 extends|extends
-name|NumericFieldDataTests
+name|AbstractNumericFieldDataTests
 block|{
 annotation|@
 name|Override

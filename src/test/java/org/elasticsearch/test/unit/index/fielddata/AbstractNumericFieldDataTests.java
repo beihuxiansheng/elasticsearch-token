@@ -157,18 +157,13 @@ comment|/**  */
 end_comment
 
 begin_class
-annotation|@
-name|Ignore
-argument_list|(
-literal|"abstract"
-argument_list|)
-DECL|class|NumericFieldDataTests
+DECL|class|AbstractNumericFieldDataTests
 specifier|public
 specifier|abstract
 class|class
-name|NumericFieldDataTests
+name|AbstractNumericFieldDataTests
 extends|extends
-name|AbstractStringFieldDataTests
+name|AbstractFieldDataImplTests
 block|{
 DECL|method|getFieldDataType
 specifier|protected

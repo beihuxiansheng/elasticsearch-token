@@ -18,20 +18,6 @@ name|fieldcomparator
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|FieldComparator
-import|;
-end_import
-
 begin_comment
 comment|/**  * Base FieldComparator class for number fields.  */
 end_comment
@@ -50,7 +36,7 @@ parameter_list|<
 name|T
 parameter_list|>
 extends|extends
-name|FieldComparator
+name|NestedWrappableComparator
 argument_list|<
 name|T
 argument_list|>
@@ -82,25 +68,6 @@ parameter_list|,
 name|int
 name|divisor
 parameter_list|)
-function_decl|;
-comment|/**      * Assigns the underlying missing value to the specified slot, if the actual implementation supports missing value.      *      * @param slot The slot to assign the the missing value to.      */
-DECL|method|missing
-specifier|public
-specifier|abstract
-name|void
-name|missing
-parameter_list|(
-name|int
-name|slot
-parameter_list|)
-function_decl|;
-comment|/**      * Compares the missing value to the bottom.      *      * @return any N< 0 if the bottom value is not competitive with the missing value, any N> 0 if the      * bottom value is competitive with the missing value and 0 if they are equal.      */
-DECL|method|compareBottomMissing
-specifier|public
-specifier|abstract
-name|int
-name|compareBottomMissing
-parameter_list|()
 function_decl|;
 block|}
 end_class

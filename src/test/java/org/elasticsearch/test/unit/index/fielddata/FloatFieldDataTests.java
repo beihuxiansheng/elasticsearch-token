@@ -114,7 +114,7 @@ specifier|public
 class|class
 name|FloatFieldDataTests
 extends|extends
-name|NumericFieldDataTests
+name|AbstractNumericFieldDataTests
 block|{
 annotation|@
 name|Override
