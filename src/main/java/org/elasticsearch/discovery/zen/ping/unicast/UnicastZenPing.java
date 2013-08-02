@@ -1182,6 +1182,8 @@ name|void
 name|run
 parameter_list|()
 block|{
+try|try
+block|{
 name|sendPings
 argument_list|(
 name|timeout
@@ -1278,6 +1280,23 @@ index|]
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|RejectedExecutionException
+name|ex
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"Ping execution ejected"
+argument_list|,
+name|ex
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 argument_list|)
