@@ -1610,7 +1610,6 @@ operator|==
 name|expectedTotalOps
 condition|)
 block|{
-comment|// e is null when there is no next active....
 if|if
 condition|(
 name|logger
@@ -1624,6 +1623,14 @@ condition|(
 name|t
 operator|!=
 literal|null
+operator|&&
+operator|!
+name|TransportActions
+operator|.
+name|isShardNotAvailableException
+argument_list|(
+name|t
+argument_list|)
 condition|)
 block|{
 if|if
@@ -1835,7 +1842,6 @@ block|}
 else|else
 block|{
 comment|// no more shards active, add a failure
-comment|// e is null when there is no next active....
 if|if
 condition|(
 name|logger
@@ -1849,6 +1855,14 @@ condition|(
 name|t
 operator|!=
 literal|null
+operator|&&
+operator|!
+name|TransportActions
+operator|.
+name|isShardNotAvailableException
+argument_list|(
+name|t
+argument_list|)
 condition|)
 block|{
 if|if
@@ -2030,6 +2044,19 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
+comment|// we don't aggregate shard failures on non active shards (but do keep the header counts right)
+if|if
+condition|(
+name|TransportActions
+operator|.
+name|isShardNotAvailableException
+argument_list|(
+name|t
+argument_list|)
+condition|)
+block|{
+return|return;
+block|}
 comment|// lazily create shard failures, so we can early build the empty shard failure list in most cases (no failures)
 if|if
 condition|(

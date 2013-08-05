@@ -487,18 +487,6 @@ name|IndicesStatsRequest
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|ignoreNonActiveExceptions
-specifier|protected
-name|boolean
-name|ignoreNonActiveExceptions
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
 comment|/**      * Status goes across *all* shards.      */
 annotation|@
 name|Override

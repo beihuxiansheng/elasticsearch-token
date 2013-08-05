@@ -882,9 +882,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|failedShards
-operator|++
-expr_stmt|;
+comment|// simply ignore non active shards
 block|}
 elseif|else
 if|if
