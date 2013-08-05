@@ -150,11 +150,39 @@ begin_import
 import|import static
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertNoFailures
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|hasItemInArray
 import|;
 end_import
 
@@ -435,19 +463,9 @@ operator|.
 name|actionGet
 argument_list|()
 decl_stmt|;
-name|assertThat
+name|assertNoFailures
 argument_list|(
 name|searchResponse
-operator|.
-name|getShardFailures
-argument_list|()
-operator|.
-name|length
-argument_list|,
-name|equalTo
-argument_list|(
-literal|0
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertThat

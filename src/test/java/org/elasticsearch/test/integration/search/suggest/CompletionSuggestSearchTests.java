@@ -372,6 +372,22 @@ begin_import
 import|import static
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertNoFailures
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -2574,17 +2590,9 @@ modifier|...
 name|suggestions
 parameter_list|)
 block|{
-name|assertThat
+name|assertNoFailures
 argument_list|(
 name|suggestResponse
-operator|.
-name|getFailedShards
-argument_list|()
-argument_list|,
-name|is
-argument_list|(
-literal|0
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertThat
