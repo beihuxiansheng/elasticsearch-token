@@ -453,7 +453,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the number of retries of a version conflict occurs because the document was updated between      * getting it and updating it. Defaults to 1.      */
+comment|/**      * Sets the number of retries of a version conflict occurs because the document was updated between      * getting it and updating it. Defaults to 0.      */
 DECL|method|setRetryOnConflict
 specifier|public
 name|UpdateRequestBuilder
