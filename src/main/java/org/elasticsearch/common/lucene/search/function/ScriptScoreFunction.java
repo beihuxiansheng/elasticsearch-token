@@ -174,7 +174,7 @@ annotation|@
 name|Override
 DECL|method|score
 specifier|public
-name|float
+name|double
 name|score
 parameter_list|(
 name|int
@@ -201,7 +201,7 @@ expr_stmt|;
 return|return
 name|script
 operator|.
-name|runAsFloat
+name|runAsDouble
 argument_list|()
 return|;
 block|}

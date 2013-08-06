@@ -108,7 +108,7 @@ annotation|@
 name|Override
 DECL|method|score
 specifier|public
-name|float
+name|double
 name|score
 parameter_list|(
 name|int

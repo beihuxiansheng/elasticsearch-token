@@ -67,7 +67,7 @@ name|context
 parameter_list|)
 function_decl|;
 DECL|method|score
-name|float
+name|double
 name|score
 parameter_list|(
 name|int
