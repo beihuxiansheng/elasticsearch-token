@@ -1124,7 +1124,7 @@ literal|" doesn't exists but should"
 argument_list|,
 name|response
 operator|.
-name|documentExists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1790,7 +1790,7 @@ literal|" doesn't exists but should"
 argument_list|,
 name|response
 operator|.
-name|documentExists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2427,7 +2427,7 @@ literal|" doesn't exists but should"
 argument_list|,
 name|response
 operator|.
-name|documentExists
+name|isExists
 argument_list|()
 argument_list|,
 name|equalTo
