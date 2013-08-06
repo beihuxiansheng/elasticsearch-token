@@ -363,6 +363,9 @@ name|frequency
 parameter_list|,
 name|double
 name|channelScore
+parameter_list|,
+name|boolean
+name|userInput
 parameter_list|)
 throws|throws
 name|IOException
@@ -380,6 +383,8 @@ argument_list|,
 name|frequency
 argument_list|,
 name|channelScore
+argument_list|,
+name|userInput
 argument_list|)
 return|;
 block|}

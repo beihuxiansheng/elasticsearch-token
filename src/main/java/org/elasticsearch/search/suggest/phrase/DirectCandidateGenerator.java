@@ -871,6 +871,8 @@ name|score
 argument_list|,
 name|dictSize
 argument_list|)
+argument_list|,
+literal|false
 argument_list|)
 argument_list|,
 name|spare
@@ -1123,6 +1125,8 @@ name|stringDistance
 argument_list|,
 name|dictSize
 argument_list|)
+argument_list|,
+literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1161,6 +1165,8 @@ name|stringDistance
 argument_list|,
 name|dictSize
 argument_list|)
+argument_list|,
+literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1511,6 +1517,12 @@ specifier|final
 name|double
 name|score
 decl_stmt|;
+DECL|field|userInput
+specifier|public
+specifier|final
+name|boolean
+name|userInput
+decl_stmt|;
 DECL|method|Candidate
 specifier|public
 name|Candidate
@@ -1526,6 +1538,9 @@ name|stringDistance
 parameter_list|,
 name|double
 name|score
+parameter_list|,
+name|boolean
+name|userInput
 parameter_list|)
 block|{
 name|this
@@ -1552,6 +1567,12 @@ name|score
 operator|=
 name|score
 expr_stmt|;
+name|this
+operator|.
+name|userInput
+operator|=
+name|userInput
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -1576,6 +1597,14 @@ operator|+
 literal|", frequency="
 operator|+
 name|frequency
+operator|+
+operator|(
+name|userInput
+condition|?
+literal|", userInput"
+else|:
+literal|""
+operator|)
 operator|+
 literal|"]"
 return|;
@@ -1729,6 +1758,9 @@ name|frequency
 parameter_list|,
 name|double
 name|channelScore
+parameter_list|,
+name|boolean
+name|userInput
 parameter_list|)
 throws|throws
 name|IOException
@@ -1751,6 +1783,8 @@ name|channelScore
 argument_list|,
 name|dictSize
 argument_list|)
+argument_list|,
+name|userInput
 argument_list|)
 return|;
 block|}
