@@ -4835,7 +4835,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|//Test for https://github.com/elasticsearch/elasticsearch/issues/3444
+comment|/*     Test for https://github.com/elasticsearch/elasticsearch/issues/3444      */
 annotation|@
 name|Test
 DECL|method|testBulkUpdateDocAsUpsertWithParent
@@ -4858,6 +4858,13 @@ operator|.
 name|prepareCreate
 argument_list|(
 literal|"test"
+argument_list|)
+operator|.
+name|addMapping
+argument_list|(
+literal|"parent"
+argument_list|,
+literal|"{\"parent\":{}}"
 argument_list|)
 operator|.
 name|addMapping
@@ -5091,6 +5098,7 @@ literal|"child1"
 argument_list|)
 expr_stmt|;
 block|}
+comment|/*     Test for https://github.com/elasticsearch/elasticsearch/issues/3444      */
 annotation|@
 name|Test
 DECL|method|testBulkUpdateUpsertWithParent
@@ -5113,6 +5121,13 @@ operator|.
 name|prepareCreate
 argument_list|(
 literal|"test"
+argument_list|)
+operator|.
+name|addMapping
+argument_list|(
+literal|"parent"
+argument_list|,
+literal|"{\"parent\":{}}"
 argument_list|)
 operator|.
 name|addMapping
