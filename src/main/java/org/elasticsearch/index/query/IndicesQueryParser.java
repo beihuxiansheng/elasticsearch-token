@@ -128,6 +128,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
+name|IndexMissingException
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -844,10 +856,15 @@ modifier|...
 name|indices
 parameter_list|)
 block|{
+specifier|final
 name|String
 index|[]
 name|concreteIndices
-init|=
+decl_stmt|;
+try|try
+block|{
+name|concreteIndices
+operator|=
 name|clusterService
 operator|.
 name|state
@@ -866,7 +883,20 @@ name|MISSING
 argument_list|,
 literal|true
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IndexMissingException
+name|e
+parameter_list|)
+block|{
+comment|//Although we use IgnoreIndices.MISSING, according to MetaData#concreteIndices contract,
+comment|// we get IndexMissing either when we have a single index that is missing or when all indices are missing
+return|return
+literal|false
+return|;
+block|}
 for|for
 control|(
 name|String
