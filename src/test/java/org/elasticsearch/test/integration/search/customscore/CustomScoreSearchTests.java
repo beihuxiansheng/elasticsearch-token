@@ -804,7 +804,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"function score, score mode [first]"
+literal|"function score, product of:"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -819,7 +819,7 @@ name|length
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2
+literal|3
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -937,7 +937,7 @@ name|length
 argument_list|,
 name|equalTo
 argument_list|(
-literal|3
+literal|2
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1157,7 +1157,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"function score, score mode [first]"
+literal|"function score, product of:"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1172,7 +1172,7 @@ name|length
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2
+literal|3
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1269,7 +1269,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|6f
+literal|3f
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1290,19 +1290,13 @@ name|length
 argument_list|,
 name|equalTo
 argument_list|(
-literal|3
+literal|2
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
 name|explanation
-operator|.
-name|getDetails
-argument_list|()
-index|[
-literal|1
-index|]
 operator|.
 name|getDetails
 argument_list|()
@@ -1322,12 +1316,6 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|explanation
-operator|.
-name|getDetails
-argument_list|()
-index|[
-literal|1
-index|]
 operator|.
 name|getDetails
 argument_list|()
@@ -1823,7 +1811,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"function score, score mode [first]"
+literal|"function score, product of:"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1838,7 +1826,7 @@ name|length
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2
+literal|3
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1956,7 +1944,7 @@ name|length
 argument_list|,
 name|equalTo
 argument_list|(
-literal|3
+literal|2
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2208,7 +2196,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"function score, score mode [first]"
+literal|"function score, product of:"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2223,7 +2211,7 @@ name|length
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2
+literal|3
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2320,7 +2308,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|6f
+literal|3f
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2341,19 +2329,13 @@ name|length
 argument_list|,
 name|equalTo
 argument_list|(
-literal|3
+literal|2
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
 name|explanation
-operator|.
-name|getDetails
-argument_list|()
-index|[
-literal|1
-index|]
 operator|.
 name|getDetails
 argument_list|()
@@ -2373,12 +2355,6 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|explanation
-operator|.
-name|getDetails
-argument_list|()
-index|[
-literal|1
-index|]
 operator|.
 name|getDetails
 argument_list|()
