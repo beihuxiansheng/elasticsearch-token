@@ -1295,6 +1295,13 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|boolBuilder
+operator|.
+name|adjustPureNegative
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
