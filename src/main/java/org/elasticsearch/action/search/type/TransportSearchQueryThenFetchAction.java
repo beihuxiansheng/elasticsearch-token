@@ -1125,6 +1125,8 @@ name|addShardFailure
 argument_list|(
 name|shardIndex
 argument_list|,
+name|shardTarget
+argument_list|,
 name|t
 argument_list|)
 expr_stmt|;

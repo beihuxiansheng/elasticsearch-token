@@ -953,6 +953,8 @@ name|shardIndex
 argument_list|,
 literal|null
 argument_list|,
+literal|null
+argument_list|,
 name|shardIt
 argument_list|,
 operator|new
@@ -1275,6 +1277,8 @@ name|shardIndex
 argument_list|,
 literal|null
 argument_list|,
+literal|null
+argument_list|,
 name|shardIt
 argument_list|,
 operator|new
@@ -1290,6 +1294,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
+specifier|final
 name|DiscoveryNode
 name|node
 init|=
@@ -1315,6 +1320,8 @@ argument_list|(
 name|shardIndex
 argument_list|,
 name|shard
+argument_list|,
+literal|null
 argument_list|,
 name|shardIt
 argument_list|,
@@ -1417,6 +1424,11 @@ argument_list|(
 name|shardIndex
 argument_list|,
 name|shard
+argument_list|,
+name|node
+operator|.
+name|id
+argument_list|()
 argument_list|,
 name|shardIt
 argument_list|,
@@ -1583,6 +1595,11 @@ name|Nullable
 name|ShardRouting
 name|shard
 parameter_list|,
+annotation|@
+name|Nullable
+name|String
+name|nodeId
+parameter_list|,
 specifier|final
 name|ShardIterator
 name|shardIt
@@ -1593,9 +1610,36 @@ parameter_list|)
 block|{
 comment|// we always add the shard failure for a specific shard instance
 comment|// we do make sure to clean it on a successful response from a shard
+name|SearchShardTarget
+name|shardTarget
+init|=
+operator|new
+name|SearchShardTarget
+argument_list|(
+name|nodeId
+argument_list|,
+name|shardIt
+operator|.
+name|shardId
+argument_list|()
+operator|.
+name|getIndex
+argument_list|()
+argument_list|,
+name|shardIt
+operator|.
+name|shardId
+argument_list|()
+operator|.
+name|getId
+argument_list|()
+argument_list|)
+decl_stmt|;
 name|addShardFailure
 argument_list|(
 name|shardIndex
+argument_list|,
+name|shardTarget
 argument_list|,
 name|t
 argument_list|)
@@ -2040,6 +2084,11 @@ specifier|final
 name|int
 name|shardIndex
 parameter_list|,
+annotation|@
+name|Nullable
+name|SearchShardTarget
+name|shardTarget
+parameter_list|,
 name|Throwable
 name|t
 parameter_list|)
@@ -2121,6 +2170,8 @@ operator|new
 name|ShardSearchFailure
 argument_list|(
 name|t
+argument_list|,
+name|shardTarget
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2149,6 +2200,8 @@ operator|new
 name|ShardSearchFailure
 argument_list|(
 name|t
+argument_list|,
+name|shardTarget
 argument_list|)
 argument_list|)
 expr_stmt|;
