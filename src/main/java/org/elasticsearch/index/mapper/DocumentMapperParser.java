@@ -1940,41 +1940,36 @@ name|e
 argument_list|)
 throw|;
 block|}
-if|if
-condition|(
+name|int
+name|size
+init|=
 name|root
-operator|.
-name|keySet
-argument_list|()
 operator|.
 name|size
 argument_list|()
-operator|==
-literal|0
+decl_stmt|;
+switch|switch
+condition|(
+name|size
 condition|)
 block|{
+case|case
+literal|0
+case|:
+comment|// if we don't have any keys throw an exception
 throw|throw
 operator|new
 name|MapperParsingException
 argument_list|(
-literal|"malformed mapping definition: no JSON root object found"
+literal|"malformed mapping no root object found"
 argument_list|)
 throw|;
-block|}
-comment|// we always assume the first and single key is the mapping type root
-if|if
-condition|(
-name|root
-operator|.
-name|keySet
-argument_list|()
-operator|.
-name|size
-argument_list|()
-operator|!=
+case|case
 literal|1
-condition|)
-block|{
+case|:
+break|break;
+default|default:
+comment|// we always assume the first and single key is the mapping type root
 throw|throw
 operator|new
 name|MapperParsingException
