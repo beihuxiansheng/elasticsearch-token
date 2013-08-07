@@ -1140,15 +1140,7 @@ name|parse
 argument_list|(
 literal|null
 argument_list|,
-name|getRandom
-argument_list|()
-operator|.
-name|nextBoolean
-argument_list|()
-condition|?
 literal|null
-else|:
-literal|""
 argument_list|,
 name|defaultMapping
 argument_list|)
