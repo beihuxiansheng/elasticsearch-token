@@ -56,7 +56,9 @@ name|common
 operator|.
 name|io
 operator|.
-name|FastByteArrayInputStream
+name|stream
+operator|.
+name|BytesStreamInput
 import|;
 end_import
 
@@ -1778,9 +1780,11 @@ operator|.
 name|parseToString
 argument_list|(
 operator|new
-name|FastByteArrayInputStream
+name|BytesStreamInput
 argument_list|(
 name|content
+argument_list|,
+literal|false
 argument_list|)
 argument_list|,
 name|metadata
