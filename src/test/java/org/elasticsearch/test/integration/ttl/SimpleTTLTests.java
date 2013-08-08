@@ -663,7 +663,8 @@ name|ttl0
 argument_list|,
 name|greaterThan
 argument_list|(
-literal|0L
+operator|-
+name|purgeInterval
 argument_list|)
 argument_list|)
 expr_stmt|;
