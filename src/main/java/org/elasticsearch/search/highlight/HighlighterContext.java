@@ -84,11 +84,13 @@ name|HighlighterContext
 block|{
 DECL|field|fieldName
 specifier|public
+specifier|final
 name|String
 name|fieldName
 decl_stmt|;
 DECL|field|field
 specifier|public
+specifier|final
 name|SearchContextHighlight
 operator|.
 name|Field
@@ -96,6 +98,7 @@ name|field
 decl_stmt|;
 DECL|field|mapper
 specifier|public
+specifier|final
 name|FieldMapper
 argument_list|<
 name|?
@@ -104,11 +107,13 @@ name|mapper
 decl_stmt|;
 DECL|field|context
 specifier|public
+specifier|final
 name|SearchContext
 name|context
 decl_stmt|;
 DECL|field|hitContext
 specifier|public
+specifier|final
 name|FetchSubPhase
 operator|.
 name|HitContext
@@ -116,6 +121,7 @@ name|hitContext
 decl_stmt|;
 DECL|field|highlightQuery
 specifier|public
+specifier|final
 name|Query
 name|highlightQuery
 decl_stmt|;

@@ -540,7 +540,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set type of highlighter to use. Supported types      * are<tt>highlighter</tt> and<tt>fast-vector-highlighter</tt>.      */
+comment|/**      * Set type of highlighter to use. Supported types      * are<tt>highlighter</tt>,<tt>fast-vector-highlighter</tt> and<tt>postings-highlighter</tt>.      */
 DECL|method|highlighterType
 specifier|public
 name|HighlightBuilder
@@ -1555,7 +1555,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set type of highlighter to use. Supported types          * are<tt>highlighter</tt> and<tt>fast-vector-highlighter</tt>.          * This overrides global settings set by {@link HighlightBuilder#highlighterType(String)}.          */
+comment|/**          * Set type of highlighter to use. Supported types          * are<tt>highlighter</tt>,<tt>fast-vector-highlighter</tt> nad<tt>postings-highlighter</tt>.          * This overrides global settings set by {@link HighlightBuilder#highlighterType(String)}.          */
 DECL|method|highlighterType
 specifier|public
 name|Field
