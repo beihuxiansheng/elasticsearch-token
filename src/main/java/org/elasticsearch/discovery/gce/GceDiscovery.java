@@ -22,6 +22,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|Version
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|cloud
 operator|.
 name|gce
@@ -292,6 +302,10 @@ argument_list|,
 name|discoveryNodeService
 argument_list|,
 name|pingService
+argument_list|,
+name|Version
+operator|.
+name|CURRENT
 argument_list|)
 expr_stmt|;
 if|if
