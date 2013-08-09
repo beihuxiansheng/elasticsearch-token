@@ -560,6 +560,13 @@ argument_list|,
 name|spare
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|result
+operator|!=
+literal|null
+condition|)
+block|{
 assert|assert
 name|entry
 operator|.
@@ -580,6 +587,7 @@ argument_list|(
 name|result
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 operator|new
