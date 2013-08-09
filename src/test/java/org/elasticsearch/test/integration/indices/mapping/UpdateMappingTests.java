@@ -877,6 +877,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// TODO: bleskes: move back to combined index and mapping creation (pending bug fix concerning concurrent not-acked mapping requests)
+name|createIndex
+argument_list|(
+literal|"test"
+argument_list|)
+expr_stmt|;
 name|client
 argument_list|()
 operator|.
@@ -886,17 +892,20 @@ operator|.
 name|indices
 argument_list|()
 operator|.
-name|prepareCreate
+name|preparePutMapping
 argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|addMapping
+name|setType
 argument_list|(
 name|MapperService
 operator|.
 name|DEFAULT_MAPPING
-argument_list|,
+argument_list|)
+operator|.
+name|setSource
+argument_list|(
 name|JsonXContent
 operator|.
 name|contentBuilder
