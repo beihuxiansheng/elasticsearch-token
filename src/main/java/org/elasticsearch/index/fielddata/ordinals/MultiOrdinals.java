@@ -679,7 +679,9 @@ name|ordinals
 parameter_list|()
 block|{
 return|return
-literal|null
+name|this
+operator|.
+name|ordinals
 return|;
 block|}
 annotation|@
