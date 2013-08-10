@@ -305,6 +305,13 @@ argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|filteredSet
+operator|!=
+literal|null
+condition|)
+block|{
 name|filteredEntries
 operator|.
 name|add
@@ -334,6 +341,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|post
 operator|.
