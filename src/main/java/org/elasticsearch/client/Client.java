@@ -330,35 +330,7 @@ name|action
 operator|.
 name|percolate
 operator|.
-name|PercolateRequest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|percolate
-operator|.
-name|PercolateRequestBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|percolate
-operator|.
-name|PercolateResponse
+name|*
 import|;
 end_import
 
@@ -1270,6 +1242,39 @@ comment|/**      * Percolates a request returning the matches documents.      */
 DECL|method|preparePercolate
 name|PercolateRequestBuilder
 name|preparePercolate
+parameter_list|()
+function_decl|;
+comment|/**      * Performs multiple percolate requests.      */
+DECL|method|multiPercolate
+name|ActionFuture
+argument_list|<
+name|MultiPercolateResponse
+argument_list|>
+name|multiPercolate
+parameter_list|(
+name|MultiPercolateRequest
+name|request
+parameter_list|)
+function_decl|;
+comment|/**      * Performs multiple percolate requests.      */
+DECL|method|multiPercolate
+name|void
+name|multiPercolate
+parameter_list|(
+name|MultiPercolateRequest
+name|request
+parameter_list|,
+name|ActionListener
+argument_list|<
+name|MultiPercolateResponse
+argument_list|>
+name|listener
+parameter_list|)
+function_decl|;
+comment|/**      * Performs multiple percolate requests.      */
+DECL|method|prepareMultiPercolate
+name|MultiPercolateRequestBuilder
+name|prepareMultiPercolate
 parameter_list|()
 function_decl|;
 comment|/**      * Computes a score explanation for the specified request.      *      * @param index The index this explain is targeted for      * @param type  The type this explain is targeted for      * @param id    The document identifier this explain is targeted for      */

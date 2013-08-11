@@ -172,11 +172,6 @@ specifier|private
 name|Integer
 name|size
 decl_stmt|;
-DECL|field|shortCircuit
-specifier|private
-name|Boolean
-name|shortCircuit
-decl_stmt|;
 DECL|method|percolateDocument
 specifier|public
 name|DocBuilder
