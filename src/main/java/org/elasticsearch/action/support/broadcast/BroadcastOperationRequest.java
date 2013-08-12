@@ -132,7 +132,7 @@ name|operationThreading
 init|=
 name|BroadcastOperationThreading
 operator|.
-name|SINGLE_THREAD
+name|THREAD_PER_SHARD
 decl_stmt|;
 DECL|field|ignoreIndices
 specifier|private

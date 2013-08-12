@@ -74,22 +74,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
-operator|.
-name|support
-operator|.
-name|broadcast
-operator|.
-name|BroadcastOperationThreading
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|client
 operator|.
 name|Requests
@@ -308,16 +292,7 @@ DECL|method|PercolateRequest
 specifier|public
 name|PercolateRequest
 parameter_list|()
-block|{
-comment|// we want to do the percolate in parallel on all the local shards
-name|operationThreading
-argument_list|(
-name|BroadcastOperationThreading
-operator|.
-name|THREAD_PER_SHARD
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|PercolateRequest
 specifier|public
 name|PercolateRequest

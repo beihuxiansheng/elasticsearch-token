@@ -400,7 +400,7 @@ argument_list|)
 argument_list|,
 name|BroadcastOperationThreading
 operator|.
-name|SINGLE_THREAD
+name|THREAD_PER_SHARD
 argument_list|)
 decl_stmt|;
 if|if

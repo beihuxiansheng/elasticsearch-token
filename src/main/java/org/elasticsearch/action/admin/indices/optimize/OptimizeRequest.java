@@ -42,22 +42,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
-operator|.
-name|support
-operator|.
-name|broadcast
-operator|.
-name|BroadcastOperationThreading
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|io
@@ -221,14 +205,6 @@ block|{
 name|super
 argument_list|(
 name|indices
-argument_list|)
-expr_stmt|;
-comment|// we want to do the optimize in parallel on local shards...
-name|operationThreading
-argument_list|(
-name|BroadcastOperationThreading
-operator|.
-name|THREAD_PER_SHARD
 argument_list|)
 expr_stmt|;
 block|}
