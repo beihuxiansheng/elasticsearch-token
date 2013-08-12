@@ -2192,14 +2192,6 @@ name|Listener
 name|listener
 parameter_list|)
 block|{
-specifier|final
-name|AtomicBoolean
-name|notifyOnPostProcess
-init|=
-operator|new
-name|AtomicBoolean
-argument_list|()
-decl_stmt|;
 name|clusterService
 operator|.
 name|submitStateUpdateTask
@@ -2220,6 +2212,10 @@ operator|new
 name|TimeoutClusterStateUpdateTask
 argument_list|()
 block|{
+name|CountDownListener
+name|countDownListener
+decl_stmt|;
+comment|// used to count ack responses before confirming operation is complete
 annotation|@
 name|Override
 specifier|public
@@ -3204,12 +3200,13 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
-comment|// wait for responses from other nodes if needed
+comment|// counter the number of nodes participating so we can wait for responses from other nodes if needed
 name|int
 name|counter
 init|=
-literal|0
+literal|1
 decl_stmt|;
+comment|// this mast node
 for|for
 control|(
 name|String
@@ -3257,28 +3254,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-if|if
-condition|(
-name|counter
-operator|==
-literal|0
-condition|)
-block|{
-name|notifyOnPostProcess
-operator|.
-name|set
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-return|return
-name|updatedState
-return|;
-block|}
-name|mappingCreatedAction
-operator|.
-name|add
-argument_list|(
+name|countDownListener
+operator|=
 operator|new
 name|CountDownListener
 argument_list|(
@@ -3286,6 +3263,12 @@ name|counter
 argument_list|,
 name|listener
 argument_list|)
+expr_stmt|;
+name|mappingCreatedAction
+operator|.
+name|add
+argument_list|(
+name|countDownListener
 argument_list|,
 name|request
 operator|.
@@ -3336,21 +3319,17 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|notifyOnPostProcess
-operator|.
-name|get
-argument_list|()
+name|countDownListener
+operator|!=
+literal|null
 condition|)
 block|{
-name|listener
+comment|// notify we did stuff on our end.
+name|countDownListener
 operator|.
-name|onResponse
+name|onNodeMappingCreated
 argument_list|(
-operator|new
-name|Response
-argument_list|(
-literal|true
-argument_list|)
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -3701,6 +3680,7 @@ name|NodeMappingCreatedResponse
 name|response
 parameter_list|)
 block|{
+comment|// response may be null - see clusterStateProcessed implementation in {@link MetaDataMappingService#putMapping}
 if|if
 condition|(
 name|countDown

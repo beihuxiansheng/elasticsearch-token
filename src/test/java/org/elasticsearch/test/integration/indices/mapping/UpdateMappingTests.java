@@ -20,22 +20,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
-operator|.
-name|AwaitsFix
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -885,13 +869,6 @@ literal|"unchecked"
 argument_list|)
 annotation|@
 name|Test
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"too flaky - bleskes is on it?"
-argument_list|)
 DECL|method|updateDefaultMappingSettings
 specifier|public
 name|void
@@ -906,6 +883,16 @@ argument_list|(
 literal|"test"
 argument_list|)
 expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"Creating _default_ mappings"
+argument_list|)
+expr_stmt|;
+name|PutMappingResponse
+name|putResponse
+init|=
 name|client
 argument_list|()
 operator|.
@@ -960,9 +947,29 @@ argument_list|)
 operator|.
 name|get
 argument_list|()
+decl_stmt|;
+name|assertThat
+argument_list|(
+name|putResponse
+operator|.
+name|isAcknowledged
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|true
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"DONE: Creating _default_ mappings"
+argument_list|)
 expr_stmt|;
 name|GetMappingsResponse
-name|response
+name|getResponse
 init|=
 name|client
 argument_list|()
@@ -996,7 +1003,7 @@ name|Object
 argument_list|>
 name|defaultMapping
 init|=
-name|response
+name|getResponse
 operator|.
 name|getMappings
 argument_list|()
@@ -1026,7 +1033,16 @@ literal|"date_detection"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"Emptying _default_ mappings"
+argument_list|)
+expr_stmt|;
 comment|// now remove it
+name|putResponse
+operator|=
 name|client
 argument_list|()
 operator|.
@@ -1075,7 +1091,27 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-name|response
+name|assertThat
+argument_list|(
+name|putResponse
+operator|.
+name|isAcknowledged
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|true
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"Done Emptying _default_ mappings"
+argument_list|)
+expr_stmt|;
+name|getResponse
 operator|=
 name|client
 argument_list|()
@@ -1103,7 +1139,7 @@ argument_list|()
 expr_stmt|;
 name|defaultMapping
 operator|=
-name|response
+name|getResponse
 operator|.
 name|getMappings
 argument_list|()
@@ -1137,6 +1173,15 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// now test you can change stuff that are normally unchangable
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"Creating _default_ mappings with an analyzed field"
+argument_list|)
+expr_stmt|;
+name|putResponse
+operator|=
 name|client
 argument_list|()
 operator|.
@@ -1215,6 +1260,28 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
+name|assertThat
+argument_list|(
+name|putResponse
+operator|.
+name|isAcknowledged
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|true
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"Changing _default_ mappings field from analyzed to non-analyzed"
+argument_list|)
+expr_stmt|;
+name|putResponse
+operator|=
 name|client
 argument_list|()
 operator|.
@@ -1293,7 +1360,27 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-name|response
+name|assertThat
+argument_list|(
+name|putResponse
+operator|.
+name|isAcknowledged
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|true
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"Done changing _default_ mappings field from analyzed to non-analyzed"
+argument_list|)
+expr_stmt|;
+name|getResponse
 operator|=
 name|client
 argument_list|()
@@ -1321,7 +1408,7 @@ argument_list|()
 expr_stmt|;
 name|defaultMapping
 operator|=
-name|response
+name|getResponse
 operator|.
 name|getMappings
 argument_list|()
@@ -1390,6 +1477,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// but we still validate the _default_ type
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"Confirming _default_ mappings validation"
+argument_list|)
+expr_stmt|;
 name|assertThrows
 argument_list|(
 name|client

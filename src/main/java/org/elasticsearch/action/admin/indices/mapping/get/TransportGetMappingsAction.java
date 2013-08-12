@@ -281,6 +281,18 @@ parameter_list|)
 throws|throws
 name|ElasticSearchException
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Serving getMapping request based on version {}"
+argument_list|,
+name|state
+operator|.
+name|version
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|ImmutableMap
 argument_list|<
 name|String

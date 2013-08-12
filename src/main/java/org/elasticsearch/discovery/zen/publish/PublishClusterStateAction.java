@@ -807,6 +807,18 @@ name|localNode
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Received clusterstate version {}"
+argument_list|,
+name|clusterState
+operator|.
+name|version
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|listener
 operator|.
 name|onNewClusterState

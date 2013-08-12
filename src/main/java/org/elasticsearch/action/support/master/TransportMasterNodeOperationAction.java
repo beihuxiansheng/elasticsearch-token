@@ -770,7 +770,10 @@ name|masterOperation
 argument_list|(
 name|request
 argument_list|,
-name|clusterState
+name|clusterService
+operator|.
+name|state
+argument_list|()
 argument_list|,
 name|listener
 argument_list|)

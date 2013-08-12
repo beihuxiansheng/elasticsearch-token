@@ -2355,6 +2355,18 @@ name|localNodeMaster
 argument_list|()
 condition|)
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Publishing cluster state version {}"
+argument_list|,
+name|newClusterState
+operator|.
+name|version
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|discoveryService
 operator|.
 name|publish
@@ -2364,6 +2376,20 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// update the current cluster state
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Updating cluster state version {}: {}"
+argument_list|,
+name|newClusterState
+operator|.
+name|version
+argument_list|()
+argument_list|,
+name|newClusterState
+argument_list|)
+expr_stmt|;
 name|clusterState
 operator|=
 name|newClusterState
@@ -2593,6 +2619,7 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+comment|// TODO: do we want to call updateTask.onFailure here?
 block|}
 block|}
 block|}
