@@ -46,9 +46,7 @@ name|support
 operator|.
 name|master
 operator|.
-name|info
-operator|.
-name|ClusterInfoRequest
+name|MasterNodeOperationRequest
 import|;
 end_import
 
@@ -118,7 +116,7 @@ specifier|public
 class|class
 name|GetIndexTemplatesRequest
 extends|extends
-name|ClusterInfoRequest
+name|MasterNodeOperationRequest
 argument_list|<
 name|GetIndexTemplatesRequest
 argument_list|>
