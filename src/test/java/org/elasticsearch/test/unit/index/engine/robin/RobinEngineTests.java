@@ -938,6 +938,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
 name|defaultSettings
 operator|=
 name|ImmutableSettings
@@ -1059,6 +1064,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|super
+operator|.
+name|tearDown
+argument_list|()
+expr_stmt|;
 name|replicaEngine
 operator|.
 name|close

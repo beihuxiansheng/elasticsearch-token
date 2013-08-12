@@ -424,11 +424,11 @@ name|AbstractSharedClusterTest
 block|{
 annotation|@
 name|BeforeClass
-DECL|method|beforeClass
+DECL|method|beforeDocumentActionsTests
 specifier|public
 specifier|static
 name|void
-name|beforeClass
+name|beforeDocumentActionsTests
 parameter_list|()
 throws|throws
 name|Exception

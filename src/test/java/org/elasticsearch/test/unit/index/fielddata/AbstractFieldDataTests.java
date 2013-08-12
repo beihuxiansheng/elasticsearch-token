@@ -365,6 +365,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|super
+operator|.
+name|tearDown
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|readerContext

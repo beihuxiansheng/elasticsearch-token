@@ -348,6 +348,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
 name|threadPool
 operator|=
 operator|new
@@ -598,7 +603,14 @@ specifier|public
 name|void
 name|tearDown
 parameter_list|()
+throws|throws
+name|Exception
 block|{
+name|super
+operator|.
+name|tearDown
+argument_list|()
+expr_stmt|;
 name|serviceA
 operator|.
 name|close

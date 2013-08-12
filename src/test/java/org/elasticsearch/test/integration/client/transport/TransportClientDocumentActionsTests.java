@@ -74,11 +74,11 @@ name|DocumentActionsTests
 block|{
 annotation|@
 name|BeforeClass
-DECL|method|beforeClass
+DECL|method|beforeTransportClientDocumentActionsTests
 specifier|public
 specifier|static
 name|void
-name|beforeClass
+name|beforeTransportClientDocumentActionsTests
 parameter_list|()
 throws|throws
 name|Exception
@@ -97,7 +97,7 @@ argument_list|)
 expr_stmt|;
 name|DocumentActionsTests
 operator|.
-name|beforeClass
+name|beforeDocumentActionsTests
 argument_list|()
 expr_stmt|;
 block|}

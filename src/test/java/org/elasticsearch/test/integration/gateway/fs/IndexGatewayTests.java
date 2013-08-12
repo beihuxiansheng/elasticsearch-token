@@ -444,6 +444,9 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|tearDown
+argument_list|()
+expr_stmt|;
 name|node
 argument_list|(
 literal|"server1"

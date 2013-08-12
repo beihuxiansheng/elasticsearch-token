@@ -116,18 +116,6 @@ name|org
 operator|.
 name|hamcrest
 operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
 name|Matchers
 operator|.
 name|equalTo
@@ -179,7 +167,12 @@ specifier|public
 name|void
 name|closeNodes
 parameter_list|()
+throws|throws
+name|Exception
 block|{
+name|tearDown
+argument_list|()
+expr_stmt|;
 name|closeAllNodes
 argument_list|()
 expr_stmt|;
