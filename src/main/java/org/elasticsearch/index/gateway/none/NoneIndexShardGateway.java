@@ -325,9 +325,9 @@ try|try
 block|{
 name|logger
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"deleting shard content"
+literal|"cleaning shard content before creation"
 argument_list|)
 expr_stmt|;
 name|indexShard
