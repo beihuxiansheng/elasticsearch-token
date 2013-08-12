@@ -1394,8 +1394,8 @@ name|?
 argument_list|>
 name|mapper
 parameter_list|,
-name|boolean
-name|exactFirst
+name|CompletionSuggestionContext
+name|suggestionContext
 parameter_list|)
 block|{
 return|return
@@ -1405,7 +1405,7 @@ name|getLookup
 argument_list|(
 name|mapper
 argument_list|,
-name|exactFirst
+name|suggestionContext
 argument_list|)
 return|;
 block|}
@@ -1807,8 +1807,8 @@ name|?
 argument_list|>
 name|mapper
 parameter_list|,
-name|boolean
-name|exactFirst
+name|CompletionSuggestionContext
+name|suggestionContext
 parameter_list|)
 function_decl|;
 block|}
