@@ -844,7 +844,7 @@ operator|.
 name|size
 argument_list|()
 decl_stmt|;
-comment|// add the notifications that the store was deleted from *date* nodes
+comment|// add the notifications that the store was deleted from *data* nodes
 name|count
 operator|+=
 name|currentState
