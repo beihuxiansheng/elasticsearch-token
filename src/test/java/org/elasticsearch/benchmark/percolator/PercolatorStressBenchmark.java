@@ -347,7 +347,7 @@ init|=
 operator|new
 name|Node
 index|[
-literal|2
+literal|1
 index|]
 decl_stmt|;
 for|for
