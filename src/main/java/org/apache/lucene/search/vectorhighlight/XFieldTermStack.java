@@ -441,14 +441,23 @@ operator|+
 literal|1.0
 argument_list|)
 decl_stmt|;
+comment|// ES EDIT: added a safety check to limit this to 512 terms everything above might be meaningless anyways
+comment|// This limit protectes the FVH from running into StackOverflowErrors if super large TF docs are highlighted.
 specifier|final
 name|int
 name|freq
 init|=
+name|Math
+operator|.
+name|min
+argument_list|(
+literal|512
+argument_list|,
 name|dpEnum
 operator|.
 name|freq
 argument_list|()
+argument_list|)
 decl_stmt|;
 for|for
 control|(
