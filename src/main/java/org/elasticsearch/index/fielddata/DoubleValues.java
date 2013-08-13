@@ -829,13 +829,10 @@ name|int
 name|docId
 parameter_list|)
 block|{
-throw|throw
-operator|new
-name|ElasticSearchIllegalStateException
-argument_list|(
-literal|"Can't retrieve a value from an empty DoubleValues"
-argument_list|)
-throw|;
+comment|// conforms with all other impls when there is no value
+return|return
+literal|0
+return|;
 block|}
 annotation|@
 name|Override
