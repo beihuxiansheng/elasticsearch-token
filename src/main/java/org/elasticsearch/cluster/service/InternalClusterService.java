@@ -2380,14 +2380,12 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Updating cluster state version {}: {}"
+literal|"Updating cluster state version {}"
 argument_list|,
 name|newClusterState
 operator|.
 name|version
 argument_list|()
-argument_list|,
-name|newClusterState
 argument_list|)
 expr_stmt|;
 name|clusterState

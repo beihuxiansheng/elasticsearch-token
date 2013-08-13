@@ -3200,13 +3200,13 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
-comment|// counter the number of nodes participating so we can wait for responses from other nodes if needed
 name|int
 name|counter
 init|=
 literal|1
 decl_stmt|;
-comment|// this mast node
+comment|// we want to wait on the master node to apply it on its cluster state
+comment|// also wait for nodes that actually have the index created on them to apply the mappings internally
 for|for
 control|(
 name|String
@@ -3324,7 +3324,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// notify we did stuff on our end.
+comment|// the master has applied it on its cluster state
 name|countDownListener
 operator|.
 name|onNodeMappingCreated
