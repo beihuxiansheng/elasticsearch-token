@@ -505,6 +505,8 @@ try|try
 block|{
 name|searchRequest
 operator|=
+name|RestSearchAction
+operator|.
 name|parseSearchRequest
 argument_list|(
 name|request
@@ -801,7 +803,8 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|parseSearchRequest
-specifier|private
+specifier|public
+specifier|static
 name|SearchRequest
 name|parseSearchRequest
 parameter_list|(
@@ -1018,7 +1021,8 @@ name|searchRequest
 return|;
 block|}
 DECL|method|parseSearchSource
-specifier|private
+specifier|public
+specifier|static
 name|SearchSourceBuilder
 name|parseSearchSource
 parameter_list|(
