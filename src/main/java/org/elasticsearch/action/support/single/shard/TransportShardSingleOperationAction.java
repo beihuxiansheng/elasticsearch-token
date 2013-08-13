@@ -706,14 +706,7 @@ parameter_list|()
 block|{
 name|perform
 argument_list|(
-operator|new
-name|NoShardAvailableActionException
-argument_list|(
-name|shardIt
-operator|.
-name|shardId
-argument_list|()
-argument_list|)
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -842,12 +835,6 @@ name|shardIt
 operator|.
 name|shardId
 argument_list|()
-argument_list|,
-literal|"No shard available for ["
-operator|+
-name|request
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
