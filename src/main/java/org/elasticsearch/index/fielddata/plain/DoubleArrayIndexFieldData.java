@@ -509,7 +509,13 @@ block|{
 return|return
 name|DoubleArrayAtomicFieldData
 operator|.
-name|EMPTY
+name|empty
+argument_list|(
+name|reader
+operator|.
+name|maxDoc
+argument_list|()
+argument_list|)
 return|;
 block|}
 comment|// TODO: how can we guess the number of terms? numerics end up creating more terms per value...
