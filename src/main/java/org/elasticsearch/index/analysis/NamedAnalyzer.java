@@ -40,20 +40,6 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|AnalyzerWrapper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|analysis
-operator|.
 name|CustomAnalyzerWrapper
 import|;
 end_import
@@ -202,16 +188,6 @@ name|GlobalReuseStrategy
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// TODO would be nice to pick the reuse start based on the analyzer...
-assert|assert
-operator|!
-operator|(
-name|analyzer
-operator|instanceof
-name|AnalyzerWrapper
-operator|)
-assert|;
-comment|// this is the only one in Lucene currently that uses PerFieldStrategy, make sure we don't wrap it
 name|this
 operator|.
 name|name
