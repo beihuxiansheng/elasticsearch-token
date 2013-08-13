@@ -1444,22 +1444,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// TODO: bleskes: move back to combined index and mapping creation (pending bug fix concerning concurrent not-acked mapping requests)
-name|createIndex
-argument_list|(
-literal|"test"
-argument_list|)
-expr_stmt|;
 name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Creating _default_ mappings"
+literal|"Creating index with _default_ mappings"
 argument_list|)
 expr_stmt|;
-name|PutMappingResponse
-name|putResponse
-init|=
 name|client
 argument_list|()
 operator|.
@@ -1469,20 +1460,17 @@ operator|.
 name|indices
 argument_list|()
 operator|.
-name|preparePutMapping
+name|prepareCreate
 argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|setType
+name|addMapping
 argument_list|(
 name|MapperService
 operator|.
 name|DEFAULT_MAPPING
-argument_list|)
-operator|.
-name|setSource
-argument_list|(
+argument_list|,
 name|JsonXContent
 operator|.
 name|contentBuilder
@@ -1514,26 +1502,6 @@ argument_list|)
 operator|.
 name|get
 argument_list|()
-decl_stmt|;
-name|assertThat
-argument_list|(
-name|putResponse
-operator|.
-name|isAcknowledged
-argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|true
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|logger
-operator|.
-name|info
-argument_list|(
-literal|"DONE: Creating _default_ mappings"
-argument_list|)
 expr_stmt|;
 name|GetMappingsResponse
 name|getResponse
@@ -1608,8 +1576,9 @@ literal|"Emptying _default_ mappings"
 argument_list|)
 expr_stmt|;
 comment|// now remove it
+name|PutMappingResponse
 name|putResponse
-operator|=
+init|=
 name|client
 argument_list|()
 operator|.
@@ -1657,7 +1626,7 @@ argument_list|)
 operator|.
 name|get
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|assertThat
 argument_list|(
 name|putResponse
