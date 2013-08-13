@@ -219,10 +219,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|DuellFieldDataTest
+DECL|class|DuellFieldDataTests
 specifier|public
 class|class
-name|DuellFieldDataTest
+name|DuellFieldDataTests
 extends|extends
 name|AbstractFieldDataTests
 block|{
@@ -533,7 +533,7 @@ name|HashMap
 argument_list|<
 name|FieldDataType
 argument_list|,
-name|DuellFieldDataTest
+name|DuellFieldDataTests
 operator|.
 name|Type
 argument_list|>
@@ -1173,7 +1173,7 @@ name|HashMap
 argument_list|<
 name|FieldDataType
 argument_list|,
-name|DuellFieldDataTest
+name|DuellFieldDataTests
 operator|.
 name|Type
 argument_list|>
@@ -1689,7 +1689,7 @@ name|HashMap
 argument_list|<
 name|FieldDataType
 argument_list|,
-name|DuellFieldDataTest
+name|DuellFieldDataTests
 operator|.
 name|Type
 argument_list|>
@@ -2193,7 +2193,7 @@ name|HashMap
 argument_list|<
 name|FieldDataType
 argument_list|,
-name|DuellFieldDataTest
+name|DuellFieldDataTests
 operator|.
 name|Type
 argument_list|>
