@@ -110,6 +110,16 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -155,10 +165,10 @@ comment|/**  * Checks that index operation does not create duplicate documents. 
 end_comment
 
 begin_class
-DECL|class|ConcurrentIndexingVersioningTest
+DECL|class|ConcurrentIndexingVersioningStressTest
 specifier|public
 class|class
-name|ConcurrentIndexingVersioningTest
+name|ConcurrentIndexingVersioningStressTest
 block|{
 DECL|method|main
 specifier|public

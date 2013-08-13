@@ -23,14 +23,14 @@ package|;
 end_package
 
 begin_comment
-comment|/**  *  */
+comment|//used in ImmutableSettingsTest
 end_comment
 
 begin_class
-DECL|class|BarTest
+DECL|class|BarTestClass
 specifier|public
 class|class
-name|BarTest
+name|BarTestClass
 block|{ }
 end_class
 

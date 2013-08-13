@@ -56,6 +56,20 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
+name|integration
+operator|.
+name|ElasticsearchTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
 name|unit
 operator|.
 name|common
@@ -64,7 +78,7 @@ name|settings
 operator|.
 name|bar
 operator|.
-name|BarTest
+name|BarTestClass
 import|;
 end_import
 
@@ -84,7 +98,7 @@ name|settings
 operator|.
 name|foo
 operator|.
-name|FooTest
+name|FooTestClass
 import|;
 end_import
 
@@ -120,18 +134,6 @@ name|org
 operator|.
 name|hamcrest
 operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
 name|Matchers
 operator|.
 name|*
@@ -147,6 +149,8 @@ DECL|class|ImmutableSettingsTests
 specifier|public
 class|class
 name|ImmutableSettingsTests
+extends|extends
+name|ElasticsearchTestCase
 block|{
 annotation|@
 name|Test
@@ -188,13 +192,13 @@ name|getAsClass
 argument_list|(
 literal|"no.settings"
 argument_list|,
-name|FooTest
+name|FooTestClass
 operator|.
 name|class
 argument_list|,
 literal|"org.elasticsearch.test.unit.common.settings."
 argument_list|,
-literal|"Test"
+literal|"TestClass"
 argument_list|)
 operator|.
 name|getName
@@ -202,7 +206,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-name|FooTest
+name|FooTestClass
 operator|.
 name|class
 operator|.
@@ -220,13 +224,13 @@ name|getAsClass
 argument_list|(
 literal|"test.class"
 argument_list|,
-name|FooTest
+name|FooTestClass
 operator|.
 name|class
 argument_list|,
 literal|"org.elasticsearch.test.unit.common.settings."
 argument_list|,
-literal|"Test"
+literal|"TestClass"
 argument_list|)
 operator|.
 name|getName
@@ -234,7 +238,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-name|BarTest
+name|BarTestClass
 operator|.
 name|class
 operator|.
@@ -252,20 +256,18 @@ name|getAsClass
 argument_list|(
 literal|"test.class"
 argument_list|,
-name|FooTest
+name|FooTestClass
 operator|.
 name|class
 argument_list|,
 literal|"com.example.elasticsearch.test.unit..common.settings."
 argument_list|,
-literal|"Test"
+literal|"TestClass"
 argument_list|)
 expr_stmt|;
-name|assertThat
+name|fail
 argument_list|(
 literal|"Class with wrong package name shouldn't be loaded"
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -286,13 +288,13 @@ name|getAsClass
 argument_list|(
 literal|"test.class.package"
 argument_list|,
-name|FooTest
+name|FooTestClass
 operator|.
 name|class
 argument_list|,
 literal|"com.example.elasticsearch.test.unit.common.settings."
 argument_list|,
-literal|"Test"
+literal|"TestClass"
 argument_list|)
 operator|.
 name|getName
@@ -300,7 +302,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-name|BarTest
+name|BarTestClass
 operator|.
 name|class
 operator|.

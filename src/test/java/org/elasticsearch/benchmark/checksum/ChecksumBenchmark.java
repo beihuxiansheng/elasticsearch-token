@@ -83,10 +83,10 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|ChecksumBenchmarkTest
+DECL|class|ChecksumBenchmark
 specifier|public
 class|class
-name|ChecksumBenchmarkTest
+name|ChecksumBenchmark
 block|{
 DECL|field|BATCH_SIZE
 specifier|public
