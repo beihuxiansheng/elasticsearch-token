@@ -3432,6 +3432,14 @@ literal|null
 expr_stmt|;
 block|}
 block|}
+if|if
+condition|(
+name|logger
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|logger
 operator|.
 name|debug
@@ -3447,6 +3455,7 @@ argument_list|,
 name|reason
 argument_list|)
 expr_stmt|;
+block|}
 name|state
 operator|=
 name|IndexShardState

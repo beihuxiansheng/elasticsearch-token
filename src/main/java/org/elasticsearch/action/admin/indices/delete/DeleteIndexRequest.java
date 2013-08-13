@@ -178,7 +178,7 @@ name|timeout
 init|=
 name|timeValueSeconds
 argument_list|(
-literal|10
+literal|60
 argument_list|)
 decl_stmt|;
 DECL|method|DeleteIndexRequest

@@ -751,6 +751,13 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|wipeIndices
+argument_list|()
+expr_stmt|;
+comment|// wipe after to make sure we fail in the test that didn't ack the delete
+name|wipeTemplates
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|cluster
 specifier|public

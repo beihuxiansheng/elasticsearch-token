@@ -613,8 +613,6 @@ name|DeleteIndexListener
 argument_list|(
 name|mdLock
 argument_list|,
-name|request
-argument_list|,
 name|userListener
 argument_list|)
 decl_stmt|;
@@ -868,6 +866,7 @@ argument_list|(
 name|count
 argument_list|)
 decl_stmt|;
+comment|// this listener will be notified once we get back a notification based on the cluster state change below.
 specifier|final
 name|NodeIndexDeletedAction
 operator|.
@@ -1122,12 +1121,6 @@ specifier|final
 name|Semaphore
 name|mdLock
 decl_stmt|;
-DECL|field|request
-specifier|private
-specifier|final
-name|Request
-name|request
-decl_stmt|;
 DECL|field|listener
 specifier|private
 specifier|final
@@ -1137,6 +1130,9 @@ decl_stmt|;
 DECL|field|future
 specifier|volatile
 name|ScheduledFuture
+argument_list|<
+name|?
+argument_list|>
 name|future
 decl_stmt|;
 DECL|method|DeleteIndexListener
@@ -1145,9 +1141,6 @@ name|DeleteIndexListener
 parameter_list|(
 name|Semaphore
 name|mdLock
-parameter_list|,
-name|Request
-name|request
 parameter_list|,
 name|Listener
 name|listener
@@ -1158,12 +1151,6 @@ operator|.
 name|mdLock
 operator|=
 name|mdLock
-expr_stmt|;
-name|this
-operator|.
-name|request
-operator|=
-name|request
 expr_stmt|;
 name|this
 operator|.
