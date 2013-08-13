@@ -359,10 +359,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|DecayFunctionScoreTest
+DECL|class|DecayFunctionScoreTests
 specifier|public
 class|class
-name|DecayFunctionScoreTest
+name|DecayFunctionScoreTests
 extends|extends
 name|AbstractSharedClusterTest
 block|{

@@ -973,6 +973,8 @@ block|}
 name|float
 name|sc
 init|=
+name|FunctionScoreQuery
+operator|.
 name|toFloat
 argument_list|(
 name|getBoost
@@ -991,7 +993,7 @@ literal|true
 argument_list|,
 name|sc
 argument_list|,
-literal|"custom score, product of:"
+literal|"function score, product of:"
 argument_list|)
 decl_stmt|;
 name|filterExplanation
@@ -1056,7 +1058,7 @@ literal|true
 argument_list|,
 name|topLevelScore
 argument_list|,
-literal|"custom score, score mode ["
+literal|"function score, score mode ["
 operator|+
 name|scoreMode
 operator|.
@@ -1255,12 +1257,14 @@ name|ComplexExplanation
 argument_list|(
 literal|true
 argument_list|,
+name|FunctionScoreQuery
+operator|.
 name|toFloat
 argument_list|(
 name|factor
 argument_list|)
 argument_list|,
-literal|"custom score, product of:"
+literal|"function score, product of:"
 argument_list|)
 decl_stmt|;
 name|res
@@ -1388,6 +1392,8 @@ block|}
 name|float
 name|sc
 init|=
+name|FunctionScoreQuery
+operator|.
 name|toFloat
 argument_list|(
 name|factor
@@ -1411,7 +1417,7 @@ literal|true
 argument_list|,
 name|sc
 argument_list|,
-literal|"custom score, score mode ["
+literal|"function score, score mode ["
 operator|+
 name|scoreMode
 operator|.
@@ -2097,6 +2103,8 @@ name|score
 argument_list|()
 decl_stmt|;
 return|return
+name|FunctionScoreQuery
+operator|.
 name|toFloat
 argument_list|(
 name|subQueryBoost
@@ -2352,58 +2360,6 @@ argument_list|(
 name|getBoost
 argument_list|()
 argument_list|)
-return|;
-block|}
-DECL|method|toFloat
-specifier|public
-specifier|static
-name|float
-name|toFloat
-parameter_list|(
-name|double
-name|input
-parameter_list|)
-block|{
-assert|assert
-name|Double
-operator|.
-name|compare
-argument_list|(
-operator|(
-operator|(
-name|float
-operator|)
-name|input
-operator|)
-argument_list|,
-name|input
-argument_list|)
-operator|==
-literal|0
-operator|||
-operator|(
-name|Math
-operator|.
-name|abs
-argument_list|(
-operator|(
-operator|(
-name|float
-operator|)
-name|input
-operator|)
-operator|-
-name|input
-argument_list|)
-operator|<=
-literal|0.001
-operator|)
-assert|;
-return|return
-operator|(
-name|float
-operator|)
-name|input
 return|;
 block|}
 block|}

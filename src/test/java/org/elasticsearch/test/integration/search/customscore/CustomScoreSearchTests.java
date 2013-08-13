@@ -804,7 +804,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"custom score, score mode [first]"
+literal|"function score, score mode [first]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1157,7 +1157,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"custom score, score mode [first]"
+literal|"function score, score mode [first]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1823,7 +1823,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"custom score, score mode [first]"
+literal|"function score, score mode [first]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2208,7 +2208,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"custom score, score mode [first]"
+literal|"function score, score mode [first]"
 argument_list|)
 argument_list|)
 expr_stmt|;

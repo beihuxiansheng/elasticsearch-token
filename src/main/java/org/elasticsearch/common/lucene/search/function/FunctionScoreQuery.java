@@ -581,7 +581,7 @@ literal|true
 argument_list|,
 name|sc
 argument_list|,
-literal|"custom score, product of:"
+literal|"function score, product of:"
 argument_list|)
 decl_stmt|;
 name|res
@@ -1039,6 +1039,12 @@ argument_list|)
 operator|<=
 literal|0.001
 operator|)
+operator|:
+literal|"input "
+operator|+
+name|input
+operator|+
+literal|" out of float scope for function score"
 assert|;
 return|return
 operator|(
