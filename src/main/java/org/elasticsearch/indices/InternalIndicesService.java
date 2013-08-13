@@ -2778,8 +2778,6 @@ argument_list|,
 name|executor
 argument_list|)
 expr_stmt|;
-comment|//TODO: close percolate queries registry
-comment|//        indexInjector.getInstance(PercolatorService.class).close();
 name|indexInjector
 operator|.
 name|getInstance
