@@ -2376,21 +2376,21 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// update the current cluster state
+name|clusterState
+operator|=
+name|newClusterState
+expr_stmt|;
 name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Updating cluster state version {}"
+literal|"Set cluster state to version {}. Broadcasting to listeners."
 argument_list|,
 name|newClusterState
 operator|.
 name|version
 argument_list|()
 argument_list|)
-expr_stmt|;
-name|clusterState
-operator|=
-name|newClusterState
 expr_stmt|;
 for|for
 control|(
@@ -2522,9 +2522,14 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"processing [{}]: done applying updated cluster_state"
+literal|"processing [{}]: done applying updated cluster_state (version: {})"
 argument_list|,
 name|source
+argument_list|,
+name|newClusterState
+operator|.
+name|version
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
