@@ -40,6 +40,24 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|action
+operator|.
+name|admin
+operator|.
+name|indices
+operator|.
+name|refresh
+operator|.
+name|RefreshResponse
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|client
 operator|.
 name|Client
@@ -177,6 +195,22 @@ operator|.
 name|QueryBuilders
 operator|.
 name|matchAllQuery
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertNoFailures
 import|;
 end_import
 
@@ -835,22 +869,7 @@ argument_list|(
 literal|"--> refreshing the index"
 argument_list|)
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
-name|admin
-argument_list|()
-operator|.
-name|indices
-argument_list|()
-operator|.
-name|prepareRefresh
-argument_list|()
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
+name|refreshAndAssert
 argument_list|()
 expr_stmt|;
 name|logger
@@ -877,6 +896,12 @@ control|)
 block|{
 name|assertThat
 argument_list|(
+literal|"iteration: "
+operator|+
+name|i
+operator|+
+literal|" failed"
+argument_list|,
 name|client
 argument_list|()
 operator|.
@@ -1508,22 +1533,7 @@ argument_list|(
 literal|"--> refreshing the index"
 argument_list|)
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
-name|admin
-argument_list|()
-operator|.
-name|indices
-argument_list|()
-operator|.
-name|prepareRefresh
-argument_list|()
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
+name|refreshAndAssert
 argument_list|()
 expr_stmt|;
 name|logger
@@ -1550,6 +1560,12 @@ control|)
 block|{
 name|assertThat
 argument_list|(
+literal|"iteration: "
+operator|+
+name|i
+operator|+
+literal|" failed"
+argument_list|,
 name|client
 argument_list|()
 operator|.
@@ -2430,22 +2446,7 @@ argument_list|(
 literal|"--> refreshing the index"
 argument_list|)
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
-name|admin
-argument_list|()
-operator|.
-name|indices
-argument_list|()
-operator|.
-name|prepareRefresh
-argument_list|()
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
+name|refreshAndAssert
 argument_list|()
 expr_stmt|;
 name|logger
@@ -2455,22 +2456,7 @@ argument_list|(
 literal|"--> verifying indexed content"
 argument_list|)
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
-name|admin
-argument_list|()
-operator|.
-name|indices
-argument_list|()
-operator|.
-name|prepareRefresh
-argument_list|()
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
+name|refreshAndAssert
 argument_list|()
 expr_stmt|;
 for|for
@@ -2490,6 +2476,12 @@ control|)
 block|{
 name|assertThat
 argument_list|(
+literal|"iteration: "
+operator|+
+name|i
+operator|+
+literal|" failed"
+argument_list|,
 name|client
 argument_list|()
 operator|.
@@ -2521,6 +2513,42 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+DECL|method|refreshAndAssert
+specifier|private
+name|RefreshResponse
+name|refreshAndAssert
+parameter_list|()
+block|{
+name|RefreshResponse
+name|actionGet
+init|=
+name|client
+argument_list|()
+operator|.
+name|admin
+argument_list|()
+operator|.
+name|indices
+argument_list|()
+operator|.
+name|prepareRefresh
+argument_list|()
+operator|.
+name|execute
+argument_list|()
+operator|.
+name|actionGet
+argument_list|()
+decl_stmt|;
+name|assertNoFailures
+argument_list|(
+name|actionGet
+argument_list|)
+expr_stmt|;
+return|return
+name|actionGet
+return|;
 block|}
 block|}
 end_class
