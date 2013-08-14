@@ -1165,12 +1165,9 @@ name|getAsInt
 argument_list|(
 literal|"worker_count"
 argument_list|,
-name|Runtime
+name|ThreadPool
 operator|.
-name|getRuntime
-argument_list|()
-operator|.
-name|availableProcessors
+name|boundedNumberOfProcessors
 argument_list|()
 operator|*
 literal|2
