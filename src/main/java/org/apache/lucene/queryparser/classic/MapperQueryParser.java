@@ -1714,7 +1714,7 @@ literal|true
 expr_stmt|;
 name|applyBoost
 argument_list|(
-name|field
+name|mField
 argument_list|,
 name|q
 argument_list|)
@@ -1795,7 +1795,7 @@ condition|)
 block|{
 name|applyBoost
 argument_list|(
-name|field
+name|mField
 argument_list|,
 name|q
 argument_list|)
