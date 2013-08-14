@@ -2880,15 +2880,6 @@ name|getScore
 argument_list|()
 expr_stmt|;
 block|}
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-name|scores
-argument_list|)
-expr_stmt|;
 for|for
 control|(
 name|int
@@ -2906,26 +2897,6 @@ name|i
 operator|++
 control|)
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Doc "
-operator|+
-name|i
-operator|+
-literal|" has score "
-operator|+
-name|scores
-index|[
-name|i
-operator|+
-literal|1
-index|]
-argument_list|)
-expr_stmt|;
 name|assertThat
 argument_list|(
 name|scores
