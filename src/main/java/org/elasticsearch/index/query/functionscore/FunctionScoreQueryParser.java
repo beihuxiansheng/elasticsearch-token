@@ -400,7 +400,9 @@ decl_stmt|;
 name|CombineFunction
 name|combineFunction
 init|=
-literal|null
+name|CombineFunction
+operator|.
+name|MULT
 decl_stmt|;
 while|while
 condition|(
