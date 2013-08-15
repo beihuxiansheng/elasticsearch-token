@@ -456,8 +456,6 @@ block|{
 literal|"fst"
 block|,
 literal|"paged_bytes"
-block|,
-literal|"concrete_bytes"
 block|}
 decl_stmt|;
 for|for
@@ -1546,8 +1544,6 @@ block|{
 literal|"fst"
 block|,
 literal|"paged_bytes"
-block|,
-literal|"concrete_bytes"
 block|}
 decl_stmt|;
 for|for
