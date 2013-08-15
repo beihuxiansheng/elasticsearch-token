@@ -1239,6 +1239,8 @@ literal|"{\n"
 operator|+
 literal|"    \"_percolator\":{\n"
 operator|+
+literal|"        \"_id\" : {\"index\": \"not_analyzed\"},"
+operator|+
 literal|"        \"properties\" : {\n"
 operator|+
 literal|"            \"query\" : {\n"
