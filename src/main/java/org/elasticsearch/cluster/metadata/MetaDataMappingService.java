@@ -3251,6 +3251,17 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Expecting {} mapping created responses for other nodes"
+argument_list|,
+name|counter
+operator|-
+literal|1
+argument_list|)
+expr_stmt|;
 comment|// TODO: adding one to the version is based on knowledge on how the parent class will increment the version
 comment|//       move this to the base class or add another callback before publishing the new cluster state so we
 comment|//       capture it's version.

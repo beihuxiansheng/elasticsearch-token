@@ -666,6 +666,13 @@ name|void
 name|after
 parameter_list|()
 block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"Cleaning up after test."
+argument_list|)
+expr_stmt|;
 name|MetaData
 name|metaData
 init|=

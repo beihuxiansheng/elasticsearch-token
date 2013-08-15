@@ -390,6 +390,18 @@ operator|.
 name|state
 argument_list|()
 decl_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Serving cluster state request using version {}"
+argument_list|,
+name|currentState
+operator|.
+name|version
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|ClusterState
 operator|.
 name|Builder
@@ -398,6 +410,16 @@ init|=
 name|newClusterStateBuilder
 argument_list|()
 decl_stmt|;
+name|builder
+operator|.
+name|version
+argument_list|(
+name|currentState
+operator|.
+name|version
+argument_list|()
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|!
