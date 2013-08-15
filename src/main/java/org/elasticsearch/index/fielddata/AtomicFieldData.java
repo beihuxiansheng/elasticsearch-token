@@ -49,6 +49,12 @@ name|int
 name|getNumDocs
 parameter_list|()
 function_decl|;
+comment|/**      * The number of unique values in this atomic field data.      */
+DECL|method|getNumberUniqueValues
+name|long
+name|getNumberUniqueValues
+parameter_list|()
+function_decl|;
 comment|/**      * Size (in bytes) of memory used by this field data.      */
 DECL|method|getMemorySizeInBytes
 name|long
