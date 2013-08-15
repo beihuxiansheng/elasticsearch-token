@@ -1451,12 +1451,12 @@ argument_list|()
 argument_list|,
 name|suggestionContext
 operator|.
-name|getFuzzyNonPrefixLength
+name|getFuzzyPrefixLength
 argument_list|()
 argument_list|,
 name|suggestionContext
 operator|.
-name|getFuzzyMinPrefixLength
+name|getFuzzyMinLength
 argument_list|()
 argument_list|,
 name|analyzingSuggestHolder

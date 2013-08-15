@@ -3116,7 +3116,7 @@ argument_list|(
 literal|10
 argument_list|)
 operator|.
-name|setFuzzyMinPrefixLength
+name|setFuzzyMinLength
 argument_list|(
 literal|6
 argument_list|)
@@ -3170,7 +3170,7 @@ argument_list|(
 literal|10
 argument_list|)
 operator|.
-name|setFuzzyMinPrefixLength
+name|setFuzzyMinLength
 argument_list|(
 literal|6
 argument_list|)
@@ -3302,7 +3302,7 @@ argument_list|(
 literal|10
 argument_list|)
 operator|.
-name|setFuzzyNonPrefixLength
+name|setFuzzyPrefixLength
 argument_list|(
 literal|4
 argument_list|)
@@ -3356,7 +3356,7 @@ argument_list|(
 literal|10
 argument_list|)
 operator|.
-name|setFuzzyNonPrefixLength
+name|setFuzzyPrefixLength
 argument_list|(
 literal|4
 argument_list|)
