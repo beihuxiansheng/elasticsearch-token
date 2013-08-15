@@ -892,10 +892,7 @@ operator|.
 name|settings
 argument_list|()
 argument_list|,
-name|currentState
-operator|.
-name|nodes
-argument_list|()
+name|clusterService
 operator|.
 name|localNode
 argument_list|()

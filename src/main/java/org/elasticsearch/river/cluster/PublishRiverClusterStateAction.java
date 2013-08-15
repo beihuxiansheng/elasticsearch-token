@@ -286,6 +286,15 @@ operator|.
 name|nodes
 argument_list|()
 decl_stmt|;
+specifier|final
+name|DiscoveryNode
+name|localNode
+init|=
+name|discoNodes
+operator|.
+name|localNode
+argument_list|()
+decl_stmt|;
 for|for
 control|(
 specifier|final
@@ -301,10 +310,7 @@ name|node
 operator|.
 name|equals
 argument_list|(
-name|discoNodes
-operator|.
 name|localNode
-argument_list|()
 argument_list|)
 condition|)
 block|{

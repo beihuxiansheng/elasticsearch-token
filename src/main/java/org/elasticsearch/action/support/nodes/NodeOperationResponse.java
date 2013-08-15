@@ -117,6 +117,11 @@ name|DiscoveryNode
 name|node
 parameter_list|)
 block|{
+assert|assert
+name|node
+operator|!=
+literal|null
+assert|;
 name|this
 operator|.
 name|node

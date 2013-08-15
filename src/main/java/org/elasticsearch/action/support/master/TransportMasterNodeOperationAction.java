@@ -909,7 +909,7 @@ argument_list|(
 operator|new
 name|NodeClosedException
 argument_list|(
-name|nodes
+name|clusterService
 operator|.
 name|localNode
 argument_list|()
@@ -1180,7 +1180,7 @@ argument_list|(
 operator|new
 name|NodeClosedException
 argument_list|(
-name|nodes
+name|clusterService
 operator|.
 name|localNode
 argument_list|()

@@ -447,10 +447,7 @@ init|=
 operator|new
 name|AllocateDangledRequest
 argument_list|(
-name|clusterState
-operator|.
-name|nodes
-argument_list|()
+name|clusterService
 operator|.
 name|localNode
 argument_list|()

@@ -1955,12 +1955,6 @@ name|actualIndexSettings
 argument_list|,
 name|clusterService
 operator|.
-name|state
-argument_list|()
-operator|.
-name|nodes
-argument_list|()
-operator|.
 name|localNode
 argument_list|()
 operator|.

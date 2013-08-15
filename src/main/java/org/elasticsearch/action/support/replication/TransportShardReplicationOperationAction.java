@@ -2308,10 +2308,7 @@ argument_list|(
 operator|new
 name|NodeClosedException
 argument_list|(
-name|clusterState
-operator|.
-name|nodes
-argument_list|()
+name|clusterService
 operator|.
 name|localNode
 argument_list|()

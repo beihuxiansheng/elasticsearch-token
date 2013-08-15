@@ -2277,12 +2277,6 @@ literal|"on master ["
 operator|+
 name|clusterService
 operator|.
-name|state
-argument_list|()
-operator|.
-name|nodes
-argument_list|()
-operator|.
 name|localNode
 argument_list|()
 operator|+
@@ -2309,12 +2303,6 @@ argument_list|(
 literal|"off master ["
 operator|+
 name|clusterService
-operator|.
-name|state
-argument_list|()
-operator|.
-name|nodes
-argument_list|()
 operator|.
 name|localNode
 argument_list|()
