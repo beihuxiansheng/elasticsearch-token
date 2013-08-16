@@ -1121,7 +1121,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"total"
+literal|"sum"
 operator|.
 name|equals
 argument_list|(
@@ -1134,7 +1134,7 @@ name|FiltersFunctionScoreQuery
 operator|.
 name|ScoreMode
 operator|.
-name|Total
+name|Sum
 return|;
 block|}
 elseif|else

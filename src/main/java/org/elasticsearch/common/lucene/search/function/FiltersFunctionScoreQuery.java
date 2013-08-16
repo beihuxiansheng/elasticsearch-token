@@ -348,7 +348,7 @@ block|{
 DECL|enum constant|First
 DECL|enum constant|Avg
 DECL|enum constant|Max
-DECL|enum constant|Total
+DECL|enum constant|Sum
 DECL|enum constant|Min
 DECL|enum constant|Multiply
 name|First
@@ -357,7 +357,7 @@ name|Avg
 block|,
 name|Max
 block|,
-name|Total
+name|Sum
 block|,
 name|Min
 block|,

@@ -11956,7 +11956,7 @@ argument_list|)
 operator|.
 name|scoreMode
 argument_list|(
-literal|"total"
+literal|"sum"
 argument_list|)
 operator|.
 name|add

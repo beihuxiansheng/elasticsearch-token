@@ -939,7 +939,7 @@ name|FiltersFunctionScoreQuery
 operator|.
 name|ScoreMode
 operator|.
-name|Total
+name|Sum
 expr_stmt|;
 block|}
 elseif|else
