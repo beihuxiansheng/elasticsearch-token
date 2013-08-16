@@ -315,7 +315,8 @@ name|noMatchQuery
 init|=
 name|Queries
 operator|.
-name|MATCH_ALL_QUERY
+name|newMatchAllQuery
+argument_list|()
 decl_stmt|;
 while|while
 condition|(
@@ -587,7 +588,8 @@ name|noMatchQuery
 operator|=
 name|Queries
 operator|.
-name|MATCH_ALL_QUERY
+name|newMatchAllQuery
+argument_list|()
 expr_stmt|;
 block|}
 elseif|else

@@ -1331,7 +1331,8 @@ name|parsedQuery
 argument_list|(
 name|ParsedQuery
 operator|.
-name|MATCH_ALL_PARSED_QUERY
+name|parsedMatchAllQuery
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

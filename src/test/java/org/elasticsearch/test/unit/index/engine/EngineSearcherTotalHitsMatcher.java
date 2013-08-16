@@ -302,7 +302,8 @@ name|EngineSearcherTotalHitsMatcher
 argument_list|(
 name|Queries
 operator|.
-name|MATCH_ALL_QUERY
+name|newMatchAllQuery
+argument_list|()
 argument_list|,
 name|totalHits
 argument_list|)

@@ -236,7 +236,8 @@ name|query
 init|=
 name|Queries
 operator|.
-name|MATCH_ALL_QUERY
+name|newMatchAllQuery
+argument_list|()
 decl_stmt|;
 name|Filter
 name|filter

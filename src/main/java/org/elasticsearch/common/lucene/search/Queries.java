@@ -88,22 +88,7 @@ specifier|public
 class|class
 name|Queries
 block|{
-comment|// We don't use MatchAllDocsQuery, its slower than the one below ... (much slower)
-DECL|field|MATCH_ALL_QUERY
-specifier|public
-specifier|final
-specifier|static
-name|Query
-name|MATCH_ALL_QUERY
-init|=
-operator|new
-name|XConstantScoreQuery
-argument_list|(
-operator|new
-name|MatchAllDocsFilter
-argument_list|()
-argument_list|)
-decl_stmt|;
+comment|/* In general we should never us a static query instance and share it.      * In this case the instance is immutable so that's ok.*/
 DECL|field|NO_MATCH_QUERY
 specifier|public
 specifier|final
@@ -114,6 +99,17 @@ init|=
 name|MatchNoDocsQuery
 operator|.
 name|INSTANCE
+decl_stmt|;
+DECL|field|MATCH_ALL_DOCS_FILTER
+specifier|private
+specifier|static
+specifier|final
+name|Filter
+name|MATCH_ALL_DOCS_FILTER
+init|=
+operator|new
+name|MatchAllDocsFilter
+argument_list|()
 decl_stmt|;
 comment|/**      * A match all docs filter. Note, requires no caching!.      */
 DECL|field|MATCH_ALL_FILTER
@@ -187,6 +183,11 @@ operator|=
 name|disjunctsX
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|disMaxClauses
 specifier|public
 specifier|static
@@ -227,6 +228,24 @@ return|return
 literal|null
 return|;
 block|}
+block|}
+DECL|method|newMatchAllQuery
+specifier|public
+specifier|static
+name|Query
+name|newMatchAllQuery
+parameter_list|()
+block|{
+comment|// We don't use MatchAllDocsQuery, its slower than the one below ... (much slower)
+comment|// NEVER cache this XConstantScore Query it's not immutable and based on #3521
+comment|// some code might set a boost on this query.
+return|return
+operator|new
+name|XConstantScoreQuery
+argument_list|(
+name|MATCH_ALL_DOCS_FILTER
+argument_list|)
+return|;
 block|}
 comment|/**      * Optimizes the given query and returns the optimized version of it.      */
 DECL|method|optimizeQuery
@@ -490,7 +509,8 @@ name|newBq
 operator|.
 name|add
 argument_list|(
-name|MATCH_ALL_QUERY
+name|newMatchAllQuery
+argument_list|()
 argument_list|,
 name|BooleanClause
 operator|.
@@ -517,19 +537,6 @@ name|Query
 name|query
 parameter_list|)
 block|{
-if|if
-condition|(
-name|query
-operator|==
-name|Queries
-operator|.
-name|MATCH_ALL_QUERY
-condition|)
-block|{
-return|return
-literal|true
-return|;
-block|}
 if|if
 condition|(
 name|query

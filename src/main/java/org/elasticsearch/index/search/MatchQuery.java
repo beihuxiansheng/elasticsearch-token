@@ -2262,7 +2262,8 @@ name|INSTANCE
 else|:
 name|Queries
 operator|.
-name|MATCH_ALL_QUERY
+name|newMatchAllQuery
+argument_list|()
 return|;
 block|}
 block|}
