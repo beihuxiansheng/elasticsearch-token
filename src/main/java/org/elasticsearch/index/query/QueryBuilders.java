@@ -1331,7 +1331,7 @@ name|queryBuilder
 argument_list|)
 return|;
 block|}
-comment|/**      * A query that allows to define a custom scoring function.      *      * @param queryBuilder The query to custom score      * @param scoreFunctionBuilder The score function used to re-score the query      */
+comment|/**      * A query that allows to define a custom scoring function.      *      * @param queryBuilder The query to custom score      */
 DECL|method|functionScoreQuery
 specifier|public
 specifier|static
@@ -1350,7 +1350,7 @@ name|queryBuilder
 argument_list|)
 return|;
 block|}
-comment|/**      * A query that allows to define a custom scoring function.      *      * @param filterBuilder The query to custom score      * @param scoreFunctionBuilder The score function used to re-score the query      */
+comment|/**      * A query that allows to define a custom scoring function.      *      * @param filterBuilder The query to custom score      */
 DECL|method|functionScoreQuery
 specifier|public
 specifier|static

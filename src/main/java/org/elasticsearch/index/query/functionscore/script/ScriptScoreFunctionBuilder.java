@@ -85,7 +85,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A query that uses a script to compute or influence the score of documents  * that match with the inner query or filter.  */
+comment|/**  * A function that uses a script to compute or influence the score of documents  * that match with the inner query or filter.  */
 end_comment
 
 begin_class
