@@ -1154,6 +1154,8 @@ name|preferLocalShard
 argument_list|()
 condition|)
 block|{
+try|try
+block|{
 if|if
 condition|(
 name|request
@@ -1231,8 +1233,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-try|try
-block|{
 specifier|final
 name|Response
 name|response
@@ -1255,6 +1255,7 @@ name|response
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 catch|catch
 parameter_list|(
 name|Throwable
@@ -1268,7 +1269,6 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 else|else
