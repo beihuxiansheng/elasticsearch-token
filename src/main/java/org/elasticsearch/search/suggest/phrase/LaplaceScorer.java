@@ -20,11 +20,15 @@ end_package
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|apache
 operator|.
-name|IOException
+name|lucene
+operator|.
+name|index
+operator|.
+name|IndexReader
 import|;
 end_import
 
@@ -38,7 +42,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|Terms
 import|;
 end_import
 
@@ -88,6 +92,16 @@ name|Candidate
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_comment
 comment|//TODO public for tests
 end_comment
@@ -123,6 +137,9 @@ parameter_list|(
 name|IndexReader
 name|reader
 parameter_list|,
+name|Terms
+name|terms
+parameter_list|,
 name|String
 name|field
 parameter_list|,
@@ -140,6 +157,8 @@ operator|new
 name|LaplaceScorer
 argument_list|(
 name|reader
+argument_list|,
+name|terms
 argument_list|,
 name|field
 argument_list|,
@@ -165,6 +184,9 @@ parameter_list|(
 name|IndexReader
 name|reader
 parameter_list|,
+name|Terms
+name|terms
+parameter_list|,
 name|String
 name|field
 parameter_list|,
@@ -183,6 +205,8 @@ block|{
 name|super
 argument_list|(
 name|reader
+argument_list|,
+name|terms
 argument_list|,
 name|field
 argument_list|,
