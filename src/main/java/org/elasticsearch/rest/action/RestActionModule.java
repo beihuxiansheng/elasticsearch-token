@@ -2201,6 +2201,27 @@ operator|.
 name|asEagerSingleton
 argument_list|()
 expr_stmt|;
+comment|// Fully qualified to prevent interference with rest.action.count.RestCountAction
+name|bind
+argument_list|(
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|rest
+operator|.
+name|action
+operator|.
+name|cat
+operator|.
+name|RestCountAction
+operator|.
+name|class
+argument_list|)
+operator|.
+name|asEagerSingleton
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_class
