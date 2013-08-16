@@ -17,7 +17,7 @@ package|;
 end_package
 
 begin_comment
-comment|/** Abstraction of an array of integer values. */
+comment|/**  * Abstraction of an array of integer values.  */
 end_comment
 
 begin_interface
@@ -26,7 +26,7 @@ specifier|public
 interface|interface
 name|IntArray
 block|{
-comment|/** Get an element given its index. */
+comment|/**      * Get an element given its index.      */
 DECL|method|get
 specifier|public
 specifier|abstract
@@ -37,7 +37,7 @@ name|long
 name|index
 parameter_list|)
 function_decl|;
-comment|/** Set a value at the given index. */
+comment|/**      * Set a value at the given index.      */
 DECL|method|set
 specifier|public
 specifier|abstract
@@ -51,7 +51,7 @@ name|int
 name|value
 parameter_list|)
 function_decl|;
-comment|/** Increment value at the given index by<code>inc</code> and return the value. */
+comment|/**      * Increment value at the given index by<code>inc</code> and return the value.      */
 DECL|method|increment
 specifier|public
 specifier|abstract
@@ -63,6 +63,14 @@ name|index
 parameter_list|,
 name|int
 name|inc
+parameter_list|)
+function_decl|;
+DECL|method|clear
+name|void
+name|clear
+parameter_list|(
+name|int
+name|sentinal
 parameter_list|)
 function_decl|;
 block|}

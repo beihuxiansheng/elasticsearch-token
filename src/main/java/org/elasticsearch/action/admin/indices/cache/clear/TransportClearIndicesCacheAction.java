@@ -883,11 +883,7 @@ name|clearedAtLeastOne
 operator|=
 literal|true
 expr_stmt|;
-name|cacheRecycler
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
+comment|// cacheRecycler.clear();
 block|}
 if|if
 condition|(

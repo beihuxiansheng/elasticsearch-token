@@ -2870,7 +2870,7 @@ operator|.
 name|class
 argument_list|)
 operator|.
-name|clear
+name|close
 argument_list|()
 expr_stmt|;
 name|Injectors

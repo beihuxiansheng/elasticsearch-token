@@ -16,8 +16,18 @@ name|util
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+
 begin_comment
-comment|/** Utility methods to work with {@link IntArray}s. */
+comment|/**  * Utility methods to work with {@link IntArray}s.  */
 end_comment
 
 begin_class
@@ -30,8 +40,8 @@ DECL|method|IntArrays
 specifier|private
 name|IntArrays
 parameter_list|()
-block|{}
-comment|/** Return a {@link IntArray} view over the provided array. */
+block|{     }
+comment|/**      * Return a {@link IntArray} view over the provided array.      */
 DECL|method|wrap
 specifier|public
 specifier|static
@@ -164,10 +174,30 @@ name|index
 index|]
 return|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|clear
+parameter_list|(
+name|int
+name|sentinal
+parameter_list|)
+block|{
+name|Arrays
+operator|.
+name|fill
+argument_list|(
+name|array
+argument_list|,
+name|sentinal
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 return|;
 block|}
-comment|/** Return a newly allocated {@link IntArray} of the given length or more. */
+comment|/**      * Return a newly allocated {@link IntArray} of the given length or more.      */
 DECL|method|allocate
 specifier|public
 specifier|static
