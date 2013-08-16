@@ -74,6 +74,18 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|ClusterInfoService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
 name|ClusterState
 import|;
 end_import
@@ -338,6 +350,12 @@ specifier|final
 name|AllocationDeciders
 name|allocationDeciders
 decl_stmt|;
+DECL|field|clusterInfoService
+specifier|private
+specifier|final
+name|ClusterInfoService
+name|clusterInfoService
+decl_stmt|;
 DECL|field|shardsAllocators
 specifier|private
 specifier|final
@@ -392,6 +410,10 @@ name|ShardsAllocators
 argument_list|(
 name|settings
 argument_list|)
+argument_list|,
+name|ClusterInfoService
+operator|.
+name|EMPTY
 argument_list|)
 expr_stmt|;
 block|}
@@ -409,6 +431,9 @@ name|allocationDeciders
 parameter_list|,
 name|ShardsAllocators
 name|shardsAllocators
+parameter_list|,
+name|ClusterInfoService
+name|clusterInfoService
 parameter_list|)
 block|{
 name|super
@@ -427,6 +452,12 @@ operator|.
 name|shardsAllocators
 operator|=
 name|shardsAllocators
+expr_stmt|;
+name|this
+operator|.
+name|clusterInfoService
+operator|=
+name|clusterInfoService
 expr_stmt|;
 block|}
 comment|/**      * Applies the started shards. Note, shards can be called several times within this method.      *<p/>      *<p>If the same instance of the routing table is returned, then no change has been made.</p>      */
@@ -517,6 +548,11 @@ name|nodes
 argument_list|()
 argument_list|,
 name|startedShards
+argument_list|,
+name|clusterInfoService
+operator|.
+name|getClusterInfo
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|boolean
@@ -691,6 +727,11 @@ name|nodes
 argument_list|()
 argument_list|,
 name|failedShards
+argument_list|,
+name|clusterInfoService
+operator|.
+name|getClusterInfo
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|boolean
@@ -834,6 +875,11 @@ name|clusterState
 operator|.
 name|nodes
 argument_list|()
+argument_list|,
+name|clusterInfoService
+operator|.
+name|getClusterInfo
+argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// we ignore disable allocation, because commands are explicit
@@ -948,6 +994,11 @@ name|clusterState
 operator|.
 name|nodes
 argument_list|()
+argument_list|,
+name|clusterInfoService
+operator|.
+name|getClusterInfo
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -1060,6 +1111,11 @@ argument_list|,
 name|clusterState
 operator|.
 name|nodes
+argument_list|()
+argument_list|,
+name|clusterInfoService
+operator|.
+name|getClusterInfo
 argument_list|()
 argument_list|)
 decl_stmt|;

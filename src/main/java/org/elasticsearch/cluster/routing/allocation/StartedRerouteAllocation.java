@@ -26,6 +26,18 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|ClusterInfo
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
 name|node
 operator|.
 name|DiscoveryNodes
@@ -131,6 +143,9 @@ extends|extends
 name|ShardRouting
 argument_list|>
 name|startedShards
+parameter_list|,
+name|ClusterInfo
+name|clusterInfo
 parameter_list|)
 block|{
 name|super
@@ -140,6 +155,8 @@ argument_list|,
 name|routingNodes
 argument_list|,
 name|nodes
+argument_list|,
+name|clusterInfo
 argument_list|)
 expr_stmt|;
 name|this

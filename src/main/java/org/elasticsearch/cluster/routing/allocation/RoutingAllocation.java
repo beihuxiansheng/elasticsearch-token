@@ -26,6 +26,18 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|ClusterInfo
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
 name|metadata
 operator|.
 name|MetaData
@@ -259,6 +271,12 @@ operator|new
 name|AllocationExplanation
 argument_list|()
 decl_stmt|;
+DECL|field|clusterInfo
+specifier|private
+specifier|final
+name|ClusterInfo
+name|clusterInfo
+decl_stmt|;
 DECL|field|ignoredShardToNodes
 specifier|private
 name|Map
@@ -291,6 +309,9 @@ name|routingNodes
 parameter_list|,
 name|DiscoveryNodes
 name|nodes
+parameter_list|,
+name|ClusterInfo
+name|clusterInfo
 parameter_list|)
 block|{
 name|this
@@ -310,6 +331,12 @@ operator|.
 name|nodes
 operator|=
 name|nodes
+expr_stmt|;
+name|this
+operator|.
+name|clusterInfo
+operator|=
+name|clusterInfo
 expr_stmt|;
 block|}
 comment|/**      * Get {@link AllocationDeciders} used for allocation      * @return {@link AllocationDeciders} used for allocation      */
@@ -373,6 +400,16 @@ parameter_list|()
 block|{
 return|return
 name|nodes
+return|;
+block|}
+DECL|method|clusterInfo
+specifier|public
+name|ClusterInfo
+name|clusterInfo
+parameter_list|()
+block|{
+return|return
+name|clusterInfo
 return|;
 block|}
 comment|/**      * Get explanations of current routing      * @return explanation of routing      */
