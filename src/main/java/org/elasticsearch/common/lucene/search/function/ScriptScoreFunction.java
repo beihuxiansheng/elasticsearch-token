@@ -136,7 +136,7 @@ name|super
 argument_list|(
 name|CombineFunction
 operator|.
-name|PLAIN
+name|REPLACE
 argument_list|)
 expr_stmt|;
 name|this

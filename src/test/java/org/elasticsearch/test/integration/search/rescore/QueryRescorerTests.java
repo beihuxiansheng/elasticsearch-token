@@ -5045,7 +5045,7 @@ name|boostMode
 argument_list|(
 name|CombineFunction
 operator|.
-name|PLAIN
+name|REPLACE
 operator|.
 name|getName
 argument_list|()
@@ -5087,7 +5087,7 @@ name|boostMode
 argument_list|(
 name|CombineFunction
 operator|.
-name|PLAIN
+name|REPLACE
 operator|.
 name|getName
 argument_list|()
@@ -5129,7 +5129,7 @@ name|boostMode
 argument_list|(
 name|CombineFunction
 operator|.
-name|PLAIN
+name|REPLACE
 operator|.
 name|getName
 argument_list|()
@@ -5228,7 +5228,7 @@ name|boostMode
 argument_list|(
 name|CombineFunction
 operator|.
-name|PLAIN
+name|REPLACE
 operator|.
 name|getName
 argument_list|()
@@ -5270,7 +5270,7 @@ name|boostMode
 argument_list|(
 name|CombineFunction
 operator|.
-name|PLAIN
+name|REPLACE
 operator|.
 name|getName
 argument_list|()
@@ -5312,7 +5312,7 @@ name|boostMode
 argument_list|(
 name|CombineFunction
 operator|.
-name|PLAIN
+name|REPLACE
 operator|.
 name|getName
 argument_list|()
@@ -5354,7 +5354,7 @@ name|boostMode
 argument_list|(
 name|CombineFunction
 operator|.
-name|PLAIN
+name|REPLACE
 operator|.
 name|getName
 argument_list|()
