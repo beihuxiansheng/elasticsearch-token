@@ -774,7 +774,7 @@ init|=
 literal|0
 decl_stmt|;
 name|double
-name|scaleWeight
+name|decay
 init|=
 literal|0.5
 decl_stmt|;
@@ -864,11 +864,11 @@ name|equals
 argument_list|(
 name|DecayFunctionBuilder
 operator|.
-name|SCALE_WEIGHT
+name|DECAY
 argument_list|)
 condition|)
 block|{
-name|scaleWeight
+name|decay
 operator|=
 name|parser
 operator|.
@@ -990,7 +990,7 @@ name|reference
 argument_list|,
 name|scale
 argument_list|,
-name|scaleWeight
+name|decay
 argument_list|,
 name|offset
 argument_list|,
@@ -1049,7 +1049,7 @@ init|=
 literal|"0km"
 decl_stmt|;
 name|double
-name|scaleWeight
+name|decay
 init|=
 literal|0.5
 decl_stmt|;
@@ -1143,11 +1143,11 @@ name|equals
 argument_list|(
 name|DecayFunctionBuilder
 operator|.
-name|SCALE_WEIGHT
+name|DECAY
 argument_list|)
 condition|)
 block|{
-name|scaleWeight
+name|decay
 operator|=
 name|parser
 operator|.
@@ -1270,7 +1270,7 @@ name|reference
 argument_list|,
 name|scale
 argument_list|,
-name|scaleWeight
+name|decay
 argument_list|,
 name|offset
 argument_list|,
@@ -1327,7 +1327,7 @@ init|=
 literal|"0d"
 decl_stmt|;
 name|double
-name|scaleWeight
+name|decay
 init|=
 literal|0.5
 decl_stmt|;
@@ -1419,11 +1419,11 @@ name|equals
 argument_list|(
 name|DecayFunctionBuilder
 operator|.
-name|SCALE_WEIGHT
+name|DECAY
 argument_list|)
 condition|)
 block|{
-name|scaleWeight
+name|decay
 operator|=
 name|parser
 operator|.
@@ -1590,7 +1590,7 @@ name|reference
 argument_list|,
 name|scale
 argument_list|,
-name|scaleWeight
+name|decay
 argument_list|,
 name|offset
 argument_list|,
@@ -1655,7 +1655,7 @@ name|double
 name|scale
 parameter_list|,
 name|double
-name|scaleWeight
+name|decay
 parameter_list|,
 name|double
 name|offset
@@ -1674,7 +1674,7 @@ name|super
 argument_list|(
 name|scale
 argument_list|,
-name|scaleWeight
+name|decay
 argument_list|,
 name|offset
 argument_list|,
@@ -1905,7 +1905,7 @@ name|double
 name|scale
 parameter_list|,
 name|double
-name|scaleWeight
+name|decay
 parameter_list|,
 name|double
 name|offset
@@ -1924,7 +1924,7 @@ name|super
 argument_list|(
 name|scale
 argument_list|,
-name|scaleWeight
+name|decay
 argument_list|,
 name|offset
 argument_list|,
@@ -2126,7 +2126,7 @@ name|double
 name|userSuppiedScale
 parameter_list|,
 name|double
-name|userSuppliedScaleWeight
+name|decay
 parameter_list|,
 name|double
 name|offset
@@ -2163,11 +2163,11 @@ throw|;
 block|}
 if|if
 condition|(
-name|userSuppliedScaleWeight
+name|decay
 operator|<=
 literal|0.0
 operator|||
-name|userSuppliedScaleWeight
+name|decay
 operator|>=
 literal|1.0
 condition|)
@@ -2180,7 +2180,7 @@ name|FunctionScoreQueryParser
 operator|.
 name|NAME
 operator|+
-literal|" : scale_weight must be in the range [0..1]."
+literal|" : decay must be in the range [0..1]."
 argument_list|)
 throw|;
 block|}
@@ -2194,7 +2194,7 @@ name|processScale
 argument_list|(
 name|userSuppiedScale
 argument_list|,
-name|userSuppliedScaleWeight
+name|decay
 argument_list|)
 expr_stmt|;
 name|this

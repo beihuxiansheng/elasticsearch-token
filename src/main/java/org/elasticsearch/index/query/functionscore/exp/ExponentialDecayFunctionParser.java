@@ -240,7 +240,7 @@ name|double
 name|scale
 parameter_list|,
 name|double
-name|value
+name|decay
 parameter_list|)
 block|{
 return|return
@@ -248,7 +248,7 @@ name|Math
 operator|.
 name|log
 argument_list|(
-name|value
+name|decay
 argument_list|)
 operator|/
 name|scale

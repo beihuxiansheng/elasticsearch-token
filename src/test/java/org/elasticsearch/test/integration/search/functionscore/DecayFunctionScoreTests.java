@@ -3402,7 +3402,7 @@ argument_list|,
 literal|1.0
 argument_list|)
 operator|.
-name|setScaleWeight
+name|setDecay
 argument_list|(
 literal|0.5
 argument_list|)
@@ -4744,7 +4744,7 @@ argument_list|,
 literal|"1d"
 argument_list|)
 operator|.
-name|setScaleWeight
+name|setDecay
 argument_list|(
 literal|100
 argument_list|)

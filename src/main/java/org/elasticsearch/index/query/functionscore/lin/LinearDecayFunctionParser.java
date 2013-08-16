@@ -247,7 +247,7 @@ name|double
 name|scale
 parameter_list|,
 name|double
-name|value
+name|decay
 parameter_list|)
 block|{
 return|return
@@ -256,7 +256,7 @@ operator|/
 operator|(
 literal|1.0
 operator|-
-name|value
+name|decay
 operator|)
 return|;
 block|}
