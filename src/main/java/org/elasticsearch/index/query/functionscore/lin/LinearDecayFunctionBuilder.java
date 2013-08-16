@@ -52,7 +52,7 @@ name|String
 name|fieldName
 parameter_list|,
 name|Object
-name|reference
+name|origin
 parameter_list|,
 name|Object
 name|scale
@@ -62,7 +62,7 @@ name|super
 argument_list|(
 name|fieldName
 argument_list|,
-name|reference
+name|origin
 argument_list|,
 name|scale
 argument_list|)

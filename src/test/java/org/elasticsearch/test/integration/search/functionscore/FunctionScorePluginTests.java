@@ -908,11 +908,11 @@ return|return
 name|NAMES
 return|;
 block|}
-DECL|field|distanceFunction
+DECL|field|decayFunction
 specifier|static
 specifier|final
 name|DecayFunction
-name|distanceFunction
+name|decayFunction
 init|=
 operator|new
 name|LinearMultScoreFunction
@@ -927,7 +927,7 @@ name|getDecayFunction
 parameter_list|()
 block|{
 return|return
-name|distanceFunction
+name|decayFunction
 return|;
 block|}
 DECL|class|LinearMultScoreFunction
@@ -1031,7 +1031,7 @@ name|String
 name|fieldName
 parameter_list|,
 name|Object
-name|reference
+name|origin
 parameter_list|,
 name|Object
 name|scale
@@ -1041,7 +1041,7 @@ name|super
 argument_list|(
 name|fieldName
 argument_list|,
-name|reference
+name|origin
 argument_list|,
 name|scale
 argument_list|)

@@ -409,7 +409,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class provides the basic functionality needed for adding a decay  * function.  *   * This parser parses this kind of input  *   *<pre>  * {@code}  * {   *      "fieldname1" : {  *          "reference" = "someValue",   *          "scale" = "someValue"  *      }   *        * }  *</pre>  *   * "reference" here refers to the reference point and "scale" to the level of  * uncertainty you have in your reference.  *<p>  *   * For example, you might want to retrieve an event that took place around the  * 20 May 2010 somewhere near Berlin. You are mainly interested in events that  * are close to the 20 May 2010 but you are unsure about your guess, maybe it  * was a week before or after that. Your "reference" for the date field would be  * "20 May 2010" and your "scale" would be "7d".  *   * This class parses the input and creates a scoring function from the  * parameters reference and scale.  *<p>  * To write a new scoring function, create a new class that inherits from this  * one and implement the getDistanceFuntion(). Furthermore, to create a builder,  * override the getName() in {@link DecayFunctionBuilder}.  *<p>  * See {@link GaussDecayFunctionBuilder} and {@link GaussDecayFunctionParser}  * for an example. The parser furthermore needs to be registered in the  * {@link org.elasticsearch.index.query.functionscore.FunctionScoreModule  * FunctionScoreModule}.  *   * **/
+comment|/**  * This class provides the basic functionality needed for adding a decay  * function.  *   * This parser parses this kind of input  *   *<pre>  * {@code}  * {   *      "fieldname1" : {  *          "origin" = "someValue",   *          "scale" = "someValue"  *      }   *        * }  *</pre>  *   * "origin" here refers to the reference point and "scale" to the level of  * uncertainty you have in your origin.  *<p>  *   * For example, you might want to retrieve an event that took place around the  * 20 May 2010 somewhere near Berlin. You are mainly interested in events that  * are close to the 20 May 2010 but you are unsure about your guess, maybe it  * was a week before or after that. Your "origin" for the date field would be  * "20 May 2010" and your "scale" would be "7d".  *   * This class parses the input and creates a scoring function from the  * parameters origin and scale.  *<p>  * To write a new scoring function, create a new class that inherits from this  * one and implement the getDistanceFuntion(). Furthermore, to create a builder,  * override the getName() in {@link DecayFunctionBuilder}.  *<p>  * See {@link GaussDecayFunctionBuilder} and {@link GaussDecayFunctionParser}  * for an example. The parser furthermore needs to be registered in the  * {@link org.elasticsearch.index.query.functionscore.FunctionScoreModule  * FunctionScoreModule}.  *   * **/
 end_comment
 
 begin_class
@@ -429,7 +429,7 @@ name|DecayFunction
 name|getDecayFunction
 parameter_list|()
 function_decl|;
-comment|/**      * Parses bodies of the kind      *       *<pre>      * {@code}      * {       *      "fieldname1" : {      *          "reference" = "someValue",       *          "scale" = "someValue"      *      }       *            * }      *</pre>      *       * */
+comment|/**      * Parses bodies of the kind      *       *<pre>      * {@code}      * {       *      "fieldname1" : {      *          "origin" = "someValue",       *          "scale" = "someValue"      *      }       *            * }      *</pre>      *       * */
 annotation|@
 name|Override
 DECL|method|parse
@@ -506,7 +506,7 @@ operator|.
 name|START_OBJECT
 condition|)
 block|{
-comment|// parse per field the reference and scale value
+comment|// parse per field the origin and scale value
 name|scoreFunction
 operator|=
 name|parseVariable
@@ -549,7 +549,7 @@ return|return
 name|scoreFunction
 return|;
 block|}
-comment|// parses reference and scale parameter for field "fieldName"
+comment|// parses origin and scale parameter for field "fieldName"
 DECL|method|parseVariable
 specifier|private
 name|ScoreFunction
@@ -769,7 +769,7 @@ init|=
 literal|0
 decl_stmt|;
 name|double
-name|reference
+name|origin
 init|=
 literal|0
 decl_stmt|;
@@ -885,11 +885,11 @@ name|equals
 argument_list|(
 name|DecayFunctionBuilder
 operator|.
-name|REFERNECE
+name|ORIGIN
 argument_list|)
 condition|)
 block|{
-name|reference
+name|origin
 operator|=
 name|parser
 operator|.
@@ -960,7 +960,7 @@ literal|"and "
 operator|+
 name|DecayFunctionBuilder
 operator|.
-name|REFERNECE
+name|ORIGIN
 operator|+
 literal|" must be set for numeric fields."
 argument_list|)
@@ -986,7 +986,7 @@ return|return
 operator|new
 name|NumericFieldDataScoreFunction
 argument_list|(
-name|reference
+name|origin
 argument_list|,
 name|scale
 argument_list|,
@@ -1032,7 +1032,7 @@ init|=
 literal|null
 decl_stmt|;
 name|GeoPoint
-name|reference
+name|origin
 init|=
 operator|new
 name|GeoPoint
@@ -1120,11 +1120,11 @@ name|equals
 argument_list|(
 name|DecayFunctionBuilder
 operator|.
-name|REFERNECE
+name|ORIGIN
 argument_list|)
 condition|)
 block|{
-name|reference
+name|origin
 operator|=
 name|GeoPoint
 operator|.
@@ -1193,7 +1193,7 @@ block|}
 block|}
 if|if
 condition|(
-name|reference
+name|origin
 operator|==
 literal|null
 condition|)
@@ -1204,7 +1204,7 @@ name|ElasticSearchParseException
 argument_list|(
 name|DecayFunctionBuilder
 operator|.
-name|REFERNECE
+name|ORIGIN
 operator|+
 literal|"must be set for geo fields."
 argument_list|)
@@ -1266,7 +1266,7 @@ return|return
 operator|new
 name|GeoFieldDataScoreFunction
 argument_list|(
-name|reference
+name|origin
 argument_list|,
 name|scale
 argument_list|,
@@ -1317,7 +1317,7 @@ init|=
 literal|null
 decl_stmt|;
 name|String
-name|referenceString
+name|originString
 init|=
 literal|null
 decl_stmt|;
@@ -1398,11 +1398,11 @@ name|equals
 argument_list|(
 name|DecayFunctionBuilder
 operator|.
-name|REFERNECE
+name|ORIGIN
 argument_list|)
 condition|)
 block|{
-name|referenceString
+name|originString
 operator|=
 name|parser
 operator|.
@@ -1468,7 +1468,7 @@ throw|;
 block|}
 block|}
 name|long
-name|reference
+name|origin
 init|=
 name|SearchContext
 operator|.
@@ -1480,18 +1480,18 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|referenceString
+name|originString
 operator|!=
 literal|null
 condition|)
 block|{
-name|reference
+name|origin
 operator|=
 name|dateFieldMapper
 operator|.
 name|value
 argument_list|(
-name|referenceString
+name|originString
 argument_list|)
 operator|.
 name|longValue
@@ -1586,7 +1586,7 @@ return|return
 operator|new
 name|NumericFieldDataScoreFunction
 argument_list|(
-name|reference
+name|origin
 argument_list|,
 name|scale
 argument_list|,
@@ -1608,11 +1608,11 @@ name|GeoFieldDataScoreFunction
 extends|extends
 name|AbstractDistanceScoreFunction
 block|{
-DECL|field|reference
+DECL|field|origin
 specifier|private
 specifier|final
 name|GeoPoint
-name|reference
+name|origin
 decl_stmt|;
 DECL|field|fieldData
 specifier|private
@@ -1649,7 +1649,7 @@ specifier|public
 name|GeoFieldDataScoreFunction
 parameter_list|(
 name|GeoPoint
-name|reference
+name|origin
 parameter_list|,
 name|double
 name|scale
@@ -1683,9 +1683,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|reference
+name|origin
 operator|=
-name|reference
+name|origin
 expr_stmt|;
 name|this
 operator|.
@@ -1738,7 +1738,7 @@ name|getValueMissing
 argument_list|(
 name|docId
 argument_list|,
-name|reference
+name|origin
 argument_list|)
 decl_stmt|;
 name|double
@@ -1752,12 +1752,12 @@ name|distFunction
 operator|.
 name|calculate
 argument_list|(
-name|reference
+name|origin
 operator|.
 name|lat
 argument_list|()
 argument_list|,
-name|reference
+name|origin
 operator|.
 name|lon
 argument_list|()
@@ -1817,7 +1817,7 @@ name|getValueMissing
 argument_list|(
 name|docId
 argument_list|,
-name|reference
+name|origin
 argument_list|)
 decl_stmt|;
 return|return
@@ -1827,9 +1827,9 @@ name|other
 operator|+
 literal|"(=doc value), "
 operator|+
-name|reference
+name|origin
 operator|+
-literal|"(=reference)) - "
+literal|"(=origin)) - "
 operator|+
 name|offset
 operator|+
@@ -1839,9 +1839,9 @@ name|other
 operator|+
 literal|"(=doc value), "
 operator|+
-name|reference
+name|origin
 operator|+
-literal|"(=reference)) - "
+literal|"(=origin)) - "
 operator|+
 name|offset
 operator|+
@@ -1883,11 +1883,11 @@ name|?
 argument_list|>
 name|fieldData
 decl_stmt|;
-DECL|field|reference
+DECL|field|origin
 specifier|private
 specifier|final
 name|double
-name|reference
+name|origin
 decl_stmt|;
 DECL|field|doubleValues
 specifier|private
@@ -1899,7 +1899,7 @@ specifier|public
 name|NumericFieldDataScoreFunction
 parameter_list|(
 name|double
-name|reference
+name|origin
 parameter_list|,
 name|double
 name|scale
@@ -1939,9 +1939,9 @@ name|fieldData
 expr_stmt|;
 name|this
 operator|.
-name|reference
+name|origin
 operator|=
-name|reference
+name|origin
 expr_stmt|;
 block|}
 DECL|method|setNextReader
@@ -1994,10 +1994,10 @@ name|getValueMissing
 argument_list|(
 name|docId
 argument_list|,
-name|reference
+name|origin
 argument_list|)
 operator|-
-name|reference
+name|origin
 argument_list|)
 operator|-
 name|offset
@@ -2038,14 +2038,14 @@ name|getValueMissing
 argument_list|(
 name|docId
 argument_list|,
-name|reference
+name|origin
 argument_list|)
 operator|+
 literal|"(=doc value) - "
 operator|+
-name|reference
+name|origin
 operator|+
-literal|"(=reference)) - "
+literal|"(=origin)) - "
 operator|+
 name|offset
 operator|+
@@ -2057,12 +2057,12 @@ name|getValueMissing
 argument_list|(
 name|docId
 argument_list|,
-name|reference
+name|origin
 argument_list|)
 operator|+
 literal|"(=doc value) - "
 operator|+
-name|reference
+name|origin
 operator|+
 literal|") - "
 operator|+
@@ -2262,7 +2262,7 @@ name|scale
 argument_list|)
 return|;
 block|}
-comment|/**          * This function computes the distance from a defined reference. Since          * the value of the document is read from the index, it cannot be          * guaranteed that the value actually exists. If it does not, we assume          * the user handles this case in the query and return 0.          * */
+comment|/**          * This function computes the distance from a defined origin. Since          * the value of the document is read from the index, it cannot be          * guaranteed that the value actually exists. If it does not, we assume          * the user handles this case in the query and return 0.          * */
 DECL|method|distance
 specifier|protected
 specifier|abstract
