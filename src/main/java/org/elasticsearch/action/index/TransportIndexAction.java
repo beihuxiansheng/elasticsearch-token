@@ -1821,6 +1821,23 @@ operator|.
 name|refreshSource
 argument_list|()
 expr_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Sending mapping updated to master: index [{}] type [{}]"
+argument_list|,
+name|request
+operator|.
+name|index
+argument_list|()
+argument_list|,
+name|request
+operator|.
+name|type
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|mappingUpdatedAction
 operator|.
 name|execute
