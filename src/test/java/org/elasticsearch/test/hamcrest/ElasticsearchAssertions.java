@@ -869,7 +869,7 @@ parameter_list|)
 block|{
 name|assertThat
 argument_list|(
-literal|"Unexpectd ShardFailures: "
+literal|"Unexpected ShardFailures: "
 operator|+
 name|Arrays
 operator|.
