@@ -26,6 +26,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ElasticSearchWrapperException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|index
 operator|.
 name|shard
@@ -45,6 +55,8 @@ class|class
 name|PercolateException
 extends|extends
 name|ElasticSearchException
+implements|implements
+name|ElasticSearchWrapperException
 block|{
 DECL|field|shardId
 specifier|private
