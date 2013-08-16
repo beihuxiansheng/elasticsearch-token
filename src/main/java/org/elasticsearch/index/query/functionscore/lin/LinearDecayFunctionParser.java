@@ -167,12 +167,7 @@ argument_list|,
 operator|(
 name|scale
 operator|-
-name|Math
-operator|.
-name|abs
-argument_list|(
 name|value
-argument_list|)
 operator|)
 operator|/
 name|scale

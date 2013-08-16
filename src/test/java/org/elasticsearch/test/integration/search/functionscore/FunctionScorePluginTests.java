@@ -956,12 +956,7 @@ name|scale
 parameter_list|)
 block|{
 return|return
-name|Math
-operator|.
-name|abs
-argument_list|(
 name|value
-argument_list|)
 return|;
 block|}
 annotation|@

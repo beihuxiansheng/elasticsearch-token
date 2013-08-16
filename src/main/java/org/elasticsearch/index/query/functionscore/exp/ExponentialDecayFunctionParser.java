@@ -164,12 +164,7 @@ name|exp
 argument_list|(
 name|scale
 operator|*
-name|Math
-operator|.
-name|abs
-argument_list|(
 name|value
-argument_list|)
 argument_list|)
 return|;
 block|}
