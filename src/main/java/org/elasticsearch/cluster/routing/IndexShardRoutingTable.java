@@ -191,7 +191,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link IndexShardRoutingTable} encapsulates all instances or a single shard.  * Each ElasticSearch index consists of multiple shards each shards encapsulates  * a disjoint set of the index data and earch shard has one more more instances  * refered to as replicas of a shard. Given that, this class encapsulates all  * replicas (instances) for a single index shard.  */
+comment|/**  * {@link IndexShardRoutingTable} encapsulates all instances of a single shard.  * Each ElasticSearch index consists of multiple shards, each shard encapsulates  * a disjoint set of the index data and each shard has one or more instances  * referred to as replicas of a shard. Given that, this class encapsulates all  * replicas (instances) for a single index shard.  */
 end_comment
 
 begin_class
