@@ -812,7 +812,7 @@ name|updateTasksExecutor
 operator|=
 name|EsExecutors
 operator|.
-name|newSinglePrioritizingThreadExecutor
+name|newSinglePrioritizing
 argument_list|(
 name|daemonThreadFactory
 argument_list|(

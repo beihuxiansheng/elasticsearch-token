@@ -361,7 +361,7 @@ name|executor
 init|=
 name|EsExecutors
 operator|.
-name|newSinglePrioritizingThreadExecutor
+name|newSinglePrioritizing
 argument_list|(
 name|Executors
 operator|.
@@ -692,7 +692,7 @@ name|executor
 init|=
 name|EsExecutors
 operator|.
-name|newSinglePrioritizingThreadExecutor
+name|newSinglePrioritizing
 argument_list|(
 name|Executors
 operator|.
@@ -1023,7 +1023,7 @@ name|executor
 init|=
 name|EsExecutors
 operator|.
-name|newSinglePrioritizingThreadExecutor
+name|newSinglePrioritizing
 argument_list|(
 name|Executors
 operator|.
@@ -1354,7 +1354,7 @@ name|executor
 init|=
 name|EsExecutors
 operator|.
-name|newSinglePrioritizingThreadExecutor
+name|newSinglePrioritizing
 argument_list|(
 name|Executors
 operator|.
@@ -1693,7 +1693,7 @@ name|executor
 init|=
 name|EsExecutors
 operator|.
-name|newSinglePrioritizingThreadExecutor
+name|newSinglePrioritizing
 argument_list|(
 name|Executors
 operator|.

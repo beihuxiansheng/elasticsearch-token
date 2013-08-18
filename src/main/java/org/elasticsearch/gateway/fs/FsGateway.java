@@ -346,7 +346,7 @@ name|concurrentStreamPool
 operator|=
 name|EsExecutors
 operator|.
-name|newScalingExecutorService
+name|newScaling
 argument_list|(
 literal|1
 argument_list|,

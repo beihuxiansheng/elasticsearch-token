@@ -443,7 +443,7 @@ name|concurrentStreamPool
 operator|=
 name|EsExecutors
 operator|.
-name|newScalingExecutorService
+name|newScaling
 argument_list|(
 literal|0
 argument_list|,
