@@ -6335,7 +6335,10 @@ literal|4f
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// _score is always 1
+comment|// _score
+comment|// is
+comment|// always
+comment|// 1
 name|assertThat
 argument_list|(
 name|response
@@ -6357,7 +6360,10 @@ literal|4f
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// _score is always 1
+comment|// _score
+comment|// is
+comment|// always
+comment|// 1
 block|}
 annotation|@
 name|Test
@@ -7845,7 +7851,10 @@ literal|4f
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// _score is always 1
+comment|// _score
+comment|// is
+comment|// always
+comment|// 1
 name|assertThat
 argument_list|(
 name|response
@@ -7867,7 +7876,10 @@ literal|4f
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// _score is always 1
+comment|// _score
+comment|// is
+comment|// always
+comment|// 1
 block|}
 annotation|@
 name|Test
@@ -9490,7 +9502,19 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// could be both depending on the order of the docs internally (lucene order)
+comment|// could
+comment|// be
+comment|// both
+comment|// depending
+comment|// on
+comment|// the
+comment|// order
+comment|// of
+comment|// the
+comment|// docs
+comment|// internally
+comment|// (lucene
+comment|// order)
 name|assertThat
 argument_list|(
 name|searchResponse
@@ -12302,7 +12326,19 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// could be both depending on the order of the docs internally (lucene order)
+comment|// could
+comment|// be
+comment|// both
+comment|// depending
+comment|// on
+comment|// the
+comment|// order
+comment|// of
+comment|// the
+comment|// docs
+comment|// internally
+comment|// (lucene
+comment|// order)
 name|assertThat
 argument_list|(
 name|searchResponse
