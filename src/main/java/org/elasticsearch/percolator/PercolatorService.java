@@ -1630,9 +1630,8 @@ literal|null
 decl_stmt|;
 comment|// Some queries (function_score query when for decay functions) rely on SearchContext being set:
 name|SearchContext
-operator|.
-name|setCurrent
-argument_list|(
+name|searchContext
+init|=
 operator|new
 name|SearchContext
 argument_list|(
@@ -1672,6 +1671,12 @@ literal|null
 argument_list|,
 literal|null
 argument_list|)
+decl_stmt|;
+name|SearchContext
+operator|.
+name|setCurrent
+argument_list|(
+name|searchContext
 argument_list|)
 expr_stmt|;
 try|try
@@ -2055,10 +2060,7 @@ throw|;
 block|}
 finally|finally
 block|{
-name|SearchContext
-operator|.
-name|current
-argument_list|()
+name|searchContext
 operator|.
 name|release
 argument_list|()

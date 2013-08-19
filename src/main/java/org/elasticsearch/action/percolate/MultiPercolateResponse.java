@@ -199,7 +199,18 @@ DECL|method|MultiPercolateResponse
 specifier|public
 name|MultiPercolateResponse
 parameter_list|()
-block|{     }
+block|{
+name|this
+operator|.
+name|items
+operator|=
+operator|new
+name|Item
+index|[
+literal|0
+index|]
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|iterator
@@ -489,9 +500,6 @@ name|Item
 parameter_list|(
 name|PercolateResponse
 name|response
-parameter_list|,
-name|String
-name|errorMessage
 parameter_list|)
 block|{
 name|this
@@ -500,6 +508,15 @@ name|response
 operator|=
 name|response
 expr_stmt|;
+block|}
+DECL|method|Item
+specifier|public
+name|Item
+parameter_list|(
+name|String
+name|errorMessage
+parameter_list|)
+block|{
 name|this
 operator|.
 name|errorMessage
