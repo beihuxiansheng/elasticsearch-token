@@ -1591,7 +1591,7 @@ name|aliases
 argument_list|()
 return|;
 block|}
-comment|/**      * Finds the specific index aliases that match with the specified aliases directly or partially via wildcards and      * that point to the specified concrete indices or match partially with the indices via wildcards.      *      * @param aliases The names of the index aliases to find      * @param concreteIndices The concrete indexes the index aliases must point to order to be returned.      *      * @return the found index aliases grouped by index      */
+comment|/**      * Finds the specific index aliases that match with the specified aliases directly or partially via wildcards and      * that point to the specified concrete indices or match partially with the indices via wildcards.      *      * @param aliases         The names of the index aliases to find      * @param concreteIndices The concrete indexes the index aliases must point to order to be returned.      * @return the found index aliases grouped by index      */
 DECL|method|findAliases
 specifier|public
 name|ImmutableMap
@@ -1782,7 +1782,7 @@ name|build
 argument_list|()
 return|;
 block|}
-comment|/**      * Checks if at least one of the specified aliases exists in the specified concrete indices. Wildcards are supported in the      * alias names for partial matches.      *      * @param aliases The names of the index aliases to find      * @param concreteIndices The concrete indexes the index aliases must point to order to be returned.      *      * @return whether at least one of the specified aliases exists in one of the specified concrete indices.      */
+comment|/**      * Checks if at least one of the specified aliases exists in the specified concrete indices. Wildcards are supported in the      * alias names for partial matches.      *      * @param aliases         The names of the index aliases to find      * @param concreteIndices The concrete indexes the index aliases must point to order to be returned.      * @return whether at least one of the specified aliases exists in one of the specified concrete indices.      */
 DECL|method|hasAliases
 specifier|public
 name|boolean
@@ -2060,12 +2060,22 @@ operator|==
 literal|0
 condition|)
 block|{
-name|filteredMappings
-operator|=
+name|indexMapBuilder
+operator|.
+name|put
+argument_list|(
+name|index
+argument_list|,
+name|ImmutableMap
+operator|.
+name|copyOf
+argument_list|(
 name|indexMetaData
 operator|.
 name|getMappings
 argument_list|()
+argument_list|)
+argument_list|)
 expr_stmt|;
 comment|// No types specified means get it all
 block|}
@@ -2113,7 +2123,6 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 operator|!
@@ -2137,6 +2146,7 @@ name|filteredMappings
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 return|return
@@ -5071,7 +5081,7 @@ index|]
 argument_list|)
 return|;
 block|}
-comment|/**      * Identifies whether the first argument (an array containing index names) is a pattern that matches all indices      *      * @param indicesOrAliases the array containing index names      * @param concreteIndices array containing the concrete indices that the first argument refers to      * @return true if the first argument is a pattern that maps to all available indices, false otherwise      */
+comment|/**      * Identifies whether the first argument (an array containing index names) is a pattern that matches all indices      *      * @param indicesOrAliases the array containing index names      * @param concreteIndices  array containing the concrete indices that the first argument refers to      * @return true if the first argument is a pattern that maps to all available indices, false otherwise      */
 DECL|method|isPatternMatchingAllIndices
 specifier|public
 name|boolean
@@ -5203,9 +5213,11 @@ operator|.
 name|persistentSettings
 argument_list|)
 condition|)
+block|{
 return|return
 literal|false
 return|;
+block|}
 if|if
 condition|(
 operator|!
@@ -5221,9 +5233,11 @@ name|templates
 argument_list|()
 argument_list|)
 condition|)
+block|{
 return|return
 literal|false
 return|;
+block|}
 return|return
 literal|true
 return|;
