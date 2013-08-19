@@ -1798,6 +1798,22 @@ name|map
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+comment|// put the default entries after the content ones.
+name|processed
+operator|.
+name|put
+argument_list|(
+name|entry
+operator|.
+name|getKey
+argument_list|()
+argument_list|,
+name|map
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 for|for
 control|(
