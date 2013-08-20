@@ -2119,6 +2119,12 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
+comment|// #18: we could ignore errors when Tika does not parse data
+if|if
+condition|(
+operator|!
+name|ignoreErrors
+condition|)
 throw|throw
 operator|new
 name|MapperParsingException
@@ -2136,6 +2142,7 @@ argument_list|,
 name|e
 argument_list|)
 throw|;
+return|return;
 block|}
 name|context
 operator|.
