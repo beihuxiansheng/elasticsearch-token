@@ -76,6 +76,32 @@ specifier|public
 class|class
 name|EsExecutors
 block|{
+comment|/**      * Returns the number of processors available but at most<tt>32</tt>.      */
+DECL|method|boundedNumberOfProcessors
+specifier|public
+specifier|static
+name|int
+name|boundedNumberOfProcessors
+parameter_list|()
+block|{
+comment|/* This relates to issues where machines with large number of cores          * ie.>= 48 create too many threads and run into OOM see #3478          * We just use an 32 core upper-bound here to not stress the system          * too much with too many created threads */
+return|return
+name|Math
+operator|.
+name|min
+argument_list|(
+literal|32
+argument_list|,
+name|Runtime
+operator|.
+name|getRuntime
+argument_list|()
+operator|.
+name|availableProcessors
+argument_list|()
+argument_list|)
+return|;
+block|}
 DECL|method|newSinglePrioritizing
 specifier|public
 specifier|static
