@@ -373,7 +373,7 @@ name|field
 argument_list|(
 literal|"_name"
 argument_list|,
-literal|"htmlWithoutDateMeta.html"
+name|filename
 argument_list|)
 operator|.
 name|field
@@ -465,7 +465,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"htmlWithoutDateMeta.html"
+name|filename
 argument_list|)
 argument_list|)
 expr_stmt|;
