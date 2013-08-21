@@ -1128,7 +1128,7 @@ operator|=
 operator|new
 name|URL
 argument_list|(
-literal|"https://codeload.github.com/"
+literal|"https://github.com/"
 operator|+
 name|userName
 operator|+
@@ -1136,9 +1136,11 @@ literal|"/"
 operator|+
 name|repoName
 operator|+
-literal|"/zip/v"
+literal|"/archive/v"
 operator|+
 name|version
+operator|+
+literal|".zip"
 argument_list|)
 expr_stmt|;
 name|System
@@ -1224,7 +1226,7 @@ init|=
 operator|new
 name|URL
 argument_list|(
-literal|"https://codeload.github.com/"
+literal|"https://github.com/"
 operator|+
 name|userName
 operator|+
@@ -1232,7 +1234,7 @@ literal|"/"
 operator|+
 name|repoName
 operator|+
-literal|"/zip/master"
+literal|"/archive/master.zip"
 argument_list|)
 decl_stmt|;
 name|System
