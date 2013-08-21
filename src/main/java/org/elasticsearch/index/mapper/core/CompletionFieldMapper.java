@@ -1461,13 +1461,32 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|token
+operator|.
+name|isValue
+argument_list|()
+condition|)
+block|{
+name|payload
+operator|=
+name|parser
+operator|.
+name|bytesOrNull
+argument_list|()
+expr_stmt|;
+block|}
 else|else
 block|{
 throw|throw
 operator|new
 name|MapperException
 argument_list|(
-literal|"Payload must be an object"
+literal|"payload doesn't support type "
+operator|+
+name|token
 argument_list|)
 throw|;
 block|}

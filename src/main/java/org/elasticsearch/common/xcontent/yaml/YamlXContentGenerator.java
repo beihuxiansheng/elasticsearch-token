@@ -285,10 +285,10 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|writeRawField
-specifier|public
+DECL|method|writeObjectRaw
+specifier|protected
 name|void
-name|writeRawField
+name|writeObjectRaw
 parameter_list|(
 name|String
 name|fieldName
