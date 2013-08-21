@@ -1461,6 +1461,16 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|MapperException
+argument_list|(
+literal|"Payload must be an object"
+argument_list|)
+throw|;
+block|}
 block|}
 elseif|else
 if|if
