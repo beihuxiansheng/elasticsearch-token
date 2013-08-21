@@ -460,6 +460,22 @@ name|WarmerStats
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|suggest
+operator|.
+name|completion
+operator|.
+name|CompletionStats
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -578,6 +594,15 @@ function_decl|;
 DECL|method|fieldDataStats
 name|FieldDataStats
 name|fieldDataStats
+parameter_list|(
+name|String
+modifier|...
+name|fields
+parameter_list|)
+function_decl|;
+DECL|method|completionStats
+name|CompletionStats
+name|completionStats
 parameter_list|(
 name|String
 modifier|...
