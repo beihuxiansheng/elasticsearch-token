@@ -400,6 +400,24 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|search
+operator|.
+name|suggest
+operator|.
+name|phrase
+operator|.
+name|NoisyChannelSpellChecker
+operator|.
+name|Result
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|integration
@@ -457,6 +475,18 @@ operator|.
 name|Matchers
 operator|.
 name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|greaterThan
 import|;
 end_import
 
@@ -889,9 +919,8 @@ argument_list|,
 literal|5
 argument_list|)
 decl_stmt|;
-name|Correction
-index|[]
-name|corrections
+name|Result
+name|result
 init|=
 name|suggester
 operator|.
@@ -921,6 +950,14 @@ literal|1
 argument_list|,
 literal|2
 argument_list|)
+decl_stmt|;
+name|Correction
+index|[]
+name|corrections
+init|=
+name|result
+operator|.
+name|corrections
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -980,7 +1017,19 @@ literal|"american<em>ace</em>"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|corrections
+name|assertThat
+argument_list|(
+name|result
+operator|.
+name|cutoffScore
+argument_list|,
+name|greaterThan
+argument_list|(
+literal|0d
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|result
 operator|=
 name|suggester
 operator|.
@@ -1010,6 +1059,12 @@ literal|0
 argument_list|,
 literal|1
 argument_list|)
+expr_stmt|;
+name|corrections
+operator|=
+name|result
+operator|.
+name|corrections
 expr_stmt|;
 name|assertThat
 argument_list|(
@@ -1066,6 +1121,20 @@ argument_list|,
 name|equalTo
 argument_list|(
 literal|"american ame"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|result
+operator|.
+name|cutoffScore
+argument_list|,
+name|equalTo
+argument_list|(
+name|Double
+operator|.
+name|MIN_VALUE
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1136,6 +1205,8 @@ literal|0
 argument_list|,
 literal|2
 argument_list|)
+operator|.
+name|corrections
 expr_stmt|;
 name|assertThat
 argument_list|(
@@ -1363,6 +1434,8 @@ literal|1
 argument_list|,
 literal|2
 argument_list|)
+operator|.
+name|corrections
 expr_stmt|;
 name|assertThat
 argument_list|(
@@ -1528,6 +1601,8 @@ literal|1
 argument_list|,
 literal|2
 argument_list|)
+operator|.
+name|corrections
 expr_stmt|;
 name|assertThat
 argument_list|(
@@ -1939,6 +2014,8 @@ literal|1
 argument_list|,
 literal|2
 argument_list|)
+operator|.
+name|corrections
 expr_stmt|;
 name|assertThat
 argument_list|(
@@ -2049,6 +2126,8 @@ literal|1
 argument_list|,
 literal|2
 argument_list|)
+operator|.
+name|corrections
 expr_stmt|;
 name|assertThat
 argument_list|(
@@ -2164,6 +2243,8 @@ literal|1
 argument_list|,
 literal|2
 argument_list|)
+operator|.
+name|corrections
 expr_stmt|;
 name|assertThat
 argument_list|(
@@ -2762,6 +2843,8 @@ literal|1
 argument_list|,
 literal|2
 argument_list|)
+operator|.
+name|corrections
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -2842,6 +2925,8 @@ literal|1
 argument_list|,
 literal|2
 argument_list|)
+operator|.
+name|corrections
 expr_stmt|;
 name|assertThat
 argument_list|(
@@ -2910,6 +2995,8 @@ literal|1
 argument_list|,
 literal|2
 argument_list|)
+operator|.
+name|corrections
 expr_stmt|;
 name|assertThat
 argument_list|(
@@ -2954,6 +3041,8 @@ literal|1
 argument_list|,
 literal|2
 argument_list|)
+operator|.
+name|corrections
 expr_stmt|;
 name|assertThat
 argument_list|(
@@ -3022,6 +3111,8 @@ literal|0
 argument_list|,
 literal|2
 argument_list|)
+operator|.
+name|corrections
 expr_stmt|;
 name|assertThat
 argument_list|(
@@ -3165,6 +3256,8 @@ literal|1.5f
 argument_list|,
 literal|2
 argument_list|)
+operator|.
+name|corrections
 expr_stmt|;
 name|assertThat
 argument_list|(
@@ -3233,6 +3326,8 @@ literal|1.5f
 argument_list|,
 literal|2
 argument_list|)
+operator|.
+name|corrections
 expr_stmt|;
 name|assertThat
 argument_list|(
@@ -3693,6 +3788,8 @@ literal|1
 argument_list|,
 literal|3
 argument_list|)
+operator|.
+name|corrections
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -3761,6 +3858,8 @@ literal|1
 argument_list|,
 literal|1
 argument_list|)
+operator|.
+name|corrections
 expr_stmt|;
 name|assertThat
 argument_list|(
@@ -3838,6 +3937,8 @@ literal|0
 argument_list|,
 literal|3
 argument_list|)
+operator|.
+name|corrections
 expr_stmt|;
 name|assertThat
 argument_list|(
@@ -3981,6 +4082,8 @@ literal|1
 argument_list|,
 literal|3
 argument_list|)
+operator|.
+name|corrections
 expr_stmt|;
 name|assertThat
 argument_list|(
@@ -4124,6 +4227,8 @@ literal|100
 argument_list|,
 literal|3
 argument_list|)
+operator|.
+name|corrections
 expr_stmt|;
 name|assertThat
 argument_list|(
@@ -4380,6 +4485,8 @@ literal|1
 argument_list|,
 literal|3
 argument_list|)
+operator|.
+name|corrections
 expr_stmt|;
 name|assertThat
 argument_list|(
@@ -4469,6 +4576,8 @@ literal|1
 argument_list|,
 literal|3
 argument_list|)
+operator|.
+name|corrections
 expr_stmt|;
 name|assertThat
 argument_list|(
@@ -4554,6 +4663,8 @@ literal|0
 argument_list|,
 literal|3
 argument_list|)
+operator|.
+name|corrections
 expr_stmt|;
 name|assertThat
 argument_list|(
