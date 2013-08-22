@@ -1809,7 +1809,7 @@ operator|.
 name|idCache
 argument_list|()
 operator|.
-name|onCached
+name|onRemoval
 argument_list|(
 name|readerCache
 operator|.
