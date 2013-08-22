@@ -814,6 +814,29 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
+assert|assert
+name|build
+operator|!=
+literal|null
+operator|||
+name|docCount
+operator|==
+literal|0
+operator|:
+literal|"the FST is null but docCount is != 0 actual value: ["
+operator|+
+name|docCount
+operator|+
+literal|"]"
+assert|;
+comment|/*                          * it's possible that the FST is null if we have 2 segments that get merged                          * and all docs that have a value in this field are deleted. This will cause                          * a consumer to be created but it doesn't consume any values causing the FSTBuilder                          * to return null.                          */
+if|if
+condition|(
+name|build
+operator|!=
+literal|null
+condition|)
+block|{
 name|fieldOffsets
 operator|.
 name|put
@@ -895,6 +918,7 @@ argument_list|(
 name|options
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 return|;
@@ -1648,7 +1672,9 @@ name|length
 operator|==
 literal|0
 condition|)
+block|{
 continue|continue;
+block|}
 for|for
 control|(
 name|String

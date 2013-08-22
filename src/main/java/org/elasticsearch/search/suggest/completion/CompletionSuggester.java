@@ -210,7 +210,35 @@ name|search
 operator|.
 name|suggest
 operator|.
-name|*
+name|Suggest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|suggest
+operator|.
+name|SuggestContextParser
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|suggest
+operator|.
+name|Suggester
 import|;
 end_import
 
@@ -524,6 +552,7 @@ operator|.
 name|CompletionTerms
 condition|)
 block|{
+specifier|final
 name|Completion090PostingsFormat
 operator|.
 name|CompletionTerms
@@ -536,6 +565,7 @@ name|CompletionTerms
 operator|)
 name|terms
 decl_stmt|;
+specifier|final
 name|Lookup
 name|lookup
 init|=
@@ -551,6 +581,17 @@ argument_list|,
 name|suggestionContext
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|lookup
+operator|==
+literal|null
+condition|)
+block|{
+comment|// we don't have a lookup for this segment.. this might be possible if a merge dropped all
+comment|// docs from the segment that had a value in this segment.
+continue|continue;
+block|}
 name|List
 argument_list|<
 name|Lookup
