@@ -1068,6 +1068,25 @@ name|newState
 condition|)
 block|{
 comment|// nothing changed...
+name|listener
+operator|.
+name|onResponse
+argument_list|(
+operator|new
+name|ClusterUpdateSettingsResponse
+argument_list|(
+name|transientUpdates
+operator|.
+name|build
+argument_list|()
+argument_list|,
+name|persistentUpdates
+operator|.
+name|build
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
 return|return;
 block|}
 comment|// now, reroute
