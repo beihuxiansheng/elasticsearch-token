@@ -804,6 +804,11 @@ name|maxRepeat
 init|=
 literal|0
 decl_stmt|;
+name|int
+name|sumRepeat
+init|=
+literal|0
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -829,6 +834,10 @@ index|[
 name|i
 index|]
 decl_stmt|;
+name|sumRepeat
+operator|+=
+name|value
+expr_stmt|;
 name|maxRepeat
 operator|=
 name|Math
@@ -868,6 +877,22 @@ argument_list|(
 literal|"max repeat: "
 operator|+
 name|maxRepeat
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"avg repeat: "
+operator|+
+name|sumRepeat
+operator|/
+operator|(
+name|double
+operator|)
+name|filled
 argument_list|)
 expr_stmt|;
 name|System
