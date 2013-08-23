@@ -266,18 +266,6 @@ name|equalTo
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|greaterThan
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -2221,6 +2209,8 @@ parameter_list|)
 throws|throws
 name|InterruptedException
 block|{
+name|assertThat
+argument_list|(
 name|awaitBusy
 argument_list|(
 operator|new
@@ -2271,37 +2261,14 @@ name|TimeUnit
 operator|.
 name|MINUTES
 argument_list|)
+argument_list|,
+name|equalTo
+argument_list|(
+literal|true
+argument_list|)
+argument_list|)
 expr_stmt|;
 comment|// not really relevant here we just have to wait some time
-name|assertThat
-argument_list|(
-name|client
-argument_list|()
-operator|.
-name|prepareCount
-argument_list|()
-operator|.
-name|setQuery
-argument_list|(
-name|matchAllQuery
-argument_list|()
-argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
-operator|.
-name|getCount
-argument_list|()
-argument_list|,
-name|greaterThan
-argument_list|(
-name|numDocs
-argument_list|)
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 end_class

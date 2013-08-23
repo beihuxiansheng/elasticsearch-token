@@ -270,7 +270,7 @@ expr_stmt|;
 block|}
 DECL|method|awaitBusy
 specifier|public
-name|void
+name|boolean
 name|awaitBusy
 parameter_list|(
 name|Predicate
@@ -366,7 +366,9 @@ literal|null
 argument_list|)
 condition|)
 block|{
-return|return;
+return|return
+literal|true
+return|;
 block|}
 name|sum
 operator|+=
@@ -404,6 +406,14 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
+return|return
+name|breakPredicate
+operator|.
+name|apply
+argument_list|(
+literal|null
+argument_list|)
+return|;
 block|}
 DECL|field|numericTypes
 specifier|private
