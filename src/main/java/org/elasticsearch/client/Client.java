@@ -400,35 +400,7 @@ name|action
 operator|.
 name|termvector
 operator|.
-name|TermVectorRequest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|termvector
-operator|.
-name|TermVectorRequestBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|termvector
-operator|.
-name|TermVectorResponse
+name|*
 import|;
 end_import
 
@@ -1210,6 +1182,39 @@ parameter_list|,
 name|String
 name|id
 parameter_list|)
+function_decl|;
+comment|/**      * Multi get term vectors.      */
+DECL|method|multiTermVectors
+name|ActionFuture
+argument_list|<
+name|MultiTermVectorsResponse
+argument_list|>
+name|multiTermVectors
+parameter_list|(
+name|MultiTermVectorsRequest
+name|request
+parameter_list|)
+function_decl|;
+comment|/**      * Multi get term vectors.      */
+DECL|method|multiTermVectors
+name|void
+name|multiTermVectors
+parameter_list|(
+name|MultiTermVectorsRequest
+name|request
+parameter_list|,
+name|ActionListener
+argument_list|<
+name|MultiTermVectorsResponse
+argument_list|>
+name|listener
+parameter_list|)
+function_decl|;
+comment|/**      * Multi get term vectors.      */
+DECL|method|prepareMultiTermVectors
+name|MultiTermVectorsRequestBuilder
+name|prepareMultiTermVectors
+parameter_list|()
 function_decl|;
 comment|/**      * Percolates a request returning the matches documents.      */
 DECL|method|percolate
