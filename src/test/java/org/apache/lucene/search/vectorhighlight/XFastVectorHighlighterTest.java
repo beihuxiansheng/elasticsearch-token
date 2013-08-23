@@ -232,13 +232,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|elasticsearch
 operator|.
-name|lucene
+name|test
 operator|.
-name|util
+name|integration
 operator|.
-name|LuceneTestCase
+name|ElasticsearchLuceneTestCase
 import|;
 end_import
 
@@ -268,7 +268,7 @@ specifier|public
 class|class
 name|XFastVectorHighlighterTest
 extends|extends
-name|LuceneTestCase
+name|ElasticsearchLuceneTestCase
 block|{
 annotation|@
 name|Test
