@@ -1301,22 +1301,6 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|RejectedExecutionException
-name|ex
-parameter_list|)
-block|{
-name|logger
-operator|.
-name|debug
-argument_list|(
-literal|"Ping execution rejected"
-argument_list|,
-name|ex
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
 name|EsRejectedExecutionException
 name|ex
 parameter_list|)
@@ -1333,22 +1317,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|RejectedExecutionException
-name|ex
-parameter_list|)
-block|{
-name|logger
-operator|.
-name|debug
-argument_list|(
-literal|"Ping execution rejected"
-argument_list|,
-name|ex
 argument_list|)
 expr_stmt|;
 block|}
