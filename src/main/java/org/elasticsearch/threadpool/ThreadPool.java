@@ -2618,18 +2618,6 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 name|String
-name|defaultRejectSetting
-init|=
-name|defaultSettings
-operator|.
-name|get
-argument_list|(
-literal|"reject_policy"
-argument_list|,
-literal|"abort"
-argument_list|)
-decl_stmt|;
-name|String
 name|defaultQueueType
 init|=
 name|defaultSettings
@@ -2944,7 +2932,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"creating thread_pool [{}], type [{}], size [{}], queue_size [{}], reject_policy [{}], queue_type [{}]"
+literal|"creating thread_pool [{}], type [{}], size [{}], queue_size [{}], queue_type [{}]"
 argument_list|,
 name|name
 argument_list|,
