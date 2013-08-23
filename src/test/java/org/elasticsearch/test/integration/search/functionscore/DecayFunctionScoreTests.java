@@ -3361,9 +3361,6 @@ argument_list|(
 name|CombineFunction
 operator|.
 name|MULT
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -3540,9 +3537,6 @@ argument_list|(
 name|CombineFunction
 operator|.
 name|REPLACE
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -3717,9 +3711,6 @@ argument_list|(
 name|CombineFunction
 operator|.
 name|SUM
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -3900,9 +3891,6 @@ argument_list|(
 name|CombineFunction
 operator|.
 name|AVG
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -4081,9 +4069,6 @@ argument_list|(
 name|CombineFunction
 operator|.
 name|MIN
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -4262,9 +4247,6 @@ argument_list|(
 name|CombineFunction
 operator|.
 name|MAX
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
