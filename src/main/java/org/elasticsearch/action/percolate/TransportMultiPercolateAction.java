@@ -1550,6 +1550,8 @@ operator|==
 literal|0
 condition|)
 block|{
+try|try
+block|{
 name|reduce
 argument_list|(
 name|item
@@ -1568,6 +1570,22 @@ argument_list|,
 name|responsesByItemAndShard
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+comment|// Don't let any failure bubble up, otherwise expectedOperationsPerItem will be decremented twice
+name|listener
+operator|.
+name|onFailure
+argument_list|(
+name|t
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -1699,6 +1717,13 @@ name|get
 argument_list|()
 operator|>=
 literal|1
+operator|:
+literal|"Caused by: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
 assert|;
 if|if
 condition|(
