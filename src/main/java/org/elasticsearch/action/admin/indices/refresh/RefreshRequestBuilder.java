@@ -114,20 +114,21 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|setWaitForOperations
+comment|/**      * Forces calling refresh, overriding the check that dirty operations even happened. Defaults      * to true (note, still lightweight if no refresh is needed).      */
+DECL|method|setForce
 specifier|public
 name|RefreshRequestBuilder
-name|setWaitForOperations
+name|setForce
 parameter_list|(
 name|boolean
-name|waitForOperations
+name|force
 parameter_list|)
 block|{
 name|request
 operator|.
-name|waitForOperations
+name|force
 argument_list|(
-name|waitForOperations
+name|force
 argument_list|)
 expr_stmt|;
 return|return

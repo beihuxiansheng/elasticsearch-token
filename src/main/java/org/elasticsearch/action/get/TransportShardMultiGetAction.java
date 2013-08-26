@@ -609,8 +609,13 @@ operator|new
 name|Engine
 operator|.
 name|Refresh
+argument_list|()
+operator|.
+name|force
 argument_list|(
-literal|false
+name|TransportGetAction
+operator|.
+name|REFRESH_FORCE
 argument_list|)
 argument_list|)
 expr_stmt|;

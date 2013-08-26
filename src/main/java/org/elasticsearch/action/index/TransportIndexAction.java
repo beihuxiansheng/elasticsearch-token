@@ -1440,6 +1440,9 @@ operator|new
 name|Engine
 operator|.
 name|Refresh
+argument_list|()
+operator|.
+name|force
 argument_list|(
 literal|false
 argument_list|)
@@ -1738,6 +1741,9 @@ operator|new
 name|Engine
 operator|.
 name|Refresh
+argument_list|()
+operator|.
+name|force
 argument_list|(
 literal|false
 argument_list|)

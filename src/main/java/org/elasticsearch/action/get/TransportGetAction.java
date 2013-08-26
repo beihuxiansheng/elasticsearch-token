@@ -249,6 +249,14 @@ argument_list|,
 name|GetResponse
 argument_list|>
 block|{
+DECL|field|REFRESH_FORCE
+specifier|public
+specifier|static
+name|boolean
+name|REFRESH_FORCE
+init|=
+literal|false
+decl_stmt|;
 DECL|field|indicesService
 specifier|private
 specifier|final
@@ -595,8 +603,11 @@ operator|new
 name|Engine
 operator|.
 name|Refresh
+argument_list|()
+operator|.
+name|force
 argument_list|(
-literal|false
+name|REFRESH_FORCE
 argument_list|)
 argument_list|)
 expr_stmt|;

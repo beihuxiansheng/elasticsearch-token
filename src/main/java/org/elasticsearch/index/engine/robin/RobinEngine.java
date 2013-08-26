@@ -5959,9 +5959,7 @@ name|refresh
 argument_list|(
 operator|new
 name|Refresh
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 operator|.
 name|force
 argument_list|(
@@ -6490,9 +6488,7 @@ name|refresh
 argument_list|(
 operator|new
 name|Refresh
-argument_list|(
-literal|false
-argument_list|)
+argument_list|()
 operator|.
 name|force
 argument_list|(
