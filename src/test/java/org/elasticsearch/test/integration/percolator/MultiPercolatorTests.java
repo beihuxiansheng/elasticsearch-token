@@ -184,7 +184,7 @@ name|integration
 operator|.
 name|percolator
 operator|.
-name|SimplePercolatorTests
+name|PercolatorTests
 operator|.
 name|convertFromTextArray
 import|;

@@ -525,10 +525,10 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|SimplePercolatorTests
+DECL|class|PercolatorTests
 specifier|public
 class|class
-name|SimplePercolatorTests
+name|PercolatorTests
 extends|extends
 name|AbstractSharedClusterTest
 block|{
