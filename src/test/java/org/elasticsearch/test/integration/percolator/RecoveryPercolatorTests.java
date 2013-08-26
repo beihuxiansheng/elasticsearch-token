@@ -2442,7 +2442,6 @@ operator|++
 control|)
 block|{
 name|client
-argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -2486,7 +2485,6 @@ argument_list|()
 expr_stmt|;
 block|}
 name|client
-argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -2613,7 +2611,6 @@ name|NodesInfoResponse
 name|nodesInfoResponse
 init|=
 name|client
-argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -2727,7 +2724,6 @@ name|MultiPercolateRequestBuilder
 name|builder
 init|=
 name|client
-argument_list|()
 operator|.
 name|prepareMultiPercolate
 argument_list|()
@@ -2764,7 +2760,6 @@ operator|.
 name|add
 argument_list|(
 name|client
-argument_list|()
 operator|.
 name|preparePercolate
 argument_list|()
@@ -2819,7 +2814,6 @@ operator|.
 name|add
 argument_list|(
 name|client
-argument_list|()
 operator|.
 name|preparePercolate
 argument_list|()
@@ -2987,7 +2981,6 @@ block|{
 name|response
 operator|=
 name|client
-argument_list|()
 operator|.
 name|preparePercolate
 argument_list|()
@@ -3030,7 +3023,6 @@ block|{
 name|response
 operator|=
 name|client
-argument_list|()
 operator|.
 name|preparePercolate
 argument_list|()
@@ -3202,7 +3194,6 @@ literal|"node3"
 argument_list|)
 expr_stmt|;
 name|client
-argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -3251,7 +3242,6 @@ literal|"node2"
 argument_list|)
 expr_stmt|;
 name|client
-argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -3300,7 +3290,6 @@ literal|"node3"
 argument_list|)
 expr_stmt|;
 name|client
-argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -3349,7 +3338,6 @@ literal|"node2"
 argument_list|)
 expr_stmt|;
 name|client
-argument_list|()
 operator|.
 name|admin
 argument_list|()
