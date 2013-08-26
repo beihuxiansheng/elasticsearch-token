@@ -1630,6 +1630,15 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Shard multi percolate failure"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|TIntArrayList
