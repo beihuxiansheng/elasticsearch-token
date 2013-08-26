@@ -2220,7 +2220,7 @@ index|[
 literal|0
 index|]
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|.
 name|string

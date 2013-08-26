@@ -1217,7 +1217,7 @@ block|}
 catch|catch
 parameter_list|(
 name|Throwable
-name|t
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -1226,7 +1226,7 @@ name|trace
 argument_list|(
 literal|"[{}][{}] failed to percolate"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|request
 operator|.
@@ -1264,7 +1264,7 @@ name|shardId
 argument_list|,
 literal|"failed to percolate"
 argument_list|,
-name|t
+name|e
 argument_list|)
 throw|;
 block|}
