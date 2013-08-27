@@ -710,10 +710,6 @@ expr_stmt|;
 block|}
 name|filterZipName
 operator|=
-name|userName
-operator|+
-literal|"-"
-operator|+
 name|repoName
 expr_stmt|;
 comment|// the installation file should not include the userName, just the repoName
@@ -1423,7 +1419,7 @@ block|{
 continue|continue;
 block|}
 name|String
-name|zipName
+name|zipEntryName
 init|=
 name|zipEntry
 operator|.
@@ -1446,7 +1442,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|zipName
+name|zipEntryName
 operator|.
 name|startsWith
 argument_list|(
@@ -1454,13 +1450,13 @@ name|filterZipName
 argument_list|)
 condition|)
 block|{
-name|zipName
+name|zipEntryName
 operator|=
-name|zipName
+name|zipEntryName
 operator|.
 name|substring
 argument_list|(
-name|zipName
+name|zipEntryName
 operator|.
 name|indexOf
 argument_list|(
@@ -1478,7 +1474,7 @@ name|File
 argument_list|(
 name|extractLocation
 argument_list|,
-name|zipName
+name|zipEntryName
 argument_list|)
 decl_stmt|;
 name|FileSystemUtils
