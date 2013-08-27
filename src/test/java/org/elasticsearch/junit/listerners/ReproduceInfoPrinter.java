@@ -143,7 +143,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link RunListener} that emits to {@link System#err} a string with command  * line parameters allowing quick test re-run under ANT command line.  */
+comment|/**  * A {@link RunListener} that emits to {@link System#err} a string with command  * line parameters allowing quick test re-run under MVN command line.  */
 end_comment
 
 begin_class
@@ -187,6 +187,32 @@ operator|.
 name|info
 argument_list|(
 literal|"Test {} started"
+argument_list|,
+name|description
+operator|.
+name|getDisplayName
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|testFinished
+specifier|public
+name|void
+name|testFinished
+parameter_list|(
+name|Description
+name|description
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"Test {} finished"
 argument_list|,
 name|description
 operator|.
