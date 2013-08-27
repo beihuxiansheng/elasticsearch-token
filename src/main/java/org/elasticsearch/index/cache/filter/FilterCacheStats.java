@@ -366,11 +366,11 @@ name|byteSizeField
 argument_list|(
 name|Fields
 operator|.
-name|MEMORY_SIZE
+name|MEMORY_SIZE_IN_BYTES
 argument_list|,
 name|Fields
 operator|.
-name|MEMORY_SIZE_IN_BYTES
+name|MEMORY_SIZE
 argument_list|,
 name|memorySize
 argument_list|)

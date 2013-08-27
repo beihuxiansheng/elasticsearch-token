@@ -514,11 +514,11 @@ name|byteSizeField
 argument_list|(
 name|Fields
 operator|.
-name|RX_SIZE
+name|RX_SIZE_IN_BYTES
 argument_list|,
 name|Fields
 operator|.
-name|RX_SIZE_IN_BYTES
+name|RX_SIZE
 argument_list|,
 name|rxSize
 argument_list|)
@@ -540,11 +540,11 @@ name|byteSizeField
 argument_list|(
 name|Fields
 operator|.
-name|TX_SIZE
+name|TX_SIZE_IN_BYTES
 argument_list|,
 name|Fields
 operator|.
-name|TX_SIZE_IN_BYTES
+name|TX_SIZE
 argument_list|,
 name|txSize
 argument_list|)

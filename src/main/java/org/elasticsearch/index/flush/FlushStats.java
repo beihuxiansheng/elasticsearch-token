@@ -352,11 +352,11 @@ name|timeValueField
 argument_list|(
 name|Fields
 operator|.
-name|TOTAL_TIME
+name|TOTAL_TIME_IN_MILLIS
 argument_list|,
 name|Fields
 operator|.
-name|TOTAL_TIME_IN_MILLIS
+name|TOTAL_TIME
 argument_list|,
 name|totalTimeInMillis
 argument_list|)

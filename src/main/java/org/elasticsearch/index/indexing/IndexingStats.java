@@ -589,11 +589,11 @@ name|timeValueField
 argument_list|(
 name|Fields
 operator|.
-name|INDEX_TIME
+name|INDEX_TIME_IN_MILLIS
 argument_list|,
 name|Fields
 operator|.
-name|INDEX_TIME_IN_MILLIS
+name|INDEX_TIME
 argument_list|,
 name|indexTimeInMillis
 argument_list|)
@@ -626,11 +626,11 @@ name|timeValueField
 argument_list|(
 name|Fields
 operator|.
-name|DELETE_TIME
+name|DELETE_TIME_IN_MILLIS
 argument_list|,
 name|Fields
 operator|.
-name|DELETE_TIME_IN_MILLIS
+name|DELETE_TIME
 argument_list|,
 name|deleteTimeInMillis
 argument_list|)

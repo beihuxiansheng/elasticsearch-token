@@ -416,11 +416,11 @@ name|byteSizeField
 argument_list|(
 name|Fields
 operator|.
-name|SIZE
+name|SIZE_IN_BYTES
 argument_list|,
 name|Fields
 operator|.
-name|SIZE_IN_BYTES
+name|SIZE
 argument_list|,
 name|sizeInBytes
 argument_list|)
@@ -431,11 +431,11 @@ name|timeValueField
 argument_list|(
 name|Fields
 operator|.
-name|THROTTLE_TIME
+name|THROTTLE_TIME_IN_MILLIS
 argument_list|,
 name|Fields
 operator|.
-name|THROTTLE_TIME_IN_MILLIS
+name|THROTTLE_TIME
 argument_list|,
 name|throttleTime
 argument_list|()

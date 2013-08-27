@@ -591,11 +591,11 @@ name|timeValueField
 argument_list|(
 name|Fields
 operator|.
-name|QUERY_TIME
+name|QUERY_TIME_IN_MILLIS
 argument_list|,
 name|Fields
 operator|.
-name|QUERY_TIME_IN_MILLIS
+name|QUERY_TIME
 argument_list|,
 name|queryTimeInMillis
 argument_list|)
@@ -628,11 +628,11 @@ name|timeValueField
 argument_list|(
 name|Fields
 operator|.
-name|FETCH_TIME
+name|FETCH_TIME_IN_MILLIS
 argument_list|,
 name|Fields
 operator|.
-name|FETCH_TIME_IN_MILLIS
+name|FETCH_TIME
 argument_list|,
 name|fetchTimeInMillis
 argument_list|)

@@ -282,11 +282,11 @@ name|timeValueField
 argument_list|(
 name|Fields
 operator|.
-name|TIME
+name|TIME_IN_MILLIS
 argument_list|,
 name|Fields
 operator|.
-name|TIME_IN_MILLIS
+name|TIME
 argument_list|,
 name|percolateTimeInMillis
 argument_list|)

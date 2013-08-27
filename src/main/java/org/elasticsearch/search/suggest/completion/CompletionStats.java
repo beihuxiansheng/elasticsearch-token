@@ -483,11 +483,11 @@ name|byteSizeField
 argument_list|(
 name|Fields
 operator|.
-name|SIZE
+name|SIZE_IN_BYTES
 argument_list|,
 name|Fields
 operator|.
-name|SIZE_IN_BYTES
+name|SIZE
 argument_list|,
 name|sizeInBytes
 argument_list|)
@@ -555,11 +555,11 @@ name|byteSizeField
 argument_list|(
 name|Fields
 operator|.
-name|SIZE
+name|SIZE_IN_BYTES
 argument_list|,
 name|Fields
 operator|.
-name|SIZE_IN_BYTES
+name|SIZE
 argument_list|,
 name|it
 operator|.
