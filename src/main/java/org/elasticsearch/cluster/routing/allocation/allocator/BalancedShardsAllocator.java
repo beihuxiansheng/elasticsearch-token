@@ -1727,6 +1727,8 @@ index|[
 name|highIdx
 index|]
 decl_stmt|;
+name|advance_range
+label|:
 if|if
 condition|(
 name|maxNode
@@ -1789,6 +1791,42 @@ operator|<=
 name|threshold
 condition|)
 block|{
+if|if
+condition|(
+name|lowIdx
+operator|>
+literal|0
+operator|&&
+name|highIdx
+operator|-
+literal|1
+operator|>
+literal|0
+comment|// is there a chance for a higher delta?
+operator|&&
+operator|(
+name|weights
+index|[
+name|highIdx
+operator|-
+literal|1
+index|]
+operator|-
+name|weights
+index|[
+literal|0
+index|]
+operator|>
+name|threshold
+operator|)
+comment|// check if we need to break at all
+condition|)
+block|{
+comment|/* This is a special case if allocations from the "heaviest" to the "lighter" nodes is not possible                                       * due to some allocation decider restrictions like zone awareness. if one zone has for instance                                       * less nodes than another zone. so one zone is horribly overloaded from a balanced perspective but we                                      * can't move to the "lighter" shards since otherwise the zone would go over capacity.                                      *                                       * This break jumps straight to the condition below were we start moving from the high index towards                                       * the low index to shrink the window we are considering for balance from the other direction.                                       * (check shrinking the window from MAX to MIN)                                      * See #3580                                      */
+break|break
+name|advance_range
+break|;
+block|}
 if|if
 condition|(
 name|logger
@@ -1966,7 +2004,7 @@ operator|-
 literal|1
 condition|)
 block|{
-comment|/* we can't move from any shard from the min node lets move on to the next node                              * and see if the threshold still holds. We either don't have any shard of this                              * index on this node of allocation deciders prevent any relocation.*/
+comment|/* Shrinking the window from MIN to MAX                              * we can't move from any shard from the min node lets move on to the next node                              * and see if the threshold still holds. We either don't have any shard of this                              * index on this node of allocation deciders prevent any relocation.*/
 name|lowIdx
 operator|++
 expr_stmt|;
@@ -1979,7 +2017,7 @@ operator|>
 literal|0
 condition|)
 block|{
-comment|/* now we go max to min since obviously we can't move anything to the max node                               * lets pick the next highest */
+comment|/* Shrinking the window from MAX to MIN                              * now we go max to min since obviously we can't move anything to the max node                               * lets pick the next highest */
 name|lowIdx
 operator|=
 literal|0
@@ -2370,7 +2408,7 @@ argument_list|(
 name|shard
 argument_list|)
 assert|;
-comment|/*              * the sorter holds the minimum weight node first for the shards index.              * We now walk through the nodes until we find a node to allocate the shard.              * This is not guaranteed to be balanced after this operation we still try best effort to               * allocate on the minimal eligable node.              */
+comment|/*              * the sorter holds the minimum weight node first for the shards index.              * We now walk through the nodes until we find a node to allocate the shard.              * This is not guaranteed to be balanced after this operation we still try best effort to               * allocate on the minimal eligible node.              */
 for|for
 control|(
 name|ModelNode
@@ -2442,7 +2480,7 @@ operator|.
 name|YES
 condition|)
 block|{
-comment|// TODO maybe we can respect throtteling here too?
+comment|// TODO maybe we can respect throttling here too?
 name|sourceNode
 operator|.
 name|removeShard

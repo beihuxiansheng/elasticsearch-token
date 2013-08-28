@@ -1762,6 +1762,27 @@ operator|==
 literal|0
 condition|)
 block|{
+if|if
+condition|(
+name|logger
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"All shards failied for phase: [{}]"
+argument_list|,
+name|firstPhaseName
+argument_list|()
+argument_list|,
+name|t
+argument_list|)
+expr_stmt|;
+block|}
 comment|// no successful ops, raise an exception
 name|listener
 operator|.
