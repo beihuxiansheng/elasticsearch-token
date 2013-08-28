@@ -18,16 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -67,6 +57,16 @@ operator|.
 name|xcontent
 operator|.
 name|XContentBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
 import|;
 end_import
 
@@ -135,6 +135,11 @@ DECL|field|indexedShapeFieldName
 specifier|private
 name|String
 name|indexedShapeFieldName
+decl_stmt|;
+DECL|field|queryName
+specifier|private
+name|String
+name|queryName
 decl_stmt|;
 comment|/**      * Creates a new GeoShapeQueryBuilder whose Query will be against the      * given field name using the given Shape      *      * @param name  Name of the field that will be queried      * @param shape Shape used in the query      */
 DECL|method|GeoShapeQueryBuilder
@@ -311,6 +316,26 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the query name for the filter that can be used when searching for matched_filters per hit.      */
+DECL|method|queryName
+specifier|public
+name|GeoShapeQueryBuilder
+name|queryName
+parameter_list|(
+name|String
+name|queryName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|queryName
+operator|=
+name|queryName
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|doXContent
@@ -458,6 +483,23 @@ argument_list|(
 literal|"boost"
 argument_list|,
 name|boost
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|queryName
+operator|!=
+literal|null
+condition|)
+block|{
+name|builder
+operator|.
+name|field
+argument_list|(
+literal|"_name"
+argument_list|,
+name|queryName
 argument_list|)
 expr_stmt|;
 block|}

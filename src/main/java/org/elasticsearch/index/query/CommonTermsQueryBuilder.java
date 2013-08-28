@@ -18,16 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -47,6 +37,16 @@ operator|.
 name|xcontent
 operator|.
 name|XContentBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
 import|;
 end_import
 
@@ -146,6 +146,11 @@ name|Float
 name|cutoffFrequency
 init|=
 literal|null
+decl_stmt|;
+DECL|field|queryName
+specifier|private
+name|String
+name|queryName
 decl_stmt|;
 comment|/**      * Constructs a new common terms query.      */
 DECL|method|CommonTermsQueryBuilder
@@ -337,6 +342,26 @@ operator|.
 name|lowFreqMinimumShouldMatch
 operator|=
 name|lowFreqMinimumShouldMatch
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the query name for the filter that can be used when searching for matched_filters per hit.      */
+DECL|method|queryName
+specifier|public
+name|CommonTermsQueryBuilder
+name|queryName
+parameter_list|(
+name|String
+name|queryName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|queryName
+operator|=
+name|queryName
 expr_stmt|;
 return|return
 name|this
@@ -547,6 +572,23 @@ name|builder
 operator|.
 name|endObject
 argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|queryName
+operator|!=
+literal|null
+condition|)
+block|{
+name|builder
+operator|.
+name|field
+argument_list|(
+literal|"_name"
+argument_list|,
+name|queryName
+argument_list|)
 expr_stmt|;
 block|}
 name|builder
