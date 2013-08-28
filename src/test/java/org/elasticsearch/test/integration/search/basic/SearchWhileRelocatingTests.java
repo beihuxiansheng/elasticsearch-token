@@ -320,6 +320,22 @@ begin_import
 import|import static
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertHitCount
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -816,6 +832,18 @@ operator|.
 name|get
 argument_list|()
 decl_stmt|;
+name|assertHitCount
+argument_list|(
+name|sr
+argument_list|,
+call|(
+name|long
+call|)
+argument_list|(
+name|numDocs
+argument_list|)
+argument_list|)
+expr_stmt|;
 specifier|final
 name|SearchHits
 name|sh
@@ -825,26 +853,6 @@ operator|.
 name|getHits
 argument_list|()
 decl_stmt|;
-name|assertThat
-argument_list|(
-literal|"Expect num docs in getTotalHits() "
-argument_list|,
-name|sh
-operator|.
-name|getTotalHits
-argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-call|(
-name|long
-call|)
-argument_list|(
-name|numDocs
-argument_list|)
-argument_list|)
-argument_list|)
-expr_stmt|;
 name|assertThat
 argument_list|(
 literal|"Expected hits to be the same size the actual hits array"
