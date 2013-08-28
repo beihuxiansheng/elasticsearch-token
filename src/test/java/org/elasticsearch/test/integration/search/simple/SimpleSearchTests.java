@@ -170,19 +170,7 @@ name|hamcrest
 operator|.
 name|ElasticsearchAssertions
 operator|.
-name|*
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
+name|assertNoFailures
 import|;
 end_import
 
@@ -254,7 +242,7 @@ parameter_list|(
 name|ElasticSearchIllegalArgumentException
 name|e
 parameter_list|)
-block|{                      }
+block|{          }
 try|try
 block|{
 name|client
@@ -296,7 +284,7 @@ parameter_list|(
 name|ElasticSearchIllegalArgumentException
 name|e
 parameter_list|)
-block|{                      }
+block|{          }
 block|}
 annotation|@
 name|Test
@@ -1098,10 +1086,10 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|refresh
+name|ensureGreen
 argument_list|()
 expr_stmt|;
-name|ensureGreen
+name|refresh
 argument_list|()
 expr_stmt|;
 comment|// test include upper on ranges to include the full day on the upper bound (disabled here though...)
@@ -1295,10 +1283,10 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|refresh
+name|ensureGreen
 argument_list|()
 expr_stmt|;
-name|ensureGreen
+name|refresh
 argument_list|()
 expr_stmt|;
 name|SearchResponse
