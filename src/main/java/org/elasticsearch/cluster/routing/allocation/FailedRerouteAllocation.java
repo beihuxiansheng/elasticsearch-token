@@ -78,8 +78,18 @@ name|AllocationDeciders
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
-comment|/**  * This {@link RoutingAllocation} keeps a shard which routing  * allocation has faild   */
+comment|/**  * This {@link RoutingAllocation} keeps a shard which routing  * allocation has faild  */
 end_comment
 
 begin_class
@@ -90,11 +100,14 @@ name|FailedRerouteAllocation
 extends|extends
 name|RoutingAllocation
 block|{
-DECL|field|failedShard
+DECL|field|failedShards
 specifier|private
 specifier|final
+name|List
+argument_list|<
 name|ShardRouting
-name|failedShard
+argument_list|>
+name|failedShards
 decl_stmt|;
 DECL|method|FailedRerouteAllocation
 specifier|public
@@ -109,8 +122,11 @@ parameter_list|,
 name|DiscoveryNodes
 name|nodes
 parameter_list|,
+name|List
+argument_list|<
 name|ShardRouting
-name|failedShard
+argument_list|>
+name|failedShards
 parameter_list|)
 block|{
 name|super
@@ -124,19 +140,22 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|failedShard
+name|failedShards
 operator|=
-name|failedShard
+name|failedShards
 expr_stmt|;
 block|}
-DECL|method|failedShard
+DECL|method|failedShards
 specifier|public
+name|List
+argument_list|<
 name|ShardRouting
-name|failedShard
+argument_list|>
+name|failedShards
 parameter_list|()
 block|{
 return|return
-name|failedShard
+name|failedShards
 return|;
 block|}
 block|}
