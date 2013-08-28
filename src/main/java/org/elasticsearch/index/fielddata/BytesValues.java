@@ -199,7 +199,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Returns the bytes value for the docId, with the provided "ret" which will be filled with the      * result which will also be returned. If there is no value for this docId, the length will be 0.      * Note, the bytes are not "safe".      */
+comment|/**      * Returns the bytes value for the docId, with the provided "ret" which will be filled with the      * result which will also be returned. If there is no value for this docId, the length will be 0.      * Implementations can either change the {@link BytesRef#bytes bytes reference} of the {@link BytesRef}      * to point to an internal structure or modify the content of the {@link BytesRef} but should      * always do it in a consistent way. For example, it is illegal to change the bytes content in      * some call and to change the reference to point to an internal structure in another call, this      * will lead to bugs. It is also illegal for callers to write into the {@link BytesRef#bytes bytes}      * after this method has returned.      */
 DECL|method|getValueScratch
 specifier|public
 specifier|abstract
@@ -256,16 +256,19 @@ specifier|static
 interface|interface
 name|Iter
 block|{
+comment|/**          * Returns whether this iterator still contains elements.          */
 DECL|method|hasNext
 name|boolean
 name|hasNext
 parameter_list|()
 function_decl|;
+comment|/**          * Returns the next element of this iterator. Please note that the returned bytes may be          * reused across invocations so they should be copied for later reference. The behavior of          * this method is undefined if the iterator is exhausted.          */
 DECL|method|next
 name|BytesRef
 name|next
 parameter_list|()
 function_decl|;
+comment|/**          * Returns the hash value of the last {@link BytesRef} returned by {@link #next()}. The          * behavior is undefined if this iterator is not positioned or exhausted.          */
 DECL|method|hash
 name|int
 name|hash
@@ -898,7 +901,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**          * Returns the bytes value for the docId, with the provided "ret" which will be filled with the          * result which will also be returned. If there is no value for this docId, the length will be 0.          * Note, the bytes are not "safe".          */
+comment|/**          * Returns the bytes value for the docId, with the provided "ret" which will be filled with the          * result which will also be returned. If there is no value for this docId, the length will be 0.          * Implementations can either change the {@link BytesRef#bytes bytes reference} of the {@link BytesRef}          * to point to an internal structure or modify the content of the {@link BytesRef} but should          * always do it in a consistent way. For example, it is illegal to change the bytes content in          * some call and to change the reference to point to an internal structure in another call, this          * will lead to bugs. It is also illegal for callers to write into the {@link BytesRef#bytes bytes}          * after this method has returned.          */
 DECL|method|getValueScratchByOrd
 specifier|public
 specifier|abstract
