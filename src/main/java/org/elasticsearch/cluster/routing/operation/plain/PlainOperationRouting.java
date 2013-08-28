@@ -1277,6 +1277,11 @@ condition|(
 name|preference
 operator|==
 literal|null
+operator|||
+name|preference
+operator|.
+name|isEmpty
+argument_list|()
 condition|)
 block|{
 name|String
