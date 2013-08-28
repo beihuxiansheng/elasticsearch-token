@@ -3015,6 +3015,12 @@ name|SourceToParse
 operator|.
 name|source
 argument_list|(
+name|SourceToParse
+operator|.
+name|Origin
+operator|.
+name|PRIMARY
+argument_list|,
 name|indexRequest
 operator|.
 name|source
@@ -4064,6 +4070,12 @@ name|SourceToParse
 operator|.
 name|source
 argument_list|(
+name|SourceToParse
+operator|.
+name|Origin
+operator|.
+name|REPLICA
+argument_list|,
 name|indexRequest
 operator|.
 name|source

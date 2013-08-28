@@ -1255,6 +1255,20 @@ decl_stmt|;
 comment|// there is not point indexing already expired doc
 if|if
 condition|(
+name|context
+operator|.
+name|sourceToParse
+argument_list|()
+operator|.
+name|origin
+argument_list|()
+operator|==
+name|SourceToParse
+operator|.
+name|Origin
+operator|.
+name|PRIMARY
+operator|&&
 name|now
 operator|>=
 name|expire
