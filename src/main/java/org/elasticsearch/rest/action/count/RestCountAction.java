@@ -280,20 +280,6 @@ name|elasticsearch
 operator|.
 name|rest
 operator|.
-name|RestStatus
-operator|.
-name|OK
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|rest
-operator|.
 name|action
 operator|.
 name|support
@@ -816,7 +802,10 @@ name|XContentRestResponse
 argument_list|(
 name|request
 argument_list|,
-name|OK
+name|response
+operator|.
+name|status
+argument_list|()
 argument_list|,
 name|builder
 argument_list|)
