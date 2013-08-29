@@ -1774,7 +1774,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"All shards failied for phase: [{}]"
+literal|"All shards failed for phase: [{}]"
 argument_list|,
 name|firstPhaseName
 argument_list|()
