@@ -1533,6 +1533,15 @@ name|get
 argument_list|()
 operator|>=
 literal|1
+operator|:
+literal|"slot["
+operator|+
+name|item
+operator|.
+name|slot
+argument_list|()
+operator|+
+literal|"] can't be lower than one"
 assert|;
 if|if
 condition|(
@@ -1550,8 +1559,8 @@ operator|==
 literal|0
 condition|)
 block|{
-try|try
-block|{
+comment|// Failure won't bubble up, since we fail the whole request now via the catch clause below,
+comment|// so expectedOperationsPerItem will not be decremented twice.
 name|reduce
 argument_list|(
 name|item
@@ -1570,22 +1579,6 @@ argument_list|,
 name|responsesByItemAndShard
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Throwable
-name|t
-parameter_list|)
-block|{
-comment|// Don't let any failure bubble up, otherwise expectedOperationsPerItem will be decremented twice
-name|listener
-operator|.
-name|onFailure
-argument_list|(
-name|t
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 block|}
 block|}
@@ -1727,7 +1720,11 @@ argument_list|()
 operator|>=
 literal|1
 operator|:
-literal|"Caused by: "
+literal|"slot["
+operator|+
+name|slot
+operator|+
+literal|"] can't be lower than one. Caused by: "
 operator|+
 name|e
 operator|.
@@ -1775,11 +1772,13 @@ name|logger
 operator|.
 name|error
 argument_list|(
-literal|"{} Percolate original reduce error"
+literal|"{} Percolate original reduce error, original error {}"
 argument_list|,
-name|e
+name|t
 argument_list|,
 name|shardId
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 name|listener
