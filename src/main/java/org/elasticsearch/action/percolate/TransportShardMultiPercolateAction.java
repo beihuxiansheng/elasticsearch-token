@@ -646,7 +646,7 @@ parameter_list|)
 block|{
 name|logger
 operator|.
-name|trace
+name|debug
 argument_list|(
 literal|"[{}][{}] failed to multi percolate"
 argument_list|,
