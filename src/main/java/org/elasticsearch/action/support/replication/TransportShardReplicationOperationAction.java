@@ -1643,6 +1643,18 @@ name|retryable
 argument_list|()
 condition|)
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Cluster is blocked ({}), scheduling a retry"
+argument_list|,
+name|blockException
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|retry
 argument_list|(
 name|fromClusterEvent
@@ -1703,6 +1715,18 @@ name|retryable
 argument_list|()
 condition|)
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Cluster is blocked ({}), scheduling a retry"
+argument_list|,
+name|blockException
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|retry
 argument_list|(
 name|fromClusterEvent
@@ -1759,6 +1783,18 @@ operator|==
 literal|0
 condition|)
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"No shard instances known for index [{}]. Scheduling a retry"
+argument_list|,
+name|shardIt
+operator|.
+name|shardId
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|retry
 argument_list|(
 name|fromClusterEvent
@@ -1833,6 +1869,23 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"primary shard [{}] is not yet active or we do not know that node it is assigned to [{}]. Scheduling a retry."
+argument_list|,
+name|shard
+operator|.
+name|shardId
+argument_list|()
+argument_list|,
+name|shard
+operator|.
+name|currentNodeId
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|retry
 argument_list|(
 name|fromClusterEvent
@@ -1939,6 +1992,27 @@ operator|<
 name|requiredNumber
 condition|)
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Not enough active copies of shard [{}] to meet write consistency of [{}] (have {}, needed {}). Scheduling a retry."
+argument_list|,
+name|shard
+operator|.
+name|shardId
+argument_list|()
+argument_list|,
+name|consistencyLevel
+argument_list|,
+name|shardIt
+operator|.
+name|sizeActive
+argument_list|()
+argument_list|,
+name|requiredNumber
+argument_list|)
+expr_stmt|;
 name|retry
 argument_list|(
 name|fromClusterEvent
@@ -2219,6 +2293,18 @@ argument_list|)
 expr_stmt|;
 comment|// we already marked it as started when we executed it (removed the listener) so pass false
 comment|// to re-add to the cluster listener
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"received an error from node the primary was assigned to ({}). Scheduling a retry"
+argument_list|,
+name|exp
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|retry
 argument_list|(
 literal|false
@@ -2251,6 +2337,13 @@ operator|!
 name|foundPrimary
 condition|)
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Couldn't find a eligible primary shard. Scheduling for retry."
+argument_list|)
+expr_stmt|;
 name|retry
 argument_list|(
 name|fromClusterEvent
@@ -2319,6 +2412,13 @@ name|void
 name|postAdded
 parameter_list|()
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"ShardRepOp: listener to cluster state added. Trying again"
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|start
@@ -2376,6 +2476,21 @@ name|ClusterChangedEvent
 name|event
 parameter_list|)
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"ShardRepOp: cluster changed (version {}). Trying again"
+argument_list|,
+name|event
+operator|.
+name|state
+argument_list|()
+operator|.
+name|version
+argument_list|()
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|start
@@ -2520,6 +2635,16 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"ShardRepOp: retry scheduling ignored as it was executed from an active cluster state listener"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|performOnPrimary
 name|void
@@ -2588,6 +2713,18 @@ operator|.
 name|set
 argument_list|(
 literal|false
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Had an error while performing operation on primary ({}). Scheduling a retry."
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|retry

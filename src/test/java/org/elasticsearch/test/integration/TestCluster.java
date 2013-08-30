@@ -391,6 +391,20 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicInteger
+import|;
+end_import
+
+begin_import
 import|import static
 name|com
 operator|.
@@ -418,7 +432,9 @@ name|settings
 operator|.
 name|ImmutableSettings
 operator|.
-name|settingsBuilder
+name|Builder
+operator|.
+name|EMPTY_SETTINGS
 import|;
 end_import
 
@@ -434,9 +450,7 @@ name|settings
 operator|.
 name|ImmutableSettings
 operator|.
-name|Builder
-operator|.
-name|EMPTY_SETTINGS
+name|settingsBuilder
 import|;
 end_import
 
@@ -526,6 +540,17 @@ DECL|field|clientFactory
 specifier|private
 name|ClientFactory
 name|clientFactory
+decl_stmt|;
+DECL|field|nextNodeId
+specifier|private
+name|AtomicInteger
+name|nextNodeId
+init|=
+operator|new
+name|AtomicInteger
+argument_list|(
+literal|0
+argument_list|)
 decl_stmt|;
 DECL|method|TestCluster
 specifier|public
@@ -807,6 +832,17 @@ name|i
 operator|++
 control|)
 block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"increasing cluster size from {} to {}"
+argument_list|,
+name|size
+argument_list|,
+name|num
+argument_list|)
+expr_stmt|;
 name|buildNode
 argument_list|()
 operator|.
@@ -915,6 +951,22 @@ operator|-
 name|num
 argument_list|)
 decl_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"reducing cluster size from {} to {}"
+argument_list|,
+name|nodes
+operator|.
+name|size
+argument_list|()
+operator|-
+name|num
+argument_list|,
+name|num
+argument_list|)
+expr_stmt|;
 while|while
 condition|(
 name|limit
@@ -1044,12 +1096,11 @@ expr_stmt|;
 name|String
 name|name
 init|=
-name|UUID
+literal|"node_"
+operator|+
+name|nextNodeId
 operator|.
-name|randomUUID
-argument_list|()
-operator|.
-name|toString
+name|getAndIncrement
 argument_list|()
 decl_stmt|;
 name|String
