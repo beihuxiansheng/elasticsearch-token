@@ -422,6 +422,128 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|formatShardStatus
+specifier|public
+specifier|static
+name|String
+name|formatShardStatus
+parameter_list|(
+name|BroadcastOperationResponse
+name|response
+parameter_list|)
+block|{
+name|String
+name|msg
+init|=
+literal|" Total shards: "
+operator|+
+name|response
+operator|.
+name|getTotalShards
+argument_list|()
+operator|+
+literal|" Successful shards: "
+operator|+
+name|response
+operator|.
+name|getSuccessfulShards
+argument_list|()
+operator|+
+literal|"& "
+operator|+
+name|response
+operator|.
+name|getFailedShards
+argument_list|()
+operator|+
+literal|" shard failures:"
+decl_stmt|;
+for|for
+control|(
+name|ShardOperationFailedException
+name|failure
+range|:
+name|response
+operator|.
+name|getShardFailures
+argument_list|()
+control|)
+block|{
+name|msg
+operator|+=
+literal|"\n "
+operator|+
+name|failure
+operator|.
+name|toString
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|msg
+return|;
+block|}
+DECL|method|formatShardStatus
+specifier|public
+specifier|static
+name|String
+name|formatShardStatus
+parameter_list|(
+name|SearchResponse
+name|response
+parameter_list|)
+block|{
+name|String
+name|msg
+init|=
+literal|" Total shards: "
+operator|+
+name|response
+operator|.
+name|getTotalShards
+argument_list|()
+operator|+
+literal|" Successful shards: "
+operator|+
+name|response
+operator|.
+name|getSuccessfulShards
+argument_list|()
+operator|+
+literal|"& "
+operator|+
+name|response
+operator|.
+name|getFailedShards
+argument_list|()
+operator|+
+literal|" shard failures:"
+decl_stmt|;
+for|for
+control|(
+name|ShardSearchFailure
+name|failure
+range|:
+name|response
+operator|.
+name|getShardFailures
+argument_list|()
+control|)
+block|{
+name|msg
+operator|+=
+literal|"\n "
+operator|+
+name|failure
+operator|.
+name|toString
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|msg
+return|;
+block|}
 comment|/*      * assertions      */
 DECL|method|assertHitCount
 specifier|public
@@ -449,9 +571,8 @@ operator|!=
 name|expectedHitCount
 condition|)
 block|{
-name|String
-name|msg
-init|=
+name|fail
+argument_list|(
 literal|"Hit count is "
 operator|+
 name|searchResponse
@@ -468,37 +589,10 @@ name|expectedHitCount
 operator|+
 literal|" was expected. "
 operator|+
-name|searchResponse
-operator|.
-name|getFailedShards
-argument_list|()
-operator|+
-literal|" shard failures:"
-decl_stmt|;
-for|for
-control|(
-name|ShardSearchFailure
-name|failure
-range|:
-name|searchResponse
-operator|.
-name|getShardFailures
-argument_list|()
-control|)
-block|{
-name|msg
-operator|+=
-literal|"\n "
-operator|+
-name|failure
-operator|.
-name|toString
-argument_list|()
-expr_stmt|;
-block|}
-name|fail
+name|formatShardStatus
 argument_list|(
-name|msg
+name|searchResponse
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -517,9 +611,19 @@ modifier|...
 name|ids
 parameter_list|)
 block|{
+name|String
+name|shardStatus
+init|=
+name|formatShardStatus
+argument_list|(
+name|searchResponse
+argument_list|)
+decl_stmt|;
 name|assertThat
 argument_list|(
-literal|"Expected different hit count"
+literal|"Expected different hit count. "
+operator|+
+name|shardStatus
 argument_list|,
 name|searchResponse
 operator|.
@@ -579,7 +683,9 @@ operator|.
 name|getId
 argument_list|()
 operator|+
-literal|" in the result but wasn't"
+literal|" in the result but wasn't."
+operator|+
+name|shardStatus
 argument_list|,
 name|idsSet
 operator|.
@@ -618,7 +724,9 @@ index|]
 argument_list|)
 argument_list|)
 operator|+
-literal|" in the result - result size differs"
+literal|" in the result - result size differs."
+operator|+
+name|shardStatus
 argument_list|,
 name|idsSet
 operator|.
@@ -655,9 +763,8 @@ operator|!=
 name|expectedHitCount
 condition|)
 block|{
-name|String
-name|msg
-init|=
+name|fail
+argument_list|(
 literal|"Count is "
 operator|+
 name|countResponse
@@ -671,37 +778,10 @@ name|expectedHitCount
 operator|+
 literal|" was expected. "
 operator|+
-name|countResponse
-operator|.
-name|getFailedShards
-argument_list|()
-operator|+
-literal|" shard failures:"
-decl_stmt|;
-for|for
-control|(
-name|ShardOperationFailedException
-name|failure
-range|:
-name|countResponse
-operator|.
-name|getShardFailures
-argument_list|()
-control|)
-block|{
-name|msg
-operator|+=
-literal|"\n "
-operator|+
-name|failure
-operator|.
-name|toString
-argument_list|()
-expr_stmt|;
-block|}
-name|fail
+name|formatShardStatus
 argument_list|(
-name|msg
+name|countResponse
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
