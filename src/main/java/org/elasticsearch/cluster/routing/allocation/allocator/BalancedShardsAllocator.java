@@ -3342,6 +3342,29 @@ expr_stmt|;
 continue|continue;
 comment|// don't add to ignoreUnassigned
 block|}
+if|if
+condition|(
+name|logger
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"No eligable node found to assign shard [{}] decision [{}]"
+argument_list|,
+name|shard
+argument_list|,
+name|decision
+operator|.
+name|type
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 elseif|else
 if|if
@@ -3451,6 +3474,11 @@ argument_list|(
 name|idx
 argument_list|)
 decl_stmt|;
+name|Decision
+name|decision
+init|=
+literal|null
+decl_stmt|;
 if|if
 condition|(
 name|index
@@ -3505,11 +3533,6 @@ argument_list|)
 decl_stmt|;
 name|MutableShardRouting
 name|candidate
-init|=
-literal|null
-decl_stmt|;
-name|Decision
-name|decision
 init|=
 literal|null
 decl_stmt|;
@@ -3937,7 +3960,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"Couldn't find shard to relocate from node [{}] to node [{}]"
+literal|"Couldn't find shard to relocate from node [{}] to node [{}] allocation decision [{}]"
 argument_list|,
 name|maxNode
 operator|.
@@ -3947,6 +3970,20 @@ argument_list|,
 name|minNode
 operator|.
 name|getNodeId
+argument_list|()
+argument_list|,
+name|decision
+operator|==
+literal|null
+condition|?
+literal|"NO"
+else|:
+name|decision
+operator|.
+name|type
+argument_list|()
+operator|.
+name|name
 argument_list|()
 argument_list|)
 expr_stmt|;
