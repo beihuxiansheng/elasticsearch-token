@@ -1442,7 +1442,7 @@ operator|/
 name|numNodes
 operator|)
 operator|*
-literal|1.05
+literal|1.10
 operator|)
 argument_list|)
 decl_stmt|;
@@ -1464,7 +1464,7 @@ operator|/
 name|numNodes
 operator|)
 operator|*
-literal|0.05
+literal|0.90
 operator|)
 argument_list|)
 decl_stmt|;
