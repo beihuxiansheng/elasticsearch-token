@@ -665,7 +665,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Refresh request executed for {}. Force: [{}]."
+literal|"{} Refresh request executed. Force: [{}]."
 argument_list|,
 name|indexShard
 operator|.
