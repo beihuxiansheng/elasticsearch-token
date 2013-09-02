@@ -1873,7 +1873,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"primary shard [{}] is not yet active or we do not know that node it is assigned to [{}]. Scheduling a retry."
+literal|"primary shard [{}] is not yet active or we do not know the node it is assigned to [{}]. Scheduling a retry."
 argument_list|,
 name|shard
 operator|.

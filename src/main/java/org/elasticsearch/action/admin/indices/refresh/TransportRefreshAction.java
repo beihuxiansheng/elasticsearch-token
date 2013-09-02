@@ -661,6 +661,23 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Refresh request executed for {}. Force: [{}]."
+argument_list|,
+name|indexShard
+operator|.
+name|shardId
+argument_list|()
+argument_list|,
+name|request
+operator|.
+name|force
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|ShardRefreshResponse
