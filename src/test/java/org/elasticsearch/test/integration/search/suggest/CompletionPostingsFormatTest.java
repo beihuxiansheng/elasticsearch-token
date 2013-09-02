@@ -927,6 +927,10 @@ argument_list|,
 literal|true
 argument_list|,
 literal|true
+argument_list|,
+name|Integer
+operator|.
+name|MAX_VALUE
 argument_list|)
 argument_list|,
 operator|new
@@ -1439,6 +1443,10 @@ argument_list|,
 name|preserveSeparators
 argument_list|,
 name|preservePositionIncrements
+argument_list|,
+name|Integer
+operator|.
+name|MAX_VALUE
 argument_list|)
 decl_stmt|;
 name|Lookup
@@ -2419,6 +2427,10 @@ argument_list|,
 literal|true
 argument_list|,
 literal|true
+argument_list|,
+name|Integer
+operator|.
+name|MAX_VALUE
 argument_list|)
 argument_list|,
 operator|new
