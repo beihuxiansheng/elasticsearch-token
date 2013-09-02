@@ -1848,9 +1848,8 @@ literal|"test1"
 argument_list|)
 expr_stmt|;
 comment|//no problem if we try to close an index that's already in close state
-name|OpenIndexResponse
-name|openIndexResponse1
-init|=
+name|closeIndexResponse
+operator|=
 name|client
 operator|.
 name|admin
@@ -1859,7 +1858,7 @@ operator|.
 name|indices
 argument_list|()
 operator|.
-name|prepareOpen
+name|prepareClose
 argument_list|(
 literal|"test1"
 argument_list|)
@@ -1869,10 +1868,10 @@ argument_list|()
 operator|.
 name|actionGet
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 name|assertThat
 argument_list|(
-name|openIndexResponse1
+name|closeIndexResponse
 operator|.
 name|isAcknowledged
 argument_list|()
@@ -1883,7 +1882,7 @@ literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertIndexIsOpened
+name|assertIndexIsClosed
 argument_list|(
 literal|"test1"
 argument_list|)
