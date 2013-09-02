@@ -260,6 +260,22 @@ name|hamcrest
 operator|.
 name|ElasticsearchAssertions
 operator|.
+name|assertHitCount
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
 name|assertNoFailures
 import|;
 end_import
@@ -2134,7 +2150,7 @@ argument_list|()
 operator|.
 name|length
 operator|>
-literal|1
+literal|0
 condition|)
 block|{
 name|logger
@@ -2190,50 +2206,18 @@ operator|++
 control|)
 block|{
 name|CountResponse
-name|actionGet
+name|countResponse
 init|=
 name|iterationResults
 index|[
 name|i
 index|]
 decl_stmt|;
-name|assertNoFailures
+name|assertHitCount
 argument_list|(
-name|actionGet
-argument_list|)
-expr_stmt|;
-comment|//checking that we are not missing any shard
-name|assertThat
-argument_list|(
-name|actionGet
-operator|.
-name|getSuccessfulShards
-argument_list|()
+name|countResponse
 argument_list|,
-name|equalTo
-argument_list|(
-name|numberOfShards
-argument_list|)
-argument_list|)
-expr_stmt|;
-comment|//if it fails here it means that some shard is missing documents (not refreshed?)
-name|assertThat
-argument_list|(
-literal|"iteration: "
-operator|+
-name|i
-operator|+
-literal|" failed"
-argument_list|,
-name|actionGet
-operator|.
-name|getCount
-argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
 name|numberOfDocs
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
