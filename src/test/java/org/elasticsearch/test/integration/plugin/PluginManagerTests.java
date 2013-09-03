@@ -812,7 +812,7 @@ init|=
 operator|new
 name|HttpClient
 argument_list|(
-literal|"http://localhost:9200/"
+literal|"http://127.0.0.1:9200/"
 argument_list|)
 decl_stmt|;
 name|HttpClientResponse
