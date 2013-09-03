@@ -599,6 +599,13 @@ name|body
 init|=
 literal|null
 decl_stmt|;
+if|if
+condition|(
+name|errStream
+operator|!=
+literal|null
+condition|)
+block|{
 try|try
 block|{
 name|body
@@ -634,6 +641,7 @@ argument_list|,
 name|e1
 argument_list|)
 throw|;
+block|}
 block|}
 return|return
 operator|new
