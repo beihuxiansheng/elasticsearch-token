@@ -4059,12 +4059,6 @@ init|=
 literal|0
 decl_stmt|;
 comment|// current index in chars.
-name|int
-name|i
-init|=
-literal|0
-decl_stmt|;
-comment|// number of the current substring.
 for|for
 control|(
 init|;
@@ -5085,6 +5079,9 @@ name|String
 name|collectionToDelimitedString
 parameter_list|(
 name|Iterable
+argument_list|<
+name|?
+argument_list|>
 name|coll
 parameter_list|,
 name|String
@@ -5121,6 +5118,9 @@ name|String
 name|collectionToDelimitedString
 parameter_list|(
 name|Iterable
+argument_list|<
+name|?
+argument_list|>
 name|coll
 parameter_list|,
 name|String
@@ -5151,6 +5151,9 @@ literal|""
 return|;
 block|}
 name|Iterator
+argument_list|<
+name|?
+argument_list|>
 name|it
 init|=
 name|coll
@@ -5218,6 +5221,9 @@ name|String
 name|collectionToDelimitedString
 parameter_list|(
 name|Iterable
+argument_list|<
+name|?
+argument_list|>
 name|coll
 parameter_list|,
 name|String
@@ -5245,6 +5251,9 @@ name|String
 name|collectionToCommaDelimitedString
 parameter_list|(
 name|Iterable
+argument_list|<
+name|?
+argument_list|>
 name|coll
 parameter_list|)
 block|{
@@ -6004,7 +6013,7 @@ DECL|method|Strings
 specifier|private
 name|Strings
 parameter_list|()
-block|{      }
+block|{     }
 DECL|method|toUTF8Bytes
 specifier|public
 specifier|static
@@ -6101,6 +6110,7 @@ specifier|static
 class|class
 name|SecureRandomHolder
 block|{
+comment|// class loading is atomic - this is a lazy& safe singleton
 DECL|field|INSTANCE
 specifier|private
 specifier|static

@@ -6670,6 +6670,9 @@ throws|,
 name|ClassNotFoundException
 block|{
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|c
 init|=
 name|Class
