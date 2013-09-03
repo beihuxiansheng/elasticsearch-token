@@ -26,20 +26,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|cluster
@@ -315,15 +301,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-annotation|@
-name|LuceneTestCase
-operator|.
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"seems like unassigned is cleared so throttling for primaries is not properly working"
-argument_list|)
 annotation|@
 name|Test
 DECL|method|testPreferPrimaryAllocationOverReplicas
