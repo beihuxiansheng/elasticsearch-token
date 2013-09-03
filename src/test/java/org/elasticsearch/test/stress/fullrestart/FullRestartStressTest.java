@@ -106,7 +106,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|UUID
+name|Strings
 import|;
 end_import
 
@@ -279,6 +279,16 @@ operator|.
 name|io
 operator|.
 name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Random
 import|;
 end_import
 
@@ -600,6 +610,15 @@ name|long
 name|numberOfRounds
 init|=
 literal|0
+decl_stmt|;
+name|Random
+name|random
+init|=
+operator|new
+name|Random
+argument_list|(
+literal|0
+argument_list|)
 decl_stmt|;
 name|long
 name|testStart
@@ -1233,10 +1252,12 @@ name|sb
 operator|.
 name|append
 argument_list|(
-name|UUID
+name|Strings
 operator|.
 name|randomBase64UUID
-argument_list|()
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 operator|.
 name|append

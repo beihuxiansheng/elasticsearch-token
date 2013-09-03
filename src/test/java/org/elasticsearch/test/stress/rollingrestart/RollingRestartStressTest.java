@@ -162,7 +162,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|UUID
+name|Strings
 import|;
 end_import
 
@@ -357,6 +357,16 @@ operator|.
 name|util
 operator|.
 name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Random
 import|;
 end_import
 
@@ -761,6 +771,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|Random
+name|random
+init|=
+operator|new
+name|Random
+argument_list|(
+literal|0
+argument_list|)
+decl_stmt|;
 name|Node
 index|[]
 name|nodes
@@ -892,7 +911,9 @@ operator|++
 control|)
 block|{
 name|indexDoc
-argument_list|()
+argument_list|(
+name|random
+argument_list|)
 expr_stmt|;
 block|}
 name|logger
@@ -1898,6 +1919,15 @@ name|void
 name|run
 parameter_list|()
 block|{
+name|Random
+name|random
+init|=
+operator|new
+name|Random
+argument_list|(
+literal|0
+argument_list|)
+decl_stmt|;
 while|while
 condition|(
 literal|true
@@ -1917,7 +1947,9 @@ block|}
 try|try
 block|{
 name|indexDoc
-argument_list|()
+argument_list|(
+name|random
+argument_list|)
 expr_stmt|;
 name|Thread
 operator|.
@@ -1953,7 +1985,10 @@ DECL|method|indexDoc
 specifier|private
 name|void
 name|indexDoc
-parameter_list|()
+parameter_list|(
+name|Random
+name|random
+parameter_list|)
 throws|throws
 name|Exception
 block|{
@@ -2079,10 +2114,12 @@ name|sb
 operator|.
 name|append
 argument_list|(
-name|UUID
+name|Strings
 operator|.
 name|randomBase64UUID
-argument_list|()
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 operator|.
 name|append

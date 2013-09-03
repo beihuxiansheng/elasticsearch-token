@@ -432,9 +432,7 @@ name|settings
 operator|.
 name|ImmutableSettings
 operator|.
-name|Builder
-operator|.
-name|EMPTY_SETTINGS
+name|settingsBuilder
 import|;
 end_import
 
@@ -450,7 +448,9 @@ name|settings
 operator|.
 name|ImmutableSettings
 operator|.
-name|settingsBuilder
+name|Builder
+operator|.
+name|EMPTY_SETTINGS
 import|;
 end_import
 
@@ -1147,6 +1147,16 @@ argument_list|(
 literal|"name"
 argument_list|,
 name|name
+argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"discovery.id.seed"
+argument_list|,
+name|random
+operator|.
+name|nextLong
+argument_list|()
 argument_list|)
 operator|.
 name|build

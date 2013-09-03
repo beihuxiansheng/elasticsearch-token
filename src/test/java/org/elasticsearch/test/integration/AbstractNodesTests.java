@@ -583,6 +583,14 @@ argument_list|,
 name|id
 argument_list|)
 operator|.
+name|put
+argument_list|(
+literal|"discovery.id.seed"
+argument_list|,
+name|randomLong
+argument_list|()
+argument_list|)
+operator|.
 name|build
 argument_list|()
 decl_stmt|;

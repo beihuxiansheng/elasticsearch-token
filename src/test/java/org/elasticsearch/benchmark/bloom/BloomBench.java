@@ -50,7 +50,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|UUID
+name|Strings
 import|;
 end_import
 
@@ -98,6 +98,16 @@ name|BloomFilter
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|security
+operator|.
+name|SecureRandom
+import|;
+end_import
+
 begin_comment
 comment|/**  */
 end_comment
@@ -121,6 +131,13 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|SecureRandom
+name|random
+init|=
+operator|new
+name|SecureRandom
+argument_list|()
+decl_stmt|;
 specifier|final
 name|int
 name|ELEMENTS
@@ -212,10 +229,12 @@ init|=
 operator|new
 name|BytesRef
 argument_list|(
-name|UUID
+name|Strings
 operator|.
 name|randomBase64UUID
-argument_list|()
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|gFilter
@@ -264,10 +283,12 @@ init|=
 operator|new
 name|BytesRef
 argument_list|(
-name|UUID
+name|Strings
 operator|.
 name|randomBase64UUID
-argument_list|()
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
