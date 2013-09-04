@@ -2217,6 +2217,8 @@ block|{
 name|String
 name|name
 init|=
+literal|"client_"
+operator|+
 name|buildNodeName
 argument_list|()
 decl_stmt|;
