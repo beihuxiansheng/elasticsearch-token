@@ -2557,9 +2557,14 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Moving to second phase, based on results from: {}"
+literal|"Moving to second phase, based on results from: {} (cluster state version: {})"
 argument_list|,
 name|sb
+argument_list|,
+name|clusterState
+operator|.
+name|version
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
