@@ -246,7 +246,7 @@ specifier|public
 class|class
 name|CustomFieldQuery
 extends|extends
-name|XFieldQuery
+name|FieldQuery
 block|{
 DECL|field|multiTermQueryWrapperFilterQueryField
 specifier|private
@@ -313,7 +313,7 @@ parameter_list|,
 name|IndexReader
 name|reader
 parameter_list|,
-name|XFastVectorHighlighter
+name|FastVectorHighlighter
 name|highlighter
 parameter_list|)
 throws|throws

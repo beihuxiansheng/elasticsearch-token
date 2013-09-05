@@ -118,7 +118,7 @@ name|search
 operator|.
 name|vectorhighlight
 operator|.
-name|XFastVectorHighlighter
+name|FastVectorHighlighter
 import|;
 end_import
 
@@ -365,11 +365,11 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|XFastVectorHighlighter
+name|FastVectorHighlighter
 name|highlighter
 init|=
 operator|new
-name|XFastVectorHighlighter
+name|FastVectorHighlighter
 argument_list|()
 decl_stmt|;
 name|String
@@ -588,11 +588,11 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|XFastVectorHighlighter
+name|FastVectorHighlighter
 name|highlighter
 init|=
 operator|new
-name|XFastVectorHighlighter
+name|FastVectorHighlighter
 argument_list|()
 decl_stmt|;
 name|PrefixQuery
@@ -971,11 +971,11 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|XFastVectorHighlighter
+name|FastVectorHighlighter
 name|highlighter
 init|=
 operator|new
-name|XFastVectorHighlighter
+name|FastVectorHighlighter
 argument_list|()
 decl_stmt|;
 name|String
@@ -1184,11 +1184,11 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|XFastVectorHighlighter
+name|FastVectorHighlighter
 name|highlighter
 init|=
 operator|new
-name|XFastVectorHighlighter
+name|FastVectorHighlighter
 argument_list|()
 decl_stmt|;
 name|String
