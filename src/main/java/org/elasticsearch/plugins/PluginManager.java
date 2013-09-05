@@ -326,6 +326,20 @@ init|=
 literal|3
 decl_stmt|;
 block|}
+DECL|enum|OutputMode
+specifier|public
+enum|enum
+name|OutputMode
+block|{
+DECL|enum constant|DEFAULT
+DECL|enum constant|SILENT
+DECL|enum constant|VERBOSE
+name|DEFAULT
+block|,
+name|SILENT
+block|,
+name|VERBOSE
+block|}
 DECL|field|environment
 specifier|private
 specifier|final
@@ -337,6 +351,11 @@ specifier|private
 name|String
 name|url
 decl_stmt|;
+DECL|field|outputMode
+specifier|private
+name|OutputMode
+name|outputMode
+decl_stmt|;
 DECL|method|PluginManager
 specifier|public
 name|PluginManager
@@ -346,6 +365,9 @@ name|environment
 parameter_list|,
 name|String
 name|url
+parameter_list|,
+name|OutputMode
+name|outputMode
 parameter_list|)
 block|{
 name|this
@@ -359,6 +381,12 @@ operator|.
 name|url
 operator|=
 name|url
+expr_stmt|;
+name|this
+operator|.
+name|outputMode
+operator|=
+name|outputMode
 expr_stmt|;
 name|TrustManager
 index|[]
@@ -484,9 +512,6 @@ name|downloadAndExtract
 parameter_list|(
 name|String
 name|name
-parameter_list|,
-name|boolean
-name|verbose
 parameter_list|)
 throws|throws
 name|IOException
@@ -498,6 +523,49 @@ operator|new
 name|HttpDownloadHelper
 argument_list|()
 decl_stmt|;
+name|boolean
+name|downloaded
+init|=
+literal|false
+decl_stmt|;
+name|HttpDownloadHelper
+operator|.
+name|DownloadProgress
+name|progress
+decl_stmt|;
+if|if
+condition|(
+name|outputMode
+operator|==
+name|OutputMode
+operator|.
+name|SILENT
+condition|)
+block|{
+name|progress
+operator|=
+operator|new
+name|HttpDownloadHelper
+operator|.
+name|NullProgress
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+name|progress
+operator|=
+operator|new
+name|HttpDownloadHelper
+operator|.
+name|VerboseProgress
+argument_list|(
+name|System
+operator|.
+name|out
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!
@@ -512,7 +580,7 @@ condition|)
 block|{
 name|System
 operator|.
-name|out
+name|err
 operator|.
 name|println
 argument_list|()
@@ -591,11 +659,6 @@ argument_list|)
 throw|;
 block|}
 comment|// first, try directly from the URL provided
-name|boolean
-name|downloaded
-init|=
-literal|false
-decl_stmt|;
 if|if
 condition|(
 name|url
@@ -612,11 +675,7 @@ argument_list|(
 name|url
 argument_list|)
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
+name|log
 argument_list|(
 literal|"Trying "
 operator|+
@@ -638,15 +697,7 @@ name|pluginUrl
 argument_list|,
 name|pluginFile
 argument_list|,
-operator|new
-name|HttpDownloadHelper
-operator|.
-name|VerboseProgress
-argument_list|(
-name|System
-operator|.
-name|out
-argument_list|)
+name|progress
 argument_list|)
 expr_stmt|;
 name|downloaded
@@ -661,16 +712,7 @@ name|e
 parameter_list|)
 block|{
 comment|// ignore
-if|if
-condition|(
-name|verbose
-condition|)
-block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
+name|log
 argument_list|(
 literal|"Failed: "
 operator|+
@@ -682,7 +724,6 @@ name|e
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 if|if
@@ -703,11 +744,7 @@ name|urls
 argument_list|()
 control|)
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
+name|log
 argument_list|(
 literal|"Trying "
 operator|+
@@ -729,15 +766,7 @@ name|url
 argument_list|,
 name|pluginFile
 argument_list|,
-operator|new
-name|HttpDownloadHelper
-operator|.
-name|VerboseProgress
-argument_list|(
-name|System
-operator|.
-name|out
-argument_list|)
+name|progress
 argument_list|)
 expr_stmt|;
 name|downloaded
@@ -752,16 +781,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-if|if
-condition|(
-name|verbose
-condition|)
-block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
+name|debug
 argument_list|(
 literal|"Failed: "
 operator|+
@@ -773,7 +793,6 @@ name|e
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
@@ -930,11 +949,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|System
-operator|.
-name|out
-operator|.
-name|println
+name|log
 argument_list|(
 literal|"Installed "
 operator|+
@@ -955,11 +970,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|System
-operator|.
-name|err
-operator|.
-name|println
+name|log
 argument_list|(
 literal|"failed to extract plugin ["
 operator|+
@@ -1021,11 +1032,7 @@ literal|".java"
 argument_list|)
 condition|)
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
+name|debug
 argument_list|(
 literal|"Plugin installation assumed to be site plugin, but contains source code, aborting installation..."
 argument_list|)
@@ -1073,11 +1080,7 @@ argument_list|(
 name|environment
 argument_list|)
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
+name|debug
 argument_list|(
 literal|"Found bin, moving to "
 operator|+
@@ -1101,11 +1104,7 @@ argument_list|(
 name|toLocation
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
+name|debug
 argument_list|(
 literal|"Installed "
 operator|+
@@ -1152,11 +1151,7 @@ literal|".jar"
 argument_list|)
 condition|)
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
+name|log
 argument_list|(
 literal|"Identified as a _site plugin, moving to _site structure ..."
 argument_list|)
@@ -1209,11 +1204,7 @@ argument_list|(
 name|site
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
+name|debug
 argument_list|(
 literal|"Installed "
 operator|+
@@ -1272,6 +1263,16 @@ name|exists
 argument_list|()
 condition|)
 block|{
+name|debug
+argument_list|(
+literal|"Removing: "
+operator|+
+name|pluginToDelete
+operator|.
+name|getPath
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|FileSystemUtils
 operator|.
 name|deleteRecursively
@@ -1303,6 +1304,16 @@ name|exists
 argument_list|()
 condition|)
 block|{
+name|debug
+argument_list|(
+literal|"Removing: "
+operator|+
+name|pluginToDelete
+operator|.
+name|getPath
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|pluginToDelete
 operator|.
 name|delete
@@ -1331,6 +1342,16 @@ name|exists
 argument_list|()
 condition|)
 block|{
+name|debug
+argument_list|(
+literal|"Removing: "
+operator|+
+name|binLocation
+operator|.
+name|getPath
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|FileSystemUtils
 operator|.
 name|deleteRecursively
@@ -1348,11 +1369,7 @@ condition|(
 name|removed
 condition|)
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
+name|log
 argument_list|(
 literal|"Removed "
 operator|+
@@ -1362,11 +1379,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
+name|log
 argument_list|(
 literal|"Plugin "
 operator|+
@@ -1408,11 +1421,7 @@ init|=
 name|getListInstalledPlugins
 argument_list|()
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
+name|log
 argument_list|(
 literal|"Installed plugins:"
 argument_list|)
@@ -1430,11 +1439,7 @@ operator|==
 literal|0
 condition|)
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
+name|log
 argument_list|(
 literal|"    - No plugin detected in "
 operator|+
@@ -1467,11 +1472,7 @@ name|i
 operator|++
 control|)
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
+name|log
 argument_list|(
 literal|"    - "
 operator|+
@@ -1723,10 +1724,12 @@ name|url
 init|=
 literal|null
 decl_stmt|;
-name|boolean
-name|verbose
+name|OutputMode
+name|outputMode
 init|=
-literal|false
+name|OutputMode
+operator|.
+name|DEFAULT
 decl_stmt|;
 name|String
 name|pluginName
@@ -1833,7 +1836,7 @@ argument_list|(
 name|command
 argument_list|)
 operator|||
-literal|"--v"
+literal|"--verbose"
 operator|.
 name|equals
 argument_list|(
@@ -1855,9 +1858,50 @@ name|command
 argument_list|)
 condition|)
 block|{
-name|verbose
+name|outputMode
 operator|=
-literal|true
+name|OutputMode
+operator|.
+name|VERBOSE
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+literal|"-s"
+operator|.
+name|equals
+argument_list|(
+name|command
+argument_list|)
+operator|||
+literal|"--silent"
+operator|.
+name|equals
+argument_list|(
+name|command
+argument_list|)
+operator|||
+literal|"silent"
+operator|.
+name|equals
+argument_list|(
+name|command
+argument_list|)
+operator|||
+literal|"-silent"
+operator|.
+name|equals
+argument_list|(
+name|command
+argument_list|)
+condition|)
+block|{
+name|outputMode
+operator|=
+name|OutputMode
+operator|.
+name|SILENT
 expr_stmt|;
 block|}
 elseif|else
@@ -2091,6 +2135,8 @@ name|v2
 argument_list|()
 argument_list|,
 name|url
+argument_list|,
+name|outputMode
 argument_list|)
 decl_stmt|;
 switch|switch
@@ -2105,11 +2151,9 @@ name|INSTALL
 case|:
 try|try
 block|{
-name|System
+name|pluginManager
 operator|.
-name|out
-operator|.
-name|println
+name|log
 argument_list|(
 literal|"-> Installing "
 operator|+
@@ -2123,8 +2167,6 @@ operator|.
 name|downloadAndExtract
 argument_list|(
 name|pluginName
-argument_list|,
-name|verbose
 argument_list|)
 expr_stmt|;
 name|exitCode
@@ -2142,11 +2184,9 @@ name|exitCode
 operator|=
 name|EXIT_CODE_IO_ERROR
 expr_stmt|;
-name|System
+name|pluginManager
 operator|.
-name|out
-operator|.
-name|println
+name|log
 argument_list|(
 literal|"Failed to install "
 operator|+
@@ -2200,11 +2240,9 @@ name|REMOVE
 case|:
 try|try
 block|{
-name|System
+name|pluginManager
 operator|.
-name|out
-operator|.
-name|println
+name|log
 argument_list|(
 literal|"-> Removing "
 operator|+
@@ -2235,11 +2273,9 @@ name|exitCode
 operator|=
 name|EXIT_CODE_IO_ERROR
 expr_stmt|;
-name|System
+name|pluginManager
 operator|.
-name|out
-operator|.
-name|println
+name|log
 argument_list|(
 literal|"Failed to remove "
 operator|+
@@ -2332,11 +2368,9 @@ expr_stmt|;
 block|}
 break|break;
 default|default:
-name|System
+name|pluginManager
 operator|.
-name|out
-operator|.
-name|println
+name|log
 argument_list|(
 literal|"Unknown Action ["
 operator|+
@@ -2430,6 +2464,15 @@ name|out
 operator|.
 name|println
 argument_list|(
+literal|"    -s, --silent                      : Run in silent mode"
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
 literal|"    -h, --help                        : Prints this help message"
 argument_list|)
 expr_stmt|;
@@ -2511,6 +2554,60 @@ name|message
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+DECL|method|debug
+specifier|private
+name|void
+name|debug
+parameter_list|(
+name|String
+name|line
+parameter_list|)
+block|{
+if|if
+condition|(
+name|outputMode
+operator|==
+name|OutputMode
+operator|.
+name|VERBOSE
+condition|)
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+name|line
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|log
+specifier|private
+name|void
+name|log
+parameter_list|(
+name|String
+name|line
+parameter_list|)
+block|{
+if|if
+condition|(
+name|outputMode
+operator|!=
+name|OutputMode
+operator|.
+name|SILENT
+condition|)
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+name|line
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Helper class to extract properly user name, repository name, version and plugin name      * from plugin name given by a user.      */
 DECL|class|PluginHandle

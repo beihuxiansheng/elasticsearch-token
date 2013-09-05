@@ -298,7 +298,7 @@ name|org
 operator|.
 name|hamcrest
 operator|.
-name|Matchers
+name|CoreMatchers
 operator|.
 name|*
 import|;
@@ -639,6 +639,12 @@ name|v2
 argument_list|()
 argument_list|,
 name|pluginUrl
+argument_list|,
+name|PluginManager
+operator|.
+name|OutputMode
+operator|.
+name|SILENT
 argument_list|)
 return|;
 block|}
@@ -665,8 +671,6 @@ operator|.
 name|downloadAndExtract
 argument_list|(
 name|pluginName
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -1045,8 +1049,6 @@ operator|.
 name|downloadAndExtract
 argument_list|(
 literal|"plugin"
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|File
