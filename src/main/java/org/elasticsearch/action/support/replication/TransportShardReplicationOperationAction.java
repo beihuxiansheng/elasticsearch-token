@@ -2416,7 +2416,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"ShardRepOp: listener to cluster state added. Trying again"
+literal|"Listener to cluster state added. Trying to index again."
 argument_list|)
 expr_stmt|;
 if|if
@@ -2480,7 +2480,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"ShardRepOp: cluster changed (version {}). Trying again"
+literal|"Cluster changed (version {}). Trying to index again."
 argument_list|,
 name|event
 operator|.
@@ -2641,7 +2641,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"ShardRepOp: retry scheduling ignored as it was executed from an active cluster state listener"
+literal|"Retry scheduling ignored as it as we already have a listener in place."
 argument_list|)
 expr_stmt|;
 block|}
