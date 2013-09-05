@@ -823,6 +823,7 @@ name|SuggestionSearchContext
 name|suggest
 parameter_list|)
 function_decl|;
+comment|/**      * @return the rescore context or null if rescoring wasn't specified or isn't supported      */
 DECL|method|rescore
 specifier|public
 specifier|abstract

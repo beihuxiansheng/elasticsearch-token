@@ -548,18 +548,12 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// Don't use the context.query() since it might be rewritten, and we need to pass the non rewritten queries to
-comment|// let the highlighter handle MultiTerm ones
 name|Query
 name|query
 init|=
-name|context
+name|highlighterContext
 operator|.
-name|parsedQuery
-argument_list|()
-operator|.
-name|query
-argument_list|()
+name|highlightQuery
 decl_stmt|;
 name|QueryScorer
 name|queryScorer

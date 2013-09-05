@@ -198,18 +198,9 @@ name|Set
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|Math
-import|;
-end_import
-
 begin_class
 DECL|class|QueryRescorer
+specifier|public
 specifier|final
 class|class
 name|QueryRescorer
@@ -1166,6 +1157,7 @@ name|rescoreContext
 return|;
 block|}
 DECL|class|QueryRescoreContext
+specifier|public
 specifier|static
 class|class
 name|QueryRescoreContext
