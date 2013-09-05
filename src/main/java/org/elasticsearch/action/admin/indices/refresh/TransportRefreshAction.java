@@ -663,9 +663,9 @@ argument_list|)
 expr_stmt|;
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
-literal|"{} Refresh request executed. Force: [{}]."
+literal|"{} refresh request executed, force: [{}]"
 argument_list|,
 name|indexShard
 operator|.
