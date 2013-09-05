@@ -189,7 +189,7 @@ name|OrdinalsBuilder
 implements|implements
 name|Closeable
 block|{
-comment|/** Default acceptable overhead ratio. {@link OrdinalsBuilder} memory usage is mostly transient so it is likely a better trade-off to      *  trade memory for speed in order to resize less often. */
+comment|/**      * Default acceptable overhead ratio. {@link OrdinalsBuilder} memory usage is mostly transient so it is likely a better trade-off to      * trade memory for speed in order to resize less often.      */
 DECL|field|DEFAULT_ACCEPTABLE_OVERHEAD_RATIO
 specifier|public
 specifier|static
@@ -201,7 +201,7 @@ name|PackedInts
 operator|.
 name|FAST
 decl_stmt|;
-comment|/** The following structure is used to store ordinals. The idea is to store ords on levels of increasing sizes. Level 0 stores      * 1 value and 1 pointer to level 1. Level 1 stores 2 values and 1 pointer to level 2, ..., Level n stores 2**n values and      * 1 pointer to level n+1. If at some point an ordinal or a pointer has 0 as a value, this means that there are no remaining      * values. On the first level, ordinals.get(docId) is the first ordinal for docId or 0 if the document has no ordinals. On      * subsequent levels, the first 2^level slots are reserved and all have 0 as a value.      *<pre>      * Example for an index of 3 docs (O=ordinal, P = pointer)      * Level 0:      *   ordinals           [1] [4] [2]      *   nextLevelSlices    2  0  1      * Level 1:      *   ordinals           [0  0] [2  0] [3  4]      *   nextLevelSlices    0  0  1      * Level 2:      *   ordinals           [0  0  0  0] [5  0  0  0]      *   nextLevelSlices    0  0      *</pre>      * On level 0, all documents have an ordinal: 0 has 1, 1 has 4 and 2 has 2 as a first ordinal, this means that we need to read      * nextLevelEntries to get the index of their ordinals on the next level. The entry for document 1 is 0, meaning that we have      * already read all its ordinals. On the contrary 0 and 2 have more ordinals which are stored at indices 2 and 1. Let's continue      * with document 2: it has 2 more ordinals on level 1: 3 and 4 and its next level index is 1 meaning that there are remaining      * ordinals on the next level. On level 2 at index 1, we can read [5  0  0  0] meaning that 5 is an ordinal as well, but the      * fact that it is followed by zeros means that there are no more ordinals. In the end, document 2 has 2, 3, 4 and 5 as ordinals.      *      * In addition to these structures, there is another array which stores the current position (level + slice + offset in the slice)      * in order to be able to append data in constant time.      */
+comment|/**      * The following structure is used to store ordinals. The idea is to store ords on levels of increasing sizes. Level 0 stores      * 1 value and 1 pointer to level 1. Level 1 stores 2 values and 1 pointer to level 2, ..., Level n stores 2**n values and      * 1 pointer to level n+1. If at some point an ordinal or a pointer has 0 as a value, this means that there are no remaining      * values. On the first level, ordinals.get(docId) is the first ordinal for docId or 0 if the document has no ordinals. On      * subsequent levels, the first 2^level slots are reserved and all have 0 as a value.      *<pre>      * Example for an index of 3 docs (O=ordinal, P = pointer)      * Level 0:      *   ordinals           [1] [4] [2]      *   nextLevelSlices    2  0  1      * Level 1:      *   ordinals           [0  0] [2  0] [3  4]      *   nextLevelSlices    0  0  1      * Level 2:      *   ordinals           [0  0  0  0] [5  0  0  0]      *   nextLevelSlices    0  0      *</pre>      * On level 0, all documents have an ordinal: 0 has 1, 1 has 4 and 2 has 2 as a first ordinal, this means that we need to read      * nextLevelEntries to get the index of their ordinals on the next level. The entry for document 1 is 0, meaning that we have      * already read all its ordinals. On the contrary 0 and 2 have more ordinals which are stored at indices 2 and 1. Let's continue      * with document 2: it has 2 more ordinals on level 1: 3 and 4 and its next level index is 1 meaning that there are remaining      * ordinals on the next level. On level 2 at index 1, we can read [5  0  0  0] meaning that 5 is an ordinal as well, but the      * fact that it is followed by zeros means that there are no more ordinals. In the end, document 2 has 2, 3, 4 and 5 as ordinals.      *<p/>      * In addition to these structures, there is another array which stores the current position (level + slice + offset in the slice)      * in order to be able to append data in constant time.      */
 DECL|class|OrdinalsStore
 specifier|private
 specifier|static
@@ -219,7 +219,7 @@ literal|1
 operator|<<
 literal|12
 decl_stmt|;
-comment|/** Number of slots at<code>level</code> */
+comment|/**          * Number of slots at<code>level</code>          */
 DECL|method|numSlots
 specifier|private
 specifier|static
@@ -255,7 +255,7 @@ operator|-
 literal|1
 return|;
 block|}
-comment|/** Encode the position for the given level and offset. The idea is to encode the level using unary coding in the lower bits and          *  then the offset in the higher bits. */
+comment|/**          * Encode the position for the given level and offset. The idea is to encode the level using unary coding in the lower bits and          * then the offset in the higher bits.          */
 DECL|method|position
 specifier|private
 specifier|static
@@ -292,7 +292,7 @@ name|level
 operator|)
 return|;
 block|}
-comment|/** Decode the level from an encoded position. */
+comment|/**          * Decode the level from an encoded position.          */
 DECL|method|level
 specifier|private
 specifier|static
@@ -314,7 +314,7 @@ name|position
 argument_list|)
 return|;
 block|}
-comment|/** Decode the offset from the position. */
+comment|/**          * Decode the offset from the position.          */
 DECL|method|offset
 specifier|private
 specifier|static
@@ -334,7 +334,7 @@ operator|>>>
 name|level
 return|;
 block|}
-comment|/** Get the ID of the slice given an offset. */
+comment|/**          * Get the ID of the slice given an offset.          */
 DECL|method|sliceID
 specifier|private
 specifier|static
@@ -354,7 +354,7 @@ operator|>>>
 name|level
 return|;
 block|}
-comment|/** Compute the first offset of the given slice. */
+comment|/**          * Compute the first offset of the given slice.          */
 DECL|method|startOffset
 specifier|private
 specifier|static
@@ -374,7 +374,7 @@ operator|<<
 name|level
 return|;
 block|}
-comment|/** Compute the number of ordinals stored for a value given its current position. */
+comment|/**          * Compute the number of ordinals stored for a value given its current position.          */
 DECL|method|numOrdinals
 specifier|private
 specifier|static
@@ -547,7 +547,7 @@ argument_list|)
 expr_stmt|;
 comment|// reserve the 1st slice on every level
 block|}
-comment|/** Allocate a new slice and return its ID. */
+comment|/**          * Allocate a new slice and return its ID.          */
 DECL|method|newSlice
 specifier|private
 name|long
@@ -1414,7 +1414,7 @@ return|return
 name|spare
 return|;
 block|}
-comment|/** Return a {@link PackedInts.Reader} instance mapping every doc ID to its first ordinal if it exists and 0 otherwise. */
+comment|/**      * Return a {@link PackedInts.Reader} instance mapping every doc ID to its first ordinal if it exists and 0 otherwise.      */
 DECL|method|getFirstOrdinals
 specifier|public
 name|PackedInts
@@ -1452,7 +1452,7 @@ return|return
 name|currentOrd
 return|;
 block|}
-comment|/**      * Associates the given document id with the current ordinal.       */
+comment|/**      * Associates the given document id with the current ordinal.      */
 DECL|method|addDoc
 specifier|public
 name|OrdinalsBuilder
@@ -1564,7 +1564,7 @@ return|return
 name|totalNumOrds
 return|;
 block|}
-comment|/**      * Returns the number of distinct ordinals in this builder.        */
+comment|/**      * Returns the number of distinct ordinals in this builder.      */
 DECL|method|getNumOrds
 specifier|public
 name|long
@@ -1645,7 +1645,7 @@ return|return
 name|bitSet
 return|;
 block|}
-comment|/**      * Builds an {@link Ordinals} instance from the builders current state.       */
+comment|/**      * Builds an {@link Ordinals} instance from the builders current state.      */
 DECL|method|build
 specifier|public
 name|Ordinals
@@ -1667,7 +1667,7 @@ literal|"acceptable_overhead_ratio"
 argument_list|,
 name|PackedInts
 operator|.
-name|DEFAULT
+name|FASTEST
 argument_list|)
 decl_stmt|;
 if|if
@@ -1686,6 +1686,8 @@ name|numDocsWithValue
 argument_list|,
 name|getNumOrds
 argument_list|()
+argument_list|,
+name|acceptableOverheadRatio
 argument_list|)
 condition|)
 block|{
@@ -1695,6 +1697,8 @@ operator|new
 name|MultiOrdinals
 argument_list|(
 name|this
+argument_list|,
+name|acceptableOverheadRatio
 argument_list|)
 return|;
 block|}
@@ -1722,7 +1726,7 @@ return|return
 name|maxDoc
 return|;
 block|}
-comment|/**      * A {@link TermsEnum} that iterates only full precision prefix coded 64 bit values.      * @see #buildFromTerms(TermsEnum, Bits)      */
+comment|/**      * A {@link TermsEnum} that iterates only full precision prefix coded 64 bit values.      *      * @see #buildFromTerms(TermsEnum, Bits)      */
 DECL|method|wrapNumeric64Bit
 specifier|public
 specifier|static
@@ -1777,7 +1781,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * A {@link TermsEnum} that iterates only full precision prefix coded 32 bit values.      * @see #buildFromTerms(TermsEnum, Bits)      */
+comment|/**      * A {@link TermsEnum} that iterates only full precision prefix coded 32 bit values.      *      * @see #buildFromTerms(TermsEnum, Bits)      */
 DECL|method|wrapNumeric32Bit
 specifier|public
 specifier|static
