@@ -854,7 +854,9 @@ argument_list|,
 name|EsExecutors
 operator|.
 name|boundedNumberOfProcessors
-argument_list|()
+argument_list|(
+name|settings
+argument_list|)
 operator|*
 literal|2
 argument_list|)

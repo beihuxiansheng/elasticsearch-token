@@ -82,10 +82,19 @@ specifier|public
 specifier|static
 name|int
 name|boundedNumberOfProcessors
-parameter_list|()
+parameter_list|(
+name|Settings
+name|settings
+parameter_list|)
 block|{
 comment|/* This relates to issues where machines with large number of cores          * ie.>= 48 create too many threads and run into OOM see #3478          * We just use an 32 core upper-bound here to not stress the system          * too much with too many created threads */
 return|return
+name|settings
+operator|.
+name|getAsInt
+argument_list|(
+literal|"processors"
+argument_list|,
 name|Math
 operator|.
 name|min
@@ -99,6 +108,7 @@ argument_list|()
 operator|.
 name|availableProcessors
 argument_list|()
+argument_list|)
 argument_list|)
 return|;
 block|}

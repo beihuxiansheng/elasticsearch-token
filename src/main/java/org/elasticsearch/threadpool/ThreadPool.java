@@ -732,7 +732,9 @@ init|=
 name|EsExecutors
 operator|.
 name|boundedNumberOfProcessors
-argument_list|()
+argument_list|(
+name|settings
+argument_list|)
 decl_stmt|;
 name|int
 name|halfProcMaxAt5
@@ -2595,7 +2597,9 @@ argument_list|,
 name|EsExecutors
 operator|.
 name|boundedNumberOfProcessors
-argument_list|()
+argument_list|(
+name|settings
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|SizeValue
@@ -2960,7 +2964,9 @@ argument_list|,
 name|EsExecutors
 operator|.
 name|boundedNumberOfProcessors
-argument_list|()
+argument_list|(
+name|settings
+argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
