@@ -4,7 +4,7 @@ comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more cont
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.test.integration.search.matchedfilters
+DECL|package|org.elasticsearch.test.integration.search.matchedqueries
 package|package
 name|org
 operator|.
@@ -16,7 +16,7 @@ name|integration
 operator|.
 name|search
 operator|.
-name|matchedfilters
+name|matchedqueries
 package|;
 end_package
 

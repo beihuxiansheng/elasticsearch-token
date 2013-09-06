@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search.fetch.matchedfilters
+DECL|package|org.elasticsearch.search.fetch.matchedqueries
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|search
 operator|.
 name|fetch
 operator|.
-name|matchedfilters
+name|matchedqueries
 package|;
 end_package
 
@@ -344,7 +344,7 @@ name|List
 argument_list|<
 name|String
 argument_list|>
-name|matchedFilters
+name|matchedQueries
 init|=
 name|Lists
 operator|.
@@ -365,7 +365,7 @@ operator|.
 name|namedFilters
 argument_list|()
 argument_list|,
-name|matchedFilters
+name|matchedQueries
 argument_list|)
 expr_stmt|;
 if|if
@@ -390,7 +390,7 @@ operator|.
 name|namedFilters
 argument_list|()
 argument_list|,
-name|matchedFilters
+name|matchedQueries
 argument_list|)
 expr_stmt|;
 block|}
@@ -401,14 +401,14 @@ argument_list|()
 operator|.
 name|matchedQueries
 argument_list|(
-name|matchedFilters
+name|matchedQueries
 operator|.
 name|toArray
 argument_list|(
 operator|new
 name|String
 index|[
-name|matchedFilters
+name|matchedQueries
 operator|.
 name|size
 argument_list|()
@@ -431,13 +431,13 @@ name|String
 argument_list|,
 name|Filter
 argument_list|>
-name|namedFilters
+name|namedFiltersAndQueries
 parameter_list|,
 name|List
 argument_list|<
 name|String
 argument_list|>
-name|matchedFilters
+name|matchedQueries
 parameter_list|)
 block|{
 for|for
@@ -452,7 +452,7 @@ name|Filter
 argument_list|>
 name|entry
 range|:
-name|namedFilters
+name|namedFiltersAndQueries
 operator|.
 name|entrySet
 argument_list|()
@@ -531,7 +531,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|matchedFilters
+name|matchedQueries
 operator|.
 name|add
 argument_list|(
@@ -575,7 +575,7 @@ name|docId
 argument_list|()
 condition|)
 block|{
-name|matchedFilters
+name|matchedQueries
 operator|.
 name|add
 argument_list|(

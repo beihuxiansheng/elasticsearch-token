@@ -182,7 +182,7 @@ name|search
 operator|.
 name|fetch
 operator|.
-name|matchedfilters
+name|matchedqueries
 operator|.
 name|MatchedQueriesFetchSubPhase
 import|;

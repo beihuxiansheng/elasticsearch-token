@@ -326,32 +326,14 @@ index|[]
 name|getSortValues
 parameter_list|()
 function_decl|;
-comment|/**      * @deprecated In favor for {@link #matchedQueries()}.      */
-annotation|@
-name|Deprecated
-DECL|method|matchedFilters
-name|String
-index|[]
-name|matchedFilters
-parameter_list|()
-function_decl|;
-comment|/**      * @deprecated In favor for {@link #getMatchedQueries()}.      */
-annotation|@
-name|Deprecated
-DECL|method|getMatchedFilters
-name|String
-index|[]
-name|getMatchedFilters
-parameter_list|()
-function_decl|;
-comment|/**      * The set of query and filter names the query matched. Mainly makes sense for compound filters and queries.      */
+comment|/**      * The set of query and filter names the query matched with. Mainly makes sense for compound filters and queries.      */
 DECL|method|matchedQueries
 name|String
 index|[]
 name|matchedQueries
 parameter_list|()
 function_decl|;
-comment|/**      * The set of query and filter names the query matched. Mainly makes sense for compound filters and queries.      */
+comment|/**      * The set of query and filter names the query matched with. Mainly makes sense for compound filters and queries.      */
 DECL|method|getMatchedQueries
 name|String
 index|[]
