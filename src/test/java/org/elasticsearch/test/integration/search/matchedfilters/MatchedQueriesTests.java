@@ -175,19 +175,19 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|MatchedFiltersTests
+DECL|class|MatchedQueriesTests
 specifier|public
 class|class
-name|MatchedFiltersTests
+name|MatchedQueriesTests
 extends|extends
 name|AbstractSharedClusterTest
 block|{
 annotation|@
 name|Test
-DECL|method|simpleMatchedFilterFromFilteredQuery
+DECL|method|simpleMatchedQueryFromFilteredQuery
 specifier|public
 name|void
-name|simpleMatchedFilterFromFilteredQuery
+name|simpleMatchedQueryFromFilteredQuery
 parameter_list|()
 throws|throws
 name|Exception
@@ -506,7 +506,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedFilters
+name|matchedQueries
 argument_list|()
 operator|.
 name|length
@@ -521,7 +521,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedFilters
+name|matchedQueries
 argument_list|()
 argument_list|,
 name|hasItemInArray
@@ -549,7 +549,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedFilters
+name|matchedQueries
 argument_list|()
 operator|.
 name|length
@@ -564,7 +564,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedFilters
+name|matchedQueries
 argument_list|()
 argument_list|,
 name|hasItemInArray
@@ -703,7 +703,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedFilters
+name|matchedQueries
 argument_list|()
 operator|.
 name|length
@@ -718,7 +718,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedFilters
+name|matchedQueries
 argument_list|()
 argument_list|,
 name|hasItemInArray
@@ -746,7 +746,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedFilters
+name|matchedQueries
 argument_list|()
 operator|.
 name|length
@@ -761,7 +761,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedFilters
+name|matchedQueries
 argument_list|()
 argument_list|,
 name|hasItemInArray
@@ -788,10 +788,10 @@ block|}
 block|}
 annotation|@
 name|Test
-DECL|method|simpleMatchedFilterFromTopLevelFilter
+DECL|method|simpleMatchedQueryFromTopLevelFilter
 specifier|public
 name|void
-name|simpleMatchedFilterFromTopLevelFilter
+name|simpleMatchedQueryFromTopLevelFilter
 parameter_list|()
 throws|throws
 name|Exception
@@ -1080,7 +1080,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedFilters
+name|matchedQueries
 argument_list|()
 operator|.
 name|length
@@ -1095,7 +1095,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedFilters
+name|matchedQueries
 argument_list|()
 argument_list|,
 name|hasItemInArray
@@ -1108,7 +1108,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedFilters
+name|matchedQueries
 argument_list|()
 argument_list|,
 name|hasItemInArray
@@ -1146,7 +1146,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedFilters
+name|matchedQueries
 argument_list|()
 operator|.
 name|length
@@ -1161,7 +1161,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedFilters
+name|matchedQueries
 argument_list|()
 argument_list|,
 name|hasItemInArray
@@ -1293,7 +1293,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedFilters
+name|matchedQueries
 argument_list|()
 operator|.
 name|length
@@ -1308,7 +1308,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedFilters
+name|matchedQueries
 argument_list|()
 argument_list|,
 name|hasItemInArray
@@ -1321,7 +1321,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedFilters
+name|matchedQueries
 argument_list|()
 argument_list|,
 name|hasItemInArray
@@ -1359,7 +1359,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedFilters
+name|matchedQueries
 argument_list|()
 operator|.
 name|length
@@ -1374,7 +1374,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedFilters
+name|matchedQueries
 argument_list|()
 argument_list|,
 name|hasItemInArray
@@ -1401,10 +1401,10 @@ block|}
 block|}
 annotation|@
 name|Test
-DECL|method|simpleMatchedFilterFromTopLevelFilterAndFilteredQuery
+DECL|method|simpleMatchedQueryFromTopLevelFilterAndFilteredQuery
 specifier|public
 name|void
-name|simpleMatchedFilterFromTopLevelFilterAndFilteredQuery
+name|simpleMatchedQueryFromTopLevelFilterAndFilteredQuery
 parameter_list|()
 throws|throws
 name|Exception
@@ -1731,7 +1731,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedFilters
+name|matchedQueries
 argument_list|()
 operator|.
 name|length
@@ -1746,7 +1746,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedFilters
+name|matchedQueries
 argument_list|()
 argument_list|,
 name|hasItemInArray
@@ -1759,7 +1759,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedFilters
+name|matchedQueries
 argument_list|()
 argument_list|,
 name|hasItemInArray
@@ -1903,7 +1903,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedFilters
+name|matchedQueries
 argument_list|()
 operator|.
 name|length
@@ -1918,7 +1918,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedFilters
+name|matchedQueries
 argument_list|()
 argument_list|,
 name|hasItemInArray
@@ -1931,7 +1931,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedFilters
+name|matchedQueries
 argument_list|()
 argument_list|,
 name|hasItemInArray

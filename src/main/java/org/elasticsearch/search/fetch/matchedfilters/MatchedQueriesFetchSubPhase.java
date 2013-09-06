@@ -217,10 +217,10 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|MatchedFiltersFetchSubPhase
+DECL|class|MatchedQueriesFetchSubPhase
 specifier|public
 class|class
-name|MatchedFiltersFetchSubPhase
+name|MatchedQueriesFetchSubPhase
 implements|implements
 name|FetchSubPhase
 block|{
@@ -353,7 +353,7 @@ argument_list|(
 literal|2
 argument_list|)
 decl_stmt|;
-name|addMatchedFilters
+name|addMatchedQueries
 argument_list|(
 name|hitContext
 argument_list|,
@@ -378,7 +378,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|addMatchedFilters
+name|addMatchedQueries
 argument_list|(
 name|hitContext
 argument_list|,
@@ -399,7 +399,7 @@ operator|.
 name|hit
 argument_list|()
 operator|.
-name|matchedFilters
+name|matchedQueries
 argument_list|(
 name|matchedFilters
 operator|.
@@ -417,10 +417,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|addMatchedFilters
+DECL|method|addMatchedQueries
 specifier|private
 name|void
-name|addMatchedFilters
+name|addMatchedQueries
 parameter_list|(
 name|HitContext
 name|hitContext

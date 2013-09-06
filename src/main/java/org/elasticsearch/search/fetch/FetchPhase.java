@@ -222,7 +222,7 @@ name|fetch
 operator|.
 name|matchedfilters
 operator|.
-name|MatchedFiltersFetchSubPhase
+name|MatchedQueriesFetchSubPhase
 import|;
 end_import
 
@@ -446,8 +446,8 @@ parameter_list|,
 name|PartialFieldsFetchSubPhase
 name|partialFieldsPhase
 parameter_list|,
-name|MatchedFiltersFetchSubPhase
-name|matchFiltersPhase
+name|MatchedQueriesFetchSubPhase
+name|matchedQueriesPhase
 parameter_list|,
 name|ExplainFetchSubPhase
 name|explainPhase
@@ -471,7 +471,7 @@ name|scriptFieldsPhase
 block|,
 name|partialFieldsPhase
 block|,
-name|matchFiltersPhase
+name|matchedQueriesPhase
 block|,
 name|explainPhase
 block|,

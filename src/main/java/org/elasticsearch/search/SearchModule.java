@@ -184,7 +184,7 @@ name|fetch
 operator|.
 name|matchedfilters
 operator|.
-name|MatchedFiltersFetchSubPhase
+name|MatchedQueriesFetchSubPhase
 import|;
 end_import
 
@@ -472,7 +472,7 @@ argument_list|()
 expr_stmt|;
 name|bind
 argument_list|(
-name|MatchedFiltersFetchSubPhase
+name|MatchedQueriesFetchSubPhase
 operator|.
 name|class
 argument_list|)
