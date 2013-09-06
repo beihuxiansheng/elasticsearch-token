@@ -762,6 +762,15 @@ name|id
 operator|=
 name|id
 expr_stmt|;
+assert|assert
+name|fieldSettings
+operator|.
+name|length
+operator|==
+name|fieldContent
+operator|.
+name|length
+assert|;
 name|this
 operator|.
 name|fieldSettings
