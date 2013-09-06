@@ -1700,11 +1700,11 @@ argument_list|(
 literal|"sort"
 argument_list|)
 decl_stmt|;
-DECL|field|MATCH_FILTERS
+DECL|field|MATCHED_QUERIES
 specifier|static
 specifier|final
 name|XContentBuilderString
-name|MATCH_FILTERS
+name|MATCHED_QUERIES
 init|=
 operator|new
 name|XContentBuilderString
@@ -2235,7 +2235,7 @@ name|startArray
 argument_list|(
 name|Fields
 operator|.
-name|MATCH_FILTERS
+name|MATCHED_QUERIES
 argument_list|)
 expr_stmt|;
 for|for
