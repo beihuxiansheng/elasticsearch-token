@@ -5269,7 +5269,7 @@ condition|)
 block|{
 name|logger
 operator|.
-name|warn
+name|trace
 argument_list|(
 literal|"using stable discover node UUIDs with seed: [{}]"
 argument_list|,
