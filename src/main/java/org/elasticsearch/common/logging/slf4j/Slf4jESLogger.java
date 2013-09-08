@@ -100,6 +100,19 @@ comment|// can't set it in slf4j...
 block|}
 annotation|@
 name|Override
+DECL|method|getLevel
+specifier|public
+name|String
+name|getLevel
+parameter_list|()
+block|{
+comment|// can't get it in slf4j...
+return|return
+literal|null
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|getName
 specifier|public
 name|String

@@ -26,6 +26,20 @@ name|randomizedtesting
 operator|.
 name|annotations
 operator|.
+name|Listeners
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|randomizedtesting
+operator|.
+name|annotations
+operator|.
 name|ThreadLeakFilters
 import|;
 end_import
@@ -146,6 +160,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|junit
+operator|.
+name|listerners
+operator|.
+name|LoggingListener
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -219,6 +247,13 @@ operator|.
 name|HOUR
 argument_list|)
 comment|// timeout the suite after 1h and fail the test.
+annotation|@
+name|Listeners
+argument_list|(
+name|LoggingListener
+operator|.
+name|class
+argument_list|)
 DECL|class|ElasticsearchTestCase
 specifier|public
 specifier|abstract

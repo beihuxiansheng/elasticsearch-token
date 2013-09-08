@@ -36,6 +36,7 @@ name|String
 name|getName
 parameter_list|()
 function_decl|;
+comment|/**      * Allows to set the logger level      * If the new level is null, the logger will inherit its level      * from its nearest ancestor with a specific (non-null) level value.      * @param level the new level      */
 DECL|method|setLevel
 name|void
 name|setLevel
@@ -43,6 +44,12 @@ parameter_list|(
 name|String
 name|level
 parameter_list|)
+function_decl|;
+comment|/**      * Returns the current logger level      * If the level is null, it means that the logger inherits its level      * from its nearest ancestor with a specific (non-null) level value.      * @return the logger level      */
+DECL|method|getLevel
+name|String
+name|getLevel
+parameter_list|()
 function_decl|;
 comment|/**      * Returns {@code true} if a TRACE level message is logged.      */
 DECL|method|isTraceEnabled
