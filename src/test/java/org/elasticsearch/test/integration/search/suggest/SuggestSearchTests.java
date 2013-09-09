@@ -6104,7 +6104,7 @@ argument_list|()
 expr_stmt|;
 name|index
 argument_list|(
-literal|"text"
+literal|"test"
 argument_list|,
 literal|"type2"
 argument_list|,
@@ -6117,7 +6117,7 @@ argument_list|)
 expr_stmt|;
 name|index
 argument_list|(
-literal|"text"
+literal|"test"
 argument_list|,
 literal|"type2"
 argument_list|,
@@ -6130,7 +6130,7 @@ argument_list|)
 expr_stmt|;
 name|index
 argument_list|(
-literal|"text"
+literal|"test"
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -6139,6 +6139,19 @@ argument_list|,
 literal|"name"
 argument_list|,
 literal|"Just testing the suggestions api"
+argument_list|)
+expr_stmt|;
+name|index
+argument_list|(
+literal|"test"
+argument_list|,
+literal|"type1"
+argument_list|,
+literal|"2"
+argument_list|,
+literal|"name"
+argument_list|,
+literal|"An other title about equal length"
 argument_list|)
 expr_stmt|;
 name|refresh
