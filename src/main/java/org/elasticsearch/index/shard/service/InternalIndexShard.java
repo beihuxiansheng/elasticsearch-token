@@ -3043,8 +3043,6 @@ operator|.
 name|Searcher
 name|searcher
 init|=
-name|engine
-operator|.
 name|searcher
 argument_list|()
 decl_stmt|;
@@ -3091,7 +3089,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Can not docStats completion stats from engine shard state [{}]"
+literal|"Can not build 'doc stats' from engine shard state [{}]"
 argument_list|,
 name|e
 argument_list|,
@@ -3189,7 +3187,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Can not build store stats from engine shard state [{}]"
+literal|"Can not build 'store stats' from engine shard state [{}]"
 argument_list|,
 name|e
 argument_list|,
@@ -3333,10 +3331,8 @@ specifier|final
 name|Engine
 operator|.
 name|Searcher
-name|searcher
+name|currentSearcher
 init|=
-name|engine
-operator|.
 name|searcher
 argument_list|()
 decl_stmt|;
@@ -3385,8 +3381,7 @@ name|completionPostingsFormat
 operator|.
 name|completionStats
 argument_list|(
-name|searcher
-argument_list|()
+name|currentSearcher
 operator|.
 name|reader
 argument_list|()
@@ -3399,7 +3394,7 @@ block|}
 block|}
 finally|finally
 block|{
-name|searcher
+name|currentSearcher
 operator|.
 name|release
 argument_list|()
@@ -3416,7 +3411,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Can not build completion stats from engine shard state [{}]"
+literal|"Can not build 'completion stats' from engine shard state [{}]"
 argument_list|,
 name|e
 argument_list|,
