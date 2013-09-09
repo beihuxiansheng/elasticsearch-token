@@ -4,7 +4,7 @@ comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more cont
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.store.fs
+DECL|package|org.elasticsearch.index.store.mock
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|index
 operator|.
 name|store
 operator|.
-name|fs
+name|mock
 package|;
 end_package
 
@@ -92,9 +92,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|settings
+name|store
 operator|.
-name|IndexSettings
+name|DirectoryService
 import|;
 end_import
 
@@ -108,7 +108,9 @@ name|index
 operator|.
 name|store
 operator|.
-name|DirectoryService
+name|fs
+operator|.
+name|FsIndexStore
 import|;
 end_import
 
@@ -126,30 +128,23 @@ name|IndicesStore
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
-DECL|class|SimpleFsIndexStore
+DECL|class|MockFSIndexStore
 specifier|public
-specifier|final
 class|class
-name|SimpleFsIndexStore
+name|MockFSIndexStore
 extends|extends
 name|FsIndexStore
 block|{
 annotation|@
 name|Inject
-DECL|method|SimpleFsIndexStore
+DECL|method|MockFSIndexStore
 specifier|public
-name|SimpleFsIndexStore
+name|MockFSIndexStore
 parameter_list|(
 name|Index
 name|index
 parameter_list|,
-annotation|@
-name|IndexSettings
 name|Settings
 name|indexSettings
 parameter_list|,
@@ -191,7 +186,7 @@ name|shardDirectory
 parameter_list|()
 block|{
 return|return
-name|SimpleFsDirectoryService
+name|MockFSDirectoryService
 operator|.
 name|class
 return|;

@@ -133,6 +133,7 @@ end_comment
 begin_class
 DECL|class|MmapFsIndexStore
 specifier|public
+specifier|final
 class|class
 name|MmapFsIndexStore
 extends|extends

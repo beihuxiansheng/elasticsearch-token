@@ -876,12 +876,6 @@ specifier|final
 name|Settings
 name|indexSettings
 decl_stmt|;
-DECL|field|nodeEnv
-specifier|private
-specifier|final
-name|NodeEnvironment
-name|nodeEnv
-decl_stmt|;
 DECL|field|threadPool
 specifier|private
 specifier|final
@@ -1075,12 +1069,6 @@ operator|.
 name|injector
 operator|=
 name|injector
-expr_stmt|;
-name|this
-operator|.
-name|nodeEnv
-operator|=
-name|nodeEnv
 expr_stmt|;
 name|this
 operator|.

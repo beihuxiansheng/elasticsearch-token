@@ -517,6 +517,8 @@ operator|.
 name|actionGet
 argument_list|()
 decl_stmt|;
+try|try
+block|{
 name|assertThat
 argument_list|(
 name|searchResponse
@@ -672,6 +674,18 @@ name|ids
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
+name|clearScroll
+argument_list|(
+name|searchResponse
+operator|.
+name|getScrollId
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class

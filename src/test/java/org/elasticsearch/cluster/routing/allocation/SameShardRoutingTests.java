@@ -20,6 +20,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ElasticsearchTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|cluster
 operator|.
 name|ClusterState
@@ -252,22 +262,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|ImmutableSettings
-operator|.
-name|settingsBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|cluster
 operator|.
 name|routing
@@ -284,11 +278,15 @@ begin_import
 import|import static
 name|org
 operator|.
-name|hamcrest
+name|elasticsearch
 operator|.
-name|MatcherAssert
+name|common
 operator|.
-name|assertThat
+name|settings
+operator|.
+name|ImmutableSettings
+operator|.
+name|settingsBuilder
 import|;
 end_import
 
@@ -313,6 +311,8 @@ DECL|class|SameShardRoutingTests
 specifier|public
 class|class
 name|SameShardRoutingTests
+extends|extends
+name|ElasticsearchTestCase
 block|{
 DECL|field|logger
 specifier|private

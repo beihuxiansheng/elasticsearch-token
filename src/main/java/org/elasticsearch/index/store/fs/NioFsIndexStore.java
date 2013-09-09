@@ -133,6 +133,7 @@ end_comment
 begin_class
 DECL|class|NioFsIndexStore
 specifier|public
+specifier|final
 class|class
 name|NioFsIndexStore
 extends|extends
