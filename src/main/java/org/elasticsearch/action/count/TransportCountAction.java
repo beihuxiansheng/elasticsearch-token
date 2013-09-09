@@ -1067,7 +1067,7 @@ name|shardTarget
 argument_list|,
 name|indexShard
 operator|.
-name|searcher
+name|acquireSearcher
 argument_list|()
 argument_list|,
 name|indexService

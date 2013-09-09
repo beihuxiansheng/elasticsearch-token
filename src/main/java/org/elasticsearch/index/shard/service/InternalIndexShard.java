@@ -3043,7 +3043,7 @@ operator|.
 name|Searcher
 name|searcher
 init|=
-name|searcher
+name|acquireSearcher
 argument_list|()
 decl_stmt|;
 try|try
@@ -3333,7 +3333,7 @@ operator|.
 name|Searcher
 name|currentSearcher
 init|=
-name|searcher
+name|acquireSearcher
 argument_list|()
 decl_stmt|;
 try|try
@@ -3636,12 +3636,12 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|searcher
+DECL|method|acquireSearcher
 specifier|public
 name|Engine
 operator|.
 name|Searcher
-name|searcher
+name|acquireSearcher
 parameter_list|()
 block|{
 name|readAllowed

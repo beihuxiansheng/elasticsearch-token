@@ -3192,7 +3192,7 @@ literal|null
 condition|?
 name|indexShard
 operator|.
-name|searcher
+name|acquireSearcher
 argument_list|()
 else|:
 name|searcher

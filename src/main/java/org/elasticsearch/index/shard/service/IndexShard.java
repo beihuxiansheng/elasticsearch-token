@@ -835,11 +835,11 @@ parameter_list|)
 throws|throws
 name|EngineException
 function_decl|;
-DECL|method|searcher
+DECL|method|acquireSearcher
 name|Engine
 operator|.
 name|Searcher
-name|searcher
+name|acquireSearcher
 parameter_list|()
 function_decl|;
 comment|/**      * Returns<tt>true</tt> if this shard can ignore a recovery attempt made to it (since the already doing/done it)      */

@@ -1475,7 +1475,7 @@ name|searcher
 init|=
 name|shard
 operator|.
-name|searcher
+name|acquireSearcher
 argument_list|()
 decl_stmt|;
 try|try

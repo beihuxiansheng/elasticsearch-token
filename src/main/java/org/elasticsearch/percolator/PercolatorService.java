@@ -2836,7 +2836,7 @@ operator|.
 name|indexShard
 argument_list|()
 operator|.
-name|searcher
+name|acquireSearcher
 argument_list|()
 decl_stmt|;
 try|try
@@ -3563,7 +3563,7 @@ operator|.
 name|indexShard
 argument_list|()
 operator|.
-name|searcher
+name|acquireSearcher
 argument_list|()
 decl_stmt|;
 try|try
@@ -3776,7 +3776,7 @@ operator|.
 name|indexShard
 argument_list|()
 operator|.
-name|searcher
+name|acquireSearcher
 argument_list|()
 decl_stmt|;
 try|try
@@ -4579,7 +4579,7 @@ operator|.
 name|indexShard
 argument_list|()
 operator|.
-name|searcher
+name|acquireSearcher
 argument_list|()
 decl_stmt|;
 try|try

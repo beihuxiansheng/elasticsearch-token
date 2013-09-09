@@ -1117,7 +1117,7 @@ name|searcher
 init|=
 name|shardToPurge
 operator|.
-name|searcher
+name|acquireSearcher
 argument_list|()
 decl_stmt|;
 try|try

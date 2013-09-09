@@ -355,7 +355,7 @@ name|searcher
 init|=
 name|indexShard
 operator|.
-name|searcher
+name|acquireSearcher
 argument_list|()
 decl_stmt|;
 name|IndexReader
