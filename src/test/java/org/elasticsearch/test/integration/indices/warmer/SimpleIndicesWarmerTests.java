@@ -4,7 +4,7 @@ comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more cont
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.test.integration.indices.wamer
+DECL|package|org.elasticsearch.test.integration.indices.warmer
 package|package
 name|org
 operator|.
@@ -16,7 +16,7 @@ name|integration
 operator|.
 name|indices
 operator|.
-name|wamer
+name|warmer
 package|;
 end_package
 
