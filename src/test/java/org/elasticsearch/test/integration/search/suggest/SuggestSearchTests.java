@@ -6141,20 +6141,6 @@ argument_list|,
 literal|"Just testing the suggestions api"
 argument_list|)
 expr_stmt|;
-name|index
-argument_list|(
-literal|"text"
-argument_list|,
-literal|"type1"
-argument_list|,
-literal|"2"
-argument_list|,
-literal|"name"
-argument_list|,
-literal|"An other title about equal length"
-argument_list|)
-expr_stmt|;
-comment|// Note that the last document has to have about the same length as the other or cutoff rechecking will remove the useful suggestion.
 name|refresh
 argument_list|()
 expr_stmt|;
