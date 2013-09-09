@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_package
-DECL|package|org.elasticsearch.junit.listerners
+DECL|package|org.elasticsearch.junit.listeners
 package|package
 name|org
 operator|.
@@ -8,7 +8,7 @@ name|elasticsearch
 operator|.
 name|junit
 operator|.
-name|listerners
+name|listeners
 package|;
 end_package
 

@@ -4,7 +4,7 @@ comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more cont
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.junit.listerners
+DECL|package|org.elasticsearch.junit.listeners
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|elasticsearch
 operator|.
 name|junit
 operator|.
-name|listerners
+name|listeners
 package|;
 end_package
 

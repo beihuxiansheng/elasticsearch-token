@@ -166,7 +166,7 @@ name|elasticsearch
 operator|.
 name|junit
 operator|.
-name|listerners
+name|listeners
 operator|.
 name|LoggingListener
 import|;
