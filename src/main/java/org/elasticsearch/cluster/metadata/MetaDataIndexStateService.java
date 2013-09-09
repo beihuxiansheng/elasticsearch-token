@@ -1765,7 +1765,7 @@ condition|)
 block|{
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Received NodeIndexStateUpdatedResponse with version [{}] from [{}]"
 argument_list|,
@@ -1811,7 +1811,7 @@ condition|)
 block|{
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"NodeIndexStateUpdated was acknowledged by all expected nodes, returning"
 argument_list|)

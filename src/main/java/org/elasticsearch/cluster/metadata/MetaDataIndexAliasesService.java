@@ -1563,7 +1563,7 @@ condition|)
 block|{
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Received NodeAliasesUpdatedResponse with version [{}] from [{}]"
 argument_list|,
@@ -1609,7 +1609,7 @@ condition|)
 block|{
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"NodeAliasUpdated was acknowledged by all expected nodes, returning"
 argument_list|)
