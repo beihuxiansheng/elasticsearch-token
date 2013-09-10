@@ -130,6 +130,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Strings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|inject
 operator|.
 name|Inject
@@ -294,24 +306,6 @@ name|OK
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|rest
-operator|.
-name|action
-operator|.
-name|support
-operator|.
-name|RestActions
-operator|.
-name|splitIndices
-import|;
-end_import
-
 begin_class
 DECL|class|RestGetSettingsAction
 specifier|public
@@ -402,7 +396,9 @@ name|String
 index|[]
 name|indices
 init|=
-name|splitIndices
+name|Strings
+operator|.
+name|splitStringByCommaToArray
 argument_list|(
 name|request
 operator|.

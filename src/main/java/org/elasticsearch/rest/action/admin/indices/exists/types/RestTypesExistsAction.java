@@ -120,6 +120,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Strings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|inject
 operator|.
 name|Inject
@@ -196,42 +208,6 @@ name|OK
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|rest
-operator|.
-name|action
-operator|.
-name|support
-operator|.
-name|RestActions
-operator|.
-name|splitIndices
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|rest
-operator|.
-name|action
-operator|.
-name|support
-operator|.
-name|RestActions
-operator|.
-name|splitTypes
-import|;
-end_import
-
 begin_comment
 comment|/**  * Rest api for checking if a type exists.  */
 end_comment
@@ -301,7 +277,9 @@ init|=
 operator|new
 name|TypesExistsRequest
 argument_list|(
-name|splitIndices
+name|Strings
+operator|.
+name|splitStringByCommaToArray
 argument_list|(
 name|request
 operator|.
@@ -311,7 +289,9 @@ literal|"index"
 argument_list|)
 argument_list|)
 argument_list|,
-name|splitTypes
+name|Strings
+operator|.
+name|splitStringByCommaToArray
 argument_list|(
 name|request
 operator|.

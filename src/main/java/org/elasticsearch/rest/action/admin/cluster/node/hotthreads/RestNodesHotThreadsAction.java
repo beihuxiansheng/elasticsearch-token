@@ -176,22 +176,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|rest
-operator|.
-name|action
-operator|.
-name|support
-operator|.
-name|RestActions
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -376,9 +360,9 @@ name|String
 index|[]
 name|nodesIds
 init|=
-name|RestActions
+name|Strings
 operator|.
-name|splitNodes
+name|splitStringByCommaToArray
 argument_list|(
 name|request
 operator|.

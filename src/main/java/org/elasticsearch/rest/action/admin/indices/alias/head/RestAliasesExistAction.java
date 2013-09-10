@@ -165,22 +165,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|rest
-operator|.
-name|action
-operator|.
-name|support
-operator|.
-name|RestActions
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -318,9 +302,9 @@ name|String
 index|[]
 name|indices
 init|=
-name|RestActions
+name|Strings
 operator|.
-name|splitIndices
+name|splitStringByCommaToArray
 argument_list|(
 name|request
 operator|.

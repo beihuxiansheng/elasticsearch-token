@@ -146,6 +146,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Strings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|bytes
 operator|.
 name|BytesReference
@@ -326,24 +338,6 @@ name|buildBroadcastShardsHeader
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|rest
-operator|.
-name|action
-operator|.
-name|support
-operator|.
-name|RestActions
-operator|.
-name|splitTypes
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -468,9 +462,9 @@ init|=
 operator|new
 name|ValidateQueryRequest
 argument_list|(
-name|RestActions
+name|Strings
 operator|.
-name|splitIndices
+name|splitStringByCommaToArray
 argument_list|(
 name|request
 operator|.
@@ -647,7 +641,9 @@ name|validateQueryRequest
 operator|.
 name|types
 argument_list|(
-name|splitTypes
+name|Strings
+operator|.
+name|splitStringByCommaToArray
 argument_list|(
 name|request
 operator|.
