@@ -1324,6 +1324,39 @@ argument_list|>
 name|listener
 parameter_list|)
 function_decl|;
+comment|/**      * Clears the search contexts associated with specified scroll ids.      */
+DECL|method|prepareClearScroll
+name|ClearScrollRequestBuilder
+name|prepareClearScroll
+parameter_list|()
+function_decl|;
+comment|/**      * Clears the search contexts associated with specified scroll ids.      */
+DECL|method|clearScroll
+name|ActionFuture
+argument_list|<
+name|ClearScrollResponse
+argument_list|>
+name|clearScroll
+parameter_list|(
+name|ClearScrollRequest
+name|request
+parameter_list|)
+function_decl|;
+comment|/**      * Clears the search contexts associated with specified scroll ids.      */
+DECL|method|clearScroll
+name|void
+name|clearScroll
+parameter_list|(
+name|ClearScrollRequest
+name|request
+parameter_list|,
+name|ActionListener
+argument_list|<
+name|ClearScrollResponse
+argument_list|>
+name|listener
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

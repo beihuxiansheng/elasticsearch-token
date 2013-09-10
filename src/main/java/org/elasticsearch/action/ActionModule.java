@@ -2927,6 +2927,17 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+name|registerAction
+argument_list|(
+name|ClearScrollAction
+operator|.
+name|INSTANCE
+argument_list|,
+name|TransportClearScrollAction
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 comment|// register Name -> GenericAction Map that can be injected to instances.
 name|MapBinder
 argument_list|<
