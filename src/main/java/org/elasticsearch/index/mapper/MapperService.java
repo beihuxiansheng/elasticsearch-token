@@ -665,11 +665,21 @@ operator|.
 name|of
 argument_list|()
 decl_stmt|;
-DECL|field|mutex
+DECL|field|typeMutex
 specifier|private
 specifier|final
 name|Object
-name|mutex
+name|typeMutex
+init|=
+operator|new
+name|Object
+argument_list|()
+decl_stmt|;
+DECL|field|mappersMutex
+specifier|private
+specifier|final
+name|Object
+name|mappersMutex
 init|=
 operator|new
 name|Object
@@ -1442,7 +1452,7 @@ comment|// still add it as a document mapper so we have it registered and, for e
 comment|// the cluster meta data if needed, or checked for existence
 synchronized|synchronized
 init|(
-name|mutex
+name|typeMutex
 init|)
 block|{
 name|mappers
@@ -1501,7 +1511,7 @@ parameter_list|)
 block|{
 synchronized|synchronized
 init|(
-name|mutex
+name|typeMutex
 init|)
 block|{
 if|if
@@ -1895,7 +1905,7 @@ parameter_list|)
 block|{
 synchronized|synchronized
 init|(
-name|mutex
+name|mappersMutex
 init|)
 block|{
 name|MapBuilder
@@ -2015,7 +2025,7 @@ parameter_list|)
 block|{
 synchronized|synchronized
 init|(
-name|mutex
+name|mappersMutex
 init|)
 block|{
 name|MapBuilder
@@ -2287,7 +2297,7 @@ parameter_list|)
 block|{
 synchronized|synchronized
 init|(
-name|mutex
+name|typeMutex
 init|)
 block|{
 name|DocumentMapper
@@ -2360,6 +2370,11 @@ parameter_list|(
 name|DocumentMapper
 name|docMapper
 parameter_list|)
+block|{
+synchronized|synchronized
+init|(
+name|mappersMutex
+init|)
 block|{
 comment|// we need to remove those mappers
 name|MapBuilder
@@ -2767,6 +2782,7 @@ name|map
 argument_list|()
 expr_stmt|;
 block|}
+block|}
 comment|/**      * Just parses and returns the mapper without adding it, while still applying default mapping.      */
 DECL|method|parse
 specifier|public
@@ -2961,7 +2977,7 @@ block|}
 comment|// go ahead and dynamically create it
 synchronized|synchronized
 init|(
-name|mutex
+name|typeMutex
 init|)
 block|{
 name|mapper
