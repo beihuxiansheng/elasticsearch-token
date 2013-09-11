@@ -30,6 +30,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|AbstractRandomizedTest
+operator|.
+name|IntegrationTests
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|client
@@ -244,9 +260,7 @@ name|settings
 operator|.
 name|ImmutableSettings
 operator|.
-name|Builder
-operator|.
-name|EMPTY_SETTINGS
+name|settingsBuilder
 import|;
 end_import
 
@@ -262,7 +276,9 @@ name|settings
 operator|.
 name|ImmutableSettings
 operator|.
-name|settingsBuilder
+name|Builder
+operator|.
+name|EMPTY_SETTINGS
 import|;
 end_import
 
@@ -283,6 +299,8 @@ end_import
 begin_class
 annotation|@
 name|Ignore
+annotation|@
+name|IntegrationTests
 DECL|class|AbstractNodesTests
 specifier|public
 specifier|abstract

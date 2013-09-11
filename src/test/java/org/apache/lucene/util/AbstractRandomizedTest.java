@@ -88,6 +88,20 @@ name|randomizedtesting
 operator|.
 name|annotations
 operator|.
+name|TestGroup
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|randomizedtesting
+operator|.
+name|annotations
+operator|.
 name|TestMethodProviders
 import|;
 end_import
@@ -294,6 +308,18 @@ name|java
 operator|.
 name|lang
 operator|.
+name|annotation
+operator|.
+name|*
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|lang
+operator|.
 name|reflect
 operator|.
 name|Method
@@ -390,6 +416,39 @@ name|AbstractRandomizedTest
 extends|extends
 name|RandomizedTest
 block|{
+comment|/**      * Annotation for integration tests      */
+annotation|@
+name|Inherited
+annotation|@
+name|Retention
+argument_list|(
+name|RetentionPolicy
+operator|.
+name|RUNTIME
+argument_list|)
+annotation|@
+name|Target
+argument_list|(
+name|ElementType
+operator|.
+name|TYPE
+argument_list|)
+annotation|@
+name|TestGroup
+argument_list|(
+name|enabled
+operator|=
+literal|true
+argument_list|,
+name|sysProperty
+operator|=
+name|SYSPROP_INTEGRATION
+argument_list|)
+DECL|interface|IntegrationTests
+specifier|public
+annotation_defn|@interface
+name|IntegrationTests
+block|{}
 comment|// --------------------------------------------------------------------
 comment|// Test groups, system properties and other annotations modifying tests
 comment|// --------------------------------------------------------------------
@@ -412,6 +471,15 @@ name|String
 name|SYSPROP_FAILFAST
 init|=
 literal|"tests.failfast"
+decl_stmt|;
+DECL|field|SYSPROP_INTEGRATION
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SYSPROP_INTEGRATION
+init|=
+literal|"tests.integration"
 decl_stmt|;
 comment|// -----------------------------------------------------------------
 comment|// Truly immutable fields and constants, initialized once and valid
