@@ -750,7 +750,7 @@ name|node
 operator|.
 name|internal
 operator|.
-name|InternalSettingsPerparer
+name|InternalSettingsPreparer
 import|;
 end_import
 
@@ -1022,7 +1022,7 @@ name|Environment
 argument_list|>
 name|tuple
 init|=
-name|InternalSettingsPerparer
+name|InternalSettingsPreparer
 operator|.
 name|prepareSettings
 argument_list|(

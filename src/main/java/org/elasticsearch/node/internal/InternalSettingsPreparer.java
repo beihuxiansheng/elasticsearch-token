@@ -141,10 +141,10 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|InternalSettingsPerparer
+DECL|class|InternalSettingsPreparer
 specifier|public
 class|class
-name|InternalSettingsPerparer
+name|InternalSettingsPreparer
 block|{
 DECL|method|prepareSettings
 specifier|public

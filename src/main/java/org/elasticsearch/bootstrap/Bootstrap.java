@@ -224,7 +224,7 @@ name|node
 operator|.
 name|internal
 operator|.
-name|InternalSettingsPerparer
+name|InternalSettingsPreparer
 import|;
 end_import
 
@@ -245,16 +245,6 @@ operator|.
 name|io
 operator|.
 name|FileOutputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|RandomAccessFile
 import|;
 end_import
 
@@ -591,7 +581,7 @@ name|initialSettings
 parameter_list|()
 block|{
 return|return
-name|InternalSettingsPerparer
+name|InternalSettingsPreparer
 operator|.
 name|prepareSettings
 argument_list|(

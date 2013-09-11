@@ -201,10 +201,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|DuellFieldDataTests
+DECL|class|DuelFieldDataTests
 specifier|public
 class|class
-name|DuellFieldDataTests
+name|DuelFieldDataTests
 extends|extends
 name|AbstractFieldDataTests
 block|{
@@ -264,10 +264,10 @@ return|;
 block|}
 annotation|@
 name|Test
-DECL|method|testDuellAllTypesSingleValue
+DECL|method|testDuelAllTypesSingleValue
 specifier|public
 name|void
-name|testDuellAllTypesSingleValue
+name|testDuelAllTypesSingleValue
 parameter_list|()
 throws|throws
 name|Exception
@@ -515,7 +515,7 @@ name|HashMap
 argument_list|<
 name|FieldDataType
 argument_list|,
-name|DuellFieldDataTests
+name|DuelFieldDataTests
 operator|.
 name|Type
 argument_list|>
@@ -862,7 +862,7 @@ name|getKey
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|duellFieldDataBytes
+name|duelFieldDataBytes
 argument_list|(
 name|random
 argument_list|,
@@ -875,7 +875,7 @@ argument_list|,
 name|pre
 argument_list|)
 expr_stmt|;
-name|duellFieldDataBytes
+name|duelFieldDataBytes
 argument_list|(
 name|random
 argument_list|,
@@ -927,7 +927,7 @@ range|:
 name|leaves
 control|)
 block|{
-name|duellFieldDataBytes
+name|duelFieldDataBytes
 argument_list|(
 name|random
 argument_list|,
@@ -945,10 +945,10 @@ block|}
 block|}
 annotation|@
 name|Test
-DECL|method|testDuellIntegers
+DECL|method|testDuelIntegers
 specifier|public
 name|void
-name|testDuellIntegers
+name|testDuelIntegers
 parameter_list|()
 throws|throws
 name|Exception
@@ -1128,7 +1128,7 @@ name|HashMap
 argument_list|<
 name|FieldDataType
 argument_list|,
-name|DuellFieldDataTests
+name|DuelFieldDataTests
 operator|.
 name|Type
 argument_list|>
@@ -1384,7 +1384,7 @@ name|getKey
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|duellFieldDataLong
+name|duelFieldDataLong
 argument_list|(
 name|random
 argument_list|,
@@ -1395,7 +1395,7 @@ argument_list|,
 name|rightFieldData
 argument_list|)
 expr_stmt|;
-name|duellFieldDataLong
+name|duelFieldDataLong
 argument_list|(
 name|random
 argument_list|,
@@ -1445,7 +1445,7 @@ range|:
 name|leaves
 control|)
 block|{
-name|duellFieldDataLong
+name|duelFieldDataLong
 argument_list|(
 name|random
 argument_list|,
@@ -1461,10 +1461,10 @@ block|}
 block|}
 annotation|@
 name|Test
-DECL|method|testDuellDoubles
+DECL|method|testDuelDoubles
 specifier|public
 name|void
-name|testDuellDoubles
+name|testDuelDoubles
 parameter_list|()
 throws|throws
 name|Exception
@@ -1644,7 +1644,7 @@ name|HashMap
 argument_list|<
 name|FieldDataType
 argument_list|,
-name|DuellFieldDataTests
+name|DuelFieldDataTests
 operator|.
 name|Type
 argument_list|>
@@ -1870,7 +1870,7 @@ name|getKey
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|duellFieldDataDouble
+name|duelFieldDataDouble
 argument_list|(
 name|random
 argument_list|,
@@ -1881,7 +1881,7 @@ argument_list|,
 name|rightFieldData
 argument_list|)
 expr_stmt|;
-name|duellFieldDataDouble
+name|duelFieldDataDouble
 argument_list|(
 name|random
 argument_list|,
@@ -1931,7 +1931,7 @@ range|:
 name|leaves
 control|)
 block|{
-name|duellFieldDataDouble
+name|duelFieldDataDouble
 argument_list|(
 name|random
 argument_list|,
@@ -1947,10 +1947,10 @@ block|}
 block|}
 annotation|@
 name|Test
-DECL|method|testDuellStrings
+DECL|method|testDuelStrings
 specifier|public
 name|void
-name|testDuellStrings
+name|testDuelStrings
 parameter_list|()
 throws|throws
 name|Exception
@@ -2148,7 +2148,7 @@ name|HashMap
 argument_list|<
 name|FieldDataType
 argument_list|,
-name|DuellFieldDataTests
+name|DuelFieldDataTests
 operator|.
 name|Type
 argument_list|>
@@ -2406,7 +2406,7 @@ name|getKey
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|duellFieldDataBytes
+name|duelFieldDataBytes
 argument_list|(
 name|random
 argument_list|,
@@ -2419,7 +2419,7 @@ argument_list|,
 name|pre
 argument_list|)
 expr_stmt|;
-name|duellFieldDataBytes
+name|duelFieldDataBytes
 argument_list|(
 name|random
 argument_list|,
@@ -2471,7 +2471,7 @@ range|:
 name|leaves
 control|)
 block|{
-name|duellFieldDataBytes
+name|duelFieldDataBytes
 argument_list|(
 name|random
 argument_list|,
@@ -2621,11 +2621,11 @@ operator|)
 block|}
 return|;
 block|}
-DECL|method|duellFieldDataBytes
+DECL|method|duelFieldDataBytes
 specifier|private
 specifier|static
 name|void
-name|duellFieldDataBytes
+name|duelFieldDataBytes
 parameter_list|(
 name|Random
 name|random
@@ -3094,11 +3094,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|duellFieldDataDouble
+DECL|method|duelFieldDataDouble
 specifier|private
 specifier|static
 name|void
-name|duellFieldDataDouble
+name|duelFieldDataDouble
 parameter_list|(
 name|Random
 name|random
@@ -3456,11 +3456,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|duellFieldDataLong
+DECL|method|duelFieldDataLong
 specifier|private
 specifier|static
 name|void
-name|duellFieldDataLong
+name|duelFieldDataLong
 parameter_list|(
 name|Random
 name|random

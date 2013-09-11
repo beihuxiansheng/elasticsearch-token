@@ -1041,7 +1041,7 @@ name|Environment
 argument_list|>
 name|tuple
 init|=
-name|InternalSettingsPerparer
+name|InternalSettingsPreparer
 operator|.
 name|prepareSettings
 argument_list|(
