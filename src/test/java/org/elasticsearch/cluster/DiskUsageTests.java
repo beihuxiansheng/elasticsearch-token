@@ -20,10 +20,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|test
-operator|.
-name|integration
-operator|.
 name|ElasticsearchTestCase
 import|;
 end_import
