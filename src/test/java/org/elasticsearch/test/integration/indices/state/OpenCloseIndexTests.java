@@ -2083,7 +2083,7 @@ name|Test
 annotation|@
 name|TestLogging
 argument_list|(
-literal|"org.elasticsearch.cluster.metadata:TRACE"
+literal|"cluster.metadata:TRACE"
 argument_list|)
 DECL|method|testCloseOpenAliasMultipleIndices
 specifier|public

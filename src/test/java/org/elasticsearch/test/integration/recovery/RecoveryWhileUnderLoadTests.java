@@ -338,7 +338,7 @@ name|Test
 annotation|@
 name|TestLogging
 argument_list|(
-literal|"org.elasticsearch.action.search.type:TRACE,org.elasticsearch.action.admin.indices.refresh:TRACE"
+literal|"action.search.type:TRACE,action.admin.indices.refresh:TRACE"
 argument_list|)
 annotation|@
 name|Slow
