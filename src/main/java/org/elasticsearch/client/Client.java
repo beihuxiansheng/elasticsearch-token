@@ -480,7 +480,7 @@ name|AdminClient
 name|admin
 parameter_list|()
 function_decl|;
-comment|/**      * Executes a generic action, denoted by an {@link Action}.      *      * @param action           The action type to execute.      * @param request          The action request.      * @param<Request>        Teh request type.      * @param<Response>       the response type.      * @param<RequestBuilder> The request builder type.      * @return A future allowing to get back the response.      */
+comment|/**      * Executes a generic action, denoted by an {@link Action}.      *      * @param action           The action type to execute.      * @param request          The action request.      * @param<Request>        The request type.      * @param<Response>       the response type.      * @param<RequestBuilder> The request builder type.      * @return A future allowing to get back the response.      */
 DECL|method|execute
 parameter_list|<
 name|Request
@@ -524,7 +524,7 @@ name|Request
 name|request
 parameter_list|)
 function_decl|;
-comment|/**      * Executes a generic action, denoted by an {@link Action}.      *      * @param action           The action type to execute.      * @param request          Teh action request.      * @param listener         The listener to receive the response back.      * @param<Request>        The request type.      * @param<Response>       The response type.      * @param<RequestBuilder> The request builder type.      */
+comment|/**      * Executes a generic action, denoted by an {@link Action}.      *      * @param action           The action type to execute.      * @param request          The action request.      * @param listener         The listener to receive the response back.      * @param<Request>        The request type.      * @param<Response>       The response type.      * @param<RequestBuilder> The request builder type.      */
 DECL|method|execute
 parameter_list|<
 name|Request
