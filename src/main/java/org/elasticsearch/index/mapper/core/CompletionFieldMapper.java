@@ -2044,9 +2044,8 @@ operator|new
 name|SuggestField
 argument_list|(
 name|names
-argument_list|()
 operator|.
-name|fullName
+name|indexName
 argument_list|()
 argument_list|,
 name|input
