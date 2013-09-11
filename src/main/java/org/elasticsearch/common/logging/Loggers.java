@@ -689,7 +689,10 @@ name|ESLoggerFactory
 operator|.
 name|getLogger
 argument_list|(
+name|getLoggerName
+argument_list|(
 name|s
+argument_list|)
 argument_list|)
 return|;
 block|}
