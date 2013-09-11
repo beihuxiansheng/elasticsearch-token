@@ -262,6 +262,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|junit
+operator|.
+name|annotations
+operator|.
+name|TestLogging
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|node
 operator|.
 name|internal
@@ -2265,6 +2279,12 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+comment|// Need to omit org.elast
+annotation|@
+name|TestLogging
+argument_list|(
+literal|"action.percolate:TRACE"
+argument_list|)
 DECL|method|testMultiPercolator_recovery
 specifier|public
 name|void

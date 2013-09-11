@@ -747,14 +747,6 @@ name|Item
 argument_list|>
 name|items
 decl_stmt|;
-DECL|field|done
-specifier|private
-specifier|volatile
-name|boolean
-name|done
-init|=
-literal|false
-decl_stmt|;
 DECL|method|Request
 specifier|public
 name|Request
