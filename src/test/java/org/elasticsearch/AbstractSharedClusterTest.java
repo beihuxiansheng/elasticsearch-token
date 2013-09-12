@@ -2663,6 +2663,8 @@ condition|(
 name|forceRefresh
 condition|)
 block|{
+name|assertNoFailures
+argument_list|(
 name|client
 argument_list|()
 operator|.
@@ -2682,6 +2684,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 block|}

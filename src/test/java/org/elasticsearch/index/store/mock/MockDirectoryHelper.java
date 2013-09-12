@@ -317,7 +317,7 @@ specifier|final
 name|String
 name|RANDOM_IO_EXCEPTION_RATE
 init|=
-literal|"store.mock.random.io_exception_rate"
+literal|"index.store.mock.random.io_exception_rate"
 decl_stmt|;
 DECL|field|RANDOM_IO_EXCEPTION_RATE_ON_OPEN
 specifier|public
@@ -326,7 +326,7 @@ specifier|final
 name|String
 name|RANDOM_IO_EXCEPTION_RATE_ON_OPEN
 init|=
-literal|"store.mock.random.io_exception_rate_on_open"
+literal|"index.store.mock.random.io_exception_rate_on_open"
 decl_stmt|;
 DECL|field|RANDOM_SEED
 specifier|public
@@ -335,7 +335,7 @@ specifier|final
 name|String
 name|RANDOM_SEED
 init|=
-literal|"store.mock.random.seed"
+literal|"index.store.mock.random.seed"
 decl_stmt|;
 DECL|field|RANDOM_THROTTLE
 specifier|public
@@ -344,7 +344,7 @@ specifier|final
 name|String
 name|RANDOM_THROTTLE
 init|=
-literal|"store.mock.random.throttle"
+literal|"index.store.mock.random.throttle"
 decl_stmt|;
 DECL|field|CHECK_INDEX_ON_CLOSE
 specifier|public
@@ -353,7 +353,7 @@ specifier|final
 name|String
 name|CHECK_INDEX_ON_CLOSE
 init|=
-literal|"store.mock.check_index_on_close"
+literal|"index.store.mock.check_index_on_close"
 decl_stmt|;
 DECL|field|wrappers
 specifier|public
