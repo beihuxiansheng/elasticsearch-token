@@ -2271,6 +2271,11 @@ annotation|@
 name|Test
 annotation|@
 name|Slow
+annotation|@
+name|TestLogging
+argument_list|(
+literal|"action.support.broadcast:TRACE"
+argument_list|)
 DECL|method|testSinglePercolator_recovery
 specifier|public
 name|void
