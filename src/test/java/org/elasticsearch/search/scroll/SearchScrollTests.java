@@ -22,6 +22,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|AbstractSharedClusterTest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|action
 operator|.
 name|search
@@ -121,16 +131,6 @@ operator|.
 name|sort
 operator|.
 name|SortOrder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|AbstractSharedClusterTest
 import|;
 end_import
 
@@ -3541,6 +3541,11 @@ argument_list|()
 operator|.
 name|prepareClearScroll
 argument_list|()
+operator|.
+name|addScrollId
+argument_list|(
+literal|"_all"
+argument_list|)
 operator|.
 name|execute
 argument_list|()

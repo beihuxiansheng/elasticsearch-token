@@ -118,6 +118,20 @@ name|newArrayList
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|ValidateActions
+operator|.
+name|addValidationError
+import|;
+end_import
+
 begin_comment
 comment|/**  */
 end_comment
@@ -208,8 +222,35 @@ name|ActionRequestValidationException
 name|validate
 parameter_list|()
 block|{
-return|return
+name|ActionRequestValidationException
+name|validationException
+init|=
 literal|null
+decl_stmt|;
+if|if
+condition|(
+name|scrollIds
+operator|==
+literal|null
+operator|||
+name|scrollIds
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|validationException
+operator|=
+name|addValidationError
+argument_list|(
+literal|"no scroll ids specified"
+argument_list|,
+name|validationException
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|validationException
 return|;
 block|}
 annotation|@
