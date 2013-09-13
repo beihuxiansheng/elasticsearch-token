@@ -375,6 +375,7 @@ comment|// NOTE: this class is in o.a.lucene.util since it uses some classes tha
 comment|// to the test framework that didn't make sense to copy but are package private access
 DECL|class|AbstractRandomizedTest
 specifier|public
+specifier|abstract
 class|class
 name|AbstractRandomizedTest
 extends|extends
@@ -412,11 +413,11 @@ DECL|interface|IntegrationTests
 specifier|public
 annotation_defn|@interface
 name|IntegrationTests
-block|{}
+block|{     }
 comment|// --------------------------------------------------------------------
 comment|// Test groups, system properties and other annotations modifying tests
 comment|// --------------------------------------------------------------------
-comment|/** @see #ignoreAfterMaxFailures*/
+comment|/**      * @see #ignoreAfterMaxFailures      */
 DECL|field|SYSPROP_MAXFAILURES
 specifier|public
 specifier|static
@@ -426,7 +427,7 @@ name|SYSPROP_MAXFAILURES
 init|=
 literal|"tests.maxfailures"
 decl_stmt|;
-comment|/** @see #ignoreAfterMaxFailures*/
+comment|/**      * @see #ignoreAfterMaxFailures      */
 DECL|field|SYSPROP_FAILFAST
 specifier|public
 specifier|static
@@ -449,7 +450,7 @@ comment|// -----------------------------------------------------------------
 comment|// Truly immutable fields and constants, initialized once and valid
 comment|// for all suites ever since.
 comment|// -----------------------------------------------------------------
-comment|/**       * Use this constant when creating Analyzers and any other version-dependent stuff.      *<p><b>NOTE:</b> Change this when development starts for new Lucene version:      */
+comment|/**      * Use this constant when creating Analyzers and any other version-dependent stuff.      *<p><b>NOTE:</b> Change this when development starts for new Lucene version:      */
 DECL|field|TEST_VERSION_CURRENT
 specifier|public
 specifier|static
@@ -491,7 +492,7 @@ argument_list|,
 literal|1
 argument_list|)
 decl_stmt|;
-comment|/** TODO: javadoc? */
+comment|/**      * TODO: javadoc?      */
 DECL|field|DEFAULT_LINE_DOCS_FILE
 specifier|public
 specifier|static
@@ -501,7 +502,7 @@ name|DEFAULT_LINE_DOCS_FILE
 init|=
 literal|"europarl.lines.txt.gz"
 decl_stmt|;
-comment|/** the line file used by LineFileDocs */
+comment|/**      * the line file used by LineFileDocs      */
 DECL|field|TEST_LINE_DOCS_FILE
 specifier|public
 specifier|static
@@ -518,7 +519,7 @@ argument_list|,
 name|DEFAULT_LINE_DOCS_FILE
 argument_list|)
 decl_stmt|;
-comment|/** Create indexes in this directory, optimally use a subdir, named after the test */
+comment|/**      * Create indexes in this directory, optimally use a subdir, named after the test      */
 DECL|field|TEMP_DIR
 specifier|public
 specifier|static
@@ -572,7 +573,7 @@ name|mkdirs
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * These property keys will be ignored in verification of altered properties.      * @see SystemPropertiesInvariantRule      * @see #ruleChain      * @see #classRules      */
+comment|/**      * These property keys will be ignored in verification of altered properties.      *      * @see SystemPropertiesInvariantRule      * @see #ruleChain      * @see #classRules      */
 DECL|field|IGNORED_INVARIANT_PROPERTIES
 specifier|private
 specifier|static
@@ -622,7 +623,7 @@ operator|new
 name|TestRuleMarkFailure
 argument_list|()
 decl_stmt|;
-comment|/**      * Ignore tests after hitting a designated number of initial failures. This      * is truly a "static" global singleton since it needs to span the lifetime of all      * test classes running inside this JVM (it cannot be part of a class rule).      *       *<p>This poses some problems for the test framework's tests because these sometimes      * trigger intentional failures which add up to the global count. This field contains      * a (possibly) changing reference to {@link TestRuleIgnoreAfterMaxFailures} and we      * dispatch to its current value from the {@link #classRules} chain using {@link TestRuleDelegate}.        */
+comment|/**      * Ignore tests after hitting a designated number of initial failures. This      * is truly a "static" global singleton since it needs to span the lifetime of all      * test classes running inside this JVM (it cannot be part of a class rule).      *<p/>      *<p>This poses some problems for the test framework's tests because these sometimes      * trigger intentional failures which add up to the global count. This field contains      * a (possibly) changing reference to {@link TestRuleIgnoreAfterMaxFailures} and we      * dispatch to its current value from the {@link #classRules} chain using {@link TestRuleDelegate}.      */
 DECL|field|ignoreAfterMaxFailuresDelegate
 specifier|private
 specifier|static
@@ -739,7 +740,7 @@ name|ignoreAfterMaxFailuresDelegate
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Temporarily substitute the global {@link TestRuleIgnoreAfterMaxFailures}. See      * {@link #ignoreAfterMaxFailuresDelegate} for some explanation why this method       * is needed.      */
+comment|/**      * Temporarily substitute the global {@link TestRuleIgnoreAfterMaxFailures}. See      * {@link #ignoreAfterMaxFailuresDelegate} for some explanation why this method      * is needed.      */
 DECL|method|replaceMaxFailureRule
 specifier|public
 specifier|static
@@ -773,7 +774,7 @@ literal|1024
 operator|*
 literal|1024
 decl_stmt|;
-comment|/** By-name list of ignored types like loggers etc. */
+comment|/**      * By-name list of ignored types like loggers etc.      */
 DECL|field|STATIC_LEAK_IGNORED_TYPES
 specifier|private
 specifier|final
@@ -808,7 +809,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|/**      * This controls how suite-level rules are nested. It is important that _all_ rules declared      * in {@link LuceneTestCase} are executed in proper order if they depend on each       * other.      */
+comment|/**      * This controls how suite-level rules are nested. It is important that _all_ rules declared      * in {@link LuceneTestCase} are executed in proper order if they depend on each      * other.      */
 annotation|@
 name|ClassRule
 DECL|field|classRules
@@ -1002,7 +1003,7 @@ decl_stmt|;
 comment|// -----------------------------------------------------------------
 comment|// Test level rules.
 comment|// -----------------------------------------------------------------
-comment|/** Enforces {@link #setUp()} and {@link #tearDown()} calls are chained. */
+comment|/**      * Enforces {@link #setUp()} and {@link #tearDown()} calls are chained.      */
 DECL|field|parentChainCallRule
 specifier|private
 name|TestRuleSetupTeardownChained
@@ -1012,7 +1013,7 @@ operator|new
 name|TestRuleSetupTeardownChained
 argument_list|()
 decl_stmt|;
-comment|/** Save test thread and name. */
+comment|/**      * Save test thread and name.      */
 DECL|field|threadAndTestNameRule
 specifier|private
 name|TestRuleThreadAndTestName
@@ -1022,7 +1023,7 @@ operator|new
 name|TestRuleThreadAndTestName
 argument_list|()
 decl_stmt|;
-comment|/** Taint suite result with individual test failures. */
+comment|/**      * Taint suite result with individual test failures.      */
 DECL|field|testFailureMarker
 specifier|private
 name|TestRuleMarkFailure
@@ -1147,7 +1148,7 @@ block|}
 comment|// -----------------------------------------------------------------
 comment|// Test facilities and facades for subclasses.
 comment|// -----------------------------------------------------------------
-comment|/**      * Registers a {@link Closeable} resource that should be closed after the test      * completes.      *       * @return<code>resource</code> (for call chaining).      */
+comment|/**      * Registers a {@link Closeable} resource that should be closed after the test      * completes.      *      * @return<code>resource</code> (for call chaining).      */
 DECL|method|closeAfterTest
 specifier|public
 parameter_list|<
@@ -1178,7 +1179,7 @@ name|TEST
 argument_list|)
 return|;
 block|}
-comment|/**      * Registers a {@link Closeable} resource that should be closed after the suite      * completes.      *       * @return<code>resource</code> (for call chaining).      */
+comment|/**      * Registers a {@link Closeable} resource that should be closed after the suite      * completes.      *      * @return<code>resource</code> (for call chaining).      */
 DECL|method|closeAfterSuite
 specifier|public
 specifier|static
