@@ -1505,11 +1505,13 @@ name|request
 decl_stmt|;
 DECL|field|clusterState
 specifier|private
+specifier|volatile
 name|ClusterState
 name|clusterState
 decl_stmt|;
 DECL|field|shardIt
 specifier|private
+specifier|volatile
 name|ShardIterator
 name|shardIt
 decl_stmt|;
@@ -1787,7 +1789,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"no shard instances known for index [{}], scheduling a retry"
+literal|"no shard instances known for shard [{}], scheduling a retry"
 argument_list|,
 name|shardIt
 operator|.
