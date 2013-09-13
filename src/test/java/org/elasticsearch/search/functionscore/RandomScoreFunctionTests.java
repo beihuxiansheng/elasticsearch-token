@@ -22,6 +22,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|AbstractSharedClusterTest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|action
 operator|.
 name|search
@@ -53,16 +63,6 @@ operator|.
 name|search
 operator|.
 name|SearchHits
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|AbstractSharedClusterTest
 import|;
 end_import
 
@@ -348,6 +348,9 @@ argument_list|)
 expr_stmt|;
 block|}
 name|flush
+argument_list|()
+expr_stmt|;
+name|refresh
 argument_list|()
 expr_stmt|;
 name|int
@@ -690,6 +693,9 @@ argument_list|)
 expr_stmt|;
 block|}
 name|flush
+argument_list|()
+expr_stmt|;
+name|refresh
 argument_list|()
 expr_stmt|;
 name|int

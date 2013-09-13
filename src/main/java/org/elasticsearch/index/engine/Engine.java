@@ -816,13 +816,6 @@ name|Type
 operator|.
 name|COMMIT_TRANSLOG
 decl_stmt|;
-DECL|field|refresh
-specifier|private
-name|boolean
-name|refresh
-init|=
-literal|false
-decl_stmt|;
 DECL|field|force
 specifier|private
 name|boolean
@@ -838,39 +831,6 @@ name|waitIfOngoing
 init|=
 literal|false
 decl_stmt|;
-comment|/**          * Should a refresh be performed after flushing. Defaults to<tt>false</tt>.          */
-DECL|method|refresh
-specifier|public
-name|boolean
-name|refresh
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|refresh
-return|;
-block|}
-comment|/**          * Should a refresh be performed after flushing. Defaults to<tt>false</tt>.          */
-DECL|method|refresh
-specifier|public
-name|Flush
-name|refresh
-parameter_list|(
-name|boolean
-name|refresh
-parameter_list|)
-block|{
-name|this
-operator|.
-name|refresh
-operator|=
-name|refresh
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 DECL|method|type
 specifier|public
 name|Type
@@ -977,10 +937,6 @@ return|return
 literal|"type["
 operator|+
 name|type
-operator|+
-literal|"], refresh["
-operator|+
-name|refresh
 operator|+
 literal|"], force["
 operator|+
