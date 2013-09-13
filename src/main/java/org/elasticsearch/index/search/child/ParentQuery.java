@@ -20,15 +20,13 @@ end_package
 
 begin_import
 import|import
-name|gnu
+name|com
 operator|.
-name|trove
+name|carrotsearch
 operator|.
-name|map
+name|hppc
 operator|.
-name|hash
-operator|.
-name|TObjectFloatHashMap
+name|ObjectFloatOpenHashMap
 import|;
 end_import
 
@@ -123,20 +121,6 @@ operator|.
 name|elasticsearch
 operator|.
 name|ElasticSearchIllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|bytes
-operator|.
-name|BytesReference
 import|;
 end_import
 
@@ -337,7 +321,7 @@ name|Recycler
 operator|.
 name|V
 argument_list|<
-name|TObjectFloatHashMap
+name|ObjectFloatOpenHashMap
 argument_list|<
 name|HashedBytesArray
 argument_list|>
@@ -847,7 +831,7 @@ name|NoopCollector
 block|{
 DECL|field|uidToScore
 specifier|final
-name|TObjectFloatHashMap
+name|ObjectFloatOpenHashMap
 argument_list|<
 name|HashedBytesArray
 argument_list|>
@@ -874,7 +858,7 @@ decl_stmt|;
 DECL|method|ParentUidCollector
 name|ParentUidCollector
 parameter_list|(
-name|TObjectFloatHashMap
+name|ObjectFloatOpenHashMap
 argument_list|<
 name|HashedBytesArray
 argument_list|>
@@ -1227,7 +1211,7 @@ name|Scorer
 block|{
 DECL|field|uidToScore
 specifier|final
-name|TObjectFloatHashMap
+name|ObjectFloatOpenHashMap
 argument_list|<
 name|HashedBytesArray
 argument_list|>
@@ -1260,7 +1244,7 @@ parameter_list|(
 name|Weight
 name|weight
 parameter_list|,
-name|TObjectFloatHashMap
+name|ObjectFloatOpenHashMap
 argument_list|<
 name|HashedBytesArray
 argument_list|>
@@ -1374,7 +1358,7 @@ return|return
 name|currentChildDoc
 return|;
 block|}
-name|BytesReference
+name|HashedBytesArray
 name|uid
 init|=
 name|typeCache
@@ -1450,7 +1434,7 @@ return|return
 name|currentChildDoc
 return|;
 block|}
-name|BytesReference
+name|HashedBytesArray
 name|uid
 init|=
 name|typeCache

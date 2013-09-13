@@ -18,15 +18,13 @@ end_package
 
 begin_import
 import|import
-name|gnu
+name|com
 operator|.
-name|trove
+name|carrotsearch
 operator|.
-name|map
+name|hppc
 operator|.
-name|hash
-operator|.
-name|TObjectLongHashMap
+name|ObjectLongOpenHashMap
 import|;
 end_import
 
@@ -274,7 +272,7 @@ modifier|...
 name|fields
 parameter_list|)
 block|{
-name|TObjectLongHashMap
+name|ObjectLongOpenHashMap
 argument_list|<
 name|String
 argument_list|>
@@ -298,7 +296,7 @@ block|{
 name|fieldTotals
 operator|=
 operator|new
-name|TObjectLongHashMap
+name|ObjectLongOpenHashMap
 argument_list|<
 name|String
 argument_list|>

@@ -22,15 +22,13 @@ end_package
 
 begin_import
 import|import
-name|gnu
+name|com
 operator|.
-name|trove
+name|carrotsearch
 operator|.
-name|map
+name|hppc
 operator|.
-name|hash
-operator|.
-name|TObjectIntHashMap
+name|ObjectIntOpenHashMap
 import|;
 end_import
 
@@ -1127,14 +1125,14 @@ parameter_list|)
 block|{
 comment|// create count per node id, taking into account relocations
 specifier|final
-name|TObjectIntHashMap
+name|ObjectIntOpenHashMap
 argument_list|<
 name|String
 argument_list|>
 name|nodeCounts
 init|=
 operator|new
-name|TObjectIntHashMap
+name|ObjectIntOpenHashMap
 argument_list|<
 name|String
 argument_list|>
@@ -1205,11 +1203,9 @@ argument_list|()
 decl_stmt|;
 name|nodeCounts
 operator|.
-name|adjustOrPutValue
+name|addTo
 argument_list|(
 name|nodeId
-argument_list|,
-literal|1
 argument_list|,
 literal|1
 argument_list|)

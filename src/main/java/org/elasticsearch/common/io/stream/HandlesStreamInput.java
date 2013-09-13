@@ -20,15 +20,13 @@ end_package
 
 begin_import
 import|import
-name|gnu
+name|com
 operator|.
-name|trove
+name|carrotsearch
 operator|.
-name|map
+name|hppc
 operator|.
-name|hash
-operator|.
-name|TIntObjectHashMap
+name|IntObjectOpenHashMap
 import|;
 end_import
 
@@ -71,14 +69,14 @@ block|{
 DECL|field|handles
 specifier|private
 specifier|final
-name|TIntObjectHashMap
+name|IntObjectOpenHashMap
 argument_list|<
 name|String
 argument_list|>
 name|handles
 init|=
 operator|new
-name|TIntObjectHashMap
+name|IntObjectOpenHashMap
 argument_list|<
 name|String
 argument_list|>
@@ -87,14 +85,14 @@ decl_stmt|;
 DECL|field|handlesText
 specifier|private
 specifier|final
-name|TIntObjectHashMap
+name|IntObjectOpenHashMap
 argument_list|<
 name|Text
 argument_list|>
 name|handlesText
 init|=
 operator|new
-name|TIntObjectHashMap
+name|IntObjectOpenHashMap
 argument_list|<
 name|Text
 argument_list|>

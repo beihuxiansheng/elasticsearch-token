@@ -18,15 +18,13 @@ end_package
 
 begin_import
 import|import
-name|gnu
+name|com
 operator|.
-name|trove
+name|carrotsearch
 operator|.
-name|list
+name|hppc
 operator|.
-name|array
-operator|.
-name|TIntArrayList
+name|IntArrayList
 import|;
 end_import
 
@@ -81,11 +79,11 @@ throws|throws
 name|NumberFormatException
 block|{
 specifier|final
-name|TIntArrayList
+name|IntArrayList
 name|ports
 init|=
 operator|new
-name|TIntArrayList
+name|IntArrayList
 argument_list|()
 decl_stmt|;
 name|iterate
@@ -122,16 +120,7 @@ return|return
 name|ports
 operator|.
 name|toArray
-argument_list|(
-operator|new
-name|int
-index|[
-name|ports
-operator|.
-name|size
 argument_list|()
-index|]
-argument_list|)
 return|;
 block|}
 DECL|method|iterate

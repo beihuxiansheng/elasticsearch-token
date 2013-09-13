@@ -20,6 +20,18 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|hppc
+operator|.
+name|LongObjectOpenHashMap
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -115,20 +127,6 @@ operator|.
 name|recycler
 operator|.
 name|Recycler
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|trove
-operator|.
-name|ExtTLongObjectHashMap
 import|;
 end_import
 
@@ -666,7 +664,7 @@ name|Recycler
 operator|.
 name|V
 argument_list|<
-name|ExtTLongObjectHashMap
+name|LongObjectOpenHashMap
 argument_list|<
 name|FullEntry
 argument_list|>
@@ -817,6 +815,7 @@ block|}
 block|}
 block|}
 comment|// sort
+comment|// TODO: hppc - not happy with toArray
 name|Object
 index|[]
 name|values
@@ -826,7 +825,10 @@ operator|.
 name|v
 argument_list|()
 operator|.
-name|internalValues
+name|values
+argument_list|()
+operator|.
+name|toArray
 argument_list|()
 decl_stmt|;
 name|Arrays

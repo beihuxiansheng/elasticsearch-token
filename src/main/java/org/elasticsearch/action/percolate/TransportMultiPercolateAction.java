@@ -18,15 +18,13 @@ end_package
 
 begin_import
 import|import
-name|gnu
+name|com
 operator|.
-name|trove
+name|carrotsearch
 operator|.
-name|list
+name|hppc
 operator|.
-name|array
-operator|.
-name|TIntArrayList
+name|IntArrayList
 import|;
 end_import
 
@@ -511,11 +509,11 @@ decl_stmt|;
 comment|// Can have a mixture of percolate requests. (normal percolate requests& percolate existing doc),
 comment|// so we need to keep track for what percolate request we had a get request
 specifier|final
-name|TIntArrayList
+name|IntArrayList
 name|getRequestSlots
 init|=
 operator|new
-name|TIntArrayList
+name|IntArrayList
 argument_list|()
 decl_stmt|;
 name|List
@@ -949,7 +947,7 @@ name|Map
 argument_list|<
 name|ShardId
 argument_list|,
-name|TIntArrayList
+name|IntArrayList
 argument_list|>
 name|shardToSlots
 decl_stmt|;
@@ -1077,7 +1075,7 @@ name|HashMap
 argument_list|<
 name|ShardId
 argument_list|,
-name|TIntArrayList
+name|IntArrayList
 argument_list|>
 argument_list|()
 expr_stmt|;
@@ -1347,7 +1345,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|TIntArrayList
+name|IntArrayList
 name|items
 init|=
 name|shardToSlots
@@ -1373,7 +1371,7 @@ argument_list|,
 name|items
 operator|=
 operator|new
-name|TIntArrayList
+name|IntArrayList
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1823,7 +1821,7 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|TIntArrayList
+name|IntArrayList
 name|slots
 init|=
 name|shardToSlots

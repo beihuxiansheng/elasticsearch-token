@@ -18,6 +18,18 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|hppc
+operator|.
+name|IntArrayList
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -45,20 +57,6 @@ operator|.
 name|stream
 operator|.
 name|StreamOutput
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|trove
-operator|.
-name|ExtTIntArrayList
 import|;
 end_import
 
@@ -127,7 +125,7 @@ parameter_list|,
 name|long
 name|id
 parameter_list|,
-name|ExtTIntArrayList
+name|IntArrayList
 name|list
 parameter_list|)
 block|{
@@ -148,8 +146,7 @@ name|docIds
 operator|=
 name|list
 operator|.
-name|unsafeArray
-argument_list|()
+name|buffer
 expr_stmt|;
 name|this
 operator|.

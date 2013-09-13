@@ -18,15 +18,13 @@ end_package
 
 begin_import
 import|import
-name|gnu
+name|com
 operator|.
-name|trove
+name|carrotsearch
 operator|.
-name|list
+name|hppc
 operator|.
-name|array
-operator|.
-name|TIntArrayList
+name|IntArrayList
 import|;
 end_import
 
@@ -132,7 +130,7 @@ name|String
 name|preference
 decl_stmt|;
 DECL|field|locations
-name|TIntArrayList
+name|IntArrayList
 name|locations
 decl_stmt|;
 DECL|field|requests
@@ -170,7 +168,7 @@ expr_stmt|;
 name|locations
 operator|=
 operator|new
-name|TIntArrayList
+name|IntArrayList
 argument_list|()
 expr_stmt|;
 name|requests
@@ -289,7 +287,7 @@ decl_stmt|;
 name|locations
 operator|=
 operator|new
-name|TIntArrayList
+name|IntArrayList
 argument_list|(
 name|size
 argument_list|)

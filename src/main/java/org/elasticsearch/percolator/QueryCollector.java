@@ -18,6 +18,18 @@ begin_import
 import|import
 name|com
 operator|.
+name|carrotsearch
+operator|.
+name|hppc
+operator|.
+name|FloatArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
 name|google
 operator|.
 name|common
@@ -25,20 +37,6 @@ operator|.
 name|collect
 operator|.
 name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
-name|gnu
-operator|.
-name|trove
-operator|.
-name|list
-operator|.
-name|array
-operator|.
-name|TFloatArrayList
 import|;
 end_import
 
@@ -1248,11 +1246,11 @@ decl_stmt|;
 comment|// TODO: Use thread local in order to cache the scores lists?
 DECL|field|scores
 specifier|final
-name|TFloatArrayList
+name|FloatArrayList
 name|scores
 init|=
 operator|new
-name|TFloatArrayList
+name|FloatArrayList
 argument_list|()
 decl_stmt|;
 DECL|field|limit
@@ -1588,7 +1586,7 @@ name|matches
 return|;
 block|}
 DECL|method|scores
-name|TFloatArrayList
+name|FloatArrayList
 name|scores
 parameter_list|()
 block|{

@@ -18,29 +18,25 @@ end_package
 
 begin_import
 import|import
-name|gnu
+name|com
 operator|.
-name|trove
+name|carrotsearch
 operator|.
-name|list
+name|hppc
 operator|.
-name|array
-operator|.
-name|TIntArrayList
+name|IntArrayList
 import|;
 end_import
 
 begin_import
 import|import
-name|gnu
+name|com
 operator|.
-name|trove
+name|carrotsearch
 operator|.
-name|list
+name|hppc
 operator|.
-name|array
-operator|.
-name|TLongArrayList
+name|LongArrayList
 import|;
 end_import
 
@@ -194,7 +190,7 @@ name|boolean
 name|refresh
 decl_stmt|;
 DECL|field|locations
-name|TIntArrayList
+name|IntArrayList
 name|locations
 decl_stmt|;
 DECL|field|types
@@ -220,7 +216,7 @@ argument_list|>
 name|fields
 decl_stmt|;
 DECL|field|versions
-name|TLongArrayList
+name|LongArrayList
 name|versions
 decl_stmt|;
 DECL|field|versionTypes
@@ -265,7 +261,7 @@ expr_stmt|;
 name|locations
 operator|=
 operator|new
-name|TIntArrayList
+name|IntArrayList
 argument_list|()
 expr_stmt|;
 name|types
@@ -299,7 +295,7 @@ expr_stmt|;
 name|versions
 operator|=
 operator|new
-name|TLongArrayList
+name|LongArrayList
 argument_list|()
 expr_stmt|;
 name|versionTypes
@@ -560,7 +556,7 @@ decl_stmt|;
 name|locations
 operator|=
 operator|new
-name|TIntArrayList
+name|IntArrayList
 argument_list|(
 name|size
 argument_list|)
@@ -602,7 +598,7 @@ expr_stmt|;
 name|versions
 operator|=
 operator|new
-name|TLongArrayList
+name|LongArrayList
 argument_list|(
 name|size
 argument_list|)

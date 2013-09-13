@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|gnu
-operator|.
-name|trove
-operator|.
-name|set
-operator|.
-name|hash
-operator|.
-name|THashSet
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -159,6 +145,16 @@ operator|.
 name|util
 operator|.
 name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashSet
 import|;
 end_import
 
@@ -485,7 +481,7 @@ block|{
 name|routing
 operator|=
 operator|new
-name|THashSet
+name|HashSet
 argument_list|<
 name|String
 argument_list|>

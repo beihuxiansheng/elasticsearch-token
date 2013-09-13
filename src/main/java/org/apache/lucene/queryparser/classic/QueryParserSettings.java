@@ -20,15 +20,13 @@ end_package
 
 begin_import
 import|import
-name|gnu
+name|com
 operator|.
-name|trove
+name|carrotsearch
 operator|.
-name|map
+name|hppc
 operator|.
-name|hash
-operator|.
-name|TObjectFloatHashMap
+name|ObjectFloatOpenHashMap
 import|;
 end_import
 
@@ -321,7 +319,7 @@ init|=
 literal|null
 decl_stmt|;
 DECL|field|boosts
-name|TObjectFloatHashMap
+name|ObjectFloatOpenHashMap
 argument_list|<
 name|String
 argument_list|>
@@ -1044,7 +1042,7 @@ expr_stmt|;
 block|}
 DECL|method|boosts
 specifier|public
-name|TObjectFloatHashMap
+name|ObjectFloatOpenHashMap
 argument_list|<
 name|String
 argument_list|>
@@ -1060,7 +1058,7 @@ specifier|public
 name|void
 name|boosts
 parameter_list|(
-name|TObjectFloatHashMap
+name|ObjectFloatOpenHashMap
 argument_list|<
 name|String
 argument_list|>

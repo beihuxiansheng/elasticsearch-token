@@ -18,15 +18,13 @@ end_package
 
 begin_import
 import|import
-name|gnu
+name|com
 operator|.
-name|trove
+name|carrotsearch
 operator|.
-name|list
+name|hppc
 operator|.
-name|array
-operator|.
-name|TFloatArrayList
+name|FloatArrayList
 import|;
 end_import
 
@@ -376,11 +374,11 @@ name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
-name|TFloatArrayList
+name|FloatArrayList
 name|boosts
 init|=
 operator|new
-name|TFloatArrayList
+name|FloatArrayList
 argument_list|()
 decl_stmt|;
 name|float

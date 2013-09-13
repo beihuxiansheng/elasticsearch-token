@@ -20,6 +20,18 @@ begin_import
 import|import
 name|com
 operator|.
+name|carrotsearch
+operator|.
+name|hppc
+operator|.
+name|ObjectIntOpenHashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
 name|google
 operator|.
 name|common
@@ -55,20 +67,6 @@ operator|.
 name|collect
 operator|.
 name|Sets
-import|;
-end_import
-
-begin_import
-import|import
-name|gnu
-operator|.
-name|trove
-operator|.
-name|map
-operator|.
-name|hash
-operator|.
-name|TObjectIntHashMap
 import|;
 end_import
 
@@ -282,7 +280,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|TObjectIntHashMap
+name|ObjectIntOpenHashMap
 argument_list|<
 name|String
 argument_list|>
@@ -294,7 +292,7 @@ name|HashMap
 argument_list|<
 name|String
 argument_list|,
-name|TObjectIntHashMap
+name|ObjectIntOpenHashMap
 argument_list|<
 name|String
 argument_list|>
@@ -963,7 +961,7 @@ return|;
 block|}
 DECL|method|nodesPerAttributesCounts
 specifier|public
-name|TObjectIntHashMap
+name|ObjectIntOpenHashMap
 argument_list|<
 name|String
 argument_list|>
@@ -973,7 +971,7 @@ name|String
 name|attributeName
 parameter_list|)
 block|{
-name|TObjectIntHashMap
+name|ObjectIntOpenHashMap
 argument_list|<
 name|String
 argument_list|>
@@ -1000,7 +998,7 @@ block|}
 name|nodesPerAttributesCounts
 operator|=
 operator|new
-name|TObjectIntHashMap
+name|ObjectIntOpenHashMap
 argument_list|<
 name|String
 argument_list|>
@@ -1032,11 +1030,9 @@ argument_list|)
 decl_stmt|;
 name|nodesPerAttributesCounts
 operator|.
-name|adjustOrPutValue
+name|addTo
 argument_list|(
 name|attrValue
-argument_list|,
-literal|1
 argument_list|,
 literal|1
 argument_list|)

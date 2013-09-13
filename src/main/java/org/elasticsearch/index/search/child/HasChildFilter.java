@@ -20,15 +20,13 @@ end_package
 
 begin_import
 import|import
-name|gnu
+name|com
 operator|.
-name|trove
+name|carrotsearch
 operator|.
-name|set
+name|hppc
 operator|.
-name|hash
-operator|.
-name|THashSet
+name|ObjectOpenHashSet
 import|;
 end_import
 
@@ -375,7 +373,7 @@ name|Recycler
 operator|.
 name|V
 argument_list|<
-name|THashSet
+name|ObjectOpenHashSet
 argument_list|<
 name|HashedBytesArray
 argument_list|>
@@ -896,6 +894,8 @@ operator|.
 name|next
 argument_list|()
 operator|.
+name|value
+operator|.
 name|toBytesRef
 argument_list|()
 decl_stmt|;
@@ -942,6 +942,15 @@ name|collectedUids
 operator|.
 name|v
 argument_list|()
+operator|.
+name|keys
+argument_list|,
+name|collectedUids
+operator|.
+name|v
+argument_list|()
+operator|.
+name|allocated
 argument_list|)
 expr_stmt|;
 block|}
@@ -998,7 +1007,7 @@ name|reader
 decl_stmt|;
 DECL|field|parents
 specifier|final
-name|THashSet
+name|ObjectOpenHashSet
 argument_list|<
 name|HashedBytesArray
 argument_list|>
@@ -1018,7 +1027,7 @@ parameter_list|,
 name|Bits
 name|acceptDocs
 parameter_list|,
-name|THashSet
+name|ObjectOpenHashSet
 argument_list|<
 name|HashedBytesArray
 argument_list|>
@@ -1121,7 +1130,7 @@ name|ParentIdCollector
 block|{
 DECL|field|collectedUids
 specifier|final
-name|THashSet
+name|ObjectOpenHashSet
 argument_list|<
 name|HashedBytesArray
 argument_list|>
@@ -1136,7 +1145,7 @@ parameter_list|,
 name|SearchContext
 name|context
 parameter_list|,
-name|THashSet
+name|ObjectOpenHashSet
 argument_list|<
 name|HashedBytesArray
 argument_list|>

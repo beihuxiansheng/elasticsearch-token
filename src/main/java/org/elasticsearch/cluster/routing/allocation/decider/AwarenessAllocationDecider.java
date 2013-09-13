@@ -24,6 +24,18 @@ begin_import
 import|import
 name|com
 operator|.
+name|carrotsearch
+operator|.
+name|hppc
+operator|.
+name|ObjectIntOpenHashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
 name|google
 operator|.
 name|common
@@ -31,20 +43,6 @@ operator|.
 name|collect
 operator|.
 name|Maps
-import|;
-end_import
-
-begin_import
-import|import
-name|gnu
-operator|.
-name|trove
-operator|.
-name|map
-operator|.
-name|hash
-operator|.
-name|TObjectIntHashMap
 import|;
 end_import
 
@@ -753,7 +751,7 @@ literal|false
 return|;
 block|}
 comment|// build attr_value -> nodes map
-name|TObjectIntHashMap
+name|ObjectIntOpenHashMap
 argument_list|<
 name|String
 argument_list|>
@@ -770,14 +768,14 @@ name|awarenessAttribute
 argument_list|)
 decl_stmt|;
 comment|// build the count of shards per attribute value
-name|TObjectIntHashMap
+name|ObjectIntOpenHashMap
 argument_list|<
 name|String
 argument_list|>
 name|shardPerAttribute
 init|=
 operator|new
-name|TObjectIntHashMap
+name|ObjectIntOpenHashMap
 argument_list|<
 name|String
 argument_list|>
@@ -871,7 +869,7 @@ argument_list|)
 decl_stmt|;
 name|shardPerAttribute
 operator|.
-name|adjustOrPutValue
+name|addTo
 argument_list|(
 name|relocationNode
 operator|.
@@ -885,8 +883,6 @@ name|get
 argument_list|(
 name|awarenessAttribute
 argument_list|)
-argument_list|,
-literal|1
 argument_list|,
 literal|1
 argument_list|)
@@ -903,7 +899,7 @@ condition|)
 block|{
 name|shardPerAttribute
 operator|.
-name|adjustOrPutValue
+name|addTo
 argument_list|(
 name|routingNode
 operator|.
@@ -917,8 +913,6 @@ name|get
 argument_list|(
 name|awarenessAttribute
 argument_list|)
-argument_list|,
-literal|1
 argument_list|,
 literal|1
 argument_list|)
@@ -975,7 +969,7 @@ block|{
 comment|// we work on different nodes, move counts around
 name|shardPerAttribute
 operator|.
-name|adjustOrPutValue
+name|putOrAdd
 argument_list|(
 name|allocation
 operator|.
@@ -998,15 +992,15 @@ argument_list|(
 name|awarenessAttribute
 argument_list|)
 argument_list|,
+literal|0
+argument_list|,
 operator|-
 literal|1
-argument_list|,
-literal|0
 argument_list|)
 expr_stmt|;
 name|shardPerAttribute
 operator|.
-name|adjustOrPutValue
+name|addTo
 argument_list|(
 name|node
 operator|.
@@ -1020,8 +1014,6 @@ name|get
 argument_list|(
 name|awarenessAttribute
 argument_list|)
-argument_list|,
-literal|1
 argument_list|,
 literal|1
 argument_list|)
@@ -1032,7 +1024,7 @@ else|else
 block|{
 name|shardPerAttribute
 operator|.
-name|adjustOrPutValue
+name|addTo
 argument_list|(
 name|node
 operator|.
@@ -1046,8 +1038,6 @@ name|get
 argument_list|(
 name|awarenessAttribute
 argument_list|)
-argument_list|,
-literal|1
 argument_list|,
 literal|1
 argument_list|)
@@ -1093,7 +1083,7 @@ condition|(
 operator|!
 name|shardPerAttribute
 operator|.
-name|contains
+name|containsKey
 argument_list|(
 name|fullValue
 argument_list|)

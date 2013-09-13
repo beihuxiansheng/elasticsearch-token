@@ -18,15 +18,13 @@ end_package
 
 begin_import
 import|import
-name|gnu
+name|com
 operator|.
-name|trove
+name|carrotsearch
 operator|.
-name|map
+name|hppc
 operator|.
-name|hash
-operator|.
-name|TIntObjectHashMap
+name|IntObjectOpenHashMap
 import|;
 end_import
 
@@ -83,7 +81,7 @@ DECL|field|builtIn
 specifier|private
 specifier|final
 specifier|static
-name|TIntObjectHashMap
+name|IntObjectOpenHashMap
 argument_list|<
 name|NamedAnalyzer
 argument_list|>
@@ -94,7 +92,7 @@ block|{
 name|builtIn
 operator|=
 operator|new
-name|TIntObjectHashMap
+name|IntObjectOpenHashMap
 argument_list|<
 name|NamedAnalyzer
 argument_list|>

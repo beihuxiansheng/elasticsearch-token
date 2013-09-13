@@ -20,15 +20,13 @@ end_package
 
 begin_import
 import|import
-name|gnu
+name|com
 operator|.
-name|trove
+name|carrotsearch
 operator|.
-name|set
+name|hppc
 operator|.
-name|hash
-operator|.
-name|THashSet
+name|ObjectOpenHashSet
 import|;
 end_import
 
@@ -283,7 +281,7 @@ name|Recycler
 operator|.
 name|V
 argument_list|<
-name|THashSet
+name|ObjectOpenHashSet
 argument_list|<
 name|HashedBytesArray
 argument_list|>
@@ -684,7 +682,7 @@ name|reader
 decl_stmt|;
 DECL|field|parents
 specifier|final
-name|THashSet
+name|ObjectOpenHashSet
 argument_list|<
 name|HashedBytesArray
 argument_list|>
@@ -704,7 +702,7 @@ parameter_list|,
 name|Bits
 name|acceptDocs
 parameter_list|,
-name|THashSet
+name|ObjectOpenHashSet
 argument_list|<
 name|HashedBytesArray
 argument_list|>
@@ -779,7 +777,7 @@ name|NoopCollector
 block|{
 DECL|field|collectedUids
 specifier|final
-name|THashSet
+name|ObjectOpenHashSet
 argument_list|<
 name|HashedBytesArray
 argument_list|>
@@ -802,7 +800,7 @@ decl_stmt|;
 DECL|method|ParentUidsCollector
 name|ParentUidsCollector
 parameter_list|(
-name|THashSet
+name|ObjectOpenHashSet
 argument_list|<
 name|HashedBytesArray
 argument_list|>

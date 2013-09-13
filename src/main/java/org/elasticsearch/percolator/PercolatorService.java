@@ -18,6 +18,18 @@ begin_import
 import|import
 name|com
 operator|.
+name|carrotsearch
+operator|.
+name|hppc
+operator|.
+name|ByteObjectOpenHashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
 name|google
 operator|.
 name|common
@@ -25,20 +37,6 @@ operator|.
 name|collect
 operator|.
 name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
-name|gnu
-operator|.
-name|trove
-operator|.
-name|map
-operator|.
-name|hash
-operator|.
-name|TByteObjectHashMap
 import|;
 end_import
 
@@ -919,7 +917,7 @@ decl_stmt|;
 DECL|field|percolatorTypes
 specifier|private
 specifier|final
-name|TByteObjectHashMap
+name|ByteObjectOpenHashMap
 argument_list|<
 name|PercolatorType
 argument_list|>
@@ -1034,7 +1032,7 @@ expr_stmt|;
 name|percolatorTypes
 operator|=
 operator|new
-name|TByteObjectHashMap
+name|ByteObjectOpenHashMap
 argument_list|<
 name|PercolatorType
 argument_list|>

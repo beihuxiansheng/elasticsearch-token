@@ -20,6 +20,18 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|hppc
+operator|.
+name|IntArrayList
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -137,20 +149,6 @@ operator|.
 name|settings
 operator|.
 name|Settings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|trove
-operator|.
-name|ExtTIntArrayList
 import|;
 end_import
 
@@ -419,7 +417,7 @@ DECL|field|docIdsToLoad
 specifier|final
 name|AtomicArray
 argument_list|<
-name|ExtTIntArrayList
+name|IntArrayList
 argument_list|>
 name|docIdsToLoad
 decl_stmt|;
@@ -463,7 +461,7 @@ operator|=
 operator|new
 name|AtomicArray
 argument_list|<
-name|ExtTIntArrayList
+name|IntArrayList
 argument_list|>
 argument_list|(
 name|firstResults
@@ -586,7 +584,7 @@ name|AtomicArray
 operator|.
 name|Entry
 argument_list|<
-name|ExtTIntArrayList
+name|IntArrayList
 argument_list|>
 name|entry
 range|:
@@ -733,7 +731,7 @@ name|AtomicArray
 operator|.
 name|Entry
 argument_list|<
-name|ExtTIntArrayList
+name|IntArrayList
 argument_list|>
 name|entry
 range|:
@@ -851,7 +849,7 @@ name|AtomicArray
 operator|.
 name|Entry
 argument_list|<
-name|ExtTIntArrayList
+name|IntArrayList
 argument_list|>
 name|entry
 range|:

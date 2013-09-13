@@ -18,15 +18,13 @@ end_package
 
 begin_import
 import|import
-name|gnu
+name|com
 operator|.
-name|trove
+name|carrotsearch
 operator|.
-name|list
+name|hppc
 operator|.
-name|array
-operator|.
-name|TIntArrayList
+name|IntArrayList
 import|;
 end_import
 
@@ -113,7 +111,7 @@ extends|extends
 name|ActionResponse
 block|{
 DECL|field|locations
-name|TIntArrayList
+name|IntArrayList
 name|locations
 decl_stmt|;
 DECL|field|responses
@@ -139,7 +137,7 @@ block|{
 name|locations
 operator|=
 operator|new
-name|TIntArrayList
+name|IntArrayList
 argument_list|()
 expr_stmt|;
 name|responses
@@ -264,7 +262,7 @@ decl_stmt|;
 name|locations
 operator|=
 operator|new
-name|TIntArrayList
+name|IntArrayList
 argument_list|(
 name|size
 argument_list|)

@@ -20,15 +20,13 @@ end_package
 
 begin_import
 import|import
-name|gnu
+name|com
 operator|.
-name|trove
+name|carrotsearch
 operator|.
-name|map
+name|hppc
 operator|.
-name|hash
-operator|.
-name|TObjectLongHashMap
+name|ObjectLongOpenHashMap
 import|;
 end_import
 
@@ -1643,7 +1641,7 @@ name|sizeInBytes
 init|=
 literal|0
 decl_stmt|;
-name|TObjectLongHashMap
+name|ObjectLongOpenHashMap
 argument_list|<
 name|String
 argument_list|>
@@ -1667,7 +1665,7 @@ block|{
 name|completionFields
 operator|=
 operator|new
-name|TObjectLongHashMap
+name|ObjectLongOpenHashMap
 argument_list|<
 name|String
 argument_list|>
@@ -1762,11 +1760,9 @@ argument_list|()
 decl_stmt|;
 name|completionFields
 operator|.
-name|adjustOrPutValue
+name|addTo
 argument_list|(
 name|field
-argument_list|,
-name|fstSize
 argument_list|,
 name|fstSize
 argument_list|)

@@ -18,15 +18,13 @@ end_package
 
 begin_import
 import|import
-name|gnu
+name|com
 operator|.
-name|trove
+name|carrotsearch
 operator|.
-name|map
+name|hppc
 operator|.
-name|hash
-operator|.
-name|TObjectIntHashMap
+name|ObjectIntOpenHashMap
 import|;
 end_import
 
@@ -508,7 +506,7 @@ operator|.
 name|currentTimeMillis
 argument_list|()
 decl_stmt|;
-name|TObjectIntHashMap
+name|ObjectIntOpenHashMap
 argument_list|<
 name|String
 argument_list|>
@@ -620,7 +618,7 @@ comment|// verify that we have 10 shards on node3
 name|counts
 operator|=
 operator|new
-name|TObjectIntHashMap
+name|ObjectIntOpenHashMap
 argument_list|<
 name|String
 argument_list|>
@@ -655,7 +653,7 @@ control|)
 block|{
 name|counts
 operator|.
-name|adjustOrPutValue
+name|addTo
 argument_list|(
 name|clusterState
 operator|.
@@ -672,8 +670,6 @@ argument_list|)
 operator|.
 name|name
 argument_list|()
-argument_list|,
-literal|1
 argument_list|,
 literal|1
 argument_list|)
@@ -999,14 +995,14 @@ operator|.
 name|getState
 argument_list|()
 decl_stmt|;
-name|TObjectIntHashMap
+name|ObjectIntOpenHashMap
 argument_list|<
 name|String
 argument_list|>
 name|counts
 init|=
 operator|new
-name|TObjectIntHashMap
+name|ObjectIntOpenHashMap
 argument_list|<
 name|String
 argument_list|>
@@ -1041,7 +1037,7 @@ control|)
 block|{
 name|counts
 operator|.
-name|adjustOrPutValue
+name|addTo
 argument_list|(
 name|clusterState
 operator|.
@@ -1058,8 +1054,6 @@ argument_list|)
 operator|.
 name|name
 argument_list|()
-argument_list|,
-literal|1
 argument_list|,
 literal|1
 argument_list|)
@@ -1380,14 +1374,14 @@ operator|.
 name|getState
 argument_list|()
 decl_stmt|;
-name|TObjectIntHashMap
+name|ObjectIntOpenHashMap
 argument_list|<
 name|String
 argument_list|>
 name|counts
 init|=
 operator|new
-name|TObjectIntHashMap
+name|ObjectIntOpenHashMap
 argument_list|<
 name|String
 argument_list|>
@@ -1422,7 +1416,7 @@ control|)
 block|{
 name|counts
 operator|.
-name|adjustOrPutValue
+name|addTo
 argument_list|(
 name|clusterState
 operator|.
@@ -1439,8 +1433,6 @@ argument_list|)
 operator|.
 name|name
 argument_list|()
-argument_list|,
-literal|1
 argument_list|,
 literal|1
 argument_list|)
@@ -1661,7 +1653,7 @@ expr_stmt|;
 name|counts
 operator|=
 operator|new
-name|TObjectIntHashMap
+name|ObjectIntOpenHashMap
 argument_list|<
 name|String
 argument_list|>
@@ -1696,7 +1688,7 @@ control|)
 block|{
 name|counts
 operator|.
-name|adjustOrPutValue
+name|addTo
 argument_list|(
 name|clusterState
 operator|.
@@ -1713,8 +1705,6 @@ argument_list|)
 operator|.
 name|name
 argument_list|()
-argument_list|,
-literal|1
 argument_list|,
 literal|1
 argument_list|)

@@ -44,20 +44,6 @@ end_import
 
 begin_import
 import|import
-name|gnu
-operator|.
-name|trove
-operator|.
-name|set
-operator|.
-name|hash
-operator|.
-name|THashSet
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -4023,15 +4009,16 @@ operator|++
 expr_stmt|;
 block|}
 block|}
+comment|// TODO (MvG): No push: hppc or jcf?
 specifier|final
-name|THashSet
+name|Set
 argument_list|<
 name|String
 argument_list|>
 name|result
 init|=
 operator|new
-name|THashSet
+name|HashSet
 argument_list|<
 name|String
 argument_list|>

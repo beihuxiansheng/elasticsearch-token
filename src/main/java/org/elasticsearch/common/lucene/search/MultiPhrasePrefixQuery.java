@@ -20,15 +20,13 @@ end_package
 
 begin_import
 import|import
-name|gnu
+name|com
 operator|.
-name|trove
+name|carrotsearch
 operator|.
-name|set
+name|hppc
 operator|.
-name|hash
-operator|.
-name|THashSet
+name|ObjectOpenHashSet
 import|;
 end_import
 
@@ -597,14 +595,14 @@ argument_list|(
 name|sizeMinus1
 argument_list|)
 decl_stmt|;
-name|Set
+name|ObjectOpenHashSet
 argument_list|<
 name|Term
 argument_list|>
 name|terms
 init|=
 operator|new
-name|THashSet
+name|ObjectOpenHashSet
 argument_list|<
 name|Term
 argument_list|>
@@ -662,14 +660,9 @@ name|terms
 operator|.
 name|toArray
 argument_list|(
-operator|new
 name|Term
-index|[
-name|terms
 operator|.
-name|size
-argument_list|()
-index|]
+name|class
 argument_list|)
 argument_list|,
 name|position
@@ -689,7 +682,7 @@ specifier|private
 name|void
 name|getPrefixTerms
 parameter_list|(
-name|Set
+name|ObjectOpenHashSet
 argument_list|<
 name|Term
 argument_list|>

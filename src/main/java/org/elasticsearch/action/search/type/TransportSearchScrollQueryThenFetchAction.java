@@ -20,6 +20,18 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|hppc
+operator|.
+name|IntArrayList
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -151,20 +163,6 @@ operator|.
 name|settings
 operator|.
 name|Settings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|trove
-operator|.
-name|ExtTIntArrayList
 import|;
 end_import
 
@@ -1505,14 +1503,14 @@ argument_list|)
 expr_stmt|;
 name|AtomicArray
 argument_list|<
-name|ExtTIntArrayList
+name|IntArrayList
 argument_list|>
 name|docIdsToLoad
 init|=
 operator|new
 name|AtomicArray
 argument_list|<
-name|ExtTIntArrayList
+name|IntArrayList
 argument_list|>
 argument_list|(
 name|queryResults
@@ -1568,7 +1566,7 @@ name|AtomicArray
 operator|.
 name|Entry
 argument_list|<
-name|ExtTIntArrayList
+name|IntArrayList
 argument_list|>
 name|entry
 range|:
@@ -1578,7 +1576,7 @@ name|asList
 argument_list|()
 control|)
 block|{
-name|ExtTIntArrayList
+name|IntArrayList
 name|docIds
 init|=
 name|entry
