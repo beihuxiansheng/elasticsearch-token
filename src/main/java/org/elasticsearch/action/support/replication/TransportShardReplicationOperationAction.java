@@ -1645,9 +1645,9 @@ condition|)
 block|{
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
-literal|"Cluster is blocked ({}), scheduling a retry"
+literal|"cluster is blocked ({}), scheduling a retry"
 argument_list|,
 name|blockException
 operator|.
@@ -1717,9 +1717,9 @@ condition|)
 block|{
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
-literal|"Cluster is blocked ({}), scheduling a retry"
+literal|"cluster is blocked ({}), scheduling a retry"
 argument_list|,
 name|blockException
 operator|.
@@ -1785,9 +1785,9 @@ condition|)
 block|{
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
-literal|"No shard instances known for index [{}]. Scheduling a retry"
+literal|"no shard instances known for index [{}], scheduling a retry"
 argument_list|,
 name|shardIt
 operator|.
@@ -1871,9 +1871,9 @@ condition|)
 block|{
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
-literal|"primary shard [{}] is not yet active or we do not know the node it is assigned to [{}]. Scheduling a retry."
+literal|"primary shard [{}] is not yet active or we do not know the node it is assigned to [{}], scheduling a retry."
 argument_list|,
 name|shard
 operator|.
@@ -1994,9 +1994,9 @@ condition|)
 block|{
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
-literal|"Not enough active copies of shard [{}] to meet write consistency of [{}] (have {}, needed {}). Scheduling a retry."
+literal|"not enough active copies of shard [{}] to meet write consistency of [{}] (have {}, needed {}), scheduling a retry."
 argument_list|,
 name|shard
 operator|.
@@ -2295,9 +2295,9 @@ comment|// we already marked it as started when we executed it (removed the list
 comment|// to re-add to the cluster listener
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
-literal|"received an error from node the primary was assigned to ({}). Scheduling a retry"
+literal|"received an error from node the primary was assigned to ({}), scheduling a retry"
 argument_list|,
 name|exp
 operator|.
@@ -2339,9 +2339,9 @@ condition|)
 block|{
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
-literal|"Couldn't find a eligible primary shard. Scheduling for retry."
+literal|"couldn't find a eligible primary shard, scheduling for retry."
 argument_list|)
 expr_stmt|;
 name|retry
@@ -2414,9 +2414,9 @@ parameter_list|()
 block|{
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
-literal|"Listener to cluster state added. Trying to index again."
+literal|"listener to cluster state added, trying to index again"
 argument_list|)
 expr_stmt|;
 if|if
@@ -2478,9 +2478,9 @@ parameter_list|)
 block|{
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
-literal|"Cluster changed (version {}). Trying to index again."
+literal|"cluster changed (version {}), trying to index again"
 argument_list|,
 name|event
 operator|.
@@ -2639,9 +2639,9 @@ else|else
 block|{
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
-literal|"Retry scheduling ignored as it as we already have a listener in place."
+literal|"retry scheduling ignored as it as we already have a listener in place"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2717,9 +2717,9 @@ argument_list|)
 expr_stmt|;
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
-literal|"Had an error while performing operation on primary ({}). Scheduling a retry."
+literal|"had an error while performing operation on primary ({}), scheduling a retry."
 argument_list|,
 name|e
 operator|.
