@@ -4172,6 +4172,10 @@ block|{
 if|if
 condition|(
 name|s
+operator|==
+literal|null
+operator|||
+name|s
 operator|.
 name|length
 argument_list|()
