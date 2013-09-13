@@ -2916,7 +2916,7 @@ parameter_list|)
 throws|throws
 name|ElasticSearchException
 block|{
-name|verifyStarted
+name|verifyNotClosed
 argument_list|()
 expr_stmt|;
 if|if
@@ -4482,7 +4482,7 @@ name|shardId
 argument_list|,
 name|state
 argument_list|,
-literal|"Read operations only allowed when started/relocated"
+literal|"operations only allowed when started/relocated"
 argument_list|)
 throw|;
 block|}
@@ -4538,7 +4538,45 @@ name|shardId
 argument_list|,
 name|state
 argument_list|,
-literal|"write operation only allowed when started/recovering"
+literal|"operation only allowed when started/recovering"
+argument_list|)
+throw|;
+block|}
+block|}
+DECL|method|verifyNotClosed
+specifier|private
+name|void
+name|verifyNotClosed
+parameter_list|()
+throws|throws
+name|IllegalIndexShardStateException
+block|{
+name|IndexShardState
+name|state
+init|=
+name|this
+operator|.
+name|state
+decl_stmt|;
+comment|// one time volatile read
+if|if
+condition|(
+name|state
+operator|==
+name|IndexShardState
+operator|.
+name|CLOSED
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalIndexShardStateException
+argument_list|(
+name|shardId
+argument_list|,
+name|state
+argument_list|,
+literal|"operation only allowed when not closed"
 argument_list|)
 throw|;
 block|}
