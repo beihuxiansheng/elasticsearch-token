@@ -5848,11 +5848,6 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|setRefresh
-argument_list|(
-literal|true
-argument_list|)
-operator|.
 name|execute
 argument_list|()
 operator|.
@@ -5863,6 +5858,9 @@ name|assertNoFailures
 argument_list|(
 name|actionGet
 argument_list|)
+expr_stmt|;
+name|refresh
+argument_list|()
 expr_stmt|;
 comment|// update the first one and then merge.. the target segment will have no value in FIELD
 name|client
@@ -5923,11 +5921,6 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|setRefresh
-argument_list|(
-literal|true
-argument_list|)
-operator|.
 name|execute
 argument_list|()
 operator|.
@@ -5938,6 +5931,9 @@ name|assertNoFailures
 argument_list|(
 name|actionGet
 argument_list|)
+expr_stmt|;
+name|refresh
+argument_list|()
 expr_stmt|;
 name|assertSuggestions
 argument_list|(

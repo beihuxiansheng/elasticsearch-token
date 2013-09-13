@@ -198,27 +198,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Should refresh be performed after the optimization. Defaults to<tt>true</tt>.      */
-DECL|method|setRefresh
-specifier|public
-name|OptimizeRequestBuilder
-name|setRefresh
-parameter_list|(
-name|boolean
-name|refresh
-parameter_list|)
-block|{
-name|request
-operator|.
-name|refresh
-argument_list|(
-name|refresh
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|doExecute

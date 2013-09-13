@@ -683,14 +683,6 @@ operator|.
 name|flush
 argument_list|()
 argument_list|)
-operator|.
-name|refresh
-argument_list|(
-name|request
-operator|.
-name|refresh
-argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
