@@ -52,6 +52,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|AbstractNodesTests
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|action
 operator|.
 name|admin
@@ -319,16 +329,6 @@ operator|.
 name|internal
 operator|.
 name|InternalNode
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|AbstractNodesTests
 import|;
 end_import
 
@@ -3302,10 +3302,7 @@ parameter_list|()
 block|{
 name|testLoad
 argument_list|(
-name|getRandom
-argument_list|()
-operator|.
-name|nextBoolean
+name|randomBoolean
 argument_list|()
 argument_list|)
 expr_stmt|;

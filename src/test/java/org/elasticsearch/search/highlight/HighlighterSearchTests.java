@@ -38,6 +38,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|AbstractSharedClusterTest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|ElasticSearchException
 import|;
 end_import
@@ -256,16 +266,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|AbstractSharedClusterTest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -454,19 +454,6 @@ name|HighlighterSearchTests
 extends|extends
 name|AbstractSharedClusterTest
 block|{
-annotation|@
-name|Override
-DECL|method|numberOfNodes
-specifier|protected
-name|int
-name|numberOfNodes
-parameter_list|()
-block|{
-return|return
-literal|4
-return|;
-comment|// why 4?
-block|}
 annotation|@
 name|Test
 comment|// see #3486

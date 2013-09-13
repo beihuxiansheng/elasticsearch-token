@@ -1068,7 +1068,10 @@ name|between
 argument_list|(
 literal|0
 argument_list|,
-name|numberOfNodes
+name|cluster
+argument_list|()
+operator|.
+name|numNodes
 argument_list|()
 operator|-
 literal|1
@@ -5549,7 +5552,10 @@ name|between
 argument_list|(
 literal|0
 argument_list|,
-name|numberOfNodes
+name|cluster
+argument_list|()
+operator|.
+name|numNodes
 argument_list|()
 operator|-
 literal|1
@@ -6270,7 +6276,10 @@ name|between
 argument_list|(
 literal|0
 argument_list|,
-name|numberOfNodes
+name|cluster
+argument_list|()
+operator|.
+name|numNodes
 argument_list|()
 operator|-
 literal|1
@@ -6663,18 +6672,6 @@ argument_list|,
 literal|"nobel prize"
 argument_list|)
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|numberOfNodes
-specifier|protected
-name|int
-name|numberOfNodes
-parameter_list|()
-block|{
-return|return
-literal|3
-return|;
 block|}
 DECL|method|searchSuggest
 specifier|protected

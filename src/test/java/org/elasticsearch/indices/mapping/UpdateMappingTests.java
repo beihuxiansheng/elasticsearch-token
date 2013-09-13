@@ -18,6 +18,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|AbstractSharedClusterTest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|action
 operator|.
 name|admin
@@ -205,16 +215,6 @@ operator|.
 name|mapper
 operator|.
 name|MergeMappingException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|AbstractSharedClusterTest
 import|;
 end_import
 
@@ -2681,7 +2681,10 @@ name|max
 argument_list|(
 literal|5
 argument_list|,
-name|numberOfNodes
+name|cluster
+argument_list|()
+operator|.
+name|numNodes
 argument_list|()
 argument_list|)
 decl_stmt|;

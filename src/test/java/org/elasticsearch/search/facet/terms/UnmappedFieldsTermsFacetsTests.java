@@ -233,18 +233,6 @@ return|return
 literal|5
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|numberOfNodes
-specifier|protected
-name|int
-name|numberOfNodes
-parameter_list|()
-block|{
-return|return
-literal|1
-return|;
-block|}
 comment|/**      * Tests the terms facet when faceting on unmapped field      */
 annotation|@
 name|Test

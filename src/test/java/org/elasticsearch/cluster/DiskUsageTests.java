@@ -136,6 +136,14 @@ name|void
 name|randomDiskUsageTest
 parameter_list|()
 block|{
+name|int
+name|iters
+init|=
+name|atLeast
+argument_list|(
+literal|1000
+argument_list|)
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -145,7 +153,7 @@ literal|1
 init|;
 name|i
 operator|<
-literal|1000000
+name|iters
 condition|;
 name|i
 operator|++

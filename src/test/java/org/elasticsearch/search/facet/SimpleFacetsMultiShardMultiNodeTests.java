@@ -40,18 +40,6 @@ return|return
 literal|3
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|numberOfNodes
-specifier|protected
-name|int
-name|numberOfNodes
-parameter_list|()
-block|{
-return|return
-literal|2
-return|;
-block|}
 block|}
 end_class
 
