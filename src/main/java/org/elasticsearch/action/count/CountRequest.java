@@ -339,6 +339,10 @@ name|Strings
 operator|.
 name|EMPTY_ARRAY
 decl_stmt|;
+DECL|field|nowInMillis
+name|long
+name|nowInMillis
+decl_stmt|;
 DECL|method|CountRequest
 name|CountRequest
 parameter_list|()
