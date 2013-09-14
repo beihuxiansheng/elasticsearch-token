@@ -531,7 +531,7 @@ name|ThreadPool
 operator|.
 name|Names
 operator|.
-name|SEARCH
+name|SUGGEST
 return|;
 block|}
 annotation|@
