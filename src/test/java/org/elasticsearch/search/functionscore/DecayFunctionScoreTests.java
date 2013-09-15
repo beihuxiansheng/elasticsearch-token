@@ -22,6 +22,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|AbstractSharedClusterTest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|ElasticSearchIllegalStateException
 import|;
 end_import
@@ -197,16 +207,6 @@ operator|.
 name|hamcrest
 operator|.
 name|ElasticsearchAssertions
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|AbstractSharedClusterTest
 import|;
 end_import
 
@@ -5347,10 +5347,6 @@ argument_list|)
 operator|.
 name|add
 argument_list|(
-operator|new
-name|MatchAllFilterBuilder
-argument_list|()
-argument_list|,
 name|linearDecayFunction
 argument_list|(
 literal|"num1"
@@ -5363,10 +5359,6 @@ argument_list|)
 operator|.
 name|add
 argument_list|(
-operator|new
-name|MatchAllFilterBuilder
-argument_list|()
-argument_list|,
 name|linearDecayFunction
 argument_list|(
 literal|"num2"
