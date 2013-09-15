@@ -307,6 +307,10 @@ name|Strings
 operator|.
 name|EMPTY_ARRAY
 decl_stmt|;
+DECL|field|nowInMillis
+name|long
+name|nowInMillis
+decl_stmt|;
 DECL|method|ValidateQueryRequest
 name|ValidateQueryRequest
 parameter_list|()
@@ -525,7 +529,6 @@ argument_list|(
 name|querySource
 argument_list|)
 expr_stmt|;
-empty_stmt|;
 name|this
 operator|.
 name|querySourceUnsafe
