@@ -84,7 +84,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|MatchAllDocsFilter
+name|Queries
 import|;
 end_import
 
@@ -655,20 +655,13 @@ operator|==
 literal|null
 condition|)
 block|{
-throw|throw
-operator|new
-name|QueryParsingException
-argument_list|(
-name|parseContext
+name|query
+operator|=
+name|Queries
 operator|.
-name|index
+name|newMatchAllQuery
 argument_list|()
-argument_list|,
-name|NAME
-operator|+
-literal|" requires 'query' field"
-argument_list|)
-throw|;
+expr_stmt|;
 block|}
 comment|// if all filter elements returned null, just use the query
 if|if
@@ -1013,9 +1006,9 @@ condition|)
 block|{
 name|filter
 operator|=
-operator|new
-name|MatchAllDocsFilter
-argument_list|()
+name|Queries
+operator|.
+name|MATCH_ALL_FILTER
 expr_stmt|;
 block|}
 name|filterFunctions

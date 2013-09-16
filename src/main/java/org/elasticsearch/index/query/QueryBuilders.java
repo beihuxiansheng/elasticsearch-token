@@ -1366,6 +1366,39 @@ name|queryBuilder
 argument_list|)
 return|;
 block|}
+comment|/**      * A query that allows to define a custom scoring function.      *       */
+DECL|method|functionScoreQuery
+specifier|public
+specifier|static
+name|FunctionScoreQueryBuilder
+name|functionScoreQuery
+parameter_list|()
+block|{
+return|return
+operator|new
+name|FunctionScoreQueryBuilder
+argument_list|()
+return|;
+block|}
+comment|/**      * A query that allows to define a custom scoring function.      *      * @param filterBuilder The filterBuilder to custom score      */
+DECL|method|functionScoreQuery
+specifier|public
+specifier|static
+name|FunctionScoreQueryBuilder
+name|functionScoreQuery
+parameter_list|(
+name|ScoreFunctionBuilder
+name|function
+parameter_list|)
+block|{
+return|return
+operator|new
+name|FunctionScoreQueryBuilder
+argument_list|(
+name|function
+argument_list|)
+return|;
+block|}
 comment|/**      * A query that allows to define a custom scoring function.      *      * @param queryBuilder The query to custom score      * @param scoreFunctionBuilder The score function used to re-score the query      */
 DECL|method|functionScoreQuery
 specifier|public
