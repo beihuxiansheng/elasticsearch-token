@@ -6285,6 +6285,11 @@ name|force
 argument_list|(
 literal|true
 argument_list|)
+operator|.
+name|waitIfOngoing
+argument_list|(
+literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -6501,6 +6506,11 @@ name|Flush
 argument_list|()
 operator|.
 name|force
+argument_list|(
+literal|true
+argument_list|)
+operator|.
+name|waitIfOngoing
 argument_list|(
 literal|true
 argument_list|)
