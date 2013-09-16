@@ -246,6 +246,13 @@ argument_list|(
 name|fieldName
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|origin
+operator|!=
+literal|null
+condition|)
+block|{
 name|builder
 operator|.
 name|field
@@ -255,6 +262,7 @@ argument_list|,
 name|origin
 argument_list|)
 expr_stmt|;
+block|}
 name|builder
 operator|.
 name|field

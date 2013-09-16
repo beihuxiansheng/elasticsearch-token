@@ -1513,7 +1513,7 @@ name|DecayFunctionBuilder
 operator|.
 name|SCALE
 operator|+
-literal|"must be set for geo fields."
+literal|"must be set for date fields."
 argument_list|)
 throw|;
 block|}
