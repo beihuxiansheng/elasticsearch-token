@@ -22,6 +22,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|AbstractSharedClusterTest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|action
 operator|.
 name|search
@@ -92,7 +102,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|AbstractSharedClusterTest
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
 import|;
 end_import
 
@@ -174,18 +188,6 @@ name|org
 operator|.
 name|hamcrest
 operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
 name|Matchers
 operator|.
 name|equalTo
@@ -247,9 +249,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// execute a search before we create an index
-try|try
-block|{
+name|ElasticsearchAssertions
+operator|.
+name|assertHitCount
+argument_list|(
 name|client
 argument_list|()
 operator|.
@@ -266,26 +269,12 @@ literal|"value"
 argument_list|)
 argument_list|)
 operator|.
-name|execute
+name|get
 argument_list|()
-operator|.
-name|actionGet
-argument_list|()
+argument_list|,
+literal|0
+argument_list|)
 expr_stmt|;
-assert|assert
-literal|false
-operator|:
-literal|"should fail"
-assert|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-comment|// ignore, no indices
-block|}
 try|try
 block|{
 name|client
