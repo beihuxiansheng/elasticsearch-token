@@ -2136,6 +2136,13 @@ operator|==
 literal|null
 condition|)
 block|{
+name|copyMissing
+argument_list|(
+name|wrappedComparator
+argument_list|,
+name|slot
+argument_list|)
+expr_stmt|;
 return|return;
 block|}
 name|int

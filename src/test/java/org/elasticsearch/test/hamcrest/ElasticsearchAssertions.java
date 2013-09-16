@@ -906,10 +906,10 @@ name|assertThat
 argument_list|(
 literal|"Expected id: "
 operator|+
-name|hit
-operator|.
-name|getId
-argument_list|()
+name|ids
+index|[
+name|i
+index|]
 operator|+
 literal|" at position "
 operator|+
