@@ -1032,7 +1032,7 @@ name|pluginManager
 operator|.
 name|downloadAndExtract
 argument_list|(
-literal|"plugin"
+name|pluginName
 argument_list|)
 expr_stmt|;
 name|File
@@ -1113,7 +1113,7 @@ block|{
 comment|// We want to remove plugin with plugin short name
 name|singlePluginInstallAndRemove
 argument_list|(
-literal|"plugin"
+literal|"plugintest"
 argument_list|,
 literal|"file://"
 operator|.
@@ -1136,7 +1136,7 @@ expr_stmt|;
 comment|// We want to remove plugin with groupid/artifactid/version form
 name|singlePluginInstallAndRemove
 argument_list|(
-literal|"groupid/plugin/1.0.0"
+literal|"groupid/plugintest/1.0.0"
 argument_list|,
 literal|"file://"
 operator|.
@@ -1159,7 +1159,7 @@ expr_stmt|;
 comment|// We want to remove plugin with groupid/artifactid form
 name|singlePluginInstallAndRemove
 argument_list|(
-literal|"groupid/plugin"
+literal|"groupid/plugintest"
 argument_list|,
 literal|"file://"
 operator|.
