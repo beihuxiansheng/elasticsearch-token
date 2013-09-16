@@ -20,6 +20,20 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|Sets
+import|;
+end_import
+
+begin_import
+import|import
 name|jsr166e
 operator|.
 name|ConcurrentHashMapV8
@@ -31,20 +45,6 @@ import|import
 name|jsr166y
 operator|.
 name|LinkedTransferQueue
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|MapBackedSet
 import|;
 end_import
 
@@ -377,11 +377,9 @@ name|newConcurrentSet
 parameter_list|()
 block|{
 return|return
-operator|new
-name|MapBackedSet
-argument_list|<
-name|V
-argument_list|>
+name|Sets
+operator|.
+name|newSetFromMap
 argument_list|(
 name|ConcurrentCollections
 operator|.
