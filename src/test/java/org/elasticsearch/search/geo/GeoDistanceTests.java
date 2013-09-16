@@ -492,6 +492,12 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+name|indexRandom
+argument_list|(
+literal|"test"
+argument_list|,
+literal|true
+argument_list|,
 name|client
 argument_list|()
 operator|.
@@ -545,13 +551,7 @@ operator|.
 name|endObject
 argument_list|()
 argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
-expr_stmt|;
+argument_list|,
 comment|// to NY: 5.286 km
 name|client
 argument_list|()
@@ -606,13 +606,7 @@ operator|.
 name|endObject
 argument_list|()
 argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
-expr_stmt|;
+argument_list|,
 comment|// to NY: 0.4621 km
 name|client
 argument_list|()
@@ -667,13 +661,7 @@ operator|.
 name|endObject
 argument_list|()
 argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
-expr_stmt|;
+argument_list|,
 comment|// to NY: 1.055 km
 name|client
 argument_list|()
@@ -728,13 +716,7 @@ operator|.
 name|endObject
 argument_list|()
 argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
-expr_stmt|;
+argument_list|,
 comment|// to NY: 1.258 km
 name|client
 argument_list|()
@@ -789,13 +771,7 @@ operator|.
 name|endObject
 argument_list|()
 argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
-expr_stmt|;
+argument_list|,
 comment|// to NY: 2.029 km
 name|client
 argument_list|()
@@ -850,13 +826,7 @@ operator|.
 name|endObject
 argument_list|()
 argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
-expr_stmt|;
+argument_list|,
 comment|// to NY: 8.572 km
 name|client
 argument_list|()
@@ -911,30 +881,7 @@ operator|.
 name|endObject
 argument_list|()
 argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
-expr_stmt|;
-name|client
-argument_list|()
-operator|.
-name|admin
-argument_list|()
-operator|.
-name|indices
-argument_list|()
-operator|.
-name|prepareRefresh
-argument_list|()
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
+argument_list|)
 expr_stmt|;
 name|SearchResponse
 name|searchResponse
