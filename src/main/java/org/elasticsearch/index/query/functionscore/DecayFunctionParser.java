@@ -1041,7 +1041,7 @@ decl_stmt|;
 name|String
 name|scaleString
 init|=
-literal|"1km"
+literal|null
 decl_stmt|;
 name|String
 name|offsetString
@@ -1196,6 +1196,10 @@ condition|(
 name|origin
 operator|==
 literal|null
+operator|||
+name|scaleString
+operator|==
+literal|null
 condition|)
 block|{
 throw|throw
@@ -1206,7 +1210,13 @@ name|DecayFunctionBuilder
 operator|.
 name|ORIGIN
 operator|+
-literal|"must be set for geo fields."
+literal|" and "
+operator|+
+name|DecayFunctionBuilder
+operator|.
+name|SCALE
+operator|+
+literal|" must be set for geo fields."
 argument_list|)
 throw|;
 block|}
