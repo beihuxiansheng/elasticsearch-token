@@ -348,7 +348,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|AbstractSharedClusterTest
+name|test
+operator|.
+name|AbstractIntegrationTest
 import|;
 end_import
 
@@ -417,7 +419,7 @@ specifier|abstract
 class|class
 name|AbstractTermVectorTests
 extends|extends
-name|AbstractSharedClusterTest
+name|AbstractIntegrationTest
 block|{
 DECL|class|TestFieldSetting
 specifier|protected

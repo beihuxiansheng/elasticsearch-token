@@ -218,9 +218,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|hamcrest
-operator|.
-name|ElasticsearchAssertions
+name|AbstractNodesTests
 import|;
 end_import
 
@@ -230,7 +228,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|AbstractNodesTests
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticSearchAssertions
 import|;
 end_import
 
@@ -744,7 +746,7 @@ operator|.
 name|actionGet
 argument_list|()
 decl_stmt|;
-name|ElasticsearchAssertions
+name|ElasticSearchAssertions
 operator|.
 name|assertNoFailures
 argument_list|(

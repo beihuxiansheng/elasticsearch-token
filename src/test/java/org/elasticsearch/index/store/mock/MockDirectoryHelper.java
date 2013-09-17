@@ -80,16 +80,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|cache
 operator|.
 name|memory
@@ -282,6 +272,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticSearchTestCase
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -441,7 +443,7 @@ name|indexSettings
 operator|.
 name|getAsLong
 argument_list|(
-name|ElasticsearchTestCase
+name|ElasticSearchTestCase
 operator|.
 name|INDEX_SEED_SETTING
 argument_list|,

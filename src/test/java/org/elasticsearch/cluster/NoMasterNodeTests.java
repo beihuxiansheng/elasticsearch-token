@@ -34,16 +34,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|AbstractNodesTests
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|percolate
@@ -141,6 +131,18 @@ operator|.
 name|rest
 operator|.
 name|RestStatus
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|AbstractNodesTests
 import|;
 end_import
 

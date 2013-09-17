@@ -106,7 +106,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|AbstractSharedClusterTest
+name|test
+operator|.
+name|AbstractIntegrationTest
 import|;
 end_import
 
@@ -174,7 +176,7 @@ specifier|public
 class|class
 name|WriteConsistencyLevelTests
 extends|extends
-name|AbstractSharedClusterTest
+name|AbstractIntegrationTest
 block|{
 annotation|@
 name|Test

@@ -50,16 +50,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|AbstractSharedClusterTest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|admin
@@ -350,9 +340,21 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
+name|AbstractIntegrationTest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
 name|hamcrest
 operator|.
-name|ElasticsearchAssertions
+name|ElasticSearchAssertions
 import|;
 end_import
 
@@ -502,7 +504,7 @@ name|test
 operator|.
 name|hamcrest
 operator|.
-name|ElasticsearchAssertions
+name|ElasticSearchAssertions
 operator|.
 name|assertNoFailures
 import|;
@@ -526,7 +528,7 @@ specifier|public
 class|class
 name|CompletionSuggestSearchTests
 extends|extends
-name|AbstractSharedClusterTest
+name|AbstractIntegrationTest
 block|{
 DECL|field|INDEX
 specifier|private
@@ -6221,7 +6223,7 @@ operator|)
 literal|0x01
 argument_list|)
 decl_stmt|;
-name|ElasticsearchAssertions
+name|ElasticSearchAssertions
 operator|.
 name|assertAcked
 argument_list|(
@@ -6481,7 +6483,7 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-name|ElasticsearchAssertions
+name|ElasticSearchAssertions
 operator|.
 name|assertAcked
 argument_list|(
@@ -6667,7 +6669,7 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-name|ElasticsearchAssertions
+name|ElasticSearchAssertions
 operator|.
 name|assertAcked
 argument_list|(

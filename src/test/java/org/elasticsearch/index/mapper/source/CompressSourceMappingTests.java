@@ -84,7 +84,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|ParsedDocument
+name|MapperTestUtils
 import|;
 end_import
 
@@ -98,7 +98,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MapperTestUtils
+name|ParsedDocument
 import|;
 end_import
 

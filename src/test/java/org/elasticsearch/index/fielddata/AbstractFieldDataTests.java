@@ -106,7 +106,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchTestCase
+name|test
+operator|.
+name|ElasticSearchTestCase
 import|;
 end_import
 
@@ -141,7 +143,7 @@ specifier|abstract
 class|class
 name|AbstractFieldDataTests
 extends|extends
-name|ElasticsearchTestCase
+name|ElasticSearchTestCase
 block|{
 DECL|field|ifdService
 specifier|protected

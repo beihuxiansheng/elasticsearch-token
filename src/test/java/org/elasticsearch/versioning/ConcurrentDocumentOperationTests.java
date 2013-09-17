@@ -16,16 +16,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|AbstractSharedClusterTest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|ActionListener
@@ -43,6 +33,18 @@ operator|.
 name|index
 operator|.
 name|IndexResponse
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|AbstractIntegrationTest
 import|;
 end_import
 
@@ -142,7 +144,7 @@ specifier|public
 class|class
 name|ConcurrentDocumentOperationTests
 extends|extends
-name|AbstractSharedClusterTest
+name|AbstractIntegrationTest
 block|{
 annotation|@
 name|Test

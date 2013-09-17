@@ -22,16 +22,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|AbstractSharedClusterTest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|admin
@@ -127,6 +117,18 @@ operator|.
 name|search
 operator|.
 name|SearchHits
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|AbstractIntegrationTest
 import|;
 end_import
 
@@ -318,7 +320,7 @@ name|test
 operator|.
 name|hamcrest
 operator|.
-name|ElasticsearchAssertions
+name|ElasticSearchAssertions
 operator|.
 name|assertHitCount
 import|;
@@ -342,7 +344,7 @@ specifier|public
 class|class
 name|SearchWhileRelocatingTests
 extends|extends
-name|AbstractSharedClusterTest
+name|AbstractIntegrationTest
 block|{
 annotation|@
 name|Test

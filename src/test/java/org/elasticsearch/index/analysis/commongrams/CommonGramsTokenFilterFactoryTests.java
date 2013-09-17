@@ -124,17 +124,7 @@ name|index
 operator|.
 name|analysis
 operator|.
-name|TokenFilterFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ElasticSearchTokenStreamTestCase
+name|AnalysisTestsHelper
 import|;
 end_import
 
@@ -148,7 +138,19 @@ name|index
 operator|.
 name|analysis
 operator|.
-name|AnalysisTestsHelper
+name|TokenFilterFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticSearchTokenStreamTestCase
 import|;
 end_import
 

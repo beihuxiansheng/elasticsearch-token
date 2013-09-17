@@ -140,6 +140,8 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|test
+operator|.
 name|AbstractNodesTests
 import|;
 end_import
@@ -187,18 +189,6 @@ operator|.
 name|ImmutableSettings
 operator|.
 name|settingsBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
 import|;
 end_import
 

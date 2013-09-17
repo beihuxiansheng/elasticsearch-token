@@ -4,11 +4,13 @@ comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more cont
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch
+DECL|package|org.elasticsearch.test
 package|package
 name|org
 operator|.
 name|elasticsearch
+operator|.
+name|test
 package|;
 end_package
 
@@ -22,35 +24,7 @@ name|randomizedtesting
 operator|.
 name|annotations
 operator|.
-name|Listeners
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|annotations
-operator|.
-name|ThreadLeakFilters
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|annotations
-operator|.
-name|ThreadLeakScope
+name|*
 import|;
 end_import
 
@@ -67,20 +41,6 @@ operator|.
 name|ThreadLeakScope
 operator|.
 name|Scope
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|annotations
-operator|.
-name|TimeoutSuite
 import|;
 end_import
 

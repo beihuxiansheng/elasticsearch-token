@@ -136,7 +136,7 @@ name|test
 operator|.
 name|hamcrest
 operator|.
-name|ElasticsearchGeoAssertions
+name|ElasticSearchGeoAssertions
 operator|.
 name|assertMultiLineString
 import|;
@@ -152,7 +152,7 @@ name|test
 operator|.
 name|hamcrest
 operator|.
-name|ElasticsearchGeoAssertions
+name|ElasticSearchGeoAssertions
 operator|.
 name|assertMultiPolygon
 import|;

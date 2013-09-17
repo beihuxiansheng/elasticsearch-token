@@ -134,7 +134,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|AbstractSharedClusterTest
+name|test
+operator|.
+name|AbstractIntegrationTest
 import|;
 end_import
 
@@ -164,18 +166,6 @@ name|org
 operator|.
 name|hamcrest
 operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
 name|Matchers
 operator|.
 name|equalTo
@@ -192,7 +182,7 @@ specifier|public
 class|class
 name|SearchSourceCompressTests
 extends|extends
-name|AbstractSharedClusterTest
+name|AbstractIntegrationTest
 block|{
 annotation|@
 name|Test

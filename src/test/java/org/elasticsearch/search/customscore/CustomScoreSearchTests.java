@@ -118,7 +118,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|AbstractSharedClusterTest
+name|test
+operator|.
+name|AbstractIntegrationTest
 import|;
 end_import
 
@@ -292,7 +294,7 @@ name|test
 operator|.
 name|hamcrest
 operator|.
-name|ElasticsearchAssertions
+name|ElasticSearchAssertions
 operator|.
 name|assertNoFailures
 import|;
@@ -308,7 +310,7 @@ name|test
 operator|.
 name|hamcrest
 operator|.
-name|ElasticsearchAssertions
+name|ElasticSearchAssertions
 operator|.
 name|assertSearchHits
 import|;
@@ -348,7 +350,7 @@ specifier|public
 class|class
 name|CustomScoreSearchTests
 extends|extends
-name|AbstractSharedClusterTest
+name|AbstractIntegrationTest
 block|{
 annotation|@
 name|Test

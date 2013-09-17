@@ -22,16 +22,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|settings
@@ -55,6 +45,18 @@ operator|.
 name|foo
 operator|.
 name|FooTestClass
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticSearchTestCase
 import|;
 end_import
 
@@ -106,7 +108,7 @@ specifier|public
 class|class
 name|ImmutableSettingsTests
 extends|extends
-name|ElasticsearchTestCase
+name|ElasticSearchTestCase
 block|{
 annotation|@
 name|Test

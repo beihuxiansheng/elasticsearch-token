@@ -86,7 +86,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|AbstractSharedClusterTest
+name|test
+operator|.
+name|AbstractIntegrationTest
 import|;
 end_import
 
@@ -154,13 +156,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|test
+name|percolator
 operator|.
-name|hamcrest
+name|PercolatorTests
 operator|.
-name|ElasticsearchAssertions
-operator|.
-name|assertNoFailures
+name|convertFromTextArray
 import|;
 end_import
 
@@ -170,11 +170,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|percolator
+name|test
 operator|.
-name|PercolatorTests
+name|hamcrest
 operator|.
-name|convertFromTextArray
+name|ElasticSearchAssertions
+operator|.
+name|assertNoFailures
 import|;
 end_import
 
@@ -200,7 +202,7 @@ specifier|public
 class|class
 name|MultiPercolatorTests
 extends|extends
-name|AbstractSharedClusterTest
+name|AbstractIntegrationTest
 block|{
 annotation|@
 name|Test

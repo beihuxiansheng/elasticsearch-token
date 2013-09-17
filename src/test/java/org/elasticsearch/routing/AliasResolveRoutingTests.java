@@ -20,16 +20,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|AbstractSharedClusterTest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|ElasticSearchIllegalArgumentException
 import|;
 end_import
@@ -43,6 +33,18 @@ operator|.
 name|common
 operator|.
 name|Priority
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|AbstractIntegrationTest
 import|;
 end_import
 
@@ -158,7 +160,7 @@ specifier|public
 class|class
 name|AliasResolveRoutingTests
 extends|extends
-name|AbstractSharedClusterTest
+name|AbstractIntegrationTest
 block|{
 annotation|@
 name|Test

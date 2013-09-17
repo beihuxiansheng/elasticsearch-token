@@ -4,11 +4,13 @@ comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more cont
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch
+DECL|package|org.elasticsearch.test
 package|package
 name|org
 operator|.
 name|elasticsearch
+operator|.
+name|test
 package|;
 end_package
 
@@ -307,7 +309,7 @@ specifier|abstract
 class|class
 name|AbstractNodesTests
 extends|extends
-name|ElasticsearchTestCase
+name|ElasticSearchTestCase
 block|{
 DECL|field|nodes
 specifier|private

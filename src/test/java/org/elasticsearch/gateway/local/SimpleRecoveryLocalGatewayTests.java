@@ -296,6 +296,8 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|test
+operator|.
 name|AbstractNodesTests
 import|;
 end_import
@@ -408,7 +410,7 @@ name|test
 operator|.
 name|hamcrest
 operator|.
-name|ElasticsearchAssertions
+name|ElasticSearchAssertions
 operator|.
 name|assertHitCount
 import|;

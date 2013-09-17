@@ -296,7 +296,7 @@ name|test
 operator|.
 name|hamcrest
 operator|.
-name|ElasticsearchGeoAssertions
+name|ElasticSearchGeoAssertions
 operator|.
 name|assertEquals
 import|;

@@ -367,10 +367,10 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|ElasticsearchAssertions
+DECL|class|ElasticSearchAssertions
 specifier|public
 class|class
-name|ElasticsearchAssertions
+name|ElasticSearchAssertions
 block|{
 DECL|method|assertAcked
 specifier|public
@@ -1753,7 +1753,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|ElasticsearchMatchers
+name|ElasticSearchMatchers
 operator|.
 name|SearchHitHasIdMatcher
 argument_list|(
@@ -1777,7 +1777,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|ElasticsearchMatchers
+name|ElasticSearchMatchers
 operator|.
 name|SearchHitHasTypeMatcher
 argument_list|(
@@ -1801,7 +1801,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|ElasticsearchMatchers
+name|ElasticSearchMatchers
 operator|.
 name|SearchHitHasIndexMatcher
 argument_list|(

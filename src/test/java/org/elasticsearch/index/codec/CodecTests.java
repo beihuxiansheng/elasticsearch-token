@@ -358,7 +358,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchLuceneTestCase
+name|test
+operator|.
+name|ElasticSearchLuceneTestCase
 import|;
 end_import
 
@@ -412,7 +414,7 @@ specifier|public
 class|class
 name|CodecTests
 extends|extends
-name|ElasticsearchLuceneTestCase
+name|ElasticSearchLuceneTestCase
 block|{
 annotation|@
 name|Override

@@ -184,16 +184,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|AbstractNodesTests
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|rest
 operator|.
 name|helper
@@ -213,6 +203,18 @@ operator|.
 name|helper
 operator|.
 name|HttpClientResponse
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|AbstractNodesTests
 import|;
 end_import
 

@@ -252,7 +252,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchTestCase
+name|test
+operator|.
+name|ElasticSearchTestCase
 import|;
 end_import
 
@@ -406,22 +408,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|ImmutableSettings
-operator|.
-name|settingsBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|cluster
 operator|.
 name|routing
@@ -431,6 +417,22 @@ operator|.
 name|RoutingAllocationTests
 operator|.
 name|newNode
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|ImmutableSettings
+operator|.
+name|settingsBuilder
 import|;
 end_import
 
@@ -452,7 +454,7 @@ specifier|public
 class|class
 name|RandomAllocationDeciderTests
 extends|extends
-name|ElasticsearchTestCase
+name|ElasticSearchTestCase
 block|{
 comment|/* This test will make random allocation decision on a growing and shrinking      * cluster leading to a random distribution of the shards. After a certain      * amount of iterations the test allows allocation unless the same shard is      * already allocated on a node and balances the cluster to gain optimal      * balance.*/
 annotation|@

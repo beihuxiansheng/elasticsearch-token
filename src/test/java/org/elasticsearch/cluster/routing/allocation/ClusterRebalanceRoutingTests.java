@@ -228,22 +228,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|ImmutableSettings
-operator|.
-name|settingsBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|cluster
 operator|.
 name|routing
@@ -253,6 +237,22 @@ operator|.
 name|RoutingAllocationTests
 operator|.
 name|newNode
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|ImmutableSettings
+operator|.
+name|settingsBuilder
 import|;
 end_import
 

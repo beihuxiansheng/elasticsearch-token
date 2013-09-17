@@ -260,7 +260,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchLuceneTestCase
+name|test
+operator|.
+name|ElasticSearchLuceneTestCase
 import|;
 end_import
 
@@ -342,7 +344,7 @@ specifier|public
 class|class
 name|VersionsTests
 extends|extends
-name|ElasticsearchLuceneTestCase
+name|ElasticSearchLuceneTestCase
 block|{
 DECL|method|reopen
 specifier|public

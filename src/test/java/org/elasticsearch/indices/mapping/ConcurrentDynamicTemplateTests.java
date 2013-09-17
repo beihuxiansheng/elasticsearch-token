@@ -100,7 +100,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|AbstractSharedClusterTest
+name|test
+operator|.
+name|AbstractIntegrationTest
 import|;
 end_import
 
@@ -196,7 +198,7 @@ specifier|public
 class|class
 name|ConcurrentDynamicTemplateTests
 extends|extends
-name|AbstractSharedClusterTest
+name|AbstractIntegrationTest
 block|{
 DECL|field|mappingType
 specifier|private

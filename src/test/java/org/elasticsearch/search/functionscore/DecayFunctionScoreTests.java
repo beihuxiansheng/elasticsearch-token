@@ -22,16 +22,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|AbstractSharedClusterTest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|ElasticSearchIllegalStateException
 import|;
 end_import
@@ -218,9 +208,21 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
+name|AbstractIntegrationTest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
 name|hamcrest
 operator|.
-name|ElasticsearchAssertions
+name|ElasticSearchAssertions
 import|;
 end_import
 
@@ -386,7 +388,7 @@ name|test
 operator|.
 name|hamcrest
 operator|.
-name|ElasticsearchAssertions
+name|ElasticSearchAssertions
 operator|.
 name|assertAcked
 import|;
@@ -410,7 +412,7 @@ specifier|public
 class|class
 name|DecayFunctionScoreTests
 extends|extends
-name|AbstractSharedClusterTest
+name|AbstractIntegrationTest
 block|{
 annotation|@
 name|Test
@@ -4892,7 +4894,7 @@ operator|.
 name|actionGet
 argument_list|()
 decl_stmt|;
-name|ElasticsearchAssertions
+name|ElasticSearchAssertions
 operator|.
 name|assertNoFailures
 argument_list|(
@@ -5391,7 +5393,7 @@ operator|.
 name|actionGet
 argument_list|()
 decl_stmt|;
-name|ElasticsearchAssertions
+name|ElasticSearchAssertions
 operator|.
 name|assertNoFailures
 argument_list|(
@@ -5935,7 +5937,7 @@ operator|.
 name|actionGet
 argument_list|()
 decl_stmt|;
-name|ElasticsearchAssertions
+name|ElasticSearchAssertions
 operator|.
 name|assertNoFailures
 argument_list|(
@@ -6556,7 +6558,7 @@ operator|.
 name|actionGet
 argument_list|()
 decl_stmt|;
-name|ElasticsearchAssertions
+name|ElasticSearchAssertions
 operator|.
 name|assertNoFailures
 argument_list|(

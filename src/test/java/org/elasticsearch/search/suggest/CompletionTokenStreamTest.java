@@ -288,6 +288,8 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|test
+operator|.
 name|ElasticSearchTokenStreamTestCase
 import|;
 end_import

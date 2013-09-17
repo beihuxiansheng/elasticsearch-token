@@ -20,16 +20,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|cluster
 operator|.
 name|ClusterState
@@ -149,6 +139,18 @@ operator|.
 name|transport
 operator|.
 name|InetSocketTransportAddress
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticSearchTestCase
 import|;
 end_import
 
@@ -312,7 +314,7 @@ specifier|public
 class|class
 name|SameShardRoutingTests
 extends|extends
-name|ElasticsearchTestCase
+name|ElasticSearchTestCase
 block|{
 DECL|field|logger
 specifier|private

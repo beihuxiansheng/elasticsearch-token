@@ -222,16 +222,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|AbstractNodesTests
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|nodesinfo
 operator|.
 name|plugin
@@ -255,6 +245,18 @@ operator|.
 name|dummy2
 operator|.
 name|TestNoVersionPlugin
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|AbstractNodesTests
 import|;
 end_import
 
@@ -340,7 +342,23 @@ name|base
 operator|.
 name|Predicates
 operator|.
-name|*
+name|and
+import|;
+end_import
+
+begin_import
+import|import static
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|base
+operator|.
+name|Predicates
+operator|.
+name|isNull
 import|;
 end_import
 
@@ -385,18 +403,6 @@ operator|.
 name|ImmutableSettings
 operator|.
 name|settingsBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
 import|;
 end_import
 

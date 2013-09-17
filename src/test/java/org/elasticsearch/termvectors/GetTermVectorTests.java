@@ -234,7 +234,7 @@ name|test
 operator|.
 name|hamcrest
 operator|.
-name|ElasticsearchAssertions
+name|ElasticSearchAssertions
 import|;
 end_import
 
@@ -278,7 +278,7 @@ name|test
 operator|.
 name|hamcrest
 operator|.
-name|ElasticsearchAssertions
+name|ElasticSearchAssertions
 operator|.
 name|assertThrows
 import|;
@@ -366,7 +366,7 @@ operator|.
 name|endObject
 argument_list|()
 decl_stmt|;
-name|ElasticsearchAssertions
+name|ElasticSearchAssertions
 operator|.
 name|assertAcked
 argument_list|(
@@ -550,7 +550,7 @@ operator|.
 name|endObject
 argument_list|()
 decl_stmt|;
-name|ElasticsearchAssertions
+name|ElasticSearchAssertions
 operator|.
 name|assertAcked
 argument_list|(
@@ -727,7 +727,7 @@ operator|.
 name|endObject
 argument_list|()
 decl_stmt|;
-name|ElasticsearchAssertions
+name|ElasticSearchAssertions
 operator|.
 name|assertAcked
 argument_list|(
@@ -908,7 +908,7 @@ operator|.
 name|endObject
 argument_list|()
 decl_stmt|;
-name|ElasticsearchAssertions
+name|ElasticSearchAssertions
 operator|.
 name|assertAcked
 argument_list|(
@@ -1873,7 +1873,7 @@ operator|.
 name|endObject
 argument_list|()
 decl_stmt|;
-name|ElasticsearchAssertions
+name|ElasticSearchAssertions
 operator|.
 name|assertAcked
 argument_list|(

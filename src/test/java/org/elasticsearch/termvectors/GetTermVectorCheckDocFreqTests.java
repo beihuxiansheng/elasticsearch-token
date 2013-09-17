@@ -186,9 +186,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|hamcrest
-operator|.
-name|ElasticsearchAssertions
+name|AbstractIntegrationTest
 import|;
 end_import
 
@@ -198,7 +196,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|AbstractSharedClusterTest
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticSearchAssertions
 import|;
 end_import
 
@@ -250,7 +252,7 @@ specifier|public
 class|class
 name|GetTermVectorCheckDocFreqTests
 extends|extends
-name|AbstractSharedClusterTest
+name|AbstractIntegrationTest
 block|{
 annotation|@
 name|Test
@@ -323,7 +325,7 @@ operator|.
 name|endObject
 argument_list|()
 decl_stmt|;
-name|ElasticsearchAssertions
+name|ElasticSearchAssertions
 operator|.
 name|assertAcked
 argument_list|(

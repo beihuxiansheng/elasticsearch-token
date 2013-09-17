@@ -191,10 +191,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|ElasticsearchGeoAssertions
+DECL|class|ElasticSearchGeoAssertions
 specifier|public
 class|class
-name|ElasticsearchGeoAssertions
+name|ElasticSearchGeoAssertions
 block|{
 DECL|method|top
 specifier|private

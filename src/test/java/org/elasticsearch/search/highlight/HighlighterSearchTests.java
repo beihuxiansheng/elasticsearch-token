@@ -38,16 +38,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|AbstractSharedClusterTest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|ElasticSearchException
 import|;
 end_import
@@ -256,9 +246,21 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
+name|AbstractIntegrationTest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
 name|hamcrest
 operator|.
-name|ElasticsearchAssertions
+name|ElasticSearchAssertions
 import|;
 end_import
 
@@ -396,7 +398,7 @@ name|test
 operator|.
 name|hamcrest
 operator|.
-name|ElasticsearchAssertions
+name|ElasticSearchAssertions
 operator|.
 name|assertHighlight
 import|;
@@ -412,7 +414,7 @@ name|test
 operator|.
 name|hamcrest
 operator|.
-name|ElasticsearchAssertions
+name|ElasticSearchAssertions
 operator|.
 name|assertNoFailures
 import|;
@@ -452,7 +454,7 @@ specifier|public
 class|class
 name|HighlighterSearchTests
 extends|extends
-name|AbstractSharedClusterTest
+name|AbstractIntegrationTest
 block|{
 annotation|@
 name|Test
@@ -1225,7 +1227,7 @@ operator|.
 name|endObject
 argument_list|()
 decl_stmt|;
-name|ElasticsearchAssertions
+name|ElasticSearchAssertions
 operator|.
 name|assertAcked
 argument_list|(
