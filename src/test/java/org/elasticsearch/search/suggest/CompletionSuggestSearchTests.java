@@ -5506,8 +5506,6 @@ expr_stmt|;
 block|}
 name|indexRandom
 argument_list|(
-name|INDEX
-argument_list|,
 literal|false
 argument_list|,
 name|builders
@@ -5624,8 +5622,6 @@ expr_stmt|;
 block|}
 name|indexRandom
 argument_list|(
-name|INDEX
-argument_list|,
 literal|false
 argument_list|,
 name|builders

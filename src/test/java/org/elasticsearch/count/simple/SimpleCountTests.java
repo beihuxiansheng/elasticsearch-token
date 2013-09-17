@@ -239,8 +239,6 @@ argument_list|()
 expr_stmt|;
 name|indexRandom
 argument_list|(
-literal|"test"
-argument_list|,
 literal|true
 argument_list|,
 name|client

@@ -605,8 +605,6 @@ expr_stmt|;
 block|}
 name|indexRandom
 argument_list|(
-literal|"test"
-argument_list|,
 literal|true
 argument_list|,
 name|indexBuilders
