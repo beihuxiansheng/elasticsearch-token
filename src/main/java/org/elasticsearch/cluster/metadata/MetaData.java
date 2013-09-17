@@ -4097,6 +4097,7 @@ literal|0
 index|]
 return|;
 block|}
+comment|/**      * Converts a list of indices or aliases wildcards, and special +/- signs, into their respective full matches. It      * won't convert only to indices, but also to aliases. For example, alias_* will expand to alias_1 and alias_2, not      * to the respective indices those aliases point to.      */
 DECL|method|convertFromWildcards
 specifier|public
 name|String
@@ -4114,6 +4115,17 @@ name|IgnoreIndices
 name|ignoreIndices
 parameter_list|)
 block|{
+if|if
+condition|(
+name|aliasesOrIndices
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 name|Set
 argument_list|<
 name|String
@@ -4759,6 +4771,20 @@ modifier|...
 name|indicesOrAliases
 parameter_list|)
 block|{
+comment|// expand the aliases wildcard
+name|indicesOrAliases
+operator|=
+name|convertFromWildcards
+argument_list|(
+name|indicesOrAliases
+argument_list|,
+literal|true
+argument_list|,
+name|IgnoreIndices
+operator|.
+name|MISSING
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|isAllIndices
