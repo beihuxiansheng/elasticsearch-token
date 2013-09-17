@@ -392,7 +392,7 @@ argument_list|()
 decl_stmt|;
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Serving cluster state request using version {}"
 argument_list|,
