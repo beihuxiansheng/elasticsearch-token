@@ -66,6 +66,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|AbstractSharedClusterTest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|ElasticSearchException
 import|;
 end_import
@@ -261,16 +271,6 @@ operator|.
 name|hamcrest
 operator|.
 name|ElasticsearchAssertions
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|AbstractSharedClusterTest
 import|;
 end_import
 
@@ -5349,7 +5349,7 @@ name|Exception
 block|{
 name|prepareCreate
 argument_list|(
-literal|"test"
+literal|"text"
 argument_list|)
 operator|.
 name|setSettings
