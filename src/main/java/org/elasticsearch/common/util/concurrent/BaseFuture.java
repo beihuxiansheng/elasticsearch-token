@@ -329,20 +329,11 @@ expr_stmt|;
 block|}
 comment|// If it's an Error, we want to make sure it reaches the top of the
 comment|// call stack, so we rethrow it.
-if|if
-condition|(
-name|throwable
-operator|instanceof
-name|Error
-condition|)
-block|{
-throw|throw
-operator|(
-name|Error
-operator|)
-name|throwable
-throw|;
-block|}
+comment|// we want to notify the listeners we have with errors as well, as it breaks
+comment|// how we work in ES in terms of using assertions
+comment|//        if (throwable instanceof Error) {
+comment|//            throw (Error) throwable;
+comment|//        }
 return|return
 name|result
 return|;
