@@ -2489,12 +2489,6 @@ literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//the cluster state is up-to-date for sure only on the master
-name|assertIndexIsClosed
-argument_list|(
-literal|"test1"
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|assertIndexIsOpened
 specifier|private
