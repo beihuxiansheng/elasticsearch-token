@@ -1800,6 +1800,8 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
+literal|"timed out waiting for green state"
+argument_list|,
 name|actionGet
 operator|.
 name|isTimedOut
@@ -1962,6 +1964,8 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
+literal|"timed out waiting for relocation"
+argument_list|,
 name|actionGet
 operator|.
 name|isTimedOut
@@ -2102,6 +2106,8 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
+literal|"timed out waiting for yellow"
+argument_list|,
 name|actionGet
 operator|.
 name|isTimedOut
