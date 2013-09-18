@@ -70,7 +70,7 @@ specifier|public
 class|class
 name|Regex
 block|{
-comment|/**      * This Regex / {@link Pattern} flag is supported from Java 7 on.      * If set on a Java6 JVM the flag will be ignored.      *       */
+comment|/**      * This Regex / {@link Pattern} flag is supported from Java 7 on.      * If set on a Java6 JVM the flag will be ignored.      */
 DECL|field|UNICODE_CHARACTER_CLASS
 specifier|public
 specifier|static
@@ -102,6 +102,25 @@ argument_list|)
 operator|!=
 operator|-
 literal|1
+return|;
+block|}
+DECL|method|isMatchAllPattern
+specifier|public
+specifier|static
+name|boolean
+name|isMatchAllPattern
+parameter_list|(
+name|String
+name|str
+parameter_list|)
+block|{
+return|return
+name|str
+operator|.
+name|equals
+argument_list|(
+literal|"*"
+argument_list|)
 return|;
 block|}
 comment|/**      * Match a String against the given pattern, supporting the following simple      * pattern styles: "xxx*", "*xxx", "*xxx*" and "xxx*yyy" matches (with an      * arbitrary number of pattern parts), as well as direct equality.      *      * @param pattern the pattern to match against      * @param str     the String to match      * @return whether the String matches the given pattern      */

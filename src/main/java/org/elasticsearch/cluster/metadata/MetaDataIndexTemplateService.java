@@ -470,6 +470,24 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+comment|// if its a match all pattern, and no templates are found (we have none), don't
+comment|// fail with index missing...
+if|if
+condition|(
+name|Regex
+operator|.
+name|isMatchAllPattern
+argument_list|(
+name|request
+operator|.
+name|name
+argument_list|)
+condition|)
+block|{
+return|return
+name|currentState
+return|;
+block|}
 throw|throw
 operator|new
 name|IndexTemplateMissingException
