@@ -120,6 +120,16 @@ argument_list|>
 name|namedFilters
 parameter_list|)
 block|{
+assert|assert
+name|filter
+operator|!=
+literal|null
+assert|;
+assert|assert
+name|namedFilters
+operator|!=
+literal|null
+assert|;
 name|this
 operator|.
 name|filter
