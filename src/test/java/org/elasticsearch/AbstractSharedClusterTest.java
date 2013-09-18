@@ -788,6 +788,22 @@ expr_stmt|;
 name|wipeTemplates
 argument_list|()
 expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"[{}#{}]: before test"
+argument_list|,
+name|getTestClass
+argument_list|()
+operator|.
+name|getSimpleName
+argument_list|()
+argument_list|,
+name|getTestName
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|After
@@ -803,7 +819,16 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Cleaning up after test."
+literal|"[{}#{}]: cleaning up after test"
+argument_list|,
+name|getTestClass
+argument_list|()
+operator|.
+name|getSimpleName
+argument_list|()
+argument_list|,
+name|getTestName
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|MetaData
@@ -900,6 +925,22 @@ argument_list|()
 expr_stmt|;
 name|ensureAllFilesClosed
 argument_list|()
+expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"[{}#{}]: cleaned up after test"
+argument_list|,
+name|getTestClass
+argument_list|()
+operator|.
+name|getSimpleName
+argument_list|()
+argument_list|,
+name|getTestName
+argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|cluster
