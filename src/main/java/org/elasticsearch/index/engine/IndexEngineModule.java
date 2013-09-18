@@ -164,6 +164,15 @@ name|ENGINE_TYPE
 init|=
 literal|"index.engine.type"
 decl_stmt|;
+DECL|field|INDEX_ENGINE_TYPE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|INDEX_ENGINE_TYPE
+init|=
+literal|"index.index_engine.type"
+decl_stmt|;
 DECL|field|DEFAULT_INDEX_ENGINE
 specifier|public
 specifier|static
@@ -244,7 +253,7 @@ name|getAsClass
 argument_list|(
 name|EngineSettings
 operator|.
-name|ENGINE_TYPE
+name|INDEX_ENGINE_TYPE
 argument_list|,
 name|EngineSettings
 operator|.

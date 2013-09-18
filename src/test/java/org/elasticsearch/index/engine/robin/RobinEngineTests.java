@@ -136,6 +136,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ElasticsearchTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|bytes
@@ -291,6 +301,20 @@ operator|.
 name|deletionpolicy
 operator|.
 name|SnapshotIndexCommit
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|deletionpolicy
+operator|.
+name|SnapshotIndexCommitExistsMatcher
 import|;
 end_import
 
@@ -574,47 +598,7 @@ name|index
 operator|.
 name|translog
 operator|.
-name|fs
-operator|.
-name|FsTranslog
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ElasticsearchTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|deletionpolicy
-operator|.
-name|SnapshotIndexCommitExistsMatcher
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|engine
-operator|.
-name|EngineSearcherTotalHitsMatcher
+name|TranslogSizeMatcher
 import|;
 end_import
 
@@ -628,7 +612,9 @@ name|index
 operator|.
 name|translog
 operator|.
-name|TranslogSizeMatcher
+name|fs
+operator|.
+name|FsTranslog
 import|;
 end_import
 
@@ -3195,6 +3181,11 @@ name|nullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|getResult
+operator|.
+name|release
+argument_list|()
+expr_stmt|;
 comment|// but, not there non realtime
 name|getResult
 operator|=
@@ -3228,6 +3219,11 @@ argument_list|(
 literal|false
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|getResult
+operator|.
+name|release
+argument_list|()
 expr_stmt|;
 comment|// refresh and it should be there
 name|engine
@@ -3343,6 +3339,11 @@ argument_list|,
 name|notNullValue
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|getResult
+operator|.
+name|release
+argument_list|()
 expr_stmt|;
 comment|// now do an update
 name|document
@@ -3587,6 +3588,11 @@ name|nullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|getResult
+operator|.
+name|release
+argument_list|()
+expr_stmt|;
 comment|// refresh and it should be updated
 name|engine
 operator|.
@@ -3815,6 +3821,11 @@ argument_list|(
 literal|false
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|getResult
+operator|.
+name|release
+argument_list|()
 expr_stmt|;
 comment|// refresh and it should be deleted
 name|engine
@@ -4232,6 +4243,11 @@ argument_list|,
 name|notNullValue
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|getResult
+operator|.
+name|release
+argument_list|()
 expr_stmt|;
 comment|// make sure we can still work with the engine
 comment|// now do an update

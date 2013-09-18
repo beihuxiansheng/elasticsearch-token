@@ -70,7 +70,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|AbstractRandomizedTest
+name|Constants
 import|;
 end_import
 
@@ -78,13 +78,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|elasticsearch
 operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|Constants
+name|ElasticsearchTestCase
 import|;
 end_import
 
@@ -328,15 +324,6 @@ name|RANDOM_IO_EXCEPTION_RATE_ON_OPEN
 init|=
 literal|"index.store.mock.random.io_exception_rate_on_open"
 decl_stmt|;
-DECL|field|RANDOM_SEED
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|RANDOM_SEED
-init|=
-literal|"index.store.mock.random.seed"
-decl_stmt|;
 DECL|field|RANDOM_THROTTLE
 specifier|public
 specifier|static
@@ -447,20 +434,6 @@ literal|0.0d
 argument_list|)
 expr_stmt|;
 specifier|final
-name|Long
-name|currentSeed
-init|=
-name|AbstractRandomizedTest
-operator|.
-name|getCurrentSeed
-argument_list|()
-decl_stmt|;
-assert|assert
-name|currentSeed
-operator|!=
-literal|null
-assert|;
-specifier|final
 name|long
 name|seed
 init|=
@@ -468,9 +441,11 @@ name|indexSettings
 operator|.
 name|getAsLong
 argument_list|(
-name|RANDOM_SEED
+name|ElasticsearchTestCase
+operator|.
+name|INDEX_SEED_SETTING
 argument_list|,
-name|currentSeed
+literal|0l
 argument_list|)
 decl_stmt|;
 name|random
