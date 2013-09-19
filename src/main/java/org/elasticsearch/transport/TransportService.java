@@ -1024,7 +1024,6 @@ specifier|final
 name|TransportRequestOptions
 name|options
 parameter_list|,
-specifier|final
 name|TransportResponseHandler
 argument_list|<
 name|T
@@ -1151,13 +1150,17 @@ parameter_list|)
 block|{
 comment|// usually happen either because we failed to connect to the node
 comment|// or because we failed serializing the message
+specifier|final
+name|RequestHolder
+name|holderToNotify
+init|=
 name|clientHandlers
 operator|.
 name|remove
 argument_list|(
 name|requestId
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|timeoutHandler
@@ -1175,26 +1178,14 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+comment|// If holderToNotify == null then handler has already been taken care of.
 if|if
 condition|(
-name|throwConnectException
+name|holderToNotify
+operator|!=
+literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|e
-operator|instanceof
-name|ConnectTransportException
-condition|)
-block|{
-throw|throw
-operator|(
-name|ConnectTransportException
-operator|)
-name|e
-throw|;
-block|}
-block|}
 comment|// callback that an exception happened, but on a different thread since we don't
 comment|// want handlers to worry about stack overflows
 specifier|final
@@ -1235,7 +1226,10 @@ name|void
 name|run
 parameter_list|()
 block|{
+name|holderToNotify
+operator|.
 name|handler
+argument_list|()
 operator|.
 name|handleException
 argument_list|(
@@ -1246,6 +1240,27 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|throwConnectException
+condition|)
+block|{
+if|if
+condition|(
+name|e
+operator|instanceof
+name|ConnectTransportException
+condition|)
+block|{
+throw|throw
+operator|(
+name|ConnectTransportException
+operator|)
+name|e
+throw|;
+block|}
+block|}
 block|}
 block|}
 DECL|method|newRequestId
