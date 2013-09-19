@@ -432,8 +432,6 @@ operator|.
 name|seekExact
 argument_list|(
 name|uidSpare
-argument_list|,
-literal|false
 argument_list|)
 condition|)
 block|{

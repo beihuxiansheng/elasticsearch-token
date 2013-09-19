@@ -1019,8 +1019,6 @@ name|nextParent
 operator|.
 name|toBytesRef
 argument_list|()
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 if|if

@@ -26,9 +26,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|util
+name|index
 operator|.
-name|Bits
+name|*
 import|;
 end_import
 
@@ -40,9 +40,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
+name|util
 operator|.
-name|*
+name|Bits
 import|;
 end_import
 
@@ -422,13 +422,6 @@ argument_list|(
 literal|null
 argument_list|)
 decl_stmt|;
-specifier|final
-name|boolean
-name|useCache
-init|=
-literal|false
-decl_stmt|;
-comment|// avoid high cache churn
 if|if
 condition|(
 operator|!
@@ -440,8 +433,6 @@ name|term
 operator|.
 name|bytes
 argument_list|()
-argument_list|,
-name|useCache
 argument_list|)
 condition|)
 block|{

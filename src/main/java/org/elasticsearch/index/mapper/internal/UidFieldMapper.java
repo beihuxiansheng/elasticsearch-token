@@ -28,6 +28,20 @@ name|lucene
 operator|.
 name|document
 operator|.
+name|Document
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|document
+operator|.
 name|Field
 import|;
 end_import
@@ -966,7 +980,10 @@ name|i
 operator|++
 control|)
 block|{
-comment|// we don't need to add it as a full uid field in nested docs, since we don't need versioning
+specifier|final
+name|Document
+name|doc
+init|=
 name|context
 operator|.
 name|docs
@@ -976,6 +993,8 @@ name|get
 argument_list|(
 name|i
 argument_list|)
+decl_stmt|;
+name|doc
 operator|.
 name|add
 argument_list|(
@@ -994,6 +1013,22 @@ argument_list|,
 name|Defaults
 operator|.
 name|NESTED_FIELD_TYPE
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// If we don't set a value on all documents, Lucene will write a BitSet to know which documents have a value
+name|doc
+operator|.
+name|add
+argument_list|(
+operator|new
+name|NumericDocValuesField
+argument_list|(
+name|UidFieldMapper
+operator|.
+name|VERSION
+argument_list|,
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;

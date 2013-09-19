@@ -283,8 +283,9 @@ block|}
 name|AtomicReader
 name|reader
 init|=
-operator|new
 name|SlowCompositeReaderWrapper
+operator|.
+name|wrap
 argument_list|(
 name|DirectoryReader
 operator|.

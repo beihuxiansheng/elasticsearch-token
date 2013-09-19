@@ -398,8 +398,9 @@ argument_list|()
 expr_stmt|;
 name|reader
 operator|=
-operator|new
 name|SlowCompositeReaderWrapper
+operator|.
+name|wrap
 argument_list|(
 name|DirectoryReader
 operator|.

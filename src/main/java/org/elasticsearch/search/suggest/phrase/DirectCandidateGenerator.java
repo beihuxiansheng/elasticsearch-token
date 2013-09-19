@@ -611,8 +611,6 @@ operator|.
 name|seekExact
 argument_list|(
 name|term
-argument_list|,
-literal|true
 argument_list|)
 condition|)
 block|{

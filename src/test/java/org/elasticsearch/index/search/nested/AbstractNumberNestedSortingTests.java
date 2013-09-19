@@ -110,9 +110,39 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|queries
+operator|.
+name|TermFilter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|search
 operator|.
 name|*
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|join
+operator|.
+name|FixedBitSetCachingWrapperFilter
 import|;
 end_import
 
@@ -176,7 +206,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|TermFilter
+name|XFilteredQuery
 import|;
 end_import
 
@@ -186,13 +216,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|index
 operator|.
-name|lucene
+name|fielddata
 operator|.
-name|search
-operator|.
-name|XFilteredQuery
+name|AbstractFieldDataTests
 import|;
 end_import
 
@@ -223,20 +251,6 @@ operator|.
 name|fieldcomparator
 operator|.
 name|SortMode
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|fielddata
-operator|.
-name|AbstractFieldDataTests
 import|;
 end_import
 
@@ -277,18 +291,6 @@ operator|.
 name|util
 operator|.
 name|List
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
 import|;
 end_import
 
@@ -2091,7 +2093,7 @@ name|childFilter
 argument_list|)
 argument_list|,
 operator|new
-name|CachingWrapperFilter
+name|FixedBitSetCachingWrapperFilter
 argument_list|(
 name|parentFilter
 argument_list|)
@@ -2755,7 +2757,7 @@ name|childFilter
 argument_list|)
 argument_list|,
 operator|new
-name|CachingWrapperFilter
+name|FixedBitSetCachingWrapperFilter
 argument_list|(
 name|parentFilter
 argument_list|)
@@ -4141,7 +4143,7 @@ name|childFilter
 argument_list|)
 argument_list|,
 operator|new
-name|CachingWrapperFilter
+name|FixedBitSetCachingWrapperFilter
 argument_list|(
 name|parentFilter
 argument_list|)
