@@ -2447,7 +2447,7 @@ comment|// no version, get the version from the index, we know that we refresh o
 name|Searcher
 name|searcher
 init|=
-name|searcher
+name|acquireSearcher
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -4743,11 +4743,11 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|searcher
+DECL|method|acquireSearcher
 specifier|public
 specifier|final
 name|Searcher
-name|searcher
+name|acquireSearcher
 parameter_list|()
 throws|throws
 name|EngineException
@@ -7187,7 +7187,7 @@ comment|// first, go over and compute the search ones...
 name|Searcher
 name|searcher
 init|=
-name|searcher
+name|acquireSearcher
 argument_list|()
 decl_stmt|;
 try|try
@@ -8022,7 +8022,7 @@ block|{
 name|Searcher
 name|searcher
 init|=
-name|searcher
+name|acquireSearcher
 argument_list|()
 decl_stmt|;
 try|try
@@ -9237,7 +9237,7 @@ else|else
 block|{
 name|currentSearcher
 operator|=
-name|searcher
+name|acquireSearcher
 argument_list|()
 expr_stmt|;
 comment|// figure out the newSearcher, with only the new readers that are relevant for us

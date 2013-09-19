@@ -2956,7 +2956,7 @@ name|searchResult
 init|=
 name|engine
 operator|.
-name|searcher
+name|acquireSearcher
 argument_list|()
 decl_stmt|;
 name|MatcherAssert
@@ -3064,7 +3064,7 @@ name|searchResult
 operator|=
 name|engine
 operator|.
-name|searcher
+name|acquireSearcher
 argument_list|()
 expr_stmt|;
 name|MatcherAssert
@@ -3247,7 +3247,7 @@ name|searchResult
 operator|=
 name|engine
 operator|.
-name|searcher
+name|acquireSearcher
 argument_list|()
 expr_stmt|;
 name|MatcherAssert
@@ -3448,7 +3448,7 @@ name|searchResult
 operator|=
 name|engine
 operator|.
-name|searcher
+name|acquireSearcher
 argument_list|()
 expr_stmt|;
 name|MatcherAssert
@@ -3614,7 +3614,7 @@ name|searchResult
 operator|=
 name|engine
 operator|.
-name|searcher
+name|acquireSearcher
 argument_list|()
 expr_stmt|;
 name|MatcherAssert
@@ -3714,7 +3714,7 @@ name|searchResult
 operator|=
 name|engine
 operator|.
-name|searcher
+name|acquireSearcher
 argument_list|()
 expr_stmt|;
 name|MatcherAssert
@@ -3848,7 +3848,7 @@ name|searchResult
 operator|=
 name|engine
 operator|.
-name|searcher
+name|acquireSearcher
 argument_list|()
 expr_stmt|;
 name|MatcherAssert
@@ -4006,7 +4006,7 @@ name|searchResult
 operator|=
 name|engine
 operator|.
-name|searcher
+name|acquireSearcher
 argument_list|()
 expr_stmt|;
 name|MatcherAssert
@@ -4102,7 +4102,7 @@ name|searchResult
 operator|=
 name|engine
 operator|.
-name|searcher
+name|acquireSearcher
 argument_list|()
 expr_stmt|;
 name|MatcherAssert
@@ -4329,7 +4329,7 @@ name|searchResult
 operator|=
 name|engine
 operator|.
-name|searcher
+name|acquireSearcher
 argument_list|()
 expr_stmt|;
 name|MatcherAssert
@@ -4424,7 +4424,7 @@ name|searchResult
 operator|=
 name|engine
 operator|.
-name|searcher
+name|acquireSearcher
 argument_list|()
 expr_stmt|;
 name|MatcherAssert
@@ -4521,7 +4521,7 @@ name|searchResult
 init|=
 name|engine
 operator|.
-name|searcher
+name|acquireSearcher
 argument_list|()
 decl_stmt|;
 name|MatcherAssert
@@ -4600,7 +4600,7 @@ name|searchResult
 operator|=
 name|engine
 operator|.
-name|searcher
+name|acquireSearcher
 argument_list|()
 expr_stmt|;
 name|MatcherAssert
@@ -4670,7 +4670,7 @@ name|searchResult
 operator|=
 name|engine
 operator|.
-name|searcher
+name|acquireSearcher
 argument_list|()
 expr_stmt|;
 name|MatcherAssert
@@ -4758,7 +4758,7 @@ name|updateSearchResult
 init|=
 name|engine
 operator|.
-name|searcher
+name|acquireSearcher
 argument_list|()
 decl_stmt|;
 name|MatcherAssert

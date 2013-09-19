@@ -3650,7 +3650,7 @@ expr_stmt|;
 return|return
 name|engine
 operator|.
-name|searcher
+name|acquireSearcher
 argument_list|()
 return|;
 block|}

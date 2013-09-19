@@ -450,9 +450,10 @@ parameter_list|)
 throws|throws
 name|EngineException
 function_decl|;
-DECL|method|searcher
+comment|/**      * Retruns a new searcher instance. The consumer of this      * API is responsible for releasing the returned seacher in a      * safe manner, preferrablly in a try/finally block.      *       * @see Searcher#release()      */
+DECL|method|acquireSearcher
 name|Searcher
-name|searcher
+name|acquireSearcher
 parameter_list|()
 throws|throws
 name|EngineException
