@@ -1841,7 +1841,7 @@ argument_list|()
 expr_stmt|;
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Sending mapping updated to master: index [{}] type [{}]"
 argument_list|,
