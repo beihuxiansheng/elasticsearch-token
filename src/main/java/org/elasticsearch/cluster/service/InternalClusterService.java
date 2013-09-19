@@ -2366,7 +2366,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Publishing cluster state version {}"
+literal|"publishing cluster state version {}"
 argument_list|,
 name|newClusterState
 operator|.
@@ -2391,7 +2391,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Set cluster state to version {}. Broadcasting to listeners."
+literal|"set local cluster state to version {}"
 argument_list|,
 name|newClusterState
 operator|.
