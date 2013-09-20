@@ -417,7 +417,7 @@ return|;
 block|}
 DECL|method|awaitBusy
 specifier|public
-name|void
+name|boolean
 name|awaitBusy
 parameter_list|(
 name|Predicate
@@ -429,6 +429,7 @@ parameter_list|)
 throws|throws
 name|InterruptedException
 block|{
+return|return
 name|awaitBusy
 argument_list|(
 name|breakPredicate
@@ -439,7 +440,7 @@ name|TimeUnit
 operator|.
 name|SECONDS
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 DECL|method|awaitBusy
 specifier|public

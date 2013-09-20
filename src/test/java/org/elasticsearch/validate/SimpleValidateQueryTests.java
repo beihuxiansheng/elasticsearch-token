@@ -1950,9 +1950,6 @@ name|client
 range|:
 name|cluster
 argument_list|()
-operator|.
-name|clients
-argument_list|()
 control|)
 block|{
 name|ValidateQueryResponse
@@ -2070,9 +2067,6 @@ name|Client
 name|client
 range|:
 name|cluster
-argument_list|()
-operator|.
-name|clients
 argument_list|()
 control|)
 block|{
