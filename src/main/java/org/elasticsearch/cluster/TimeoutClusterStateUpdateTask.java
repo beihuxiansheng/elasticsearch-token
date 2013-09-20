@@ -40,7 +40,7 @@ name|TimeoutClusterStateUpdateTask
 extends|extends
 name|ProcessedClusterStateUpdateTask
 block|{
-comment|/**      * If the cluster state update task wasn't processed by the provided timeout, call      * {@link #onFailure(Throwable)}      */
+comment|/**      * If the cluster state update task wasn't processed by the provided timeout, call      * {@link #onFailure(String, Throwable)}      */
 DECL|method|timeout
 name|TimeValue
 name|timeout
