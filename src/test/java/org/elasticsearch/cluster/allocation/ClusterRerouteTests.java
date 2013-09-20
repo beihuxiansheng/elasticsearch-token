@@ -1695,12 +1695,6 @@ decl_stmt|;
 name|cluster
 argument_list|()
 operator|.
-name|resetAllGateways
-argument_list|()
-expr_stmt|;
-name|cluster
-argument_list|()
-operator|.
 name|closeAllNodesAndReset
 argument_list|()
 expr_stmt|;
