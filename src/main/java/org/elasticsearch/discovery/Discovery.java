@@ -92,9 +92,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|component
-operator|.
-name|LifecycleComponent
+name|Nullable
 import|;
 end_import
 
@@ -106,11 +104,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|inject
+name|component
 operator|.
-name|internal
-operator|.
-name|Nullable
+name|LifecycleComponent
 import|;
 end_import
 
@@ -226,15 +222,43 @@ name|AllocationService
 name|allocationService
 parameter_list|)
 function_decl|;
-comment|/**      * Publish all the changes to the cluster from the master (can be called just by the master). The publish      * process should not publish this state to the master as well! (the master is sending it...).      */
+comment|/**      * Publish all the changes to the cluster from the master (can be called just by the master). The publish      * process should not publish this state to the master as well! (the master is sending it...).      *      * The {@link AckListener} allows to keep track of the ack received from nodes, and verify whether      * they updated their own cluster state or not.      */
 DECL|method|publish
 name|void
 name|publish
 parameter_list|(
 name|ClusterState
 name|clusterState
+parameter_list|,
+name|AckListener
+name|ackListener
 parameter_list|)
 function_decl|;
+DECL|interface|AckListener
+specifier|public
+specifier|static
+interface|interface
+name|AckListener
+block|{
+DECL|method|onNodeAck
+name|void
+name|onNodeAck
+parameter_list|(
+name|DiscoveryNode
+name|node
+parameter_list|,
+annotation|@
+name|Nullable
+name|Throwable
+name|t
+parameter_list|)
+function_decl|;
+DECL|method|onTimeout
+name|void
+name|onTimeout
+parameter_list|()
+function_decl|;
+block|}
 block|}
 end_interface
 

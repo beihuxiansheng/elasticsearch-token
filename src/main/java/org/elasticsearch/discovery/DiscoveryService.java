@@ -418,7 +418,7 @@ name|nodeDescription
 argument_list|()
 return|;
 block|}
-comment|/**      * Publish all the changes to the cluster from the master (can be called just by the master). The publish      * process should not publish this state to the master as well! (the master is sending it...).      */
+comment|/**      * Publish all the changes to the cluster from the master (can be called just by the master). The publish      * process should not publish this state to the master as well! (the master is sending it...).      *      * The {@link org.elasticsearch.discovery.Discovery.AckListener} allows to acknowledge the publish      * event based on the response gotten from all nodes      */
 DECL|method|publish
 specifier|public
 name|void
@@ -426,26 +426,31 @@ name|publish
 parameter_list|(
 name|ClusterState
 name|clusterState
+parameter_list|,
+name|Discovery
+operator|.
+name|AckListener
+name|ackListener
 parameter_list|)
 block|{
 if|if
 condition|(
-operator|!
 name|lifecycle
 operator|.
 name|started
 argument_list|()
 condition|)
 block|{
-return|return;
-block|}
 name|discovery
 operator|.
 name|publish
 argument_list|(
 name|clusterState
+argument_list|,
+name|ackListener
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class

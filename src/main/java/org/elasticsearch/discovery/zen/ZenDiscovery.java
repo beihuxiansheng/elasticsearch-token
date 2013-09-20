@@ -1705,6 +1705,9 @@ name|publish
 parameter_list|(
 name|ClusterState
 name|clusterState
+parameter_list|,
+name|AckListener
+name|ackListener
 parameter_list|)
 block|{
 if|if
@@ -1743,6 +1746,8 @@ operator|.
 name|publish
 argument_list|(
 name|clusterState
+argument_list|,
+name|ackListener
 argument_list|)
 expr_stmt|;
 block|}
