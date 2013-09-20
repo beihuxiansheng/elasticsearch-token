@@ -290,20 +290,6 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|AbstractIntegrationTest
-operator|.
-name|ClusterScope
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
 name|hamcrest
 operator|.
 name|ElasticSearchAssertions
@@ -329,13 +315,6 @@ comment|/**  *  */
 end_comment
 
 begin_class
-annotation|@
-name|ClusterScope
-argument_list|(
-name|numNodes
-operator|=
-literal|2
-argument_list|)
 DECL|class|ConcurrentPercolatorTests
 specifier|public
 class|class
