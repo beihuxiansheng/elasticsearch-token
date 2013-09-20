@@ -80,6 +80,11 @@ name|void
 name|usePrettyPrint
 parameter_list|()
 function_decl|;
+DECL|method|usePrintLineFeedAtEnd
+name|void
+name|usePrintLineFeedAtEnd
+parameter_list|()
+function_decl|;
 DECL|method|writeStartArray
 name|void
 name|writeStartArray

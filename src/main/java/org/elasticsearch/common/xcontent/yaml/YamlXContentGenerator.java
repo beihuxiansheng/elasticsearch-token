@@ -164,6 +164,16 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|usePrintLineFeedAtEnd
+specifier|public
+name|void
+name|usePrintLineFeedAtEnd
+parameter_list|()
+block|{
+comment|// nothing here
+block|}
+annotation|@
+name|Override
 DECL|method|writeRawField
 specifier|public
 name|void

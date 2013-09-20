@@ -308,6 +308,9 @@ name|builder
 operator|.
 name|prettyPrint
 argument_list|()
+operator|.
+name|lfAtEnd
+argument_list|()
 expr_stmt|;
 block|}
 name|builder
