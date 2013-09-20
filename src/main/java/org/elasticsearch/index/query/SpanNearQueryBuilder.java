@@ -86,11 +86,10 @@ argument_list|()
 decl_stmt|;
 DECL|field|slop
 specifier|private
-name|int
+name|Integer
 name|slop
 init|=
-operator|-
-literal|1
+literal|null
 decl_stmt|;
 DECL|field|inOrder
 specifier|private
@@ -267,8 +266,7 @@ if|if
 condition|(
 name|slop
 operator|==
-operator|-
-literal|1
+literal|null
 condition|)
 block|{
 throw|throw
@@ -325,6 +323,9 @@ argument_list|(
 literal|"slop"
 argument_list|,
 name|slop
+operator|.
+name|intValue
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
