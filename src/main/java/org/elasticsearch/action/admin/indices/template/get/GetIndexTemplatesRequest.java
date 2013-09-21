@@ -188,13 +188,19 @@ condition|(
 name|names
 operator|==
 literal|null
+operator|||
+name|names
+operator|.
+name|length
+operator|==
+literal|0
 condition|)
 block|{
 name|validationException
 operator|=
 name|addValidationError
 argument_list|(
-literal|"names is null"
+literal|"names is null or empty"
 argument_list|,
 name|validationException
 argument_list|)
