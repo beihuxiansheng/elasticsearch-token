@@ -897,6 +897,11 @@ block|}
 annotation|@
 name|Test
 annotation|@
+name|TestLogging
+argument_list|(
+literal|"action.search.type:TRACE,action.admin.indices.refresh:TRACE"
+argument_list|)
+annotation|@
 name|Slow
 DECL|method|recoverWhileUnderLoadAllocateBackupsRelocatePrimariesTest
 specifier|public
@@ -1377,6 +1382,11 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+annotation|@
+name|TestLogging
+argument_list|(
+literal|"action.search.type:TRACE,action.admin.indices.refresh:TRACE"
+argument_list|)
 annotation|@
 name|Slow
 DECL|method|recoverWhileUnderLoadWithNodeShutdown
@@ -2118,6 +2128,7 @@ specifier|final
 name|long
 name|numberOfDocs
 parameter_list|,
+specifier|final
 name|int
 name|iterations
 parameter_list|)
@@ -2265,7 +2276,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Shard [{}] - count {}, primary {}"
+literal|"shard [{}] - count {}, primary {}"
 argument_list|,
 name|shardStats
 operator|.
@@ -2288,7 +2299,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|//if there was an error we try to wait and see if at some point it'll get fixed
-comment|//otherwise it means we are losing documents
 name|logger
 operator|.
 name|info
@@ -2317,6 +2327,26 @@ name|Object
 name|o
 parameter_list|)
 block|{
+name|boolean
+name|error
+init|=
+literal|false
+decl_stmt|;
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+name|iterations
+condition|;
+name|i
+operator|++
+control|)
+block|{
 name|SearchResponse
 name|searchResponse
 init|=
@@ -2342,7 +2372,8 @@ operator|.
 name|get
 argument_list|()
 decl_stmt|;
-return|return
+if|if
+condition|(
 name|searchResponse
 operator|.
 name|getHits
@@ -2350,17 +2381,28 @@ argument_list|()
 operator|.
 name|totalHits
 argument_list|()
-operator|==
+operator|!=
 name|numberOfDocs
+condition|)
+block|{
+name|error
+operator|=
+literal|true
+expr_stmt|;
+block|}
+block|}
+return|return
+operator|!
+name|error
 return|;
 block|}
 block|}
 argument_list|,
-literal|30
+literal|5
 argument_list|,
 name|TimeUnit
 operator|.
-name|SECONDS
+name|MINUTES
 argument_list|)
 argument_list|,
 name|equalTo
