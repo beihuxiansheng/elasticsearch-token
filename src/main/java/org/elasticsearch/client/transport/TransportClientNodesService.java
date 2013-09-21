@@ -2358,7 +2358,9 @@ name|HashSet
 argument_list|<
 name|DiscoveryNode
 argument_list|>
-argument_list|()
+argument_list|(
+name|listedNodes
+argument_list|)
 decl_stmt|;
 for|for
 control|(
