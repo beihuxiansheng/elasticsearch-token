@@ -56,6 +56,20 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|ClusterState
+operator|.
+name|Builder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
 name|block
 operator|.
 name|ClusterBlock
@@ -371,20 +385,6 @@ operator|.
 name|concurrent
 operator|.
 name|*
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|ClusterState
-operator|.
-name|Builder
 import|;
 end_import
 
@@ -2328,7 +2328,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|Throwable
 name|e
 parameter_list|)
 block|{
