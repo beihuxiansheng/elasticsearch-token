@@ -1574,22 +1574,7 @@ name|void
 name|testMergeStats
 parameter_list|()
 block|{
-name|client
-argument_list|()
-operator|.
-name|admin
-argument_list|()
-operator|.
-name|indices
-argument_list|()
-operator|.
-name|prepareDelete
-argument_list|()
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
+name|wipeIndices
 argument_list|()
 expr_stmt|;
 comment|// rely on 1 replica for this tests
@@ -1974,22 +1959,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|client
-argument_list|()
-operator|.
-name|admin
-argument_list|()
-operator|.
-name|indices
-argument_list|()
-operator|.
-name|prepareDelete
-argument_list|()
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
+name|wipeIndices
 argument_list|()
 expr_stmt|;
 comment|// rely on 1 replica for this tests

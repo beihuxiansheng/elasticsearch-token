@@ -480,23 +480,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// delete all indices
-name|client
-argument_list|()
-operator|.
-name|admin
-argument_list|()
-operator|.
-name|indices
-argument_list|()
-operator|.
-name|prepareDelete
-argument_list|()
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
+name|wipeIndices
 argument_list|()
 expr_stmt|;
 name|logger
@@ -506,25 +490,10 @@ argument_list|(
 literal|"--> creating index [test]"
 argument_list|)
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
-name|admin
-argument_list|()
-operator|.
-name|indices
-argument_list|()
-operator|.
-name|create
-argument_list|(
-name|createIndexRequest
+name|createIndex
 argument_list|(
 literal|"test"
 argument_list|)
-argument_list|)
-operator|.
-name|actionGet
-argument_list|()
 expr_stmt|;
 name|ensureGreen
 argument_list|()
@@ -545,9 +514,6 @@ argument_list|(
 literal|"--> aliasing index [test] with [alias1]"
 argument_list|)
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -634,9 +600,6 @@ argument_list|(
 literal|"--> creating index [test]"
 argument_list|)
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -664,9 +627,6 @@ argument_list|(
 literal|"--> remove [alias1], Aliasing index [test_x] with [alias1]"
 argument_list|)
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -770,23 +730,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// delete all indices
-name|client
-argument_list|()
-operator|.
-name|admin
-argument_list|()
-operator|.
-name|indices
-argument_list|()
-operator|.
-name|prepareDelete
-argument_list|()
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
+name|wipeIndices
 argument_list|()
 expr_stmt|;
 name|logger
@@ -796,25 +740,10 @@ argument_list|(
 literal|"--> creating index [test]"
 argument_list|)
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
-name|admin
-argument_list|()
-operator|.
-name|indices
-argument_list|()
-operator|.
-name|create
-argument_list|(
-name|createIndexRequest
+name|createIndex
 argument_list|(
 literal|"test"
 argument_list|)
-argument_list|)
-operator|.
-name|actionGet
-argument_list|()
 expr_stmt|;
 name|ensureGreen
 argument_list|()
@@ -828,9 +757,6 @@ argument_list|(
 literal|"--> aliasing index [test] with [alias1] and filter [t]"
 argument_list|)
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -878,23 +804,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// delete all indices
-name|client
-argument_list|()
-operator|.
-name|admin
-argument_list|()
-operator|.
-name|indices
-argument_list|()
-operator|.
-name|prepareDelete
-argument_list|()
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
+name|wipeIndices
 argument_list|()
 expr_stmt|;
 name|logger
@@ -904,25 +814,10 @@ argument_list|(
 literal|"--> creating index [test]"
 argument_list|)
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
-name|admin
-argument_list|()
-operator|.
-name|indices
-argument_list|()
-operator|.
-name|create
-argument_list|(
-name|createIndexRequest
+name|createIndex
 argument_list|(
 literal|"test"
 argument_list|)
-argument_list|)
-operator|.
-name|actionGet
-argument_list|()
 expr_stmt|;
 name|ensureGreen
 argument_list|()
@@ -944,9 +839,6 @@ argument_list|,
 literal|"kimchy"
 argument_list|)
 decl_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -982,9 +874,6 @@ expr_stmt|;
 name|ClusterState
 name|clusterState
 init|=
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -1076,9 +965,6 @@ expr_stmt|;
 name|IndicesAliasesResponse
 name|indicesAliasesResponse
 init|=
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -1125,23 +1011,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// delete all indices
-name|client
-argument_list|()
-operator|.
-name|admin
-argument_list|()
-operator|.
-name|indices
-argument_list|()
-operator|.
-name|prepareDelete
-argument_list|()
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
+name|wipeIndices
 argument_list|()
 expr_stmt|;
 name|logger
@@ -1151,25 +1021,10 @@ argument_list|(
 literal|"--> creating index [test]"
 argument_list|)
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
-name|admin
-argument_list|()
-operator|.
-name|indices
-argument_list|()
-operator|.
-name|create
-argument_list|(
-name|createIndexRequest
+name|createIndex
 argument_list|(
 literal|"test"
 argument_list|)
-argument_list|)
-operator|.
-name|actionGet
-argument_list|()
 expr_stmt|;
 name|ensureGreen
 argument_list|()
@@ -1181,9 +1036,6 @@ argument_list|(
 literal|"--> adding filtering aliases to index [test]"
 argument_list|)
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -1206,9 +1058,6 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -1231,9 +1080,6 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -1263,9 +1109,6 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -1295,9 +1138,6 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -2178,23 +2018,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// delete all indices
-name|client
-argument_list|()
-operator|.
-name|admin
-argument_list|()
-operator|.
-name|indices
-argument_list|()
-operator|.
-name|prepareDelete
-argument_list|()
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
+name|wipeIndices
 argument_list|()
 expr_stmt|;
 name|logger
@@ -2204,9 +2028,6 @@ argument_list|(
 literal|"--> creating index [test1]"
 argument_list|)
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -2231,9 +2052,6 @@ argument_list|(
 literal|"--> creating index [test2]"
 argument_list|)
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -2261,9 +2079,6 @@ argument_list|(
 literal|"--> adding filtering aliases to index [test1]"
 argument_list|)
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -2286,9 +2101,6 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -2311,9 +2123,6 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -2343,9 +2152,6 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -2382,9 +2188,6 @@ argument_list|(
 literal|"--> adding filtering aliases to index [test2]"
 argument_list|)
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -2407,9 +2210,6 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -2432,9 +2232,6 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -3296,23 +3093,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// delete all indices
-name|client
-argument_list|()
-operator|.
-name|admin
-argument_list|()
-operator|.
-name|indices
-argument_list|()
-operator|.
-name|prepareDelete
-argument_list|()
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
+name|wipeIndices
 argument_list|()
 expr_stmt|;
 name|logger
@@ -3322,9 +3103,6 @@ argument_list|(
 literal|"--> creating indices"
 argument_list|)
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -3342,9 +3120,6 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -3362,9 +3137,6 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -3392,9 +3164,6 @@ argument_list|(
 literal|"--> adding aliases to indices"
 argument_list|)
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -3417,9 +3186,6 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -3449,9 +3215,6 @@ argument_list|(
 literal|"--> adding filtering aliases to indices"
 argument_list|)
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -3481,9 +3244,6 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -3513,9 +3273,6 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -3545,9 +3302,6 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -3577,9 +3331,6 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -4482,23 +4233,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// delete all indices
-name|client
-argument_list|()
-operator|.
-name|admin
-argument_list|()
-operator|.
-name|indices
-argument_list|()
-operator|.
-name|prepareDelete
-argument_list|()
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
+name|wipeIndices
 argument_list|()
 expr_stmt|;
 name|logger
@@ -4508,9 +4243,6 @@ argument_list|(
 literal|"--> creating index [test1]"
 argument_list|)
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -4535,9 +4267,6 @@ argument_list|(
 literal|"--> creating index [test2]"
 argument_list|)
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -4565,9 +4294,6 @@ argument_list|(
 literal|"--> adding filtering aliases to index [test1]"
 argument_list|)
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -4590,9 +4316,6 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -4615,9 +4338,6 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -4647,9 +4367,6 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -4679,9 +4396,6 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -4718,9 +4432,6 @@ argument_list|(
 literal|"--> adding filtering aliases to index [test2]"
 argument_list|)
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -4743,9 +4454,6 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -4768,9 +4476,6 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -4800,9 +4505,6 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -5231,9 +4933,6 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -5318,9 +5017,6 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -5417,9 +5113,6 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -5487,23 +5180,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// delete all indices
-name|client
-argument_list|()
-operator|.
-name|admin
-argument_list|()
-operator|.
-name|indices
-argument_list|()
-operator|.
-name|prepareDelete
-argument_list|()
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
+name|wipeIndices
 argument_list|()
 expr_stmt|;
 name|logger
@@ -5513,25 +5190,10 @@ argument_list|(
 literal|"--> creating index [test]"
 argument_list|)
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
-name|admin
-argument_list|()
-operator|.
-name|indices
-argument_list|()
-operator|.
-name|create
-argument_list|(
-name|createIndexRequest
+name|createIndex
 argument_list|(
 literal|"test"
 argument_list|)
-argument_list|)
-operator|.
-name|actionGet
-argument_list|()
 expr_stmt|;
 name|ensureGreen
 argument_list|()
@@ -5553,9 +5215,6 @@ control|)
 block|{
 name|assertThat
 argument_list|(
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -5642,23 +5301,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// delete all indices
-name|client
-argument_list|()
-operator|.
-name|admin
-argument_list|()
-operator|.
-name|indices
-argument_list|()
-operator|.
-name|prepareDelete
-argument_list|()
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
+name|wipeIndices
 argument_list|()
 expr_stmt|;
 name|logger
@@ -5668,9 +5311,6 @@ argument_list|(
 literal|"--> creating index [test]"
 argument_list|)
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -5728,9 +5368,6 @@ control|)
 block|{
 name|assertThat
 argument_list|(
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -5823,23 +5460,7 @@ name|aliasCount
 init|=
 literal|10
 decl_stmt|;
-comment|// delete all indices
-name|client
-argument_list|()
-operator|.
-name|admin
-argument_list|()
-operator|.
-name|indices
-argument_list|()
-operator|.
-name|prepareDelete
-argument_list|()
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
+name|wipeIndices
 argument_list|()
 expr_stmt|;
 name|logger
@@ -5849,25 +5470,10 @@ argument_list|(
 literal|"--> creating index [test]"
 argument_list|)
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
-name|admin
-argument_list|()
-operator|.
-name|indices
-argument_list|()
-operator|.
-name|create
-argument_list|(
-name|createIndexRequest
+name|createIndex
 argument_list|(
 literal|"test"
 argument_list|)
-argument_list|)
-operator|.
-name|actionGet
-argument_list|()
 expr_stmt|;
 name|ensureGreen
 argument_list|()
@@ -5922,9 +5528,6 @@ parameter_list|()
 block|{
 name|assertThat
 argument_list|(
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -6052,22 +5655,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|client
-argument_list|()
-operator|.
-name|admin
-argument_list|()
-operator|.
-name|indices
-argument_list|()
-operator|.
-name|prepareDelete
-argument_list|()
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
+name|wipeIndices
 argument_list|()
 expr_stmt|;
 name|logger
@@ -6077,25 +5665,10 @@ argument_list|(
 literal|"--> creating index [test]"
 argument_list|)
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
-name|admin
-argument_list|()
-operator|.
-name|indices
-argument_list|()
-operator|.
-name|create
-argument_list|(
-name|createIndexRequest
+name|createIndex
 argument_list|(
 literal|"test"
 argument_list|)
-argument_list|)
-operator|.
-name|actionGet
-argument_list|()
 expr_stmt|;
 name|ensureGreen
 argument_list|()
@@ -6109,9 +5682,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -6174,9 +5744,6 @@ argument_list|()
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -6249,9 +5816,6 @@ argument_list|()
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -6331,9 +5895,6 @@ argument_list|()
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -6413,9 +5974,6 @@ argument_list|()
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -6546,9 +6104,6 @@ argument_list|()
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -6621,9 +6176,6 @@ argument_list|()
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -6725,9 +6277,6 @@ argument_list|(
 literal|"--> creating indices [foobar, test, test123, foobarbaz, bazbar]"
 argument_list|)
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -6750,9 +6299,6 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -6775,9 +6321,6 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -6800,9 +6343,6 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -6825,9 +6365,6 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -6860,9 +6397,6 @@ argument_list|(
 literal|"--> creating aliases [alias1, alias2]"
 argument_list|)
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -6888,9 +6422,6 @@ expr_stmt|;
 name|IndicesAliasesResponse
 name|indicesAliasesResponse
 init|=
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -6936,9 +6467,6 @@ expr_stmt|;
 name|GetAliasesResponse
 name|getResponse
 init|=
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -7123,9 +6651,6 @@ expr_stmt|;
 name|AliasesExistResponse
 name|existsResponse
 init|=
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -7165,9 +6690,6 @@ argument_list|)
 expr_stmt|;
 name|getResponse
 operator|=
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -7470,9 +6992,6 @@ argument_list|)
 expr_stmt|;
 name|existsResponse
 operator|=
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -7510,9 +7029,6 @@ argument_list|(
 literal|"--> creating aliases [bar, baz, foo]"
 argument_list|)
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -7558,9 +7074,6 @@ argument_list|()
 expr_stmt|;
 name|indicesAliasesResponse
 operator|=
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -7620,9 +7133,6 @@ argument_list|)
 expr_stmt|;
 name|getResponse
 operator|=
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -7995,9 +7505,6 @@ argument_list|)
 expr_stmt|;
 name|existsResponse
 operator|=
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -8044,9 +7551,6 @@ argument_list|)
 expr_stmt|;
 name|getResponse
 operator|=
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -8417,9 +7921,6 @@ argument_list|)
 expr_stmt|;
 name|existsResponse
 operator|=
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -8464,9 +7965,6 @@ argument_list|)
 expr_stmt|;
 name|getResponse
 operator|=
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -8960,9 +8458,6 @@ argument_list|)
 expr_stmt|;
 name|existsResponse
 operator|=
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -9007,9 +8502,6 @@ argument_list|)
 expr_stmt|;
 name|getResponse
 operator|=
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -9177,9 +8669,6 @@ argument_list|)
 expr_stmt|;
 name|existsResponse
 operator|=
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -9225,9 +8714,6 @@ argument_list|)
 expr_stmt|;
 name|getResponse
 operator|=
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -9416,9 +8902,6 @@ argument_list|)
 expr_stmt|;
 name|existsResponse
 operator|=
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -9463,9 +8946,6 @@ argument_list|)
 expr_stmt|;
 name|getResponse
 operator|=
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -9633,9 +9113,6 @@ argument_list|)
 expr_stmt|;
 name|existsResponse
 operator|=
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -9681,9 +9158,6 @@ argument_list|)
 expr_stmt|;
 name|getResponse
 operator|=
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -9774,9 +9248,6 @@ argument_list|)
 expr_stmt|;
 name|existsResponse
 operator|=
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -9814,9 +9285,6 @@ argument_list|)
 expr_stmt|;
 name|indicesAliasesResponse
 operator|=
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -9854,9 +9322,6 @@ argument_list|)
 expr_stmt|;
 name|getResponse
 operator|=
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -9897,9 +9362,6 @@ argument_list|)
 expr_stmt|;
 name|existsResponse
 operator|=
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -9951,9 +9413,6 @@ name|void
 name|testAddAliasNullIndex
 parameter_list|()
 block|{
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -9997,9 +9456,6 @@ name|void
 name|testAddAliasEmptyIndex
 parameter_list|()
 block|{
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -10043,9 +9499,6 @@ name|void
 name|testAddAliasNullAlias
 parameter_list|()
 block|{
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -10089,9 +9542,6 @@ name|void
 name|testAddAliasEmptyAlias
 parameter_list|()
 block|{
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -10130,9 +9580,6 @@ parameter_list|()
 block|{
 try|try
 block|{
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -10220,9 +9667,6 @@ parameter_list|()
 block|{
 try|try
 block|{
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -10315,9 +9759,6 @@ name|void
 name|tesRemoveAliasNullIndex
 parameter_list|()
 block|{
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -10361,9 +9802,6 @@ name|void
 name|tesRemoveAliasEmptyIndex
 parameter_list|()
 block|{
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -10407,9 +9845,6 @@ name|void
 name|tesRemoveAliasNullAlias
 parameter_list|()
 block|{
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -10453,9 +9888,6 @@ name|void
 name|tesRemoveAliasEmptyAlias
 parameter_list|()
 block|{
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -10494,9 +9926,6 @@ parameter_list|()
 block|{
 try|try
 block|{
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
@@ -10584,9 +10013,6 @@ parameter_list|()
 block|{
 try|try
 block|{
-name|client
-argument_list|()
-operator|.
 name|admin
 argument_list|()
 operator|.
