@@ -4327,6 +4327,17 @@ operator|.
 name|types
 argument_list|()
 argument_list|)
+operator|.
+name|origin
+argument_list|(
+name|Engine
+operator|.
+name|Operation
+operator|.
+name|Origin
+operator|.
+name|RECOVERY
+argument_list|)
 argument_list|)
 expr_stmt|;
 break|break;
