@@ -675,6 +675,9 @@ specifier|protected
 name|Searcher
 name|newSearcher
 parameter_list|(
+name|String
+name|source
+parameter_list|,
 name|IndexSearcher
 name|searcher
 parameter_list|,
@@ -718,6 +721,8 @@ name|super
 operator|.
 name|newSearcher
 argument_list|(
+name|source
+argument_list|,
 name|assertingIndexSearcher
 argument_list|,
 name|manager
@@ -780,10 +785,32 @@ argument_list|,
 operator|new
 name|RuntimeException
 argument_list|(
-literal|"Unreleased Searcher"
+literal|"Unreleased Searcher, source ["
+operator|+
+name|searcher
+operator|.
+name|source
+argument_list|()
+operator|+
+literal|"]"
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|source
+specifier|public
+name|String
+name|source
+parameter_list|()
+block|{
+return|return
+name|searcher
+operator|.
+name|source
+argument_list|()
+return|;
 block|}
 annotation|@
 name|Override
@@ -810,7 +837,14 @@ name|remove
 operator|!=
 literal|null
 operator|:
-literal|"Released Searcher more than once"
+literal|"Released Searcher more than once, source ["
+operator|+
+name|searcher
+operator|.
+name|source
+argument_list|()
+operator|+
+literal|"]"
 assert|;
 return|return
 name|searcher

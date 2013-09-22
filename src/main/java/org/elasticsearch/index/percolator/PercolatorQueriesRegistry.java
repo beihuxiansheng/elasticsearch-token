@@ -1481,7 +1481,9 @@ init|=
 name|shard
 operator|.
 name|acquireSearcher
-argument_list|()
+argument_list|(
+literal|"percolator_load_queries"
+argument_list|)
 decl_stmt|;
 try|try
 block|{

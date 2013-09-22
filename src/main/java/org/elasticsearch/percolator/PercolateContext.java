@@ -1030,6 +1030,17 @@ block|{
 annotation|@
 name|Override
 specifier|public
+name|String
+name|source
+parameter_list|()
+block|{
+return|return
+literal|"percolate"
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
 name|IndexReader
 name|reader
 parameter_list|()

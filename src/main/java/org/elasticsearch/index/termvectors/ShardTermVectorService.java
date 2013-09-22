@@ -356,7 +356,9 @@ init|=
 name|indexShard
 operator|.
 name|acquireSearcher
-argument_list|()
+argument_list|(
+literal|"term_vector"
+argument_list|)
 decl_stmt|;
 name|IndexReader
 name|topLevelReader

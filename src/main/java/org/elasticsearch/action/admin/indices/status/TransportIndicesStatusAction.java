@@ -1032,7 +1032,9 @@ init|=
 name|indexShard
 operator|.
 name|acquireSearcher
-argument_list|()
+argument_list|(
+literal|"indices_status"
+argument_list|)
 decl_stmt|;
 try|try
 block|{

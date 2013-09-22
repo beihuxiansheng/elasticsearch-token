@@ -1203,7 +1203,9 @@ argument_list|,
 name|indexShard
 operator|.
 name|acquireSearcher
-argument_list|()
+argument_list|(
+literal|"validate_query"
+argument_list|)
 argument_list|,
 name|indexService
 argument_list|,

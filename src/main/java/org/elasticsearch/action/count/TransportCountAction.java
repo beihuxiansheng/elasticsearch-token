@@ -1124,7 +1124,9 @@ argument_list|,
 name|indexShard
 operator|.
 name|acquireSearcher
-argument_list|()
+argument_list|(
+literal|"count"
+argument_list|)
 argument_list|,
 name|indexService
 argument_list|,

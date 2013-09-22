@@ -3049,7 +3049,9 @@ name|Searcher
 name|searcher
 init|=
 name|acquireSearcher
-argument_list|()
+argument_list|(
+literal|"doc_stats"
+argument_list|)
 decl_stmt|;
 try|try
 block|{
@@ -3339,7 +3341,9 @@ name|Searcher
 name|currentSearcher
 init|=
 name|acquireSearcher
-argument_list|()
+argument_list|(
+literal|"completion_stats"
+argument_list|)
 decl_stmt|;
 try|try
 block|{
@@ -3647,7 +3651,10 @@ name|Engine
 operator|.
 name|Searcher
 name|acquireSearcher
-parameter_list|()
+parameter_list|(
+name|String
+name|source
+parameter_list|)
 block|{
 name|readAllowed
 argument_list|()
@@ -3656,7 +3663,9 @@ return|return
 name|engine
 operator|.
 name|acquireSearcher
-argument_list|()
+argument_list|(
+name|source
+argument_list|)
 return|;
 block|}
 DECL|method|close

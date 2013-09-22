@@ -1118,7 +1118,9 @@ init|=
 name|shardToPurge
 operator|.
 name|acquireSearcher
-argument_list|()
+argument_list|(
+literal|"indices_ttl"
+argument_list|)
 decl_stmt|;
 try|try
 block|{

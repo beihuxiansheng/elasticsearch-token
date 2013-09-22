@@ -2448,7 +2448,9 @@ name|Searcher
 name|searcher
 init|=
 name|acquireSearcher
-argument_list|()
+argument_list|(
+literal|"get"
+argument_list|)
 decl_stmt|;
 specifier|final
 name|Versions
@@ -4748,7 +4750,10 @@ specifier|public
 specifier|final
 name|Searcher
 name|acquireSearcher
-parameter_list|()
+parameter_list|(
+name|String
+name|source
+parameter_list|)
 throws|throws
 name|EngineException
 block|{
@@ -4772,6 +4777,8 @@ decl_stmt|;
 return|return
 name|newSearcher
 argument_list|(
+name|source
+argument_list|,
 name|searcher
 argument_list|,
 name|manager
@@ -4788,11 +4795,11 @@ name|logger
 operator|.
 name|error
 argument_list|(
-literal|"failed to accquire searcher for shard [{}]"
+literal|"failed to acquire searcher, source {}"
 argument_list|,
 name|ex
 argument_list|,
-name|shardId
+name|source
 argument_list|)
 expr_stmt|;
 throw|throw
@@ -4814,6 +4821,9 @@ specifier|protected
 name|Searcher
 name|newSearcher
 parameter_list|(
+name|String
+name|source
+parameter_list|,
 name|IndexSearcher
 name|searcher
 parameter_list|,
@@ -4825,6 +4835,8 @@ return|return
 operator|new
 name|RobinSearcher
 argument_list|(
+name|source
+argument_list|,
 name|searcher
 argument_list|,
 name|manager
@@ -7193,7 +7205,9 @@ name|Searcher
 name|searcher
 init|=
 name|acquireSearcher
-argument_list|()
+argument_list|(
+literal|"segments"
+argument_list|)
 decl_stmt|;
 try|try
 block|{
@@ -8028,7 +8042,9 @@ name|Searcher
 name|searcher
 init|=
 name|acquireSearcher
-argument_list|()
+argument_list|(
+literal|"load_version"
+argument_list|)
 decl_stmt|;
 try|try
 block|{
@@ -8942,6 +8958,12 @@ name|RobinSearcher
 implements|implements
 name|Searcher
 block|{
+DECL|field|source
+specifier|private
+specifier|final
+name|String
+name|source
+decl_stmt|;
 DECL|field|searcher
 specifier|private
 specifier|final
@@ -8958,6 +8980,9 @@ DECL|method|RobinSearcher
 specifier|private
 name|RobinSearcher
 parameter_list|(
+name|String
+name|source
+parameter_list|,
 name|IndexSearcher
 name|searcher
 parameter_list|,
@@ -8967,6 +8992,12 @@ parameter_list|)
 block|{
 name|this
 operator|.
+name|source
+operator|=
+name|source
+expr_stmt|;
+name|this
+operator|.
 name|searcher
 operator|=
 name|searcher
@@ -8977,6 +9008,20 @@ name|manager
 operator|=
 name|manager
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|source
+specifier|public
+name|String
+name|source
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|source
+return|;
 block|}
 annotation|@
 name|Override
@@ -9243,7 +9288,9 @@ block|{
 name|currentSearcher
 operator|=
 name|acquireSearcher
-argument_list|()
+argument_list|(
+literal|"search_factory"
+argument_list|)
 expr_stmt|;
 comment|// figure out the newSearcher, with only the new readers that are relevant for us
 name|List
@@ -9401,12 +9448,16 @@ argument_list|,
 operator|new
 name|SimpleSearcher
 argument_list|(
+literal|"warmer"
+argument_list|,
 name|searcher
 argument_list|)
 argument_list|,
 operator|new
 name|SimpleSearcher
 argument_list|(
+literal|"warmer"
+argument_list|,
 name|newSearcher
 argument_list|)
 argument_list|)

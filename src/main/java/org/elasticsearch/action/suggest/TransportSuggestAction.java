@@ -1001,7 +1001,9 @@ init|=
 name|indexShard
 operator|.
 name|acquireSearcher
-argument_list|()
+argument_list|(
+literal|"suggest"
+argument_list|)
 decl_stmt|;
 name|XContentParser
 name|parser

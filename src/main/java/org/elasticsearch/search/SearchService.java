@@ -3193,7 +3193,9 @@ condition|?
 name|indexShard
 operator|.
 name|acquireSearcher
-argument_list|()
+argument_list|(
+literal|"search"
+argument_list|)
 else|:
 name|searcher
 decl_stmt|;

@@ -840,7 +840,10 @@ name|Engine
 operator|.
 name|Searcher
 name|acquireSearcher
-parameter_list|()
+parameter_list|(
+name|String
+name|source
+parameter_list|)
 function_decl|;
 comment|/**      * Returns<tt>true</tt> if this shard can ignore a recovery attempt made to it (since the already doing/done it)      */
 DECL|method|ignoreRecoveryAttempt
