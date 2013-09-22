@@ -28,6 +28,22 @@ name|util
 operator|.
 name|LuceneTestCase
 operator|.
+name|AwaitsFix
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+operator|.
 name|Slow
 import|;
 end_import
@@ -220,6 +236,13 @@ annotation|@
 name|Test
 annotation|@
 name|Slow
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"fix is coming"
+argument_list|)
 DECL|method|testIndexCausesIndexCreation
 specifier|public
 name|void
@@ -242,6 +265,13 @@ annotation|@
 name|Test
 annotation|@
 name|Slow
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"fix is coming"
+argument_list|)
 DECL|method|testNoReplicas
 specifier|public
 name|void
@@ -262,6 +292,13 @@ annotation|@
 name|Test
 annotation|@
 name|Slow
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"fix is coming"
+argument_list|)
 DECL|method|testOneReplica
 specifier|public
 name|void
@@ -282,6 +319,13 @@ annotation|@
 name|Test
 annotation|@
 name|Slow
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"fix is coming"
+argument_list|)
 DECL|method|testTwoReplicas
 specifier|public
 name|void
