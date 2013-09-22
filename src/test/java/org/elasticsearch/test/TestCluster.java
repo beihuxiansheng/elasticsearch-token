@@ -691,6 +691,13 @@ name|long
 index|[]
 name|sharedNodesSeeds
 decl_stmt|;
+DECL|field|transportClientRatio
+specifier|private
+name|double
+name|transportClientRatio
+init|=
+literal|0.0
+decl_stmt|;
 DECL|field|perNodeSettingsMap
 specifier|private
 specifier|final
@@ -2594,32 +2601,21 @@ name|Random
 name|random
 parameter_list|)
 block|{
-switch|switch
-condition|(
+name|double
+name|nextDouble
+init|=
 name|random
 operator|.
-name|nextInt
-argument_list|(
-literal|10
-argument_list|)
+name|nextDouble
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|nextDouble
+operator|<
+name|transportClientRatio
 condition|)
 block|{
-case|case
-literal|5
-case|:
-comment|// disabled for now - will re-enable once tests stabelize
-comment|//                    if (logger.isDebugEnabled()) {
-comment|//                        logger.debug("Using transport client for node [{}] sniff: [{}]", node.settings().get("name"), false);
-comment|//                    }
-comment|//                    return TransportClientFactory.NO_SNIFF_CLIENT_FACTORY.client(node, clusterName, random);
-case|case
-literal|3
-case|:
-comment|//                    if (logger.isDebugEnabled()) {
-comment|//                        logger.debug("Using transport client for node [{}] sniff: [{}]", node.settings().get("name"), true);
-comment|//                    }
-comment|//                    return TransportClientFactory.SNIFF_CLIENT_FACTORY.client(node, clusterName, random);
-default|default:
 if|if
 condition|(
 name|logger
@@ -2632,7 +2628,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Using node client for node [{}]"
+literal|"Using transport client for node [{}] sniff: [{}]"
 argument_list|,
 name|node
 operator|.
@@ -2643,9 +2639,29 @@ name|get
 argument_list|(
 literal|"name"
 argument_list|)
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
+comment|/* no sniff client for now - doesn't work will all tests since it might throw NoNodeAvailableException if nodes are shut down.                  * we first need support of transportClientRatio as annotations or so                  */
+return|return
+name|TransportClientFactory
+operator|.
+name|NO_SNIFF_CLIENT_FACTORY
+operator|.
+name|client
+argument_list|(
+name|node
+argument_list|,
+name|clusterName
+argument_list|,
+name|random
+argument_list|)
+return|;
+block|}
+else|else
+block|{
 return|return
 name|node
 operator|.
@@ -2663,6 +2679,9 @@ name|beforeTest
 parameter_list|(
 name|Random
 name|random
+parameter_list|,
+name|double
+name|transportClientRatio
 parameter_list|)
 block|{
 name|reset
@@ -2670,6 +2689,8 @@ argument_list|(
 name|random
 argument_list|,
 literal|true
+argument_list|,
+name|transportClientRatio
 argument_list|)
 expr_stmt|;
 block|}
@@ -2684,8 +2705,35 @@ name|random
 parameter_list|,
 name|boolean
 name|wipeData
+parameter_list|,
+name|double
+name|transportClientRatio
 parameter_list|)
 block|{
+assert|assert
+name|transportClientRatio
+operator|>=
+literal|0.0
+operator|&&
+name|transportClientRatio
+operator|<=
+literal|1.0
+assert|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Reset test cluster with transport client ratio: [{}]"
+argument_list|,
+name|transportClientRatio
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|transportClientRatio
+operator|=
+name|transportClientRatio
+expr_stmt|;
 name|this
 operator|.
 name|random
@@ -4344,6 +4392,8 @@ argument_list|(
 name|random
 argument_list|,
 name|wipeData
+argument_list|,
+name|transportClientRatio
 argument_list|)
 expr_stmt|;
 block|}
