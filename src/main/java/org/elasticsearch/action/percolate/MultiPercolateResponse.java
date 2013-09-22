@@ -647,6 +647,13 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|out
+operator|.
+name|writeBoolean
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|response
 operator|.
 name|writeTo
@@ -657,6 +664,13 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|out
+operator|.
+name|writeBoolean
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 name|out
 operator|.
 name|writeString
