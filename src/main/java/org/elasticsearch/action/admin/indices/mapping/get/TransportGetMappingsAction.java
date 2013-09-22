@@ -283,9 +283,9 @@ name|ElasticSearchException
 block|{
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
-literal|"Serving getMapping request based on version {}"
+literal|"serving getMapping request based on version {}"
 argument_list|,
 name|state
 operator|.
