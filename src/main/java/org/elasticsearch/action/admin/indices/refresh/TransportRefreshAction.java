@@ -650,7 +650,9 @@ operator|new
 name|Engine
 operator|.
 name|Refresh
-argument_list|()
+argument_list|(
+literal|"api"
+argument_list|)
 operator|.
 name|force
 argument_list|(
@@ -658,11 +660,6 @@ name|request
 operator|.
 name|force
 argument_list|()
-argument_list|)
-operator|.
-name|source
-argument_list|(
-literal|"api"
 argument_list|)
 argument_list|)
 expr_stmt|;
