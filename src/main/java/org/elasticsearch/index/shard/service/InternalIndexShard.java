@@ -1802,6 +1802,11 @@ name|force
 argument_list|(
 literal|true
 argument_list|)
+operator|.
+name|source
+argument_list|(
+literal|"cluster_state_started"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -3916,6 +3921,11 @@ name|force
 argument_list|(
 literal|true
 argument_list|)
+operator|.
+name|source
+argument_list|(
+literal|"recovery_finalization"
+argument_list|)
 argument_list|)
 expr_stmt|;
 synchronized|synchronized
@@ -5042,6 +5052,11 @@ operator|.
 name|force
 argument_list|(
 literal|false
+argument_list|)
+operator|.
+name|source
+argument_list|(
+literal|"scheduled"
 argument_list|)
 argument_list|)
 expr_stmt|;

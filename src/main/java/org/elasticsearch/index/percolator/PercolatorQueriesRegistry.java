@@ -1466,6 +1466,11 @@ name|force
 argument_list|(
 literal|true
 argument_list|)
+operator|.
+name|source
+argument_list|(
+literal|"percolator_load_queries"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|Engine

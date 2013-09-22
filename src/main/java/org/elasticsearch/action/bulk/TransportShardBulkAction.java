@@ -2734,6 +2734,11 @@ name|force
 argument_list|(
 literal|false
 argument_list|)
+operator|.
+name|source
+argument_list|(
+literal|"refresh_flag_bulk"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -4335,6 +4340,11 @@ operator|.
 name|force
 argument_list|(
 literal|false
+argument_list|)
+operator|.
+name|source
+argument_list|(
+literal|"refresh_flag_bulk"
 argument_list|)
 argument_list|)
 expr_stmt|;

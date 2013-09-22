@@ -631,6 +631,11 @@ name|TransportGetAction
 operator|.
 name|REFRESH_FORCE
 argument_list|)
+operator|.
+name|source
+argument_list|(
+literal|"refresh_flag_mget"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

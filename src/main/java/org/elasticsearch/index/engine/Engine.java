@@ -450,7 +450,7 @@ parameter_list|)
 throws|throws
 name|EngineException
 function_decl|;
-comment|/**      * Retruns a new searcher instance. The consumer of this      * API is responsible for releasing the returned seacher in a      * safe manner, preferrablly in a try/finally block.      *       * @see Searcher#release()      */
+comment|/**      * Retruns a new searcher instance. The consumer of this      * API is responsible for releasing the returned seacher in a      * safe manner, preferrablly in a try/finally block.      *      * @see Searcher#release()      */
 DECL|method|acquireSearcher
 name|Searcher
 name|acquireSearcher
@@ -736,6 +736,13 @@ name|force
 init|=
 literal|false
 decl_stmt|;
+DECL|field|source
+specifier|private
+name|String
+name|source
+init|=
+literal|""
+decl_stmt|;
 comment|/**          * Forces calling refresh, overriding the check that dirty operations even happened. Defaults          * to true (note, still lightweight if no refresh is needed).          */
 DECL|method|force
 specifier|public
@@ -768,6 +775,37 @@ operator|.
 name|force
 return|;
 block|}
+DECL|method|source
+specifier|public
+name|Refresh
+name|source
+parameter_list|(
+name|String
+name|source
+parameter_list|)
+block|{
+name|this
+operator|.
+name|source
+operator|=
+name|source
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|source
+specifier|public
+name|String
+name|source
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|source
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString
@@ -780,6 +818,10 @@ return|return
 literal|"force["
 operator|+
 name|force
+operator|+
+literal|"], source ["
+operator|+
+name|source
 operator|+
 literal|"]"
 return|;
