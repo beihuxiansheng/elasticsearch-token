@@ -584,7 +584,10 @@ specifier|final
 name|Client
 name|client
 init|=
-name|client
+name|cluster
+argument_list|()
+operator|.
+name|smartClient
 argument_list|()
 decl_stmt|;
 name|SearchResponse

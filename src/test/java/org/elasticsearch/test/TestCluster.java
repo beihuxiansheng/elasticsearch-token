@@ -466,6 +466,16 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -1678,9 +1688,17 @@ argument_list|()
 return|;
 comment|// ensure node client master is requested
 block|}
+name|Assert
+operator|.
+name|fail
+argument_list|(
+literal|"No master client found"
+argument_list|)
+expr_stmt|;
 return|return
 literal|null
 return|;
+comment|// can't happen
 block|}
 DECL|method|nonMasterClient
 specifier|public
@@ -1725,9 +1743,17 @@ argument_list|()
 return|;
 comment|// ensure node client non-master is requested
 block|}
+name|Assert
+operator|.
+name|fail
+argument_list|(
+literal|"No non-master client found"
+argument_list|)
+expr_stmt|;
 return|return
 literal|null
 return|;
+comment|// can't happen
 block|}
 DECL|method|clientNodeClient
 specifier|public
@@ -1765,9 +1791,65 @@ name|random
 argument_list|)
 return|;
 block|}
+name|startNodeClient
+argument_list|(
+name|ImmutableSettings
+operator|.
+name|EMPTY
+argument_list|)
+expr_stmt|;
+return|return
+name|getRandomNodeAndClient
+argument_list|(
+operator|new
+name|ClientNodePredicate
+argument_list|()
+argument_list|)
+operator|.
+name|client
+argument_list|(
+name|random
+argument_list|)
+return|;
+block|}
+DECL|method|smartClient
+specifier|public
+specifier|synchronized
+name|Client
+name|smartClient
+parameter_list|()
+block|{
+name|NodeAndClient
+name|randomNodeAndClient
+init|=
+name|getRandomNodeAndClient
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|randomNodeAndClient
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|randomNodeAndClient
+operator|.
+name|nodeClient
+argument_list|()
+return|;
+block|}
+name|Assert
+operator|.
+name|fail
+argument_list|(
+literal|"No smart client found"
+argument_list|)
+expr_stmt|;
 return|return
 literal|null
 return|;
+comment|// can't happen
 block|}
 DECL|method|client
 specifier|public
@@ -2227,6 +2309,23 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|nodeClient
+operator|!=
+literal|null
+condition|)
+block|{
+name|nodeClient
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|nodeClient
+operator|=
+literal|null
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -2426,6 +2525,23 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
+literal|"name"
+argument_list|,
+literal|"transport_client_"
+operator|+
+name|node
+operator|.
+name|settings
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|"name"
+argument_list|)
+argument_list|)
+operator|.
+name|put
+argument_list|(
 literal|"cluster.name"
 argument_list|,
 name|clusterName
@@ -2456,7 +2572,6 @@ block|}
 block|}
 DECL|class|RandomClientFactory
 specifier|public
-specifier|static
 class|class
 name|RandomClientFactory
 extends|extends
@@ -2493,12 +2608,44 @@ case|case
 literal|5
 case|:
 comment|// disabled for now - will re-enable once tests stabelize
+comment|//                    if (logger.isDebugEnabled()) {
+comment|//                        logger.debug("Using transport client for node [{}] sniff: [{}]", node.settings().get("name"), false);
+comment|//                    }
 comment|//                    return TransportClientFactory.NO_SNIFF_CLIENT_FACTORY.client(node, clusterName, random);
 case|case
 literal|3
 case|:
+comment|//                    if (logger.isDebugEnabled()) {
+comment|//                        logger.debug("Using transport client for node [{}] sniff: [{}]", node.settings().get("name"), true);
+comment|//                    }
 comment|//                    return TransportClientFactory.SNIFF_CLIENT_FACTORY.client(node, clusterName, random);
 default|default:
+if|if
+condition|(
+name|logger
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Using node client for node [{}]"
+argument_list|,
+name|node
+operator|.
+name|settings
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|"name"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|node
 operator|.
@@ -2518,6 +2665,27 @@ name|Random
 name|random
 parameter_list|)
 block|{
+name|reset
+argument_list|(
+name|random
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|reset
+specifier|private
+specifier|synchronized
+name|void
+name|reset
+parameter_list|(
+name|Random
+name|random
+parameter_list|,
+name|boolean
+name|wipeData
+parameter_list|)
+block|{
 name|this
 operator|.
 name|random
@@ -2535,9 +2703,15 @@ name|resetClients
 argument_list|()
 expr_stmt|;
 comment|/* reset all clients - each test gets it's own client based on the Random instance created above. */
+if|if
+condition|(
+name|wipeData
+condition|)
+block|{
 name|wipeDataDirectories
 argument_list|()
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|nextNodeId
@@ -2944,6 +3118,10 @@ block|{
 name|wipeDataDirectories
 argument_list|()
 expr_stmt|;
+name|resetClients
+argument_list|()
+expr_stmt|;
+comment|/* reset all clients - each test gets it's own client based on the Random instance created above. */
 block|}
 DECL|method|resetClients
 specifier|private
@@ -4152,15 +4330,20 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|closeAllNodesAndReset
+DECL|method|closeNonSharedNodes
 specifier|public
 name|void
-name|closeAllNodesAndReset
-parameter_list|()
+name|closeNonSharedNodes
+parameter_list|(
+name|boolean
+name|wipeData
+parameter_list|)
 block|{
-name|beforeTest
+name|reset
 argument_list|(
 name|random
+argument_list|,
+name|wipeData
 argument_list|)
 expr_stmt|;
 block|}
