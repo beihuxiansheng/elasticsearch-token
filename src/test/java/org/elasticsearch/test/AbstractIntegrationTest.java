@@ -1014,6 +1014,9 @@ else|:
 name|TRANSPORT_CLIENT_RATIO
 argument_list|)
 expr_stmt|;
+name|wipeIndices
+argument_list|()
+expr_stmt|;
 name|wipeTemplates
 argument_list|()
 expr_stmt|;
