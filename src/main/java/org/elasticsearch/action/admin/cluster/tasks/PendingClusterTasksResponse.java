@@ -596,7 +596,7 @@ init|=
 operator|new
 name|XContentBuilderString
 argument_list|(
-literal|"proirity"
+literal|"priority"
 argument_list|)
 decl_stmt|;
 DECL|field|SOURCE
