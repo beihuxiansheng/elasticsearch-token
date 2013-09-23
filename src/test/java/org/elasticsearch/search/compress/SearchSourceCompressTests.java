@@ -261,25 +261,10 @@ parameter_list|)
 block|{
 comment|// ignore
 block|}
-name|client
-argument_list|()
-operator|.
-name|admin
-argument_list|()
-operator|.
-name|indices
-argument_list|()
-operator|.
-name|prepareCreate
+name|createIndex
 argument_list|(
 literal|"test"
 argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
 expr_stmt|;
 name|client
 argument_list|()
