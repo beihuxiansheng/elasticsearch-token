@@ -2542,9 +2542,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|wipeIndices
-argument_list|()
-expr_stmt|;
 name|client
 argument_list|()
 operator|.

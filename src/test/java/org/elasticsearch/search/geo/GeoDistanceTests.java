@@ -5312,9 +5312,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|wipeIndices
-argument_list|()
-expr_stmt|;
 name|String
 name|mapping
 init|=

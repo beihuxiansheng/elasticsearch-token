@@ -480,9 +480,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|wipeIndices
-argument_list|()
-expr_stmt|;
 name|logger
 operator|.
 name|info
@@ -730,9 +727,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|wipeIndices
-argument_list|()
-expr_stmt|;
 name|logger
 operator|.
 name|info
@@ -804,9 +798,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|wipeIndices
-argument_list|()
-expr_stmt|;
 name|logger
 operator|.
 name|info
@@ -1011,9 +1002,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|wipeIndices
-argument_list|()
-expr_stmt|;
 name|logger
 operator|.
 name|info
@@ -2018,9 +2006,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|wipeIndices
-argument_list|()
-expr_stmt|;
 name|logger
 operator|.
 name|info
@@ -3093,9 +3078,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|wipeIndices
-argument_list|()
-expr_stmt|;
 name|logger
 operator|.
 name|info
@@ -4233,9 +4215,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|wipeIndices
-argument_list|()
-expr_stmt|;
 name|logger
 operator|.
 name|info
@@ -5180,9 +5159,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|wipeIndices
-argument_list|()
-expr_stmt|;
 name|logger
 operator|.
 name|info
@@ -5301,9 +5277,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|wipeIndices
-argument_list|()
-expr_stmt|;
 name|logger
 operator|.
 name|info
@@ -5460,9 +5433,6 @@ name|aliasCount
 init|=
 literal|10
 decl_stmt|;
-name|wipeIndices
-argument_list|()
-expr_stmt|;
 name|logger
 operator|.
 name|info
@@ -5655,9 +5625,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|wipeIndices
-argument_list|()
-expr_stmt|;
 name|logger
 operator|.
 name|info

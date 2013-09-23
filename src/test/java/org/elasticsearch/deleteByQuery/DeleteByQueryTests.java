@@ -180,9 +180,6 @@ name|void
 name|testDeleteAllNoIndices
 parameter_list|()
 block|{
-name|wipeIndices
-argument_list|()
-expr_stmt|;
 name|client
 argument_list|()
 operator|.
@@ -256,9 +253,6 @@ name|void
 name|testDeleteAllOneIndex
 parameter_list|()
 block|{
-name|wipeIndices
-argument_list|()
-expr_stmt|;
 name|String
 name|json
 init|=
@@ -478,9 +472,6 @@ name|void
 name|testMissing
 parameter_list|()
 block|{
-name|wipeIndices
-argument_list|()
-expr_stmt|;
 name|String
 name|json
 init|=
@@ -747,9 +738,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|wipeIndices
-argument_list|()
-expr_stmt|;
 name|client
 argument_list|()
 operator|.

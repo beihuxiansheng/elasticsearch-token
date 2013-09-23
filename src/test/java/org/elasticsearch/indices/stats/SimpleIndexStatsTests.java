@@ -1574,9 +1574,6 @@ name|void
 name|testMergeStats
 parameter_list|()
 block|{
-name|wipeIndices
-argument_list|()
-expr_stmt|;
 comment|// rely on 1 replica for this tests
 name|client
 argument_list|()
@@ -1959,9 +1956,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|wipeIndices
-argument_list|()
-expr_stmt|;
 comment|// rely on 1 replica for this tests
 name|client
 argument_list|()
