@@ -72,7 +72,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|AbstractNodesTests
+name|AbstractIntegrationTest
 import|;
 end_import
 
@@ -80,9 +80,27 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|elasticsearch
 operator|.
-name|After
+name|test
+operator|.
+name|AbstractIntegrationTest
+operator|.
+name|ClusterScope
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|AbstractIntegrationTest
+operator|.
+name|Scope
 import|;
 end_import
 
@@ -159,25 +177,26 @@ comment|/**  *  */
 end_comment
 
 begin_class
+annotation|@
+name|ClusterScope
+argument_list|(
+name|scope
+operator|=
+name|Scope
+operator|.
+name|TEST
+argument_list|,
+name|numNodes
+operator|=
+literal|0
+argument_list|)
 DECL|class|SimpleDataNodesTests
 specifier|public
 class|class
 name|SimpleDataNodesTests
 extends|extends
-name|AbstractNodesTests
+name|AbstractIntegrationTest
 block|{
-annotation|@
-name|After
-DECL|method|closeNodes
-specifier|public
-name|void
-name|closeNodes
-parameter_list|()
-block|{
-name|closeAllNodes
-argument_list|()
-expr_stmt|;
-block|}
 annotation|@
 name|Test
 DECL|method|testDataNodes
@@ -188,10 +207,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|cluster
+argument_list|()
+operator|.
 name|startNode
 argument_list|(
-literal|"nonData1"
-argument_list|,
 name|settingsBuilder
 argument_list|()
 operator|.
@@ -207,9 +227,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 name|client
-argument_list|(
-literal|"nonData1"
-argument_list|)
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -231,9 +249,7 @@ expr_stmt|;
 try|try
 block|{
 name|client
-argument_list|(
-literal|"nonData1"
-argument_list|)
+argument_list|()
 operator|.
 name|index
 argument_list|(
@@ -276,11 +292,11 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-assert|assert
-literal|false
-operator|:
+name|fail
+argument_list|(
 literal|"no allocation should happen"
-assert|;
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -290,10 +306,11 @@ parameter_list|)
 block|{
 comment|// all is well
 block|}
+name|cluster
+argument_list|()
+operator|.
 name|startNode
 argument_list|(
-literal|"nonData2"
-argument_list|,
 name|settingsBuilder
 argument_list|()
 operator|.
@@ -311,9 +328,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
-argument_list|(
-literal|"nonData2"
-argument_list|)
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -360,9 +375,7 @@ comment|// still no shard should be allocated
 try|try
 block|{
 name|client
-argument_list|(
-literal|"nonData2"
-argument_list|)
+argument_list|()
 operator|.
 name|index
 argument_list|(
@@ -405,11 +418,11 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-assert|assert
-literal|false
-operator|:
+name|fail
+argument_list|(
 literal|"no allocation should happen"
-assert|;
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -420,10 +433,11 @@ block|{
 comment|// all is well
 block|}
 comment|// now, start a node data, and see that it gets with shards
+name|cluster
+argument_list|()
+operator|.
 name|startNode
 argument_list|(
-literal|"data1"
-argument_list|,
 name|settingsBuilder
 argument_list|()
 operator|.
@@ -441,9 +455,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
-argument_list|(
-literal|"nonData2"
-argument_list|)
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -490,9 +502,7 @@ name|IndexResponse
 name|indexResponse
 init|=
 name|client
-argument_list|(
-literal|"nonData2"
-argument_list|)
+argument_list|()
 operator|.
 name|index
 argument_list|(

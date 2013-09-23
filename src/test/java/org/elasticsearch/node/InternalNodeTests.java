@@ -142,7 +142,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|AbstractNodesTests
+name|ElasticSearchTestCase
 import|;
 end_import
 
@@ -196,6 +196,20 @@ begin_import
 import|import static
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|node
+operator|.
+name|NodeBuilder
+operator|.
+name|nodeBuilder
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -204,17 +218,13 @@ name|is
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|InternalNodeTests
 specifier|public
 class|class
 name|InternalNodeTests
 extends|extends
-name|AbstractNodesTests
+name|ElasticSearchTestCase
 block|{
 annotation|@
 name|Test
@@ -244,6 +254,13 @@ name|getName
 argument_list|()
 argument_list|)
 operator|.
+name|put
+argument_list|(
+literal|"name"
+argument_list|,
+literal|"test"
+argument_list|)
+operator|.
 name|build
 argument_list|()
 decl_stmt|;
@@ -253,12 +270,16 @@ init|=
 operator|(
 name|InternalNode
 operator|)
-name|buildNode
+name|nodeBuilder
+argument_list|()
+operator|.
+name|settings
 argument_list|(
-literal|"test"
-argument_list|,
 name|settings
 argument_list|)
+operator|.
+name|build
+argument_list|()
 decl_stmt|;
 name|TestService
 name|service
