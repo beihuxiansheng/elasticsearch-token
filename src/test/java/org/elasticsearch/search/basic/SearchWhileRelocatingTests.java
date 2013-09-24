@@ -20,6 +20,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -232,6 +246,19 @@ name|SearchWhileRelocatingTests
 extends|extends
 name|AbstractIntegrationTest
 block|{
+annotation|@
+name|LuceneTestCase
+operator|.
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"problem with search searching on 1 shard (no replica), "
+operator|+
+literal|"and between getting the cluster state to do the search, and executing it, "
+operator|+
+literal|"the shard has fully relocated (moved from started on one node, to fully started on another node"
+argument_list|)
 annotation|@
 name|Test
 DECL|method|testSearchAndRelocateConcurrently0Replicas
