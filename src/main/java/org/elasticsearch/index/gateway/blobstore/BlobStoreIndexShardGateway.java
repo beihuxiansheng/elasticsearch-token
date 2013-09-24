@@ -2671,7 +2671,7 @@ argument_list|)
 expr_stmt|;
 name|indexShard
 operator|.
-name|start
+name|postRecovery
 argument_list|(
 literal|"post recovery from gateway, no translog"
 argument_list|)

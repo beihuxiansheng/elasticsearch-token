@@ -1059,7 +1059,7 @@ block|{
 comment|// no translog files, bail
 name|indexShard
 operator|.
-name|start
+name|postRecovery
 argument_list|(
 literal|"post recovery from gateway, no translog"
 argument_list|)
@@ -1242,7 +1242,7 @@ comment|// no translog to recovery from, start and bail
 comment|// no translog files, bail
 name|indexShard
 operator|.
-name|start
+name|postRecovery
 argument_list|(
 literal|"post recovery from gateway, no translog"
 argument_list|)

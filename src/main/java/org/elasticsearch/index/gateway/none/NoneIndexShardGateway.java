@@ -356,7 +356,7 @@ expr_stmt|;
 block|}
 name|indexShard
 operator|.
-name|start
+name|postRecovery
 argument_list|(
 literal|"post recovery from gateway"
 argument_list|)

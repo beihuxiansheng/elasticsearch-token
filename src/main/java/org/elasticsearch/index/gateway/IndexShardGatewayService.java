@@ -914,12 +914,12 @@ argument_list|()
 operator|!=
 name|IndexShardState
 operator|.
-name|STARTED
+name|POST_RECOVERY
 condition|)
 block|{
 name|indexShard
 operator|.
-name|start
+name|postRecovery
 argument_list|(
 literal|"post recovery from gateway"
 argument_list|)

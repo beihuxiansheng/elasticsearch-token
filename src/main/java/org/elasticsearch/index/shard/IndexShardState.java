@@ -54,13 +54,22 @@ operator|)
 literal|1
 argument_list|)
 block|,
+DECL|enum constant|POST_RECOVERY
+name|POST_RECOVERY
+argument_list|(
+operator|(
+name|byte
+operator|)
+literal|2
+argument_list|)
+block|,
 DECL|enum constant|STARTED
 name|STARTED
 argument_list|(
 operator|(
 name|byte
 operator|)
-literal|2
+literal|3
 argument_list|)
 block|,
 DECL|enum constant|RELOCATED
@@ -69,7 +78,7 @@ argument_list|(
 operator|(
 name|byte
 operator|)
-literal|3
+literal|4
 argument_list|)
 block|,
 DECL|enum constant|CLOSED
@@ -78,7 +87,7 @@ argument_list|(
 operator|(
 name|byte
 operator|)
-literal|4
+literal|5
 argument_list|)
 block|;
 DECL|field|id
