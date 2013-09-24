@@ -4658,7 +4658,11 @@ name|shardId
 argument_list|,
 name|state
 argument_list|,
-literal|"operation only allowed when started/recovering"
+literal|"operation only allowed when started/recovering, origin ["
+operator|+
+name|origin
+operator|+
+literal|"]"
 argument_list|)
 throw|;
 block|}
@@ -4702,7 +4706,11 @@ name|shardId
 argument_list|,
 name|state
 argument_list|,
-literal|"operation only allowed when started/recovering"
+literal|"operation only allowed when started/recovering, origin ["
+operator|+
+name|origin
+operator|+
+literal|"]"
 argument_list|)
 throw|;
 block|}
