@@ -994,9 +994,18 @@ name|e
 argument_list|)
 condition|)
 block|{
+name|operationStarted
+operator|.
+name|set
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+comment|// we already marked it as started when we executed it (removed the listener) so pass false
+comment|// to re-add to the cluster listener
 name|retry
 argument_list|(
-name|fromClusterEvent
+literal|false
 argument_list|,
 literal|null
 argument_list|)
