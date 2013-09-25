@@ -1044,7 +1044,13 @@ argument_list|(
 name|extractLocation
 argument_list|)
 expr_stmt|;
-return|return;
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Plugin installation assumed to be site plugin, but contains source code, aborting installation."
+argument_list|)
+throw|;
 block|}
 name|File
 name|binFile
