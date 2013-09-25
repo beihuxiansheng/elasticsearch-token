@@ -44,6 +44,34 @@ name|CustomAnalyzerWrapper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Version
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|lucene
+operator|.
+name|Lucene
+import|;
+end_import
+
 begin_comment
 comment|/**  * Named analyzer is an analyzer wrapper around an actual analyzer ({@link #analyzer} that is associated  * with a name ({@link #name()}.  */
 end_comment
@@ -162,6 +190,21 @@ operator|.
 name|MIN_VALUE
 argument_list|)
 expr_stmt|;
+block|}
+static|static
+block|{
+comment|// LUCENE MONITOR: this should be in Lucene 4.5.
+assert|assert
+name|Lucene
+operator|.
+name|VERSION
+operator|==
+name|Version
+operator|.
+name|LUCENE_44
+operator|:
+literal|"when upgrading to 4.5, we should use call analyzer#getReuseStrategy(), see https://issues.apache.org/jira/browse/LUCENE-5170"
+assert|;
 block|}
 DECL|method|NamedAnalyzer
 specifier|public
