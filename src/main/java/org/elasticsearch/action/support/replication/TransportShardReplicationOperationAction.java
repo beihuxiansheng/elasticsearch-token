@@ -174,6 +174,20 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|metadata
+operator|.
+name|IndexMetaData
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
 name|node
 operator|.
 name|DiscoveryNode
@@ -3114,6 +3128,22 @@ argument_list|(
 name|replicaCounter
 argument_list|)
 decl_stmt|;
+name|IndexMetaData
+name|indexMetaData
+init|=
+name|clusterState
+operator|.
+name|metaData
+argument_list|()
+operator|.
+name|index
+argument_list|(
+name|request
+operator|.
+name|index
+argument_list|()
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|newPrimaryShard
@@ -3133,6 +3163,8 @@ name|newPrimaryShard
 operator|.
 name|currentNodeId
 argument_list|()
+argument_list|,
+name|indexMetaData
 argument_list|)
 expr_stmt|;
 block|}
@@ -3221,6 +3253,8 @@ name|shard
 operator|.
 name|currentNodeId
 argument_list|()
+argument_list|,
+name|indexMetaData
 argument_list|)
 expr_stmt|;
 block|}
@@ -3244,6 +3278,8 @@ name|shard
 operator|.
 name|relocatingNodeId
 argument_list|()
+argument_list|,
+name|indexMetaData
 argument_list|)
 expr_stmt|;
 block|}
@@ -3302,6 +3338,10 @@ name|shard
 parameter_list|,
 name|String
 name|nodeId
+parameter_list|,
+specifier|final
+name|IndexMetaData
+name|indexMetaData
 parameter_list|)
 block|{
 comment|// if we don't have that node, it means that it might have failed and will be created again, in
@@ -3478,6 +3518,11 @@ name|shardFailed
 argument_list|(
 name|shard
 argument_list|,
+name|indexMetaData
+operator|.
+name|getUUID
+argument_list|()
+argument_list|,
 literal|"Failed to perform ["
 operator|+
 name|transportAction
@@ -3612,6 +3657,11 @@ name|shardFailed
 argument_list|(
 name|shard
 argument_list|,
+name|indexMetaData
+operator|.
+name|getUUID
+argument_list|()
+argument_list|,
 literal|"Failed to perform ["
 operator|+
 name|transportAction
@@ -3705,6 +3755,11 @@ name|shardFailed
 argument_list|(
 name|shard
 argument_list|,
+name|indexMetaData
+operator|.
+name|getUUID
+argument_list|()
+argument_list|,
 literal|"Failed to perform ["
 operator|+
 name|transportAction
@@ -3793,6 +3848,11 @@ operator|.
 name|shardFailed
 argument_list|(
 name|shard
+argument_list|,
+name|indexMetaData
+operator|.
+name|getUUID
+argument_list|()
 argument_list|,
 literal|"Failed to perform ["
 operator|+

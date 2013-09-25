@@ -406,6 +406,11 @@ parameter_list|)
 throws|throws
 name|IndexShardMissingException
 function_decl|;
+DECL|method|indexUUID
+name|String
+name|indexUUID
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
