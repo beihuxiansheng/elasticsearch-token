@@ -36,7 +36,7 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterService
+name|ClusterState
 import|;
 end_import
 
@@ -208,12 +208,6 @@ specifier|final
 name|TransportService
 name|transportService
 decl_stmt|;
-DECL|field|clusterService
-specifier|private
-specifier|final
-name|ClusterService
-name|clusterService
-decl_stmt|;
 DECL|field|listeners
 specifier|private
 specifier|final
@@ -244,9 +238,6 @@ name|threadPool
 parameter_list|,
 name|TransportService
 name|transportService
-parameter_list|,
-name|ClusterService
-name|clusterService
 parameter_list|)
 block|{
 name|super
@@ -265,12 +256,6 @@ operator|.
 name|transportService
 operator|=
 name|transportService
-expr_stmt|;
-name|this
-operator|.
-name|clusterService
-operator|=
-name|clusterService
 expr_stmt|;
 name|transportService
 operator|.
@@ -326,6 +311,10 @@ name|void
 name|nodeIndexCreated
 parameter_list|(
 specifier|final
+name|ClusterState
+name|clusterState
+parameter_list|,
+specifier|final
 name|String
 name|index
 parameter_list|,
@@ -339,10 +328,7 @@ block|{
 name|DiscoveryNodes
 name|nodes
 init|=
-name|clusterService
-operator|.
-name|state
-argument_list|()
+name|clusterState
 operator|.
 name|nodes
 argument_list|()
@@ -391,10 +377,7 @@ name|transportService
 operator|.
 name|sendRequest
 argument_list|(
-name|clusterService
-operator|.
-name|state
-argument_list|()
+name|clusterState
 operator|.
 name|nodes
 argument_list|()

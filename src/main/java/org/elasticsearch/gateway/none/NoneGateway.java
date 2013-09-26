@@ -614,6 +614,11 @@ name|nodeIndexDeletedAction
 operator|.
 name|nodeIndexStoreDeleted
 argument_list|(
+name|event
+operator|.
+name|state
+argument_list|()
+argument_list|,
 name|current
 operator|.
 name|index
@@ -627,7 +632,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNodeId
+name|localNodeId
 argument_list|()
 argument_list|)
 expr_stmt|;
