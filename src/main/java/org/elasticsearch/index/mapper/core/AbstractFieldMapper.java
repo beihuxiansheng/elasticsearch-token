@@ -4086,6 +4086,18 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|isSortable
+specifier|public
+name|boolean
+name|isSortable
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 block|}
 end_class
 
