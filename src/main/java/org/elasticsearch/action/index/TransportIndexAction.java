@@ -228,6 +228,20 @@ name|cluster
 operator|.
 name|metadata
 operator|.
+name|IndexMetaData
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|metadata
+operator|.
 name|MappingMetaData
 import|;
 end_import
@@ -405,16 +419,6 @@ operator|.
 name|transport
 operator|.
 name|TransportService
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
 import|;
 end_import
 
@@ -1114,8 +1118,8 @@ operator|.
 name|request
 decl_stmt|;
 comment|// validate, if routing is required, that we got routing
-name|MappingMetaData
-name|mappingMd
+name|IndexMetaData
+name|indexMetaData
 init|=
 name|clusterState
 operator|.
@@ -1129,6 +1133,11 @@ operator|.
 name|index
 argument_list|()
 argument_list|)
+decl_stmt|;
+name|MappingMetaData
+name|mappingMd
+init|=
+name|indexMetaData
 operator|.
 name|mappingOrDefault
 argument_list|(
@@ -1352,6 +1361,8 @@ block|{
 name|updateMappingOnMaster
 argument_list|(
 name|request
+argument_list|,
+name|indexMetaData
 argument_list|)
 expr_stmt|;
 block|}
@@ -1436,6 +1447,8 @@ block|{
 name|updateMappingOnMaster
 argument_list|(
 name|request
+argument_list|,
+name|indexMetaData
 argument_list|)
 expr_stmt|;
 block|}
@@ -1801,6 +1814,9 @@ parameter_list|(
 specifier|final
 name|IndexRequest
 name|request
+parameter_list|,
+name|IndexMetaData
+name|indexMetaData
 parameter_list|)
 block|{
 specifier|final
@@ -1815,6 +1831,7 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
+specifier|final
 name|MapperService
 name|mapperService
 init|=
@@ -1860,27 +1877,12 @@ operator|.
 name|refreshSource
 argument_list|()
 expr_stmt|;
-name|logger
+specifier|final
+name|MappingUpdatedAction
 operator|.
-name|trace
-argument_list|(
-literal|"Sending mapping updated to master: index [{}] type [{}]"
-argument_list|,
-name|request
-operator|.
-name|index
-argument_list|()
-argument_list|,
-name|request
-operator|.
-name|type
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|mappingUpdatedAction
-operator|.
-name|execute
-argument_list|(
+name|MappingUpdatedRequest
+name|mappingRequest
+init|=
 operator|new
 name|MappingUpdatedAction
 operator|.
@@ -1889,6 +1891,11 @@ argument_list|(
 name|request
 operator|.
 name|index
+argument_list|()
+argument_list|,
+name|indexMetaData
+operator|.
+name|uuid
 argument_list|()
 argument_list|,
 name|request
@@ -1901,6 +1908,21 @@ operator|.
 name|mappingSource
 argument_list|()
 argument_list|)
+decl_stmt|;
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"Sending mapping updated to master: {}"
+argument_list|,
+name|mappingRequest
+argument_list|)
+expr_stmt|;
+name|mappingUpdatedAction
+operator|.
+name|execute
+argument_list|(
+name|mappingRequest
 argument_list|,
 operator|new
 name|ActionListener
@@ -1945,50 +1967,17 @@ operator|.
 name|countDown
 argument_list|()
 expr_stmt|;
-try|try
-block|{
 name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to update master on updated mapping for index ["
-operator|+
-name|request
-operator|.
-name|index
-argument_list|()
-operator|+
-literal|"], type ["
-operator|+
-name|request
-operator|.
-name|type
-argument_list|()
-operator|+
-literal|"] and source ["
-operator|+
-name|documentMapper
-operator|.
-name|mappingSource
-argument_list|()
-operator|.
-name|string
-argument_list|()
-operator|+
-literal|"]"
+literal|"Failed to update master on updated mapping for {}"
 argument_list|,
 name|e
+argument_list|,
+name|mappingRequest
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e1
-parameter_list|)
-block|{
-comment|// ignore
-block|}
 block|}
 block|}
 argument_list|)

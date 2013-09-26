@@ -1748,6 +1748,10 @@ argument_list|(
 name|IndexMetaData
 operator|.
 name|SETTING_UUID
+argument_list|,
+name|IndexMetaData
+operator|.
+name|INDEX_UUID_NA_VALUE
 argument_list|)
 return|;
 block|}

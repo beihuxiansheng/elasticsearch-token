@@ -2506,6 +2506,11 @@ name|NodeMappingRefreshRequest
 argument_list|(
 name|index
 argument_list|,
+name|indexMetaData
+operator|.
+name|uuid
+argument_list|()
+argument_list|,
 name|typesToRefresh
 operator|.
 name|toArray
@@ -5583,11 +5588,6 @@ name|name
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|String
-name|indexUUID
-init|=
-literal|null
-decl_stmt|;
 if|if
 condition|(
 name|indexService
@@ -5595,13 +5595,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|indexUUID
-operator|=
-name|indexService
-operator|.
-name|indexUUID
-argument_list|()
-expr_stmt|;
 name|IndexShard
 name|indexShard
 init|=
@@ -5668,10 +5661,14 @@ name|shardRouting
 decl_stmt|;
 specifier|final
 name|String
-name|finalIndexUUID
-init|=
 name|indexUUID
+init|=
+name|indexService
+operator|.
+name|indexUUID
+argument_list|()
 decl_stmt|;
+comment|// we know indexService is not null here.
 name|threadPool
 operator|.
 name|generic
@@ -5797,7 +5794,7 @@ name|shardFailed
 argument_list|(
 name|fShardRouting
 argument_list|,
-name|finalIndexUUID
+name|indexUUID
 argument_list|,
 literal|"engine failure, message ["
 operator|+
