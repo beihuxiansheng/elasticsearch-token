@@ -88,7 +88,7 @@ argument_list|(
 literal|"river"
 argument_list|)
 decl_stmt|;
-comment|// by default, if not set, its an river node (better OOB exp)
+comment|// by default, if not set, it's a river node (better OOB exp)
 if|if
 condition|(
 name|river
