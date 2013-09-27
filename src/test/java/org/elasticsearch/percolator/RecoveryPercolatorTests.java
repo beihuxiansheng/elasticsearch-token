@@ -698,7 +698,7 @@ expr_stmt|;
 name|cluster
 argument_list|()
 operator|.
-name|restartAllNodes
+name|rollingRestart
 argument_list|()
 expr_stmt|;
 name|logger
@@ -1082,7 +1082,7 @@ expr_stmt|;
 name|cluster
 argument_list|()
 operator|.
-name|restartAllNodes
+name|rollingRestart
 argument_list|()
 expr_stmt|;
 name|logger
