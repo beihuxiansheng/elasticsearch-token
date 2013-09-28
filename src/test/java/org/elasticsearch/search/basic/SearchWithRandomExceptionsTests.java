@@ -194,13 +194,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|test
 operator|.
-name|store
-operator|.
-name|mock
-operator|.
-name|MockDirectoryHelper
+name|AbstractIntegrationTest
 import|;
 end_import
 
@@ -212,7 +208,11 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|AbstractIntegrationTest
+name|store
+operator|.
+name|mock
+operator|.
+name|MockDirectoryHelper
 import|;
 end_import
 
