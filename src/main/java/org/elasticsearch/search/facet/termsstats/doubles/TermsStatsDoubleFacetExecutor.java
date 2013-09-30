@@ -293,6 +293,12 @@ specifier|final
 name|int
 name|size
 decl_stmt|;
+DECL|field|shardSize
+specifier|private
+specifier|final
+name|int
+name|shardSize
+decl_stmt|;
 DECL|field|entries
 specifier|final
 name|Recycler
@@ -328,6 +334,9 @@ parameter_list|,
 name|int
 name|size
 parameter_list|,
+name|int
+name|shardSize
+parameter_list|,
 name|TermsStatsFacet
 operator|.
 name|ComparatorType
@@ -342,6 +351,12 @@ operator|.
 name|size
 operator|=
 name|size
+expr_stmt|;
+name|this
+operator|.
+name|shardSize
+operator|=
+name|shardSize
 expr_stmt|;
 name|this
 operator|.
@@ -510,7 +525,7 @@ expr_stmt|;
 name|int
 name|limit
 init|=
-name|size
+name|shardSize
 decl_stmt|;
 name|List
 argument_list|<

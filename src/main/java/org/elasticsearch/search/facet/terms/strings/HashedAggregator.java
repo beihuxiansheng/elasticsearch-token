@@ -555,6 +555,9 @@ parameter_list|,
 name|int
 name|size
 parameter_list|,
+name|int
+name|shardSize
+parameter_list|,
 name|long
 name|missing
 parameter_list|,
@@ -608,7 +611,7 @@ else|else
 block|{
 if|if
 condition|(
-name|size
+name|shardSize
 operator|<
 name|EntryPriorityQueue
 operator|.
@@ -621,7 +624,7 @@ init|=
 operator|new
 name|EntryPriorityQueue
 argument_list|(
-name|size
+name|shardSize
 argument_list|,
 name|comparatorType
 operator|.
@@ -772,7 +775,7 @@ operator|.
 name|comparator
 argument_list|()
 argument_list|,
-name|size
+name|shardSize
 argument_list|)
 decl_stmt|;
 name|BytesRefCountIterator

@@ -310,6 +310,12 @@ specifier|final
 name|int
 name|size
 decl_stmt|;
+DECL|field|shardSize
+specifier|private
+specifier|final
+name|int
+name|shardSize
+decl_stmt|;
 DECL|field|script
 specifier|private
 specifier|final
@@ -365,6 +371,9 @@ parameter_list|(
 name|int
 name|size
 parameter_list|,
+name|int
+name|shardSize
+parameter_list|,
 name|InternalStringTermsFacet
 operator|.
 name|ComparatorType
@@ -405,6 +414,12 @@ operator|.
 name|size
 operator|=
 name|size
+expr_stmt|;
+name|this
+operator|.
+name|shardSize
+operator|=
+name|shardSize
 expr_stmt|;
 name|this
 operator|.
@@ -562,7 +577,7 @@ else|else
 block|{
 if|if
 condition|(
-name|size
+name|shardSize
 operator|<
 name|EntryPriorityQueue
 operator|.
@@ -575,7 +590,7 @@ init|=
 operator|new
 name|EntryPriorityQueue
 argument_list|(
-name|size
+name|shardSize
 argument_list|,
 name|comparatorType
 operator|.
@@ -739,7 +754,7 @@ operator|.
 name|comparator
 argument_list|()
 argument_list|,
-name|size
+name|shardSize
 argument_list|)
 decl_stmt|;
 for|for

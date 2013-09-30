@@ -244,6 +244,12 @@ specifier|final
 name|SearchScript
 name|script
 decl_stmt|;
+DECL|field|shardSize
+specifier|private
+specifier|final
+name|int
+name|shardSize
+decl_stmt|;
 DECL|field|size
 specifier|private
 specifier|final
@@ -281,6 +287,9 @@ parameter_list|,
 name|int
 name|size
 parameter_list|,
+name|int
+name|shardSize
+parameter_list|,
 name|TermsFacet
 operator|.
 name|ComparatorType
@@ -316,6 +325,12 @@ operator|.
 name|size
 operator|=
 name|size
+expr_stmt|;
+name|this
+operator|.
+name|shardSize
+operator|=
+name|shardSize
 expr_stmt|;
 name|this
 operator|.
@@ -428,6 +443,8 @@ argument_list|(
 name|facetName
 argument_list|,
 name|size
+argument_list|,
+name|shardSize
 argument_list|,
 name|missing
 argument_list|,
