@@ -1243,16 +1243,6 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"timestamp"
-argument_list|,
-name|getTimestamp
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|builder
-operator|.
-name|field
-argument_list|(
 literal|"name"
 argument_list|,
 name|getNode

@@ -134,16 +134,6 @@ name|IOException
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -354,6 +344,18 @@ operator|.
 name|FieldCaseConversion
 operator|.
 name|NONE
+argument_list|)
+expr_stmt|;
+name|builder
+operator|.
+name|field
+argument_list|(
+literal|"timestamp"
+argument_list|,
+name|nodeStats
+operator|.
+name|getTimestamp
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|nodeStats
