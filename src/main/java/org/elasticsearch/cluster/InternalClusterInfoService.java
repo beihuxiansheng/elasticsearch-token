@@ -1281,6 +1281,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+try|try
+block|{
 name|threadPool
 operator|.
 name|schedule
@@ -1295,6 +1297,23 @@ name|SubmitReschedulingClusterInfoUpdatedJob
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|EsRejectedExecutionException
+name|ex
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Reschedule cluster info service was rejected"
+argument_list|,
+name|ex
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
