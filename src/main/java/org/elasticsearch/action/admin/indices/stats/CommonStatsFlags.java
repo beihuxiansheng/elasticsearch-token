@@ -112,6 +112,34 @@ name|Streamable
 implements|,
 name|Cloneable
 block|{
+DECL|field|ALL
+specifier|public
+specifier|final
+specifier|static
+name|CommonStatsFlags
+name|ALL
+init|=
+operator|new
+name|CommonStatsFlags
+argument_list|()
+operator|.
+name|all
+argument_list|()
+decl_stmt|;
+DECL|field|NONE
+specifier|public
+specifier|final
+specifier|static
+name|CommonStatsFlags
+name|NONE
+init|=
+operator|new
+name|CommonStatsFlags
+argument_list|()
+operator|.
+name|clear
+argument_list|()
+decl_stmt|;
 DECL|field|flags
 specifier|private
 name|EnumSet
@@ -294,7 +322,7 @@ index|]
 argument_list|)
 return|;
 block|}
-comment|/**      * Document types to return stats for. Mainly affects {@link #indexing(boolean)} when      * enabled, returning specific indexing stats for those types.      */
+comment|/**      * Document types to return stats for. Mainly affects {@link Flag#Indexing} when      * enabled, returning specific indexing stats for those types.      */
 DECL|method|types
 specifier|public
 name|CommonStatsFlags
@@ -315,7 +343,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Document types to return stats for. Mainly affects {@link #indexing(boolean)} when      * enabled, returning specific indexing stats for those types.      */
+comment|/**      * Document types to return stats for. Mainly affects {@link Flag#Indexing} when      * enabled, returning specific indexing stats for those types.      */
 DECL|method|types
 specifier|public
 name|String
