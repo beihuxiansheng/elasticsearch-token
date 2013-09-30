@@ -201,9 +201,6 @@ name|NA
 block|,
 DECL|enum constant|MAIN_QUERY
 name|MAIN_QUERY
-block|,
-DECL|enum constant|REWRITE
-name|REWRITE
 block|}
 DECL|field|searchContext
 specifier|private
@@ -520,6 +517,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+try|try
+block|{
 comment|// if its the main query, use we have dfs data, only then do it
 if|if
 condition|(
@@ -564,6 +563,26 @@ argument_list|(
 name|query
 argument_list|)
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+name|searchContext
+operator|.
+name|clearReleasables
+argument_list|()
+expr_stmt|;
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+name|t
+argument_list|)
+throw|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -744,6 +763,8 @@ expr_stmt|;
 block|}
 block|}
 comment|// we only compute the doc id set once since within a context, we execute the same query always...
+try|try
+block|{
 if|if
 condition|(
 name|searchContext
@@ -870,6 +891,15 @@ block|}
 block|}
 block|}
 block|}
+finally|finally
+block|{
+name|searchContext
+operator|.
+name|clearReleasables
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 annotation|@
 name|Override
 DECL|method|explain
@@ -885,6 +915,8 @@ name|doc
 parameter_list|)
 throws|throws
 name|IOException
+block|{
+try|try
 block|{
 if|if
 condition|(
@@ -931,6 +963,15 @@ argument_list|,
 name|doc
 argument_list|)
 return|;
+block|}
+finally|finally
+block|{
+name|searchContext
+operator|.
+name|clearReleasables
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class

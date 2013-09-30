@@ -104,6 +104,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|List
@@ -162,7 +172,7 @@ argument_list|>
 name|readers
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 function_decl|;
 DECL|method|reader
 name|IdReaderCache

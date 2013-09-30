@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A special query that accepts a top level parent matching query, and returns the nested docs of the matching parent  * doc as well. This is handy when deleting by query.  */
+comment|/**  * A special query that accepts a top level parent matching query, and returns the nested docs of the matching parent  * doc as well. This is handy when deleting by query, don't use it for other purposes.  *  * @elasticsearch.internal  */
 end_comment
 
 begin_class

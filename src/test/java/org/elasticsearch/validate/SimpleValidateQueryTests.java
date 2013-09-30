@@ -1689,7 +1689,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"filtered(foo:1)->child_filter[child-type/type1](filtered(foo:1)->cache(_type:child-type))"
+literal|"filtered(foo:1)->CustomQueryWrappingFilter(child_filter[child-type/type1](filtered(foo:1)->cache(_type:child-type)))"
 argument_list|)
 argument_list|)
 expr_stmt|;
