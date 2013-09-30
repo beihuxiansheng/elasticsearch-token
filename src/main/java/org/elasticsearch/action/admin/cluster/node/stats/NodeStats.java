@@ -1282,6 +1282,12 @@ argument_list|()
 operator|.
 name|toString
 argument_list|()
+argument_list|,
+name|XContentBuilder
+operator|.
+name|FieldCaseConversion
+operator|.
+name|NONE
 argument_list|)
 expr_stmt|;
 if|if
@@ -1364,6 +1370,12 @@ name|attr
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+name|XContentBuilder
+operator|.
+name|FieldCaseConversion
+operator|.
+name|NONE
 argument_list|)
 expr_stmt|;
 block|}
