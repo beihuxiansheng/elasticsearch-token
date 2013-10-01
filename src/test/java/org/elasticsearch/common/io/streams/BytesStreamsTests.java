@@ -22,6 +22,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Constants
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -96,6 +110,18 @@ name|equalTo
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assume
+operator|.
+name|assumeTrue
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -116,6 +142,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|assumeTrue
+argument_list|(
+name|Constants
+operator|.
+name|JRE_IS_64BIT
+argument_list|)
+expr_stmt|;
 name|BytesStreamOutput
 name|out
 init|=
@@ -402,6 +435,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|assumeTrue
+argument_list|(
+name|Constants
+operator|.
+name|JRE_IS_64BIT
+argument_list|)
+expr_stmt|;
 name|BytesStreamOutput
 name|out
 init|=
