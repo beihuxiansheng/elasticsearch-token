@@ -469,13 +469,17 @@ operator|&&
 name|pathMatch
 operator|==
 literal|null
+operator|&&
+name|matchMappingType
+operator|==
+literal|null
 condition|)
 block|{
 throw|throw
 operator|new
 name|MapperParsingException
 argument_list|(
-literal|"template must have match or path_match set"
+literal|"template must have match, path_match or match_mapping_type set"
 argument_list|)
 throw|;
 block|}
@@ -1313,9 +1317,11 @@ name|this
 operator|==
 name|o
 condition|)
+block|{
 return|return
 literal|true
 return|;
+block|}
 if|if
 condition|(
 name|o
@@ -1330,9 +1336,11 @@ operator|.
 name|getClass
 argument_list|()
 condition|)
+block|{
 return|return
 literal|false
 return|;
+block|}
 name|DynamicTemplate
 name|that
 init|=
@@ -1364,9 +1372,11 @@ name|match
 operator|!=
 literal|null
 condition|)
+block|{
 return|return
 literal|false
 return|;
+block|}
 if|if
 condition|(
 name|matchMappingType
@@ -1389,9 +1399,11 @@ name|matchMappingType
 operator|!=
 literal|null
 condition|)
+block|{
 return|return
 literal|false
 return|;
+block|}
 if|if
 condition|(
 name|matchType
@@ -1400,9 +1412,11 @@ name|that
 operator|.
 name|matchType
 condition|)
+block|{
 return|return
 literal|false
 return|;
+block|}
 if|if
 condition|(
 name|unmatch
@@ -1425,9 +1439,11 @@ name|unmatch
 operator|!=
 literal|null
 condition|)
+block|{
 return|return
 literal|false
 return|;
+block|}
 return|return
 literal|true
 return|;
