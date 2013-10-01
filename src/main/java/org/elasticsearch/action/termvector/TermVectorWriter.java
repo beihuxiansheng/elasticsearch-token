@@ -971,6 +971,16 @@ name|length
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+name|output
+operator|.
+name|writeVInt
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|writeFreq
 specifier|private
