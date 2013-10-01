@@ -153,7 +153,7 @@ DECL|method|GetIndexTemplatesRequest
 specifier|public
 name|GetIndexTemplatesRequest
 parameter_list|()
-block|{}
+block|{     }
 DECL|method|GetIndexTemplatesRequest
 specifier|public
 name|GetIndexTemplatesRequest
@@ -188,12 +188,6 @@ condition|(
 name|names
 operator|==
 literal|null
-operator|||
-name|names
-operator|.
-name|length
-operator|==
-literal|0
 condition|)
 block|{
 name|validationException
