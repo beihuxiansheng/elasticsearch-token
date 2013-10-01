@@ -747,6 +747,13 @@ name|ex
 parameter_list|)
 block|{             }
 block|}
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"Start Refresh"
+argument_list|)
+expr_stmt|;
 name|RefreshResponse
 name|refreshResponse
 init|=
@@ -795,9 +802,31 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Refresh failed [{}]"
+literal|"Refresh failed [{}] numShardsFailed: [{}], shardFailuresLength: [{}], successfulShards: [{}], totalShards: [{}] "
 argument_list|,
 name|refreshFailed
+argument_list|,
+name|refreshResponse
+operator|.
+name|getFailedShards
+argument_list|()
+argument_list|,
+name|refreshResponse
+operator|.
+name|getShardFailures
+argument_list|()
+operator|.
+name|length
+argument_list|,
+name|refreshResponse
+operator|.
+name|getSuccessfulShards
+argument_list|()
+argument_list|,
+name|refreshResponse
+operator|.
+name|getTotalShards
+argument_list|()
 argument_list|)
 expr_stmt|;
 specifier|final
