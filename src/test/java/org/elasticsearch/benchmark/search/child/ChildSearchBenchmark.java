@@ -422,6 +422,16 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
+name|String
+name|clusterName
+init|=
+name|ChildSearchBenchmark
+operator|.
+name|class
+operator|.
+name|getSimpleName
+argument_list|()
+decl_stmt|;
 name|Node
 name|node1
 init|=
@@ -430,7 +440,7 @@ argument_list|()
 operator|.
 name|clusterName
 argument_list|(
-literal|"classic"
+name|clusterName
 argument_list|)
 operator|.
 name|settings

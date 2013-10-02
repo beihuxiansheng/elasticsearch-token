@@ -378,11 +378,26 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
+name|String
+name|clusterName
+init|=
+name|HistogramFacetSearchBenchmark
+operator|.
+name|class
+operator|.
+name|getSimpleName
+argument_list|()
+decl_stmt|;
 name|Node
 name|node1
 init|=
 name|nodeBuilder
 argument_list|()
+operator|.
+name|clusterName
+argument_list|(
+name|clusterName
+argument_list|)
 operator|.
 name|settings
 argument_list|(
@@ -405,7 +420,7 @@ operator|.
 name|node
 argument_list|()
 decl_stmt|;
-comment|//Node clientNode = nodeBuilder().settings(settingsBuilder().put(settings).put("name", "client")).client(true).node();
+comment|//Node clientNode = nodeBuilder().clusterName(clusterName).settings(settingsBuilder().put(settings).put("name", "client")).client(true).node();
 name|Client
 name|client
 init|=

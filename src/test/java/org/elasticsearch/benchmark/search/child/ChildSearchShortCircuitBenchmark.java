@@ -406,6 +406,16 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
+name|String
+name|clusterName
+init|=
+name|ChildSearchShortCircuitBenchmark
+operator|.
+name|class
+operator|.
+name|getSimpleName
+argument_list|()
+decl_stmt|;
 name|Node
 name|node1
 init|=
@@ -414,7 +424,7 @@ argument_list|()
 operator|.
 name|clusterName
 argument_list|(
-literal|"bench1"
+name|clusterName
 argument_list|)
 operator|.
 name|settings
