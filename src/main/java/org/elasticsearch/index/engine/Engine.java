@@ -714,10 +714,7 @@ name|source
 parameter_list|()
 block|{
 return|return
-name|this
-operator|.
 name|source
-argument_list|()
 return|;
 block|}
 annotation|@
