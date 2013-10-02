@@ -152,12 +152,6 @@ specifier|final
 name|int
 name|size
 decl_stmt|;
-DECL|field|shardSize
-specifier|private
-specifier|final
-name|int
-name|shardSize
-decl_stmt|;
 DECL|field|count
 specifier|private
 name|int
@@ -179,9 +173,6 @@ name|comparatorType
 parameter_list|,
 name|int
 name|size
-parameter_list|,
-name|int
-name|shardSize
 parameter_list|)
 block|{
 name|this
@@ -201,12 +192,6 @@ operator|.
 name|size
 operator|=
 name|size
-expr_stmt|;
-name|this
-operator|.
-name|shardSize
-operator|=
-name|shardSize
 expr_stmt|;
 block|}
 annotation|@

@@ -1143,8 +1143,6 @@ argument_list|,
 name|comparatorType
 argument_list|,
 name|size
-argument_list|,
-name|shardSize
 argument_list|)
 return|;
 block|}
