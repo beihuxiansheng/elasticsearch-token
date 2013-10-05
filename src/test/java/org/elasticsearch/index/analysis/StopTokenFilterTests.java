@@ -460,10 +460,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testDeprectedPositionIncrementSettingWithVerions
+DECL|method|testDeprecatedPositionIncrementSettingWithVerions
 specifier|public
 name|void
-name|testDeprectedPositionIncrementSettingWithVerions
+name|testDeprecatedPositionIncrementSettingWithVerions
 parameter_list|()
 throws|throws
 name|IOException
