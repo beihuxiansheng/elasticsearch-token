@@ -20,6 +20,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+operator|.
+name|AwaitsFix
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -205,6 +221,13 @@ decl_stmt|;
 annotation|@
 name|Test
 comment|// see #3544
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"Boaz is looking into this test"
+argument_list|)
 DECL|method|testConcurrentDynamicMapping
 specifier|public
 name|void
