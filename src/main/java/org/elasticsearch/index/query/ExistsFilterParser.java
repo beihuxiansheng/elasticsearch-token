@@ -84,6 +84,22 @@ name|lucene
 operator|.
 name|search
 operator|.
+name|Queries
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
 name|XBooleanFilter
 import|;
 end_import
@@ -438,8 +454,11 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+comment|// no fields exists, so we should not match anything
 return|return
-literal|null
+name|Queries
+operator|.
+name|MATCH_NO_FILTER
 return|;
 block|}
 name|MapperService

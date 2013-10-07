@@ -1580,6 +1580,7 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|/**      * Parses an inner filter, returning null if the filter should be ignored.      */
 annotation|@
 name|Nullable
 DECL|method|parseInnerFilter

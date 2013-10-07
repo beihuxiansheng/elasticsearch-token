@@ -793,12 +793,10 @@ return|;
 block|}
 else|else
 block|{
-comment|// the filter was provided, but returned null, meaning we should discard it, this means no
-comment|// matches for this query...
+comment|// even if the filter is not found, and its null, we should simply ignore it, and go
+comment|// by the query
 return|return
-name|Queries
-operator|.
-name|NO_MATCH_QUERY
+name|query
 return|;
 block|}
 block|}

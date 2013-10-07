@@ -114,17 +114,10 @@ decl_stmt|;
 if|if
 condition|(
 name|filter
-operator|==
+operator|!=
 literal|null
 condition|)
 block|{
-name|filter
-operator|=
-name|ParsedFilter
-operator|.
-name|EMPTY
-expr_stmt|;
-block|}
 name|context
 operator|.
 name|parsedFilter
@@ -132,6 +125,7 @@ argument_list|(
 name|filter
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class

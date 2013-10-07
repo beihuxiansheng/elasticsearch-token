@@ -831,6 +831,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+comment|// no filters provided, it should be ignored upstream
 return|return
 literal|null
 return|;
