@@ -130,17 +130,6 @@ name|MatchNoDocsQuery
 operator|.
 name|INSTANCE
 decl_stmt|;
-DECL|field|MATCH_ALL_DOCS_FILTER
-specifier|private
-specifier|static
-specifier|final
-name|Filter
-name|MATCH_ALL_DOCS_FILTER
-init|=
-operator|new
-name|MatchAllDocsFilter
-argument_list|()
-decl_stmt|;
 comment|/**      * A match all docs filter. Note, requires no caching!.      */
 DECL|field|MATCH_ALL_FILTER
 specifier|public
@@ -178,7 +167,7 @@ return|return
 operator|new
 name|XConstantScoreQuery
 argument_list|(
-name|MATCH_ALL_DOCS_FILTER
+name|MATCH_ALL_FILTER
 argument_list|)
 return|;
 block|}
