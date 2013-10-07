@@ -248,6 +248,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|shard
+operator|.
+name|IllegalIndexShardStateException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|indices
 operator|.
 name|IndexMissingException
@@ -778,6 +792,14 @@ block|}
 catch|catch
 parameter_list|(
 name|IndexMissingException
+name|e
+parameter_list|)
+block|{
+comment|// ignore, we will get it next time
+block|}
+catch|catch
+parameter_list|(
+name|IllegalIndexShardStateException
 name|e
 parameter_list|)
 block|{

@@ -280,6 +280,22 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|support
+operator|.
+name|TransportActions
+operator|.
+name|isShardNotAvailableException
+import|;
+end_import
+
 begin_comment
 comment|/**  * A base class for single shard read operations.  */
 end_comment
@@ -824,6 +840,11 @@ condition|(
 name|failure
 operator|==
 literal|null
+operator|||
+name|isShardNotAvailableException
+argument_list|(
+name|failure
+argument_list|)
 condition|)
 block|{
 name|failure
