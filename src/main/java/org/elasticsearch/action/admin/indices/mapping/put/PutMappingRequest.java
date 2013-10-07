@@ -78,18 +78,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Required
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|Strings
 import|;
 end_import
@@ -414,8 +402,6 @@ name|type
 return|;
 block|}
 comment|/**      * The type of the mappings.      */
-annotation|@
-name|Required
 DECL|method|type
 specifier|public
 name|PutMappingRequest
@@ -675,8 +661,6 @@ throw|;
 block|}
 block|}
 comment|/**      * The mapping source definition.      */
-annotation|@
-name|Required
 DECL|method|source
 specifier|public
 name|PutMappingRequest
@@ -716,8 +700,6 @@ throw|;
 block|}
 block|}
 comment|/**      * The mapping source definition.      */
-annotation|@
-name|Required
 DECL|method|source
 specifier|public
 name|PutMappingRequest
@@ -780,8 +762,6 @@ throw|;
 block|}
 block|}
 comment|/**      * The mapping source definition.      */
-annotation|@
-name|Required
 DECL|method|source
 specifier|public
 name|PutMappingRequest

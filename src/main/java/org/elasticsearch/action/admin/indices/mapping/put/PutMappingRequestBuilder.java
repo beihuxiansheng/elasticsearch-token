@@ -84,18 +84,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Required
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|unit
 operator|.
 name|TimeValue
@@ -188,8 +176,6 @@ name|this
 return|;
 block|}
 comment|/**      * The type of the mappings.      */
-annotation|@
-name|Required
 DECL|method|setType
 specifier|public
 name|PutMappingRequestBuilder

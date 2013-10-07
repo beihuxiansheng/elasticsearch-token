@@ -100,18 +100,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Required
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|Strings
 import|;
 end_import
@@ -426,8 +414,6 @@ name|querySource
 return|;
 block|}
 comment|/**      * The query source to execute.      *      * @see org.elasticsearch.index.query.QueryBuilders      */
-annotation|@
-name|Required
 DECL|method|query
 specifier|public
 name|DeleteByQueryRequest
@@ -457,8 +443,6 @@ name|this
 return|;
 block|}
 comment|/**      * The query source to execute. It is preferable to use either {@link #query(byte[])}      * or {@link #query(org.elasticsearch.index.query.QueryBuilder)}.      */
-annotation|@
-name|Required
 DECL|method|query
 specifier|public
 name|DeleteByQueryRequest
@@ -496,8 +480,6 @@ name|this
 return|;
 block|}
 comment|/**      * The query source to execute in the form of a map.      */
-annotation|@
-name|Required
 DECL|method|query
 specifier|public
 name|DeleteByQueryRequest
@@ -554,8 +536,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-annotation|@
-name|Required
 DECL|method|query
 specifier|public
 name|DeleteByQueryRequest
@@ -585,8 +565,6 @@ name|this
 return|;
 block|}
 comment|/**      * The query source to execute.      */
-annotation|@
-name|Required
 DECL|method|query
 specifier|public
 name|DeleteByQueryRequest
@@ -613,8 +591,6 @@ argument_list|)
 return|;
 block|}
 comment|/**      * The query source to execute.      */
-annotation|@
-name|Required
 DECL|method|query
 specifier|public
 name|DeleteByQueryRequest

@@ -64,18 +64,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Required
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|io
 operator|.
 name|stream
@@ -376,8 +364,6 @@ name|type
 return|;
 block|}
 comment|/**      * Sets the type of the document to delete.      */
-annotation|@
-name|Required
 DECL|method|type
 specifier|public
 name|DeleteRequest
@@ -409,8 +395,6 @@ name|id
 return|;
 block|}
 comment|/**      * Sets the id of the document to delete.      */
-annotation|@
-name|Required
 DECL|method|id
 specifier|public
 name|DeleteRequest

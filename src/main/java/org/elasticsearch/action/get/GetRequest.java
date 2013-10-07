@@ -78,18 +78,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Required
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|io
 operator|.
 name|stream
@@ -399,8 +387,6 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the id of the document to fetch.      */
-annotation|@
-name|Required
 DECL|method|id
 specifier|public
 name|GetRequest

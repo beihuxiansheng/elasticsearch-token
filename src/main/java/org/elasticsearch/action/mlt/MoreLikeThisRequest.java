@@ -116,18 +116,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Required
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|Strings
 import|;
 end_import
@@ -531,8 +519,6 @@ name|index
 expr_stmt|;
 block|}
 comment|/**      * The type of document to load from which the "like" query will execute with.      */
-annotation|@
-name|Required
 DECL|method|type
 specifier|public
 name|MoreLikeThisRequest
@@ -564,8 +550,6 @@ name|id
 return|;
 block|}
 comment|/**      * The id of document to load from which the "like" query will execute with.      */
-annotation|@
-name|Required
 DECL|method|id
 specifier|public
 name|MoreLikeThisRequest

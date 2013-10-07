@@ -170,18 +170,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Required
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|Strings
 import|;
 end_import
@@ -777,8 +765,6 @@ name|type
 return|;
 block|}
 comment|/**      * Sets the type of the indexed document.      */
-annotation|@
-name|Required
 DECL|method|type
 specifier|public
 name|IndexRequest
@@ -1097,8 +1083,6 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Index the Map as a {@link org.elasticsearch.client.Requests#INDEX_CONTENT_TYPE}.      *      * @param source The map to index      */
-annotation|@
-name|Required
 DECL|method|source
 specifier|public
 name|IndexRequest
@@ -1120,8 +1104,6 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Index the Map as the provided content type.      *      * @param source The map to index      */
-annotation|@
-name|Required
 DECL|method|source
 specifier|public
 name|IndexRequest
@@ -1184,8 +1166,6 @@ throw|;
 block|}
 block|}
 comment|/**      * Sets the document source to index.      *<p/>      *<p>Note, its preferable to either set it using {@link #source(org.elasticsearch.common.xcontent.XContentBuilder)}      * or using the {@link #source(byte[])}.      */
-annotation|@
-name|Required
 DECL|method|source
 specifier|public
 name|IndexRequest
@@ -1223,8 +1203,6 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the content source to index.      */
-annotation|@
-name|Required
 DECL|method|source
 specifier|public
 name|IndexRequest
@@ -1249,8 +1227,6 @@ return|return
 name|this
 return|;
 block|}
-annotation|@
-name|Required
 DECL|method|source
 specifier|public
 name|IndexRequest
@@ -1314,8 +1290,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-annotation|@
-name|Required
 DECL|method|source
 specifier|public
 name|IndexRequest
@@ -1392,8 +1366,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-annotation|@
-name|Required
 DECL|method|source
 specifier|public
 name|IndexRequest
@@ -1483,8 +1455,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-annotation|@
-name|Required
 DECL|method|source
 specifier|public
 name|IndexRequest
@@ -1587,8 +1557,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-annotation|@
-name|Required
 DECL|method|source
 specifier|public
 name|IndexRequest
@@ -1736,8 +1704,6 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Sets the document to index in bytes form (assumed to be safe to be used from different      * threads).      *      * @param source The source to index      * @param offset The offset in the byte array      * @param length The length of the data      */
-annotation|@
-name|Required
 DECL|method|source
 specifier|public
 name|IndexRequest
@@ -1768,8 +1734,6 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Sets the document to index in bytes form.      *      * @param source The source to index      * @param offset The offset in the byte array      * @param length The length of the data      * @param unsafe Is the byte array safe to be used form a different thread      */
-annotation|@
-name|Required
 DECL|method|source
 specifier|public
 name|IndexRequest
