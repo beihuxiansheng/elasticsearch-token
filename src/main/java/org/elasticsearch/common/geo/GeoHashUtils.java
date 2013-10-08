@@ -42,7 +42,17 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Iterator
 import|;
 end_import
 
@@ -476,13 +486,15 @@ literal|32
 index|]
 return|;
 block|}
-comment|/**      * Calculate all neighbors of a given geohash cell.      *      * @param geohash Geohash of the defines cell      * @return geohashes of all neighbor cells      */
+comment|/**      * Calculate all neighbors of a given geohash cell.      *      * @param geohash Geohash of the defined cell      * @return geohashes of all neighbor cells      */
 DECL|method|neighbors
 specifier|public
 specifier|static
-name|List
+name|Collection
 argument_list|<
-name|String
+name|?
+extends|extends
+name|CharSequence
 argument_list|>
 name|neighbors
 parameter_list|(
@@ -503,12 +515,56 @@ argument_list|,
 operator|new
 name|ArrayList
 argument_list|<
-name|String
+name|CharSequence
 argument_list|>
 argument_list|(
 literal|8
 argument_list|)
 argument_list|)
+return|;
+block|}
+comment|/**      * Create an {@link Iterable} which allows to iterate over the cells that      * contain a given geohash      *         * @param geohash Geohash of a cell      *       * @return {@link Iterable} of path      */
+DECL|method|path
+specifier|public
+specifier|static
+name|Iterable
+argument_list|<
+name|String
+argument_list|>
+name|path
+parameter_list|(
+specifier|final
+name|String
+name|geohash
+parameter_list|)
+block|{
+return|return
+operator|new
+name|Iterable
+argument_list|<
+name|String
+argument_list|>
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|Iterator
+argument_list|<
+name|String
+argument_list|>
+name|iterator
+parameter_list|()
+block|{
+return|return
+operator|new
+name|GeohashPathIterator
+argument_list|(
+name|geohash
+argument_list|)
+return|;
+block|}
+block|}
 return|;
 block|}
 comment|/**      * Calculate the geohash of a neighbor of a geohash      *      * @param geohash the geohash of a cell      * @param level   level of the geohash      * @param dx      delta of the first grid coordinate (must be -1, 0 or +1)      * @param dy      delta of the second grid coordinate (must be -1, 0 or +1)      * @return geohash of the defined cell      */
@@ -774,7 +830,7 @@ else|:
 literal|7
 decl_stmt|;
 comment|// if the defined neighbor has the same parent a the current cell
-comment|// encode the cell direcly. Otherwise find the cell next to this
+comment|// encode the cell directly. Otherwise find the cell next to this
 comment|// cell recursively. Since encoding wraps around within a cell
 comment|// it can be encoded here.
 if|if
@@ -861,15 +917,61 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * Add all geohashes of the cells next to a given geohash to a list.      *      * @param geohash   Geohash of a specified cell      * @param length    level of the given geohash      * @param neighbors list to add the neighbors to      * @return the given list      */
+comment|/**      * Add all geohashes of the cells next to a given geohash to a list.      *      * @param geohash   Geohash of a specified cell      * @param neighbors list to add the neighbors to      * @return the given list      */
 DECL|method|addNeighbors
-specifier|private
+specifier|public
 specifier|static
 specifier|final
-name|List
+parameter_list|<
+name|E
+extends|extends
+name|Collection
 argument_list|<
+name|?
+super|super
 name|String
 argument_list|>
+parameter_list|>
+name|E
+name|addNeighbors
+parameter_list|(
+name|String
+name|geohash
+parameter_list|,
+name|E
+name|neighbors
+parameter_list|)
+block|{
+return|return
+name|addNeighbors
+argument_list|(
+name|geohash
+argument_list|,
+name|geohash
+operator|.
+name|length
+argument_list|()
+argument_list|,
+name|neighbors
+argument_list|)
+return|;
+block|}
+comment|/**      * Add all geohashes of the cells next to a given geohash to a list.      *      * @param geohash   Geohash of a specified cell      * @param length    level of the given geohash      * @param neighbors list to add the neighbors to      * @return the given list      */
+DECL|method|addNeighbors
+specifier|public
+specifier|static
+specifier|final
+parameter_list|<
+name|E
+extends|extends
+name|Collection
+argument_list|<
+name|?
+super|super
+name|String
+argument_list|>
+parameter_list|>
+name|E
 name|addNeighbors
 parameter_list|(
 name|String
@@ -878,10 +980,7 @@ parameter_list|,
 name|int
 name|length
 parameter_list|,
-name|List
-argument_list|<
-name|String
-argument_list|>
+name|E
 name|neighbors
 parameter_list|)
 block|{

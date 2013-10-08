@@ -170,20 +170,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|RamUsageEstimator
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchIllegalStateException
@@ -228,7 +214,9 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|FieldMapper
+name|core
+operator|.
+name|CompletionFieldMapper
 import|;
 end_import
 
@@ -1498,10 +1486,7 @@ specifier|public
 name|Lookup
 name|getLookup
 parameter_list|(
-name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
+name|CompletionFieldMapper
 name|mapper
 parameter_list|,
 name|CompletionSuggestionContext
@@ -2051,10 +2036,7 @@ specifier|abstract
 name|Lookup
 name|getLookup
 parameter_list|(
-name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
+name|CompletionFieldMapper
 name|mapper
 parameter_list|,
 name|CompletionSuggestionContext
@@ -2079,10 +2061,7 @@ operator|.
 name|AnalyzingSuggestHolder
 name|getAnalyzingSuggestHolder
 parameter_list|(
-name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
+name|CompletionFieldMapper
 name|mapper
 parameter_list|)
 function_decl|;

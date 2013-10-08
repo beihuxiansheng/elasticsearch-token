@@ -89,6 +89,7 @@ end_comment
 begin_class
 DECL|class|GeoPoint
 specifier|public
+specifier|final
 class|class
 name|GeoPoint
 block|{
@@ -146,6 +147,23 @@ specifier|public
 name|GeoPoint
 parameter_list|()
 block|{     }
+comment|/**      * Create a new Geopointform a string. This String must either be a geohash      * or a lat-lon tuple.      *         * @param value String to create the point from      */
+DECL|method|GeoPoint
+specifier|public
+name|GeoPoint
+parameter_list|(
+name|String
+name|value
+parameter_list|)
+block|{
+name|this
+operator|.
+name|resetFromString
+argument_list|(
+name|value
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|GeoPoint
 specifier|public
 name|GeoPoint

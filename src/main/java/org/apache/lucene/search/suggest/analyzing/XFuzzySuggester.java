@@ -290,6 +290,8 @@ name|this
 argument_list|(
 name|indexAnalyzer
 argument_list|,
+literal|null
+argument_list|,
 name|queryAnalyzer
 argument_list|,
 name|EXACT_FIRST
@@ -334,6 +336,9 @@ name|XFuzzySuggester
 parameter_list|(
 name|Analyzer
 name|indexAnalyzer
+parameter_list|,
+name|Automaton
+name|queryPrefix
 parameter_list|,
 name|Analyzer
 name|queryAnalyzer
@@ -397,6 +402,8 @@ block|{
 name|super
 argument_list|(
 name|indexAnalyzer
+argument_list|,
+name|queryPrefix
 argument_list|,
 name|queryAnalyzer
 argument_list|,
@@ -624,6 +631,7 @@ condition|(
 name|unicodeAware
 condition|)
 block|{
+comment|// FLORIAN EDIT: get converted Automaton from superclass
 name|Automaton
 name|utf8automaton
 init|=
@@ -633,7 +641,12 @@ argument_list|()
 operator|.
 name|convert
 argument_list|(
+name|super
+operator|.
+name|convertAutomaton
+argument_list|(
 name|a
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|BasicOperations
@@ -650,7 +663,12 @@ block|}
 else|else
 block|{
 return|return
+name|super
+operator|.
+name|convertAutomaton
+argument_list|(
 name|a
+argument_list|)
 return|;
 block|}
 block|}
