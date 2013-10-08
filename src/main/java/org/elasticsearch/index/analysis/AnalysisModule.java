@@ -3138,6 +3138,17 @@ name|tokenFiltersBindings
 operator|.
 name|processTokenFilter
 argument_list|(
+literal|"delimited_payload_filter"
+argument_list|,
+name|DelimitedPayloadTokenFilterFactory
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|tokenFiltersBindings
+operator|.
+name|processTokenFilter
+argument_list|(
 literal|"synonym"
 argument_list|,
 name|SynonymTokenFilterFactory
