@@ -18,6 +18,20 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|Lists
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -118,6 +132,20 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
+name|facet
+operator|.
+name|FacetBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
 name|highlight
 operator|.
 name|HighlightBuilder
@@ -150,12 +178,22 @@ name|java
 operator|.
 name|util
 operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * Builder to create the percolate request body.  */
 end_comment
 
 begin_class
@@ -201,6 +239,14 @@ specifier|private
 name|HighlightBuilder
 name|highlightBuilder
 decl_stmt|;
+DECL|field|facets
+specifier|private
+name|List
+argument_list|<
+name|FacetBuilder
+argument_list|>
+name|facets
+decl_stmt|;
 DECL|method|percolateDocument
 specifier|public
 name|DocBuilder
@@ -235,6 +281,7 @@ return|return
 name|docBuilder
 return|;
 block|}
+comment|/**      * Sets the document to run the percolate queries against.      */
 DECL|method|setDoc
 specifier|public
 name|PercolateSourceBuilder
@@ -264,6 +311,7 @@ return|return
 name|queryBuilder
 return|;
 block|}
+comment|/**      * Sets a query to reduce the number of percolate queries to be evaluated and score the queries that match based      * on this query.      */
 DECL|method|setQueryBuilder
 specifier|public
 name|PercolateSourceBuilder
@@ -293,6 +341,7 @@ return|return
 name|filterBuilder
 return|;
 block|}
+comment|/**      * Sets a filter to reduce the number of percolate queries to be evaluated.      */
 DECL|method|setFilterBuilder
 specifier|public
 name|PercolateSourceBuilder
@@ -312,6 +361,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Limits the maximum number of percolate query matches to be returned.      */
 DECL|method|setSize
 specifier|public
 name|PercolateSourceBuilder
@@ -331,6 +381,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Similar as {@link #setScore(boolean)}, but also sort by the score.      */
 DECL|method|setSort
 specifier|public
 name|PercolateSourceBuilder
@@ -350,6 +401,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Whether to compute a score for each match and include it in the response. The score is based on      * {@link #setQueryBuilder(QueryBuilder)}.      */
 DECL|method|setScore
 specifier|public
 name|PercolateSourceBuilder
@@ -369,6 +421,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Enables highlighting for the percolate document. Per matched percolate query highlight the percolate document.      */
 DECL|method|setHighlightBuilder
 specifier|public
 name|PercolateSourceBuilder
@@ -383,6 +436,42 @@ operator|.
 name|highlightBuilder
 operator|=
 name|highlightBuilder
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Add a facet definition.      */
+DECL|method|addFacet
+specifier|public
+name|PercolateSourceBuilder
+name|addFacet
+parameter_list|(
+name|FacetBuilder
+name|facetBuilder
+parameter_list|)
+block|{
+if|if
+condition|(
+name|facets
+operator|==
+literal|null
+condition|)
+block|{
+name|facets
+operator|=
+name|Lists
+operator|.
+name|newArrayList
+argument_list|()
+expr_stmt|;
+block|}
+name|facets
+operator|.
+name|add
+argument_list|(
+name|facetBuilder
+argument_list|)
 expr_stmt|;
 return|return
 name|this
@@ -596,6 +685,49 @@ name|builder
 argument_list|,
 name|params
 argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|facets
+operator|!=
+literal|null
+condition|)
+block|{
+name|builder
+operator|.
+name|field
+argument_list|(
+literal|"facets"
+argument_list|)
+expr_stmt|;
+name|builder
+operator|.
+name|startObject
+argument_list|()
+expr_stmt|;
+for|for
+control|(
+name|FacetBuilder
+name|facet
+range|:
+name|facets
+control|)
+block|{
+name|facet
+operator|.
+name|toXContent
+argument_list|(
+name|builder
+argument_list|,
+name|params
+argument_list|)
+expr_stmt|;
+block|}
+name|builder
+operator|.
+name|endObject
+argument_list|()
 expr_stmt|;
 block|}
 name|builder

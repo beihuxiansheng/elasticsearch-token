@@ -1026,6 +1026,11 @@ name|count
 argument_list|()
 argument_list|,
 name|tookInMillis
+argument_list|,
+name|result
+operator|.
+name|reducedFacets
+argument_list|()
 argument_list|)
 return|;
 block|}
