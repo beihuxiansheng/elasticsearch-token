@@ -3310,13 +3310,6 @@ name|customFieldDataSettings
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|mergeContext
-operator|.
-name|addFieldDataChange
-argument_list|(
-name|this
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 block|}

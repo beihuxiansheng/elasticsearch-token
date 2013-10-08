@@ -20,22 +20,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
-operator|.
-name|AwaitsFix
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -55,18 +39,6 @@ operator|.
 name|index
 operator|.
 name|IndexResponse
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|Strings
 import|;
 end_import
 
@@ -221,13 +193,6 @@ decl_stmt|;
 annotation|@
 name|Test
 comment|// see #3544
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"Boaz is looking into this test"
-argument_list|)
 DECL|method|testConcurrentDynamicMapping
 specifier|public
 name|void
@@ -238,33 +203,27 @@ name|Exception
 block|{
 specifier|final
 name|String
+name|fieldName
+init|=
+literal|"field"
+decl_stmt|;
+specifier|final
+name|String
 name|mapping
 init|=
-literal|"{"
+literal|"{ \""
 operator|+
 name|mappingType
 operator|+
-literal|": {"
-operator|+
-literal|"\"properties\": {"
-operator|+
-literal|"\"an_id\": {"
-operator|+
-literal|"\"type\": \"string\","
-operator|+
-literal|"\"store\": \"yes\","
-operator|+
-literal|"\"index\": \"not_analyzed\""
-operator|+
-literal|"}"
-operator|+
-literal|"},"
+literal|"\": {"
 operator|+
 literal|"\"dynamic_templates\": ["
 operator|+
-literal|"{"
+literal|"{ \""
 operator|+
-literal|"\"participants\": {"
+name|fieldName
+operator|+
+literal|"\": {"
 operator|+
 literal|"\"path_match\": \"*\","
 operator|+
@@ -274,30 +233,10 @@ literal|"\"type\": \"string\","
 operator|+
 literal|"\"store\": \"yes\","
 operator|+
-literal|"\"index\": \"analyzed\","
-operator|+
-literal|"\"analyzer\": \"whitespace\""
-operator|+
-literal|"}"
-operator|+
-literal|"}"
-operator|+
-literal|"}"
-operator|+
-literal|"]"
-operator|+
-literal|"}"
-operator|+
-literal|"}"
+literal|"\"index\": \"analyzed\", \"analyzer\": \"whitespace\" } } } ] } }"
 decl_stmt|;
 comment|// The 'fieldNames' array is used to help with retrieval of index terms
 comment|// after testing
-specifier|final
-name|String
-name|fieldName
-init|=
-literal|"participants.ACCEPTED"
-decl_stmt|;
 name|int
 name|iters
 init|=
@@ -423,6 +362,11 @@ name|Throwable
 argument_list|>
 argument_list|()
 decl_stmt|;
+name|int
+name|currentID
+init|=
+literal|0
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -459,21 +403,6 @@ name|source
 operator|.
 name|put
 argument_list|(
-literal|"an_id"
-argument_list|,
-name|Strings
-operator|.
-name|randomBase64UUID
-argument_list|(
-name|getRandom
-argument_list|()
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|source
-operator|.
-name|put
-argument_list|(
 name|fieldName
 argument_list|,
 literal|"test-user"
@@ -487,6 +416,14 @@ argument_list|(
 literal|"test"
 argument_list|,
 name|mappingType
+argument_list|,
+name|Integer
+operator|.
+name|toString
+argument_list|(
+name|currentID
+operator|++
+argument_list|)
 argument_list|)
 operator|.
 name|setSource
