@@ -656,6 +656,30 @@ name|value
 argument_list|)
 return|;
 block|}
+comment|/**      * A Query that matches documents using fuzzy query.      *      * @param name  The name of the field      * @param value The value of the term      */
+DECL|method|fuzzyQuery
+specifier|public
+specifier|static
+name|FuzzyQueryBuilder
+name|fuzzyQuery
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|Object
+name|value
+parameter_list|)
+block|{
+return|return
+operator|new
+name|FuzzyQueryBuilder
+argument_list|(
+name|name
+argument_list|,
+name|value
+argument_list|)
+return|;
+block|}
 comment|/**      * A query that executes the query string against a field. It is a simplified      * version of {@link QueryStringQueryBuilder} that simply runs against      * a single field.      *      * @param name The name of the field      */
 DECL|method|fieldQuery
 specifier|public
@@ -1380,7 +1404,7 @@ name|FunctionScoreQueryBuilder
 argument_list|()
 return|;
 block|}
-comment|/**      * A query that allows to define a custom scoring function.      *      * @param filterBuilder The filterBuilder to custom score      */
+comment|/**      * A query that allows to define a custom scoring function.      *      * @param function The function builder used to custom score      */
 DECL|method|functionScoreQuery
 specifier|public
 specifier|static
@@ -1399,7 +1423,7 @@ name|function
 argument_list|)
 return|;
 block|}
-comment|/**      * A query that allows to define a custom scoring function.      *      * @param queryBuilder The query to custom score      * @param scoreFunctionBuilder The score function used to re-score the query      */
+comment|/**      * A query that allows to define a custom scoring function.      *      * @param queryBuilder The query to custom score      * @param function The function builder used to custom score      */
 DECL|method|functionScoreQuery
 specifier|public
 specifier|static
@@ -1428,7 +1452,7 @@ name|function
 argument_list|)
 return|;
 block|}
-comment|/**      * A query that allows to define a custom scoring function.      *      * @param filterBuilder The query to custom score      */
+comment|/**      * A query that allows to define a custom scoring function.      *      * @param filterBuilder The query to custom score      * @param function The function builder used to custom score      */
 DECL|method|functionScoreQuery
 specifier|public
 specifier|static
