@@ -391,6 +391,14 @@ operator|.
 name|writeString
 argument_list|(
 name|names
+operator|.
+name|length
+operator|==
+literal|0
+condition|?
+literal|"*"
+else|:
+name|names
 index|[
 literal|0
 index|]
