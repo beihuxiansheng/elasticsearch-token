@@ -1094,7 +1094,7 @@ argument_list|(
 name|address
 argument_list|)
 decl_stmt|;
-comment|// we only limit to 1 addresses, makes no sense to ping 100 ports
+comment|// we only limit to 1 address, makes no sense to ping 100 ports
 for|for
 control|(
 name|int
@@ -1180,7 +1180,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"failed ot add {}, address {}"
+literal|"failed to add {}, address {}"
 argument_list|,
 name|e
 argument_list|,
