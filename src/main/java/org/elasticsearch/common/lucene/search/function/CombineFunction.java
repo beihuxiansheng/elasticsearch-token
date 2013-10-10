@@ -102,7 +102,7 @@ name|getName
 parameter_list|()
 block|{
 return|return
-literal|"mult"
+literal|"multiply"
 return|;
 block|}
 annotation|@
