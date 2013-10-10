@@ -612,6 +612,10 @@ operator|.
 name|forPattern
 argument_list|(
 literal|"dateOptionalTime"
+argument_list|,
+name|Locale
+operator|.
+name|ROOT
 argument_list|)
 decl_stmt|;
 DECL|field|FIELD_TYPE
@@ -741,6 +745,13 @@ name|builder
 operator|=
 name|this
 expr_stmt|;
+comment|// do *NOT* rely on the default locale
+name|locale
+operator|=
+name|Locale
+operator|.
+name|ROOT
+expr_stmt|;
 block|}
 DECL|method|timeUnit
 specifier|public
@@ -860,10 +871,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|locale
-operator|!=
-literal|null
-operator|&&
 operator|!
 name|locale
 operator|.
@@ -876,7 +883,6 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-comment|// this sucks we should use the root local by default and not be dependent on the node if it is null?
 name|dateTimeFormatter
 operator|=
 operator|new
