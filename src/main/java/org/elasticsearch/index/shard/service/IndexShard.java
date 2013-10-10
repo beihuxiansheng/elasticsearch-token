@@ -902,6 +902,19 @@ name|String
 name|source
 parameter_list|)
 function_decl|;
+DECL|method|acquireSearcher
+name|Engine
+operator|.
+name|Searcher
+name|acquireSearcher
+parameter_list|(
+name|String
+name|source
+parameter_list|,
+name|Mode
+name|mode
+parameter_list|)
+function_decl|;
 comment|/**      * Returns<tt>true</tt> if this shard can ignore a recovery attempt made to it (since the already doing/done it)      */
 DECL|method|ignoreRecoveryAttempt
 specifier|public
@@ -909,6 +922,17 @@ name|boolean
 name|ignoreRecoveryAttempt
 parameter_list|()
 function_decl|;
+DECL|enum|Mode
+specifier|public
+enum|enum
+name|Mode
+block|{
+DECL|enum constant|READ
+name|READ
+block|,
+DECL|enum constant|WRITE
+name|WRITE
+block|}
 block|}
 end_interface
 

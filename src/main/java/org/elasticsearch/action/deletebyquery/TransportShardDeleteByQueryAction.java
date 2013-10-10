@@ -874,6 +874,12 @@ operator|.
 name|acquireSearcher
 argument_list|(
 literal|"delete_by_query"
+argument_list|,
+name|IndexShard
+operator|.
+name|Mode
+operator|.
+name|WRITE
 argument_list|)
 argument_list|,
 name|indexService
