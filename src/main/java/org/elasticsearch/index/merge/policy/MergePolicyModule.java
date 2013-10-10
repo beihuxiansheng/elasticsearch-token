@@ -64,6 +64,15 @@ specifier|final
 name|Settings
 name|settings
 decl_stmt|;
+DECL|field|MERGE_POLICY_TYPE_KEY
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|MERGE_POLICY_TYPE_KEY
+init|=
+literal|"index.merge.policy.type"
+decl_stmt|;
 DECL|method|MergePolicyModule
 specifier|public
 name|MergePolicyModule
