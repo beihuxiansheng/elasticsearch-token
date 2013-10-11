@@ -1499,13 +1499,12 @@ name|origin
 operator|=
 name|dateFieldMapper
 operator|.
-name|value
+name|parseToMilliseconds
 argument_list|(
 name|originString
+argument_list|,
+name|parseContext
 argument_list|)
-operator|.
-name|longValue
-argument_list|()
 expr_stmt|;
 block|}
 if|if
@@ -1523,7 +1522,7 @@ name|DecayFunctionBuilder
 operator|.
 name|SCALE
 operator|+
-literal|"must be set for date fields."
+literal|" must be set for date fields."
 argument_list|)
 throw|;
 block|}
