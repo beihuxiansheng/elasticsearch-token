@@ -2080,6 +2080,11 @@ literal|4
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|createIndex
+argument_list|(
+literal|"test"
+argument_list|)
+expr_stmt|;
 name|logger
 operator|.
 name|info
