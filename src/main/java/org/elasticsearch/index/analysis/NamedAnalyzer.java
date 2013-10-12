@@ -180,7 +180,6 @@ name|int
 name|positionOffsetGap
 parameter_list|)
 block|{
-comment|// our named analyzer always wrap a non per field analyzer, so no need to have per field analyzer
 name|super
 argument_list|(
 name|analyzer
