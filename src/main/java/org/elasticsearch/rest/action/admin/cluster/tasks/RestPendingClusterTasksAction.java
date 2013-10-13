@@ -291,6 +291,11 @@ argument_list|,
 name|request
 argument_list|)
 expr_stmt|;
+name|builder
+operator|.
+name|endObject
+argument_list|()
+expr_stmt|;
 name|channel
 operator|.
 name|sendResponse
