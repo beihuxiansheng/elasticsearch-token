@@ -928,13 +928,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-assert|assert
-operator|(
-name|payload
-operator|!=
-literal|null
-operator|)
-assert|;
 if|if
 condition|(
 name|payload

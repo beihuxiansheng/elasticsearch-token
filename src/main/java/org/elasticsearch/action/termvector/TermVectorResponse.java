@@ -1681,8 +1681,11 @@ name|currentPayloads
 index|[
 name|i
 index|]
-operator|!=
-literal|null
+operator|.
+name|length
+argument_list|()
+operator|>
+literal|0
 operator|)
 condition|)
 block|{
