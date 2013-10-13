@@ -92,7 +92,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticSearchTokenStreamTestCase
+name|ElasticsearchTokenStreamTestCase
 import|;
 end_import
 
@@ -154,7 +154,7 @@ specifier|public
 class|class
 name|KeepFilterFactoryTests
 extends|extends
-name|ElasticSearchTokenStreamTestCase
+name|ElasticsearchTokenStreamTestCase
 block|{
 DECL|field|RESOURCE
 specifier|private

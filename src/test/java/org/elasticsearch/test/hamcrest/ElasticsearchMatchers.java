@@ -49,10 +49,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|ElasticSearchMatchers
+DECL|class|ElasticsearchMatchers
 specifier|public
 class|class
-name|ElasticSearchMatchers
+name|ElasticsearchMatchers
 block|{
 DECL|class|SearchHitHasIdMatcher
 specifier|public

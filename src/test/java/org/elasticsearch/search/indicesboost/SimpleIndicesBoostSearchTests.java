@@ -108,7 +108,7 @@ name|test
 operator|.
 name|hamcrest
 operator|.
-name|ElasticSearchAssertions
+name|ElasticsearchAssertions
 import|;
 end_import
 
@@ -251,7 +251,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ElasticSearchAssertions
+name|ElasticsearchAssertions
 operator|.
 name|assertHitCount
 argument_list|(

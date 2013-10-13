@@ -329,7 +329,7 @@ argument_list|,
 name|filters
 operator|=
 block|{
-name|ElasticSearchThreadFilter
+name|ElasticsearchThreadFilter
 operator|.
 name|class
 block|}
@@ -358,11 +358,11 @@ name|LoggingListener
 operator|.
 name|class
 argument_list|)
-DECL|class|ElasticSearchTestCase
+DECL|class|ElasticsearchTestCase
 specifier|public
 specifier|abstract
 class|class
-name|ElasticSearchTestCase
+name|ElasticsearchTestCase
 extends|extends
 name|AbstractRandomizedTest
 block|{

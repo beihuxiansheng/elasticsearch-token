@@ -396,7 +396,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticSearchTestCase
+name|ElasticsearchTestCase
 import|;
 end_import
 
@@ -482,7 +482,7 @@ specifier|public
 class|class
 name|IndexAliasesServiceTests
 extends|extends
-name|ElasticSearchTestCase
+name|ElasticsearchTestCase
 block|{
 DECL|method|newIndexAliasesService
 specifier|public

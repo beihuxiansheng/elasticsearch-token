@@ -394,7 +394,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticSearchTestCase
+name|ElasticsearchTestCase
 import|;
 end_import
 
@@ -523,10 +523,10 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|ElasticSearchAssertions
+DECL|class|ElasticsearchAssertions
 specifier|public
 class|class
-name|ElasticSearchAssertions
+name|ElasticsearchAssertions
 block|{
 DECL|method|assertAcked
 specifier|public
@@ -1979,7 +1979,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|ElasticSearchMatchers
+name|ElasticsearchMatchers
 operator|.
 name|SearchHitHasIdMatcher
 argument_list|(
@@ -2003,7 +2003,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|ElasticSearchMatchers
+name|ElasticsearchMatchers
 operator|.
 name|SearchHitHasTypeMatcher
 argument_list|(
@@ -2027,7 +2027,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|ElasticSearchMatchers
+name|ElasticsearchMatchers
 operator|.
 name|SearchHitHasIndexMatcher
 argument_list|(
@@ -2430,7 +2430,7 @@ name|CURRENT
 operator|.
 name|after
 argument_list|(
-name|ElasticSearchTestCase
+name|ElasticsearchTestCase
 operator|.
 name|getPreviousVersion
 argument_list|()
@@ -2438,7 +2438,7 @@ argument_list|)
 assert|;
 name|assertVersionSerializable
 argument_list|(
-name|ElasticSearchTestCase
+name|ElasticsearchTestCase
 operator|.
 name|randomVersion
 argument_list|()

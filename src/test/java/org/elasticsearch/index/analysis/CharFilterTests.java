@@ -170,7 +170,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticSearchTokenStreamTestCase
+name|ElasticsearchTokenStreamTestCase
 import|;
 end_import
 
@@ -210,7 +210,7 @@ specifier|public
 class|class
 name|CharFilterTests
 extends|extends
-name|ElasticSearchTokenStreamTestCase
+name|ElasticsearchTokenStreamTestCase
 block|{
 annotation|@
 name|Test

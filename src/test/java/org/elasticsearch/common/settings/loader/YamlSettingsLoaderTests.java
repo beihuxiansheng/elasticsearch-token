@@ -40,7 +40,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticSearchTestCase
+name|ElasticsearchTestCase
 import|;
 end_import
 
@@ -104,7 +104,7 @@ specifier|public
 class|class
 name|YamlSettingsLoaderTests
 extends|extends
-name|ElasticSearchTestCase
+name|ElasticsearchTestCase
 block|{
 annotation|@
 name|Test

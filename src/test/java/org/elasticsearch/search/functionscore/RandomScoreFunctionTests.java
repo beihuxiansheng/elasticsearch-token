@@ -184,7 +184,7 @@ name|test
 operator|.
 name|hamcrest
 operator|.
-name|ElasticSearchAssertions
+name|ElasticsearchAssertions
 operator|.
 name|assertAcked
 import|;

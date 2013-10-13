@@ -182,7 +182,7 @@ name|test
 operator|.
 name|hamcrest
 operator|.
-name|ElasticSearchAssertions
+name|ElasticsearchAssertions
 operator|.
 name|assertHitCount
 import|;
@@ -198,7 +198,7 @@ name|test
 operator|.
 name|hamcrest
 operator|.
-name|ElasticSearchAssertions
+name|ElasticsearchAssertions
 operator|.
 name|assertThrows
 import|;

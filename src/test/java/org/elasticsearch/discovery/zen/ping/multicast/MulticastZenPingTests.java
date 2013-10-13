@@ -206,7 +206,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticSearchTestCase
+name|ElasticsearchTestCase
 import|;
 end_import
 
@@ -310,7 +310,7 @@ specifier|public
 class|class
 name|MulticastZenPingTests
 extends|extends
-name|ElasticSearchTestCase
+name|ElasticsearchTestCase
 block|{
 DECL|method|buildRandomMulticast
 specifier|private

@@ -606,7 +606,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticSearchTestCase
+name|ElasticsearchTestCase
 import|;
 end_import
 
@@ -824,7 +824,7 @@ name|test
 operator|.
 name|hamcrest
 operator|.
-name|ElasticSearchAssertions
+name|ElasticsearchAssertions
 operator|.
 name|assertBooleanSubQuery
 import|;
@@ -852,7 +852,7 @@ specifier|public
 class|class
 name|SimpleIndexQueryParserTests
 extends|extends
-name|ElasticSearchTestCase
+name|ElasticsearchTestCase
 block|{
 DECL|field|injector
 specifier|private

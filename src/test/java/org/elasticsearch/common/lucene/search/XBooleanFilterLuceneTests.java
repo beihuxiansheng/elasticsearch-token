@@ -206,7 +206,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticSearchTestCase
+name|ElasticsearchTestCase
 import|;
 end_import
 
@@ -286,7 +286,7 @@ specifier|public
 class|class
 name|XBooleanFilterLuceneTests
 extends|extends
-name|ElasticSearchTestCase
+name|ElasticsearchTestCase
 block|{
 DECL|field|directory
 specifier|private

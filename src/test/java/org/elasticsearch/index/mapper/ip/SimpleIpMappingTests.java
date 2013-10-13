@@ -26,7 +26,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticSearchTestCase
+name|ElasticsearchTestCase
 import|;
 end_import
 
@@ -55,7 +55,7 @@ specifier|public
 class|class
 name|SimpleIpMappingTests
 extends|extends
-name|ElasticSearchTestCase
+name|ElasticsearchTestCase
 block|{
 comment|// No Longer enabled...
 comment|//    @Test public void testAutoIpDetection() throws Exception {

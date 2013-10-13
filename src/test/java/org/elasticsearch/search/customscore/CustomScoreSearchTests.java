@@ -294,7 +294,7 @@ name|test
 operator|.
 name|hamcrest
 operator|.
-name|ElasticSearchAssertions
+name|ElasticsearchAssertions
 operator|.
 name|assertNoFailures
 import|;
@@ -310,7 +310,7 @@ name|test
 operator|.
 name|hamcrest
 operator|.
-name|ElasticSearchAssertions
+name|ElasticsearchAssertions
 operator|.
 name|assertSearchHits
 import|;

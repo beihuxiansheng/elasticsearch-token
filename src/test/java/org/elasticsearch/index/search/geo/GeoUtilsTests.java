@@ -136,7 +136,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticSearchTestCase
+name|ElasticsearchTestCase
 import|;
 end_import
 
@@ -184,7 +184,7 @@ specifier|public
 class|class
 name|GeoUtilsTests
 extends|extends
-name|ElasticSearchTestCase
+name|ElasticsearchTestCase
 block|{
 comment|/**      * Test special values like inf, NaN and -0.0.      */
 annotation|@

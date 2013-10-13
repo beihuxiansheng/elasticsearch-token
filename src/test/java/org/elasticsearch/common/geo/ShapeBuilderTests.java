@@ -124,7 +124,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticSearchTestCase
+name|ElasticsearchTestCase
 import|;
 end_import
 
@@ -148,7 +148,7 @@ name|test
 operator|.
 name|hamcrest
 operator|.
-name|ElasticSearchGeoAssertions
+name|ElasticsearchGeoAssertions
 operator|.
 name|assertMultiLineString
 import|;
@@ -164,7 +164,7 @@ name|test
 operator|.
 name|hamcrest
 operator|.
-name|ElasticSearchGeoAssertions
+name|ElasticsearchGeoAssertions
 operator|.
 name|assertMultiPolygon
 import|;
@@ -192,7 +192,7 @@ specifier|public
 class|class
 name|ShapeBuilderTests
 extends|extends
-name|ElasticSearchTestCase
+name|ElasticsearchTestCase
 block|{
 annotation|@
 name|Test

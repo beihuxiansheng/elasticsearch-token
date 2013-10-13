@@ -758,7 +758,7 @@ name|test
 operator|.
 name|hamcrest
 operator|.
-name|ElasticSearchAssertions
+name|ElasticsearchAssertions
 operator|.
 name|assertAcked
 import|;
@@ -774,7 +774,7 @@ name|test
 operator|.
 name|hamcrest
 operator|.
-name|ElasticSearchAssertions
+name|ElasticsearchAssertions
 operator|.
 name|assertNoFailures
 import|;
@@ -819,7 +819,7 @@ specifier|abstract
 class|class
 name|AbstractIntegrationTest
 extends|extends
-name|ElasticSearchTestCase
+name|ElasticsearchTestCase
 block|{
 DECL|field|INDEX_SEED_SETTING
 specifier|public
@@ -868,7 +868,7 @@ name|clusterName
 argument_list|(
 literal|"shared"
 argument_list|,
-name|ElasticSearchTestCase
+name|ElasticsearchTestCase
 operator|.
 name|CHILD_VM_ID
 argument_list|,
@@ -4506,7 +4506,7 @@ operator|.
 name|name
 argument_list|()
 argument_list|,
-name|ElasticSearchTestCase
+name|ElasticsearchTestCase
 operator|.
 name|CHILD_VM_ID
 argument_list|,

@@ -106,7 +106,7 @@ argument_list|,
 name|filters
 operator|=
 block|{
-name|ElasticSearchThreadFilter
+name|ElasticsearchThreadFilter
 operator|.
 name|class
 block|}
@@ -127,11 +127,11 @@ name|TimeUnits
 operator|.
 name|HOUR
 argument_list|)
-DECL|class|ElasticSearchTokenStreamTestCase
+DECL|class|ElasticsearchTokenStreamTestCase
 specifier|public
 specifier|abstract
 class|class
-name|ElasticSearchTokenStreamTestCase
+name|ElasticsearchTokenStreamTestCase
 extends|extends
 name|BaseTokenStreamTestCase
 block|{  }

@@ -108,7 +108,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticSearchTestCase
+name|ElasticsearchTestCase
 import|;
 end_import
 
@@ -196,7 +196,7 @@ name|Loggers
 operator|.
 name|getLogger
 argument_list|(
-name|ElasticSearchTestCase
+name|ElasticsearchTestCase
 operator|.
 name|class
 argument_list|)

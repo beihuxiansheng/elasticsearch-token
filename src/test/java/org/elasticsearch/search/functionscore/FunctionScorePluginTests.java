@@ -220,7 +220,7 @@ name|test
 operator|.
 name|hamcrest
 operator|.
-name|ElasticSearchAssertions
+name|ElasticsearchAssertions
 import|;
 end_import
 
@@ -756,7 +756,7 @@ operator|.
 name|actionGet
 argument_list|()
 decl_stmt|;
-name|ElasticSearchAssertions
+name|ElasticsearchAssertions
 operator|.
 name|assertNoFailures
 argument_list|(

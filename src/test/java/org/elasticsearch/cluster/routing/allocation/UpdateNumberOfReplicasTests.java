@@ -104,7 +104,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticSearchTestCase
+name|ElasticsearchTestCase
 import|;
 end_import
 
@@ -280,7 +280,7 @@ specifier|public
 class|class
 name|UpdateNumberOfReplicasTests
 extends|extends
-name|ElasticSearchTestCase
+name|ElasticsearchTestCase
 block|{
 DECL|field|logger
 specifier|private

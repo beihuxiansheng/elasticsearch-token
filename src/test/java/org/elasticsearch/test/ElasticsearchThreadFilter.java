@@ -27,10 +27,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|ElasticSearchThreadFilter
+DECL|class|ElasticsearchThreadFilter
 specifier|public
 class|class
-name|ElasticSearchThreadFilter
+name|ElasticsearchThreadFilter
 implements|implements
 name|ThreadFilter
 block|{

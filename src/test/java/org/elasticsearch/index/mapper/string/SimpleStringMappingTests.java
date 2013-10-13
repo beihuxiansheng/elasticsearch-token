@@ -186,7 +186,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticSearchTestCase
+name|ElasticsearchTestCase
 import|;
 end_import
 
@@ -222,7 +222,7 @@ specifier|public
 class|class
 name|SimpleStringMappingTests
 extends|extends
-name|ElasticSearchTestCase
+name|ElasticsearchTestCase
 block|{
 DECL|field|DOC_VALUES_SETTINGS
 specifier|private

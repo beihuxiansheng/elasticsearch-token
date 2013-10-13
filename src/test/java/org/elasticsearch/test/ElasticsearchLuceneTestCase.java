@@ -136,7 +136,7 @@ argument_list|,
 name|filters
 operator|=
 block|{
-name|ElasticSearchThreadFilter
+name|ElasticsearchThreadFilter
 operator|.
 name|class
 block|}
@@ -162,11 +162,11 @@ name|SuppressCodecs
 argument_list|(
 literal|"Lucene3x"
 argument_list|)
-DECL|class|ElasticSearchLuceneTestCase
+DECL|class|ElasticsearchLuceneTestCase
 specifier|public
 specifier|abstract
 class|class
-name|ElasticSearchLuceneTestCase
+name|ElasticsearchLuceneTestCase
 extends|extends
 name|LuceneTestCase
 block|{

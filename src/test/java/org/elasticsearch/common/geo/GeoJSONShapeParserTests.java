@@ -144,7 +144,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticSearchTestCase
+name|ElasticsearchTestCase
 import|;
 end_import
 
@@ -158,7 +158,7 @@ name|test
 operator|.
 name|hamcrest
 operator|.
-name|ElasticSearchGeoAssertions
+name|ElasticsearchGeoAssertions
 import|;
 end_import
 
@@ -212,7 +212,7 @@ specifier|public
 class|class
 name|GeoJSONShapeParserTests
 extends|extends
-name|ElasticSearchTestCase
+name|ElasticsearchTestCase
 block|{
 DECL|field|GEOMETRY_FACTORY
 specifier|private
@@ -2207,7 +2207,7 @@ operator|.
 name|nextToken
 argument_list|()
 expr_stmt|;
-name|ElasticSearchGeoAssertions
+name|ElasticsearchGeoAssertions
 operator|.
 name|assertEquals
 argument_list|(

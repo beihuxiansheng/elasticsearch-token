@@ -314,7 +314,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticSearchLuceneTestCase
+name|ElasticsearchLuceneTestCase
 import|;
 end_import
 
@@ -406,7 +406,7 @@ specifier|public
 class|class
 name|TermVectorUnitTests
 extends|extends
-name|ElasticSearchLuceneTestCase
+name|ElasticsearchLuceneTestCase
 block|{
 annotation|@
 name|Test

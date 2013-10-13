@@ -52,7 +52,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticSearchTestCase
+name|ElasticsearchTestCase
 import|;
 end_import
 
@@ -100,7 +100,7 @@ specifier|public
 class|class
 name|SlicedObjectListTests
 extends|extends
-name|ElasticSearchTestCase
+name|ElasticsearchTestCase
 block|{
 DECL|class|TestList
 specifier|public

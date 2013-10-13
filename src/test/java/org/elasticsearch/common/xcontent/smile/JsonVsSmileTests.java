@@ -98,7 +98,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticSearchTestCase
+name|ElasticsearchTestCase
 import|;
 end_import
 
@@ -168,7 +168,7 @@ specifier|public
 class|class
 name|JsonVsSmileTests
 extends|extends
-name|ElasticSearchTestCase
+name|ElasticsearchTestCase
 block|{
 comment|//    @Test public void testBinarySmileField() throws Exception {
 comment|//        JsonGenerator gen = new SmileFactory().createJsonGenerator(new ByteArrayOutputStream());

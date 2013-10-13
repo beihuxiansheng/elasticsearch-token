@@ -88,7 +88,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticSearchTestCase
+name|ElasticsearchTestCase
 import|;
 end_import
 
@@ -102,7 +102,7 @@ name|test
 operator|.
 name|hamcrest
 operator|.
-name|ElasticSearchAssertions
+name|ElasticsearchAssertions
 import|;
 end_import
 
@@ -247,11 +247,11 @@ name|TransportResponseHandler
 name|handler
 parameter_list|)
 block|{
-name|ElasticSearchAssertions
+name|ElasticsearchAssertions
 operator|.
 name|assertVersionSerializable
 argument_list|(
-name|ElasticSearchTestCase
+name|ElasticsearchTestCase
 operator|.
 name|randomVersion
 argument_list|(
@@ -302,11 +302,11 @@ name|IOException
 throws|,
 name|TransportException
 block|{
-name|ElasticSearchAssertions
+name|ElasticsearchAssertions
 operator|.
 name|assertVersionSerializable
 argument_list|(
-name|ElasticSearchTestCase
+name|ElasticsearchTestCase
 operator|.
 name|randomVersion
 argument_list|(

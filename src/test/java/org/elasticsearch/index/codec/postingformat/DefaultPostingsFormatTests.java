@@ -220,7 +220,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticSearchTestCase
+name|ElasticsearchTestCase
 import|;
 end_import
 
@@ -318,7 +318,7 @@ specifier|public
 class|class
 name|DefaultPostingsFormatTests
 extends|extends
-name|ElasticSearchTestCase
+name|ElasticsearchTestCase
 block|{
 DECL|class|TestCodec
 specifier|private
