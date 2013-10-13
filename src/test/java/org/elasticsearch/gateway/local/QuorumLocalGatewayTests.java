@@ -806,7 +806,10 @@ block|{
 name|ClusterStateResponse
 name|clusterStateResponse
 init|=
-name|client
+name|cluster
+argument_list|()
+operator|.
+name|smartClient
 argument_list|()
 operator|.
 name|admin
