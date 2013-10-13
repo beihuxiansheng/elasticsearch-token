@@ -20,6 +20,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticSearchTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|joda
 operator|.
 name|time
@@ -95,6 +107,8 @@ DECL|class|TimeValueTests
 specifier|public
 class|class
 name|TimeValueTests
+extends|extends
+name|ElasticSearchTestCase
 block|{
 annotation|@
 name|Test

@@ -19,50 +19,30 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
+import|import
+name|com
 operator|.
-name|hamcrest
+name|spatial4j
 operator|.
-name|MatcherAssert
+name|core
 operator|.
-name|assertThat
+name|context
+operator|.
+name|SpatialContext
 import|;
 end_import
 
 begin_import
-import|import static
-name|org
+import|import
+name|com
 operator|.
-name|hamcrest
+name|spatial4j
 operator|.
-name|Matchers
+name|core
 operator|.
-name|equalTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
+name|distance
 operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|lessThanOrEqualTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|not
+name|DistanceUtils
 import|;
 end_import
 
@@ -152,6 +132,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticSearchTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -159,30 +151,26 @@ import|;
 end_import
 
 begin_import
-import|import
-name|com
+import|import static
+name|org
 operator|.
-name|spatial4j
+name|hamcrest
 operator|.
-name|core
+name|MatcherAssert
 operator|.
-name|context
-operator|.
-name|SpatialContext
+name|assertThat
 import|;
 end_import
 
 begin_import
-import|import
-name|com
+import|import static
+name|org
 operator|.
-name|spatial4j
+name|hamcrest
 operator|.
-name|core
+name|Matchers
 operator|.
-name|distance
-operator|.
-name|DistanceUtils
+name|*
 import|;
 end_import
 
@@ -195,6 +183,8 @@ DECL|class|GeoUtilsTests
 specifier|public
 class|class
 name|GeoUtilsTests
+extends|extends
+name|ElasticSearchTestCase
 block|{
 comment|/**      * Test special values like inf, NaN and -0.0.      */
 annotation|@

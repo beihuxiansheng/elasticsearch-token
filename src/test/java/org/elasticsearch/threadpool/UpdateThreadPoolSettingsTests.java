@@ -66,6 +66,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|test
+operator|.
+name|ElasticSearchTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|threadpool
 operator|.
 name|ThreadPool
@@ -154,18 +166,6 @@ name|org
 operator|.
 name|hamcrest
 operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
 name|Matchers
 operator|.
 name|*
@@ -181,6 +181,8 @@ DECL|class|UpdateThreadPoolSettingsTests
 specifier|public
 class|class
 name|UpdateThreadPoolSettingsTests
+extends|extends
+name|ElasticSearchTestCase
 block|{
 DECL|method|info
 specifier|private

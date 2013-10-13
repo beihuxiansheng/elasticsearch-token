@@ -34,21 +34,21 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|elasticsearch
 operator|.
-name|Test
+name|test
+operator|.
+name|ElasticSearchTestCase
 import|;
 end_import
 
 begin_import
-import|import static
+import|import
 name|org
 operator|.
-name|hamcrest
+name|junit
 operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
+name|Test
 import|;
 end_import
 
@@ -64,35 +64,13 @@ name|equalTo
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertFalse
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertTrue
-import|;
-end_import
-
 begin_class
 DECL|class|VersionTypeTests
 specifier|public
 class|class
 name|VersionTypeTests
+extends|extends
+name|ElasticSearchTestCase
 block|{
 annotation|@
 name|Test

@@ -18,6 +18,20 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|base
+operator|.
+name|Charsets
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -76,23 +90,21 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|elasticsearch
 operator|.
-name|Test
+name|test
+operator|.
+name|ElasticSearchTestCase
 import|;
 end_import
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|google
+name|junit
 operator|.
-name|common
-operator|.
-name|base
-operator|.
-name|Charsets
+name|Test
 import|;
 end_import
 
@@ -153,6 +165,8 @@ DECL|class|BulkRequestTests
 specifier|public
 class|class
 name|BulkRequestTests
+extends|extends
+name|ElasticSearchTestCase
 block|{
 annotation|@
 name|Test

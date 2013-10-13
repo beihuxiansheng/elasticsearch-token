@@ -110,6 +110,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticSearchTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -142,18 +154,6 @@ name|org
 operator|.
 name|hamcrest
 operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
 name|Matchers
 operator|.
 name|equalTo
@@ -169,6 +169,8 @@ DECL|class|TruncateTokenFilterTests
 specifier|public
 class|class
 name|TruncateTokenFilterTests
+extends|extends
+name|ElasticSearchTestCase
 block|{
 annotation|@
 name|Test

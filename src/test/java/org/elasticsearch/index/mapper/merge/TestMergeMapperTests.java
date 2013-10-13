@@ -70,9 +70,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|object
-operator|.
-name|ObjectMapper
+name|MapperTestUtils
 import|;
 end_import
 
@@ -86,7 +84,21 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MapperTestUtils
+name|object
+operator|.
+name|ObjectMapper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticSearchTestCase
 import|;
 end_import
 
@@ -151,6 +163,8 @@ DECL|class|TestMergeMapperTests
 specifier|public
 class|class
 name|TestMergeMapperTests
+extends|extends
+name|ElasticSearchTestCase
 block|{
 annotation|@
 name|Test

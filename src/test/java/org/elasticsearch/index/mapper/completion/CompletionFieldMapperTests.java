@@ -86,9 +86,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|core
-operator|.
-name|CompletionFieldMapper
+name|MapperTestUtils
 import|;
 end_import
 
@@ -102,7 +100,21 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MapperTestUtils
+name|core
+operator|.
+name|CompletionFieldMapper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticSearchTestCase
 import|;
 end_import
 
@@ -193,6 +205,8 @@ DECL|class|CompletionFieldMapperTests
 specifier|public
 class|class
 name|CompletionFieldMapperTests
+extends|extends
+name|ElasticSearchTestCase
 block|{
 annotation|@
 name|Test

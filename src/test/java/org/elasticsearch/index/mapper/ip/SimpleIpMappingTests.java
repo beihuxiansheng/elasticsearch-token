@@ -22,6 +22,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticSearchTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Ignore
@@ -42,6 +54,8 @@ DECL|class|SimpleIpMappingTests
 specifier|public
 class|class
 name|SimpleIpMappingTests
+extends|extends
+name|ElasticSearchTestCase
 block|{
 comment|// No Longer enabled...
 comment|//    @Test public void testAutoIpDetection() throws Exception {

@@ -17,6 +17,28 @@ package|;
 end_package
 
 begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticSearchTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -40,16 +62,6 @@ name|equalTo
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
 begin_comment
 comment|/**  * Tests for {@link SlicedDoubleList}  */
 end_comment
@@ -59,6 +71,8 @@ DECL|class|SlicedDoubleListTests
 specifier|public
 class|class
 name|SlicedDoubleListTests
+extends|extends
+name|ElasticSearchTestCase
 block|{
 annotation|@
 name|Test

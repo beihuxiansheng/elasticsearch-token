@@ -70,7 +70,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|ParsedDocument
+name|MapperTestUtils
 import|;
 end_import
 
@@ -84,7 +84,19 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MapperTestUtils
+name|ParsedDocument
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticSearchTestCase
 import|;
 end_import
 
@@ -143,6 +155,8 @@ DECL|class|LatLonAndGeohashMappingGeoPointTests
 specifier|public
 class|class
 name|LatLonAndGeohashMappingGeoPointTests
+extends|extends
+name|ElasticSearchTestCase
 block|{
 annotation|@
 name|Test

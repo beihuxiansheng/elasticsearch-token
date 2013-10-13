@@ -20,6 +20,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticSearchTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -71,6 +83,8 @@ DECL|class|SettingsValidatorTests
 specifier|public
 class|class
 name|SettingsValidatorTests
+extends|extends
+name|ElasticSearchTestCase
 block|{
 annotation|@
 name|Test

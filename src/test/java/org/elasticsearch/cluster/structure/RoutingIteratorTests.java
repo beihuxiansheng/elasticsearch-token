@@ -190,13 +190,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
+name|test
 operator|.
-name|routing
-operator|.
-name|allocation
-operator|.
-name|RoutingAllocationTests
+name|ElasticSearchTestCase
 import|;
 end_import
 
@@ -367,6 +363,8 @@ DECL|class|RoutingIteratorTests
 specifier|public
 class|class
 name|RoutingIteratorTests
+extends|extends
+name|ElasticSearchTestCase
 block|{
 annotation|@
 name|Test

@@ -188,6 +188,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticSearchTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|Matcher
@@ -375,6 +387,8 @@ DECL|class|AddIncrementallyTests
 specifier|public
 class|class
 name|AddIncrementallyTests
+extends|extends
+name|ElasticSearchTestCase
 block|{
 DECL|field|logger
 specifier|private

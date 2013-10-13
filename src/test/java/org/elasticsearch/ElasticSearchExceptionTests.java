@@ -18,16 +18,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|index
 operator|.
 name|Index
@@ -55,6 +45,18 @@ operator|.
 name|rest
 operator|.
 name|RestStatus
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticSearchTestCase
 import|;
 end_import
 
@@ -109,6 +111,8 @@ DECL|class|ElasticSearchExceptionTests
 specifier|public
 class|class
 name|ElasticSearchExceptionTests
+extends|extends
+name|ElasticSearchTestCase
 block|{
 annotation|@
 name|Test

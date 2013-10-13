@@ -74,6 +74,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticSearchTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Ignore
@@ -100,6 +112,8 @@ DECL|class|RoutingAllocationTests
 specifier|public
 class|class
 name|RoutingAllocationTests
+extends|extends
+name|ElasticSearchTestCase
 block|{
 DECL|method|newNode
 specifier|public

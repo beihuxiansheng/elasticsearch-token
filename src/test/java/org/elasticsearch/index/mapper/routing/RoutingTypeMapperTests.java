@@ -86,6 +86,20 @@ name|index
 operator|.
 name|mapper
 operator|.
+name|MapperTestUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
 name|ParsedDocument
 import|;
 end_import
@@ -110,11 +124,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|test
 operator|.
-name|mapper
-operator|.
-name|MapperTestUtils
+name|ElasticSearchTestCase
 import|;
 end_import
 
@@ -171,6 +183,8 @@ DECL|class|RoutingTypeMapperTests
 specifier|public
 class|class
 name|RoutingTypeMapperTests
+extends|extends
+name|ElasticSearchTestCase
 block|{
 annotation|@
 name|Test

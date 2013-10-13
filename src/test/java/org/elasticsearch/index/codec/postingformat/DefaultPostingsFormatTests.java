@@ -216,6 +216,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticSearchTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -305,6 +317,8 @@ DECL|class|DefaultPostingsFormatTests
 specifier|public
 class|class
 name|DefaultPostingsFormatTests
+extends|extends
+name|ElasticSearchTestCase
 block|{
 DECL|class|TestCodec
 specifier|private

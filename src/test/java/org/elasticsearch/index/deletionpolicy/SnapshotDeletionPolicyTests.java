@@ -144,6 +144,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticSearchTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|After
@@ -210,18 +222,6 @@ name|org
 operator|.
 name|hamcrest
 operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
 name|Matchers
 operator|.
 name|equalTo
@@ -237,6 +237,8 @@ DECL|class|SnapshotDeletionPolicyTests
 specifier|public
 class|class
 name|SnapshotDeletionPolicyTests
+extends|extends
+name|ElasticSearchTestCase
 block|{
 DECL|field|shardId
 specifier|protected
@@ -281,6 +283,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
 name|dir
 operator|=
 operator|new
@@ -301,7 +308,6 @@ name|EMPTY_SETTINGS
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// LUCENE 4 UPGRADE: Not sure about version.
 name|indexWriter
 operator|=
 operator|new
@@ -312,9 +318,7 @@ argument_list|,
 operator|new
 name|IndexWriterConfig
 argument_list|(
-name|Lucene
-operator|.
-name|VERSION
+name|TEST_VERSION_CURRENT
 argument_list|,
 name|Lucene
 operator|.
@@ -347,6 +351,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|super
+operator|.
+name|tearDown
+argument_list|()
+expr_stmt|;
 name|indexWriter
 operator|.
 name|close
