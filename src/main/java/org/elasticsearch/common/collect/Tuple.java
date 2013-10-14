@@ -269,6 +269,26 @@ return|return
 name|result
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"Tuple [v1="
+operator|+
+name|v1
+operator|+
+literal|", v2="
+operator|+
+name|v2
+operator|+
+literal|"]"
+return|;
+block|}
 block|}
 end_class
 
