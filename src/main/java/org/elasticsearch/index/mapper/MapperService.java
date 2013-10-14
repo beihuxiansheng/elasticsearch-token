@@ -657,11 +657,11 @@ specifier|volatile
 name|String
 name|defaultMappingSource
 decl_stmt|;
-DECL|field|percolatorMappingSource
+DECL|field|defaultPercolatorMappingSource
 specifier|private
 specifier|volatile
 name|String
-name|percolatorMappingSource
+name|defaultPercolatorMappingSource
 decl_stmt|;
 DECL|field|mappers
 specifier|private
@@ -1100,7 +1100,7 @@ name|componentSettings
 operator|.
 name|get
 argument_list|(
-literal|"percolator_mapping_location"
+literal|"default_percolator_mapping_location"
 argument_list|)
 decl_stmt|;
 name|URL
@@ -1161,9 +1161,9 @@ throw|throw
 operator|new
 name|FailedToResolveConfigException
 argument_list|(
-literal|"Failed to resolve percolator mapping location ["
+literal|"Failed to resolve default percolator mapping location ["
 operator|+
-name|defaultMappingLocation
+name|percolatorMappingLocation
 operator|+
 literal|"]"
 argument_list|)
@@ -1180,7 +1180,7 @@ condition|)
 block|{
 try|try
 block|{
-name|percolatorMappingSource
+name|defaultPercolatorMappingSource
 operator|=
 name|Streams
 operator|.
@@ -1224,11 +1224,11 @@ block|}
 block|}
 else|else
 block|{
-name|percolatorMappingSource
+name|defaultPercolatorMappingSource
 operator|=
 literal|"{\n"
 operator|+
-literal|"    \"_percolator\":{\n"
+literal|"    \"_default_\":{\n"
 operator|+
 literal|"        \"_id\" : {\"index\": \"not_analyzed\"},"
 operator|+
@@ -1302,7 +1302,7 @@ name|percolatorMappingLocation
 argument_list|,
 name|percolatorMappingUrl
 argument_list|,
-name|percolatorMappingSource
+name|defaultPercolatorMappingSource
 argument_list|)
 expr_stmt|;
 block|}
@@ -2336,7 +2336,7 @@ condition|)
 block|{
 name|defaultMappingSource
 operator|=
-name|percolatorMappingSource
+name|defaultPercolatorMappingSource
 expr_stmt|;
 block|}
 else|else

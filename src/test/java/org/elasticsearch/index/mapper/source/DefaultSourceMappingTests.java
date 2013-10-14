@@ -1258,7 +1258,7 @@ argument_list|()
 operator|.
 name|startObject
 argument_list|(
-literal|"type"
+literal|"my_type"
 argument_list|)
 operator|.
 name|startObject
@@ -1531,7 +1531,7 @@ argument_list|()
 operator|.
 name|startObject
 argument_list|(
-literal|"type"
+literal|"my_type"
 argument_list|)
 operator|.
 name|startObject

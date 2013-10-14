@@ -19506,7 +19506,7 @@ argument_list|()
 operator|.
 name|startObject
 argument_list|(
-literal|"s"
+literal|"bs"
 argument_list|)
 operator|.
 name|startObject

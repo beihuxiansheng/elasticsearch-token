@@ -401,7 +401,7 @@ argument_list|()
 operator|.
 name|startObject
 argument_list|(
-literal|"type"
+literal|"type1"
 argument_list|)
 operator|.
 name|startObject
@@ -1325,7 +1325,7 @@ argument_list|()
 operator|.
 name|startObject
 argument_list|(
-literal|"type"
+literal|"type1"
 argument_list|)
 operator|.
 name|startObject
@@ -3389,7 +3389,7 @@ argument_list|()
 operator|.
 name|startObject
 argument_list|(
-literal|"type"
+literal|"type1"
 argument_list|)
 operator|.
 name|startObject

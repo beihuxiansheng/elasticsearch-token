@@ -2534,7 +2534,7 @@ argument_list|()
 operator|.
 name|startObject
 argument_list|(
-literal|"type"
+literal|"type1"
 argument_list|)
 operator|.
 name|startObject
@@ -2571,7 +2571,7 @@ argument_list|()
 operator|.
 name|startObject
 argument_list|(
-literal|"type"
+literal|"type2"
 argument_list|)
 operator|.
 name|startObject
@@ -4820,7 +4820,7 @@ argument_list|()
 operator|.
 name|startObject
 argument_list|(
-literal|"source_excludes"
+name|type
 argument_list|)
 operator|.
 name|startObject
@@ -5101,7 +5101,7 @@ argument_list|()
 operator|.
 name|startObject
 argument_list|(
-literal|"source_excludes"
+name|type
 argument_list|)
 operator|.
 name|startObject
@@ -5387,7 +5387,7 @@ argument_list|()
 operator|.
 name|startObject
 argument_list|(
-literal|"source_excludes"
+name|type
 argument_list|)
 operator|.
 name|startObject
@@ -6264,7 +6264,7 @@ parameter_list|(
 name|VersionConflictEngineException
 name|e
 parameter_list|)
-block|{}
+block|{         }
 comment|// From Lucene index:
 name|client
 argument_list|()
@@ -6464,7 +6464,7 @@ parameter_list|(
 name|VersionConflictEngineException
 name|e
 parameter_list|)
-block|{}
+block|{         }
 name|logger
 operator|.
 name|info
@@ -6601,7 +6601,7 @@ parameter_list|(
 name|VersionConflictEngineException
 name|e
 parameter_list|)
-block|{}
+block|{         }
 name|response
 operator|=
 name|client
@@ -6796,7 +6796,7 @@ parameter_list|(
 name|VersionConflictEngineException
 name|e
 parameter_list|)
-block|{}
+block|{         }
 name|response
 operator|=
 name|client

@@ -2057,6 +2057,35 @@ operator|=
 name|rootName
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+operator|!
+name|type
+operator|.
+name|equals
+argument_list|(
+name|rootName
+argument_list|)
+condition|)
+block|{
+comment|// we always assume the first and single key is the mapping type root
+throw|throw
+operator|new
+name|MapperParsingException
+argument_list|(
+literal|"mapping must have the `type` as the root object. Got ["
+operator|+
+name|rootName
+operator|+
+literal|"], expected ["
+operator|+
+name|type
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
 return|return
 operator|new
 name|Tuple

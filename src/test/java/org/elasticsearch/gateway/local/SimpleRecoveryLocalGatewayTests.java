@@ -3247,7 +3247,7 @@ argument_list|()
 operator|.
 name|startObject
 argument_list|(
-literal|"type1"
+literal|"type2"
 argument_list|)
 operator|.
 name|startObject
