@@ -222,6 +222,8 @@ name|FieldMapper
 parameter_list|<
 name|T
 parameter_list|>
+extends|extends
+name|Mapper
 block|{
 DECL|field|DOC_VALUES_FORMAT
 specifier|public

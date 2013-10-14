@@ -782,47 +782,7 @@ name|mapping
 operator|.
 name|get
 operator|.
-name|GetMappingsRequest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|admin
-operator|.
-name|indices
-operator|.
-name|mapping
-operator|.
-name|get
-operator|.
-name|GetMappingsRequestBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|admin
-operator|.
-name|indices
-operator|.
-name|mapping
-operator|.
-name|get
-operator|.
-name|GetMappingsResponse
+name|*
 import|;
 end_import
 
@@ -2274,6 +2234,7 @@ modifier|...
 name|indices
 parameter_list|)
 function_decl|;
+comment|/**      * Get the complete mappings of one or more types      */
 DECL|method|getMappings
 name|void
 name|getMappings
@@ -2288,6 +2249,7 @@ argument_list|>
 name|listener
 parameter_list|)
 function_decl|;
+comment|/**      * Get the complete mappings of one or more types      */
 DECL|method|getMappings
 name|ActionFuture
 argument_list|<
@@ -2299,6 +2261,7 @@ name|GetMappingsRequest
 name|request
 parameter_list|)
 function_decl|;
+comment|/**      * Get the complete mappings of one or more types      */
 DECL|method|prepareGetMappings
 name|GetMappingsRequestBuilder
 name|prepareGetMappings
@@ -2306,6 +2269,43 @@ parameter_list|(
 name|String
 modifier|...
 name|indices
+parameter_list|)
+function_decl|;
+comment|/**      * Get the mappings of specific fields      */
+DECL|method|getFieldMappings
+name|void
+name|getFieldMappings
+parameter_list|(
+name|GetFieldMappingsRequest
+name|request
+parameter_list|,
+name|ActionListener
+argument_list|<
+name|GetFieldMappingsResponse
+argument_list|>
+name|listener
+parameter_list|)
+function_decl|;
+comment|/**      * Get the mappings of specific fields      */
+DECL|method|prepareGetFieldMappings
+name|GetFieldMappingsRequestBuilder
+name|prepareGetFieldMappings
+parameter_list|(
+name|String
+modifier|...
+name|indices
+parameter_list|)
+function_decl|;
+comment|/**      * Get the mappings of specific fields      */
+DECL|method|getFieldMappings
+name|ActionFuture
+argument_list|<
+name|GetFieldMappingsResponse
+argument_list|>
+name|getFieldMappings
+parameter_list|(
+name|GetFieldMappingsRequest
+name|request
 parameter_list|)
 function_decl|;
 comment|/**      * Add mapping definition for a type into one or more indices.      *      * @param request The create mapping request      * @return A result future      * @see org.elasticsearch.client.Requests#putMappingRequest(String...)      */

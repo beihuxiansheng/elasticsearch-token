@@ -1577,6 +1577,12 @@ name|doXContentBody
 parameter_list|(
 name|XContentBuilder
 name|builder
+parameter_list|,
+name|boolean
+name|includeDefaults
+parameter_list|,
+name|Params
+name|params
 parameter_list|)
 throws|throws
 name|IOException
@@ -1606,6 +1612,8 @@ comment|// Don't emit the tree name since GeohashPrefixTree is the default
 comment|// Only emit the tree levels if it isn't the default value
 if|if
 condition|(
+name|includeDefaults
+operator|||
 name|defaultStrategy
 operator|.
 name|getGrid
@@ -1655,6 +1663,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|includeDefaults
+operator|||
 name|defaultStrategy
 operator|.
 name|getGrid
@@ -1689,6 +1699,8 @@ block|}
 block|}
 if|if
 condition|(
+name|includeDefaults
+operator|||
 name|defaultStrategy
 operator|.
 name|getDistErrPct

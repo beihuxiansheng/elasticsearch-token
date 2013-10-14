@@ -42,6 +42,20 @@ name|common
 operator|.
 name|xcontent
 operator|.
+name|ToXContent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
 name|XContentBuilder
 import|;
 end_import
@@ -187,18 +201,6 @@ operator|.
 name|util
 operator|.
 name|Map
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
 import|;
 end_import
 
@@ -1141,7 +1143,9 @@ name|toXContent
 argument_list|(
 name|builder
 argument_list|,
-literal|null
+name|ToXContent
+operator|.
+name|EMPTY_PARAMS
 argument_list|)
 expr_stmt|;
 name|builder
@@ -1274,7 +1278,9 @@ name|toXContent
 argument_list|(
 name|builder
 argument_list|,
-literal|null
+name|ToXContent
+operator|.
+name|EMPTY_PARAMS
 argument_list|)
 operator|.
 name|endObject

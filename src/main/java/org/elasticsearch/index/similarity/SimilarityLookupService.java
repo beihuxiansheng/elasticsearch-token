@@ -135,7 +135,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Service for looking up configured {@link SimilarityProvider} implementations by name.  *  * The service instantiates the Providers through their Factories using configuration  * values found with the {@link SimilarityModule#SIMILARITY_SETTINGS_PREFIX} prefix.  */
+comment|/**  * Service for looking up configured {@link SimilarityProvider} implementations by name.  *<p/>  * The service instantiates the Providers through their Factories using configuration  * values found with the {@link SimilarityModule#SIMILARITY_SETTINGS_PREFIX} prefix.  */
 end_comment
 
 begin_class
@@ -146,6 +146,15 @@ name|SimilarityLookupService
 extends|extends
 name|AbstractIndexComponent
 block|{
+DECL|field|DEFAULT_SIMILARITY
+specifier|public
+specifier|final
+specifier|static
+name|String
+name|DEFAULT_SIMILARITY
+init|=
+literal|"default"
+decl_stmt|;
 DECL|field|similarities
 specifier|private
 specifier|final

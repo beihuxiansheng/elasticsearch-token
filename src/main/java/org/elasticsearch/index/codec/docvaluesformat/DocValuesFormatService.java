@@ -161,7 +161,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The {@link DocValuesFormatService} provides access to  * all configured {@link DocValuesFormatProvider} instances by  * {@link DocValuesFormatProvider#name() name}.  *   * @see CodecService  *   */
+comment|/**  * The {@link DocValuesFormatService} provides access to  * all configured {@link DocValuesFormatProvider} instances by  * {@link DocValuesFormatProvider#name() name}.  *  * @see CodecService  */
 end_comment
 
 begin_class
@@ -182,6 +182,15 @@ argument_list|,
 name|DocValuesFormatProvider
 argument_list|>
 name|providers
+decl_stmt|;
+DECL|field|DEFAULT_FORMAT
+specifier|public
+specifier|final
+specifier|static
+name|String
+name|DEFAULT_FORMAT
+init|=
+literal|"default"
 decl_stmt|;
 DECL|method|DocValuesFormatService
 specifier|public

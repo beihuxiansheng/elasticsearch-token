@@ -1051,7 +1051,7 @@ name|e
 throw|;
 block|}
 block|}
-comment|/** Utility method to convert a long to a doc values field using {@link NumericUtils} encoding. */
+comment|/**      * Utility method to convert a long to a doc values field using {@link NumericUtils} encoding.      */
 DECL|method|toDocValues
 specifier|protected
 specifier|final
@@ -1095,7 +1095,7 @@ name|bytes
 argument_list|)
 return|;
 block|}
-comment|/** Utility method to convert an int to a doc values field using {@link NumericUtils} encoding. */
+comment|/**      * Utility method to convert an int to a doc values field using {@link NumericUtils} encoding.      */
 DECL|method|toDocValues
 specifier|protected
 specifier|final
@@ -1139,7 +1139,7 @@ name|bytes
 argument_list|)
 return|;
 block|}
-comment|/** Utility method to convert a float to a doc values field using {@link NumericUtils} encoding. */
+comment|/**      * Utility method to convert a float to a doc values field using {@link NumericUtils} encoding.      */
 DECL|method|toDocValues
 specifier|protected
 specifier|final
@@ -1162,7 +1162,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/** Utility method to convert a double to a doc values field using {@link NumericUtils} encoding. */
+comment|/**      * Utility method to convert a double to a doc values field using {@link NumericUtils} encoding.      */
 DECL|method|toDocValues
 specifier|protected
 specifier|final
@@ -1674,6 +1674,12 @@ name|doXContentBody
 parameter_list|(
 name|XContentBuilder
 name|builder
+parameter_list|,
+name|boolean
+name|includeDefaults
+parameter_list|,
+name|Params
+name|params
 parameter_list|)
 throws|throws
 name|IOException
@@ -1683,10 +1689,16 @@ operator|.
 name|doXContentBody
 argument_list|(
 name|builder
+argument_list|,
+name|includeDefaults
+argument_list|,
+name|params
 argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|includeDefaults
+operator|||
 name|ignoreMalformed
 operator|.
 name|explicit

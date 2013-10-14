@@ -1417,9 +1417,24 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|boolean
+name|includeDefaults
+init|=
+name|params
+operator|.
+name|paramAsBoolean
+argument_list|(
+literal|"include_defaults"
+argument_list|,
+literal|false
+argument_list|)
+decl_stmt|;
 comment|// if all are defaults, no sense to write it at all
 if|if
 condition|(
+operator|!
+name|includeDefaults
+operator|&&
 name|enabledState
 operator|==
 name|Defaults
@@ -1446,6 +1461,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|includeDefaults
+operator|||
 name|enabledState
 operator|!=
 name|Defaults
@@ -1467,6 +1484,8 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|includeDefaults
+operator|||
 name|defaultTTL
 operator|!=
 name|Defaults

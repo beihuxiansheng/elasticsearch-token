@@ -195,7 +195,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Since Lucene 4.0 low level index segments are read and written through a  * codec layer that allows to use use-case specific file formats&  * data-structures per field. ElasticSearch exposes the full  * {@link Codec} capabilities through this {@link CodecService}.  *   * @see PostingsFormatService  * @see DocValuesFormatService  */
+comment|/**  * Since Lucene 4.0 low level index segments are read and written through a  * codec layer that allows to use use-case specific file formats&  * data-structures per field. ElasticSearch exposes the full  * {@link Codec} capabilities through this {@link CodecService}.  *  * @see PostingsFormatService  * @see DocValuesFormatService  */
 end_comment
 
 begin_class
@@ -234,6 +234,15 @@ argument_list|,
 name|Codec
 argument_list|>
 name|codecs
+decl_stmt|;
+DECL|field|DEFAULT_CODEC
+specifier|public
+specifier|final
+specifier|static
+name|String
+name|DEFAULT_CODEC
+init|=
+literal|"default"
 decl_stmt|;
 DECL|method|CodecService
 specifier|public
@@ -372,7 +381,7 @@ name|codecs
 operator|.
 name|put
 argument_list|(
-literal|"default"
+name|DEFAULT_CODEC
 argument_list|,
 name|Codec
 operator|.
@@ -387,7 +396,7 @@ name|codecs
 operator|.
 name|put
 argument_list|(
-literal|"default"
+name|DEFAULT_CODEC
 argument_list|,
 operator|new
 name|PerFieldMappingPostingFormatCodec
@@ -398,7 +407,9 @@ name|postingsFormatService
 operator|.
 name|get
 argument_list|(
-literal|"default"
+name|PostingsFormatService
+operator|.
+name|DEFAULT_FORMAT
 argument_list|)
 operator|.
 name|get
@@ -408,7 +419,9 @@ name|docValuesFormatService
 operator|.
 name|get
 argument_list|(
-literal|"default"
+name|DocValuesFormatService
+operator|.
+name|DEFAULT_FORMAT
 argument_list|)
 operator|.
 name|get
