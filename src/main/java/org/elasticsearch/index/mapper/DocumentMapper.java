@@ -1018,7 +1018,21 @@ name|VersionFieldMapper
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// don't add parent field, by default its "null"
+name|this
+operator|.
+name|rootMappers
+operator|.
+name|put
+argument_list|(
+name|ParentFieldMapper
+operator|.
+name|class
+argument_list|,
+operator|new
+name|ParentFieldMapper
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|meta
 specifier|public
@@ -1701,8 +1715,9 @@ name|ParentFieldMapper
 operator|.
 name|class
 argument_list|)
-operator|!=
-literal|null
+operator|.
+name|active
+argument_list|()
 condition|)
 block|{
 comment|// mark the routing field mapper as required
@@ -3346,6 +3361,19 @@ argument_list|,
 name|mergeFlags
 argument_list|)
 decl_stmt|;
+assert|assert
+name|rootMappers
+operator|.
+name|size
+argument_list|()
+operator|==
+name|mergeWith
+operator|.
+name|rootMappers
+operator|.
+name|size
+argument_list|()
+assert|;
 name|rootObjectMapper
 operator|.
 name|merge

@@ -756,12 +756,14 @@ throw|;
 block|}
 if|if
 condition|(
+operator|!
 name|childDocMapper
 operator|.
 name|parentFieldMapper
 argument_list|()
-operator|==
-literal|null
+operator|.
+name|active
+argument_list|()
 condition|)
 block|{
 throw|throw

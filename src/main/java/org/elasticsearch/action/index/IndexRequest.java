@@ -2292,6 +2292,45 @@ name|id
 argument_list|)
 throw|;
 block|}
+if|if
+condition|(
+name|parent
+operator|!=
+literal|null
+operator|&&
+operator|!
+name|mappingMd
+operator|.
+name|hasParentField
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|ElasticSearchIllegalArgumentException
+argument_list|(
+literal|"Can't specify parent if no parent field has been configured"
+argument_list|)
+throw|;
+block|}
+block|}
+else|else
+block|{
+if|if
+condition|(
+name|parent
+operator|!=
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|ElasticSearchIllegalArgumentException
+argument_list|(
+literal|"Can't specify parent if no parent field has been configured"
+argument_list|)
+throw|;
+block|}
 block|}
 comment|// generate id if not already provided and id generation is allowed
 if|if

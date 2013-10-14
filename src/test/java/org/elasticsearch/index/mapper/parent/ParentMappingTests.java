@@ -74,9 +74,9 @@ name|org
 operator|.
 name|hamcrest
 operator|.
-name|MatcherAssert
+name|Matchers
 operator|.
-name|assertThat
+name|equalTo
 import|;
 end_import
 
@@ -88,7 +88,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|equalTo
+name|nullValue
 import|;
 end_import
 
@@ -211,10 +211,8 @@ operator|.
 name|parent
 argument_list|()
 argument_list|,
-name|equalTo
-argument_list|(
-literal|null
-argument_list|)
+name|nullValue
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -229,10 +227,8 @@ argument_list|(
 literal|"_parent"
 argument_list|)
 argument_list|,
-name|equalTo
-argument_list|(
-literal|"1122"
-argument_list|)
+name|nullValue
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

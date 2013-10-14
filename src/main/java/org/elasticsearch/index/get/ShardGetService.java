@@ -1670,8 +1670,9 @@ name|docMapper
 operator|.
 name|parentFieldMapper
 argument_list|()
-operator|!=
-literal|null
+operator|.
+name|active
+argument_list|()
 operator|&&
 name|docMapper
 operator|.

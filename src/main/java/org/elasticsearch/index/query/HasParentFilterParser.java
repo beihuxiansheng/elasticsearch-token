@@ -923,8 +923,9 @@ decl_stmt|;
 if|if
 condition|(
 name|parentFieldMapper
-operator|!=
-literal|null
+operator|.
+name|active
+argument_list|()
 condition|)
 block|{
 name|DocumentMapper
