@@ -134,22 +134,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
-operator|.
-name|AwaitsFix
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|ExceptionsHelper
@@ -1403,6 +1387,9 @@ block|}
 DECL|method|createMergePolicy
 specifier|protected
 name|MergePolicyProvider
+argument_list|<
+name|?
+argument_list|>
 name|createMergePolicy
 parameter_list|()
 block|{
@@ -1429,6 +1416,9 @@ block|}
 DECL|method|createMergeScheduler
 specifier|protected
 name|MergeSchedulerProvider
+argument_list|<
+name|?
+argument_list|>
 name|createMergeScheduler
 parameter_list|()
 block|{
@@ -1488,6 +1478,9 @@ name|Translog
 name|translog
 parameter_list|,
 name|MergeSchedulerProvider
+argument_list|<
+name|?
+argument_list|>
 name|mergeSchedulerProvider
 parameter_list|)
 block|{
@@ -3016,13 +3009,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"kimchy is taking care of the fix"
-argument_list|)
 DECL|method|testSegmentsWithMergeFlag
 specifier|public
 name|void
@@ -3031,7 +3017,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|MergeSchedulerProvider
+name|ConcurrentMergeSchedulerProvider
 name|mergeSchedulerProvider
 init|=
 operator|new
