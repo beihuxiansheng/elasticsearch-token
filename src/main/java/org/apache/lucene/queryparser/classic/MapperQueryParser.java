@@ -1083,7 +1083,7 @@ name|mField
 argument_list|,
 name|queryText
 argument_list|,
-literal|true
+name|quoted
 argument_list|)
 decl_stmt|;
 if|if
