@@ -1180,7 +1180,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"index.mapping.date.parse_upper_inclusive"
+literal|"index.mapping.date.round_ceil"
 argument_list|,
 literal|false
 argument_list|)

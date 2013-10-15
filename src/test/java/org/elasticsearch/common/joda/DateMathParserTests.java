@@ -315,7 +315,7 @@ name|assertThat
 argument_list|(
 name|parser
 operator|.
-name|parseUpperInclusive
+name|parseRoundCeil
 argument_list|(
 literal|"now+1m+1s/m"
 argument_list|,
@@ -525,7 +525,7 @@ name|assertThat
 argument_list|(
 name|parser
 operator|.
-name|parseUpperInclusive
+name|parseRoundCeil
 argument_list|(
 literal|"2013-03-03||/y"
 argument_list|,

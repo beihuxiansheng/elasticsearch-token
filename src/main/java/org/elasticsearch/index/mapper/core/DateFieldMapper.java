@@ -663,12 +663,12 @@ name|TimeUnit
 operator|.
 name|MILLISECONDS
 decl_stmt|;
-DECL|field|PARSE_UPPER_INCLUSIVE
+DECL|field|ROUND_CEIL
 specifier|public
 specifier|static
 specifier|final
 name|boolean
-name|PARSE_UPPER_INCLUSIVE
+name|ROUND_CEIL
 init|=
 literal|true
 decl_stmt|;
@@ -822,11 +822,11 @@ name|context
 parameter_list|)
 block|{
 name|boolean
-name|parseUpperInclusive
+name|roundCeil
 init|=
 name|Defaults
 operator|.
-name|PARSE_UPPER_INCLUSIVE
+name|ROUND_CEIL
 decl_stmt|;
 if|if
 condition|(
@@ -838,12 +838,23 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|parseUpperInclusive
-operator|=
+name|Settings
+name|settings
+init|=
 name|context
 operator|.
 name|indexSettings
 argument_list|()
+decl_stmt|;
+name|roundCeil
+operator|=
+name|settings
+operator|.
+name|getAsBoolean
+argument_list|(
+literal|"index.mapping.date.round_ceil"
+argument_list|,
+name|settings
 operator|.
 name|getAsBoolean
 argument_list|(
@@ -851,7 +862,8 @@ literal|"index.mapping.date.parse_upper_inclusive"
 argument_list|,
 name|Defaults
 operator|.
-name|PARSE_UPPER_INCLUSIVE
+name|ROUND_CEIL
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -930,7 +942,7 @@ name|nullValue
 argument_list|,
 name|timeUnit
 argument_list|,
-name|parseUpperInclusive
+name|roundCeil
 argument_list|,
 name|ignoreMalformed
 argument_list|(
@@ -1322,11 +1334,18 @@ specifier|final
 name|FormatDateTimeFormatter
 name|dateTimeFormatter
 decl_stmt|;
-DECL|field|parseUpperInclusive
+comment|// Triggers rounding up of the upper bound for range queries and filters if
+comment|// set to true.
+comment|// Rounding up a date here has the following meaning: If a date is not
+comment|// defined with full precision, for example, no milliseconds given, the date
+comment|// will be filled up to the next larger date with that precision.
+comment|// Example: An upper bound given as "2000-01-01", will be converted to
+comment|// "2000-01-01T23.59.59.999"
+DECL|field|roundCeil
 specifier|private
 specifier|final
 name|boolean
-name|parseUpperInclusive
+name|roundCeil
 decl_stmt|;
 DECL|field|dateMathParser
 specifier|private
@@ -1371,7 +1390,7 @@ name|TimeUnit
 name|timeUnit
 parameter_list|,
 name|boolean
-name|parseUpperInclusive
+name|roundCeil
 parameter_list|,
 name|Explicit
 argument_list|<
@@ -1478,9 +1497,9 @@ name|timeUnit
 expr_stmt|;
 name|this
 operator|.
-name|parseUpperInclusive
+name|roundCeil
 operator|=
-name|parseUpperInclusive
+name|roundCeil
 expr_stmt|;
 name|this
 operator|.
@@ -2017,10 +2036,12 @@ argument_list|()
 decl_stmt|;
 return|return
 name|includeUpper
+operator|&&
+name|roundCeil
 condition|?
 name|dateMathParser
 operator|.
-name|parseUpperInclusive
+name|parseRoundCeil
 argument_list|(
 name|convertToString
 argument_list|(
@@ -2155,8 +2176,6 @@ argument_list|,
 name|context
 argument_list|,
 name|includeUpper
-operator|&&
-name|parseUpperInclusive
 argument_list|)
 argument_list|,
 name|includeLower
@@ -2228,8 +2247,6 @@ argument_list|,
 name|context
 argument_list|,
 name|includeUpper
-operator|&&
-name|parseUpperInclusive
 argument_list|)
 argument_list|,
 name|includeLower
@@ -2310,8 +2327,6 @@ argument_list|,
 name|context
 argument_list|,
 name|includeUpper
-operator|&&
-name|parseUpperInclusive
 argument_list|)
 argument_list|,
 name|includeLower

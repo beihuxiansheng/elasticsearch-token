@@ -647,11 +647,11 @@ name|context
 parameter_list|)
 block|{
 name|boolean
-name|parseUpperInclusive
+name|roundCeil
 init|=
 name|Defaults
 operator|.
-name|PARSE_UPPER_INCLUSIVE
+name|ROUND_CEIL
 decl_stmt|;
 if|if
 condition|(
@@ -663,12 +663,23 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|parseUpperInclusive
-operator|=
+name|Settings
+name|settings
+init|=
 name|context
 operator|.
 name|indexSettings
 argument_list|()
+decl_stmt|;
+name|roundCeil
+operator|=
+name|settings
+operator|.
+name|getAsBoolean
+argument_list|(
+literal|"index.mapping.date.round_ceil"
+argument_list|,
+name|settings
 operator|.
 name|getAsBoolean
 argument_list|(
@@ -676,7 +687,8 @@ literal|"index.mapping.date.parse_upper_inclusive"
 argument_list|,
 name|Defaults
 operator|.
-name|PARSE_UPPER_INCLUSIVE
+name|ROUND_CEIL
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -692,7 +704,7 @@ name|path
 argument_list|,
 name|dateTimeFormatter
 argument_list|,
-name|parseUpperInclusive
+name|roundCeil
 argument_list|,
 name|ignoreMalformed
 argument_list|(
@@ -941,7 +953,7 @@ name|DATE_TIME_FORMATTER
 argument_list|,
 name|Defaults
 operator|.
-name|PARSE_UPPER_INCLUSIVE
+name|ROUND_CEIL
 argument_list|,
 name|Defaults
 operator|.
@@ -976,7 +988,7 @@ name|FormatDateTimeFormatter
 name|dateTimeFormatter
 parameter_list|,
 name|boolean
-name|parseUpperInclusive
+name|roundCeil
 parameter_list|,
 name|Explicit
 argument_list|<
@@ -1042,7 +1054,7 @@ operator|.
 name|MILLISECONDS
 comment|/*always milliseconds*/
 argument_list|,
-name|parseUpperInclusive
+name|roundCeil
 argument_list|,
 name|ignoreMalformed
 argument_list|,
