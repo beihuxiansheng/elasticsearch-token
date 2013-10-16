@@ -1092,10 +1092,8 @@ name|HashedBytesRef
 argument_list|(
 name|values
 operator|.
-name|makeSafe
-argument_list|(
-name|value
-argument_list|)
+name|copyShared
+argument_list|()
 argument_list|,
 name|hashCode
 argument_list|)
@@ -1329,10 +1327,8 @@ name|HashedBytesRef
 argument_list|(
 name|values
 operator|.
-name|makeSafe
-argument_list|(
-name|value
-argument_list|)
+name|copyShared
+argument_list|()
 argument_list|,
 name|hashCode
 argument_list|)

@@ -431,7 +431,7 @@ argument_list|)
 expr_stmt|;
 comment|// LUCENE 4 UPGRADE: needs optimization -- maybe a CharSequence
 comment|// does the job here?
-comment|// we only creat that string if we really need
+comment|// we only create that string if we really need
 name|script
 operator|.
 name|setNextVar
@@ -484,8 +484,6 @@ block|}
 block|}
 else|else
 block|{
-comment|// LUCENE 4 UPGRADE: should be possible to convert directly
-comment|// to BR
 name|scriptSpare
 operator|.
 name|copyChars

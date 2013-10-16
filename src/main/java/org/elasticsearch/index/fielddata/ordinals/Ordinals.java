@@ -42,18 +42,22 @@ specifier|public
 interface|interface
 name|Ordinals
 block|{
-comment|/**      * Are the ordinals backed by a single ordinals array?      */
-DECL|method|hasSingleArrayBackingStorage
-name|boolean
-name|hasSingleArrayBackingStorage
-parameter_list|()
-function_decl|;
-comment|/**      * Returns the backing storage for this ordinals.      */
-DECL|method|getBackingStorage
-name|Object
-name|getBackingStorage
-parameter_list|()
-function_decl|;
+DECL|field|MISSING_ORDINAL
+specifier|static
+specifier|final
+name|long
+name|MISSING_ORDINAL
+init|=
+literal|0
+decl_stmt|;
+DECL|field|MIN_ORDINAL
+specifier|static
+specifier|final
+name|long
+name|MIN_ORDINAL
+init|=
+literal|1
+decl_stmt|;
 comment|/**      * The memory size this ordinals take.      */
 DECL|method|getMemorySizeInBytes
 name|long
@@ -72,13 +76,13 @@ name|int
 name|getNumDocs
 parameter_list|()
 function_decl|;
-comment|/**      * The number of ordinals, excluding the "0" ordinal indicating a missing value.      */
+comment|/**      * The number of ordinals, excluding the {@link #MISSING_ORDINAL} ordinal indicating a missing value.      */
 DECL|method|getNumOrds
 name|long
 name|getNumOrds
 parameter_list|()
 function_decl|;
-comment|/**      * Returns total unique ord count; this includes +1 for      * the null ord (always 0).      */
+comment|/**      * Returns total unique ord count; this includes +1 for      * the  {@link #MISSING_ORDINAL}  ord (always  {@value #MISSING_ORDINAL} ).      */
 DECL|method|getMaxOrd
 name|long
 name|getMaxOrd
@@ -90,7 +94,7 @@ name|Docs
 name|ordinals
 parameter_list|()
 function_decl|;
-comment|/**      * A non thread safe ordinals abstraction, yet very lightweight to create. The idea      * is that this gets created for each "iteration" over ordinals.      *<p/>      *<p>A value of 0 ordinal when iterating indicated "no" value.</p>      */
+comment|/**      * A non thread safe ordinals abstraction, yet very lightweight to create. The idea      * is that this gets created for each "iteration" over ordinals.      *<p/>      *<p>A value of 0 ordinal when iterating indicated "no" value.</p>      * To iterate of a set of ordinals for a given document use {@link #setDocument(int)} and {@link #nextOrd()} as      * show in the example below:      *<pre>      *   Ordinals.Docs docs = ...;      *   final int len = docs.setDocId(docId);      *   for (int i = 0; i< len; i++) {      *       final long ord = docs.nextOrd();      *       // process ord      *   }      *</pre>      */
 DECL|interface|Docs
 interface|interface
 name|Docs
@@ -143,110 +147,27 @@ name|int
 name|docId
 parameter_list|)
 function_decl|;
-comment|/**          * Returns an iterator of the ordinals that match the docId, with an          * empty iterator for a doc with no ordinals.          */
-DECL|method|getIter
-name|Iter
-name|getIter
+comment|/**          * Returns the next ordinal for the current docID set to {@link #setDocument(int)}.          * This method should only be called<tt>N</tt> times where<tt>N</tt> is the number          * returned from {@link #setDocument(int)}. If called more than<tt>N</tt> times the behavior          * is undefined.          *          * Note: This method will never return<tt>0</tt>.          *          * @return the next ordinal for the current docID set to {@link #setDocument(int)}.          */
+DECL|method|nextOrd
+name|long
+name|nextOrd
+parameter_list|()
+function_decl|;
+comment|/**          * Sets iteration to the specified docID and returns the number of          * ordinals for this document ID,          * @param docId document ID          *          * @see #nextOrd()          */
+DECL|method|setDocument
+name|int
+name|setDocument
 parameter_list|(
 name|int
 name|docId
 parameter_list|)
 function_decl|;
-comment|/**          * An iterator over ordinals values.          */
-DECL|interface|Iter
-interface|interface
-name|Iter
-block|{
-comment|/**              * Gets the next ordinal. Returning 0 if the iteration is exhausted.              */
-DECL|method|next
+comment|/**          * Returns the current ordinal in the iteration          * @return the current ordinal in the iteration          */
+DECL|method|currentOrd
 name|long
-name|next
+name|currentOrd
 parameter_list|()
 function_decl|;
-block|}
-DECL|class|EmptyIter
-specifier|static
-class|class
-name|EmptyIter
-implements|implements
-name|Iter
-block|{
-DECL|field|INSTANCE
-specifier|public
-specifier|static
-name|EmptyIter
-name|INSTANCE
-init|=
-operator|new
-name|EmptyIter
-argument_list|()
-decl_stmt|;
-annotation|@
-name|Override
-DECL|method|next
-specifier|public
-name|long
-name|next
-parameter_list|()
-block|{
-return|return
-literal|0
-return|;
-block|}
-block|}
-DECL|class|SingleValueIter
-specifier|static
-class|class
-name|SingleValueIter
-implements|implements
-name|Iter
-block|{
-DECL|field|value
-specifier|private
-name|long
-name|value
-decl_stmt|;
-DECL|method|reset
-specifier|public
-name|SingleValueIter
-name|reset
-parameter_list|(
-name|long
-name|value
-parameter_list|)
-block|{
-name|this
-operator|.
-name|value
-operator|=
-name|value
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|next
-specifier|public
-name|long
-name|next
-parameter_list|()
-block|{
-name|long
-name|actual
-init|=
-name|value
-decl_stmt|;
-name|value
-operator|=
-literal|0
-expr_stmt|;
-return|return
-name|actual
-return|;
-block|}
-block|}
 block|}
 block|}
 end_interface

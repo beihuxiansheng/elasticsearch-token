@@ -1198,8 +1198,10 @@ decl_stmt|;
 if|if
 condition|(
 name|ord
-operator|>
-literal|0
+operator|!=
+name|Ordinals
+operator|.
+name|MISSING_ORDINAL
 condition|)
 block|{
 name|sValues
