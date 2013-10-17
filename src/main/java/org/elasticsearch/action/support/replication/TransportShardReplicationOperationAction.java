@@ -1226,6 +1226,19 @@ return|return
 name|executor
 return|;
 block|}
+comment|// we must never reject on because of thread pool capacity on replicas
+annotation|@
+name|Override
+DECL|method|isForceExecution
+specifier|public
+name|boolean
+name|isForceExecution
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|messageReceived

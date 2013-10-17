@@ -52,6 +52,12 @@ name|String
 name|executor
 parameter_list|()
 function_decl|;
+comment|/**      * See {@link org.elasticsearch.common.util.concurrent.AbstractRunnable#isForceExecution()}.      */
+DECL|method|isForceExecution
+name|boolean
+name|isForceExecution
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

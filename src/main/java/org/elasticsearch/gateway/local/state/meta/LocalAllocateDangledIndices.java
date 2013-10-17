@@ -568,8 +568,8 @@ block|}
 DECL|class|AllocateDangledRequestHandler
 class|class
 name|AllocateDangledRequestHandler
-implements|implements
-name|TransportRequestHandler
+extends|extends
+name|BaseTransportRequestHandler
 argument_list|<
 name|AllocateDangledRequest
 argument_list|>

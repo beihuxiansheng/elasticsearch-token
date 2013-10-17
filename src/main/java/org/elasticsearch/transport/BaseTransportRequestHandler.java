@@ -34,7 +34,21 @@ name|TransportRequestHandler
 argument_list|<
 name|T
 argument_list|>
-block|{  }
+block|{
+comment|/**      * Default force execution to false.      */
+annotation|@
+name|Override
+DECL|method|isForceExecution
+specifier|public
+name|boolean
+name|isForceExecution
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
+block|}
 end_class
 
 end_unit
