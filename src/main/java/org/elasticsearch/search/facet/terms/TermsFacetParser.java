@@ -66,6 +66,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ElasticSearchParseException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|component
@@ -713,6 +723,24 @@ name|map
 argument_list|()
 expr_stmt|;
 block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|ElasticSearchParseException
+argument_list|(
+literal|"unknown parameter ["
+operator|+
+name|currentFieldName
+operator|+
+literal|"] while parsing terms facet ["
+operator|+
+name|facetName
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
 block|}
 elseif|else
 if|if
@@ -855,6 +883,24 @@ argument_list|()
 index|]
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|ElasticSearchParseException
+argument_list|(
+literal|"unknown parameter ["
+operator|+
+name|currentFieldName
+operator|+
+literal|"] while parsing terms facet ["
+operator|+
+name|facetName
+operator|+
+literal|"]"
+argument_list|)
+throw|;
 block|}
 block|}
 elseif|else
@@ -1116,6 +1162,24 @@ name|textOrNull
 argument_list|()
 expr_stmt|;
 block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|ElasticSearchParseException
+argument_list|(
+literal|"unknown parameter ["
+operator|+
+name|currentFieldName
+operator|+
+literal|"] while parsing terms facet ["
+operator|+
+name|facetName
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
 block|}
 block|}
 if|if
@@ -1374,10 +1438,6 @@ name|field
 operator|==
 literal|null
 operator|&&
-name|fieldsNames
-operator|==
-literal|null
-operator|&&
 name|script
 operator|!=
 literal|null
@@ -1411,6 +1471,25 @@ name|cacheRecycler
 argument_list|()
 argument_list|)
 return|;
+block|}
+if|if
+condition|(
+name|field
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|ElasticSearchParseException
+argument_list|(
+literal|"terms facet ["
+operator|+
+name|facetName
+operator|+
+literal|"] must have a field, fields or script parameter"
+argument_list|)
+throw|;
 block|}
 name|FieldMapper
 name|fieldMapper
