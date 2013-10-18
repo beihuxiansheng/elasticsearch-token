@@ -18225,9 +18225,9 @@ argument_list|)
 operator|.
 name|setMinScore
 argument_list|(
-literal|2
+literal|3
 argument_list|)
-comment|// Score needs to be above 2.0!
+comment|// Score needs to be 3 or above!
 operator|.
 name|execute
 argument_list|()
