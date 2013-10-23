@@ -1637,6 +1637,10 @@ operator|==
 literal|0
 condition|)
 block|{
+name|currentDocId
+operator|=
+name|NO_MORE_DOCS
+expr_stmt|;
 return|return
 name|NO_MORE_DOCS
 return|;
@@ -1721,6 +1725,10 @@ operator|==
 literal|0
 condition|)
 block|{
+name|currentDocId
+operator|=
+name|NO_MORE_DOCS
+expr_stmt|;
 return|return
 name|NO_MORE_DOCS
 return|;
