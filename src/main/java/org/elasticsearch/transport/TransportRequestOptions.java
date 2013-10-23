@@ -77,14 +77,17 @@ specifier|static
 enum|enum
 name|Type
 block|{
-DECL|enum constant|LOW
-name|LOW
+DECL|enum constant|RECOVERY
+name|RECOVERY
 block|,
-DECL|enum constant|MED
-name|MED
+DECL|enum constant|BULK
+name|BULK
 block|,
-DECL|enum constant|HIGH
-name|HIGH
+DECL|enum constant|REG
+name|REG
+block|,
+DECL|enum constant|STATE
+name|STATE
 block|,
 DECL|enum constant|PING
 name|PING
@@ -101,7 +104,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-literal|"low"
+literal|"bulk"
 operator|.
 name|equalsIgnoreCase
 argument_list|(
@@ -110,13 +113,13 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|LOW
+name|BULK
 return|;
 block|}
 elseif|else
 if|if
 condition|(
-literal|"med"
+literal|"reg"
 operator|.
 name|equalsIgnoreCase
 argument_list|(
@@ -125,13 +128,13 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|MED
+name|REG
 return|;
 block|}
 elseif|else
 if|if
 condition|(
-literal|"high"
+literal|"state"
 operator|.
 name|equalsIgnoreCase
 argument_list|(
@@ -140,7 +143,22 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|HIGH
+name|STATE
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+literal|"recovery"
+operator|.
+name|equalsIgnoreCase
+argument_list|(
+name|type
+argument_list|)
+condition|)
+block|{
+return|return
+name|RECOVERY
 return|;
 block|}
 elseif|else
@@ -191,7 +209,7 @@ name|type
 init|=
 name|Type
 operator|.
-name|MED
+name|REG
 decl_stmt|;
 DECL|method|withTimeout
 specifier|public
@@ -266,82 +284,6 @@ operator|.
 name|type
 operator|=
 name|type
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * A request that requires very low latency.      */
-DECL|method|withPingType
-specifier|public
-name|TransportRequestOptions
-name|withPingType
-parameter_list|()
-block|{
-name|this
-operator|.
-name|type
-operator|=
-name|Type
-operator|.
-name|PING
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * A channel reserved for high prio requests.      */
-DECL|method|withHighType
-specifier|public
-name|TransportRequestOptions
-name|withHighType
-parameter_list|()
-block|{
-name|this
-operator|.
-name|type
-operator|=
-name|Type
-operator|.
-name|HIGH
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * The typical requests flows go through this one.      */
-DECL|method|withMedType
-specifier|public
-name|TransportRequestOptions
-name|withMedType
-parameter_list|()
-block|{
-name|this
-operator|.
-name|type
-operator|=
-name|Type
-operator|.
-name|MED
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Batch oriented (big payload) based requests use this one.      */
-DECL|method|withLowType
-specifier|public
-name|TransportRequestOptions
-name|withLowType
-parameter_list|()
-block|{
-name|this
-operator|.
-name|type
-operator|=
-name|Type
-operator|.
-name|LOW
 expr_stmt|;
 return|return
 name|this

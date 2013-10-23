@@ -654,8 +654,14 @@ operator|.
 name|options
 argument_list|()
 operator|.
-name|withHighType
-argument_list|()
+name|withType
+argument_list|(
+name|TransportRequestOptions
+operator|.
+name|Type
+operator|.
+name|STATE
+argument_list|)
 operator|.
 name|withCompress
 argument_list|(
