@@ -2947,6 +2947,7 @@ operator|.
 name|endArray
 argument_list|()
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|trackScores
@@ -2961,7 +2962,6 @@ argument_list|,
 name|trackScores
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 if|if
 condition|(
