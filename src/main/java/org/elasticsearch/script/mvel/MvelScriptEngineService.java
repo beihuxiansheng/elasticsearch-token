@@ -314,13 +314,6 @@ name|parserConfiguration
 operator|.
 name|addPackageImport
 argument_list|(
-literal|"gnu.trove"
-argument_list|)
-expr_stmt|;
-name|parserConfiguration
-operator|.
-name|addPackageImport
-argument_list|(
 literal|"org.joda"
 argument_list|)
 expr_stmt|;
