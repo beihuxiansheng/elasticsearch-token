@@ -252,8 +252,10 @@ decl_stmt|;
 name|int
 name|numUniqueQueries
 init|=
-name|randomInt
+name|between
 argument_list|(
+literal|1
+argument_list|,
 name|numQueries
 operator|/
 literal|2
