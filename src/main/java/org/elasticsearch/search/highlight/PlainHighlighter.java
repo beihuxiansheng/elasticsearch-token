@@ -1222,8 +1222,6 @@ block|}
 name|String
 index|[]
 name|fragments
-init|=
-literal|null
 decl_stmt|;
 comment|// number_of_fragments is set to 0 but we have a multivalued field
 if|if
@@ -1407,8 +1405,8 @@ name|textsToHighlight
 operator|.
 name|size
 argument_list|()
-operator|>=
-literal|1
+operator|>
+literal|0
 condition|)
 block|{
 comment|// Pull an excerpt from the beginning of the string but make sure to split the string on a term boundary.
