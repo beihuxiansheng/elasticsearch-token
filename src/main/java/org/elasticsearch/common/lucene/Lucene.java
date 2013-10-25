@@ -701,7 +701,7 @@ block|{
 name|query
 operator|=
 operator|new
-name|ConstantScoreQuery
+name|XLuceneConstantScoreQuery
 argument_list|(
 name|query
 argument_list|)

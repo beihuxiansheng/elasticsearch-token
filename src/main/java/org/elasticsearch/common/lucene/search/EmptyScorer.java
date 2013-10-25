@@ -68,6 +68,14 @@ name|EmptyScorer
 extends|extends
 name|Scorer
 block|{
+DECL|field|docId
+specifier|private
+name|int
+name|docId
+init|=
+operator|-
+literal|1
+decl_stmt|;
 DECL|method|EmptyScorer
 specifier|public
 name|EmptyScorer
@@ -92,9 +100,13 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-return|return
-literal|0
-return|;
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"Should never be called"
+argument_list|)
+throw|;
 block|}
 annotation|@
 name|Override
@@ -106,9 +118,13 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-return|return
-literal|0
-return|;
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"Should never be called"
+argument_list|)
+throw|;
 block|}
 annotation|@
 name|Override
@@ -119,8 +135,7 @@ name|docID
 parameter_list|()
 block|{
 return|return
-operator|-
-literal|1
+name|docId
 return|;
 block|}
 annotation|@
@@ -133,7 +148,14 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+assert|assert
+name|docId
+operator|!=
+name|NO_MORE_DOCS
+assert|;
 return|return
+name|docId
+operator|=
 name|NO_MORE_DOCS
 return|;
 block|}
@@ -151,7 +173,10 @@ throws|throws
 name|IOException
 block|{
 return|return
-name|NO_MORE_DOCS
+name|slowAdvance
+argument_list|(
+name|target
+argument_list|)
 return|;
 block|}
 annotation|@

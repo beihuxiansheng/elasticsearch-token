@@ -610,9 +610,10 @@ condition|)
 block|{
 name|noMatchQuery
 operator|=
-name|MatchNoDocsQuery
+name|Queries
 operator|.
-name|INSTANCE
+name|newMatchNoDocsQuery
+argument_list|()
 expr_stmt|;
 block|}
 block|}

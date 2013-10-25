@@ -118,18 +118,6 @@ specifier|public
 class|class
 name|Queries
 block|{
-comment|/* In general we should never us a static query instance and share it.      * In this case the instance is immutable so that's ok.*/
-DECL|field|NO_MATCH_QUERY
-specifier|public
-specifier|final
-specifier|static
-name|Query
-name|NO_MATCH_QUERY
-init|=
-name|MatchNoDocsQuery
-operator|.
-name|INSTANCE
-decl_stmt|;
 comment|/**      * A match all docs filter. Note, requires no caching!.      */
 DECL|field|MATCH_ALL_FILTER
 specifier|public
@@ -169,6 +157,20 @@ name|XConstantScoreQuery
 argument_list|(
 name|MATCH_ALL_FILTER
 argument_list|)
+return|;
+block|}
+comment|/** Return a query that matches no document. */
+DECL|method|newMatchNoDocsQuery
+specifier|public
+specifier|static
+name|Query
+name|newMatchNoDocsQuery
+parameter_list|()
+block|{
+return|return
+operator|new
+name|MatchNoDocsQuery
+argument_list|()
 return|;
 block|}
 comment|/**      * Optimizes the given query and returns the optimized version of it.      */

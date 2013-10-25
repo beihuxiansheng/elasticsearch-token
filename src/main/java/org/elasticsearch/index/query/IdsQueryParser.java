@@ -68,7 +68,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|ConstantScoreQuery
+name|Query
 import|;
 end_import
 
@@ -82,7 +82,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Query
+name|XLuceneConstantScoreQuery
 import|;
 end_import
 
@@ -677,7 +677,8 @@ block|{
 return|return
 name|Queries
 operator|.
-name|NO_MATCH_QUERY
+name|newMatchNoDocsQuery
+argument_list|()
 return|;
 block|}
 if|if
@@ -757,11 +758,11 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// no need for constant score filter, since we don't cache the filter, and it always takes deletes into account
-name|ConstantScoreQuery
+name|XLuceneConstantScoreQuery
 name|query
 init|=
 operator|new
-name|ConstantScoreQuery
+name|XLuceneConstantScoreQuery
 argument_list|(
 name|filter
 argument_list|)

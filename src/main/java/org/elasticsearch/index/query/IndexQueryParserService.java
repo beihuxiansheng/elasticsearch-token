@@ -1718,7 +1718,8 @@ name|query
 operator|=
 name|Queries
 operator|.
-name|NO_MATCH_QUERY
+name|newMatchNoDocsQuery
+argument_list|()
 expr_stmt|;
 block|}
 return|return

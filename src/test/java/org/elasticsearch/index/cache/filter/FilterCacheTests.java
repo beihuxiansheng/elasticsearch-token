@@ -98,20 +98,6 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|ConstantScoreQuery
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
 name|Filter
 import|;
 end_import
@@ -141,6 +127,20 @@ operator|.
 name|search
 operator|.
 name|MatchAllDocsQuery
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|XLuceneConstantScoreQuery
 import|;
 end_import
 
@@ -295,18 +295,6 @@ operator|.
 name|Builder
 operator|.
 name|EMPTY_SETTINGS
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
 import|;
 end_import
 
@@ -490,7 +478,7 @@ argument_list|(
 name|searcher
 argument_list|,
 operator|new
-name|ConstantScoreQuery
+name|XLuceneConstantScoreQuery
 argument_list|(
 name|filterCache
 operator|.
@@ -631,7 +619,7 @@ argument_list|(
 name|searcher
 argument_list|,
 operator|new
-name|ConstantScoreQuery
+name|XLuceneConstantScoreQuery
 argument_list|(
 name|cachedFilter
 argument_list|)

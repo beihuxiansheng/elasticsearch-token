@@ -916,6 +916,10 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|o
+operator|==
+literal|null
+operator|||
 name|getClass
 argument_list|()
 operator|!=

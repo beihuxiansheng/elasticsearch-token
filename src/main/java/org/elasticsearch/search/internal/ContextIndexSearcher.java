@@ -179,7 +179,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Context-aware extension of {@link IndexSearcher}.  */
 end_comment
 
 begin_class
@@ -202,6 +202,13 @@ block|,
 DECL|enum constant|MAIN_QUERY
 name|MAIN_QUERY
 block|}
+comment|/** The wrapped {@link IndexSearcher}. The reason why we sometimes prefer delegating to this searcher instead of<tt>super</tt> is that      *  this instance may have more assertions, for example if it comes from MockRobinEngine which wraps the IndexSearcher into an      *  AssertingIndexSearcher. */
+DECL|field|in
+specifier|private
+specifier|final
+name|IndexSearcher
+name|in
+decl_stmt|;
 DECL|field|searchContext
 specifier|private
 specifier|final
@@ -260,6 +267,13 @@ operator|.
 name|reader
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|in
+operator|=
+name|searcher
+operator|.
+name|searcher
+argument_list|()
 expr_stmt|;
 name|this
 operator|.
@@ -474,7 +488,7 @@ block|}
 name|Query
 name|rewriteQuery
 init|=
-name|super
+name|in
 operator|.
 name|rewrite
 argument_list|(
@@ -495,7 +509,7 @@ block|}
 else|else
 block|{
 return|return
-name|super
+name|in
 operator|.
 name|rewrite
 argument_list|(
@@ -556,7 +570,7 @@ argument_list|)
 return|;
 block|}
 return|return
-name|super
+name|in
 operator|.
 name|createNormalizedWeight
 argument_list|(

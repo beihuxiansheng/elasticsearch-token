@@ -510,9 +510,9 @@ argument_list|()
 condition|)
 block|{
 return|return
+operator|new
 name|MatchNoDocsQuery
-operator|.
-name|INSTANCE
+argument_list|()
 return|;
 block|}
 name|MultiPhraseQuery
@@ -647,9 +647,10 @@ argument_list|()
 condition|)
 block|{
 return|return
-name|MatchNoDocsQuery
+name|Queries
 operator|.
-name|INSTANCE
+name|newMatchNoDocsQuery
+argument_list|()
 return|;
 block|}
 name|query
