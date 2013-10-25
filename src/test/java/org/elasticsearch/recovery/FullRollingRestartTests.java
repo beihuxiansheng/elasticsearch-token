@@ -151,6 +151,10 @@ argument_list|,
 name|numNodes
 operator|=
 literal|0
+argument_list|,
+name|transportClientRatio
+operator|=
+literal|0.0
 argument_list|)
 DECL|class|FullRollingRestartTests
 specifier|public
