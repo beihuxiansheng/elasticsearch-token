@@ -348,6 +348,22 @@ name|Set
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentParser
+operator|.
+name|NumberType
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -1792,6 +1808,44 @@ name|currentFieldName
 argument_list|)
 condition|)
 block|{
+name|NumberType
+name|numberType
+init|=
+name|parser
+operator|.
+name|numberType
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|NumberType
+operator|.
+name|LONG
+operator|!=
+name|numberType
+operator|&&
+name|NumberType
+operator|.
+name|INT
+operator|!=
+name|numberType
+condition|)
+block|{
+throw|throw
+operator|new
+name|ElasticSearchIllegalArgumentException
+argument_list|(
+literal|"Weight must be an integer, but was ["
+operator|+
+name|parser
+operator|.
+name|numberValue
+argument_list|()
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
 name|weight
 operator|=
 name|parser
@@ -1817,9 +1871,11 @@ throw|throw
 operator|new
 name|ElasticSearchIllegalArgumentException
 argument_list|(
-literal|"Weight must be in the interval [0..2147483647] but was "
+literal|"Weight must be in the interval [0..2147483647], but was ["
 operator|+
 name|weight
+operator|+
+literal|"]"
 argument_list|)
 throw|;
 block|}
