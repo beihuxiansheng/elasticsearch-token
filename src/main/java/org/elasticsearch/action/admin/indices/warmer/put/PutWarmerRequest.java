@@ -184,7 +184,7 @@ decl_stmt|;
 DECL|method|PutWarmerRequest
 name|PutWarmerRequest
 parameter_list|()
-block|{      }
+block|{     }
 comment|/**      * Constructs a new warmer.      *      * @param name The name of the warmer.      */
 DECL|method|PutWarmerRequest
 specifier|public

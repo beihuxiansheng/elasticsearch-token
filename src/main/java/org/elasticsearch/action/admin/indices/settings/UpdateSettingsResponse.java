@@ -26,9 +26,23 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|Version
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|action
 operator|.
-name|ActionResponse
+name|support
+operator|.
+name|master
+operator|.
+name|AcknowledgedResponse
 import|;
 end_import
 
@@ -75,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A response for a update settings action.  */
+comment|/**  * A response for an update index settings action  */
 end_comment
 
 begin_class
@@ -84,12 +98,25 @@ specifier|public
 class|class
 name|UpdateSettingsResponse
 extends|extends
-name|ActionResponse
+name|AcknowledgedResponse
 block|{
 DECL|method|UpdateSettingsResponse
 name|UpdateSettingsResponse
 parameter_list|()
 block|{     }
+DECL|method|UpdateSettingsResponse
+name|UpdateSettingsResponse
+parameter_list|(
+name|boolean
+name|acknowledged
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|acknowledged
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|readFrom
@@ -108,6 +135,15 @@ operator|.
 name|readFrom
 argument_list|(
 name|in
+argument_list|)
+expr_stmt|;
+name|readAcknowledged
+argument_list|(
+name|in
+argument_list|,
+name|Version
+operator|.
+name|V_0_90_6
 argument_list|)
 expr_stmt|;
 block|}
@@ -129,6 +165,15 @@ operator|.
 name|writeTo
 argument_list|(
 name|out
+argument_list|)
+expr_stmt|;
+name|writeAcknowledged
+argument_list|(
+name|out
+argument_list|,
+name|Version
+operator|.
+name|V_0_90_6
 argument_list|)
 expr_stmt|;
 block|}

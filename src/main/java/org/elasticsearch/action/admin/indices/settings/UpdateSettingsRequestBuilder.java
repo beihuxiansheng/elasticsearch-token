@@ -44,7 +44,7 @@ name|support
 operator|.
 name|master
 operator|.
-name|MasterNodeOperationRequestBuilder
+name|AcknowledgedRequestBuilder
 import|;
 end_import
 
@@ -99,7 +99,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Builder for an update index settings request  */
 end_comment
 
 begin_class
@@ -108,7 +108,7 @@ specifier|public
 class|class
 name|UpdateSettingsRequestBuilder
 extends|extends
-name|MasterNodeOperationRequestBuilder
+name|AcknowledgedRequestBuilder
 argument_list|<
 name|UpdateSettingsRequest
 argument_list|,
@@ -144,6 +144,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Sets the indices the update settings will execute on      */
 DECL|method|setIndices
 specifier|public
 name|UpdateSettingsRequestBuilder
@@ -165,7 +166,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The settings update.      */
+comment|/**      * Sets the settings to be updated      */
 DECL|method|setSettings
 specifier|public
 name|UpdateSettingsRequestBuilder
@@ -186,7 +187,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The settings to update.      */
+comment|/**      * Sets the settings to be updated      */
 DECL|method|setSettings
 specifier|public
 name|UpdateSettingsRequestBuilder
@@ -209,7 +210,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The settings to update (either json/yaml/properties format)      */
+comment|/**      * Sets the settings to be updated (either json/yaml/properties format)      */
 DECL|method|setSettings
 specifier|public
 name|UpdateSettingsRequestBuilder
@@ -230,7 +231,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The settings to update (either json/yaml/properties format)      */
+comment|/**      * Sets the settings to be updated (either json/yaml/properties format)      */
 DECL|method|setSettings
 specifier|public
 name|UpdateSettingsRequestBuilder

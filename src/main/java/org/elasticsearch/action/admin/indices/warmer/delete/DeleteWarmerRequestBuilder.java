@@ -46,7 +46,7 @@ name|support
 operator|.
 name|master
 operator|.
-name|MasterNodeOperationRequestBuilder
+name|AcknowledgedRequestBuilder
 import|;
 end_import
 
@@ -76,20 +76,6 @@ name|InternalIndicesAdminClient
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|unit
-operator|.
-name|TimeValue
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -100,7 +86,7 @@ specifier|public
 class|class
 name|DeleteWarmerRequestBuilder
 extends|extends
-name|MasterNodeOperationRequestBuilder
+name|AcknowledgedRequestBuilder
 argument_list|<
 name|DeleteWarmerRequest
 argument_list|,
@@ -166,48 +152,6 @@ operator|.
 name|name
 argument_list|(
 name|name
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Sets the maximum wait for acknowledgement from other nodes      */
-DECL|method|setTimeout
-specifier|public
-name|DeleteWarmerRequestBuilder
-name|setTimeout
-parameter_list|(
-name|TimeValue
-name|timeout
-parameter_list|)
-block|{
-name|request
-operator|.
-name|timeout
-argument_list|(
-name|timeout
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Timeout to wait for the operation to be acknowledged by current cluster nodes. Defaults      * to<tt>10s</tt>.      */
-DECL|method|setTimeout
-specifier|public
-name|DeleteWarmerRequestBuilder
-name|setTimeout
-parameter_list|(
-name|String
-name|timeout
-parameter_list|)
-block|{
-name|request
-operator|.
-name|timeout
-argument_list|(
-name|timeout
 argument_list|)
 expr_stmt|;
 return|return

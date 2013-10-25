@@ -118,41 +118,11 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|unit
-operator|.
-name|TimeValue
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
 operator|.
 name|IOException
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|unit
-operator|.
-name|TimeValue
-operator|.
-name|timeValueSeconds
 import|;
 end_import
 
@@ -186,16 +156,6 @@ name|Strings
 operator|.
 name|EMPTY_ARRAY
 decl_stmt|;
-DECL|field|timeout
-specifier|private
-name|TimeValue
-name|timeout
-init|=
-name|timeValueSeconds
-argument_list|(
-literal|10
-argument_list|)
-decl_stmt|;
 DECL|method|DeleteWarmerRequest
 name|DeleteWarmerRequest
 parameter_list|()
@@ -224,13 +184,8 @@ name|ActionRequestValidationException
 name|validate
 parameter_list|()
 block|{
-name|ActionRequestValidationException
-name|validationException
-init|=
-literal|null
-decl_stmt|;
 return|return
-name|validationException
+literal|null
 return|;
 block|}
 comment|/**      * The name to delete.      */

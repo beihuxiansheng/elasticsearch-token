@@ -36,6 +36,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|Version
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|action
 operator|.
 name|ActionRequestValidationException
@@ -54,7 +64,7 @@ name|support
 operator|.
 name|master
 operator|.
-name|MasterNodeOperationRequest
+name|AcknowledgedRequest
 import|;
 end_import
 
@@ -245,7 +255,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Request for an update index settings action  */
 end_comment
 
 begin_class
@@ -254,7 +264,7 @@ specifier|public
 class|class
 name|UpdateSettingsRequest
 extends|extends
-name|MasterNodeOperationRequest
+name|AcknowledgedRequest
 argument_list|<
 name|UpdateSettingsRequest
 argument_list|>
@@ -276,7 +286,7 @@ DECL|method|UpdateSettingsRequest
 name|UpdateSettingsRequest
 parameter_list|()
 block|{     }
-comment|/**      * Constructs a new request to create an index with the specified name and settings.      */
+comment|/**      * Constructs a new request to update settings for one or more indices      */
 DECL|method|UpdateSettingsRequest
 specifier|public
 name|UpdateSettingsRequest
@@ -293,7 +303,7 @@ operator|=
 name|indices
 expr_stmt|;
 block|}
-comment|/**      * Constructs a new request to create an index with the specified name and settings.      */
+comment|/**      * Constructs a new request to update settings for one or more indices      */
 DECL|method|UpdateSettingsRequest
 specifier|public
 name|UpdateSettingsRequest
@@ -376,6 +386,7 @@ return|return
 name|settings
 return|;
 block|}
+comment|/**      * Sets the indices to apply to settings update to      */
 DECL|method|indices
 specifier|public
 name|UpdateSettingsRequest
@@ -396,7 +407,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The settings to created the index with.      */
+comment|/**      * Sets the settings to be updated      */
 DECL|method|settings
 specifier|public
 name|UpdateSettingsRequest
@@ -416,7 +427,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The settings to created the index with.      */
+comment|/**      * Sets the settings to be updated      */
 DECL|method|settings
 specifier|public
 name|UpdateSettingsRequest
@@ -441,7 +452,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The settings to crete the index with (either json/yaml/properties format)      */
+comment|/**      * Sets the settings to be updated (either json/yaml/properties format)      */
 DECL|method|settings
 specifier|public
 name|UpdateSettingsRequest
@@ -472,7 +483,12 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The settings to crete the index with (either json/yaml/properties format)      */
+comment|/**      * Sets the settings to be updated (either json/yaml/properties format)      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|settings
 specifier|public
 name|UpdateSettingsRequest
@@ -570,6 +586,15 @@ argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
+name|readTimeout
+argument_list|(
+name|in
+argument_list|,
+name|Version
+operator|.
+name|V_0_90_6
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -603,6 +628,15 @@ argument_list|(
 name|settings
 argument_list|,
 name|out
+argument_list|)
+expr_stmt|;
+name|writeTimeout
+argument_list|(
+name|out
+argument_list|,
+name|Version
+operator|.
+name|V_0_90_6
 argument_list|)
 expr_stmt|;
 block|}

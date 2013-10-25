@@ -153,6 +153,11 @@ name|AcknowledgedRequest
 parameter_list|()
 block|{     }
 comment|/**      * Allows to set the timeout      * @param timeout timeout as a string (e.g. 1s)      * @return the request itself      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|timeout
 specifier|public
 specifier|final
@@ -186,6 +191,11 @@ name|this
 return|;
 block|}
 comment|/**      * Allows to set the timeout      * @param timeout timeout as a {@link TimeValue}      * @return the request itself      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|timeout
 specifier|public
 specifier|final
