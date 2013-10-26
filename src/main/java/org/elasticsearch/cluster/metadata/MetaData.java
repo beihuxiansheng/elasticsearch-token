@@ -4147,6 +4147,24 @@ operator|==
 literal|'+'
 condition|)
 block|{
+comment|// if its the first, add empty result set
+if|if
+condition|(
+name|i
+operator|==
+literal|0
+condition|)
+block|{
+name|result
+operator|=
+operator|new
+name|HashSet
+argument_list|<
+name|String
+argument_list|>
+argument_list|()
+expr_stmt|;
+block|}
 name|add
 operator|=
 literal|true
