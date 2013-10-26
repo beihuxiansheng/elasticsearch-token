@@ -1796,13 +1796,10 @@ condition|)
 block|{
 if|if
 condition|(
-name|token
-operator|==
-name|XContentParser
+name|parser
 operator|.
-name|Token
-operator|.
-name|VALUE_BOOLEAN
+name|isBooleanValue
+argument_list|()
 condition|)
 block|{
 name|fetchSourceContext
@@ -1845,6 +1842,20 @@ argument_list|()
 block|}
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|ElasticSearchParseException
+argument_list|(
+literal|"illegal type for _source: ["
+operator|+
+name|token
+operator|+
+literal|"]"
+argument_list|)
+throw|;
 block|}
 block|}
 block|}

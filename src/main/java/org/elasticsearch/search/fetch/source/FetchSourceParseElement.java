@@ -160,13 +160,10 @@ expr_stmt|;
 comment|// we get it on the value
 if|if
 condition|(
-name|token
-operator|==
-name|XContentParser
+name|parser
 operator|.
-name|Token
-operator|.
-name|VALUE_BOOLEAN
+name|isBooleanValue
+argument_list|()
 condition|)
 block|{
 name|context
