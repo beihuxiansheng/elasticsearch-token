@@ -36,6 +36,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|Version
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|action
 operator|.
 name|ActionRequestValidationException
@@ -54,7 +64,7 @@ name|support
 operator|.
 name|master
 operator|.
-name|MasterNodeOperationRequest
+name|AcknowledgedRequest
 import|;
 end_import
 
@@ -179,7 +189,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * Request to submit cluster reroute allocation commands  */
 end_comment
 
 begin_class
@@ -188,7 +198,7 @@ specifier|public
 class|class
 name|ClusterRerouteRequest
 extends|extends
-name|MasterNodeOperationRequest
+name|AcknowledgedRequest
 argument_list|<
 name|ClusterRerouteRequest
 argument_list|>
@@ -254,6 +264,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Returns the current dry run flag which allows to run the commands without actually applying them,      * just to get back the resulting cluster state back.      */
 DECL|method|dryRun
 specifier|public
 name|boolean
@@ -497,6 +508,15 @@ operator|.
 name|readBoolean
 argument_list|()
 expr_stmt|;
+name|readTimeout
+argument_list|(
+name|in
+argument_list|,
+name|Version
+operator|.
+name|V_0_90_6
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -532,6 +552,15 @@ operator|.
 name|writeBoolean
 argument_list|(
 name|dryRun
+argument_list|)
+expr_stmt|;
+name|writeTimeout
+argument_list|(
+name|out
+argument_list|,
+name|Version
+operator|.
+name|V_0_90_6
 argument_list|)
 expr_stmt|;
 block|}

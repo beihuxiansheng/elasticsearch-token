@@ -44,7 +44,7 @@ name|support
 operator|.
 name|master
 operator|.
-name|MasterNodeOperationRequestBuilder
+name|AcknowledgedRequestBuilder
 import|;
 end_import
 
@@ -107,7 +107,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * Builder for a cluster reroute request  */
 end_comment
 
 begin_class
@@ -116,7 +116,7 @@ specifier|public
 class|class
 name|ClusterRerouteRequestBuilder
 extends|extends
-name|MasterNodeOperationRequestBuilder
+name|AcknowledgedRequestBuilder
 argument_list|<
 name|ClusterRerouteRequest
 argument_list|,
@@ -189,6 +189,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the source for the request      */
 DECL|method|setSource
 specifier|public
 name|ClusterRerouteRequestBuilder

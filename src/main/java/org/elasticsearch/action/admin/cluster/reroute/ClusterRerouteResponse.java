@@ -26,9 +26,23 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|Version
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|action
 operator|.
-name|ActionResponse
+name|support
+operator|.
+name|master
+operator|.
+name|AcknowledgedResponse
 import|;
 end_import
 
@@ -87,7 +101,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * Response returned after a cluster reroute request  */
 end_comment
 
 begin_class
@@ -96,7 +110,7 @@ specifier|public
 class|class
 name|ClusterRerouteResponse
 extends|extends
-name|ActionResponse
+name|AcknowledgedResponse
 block|{
 DECL|field|state
 specifier|private
@@ -110,10 +124,18 @@ block|{      }
 DECL|method|ClusterRerouteResponse
 name|ClusterRerouteResponse
 parameter_list|(
+name|boolean
+name|acknowledged
+parameter_list|,
 name|ClusterState
 name|state
 parameter_list|)
 block|{
+name|super
+argument_list|(
+name|acknowledged
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|state
@@ -121,6 +143,7 @@ operator|=
 name|state
 expr_stmt|;
 block|}
+comment|/**      * Returns the cluster state resulted from the cluster reroute request execution      */
 DECL|method|getState
 specifier|public
 name|ClusterState
@@ -166,6 +189,15 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
+name|readAcknowledged
+argument_list|(
+name|in
+argument_list|,
+name|Version
+operator|.
+name|V_0_90_6
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -196,6 +228,15 @@ argument_list|(
 name|state
 argument_list|,
 name|out
+argument_list|)
+expr_stmt|;
+name|writeAcknowledged
+argument_list|(
+name|out
+argument_list|,
+name|Version
+operator|.
+name|V_0_90_6
 argument_list|)
 expr_stmt|;
 block|}

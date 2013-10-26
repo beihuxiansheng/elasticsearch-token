@@ -105,7 +105,6 @@ end_comment
 begin_class
 DECL|class|AcknowledgedRestResponseActionListener
 specifier|public
-specifier|final
 class|class
 name|AcknowledgedRestResponseActionListener
 parameter_list|<
@@ -188,6 +187,13 @@ name|isAcknowledged
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|addCustomFields
+argument_list|(
+name|builder
+argument_list|,
+name|response
+argument_list|)
+expr_stmt|;
 name|builder
 operator|.
 name|endObject
@@ -222,6 +228,21 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Adds api specific fields to the rest response      * Does nothing by default but can be overridden by subclasses      */
+DECL|method|addCustomFields
+specifier|protected
+name|void
+name|addCustomFields
+parameter_list|(
+name|XContentBuilder
+name|builder
+parameter_list|,
+name|T
+name|response
+parameter_list|)
+throws|throws
+name|IOException
+block|{      }
 block|}
 end_class
 
