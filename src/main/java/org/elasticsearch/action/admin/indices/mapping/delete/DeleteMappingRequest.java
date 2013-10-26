@@ -28,6 +28,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|Version
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|action
 operator|.
 name|ActionRequestValidationException
@@ -46,7 +56,7 @@ name|support
 operator|.
 name|master
 operator|.
-name|MasterNodeOperationRequest
+name|AcknowledgedRequest
 import|;
 end_import
 
@@ -107,7 +117,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Represents a request to delete a mapping  */
 end_comment
 
 begin_class
@@ -116,7 +126,7 @@ specifier|public
 class|class
 name|DeleteMappingRequest
 extends|extends
-name|MasterNodeOperationRequest
+name|AcknowledgedRequest
 argument_list|<
 name|DeleteMappingRequest
 argument_list|>
@@ -136,7 +146,7 @@ DECL|method|DeleteMappingRequest
 name|DeleteMappingRequest
 parameter_list|()
 block|{     }
-comment|/**      * Constructs a new put mapping request against one or more indices. If nothing is set then      * it will be executed against all indices.      */
+comment|/**      * Constructs a new delete mapping request against one or more indices. If nothing is set then      * it will be executed against all indices.      */
 DECL|method|DeleteMappingRequest
 specifier|public
 name|DeleteMappingRequest
@@ -187,7 +197,7 @@ return|return
 name|validationException
 return|;
 block|}
-comment|/**      * Sets the indices this put mapping operation will execute on.      */
+comment|/**      * Sets the indices this delete mapping operation will execute on.      */
 DECL|method|indices
 specifier|public
 name|DeleteMappingRequest
@@ -208,7 +218,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The indices the mappings will be put.      */
+comment|/**      * The indices the mappings will be removed from.      */
 DECL|method|indices
 specifier|public
 name|String
@@ -326,6 +336,15 @@ name|readString
 argument_list|()
 expr_stmt|;
 block|}
+name|readTimeout
+argument_list|(
+name|in
+argument_list|,
+name|Version
+operator|.
+name|V_0_90_6
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -422,6 +441,15 @@ name|type
 argument_list|)
 expr_stmt|;
 block|}
+name|writeTimeout
+argument_list|(
+name|out
+argument_list|,
+name|Version
+operator|.
+name|V_0_90_6
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
