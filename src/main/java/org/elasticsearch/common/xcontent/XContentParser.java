@@ -464,6 +464,14 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * returns true if the current value is boolean in nature.      * values that are considered booleans:      * - boolean value (true/false)      * - numeric integers (=0 is considered as false, !=0 is true)      * - one of the following strings: "true","false","on","off","yes","no","1","0"      */
+DECL|method|isBooleanValue
+name|boolean
+name|isBooleanValue
+parameter_list|()
+throws|throws
+name|IOException
+function_decl|;
 DECL|method|booleanValue
 name|boolean
 name|booleanValue
