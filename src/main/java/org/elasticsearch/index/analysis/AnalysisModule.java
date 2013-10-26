@@ -2442,7 +2442,7 @@ name|SINGLETON
 argument_list|)
 expr_stmt|;
 block|}
-comment|// go over the tokenizers in the bindings and register the ones that are not configured
+comment|// go over the analyzers in the bindings and register the ones that are not configured
 for|for
 control|(
 name|Map

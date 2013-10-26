@@ -1924,6 +1924,18 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|indexSettingsBuilder
+operator|.
+name|get
+argument_list|(
+name|SETTING_VERSION_CREATED
+argument_list|)
+operator|==
+literal|null
+condition|)
+block|{
 name|indexSettingsBuilder
 operator|.
 name|put
@@ -1933,6 +1945,7 @@ argument_list|,
 name|version
 argument_list|)
 expr_stmt|;
+block|}
 name|indexSettingsBuilder
 operator|.
 name|put
