@@ -4,13 +4,15 @@ comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more cont
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.termvectors
+DECL|package|org.elasticsearch.action.termvector
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|termvectors
+name|action
+operator|.
+name|termvector
 package|;
 end_package
 

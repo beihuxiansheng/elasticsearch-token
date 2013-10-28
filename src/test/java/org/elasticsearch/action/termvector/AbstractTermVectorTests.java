@@ -1,12 +1,14 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_package
-DECL|package|org.elasticsearch.termvectors
+DECL|package|org.elasticsearch.action.termvector
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|termvectors
+name|action
+operator|.
+name|termvector
 package|;
 end_package
 
