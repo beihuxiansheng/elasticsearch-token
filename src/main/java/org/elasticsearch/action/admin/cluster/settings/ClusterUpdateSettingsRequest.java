@@ -36,6 +36,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|Version
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|action
 operator|.
 name|ActionRequestValidationException
@@ -54,7 +64,7 @@ name|support
 operator|.
 name|master
 operator|.
-name|MasterNodeOperationRequest
+name|AcknowledgedRequest
 import|;
 end_import
 
@@ -245,7 +255,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * Request for an update cluster settings action  */
 end_comment
 
 begin_class
@@ -254,7 +264,7 @@ specifier|public
 class|class
 name|ClusterUpdateSettingsRequest
 extends|extends
-name|MasterNodeOperationRequest
+name|AcknowledgedRequest
 argument_list|<
 name|ClusterUpdateSettingsRequest
 argument_list|>
@@ -342,6 +352,7 @@ return|return
 name|persistentSettings
 return|;
 block|}
+comment|/**      * Sets the transient settings to be updated. They will not survive a full cluster restart      */
 DECL|method|transientSettings
 specifier|public
 name|ClusterUpdateSettingsRequest
@@ -361,6 +372,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the transient settings to be updated. They will not survive a full cluster restart      */
 DECL|method|transientSettings
 specifier|public
 name|ClusterUpdateSettingsRequest
@@ -385,6 +397,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the source containing the transient settings to be updated. They will not survive a full cluster restart      */
 DECL|method|transientSettings
 specifier|public
 name|ClusterUpdateSettingsRequest
@@ -415,6 +428,12 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the transient settings to be updated. They will not survive a full cluster restart      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|transientSettings
 specifier|public
 name|ClusterUpdateSettingsRequest
@@ -478,6 +497,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the persistent settings to be updated. They will get applied cross restarts      */
 DECL|method|persistentSettings
 specifier|public
 name|ClusterUpdateSettingsRequest
@@ -497,6 +517,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the persistent settings to be updated. They will get applied cross restarts      */
 DECL|method|persistentSettings
 specifier|public
 name|ClusterUpdateSettingsRequest
@@ -521,6 +542,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the source containing the persistent settings to be updated. They will get applied cross restarts      */
 DECL|method|persistentSettings
 specifier|public
 name|ClusterUpdateSettingsRequest
@@ -551,6 +573,12 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the persistent settings to be updated. They will get applied cross restarts      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|persistentSettings
 specifier|public
 name|ClusterUpdateSettingsRequest
@@ -648,6 +676,15 @@ argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
+name|readTimeout
+argument_list|(
+name|in
+argument_list|,
+name|Version
+operator|.
+name|V_0_90_6
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -681,6 +718,15 @@ argument_list|(
 name|persistentSettings
 argument_list|,
 name|out
+argument_list|)
+expr_stmt|;
+name|writeTimeout
+argument_list|(
+name|out
+argument_list|,
+name|Version
+operator|.
+name|V_0_90_6
 argument_list|)
 expr_stmt|;
 block|}

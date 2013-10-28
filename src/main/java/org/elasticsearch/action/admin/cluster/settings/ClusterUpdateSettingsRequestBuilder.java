@@ -44,7 +44,7 @@ name|support
 operator|.
 name|master
 operator|.
-name|MasterNodeOperationRequestBuilder
+name|AcknowledgedRequestBuilder
 import|;
 end_import
 
@@ -99,7 +99,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * Builder for a cluster update settings request  */
 end_comment
 
 begin_class
@@ -108,7 +108,7 @@ specifier|public
 class|class
 name|ClusterUpdateSettingsRequestBuilder
 extends|extends
-name|MasterNodeOperationRequestBuilder
+name|AcknowledgedRequestBuilder
 argument_list|<
 name|ClusterUpdateSettingsRequest
 argument_list|,
@@ -138,6 +138,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Sets the transient settings to be updated. They will not survive a full cluster restart      */
 DECL|method|setTransientSettings
 specifier|public
 name|ClusterUpdateSettingsRequestBuilder
@@ -158,6 +159,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the transient settings to be updated. They will not survive a full cluster restart      */
 DECL|method|setTransientSettings
 specifier|public
 name|ClusterUpdateSettingsRequestBuilder
@@ -180,6 +182,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the source containing the transient settings to be updated. They will not survive a full cluster restart      */
 DECL|method|setTransientSettings
 specifier|public
 name|ClusterUpdateSettingsRequestBuilder
@@ -200,6 +203,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the transient settings to be updated. They will not survive a full cluster restart      */
 DECL|method|setTransientSettings
 specifier|public
 name|ClusterUpdateSettingsRequestBuilder
@@ -220,6 +224,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the persistent settings to be updated. They will get applied cross restarts      */
 DECL|method|setPersistentSettings
 specifier|public
 name|ClusterUpdateSettingsRequestBuilder
@@ -240,6 +245,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the persistent settings to be updated. They will get applied cross restarts      */
 DECL|method|setPersistentSettings
 specifier|public
 name|ClusterUpdateSettingsRequestBuilder
@@ -262,6 +268,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the source containing the persistent settings to be updated. They will get applied cross restarts      */
 DECL|method|setPersistentSettings
 specifier|public
 name|ClusterUpdateSettingsRequestBuilder
@@ -282,6 +289,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the persistent settings to be updated. They will get applied cross restarts      */
 DECL|method|setPersistentSettings
 specifier|public
 name|ClusterUpdateSettingsRequestBuilder

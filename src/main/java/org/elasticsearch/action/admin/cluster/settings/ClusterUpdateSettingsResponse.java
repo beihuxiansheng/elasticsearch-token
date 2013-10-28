@@ -22,11 +22,11 @@ end_package
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|elasticsearch
 operator|.
-name|IOException
+name|Version
 import|;
 end_import
 
@@ -38,7 +38,11 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ActionResponse
+name|support
+operator|.
+name|master
+operator|.
+name|AcknowledgedResponse
 import|;
 end_import
 
@@ -102,6 +106,16 @@ name|Settings
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_comment
 comment|/**  * A response for a cluster update settings action.  */
 end_comment
@@ -112,7 +126,7 @@ specifier|public
 class|class
 name|ClusterUpdateSettingsResponse
 extends|extends
-name|ActionResponse
+name|AcknowledgedResponse
 block|{
 DECL|field|transientSettings
 name|Settings
@@ -146,6 +160,9 @@ block|}
 DECL|method|ClusterUpdateSettingsResponse
 name|ClusterUpdateSettingsResponse
 parameter_list|(
+name|boolean
+name|acknowledged
+parameter_list|,
 name|Settings
 name|transientSettings
 parameter_list|,
@@ -153,6 +170,11 @@ name|Settings
 name|persistentSettings
 parameter_list|)
 block|{
+name|super
+argument_list|(
+name|acknowledged
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|persistentSettings
@@ -202,6 +224,15 @@ operator|.
 name|readSettingsFromStream
 argument_list|(
 name|in
+argument_list|)
+expr_stmt|;
+name|readAcknowledged
+argument_list|(
+name|in
+argument_list|,
+name|Version
+operator|.
+name|V_0_90_6
 argument_list|)
 expr_stmt|;
 block|}
@@ -261,6 +292,15 @@ argument_list|(
 name|persistentSettings
 argument_list|,
 name|out
+argument_list|)
+expr_stmt|;
+name|writeAcknowledged
+argument_list|(
+name|out
+argument_list|,
+name|Version
+operator|.
+name|V_0_90_6
 argument_list|)
 expr_stmt|;
 block|}

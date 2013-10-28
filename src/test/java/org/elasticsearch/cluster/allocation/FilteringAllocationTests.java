@@ -208,10 +208,6 @@ name|equalTo
 import|;
 end_import
 
-begin_comment
-comment|/**  */
-end_comment
-
 begin_class
 annotation|@
 name|ClusterScope
@@ -484,22 +480,7 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|client
-argument_list|()
-operator|.
-name|admin
-argument_list|()
-operator|.
-name|cluster
-argument_list|()
-operator|.
-name|prepareReroute
-argument_list|()
-operator|.
-name|get
-argument_list|()
-expr_stmt|;
-name|ensureGreen
+name|waitForRelocation
 argument_list|()
 expr_stmt|;
 name|logger
