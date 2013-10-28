@@ -399,7 +399,7 @@ name|getAnalyzer
 argument_list|(
 name|Version
 operator|.
-name|V_0_90_5
+name|V_0_90_4
 argument_list|)
 argument_list|,
 name|is
@@ -412,7 +412,7 @@ name|getAnalyzer
 argument_list|(
 name|Version
 operator|.
-name|V_0_90_6
+name|V_0_90_5
 argument_list|)
 argument_list|)
 argument_list|)
