@@ -401,20 +401,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|atomic
-operator|.
-name|AtomicInteger
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -1849,6 +1835,27 @@ argument_list|,
 name|previousClusterState
 argument_list|,
 name|newClusterState
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|updateTask
+operator|instanceof
+name|AckedClusterStateUpdateTask
+condition|)
+block|{
+comment|//no need to wait for ack if nothing changed, the update can be counted as acknowledged
+operator|(
+operator|(
+name|AckedClusterStateUpdateTask
+operator|)
+name|updateTask
+operator|)
+operator|.
+name|onAllNodesAcked
+argument_list|(
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
