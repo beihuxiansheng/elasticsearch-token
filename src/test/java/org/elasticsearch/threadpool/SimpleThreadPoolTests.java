@@ -286,7 +286,7 @@ name|scope
 operator|=
 name|Scope
 operator|.
-name|SUITE
+name|TEST
 argument_list|,
 name|numNodes
 operator|=
