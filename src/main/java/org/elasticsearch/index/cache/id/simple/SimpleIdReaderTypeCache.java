@@ -239,11 +239,15 @@ name|uid
 argument_list|)
 condition|)
 block|{
+comment|// We can't use #lget() here since the idToDoc map shared across threads, so we really need a second lookup...
+comment|// BTW: This method is only used via TopChildrenQuery
 return|return
 name|idToDoc
 operator|.
-name|lget
-argument_list|()
+name|get
+argument_list|(
+name|uid
+argument_list|)
 return|;
 block|}
 else|else
@@ -314,6 +318,7 @@ name|id
 argument_list|)
 condition|)
 block|{
+comment|// we can use #lkey() since this is called from a synchronized block
 return|return
 name|idToDoc
 operator|.

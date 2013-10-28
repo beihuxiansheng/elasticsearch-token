@@ -2074,6 +2074,7 @@ name|id
 argument_list|)
 condition|)
 block|{
+comment|// we can use #lkey() since this is called from a synchronized block
 return|return
 name|idToDoc
 operator|.
