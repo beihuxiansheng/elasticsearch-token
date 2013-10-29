@@ -118,22 +118,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
-operator|.
-name|support
-operator|.
-name|master
-operator|.
-name|MasterNodeOperationRequest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|cluster
 operator|.
 name|metadata
@@ -241,20 +225,6 @@ operator|.
 name|settings
 operator|.
 name|Settings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|unit
-operator|.
-name|TimeValue
 import|;
 end_import
 
@@ -400,22 +370,6 @@ name|writeSettingsToStream
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|unit
-operator|.
-name|TimeValue
-operator|.
-name|readTimeValue
-import|;
-end_import
-
 begin_comment
 comment|/**  * A request to create an index. Best created with {@link org.elasticsearch.client.Requests#createIndexRequest(String)}.  *<p/>  *<p>The index created can optionally be created with {@link #settings(org.elasticsearch.common.settings.Settings)}.  *  * @see org.elasticsearch.client.IndicesAdminClient#create(CreateIndexRequest)  * @see org.elasticsearch.client.Requests#createIndexRequest(String)  * @see CreateIndexResponse  */
 end_comment
@@ -426,7 +380,7 @@ specifier|public
 class|class
 name|CreateIndexRequest
 extends|extends
-name|MasterNodeOperationRequest
+name|AcknowledgedRequest
 argument_list|<
 name|CreateIndexRequest
 argument_list|>
@@ -477,15 +431,6 @@ name|customs
 init|=
 name|newHashMap
 argument_list|()
-decl_stmt|;
-DECL|field|timeout
-specifier|private
-name|TimeValue
-name|timeout
-init|=
-name|AcknowledgedRequest
-operator|.
-name|DEFAULT_ACK_TIMEOUT
 decl_stmt|;
 DECL|method|CreateIndexRequest
 name|CreateIndexRequest
@@ -766,6 +711,11 @@ name|this
 return|;
 block|}
 comment|/**      * The settings to crete the index with (either json/yaml/properties format)      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|settings
 specifier|public
 name|CreateIndexRequest
@@ -924,6 +874,11 @@ name|this
 return|;
 block|}
 comment|/**      * Adds mapping that will be added when the index gets created.      *      * @param type   The mapping type      * @param source The mapping source      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|mapping
 specifier|public
 name|CreateIndexRequest
@@ -1252,6 +1207,11 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the settings and mappings as a single source.      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|source
 specifier|public
 name|CreateIndexRequest
@@ -1560,61 +1520,6 @@ operator|.
 name|customs
 return|;
 block|}
-comment|/**      * Timeout to wait for the index creation to be acknowledged by current cluster nodes. Defaults      * to<tt>10s</tt>.      */
-DECL|method|timeout
-specifier|public
-name|TimeValue
-name|timeout
-parameter_list|()
-block|{
-return|return
-name|timeout
-return|;
-block|}
-comment|/**      * Timeout to wait for the index creation to be acknowledged by current cluster nodes. Defaults      * to<tt>10s</tt>.      */
-DECL|method|timeout
-specifier|public
-name|CreateIndexRequest
-name|timeout
-parameter_list|(
-name|TimeValue
-name|timeout
-parameter_list|)
-block|{
-name|this
-operator|.
-name|timeout
-operator|=
-name|timeout
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Timeout to wait for the index creation to be acknowledged by current cluster nodes. Defaults      * to<tt>10s</tt>.      */
-DECL|method|timeout
-specifier|public
-name|CreateIndexRequest
-name|timeout
-parameter_list|(
-name|String
-name|timeout
-parameter_list|)
-block|{
-return|return
-name|timeout
-argument_list|(
-name|TimeValue
-operator|.
-name|parseTimeValue
-argument_list|(
-name|timeout
-argument_list|,
-literal|null
-argument_list|)
-argument_list|)
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|readFrom
@@ -1656,9 +1561,7 @@ argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
-name|timeout
-operator|=
-name|readTimeValue
+name|readTimeout
 argument_list|(
 name|in
 argument_list|)
@@ -1802,9 +1705,7 @@ argument_list|,
 name|out
 argument_list|)
 expr_stmt|;
-name|timeout
-operator|.
-name|writeTo
+name|writeTimeout
 argument_list|(
 name|out
 argument_list|)

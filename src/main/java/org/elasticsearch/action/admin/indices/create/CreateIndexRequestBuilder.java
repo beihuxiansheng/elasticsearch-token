@@ -44,7 +44,7 @@ name|support
 operator|.
 name|master
 operator|.
-name|MasterNodeOperationRequestBuilder
+name|AcknowledgedRequestBuilder
 import|;
 end_import
 
@@ -124,20 +124,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|unit
-operator|.
-name|TimeValue
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|xcontent
 operator|.
 name|XContentBuilder
@@ -155,7 +141,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Builder for a create index request  */
 end_comment
 
 begin_class
@@ -164,7 +150,7 @@ specifier|public
 class|class
 name|CreateIndexRequestBuilder
 extends|extends
-name|MasterNodeOperationRequestBuilder
+name|AcknowledgedRequestBuilder
 argument_list|<
 name|CreateIndexRequest
 argument_list|,
@@ -664,48 +650,6 @@ operator|.
 name|source
 argument_list|(
 name|source
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Timeout to wait for the index creation to be acknowledged by current cluster nodes. Defaults      * to<tt>10s</tt>.      */
-DECL|method|setTimeout
-specifier|public
-name|CreateIndexRequestBuilder
-name|setTimeout
-parameter_list|(
-name|TimeValue
-name|timeout
-parameter_list|)
-block|{
-name|request
-operator|.
-name|timeout
-argument_list|(
-name|timeout
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Timeout to wait for the index creation to be acknowledged by current cluster nodes. Defaults      * to<tt>10s</tt>.      */
-DECL|method|setTimeout
-specifier|public
-name|CreateIndexRequestBuilder
-name|setTimeout
-parameter_list|(
-name|String
-name|timeout
-parameter_list|)
-block|{
-name|request
-operator|.
-name|timeout
-argument_list|(
-name|timeout
 argument_list|)
 expr_stmt|;
 return|return
