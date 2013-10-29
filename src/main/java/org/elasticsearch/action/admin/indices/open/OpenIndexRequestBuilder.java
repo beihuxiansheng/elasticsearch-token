@@ -58,7 +58,7 @@ name|support
 operator|.
 name|master
 operator|.
-name|MasterNodeOperationRequestBuilder
+name|AcknowledgedRequestBuilder
 import|;
 end_import
 
@@ -88,22 +88,8 @@ name|InternalIndicesAdminClient
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|unit
-operator|.
-name|TimeValue
-import|;
-end_import
-
 begin_comment
-comment|/**  *  */
+comment|/**  * Builder for for open index request  */
 end_comment
 
 begin_class
@@ -112,7 +98,7 @@ specifier|public
 class|class
 name|OpenIndexRequestBuilder
 extends|extends
-name|MasterNodeOperationRequestBuilder
+name|AcknowledgedRequestBuilder
 argument_list|<
 name|OpenIndexRequest
 argument_list|,
@@ -185,48 +171,6 @@ operator|.
 name|indices
 argument_list|(
 name|indices
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Timeout to wait for the operation to be acknowledged by current cluster nodes. Defaults      * to<tt>10s</tt>.      */
-DECL|method|setTimeout
-specifier|public
-name|OpenIndexRequestBuilder
-name|setTimeout
-parameter_list|(
-name|TimeValue
-name|timeout
-parameter_list|)
-block|{
-name|request
-operator|.
-name|timeout
-argument_list|(
-name|timeout
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Timeout to wait for the index deletion to be acknowledged by current cluster nodes. Defaults      * to<tt>10s</tt>.      */
-DECL|method|setTimeout
-specifier|public
-name|OpenIndexRequestBuilder
-name|setTimeout
-parameter_list|(
-name|String
-name|timeout
-parameter_list|)
-block|{
-name|request
-operator|.
-name|timeout
-argument_list|(
-name|timeout
 argument_list|)
 expr_stmt|;
 return|return

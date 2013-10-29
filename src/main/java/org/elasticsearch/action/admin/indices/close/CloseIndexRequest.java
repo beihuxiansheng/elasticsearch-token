@@ -58,7 +58,7 @@ name|support
 operator|.
 name|master
 operator|.
-name|MasterNodeOperationRequest
+name|AcknowledgedRequest
 import|;
 end_import
 
@@ -96,20 +96,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|unit
-operator|.
-name|TimeValue
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -132,38 +118,6 @@ name|addValidationError
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|unit
-operator|.
-name|TimeValue
-operator|.
-name|readTimeValue
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|unit
-operator|.
-name|TimeValue
-operator|.
-name|timeValueSeconds
-import|;
-end_import
-
 begin_comment
 comment|/**  * A request to close an index.  */
 end_comment
@@ -174,7 +128,7 @@ specifier|public
 class|class
 name|CloseIndexRequest
 extends|extends
-name|MasterNodeOperationRequest
+name|AcknowledgedRequest
 argument_list|<
 name|CloseIndexRequest
 argument_list|>
@@ -184,16 +138,6 @@ specifier|private
 name|String
 index|[]
 name|indices
-decl_stmt|;
-DECL|field|timeout
-specifier|private
-name|TimeValue
-name|timeout
-init|=
-name|timeValueSeconds
-argument_list|(
-literal|10
-argument_list|)
 decl_stmt|;
 DECL|field|ignoreIndices
 specifier|private
@@ -297,60 +241,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Timeout to wait for the index closure to be acknowledged by current cluster nodes. Defaults      * to<tt>10s</tt>.      */
-DECL|method|timeout
-name|TimeValue
-name|timeout
-parameter_list|()
-block|{
-return|return
-name|timeout
-return|;
-block|}
-comment|/**      * Timeout to wait for the index closure to be acknowledged by current cluster nodes. Defaults      * to<tt>10s</tt>.      */
-DECL|method|timeout
-specifier|public
-name|CloseIndexRequest
-name|timeout
-parameter_list|(
-name|TimeValue
-name|timeout
-parameter_list|)
-block|{
-name|this
-operator|.
-name|timeout
-operator|=
-name|timeout
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Timeout to wait for the index closure to be acknowledged by current cluster nodes. Defaults      * to<tt>10s</tt>.      */
-DECL|method|timeout
-specifier|public
-name|CloseIndexRequest
-name|timeout
-parameter_list|(
-name|String
-name|timeout
-parameter_list|)
-block|{
-return|return
-name|timeout
-argument_list|(
-name|TimeValue
-operator|.
-name|parseTimeValue
-argument_list|(
-name|timeout
-argument_list|,
-literal|null
-argument_list|)
-argument_list|)
-return|;
-block|}
 comment|/**      * Specifies what type of requested indices to ignore. For example indices that don't exist.      * @return the desired behaviour regarding indices to ignore      */
 DECL|method|ignoreIndices
 specifier|public
@@ -409,11 +299,11 @@ operator|.
 name|readStringArray
 argument_list|()
 expr_stmt|;
-name|timeout
-operator|=
-name|readTimeValue
+name|readTimeout
 argument_list|(
 name|in
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|ignoreIndices
@@ -456,11 +346,11 @@ argument_list|(
 name|indices
 argument_list|)
 expr_stmt|;
-name|timeout
-operator|.
-name|writeTo
+name|writeTimeout
 argument_list|(
 name|out
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|out
