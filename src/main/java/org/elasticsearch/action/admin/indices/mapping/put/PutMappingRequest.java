@@ -78,7 +78,7 @@ name|support
 operator|.
 name|master
 operator|.
-name|MasterNodeOperationRequest
+name|AcknowledgedRequest
 import|;
 end_import
 
@@ -123,20 +123,6 @@ operator|.
 name|stream
 operator|.
 name|StreamOutput
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|unit
-operator|.
-name|TimeValue
 import|;
 end_import
 
@@ -203,18 +189,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|TimeUnit
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -228,22 +202,6 @@ name|addValidationError
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|unit
-operator|.
-name|TimeValue
-operator|.
-name|readTimeValue
-import|;
-end_import
-
 begin_comment
 comment|/**  * Puts mapping definition registered under a specific type into one or more indices. Best created with  * {@link org.elasticsearch.client.Requests#putMappingRequest(String...)}.  *<p/>  *<p>If the mappings already exists, the new mappings will be merged with the new one. If there are elements  * that can't be merged are detected, the request will be rejected unless the {@link #ignoreConflicts(boolean)}  * is set. In such a case, the duplicate mappings will be rejected.  *  * @see org.elasticsearch.client.Requests#putMappingRequest(String...)  * @see org.elasticsearch.client.IndicesAdminClient#putMapping(PutMappingRequest)  * @see PutMappingResponse  */
 end_comment
@@ -254,7 +212,7 @@ specifier|public
 class|class
 name|PutMappingRequest
 extends|extends
-name|MasterNodeOperationRequest
+name|AcknowledgedRequest
 argument_list|<
 name|PutMappingRequest
 argument_list|>
@@ -314,21 +272,6 @@ DECL|field|source
 specifier|private
 name|String
 name|source
-decl_stmt|;
-DECL|field|timeout
-specifier|private
-name|TimeValue
-name|timeout
-init|=
-operator|new
-name|TimeValue
-argument_list|(
-literal|10
-argument_list|,
-name|TimeUnit
-operator|.
-name|SECONDS
-argument_list|)
 decl_stmt|;
 DECL|field|ignoreConflicts
 specifier|private
@@ -895,6 +838,11 @@ throw|;
 block|}
 block|}
 comment|/**      * The mapping source definition.      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|source
 specifier|public
 name|PutMappingRequest
@@ -976,60 +924,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Timeout to wait till the put mapping gets acknowledged of all current cluster nodes. Defaults to      *<tt>10s</tt>.      */
-DECL|method|timeout
-name|TimeValue
-name|timeout
-parameter_list|()
-block|{
-return|return
-name|timeout
-return|;
-block|}
-comment|/**      * Timeout to wait till the put mapping gets acknowledged of all current cluster nodes. Defaults to      *<tt>10s</tt>.      */
-DECL|method|timeout
-specifier|public
-name|PutMappingRequest
-name|timeout
-parameter_list|(
-name|TimeValue
-name|timeout
-parameter_list|)
-block|{
-name|this
-operator|.
-name|timeout
-operator|=
-name|timeout
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Timeout to wait till the put mapping gets acknowledged of all current cluster nodes. Defaults to      *<tt>10s</tt>.      */
-DECL|method|timeout
-specifier|public
-name|PutMappingRequest
-name|timeout
-parameter_list|(
-name|String
-name|timeout
-parameter_list|)
-block|{
-return|return
-name|timeout
-argument_list|(
-name|TimeValue
-operator|.
-name|parseTimeValue
-argument_list|(
-name|timeout
-argument_list|,
-literal|null
-argument_list|)
-argument_list|)
-return|;
-block|}
 comment|/**      * If there is already a mapping definition registered against the type, then it will be merged. If there are      * elements that can't be merged are detected, the request will be rejected unless the      * {@link #ignoreConflicts(boolean)} is set. In such a case, the duplicate mappings will be rejected.      */
 DECL|method|ignoreConflicts
 specifier|public
@@ -1102,9 +996,7 @@ operator|.
 name|readString
 argument_list|()
 expr_stmt|;
-name|timeout
-operator|=
-name|readTimeValue
+name|readTimeout
 argument_list|(
 name|in
 argument_list|)
@@ -1158,9 +1050,7 @@ argument_list|(
 name|source
 argument_list|)
 expr_stmt|;
-name|timeout
-operator|.
-name|writeTo
+name|writeTimeout
 argument_list|(
 name|out
 argument_list|)
