@@ -56,6 +56,8 @@ name|BoostableQueryBuilder
 argument_list|<
 name|RegexpQueryBuilder
 argument_list|>
+implements|,
+name|MultiTermQueryBuilder
 block|{
 DECL|field|name
 specifier|private
