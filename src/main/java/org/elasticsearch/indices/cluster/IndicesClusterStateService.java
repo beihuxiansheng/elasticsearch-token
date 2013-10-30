@@ -4274,10 +4274,20 @@ operator|==
 name|IndexShardState
 operator|.
 name|STARTED
+operator|||
+name|indexShard
+operator|.
+name|state
+argument_list|()
+operator|==
+name|IndexShardState
+operator|.
+name|POST_RECOVERY
 condition|)
 block|{
-comment|// the master thinks we are initializing, but we are already started
-comment|// (either master failover, or a cluster event before we managed to tell the master we started), mark us as started
+comment|// the master thinks we are initializing, but we are already started or on POST_RECOVERY and waiting
+comment|// for master to confirm a shard started message (either master failover, or a cluster event before
+comment|// we managed to tell the master we started), mark us as started
 if|if
 condition|(
 name|logger
@@ -4290,7 +4300,12 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"[{}][{}] master [{}] marked shard as initializing, but shard already created, mark shard as started"
+literal|"[{}][{}] master [{}] marked shard as initializing, but shard has state [{}], mark shard as started"
+argument_list|,
+name|indexShard
+operator|.
+name|state
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -4312,7 +4327,14 @@ operator|.
 name|masterNode
 argument_list|()
 operator|+
-literal|" marked shard as initializing, but shard already started, mark shard as started"
+literal|" marked shard as initializing, but shard state is ["
+operator|+
+name|indexShard
+operator|.
+name|state
+argument_list|()
+operator|+
+literal|"], mark shard as started"
 argument_list|)
 expr_stmt|;
 return|return;
