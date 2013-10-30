@@ -250,6 +250,13 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
+literal|"force.http.enabled"
+argument_list|,
+literal|true
+argument_list|)
+operator|.
+name|put
+argument_list|(
 name|super
 operator|.
 name|nodeSettings
