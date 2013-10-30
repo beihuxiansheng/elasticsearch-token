@@ -61,16 +61,14 @@ name|long
 name|getMemorySizeInBytes
 parameter_list|()
 function_decl|;
-comment|/**      * Use a non thread safe (lightweight) view of the values as bytes.      */
+comment|/**      * Use a non thread safe (lightweight) view of the values as bytes.      *      * @param needsHashes if<code>true</code> the implementation will use pre-build hashes if      *                    {@link org.elasticsearch.index.fielddata.BytesValues#currentValueHash()} is used. if no hashes      *                    are used<code>false</code> should be passed instead.      *      */
 DECL|method|getBytesValues
 name|BytesValues
 name|getBytesValues
-parameter_list|()
-function_decl|;
-DECL|method|getHashedBytesValues
-name|BytesValues
-name|getHashedBytesValues
-parameter_list|()
+parameter_list|(
+name|boolean
+name|needsHashes
+parameter_list|)
 function_decl|;
 comment|/**      * Returns a "scripting" based values.      */
 DECL|method|getScriptValues
@@ -98,20 +96,16 @@ argument_list|<
 name|Script
 argument_list|>
 block|{
-comment|/**          * Use a non thread safe (lightweight) view of the values as bytes.          */
+comment|/**          * Use a non thread safe (lightweight) view of the values as bytes.          * @param needsHashes          */
 DECL|method|getBytesValues
 name|BytesValues
 operator|.
 name|WithOrdinals
 name|getBytesValues
-parameter_list|()
-function_decl|;
-DECL|method|getHashedBytesValues
-name|BytesValues
-operator|.
-name|WithOrdinals
-name|getHashedBytesValues
-parameter_list|()
+parameter_list|(
+name|boolean
+name|needsHashes
+parameter_list|)
 function_decl|;
 block|}
 block|}

@@ -182,40 +182,6 @@ name|equalTo
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Random
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|equalTo
-import|;
-end_import
-
 begin_class
 DECL|class|FilterFieldDataTest
 specifier|public
@@ -588,7 +554,10 @@ init|=
 name|loadDirect
 operator|.
 name|getBytesValues
+argument_list|(
+name|randomBoolean
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|Docs
 name|ordinals
@@ -769,7 +738,10 @@ init|=
 name|loadDirect
 operator|.
 name|getBytesValues
+argument_list|(
+name|randomBoolean
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|Docs
 name|ordinals
@@ -926,7 +898,10 @@ init|=
 name|loadDirect
 operator|.
 name|getBytesValues
+argument_list|(
+name|randomBoolean
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|Docs
 name|ordinals
@@ -1100,7 +1075,10 @@ init|=
 name|loadDirect
 operator|.
 name|getBytesValues
+argument_list|(
+name|randomBoolean
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|Docs
 name|ordinals
@@ -1300,7 +1278,10 @@ init|=
 name|loadDirect
 operator|.
 name|getBytesValues
+argument_list|(
+name|randomBoolean
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|Docs
 name|ordinals
@@ -1665,7 +1646,10 @@ init|=
 name|loadDirect
 operator|.
 name|getBytesValues
+argument_list|(
+name|randomBoolean
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|Docs
 name|ordinals
@@ -1805,7 +1789,10 @@ init|=
 name|loadDirect
 operator|.
 name|getBytesValues
+argument_list|(
+name|randomBoolean
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|Docs
 name|ordinals

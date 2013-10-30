@@ -277,7 +277,10 @@ DECL|method|getBytesValues
 specifier|public
 name|BytesValues
 name|getBytesValues
-parameter_list|()
+parameter_list|(
+name|boolean
+name|needsHashes
+parameter_list|)
 block|{
 return|return
 name|BytesValues

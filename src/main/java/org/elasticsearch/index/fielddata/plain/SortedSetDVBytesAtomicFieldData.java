@@ -144,7 +144,9 @@ operator|.
 name|Strings
 argument_list|(
 name|getBytesValues
-argument_list|()
+argument_list|(
+literal|false
+argument_list|)
 argument_list|)
 return|;
 block|}

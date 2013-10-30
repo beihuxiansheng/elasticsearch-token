@@ -5194,7 +5194,9 @@ name|atomicReaderContext
 argument_list|)
 operator|.
 name|getBytesValues
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 decl_stmt|;
 specifier|final
 name|int

@@ -315,7 +315,10 @@ name|BytesValues
 operator|.
 name|WithOrdinals
 name|getBytesValues
-parameter_list|()
+parameter_list|(
+name|boolean
+name|needsHashes
+parameter_list|)
 block|{
 specifier|final
 name|SortedSetDocValues

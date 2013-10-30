@@ -281,8 +281,13 @@ DECL|method|getBytesValues
 specifier|public
 name|BytesValues
 name|getBytesValues
-parameter_list|()
+parameter_list|(
+name|boolean
+name|needsHashes
+parameter_list|)
 block|{
+comment|// if you want hashes to be cached, you should rather store them on disk alongside the values rather than loading them into memory
+comment|// here - not supported for now, and probably not useful since this field data only applies to _id and _uid?
 specifier|final
 name|BinaryDocValues
 name|values
@@ -460,21 +465,6 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getHashedBytesValues
-specifier|public
-name|BytesValues
-name|getHashedBytesValues
-parameter_list|()
-block|{
-comment|// if you want hashes to be cached, you should rather store them on disk alongside the values rather than loading them into memory
-comment|// here - not supported for now, and probably not useful since this field data only applies to _id and _uid?
-return|return
-name|getBytesValues
-argument_list|()
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|getScriptValues
 specifier|public
 name|Strings
@@ -488,7 +478,9 @@ operator|.
 name|Strings
 argument_list|(
 name|getBytesValues
-argument_list|()
+argument_list|(
+literal|false
+argument_list|)
 argument_list|)
 return|;
 block|}

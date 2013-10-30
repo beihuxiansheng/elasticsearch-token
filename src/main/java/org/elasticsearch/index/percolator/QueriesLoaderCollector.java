@@ -505,6 +505,11 @@ name|idValues
 operator|.
 name|copyShared
 argument_list|()
+argument_list|,
+name|idValues
+operator|.
+name|currentValueHash
+argument_list|()
 argument_list|)
 argument_list|,
 name|parseQuery
@@ -577,7 +582,9 @@ name|context
 argument_list|)
 operator|.
 name|getBytesValues
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
