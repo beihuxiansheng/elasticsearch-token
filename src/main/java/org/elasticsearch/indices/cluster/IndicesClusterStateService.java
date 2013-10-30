@@ -966,7 +966,7 @@ name|ElasticSearchException
 block|{
 name|clusterService
 operator|.
-name|add
+name|addFirst
 argument_list|(
 name|this
 argument_list|)
