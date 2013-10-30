@@ -70,11 +70,30 @@ name|Index
 name|index
 parameter_list|)
 block|{
+name|this
+argument_list|(
+name|index
+argument_list|,
+literal|"already exists"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|IndexAlreadyExistsException
+specifier|public
+name|IndexAlreadyExistsException
+parameter_list|(
+name|Index
+name|index
+parameter_list|,
+name|String
+name|message
+parameter_list|)
+block|{
 name|super
 argument_list|(
 name|index
 argument_list|,
-literal|"Already exists"
+name|message
 argument_list|)
 expr_stmt|;
 block|}

@@ -3761,7 +3761,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|InvalidIndexNameException
+name|IndexAlreadyExistsException
 argument_list|(
 operator|new
 name|Index
@@ -3771,11 +3771,7 @@ operator|.
 name|index
 argument_list|)
 argument_list|,
-name|request
-operator|.
-name|index
-argument_list|,
-literal|"an alias with the same name already exists"
+literal|"already exists as alias"
 argument_list|)
 throw|;
 block|}
