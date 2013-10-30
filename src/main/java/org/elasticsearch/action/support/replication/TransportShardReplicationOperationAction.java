@@ -2138,8 +2138,6 @@ operator|.
 name|id
 argument_list|()
 argument_list|,
-name|fromClusterEvent
-argument_list|,
 name|shard
 argument_list|,
 name|clusterState
@@ -2173,8 +2171,6 @@ name|shard
 operator|.
 name|id
 argument_list|()
-argument_list|,
-name|fromClusterEvent
 argument_list|,
 name|shard
 argument_list|,
@@ -2448,6 +2444,30 @@ argument_list|(
 literal|"listener to cluster state added, trying to index again"
 argument_list|)
 expr_stmt|;
+comment|// check if state version changed while we were adding this listener
+if|if
+condition|(
+name|clusterState
+operator|.
+name|version
+argument_list|()
+operator|!=
+name|clusterService
+operator|.
+name|state
+argument_list|()
+operator|.
+name|version
+argument_list|()
+condition|)
+block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"state change while we were trying to add listener, trying to index again"
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|start
@@ -2464,6 +2484,7 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 annotation|@
@@ -2682,9 +2703,6 @@ parameter_list|(
 name|int
 name|primaryShardId
 parameter_list|,
-name|boolean
-name|fromDiscoveryListener
-parameter_list|,
 specifier|final
 name|ShardRouting
 name|shard
@@ -2758,7 +2776,7 @@ argument_list|)
 expr_stmt|;
 name|retry
 argument_list|(
-name|fromDiscoveryListener
+literal|false
 argument_list|,
 literal|null
 argument_list|)
