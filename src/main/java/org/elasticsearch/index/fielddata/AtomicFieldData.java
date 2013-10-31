@@ -108,6 +108,28 @@ name|needsHashes
 parameter_list|)
 function_decl|;
 block|}
+comment|/**      * This enum provides information about the order of the values for      * a given document. For instance {@link BytesValues} by default      * return values in {@link #BYTES} order but if the interface      * wraps a numeric variant the sort order might change to {@link #NUMERIC}.      * In that case the values might not be returned in byte sort order but in numeric      * order instead while maintaining the property of<tt>N< N+1</tt> during the      * value iterations.      *      * @see org.elasticsearch.index.fielddata.BytesValues#getOrder()      * @see org.elasticsearch.index.fielddata.DoubleValues#getOrder()      * @see org.elasticsearch.index.fielddata.LongValues#getOrder()      */
+DECL|enum|Order
+specifier|public
+enum|enum
+name|Order
+block|{
+comment|/**          * Donates Byte sort order          */
+DECL|enum constant|BYTES
+name|BYTES
+block|,
+comment|/**          * Donates Numeric sort order          */
+DECL|enum constant|NUMERIC
+name|NUMERIC
+block|,
+comment|/**          * Donates custom sort order          */
+DECL|enum constant|CUSTOM
+name|CUSTOM
+block|,
+comment|/**          * Donates no sort order          */
+DECL|enum constant|NONE
+name|NONE
+block|}
 block|}
 end_interface
 

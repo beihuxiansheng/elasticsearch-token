@@ -137,6 +137,23 @@ name|currentValueHash
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getOrder
+specifier|public
+name|AtomicFieldData
+operator|.
+name|Order
+name|getOrder
+parameter_list|()
+block|{
+return|return
+name|delegate
+operator|.
+name|getOrder
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 
