@@ -20,13 +20,11 @@ begin_import
 import|import
 name|com
 operator|.
-name|google
+name|carrotsearch
 operator|.
-name|common
+name|hppc
 operator|.
-name|collect
-operator|.
-name|ImmutableMap
+name|ObjectObjectOpenHashMap
 import|;
 end_import
 
@@ -55,16 +53,6 @@ operator|.
 name|analysis
 operator|.
 name|AnalyzerWrapper
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
 import|;
 end_import
 
@@ -84,7 +72,7 @@ block|{
 DECL|field|analyzers
 specifier|private
 specifier|final
-name|ImmutableMap
+name|ObjectObjectOpenHashMap
 argument_list|<
 name|String
 argument_list|,
@@ -102,7 +90,7 @@ DECL|method|FieldNameAnalyzer
 specifier|public
 name|FieldNameAnalyzer
 parameter_list|(
-name|Map
+name|ObjectObjectOpenHashMap
 argument_list|<
 name|String
 argument_list|,
@@ -118,12 +106,7 @@ name|this
 operator|.
 name|analyzers
 operator|=
-name|ImmutableMap
-operator|.
-name|copyOf
-argument_list|(
 name|analyzers
-argument_list|)
 expr_stmt|;
 name|this
 operator|.
@@ -134,7 +117,7 @@ expr_stmt|;
 block|}
 DECL|method|analyzers
 specifier|public
-name|ImmutableMap
+name|ObjectObjectOpenHashMap
 argument_list|<
 name|String
 argument_list|,
