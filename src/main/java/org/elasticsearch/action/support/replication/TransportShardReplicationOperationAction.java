@@ -2437,21 +2437,18 @@ name|void
 name|postAdded
 parameter_list|()
 block|{
-name|logger
-operator|.
-name|trace
-argument_list|(
-literal|"listener to cluster state added, trying to index again"
-argument_list|)
-expr_stmt|;
 comment|// check if state version changed while we were adding this listener
-if|if
-condition|(
+name|long
+name|sampledVersion
+init|=
 name|clusterState
 operator|.
 name|version
 argument_list|()
-operator|!=
+decl_stmt|;
+name|long
+name|currentVersion
+init|=
 name|clusterService
 operator|.
 name|state
@@ -2459,13 +2456,23 @@ argument_list|()
 operator|.
 name|version
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|sampledVersion
+operator|!=
+name|currentVersion
 condition|)
 block|{
 name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"state change while we were trying to add listener, trying to index again"
+literal|"state change while we were trying to add listener, trying to start again, sampled_version [{}], current_version [{}]"
+argument_list|,
+name|sampledVersion
+argument_list|,
+name|currentVersion
 argument_list|)
 expr_stmt|;
 if|if
@@ -2530,7 +2537,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"cluster changed (version {}), trying to index again"
+literal|"cluster changed (version {}), trying to start again"
 argument_list|,
 name|event
 operator|.
@@ -2778,7 +2785,7 @@ name|retry
 argument_list|(
 literal|false
 argument_list|,
-literal|null
+name|e
 argument_list|)
 expr_stmt|;
 return|return;

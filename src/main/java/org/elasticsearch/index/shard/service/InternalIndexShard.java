@@ -1852,7 +1852,17 @@ name|this
 return|;
 block|}
 block|}
-comment|// make sure we refresh on state change due to cluster state changes
+if|if
+condition|(
+name|state
+operator|==
+name|IndexShardState
+operator|.
+name|POST_RECOVERY
+condition|)
+block|{
+comment|// if the state is started or relocating (cause it might move right away from started to relocating)
+comment|// then move to STARTED
 if|if
 condition|(
 name|newRouting
@@ -1863,23 +1873,18 @@ operator|==
 name|ShardRoutingState
 operator|.
 name|STARTED
-operator|&&
-operator|(
-name|currentRouting
-operator|==
-literal|null
 operator|||
-name|currentRouting
+name|newRouting
 operator|.
 name|state
 argument_list|()
-operator|!=
+operator|==
 name|ShardRoutingState
 operator|.
-name|STARTED
-operator|)
+name|RELOCATING
 condition|)
 block|{
+comment|// we want to refresh *before* we move to internal STARTED state
 try|try
 block|{
 name|engine
@@ -1917,15 +1922,21 @@ name|t
 argument_list|)
 expr_stmt|;
 block|}
+name|boolean
+name|movedToStarted
+init|=
+literal|false
+decl_stmt|;
 synchronized|synchronized
 init|(
 name|mutex
 init|)
 block|{
+comment|// do the check under a mutex, so we make sure to only change to STARTED if in POST_RECOVERY
 if|if
 condition|(
 name|state
-operator|!=
+operator|==
 name|IndexShardState
 operator|.
 name|POST_RECOVERY
@@ -1935,23 +1946,18 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"suspected wrong state when acting on cluster state started state, current state {}"
-argument_list|,
-name|state
-argument_list|)
-expr_stmt|;
-block|}
-name|logger
-operator|.
-name|debug
-argument_list|(
-literal|"state: [{}]->[{}], reason [global state moved to started]"
+literal|"state: [{}]->[{}], reason [global state is [{}]]"
 argument_list|,
 name|state
 argument_list|,
 name|IndexShardState
 operator|.
 name|STARTED
+argument_list|,
+name|newRouting
+operator|.
+name|state
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|state
@@ -1960,7 +1966,34 @@ name|IndexShardState
 operator|.
 name|STARTED
 expr_stmt|;
+name|movedToStarted
+operator|=
+literal|true
+expr_stmt|;
 block|}
+else|else
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"state [{}] not changed, not in POST_RECOVERY, global state is [{}]"
+argument_list|,
+name|state
+argument_list|,
+name|newRouting
+operator|.
+name|state
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+if|if
+condition|(
+name|movedToStarted
+condition|)
+block|{
 name|indicesLifecycle
 operator|.
 name|afterIndexShardStarted
@@ -1968,6 +2001,8 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+block|}
+block|}
 block|}
 name|this
 operator|.
