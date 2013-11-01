@@ -487,30 +487,6 @@ argument_list|>
 name|map
 parameter_list|)
 block|{
-if|if
-condition|(
-name|map
-operator|==
-name|EMPTY
-condition|)
-block|{
-comment|// create a new instance if this is the shared EMPTY one
-name|this
-operator|.
-name|map
-operator|=
-operator|new
-name|ObjectObjectOpenHashMap
-argument_list|<
-name|KType
-argument_list|,
-name|VType
-argument_list|>
-argument_list|()
-expr_stmt|;
-block|}
-else|else
-block|{
 name|this
 operator|.
 name|map
@@ -522,7 +498,6 @@ operator|.
 name|clone
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 comment|/**          * Builds a new instance of the          */
 DECL|method|build
