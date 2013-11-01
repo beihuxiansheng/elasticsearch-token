@@ -18,18 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|hppc
-operator|.
-name|ObjectObjectOpenHashMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -53,6 +41,20 @@ operator|.
 name|analysis
 operator|.
 name|AnalyzerWrapper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|ImmutableOpenMap
 import|;
 end_import
 
@@ -72,7 +74,7 @@ block|{
 DECL|field|analyzers
 specifier|private
 specifier|final
-name|ObjectObjectOpenHashMap
+name|ImmutableOpenMap
 argument_list|<
 name|String
 argument_list|,
@@ -90,7 +92,7 @@ DECL|method|FieldNameAnalyzer
 specifier|public
 name|FieldNameAnalyzer
 parameter_list|(
-name|ObjectObjectOpenHashMap
+name|ImmutableOpenMap
 argument_list|<
 name|String
 argument_list|,
@@ -117,7 +119,7 @@ expr_stmt|;
 block|}
 DECL|method|analyzers
 specifier|public
-name|ObjectObjectOpenHashMap
+name|ImmutableOpenMap
 argument_list|<
 name|String
 argument_list|,
