@@ -453,7 +453,6 @@ argument_list|>
 block|{
 DECL|field|map
 specifier|private
-specifier|final
 name|ObjectObjectOpenHashMap
 argument_list|<
 name|KType
@@ -511,6 +510,25 @@ argument_list|>
 name|build
 parameter_list|()
 block|{
+name|ObjectObjectOpenHashMap
+argument_list|<
+name|KType
+argument_list|,
+name|VType
+argument_list|>
+name|map
+init|=
+name|this
+operator|.
+name|map
+decl_stmt|;
+name|this
+operator|.
+name|map
+operator|=
+literal|null
+expr_stmt|;
+comment|// nullify the map, so any operation post build will fail! (hackish, but safest)
 return|return
 operator|new
 name|ImmutableOpenMap
