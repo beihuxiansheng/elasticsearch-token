@@ -372,22 +372,6 @@ name|newIndexMetaDataBuilder
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|metadata
-operator|.
-name|MetaData
-operator|.
-name|newMetaDataBuilder
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -722,10 +706,9 @@ operator|.
 name|Builder
 name|builder
 init|=
-name|newMetaDataBuilder
-argument_list|()
+name|MetaData
 operator|.
-name|metaData
+name|builder
 argument_list|(
 name|currentState
 operator|.

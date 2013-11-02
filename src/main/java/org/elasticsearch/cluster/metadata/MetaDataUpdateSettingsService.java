@@ -1459,10 +1459,7 @@ name|metaDataBuilder
 init|=
 name|MetaData
 operator|.
-name|newMetaDataBuilder
-argument_list|()
-operator|.
-name|metaData
+name|builder
 argument_list|(
 name|currentState
 operator|.

@@ -734,9 +734,6 @@ init|=
 name|MetaData
 operator|.
 name|builder
-argument_list|()
-operator|.
-name|metaData
 argument_list|(
 name|currentState
 operator|.
@@ -1193,9 +1190,6 @@ init|=
 name|MetaData
 operator|.
 name|builder
-argument_list|()
-operator|.
-name|metaData
 argument_list|(
 name|currentState
 operator|.

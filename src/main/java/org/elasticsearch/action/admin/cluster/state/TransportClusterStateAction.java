@@ -202,22 +202,6 @@ name|newClusterStateBuilder
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|metadata
-operator|.
-name|MetaData
-operator|.
-name|newMetaDataBuilder
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -503,9 +487,6 @@ name|MetaData
 operator|.
 name|Builder
 name|mdBuilder
-init|=
-name|newMetaDataBuilder
-argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -529,14 +510,26 @@ literal|0
 condition|)
 block|{
 name|mdBuilder
+operator|=
+name|MetaData
 operator|.
-name|metaData
+name|builder
 argument_list|(
 name|currentState
 operator|.
 name|metaData
 argument_list|()
 argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|mdBuilder
+operator|=
+name|MetaData
+operator|.
+name|builder
+argument_list|()
 expr_stmt|;
 block|}
 if|if

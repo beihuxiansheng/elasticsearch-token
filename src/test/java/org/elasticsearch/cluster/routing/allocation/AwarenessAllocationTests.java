@@ -188,22 +188,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|metadata
-operator|.
-name|MetaData
-operator|.
-name|newMetaDataBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|node
 operator|.
 name|DiscoveryNodes
@@ -369,7 +353,9 @@ expr_stmt|;
 name|MetaData
 name|metaData
 init|=
-name|newMetaDataBuilder
+name|MetaData
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1080,7 +1066,9 @@ expr_stmt|;
 name|MetaData
 name|metaData
 init|=
-name|newMetaDataBuilder
+name|MetaData
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1844,7 +1832,9 @@ expr_stmt|;
 name|MetaData
 name|metaData
 init|=
-name|newMetaDataBuilder
+name|MetaData
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -2833,7 +2823,9 @@ expr_stmt|;
 name|MetaData
 name|metaData
 init|=
-name|newMetaDataBuilder
+name|MetaData
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -3938,7 +3930,9 @@ expr_stmt|;
 name|MetaData
 name|metaData
 init|=
-name|newMetaDataBuilder
+name|MetaData
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -4785,7 +4779,9 @@ expr_stmt|;
 name|MetaData
 name|metaData
 init|=
-name|newMetaDataBuilder
+name|MetaData
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -5673,7 +5669,9 @@ expr_stmt|;
 name|MetaData
 name|metaData
 init|=
-name|newMetaDataBuilder
+name|MetaData
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -6370,7 +6368,9 @@ expr_stmt|;
 name|MetaData
 name|metaData
 init|=
-name|newMetaDataBuilder
+name|MetaData
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -7120,7 +7120,9 @@ expr_stmt|;
 name|MetaData
 name|metaData
 init|=
-name|newMetaDataBuilder
+name|MetaData
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -7966,7 +7968,9 @@ expr_stmt|;
 name|MetaData
 name|metaData
 init|=
-name|newMetaDataBuilder
+name|MetaData
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -8497,7 +8501,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> starting inizializing shards on the new node"
+literal|"--> starting initializing shards on the new node"
 argument_list|)
 expr_stmt|;
 name|routingTable

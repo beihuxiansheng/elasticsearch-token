@@ -182,22 +182,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|metadata
-operator|.
-name|MetaData
-operator|.
-name|newMetaDataBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|node
 operator|.
 name|DiscoveryNodes
@@ -269,18 +253,6 @@ operator|.
 name|ImmutableSettings
 operator|.
 name|settingsBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
 import|;
 end_import
 
@@ -368,7 +340,9 @@ expr_stmt|;
 name|MetaData
 name|metaData
 init|=
-name|newMetaDataBuilder
+name|MetaData
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -906,7 +880,9 @@ expr_stmt|;
 name|MetaData
 name|metaData
 init|=
-name|newMetaDataBuilder
+name|MetaData
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1829,7 +1805,9 @@ expr_stmt|;
 name|MetaData
 name|metaData
 init|=
-name|newMetaDataBuilder
+name|MetaData
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put

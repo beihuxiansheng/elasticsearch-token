@@ -286,22 +286,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|metadata
-operator|.
-name|MetaData
-operator|.
-name|newMetaDataBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|node
 operator|.
 name|DiscoveryNodes
@@ -697,7 +681,9 @@ decl_stmt|;
 name|MetaData
 name|metaData
 init|=
-name|newMetaDataBuilder
+name|MetaData
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -2383,7 +2369,9 @@ decl_stmt|;
 name|MetaData
 name|metaData
 init|=
-name|newMetaDataBuilder
+name|MetaData
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -4024,7 +4012,9 @@ decl_stmt|;
 name|MetaData
 name|metaData
 init|=
-name|newMetaDataBuilder
+name|MetaData
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -4522,7 +4512,9 @@ decl_stmt|;
 name|MetaData
 name|metaData
 init|=
-name|newMetaDataBuilder
+name|MetaData
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put

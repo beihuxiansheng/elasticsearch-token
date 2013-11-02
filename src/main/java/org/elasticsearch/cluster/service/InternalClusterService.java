@@ -1972,9 +1972,6 @@ argument_list|(
 name|MetaData
 operator|.
 name|builder
-argument_list|()
-operator|.
-name|metaData
 argument_list|(
 name|newClusterState
 operator|.
@@ -2167,9 +2164,6 @@ argument_list|(
 name|MetaData
 operator|.
 name|builder
-argument_list|()
-operator|.
-name|metaData
 argument_list|(
 name|newClusterState
 operator|.

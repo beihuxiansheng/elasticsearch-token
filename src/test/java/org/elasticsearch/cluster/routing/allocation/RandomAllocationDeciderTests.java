@@ -346,22 +346,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|metadata
-operator|.
-name|MetaData
-operator|.
-name|newMetaDataBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|node
 operator|.
 name|DiscoveryNodes
@@ -459,10 +443,10 @@ block|{
 comment|/* This test will make random allocation decision on a growing and shrinking      * cluster leading to a random distribution of the shards. After a certain      * amount of iterations the test allows allocation unless the same shard is      * already allocated on a node and balances the cluster to gain optimal      * balance.*/
 annotation|@
 name|Test
-DECL|method|testRandomDecicions
+DECL|method|testRandomDecisions
 specifier|public
 name|void
-name|testRandomDecicions
+name|testRandomDecisions
 parameter_list|()
 block|{
 name|RandomAllocationDecider
@@ -539,7 +523,9 @@ decl_stmt|;
 name|Builder
 name|metaBuilder
 init|=
-name|newMetaDataBuilder
+name|MetaData
+operator|.
+name|builder
 argument_list|()
 decl_stmt|;
 name|int

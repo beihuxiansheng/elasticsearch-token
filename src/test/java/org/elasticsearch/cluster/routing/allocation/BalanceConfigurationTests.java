@@ -352,22 +352,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|metadata
-operator|.
-name|MetaData
-operator|.
-name|newMetaDataBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|node
 operator|.
 name|DiscoveryNodes
@@ -455,18 +439,6 @@ operator|.
 name|ImmutableSettings
 operator|.
 name|settingsBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
 import|;
 end_import
 
@@ -1176,7 +1148,9 @@ operator|.
 name|Builder
 name|metaDataBuilder
 init|=
-name|newMetaDataBuilder
+name|MetaData
+operator|.
+name|builder
 argument_list|()
 decl_stmt|;
 name|RoutingTable
@@ -3095,7 +3069,7 @@ parameter_list|(
 name|StartedRerouteAllocation
 name|allocation
 parameter_list|)
-block|{                                                                       }
+block|{               }
 annotation|@
 name|Override
 specifier|public
@@ -3105,8 +3079,8 @@ parameter_list|(
 name|FailedRerouteAllocation
 name|allocation
 parameter_list|)
-block|{                     }
-comment|/*                      *  // this allocator tries to rebuild this scenario where a rebalance is                      *  // triggered solely by the primary overload on node [1] where a shard                      *  // is rebalanced to node 0                          routing_nodes:                         -----node_id[0][V]                         --------[test][0], node[0], [R], s[STARTED]                         --------[test][4], node[0], [R], s[STARTED]                         -----node_id[1][V]                         --------[test][0], node[1], [P], s[STARTED]                         --------[test][1], node[1], [P], s[STARTED]                         --------[test][3], node[1], [R], s[STARTED]                         -----node_id[2][V]                         --------[test][1], node[2], [R], s[STARTED]                         --------[test][2], node[2], [R], s[STARTED]                         --------[test][4], node[2], [P], s[STARTED]                         -----node_id[3][V]                         --------[test][2], node[3], [P], s[STARTED]                         --------[test][3], node[3], [P], s[STARTED]                         ---- unassigned                      */
+block|{             }
+comment|/*              *  // this allocator tries to rebuild this scenario where a rebalance is              *  // triggered solely by the primary overload on node [1] where a shard              *  // is rebalanced to node 0                 routing_nodes:                 -----node_id[0][V]                 --------[test][0], node[0], [R], s[STARTED]                 --------[test][4], node[0], [R], s[STARTED]                 -----node_id[1][V]                 --------[test][0], node[1], [P], s[STARTED]                 --------[test][1], node[1], [P], s[STARTED]                 --------[test][3], node[1], [R], s[STARTED]                 -----node_id[2][V]                 --------[test][1], node[2], [R], s[STARTED]                 --------[test][2], node[2], [R], s[STARTED]                 --------[test][4], node[2], [P], s[STARTED]                 -----node_id[3][V]                 --------[test][2], node[3], [P], s[STARTED]                 --------[test][3], node[3], [P], s[STARTED]                 ---- unassigned              */
 annotation|@
 name|Override
 specifier|public
@@ -3410,7 +3384,9 @@ operator|.
 name|Builder
 name|metaDataBuilder
 init|=
-name|newMetaDataBuilder
+name|MetaData
+operator|.
+name|builder
 argument_list|()
 decl_stmt|;
 name|RoutingTable
