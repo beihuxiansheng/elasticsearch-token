@@ -370,22 +370,6 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|RoutingBuilders
-operator|.
-name|routingTable
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
 name|ShardRoutingState
 operator|.
 name|INITIALIZING
@@ -1158,7 +1142,9 @@ operator|.
 name|Builder
 name|routingTableBuilder
 init|=
-name|routingTable
+name|RoutingTable
+operator|.
+name|builder
 argument_list|()
 decl_stmt|;
 for|for
@@ -3394,7 +3380,9 @@ operator|.
 name|Builder
 name|routingTableBuilder
 init|=
-name|routingTable
+name|RoutingTable
+operator|.
+name|builder
 argument_list|()
 decl_stmt|;
 name|IndexMetaData

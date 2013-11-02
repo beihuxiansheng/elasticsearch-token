@@ -242,22 +242,6 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|RoutingBuilders
-operator|.
-name|routingTable
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
 name|ShardRoutingState
 operator|.
 name|*
@@ -411,7 +395,9 @@ decl_stmt|;
 name|RoutingTable
 name|routingTable
 init|=
-name|routingTable
+name|RoutingTable
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|addAsNew
@@ -1638,7 +1624,9 @@ decl_stmt|;
 name|RoutingTable
 name|routingTable
 init|=
-name|routingTable
+name|RoutingTable
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|addAsNew
@@ -2775,7 +2763,9 @@ decl_stmt|;
 name|RoutingTable
 name|routingTable
 init|=
-name|routingTable
+name|RoutingTable
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|addAsNew
@@ -3494,7 +3484,9 @@ decl_stmt|;
 name|RoutingTable
 name|routingTable
 init|=
-name|routingTable
+name|RoutingTable
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|addAsNew
@@ -4223,7 +4215,9 @@ decl_stmt|;
 name|RoutingTable
 name|routingTable
 init|=
-name|routingTable
+name|RoutingTable
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|addAsNew

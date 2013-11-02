@@ -1442,9 +1442,6 @@ init|=
 name|RoutingTable
 operator|.
 name|builder
-argument_list|()
-operator|.
-name|routingTable
 argument_list|(
 name|currentState
 operator|.

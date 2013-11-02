@@ -1209,6 +1209,23 @@ parameter_list|()
 throws|throws
 name|RoutingValidationException
 block|{     }
+DECL|method|builder
+specifier|public
+name|Builder
+name|builder
+parameter_list|(
+name|String
+name|index
+parameter_list|)
+block|{
+return|return
+operator|new
+name|Builder
+argument_list|(
+name|index
+argument_list|)
+return|;
+block|}
 DECL|class|Builder
 specifier|public
 specifier|static
