@@ -402,7 +402,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> making sure that shard and it's replica are allocated on node_1 and node_2"
+literal|"--> making sure that shard and its replica are allocated on node_1 and node_2"
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -596,7 +596,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> making sure that shard and it's replica exist on server1, server2 and server3"
+literal|"--> making sure that shard and its replica exist on server1, server2 and server3"
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -730,7 +730,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> making sure that shard and it's replica are allocated on server1 and server3 but not on server2"
+literal|"--> making sure that shard and its replica are allocated on server1 and server3 but not on server2"
 argument_list|)
 expr_stmt|;
 name|assertThat

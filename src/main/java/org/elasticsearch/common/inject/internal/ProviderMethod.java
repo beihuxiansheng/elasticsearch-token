@@ -214,7 +214,7 @@ specifier|final
 name|boolean
 name|exposed
 decl_stmt|;
-comment|/**      * @param method the method to invoke. It's return type must be the same type as {@code key}.      */
+comment|/**      * @param method the method to invoke. Its return type must be the same type as {@code key}.      */
 DECL|method|ProviderMethod
 name|ProviderMethod
 parameter_list|(

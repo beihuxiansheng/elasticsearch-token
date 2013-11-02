@@ -250,7 +250,7 @@ name|long
 name|expectedVersion
 parameter_list|)
 function_decl|;
-comment|/**      * Returns the new version for a document, based on it's current one and the specified in the request      *      * @return new version      */
+comment|/**      * Returns the new version for a document, based on its current one and the specified in the request      *      * @return new version      */
 DECL|method|updateVersion
 specifier|public
 specifier|abstract

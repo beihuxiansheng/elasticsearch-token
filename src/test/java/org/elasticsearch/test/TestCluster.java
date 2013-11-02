@@ -2924,7 +2924,7 @@ expr_stmt|;
 name|resetClients
 argument_list|()
 expr_stmt|;
-comment|/* reset all clients - each test gets it's own client based on the Random instance created above. */
+comment|/* reset all clients - each test gets its own client based on the Random instance created above. */
 if|if
 condition|(
 name|wipeData
@@ -3343,7 +3343,7 @@ expr_stmt|;
 name|resetClients
 argument_list|()
 expr_stmt|;
-comment|/* reset all clients - each test gets it's own client based on the Random instance created above. */
+comment|/* reset all clients - each test gets its own client based on the Random instance created above. */
 block|}
 DECL|method|resetClients
 specifier|private

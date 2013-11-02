@@ -1338,7 +1338,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"[{}] update_mapping [{}] ignoring mapping update task as it's source is equal to ours"
+literal|"[{}] update_mapping [{}] ignoring mapping update task as its source is equal to ours"
 argument_list|,
 name|index
 argument_list|,
@@ -3401,7 +3401,7 @@ argument_list|)
 expr_stmt|;
 comment|// TODO: adding one to the version is based on knowledge on how the parent class will increment the version
 comment|//       move this to the base class or add another callback before publishing the new cluster state so we
-comment|//       capture it's version.
+comment|//       capture its version.
 name|countDownListener
 operator|=
 operator|new

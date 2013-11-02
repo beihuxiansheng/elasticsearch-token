@@ -191,7 +191,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is the default postings format for ElasticSearch that special cases  * the<tt>_uid</tt> field to use a bloom filter while all other fields  * will use a {@link Lucene41PostingsFormat}. This format will reuse the underlying  * {@link Lucene41PostingsFormat} and it's files also for the<tt>_uid</tt> saving up to  * 5 files per segment in the default case.  */
+comment|/**  * This is the default postings format for ElasticSearch that special cases  * the<tt>_uid</tt> field to use a bloom filter while all other fields  * will use a {@link Lucene41PostingsFormat}. This format will reuse the underlying  * {@link Lucene41PostingsFormat} and its files also for the<tt>_uid</tt> saving up to  * 5 files per segment in the default case.  */
 end_comment
 
 begin_class

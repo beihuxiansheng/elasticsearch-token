@@ -297,7 +297,7 @@ return|return
 name|description
 return|;
 block|}
-comment|/**      * @return true is it's a site plugin      */
+comment|/**      * @return true if it's a site plugin      */
 DECL|method|isSite
 specifier|public
 name|boolean

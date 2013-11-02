@@ -2255,7 +2255,7 @@ case|:
 assert|assert
 literal|false
 operator|:
-literal|"AVG has it's own collector"
+literal|"AVG has its own collector"
 assert|;
 default|default:
 assert|assert
