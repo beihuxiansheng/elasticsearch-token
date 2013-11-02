@@ -656,22 +656,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|node
-operator|.
-name|DiscoveryNodes
-operator|.
-name|newNodesBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|unit
@@ -1648,7 +1632,9 @@ return|;
 block|}
 comment|// have not decided yet, just send the local node
 return|return
-name|newNodesBuilder
+name|DiscoveryNodes
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -2250,13 +2236,9 @@ operator|.
 name|Builder
 name|builder
 init|=
-operator|new
 name|DiscoveryNodes
 operator|.
-name|Builder
-argument_list|()
-operator|.
-name|putAll
+name|builder
 argument_list|(
 name|currentState
 operator|.
@@ -2470,13 +2452,9 @@ operator|.
 name|Builder
 name|builder
 init|=
-operator|new
 name|DiscoveryNodes
 operator|.
-name|Builder
-argument_list|()
-operator|.
-name|putAll
+name|builder
 argument_list|(
 name|currentState
 operator|.
@@ -2902,10 +2880,7 @@ name|nodesBuilder
 init|=
 name|DiscoveryNodes
 operator|.
-name|newNodesBuilder
-argument_list|()
-operator|.
-name|putAll
+name|builder
 argument_list|(
 name|currentState
 operator|.

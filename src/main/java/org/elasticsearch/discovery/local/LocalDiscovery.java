@@ -854,7 +854,7 @@ name|nodesBuilder
 init|=
 name|DiscoveryNodes
 operator|.
-name|newNodesBuilder
+name|builder
 argument_list|()
 decl_stmt|;
 for|for
@@ -1052,10 +1052,7 @@ name|nodesBuilder
 init|=
 name|DiscoveryNodes
 operator|.
-name|newNodesBuilder
-argument_list|()
-operator|.
-name|putAll
+name|builder
 argument_list|(
 name|currentState
 operator|.
@@ -1169,7 +1166,7 @@ name|nodesBuilder
 init|=
 name|DiscoveryNodes
 operator|.
-name|newNodesBuilder
+name|builder
 argument_list|()
 decl_stmt|;
 for|for

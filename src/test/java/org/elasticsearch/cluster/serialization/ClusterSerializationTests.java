@@ -283,7 +283,7 @@ name|nodes
 init|=
 name|DiscoveryNodes
 operator|.
-name|newNodesBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -495,7 +495,7 @@ name|nodes
 init|=
 name|DiscoveryNodes
 operator|.
-name|newNodesBuilder
+name|builder
 argument_list|()
 operator|.
 name|put

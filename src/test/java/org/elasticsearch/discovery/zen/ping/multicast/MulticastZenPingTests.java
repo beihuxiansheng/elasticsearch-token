@@ -540,7 +540,7 @@ block|{
 return|return
 name|DiscoveryNodes
 operator|.
-name|newNodesBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -611,7 +611,7 @@ block|{
 return|return
 name|DiscoveryNodes
 operator|.
-name|newNodesBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -850,7 +850,7 @@ block|{
 return|return
 name|DiscoveryNodes
 operator|.
-name|newNodesBuilder
+name|builder
 argument_list|()
 operator|.
 name|put

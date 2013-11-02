@@ -62,6 +62,20 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|node
+operator|.
+name|DiscoveryNodes
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
 name|routing
 operator|.
 name|MutableShardRouting
@@ -175,22 +189,6 @@ operator|.
 name|junit
 operator|.
 name|Test
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|node
-operator|.
-name|DiscoveryNodes
-operator|.
-name|newNodesBuilder
 import|;
 end_import
 
@@ -404,7 +402,9 @@ argument_list|)
 operator|.
 name|nodes
 argument_list|(
-name|newNodesBuilder
+name|DiscoveryNodes
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -596,10 +596,9 @@ argument_list|)
 operator|.
 name|nodes
 argument_list|(
-name|newNodesBuilder
-argument_list|()
+name|DiscoveryNodes
 operator|.
-name|putAll
+name|builder
 argument_list|(
 name|clusterState
 operator|.
