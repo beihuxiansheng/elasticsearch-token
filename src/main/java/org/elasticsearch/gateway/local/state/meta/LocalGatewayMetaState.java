@@ -1697,7 +1697,7 @@ name|indexMetaData
 operator|=
 name|IndexMetaData
 operator|.
-name|newIndexMetaDataBuilder
+name|builder
 argument_list|(
 name|indexMetaData
 argument_list|)
@@ -1724,7 +1724,7 @@ name|indexMetaData
 operator|=
 name|IndexMetaData
 operator|.
-name|newIndexMetaDataBuilder
+name|builder
 argument_list|(
 name|indexMetaData
 argument_list|)
@@ -3709,7 +3709,7 @@ name|indexMetaDataBuilder
 init|=
 name|IndexMetaData
 operator|.
-name|newIndexMetaDataBuilder
+name|builder
 argument_list|(
 name|indexMetaData
 argument_list|)

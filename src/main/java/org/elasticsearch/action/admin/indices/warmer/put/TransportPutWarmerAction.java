@@ -1186,7 +1186,7 @@ name|indexBuilder
 init|=
 name|IndexMetaData
 operator|.
-name|newIndexMetaDataBuilder
+name|builder
 argument_list|(
 name|indexMetaData
 argument_list|)

@@ -248,22 +248,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|metadata
-operator|.
-name|IndexMetaData
-operator|.
-name|newIndexMetaDataBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|node
 operator|.
 name|DiscoveryNodes
@@ -3454,7 +3438,9 @@ operator|.
 name|Builder
 name|index
 init|=
-name|newIndexMetaDataBuilder
+name|IndexMetaData
+operator|.
+name|builder
 argument_list|(
 literal|"test"
 operator|+
@@ -3877,7 +3863,9 @@ operator|.
 name|Builder
 name|index
 init|=
-name|newIndexMetaDataBuilder
+name|IndexMetaData
+operator|.
+name|builder
 argument_list|(
 literal|"test"
 operator|+

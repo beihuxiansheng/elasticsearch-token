@@ -773,7 +773,7 @@ name|put
 argument_list|(
 name|IndexMetaData
 operator|.
-name|newIndexMetaDataBuilder
+name|builder
 argument_list|(
 name|currentState
 operator|.
@@ -1226,7 +1226,7 @@ name|put
 argument_list|(
 name|IndexMetaData
 operator|.
-name|newIndexMetaDataBuilder
+name|builder
 argument_list|(
 name|currentState
 operator|.

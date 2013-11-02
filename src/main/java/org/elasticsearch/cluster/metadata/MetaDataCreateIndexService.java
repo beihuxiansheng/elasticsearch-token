@@ -2220,7 +2220,9 @@ operator|.
 name|Builder
 name|indexMetaDataBuilder
 init|=
-name|newIndexMetaDataBuilder
+name|IndexMetaData
+operator|.
+name|builder
 argument_list|(
 name|request
 operator|.

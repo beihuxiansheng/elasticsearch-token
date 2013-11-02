@@ -490,22 +490,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|metadata
-operator|.
-name|IndexMetaData
-operator|.
-name|newIndexMetaDataBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|index
 operator|.
 name|mapper
@@ -1168,7 +1152,9 @@ operator|.
 name|Builder
 name|indexMetaDataBuilder
 init|=
-name|newIndexMetaDataBuilder
+name|IndexMetaData
+operator|.
+name|builder
 argument_list|(
 name|indexMetaData
 argument_list|)
@@ -1596,7 +1582,9 @@ name|mdBuilder
 operator|.
 name|put
 argument_list|(
-name|newIndexMetaDataBuilder
+name|IndexMetaData
+operator|.
+name|builder
 argument_list|(
 name|indexMetaData
 argument_list|)
@@ -2185,7 +2173,9 @@ name|builder
 operator|.
 name|put
 argument_list|(
-name|newIndexMetaDataBuilder
+name|IndexMetaData
+operator|.
+name|builder
 argument_list|(
 name|indexMetaData
 argument_list|)
@@ -3282,7 +3272,9 @@ name|builder
 operator|.
 name|put
 argument_list|(
-name|newIndexMetaDataBuilder
+name|IndexMetaData
+operator|.
+name|builder
 argument_list|(
 name|indexMetaData
 argument_list|)

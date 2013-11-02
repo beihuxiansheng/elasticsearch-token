@@ -40,6 +40,20 @@ name|cluster
 operator|.
 name|metadata
 operator|.
+name|IndexMetaData
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|metadata
+operator|.
 name|MetaData
 import|;
 end_import
@@ -151,22 +165,6 @@ operator|.
 name|ClusterState
 operator|.
 name|newClusterStateBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|metadata
-operator|.
-name|IndexMetaData
-operator|.
-name|newIndexMetaDataBuilder
 import|;
 end_import
 
@@ -316,7 +314,9 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|newIndexMetaDataBuilder
+name|IndexMetaData
+operator|.
+name|builder
 argument_list|(
 literal|"test1"
 argument_list|)
@@ -334,7 +334,9 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|newIndexMetaDataBuilder
+name|IndexMetaData
+operator|.
+name|builder
 argument_list|(
 literal|"test2"
 argument_list|)
