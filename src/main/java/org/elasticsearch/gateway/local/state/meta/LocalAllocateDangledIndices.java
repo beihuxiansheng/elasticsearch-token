@@ -288,20 +288,6 @@ name|Arrays
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|ClusterState
-operator|.
-name|newClusterStateBuilder
-import|;
-end_import
-
 begin_comment
 comment|/**  */
 end_comment
@@ -887,9 +873,6 @@ init|=
 name|ClusterState
 operator|.
 name|builder
-argument_list|()
-operator|.
-name|state
 argument_list|(
 name|currentState
 argument_list|)
@@ -922,10 +905,9 @@ name|allocationService
 operator|.
 name|reroute
 argument_list|(
-name|newClusterStateBuilder
-argument_list|()
+name|ClusterState
 operator|.
-name|state
+name|builder
 argument_list|(
 name|updatedState
 argument_list|)
@@ -943,9 +925,6 @@ return|return
 name|ClusterState
 operator|.
 name|builder
-argument_list|()
-operator|.
-name|state
 argument_list|(
 name|updatedState
 argument_list|)

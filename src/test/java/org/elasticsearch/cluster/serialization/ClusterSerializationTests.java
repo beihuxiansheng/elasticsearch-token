@@ -196,20 +196,6 @@ begin_import
 import|import static
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|ClusterState
-operator|.
-name|newClusterStateBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -340,7 +326,9 @@ decl_stmt|;
 name|ClusterState
 name|clusterState
 init|=
-name|newClusterStateBuilder
+name|ClusterState
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|nodes
@@ -370,10 +358,9 @@ argument_list|()
 decl_stmt|;
 name|clusterState
 operator|=
-name|newClusterStateBuilder
-argument_list|()
+name|ClusterState
 operator|.
-name|state
+name|builder
 argument_list|(
 name|clusterState
 argument_list|)
@@ -541,7 +528,9 @@ decl_stmt|;
 name|ClusterState
 name|clusterState
 init|=
-name|newClusterStateBuilder
+name|ClusterState
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|nodes

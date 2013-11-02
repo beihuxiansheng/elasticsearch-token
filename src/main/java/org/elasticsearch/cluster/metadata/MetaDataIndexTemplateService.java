@@ -533,9 +533,6 @@ return|return
 name|ClusterState
 operator|.
 name|builder
-argument_list|()
-operator|.
-name|state
 argument_list|(
 name|currentState
 argument_list|)
@@ -1026,9 +1023,6 @@ return|return
 name|ClusterState
 operator|.
 name|builder
-argument_list|()
-operator|.
-name|state
 argument_list|(
 name|currentState
 argument_list|)

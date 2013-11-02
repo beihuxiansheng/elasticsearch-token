@@ -476,20 +476,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|ClusterState
-operator|.
-name|newClusterStateBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|index
 operator|.
 name|mapper
@@ -1683,10 +1669,9 @@ name|currentState
 return|;
 block|}
 return|return
-name|newClusterStateBuilder
-argument_list|()
+name|ClusterState
 operator|.
-name|state
+name|builder
 argument_list|(
 name|currentState
 argument_list|)
@@ -2250,9 +2235,6 @@ return|return
 name|ClusterState
 operator|.
 name|builder
-argument_list|()
-operator|.
-name|state
 argument_list|(
 name|currentState
 argument_list|)
@@ -3290,10 +3272,9 @@ block|}
 name|ClusterState
 name|updatedState
 init|=
-name|newClusterStateBuilder
-argument_list|()
+name|ClusterState
 operator|.
-name|state
+name|builder
 argument_list|(
 name|currentState
 argument_list|)

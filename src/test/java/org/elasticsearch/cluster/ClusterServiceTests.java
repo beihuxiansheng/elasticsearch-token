@@ -891,10 +891,7 @@ expr_stmt|;
 return|return
 name|ClusterState
 operator|.
-name|newClusterStateBuilder
-argument_list|()
-operator|.
-name|state
+name|builder
 argument_list|(
 name|currentState
 argument_list|)
@@ -1654,10 +1651,7 @@ expr_stmt|;
 return|return
 name|ClusterState
 operator|.
-name|newClusterStateBuilder
-argument_list|()
-operator|.
-name|state
+name|builder
 argument_list|(
 name|currentState
 argument_list|)
@@ -2030,10 +2024,7 @@ expr_stmt|;
 return|return
 name|ClusterState
 operator|.
-name|newClusterStateBuilder
-argument_list|()
-operator|.
-name|state
+name|builder
 argument_list|(
 name|currentState
 argument_list|)

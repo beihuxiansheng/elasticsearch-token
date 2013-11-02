@@ -188,20 +188,6 @@ name|TransportService
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|ClusterState
-operator|.
-name|newClusterStateBuilder
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -391,7 +377,9 @@ operator|.
 name|Builder
 name|builder
 init|=
-name|newClusterStateBuilder
+name|ClusterState
+operator|.
+name|builder
 argument_list|()
 decl_stmt|;
 name|builder

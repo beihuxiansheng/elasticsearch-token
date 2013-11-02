@@ -316,20 +316,6 @@ name|*
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|ClusterState
-operator|.
-name|newClusterStateBuilder
-import|;
-end_import
-
 begin_comment
 comment|/**  * Service responsible for submitting update index settings requests  */
 end_comment
@@ -1972,9 +1958,6 @@ init|=
 name|ClusterState
 operator|.
 name|builder
-argument_list|()
-operator|.
-name|state
 argument_list|(
 name|currentState
 argument_list|)
@@ -2012,10 +1995,9 @@ argument_list|)
 decl_stmt|;
 name|updatedState
 operator|=
-name|newClusterStateBuilder
-argument_list|()
+name|ClusterState
 operator|.
-name|state
+name|builder
 argument_list|(
 name|updatedState
 argument_list|)

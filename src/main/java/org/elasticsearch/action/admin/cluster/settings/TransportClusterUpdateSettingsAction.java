@@ -324,20 +324,6 @@ name|builder
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|ClusterState
-operator|.
-name|newClusterStateBuilder
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -844,10 +830,9 @@ name|currentState
 return|;
 block|}
 return|return
-name|newClusterStateBuilder
-argument_list|()
+name|ClusterState
 operator|.
-name|state
+name|builder
 argument_list|(
 name|currentState
 argument_list|)
@@ -1399,9 +1384,6 @@ expr_stmt|;
 block|}
 return|return
 name|builder
-argument_list|()
-operator|.
-name|state
 argument_list|(
 name|currentState
 argument_list|)
