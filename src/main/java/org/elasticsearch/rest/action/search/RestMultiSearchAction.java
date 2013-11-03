@@ -478,6 +478,13 @@ argument_list|(
 literal|"search_type"
 argument_list|)
 argument_list|,
+name|request
+operator|.
+name|param
+argument_list|(
+literal|"routing"
+argument_list|)
+argument_list|,
 name|ignoreIndices
 argument_list|,
 name|allowExplicitIndex
