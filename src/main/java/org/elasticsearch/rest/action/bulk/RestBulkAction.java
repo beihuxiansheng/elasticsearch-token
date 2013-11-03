@@ -467,6 +467,16 @@ literal|"type"
 argument_list|)
 decl_stmt|;
 name|String
+name|defaultRouting
+init|=
+name|request
+operator|.
+name|param
+argument_list|(
+literal|"routing"
+argument_list|)
+decl_stmt|;
+name|String
 name|replicationType
 init|=
 name|request
@@ -562,6 +572,10 @@ argument_list|,
 name|defaultIndex
 argument_list|,
 name|defaultType
+argument_list|,
+name|defaultRouting
+argument_list|,
+literal|null
 argument_list|,
 name|allowExplicitIndex
 argument_list|)

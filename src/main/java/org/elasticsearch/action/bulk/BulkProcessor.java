@@ -1054,6 +1054,8 @@ name|defaultIndex
 argument_list|,
 name|defaultType
 argument_list|,
+literal|null
+argument_list|,
 name|payload
 argument_list|,
 literal|true
