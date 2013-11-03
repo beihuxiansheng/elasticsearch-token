@@ -76,6 +76,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ExceptionsHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|inject
@@ -704,7 +714,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|Throwable
 name|e
 parameter_list|)
 block|{
@@ -736,11 +746,23 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|Throwable
 name|e1
 parameter_list|)
 block|{
-comment|// ignore
+name|files
+operator|+=
+literal|" (failure="
+operator|+
+name|ExceptionsHelper
+operator|.
+name|detailedMessage
+argument_list|(
+name|e1
+argument_list|)
+operator|+
+literal|")"
+expr_stmt|;
 block|}
 if|if
 condition|(
@@ -902,7 +924,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|IOException
+name|Throwable
 name|e
 parameter_list|)
 block|{
@@ -913,7 +935,7 @@ argument_list|(
 name|shardId
 argument_list|()
 argument_list|,
-literal|"Failed to fetch index version after copying it over"
+literal|"failed to fetch index version after copying it over"
 argument_list|,
 name|e
 argument_list|)

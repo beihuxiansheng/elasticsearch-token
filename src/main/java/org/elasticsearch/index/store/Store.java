@@ -2000,6 +2000,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 comment|// lets the default implementation happen, so we properly open an input and create an output
 name|super
 operator|.
@@ -2026,6 +2029,9 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 return|return
 name|files
 return|;
@@ -2043,6 +2049,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 return|return
 name|filesMetadata
 operator|.
@@ -2063,6 +2072,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 name|StoreFileMetaData
 name|metaData
 init|=
@@ -2174,6 +2186,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 comment|// we don't allow to delete the checksums files, only using the deleteChecksum method
 if|if
 condition|(
@@ -2297,6 +2312,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 name|StoreFileMetaData
 name|metaData
 init|=
@@ -2397,6 +2415,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 name|Directory
 name|directory
 decl_stmt|;
@@ -2614,6 +2635,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 name|StoreFileMetaData
 name|metaData
 init|=
@@ -2749,6 +2773,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 name|StoreFileMetaData
 name|metaData
 init|=
@@ -2823,12 +2850,17 @@ annotation|@
 name|Override
 DECL|method|close
 specifier|public
+specifier|synchronized
 name|void
 name|close
 parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|isOpen
+operator|=
+literal|false
+expr_stmt|;
 for|for
 control|(
 name|Directory
@@ -2989,6 +3021,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|sync
