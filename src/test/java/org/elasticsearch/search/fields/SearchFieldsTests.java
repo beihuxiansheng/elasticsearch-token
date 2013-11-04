@@ -3169,7 +3169,7 @@ literal|"partial2"
 argument_list|,
 literal|null
 argument_list|,
-literal|"obj1.*"
+literal|"obj1"
 argument_list|)
 operator|.
 name|execute
