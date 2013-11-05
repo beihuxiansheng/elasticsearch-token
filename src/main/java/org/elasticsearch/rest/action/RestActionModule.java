@@ -2282,6 +2282,16 @@ operator|.
 name|asEagerSingleton
 argument_list|()
 expr_stmt|;
+name|bind
+argument_list|(
+name|RestCatAction
+operator|.
+name|class
+argument_list|)
+operator|.
+name|asEagerSingleton
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_class
