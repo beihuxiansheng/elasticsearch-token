@@ -15332,6 +15332,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+name|response
+operator|=
 name|client
 argument_list|()
 operator|.
@@ -15392,6 +15394,8 @@ literal|0l
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|response
+operator|=
 name|client
 argument_list|()
 operator|.
@@ -15457,6 +15461,8 @@ literal|0l
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|response
+operator|=
 name|client
 argument_list|()
 operator|.
@@ -15517,6 +15523,8 @@ literal|0l
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|response
+operator|=
 name|client
 argument_list|()
 operator|.
