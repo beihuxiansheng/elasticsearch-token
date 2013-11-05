@@ -2551,9 +2551,9 @@ block|{
 comment|// analyzer which removes stopwords... so may not be the simple one
 name|createIndexAndMapping
 argument_list|(
-literal|"standard"
+literal|"classic"
 argument_list|,
-literal|"standard"
+literal|"classic"
 argument_list|,
 literal|false
 argument_list|,
