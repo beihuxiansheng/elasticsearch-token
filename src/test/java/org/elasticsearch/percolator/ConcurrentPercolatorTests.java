@@ -542,7 +542,9 @@ name|prepareIndex
 argument_list|(
 literal|"index"
 argument_list|,
-literal|"_percolator"
+name|PercolatorService
+operator|.
+name|TYPE_NAME
 argument_list|,
 literal|"test1"
 argument_list|)
@@ -586,7 +588,9 @@ name|prepareIndex
 argument_list|(
 literal|"index"
 argument_list|,
-literal|"_percolator"
+name|PercolatorService
+operator|.
+name|TYPE_NAME
 argument_list|,
 literal|"test2"
 argument_list|)
@@ -1401,7 +1405,9 @@ name|prepareIndex
 argument_list|(
 literal|"index"
 argument_list|,
-literal|"_percolator"
+name|PercolatorService
+operator|.
+name|TYPE_NAME
 argument_list|,
 name|id
 argument_list|)
@@ -1435,7 +1441,9 @@ name|prepareIndex
 argument_list|(
 literal|"index"
 argument_list|,
-literal|"_percolator"
+name|PercolatorService
+operator|.
+name|TYPE_NAME
 argument_list|,
 name|id
 argument_list|)
@@ -1469,7 +1477,9 @@ name|prepareIndex
 argument_list|(
 literal|"index"
 argument_list|,
-literal|"_percolator"
+name|PercolatorService
+operator|.
+name|TYPE_NAME
 argument_list|,
 name|id
 argument_list|)
@@ -2379,7 +2389,9 @@ name|prepareDelete
 argument_list|(
 literal|"index"
 argument_list|,
-literal|"_percolator"
+name|PercolatorService
+operator|.
+name|TYPE_NAME
 argument_list|,
 name|id
 argument_list|)
@@ -2448,7 +2460,9 @@ name|prepareIndex
 argument_list|(
 literal|"index"
 argument_list|,
-literal|"_percolator"
+name|PercolatorService
+operator|.
+name|TYPE_NAME
 argument_list|,
 name|id
 argument_list|)

@@ -367,7 +367,9 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"_percolator"
+name|PercolatorService
+operator|.
+name|TYPE_NAME
 argument_list|,
 name|Integer
 operator|.

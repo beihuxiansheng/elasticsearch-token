@@ -1228,7 +1228,12 @@ name|defaultPercolatorMappingSource
 operator|=
 literal|"{\n"
 operator|+
-literal|"    \"_default_\":{\n"
+comment|//"    \"" + PercolatorService.TYPE_NAME + "\":{\n" +
+literal|"    \""
+operator|+
+literal|"_default_"
+operator|+
+literal|"\":{\n"
 operator|+
 literal|"        \"_id\" : {\"index\": \"not_analyzed\"},"
 operator|+
@@ -1568,8 +1573,6 @@ literal|'_'
 operator|&&
 operator|!
 name|PercolatorService
-operator|.
-name|Constants
 operator|.
 name|TYPE_NAME
 operator|.
@@ -2324,8 +2327,6 @@ if|if
 condition|(
 name|PercolatorService
 operator|.
-name|Constants
-operator|.
 name|TYPE_NAME
 operator|.
 name|equals
@@ -2336,6 +2337,8 @@ condition|)
 block|{
 name|defaultMappingSource
 operator|=
+name|this
+operator|.
 name|defaultPercolatorMappingSource
 expr_stmt|;
 block|}
@@ -2530,8 +2533,6 @@ name|hasMapping
 argument_list|(
 name|PercolatorService
 operator|.
-name|Constants
-operator|.
 name|TYPE_NAME
 argument_list|)
 decl_stmt|;
@@ -2555,8 +2556,6 @@ block|{
 if|if
 condition|(
 name|PercolatorService
-operator|.
-name|Constants
 operator|.
 name|TYPE_NAME
 operator|.
@@ -2592,8 +2591,6 @@ argument_list|(
 name|documentMapper
 argument_list|(
 name|PercolatorService
-operator|.
-name|Constants
 operator|.
 name|TYPE_NAME
 argument_list|)

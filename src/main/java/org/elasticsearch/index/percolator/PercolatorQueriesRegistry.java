@@ -485,7 +485,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Each shard will have a percolator registry even if there isn't a _percolator document type in the index.  * For shards with indices that have no _percolator document type, this will hold no percolate queries.  *<p/>  * Once a document type has been created, the real-time percolator will start to listen to write events and update the  * this registry with queries in real time.  */
+comment|/**  * Each shard will have a percolator registry even if there isn't a {@link PercolatorService#TYPE_NAME} document type in the index.  * For shards with indices that have no {@link PercolatorService#TYPE_NAME} document type, this will hold no percolate queries.  *<p/>  * Once a document type has been created, the real-time percolator will start to listen to write events and update the  * this registry with queries in real time.  */
 end_comment
 
 begin_class
@@ -1343,8 +1343,6 @@ if|if
 condition|(
 name|PercolatorService
 operator|.
-name|Constants
-operator|.
 name|TYPE_NAME
 operator|.
 name|equals
@@ -1372,8 +1370,6 @@ block|{
 if|if
 condition|(
 name|PercolatorService
-operator|.
-name|Constants
 operator|.
 name|TYPE_NAME
 operator|.
@@ -1518,8 +1514,6 @@ name|hasMapping
 argument_list|(
 name|PercolatorService
 operator|.
-name|Constants
-operator|.
 name|TYPE_NAME
 argument_list|)
 return|;
@@ -1591,8 +1585,6 @@ operator|.
 name|NAME
 argument_list|,
 name|PercolatorService
-operator|.
-name|Constants
 operator|.
 name|TYPE_NAME
 argument_list|)
@@ -1754,8 +1746,6 @@ if|if
 condition|(
 name|PercolatorService
 operator|.
-name|Constants
-operator|.
 name|TYPE_NAME
 operator|.
 name|equals
@@ -1803,8 +1793,6 @@ if|if
 condition|(
 name|PercolatorService
 operator|.
-name|Constants
-operator|.
 name|TYPE_NAME
 operator|.
 name|equals
@@ -1850,8 +1838,6 @@ comment|// validate the query here, before we index
 if|if
 condition|(
 name|PercolatorService
-operator|.
-name|Constants
 operator|.
 name|TYPE_NAME
 operator|.
@@ -1900,8 +1886,6 @@ if|if
 condition|(
 name|PercolatorService
 operator|.
-name|Constants
-operator|.
 name|TYPE_NAME
 operator|.
 name|equals
@@ -1945,8 +1929,6 @@ comment|// remove the query under a lock
 if|if
 condition|(
 name|PercolatorService
-operator|.
-name|Constants
 operator|.
 name|TYPE_NAME
 operator|.

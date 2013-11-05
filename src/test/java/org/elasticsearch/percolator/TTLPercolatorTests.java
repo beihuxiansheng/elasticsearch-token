@@ -335,7 +335,9 @@ argument_list|()
 operator|.
 name|startObject
 argument_list|(
-literal|"_percolator"
+name|PercolatorService
+operator|.
+name|TYPE_NAME
 argument_list|)
 operator|.
 name|startObject
@@ -460,7 +462,9 @@ argument_list|)
 operator|.
 name|addMapping
 argument_list|(
-literal|"_percolator"
+name|PercolatorService
+operator|.
+name|TYPE_NAME
 argument_list|,
 name|precolatorMapping
 argument_list|)
@@ -500,7 +504,9 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"_percolator"
+name|PercolatorService
+operator|.
+name|TYPE_NAME
 argument_list|,
 literal|"kuku"
 argument_list|)
@@ -694,7 +700,9 @@ name|prepareGet
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"_percolator"
+name|PercolatorService
+operator|.
+name|TYPE_NAME
 argument_list|,
 literal|"kuku"
 argument_list|)

@@ -132,6 +132,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|percolator
+operator|.
+name|PercolatorService
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -609,7 +621,9 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"_percolator"
+name|PercolatorService
+operator|.
+name|TYPE_NAME
 argument_list|,
 name|Integer
 operator|.
@@ -677,7 +691,9 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"_percolator"
+name|PercolatorService
+operator|.
+name|TYPE_NAME
 argument_list|,
 name|Integer
 operator|.

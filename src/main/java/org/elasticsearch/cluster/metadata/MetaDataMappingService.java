@@ -2848,8 +2848,6 @@ operator|&&
 operator|!
 name|PercolatorService
 operator|.
-name|Constants
-operator|.
 name|TYPE_NAME
 operator|.
 name|equals
