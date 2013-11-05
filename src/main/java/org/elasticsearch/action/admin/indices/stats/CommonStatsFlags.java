@@ -914,6 +914,12 @@ name|Completion
 argument_list|(
 literal|"completion"
 argument_list|)
+block|,
+DECL|enum constant|Segments
+name|Segments
+argument_list|(
+literal|"segments"
+argument_list|)
 block|;
 DECL|field|restName
 specifier|private

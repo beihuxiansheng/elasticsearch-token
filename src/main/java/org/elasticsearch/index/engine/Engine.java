@@ -461,6 +461,13 @@ parameter_list|)
 throws|throws
 name|EngineException
 function_decl|;
+comment|/**      * Global stats on segments.      */
+DECL|method|segmentsStats
+name|SegmentsStats
+name|segmentsStats
+parameter_list|()
+function_decl|;
+comment|/**      * The list of segments in the engine.      */
 DECL|method|segments
 name|List
 argument_list|<
