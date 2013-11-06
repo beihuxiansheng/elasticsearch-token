@@ -847,7 +847,7 @@ argument_list|()
 argument_list|,
 name|hitContext
 operator|.
-name|docId
+name|topLevelDocId
 argument_list|()
 argument_list|,
 name|numberOfFragments
