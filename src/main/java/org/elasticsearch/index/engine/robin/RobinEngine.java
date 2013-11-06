@@ -8502,7 +8502,7 @@ argument_list|)
 expr_stmt|;
 return|return
 operator|new
-name|IndexWriter
+name|XIndexWriter
 argument_list|(
 name|store
 operator|.
