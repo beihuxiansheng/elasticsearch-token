@@ -840,8 +840,14 @@ return|;
 block|}
 block|}
 block|,
-DECL|enum constant|DEFAULT
+DECL|method|DEFAULT
+DECL|method|DEFAULT
 name|DEFAULT
+parameter_list|(
+name|CachingStrategy
+operator|.
+name|ELASTICSEARCH
+parameter_list|)
 block|{
 annotation|@
 name|Override
