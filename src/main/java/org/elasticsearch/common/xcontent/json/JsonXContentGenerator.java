@@ -1526,6 +1526,16 @@ name|IOException
 block|{
 if|if
 condition|(
+name|generator
+operator|.
+name|isClosed
+argument_list|()
+condition|)
+block|{
+return|return;
+block|}
+if|if
+condition|(
 name|writeLineFeedAtEnd
 condition|)
 block|{
