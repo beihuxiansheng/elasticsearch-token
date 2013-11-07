@@ -1,10 +1,12 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_package
-DECL|package|org.elasticsearch.junit.listeners
+DECL|package|org.elasticsearch.test.junit.listeners
 package|package
 name|org
 operator|.
 name|elasticsearch
+operator|.
+name|test
 operator|.
 name|junit
 operator|.

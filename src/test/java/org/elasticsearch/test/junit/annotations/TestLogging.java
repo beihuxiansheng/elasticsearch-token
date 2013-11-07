@@ -4,11 +4,13 @@ comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more cont
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.junit.annotations
+DECL|package|org.elasticsearch.test.junit.annotations
 package|package
 name|org
 operator|.
 name|elasticsearch
+operator|.
+name|test
 operator|.
 name|junit
 operator|.
@@ -18,15 +20,13 @@ end_package
 
 begin_import
 import|import
-name|com
+name|java
 operator|.
-name|carrotsearch
+name|lang
 operator|.
-name|randomizedtesting
+name|annotation
 operator|.
-name|annotations
-operator|.
-name|TestGroup
+name|ElementType
 import|;
 end_import
 
@@ -38,12 +38,36 @@ name|lang
 operator|.
 name|annotation
 operator|.
-name|*
+name|Retention
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|lang
+operator|.
+name|annotation
+operator|.
+name|RetentionPolicy
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|lang
+operator|.
+name|annotation
+operator|.
+name|Target
 import|;
 end_import
 
 begin_comment
-comment|/**  * Annotation used to set if internet network connectivity is required to run the test.  * By default, tests annotated with @Network won't be executed.  * Set -Dtests.network=true when running test to launch network tests  */
+comment|/**  * Annotation used to set a custom log level for a specific test method.  *  * It supports multiple logger:level comma separated key value pairs  * Use the _root keyword to set the root logger level  * e.g. @TestLogging("_root:DEBUG,org.elasticsearch.cluster.metadata:TRACE")  * or just @TestLogging("_root:DEBUG,cluster.metadata:TRACE") since we start the test with -Des.logger.prefix=  */
 end_comment
 
 begin_annotation_defn
@@ -55,23 +79,23 @@ operator|.
 name|RUNTIME
 argument_list|)
 annotation|@
-name|Inherited
-annotation|@
-name|TestGroup
+name|Target
 argument_list|(
-name|enabled
-operator|=
-literal|false
-argument_list|,
-name|sysProperty
-operator|=
-literal|"tests.network"
+name|ElementType
+operator|.
+name|METHOD
 argument_list|)
-DECL|interface|Network
+DECL|interface|TestLogging
 specifier|public
 annotation_defn|@interface
-name|Network
-block|{ }
+name|TestLogging
+block|{
+DECL|method|value
+name|String
+name|value
+parameter_list|()
+function_decl|;
+block|}
 end_annotation_defn
 
 end_unit

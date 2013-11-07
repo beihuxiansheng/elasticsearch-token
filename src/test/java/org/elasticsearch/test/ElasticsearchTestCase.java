@@ -172,6 +172,8 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|test
+operator|.
 name|junit
 operator|.
 name|listeners

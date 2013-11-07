@@ -4,11 +4,13 @@ comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more cont
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.junit.listeners
+DECL|package|org.elasticsearch.test.junit.listeners
 package|package
 name|org
 operator|.
 name|elasticsearch
+operator|.
+name|test
 operator|.
 name|junit
 operator|.
@@ -63,6 +65,8 @@ import|import
 name|org
 operator|.
 name|elasticsearch
+operator|.
+name|test
 operator|.
 name|junit
 operator|.
@@ -119,7 +123,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link RunListener} that allows to change the log level for a specific test method.  * When a test method is annotated with the {@link org.elasticsearch.junit.annotations.TestLogging} annotation, the level for the specified loggers  * will be internally saved before the test method execution and overridden with the specified ones.  * At the end of the test method execution the original loggers levels will be restored.  *  * Note: This class is not thread-safe. Given the static nature of the logging api, it assumes that tests  * are never run concurrently in the same jvm. For the very same reason no synchronization has been implemented  * regarding the save/restore process of the original loggers levels.  */
+comment|/**  * A {@link RunListener} that allows to change the log level for a specific test method.  * When a test method is annotated with the {@link org.elasticsearch.test.junit.annotations.TestLogging} annotation, the level for the specified loggers  * will be internally saved before the test method execution and overridden with the specified ones.  * At the end of the test method execution the original loggers levels will be restored.  *  * Note: This class is not thread-safe. Given the static nature of the logging api, it assumes that tests  * are never run concurrently in the same jvm. For the very same reason no synchronization has been implemented  * regarding the save/restore process of the original loggers levels.  */
 end_comment
 
 begin_class
