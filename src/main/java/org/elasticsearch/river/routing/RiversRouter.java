@@ -20,6 +20,20 @@ begin_import
 import|import
 name|com
 operator|.
+name|carrotsearch
+operator|.
+name|hppc
+operator|.
+name|cursors
+operator|.
+name|ObjectCursor
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
 name|google
 operator|.
 name|common
@@ -802,8 +816,11 @@ decl_stmt|;
 comment|// go over and create new river routing (with no node) for new types (rivers names)
 for|for
 control|(
+name|ObjectCursor
+argument_list|<
 name|MappingMetaData
-name|mappingMd
+argument_list|>
+name|cursor
 range|:
 name|indexMetaData
 operator|.
@@ -817,7 +834,9 @@ block|{
 name|String
 name|mappingType
 init|=
-name|mappingMd
+name|cursor
+operator|.
+name|value
 operator|.
 name|type
 argument_list|()

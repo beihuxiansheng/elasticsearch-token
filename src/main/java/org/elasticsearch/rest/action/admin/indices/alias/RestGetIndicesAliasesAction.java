@@ -24,6 +24,20 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|hppc
+operator|.
+name|cursors
+operator|.
+name|ObjectCursor
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -483,8 +497,11 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
+name|ObjectCursor
+argument_list|<
 name|AliasMetaData
-name|alias
+argument_list|>
+name|cursor
 range|:
 name|indexMetaData
 operator|.
@@ -501,7 +518,9 @@ name|Builder
 operator|.
 name|toXContent
 argument_list|(
-name|alias
+name|cursor
+operator|.
+name|value
 argument_list|,
 name|builder
 argument_list|,

@@ -20,6 +20,20 @@ begin_import
 import|import
 name|com
 operator|.
+name|carrotsearch
+operator|.
+name|hppc
+operator|.
+name|cursors
+operator|.
+name|ObjectObjectCursor
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
 name|google
 operator|.
 name|common
@@ -439,16 +453,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -828,9 +832,7 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Map
-operator|.
-name|Entry
+name|ObjectObjectCursor
 argument_list|<
 name|String
 argument_list|,
@@ -848,9 +850,6 @@ operator|.
 name|warmers
 argument_list|()
 operator|.
-name|entrySet
-argument_list|()
-operator|.
 name|iterator
 argument_list|()
 operator|.
@@ -861,8 +860,7 @@ name|assertThat
 argument_list|(
 name|entry
 operator|.
-name|getKey
-argument_list|()
+name|key
 argument_list|,
 name|equalTo
 argument_list|(
@@ -874,8 +872,7 @@ name|assertThat
 argument_list|(
 name|entry
 operator|.
-name|getValue
-argument_list|()
+name|value
 operator|.
 name|size
 argument_list|()
@@ -890,8 +887,7 @@ name|assertThat
 argument_list|(
 name|entry
 operator|.
-name|getValue
-argument_list|()
+name|value
 operator|.
 name|get
 argument_list|(

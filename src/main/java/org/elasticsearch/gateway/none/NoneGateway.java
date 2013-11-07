@@ -560,6 +560,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
+comment|// TODO: have util for toString()
 name|logger
 operator|.
 name|debug
@@ -576,7 +577,7 @@ operator|.
 name|indices
 argument_list|()
 operator|.
-name|keySet
+name|keys
 argument_list|()
 argument_list|)
 expr_stmt|;

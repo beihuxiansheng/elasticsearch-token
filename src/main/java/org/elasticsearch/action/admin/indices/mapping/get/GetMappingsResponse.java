@@ -26,13 +26,13 @@ begin_import
 import|import
 name|com
 operator|.
-name|google
+name|carrotsearch
 operator|.
-name|common
+name|hppc
 operator|.
-name|collect
+name|cursors
 operator|.
-name|ImmutableMap
+name|ObjectObjectCursor
 import|;
 end_import
 
@@ -59,6 +59,20 @@ operator|.
 name|metadata
 operator|.
 name|MappingMetaData
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|ImmutableOpenMap
 import|;
 end_import
 
@@ -104,16 +118,6 @@ name|IOException
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
 begin_comment
 comment|/**  */
 end_comment
@@ -128,11 +132,11 @@ name|ActionResponse
 block|{
 DECL|field|mappings
 specifier|private
-name|ImmutableMap
+name|ImmutableOpenMap
 argument_list|<
 name|String
 argument_list|,
-name|ImmutableMap
+name|ImmutableOpenMap
 argument_list|<
 name|String
 argument_list|,
@@ -141,7 +145,7 @@ argument_list|>
 argument_list|>
 name|mappings
 init|=
-name|ImmutableMap
+name|ImmutableOpenMap
 operator|.
 name|of
 argument_list|()
@@ -149,11 +153,11 @@ decl_stmt|;
 DECL|method|GetMappingsResponse
 name|GetMappingsResponse
 parameter_list|(
-name|ImmutableMap
+name|ImmutableOpenMap
 argument_list|<
 name|String
 argument_list|,
-name|ImmutableMap
+name|ImmutableOpenMap
 argument_list|<
 name|String
 argument_list|,
@@ -176,11 +180,11 @@ parameter_list|()
 block|{     }
 DECL|method|mappings
 specifier|public
-name|ImmutableMap
+name|ImmutableOpenMap
 argument_list|<
 name|String
 argument_list|,
-name|ImmutableMap
+name|ImmutableOpenMap
 argument_list|<
 name|String
 argument_list|,
@@ -196,11 +200,11 @@ return|;
 block|}
 DECL|method|getMappings
 specifier|public
-name|ImmutableMap
+name|ImmutableOpenMap
 argument_list|<
 name|String
 argument_list|,
-name|ImmutableMap
+name|ImmutableOpenMap
 argument_list|<
 name|String
 argument_list|,
@@ -243,13 +247,13 @@ operator|.
 name|readVInt
 argument_list|()
 decl_stmt|;
-name|ImmutableMap
+name|ImmutableOpenMap
 operator|.
 name|Builder
 argument_list|<
 name|String
 argument_list|,
-name|ImmutableMap
+name|ImmutableOpenMap
 argument_list|<
 name|String
 argument_list|,
@@ -258,7 +262,7 @@ argument_list|>
 argument_list|>
 name|indexMapBuilder
 init|=
-name|ImmutableMap
+name|ImmutableOpenMap
 operator|.
 name|builder
 argument_list|()
@@ -294,7 +298,7 @@ operator|.
 name|readVInt
 argument_list|()
 decl_stmt|;
-name|ImmutableMap
+name|ImmutableOpenMap
 operator|.
 name|Builder
 argument_list|<
@@ -304,7 +308,7 @@ name|MappingMetaData
 argument_list|>
 name|typeMapBuilder
 init|=
-name|ImmutableMap
+name|ImmutableOpenMap
 operator|.
 name|builder
 argument_list|()
@@ -395,13 +399,11 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|Map
-operator|.
-name|Entry
+name|ObjectObjectCursor
 argument_list|<
 name|String
 argument_list|,
-name|ImmutableMap
+name|ImmutableOpenMap
 argument_list|<
 name|String
 argument_list|,
@@ -411,9 +413,6 @@ argument_list|>
 name|indexEntry
 range|:
 name|mappings
-operator|.
-name|entrySet
-argument_list|()
 control|)
 block|{
 name|out
@@ -422,8 +421,7 @@ name|writeString
 argument_list|(
 name|indexEntry
 operator|.
-name|getKey
-argument_list|()
+name|key
 argument_list|)
 expr_stmt|;
 name|out
@@ -432,8 +430,7 @@ name|writeVInt
 argument_list|(
 name|indexEntry
 operator|.
-name|getValue
-argument_list|()
+name|value
 operator|.
 name|size
 argument_list|()
@@ -441,9 +438,7 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|Map
-operator|.
-name|Entry
+name|ObjectObjectCursor
 argument_list|<
 name|String
 argument_list|,
@@ -453,11 +448,7 @@ name|typeEntry
 range|:
 name|indexEntry
 operator|.
-name|getValue
-argument_list|()
-operator|.
-name|entrySet
-argument_list|()
+name|value
 control|)
 block|{
 name|out
@@ -466,8 +457,7 @@ name|writeString
 argument_list|(
 name|typeEntry
 operator|.
-name|getKey
-argument_list|()
+name|key
 argument_list|)
 expr_stmt|;
 name|MappingMetaData
@@ -476,8 +466,7 @@ name|writeTo
 argument_list|(
 name|typeEntry
 operator|.
-name|getValue
-argument_list|()
+name|value
 argument_list|,
 name|out
 argument_list|)

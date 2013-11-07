@@ -26,6 +26,20 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|hppc
+operator|.
+name|cursors
+operator|.
+name|ObjectObjectCursor
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -253,16 +267,6 @@ operator|.
 name|util
 operator|.
 name|Locale
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
 import|;
 end_import
 
@@ -574,9 +578,7 @@ argument_list|()
 expr_stmt|;
 for|for
 control|(
-name|Map
-operator|.
-name|Entry
+name|ObjectObjectCursor
 argument_list|<
 name|String
 argument_list|,
@@ -591,9 +593,6 @@ name|response
 operator|.
 name|getAliases
 argument_list|()
-operator|.
-name|entrySet
-argument_list|()
 control|)
 block|{
 name|builder
@@ -602,8 +601,7 @@ name|startObject
 argument_list|(
 name|entry
 operator|.
-name|getKey
-argument_list|()
+name|key
 argument_list|,
 name|XContentBuilder
 operator|.
@@ -628,8 +626,7 @@ name|alias
 range|:
 name|entry
 operator|.
-name|getValue
-argument_list|()
+name|value
 control|)
 block|{
 name|AliasMetaData

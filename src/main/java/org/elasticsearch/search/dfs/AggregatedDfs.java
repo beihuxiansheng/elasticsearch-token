@@ -78,7 +78,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|hppc
+name|collect
 operator|.
 name|HppcMaps
 import|;

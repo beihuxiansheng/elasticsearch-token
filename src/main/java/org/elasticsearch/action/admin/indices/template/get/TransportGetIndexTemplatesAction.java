@@ -26,6 +26,20 @@ begin_import
 import|import
 name|com
 operator|.
+name|carrotsearch
+operator|.
+name|hppc
+operator|.
+name|cursors
+operator|.
+name|ObjectObjectCursor
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
 name|google
 operator|.
 name|common
@@ -188,16 +202,6 @@ name|List
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -331,11 +335,6 @@ argument_list|<
 name|IndexTemplateMetaData
 argument_list|>
 name|results
-init|=
-name|Lists
-operator|.
-name|newArrayList
-argument_list|()
 decl_stmt|;
 comment|// If we did not ask for a specific name, then we return all templates
 if|if
@@ -351,8 +350,10 @@ literal|0
 condition|)
 block|{
 name|results
+operator|=
+name|Lists
 operator|.
-name|addAll
+name|newArrayList
 argument_list|(
 name|state
 operator|.
@@ -364,7 +365,24 @@ argument_list|()
 operator|.
 name|values
 argument_list|()
+operator|.
+name|toArray
+argument_list|(
+name|IndexTemplateMetaData
+operator|.
+name|class
 argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|results
+operator|=
+name|Lists
+operator|.
+name|newArrayList
+argument_list|()
 expr_stmt|;
 block|}
 for|for
@@ -390,9 +408,7 @@ condition|)
 block|{
 for|for
 control|(
-name|Map
-operator|.
-name|Entry
+name|ObjectObjectCursor
 argument_list|<
 name|String
 argument_list|,
@@ -407,9 +423,6 @@ argument_list|()
 operator|.
 name|templates
 argument_list|()
-operator|.
-name|entrySet
-argument_list|()
 control|)
 block|{
 if|if
@@ -422,8 +435,7 @@ name|name
 argument_list|,
 name|entry
 operator|.
-name|getKey
-argument_list|()
+name|key
 argument_list|)
 condition|)
 block|{
@@ -433,8 +445,7 @@ name|add
 argument_list|(
 name|entry
 operator|.
-name|getValue
-argument_list|()
+name|value
 argument_list|)
 expr_stmt|;
 block|}

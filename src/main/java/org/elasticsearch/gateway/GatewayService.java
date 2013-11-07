@@ -16,6 +16,20 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|hppc
+operator|.
+name|cursors
+operator|.
+name|ObjectCursor
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -1781,8 +1795,11 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
+name|ObjectCursor
+argument_list|<
 name|IndexMetaData
-name|indexMetaData
+argument_list|>
+name|cursor
 range|:
 name|updatedState
 operator|.
@@ -1800,7 +1817,9 @@ name|routingTableBuilder
 operator|.
 name|addAsRecovery
 argument_list|(
-name|indexMetaData
+name|cursor
+operator|.
+name|value
 argument_list|)
 expr_stmt|;
 block|}

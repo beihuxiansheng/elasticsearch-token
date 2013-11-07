@@ -32,6 +32,20 @@ begin_import
 import|import
 name|com
 operator|.
+name|carrotsearch
+operator|.
+name|hppc
+operator|.
+name|cursors
+operator|.
+name|ObjectCursor
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
 name|google
 operator|.
 name|common
@@ -748,8 +762,11 @@ decl_stmt|;
 comment|// we need to recompute to take closed shards into account
 for|for
 control|(
+name|ObjectCursor
+argument_list|<
 name|IndexMetaData
-name|indexMetaData
+argument_list|>
+name|cursor
 range|:
 name|metaData
 operator|.
@@ -760,6 +777,13 @@ name|values
 argument_list|()
 control|)
 block|{
+name|IndexMetaData
+name|indexMetaData
+init|=
+name|cursor
+operator|.
+name|value
+decl_stmt|;
 if|if
 condition|(
 name|indexMetaData

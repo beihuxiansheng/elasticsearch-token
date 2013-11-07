@@ -192,10 +192,15 @@ name|response
 operator|.
 name|mappings
 argument_list|()
-argument_list|,
-name|hasKey
+operator|.
+name|containsKey
 argument_list|(
 literal|"index"
+argument_list|)
+argument_list|,
+name|equalTo
+argument_list|(
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;

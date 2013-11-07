@@ -106,6 +106,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|collect
+operator|.
+name|ImmutableOpenMap
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|inject
 operator|.
 name|Inject
@@ -157,16 +171,6 @@ operator|.
 name|util
 operator|.
 name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
 import|;
 end_import
 
@@ -336,7 +340,7 @@ argument_list|(
 literal|"unchecked"
 argument_list|)
 comment|// ImmutableList to List results incompatible type
-name|Map
+name|ImmutableOpenMap
 argument_list|<
 name|String
 argument_list|,
@@ -348,7 +352,7 @@ argument_list|>
 name|result
 init|=
 operator|(
-name|Map
+name|ImmutableOpenMap
 operator|)
 name|state
 operator|.
