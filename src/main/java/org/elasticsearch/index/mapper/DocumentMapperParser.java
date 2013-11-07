@@ -1147,11 +1147,8 @@ name|Mapper
 operator|.
 name|TypeParser
 argument_list|>
-argument_list|()
-operator|.
-name|putAll
 argument_list|(
-name|typeParsers
+name|rootTypeParsers
 argument_list|)
 operator|.
 name|put
