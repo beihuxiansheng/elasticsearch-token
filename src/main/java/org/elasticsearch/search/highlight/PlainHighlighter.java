@@ -525,7 +525,10 @@ name|query
 init|=
 name|highlighterContext
 operator|.
-name|highlightQuery
+name|query
+operator|.
+name|originalQuery
+argument_list|()
 decl_stmt|;
 name|QueryScorer
 name|queryScorer

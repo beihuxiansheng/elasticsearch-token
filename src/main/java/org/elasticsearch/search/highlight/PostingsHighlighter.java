@@ -511,7 +511,7 @@ name|query
 operator|=
 name|rewrite
 argument_list|(
-name|context
+name|highlighterContext
 argument_list|,
 name|hitContext
 operator|.
@@ -1076,8 +1076,8 @@ specifier|static
 name|Query
 name|rewrite
 parameter_list|(
-name|SearchContext
-name|searchContext
+name|HighlighterContext
+name|highlighterContext
 parameter_list|,
 name|IndexReader
 name|reader
@@ -1090,7 +1090,9 @@ name|boolean
 name|mustRewrite
 init|=
 operator|!
-name|searchContext
+name|highlighterContext
+operator|.
+name|query
 operator|.
 name|queryRewritten
 argument_list|()
@@ -1098,12 +1100,11 @@ decl_stmt|;
 name|Query
 name|original
 init|=
-name|searchContext
-operator|.
-name|parsedQuery
-argument_list|()
+name|highlighterContext
 operator|.
 name|query
+operator|.
+name|originalQuery
 argument_list|()
 decl_stmt|;
 name|MultiTermQuery
@@ -1179,7 +1180,9 @@ condition|)
 block|{
 comment|//return the rewritten query
 return|return
-name|searchContext
+name|highlighterContext
+operator|.
+name|query
 operator|.
 name|query
 argument_list|()

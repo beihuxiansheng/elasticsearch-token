@@ -531,7 +531,10 @@ name|CustomFieldQuery
 argument_list|(
 name|highlighterContext
 operator|.
-name|highlightQuery
+name|query
+operator|.
+name|originalQuery
+argument_list|()
 argument_list|,
 name|hitContext
 operator|.
@@ -575,7 +578,10 @@ name|CustomFieldQuery
 argument_list|(
 name|highlighterContext
 operator|.
-name|highlightQuery
+name|query
+operator|.
+name|originalQuery
+argument_list|()
 argument_list|,
 name|hitContext
 operator|.
