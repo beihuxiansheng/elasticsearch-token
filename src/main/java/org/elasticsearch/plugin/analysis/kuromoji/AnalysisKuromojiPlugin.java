@@ -178,6 +178,17 @@ parameter_list|)
 block|{
 name|module
 operator|.
+name|addCharFilter
+argument_list|(
+literal|"kuromoji_iteration_mark"
+argument_list|,
+name|KuromojiIterationMarkCharFilterFactory
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|module
+operator|.
 name|addAnalyzer
 argument_list|(
 literal|"kuromoji"
