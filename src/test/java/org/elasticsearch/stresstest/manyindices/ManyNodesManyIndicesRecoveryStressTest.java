@@ -4,15 +4,13 @@ comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more cont
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.test.stress.manyindices
+DECL|package|org.elasticsearch.stresstest.manyindices
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|test
-operator|.
-name|stress
+name|stresstest
 operator|.
 name|manyindices
 package|;

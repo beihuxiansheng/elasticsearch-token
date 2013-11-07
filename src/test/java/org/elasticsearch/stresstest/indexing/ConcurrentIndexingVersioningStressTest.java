@@ -4,15 +4,13 @@ comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more cont
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.test.stress.indexing
+DECL|package|org.elasticsearch.stresstest.indexing
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|test
-operator|.
-name|stress
+name|stresstest
 operator|.
 name|indexing
 package|;
@@ -105,16 +103,6 @@ operator|.
 name|node
 operator|.
 name|Node
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Ignore
 import|;
 end_import
 
