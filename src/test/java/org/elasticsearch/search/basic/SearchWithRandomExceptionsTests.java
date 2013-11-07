@@ -210,8 +210,6 @@ name|test
 operator|.
 name|store
 operator|.
-name|mock
-operator|.
 name|MockDirectoryHelper
 import|;
 end_import

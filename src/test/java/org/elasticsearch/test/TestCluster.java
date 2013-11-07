@@ -474,8 +474,6 @@ name|test
 operator|.
 name|store
 operator|.
-name|mock
-operator|.
 name|MockFSIndexStoreModule
 import|;
 end_import

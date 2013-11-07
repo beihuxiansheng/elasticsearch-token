@@ -4,7 +4,7 @@ comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more cont
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.test.store.mock
+DECL|package|org.elasticsearch.test.store
 package|package
 name|org
 operator|.
@@ -13,8 +13,6 @@ operator|.
 name|test
 operator|.
 name|store
-operator|.
-name|mock
 package|;
 end_package
 
@@ -47,10 +45,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|MockRamIndexStoreModule
+DECL|class|MockFSIndexStoreModule
 specifier|public
 class|class
-name|MockRamIndexStoreModule
+name|MockFSIndexStoreModule
 extends|extends
 name|AbstractModule
 block|{
@@ -71,7 +69,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-name|MockRamIndexStore
+name|MockFSIndexStore
 operator|.
 name|class
 argument_list|)
