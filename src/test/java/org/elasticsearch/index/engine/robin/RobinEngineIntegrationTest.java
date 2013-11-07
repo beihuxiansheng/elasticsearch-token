@@ -243,16 +243,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|UUID
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -667,15 +657,6 @@ name|void
 name|test4093
 parameter_list|()
 block|{
-name|cluster
-argument_list|()
-operator|.
-name|ensureAtMostNumNodes
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
-comment|// only one node Netty uses lots of native mem as well
 name|assertAcked
 argument_list|(
 name|prepareCreate
@@ -704,7 +685,7 @@ argument_list|,
 operator|new
 name|ByteSizeValue
 argument_list|(
-literal|10
+literal|1
 argument_list|,
 name|ByteSizeUnit
 operator|.
@@ -815,9 +796,9 @@ argument_list|()
 decl_stmt|;
 name|logger
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|" JVM max direct memory for node [{}] is set to [{}]"
+literal|"  --> JVM max direct memory for node [{}] is set to [{}]"
 argument_list|,
 name|info
 operator|.
@@ -833,15 +814,24 @@ expr_stmt|;
 block|}
 specifier|final
 name|int
-name|iters
+name|numDocs
 init|=
 name|between
 argument_list|(
-literal|500
+literal|100
 argument_list|,
-literal|1000
+literal|500
 argument_list|)
 decl_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"  --> Indexing [{}] documents"
+argument_list|,
+name|numDocs
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -851,12 +841,37 @@ literal|0
 init|;
 name|i
 operator|<
-name|iters
+name|numDocs
 condition|;
 name|i
 operator|++
 control|)
 block|{
+if|if
+condition|(
+operator|(
+name|i
+operator|+
+literal|1
+operator|)
+operator|%
+literal|10
+operator|==
+literal|0
+condition|)
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"  --> Indexed [{}] documents"
+argument_list|,
+name|i
+operator|+
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
 name|client
 argument_list|()
 operator|.
@@ -888,6 +903,15 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 block|}
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"  --> Done indexing [{}] documents"
+argument_list|,
+name|numDocs
+argument_list|)
+expr_stmt|;
 name|assertHitCount
 argument_list|(
 name|client
@@ -909,7 +933,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-name|iters
+name|numDocs
 argument_list|)
 expr_stmt|;
 block|}
