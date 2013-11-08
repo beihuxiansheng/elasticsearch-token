@@ -1474,6 +1474,7 @@ argument_list|)
 condition|)
 block|{
 comment|// automatically set geohash to true as well...
+comment|// TODO: Should we do this in the builder
 name|builder
 operator|.
 name|enableGeoHash
@@ -1864,7 +1865,10 @@ operator|.
 name|enableGeoHash
 operator|=
 name|enableGeoHash
+operator|||
+name|enableGeohashPrefix
 expr_stmt|;
+comment|// implicitly enable geohashes if geohash_prefix is set
 name|this
 operator|.
 name|enableGeohashPrefix
