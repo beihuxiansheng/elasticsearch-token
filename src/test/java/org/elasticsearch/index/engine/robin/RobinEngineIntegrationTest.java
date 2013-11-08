@@ -818,11 +818,12 @@ name|numDocs
 init|=
 name|between
 argument_list|(
-literal|100
+literal|30
 argument_list|,
-literal|500
+literal|100
 argument_list|)
 decl_stmt|;
+comment|// 30 docs are enough to fail without the fix for #4093
 name|logger
 operator|.
 name|debug
