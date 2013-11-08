@@ -98,7 +98,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|AbstractIntegrationTest
+name|ElasticsearchIntegrationTest
 import|;
 end_import
 
@@ -344,7 +344,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|AbstractIntegrationTest
+name|ElasticsearchIntegrationTest
 operator|.
 name|class
 operator|.
@@ -370,7 +370,7 @@ name|SeedUtils
 operator|.
 name|formatSeed
 argument_list|(
-name|AbstractIntegrationTest
+name|ElasticsearchIntegrationTest
 operator|.
 name|SHARED_CLUSTER_SEED
 argument_list|)

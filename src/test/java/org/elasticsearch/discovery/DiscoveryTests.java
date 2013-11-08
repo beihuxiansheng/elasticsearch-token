@@ -62,7 +62,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|AbstractIntegrationTest
+name|ElasticsearchIntegrationTest
 import|;
 end_import
 
@@ -74,7 +74,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|AbstractIntegrationTest
+name|ElasticsearchIntegrationTest
 operator|.
 name|ClusterScope
 import|;
@@ -88,7 +88,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|AbstractIntegrationTest
+name|ElasticsearchIntegrationTest
 operator|.
 name|Scope
 import|;
@@ -135,7 +135,7 @@ specifier|public
 class|class
 name|DiscoveryTests
 extends|extends
-name|AbstractIntegrationTest
+name|ElasticsearchIntegrationTest
 block|{
 annotation|@
 name|Override

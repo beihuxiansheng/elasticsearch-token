@@ -62,7 +62,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|AbstractIntegrationTest
+name|ElasticsearchIntegrationTest
 import|;
 end_import
 
@@ -132,7 +132,7 @@ specifier|public
 class|class
 name|SimpleAllocationTests
 extends|extends
-name|AbstractIntegrationTest
+name|ElasticsearchIntegrationTest
 block|{
 comment|/**      * Test for       * https://groups.google.com/d/msg/elasticsearch/y-SY_HyoB-8/EZdfNt9VO44J      */
 annotation|@

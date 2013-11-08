@@ -362,7 +362,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|AbstractIntegrationTest
+name|ElasticsearchIntegrationTest
 import|;
 end_import
 
@@ -410,7 +410,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|AbstractIntegrationTest
+name|ElasticsearchIntegrationTest
 operator|.
 name|ClusterScope
 import|;
@@ -424,7 +424,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|AbstractIntegrationTest
+name|ElasticsearchIntegrationTest
 operator|.
 name|Scope
 operator|.
@@ -457,7 +457,7 @@ specifier|public
 class|class
 name|AckTests
 extends|extends
-name|AbstractIntegrationTest
+name|ElasticsearchIntegrationTest
 block|{
 annotation|@
 name|Override

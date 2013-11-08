@@ -228,11 +228,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|junit
-operator|.
-name|annotations
-operator|.
-name|TestLogging
+name|ElasticsearchIntegrationTest
 import|;
 end_import
 
@@ -244,7 +240,11 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|AbstractIntegrationTest
+name|junit
+operator|.
+name|annotations
+operator|.
+name|TestLogging
 import|;
 end_import
 
@@ -430,7 +430,7 @@ specifier|public
 class|class
 name|RecoveryWhileUnderLoadTests
 extends|extends
-name|AbstractIntegrationTest
+name|ElasticsearchIntegrationTest
 block|{
 DECL|field|logger
 specifier|private

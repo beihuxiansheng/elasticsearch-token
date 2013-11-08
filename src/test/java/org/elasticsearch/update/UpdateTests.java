@@ -174,7 +174,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|AbstractIntegrationTest
+name|ElasticsearchIntegrationTest
 import|;
 end_import
 
@@ -292,7 +292,7 @@ specifier|public
 class|class
 name|UpdateTests
 extends|extends
-name|AbstractIntegrationTest
+name|ElasticsearchIntegrationTest
 block|{
 DECL|method|createIndex
 specifier|protected

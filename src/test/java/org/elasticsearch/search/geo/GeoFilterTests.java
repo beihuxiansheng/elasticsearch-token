@@ -422,7 +422,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|AbstractIntegrationTest
+name|ElasticsearchIntegrationTest
 import|;
 end_import
 
@@ -620,7 +620,7 @@ specifier|public
 class|class
 name|GeoFilterTests
 extends|extends
-name|AbstractIntegrationTest
+name|ElasticsearchIntegrationTest
 block|{
 DECL|field|intersectSupport
 specifier|private

@@ -70,7 +70,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|AbstractIntegrationTest
+name|ElasticsearchIntegrationTest
 import|;
 end_import
 
@@ -138,7 +138,7 @@ specifier|public
 class|class
 name|SimpleDeleteMappingTests
 extends|extends
-name|AbstractIntegrationTest
+name|ElasticsearchIntegrationTest
 block|{
 annotation|@
 name|Test

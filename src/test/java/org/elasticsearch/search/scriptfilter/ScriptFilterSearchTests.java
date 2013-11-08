@@ -94,7 +94,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|AbstractIntegrationTest
+name|ElasticsearchIntegrationTest
 import|;
 end_import
 
@@ -206,7 +206,7 @@ specifier|public
 class|class
 name|ScriptFilterSearchTests
 extends|extends
-name|AbstractIntegrationTest
+name|ElasticsearchIntegrationTest
 block|{
 DECL|field|DEFAULT_SETTINGS
 specifier|private

@@ -881,11 +881,11 @@ annotation|@
 name|Ignore
 annotation|@
 name|IntegrationTests
-DECL|class|AbstractIntegrationTest
+DECL|class|ElasticsearchIntegrationTest
 specifier|public
 specifier|abstract
 class|class
-name|AbstractIntegrationTest
+name|ElasticsearchIntegrationTest
 extends|extends
 name|ElasticsearchTestCase
 block|{
@@ -4578,7 +4578,7 @@ name|class
 operator|||
 name|clazz
 operator|==
-name|AbstractIntegrationTest
+name|ElasticsearchIntegrationTest
 operator|.
 name|class
 condition|)

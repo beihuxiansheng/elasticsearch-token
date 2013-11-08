@@ -318,7 +318,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|AbstractIntegrationTest
+name|ElasticsearchIntegrationTest
 import|;
 end_import
 
@@ -330,7 +330,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|AbstractIntegrationTest
+name|ElasticsearchIntegrationTest
 operator|.
 name|ClusterScope
 import|;
@@ -344,7 +344,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|AbstractIntegrationTest
+name|ElasticsearchIntegrationTest
 operator|.
 name|Scope
 import|;
@@ -425,7 +425,7 @@ specifier|public
 class|class
 name|IndexGatewayTests
 extends|extends
-name|AbstractIntegrationTest
+name|ElasticsearchIntegrationTest
 block|{
 DECL|field|storeType
 specifier|private

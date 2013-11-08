@@ -366,7 +366,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|AbstractIntegrationTest
+name|ElasticsearchIntegrationTest
 import|;
 end_import
 
@@ -435,7 +435,7 @@ specifier|abstract
 class|class
 name|AbstractTermVectorTests
 extends|extends
-name|AbstractIntegrationTest
+name|ElasticsearchIntegrationTest
 block|{
 DECL|class|TestFieldSetting
 specifier|protected

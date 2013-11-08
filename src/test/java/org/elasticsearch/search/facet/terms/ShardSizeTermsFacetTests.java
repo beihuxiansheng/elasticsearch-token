@@ -82,7 +82,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|AbstractIntegrationTest
+name|ElasticsearchIntegrationTest
 import|;
 end_import
 
@@ -172,7 +172,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|AbstractIntegrationTest
+name|ElasticsearchIntegrationTest
 operator|.
 name|ClusterScope
 import|;
@@ -186,7 +186,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|AbstractIntegrationTest
+name|ElasticsearchIntegrationTest
 operator|.
 name|Scope
 import|;
@@ -235,7 +235,7 @@ specifier|public
 class|class
 name|ShardSizeTermsFacetTests
 extends|extends
-name|AbstractIntegrationTest
+name|ElasticsearchIntegrationTest
 block|{
 comment|/**      * to properly test the effect/functionality of shard_size, we need to force having 2 shards and also      * control the routing such that certain documents will end on each shard. Using "djb" routing hash + ignoring the      * doc type when hashing will ensure that docs with routing value "1" will end up in a different shard than docs with      * routing value "2".      */
 annotation|@
