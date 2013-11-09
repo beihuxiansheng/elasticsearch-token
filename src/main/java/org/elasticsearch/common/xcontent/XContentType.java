@@ -162,7 +162,7 @@ return|;
 block|}
 block|}
 block|,
-comment|/**      * The jackson based smile binary format. Fast and compact binary format.      */
+comment|/**      * A YAML based content type.      */
 DECL|enum constant|YAML
 name|YAML
 argument_list|(
