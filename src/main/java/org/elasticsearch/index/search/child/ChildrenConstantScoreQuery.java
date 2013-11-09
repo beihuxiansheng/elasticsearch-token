@@ -895,11 +895,17 @@ name|this
 operator|.
 name|shortCircuitFilter
 operator|=
+name|shortCircuitFilter
+operator|!=
+literal|null
+condition|?
 operator|new
 name|ApplyAcceptedDocsFilter
 argument_list|(
 name|shortCircuitFilter
 argument_list|)
+else|:
+literal|null
 expr_stmt|;
 block|}
 else|else
