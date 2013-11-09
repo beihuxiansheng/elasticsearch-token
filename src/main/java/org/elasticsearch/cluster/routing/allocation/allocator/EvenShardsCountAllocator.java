@@ -878,6 +878,11 @@ argument_list|()
 argument_list|,
 name|startedShard
 operator|.
+name|restoreSource
+argument_list|()
+argument_list|,
+name|startedShard
+operator|.
 name|primary
 argument_list|()
 argument_list|,
@@ -1074,6 +1079,11 @@ argument_list|,
 name|shardRouting
 operator|.
 name|currentNodeId
+argument_list|()
+argument_list|,
+name|shardRouting
+operator|.
+name|restoreSource
 argument_list|()
 argument_list|,
 name|shardRouting

@@ -149,7 +149,7 @@ name|AllocationDecider
 index|[]
 name|allocations
 decl_stmt|;
-comment|/**      * Create a new {@link AllocationDeciders} instance      * @param settings  settings to use      * @param nodeSettingsService per-node settings to use      */
+comment|/**      * Create a new {@link AllocationDeciders} instance      *      * @param settings            settings to use      * @param nodeSettingsService per-node settings to use      */
 DECL|method|AllocationDeciders
 specifier|public
 name|AllocationDeciders
@@ -281,6 +281,15 @@ argument_list|(
 name|settings
 argument_list|,
 name|nodeSettingsService
+argument_list|)
+argument_list|)
+operator|.
+name|add
+argument_list|(
+operator|new
+name|SnapshotInProgressAllocationDecider
+argument_list|(
+name|settings
 argument_list|)
 argument_list|)
 operator|.

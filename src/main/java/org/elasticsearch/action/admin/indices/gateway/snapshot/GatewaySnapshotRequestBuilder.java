@@ -77,10 +77,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * @deprecated Use snapshot/restore API instead  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|GatewaySnapshotRequestBuilder
 specifier|public
 class|class

@@ -247,6 +247,8 @@ comment|/**  *  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|RestGatewaySnapshotAction
 specifier|public
 class|class

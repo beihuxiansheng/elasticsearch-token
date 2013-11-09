@@ -218,6 +218,12 @@ name|String
 name|relocatingNodeId
 parameter_list|()
 function_decl|;
+comment|/**      * Snapshot id and repository where this shard is being restored from      */
+DECL|method|restoreSource
+name|RestoreSource
+name|restoreSource
+parameter_list|()
+function_decl|;
 comment|/**      * Returns<code>true</code> iff this shard is a primary.      */
 DECL|method|primary
 name|boolean

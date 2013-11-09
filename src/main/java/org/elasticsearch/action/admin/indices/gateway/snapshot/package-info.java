@@ -4,7 +4,7 @@ comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more cont
 end_comment
 
 begin_comment
-comment|/**  * GAteway Snapshot Action.  */
+comment|/**  * GAteway Snapshot Action.  * @deprecated Use snapshot/restore API instead  */
 end_comment
 
 begin_package

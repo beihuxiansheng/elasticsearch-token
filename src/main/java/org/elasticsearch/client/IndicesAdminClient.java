@@ -2382,7 +2382,9 @@ modifier|...
 name|indices
 parameter_list|)
 function_decl|;
-comment|/**      * Explicitly perform gateway snapshot for one or more indices.      *      * @param request The gateway snapshot request      * @return The result future      * @see org.elasticsearch.client.Requests#gatewaySnapshotRequest(String...)      */
+comment|/**      * Explicitly perform gateway snapshot for one or more indices.      *      * @param request The gateway snapshot request      * @return The result future      * @see org.elasticsearch.client.Requests#gatewaySnapshotRequest(String...)      * @deprecated Use snapshot/restore API instead      */
+annotation|@
+name|Deprecated
 DECL|method|gatewaySnapshot
 name|ActionFuture
 argument_list|<
@@ -2394,7 +2396,9 @@ name|GatewaySnapshotRequest
 name|request
 parameter_list|)
 function_decl|;
-comment|/**      * Explicitly perform gateway snapshot for one or more indices.      *      * @param request  The gateway snapshot request      * @param listener A listener to be notified with a result      * @see org.elasticsearch.client.Requests#gatewaySnapshotRequest(String...)      */
+comment|/**      * Explicitly perform gateway snapshot for one or more indices.      *      * @param request  The gateway snapshot request      * @param listener A listener to be notified with a result      * @see org.elasticsearch.client.Requests#gatewaySnapshotRequest(String...)      * @deprecated Use snapshot/restore API instead      */
+annotation|@
+name|Deprecated
 DECL|method|gatewaySnapshot
 name|void
 name|gatewaySnapshot
@@ -2409,7 +2413,9 @@ argument_list|>
 name|listener
 parameter_list|)
 function_decl|;
-comment|/**      * Explicitly perform gateway snapshot for one or more indices.      */
+comment|/**      * Explicitly perform gateway snapshot for one or more indices.      *      * @deprecated Use snapshot/restore API instead      */
+annotation|@
+name|Deprecated
 DECL|method|prepareGatewaySnapshot
 name|GatewaySnapshotRequestBuilder
 name|prepareGatewaySnapshot

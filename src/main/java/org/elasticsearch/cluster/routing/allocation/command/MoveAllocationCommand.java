@@ -1055,6 +1055,11 @@ argument_list|()
 argument_list|,
 name|shardRouting
 operator|.
+name|restoreSource
+argument_list|()
+argument_list|,
+name|shardRouting
+operator|.
 name|primary
 argument_list|()
 argument_list|,

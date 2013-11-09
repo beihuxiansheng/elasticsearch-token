@@ -287,10 +287,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * @deprecated use Snapshot/Restore API instead  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|TransportGatewaySnapshotAction
 specifier|public
 class|class

@@ -103,10 +103,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Response for the gateway snapshot action.  *  *  */
+comment|/**  * Response for the gateway snapshot action.  *  * @deprecated Use snapshot/restore API instead  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|GatewaySnapshotResponse
 specifier|public
 class|class

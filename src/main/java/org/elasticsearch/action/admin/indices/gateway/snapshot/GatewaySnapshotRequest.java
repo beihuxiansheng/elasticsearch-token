@@ -39,10 +39,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Gateway snapshot allows to explicitly perform a snapshot through the gateway of one or more indices (backup them).  * By default, each index gateway periodically snapshot changes, though it can be disabled and be controlled completely  * through this API. Best created using {@link org.elasticsearch.client.Requests#gatewaySnapshotRequest(String...)}.  *  * @see org.elasticsearch.client.Requests#gatewaySnapshotRequest(String...)  * @see org.elasticsearch.client.IndicesAdminClient#gatewaySnapshot(GatewaySnapshotRequest)  * @see GatewaySnapshotResponse  */
+comment|/**  * Gateway snapshot allows to explicitly perform a snapshot through the gateway of one or more indices (backup them).  * By default, each index gateway periodically snapshot changes, though it can be disabled and be controlled completely  * through this API. Best created using {@link org.elasticsearch.client.Requests#gatewaySnapshotRequest(String...)}.  *  * @see org.elasticsearch.client.Requests#gatewaySnapshotRequest(String...)  * @see org.elasticsearch.client.IndicesAdminClient#gatewaySnapshot(GatewaySnapshotRequest)  * @see GatewaySnapshotResponse  * @deprecated Use snapshot/restore API instead  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|GatewaySnapshotRequest
 specifier|public
 class|class

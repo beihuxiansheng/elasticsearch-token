@@ -608,6 +608,15 @@ operator|.
 name|TIME
 argument_list|)
 expr_stmt|;
+name|clusterDynamicSettings
+operator|.
+name|addDynamicSetting
+argument_list|(
+name|SnapshotInProgressAllocationDecider
+operator|.
+name|CLUSTER_ROUTING_ALLOCATION_SNAPSHOT_RELOCATION_ENABLED
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|addDynamicSettings
 specifier|public

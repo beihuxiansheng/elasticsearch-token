@@ -2567,6 +2567,11 @@ argument_list|()
 argument_list|,
 name|shard
 operator|.
+name|restoreSource
+argument_list|()
+argument_list|,
+name|shard
+operator|.
 name|primary
 argument_list|()
 argument_list|,
@@ -3077,7 +3082,7 @@ name|index
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|/* 	                         * Remove the shard from the node again this is only a 	                         * simulation 	                         */
+comment|/*                              * Remove the shard from the node again this is only a 	                         * simulation 	                         */
 name|Decision
 name|removed
 init|=
@@ -3943,6 +3948,11 @@ argument_list|,
 name|candidate
 operator|.
 name|currentNodeId
+argument_list|()
+argument_list|,
+name|candidate
+operator|.
+name|restoreSource
 argument_list|()
 argument_list|,
 name|candidate

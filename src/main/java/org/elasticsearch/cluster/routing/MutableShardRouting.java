@@ -140,6 +140,8 @@ name|currentNodeId
 argument_list|,
 name|relocatingNodeId
 argument_list|,
+literal|null
+argument_list|,
 name|primary
 argument_list|,
 name|state
@@ -148,7 +150,56 @@ name|version
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Assign this shard to a node.      *       * @param nodeId id of the node to assign this shard to      */
+DECL|method|MutableShardRouting
+specifier|public
+name|MutableShardRouting
+parameter_list|(
+name|String
+name|index
+parameter_list|,
+name|int
+name|shardId
+parameter_list|,
+name|String
+name|currentNodeId
+parameter_list|,
+name|String
+name|relocatingNodeId
+parameter_list|,
+name|RestoreSource
+name|restoreSource
+parameter_list|,
+name|boolean
+name|primary
+parameter_list|,
+name|ShardRoutingState
+name|state
+parameter_list|,
+name|long
+name|version
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|index
+argument_list|,
+name|shardId
+argument_list|,
+name|currentNodeId
+argument_list|,
+name|relocatingNodeId
+argument_list|,
+name|restoreSource
+argument_list|,
+name|primary
+argument_list|,
+name|state
+argument_list|,
+name|version
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Assign this shard to a node.      *      * @param nodeId id of the node to assign this shard to      */
 DECL|method|assignToNode
 specifier|public
 name|void
@@ -231,7 +282,7 @@ argument_list|)
 assert|;
 block|}
 block|}
-comment|/**      * Relocate the shard to another node.      *       * @param relocatingNodeId id of the node to relocate the shard      */
+comment|/**      * Relocate the shard to another node.      *      * @param relocatingNodeId id of the node to relocate the shard      */
 DECL|method|relocate
 specifier|public
 name|void
@@ -337,7 +388,7 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-comment|/**      * Set the shards state to<code>STARTED</code>. The shards state must be      *<code>INITIALIZING</code> or<code>RELOCATING</code>. Any relocation will be      * canceled.       */
+comment|/**      * Set the shards state to<code>STARTED</code>. The shards state must be      *<code>INITIALIZING</code> or<code>RELOCATING</code>. Any relocation will be      * canceled.      */
 DECL|method|moveToStarted
 specifier|public
 name|void
@@ -361,6 +412,10 @@ operator|.
 name|RELOCATING
 assert|;
 name|relocatingNodeId
+operator|=
+literal|null
+expr_stmt|;
+name|restoreSource
 operator|=
 literal|null
 expr_stmt|;
@@ -430,6 +485,41 @@ block|}
 name|primary
 operator|=
 literal|false
+expr_stmt|;
+block|}
+DECL|method|restoreFrom
+specifier|public
+name|void
+name|restoreFrom
+parameter_list|(
+name|RestoreSource
+name|restoreSource
+parameter_list|)
+block|{
+name|version
+operator|++
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|primary
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalShardRoutingStateException
+argument_list|(
+name|this
+argument_list|,
+literal|"Not primary, can't restore from snapshot to replica"
+argument_list|)
+throw|;
+block|}
+name|this
+operator|.
+name|restoreSource
+operator|=
+name|restoreSource
 expr_stmt|;
 block|}
 block|}

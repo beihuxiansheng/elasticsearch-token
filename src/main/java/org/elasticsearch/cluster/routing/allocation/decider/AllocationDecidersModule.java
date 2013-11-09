@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This module configures several {@link AllocationDecider}s  * that make configuration specific decisions if shards can be allocated on certain nodes.  * @see Decision  * @see AllocationDecider  */
+comment|/**  * This module configures several {@link AllocationDecider}s  * that make configuration specific decisions if shards can be allocated on certain nodes.  *  * @see Decision  * @see AllocationDecider  */
 end_comment
 
 begin_class
@@ -320,6 +320,18 @@ operator|.
 name|to
 argument_list|(
 name|DiskThresholdDecider
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|allocationMultibinder
+operator|.
+name|addBinding
+argument_list|()
+operator|.
+name|to
+argument_list|(
+name|SnapshotInProgressAllocationDecider
 operator|.
 name|class
 argument_list|)
