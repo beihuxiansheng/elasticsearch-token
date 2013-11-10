@@ -1011,17 +1011,32 @@ operator|.
 name|currentTranslogOperations
 argument_list|()
 expr_stmt|;
-comment|// start the shard if the gateway has not started it already
-if|if
-condition|(
+comment|// start the shard if the gateway has not started it already. Note that if the gateway
+comment|// moved shard to POST_RECOVERY, it may have been started as well if:
+comment|// 1) master sent a new cluster state indicating shard is initializing
+comment|// 2) IndicesClusterStateService#applyInitializingShard will send a shard started event
+comment|// 3) Master will mark shard as started and this will be processed locally.
+name|IndexShardState
+name|shardState
+init|=
 name|indexShard
 operator|.
 name|state
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|shardState
 operator|!=
 name|IndexShardState
 operator|.
 name|POST_RECOVERY
+operator|&&
+name|shardState
+operator|!=
+name|IndexShardState
+operator|.
+name|STARTED
 condition|)
 block|{
 name|indexShard

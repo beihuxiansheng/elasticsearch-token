@@ -2262,7 +2262,9 @@ name|relocatingNodeId
 operator|==
 literal|null
 condition|)
+block|{
 continue|continue;
+block|}
 name|RoutingNode
 name|sourceRoutingNode
 init|=
@@ -2369,7 +2371,7 @@ name|boolean
 name|addToIgnoreList
 parameter_list|)
 block|{
-comment|// create a copy of the failed shard, since we assume we can change possible refernces to it without
+comment|// create a copy of the failed shard, since we assume we can change possible references to it without
 comment|// changing the state of failed shard
 name|failedShard
 operator|=
