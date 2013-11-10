@@ -229,34 +229,17 @@ name|HashedBytesArray
 name|uid
 parameter_list|)
 block|{
-if|if
-condition|(
-name|idToDoc
-operator|.
-name|containsKey
-argument_list|(
-name|uid
-argument_list|)
-condition|)
-block|{
-comment|// We can't use #lget() here since the idToDoc map shared across threads, so we really need a second lookup...
-comment|// BTW: This method is only used via TopChildrenQuery
 return|return
 name|idToDoc
 operator|.
-name|get
+name|getOrDefault
 argument_list|(
 name|uid
-argument_list|)
-return|;
-block|}
-else|else
-block|{
-return|return
+argument_list|,
 operator|-
 literal|1
+argument_list|)
 return|;
-block|}
 block|}
 DECL|method|idByDoc
 specifier|public
