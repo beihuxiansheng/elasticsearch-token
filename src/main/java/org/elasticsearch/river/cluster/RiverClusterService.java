@@ -398,6 +398,20 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * The current state.      */
+DECL|method|state
+specifier|public
+name|ClusterState
+name|state
+parameter_list|()
+block|{
+return|return
+name|clusterService
+operator|.
+name|state
+argument_list|()
+return|;
+block|}
 DECL|method|submitStateUpdateTask
 specifier|public
 name|void
