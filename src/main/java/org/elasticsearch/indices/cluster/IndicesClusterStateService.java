@@ -4300,7 +4300,12 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"[{}][{}] master [{}] marked shard as initializing, but shard has state [{}], mark shard as started"
+literal|"{} master marked shard as initializing, but shard has state [{}], resending shard started"
+argument_list|,
+name|indexShard
+operator|.
+name|shardId
+argument_list|()
 argument_list|,
 name|indexShard
 operator|.
