@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Allows to import data into elasticsearch via plugin  * Gets allocated on a node and eventually automatically re-allocated if needed  */
 end_comment
 
 begin_interface
@@ -26,11 +26,13 @@ name|River
 extends|extends
 name|RiverComponent
 block|{
+comment|/**      * Called whenever the river is registered on a node, which can happen when:      * 1) the river _meta document gets indexed      * 2) an already registered river gets started on a node      */
 DECL|method|start
 name|void
 name|start
 parameter_list|()
 function_decl|;
+comment|/**      * Called when the river is closed on a node, which can happen when:      * 1) the river is deleted by deleting its type through the delete mapping api      * 2) the node where the river is allocated is shut down or the river gets rerouted to another node      */
 DECL|method|close
 name|void
 name|close
