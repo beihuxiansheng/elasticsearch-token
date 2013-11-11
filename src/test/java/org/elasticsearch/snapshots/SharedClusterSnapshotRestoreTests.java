@@ -44,6 +44,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|ExceptionsHelper
@@ -3031,6 +3045,15 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+annotation|@
+name|LuceneTestCase
+operator|.
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"imotov is working on the fix"
+argument_list|)
 DECL|method|snapshotFileFailureDuringSnapshotTest
 specifier|public
 name|void
@@ -3504,6 +3527,15 @@ block|}
 block|}
 annotation|@
 name|Test
+annotation|@
+name|LuceneTestCase
+operator|.
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"imotov is working on the fix"
+argument_list|)
 DECL|method|dataFileFailureDuringSnapshotTest
 specifier|public
 name|void
@@ -3913,6 +3945,15 @@ block|}
 block|}
 annotation|@
 name|Test
+annotation|@
+name|LuceneTestCase
+operator|.
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"imotov is working on the fix"
+argument_list|)
 DECL|method|dataFileFailureDuringRestoreTest
 specifier|public
 name|void
@@ -4330,6 +4371,15 @@ annotation|@
 name|TestLogging
 argument_list|(
 literal|"snapshots:TRACE"
+argument_list|)
+annotation|@
+name|LuceneTestCase
+operator|.
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"imotov is working on the fix"
 argument_list|)
 DECL|method|deletionOfFailingToRecoverIndexShouldStopRestore
 specifier|public
@@ -6642,6 +6692,15 @@ annotation|@
 name|TestLogging
 argument_list|(
 literal|"cluster.routing.allocation.decider:TRACE"
+argument_list|)
+annotation|@
+name|LuceneTestCase
+operator|.
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"imotov is working on the fix"
 argument_list|)
 DECL|method|moveShardWhileSnapshottingTest
 specifier|public
