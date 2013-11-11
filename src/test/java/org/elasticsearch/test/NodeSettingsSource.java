@@ -54,7 +54,6 @@ end_import
 
 begin_class
 DECL|class|NodeSettingsSource
-specifier|public
 specifier|abstract
 class|class
 name|NodeSettingsSource

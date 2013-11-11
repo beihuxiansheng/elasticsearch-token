@@ -2974,10 +2974,10 @@ block|}
 name|TermVectorResponse
 name|response
 init|=
-name|run
-argument_list|(
 name|request
-argument_list|)
+operator|.
+name|get
+argument_list|()
 decl_stmt|;
 name|Fields
 name|luceneTermVectors

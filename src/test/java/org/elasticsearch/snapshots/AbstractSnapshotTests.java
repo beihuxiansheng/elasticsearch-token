@@ -522,8 +522,6 @@ name|SnapshotInfo
 argument_list|>
 name|snapshotInfos
 init|=
-name|run
-argument_list|(
 name|client
 argument_list|()
 operator|.
@@ -542,7 +540,9 @@ name|setSnapshots
 argument_list|(
 name|snapshot
 argument_list|)
-argument_list|)
+operator|.
+name|get
+argument_list|()
 operator|.
 name|getSnapshots
 argument_list|()
@@ -689,8 +689,6 @@ name|SnapshotInfo
 argument_list|>
 name|snapshotInfos
 init|=
-name|run
-argument_list|(
 name|client
 argument_list|()
 operator|.
@@ -709,7 +707,9 @@ name|setSnapshots
 argument_list|(
 name|snapshot
 argument_list|)
-argument_list|)
+operator|.
+name|get
+argument_list|()
 operator|.
 name|getSnapshots
 argument_list|()

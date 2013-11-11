@@ -2010,8 +2010,6 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-name|run
-argument_list|(
 name|client
 argument_list|()
 operator|.
@@ -2033,11 +2031,11 @@ name|setVersion
 argument_list|(
 literal|1
 argument_list|)
-argument_list|)
+operator|.
+name|get
+argument_list|()
 expr_stmt|;
 name|assertThat
-argument_list|(
-name|run
 argument_list|(
 name|client
 argument_list|()
@@ -2050,7 +2048,9 @@ literal|"type"
 argument_list|,
 literal|"1"
 argument_list|)
-argument_list|)
+operator|.
+name|get
+argument_list|()
 operator|.
 name|getVersion
 argument_list|()
@@ -2062,8 +2062,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// and again with a higher version..
-name|run
-argument_list|(
 name|client
 argument_list|()
 operator|.
@@ -2085,11 +2083,11 @@ name|setVersion
 argument_list|(
 literal|2
 argument_list|)
-argument_list|)
+operator|.
+name|get
+argument_list|()
 expr_stmt|;
 name|assertThat
-argument_list|(
-name|run
 argument_list|(
 name|client
 argument_list|()
@@ -2102,7 +2100,9 @@ literal|"type"
 argument_list|,
 literal|"1"
 argument_list|)
-argument_list|)
+operator|.
+name|get
+argument_list|()
 operator|.
 name|getVersion
 argument_list|()
@@ -2114,8 +2114,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// after delete
-name|run
-argument_list|(
 name|client
 argument_list|()
 operator|.
@@ -2127,7 +2125,9 @@ literal|"type"
 argument_list|,
 literal|"1"
 argument_list|)
-argument_list|)
+operator|.
+name|get
+argument_list|()
 expr_stmt|;
 name|assertThrows
 argument_list|(
@@ -2162,8 +2162,6 @@ name|class
 argument_list|)
 expr_stmt|;
 comment|// external versioning
-name|run
-argument_list|(
 name|client
 argument_list|()
 operator|.
@@ -2194,7 +2192,9 @@ name|VersionType
 operator|.
 name|EXTERNAL
 argument_list|)
-argument_list|)
+operator|.
+name|get
+argument_list|()
 expr_stmt|;
 name|assertThrows
 argument_list|(
@@ -2235,8 +2235,6 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-name|run
-argument_list|(
 name|client
 argument_list|()
 operator|.
@@ -2265,11 +2263,11 @@ name|VersionType
 operator|.
 name|EXTERNAL
 argument_list|)
-argument_list|)
+operator|.
+name|get
+argument_list|()
 expr_stmt|;
 name|assertThat
-argument_list|(
-name|run
 argument_list|(
 name|client
 argument_list|()
@@ -2282,7 +2280,9 @@ literal|"type"
 argument_list|,
 literal|"2"
 argument_list|)
-argument_list|)
+operator|.
+name|get
+argument_list|()
 operator|.
 name|getVersion
 argument_list|()
@@ -2295,8 +2295,6 @@ argument_list|)
 expr_stmt|;
 comment|// upserts - the combination with versions is a bit weird. Test are here to ensure we do not change our behavior unintentionally
 comment|// With internal versions, tt means "if object is there with version X, update it or explode. If it is not there, index.
-name|run
-argument_list|(
 name|client
 argument_list|()
 operator|.
@@ -2323,7 +2321,9 @@ name|setUpsert
 argument_list|(
 literal|"{ \"text\": \"v0\" }"
 argument_list|)
-argument_list|)
+operator|.
+name|get
+argument_list|()
 expr_stmt|;
 name|GetResponse
 name|get
@@ -2372,8 +2372,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// With external versions, it means - if object is there with version lower than X, update it or explode. If it is not there, insert with new version.
-name|run
-argument_list|(
 name|client
 argument_list|()
 operator|.
@@ -2407,7 +2405,9 @@ name|setUpsert
 argument_list|(
 literal|"{ \"text\": \"v0\" }"
 argument_list|)
-argument_list|)
+operator|.
+name|get
+argument_list|()
 expr_stmt|;
 name|get
 operator|=

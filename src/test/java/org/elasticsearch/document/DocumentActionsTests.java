@@ -412,7 +412,7 @@ name|void
 name|createIndex
 parameter_list|()
 block|{
-name|wipeIndex
+name|wipeIndices
 argument_list|(
 name|getConcreteIndexName
 argument_list|()

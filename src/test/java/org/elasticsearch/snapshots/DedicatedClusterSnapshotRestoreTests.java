@@ -331,9 +331,6 @@ expr_stmt|;
 name|Client
 name|client
 init|=
-name|cluster
-argument_list|()
-operator|.
 name|client
 argument_list|()
 decl_stmt|;
@@ -866,9 +863,6 @@ expr_stmt|;
 name|Client
 name|client
 init|=
-name|cluster
-argument_list|()
-operator|.
 name|client
 argument_list|()
 decl_stmt|;
@@ -959,15 +953,15 @@ argument_list|()
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|run
-argument_list|(
 name|client
 operator|.
 name|prepareCount
 argument_list|(
 literal|"test-idx"
 argument_list|)
-argument_list|)
+operator|.
+name|get
+argument_list|()
 operator|.
 name|getCount
 argument_list|()
@@ -995,8 +989,6 @@ expr_stmt|;
 name|PutRepositoryResponse
 name|putRepositoryResponse
 init|=
-name|run
-argument_list|(
 name|client
 operator|.
 name|admin
@@ -1063,7 +1055,9 @@ argument_list|,
 literal|200
 argument_list|)
 argument_list|)
-argument_list|)
+operator|.
+name|get
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -1085,8 +1079,6 @@ argument_list|(
 literal|"--> snapshot"
 argument_list|)
 expr_stmt|;
-name|run
-argument_list|(
 name|client
 operator|.
 name|admin
@@ -1111,7 +1103,9 @@ name|setIndices
 argument_list|(
 literal|"test-idx"
 argument_list|)
-argument_list|)
+operator|.
+name|get
+argument_list|()
 expr_stmt|;
 name|String
 name|blockedNode
@@ -1229,8 +1223,6 @@ name|SnapshotInfo
 argument_list|>
 name|snapshotInfos
 init|=
-name|run
-argument_list|(
 name|client
 argument_list|()
 operator|.
@@ -1249,7 +1241,9 @@ name|setSnapshots
 argument_list|(
 literal|"test-snap"
 argument_list|)
-argument_list|)
+operator|.
+name|get
+argument_list|()
 operator|.
 name|getSnapshots
 argument_list|()

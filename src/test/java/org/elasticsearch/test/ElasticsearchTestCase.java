@@ -318,6 +318,10 @@ name|TimeUnit
 import|;
 end_import
 
+begin_comment
+comment|/**  * Base testcase for randomized unit testing with Elasticsearch  */
+end_comment
+
 begin_class
 annotation|@
 name|ThreadLeakFilters

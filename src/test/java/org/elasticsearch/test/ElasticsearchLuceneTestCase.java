@@ -118,6 +118,10 @@ name|ReproduceInfoPrinter
 import|;
 end_import
 
+begin_comment
+comment|/**  * Base testcase for lucene based testing. This class should be used if low level lucene features are tested.  */
+end_comment
+
 begin_class
 annotation|@
 name|Listeners

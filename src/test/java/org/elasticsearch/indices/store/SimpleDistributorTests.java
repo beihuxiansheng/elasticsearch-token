@@ -750,7 +750,7 @@ name|String
 name|distributor
 parameter_list|)
 block|{
-name|wipeIndex
+name|wipeIndices
 argument_list|(
 name|index
 argument_list|)
@@ -859,7 +859,7 @@ name|String
 name|distributor
 parameter_list|)
 block|{
-name|wipeIndex
+name|wipeIndices
 argument_list|(
 name|index
 argument_list|)

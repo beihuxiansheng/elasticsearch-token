@@ -26,9 +26,14 @@ name|ThreadFilter
 import|;
 end_import
 
+begin_comment
+comment|/**  * Simple thread filter for randomized runner  */
+end_comment
+
 begin_class
 DECL|class|ElasticsearchThreadFilter
 specifier|public
+specifier|final
 class|class
 name|ElasticsearchThreadFilter
 implements|implements

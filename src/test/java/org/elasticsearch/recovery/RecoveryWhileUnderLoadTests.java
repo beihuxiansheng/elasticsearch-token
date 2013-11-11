@@ -2243,7 +2243,9 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|randomSettingsBuilder
+name|ImmutableSettings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put

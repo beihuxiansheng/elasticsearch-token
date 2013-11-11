@@ -270,8 +270,6 @@ expr_stmt|;
 name|PutRepositoryResponse
 name|putRepositoryResponse
 init|=
-name|run
-argument_list|(
 name|client
 operator|.
 name|admin
@@ -309,7 +307,9 @@ name|SUITE
 argument_list|)
 argument_list|)
 argument_list|)
-argument_list|)
+operator|.
+name|get
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -334,8 +334,6 @@ expr_stmt|;
 name|ClusterStateResponse
 name|clusterStateResponse
 init|=
-name|run
-argument_list|(
 name|client
 operator|.
 name|admin
@@ -354,7 +352,9 @@ name|setFilterMetaData
 argument_list|(
 literal|false
 argument_list|)
-argument_list|)
+operator|.
+name|get
+argument_list|()
 decl_stmt|;
 name|MetaData
 name|metaData
@@ -427,8 +427,6 @@ argument_list|)
 expr_stmt|;
 name|putRepositoryResponse
 operator|=
-name|run
-argument_list|(
 name|client
 operator|.
 name|admin
@@ -466,7 +464,9 @@ name|SUITE
 argument_list|)
 argument_list|)
 argument_list|)
-argument_list|)
+operator|.
+name|get
+argument_list|()
 expr_stmt|;
 name|assertThat
 argument_list|(
@@ -490,8 +490,6 @@ argument_list|)
 expr_stmt|;
 name|clusterStateResponse
 operator|=
-name|run
-argument_list|(
 name|client
 operator|.
 name|admin
@@ -510,7 +508,9 @@ name|setFilterMetaData
 argument_list|(
 literal|false
 argument_list|)
-argument_list|)
+operator|.
+name|get
+argument_list|()
 expr_stmt|;
 name|metaData
 operator|=
@@ -629,8 +629,6 @@ expr_stmt|;
 name|GetRepositoriesResponse
 name|repositoriesResponse
 init|=
-name|run
-argument_list|(
 name|client
 operator|.
 name|admin
@@ -641,7 +639,9 @@ argument_list|()
 operator|.
 name|prepareGetRepositories
 argument_list|()
-argument_list|)
+operator|.
+name|get
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -698,8 +698,6 @@ argument_list|(
 literal|"--> delete repository test-repo-1"
 argument_list|)
 expr_stmt|;
-name|run
-argument_list|(
 name|client
 operator|.
 name|admin
@@ -712,12 +710,12 @@ name|prepareDeleteRepository
 argument_list|(
 literal|"test-repo-1"
 argument_list|)
-argument_list|)
+operator|.
+name|get
+argument_list|()
 expr_stmt|;
 name|repositoriesResponse
 operator|=
-name|run
-argument_list|(
 name|client
 operator|.
 name|admin
@@ -728,7 +726,9 @@ argument_list|()
 operator|.
 name|prepareGetRepositories
 argument_list|()
-argument_list|)
+operator|.
+name|get
+argument_list|()
 expr_stmt|;
 name|assertThat
 argument_list|(
@@ -769,8 +769,6 @@ argument_list|(
 literal|"--> delete repository test-repo-2"
 argument_list|)
 expr_stmt|;
-name|run
-argument_list|(
 name|client
 operator|.
 name|admin
@@ -783,12 +781,12 @@ name|prepareDeleteRepository
 argument_list|(
 literal|"test-repo-2"
 argument_list|)
-argument_list|)
+operator|.
+name|get
+argument_list|()
 expr_stmt|;
 name|repositoriesResponse
 operator|=
-name|run
-argument_list|(
 name|client
 operator|.
 name|admin
@@ -799,7 +797,9 @@ argument_list|()
 operator|.
 name|prepareGetRepositories
 argument_list|()
-argument_list|)
+operator|.
+name|get
+argument_list|()
 expr_stmt|;
 name|assertThat
 argument_list|(
@@ -888,8 +888,6 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|run
-argument_list|(
 name|client
 operator|.
 name|admin
@@ -907,7 +905,9 @@ name|setType
 argument_list|(
 literal|"fs"
 argument_list|)
-argument_list|)
+operator|.
+name|get
+argument_list|()
 expr_stmt|;
 name|fail
 argument_list|(
@@ -944,8 +944,6 @@ expr_stmt|;
 name|PutRepositoryResponse
 name|putRepositoryResponse
 init|=
-name|run
-argument_list|(
 name|client
 argument_list|()
 operator|.
@@ -1009,7 +1007,9 @@ name|setTimeout
 argument_list|(
 literal|"0s"
 argument_list|)
-argument_list|)
+operator|.
+name|get
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -1033,8 +1033,6 @@ argument_list|)
 expr_stmt|;
 name|putRepositoryResponse
 operator|=
-name|run
-argument_list|(
 name|client
 argument_list|()
 operator|.
@@ -1093,7 +1091,9 @@ literal|100
 argument_list|)
 argument_list|)
 argument_list|)
-argument_list|)
+operator|.
+name|get
+argument_list|()
 expr_stmt|;
 name|assertThat
 argument_list|(
@@ -1118,8 +1118,6 @@ expr_stmt|;
 name|DeleteRepositoryResponse
 name|deleteRepositoryResponse
 init|=
-name|run
-argument_list|(
 name|client
 argument_list|()
 operator|.
@@ -1138,7 +1136,9 @@ name|setTimeout
 argument_list|(
 literal|"0s"
 argument_list|)
-argument_list|)
+operator|.
+name|get
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -1162,8 +1162,6 @@ argument_list|)
 expr_stmt|;
 name|deleteRepositoryResponse
 operator|=
-name|run
-argument_list|(
 name|client
 argument_list|()
 operator|.
@@ -1177,7 +1175,9 @@ name|prepareDeleteRepository
 argument_list|(
 literal|"test-repo-1"
 argument_list|)
-argument_list|)
+operator|.
+name|get
+argument_list|()
 expr_stmt|;
 name|assertThat
 argument_list|(

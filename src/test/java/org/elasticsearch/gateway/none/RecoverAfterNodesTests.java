@@ -363,7 +363,7 @@ return|return
 name|cluster
 argument_list|()
 operator|.
-name|clientNodeClient
+name|client
 argument_list|(
 name|name
 argument_list|)

@@ -2606,7 +2606,7 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|wipeIndex
+name|wipeIndices
 argument_list|(
 literal|"test"
 argument_list|)
@@ -14990,7 +14990,7 @@ argument_list|(
 name|cluster
 argument_list|()
 operator|.
-name|numNodes
+name|size
 argument_list|()
 argument_list|)
 decl_stmt|;

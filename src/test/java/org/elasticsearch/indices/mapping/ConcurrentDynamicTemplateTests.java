@@ -260,7 +260,7 @@ name|i
 operator|++
 control|)
 block|{
-name|wipeIndex
+name|wipeIndices
 argument_list|(
 literal|"test"
 argument_list|)

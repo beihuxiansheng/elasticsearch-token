@@ -759,7 +759,7 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-name|wipeIndex
+name|wipeIndices
 argument_list|(
 literal|"test"
 argument_list|)

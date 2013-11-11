@@ -129,6 +129,7 @@ name|TimeUnits
 operator|.
 name|HOUR
 argument_list|)
+comment|/**  * Basic test case for token streams. the assertion methods in this class will  * run basic checks to enforce correct behavior of the token streams.  */
 DECL|class|ElasticsearchTokenStreamTestCase
 specifier|public
 specifier|abstract

@@ -36,20 +36,6 @@ name|common
 operator|.
 name|base
 operator|.
-name|Function
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|base
-operator|.
 name|Predicate
 import|;
 end_import
@@ -79,20 +65,6 @@ operator|.
 name|collect
 operator|.
 name|Collections2
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableSet
 import|;
 end_import
 
@@ -185,34 +157,6 @@ operator|.
 name|cluster
 operator|.
 name|ClusterState
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|block
-operator|.
-name|ClusterBlock
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|block
-operator|.
-name|ClusterBlockLevel
 import|;
 end_import
 
@@ -378,35 +322,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|unit
-operator|.
-name|TimeValue
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|env
 operator|.
 name|NodeEnvironment
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|gateway
-operator|.
-name|Gateway
 import|;
 end_import
 
@@ -630,21 +548,24 @@ name|nodeBuilder
 import|;
 end_import
 
+begin_comment
+comment|/**  * TestCluster manages a set of JVM private nodes and allows convenient access to them.  * The cluster supports randomized configuration such that nodes started in the cluster will  * automatically load asserting services tracking resources like file handles or open searchers.  *<p>  * The Cluster is bound to a test lifecycle where tests must call {@link #beforeTest(java.util.Random, double)} and  * {@link #afterTest()} to initialize and reset the cluster in order to be more reproducible. The term "more" relates  * to the async nature of Elasticsearch in combination with randomized testing. Once Threads and asynchronous calls  * are involved reproducibility is very limited. This class should only be used through {@link ElasticsearchIntegrationTest}.  *</p>  */
+end_comment
+
 begin_class
 DECL|class|TestCluster
 specifier|public
+specifier|final
 class|class
 name|TestCluster
 implements|implements
-name|Closeable
-implements|,
 name|Iterable
 argument_list|<
 name|Client
 argument_list|>
 block|{
 DECL|field|logger
-specifier|protected
+specifier|private
 specifier|final
 name|ESLogger
 name|logger
@@ -757,7 +678,6 @@ name|NodeSettingsSource
 name|nodeSettingsSource
 decl_stmt|;
 DECL|method|TestCluster
-specifier|public
 name|TestCluster
 parameter_list|(
 name|long
@@ -783,7 +703,6 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|TestCluster
-specifier|public
 name|TestCluster
 parameter_list|(
 name|long
@@ -1122,7 +1041,6 @@ argument_list|()
 return|;
 block|}
 DECL|method|clusterName
-specifier|public
 specifier|static
 name|String
 name|clusterName
@@ -1412,6 +1330,7 @@ return|return
 literal|null
 return|;
 block|}
+comment|/**      * Ensures that at least<code>n</code> nodes are present in the cluster.      * if more nodes than<code>n</code> are present this method will not      * stop any of the running nodes.      */
 DECL|method|ensureAtLeastNumNodes
 specifier|public
 specifier|synchronized
@@ -1419,7 +1338,7 @@ name|void
 name|ensureAtLeastNumNodes
 parameter_list|(
 name|int
-name|num
+name|n
 parameter_list|)
 block|{
 name|int
@@ -1439,7 +1358,7 @@ name|size
 init|;
 name|i
 operator|<
-name|num
+name|n
 condition|;
 name|i
 operator|++
@@ -1453,7 +1372,7 @@ literal|"increasing cluster size from {} to {}"
 argument_list|,
 name|size
 argument_list|,
-name|num
+name|n
 argument_list|)
 expr_stmt|;
 name|NodeAndClient
@@ -1477,6 +1396,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Ensures that at most<code>n</code> are up and running.      * If less nodes that<code>n</code> are running this method      * will not start any additional nodes.      */
 DECL|method|ensureAtMostNumNodes
 specifier|public
 specifier|synchronized
@@ -1484,7 +1404,7 @@ name|void
 name|ensureAtMostNumNodes
 parameter_list|(
 name|int
-name|num
+name|n
 parameter_list|)
 block|{
 if|if
@@ -1494,7 +1414,7 @@ operator|.
 name|size
 argument_list|()
 operator|<=
-name|num
+name|n
 condition|)
 block|{
 return|return;
@@ -1507,7 +1427,7 @@ name|NodeAndClient
 argument_list|>
 name|values
 init|=
-name|num
+name|n
 operator|==
 literal|0
 condition|?
@@ -1562,7 +1482,7 @@ operator|.
 name|size
 argument_list|()
 operator|-
-name|num
+name|n
 argument_list|)
 decl_stmt|;
 name|logger
@@ -1576,9 +1496,9 @@ operator|.
 name|size
 argument_list|()
 operator|-
-name|num
+name|n
 argument_list|,
-name|num
+name|n
 argument_list|)
 expr_stmt|;
 name|Set
@@ -1817,7 +1737,6 @@ name|id
 return|;
 block|}
 DECL|method|client
-specifier|public
 specifier|synchronized
 name|Client
 name|client
@@ -1837,6 +1756,7 @@ name|random
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns a node client to the current master node.      * Note: use this with care tests should not rely on a certain nodes client.      */
 DECL|method|masterClient
 specifier|public
 specifier|synchronized
@@ -1887,6 +1807,7 @@ literal|null
 return|;
 comment|// can't happen
 block|}
+comment|/**      * Returns a node client to random node but not the master. This method will fail if no non-master client is available.      */
 DECL|method|nonMasterClient
 specifier|public
 specifier|synchronized
@@ -1942,6 +1863,7 @@ literal|null
 return|;
 comment|// can't happen
 block|}
+comment|/**      * Returns a client to a node started with "node.client: true"      */
 DECL|method|clientNodeClient
 specifier|public
 specifier|synchronized
@@ -1999,11 +1921,12 @@ name|random
 argument_list|)
 return|;
 block|}
-DECL|method|clientNodeClient
+comment|/**      * Returns a node client to a given node.      */
+DECL|method|client
 specifier|public
 specifier|synchronized
 name|Client
-name|clientNodeClient
+name|client
 parameter_list|(
 name|String
 name|nodeName
@@ -2013,7 +1936,7 @@ name|ensureOpen
 argument_list|()
 expr_stmt|;
 name|NodeAndClient
-name|randomNodeAndClient
+name|nodeAndClient
 init|=
 name|nodes
 operator|.
@@ -2024,13 +1947,13 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|randomNodeAndClient
+name|nodeAndClient
 operator|!=
 literal|null
 condition|)
 block|{
 return|return
-name|randomNodeAndClient
+name|nodeAndClient
 operator|.
 name|client
 argument_list|(
@@ -2038,10 +1961,23 @@ name|random
 argument_list|)
 return|;
 block|}
+name|Assert
+operator|.
+name|fail
+argument_list|(
+literal|"No node found with name: ["
+operator|+
+name|nodeName
+operator|+
+literal|"]"
+argument_list|)
+expr_stmt|;
 return|return
 literal|null
 return|;
+comment|// can't happen
 block|}
+comment|/**      * Returns a "smart" node client to a random node in the cluster      */
 DECL|method|smartClient
 specifier|public
 specifier|synchronized
@@ -2081,6 +2017,7 @@ literal|null
 return|;
 comment|// can't happen
 block|}
+comment|/**      * Returns a random node that applies to the given predicate.      * The predicate can filter nodes based on the nodes settings.      * If all nodes are filtered out this method will return<code>null</code>      */
 DECL|method|client
 specifier|public
 specifier|synchronized
@@ -2159,7 +2096,6 @@ literal|null
 return|;
 block|}
 DECL|method|close
-specifier|public
 name|void
 name|close
 parameter_list|()
@@ -2197,111 +2133,6 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
-block|}
-DECL|method|waitForNoBlocks
-specifier|public
-specifier|synchronized
-name|ImmutableSet
-argument_list|<
-name|ClusterBlock
-argument_list|>
-name|waitForNoBlocks
-parameter_list|(
-name|TimeValue
-name|timeout
-parameter_list|,
-name|Node
-name|node
-parameter_list|)
-throws|throws
-name|InterruptedException
-block|{
-name|ensureOpen
-argument_list|()
-expr_stmt|;
-name|long
-name|start
-init|=
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
-decl_stmt|;
-name|ImmutableSet
-argument_list|<
-name|ClusterBlock
-argument_list|>
-name|blocks
-decl_stmt|;
-do|do
-block|{
-name|blocks
-operator|=
-name|node
-operator|.
-name|client
-argument_list|()
-operator|.
-name|admin
-argument_list|()
-operator|.
-name|cluster
-argument_list|()
-operator|.
-name|prepareState
-argument_list|()
-operator|.
-name|setLocal
-argument_list|(
-literal|true
-argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
-operator|.
-name|getState
-argument_list|()
-operator|.
-name|blocks
-argument_list|()
-operator|.
-name|global
-argument_list|(
-name|ClusterBlockLevel
-operator|.
-name|METADATA
-argument_list|)
-expr_stmt|;
-block|}
-do|while
-condition|(
-operator|!
-name|blocks
-operator|.
-name|isEmpty
-argument_list|()
-operator|&&
-operator|(
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
-operator|-
-name|start
-operator|)
-operator|<
-name|timeout
-operator|.
-name|millis
-argument_list|()
-condition|)
-do|;
-return|return
-name|blocks
-return|;
 block|}
 DECL|class|NodeAndClient
 specifier|private
@@ -2737,7 +2568,6 @@ expr_stmt|;
 block|}
 block|}
 DECL|class|ClientFactory
-specifier|public
 specifier|static
 class|class
 name|ClientFactory
@@ -2766,7 +2596,6 @@ return|;
 block|}
 block|}
 DECL|class|TransportClientFactory
-specifier|public
 specifier|static
 class|class
 name|TransportClientFactory
@@ -2924,7 +2753,6 @@ return|;
 block|}
 block|}
 DECL|class|RandomClientFactory
-specifier|public
 class|class
 name|RandomClientFactory
 extends|extends
@@ -3017,8 +2845,8 @@ return|;
 block|}
 block|}
 block|}
+comment|/**      * This method should be exectued before each test to reset the cluster to it's initial state.      */
 DECL|method|beforeTest
-specifier|public
 specifier|synchronized
 name|void
 name|beforeTest
@@ -3315,7 +3143,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|numNodes
+name|size
 argument_list|()
 operator|>
 literal|0
@@ -3437,7 +3265,7 @@ name|length
 argument_list|)
 expr_stmt|;
 assert|assert
-name|numNodes
+name|size
 argument_list|()
 operator|==
 name|sharedNodesSeeds
@@ -3446,7 +3274,7 @@ name|length
 assert|;
 if|if
 condition|(
-name|numNodes
+name|size
 argument_list|()
 operator|>
 literal|0
@@ -3502,8 +3330,8 @@ name|length
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * This method should be executed during tearDown      */
 DECL|method|afterTest
-specifier|public
 specifier|synchronized
 name|void
 name|afterTest
@@ -3607,6 +3435,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
+comment|/**      * Returns a reference to a random nodes {@link ClusterService}      */
 DECL|method|clusterService
 specifier|public
 specifier|synchronized
@@ -3623,6 +3452,7 @@ name|class
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns an Iterabel to all instances for the given class&gt;T&lt; across all nodes in the cluster.      */
 DECL|method|getInstances
 specifier|public
 specifier|synchronized
@@ -3690,6 +3520,7 @@ return|return
 name|instances
 return|;
 block|}
+comment|/**      * Returns a reference to the given nodes instances of the given class&gt;T&lt;      */
 DECL|method|getInstance
 specifier|public
 specifier|synchronized
@@ -3793,6 +3624,7 @@ name|node
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns a reference to a random nodes instances of the given class&gt;T&lt;      */
 DECL|method|getInstance
 specifier|public
 specifier|synchronized
@@ -3849,11 +3681,12 @@ name|clazz
 argument_list|)
 return|;
 block|}
-DECL|method|numNodes
+comment|/**      * Returns the number of nodes in the cluster.      */
+DECL|method|size
 specifier|public
 specifier|synchronized
 name|int
-name|numNodes
+name|size
 parameter_list|()
 block|{
 return|return
@@ -3865,6 +3698,7 @@ name|size
 argument_list|()
 return|;
 block|}
+comment|/**      * Stops a random node in the cluster.      */
 DECL|method|stopRandomNode
 specifier|public
 specifier|synchronized
@@ -3915,6 +3749,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Stops a random node in the cluster that applies to the given filter or non if the non of the nodes applies to the      * filter.      */
 DECL|method|stopRandomNode
 specifier|public
 specifier|synchronized
@@ -4007,6 +3842,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Stops the current master node forcefully      */
 DECL|method|stopCurrentMasterNode
 specifier|public
 specifier|synchronized
@@ -4018,7 +3854,7 @@ name|ensureOpen
 argument_list|()
 expr_stmt|;
 assert|assert
-name|numNodes
+name|size
 argument_list|()
 operator|>
 literal|0
@@ -4062,6 +3898,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+comment|/**      * Stops the any of the current nodes but not the master node.      */
 DECL|method|stopRandomNonMasterNode
 specifier|public
 name|void
@@ -4123,6 +3960,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Restarts a random node in the cluster      */
 DECL|method|restartRandomNode
 specifier|public
 name|void
@@ -4137,6 +3975,7 @@ name|EMPTY_CALLBACK
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Restarts a random node in the cluster and calls the callback during restart.      */
 DECL|method|restartRandomNode
 specifier|public
 name|void
@@ -4435,7 +4274,7 @@ block|}
 block|}
 block|}
 DECL|field|EMPTY_CALLBACK
-specifier|public
+specifier|private
 specifier|static
 specifier|final
 name|RestartCallback
@@ -4459,6 +4298,7 @@ return|;
 block|}
 block|}
 decl_stmt|;
+comment|/**      * Restarts all nodes in the cluster. It first stops all nodes and then restarts all the nodes again.      */
 DECL|method|fullRestart
 specifier|public
 name|void
@@ -4473,6 +4313,7 @@ name|EMPTY_CALLBACK
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Restarts all nodes in a rolling restart fashion ie. only restarts on node a time.      */
 DECL|method|rollingRestart
 specifier|public
 name|void
@@ -4487,6 +4328,7 @@ name|EMPTY_CALLBACK
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Restarts all nodes in a rolling restart fashion ie. only restarts on node a time.      */
 DECL|method|rollingRestart
 specifier|public
 name|void
@@ -4506,6 +4348,7 @@ name|function
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Restarts all nodes in the cluster. It first stops all nodes and then restarts all the nodes again.      */
 DECL|method|fullRestart
 specifier|public
 name|void
@@ -4602,7 +4445,6 @@ throw|;
 block|}
 block|}
 DECL|method|allButN
-specifier|public
 specifier|synchronized
 name|Set
 argument_list|<
@@ -4617,7 +4459,7 @@ block|{
 return|return
 name|nRandomNodes
 argument_list|(
-name|numNodes
+name|size
 argument_list|()
 operator|-
 name|numNodes
@@ -4625,7 +4467,7 @@ argument_list|)
 return|;
 block|}
 DECL|method|nRandomNodes
-specifier|public
+specifier|private
 specifier|synchronized
 name|Set
 argument_list|<
@@ -4638,7 +4480,7 @@ name|numNodes
 parameter_list|)
 block|{
 assert|assert
-name|numNodes
+name|size
 argument_list|()
 operator|>=
 name|numNodes
@@ -4700,6 +4542,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Returns a set of nodes that have at least one shard of the given index.      */
 DECL|method|nodesInclude
 specifier|public
 specifier|synchronized
@@ -4827,114 +4670,7 @@ name|emptySet
 argument_list|()
 return|;
 block|}
-DECL|method|nodeExclude
-specifier|public
-specifier|synchronized
-name|Set
-argument_list|<
-name|String
-argument_list|>
-name|nodeExclude
-parameter_list|(
-name|String
-name|index
-parameter_list|)
-block|{
-specifier|final
-name|Set
-argument_list|<
-name|String
-argument_list|>
-name|nodesInclude
-init|=
-name|nodesInclude
-argument_list|(
-name|index
-argument_list|)
-decl_stmt|;
-return|return
-name|Sets
-operator|.
-name|newHashSet
-argument_list|(
-name|Iterators
-operator|.
-name|transform
-argument_list|(
-name|Iterators
-operator|.
-name|filter
-argument_list|(
-name|nodes
-operator|.
-name|values
-argument_list|()
-operator|.
-name|iterator
-argument_list|()
-argument_list|,
-operator|new
-name|Predicate
-argument_list|<
-name|NodeAndClient
-argument_list|>
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|boolean
-name|apply
-parameter_list|(
-name|NodeAndClient
-name|nodeAndClient
-parameter_list|)
-block|{
-return|return
-operator|!
-name|nodesInclude
-operator|.
-name|contains
-argument_list|(
-name|nodeAndClient
-operator|.
-name|name
-argument_list|)
-return|;
-block|}
-block|}
-argument_list|)
-argument_list|,
-operator|new
-name|Function
-argument_list|<
-name|NodeAndClient
-argument_list|,
-name|String
-argument_list|>
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|String
-name|apply
-parameter_list|(
-name|NodeAndClient
-name|nodeAndClient
-parameter_list|)
-block|{
-return|return
-name|nodeAndClient
-operator|.
-name|name
-return|;
-block|}
-block|}
-argument_list|)
-argument_list|)
-return|;
-block|}
+comment|/**      * Starts a node with default settings and returns it's name.      */
 DECL|method|startNode
 specifier|public
 name|String
@@ -4950,6 +4686,7 @@ name|EMPTY
 argument_list|)
 return|;
 block|}
+comment|/**      * Starts a node with the given settings builder and returns it's name.      */
 DECL|method|startNode
 specifier|public
 name|String
@@ -4971,6 +4708,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+comment|/**      * Starts a node with the given settings and returns it's name.      */
 DECL|method|startNode
 specifier|public
 name|String
@@ -5075,56 +4813,6 @@ argument_list|,
 name|nodeAndClient
 argument_list|)
 expr_stmt|;
-block|}
-DECL|method|resetAllGateways
-specifier|public
-name|void
-name|resetAllGateways
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|Collection
-argument_list|<
-name|NodeAndClient
-argument_list|>
-name|values
-init|=
-name|this
-operator|.
-name|nodes
-operator|.
-name|values
-argument_list|()
-decl_stmt|;
-for|for
-control|(
-name|NodeAndClient
-name|nodeAndClient
-range|:
-name|values
-control|)
-block|{
-name|getInstanceFromNode
-argument_list|(
-name|Gateway
-operator|.
-name|class
-argument_list|,
-operator|(
-operator|(
-name|InternalNode
-operator|)
-name|nodeAndClient
-operator|.
-name|node
-operator|)
-argument_list|)
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 DECL|method|closeNonSharedNodes
 specifier|public
@@ -5330,6 +5018,7 @@ block|}
 block|}
 return|;
 block|}
+comment|/**      * Returns a predicate that only accepts settings of nodes with one of the given names.      */
 DECL|method|nameFilter
 specifier|public
 specifier|static
@@ -5429,6 +5118,7 @@ argument_list|)
 return|;
 block|}
 block|}
+comment|/**      * An abstract class that is called during {@link #rollingRestart(org.elasticsearch.test.TestCluster.RestartCallback)}      * and / or {@link #fullRestart(org.elasticsearch.test.TestCluster.RestartCallback)} to execute actions at certain      * stages of the restart.      */
 DECL|class|RestartCallback
 specifier|public
 specifier|static
@@ -5436,6 +5126,7 @@ specifier|abstract
 class|class
 name|RestartCallback
 block|{
+comment|/**          * Executed once the give node name has been stopped.          */
 DECL|method|onNodeStopped
 specifier|public
 name|Settings
@@ -5453,13 +5144,14 @@ operator|.
 name|EMPTY
 return|;
 block|}
+comment|/**          * Executed for each node before the<tt>n+1</tt> node is restarted. The given client is          * an active client to the node that will be restarted next.          */
 DECL|method|doAfterNodes
 specifier|public
 name|void
 name|doAfterNodes
 parameter_list|(
 name|int
-name|numNodes
+name|n
 parameter_list|,
 name|Client
 name|client
@@ -5467,6 +5159,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{         }
+comment|/**          * If this returns<code>true</code> all data for the node with the given node name will be cleared including          * gateways and all index data. Returns<code>false</code> by default.          */
 DECL|method|clearData
 specifier|public
 name|boolean
@@ -5480,6 +5173,7 @@ return|return
 literal|false
 return|;
 block|}
+comment|/**          * If this returns<code>false</code> the node with the given node name will not be restarted. It will be          * closed and removed from the cluster. Returns<code>true</code> by default.          */
 DECL|method|doRestart
 specifier|public
 name|boolean

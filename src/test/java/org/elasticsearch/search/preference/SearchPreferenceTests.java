@@ -209,7 +209,7 @@ argument_list|,
 name|cluster
 argument_list|()
 operator|.
-name|numNodes
+name|size
 argument_list|()
 operator|+
 literal|2

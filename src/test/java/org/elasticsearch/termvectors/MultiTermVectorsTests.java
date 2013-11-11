@@ -188,10 +188,10 @@ name|MultiTermVectorsItemResponse
 index|[]
 name|responseItems
 init|=
-name|run
-argument_list|(
 name|requestBuilder
-argument_list|)
+operator|.
+name|get
+argument_list|()
 operator|.
 name|getResponses
 argument_list|()

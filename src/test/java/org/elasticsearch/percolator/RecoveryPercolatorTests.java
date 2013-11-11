@@ -511,7 +511,7 @@ name|put
 argument_list|(
 name|super
 operator|.
-name|getSettings
+name|indexSettings
 argument_list|()
 argument_list|)
 operator|.
@@ -866,7 +866,7 @@ name|put
 argument_list|(
 name|super
 operator|.
-name|getSettings
+name|indexSettings
 argument_list|()
 argument_list|)
 operator|.
@@ -1624,7 +1624,7 @@ name|put
 argument_list|(
 name|super
 operator|.
-name|getSettings
+name|indexSettings
 argument_list|()
 argument_list|)
 operator|.

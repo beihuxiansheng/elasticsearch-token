@@ -1141,7 +1141,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|wipeIndex
+name|wipeIndices
 argument_list|(
 literal|"test"
 argument_list|)
@@ -1237,8 +1237,6 @@ operator|.
 name|endObject
 argument_list|()
 expr_stmt|;
-name|run
-argument_list|(
 name|prepareCreate
 argument_list|(
 literal|"test"
@@ -1255,7 +1253,9 @@ name|setSettings
 argument_list|(
 name|settings
 argument_list|)
-argument_list|)
+operator|.
+name|get
+argument_list|()
 expr_stmt|;
 name|ensureYellow
 argument_list|()

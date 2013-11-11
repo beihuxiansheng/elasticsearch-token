@@ -233,8 +233,6 @@ expr_stmt|;
 name|IndicesAliasesResponse
 name|res
 init|=
-name|run
-argument_list|(
 name|admin
 argument_list|()
 operator|.
@@ -258,7 +256,9 @@ argument_list|(
 literal|"0"
 argument_list|)
 argument_list|)
-argument_list|)
+operator|.
+name|get
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -1386,8 +1386,6 @@ expr_stmt|;
 name|IndicesAliasesResponse
 name|res
 init|=
-name|run
-argument_list|(
 name|admin
 argument_list|()
 operator|.
@@ -1451,7 +1449,9 @@ argument_list|(
 literal|"0,1"
 argument_list|)
 argument_list|)
-argument_list|)
+operator|.
+name|get
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -2951,8 +2951,6 @@ expr_stmt|;
 name|IndicesAliasesResponse
 name|res
 init|=
-name|run
-argument_list|(
 name|admin
 argument_list|()
 operator|.
@@ -3051,7 +3049,9 @@ argument_list|(
 literal|"1"
 argument_list|)
 argument_list|)
-argument_list|)
+operator|.
+name|get
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -3661,8 +3661,6 @@ expr_stmt|;
 name|IndicesAliasesResponse
 name|res
 init|=
-name|run
-argument_list|(
 name|admin
 argument_list|()
 operator|.
@@ -3686,7 +3684,9 @@ argument_list|(
 literal|"1"
 argument_list|)
 argument_list|)
-argument_list|)
+operator|.
+name|get
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -3859,8 +3859,6 @@ expr_stmt|;
 name|IndicesAliasesResponse
 name|res
 init|=
-name|run
-argument_list|(
 name|admin
 argument_list|()
 operator|.
@@ -3884,7 +3882,9 @@ argument_list|(
 literal|"1"
 argument_list|)
 argument_list|)
-argument_list|)
+operator|.
+name|get
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -4064,8 +4064,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|run
-argument_list|(
 name|prepareCreate
 argument_list|(
 literal|"test"
@@ -4109,7 +4107,9 @@ operator|.
 name|endObject
 argument_list|()
 argument_list|)
-argument_list|)
+operator|.
+name|get
+argument_list|()
 expr_stmt|;
 name|ensureGreen
 argument_list|()
@@ -4608,8 +4608,6 @@ expr_stmt|;
 name|IndicesAliasesResponse
 name|res
 init|=
-name|run
-argument_list|(
 name|admin
 argument_list|()
 operator|.
@@ -4633,7 +4631,9 @@ argument_list|(
 literal|"3"
 argument_list|)
 argument_list|)
-argument_list|)
+operator|.
+name|get
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -4827,8 +4827,6 @@ argument_list|)
 expr_stmt|;
 name|res
 operator|=
-name|run
-argument_list|(
 name|admin
 argument_list|()
 operator|.
@@ -4852,7 +4850,9 @@ argument_list|(
 literal|"4"
 argument_list|)
 argument_list|)
-argument_list|)
+operator|.
+name|get
+argument_list|()
 expr_stmt|;
 name|assertThat
 argument_list|(

@@ -738,8 +738,6 @@ expr_stmt|;
 name|GetResponse
 name|getResponse
 init|=
-name|run
-argument_list|(
 name|client
 argument_list|()
 operator|.
@@ -751,7 +749,9 @@ literal|"type1"
 argument_list|,
 literal|"1"
 argument_list|)
-argument_list|)
+operator|.
+name|get
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -781,8 +781,6 @@ comment|// check the numDocs
 name|IndicesStatusResponse
 name|statusResponse
 init|=
-name|run
-argument_list|(
 name|admin
 argument_list|()
 operator|.
@@ -791,8 +789,15 @@ argument_list|()
 operator|.
 name|prepareStatus
 argument_list|()
-argument_list|)
+operator|.
+name|get
+argument_list|()
 decl_stmt|;
+name|assertNoFailures
+argument_list|(
+name|statusResponse
+argument_list|)
+expr_stmt|;
 name|assertThat
 argument_list|(
 name|statusResponse
@@ -902,8 +907,6 @@ expr_stmt|;
 comment|// search for something that matches the nested doc, and see that we don't find the nested doc
 name|searchResponse
 operator|=
-name|run
-argument_list|(
 name|client
 argument_list|()
 operator|.
@@ -917,7 +920,9 @@ argument_list|(
 name|matchAllQuery
 argument_list|()
 argument_list|)
-argument_list|)
+operator|.
+name|get
+argument_list|()
 expr_stmt|;
 name|assertThat
 argument_list|(
@@ -937,8 +942,6 @@ argument_list|)
 expr_stmt|;
 name|searchResponse
 operator|=
-name|run
-argument_list|(
 name|client
 argument_list|()
 operator|.
@@ -956,7 +959,9 @@ argument_list|,
 literal|"n_value1_1"
 argument_list|)
 argument_list|)
-argument_list|)
+operator|.
+name|get
+argument_list|()
 expr_stmt|;
 name|assertThat
 argument_list|(
@@ -977,8 +982,6 @@ expr_stmt|;
 comment|// now, do a nested query
 name|searchResponse
 operator|=
-name|run
-argument_list|(
 name|client
 argument_list|()
 operator|.
@@ -1001,7 +1004,9 @@ literal|"n_value1_1"
 argument_list|)
 argument_list|)
 argument_list|)
-argument_list|)
+operator|.
+name|get
+argument_list|()
 expr_stmt|;
 name|assertNoFailures
 argument_list|(
@@ -1026,8 +1031,6 @@ argument_list|)
 expr_stmt|;
 name|searchResponse
 operator|=
-name|run
-argument_list|(
 name|client
 argument_list|()
 operator|.
@@ -1057,7 +1060,9 @@ name|SearchType
 operator|.
 name|DFS_QUERY_THEN_FETCH
 argument_list|)
-argument_list|)
+operator|.
+name|get
+argument_list|()
 expr_stmt|;
 name|assertNoFailures
 argument_list|(
@@ -1179,8 +1184,6 @@ argument_list|()
 expr_stmt|;
 name|statusResponse
 operator|=
-name|run
-argument_list|(
 name|client
 argument_list|()
 operator|.
@@ -1192,7 +1195,9 @@ argument_list|()
 operator|.
 name|prepareStatus
 argument_list|()
-argument_list|)
+operator|.
+name|get
+argument_list|()
 expr_stmt|;
 name|assertThat
 argument_list|(

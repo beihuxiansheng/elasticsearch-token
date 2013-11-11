@@ -190,10 +190,10 @@ name|ElasticsearchIntegrationTest
 block|{
 annotation|@
 name|Override
-DECL|method|getSettings
+DECL|method|indexSettings
 specifier|public
 name|Settings
-name|getSettings
+name|indexSettings
 parameter_list|()
 block|{
 return|return

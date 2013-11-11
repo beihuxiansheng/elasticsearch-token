@@ -489,8 +489,6 @@ name|void
 name|testIssue3177
 parameter_list|()
 block|{
-name|run
-argument_list|(
 name|prepareCreate
 argument_list|(
 literal|"test"
@@ -510,7 +508,9 @@ argument_list|,
 literal|1
 argument_list|)
 argument_list|)
-argument_list|)
+operator|.
+name|get
+argument_list|()
 expr_stmt|;
 name|client
 argument_list|()

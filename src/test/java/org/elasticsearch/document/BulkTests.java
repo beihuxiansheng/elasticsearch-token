@@ -1673,8 +1673,6 @@ expr_stmt|;
 name|BulkResponse
 name|bulkResponse
 init|=
-name|run
-argument_list|(
 name|client
 argument_list|()
 operator|.
@@ -1756,7 +1754,9 @@ argument_list|,
 literal|"2"
 argument_list|)
 argument_list|)
-argument_list|)
+operator|.
+name|get
+argument_list|()
 decl_stmt|;
 name|assertTrue
 argument_list|(
@@ -1907,8 +1907,6 @@ argument_list|)
 expr_stmt|;
 name|bulkResponse
 operator|=
-name|run
-argument_list|(
 name|client
 argument_list|()
 operator|.
@@ -1990,7 +1988,9 @@ argument_list|,
 literal|"3"
 argument_list|)
 argument_list|)
-argument_list|)
+operator|.
+name|get
+argument_list|()
 expr_stmt|;
 name|assertThat
 argument_list|(
@@ -2067,8 +2067,6 @@ argument_list|)
 expr_stmt|;
 name|bulkResponse
 operator|=
-name|run
-argument_list|(
 name|client
 argument_list|()
 operator|.
@@ -2186,7 +2184,9 @@ operator|.
 name|EXTERNAL
 argument_list|)
 argument_list|)
-argument_list|)
+operator|.
+name|get
+argument_list|()
 expr_stmt|;
 name|assertTrue
 argument_list|(
@@ -2337,8 +2337,6 @@ argument_list|)
 expr_stmt|;
 name|bulkResponse
 operator|=
-name|run
-argument_list|(
 name|client
 argument_list|()
 operator|.
@@ -2456,7 +2454,9 @@ operator|.
 name|EXTERNAL
 argument_list|)
 argument_list|)
-argument_list|)
+operator|.
+name|get
+argument_list|()
 expr_stmt|;
 name|assertThat
 argument_list|(
