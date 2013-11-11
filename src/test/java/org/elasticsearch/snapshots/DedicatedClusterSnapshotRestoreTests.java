@@ -323,12 +323,6 @@ operator|.
 name|client
 argument_list|()
 decl_stmt|;
-name|wipeIndices
-argument_list|()
-expr_stmt|;
-name|wipeRepositories
-argument_list|()
-expr_stmt|;
 comment|// Add dummy persistent setting
 name|logger
 operator|.
@@ -855,12 +849,6 @@ operator|.
 name|client
 argument_list|()
 decl_stmt|;
-name|wipeIndices
-argument_list|()
-expr_stmt|;
-name|wipeRepositories
-argument_list|()
-expr_stmt|;
 name|assertAcked
 argument_list|(
 name|prepareCreate

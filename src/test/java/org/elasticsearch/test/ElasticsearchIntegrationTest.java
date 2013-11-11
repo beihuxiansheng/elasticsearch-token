@@ -1204,6 +1204,7 @@ annotation|@
 name|After
 DECL|method|after
 specifier|public
+specifier|final
 name|void
 name|after
 parameter_list|()
