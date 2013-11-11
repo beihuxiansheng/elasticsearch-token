@@ -5247,6 +5247,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+specifier|final
+name|int
+name|numberOfSnapshots
+init|=
+name|between
+argument_list|(
+literal|5
+argument_list|,
+literal|15
+argument_list|)
+decl_stmt|;
 name|Client
 name|client
 init|=
@@ -5359,14 +5370,16 @@ init|=
 operator|new
 name|int
 index|[
-literal|10
+name|numberOfSnapshots
 index|]
 decl_stmt|;
 name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> creating 10 snapshots data"
+literal|"--> creating {} snapshots "
+argument_list|,
+name|numberOfSnapshots
 argument_list|)
 expr_stmt|;
 for|for
@@ -5378,7 +5391,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|10
+name|numberOfSnapshots
 condition|;
 name|i
 operator|++
@@ -5540,7 +5553,9 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|100L
+literal|10L
+operator|*
+name|numberOfSnapshots
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5568,7 +5583,9 @@ literal|1
 init|;
 name|i
 operator|<
-literal|9
+name|numberOfSnapshots
+operator|-
+literal|1
 condition|;
 name|i
 operator|++
@@ -5632,6 +5649,17 @@ argument_list|(
 literal|"--> restore index"
 argument_list|)
 expr_stmt|;
+name|String
+name|lastSnapshot
+init|=
+literal|"test-snap-"
+operator|+
+operator|(
+name|numberOfSnapshots
+operator|-
+literal|1
+operator|)
+decl_stmt|;
 name|RestoreSnapshotResponse
 name|restoreSnapshotResponse
 init|=
@@ -5647,7 +5675,7 @@ name|prepareRestoreSnapshot
 argument_list|(
 literal|"test-repo"
 argument_list|,
-literal|"test-snap-9"
+name|lastSnapshot
 argument_list|)
 operator|.
 name|setWaitForCompletion
@@ -5697,7 +5725,9 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|100L
+literal|10L
+operator|*
+name|numberOfSnapshots
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5722,7 +5752,7 @@ name|prepareDeleteSnapshot
 argument_list|(
 literal|"test-repo"
 argument_list|,
-literal|"test-snap-9"
+name|lastSnapshot
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6693,15 +6723,7 @@ name|TestLogging
 argument_list|(
 literal|"cluster.routing.allocation.decider:TRACE"
 argument_list|)
-annotation|@
-name|LuceneTestCase
-operator|.
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"imotov is working on the fix"
-argument_list|)
+comment|//    @LuceneTestCase.AwaitsFix(bugUrl="imotov is working on the fix")
 DECL|method|moveShardWhileSnapshottingTest
 specifier|public
 name|void
