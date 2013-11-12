@@ -6723,7 +6723,6 @@ name|TestLogging
 argument_list|(
 literal|"cluster.routing.allocation.decider:TRACE"
 argument_list|)
-comment|//    @LuceneTestCase.AwaitsFix(bugUrl="imotov is working on the fix")
 DECL|method|moveShardWhileSnapshottingTest
 specifier|public
 name|void
@@ -6803,13 +6802,6 @@ name|randomAsciiOfLength
 argument_list|(
 literal|10
 argument_list|)
-argument_list|)
-operator|.
-name|put
-argument_list|(
-literal|"random_data_file_blocking_rate"
-argument_list|,
-literal|0.1
 argument_list|)
 operator|.
 name|put
@@ -6926,6 +6918,15 @@ literal|100L
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// Pick one node and block it
+name|String
+name|blockedNode
+init|=
+name|blockNodeWithIndex
+argument_list|(
+literal|"test-idx"
+argument_list|)
+decl_stmt|;
 name|logger
 operator|.
 name|info
@@ -6961,22 +6962,18 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-name|String
-name|blockedNode
-init|=
-name|waitForCompletionOrBlock
-argument_list|(
-name|cluster
-argument_list|()
+name|logger
 operator|.
-name|nodesInclude
+name|info
 argument_list|(
-literal|"test-idx"
+literal|"--> waiting for block to kick in"
 argument_list|)
+expr_stmt|;
+name|waitForBlock
+argument_list|(
+name|blockedNode
 argument_list|,
 literal|"test-repo"
-argument_list|,
-literal|"test-snap"
 argument_list|,
 name|TimeValue
 operator|.
@@ -6985,19 +6982,14 @@ argument_list|(
 literal|60
 argument_list|)
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|blockedNode
-operator|!=
-literal|null
-condition|)
-block|{
+expr_stmt|;
 name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> move shards away from the node"
+literal|"--> execution was blocked on node [{}], moving shards away from this node"
+argument_list|,
+name|blockedNode
 argument_list|)
 expr_stmt|;
 name|ImmutableSettings
@@ -7043,14 +7035,12 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> execution was blocked on node [{}], moving shards away from this node"
-argument_list|,
-name|blockedNode
+literal|"--> unblocking blocked node"
 argument_list|)
 expr_stmt|;
-name|unblock
+name|unblockNode
 argument_list|(
-literal|"test-repo"
+name|blockedNode
 argument_list|)
 expr_stmt|;
 name|logger
@@ -7073,7 +7063,7 @@ name|TimeValue
 operator|.
 name|timeValueSeconds
 argument_list|(
-literal|60
+literal|600
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -7099,17 +7089,6 @@ argument_list|(
 literal|"--> done"
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-name|logger
-operator|.
-name|info
-argument_list|(
-literal|"--> done without blocks"
-argument_list|)
-expr_stmt|;
-block|}
 name|ImmutableList
 argument_list|<
 name|SnapshotInfo
