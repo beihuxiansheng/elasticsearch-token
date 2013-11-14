@@ -525,7 +525,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Service responsible for creating snapshots  *<p/>  * A typical snapshot creating process looks like this:  *<ul>  *<li>On the master node the {@link #createSnapshot(SnapshotRequest, CreateSnapshotListener)} is called and makes sure that no snapshots is currently running  * and registers the new snapshot in cluster state</li>  *<li>When cluster state is updated the {@link #beginSnapshot(ClusterState, SnapshotMetaData.Entry, CreateSnapshotListener)} method  * kicks in and initializes the snapshot in the repository and then populates list of shards that needs to be snapshotted in cluster state</li>  *<li>Each data node is watching for these shards and when new shards scheduled for snapshotting appear in the cluster state, data nodes  * start processing them through {@link #processIndexShardSnapshots(SnapshotMetaData)} method</li>  *<li>Once shard snapshot is created data node updates state of the shard in the cluster state using the {@link #updateIndexShardSnapshotStatus(UpdateIndexShardSnapshotStatusRequest)} method</li>  *<li>When last shard is completed master node in {@link #innerUpdateSnapshotState} method marks the snapshot as completed</li>  *<li>After cluster state is updated, the {@link #endSnapshot(SnapshotMetaData.Entry)} finalizes snapshot in the repository,  * notifies all {@link #snapshotCompletionListeners} that snapshot is completed, and finally calls {@link #removeSnapshotFromClusterState(SnapshotId)} to remove snapshot from cluster state</li>  *</ul>  */
+comment|/**  * Service responsible for creating snapshots  *<p/>  * A typical snapshot creating process looks like this:  *<ul>  *<li>On the master node the {@link #createSnapshot(SnapshotRequest, CreateSnapshotListener)} is called and makes sure that no snapshots is currently running  * and registers the new snapshot in cluster state</li>  *<li>When cluster state is updated the {@link #beginSnapshot(ClusterState, SnapshotMetaData.Entry, CreateSnapshotListener)} method  * kicks in and initializes the snapshot in the repository and then populates list of shards that needs to be snapshotted in cluster state</li>  *<li>Each data node is watching for these shards and when new shards scheduled for snapshotting appear in the cluster state, data nodes  * start processing them through {@link #processIndexShardSnapshots(SnapshotMetaData)} method</li>  *<li>Once shard snapshot is created data node updates state of the shard in the cluster state using the {@link #updateIndexShardSnapshotStatus(UpdateIndexShardSnapshotStatusRequest)} method</li>  *<li>When last shard is completed master node in {@link #innerUpdateSnapshotState} method marks the snapshot as completed</li>  *<li>After cluster state is updated, the {@link #endSnapshot(SnapshotMetaData.Entry)} finalizes snapshot in the repository,  * notifies all {@link #snapshotCompletionListeners} that snapshot is completed, and finally calls {@link #removeSnapshotFromClusterState(SnapshotId, SnapshotInfo, Throwable)} to remove snapshot from cluster state</li>  *</ul>  */
 end_comment
 
 begin_class
@@ -1481,7 +1481,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Starts snapshot.      *<p/>      * Creates snapshot in repository and updates snapshot metadata record with list of shards that needs to be processed.      *      * @param clusterState cluster state      * @param snapshot snapshot meta data      * @param userCreateSnapshotListener listener      */
+comment|/**      * Starts snapshot.      *<p/>      * Creates snapshot in repository and updates snapshot metadata record with list of shards that needs to be processed.      *      * @param clusterState               cluster state      * @param snapshot                   snapshot meta data      * @param userCreateSnapshotListener listener      */
 DECL|method|beginSnapshot
 specifier|private
 name|void
@@ -4543,19 +4543,7 @@ name|shardFailures
 argument_list|)
 argument_list|)
 decl_stmt|;
-for|for
-control|(
-name|SnapshotCompletionListener
-name|listener
-range|:
-name|snapshotCompletionListeners
-control|)
-block|{
-try|try
-block|{
-name|listener
-operator|.
-name|onSnapshotCompletion
+name|removeSnapshotFromClusterState
 argument_list|(
 name|snapshotId
 argument_list|,
@@ -4564,28 +4552,10 @@ name|SnapshotInfo
 argument_list|(
 name|snapshot
 argument_list|)
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Throwable
-name|t
-parameter_list|)
-block|{
-name|logger
-operator|.
-name|warn
-argument_list|(
-literal|"failed to refresh settings for [{}]"
-argument_list|,
-name|t
-argument_list|,
-name|listener
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 block|}
 catch|catch
 parameter_list|(
@@ -4604,57 +4574,22 @@ argument_list|,
 name|snapshotId
 argument_list|)
 expr_stmt|;
-for|for
-control|(
-name|SnapshotCompletionListener
-name|listener
-range|:
-name|snapshotCompletionListeners
-control|)
-block|{
-try|try
-block|{
-name|listener
-operator|.
-name|onSnapshotFailure
+name|removeSnapshotFromClusterState
 argument_list|(
 name|snapshotId
+argument_list|,
+literal|null
 argument_list|,
 name|t
 argument_list|)
 expr_stmt|;
 block|}
-catch|catch
-parameter_list|(
-name|Throwable
-name|t2
-parameter_list|)
-block|{
-name|logger
-operator|.
-name|warn
-argument_list|(
-literal|"failed to update snapshot status for [{}]"
-argument_list|,
-name|t2
-argument_list|,
-name|listener
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-block|}
-name|removeSnapshotFromClusterState
-argument_list|(
-name|snapshotId
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Removes record of running snapshot from cluster state      *      * @param snapshotId snapshot id      */
+comment|/**      * Removes record of running snapshot from cluster state      *      * @param snapshotId snapshot id      * @param snapshot   snapshot info if snapshot was successful      * @param t          exception if snapshot failed      */
 DECL|method|removeSnapshotFromClusterState
 specifier|private
 name|void
@@ -4663,6 +4598,14 @@ parameter_list|(
 specifier|final
 name|SnapshotId
 name|snapshotId
+parameter_list|,
+specifier|final
+name|SnapshotInfo
+name|snapshot
+parameter_list|,
+specifier|final
+name|Throwable
+name|t
 parameter_list|)
 block|{
 name|clusterService
@@ -4672,7 +4615,7 @@ argument_list|(
 literal|"remove snapshot metadata"
 argument_list|,
 operator|new
-name|ClusterStateUpdateTask
+name|ProcessedClusterStateUpdateTask
 argument_list|()
 block|{
 annotation|@
@@ -4869,6 +4812,82 @@ argument_list|,
 name|snapshotId
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|clusterStateProcessed
+parameter_list|(
+name|String
+name|source
+parameter_list|,
+name|ClusterState
+name|oldState
+parameter_list|,
+name|ClusterState
+name|newState
+parameter_list|)
+block|{
+for|for
+control|(
+name|SnapshotCompletionListener
+name|listener
+range|:
+name|snapshotCompletionListeners
+control|)
+block|{
+try|try
+block|{
+if|if
+condition|(
+name|snapshot
+operator|!=
+literal|null
+condition|)
+block|{
+name|listener
+operator|.
+name|onSnapshotCompletion
+argument_list|(
+name|snapshotId
+argument_list|,
+name|snapshot
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|listener
+operator|.
+name|onSnapshotFailure
+argument_list|(
+name|snapshotId
+argument_list|,
+name|t
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"failed to refresh settings for [{}]"
+argument_list|,
+name|t
+argument_list|,
+name|listener
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 block|}
 argument_list|)
@@ -5149,9 +5168,20 @@ name|build
 argument_list|()
 expr_stmt|;
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|snapshot
+operator|.
+name|state
+argument_list|()
+operator|==
+name|State
+operator|.
+name|INIT
+condition|)
 block|{
-comment|// snapshot hasn't started yet or already finished - just end it
+comment|// snapshot hasn't started yet - end it
 name|shards
 operator|=
 name|snapshot
@@ -5164,6 +5194,20 @@ argument_list|(
 name|snapshot
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// snapshot is being finalized - wait for it
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"trying to delete completed snapshot - save to delete"
+argument_list|)
+expr_stmt|;
+return|return
+name|currentState
+return|;
 block|}
 name|SnapshotMetaData
 operator|.
@@ -5273,6 +5317,13 @@ condition|(
 name|waitForSnapshot
 condition|)
 block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"adding snapshot completion listener to wait for deleted snapshot to finish"
+argument_list|)
+expr_stmt|;
 name|addListener
 argument_list|(
 operator|new
@@ -5292,6 +5343,13 @@ name|SnapshotInfo
 name|snapshot
 parameter_list|)
 block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"deleted snapshot completed - deleting files"
+argument_list|)
+expr_stmt|;
 name|removeListener
 argument_list|(
 name|this
@@ -5318,6 +5376,15 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"deleted snapshot failed - deleting files"
+argument_list|,
+name|t
+argument_list|)
+expr_stmt|;
 name|removeListener
 argument_list|(
 name|this
@@ -5337,6 +5404,13 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"deleted snapshot is not running - deleting files"
+argument_list|)
+expr_stmt|;
 name|deleteSnapshotFromRepository
 argument_list|(
 name|snapshotId
