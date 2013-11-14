@@ -88,11 +88,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|common
 operator|.
-name|codec
-operator|.
-name|postingsformat
+name|util
 operator|.
 name|BloomFilter
 import|;

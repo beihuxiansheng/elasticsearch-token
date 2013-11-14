@@ -162,6 +162,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|BloomFilter
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -193,7 +207,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<p>  * A {@link PostingsFormat} useful for low doc-frequency fields such as primary  * keys. Bloom filters are maintained in a ".blm" file which offers "fast-fail"  * for reads in segments known to have no record of the key. A choice of  * delegate PostingsFormat is used to record all other Postings data.  *</p>  *<p>  * This is a special bloom filter version, based on {@link BloomFilter} and inspired  * by Lucene {@link org.apache.lucene.codecs.bloom.BloomFilteringPostingsFormat}.  *</p>  */
+comment|/**  *<p>  * A {@link PostingsFormat} useful for low doc-frequency fields such as primary  * keys. Bloom filters are maintained in a ".blm" file which offers "fast-fail"  * for reads in segments known to have no record of the key. A choice of  * delegate PostingsFormat is used to record all other Postings data.  *</p>  *<p>  * This is a special bloom filter version, based on {@link org.elasticsearch.common.util.BloomFilter} and inspired  * by Lucene {@link org.apache.lucene.codecs.bloom.BloomFilteringPostingsFormat}.  *</p>  */
 end_comment
 
 begin_class

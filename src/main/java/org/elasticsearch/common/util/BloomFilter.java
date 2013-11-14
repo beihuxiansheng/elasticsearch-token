@@ -4,17 +4,15 @@ comment|/*  * Licensed to Elastic Search and Shay Banon under one  * or more con
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.codec.postingsformat
+DECL|package|org.elasticsearch.common.util
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|common
 operator|.
-name|codec
-operator|.
-name|postingsformat
+name|util
 package|;
 end_package
 
