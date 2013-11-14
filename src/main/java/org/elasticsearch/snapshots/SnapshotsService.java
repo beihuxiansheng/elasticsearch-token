@@ -2938,7 +2938,7 @@ argument_list|()
 return|;
 block|}
 return|return
-literal|null
+name|currentState
 return|;
 block|}
 annotation|@
