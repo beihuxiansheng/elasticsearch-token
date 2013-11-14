@@ -501,7 +501,7 @@ name|JsonXContentParser
 argument_list|(
 name|jsonFactory
 operator|.
-name|createJsonParser
+name|createParser
 argument_list|(
 name|reader
 argument_list|)

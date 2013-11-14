@@ -484,7 +484,7 @@ name|JsonXContentParser
 argument_list|(
 name|smileFactory
 operator|.
-name|createJsonParser
+name|createParser
 argument_list|(
 name|reader
 argument_list|)
