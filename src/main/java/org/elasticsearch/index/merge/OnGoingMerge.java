@@ -40,7 +40,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 import|;
 end_import
 
@@ -75,7 +75,7 @@ specifier|private
 specifier|final
 name|List
 argument_list|<
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 argument_list|>
 name|mergedSegments
 decl_stmt|;
@@ -130,7 +130,7 @@ DECL|method|getMergedSegments
 specifier|public
 name|List
 argument_list|<
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 argument_list|>
 name|getMergedSegments
 parameter_list|()

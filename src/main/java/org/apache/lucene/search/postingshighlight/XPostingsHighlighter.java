@@ -243,7 +243,7 @@ decl_stmt|;
 comment|/** Set the first time {@link #getFormatter} is called,      *  and then reused. */
 DECL|field|defaultFormatter
 specifier|private
-name|XPassageFormatter
+name|PassageFormatter
 name|defaultFormatter
 decl_stmt|;
 comment|/** Set the first time {@link #getScorer} is called,      *  and then reused. */
@@ -327,7 +327,7 @@ block|}
 comment|/** Returns the {@link PassageFormatter} to use for      *  formatting passages into highlighted snippets.  This      *  returns a new {@code PassageFormatter} by default;      *  subclasses can override to customize. */
 DECL|method|getFormatter
 specifier|protected
-name|XPassageFormatter
+name|PassageFormatter
 name|getFormatter
 parameter_list|(
 name|String
@@ -344,7 +344,7 @@ block|{
 name|defaultFormatter
 operator|=
 operator|new
-name|XDefaultPassageFormatter
+name|DefaultPassageFormatter
 argument_list|()
 expr_stmt|;
 block|}
@@ -1638,7 +1638,7 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-name|XPassageFormatter
+name|PassageFormatter
 name|fieldFormatter
 init|=
 name|getFormatter

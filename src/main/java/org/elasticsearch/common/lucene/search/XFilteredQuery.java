@@ -353,7 +353,7 @@ name|Query
 name|rewritten
 init|=
 operator|new
-name|XLuceneConstantScoreQuery
+name|ConstantScoreQuery
 argument_list|(
 name|delegate
 operator|.

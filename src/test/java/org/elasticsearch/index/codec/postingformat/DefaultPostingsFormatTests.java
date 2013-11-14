@@ -72,9 +72,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene45
+name|lucene46
 operator|.
-name|Lucene45Codec
+name|Lucene46Codec
 import|;
 end_import
 
@@ -290,18 +290,6 @@ name|org
 operator|.
 name|hamcrest
 operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
 name|Matchers
 operator|.
 name|*
@@ -326,7 +314,7 @@ specifier|final
 class|class
 name|TestCodec
 extends|extends
-name|Lucene45Codec
+name|Lucene46Codec
 block|{
 annotation|@
 name|Override

@@ -2986,7 +2986,7 @@ block|{
 annotation|@
 name|Override
 specifier|protected
-name|XPassageFormatter
+name|PassageFormatter
 name|getFormatter
 parameter_list|(
 name|String
@@ -11857,7 +11857,7 @@ block|{
 annotation|@
 name|Override
 specifier|protected
-name|XPassageFormatter
+name|PassageFormatter
 name|getFormatter
 parameter_list|(
 name|String
@@ -11866,14 +11866,14 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|XPassageFormatter
+name|PassageFormatter
 argument_list|()
 block|{
-name|XPassageFormatter
+name|PassageFormatter
 name|defaultFormatter
 init|=
 operator|new
-name|XDefaultPassageFormatter
+name|DefaultPassageFormatter
 argument_list|()
 decl_stmt|;
 annotation|@

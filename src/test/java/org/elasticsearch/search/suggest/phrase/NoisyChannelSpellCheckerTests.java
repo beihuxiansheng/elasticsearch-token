@@ -1853,7 +1853,7 @@ operator|)
 name|parser
 operator|)
 operator|.
-name|add
+name|parse
 argument_list|(
 operator|new
 name|StringReader
@@ -4320,7 +4320,7 @@ operator|)
 name|parser
 operator|)
 operator|.
-name|add
+name|parse
 argument_list|(
 operator|new
 name|StringReader

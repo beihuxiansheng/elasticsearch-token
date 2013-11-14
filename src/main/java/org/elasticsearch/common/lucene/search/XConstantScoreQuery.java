@@ -28,7 +28,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Filter
+name|ConstantScoreQuery
 import|;
 end_import
 
@@ -42,7 +42,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|XLuceneConstantScoreQuery
+name|Filter
 import|;
 end_import
 
@@ -56,7 +56,7 @@ specifier|public
 class|class
 name|XConstantScoreQuery
 extends|extends
-name|XLuceneConstantScoreQuery
+name|ConstantScoreQuery
 block|{
 DECL|field|actualFilter
 specifier|private

@@ -1146,7 +1146,7 @@ block|}
 comment|// no need for constant score filter, since we don't cache the filter, and it always takes deletes into account
 return|return
 operator|new
-name|XLuceneConstantScoreQuery
+name|ConstantScoreQuery
 argument_list|(
 name|termFilter
 argument_list|(

@@ -58,7 +58,7 @@ specifier|public
 class|class
 name|CustomPassageFormatter
 extends|extends
-name|XPassageFormatter
+name|PassageFormatter
 block|{
 DECL|field|preTag
 specifier|private

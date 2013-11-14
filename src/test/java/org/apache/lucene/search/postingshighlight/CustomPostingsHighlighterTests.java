@@ -2312,7 +2312,7 @@ block|}
 annotation|@
 name|Override
 specifier|protected
-name|XPassageFormatter
+name|PassageFormatter
 name|getFormatter
 parameter_list|(
 name|String

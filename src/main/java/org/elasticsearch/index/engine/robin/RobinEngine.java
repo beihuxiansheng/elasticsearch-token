@@ -7260,7 +7260,7 @@ argument_list|()
 operator|instanceof
 name|SegmentReader
 assert|;
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|info
 init|=
 operator|(
@@ -7426,7 +7426,7 @@ name|lastCommittedSegmentInfos
 decl_stmt|;
 for|for
 control|(
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|info
 range|:
 name|infos
@@ -7670,7 +7670,7 @@ control|)
 block|{
 for|for
 control|(
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|segmentInfoPerCommit
 range|:
 name|onGoingMerge
@@ -8581,7 +8581,7 @@ argument_list|)
 expr_stmt|;
 return|return
 operator|new
-name|XIndexWriter
+name|IndexWriter
 argument_list|(
 name|store
 operator|.

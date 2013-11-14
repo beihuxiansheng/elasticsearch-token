@@ -132,7 +132,7 @@ specifier|public
 class|class
 name|ByteBufferDirectory
 extends|extends
-name|Directory
+name|BaseDirectory
 block|{
 DECL|field|files
 specifier|protected

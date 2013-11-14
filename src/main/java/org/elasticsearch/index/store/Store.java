@@ -1790,7 +1790,7 @@ specifier|public
 class|class
 name|StoreDirectory
 extends|extends
-name|Directory
+name|BaseDirectory
 implements|implements
 name|ForceSyncDirectory
 block|{

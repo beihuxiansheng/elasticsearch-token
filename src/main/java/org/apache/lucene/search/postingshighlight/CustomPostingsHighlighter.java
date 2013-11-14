@@ -716,7 +716,7 @@ annotation|@
 name|Override
 DECL|method|getFormatter
 specifier|protected
-name|XPassageFormatter
+name|PassageFormatter
 name|getFormatter
 parameter_list|(
 name|String

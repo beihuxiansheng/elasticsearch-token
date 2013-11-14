@@ -720,7 +720,7 @@ operator|)
 name|parser
 operator|)
 operator|.
-name|add
+name|parse
 argument_list|(
 name|rulesReader
 argument_list|)
@@ -747,7 +747,7 @@ operator|)
 name|parser
 operator|)
 operator|.
-name|add
+name|parse
 argument_list|(
 name|rulesReader
 argument_list|)

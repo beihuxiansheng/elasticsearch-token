@@ -54,25 +54,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|diskdv
+name|lucene46
 operator|.
-name|DiskDocValuesFormat
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|codecs
-operator|.
-name|lucene45
-operator|.
-name|Lucene45Codec
+name|Lucene46Codec
 import|;
 end_import
 
@@ -164,7 +148,7 @@ specifier|public
 class|class
 name|PerFieldMappingPostingFormatCodec
 extends|extends
-name|Lucene45Codec
+name|Lucene46Codec
 block|{
 DECL|field|logger
 specifier|private

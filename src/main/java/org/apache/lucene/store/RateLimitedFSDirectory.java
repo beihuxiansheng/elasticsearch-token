@@ -119,9 +119,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|ensureOpen
-argument_list|()
-expr_stmt|;
 specifier|final
 name|IndexOutput
 name|output
@@ -242,10 +239,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|isOpen
-operator|=
-literal|false
-expr_stmt|;
 name|in
 operator|.
 name|close
