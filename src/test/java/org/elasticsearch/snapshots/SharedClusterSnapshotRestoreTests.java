@@ -526,9 +526,9 @@ literal|"chunk_size"
 argument_list|,
 name|randomIntBetween
 argument_list|(
-literal|5
-argument_list|,
 literal|100
+argument_list|,
+literal|1000
 argument_list|)
 argument_list|)
 argument_list|)
@@ -5332,9 +5332,11 @@ name|put
 argument_list|(
 literal|"chunk_size"
 argument_list|,
-name|atLeast
+name|randomIntBetween
 argument_list|(
-literal|5
+literal|100
+argument_list|,
+literal|1000
 argument_list|)
 argument_list|)
 argument_list|)
@@ -7403,9 +7405,9 @@ literal|"chunk_size"
 argument_list|,
 name|randomIntBetween
 argument_list|(
-literal|5
-argument_list|,
 literal|100
+argument_list|,
+literal|1000
 argument_list|)
 argument_list|)
 argument_list|)
