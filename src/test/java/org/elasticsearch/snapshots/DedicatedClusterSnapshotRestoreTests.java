@@ -791,15 +791,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|LuceneTestCase
-operator|.
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"imotov is working on the fix"
-argument_list|)
 DECL|method|snapshotDuringNodeShutdownTest
 specifier|public
 name|void
