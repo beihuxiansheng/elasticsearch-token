@@ -22,6 +22,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ElasticSearchIllegalArgumentException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|geo
@@ -437,7 +447,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|QueryBuilderException
+name|ElasticSearchIllegalArgumentException
 argument_list|(
 literal|"geo_bounding_box requires 'top_left' to be set"
 argument_list|)
@@ -499,7 +509,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|QueryBuilderException
+name|ElasticSearchIllegalArgumentException
 argument_list|(
 literal|"geo_bounding_box requires 'bottom_right' to be set"
 argument_list|)

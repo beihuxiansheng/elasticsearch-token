@@ -22,6 +22,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ElasticSearchException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|bytes
@@ -75,7 +85,7 @@ name|BytesReference
 name|buildAsBytes
 parameter_list|()
 throws|throws
-name|QueryBuilderException
+name|ElasticSearchException
 function_decl|;
 DECL|method|buildAsBytes
 name|BytesReference
@@ -85,7 +95,7 @@ name|XContentType
 name|contentType
 parameter_list|)
 throws|throws
-name|QueryBuilderException
+name|ElasticSearchException
 function_decl|;
 block|}
 end_interface

@@ -22,6 +22,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ElasticSearchIllegalArgumentException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|xcontent
@@ -256,7 +266,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|QueryBuilderException
+name|ElasticSearchIllegalArgumentException
 argument_list|(
 literal|"Must have at least one clause when building a spanNear query"
 argument_list|)
@@ -271,7 +281,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|QueryBuilderException
+name|ElasticSearchIllegalArgumentException
 argument_list|(
 literal|"Must set the slop when building a spanNear query"
 argument_list|)

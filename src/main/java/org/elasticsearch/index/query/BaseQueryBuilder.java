@@ -22,6 +22,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ElasticSearchException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|bytes
@@ -140,7 +150,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|QueryBuilderException
+name|ElasticSearchException
 argument_list|(
 literal|"Failed to build query"
 argument_list|,
@@ -157,7 +167,7 @@ name|BytesReference
 name|buildAsBytes
 parameter_list|()
 throws|throws
-name|QueryBuilderException
+name|ElasticSearchException
 block|{
 return|return
 name|buildAsBytes
@@ -179,7 +189,7 @@ name|XContentType
 name|contentType
 parameter_list|)
 throws|throws
-name|QueryBuilderException
+name|ElasticSearchException
 block|{
 try|try
 block|{
@@ -215,7 +225,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|QueryBuilderException
+name|ElasticSearchException
 argument_list|(
 literal|"Failed to build query"
 argument_list|,

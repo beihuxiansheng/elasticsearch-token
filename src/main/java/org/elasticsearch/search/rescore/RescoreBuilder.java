@@ -92,20 +92,6 @@ name|QueryBuilder
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|QueryBuilderException
-import|;
-end_import
-
 begin_class
 DECL|class|RescoreBuilder
 specifier|public

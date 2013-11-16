@@ -22,6 +22,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ElasticSearchIllegalArgumentException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|xcontent
@@ -542,7 +552,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|QueryBuilderException
+name|ElasticSearchIllegalArgumentException
 argument_list|(
 literal|"moreLikeThis requires 'likeText' to be provided"
 argument_list|)
