@@ -2188,6 +2188,13 @@ operator|.
 name|listFiles
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|pluginsFile
+operator|!=
+literal|null
+condition|)
+block|{
 for|for
 control|(
 name|File
@@ -2396,6 +2403,22 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+block|}
+else|else
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"failed to list plugins from {}. Check your right access."
+argument_list|,
+name|pluginsFile
+operator|.
+name|getAbsolutePath
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 DECL|method|loadPluginsFromClasspath
