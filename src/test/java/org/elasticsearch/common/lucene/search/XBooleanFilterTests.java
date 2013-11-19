@@ -4511,7 +4511,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-name|leftResult
+name|rightResult
 operator|.
 name|cardinality
 argument_list|()
