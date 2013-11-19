@@ -1330,7 +1330,6 @@ block|}
 block|}
 DECL|field|dateTimeFormatter
 specifier|protected
-specifier|final
 name|FormatDateTimeFormatter
 name|dateTimeFormatter
 decl_stmt|;
@@ -2918,6 +2917,19 @@ name|mergeWith
 operator|)
 operator|.
 name|nullValue
+expr_stmt|;
+name|this
+operator|.
+name|dateTimeFormatter
+operator|=
+operator|(
+operator|(
+name|DateFieldMapper
+operator|)
+name|mergeWith
+operator|)
+operator|.
+name|dateTimeFormatter
 expr_stmt|;
 block|}
 block|}
