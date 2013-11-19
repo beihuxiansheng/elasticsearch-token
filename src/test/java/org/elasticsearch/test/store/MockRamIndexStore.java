@@ -221,7 +221,7 @@ name|shardDirectory
 parameter_list|()
 block|{
 return|return
-name|MockRamDirecorySerivce
+name|MockRamDirectoryService
 operator|.
 name|class
 return|;

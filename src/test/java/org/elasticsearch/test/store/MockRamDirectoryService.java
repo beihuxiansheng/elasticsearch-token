@@ -125,10 +125,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|MockRamDirecorySerivce
+DECL|class|MockRamDirectoryService
 specifier|public
 class|class
-name|MockRamDirecorySerivce
+name|MockRamDirectoryService
 extends|extends
 name|AbstractIndexShardComponent
 implements|implements
@@ -148,9 +148,9 @@ name|delegateService
 decl_stmt|;
 annotation|@
 name|Inject
-DECL|method|MockRamDirecorySerivce
+DECL|method|MockRamDirectoryService
 specifier|public
-name|MockRamDirecorySerivce
+name|MockRamDirectoryService
 parameter_list|(
 name|ShardId
 name|shardId
