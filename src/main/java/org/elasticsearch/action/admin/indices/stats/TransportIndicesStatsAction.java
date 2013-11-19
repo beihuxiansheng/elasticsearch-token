@@ -1248,9 +1248,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|ShardStats
-name|stats
-init|=
+return|return
 operator|new
 name|ShardStats
 argument_list|(
@@ -1258,9 +1256,6 @@ name|indexShard
 argument_list|,
 name|flags
 argument_list|)
-decl_stmt|;
-return|return
-name|stats
 return|;
 block|}
 DECL|class|IndexShardStatsRequest
