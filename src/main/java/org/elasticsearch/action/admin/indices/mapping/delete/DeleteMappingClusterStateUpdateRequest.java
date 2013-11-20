@@ -32,7 +32,7 @@ name|cluster
 operator|.
 name|ack
 operator|.
-name|ClusterStateUpdateRequest
+name|IndicesClusterStateUpdateRequest
 import|;
 end_import
 
@@ -46,17 +46,11 @@ specifier|public
 class|class
 name|DeleteMappingClusterStateUpdateRequest
 extends|extends
-name|ClusterStateUpdateRequest
+name|IndicesClusterStateUpdateRequest
 argument_list|<
 name|DeleteMappingClusterStateUpdateRequest
 argument_list|>
 block|{
-DECL|field|indices
-specifier|private
-name|String
-index|[]
-name|indices
-decl_stmt|;
 DECL|field|type
 specifier|private
 name|String
@@ -66,39 +60,6 @@ DECL|method|DeleteMappingClusterStateUpdateRequest
 name|DeleteMappingClusterStateUpdateRequest
 parameter_list|()
 block|{      }
-comment|/**      * Returns the indices the operation needs to be executed on      */
-DECL|method|indices
-specifier|public
-name|String
-index|[]
-name|indices
-parameter_list|()
-block|{
-return|return
-name|indices
-return|;
-block|}
-comment|/**      * Sets the indices the operation needs to be executed on      */
-DECL|method|indices
-specifier|public
-name|DeleteMappingClusterStateUpdateRequest
-name|indices
-parameter_list|(
-name|String
-index|[]
-name|indices
-parameter_list|)
-block|{
-name|this
-operator|.
-name|indices
-operator|=
-name|indices
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**      * Returns the type to be removed      */
 DECL|method|type
 specifier|public

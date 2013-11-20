@@ -30,7 +30,7 @@ name|cluster
 operator|.
 name|ack
 operator|.
-name|ClusterStateUpdateRequest
+name|IndicesClusterStateUpdateRequest
 import|;
 end_import
 
@@ -58,7 +58,7 @@ specifier|public
 class|class
 name|UpdateSettingsClusterStateUpdateRequest
 extends|extends
-name|ClusterStateUpdateRequest
+name|IndicesClusterStateUpdateRequest
 argument_list|<
 name|UpdateSettingsClusterStateUpdateRequest
 argument_list|>
@@ -68,50 +68,11 @@ specifier|private
 name|Settings
 name|settings
 decl_stmt|;
-DECL|field|indices
-specifier|private
-name|String
-index|[]
-name|indices
-decl_stmt|;
 DECL|method|UpdateSettingsClusterStateUpdateRequest
 specifier|public
 name|UpdateSettingsClusterStateUpdateRequest
 parameter_list|()
 block|{      }
-comment|/**      * Returns the indices that needs to be updated      */
-DECL|method|indices
-specifier|public
-name|String
-index|[]
-name|indices
-parameter_list|()
-block|{
-return|return
-name|indices
-return|;
-block|}
-comment|/**      * Sets the indices to update      */
-DECL|method|indices
-specifier|public
-name|UpdateSettingsClusterStateUpdateRequest
-name|indices
-parameter_list|(
-name|String
-index|[]
-name|indices
-parameter_list|)
-block|{
-name|this
-operator|.
-name|indices
-operator|=
-name|indices
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**      * Returns the {@link Settings} to update      */
 DECL|method|settings
 specifier|public

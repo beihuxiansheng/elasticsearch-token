@@ -4,24 +4,8 @@ comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more cont
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.action.admin.indices.close
+DECL|package|org.elasticsearch.cluster.ack
 package|package
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|admin
-operator|.
-name|indices
-operator|.
-name|close
-package|;
-end_package
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -29,30 +13,80 @@ operator|.
 name|cluster
 operator|.
 name|ack
-operator|.
-name|IndicesClusterStateUpdateRequest
-import|;
-end_import
+package|;
+end_package
 
 begin_comment
-comment|/**  * Cluster state update request that allows to close one or more indices  */
+comment|/**  * Base cluster state update request that allows to execute update against multiple indices  */
 end_comment
 
 begin_class
-DECL|class|CloseIndexClusterStateUpdateRequest
+DECL|class|IndicesClusterStateUpdateRequest
 specifier|public
+specifier|abstract
 class|class
-name|CloseIndexClusterStateUpdateRequest
+name|IndicesClusterStateUpdateRequest
+parameter_list|<
+name|T
 extends|extends
 name|IndicesClusterStateUpdateRequest
+parameter_list|<
+name|T
+parameter_list|>
+parameter_list|>
+extends|extends
+name|ClusterStateUpdateRequest
 argument_list|<
-name|CloseIndexClusterStateUpdateRequest
+name|T
 argument_list|>
 block|{
-DECL|method|CloseIndexClusterStateUpdateRequest
-name|CloseIndexClusterStateUpdateRequest
+DECL|field|indices
+specifier|private
+name|String
+index|[]
+name|indices
+decl_stmt|;
+comment|/**      * Returns the indices the operation needs to be executed on      */
+DECL|method|indices
+specifier|public
+name|String
+index|[]
+name|indices
 parameter_list|()
-block|{      }
+block|{
+return|return
+name|indices
+return|;
+block|}
+comment|/**      * Sets the indices the operation needs to be executed on      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|indices
+specifier|public
+name|T
+name|indices
+parameter_list|(
+name|String
+index|[]
+name|indices
+parameter_list|)
+block|{
+name|this
+operator|.
+name|indices
+operator|=
+name|indices
+expr_stmt|;
+return|return
+operator|(
+name|T
+operator|)
+name|this
+return|;
+block|}
 block|}
 end_class
 
