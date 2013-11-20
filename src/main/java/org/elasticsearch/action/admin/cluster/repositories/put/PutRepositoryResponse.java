@@ -30,18 +30,6 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ActionResponse
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
 name|support
 operator|.
 name|master
@@ -144,8 +132,6 @@ expr_stmt|;
 name|readAcknowledged
 argument_list|(
 name|in
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -172,8 +158,6 @@ expr_stmt|;
 name|writeAcknowledged
 argument_list|(
 name|out
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 block|}

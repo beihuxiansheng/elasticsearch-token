@@ -132,6 +132,26 @@ return|return
 name|acknowledged
 return|;
 block|}
+comment|/**      * Reads the timeout value      */
+DECL|method|readAcknowledged
+specifier|protected
+name|void
+name|readAcknowledged
+parameter_list|(
+name|StreamInput
+name|in
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|readAcknowledged
+argument_list|(
+name|in
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Reads the timeout value if on or after the specified min version or if the version is<code>null</code>.      */
 DECL|method|readAcknowledged
 specifier|protected
@@ -172,6 +192,26 @@ name|readBoolean
 argument_list|()
 expr_stmt|;
 block|}
+block|}
+comment|/**      * Writes the timeout value      */
+DECL|method|writeAcknowledged
+specifier|protected
+name|void
+name|writeAcknowledged
+parameter_list|(
+name|StreamOutput
+name|out
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|writeAcknowledged
+argument_list|(
+name|out
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Writes the timeout value if on or after the specified min version or if the version is<code>null</code>.      */
 DECL|method|writeAcknowledged

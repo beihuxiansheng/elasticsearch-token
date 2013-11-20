@@ -132,8 +132,6 @@ expr_stmt|;
 name|readAcknowledged
 argument_list|(
 name|in
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -160,8 +158,6 @@ expr_stmt|;
 name|writeAcknowledged
 argument_list|(
 name|out
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 block|}

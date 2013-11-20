@@ -243,8 +243,6 @@ expr_stmt|;
 name|readTimeout
 argument_list|(
 name|in
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -278,8 +276,6 @@ expr_stmt|;
 name|writeTimeout
 argument_list|(
 name|out
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 block|}

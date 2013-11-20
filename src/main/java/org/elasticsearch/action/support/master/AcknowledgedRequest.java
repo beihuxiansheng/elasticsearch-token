@@ -231,6 +231,26 @@ return|return
 name|timeout
 return|;
 block|}
+comment|/**      * Reads the timeout value      */
+DECL|method|readTimeout
+specifier|protected
+name|void
+name|readTimeout
+parameter_list|(
+name|StreamInput
+name|in
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|readTimeout
+argument_list|(
+name|in
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Reads the timeout value if on or after the specified min version or if the version is<code>null</code>.      */
 DECL|method|readTimeout
 specifier|protected
@@ -271,6 +291,26 @@ name|in
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+comment|/**      * writes the timeout value      */
+DECL|method|writeTimeout
+specifier|protected
+name|void
+name|writeTimeout
+parameter_list|(
+name|StreamOutput
+name|out
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|writeTimeout
+argument_list|(
+name|out
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * writes the timeout value if on or after the specified min version or if the version is<code>null</code>.      */
 DECL|method|writeTimeout
