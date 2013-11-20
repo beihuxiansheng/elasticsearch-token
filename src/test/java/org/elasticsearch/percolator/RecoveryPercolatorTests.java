@@ -452,6 +452,22 @@ name|hamcrest
 operator|.
 name|ElasticsearchAssertions
 operator|.
+name|assertAcked
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
 name|assertNoFailures
 import|;
 end_import
@@ -1971,6 +1987,8 @@ argument_list|(
 literal|"--> Close and open index to trigger percolate queries loading..."
 argument_list|)
 expr_stmt|;
+name|assertAcked
+argument_list|(
 name|client
 argument_list|()
 operator|.
@@ -1984,16 +2002,10 @@ name|prepareClose
 argument_list|(
 literal|"test"
 argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
+argument_list|)
 expr_stmt|;
-name|ensureGreen
-argument_list|()
-expr_stmt|;
+name|assertAcked
+argument_list|(
 name|client
 argument_list|()
 operator|.
@@ -2007,12 +2019,7 @@ name|prepareOpen
 argument_list|(
 literal|"test"
 argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
+argument_list|)
 expr_stmt|;
 name|ensureGreen
 argument_list|()
