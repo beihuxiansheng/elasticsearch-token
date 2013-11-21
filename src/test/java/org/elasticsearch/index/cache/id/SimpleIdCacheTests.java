@@ -592,18 +592,6 @@ name|org
 operator|.
 name|hamcrest
 operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
 name|Matchers
 operator|.
 name|equalTo
@@ -2834,7 +2822,8 @@ argument_list|)
 return|;
 block|}
 DECL|class|StubIndexService
-specifier|private
+specifier|public
+specifier|static
 class|class
 name|StubIndexService
 implements|implements
@@ -2847,7 +2836,7 @@ name|MapperService
 name|mapperService
 decl_stmt|;
 DECL|method|StubIndexService
-specifier|private
+specifier|public
 name|StubIndexService
 parameter_list|(
 name|MapperService
