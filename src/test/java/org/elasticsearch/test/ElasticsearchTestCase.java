@@ -676,7 +676,9 @@ try|try
 block|{
 for|for
 control|(
-name|MockDirectoryWrapper
+name|MockDirectoryHelper
+operator|.
+name|ElasticsearchMockDirectoryWrapper
 name|w
 range|:
 name|MockDirectoryHelper
@@ -694,7 +696,7 @@ condition|)
 block|{
 name|w
 operator|.
-name|close
+name|closeWithRuntimeException
 argument_list|()
 expr_stmt|;
 block|}
