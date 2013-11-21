@@ -5755,10 +5755,7 @@ name|SnapshotMetaData
 operator|.
 name|ShardSnapshotStatus
 argument_list|(
-name|primary
-operator|.
-name|currentNodeId
-argument_list|()
+literal|null
 argument_list|,
 name|State
 operator|.
