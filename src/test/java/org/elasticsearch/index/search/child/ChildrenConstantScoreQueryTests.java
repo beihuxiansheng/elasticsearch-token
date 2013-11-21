@@ -1019,6 +1019,10 @@ operator|.
 name|removeCurrent
 argument_list|()
 expr_stmt|;
+name|contextIndexSearcher
+operator|=
+literal|null
+expr_stmt|;
 block|}
 annotation|@
 name|Test
