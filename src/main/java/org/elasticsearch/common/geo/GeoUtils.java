@@ -98,6 +98,29 @@ init|=
 literal|6356752.314245
 decl_stmt|;
 comment|// meters (WGS 84)
+comment|/** Earth mean radius defined by WGS 84 in meters */
+DECL|field|EARTH_MEAN_RADIUS
+specifier|public
+specifier|static
+specifier|final
+name|double
+name|EARTH_MEAN_RADIUS
+init|=
+literal|6371008.7714D
+decl_stmt|;
+comment|// meters (WGS 84)
+comment|/** Earth axis ratio defined by WGS 84 (0.996647189335) */
+DECL|field|EARTH_AXIS_RATIO
+specifier|public
+specifier|static
+specifier|final
+name|double
+name|EARTH_AXIS_RATIO
+init|=
+name|EARTH_SEMI_MINOR_AXIS
+operator|/
+name|EARTH_SEMI_MAJOR_AXIS
+decl_stmt|;
 comment|/** Earth ellipsoid equator length in meters */
 DECL|field|EARTH_EQUATOR
 specifier|public
