@@ -204,6 +204,22 @@ name|hamcrest
 operator|.
 name|ElasticsearchAssertions
 operator|.
+name|assertMatchCount
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
 name|assertNoFailures
 import|;
 end_import
@@ -981,9 +997,11 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|assertNoFailures
+name|assertMatchCount
 argument_list|(
 name|percolateResponse
+argument_list|,
+literal|0l
 argument_list|)
 expr_stmt|;
 name|assertThat
