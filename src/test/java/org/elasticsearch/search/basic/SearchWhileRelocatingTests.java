@@ -345,6 +345,13 @@ literal|"index.number_of_replicas"
 argument_list|,
 name|numberOfReplicas
 argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"index.store.type"
+argument_list|,
+literal|"niofs"
+argument_list|)
 argument_list|)
 operator|.
 name|addMapping
