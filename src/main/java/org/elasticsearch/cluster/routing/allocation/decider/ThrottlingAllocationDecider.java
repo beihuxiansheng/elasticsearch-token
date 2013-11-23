@@ -366,6 +366,8 @@ argument_list|(
 name|i
 argument_list|)
 decl_stmt|;
+comment|// when a primary shard is INITIALIZING, it can be because of *initial recovery* or *relocation from another node*
+comment|// we only count initial recoveries here, so we need to make sure that relocating node is null
 if|if
 condition|(
 name|shard
@@ -381,6 +383,13 @@ name|shard
 operator|.
 name|primary
 argument_list|()
+operator|&&
+name|shard
+operator|.
+name|relocatingNodeId
+argument_list|()
+operator|==
+literal|null
 condition|)
 block|{
 name|primariesInRecovery
