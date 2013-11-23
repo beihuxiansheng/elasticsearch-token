@@ -18,16 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Locale
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|sun
@@ -66,6 +56,16 @@ name|Loggers
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -90,6 +90,15 @@ name|Natives
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+comment|// Set to true, in case native mlockall call was successful
+DECL|field|LOCAL_MLOCKALL
+specifier|public
+specifier|static
+name|boolean
+name|LOCAL_MLOCKALL
+init|=
+literal|false
 decl_stmt|;
 DECL|method|tryMlockall
 specifier|public
@@ -125,6 +134,7 @@ name|result
 operator|!=
 literal|0
 condition|)
+block|{
 name|errno
 operator|=
 name|Native
@@ -132,6 +142,14 @@ operator|.
 name|getLastError
 argument_list|()
 expr_stmt|;
+block|}
+else|else
+block|{
+name|LOCAL_MLOCKALL
+operator|=
+literal|true
+expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
