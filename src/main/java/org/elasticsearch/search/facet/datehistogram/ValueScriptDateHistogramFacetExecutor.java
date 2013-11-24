@@ -80,9 +80,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|joda
+name|recycler
 operator|.
-name|TimeZoneRounding
+name|Recycler
 import|;
 end_import
 
@@ -94,9 +94,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|recycler
+name|rounding
 operator|.
-name|Recycler
+name|TimeZoneRounding
 import|;
 end_import
 
@@ -673,7 +673,7 @@ name|time
 init|=
 name|tzRounding
 operator|.
-name|calc
+name|round
 argument_list|(
 name|value
 argument_list|)

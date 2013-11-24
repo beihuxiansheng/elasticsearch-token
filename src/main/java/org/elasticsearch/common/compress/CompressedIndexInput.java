@@ -40,7 +40,21 @@ name|common
 operator|.
 name|util
 operator|.
-name|BigLongArray
+name|BigArrays
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|LongArray
 import|;
 end_import
 
@@ -107,7 +121,7 @@ name|totalUncompressedLength
 decl_stmt|;
 DECL|field|offsets
 specifier|private
-name|BigLongArray
+name|LongArray
 name|offsets
 decl_stmt|;
 DECL|field|closed
@@ -243,8 +257,9 @@ argument_list|()
 decl_stmt|;
 name|offsets
 operator|=
-operator|new
-name|BigLongArray
+name|BigArrays
+operator|.
+name|newLongArray
 argument_list|(
 name|size
 argument_list|)
@@ -630,6 +645,7 @@ operator|>=
 name|offsets
 operator|.
 name|size
+argument_list|()
 condition|)
 block|{
 comment|// set the next "readyBuffer" to EOF
@@ -798,6 +814,7 @@ operator|>=
 name|offsets
 operator|.
 name|size
+argument_list|()
 condition|)
 block|{
 return|return

@@ -1049,10 +1049,7 @@ operator|.
 name|length
 argument_list|()
 operator|-
-literal|"ms"
-operator|.
-name|length
-argument_list|()
+literal|2
 argument_list|)
 argument_list|)
 argument_list|)

@@ -108,7 +108,7 @@ name|common
 operator|.
 name|util
 operator|.
-name|IntArray
+name|BigArrays
 import|;
 end_import
 
@@ -122,7 +122,7 @@ name|common
 operator|.
 name|util
 operator|.
-name|IntArrays
+name|IntArray
 import|;
 end_import
 
@@ -402,9 +402,9 @@ specifier|final
 name|IntArray
 name|hashes
 init|=
-name|IntArrays
+name|BigArrays
 operator|.
-name|allocate
+name|newIntArray
 argument_list|(
 literal|1L
 operator|+

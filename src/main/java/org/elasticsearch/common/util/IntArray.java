@@ -25,6 +25,8 @@ DECL|interface|IntArray
 specifier|public
 interface|interface
 name|IntArray
+extends|extends
+name|BigArray
 block|{
 comment|/**      * Get an element given its index.      */
 DECL|method|get
@@ -37,11 +39,11 @@ name|long
 name|index
 parameter_list|)
 function_decl|;
-comment|/**      * Set a value at the given index.      */
+comment|/**      * Set a value at the given index and return the previous value.      */
 DECL|method|set
 specifier|public
 specifier|abstract
-name|void
+name|int
 name|set
 parameter_list|(
 name|long
@@ -63,14 +65,6 @@ name|index
 parameter_list|,
 name|int
 name|inc
-parameter_list|)
-function_decl|;
-DECL|method|clear
-name|void
-name|clear
-parameter_list|(
-name|int
-name|sentinal
 parameter_list|)
 function_decl|;
 block|}

@@ -142,7 +142,7 @@ name|common
 operator|.
 name|util
 operator|.
-name|IntArray
+name|BigArrays
 import|;
 end_import
 
@@ -156,7 +156,7 @@ name|common
 operator|.
 name|util
 operator|.
-name|IntArrays
+name|IntArray
 import|;
 end_import
 
@@ -1567,9 +1567,9 @@ name|this
 operator|.
 name|counts
 operator|=
-name|IntArrays
+name|BigArrays
 operator|.
-name|allocate
+name|newIntArray
 argument_list|(
 name|maxOrd
 argument_list|)

@@ -108,7 +108,21 @@ name|common
 operator|.
 name|util
 operator|.
-name|BigIntArray
+name|BigArrays
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|IntArray
 import|;
 end_import
 
@@ -247,7 +261,7 @@ decl_stmt|;
 DECL|field|hashes
 specifier|private
 specifier|volatile
-name|BigIntArray
+name|IntArray
 name|hashes
 decl_stmt|;
 DECL|field|size
@@ -453,11 +467,12 @@ argument_list|(
 name|fst
 argument_list|)
 decl_stmt|;
-name|BigIntArray
+name|IntArray
 name|hashes
 init|=
-operator|new
-name|BigIntArray
+name|BigArrays
+operator|.
+name|newIntArray
 argument_list|(
 name|ordinals
 operator|.
@@ -856,7 +871,7 @@ block|{
 DECL|field|hashes
 specifier|private
 specifier|final
-name|BigIntArray
+name|IntArray
 name|hashes
 decl_stmt|;
 DECL|method|HashedBytesValues
@@ -871,7 +886,7 @@ parameter_list|,
 name|Docs
 name|ordinals
 parameter_list|,
-name|BigIntArray
+name|IntArray
 name|hashes
 parameter_list|)
 block|{

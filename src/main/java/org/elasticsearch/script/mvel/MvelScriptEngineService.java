@@ -314,7 +314,7 @@ name|parserConfiguration
 operator|.
 name|addPackageImport
 argument_list|(
-literal|"org.joda"
+literal|"org.joda.time"
 argument_list|)
 expr_stmt|;
 name|parserConfiguration
