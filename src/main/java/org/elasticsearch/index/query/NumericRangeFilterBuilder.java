@@ -41,10 +41,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A filter that restricts search results to values that are within the given numeric range.  *<p/>  *<p>Uses the field data cache (loading all the values for the specified field into memory).  *  *  */
+comment|/**  * A filter that restricts search results to values that are within the given numeric range.  *<p/>  *<p>Uses the field data cache (loading all the values for the specified field into memory).  *  * @deprecated This filter will be removed at some point in time in favor for the range filter with the execution  *             mode<code>fielddata</code>.  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|NumericRangeFilterBuilder
 specifier|public
 class|class

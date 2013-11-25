@@ -153,6 +153,8 @@ comment|/**  *  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|NumericRangeFilterParser
 specifier|public
 class|class
