@@ -144,6 +144,34 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|store
+operator|.
+name|DataInput
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
+name|DataOutput
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|util
 operator|.
 name|*
@@ -256,37 +284,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|InputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|OutputStream
+name|*
 import|;
 end_import
 
@@ -301,7 +299,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Suggester that first analyzes the surface form, adds the  * analyzed form to a weighted FST, and then does the same  * thing at lookup time.  This means lookup is based on the  * analyzed form while suggestions are still the surface  * form(s).  *  *<p>  * This can result in powerful suggester functionality.  For  * example, if you use an analyzer removing stop words,   * then the partial text "ghost chr..." could see the  * suggestion "The Ghost of Christmas Past".  Note that  * position increments MUST NOT be preserved for this example  * to work, so you should call  * {@link #setPreservePositionIncrements(boolean) setPreservePositionIncrements(false)}.  *  *<p>  * If SynonymFilter is used to map wifi and wireless network to  * hotspot then the partial text "wirele..." could suggest  * "wifi router".  Token normalization like stemmers, accent  * removal, etc., would allow suggestions to ignore such  * variations.  *  *<p>  * When two matching suggestions have the same weight, they  * are tie-broken by the analyzed form.  If their analyzed  * form is the same then the order is undefined.  *  *<p>  * There are some limitations:  *<ul>  *  *<li> A lookup from a query like "net" in English won't  *        be any different than "net " (ie, user added a  *        trailing space) because analyzers don't reflect  *        when they've seen a token separator and when they  *        haven't.  *  *<li> If you're using {@code StopFilter}, and the user will  *        type "fast apple", but so far all they've typed is  *        "fast a", again because the analyzer doesn't convey whether  *        it's seen a token separator after the "a",  *        {@code StopFilter} will remove that "a" causing  *        far more matches than you'd expect.  *  *<li> Lookups with the empty string return no results  *        instead of all results.  *</ul>  *   * @lucene.experimental  */
+comment|/**  * Suggester that first analyzes the surface form, adds the  * analyzed form to a weighted FST, and then does the same  * thing at lookup time.  This means lookup is based on the  * analyzed form while suggestions are still the surface  * form(s).  *  *<p>  * This can result in powerful suggester functionality.  For  * example, if you use an analyzer removing stop words,   * then the partial text "ghost chr..." could see the  * suggestion "The Ghost of Christmas Past".  Note that  * position increments MUST NOT be preserved for this example  * to work, so you should call the constructor with  *<code>preservePositionIncrements</code> parameter set to  * false  *  *<p>  * If SynonymFilter is used to map wifi and wireless network to  * hotspot then the partial text "wirele..." could suggest  * "wifi router".  Token normalization like stemmers, accent  * removal, etc., would allow suggestions to ignore such  * variations.  *  *<p>  * When two matching suggestions have the same weight, they  * are tie-broken by the analyzed form.  If their analyzed  * form is the same then the order is undefined.  *  *<p>  * There are some limitations:  *<ul>  *  *<li> A lookup from a query like "net" in English won't  *        be any different than "net " (ie, user added a  *        trailing space) because analyzers don't reflect  *        when they've seen a token separator and when they  *        haven't.  *  *<li> If you're using {@code StopFilter}, and the user will  *        type "fast apple", but so far all they've typed is  *        "fast a", again because the analyzer doesn't convey whether  *        it's seen a token separator after the "a",  *        {@code StopFilter} will remove that "a" causing  *        far more matches than you'd expect.  *  *<li> Lookups with the empty string return no results  *        instead of all results.  *</ul>  *   * @lucene.experimental  */
 end_comment
 
 begin_class
@@ -356,7 +354,7 @@ specifier|final
 name|boolean
 name|preserveSep
 decl_stmt|;
-comment|/** Include this flag in the options parameter to {@link    *  #XAnalyzingSuggester(Analyzer,Analyzer,int,int,int,FST,boolean,int)} to always    *  return the exact match first, regardless of score.  This    *  has no performance impact but could result in    *  low-quality suggestions. */
+comment|/** Include this flag in the options parameter to {@link    *  #XAnalyzingSuggester(Analyzer,Analyzer,int,int,int,boolean,FST,boolean,int,int,int,int)} to always    *  return the exact match first, regardless of score.  This    *  has no performance impact but could result in    *  low-quality suggestions. */
 DECL|field|EXACT_FIRST
 specifier|public
 specifier|static
@@ -366,7 +364,7 @@ name|EXACT_FIRST
 init|=
 literal|1
 decl_stmt|;
-comment|/** Include this flag in the options parameter to {@link    *  #XAnalyzingSuggester(Analyzer,Analyzer,int,int,int,FST,boolean,int)} to preserve    *  token separators when matching. */
+comment|/** Include this flag in the options parameter to {@link    *  #XAnalyzingSuggester(Analyzer,Analyzer,int,int,int,boolean,FST,boolean,int,int,int,int)} to preserve    *  token separators when matching. */
 DECL|field|PRESERVE_SEP
 specifier|public
 specifier|static
@@ -378,17 +376,17 @@ literal|2
 decl_stmt|;
 comment|/** Represents the separation between tokens, if    *  PRESERVE_SEP was specified */
 DECL|field|SEP_LABEL
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|int
 name|SEP_LABEL
 init|=
-literal|0xFF
+literal|'\u001F'
 decl_stmt|;
 comment|/** Marks end of the analyzed input and start of dedup    *  byte. */
 DECL|field|END_BYTE
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|int
@@ -421,8 +419,26 @@ specifier|private
 name|boolean
 name|hasPayloads
 decl_stmt|;
-DECL|field|PAYLOAD_SEP
+DECL|field|sepLabel
 specifier|private
+specifier|final
+name|int
+name|sepLabel
+decl_stmt|;
+DECL|field|payloadSep
+specifier|private
+specifier|final
+name|int
+name|payloadSep
+decl_stmt|;
+DECL|field|endByte
+specifier|private
+specifier|final
+name|int
+name|endByte
+decl_stmt|;
+DECL|field|PAYLOAD_SEP
+specifier|public
 specifier|static
 specifier|final
 name|int
@@ -436,7 +452,7 @@ specifier|private
 name|boolean
 name|preservePositionIncrements
 decl_stmt|;
-comment|/**    * Calls {@link #XAnalyzingSuggester(Analyzer,Analyzer,int,int,int,FST,boolean,int)    * AnalyzingSuggester(analyzer, analyzer, EXACT_FIRST |    * PRESERVE_SEP, 256, -1)}    */
+comment|/**    * Calls {@link #XAnalyzingSuggester(Analyzer,Analyzer,int,int,int,boolean,FST,boolean,int,int,int,int)    * AnalyzingSuggester(analyzer, analyzer, EXACT_FIRST |    * PRESERVE_SEP, 256, -1)}    */
 DECL|method|XAnalyzingSuggester
 specifier|public
 name|XAnalyzingSuggester
@@ -460,15 +476,23 @@ argument_list|,
 operator|-
 literal|1
 argument_list|,
+literal|true
+argument_list|,
 literal|null
 argument_list|,
 literal|false
 argument_list|,
 literal|0
+argument_list|,
+name|SEP_LABEL
+argument_list|,
+name|PAYLOAD_SEP
+argument_list|,
+name|END_BYTE
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Calls {@link #XAnalyzingSuggester(Analyzer,Analyzer,int,int,int,FST,boolean,int)    * AnalyzingSuggester(indexAnalyzer, queryAnalyzer, EXACT_FIRST |    * PRESERVE_SEP, 256, -1)}    */
+comment|/**    * Calls {@link #XAnalyzingSuggester(Analyzer,Analyzer,int,int,int,boolean,FST,boolean,int,int,int,int)    * AnalyzingSuggester(indexAnalyzer, queryAnalyzer, EXACT_FIRST |    * PRESERVE_SEP, 256, -1)}    */
 DECL|method|XAnalyzingSuggester
 specifier|public
 name|XAnalyzingSuggester
@@ -495,11 +519,19 @@ argument_list|,
 operator|-
 literal|1
 argument_list|,
+literal|true
+argument_list|,
 literal|null
 argument_list|,
 literal|false
 argument_list|,
 literal|0
+argument_list|,
+name|SEP_LABEL
+argument_list|,
+name|PAYLOAD_SEP
+argument_list|,
+name|END_BYTE
 argument_list|)
 expr_stmt|;
 block|}
@@ -523,6 +555,9 @@ parameter_list|,
 name|int
 name|maxGraphExpansions
 parameter_list|,
+name|boolean
+name|preservePositionIncrements
+parameter_list|,
 name|FST
 argument_list|<
 name|Pair
@@ -539,6 +574,15 @@ name|hasPayloads
 parameter_list|,
 name|int
 name|maxAnalyzedPathsForOneInput
+parameter_list|,
+name|int
+name|sepLabel
+parameter_list|,
+name|int
+name|payloadSep
+parameter_list|,
+name|int
+name|endByte
 parameter_list|)
 block|{
 comment|// SIMON EDIT: I added fst, hasPayloads and maxAnalyzedPathsForOneInput
@@ -689,24 +733,25 @@ name|this
 operator|.
 name|preservePositionIncrements
 operator|=
-literal|true
-expr_stmt|;
-block|}
-comment|/** Whether to take position holes (position increment> 1) into account when    *  building the automaton,<code>true</code> by default. */
-DECL|method|setPreservePositionIncrements
-specifier|public
-name|void
-name|setPreservePositionIncrements
-parameter_list|(
-name|boolean
 name|preservePositionIncrements
-parameter_list|)
-block|{
+expr_stmt|;
 name|this
 operator|.
-name|preservePositionIncrements
+name|sepLabel
 operator|=
-name|preservePositionIncrements
+name|sepLabel
+expr_stmt|;
+name|this
+operator|.
+name|payloadSep
+operator|=
+name|payloadSep
+expr_stmt|;
+name|this
+operator|.
+name|endByte
+operator|=
+name|endByte
 expr_stmt|;
 block|}
 comment|/** Returns byte size of the underlying FST. */
@@ -797,6 +842,9 @@ name|a
 parameter_list|,
 name|boolean
 name|preserveSep
+parameter_list|,
+name|int
+name|replaceSep
 parameter_list|)
 block|{
 name|State
@@ -898,7 +946,7 @@ argument_list|(
 operator|new
 name|Transition
 argument_list|(
-name|SEP_LABEL
+name|replaceSep
 argument_list|,
 name|t
 operator|.
@@ -1003,6 +1051,19 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+DECL|method|convertAutomaton
+specifier|protected
+name|Automaton
+name|convertAutomaton
+parameter_list|(
+name|Automaton
+name|a
+parameter_list|)
+block|{
+return|return
+name|a
+return|;
+block|}
 comment|/** Just escapes the 0xff byte (which we still for SEP). */
 DECL|class|EscapingTokenStreamToAutomaton
 specifier|private
@@ -1022,6 +1083,26 @@ operator|new
 name|BytesRef
 argument_list|()
 decl_stmt|;
+DECL|field|sepLabel
+specifier|private
+name|char
+name|sepLabel
+decl_stmt|;
+DECL|method|EscapingTokenStreamToAutomaton
+specifier|public
+name|EscapingTokenStreamToAutomaton
+parameter_list|(
+name|char
+name|sepLabel
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sepLabel
+operator|=
+name|sepLabel
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|changeToken
@@ -1076,7 +1157,7 @@ operator|==
 operator|(
 name|byte
 operator|)
-name|SEP_LABEL
+name|sepLabel
 condition|)
 block|{
 if|if
@@ -1111,7 +1192,7 @@ operator|=
 operator|(
 name|byte
 operator|)
-name|SEP_LABEL
+name|sepLabel
 expr_stmt|;
 name|spare
 operator|.
@@ -1195,7 +1276,12 @@ name|tsta
 operator|=
 operator|new
 name|EscapingTokenStreamToAutomaton
-argument_list|()
+argument_list|(
+operator|(
+name|char
+operator|)
+name|sepLabel
+argument_list|)
 expr_stmt|;
 block|}
 else|else
@@ -1571,7 +1657,6 @@ argument_list|)
 return|;
 block|}
 block|}
-empty_stmt|;
 annotation|@
 name|Override
 DECL|method|build
@@ -1977,7 +2062,7 @@ index|[
 name|i
 index|]
 operator|==
-name|PAYLOAD_SEP
+name|payloadSep
 condition|)
 block|{
 throw|throw
@@ -2639,7 +2724,10 @@ operator|.
 name|length
 index|]
 operator|=
-name|PAYLOAD_SEP
+operator|(
+name|byte
+operator|)
+name|payloadSep
 expr_stmt|;
 name|System
 operator|.
@@ -2699,7 +2787,9 @@ operator|.
 name|finish
 argument_list|()
 expr_stmt|;
-comment|//Util.dotToFile(fst, "/tmp/suggest.dot");
+comment|//PrintWriter pw = new PrintWriter("/tmp/out.dot");
+comment|//Util.toDot(fst, pw, true, true);
+comment|//pw.close();
 name|success
 operator|=
 literal|true
@@ -2977,7 +3067,7 @@ operator|+
 name|i
 index|]
 operator|==
-name|PAYLOAD_SEP
+name|payloadSep
 condition|)
 block|{
 name|sepIndex
@@ -3219,7 +3309,7 @@ operator|.
 name|length
 index|]
 operator|==
-name|PAYLOAD_SEP
+name|payloadSep
 return|;
 block|}
 else|else
@@ -3288,6 +3378,65 @@ argument_list|()
 return|;
 block|}
 comment|//System.out.println("lookup key=" + key + " num=" + num);
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+name|key
+operator|.
+name|length
+argument_list|()
+condition|;
+name|i
+operator|++
+control|)
+block|{
+if|if
+condition|(
+name|key
+operator|.
+name|charAt
+argument_list|(
+name|i
+argument_list|)
+operator|==
+literal|0x1E
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"lookup key cannot contain HOLE character U+001E; this character is reserved"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|key
+operator|.
+name|charAt
+argument_list|(
+name|i
+argument_list|)
+operator|==
+literal|0x1F
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"lookup key cannot contain unit separator character U+001F; this character is reserved"
+argument_list|)
+throw|;
+block|}
+block|}
 specifier|final
 name|BytesRef
 name|utf8Key
@@ -3390,7 +3539,10 @@ name|FSTUtil
 operator|.
 name|intersectPrefixPaths
 argument_list|(
+name|convertAutomaton
+argument_list|(
 name|lookupAutomaton
+argument_list|)
 argument_list|,
 name|fst
 argument_list|)
@@ -3429,7 +3581,7 @@ name|fst
 operator|.
 name|findTargetArc
 argument_list|(
-name|END_BYTE
+name|endByte
 argument_list|,
 name|path
 operator|.
@@ -3522,7 +3674,7 @@ name|fst
 operator|.
 name|findTargetArc
 argument_list|(
-name|END_BYTE
+name|endByte
 argument_list|,
 name|path
 operator|.
@@ -4027,6 +4179,7 @@ name|prefixPaths
 return|;
 block|}
 DECL|method|toFiniteStrings
+specifier|public
 specifier|final
 name|Set
 argument_list|<
@@ -4113,6 +4266,8 @@ argument_list|(
 name|automaton
 argument_list|,
 name|preserveSep
+argument_list|,
+name|sepLabel
 argument_list|)
 expr_stmt|;
 assert|assert
@@ -4196,6 +4351,8 @@ argument_list|(
 name|automaton
 argument_list|,
 name|preserveSep
+argument_list|,
+name|sepLabel
 argument_list|)
 expr_stmt|;
 comment|// TODO: we can optimize this somewhat by determinizing
@@ -4379,12 +4536,6 @@ argument_list|>
 argument_list|>
 name|builder
 decl_stmt|;
-DECL|field|previousAnalyzed
-name|BytesRef
-name|previousAnalyzed
-init|=
-literal|null
-decl_stmt|;
 DECL|field|maxSurfaceFormsPerAnalyzedForm
 specifier|private
 name|int
@@ -4457,6 +4608,11 @@ argument_list|,
 literal|0.75f
 argument_list|)
 decl_stmt|;
+DECL|field|payloadSep
+specifier|private
+name|int
+name|payloadSep
+decl_stmt|;
 DECL|method|XBuilder
 specifier|public
 name|XBuilder
@@ -4466,8 +4622,17 @@ name|maxSurfaceFormsPerAnalyzedForm
 parameter_list|,
 name|boolean
 name|hasPayloads
+parameter_list|,
+name|int
+name|payloadSep
 parameter_list|)
 block|{
+name|this
+operator|.
+name|payloadSep
+operator|=
+name|payloadSep
+expr_stmt|;
 name|this
 operator|.
 name|outputs
@@ -4897,7 +5062,10 @@ operator|.
 name|length
 index|]
 operator|=
-name|PAYLOAD_SEP
+operator|(
+name|byte
+operator|)
+name|payloadSep
 expr_stmt|;
 name|System
 operator|.
