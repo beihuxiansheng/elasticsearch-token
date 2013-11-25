@@ -1505,9 +1505,12 @@ operator|=
 literal|true
 expr_stmt|;
 comment|// make sure we create one with the version from the recovered state
-name|node
+name|allocation
 operator|.
-name|add
+name|routingNodes
+argument_list|()
+operator|.
+name|assignShardToNode
 argument_list|(
 operator|new
 name|MutableShardRouting
@@ -1516,6 +1519,11 @@ name|shard
 argument_list|,
 name|highestVersion
 argument_list|)
+argument_list|,
+name|node
+operator|.
+name|nodeId
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|unassignedIterator
@@ -1615,9 +1623,12 @@ operator|=
 literal|true
 expr_stmt|;
 comment|// make sure we create one with the version from the recovered state
-name|node
+name|allocation
 operator|.
-name|add
+name|routingNodes
+argument_list|()
+operator|.
+name|assignShardToNode
 argument_list|(
 operator|new
 name|MutableShardRouting
@@ -1626,6 +1637,11 @@ name|shard
 argument_list|,
 name|highestVersion
 argument_list|)
+argument_list|,
+name|node
+operator|.
+name|nodeId
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|unassignedIterator
@@ -2265,11 +2281,19 @@ name|changed
 operator|=
 literal|true
 expr_stmt|;
-name|lastNodeMatched
+name|allocation
 operator|.
-name|add
+name|routingNodes
+argument_list|()
+operator|.
+name|assignShardToNode
 argument_list|(
 name|shard
+argument_list|,
+name|lastNodeMatched
+operator|.
+name|nodeId
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|unassignedIterator

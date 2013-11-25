@@ -201,7 +201,6 @@ expr_stmt|;
 block|}
 comment|/**      * Assign this shard to a node.      *      * @param nodeId id of the node to assign this shard to      */
 DECL|method|assignToNode
-specifier|public
 name|void
 name|assignToNode
 parameter_list|(
@@ -284,7 +283,6 @@ block|}
 block|}
 comment|/**      * Relocate the shard to another node.      *      * @param relocatingNodeId id of the node to relocate the shard      */
 DECL|method|relocate
-specifier|public
 name|void
 name|relocate
 parameter_list|(
@@ -317,7 +315,6 @@ expr_stmt|;
 block|}
 comment|/**      * Cancel relocation of a shard. The shards state must be set      * to<code>RELOCATING</code>.      */
 DECL|method|cancelRelocation
-specifier|public
 name|void
 name|cancelRelocation
 parameter_list|()
@@ -354,7 +351,6 @@ expr_stmt|;
 block|}
 comment|/**      * Set the shards state to<code>UNASSIGNED</code>.      * //TODO document the state      */
 DECL|method|deassignNode
-specifier|public
 name|void
 name|deassignNode
 parameter_list|()
@@ -390,7 +386,6 @@ expr_stmt|;
 block|}
 comment|/**      * Set the shards state to<code>STARTED</code>. The shards state must be      *<code>INITIALIZING</code> or<code>RELOCATING</code>. Any relocation will be      * canceled.      */
 DECL|method|moveToStarted
-specifier|public
 name|void
 name|moveToStarted
 parameter_list|()
@@ -428,7 +423,6 @@ expr_stmt|;
 block|}
 comment|/**      * Make the shard primary unless it's not Primary      * //TODO: doc exception      */
 DECL|method|moveToPrimary
-specifier|public
 name|void
 name|moveToPrimary
 parameter_list|()
@@ -458,7 +452,6 @@ expr_stmt|;
 block|}
 comment|/**      * Set the primary shard to non-primary      */
 DECL|method|moveFromPrimary
-specifier|public
 name|void
 name|moveFromPrimary
 parameter_list|()
@@ -485,41 +478,6 @@ block|}
 name|primary
 operator|=
 literal|false
-expr_stmt|;
-block|}
-DECL|method|restoreFrom
-specifier|public
-name|void
-name|restoreFrom
-parameter_list|(
-name|RestoreSource
-name|restoreSource
-parameter_list|)
-block|{
-name|version
-operator|++
-expr_stmt|;
-if|if
-condition|(
-operator|!
-name|primary
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalShardRoutingStateException
-argument_list|(
-name|this
-argument_list|,
-literal|"Not primary, can't restore from snapshot to replica"
-argument_list|)
-throw|;
-block|}
-name|this
-operator|.
-name|restoreSource
-operator|=
-name|restoreSource
 expr_stmt|;
 block|}
 block|}
