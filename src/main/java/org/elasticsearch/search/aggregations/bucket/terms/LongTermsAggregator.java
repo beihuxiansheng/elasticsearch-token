@@ -206,6 +206,12 @@ specifier|final
 name|int
 name|requiredSize
 decl_stmt|;
+DECL|field|shardSize
+specifier|private
+specifier|final
+name|int
+name|shardSize
+decl_stmt|;
 DECL|field|valuesSource
 specifier|private
 specifier|final
@@ -236,6 +242,9 @@ name|order
 parameter_list|,
 name|int
 name|requiredSize
+parameter_list|,
+name|int
+name|shardSize
 parameter_list|,
 name|AggregationContext
 name|aggregationContext
@@ -278,6 +287,12 @@ operator|.
 name|requiredSize
 operator|=
 name|requiredSize
+expr_stmt|;
+name|this
+operator|.
+name|shardSize
+operator|=
+name|shardSize
 expr_stmt|;
 name|bucketOrds
 operator|=
@@ -465,7 +480,7 @@ operator|.
 name|size
 argument_list|()
 argument_list|,
-name|requiredSize
+name|shardSize
 argument_list|)
 decl_stmt|;
 name|BucketPriorityQueue
