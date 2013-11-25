@@ -2014,6 +2014,16 @@ name|consistencyLevel
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|bulkShardRequest
+operator|.
+name|timeout
+argument_list|(
+name|bulkRequest
+operator|.
+name|timeout
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|shardBulkAction
 operator|.
 name|execute
