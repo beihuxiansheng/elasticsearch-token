@@ -1350,7 +1350,6 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-comment|// TODO: Create util for toString()
 name|logger
 operator|.
 name|debug

@@ -782,6 +782,7 @@ name|EMPTY_SETTINGS
 decl_stmt|;
 DECL|field|mappings
 specifier|private
+specifier|final
 name|ImmutableOpenMap
 operator|.
 name|Builder
@@ -794,6 +795,7 @@ name|mappings
 decl_stmt|;
 DECL|field|customs
 specifier|private
+specifier|final
 name|ImmutableOpenMap
 operator|.
 name|Builder
@@ -844,12 +846,13 @@ name|indexTemplateMetaData
 parameter_list|)
 block|{
 name|this
-argument_list|(
+operator|.
+name|name
+operator|=
 name|indexTemplateMetaData
 operator|.
 name|name
 argument_list|()
-argument_list|)
 expr_stmt|;
 name|order
 argument_list|(

@@ -560,7 +560,6 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-comment|// TODO: have util for toString()
 name|logger
 operator|.
 name|debug
