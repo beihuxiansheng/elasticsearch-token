@@ -4844,7 +4844,7 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-name|IOException
+name|Throwable
 name|ex
 parameter_list|)
 block|{
