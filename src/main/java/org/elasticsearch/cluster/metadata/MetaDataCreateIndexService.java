@@ -2240,6 +2240,9 @@ name|MapperService
 operator|.
 name|DEFAULT_MAPPING
 argument_list|,
+operator|new
+name|CompressedString
+argument_list|(
 name|XContentFactory
 operator|.
 name|jsonBuilder
@@ -2259,6 +2262,7 @@ argument_list|)
 operator|.
 name|string
 argument_list|()
+argument_list|)
 argument_list|,
 literal|false
 argument_list|)
@@ -2343,6 +2347,9 @@ operator|.
 name|getKey
 argument_list|()
 argument_list|,
+operator|new
+name|CompressedString
+argument_list|(
 name|XContentFactory
 operator|.
 name|jsonBuilder
@@ -2358,6 +2365,7 @@ argument_list|)
 operator|.
 name|string
 argument_list|()
+argument_list|)
 argument_list|,
 literal|true
 argument_list|)

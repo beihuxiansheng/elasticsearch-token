@@ -1123,9 +1123,6 @@ argument_list|)
 operator|.
 name|source
 argument_list|()
-operator|.
-name|string
-argument_list|()
 argument_list|,
 literal|false
 argument_list|)
@@ -1434,9 +1431,6 @@ argument_list|)
 operator|.
 name|source
 argument_list|()
-operator|.
-name|string
-argument_list|()
 argument_list|,
 literal|false
 argument_list|)
@@ -1456,9 +1450,6 @@ argument_list|(
 name|type
 argument_list|,
 name|mappingSource
-operator|.
-name|string
-argument_list|()
 argument_list|,
 literal|false
 argument_list|)
@@ -2540,9 +2531,6 @@ argument_list|)
 operator|.
 name|source
 argument_list|()
-operator|.
-name|string
-argument_list|()
 argument_list|,
 literal|false
 argument_list|)
@@ -2588,9 +2576,6 @@ name|mappingType
 argument_list|)
 operator|.
 name|source
-argument_list|()
-operator|.
-name|string
 argument_list|()
 argument_list|,
 literal|false
@@ -2694,9 +2679,13 @@ name|request
 operator|.
 name|mappingType
 argument_list|,
+operator|new
+name|CompressedString
+argument_list|(
 name|request
 operator|.
 name|mappingSource
+argument_list|)
 argument_list|,
 literal|false
 argument_list|)
@@ -2717,9 +2706,13 @@ name|request
 operator|.
 name|mappingType
 argument_list|,
+operator|new
+name|CompressedString
+argument_list|(
 name|request
 operator|.
 name|mappingSource
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -3031,9 +3024,6 @@ argument_list|,
 name|newMapper
 operator|.
 name|mappingSource
-argument_list|()
-operator|.
-name|string
 argument_list|()
 argument_list|,
 literal|false
