@@ -859,6 +859,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|class|AggregationsCollector
+specifier|public
 specifier|static
 class|class
 name|AggregationsCollector
@@ -881,6 +882,7 @@ argument_list|>
 name|collectors
 decl_stmt|;
 DECL|method|AggregationsCollector
+specifier|public
 name|AggregationsCollector
 parameter_list|(
 name|List
