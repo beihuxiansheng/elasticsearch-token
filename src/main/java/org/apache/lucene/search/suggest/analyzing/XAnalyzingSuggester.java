@@ -444,7 +444,16 @@ specifier|final
 name|int
 name|PAYLOAD_SEP
 init|=
-literal|'\u001f'
+literal|'\u001F'
+decl_stmt|;
+DECL|field|HOLE_CHARACTER
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|HOLE_CHARACTER
+init|=
+literal|'\u001E'
 decl_stmt|;
 comment|/** Whether position holes should appear in the automaton. */
 DECL|field|preservePositionIncrements
@@ -3405,7 +3414,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|==
-literal|0x1E
+name|HOLE_CHARACTER
 condition|)
 block|{
 throw|throw
@@ -3425,7 +3434,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|==
-literal|0x1F
+name|SEP_LABEL
 condition|)
 block|{
 throw|throw

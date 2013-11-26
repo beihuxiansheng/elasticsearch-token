@@ -2892,6 +2892,11 @@ name|XAnalyzingSuggester
 operator|.
 name|SEP_LABEL
 case|:
+case|case
+name|XAnalyzingSuggester
+operator|.
+name|HOLE_CHARACTER
+case|:
 return|return
 literal|true
 return|;
