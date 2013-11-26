@@ -552,6 +552,8 @@ operator|.
 name|addCell
 argument_list|(
 literal|"time(ms)"
+argument_list|,
+literal|"desc:time, in milliseconds since epoch UTC, that the count was executed"
 argument_list|)
 expr_stmt|;
 name|table
@@ -559,6 +561,8 @@ operator|.
 name|addCell
 argument_list|(
 literal|"timestamp"
+argument_list|,
+literal|"desc:time that the count was executed"
 argument_list|)
 expr_stmt|;
 name|table
@@ -566,6 +570,8 @@ operator|.
 name|addCell
 argument_list|(
 literal|"count"
+argument_list|,
+literal|"desc:the document count"
 argument_list|)
 expr_stmt|;
 name|table

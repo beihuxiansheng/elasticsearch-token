@@ -418,11 +418,11 @@ name|sAttrs
 init|=
 name|Strings
 operator|.
-name|split
+name|splitStringToArray
 argument_list|(
 name|attributes
 argument_list|,
-literal|";"
+literal|';'
 argument_list|)
 decl_stmt|;
 for|for
