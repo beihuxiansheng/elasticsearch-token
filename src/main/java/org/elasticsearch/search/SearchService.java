@@ -2987,11 +2987,6 @@ argument_list|(
 name|context
 argument_list|)
 expr_stmt|;
-name|boolean
-name|contextFreed
-init|=
-literal|false
-decl_stmt|;
 try|try
 block|{
 name|context
@@ -3057,10 +3052,6 @@ name|id
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|contextFreed
-operator|=
-literal|true
-expr_stmt|;
 block|}
 else|else
 block|{
@@ -3125,15 +3116,28 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|contextFreed
-condition|)
+try|try
 block|{
 name|freeContext
 argument_list|(
 name|context
+argument_list|)
+expr_stmt|;
+comment|// we just try to make sure this is freed - rethrow orig exception.
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"Could not free context"
+argument_list|,
+name|t
 argument_list|)
 expr_stmt|;
 block|}
