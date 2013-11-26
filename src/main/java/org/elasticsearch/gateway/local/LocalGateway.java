@@ -36,9 +36,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|cursors
-operator|.
-name|ObjectCursor
+name|ObjectOpenHashSet
 import|;
 end_import
 
@@ -46,13 +44,13 @@ begin_import
 import|import
 name|com
 operator|.
-name|google
+name|carrotsearch
 operator|.
-name|common
+name|hppc
 operator|.
-name|collect
+name|cursors
 operator|.
-name|Sets
+name|ObjectCursor
 import|;
 end_import
 
@@ -330,16 +328,6 @@ name|LocalIndexGatewayModule
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -548,20 +536,15 @@ parameter_list|)
 throws|throws
 name|GatewayException
 block|{
-name|Set
+name|ObjectOpenHashSet
 argument_list|<
 name|String
 argument_list|>
 name|nodesIds
 init|=
-name|Sets
+name|ObjectOpenHashSet
 operator|.
-name|newHashSet
-argument_list|()
-decl_stmt|;
-name|nodesIds
-operator|.
-name|addAll
+name|from
 argument_list|(
 name|clusterService
 operator|.
@@ -574,10 +557,10 @@ operator|.
 name|masterNodes
 argument_list|()
 operator|.
-name|keySet
+name|keys
 argument_list|()
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|logger
 operator|.
 name|trace
@@ -597,6 +580,13 @@ operator|.
 name|list
 argument_list|(
 name|nodesIds
+operator|.
+name|toArray
+argument_list|(
+name|String
+operator|.
+name|class
+argument_list|)
 argument_list|,
 literal|null
 argument_list|)

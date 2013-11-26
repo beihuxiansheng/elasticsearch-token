@@ -565,10 +565,8 @@ parameter_list|,
 name|boolean
 name|onlyUnallocated
 parameter_list|,
-name|Set
-argument_list|<
 name|String
-argument_list|>
+index|[]
 name|nodesIds
 parameter_list|,
 annotation|@

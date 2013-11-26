@@ -365,8 +365,11 @@ decl_stmt|;
 comment|// fill in the nodeToShards with the "live" nodes
 for|for
 control|(
+name|ObjectCursor
+argument_list|<
 name|DiscoveryNode
-name|node
+argument_list|>
+name|cursor
 range|:
 name|clusterState
 operator|.
@@ -384,7 +387,9 @@ name|nodesToShards
 operator|.
 name|put
 argument_list|(
-name|node
+name|cursor
+operator|.
+name|value
 operator|.
 name|id
 argument_list|()
