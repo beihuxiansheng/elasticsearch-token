@@ -322,6 +322,8 @@ argument_list|,
 name|PAYLOAD_SEP
 argument_list|,
 name|END_BYTE
+argument_list|,
+name|HOLE_CHARACTER
 argument_list|)
 expr_stmt|;
 block|}
@@ -387,6 +389,9 @@ name|payloadSep
 parameter_list|,
 name|int
 name|endByte
+parameter_list|,
+name|int
+name|holeCharacter
 parameter_list|)
 block|{
 name|super
@@ -414,6 +419,8 @@ argument_list|,
 name|payloadSep
 argument_list|,
 name|endByte
+argument_list|,
+name|holeCharacter
 argument_list|)
 expr_stmt|;
 if|if

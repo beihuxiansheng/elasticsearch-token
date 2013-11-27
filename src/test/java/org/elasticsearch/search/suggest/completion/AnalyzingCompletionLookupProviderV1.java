@@ -602,6 +602,10 @@ argument_list|,
 name|PAYLOAD_SEP
 argument_list|,
 name|END_BYTE
+argument_list|,
+name|XAnalyzingSuggester
+operator|.
+name|HOLE_CHARACTER
 argument_list|)
 expr_stmt|;
 block|}
@@ -1629,6 +1633,10 @@ argument_list|,
 name|PAYLOAD_SEP
 argument_list|,
 name|END_BYTE
+argument_list|,
+name|XAnalyzingSuggester
+operator|.
+name|HOLE_CHARACTER
 argument_list|)
 expr_stmt|;
 block|}
@@ -1680,6 +1688,10 @@ argument_list|,
 name|PAYLOAD_SEP
 argument_list|,
 name|END_BYTE
+argument_list|,
+name|XAnalyzingSuggester
+operator|.
+name|HOLE_CHARACTER
 argument_list|)
 expr_stmt|;
 block|}

@@ -354,7 +354,7 @@ specifier|final
 name|boolean
 name|preserveSep
 decl_stmt|;
-comment|/** Include this flag in the options parameter to {@link    *  #XAnalyzingSuggester(Analyzer,Analyzer,int,int,int,boolean,FST,boolean,int,int,int,int)} to always    *  return the exact match first, regardless of score.  This    *  has no performance impact but could result in    *  low-quality suggestions. */
+comment|/** Include this flag in the options parameter to {@link    *  #XAnalyzingSuggester(Analyzer,Analyzer,int,int,int,boolean,FST,boolean,int,int,int,int,int)} to always    *  return the exact match first, regardless of score.  This    *  has no performance impact but could result in    *  low-quality suggestions. */
 DECL|field|EXACT_FIRST
 specifier|public
 specifier|static
@@ -364,7 +364,7 @@ name|EXACT_FIRST
 init|=
 literal|1
 decl_stmt|;
-comment|/** Include this flag in the options parameter to {@link    *  #XAnalyzingSuggester(Analyzer,Analyzer,int,int,int,boolean,FST,boolean,int,int,int,int)} to preserve    *  token separators when matching. */
+comment|/** Include this flag in the options parameter to {@link    *  #XAnalyzingSuggester(Analyzer,Analyzer,int,int,int,boolean,FST,boolean,int,int,int,int,int)} to preserve    *  token separators when matching. */
 DECL|field|PRESERVE_SEP
 specifier|public
 specifier|static
@@ -437,6 +437,12 @@ specifier|final
 name|int
 name|endByte
 decl_stmt|;
+DECL|field|holeCharacter
+specifier|private
+specifier|final
+name|int
+name|holeCharacter
+decl_stmt|;
 DECL|field|PAYLOAD_SEP
 specifier|public
 specifier|static
@@ -461,7 +467,7 @@ specifier|private
 name|boolean
 name|preservePositionIncrements
 decl_stmt|;
-comment|/**    * Calls {@link #XAnalyzingSuggester(Analyzer,Analyzer,int,int,int,boolean,FST,boolean,int,int,int,int)    * AnalyzingSuggester(analyzer, analyzer, EXACT_FIRST |    * PRESERVE_SEP, 256, -1)}    */
+comment|/**    * Calls {@link #XAnalyzingSuggester(Analyzer,Analyzer,int,int,int,boolean,FST,boolean,int,int,int,int,int)    * AnalyzingSuggester(analyzer, analyzer, EXACT_FIRST |    * PRESERVE_SEP, 256, -1)}    */
 DECL|method|XAnalyzingSuggester
 specifier|public
 name|XAnalyzingSuggester
@@ -498,10 +504,12 @@ argument_list|,
 name|PAYLOAD_SEP
 argument_list|,
 name|END_BYTE
+argument_list|,
+name|HOLE_CHARACTER
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Calls {@link #XAnalyzingSuggester(Analyzer,Analyzer,int,int,int,boolean,FST,boolean,int,int,int,int)    * AnalyzingSuggester(indexAnalyzer, queryAnalyzer, EXACT_FIRST |    * PRESERVE_SEP, 256, -1)}    */
+comment|/**    * Calls {@link #XAnalyzingSuggester(Analyzer,Analyzer,int,int,int,boolean,FST,boolean,int,int,int,int,int)    * AnalyzingSuggester(indexAnalyzer, queryAnalyzer, EXACT_FIRST |    * PRESERVE_SEP, 256, -1)}    */
 DECL|method|XAnalyzingSuggester
 specifier|public
 name|XAnalyzingSuggester
@@ -541,6 +549,8 @@ argument_list|,
 name|PAYLOAD_SEP
 argument_list|,
 name|END_BYTE
+argument_list|,
+name|HOLE_CHARACTER
 argument_list|)
 expr_stmt|;
 block|}
@@ -592,6 +602,9 @@ name|payloadSep
 parameter_list|,
 name|int
 name|endByte
+parameter_list|,
+name|int
+name|holeCharacter
 parameter_list|)
 block|{
 comment|// SIMON EDIT: I added fst, hasPayloads and maxAnalyzedPathsForOneInput
@@ -761,6 +774,12 @@ operator|.
 name|endByte
 operator|=
 name|endByte
+expr_stmt|;
+name|this
+operator|.
+name|holeCharacter
+operator|=
+name|holeCharacter
 expr_stmt|;
 block|}
 comment|/** Returns byte size of the underlying FST. */
@@ -3414,7 +3433,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|==
-name|HOLE_CHARACTER
+name|holeCharacter
 condition|)
 block|{
 throw|throw
@@ -3434,7 +3453,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|==
-name|SEP_LABEL
+name|sepLabel
 condition|)
 block|{
 throw|throw

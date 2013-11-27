@@ -1198,6 +1198,10 @@ argument_list|,
 name|XAnalyzingSuggester
 operator|.
 name|END_BYTE
+argument_list|,
+name|XAnalyzingSuggester
+operator|.
+name|HOLE_CHARACTER
 argument_list|)
 decl_stmt|;
 name|LineFileDocs
