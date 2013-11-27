@@ -1358,7 +1358,7 @@ name|bulkRequest
 operator|.
 name|numberOfActions
 argument_list|()
-operator|>
+operator|>=
 name|bulkActions
 condition|)
 block|{
@@ -1377,7 +1377,7 @@ name|bulkRequest
 operator|.
 name|estimatedSizeInBytes
 argument_list|()
-operator|>
+operator|>=
 name|bulkSize
 condition|)
 block|{
