@@ -1604,6 +1604,8 @@ name|this
 argument_list|,
 name|logger
 argument_list|,
+name|mapperService
+argument_list|,
 name|indexFieldDataService
 argument_list|)
 decl_stmt|;
