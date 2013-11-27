@@ -9403,6 +9403,17 @@ return|return
 literal|false
 return|;
 block|}
+catch|catch
+parameter_list|(
+name|AlreadyClosedException
+name|e
+parameter_list|)
+block|{
+comment|/* this one can happen if we already closed the                  * underlying store / directory and we call into the                  * IndexWriter to free up pending files. */
+return|return
+literal|false
+return|;
+block|}
 block|}
 block|}
 DECL|class|VersionValue
