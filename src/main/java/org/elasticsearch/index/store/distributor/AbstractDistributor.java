@@ -50,13 +50,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|elasticsearch
 operator|.
-name|lucene
+name|index
 operator|.
 name|store
 operator|.
-name|FilterDirectory
+name|DirectoryUtils
 import|;
 end_import
 
@@ -204,7 +204,7 @@ specifier|final
 name|FSDirectory
 name|leaf
 init|=
-name|FilterDirectory
+name|DirectoryUtils
 operator|.
 name|getLeaf
 argument_list|(
