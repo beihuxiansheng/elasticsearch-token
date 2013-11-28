@@ -614,6 +614,11 @@ specifier|final
 name|IndexService
 name|indexService
 decl_stmt|;
+DECL|field|filterCache
+specifier|final
+name|FilterCache
+name|filterCache
+decl_stmt|;
 DECL|field|searcher
 name|ContextIndexSearcher
 name|searcher
@@ -633,6 +638,9 @@ name|idCache
 parameter_list|,
 name|IndexService
 name|indexService
+parameter_list|,
+name|FilterCache
+name|filterCache
 parameter_list|)
 block|{
 name|this
@@ -652,6 +660,12 @@ operator|.
 name|indexService
 operator|=
 name|indexService
+expr_stmt|;
+name|this
+operator|.
+name|filterCache
+operator|=
+name|filterCache
 expr_stmt|;
 block|}
 annotation|@
@@ -1220,7 +1234,7 @@ name|filterCache
 parameter_list|()
 block|{
 return|return
-literal|null
+name|filterCache
 return|;
 block|}
 annotation|@
