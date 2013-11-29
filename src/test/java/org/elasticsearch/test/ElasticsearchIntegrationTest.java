@@ -914,7 +914,7 @@ default|default:
 assert|assert
 literal|false
 operator|:
-literal|"Unknonw Scope: ["
+literal|"Unknown Scope: ["
 operator|+
 name|currentClusterScope
 operator|+
@@ -1004,11 +1004,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-assert|assert
-name|testCluster
-operator|!=
-literal|null
-assert|;
 name|clusters
 operator|.
 name|remove
@@ -1747,7 +1742,10 @@ argument_list|(
 operator|new
 name|String
 index|[
-literal|0
+name|created
+operator|.
+name|size
+argument_list|()
 index|]
 argument_list|)
 argument_list|)
@@ -3069,7 +3067,10 @@ argument_list|(
 operator|new
 name|String
 index|[
-literal|0
+name|indicesSet
+operator|.
+name|size
+argument_list|()
 index|]
 argument_list|)
 decl_stmt|;
@@ -3755,7 +3756,6 @@ block|}
 DECL|method|newLatch
 specifier|private
 specifier|static
-specifier|final
 name|CountDownLatch
 name|newLatch
 parameter_list|(
@@ -4037,7 +4037,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The scope of a test cluster used together with      * {@link ClusterScope} annonations on {@link ElasticsearchIntegrationTest} subclasses.      */
+comment|/**      * The scope of a test cluster used together with      * {@link ClusterScope} annotations on {@link ElasticsearchIntegrationTest} subclasses.      */
 DECL|enum|Scope
 specifier|public
 specifier|static
@@ -4055,7 +4055,7 @@ block|,
 comment|/**          * A test exclusive test cluster          */
 DECL|enum constant|TEST
 name|TEST
-block|;     }
+block|}
 DECL|method|getAnnotation
 specifier|private
 name|ClusterScope

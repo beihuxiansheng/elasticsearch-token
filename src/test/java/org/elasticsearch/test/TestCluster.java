@@ -3417,7 +3417,10 @@ argument_list|(
 operator|new
 name|File
 index|[
-literal|0
+name|dataDirToClean
+operator|.
+name|size
+argument_list|()
 index|]
 argument_list|)
 argument_list|)
