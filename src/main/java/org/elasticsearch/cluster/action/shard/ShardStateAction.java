@@ -1180,7 +1180,7 @@ literal|"]"
 argument_list|,
 name|Priority
 operator|.
-name|HIGH
+name|URGENT
 argument_list|,
 operator|new
 name|ClusterStateUpdateTask
