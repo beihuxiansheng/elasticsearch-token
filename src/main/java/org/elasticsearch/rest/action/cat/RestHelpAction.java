@@ -259,6 +259,13 @@ name|s
 operator|.
 name|append
 argument_list|(
+literal|"/_cat/pending_tasks\n"
+argument_list|)
+expr_stmt|;
+name|s
+operator|.
+name|append
+argument_list|(
 literal|"/_cat/recovery\n"
 argument_list|)
 expr_stmt|;
