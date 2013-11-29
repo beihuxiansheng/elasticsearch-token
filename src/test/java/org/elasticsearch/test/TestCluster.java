@@ -2845,7 +2845,7 @@ return|;
 block|}
 block|}
 block|}
-comment|/**      * This method should be exectued before each test to reset the cluster to it's initial state.      */
+comment|/**      * This method should be executed before each test to reset the cluster to it's initial state.      */
 DECL|method|beforeTest
 specifier|synchronized
 name|void
