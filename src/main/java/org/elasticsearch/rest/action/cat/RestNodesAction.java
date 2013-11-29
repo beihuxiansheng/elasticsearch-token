@@ -1552,7 +1552,7 @@ argument_list|()
 condition|?
 literal|"m"
 else|:
-literal|null
+literal|"-"
 argument_list|)
 expr_stmt|;
 name|table
