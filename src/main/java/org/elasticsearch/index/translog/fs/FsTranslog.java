@@ -1611,7 +1611,7 @@ name|revertTransient
 parameter_list|()
 block|{
 name|FsTranslogFile
-name|old
+name|tmpTransient
 decl_stmt|;
 name|rwl
 operator|.
@@ -1623,7 +1623,7 @@ argument_list|()
 expr_stmt|;
 try|try
 block|{
-name|old
+name|tmpTransient
 operator|=
 name|trans
 expr_stmt|;
@@ -1645,13 +1645,23 @@ name|unlock
 argument_list|()
 expr_stmt|;
 block|}
-name|old
+comment|// previous transient might be null because it was failed on its creation
+comment|// for example
+if|if
+condition|(
+name|tmpTransient
+operator|!=
+literal|null
+condition|)
+block|{
+name|tmpTransient
 operator|.
 name|close
 argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|read
 specifier|public
