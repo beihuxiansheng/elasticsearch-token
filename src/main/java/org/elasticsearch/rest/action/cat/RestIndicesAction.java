@@ -515,7 +515,7 @@ name|Requests
 operator|.
 name|clusterHealthRequest
 argument_list|(
-name|indices
+name|concreteIndices
 argument_list|)
 decl_stmt|;
 name|clusterHealthRequest
@@ -533,13 +533,6 @@ operator|.
 name|local
 argument_list|()
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|clusterHealthRequest
-operator|.
-name|indices
-argument_list|(
-name|indices
 argument_list|)
 expr_stmt|;
 name|client
