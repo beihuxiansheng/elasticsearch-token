@@ -1015,6 +1015,15 @@ operator|.
 name|PAYLOAD_SEP
 argument_list|)
 expr_stmt|;
+name|output
+operator|.
+name|writeVInt
+argument_list|(
+name|XAnalyzingSuggester
+operator|.
+name|HOLE_CHARACTER
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}
