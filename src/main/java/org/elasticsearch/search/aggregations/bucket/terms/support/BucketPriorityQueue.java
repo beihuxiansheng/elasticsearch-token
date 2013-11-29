@@ -4,7 +4,7 @@ comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more cont
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search.aggregations.bucket.terms
+DECL|package|org.elasticsearch.search.aggregations.bucket.terms.support
 package|package
 name|org
 operator|.
@@ -17,6 +17,8 @@ operator|.
 name|bucket
 operator|.
 name|terms
+operator|.
+name|support
 package|;
 end_package
 
@@ -31,6 +33,24 @@ operator|.
 name|util
 operator|.
 name|PriorityQueue
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|bucket
+operator|.
+name|terms
+operator|.
+name|Terms
 import|;
 end_import
 
