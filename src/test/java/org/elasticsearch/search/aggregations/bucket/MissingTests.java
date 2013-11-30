@@ -583,6 +583,10 @@ index|]
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|ensureGreen
+argument_list|()
+expr_stmt|;
+comment|// wait until we are ready to serve requests
 block|}
 annotation|@
 name|Test
