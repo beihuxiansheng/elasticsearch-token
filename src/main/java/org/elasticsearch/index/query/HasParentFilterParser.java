@@ -1103,8 +1103,6 @@ argument_list|,
 name|parentType
 argument_list|,
 name|childrenFilter
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 if|if

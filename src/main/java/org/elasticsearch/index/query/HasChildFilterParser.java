@@ -886,8 +886,6 @@ argument_list|,
 name|parentFilter
 argument_list|,
 name|shortCircuitParentDocSet
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 if|if

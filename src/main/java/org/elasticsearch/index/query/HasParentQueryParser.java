@@ -1143,8 +1143,6 @@ argument_list|,
 name|parentType
 argument_list|,
 name|childrenFilter
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 if|if
