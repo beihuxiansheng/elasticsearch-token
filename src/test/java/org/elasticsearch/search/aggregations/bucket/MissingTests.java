@@ -1014,6 +1014,24 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertThat
+argument_list|(
+literal|"Not all shards are initialized"
+argument_list|,
+name|response
+operator|.
+name|getSuccessfulShards
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+name|response
+operator|.
+name|getTotalShards
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|Missing
 name|missing
 init|=
