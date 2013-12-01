@@ -620,7 +620,7 @@ if|if
 condition|(
 name|logger
 operator|.
-name|isDebugEnabled
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
@@ -647,7 +647,7 @@ control|)
 block|{
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Unreleased Searchers instance for shard [{}]"
 argument_list|,
