@@ -387,6 +387,9 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+name|ensureGreen
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Test
