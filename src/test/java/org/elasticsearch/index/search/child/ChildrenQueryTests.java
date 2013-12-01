@@ -1287,7 +1287,7 @@ operator|=
 name|rawParentFilter
 expr_stmt|;
 block|}
-comment|// Using this in FQ, will invoke / test the Scorer#advance(..)
+comment|// Using this in FQ, will invoke / test the Scorer#advance(..) and also let the Weight#scorer not get live docs as acceptedDocs
 name|Filter
 name|filterMe
 decl_stmt|;

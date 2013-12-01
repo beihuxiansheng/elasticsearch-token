@@ -1088,6 +1088,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+operator|!
 name|DocIdSets
 operator|.
 name|isEmpty
@@ -1096,10 +1097,6 @@ name|parentDocIdSet
 argument_list|)
 condition|)
 block|{
-return|return
-literal|null
-return|;
-block|}
 name|IdReaderTypeCache
 name|idReaderTypeCache
 init|=
@@ -1121,6 +1118,25 @@ argument_list|(
 name|parentType
 argument_list|)
 decl_stmt|;
+comment|// We can't be sure of the fact that liveDocs have been applied, so we apply it here. The "remaining"
+comment|// count down (short circuit) logic will then work as expected.
+name|parentDocIdSet
+operator|=
+name|BitsFilteredDocIdSet
+operator|.
+name|wrap
+argument_list|(
+name|parentDocIdSet
+argument_list|,
+name|context
+operator|.
+name|reader
+argument_list|()
+operator|.
+name|getLiveDocs
+argument_list|()
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|idReaderTypeCache
@@ -1171,6 +1187,7 @@ argument_list|,
 name|queryWeight
 argument_list|)
 return|;
+block|}
 block|}
 block|}
 return|return
