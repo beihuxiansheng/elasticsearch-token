@@ -7098,7 +7098,7 @@ argument_list|(
 literal|"idx_unmapped"
 argument_list|)
 operator|.
-name|setWaitForYellowStatus
+name|setWaitForGreenStatus
 argument_list|()
 operator|.
 name|execute
