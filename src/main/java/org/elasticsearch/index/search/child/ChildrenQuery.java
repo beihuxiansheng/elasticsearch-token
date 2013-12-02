@@ -1094,9 +1094,13 @@ else|else
 block|{
 name|parentFilter
 operator|=
+operator|new
+name|ApplyAcceptedDocsFilter
+argument_list|(
 name|this
 operator|.
 name|parentFilter
+argument_list|)
 expr_stmt|;
 block|}
 name|ParentWeight
@@ -1244,11 +1248,7 @@ name|this
 operator|.
 name|parentFilter
 operator|=
-operator|new
-name|ApplyAcceptedDocsFilter
-argument_list|(
 name|parentFilter
-argument_list|)
 expr_stmt|;
 name|this
 operator|.
