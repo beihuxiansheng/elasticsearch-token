@@ -773,6 +773,14 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|float
+name|score
+init|=
+name|scorer
+operator|.
+name|score
+argument_list|()
+decl_stmt|;
 return|return
 name|scoreCombiner
 operator|.
@@ -780,10 +788,7 @@ name|combine
 argument_list|(
 name|subQueryBoost
 argument_list|,
-name|scorer
-operator|.
 name|score
-argument_list|()
 argument_list|,
 name|function
 operator|.
@@ -794,10 +799,7 @@ operator|.
 name|docID
 argument_list|()
 argument_list|,
-name|scorer
-operator|.
 name|score
-argument_list|()
 argument_list|)
 argument_list|,
 name|maxBoost
