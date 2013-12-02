@@ -312,39 +312,7 @@ name|query
 operator|.
 name|FilterBuilders
 operator|.
-name|hasChildFilter
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|FilterBuilders
-operator|.
-name|hasParentFilter
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|FilterBuilders
-operator|.
-name|rangeFilter
+name|*
 import|;
 end_import
 
@@ -604,7 +572,7 @@ argument_list|()
 operator|.
 name|startObject
 argument_list|(
-literal|"type"
+literal|"child"
 argument_list|)
 operator|.
 name|startObject

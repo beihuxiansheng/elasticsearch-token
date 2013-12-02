@@ -596,7 +596,7 @@ argument_list|()
 operator|.
 name|startObject
 argument_list|(
-literal|"type"
+literal|"child"
 argument_list|)
 operator|.
 name|startObject
