@@ -111,15 +111,15 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|RangeBuilderBase
+DECL|class|AbstractRangeBuilder
 specifier|public
 specifier|abstract
 class|class
-name|RangeBuilderBase
+name|AbstractRangeBuilder
 parameter_list|<
 name|B
 extends|extends
-name|RangeBuilderBase
+name|AbstractRangeBuilder
 parameter_list|<
 name|B
 parameter_list|>
@@ -279,9 +279,9 @@ operator|.
 name|newArrayList
 argument_list|()
 decl_stmt|;
-DECL|method|RangeBuilderBase
+DECL|method|AbstractRangeBuilder
 specifier|protected
-name|RangeBuilderBase
+name|AbstractRangeBuilder
 parameter_list|(
 name|String
 name|name

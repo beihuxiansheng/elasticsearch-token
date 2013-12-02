@@ -46,7 +46,7 @@ name|bucket
 operator|.
 name|range
 operator|.
-name|RangeBuilderBase
+name|AbstractRangeBuilder
 import|;
 end_import
 
@@ -70,7 +70,7 @@ specifier|public
 class|class
 name|DateRangeBuilder
 extends|extends
-name|RangeBuilderBase
+name|AbstractRangeBuilder
 argument_list|<
 name|DateRangeBuilder
 argument_list|>

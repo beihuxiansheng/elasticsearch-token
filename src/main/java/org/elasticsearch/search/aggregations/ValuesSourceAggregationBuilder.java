@@ -94,10 +94,10 @@ specifier|private
 name|String
 name|script
 decl_stmt|;
-DECL|field|scriptLang
+DECL|field|lang
 specifier|private
 name|String
-name|scriptLang
+name|lang
 decl_stmt|;
 DECL|field|params
 specifier|private
@@ -185,26 +185,26 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Sets the language of the script (if one is defined).      *<p/>      * Also see {@link #script(String)}.      *      * @param scriptLang    The language of the script.      * @return              This builder (fluent interface support)      */
+comment|/**      * Sets the language of the script (if one is defined).      *<p/>      * Also see {@link #script(String)}.      *      * @param lang    The language of the script.      * @return        This builder (fluent interface support)      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|scriptLang
+DECL|method|lang
 specifier|public
 name|B
-name|scriptLang
+name|lang
 parameter_list|(
 name|String
-name|scriptLang
+name|lang
 parameter_list|)
 block|{
 name|this
 operator|.
-name|scriptLang
+name|lang
 operator|=
-name|scriptLang
+name|lang
 expr_stmt|;
 return|return
 operator|(
@@ -375,7 +375,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|scriptLang
+name|lang
 operator|!=
 literal|null
 condition|)
@@ -384,9 +384,9 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"script_lang"
+literal|"lang"
 argument_list|,
-name|scriptLang
+name|lang
 argument_list|)
 expr_stmt|;
 block|}

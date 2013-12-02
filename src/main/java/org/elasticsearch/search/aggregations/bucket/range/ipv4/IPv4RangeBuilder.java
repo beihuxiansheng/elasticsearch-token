@@ -32,7 +32,7 @@ name|bucket
 operator|.
 name|range
 operator|.
-name|RangeBuilderBase
+name|AbstractRangeBuilder
 import|;
 end_import
 
@@ -72,7 +72,7 @@ specifier|public
 class|class
 name|IPv4RangeBuilder
 extends|extends
-name|RangeBuilderBase
+name|AbstractRangeBuilder
 argument_list|<
 name|IPv4RangeBuilder
 argument_list|>

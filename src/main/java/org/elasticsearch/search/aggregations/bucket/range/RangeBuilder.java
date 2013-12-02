@@ -26,7 +26,7 @@ specifier|public
 class|class
 name|RangeBuilder
 extends|extends
-name|RangeBuilderBase
+name|AbstractRangeBuilder
 argument_list|<
 name|RangeBuilder
 argument_list|>

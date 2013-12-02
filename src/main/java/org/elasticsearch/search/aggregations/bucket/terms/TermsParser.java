@@ -594,14 +594,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"script_lang"
-operator|.
-name|equals
-argument_list|(
-name|currentFieldName
-argument_list|)
-operator|||
-literal|"scriptLang"
+literal|"lang"
 operator|.
 name|equals
 argument_list|(
