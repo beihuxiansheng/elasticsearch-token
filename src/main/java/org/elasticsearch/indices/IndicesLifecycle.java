@@ -190,6 +190,15 @@ name|IndexShard
 name|indexShard
 parameter_list|)
 block|{          }
+DECL|method|afterIndexShardPostRecovery
+specifier|public
+name|void
+name|afterIndexShardPostRecovery
+parameter_list|(
+name|IndexShard
+name|indexShard
+parameter_list|)
+block|{          }
 comment|/**          * Called after the index shard has been started.          */
 DECL|method|afterIndexShardStarted
 specifier|public

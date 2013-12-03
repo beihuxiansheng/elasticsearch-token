@@ -1423,10 +1423,10 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|afterIndexShardStarted
+DECL|method|afterIndexShardPostRecovery
 specifier|public
 name|void
-name|afterIndexShardStarted
+name|afterIndexShardPostRecovery
 parameter_list|(
 name|IndexShard
 name|indexShard
@@ -1547,6 +1547,7 @@ literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// Maybe add a mode load? This isn't really a write. We need write b/c state=post_recovery
 name|Engine
 operator|.
 name|Searcher
@@ -1557,6 +1558,12 @@ operator|.
 name|acquireSearcher
 argument_list|(
 literal|"percolator_load_queries"
+argument_list|,
+name|IndexShard
+operator|.
+name|Mode
+operator|.
+name|WRITE
 argument_list|)
 decl_stmt|;
 try|try
