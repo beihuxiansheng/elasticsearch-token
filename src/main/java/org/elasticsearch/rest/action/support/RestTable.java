@@ -937,7 +937,7 @@ name|display
 return|;
 block|}
 DECL|method|buildHelpWidths
-specifier|private
+specifier|public
 specifier|static
 name|int
 index|[]
@@ -1281,7 +1281,7 @@ name|width
 return|;
 block|}
 DECL|method|pad
-specifier|private
+specifier|public
 specifier|static
 name|void
 name|pad
