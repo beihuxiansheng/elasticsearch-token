@@ -459,6 +459,14 @@ operator|.
 name|currentValueHash
 argument_list|()
 decl_stmt|;
+assert|assert
+name|hash
+operator|==
+name|bytes
+operator|.
+name|hashCode
+argument_list|()
+assert|;
 name|int
 name|bucketOrdinal
 init|=
