@@ -20,33 +20,90 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
+name|apache
 operator|.
-name|common
+name|lucene
 operator|.
-name|lease
+name|util
 operator|.
-name|Releasable
+name|BytesRef
 import|;
 end_import
 
 begin_comment
-comment|/** Base abstraction of an array. */
+comment|/**  * Abstraction of an array of byte values.  */
 end_comment
 
 begin_interface
-DECL|interface|BigArray
-interface|interface
-name|BigArray
-extends|extends
-name|Releasable
-block|{
-comment|/** Return the length of this array. */
-DECL|method|size
+DECL|interface|ByteArray
 specifier|public
+interface|interface
+name|ByteArray
+extends|extends
+name|BigArray
+block|{
+comment|/**      * Get an element given its index.      */
+DECL|method|get
+specifier|public
+specifier|abstract
+name|byte
+name|get
+parameter_list|(
 name|long
-name|size
-parameter_list|()
+name|index
+parameter_list|)
+function_decl|;
+comment|/**      * Set a value at the given index and return the previous value.      */
+DECL|method|set
+specifier|public
+specifier|abstract
+name|byte
+name|set
+parameter_list|(
+name|long
+name|index
+parameter_list|,
+name|byte
+name|value
+parameter_list|)
+function_decl|;
+comment|/**      * Get a reference to a slice.      */
+DECL|method|get
+specifier|public
+specifier|abstract
+name|void
+name|get
+parameter_list|(
+name|long
+name|index
+parameter_list|,
+name|int
+name|len
+parameter_list|,
+name|BytesRef
+name|ref
+parameter_list|)
+function_decl|;
+comment|/**      * Bulk set.      */
+DECL|method|set
+specifier|public
+specifier|abstract
+name|void
+name|set
+parameter_list|(
+name|long
+name|index
+parameter_list|,
+name|byte
+index|[]
+name|buf
+parameter_list|,
+name|int
+name|offset
+parameter_list|,
+name|int
+name|len
+parameter_list|)
 function_decl|;
 block|}
 end_interface

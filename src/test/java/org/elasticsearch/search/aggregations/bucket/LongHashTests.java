@@ -62,13 +62,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
+name|common
 operator|.
-name|aggregations
+name|util
 operator|.
-name|bucket
-operator|.
-name|LongHash
+name|BigArraysTests
 import|;
 end_import
 
@@ -198,6 +196,11 @@ literal|100
 argument_list|)
 argument_list|,
 name|maxLoadFactor
+argument_list|,
+name|BigArraysTests
+operator|.
+name|randomCacheRecycler
+argument_list|()
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -355,7 +358,7 @@ name|value
 argument_list|,
 name|longHash
 operator|.
-name|get
+name|find
 argument_list|(
 name|next
 operator|.
@@ -420,6 +423,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|longHash
+operator|.
+name|release
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_class

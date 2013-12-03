@@ -16,6 +16,20 @@ name|recycler
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|lease
+operator|.
+name|Releasable
+import|;
+end_import
+
 begin_comment
 comment|/**  */
 end_comment
@@ -169,6 +183,7 @@ parameter_list|<
 name|T
 parameter_list|>
 block|{
+comment|/** Create a new empty instance of the given size. */
 DECL|method|newInstance
 name|T
 name|newInstance
@@ -177,6 +192,7 @@ name|int
 name|sizing
 parameter_list|)
 function_decl|;
+comment|/** Clear the data. This operation is called when the data-structure is released. */
 DECL|method|clear
 name|void
 name|clear
@@ -194,20 +210,19 @@ name|V
 parameter_list|<
 name|T
 parameter_list|>
+extends|extends
+name|Releasable
 block|{
+comment|/** Reference to the value. */
 DECL|method|v
 name|T
 name|v
 parameter_list|()
 function_decl|;
+comment|/** Whether this instance has been recycled (true) or newly allocated (false). */
 DECL|method|isRecycled
 name|boolean
 name|isRecycled
-parameter_list|()
-function_decl|;
-DECL|method|release
-name|void
-name|release
 parameter_list|()
 function_decl|;
 block|}

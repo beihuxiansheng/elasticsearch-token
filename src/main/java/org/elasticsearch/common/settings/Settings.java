@@ -432,6 +432,35 @@ parameter_list|)
 throws|throws
 name|SettingsException
 function_decl|;
+comment|/**      * Returns the setting value (as size) associated with the setting key. Provided values can either be      * absolute values (intepreted as a number of bytes), byte sizes (eg. 1mb) or percentage of the heap size      * (eg. 12%). If it does not exists, parses the default value provided.      */
+DECL|method|getAsMemory
+name|ByteSizeValue
+name|getAsMemory
+parameter_list|(
+name|String
+name|setting
+parameter_list|,
+name|String
+name|defaultValue
+parameter_list|)
+throws|throws
+name|SettingsException
+function_decl|;
+comment|/**      * Returns the setting value (as size) associated with the setting key. Provided values can either be      * absolute values (intepreted as a number of bytes), byte sizes (eg. 1mb) or percentage of the heap size      * (eg. 12%). If it does not exists, parses the default value provided.      */
+DECL|method|getAsMemory
+name|ByteSizeValue
+name|getAsMemory
+parameter_list|(
+name|String
+index|[]
+name|setting
+parameter_list|,
+name|String
+name|defaultValue
+parameter_list|)
+throws|throws
+name|SettingsException
+function_decl|;
 comment|/**      * Returns the setting value (as size) associated with the setting key. If it does not exists,      * returns the default value provided.      */
 DECL|method|getAsSize
 name|SizeValue

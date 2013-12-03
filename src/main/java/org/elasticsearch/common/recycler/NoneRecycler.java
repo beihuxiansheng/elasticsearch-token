@@ -161,7 +161,7 @@ annotation|@
 name|Override
 DECL|method|release
 specifier|public
-name|void
+name|boolean
 name|release
 parameter_list|()
 block|{
@@ -184,6 +184,9 @@ name|value
 operator|=
 literal|null
 expr_stmt|;
+return|return
+literal|true
+return|;
 block|}
 block|}
 block|}
