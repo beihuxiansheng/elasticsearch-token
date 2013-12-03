@@ -241,7 +241,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"tokenizer"
+literal|"analyzer"
 argument_list|,
 literal|"keyword"
 argument_list|)
@@ -309,7 +309,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"tokenizer"
+literal|"analyzer"
 argument_list|,
 literal|"standard"
 argument_list|)
