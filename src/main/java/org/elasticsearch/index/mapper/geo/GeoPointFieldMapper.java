@@ -1473,8 +1473,6 @@ name|fieldNode
 argument_list|)
 condition|)
 block|{
-comment|// automatically set geohash to true as well...
-comment|// TODO: Should we do this in the builder
 name|builder
 operator|.
 name|enableGeoHash
@@ -2010,6 +2008,16 @@ parameter_list|()
 block|{
 return|return
 name|enableLatLon
+return|;
+block|}
+DECL|method|isEnableGeohashPrefix
+specifier|public
+name|boolean
+name|isEnableGeohashPrefix
+parameter_list|()
+block|{
+return|return
+name|enableGeohashPrefix
 return|;
 block|}
 annotation|@

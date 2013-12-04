@@ -269,14 +269,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A gehash filter filters {@link GeoPoint}s by their geohashes. Basically the a  * Geohash prefix is defined by the filter and all geohashes that are matching this  * prefix will be returned. The<code>neighbors</code> flag allows to filter  * geohashes that surround the given geohash. In general the neighborhood of a  * geohash is defined by its eight adjacent cells.<br />  * The structure of the {@link GeohashFilter} is defined as:  *<pre>  *&quot;geohash_bbox&quot; {  *&quot;field&quot;:&quot;location&quot;,  *&quot;geohash&quot;:&quot;u33d8u5dkx8k&quot;,  *&quot;neighbors&quot;:false  * }  *</pre>  */
+comment|/**  * A geohash cell filter that filters {@link GeoPoint}s by their geohashes. Basically the a  * Geohash prefix is defined by the filter and all geohashes that are matching this  * prefix will be returned. The<code>neighbors</code> flag allows to filter  * geohashes that surround the given geohash. In general the neighborhood of a  * geohash is defined by its eight adjacent cells.<br />  * The structure of the {@link GeohashCellFilter} is defined as:  *<pre>  *&quot;geohash_bbox&quot; {  *&quot;field&quot;:&quot;location&quot;,  *&quot;geohash&quot;:&quot;u33d8u5dkx8k&quot;,  *&quot;neighbors&quot;:false  * }  *</pre>  */
 end_comment
 
 begin_class
-DECL|class|GeohashFilter
+DECL|class|GeohashCellFilter
 specifier|public
 class|class
-name|GeohashFilter
+name|GeohashCellFilter
 block|{
 DECL|field|NAME
 specifier|public
@@ -415,10 +415,10 @@ comment|// we need to store the geohash rather than the corresponding point,
 comment|// because a transformation from a geohash to a point an back to the
 comment|// geohash will extend the accuracy of the hash to max precision
 comment|// i.e. by filing up with z's.
-DECL|field|fieldname
+DECL|field|field
 specifier|private
 name|String
-name|fieldname
+name|field
 decl_stmt|;
 DECL|field|geohash
 specifier|private
@@ -443,12 +443,12 @@ specifier|public
 name|Builder
 parameter_list|(
 name|String
-name|fieldname
+name|field
 parameter_list|)
 block|{
 name|this
 argument_list|(
-name|fieldname
+name|field
 argument_list|,
 literal|null
 argument_list|,
@@ -461,7 +461,7 @@ specifier|public
 name|Builder
 parameter_list|(
 name|String
-name|fieldname
+name|field
 parameter_list|,
 name|GeoPoint
 name|point
@@ -469,7 +469,7 @@ parameter_list|)
 block|{
 name|this
 argument_list|(
-name|fieldname
+name|field
 argument_list|,
 name|point
 operator|.
@@ -485,7 +485,7 @@ specifier|public
 name|Builder
 parameter_list|(
 name|String
-name|fieldname
+name|field
 parameter_list|,
 name|String
 name|geohash
@@ -493,7 +493,7 @@ parameter_list|)
 block|{
 name|this
 argument_list|(
-name|fieldname
+name|field
 argument_list|,
 name|geohash
 argument_list|,
@@ -506,7 +506,7 @@ specifier|public
 name|Builder
 parameter_list|(
 name|String
-name|fieldname
+name|field
 parameter_list|,
 name|String
 name|geohash
@@ -520,9 +520,9 @@ argument_list|()
 expr_stmt|;
 name|this
 operator|.
-name|fieldname
+name|field
 operator|=
-name|fieldname
+name|field
 expr_stmt|;
 name|this
 operator|.
@@ -537,10 +537,10 @@ operator|=
 name|neighbors
 expr_stmt|;
 block|}
-DECL|method|setPoint
+DECL|method|point
 specifier|public
 name|Builder
-name|setPoint
+name|point
 parameter_list|(
 name|GeoPoint
 name|point
@@ -559,10 +559,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|setPoint
+DECL|method|point
 specifier|public
 name|Builder
-name|setPoint
+name|point
 parameter_list|(
 name|double
 name|lat
@@ -588,10 +588,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|setGeohash
+DECL|method|geohash
 specifier|public
 name|Builder
-name|setGeohash
+name|geohash
 parameter_list|(
 name|String
 name|geohash
@@ -607,10 +607,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|setPrecision
+DECL|method|precision
 specifier|public
 name|Builder
-name|setPrecision
+name|precision
 parameter_list|(
 name|int
 name|levels
@@ -626,10 +626,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|setPrecision
+DECL|method|precision
 specifier|public
 name|Builder
-name|setPrecision
+name|precision
 parameter_list|(
 name|String
 name|precision
@@ -654,7 +654,7 @@ name|METERS
 argument_list|)
 decl_stmt|;
 return|return
-name|setPrecision
+name|precision
 argument_list|(
 name|GeoUtils
 operator|.
@@ -665,10 +665,10 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-DECL|method|setNeighbors
+DECL|method|neighbors
 specifier|public
 name|Builder
-name|setNeighbors
+name|neighbors
 parameter_list|(
 name|boolean
 name|neighbors
@@ -684,20 +684,20 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|setField
+DECL|method|field
 specifier|public
 name|Builder
-name|setField
+name|field
 parameter_list|(
 name|String
-name|fieldname
+name|field
 parameter_list|)
 block|{
 name|this
 operator|.
-name|fieldname
+name|field
 operator|=
-name|fieldname
+name|field
 expr_stmt|;
 return|return
 name|this
@@ -762,7 +762,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|fieldname
+name|field
 argument_list|,
 name|geohash
 argument_list|)
@@ -1118,6 +1118,26 @@ argument_list|)
 throw|;
 block|}
 block|}
+if|if
+condition|(
+name|geohash
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|QueryParsingException
+argument_list|(
+name|parseContext
+operator|.
+name|index
+argument_list|()
+argument_list|,
+literal|"no geohash value provided to geohash_cell filter"
+argument_list|)
+throw|;
+block|}
 name|MapperService
 operator|.
 name|SmartNameFieldMappers
@@ -1215,6 +1235,32 @@ operator|.
 name|geoMapper
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|geoMapper
+operator|.
+name|isEnableGeohashPrefix
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|QueryParsingException
+argument_list|(
+name|parseContext
+operator|.
+name|index
+argument_list|()
+argument_list|,
+literal|"can't execute geohash_cell on field ["
+operator|+
+name|fieldName
+operator|+
+literal|"], geohash_prefix is not enabled"
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 name|levels

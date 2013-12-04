@@ -1282,7 +1282,7 @@ argument_list|()
 operator|.
 name|to
 argument_list|(
-name|GeohashFilter
+name|GeohashCellFilter
 operator|.
 name|Parser
 operator|.
