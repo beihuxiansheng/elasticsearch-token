@@ -1886,8 +1886,6 @@ literal|"      cluster.node_info: {}\n"
 operator|+
 literal|"  \n"
 operator|+
-literal|"  - is_true: ok\n"
-operator|+
 literal|"  - is_true: nodes\n"
 operator|+
 literal|"  - is_true: cluster_name\n"
@@ -1953,7 +1951,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|4
+literal|3
 argument_list|)
 argument_list|)
 expr_stmt|;

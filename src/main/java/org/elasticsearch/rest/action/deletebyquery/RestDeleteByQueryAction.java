@@ -712,17 +712,6 @@ name|builder
 operator|.
 name|startObject
 argument_list|()
-operator|.
-name|field
-argument_list|(
-literal|"ok"
-argument_list|,
-name|restStatus
-operator|==
-name|RestStatus
-operator|.
-name|OK
-argument_list|)
 expr_stmt|;
 name|builder
 operator|.

@@ -989,15 +989,6 @@ argument_list|()
 decl_stmt|;
 name|builder
 operator|.
-name|field
-argument_list|(
-literal|"ok"
-argument_list|,
-literal|true
-argument_list|)
-expr_stmt|;
-name|builder
-operator|.
 name|startObject
 argument_list|(
 literal|"node"
