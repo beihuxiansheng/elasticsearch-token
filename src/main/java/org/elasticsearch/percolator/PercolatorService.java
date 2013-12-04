@@ -2113,6 +2113,14 @@ literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// the document parsing exists the "doc" object, so we need to set the new current field.
+name|currentFieldName
+operator|=
+name|parser
+operator|.
+name|currentName
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 elseif|else
