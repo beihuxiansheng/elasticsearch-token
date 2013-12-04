@@ -98,6 +98,15 @@ operator|new
 name|CounterMetric
 argument_list|()
 decl_stmt|;
+DECL|field|SHUTTING_DOWN_KEY
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SHUTTING_DOWN_KEY
+init|=
+literal|"(shutting down)"
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|rejectedExecution
@@ -224,7 +233,9 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"(shutting down) "
+name|SHUTTING_DOWN_KEY
+operator|+
+literal|" "
 argument_list|)
 expr_stmt|;
 block|}
