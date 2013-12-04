@@ -364,6 +364,12 @@ specifier|final
 name|int
 name|shortCircuitParentDocSet
 decl_stmt|;
+DECL|field|nonNestedDocsFilter
+specifier|private
+specifier|final
+name|Filter
+name|nonNestedDocsFilter
+decl_stmt|;
 DECL|field|rewrittenChildQuery
 specifier|private
 name|Query
@@ -392,6 +398,9 @@ name|parentFilter
 parameter_list|,
 name|int
 name|shortCircuitParentDocSet
+parameter_list|,
+name|Filter
+name|nonNestedDocsFilter
 parameter_list|)
 block|{
 name|this
@@ -423,6 +432,12 @@ operator|.
 name|shortCircuitParentDocSet
 operator|=
 name|shortCircuitParentDocSet
+expr_stmt|;
+name|this
+operator|.
+name|nonNestedDocsFilter
+operator|=
+name|nonNestedDocsFilter
 expr_stmt|;
 block|}
 annotation|@
@@ -733,6 +748,8 @@ name|v
 argument_list|()
 operator|.
 name|allocated
+argument_list|,
+name|nonNestedDocsFilter
 argument_list|)
 expr_stmt|;
 block|}
