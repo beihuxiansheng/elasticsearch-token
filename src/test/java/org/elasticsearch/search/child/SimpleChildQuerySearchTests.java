@@ -23625,7 +23625,10 @@ operator|.
 name|values
 argument_list|()
 index|[
-name|randomInt
+name|getRandom
+argument_list|()
+operator|.
+name|nextInt
 argument_list|(
 name|ScoreType
 operator|.
@@ -23634,8 +23637,6 @@ argument_list|()
 operator|.
 name|length
 argument_list|)
-operator|-
-literal|1
 index|]
 operator|.
 name|name
