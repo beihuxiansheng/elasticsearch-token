@@ -23634,6 +23634,8 @@ argument_list|()
 operator|.
 name|length
 argument_list|)
+operator|-
+literal|1
 index|]
 operator|.
 name|name
