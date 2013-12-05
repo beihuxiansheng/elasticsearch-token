@@ -909,6 +909,12 @@ operator|new
 name|FailedEngineHandler
 argument_list|()
 decl_stmt|;
+DECL|field|sendRefreshMapping
+specifier|private
+specifier|final
+name|boolean
+name|sendRefreshMapping
+decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|IndicesClusterStateService
@@ -995,6 +1001,19 @@ operator|.
 name|nodeMappingRefreshAction
 operator|=
 name|nodeMappingRefreshAction
+expr_stmt|;
+name|this
+operator|.
+name|sendRefreshMapping
+operator|=
+name|componentSettings
+operator|.
+name|getAsBoolean
+argument_list|(
+literal|"send_refresh_mapping"
+argument_list|,
+literal|true
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -2437,6 +2456,11 @@ operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|sendRefreshMapping
+condition|)
+block|{
 name|nodeMappingRefreshAction
 operator|.
 name|nodeMappingRefresh
@@ -2485,6 +2509,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// go over and remove mappings
 for|for
@@ -2630,6 +2655,13 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+comment|// refresh mapping can happen for 2 reasons. The first is less urgent, and happens when the mapping on this
+comment|// node is ahead of what there is in the cluster state (yet an update-mapping has been sent to it already,
+comment|// it just hasn't been processed yet and published). Eventually, the mappings will converge, and the refresh
+comment|// mapping sent is more of a safe keeping (assuming the update mapping failed to reach the master, ...)
+comment|// the second case is where the parsing/merging of the mapping from the metadata doesn't result in the same
+comment|// mapping, in this case, we send to the master to refresh its own version of the mappings (to conform with the
+comment|// merge version of it, which it does when refreshing the mappings), and warn log it.
 name|boolean
 name|requiresRefresh
 init|=
@@ -2704,7 +2736,6 @@ name|mappingSource
 argument_list|)
 condition|)
 block|{
-comment|// this might happen when upgrading from 0.15 to 0.16
 name|logger
 operator|.
 name|debug
@@ -2821,7 +2852,6 @@ name|requiresRefresh
 operator|=
 literal|true
 expr_stmt|;
-comment|// this might happen when upgrading from 0.15 to 0.16
 name|logger
 operator|.
 name|debug
