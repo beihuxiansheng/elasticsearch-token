@@ -452,6 +452,8 @@ operator|.
 name|addCell
 argument_list|(
 literal|"cluster"
+argument_list|,
+literal|"desc:cluster name"
 argument_list|)
 expr_stmt|;
 name|t
@@ -459,6 +461,8 @@ operator|.
 name|addCell
 argument_list|(
 literal|"status"
+argument_list|,
+literal|"desc:health status"
 argument_list|)
 expr_stmt|;
 name|t
@@ -467,7 +471,7 @@ name|addCell
 argument_list|(
 literal|"nodeTotal"
 argument_list|,
-literal|"text-align:right;"
+literal|"text-align:right;desc:total number of nodes"
 argument_list|)
 expr_stmt|;
 name|t
@@ -476,7 +480,7 @@ name|addCell
 argument_list|(
 literal|"nodeData"
 argument_list|,
-literal|"text-align:right;"
+literal|"text-align:right;desc:number of nodes that can store data"
 argument_list|)
 expr_stmt|;
 name|t
@@ -485,7 +489,7 @@ name|addCell
 argument_list|(
 literal|"shards"
 argument_list|,
-literal|"text-align:right;"
+literal|"text-align:right;desc:total number of shards"
 argument_list|)
 expr_stmt|;
 name|t
@@ -494,7 +498,7 @@ name|addCell
 argument_list|(
 literal|"pri"
 argument_list|,
-literal|"text-align:right;"
+literal|"text-align:right;desc:number of primary shards"
 argument_list|)
 expr_stmt|;
 name|t
@@ -503,7 +507,7 @@ name|addCell
 argument_list|(
 literal|"relo"
 argument_list|,
-literal|"text-align:right;"
+literal|"text-align:right;desc:number of relocating nodes"
 argument_list|)
 expr_stmt|;
 name|t
@@ -512,7 +516,7 @@ name|addCell
 argument_list|(
 literal|"init"
 argument_list|,
-literal|"text-align:right;"
+literal|"text-align:right;desc:number of initializing nodes"
 argument_list|)
 expr_stmt|;
 name|t
@@ -521,7 +525,7 @@ name|addCell
 argument_list|(
 literal|"unassign"
 argument_list|,
-literal|"text-align:right;"
+literal|"text-align:right;desc:number of unassigned shards"
 argument_list|)
 expr_stmt|;
 name|t

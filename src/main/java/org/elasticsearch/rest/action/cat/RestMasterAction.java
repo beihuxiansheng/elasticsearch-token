@@ -452,16 +452,22 @@ operator|.
 name|addCell
 argument_list|(
 literal|"id"
+argument_list|,
+literal|"desc:node id"
 argument_list|)
 operator|.
 name|addCell
 argument_list|(
 literal|"ip"
+argument_list|,
+literal|"desc:node transport ip address "
 argument_list|)
 operator|.
 name|addCell
 argument_list|(
 literal|"node"
+argument_list|,
+literal|"desc:node name"
 argument_list|)
 operator|.
 name|endHeaders

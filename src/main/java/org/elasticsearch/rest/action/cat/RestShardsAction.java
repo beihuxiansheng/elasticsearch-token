@@ -705,56 +705,56 @@ name|addCell
 argument_list|(
 literal|"index"
 argument_list|,
-literal|"default:true;"
+literal|"default:true;desc:index name"
 argument_list|)
 operator|.
 name|addCell
 argument_list|(
 literal|"shard"
 argument_list|,
-literal|"default:true;"
+literal|"default:true;desc:shard name"
 argument_list|)
 operator|.
 name|addCell
 argument_list|(
 literal|"p/r"
 argument_list|,
-literal|"default:true;"
+literal|"default:true;desc:primary or replica"
 argument_list|)
 operator|.
 name|addCell
 argument_list|(
 literal|"state"
 argument_list|,
-literal|"default:true;"
+literal|"default:true;desc:shard state"
 argument_list|)
 operator|.
 name|addCell
 argument_list|(
 literal|"docs"
 argument_list|,
-literal|"text-align:right;"
+literal|"text-align:right;desc:number of docs in shard"
 argument_list|)
 operator|.
 name|addCell
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"text-align:right;"
+literal|"text-align:right;desc:store size of shard (how much disk it uses)"
 argument_list|)
 operator|.
 name|addCell
 argument_list|(
 literal|"ip"
 argument_list|,
-literal|"default:true;"
+literal|"default:true;desc:ip of node where it lives"
 argument_list|)
 operator|.
 name|addCell
 argument_list|(
 literal|"node"
 argument_list|,
-literal|"default:true;"
+literal|"default:true;desc:name of node where it lives"
 argument_list|)
 operator|.
 name|endHeaders

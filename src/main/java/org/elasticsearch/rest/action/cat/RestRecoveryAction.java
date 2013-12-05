@@ -849,42 +849,50 @@ operator|.
 name|addCell
 argument_list|(
 literal|"index"
+argument_list|,
+literal|"desc:index name"
 argument_list|)
 operator|.
 name|addCell
 argument_list|(
 literal|"shard"
+argument_list|,
+literal|"desc:shard name"
 argument_list|)
 operator|.
 name|addCell
 argument_list|(
 literal|"target"
 argument_list|,
-literal|"text-align:right;"
+literal|"text-align:right;desc:bytes of source shard"
 argument_list|)
 operator|.
 name|addCell
 argument_list|(
 literal|"recovered"
 argument_list|,
-literal|"text-align:right;"
+literal|"text-align:right;desc:bytes recovered so far"
 argument_list|)
 operator|.
 name|addCell
 argument_list|(
 literal|"%"
 argument_list|,
-literal|"text-align:right;"
+literal|"text-align:right;desc:percent recovered so far"
 argument_list|)
 operator|.
 name|addCell
 argument_list|(
 literal|"ip"
+argument_list|,
+literal|"desc:node ip where source shard lives"
 argument_list|)
 operator|.
 name|addCell
 argument_list|(
 literal|"node"
+argument_list|,
+literal|"desc:node name where source shard lives"
 argument_list|)
 operator|.
 name|endHeaders

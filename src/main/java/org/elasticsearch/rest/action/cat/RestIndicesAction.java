@@ -846,6 +846,8 @@ operator|.
 name|addCell
 argument_list|(
 literal|"health"
+argument_list|,
+literal|"desc:current health status"
 argument_list|)
 expr_stmt|;
 name|table
@@ -853,6 +855,8 @@ operator|.
 name|addCell
 argument_list|(
 literal|"index"
+argument_list|,
+literal|"desc:index name"
 argument_list|)
 expr_stmt|;
 name|table
@@ -861,7 +865,7 @@ name|addCell
 argument_list|(
 literal|"pri"
 argument_list|,
-literal|"text-align:right;"
+literal|"text-align:right;desc:number of primary shards"
 argument_list|)
 expr_stmt|;
 name|table
@@ -870,7 +874,7 @@ name|addCell
 argument_list|(
 literal|"rep"
 argument_list|,
-literal|"text-align:right;"
+literal|"text-align:right;desc:number of replica shards"
 argument_list|)
 expr_stmt|;
 name|table
@@ -879,7 +883,7 @@ name|addCell
 argument_list|(
 literal|"docs"
 argument_list|,
-literal|"text-align:right;"
+literal|"text-align:right;desc:available docs"
 argument_list|)
 expr_stmt|;
 name|table
@@ -888,7 +892,7 @@ name|addCell
 argument_list|(
 literal|"docs/del"
 argument_list|,
-literal|"text-align:right;"
+literal|"text-align:right;desc:deleted docs"
 argument_list|)
 expr_stmt|;
 name|table
@@ -897,7 +901,7 @@ name|addCell
 argument_list|(
 literal|"size/pri"
 argument_list|,
-literal|"text-align:right;"
+literal|"text-align:right;desc:store size of primaries"
 argument_list|)
 expr_stmt|;
 name|table
@@ -906,7 +910,7 @@ name|addCell
 argument_list|(
 literal|"size/total"
 argument_list|,
-literal|"text-align:right;"
+literal|"text-align:right;desc:store size of primaries& replicas"
 argument_list|)
 expr_stmt|;
 name|table
