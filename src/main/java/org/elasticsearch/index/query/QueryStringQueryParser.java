@@ -884,15 +884,10 @@ name|qpSettings
 operator|.
 name|defaultField
 argument_list|(
-name|parseContext
-operator|.
-name|indexName
-argument_list|(
 name|parser
 operator|.
 name|text
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
