@@ -18,18 +18,6 @@ begin_import
 import|import
 name|com
 operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|SeedUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
 name|google
 operator|.
 name|common
@@ -672,6 +660,34 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
+name|TestCluster
+operator|.
+name|SHARED_CLUSTER_SEED
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|TestCluster
+operator|.
+name|clusterName
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
 name|hamcrest
 operator|.
 name|ElasticsearchAssertions
@@ -721,7 +737,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link ElasticsearchIntegrationTest} is an abstract base class to run integration  * tests against a JVM private Elasticsearch Cluster. The test class supports 3 different  * cluster scopes.  *<ul>  *<li>{@link Scope#GLOBAL} - uses a cluster shared across test suites. This cluster doesn't allow any modifications to  * the cluster settings and will fail if any persistent cluster settings are applied during tear down.</li>  *<li>{@link Scope#TEST} - uses a new cluster for each individual test method.</li>  *<li>{@link Scope#SUITE} - uses a cluster shared across all test method in the same suite</li>  *</ul>  *<p/>  * The most common test scope it {@link Scope#GLOBAL} which shares a cluster per JVM. This cluster is only set-up once  * and can be used as long as the tests work on a per index basis without changing any cluster wide settings or require  * any specific node configuration. This is the best performing option since it sets up the cluster only once.  *<p/>  * If the tests need specific node settings or change persistent and/or transient cluster settings either {@link Scope#TEST}  * or {@link Scope#SUITE} should be used. To configure a scope for the test cluster the {@link ClusterScope} annotation  * should be used, here is an example:  *<pre>  * @ClusterScope(scope=Scope.TEST)  * public class SomeIntegrationTest extends ElasticsearchIntegrationTest {  *   @Test  *   public void testMethod() {}  * }  *</pre>  *  * If no {@link ClusterScope} annotation is present on an integration test the default scope it {@link Scope#GLOBAL}  *<p/>  * A test cluster creates a set of nodes in the background before the test starts. The number of nodes in the cluster is  * determined at random and can change across tests. The minimum number of nodes in the shared global cluster is<code>2</code>.  * For other scopes the {@link ClusterScope} allows configuring the initial number of nodes that are created before  * the tests start.  *  *<pre>  * @ClusterScope(scope=Scope.SUITE, numNodes=3)  * public class SomeIntegrationTest extends ElasticsearchIntegrationTest {  *   @Test  *   public void testMethod() {}  * }  *</pre>  *<p/>  * Note, the {@link ElasticsearchIntegrationTest} uses randomized settings on a cluster and index level. For instance  * each test might use different directory implementation for each test or will return a random client to one of the  * nodes in the cluster for each call to {@link #client()}. Test failures might only be reproducible if the correct  * system properties are passed to the test execution environment.  *  *<p>  *     This class supports the following system properties (passed with -Dkey=value to the application)  *<ul>  *<li>-D{@value #TESTS_CLIENT_RATIO} - a double value in the interval [0..1] which defines the ration between node and transport clients used</li>  *<li>-D{@value #TESTS_CLUSTER_SEED} - a random seed used to initialize the clusters random context.  *<li>-D{@value #INDEX_SEED_SETTING} - a random seed used to initialize the index random context.  *</ul>  *</p>  */
+comment|/**  * {@link ElasticsearchIntegrationTest} is an abstract base class to run integration  * tests against a JVM private Elasticsearch Cluster. The test class supports 3 different  * cluster scopes.  *<ul>  *<li>{@link Scope#GLOBAL} - uses a cluster shared across test suites. This cluster doesn't allow any modifications to  * the cluster settings and will fail if any persistent cluster settings are applied during tear down.</li>  *<li>{@link Scope#TEST} - uses a new cluster for each individual test method.</li>  *<li>{@link Scope#SUITE} - uses a cluster shared across all test method in the same suite</li>  *</ul>  *<p/>  * The most common test scope it {@link Scope#GLOBAL} which shares a cluster per JVM. This cluster is only set-up once  * and can be used as long as the tests work on a per index basis without changing any cluster wide settings or require  * any specific node configuration. This is the best performing option since it sets up the cluster only once.  *<p/>  * If the tests need specific node settings or change persistent and/or transient cluster settings either {@link Scope#TEST}  * or {@link Scope#SUITE} should be used. To configure a scope for the test cluster the {@link ClusterScope} annotation  * should be used, here is an example:  *<pre>  * @ClusterScope(scope=Scope.TEST)  * public class SomeIntegrationTest extends ElasticsearchIntegrationTest {  *   @Test  *   public void testMethod() {}  * }  *</pre>  *  * If no {@link ClusterScope} annotation is present on an integration test the default scope it {@link Scope#GLOBAL}  *<p/>  * A test cluster creates a set of nodes in the background before the test starts. The number of nodes in the cluster is  * determined at random and can change across tests. The minimum number of nodes in the shared global cluster is<code>2</code>.  * For other scopes the {@link ClusterScope} allows configuring the initial number of nodes that are created before  * the tests start.  *  *<pre>  * @ClusterScope(scope=Scope.SUITE, numNodes=3)  * public class SomeIntegrationTest extends ElasticsearchIntegrationTest {  *   @Test  *   public void testMethod() {}  * }  *</pre>  *<p/>  * Note, the {@link ElasticsearchIntegrationTest} uses randomized settings on a cluster and index level. For instance  * each test might use different directory implementation for each test or will return a random client to one of the  * nodes in the cluster for each call to {@link #client()}. Test failures might only be reproducible if the correct  * system properties are passed to the test execution environment.  *  *<p>  *     This class supports the following system properties (passed with -Dkey=value to the application)  *<ul>  *<li>-D{@value #TESTS_CLIENT_RATIO} - a double value in the interval [0..1] which defines the ration between node and transport clients used</li>  *<li>-D{@value TestCluster#TESTS_CLUSTER_SEED} - a random seed used to initialize the clusters random context.  *<li>-D{@value #INDEX_SEED_SETTING} - a random seed used to initialize the index random context.  *</ul>  *</p>  */
 end_comment
 
 begin_class
@@ -739,17 +755,6 @@ name|ElasticsearchIntegrationTest
 extends|extends
 name|ElasticsearchTestCase
 block|{
-comment|/**      * The random seed for the shared  test cluster used in the current JVM.      */
-DECL|field|SHARED_CLUSTER_SEED
-specifier|public
-specifier|static
-specifier|final
-name|long
-name|SHARED_CLUSTER_SEED
-init|=
-name|clusterSeed
-argument_list|()
-decl_stmt|;
 DECL|field|GLOBAL_CLUSTER
 specifier|private
 specifier|static
@@ -762,8 +767,6 @@ name|TestCluster
 argument_list|(
 name|SHARED_CLUSTER_SEED
 argument_list|,
-name|TestCluster
-operator|.
 name|clusterName
 argument_list|(
 literal|"shared"
@@ -785,16 +788,6 @@ name|String
 name|TESTS_CLIENT_RATIO
 init|=
 literal|"tests.client.ratio"
-decl_stmt|;
-comment|/**      * Key used to set the shared cluster random seed via the commandline -D{@value #TESTS_CLUSTER_SEED}      */
-DECL|field|TESTS_CLUSTER_SEED
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|TESTS_CLUSTER_SEED
-init|=
-literal|"tests.cluster_seed"
 decl_stmt|;
 comment|/**      * Key used to retrieve the index random seed from the index settings on a running node.      * The value of this seed can be used to initialize a random context for a specific index.      * It's set once per test via a generic index template.      */
 DECL|field|INDEX_SEED_SETTING
@@ -4421,8 +4414,6 @@ name|currentClusterSeed
 argument_list|,
 name|numNodes
 argument_list|,
-name|TestCluster
-operator|.
 name|clusterName
 argument_list|(
 name|scope
@@ -4489,51 +4480,6 @@ default|default
 operator|-
 literal|1
 function_decl|;
-block|}
-DECL|method|clusterSeed
-specifier|private
-specifier|static
-name|long
-name|clusterSeed
-parameter_list|()
-block|{
-name|String
-name|property
-init|=
-name|System
-operator|.
-name|getProperty
-argument_list|(
-name|TESTS_CLUSTER_SEED
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|property
-operator|==
-literal|null
-operator|||
-name|property
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-block|{
-return|return
-name|System
-operator|.
-name|nanoTime
-argument_list|()
-return|;
-block|}
-return|return
-name|SeedUtils
-operator|.
-name|parseSeed
-argument_list|(
-name|property
-argument_list|)
-return|;
 block|}
 comment|/**      *  Returns the client ratio configured via      */
 DECL|method|transportClientRatio
