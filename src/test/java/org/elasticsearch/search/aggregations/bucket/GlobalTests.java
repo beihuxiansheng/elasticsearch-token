@@ -238,6 +238,22 @@ begin_import
 import|import static
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertSearchResponse
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -585,17 +601,9 @@ operator|.
 name|actionGet
 argument_list|()
 decl_stmt|;
-name|assertThat
+name|assertSearchResponse
 argument_list|(
 name|response
-operator|.
-name|getFailedShards
-argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|0
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|Global
