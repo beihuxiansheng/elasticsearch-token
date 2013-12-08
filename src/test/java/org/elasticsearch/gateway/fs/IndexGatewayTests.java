@@ -32,6 +32,20 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|base
+operator|.
+name|Predicate
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -387,6 +401,22 @@ operator|.
 name|QueryBuilders
 operator|.
 name|matchAllQuery
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertAcked
 import|;
 end_import
 
@@ -3283,6 +3313,8 @@ name|GREEN
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertAcked
+argument_list|(
 name|client
 argument_list|()
 operator|.
@@ -3302,6 +3334,7 @@ argument_list|)
 operator|.
 name|actionGet
 argument_list|()
+argument_list|)
 expr_stmt|;
 name|cluster
 argument_list|()
@@ -3320,13 +3353,29 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Thread
-operator|.
-name|sleep
+name|assertTrue
 argument_list|(
-literal|500
-argument_list|)
-expr_stmt|;
+literal|"index should exists"
+argument_list|,
+name|awaitBusy
+argument_list|(
+operator|new
+name|Predicate
+argument_list|<
+name|Object
+argument_list|>
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|apply
+parameter_list|(
+name|Object
+name|input
+parameter_list|)
+block|{
 try|try
 block|{
 name|client
@@ -3349,11 +3398,9 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-assert|assert
+return|return
 literal|false
-operator|:
-literal|"index should exists"
-assert|;
+return|;
 block|}
 catch|catch
 parameter_list|(
@@ -3362,7 +3409,15 @@ name|e
 parameter_list|)
 block|{
 comment|// all is well
+return|return
+literal|true
+return|;
 block|}
+block|}
+block|}
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
