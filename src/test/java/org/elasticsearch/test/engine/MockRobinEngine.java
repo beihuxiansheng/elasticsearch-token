@@ -767,6 +767,12 @@ operator|new
 name|Object
 argument_list|()
 decl_stmt|;
+DECL|field|initialRefCount
+specifier|private
+specifier|final
+name|int
+name|initialRefCount
+decl_stmt|;
 DECL|method|AssertingSearcher
 specifier|public
 name|AssertingSearcher
@@ -790,6 +796,27 @@ name|shardId
 operator|=
 name|shardId
 expr_stmt|;
+name|initialRefCount
+operator|=
+name|searcher
+operator|.
+name|reader
+argument_list|()
+operator|.
+name|getRefCount
+argument_list|()
+expr_stmt|;
+assert|assert
+name|initialRefCount
+operator|>
+literal|0
+operator|:
+literal|"IndexReader#getRefCount() was ["
+operator|+
+name|initialRefCount
+operator|+
+literal|"] expected a value> [0] - reader is already closed"
+assert|;
 name|INFLIGHT_ENGINE_SEARCHERS
 operator|.
 name|put
@@ -915,6 +942,35 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+specifier|final
+name|int
+name|refCount
+init|=
+name|searcher
+operator|.
+name|reader
+argument_list|()
+operator|.
+name|getRefCount
+argument_list|()
+decl_stmt|;
+comment|// this assert seems to be paranoid but given LUCENE-5362 we better add some assertions here to make sure we catch any potential
+comment|// problems.
+assert|assert
+name|refCount
+operator|>
+literal|0
+operator|:
+literal|"IndexReader#getRefCount() was ["
+operator|+
+name|refCount
+operator|+
+literal|"] expected a value> [0] - reader is already closed. Initial refCount was: ["
+operator|+
+name|initialRefCount
+operator|+
+literal|"]"
+assert|;
 try|try
 block|{
 return|return
