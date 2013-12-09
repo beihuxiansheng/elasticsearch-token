@@ -225,6 +225,9 @@ name|FetchSubPhase
 operator|.
 name|HitContext
 name|hitContext
+parameter_list|,
+name|boolean
+name|forceSource
 parameter_list|)
 throws|throws
 name|IOException
@@ -237,6 +240,9 @@ name|textsToHighlight
 decl_stmt|;
 if|if
 condition|(
+operator|!
+name|forceSource
+operator|&&
 name|mapper
 operator|.
 name|fieldType
