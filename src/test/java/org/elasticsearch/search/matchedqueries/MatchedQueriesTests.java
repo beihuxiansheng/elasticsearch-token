@@ -1957,6 +1957,14 @@ name|refresh
 argument_list|()
 expr_stmt|;
 comment|// Execute search at least two times to load it in cache
+name|int
+name|iter
+init|=
+name|atLeast
+argument_list|(
+literal|2
+argument_list|)
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -1966,10 +1974,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|atLeast
-argument_list|(
-literal|2
-argument_list|)
+name|iter
 condition|;
 name|i
 operator|++
