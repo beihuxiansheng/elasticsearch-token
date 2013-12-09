@@ -2557,6 +2557,9 @@ literal|12l
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|ensureSearchable
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|indexDoc
 specifier|private

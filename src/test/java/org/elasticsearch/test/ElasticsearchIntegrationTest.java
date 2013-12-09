@@ -2126,7 +2126,11 @@ DECL|method|ensureGreen
 specifier|public
 name|ClusterHealthStatus
 name|ensureGreen
-parameter_list|()
+parameter_list|(
+name|String
+modifier|...
+name|indices
+parameter_list|)
 block|{
 name|ClusterHealthResponse
 name|actionGet
@@ -2145,7 +2149,9 @@ argument_list|(
 name|Requests
 operator|.
 name|clusterHealthRequest
-argument_list|()
+argument_list|(
+name|indices
+argument_list|)
 operator|.
 name|waitForGreenStatus
 argument_list|()
@@ -2435,7 +2441,11 @@ DECL|method|ensureYellow
 specifier|public
 name|ClusterHealthStatus
 name|ensureYellow
-parameter_list|()
+parameter_list|(
+name|String
+modifier|...
+name|indices
+parameter_list|)
 block|{
 name|ClusterHealthResponse
 name|actionGet
@@ -2454,7 +2464,9 @@ argument_list|(
 name|Requests
 operator|.
 name|clusterHealthRequest
-argument_list|()
+argument_list|(
+name|indices
+argument_list|)
 operator|.
 name|waitForRelocatingShards
 argument_list|(
@@ -2550,6 +2562,25 @@ name|actionGet
 operator|.
 name|getStatus
 argument_list|()
+return|;
+block|}
+comment|/**      * Ensures the cluster is in a searchable state for the given indices. This means a searchable copy of each      * shard is available on the cluster.      */
+DECL|method|ensureSearchable
+specifier|protected
+name|ClusterHealthStatus
+name|ensureSearchable
+parameter_list|(
+name|String
+modifier|...
+name|indices
+parameter_list|)
+block|{
+comment|// this is just a temporary thing but it's easier to change if it is encapsulated.
+return|return
+name|ensureYellow
+argument_list|(
+name|indices
+argument_list|)
 return|;
 block|}
 comment|/**      * Syntactic sugar for:      *<pre>      *   client().prepareIndex(index, type).setSource(source).execute().actionGet();      *</pre>      */

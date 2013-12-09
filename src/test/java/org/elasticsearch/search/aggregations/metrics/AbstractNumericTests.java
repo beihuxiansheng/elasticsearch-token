@@ -388,6 +388,9 @@ argument_list|,
 name|builders
 argument_list|)
 expr_stmt|;
+name|ensureSearchable
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|testEmptyAggregation
 specifier|public
