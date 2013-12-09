@@ -710,7 +710,7 @@ name|DistanceUnit
 name|unit
 decl_stmt|;
 DECL|method|Distance
-specifier|private
+specifier|public
 name|Distance
 parameter_list|(
 name|double

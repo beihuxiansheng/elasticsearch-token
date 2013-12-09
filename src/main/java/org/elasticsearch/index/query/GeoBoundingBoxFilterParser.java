@@ -20,16 +20,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|ElasticSearchParseException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|apache
 operator|.
 name|lucene
@@ -37,6 +27,16 @@ operator|.
 name|search
 operator|.
 name|Filter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|ElasticSearchParseException
 import|;
 end_import
 
@@ -826,8 +826,6 @@ operator|(
 name|mapper
 operator|instanceof
 name|GeoPointFieldMapper
-operator|.
-name|GeoStringFieldMapper
 operator|)
 condition|)
 block|{
@@ -854,14 +852,9 @@ init|=
 operator|(
 operator|(
 name|GeoPointFieldMapper
-operator|.
-name|GeoStringFieldMapper
 operator|)
 name|mapper
 operator|)
-operator|.
-name|geoMapper
-argument_list|()
 decl_stmt|;
 name|Filter
 name|filter

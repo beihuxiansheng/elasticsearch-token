@@ -1198,8 +1198,6 @@ operator|(
 name|mapper
 operator|instanceof
 name|GeoPointFieldMapper
-operator|.
-name|GeoStringFieldMapper
 operator|)
 condition|)
 block|{
@@ -1226,14 +1224,9 @@ init|=
 operator|(
 operator|(
 name|GeoPointFieldMapper
-operator|.
-name|GeoStringFieldMapper
 operator|)
 name|mapper
 operator|)
-operator|.
-name|geoMapper
-argument_list|()
 decl_stmt|;
 if|if
 condition|(

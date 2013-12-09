@@ -783,12 +783,10 @@ name|Settings
 name|indexSettings
 parameter_list|,
 name|FieldMapper
-operator|.
-name|Names
-name|fieldNames
-parameter_list|,
-name|FieldDataType
-name|type
+argument_list|<
+name|?
+argument_list|>
+name|mapper
 parameter_list|,
 name|IndexFieldDataCache
 name|cache

@@ -315,8 +315,6 @@ operator|.
 name|geo
 operator|.
 name|GeoPointFieldMapper
-operator|.
-name|GeoStringFieldMapper
 import|;
 end_import
 
@@ -654,7 +652,7 @@ if|if
 condition|(
 name|mapper
 operator|instanceof
-name|GeoStringFieldMapper
+name|GeoPointFieldMapper
 condition|)
 block|{
 return|return
@@ -667,7 +665,7 @@ argument_list|,
 name|parseContext
 argument_list|,
 operator|(
-name|GeoStringFieldMapper
+name|GeoPointFieldMapper
 operator|)
 name|mapper
 argument_list|)
@@ -1015,7 +1013,7 @@ parameter_list|,
 name|QueryParseContext
 name|parseContext
 parameter_list|,
-name|GeoStringFieldMapper
+name|GeoPointFieldMapper
 name|mapper
 parameter_list|)
 throws|throws
