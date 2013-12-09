@@ -388,10 +388,6 @@ argument_list|,
 name|builders
 argument_list|)
 expr_stmt|;
-name|ensureGreen
-argument_list|()
-expr_stmt|;
-comment|// wait until we are ready to serve requests
 block|}
 DECL|method|testEmptyAggregation
 specifier|public
