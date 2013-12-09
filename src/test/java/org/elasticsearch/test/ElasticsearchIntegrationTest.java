@@ -2577,7 +2577,7 @@ parameter_list|)
 block|{
 comment|// this is just a temporary thing but it's easier to change if it is encapsulated.
 return|return
-name|ensureYellow
+name|ensureGreen
 argument_list|(
 name|indices
 argument_list|)

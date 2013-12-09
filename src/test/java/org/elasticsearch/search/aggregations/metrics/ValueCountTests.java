@@ -387,14 +387,12 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+name|ensureSearchable
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"search:TRACE"
-argument_list|)
 DECL|method|unmapped
 specifier|public
 name|void
