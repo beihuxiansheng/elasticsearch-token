@@ -334,12 +334,17 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// Use the reader directly otherwise the IndexSearcher assertion will trip because it expects a top level
+comment|// reader context.
 name|atomicIndexSearcher
 operator|=
 operator|new
 name|IndexSearcher
 argument_list|(
 name|readerContext
+operator|.
+name|reader
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
