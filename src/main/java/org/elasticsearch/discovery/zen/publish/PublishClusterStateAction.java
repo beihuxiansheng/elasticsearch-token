@@ -375,12 +375,9 @@ name|getAsTime
 argument_list|(
 literal|"discovery.zen.publish_timeout"
 argument_list|,
-name|TimeValue
+name|Discovery
 operator|.
-name|timeValueSeconds
-argument_list|(
-literal|5
-argument_list|)
+name|DEFAULT_PUBLISH_TIMEOUT
 argument_list|)
 expr_stmt|;
 name|transportService

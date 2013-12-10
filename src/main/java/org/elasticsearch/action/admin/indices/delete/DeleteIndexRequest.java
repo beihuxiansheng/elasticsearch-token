@@ -44,6 +44,22 @@ name|support
 operator|.
 name|master
 operator|.
+name|AcknowledgedRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|support
+operator|.
+name|master
+operator|.
 name|MasterNodeOperationRequest
 import|;
 end_import
@@ -134,22 +150,6 @@ name|readTimeValue
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|unit
-operator|.
-name|TimeValue
-operator|.
-name|timeValueSeconds
-import|;
-end_import
-
 begin_comment
 comment|/**  * A request to delete an index. Best created with {@link org.elasticsearch.client.Requests#deleteIndexRequest(String)}.  */
 end_comment
@@ -176,10 +176,9 @@ specifier|private
 name|TimeValue
 name|timeout
 init|=
-name|timeValueSeconds
-argument_list|(
-literal|60
-argument_list|)
+name|AcknowledgedRequest
+operator|.
+name|DEFAULT_ACK_TIMEOUT
 decl_stmt|;
 DECL|method|DeleteIndexRequest
 name|DeleteIndexRequest
@@ -289,6 +288,7 @@ return|;
 block|}
 comment|/**      * Timeout to wait for the index deletion to be acknowledged by current cluster nodes. Defaults      * to<tt>10s</tt>.      */
 DECL|method|timeout
+specifier|public
 name|TimeValue
 name|timeout
 parameter_list|()

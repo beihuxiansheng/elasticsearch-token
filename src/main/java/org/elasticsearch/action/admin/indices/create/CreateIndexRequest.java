@@ -108,6 +108,22 @@ name|support
 operator|.
 name|master
 operator|.
+name|AcknowledgedRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|support
+operator|.
+name|master
+operator|.
 name|MasterNodeOperationRequest
 import|;
 end_import
@@ -305,18 +321,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|TimeUnit
-import|;
-end_import
-
-begin_import
 import|import static
 name|com
 operator|.
@@ -479,15 +483,9 @@ specifier|private
 name|TimeValue
 name|timeout
 init|=
-operator|new
-name|TimeValue
-argument_list|(
-literal|10
-argument_list|,
-name|TimeUnit
+name|AcknowledgedRequest
 operator|.
-name|SECONDS
-argument_list|)
+name|DEFAULT_ACK_TIMEOUT
 decl_stmt|;
 DECL|method|CreateIndexRequest
 name|CreateIndexRequest
@@ -1564,6 +1562,7 @@ return|;
 block|}
 comment|/**      * Timeout to wait for the index creation to be acknowledged by current cluster nodes. Defaults      * to<tt>10s</tt>.      */
 DECL|method|timeout
+specifier|public
 name|TimeValue
 name|timeout
 parameter_list|()

@@ -194,22 +194,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|unit
-operator|.
-name|TimeValue
-operator|.
-name|timeValueSeconds
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|rest
 operator|.
 name|RestStatus
@@ -336,10 +320,10 @@ name|paramAsTime
 argument_list|(
 literal|"timeout"
 argument_list|,
-name|timeValueSeconds
-argument_list|(
-literal|10
-argument_list|)
+name|deleteIndexRequest
+operator|.
+name|timeout
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
