@@ -251,6 +251,16 @@ operator|.
 name|nodeBuilder
 argument_list|()
 operator|.
+name|clusterName
+argument_list|(
+name|GeoDistanceSearchBenchmark
+operator|.
+name|class
+operator|.
+name|getSimpleName
+argument_list|()
+argument_list|)
+operator|.
 name|node
 argument_list|()
 decl_stmt|;
