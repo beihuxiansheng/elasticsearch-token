@@ -1337,7 +1337,7 @@ name|primaryShard
 init|=
 name|routingNodes
 operator|.
-name|findPrimaryForReplica
+name|activePrimary
 argument_list|(
 name|shard
 argument_list|)
@@ -1347,13 +1347,14 @@ condition|(
 name|primaryShard
 operator|!=
 literal|null
-operator|&&
+condition|)
+block|{
+assert|assert
 name|primaryShard
 operator|.
 name|active
 argument_list|()
-condition|)
-block|{
+assert|;
 name|DiscoveryNode
 name|primaryNode
 init|=
@@ -1607,7 +1608,7 @@ operator|.
 name|routingNodes
 argument_list|()
 operator|.
-name|assignShardToNode
+name|assign
 argument_list|(
 name|shard
 argument_list|,

@@ -1041,7 +1041,7 @@ operator|.
 name|routingNodes
 argument_list|()
 operator|.
-name|assignShardToNode
+name|assign
 argument_list|(
 name|shardRouting
 argument_list|,

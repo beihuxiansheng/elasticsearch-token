@@ -173,7 +173,7 @@ operator|.
 name|routingNodes
 argument_list|()
 operator|.
-name|findPrimaryForReplica
+name|activePrimary
 argument_list|(
 name|shardRouting
 argument_list|)
@@ -183,12 +183,6 @@ condition|(
 name|primary
 operator|==
 literal|null
-operator|||
-operator|!
-name|primary
-operator|.
-name|active
-argument_list|()
 condition|)
 block|{
 return|return

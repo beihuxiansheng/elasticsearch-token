@@ -190,7 +190,23 @@ name|routing
 operator|.
 name|ShardRoutingState
 operator|.
-name|*
+name|INITIALIZING
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|ShardRoutingState
+operator|.
+name|STARTED
 import|;
 end_import
 
@@ -237,18 +253,6 @@ operator|.
 name|Matchers
 operator|.
 name|equalTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|nullValue
 import|;
 end_import
 
@@ -3928,10 +3932,12 @@ name|routingNodes
 parameter_list|)
 block|{
 return|return
-name|routingNodes
+name|RoutingNodes
 operator|.
 name|assertShardStats
-argument_list|()
+argument_list|(
+name|routingNodes
+argument_list|)
 return|;
 block|}
 block|}

@@ -592,9 +592,6 @@ argument_list|(
 literal|"node1"
 argument_list|)
 operator|.
-name|shards
-argument_list|()
-operator|.
 name|size
 argument_list|()
 argument_list|,
@@ -615,9 +612,6 @@ name|node
 argument_list|(
 literal|"node1"
 argument_list|)
-operator|.
-name|shards
-argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -645,9 +639,6 @@ argument_list|(
 literal|"node2"
 argument_list|)
 operator|.
-name|shards
-argument_list|()
-operator|.
 name|size
 argument_list|()
 argument_list|,
@@ -668,9 +659,6 @@ name|node
 argument_list|(
 literal|"node2"
 argument_list|)
-operator|.
-name|shards
-argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -767,9 +755,6 @@ argument_list|(
 literal|"node1"
 argument_list|)
 operator|.
-name|shards
-argument_list|()
-operator|.
 name|size
 argument_list|()
 argument_list|,
@@ -790,9 +775,6 @@ name|node
 argument_list|(
 literal|"node1"
 argument_list|)
-operator|.
-name|shards
-argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -820,9 +802,6 @@ argument_list|(
 literal|"node2"
 argument_list|)
 operator|.
-name|shards
-argument_list|()
-operator|.
 name|size
 argument_list|()
 argument_list|,
@@ -843,9 +822,6 @@ name|node
 argument_list|(
 literal|"node2"
 argument_list|)
-operator|.
-name|shards
-argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -872,9 +848,6 @@ name|node
 argument_list|(
 literal|"node3"
 argument_list|)
-operator|.
-name|shards
-argument_list|()
 operator|.
 name|size
 argument_list|()
@@ -1051,9 +1024,6 @@ argument_list|(
 name|origPrimaryNodeId
 argument_list|)
 operator|.
-name|shards
-argument_list|()
-operator|.
 name|get
 argument_list|(
 literal|0
@@ -1079,9 +1049,6 @@ name|node
 argument_list|(
 literal|"node3"
 argument_list|)
-operator|.
-name|shards
-argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -1125,9 +1092,6 @@ argument_list|(
 literal|"node3"
 argument_list|)
 operator|.
-name|shards
-argument_list|()
-operator|.
 name|get
 argument_list|(
 literal|0
@@ -1167,9 +1131,6 @@ argument_list|(
 name|origPrimaryNodeId
 argument_list|)
 operator|.
-name|shards
-argument_list|()
-operator|.
 name|get
 argument_list|(
 literal|0
@@ -1195,9 +1156,6 @@ name|node
 argument_list|(
 literal|"node3"
 argument_list|)
-operator|.
-name|shards
-argument_list|()
 operator|.
 name|size
 argument_list|()
@@ -1321,9 +1279,6 @@ argument_list|(
 name|origPrimaryNodeId
 argument_list|)
 operator|.
-name|shards
-argument_list|()
-operator|.
 name|get
 argument_list|(
 literal|0
@@ -1349,9 +1304,6 @@ name|node
 argument_list|(
 literal|"node3"
 argument_list|)
-operator|.
-name|shards
-argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -1395,9 +1347,6 @@ argument_list|(
 name|origPrimaryNodeId
 argument_list|)
 operator|.
-name|shards
-argument_list|()
-operator|.
 name|get
 argument_list|(
 literal|0
@@ -1437,9 +1386,6 @@ name|node
 argument_list|(
 name|origReplicaNodeId
 argument_list|)
-operator|.
-name|shards
-argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -1870,9 +1816,6 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|shards
-argument_list|()
-operator|.
 name|size
 argument_list|()
 argument_list|,
@@ -2189,9 +2132,6 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|shards
-argument_list|()
-operator|.
 name|size
 argument_list|()
 argument_list|,
@@ -2477,9 +2417,6 @@ name|shard
 argument_list|(
 literal|0
 argument_list|)
-operator|.
-name|shards
-argument_list|()
 operator|.
 name|size
 argument_list|()
@@ -5190,9 +5127,6 @@ argument_list|(
 literal|"node3"
 argument_list|)
 operator|.
-name|shards
-argument_list|()
-operator|.
 name|get
 argument_list|(
 literal|0
@@ -5397,9 +5331,6 @@ name|node
 argument_list|(
 literal|"node3"
 argument_list|)
-operator|.
-name|shards
-argument_list|()
 operator|.
 name|get
 argument_list|(

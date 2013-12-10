@@ -319,16 +319,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -3042,10 +3032,9 @@ name|RoutingAllocation
 name|allocation
 parameter_list|)
 block|{
-name|List
-argument_list|<
-name|MutableShardRouting
-argument_list|>
+name|RoutingNodes
+operator|.
+name|UnassignedShards
 name|unassigned
 init|=
 name|allocation
@@ -3097,7 +3086,7 @@ operator|.
 name|routingNodes
 argument_list|()
 operator|.
-name|assignShardToNode
+name|assign
 argument_list|(
 name|sr
 argument_list|,
@@ -3112,7 +3101,7 @@ operator|.
 name|routingNodes
 argument_list|()
 operator|.
-name|assignShardToNode
+name|assign
 argument_list|(
 name|sr
 argument_list|,
@@ -3137,7 +3126,7 @@ operator|.
 name|routingNodes
 argument_list|()
 operator|.
-name|assignShardToNode
+name|assign
 argument_list|(
 name|sr
 argument_list|,
@@ -3152,7 +3141,7 @@ operator|.
 name|routingNodes
 argument_list|()
 operator|.
-name|assignShardToNode
+name|assign
 argument_list|(
 name|sr
 argument_list|,
@@ -3177,7 +3166,7 @@ operator|.
 name|routingNodes
 argument_list|()
 operator|.
-name|assignShardToNode
+name|assign
 argument_list|(
 name|sr
 argument_list|,
@@ -3192,7 +3181,7 @@ operator|.
 name|routingNodes
 argument_list|()
 operator|.
-name|assignShardToNode
+name|assign
 argument_list|(
 name|sr
 argument_list|,
@@ -3217,7 +3206,7 @@ operator|.
 name|routingNodes
 argument_list|()
 operator|.
-name|assignShardToNode
+name|assign
 argument_list|(
 name|sr
 argument_list|,
@@ -3232,7 +3221,7 @@ operator|.
 name|routingNodes
 argument_list|()
 operator|.
-name|assignShardToNode
+name|assign
 argument_list|(
 name|sr
 argument_list|,
@@ -3257,7 +3246,7 @@ operator|.
 name|routingNodes
 argument_list|()
 operator|.
-name|assignShardToNode
+name|assign
 argument_list|(
 name|sr
 argument_list|,
@@ -3272,7 +3261,7 @@ operator|.
 name|routingNodes
 argument_list|()
 operator|.
-name|assignShardToNode
+name|assign
 argument_list|(
 name|sr
 argument_list|,

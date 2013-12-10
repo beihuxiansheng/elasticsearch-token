@@ -1031,7 +1031,7 @@ operator|.
 name|routingNodes
 argument_list|()
 operator|.
-name|assignShardToNode
+name|assign
 argument_list|(
 operator|new
 name|MutableShardRouting
@@ -1089,7 +1089,7 @@ operator|.
 name|routingNodes
 argument_list|()
 operator|.
-name|relocateShard
+name|relocate
 argument_list|(
 name|shardRouting
 argument_list|,

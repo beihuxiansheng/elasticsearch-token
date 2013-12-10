@@ -1422,9 +1422,6 @@ operator|+
 name|i
 argument_list|)
 operator|.
-name|shards
-argument_list|()
-operator|.
 name|size
 argument_list|()
 argument_list|,

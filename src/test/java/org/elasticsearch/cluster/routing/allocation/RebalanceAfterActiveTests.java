@@ -1475,9 +1475,6 @@ name|assertThat
 argument_list|(
 name|routingNode
 operator|.
-name|shards
-argument_list|()
-operator|.
 name|size
 argument_list|()
 argument_list|,

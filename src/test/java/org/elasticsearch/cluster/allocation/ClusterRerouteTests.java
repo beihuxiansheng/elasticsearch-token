@@ -602,9 +602,6 @@ name|id
 argument_list|()
 argument_list|)
 operator|.
-name|shards
-argument_list|()
-operator|.
 name|get
 argument_list|(
 literal|0
@@ -761,9 +758,6 @@ name|id
 argument_list|()
 argument_list|)
 operator|.
-name|shards
-argument_list|()
-operator|.
 name|get
 argument_list|(
 literal|0
@@ -896,9 +890,6 @@ name|id
 argument_list|()
 argument_list|)
 operator|.
-name|shards
-argument_list|()
-operator|.
 name|get
 argument_list|(
 literal|0
@@ -987,9 +978,6 @@ name|id
 argument_list|()
 argument_list|)
 operator|.
-name|shards
-argument_list|()
-operator|.
 name|get
 argument_list|(
 literal|0
@@ -1028,9 +1016,6 @@ operator|.
 name|id
 argument_list|()
 argument_list|)
-operator|.
-name|shards
-argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -1167,9 +1152,6 @@ operator|.
 name|id
 argument_list|()
 argument_list|)
-operator|.
-name|shards
-argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -1485,9 +1467,6 @@ name|id
 argument_list|()
 argument_list|)
 operator|.
-name|shards
-argument_list|()
-operator|.
 name|get
 argument_list|(
 literal|0
@@ -1618,9 +1597,6 @@ operator|.
 name|id
 argument_list|()
 argument_list|)
-operator|.
-name|shards
-argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -1941,9 +1917,6 @@ name|id
 argument_list|()
 argument_list|)
 operator|.
-name|shards
-argument_list|()
-operator|.
 name|get
 argument_list|(
 literal|0
@@ -2074,9 +2047,6 @@ operator|.
 name|id
 argument_list|()
 argument_list|)
-operator|.
-name|shards
-argument_list|()
 operator|.
 name|get
 argument_list|(
