@@ -334,6 +334,24 @@ name|action
 operator|.
 name|admin
 operator|.
+name|cluster
+operator|.
+name|stats
+operator|.
+name|ClusterStatsRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|admin
+operator|.
 name|indices
 operator|.
 name|alias
@@ -1433,6 +1451,20 @@ name|NodesStatsRequest
 argument_list|(
 name|nodesIds
 argument_list|)
+return|;
+block|}
+comment|/**      * Creates a cluster stats request.      *      * @return The cluster stats request      * @see org.elasticsearch.client.ClusterAdminClient#clusterStats(org.elasticsearch.action.admin.cluster.stats.ClusterStatsRequest)      */
+DECL|method|clusterStatsRequest
+specifier|public
+specifier|static
+name|ClusterStatsRequest
+name|clusterStatsRequest
+parameter_list|()
+block|{
+return|return
+operator|new
+name|ClusterStatsRequest
+argument_list|()
 return|;
 block|}
 comment|/**      * Shuts down all nodes in the cluster.      */
