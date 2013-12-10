@@ -957,6 +957,8 @@ name|defaultTheta
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
 name|thetaMap
 operator|.
 name|put
@@ -979,6 +981,7 @@ literal|0
 block|}
 argument_list|)
 expr_stmt|;
+block|}
 break|break;
 case|case
 name|BALANCE
