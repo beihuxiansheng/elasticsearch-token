@@ -99,7 +99,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A request to get indices level stats. Allow to enable different stats to be returned.  *<p/>  *<p>By default, the {@link #docs(boolean)}, {@link #store(boolean)}, {@link #indexing(boolean)}  * are enabled. Other stats can be enabled as well.  *<p/>  *<p>All the stats to be returned can be cleared using {@link #clear()}, at which point, specific  * stats can be enabled.  */
+comment|/**  * A request to get indices level stats. Allow to enable different stats to be returned.  *<p/>  *<p>By default, all statistics are enabled.  *<p/>  *<p>All the stats to be returned can be cleared using {@link #clear()}, at which point, specific  * stats can be enabled.  */
 end_comment
 
 begin_class
@@ -914,6 +914,47 @@ name|flags
 operator|.
 name|completionDataFields
 argument_list|()
+return|;
+block|}
+DECL|method|translog
+specifier|public
+name|IndicesStatsRequest
+name|translog
+parameter_list|(
+name|boolean
+name|translog
+parameter_list|)
+block|{
+name|flags
+operator|.
+name|set
+argument_list|(
+name|Flag
+operator|.
+name|Translog
+argument_list|,
+name|translog
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|translog
+specifier|public
+name|boolean
+name|translog
+parameter_list|()
+block|{
+return|return
+name|flags
+operator|.
+name|isSet
+argument_list|(
+name|Flag
+operator|.
+name|Translog
+argument_list|)
 return|;
 block|}
 annotation|@

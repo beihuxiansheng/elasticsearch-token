@@ -396,6 +396,12 @@ name|boolean
 name|syncOnEachOperation
 parameter_list|)
 function_decl|;
+comment|/**      * return stats      */
+DECL|method|stats
+name|TranslogStats
+name|stats
+parameter_list|()
+function_decl|;
 DECL|class|Location
 specifier|static
 class|class
