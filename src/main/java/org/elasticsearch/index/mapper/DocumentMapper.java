@@ -3499,7 +3499,7 @@ return|;
 block|}
 DECL|method|refreshSource
 specifier|public
-name|void
+name|CompressedString
 name|refreshSource
 parameter_list|()
 throws|throws
@@ -3538,8 +3538,7 @@ operator|.
 name|endObject
 argument_list|()
 expr_stmt|;
-name|this
-operator|.
+return|return
 name|mappingSource
 operator|=
 operator|new
@@ -3550,7 +3549,7 @@ operator|.
 name|bytes
 argument_list|()
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 catch|catch
 parameter_list|(
