@@ -76,6 +76,20 @@ name|index
 operator|.
 name|shard
 operator|.
+name|IndexShardState
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|shard
+operator|.
 name|ShardId
 import|;
 end_import
@@ -252,6 +266,29 @@ name|afterIndexShardClosed
 parameter_list|(
 name|ShardId
 name|shardId
+parameter_list|)
+block|{          }
+comment|/**          * Called after a shard's {@link org.elasticsearch.index.shard.IndexShardState} changes.          * The order of concurrent events is preserved. The execution must be lightweight.          *          * @param indexShard the shard the new state was applied to          * @param previousState the previous index shard state if there was one, null otherwise          * @param currentState the new shard state          * @param reason the reason for the state change if there is one, null otherwise          */
+DECL|method|indexShardStateChanged
+specifier|public
+name|void
+name|indexShardStateChanged
+parameter_list|(
+name|IndexShard
+name|indexShard
+parameter_list|,
+annotation|@
+name|Nullable
+name|IndexShardState
+name|previousState
+parameter_list|,
+name|IndexShardState
+name|currentState
+parameter_list|,
+annotation|@
+name|Nullable
+name|String
+name|reason
 parameter_list|)
 block|{          }
 block|}

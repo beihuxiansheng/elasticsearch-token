@@ -2154,6 +2154,17 @@ argument_list|)
 decl_stmt|;
 name|indicesLifecycle
 operator|.
+name|indexShardStateChanged
+argument_list|(
+name|indexShard
+argument_list|,
+literal|null
+argument_list|,
+literal|"shard created"
+argument_list|)
+expr_stmt|;
+name|indicesLifecycle
+operator|.
 name|afterIndexShardCreated
 argument_list|(
 name|indexShard
