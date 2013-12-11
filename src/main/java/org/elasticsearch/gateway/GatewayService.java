@@ -1678,6 +1678,12 @@ name|metaData
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// automatically generate a UID for the metadata if we need to
+name|metaDataBuilder
+operator|.
+name|generateUuidIfNeeded
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|recoveredState
