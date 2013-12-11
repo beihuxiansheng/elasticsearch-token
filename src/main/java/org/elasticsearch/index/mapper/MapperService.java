@@ -1924,7 +1924,7 @@ control|)
 block|{
 name|typeListener
 operator|.
-name|created
+name|beforeCreate
 argument_list|(
 name|mapper
 operator|.
@@ -2182,7 +2182,7 @@ control|)
 block|{
 name|typeListener
 operator|.
-name|removed
+name|afterRemove
 argument_list|(
 name|type
 argument_list|)

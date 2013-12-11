@@ -1331,10 +1331,10 @@ name|DocumentTypeListener
 block|{
 annotation|@
 name|Override
-DECL|method|created
+DECL|method|beforeCreate
 specifier|public
 name|void
-name|created
+name|beforeCreate
 parameter_list|(
 name|String
 name|type
@@ -1359,10 +1359,10 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|removed
+DECL|method|afterRemove
 specifier|public
 name|void
-name|removed
+name|afterRemove
 parameter_list|(
 name|String
 name|type

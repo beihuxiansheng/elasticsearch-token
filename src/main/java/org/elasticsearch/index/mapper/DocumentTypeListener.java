@@ -26,19 +26,19 @@ specifier|public
 interface|interface
 name|DocumentTypeListener
 block|{
-comment|/**      * Invoked when a new document type has been created.      *      * @param type The document type that has been created      */
-DECL|method|created
+comment|/**      * Invoked just before a new document type has been created.      *      * @param type The new document type      */
+DECL|method|beforeCreate
 name|void
-name|created
+name|beforeCreate
 parameter_list|(
 name|String
 name|type
 parameter_list|)
 function_decl|;
-comment|/**      * Invoked when an existing document type has been removed.      *      * @param type The document type that has been removed      */
-DECL|method|removed
+comment|/**      * Invoked just after an existing document type has been removed.      *      * @param type The existing document type      */
+DECL|method|afterRemove
 name|void
-name|removed
+name|afterRemove
 parameter_list|(
 name|String
 name|type
