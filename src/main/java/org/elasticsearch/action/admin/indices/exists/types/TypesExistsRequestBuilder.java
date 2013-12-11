@@ -44,7 +44,7 @@ name|action
 operator|.
 name|support
 operator|.
-name|IgnoreIndices
+name|IndicesOptions
 import|;
 end_import
 
@@ -217,21 +217,21 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * @param ignoreIndices Specifies how to resolve indices that aren't active / ready      */
-DECL|method|setIgnoreIndices
+comment|/**      * @param indicesOptions Specifies how to resolve indices that aren't active / ready and indices wildcard expressions      */
+DECL|method|setIndicesOptions
 specifier|public
 name|TypesExistsRequestBuilder
-name|setIgnoreIndices
+name|setIndicesOptions
 parameter_list|(
-name|IgnoreIndices
-name|ignoreIndices
+name|IndicesOptions
+name|indicesOptions
 parameter_list|)
 block|{
 name|request
 operator|.
-name|ignoreIndices
+name|indicesOptions
 argument_list|(
-name|ignoreIndices
+name|indicesOptions
 argument_list|)
 expr_stmt|;
 return|return

@@ -38,7 +38,7 @@ name|action
 operator|.
 name|support
 operator|.
-name|IgnoreIndices
+name|IndicesOptions
 import|;
 end_import
 
@@ -392,9 +392,10 @@ block|,
 literal|"bar"
 block|}
 argument_list|,
-name|IgnoreIndices
+name|IndicesOptions
 operator|.
-name|MISSING
+name|lenient
+argument_list|()
 argument_list|,
 operator|new
 name|String
@@ -424,9 +425,10 @@ block|{
 literal|""
 block|}
 argument_list|,
-name|IgnoreIndices
+name|IndicesOptions
 operator|.
-name|MISSING
+name|lenient
+argument_list|()
 argument_list|,
 operator|new
 name|String
@@ -458,9 +460,10 @@ block|,
 literal|"ba*"
 block|}
 argument_list|,
-name|IgnoreIndices
+name|IndicesOptions
 operator|.
-name|MISSING
+name|lenient
+argument_list|()
 argument_list|,
 operator|new
 name|String
@@ -499,9 +502,10 @@ name|indices
 argument_list|,
 name|filter
 argument_list|,
-name|IgnoreIndices
+name|IndicesOptions
 operator|.
-name|DEFAULT
+name|lenient
+argument_list|()
 argument_list|,
 name|expected
 argument_list|)
@@ -520,8 +524,8 @@ name|String
 index|[]
 name|filter
 parameter_list|,
-name|IgnoreIndices
-name|ignoreIndices
+name|IndicesOptions
+name|indicesOptions
 parameter_list|,
 name|String
 index|[]
@@ -555,7 +559,7 @@ name|indicesList
 argument_list|,
 name|filter
 argument_list|,
-name|ignoreIndices
+name|indicesOptions
 argument_list|)
 decl_stmt|;
 name|assertThat

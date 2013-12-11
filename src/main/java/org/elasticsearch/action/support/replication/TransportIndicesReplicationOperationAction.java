@@ -476,10 +476,8 @@ argument_list|()
 argument_list|,
 name|request
 operator|.
-name|ignoreIndices
+name|indicesOptions
 argument_list|()
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|blockException

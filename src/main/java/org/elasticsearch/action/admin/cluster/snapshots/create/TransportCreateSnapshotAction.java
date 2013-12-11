@@ -415,11 +415,11 @@ name|indices
 argument_list|()
 argument_list|)
 operator|.
-name|ignoreIndices
+name|indicesOptions
 argument_list|(
 name|request
 operator|.
-name|ignoreIndices
+name|indicesOptions
 argument_list|()
 argument_list|)
 operator|.

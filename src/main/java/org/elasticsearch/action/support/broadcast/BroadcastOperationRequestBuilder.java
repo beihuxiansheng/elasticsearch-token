@@ -40,7 +40,7 @@ name|action
 operator|.
 name|support
 operator|.
-name|IgnoreIndices
+name|IndicesOptions
 import|;
 end_import
 
@@ -214,21 +214,21 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|setIgnoreIndices
+DECL|method|setIndicesOptions
 specifier|public
 specifier|final
 name|RequestBuilder
-name|setIgnoreIndices
+name|setIndicesOptions
 parameter_list|(
-name|IgnoreIndices
-name|ignoreIndices
+name|IndicesOptions
+name|indicesOptions
 parameter_list|)
 block|{
 name|request
 operator|.
-name|ignoreIndices
+name|indicesOptions
 argument_list|(
-name|ignoreIndices
+name|indicesOptions
 argument_list|)
 expr_stmt|;
 return|return

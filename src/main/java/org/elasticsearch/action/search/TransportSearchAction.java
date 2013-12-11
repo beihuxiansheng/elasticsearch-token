@@ -449,10 +449,8 @@ argument_list|()
 argument_list|,
 name|searchRequest
 operator|.
-name|ignoreIndices
+name|indicesOptions
 argument_list|()
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|Map

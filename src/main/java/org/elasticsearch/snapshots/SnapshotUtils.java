@@ -38,7 +38,7 @@ name|action
 operator|.
 name|support
 operator|.
-name|IgnoreIndices
+name|IndicesOptions
 import|;
 end_import
 
@@ -110,7 +110,7 @@ specifier|public
 class|class
 name|SnapshotUtils
 block|{
-comment|/**      * Filters out list of available indices based on the list of selected indices.      *      * @param availableIndices list of available indices      * @param selectedIndices  list of selected indices      * @param ignoreIndices    ignore indices flag      * @return filtered out indices      */
+comment|/**      * Filters out list of available indices based on the list of selected indices.      *      * @param availableIndices list of available indices      * @param selectedIndices  list of selected indices      * @param indicesOptions    ignore indices flag      * @return filtered out indices      */
 DECL|method|filterIndices
 specifier|public
 specifier|static
@@ -130,8 +130,8 @@ name|String
 index|[]
 name|selectedIndices
 parameter_list|,
-name|IgnoreIndices
-name|ignoreIndices
+name|IndicesOptions
+name|indicesOptions
 parameter_list|)
 block|{
 if|if
@@ -346,11 +346,11 @@ condition|)
 block|{
 if|if
 condition|(
-name|ignoreIndices
-operator|!=
-name|IgnoreIndices
+operator|!
+name|indicesOptions
 operator|.
-name|MISSING
+name|ignoreUnavailable
+argument_list|()
 condition|)
 block|{
 throw|throw
@@ -528,11 +528,11 @@ condition|(
 operator|!
 name|found
 operator|&&
-name|ignoreIndices
-operator|!=
-name|IgnoreIndices
+operator|!
+name|indicesOptions
 operator|.
-name|MISSING
+name|allowNoIndices
+argument_list|()
 condition|)
 block|{
 throw|throw

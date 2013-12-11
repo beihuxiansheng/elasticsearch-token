@@ -66,7 +66,7 @@ name|action
 operator|.
 name|support
 operator|.
-name|IgnoreIndices
+name|IndicesOptions
 import|;
 end_import
 
@@ -605,11 +605,12 @@ argument_list|(
 literal|"idx"
 argument_list|)
 operator|.
-name|setIgnoreIndices
+name|setIndicesOptions
 argument_list|(
-name|IgnoreIndices
+name|IndicesOptions
 operator|.
-name|MISSING
+name|lenient
+argument_list|()
 argument_list|)
 operator|.
 name|execute
@@ -1553,11 +1554,12 @@ argument_list|(
 literal|"idx"
 argument_list|)
 operator|.
-name|setIgnoreIndices
+name|setIndicesOptions
 argument_list|(
-name|IgnoreIndices
+name|IndicesOptions
 operator|.
-name|MISSING
+name|lenient
+argument_list|()
 argument_list|)
 operator|.
 name|execute
@@ -2198,11 +2200,12 @@ argument_list|(
 literal|"idx"
 argument_list|)
 operator|.
-name|setIgnoreIndices
+name|setIndicesOptions
 argument_list|(
-name|IgnoreIndices
+name|IndicesOptions
 operator|.
-name|MISSING
+name|lenient
+argument_list|()
 argument_list|)
 operator|.
 name|execute

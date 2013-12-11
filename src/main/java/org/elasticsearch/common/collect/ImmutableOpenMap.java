@@ -194,6 +194,30 @@ name|key
 argument_list|)
 return|;
 block|}
+comment|/**      * @return Returns the value associated with the given key or the provided default value if the      * key is not associated with any value.      */
+DECL|method|getOrDefault
+specifier|public
+name|VType
+name|getOrDefault
+parameter_list|(
+name|KType
+name|key
+parameter_list|,
+name|VType
+name|defaultValue
+parameter_list|)
+block|{
+return|return
+name|map
+operator|.
+name|getOrDefault
+argument_list|(
+name|key
+argument_list|,
+name|defaultValue
+argument_list|)
+return|;
+block|}
 comment|/**      * Returns<code>true</code> if this container has an association to a value for      * the given key.      */
 DECL|method|containsKey
 specifier|public

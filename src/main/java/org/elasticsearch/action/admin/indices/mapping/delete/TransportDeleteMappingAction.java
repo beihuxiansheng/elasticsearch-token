@@ -544,7 +544,6 @@ argument_list|>
 name|listener
 parameter_list|)
 block|{
-comment|// update to concrete indices
 name|request
 operator|.
 name|indices
@@ -562,6 +561,11 @@ argument_list|(
 name|request
 operator|.
 name|indices
+argument_list|()
+argument_list|,
+name|request
+operator|.
+name|indicesOptions
 argument_list|()
 argument_list|)
 argument_list|)

@@ -66,7 +66,7 @@ name|action
 operator|.
 name|support
 operator|.
-name|IgnoreIndices
+name|IndicesOptions
 import|;
 end_import
 
@@ -231,6 +231,24 @@ name|QueryBuilders
 operator|.
 name|matchAllQuery
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|deleteByQueryRequestBuilder
+operator|.
+name|setIndicesOptions
+argument_list|(
+name|IndicesOptions
+operator|.
+name|fromOptions
+argument_list|(
+literal|false
+argument_list|,
+literal|true
+argument_list|,
+literal|true
+argument_list|,
+literal|false
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|DeleteByQueryResponse
@@ -623,11 +641,12 @@ parameter_list|)
 block|{         }
 name|deleteByQueryRequestBuilder
 operator|.
-name|setIgnoreIndices
+name|setIndicesOptions
 argument_list|(
-name|IgnoreIndices
+name|IndicesOptions
 operator|.
-name|MISSING
+name|lenient
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|DeleteByQueryResponse

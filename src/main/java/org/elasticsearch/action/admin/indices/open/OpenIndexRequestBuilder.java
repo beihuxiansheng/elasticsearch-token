@@ -42,7 +42,7 @@ name|action
 operator|.
 name|support
 operator|.
-name|IgnoreIndices
+name|IndicesOptions
 import|;
 end_import
 
@@ -177,21 +177,21 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Specifies what type of requested indices to ignore. For example indices that don't exist.      * @param ignoreIndices the desired behaviour regarding indices to ignore      * @return the request itself      */
-DECL|method|setIgnoreIndices
+comment|/**      * Specifies what type of requested indices to ignore and how to deal with wildcard indices expressions.      * For example indices that don't exist.      *      * @param indicesOptions the desired behaviour regarding indices to ignore and wildcard indices expressions      * @return the request itself      */
+DECL|method|setIndicesOptions
 specifier|public
 name|OpenIndexRequestBuilder
-name|setIgnoreIndices
+name|setIndicesOptions
 parameter_list|(
-name|IgnoreIndices
-name|ignoreIndices
+name|IndicesOptions
+name|indicesOptions
 parameter_list|)
 block|{
 name|request
 operator|.
-name|ignoreIndices
+name|indicesOptions
 argument_list|(
-name|ignoreIndices
+name|indicesOptions
 argument_list|)
 expr_stmt|;
 return|return

@@ -303,10 +303,8 @@ argument_list|()
 argument_list|,
 name|request
 operator|.
-name|ignoreIndices
+name|indicesOptions
 argument_list|()
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|request

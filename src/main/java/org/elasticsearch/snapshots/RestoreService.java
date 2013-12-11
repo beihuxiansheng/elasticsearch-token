@@ -90,7 +90,7 @@ name|action
 operator|.
 name|support
 operator|.
-name|IgnoreIndices
+name|IndicesOptions
 import|;
 end_import
 
@@ -693,7 +693,7 @@ argument_list|()
 argument_list|,
 name|request
 operator|.
-name|ignoreIndices
+name|indicesOptions
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -2808,14 +2808,15 @@ specifier|private
 name|String
 name|renameReplacement
 decl_stmt|;
-DECL|field|ignoreIndices
+DECL|field|indicesOptions
 specifier|private
-name|IgnoreIndices
-name|ignoreIndices
+name|IndicesOptions
+name|indicesOptions
 init|=
-name|IgnoreIndices
+name|IndicesOptions
 operator|.
-name|DEFAULT
+name|strict
+argument_list|()
 decl_stmt|;
 DECL|field|settings
 specifier|private
@@ -2889,21 +2890,21 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets ignore indices flag          *          * @param ignoreIndices ignore indices flag          * @return this request          */
-DECL|method|ignoreIndices
+comment|/**          * Sets indices options flags          *          * @param indicesOptions indices options flags          * @return this request          */
+DECL|method|indicesOptions
 specifier|public
 name|RestoreRequest
-name|ignoreIndices
+name|indicesOptions
 parameter_list|(
-name|IgnoreIndices
-name|ignoreIndices
+name|IndicesOptions
+name|indicesOptions
 parameter_list|)
 block|{
 name|this
 operator|.
-name|ignoreIndices
+name|indicesOptions
 operator|=
-name|ignoreIndices
+name|indicesOptions
 expr_stmt|;
 return|return
 name|this
@@ -3054,15 +3055,15 @@ return|return
 name|indices
 return|;
 block|}
-comment|/**          * Returns ignore indices flag          *          * @return ignore indices flag          */
-DECL|method|ignoreIndices
+comment|/**          * Returns indices option flags          *          * @return indices options flags          */
+DECL|method|indicesOptions
 specifier|public
-name|IgnoreIndices
-name|ignoreIndices
+name|IndicesOptions
+name|indicesOptions
 parameter_list|()
 block|{
 return|return
-name|ignoreIndices
+name|indicesOptions
 return|;
 block|}
 comment|/**          * Returns rename pattern          *          * @return rename pattern          */

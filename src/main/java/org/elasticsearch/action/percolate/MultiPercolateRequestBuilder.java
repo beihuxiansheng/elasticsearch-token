@@ -50,7 +50,7 @@ name|action
 operator|.
 name|support
 operator|.
-name|IgnoreIndices
+name|IndicesOptions
 import|;
 end_import
 
@@ -162,21 +162,21 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Specifies how to globally ignore indices that are not available.      */
-DECL|method|setIgnoreIndices
+comment|/**      * Specifies how to globally ignore indices that are not available and how to deal with wildcard indices expressions.      *      * Invoke this method before invoking {@link #add(PercolateRequestBuilder)}.      */
+DECL|method|setIndicesOptions
 specifier|public
 name|MultiPercolateRequestBuilder
-name|setIgnoreIndices
+name|setIndicesOptions
 parameter_list|(
-name|IgnoreIndices
-name|ignoreIndices
+name|IndicesOptions
+name|indicesOptions
 parameter_list|)
 block|{
 name|request
 operator|.
-name|ignoreIndices
+name|indicesOptions
 argument_list|(
-name|ignoreIndices
+name|indicesOptions
 argument_list|)
 expr_stmt|;
 return|return
