@@ -440,11 +440,6 @@ argument_list|>
 implements|implements
 name|Repository
 block|{
-DECL|field|basePath
-specifier|private
-name|BlobPath
-name|basePath
-decl_stmt|;
 DECL|field|snapshotsBlobContainer
 specifier|private
 name|ImmutableBlobContainer
@@ -535,15 +530,6 @@ name|BlobStoreIndexShardRepository
 operator|)
 name|indexShardRepository
 expr_stmt|;
-name|this
-operator|.
-name|basePath
-operator|=
-name|BlobPath
-operator|.
-name|cleanPath
-argument_list|()
-expr_stmt|;
 name|Map
 argument_list|<
 name|String
@@ -600,6 +586,7 @@ operator|.
 name|immutableBlobContainer
 argument_list|(
 name|basePath
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|indexShardRepository
@@ -610,6 +597,7 @@ name|blobStore
 argument_list|()
 argument_list|,
 name|basePath
+argument_list|()
 argument_list|,
 name|chunkSize
 argument_list|()
@@ -670,6 +658,14 @@ specifier|abstract
 specifier|protected
 name|BlobStore
 name|blobStore
+parameter_list|()
+function_decl|;
+comment|/**      * Returns base path of the repository      */
+DECL|method|basePath
+specifier|abstract
+specifier|protected
+name|BlobPath
+name|basePath
 parameter_list|()
 function_decl|;
 comment|/**      * Returns true if metadata and snapshot files should be compressed      *      * @return true if compression is needed      */
@@ -866,6 +862,7 @@ name|BlobPath
 name|indexPath
 init|=
 name|basePath
+argument_list|()
 operator|.
 name|add
 argument_list|(
@@ -1084,6 +1081,7 @@ name|BlobPath
 name|indexPath
 init|=
 name|basePath
+argument_list|()
 operator|.
 name|add
 argument_list|(
@@ -1228,6 +1226,9 @@ block|{
 name|BlobStoreSnapshot
 name|snapshot
 init|=
+operator|(
+name|BlobStoreSnapshot
+operator|)
 name|readSnapshot
 argument_list|(
 name|snapshotId
@@ -1680,6 +1681,7 @@ name|BlobPath
 name|indexPath
 init|=
 name|basePath
+argument_list|()
 operator|.
 name|add
 argument_list|(
@@ -1862,7 +1864,7 @@ annotation|@
 name|Override
 DECL|method|readSnapshot
 specifier|public
-name|BlobStoreSnapshot
+name|Snapshot
 name|readSnapshot
 parameter_list|(
 name|SnapshotId

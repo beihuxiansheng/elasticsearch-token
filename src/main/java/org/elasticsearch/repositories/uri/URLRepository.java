@@ -26,6 +26,20 @@ name|common
 operator|.
 name|blobstore
 operator|.
+name|BlobPath
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|blobstore
+operator|.
 name|BlobStore
 import|;
 end_import
@@ -211,6 +225,12 @@ specifier|final
 name|URLBlobStore
 name|blobStore
 decl_stmt|;
+DECL|field|basePath
+specifier|private
+specifier|final
+name|BlobPath
+name|basePath
+decl_stmt|;
 comment|/**      * Constructs new read-only URL-based repository      *      * @param name                 repository name      * @param repositorySettings   repository settings      * @param indexShardRepository shard repository      * @throws IOException      */
 annotation|@
 name|Inject
@@ -357,6 +377,13 @@ argument_list|,
 name|url
 argument_list|)
 expr_stmt|;
+name|basePath
+operator|=
+name|BlobPath
+operator|.
+name|cleanPath
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}      */
 annotation|@
@@ -369,6 +396,18 @@ parameter_list|()
 block|{
 return|return
 name|blobStore
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|basePath
+specifier|protected
+name|BlobPath
+name|basePath
+parameter_list|()
+block|{
+return|return
+name|basePath
 return|;
 block|}
 block|}
