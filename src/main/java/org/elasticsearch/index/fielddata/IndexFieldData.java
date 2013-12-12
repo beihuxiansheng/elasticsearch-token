@@ -309,12 +309,6 @@ name|IndexReader
 name|reader
 parameter_list|)
 function_decl|;
-comment|/**      * Returns the highest ever seen uniqiue values in an atomic reader.      */
-DECL|method|getHighestNumberOfSeenUniqueValues
-name|long
-name|getHighestNumberOfSeenUniqueValues
-parameter_list|()
-function_decl|;
 comment|// we need this extended source we we have custom comparators to reuse our field data
 comment|// in this case, we need to reduce type that will be used when search results are reduced
 comment|// on another node (we don't have the custom source them...)
