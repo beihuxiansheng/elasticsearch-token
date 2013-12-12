@@ -3830,12 +3830,23 @@ name|stream
 init|=
 name|bStream
 decl_stmt|;
+comment|// only compress if asked, and, the request is not bytes, since then only
+comment|// the header part is compressed, and the "body" can't be extracted as compressed
 if|if
 condition|(
 name|options
 operator|.
 name|compress
 argument_list|()
+operator|&&
+operator|(
+operator|!
+operator|(
+name|request
+operator|instanceof
+name|BytesTransportRequest
+operator|)
+operator|)
 condition|)
 block|{
 name|status
