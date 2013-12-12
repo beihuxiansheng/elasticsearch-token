@@ -958,6 +958,25 @@ name|queryString
 argument_list|)
 return|;
 block|}
+comment|/**      * A query that acts similar to a query_string query, but won't throw      * exceptions for any weird string syntax. See      * {@link org.apache.lucene.queryparser.XSimpleQueryParser} for the full      * supported syntax.      */
+DECL|method|simpleQueryString
+specifier|public
+specifier|static
+name|SimpleQueryStringBuilder
+name|simpleQueryString
+parameter_list|(
+name|String
+name|queryString
+parameter_list|)
+block|{
+return|return
+operator|new
+name|SimpleQueryStringBuilder
+argument_list|(
+name|queryString
+argument_list|)
+return|;
+block|}
 comment|/**      * The BoostingQuery class can be used to effectively demote results that match a given query.      * Unlike the "NOT" clause, this still selects documents that contain undesirable terms,      * but reduces their overall score:      */
 DECL|method|boostingQuery
 specifier|public
