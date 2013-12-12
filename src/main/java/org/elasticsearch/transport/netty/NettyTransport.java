@@ -1353,7 +1353,9 @@ name|settings
 operator|.
 name|getAsBoolean
 argument_list|(
-literal|"transport.tcp.compress"
+name|TransportSettings
+operator|.
+name|TRANSPORT_TCP_COMPRESS
 argument_list|,
 literal|false
 argument_list|)
