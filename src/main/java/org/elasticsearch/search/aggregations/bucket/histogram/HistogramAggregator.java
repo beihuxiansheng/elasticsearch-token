@@ -284,16 +284,6 @@ name|HistogramAggregator
 extends|extends
 name|BucketsAggregator
 block|{
-DECL|field|INITIAL_CAPACITY
-specifier|private
-specifier|final
-specifier|static
-name|int
-name|INITIAL_CAPACITY
-init|=
-literal|50
-decl_stmt|;
-comment|// TODO sizing
 DECL|field|valuesSource
 specifier|private
 specifier|final
@@ -365,6 +355,9 @@ name|Nullable
 name|NumericValuesSource
 name|valuesSource
 parameter_list|,
+name|long
+name|initialCapacity
+parameter_list|,
 name|AbstractHistogramBase
 operator|.
 name|Factory
@@ -390,7 +383,7 @@ name|PER_BUCKET
 argument_list|,
 name|factories
 argument_list|,
-literal|50
+name|initialCapacity
 argument_list|,
 name|aggregationContext
 argument_list|,
@@ -438,7 +431,7 @@ operator|=
 operator|new
 name|LongHash
 argument_list|(
-name|INITIAL_CAPACITY
+name|initialCapacity
 argument_list|)
 expr_stmt|;
 block|}
@@ -990,6 +983,8 @@ name|computeEmptyBuckets
 argument_list|,
 literal|null
 argument_list|,
+literal|0
+argument_list|,
 name|histogramFactory
 argument_list|,
 name|aggregationContext
@@ -1018,6 +1013,7 @@ name|Aggregator
 name|parent
 parameter_list|)
 block|{
+comment|// todo if we'll keep track of min/max values in IndexFieldData, we could use the max here to come up with a better estimation for the buckets count
 return|return
 operator|new
 name|HistogramAggregator
@@ -1035,6 +1031,8 @@ argument_list|,
 name|computeEmptyBuckets
 argument_list|,
 name|valuesSource
+argument_list|,
+literal|50
 argument_list|,
 name|histogramFactory
 argument_list|,

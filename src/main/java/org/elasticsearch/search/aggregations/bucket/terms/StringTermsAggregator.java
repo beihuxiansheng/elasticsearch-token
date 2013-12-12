@@ -310,16 +310,6 @@ name|StringTermsAggregator
 extends|extends
 name|BucketsAggregator
 block|{
-DECL|field|INITIAL_CAPACITY
-specifier|private
-specifier|static
-specifier|final
-name|int
-name|INITIAL_CAPACITY
-init|=
-literal|50
-decl_stmt|;
-comment|// TODO sizing
 DECL|field|valuesSource
 specifier|private
 specifier|final
@@ -369,6 +359,9 @@ parameter_list|,
 name|ValuesSource
 name|valuesSource
 parameter_list|,
+name|long
+name|estimatedBucketCount
+parameter_list|,
 name|InternalOrder
 name|order
 parameter_list|,
@@ -398,7 +391,7 @@ name|PER_BUCKET
 argument_list|,
 name|factories
 argument_list|,
-name|INITIAL_CAPACITY
+name|estimatedBucketCount
 argument_list|,
 name|aggregationContext
 argument_list|,
@@ -915,6 +908,9 @@ operator|.
 name|WithOrdinals
 name|valuesSource
 parameter_list|,
+name|long
+name|esitmatedBucketCount
+parameter_list|,
 name|InternalOrder
 name|order
 parameter_list|,
@@ -938,6 +934,8 @@ argument_list|,
 name|factories
 argument_list|,
 name|valuesSource
+argument_list|,
+name|esitmatedBucketCount
 argument_list|,
 name|order
 argument_list|,
@@ -1055,6 +1053,8 @@ assert|assert
 name|owningBucketOrdinal
 operator|==
 literal|0
+operator|:
+literal|"this is a per_bucket aggregator"
 assert|;
 specifier|final
 name|int

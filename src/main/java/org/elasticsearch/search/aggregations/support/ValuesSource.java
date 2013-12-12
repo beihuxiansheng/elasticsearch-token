@@ -42,6 +42,13 @@ specifier|public
 interface|interface
 name|ValuesSource
 block|{
+DECL|method|metaData
+name|FieldDataSource
+operator|.
+name|MetaData
+name|metaData
+parameter_list|()
+function_decl|;
 comment|/**      * @return A {@link org.apache.lucene.util.BytesRef bytesref} view over the values that are resolved from this value source.      */
 DECL|method|bytesValues
 name|BytesValues

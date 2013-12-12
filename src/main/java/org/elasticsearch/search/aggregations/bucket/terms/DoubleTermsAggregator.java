@@ -204,16 +204,6 @@ name|DoubleTermsAggregator
 extends|extends
 name|BucketsAggregator
 block|{
-DECL|field|INITIAL_CAPACITY
-specifier|private
-specifier|static
-specifier|final
-name|int
-name|INITIAL_CAPACITY
-init|=
-literal|50
-decl_stmt|;
-comment|// TODO sizing
 DECL|field|order
 specifier|private
 specifier|final
@@ -257,6 +247,9 @@ parameter_list|,
 name|NumericValuesSource
 name|valuesSource
 parameter_list|,
+name|long
+name|estimatedBucketCount
+parameter_list|,
 name|InternalOrder
 name|order
 parameter_list|,
@@ -283,7 +276,7 @@ name|PER_BUCKET
 argument_list|,
 name|factories
 argument_list|,
-name|INITIAL_CAPACITY
+name|estimatedBucketCount
 argument_list|,
 name|aggregationContext
 argument_list|,
@@ -319,7 +312,7 @@ operator|=
 operator|new
 name|LongHash
 argument_list|(
-name|INITIAL_CAPACITY
+name|estimatedBucketCount
 argument_list|)
 expr_stmt|;
 block|}

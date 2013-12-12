@@ -426,6 +426,47 @@ name|Aggregator
 name|parent
 parameter_list|)
 block|{
+name|long
+name|estimatedBucketCount
+init|=
+name|valuesSource
+operator|.
+name|metaData
+argument_list|()
+operator|.
+name|maxAtomicUniqueValuesCount
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|estimatedBucketCount
+operator|<
+literal|0
+condition|)
+block|{
+comment|// there isn't an estimation available.. 50 should be a good start
+name|estimatedBucketCount
+operator|=
+literal|50
+expr_stmt|;
+block|}
+comment|// adding an upper bound on the estimation as some atomic field data in the future (binary doc values) and not
+comment|// going to know their exact cardinality and will return upper bounds in AtomicFieldData.getNumberUniqueValues()
+comment|// that may be largely over-estimated.. the value chosen here is arbitrary just to play nice with typical CPU cache
+comment|//
+comment|// Another reason is that it may be faster to resize upon growth than to start directly with the appropriate size.
+comment|// And that all values are not necessarily visited by the matches.
+name|estimatedBucketCount
+operator|=
+name|Math
+operator|.
+name|min
+argument_list|(
+name|estimatedBucketCount
+argument_list|,
+literal|512
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|valuesSource
@@ -588,6 +629,8 @@ name|WithOrdinals
 operator|)
 name|valuesSource
 argument_list|,
+name|estimatedBucketCount
+argument_list|,
 name|order
 argument_list|,
 name|requiredSize
@@ -621,6 +664,8 @@ argument_list|,
 name|factories
 argument_list|,
 name|valuesSource
+argument_list|,
+name|estimatedBucketCount
 argument_list|,
 name|order
 argument_list|,
@@ -691,6 +736,8 @@ name|NumericValuesSource
 operator|)
 name|valuesSource
 argument_list|,
+name|estimatedBucketCount
+argument_list|,
 name|order
 argument_list|,
 name|requiredSize
@@ -715,6 +762,8 @@ operator|(
 name|NumericValuesSource
 operator|)
 name|valuesSource
+argument_list|,
+name|estimatedBucketCount
 argument_list|,
 name|order
 argument_list|,
