@@ -320,6 +320,7 @@ argument_list|,
 literal|"template.json"
 argument_list|)
 decl_stmt|;
+comment|// random template, one uses the 'setting.index.number_of_shards', the other 'settings.number_of_shards'
 name|String
 name|template
 init|=
@@ -327,7 +328,14 @@ name|Streams
 operator|.
 name|copyToStringFromClasspath
 argument_list|(
-literal|"/org/elasticsearch/indices/template/template.json"
+literal|"/org/elasticsearch/indices/template/template"
+operator|+
+name|randomInt
+argument_list|(
+literal|1
+argument_list|)
+operator|+
+literal|".json"
 argument_list|)
 decl_stmt|;
 name|Files
