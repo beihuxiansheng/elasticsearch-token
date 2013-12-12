@@ -342,6 +342,22 @@ name|index
 operator|.
 name|mapper
 operator|.
+name|MapperBuilders
+operator|.
+name|ttl
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
 name|core
 operator|.
 name|TypeParsers
@@ -642,10 +658,7 @@ operator|.
 name|Builder
 name|builder
 init|=
-operator|new
-name|TTLFieldMapper
-operator|.
-name|Builder
+name|ttl
 argument_list|()
 decl_stmt|;
 name|parseField

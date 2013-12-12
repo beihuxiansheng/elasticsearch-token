@@ -404,6 +404,22 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|MapperBuilders
+operator|.
+name|geoShapeField
+import|;
+end_import
+
 begin_comment
 comment|/**  * FieldMapper for indexing {@link com.spatial4j.core.shape.Shape}s.  *<p/>  * Currently Shapes can only be indexed and can only be queried using  * {@link org.elasticsearch.index.query.GeoShapeFilterParser}, consequently  * a lot of behavior in this Mapper is disabled.  *<p/>  * Format supported:  *<p/>  * "field" : {  * "type" : "polygon",  * "coordinates" : [  * [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ]  * ]  * }  */
 end_comment
@@ -1048,8 +1064,7 @@ block|{
 name|Builder
 name|builder
 init|=
-operator|new
-name|Builder
+name|geoShapeField
 argument_list|(
 name|name
 argument_list|)

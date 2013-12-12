@@ -370,6 +370,22 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|MapperBuilders
+operator|.
+name|parent
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -667,10 +683,7 @@ operator|.
 name|Builder
 name|builder
 init|=
-operator|new
-name|ParentFieldMapper
-operator|.
-name|Builder
+name|parent
 argument_list|()
 decl_stmt|;
 for|for
