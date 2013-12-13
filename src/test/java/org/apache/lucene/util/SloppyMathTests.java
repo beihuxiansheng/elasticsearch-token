@@ -432,7 +432,7 @@ block|{
 return|return
 name|distance
 operator|/
-literal|10000.0
+literal|1000.0
 return|;
 block|}
 DECL|method|testSloppyMath
