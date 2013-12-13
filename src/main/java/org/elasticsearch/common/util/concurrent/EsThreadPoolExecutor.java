@@ -247,10 +247,10 @@ operator|=
 name|listener
 expr_stmt|;
 block|}
+block|}
 name|shutdown
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 annotation|@
 name|Override
