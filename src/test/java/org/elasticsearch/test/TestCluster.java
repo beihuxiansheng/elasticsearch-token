@@ -1181,7 +1181,21 @@ operator|.
 name|settingsBuilder
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|random
+operator|.
+name|nextInt
+argument_list|(
+literal|5
+argument_list|)
+operator|==
+literal|0
+condition|)
+block|{
+comment|// sometimes set this
 comment|// randomize (multi/single) data path, special case for 0, don't set it at all...
+specifier|final
 name|int
 name|numOfDataPaths
 init|=
@@ -1251,6 +1265,7 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|defaultSettings
 operator|=

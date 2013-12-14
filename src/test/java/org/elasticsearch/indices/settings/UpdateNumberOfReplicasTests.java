@@ -502,6 +502,8 @@ argument_list|(
 literal|"Increasing the number of replicas from 1 to 2"
 argument_list|)
 expr_stmt|;
+name|assertAcked
+argument_list|(
 name|client
 argument_list|()
 operator|.
@@ -534,12 +536,6 @@ argument_list|()
 operator|.
 name|actionGet
 argument_list|()
-expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|200
 argument_list|)
 expr_stmt|;
 name|logger
@@ -712,13 +708,6 @@ argument_list|,
 literal|3
 argument_list|)
 expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|100
-argument_list|)
-expr_stmt|;
 name|logger
 operator|.
 name|info
@@ -749,6 +738,11 @@ argument_list|)
 operator|.
 name|setWaitForGreenStatus
 argument_list|()
+operator|.
+name|setWaitForRelocatingShards
+argument_list|(
+literal|0
+argument_list|)
 operator|.
 name|setWaitForNodes
 argument_list|(
@@ -919,6 +913,8 @@ argument_list|(
 literal|"Decreasing number of replicas from 2 to 0"
 argument_list|)
 expr_stmt|;
+name|assertAcked
+argument_list|(
 name|client
 argument_list|()
 operator|.
@@ -948,12 +944,6 @@ argument_list|)
 operator|.
 name|get
 argument_list|()
-expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|200
 argument_list|)
 expr_stmt|;
 name|logger
@@ -986,6 +976,11 @@ argument_list|)
 operator|.
 name|setWaitForGreenStatus
 argument_list|()
+operator|.
+name|setWaitForRelocatingShards
+argument_list|(
+literal|0
+argument_list|)
 operator|.
 name|setWaitForNodes
 argument_list|(

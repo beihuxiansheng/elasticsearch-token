@@ -3271,6 +3271,7 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
+specifier|final
 name|Store
 name|store
 init|=
@@ -3281,6 +3282,13 @@ operator|.
 name|store
 argument_list|()
 decl_stmt|;
+name|store
+operator|.
+name|incRef
+argument_list|()
+expr_stmt|;
+try|try
+block|{
 comment|// first, we go and move files that were created with the recovery id suffix to
 comment|// the actual names, its ok if we have a corrupted index here, since we have replicas
 comment|// to recover from in case of a full cluster shutdown just when this code executes...
@@ -3524,6 +3532,15 @@ name|INSTANCE
 argument_list|)
 expr_stmt|;
 block|}
+finally|finally
+block|{
+name|store
+operator|.
+name|decRef
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 block|}
 DECL|class|FileChunkTransportRequestHandler
 class|class
@@ -3648,6 +3665,13 @@ operator|.
 name|store
 argument_list|()
 decl_stmt|;
+name|store
+operator|.
+name|incRef
+argument_list|()
+expr_stmt|;
+try|try
+block|{
 name|IndexOutput
 name|indexOutput
 decl_stmt|;
@@ -4022,8 +4046,13 @@ expr_stmt|;
 assert|assert
 name|remove
 operator|==
+literal|null
+operator|||
+name|remove
+operator|==
 name|indexOutput
 assert|;
+comment|// remove maybe null if we got canceled
 block|}
 name|success
 operator|=
@@ -4057,6 +4086,10 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 assert|assert
+name|remove
+operator|==
+literal|null
+operator|||
 name|remove
 operator|==
 name|indexOutput
@@ -4107,6 +4140,15 @@ operator|.
 name|INSTANCE
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
+name|store
+operator|.
+name|decRef
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}
