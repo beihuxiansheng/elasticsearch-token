@@ -8032,7 +8032,7 @@ specifier|public
 name|CompletableFuture
 parameter_list|()
 block|{     }
-comment|/**      * Returns a new CompletableFuture that is asynchronously completed      * by a task running in the {@link ForkJoinPool#commonPool()} with      * the value obtained by calling the given Generator.      *      * @param supplier a function returning the value to be used      * to complete the returned CompletableFuture      * @return the new CompletableFuture      */
+comment|/**      * Returns a new CompletableFuture that is asynchronously completed      * by a task running in the {@link ForkJoinPool#commonPool()} with      * the value obtained by calling the given Generator.      *      * @param supplier a function returning the value to be used      * to complete the returned CompletableFuture      * @param<U> the function's return type      * @return the new CompletableFuture      */
 DECL|method|supplyAsync
 specifier|public
 specifier|static
@@ -8105,7 +8105,7 @@ return|return
 name|f
 return|;
 block|}
-comment|/**      * Returns a new CompletableFuture that is asynchronously completed      * by a task running in the given executor with the value obtained      * by calling the given Generator.      *      * @param supplier a function returning the value to be used      * to complete the returned CompletableFuture      * @param executor the executor to use for asynchronous execution      * @return the new CompletableFuture      */
+comment|/**      * Returns a new CompletableFuture that is asynchronously completed      * by a task running in the given executor with the value obtained      * by calling the given Generator.      *      * @param supplier a function returning the value to be used      * to complete the returned CompletableFuture      * @param executor the executor to use for asynchronous execution      * @param<U> the function's return type      * @return the new CompletableFuture      */
 DECL|method|supplyAsync
 specifier|public
 specifier|static
@@ -8302,7 +8302,7 @@ return|return
 name|f
 return|;
 block|}
-comment|/**      * Returns a new CompletableFuture that is already completed with      * the given value.      *      * @param value the value      * @return the completed CompletableFuture      */
+comment|/**      * Returns a new CompletableFuture that is already completed with      * the given value.      *      * @param value the value      * @param<U> the type of the value      * @return the completed CompletableFuture      */
 DECL|method|completedFuture
 specifier|public
 specifier|static
@@ -13715,10 +13715,6 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|e
-operator|==
-literal|null
-operator|||
 name|ex
 operator|!=
 literal|null

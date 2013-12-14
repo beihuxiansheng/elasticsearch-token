@@ -860,6 +860,12 @@ name|long
 name|thrower
 decl_stmt|;
 comment|// use id not ref to avoid weak cycles
+DECL|field|hashCode
+specifier|final
+name|int
+name|hashCode
+decl_stmt|;
+comment|// store task hashCode before weak ref disappears
 DECL|method|ExceptionNode
 name|ExceptionNode
 parameter_list|(
@@ -906,6 +912,17 @@ argument_list|()
 operator|.
 name|getId
 argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|hashCode
+operator|=
+name|System
+operator|.
+name|identityHashCode
+argument_list|(
+name|task
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -1614,11 +1631,8 @@ operator|instanceof
 name|ExceptionNode
 condition|)
 block|{
-name|ForkJoinTask
-argument_list|<
-name|?
-argument_list|>
-name|key
+name|int
+name|hashCode
 init|=
 operator|(
 operator|(
@@ -1627,8 +1641,7 @@ operator|)
 name|x
 operator|)
 operator|.
-name|get
-argument_list|()
+name|hashCode
 decl_stmt|;
 name|ExceptionNode
 index|[]
@@ -1639,12 +1652,7 @@ decl_stmt|;
 name|int
 name|i
 init|=
-name|System
-operator|.
-name|identityHashCode
-argument_list|(
-name|key
-argument_list|)
+name|hashCode
 operator|&
 operator|(
 name|t

@@ -760,7 +760,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Saves the state to a stream (that is, serializes it).      *      * @serialData The length of the array is emitted (int), followed by all      *             of its elements (each a {@code double}) in the proper order.      */
+comment|/**      * Saves the state to a stream (that is, serializes it).      *      * @param s the stream      * @throws java.io.IOException if an I/O error occurs      * @serialData The length of the array is emitted (int), followed by all      *             of its elements (each a {@code double}) in the proper order.      */
 DECL|method|writeObject
 specifier|private
 name|void
@@ -825,7 +825,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Reconstitutes the instance from a stream (that is, deserializes it).      */
+comment|/**      * Reconstitutes the instance from a stream (that is, deserializes it).      * @param s the stream      * @throws ClassNotFoundException if the class of a serialized object      *         could not be found      * @throws java.io.IOException if an I/O error occurs      */
 DECL|method|readObject
 specifier|private
 name|void

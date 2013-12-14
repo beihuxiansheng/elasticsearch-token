@@ -216,7 +216,7 @@ specifier|static
 interface|interface
 name|ForkJoinWorkerThreadFactory
 block|{
-comment|/**          * Returns a new worker thread operating in the given pool.          *          * @param pool the pool this thread works in          * @throws NullPointerException if the pool is null          * @return the new worker thread          */
+comment|/**          * Returns a new worker thread operating in the given pool.          *          * @param pool the pool this thread works in          * @return the new worker thread          * @throws NullPointerException if the pool is null          */
 DECL|method|newThread
 specifier|public
 name|ForkJoinWorkerThread
@@ -10677,7 +10677,7 @@ name|common
 return|;
 block|}
 comment|// Execution methods
-comment|/**      * Performs the given task, returning its result upon completion.      * If the computation encounters an unchecked Exception or Error,      * it is rethrown as the outcome of this invocation.  Rethrown      * exceptions behave in the same way as regular exceptions, but,      * when possible, contain stack traces (as displayed for example      * using {@code ex.printStackTrace()}) of both the current thread      * as well as the thread actually encountering the exception;      * minimally only the latter.      *      * @param task the task      * @return the task's result      * @throws NullPointerException if the task is null      * @throws RejectedExecutionException if the task cannot be      *         scheduled for execution      */
+comment|/**      * Performs the given task, returning its result upon completion.      * If the computation encounters an unchecked Exception or Error,      * it is rethrown as the outcome of this invocation.  Rethrown      * exceptions behave in the same way as regular exceptions, but,      * when possible, contain stack traces (as displayed for example      * using {@code ex.printStackTrace()}) of both the current thread      * as well as the thread actually encountering the exception;      * minimally only the latter.      *      * @param task the task      * @param<T> the type of the task's result      * @return the task's result      * @throws NullPointerException if the task is null      * @throws RejectedExecutionException if the task cannot be      *         scheduled for execution      */
 DECL|method|invoke
 specifier|public
 parameter_list|<
@@ -10805,7 +10805,7 @@ name|job
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Submits a ForkJoinTask for execution.      *      * @param task the task to submit      * @return the task      * @throws NullPointerException if the task is null      * @throws RejectedExecutionException if the task cannot be      *         scheduled for execution      */
+comment|/**      * Submits a ForkJoinTask for execution.      *      * @param task the task to submit      * @param<T> the type of the task's result      * @return the task      * @throws NullPointerException if the task is null      * @throws RejectedExecutionException if the task cannot be      *         scheduled for execution      */
 DECL|method|submit
 specifier|public
 parameter_list|<

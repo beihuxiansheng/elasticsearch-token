@@ -231,7 +231,7 @@ operator|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a pseudorandom, uniformly distributed value between the      * given least value (inclusive) and bound (exclusive).      *      * @param least the least value returned      * @param bound the upper bound (exclusive)      * @throws IllegalArgumentException if least greater than or equal      * to bound      * @return the next value      */
+comment|/**      * Returns a pseudorandom, uniformly distributed value between the      * given least value (inclusive) and bound (exclusive).      *      * @param least the least value returned      * @param bound the upper bound (exclusive)      * @return the next value      * @throws IllegalArgumentException if least greater than or equal      * to bound      */
 DECL|method|nextInt
 specifier|public
 name|int

@@ -798,7 +798,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Returns the result of the computation. By default      * returns {@code null}, which is appropriate for {@code Void}      * actions, but in other cases should be overridden, almost      * always to return a field or function of a field that      * holds the result upon completion.      *      * @return the result of the computation      */
+comment|/**      * Returns the result of the computation.  By default,      * returns {@code null}, which is appropriate for {@code Void}      * actions, but in other cases should be overridden, almost      * always to return a field or function of a field that      * holds the result upon completion.      *      * @return the result of the computation      */
 DECL|method|getRawResult
 specifier|public
 name|T

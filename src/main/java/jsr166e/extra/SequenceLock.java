@@ -749,7 +749,7 @@ name|DEFAULT_SPINS
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates an instance of {@code SequenceLock} that will retry      * attempts to acquire the lock at least the given number times      * before blocking.      */
+comment|/**      * Creates an instance of {@code SequenceLock} that will retry      * attempts to acquire the lock at least the given number of times      * before blocking.      *      * @param spins the number of times before blocking      */
 DECL|method|SequenceLock
 specifier|public
 name|SequenceLock
@@ -918,7 +918,7 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Throws UnsupportedOperationException. SequenceLocks      * do not support Condition objects.      *      * @throws UnsupportedOperationException      */
+comment|/**      * Throws UnsupportedOperationException. SequenceLocks      * do not support Condition objects.      *      * @throws UnsupportedOperationException always      */
 DECL|method|newCondition
 specifier|public
 name|Condition

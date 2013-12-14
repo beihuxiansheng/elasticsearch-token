@@ -478,7 +478,7 @@ name|get
 argument_list|()
 return|;
 block|}
-comment|/**      * Saves the state to a stream (that is, serializes it).      *      * @serialData The current value is emitted (a {@code double}).      */
+comment|/**      * Saves the state to a stream (that is, serializes it).      *      * @param s the stream      * @throws java.io.IOException if an I/O error occurs      * @serialData The current value is emitted (a {@code double}).      */
 DECL|method|writeObject
 specifier|private
 name|void
@@ -512,7 +512,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Reconstitutes the instance from a stream (that is, deserializes it).      */
+comment|/**      * Reconstitutes the instance from a stream (that is, deserializes it).      * @param s the stream      * @throws ClassNotFoundException if the class of a serialized object      *         could not be found      * @throws java.io.IOException if an I/O error occurs      */
 DECL|method|readObject
 specifier|private
 name|void
