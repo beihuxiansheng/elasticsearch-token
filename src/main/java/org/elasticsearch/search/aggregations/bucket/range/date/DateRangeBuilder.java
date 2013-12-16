@@ -300,6 +300,13 @@ argument_list|,
 name|params
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|format
+operator|!=
+literal|null
+condition|)
+block|{
 name|builder
 operator|.
 name|field
@@ -309,6 +316,7 @@ argument_list|,
 name|format
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|builder
 return|;

@@ -112,6 +112,20 @@ name|search
 operator|.
 name|aggregations
 operator|.
+name|AggregatorFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
 name|support
 operator|.
 name|FieldContext
@@ -149,20 +163,6 @@ operator|.
 name|numeric
 operator|.
 name|NumericValuesSource
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
-name|AggregatorFactory
 import|;
 end_import
 
@@ -480,6 +480,30 @@ name|text
 argument_list|()
 expr_stmt|;
 block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|SearchParseException
+argument_list|(
+name|context
+argument_list|,
+literal|"Unknown key for a "
+operator|+
+name|token
+operator|+
+literal|" in ["
+operator|+
+name|aggregationName
+operator|+
+literal|"]: ["
+operator|+
+name|currentFieldName
+operator|+
+literal|"]."
+argument_list|)
+throw|;
+block|}
 block|}
 elseif|else
 if|if
@@ -510,6 +534,30 @@ operator|.
 name|longValue
 argument_list|()
 expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|SearchParseException
+argument_list|(
+name|context
+argument_list|,
+literal|"Unknown key for a "
+operator|+
+name|token
+operator|+
+literal|" in ["
+operator|+
+name|aggregationName
+operator|+
+literal|"]: ["
+operator|+
+name|currentFieldName
+operator|+
+literal|"]."
+argument_list|)
+throw|;
 block|}
 block|}
 elseif|else
@@ -586,6 +634,30 @@ operator|.
 name|booleanValue
 argument_list|()
 expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|SearchParseException
+argument_list|(
+name|context
+argument_list|,
+literal|"Unknown key for a "
+operator|+
+name|token
+operator|+
+literal|" in ["
+operator|+
+name|aggregationName
+operator|+
+literal|"]: ["
+operator|+
+name|currentFieldName
+operator|+
+literal|"]."
+argument_list|)
+throw|;
 block|}
 block|}
 elseif|else
@@ -709,6 +781,50 @@ comment|//TODO should we throw an error if the value is not "asc" or "desc"???
 block|}
 block|}
 block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|SearchParseException
+argument_list|(
+name|context
+argument_list|,
+literal|"Unknown key for a "
+operator|+
+name|token
+operator|+
+literal|" in ["
+operator|+
+name|aggregationName
+operator|+
+literal|"]: ["
+operator|+
+name|currentFieldName
+operator|+
+literal|"]."
+argument_list|)
+throw|;
+block|}
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|SearchParseException
+argument_list|(
+name|context
+argument_list|,
+literal|"Unexpected token "
+operator|+
+name|token
+operator|+
+literal|" in ["
+operator|+
+name|aggregationName
+operator|+
+literal|"]."
+argument_list|)
+throw|;
 block|}
 block|}
 if|if

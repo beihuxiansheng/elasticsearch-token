@@ -441,6 +441,36 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|aggregatorType
+operator|!=
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|SearchParseException
+argument_list|(
+name|context
+argument_list|,
+literal|"Found two aggregation type definitions in ["
+operator|+
+name|aggregationName
+operator|+
+literal|"]: ["
+operator|+
+name|aggregatorType
+operator|+
+literal|"] and ["
+operator|+
+name|currentFieldName
+operator|+
+literal|"]. Only one type is allowed."
+argument_list|)
+throw|;
+block|}
 else|else
 block|{
 name|aggregatorType

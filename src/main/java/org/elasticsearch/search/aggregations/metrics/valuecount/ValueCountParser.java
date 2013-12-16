@@ -70,9 +70,35 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
+name|SearchParseException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
 name|aggregations
 operator|.
 name|Aggregator
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|AggregatorFactory
 import|;
 end_import
 
@@ -123,20 +149,6 @@ operator|.
 name|bytes
 operator|.
 name|BytesValuesSource
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
-name|AggregatorFactory
 import|;
 end_import
 
@@ -313,6 +325,50 @@ name|text
 argument_list|()
 expr_stmt|;
 block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|SearchParseException
+argument_list|(
+name|context
+argument_list|,
+literal|"Unknown key for a "
+operator|+
+name|token
+operator|+
+literal|" in ["
+operator|+
+name|aggregationName
+operator|+
+literal|"]: ["
+operator|+
+name|currentFieldName
+operator|+
+literal|"]."
+argument_list|)
+throw|;
+block|}
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|SearchParseException
+argument_list|(
+name|context
+argument_list|,
+literal|"Unexpected token "
+operator|+
+name|token
+operator|+
+literal|" in ["
+operator|+
+name|aggregationName
+operator|+
+literal|"]."
+argument_list|)
+throw|;
 block|}
 block|}
 if|if

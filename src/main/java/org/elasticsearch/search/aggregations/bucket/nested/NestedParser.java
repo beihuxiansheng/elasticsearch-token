@@ -230,6 +230,50 @@ name|text
 argument_list|()
 expr_stmt|;
 block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|SearchParseException
+argument_list|(
+name|context
+argument_list|,
+literal|"Unknown key for a "
+operator|+
+name|token
+operator|+
+literal|" in ["
+operator|+
+name|aggregationName
+operator|+
+literal|"]: ["
+operator|+
+name|currentFieldName
+operator|+
+literal|"]."
+argument_list|)
+throw|;
+block|}
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|SearchParseException
+argument_list|(
+name|context
+argument_list|,
+literal|"Unexpected token "
+operator|+
+name|token
+operator|+
+literal|" in ["
+operator|+
+name|aggregationName
+operator|+
+literal|"]."
+argument_list|)
+throw|;
 block|}
 block|}
 if|if
