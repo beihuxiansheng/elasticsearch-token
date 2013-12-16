@@ -530,7 +530,7 @@ name|TimeValue
 operator|.
 name|timeValueMillis
 argument_list|(
-literal|2
+literal|100
 argument_list|)
 return|;
 block|}
@@ -599,7 +599,7 @@ name|timedOut
 operator|.
 name|await
 argument_list|(
-literal|500
+literal|1000
 argument_list|,
 name|TimeUnit
 operator|.
