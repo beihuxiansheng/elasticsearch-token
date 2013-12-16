@@ -305,7 +305,7 @@ operator|||
 operator|(
 name|context
 operator|.
-name|parsedFilter
+name|parsedPostFilter
 argument_list|()
 operator|!=
 literal|null
@@ -313,7 +313,7 @@ operator|&&
 operator|!
 name|context
 operator|.
-name|parsedFilter
+name|parsedPostFilter
 argument_list|()
 operator|.
 name|namedFilters
@@ -372,7 +372,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parsedFilter
+name|parsedPostFilter
 argument_list|()
 operator|!=
 literal|null
@@ -384,7 +384,7 @@ name|hitContext
 argument_list|,
 name|context
 operator|.
-name|parsedFilter
+name|parsedPostFilter
 argument_list|()
 operator|.
 name|namedFilters

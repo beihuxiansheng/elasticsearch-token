@@ -447,7 +447,7 @@ argument_list|(
 name|indexName
 argument_list|)
 operator|.
-name|setFilter
+name|setPostFilter
 argument_list|(
 name|FilterBuilders
 operator|.
@@ -555,7 +555,7 @@ argument_list|(
 name|indexName
 argument_list|)
 operator|.
-name|setFilter
+name|setPostFilter
 argument_list|(
 name|FilterBuilders
 operator|.
@@ -616,7 +616,7 @@ argument_list|(
 name|indexName
 argument_list|)
 operator|.
-name|setFilter
+name|setPostFilter
 argument_list|(
 name|FilterBuilders
 operator|.

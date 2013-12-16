@@ -715,7 +715,7 @@ name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.
-name|setFilter
+name|setPostFilter
 argument_list|(
 name|orFilter
 argument_list|(
@@ -902,7 +902,7 @@ name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.
-name|setFilter
+name|setPostFilter
 argument_list|(
 name|queryFilter
 argument_list|(
@@ -1218,7 +1218,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 operator|.
-name|setFilter
+name|setPostFilter
 argument_list|(
 name|termFilter
 argument_list|(
@@ -1370,7 +1370,7 @@ literal|"title"
 argument_list|)
 argument_list|)
 operator|.
-name|setFilter
+name|setPostFilter
 argument_list|(
 name|queryFilter
 argument_list|(

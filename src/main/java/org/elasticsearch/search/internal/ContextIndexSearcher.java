@@ -688,7 +688,7 @@ if|if
 condition|(
 name|searchContext
 operator|.
-name|parsedFilter
+name|parsedPostFilter
 argument_list|()
 operator|!=
 literal|null
@@ -706,7 +706,7 @@ name|collector
 argument_list|,
 name|searchContext
 operator|.
-name|parsedFilter
+name|parsedPostFilter
 argument_list|()
 operator|.
 name|filter

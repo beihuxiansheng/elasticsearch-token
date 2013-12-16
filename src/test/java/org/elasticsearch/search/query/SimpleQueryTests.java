@@ -602,7 +602,7 @@ name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.
-name|setFilter
+name|setPostFilter
 argument_list|(
 name|andFilter
 argument_list|(
@@ -739,7 +739,7 @@ name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.
-name|setFilter
+name|setPostFilter
 argument_list|(
 name|notFilter
 argument_list|(
@@ -5707,7 +5707,7 @@ operator|.
 name|prepareSearch
 argument_list|()
 operator|.
-name|setFilter
+name|setPostFilter
 argument_list|(
 name|wrapperFilter
 argument_list|)
@@ -10544,7 +10544,7 @@ name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.
-name|setFilter
+name|setPostFilter
 argument_list|(
 name|idsFilter
 argument_list|(
@@ -10655,7 +10655,7 @@ name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.
-name|setFilter
+name|setPostFilter
 argument_list|(
 name|idsFilter
 argument_list|()
@@ -10708,7 +10708,7 @@ name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.
-name|setFilter
+name|setPostFilter
 argument_list|(
 name|idsFilter
 argument_list|()
@@ -12949,7 +12949,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|setFilter
+name|setPostFilter
 argument_list|(
 name|boolFilter
 argument_list|()
@@ -13000,7 +13000,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|setFilter
+name|setPostFilter
 argument_list|(
 name|boolFilter
 argument_list|()
@@ -13051,7 +13051,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|setFilter
+name|setPostFilter
 argument_list|(
 name|boolFilter
 argument_list|()
@@ -13146,7 +13146,7 @@ operator|.
 name|prepareSearch
 argument_list|()
 operator|.
-name|setFilter
+name|setPostFilter
 argument_list|(
 literal|"{}"
 argument_list|)
@@ -16544,7 +16544,7 @@ argument_list|,
 literal|"index3"
 argument_list|)
 operator|.
-name|setFilter
+name|setPostFilter
 argument_list|(
 name|indicesFilter
 argument_list|(
@@ -16603,7 +16603,7 @@ argument_list|,
 literal|"index3"
 argument_list|)
 operator|.
-name|setFilter
+name|setPostFilter
 argument_list|(
 name|indicesFilter
 argument_list|(
@@ -16653,7 +16653,7 @@ argument_list|,
 literal|"index3"
 argument_list|)
 operator|.
-name|setFilter
+name|setPostFilter
 argument_list|(
 name|indicesFilter
 argument_list|(
@@ -16708,7 +16708,7 @@ argument_list|,
 literal|"index3"
 argument_list|)
 operator|.
-name|setFilter
+name|setPostFilter
 argument_list|(
 name|indicesFilter
 argument_list|(
@@ -17218,7 +17218,7 @@ argument_list|(
 literal|"simple"
 argument_list|)
 operator|.
-name|setFilter
+name|setPostFilter
 argument_list|(
 name|hasChildFilter
 argument_list|(
@@ -17302,7 +17302,7 @@ argument_list|,
 literal|"simple"
 argument_list|)
 operator|.
-name|setFilter
+name|setPostFilter
 argument_list|(
 name|indicesFilter
 argument_list|(

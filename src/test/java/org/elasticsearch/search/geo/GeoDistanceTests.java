@@ -7691,7 +7691,7 @@ name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.
-name|setFilter
+name|setPostFilter
 argument_list|(
 name|FilterBuilders
 operator|.

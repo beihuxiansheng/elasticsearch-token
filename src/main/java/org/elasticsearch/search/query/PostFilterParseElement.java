@@ -75,10 +75,10 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|FilterParseElement
+DECL|class|PostFilterParseElement
 specifier|public
 class|class
-name|FilterParseElement
+name|PostFilterParseElement
 implements|implements
 name|SearchParseElement
 block|{
@@ -99,7 +99,7 @@ throws|throws
 name|Exception
 block|{
 name|ParsedFilter
-name|filter
+name|postFilter
 init|=
 name|context
 operator|.
@@ -113,16 +113,16 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|filter
+name|postFilter
 operator|!=
 literal|null
 condition|)
 block|{
 name|context
 operator|.
-name|parsedFilter
+name|parsedPostFilter
 argument_list|(
-name|filter
+name|postFilter
 argument_list|)
 expr_stmt|;
 block|}

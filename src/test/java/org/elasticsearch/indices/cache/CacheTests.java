@@ -1846,7 +1846,7 @@ operator|.
 name|prepareSearch
 argument_list|()
 operator|.
-name|setFilter
+name|setPostFilter
 argument_list|(
 name|FilterBuilders
 operator|.
@@ -1879,7 +1879,7 @@ operator|.
 name|prepareSearch
 argument_list|()
 operator|.
-name|setFilter
+name|setPostFilter
 argument_list|(
 name|FilterBuilders
 operator|.

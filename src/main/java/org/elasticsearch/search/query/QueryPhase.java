@@ -439,7 +439,26 @@ argument_list|(
 literal|"filter"
 argument_list|,
 operator|new
-name|FilterParseElement
+name|PostFilterParseElement
+argument_list|()
+argument_list|)
+comment|// For bw comp reason, should be removed in version 1.1
+operator|.
+name|put
+argument_list|(
+literal|"post_filter"
+argument_list|,
+operator|new
+name|PostFilterParseElement
+argument_list|()
+argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"postFilter"
+argument_list|,
+operator|new
+name|PostFilterParseElement
 argument_list|()
 argument_list|)
 operator|.

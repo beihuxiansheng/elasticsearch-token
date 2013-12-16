@@ -1718,7 +1718,7 @@ name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.
-name|setFilter
+name|setPostFilter
 argument_list|(
 name|FilterBuilders
 operator|.
@@ -1775,7 +1775,7 @@ name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.
-name|setFilter
+name|setPostFilter
 argument_list|(
 name|FilterBuilders
 operator|.
@@ -1825,7 +1825,7 @@ name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.
-name|setFilter
+name|setPostFilter
 argument_list|(
 name|FilterBuilders
 operator|.
@@ -1882,7 +1882,7 @@ name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.
-name|setFilter
+name|setPostFilter
 argument_list|(
 name|FilterBuilders
 operator|.
@@ -1944,7 +1944,7 @@ name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.
-name|setFilter
+name|setPostFilter
 argument_list|(
 name|FilterBuilders
 operator|.
@@ -1991,7 +1991,7 @@ name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.
-name|setFilter
+name|setPostFilter
 argument_list|(
 name|FilterBuilders
 operator|.
@@ -2193,7 +2193,7 @@ name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.
-name|setFilter
+name|setPostFilter
 argument_list|(
 name|FilterBuilders
 operator|.
@@ -2379,7 +2379,7 @@ name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.
-name|setFilter
+name|setPostFilter
 argument_list|(
 name|FilterBuilders
 operator|.
@@ -2661,7 +2661,7 @@ name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.
-name|setFilter
+name|setPostFilter
 argument_list|(
 name|FilterBuilders
 operator|.
@@ -2708,7 +2708,7 @@ name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.
-name|setFilter
+name|setPostFilter
 argument_list|(
 name|FilterBuilders
 operator|.
@@ -2756,7 +2756,7 @@ name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.
-name|setFilter
+name|setPostFilter
 argument_list|(
 name|FilterBuilders
 operator|.
@@ -2803,7 +2803,7 @@ name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.
-name|setFilter
+name|setPostFilter
 argument_list|(
 name|FilterBuilders
 operator|.
@@ -3701,7 +3701,7 @@ name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.
-name|setFilter
+name|setPostFilter
 argument_list|(
 literal|"{\"geohash_cell\": {\"pin\": \""
 operator|+
@@ -3742,7 +3742,7 @@ name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.
-name|setFilter
+name|setPostFilter
 argument_list|(
 name|geoHashCellFilter
 argument_list|(
@@ -3787,7 +3787,7 @@ name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.
-name|setFilter
+name|setPostFilter
 argument_list|(
 literal|"{\"geohash_cell\": {\"pin\": \""
 operator|+
@@ -3899,7 +3899,7 @@ name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.
-name|setFilter
+name|setPostFilter
 argument_list|(
 name|pointTest1
 argument_list|)
@@ -3971,7 +3971,7 @@ name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.
-name|setFilter
+name|setPostFilter
 argument_list|(
 name|pointTest2
 argument_list|)
@@ -4043,7 +4043,7 @@ name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.
-name|setFilter
+name|setPostFilter
 argument_list|(
 name|pointTest3
 argument_list|)

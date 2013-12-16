@@ -160,7 +160,7 @@ condition|)
 block|{
 name|context
 operator|.
-name|parsedFilter
+name|parsedPostFilter
 argument_list|(
 name|filter
 argument_list|)
