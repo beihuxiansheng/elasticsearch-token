@@ -3063,7 +3063,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|fieldQuery
+name|matchQuery
 argument_list|(
 literal|"_id"
 argument_list|,

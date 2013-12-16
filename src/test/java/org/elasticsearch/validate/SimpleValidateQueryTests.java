@@ -1678,7 +1678,7 @@ literal|"child-type"
 argument_list|,
 name|QueryBuilders
 operator|.
-name|fieldQuery
+name|matchQuery
 argument_list|(
 literal|"foo"
 argument_list|,

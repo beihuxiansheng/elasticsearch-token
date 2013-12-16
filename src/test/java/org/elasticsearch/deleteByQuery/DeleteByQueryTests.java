@@ -966,7 +966,7 @@ name|setQuery
 argument_list|(
 name|QueryBuilders
 operator|.
-name|fieldQuery
+name|matchQuery
 argument_list|(
 literal|"_id"
 argument_list|,
@@ -1028,7 +1028,7 @@ name|setQuery
 argument_list|(
 name|QueryBuilders
 operator|.
-name|fieldQuery
+name|matchQuery
 argument_list|(
 literal|"_id"
 argument_list|,
