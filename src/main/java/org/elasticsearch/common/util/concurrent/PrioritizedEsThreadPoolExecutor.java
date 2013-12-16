@@ -341,6 +341,13 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|super
+operator|.
+name|execute
+argument_list|(
+name|command
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|timeout
@@ -408,13 +415,6 @@ name|NANOSECONDS
 argument_list|)
 expr_stmt|;
 block|}
-name|super
-operator|.
-name|execute
-argument_list|(
-name|command
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|Override
