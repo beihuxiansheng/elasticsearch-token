@@ -981,14 +981,6 @@ range|:
 name|relocatingFromNode
 control|)
 block|{
-assert|assert
-name|shardRouting
-operator|.
-name|state
-argument_list|()
-operator|!=
-name|RELOCATING
-assert|;
 if|if
 condition|(
 name|fromShardRouting
@@ -1004,7 +996,7 @@ name|shardId
 argument_list|()
 argument_list|)
 operator|&&
-name|shardRouting
+name|fromShardRouting
 operator|.
 name|state
 argument_list|()
@@ -1012,7 +1004,6 @@ operator|==
 name|RELOCATING
 condition|)
 block|{
-comment|// NOCOMMIT @Shay the check on the shardRouting.state() == RELOCATING can never be true right this should be fromShardRouting?
 name|allocation
 operator|.
 name|routingNodes
