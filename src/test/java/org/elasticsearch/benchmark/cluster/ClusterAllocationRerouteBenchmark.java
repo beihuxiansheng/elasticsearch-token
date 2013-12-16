@@ -259,7 +259,7 @@ specifier|final
 name|int
 name|numberOfRuns
 init|=
-literal|10
+literal|1
 decl_stmt|;
 specifier|final
 name|int

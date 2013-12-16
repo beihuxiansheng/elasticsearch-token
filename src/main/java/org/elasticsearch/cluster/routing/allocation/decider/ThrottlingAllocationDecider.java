@@ -325,7 +325,6 @@ range|:
 name|node
 control|)
 block|{
-empty_stmt|;
 comment|// when a primary shard is INITIALIZING, it can be because of *initial recovery* or *relocation from another node*
 comment|// we only count initial recoveries here, so we need to make sure that relocating node is null
 if|if
@@ -382,6 +381,27 @@ block|}
 block|}
 comment|// either primary or replica doing recovery (from peer shard)
 comment|// count the number of recoveries on the node, its for both target (INITIALIZING) and source (RELOCATING)
+return|return
+name|canAllocate
+argument_list|(
+name|node
+argument_list|,
+name|allocation
+argument_list|)
+return|;
+block|}
+DECL|method|canAllocate
+specifier|public
+name|Decision
+name|canAllocate
+parameter_list|(
+name|RoutingNode
+name|node
+parameter_list|,
+name|RoutingAllocation
+name|allocation
+parameter_list|)
+block|{
 name|int
 name|currentRecoveries
 init|=

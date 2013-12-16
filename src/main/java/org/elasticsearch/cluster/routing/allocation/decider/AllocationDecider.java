@@ -183,6 +183,44 @@ operator|.
 name|ALWAYS
 return|;
 block|}
+comment|/**      * Returns a {@link Decision} whether the given shard routing can be allocated at all at this state of the      * {@link RoutingAllocation}. The default is {@link Decision#ALWAYS}.      */
+DECL|method|canAllocate
+specifier|public
+name|Decision
+name|canAllocate
+parameter_list|(
+name|ShardRouting
+name|shardRouting
+parameter_list|,
+name|RoutingAllocation
+name|allocation
+parameter_list|)
+block|{
+return|return
+name|Decision
+operator|.
+name|ALWAYS
+return|;
+block|}
+comment|/**      * Returns a {@link Decision} whether the given node can allow any allocation at all at this state of the      * {@link RoutingAllocation}. The default is {@link Decision#ALWAYS}.      */
+DECL|method|canAllocate
+specifier|public
+name|Decision
+name|canAllocate
+parameter_list|(
+name|RoutingNode
+name|node
+parameter_list|,
+name|RoutingAllocation
+name|allocation
+parameter_list|)
+block|{
+return|return
+name|Decision
+operator|.
+name|ALWAYS
+return|;
+block|}
 block|}
 end_class
 
