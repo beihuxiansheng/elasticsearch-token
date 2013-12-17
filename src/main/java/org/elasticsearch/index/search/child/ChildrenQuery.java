@@ -1813,15 +1813,6 @@ argument_list|(
 name|currentDocId
 argument_list|)
 decl_stmt|;
-name|currentScore
-operator|=
-name|uidToScore
-operator|.
-name|get
-argument_list|(
-name|uid
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|uidToScore
