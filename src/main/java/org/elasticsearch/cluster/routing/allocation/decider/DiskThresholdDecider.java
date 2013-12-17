@@ -517,7 +517,7 @@ block|}
 annotation|@
 name|Inject
 DECL|method|DiskThresholdDecider
-specifier|protected
+specifier|public
 name|DiskThresholdDecider
 parameter_list|(
 name|Settings

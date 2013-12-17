@@ -206,7 +206,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ElasticsearchAllocationTestCase
 import|;
 end_import
 
@@ -312,7 +312,7 @@ specifier|public
 class|class
 name|AddIncrementallyTests
 extends|extends
-name|ElasticsearchTestCase
+name|ElasticsearchAllocationTestCase
 block|{
 DECL|field|logger
 specifier|private
@@ -364,8 +364,7 @@ expr_stmt|;
 name|AllocationService
 name|service
 init|=
-operator|new
-name|AllocationService
+name|createAllocationService
 argument_list|(
 name|settings
 operator|.
@@ -946,8 +945,7 @@ expr_stmt|;
 name|AllocationService
 name|service
 init|=
-operator|new
-name|AllocationService
+name|createAllocationService
 argument_list|(
 name|settings
 operator|.
@@ -1984,8 +1982,7 @@ expr_stmt|;
 name|AllocationService
 name|service
 init|=
-operator|new
-name|AllocationService
+name|createAllocationService
 argument_list|(
 name|settings
 operator|.

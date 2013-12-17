@@ -194,24 +194,6 @@ name|allocation
 operator|.
 name|decider
 operator|.
-name|AllocationDeciders
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|allocation
-operator|.
-name|decider
-operator|.
 name|ClusterRebalanceAllocationDecider
 import|;
 end_import
@@ -294,7 +276,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ElasticsearchAllocationTestCase
 import|;
 end_import
 
@@ -390,7 +372,7 @@ specifier|public
 class|class
 name|BalanceConfigurationTests
 extends|extends
-name|ElasticsearchTestCase
+name|ElasticsearchAllocationTestCase
 block|{
 DECL|field|logger
 specifier|private
@@ -540,8 +522,7 @@ expr_stmt|;
 name|AllocationService
 name|strategy
 init|=
-operator|new
-name|AllocationService
+name|createAllocationService
 argument_list|(
 name|settings
 operator|.
@@ -754,8 +735,7 @@ expr_stmt|;
 name|AllocationService
 name|strategy
 init|=
-operator|new
-name|AllocationService
+name|createAllocationService
 argument_list|(
 name|settings
 operator|.
@@ -968,8 +948,7 @@ expr_stmt|;
 name|AllocationService
 name|strategy
 init|=
-operator|new
-name|AllocationService
+name|createAllocationService
 argument_list|(
 name|settings
 operator|.
@@ -2932,8 +2911,7 @@ operator|.
 name|build
 argument_list|()
 argument_list|,
-operator|new
-name|AllocationDeciders
+name|randomAllocationDeciders
 argument_list|(
 name|settings
 operator|.
@@ -2949,6 +2927,9 @@ name|Builder
 operator|.
 name|EMPTY_SETTINGS
 argument_list|)
+argument_list|,
+name|getRandom
+argument_list|()
 argument_list|)
 argument_list|,
 operator|new
@@ -3526,8 +3507,7 @@ block|}
 block|}
 name|strategy
 operator|=
-operator|new
-name|AllocationService
+name|createAllocationService
 argument_list|(
 name|settings
 operator|.

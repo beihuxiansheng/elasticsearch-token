@@ -154,7 +154,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ElasticsearchAllocationTestCase
 import|;
 end_import
 
@@ -256,7 +256,7 @@ specifier|public
 class|class
 name|DisableAllocationTests
 extends|extends
-name|ElasticsearchTestCase
+name|ElasticsearchAllocationTestCase
 block|{
 DECL|field|logger
 specifier|private
@@ -284,8 +284,7 @@ block|{
 name|AllocationService
 name|strategy
 init|=
-operator|new
-name|AllocationService
+name|createAllocationService
 argument_list|(
 name|settingsBuilder
 argument_list|()
@@ -497,8 +496,7 @@ block|{
 name|AllocationService
 name|strategy
 init|=
-operator|new
-name|AllocationService
+name|createAllocationService
 argument_list|(
 name|settingsBuilder
 argument_list|()
@@ -766,8 +764,7 @@ block|{
 name|AllocationService
 name|strategy
 init|=
-operator|new
-name|AllocationService
+name|createAllocationService
 argument_list|(
 name|settingsBuilder
 argument_list|()

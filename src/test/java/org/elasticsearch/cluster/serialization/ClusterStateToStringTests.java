@@ -156,7 +156,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ElasticsearchAllocationTestCase
 import|;
 end_import
 
@@ -192,7 +192,7 @@ specifier|public
 class|class
 name|ClusterStateToStringTests
 extends|extends
-name|ElasticsearchTestCase
+name|ElasticsearchAllocationTestCase
 block|{
 annotation|@
 name|Test
@@ -336,8 +336,7 @@ decl_stmt|;
 name|AllocationService
 name|strategy
 init|=
-operator|new
-name|AllocationService
+name|createAllocationService
 argument_list|()
 decl_stmt|;
 name|clusterState

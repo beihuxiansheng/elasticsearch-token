@@ -122,7 +122,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ElasticsearchAllocationTestCase
 import|;
 end_import
 
@@ -208,7 +208,7 @@ specifier|public
 class|class
 name|PreferPrimaryAllocationTests
 extends|extends
-name|ElasticsearchTestCase
+name|ElasticsearchAllocationTestCase
 block|{
 DECL|field|logger
 specifier|private
@@ -243,8 +243,7 @@ expr_stmt|;
 name|AllocationService
 name|strategy
 init|=
-operator|new
-name|AllocationService
+name|createAllocationService
 argument_list|(
 name|settingsBuilder
 argument_list|()

@@ -118,7 +118,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ElasticsearchAllocationTestCase
 import|;
 end_import
 
@@ -195,7 +195,7 @@ specifier|public
 class|class
 name|RoutingAllocationTests
 extends|extends
-name|ElasticsearchTestCase
+name|ElasticsearchAllocationTestCase
 block|{
 DECL|method|newNode
 specifier|public

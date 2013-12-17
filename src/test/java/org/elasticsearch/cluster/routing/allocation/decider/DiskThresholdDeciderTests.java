@@ -222,7 +222,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ElasticsearchAllocationTestCase
 import|;
 end_import
 
@@ -344,7 +344,7 @@ specifier|public
 class|class
 name|DiskThresholdDeciderTests
 extends|extends
-name|ElasticsearchTestCase
+name|ElasticsearchAllocationTestCase
 block|{
 annotation|@
 name|Test
