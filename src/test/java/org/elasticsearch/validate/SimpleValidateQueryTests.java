@@ -498,7 +498,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|setQuery
+name|setSource
 argument_list|(
 literal|"foo"
 operator|.
@@ -1105,7 +1105,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|setQuery
+name|setSource
 argument_list|(
 literal|"foo"
 operator|.
@@ -1984,7 +1984,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|setQuery
+name|setSource
 argument_list|(
 literal|"foo"
 operator|.

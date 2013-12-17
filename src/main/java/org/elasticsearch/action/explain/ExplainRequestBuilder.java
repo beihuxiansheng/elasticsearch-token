@@ -38,6 +38,20 @@ name|action
 operator|.
 name|support
 operator|.
+name|QuerySourceBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|support
+operator|.
 name|single
 operator|.
 name|shard
@@ -161,7 +175,7 @@ argument_list|>
 block|{
 DECL|field|sourceBuilder
 specifier|private
-name|ExplainSourceBuilder
+name|QuerySourceBuilder
 name|sourceBuilder
 decl_stmt|;
 DECL|method|ExplainRequestBuilder
@@ -677,7 +691,7 @@ expr_stmt|;
 block|}
 DECL|method|sourceBuilder
 specifier|private
-name|ExplainSourceBuilder
+name|QuerySourceBuilder
 name|sourceBuilder
 parameter_list|()
 block|{
@@ -691,7 +705,7 @@ block|{
 name|sourceBuilder
 operator|=
 operator|new
-name|ExplainSourceBuilder
+name|QuerySourceBuilder
 argument_list|()
 expr_stmt|;
 block|}

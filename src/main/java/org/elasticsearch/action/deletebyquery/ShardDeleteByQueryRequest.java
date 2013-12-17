@@ -202,10 +202,10 @@ specifier|private
 name|int
 name|shardId
 decl_stmt|;
-DECL|field|querySource
+DECL|field|source
 specifier|private
 name|BytesReference
-name|querySource
+name|source
 decl_stmt|;
 DECL|field|types
 specifier|private
@@ -261,11 +261,11 @@ argument_list|()
 expr_stmt|;
 name|this
 operator|.
-name|querySource
+name|source
 operator|=
 name|request
 operator|.
-name|querySource
+name|source
 argument_list|()
 expr_stmt|;
 name|this
@@ -345,14 +345,14 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|querySource
+name|source
 operator|==
 literal|null
 condition|)
 block|{
 name|addValidationError
 argument_list|(
-literal|"querySource is missing"
+literal|"source is missing"
 argument_list|,
 name|validationException
 argument_list|)
@@ -374,13 +374,13 @@ operator|.
 name|shardId
 return|;
 block|}
-DECL|method|querySource
+DECL|method|source
 name|BytesReference
-name|querySource
+name|source
 parameter_list|()
 block|{
 return|return
-name|querySource
+name|source
 return|;
 block|}
 DECL|method|types
@@ -442,7 +442,7 @@ argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
-name|querySource
+name|source
 operator|=
 name|in
 operator|.
@@ -591,7 +591,7 @@ name|out
 operator|.
 name|writeBytesReference
 argument_list|(
-name|querySource
+name|source
 argument_list|)
 expr_stmt|;
 name|out
@@ -717,7 +717,7 @@ name|XContentHelper
 operator|.
 name|convertToJson
 argument_list|(
-name|querySource
+name|source
 argument_list|,
 literal|false
 argument_list|)

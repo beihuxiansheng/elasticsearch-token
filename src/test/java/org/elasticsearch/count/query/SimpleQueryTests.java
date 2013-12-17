@@ -379,12 +379,12 @@ operator|.
 name|prepareCount
 argument_list|()
 operator|.
-name|setQuery
+name|setSource
 argument_list|(
 operator|new
 name|BytesArray
 argument_list|(
-literal|"{ \"term\" : { \"field1\" : \"value1_1\" }}"
+literal|"{ \"query\" : { \"term\" : { \"field1\" : \"value1_1\" }}}"
 argument_list|)
 operator|.
 name|array
@@ -944,12 +944,12 @@ operator|.
 name|prepareCount
 argument_list|()
 operator|.
-name|setQuery
+name|setSource
 argument_list|(
 operator|new
 name|BytesArray
 argument_list|(
-literal|"{ \"common\" : { \"field1\" : { \"query\" : \"the lazy fox brown\", \"cutoff_frequency\" : 1, \"minimum_should_match\" : { \"high_freq\" : 4 } } } }"
+literal|"{ \"query\" : { \"common\" : { \"field1\" : { \"query\" : \"the lazy fox brown\", \"cutoff_frequency\" : 1, \"minimum_should_match\" : { \"high_freq\" : 4 } } } } }"
 argument_list|)
 operator|.
 name|array

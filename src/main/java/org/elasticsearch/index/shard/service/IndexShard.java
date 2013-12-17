@@ -832,7 +832,7 @@ name|DeleteByQuery
 name|prepareDeleteByQuery
 parameter_list|(
 name|BytesReference
-name|querySource
+name|source
 parameter_list|,
 annotation|@
 name|Nullable

@@ -90,9 +90,9 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|explain
+name|support
 operator|.
-name|ExplainSourceBuilder
+name|QuerySourceBuilder
 import|;
 end_import
 
@@ -105,18 +105,6 @@ operator|.
 name|client
 operator|.
 name|Client
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|Booleans
 import|;
 end_import
 
@@ -731,14 +719,14 @@ argument_list|)
 throw|;
 block|}
 block|}
-name|ExplainSourceBuilder
-name|explainSourceBuilder
+name|QuerySourceBuilder
+name|querySourceBuilder
 init|=
 operator|new
-name|ExplainSourceBuilder
+name|QuerySourceBuilder
 argument_list|()
 decl_stmt|;
-name|explainSourceBuilder
+name|querySourceBuilder
 operator|.
 name|setQuery
 argument_list|(
@@ -749,7 +737,7 @@ name|explainRequest
 operator|.
 name|source
 argument_list|(
-name|explainSourceBuilder
+name|querySourceBuilder
 argument_list|)
 expr_stmt|;
 block|}

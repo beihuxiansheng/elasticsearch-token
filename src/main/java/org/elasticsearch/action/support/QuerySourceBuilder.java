@@ -4,7 +4,7 @@ comment|/*  * Licensed to ElasticSearch and Shay Banon under one  * or more cont
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.action.explain
+DECL|package|org.elasticsearch.action.support
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|explain
+name|support
 package|;
 end_package
 
@@ -125,10 +125,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|ExplainSourceBuilder
+DECL|class|QuerySourceBuilder
 specifier|public
 class|class
-name|ExplainSourceBuilder
+name|QuerySourceBuilder
 implements|implements
 name|ToXContent
 block|{
@@ -144,7 +144,7 @@ name|queryBinary
 decl_stmt|;
 DECL|method|setQuery
 specifier|public
-name|ExplainSourceBuilder
+name|QuerySourceBuilder
 name|setQuery
 parameter_list|(
 name|QueryBuilder
@@ -163,7 +163,7 @@ return|;
 block|}
 DECL|method|setQuery
 specifier|public
-name|ExplainSourceBuilder
+name|QuerySourceBuilder
 name|setQuery
 parameter_list|(
 name|BytesReference

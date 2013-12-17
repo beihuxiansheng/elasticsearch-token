@@ -62,6 +62,20 @@ name|action
 operator|.
 name|support
 operator|.
+name|QuerySourceBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|support
+operator|.
 name|replication
 operator|.
 name|IndicesReplicationOperationRequest
@@ -222,20 +236,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|QueryBuilder
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -279,7 +279,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A request to delete all documents that matching a specific query. Best created with  * {@link org.elasticsearch.client.Requests#deleteByQueryRequest(String...)}.  *<p/>  *<p>The request requires the query source to be set either using {@link #query(org.elasticsearch.index.query.QueryBuilder)},  * or {@link #query(byte[])}.  *  * @see DeleteByQueryResponse  * @see org.elasticsearch.client.Requests#deleteByQueryRequest(String...)  * @see org.elasticsearch.client.Client#deleteByQuery(DeleteByQueryRequest)  */
+comment|/**  * A request to delete all documents that matching a specific query. Best created with  * {@link org.elasticsearch.client.Requests#deleteByQueryRequest(String...)}.  *<p/>  *<p>The request requires the source to be set either using {@link #source(QuerySourceBuilder)},  * or {@link #source(byte[])}.  *  * @see DeleteByQueryResponse  * @see org.elasticsearch.client.Requests#deleteByQueryRequest(String...)  * @see org.elasticsearch.client.Client#deleteByQuery(DeleteByQueryRequest)  */
 end_comment
 
 begin_class
@@ -304,15 +304,15 @@ name|Requests
 operator|.
 name|CONTENT_TYPE
 decl_stmt|;
-DECL|field|querySource
+DECL|field|source
 specifier|private
 name|BytesReference
-name|querySource
+name|source
 decl_stmt|;
-DECL|field|querySourceUnsafe
+DECL|field|sourceUnsafe
 specifier|private
 name|boolean
-name|querySourceUnsafe
+name|sourceUnsafe
 decl_stmt|;
 DECL|field|types
 specifier|private
@@ -371,7 +371,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|querySource
+name|source
 operator|==
 literal|null
 condition|)
@@ -380,7 +380,7 @@ name|validationException
 operator|=
 name|addValidationError
 argument_list|(
-literal|"query is missing"
+literal|"source is missing"
 argument_list|,
 name|validationException
 argument_list|)
@@ -390,51 +390,53 @@ return|return
 name|validationException
 return|;
 block|}
-comment|/**      * The query source to execute.      */
-DECL|method|querySource
+comment|/**      * The source to execute.      */
+DECL|method|source
 name|BytesReference
-name|querySource
+name|source
 parameter_list|()
 block|{
 if|if
 condition|(
-name|querySourceUnsafe
+name|sourceUnsafe
 condition|)
 block|{
-name|querySource
+name|source
 operator|=
-name|querySource
+name|source
 operator|.
 name|copyBytesArray
 argument_list|()
 expr_stmt|;
 block|}
 return|return
-name|querySource
+name|source
 return|;
 block|}
-comment|/**      * The query source to execute.      *      * @see org.elasticsearch.index.query.QueryBuilders      */
-DECL|method|query
+comment|/**      * The source to execute.      */
+DECL|method|source
 specifier|public
 name|DeleteByQueryRequest
-name|query
+name|source
 parameter_list|(
-name|QueryBuilder
-name|queryBuilder
+name|QuerySourceBuilder
+name|sourceBuilder
 parameter_list|)
 block|{
 name|this
 operator|.
-name|querySource
+name|source
 operator|=
-name|queryBuilder
+name|sourceBuilder
 operator|.
 name|buildAsBytes
-argument_list|()
+argument_list|(
+name|contentType
+argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|querySourceUnsafe
+name|sourceUnsafe
 operator|=
 literal|false
 expr_stmt|;
@@ -442,24 +444,24 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The query source to execute. It is preferable to use either {@link #query(byte[])}      * or {@link #query(org.elasticsearch.index.query.QueryBuilder)}.      */
-DECL|method|query
+comment|/**      * The source to execute. It is preferable to use either {@link #source(byte[])}      * or {@link #source(QuerySourceBuilder)}.      */
+DECL|method|source
 specifier|public
 name|DeleteByQueryRequest
-name|query
+name|source
 parameter_list|(
 name|String
-name|querySource
+name|query
 parameter_list|)
 block|{
 name|this
 operator|.
-name|querySource
+name|source
 operator|=
 operator|new
 name|BytesArray
 argument_list|(
-name|querySource
+name|query
 operator|.
 name|getBytes
 argument_list|(
@@ -471,7 +473,7 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|querySourceUnsafe
+name|sourceUnsafe
 operator|=
 literal|false
 expr_stmt|;
@@ -479,14 +481,14 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The query source to execute in the form of a map.      */
-DECL|method|query
+comment|/**      * The source to execute in the form of a map.      */
+DECL|method|source
 specifier|public
 name|DeleteByQueryRequest
-name|query
+name|source
 parameter_list|(
 name|Map
-name|querySource
+name|source
 parameter_list|)
 block|{
 try|try
@@ -505,11 +507,11 @@ name|builder
 operator|.
 name|map
 argument_list|(
-name|querySource
+name|source
 argument_list|)
 expr_stmt|;
 return|return
-name|query
+name|source
 argument_list|(
 name|builder
 argument_list|)
@@ -527,7 +529,7 @@ name|ElasticSearchGenerationException
 argument_list|(
 literal|"Failed to generate ["
 operator|+
-name|querySource
+name|source
 operator|+
 literal|"]"
 argument_list|,
@@ -536,10 +538,10 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|query
+DECL|method|source
 specifier|public
 name|DeleteByQueryRequest
-name|query
+name|source
 parameter_list|(
 name|XContentBuilder
 name|builder
@@ -547,7 +549,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|querySource
+name|source
 operator|=
 name|builder
 operator|.
@@ -556,7 +558,7 @@ argument_list|()
 expr_stmt|;
 name|this
 operator|.
-name|querySourceUnsafe
+name|sourceUnsafe
 operator|=
 literal|false
 expr_stmt|;
@@ -564,25 +566,25 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The query source to execute.      */
-DECL|method|query
+comment|/**      * The source to execute.      */
+DECL|method|source
 specifier|public
 name|DeleteByQueryRequest
-name|query
+name|source
 parameter_list|(
 name|byte
 index|[]
-name|querySource
+name|source
 parameter_list|)
 block|{
 return|return
-name|query
+name|source
 argument_list|(
-name|querySource
+name|source
 argument_list|,
 literal|0
 argument_list|,
-name|querySource
+name|source
 operator|.
 name|length
 argument_list|,
@@ -590,15 +592,15 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * The query source to execute.      */
-DECL|method|query
+comment|/**      * The source to execute.      */
+DECL|method|source
 specifier|public
 name|DeleteByQueryRequest
-name|query
+name|source
 parameter_list|(
 name|byte
 index|[]
-name|querySource
+name|source
 parameter_list|,
 name|int
 name|offset
@@ -612,12 +614,12 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|querySource
+name|source
 operator|=
 operator|new
 name|BytesArray
 argument_list|(
-name|querySource
+name|source
 argument_list|,
 name|offset
 argument_list|,
@@ -626,7 +628,7 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|querySourceUnsafe
+name|sourceUnsafe
 operator|=
 name|unsafe
 expr_stmt|;
@@ -634,10 +636,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|query
+DECL|method|source
 specifier|public
 name|DeleteByQueryRequest
-name|query
+name|source
 parameter_list|(
 name|BytesReference
 name|source
@@ -648,13 +650,13 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|querySource
+name|source
 operator|=
 name|source
 expr_stmt|;
 name|this
 operator|.
-name|querySourceUnsafe
+name|sourceUnsafe
 operator|=
 name|unsafe
 expr_stmt|;
@@ -773,11 +775,11 @@ argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
-name|querySourceUnsafe
+name|sourceUnsafe
 operator|=
 literal|false
 expr_stmt|;
-name|querySource
+name|source
 operator|=
 name|in
 operator|.
@@ -821,7 +823,7 @@ name|out
 operator|.
 name|writeBytesReference
 argument_list|(
-name|querySource
+name|source
 argument_list|)
 expr_stmt|;
 name|out
@@ -860,7 +862,7 @@ name|XContentHelper
 operator|.
 name|convertToJson
 argument_list|(
-name|querySource
+name|source
 argument_list|,
 literal|false
 argument_list|)
@@ -893,7 +895,7 @@ argument_list|(
 name|types
 argument_list|)
 operator|+
-literal|"], querySource["
+literal|"], source["
 operator|+
 name|sSource
 operator|+

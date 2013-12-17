@@ -50,9 +50,7 @@ name|action
 operator|.
 name|support
 operator|.
-name|broadcast
-operator|.
-name|BroadcastOperationResponse
+name|QuerySourceBuilder
 import|;
 end_import
 
@@ -62,11 +60,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|action
 operator|.
-name|bytes
+name|support
 operator|.
-name|BytesReference
+name|broadcast
+operator|.
+name|BroadcastOperationResponse
 import|;
 end_import
 
@@ -524,7 +524,7 @@ block|}
 DECL|method|parseQuerySource
 specifier|public
 specifier|static
-name|BytesReference
+name|QuerySourceBuilder
 name|parseQuerySource
 parameter_list|(
 name|RestRequest
@@ -664,10 +664,14 @@ throw|;
 block|}
 block|}
 return|return
-name|queryBuilder
-operator|.
-name|buildAsBytes
+operator|new
+name|QuerySourceBuilder
 argument_list|()
+operator|.
+name|setQuery
+argument_list|(
+name|queryBuilder
+argument_list|)
 return|;
 block|}
 block|}

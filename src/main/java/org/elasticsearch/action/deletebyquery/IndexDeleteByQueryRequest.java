@@ -187,10 +187,10 @@ argument_list|<
 name|IndexDeleteByQueryRequest
 argument_list|>
 block|{
-DECL|field|querySource
+DECL|field|source
 specifier|private
 name|BytesReference
-name|querySource
+name|source
 decl_stmt|;
 DECL|field|types
 specifier|private
@@ -261,11 +261,11 @@ argument_list|()
 expr_stmt|;
 name|this
 operator|.
-name|querySource
+name|source
 operator|=
 name|request
 operator|.
-name|querySource
+name|source
 argument_list|()
 expr_stmt|;
 name|this
@@ -312,13 +312,13 @@ DECL|method|IndexDeleteByQueryRequest
 name|IndexDeleteByQueryRequest
 parameter_list|()
 block|{     }
-DECL|method|querySource
+DECL|method|source
 name|BytesReference
-name|querySource
+name|source
 parameter_list|()
 block|{
 return|return
-name|querySource
+name|source
 return|;
 block|}
 annotation|@
@@ -339,7 +339,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|querySource
+name|source
 operator|==
 literal|null
 condition|)
@@ -348,7 +348,7 @@ name|validationException
 operator|=
 name|addValidationError
 argument_list|(
-literal|"querySource is missing"
+literal|"source is missing"
 argument_list|,
 name|validationException
 argument_list|)
@@ -431,7 +431,7 @@ argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
-name|querySource
+name|source
 operator|=
 name|in
 operator|.
@@ -614,7 +614,7 @@ name|out
 operator|.
 name|writeBytesReference
 argument_list|(
-name|querySource
+name|source
 argument_list|)
 expr_stmt|;
 name|out

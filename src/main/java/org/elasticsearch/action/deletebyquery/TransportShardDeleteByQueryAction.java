@@ -699,7 +699,7 @@ name|prepareDeleteByQuery
 argument_list|(
 name|request
 operator|.
-name|querySource
+name|source
 argument_list|()
 argument_list|,
 name|request
@@ -905,7 +905,7 @@ name|prepareDeleteByQuery
 argument_list|(
 name|request
 operator|.
-name|querySource
+name|source
 argument_list|()
 argument_list|,
 name|request

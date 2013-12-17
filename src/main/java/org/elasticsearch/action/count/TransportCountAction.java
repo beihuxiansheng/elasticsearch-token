@@ -1170,7 +1170,7 @@ argument_list|)
 expr_stmt|;
 block|}
 name|BytesReference
-name|querySource
+name|source
 init|=
 name|request
 operator|.
@@ -1179,11 +1179,11 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|querySource
+name|source
 operator|!=
 literal|null
 operator|&&
-name|querySource
+name|source
 operator|.
 name|length
 argument_list|()
@@ -1212,9 +1212,9 @@ operator|.
 name|queryParserService
 argument_list|()
 operator|.
-name|parse
+name|parseQuery
 argument_list|(
-name|querySource
+name|source
 argument_list|)
 argument_list|)
 expr_stmt|;

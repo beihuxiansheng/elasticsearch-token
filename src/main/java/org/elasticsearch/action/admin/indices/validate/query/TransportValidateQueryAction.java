@@ -1153,7 +1153,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|querySource
+name|source
 argument_list|()
 operator|.
 name|length
@@ -1224,11 +1224,11 @@ name|parsedQuery
 init|=
 name|queryParserService
 operator|.
-name|parse
+name|parseQuery
 argument_list|(
 name|request
 operator|.
-name|querySource
+name|source
 argument_list|()
 argument_list|)
 decl_stmt|;

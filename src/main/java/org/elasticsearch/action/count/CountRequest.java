@@ -48,6 +48,20 @@ name|action
 operator|.
 name|support
 operator|.
+name|QuerySourceBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|support
+operator|.
 name|broadcast
 operator|.
 name|BroadcastOperationRequest
@@ -208,20 +222,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|QueryBuilder
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -251,7 +251,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A request to count the number of documents matching a specific query. Best created with  * {@link org.elasticsearch.client.Requests#countRequest(String...)}.  *<p/>  *<p>The request requires the query source to be set either using {@link #query(org.elasticsearch.index.query.QueryBuilder)},  * or {@link #query(byte[])}.  *  * @see CountResponse  * @see org.elasticsearch.client.Client#count(CountRequest)  * @see org.elasticsearch.client.Requests#countRequest(String...)  */
+comment|/**  * A request to count the number of documents matching a specific query. Best created with  * {@link org.elasticsearch.client.Requests#countRequest(String...)}.  *<p/>  *<p>The request requires the query source to be set either using {@link #source(QuerySourceBuilder)},  * or {@link #source(byte[])}.  *  * @see CountResponse  * @see org.elasticsearch.client.Client#count(CountRequest)  * @see org.elasticsearch.client.Requests#countRequest(String...)  */
 end_comment
 
 begin_class
@@ -307,15 +307,15 @@ specifier|private
 name|String
 name|preference
 decl_stmt|;
-DECL|field|querySource
+DECL|field|source
 specifier|private
 name|BytesReference
-name|querySource
+name|source
 decl_stmt|;
-DECL|field|querySourceUnsafe
+DECL|field|sourceUnsafe
 specifier|private
 name|boolean
-name|querySourceUnsafe
+name|sourceUnsafe
 decl_stmt|;
 DECL|field|types
 specifier|private
@@ -381,17 +381,17 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|querySourceUnsafe
+name|sourceUnsafe
 condition|)
 block|{
-name|querySource
+name|source
 operator|=
-name|querySource
+name|source
 operator|.
 name|copyBytesArray
 argument_list|()
 expr_stmt|;
-name|querySourceUnsafe
+name|sourceUnsafe
 operator|=
 literal|false
 expr_stmt|;
@@ -427,38 +427,40 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The query source to execute.      */
-DECL|method|querySource
+comment|/**      * The source to execute.      */
+DECL|method|source
 name|BytesReference
-name|querySource
+name|source
 parameter_list|()
 block|{
 return|return
-name|querySource
+name|source
 return|;
 block|}
-comment|/**      * The query source to execute.      *      * @see org.elasticsearch.index.query.QueryBuilders      */
-DECL|method|query
+comment|/**      * The source to execute.      */
+DECL|method|source
 specifier|public
 name|CountRequest
-name|query
+name|source
 parameter_list|(
-name|QueryBuilder
-name|queryBuilder
+name|QuerySourceBuilder
+name|sourceBuilder
 parameter_list|)
 block|{
 name|this
 operator|.
-name|querySource
+name|source
 operator|=
-name|queryBuilder
+name|sourceBuilder
 operator|.
 name|buildAsBytes
-argument_list|()
+argument_list|(
+name|contentType
+argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|querySourceUnsafe
+name|sourceUnsafe
 operator|=
 literal|false
 expr_stmt|;
@@ -466,11 +468,11 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The query source to execute in the form of a map.      */
-DECL|method|query
+comment|/**      * The source to execute in the form of a map.      */
+DECL|method|source
 specifier|public
 name|CountRequest
-name|query
+name|source
 parameter_list|(
 name|Map
 name|querySource
@@ -496,7 +498,7 @@ name|querySource
 argument_list|)
 expr_stmt|;
 return|return
-name|query
+name|source
 argument_list|(
 name|builder
 argument_list|)
@@ -523,10 +525,10 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|query
+DECL|method|source
 specifier|public
 name|CountRequest
-name|query
+name|source
 parameter_list|(
 name|XContentBuilder
 name|builder
@@ -534,7 +536,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|querySource
+name|source
 operator|=
 name|builder
 operator|.
@@ -543,7 +545,7 @@ argument_list|()
 expr_stmt|;
 name|this
 operator|.
-name|querySourceUnsafe
+name|sourceUnsafe
 operator|=
 literal|false
 expr_stmt|;
@@ -551,11 +553,11 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The query source to execute. It is preferable to use either {@link #query(byte[])}      * or {@link #query(org.elasticsearch.index.query.QueryBuilder)}.      */
-DECL|method|query
+comment|/**      * The source to execute. It is preferable to use either {@link #source(byte[])}      * or {@link #source(QuerySourceBuilder)}.      */
+DECL|method|source
 specifier|public
 name|CountRequest
-name|query
+name|source
 parameter_list|(
 name|String
 name|querySource
@@ -563,7 +565,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|querySource
+name|source
 operator|=
 operator|new
 name|BytesArray
@@ -573,7 +575,7 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|querySourceUnsafe
+name|sourceUnsafe
 operator|=
 literal|false
 expr_stmt|;
@@ -581,11 +583,11 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The query source to execute.      */
-DECL|method|query
+comment|/**      * The source to execute.      */
+DECL|method|source
 specifier|public
 name|CountRequest
-name|query
+name|source
 parameter_list|(
 name|byte
 index|[]
@@ -593,7 +595,7 @@ name|querySource
 parameter_list|)
 block|{
 return|return
-name|query
+name|source
 argument_list|(
 name|querySource
 argument_list|,
@@ -607,11 +609,11 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * The query source to execute.      */
-DECL|method|query
+comment|/**      * The source to execute.      */
+DECL|method|source
 specifier|public
 name|CountRequest
-name|query
+name|source
 parameter_list|(
 name|byte
 index|[]
@@ -628,7 +630,7 @@ name|unsafe
 parameter_list|)
 block|{
 return|return
-name|query
+name|source
 argument_list|(
 operator|new
 name|BytesArray
@@ -644,10 +646,10 @@ name|unsafe
 argument_list|)
 return|;
 block|}
-DECL|method|query
+DECL|method|source
 specifier|public
 name|CountRequest
-name|query
+name|source
 parameter_list|(
 name|BytesReference
 name|querySource
@@ -658,13 +660,13 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|querySource
+name|source
 operator|=
 name|querySource
 expr_stmt|;
 name|this
 operator|.
-name|querySourceUnsafe
+name|sourceUnsafe
 operator|=
 name|unsafe
 expr_stmt|;
@@ -837,11 +839,11 @@ operator|.
 name|readOptionalString
 argument_list|()
 expr_stmt|;
-name|querySourceUnsafe
+name|sourceUnsafe
 operator|=
 literal|false
 expr_stmt|;
-name|querySource
+name|source
 operator|=
 name|in
 operator|.
@@ -901,7 +903,7 @@ name|out
 operator|.
 name|writeBytesReference
 argument_list|(
-name|querySource
+name|source
 argument_list|)
 expr_stmt|;
 name|out
@@ -933,7 +935,7 @@ name|XContentHelper
 operator|.
 name|convertToJson
 argument_list|(
-name|querySource
+name|source
 argument_list|,
 literal|false
 argument_list|)
@@ -966,7 +968,7 @@ argument_list|(
 name|types
 argument_list|)
 operator|+
-literal|", querySource["
+literal|", source["
 operator|+
 name|sSource
 operator|+

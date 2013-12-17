@@ -2804,7 +2804,7 @@ name|DeleteByQuery
 name|prepareDeleteByQuery
 parameter_list|(
 name|BytesReference
-name|querySource
+name|source
 parameter_list|,
 annotation|@
 name|Nullable
@@ -2846,9 +2846,9 @@ name|query
 init|=
 name|queryParserService
 operator|.
-name|parse
+name|parseQuery
 argument_list|(
-name|querySource
+name|source
 argument_list|)
 operator|.
 name|query
@@ -2903,7 +2903,7 @@ name|DeleteByQuery
 argument_list|(
 name|query
 argument_list|,
-name|querySource
+name|source
 argument_list|,
 name|filteringAliases
 argument_list|,
