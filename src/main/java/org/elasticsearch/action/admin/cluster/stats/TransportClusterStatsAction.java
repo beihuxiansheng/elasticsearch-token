@@ -826,25 +826,6 @@ range|:
 name|indexService
 control|)
 block|{
-name|logger
-operator|.
-name|warn
-argument_list|(
-literal|""
-operator|+
-name|indexShard
-operator|.
-name|shardId
-argument_list|()
-operator|+
-literal|" "
-operator|+
-name|indexShard
-operator|.
-name|state
-argument_list|()
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|indexShard
