@@ -2844,14 +2844,11 @@ name|hasDocValues
 argument_list|()
 condition|)
 block|{
-name|fields
-operator|.
-name|add
+name|addDocValue
 argument_list|(
-name|toDocValues
-argument_list|(
+name|context
+argument_list|,
 name|value
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

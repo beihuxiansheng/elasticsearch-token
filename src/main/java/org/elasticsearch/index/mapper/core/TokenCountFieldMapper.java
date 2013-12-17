@@ -917,6 +917,8 @@ expr_stmt|;
 block|}
 name|addIntegerFields
 argument_list|(
+name|context
+argument_list|,
 name|fields
 argument_list|,
 name|count

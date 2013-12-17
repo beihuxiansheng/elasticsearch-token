@@ -28,20 +28,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|document
-operator|.
-name|Document
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|index
 operator|.
 name|IndexableField
@@ -102,7 +88,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|DocumentFieldMappers
+name|*
 import|;
 end_import
 
@@ -116,35 +102,9 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|DocumentMapper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|ParseContext
 operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|FieldMappers
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|MapperTestUtils
+name|Document
 import|;
 end_import
 
@@ -209,18 +169,6 @@ operator|.
 name|Streams
 operator|.
 name|copyToStringFromClasspath
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
 import|;
 end_import
 
