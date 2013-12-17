@@ -24,6 +24,20 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|analysis
+operator|.
+name|Analyzer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|queryparser
 operator|.
 name|XSimpleQueryParser
@@ -128,20 +142,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|analysis
-operator|.
-name|NamedAnalyzer
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -171,7 +171,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * SimpleQueryStringParser is a query parser that acts similar to a query_string  * query, but won't throw exceptions for any weird string syntax. It supports  * the following:  *  *<ul>  *<li>'{@code +}' specifies {@code AND} operation:<tt>token1+token2</tt>  *<li>'{@code |}' specifies {@code OR} operation:<tt>token1|token2</tt>  *<li>'{@code -}' negates a single token:<tt>-token0</tt>  *<li>'{@code "}' creates phrases of terms:<tt>"term1 term2 ..."</tt>  *<li>'{@code *}' at the end of terms specifies prefix query:<tt>term*</tt>  *<li>'{@code (}' and '{@code )}' specifies precedence:<tt>token1 + (token2 | token3)</tt>  *</ul>  *  * See: {@link XSimpleQueryParser} for more information.  *  * This query supports these options:  *  * Required:  * {@code query} - query text to be converted into other queries  *  * Optional:  * {@code analyzer} - anaylzer to be used for analyzing tokens to determine  * which kind of query they should be converted into, defaults to "standard"  * {@code default_operator} - default operator for boolean queries, defaults  * to OR  * {@code fields} - fields to search, defaults to _all if not set, allows  * boosting a field with ^n  */
+comment|/**  * SimpleQueryStringParser is a query parser that acts similar to a query_string  * query, but won't throw exceptions for any weird string syntax. It supports  * the following:  *<p/>  *<ul>  *<li>'{@code +}' specifies {@code AND} operation:<tt>token1+token2</tt>  *<li>'{@code |}' specifies {@code OR} operation:<tt>token1|token2</tt>  *<li>'{@code -}' negates a single token:<tt>-token0</tt>  *<li>'{@code "}' creates phrases of terms:<tt>"term1 term2 ..."</tt>  *<li>'{@code *}' at the end of terms specifies prefix query:<tt>term*</tt>  *<li>'{@code (}' and '{@code)}' specifies precedence:<tt>token1 + (token2 | token3)</tt>  *</ul>  *<p/>  * See: {@link XSimpleQueryParser} for more information.  *<p/>  * This query supports these options:  *<p/>  * Required:  * {@code query} - query text to be converted into other queries  *<p/>  * Optional:  * {@code analyzer} - anaylzer to be used for analyzing tokens to determine  * which kind of query they should be converted into, defaults to "standard"  * {@code default_operator} - default operator for boolean queries, defaults  * to OR  * {@code fields} - fields to search, defaults to _all if not set, allows  * boosting a field with ^n  */
 end_comment
 
 begin_class
@@ -281,7 +281,7 @@ name|defaultOperator
 init|=
 literal|null
 decl_stmt|;
-name|NamedAnalyzer
+name|Analyzer
 name|analyzer
 init|=
 literal|null
@@ -290,8 +290,6 @@ name|XContentParser
 operator|.
 name|Token
 name|token
-init|=
-literal|null
 decl_stmt|;
 while|while
 condition|(
@@ -848,10 +846,6 @@ block|}
 comment|// Use the default field (_all) if no fields specified
 if|if
 condition|(
-name|queryBody
-operator|!=
-literal|null
-operator|&&
 name|fieldsAndWeights
 operator|==
 literal|null
@@ -877,13 +871,11 @@ name|analyzer
 operator|=
 name|parseContext
 operator|.
-name|analysisService
+name|mapperService
 argument_list|()
 operator|.
-name|analyzer
-argument_list|(
-literal|"standard"
-argument_list|)
+name|searchAnalyzer
+argument_list|()
 expr_stmt|;
 block|}
 name|XSimpleQueryParser
