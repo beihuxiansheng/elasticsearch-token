@@ -532,7 +532,10 @@ block|{
 return|return
 name|request
 operator|.
-name|getHeader
+name|headers
+argument_list|()
+operator|.
+name|get
 argument_list|(
 name|name
 argument_list|)
