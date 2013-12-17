@@ -608,6 +608,11 @@ return|return
 operator|new
 name|ClusterStatsResponse
 argument_list|(
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
+argument_list|,
 name|clusterName
 argument_list|,
 name|clusterService

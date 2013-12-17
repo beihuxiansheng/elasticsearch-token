@@ -1067,6 +1067,22 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
+name|getTimestamp
+argument_list|()
+argument_list|,
+name|Matchers
+operator|.
+name|greaterThan
+argument_list|(
+literal|946681200000l
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// 1 Jan 2000
+name|assertThat
+argument_list|(
+name|response
+operator|.
 name|indicesStats
 operator|.
 name|getStore
