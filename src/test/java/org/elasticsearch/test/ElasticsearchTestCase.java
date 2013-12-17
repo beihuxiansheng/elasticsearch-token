@@ -392,11 +392,13 @@ name|TimeoutSuite
 argument_list|(
 name|millis
 operator|=
+literal|20
+operator|*
 name|TimeUnits
 operator|.
-name|HOUR
+name|MINUTE
 argument_list|)
-comment|// timeout the suite after 1h and fail the test.
+comment|// timeout the suite after 20min and fail the test.
 annotation|@
 name|Listeners
 argument_list|(
