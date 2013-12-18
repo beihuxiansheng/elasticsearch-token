@@ -385,9 +385,7 @@ name|newPath
 init|=
 name|optionalPathPrefix
 operator|+
-name|File
-operator|.
-name|separator
+literal|"/"
 operator|+
 name|path
 decl_stmt|;
