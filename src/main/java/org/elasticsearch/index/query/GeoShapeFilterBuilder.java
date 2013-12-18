@@ -18,16 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -81,6 +71,16 @@ operator|.
 name|xcontent
 operator|.
 name|XContentBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
 import|;
 end_import
 
@@ -147,10 +147,10 @@ specifier|private
 name|String
 name|indexedShapeIndex
 decl_stmt|;
-DECL|field|indexedShapeFieldName
+DECL|field|indexedShapePath
 specifier|private
 name|String
-name|indexedShapeFieldName
+name|indexedShapePath
 decl_stmt|;
 DECL|field|relation
 specifier|private
@@ -397,21 +397,21 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the name of the field in the indexed Shape document that has the Shape itself      *      * @param indexedShapeFieldName Name of the field where the Shape itself is defined      * @return this      */
-DECL|method|indexedShapeFieldName
+comment|/**      * Sets the path of the field in the indexed Shape document that has the Shape itself      *      * @param indexedShapePath Path of the field where the Shape itself is defined      * @return this      */
+DECL|method|indexedShapePath
 specifier|public
 name|GeoShapeFilterBuilder
-name|indexedShapeFieldName
+name|indexedShapePath
 parameter_list|(
 name|String
-name|indexedShapeFieldName
+name|indexedShapePath
 parameter_list|)
 block|{
 name|this
 operator|.
-name|indexedShapeFieldName
+name|indexedShapePath
 operator|=
-name|indexedShapeFieldName
+name|indexedShapePath
 expr_stmt|;
 return|return
 name|this
@@ -548,7 +548,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|indexedShapeFieldName
+name|indexedShapePath
 operator|!=
 literal|null
 condition|)
@@ -557,9 +557,9 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"shape_field_name"
+literal|"path"
 argument_list|,
-name|indexedShapeFieldName
+name|indexedShapePath
 argument_list|)
 expr_stmt|;
 block|}

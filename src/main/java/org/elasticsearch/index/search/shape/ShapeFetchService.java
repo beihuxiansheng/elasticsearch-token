@@ -86,6 +86,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Strings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|component
 operator|.
 name|AbstractComponent
@@ -217,7 +229,7 @@ operator|=
 name|client
 expr_stmt|;
 block|}
-comment|/**      * Fetches the Shape with the given ID in the given type and index.      *      * @param id         ID of the Shape to fetch      * @param type       Index type where the Shape is indexed      * @param index      Index where the Shape is indexed      * @param shapeField Name of the field in the Shape Document where the Shape itself is located      * @return Shape with the given ID      * @throws IOException Can be thrown while parsing the Shape Document and extracting the Shape      */
+comment|/**      * Fetches the Shape with the given ID in the given type and index.      *      * @param id        ID of the Shape to fetch      * @param type      Index type where the Shape is indexed      * @param index     Index where the Shape is indexed      * @param path      Name or path of the field in the Shape Document where the Shape itself is located      * @return Shape with the given ID      * @throws IOException Can be thrown while parsing the Shape Document and extracting the Shape      */
 DECL|method|fetch
 specifier|public
 name|ShapeBuilder
@@ -233,7 +245,7 @@ name|String
 name|index
 parameter_list|,
 name|String
-name|shapeField
+name|path
 parameter_list|)
 throws|throws
 name|IOException
@@ -294,6 +306,24 @@ literal|"] not found"
 argument_list|)
 throw|;
 block|}
+name|String
+index|[]
+name|pathElements
+init|=
+name|Strings
+operator|.
+name|splitStringToArray
+argument_list|(
+name|path
+argument_list|,
+literal|'.'
+argument_list|)
+decl_stmt|;
+name|int
+name|currentPathSlot
+init|=
+literal|0
+decl_stmt|;
 name|XContentParser
 name|parser
 init|=
@@ -349,7 +379,10 @@ condition|)
 block|{
 if|if
 condition|(
-name|shapeField
+name|pathElements
+index|[
+name|currentPathSlot
+index|]
 operator|.
 name|equals
 argument_list|(
@@ -365,6 +398,16 @@ operator|.
 name|nextToken
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+operator|++
+name|currentPathSlot
+operator|==
+name|pathElements
+operator|.
+name|length
+condition|)
+block|{
 return|return
 name|ShapeBuilder
 operator|.
@@ -373,6 +416,7 @@ argument_list|(
 name|parser
 argument_list|)
 return|;
+block|}
 block|}
 else|else
 block|{
@@ -399,7 +443,7 @@ name|id
 operator|+
 literal|"] found but missing "
 operator|+
-name|shapeField
+name|path
 operator|+
 literal|" field"
 argument_list|)

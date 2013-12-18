@@ -391,7 +391,7 @@ operator|.
 name|INDEX_NAME
 decl_stmt|;
 name|String
-name|shapeFieldName
+name|shapePath
 init|=
 name|DEFAULTS
 operator|.
@@ -716,7 +716,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"shape_field_name"
+literal|"path"
 operator|.
 name|equals
 argument_list|(
@@ -724,7 +724,7 @@ name|currentFieldName
 argument_list|)
 condition|)
 block|{
-name|shapeFieldName
+name|shapePath
 operator|=
 name|parser
 operator|.
@@ -787,7 +787,7 @@ name|type
 argument_list|,
 name|index
 argument_list|,
-name|shapeFieldName
+name|shapePath
 argument_list|)
 expr_stmt|;
 block|}
