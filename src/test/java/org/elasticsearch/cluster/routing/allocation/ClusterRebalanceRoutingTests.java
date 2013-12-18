@@ -226,6 +226,18 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
+name|anyOf
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
 name|equalTo
 import|;
 end_import
@@ -5533,9 +5545,17 @@ operator|.
 name|name
 argument_list|()
 argument_list|,
+name|anyOf
+argument_list|(
 name|equalTo
 argument_list|(
 literal|"test1"
+argument_list|)
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"test2"
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
