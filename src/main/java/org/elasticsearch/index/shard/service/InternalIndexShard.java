@@ -3458,8 +3458,6 @@ operator|new
 name|CompletionStats
 argument_list|()
 decl_stmt|;
-try|try
-block|{
 specifier|final
 name|Engine
 operator|.
@@ -3534,27 +3532,6 @@ operator|.
 name|release
 argument_list|()
 expr_stmt|;
-block|}
-block|}
-catch|catch
-parameter_list|(
-name|Throwable
-name|e
-parameter_list|)
-block|{
-name|logger
-operator|.
-name|debug
-argument_list|(
-literal|"Can not build 'completion stats' from engine shard state [{}]"
-argument_list|,
-name|e
-argument_list|,
-name|state
-argument_list|)
-expr_stmt|;
-comment|// if we are called during engine stop / start or before start we can run into Exceptions
-comment|// like the engine is already closed or no saercher is present at this point.
 block|}
 return|return
 name|completionStats
