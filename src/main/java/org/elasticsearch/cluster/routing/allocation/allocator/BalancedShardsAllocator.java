@@ -2979,19 +2979,14 @@ name|Set
 argument_list|<
 name|ModelNode
 argument_list|>
-name|values
+name|throttledNodes
 init|=
 operator|new
 name|IdentityHashSet
 argument_list|<
 name|ModelNode
 argument_list|>
-argument_list|(
-name|nodes
-operator|.
-name|values
 argument_list|()
-argument_list|)
 decl_stmt|;
 do|do
 block|{
@@ -3172,15 +3167,44 @@ name|decision
 init|=
 literal|null
 decl_stmt|;
+if|if
+condition|(
+name|throttledNodes
+operator|.
+name|size
+argument_list|()
+operator|<
+name|nodes
+operator|.
+name|size
+argument_list|()
+condition|)
+block|{
+comment|/* Don't iterate over an identity hashset here the                          * iteration order is different for each run and makes testing hard */
 for|for
 control|(
 name|ModelNode
 name|node
 range|:
+name|nodes
+operator|.
 name|values
+argument_list|()
 control|)
 block|{
-comment|/*                          * The shard we add is removed below to simulate the 	                     * addition for weight calculation we use Decision.ALWAYS to 	                     * not violate the not null condition. 	                     */
+if|if
+condition|(
+name|throttledNodes
+operator|.
+name|contains
+argument_list|(
+name|node
+argument_list|)
+condition|)
+block|{
+continue|continue;
+block|}
+comment|/*                              * The shard we add is removed below to simulate the                              * addition for weight calculation we use Decision.ALWAYS to                              * not violate the not null condition.                              */
 if|if
 condition|(
 operator|!
@@ -3224,7 +3248,7 @@ name|index
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|/*                              * Remove the shard from the node again this is only a 	                         * simulation 	                         */
+comment|/*                                  * Remove the shard from the node again this is only a                                  * simulation                                  */
 name|Decision
 name|removed
 init|=
@@ -3240,7 +3264,7 @@ name|removed
 operator|!=
 literal|null
 assert|;
-comment|/* 	                         * Unless the operation is not providing any gains we 	                         * don't check deciders 	                         */
+comment|/*                                  * Unless the operation is not providing any gains we                                  * don't check deciders                                  */
 if|if
 condition|(
 name|currentWeight
@@ -3300,7 +3324,7 @@ operator|==
 name|minWeight
 condition|)
 block|{
-comment|/*  we have an equal weight tie breaking: 	                                     *  1. if one decision is YES prefer it 	                                     *  2. prefer the node that holds the primary for this index with the next id in the ring ie. 	                                     *  for the 3 shards 2 replica case we try to build up: 	                                     *    1 2 0 	                                     *    2 0 1 	                                     *    0 1 2 	                                     *  such that if we need to tie-break we try to prefer the node holding a shard with the minimal id greater 	                                     *  than the id of the shard we need to assign. This works find when new indices are created since  	                                     *  primaries are added first and we only add one shard set a time in this algorithm. 	                                     */
+comment|/*  we have an equal weight tie breaking:                                              *  1. if one decision is YES prefer it                                              *  2. prefer the node that holds the primary for this index with the next id in the ring ie.                                              *  for the 3 shards 2 replica case we try to build up:                                              *    1 2 0                                              *    2 0 1                                              *    0 1 2                                              *  such that if we need to tie-break we try to prefer the node holding a shard with the minimal id greater                                              *  than the id of the shard we need to assign. This works find when new indices are created since                                              *  primaries are added first and we only add one shard set a time in this algorithm.                                              */
 if|if
 condition|(
 name|currentDecision
@@ -3448,6 +3472,7 @@ name|decision
 operator|=
 name|currentDecision
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -3605,9 +3630,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|values
+name|throttledNodes
 operator|.
-name|remove
+name|add
 argument_list|(
 name|minNode
 argument_list|)
