@@ -936,6 +936,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|PrintStream
 import|;
 end_import
@@ -2212,7 +2222,7 @@ return|return
 name|state
 return|;
 block|}
-comment|/**      * Changes the state of the current shard      * @param newState the new shard state      * @param reason the reason for the state change      * @return the previous shard state      */
+comment|/**      * Changes the state of the current shard      *      * @param newState the new shard state      * @param reason   the reason for the state change      * @return the previous shard state      */
 DECL|method|changeState
 specifier|private
 name|IndexShardState
@@ -3151,8 +3161,6 @@ name|DocsStats
 name|docStats
 parameter_list|()
 block|{
-try|try
-block|{
 specifier|final
 name|Engine
 operator|.
@@ -3195,30 +3203,6 @@ operator|.
 name|release
 argument_list|()
 expr_stmt|;
-block|}
-block|}
-catch|catch
-parameter_list|(
-name|Throwable
-name|e
-parameter_list|)
-block|{
-name|logger
-operator|.
-name|debug
-argument_list|(
-literal|"Can not build 'doc stats' from engine shard state [{}]"
-argument_list|,
-name|e
-argument_list|,
-name|state
-argument_list|)
-expr_stmt|;
-return|return
-operator|new
-name|DocsStats
-argument_list|()
-return|;
 block|}
 block|}
 annotation|@
@@ -3297,26 +3281,19 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|IOException
 name|e
 parameter_list|)
 block|{
-name|logger
-operator|.
-name|debug
+throw|throw
+operator|new
+name|ElasticSearchException
 argument_list|(
-literal|"Can not build 'store stats' from engine shard state [{}]"
+literal|"io exception while building 'store stats'"
 argument_list|,
 name|e
-argument_list|,
-name|state
 argument_list|)
-expr_stmt|;
-return|return
-operator|new
-name|StoreStats
-argument_list|()
-return|;
+throw|;
 block|}
 block|}
 annotation|@
