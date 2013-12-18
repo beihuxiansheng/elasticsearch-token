@@ -464,7 +464,7 @@ name|relocating
 argument_list|()
 condition|)
 block|{
-comment|// the shard is relocating, the one he is relocating to will be in initializing state, so we don't count it
+comment|// the shard is relocating, the one it is relocating to will be in initializing state, so we don't count it
 name|shardHealth
 operator|.
 name|relocatingShards
