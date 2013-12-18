@@ -824,6 +824,73 @@ literal|false
 expr_stmt|;
 break|break;
 block|}
+comment|// if the allocated or relocation node id doesn't exists in the cluster state, its a stale
+comment|// node, make sure we don't do anything with this until the routing table has properly been
+comment|// rerouted to reflect the fact that the node does not exists
+if|if
+condition|(
+operator|!
+name|event
+operator|.
+name|state
+argument_list|()
+operator|.
+name|nodes
+argument_list|()
+operator|.
+name|nodeExists
+argument_list|(
+name|shardRouting
+operator|.
+name|currentNodeId
+argument_list|()
+argument_list|)
+condition|)
+block|{
+name|shardCanBeDeleted
+operator|=
+literal|false
+expr_stmt|;
+break|break;
+block|}
+if|if
+condition|(
+name|shardRouting
+operator|.
+name|relocatingNodeId
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+if|if
+condition|(
+operator|!
+name|event
+operator|.
+name|state
+argument_list|()
+operator|.
+name|nodes
+argument_list|()
+operator|.
+name|nodeExists
+argument_list|(
+name|shardRouting
+operator|.
+name|relocatingNodeId
+argument_list|()
+argument_list|)
+condition|)
+block|{
+name|shardCanBeDeleted
+operator|=
+literal|false
+expr_stmt|;
+break|break;
+block|}
+block|}
+comment|// check if shard is active on the current node or is getting relocated to the our node
 name|String
 name|localNodeId
 init|=
@@ -835,7 +902,6 @@ operator|.
 name|id
 argument_list|()
 decl_stmt|;
-comment|// check if shard is active on the current node or is getting relocated to the our node
 if|if
 condition|(
 name|localNodeId
@@ -859,7 +925,6 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-comment|// shard will be used locally - keep it
 name|shardCanBeDeleted
 operator|=
 literal|false
