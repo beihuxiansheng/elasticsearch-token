@@ -391,7 +391,7 @@ name|geoDistance
 init|=
 name|GeoDistance
 operator|.
-name|ARC
+name|DEFAULT
 decl_stmt|;
 name|String
 name|optimizeBbox

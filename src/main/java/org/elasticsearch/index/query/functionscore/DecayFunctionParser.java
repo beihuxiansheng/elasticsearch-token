@@ -1646,10 +1646,7 @@ name|distFunction
 init|=
 name|GeoDistance
 operator|.
-name|fromString
-argument_list|(
-literal|"arc"
-argument_list|)
+name|DEFAULT
 decl_stmt|;
 DECL|method|GeoFieldDataScoreFunction
 specifier|public

@@ -457,7 +457,7 @@ name|distanceType
 init|=
 name|GeoDistance
 operator|.
-name|ARC
+name|DEFAULT
 decl_stmt|;
 name|boolean
 name|keyed
