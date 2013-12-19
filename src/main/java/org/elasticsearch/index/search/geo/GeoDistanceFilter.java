@@ -374,7 +374,7 @@ name|lon
 argument_list|,
 name|DistanceUnit
 operator|.
-name|MILES
+name|DEFAULT
 argument_list|)
 expr_stmt|;
 if|if
@@ -406,7 +406,7 @@ name|distance
 argument_list|,
 name|DistanceUnit
 operator|.
-name|MILES
+name|DEFAULT
 argument_list|)
 expr_stmt|;
 if|if

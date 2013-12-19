@@ -373,9 +373,8 @@ name|unit
 init|=
 name|DistanceUnit
 operator|.
-name|KILOMETERS
+name|DEFAULT
 decl_stmt|;
-comment|// default unit
 name|GeoDistance
 name|geoDistance
 init|=
@@ -1038,9 +1037,11 @@ condition|)
 block|{
 name|distance
 operator|=
-name|unit
+name|DistanceUnit
 operator|.
-name|toMiles
+name|DEFAULT
+operator|.
+name|convert
 argument_list|(
 operator|(
 operator|(
@@ -1051,6 +1052,8 @@ operator|)
 operator|.
 name|doubleValue
 argument_list|()
+argument_list|,
+name|unit
 argument_list|)
 expr_stmt|;
 block|}
@@ -1071,7 +1074,7 @@ name|unit
 argument_list|,
 name|DistanceUnit
 operator|.
-name|MILES
+name|DEFAULT
 argument_list|)
 expr_stmt|;
 block|}
@@ -1085,7 +1088,7 @@ name|distance
 argument_list|,
 name|DistanceUnit
 operator|.
-name|MILES
+name|DEFAULT
 argument_list|)
 expr_stmt|;
 if|if

@@ -278,7 +278,7 @@ name|hamcrest
 operator|.
 name|ElasticsearchAssertions
 operator|.
-name|*
+name|assertNoFailures
 import|;
 end_import
 
@@ -1374,11 +1374,20 @@ argument_list|,
 operator|-
 literal|90
 argument_list|)
+operator|.
+name|addPoint
+argument_list|(
+literal|40
+argument_list|,
+operator|-
+literal|70
+argument_list|)
+comment|// closing polygon
 argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"ConstantScore(GeoPolygonFilter(pin.location, [[40.0, -70.0], [30.0, -80.0], [20.0, -90.0]]))"
+literal|"ConstantScore(GeoPolygonFilter(pin.location, [[40.0, -70.0], [30.0, -80.0], [20.0, -90.0], [40.0, -70.0]]))"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1447,7 +1456,7 @@ literal|15
 argument_list|,
 name|DistanceUnit
 operator|.
-name|MILES
+name|DEFAULT
 argument_list|)
 operator|.
 name|geoDistance
@@ -1493,7 +1502,7 @@ literal|15
 argument_list|,
 name|DistanceUnit
 operator|.
-name|MILES
+name|DEFAULT
 argument_list|)
 operator|.
 name|geoDistance
@@ -1507,6 +1516,53 @@ argument_list|,
 name|equalTo
 argument_list|(
 literal|"ConstantScore(GeoDistanceFilter(pin.location, PLANE, 15.0, 10.0, 20.0))"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertExplanation
+argument_list|(
+name|QueryBuilders
+operator|.
+name|constantScoreQuery
+argument_list|(
+name|FilterBuilders
+operator|.
+name|geoDistanceRangeFilter
+argument_list|(
+literal|"pin.location"
+argument_list|)
+operator|.
+name|lat
+argument_list|(
+literal|10
+argument_list|)
+operator|.
+name|lon
+argument_list|(
+literal|20
+argument_list|)
+operator|.
+name|from
+argument_list|(
+literal|"15m"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"25m"
+argument_list|)
+operator|.
+name|geoDistance
+argument_list|(
+name|GeoDistance
+operator|.
+name|PLANE
+argument_list|)
+argument_list|)
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"ConstantScore(GeoDistanceRangeFilter(pin.location, PLANE, [15.0 - 25.0], 10.0, 20.0))"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1553,7 +1609,37 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"ConstantScore(GeoDistanceRangeFilter(pin.location, PLANE, [15.0 - 25.0], 10.0, 20.0))"
+literal|"ConstantScore(GeoDistanceRangeFilter(pin.location, PLANE, ["
+operator|+
+name|DistanceUnit
+operator|.
+name|DEFAULT
+operator|.
+name|convert
+argument_list|(
+literal|15.0
+argument_list|,
+name|DistanceUnit
+operator|.
+name|MILES
+argument_list|)
+operator|+
+literal|" - "
+operator|+
+name|DistanceUnit
+operator|.
+name|DEFAULT
+operator|.
+name|convert
+argument_list|(
+literal|25.0
+argument_list|,
+name|DistanceUnit
+operator|.
+name|MILES
+argument_list|)
+operator|+
+literal|"], 10.0, 20.0))"
 argument_list|)
 argument_list|)
 expr_stmt|;

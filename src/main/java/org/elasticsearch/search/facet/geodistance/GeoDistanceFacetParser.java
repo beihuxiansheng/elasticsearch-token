@@ -426,7 +426,7 @@ name|unit
 init|=
 name|DistanceUnit
 operator|.
-name|KILOMETERS
+name|DEFAULT
 decl_stmt|;
 name|GeoDistance
 name|geoDistance

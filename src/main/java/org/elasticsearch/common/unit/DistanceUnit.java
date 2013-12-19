@@ -83,7 +83,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The DistanceUnit enumerates several units for measuring distances. These units   * provide methods for converting strings and methods to convert units among each  * others. Some methods like {@link DistanceUnit#getEarthCircumference} refer to  * the earth ellipsoid defined in {@link GeoUtils}.  */
+comment|/**  * The DistanceUnit enumerates several units for measuring distances. These units   * provide methods for converting strings and methods to convert units among each  * others. Some methods like {@link DistanceUnit#getEarthCircumference} refer to  * the earth ellipsoid defined in {@link GeoUtils}. The default unit used within  * this project is<code>METERS</code> which is defined by<code>DEFAULT</code>  */
 end_comment
 
 begin_enum
@@ -110,6 +110,16 @@ argument_list|,
 literal|"yd"
 argument_list|,
 literal|"yards"
+argument_list|)
+block|,
+DECL|enum constant|FEET
+name|FEET
+argument_list|(
+literal|0.3048
+argument_list|,
+literal|"ft"
+argument_list|,
+literal|"feet"
 argument_list|)
 block|,
 DECL|enum constant|MILES
@@ -166,6 +176,14 @@ argument_list|,
 literal|"meters"
 argument_list|)
 block|;
+DECL|field|DEFAULT
+specifier|public
+specifier|static
+name|DistanceUnit
+name|DEFAULT
+init|=
+name|METERS
+decl_stmt|;
 DECL|field|meters
 specifier|private
 name|double
@@ -251,52 +269,6 @@ name|meters
 operator|)
 return|;
 block|}
-comment|/**      * Convert a value into miles      *       * @param distance distance in this unit      * @return value in miles      */
-DECL|method|toMiles
-specifier|public
-name|double
-name|toMiles
-parameter_list|(
-name|double
-name|distance
-parameter_list|)
-block|{
-return|return
-name|convert
-argument_list|(
-name|distance
-argument_list|,
-name|this
-argument_list|,
-name|DistanceUnit
-operator|.
-name|MILES
-argument_list|)
-return|;
-block|}
-comment|/**      * Convert a value into kilometers      *       * @param distance distance in this unit      * @return value in kilometers      */
-DECL|method|toKilometers
-specifier|public
-name|double
-name|toKilometers
-parameter_list|(
-name|double
-name|distance
-parameter_list|)
-block|{
-return|return
-name|convert
-argument_list|(
-name|distance
-argument_list|,
-name|this
-argument_list|,
-name|DistanceUnit
-operator|.
-name|KILOMETERS
-argument_list|)
-return|;
-block|}
 comment|/**      * Convert a value into meters      *       * @param distance distance in this unit      * @return value in meters      */
 DECL|method|toMeters
 specifier|public
@@ -343,7 +315,7 @@ name|this
 argument_list|)
 return|;
 block|}
-comment|/**       * Convert a given value into another unit      *       * @param distance value in this unit      * @param unit target unit      * @return value of the target unit      */
+comment|/**       * Convert a given value into another unit      *       * @param distance value in this unit      * @param unit source unit      * @return value in this unit      */
 DECL|method|convert
 specifier|public
 name|double
@@ -361,9 +333,9 @@ name|convert
 argument_list|(
 name|distance
 argument_list|,
-name|this
-argument_list|,
 name|unit
+argument_list|,
+name|this
 argument_list|)
 return|;
 block|}
@@ -483,6 +455,30 @@ operator|.
 name|unit
 argument_list|,
 name|to
+argument_list|)
+return|;
+block|}
+comment|/**      * Parses a given distance and converts it to this unit.      *       * @param distance String defining a distance (value and unit)      * @param defaultUnit unit to expect if none if provided      * @return parsed distance      */
+DECL|method|parse
+specifier|public
+name|double
+name|parse
+parameter_list|(
+name|String
+name|distance
+parameter_list|,
+name|DistanceUnit
+name|defaultUnit
+parameter_list|)
+block|{
+return|return
+name|parse
+argument_list|(
+name|distance
+argument_list|,
+name|defaultUnit
+argument_list|,
+name|this
 argument_list|)
 return|;
 block|}
@@ -923,9 +919,29 @@ name|value
 argument_list|)
 return|;
 block|}
-comment|/**          * Parse a {@link Distance} from a given String          *           * @param distance String defining a {@link Distance}           * @param defaultUnit {@link DistanceUnit} to be assumed          *          if not unit is provided in the first argument            * @return parsed {@link Distance}          */
+comment|/**          * Parse a {@link Distance} from a given String. If no unit is given          *<code>DistanceUnit.DEFAULT</code> will be used           *           * @param distance String defining a {@link Distance}           * @return parsed {@link Distance}          */
 DECL|method|parseDistance
 specifier|public
+specifier|static
+name|Distance
+name|parseDistance
+parameter_list|(
+name|String
+name|distance
+parameter_list|)
+block|{
+return|return
+name|parseDistance
+argument_list|(
+name|distance
+argument_list|,
+name|DEFAULT
+argument_list|)
+return|;
+block|}
+comment|/**          * Parse a {@link Distance} from a given String          *           * @param distance String defining a {@link Distance}           * @param defaultUnit {@link DistanceUnit} to be assumed          *          if not unit is provided in the first argument            * @return parsed {@link Distance}          */
+DECL|method|parseDistance
+specifier|private
 specifier|static
 name|Distance
 name|parseDistance

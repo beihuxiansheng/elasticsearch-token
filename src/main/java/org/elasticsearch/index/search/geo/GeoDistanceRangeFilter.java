@@ -284,14 +284,14 @@ specifier|final
 name|double
 name|inclusiveLowerPoint
 decl_stmt|;
-comment|// in miles
+comment|// in meters
 DECL|field|inclusiveUpperPoint
 specifier|private
 specifier|final
 name|double
 name|inclusiveUpperPoint
 decl_stmt|;
-comment|// in miles
+comment|// in meters
 DECL|field|geoDistance
 specifier|private
 specifier|final
@@ -401,7 +401,7 @@ name|lon
 argument_list|,
 name|DistanceUnit
 operator|.
-name|MILES
+name|DEFAULT
 argument_list|)
 expr_stmt|;
 if|if
@@ -544,7 +544,7 @@ name|inclusiveUpperPoint
 argument_list|,
 name|DistanceUnit
 operator|.
-name|MILES
+name|DEFAULT
 argument_list|)
 expr_stmt|;
 if|if

@@ -646,7 +646,7 @@ name|precision
 argument_list|,
 name|DistanceUnit
 operator|.
-name|METERS
+name|DEFAULT
 argument_list|,
 name|DistanceUnit
 operator|.
@@ -980,7 +980,7 @@ argument_list|()
 argument_list|,
 name|DistanceUnit
 operator|.
-name|METERS
+name|DEFAULT
 argument_list|,
 name|DistanceUnit
 operator|.

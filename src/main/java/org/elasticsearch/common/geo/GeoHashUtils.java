@@ -1273,6 +1273,7 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|/**      * Decodes the given geohash      *      * @param geohash Geohash to decocde      * @return {@link GeoPoint} at the center of cell, given by the geohash      */
 DECL|method|decode
 specifier|public
 specifier|static
@@ -1283,29 +1284,22 @@ name|String
 name|geohash
 parameter_list|)
 block|{
-name|GeoPoint
-name|point
-init|=
-operator|new
-name|GeoPoint
-argument_list|()
-decl_stmt|;
+return|return
 name|decode
 argument_list|(
 name|geohash
 argument_list|,
-name|point
+operator|new
+name|GeoPoint
+argument_list|()
 argument_list|)
-expr_stmt|;
-return|return
-name|point
 return|;
 block|}
-comment|/**      * Decodes the given geohash into a latitude and longitude      *      * @param geohash Geohash to deocde      * @return Array with the latitude at index 0, and longitude at index 1      */
+comment|/**      * Decodes the given geohash into a latitude and longitude      *      * @param geohash Geohash to decocde      * @return the given {@link GeoPoint} reseted to the center of      *         cell, given by the geohash      */
 DECL|method|decode
 specifier|public
 specifier|static
-name|void
+name|GeoPoint
 name|decode
 parameter_list|(
 name|String
@@ -1324,6 +1318,7 @@ argument_list|(
 name|geohash
 argument_list|)
 decl_stmt|;
+return|return
 name|ret
 operator|.
 name|reset
@@ -1356,7 +1351,7 @@ operator|)
 operator|/
 literal|2D
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 comment|/**      * Decodes the given geohash into a geohash cell defined by the points nothWest and southEast      *      * @param geohash   Geohash to deocde      * @param northWest the point north/west of the cell      * @param southEast the point south/east of the cell      */
 DECL|method|decodeCell

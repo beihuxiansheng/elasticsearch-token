@@ -506,10 +506,6 @@ argument_list|)
 operator|.
 name|toString
 argument_list|()
-argument_list|,
-name|DistanceUnit
-operator|.
-name|METERS
 argument_list|)
 decl_stmt|;
 name|assertEquals

@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -97,6 +87,16 @@ operator|.
 name|geom
 operator|.
 name|Coordinate
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
 import|;
 end_import
 
@@ -209,10 +209,6 @@ operator|.
 name|parseDistance
 argument_list|(
 name|radius
-argument_list|,
-name|DistanceUnit
-operator|.
-name|METERS
 argument_list|)
 argument_list|)
 return|;

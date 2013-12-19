@@ -439,10 +439,6 @@ operator|.
 name|parseDistance
 argument_list|(
 name|precisionAsString
-argument_list|,
-name|DistanceUnit
-operator|.
-name|METERS
 argument_list|)
 expr_stmt|;
 block|}

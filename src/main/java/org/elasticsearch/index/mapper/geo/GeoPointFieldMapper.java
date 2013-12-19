@@ -2107,7 +2107,7 @@ literal|0
 argument_list|,
 name|DistanceUnit
 operator|.
-name|METERS
+name|DEFAULT
 argument_list|)
 expr_stmt|;
 block|}
@@ -2140,13 +2140,13 @@ literal|2
 argument_list|,
 name|DistanceUnit
 operator|.
-name|METERS
+name|DEFAULT
 argument_list|)
 argument_list|,
 comment|// factor/2 because we use Math.round instead of a cast to convert the double to a long
 name|DistanceUnit
 operator|.
-name|METERS
+name|DEFAULT
 argument_list|)
 expr_stmt|;
 block|}
