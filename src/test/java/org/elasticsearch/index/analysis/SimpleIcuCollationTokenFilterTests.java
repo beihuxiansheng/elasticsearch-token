@@ -64,9 +64,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|core
-operator|.
-name|KeywordTokenizer
+name|TokenStream
 import|;
 end_import
 
@@ -80,7 +78,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|TokenStream
+name|core
+operator|.
+name|KeywordTokenizer
 import|;
 end_import
 
@@ -1886,6 +1886,16 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+name|stream1
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
+name|stream2
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
 name|assertThat
 argument_list|(
 name|stream1
