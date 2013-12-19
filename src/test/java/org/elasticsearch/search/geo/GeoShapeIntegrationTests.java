@@ -20,22 +20,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
-operator|.
-name|AwaitsFix
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -1184,16 +1168,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO this test causes hangs, blocking on the action get when fetching the shape for some reason
 annotation|@
 name|Test
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"this test causes hangs, blocking on the action get when fetching the shape for some reason"
-argument_list|)
 DECL|method|testIndexedShapeReference
 specifier|public
 name|void
