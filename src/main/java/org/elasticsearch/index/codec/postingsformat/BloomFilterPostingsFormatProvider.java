@@ -225,7 +225,7 @@ name|Factory
 operator|.
 name|buildFromString
 argument_list|(
-name|indexSettings
+name|postingsFormatSettings
 operator|.
 name|get
 argument_list|(
