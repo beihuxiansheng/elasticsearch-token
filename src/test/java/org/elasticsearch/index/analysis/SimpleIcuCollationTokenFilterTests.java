@@ -264,9 +264,19 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
+name|elasticsearch
 operator|.
-name|annotations
+name|test
+operator|.
+name|ElasticsearchTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
 operator|.
 name|Test
 import|;
@@ -298,18 +308,6 @@ name|org
 operator|.
 name|hamcrest
 operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
 name|Matchers
 operator|.
 name|equalTo
@@ -325,6 +323,8 @@ DECL|class|SimpleIcuCollationTokenFilterTests
 specifier|public
 class|class
 name|SimpleIcuCollationTokenFilterTests
+extends|extends
+name|ElasticsearchTestCase
 block|{
 comment|/*     * Turkish has some funny casing.     * This test shows how you can solve this kind of thing easily with collation.     * Instead of using LowerCaseFilter, use a turkish collator with primary strength.     * Then things will sort and match correctly.     */
 annotation|@
