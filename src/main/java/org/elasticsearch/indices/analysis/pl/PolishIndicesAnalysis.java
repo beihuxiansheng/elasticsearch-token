@@ -265,12 +265,12 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"default"
+literal|"polish"
 argument_list|,
 operator|new
 name|PreBuiltAnalyzerProviderFactory
 argument_list|(
-literal|"default"
+literal|"polish"
 argument_list|,
 name|AnalyzerScope
 operator|.
