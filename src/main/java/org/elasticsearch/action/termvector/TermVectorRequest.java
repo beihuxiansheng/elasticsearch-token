@@ -363,6 +363,26 @@ return|return
 name|flagsEnum
 return|;
 block|}
+comment|/**      * Sets the type of document to get the term vector for.      */
+DECL|method|type
+specifier|public
+name|TermVectorRequest
+name|type
+parameter_list|(
+name|String
+name|type
+parameter_list|)
+block|{
+name|this
+operator|.
+name|type
+operator|=
+name|type
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Returns the type of document to get the term vector for.      */
 DECL|method|type
 specifier|public
@@ -388,7 +408,7 @@ block|}
 comment|/**      * Sets the id of document the term vector is requested for.      */
 DECL|method|id
 specifier|public
-name|void
+name|TermVectorRequest
 name|id
 parameter_list|(
 name|String
@@ -401,6 +421,9 @@ name|id
 operator|=
 name|id
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**      * @return The routing for this request.      */
 DECL|method|routing
@@ -415,7 +438,7 @@ return|;
 block|}
 DECL|method|routing
 specifier|public
-name|void
+name|TermVectorRequest
 name|routing
 parameter_list|(
 name|String
@@ -428,6 +451,9 @@ name|routing
 operator|=
 name|routing
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**      * Sets the parent id of this document. Will simply set the routing to this      * value, as it is only used for routing with delete requests.      */
 DECL|method|parent
