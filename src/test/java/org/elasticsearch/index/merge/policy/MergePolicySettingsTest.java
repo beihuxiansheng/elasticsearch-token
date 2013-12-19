@@ -19,34 +19,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|ImmutableSettings
-operator|.
-name|Builder
-operator|.
-name|EMPTY_SETTINGS
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -195,6 +167,34 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|ImmutableSettings
+operator|.
+name|Builder
+operator|.
+name|EMPTY_SETTINGS
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -214,7 +214,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|equalTo
 import|;
 end_import
 
@@ -1845,6 +1845,8 @@ argument_list|(
 name|shardId
 argument_list|,
 name|settings
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|,
