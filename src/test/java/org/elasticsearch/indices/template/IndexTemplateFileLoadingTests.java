@@ -332,7 +332,7 @@ literal|"/org/elasticsearch/indices/template/template"
 operator|+
 name|randomInt
 argument_list|(
-literal|1
+literal|2
 argument_list|)
 operator|+
 literal|".json"
