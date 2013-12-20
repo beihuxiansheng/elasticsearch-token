@@ -1289,6 +1289,7 @@ name|RoutingValidationException
 block|{     }
 DECL|method|builder
 specifier|public
+specifier|static
 name|Builder
 name|builder
 parameter_list|(
