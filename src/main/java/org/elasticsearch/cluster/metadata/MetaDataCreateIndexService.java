@@ -3554,7 +3554,7 @@ name|IndexTemplateMetaData
 operator|.
 name|Builder
 operator|.
-name|fromXContentStandalone
+name|fromXContent
 argument_list|(
 name|parser
 argument_list|)
