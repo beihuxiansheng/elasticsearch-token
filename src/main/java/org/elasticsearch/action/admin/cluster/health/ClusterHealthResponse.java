@@ -618,7 +618,6 @@ name|ClusterHealthStatus
 operator|.
 name|RED
 expr_stmt|;
-break|break;
 block|}
 elseif|else
 if|if
