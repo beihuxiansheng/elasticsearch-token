@@ -261,6 +261,9 @@ decl_stmt|;
 name|assertThat
 argument_list|(
 name|storeString
+operator|.
+name|toLowerCase
+argument_list|()
 argument_list|,
 name|startsWith
 argument_list|(
@@ -272,6 +275,9 @@ literal|0
 index|]
 operator|.
 name|getAbsolutePath
+argument_list|()
+operator|.
+name|toLowerCase
 argument_list|()
 argument_list|)
 argument_list|)
@@ -288,6 +294,9 @@ block|{
 name|assertThat
 argument_list|(
 name|storeString
+operator|.
+name|toLowerCase
+argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
@@ -299,6 +308,9 @@ literal|1
 index|]
 operator|.
 name|getAbsolutePath
+argument_list|()
+operator|.
+name|toLowerCase
 argument_list|()
 argument_list|)
 argument_list|)
@@ -350,6 +362,9 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|storeString
+operator|.
+name|toLowerCase
+argument_list|()
 argument_list|,
 name|startsWith
 argument_list|(
@@ -361,6 +376,9 @@ literal|0
 index|]
 operator|.
 name|getAbsolutePath
+argument_list|()
+operator|.
+name|toLowerCase
 argument_list|()
 argument_list|)
 argument_list|)
@@ -377,6 +395,9 @@ block|{
 name|assertThat
 argument_list|(
 name|storeString
+operator|.
+name|toLowerCase
+argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
@@ -388,6 +409,9 @@ literal|1
 index|]
 operator|.
 name|getAbsolutePath
+argument_list|()
+operator|.
+name|toLowerCase
 argument_list|()
 argument_list|)
 argument_list|)
@@ -439,6 +463,9 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|storeString
+operator|.
+name|toLowerCase
+argument_list|()
 argument_list|,
 name|startsWith
 argument_list|(
@@ -450,6 +477,9 @@ literal|0
 index|]
 operator|.
 name|getAbsolutePath
+argument_list|()
+operator|.
+name|toLowerCase
 argument_list|()
 argument_list|)
 argument_list|)
@@ -466,6 +496,9 @@ block|{
 name|assertThat
 argument_list|(
 name|storeString
+operator|.
+name|toLowerCase
+argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
@@ -477,6 +510,9 @@ literal|1
 index|]
 operator|.
 name|getAbsolutePath
+argument_list|()
+operator|.
+name|toLowerCase
 argument_list|()
 argument_list|)
 argument_list|)
@@ -528,6 +564,9 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|storeString
+operator|.
+name|toLowerCase
+argument_list|()
 argument_list|,
 name|startsWith
 argument_list|(
@@ -539,6 +578,9 @@ literal|0
 index|]
 operator|.
 name|getAbsolutePath
+argument_list|()
+operator|.
+name|toLowerCase
 argument_list|()
 argument_list|)
 argument_list|)
@@ -555,6 +597,9 @@ block|{
 name|assertThat
 argument_list|(
 name|storeString
+operator|.
+name|toLowerCase
+argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
@@ -566,6 +611,9 @@ literal|1
 index|]
 operator|.
 name|getAbsolutePath
+argument_list|()
+operator|.
+name|toLowerCase
 argument_list|()
 argument_list|)
 argument_list|)
@@ -660,6 +708,9 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|storeString
+operator|.
+name|toLowerCase
+argument_list|()
 argument_list|,
 name|startsWith
 argument_list|(
@@ -671,6 +722,9 @@ literal|0
 index|]
 operator|.
 name|getAbsolutePath
+argument_list|()
+operator|.
+name|toLowerCase
 argument_list|()
 argument_list|)
 argument_list|)
@@ -687,6 +741,9 @@ block|{
 name|assertThat
 argument_list|(
 name|storeString
+operator|.
+name|toLowerCase
+argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
@@ -698,6 +755,9 @@ literal|1
 index|]
 operator|.
 name|getAbsolutePath
+argument_list|()
+operator|.
+name|toLowerCase
 argument_list|()
 argument_list|)
 argument_list|)
