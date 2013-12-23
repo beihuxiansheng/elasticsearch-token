@@ -7091,11 +7091,14 @@ expr_stmt|;
 block|}
 block|}
 block|}
+comment|/*this is only used by one test right now and shoudl go away entirely once we update lucene*/
 DECL|field|allowRamBytesUsed
+specifier|private
 specifier|static
-specifier|final
 name|boolean
 name|allowRamBytesUsed
+init|=
+literal|false
 decl_stmt|;
 static|static
 block|{
@@ -7120,20 +7123,6 @@ name|LUCENE_46
 operator|:
 literal|"when upgrading to a new lucene version, check if ramBytes is fixed, see https://issues.apache.org/jira/browse/LUCENE-5373"
 assert|;
-name|boolean
-name|xAllowRamBytesUsed
-init|=
-literal|false
-decl_stmt|;
-assert|assert
-name|xAllowRamBytesUsed
-operator|=
-literal|true
-assert|;
-name|allowRamBytesUsed
-operator|=
-name|xAllowRamBytesUsed
-expr_stmt|;
 block|}
 DECL|method|getReaderRamBytesUsed
 specifier|private
