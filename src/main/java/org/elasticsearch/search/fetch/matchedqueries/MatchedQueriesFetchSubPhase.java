@@ -595,6 +595,17 @@ parameter_list|)
 block|{
 comment|// ignore
 block|}
+finally|finally
+block|{
+name|SearchContext
+operator|.
+name|current
+argument_list|()
+operator|.
+name|clearReleasables
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}
