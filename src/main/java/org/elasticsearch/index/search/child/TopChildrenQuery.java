@@ -700,7 +700,9 @@ name|totalHits
 expr_stmt|;
 block|}
 block|}
-return|return
+name|ParentWeight
+name|parentWeight
+init|=
 operator|new
 name|ParentWeight
 argument_list|(
@@ -713,6 +715,16 @@ argument_list|)
 argument_list|,
 name|parentDocs
 argument_list|)
+decl_stmt|;
+name|searchContext
+operator|.
+name|addReleasable
+argument_list|(
+name|parentWeight
+argument_list|)
+expr_stmt|;
+return|return
+name|parentWeight
 return|;
 block|}
 DECL|method|resolveParentDocuments
