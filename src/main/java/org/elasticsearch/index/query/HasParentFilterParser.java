@@ -1114,11 +1114,15 @@ condition|)
 block|{
 name|parseContext
 operator|.
-name|addNamedQuery
+name|addNamedFilter
 argument_list|(
 name|filterName
 argument_list|,
+operator|new
+name|CustomQueryWrappingFilter
+argument_list|(
 name|parentConstantScoreQuery
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
