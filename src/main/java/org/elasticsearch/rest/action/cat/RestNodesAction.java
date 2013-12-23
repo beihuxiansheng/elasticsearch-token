@@ -848,7 +848,7 @@ name|addCell
 argument_list|(
 literal|"nodeId"
 argument_list|,
-literal|"desc:unique node id"
+literal|"default:false;desc:unique node id"
 argument_list|)
 expr_stmt|;
 name|table
@@ -857,7 +857,7 @@ name|addCell
 argument_list|(
 literal|"pid"
 argument_list|,
-literal|"desc:process id"
+literal|"default:false;desc:process id"
 argument_list|)
 expr_stmt|;
 name|table
@@ -884,7 +884,7 @@ name|addCell
 argument_list|(
 literal|"es"
 argument_list|,
-literal|"desc:es version"
+literal|"default:false;desc:es version"
 argument_list|)
 expr_stmt|;
 name|table
@@ -893,7 +893,7 @@ name|addCell
 argument_list|(
 literal|"jdk"
 argument_list|,
-literal|"desc:jdk version"
+literal|"default:false;desc:jdk version"
 argument_list|)
 expr_stmt|;
 name|table
@@ -902,7 +902,7 @@ name|addCell
 argument_list|(
 literal|"diskAvail"
 argument_list|,
-literal|"text-align:right;desc:available disk space"
+literal|"default:false;text-align:right;desc:available disk space"
 argument_list|)
 expr_stmt|;
 name|table
@@ -920,7 +920,7 @@ name|addCell
 argument_list|(
 literal|"heapMax"
 argument_list|,
-literal|"text-align:right;desc:max configured heap"
+literal|"default:false;text-align:right;desc:max configured heap"
 argument_list|)
 expr_stmt|;
 name|table
@@ -938,7 +938,7 @@ name|addCell
 argument_list|(
 literal|"ramMax"
 argument_list|,
-literal|"text-align:right;desc:total machine memory"
+literal|"default:false;text-align:right;desc:total machine memory"
 argument_list|)
 expr_stmt|;
 name|table
@@ -956,7 +956,7 @@ name|addCell
 argument_list|(
 literal|"uptime"
 argument_list|,
-literal|"text-align:right;desc:node uptime"
+literal|"default:false;text-align:right;desc:node uptime"
 argument_list|)
 expr_stmt|;
 name|table
