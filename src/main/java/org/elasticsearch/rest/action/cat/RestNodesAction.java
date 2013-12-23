@@ -1536,6 +1536,16 @@ literal|1
 condition|?
 literal|null
 else|:
+name|String
+operator|.
+name|format
+argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
+literal|"%.2f"
+argument_list|,
 name|stats
 operator|.
 name|getOs
@@ -1546,6 +1556,7 @@ argument_list|()
 index|[
 literal|0
 index|]
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|table
