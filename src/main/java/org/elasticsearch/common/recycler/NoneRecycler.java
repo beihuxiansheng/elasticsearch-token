@@ -16,6 +16,16 @@ name|recycler
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|ElasticSearchIllegalStateException
+import|;
+end_import
+
 begin_comment
 comment|/**  */
 end_comment
@@ -106,7 +116,6 @@ name|T
 argument_list|>
 block|{
 DECL|field|value
-specifier|final
 name|T
 name|value
 decl_stmt|;
@@ -155,7 +164,27 @@ specifier|public
 name|void
 name|release
 parameter_list|()
-block|{         }
+block|{
+if|if
+condition|(
+name|value
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|ElasticSearchIllegalStateException
+argument_list|(
+literal|"recycler entry already released..."
+argument_list|)
+throw|;
+block|}
+name|value
+operator|=
+literal|null
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class

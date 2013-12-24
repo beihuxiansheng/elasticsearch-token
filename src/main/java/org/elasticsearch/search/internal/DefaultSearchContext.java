@@ -2792,6 +2792,11 @@ expr_stmt|;
 block|}
 block|}
 block|}
+name|clearables
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|th

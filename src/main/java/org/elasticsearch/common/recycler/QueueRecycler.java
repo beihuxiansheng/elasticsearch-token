@@ -22,6 +22,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ElasticSearchIllegalStateException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|util
@@ -207,7 +217,6 @@ name|T
 argument_list|>
 block|{
 DECL|field|value
-specifier|final
 name|T
 name|value
 decl_stmt|;
@@ -257,6 +266,21 @@ name|void
 name|release
 parameter_list|()
 block|{
+if|if
+condition|(
+name|value
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|ElasticSearchIllegalStateException
+argument_list|(
+literal|"recycler entry already released..."
+argument_list|)
+throw|;
+block|}
 name|c
 operator|.
 name|clear
@@ -270,6 +294,10 @@ name|offer
 argument_list|(
 name|this
 argument_list|)
+expr_stmt|;
+name|value
+operator|=
+literal|null
 expr_stmt|;
 block|}
 block|}
