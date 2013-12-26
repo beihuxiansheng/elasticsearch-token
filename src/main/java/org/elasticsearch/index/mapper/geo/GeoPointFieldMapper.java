@@ -2671,6 +2671,8 @@ name|docValuesFormat
 argument_list|,
 name|similarity
 argument_list|,
+literal|null
+argument_list|,
 name|fieldDataSettings
 argument_list|,
 name|indexSettings

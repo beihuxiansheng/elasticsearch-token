@@ -733,6 +733,8 @@ name|docValuesProvider
 argument_list|,
 name|similarity
 argument_list|,
+name|normsLoading
+argument_list|,
 name|fieldDataSettings
 argument_list|,
 name|context
@@ -923,6 +925,9 @@ parameter_list|,
 name|SimilarityProvider
 name|similarity
 parameter_list|,
+name|Loading
+name|normsLoading
+parameter_list|,
 annotation|@
 name|Nullable
 name|Settings
@@ -967,6 +972,8 @@ argument_list|,
 name|docValuesProvider
 argument_list|,
 name|similarity
+argument_list|,
+name|normsLoading
 argument_list|,
 name|fieldDataSettings
 argument_list|,

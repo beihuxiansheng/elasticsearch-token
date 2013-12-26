@@ -116,10 +116,46 @@ operator|.
 name|WARMER
 return|;
 block|}
+comment|/** A handle on the execution of  warm-up action. */
+DECL|interface|TerminationHandle
+specifier|public
+specifier|static
+interface|interface
+name|TerminationHandle
+block|{
+DECL|field|NO_WAIT
+specifier|public
+specifier|static
+name|TerminationHandle
+name|NO_WAIT
+init|=
+operator|new
+name|TerminationHandle
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|awaitTermination
+parameter_list|()
+block|{}
+block|}
+decl_stmt|;
+comment|/** Wait until execution of the warm-up action completes. */
+DECL|method|awaitTermination
+name|void
+name|awaitTermination
+parameter_list|()
+throws|throws
+name|InterruptedException
+function_decl|;
+block|}
+comment|/** Queue tasks to warm-up the given segments and return handles that allow to wait for termination of the execution of those tasks. */
 DECL|method|warm
 specifier|public
 specifier|abstract
-name|void
+name|TerminationHandle
 name|warm
 parameter_list|(
 name|IndexShard
