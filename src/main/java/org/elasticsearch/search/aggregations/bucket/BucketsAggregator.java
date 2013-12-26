@@ -70,6 +70,20 @@ name|search
 operator|.
 name|aggregations
 operator|.
+name|AggregatorFactories
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
 name|InternalAggregation
 import|;
 end_import
@@ -101,20 +115,6 @@ operator|.
 name|support
 operator|.
 name|AggregationContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
-name|AggregatorFactories
 import|;
 end_import
 
@@ -370,14 +370,26 @@ name|long
 name|bucketOrd
 parameter_list|)
 block|{
-assert|assert
+if|if
+condition|(
 name|bucketOrd
-operator|<
+operator|>=
 name|docCounts
 operator|.
 name|size
 argument_list|()
-assert|;
+condition|)
+block|{
+comment|// This may happen eg. if no document in the highest buckets is accepted by a sub aggregator.
+comment|// For example, if there is a long terms agg on 3 terms 1,2,3 with a sub filter aggregator and if no document with 3 as a value
+comment|// matches the filter, then the filter will never collect bucket ord 3. However, the long terms agg will call bucketAggregations(3)
+comment|// on the filter aggregator anyway to build sub-aggregations.
+return|return
+literal|0L
+return|;
+block|}
+else|else
+block|{
 return|return
 name|docCounts
 operator|.
@@ -386,6 +398,7 @@ argument_list|(
 name|bucketOrd
 argument_list|)
 return|;
+block|}
 block|}
 comment|/**      * Utility method to build the aggregations of the given bucket (identified by the bucket ordinal)      */
 DECL|method|bucketAggregations
@@ -398,6 +411,7 @@ name|long
 name|bucketOrd
 parameter_list|)
 block|{
+specifier|final
 name|InternalAggregation
 index|[]
 name|aggregations
@@ -409,6 +423,15 @@ name|subAggregators
 operator|.
 name|length
 index|]
+decl_stmt|;
+specifier|final
+name|long
+name|bucketDocCount
+init|=
+name|bucketDocCount
+argument_list|(
+name|bucketOrd
+argument_list|)
 decl_stmt|;
 for|for
 control|(
@@ -432,6 +455,18 @@ index|[
 name|i
 index|]
 operator|=
+name|bucketDocCount
+operator|==
+literal|0L
+condition|?
+name|subAggregators
+index|[
+name|i
+index|]
+operator|.
+name|buildEmptyAggregation
+argument_list|()
+else|:
 name|subAggregators
 index|[
 name|i
