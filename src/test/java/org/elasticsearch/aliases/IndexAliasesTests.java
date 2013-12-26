@@ -10248,7 +10248,7 @@ name|nameValue
 parameter_list|)
 block|{
 return|return
-literal|"{ type1 : { \"id\" : \""
+literal|"{ \"id\" : \""
 operator|+
 name|id
 operator|+
@@ -10256,7 +10256,7 @@ literal|"\", \"name\" : \""
 operator|+
 name|nameValue
 operator|+
-literal|"\" } }"
+literal|"\" }"
 return|;
 block|}
 block|}

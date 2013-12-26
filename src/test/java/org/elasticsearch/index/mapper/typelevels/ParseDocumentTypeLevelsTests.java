@@ -102,33 +102,9 @@ name|org
 operator|.
 name|hamcrest
 operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
 name|Matchers
 operator|.
 name|equalTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|nullValue
 import|;
 end_import
 
@@ -422,7 +398,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"test1"
+literal|"type.test1"
 argument_list|)
 argument_list|,
 name|equalTo
@@ -440,7 +416,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"test2"
+literal|"type.test2"
 argument_list|)
 argument_list|,
 name|equalTo
@@ -458,7 +434,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"inner.inner_field"
+literal|"type.inner.inner_field"
 argument_list|)
 argument_list|,
 name|equalTo
@@ -778,7 +754,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"type"
+literal|"type.type"
 argument_list|)
 argument_list|,
 name|equalTo
@@ -796,7 +772,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"test1"
+literal|"type.test1"
 argument_list|)
 argument_list|,
 name|equalTo
@@ -814,7 +790,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"test2"
+literal|"type.test2"
 argument_list|)
 argument_list|,
 name|equalTo
@@ -832,7 +808,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"inner.inner_field"
+literal|"type.inner.inner_field"
 argument_list|)
 argument_list|,
 name|equalTo
@@ -970,7 +946,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"type_field"
+literal|"type.type_field"
 argument_list|)
 argument_list|,
 name|equalTo
@@ -991,8 +967,10 @@ argument_list|(
 literal|"test1"
 argument_list|)
 argument_list|,
-name|nullValue
-argument_list|()
+name|equalTo
+argument_list|(
+literal|"value1"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -1007,8 +985,10 @@ argument_list|(
 literal|"test2"
 argument_list|)
 argument_list|,
-name|nullValue
-argument_list|()
+name|equalTo
+argument_list|(
+literal|"value2"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1147,7 +1127,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"type.type_field"
+literal|"type.type.type_field"
 argument_list|)
 argument_list|,
 name|equalTo
@@ -1165,7 +1145,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"test1"
+literal|"type.test1"
 argument_list|)
 argument_list|,
 name|equalTo
@@ -1183,7 +1163,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"test2"
+literal|"type.test2"
 argument_list|)
 argument_list|,
 name|equalTo
@@ -1201,7 +1181,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"inner.inner_field"
+literal|"type.inner.inner_field"
 argument_list|)
 argument_list|,
 name|equalTo
@@ -1338,7 +1318,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"type"
+literal|"type.type"
 argument_list|)
 argument_list|,
 name|equalTo
@@ -1356,7 +1336,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"test1"
+literal|"type.test1"
 argument_list|)
 argument_list|,
 name|equalTo
@@ -1374,7 +1354,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"test2"
+literal|"type.test2"
 argument_list|)
 argument_list|,
 name|equalTo
@@ -1392,7 +1372,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"inner.inner_field"
+literal|"type.inner.inner_field"
 argument_list|)
 argument_list|,
 name|equalTo
@@ -1529,7 +1509,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"type"
+literal|"type.type"
 argument_list|)
 argument_list|,
 name|equalTo
@@ -1547,7 +1527,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"test1"
+literal|"type.test1"
 argument_list|)
 argument_list|,
 name|equalTo
@@ -1565,7 +1545,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"test2"
+literal|"type.test2"
 argument_list|)
 argument_list|,
 name|equalTo
@@ -1583,7 +1563,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"inner.inner_field"
+literal|"type.inner.inner_field"
 argument_list|)
 argument_list|,
 name|equalTo
@@ -1920,7 +1900,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"type.type_field"
+literal|"type.type.type_field"
 argument_list|)
 argument_list|,
 name|equalTo
@@ -1938,7 +1918,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"test1"
+literal|"type.test1"
 argument_list|)
 argument_list|,
 name|equalTo
@@ -1956,7 +1936,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"test2"
+literal|"type.test2"
 argument_list|)
 argument_list|,
 name|equalTo
@@ -1974,7 +1954,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"inner.inner_field"
+literal|"type.inner.inner_field"
 argument_list|)
 argument_list|,
 name|equalTo
