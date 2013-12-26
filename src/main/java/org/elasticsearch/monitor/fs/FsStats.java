@@ -1672,6 +1672,17 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+DECL|method|getTotal
+specifier|public
+name|Info
+name|getTotal
+parameter_list|()
+block|{
+return|return
+name|total
+argument_list|()
+return|;
+block|}
 DECL|method|total
 specifier|public
 name|Info
