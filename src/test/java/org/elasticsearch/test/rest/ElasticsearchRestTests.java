@@ -38,7 +38,9 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
+name|runner
+operator|.
+name|RunWith
 import|;
 end_import
 
@@ -65,9 +67,13 @@ end_comment
 begin_class
 annotation|@
 name|Slow
-comment|//@RunWith(RestTestSuiteRunner.class)
 annotation|@
-name|Ignore
+name|RunWith
+argument_list|(
+name|RestTestSuiteRunner
+operator|.
+name|class
+argument_list|)
 DECL|class|ElasticsearchRestTests
 specifier|public
 class|class
