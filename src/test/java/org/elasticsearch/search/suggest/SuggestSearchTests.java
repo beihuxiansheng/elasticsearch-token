@@ -996,9 +996,17 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
+name|anyOf
+argument_list|(
 name|endsWith
 argument_list|(
 literal|"Suggest entries have different sizes actual [1] expected [2]"
+argument_list|)
+argument_list|,
+name|endsWith
+argument_list|(
+literal|"Suggest entries have different sizes actual [2] expected [1]"
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1016,9 +1024,17 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
+name|anyOf
+argument_list|(
 name|endsWith
 argument_list|(
 literal|"Suggest entries have different sizes actual [1] expected [2]"
+argument_list|)
+argument_list|,
+name|endsWith
+argument_list|(
+literal|"Suggest entries have different sizes actual [2] expected [1]"
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1105,9 +1121,17 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
+name|anyOf
+argument_list|(
 name|endsWith
 argument_list|(
 literal|"Suggest entries have different text actual [ABCD] expected [abcd]"
+argument_list|)
+argument_list|,
+name|endsWith
+argument_list|(
+literal|"Suggest entries have different text actual [abcd] expected [ABCD]"
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1125,9 +1149,17 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
+name|anyOf
+argument_list|(
 name|endsWith
 argument_list|(
 literal|"Suggest entries have different text actual [ABCD] expected [abcd]"
+argument_list|)
+argument_list|,
+name|endsWith
+argument_list|(
+literal|"Suggest entries have different text actual [abcd] expected [ABCD]"
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
