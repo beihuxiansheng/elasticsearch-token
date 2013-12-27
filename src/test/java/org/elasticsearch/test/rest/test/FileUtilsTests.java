@@ -52,6 +52,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -123,6 +133,8 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|Ignore
 DECL|class|FileUtilsTests
 specifier|public
 class|class
@@ -155,9 +167,9 @@ name|FileUtils
 operator|.
 name|findYamlSuites
 argument_list|(
-literal|"/rest-spec/test"
+literal|"/rest-api-spec/test"
 argument_list|,
-literal|"/rest-spec/test/get/10_basic"
+literal|"/rest-api-spec/test/get/10_basic"
 argument_list|)
 decl_stmt|;
 name|assertSingleFile
@@ -176,7 +188,7 @@ name|FileUtils
 operator|.
 name|findYamlSuites
 argument_list|(
-literal|"/rest-spec/test"
+literal|"/rest-api-spec/test"
 argument_list|,
 literal|"get/10_basic.yaml"
 argument_list|)
@@ -197,7 +209,7 @@ name|FileUtils
 operator|.
 name|findYamlSuites
 argument_list|(
-literal|"/rest-spec/test"
+literal|"/rest-api-spec/test"
 argument_list|,
 literal|"get/10_basic"
 argument_list|)
@@ -238,7 +250,7 @@ name|FileUtils
 operator|.
 name|findYamlSuites
 argument_list|(
-literal|"/rest-spec/test"
+literal|"/rest-api-spec/test"
 argument_list|,
 literal|"get"
 argument_list|)
@@ -304,7 +316,7 @@ name|FileUtils
 operator|.
 name|findYamlSuites
 argument_list|(
-literal|"/rest-spec/test"
+literal|"/rest-api-spec/test"
 argument_list|,
 literal|"get"
 argument_list|,
@@ -405,7 +417,7 @@ name|FileUtils
 operator|.
 name|findYamlSuites
 argument_list|(
-literal|"/rest-spec/test"
+literal|"/rest-api-spec/test"
 argument_list|,
 literal|"get/10_basic"
 argument_list|,
@@ -551,7 +563,7 @@ name|FileUtils
 operator|.
 name|findYamlSuites
 argument_list|(
-literal|"/rest-spec/test"
+literal|"/rest-api-spec/test"
 argument_list|,
 literal|"get/10_basic"
 argument_list|,
@@ -677,7 +689,7 @@ name|FileUtils
 operator|.
 name|findYamlSuites
 argument_list|(
-literal|"/rest-spec/test"
+literal|"/rest-api-spec/test"
 argument_list|,
 literal|"get/10_basic"
 argument_list|,

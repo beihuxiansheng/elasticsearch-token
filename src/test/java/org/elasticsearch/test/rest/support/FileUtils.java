@@ -379,7 +379,7 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|//try within classpath with optional prefix: /rest-spec/test (or /rest-test/api) is optional
+comment|//try within classpath with optional prefix: /rest-api-spec/test (or /rest-api-spec/api) is optional
 name|String
 name|newPath
 init|=
