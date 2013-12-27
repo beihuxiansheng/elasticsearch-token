@@ -1423,6 +1423,8 @@ name|Defaults
 operator|.
 name|FIELD_TYPE
 argument_list|,
+literal|null
+argument_list|,
 name|indexAnalyzer
 argument_list|,
 name|searchAnalyzer

@@ -683,6 +683,8 @@ name|BOOST
 argument_list|,
 name|fieldType
 argument_list|,
+literal|null
+argument_list|,
 name|Defaults
 operator|.
 name|NULL_VALUE

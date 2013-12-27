@@ -1314,6 +1314,8 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
+literal|null
+argument_list|,
 name|postingsProvider
 argument_list|,
 name|docValuesProvider

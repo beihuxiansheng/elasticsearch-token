@@ -971,6 +971,9 @@ parameter_list|,
 name|FieldType
 name|fieldType
 parameter_list|,
+name|Boolean
+name|docValues
+parameter_list|,
 name|Explicit
 argument_list|<
 name|Boolean
@@ -1009,6 +1012,8 @@ argument_list|,
 name|boost
 argument_list|,
 name|fieldType
+argument_list|,
+name|docValues
 argument_list|,
 name|indexAnalyzer
 argument_list|,

@@ -664,6 +664,8 @@ name|boost
 argument_list|,
 name|fieldType
 argument_list|,
+name|docValues
+argument_list|,
 name|nullValue
 argument_list|,
 name|ignoreMalformed
@@ -846,6 +848,9 @@ parameter_list|,
 name|FieldType
 name|fieldType
 parameter_list|,
+name|Boolean
+name|docValues
+parameter_list|,
 name|Integer
 name|nullValue
 parameter_list|,
@@ -882,6 +887,8 @@ argument_list|,
 name|boost
 argument_list|,
 name|fieldType
+argument_list|,
+name|docValues
 argument_list|,
 name|ignoreMalformed
 argument_list|,

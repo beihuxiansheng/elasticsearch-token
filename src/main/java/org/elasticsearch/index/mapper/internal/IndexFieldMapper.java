@@ -534,6 +534,8 @@ name|boost
 argument_list|,
 name|fieldType
 argument_list|,
+name|docValues
+argument_list|,
 name|enabledState
 argument_list|,
 name|postingsProvider
@@ -739,6 +741,8 @@ operator|.
 name|FIELD_TYPE
 argument_list|)
 argument_list|,
+literal|null
+argument_list|,
 name|Defaults
 operator|.
 name|ENABLED_STATE
@@ -770,6 +774,9 @@ name|boost
 parameter_list|,
 name|FieldType
 name|fieldType
+parameter_list|,
+name|Boolean
+name|docValues
 parameter_list|,
 name|EnabledAttributeMapper
 name|enabledState
@@ -806,6 +813,8 @@ argument_list|,
 name|boost
 argument_list|,
 name|fieldType
+argument_list|,
+name|docValues
 argument_list|,
 name|Lucene
 operator|.

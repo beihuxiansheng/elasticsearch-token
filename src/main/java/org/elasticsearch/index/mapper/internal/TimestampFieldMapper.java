@@ -698,6 +698,8 @@ name|TimestampFieldMapper
 argument_list|(
 name|fieldType
 argument_list|,
+name|docValues
+argument_list|,
 name|enabledState
 argument_list|,
 name|path
@@ -939,6 +941,8 @@ operator|.
 name|FIELD_TYPE
 argument_list|)
 argument_list|,
+literal|null
+argument_list|,
 name|Defaults
 operator|.
 name|ENABLED
@@ -977,6 +981,9 @@ name|TimestampFieldMapper
 parameter_list|(
 name|FieldType
 name|fieldType
+parameter_list|,
+name|Boolean
+name|docValues
 parameter_list|,
 name|EnabledAttributeMapper
 name|enabledState
@@ -1044,6 +1051,8 @@ operator|.
 name|BOOST
 argument_list|,
 name|fieldType
+argument_list|,
+name|docValues
 argument_list|,
 name|Defaults
 operator|.

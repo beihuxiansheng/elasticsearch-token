@@ -709,6 +709,8 @@ name|boost
 argument_list|,
 name|fieldType
 argument_list|,
+name|docValues
+argument_list|,
 name|path
 argument_list|,
 name|postingsProvider
@@ -861,14 +863,6 @@ parameter_list|()
 block|{
 name|this
 argument_list|(
-name|Defaults
-operator|.
-name|NAME
-argument_list|,
-name|Defaults
-operator|.
-name|INDEX_NAME
-argument_list|,
 operator|new
 name|FieldType
 argument_list|(
@@ -898,6 +892,8 @@ operator|.
 name|INDEX_NAME
 argument_list|,
 name|fieldType
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -913,6 +909,9 @@ name|indexName
 parameter_list|,
 name|FieldType
 name|fieldType
+parameter_list|,
+name|Boolean
+name|docValues
 parameter_list|)
 block|{
 name|this
@@ -926,6 +925,8 @@ operator|.
 name|BOOST
 argument_list|,
 name|fieldType
+argument_list|,
+name|docValues
 argument_list|,
 name|Defaults
 operator|.
@@ -958,6 +959,9 @@ name|boost
 parameter_list|,
 name|FieldType
 name|fieldType
+parameter_list|,
+name|Boolean
+name|docValues
 parameter_list|,
 name|String
 name|path
@@ -994,6 +998,8 @@ argument_list|,
 name|boost
 argument_list|,
 name|fieldType
+argument_list|,
+name|docValues
 argument_list|,
 name|Lucene
 operator|.

@@ -1352,6 +1352,8 @@ operator|.
 name|FIELD_TYPE
 argument_list|)
 argument_list|,
+literal|null
+argument_list|,
 name|Lucene
 operator|.
 name|KEYWORD_ANALYZER

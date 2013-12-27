@@ -980,6 +980,8 @@ literal|1.0f
 argument_list|,
 name|fieldType
 argument_list|,
+literal|null
+argument_list|,
 name|indexAnalyzer
 argument_list|,
 name|searchAnalyzer

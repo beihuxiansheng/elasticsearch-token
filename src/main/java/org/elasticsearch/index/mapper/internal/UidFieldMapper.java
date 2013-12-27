@@ -590,6 +590,8 @@ name|name
 argument_list|,
 name|indexName
 argument_list|,
+name|docValues
+argument_list|,
 name|postingsProvider
 argument_list|,
 name|docValuesProvider
@@ -702,6 +704,8 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
+literal|null
+argument_list|,
 name|ImmutableSettings
 operator|.
 name|EMPTY
@@ -717,6 +721,9 @@ name|name
 parameter_list|,
 name|String
 name|indexName
+parameter_list|,
+name|Boolean
+name|docValues
 parameter_list|,
 name|PostingsFormatProvider
 name|postingsFormat
@@ -758,6 +765,8 @@ name|Defaults
 operator|.
 name|FIELD_TYPE
 argument_list|)
+argument_list|,
+name|docValues
 argument_list|,
 name|Lucene
 operator|.

@@ -792,6 +792,8 @@ name|boost
 argument_list|,
 name|fieldType
 argument_list|,
+literal|null
+argument_list|,
 name|Lucene
 operator|.
 name|KEYWORD_ANALYZER
