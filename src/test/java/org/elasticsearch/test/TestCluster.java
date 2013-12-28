@@ -1224,6 +1224,7 @@ name|settingsBuilder
 argument_list|()
 comment|/* use RAM directories in 10% of the runs */
 comment|//.put("index.store.type", random.nextInt(10) == 0 ? MockRamIndexStoreModule.class.getName() : MockFSIndexStoreModule.class.getName())
+comment|// TODO we should run without those mock modules once in a while to make sure we don't hide any bugs in the actual impl.
 operator|.
 name|put
 argument_list|(
