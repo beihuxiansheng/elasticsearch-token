@@ -1019,6 +1019,9 @@ name|fieldDataSettings
 parameter_list|,
 name|Settings
 name|indexSettings
+parameter_list|,
+name|MultiFields
+name|multiFields
 parameter_list|)
 block|{
 comment|// LUCENE 4 UPGRADE: Since we can't do anything before the super call, we have to push the boost check down to subclasses
@@ -1047,6 +1050,8 @@ argument_list|,
 name|fieldDataSettings
 argument_list|,
 name|indexSettings
+argument_list|,
+name|multiFields
 argument_list|)
 expr_stmt|;
 if|if
@@ -1143,6 +1148,19 @@ operator|=
 name|includeInAll
 expr_stmt|;
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|unsetIncludeInAll
+specifier|public
+name|void
+name|unsetIncludeInAll
+parameter_list|()
+block|{
+name|includeInAll
+operator|=
+literal|null
+expr_stmt|;
 block|}
 DECL|method|maxPrecisionStep
 specifier|protected

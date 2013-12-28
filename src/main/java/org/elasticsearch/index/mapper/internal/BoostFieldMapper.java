@@ -999,6 +999,11 @@ argument_list|,
 name|fieldDataSettings
 argument_list|,
 name|indexSettings
+argument_list|,
+name|MultiFields
+operator|.
+name|empty
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|this

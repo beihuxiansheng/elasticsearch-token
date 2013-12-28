@@ -922,10 +922,10 @@ operator|=
 name|this
 expr_stmt|;
 block|}
-DECL|method|pathType
+DECL|method|multiFieldPathType
 specifier|public
 name|Builder
-name|pathType
+name|multiFieldPathType
 parameter_list|(
 name|ContentPath
 operator|.
@@ -1482,7 +1482,7 @@ condition|)
 block|{
 name|builder
 operator|.
-name|pathType
+name|multiFieldPathType
 argument_list|(
 name|parsePathType
 argument_list|(

@@ -853,6 +853,15 @@ argument_list|,
 name|preservePositionIncrements
 argument_list|,
 name|maxInputLength
+argument_list|,
+name|multiFieldsBuilder
+operator|.
+name|build
+argument_list|(
+name|this
+argument_list|,
+name|context
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -1411,6 +1420,9 @@ name|preservePositionIncrements
 parameter_list|,
 name|int
 name|maxInputLength
+parameter_list|,
+name|MultiFields
+name|multiFields
 parameter_list|)
 block|{
 name|super
@@ -1440,6 +1452,8 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+name|multiFields
 argument_list|)
 expr_stmt|;
 name|analyzingSuggestLookupProvider

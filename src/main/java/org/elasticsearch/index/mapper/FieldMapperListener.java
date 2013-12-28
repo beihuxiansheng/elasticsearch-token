@@ -106,8 +106,10 @@ specifier|public
 name|void
 name|fieldMappers
 parameter_list|(
+name|Iterable
+argument_list|<
 name|FieldMapper
-modifier|...
+argument_list|>
 name|fieldMappers
 parameter_list|)
 block|{
