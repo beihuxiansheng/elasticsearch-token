@@ -676,6 +676,7 @@ return|;
 block|}
 comment|/**      * The types of documents the query will run against. Defaults to all types.      */
 DECL|method|types
+specifier|public
 name|String
 index|[]
 name|types
