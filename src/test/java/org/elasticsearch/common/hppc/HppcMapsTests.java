@@ -114,6 +114,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|assumeTrue
+argument_list|(
+name|ASSERTIONS_ENABLED
+argument_list|)
+expr_stmt|;
 name|ObjectOpenHashSet
 argument_list|<
 name|String

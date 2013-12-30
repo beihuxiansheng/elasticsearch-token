@@ -686,6 +686,8 @@ argument_list|,
 name|TestCluster
 operator|.
 name|TESTS_ENABLE_MOCK_MODULES
+argument_list|,
+literal|"tests.assertion.disabled"
 argument_list|)
 expr_stmt|;
 if|if
