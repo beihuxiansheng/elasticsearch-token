@@ -224,24 +224,6 @@ name|INITIALIZING
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|allocation
-operator|.
-name|RoutingAllocationTests
-operator|.
-name|newNode
-import|;
-end_import
-
 begin_class
 DECL|class|ClusterAllocationRerouteBenchmark
 specifier|public
@@ -478,6 +460,8 @@ name|nb
 operator|.
 name|put
 argument_list|(
+name|ElasticsearchAllocationTestCase
+operator|.
 name|newNode
 argument_list|(
 literal|"node"
