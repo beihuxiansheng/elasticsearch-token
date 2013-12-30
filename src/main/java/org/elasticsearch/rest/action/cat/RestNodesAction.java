@@ -880,9 +880,18 @@ name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"es"
+literal|"version"
 argument_list|,
 literal|"default:false;desc:es version"
+argument_list|)
+expr_stmt|;
+name|table
+operator|.
+name|addCell
+argument_list|(
+literal|"build"
+argument_list|,
+literal|"default:false;desc:es build hash"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1200,6 +1209,25 @@ name|getVersion
 argument_list|()
 operator|.
 name|number
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|table
+operator|.
+name|addCell
+argument_list|(
+name|info
+operator|==
+literal|null
+condition|?
+literal|null
+else|:
+name|info
+operator|.
+name|getBuild
+argument_list|()
+operator|.
+name|hashShort
 argument_list|()
 argument_list|)
 expr_stmt|;
