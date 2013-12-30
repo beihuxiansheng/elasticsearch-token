@@ -26,22 +26,22 @@ specifier|public
 interface|interface
 name|DocumentTypeListener
 block|{
-comment|/**      * Invoked just before a new document type has been created.      *      * @param type The new document type      */
+comment|/**      * Invoked just before a new document type has been created.      *      * @param mapper The new document mapper of the type being added      */
 DECL|method|beforeCreate
 name|void
 name|beforeCreate
 parameter_list|(
-name|String
-name|type
+name|DocumentMapper
+name|mapper
 parameter_list|)
 function_decl|;
-comment|/**      * Invoked just after an existing document type has been removed.      *      * @param type The existing document type      */
+comment|/**      * Invoked just after an existing document type has been removed.      *      * @param mapper The existing document mapper of the type being removed      */
 DECL|method|afterRemove
 name|void
 name|afterRemove
 parameter_list|(
-name|String
-name|type
+name|DocumentMapper
+name|mapper
 parameter_list|)
 function_decl|;
 block|}

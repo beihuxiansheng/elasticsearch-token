@@ -1961,9 +1961,6 @@ operator|.
 name|beforeCreate
 argument_list|(
 name|mapper
-operator|.
-name|type
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2218,7 +2215,7 @@ name|typeListener
 operator|.
 name|afterRemove
 argument_list|(
-name|type
+name|docMapper
 argument_list|)
 expr_stmt|;
 block|}
