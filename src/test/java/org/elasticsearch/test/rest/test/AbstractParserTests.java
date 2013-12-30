@@ -81,6 +81,7 @@ annotation|@
 name|Ignore
 DECL|class|AbstractParserTests
 specifier|public
+specifier|abstract
 class|class
 name|AbstractParserTests
 extends|extends
