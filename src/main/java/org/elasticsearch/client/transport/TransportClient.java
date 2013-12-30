@@ -1334,6 +1334,23 @@ name|connectedNodes
 argument_list|()
 return|;
 block|}
+comment|/**      * The list of filtered nodes that were not connected to, for example, due to      * mismatch in cluster name.      */
+DECL|method|filteredNodes
+specifier|public
+name|ImmutableList
+argument_list|<
+name|DiscoveryNode
+argument_list|>
+name|filteredNodes
+parameter_list|()
+block|{
+return|return
+name|nodesService
+operator|.
+name|filteredNodes
+argument_list|()
+return|;
+block|}
 comment|/**      * Returns the listed nodes in the transport client (ones added to it).      */
 DECL|method|listedNodes
 specifier|public
