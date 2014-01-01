@@ -30,6 +30,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ElasticSearchTimeoutException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|action
 operator|.
 name|admin
@@ -97,6 +107,20 @@ operator|.
 name|settings
 operator|.
 name|Settings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|unit
+operator|.
+name|TimeValue
 import|;
 end_import
 
@@ -709,6 +733,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * We build a plugin manager instance which wait only for 30 seconds before      * raising an ElasticSearchTimeoutException      */
 DECL|method|pluginManager
 specifier|private
 specifier|static
@@ -787,6 +812,13 @@ operator|.
 name|OutputMode
 operator|.
 name|SILENT
+argument_list|,
+name|TimeValue
+operator|.
+name|timeValueSeconds
+argument_list|(
+literal|30
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -1439,6 +1471,8 @@ argument_list|(
 name|pluginCoordinates
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|pluginManager
 operator|.
 name|downloadAndExtract
@@ -1510,6 +1544,23 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ElasticSearchTimeoutException
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"--> timeout exception raised while downloading plugin [{}]. Skipping test."
+argument_list|,
+name|pluginShortName
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|/**      * We are ignoring by default these tests as they require to have an internet access      * To activate the test, use -Dtests.network=true      */
 annotation|@
