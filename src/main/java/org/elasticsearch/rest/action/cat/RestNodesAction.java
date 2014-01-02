@@ -882,7 +882,7 @@ name|addCell
 argument_list|(
 literal|"version"
 argument_list|,
-literal|"default:false;desc:es version"
+literal|"default:false;alias:v;desc:es version"
 argument_list|)
 expr_stmt|;
 name|table
@@ -891,7 +891,7 @@ name|addCell
 argument_list|(
 literal|"build"
 argument_list|,
-literal|"default:false;desc:es build hash"
+literal|"default:false;alias:b;desc:es build hash"
 argument_list|)
 expr_stmt|;
 name|table
