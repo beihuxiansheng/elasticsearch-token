@@ -265,6 +265,17 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
+name|controller
+operator|.
+name|registerHandler
+argument_list|(
+name|HEAD
+argument_list|,
+literal|"/{index}/_alias"
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
