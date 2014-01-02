@@ -66,6 +66,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|MapperService
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -138,7 +152,7 @@ DECL|method|GetField
 specifier|private
 name|GetField
 parameter_list|()
-block|{      }
+block|{     }
 DECL|method|GetField
 specifier|public
 name|GetField
@@ -219,6 +233,21 @@ parameter_list|()
 block|{
 return|return
 name|values
+return|;
+block|}
+DECL|method|isMetadataField
+specifier|public
+name|boolean
+name|isMetadataField
+parameter_list|()
+block|{
+return|return
+name|MapperService
+operator|.
+name|isMetadataField
+argument_list|(
+name|name
+argument_list|)
 return|;
 block|}
 annotation|@

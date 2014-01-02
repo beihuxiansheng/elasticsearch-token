@@ -54,6 +54,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|MapperService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|search
 operator|.
 name|SearchHitField
@@ -129,7 +143,7 @@ DECL|method|InternalSearchHitField
 specifier|private
 name|InternalSearchHitField
 parameter_list|()
-block|{      }
+block|{     }
 DECL|method|InternalSearchHitField
 specifier|public
 name|InternalSearchHitField
@@ -253,6 +267,23 @@ block|{
 return|return
 name|values
 argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|isMetadataField
+specifier|public
+name|boolean
+name|isMetadataField
+parameter_list|()
+block|{
+return|return
+name|MapperService
+operator|.
+name|isMetadataField
+argument_list|(
+name|name
+argument_list|)
 return|;
 block|}
 annotation|@

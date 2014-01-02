@@ -105,6 +105,12 @@ argument_list|>
 name|getValues
 parameter_list|()
 function_decl|;
+comment|/**      * @return The field is a metadata field      */
+DECL|method|isMetadataField
+name|boolean
+name|isMetadataField
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
