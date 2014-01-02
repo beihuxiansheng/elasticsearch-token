@@ -8261,7 +8261,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"max_input_len"
+literal|"max_input_length"
 argument_list|,
 name|maxInputLen
 argument_list|)
@@ -8554,7 +8554,7 @@ expr_stmt|;
 name|ensureYellow
 argument_list|()
 expr_stmt|;
-comment|// can cause stack overflow without the default max_input_len
+comment|// can cause stack overflow without the default max_input_length
 name|String
 name|longString
 init|=
@@ -8740,7 +8740,7 @@ expr_stmt|;
 name|ensureYellow
 argument_list|()
 expr_stmt|;
-comment|// can cause stack overflow without the default max_input_len
+comment|// can cause stack overflow without the default max_input_length
 name|String
 name|string
 init|=

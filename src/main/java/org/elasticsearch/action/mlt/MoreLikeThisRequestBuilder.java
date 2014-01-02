@@ -418,7 +418,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|minWordLen
+name|minWordLength
 argument_list|(
 name|minWordLen
 argument_list|)
@@ -440,7 +440,7 @@ block|{
 name|request
 argument_list|()
 operator|.
-name|maxWordLen
+name|maxWordLength
 argument_list|(
 name|maxWordLen
 argument_list|)

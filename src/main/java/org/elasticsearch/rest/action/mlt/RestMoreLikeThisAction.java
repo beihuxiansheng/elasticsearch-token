@@ -396,6 +396,9 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
+comment|//TODO the ParseField class that encapsulates the supported names used for an attribute
+comment|//needs some work if it is to be used in a REST context like this too
+comment|// See the MoreLikeThisQueryParser constants that hold the valid syntax
 name|mltRequest
 operator|.
 name|fields
@@ -501,7 +504,7 @@ argument_list|)
 expr_stmt|;
 name|mltRequest
 operator|.
-name|minWordLen
+name|minWordLength
 argument_list|(
 name|request
 operator|.
@@ -509,14 +512,21 @@ name|paramAsInt
 argument_list|(
 literal|"min_word_len"
 argument_list|,
+name|request
+operator|.
+name|paramAsInt
+argument_list|(
+literal|"min_word_length"
+argument_list|,
 operator|-
 literal|1
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|mltRequest
 operator|.
-name|maxWordLen
+name|maxWordLength
 argument_list|(
 name|request
 operator|.
@@ -524,8 +534,15 @@ name|paramAsInt
 argument_list|(
 literal|"max_word_len"
 argument_list|,
+name|request
+operator|.
+name|paramAsInt
+argument_list|(
+literal|"max_word_length"
+argument_list|,
 operator|-
 literal|1
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;

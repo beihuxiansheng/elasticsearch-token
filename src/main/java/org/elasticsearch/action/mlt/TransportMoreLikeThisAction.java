@@ -2101,11 +2101,11 @@ name|maxDocFreq
 argument_list|()
 argument_list|)
 operator|.
-name|minWordLen
+name|minWordLength
 argument_list|(
 name|request
 operator|.
-name|minWordLen
+name|minWordLength
 argument_list|()
 argument_list|)
 operator|.
@@ -2113,7 +2113,7 @@ name|maxWordLen
 argument_list|(
 name|request
 operator|.
-name|maxWordLen
+name|maxWordLength
 argument_list|()
 argument_list|)
 operator|.

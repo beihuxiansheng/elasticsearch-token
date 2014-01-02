@@ -170,18 +170,6 @@ name|org
 operator|.
 name|hamcrest
 operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
 name|Matchers
 operator|.
 name|instanceOf
@@ -405,7 +393,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"max_input_len"
+literal|"max_input_length"
 argument_list|,
 literal|14
 argument_list|)
@@ -661,7 +649,7 @@ name|configMap
 operator|.
 name|get
 argument_list|(
-literal|"max_input_len"
+literal|"max_input_length"
 argument_list|)
 operator|.
 name|toString

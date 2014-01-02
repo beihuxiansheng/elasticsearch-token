@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -55,6 +45,16 @@ operator|.
 name|SuggestBuilder
 operator|.
 name|SuggestionBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
 import|;
 end_import
 
@@ -486,7 +486,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"prefix_len"
+literal|"prefix_length"
 argument_list|,
 name|prefixLength
 argument_list|)
@@ -503,7 +503,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"min_word_len"
+literal|"min_word_length"
 argument_list|,
 name|minWordLength
 argument_list|)

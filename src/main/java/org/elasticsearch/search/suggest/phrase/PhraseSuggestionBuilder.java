@@ -1775,7 +1775,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"prefix_len"
+literal|"prefix_length"
 argument_list|,
 name|prefixLength
 argument_list|)
@@ -1792,7 +1792,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"min_word_len"
+literal|"min_word_length"
 argument_list|,
 name|minWordLength
 argument_list|)
