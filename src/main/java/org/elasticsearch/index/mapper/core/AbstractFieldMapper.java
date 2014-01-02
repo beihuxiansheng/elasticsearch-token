@@ -815,6 +815,11 @@ name|boolean
 name|termVectors
 parameter_list|)
 block|{
+if|if
+condition|(
+name|termVectors
+condition|)
+block|{
 name|this
 operator|.
 name|fieldType
@@ -824,6 +829,8 @@ argument_list|(
 name|termVectors
 argument_list|)
 expr_stmt|;
+block|}
+comment|// don't set it to false, it is default and might be flipped by a more specific option
 return|return
 name|builder
 return|;
@@ -837,6 +844,11 @@ name|boolean
 name|termVectorOffsets
 parameter_list|)
 block|{
+if|if
+condition|(
+name|termVectorOffsets
+condition|)
+block|{
 name|this
 operator|.
 name|fieldType
@@ -846,6 +858,7 @@ argument_list|(
 name|termVectorOffsets
 argument_list|)
 expr_stmt|;
+block|}
 name|this
 operator|.
 name|fieldType
@@ -868,6 +881,11 @@ name|boolean
 name|termVectorPositions
 parameter_list|)
 block|{
+if|if
+condition|(
+name|termVectorPositions
+condition|)
+block|{
 name|this
 operator|.
 name|fieldType
@@ -877,6 +895,7 @@ argument_list|(
 name|termVectorPositions
 argument_list|)
 expr_stmt|;
+block|}
 name|this
 operator|.
 name|fieldType
@@ -899,6 +918,11 @@ name|boolean
 name|termVectorPayloads
 parameter_list|)
 block|{
+if|if
+condition|(
+name|termVectorPayloads
+condition|)
+block|{
 name|this
 operator|.
 name|fieldType
@@ -908,6 +932,7 @@ argument_list|(
 name|termVectorPayloads
 argument_list|)
 expr_stmt|;
+block|}
 name|this
 operator|.
 name|fieldType
