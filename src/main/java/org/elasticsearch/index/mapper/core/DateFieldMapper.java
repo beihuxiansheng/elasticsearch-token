@@ -254,7 +254,7 @@ name|common
 operator|.
 name|unit
 operator|.
-name|TimeValue
+name|Fuzziness
 import|;
 end_import
 
@@ -1866,8 +1866,8 @@ parameter_list|(
 name|String
 name|value
 parameter_list|,
-name|String
-name|minSim
+name|Fuzziness
+name|fuzziness
 parameter_list|,
 name|int
 name|prefixLength
@@ -1901,14 +1901,10 @@ try|try
 block|{
 name|iSim
 operator|=
-name|TimeValue
+name|fuzziness
 operator|.
-name|parseTimeValue
-argument_list|(
-name|minSim
-argument_list|,
-literal|null
-argument_list|)
+name|asTimeValue
+argument_list|()
 operator|.
 name|millis
 argument_list|()
@@ -1923,15 +1919,10 @@ block|{
 comment|// not a time format
 name|iSim
 operator|=
-operator|(
-name|long
-operator|)
-name|Double
+name|fuzziness
 operator|.
-name|parseDouble
-argument_list|(
-name|minSim
-argument_list|)
+name|asLong
+argument_list|()
 expr_stmt|;
 block|}
 return|return

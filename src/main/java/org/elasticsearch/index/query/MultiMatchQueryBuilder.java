@@ -50,6 +50,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|unit
+operator|.
+name|Fuzziness
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|xcontent
 operator|.
 name|XContentBuilder
@@ -167,7 +181,7 @@ name|slop
 decl_stmt|;
 DECL|field|fuzziness
 specifier|private
-name|String
+name|Fuzziness
 name|fuzziness
 decl_stmt|;
 DECL|field|prefixLength
@@ -453,7 +467,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the minimum similarity used when evaluated to a fuzzy query type. Defaults to "0.5".      */
+comment|/**      * Sets the fuzziness used when evaluated to a fuzzy query type. Defaults to "AUTO".      */
 DECL|method|fuzziness
 specifier|public
 name|MultiMatchQueryBuilder
@@ -467,10 +481,12 @@ name|this
 operator|.
 name|fuzziness
 operator|=
-name|fuzziness
+name|Fuzziness
 operator|.
-name|toString
-argument_list|()
+name|build
+argument_list|(
+name|fuzziness
+argument_list|)
 expr_stmt|;
 return|return
 name|this
@@ -882,13 +898,13 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|builder
-operator|.
-name|field
-argument_list|(
-literal|"fuzziness"
-argument_list|,
 name|fuzziness
+operator|.
+name|toXContent
+argument_list|(
+name|builder
+argument_list|,
+name|params
 argument_list|)
 expr_stmt|;
 block|}

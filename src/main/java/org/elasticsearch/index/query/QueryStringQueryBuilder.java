@@ -36,6 +36,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|unit
+operator|.
+name|Fuzziness
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|xcontent
 operator|.
 name|XContentBuilder
@@ -89,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A query that parses a query string and runs it. There are two modes that this operates. The first,  * when no field is added (using {@link #field(String)}, will run the query once and non prefixed fields  * will use the {@link #defaultField(String)} set. The second, when one or more fields are added  * (using {@link #field(String)}), will run the parsed query against the provided fields, and combine  * them either using DisMax or a plain boolean query (see {@link #useDisMax(boolean)}).  *<p/>  * (shay.baon)  */
+comment|/**  * A query that parses a query string and runs it. There are two modes that this operates. The first,  * when no field is added (using {@link #field(String)}, will run the query once and non prefixed fields  * will use the {@link #defaultField(String)} set. The second, when one or more fields are added  * (using {@link #field(String)}), will run the parsed query against the provided fields, and combine  * them either using DisMax or a plain boolean query (see {@link #useDisMax(boolean)}).  *<p/>  */
 end_comment
 
 begin_class
@@ -181,13 +195,10 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-DECL|field|fuzzyMinSim
+DECL|field|fuzziness
 specifier|private
-name|float
-name|fuzzyMinSim
-init|=
-operator|-
-literal|1
+name|Fuzziness
+name|fuzziness
 decl_stmt|;
 DECL|field|fuzzyPrefixLength
 specifier|private
@@ -581,27 +592,27 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the minimum similarity for fuzzy queries. Default is 0.5f.      */
-DECL|method|fuzzyMinSim
+comment|/**      * Set the edit distance for fuzzy queries. Default is "AUTO".      */
+DECL|method|fuzziness
 specifier|public
 name|QueryStringQueryBuilder
-name|fuzzyMinSim
+name|fuzziness
 parameter_list|(
-name|float
-name|fuzzyMinSim
+name|Fuzziness
+name|fuzziness
 parameter_list|)
 block|{
 name|this
 operator|.
-name|fuzzyMinSim
+name|fuzziness
 operator|=
-name|fuzzyMinSim
+name|fuzziness
 expr_stmt|;
 return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the minimum similarity for fuzzy queries. Default is 0.5f.      */
+comment|/**      * Set the minimum prefix length for fuzzy queries. Default is 1.      */
 DECL|method|fuzzyPrefixLength
 specifier|public
 name|QueryStringQueryBuilder
@@ -1096,19 +1107,18 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|fuzzyMinSim
+name|fuzziness
 operator|!=
-operator|-
-literal|1
+literal|null
 condition|)
 block|{
-name|builder
+name|fuzziness
 operator|.
-name|field
+name|toXContent
 argument_list|(
-literal|"fuzzy_min_sim"
+name|builder
 argument_list|,
-name|fuzzyMinSim
+name|params
 argument_list|)
 expr_stmt|;
 block|}
