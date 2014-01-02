@@ -93,16 +93,16 @@ comment|/**  * Script interface to all information regarding a field.  * */
 end_comment
 
 begin_class
-DECL|class|ScriptTerms
+DECL|class|IndexField
 specifier|public
 class|class
-name|ScriptTerms
+name|IndexField
 extends|extends
 name|MinimalMap
 argument_list|<
 name|String
 argument_list|,
-name|ScriptTerm
+name|IndexFieldTerm
 argument_list|>
 block|{
 comment|/*      * TermsInfo Objects that represent the Terms are stored in this map when      * requested. Information such as frequency, doc frequency and positions      * information can be retrieved from the TermInfo objects in this map.      */
@@ -113,7 +113,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|ScriptTerm
+name|IndexFieldTerm
 argument_list|>
 name|terms
 init|=
@@ -122,7 +122,7 @@ name|HashMap
 argument_list|<
 name|String
 argument_list|,
-name|ScriptTerm
+name|IndexFieldTerm
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -134,10 +134,10 @@ name|String
 name|fieldName
 decl_stmt|;
 comment|/*      * The holds the current reader. We need it to populate the field      * statistics. We just delegate all requests there      */
-DECL|field|shardTermsLookup
+DECL|field|indexLookup
 specifier|private
-name|ShardTermsLookup
-name|shardTermsLookup
+name|IndexLookup
+name|indexLookup
 decl_stmt|;
 comment|/*      * General field statistics such as number of documents containing the      * field.      */
 DECL|field|fieldStats
@@ -157,7 +157,7 @@ parameter_list|)
 block|{
 for|for
 control|(
-name|ScriptTerm
+name|IndexFieldTerm
 name|ti
 range|:
 name|terms
@@ -176,15 +176,15 @@ expr_stmt|;
 block|}
 block|}
 comment|/*      * Represents a field in a document. Can be used to return information on      * statistics of this field. Information on specific terms in this field can      * be accessed by calling get(String term).      */
-DECL|method|ScriptTerms
+DECL|method|IndexField
 specifier|public
-name|ScriptTerms
+name|IndexField
 parameter_list|(
 name|String
 name|fieldName
 parameter_list|,
-name|ShardTermsLookup
-name|shardTermsLookup
+name|IndexLookup
+name|indexLookup
 parameter_list|)
 throws|throws
 name|IOException
@@ -201,19 +201,21 @@ operator|=
 name|fieldName
 expr_stmt|;
 assert|assert
-name|shardTermsLookup
+name|indexLookup
 operator|!=
 literal|null
 assert|;
 name|this
 operator|.
-name|shardTermsLookup
+name|indexLookup
 operator|=
-name|shardTermsLookup
+name|indexLookup
 expr_stmt|;
 name|fieldStats
 operator|=
-name|shardTermsLookup
+name|this
+operator|.
+name|indexLookup
 operator|.
 name|getIndexSearcher
 argument_list|()
@@ -276,7 +278,7 @@ comment|// TODO: might be good to get the field lengths here somewhere?
 comment|/*      * Returns a TermInfo object that can be used to access information on      * specific terms. flags can be set as described in TermInfo.      *       * TODO: here might be potential for running time improvement? If we knew in      * advance which terms are requested, we could provide an array which the      * user could then iterate over.      */
 DECL|method|get
 specifier|public
-name|ScriptTerm
+name|IndexFieldTerm
 name|get
 parameter_list|(
 name|Object
@@ -294,8 +296,8 @@ name|String
 operator|)
 name|key
 decl_stmt|;
-name|ScriptTerm
-name|termInfo
+name|IndexFieldTerm
+name|indexFieldTerm
 init|=
 name|terms
 operator|.
@@ -307,21 +309,21 @@ decl_stmt|;
 comment|// see if we initialized already...
 if|if
 condition|(
-name|termInfo
+name|indexFieldTerm
 operator|==
 literal|null
 condition|)
 block|{
-name|termInfo
+name|indexFieldTerm
 operator|=
 operator|new
-name|ScriptTerm
+name|IndexFieldTerm
 argument_list|(
 name|termString
 argument_list|,
 name|fieldName
 argument_list|,
-name|shardTermsLookup
+name|indexLookup
 argument_list|,
 name|flags
 argument_list|)
@@ -332,11 +334,11 @@ name|put
 argument_list|(
 name|termString
 argument_list|,
-name|termInfo
+name|indexFieldTerm
 argument_list|)
 expr_stmt|;
 block|}
-name|termInfo
+name|indexFieldTerm
 operator|.
 name|validateFlags
 argument_list|(
@@ -344,13 +346,13 @@ name|flags
 argument_list|)
 expr_stmt|;
 return|return
-name|termInfo
+name|indexFieldTerm
 return|;
 block|}
 comment|/*      * Returns a TermInfo object that can be used to access information on      * specific terms. flags can be set as described in TermInfo.      */
 DECL|method|get
 specifier|public
-name|ScriptTerm
+name|IndexFieldTerm
 name|get
 parameter_list|(
 name|Object
@@ -363,7 +365,7 @@ name|get
 argument_list|(
 name|key
 argument_list|,
-name|ShardTermsLookup
+name|IndexLookup
 operator|.
 name|FLAG_FREQUENCIES
 argument_list|)
@@ -380,7 +382,7 @@ parameter_list|)
 block|{
 for|for
 control|(
-name|ScriptTerm
+name|IndexFieldTerm
 name|ti
 range|:
 name|terms

@@ -261,10 +261,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|ShardLookupInScriptTests
+DECL|class|IndexLookupTests
 specifier|public
 class|class
-name|ShardLookupInScriptTests
+name|IndexLookupTests
 extends|extends
 name|ElasticsearchIntegrationTest
 block|{
@@ -1195,7 +1195,7 @@ comment|// check term frequencies for 'a'
 name|String
 name|scriptFieldScript
 init|=
-literal|"termInfo = _shard['int_payload_field']['c']; termInfo.tf()"
+literal|"term = _index['int_payload_field']['c']; term.tf()"
 decl_stmt|;
 name|scriptFieldScript
 operator|=
@@ -1204,7 +1204,7 @@ expr_stmt|;
 name|String
 name|scoreScript
 init|=
-literal|"termInfo = _shard['int_payload_field']['b']; termInfo.tf()"
+literal|"term = _index['int_payload_field']['b']; term.tf()"
 decl_stmt|;
 name|Map
 argument_list|<
@@ -1335,7 +1335,7 @@ comment|// if the flags of the second call were not included in the first call.
 name|String
 name|script
 init|=
-literal|"termInfo = _shard['int_payload_field']['b']; return _shard['int_payload_field'].get('b', _POSITIONS).tf();"
+literal|"term = _index['int_payload_field']['b']; return _index['int_payload_field'].get('b', _POSITIONS).tf();"
 decl_stmt|;
 try|try
 block|{
@@ -1384,7 +1384,7 @@ argument_list|()
 operator|.
 name|indexOf
 argument_list|(
-literal|"You must call get with all required flags! Instead of  _shard['int_payload_field'].get('b', _FREQUENCIES) and _shard['int_payload_field'].get('b', _POSITIONS) call  _shard['int_payload_field'].get('b', _FREQUENCIES | _POSITIONS)  once]; "
+literal|"You must call get with all required flags! Instead of  _index['int_payload_field'].get('b', _FREQUENCIES) and _index['int_payload_field'].get('b', _POSITIONS) call  _index['int_payload_field'].get('b', _FREQUENCIES | _POSITIONS)  once]; "
 argument_list|)
 argument_list|,
 name|Matchers
@@ -1400,7 +1400,7 @@ block|}
 comment|// Should not throw an exception this way round
 name|script
 operator|=
-literal|"termInfo = _shard['int_payload_field'].get('b', _POSITIONS | _FREQUENCIES);return _shard['int_payload_field']['b'].tf();"
+literal|"term = _index['int_payload_field'].get('b', _POSITIONS | _FREQUENCIES);return _index['int_payload_field']['b'].tf();"
 expr_stmt|;
 name|client
 argument_list|()
@@ -1565,11 +1565,11 @@ expr_stmt|;
 name|String
 name|script
 init|=
-literal|"termInfo = _shard['float_payload_field'].get('b',"
+literal|"term = _index['float_payload_field'].get('b',"
 operator|+
 name|includeAllFlag
 operator|+
-literal|"); payloadSum=0; for (pos : termInfo) {payloadSum = pos.payloadAsInt(0);} return payloadSum;"
+literal|"); payloadSum=0; for (pos : term) {payloadSum = pos.payloadAsInt(0);} return payloadSum;"
 decl_stmt|;
 comment|// non existing field: sum should be 0
 name|HashMap
@@ -1627,11 +1627,11 @@ argument_list|)
 expr_stmt|;
 name|script
 operator|=
-literal|"termInfo = _shard['int_payload_field'].get('b',"
+literal|"term = _index['int_payload_field'].get('b',"
 operator|+
 name|includeAllFlag
 operator|+
-literal|"); payloadSum=0; for (pos : termInfo) {payloadSum = payloadSum + pos.payloadAsInt(0);} return payloadSum;"
+literal|"); payloadSum=0; for (pos : term) {payloadSum = payloadSum + pos.payloadAsInt(0);} return payloadSum;"
 expr_stmt|;
 comment|// existing field: sums should be as here:
 name|zeroArray
@@ -1831,7 +1831,7 @@ argument_list|(
 name|script
 argument_list|)
 expr_stmt|;
-comment|// no record and get TermInfoObject twice and iterate: should fail
+comment|// no record and get termObject twice and iterate: should fail
 name|script
 operator|=
 name|createPositionsArrayScriptGetInfoObjectTwice
@@ -1915,7 +1915,7 @@ block|{
 name|String
 name|script
 init|=
-literal|"termInfo = _shard['int_payload_field'].get('"
+literal|"term = _index['int_payload_field'].get('"
 operator|+
 name|term
 operator|+
@@ -1923,11 +1923,11 @@ literal|"',"
 operator|+
 name|flags
 operator|+
-literal|"); array=[]; for (pos : termInfo) {array.add(pos."
+literal|"); array=[]; for (pos : term) {array.add(pos."
 operator|+
 name|what
 operator|+
-literal|")} ;_shard['int_payload_field'].get('"
+literal|")} ;_index['int_payload_field'].get('"
 operator|+
 name|term
 operator|+
@@ -1935,7 +1935,7 @@ literal|"',"
 operator|+
 name|flags
 operator|+
-literal|"); array=[]; for (pos : termInfo) {array.add(pos."
+literal|"); array=[]; for (pos : term) {array.add(pos."
 operator|+
 name|what
 operator|+
@@ -1963,7 +1963,7 @@ block|{
 name|String
 name|script
 init|=
-literal|"termInfo = _shard['int_payload_field'].get('"
+literal|"term = _index['int_payload_field'].get('"
 operator|+
 name|term
 operator|+
@@ -1971,11 +1971,11 @@ literal|"',"
 operator|+
 name|flags
 operator|+
-literal|"); array=[]; for (pos : termInfo) {array.add(pos."
+literal|"); array=[]; for (pos : term) {array.add(pos."
 operator|+
 name|what
 operator|+
-literal|")} array=[]; for (pos : termInfo) {array.add(pos."
+literal|")} array=[]; for (pos : term) {array.add(pos."
 operator|+
 name|what
 operator|+
@@ -2006,7 +2006,7 @@ block|{
 name|String
 name|script
 init|=
-literal|"termInfo = _shard['"
+literal|"term = _index['"
 operator|+
 name|field
 operator|+
@@ -2018,7 +2018,7 @@ literal|"',"
 operator|+
 name|flags
 operator|+
-literal|"); array=[]; for (pos : termInfo) {array.add(pos."
+literal|"); array=[]; for (pos : term) {array.add(pos."
 operator|+
 name|what
 operator|+
@@ -2046,7 +2046,7 @@ block|{
 name|String
 name|script
 init|=
-literal|"termInfo = _shard['"
+literal|"term = _index['"
 operator|+
 name|field
 operator|+
@@ -2054,7 +2054,7 @@ literal|"']['"
 operator|+
 name|term
 operator|+
-literal|"']; array=[]; for (pos : termInfo) {array.add(pos."
+literal|"']; array=[]; for (pos : term) {array.add(pos."
 operator|+
 name|what
 operator|+
@@ -3283,7 +3283,7 @@ comment|// get the number of all docs
 name|String
 name|script
 init|=
-literal|"_shard.numDocs()"
+literal|"_index.numDocs()"
 decl_stmt|;
 name|checkValueInEachDoc
 argument_list|(
@@ -3297,7 +3297,7 @@ expr_stmt|;
 comment|// get the number of docs with field float_payload_field
 name|script
 operator|=
-literal|"_shard['float_payload_field'].docCount()"
+literal|"_index['float_payload_field'].docCount()"
 expr_stmt|;
 name|checkValueInEachDoc
 argument_list|(
@@ -3311,7 +3311,7 @@ expr_stmt|;
 comment|// corner case: what if the field does not exist?
 name|script
 operator|=
-literal|"_shard['non_existent_field'].docCount()"
+literal|"_index['non_existent_field'].docCount()"
 expr_stmt|;
 name|checkValueInEachDoc
 argument_list|(
@@ -3325,7 +3325,7 @@ expr_stmt|;
 comment|// get the number of all tokens in all docs
 name|script
 operator|=
-literal|"_shard['float_payload_field'].sumttf()"
+literal|"_index['float_payload_field'].sumttf()"
 expr_stmt|;
 name|checkValueInEachDoc
 argument_list|(
@@ -3340,7 +3340,7 @@ comment|// corner case get the number of all tokens in all docs for non existent
 comment|// field
 name|script
 operator|=
-literal|"_shard['non_existent_field'].sumttf()"
+literal|"_index['non_existent_field'].sumttf()"
 expr_stmt|;
 name|checkValueInEachDoc
 argument_list|(
@@ -3354,7 +3354,7 @@ expr_stmt|;
 comment|// get the sum of doc freqs in all docs
 name|script
 operator|=
-literal|"_shard['float_payload_field'].sumdf()"
+literal|"_index['float_payload_field'].sumdf()"
 expr_stmt|;
 name|checkValueInEachDoc
 argument_list|(
@@ -3368,7 +3368,7 @@ expr_stmt|;
 comment|// get the sum of doc freqs in all docs for non existent field
 name|script
 operator|=
-literal|"_shard['non_existent_field'].sumdf()"
+literal|"_index['non_existent_field'].sumdf()"
 expr_stmt|;
 name|checkValueInEachDoc
 argument_list|(
@@ -3382,7 +3382,7 @@ expr_stmt|;
 comment|// check term frequencies for 'a'
 name|script
 operator|=
-literal|"termInfo = _shard['float_payload_field']['a']; if (termInfo != null) {termInfo.tf()}"
+literal|"term = _index['float_payload_field']['a']; if (term != null) {term.tf()}"
 expr_stmt|;
 name|Map
 argument_list|<
@@ -3472,7 +3472,7 @@ expr_stmt|;
 comment|// check doc frequencies for 'c'
 name|script
 operator|=
-literal|"termInfo = _shard['float_payload_field']['c']; if (termInfo != null) {termInfo.df()}"
+literal|"term = _index['float_payload_field']['c']; if (term != null) {term.df()}"
 expr_stmt|;
 name|expectedResults
 operator|.
@@ -3545,7 +3545,7 @@ expr_stmt|;
 comment|// check doc frequencies for term that does not exist
 name|script
 operator|=
-literal|"termInfo = _shard['float_payload_field']['non_existent_term']; if (termInfo != null) {termInfo.df()}"
+literal|"term = _index['float_payload_field']['non_existent_term']; if (term != null) {term.df()}"
 expr_stmt|;
 name|expectedResults
 operator|.
@@ -3618,7 +3618,7 @@ expr_stmt|;
 comment|// check doc frequencies for term that does not exist
 name|script
 operator|=
-literal|"termInfo = _shard['non_existent_field']['non_existent_term']; if (termInfo != null) {termInfo.tf()}"
+literal|"term = _index['non_existent_field']['non_existent_term']; if (term != null) {term.tf()}"
 expr_stmt|;
 name|expectedResults
 operator|.
@@ -3691,7 +3691,7 @@ expr_stmt|;
 comment|// check total term frequencies for 'a'
 name|script
 operator|=
-literal|"termInfo = _shard['float_payload_field']['a']; if (termInfo != null) {termInfo.ttf()}"
+literal|"term = _index['float_payload_field']['a']; if (term != null) {term.ttf()}"
 expr_stmt|;
 name|expectedResults
 operator|.

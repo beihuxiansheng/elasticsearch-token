@@ -115,19 +115,19 @@ import|;
 end_import
 
 begin_class
-DECL|class|ShardTermsLookup
+DECL|class|IndexLookup
 specifier|public
 class|class
-name|ShardTermsLookup
+name|IndexLookup
 extends|extends
 name|MinimalMap
 argument_list|<
 name|String
 argument_list|,
-name|ScriptTerms
+name|IndexField
 argument_list|>
 block|{
-comment|/**      * Flag to pass to {@link ScriptTerms#get(String, flags)} if you require      * offsets in the returned {@link ScriptTerm}.      */
+comment|/**      * Flag to pass to {@link IndexField#get(String, flags)} if you require      * offsets in the returned {@link IndexFieldTerm}.      */
 DECL|field|FLAG_OFFSETS
 specifier|public
 specifier|static
@@ -137,7 +137,7 @@ name|FLAG_OFFSETS
 init|=
 literal|2
 decl_stmt|;
-comment|/**      * Flag to pass to {@link ScriptTerms#get(String, flags)} if you require      * payloads in the returned {@link ScriptTerm}.      */
+comment|/**      * Flag to pass to {@link IndexField#get(String, flags)} if you require      * payloads in the returned {@link IndexFieldTerm}.      */
 DECL|field|FLAG_PAYLOADS
 specifier|public
 specifier|static
@@ -147,7 +147,7 @@ name|FLAG_PAYLOADS
 init|=
 literal|4
 decl_stmt|;
-comment|/**      * Flag to pass to {@link ScriptTerms#get(String, flags)} if you require      * frequencies in the returned {@link ScriptTerm}. Frequencies might be      * returned anyway for some lucene codecs even if this flag is no set.      */
+comment|/**      * Flag to pass to {@link IndexField#get(String, flags)} if you require      * frequencies in the returned {@link IndexFieldTerm}. Frequencies might be      * returned anyway for some lucene codecs even if this flag is no set.      */
 DECL|field|FLAG_FREQUENCIES
 specifier|public
 specifier|static
@@ -157,7 +157,7 @@ name|FLAG_FREQUENCIES
 init|=
 literal|8
 decl_stmt|;
-comment|/**      * Flag to pass to {@link ScriptTerms#get(String, flags)} if you require      * positions in the returned {@link ScriptTerm}.      */
+comment|/**      * Flag to pass to {@link IndexField#get(String, flags)} if you require      * positions in the returned {@link IndexFieldTerm}.      */
 DECL|field|FLAG_POSITIONS
 specifier|public
 specifier|static
@@ -167,7 +167,7 @@ name|FLAG_POSITIONS
 init|=
 literal|16
 decl_stmt|;
-comment|/**      * Flag to pass to {@link ScriptTerms#get(String, flags)} if you require      * positions in the returned {@link ScriptTerm}.      */
+comment|/**      * Flag to pass to {@link IndexField#get(String, flags)} if you require      * positions in the returned {@link IndexFieldTerm}.      */
 DECL|field|FLAG_CACHE
 specifier|public
 specifier|static
@@ -215,23 +215,23 @@ decl_stmt|;
 comment|// stores the objects that are used in the script. we maintain this map
 comment|// because we do not want to re-initialize the objects each time a field is
 comment|// accessed
-DECL|field|scriptTermsPerField
+DECL|field|indexFields
 specifier|private
 specifier|final
 name|Map
 argument_list|<
 name|String
 argument_list|,
-name|ScriptTerms
+name|IndexField
 argument_list|>
-name|scriptTermsPerField
+name|indexFields
 init|=
 operator|new
 name|HashMap
 argument_list|<
 name|String
 argument_list|,
-name|ScriptTerms
+name|IndexField
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -342,9 +342,9 @@ return|return
 name|numDeletedDocs
 return|;
 block|}
-DECL|method|ShardTermsLookup
+DECL|method|IndexLookup
 specifier|public
-name|ShardTermsLookup
+name|IndexLookup
 parameter_list|(
 name|Builder
 argument_list|<
@@ -361,7 +361,7 @@ name|put
 argument_list|(
 literal|"_FREQUENCIES"
 argument_list|,
-name|ShardTermsLookup
+name|IndexLookup
 operator|.
 name|FLAG_FREQUENCIES
 argument_list|)
@@ -372,7 +372,7 @@ name|put
 argument_list|(
 literal|"_POSITIONS"
 argument_list|,
-name|ShardTermsLookup
+name|IndexLookup
 operator|.
 name|FLAG_POSITIONS
 argument_list|)
@@ -383,7 +383,7 @@ name|put
 argument_list|(
 literal|"_OFFSETS"
 argument_list|,
-name|ShardTermsLookup
+name|IndexLookup
 operator|.
 name|FLAG_OFFSETS
 argument_list|)
@@ -394,7 +394,7 @@ name|put
 argument_list|(
 literal|"_PAYLOADS"
 argument_list|,
-name|ShardTermsLookup
+name|IndexLookup
 operator|.
 name|FLAG_PAYLOADS
 argument_list|)
@@ -405,7 +405,7 @@ name|put
 argument_list|(
 literal|"_CACHE"
 argument_list|,
-name|ShardTermsLookup
+name|IndexLookup
 operator|.
 name|FLAG_CACHE
 argument_list|)
@@ -479,7 +479,7 @@ block|}
 else|else
 block|{
 comment|// parent reader may only be set once. TODO we could also call
-comment|// scriptFields.clear() here instead of assertion just to be on
+comment|// indexFields.clear() here instead of assertion just to be on
 comment|// the save side
 assert|assert
 operator|(
@@ -527,10 +527,10 @@ parameter_list|()
 block|{
 for|for
 control|(
-name|ScriptTerms
+name|IndexField
 name|stat
 range|:
-name|scriptTermsPerField
+name|indexFields
 operator|.
 name|values
 argument_list|()
@@ -569,7 +569,7 @@ return|return;
 block|}
 comment|// We assume that docs are processed in ascending order of id. If this
 comment|// is not the case, we would have to re initialize all posting lists in
-comment|// ScriptTerm. TODO: Instead of assert we could also call
+comment|// IndexFieldTerm. TODO: Instead of assert we could also call
 comment|// setReaderInFields(); here?
 if|if
 condition|(
@@ -585,8 +585,8 @@ comment|// phases, such as score and fetch phase.
 comment|// In this case we do not want to re initialize posting list etc.
 comment|// because we do not even know if term and field statistics will be
 comment|// needed in this new phase.
-comment|// Therefore we just remove all ScriptFields.
-name|scriptTermsPerField
+comment|// Therefore we just remove all IndexFieldTerms.
+name|indexFields
 operator|.
 name|clear
 argument_list|()
@@ -610,10 +610,10 @@ parameter_list|()
 block|{
 for|for
 control|(
-name|ScriptTerms
+name|IndexField
 name|stat
 range|:
-name|scriptTermsPerField
+name|indexFields
 operator|.
 name|values
 argument_list|()
@@ -635,7 +635,7 @@ annotation|@
 name|Override
 DECL|method|get
 specifier|public
-name|ScriptTerms
+name|IndexField
 name|get
 parameter_list|(
 name|Object
@@ -650,10 +650,10 @@ name|String
 operator|)
 name|key
 decl_stmt|;
-name|ScriptTerms
-name|scriptField
+name|IndexField
+name|indexField
 init|=
-name|scriptTermsPerField
+name|indexFields
 operator|.
 name|get
 argument_list|(
@@ -662,30 +662,30 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|scriptField
+name|indexField
 operator|==
 literal|null
 condition|)
 block|{
 try|try
 block|{
-name|scriptField
+name|indexField
 operator|=
 operator|new
-name|ScriptTerms
+name|IndexField
 argument_list|(
 name|stringField
 argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
-name|scriptTermsPerField
+name|indexFields
 operator|.
 name|put
 argument_list|(
 name|stringField
 argument_list|,
-name|scriptField
+name|indexField
 argument_list|)
 expr_stmt|;
 block|}
@@ -708,7 +708,7 @@ throw|;
 block|}
 block|}
 return|return
-name|scriptField
+name|indexField
 return|;
 block|}
 comment|/*      * Get the lucene term vectors. See      * https://lucene.apache.org/core/4_0_0/core/org/apache/lucene/index/Fields.html      * *      */

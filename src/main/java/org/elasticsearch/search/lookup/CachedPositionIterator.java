@@ -80,13 +80,13 @@ DECL|method|CachedPositionIterator
 specifier|public
 name|CachedPositionIterator
 parameter_list|(
-name|ScriptTerm
-name|termInfo
+name|IndexFieldTerm
+name|indexFieldTerm
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|termInfo
+name|indexFieldTerm
 argument_list|)
 expr_stmt|;
 block|}

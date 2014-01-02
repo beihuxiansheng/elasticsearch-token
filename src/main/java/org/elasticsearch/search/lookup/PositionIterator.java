@@ -103,10 +103,10 @@ name|resetted
 init|=
 literal|false
 decl_stmt|;
-DECL|field|scriptTerm
+DECL|field|indexFieldTerm
 specifier|protected
-name|ScriptTerm
-name|scriptTerm
+name|IndexFieldTerm
+name|indexFieldTerm
 decl_stmt|;
 DECL|field|freq
 specifier|protected
@@ -141,15 +141,15 @@ DECL|method|PositionIterator
 specifier|public
 name|PositionIterator
 parameter_list|(
-name|ScriptTerm
-name|termInfo
+name|IndexFieldTerm
+name|indexFieldTerm
 parameter_list|)
 block|{
 name|this
 operator|.
-name|scriptTerm
+name|indexFieldTerm
 operator|=
-name|termInfo
+name|indexFieldTerm
 expr_stmt|;
 block|}
 annotation|@
@@ -164,7 +164,7 @@ throw|throw
 operator|new
 name|UnsupportedOperationException
 argument_list|(
-literal|"Cannot remove anything from TermPositions iterator."
+literal|"Cannot remove anything from TermPosition iterator."
 argument_list|)
 throw|;
 block|}
@@ -270,14 +270,14 @@ literal|0
 expr_stmt|;
 name|freq
 operator|=
-name|scriptTerm
+name|indexFieldTerm
 operator|.
 name|tf
 argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|scriptTerm
+name|indexFieldTerm
 operator|.
 name|docsEnum
 operator|instanceof
@@ -289,7 +289,7 @@ operator|=
 operator|(
 name|DocsAndPositionsEnum
 operator|)
-name|scriptTerm
+name|indexFieldTerm
 operator|.
 name|docsEnum
 expr_stmt|;

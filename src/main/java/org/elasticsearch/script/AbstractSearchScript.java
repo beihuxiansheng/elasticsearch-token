@@ -24,7 +24,7 @@ name|search
 operator|.
 name|lookup
 operator|.
-name|ShardTermsLookup
+name|IndexLookup
 import|;
 end_import
 
@@ -289,17 +289,17 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Allows to access statistics on terms and fields.      */
-DECL|method|shardTerms
+DECL|method|indexLookup
 specifier|protected
 specifier|final
-name|ShardTermsLookup
-name|shardTerms
+name|IndexLookup
+name|indexLookup
 parameter_list|()
 block|{
 return|return
 name|lookup
 operator|.
-name|shardTerms
+name|indexLookup
 argument_list|()
 return|;
 block|}

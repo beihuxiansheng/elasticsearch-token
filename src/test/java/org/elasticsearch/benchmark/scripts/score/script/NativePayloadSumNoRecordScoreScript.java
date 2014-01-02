@@ -26,7 +26,7 @@ name|search
 operator|.
 name|lookup
 operator|.
-name|ScriptTerm
+name|IndexFieldTerm
 import|;
 end_import
 
@@ -40,7 +40,7 @@ name|search
 operator|.
 name|lookup
 operator|.
-name|ScriptTerms
+name|IndexField
 import|;
 end_import
 
@@ -54,7 +54,7 @@ name|search
 operator|.
 name|lookup
 operator|.
-name|ShardTermsLookup
+name|IndexLookup
 import|;
 end_import
 
@@ -301,10 +301,10 @@ name|score
 init|=
 literal|0
 decl_stmt|;
-name|ScriptTerms
-name|scriptTerms
+name|IndexField
+name|indexField
 init|=
-name|shardTerms
+name|indexLookup
 argument_list|()
 operator|.
 name|get
@@ -329,10 +329,10 @@ name|i
 operator|++
 control|)
 block|{
-name|ScriptTerm
-name|scriptTerm
+name|IndexFieldTerm
+name|indexFieldTerm
 init|=
-name|scriptTerms
+name|indexField
 operator|.
 name|get
 argument_list|(
@@ -341,7 +341,7 @@ index|[
 name|i
 index|]
 argument_list|,
-name|ShardTermsLookup
+name|IndexLookup
 operator|.
 name|FLAG_PAYLOADS
 argument_list|)
@@ -351,7 +351,7 @@ control|(
 name|TermPosition
 name|pos
 range|:
-name|scriptTerm
+name|indexFieldTerm
 control|)
 block|{
 name|score

@@ -95,10 +95,10 @@ comment|/**  * Holds all information on a particular term in a field.  * */
 end_comment
 
 begin_class
-DECL|class|ScriptTerm
+DECL|class|IndexFieldTerm
 specifier|public
 class|class
-name|ScriptTerm
+name|IndexFieldTerm
 implements|implements
 name|Iterable
 argument_list|<
@@ -308,7 +308,7 @@ operator|(
 name|flags
 operator|&
 operator|~
-name|ShardTermsLookup
+name|IndexLookup
 operator|.
 name|FLAG_FREQUENCIES
 operator|)
@@ -329,7 +329,7 @@ return|return
 operator|(
 name|flags
 operator|&
-name|ShardTermsLookup
+name|IndexLookup
 operator|.
 name|FLAG_FREQUENCIES
 operator|)
@@ -360,7 +360,7 @@ init|=
 operator|(
 name|flags
 operator|&
-name|ShardTermsLookup
+name|IndexLookup
 operator|.
 name|FLAG_PAYLOADS
 operator|)
@@ -378,7 +378,7 @@ operator||=
 operator|(
 name|flags
 operator|&
-name|ShardTermsLookup
+name|IndexLookup
 operator|.
 name|FLAG_OFFSETS
 operator|)
@@ -753,16 +753,16 @@ throw|throw
 operator|new
 name|ElasticSearchException
 argument_list|(
-literal|"While trying to initialize term positions in ScriptTerm.setNextDoc() "
+literal|"While trying to initialize term positions in IndexFieldTerm.setNextDoc() "
 argument_list|,
 name|e
 argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|ScriptTerm
+DECL|method|IndexFieldTerm
 specifier|public
-name|ScriptTerm
+name|IndexFieldTerm
 parameter_list|(
 name|String
 name|term
@@ -770,8 +770,8 @@ parameter_list|,
 name|String
 name|fieldName
 parameter_list|,
-name|ShardTermsLookup
-name|shardTermsLookup
+name|IndexLookup
+name|indexLookup
 parameter_list|,
 name|int
 name|flags
@@ -800,7 +800,7 @@ operator|=
 name|term
 expr_stmt|;
 assert|assert
-name|shardTermsLookup
+name|indexLookup
 operator|!=
 literal|null
 assert|;
@@ -830,7 +830,7 @@ operator|(
 operator|(
 name|flags
 operator|&
-name|ShardTermsLookup
+name|IndexLookup
 operator|.
 name|FLAG_CACHE
 operator|)
@@ -884,7 +884,7 @@ expr_stmt|;
 block|}
 name|setNextReader
 argument_list|(
-name|shardTermsLookup
+name|indexLookup
 operator|.
 name|getReader
 argument_list|()
@@ -892,7 +892,7 @@ argument_list|)
 expr_stmt|;
 name|setNextDoc
 argument_list|(
-name|shardTermsLookup
+name|indexLookup
 operator|.
 name|getDocId
 argument_list|()
@@ -902,7 +902,7 @@ try|try
 block|{
 name|termStats
 operator|=
-name|shardTermsLookup
+name|indexLookup
 operator|.
 name|getIndexSearcher
 argument_list|()
@@ -915,7 +915,7 @@ name|TermContext
 operator|.
 name|build
 argument_list|(
-name|shardTermsLookup
+name|indexLookup
 operator|.
 name|getReaderContext
 argument_list|()
@@ -969,7 +969,7 @@ return|return
 operator|(
 name|flags
 operator|&
-name|ShardTermsLookup
+name|IndexLookup
 operator|.
 name|FLAG_POSITIONS
 operator|)
@@ -987,7 +987,7 @@ return|return
 operator|(
 name|flags
 operator|&
-name|ShardTermsLookup
+name|IndexLookup
 operator|.
 name|FLAG_OFFSETS
 operator|)
@@ -1005,7 +1005,7 @@ return|return
 operator|(
 name|flags
 operator|&
-name|ShardTermsLookup
+name|IndexLookup
 operator|.
 name|FLAG_PAYLOADS
 operator|)
@@ -1156,7 +1156,7 @@ name|calledFlags
 parameter_list|)
 block|{
 return|return
-literal|"_shard['"
+literal|"_index['"
 operator|+
 name|this
 operator|.
@@ -1194,7 +1194,7 @@ condition|(
 operator|(
 name|flags2
 operator|&
-name|ShardTermsLookup
+name|IndexLookup
 operator|.
 name|FLAG_FREQUENCIES
 operator|)
@@ -1217,7 +1217,7 @@ condition|(
 operator|(
 name|flags2
 operator|&
-name|ShardTermsLookup
+name|IndexLookup
 operator|.
 name|FLAG_POSITIONS
 operator|)
@@ -1240,7 +1240,7 @@ condition|(
 operator|(
 name|flags2
 operator|&
-name|ShardTermsLookup
+name|IndexLookup
 operator|.
 name|FLAG_OFFSETS
 operator|)
@@ -1263,7 +1263,7 @@ condition|(
 operator|(
 name|flags2
 operator|&
-name|ShardTermsLookup
+name|IndexLookup
 operator|.
 name|FLAG_PAYLOADS
 operator|)
@@ -1286,7 +1286,7 @@ condition|(
 operator|(
 name|flags2
 operator|&
-name|ShardTermsLookup
+name|IndexLookup
 operator|.
 name|FLAG_CACHE
 operator|)

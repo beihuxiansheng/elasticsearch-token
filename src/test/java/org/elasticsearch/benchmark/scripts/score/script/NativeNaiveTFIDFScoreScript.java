@@ -74,7 +74,7 @@ name|search
 operator|.
 name|lookup
 operator|.
-name|ScriptTerm
+name|IndexFieldTerm
 import|;
 end_import
 
@@ -88,7 +88,7 @@ name|search
 operator|.
 name|lookup
 operator|.
-name|ScriptTerms
+name|IndexField
 import|;
 end_import
 
@@ -283,10 +283,10 @@ name|score
 init|=
 literal|0
 decl_stmt|;
-name|ScriptTerms
-name|scriptTerms
+name|IndexField
+name|indexField
 init|=
-name|shardTerms
+name|indexLookup
 argument_list|()
 operator|.
 name|get
@@ -311,10 +311,10 @@ name|i
 operator|++
 control|)
 block|{
-name|ScriptTerm
-name|scriptTerm
+name|IndexFieldTerm
+name|indexFieldTerm
 init|=
-name|scriptTerms
+name|indexField
 operator|.
 name|get
 argument_list|(
@@ -328,7 +328,7 @@ try|try
 block|{
 if|if
 condition|(
-name|scriptTerm
+name|indexFieldTerm
 operator|.
 name|tf
 argument_list|()
@@ -338,17 +338,17 @@ condition|)
 block|{
 name|score
 operator|+=
-name|scriptTerm
+name|indexFieldTerm
 operator|.
 name|tf
 argument_list|()
 operator|*
-name|scriptTerms
+name|indexField
 operator|.
 name|docCount
 argument_list|()
 operator|/
-name|scriptTerm
+name|indexFieldTerm
 operator|.
 name|df
 argument_list|()
