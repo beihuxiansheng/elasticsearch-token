@@ -1829,6 +1829,15 @@ name|of
 argument_list|()
 return|;
 block|}
+name|boolean
+name|matchAllAliases
+init|=
+name|aliases
+operator|.
+name|length
+operator|==
+literal|0
+decl_stmt|;
 name|ImmutableOpenMap
 operator|.
 name|Builder
@@ -1925,6 +1934,8 @@ name|value
 decl_stmt|;
 if|if
 condition|(
+name|matchAllAliases
+operator|||
 name|Regex
 operator|.
 name|simpleMatch
