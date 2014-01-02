@@ -152,6 +152,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
+name|fielddata
+operator|.
+name|breaker
+operator|.
+name|CircuitBreakerService
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -346,8 +362,12 @@ name|mapper
 parameter_list|,
 name|IndexFieldDataCache
 name|cache
+parameter_list|,
+name|CircuitBreakerService
+name|breakerService
 parameter_list|)
 block|{
+comment|// Ignore breaker
 specifier|final
 name|FieldMapper
 operator|.

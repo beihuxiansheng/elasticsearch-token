@@ -254,6 +254,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
+name|fielddata
+operator|.
+name|breaker
+operator|.
+name|CircuitBreakerService
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -386,6 +402,12 @@ operator|.
 name|Builder
 argument_list|>
 name|buildersByTypeAndFormat
+decl_stmt|;
+DECL|field|circuitBreakerService
+specifier|private
+specifier|final
+name|CircuitBreakerService
+name|circuitBreakerService
 decl_stmt|;
 static|static
 block|{
@@ -1323,6 +1345,9 @@ name|IndexFieldDataService
 parameter_list|(
 name|Index
 name|index
+parameter_list|,
+name|CircuitBreakerService
+name|circuitBreakerService
 parameter_list|)
 block|{
 name|this
@@ -1344,6 +1369,8 @@ name|Builder
 operator|.
 name|EMPTY_SETTINGS
 argument_list|)
+argument_list|,
+name|circuitBreakerService
 argument_list|)
 expr_stmt|;
 block|}
@@ -1363,6 +1390,9 @@ name|indexSettings
 parameter_list|,
 name|IndicesFieldDataCache
 name|indicesFieldDataCache
+parameter_list|,
+name|CircuitBreakerService
+name|circuitBreakerService
 parameter_list|)
 block|{
 name|super
@@ -1377,6 +1407,12 @@ operator|.
 name|indicesFieldDataCache
 operator|=
 name|indicesFieldDataCache
+expr_stmt|;
+name|this
+operator|.
+name|circuitBreakerService
+operator|=
+name|circuitBreakerService
 expr_stmt|;
 block|}
 comment|// we need to "inject" the index service to not create cyclic dep
@@ -2040,6 +2076,8 @@ argument_list|,
 name|mapper
 argument_list|,
 name|cache
+argument_list|,
+name|circuitBreakerService
 argument_list|)
 expr_stmt|;
 name|loadedFieldData

@@ -264,6 +264,22 @@ name|IndicesAnalysisService
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
+name|fielddata
+operator|.
+name|breaker
+operator|.
+name|DummyCircuitBreakerService
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -427,6 +443,10 @@ operator|new
 name|IndexFieldDataService
 argument_list|(
 name|index
+argument_list|,
+operator|new
+name|DummyCircuitBreakerService
+argument_list|()
 argument_list|)
 argument_list|,
 operator|new
