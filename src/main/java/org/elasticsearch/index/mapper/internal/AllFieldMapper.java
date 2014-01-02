@@ -2028,7 +2028,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"similariry"
+literal|"similarity"
 argument_list|,
 name|SimilarityLookupService
 operator|.
