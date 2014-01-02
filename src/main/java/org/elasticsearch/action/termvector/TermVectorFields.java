@@ -202,8 +202,8 @@ extends|extends
 name|Fields
 block|{
 DECL|field|fieldMap
-specifier|final
 specifier|private
+specifier|final
 name|ObjectLongOpenHashMap
 argument_list|<
 name|String
@@ -211,8 +211,8 @@ argument_list|>
 name|fieldMap
 decl_stmt|;
 DECL|field|termVectors
-specifier|final
 specifier|private
+specifier|final
 name|BytesReference
 name|termVectors
 decl_stmt|;

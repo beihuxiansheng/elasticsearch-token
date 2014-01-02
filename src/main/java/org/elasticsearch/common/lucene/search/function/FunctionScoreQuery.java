@@ -481,6 +481,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// we ignore scoreDocsInOrder parameter, because we need to score in
+comment|// order if documents are scored with a script. The
+comment|// ShardLookup depends on in order scoring.
 name|Scorer
 name|subQueryScorer
 init|=
@@ -490,7 +493,7 @@ name|scorer
 argument_list|(
 name|context
 argument_list|,
-name|scoreDocsInOrder
+literal|true
 argument_list|,
 literal|false
 argument_list|,
