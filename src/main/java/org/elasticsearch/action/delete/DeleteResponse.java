@@ -102,10 +102,10 @@ specifier|private
 name|long
 name|version
 decl_stmt|;
-DECL|field|notFound
+DECL|field|found
 specifier|private
 name|boolean
-name|notFound
+name|found
 decl_stmt|;
 DECL|method|DeleteResponse
 specifier|public
@@ -129,7 +129,7 @@ name|long
 name|version
 parameter_list|,
 name|boolean
-name|notFound
+name|found
 parameter_list|)
 block|{
 name|this
@@ -158,9 +158,9 @@ name|version
 expr_stmt|;
 name|this
 operator|.
-name|notFound
+name|found
 operator|=
-name|notFound
+name|found
 expr_stmt|;
 block|}
 comment|/**      * The index the document was deleted from.      */
@@ -216,14 +216,14 @@ name|version
 return|;
 block|}
 comment|/**      * Returns<tt>true</tt> if there was no doc found to delete.      */
-DECL|method|isNotFound
+DECL|method|isFound
 specifier|public
 name|boolean
-name|isNotFound
+name|isFound
 parameter_list|()
 block|{
 return|return
-name|notFound
+name|found
 return|;
 block|}
 annotation|@
@@ -274,7 +274,7 @@ operator|.
 name|readLong
 argument_list|()
 expr_stmt|;
-name|notFound
+name|found
 operator|=
 name|in
 operator|.
@@ -334,7 +334,7 @@ name|out
 operator|.
 name|writeBoolean
 argument_list|(
-name|notFound
+name|found
 argument_list|)
 expr_stmt|;
 block|}

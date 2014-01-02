@@ -866,16 +866,16 @@ argument_list|(
 literal|"_version"
 argument_list|)
 decl_stmt|;
-DECL|field|EXISTS
+DECL|field|FOUND
 specifier|static
 specifier|final
 name|XContentBuilderString
-name|EXISTS
+name|FOUND
 init|=
 operator|new
 name|XContentBuilderString
 argument_list|(
-literal|"exists"
+literal|"found"
 argument_list|)
 decl_stmt|;
 DECL|field|FIELDS
@@ -911,7 +911,7 @@ name|field
 argument_list|(
 name|Fields
 operator|.
-name|EXISTS
+name|FOUND
 argument_list|,
 name|exists
 argument_list|)
@@ -1125,7 +1125,7 @@ name|field
 argument_list|(
 name|Fields
 operator|.
-name|EXISTS
+name|FOUND
 argument_list|,
 literal|false
 argument_list|)

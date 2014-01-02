@@ -567,10 +567,9 @@ name|Fields
 operator|.
 name|FOUND
 argument_list|,
-operator|!
 name|result
 operator|.
-name|isNotFound
+name|isFound
 argument_list|()
 argument_list|)
 operator|.
@@ -632,9 +631,10 @@ name|OK
 decl_stmt|;
 if|if
 condition|(
+operator|!
 name|result
 operator|.
-name|isNotFound
+name|isFound
 argument_list|()
 condition|)
 block|{

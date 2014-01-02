@@ -2425,12 +2425,12 @@ literal|"] should have been deleted, but isn't"
 argument_list|,
 name|response
 operator|.
-name|isNotFound
+name|isFound
 argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|false
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;

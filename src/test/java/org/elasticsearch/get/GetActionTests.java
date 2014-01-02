@@ -1616,12 +1616,12 @@ name|assertThat
 argument_list|(
 name|deleteResponse
 operator|.
-name|isNotFound
+name|isFound
 argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|false
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;

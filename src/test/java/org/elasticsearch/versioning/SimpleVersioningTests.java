@@ -270,12 +270,12 @@ name|assertThat
 argument_list|(
 name|deleteResponse
 operator|.
-name|isNotFound
+name|isFound
 argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|true
+literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -675,12 +675,12 @@ name|assertThat
 argument_list|(
 name|deleteResponse
 operator|.
-name|isNotFound
+name|isFound
 argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|false
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -769,12 +769,12 @@ name|assertThat
 argument_list|(
 name|deleteResponse
 operator|.
-name|isNotFound
+name|isFound
 argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|true
+literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -880,12 +880,12 @@ name|assertThat
 argument_list|(
 name|deleteResponse
 operator|.
-name|isNotFound
+name|isFound
 argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|false
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1709,12 +1709,12 @@ name|assertThat
 argument_list|(
 name|deleteResponse
 operator|.
-name|isNotFound
+name|isFound
 argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|false
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1759,7 +1759,7 @@ name|class
 argument_list|)
 expr_stmt|;
 comment|// This is intricate - the object was deleted but a delete transaction was with the right version. We add another one
-comment|// and thus the transcation is increased.
+comment|// and thus the transaction is increased.
 name|deleteResponse
 operator|=
 name|client
@@ -1789,12 +1789,12 @@ name|assertThat
 argument_list|(
 name|deleteResponse
 operator|.
-name|isNotFound
+name|isFound
 argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|true
+literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;

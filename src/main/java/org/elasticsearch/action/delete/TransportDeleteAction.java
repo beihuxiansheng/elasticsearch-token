@@ -859,10 +859,9 @@ control|)
 block|{
 if|if
 condition|(
-operator|!
 name|deleteResponse
 operator|.
-name|isNotFound
+name|isFound
 argument_list|()
 condition|)
 block|{
@@ -904,7 +903,6 @@ argument_list|()
 argument_list|,
 name|version
 argument_list|,
-operator|!
 name|found
 argument_list|)
 argument_list|)
@@ -1273,7 +1271,7 @@ argument_list|()
 argument_list|,
 name|delete
 operator|.
-name|notFound
+name|found
 argument_list|()
 argument_list|)
 decl_stmt|;

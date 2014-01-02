@@ -4347,9 +4347,9 @@ argument_list|(
 name|updatedVersion
 argument_list|)
 operator|.
-name|notFound
+name|found
 argument_list|(
-literal|true
+literal|false
 argument_list|)
 expr_stmt|;
 name|Translog
@@ -4414,9 +4414,9 @@ argument_list|(
 name|updatedVersion
 argument_list|)
 operator|.
-name|notFound
+name|found
 argument_list|(
-literal|true
+literal|false
 argument_list|)
 expr_stmt|;
 name|Translog
@@ -4467,6 +4467,11 @@ operator|.
 name|version
 argument_list|(
 name|updatedVersion
+argument_list|)
+operator|.
+name|found
+argument_list|(
+literal|true
 argument_list|)
 expr_stmt|;
 name|writer
