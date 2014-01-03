@@ -119,11 +119,6 @@ extends|extends
 name|IndexComponent
 extends|,
 name|CloseableComponent
-extends|,
-name|Iterable
-argument_list|<
-name|IdReaderCache
-argument_list|>
 block|{
 comment|// we need to "inject" the index service to not create cyclic dep
 DECL|method|setIndexService
