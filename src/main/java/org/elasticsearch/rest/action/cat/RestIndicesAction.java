@@ -909,7 +909,7 @@ name|addCell
 argument_list|(
 literal|"primaries.completion.size"
 argument_list|,
-literal|"default:false;text-align:right;desc:size of completion"
+literal|"alias:pcs,primariesCompletionSize;default:false;text-align:right;desc:size of completion"
 argument_list|)
 expr_stmt|;
 name|table
