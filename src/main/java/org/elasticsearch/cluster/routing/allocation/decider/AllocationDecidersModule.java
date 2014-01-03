@@ -365,6 +365,13 @@ argument_list|)
 operator|.
 name|add
 argument_list|(
+name|NodeVersionAllocationDecider
+operator|.
+name|class
+argument_list|)
+operator|.
+name|add
+argument_list|(
 name|DiskThresholdDecider
 operator|.
 name|class

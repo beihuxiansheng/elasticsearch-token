@@ -3924,7 +3924,7 @@ name|allocation
 argument_list|)
 decl_stmt|;
 name|Decision
-name|rebalanceDecission
+name|rebalanceDecision
 init|=
 name|deciders
 operator|.
@@ -3963,7 +3963,7 @@ operator|)
 operator|&&
 operator|(
 operator|(
-name|rebalanceDecission
+name|rebalanceDecision
 operator|.
 name|type
 argument_list|()
@@ -3974,7 +3974,7 @@ name|YES
 operator|)
 operator|||
 operator|(
-name|rebalanceDecission
+name|rebalanceDecision
 operator|.
 name|type
 argument_list|()
@@ -4074,7 +4074,7 @@ argument_list|)
 operator|.
 name|add
 argument_list|(
-name|rebalanceDecission
+name|rebalanceDecision
 argument_list|)
 expr_stmt|;
 block|}
