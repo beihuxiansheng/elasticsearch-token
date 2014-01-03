@@ -2810,7 +2810,7 @@ argument_list|)
 expr_stmt|;
 name|iterateAssertCount
 argument_list|(
-literal|5
+name|numShards
 argument_list|,
 name|indexCounter
 operator|.
