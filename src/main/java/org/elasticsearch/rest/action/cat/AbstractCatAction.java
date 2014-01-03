@@ -192,7 +192,7 @@ name|request
 operator|.
 name|paramAsBoolean
 argument_list|(
-literal|"h"
+literal|"help"
 argument_list|,
 literal|false
 argument_list|)
