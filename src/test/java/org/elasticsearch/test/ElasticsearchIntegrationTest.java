@@ -1231,7 +1231,7 @@ argument_list|()
 argument_list|,
 name|metaData
 operator|.
-name|persistentSettings
+name|transientSettings
 argument_list|()
 operator|.
 name|getAsMap

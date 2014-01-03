@@ -514,7 +514,7 @@ name|ElasticsearchIntegrationTest
 operator|.
 name|Scope
 operator|.
-name|SUITE
+name|TEST
 import|;
 end_import
 
@@ -552,7 +552,7 @@ name|ClusterScope
 argument_list|(
 name|scope
 operator|=
-name|SUITE
+name|TEST
 argument_list|)
 DECL|class|AckTests
 specifier|public

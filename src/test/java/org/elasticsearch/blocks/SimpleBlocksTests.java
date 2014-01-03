@@ -233,6 +233,19 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|ElasticsearchIntegrationTest
+operator|.
+name|ClusterScope
+argument_list|(
+name|scope
+operator|=
+name|ElasticsearchIntegrationTest
+operator|.
+name|Scope
+operator|.
+name|TEST
+argument_list|)
 DECL|class|SimpleBlocksTests
 specifier|public
 class|class
