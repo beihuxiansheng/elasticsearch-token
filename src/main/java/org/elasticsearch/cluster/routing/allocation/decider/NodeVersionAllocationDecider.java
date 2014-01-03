@@ -121,7 +121,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An allocation decider that prevents relocation or allocation from nodes  * that might note be version compatible. If we relocate from a node that runs  * a newer version than the node we relocate to this might cause {@link org.apache.lucene.index.IndexFormatTooNewException}  * on the lowest level since it might have already written segments that use a new postings format or codec that is not  * available on the target node.  */
+comment|/**  * An allocation decider that prevents relocation or allocation from nodes  * that might not be version compatible. If we relocate from a node that runs  * a newer version than the node we relocate to this might cause {@link org.apache.lucene.index.IndexFormatTooNewException}  * on the lowest level since it might have already written segments that use a new postings format or codec that is not  * available on the target node.  */
 end_comment
 
 begin_class
