@@ -721,6 +721,16 @@ name|TESTS_ENABLE_MOCK_MODULES
 init|=
 literal|"tests.enable_mock_modules"
 decl_stmt|;
+comment|/**      *  A node level setting that holds a per node random seed that is consistent across node restarts      */
+DECL|field|SETTING_CLUSTER_NODE_SEED
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SETTING_CLUSTER_NODE_SEED
+init|=
+literal|"test.cluster.node.seed"
+decl_stmt|;
 DECL|field|ENABLE_MOCK_MODULES
 specifier|private
 specifier|static
@@ -1327,6 +1337,13 @@ argument_list|(
 literal|"gateway.type"
 argument_list|,
 literal|"none"
+argument_list|)
+operator|.
+name|put
+argument_list|(
+name|SETTING_CLUSTER_NODE_SEED
+argument_list|,
+name|seed
 argument_list|)
 decl_stmt|;
 if|if
