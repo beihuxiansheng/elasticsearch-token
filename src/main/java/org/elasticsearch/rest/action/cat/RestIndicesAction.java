@@ -918,7 +918,7 @@ name|addCell
 argument_list|(
 literal|"primaries.fielddata.memory_size"
 argument_list|,
-literal|"default:false;text-align:right;desc:used fielddata cache"
+literal|"alias:pfm,primariesFielddataMemory;default:false;text-align:right;desc:used fielddata cache"
 argument_list|)
 expr_stmt|;
 name|table
@@ -927,7 +927,7 @@ name|addCell
 argument_list|(
 literal|"primaries.fielddata.evictions"
 argument_list|,
-literal|"default:false;text-align:right;desc:fielddata evictions"
+literal|"alias:pfe,primariesFielddataEvictions;default:false;text-align:right;desc:fielddata evictions"
 argument_list|)
 expr_stmt|;
 name|table
@@ -936,7 +936,7 @@ name|addCell
 argument_list|(
 literal|"primaries.filter_cache.memory_size"
 argument_list|,
-literal|"default:false;text-align:right;desc:used filter cache"
+literal|"alias:pfcm,primariesFilterCacheMemory;default:false;text-align:right;desc:used filter cache"
 argument_list|)
 expr_stmt|;
 name|table
@@ -945,7 +945,7 @@ name|addCell
 argument_list|(
 literal|"primaries.filter_cache.evictions"
 argument_list|,
-literal|"default:false;text-align:right;desc:filter cache evictions"
+literal|"alias:pfce,primariesFilterCacheEvictions;default:false;text-align:right;desc:filter cache evictions"
 argument_list|)
 expr_stmt|;
 name|table
@@ -954,7 +954,7 @@ name|addCell
 argument_list|(
 literal|"primaries.flush.total"
 argument_list|,
-literal|"default:false;text-align:right;desc:number of flushes"
+literal|"alias:pft,primariesFlushTotal;default:false;text-align:right;desc:number of flushes"
 argument_list|)
 expr_stmt|;
 name|table
@@ -963,7 +963,7 @@ name|addCell
 argument_list|(
 literal|"primaries.flush.total_time"
 argument_list|,
-literal|"default:false;text-align:right;desc:time spent in flush"
+literal|"alias:pftt,primariesFlushTotalTime;default:false;text-align:right;desc:time spent in flush"
 argument_list|)
 expr_stmt|;
 name|table
@@ -972,7 +972,7 @@ name|addCell
 argument_list|(
 literal|"primaries.get.current"
 argument_list|,
-literal|"default:false;text-align:right;desc:number of current get ops"
+literal|"alias:pgc,primariesGetCurrent;default:false;text-align:right;desc:number of current get ops"
 argument_list|)
 expr_stmt|;
 name|table
@@ -981,7 +981,7 @@ name|addCell
 argument_list|(
 literal|"primaries.get.time"
 argument_list|,
-literal|"default:false;text-align:right;desc:time spent in get"
+literal|"alias:pgti,primariesGetTime;default:false;text-align:right;desc:time spent in get"
 argument_list|)
 expr_stmt|;
 name|table
@@ -990,7 +990,7 @@ name|addCell
 argument_list|(
 literal|"primaries.get.total"
 argument_list|,
-literal|"default:false;text-align:right;desc:number of get ops"
+literal|"alias:pgto,primariesGetTotal;default:false;text-align:right;desc:number of get ops"
 argument_list|)
 expr_stmt|;
 name|table
@@ -999,7 +999,7 @@ name|addCell
 argument_list|(
 literal|"primaries.get.exists_time"
 argument_list|,
-literal|"default:false;text-align:right;desc:time spent in successful gets"
+literal|"alias:pgeti,primariesGetExistsTime;default:false;text-align:right;desc:time spent in successful gets"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1008,7 +1008,7 @@ name|addCell
 argument_list|(
 literal|"primaries.get.exists_total"
 argument_list|,
-literal|"default:false;text-align:right;desc:number of successful gets"
+literal|"alias:pgeto,primariesGetExistsTotal;default:false;text-align:right;desc:number of successful gets"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1017,7 +1017,7 @@ name|addCell
 argument_list|(
 literal|"primaries.get.missing_time"
 argument_list|,
-literal|"default:false;text-align:right;desc:time spent in failed gets"
+literal|"alias:pgmti,primariesGetMissingTime;default:false;text-align:right;desc:time spent in failed gets"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1026,7 +1026,7 @@ name|addCell
 argument_list|(
 literal|"primaries.get.missing_total"
 argument_list|,
-literal|"default:false;text-align:right;desc:number of failed gets"
+literal|"alias:pgmto,primariesGetMissingTotal;default:false;text-align:right;desc:number of failed gets"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1035,7 +1035,7 @@ name|addCell
 argument_list|(
 literal|"primaries.id_cache.memory_size"
 argument_list|,
-literal|"default:false;text-align:right;desc:used id cache"
+literal|"alias:pim,primariesIdCacheMemory;default:false;text-align:right;desc:used id cache"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1044,7 +1044,7 @@ name|addCell
 argument_list|(
 literal|"primaries.indexing.delete_current"
 argument_list|,
-literal|"default:false;text-align:right;desc:number of current deletions"
+literal|"alias:pidc,primariesIndexingDeleteCurrent;default:false;text-align:right;desc:number of current deletions"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1053,7 +1053,7 @@ name|addCell
 argument_list|(
 literal|"primaries.indexing.delete_time"
 argument_list|,
-literal|"default:false;text-align:right;desc:time spent in deletions"
+literal|"alias:pidti,primariesIndexingDeleteTime;default:false;text-align:right;desc:time spent in deletions"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1062,7 +1062,7 @@ name|addCell
 argument_list|(
 literal|"primaries.indexing.delete_total"
 argument_list|,
-literal|"default:false;text-align:right;desc:number of delete ops"
+literal|"alias:pidto,primariesIndexingDeleteTotal;default:false;text-align:right;desc:number of delete ops"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1071,7 +1071,7 @@ name|addCell
 argument_list|(
 literal|"primaries.indexing.index_current"
 argument_list|,
-literal|"default:false;text-align:right;desc:number of current indexing ops"
+literal|"alias:piic,primariesIndexingIndexCurrent;default:false;text-align:right;desc:number of current indexing ops"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1080,7 +1080,7 @@ name|addCell
 argument_list|(
 literal|"primaries.indexing.index_time"
 argument_list|,
-literal|"default:false;text-align:right;desc:time spent in indexing"
+literal|"alias:piiti,primariesIndexingIndexTime;default:false;text-align:right;desc:time spent in indexing"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1089,7 +1089,7 @@ name|addCell
 argument_list|(
 literal|"primaries.indexing.index_total"
 argument_list|,
-literal|"default:false;text-align:right;desc:number of indexing ops"
+literal|"alias:piito,primariesIndexingIndexTotal;default:false;text-align:right;desc:number of indexing ops"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1098,7 +1098,7 @@ name|addCell
 argument_list|(
 literal|"primaries.merges.current"
 argument_list|,
-literal|"default:false;text-align:right;desc:number of current merges"
+literal|"alias:pmc,primariesMergesCurrent;default:false;text-align:right;desc:number of current merges"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1107,7 +1107,7 @@ name|addCell
 argument_list|(
 literal|"primaries.merges.current_docs"
 argument_list|,
-literal|"default:false;text-align:right;desc:number of current merging docs"
+literal|"alias:pmcd,primariesMergesCurrentDocs;default:false;text-align:right;desc:number of current merging docs"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1116,7 +1116,7 @@ name|addCell
 argument_list|(
 literal|"primaries.merges.current_size"
 argument_list|,
-literal|"default:false;text-align:right;desc:size of current merges"
+literal|"alias:pmcs,primariesMergesCurrentSize;default:false;text-align:right;desc:size of current merges"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1125,7 +1125,7 @@ name|addCell
 argument_list|(
 literal|"primaries.merges.total"
 argument_list|,
-literal|"default:false;text-align:right;desc:number of completed merge ops"
+literal|"alias:pmt,primariesMergesTotal;default:false;text-align:right;desc:number of completed merge ops"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1134,7 +1134,7 @@ name|addCell
 argument_list|(
 literal|"primaries.merges.total_docs"
 argument_list|,
-literal|"default:false;text-align:right;desc:docs merged"
+literal|"alias:pmtd,primariesMergesTotalDocs;default:false;text-align:right;desc:docs merged"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1143,7 +1143,7 @@ name|addCell
 argument_list|(
 literal|"primaries.merges.total_size"
 argument_list|,
-literal|"default:false;text-align:right;desc:size merged"
+literal|"alias:pmts,primariesMergesTotalSize;default:false;text-align:right;desc:size merged"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1152,7 +1152,7 @@ name|addCell
 argument_list|(
 literal|"primaries.merges.total_time"
 argument_list|,
-literal|"default:false;text-align:right;desc:time spent in merges"
+literal|"alias:pmtt,primariesMergesTotalTime;default:false;text-align:right;desc:time spent in merges"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1161,7 +1161,7 @@ name|addCell
 argument_list|(
 literal|"primaries.percolate.current"
 argument_list|,
-literal|"default:false;text-align:right;desc:number of current percolations"
+literal|"alias:ppc,primariesPercolateCurrent;default:false;text-align:right;desc:number of current percolations"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1170,7 +1170,7 @@ name|addCell
 argument_list|(
 literal|"primaries.percolate.memory_size"
 argument_list|,
-literal|"default:false;text-align:right;desc:memory used by percolations"
+literal|"alias:ppm,primariesPercolateMemory;default:false;text-align:right;desc:memory used by percolations"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1179,7 +1179,7 @@ name|addCell
 argument_list|(
 literal|"primaries.percolate.queries"
 argument_list|,
-literal|"default:false;text-align:right;desc:number of registered percolation queries"
+literal|"alias:ppq,primariesPercolateQueries;default:false;text-align:right;desc:number of registered percolation queries"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1188,7 +1188,7 @@ name|addCell
 argument_list|(
 literal|"primaries.percolate.time"
 argument_list|,
-literal|"default:false;text-align:right;desc:time spent percolating"
+literal|"alias:ppti,primariesPercolateTime;default:false;text-align:right;desc:time spent percolating"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1197,7 +1197,7 @@ name|addCell
 argument_list|(
 literal|"primaries.percolate.total"
 argument_list|,
-literal|"default:false;text-align:right;desc:total percolations"
+literal|"alias:ppto,primariesPercolateTotal;default:false;text-align:right;desc:total percolations"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1206,7 +1206,7 @@ name|addCell
 argument_list|(
 literal|"primaries.refresh.total"
 argument_list|,
-literal|"default:false;text-align:right;desc:total refreshes"
+literal|"alias:prto,primariesRefreshTotal;default:false;text-align:right;desc:total refreshes"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1215,7 +1215,7 @@ name|addCell
 argument_list|(
 literal|"primaries.refresh.time"
 argument_list|,
-literal|"default:false;text-align:right;desc:time spent in refreshes"
+literal|"alias:prti,primariesRefreshTime;default:false;text-align:right;desc:time spent in refreshes"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1224,7 +1224,7 @@ name|addCell
 argument_list|(
 literal|"primaries.search.fetch_current"
 argument_list|,
-literal|"default:false;text-align:right;desc:current fetch phase ops"
+literal|"alias:psfc,primariesSearchFetchCurrent;default:false;text-align:right;desc:current fetch phase ops"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1233,7 +1233,7 @@ name|addCell
 argument_list|(
 literal|"primaries.search.fetch_time"
 argument_list|,
-literal|"default:false;text-align:right;desc:time spent in fetch phase"
+literal|"alias:psfti,primariesSearchFetchTime;default:false;text-align:right;desc:time spent in fetch phase"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1242,7 +1242,7 @@ name|addCell
 argument_list|(
 literal|"primaries.search.fetch_total"
 argument_list|,
-literal|"default:false;text-align:right;desc:total fetch ops"
+literal|"alias:psfto,primariesSearchFetchTotal;default:false;text-align:right;desc:total fetch ops"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1251,7 +1251,7 @@ name|addCell
 argument_list|(
 literal|"primaries.search.open_contexts"
 argument_list|,
-literal|"default:false;text-align:right;desc:open search contexts"
+literal|"alias:pso,primariesSearchOpenContexts;default:false;text-align:right;desc:open search contexts"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1260,7 +1260,7 @@ name|addCell
 argument_list|(
 literal|"primaries.search.query_current"
 argument_list|,
-literal|"default:false;text-align:right;desc:current query phase ops"
+literal|"alias:psqc,primariesSearchQueryCurrent;default:false;text-align:right;desc:current query phase ops"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1269,7 +1269,7 @@ name|addCell
 argument_list|(
 literal|"primaries.search.query_time"
 argument_list|,
-literal|"default:false;text-align:right;desc:time spent in query phase"
+literal|"alias:psqti,primariesSearchQueryTime;default:false;text-align:right;desc:time spent in query phase"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1278,7 +1278,7 @@ name|addCell
 argument_list|(
 literal|"primaries.search.query_total"
 argument_list|,
-literal|"default:false;text-align:right;desc:total query phase ops"
+literal|"alias:psqto,primariesSearchQueryTotal;default:false;text-align:right;desc:total query phase ops"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1287,7 +1287,7 @@ name|addCell
 argument_list|(
 literal|"primaries.segments.count"
 argument_list|,
-literal|"default:false;text-align:right;desc:number of segments"
+literal|"alias:psc,primariesSegmentsCount;default:false;text-align:right;desc:number of segments"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1296,7 +1296,7 @@ name|addCell
 argument_list|(
 literal|"primaries.segments.memory"
 argument_list|,
-literal|"default:false;text-align:right;desc:memory used by segments"
+literal|"alias:psm,primariesSegmentsMemory;default:false;text-align:right;desc:memory used by segments"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1305,7 +1305,7 @@ name|addCell
 argument_list|(
 literal|"primaries.warmer.current"
 argument_list|,
-literal|"default:false;text-align:right;desc:current warmer ops"
+literal|"alias:pwc,primariesWarmerCurrent;default:false;text-align:right;desc:current warmer ops"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1314,7 +1314,7 @@ name|addCell
 argument_list|(
 literal|"primaries.warmer.total"
 argument_list|,
-literal|"default:false;text-align:right;desc:total warmer ops"
+literal|"alias:pwto,primariesWarmerTotal;default:false;text-align:right;desc:total warmer ops"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1323,7 +1323,7 @@ name|addCell
 argument_list|(
 literal|"primaries.warmer.total_time"
 argument_list|,
-literal|"default:false;text-align:right;desc:time spent in warmers"
+literal|"alias:pwtt,primariesWarmerTotalTime;default:false;text-align:right;desc:time spent in warmers"
 argument_list|)
 expr_stmt|;
 name|table
