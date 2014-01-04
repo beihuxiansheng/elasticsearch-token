@@ -331,7 +331,9 @@ name|indices
 argument_list|()
 operator|.
 name|prepareDelete
-argument_list|()
+argument_list|(
+literal|"_all"
+argument_list|)
 operator|.
 name|execute
 argument_list|()
