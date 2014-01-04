@@ -3103,7 +3103,7 @@ parameter_list|)
 block|{
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"RoutingNodes: {}"
 argument_list|,
@@ -3297,7 +3297,7 @@ condition|)
 block|{
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"RoutingNodes: {}"
 argument_list|,
@@ -3386,7 +3386,7 @@ parameter_list|)
 block|{
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"RoutingNodes: {}"
 argument_list|,
@@ -3453,7 +3453,7 @@ argument_list|)
 expr_stmt|;
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"From: "
 operator|+
@@ -3603,7 +3603,7 @@ argument_list|()
 decl_stmt|;
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"From: "
 operator|+
