@@ -193,7 +193,7 @@ operator|instanceof
 name|Number
 condition|)
 block|{
-comment|//Double 1.0 is equals to Integer 1
+comment|//Double 1.0 is equal to Integer 1
 name|assertThat
 argument_list|(
 name|errorMessage
@@ -223,10 +223,9 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
 block|}
-else|else
-block|{
 name|assertThat
 argument_list|(
 name|errorMessage
@@ -240,7 +239,6 @@ name|expectedValue
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|errorMessage
 specifier|private
