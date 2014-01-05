@@ -1250,7 +1250,7 @@ argument_list|,
 literal|"test2"
 argument_list|)
 operator|.
-name|setIgnoreIndices
+name|setIndicesOptions
 argument_list|(
 name|options
 argument_list|)
@@ -1354,7 +1354,7 @@ argument_list|,
 literal|"test2"
 argument_list|)
 operator|.
-name|setIgnoreIndices
+name|setIndicesOptions
 argument_list|(
 name|options
 argument_list|)
@@ -1635,7 +1635,7 @@ argument_list|,
 literal|"test2"
 argument_list|)
 operator|.
-name|setIgnoreIndices
+name|setIndicesOptions
 argument_list|(
 name|options
 argument_list|)
@@ -1739,7 +1739,7 @@ argument_list|,
 literal|"test2"
 argument_list|)
 operator|.
-name|setIgnoreIndices
+name|setIndicesOptions
 argument_list|(
 name|options
 argument_list|)
@@ -2031,7 +2031,7 @@ argument_list|,
 literal|"test2"
 argument_list|)
 operator|.
-name|setIgnoreIndices
+name|setIndicesOptions
 argument_list|(
 name|options
 argument_list|)
@@ -2135,7 +2135,7 @@ argument_list|,
 literal|"test2"
 argument_list|)
 operator|.
-name|setIgnoreIndices
+name|setIndicesOptions
 argument_list|(
 name|options
 argument_list|)
@@ -2919,7 +2919,7 @@ argument_list|(
 name|indices
 argument_list|)
 operator|.
-name|setIgnoreIndices
+name|setIndicesOptions
 argument_list|(
 name|options
 argument_list|)
@@ -3006,7 +3006,7 @@ argument_list|(
 name|indices
 argument_list|)
 operator|.
-name|setIgnoreIndices
+name|setIndicesOptions
 argument_list|(
 name|options
 argument_list|)
@@ -3790,7 +3790,7 @@ argument_list|(
 name|indices
 argument_list|)
 operator|.
-name|setIgnoreIndices
+name|setIndicesOptions
 argument_list|(
 name|options
 argument_list|)
@@ -3877,7 +3877,7 @@ argument_list|(
 name|indices
 argument_list|)
 operator|.
-name|setIgnoreIndices
+name|setIndicesOptions
 argument_list|(
 name|options
 argument_list|)

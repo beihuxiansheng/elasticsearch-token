@@ -309,15 +309,16 @@ operator|)
 name|this
 return|;
 block|}
+comment|/**      * Specifies what type of requested indices to ignore and wildcard indices expressions.      *      * For example indices that don't exist.      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|setIgnoreIndices
+DECL|method|setIndicesOptions
 specifier|public
 name|Builder
-name|setIgnoreIndices
+name|setIndicesOptions
 parameter_list|(
 name|IndicesOptions
 name|options
