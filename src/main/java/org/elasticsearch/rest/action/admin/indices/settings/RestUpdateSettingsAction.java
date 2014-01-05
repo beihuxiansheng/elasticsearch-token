@@ -36,6 +36,8 @@ name|indices
 operator|.
 name|settings
 operator|.
+name|put
+operator|.
 name|UpdateSettingsRequest
 import|;
 end_import
@@ -53,6 +55,8 @@ operator|.
 name|indices
 operator|.
 name|settings
+operator|.
+name|put
 operator|.
 name|UpdateSettingsResponse
 import|;

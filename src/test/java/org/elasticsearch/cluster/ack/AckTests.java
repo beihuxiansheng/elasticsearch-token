@@ -284,6 +284,8 @@ name|indices
 operator|.
 name|settings
 operator|.
+name|put
+operator|.
 name|UpdateSettingsResponse
 import|;
 end_import

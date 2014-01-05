@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.action.admin.indices.settings
+DECL|package|org.elasticsearch.action.admin.indices.settings.put
 package|package
 name|org
 operator|.
@@ -17,6 +17,8 @@ operator|.
 name|indices
 operator|.
 name|settings
+operator|.
+name|put
 package|;
 end_package
 

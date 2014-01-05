@@ -54,6 +54,8 @@ name|indices
 operator|.
 name|settings
 operator|.
+name|put
+operator|.
 name|UpdateSettingsClusterStateUpdateRequest
 import|;
 end_import
