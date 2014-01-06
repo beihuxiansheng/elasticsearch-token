@@ -4,13 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.discovery.azure
+DECL|package|org.elasticsearch.repositories.azure
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|discovery
+name|repositories
 operator|.
 name|azure
 package|;
@@ -27,6 +27,20 @@ operator|.
 name|azure
 operator|.
 name|AzureModule
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|inject
+operator|.
+name|AbstractModule
 import|;
 end_import
 
@@ -92,9 +106,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|discovery
+name|index
 operator|.
-name|Discovery
+name|snapshots
+operator|.
+name|IndexShardRepository
 import|;
 end_import
 
@@ -104,25 +120,39 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|discovery
+name|index
 operator|.
-name|zen
+name|snapshots
 operator|.
-name|ZenDiscoveryModule
+name|blobstore
+operator|.
+name|BlobStoreIndexShardRepository
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|repositories
+operator|.
+name|Repository
 import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Azure repository module  */
 end_comment
 
 begin_class
-DECL|class|AzureDiscoveryModule
+DECL|class|AzureRepositoryModule
 specifier|public
 class|class
-name|AzureDiscoveryModule
+name|AzureRepositoryModule
 extends|extends
-name|ZenDiscoveryModule
+name|AbstractModule
 block|{
 DECL|field|logger
 specifier|protected
@@ -137,9 +167,9 @@ name|settings
 decl_stmt|;
 annotation|@
 name|Inject
-DECL|method|AzureDiscoveryModule
+DECL|method|AzureRepositoryModule
 specifier|public
-name|AzureDiscoveryModule
+name|AzureRepositoryModule
 parameter_list|(
 name|Settings
 name|settings
@@ -169,19 +199,20 @@ operator|=
 name|settings
 expr_stmt|;
 block|}
+comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
-DECL|method|bindDiscovery
+DECL|method|configure
 specifier|protected
 name|void
-name|bindDiscovery
+name|configure
 parameter_list|()
 block|{
 if|if
 condition|(
 name|AzureModule
 operator|.
-name|isDiscoveryReady
+name|isSnapshotReady
 argument_list|(
 name|settings
 argument_list|,
@@ -191,14 +222,31 @@ condition|)
 block|{
 name|bind
 argument_list|(
-name|Discovery
+name|Repository
 operator|.
 name|class
 argument_list|)
 operator|.
 name|to
 argument_list|(
-name|AzureDiscovery
+name|AzureRepository
+operator|.
+name|class
+argument_list|)
+operator|.
+name|asEagerSingleton
+argument_list|()
+expr_stmt|;
+name|bind
+argument_list|(
+name|IndexShardRepository
+operator|.
+name|class
+argument_list|)
+operator|.
+name|to
+argument_list|(
+name|BlobStoreIndexShardRepository
 operator|.
 name|class
 argument_list|)
@@ -213,7 +261,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"disabling azure discovery features"
+literal|"disabling azure snapshot and restore features"
 argument_list|)
 expr_stmt|;
 block|}

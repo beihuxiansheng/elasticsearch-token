@@ -45,7 +45,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Filtering cloud.azure.* settings  */
+comment|/**  * Filtering cloud.azure.* and repositories.azure.* settings  */
 end_comment
 
 begin_class
@@ -76,7 +76,7 @@ name|settings
 operator|.
 name|remove
 argument_list|(
-literal|"cloud.certificate"
+literal|"cloud.azure.keystore"
 argument_list|)
 expr_stmt|;
 name|settings
@@ -98,6 +98,35 @@ operator|.
 name|remove
 argument_list|(
 literal|"cloud.azure.service_name"
+argument_list|)
+expr_stmt|;
+comment|// Repositories settings
+name|settings
+operator|.
+name|remove
+argument_list|(
+literal|"repositories.azure.account"
+argument_list|)
+expr_stmt|;
+name|settings
+operator|.
+name|remove
+argument_list|(
+literal|"repositories.azure.key"
+argument_list|)
+expr_stmt|;
+name|settings
+operator|.
+name|remove
+argument_list|(
+literal|"repositories.azure.container"
+argument_list|)
+expr_stmt|;
+name|settings
+operator|.
+name|remove
+argument_list|(
+literal|"repositories.azure.base_path"
 argument_list|)
 expr_stmt|;
 block|}

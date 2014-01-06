@@ -103,7 +103,7 @@ name|AbstractAzureTest
 extends|extends
 name|ElasticsearchIntegrationTest
 block|{
-comment|/**      * Annotation for tests that require Azure to run. Azure tests are disabled by default.      *<p/>      * To enable test add -Dtests.azure=true -Des.config=/path/to/elasticsearch.yml      *<p/>      * The elasticsearch.yml file should contain the following keys      *<pre>       cloud:           azure:               keystore: FULLPATH-TO-YOUR-KEYSTORE               password: YOUR-PASSWORD               subscription_id: YOUR-AZURE-SUBSCRIPTION-ID               service_name: YOUR-AZURE-SERVICE-NAME        discovery:               type: azure      *</pre>      */
+comment|/**      * Annotation for tests that require Azure to run. Azure tests are disabled by default.      *<p/>      * To enable test add -Dtests.azure=true -Des.config=/path/to/elasticsearch.yml      *<p/>      * The elasticsearch.yml file should contain the following keys      *<pre>       cloud:           azure:               keystore: FULLPATH-TO-YOUR-KEYSTORE               password: YOUR-PASSWORD               subscription_id: YOUR-AZURE-SUBSCRIPTION-ID               service_name: YOUR-AZURE-SERVICE-NAME        discovery:               type: azure        repositories:           azure:               account: "yourstorageaccount"               key: "storage key"               container: "container name"      *</pre>      */
 annotation|@
 name|Documented
 annotation|@
