@@ -96,6 +96,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|ToXContent
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -113,6 +127,8 @@ DECL|interface|Settings
 specifier|public
 interface|interface
 name|Settings
+extends|extends
+name|ToXContent
 block|{
 comment|/**      * Component settings for a specific component. Returns all the settings for the given class, where the      * FQN of the class is used, without the<tt>org.elasticsearch<tt> prefix. If there is no<tt>org.elasticsearch</tt>      * prefix, then the prefix used is the first part of the package name (<tt>org</tt> /<tt>com</tt> / ...)      */
 DECL|method|getComponentSettings
@@ -158,7 +174,7 @@ name|ClassLoader
 name|getClassLoaderIfSet
 parameter_list|()
 function_decl|;
-comment|/**      * The settings as a {@link java.util.Map}.      */
+comment|/**      * The settings as a flat {@link java.util.Map}.      */
 DECL|method|getAsMap
 name|ImmutableMap
 argument_list|<
@@ -167,6 +183,17 @@ argument_list|,
 name|String
 argument_list|>
 name|getAsMap
+parameter_list|()
+function_decl|;
+comment|/**      * The settings as a structured {@link java.util.Map}.      */
+DECL|method|getAsStructuredMap
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|getAsStructuredMap
 parameter_list|()
 function_decl|;
 comment|/**      * Returns the setting value associated with the setting key.      *      * @param setting The setting key      * @return The setting value,<tt>null</tt> if it does not exists.      */
@@ -550,7 +577,7 @@ parameter_list|)
 throws|throws
 name|NoClassSettingsException
 function_decl|;
-comment|/**      * The values associated with a setting prefix as an array. The settings array is in the format of:      *<tt>settingPrefix.[index]</tt>.      *<p/>      *<p>It will also automatically load a comma separated list under the settingPrefix and merge with      * the numbered format.      *      * @param settingPrefix The setting prefix to load the array by      * @param defaultArray The default array to use if no value is specified      * @param commaDelimited Whether to try to parse a string as a comma-delimited value      * @return The setting array values      * @throws SettingsException      */
+comment|/**      * The values associated with a setting prefix as an array. The settings array is in the format of:      *<tt>settingPrefix.[index]</tt>.      *<p/>      *<p>It will also automatically load a comma separated list under the settingPrefix and merge with      * the numbered format.      *      * @param settingPrefix  The setting prefix to load the array by      * @param defaultArray   The default array to use if no value is specified      * @param commaDelimited Whether to try to parse a string as a comma-delimited value      * @return The setting array values      * @throws SettingsException      */
 DECL|method|getAsArray
 name|String
 index|[]
