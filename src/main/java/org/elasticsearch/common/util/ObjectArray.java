@@ -33,8 +33,6 @@ name|BigArray
 block|{
 comment|/**      * Get an element given its index.      */
 DECL|method|get
-specifier|public
-specifier|abstract
 name|T
 name|get
 parameter_list|(
@@ -44,8 +42,6 @@ parameter_list|)
 function_decl|;
 comment|/**      * Set a value at the given index and return the previous value.      */
 DECL|method|set
-specifier|public
-specifier|abstract
 name|T
 name|set
 parameter_list|(
