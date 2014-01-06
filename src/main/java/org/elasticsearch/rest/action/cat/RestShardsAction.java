@@ -707,9 +707,9 @@ argument_list|)
 operator|.
 name|addCell
 argument_list|(
-literal|"p/r"
+literal|"prirep"
 argument_list|,
-literal|"default:true;desc:primary or replica"
+literal|"alias:pr,primaryOrReplica;default:true;desc:primary or replica"
 argument_list|)
 operator|.
 name|addCell
