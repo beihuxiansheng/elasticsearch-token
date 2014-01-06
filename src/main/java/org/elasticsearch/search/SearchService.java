@@ -5700,7 +5700,7 @@ name|InterruptedException
 block|{
 name|latch
 operator|.
-name|wait
+name|await
 argument_list|()
 expr_stmt|;
 block|}
