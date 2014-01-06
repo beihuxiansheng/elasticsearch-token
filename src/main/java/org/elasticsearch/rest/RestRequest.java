@@ -279,6 +279,21 @@ argument_list|>
 name|params
 parameter_list|()
 function_decl|;
+DECL|method|headers
+name|Iterable
+argument_list|<
+name|Map
+operator|.
+name|Entry
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+argument_list|>
+name|headers
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
