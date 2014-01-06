@@ -4,15 +4,15 @@ comment|/*  * Licensed to Elasticsearch (the "Author") under one  * or more cont
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.azure.test
+DECL|package|org.elasticsearch.discovery.azure
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|azure
+name|discovery
 operator|.
-name|test
+name|azure
 package|;
 end_package
 

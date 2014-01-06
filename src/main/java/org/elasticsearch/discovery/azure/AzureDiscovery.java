@@ -248,6 +248,15 @@ name|AzureDiscovery
 extends|extends
 name|ZenDiscovery
 block|{
+DECL|field|AZURE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|AZURE
+init|=
+literal|"azure"
+decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|AzureDiscovery

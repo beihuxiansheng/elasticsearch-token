@@ -45,7 +45,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Filtering cloud.azure.* settings  */
 end_comment
 
 begin_class
@@ -71,13 +71,7 @@ name|Builder
 name|settings
 parameter_list|)
 block|{
-name|settings
-operator|.
-name|remove
-argument_list|(
-literal|"cloud.private_key"
-argument_list|)
-expr_stmt|;
+comment|// Cloud settings
 name|settings
 operator|.
 name|remove
@@ -97,6 +91,13 @@ operator|.
 name|remove
 argument_list|(
 literal|"cloud.azure.subscription_id"
+argument_list|)
+expr_stmt|;
+name|settings
+operator|.
+name|remove
+argument_list|(
+literal|"cloud.azure.service_name"
 argument_list|)
 expr_stmt|;
 block|}

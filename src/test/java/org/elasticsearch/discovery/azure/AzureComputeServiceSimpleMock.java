@@ -4,15 +4,15 @@ comment|/*  * Licensed to ElasticSearch under one  * or more contributor license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.azure.test
+DECL|package|org.elasticsearch.discovery.azure
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|azure
+name|discovery
 operator|.
-name|test
+name|azure
 package|;
 end_package
 
@@ -79,22 +79,22 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Mock Azure API with two started nodes  */
+comment|/**  * Mock Azure API with a single started node  */
 end_comment
 
 begin_class
-DECL|class|AzureComputeServiceTwoNodesMock
+DECL|class|AzureComputeServiceSimpleMock
 specifier|public
 class|class
-name|AzureComputeServiceTwoNodesMock
+name|AzureComputeServiceSimpleMock
 extends|extends
 name|AzureComputeServiceAbstractMock
 block|{
 annotation|@
 name|Inject
-DECL|method|AzureComputeServiceTwoNodesMock
+DECL|method|AzureComputeServiceSimpleMock
 specifier|protected
-name|AzureComputeServiceTwoNodesMock
+name|AzureComputeServiceSimpleMock
 parameter_list|(
 name|Settings
 name|settings
@@ -103,13 +103,6 @@ block|{
 name|super
 argument_list|(
 name|settings
-argument_list|)
-expr_stmt|;
-name|logger
-operator|.
-name|debug
-argument_list|(
-literal|"starting Azure Mock"
 argument_list|)
 expr_stmt|;
 block|}
@@ -144,26 +137,6 @@ operator|new
 name|Instance
 argument_list|()
 decl_stmt|;
-name|azureHost
-operator|.
-name|setPrivateIp
-argument_list|(
-literal|"127.0.0.1"
-argument_list|)
-expr_stmt|;
-name|instances
-operator|.
-name|add
-argument_list|(
-name|azureHost
-argument_list|)
-expr_stmt|;
-name|azureHost
-operator|=
-operator|new
-name|Instance
-argument_list|()
-expr_stmt|;
 name|azureHost
 operator|.
 name|setPrivateIp
