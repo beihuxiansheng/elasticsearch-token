@@ -344,6 +344,14 @@ argument_list|)
 operator|.
 name|add
 argument_list|(
+name|EnableAllocationDecider
+operator|.
+name|class
+argument_list|)
+operator|.
+comment|// new enable allocation logic should proceed old disable allocation logic
+name|add
+argument_list|(
 name|DisableAllocationDecider
 operator|.
 name|class
