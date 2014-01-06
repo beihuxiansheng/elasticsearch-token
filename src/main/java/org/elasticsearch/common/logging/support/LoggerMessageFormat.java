@@ -174,11 +174,12 @@ decl_stmt|;
 name|int
 name|j
 decl_stmt|;
-name|StringBuffer
+specifier|final
+name|StringBuilder
 name|sbuf
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|(
 name|messagePattern
 operator|.
@@ -546,7 +547,7 @@ specifier|static
 name|void
 name|deeplyAppendParameter
 parameter_list|(
-name|StringBuffer
+name|StringBuilder
 name|sbuf
 parameter_list|,
 name|Object
@@ -787,7 +788,7 @@ specifier|static
 name|void
 name|safeObjectAppend
 parameter_list|(
-name|StringBuffer
+name|StringBuilder
 name|sbuf
 parameter_list|,
 name|Object
@@ -833,7 +834,7 @@ specifier|static
 name|void
 name|objectArrayAppend
 parameter_list|(
-name|StringBuffer
+name|StringBuilder
 name|sbuf
 parameter_list|,
 name|Object
@@ -955,7 +956,7 @@ specifier|static
 name|void
 name|booleanArrayAppend
 parameter_list|(
-name|StringBuffer
+name|StringBuilder
 name|sbuf
 parameter_list|,
 name|boolean
@@ -1033,7 +1034,7 @@ specifier|static
 name|void
 name|byteArrayAppend
 parameter_list|(
-name|StringBuffer
+name|StringBuilder
 name|sbuf
 parameter_list|,
 name|byte
@@ -1111,7 +1112,7 @@ specifier|static
 name|void
 name|charArrayAppend
 parameter_list|(
-name|StringBuffer
+name|StringBuilder
 name|sbuf
 parameter_list|,
 name|char
@@ -1189,7 +1190,7 @@ specifier|static
 name|void
 name|shortArrayAppend
 parameter_list|(
-name|StringBuffer
+name|StringBuilder
 name|sbuf
 parameter_list|,
 name|short
@@ -1267,7 +1268,7 @@ specifier|static
 name|void
 name|intArrayAppend
 parameter_list|(
-name|StringBuffer
+name|StringBuilder
 name|sbuf
 parameter_list|,
 name|int
@@ -1345,7 +1346,7 @@ specifier|static
 name|void
 name|longArrayAppend
 parameter_list|(
-name|StringBuffer
+name|StringBuilder
 name|sbuf
 parameter_list|,
 name|long
@@ -1423,7 +1424,7 @@ specifier|static
 name|void
 name|floatArrayAppend
 parameter_list|(
-name|StringBuffer
+name|StringBuilder
 name|sbuf
 parameter_list|,
 name|float
@@ -1501,7 +1502,7 @@ specifier|static
 name|void
 name|doubleArrayAppend
 parameter_list|(
-name|StringBuffer
+name|StringBuilder
 name|sbuf
 parameter_list|,
 name|double
