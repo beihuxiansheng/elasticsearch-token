@@ -666,7 +666,7 @@ else|else
 block|{
 name|percolateRequestBuilder
 operator|.
-name|setSort
+name|setSortByScore
 argument_list|(
 literal|true
 argument_list|)

@@ -319,7 +319,7 @@ implements|implements
 name|SearchParseElement
 block|{
 DECL|field|SORT_SCORE
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|SortField

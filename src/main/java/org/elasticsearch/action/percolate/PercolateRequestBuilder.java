@@ -210,6 +210,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|sort
+operator|.
+name|SortBuilder
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -417,11 +431,11 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Similar as {@link #setScore(boolean)}, but also sort by the score.      */
-DECL|method|setSort
+comment|/**      * Similar as {@link #setScore(boolean)}, but whether to sort by the score descending.      */
+DECL|method|setSortByScore
 specifier|public
 name|PercolateRequestBuilder
-name|setSort
+name|setSortByScore
 parameter_list|(
 name|boolean
 name|sort
@@ -431,6 +445,28 @@ name|sourceBuilder
 argument_list|()
 operator|.
 name|setSort
+argument_list|(
+name|sort
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Adds      */
+DECL|method|addSort
+specifier|public
+name|PercolateRequestBuilder
+name|addSort
+parameter_list|(
+name|SortBuilder
+name|sort
+parameter_list|)
+block|{
+name|sourceBuilder
+argument_list|()
+operator|.
+name|addSort
 argument_list|(
 name|sort
 argument_list|)
