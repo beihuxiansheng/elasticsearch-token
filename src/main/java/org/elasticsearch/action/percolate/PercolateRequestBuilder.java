@@ -452,7 +452,7 @@ block|{
 name|sourceBuilder
 argument_list|()
 operator|.
-name|setScore
+name|setTrackScores
 argument_list|(
 name|score
 argument_list|)

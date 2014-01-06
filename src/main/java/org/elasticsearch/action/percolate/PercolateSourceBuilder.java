@@ -257,10 +257,10 @@ specifier|private
 name|Boolean
 name|sort
 decl_stmt|;
-DECL|field|score
+DECL|field|trackScores
 specifier|private
 name|Boolean
-name|score
+name|trackScores
 decl_stmt|;
 DECL|field|highlightBuilder
 specifier|private
@@ -417,7 +417,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Similar as {@link #setScore(boolean)}, but also sort by the score.      */
+comment|/**      * Similar as {@link #setTrackScores(boolean)}, but also sort by the score.      */
 DECL|method|setSort
 specifier|public
 name|PercolateSourceBuilder
@@ -438,20 +438,20 @@ name|this
 return|;
 block|}
 comment|/**      * Whether to compute a score for each match and include it in the response. The score is based on      * {@link #setQueryBuilder(QueryBuilder)}.      */
-DECL|method|setScore
+DECL|method|setTrackScores
 specifier|public
 name|PercolateSourceBuilder
-name|setScore
+name|setTrackScores
 parameter_list|(
 name|boolean
-name|score
+name|trackScores
 parameter_list|)
 block|{
 name|this
 operator|.
-name|score
+name|trackScores
 operator|=
-name|score
+name|trackScores
 expr_stmt|;
 return|return
 name|this
@@ -727,7 +727,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|score
+name|trackScores
 operator|!=
 literal|null
 condition|)
@@ -736,9 +736,9 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"score"
+literal|"track_scores"
 argument_list|,
-name|score
+name|trackScores
 argument_list|)
 expr_stmt|;
 block|}
