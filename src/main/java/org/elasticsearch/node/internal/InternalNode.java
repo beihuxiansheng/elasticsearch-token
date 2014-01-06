@@ -32,7 +32,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -1070,7 +1070,7 @@ specifier|public
 name|InternalNode
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|this
 argument_list|(
@@ -1095,7 +1095,7 @@ name|boolean
 name|loadConfigSettings
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|Tuple
 argument_list|<

@@ -24,7 +24,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -776,7 +776,7 @@ name|SourceToParse
 name|source
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 function_decl|;
 DECL|method|create
 name|ParsedDocument
@@ -788,7 +788,7 @@ name|Create
 name|create
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 function_decl|;
 DECL|method|prepareIndex
 name|Engine
@@ -800,7 +800,7 @@ name|SourceToParse
 name|source
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 function_decl|;
 DECL|method|index
 name|ParsedDocument
@@ -812,7 +812,7 @@ name|Index
 name|index
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 function_decl|;
 DECL|method|prepareDelete
 name|Engine
@@ -830,7 +830,7 @@ name|long
 name|version
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 function_decl|;
 DECL|method|delete
 name|void
@@ -842,7 +842,7 @@ name|Delete
 name|delete
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 function_decl|;
 DECL|method|prepareDeleteByQuery
 name|Engine
@@ -864,7 +864,7 @@ modifier|...
 name|types
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 function_decl|;
 DECL|method|deleteByQuery
 name|void
@@ -876,7 +876,7 @@ name|DeleteByQuery
 name|deleteByQuery
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 function_decl|;
 DECL|method|get
 name|Engine
@@ -890,7 +890,7 @@ name|Get
 name|get
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 function_decl|;
 DECL|method|refresh
 name|void
@@ -902,7 +902,7 @@ name|Refresh
 name|refresh
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 function_decl|;
 DECL|method|flush
 name|void
@@ -914,7 +914,7 @@ name|Flush
 name|flush
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 function_decl|;
 DECL|method|optimize
 name|void
@@ -926,7 +926,7 @@ name|Optimize
 name|optimize
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 function_decl|;
 DECL|method|snapshot
 parameter_list|<

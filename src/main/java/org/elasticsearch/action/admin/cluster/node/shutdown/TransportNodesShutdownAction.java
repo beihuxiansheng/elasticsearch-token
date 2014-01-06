@@ -54,7 +54,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -64,7 +64,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 import|;
 end_import
 
@@ -579,7 +579,7 @@ argument_list|>
 name|listener
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 if|if
 condition|(
@@ -588,7 +588,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 argument_list|(
 literal|"Shutdown is disabled"
 argument_list|)
@@ -1390,7 +1390,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 argument_list|(
 literal|"Shutdown is disabled"
 argument_list|)

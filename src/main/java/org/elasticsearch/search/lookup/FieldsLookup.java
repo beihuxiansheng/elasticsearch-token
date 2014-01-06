@@ -78,7 +78,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 import|;
 end_import
 
@@ -88,7 +88,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 import|;
 end_import
 
@@ -628,7 +628,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 literal|"No field found for ["
 operator|+
@@ -757,7 +757,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"failed to load field ["
 operator|+

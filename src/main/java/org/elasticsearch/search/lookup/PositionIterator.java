@@ -50,7 +50,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -237,7 +237,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchException
+name|ElasticsearchException
 argument_list|(
 literal|"can not advance iterator"
 argument_list|,
@@ -318,7 +318,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchException
+name|ElasticsearchException
 argument_list|(
 literal|"Cannot iterate twice! If you want to iterate more that once, add _CACHE explicitely."
 argument_list|)

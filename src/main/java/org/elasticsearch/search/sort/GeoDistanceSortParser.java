@@ -50,7 +50,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 import|;
 end_import
 
@@ -807,7 +807,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 literal|"sort_mode [sum] isn't supported for sorting by geo distance"
 argument_list|)
@@ -832,7 +832,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 literal|"failed to find mapper for ["
 operator|+
@@ -914,7 +914,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 literal|"failed to find nested object mapping for explicit nested path ["
 operator|+
@@ -945,7 +945,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 literal|"mapping for explicit nested path is not mapped as nested: ["
 operator|+

@@ -20,7 +20,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 import|;
 end_import
 
@@ -168,7 +168,7 @@ name|ClusterBlock
 name|block
 parameter_list|)
 throws|throws
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 function_decl|;
 comment|/**      * The operation routing.      */
 DECL|method|operationRouting

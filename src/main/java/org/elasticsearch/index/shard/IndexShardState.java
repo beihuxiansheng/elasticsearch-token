@@ -22,7 +22,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 import|;
 end_import
 
@@ -193,7 +193,7 @@ name|byte
 name|id
 parameter_list|)
 throws|throws
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 block|{
 if|if
 condition|(
@@ -210,7 +210,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 literal|"No mapping for id ["
 operator|+

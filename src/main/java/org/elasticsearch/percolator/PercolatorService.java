@@ -190,7 +190,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -200,7 +200,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 import|;
 end_import
 
@@ -210,7 +210,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 import|;
 end_import
 
@@ -1592,7 +1592,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 literal|"Nothing to percolate"
 argument_list|)
@@ -1657,7 +1657,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 literal|"Can't sort if size isn't specified"
 argument_list|)
@@ -1680,7 +1680,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 literal|"Can't highlight if size isn't specified"
 argument_list|)
@@ -1803,7 +1803,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchException
+name|ElasticsearchException
 argument_list|(
 literal|"Failed to create token stream"
 argument_list|,
@@ -1952,7 +1952,7 @@ name|PercolateContext
 name|context
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|BytesReference
 name|source
@@ -2150,7 +2150,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"Either specify doc or get, not both"
 argument_list|)
@@ -2290,7 +2290,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"Either specify query or filter, not both"
 argument_list|)
@@ -2338,7 +2338,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"Either specify query or filter, not both"
 argument_list|)
@@ -2446,7 +2446,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"size is set to ["
 operator|+
@@ -2721,7 +2721,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"failed to parse request"
 argument_list|,
@@ -2851,7 +2851,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"failed to parse request"
 argument_list|,
@@ -2884,7 +2884,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"No doc to percolate in the request"
 argument_list|)

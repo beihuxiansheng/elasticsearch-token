@@ -22,7 +22,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -32,7 +32,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchInterruptedException
+name|ElasticsearchInterruptedException
 import|;
 end_import
 
@@ -42,7 +42,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchTimeoutException
+name|ElasticsearchTimeoutException
 import|;
 end_import
 
@@ -196,7 +196,7 @@ name|T
 name|actionGet
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 try|try
 block|{
@@ -213,7 +213,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchInterruptedException
+name|ElasticsearchInterruptedException
 argument_list|(
 name|e
 operator|.
@@ -247,7 +247,7 @@ name|String
 name|timeout
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 return|return
 name|actionGet
@@ -274,7 +274,7 @@ name|long
 name|timeoutMillis
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 return|return
 name|actionGet
@@ -298,7 +298,7 @@ name|TimeValue
 name|timeout
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 return|return
 name|actionGet
@@ -328,7 +328,7 @@ name|TimeUnit
 name|unit
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 try|try
 block|{
@@ -349,7 +349,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchTimeoutException
+name|ElasticsearchTimeoutException
 argument_list|(
 name|e
 operator|.
@@ -366,7 +366,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchInterruptedException
+name|ElasticsearchInterruptedException
 argument_list|(
 name|e
 operator|.
@@ -391,7 +391,7 @@ block|}
 block|}
 DECL|method|rethrowExecutionException
 specifier|static
-name|ElasticSearchException
+name|ElasticsearchException
 name|rethrowExecutionException
 parameter_list|(
 name|ExecutionException
@@ -405,14 +405,14 @@ operator|.
 name|getCause
 argument_list|()
 operator|instanceof
-name|ElasticSearchException
+name|ElasticsearchException
 condition|)
 block|{
-name|ElasticSearchException
+name|ElasticsearchException
 name|esEx
 init|=
 operator|(
-name|ElasticSearchException
+name|ElasticsearchException
 operator|)
 name|e
 operator|.
@@ -431,12 +431,12 @@ if|if
 condition|(
 name|root
 operator|instanceof
-name|ElasticSearchException
+name|ElasticsearchException
 condition|)
 block|{
 return|return
 operator|(
-name|ElasticSearchException
+name|ElasticsearchException
 operator|)
 name|root
 return|;

@@ -36,7 +36,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -2322,7 +2322,7 @@ name|void
 name|testMultiValueCustomScriptBoost
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 throws|,
 name|IOException
 block|{
@@ -3553,7 +3553,7 @@ name|void
 name|testMultiValueCustomScriptBoost_withFunctionScore
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 throws|,
 name|IOException
 block|{

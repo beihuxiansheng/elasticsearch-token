@@ -195,11 +195,11 @@ argument_list|)
 expr_stmt|;
 block|}
 specifier|final
-name|ElasticSearch090PostingsFormat
+name|Elasticsearch090PostingsFormat
 name|defaultFormat
 init|=
 operator|new
-name|ElasticSearch090PostingsFormat
+name|Elasticsearch090PostingsFormat
 argument_list|()
 decl_stmt|;
 name|buildInPostingFormatsX

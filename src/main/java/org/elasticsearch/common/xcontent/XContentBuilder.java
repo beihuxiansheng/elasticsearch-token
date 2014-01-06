@@ -6494,7 +6494,7 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//throw new ElasticSearchIllegalArgumentException("type not supported for generic value conversion: " + type);
+comment|//throw new ElasticsearchIllegalArgumentException("type not supported for generic value conversion: " + type);
 block|}
 block|}
 block|}

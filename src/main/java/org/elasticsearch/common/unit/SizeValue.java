@@ -22,7 +22,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 import|;
 end_import
 
@@ -478,7 +478,7 @@ name|String
 name|sValue
 parameter_list|)
 throws|throws
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 block|{
 return|return
 name|parseSizeValue
@@ -502,7 +502,7 @@ name|SizeValue
 name|defaultValue
 parameter_list|)
 throws|throws
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 block|{
 if|if
 condition|(
@@ -720,7 +720,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"Failed to parse ["
 operator|+

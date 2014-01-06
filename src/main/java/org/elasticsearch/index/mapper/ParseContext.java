@@ -116,7 +116,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 import|;
 end_import
 
@@ -377,7 +377,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 argument_list|(
 literal|"Only one field can be stored per key"
 argument_list|)

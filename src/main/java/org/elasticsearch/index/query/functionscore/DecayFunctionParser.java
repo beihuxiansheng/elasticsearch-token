@@ -66,7 +66,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 import|;
 end_import
 
@@ -76,7 +76,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 import|;
 end_import
 
@@ -521,7 +521,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"Malformed score function score parameters."
 argument_list|)
@@ -532,7 +532,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"Malformed score function score parameters."
 argument_list|)
@@ -924,7 +924,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"Parameter "
 operator|+
@@ -946,7 +946,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"Both "
 operator|+
@@ -1178,7 +1178,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"Parameter "
 operator|+
@@ -1202,7 +1202,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 name|DecayFunctionBuilder
 operator|.
@@ -1464,7 +1464,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"Parameter "
 operator|+
@@ -1514,7 +1514,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 name|DecayFunctionBuilder
 operator|.
@@ -2235,7 +2235,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 name|FunctionScoreQueryParser
 operator|.
@@ -2258,7 +2258,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 name|FunctionScoreQueryParser
 operator|.
@@ -2296,7 +2296,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 name|FunctionScoreQueryParser
 operator|.

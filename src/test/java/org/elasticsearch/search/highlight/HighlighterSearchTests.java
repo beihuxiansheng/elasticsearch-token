@@ -38,7 +38,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -433,7 +433,7 @@ name|void
 name|testHighTermFrequencyDoc
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 throws|,
 name|IOException
 block|{
@@ -613,7 +613,7 @@ name|void
 name|testNgramHighlightingWithBrokenPositions
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 throws|,
 name|IOException
 block|{
@@ -996,7 +996,7 @@ name|void
 name|testMultiPhraseCutoff
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 throws|,
 name|IOException
 block|{
@@ -1247,7 +1247,7 @@ name|void
 name|testNgramHighlightingPreLucene42
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 throws|,
 name|IOException
 block|{
@@ -1817,7 +1817,7 @@ name|void
 name|testNgramHighlighting
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 throws|,
 name|IOException
 block|{
@@ -10947,7 +10947,7 @@ name|void
 name|testBoostingQueryTermVector
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 throws|,
 name|IOException
 block|{
@@ -11303,7 +11303,7 @@ name|void
 name|testCommonTermsTermVector
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 throws|,
 name|IOException
 block|{
@@ -11485,7 +11485,7 @@ name|void
 name|testPhrasePrefix
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 throws|,
 name|IOException
 block|{
@@ -19474,7 +19474,7 @@ name|void
 name|testPostingsHighlighterBoostingQuery
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 throws|,
 name|IOException
 block|{
@@ -19647,7 +19647,7 @@ name|void
 name|testPostingsHighlighterCommonTermsQuery
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 throws|,
 name|IOException
 block|{

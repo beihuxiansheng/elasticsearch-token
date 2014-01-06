@@ -22,7 +22,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -32,7 +32,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 import|;
 end_import
 
@@ -730,7 +730,7 @@ name|ClusterBlock
 name|block
 parameter_list|)
 throws|throws
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 block|{
 if|if
 condition|(
@@ -742,7 +742,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 argument_list|(
 literal|"can't set initial block when started"
 argument_list|)
@@ -764,7 +764,7 @@ name|void
 name|doStart
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|add
 argument_list|(
@@ -834,7 +834,7 @@ name|void
 name|doStop
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|this
 operator|.
@@ -907,7 +907,7 @@ name|void
 name|doClose
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{     }
 annotation|@
 name|Override

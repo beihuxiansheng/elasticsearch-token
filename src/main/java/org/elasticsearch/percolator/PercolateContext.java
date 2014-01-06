@@ -148,7 +148,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -1201,7 +1201,7 @@ name|boolean
 name|release
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 try|try
 block|{
@@ -1227,7 +1227,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchException
+name|ElasticsearchException
 argument_list|(
 literal|"failed to close percolator in-memory index"
 argument_list|,
@@ -1542,7 +1542,7 @@ name|boolean
 name|release
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 try|try
 block|{

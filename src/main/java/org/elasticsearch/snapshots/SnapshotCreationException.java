@@ -20,7 +20,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchWrapperException
+name|ElasticsearchWrapperException
 import|;
 end_import
 
@@ -50,7 +50,7 @@ name|SnapshotCreationException
 extends|extends
 name|SnapshotException
 implements|implements
-name|ElasticSearchWrapperException
+name|ElasticsearchWrapperException
 block|{
 DECL|method|SnapshotCreationException
 specifier|public

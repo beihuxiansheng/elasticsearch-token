@@ -20,7 +20,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -87,7 +87,7 @@ name|SearchContext
 name|context
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 function_decl|;
 block|}
 end_interface

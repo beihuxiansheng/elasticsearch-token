@@ -13,37 +13,37 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * The same as {@link InterruptedException} simply a runtime one.  *  *  */
+comment|/**  * A generic exception indicating failure to generate.  *  *  */
 end_comment
 
 begin_class
-DECL|class|ElasticSearchInterruptedException
+DECL|class|ElasticsearchGenerationException
 specifier|public
 class|class
-name|ElasticSearchInterruptedException
+name|ElasticsearchGenerationException
 extends|extends
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
-DECL|method|ElasticSearchInterruptedException
+DECL|method|ElasticsearchGenerationException
 specifier|public
-name|ElasticSearchInterruptedException
+name|ElasticsearchGenerationException
 parameter_list|(
 name|String
-name|message
+name|msg
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|message
+name|msg
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|ElasticSearchInterruptedException
+DECL|method|ElasticsearchGenerationException
 specifier|public
-name|ElasticSearchInterruptedException
+name|ElasticsearchGenerationException
 parameter_list|(
 name|String
-name|message
+name|msg
 parameter_list|,
 name|Throwable
 name|cause
@@ -51,7 +51,7 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|message
+name|msg
 argument_list|,
 name|cause
 argument_list|)

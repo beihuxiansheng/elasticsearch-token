@@ -20,7 +20,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -72,7 +72,7 @@ name|V
 name|txGet
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 function_decl|;
 comment|/**      * Waits if necessary for at most the given time for the computation      * to complete, and then retrieves its result, if available.      */
 DECL|method|txGet
@@ -86,7 +86,7 @@ name|TimeUnit
 name|unit
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 function_decl|;
 block|}
 end_interface

@@ -122,7 +122,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 import|;
 end_import
 
@@ -4774,7 +4774,7 @@ block|{
 comment|// TODO how do we identify dynamically that its a binary value?
 throw|throw
 operator|new
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 argument_list|(
 literal|"Can't handle serializing a dynamic type with content token ["
 operator|+

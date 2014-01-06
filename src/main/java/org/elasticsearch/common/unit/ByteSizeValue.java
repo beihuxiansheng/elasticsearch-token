@@ -22,7 +22,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 import|;
 end_import
 
@@ -32,7 +32,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 import|;
 end_import
 
@@ -203,7 +203,7 @@ name|int
 name|bytesAsInt
 parameter_list|()
 throws|throws
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 block|{
 name|long
 name|bytes
@@ -222,7 +222,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 literal|"size ["
 operator|+
@@ -541,7 +541,7 @@ name|String
 name|sValue
 parameter_list|)
 throws|throws
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 block|{
 return|return
 name|parseBytesSizeValue
@@ -565,7 +565,7 @@ name|ByteSizeValue
 name|defaultValue
 parameter_list|)
 throws|throws
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 block|{
 if|if
 condition|(
@@ -920,7 +920,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"Failed to parse ["
 operator|+

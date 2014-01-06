@@ -22,7 +22,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -299,7 +299,7 @@ name|void
 name|doStart
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|this
 operator|.
@@ -324,7 +324,7 @@ name|void
 name|doStop
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|updateTasksExecutor
 operator|.
@@ -362,7 +362,7 @@ name|void
 name|doClose
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{     }
 DECL|method|add
 specifier|public

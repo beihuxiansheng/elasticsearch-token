@@ -36,7 +36,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -934,7 +934,7 @@ specifier|public
 name|TransportClient
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|this
 argument_list|(
@@ -987,7 +987,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructs a new transport client with the provided settings and the ability to control if settings will      * be loaded from the classpath / file system (the<tt>elasticsearch.(yml|json)</tt> files optionally prefixed with      *<tt>config/</tt>).      *      * @param settings           The explicit settings.      * @param loadConfigSettings<tt>true</tt> if settings should be loaded from the classpath/file system.      * @throws ElasticSearchException      */
+comment|/**      * Constructs a new transport client with the provided settings and the ability to control if settings will      * be loaded from the classpath / file system (the<tt>elasticsearch.(yml|json)</tt> files optionally prefixed with      *<tt>config/</tt>).      *      * @param settings           The explicit settings.      * @param loadConfigSettings<tt>true</tt> if settings should be loaded from the classpath/file system.      * @throws org.elasticsearch.ElasticsearchException      */
 DECL|method|TransportClient
 specifier|public
 name|TransportClient
@@ -1001,7 +1001,7 @@ name|boolean
 name|loadConfigSettings
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|this
 argument_list|(
@@ -1014,7 +1014,7 @@ name|loadConfigSettings
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructs a new transport client with the provided settings and the ability to control if settings will      * be loaded from the classpath / file system (the<tt>elasticsearch.(yml|json)</tt> files optionally prefixed with      *<tt>config/</tt>).      *      * @param pSettings          The explicit settings.      * @param loadConfigSettings<tt>true</tt> if settings should be loaded from the classpath/file system.      * @throws ElasticSearchException      */
+comment|/**      * Constructs a new transport client with the provided settings and the ability to control if settings will      * be loaded from the classpath / file system (the<tt>elasticsearch.(yml|json)</tt> files optionally prefixed with      *<tt>config/</tt>).      *      * @param pSettings          The explicit settings.      * @param loadConfigSettings<tt>true</tt> if settings should be loaded from the classpath/file system.      * @throws org.elasticsearch.ElasticsearchException      */
 DECL|method|TransportClient
 specifier|public
 name|TransportClient
@@ -1026,7 +1026,7 @@ name|boolean
 name|loadConfigSettings
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|Tuple
 argument_list|<

@@ -20,7 +20,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -249,7 +249,7 @@ name|Response
 name|get
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 return|return
 name|execute
@@ -269,7 +269,7 @@ name|TimeValue
 name|timeout
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 return|return
 name|execute
@@ -291,7 +291,7 @@ name|String
 name|timeout
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 return|return
 name|execute

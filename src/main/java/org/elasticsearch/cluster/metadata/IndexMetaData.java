@@ -64,7 +64,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 import|;
 end_import
 
@@ -74,7 +74,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 import|;
 end_import
 
@@ -680,7 +680,7 @@ name|String
 name|type
 parameter_list|)
 throws|throws
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 block|{
 name|Custom
 operator|.
@@ -706,7 +706,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 literal|"No custom index metadata factoy registered for type ["
 operator|+
@@ -923,7 +923,7 @@ return|;
 block|}
 throw|throw
 operator|new
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 argument_list|(
 literal|"No state match for id ["
 operator|+
@@ -974,7 +974,7 @@ return|;
 block|}
 throw|throw
 operator|new
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 argument_list|(
 literal|"No state match for ["
 operator|+

@@ -22,7 +22,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -150,7 +150,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchException
+name|ElasticsearchException
 argument_list|(
 literal|"Failed to build filter"
 argument_list|,
@@ -167,7 +167,7 @@ name|BytesReference
 name|buildAsBytes
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 return|return
 name|buildAsBytes
@@ -189,7 +189,7 @@ name|XContentType
 name|contentType
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 try|try
 block|{
@@ -225,7 +225,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchException
+name|ElasticsearchException
 argument_list|(
 literal|"Failed to build filter"
 argument_list|,

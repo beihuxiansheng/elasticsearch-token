@@ -40,7 +40,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -50,7 +50,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 import|;
 end_import
 
@@ -60,7 +60,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 import|;
 end_import
 
@@ -337,7 +337,7 @@ name|String
 name|name
 parameter_list|)
 throws|throws
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 block|{
 name|AllocationCommand
 operator|.
@@ -363,7 +363,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 literal|"No allocation command factory registered for name ["
 operator|+
@@ -519,7 +519,7 @@ operator|.
 name|commands
 return|;
 block|}
-comment|/**      * Executes all wrapped commands on a given {@link RoutingAllocation}      * @param allocation {@link RoutingAllocation} to apply this command to      * @throws ElasticSearchException if something happens during execution      */
+comment|/**      * Executes all wrapped commands on a given {@link RoutingAllocation}      * @param allocation {@link RoutingAllocation} to apply this command to      * @throws org.elasticsearch.ElasticsearchException if something happens during execution      */
 DECL|method|execute
 specifier|public
 name|void
@@ -529,7 +529,7 @@ name|RoutingAllocation
 name|allocation
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 for|for
 control|(
@@ -723,7 +723,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"No commands"
 argument_list|)
@@ -756,7 +756,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"expected field name to be named `commands`, got "
 operator|+
@@ -783,7 +783,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"expected field name to be named `commands`, got "
 operator|+
@@ -814,7 +814,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"commands should follow with an array element"
 argument_list|)
@@ -839,7 +839,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"expected either field name commands, or start array, got "
 operator|+
@@ -933,7 +933,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"allocation command is malformed, done parsing a command, but didn't get END_OBJECT, got "
 operator|+
@@ -946,7 +946,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"allocation command is malformed, got token "
 operator|+

@@ -20,7 +20,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -30,7 +30,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchInterruptedException
+name|ElasticsearchInterruptedException
 import|;
 end_import
 
@@ -40,7 +40,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchTimeoutException
+name|ElasticsearchTimeoutException
 import|;
 end_import
 
@@ -161,7 +161,7 @@ name|V
 name|txGet
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 try|try
 block|{
@@ -178,7 +178,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchInterruptedException
+name|ElasticsearchInterruptedException
 argument_list|(
 name|e
 operator|.
@@ -200,12 +200,12 @@ operator|.
 name|getCause
 argument_list|()
 operator|instanceof
-name|ElasticSearchException
+name|ElasticsearchException
 condition|)
 block|{
 throw|throw
 operator|(
-name|ElasticSearchException
+name|ElasticsearchException
 operator|)
 name|e
 operator|.
@@ -241,7 +241,7 @@ name|TimeUnit
 name|unit
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 try|try
 block|{
@@ -262,7 +262,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchTimeoutException
+name|ElasticsearchTimeoutException
 argument_list|(
 name|e
 operator|.
@@ -279,7 +279,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchInterruptedException
+name|ElasticsearchInterruptedException
 argument_list|(
 name|e
 operator|.
@@ -301,12 +301,12 @@ operator|.
 name|getCause
 argument_list|()
 operator|instanceof
-name|ElasticSearchException
+name|ElasticsearchException
 condition|)
 block|{
 throw|throw
 operator|(
-name|ElasticSearchException
+name|ElasticsearchException
 operator|)
 name|e
 operator|.

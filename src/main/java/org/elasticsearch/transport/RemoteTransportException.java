@@ -20,7 +20,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchWrapperException
+name|ElasticsearchWrapperException
 import|;
 end_import
 
@@ -50,7 +50,7 @@ name|RemoteTransportException
 extends|extends
 name|ActionTransportException
 implements|implements
-name|ElasticSearchWrapperException
+name|ElasticsearchWrapperException
 block|{
 DECL|method|RemoteTransportException
 specifier|public

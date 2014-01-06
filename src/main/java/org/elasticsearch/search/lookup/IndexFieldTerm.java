@@ -50,7 +50,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -282,7 +282,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchException
+name|ElasticsearchException
 argument_list|(
 literal|"Unable to get posting list for field "
 operator|+
@@ -751,7 +751,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchException
+name|ElasticsearchException
 argument_list|(
 literal|"While trying to initialize term positions in IndexFieldTerm.setNextDoc() "
 argument_list|,
@@ -933,7 +933,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchException
+name|ElasticsearchException
 argument_list|(
 literal|"Cannot get term statistics: "
 argument_list|,
@@ -1068,7 +1068,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchException
+name|ElasticsearchException
 argument_list|(
 literal|"You must call get with all required flags! Instead of "
 operator|+

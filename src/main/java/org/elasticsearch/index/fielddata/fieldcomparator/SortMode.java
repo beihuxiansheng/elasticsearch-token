@@ -38,7 +38,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 import|;
 end_import
 
@@ -896,7 +896,7 @@ return|return
 name|a
 return|;
 block|}
-comment|/**      * A case insensitive version of {@link #valueOf(String)}      *      * @throws ElasticSearchIllegalArgumentException if the given string doesn't match a sort mode or is<code>null</code>.      */
+comment|/**      * A case insensitive version of {@link #valueOf(String)}      *      * @throws org.elasticsearch.ElasticsearchIllegalArgumentException if the given string doesn't match a sort mode or is<code>null</code>.      */
 DECL|method|fromString
 specifier|public
 specifier|static
@@ -931,7 +931,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 literal|"Illegal sort_mode "
 operator|+

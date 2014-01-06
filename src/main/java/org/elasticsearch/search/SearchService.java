@@ -114,7 +114,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -1231,7 +1231,7 @@ name|void
 name|doStart
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{     }
 annotation|@
 name|Override
@@ -1241,7 +1241,7 @@ name|void
 name|doStop
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 for|for
 control|(
@@ -1274,7 +1274,7 @@ name|void
 name|doClose
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|keepAliveReaper
 operator|.
@@ -1293,7 +1293,7 @@ name|ShardSearchRequest
 name|request
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|SearchContext
 name|context
@@ -1376,7 +1376,7 @@ name|ShardSearchRequest
 name|request
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|SearchContext
 name|context
@@ -1430,7 +1430,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchException
+name|ElasticsearchException
 argument_list|(
 literal|"Scroll must be provided when scanning..."
 argument_list|)
@@ -1507,7 +1507,7 @@ name|InternalScrollSearchRequest
 name|request
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|SearchContext
 name|context
@@ -1700,7 +1700,7 @@ name|ShardSearchRequest
 name|request
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|SearchContext
 name|context
@@ -1861,7 +1861,7 @@ name|InternalScrollSearchRequest
 name|request
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|SearchContext
 name|context
@@ -2017,7 +2017,7 @@ name|QuerySearchRequest
 name|request
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|SearchContext
 name|context
@@ -2221,7 +2221,7 @@ name|ShardSearchRequest
 name|request
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|SearchContext
 name|context
@@ -2488,7 +2488,7 @@ name|QuerySearchRequest
 name|request
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|SearchContext
 name|context
@@ -2822,7 +2822,7 @@ name|InternalScrollSearchRequest
 name|request
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|SearchContext
 name|context
@@ -3108,7 +3108,7 @@ name|FetchSearchRequest
 name|request
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|SearchContext
 name|context
@@ -3334,7 +3334,7 @@ name|ShardSearchRequest
 name|request
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|SearchContext
 name|context
@@ -3381,7 +3381,7 @@ name|ShardSearchRequest
 name|request
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 return|return
 name|createContext
@@ -3407,7 +3407,7 @@ name|Searcher
 name|searcher
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|IndexService
 name|indexService

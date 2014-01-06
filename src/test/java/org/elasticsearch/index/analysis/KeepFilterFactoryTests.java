@@ -52,7 +52,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 import|;
 end_import
 
@@ -285,7 +285,7 @@ argument_list|()
 argument_list|,
 name|instanceOf
 argument_list|(
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 operator|.
 name|class
 argument_list|)
@@ -422,7 +422,7 @@ argument_list|()
 argument_list|,
 name|instanceOf
 argument_list|(
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 operator|.
 name|class
 argument_list|)

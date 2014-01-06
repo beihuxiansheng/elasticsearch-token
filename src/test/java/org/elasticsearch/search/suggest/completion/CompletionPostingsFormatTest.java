@@ -276,7 +276,7 @@ name|codec
 operator|.
 name|postingsformat
 operator|.
-name|ElasticSearch090PostingsFormat
+name|Elasticsearch090PostingsFormat
 import|;
 end_import
 
@@ -605,7 +605,7 @@ operator|new
 name|PreBuiltPostingsFormatProvider
 argument_list|(
 operator|new
-name|ElasticSearch090PostingsFormat
+name|Elasticsearch090PostingsFormat
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -814,7 +814,7 @@ operator|new
 name|PreBuiltPostingsFormatProvider
 argument_list|(
 operator|new
-name|ElasticSearch090PostingsFormat
+name|Elasticsearch090PostingsFormat
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -989,7 +989,7 @@ operator|new
 name|PreBuiltPostingsFormatProvider
 argument_list|(
 operator|new
-name|ElasticSearch090PostingsFormat
+name|Elasticsearch090PostingsFormat
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1533,7 +1533,7 @@ operator|new
 name|PreBuiltPostingsFormatProvider
 argument_list|(
 operator|new
-name|ElasticSearch090PostingsFormat
+name|Elasticsearch090PostingsFormat
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -2515,7 +2515,7 @@ operator|new
 name|PreBuiltPostingsFormatProvider
 argument_list|(
 operator|new
-name|ElasticSearch090PostingsFormat
+name|Elasticsearch090PostingsFormat
 argument_list|()
 argument_list|)
 decl_stmt|;

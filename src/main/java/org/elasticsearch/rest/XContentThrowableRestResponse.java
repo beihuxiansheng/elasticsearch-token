@@ -20,7 +20,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -111,12 +111,12 @@ operator|(
 operator|(
 name|t
 operator|instanceof
-name|ElasticSearchException
+name|ElasticsearchException
 operator|)
 condition|?
 operator|(
 operator|(
-name|ElasticSearchException
+name|ElasticsearchException
 operator|)
 name|t
 operator|)

@@ -36,7 +36,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -494,7 +494,7 @@ name|void
 name|doStart
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{     }
 annotation|@
 name|Override
@@ -504,7 +504,7 @@ name|void
 name|doStop
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{     }
 annotation|@
 name|Override
@@ -514,7 +514,7 @@ name|void
 name|doClose
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|clusterService
 operator|.
@@ -1079,7 +1079,7 @@ name|MetaData
 name|read
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 function_decl|;
 DECL|method|write
 specifier|protected
@@ -1091,7 +1091,7 @@ name|MetaData
 name|metaData
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 function_decl|;
 DECL|method|delete
 specifier|protected
@@ -1103,7 +1103,7 @@ name|IndexMetaData
 name|indexMetaData
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 function_decl|;
 block|}
 end_class

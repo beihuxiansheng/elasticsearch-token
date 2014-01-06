@@ -22,7 +22,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -8705,7 +8705,7 @@ name|void
 name|testSimpleSpan
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 throws|,
 name|IOException
 block|{

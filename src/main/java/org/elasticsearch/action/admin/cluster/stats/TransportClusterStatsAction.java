@@ -26,7 +26,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -783,7 +783,7 @@ name|ClusterStatsNodeRequest
 name|nodeRequest
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|NodeInfo
 name|nodeInfo

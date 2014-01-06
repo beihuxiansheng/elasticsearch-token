@@ -22,7 +22,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 import|;
 end_import
 
@@ -331,7 +331,7 @@ operator|!=
 name|lastTranslogId
 return|;
 block|}
-comment|/**          * Indicates that the same translog exists, but new operations have been appended to it. Throws          * {@link ElasticSearchIllegalStateException} if {@link #newTranslogCreated()} is<tt>true</tt>, so          * always check that first.          */
+comment|/**          * Indicates that the same translog exists, but new operations have been appended to it. Throws          * {@link org.elasticsearch.ElasticsearchIllegalStateException} if {@link #newTranslogCreated()} is<tt>true</tt>, so          * always check that first.          */
 DECL|method|sameTranslogNewOperations
 specifier|public
 name|boolean
@@ -346,7 +346,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 argument_list|(
 literal|"Should not be called when there is a new translog"
 argument_list|)

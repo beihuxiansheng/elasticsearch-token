@@ -29,17 +29,17 @@ comment|/**  * A base class for all elasticsearch exceptions.  */
 end_comment
 
 begin_class
-DECL|class|ElasticSearchException
+DECL|class|ElasticsearchException
 specifier|public
 class|class
-name|ElasticSearchException
+name|ElasticsearchException
 extends|extends
 name|RuntimeException
 block|{
-comment|/**      * Construct a<code>ElasticSearchException</code> with the specified detail message.      *      * @param msg the detail message      */
-DECL|method|ElasticSearchException
+comment|/**      * Construct a<code>ElasticsearchException</code> with the specified detail message.      *      * @param msg the detail message      */
+DECL|method|ElasticsearchException
 specifier|public
-name|ElasticSearchException
+name|ElasticsearchException
 parameter_list|(
 name|String
 name|msg
@@ -51,10 +51,10 @@ name|msg
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Construct a<code>ElasticSearchException</code> with the specified detail message      * and nested exception.      *      * @param msg   the detail message      * @param cause the nested exception      */
-DECL|method|ElasticSearchException
+comment|/**      * Construct a<code>ElasticsearchException</code> with the specified detail message      * and nested exception.      *      * @param msg   the detail message      * @param cause the nested exception      */
+DECL|method|ElasticsearchException
 specifier|public
-name|ElasticSearchException
+name|ElasticsearchException
 parameter_list|(
 name|String
 name|msg
@@ -102,13 +102,13 @@ if|if
 condition|(
 name|cause
 operator|instanceof
-name|ElasticSearchException
+name|ElasticsearchException
 condition|)
 block|{
 return|return
 operator|(
 operator|(
-name|ElasticSearchException
+name|ElasticsearchException
 operator|)
 name|cause
 operator|)
@@ -140,7 +140,7 @@ name|INTERNAL_SERVER_ERROR
 return|;
 block|}
 block|}
-comment|/**      * Unwraps the actual cause from the exception for cases when the exception is a      * {@link ElasticSearchWrapperException}.      *      * @see org.elasticsearch.ExceptionsHelper#unwrapCause(Throwable)      */
+comment|/**      * Unwraps the actual cause from the exception for cases when the exception is a      * {@link ElasticsearchWrapperException}.      *      * @see org.elasticsearch.ExceptionsHelper#unwrapCause(Throwable)      */
 DECL|method|unwrapCause
 specifier|public
 name|Throwable
@@ -196,7 +196,7 @@ condition|(
 name|getCause
 argument_list|()
 operator|instanceof
-name|ElasticSearchException
+name|ElasticsearchException
 condition|)
 block|{
 name|sb
@@ -205,7 +205,7 @@ name|append
 argument_list|(
 operator|(
 operator|(
-name|ElasticSearchException
+name|ElasticsearchException
 operator|)
 name|getCause
 argument_list|()
@@ -370,13 +370,13 @@ if|if
 condition|(
 name|cause
 operator|instanceof
-name|ElasticSearchException
+name|ElasticsearchException
 condition|)
 block|{
 return|return
 operator|(
 operator|(
-name|ElasticSearchException
+name|ElasticsearchException
 operator|)
 name|cause
 operator|)

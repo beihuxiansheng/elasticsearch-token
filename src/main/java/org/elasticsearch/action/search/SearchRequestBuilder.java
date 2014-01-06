@@ -22,7 +22,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 import|;
 end_import
 
@@ -426,7 +426,7 @@ name|String
 name|searchType
 parameter_list|)
 throws|throws
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 block|{
 name|request
 operator|.

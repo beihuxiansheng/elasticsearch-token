@@ -24,7 +24,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 import|;
 end_import
 
@@ -553,7 +553,7 @@ block|{
 comment|// note, not used in ThreadPoolExecutor
 throw|throw
 operator|new
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 argument_list|(
 literal|"offer with timeout not allowed on size queue"
 argument_list|)
@@ -575,7 +575,7 @@ block|{
 comment|// note, not used in ThreadPoolExecutor
 throw|throw
 operator|new
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 argument_list|(
 literal|"put not allowed on size queue"
 argument_list|)

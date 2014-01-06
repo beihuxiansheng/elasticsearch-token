@@ -20,7 +20,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -194,7 +194,7 @@ name|String
 name|localNodeId
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 function_decl|;
 DECL|method|removeIndex
 name|void
@@ -207,7 +207,7 @@ name|String
 name|reason
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 function_decl|;
 block|}
 end_interface

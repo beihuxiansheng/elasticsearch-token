@@ -90,7 +90,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 import|;
 end_import
 
@@ -857,7 +857,7 @@ argument_list|)
 operator|)
 return|;
 block|}
-comment|/**      * Resolve a node with a given id      *      * @param node id of the node to discover      * @return discovered node matching the given id      * @throws ElasticSearchIllegalArgumentException      *          if more than one node matches the request or no nodes have been resolved      */
+comment|/**      * Resolve a node with a given id      *      * @param node id of the node to discover      * @return discovered node matching the given id      * @throws org.elasticsearch.ElasticsearchIllegalArgumentException      *          if more than one node matches the request or no nodes have been resolved      */
 DECL|method|resolveNode
 specifier|public
 name|DiscoveryNode
@@ -887,7 +887,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 literal|"resolved ["
 operator|+
@@ -914,7 +914,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 literal|"failed to resolve ["
 operator|+

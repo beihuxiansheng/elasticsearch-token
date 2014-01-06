@@ -24,7 +24,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -34,7 +34,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 import|;
 end_import
 
@@ -828,7 +828,7 @@ name|Request
 name|request
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 function_decl|;
 DECL|method|checkWriteConsistency
 specifier|protected
@@ -1645,7 +1645,7 @@ name|boolean
 name|fromClusterEvent
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|this
 operator|.
@@ -2858,11 +2858,11 @@ if|if
 condition|(
 name|e
 operator|instanceof
-name|ElasticSearchException
+name|ElasticsearchException
 operator|&&
 operator|(
 operator|(
-name|ElasticSearchException
+name|ElasticsearchException
 operator|)
 name|e
 operator|)
@@ -3063,7 +3063,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 argument_list|(
 literal|"unexpected state, failed to find primary shard on an index operation that succeeded"
 argument_list|)

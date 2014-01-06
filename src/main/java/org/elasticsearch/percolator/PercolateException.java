@@ -16,7 +16,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -26,7 +26,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchWrapperException
+name|ElasticsearchWrapperException
 import|;
 end_import
 
@@ -54,9 +54,9 @@ specifier|public
 class|class
 name|PercolateException
 extends|extends
-name|ElasticSearchException
+name|ElasticsearchException
 implements|implements
-name|ElasticSearchWrapperException
+name|ElasticsearchWrapperException
 block|{
 DECL|field|shardId
 specifier|private

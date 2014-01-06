@@ -22,7 +22,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 import|;
 end_import
 
@@ -170,7 +170,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 name|ex
 parameter_list|)
 block|{
@@ -786,7 +786,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 name|ex
 parameter_list|)
 block|{

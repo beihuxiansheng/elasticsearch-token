@@ -40,7 +40,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -826,7 +826,7 @@ name|IndexShardStatsRequest
 name|request
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|InternalIndexService
 name|indexService

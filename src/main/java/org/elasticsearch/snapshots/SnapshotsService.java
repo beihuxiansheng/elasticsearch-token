@@ -62,7 +62,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -1154,7 +1154,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Validates snapshot request      *      * @param request snapshot request      * @param state   current cluster state      * @throws ElasticSearchException      */
+comment|/**      * Validates snapshot request      *      * @param request snapshot request      * @param state   current cluster state      * @throws org.elasticsearch.ElasticsearchException      */
 DECL|method|validate
 specifier|private
 name|void
@@ -1167,7 +1167,7 @@ name|ClusterState
 name|state
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|RepositoriesMetaData
 name|repositoriesMetaData

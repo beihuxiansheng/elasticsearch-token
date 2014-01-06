@@ -24,7 +24,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchWrapperException
+name|ElasticsearchWrapperException
 import|;
 end_import
 
@@ -68,7 +68,7 @@ name|BroadcastShardOperationFailedException
 extends|extends
 name|IndexShardException
 implements|implements
-name|ElasticSearchWrapperException
+name|ElasticsearchWrapperException
 block|{
 DECL|method|BroadcastShardOperationFailedException
 specifier|public

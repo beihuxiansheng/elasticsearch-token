@@ -36,7 +36,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -46,7 +46,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchGenerationException
+name|ElasticsearchGenerationException
 import|;
 end_import
 
@@ -56,7 +56,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 import|;
 end_import
 
@@ -66,7 +66,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 import|;
 end_import
 
@@ -481,7 +481,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 literal|"No type match for ["
 operator|+
@@ -958,7 +958,7 @@ name|Long
 name|ttl
 parameter_list|)
 throws|throws
-name|ElasticSearchGenerationException
+name|ElasticsearchGenerationException
 block|{
 if|if
 condition|(
@@ -987,7 +987,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 literal|"TTL value must be> 0. Illegal value provided ["
 operator|+
@@ -1092,7 +1092,7 @@ name|Map
 name|source
 parameter_list|)
 throws|throws
-name|ElasticSearchGenerationException
+name|ElasticsearchGenerationException
 block|{
 return|return
 name|source
@@ -1116,7 +1116,7 @@ name|XContentType
 name|contentType
 parameter_list|)
 throws|throws
-name|ElasticSearchGenerationException
+name|ElasticsearchGenerationException
 block|{
 try|try
 block|{
@@ -1152,7 +1152,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchGenerationException
+name|ElasticsearchGenerationException
 argument_list|(
 literal|"Failed to generate ["
 operator|+
@@ -1281,7 +1281,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchGenerationException
+name|ElasticsearchGenerationException
 argument_list|(
 literal|"Failed to generate"
 argument_list|,
@@ -1357,7 +1357,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchGenerationException
+name|ElasticsearchGenerationException
 argument_list|(
 literal|"Failed to generate"
 argument_list|,
@@ -1446,7 +1446,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchGenerationException
+name|ElasticsearchGenerationException
 argument_list|(
 literal|"Failed to generate"
 argument_list|,
@@ -1548,7 +1548,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchGenerationException
+name|ElasticsearchGenerationException
 argument_list|(
 literal|"Failed to generate"
 argument_list|,
@@ -1666,7 +1666,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchGenerationException
+name|ElasticsearchGenerationException
 argument_list|(
 literal|"Failed to generate"
 argument_list|,
@@ -1832,7 +1832,7 @@ name|String
 name|opType
 parameter_list|)
 throws|throws
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 block|{
 if|if
 condition|(
@@ -1877,7 +1877,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 literal|"No index opType matching ["
 operator|+
@@ -2053,7 +2053,7 @@ name|boolean
 name|allowIdGeneration
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 comment|// resolve the routing if needed
 name|routing
@@ -2239,7 +2239,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"failed to parse doc to extract routing/timestamp"
 argument_list|,
@@ -2307,7 +2307,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 literal|"Can't specify parent if no parent field has been configured"
 argument_list|)
@@ -2325,7 +2325,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 literal|"Can't specify parent if no parent field has been configured"
 argument_list|)

@@ -22,7 +22,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 import|;
 end_import
 
@@ -372,7 +372,7 @@ argument_list|>
 name|getSourceAsMap
 parameter_list|()
 throws|throws
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 block|{
 return|return
 name|getResult

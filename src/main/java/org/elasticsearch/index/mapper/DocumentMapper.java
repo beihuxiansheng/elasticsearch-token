@@ -148,7 +148,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchGenerationException
+name|ElasticsearchGenerationException
 import|;
 end_import
 
@@ -3533,7 +3533,7 @@ name|CompressedString
 name|refreshSource
 parameter_list|()
 throws|throws
-name|ElasticSearchGenerationException
+name|ElasticsearchGenerationException
 block|{
 try|try
 block|{
@@ -3611,7 +3611,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchGenerationException
+name|ElasticsearchGenerationException
 argument_list|(
 literal|"failed to serialize source for type ["
 operator|+

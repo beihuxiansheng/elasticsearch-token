@@ -22,7 +22,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchGenerationException
+name|ElasticsearchGenerationException
 import|;
 end_import
 
@@ -32,7 +32,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 import|;
 end_import
 
@@ -545,7 +545,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 literal|"indices must not be null"
 argument_list|)
@@ -582,7 +582,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 literal|"indices["
 operator|+
@@ -846,7 +846,7 @@ name|String
 name|searchType
 parameter_list|)
 throws|throws
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 block|{
 return|return
 name|searchType
@@ -965,7 +965,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchGenerationException
+name|ElasticsearchGenerationException
 argument_list|(
 literal|"Failed to generate ["
 operator|+
@@ -1228,7 +1228,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchGenerationException
+name|ElasticsearchGenerationException
 argument_list|(
 literal|"Failed to generate ["
 operator|+

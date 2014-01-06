@@ -88,7 +88,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -355,12 +355,12 @@ if|if
 condition|(
 name|e
 operator|instanceof
-name|ElasticSearchException
+name|ElasticsearchException
 condition|)
 block|{
 throw|throw
 operator|(
-name|ElasticSearchException
+name|ElasticsearchException
 operator|)
 name|e
 throw|;
@@ -369,7 +369,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticSearchException
+name|ElasticsearchException
 argument_list|(
 name|e
 operator|.

@@ -64,7 +64,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -74,7 +74,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 import|;
 end_import
 
@@ -963,7 +963,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchException
+name|ElasticsearchException
 argument_list|(
 literal|"No DocumentMapper found for type ["
 operator|+
@@ -1206,7 +1206,7 @@ operator|.
 name|onFailure
 argument_list|(
 operator|new
-name|ElasticSearchException
+name|ElasticsearchException
 argument_list|(
 literal|"No fields found to fetch the 'likeText' from"
 argument_list|)
@@ -1600,7 +1600,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchException
+name|ElasticsearchException
 argument_list|(
 literal|"No shards for index "
 operator|+
@@ -1979,7 +1979,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 argument_list|(
 literal|"Field should have either a string, numeric or binary value"
 argument_list|)

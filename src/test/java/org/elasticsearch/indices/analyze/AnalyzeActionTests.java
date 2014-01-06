@@ -22,7 +22,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -32,7 +32,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 import|;
 end_import
 
@@ -501,7 +501,7 @@ name|void
 name|analyzeNumericField
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 throws|,
 name|IOException
 block|{
@@ -652,7 +652,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 name|ex
 parameter_list|)
 block|{         }
@@ -688,7 +688,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 name|ex
 parameter_list|)
 block|{         }

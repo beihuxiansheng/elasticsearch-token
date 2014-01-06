@@ -34,7 +34,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 import|;
 end_import
 
@@ -244,7 +244,7 @@ argument_list|>
 name|sourceAsMap
 parameter_list|()
 throws|throws
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 function_decl|;
 comment|/**      * If enabled, the explanation of the search hit.      */
 DECL|method|explanation

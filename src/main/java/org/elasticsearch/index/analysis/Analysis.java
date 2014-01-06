@@ -584,7 +584,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 import|;
 end_import
 
@@ -1791,7 +1791,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Fetches a list of words from the specified settings file. The list should either be available at the key      * specified by settingsPrefix or in a file specified by settingsPrefix + _path.      *      * @throws ElasticSearchIllegalArgumentException      *          If the word list cannot be found at either key.      */
+comment|/**      * Fetches a list of words from the specified settings file. The list should either be available at the key      * specified by settingsPrefix or in a file specified by settingsPrefix + _path.      *      * @throws org.elasticsearch.ElasticsearchIllegalArgumentException      *          If the word list cannot be found at either key.      */
 DECL|method|getWordList
 specifier|public
 specifier|static
@@ -1929,7 +1929,7 @@ argument_list|)
 decl_stmt|;
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 name|message
 argument_list|)
@@ -2075,7 +2075,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * @return null If no settings set for "settingsPrefix" then return<code>null</code>.      * @throws ElasticSearchIllegalArgumentException      *          If the Reader can not be instantiated.      */
+comment|/**      * @return null If no settings set for "settingsPrefix" then return<code>null</code>.      * @throws org.elasticsearch.ElasticsearchIllegalArgumentException      *          If the Reader can not be instantiated.      */
 DECL|method|getReaderFromFile
 specifier|public
 specifier|static
@@ -2177,7 +2177,7 @@ argument_list|)
 decl_stmt|;
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 name|message
 argument_list|)

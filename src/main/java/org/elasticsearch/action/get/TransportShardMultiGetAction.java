@@ -22,7 +22,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -576,7 +576,7 @@ name|int
 name|shardId
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|IndexService
 name|indexService
@@ -819,7 +819,7 @@ condition|)
 block|{
 throw|throw
 operator|(
-name|ElasticSearchException
+name|ElasticsearchException
 operator|)
 name|t
 throw|;

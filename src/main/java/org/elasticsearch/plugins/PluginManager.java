@@ -34,7 +34,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 import|;
 end_import
 
@@ -44,7 +44,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchTimeoutException
+name|ElasticsearchTimeoutException
 import|;
 end_import
 
@@ -788,7 +788,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticSearchTimeoutException
+name|ElasticsearchTimeoutException
 name|e
 parameter_list|)
 block|{
@@ -872,7 +872,7 @@ break|break;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticSearchTimeoutException
+name|ElasticsearchTimeoutException
 name|e
 parameter_list|)
 block|{
@@ -1411,7 +1411,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 literal|"plugin name is incorrect"
 argument_list|)
@@ -2492,7 +2492,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 name|e
 parameter_list|)
 block|{

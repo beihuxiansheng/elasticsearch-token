@@ -28,7 +28,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchGenerationException
+name|ElasticsearchGenerationException
 import|;
 end_import
 
@@ -38,7 +38,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 import|;
 end_import
 
@@ -889,7 +889,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchGenerationException
+name|ElasticsearchGenerationException
 argument_list|(
 literal|"Failed to generate ["
 operator|+
@@ -1126,7 +1126,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 literal|"malformed indices section, should be an array of strings"
 argument_list|)
@@ -1327,7 +1327,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 literal|"malformed settings section, should indices an inner object"
 argument_list|)
@@ -1376,7 +1376,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 literal|"malformed include_global_state, should be boolean"
 argument_list|)
@@ -1463,7 +1463,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 literal|"failed to parse repository source ["
 operator|+
@@ -1566,7 +1566,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 literal|"failed to parse repository source"
 argument_list|,
@@ -1619,7 +1619,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 literal|"failed to parse snapshot source"
 argument_list|,

@@ -50,23 +50,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|English
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -911,7 +897,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticSearchException
+name|ElasticsearchException
 name|ex
 parameter_list|)
 block|{             }

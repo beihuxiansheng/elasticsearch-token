@@ -108,7 +108,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -118,7 +118,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 import|;
 end_import
 
@@ -128,7 +128,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 import|;
 end_import
 
@@ -1827,7 +1827,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 literal|"Trying to set a routing entry with shardId ["
 operator|+
@@ -2301,7 +2301,7 @@ name|SourceToParse
 name|source
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|long
 name|startTime
@@ -2380,7 +2380,7 @@ name|Create
 name|create
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|writeAllowed
 argument_list|(
@@ -2464,7 +2464,7 @@ name|SourceToParse
 name|source
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|long
 name|startTime
@@ -2543,7 +2543,7 @@ name|Index
 name|index
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|writeAllowed
 argument_list|(
@@ -2653,7 +2653,7 @@ name|long
 name|version
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|long
 name|startTime
@@ -2720,7 +2720,7 @@ name|Delete
 name|delete
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|writeAllowed
 argument_list|(
@@ -2831,7 +2831,7 @@ modifier|...
 name|types
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|long
 name|startTime
@@ -2947,7 +2947,7 @@ name|DeleteByQuery
 name|deleteByQuery
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|writeAllowed
 argument_list|(
@@ -3027,7 +3027,7 @@ name|Get
 name|get
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|readAllowed
 argument_list|()
@@ -3054,7 +3054,7 @@ name|Refresh
 name|refresh
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|verifyNotClosed
 argument_list|()
@@ -3301,7 +3301,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchException
+name|ElasticsearchException
 argument_list|(
 literal|"io exception while building 'store stats'"
 argument_list|,
@@ -3556,7 +3556,7 @@ name|Flush
 name|flush
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 comment|// we allows flush while recovering, since we allow for operations to happen
 comment|// while recovering, and we want to keep the translog at bay (up to deletes, which
@@ -3623,7 +3623,7 @@ name|Optimize
 name|optimize
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|verifyStarted
 argument_list|()
@@ -4094,7 +4094,7 @@ name|void
 name|performRecoveryPrepareForTranslog
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 if|if
 condition|(
@@ -4174,7 +4174,7 @@ name|RecoveryStatus
 name|peerRecoveryStatus
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|performRecoveryFinalization
 argument_list|(
@@ -4197,7 +4197,7 @@ name|boolean
 name|withFlush
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 if|if
 condition|(
@@ -4284,7 +4284,7 @@ name|Operation
 name|operation
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 if|if
 condition|(
@@ -4643,7 +4643,7 @@ break|break;
 default|default:
 throw|throw
 operator|new
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 argument_list|(
 literal|"No operation defined for ["
 operator|+
@@ -4656,7 +4656,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|ElasticSearchException
+name|ElasticsearchException
 name|e
 parameter_list|)
 block|{
@@ -4665,7 +4665,7 @@ name|hasIgnoreOnRecoveryException
 init|=
 literal|false
 decl_stmt|;
-name|ElasticSearchException
+name|ElasticsearchException
 name|current
 init|=
 name|e
@@ -4695,13 +4695,13 @@ operator|.
 name|getCause
 argument_list|()
 operator|instanceof
-name|ElasticSearchException
+name|ElasticsearchException
 condition|)
 block|{
 name|current
 operator|=
 operator|(
-name|ElasticSearchException
+name|ElasticsearchException
 operator|)
 name|current
 operator|.

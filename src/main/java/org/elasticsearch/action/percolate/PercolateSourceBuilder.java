@@ -36,7 +36,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchGenerationException
+name|ElasticsearchGenerationException
 import|;
 end_import
 
@@ -1052,7 +1052,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchGenerationException
+name|ElasticsearchGenerationException
 argument_list|(
 literal|"Failed to generate ["
 operator|+

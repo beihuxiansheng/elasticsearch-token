@@ -50,7 +50,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -60,7 +60,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 import|;
 end_import
 
@@ -1192,7 +1192,7 @@ name|void
 name|doStart
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|Map
 argument_list|<
@@ -1293,7 +1293,7 @@ name|void
 name|doStop
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|pingService
 operator|.
@@ -1500,7 +1500,7 @@ name|void
 name|doClose
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|masterFD
 operator|.
@@ -1690,7 +1690,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 argument_list|(
 literal|"Shouldn't publish state when not master"
 argument_list|)
@@ -2094,7 +2094,7 @@ if|if
 condition|(
 name|e
 operator|instanceof
-name|ElasticSearchException
+name|ElasticsearchException
 condition|)
 block|{
 name|logger
@@ -2107,7 +2107,7 @@ name|masterNode
 argument_list|,
 operator|(
 operator|(
-name|ElasticSearchException
+name|ElasticsearchException
 operator|)
 name|e
 operator|)
@@ -3461,7 +3461,7 @@ operator|.
 name|onNewClusterStateFailed
 argument_list|(
 operator|new
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 argument_list|(
 literal|"received state from a node that is not part of the cluster"
 argument_list|)
@@ -3834,7 +3834,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 argument_list|(
 literal|"Node ["
 operator|+

@@ -64,7 +64,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -74,7 +74,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 import|;
 end_import
 
@@ -782,7 +782,7 @@ name|FetchSourceContext
 name|fetchSourceContext
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|currentMetric
 operator|.
@@ -1180,7 +1180,7 @@ name|FetchSourceContext
 name|fetchSourceContext
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|fetchSourceContext
 operator|=
@@ -2028,7 +2028,7 @@ block|{
 comment|// Only fail if we know it is a object field, missing paths / fields shouldn't fail.
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 literal|"field ["
 operator|+
@@ -2453,7 +2453,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchException
+name|ElasticsearchException
 argument_list|(
 literal|"Failed to get type ["
 operator|+
@@ -2609,7 +2609,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchException
+name|ElasticsearchException
 argument_list|(
 literal|"Failed to get type ["
 operator|+
@@ -2936,7 +2936,7 @@ block|{
 comment|// Only fail if we know it is a object field, missing paths / fields shouldn't fail.
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 literal|"field ["
 operator|+
@@ -3292,7 +3292,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchException
+name|ElasticsearchException
 argument_list|(
 literal|"Failed to get type ["
 operator|+

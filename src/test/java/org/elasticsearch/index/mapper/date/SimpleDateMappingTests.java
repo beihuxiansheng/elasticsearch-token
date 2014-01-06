@@ -82,7 +82,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 import|;
 end_import
 
@@ -664,7 +664,7 @@ assert|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 name|ex
 parameter_list|)
 block|{

@@ -36,7 +36,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -333,7 +333,7 @@ name|int
 name|sShardId
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 function_decl|;
 comment|/**      * Removes the shard, does not delete local data or the gateway.      */
 DECL|method|removeShard
@@ -347,7 +347,7 @@ name|String
 name|reason
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 function_decl|;
 DECL|method|numberOfShards
 name|int

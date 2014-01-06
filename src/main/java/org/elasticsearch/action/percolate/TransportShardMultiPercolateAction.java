@@ -22,7 +22,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -516,7 +516,7 @@ name|Request
 name|request
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 return|return
 name|clusterService
@@ -561,7 +561,7 @@ name|int
 name|shardId
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 comment|// TODO: Look into combining the shard req's docs into one in memory index.
 name|Response
@@ -655,7 +655,7 @@ condition|)
 block|{
 throw|throw
 operator|(
-name|ElasticSearchException
+name|ElasticsearchException
 operator|)
 name|t
 throw|;

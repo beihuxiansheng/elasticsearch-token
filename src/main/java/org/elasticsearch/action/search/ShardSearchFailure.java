@@ -22,7 +22,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -310,14 +310,14 @@ literal|null
 operator|&&
 name|actual
 operator|instanceof
-name|ElasticSearchException
+name|ElasticsearchException
 condition|)
 block|{
 name|status
 operator|=
 operator|(
 operator|(
-name|ElasticSearchException
+name|ElasticsearchException
 operator|)
 name|actual
 operator|)

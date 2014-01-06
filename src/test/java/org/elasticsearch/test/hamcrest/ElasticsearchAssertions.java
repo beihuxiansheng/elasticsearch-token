@@ -50,7 +50,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -173,20 +173,6 @@ operator|.
 name|percolate
 operator|.
 name|PercolateResponse
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|search
-operator|.
-name|SearchRequest
 import|;
 end_import
 
@@ -2615,7 +2601,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticSearchException
+name|ElasticsearchException
 name|esException
 parameter_list|)
 block|{

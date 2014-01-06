@@ -66,7 +66,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -76,7 +76,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 import|;
 end_import
 
@@ -980,7 +980,7 @@ argument_list|()
 argument_list|,
 name|instanceOf
 argument_list|(
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 operator|.
 name|class
 argument_list|)
@@ -1013,7 +1013,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 name|ex
 parameter_list|)
 block|{
@@ -1105,7 +1105,7 @@ argument_list|()
 argument_list|,
 name|instanceOf
 argument_list|(
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 operator|.
 name|class
 argument_list|)
@@ -1138,7 +1138,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 name|ex
 parameter_list|)
 block|{
@@ -3335,7 +3335,7 @@ name|void
 name|testStopwordsOnlyPhraseSuggest
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 throws|,
 name|IOException
 block|{
@@ -3448,7 +3448,7 @@ name|void
 name|testPrefixLength
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 throws|,
 name|IOException
 block|{
@@ -3874,7 +3874,7 @@ name|void
 name|testMarvelHerosPhraseSuggest
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 throws|,
 name|IOException
 block|{
@@ -5425,7 +5425,7 @@ name|void
 name|testPhraseBoundaryCases
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 throws|,
 name|IOException
 block|{
@@ -6911,7 +6911,7 @@ name|void
 name|testSearchForRarePhrase
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 throws|,
 name|IOException
 block|{

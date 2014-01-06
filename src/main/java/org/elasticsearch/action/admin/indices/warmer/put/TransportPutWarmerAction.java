@@ -28,7 +28,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -559,7 +559,7 @@ argument_list|>
 name|listener
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 comment|// first execute the search request, see that its ok...
 name|searchAction
@@ -603,7 +603,7 @@ operator|.
 name|onFailure
 argument_list|(
 operator|new
-name|ElasticSearchException
+name|ElasticsearchException
 argument_list|(
 literal|"search failed with failed shards: "
 operator|+

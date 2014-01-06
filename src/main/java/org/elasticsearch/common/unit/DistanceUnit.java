@@ -22,7 +22,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 import|;
 end_import
 
@@ -486,7 +486,7 @@ name|to
 argument_list|)
 return|;
 block|}
-comment|/**      * Convert a String to a {@link DistanceUnit}      *       * @param unit name of the unit      * @return unit matching the given name      * @throws ElasticSearchIllegalArgumentException if no unit matches the given name      */
+comment|/**      * Convert a String to a {@link DistanceUnit}      *       * @param unit name of the unit      * @return unit matching the given name      * @throws org.elasticsearch.ElasticsearchIllegalArgumentException if no unit matches the given name      */
 DECL|method|fromString
 specifier|public
 specifier|static
@@ -534,7 +534,7 @@ block|}
 block|}
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 literal|"No distance unit match ["
 operator|+
@@ -627,7 +627,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Read a {@link DistanceUnit} from a {@link StreamInput}       *       * @param in {@link StreamInput} to read the {@link DistanceUnit} from      * @return {@link DistanceUnit} read from the {@link StreamInput}      * @throws IOException if no unit can be read from the {@link StreamInput}      * @thrown ElasticSearchIllegalArgumentException if no matching {@link DistanceUnit} can be found      */
+comment|/**      * Read a {@link DistanceUnit} from a {@link StreamInput}       *       * @param in {@link StreamInput} to read the {@link DistanceUnit} from      * @return {@link DistanceUnit} read from the {@link StreamInput}      * @throws IOException if no unit can be read from the {@link StreamInput}      * @thrown ElasticsearchIllegalArgumentException if no matching {@link DistanceUnit} can be found      */
 DECL|method|readDistanceUnit
 specifier|public
 specifier|static
@@ -664,7 +664,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 literal|"No type for distance unit matching ["
 operator|+

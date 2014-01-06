@@ -38,7 +38,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 import|;
 end_import
 
@@ -134,7 +134,7 @@ specifier|static
 class|class
 name|Helper
 block|{
-comment|/**          * Looks up and creates {@link PostingsFormatProvider} for the given name.          *<p>          * The settings for the created {@link PostingsFormatProvider} is taken from the given index settings.          * All settings with the {@value PostingsFormatProvider#POSTINGS_FORMAT_SETTINGS_PREFIX} prefix          * and the formats name as the key are passed to the factory.          *</p>          *          * @param indexSettings          the index settings to configure the postings format          * @param name                   the name of the postings format to lookup          * @param postingFormatFactories the factory mapping to lookup the {@link Factory} to create the {@link PostingsFormatProvider}          * @return a fully configured {@link PostingsFormatProvider} for the given name.          * @throws ElasticSearchIllegalArgumentException          *          if the no {@link PostingsFormatProvider} for the given name parameter could be found.          */
+comment|/**          * Looks up and creates {@link PostingsFormatProvider} for the given name.          *<p>          * The settings for the created {@link PostingsFormatProvider} is taken from the given index settings.          * All settings with the {@value PostingsFormatProvider#POSTINGS_FORMAT_SETTINGS_PREFIX} prefix          * and the formats name as the key are passed to the factory.          *</p>          *          * @param indexSettings          the index settings to configure the postings format          * @param name                   the name of the postings format to lookup          * @param postingFormatFactories the factory mapping to lookup the {@link Factory} to create the {@link PostingsFormatProvider}          * @return a fully configured {@link PostingsFormatProvider} for the given name.          * @throws org.elasticsearch.ElasticsearchIllegalArgumentException          *          if the no {@link PostingsFormatProvider} for the given name parameter could be found.          */
 DECL|method|lookup
 specifier|public
 specifier|static
@@ -158,7 +158,7 @@ argument_list|>
 name|postingFormatFactories
 parameter_list|)
 throws|throws
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 block|{
 name|Factory
 name|factory
@@ -179,7 +179,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 literal|"failed to find postings_format ["
 operator|+

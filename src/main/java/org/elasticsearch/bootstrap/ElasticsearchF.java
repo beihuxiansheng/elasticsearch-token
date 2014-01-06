@@ -11,14 +11,14 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Same as {@link ElasticSearch} just runs it in the foreground by default (does not close  * sout and serr).  */
+comment|/**  * Same as {@link Elasticsearch} just runs it in the foreground by default (does not close  * sout and serr).  */
 end_comment
 
 begin_class
-DECL|class|ElasticSearchF
+DECL|class|ElasticsearchF
 specifier|public
 class|class
-name|ElasticSearchF
+name|ElasticsearchF
 block|{
 DECL|method|close
 specifier|public

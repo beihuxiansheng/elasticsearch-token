@@ -36,7 +36,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -46,7 +46,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 import|;
 end_import
 
@@ -1282,7 +1282,7 @@ expr_stmt|;
 block|}
 throw|throw
 operator|(
-name|ElasticSearchException
+name|ElasticsearchException
 operator|)
 name|e
 throw|;
@@ -1291,11 +1291,11 @@ if|if
 condition|(
 name|e
 operator|instanceof
-name|ElasticSearchException
+name|ElasticsearchException
 operator|&&
 operator|(
 operator|(
-name|ElasticSearchException
+name|ElasticsearchException
 operator|)
 name|e
 operator|)
@@ -1521,7 +1521,7 @@ expr_stmt|;
 block|}
 throw|throw
 operator|(
-name|ElasticSearchException
+name|ElasticsearchException
 operator|)
 name|e
 throw|;
@@ -1530,11 +1530,11 @@ if|if
 condition|(
 name|e
 operator|instanceof
-name|ElasticSearchException
+name|ElasticsearchException
 operator|&&
 operator|(
 operator|(
-name|ElasticSearchException
+name|ElasticsearchException
 operator|)
 name|e
 operator|)
@@ -2319,7 +2319,7 @@ expr_stmt|;
 block|}
 throw|throw
 operator|(
-name|ElasticSearchException
+name|ElasticsearchException
 operator|)
 name|t
 throw|;
@@ -2403,11 +2403,11 @@ if|if
 condition|(
 name|t
 operator|instanceof
-name|ElasticSearchException
+name|ElasticsearchException
 operator|&&
 operator|(
 operator|(
-name|ElasticSearchException
+name|ElasticsearchException
 operator|)
 name|t
 operator|)
@@ -2529,11 +2529,11 @@ if|if
 condition|(
 name|t
 operator|instanceof
-name|ElasticSearchException
+name|ElasticsearchException
 operator|&&
 operator|(
 operator|(
-name|ElasticSearchException
+name|ElasticsearchException
 operator|)
 name|t
 operator|)
@@ -3939,7 +3939,7 @@ return|;
 default|default:
 throw|throw
 operator|new
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 argument_list|(
 literal|"Illegal update operation "
 operator|+

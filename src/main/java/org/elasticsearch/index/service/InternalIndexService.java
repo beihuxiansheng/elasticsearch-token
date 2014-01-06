@@ -64,7 +64,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -74,7 +74,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 import|;
 end_import
 
@@ -84,7 +84,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchInterruptedException
+name|ElasticsearchInterruptedException
 import|;
 end_import
 
@@ -1661,7 +1661,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchInterruptedException
+name|ElasticsearchInterruptedException
 argument_list|(
 literal|"interrupted closing index [ "
 operator|+
@@ -1689,7 +1689,7 @@ name|int
 name|shardId
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 return|return
 name|shardsInjectors
@@ -1781,7 +1781,7 @@ name|int
 name|sShardId
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 comment|/*          * TODO: we execute this in parallel but it's a synced method. Yet, we might          * be able to serialize the execution via the cluster state in the future. for now we just          * keep it synced.          */
 if|if
@@ -1791,7 +1791,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 argument_list|(
 literal|"Can't create shard ["
 operator|+
@@ -2209,7 +2209,7 @@ name|String
 name|reason
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 specifier|final
 name|Injector

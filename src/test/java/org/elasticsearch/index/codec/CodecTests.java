@@ -867,7 +867,7 @@ argument_list|()
 argument_list|,
 name|instanceOf
 argument_list|(
-name|ElasticSearch090PostingsFormat
+name|Elasticsearch090PostingsFormat
 operator|.
 name|class
 argument_list|)
@@ -878,7 +878,7 @@ name|assertThat
 argument_list|(
 operator|(
 operator|(
-name|ElasticSearch090PostingsFormat
+name|Elasticsearch090PostingsFormat
 operator|)
 name|postingsFormatService
 operator|.
@@ -1719,7 +1719,7 @@ argument_list|()
 argument_list|,
 name|instanceOf
 argument_list|(
-name|ElasticSearch090PostingsFormat
+name|Elasticsearch090PostingsFormat
 operator|.
 name|class
 argument_list|)

@@ -26,7 +26,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -472,7 +472,7 @@ argument_list|>
 name|listener
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 function_decl|;
 DECL|method|newRequest
 specifier|protected
@@ -594,7 +594,7 @@ name|Request
 name|request
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 function_decl|;
 DECL|class|AsyncSingleAction
 class|class
@@ -684,7 +684,7 @@ name|boolean
 name|fromClusterEvent
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 specifier|final
 name|ClusterState

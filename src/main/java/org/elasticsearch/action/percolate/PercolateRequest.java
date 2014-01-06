@@ -22,7 +22,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchGenerationException
+name|ElasticsearchGenerationException
 import|;
 end_import
 
@@ -534,7 +534,7 @@ name|Map
 name|document
 parameter_list|)
 throws|throws
-name|ElasticSearchGenerationException
+name|ElasticsearchGenerationException
 block|{
 return|return
 name|source
@@ -557,7 +557,7 @@ name|XContentType
 name|contentType
 parameter_list|)
 throws|throws
-name|ElasticSearchGenerationException
+name|ElasticsearchGenerationException
 block|{
 try|try
 block|{
@@ -593,7 +593,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchGenerationException
+name|ElasticsearchGenerationException
 argument_list|(
 literal|"Failed to generate ["
 operator|+

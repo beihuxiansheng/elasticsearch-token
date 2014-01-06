@@ -26,7 +26,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -212,7 +212,7 @@ name|String
 name|name
 parameter_list|()
 function_decl|;
-comment|/**      * Executes the command on a {@link RoutingAllocation} setup      * @param allocation {@link RoutingAllocation} to modify      * @throws ElasticSearchException if something happens during reconfiguration      */
+comment|/**      * Executes the command on a {@link RoutingAllocation} setup      * @param allocation {@link RoutingAllocation} to modify      * @throws org.elasticsearch.ElasticsearchException if something happens during reconfiguration      */
 DECL|method|execute
 name|void
 name|execute
@@ -221,7 +221,7 @@ name|RoutingAllocation
 name|allocation
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 function_decl|;
 block|}
 end_interface

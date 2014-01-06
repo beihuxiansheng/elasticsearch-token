@@ -78,7 +78,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -88,7 +88,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 import|;
 end_import
 
@@ -865,7 +865,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 argument_list|(
 literal|"transport client is closed, can't add an address"
 argument_list|)
@@ -1067,7 +1067,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 argument_list|(
 literal|"transport client is closed, can't remove an address"
 argument_list|)
@@ -1161,7 +1161,7 @@ argument_list|>
 name|callback
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|ImmutableList
 argument_list|<
@@ -1264,7 +1264,7 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticSearchException
+name|ElasticsearchException
 name|e
 parameter_list|)
 block|{
@@ -1314,7 +1314,7 @@ argument_list|>
 name|listener
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|ImmutableList
 argument_list|<
@@ -1414,7 +1414,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticSearchException
+name|ElasticsearchException
 name|e
 parameter_list|)
 block|{
@@ -2870,7 +2870,7 @@ name|DiscoveryNode
 name|node
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 function_decl|;
 block|}
 DECL|interface|NodeListenerCallback
@@ -2896,7 +2896,7 @@ argument_list|>
 name|listener
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 function_decl|;
 block|}
 block|}

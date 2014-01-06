@@ -13,22 +13,52 @@ package|;
 end_package
 
 begin_comment
-comment|/**  *  */
+comment|/**  * The same as {@link java.util.concurrent.TimeoutException} simply a runtime one.  *  *  */
 end_comment
 
-begin_interface
-DECL|interface|ElasticSearchWrapperException
+begin_class
+DECL|class|ElasticsearchTimeoutException
 specifier|public
-interface|interface
-name|ElasticSearchWrapperException
+class|class
+name|ElasticsearchTimeoutException
+extends|extends
+name|ElasticsearchException
 block|{
-DECL|method|getCause
-name|Throwable
-name|getCause
-parameter_list|()
-function_decl|;
+DECL|method|ElasticsearchTimeoutException
+specifier|public
+name|ElasticsearchTimeoutException
+parameter_list|(
+name|String
+name|message
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|message
+argument_list|)
+expr_stmt|;
 block|}
-end_interface
+DECL|method|ElasticsearchTimeoutException
+specifier|public
+name|ElasticsearchTimeoutException
+parameter_list|(
+name|String
+name|message
+parameter_list|,
+name|Throwable
+name|cause
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|message
+argument_list|,
+name|cause
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+end_class
 
 end_unit
 

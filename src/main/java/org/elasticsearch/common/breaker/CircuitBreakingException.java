@@ -22,7 +22,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -36,7 +36,7 @@ specifier|public
 class|class
 name|CircuitBreakingException
 extends|extends
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 comment|// TODO: maybe add more neat metrics here?
 DECL|method|CircuitBreakingException

@@ -106,7 +106,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -596,7 +596,7 @@ name|SnapshotIndexCommit
 name|snapshot
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 function_decl|;
 DECL|method|phase2
 name|void
@@ -608,7 +608,7 @@ name|Snapshot
 name|snapshot
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 function_decl|;
 DECL|method|phase3
 name|void
@@ -620,7 +620,7 @@ name|Snapshot
 name|snapshot
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 function_decl|;
 block|}
 DECL|interface|SnapshotHandler
@@ -761,7 +761,7 @@ name|boolean
 name|release
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 comment|// nothing to release here...
 return|return

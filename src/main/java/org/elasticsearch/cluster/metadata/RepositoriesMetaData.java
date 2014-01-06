@@ -36,7 +36,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 import|;
 end_import
 
@@ -548,7 +548,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"failed to parse repository ["
 operator|+
@@ -633,7 +633,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"failed to parse repository ["
 operator|+
@@ -678,7 +678,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"failed to parse repository ["
 operator|+
@@ -718,7 +718,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"failed to parse repository ["
 operator|+
@@ -737,7 +737,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"failed to parse repository ["
 operator|+
@@ -757,7 +757,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"failed to parse repository ["
 operator|+
@@ -787,7 +787,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"failed to parse repositories"
 argument_list|)

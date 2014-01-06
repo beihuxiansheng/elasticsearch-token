@@ -24,7 +24,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -336,7 +336,7 @@ name|String
 name|nodeId
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|DiscoveryNodes
 name|nodes
@@ -435,7 +435,7 @@ name|String
 name|nodeId
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|DiscoveryNodes
 name|nodes

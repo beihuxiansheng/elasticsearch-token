@@ -32,7 +32,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 import|;
 end_import
 
@@ -663,7 +663,7 @@ return|return
 name|point
 return|;
 block|}
-comment|/**      * Parse a {@link GeoPoint} with a {@link XContentParser}:      *       * @param parser {@link XContentParser} to parse the value from      * @return new {@link GeoPoint} parsed from the parse      *       * @throws IOException      * @throws ElasticSearchParseException      */
+comment|/**      * Parse a {@link GeoPoint} with a {@link XContentParser}:      *       * @param parser {@link XContentParser} to parse the value from      * @return new {@link GeoPoint} parsed from the parse      *       * @throws IOException      * @throws org.elasticsearch.ElasticsearchParseException      */
 DECL|method|parse
 specifier|public
 specifier|static
@@ -676,7 +676,7 @@ parameter_list|)
 throws|throws
 name|IOException
 throws|,
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 block|{
 return|return
 name|parse
@@ -689,7 +689,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Parse a {@link GeoPoint} with a {@link XContentParser}. A geopoint has one of the following forms:      *       *<ul>      *<li>Object:<pre>{&quot;lat&quot;:<i>&lt;latitude&gt;</i>,&quot;lon&quot;:<i>&lt;longitude&gt;</i>}</pre></li>      *<li>String:<pre>&quot;<i>&lt;latitude&gt;</i>,<i>&lt;longitude&gt;</i>&quot;</pre></li>      *<li>Geohash:<pre>&quot;<i>&lt;geohash&gt;</i>&quot;</pre></li>      *<li>Array:<pre>[<i>&lt;longitude&gt;</i>,<i>&lt;latitude&gt;</i>]</pre></li>      *</ul>      *       * @param parser {@link XContentParser} to parse the value from      * @param point A {@link GeoPoint} that will be reset by the values parsed      * @return new {@link GeoPoint} parsed from the parse      *       * @throws IOException      * @throws ElasticSearchParseException      */
+comment|/**      * Parse a {@link GeoPoint} with a {@link XContentParser}. A geopoint has one of the following forms:      *       *<ul>      *<li>Object:<pre>{&quot;lat&quot;:<i>&lt;latitude&gt;</i>,&quot;lon&quot;:<i>&lt;longitude&gt;</i>}</pre></li>      *<li>String:<pre>&quot;<i>&lt;latitude&gt;</i>,<i>&lt;longitude&gt;</i>&quot;</pre></li>      *<li>Geohash:<pre>&quot;<i>&lt;geohash&gt;</i>&quot;</pre></li>      *<li>Array:<pre>[<i>&lt;longitude&gt;</i>,<i>&lt;latitude&gt;</i>]</pre></li>      *</ul>      *       * @param parser {@link XContentParser} to parse the value from      * @param point A {@link GeoPoint} that will be reset by the values parsed      * @return new {@link GeoPoint} parsed from the parse      *       * @throws IOException      * @throws org.elasticsearch.ElasticsearchParseException      */
 DECL|method|parse
 specifier|public
 specifier|static
@@ -705,7 +705,7 @@ parameter_list|)
 throws|throws
 name|IOException
 throws|,
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 block|{
 if|if
 condition|(
@@ -788,7 +788,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"latitude must be a number"
 argument_list|)
@@ -833,7 +833,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"latitude must be a number"
 argument_list|)
@@ -878,7 +878,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"geohash must be a string"
 argument_list|)
@@ -889,7 +889,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"field must be either '"
 operator|+
@@ -912,7 +912,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"Token '"
 operator|+
@@ -1016,7 +1016,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"only two values allowed"
 argument_list|)
@@ -1027,7 +1027,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"Numeric value expected"
 argument_list|)
@@ -1145,7 +1145,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"geo_point expected"
 argument_list|)

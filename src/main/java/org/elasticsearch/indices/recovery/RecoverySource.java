@@ -92,7 +92,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -846,7 +846,7 @@ name|SnapshotIndexCommit
 name|snapshot
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|long
 name|totalSize
@@ -1911,7 +1911,7 @@ name|Snapshot
 name|snapshot
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 if|if
 condition|(
@@ -2197,7 +2197,7 @@ name|Snapshot
 name|snapshot
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 if|if
 condition|(
@@ -2423,7 +2423,7 @@ name|Snapshot
 name|snapshot
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|int
 name|ops

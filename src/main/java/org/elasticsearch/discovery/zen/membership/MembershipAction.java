@@ -24,7 +24,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -404,7 +404,7 @@ name|TimeValue
 name|timeout
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|transportService
 operator|.
@@ -491,7 +491,7 @@ name|TimeValue
 name|timeout
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 return|return
 name|transportService
@@ -566,7 +566,7 @@ name|TimeValue
 name|timeout
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|transportService
 operator|.

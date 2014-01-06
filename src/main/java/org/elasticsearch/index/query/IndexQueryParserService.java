@@ -78,7 +78,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -1153,7 +1153,7 @@ name|QueryBuilder
 name|queryBuilder
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|XContentParser
 name|parser
@@ -1251,7 +1251,7 @@ index|[]
 name|source
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 return|return
 name|parse
@@ -1282,7 +1282,7 @@ name|int
 name|length
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|XContentParser
 name|parser
@@ -1379,7 +1379,7 @@ name|BytesReference
 name|source
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|XContentParser
 name|parser

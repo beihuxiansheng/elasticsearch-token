@@ -22,7 +22,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -32,7 +32,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 import|;
 end_import
 
@@ -1269,7 +1269,7 @@ name|void
 name|test2744
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 throws|,
 name|IOException
 block|{
@@ -19140,7 +19140,7 @@ name|void
 name|testHasChildNotBeingCached
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 throws|,
 name|IOException
 block|{
@@ -22126,7 +22126,7 @@ name|void
 name|indexChildDocWithNoParentMapping
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 throws|,
 name|IOException
 block|{
@@ -22312,7 +22312,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 name|e
 parameter_list|)
 block|{
@@ -22368,7 +22368,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 name|e
 parameter_list|)
 block|{
@@ -22398,7 +22398,7 @@ name|void
 name|testAddingParentToExistingMapping
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 throws|,
 name|IOException
 block|{

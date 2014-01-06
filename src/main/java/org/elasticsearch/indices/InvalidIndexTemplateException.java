@@ -20,7 +20,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -46,7 +46,7 @@ specifier|public
 class|class
 name|InvalidIndexTemplateException
 extends|extends
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 DECL|field|name
 specifier|private

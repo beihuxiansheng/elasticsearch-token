@@ -18,7 +18,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 import|;
 end_import
 
@@ -318,7 +318,7 @@ name|boolean
 name|roundUp
 parameter_list|)
 throws|throws
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 block|{
 name|MutableDateTime
 name|dateTime
@@ -407,7 +407,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"operator not supported for date math ["
 operator|+
@@ -501,7 +501,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"rounding `/` can only be used on single unit types ["
 operator|+
@@ -1024,7 +1024,7 @@ break|break;
 default|default:
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"unit ["
 operator|+
@@ -1050,19 +1050,19 @@ if|if
 condition|(
 name|e
 operator|instanceof
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 condition|)
 block|{
 throw|throw
 operator|(
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 operator|)
 name|e
 throw|;
 block|}
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"failed to parse date math ["
 operator|+
@@ -1137,7 +1137,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"failed to parse date field ["
 operator|+
@@ -1278,7 +1278,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"failed to parse date field ["
 operator|+
@@ -1338,7 +1338,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"failed to parse date field ["
 operator|+

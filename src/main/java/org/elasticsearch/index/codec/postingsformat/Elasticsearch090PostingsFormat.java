@@ -191,15 +191,15 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is the default postings format for ElasticSearch that special cases  * the<tt>_uid</tt> field to use a bloom filter while all other fields  * will use a {@link Lucene41PostingsFormat}. This format will reuse the underlying  * {@link Lucene41PostingsFormat} and its files also for the<tt>_uid</tt> saving up to  * 5 files per segment in the default case.  */
+comment|/**  * This is the default postings format for Elasticsearch that special cases  * the<tt>_uid</tt> field to use a bloom filter while all other fields  * will use a {@link Lucene41PostingsFormat}. This format will reuse the underlying  * {@link Lucene41PostingsFormat} and its files also for the<tt>_uid</tt> saving up to  * 5 files per segment in the default case.  */
 end_comment
 
 begin_class
-DECL|class|ElasticSearch090PostingsFormat
+DECL|class|Elasticsearch090PostingsFormat
 specifier|public
 specifier|final
 class|class
-name|ElasticSearch090PostingsFormat
+name|Elasticsearch090PostingsFormat
 extends|extends
 name|PostingsFormat
 block|{
@@ -209,9 +209,9 @@ specifier|final
 name|BloomFilterPostingsFormat
 name|bloomPostings
 decl_stmt|;
-DECL|method|ElasticSearch090PostingsFormat
+DECL|method|Elasticsearch090PostingsFormat
 specifier|public
-name|ElasticSearch090PostingsFormat
+name|Elasticsearch090PostingsFormat
 parameter_list|()
 block|{
 name|super

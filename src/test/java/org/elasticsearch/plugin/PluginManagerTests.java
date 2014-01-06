@@ -20,7 +20,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 import|;
 end_import
 
@@ -30,7 +30,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchTimeoutException
+name|ElasticsearchTimeoutException
 import|;
 end_import
 
@@ -733,7 +733,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * We build a plugin manager instance which wait only for 30 seconds before      * raising an ElasticSearchTimeoutException      */
+comment|/**      * We build a plugin manager instance which wait only for 30 seconds before      * raising an ElasticsearchTimeoutException      */
 DECL|method|pluginManager
 specifier|private
 specifier|static
@@ -1547,7 +1547,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticSearchTimeoutException
+name|ElasticsearchTimeoutException
 name|e
 parameter_list|)
 block|{
@@ -1706,7 +1706,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 operator|.
 name|class
 argument_list|)

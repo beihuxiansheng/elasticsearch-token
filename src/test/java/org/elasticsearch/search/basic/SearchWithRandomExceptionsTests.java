@@ -64,7 +64,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -83,24 +83,6 @@ operator|.
 name|health
 operator|.
 name|ClusterHealthResponse
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|admin
-operator|.
-name|cluster
-operator|.
-name|state
-operator|.
-name|ClusterStateResponse
 import|;
 end_import
 
@@ -182,34 +164,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|metadata
-operator|.
-name|IndexMetaData
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|metadata
-operator|.
-name|MetaData
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|settings
@@ -245,20 +199,6 @@ operator|.
 name|unit
 operator|.
 name|TimeValue
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
-name|XContentBuilder
 import|;
 end_import
 
@@ -348,20 +288,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|store
-operator|.
-name|MockFSIndexStoreModule
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -385,16 +311,6 @@ operator|.
 name|io
 operator|.
 name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
 import|;
 end_import
 
@@ -904,7 +820,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|ElasticSearchException
+name|ElasticsearchException
 name|ex
 parameter_list|)
 block|{             }
@@ -1552,7 +1468,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|ElasticSearchException
+name|ElasticsearchException
 name|ex
 parameter_list|)
 block|{             }

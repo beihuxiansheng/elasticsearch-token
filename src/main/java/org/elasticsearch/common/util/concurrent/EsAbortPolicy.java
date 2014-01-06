@@ -24,7 +24,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 import|;
 end_import
 
@@ -34,7 +34,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchInterruptedException
+name|ElasticsearchInterruptedException
 import|;
 end_import
 
@@ -164,7 +164,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 argument_list|(
 literal|"forced execution, but expected a size queue"
 argument_list|)
@@ -193,7 +193,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchInterruptedException
+name|ElasticsearchInterruptedException
 argument_list|(
 name|e
 operator|.

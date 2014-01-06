@@ -50,7 +50,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 import|;
 end_import
 
@@ -195,7 +195,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Since Lucene 4.0 low level index segments are read and written through a  * codec layer that allows to use use-case specific file formats&  * data-structures per field. ElasticSearch exposes the full  * {@link Codec} capabilities through this {@link CodecService}.  *  * @see PostingsFormatService  * @see DocValuesFormatService  */
+comment|/**  * Since Lucene 4.0 low level index segments are read and written through a  * codec layer that allows to use use-case specific file formats&  * data-structures per field. Elasticsearch exposes the full  * {@link Codec} capabilities through this {@link CodecService}.  *  * @see PostingsFormatService  * @see DocValuesFormatService  */
 end_comment
 
 begin_class
@@ -548,7 +548,7 @@ name|String
 name|name
 parameter_list|)
 throws|throws
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 block|{
 name|Codec
 name|codec
@@ -569,7 +569,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 literal|"failed to find codec ["
 operator|+

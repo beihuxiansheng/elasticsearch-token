@@ -52,7 +52,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -232,7 +232,7 @@ index|[]
 name|hits
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{     }
 annotation|@
 name|Override
@@ -266,7 +266,7 @@ name|HitContext
 name|hitContext
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 comment|// it might make sense to cache the TermDocs on a shared fetch context and just skip here)
 comment|// it is going to mean we work on the high level multi reader and not the lower level reader as is
@@ -319,7 +319,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchException
+name|ElasticsearchException
 argument_list|(
 literal|"Could not query index for _version"
 argument_list|,

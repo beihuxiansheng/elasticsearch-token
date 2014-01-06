@@ -38,7 +38,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchTimeoutException
+name|ElasticsearchTimeoutException
 import|;
 end_import
 
@@ -267,7 +267,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchTimeoutException
+name|ElasticsearchTimeoutException
 argument_list|(
 literal|"The GET operation took longer than "
 operator|+

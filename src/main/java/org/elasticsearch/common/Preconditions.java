@@ -20,7 +20,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 import|;
 end_import
 
@@ -30,7 +30,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 import|;
 end_import
 
@@ -40,7 +40,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchNullPointerException
+name|ElasticsearchNullPointerException
 import|;
 end_import
 
@@ -65,7 +65,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Simple static methods to be called at the start of your own methods to verify  * correct arguments and state. This allows constructs such as  *<pre>  *     if (count<= 0) {  *       throw new ElasticSearchIllegalArgumentException("must be positive: " + count);  *     }</pre>  *  * to be replaced with the more compact  *<pre>  *     checkArgument(count> 0, "must be positive: %s", count);</pre>  *  * Note that the sense of the expression is inverted; with {@code Preconditions}  * you declare what you expect to be<i>true</i>, just as you do with an  *<a href="http://java.sun.com/j2se/1.5.0/docs/guide/language/assert.html">  * {@code assert}</a> or a JUnit {@code assertTrue()} call.  *  *<p>Take care not to confuse precondition checking with other similar types  * of checks! Precondition exceptions -- including those provided here, but also  * {@link IndexOutOfBoundsException}, {@link NoSuchElementException}, {@link  * UnsupportedOperationException} and others -- are used to signal that the  *<i>calling method</i> has made an error. This tells the caller that it should  * not have invoked the method when it did, with the arguments it did, or  * perhaps<i>ever</i>. Postcondition or other invariant failures should not  * throw these types of exceptions.  *  *<p><b>Note:</b> The methods of the {@code Preconditions} class are highly  * unusual in one way: they are<i>supposed to</i> throw exceptions, and promise  * in their specifications to do so even when given perfectly valid input. That  * is, {@code null} is a valid parameter to the method {@link  * #checkNotNull(Object)} -- and technically this parameter could be even marked  * as Nullable -- yet the method will still throw an exception anyway,  * because that's what its contract says to do.  *  *  */
+comment|/**  * Simple static methods to be called at the start of your own methods to verify  * correct arguments and state. This allows constructs such as  *<pre>  *     if (count<= 0) {  *       throw new ElasticsearchIllegalArgumentException("must be positive: " + count);  *     }</pre>  *  * to be replaced with the more compact  *<pre>  *     checkArgument(count> 0, "must be positive: %s", count);</pre>  *  * Note that the sense of the expression is inverted; with {@code Preconditions}  * you declare what you expect to be<i>true</i>, just as you do with an  *<a href="http://java.sun.com/j2se/1.5.0/docs/guide/language/assert.html">  * {@code assert}</a> or a JUnit {@code assertTrue()} call.  *  *<p>Take care not to confuse precondition checking with other similar types  * of checks! Precondition exceptions -- including those provided here, but also  * {@link IndexOutOfBoundsException}, {@link NoSuchElementException}, {@link  * UnsupportedOperationException} and others -- are used to signal that the  *<i>calling method</i> has made an error. This tells the caller that it should  * not have invoked the method when it did, with the arguments it did, or  * perhaps<i>ever</i>. Postcondition or other invariant failures should not  * throw these types of exceptions.  *  *<p><b>Note:</b> The methods of the {@code Preconditions} class are highly  * unusual in one way: they are<i>supposed to</i> throw exceptions, and promise  * in their specifications to do so even when given perfectly valid input. That  * is, {@code null} is a valid parameter to the method {@link  * #checkNotNull(Object)} -- and technically this parameter could be even marked  * as Nullable -- yet the method will still throw an exception anyway,  * because that's what its contract says to do.  *  *  */
 end_comment
 
 begin_class
@@ -80,7 +80,7 @@ specifier|private
 name|Preconditions
 parameter_list|()
 block|{     }
-comment|/**      * Ensures the truth of an expression involving one or more parameters to the      * calling method.      *      * @param expression a boolean expression      * @throws org.elasticsearch.ElasticSearchIllegalArgumentException      *          if {@code expression} is false      */
+comment|/**      * Ensures the truth of an expression involving one or more parameters to the      * calling method.      *      * @param expression a boolean expression      * @throws org.elasticsearch.ElasticsearchIllegalArgumentException      *          if {@code expression} is false      */
 DECL|method|checkArgument
 specifier|public
 specifier|static
@@ -99,12 +99,12 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|()
 throw|;
 block|}
 block|}
-comment|/**      * Ensures the truth of an expression involving one or more parameters to the      * calling method.      *      * @param expression   a boolean expression      * @param errorMessage the exception message to use if the check fails; will      *                     be converted to a string using {@link String#valueOf(Object)}      * @throws org.elasticsearch.ElasticSearchIllegalArgumentException      *          if {@code expression} is false      */
+comment|/**      * Ensures the truth of an expression involving one or more parameters to the      * calling method.      *      * @param expression   a boolean expression      * @param errorMessage the exception message to use if the check fails; will      *                     be converted to a string using {@link String#valueOf(Object)}      * @throws org.elasticsearch.ElasticsearchIllegalArgumentException      *          if {@code expression} is false      */
 DECL|method|checkArgument
 specifier|public
 specifier|static
@@ -126,7 +126,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 name|String
 operator|.
@@ -138,7 +138,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Ensures the truth of an expression involving one or more parameters to the      * calling method.      *      * @param expression           a boolean expression      * @param errorMessageTemplate a template for the exception message should the      *                             check fail. The message is formed by replacing each {@code %s}      *                             placeholder in the template with an argument. These are matched by      *                             position - the first {@code %s} gets {@code errorMessageArgs[0]}, etc.      *                             Unmatched arguments will be appended to the formatted message in square      *                             braces. Unmatched placeholders will be left as-is.      * @param errorMessageArgs     the arguments to be substituted into the message      *                             template. Arguments are converted to strings using      *                             {@link String#valueOf(Object)}.      * @throws org.elasticsearch.ElasticSearchIllegalArgumentException      *          if {@code expression} is false      * @throws org.elasticsearch.ElasticSearchNullPointerException      *          if the check fails and either {@code      *          errorMessageTemplate} or {@code errorMessageArgs} is null (don't let      *          this happen)      */
+comment|/**      * Ensures the truth of an expression involving one or more parameters to the      * calling method.      *      * @param expression           a boolean expression      * @param errorMessageTemplate a template for the exception message should the      *                             check fail. The message is formed by replacing each {@code %s}      *                             placeholder in the template with an argument. These are matched by      *                             position - the first {@code %s} gets {@code errorMessageArgs[0]}, etc.      *                             Unmatched arguments will be appended to the formatted message in square      *                             braces. Unmatched placeholders will be left as-is.      * @param errorMessageArgs     the arguments to be substituted into the message      *                             template. Arguments are converted to strings using      *                             {@link String#valueOf(Object)}.      * @throws org.elasticsearch.ElasticsearchIllegalArgumentException      *          if {@code expression} is false      * @throws org.elasticsearch.ElasticsearchNullPointerException      *          if the check fails and either {@code      *          errorMessageTemplate} or {@code errorMessageArgs} is null (don't let      *          this happen)      */
 DECL|method|checkArgument
 specifier|public
 specifier|static
@@ -164,7 +164,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 name|format
 argument_list|(
@@ -176,7 +176,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Ensures the truth of an expression involving the state of the calling      * instance, but not involving any parameters to the calling method.      *      * @param expression a boolean expression      * @throws org.elasticsearch.ElasticSearchIllegalStateException      *          if {@code expression} is false      */
+comment|/**      * Ensures the truth of an expression involving the state of the calling      * instance, but not involving any parameters to the calling method.      *      * @param expression a boolean expression      * @throws org.elasticsearch.ElasticsearchIllegalStateException      *          if {@code expression} is false      */
 DECL|method|checkState
 specifier|public
 specifier|static
@@ -195,12 +195,12 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 argument_list|()
 throw|;
 block|}
 block|}
-comment|/**      * Ensures the truth of an expression involving the state of the calling      * instance, but not involving any parameters to the calling method.      *      * @param expression   a boolean expression      * @param errorMessage the exception message to use if the check fails; will      *                     be converted to a string using {@link String#valueOf(Object)}      * @throws org.elasticsearch.ElasticSearchIllegalStateException      *          if {@code expression} is false      */
+comment|/**      * Ensures the truth of an expression involving the state of the calling      * instance, but not involving any parameters to the calling method.      *      * @param expression   a boolean expression      * @param errorMessage the exception message to use if the check fails; will      *                     be converted to a string using {@link String#valueOf(Object)}      * @throws org.elasticsearch.ElasticsearchIllegalStateException      *          if {@code expression} is false      */
 DECL|method|checkState
 specifier|public
 specifier|static
@@ -222,7 +222,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 argument_list|(
 name|String
 operator|.
@@ -234,7 +234,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Ensures the truth of an expression involving the state of the calling      * instance, but not involving any parameters to the calling method.      *      * @param expression           a boolean expression      * @param errorMessageTemplate a template for the exception message should the      *                             check fail. The message is formed by replacing each {@code %s}      *                             placeholder in the template with an argument. These are matched by      *                             position - the first {@code %s} gets {@code errorMessageArgs[0]}, etc.      *                             Unmatched arguments will be appended to the formatted message in square      *                             braces. Unmatched placeholders will be left as-is.      * @param errorMessageArgs     the arguments to be substituted into the message      *                             template. Arguments are converted to strings using      *                             {@link String#valueOf(Object)}.      * @throws org.elasticsearch.ElasticSearchIllegalStateException      *          if {@code expression} is false      * @throws org.elasticsearch.ElasticSearchNullPointerException      *          if the check fails and either {@code      *          errorMessageTemplate} or {@code errorMessageArgs} is null (don't let      *          this happen)      */
+comment|/**      * Ensures the truth of an expression involving the state of the calling      * instance, but not involving any parameters to the calling method.      *      * @param expression           a boolean expression      * @param errorMessageTemplate a template for the exception message should the      *                             check fail. The message is formed by replacing each {@code %s}      *                             placeholder in the template with an argument. These are matched by      *                             position - the first {@code %s} gets {@code errorMessageArgs[0]}, etc.      *                             Unmatched arguments will be appended to the formatted message in square      *                             braces. Unmatched placeholders will be left as-is.      * @param errorMessageArgs     the arguments to be substituted into the message      *                             template. Arguments are converted to strings using      *                             {@link String#valueOf(Object)}.      * @throws org.elasticsearch.ElasticsearchIllegalStateException      *          if {@code expression} is false      * @throws org.elasticsearch.ElasticsearchNullPointerException      *          if the check fails and either {@code      *          errorMessageTemplate} or {@code errorMessageArgs} is null (don't let      *          this happen)      */
 DECL|method|checkState
 specifier|public
 specifier|static
@@ -260,7 +260,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 argument_list|(
 name|format
 argument_list|(
@@ -272,7 +272,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Ensures that an object reference passed as a parameter to the calling      * method is not null.      *      * @param reference an object reference      * @return the non-null reference that was validated      * @throws org.elasticsearch.ElasticSearchNullPointerException      *          if {@code reference} is null      */
+comment|/**      * Ensures that an object reference passed as a parameter to the calling      * method is not null.      *      * @param reference an object reference      * @return the non-null reference that was validated      * @throws org.elasticsearch.ElasticsearchNullPointerException      *          if {@code reference} is null      */
 DECL|method|checkNotNull
 specifier|public
 specifier|static
@@ -295,7 +295,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchNullPointerException
+name|ElasticsearchNullPointerException
 argument_list|()
 throw|;
 block|}
@@ -303,7 +303,7 @@ return|return
 name|reference
 return|;
 block|}
-comment|/**      * Ensures that an object reference passed as a parameter to the calling      * method is not null.      *      * @param reference    an object reference      * @param errorMessage the exception message to use if the check fails; will      *                     be converted to a string using {@link String#valueOf(Object)}      * @return the non-null reference that was validated      * @throws org.elasticsearch.ElasticSearchNullPointerException      *          if {@code reference} is null      */
+comment|/**      * Ensures that an object reference passed as a parameter to the calling      * method is not null.      *      * @param reference    an object reference      * @param errorMessage the exception message to use if the check fails; will      *                     be converted to a string using {@link String#valueOf(Object)}      * @return the non-null reference that was validated      * @throws org.elasticsearch.ElasticsearchNullPointerException      *          if {@code reference} is null      */
 DECL|method|checkNotNull
 specifier|public
 specifier|static
@@ -329,7 +329,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchNullPointerException
+name|ElasticsearchNullPointerException
 argument_list|(
 name|String
 operator|.
@@ -344,7 +344,7 @@ return|return
 name|reference
 return|;
 block|}
-comment|/**      * Ensures that an object reference passed as a parameter to the calling      * method is not null.      *      * @param reference            an object reference      * @param errorMessageTemplate a template for the exception message should the      *                             check fail. The message is formed by replacing each {@code %s}      *                             placeholder in the template with an argument. These are matched by      *                             position - the first {@code %s} gets {@code errorMessageArgs[0]}, etc.      *                             Unmatched arguments will be appended to the formatted message in square      *                             braces. Unmatched placeholders will be left as-is.      * @param errorMessageArgs     the arguments to be substituted into the message      *                             template. Arguments are converted to strings using      *                             {@link String#valueOf(Object)}.      * @return the non-null reference that was validated      * @throws org.elasticsearch.ElasticSearchNullPointerException      *          if {@code reference} is null      */
+comment|/**      * Ensures that an object reference passed as a parameter to the calling      * method is not null.      *      * @param reference            an object reference      * @param errorMessageTemplate a template for the exception message should the      *                             check fail. The message is formed by replacing each {@code %s}      *                             placeholder in the template with an argument. These are matched by      *                             position - the first {@code %s} gets {@code errorMessageArgs[0]}, etc.      *                             Unmatched arguments will be appended to the formatted message in square      *                             braces. Unmatched placeholders will be left as-is.      * @param errorMessageArgs     the arguments to be substituted into the message      *                             template. Arguments are converted to strings using      *                             {@link String#valueOf(Object)}.      * @return the non-null reference that was validated      * @throws org.elasticsearch.ElasticsearchNullPointerException      *          if {@code reference} is null      */
 DECL|method|checkNotNull
 specifier|public
 specifier|static
@@ -375,7 +375,7 @@ block|{
 comment|// If either of these parameters is null, the right thing happens anyway
 throw|throw
 operator|new
-name|ElasticSearchNullPointerException
+name|ElasticsearchNullPointerException
 argument_list|(
 name|format
 argument_list|(
@@ -390,7 +390,7 @@ return|return
 name|reference
 return|;
 block|}
-comment|/**      * Ensures that an {@code Iterable} object passed as a parameter to the      * calling method is not null and contains no null elements.      *      * @param iterable the iterable to check the contents of      * @return the non-null {@code iterable} reference just validated      * @throws org.elasticsearch.ElasticSearchNullPointerException      *          if {@code iterable} is null or contains at      *          least one null element      */
+comment|/**      * Ensures that an {@code Iterable} object passed as a parameter to the      * calling method is not null and contains no null elements.      *      * @param iterable the iterable to check the contents of      * @return the non-null {@code iterable} reference just validated      * @throws org.elasticsearch.ElasticsearchNullPointerException      *          if {@code iterable} is null or contains at      *          least one null element      */
 DECL|method|checkContentsNotNull
 specifier|public
 specifier|static
@@ -419,7 +419,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchNullPointerException
+name|ElasticsearchNullPointerException
 argument_list|()
 throw|;
 block|}
@@ -427,7 +427,7 @@ return|return
 name|iterable
 return|;
 block|}
-comment|/**      * Ensures that an {@code Iterable} object passed as a parameter to the      * calling method is not null and contains no null elements.      *      * @param iterable     the iterable to check the contents of      * @param errorMessage the exception message to use if the check fails; will      *                     be converted to a string using {@link String#valueOf(Object)}      * @return the non-null {@code iterable} reference just validated      * @throws org.elasticsearch.ElasticSearchNullPointerException      *          if {@code iterable} is null or contains at      *          least one null element      */
+comment|/**      * Ensures that an {@code Iterable} object passed as a parameter to the      * calling method is not null and contains no null elements.      *      * @param iterable     the iterable to check the contents of      * @param errorMessage the exception message to use if the check fails; will      *                     be converted to a string using {@link String#valueOf(Object)}      * @return the non-null {@code iterable} reference just validated      * @throws org.elasticsearch.ElasticsearchNullPointerException      *          if {@code iterable} is null or contains at      *          least one null element      */
 DECL|method|checkContentsNotNull
 specifier|public
 specifier|static
@@ -459,7 +459,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchNullPointerException
+name|ElasticsearchNullPointerException
 argument_list|(
 name|String
 operator|.
@@ -474,7 +474,7 @@ return|return
 name|iterable
 return|;
 block|}
-comment|/**      * Ensures that an {@code Iterable} object passed as a parameter to the      * calling method is not null and contains no null elements.      *      * @param iterable             the iterable to check the contents of      * @param errorMessageTemplate a template for the exception message should the      *                             check fail. The message is formed by replacing each {@code %s}      *                             placeholder in the template with an argument. These are matched by      *                             position - the first {@code %s} gets {@code errorMessageArgs[0]}, etc.      *                             Unmatched arguments will be appended to the formatted message in square      *                             braces. Unmatched placeholders will be left as-is.      * @param errorMessageArgs     the arguments to be substituted into the message      *                             template. Arguments are converted to strings using      *                             {@link String#valueOf(Object)}.      * @return the non-null {@code iterable} reference just validated      * @throws org.elasticsearch.ElasticSearchNullPointerException      *          if {@code iterable} is null or contains at      *          least one null element      */
+comment|/**      * Ensures that an {@code Iterable} object passed as a parameter to the      * calling method is not null and contains no null elements.      *      * @param iterable             the iterable to check the contents of      * @param errorMessageTemplate a template for the exception message should the      *                             check fail. The message is formed by replacing each {@code %s}      *                             placeholder in the template with an argument. These are matched by      *                             position - the first {@code %s} gets {@code errorMessageArgs[0]}, etc.      *                             Unmatched arguments will be appended to the formatted message in square      *                             braces. Unmatched placeholders will be left as-is.      * @param errorMessageArgs     the arguments to be substituted into the message      *                             template. Arguments are converted to strings using      *                             {@link String#valueOf(Object)}.      * @return the non-null {@code iterable} reference just validated      * @throws org.elasticsearch.ElasticsearchNullPointerException      *          if {@code iterable} is null or contains at      *          least one null element      */
 DECL|method|checkContentsNotNull
 specifier|public
 specifier|static
@@ -510,7 +510,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchNullPointerException
+name|ElasticsearchNullPointerException
 argument_list|(
 name|format
 argument_list|(
@@ -583,7 +583,7 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticSearchNullPointerException
+name|ElasticsearchNullPointerException
 name|e
 parameter_list|)
 block|{
@@ -620,7 +620,7 @@ literal|false
 return|;
 block|}
 block|}
-comment|/**      * Ensures that {@code index} specifies a valid<i>element</i> in an array,      * list or string of size {@code size}. An element index may range from zero,      * inclusive, to {@code size}, exclusive.      *      * @param index a user-supplied index identifying an element of an array, list      *              or string      * @param size  the size of that array, list or string      * @throws IndexOutOfBoundsException if {@code index} is negative or is not      *                                   less than {@code size}      * @throws org.elasticsearch.ElasticSearchIllegalArgumentException      *                                   if {@code size} is negative      */
+comment|/**      * Ensures that {@code index} specifies a valid<i>element</i> in an array,      * list or string of size {@code size}. An element index may range from zero,      * inclusive, to {@code size}, exclusive.      *      * @param index a user-supplied index identifying an element of an array, list      *              or string      * @param size  the size of that array, list or string      * @throws IndexOutOfBoundsException if {@code index} is negative or is not      *                                   less than {@code size}      * @throws org.elasticsearch.ElasticsearchIllegalArgumentException      *                                   if {@code size} is negative      */
 DECL|method|checkElementIndex
 specifier|public
 specifier|static
@@ -644,7 +644,7 @@ literal|"index"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Ensures that {@code index} specifies a valid<i>element</i> in an array,      * list or string of size {@code size}. An element index may range from zero,      * inclusive, to {@code size}, exclusive.      *      * @param index a user-supplied index identifying an element of an array, list      *              or string      * @param size  the size of that array, list or string      * @param desc  the text to use to describe this index in an error message      * @throws IndexOutOfBoundsException if {@code index} is negative or is not      *                                   less than {@code size}      * @throws org.elasticsearch.ElasticSearchIllegalArgumentException      *                                   if {@code size} is negative      */
+comment|/**      * Ensures that {@code index} specifies a valid<i>element</i> in an array,      * list or string of size {@code size}. An element index may range from zero,      * inclusive, to {@code size}, exclusive.      *      * @param index a user-supplied index identifying an element of an array, list      *              or string      * @param size  the size of that array, list or string      * @param desc  the text to use to describe this index in an error message      * @throws IndexOutOfBoundsException if {@code index} is negative or is not      *                                   less than {@code size}      * @throws org.elasticsearch.ElasticsearchIllegalArgumentException      *                                   if {@code size} is negative      */
 DECL|method|checkElementIndex
 specifier|public
 specifier|static
@@ -719,7 +719,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Ensures that {@code index} specifies a valid<i>position</i> in an array,      * list or string of size {@code size}. A position index may range from zero      * to {@code size}, inclusive.      *      * @param index a user-supplied index identifying a position in an array, list      *              or string      * @param size  the size of that array, list or string      * @throws IndexOutOfBoundsException if {@code index} is negative or is      *                                   greater than {@code size}      * @throws org.elasticsearch.ElasticSearchIllegalArgumentException      *                                   if {@code size} is negative      */
+comment|/**      * Ensures that {@code index} specifies a valid<i>position</i> in an array,      * list or string of size {@code size}. A position index may range from zero      * to {@code size}, inclusive.      *      * @param index a user-supplied index identifying a position in an array, list      *              or string      * @param size  the size of that array, list or string      * @throws IndexOutOfBoundsException if {@code index} is negative or is      *                                   greater than {@code size}      * @throws org.elasticsearch.ElasticsearchIllegalArgumentException      *                                   if {@code size} is negative      */
 DECL|method|checkPositionIndex
 specifier|public
 specifier|static
@@ -743,7 +743,7 @@ literal|"index"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Ensures that {@code index} specifies a valid<i>position</i> in an array,      * list or string of size {@code size}. A position index may range from zero      * to {@code size}, inclusive.      *      * @param index a user-supplied index identifying a position in an array, list      *              or string      * @param size  the size of that array, list or string      * @param desc  the text to use to describe this index in an error message      * @throws IndexOutOfBoundsException if {@code index} is negative or is      *                                   greater than {@code size}      * @throws org.elasticsearch.ElasticSearchIllegalArgumentException      *                                   if {@code size} is negative      */
+comment|/**      * Ensures that {@code index} specifies a valid<i>position</i> in an array,      * list or string of size {@code size}. A position index may range from zero      * to {@code size}, inclusive.      *      * @param index a user-supplied index identifying a position in an array, list      *              or string      * @param size  the size of that array, list or string      * @param desc  the text to use to describe this index in an error message      * @throws IndexOutOfBoundsException if {@code index} is negative or is      *                                   greater than {@code size}      * @throws org.elasticsearch.ElasticsearchIllegalArgumentException      *                                   if {@code size} is negative      */
 DECL|method|checkPositionIndex
 specifier|public
 specifier|static
@@ -818,7 +818,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Ensures that {@code start} and {@code end} specify a valid<i>positions</i>      * in an array, list or string of size {@code size}, and are in order. A      * position index may range from zero to {@code size}, inclusive.      *      * @param start a user-supplied index identifying a starting position in an      *              array, list or string      * @param end   a user-supplied index identifying a ending position in an array,      *              list or string      * @param size  the size of that array, list or string      * @throws IndexOutOfBoundsException if either index is negative or is      *                                   greater than {@code size}, or if {@code end} is less than {@code start}      * @throws org.elasticsearch.ElasticSearchIllegalArgumentException      *                                   if {@code size} is negative      */
+comment|/**      * Ensures that {@code start} and {@code end} specify a valid<i>positions</i>      * in an array, list or string of size {@code size}, and are in order. A      * position index may range from zero to {@code size}, inclusive.      *      * @param start a user-supplied index identifying a starting position in an      *              array, list or string      * @param end   a user-supplied index identifying a ending position in an array,      *              list or string      * @param size  the size of that array, list or string      * @throws IndexOutOfBoundsException if either index is negative or is      *                                   greater than {@code size}, or if {@code end} is less than {@code start}      * @throws org.elasticsearch.ElasticsearchIllegalArgumentException      *                                   if {@code size} is negative      */
 DECL|method|checkPositionIndexes
 specifier|public
 specifier|static

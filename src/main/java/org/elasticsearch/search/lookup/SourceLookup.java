@@ -64,7 +64,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 import|;
 end_import
 
@@ -426,7 +426,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"failed to parse / load source"
 argument_list|,
@@ -460,7 +460,7 @@ name|BytesReference
 name|source
 parameter_list|)
 throws|throws
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 block|{
 return|return
 name|XContentHelper
@@ -488,7 +488,7 @@ name|BytesReference
 name|source
 parameter_list|)
 throws|throws
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 block|{
 return|return
 name|sourceAsMapAndType
@@ -527,7 +527,7 @@ name|int
 name|length
 parameter_list|)
 throws|throws
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 block|{
 return|return
 name|XContentHelper
@@ -566,7 +566,7 @@ name|int
 name|length
 parameter_list|)
 throws|throws
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 block|{
 return|return
 name|sourceAsMapAndType

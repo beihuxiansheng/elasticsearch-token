@@ -22,7 +22,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -63,16 +63,6 @@ operator|.
 name|chrono
 operator|.
 name|ISOChronology
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|math
-operator|.
-name|BigInteger
 import|;
 end_import
 
@@ -348,7 +338,7 @@ return|;
 default|default:
 throw|throw
 operator|new
-name|ElasticSearchException
+name|ElasticsearchException
 argument_list|(
 literal|"Unknown date time unit id ["
 operator|+

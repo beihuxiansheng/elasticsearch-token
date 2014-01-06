@@ -50,7 +50,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 import|;
 end_import
 
@@ -479,7 +479,7 @@ name|boolean
 name|ordered
 parameter_list|)
 throws|throws
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 block|{
 if|if
 condition|(
@@ -651,7 +651,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"Failed to parse content to map"
 argument_list|,
@@ -684,7 +684,7 @@ name|boolean
 name|ordered
 parameter_list|)
 throws|throws
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 block|{
 return|return
 name|convertToMap
@@ -731,7 +731,7 @@ name|boolean
 name|ordered
 parameter_list|)
 throws|throws
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 block|{
 try|try
 block|{
@@ -889,7 +889,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"Failed to parse content to map"
 argument_list|,

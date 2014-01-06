@@ -92,7 +92,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -455,7 +455,7 @@ name|HitContext
 name|hitContext
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 function_decl|;
 DECL|method|hitsExecutionNeeded
 name|boolean
@@ -477,7 +477,7 @@ index|[]
 name|hits
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 function_decl|;
 block|}
 end_interface

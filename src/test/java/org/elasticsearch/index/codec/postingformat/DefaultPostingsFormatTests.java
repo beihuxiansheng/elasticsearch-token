@@ -192,7 +192,7 @@ name|codec
 operator|.
 name|postingsformat
 operator|.
-name|ElasticSearch090PostingsFormat
+name|Elasticsearch090PostingsFormat
 import|;
 end_import
 
@@ -297,7 +297,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Simple smoke test for {@link ElasticSearch090PostingsFormat}  */
+comment|/**  * Simple smoke test for {@link org.elasticsearch.index.codec.postingsformat.Elasticsearch090PostingsFormat}  */
 end_comment
 
 begin_class
@@ -329,7 +329,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|ElasticSearch090PostingsFormat
+name|Elasticsearch090PostingsFormat
 argument_list|()
 return|;
 block|}

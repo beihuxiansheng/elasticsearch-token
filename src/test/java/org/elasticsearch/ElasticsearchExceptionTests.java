@@ -95,10 +95,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|ElasticSearchExceptionTests
+DECL|class|ElasticsearchExceptionTests
 specifier|public
 class|class
-name|ElasticSearchExceptionTests
+name|ElasticsearchExceptionTests
 extends|extends
 name|ElasticsearchTestCase
 block|{
@@ -110,11 +110,11 @@ name|void
 name|testStatus
 parameter_list|()
 block|{
-name|ElasticSearchException
+name|ElasticsearchException
 name|exception
 init|=
 operator|new
-name|ElasticSearchException
+name|ElasticsearchException
 argument_list|(
 literal|"test"
 argument_list|)
@@ -137,7 +137,7 @@ expr_stmt|;
 name|exception
 operator|=
 operator|new
-name|ElasticSearchException
+name|ElasticsearchException
 argument_list|(
 literal|"test"
 argument_list|,
@@ -164,7 +164,7 @@ expr_stmt|;
 name|exception
 operator|=
 operator|new
-name|ElasticSearchException
+name|ElasticsearchException
 argument_list|(
 literal|"test"
 argument_list|,

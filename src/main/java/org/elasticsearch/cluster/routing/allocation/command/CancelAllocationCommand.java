@@ -26,7 +26,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -36,7 +36,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 import|;
 end_import
 
@@ -46,7 +46,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 import|;
 end_import
 
@@ -560,7 +560,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"[cancel] command does not support field ["
 operator|+
@@ -575,7 +575,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"[cancel] command does not support complex json tokens ["
 operator|+
@@ -595,7 +595,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"[cancel] command missing the index parameter"
 argument_list|)
@@ -611,7 +611,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"[cancel] command missing the shard parameter"
 argument_list|)
@@ -626,7 +626,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchParseException
+name|ElasticsearchParseException
 argument_list|(
 literal|"[cancel] command missing the node parameter"
 argument_list|)
@@ -850,7 +850,7 @@ name|RoutingAllocation
 name|allocation
 parameter_list|)
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|DiscoveryNode
 name|discoNode
@@ -1043,7 +1043,7 @@ block|{
 comment|// can't cancel a primary shard being initialized
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 literal|"[cancel_allocation] can't cancel "
 operator|+
@@ -1154,7 +1154,7 @@ block|{
 comment|// can't cancel a primary shard being initialized
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 literal|"[cancel_allocation] can't cancel "
 operator|+
@@ -1226,7 +1226,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 literal|"[cancel_allocation] can't cancel "
 operator|+

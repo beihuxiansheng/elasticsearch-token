@@ -24,7 +24,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 import|;
 end_import
 
@@ -1686,7 +1686,7 @@ specifier|static
 class|class
 name|NoLongerMasterException
 extends|extends
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 block|{
 annotation|@
 name|Override
@@ -1706,7 +1706,7 @@ specifier|static
 class|class
 name|NotMasterException
 extends|extends
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 block|{
 annotation|@
 name|Override
@@ -1726,7 +1726,7 @@ specifier|static
 class|class
 name|NodeDoesNotExistOnMasterException
 extends|extends
-name|ElasticSearchIllegalStateException
+name|ElasticsearchIllegalStateException
 block|{
 annotation|@
 name|Override

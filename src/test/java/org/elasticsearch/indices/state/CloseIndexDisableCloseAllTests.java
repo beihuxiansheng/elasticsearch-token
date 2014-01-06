@@ -22,7 +22,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 import|;
 end_import
 
@@ -260,7 +260,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 operator|.
 name|class
 argument_list|)
@@ -342,7 +342,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 operator|.
 name|class
 argument_list|)
@@ -424,7 +424,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 operator|.
 name|class
 argument_list|)
@@ -606,7 +606,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 operator|.
 name|class
 argument_list|)

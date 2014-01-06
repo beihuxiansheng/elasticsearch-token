@@ -92,7 +92,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -105,48 +105,6 @@ operator|.
 name|action
 operator|.
 name|ActionFuture
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|termvector
-operator|.
-name|TermVectorRequest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|termvector
-operator|.
-name|TermVectorRequestBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|termvector
-operator|.
-name|TermVectorResponse
 import|;
 end_import
 
@@ -869,7 +827,7 @@ name|void
 name|testSimpleTermVectors
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 throws|,
 name|IOException
 block|{
@@ -1659,7 +1617,7 @@ name|void
 name|testRandomSingleTermVectors
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 throws|,
 name|IOException
 block|{
@@ -3034,7 +2992,7 @@ name|void
 name|testRandomPayloadWithDelimitedPayloadTokenFilter
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 throws|,
 name|IOException
 block|{
@@ -3932,7 +3890,7 @@ default|default:
 block|{
 throw|throw
 operator|new
-name|ElasticSearchException
+name|ElasticsearchException
 argument_list|(
 literal|"unsupported encoding type"
 argument_list|)
@@ -4194,7 +4152,7 @@ default|default:
 block|{
 throw|throw
 operator|new
-name|ElasticSearchException
+name|ElasticsearchException
 argument_list|(
 literal|"unsupported encoding type"
 argument_list|)

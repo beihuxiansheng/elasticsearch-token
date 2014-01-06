@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Real work actually done here by Sebastian on the ElasticSearch mailing list  * http://elasticsearch-users.115913.n3.nabble.com/Using-the-Snowball-stemmers-tp2126106p2127111.html  */
+comment|/**  * Real work actually done here by Sebastian on the Elasticsearch mailing list  * http://elasticsearch-users.115913.n3.nabble.com/Using-the-Snowball-stemmers-tp2126106p2127111.html  */
 end_comment
 
 begin_class
