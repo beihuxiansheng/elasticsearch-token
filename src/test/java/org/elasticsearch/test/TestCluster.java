@@ -1575,12 +1575,6 @@ name|ThreadPool
 operator|.
 name|Names
 operator|.
-name|GENERIC
-argument_list|,
-name|ThreadPool
-operator|.
-name|Names
-operator|.
 name|GET
 argument_list|,
 name|ThreadPool
