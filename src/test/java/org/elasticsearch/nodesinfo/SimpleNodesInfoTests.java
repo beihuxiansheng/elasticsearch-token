@@ -1064,11 +1064,6 @@ operator|.
 name|prepareNodesInfo
 argument_list|()
 operator|.
-name|setPlugin
-argument_list|(
-literal|true
-argument_list|)
-operator|.
 name|execute
 argument_list|()
 operator|.

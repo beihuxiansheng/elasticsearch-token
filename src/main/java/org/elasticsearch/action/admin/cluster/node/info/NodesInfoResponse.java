@@ -659,6 +659,10 @@ name|Settings
 name|settings
 init|=
 name|settingsFilter
+operator|!=
+literal|null
+condition|?
+name|settingsFilter
 operator|.
 name|filterSettings
 argument_list|(
@@ -667,6 +671,11 @@ operator|.
 name|getSettings
 argument_list|()
 argument_list|)
+else|:
+name|nodeInfo
+operator|.
+name|getSettings
+argument_list|()
 decl_stmt|;
 for|for
 control|(
