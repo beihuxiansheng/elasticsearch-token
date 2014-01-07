@@ -36,20 +36,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|bytes
-operator|.
-name|HashedBytesArray
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|test
 operator|.
 name|ElasticsearchTestCase
@@ -63,18 +49,6 @@ operator|.
 name|junit
 operator|.
 name|Test
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
 import|;
 end_import
 
@@ -118,7 +92,7 @@ argument_list|,
 literal|"bar"
 argument_list|)
 decl_stmt|;
-name|HashedBytesArray
+name|BytesRef
 index|[]
 name|splitUidIntoTypeAndId
 init|=
@@ -140,7 +114,7 @@ index|[
 literal|0
 index|]
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 argument_list|)
 argument_list|)
@@ -156,7 +130,7 @@ index|[
 literal|1
 index|]
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 argument_list|)
 argument_list|)
@@ -234,7 +208,7 @@ index|[
 literal|0
 index|]
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 argument_list|)
 argument_list|)
@@ -250,7 +224,7 @@ index|[
 literal|1
 index|]
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 argument_list|)
 argument_list|)

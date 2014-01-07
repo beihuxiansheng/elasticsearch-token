@@ -4,76 +4,85 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.cache.id
+DECL|package|org.elasticsearch.common.util
 package|package
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|cache
-operator|.
-name|id
-package|;
-end_package
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|common
 operator|.
-name|bytes
-operator|.
-name|HashedBytesArray
-import|;
-end_import
+name|util
+package|;
+end_package
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Abstraction of an array of double values.  */
 end_comment
 
 begin_interface
-DECL|interface|IdReaderTypeCache
+DECL|interface|FloatArray
 specifier|public
 interface|interface
-name|IdReaderTypeCache
+name|FloatArray
+extends|extends
+name|BigArray
 block|{
-comment|/**      * @param docId The Lucene docId of the child document to return the parent _uid for.      * @return The parent _uid for the specified docId (which is a child document)      */
-DECL|method|parentIdByDoc
-name|HashedBytesArray
-name|parentIdByDoc
+comment|/**      * Get an element given its index.      */
+DECL|method|get
+specifier|public
+specifier|abstract
+name|float
+name|get
 parameter_list|(
-name|int
-name|docId
-parameter_list|)
-function_decl|;
-comment|/**      * @param uid The uid of the document to return the lucene docId for      * @return The lucene docId for the specified uid      */
-DECL|method|docById
-name|int
-name|docById
-parameter_list|(
-name|HashedBytesArray
-name|uid
-parameter_list|)
-function_decl|;
-comment|/**      * @param docId The lucene docId of the document to return _uid for      * @return The _uid of the specified docId      */
-DECL|method|idByDoc
-name|HashedBytesArray
-name|idByDoc
-parameter_list|(
-name|int
-name|docId
-parameter_list|)
-function_decl|;
-comment|/**      * @return The size in bytes for this particular instance      */
-DECL|method|sizeInBytes
 name|long
-name|sizeInBytes
-parameter_list|()
+name|index
+parameter_list|)
+function_decl|;
+comment|/**      * Set a value at the given index and return the previous value.      */
+DECL|method|set
+specifier|public
+specifier|abstract
+name|float
+name|set
+parameter_list|(
+name|long
+name|index
+parameter_list|,
+name|float
+name|value
+parameter_list|)
+function_decl|;
+comment|/**      * Increment value at the given index by<code>inc</code> and return the value.      */
+DECL|method|increment
+specifier|public
+specifier|abstract
+name|float
+name|increment
+parameter_list|(
+name|long
+name|index
+parameter_list|,
+name|float
+name|inc
+parameter_list|)
+function_decl|;
+comment|/**      * Fill slots between<code>fromIndex</code> inclusive to<code>toIndex</code> exclusive with<code>value</code>.      */
+DECL|method|fill
+specifier|public
+specifier|abstract
+name|void
+name|fill
+parameter_list|(
+name|long
+name|fromIndex
+parameter_list|,
+name|long
+name|toIndex
+parameter_list|,
+name|float
+name|value
+parameter_list|)
 function_decl|;
 block|}
 end_interface

@@ -133,10 +133,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * @deprecated Id cache has been removed in favor for {@link org.elasticsearch.index.fielddata.plain.ParentChildIndexFieldData}  * this class now reports field data memory usage for _parent field.  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|IdCacheStats
 specifier|public
 class|class

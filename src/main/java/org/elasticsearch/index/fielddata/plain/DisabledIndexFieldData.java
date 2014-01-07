@@ -136,6 +136,20 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|mapper
+operator|.
+name|MapperService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|settings
 operator|.
 name|IndexSettings
@@ -219,6 +233,9 @@ name|cache
 parameter_list|,
 name|CircuitBreakerService
 name|breakerService
+parameter_list|,
+name|MapperService
+name|mapperService
 parameter_list|)
 block|{
 comment|// Ignore Circuit Breaker
