@@ -907,846 +907,846 @@ name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"primaries.completion.size"
+literal|"pri.completion.size"
 argument_list|,
-literal|"alias:pcs,primariesCompletionSize;default:false;text-align:right;desc:size of completion"
+literal|"alias:pcs,priCompletionSize;default:false;text-align:right;desc:size of completion"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"primaries.fielddata.memory_size"
+literal|"pri.fielddata.memory_size"
 argument_list|,
-literal|"alias:pfm,primariesFielddataMemory;default:false;text-align:right;desc:used fielddata cache"
+literal|"alias:pfm,priFielddataMemory;default:false;text-align:right;desc:used fielddata cache"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"primaries.fielddata.evictions"
+literal|"pri.fielddata.evictions"
 argument_list|,
-literal|"alias:pfe,primariesFielddataEvictions;default:false;text-align:right;desc:fielddata evictions"
+literal|"alias:pfe,priFielddataEvictions;default:false;text-align:right;desc:fielddata evictions"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"primaries.filter_cache.memory_size"
+literal|"pri.filter_cache.memory_size"
 argument_list|,
-literal|"alias:pfcm,primariesFilterCacheMemory;default:false;text-align:right;desc:used filter cache"
+literal|"alias:pfcm,priFilterCacheMemory;default:false;text-align:right;desc:used filter cache"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"primaries.filter_cache.evictions"
+literal|"pri.filter_cache.evictions"
 argument_list|,
-literal|"alias:pfce,primariesFilterCacheEvictions;default:false;text-align:right;desc:filter cache evictions"
+literal|"alias:pfce,priFilterCacheEvictions;default:false;text-align:right;desc:filter cache evictions"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"primaries.flush.total"
+literal|"pri.flush.total"
 argument_list|,
-literal|"alias:pft,primariesFlushTotal;default:false;text-align:right;desc:number of flushes"
+literal|"alias:pft,priFlushTotal;default:false;text-align:right;desc:number of flushes"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"primaries.flush.total_time"
+literal|"pri.flush.total_time"
 argument_list|,
-literal|"alias:pftt,primariesFlushTotalTime;default:false;text-align:right;desc:time spent in flush"
+literal|"alias:pftt,priFlushTotalTime;default:false;text-align:right;desc:time spent in flush"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"primaries.get.current"
+literal|"pri.get.current"
 argument_list|,
-literal|"alias:pgc,primariesGetCurrent;default:false;text-align:right;desc:number of current get ops"
+literal|"alias:pgc,priGetCurrent;default:false;text-align:right;desc:number of current get ops"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"primaries.get.time"
+literal|"pri.get.time"
 argument_list|,
-literal|"alias:pgti,primariesGetTime;default:false;text-align:right;desc:time spent in get"
+literal|"alias:pgti,priGetTime;default:false;text-align:right;desc:time spent in get"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"primaries.get.total"
+literal|"pri.get.total"
 argument_list|,
-literal|"alias:pgto,primariesGetTotal;default:false;text-align:right;desc:number of get ops"
+literal|"alias:pgto,priGetTotal;default:false;text-align:right;desc:number of get ops"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"primaries.get.exists_time"
+literal|"pri.get.exists_time"
 argument_list|,
-literal|"alias:pgeti,primariesGetExistsTime;default:false;text-align:right;desc:time spent in successful gets"
+literal|"alias:pgeti,priGetExistsTime;default:false;text-align:right;desc:time spent in successful gets"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"primaries.get.exists_total"
+literal|"pri.get.exists_total"
 argument_list|,
-literal|"alias:pgeto,primariesGetExistsTotal;default:false;text-align:right;desc:number of successful gets"
+literal|"alias:pgeto,priGetExistsTotal;default:false;text-align:right;desc:number of successful gets"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"primaries.get.missing_time"
+literal|"pri.get.missing_time"
 argument_list|,
-literal|"alias:pgmti,primariesGetMissingTime;default:false;text-align:right;desc:time spent in failed gets"
+literal|"alias:pgmti,priGetMissingTime;default:false;text-align:right;desc:time spent in failed gets"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"primaries.get.missing_total"
+literal|"pri.get.missing_total"
 argument_list|,
-literal|"alias:pgmto,primariesGetMissingTotal;default:false;text-align:right;desc:number of failed gets"
+literal|"alias:pgmto,priGetMissingTotal;default:false;text-align:right;desc:number of failed gets"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"primaries.id_cache.memory_size"
+literal|"pri.id_cache.memory_size"
 argument_list|,
-literal|"alias:pim,primariesIdCacheMemory;default:false;text-align:right;desc:used id cache"
+literal|"alias:pim,priIdCacheMemory;default:false;text-align:right;desc:used id cache"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"primaries.indexing.delete_current"
+literal|"pri.indexing.delete_current"
 argument_list|,
-literal|"alias:pidc,primariesIndexingDeleteCurrent;default:false;text-align:right;desc:number of current deletions"
+literal|"alias:pidc,priIndexingDeleteCurrent;default:false;text-align:right;desc:number of current deletions"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"primaries.indexing.delete_time"
+literal|"pri.indexing.delete_time"
 argument_list|,
-literal|"alias:pidti,primariesIndexingDeleteTime;default:false;text-align:right;desc:time spent in deletions"
+literal|"alias:pidti,priIndexingDeleteTime;default:false;text-align:right;desc:time spent in deletions"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"primaries.indexing.delete_total"
+literal|"pri.indexing.delete_total"
 argument_list|,
-literal|"alias:pidto,primariesIndexingDeleteTotal;default:false;text-align:right;desc:number of delete ops"
+literal|"alias:pidto,priIndexingDeleteTotal;default:false;text-align:right;desc:number of delete ops"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"primaries.indexing.index_current"
+literal|"pri.indexing.index_current"
 argument_list|,
-literal|"alias:piic,primariesIndexingIndexCurrent;default:false;text-align:right;desc:number of current indexing ops"
+literal|"alias:piic,priIndexingIndexCurrent;default:false;text-align:right;desc:number of current indexing ops"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"primaries.indexing.index_time"
+literal|"pri.indexing.index_time"
 argument_list|,
-literal|"alias:piiti,primariesIndexingIndexTime;default:false;text-align:right;desc:time spent in indexing"
+literal|"alias:piiti,priIndexingIndexTime;default:false;text-align:right;desc:time spent in indexing"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"primaries.indexing.index_total"
+literal|"pri.indexing.index_total"
 argument_list|,
-literal|"alias:piito,primariesIndexingIndexTotal;default:false;text-align:right;desc:number of indexing ops"
+literal|"alias:piito,priIndexingIndexTotal;default:false;text-align:right;desc:number of indexing ops"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"primaries.merges.current"
+literal|"pri.merges.current"
 argument_list|,
-literal|"alias:pmc,primariesMergesCurrent;default:false;text-align:right;desc:number of current merges"
+literal|"alias:pmc,priMergesCurrent;default:false;text-align:right;desc:number of current merges"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"primaries.merges.current_docs"
+literal|"pri.merges.current_docs"
 argument_list|,
-literal|"alias:pmcd,primariesMergesCurrentDocs;default:false;text-align:right;desc:number of current merging docs"
+literal|"alias:pmcd,priMergesCurrentDocs;default:false;text-align:right;desc:number of current merging docs"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"primaries.merges.current_size"
+literal|"pri.merges.current_size"
 argument_list|,
-literal|"alias:pmcs,primariesMergesCurrentSize;default:false;text-align:right;desc:size of current merges"
+literal|"alias:pmcs,priMergesCurrentSize;default:false;text-align:right;desc:size of current merges"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"primaries.merges.total"
+literal|"pri.merges.total"
 argument_list|,
-literal|"alias:pmt,primariesMergesTotal;default:false;text-align:right;desc:number of completed merge ops"
+literal|"alias:pmt,priMergesTotal;default:false;text-align:right;desc:number of completed merge ops"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"primaries.merges.total_docs"
+literal|"pri.merges.total_docs"
 argument_list|,
-literal|"alias:pmtd,primariesMergesTotalDocs;default:false;text-align:right;desc:docs merged"
+literal|"alias:pmtd,priMergesTotalDocs;default:false;text-align:right;desc:docs merged"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"primaries.merges.total_size"
+literal|"pri.merges.total_size"
 argument_list|,
-literal|"alias:pmts,primariesMergesTotalSize;default:false;text-align:right;desc:size merged"
+literal|"alias:pmts,priMergesTotalSize;default:false;text-align:right;desc:size merged"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"primaries.merges.total_time"
+literal|"pri.merges.total_time"
 argument_list|,
-literal|"alias:pmtt,primariesMergesTotalTime;default:false;text-align:right;desc:time spent in merges"
+literal|"alias:pmtt,priMergesTotalTime;default:false;text-align:right;desc:time spent in merges"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"primaries.percolate.current"
+literal|"pri.percolate.current"
 argument_list|,
-literal|"alias:ppc,primariesPercolateCurrent;default:false;text-align:right;desc:number of current percolations"
+literal|"alias:ppc,priPercolateCurrent;default:false;text-align:right;desc:number of current percolations"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"primaries.percolate.memory_size"
+literal|"pri.percolate.memory_size"
 argument_list|,
-literal|"alias:ppm,primariesPercolateMemory;default:false;text-align:right;desc:memory used by percolations"
+literal|"alias:ppm,priPercolateMemory;default:false;text-align:right;desc:memory used by percolations"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"primaries.percolate.queries"
+literal|"pri.percolate.queries"
 argument_list|,
-literal|"alias:ppq,primariesPercolateQueries;default:false;text-align:right;desc:number of registered percolation queries"
+literal|"alias:ppq,priPercolateQueries;default:false;text-align:right;desc:number of registered percolation queries"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"primaries.percolate.time"
+literal|"pri.percolate.time"
 argument_list|,
-literal|"alias:ppti,primariesPercolateTime;default:false;text-align:right;desc:time spent percolating"
+literal|"alias:ppti,priPercolateTime;default:false;text-align:right;desc:time spent percolating"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"primaries.percolate.total"
+literal|"pri.percolate.total"
 argument_list|,
-literal|"alias:ppto,primariesPercolateTotal;default:false;text-align:right;desc:total percolations"
+literal|"alias:ppto,priPercolateTotal;default:false;text-align:right;desc:total percolations"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"primaries.refresh.total"
+literal|"pri.refresh.total"
 argument_list|,
-literal|"alias:prto,primariesRefreshTotal;default:false;text-align:right;desc:total refreshes"
+literal|"alias:prto,priRefreshTotal;default:false;text-align:right;desc:total refreshes"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"primaries.refresh.time"
+literal|"pri.refresh.time"
 argument_list|,
-literal|"alias:prti,primariesRefreshTime;default:false;text-align:right;desc:time spent in refreshes"
+literal|"alias:prti,priRefreshTime;default:false;text-align:right;desc:time spent in refreshes"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"primaries.search.fetch_current"
+literal|"pri.search.fetch_current"
 argument_list|,
-literal|"alias:psfc,primariesSearchFetchCurrent;default:false;text-align:right;desc:current fetch phase ops"
+literal|"alias:psfc,priSearchFetchCurrent;default:false;text-align:right;desc:current fetch phase ops"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"primaries.search.fetch_time"
+literal|"pri.search.fetch_time"
 argument_list|,
-literal|"alias:psfti,primariesSearchFetchTime;default:false;text-align:right;desc:time spent in fetch phase"
+literal|"alias:psfti,priSearchFetchTime;default:false;text-align:right;desc:time spent in fetch phase"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"primaries.search.fetch_total"
+literal|"pri.search.fetch_total"
 argument_list|,
-literal|"alias:psfto,primariesSearchFetchTotal;default:false;text-align:right;desc:total fetch ops"
+literal|"alias:psfto,priSearchFetchTotal;default:false;text-align:right;desc:total fetch ops"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"primaries.search.open_contexts"
+literal|"pri.search.open_contexts"
 argument_list|,
-literal|"alias:pso,primariesSearchOpenContexts;default:false;text-align:right;desc:open search contexts"
+literal|"alias:pso,priSearchOpenContexts;default:false;text-align:right;desc:open search contexts"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"primaries.search.query_current"
+literal|"pri.search.query_current"
 argument_list|,
-literal|"alias:psqc,primariesSearchQueryCurrent;default:false;text-align:right;desc:current query phase ops"
+literal|"alias:psqc,priSearchQueryCurrent;default:false;text-align:right;desc:current query phase ops"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"primaries.search.query_time"
+literal|"pri.search.query_time"
 argument_list|,
-literal|"alias:psqti,primariesSearchQueryTime;default:false;text-align:right;desc:time spent in query phase"
+literal|"alias:psqti,priSearchQueryTime;default:false;text-align:right;desc:time spent in query phase"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"primaries.search.query_total"
+literal|"pri.search.query_total"
 argument_list|,
-literal|"alias:psqto,primariesSearchQueryTotal;default:false;text-align:right;desc:total query phase ops"
+literal|"alias:psqto,priSearchQueryTotal;default:false;text-align:right;desc:total query phase ops"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"primaries.segments.count"
+literal|"pri.segments.count"
 argument_list|,
-literal|"alias:psc,primariesSegmentsCount;default:false;text-align:right;desc:number of segments"
+literal|"alias:psc,priSegmentsCount;default:false;text-align:right;desc:number of segments"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"primaries.segments.memory"
+literal|"pri.segments.memory"
 argument_list|,
-literal|"alias:psm,primariesSegmentsMemory;default:false;text-align:right;desc:memory used by segments"
+literal|"alias:psm,priSegmentsMemory;default:false;text-align:right;desc:memory used by segments"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"primaries.warmer.current"
+literal|"pri.warmer.current"
 argument_list|,
-literal|"alias:pwc,primariesWarmerCurrent;default:false;text-align:right;desc:current warmer ops"
+literal|"alias:pwc,priWarmerCurrent;default:false;text-align:right;desc:current warmer ops"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"primaries.warmer.total"
+literal|"pri.warmer.total"
 argument_list|,
-literal|"alias:pwto,primariesWarmerTotal;default:false;text-align:right;desc:total warmer ops"
+literal|"alias:pwto,priWarmerTotal;default:false;text-align:right;desc:total warmer ops"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"primaries.warmer.total_time"
+literal|"pri.warmer.total_time"
 argument_list|,
-literal|"alias:pwtt,primariesWarmerTotalTime;default:false;text-align:right;desc:time spent in warmers"
+literal|"alias:pwtt,priWarmerTotalTime;default:false;text-align:right;desc:time spent in warmers"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"total.completion.size"
+literal|"completion.size"
 argument_list|,
-literal|"alias:tcs,totalCompletionSize;default:false;text-align:right;desc:size of completion"
+literal|"alias:cs,completionSize;default:false;text-align:right;desc:size of completion"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"total.fielddata.memory_size"
+literal|"fielddata.memory_size"
 argument_list|,
-literal|"alias:tfm,totalFielddataMemory;default:false;text-align:right;desc:used fielddata cache"
+literal|"alias:fm,fielddataMemory;default:false;text-align:right;desc:used fielddata cache"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"total.fielddata.evictions"
+literal|"fielddata.evictions"
 argument_list|,
-literal|"alias:tfe,totalFielddataEvictions;default:false;text-align:right;desc:fielddata evictions"
+literal|"alias:fe,fielddataEvictions;default:false;text-align:right;desc:fielddata evictions"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"total.filter_cache.memory_size"
+literal|"filter_cache.memory_size"
 argument_list|,
-literal|"alias:tfcm,totalFilterCacheMemory;default:false;text-align:right;desc:used filter cache"
+literal|"alias:fcm,filterCacheMemory;default:false;text-align:right;desc:used filter cache"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"total.filter_cache.evictions"
+literal|"filter_cache.evictions"
 argument_list|,
-literal|"alias:tfce,totalFilterCacheEvictions;default:false;text-align:right;desc:filter cache evictions"
+literal|"alias:fce,filterCacheEvictions;default:false;text-align:right;desc:filter cache evictions"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"total.flush.total"
+literal|"flush.total"
 argument_list|,
-literal|"alias:tft,totalFlushTotal;default:false;text-align:right;desc:number of flushes"
+literal|"alias:ft,flushTotal;default:false;text-align:right;desc:number of flushes"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"total.flush.total_time"
+literal|"flush.total_time"
 argument_list|,
-literal|"alias:tftt,totalFlushTotalTime;default:false;text-align:right;desc:time spent in flush"
+literal|"alias:ftt,flushTotalTime;default:false;text-align:right;desc:time spent in flush"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"total.get.current"
+literal|"get.current"
 argument_list|,
-literal|"alias:tgc,totalGetCurrent;default:false;text-align:right;desc:number of current get ops"
+literal|"alias:gc,getCurrent;default:false;text-align:right;desc:number of current get ops"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"total.get.time"
+literal|"get.time"
 argument_list|,
-literal|"alias:tgti,totalGetTime;default:false;text-align:right;desc:time spent in get"
+literal|"alias:gti,getTime;default:false;text-align:right;desc:time spent in get"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"total.get.total"
+literal|"get.total"
 argument_list|,
-literal|"alias:tgto,totalGetTotal;default:false;text-align:right;desc:number of get ops"
+literal|"alias:gto,getTotal;default:false;text-align:right;desc:number of get ops"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"total.get.exists_time"
+literal|"get.exists_time"
 argument_list|,
-literal|"alias:tgeti,totalGetExistsTime;default:false;text-align:right;desc:time spent in successful gets"
+literal|"alias:geti,getExistsTime;default:false;text-align:right;desc:time spent in successful gets"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"total.get.exists_total"
+literal|"get.exists_total"
 argument_list|,
-literal|"alias:tgeto,totalGetExistsTotal;default:false;text-align:right;desc:number of successful gets"
+literal|"alias:geto,getExistsTotal;default:false;text-align:right;desc:number of successful gets"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"total.get.missing_time"
+literal|"get.missing_time"
 argument_list|,
-literal|"alias:tgmti,totalGetMissingTime;default:false;text-align:right;desc:time spent in failed gets"
+literal|"alias:gmti,getMissingTime;default:false;text-align:right;desc:time spent in failed gets"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"total.get.missing_total"
+literal|"get.missing_total"
 argument_list|,
-literal|"alias:tgmto,totalGetMissingTotal;default:false;text-align:right;desc:number of failed gets"
+literal|"alias:gmto,getMissingTotal;default:false;text-align:right;desc:number of failed gets"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"total.id_cache.memory_size"
+literal|"id_cache.memory_size"
 argument_list|,
-literal|"alias:tim,totalIdCacheMemory;default:false;text-align:right;desc:used id cache"
+literal|"alias:im,idCacheMemory;default:false;text-align:right;desc:used id cache"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"total.indexing.delete_current"
+literal|"indexing.delete_current"
 argument_list|,
-literal|"alias:tidc,totalIndexingDeleteCurrent;default:false;text-align:right;desc:number of current deletions"
+literal|"alias:idc,indexingDeleteCurrent;default:false;text-align:right;desc:number of current deletions"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"total.indexing.delete_time"
+literal|"indexing.delete_time"
 argument_list|,
-literal|"alias:tidti,totalIndexingDeleteTime;default:false;text-align:right;desc:time spent in deletions"
+literal|"alias:idti,indexingDeleteTime;default:false;text-align:right;desc:time spent in deletions"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"total.indexing.delete_total"
+literal|"indexing.delete_total"
 argument_list|,
-literal|"alias:tidto,totalIndexingDeleteTotal;default:false;text-align:right;desc:number of delete ops"
+literal|"alias:idto,indexingDeleteTotal;default:false;text-align:right;desc:number of delete ops"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"total.indexing.index_current"
+literal|"indexing.index_current"
 argument_list|,
-literal|"alias:tiic,totalIndexingIndexCurrent;default:false;text-align:right;desc:number of current indexing ops"
+literal|"alias:iic,indexingIndexCurrent;default:false;text-align:right;desc:number of current indexing ops"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"total.indexing.index_time"
+literal|"indexing.index_time"
 argument_list|,
-literal|"alias:tiiti,totalIndexingIndexTime;default:false;text-align:right;desc:time spent in indexing"
+literal|"alias:iiti,indexingIndexTime;default:false;text-align:right;desc:time spent in indexing"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"total.indexing.index_total"
+literal|"indexing.index_total"
 argument_list|,
-literal|"alias:tiito,totalIndexingIndexTotal;default:false;text-align:right;desc:number of indexing ops"
+literal|"alias:iito,indexingIndexTotal;default:false;text-align:right;desc:number of indexing ops"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"total.merges.current"
+literal|"merges.current"
 argument_list|,
-literal|"alias:tmc,totalMergesCurrent;default:false;text-align:right;desc:number of current merges"
+literal|"alias:mc,mergesCurrent;default:false;text-align:right;desc:number of current merges"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"total.merges.current_docs"
+literal|"merges.current_docs"
 argument_list|,
-literal|"alias:tmcd,totalMergesCurrentDocs;default:false;text-align:right;desc:number of current merging docs"
+literal|"alias:mcd,mergesCurrentDocs;default:false;text-align:right;desc:number of current merging docs"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"total.merges.current_size"
+literal|"merges.current_size"
 argument_list|,
-literal|"alias:tmcs,totalMergesCurrentSize;default:false;text-align:right;desc:size of current merges"
+literal|"alias:mcs,mergesCurrentSize;default:false;text-align:right;desc:size of current merges"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"total.merges.total"
+literal|"merges.total"
 argument_list|,
-literal|"alias:tmt,totalMergesTotal;default:false;text-align:right;desc:number of completed merge ops"
+literal|"alias:mt,mergesTotal;default:false;text-align:right;desc:number of completed merge ops"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"total.merges.total_docs"
+literal|"merges.total_docs"
 argument_list|,
-literal|"alias:tmtd,totalMergesTotalDocs;default:false;text-align:right;desc:docs merged"
+literal|"alias:mtd,mergesTotalDocs;default:false;text-align:right;desc:docs merged"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"total.merges.total_size"
+literal|"merges.total_size"
 argument_list|,
-literal|"alias:tmts,totalMergesTotalSize;default:false;text-align:right;desc:size merged"
+literal|"alias:mts,mergesTotalSize;default:false;text-align:right;desc:size merged"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"total.merges.total_time"
+literal|"merges.total_time"
 argument_list|,
-literal|"alias:tmtt,totalMergesTotalTime;default:false;text-align:right;desc:time spent in merges"
+literal|"alias:mtt,mergesTotalTime;default:false;text-align:right;desc:time spent in merges"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"total.percolate.current"
+literal|"percolate.current"
 argument_list|,
-literal|"alias:tpc,totalPercolateCurrent;default:false;text-align:right;desc:number of current percolations"
+literal|"alias:pc,percolateCurrent;default:false;text-align:right;desc:number of current percolations"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"total.percolate.memory_size"
+literal|"percolate.memory_size"
 argument_list|,
-literal|"alias:tpm,totalPercolateMemory;default:false;text-align:right;desc:memory used by percolations"
+literal|"alias:pm,percolateMemory;default:false;text-align:right;desc:memory used by percolations"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"total.percolate.queries"
+literal|"percolate.queries"
 argument_list|,
-literal|"alias:tpq,totalPercolateQueries;default:false;text-align:right;desc:number of registered percolation queries"
+literal|"alias:pq,percolateQueries;default:false;text-align:right;desc:number of registered percolation queries"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"total.percolate.time"
+literal|"percolate.time"
 argument_list|,
-literal|"alias:tpti,totalPercolateTime;default:false;text-align:right;desc:time spent percolating"
+literal|"alias:pti,percolateTime;default:false;text-align:right;desc:time spent percolating"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"total.percolate.total"
+literal|"percolate.total"
 argument_list|,
-literal|"alias:tpto,totalPercolateTotal;default:false;text-align:right;desc:total percolations"
+literal|"alias:pto,percolateTotal;default:false;text-align:right;desc:total percolations"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"total.refresh.total"
+literal|"refresh.total"
 argument_list|,
-literal|"alias:trto,totalRefreshTotal;default:false;text-align:right;desc:total refreshes"
+literal|"alias:rto,refreshTotal;default:false;text-align:right;desc:total refreshes"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"total.refresh.time"
+literal|"refresh.time"
 argument_list|,
-literal|"alias:trti,totalRefreshTime;default:false;text-align:right;desc:time spent in refreshes"
+literal|"alias:rti,refreshTime;default:false;text-align:right;desc:time spent in refreshes"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"total.search.fetch_current"
+literal|"search.fetch_current"
 argument_list|,
-literal|"alias:tsfc,totalSearchFetchCurrent;default:false;text-align:right;desc:current fetch phase ops"
+literal|"alias:sfc,searchFetchCurrent;default:false;text-align:right;desc:current fetch phase ops"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"total.search.fetch_time"
+literal|"search.fetch_time"
 argument_list|,
-literal|"alias:tsfti,totalSearchFetchTime;default:false;text-align:right;desc:time spent in fetch phase"
+literal|"alias:sfti,searchFetchTime;default:false;text-align:right;desc:time spent in fetch phase"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"total.search.fetch_total"
+literal|"search.fetch_total"
 argument_list|,
-literal|"alias:tsfto,totalSearchFetchTotal;default:false;text-align:right;desc:total fetch ops"
+literal|"alias:sfto,searchFetchTotal;default:false;text-align:right;desc:total fetch ops"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"total.search.open_contexts"
+literal|"search.open_contexts"
 argument_list|,
-literal|"alias:tso,totalSearchOpenContexts;default:false;text-align:right;desc:open search contexts"
+literal|"alias:so,searchOpenContexts;default:false;text-align:right;desc:open search contexts"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"total.search.query_current"
+literal|"search.query_current"
 argument_list|,
-literal|"alias:tsqc,totalSearchQueryCurrent;default:false;text-align:right;desc:current query phase ops"
+literal|"alias:sqc,searchQueryCurrent;default:false;text-align:right;desc:current query phase ops"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"total.search.query_time"
+literal|"search.query_time"
 argument_list|,
-literal|"alias:tsqti,totalSearchQueryTime;default:false;text-align:right;desc:time spent in query phase"
+literal|"alias:sqti,searchQueryTime;default:false;text-align:right;desc:time spent in query phase"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"total.search.query_total"
+literal|"search.query_total"
 argument_list|,
-literal|"alias:tsqto,totalSearchQueryTotal;default:false;text-align:right;desc:total query phase ops"
+literal|"alias:sqto,searchQueryTotal;default:false;text-align:right;desc:total query phase ops"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"total.segments.count"
+literal|"segments.count"
 argument_list|,
-literal|"alias:tsc,totalSegmentsCount;default:false;text-align:right;desc:number of segments"
+literal|"alias:sc,segmentsCount;default:false;text-align:right;desc:number of segments"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"total.segments.memory"
+literal|"segments.memory"
 argument_list|,
-literal|"alias:tsm,totalSegmentsMemory;default:false;text-align:right;desc:memory used by segments"
+literal|"alias:sm,segmentsMemory;default:false;text-align:right;desc:memory used by segments"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"total.warmer.current"
+literal|"warmer.current"
 argument_list|,
-literal|"alias:twc,totalWarmerCurrent;default:false;text-align:right;desc:current warmer ops"
+literal|"alias:wc,warmerCurrent;default:false;text-align:right;desc:current warmer ops"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"total.warmer.total"
+literal|"warmer.total"
 argument_list|,
-literal|"alias:twto,totalWarmerTotal;default:false;text-align:right;desc:total warmer ops"
+literal|"alias:wto,warmerTotal;default:false;text-align:right;desc:total warmer ops"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"total.warmer.total_time"
+literal|"warmer.total_time"
 argument_list|,
-literal|"alias:twtt,totalWarmerTotalTime;default:false;text-align:right;desc:time spent in warmers"
+literal|"alias:wtt,warmerTotalTime;default:false;text-align:right;desc:time spent in warmers"
 argument_list|)
 expr_stmt|;
 name|table
