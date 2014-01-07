@@ -1,4 +1,8 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
+begin_comment
+comment|/*  * Licensed to Elasticsearch under one or more contributor  * license agreements. See the NOTICE file distributed with  * this work for additional information regarding copyright  * ownership. Elasticsearch licenses this file to you under  * the Apache License, Version 2.0 (the "License"); you may  * not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+end_comment
+
 begin_package
 DECL|package|org.elasticsearch.search.rescore
 package|package
@@ -11,30 +15,6 @@ operator|.
 name|rescore
 package|;
 end_package
-
-begin_comment
-comment|/*  * Licensed to Elasticsearch under one or more contributor  * license agreements. See the NOTICE file distributed with  * this work for additional information regarding copyright  * ownership. Elasticsearch licenses this file to you under  * the Apache License, Version 2.0 (the "License"); you may  * not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
-end_comment
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
-import|;
-end_import
 
 begin_import
 import|import
@@ -120,8 +100,28 @@ name|SearchContext
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
 begin_comment
-comment|/**  * A query rescorer interface used to re-rank the Top-K results of a previously   * executed search.  */
+comment|/**  * A query rescorer interface used to re-rank the Top-K results of a previously  * executed search.  */
 end_comment
 
 begin_interface
@@ -137,7 +137,7 @@ name|String
 name|name
 parameter_list|()
 function_decl|;
-comment|/**      * Modifies the result of the previously executed search ({@link TopDocs})      * in place based on the given {@link RescoreSearchContext}.      *       * @param topDocs the result of the previously exectued search      * @param context the current {@link SearchContext}. This will never be<code>null</code>.      * @param rescoreContext the {@link RescoreSearchContext}. This will never be<code>null</code>      * @throws IOException if an {@link IOException} occurs during rescoring      */
+comment|/**      * Modifies the result of the previously executed search ({@link TopDocs})      * in place based on the given {@link RescoreSearchContext}.      *      * @param topDocs        the result of the previously exectued search      * @param context        the current {@link SearchContext}. This will never be<code>null</code>.      * @param rescoreContext the {@link RescoreSearchContext}. This will never be<code>null</code>      * @throws IOException if an {@link IOException} occurs during rescoring      */
 DECL|method|rescore
 specifier|public
 name|void
@@ -155,7 +155,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Executes an {@link Explanation} phase on the rescorer.       * @param topLevelDocId the global / top-level document ID to explain      * @param context the current {@link SearchContext}      * @param rescoreContext TODO      * @return the explain for the given top level document ID.      * @throws IOException if an {@link IOException} occurs      */
+comment|/**      * Executes an {@link Explanation} phase on the rescorer.      *      * @param topLevelDocId  the global / top-level document ID to explain      * @param context        the current {@link SearchContext}      * @param rescoreContext TODO      * @return the explain for the given top level document ID.      * @throws IOException if an {@link IOException} occurs      */
 DECL|method|explain
 specifier|public
 name|Explanation
@@ -173,7 +173,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Parses the {@link RescoreSearchContext} for this impelementation      * @param parser the parser to read the context from      * @param context the current search context      * @return the parsed {@link RescoreSearchContext}      * @throws IOException if an {@link IOException} occurs while parsing the context      */
+comment|/**      * Parses the {@link RescoreSearchContext} for this impelementation      *      * @param parser  the parser to read the context from      * @param context the current search context      * @return the parsed {@link RescoreSearchContext}      * @throws IOException if an {@link IOException} occurs while parsing the context      */
 DECL|method|parse
 specifier|public
 name|RescoreSearchContext

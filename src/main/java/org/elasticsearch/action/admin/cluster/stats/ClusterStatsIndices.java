@@ -1,4 +1,8 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
+begin_comment
+comment|/*  * Licensed to Elasticsearch under one or more contributor  * license agreements. See the NOTICE file distributed with  * this work for additional information regarding copyright  * ownership. Elasticsearch licenses this file to you under  * the Apache License, Version 2.0 (the "License"); you may  * not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+end_comment
+
 begin_package
 DECL|package|org.elasticsearch.action.admin.cluster.stats
 package|package
@@ -15,10 +19,6 @@ operator|.
 name|stats
 package|;
 end_package
-
-begin_comment
-comment|/*  * Licensed to Elasticsearch under one or more contributor  * license agreements. See the NOTICE file distributed with  * this work for additional information regarding copyright  * ownership. Elasticsearch licenses this file to you under  * the Apache License, Version 2.0 (the "License"); you may  * not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
-end_comment
 
 begin_import
 import|import
@@ -1300,7 +1300,7 @@ name|primaries
 operator|)
 return|;
 block|}
-comment|/** the maximum number of shards (primary+replicas) an index has */
+comment|/**          * the maximum number of shards (primary+replicas) an index has          */
 DECL|method|getMaxIndexShards
 specifier|public
 name|int
@@ -1313,7 +1313,7 @@ operator|.
 name|maxIndexShards
 return|;
 block|}
-comment|/** the minimum number of shards (primary+replicas) an index has */
+comment|/**          * the minimum number of shards (primary+replicas) an index has          */
 DECL|method|getMinIndexShards
 specifier|public
 name|int
@@ -1326,7 +1326,7 @@ operator|.
 name|minIndexShards
 return|;
 block|}
-comment|/** average number of shards (primary+replicas) across the indices */
+comment|/**          * average number of shards (primary+replicas) across the indices          */
 DECL|method|getAvgIndexShards
 specifier|public
 name|double
@@ -1375,7 +1375,7 @@ operator|.
 name|maxIndexPrimaryShards
 return|;
 block|}
-comment|/** the minimum number of primary shards an index has */
+comment|/**          * the minimum number of primary shards an index has          */
 DECL|method|getMinIndexPrimaryShards
 specifier|public
 name|int
@@ -1388,7 +1388,7 @@ operator|.
 name|minIndexPrimaryShards
 return|;
 block|}
-comment|/** the average number primary shards across the indices */
+comment|/**          * the average number primary shards across the indices          */
 DECL|method|getAvgIndexPrimaryShards
 specifier|public
 name|double

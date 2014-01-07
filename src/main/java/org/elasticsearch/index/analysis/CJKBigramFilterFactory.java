@@ -1,4 +1,8 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
+begin_comment
+comment|/*  * Licensed to Elasticsearch under one or more contributor  * license agreements. See the NOTICE file distributed with  * this work for additional information regarding copyright  * ownership. Elasticsearch licenses this file to you under  * the Apache License, Version 2.0 (the "License"); you may  * not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+end_comment
+
 begin_package
 DECL|package|org.elasticsearch.index.analysis
 package|package
@@ -11,40 +15,6 @@ operator|.
 name|analysis
 package|;
 end_package
-
-begin_comment
-comment|/*  * Licensed to Elasticsearch under one or more contributor  * license agreements. See the NOTICE file distributed with  * this work for additional information regarding copyright  * ownership. Elasticsearch licenses this file to you under  * the Apache License, Version 2.0 (the "License"); you may  * not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
-end_comment
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Arrays
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashSet
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
-import|;
-end_import
 
 begin_import
 import|import
@@ -146,8 +116,38 @@ name|IndexSettings
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
 begin_comment
-comment|/**  * Factory that creates a {@link CJKBigramFilter} to form bigrams of CJK terms  * that are generated from StandardTokenizer or ICUTokenizer.  *<p>  * CJK types are set by these tokenizers, but you can also use flags to  * explicitly control which of the CJK scripts are turned into bigrams.  *<p>  * By default, when a CJK character has no adjacent characters to form a bigram,  * it is output in unigram form. If you want to always output both unigrams and  * bigrams, set the<code>outputUnigrams</code> flag. This can be used for a  * combined unigram+bigram approach.  *<p>  * In all cases, all non-CJK input is passed thru unmodified.  */
+comment|/**  * Factory that creates a {@link CJKBigramFilter} to form bigrams of CJK terms  * that are generated from StandardTokenizer or ICUTokenizer.  *<p/>  * CJK types are set by these tokenizers, but you can also use flags to  * explicitly control which of the CJK scripts are turned into bigrams.  *<p/>  * By default, when a CJK character has no adjacent characters to form a bigram,  * it is output in unigram form. If you want to always output both unigrams and  * bigrams, set the<code>outputUnigrams</code> flag. This can be used for a  * combined unigram+bigram approach.  *<p/>  * In all cases, all non-CJK input is passed thru unmodified.  */
 end_comment
 
 begin_class
