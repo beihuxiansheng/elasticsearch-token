@@ -37,12 +37,9 @@ name|newRecycler
 parameter_list|()
 block|{
 return|return
-operator|new
-name|NoneRecycler
-argument_list|<
-name|byte
-index|[]
-argument_list|>
+name|Recyclers
+operator|.
+name|none
 argument_list|(
 name|RECYCLER_C
 argument_list|)

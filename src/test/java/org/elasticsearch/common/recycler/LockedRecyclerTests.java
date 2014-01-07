@@ -17,10 +17,10 @@ package|;
 end_package
 
 begin_class
-DECL|class|SoftThreadLocalRecyclerTests
+DECL|class|LockedRecyclerTests
 specifier|public
 class|class
-name|SoftThreadLocalRecyclerTests
+name|LockedRecyclerTests
 extends|extends
 name|AbstractRecyclerTests
 block|{
@@ -39,17 +39,17 @@ block|{
 return|return
 name|Recyclers
 operator|.
-name|threadLocal
+name|locked
 argument_list|(
 name|Recyclers
 operator|.
-name|softFactory
-argument_list|(
-name|Recyclers
-operator|.
-name|dequeFactory
+name|deque
 argument_list|(
 name|RECYCLER_C
+argument_list|,
+name|randomIntBetween
+argument_list|(
+literal|5
 argument_list|,
 literal|10
 argument_list|)
