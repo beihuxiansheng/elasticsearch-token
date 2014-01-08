@@ -30,15 +30,16 @@ begin_comment
 comment|/**  *  */
 end_comment
 
-begin_interface
-DECL|interface|HttpRequest
+begin_class
+DECL|class|HttpRequest
 specifier|public
-interface|interface
+specifier|abstract
+class|class
 name|HttpRequest
 extends|extends
 name|RestRequest
 block|{  }
-end_interface
+end_class
 
 end_unit
 

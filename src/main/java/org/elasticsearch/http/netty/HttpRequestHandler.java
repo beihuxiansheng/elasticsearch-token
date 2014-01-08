@@ -122,6 +122,11 @@ operator|new
 name|NettyHttpRequest
 argument_list|(
 name|request
+argument_list|,
+name|e
+operator|.
+name|getChannel
+argument_list|()
 argument_list|)
 argument_list|,
 operator|new
