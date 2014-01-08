@@ -475,6 +475,8 @@ name|length
 argument_list|)
 argument_list|,
 name|contentUnsafe
+argument_list|,
+literal|true
 argument_list|)
 return|;
 block|}
@@ -488,6 +490,9 @@ name|data
 parameter_list|,
 name|boolean
 name|contentUnsafe
+parameter_list|,
+name|boolean
+name|allowExplicitIndex
 parameter_list|)
 throws|throws
 name|Exception
@@ -757,6 +762,8 @@ argument_list|(
 name|parser
 argument_list|,
 name|percolateRequest
+argument_list|,
+name|allowExplicitIndex
 argument_list|)
 expr_stmt|;
 block|}
@@ -783,6 +790,8 @@ argument_list|(
 name|parser
 argument_list|,
 name|percolateRequest
+argument_list|,
+name|allowExplicitIndex
 argument_list|)
 expr_stmt|;
 block|}
@@ -885,6 +894,9 @@ name|parser
 parameter_list|,
 name|PercolateRequest
 name|percolateRequest
+parameter_list|,
+name|boolean
+name|allowExplicitIndex
 parameter_list|)
 throws|throws
 name|IOException
@@ -1177,6 +1189,20 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+operator|!
+name|allowExplicitIndex
+condition|)
+block|{
+throw|throw
+operator|new
+name|ElasticsearchIllegalArgumentException
+argument_list|(
+literal|"explicit index in multi percolate is not allowed"
+argument_list|)
+throw|;
+block|}
 name|getRequest
 operator|.
 name|index
@@ -1799,6 +1825,20 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+operator|!
+name|allowExplicitIndex
+condition|)
+block|{
+throw|throw
+operator|new
+name|ElasticsearchIllegalArgumentException
+argument_list|(
+literal|"explicit index in multi percolate is not allowed"
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 name|value
