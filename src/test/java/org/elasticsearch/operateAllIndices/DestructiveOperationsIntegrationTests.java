@@ -1183,7 +1183,7 @@ parameter_list|(
 name|ElasticsearchIllegalArgumentException
 name|e
 parameter_list|)
-block|{}
+block|{         }
 try|try
 block|{
 name|client
@@ -1197,6 +1197,11 @@ argument_list|()
 operator|.
 name|prepareDeleteMapping
 argument_list|()
+operator|.
+name|setIndices
+argument_list|(
+literal|"*"
+argument_list|)
 operator|.
 name|setType
 argument_list|(
@@ -1215,7 +1220,7 @@ parameter_list|(
 name|ElasticsearchIllegalArgumentException
 name|e
 parameter_list|)
-block|{}
+block|{         }
 name|settings
 operator|=
 name|ImmutableSettings
@@ -1297,6 +1302,11 @@ argument_list|()
 operator|.
 name|prepareDeleteMapping
 argument_list|()
+operator|.
+name|setIndices
+argument_list|(
+literal|"*"
+argument_list|)
 operator|.
 name|setType
 argument_list|(

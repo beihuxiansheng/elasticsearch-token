@@ -938,6 +938,30 @@ return|return
 name|uniqueCount
 return|;
 block|}
+comment|/**      * Checks if the given array contains any elements.      *       * @param array The array to check      *       * @return false if the array contains an element, true if not or the array is null.      */
+DECL|method|isEmpty
+specifier|public
+specifier|static
+name|boolean
+name|isEmpty
+parameter_list|(
+name|Object
+index|[]
+name|array
+parameter_list|)
+block|{
+return|return
+name|array
+operator|==
+literal|null
+operator|||
+name|array
+operator|.
+name|length
+operator|==
+literal|0
+return|;
+block|}
 block|}
 end_enum
 

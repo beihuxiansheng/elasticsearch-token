@@ -152,20 +152,21 @@ name|this
 return|;
 block|}
 comment|/**      * The name (or wildcard expression) of the index warmer to delete, or null      * to delete all warmers.      */
-DECL|method|setName
+DECL|method|setNames
 specifier|public
 name|DeleteWarmerRequestBuilder
-name|setName
+name|setNames
 parameter_list|(
 name|String
-name|name
+modifier|...
+name|names
 parameter_list|)
 block|{
 name|request
 operator|.
-name|name
+name|names
 argument_list|(
-name|name
+name|names
 argument_list|)
 expr_stmt|;
 return|return

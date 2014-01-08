@@ -1657,7 +1657,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|setName
+name|setNames
 argument_list|(
 literal|"foo"
 argument_list|)
@@ -1686,8 +1686,11 @@ name|assertThat
 argument_list|(
 name|ex
 operator|.
-name|name
+name|names
 argument_list|()
+index|[
+literal|0
+index|]
 argument_list|,
 name|equalTo
 argument_list|(
@@ -1898,7 +1901,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|setName
+name|setNames
 argument_list|(
 literal|"custom_warmer"
 argument_list|)
