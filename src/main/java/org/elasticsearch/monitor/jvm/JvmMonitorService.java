@@ -954,10 +954,14 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
-name|t
+name|logger
 operator|.
-name|printStackTrace
-argument_list|()
+name|debug
+argument_list|(
+literal|"failed to monitor"
+argument_list|,
+name|t
+argument_list|)
 expr_stmt|;
 block|}
 block|}
