@@ -112,6 +112,12 @@ specifier|final
 name|int
 name|requiredSize
 decl_stmt|;
+DECL|field|minDocCount
+specifier|private
+specifier|final
+name|long
+name|minDocCount
+decl_stmt|;
 DECL|method|UnmappedTermsAggregator
 specifier|public
 name|UnmappedTermsAggregator
@@ -124,6 +130,9 @@ name|order
 parameter_list|,
 name|int
 name|requiredSize
+parameter_list|,
+name|long
+name|minDocCount
 parameter_list|,
 name|AggregationContext
 name|aggregationContext
@@ -162,6 +171,12 @@ operator|.
 name|requiredSize
 operator|=
 name|requiredSize
+expr_stmt|;
+name|this
+operator|.
+name|minDocCount
+operator|=
+name|minDocCount
 expr_stmt|;
 block|}
 annotation|@
@@ -217,6 +232,8 @@ argument_list|,
 name|order
 argument_list|,
 name|requiredSize
+argument_list|,
+name|minDocCount
 argument_list|)
 return|;
 block|}
@@ -237,6 +254,8 @@ argument_list|,
 name|order
 argument_list|,
 name|requiredSize
+argument_list|,
+name|minDocCount
 argument_list|)
 return|;
 block|}

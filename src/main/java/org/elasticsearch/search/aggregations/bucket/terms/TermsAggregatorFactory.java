@@ -242,6 +242,12 @@ specifier|final
 name|int
 name|shardSize
 decl_stmt|;
+DECL|field|minDocCount
+specifier|private
+specifier|final
+name|long
+name|minDocCount
+decl_stmt|;
 DECL|field|includeExclude
 specifier|private
 specifier|final
@@ -272,6 +278,9 @@ name|requiredSize
 parameter_list|,
 name|int
 name|shardSize
+parameter_list|,
+name|long
+name|minDocCount
 parameter_list|,
 name|IncludeExclude
 name|includeExclude
@@ -314,6 +323,12 @@ name|shardSize
 expr_stmt|;
 name|this
 operator|.
+name|minDocCount
+operator|=
+name|minDocCount
+expr_stmt|;
+name|this
+operator|.
 name|includeExclude
 operator|=
 name|includeExclude
@@ -348,6 +363,8 @@ argument_list|,
 name|order
 argument_list|,
 name|requiredSize
+argument_list|,
+name|minDocCount
 argument_list|,
 name|aggregationContext
 argument_list|,
@@ -637,6 +654,8 @@ name|requiredSize
 argument_list|,
 name|shardSize
 argument_list|,
+name|minDocCount
+argument_list|,
 name|aggregationContext
 argument_list|,
 name|parent
@@ -672,6 +691,8 @@ argument_list|,
 name|requiredSize
 argument_list|,
 name|shardSize
+argument_list|,
+name|minDocCount
 argument_list|,
 name|includeExclude
 argument_list|,
@@ -744,6 +765,8 @@ name|requiredSize
 argument_list|,
 name|shardSize
 argument_list|,
+name|minDocCount
+argument_list|,
 name|aggregationContext
 argument_list|,
 name|parent
@@ -770,6 +793,8 @@ argument_list|,
 name|requiredSize
 argument_list|,
 name|shardSize
+argument_list|,
+name|minDocCount
 argument_list|,
 name|aggregationContext
 argument_list|,

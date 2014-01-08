@@ -6287,9 +6287,9 @@ argument_list|(
 literal|1l
 argument_list|)
 operator|.
-name|emptyBuckets
+name|minDocCount
 argument_list|(
-literal|true
+literal|0
 argument_list|)
 operator|.
 name|subAggregation

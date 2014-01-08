@@ -382,6 +382,9 @@ parameter_list|,
 name|InternalOrder
 name|order
 parameter_list|,
+name|long
+name|minDocCount
+parameter_list|,
 name|EmptyBucketInfo
 name|emptyBucketInfo
 parameter_list|,
@@ -401,6 +404,8 @@ argument_list|,
 name|buckets
 argument_list|,
 name|order
+argument_list|,
+name|minDocCount
 argument_list|,
 name|emptyBucketInfo
 argument_list|,
@@ -464,6 +469,9 @@ parameter_list|,
 name|InternalOrder
 name|order
 parameter_list|,
+name|long
+name|minDocCount
+parameter_list|,
 name|EmptyBucketInfo
 name|emptyBucketInfo
 parameter_list|,
@@ -481,6 +489,8 @@ argument_list|,
 name|buckets
 argument_list|,
 name|order
+argument_list|,
+name|minDocCount
 argument_list|,
 name|emptyBucketInfo
 argument_list|,
