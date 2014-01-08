@@ -698,19 +698,6 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|numDocs
-operator|==
-literal|0
-condition|)
-block|{
-comment|// if 0 was asked, change it to 1 since 0 is not allowed
-name|numDocs
-operator|=
-literal|1
-expr_stmt|;
-block|}
-if|if
-condition|(
 name|searchContext
 operator|.
 name|searchType
@@ -719,6 +706,10 @@ operator|==
 name|SearchType
 operator|.
 name|COUNT
+operator|||
+name|numDocs
+operator|==
+literal|0
 condition|)
 block|{
 name|TotalHitCountCollector
