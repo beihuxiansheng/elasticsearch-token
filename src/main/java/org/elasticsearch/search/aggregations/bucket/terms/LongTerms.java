@@ -832,7 +832,9 @@ argument_list|,
 name|order
 operator|.
 name|comparator
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|Object

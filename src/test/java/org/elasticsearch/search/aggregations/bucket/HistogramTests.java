@@ -4552,7 +4552,10 @@ name|Terms
 operator|.
 name|Order
 operator|.
-name|TERM_ASC
+name|term
+argument_list|(
+literal|true
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)

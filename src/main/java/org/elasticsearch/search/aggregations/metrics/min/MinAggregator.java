@@ -100,7 +100,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|AggregatorFactories
+name|InternalAggregation
 import|;
 end_import
 
@@ -114,7 +114,9 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|InternalAggregation
+name|metrics
+operator|.
+name|MetricsAggregator
 import|;
 end_import
 
@@ -204,7 +206,9 @@ specifier|public
 class|class
 name|MinAggregator
 extends|extends
-name|Aggregator
+name|MetricsAggregator
+operator|.
+name|SingleValue
 block|{
 DECL|field|valuesSource
 specifier|private
@@ -240,14 +244,6 @@ block|{
 name|super
 argument_list|(
 name|name
-argument_list|,
-name|BucketAggregationMode
-operator|.
-name|MULTI_BUCKETS
-argument_list|,
-name|AggregatorFactories
-operator|.
-name|EMPTY
 argument_list|,
 name|estimatedBucketsCount
 argument_list|,
@@ -450,6 +446,26 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|metric
+specifier|public
+name|double
+name|metric
+parameter_list|(
+name|long
+name|owningBucketOrd
+parameter_list|)
+block|{
+return|return
+name|mins
+operator|.
+name|get
+argument_list|(
+name|owningBucketOrd
+argument_list|)
+return|;
 block|}
 annotation|@
 name|Override

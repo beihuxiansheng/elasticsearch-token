@@ -194,6 +194,10 @@ name|Terms
 operator|.
 name|Bucket
 block|{
+DECL|field|bucketOrd
+name|long
+name|bucketOrd
+decl_stmt|;
 DECL|field|docCount
 specifier|protected
 name|long
@@ -919,7 +923,9 @@ argument_list|,
 name|order
 operator|.
 name|comparator
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 argument_list|)
 decl_stmt|;
 for|for

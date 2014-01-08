@@ -1957,10 +1957,6 @@ argument_list|)
 condition|)
 block|{
 return|return
-call|(
-name|InternalOrder
-call|)
-argument_list|(
 name|asc
 condition|?
 name|InternalOrder
@@ -1970,7 +1966,6 @@ else|:
 name|InternalOrder
 operator|.
 name|TERM_DESC
-argument_list|)
 return|;
 block|}
 if|if
@@ -1984,10 +1979,6 @@ argument_list|)
 condition|)
 block|{
 return|return
-call|(
-name|InternalOrder
-call|)
-argument_list|(
 name|asc
 condition|?
 name|InternalOrder
@@ -1997,7 +1988,6 @@ else|:
 name|InternalOrder
 operator|.
 name|COUNT_DESC
-argument_list|)
 return|;
 block|}
 name|int
@@ -2018,11 +2008,10 @@ literal|0
 condition|)
 block|{
 return|return
-name|Terms
+operator|new
+name|InternalOrder
 operator|.
-name|Order
-operator|.
-name|aggregation
+name|Aggregation
 argument_list|(
 name|key
 argument_list|,
@@ -2031,11 +2020,10 @@ argument_list|)
 return|;
 block|}
 return|return
-name|Terms
+operator|new
+name|InternalOrder
 operator|.
-name|Order
-operator|.
-name|aggregation
+name|Aggregation
 argument_list|(
 name|key
 operator|.

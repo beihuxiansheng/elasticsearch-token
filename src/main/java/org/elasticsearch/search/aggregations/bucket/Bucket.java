@@ -79,10 +79,10 @@ name|Aggregations
 name|getAggregations
 parameter_list|()
 function_decl|;
-DECL|class|Comparator
+DECL|class|SubAggregationComparator
 specifier|static
 class|class
-name|Comparator
+name|SubAggregationComparator
 parameter_list|<
 name|B
 extends|extends
@@ -116,9 +116,9 @@ specifier|final
 name|boolean
 name|asc
 decl_stmt|;
-DECL|method|Comparator
+DECL|method|SubAggregationComparator
 specifier|public
-name|Comparator
+name|SubAggregationComparator
 parameter_list|(
 name|String
 name|expression
@@ -193,9 +193,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|Comparator
+DECL|method|SubAggregationComparator
 specifier|public
-name|Comparator
+name|SubAggregationComparator
 parameter_list|(
 name|String
 name|aggName

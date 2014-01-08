@@ -335,6 +335,17 @@ return|return
 name|parent
 return|;
 block|}
+DECL|method|subAggregators
+specifier|public
+name|Aggregator
+index|[]
+name|subAggregators
+parameter_list|()
+block|{
+return|return
+name|subAggregators
+return|;
+block|}
 comment|/**      * @return  The current aggregation context.      */
 DECL|method|context
 specifier|public

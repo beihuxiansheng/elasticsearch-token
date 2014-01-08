@@ -234,6 +234,54 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+DECL|enum|Metrics
+enum|enum
+name|Metrics
+block|{
+DECL|enum constant|count
+DECL|enum constant|sum
+DECL|enum constant|min
+DECL|enum constant|max
+DECL|enum constant|avg
+DECL|enum constant|sum_of_squares
+DECL|enum constant|variance
+DECL|enum constant|std_deviation
+name|count
+block|,
+name|sum
+block|,
+name|min
+block|,
+name|max
+block|,
+name|avg
+block|,
+name|sum_of_squares
+block|,
+name|variance
+block|,
+name|std_deviation
+block|;
+DECL|method|resolve
+specifier|public
+specifier|static
+name|Metrics
+name|resolve
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+return|return
+name|Metrics
+operator|.
+name|valueOf
+argument_list|(
+name|name
+argument_list|)
+return|;
+block|}
+block|}
 DECL|field|sumOfSqrs
 specifier|private
 name|double
