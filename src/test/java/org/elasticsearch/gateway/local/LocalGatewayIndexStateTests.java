@@ -2451,7 +2451,7 @@ operator|.
 name|prepareState
 argument_list|()
 operator|.
-name|setFilterIndices
+name|setIndices
 argument_list|(
 literal|"test"
 argument_list|)

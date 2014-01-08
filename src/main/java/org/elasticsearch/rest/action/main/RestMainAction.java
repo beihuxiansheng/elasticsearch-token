@@ -362,12 +362,12 @@ argument_list|)
 expr_stmt|;
 name|clusterStateRequest
 operator|.
-name|filterAll
+name|clear
 argument_list|()
 operator|.
-name|filterBlocks
+name|blocks
 argument_list|(
-literal|false
+literal|true
 argument_list|)
 expr_stmt|;
 name|client

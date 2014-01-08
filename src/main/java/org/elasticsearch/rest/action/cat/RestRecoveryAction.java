@@ -432,7 +432,10 @@ argument_list|()
 decl_stmt|;
 name|clusterStateRequest
 operator|.
-name|filterMetaData
+name|clear
+argument_list|()
+operator|.
+name|nodes
 argument_list|(
 literal|true
 argument_list|)

@@ -461,7 +461,10 @@ argument_list|()
 decl_stmt|;
 name|clusterStateRequest
 operator|.
-name|filterMetaData
+name|clear
+argument_list|()
+operator|.
+name|routingTable
 argument_list|(
 literal|true
 argument_list|)

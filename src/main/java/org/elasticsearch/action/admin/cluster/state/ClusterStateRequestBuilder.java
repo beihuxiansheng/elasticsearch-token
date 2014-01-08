@@ -114,26 +114,42 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Filters all data responses.      */
-DECL|method|setFilterAll
+comment|/**      * Include all data      */
+DECL|method|all
 specifier|public
 name|ClusterStateRequestBuilder
-name|setFilterAll
+name|all
 parameter_list|()
 block|{
 name|request
 operator|.
-name|filterAll
+name|all
 argument_list|()
 expr_stmt|;
 return|return
 name|this
 return|;
 block|}
-DECL|method|setFilterBlocks
+comment|/**      * Do not include any data      */
+DECL|method|clear
 specifier|public
 name|ClusterStateRequestBuilder
-name|setFilterBlocks
+name|clear
+parameter_list|()
+block|{
+name|request
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|setBlocks
+specifier|public
+name|ClusterStateRequestBuilder
+name|setBlocks
 parameter_list|(
 name|boolean
 name|filter
@@ -141,7 +157,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|filterBlocks
+name|blocks
 argument_list|(
 name|filter
 argument_list|)
@@ -150,11 +166,11 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Should the cluster state result include the {@link org.elasticsearch.cluster.metadata.MetaData}. Defaults      * to<tt>false</tt>.      */
-DECL|method|setFilterMetaData
+comment|/**      * Should the cluster state result include the {@link org.elasticsearch.cluster.metadata.MetaData}. Defaults      * to<tt>true</tt>.      */
+DECL|method|setMetaData
 specifier|public
 name|ClusterStateRequestBuilder
-name|setFilterMetaData
+name|setMetaData
 parameter_list|(
 name|boolean
 name|filter
@@ -162,7 +178,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|filterMetaData
+name|metaData
 argument_list|(
 name|filter
 argument_list|)
@@ -171,11 +187,11 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Should the cluster state result include the {@link org.elasticsearch.cluster.node.DiscoveryNodes}. Defaults      * to<tt>false</tt>.      */
-DECL|method|setFilterNodes
+comment|/**      * Should the cluster state result include the {@link org.elasticsearch.cluster.node.DiscoveryNodes}. Defaults      * to<tt>true</tt>.      */
+DECL|method|setNodes
 specifier|public
 name|ClusterStateRequestBuilder
-name|setFilterNodes
+name|setNodes
 parameter_list|(
 name|boolean
 name|filter
@@ -183,7 +199,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|filterNodes
+name|nodes
 argument_list|(
 name|filter
 argument_list|)
@@ -192,11 +208,11 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Should the cluster state result include teh {@link org.elasticsearch.cluster.routing.RoutingTable}. Defaults      * to<tt>false</tt>.      */
-DECL|method|setFilterRoutingTable
+comment|/**      * Should the cluster state result include teh {@link org.elasticsearch.cluster.routing.RoutingTable}. Defaults      * to<tt>true</tt>.      */
+DECL|method|setRoutingTable
 specifier|public
 name|ClusterStateRequestBuilder
-name|setFilterRoutingTable
+name|setRoutingTable
 parameter_list|(
 name|boolean
 name|filter
@@ -204,7 +220,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|filterRoutingTable
+name|routingTable
 argument_list|(
 name|filter
 argument_list|)
@@ -213,11 +229,11 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * When {@link #setFilterMetaData(boolean)} is not set, which indices to return the {@link org.elasticsearch.cluster.metadata.IndexMetaData}      * for. Defaults to all indices.      */
-DECL|method|setFilterIndices
+comment|/**      * When {@link #setMetaData(boolean)} is set, which indices to return the {@link org.elasticsearch.cluster.metadata.IndexMetaData}      * for. Defaults to all indices.      */
+DECL|method|setIndices
 specifier|public
 name|ClusterStateRequestBuilder
-name|setFilterIndices
+name|setIndices
 parameter_list|(
 name|String
 modifier|...
@@ -226,7 +242,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|filteredIndices
+name|indices
 argument_list|(
 name|indices
 argument_list|)
@@ -235,10 +251,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|setFilterIndexTemplates
+DECL|method|setIndexTemplates
 specifier|public
 name|ClusterStateRequestBuilder
-name|setFilterIndexTemplates
+name|setIndexTemplates
 parameter_list|(
 name|String
 modifier|...
@@ -247,7 +263,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|filteredIndexTemplates
+name|indexTemplates
 argument_list|(
 name|templates
 argument_list|)

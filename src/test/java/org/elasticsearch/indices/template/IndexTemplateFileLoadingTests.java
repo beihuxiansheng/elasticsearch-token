@@ -509,7 +509,7 @@ operator|.
 name|prepareState
 argument_list|()
 operator|.
-name|setFilterIndices
+name|setIndices
 argument_list|(
 name|indexName
 argument_list|)

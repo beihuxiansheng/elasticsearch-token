@@ -2516,12 +2516,12 @@ operator|.
 name|clusterStateRequest
 argument_list|()
 operator|.
-name|filterAll
+name|clear
 argument_list|()
 operator|.
-name|filterNodes
+name|nodes
 argument_list|(
-literal|false
+literal|true
 argument_list|)
 operator|.
 name|local
