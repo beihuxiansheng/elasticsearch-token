@@ -166,15 +166,6 @@ specifier|public
 class|class
 name|RestApi
 block|{
-DECL|field|ALL
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|ALL
-init|=
-literal|"_all"
-decl_stmt|;
 DECL|field|name
 specifier|private
 specifier|final
@@ -611,7 +602,7 @@ name|entrySet
 argument_list|()
 control|)
 block|{
-comment|//replace path placeholders with actual values
+comment|// replace path placeholders with actual values
 name|String
 name|value
 init|=
@@ -632,51 +623,28 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|//there might be additional placeholder to replace, not available as input params
-comment|//it can only be {index} or {type} to be replaced with _all
-if|if
-condition|(
-name|paramEntry
-operator|.
-name|getValue
-argument_list|()
-operator|.
-name|equals
-argument_list|(
-literal|"index"
-argument_list|)
-operator|||
-name|paramEntry
-operator|.
-name|getValue
-argument_list|()
-operator|.
-name|equals
-argument_list|(
-literal|"type"
-argument_list|)
-condition|)
-block|{
-name|value
-operator|=
-name|ALL
-expr_stmt|;
-block|}
-else|else
-block|{
+comment|// if a value is missing, we got the wrong path or the test was
+comment|// specified incorrectly
+comment|// TODO: What if more than one path exists? for example: PUT
+comment|// index/type/_mapping vs. PUT index/_maping/type? Should we
+comment|// randomize?
 throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"path ["
+literal|"parameter ["
 operator|+
-name|path
+name|paramEntry
+operator|.
+name|getValue
+argument_list|()
 operator|+
-literal|"] contains placeholders that weren't replaced with proper values"
+literal|"] missing"
 argument_list|)
 throw|;
 block|}
-block|}
+else|else
+block|{
 name|path
 operator|=
 name|path
@@ -691,6 +659,7 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|path
