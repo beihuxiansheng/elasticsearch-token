@@ -951,7 +951,7 @@ argument_list|)
 operator|.
 name|setFields
 argument_list|(
-literal|"_source.type1.name"
+literal|"type1.name"
 argument_list|)
 operator|.
 name|execute
@@ -1004,7 +1004,7 @@ name|getResult
 operator|.
 name|getField
 argument_list|(
-literal|"_source.type1.name"
+literal|"type1.name"
 argument_list|)
 operator|.
 name|getValues

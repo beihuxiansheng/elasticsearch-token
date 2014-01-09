@@ -1291,6 +1291,28 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Adds a field data based field to load and return. The field does not have to be stored,      * but its recommended to use non analyzed or numeric fields.      *      * @param name The field to get from the field data cache      */
+DECL|method|addFieldDataField
+specifier|public
+name|SearchRequestBuilder
+name|addFieldDataField
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+name|sourceBuilder
+argument_list|()
+operator|.
+name|fieldDataField
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Adds a script based field to load and return. The field does not have to be stored,      * but its recommended to use non analyzed or numeric fields.      *      * @param name   The name that will represent this value in the return hit      * @param script The script to use      */
 DECL|method|addScriptField
 specifier|public
