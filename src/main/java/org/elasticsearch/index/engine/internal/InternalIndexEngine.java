@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.engine.robin
+DECL|package|org.elasticsearch.index.engine.internal
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|index
 operator|.
 name|engine
 operator|.
-name|robin
+name|internal
 package|;
 end_package
 
@@ -121,18 +121,18 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|RobinIndexEngine
+DECL|class|InternalIndexEngine
 specifier|public
 class|class
-name|RobinIndexEngine
+name|InternalIndexEngine
 extends|extends
 name|AbstractIndexComponent
 implements|implements
 name|IndexEngine
 block|{
-DECL|method|RobinIndexEngine
+DECL|method|InternalIndexEngine
 specifier|public
-name|RobinIndexEngine
+name|InternalIndexEngine
 parameter_list|(
 name|Index
 name|index
@@ -148,9 +148,9 @@ expr_stmt|;
 block|}
 annotation|@
 name|Inject
-DECL|method|RobinIndexEngine
+DECL|method|InternalIndexEngine
 specifier|public
-name|RobinIndexEngine
+name|InternalIndexEngine
 parameter_list|(
 name|Index
 name|index

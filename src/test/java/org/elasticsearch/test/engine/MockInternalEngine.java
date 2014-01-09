@@ -202,9 +202,9 @@ name|index
 operator|.
 name|engine
 operator|.
-name|robin
+name|internal
 operator|.
-name|RobinEngine
+name|InternalEngine
 import|;
 end_import
 
@@ -435,13 +435,13 @@ import|;
 end_import
 
 begin_class
-DECL|class|MockRobinEngine
+DECL|class|MockInternalEngine
 specifier|public
 specifier|final
 class|class
-name|MockRobinEngine
+name|MockInternalEngine
 extends|extends
-name|RobinEngine
+name|InternalEngine
 implements|implements
 name|Engine
 block|{
@@ -509,9 +509,9 @@ name|wrapper
 decl_stmt|;
 annotation|@
 name|Inject
-DECL|method|MockRobinEngine
+DECL|method|MockInternalEngine
 specifier|public
-name|MockRobinEngine
+name|MockInternalEngine
 parameter_list|(
 name|ShardId
 name|shardId
@@ -714,7 +714,7 @@ for|for
 control|(
 name|Entry
 argument_list|<
-name|MockRobinEngine
+name|MockInternalEngine
 operator|.
 name|AssertingSearcher
 argument_list|,
@@ -722,7 +722,7 @@ name|RuntimeException
 argument_list|>
 name|entry
 range|:
-name|MockRobinEngine
+name|MockInternalEngine
 operator|.
 name|INFLIGHT_ENGINE_SEARCHERS
 operator|.

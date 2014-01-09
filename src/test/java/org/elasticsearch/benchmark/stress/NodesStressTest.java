@@ -628,7 +628,7 @@ name|settings
 operator|=
 name|settingsBuilder
 argument_list|()
-comment|//                .put("index.engine.robin.refreshInterval", 1, TimeUnit.SECONDS)
+comment|//                .put("index.refresh_interval", 1, TimeUnit.SECONDS)
 operator|.
 name|put
 argument_list|(

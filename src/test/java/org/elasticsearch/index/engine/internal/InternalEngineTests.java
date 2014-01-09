@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.engine.robin
+DECL|package|org.elasticsearch.index.engine.internal
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|index
 operator|.
 name|engine
 operator|.
-name|robin
+name|internal
 package|;
 end_package
 
@@ -835,10 +835,10 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|RobinEngineTests
+DECL|class|InternalEngineTests
 specifier|public
 class|class
-name|RobinEngineTests
+name|InternalEngineTests
 extends|extends
 name|ElasticsearchTestCase
 block|{
@@ -924,7 +924,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|RobinEngine
+name|InternalEngine
 operator|.
 name|INDEX_COMPOUND_ON_FLUSH
 argument_list|,
@@ -1492,7 +1492,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|RobinEngine
+name|InternalEngine
 argument_list|(
 name|shardId
 argument_list|,
@@ -1675,7 +1675,7 @@ name|defaultSettings
 operator|.
 name|getAsBoolean
 argument_list|(
-name|RobinEngine
+name|InternalEngine
 operator|.
 name|INDEX_COMPOUND_ON_FLUSH
 argument_list|,
@@ -2077,7 +2077,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|RobinEngine
+name|InternalEngine
 operator|.
 name|INDEX_COMPOUND_ON_FLUSH
 argument_list|,
@@ -2694,7 +2694,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|RobinEngine
+name|InternalEngine
 operator|.
 name|INDEX_COMPOUND_ON_FLUSH
 argument_list|,

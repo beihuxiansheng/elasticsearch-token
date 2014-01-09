@@ -182,9 +182,9 @@ name|index
 operator|.
 name|engine
 operator|.
-name|robin
+name|internal
 operator|.
-name|RobinEngine
+name|InternalEngine
 import|;
 end_import
 
@@ -716,7 +716,7 @@ name|indexDynamicSettings
 operator|.
 name|addDynamicSetting
 argument_list|(
-name|RobinEngine
+name|InternalEngine
 operator|.
 name|INDEX_INDEX_CONCURRENCY
 argument_list|,
@@ -729,7 +729,7 @@ name|indexDynamicSettings
 operator|.
 name|addDynamicSetting
 argument_list|(
-name|RobinEngine
+name|InternalEngine
 operator|.
 name|INDEX_COMPOUND_ON_FLUSH
 argument_list|,
@@ -755,7 +755,7 @@ name|indexDynamicSettings
 operator|.
 name|addDynamicSetting
 argument_list|(
-name|RobinEngine
+name|InternalEngine
 operator|.
 name|INDEX_GC_DELETES
 argument_list|,
@@ -768,7 +768,7 @@ name|indexDynamicSettings
 operator|.
 name|addDynamicSetting
 argument_list|(
-name|RobinEngine
+name|InternalEngine
 operator|.
 name|INDEX_CODEC
 argument_list|)
@@ -777,7 +777,7 @@ name|indexDynamicSettings
 operator|.
 name|addDynamicSetting
 argument_list|(
-name|RobinEngine
+name|InternalEngine
 operator|.
 name|INDEX_FAIL_ON_MERGE_FAILURE
 argument_list|)

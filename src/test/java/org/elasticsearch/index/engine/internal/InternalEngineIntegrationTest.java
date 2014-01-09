@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.engine.robin
+DECL|package|org.elasticsearch.index.engine.internal
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|index
 operator|.
 name|engine
 operator|.
-name|robin
+name|internal
 package|;
 end_package
 
@@ -363,10 +363,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|RobinEngineIntegrationTest
+DECL|class|InternalEngineIntegrationTest
 specifier|public
 class|class
-name|RobinEngineIntegrationTest
+name|InternalEngineIntegrationTest
 extends|extends
 name|ElasticsearchIntegrationTest
 block|{
@@ -385,7 +385,7 @@ block|{
 name|Field
 name|allowRamBytesUsed
 init|=
-name|RobinEngine
+name|InternalEngine
 operator|.
 name|class
 operator|.
@@ -405,7 +405,7 @@ name|allowRamBytesUsed
 operator|.
 name|set
 argument_list|(
-name|RobinEngine
+name|InternalEngine
 operator|.
 name|class
 argument_list|,
@@ -791,7 +791,7 @@ name|allowRamBytesUsed
 operator|.
 name|set
 argument_list|(
-name|RobinEngine
+name|InternalEngine
 operator|.
 name|class
 argument_list|,
@@ -817,7 +817,7 @@ block|{
 name|Field
 name|allowRamBytesUsed
 init|=
-name|RobinEngine
+name|InternalEngine
 operator|.
 name|class
 operator|.
@@ -837,7 +837,7 @@ name|allowRamBytesUsed
 operator|.
 name|set
 argument_list|(
-name|RobinEngine
+name|InternalEngine
 operator|.
 name|class
 argument_list|,
@@ -1232,7 +1232,7 @@ name|allowRamBytesUsed
 operator|.
 name|set
 argument_list|(
-name|RobinEngine
+name|InternalEngine
 operator|.
 name|class
 argument_list|,
@@ -1345,7 +1345,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|RobinEngine
+name|InternalEngine
 operator|.
 name|INDEX_COMPOUND_ON_FLUSH
 argument_list|,
@@ -1411,7 +1411,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|RobinEngine
+name|InternalEngine
 operator|.
 name|INDEX_COMPOUND_ON_FLUSH
 argument_list|,
@@ -1678,7 +1678,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|RobinEngine
+name|InternalEngine
 operator|.
 name|INDEX_COMPOUND_ON_FLUSH
 argument_list|,

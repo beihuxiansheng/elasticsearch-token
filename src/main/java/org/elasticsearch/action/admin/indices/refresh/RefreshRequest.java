@@ -79,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A refresh request making all operations performed since the last refresh available for search. The (near) real-time  * capabilities depends on the index engine used. For example, the robin one requires refresh to be called, but by  * default a refresh is scheduled periodically.  *  * @see org.elasticsearch.client.Requests#refreshRequest(String...)  * @see org.elasticsearch.client.IndicesAdminClient#refresh(RefreshRequest)  * @see RefreshResponse  */
+comment|/**  * A refresh request making all operations performed since the last refresh available for search. The (near) real-time  * capabilities depends on the index engine used. For example, the internal one requires refresh to be called, but by  * default a refresh is scheduled periodically.  *  * @see org.elasticsearch.client.Requests#refreshRequest(String...)  * @see org.elasticsearch.client.IndicesAdminClient#refresh(RefreshRequest)  * @see RefreshResponse  */
 end_comment
 
 begin_class

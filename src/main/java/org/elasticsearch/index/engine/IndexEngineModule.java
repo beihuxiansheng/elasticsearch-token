@@ -96,9 +96,9 @@ name|index
 operator|.
 name|engine
 operator|.
-name|robin
+name|internal
 operator|.
-name|RobinEngineModule
+name|InternalEngineModule
 import|;
 end_import
 
@@ -112,9 +112,9 @@ name|index
 operator|.
 name|engine
 operator|.
-name|robin
+name|internal
 operator|.
-name|RobinIndexEngineModule
+name|InternalIndexEngineModule
 import|;
 end_import
 
@@ -185,7 +185,7 @@ name|Module
 argument_list|>
 name|DEFAULT_INDEX_ENGINE
 init|=
-name|RobinIndexEngineModule
+name|InternalIndexEngineModule
 operator|.
 name|class
 decl_stmt|;
@@ -201,7 +201,7 @@ name|Module
 argument_list|>
 name|DEFAULT_ENGINE
 init|=
-name|RobinEngineModule
+name|InternalEngineModule
 operator|.
 name|class
 decl_stmt|;

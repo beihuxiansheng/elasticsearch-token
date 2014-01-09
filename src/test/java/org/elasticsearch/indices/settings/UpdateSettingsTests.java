@@ -739,10 +739,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testRobinEngineGCDeletesSetting
+DECL|method|testEngineGCDeletesSetting
 specifier|public
 name|void
-name|testRobinEngineGCDeletesSetting
+name|testEngineGCDeletesSetting
 parameter_list|()
 throws|throws
 name|InterruptedException

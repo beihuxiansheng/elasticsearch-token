@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A refresh request making all operations performed since the last refresh available for search. The (near) real-time  * capabilities depends on the index engine used. For example, the robin one requires refresh to be called, but by  * default a refresh is scheduled periodically.  */
+comment|/**  * A refresh request making all operations performed since the last refresh available for search. The (near) real-time  * capabilities depends on the index engine used. For example, the internal one requires refresh to be called, but by  * default a refresh is scheduled periodically.  */
 end_comment
 
 begin_class

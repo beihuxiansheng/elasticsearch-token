@@ -250,7 +250,7 @@ name|test
 operator|.
 name|engine
 operator|.
-name|MockRobinEngine
+name|MockInternalEngine
 import|;
 end_import
 
@@ -857,7 +857,7 @@ name|o
 parameter_list|)
 block|{
 return|return
-name|MockRobinEngine
+name|MockInternalEngine
 operator|.
 name|INFLIGHT_ENGINE_SEARCHERS
 operator|.
@@ -889,7 +889,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|MockRobinEngine
+name|MockInternalEngine
 operator|.
 name|INFLIGHT_ENGINE_SEARCHERS
 operator|.
@@ -923,7 +923,7 @@ for|for
 control|(
 name|Entry
 argument_list|<
-name|MockRobinEngine
+name|MockInternalEngine
 operator|.
 name|AssertingSearcher
 argument_list|,
@@ -931,7 +931,7 @@ name|RuntimeException
 argument_list|>
 name|entry
 range|:
-name|MockRobinEngine
+name|MockInternalEngine
 operator|.
 name|INFLIGHT_ENGINE_SEARCHERS
 operator|.
@@ -987,7 +987,7 @@ throw|;
 block|}
 finally|finally
 block|{
-name|MockRobinEngine
+name|MockInternalEngine
 operator|.
 name|INFLIGHT_ENGINE_SEARCHERS
 operator|.

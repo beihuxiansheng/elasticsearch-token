@@ -604,7 +604,7 @@ name|clone
 parameter_list|()
 block|{
 comment|// Lucene IW makes a clone internally but since we hold on to this instance
-comment|// the clone will just be the identity. See RobinEngine recovery why we need this.
+comment|// the clone will just be the identity. See InternalEngine recovery why we need this.
 return|return
 name|this
 return|;

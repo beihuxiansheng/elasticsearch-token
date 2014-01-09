@@ -264,7 +264,7 @@ name|test
 operator|.
 name|engine
 operator|.
-name|MockRobinEngine
+name|MockInternalEngine
 import|;
 end_import
 
@@ -1183,7 +1183,7 @@ specifier|static
 class|class
 name|RandomExceptionDirectoryReaderWrapper
 extends|extends
-name|MockRobinEngine
+name|MockInternalEngine
 operator|.
 name|DirectoryReaderWrapper
 block|{

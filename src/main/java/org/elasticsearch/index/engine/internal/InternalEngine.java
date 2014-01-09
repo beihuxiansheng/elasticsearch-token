@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.engine.robin
+DECL|package|org.elasticsearch.index.engine.internal
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|index
 operator|.
 name|engine
 operator|.
-name|robin
+name|internal
 package|;
 end_package
 
@@ -923,10 +923,10 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|RobinEngine
+DECL|class|InternalEngine
 specifier|public
 class|class
-name|RobinEngine
+name|InternalEngine
 extends|extends
 name|AbstractIndexShardComponent
 implements|implements
@@ -1068,7 +1068,7 @@ name|SearcherFactory
 name|searcherFactory
 init|=
 operator|new
-name|RobinSearchFactory
+name|SearchFactory
 argument_list|()
 decl_stmt|;
 DECL|field|searcherManager
@@ -1248,9 +1248,9 @@ name|lastCommittedSegmentInfos
 decl_stmt|;
 annotation|@
 name|Inject
-DECL|method|RobinEngine
+DECL|method|InternalEngine
 specifier|public
-name|RobinEngine
+name|InternalEngine
 parameter_list|(
 name|ShardId
 name|shardId
@@ -4864,7 +4864,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|RobinSearcher
+name|EngineSearcher
 argument_list|(
 name|source
 argument_list|,
@@ -8759,7 +8759,7 @@ name|TimeValue
 operator|.
 name|timeValueMillis
 argument_list|(
-name|RobinEngine
+name|InternalEngine
 operator|.
 name|this
 operator|.
@@ -8774,7 +8774,7 @@ if|if
 condition|(
 name|gcDeletesInMillis
 operator|!=
-name|RobinEngine
+name|InternalEngine
 operator|.
 name|this
 operator|.
@@ -8791,7 +8791,7 @@ name|TimeValue
 operator|.
 name|timeValueMillis
 argument_list|(
-name|RobinEngine
+name|InternalEngine
 operator|.
 name|this
 operator|.
@@ -8806,7 +8806,7 @@ name|gcDeletesInMillis
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|RobinEngine
+name|InternalEngine
 operator|.
 name|this
 operator|.
@@ -8825,7 +8825,7 @@ name|getAsBoolean
 argument_list|(
 name|INDEX_COMPOUND_ON_FLUSH
 argument_list|,
-name|RobinEngine
+name|InternalEngine
 operator|.
 name|this
 operator|.
@@ -8836,7 +8836,7 @@ if|if
 condition|(
 name|compoundOnFlush
 operator|!=
-name|RobinEngine
+name|InternalEngine
 operator|.
 name|this
 operator|.
@@ -8849,11 +8849,11 @@ name|info
 argument_list|(
 literal|"updating {} from [{}] to [{}]"
 argument_list|,
-name|RobinEngine
+name|InternalEngine
 operator|.
 name|INDEX_COMPOUND_ON_FLUSH
 argument_list|,
-name|RobinEngine
+name|InternalEngine
 operator|.
 name|this
 operator|.
@@ -8862,7 +8862,7 @@ argument_list|,
 name|compoundOnFlush
 argument_list|)
 expr_stmt|;
-name|RobinEngine
+name|InternalEngine
 operator|.
 name|this
 operator|.
@@ -8890,7 +8890,7 @@ name|getAsInt
 argument_list|(
 name|INDEX_INDEX_CONCURRENCY
 argument_list|,
-name|RobinEngine
+name|InternalEngine
 operator|.
 name|this
 operator|.
@@ -8906,7 +8906,7 @@ name|getAsBoolean
 argument_list|(
 name|INDEX_FAIL_ON_MERGE_FAILURE
 argument_list|,
-name|RobinEngine
+name|InternalEngine
 operator|.
 name|this
 operator|.
@@ -8922,7 +8922,7 @@ name|get
 argument_list|(
 name|INDEX_CODEC
 argument_list|,
-name|RobinEngine
+name|InternalEngine
 operator|.
 name|this
 operator|.
@@ -8956,7 +8956,7 @@ if|if
 condition|(
 name|indexConcurrency
 operator|!=
-name|RobinEngine
+name|InternalEngine
 operator|.
 name|this
 operator|.
@@ -8967,7 +8967,7 @@ name|codecName
 operator|.
 name|equals
 argument_list|(
-name|RobinEngine
+name|InternalEngine
 operator|.
 name|this
 operator|.
@@ -8976,7 +8976,7 @@ argument_list|)
 operator|||
 name|failOnMergeFailure
 operator|!=
-name|RobinEngine
+name|InternalEngine
 operator|.
 name|this
 operator|.
@@ -9004,7 +9004,7 @@ if|if
 condition|(
 name|indexConcurrency
 operator|!=
-name|RobinEngine
+name|InternalEngine
 operator|.
 name|this
 operator|.
@@ -9017,7 +9017,7 @@ name|info
 argument_list|(
 literal|"updating index.index_concurrency from [{}] to [{}]"
 argument_list|,
-name|RobinEngine
+name|InternalEngine
 operator|.
 name|this
 operator|.
@@ -9026,7 +9026,7 @@ argument_list|,
 name|indexConcurrency
 argument_list|)
 expr_stmt|;
-name|RobinEngine
+name|InternalEngine
 operator|.
 name|this
 operator|.
@@ -9047,7 +9047,7 @@ name|codecName
 operator|.
 name|equals
 argument_list|(
-name|RobinEngine
+name|InternalEngine
 operator|.
 name|this
 operator|.
@@ -9061,7 +9061,7 @@ name|info
 argument_list|(
 literal|"updating index.codec from [{}] to [{}]"
 argument_list|,
-name|RobinEngine
+name|InternalEngine
 operator|.
 name|this
 operator|.
@@ -9070,7 +9070,7 @@ argument_list|,
 name|codecName
 argument_list|)
 expr_stmt|;
-name|RobinEngine
+name|InternalEngine
 operator|.
 name|this
 operator|.
@@ -9088,7 +9088,7 @@ if|if
 condition|(
 name|failOnMergeFailure
 operator|!=
-name|RobinEngine
+name|InternalEngine
 operator|.
 name|this
 operator|.
@@ -9101,11 +9101,11 @@ name|info
 argument_list|(
 literal|"updating {} from [{}] to [{}]"
 argument_list|,
-name|RobinEngine
+name|InternalEngine
 operator|.
 name|INDEX_FAIL_ON_MERGE_FAILURE
 argument_list|,
-name|RobinEngine
+name|InternalEngine
 operator|.
 name|this
 operator|.
@@ -9114,7 +9114,7 @@ argument_list|,
 name|failOnMergeFailure
 argument_list|)
 expr_stmt|;
-name|RobinEngine
+name|InternalEngine
 operator|.
 name|this
 operator|.
@@ -9224,10 +9224,10 @@ name|searcherFactory
 argument_list|)
 return|;
 block|}
-DECL|class|RobinSearcher
+DECL|class|EngineSearcher
 specifier|static
 class|class
-name|RobinSearcher
+name|EngineSearcher
 implements|implements
 name|Searcher
 block|{
@@ -9249,9 +9249,9 @@ specifier|final
 name|SearcherManager
 name|manager
 decl_stmt|;
-DECL|method|RobinSearcher
+DECL|method|EngineSearcher
 specifier|private
-name|RobinSearcher
+name|EngineSearcher
 parameter_list|(
 name|String
 name|source
@@ -9490,9 +9490,9 @@ name|translogLocation
 return|;
 block|}
 block|}
-DECL|class|RobinSearchFactory
+DECL|class|SearchFactory
 class|class
-name|RobinSearchFactory
+name|SearchFactory
 extends|extends
 name|SearcherFactory
 block|{
