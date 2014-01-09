@@ -66,6 +66,20 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|index
+operator|.
+name|IndexFileNames
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|store
 operator|.
 name|*
@@ -2458,9 +2472,20 @@ expr_stmt|;
 name|Directory
 name|directory
 decl_stmt|;
+comment|// we want to write the segments gen file to the same directory *all* the time
+comment|// to make sure we don't create multiple copies of it
 if|if
 condition|(
 name|isChecksum
+argument_list|(
+name|name
+argument_list|)
+operator|||
+name|IndexFileNames
+operator|.
+name|SEGMENTS_GEN
+operator|.
+name|equals
 argument_list|(
 name|name
 argument_list|)
@@ -2571,7 +2596,9 @@ block|{
 comment|// don't compute checksum for segment based files
 if|if
 condition|(
-literal|"segments.gen"
+name|IndexFileNames
+operator|.
+name|SEGMENTS_GEN
 operator|.
 name|equals
 argument_list|(
@@ -2582,7 +2609,9 @@ name|name
 operator|.
 name|startsWith
 argument_list|(
-literal|"segments"
+name|IndexFileNames
+operator|.
+name|SEGMENTS
 argument_list|)
 condition|)
 block|{
@@ -3215,14 +3244,18 @@ name|name
 operator|.
 name|equals
 argument_list|(
-literal|"segments.gen"
+name|IndexFileNames
+operator|.
+name|SEGMENTS_GEN
 argument_list|)
 operator|&&
 name|name
 operator|.
 name|startsWith
 argument_list|(
-literal|"segments"
+name|IndexFileNames
+operator|.
+name|SEGMENTS
 argument_list|)
 condition|)
 block|{
