@@ -1970,20 +1970,6 @@ condition|)
 block|{
 if|if
 condition|(
-operator|!
-name|allowExplicitIndex
-condition|)
-block|{
-throw|throw
-operator|new
-name|ElasticsearchIllegalArgumentException
-argument_list|(
-literal|"explicit index in bulk is not allowed"
-argument_list|)
-throw|;
-block|}
-if|if
-condition|(
 name|opType
 operator|==
 literal|null
