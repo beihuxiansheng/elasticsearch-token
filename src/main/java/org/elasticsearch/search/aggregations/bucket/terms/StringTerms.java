@@ -386,7 +386,6 @@ block|}
 annotation|@
 name|Override
 DECL|method|compareTerm
-specifier|protected
 name|int
 name|compareTerm
 parameter_list|(
