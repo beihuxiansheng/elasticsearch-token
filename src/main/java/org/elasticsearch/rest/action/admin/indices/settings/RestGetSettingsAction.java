@@ -317,6 +317,17 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
+name|controller
+operator|.
+name|registerHandler
+argument_list|(
+name|GET
+argument_list|,
+literal|"/{index}/{prefix}/_settings"
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
