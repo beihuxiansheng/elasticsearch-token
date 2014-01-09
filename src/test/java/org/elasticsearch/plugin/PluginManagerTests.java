@@ -1463,6 +1463,15 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> trying to download and install [{}]"
+argument_list|,
+name|pluginShortName
+argument_list|)
+expr_stmt|;
 name|PluginManager
 name|pluginManager
 init|=
@@ -1547,6 +1556,27 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"--> IOException raised while downloading plugin [{}]."
+argument_list|,
+name|e
+argument_list|,
+name|pluginShortName
+argument_list|)
+expr_stmt|;
+throw|throw
+name|e
+throw|;
+block|}
+catch|catch
+parameter_list|(
 name|ElasticsearchTimeoutException
 name|e
 parameter_list|)
@@ -1560,6 +1590,9 @@ argument_list|,
 name|pluginShortName
 argument_list|)
 expr_stmt|;
+throw|throw
+name|e
+throw|;
 block|}
 block|}
 comment|/**      * We are ignoring by default these tests as they require to have an internet access      * To activate the test, use -Dtests.network=true      */
