@@ -884,6 +884,15 @@ name|table
 operator|.
 name|addCell
 argument_list|(
+literal|"host"
+argument_list|,
+literal|"desc:host name"
+argument_list|)
+expr_stmt|;
+name|table
+operator|.
+name|addCell
+argument_list|(
 literal|"ip"
 argument_list|,
 literal|"desc:ip address"
@@ -895,7 +904,7 @@ name|addCell
 argument_list|(
 literal|"port"
 argument_list|,
-literal|"desc:bound transport port"
+literal|"default:false;desc:bound transport port"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1596,26 +1605,32 @@ name|table
 operator|.
 name|addCell
 argument_list|(
-operator|(
-operator|(
-name|InetSocketTransportAddress
-operator|)
 name|node
 operator|.
-name|address
+name|getHostName
 argument_list|()
-operator|)
+argument_list|)
+expr_stmt|;
+name|table
 operator|.
-name|address
-argument_list|()
-operator|.
-name|getAddress
-argument_list|()
+name|addCell
+argument_list|(
+name|node
 operator|.
 name|getHostAddress
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|node
+operator|.
+name|address
+argument_list|()
+operator|instanceof
+name|InetSocketTransportAddress
+condition|)
+block|{
 name|table
 operator|.
 name|addCell
@@ -1637,6 +1652,17 @@ name|getPort
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|table
+operator|.
+name|addCell
+argument_list|(
+literal|"-"
+argument_list|)
+expr_stmt|;
+block|}
 name|table
 operator|.
 name|addCell

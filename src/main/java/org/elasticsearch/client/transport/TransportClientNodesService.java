@@ -2210,6 +2210,16 @@ operator|.
 name|id
 argument_list|()
 argument_list|,
+name|nodeWithInfo
+operator|.
+name|getHostName
+argument_list|()
+argument_list|,
+name|nodeWithInfo
+operator|.
+name|getHostAddress
+argument_list|()
+argument_list|,
 name|listedNode
 operator|.
 name|address
