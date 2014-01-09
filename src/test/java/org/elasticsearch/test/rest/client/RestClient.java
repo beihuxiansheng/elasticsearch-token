@@ -1024,11 +1024,16 @@ argument_list|)
 operator|.
 name|path
 argument_list|(
+name|RandomizedTest
+operator|.
+name|randomFrom
+argument_list|(
 name|restApi
 operator|.
-name|getFinalPath
+name|getFinalPaths
 argument_list|(
 name|pathParts
+argument_list|)
 argument_list|)
 argument_list|)
 return|;
