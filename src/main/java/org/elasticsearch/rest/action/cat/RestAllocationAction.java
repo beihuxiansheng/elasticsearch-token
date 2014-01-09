@@ -1266,6 +1266,13 @@ name|table
 operator|.
 name|addCell
 argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+name|table
+operator|.
+name|addCell
+argument_list|(
 literal|"UNASSIGNED"
 argument_list|)
 expr_stmt|;
