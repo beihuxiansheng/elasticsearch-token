@@ -2357,7 +2357,7 @@ DECL|field|minOpenFileDescriptors
 name|long
 name|minOpenFileDescriptors
 init|=
-name|Integer
+name|Long
 operator|.
 name|MAX_VALUE
 decl_stmt|;
@@ -2365,7 +2365,7 @@ DECL|field|maxOpenFileDescriptors
 name|long
 name|maxOpenFileDescriptors
 init|=
-name|Integer
+name|Long
 operator|.
 name|MIN_VALUE
 decl_stmt|;
@@ -2432,10 +2432,20 @@ operator|.
 name|openFileDescriptors
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|fd
+operator|>
+literal|0
+condition|)
+block|{
+comment|// fd can be -1 if not supported on platform
 name|totalOpenFileDescriptors
 operator|+=
 name|fd
 expr_stmt|;
+block|}
+comment|// we still do min max calc on -1, so we'll have an indication of it not being supported on one of the nodes.
 name|minOpenFileDescriptors
 operator|=
 name|Math
