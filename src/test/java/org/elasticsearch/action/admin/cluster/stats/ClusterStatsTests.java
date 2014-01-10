@@ -1428,7 +1428,7 @@ literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// these can be -1 if not supported
+comment|// these can be -1 if not supported on platform
 name|assertThat
 argument_list|(
 name|response
@@ -1443,7 +1443,7 @@ argument_list|()
 argument_list|,
 name|Matchers
 operator|.
-name|greaterThan
+name|greaterThanOrEqualTo
 argument_list|(
 operator|-
 literal|1L
@@ -1464,7 +1464,7 @@ argument_list|()
 argument_list|,
 name|Matchers
 operator|.
-name|greaterThan
+name|greaterThanOrEqualTo
 argument_list|(
 operator|-
 literal|1L
