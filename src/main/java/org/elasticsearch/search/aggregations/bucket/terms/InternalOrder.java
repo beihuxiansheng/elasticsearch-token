@@ -22,6 +22,20 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|primitives
+operator|.
+name|Longs
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -49,20 +63,6 @@ operator|.
 name|stream
 operator|.
 name|StreamOutput
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|util
-operator|.
-name|Comparators
 import|;
 end_import
 
@@ -223,7 +223,7 @@ name|int
 name|cmp
 init|=
 operator|-
-name|Comparators
+name|Longs
 operator|.
 name|compare
 argument_list|(
@@ -311,7 +311,7 @@ block|{
 name|int
 name|cmp
 init|=
-name|Comparators
+name|Longs
 operator|.
 name|compare
 argument_list|(

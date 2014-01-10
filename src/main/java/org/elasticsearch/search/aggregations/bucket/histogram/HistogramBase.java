@@ -22,15 +22,15 @@ end_package
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
-name|util
+name|primitives
 operator|.
-name|Comparators
+name|Longs
 import|;
 end_import
 
@@ -202,7 +202,7 @@ name|b2
 parameter_list|)
 block|{
 return|return
-name|Comparators
+name|Longs
 operator|.
 name|compare
 argument_list|(
@@ -268,7 +268,7 @@ parameter_list|)
 block|{
 return|return
 operator|-
-name|Comparators
+name|Longs
 operator|.
 name|compare
 argument_list|(
@@ -335,7 +335,7 @@ block|{
 name|int
 name|cmp
 init|=
-name|Comparators
+name|Longs
 operator|.
 name|compare
 argument_list|(
@@ -359,7 +359,7 @@ condition|)
 block|{
 name|cmp
 operator|=
-name|Comparators
+name|Longs
 operator|.
 name|compare
 argument_list|(
@@ -431,7 +431,7 @@ name|int
 name|cmp
 init|=
 operator|-
-name|Comparators
+name|Longs
 operator|.
 name|compare
 argument_list|(
@@ -455,7 +455,7 @@ condition|)
 block|{
 name|cmp
 operator|=
-name|Comparators
+name|Longs
 operator|.
 name|compare
 argument_list|(
