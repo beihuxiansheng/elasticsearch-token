@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  */
+comment|/**  * Holds a value that is either:  * a) set implicitly e.g. through some default value  * b) set explicitly e.g. from a user selection  *   * When merging conflicting configuration settings such as  * field mapping settings it is preferable to preserve an explicit  * choice rather than a choice made only made implicitly by defaults.   *   */
 end_comment
 
 begin_class
@@ -39,6 +39,7 @@ specifier|final
 name|boolean
 name|explicit
 decl_stmt|;
+comment|/**      * Create a value with an indication if this was an explicit choice      * @param value a setting value      * @param explicit true if the value passed is a conscious decision, false if using some kind of default      */
 DECL|method|Explicit
 specifier|public
 name|Explicit
@@ -75,6 +76,7 @@ operator|.
 name|value
 return|;
 block|}
+comment|/**      *       * @return true if the value passed is a conscious decision, false if using some kind of default      */
 DECL|method|explicit
 specifier|public
 name|boolean

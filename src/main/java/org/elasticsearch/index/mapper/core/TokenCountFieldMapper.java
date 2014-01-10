@@ -487,6 +487,11 @@ argument_list|(
 name|context
 argument_list|)
 argument_list|,
+name|coerce
+argument_list|(
+name|context
+argument_list|)
+argument_list|,
 name|postingsProvider
 argument_list|,
 name|docValuesProvider
@@ -770,6 +775,12 @@ name|Boolean
 argument_list|>
 name|ignoreMalformed
 parameter_list|,
+name|Explicit
+argument_list|<
+name|Boolean
+argument_list|>
+name|coerce
+parameter_list|,
 name|PostingsFormatProvider
 name|postingsProvider
 parameter_list|,
@@ -810,6 +821,8 @@ argument_list|,
 name|nullValue
 argument_list|,
 name|ignoreMalformed
+argument_list|,
+name|coerce
 argument_list|,
 name|postingsProvider
 argument_list|,

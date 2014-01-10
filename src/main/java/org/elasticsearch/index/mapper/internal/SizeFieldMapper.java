@@ -693,6 +693,10 @@ name|Defaults
 operator|.
 name|IGNORE_MALFORMED
 argument_list|,
+name|Defaults
+operator|.
+name|COERCE
+argument_list|,
 name|postingsProvider
 argument_list|,
 name|docValuesProvider

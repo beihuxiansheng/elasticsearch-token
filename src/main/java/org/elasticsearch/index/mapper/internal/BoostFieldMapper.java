@@ -972,6 +972,10 @@ name|Defaults
 operator|.
 name|IGNORE_MALFORMED
 argument_list|,
+name|Defaults
+operator|.
+name|COERCE
+argument_list|,
 name|NumericFloatAnalyzer
 operator|.
 name|buildNamedAnalyzer
@@ -1783,7 +1787,12 @@ name|parser
 argument_list|()
 operator|.
 name|floatValue
+argument_list|(
+name|coerce
+operator|.
+name|value
 argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 return|return
