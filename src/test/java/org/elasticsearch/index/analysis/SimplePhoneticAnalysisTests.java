@@ -265,27 +265,6 @@ name|settings
 argument_list|)
 decl_stmt|;
 name|TokenFilterFactory
-name|standardfilterFactory
-init|=
-name|analysisService
-operator|.
-name|tokenFilter
-argument_list|(
-literal|"standard"
-argument_list|)
-decl_stmt|;
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"standard filterfactory = "
-operator|+
-name|standardfilterFactory
-argument_list|)
-expr_stmt|;
-name|TokenFilterFactory
 name|filterFactory
 init|=
 name|analysisService
@@ -295,17 +274,6 @@ argument_list|(
 literal|"phonetic"
 argument_list|)
 decl_stmt|;
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"filterfactory = "
-operator|+
-name|filterFactory
-argument_list|)
-expr_stmt|;
 name|MatcherAssert
 operator|.
 name|assertThat

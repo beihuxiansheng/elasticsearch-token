@@ -188,7 +188,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 import|;
 end_import
 
@@ -738,7 +738,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 literal|"No matching rule type ["
 operator|+
@@ -878,7 +878,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 literal|"unknown encoder ["
 operator|+
@@ -1021,7 +1021,7 @@ return|;
 block|}
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 literal|"encoder error"
 argument_list|)
