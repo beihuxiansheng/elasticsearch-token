@@ -773,7 +773,7 @@ name|Map
 argument_list|<
 name|Object
 argument_list|,
-name|IndexReader
+name|AtomicReader
 argument_list|>
 name|cacheToReader
 init|=
@@ -782,7 +782,7 @@ name|HashMap
 argument_list|<
 name|Object
 argument_list|,
-name|IndexReader
+name|AtomicReader
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -1612,7 +1612,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|IndexReader
+name|AtomicReader
 name|indexReader
 init|=
 name|cacheToReader
