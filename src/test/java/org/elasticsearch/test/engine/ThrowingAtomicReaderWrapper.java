@@ -163,6 +163,16 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/**          * If this method returns true the {@link Terms} instance for the given field          * is wrapped with Thrower support otherwise no exception will be thrown for          * the current {@link Terms} instance or any other instance obtained from it.          */
+DECL|method|wrapTerms
+specifier|public
+name|boolean
+name|wrapTerms
+parameter_list|(
+name|String
+name|field
+parameter_list|)
+function_decl|;
 block|}
 DECL|method|ThrowingAtomicReaderWrapper
 specifier|public
@@ -339,6 +349,16 @@ argument_list|(
 name|field
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|thrower
+operator|.
+name|wrapTerms
+argument_list|(
+name|field
+argument_list|)
+condition|)
+block|{
 name|thrower
 operator|.
 name|maybeThrow
@@ -362,6 +382,10 @@ name|terms
 argument_list|,
 name|thrower
 argument_list|)
+return|;
+block|}
+return|return
+name|terms
 return|;
 block|}
 block|}
