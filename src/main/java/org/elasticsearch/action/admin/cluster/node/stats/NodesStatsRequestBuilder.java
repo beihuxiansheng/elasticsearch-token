@@ -187,6 +187,26 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|setBreaker
+specifier|public
+name|NodesStatsRequestBuilder
+name|setBreaker
+parameter_list|(
+name|boolean
+name|breaker
+parameter_list|)
+block|{
+name|request
+operator|.
+name|breaker
+argument_list|(
+name|breaker
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Should the node indices stats be returned.      */
 DECL|method|setIndices
 specifier|public
