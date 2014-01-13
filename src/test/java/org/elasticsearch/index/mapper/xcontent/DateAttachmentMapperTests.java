@@ -108,11 +108,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
+name|elasticsearch
 operator|.
-name|annotations
+name|test
 operator|.
-name|BeforeClass
+name|ElasticsearchTestCase
 import|;
 end_import
 
@@ -120,9 +120,17 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
+name|junit
 operator|.
-name|annotations
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
 operator|.
 name|Test
 import|;
@@ -150,18 +158,6 @@ name|org
 operator|.
 name|hamcrest
 operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
 name|Matchers
 operator|.
 name|instanceOf
@@ -173,12 +169,12 @@ comment|/**  *  */
 end_comment
 
 begin_class
-annotation|@
-name|Test
 DECL|class|DateAttachmentMapperTests
 specifier|public
 class|class
 name|DateAttachmentMapperTests
+extends|extends
+name|ElasticsearchTestCase
 block|{
 DECL|field|mapperParser
 specifier|private
@@ -186,7 +182,7 @@ name|DocumentMapperParser
 name|mapperParser
 decl_stmt|;
 annotation|@
-name|BeforeClass
+name|Before
 DECL|method|setupMapperParser
 specifier|public
 name|void
