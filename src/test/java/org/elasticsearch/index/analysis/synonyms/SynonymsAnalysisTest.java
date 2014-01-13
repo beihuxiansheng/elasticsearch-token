@@ -300,6 +300,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticsearchTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|MatcherAssert
@@ -363,6 +375,8 @@ DECL|class|SynonymsAnalysisTest
 specifier|public
 class|class
 name|SynonymsAnalysisTest
+extends|extends
+name|ElasticsearchTestCase
 block|{
 DECL|field|logger
 specifier|protected
