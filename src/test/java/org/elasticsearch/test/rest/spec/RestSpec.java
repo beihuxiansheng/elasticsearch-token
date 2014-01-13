@@ -387,6 +387,8 @@ name|path
 argument_list|)
 control|)
 block|{
+try|try
+block|{
 name|XContentParser
 name|parser
 init|=
@@ -422,6 +424,27 @@ argument_list|(
 name|restApi
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|ex
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Can't parse rest spec file: ["
+operator|+
+name|jsonFile
+operator|+
+literal|"]"
+argument_list|,
+name|ex
+argument_list|)
+throw|;
+block|}
 block|}
 block|}
 return|return
