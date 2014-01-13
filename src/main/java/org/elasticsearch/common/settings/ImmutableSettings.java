@@ -3195,6 +3195,27 @@ name|SettingsException
 block|{
 if|if
 condition|(
+operator|!
+name|Strings
+operator|.
+name|hasLength
+argument_list|(
+name|settingPrefix
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|ElasticsearchIllegalArgumentException
+argument_list|(
+literal|"illegal setting prefix "
+operator|+
+name|settingPrefix
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
 name|settingPrefix
 operator|.
 name|charAt

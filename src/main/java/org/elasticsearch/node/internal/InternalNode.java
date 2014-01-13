@@ -1317,6 +1317,7 @@ operator|.
 name|updatedSettings
 argument_list|()
 expr_stmt|;
+comment|// create the environment based on the finalized (processed) view of the settings
 name|this
 operator|.
 name|environment

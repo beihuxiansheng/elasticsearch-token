@@ -170,6 +170,7 @@ parameter_list|)
 throws|throws
 name|ElasticsearchIllegalStateException
 function_decl|;
+comment|/**      * Remove an initial block to be set on the first cluster state created.      */
 DECL|method|removeInitialStateBlock
 name|void
 name|removeInitialStateBlock
