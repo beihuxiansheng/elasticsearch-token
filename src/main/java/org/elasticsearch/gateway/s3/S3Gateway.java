@@ -22,7 +22,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -32,7 +32,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 import|;
 end_import
 
@@ -322,7 +322,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 literal|"No bucket defined for s3 gateway"
 argument_list|)
@@ -704,7 +704,7 @@ name|void
 name|doClose
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 name|super
 operator|.

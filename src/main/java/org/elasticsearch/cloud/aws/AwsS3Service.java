@@ -94,7 +94,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchException
+name|ElasticsearchException
 import|;
 end_import
 
@@ -104,7 +104,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 import|;
 end_import
 
@@ -297,7 +297,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 literal|"No protocol supported ["
 operator|+
@@ -395,7 +395,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 literal|"The configured proxy port value ["
 operator|+
@@ -781,7 +781,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 literal|"No automatic endpoint could be derived from region ["
 operator|+
@@ -832,7 +832,7 @@ name|void
 name|doStart
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{     }
 annotation|@
 name|Override
@@ -842,7 +842,7 @@ name|void
 name|doStop
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{     }
 annotation|@
 name|Override
@@ -852,7 +852,7 @@ name|void
 name|doClose
 parameter_list|()
 throws|throws
-name|ElasticSearchException
+name|ElasticsearchException
 block|{
 if|if
 condition|(
