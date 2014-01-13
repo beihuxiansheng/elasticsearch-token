@@ -58,7 +58,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchInterruptedException
+name|ElasticsearchIllegalStateException
 import|;
 end_import
 
@@ -1013,6 +1013,8 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
+try|try
+block|{
 name|logger
 operator|.
 name|error
@@ -1024,11 +1026,15 @@ argument_list|,
 name|source
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
 name|latch
 operator|.
 name|countDown
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -1069,14 +1075,29 @@ name|InterruptedException
 name|e
 parameter_list|)
 block|{
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+operator|.
+name|interrupt
+argument_list|()
+expr_stmt|;
 throw|throw
 operator|new
-name|ElasticsearchInterruptedException
+name|ElasticsearchIllegalStateException
 argument_list|(
-name|e
+literal|"Interrupted while starting ["
+operator|+
+name|this
 operator|.
-name|getMessage
+name|getClass
 argument_list|()
+operator|.
+name|getSimpleName
+argument_list|()
+operator|+
+literal|"]"
 argument_list|,
 name|e
 argument_list|)

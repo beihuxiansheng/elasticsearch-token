@@ -32,7 +32,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchInterruptedException
+name|ElasticsearchIllegalStateException
 import|;
 end_import
 
@@ -211,14 +211,21 @@ name|InterruptedException
 name|e
 parameter_list|)
 block|{
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+operator|.
+name|interrupt
+argument_list|()
+expr_stmt|;
 throw|throw
 operator|new
-name|ElasticsearchInterruptedException
+name|ElasticsearchIllegalStateException
 argument_list|(
+literal|"Future got interrupted"
+argument_list|,
 name|e
-operator|.
-name|getMessage
-argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -364,14 +371,21 @@ name|InterruptedException
 name|e
 parameter_list|)
 block|{
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+operator|.
+name|interrupt
+argument_list|()
+expr_stmt|;
 throw|throw
 operator|new
-name|ElasticsearchInterruptedException
+name|ElasticsearchIllegalStateException
 argument_list|(
+literal|"Future got interrupted"
+argument_list|,
 name|e
-operator|.
-name|getMessage
-argument_list|()
 argument_list|)
 throw|;
 block|}
