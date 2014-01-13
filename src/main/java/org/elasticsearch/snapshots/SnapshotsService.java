@@ -524,8 +524,24 @@ name|newHashMapWithExpectedSize
 import|;
 end_import
 
+begin_import
+import|import static
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|Sets
+operator|.
+name|newHashSet
+import|;
+end_import
+
 begin_comment
-comment|/**  * Service responsible for creating snapshots  *<p/>  * A typical snapshot creating process looks like this:  *<ul>  *<li>On the master node the {@link #createSnapshot(SnapshotRequest, CreateSnapshotListener)} is called and makes sure that no snapshots is currently running  * and registers the new snapshot in cluster state</li>  *<li>When cluster state is updated the {@link #beginSnapshot(ClusterState, SnapshotMetaData.Entry, CreateSnapshotListener)} method  * kicks in and initializes the snapshot in the repository and then populates list of shards that needs to be snapshotted in cluster state</li>  *<li>Each data node is watching for these shards and when new shards scheduled for snapshotting appear in the cluster state, data nodes  * start processing them through {@link #processIndexShardSnapshots(SnapshotMetaData)} method</li>  *<li>Once shard snapshot is created data node updates state of the shard in the cluster state using the {@link #updateIndexShardSnapshotStatus(UpdateIndexShardSnapshotStatusRequest)} method</li>  *<li>When last shard is completed master node in {@link #innerUpdateSnapshotState} method marks the snapshot as completed</li>  *<li>After cluster state is updated, the {@link #endSnapshot(SnapshotMetaData.Entry)} finalizes snapshot in the repository,  * notifies all {@link #snapshotCompletionListeners} that snapshot is completed, and finally calls {@link #removeSnapshotFromClusterState(SnapshotId, SnapshotInfo, Throwable)} to remove snapshot from cluster state</li>  *</ul>  */
+comment|/**  * Service responsible for creating snapshots  *<p/>  * A typical snapshot creating process looks like this:  *<ul>  *<li>On the master node the {@link #createSnapshot(SnapshotRequest, CreateSnapshotListener)} is called and makes sure that no snapshots is currently running  * and registers the new snapshot in cluster state</li>  *<li>When cluster state is updated the {@link #beginSnapshot(ClusterState, SnapshotMetaData.Entry, boolean, CreateSnapshotListener)} method  * kicks in and initializes the snapshot in the repository and then populates list of shards that needs to be snapshotted in cluster state</li>  *<li>Each data node is watching for these shards and when new shards scheduled for snapshotting appear in the cluster state, data nodes  * start processing them through {@link #processIndexShardSnapshots(SnapshotMetaData)} method</li>  *<li>Once shard snapshot is created data node updates state of the shard in the cluster state using the {@link #updateIndexShardSnapshotStatus(UpdateIndexShardSnapshotStatusRequest)} method</li>  *<li>When last shard is completed master node in {@link #innerUpdateSnapshotState} method marks the snapshot as completed</li>  *<li>After cluster state is updated, the {@link #endSnapshot(SnapshotMetaData.Entry)} finalizes snapshot in the repository,  * notifies all {@link #snapshotCompletionListeners} that snapshot is completed, and finally calls {@link #removeSnapshotFromClusterState(SnapshotId, SnapshotInfo, Throwable)} to remove snapshot from cluster state</li>  *</ul>  */
 end_comment
 
 begin_class
@@ -1127,6 +1143,10 @@ name|newState
 argument_list|,
 name|newSnapshot
 argument_list|,
+name|request
+operator|.
+name|partial
+argument_list|,
 name|listener
 argument_list|)
 expr_stmt|;
@@ -1479,7 +1499,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Starts snapshot.      *<p/>      * Creates snapshot in repository and updates snapshot metadata record with list of shards that needs to be processed.      *      * @param clusterState               cluster state      * @param snapshot                   snapshot meta data      * @param userCreateSnapshotListener listener      */
+comment|/**      * Starts snapshot.      *<p/>      * Creates snapshot in repository and updates snapshot metadata record with list of shards that needs to be processed.      *      * @param clusterState               cluster state      * @param snapshot                   snapshot meta data      * @param partial                    allow partial snapshots      * @param userCreateSnapshotListener listener      */
 DECL|method|beginSnapshot
 specifier|private
 name|void
@@ -1493,6 +1513,10 @@ name|SnapshotMetaData
 operator|.
 name|Entry
 name|snapshot
+parameter_list|,
+specifier|final
+name|boolean
+name|partial
 parameter_list|,
 specifier|final
 name|CreateSnapshotListener
@@ -1653,6 +1677,11 @@ operator|.
 name|Entry
 name|updatedSnapshot
 decl_stmt|;
+name|String
+name|failure
+init|=
+literal|null
+decl_stmt|;
 annotation|@
 name|Override
 specifier|public
@@ -1768,6 +1797,77 @@ name|indices
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|partial
+condition|)
+block|{
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|indicesWithMissingShards
+init|=
+name|indicesWithMissingShards
+argument_list|(
+name|shards
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|indicesWithMissingShards
+operator|!=
+literal|null
+condition|)
+block|{
+name|updatedSnapshot
+operator|=
+operator|new
+name|SnapshotMetaData
+operator|.
+name|Entry
+argument_list|(
+name|snapshot
+operator|.
+name|snapshotId
+argument_list|()
+argument_list|,
+name|snapshot
+operator|.
+name|includeGlobalState
+argument_list|()
+argument_list|,
+name|State
+operator|.
+name|FAILED
+argument_list|,
+name|snapshot
+operator|.
+name|indices
+argument_list|()
+argument_list|,
+name|shards
+argument_list|)
+expr_stmt|;
+name|entries
+operator|.
+name|add
+argument_list|(
+name|updatedSnapshot
+argument_list|)
+expr_stmt|;
+name|failure
+operator|=
+literal|"Indices don't have primary shards +["
+operator|+
+name|indicesWithMissingShards
+operator|+
+literal|"]"
+expr_stmt|;
+continue|continue;
+block|}
+block|}
 name|updatedSnapshot
 operator|=
 operator|new
@@ -1929,6 +2029,9 @@ name|onResponse
 argument_list|()
 expr_stmt|;
 comment|// Now that snapshot completion listener is registered we can end the snapshot if needed
+comment|// We should end snapshot only if 1) we didn't accept it for processing (which happens when there
+comment|// is nothing to do) and 2) there was a snapshot in metadata that we should end. Otherwise we should
+comment|// go ahead and continue working on this snapshot rather then end here.
 if|if
 condition|(
 operator|!
@@ -1942,6 +2045,8 @@ block|{
 name|endSnapshot
 argument_list|(
 name|updatedSnapshot
+argument_list|,
+name|failure
 argument_list|)
 expr_stmt|;
 block|}
@@ -3898,6 +4003,101 @@ return|return
 literal|true
 return|;
 block|}
+comment|/**      * Returns list of indices with missing shards      *      * @param shards list of shard statuses      * @return list of failed indices      */
+DECL|method|indicesWithMissingShards
+specifier|private
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|indicesWithMissingShards
+parameter_list|(
+name|ImmutableMap
+argument_list|<
+name|ShardId
+argument_list|,
+name|SnapshotMetaData
+operator|.
+name|ShardSnapshotStatus
+argument_list|>
+name|shards
+parameter_list|)
+block|{
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|indices
+init|=
+literal|null
+decl_stmt|;
+for|for
+control|(
+name|ImmutableMap
+operator|.
+name|Entry
+argument_list|<
+name|ShardId
+argument_list|,
+name|SnapshotMetaData
+operator|.
+name|ShardSnapshotStatus
+argument_list|>
+name|entry
+range|:
+name|shards
+operator|.
+name|entrySet
+argument_list|()
+control|)
+block|{
+if|if
+condition|(
+name|entry
+operator|.
+name|getValue
+argument_list|()
+operator|.
+name|state
+argument_list|()
+operator|==
+name|State
+operator|.
+name|MISSING
+condition|)
+block|{
+if|if
+condition|(
+name|indices
+operator|==
+literal|null
+condition|)
+block|{
+name|indices
+operator|=
+name|newHashSet
+argument_list|()
+expr_stmt|;
+block|}
+name|indices
+operator|.
+name|add
+argument_list|(
+name|entry
+operator|.
+name|getKey
+argument_list|()
+operator|.
+name|getIndex
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+return|return
+name|indices
+return|;
+block|}
 comment|/**      * Updates the shard status on master node      *      * @param request update shard status request      */
 DECL|method|innerUpdateSnapshotState
 specifier|private
@@ -4314,11 +4514,35 @@ specifier|private
 name|void
 name|endSnapshot
 parameter_list|(
+name|SnapshotMetaData
+operator|.
+name|Entry
+name|entry
+parameter_list|)
+block|{
+name|endSnapshot
+argument_list|(
+name|entry
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Finalizes the shard in repository and then removes it from cluster state      *<p/>      * This is non-blocking method that runs on a thread from SNAPSHOT thread pool      *      * @param entry   snapshot      * @param failure failure reason or null if snapshot was successful      */
+DECL|method|endSnapshot
+specifier|private
+name|void
+name|endSnapshot
+parameter_list|(
 specifier|final
 name|SnapshotMetaData
 operator|.
 name|Entry
 name|entry
+parameter_list|,
+specifier|final
+name|String
+name|failure
 parameter_list|)
 block|{
 name|threadPool
@@ -4373,9 +4597,16 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"[{}] finalizing snapshot in repository"
+literal|"[{}] finalizing snapshot in repository, state: [{}], failure[{}]"
 argument_list|,
 name|snapshotId
+argument_list|,
+name|entry
+operator|.
+name|state
+argument_list|()
+argument_list|,
+name|failure
 argument_list|)
 expr_stmt|;
 name|ArrayList
@@ -4439,10 +4670,9 @@ name|status
 operator|.
 name|state
 argument_list|()
-operator|==
-name|State
 operator|.
-name|FAILED
+name|failed
+argument_list|()
 condition|)
 block|{
 name|failures
@@ -4518,7 +4748,7 @@ name|finalizeSnapshot
 argument_list|(
 name|snapshotId
 argument_list|,
-literal|null
+name|failure
 argument_list|,
 name|entry
 operator|.
@@ -5417,7 +5647,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Checks if a repository is currently in use by one of the snapshots      * @param clusterState cluster state      * @param repository repository id      * @return true if repository is currently in use by one of the running snapshots      */
+comment|/**      * Checks if a repository is currently in use by one of the snapshots      *      * @param clusterState cluster state      * @param repository   repository id      * @return true if repository is currently in use by one of the running snapshots      */
 DECL|method|isRepositoryInUse
 specifier|public
 specifier|static
@@ -5741,7 +5971,6 @@ name|assignedToNode
 argument_list|()
 condition|)
 block|{
-comment|//TODO: Should we bailout completely or just mark this shard as failed?
 name|builder
 operator|.
 name|put
@@ -5757,7 +5986,7 @@ literal|null
 argument_list|,
 name|State
 operator|.
-name|FAILED
+name|MISSING
 argument_list|,
 literal|"primary shard is not allocated"
 argument_list|)
@@ -5792,7 +6021,7 @@ argument_list|()
 argument_list|,
 name|State
 operator|.
-name|FAILED
+name|MISSING
 argument_list|,
 literal|"primary shard hasn't been started yet"
 argument_list|)
@@ -5982,6 +6211,11 @@ operator|.
 name|strict
 argument_list|()
 decl_stmt|;
+DECL|field|partial
+specifier|private
+name|boolean
+name|partial
+decl_stmt|;
 DECL|field|settings
 specifier|private
 name|Settings
@@ -6127,6 +6361,26 @@ operator|.
 name|indicesOptions
 operator|=
 name|indicesOptions
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Set to true if partial snapshot should be allowed          *          * @param partial true if partial snapshots should be allowed          * @return this request          */
+DECL|method|partial
+specifier|public
+name|SnapshotRequest
+name|partial
+parameter_list|(
+name|boolean
+name|partial
+parameter_list|)
+block|{
+name|this
+operator|.
+name|partial
+operator|=
+name|partial
 expr_stmt|;
 return|return
 name|this

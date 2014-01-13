@@ -423,6 +423,14 @@ name|indicesOptions
 argument_list|()
 argument_list|)
 operator|.
+name|partial
+argument_list|(
+name|request
+operator|.
+name|partial
+argument_list|()
+argument_list|)
+operator|.
 name|settings
 argument_list|(
 name|request
