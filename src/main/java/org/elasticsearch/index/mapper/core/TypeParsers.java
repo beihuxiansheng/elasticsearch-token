@@ -2141,6 +2141,31 @@ operator|.
 name|getKey
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+operator|!
+operator|(
+name|multiFieldEntry
+operator|.
+name|getValue
+argument_list|()
+operator|instanceof
+name|Map
+operator|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|MapperParsingException
+argument_list|(
+literal|"Illegal field ["
+operator|+
+name|multiFieldName
+operator|+
+literal|"], only fields can be specified inside fields"
+argument_list|)
+throw|;
+block|}
 annotation|@
 name|SuppressWarnings
 argument_list|(
