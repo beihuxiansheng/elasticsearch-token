@@ -873,6 +873,11 @@ literal|"c"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|params
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 name|assertThat
 argument_list|(
 name|trie
