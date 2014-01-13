@@ -170,6 +170,16 @@ parameter_list|)
 throws|throws
 name|ElasticsearchIllegalStateException
 function_decl|;
+DECL|method|removeInitialStateBlock
+name|void
+name|removeInitialStateBlock
+parameter_list|(
+name|ClusterBlock
+name|block
+parameter_list|)
+throws|throws
+name|ElasticsearchIllegalStateException
+function_decl|;
 comment|/**      * The operation routing.      */
 DECL|method|operationRouting
 name|OperationRouting

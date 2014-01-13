@@ -256,6 +256,25 @@ parameter_list|)
 throws|throws
 name|SettingsException
 function_decl|;
+comment|/**      * Returns group settings for the given setting prefix.      */
+DECL|method|getGroups
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Settings
+argument_list|>
+name|getGroups
+parameter_list|(
+name|String
+name|settingPrefix
+parameter_list|,
+name|boolean
+name|ignoreNonGrouped
+parameter_list|)
+throws|throws
+name|SettingsException
+function_decl|;
 comment|/**      * Returns the setting value (as float) associated with the setting key. If it does not exists,      * returns the default value provided.      */
 DECL|method|getAsFloat
 name|Float

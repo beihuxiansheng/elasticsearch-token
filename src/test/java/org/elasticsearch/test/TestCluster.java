@@ -1186,6 +1186,16 @@ name|build
 argument_list|()
 expr_stmt|;
 block|}
+DECL|method|getClusterName
+specifier|public
+name|String
+name|getClusterName
+parameter_list|()
+block|{
+return|return
+name|clusterName
+return|;
+block|}
 DECL|method|isLocalTransportConfigured
 specifier|private
 specifier|static
@@ -2394,6 +2404,7 @@ name|id
 return|;
 block|}
 DECL|method|client
+specifier|public
 specifier|synchronized
 name|Client
 name|client
