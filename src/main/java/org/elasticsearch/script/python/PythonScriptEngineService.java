@@ -550,6 +550,13 @@ operator|new
 name|PyStringMap
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|vars
+operator|!=
+literal|null
+condition|)
+block|{
 for|for
 control|(
 name|Map
@@ -588,6 +595,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 annotation|@
