@@ -275,7 +275,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
-assert|assert
+name|assertThat
+argument_list|(
 name|tripped
 operator|.
 name|compareAndSet
@@ -284,7 +285,13 @@ literal|false
 argument_list|,
 literal|true
 argument_list|)
-assert|;
+argument_list|,
+name|equalTo
+argument_list|(
+literal|true
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 catch|catch
@@ -417,11 +424,7 @@ parameter_list|(
 name|CircuitBreakingException
 name|cbe
 parameter_list|)
-block|{
-assert|assert
-literal|true
-assert|;
-block|}
+block|{         }
 comment|// shouldn't throw an exception
 name|breaker
 operator|.
@@ -472,11 +475,7 @@ parameter_list|(
 name|CircuitBreakingException
 name|cbe
 parameter_list|)
-block|{
-assert|assert
-literal|true
-assert|;
-block|}
+block|{         }
 block|}
 block|}
 end_class
