@@ -528,10 +528,6 @@ expr_stmt|;
 name|readTimeout
 argument_list|(
 name|in
-argument_list|,
-name|Version
-operator|.
-name|V_0_90_6
 argument_list|)
 expr_stmt|;
 block|}
@@ -579,10 +575,6 @@ expr_stmt|;
 name|writeTimeout
 argument_list|(
 name|out
-argument_list|,
-name|Version
-operator|.
-name|V_0_90_6
 argument_list|)
 expr_stmt|;
 block|}

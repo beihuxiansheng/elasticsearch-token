@@ -24,16 +24,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|Version
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|io
@@ -432,25 +422,6 @@ argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
-comment|// If the other side is older than 0.90.4 then it shouldn't be sending suggestions of this type but just in case
-comment|// we're going to assume that they are regular suggestions so we won't read anything.
-if|if
-condition|(
-name|in
-operator|.
-name|getVersion
-argument_list|()
-operator|.
-name|before
-argument_list|(
-name|Version
-operator|.
-name|V_0_90_4
-argument_list|)
-condition|)
-block|{
-return|return;
-block|}
 name|cutoffScore
 operator|=
 name|in
@@ -479,25 +450,6 @@ argument_list|(
 name|out
 argument_list|)
 expr_stmt|;
-comment|// If the other side of the message is older than 0.90.4 it'll interpret these suggestions as regular suggestions
-comment|// so we have to pretend to be one which we can do by just calling the superclass writeTo and doing nothing else
-if|if
-condition|(
-name|out
-operator|.
-name|getVersion
-argument_list|()
-operator|.
-name|before
-argument_list|(
-name|Version
-operator|.
-name|V_0_90_4
-argument_list|)
-condition|)
-block|{
-return|return;
-block|}
 name|out
 operator|.
 name|writeDouble
