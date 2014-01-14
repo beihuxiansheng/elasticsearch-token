@@ -307,6 +307,12 @@ argument_list|(
 literal|"test"
 argument_list|)
 argument_list|,
+name|ImmutableSettings
+operator|.
+name|Builder
+operator|.
+name|EMPTY_SETTINGS
+argument_list|,
 name|newAnalysisService
 argument_list|()
 argument_list|,

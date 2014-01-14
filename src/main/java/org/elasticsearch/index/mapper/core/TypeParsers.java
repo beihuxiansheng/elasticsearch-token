@@ -50,6 +50,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|Version
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|Strings
@@ -1637,11 +1647,10 @@ literal|"omit_term_freq_and_positions"
 argument_list|)
 condition|)
 block|{
-comment|// deprecated option for BW compat
-name|builder
-operator|.
-name|indexOptions
-argument_list|(
+specifier|final
+name|IndexOptions
+name|op
+init|=
 name|nodeBooleanValue
 argument_list|(
 name|propNode
@@ -1654,6 +1663,43 @@ else|:
 name|IndexOptions
 operator|.
 name|DOCS_AND_FREQS_AND_POSITIONS
+decl_stmt|;
+if|if
+condition|(
+name|parserContext
+operator|.
+name|indexVersionCreated
+argument_list|()
+operator|.
+name|onOrAfter
+argument_list|(
+name|Version
+operator|.
+name|V_1_0_0
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|ElasticsearchParseException
+argument_list|(
+literal|"'omit_term_freq_and_positions' is not supported anymore - use ['index_options' : '"
+operator|+
+name|op
+operator|.
+name|name
+argument_list|()
+operator|+
+literal|"']  instead"
+argument_list|)
+throw|;
+block|}
+comment|// deprecated option for BW compat
+name|builder
+operator|.
+name|indexOptions
+argument_list|(
+name|op
 argument_list|)
 expr_stmt|;
 block|}
