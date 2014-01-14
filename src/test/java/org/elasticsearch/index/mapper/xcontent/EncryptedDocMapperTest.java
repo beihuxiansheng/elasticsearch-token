@@ -22,20 +22,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|document
-operator|.
-name|Document
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -125,6 +111,20 @@ operator|.
 name|mapper
 operator|.
 name|MapperParsingException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|ParseContext
 import|;
 end_import
 
@@ -283,6 +283,8 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|mapperParser
@@ -372,6 +374,8 @@ operator|.
 name|bytes
 argument_list|()
 decl_stmt|;
+name|ParseContext
+operator|.
 name|Document
 name|doc
 init|=
@@ -799,6 +803,8 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|mapperParser
@@ -888,6 +894,8 @@ operator|.
 name|bytes
 argument_list|()
 decl_stmt|;
+name|ParseContext
+operator|.
 name|Document
 name|doc
 init|=
@@ -1337,6 +1345,8 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|mapperParser
@@ -1426,6 +1436,8 @@ operator|.
 name|bytes
 argument_list|()
 decl_stmt|;
+name|ParseContext
+operator|.
 name|Document
 name|doc
 init|=
