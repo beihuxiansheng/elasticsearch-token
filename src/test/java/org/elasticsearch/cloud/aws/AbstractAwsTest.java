@@ -103,7 +103,7 @@ name|AbstractAwsTest
 extends|extends
 name|ElasticsearchIntegrationTest
 block|{
-comment|/**      * Annotation for tests that require AWS to run. AWS tests are disabled by default.      *<p/>      * To enable test add -Dtests.aws=true -Des.config=/path/to/elasticsearch.yml      *<p/>      * The elasticsearch.yml file should contain the following keys      *<pre>      * cloud:      *      aws:      *          access_key: AKVAIQBF2RECL7FJWGJQ      *          secret_key: vExyMThREXeRMm/b/LRzEB8jWwvzQeXgjqMX+6br      *          region: "us-west"      *      * discovery:      #      type: ec2      *</pre>      */
+comment|/**      * Annotation for tests that require AWS to run. AWS tests are disabled by default.      *<p/>      * To enable test add -Dtests.aws=true -Des.config=/path/to/elasticsearch.yml      *<p/>      * The elasticsearch.yml file should contain the following keys      *<pre>      * cloud:      *      aws:      *          access_key: AKVAIQBF2RECL7FJWGJQ      *          secret_key: vExyMThREXeRMm/b/LRzEB8jWwvzQeXgjqMX+6br      *          region: "us-west"      *      * repositories:      *      s3:      *          bucket: "bucket_name"      *      *</pre>      */
 annotation|@
 name|Documented
 annotation|@
