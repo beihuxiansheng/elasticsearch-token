@@ -22,7 +22,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 import|;
 end_import
 
@@ -782,7 +782,7 @@ block|{
 comment|// We have a bad parameter here or not enough information from azure
 throw|throw
 operator|new
-name|ElasticSearchIllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 literal|"can't find any "
 operator|+
