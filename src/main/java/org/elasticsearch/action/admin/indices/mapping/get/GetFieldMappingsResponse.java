@@ -410,6 +410,13 @@ operator|.
 name|NONE
 argument_list|)
 expr_stmt|;
+name|builder
+operator|.
+name|startObject
+argument_list|(
+literal|"mappings"
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|Map
@@ -507,6 +514,11 @@ name|endObject
 argument_list|()
 expr_stmt|;
 block|}
+name|builder
+operator|.
+name|endObject
+argument_list|()
+expr_stmt|;
 name|builder
 operator|.
 name|endObject

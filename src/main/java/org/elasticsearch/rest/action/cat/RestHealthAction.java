@@ -471,9 +471,9 @@ name|t
 operator|.
 name|addCell
 argument_list|(
-literal|"time(ms)"
+literal|"epoch"
 argument_list|,
-literal|"desc:time, in milliseconds since epoch UTC, that the count was executed"
+literal|"desc:seconds since 1970-01-01 00:00:00, that the count was executed"
 argument_list|)
 expr_stmt|;
 name|t
@@ -608,6 +608,8 @@ name|System
 operator|.
 name|currentTimeMillis
 argument_list|()
+operator|/
+literal|1000
 decl_stmt|;
 name|Table
 name|t

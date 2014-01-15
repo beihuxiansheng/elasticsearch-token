@@ -293,6 +293,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * If set to true the request should snapshot indices with unavailable shards      *      * @param partial true if request should snapshot indices with unavailable shards      * @return this builder      */
+DECL|method|setPartial
+specifier|public
+name|CreateSnapshotRequestBuilder
+name|setPartial
+parameter_list|(
+name|boolean
+name|partial
+parameter_list|)
+block|{
+name|request
+operator|.
+name|partial
+argument_list|(
+name|partial
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Sets repository-specific snapshot settings.      *<p/>      * See repository documentation for more information.      *      * @param settings repository-specific snapshot settings      * @return this builder      */
 DECL|method|setSettings
 specifier|public

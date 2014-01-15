@@ -50,6 +50,16 @@ name|RestStatus
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -70,7 +80,8 @@ name|Index
 name|index
 parameter_list|,
 name|String
-name|type
+modifier|...
+name|types
 parameter_list|)
 block|{
 name|super
@@ -79,7 +90,12 @@ name|index
 argument_list|,
 literal|"type["
 operator|+
-name|type
+name|Arrays
+operator|.
+name|toString
+argument_list|(
+name|types
+argument_list|)
 operator|+
 literal|"] missing"
 argument_list|)
@@ -93,7 +109,8 @@ name|Index
 name|index
 parameter_list|,
 name|String
-name|type
+index|[]
+name|types
 parameter_list|,
 name|String
 name|message
@@ -105,7 +122,12 @@ name|index
 argument_list|,
 literal|"type["
 operator|+
-name|type
+name|Arrays
+operator|.
+name|toString
+argument_list|(
+name|types
+argument_list|)
 operator|+
 literal|"] missing: "
 operator|+

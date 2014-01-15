@@ -1322,6 +1322,15 @@ return|;
 block|}
 block|}
 decl_stmt|;
+DECL|field|ALLOW_TYPE_WRAPPER
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|ALLOW_TYPE_WRAPPER
+init|=
+literal|"index.mapping.allow_type_wrapper"
+decl_stmt|;
 DECL|field|index
 specifier|private
 specifier|final
@@ -2611,6 +2620,12 @@ literal|"Malformed content, after first object, either the type field or the act
 argument_list|)
 throw|;
 block|}
+comment|// first field is the same as the type, this might be because the
+comment|// type is provided, and the object exists within it or because
+comment|// there is a valid field that by chance is named as the type.
+comment|// Because of this, by default wrapping a document in a type is
+comment|// disabled, but can be enabled by setting
+comment|// index.mapping.allow_type_wrapper to true
 if|if
 condition|(
 name|type
@@ -2622,14 +2637,17 @@ operator|.
 name|currentName
 argument_list|()
 argument_list|)
+operator|&&
+name|indexSettings
+operator|.
+name|getAsBoolean
+argument_list|(
+name|ALLOW_TYPE_WRAPPER
+argument_list|,
+literal|false
+argument_list|)
 condition|)
 block|{
-comment|// first field is the same as the type, this might be because the type is provided, and the object exists within it
-comment|// or because there is a valid field that by chance is named as the type
-comment|// Note, in this case, we only handle plain value types, an object type will be analyzed as if it was the type itself
-comment|// and other same level fields will be ignored
-name|token
-operator|=
 name|parser
 operator|.
 name|nextToken
@@ -2638,10 +2656,6 @@ expr_stmt|;
 name|countDownTokens
 operator|++
 expr_stmt|;
-comment|// commented out, allow for same type with START_OBJECT, we do our best to handle it except for the above corner case
-comment|//                if (token != XContentParser.Token.START_OBJECT) {
-comment|//                    throw new MapperException("Malformed content, a field with the same name as the type must be an object with the properties/fields within it");
-comment|//                }
 block|}
 for|for
 control|(

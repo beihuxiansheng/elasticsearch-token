@@ -847,8 +847,6 @@ argument_list|()
 operator|.
 name|addAlias
 argument_list|(
-literal|"test"
-argument_list|,
 literal|"release"
 argument_list|,
 name|termFilter
@@ -857,6 +855,8 @@ literal|"text"
 argument_list|,
 literal|"release"
 argument_list|)
+argument_list|,
+literal|"test"
 argument_list|)
 argument_list|)
 operator|.
@@ -879,8 +879,6 @@ argument_list|()
 operator|.
 name|addAlias
 argument_list|(
-literal|"test"
-argument_list|,
 literal|"beta"
 argument_list|,
 name|termFilter
@@ -889,6 +887,8 @@ literal|"text"
 argument_list|,
 literal|"beta"
 argument_list|)
+argument_list|,
+literal|"test"
 argument_list|)
 argument_list|)
 operator|.

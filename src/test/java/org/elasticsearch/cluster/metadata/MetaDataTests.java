@@ -3074,7 +3074,7 @@ name|assertThat
 argument_list|(
 name|metaData
 operator|.
-name|isExplicitAllIndices
+name|isExplicitAllPattern
 argument_list|(
 literal|null
 argument_list|)
@@ -3111,7 +3111,7 @@ name|assertThat
 argument_list|(
 name|metaData
 operator|.
-name|isExplicitAllIndices
+name|isExplicitAllPattern
 argument_list|(
 operator|new
 name|String
@@ -3152,7 +3152,7 @@ name|assertThat
 argument_list|(
 name|metaData
 operator|.
-name|isExplicitAllIndices
+name|isExplicitAllPattern
 argument_list|(
 operator|new
 name|String
@@ -3194,7 +3194,7 @@ name|assertThat
 argument_list|(
 name|metaData
 operator|.
-name|isExplicitAllIndices
+name|isExplicitAllPattern
 argument_list|(
 operator|new
 name|String
@@ -3238,7 +3238,7 @@ name|assertThat
 argument_list|(
 name|metaData
 operator|.
-name|isExplicitAllIndices
+name|isExplicitAllPattern
 argument_list|(
 operator|new
 name|String
@@ -3284,7 +3284,7 @@ name|assertThat
 argument_list|(
 name|metaData
 operator|.
-name|isExplicitAllIndices
+name|isExplicitAllPattern
 argument_list|(
 operator|new
 name|String

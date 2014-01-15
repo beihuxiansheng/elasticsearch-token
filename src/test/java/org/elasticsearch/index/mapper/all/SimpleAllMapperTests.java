@@ -2186,11 +2186,6 @@ operator|.
 name|startObject
 argument_list|()
 operator|.
-name|startObject
-argument_list|(
-literal|"test"
-argument_list|)
-operator|.
 name|field
 argument_list|(
 literal|"foo"
@@ -2211,9 +2206,6 @@ literal|"foobar"
 argument_list|,
 literal|"foobar"
 argument_list|)
-operator|.
-name|endObject
-argument_list|()
 operator|.
 name|endObject
 argument_list|()

@@ -1564,16 +1564,13 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"--> IOException raised while downloading plugin [{}]."
+literal|"--> IOException raised while downloading plugin [{}]. Skipping test."
 argument_list|,
 name|e
 argument_list|,
 name|pluginShortName
 argument_list|)
 expr_stmt|;
-throw|throw
-name|e
-throw|;
 block|}
 catch|catch
 parameter_list|(
@@ -1590,9 +1587,6 @@ argument_list|,
 name|pluginShortName
 argument_list|)
 expr_stmt|;
-throw|throw
-name|e
-throw|;
 block|}
 block|}
 comment|/**      * We are ignoring by default these tests as they require to have an internet access      * To activate the test, use -Dtests.network=true      */

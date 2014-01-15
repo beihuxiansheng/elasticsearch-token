@@ -1139,7 +1139,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|setName
+name|setNames
 argument_list|(
 literal|"warmer_1"
 argument_list|)
