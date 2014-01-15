@@ -871,19 +871,22 @@ name|SuggestionSearchContext
 name|suggest
 parameter_list|)
 function_decl|;
-comment|/**      * @return the rescore context or null if rescoring wasn't specified or isn't supported      */
+comment|/**      * @return list of all rescore contexts.  empty if there aren't any.      */
 DECL|method|rescore
 specifier|public
 specifier|abstract
+name|List
+argument_list|<
 name|RescoreSearchContext
+argument_list|>
 name|rescore
 parameter_list|()
 function_decl|;
-DECL|method|rescore
+DECL|method|addRescore
 specifier|public
 specifier|abstract
 name|void
-name|rescore
+name|addRescore
 parameter_list|(
 name|RescoreSearchContext
 name|rescore

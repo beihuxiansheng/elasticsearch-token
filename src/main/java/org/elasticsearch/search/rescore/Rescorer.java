@@ -155,7 +155,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Executes an {@link Explanation} phase on the rescorer.      *      * @param topLevelDocId  the global / top-level document ID to explain      * @param context        the current {@link SearchContext}      * @param rescoreContext TODO      * @return the explain for the given top level document ID.      * @throws IOException if an {@link IOException} occurs      */
+comment|/**      * Executes an {@link Explanation} phase on the rescorer.      *      * @param topLevelDocId the global / top-level document ID to explain      * @param context the explanation for the results being fed to this rescorer      * @param rescoreContext context for this rescorer      * @param sourceExplanation explanation of the source of the documents being fed into this rescore      * @return the explain for the given top level document ID.      * @throws IOException if an {@link IOException} occurs      */
 DECL|method|explain
 specifier|public
 name|Explanation
@@ -169,6 +169,9 @@ name|context
 parameter_list|,
 name|RescoreSearchContext
 name|rescoreContext
+parameter_list|,
+name|Explanation
+name|sourceExplanation
 parameter_list|)
 throws|throws
 name|IOException

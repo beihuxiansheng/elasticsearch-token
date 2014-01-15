@@ -1034,7 +1034,10 @@ annotation|@
 name|Override
 DECL|method|rescore
 specifier|public
+name|List
+argument_list|<
 name|RescoreSearchContext
+argument_list|>
 name|rescore
 parameter_list|()
 block|{
@@ -1044,10 +1047,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|rescore
+DECL|method|addRescore
 specifier|public
 name|void
-name|rescore
+name|addRescore
 parameter_list|(
 name|RescoreSearchContext
 name|rescore
