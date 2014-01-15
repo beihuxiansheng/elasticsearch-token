@@ -180,6 +180,22 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|NoCacheFilter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|xcontent
 operator|.
 name|XContentParser
@@ -498,6 +514,13 @@ specifier|private
 specifier|final
 name|Index
 name|index
+decl_stmt|;
+DECL|field|propagateNoCache
+specifier|private
+name|boolean
+name|propagateNoCache
+init|=
+literal|false
 decl_stmt|;
 DECL|field|indexQueryParser
 name|IndexQueryParserService
@@ -869,6 +892,21 @@ condition|)
 block|{
 return|return
 literal|null
+return|;
+block|}
+if|if
+condition|(
+name|this
+operator|.
+name|propagateNoCache
+operator|||
+name|filter
+operator|instanceof
+name|NoCacheFilter
+condition|)
+block|{
+return|return
+name|filter
 return|;
 block|}
 if|if
@@ -1391,11 +1429,9 @@ block|}
 name|Filter
 name|result
 init|=
-name|filterParser
-operator|.
-name|parse
+name|executeFilterParser
 argument_list|(
-name|this
+name|filterParser
 argument_list|)
 decl_stmt|;
 if|if
@@ -1478,6 +1514,40 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
+return|return
+name|executeFilterParser
+argument_list|(
+name|filterParser
+argument_list|)
+return|;
+block|}
+DECL|method|executeFilterParser
+specifier|private
+name|Filter
+name|executeFilterParser
+parameter_list|(
+name|FilterParser
+name|filterParser
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+specifier|final
+name|boolean
+name|propagateNoCache
+init|=
+name|this
+operator|.
+name|propagateNoCache
+decl_stmt|;
+comment|// first safe the state that we need to restore
+name|this
+operator|.
+name|propagateNoCache
+operator|=
+literal|false
+expr_stmt|;
+comment|// parse the subfilter with caching, that's fine
 name|Filter
 name|result
 init|=
@@ -1488,11 +1558,21 @@ argument_list|(
 name|this
 argument_list|)
 decl_stmt|;
-comment|// don't move to the nextToken in this case...
-comment|//        if (parser.currentToken() == XContentParser.Token.END_OBJECT || parser.currentToken() == XContentParser.Token.END_ARRAY) {
-comment|//            // if we are at END_OBJECT, move to the next one...
-comment|//            parser.nextToken();
-comment|//        }
+comment|// now make sure we set propagateNoCache to true if it is true already or if the result is
+comment|// an instance of NoCacheFilter or if we used to be true! all filters above will
+comment|// be not cached ie. wrappers of this filter!
+name|this
+operator|.
+name|propagateNoCache
+operator||=
+operator|(
+name|result
+operator|instanceof
+name|NoCacheFilter
+operator|)
+operator|||
+name|propagateNoCache
+expr_stmt|;
 return|return
 name|result
 return|;
