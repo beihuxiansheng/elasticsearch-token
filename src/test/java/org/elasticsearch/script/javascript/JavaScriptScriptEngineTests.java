@@ -74,11 +74,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
+name|elasticsearch
 operator|.
-name|annotations
+name|test
 operator|.
-name|AfterClass
+name|ElasticsearchTestCase
 import|;
 end_import
 
@@ -86,11 +86,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
+name|junit
 operator|.
-name|annotations
-operator|.
-name|BeforeClass
+name|After
 import|;
 end_import
 
@@ -98,9 +96,17 @@ begin_import
 import|import
 name|org
 operator|.
-name|testng
+name|junit
 operator|.
-name|annotations
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
 operator|.
 name|Test
 import|;
@@ -142,18 +148,6 @@ name|org
 operator|.
 name|hamcrest
 operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
 name|Matchers
 operator|.
 name|equalTo
@@ -181,6 +175,8 @@ DECL|class|JavaScriptScriptEngineTests
 specifier|public
 class|class
 name|JavaScriptScriptEngineTests
+extends|extends
+name|ElasticsearchTestCase
 block|{
 DECL|field|se
 specifier|private
@@ -188,7 +184,7 @@ name|JavaScriptScriptEngineService
 name|se
 decl_stmt|;
 annotation|@
-name|BeforeClass
+name|Before
 DECL|method|setup
 specifier|public
 name|void
@@ -209,7 +205,7 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|AfterClass
+name|After
 DECL|method|close
 specifier|public
 name|void
