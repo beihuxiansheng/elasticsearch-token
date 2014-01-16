@@ -148,7 +148,7 @@ name|RestTestSuite
 name|restTestSuite
 parameter_list|)
 block|{
-comment|//e.g. "indices_open (10_basic)", which leads to 10_basic being returned by Description#getDisplayName
+comment|//e.g. "indices.open (10_basic)", which leads to 10_basic being shown by IDEs
 name|String
 name|name
 init|=
@@ -187,8 +187,8 @@ name|TestSection
 name|testSection
 parameter_list|)
 block|{
-comment|//e.g. "indices_open/10_basic (Basic test for index open/close)", which leads to
-comment|//"Basic test for index open/close" being returned by Description#getDisplayName
+comment|//e.g. "indices.open/10_basic (Basic test for index open/close)", which leads to
+comment|//"Basic test for index open/close" being shown by IDEs
 name|String
 name|name
 init|=
@@ -235,7 +235,7 @@ argument_list|>
 name|args
 parameter_list|)
 block|{
-comment|//e.g. "Basic test for index open/close {#0} (indices_open/10_basic)" some IDEs might strip out the part between parentheses
+comment|//e.g. "Basic test for index open/close {#0} (indices.open/10_basic)" some IDEs might strip out the part between parentheses
 name|String
 name|name
 init|=

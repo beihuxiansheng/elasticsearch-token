@@ -407,7 +407,7 @@ name|findYamlSuites
 argument_list|(
 literal|"/rest-api-spec/test"
 argument_list|,
-literal|"get/10_basic"
+literal|"indices.optimize/10_basic"
 argument_list|,
 literal|"index"
 argument_list|)
@@ -439,7 +439,7 @@ name|yamlSuites
 operator|.
 name|containsKey
 argument_list|(
-literal|"get"
+literal|"indices.optimize"
 argument_list|)
 argument_list|,
 name|equalTo
@@ -454,7 +454,7 @@ name|yamlSuites
 operator|.
 name|get
 argument_list|(
-literal|"get"
+literal|"indices.optimize"
 argument_list|)
 operator|.
 name|size
@@ -472,10 +472,10 @@ name|yamlSuites
 operator|.
 name|get
 argument_list|(
-literal|"get"
+literal|"indices.optimize"
 argument_list|)
 argument_list|,
-literal|"get"
+literal|"indices.optimize"
 argument_list|,
 literal|"10_basic.yaml"
 argument_list|)

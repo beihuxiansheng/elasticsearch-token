@@ -604,7 +604,6 @@ name|isFile
 argument_list|()
 condition|)
 block|{
-comment|// '.' is uses as separator internally and not expected to be within suite or test names, better replace it
 name|String
 name|groupName
 init|=
@@ -615,13 +614,6 @@ argument_list|()
 operator|.
 name|getName
 argument_list|()
-operator|.
-name|replace
-argument_list|(
-literal|'.'
-argument_list|,
-literal|'_'
-argument_list|)
 decl_stmt|;
 name|Set
 argument_list|<
