@@ -192,7 +192,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-comment|//info and ping should really be two different api in the rest spec
+comment|//TODO info and ping should really be two different api in the rest spec
 comment|//info (GET|HEAD /) needs to be manually split into 1) info: GET /  2) ping: HEAD /
 name|restApiMap
 operator|.
@@ -243,7 +243,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-comment|//get_source endpoint shouldn't be present in the rest spec for the get api
+comment|//TODO get_source endpoint shouldn't be present in the rest spec for the get api
 comment|//as get_source is already a separate api
 name|List
 argument_list|<

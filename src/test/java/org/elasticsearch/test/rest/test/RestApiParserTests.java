@@ -84,6 +84,18 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
+name|contains
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
 name|equalTo
 import|;
 end_import
@@ -336,6 +348,67 @@ literal|"type"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertThat
+argument_list|(
+name|restApi
+operator|.
+name|getParams
+argument_list|()
+operator|.
+name|size
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|4
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|restApi
+operator|.
+name|getParams
+argument_list|()
+argument_list|,
+name|contains
+argument_list|(
+literal|"consistency"
+argument_list|,
+literal|"op_type"
+argument_list|,
+literal|"parent"
+argument_list|,
+literal|"refresh"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|restApi
+operator|.
+name|isBodySupported
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|true
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|restApi
+operator|.
+name|isBodyRequired
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|true
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -511,7 +584,403 @@ literal|"name"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertThat
+argument_list|(
+name|restApi
+operator|.
+name|getParams
+argument_list|()
+operator|.
+name|size
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|0
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|restApi
+operator|.
+name|isBodySupported
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|false
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|restApi
+operator|.
+name|isBodyRequired
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|false
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
+annotation|@
+name|Test
+DECL|method|testParseRestSpecCountApi
+specifier|public
+name|void
+name|testParseRestSpecCountApi
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|parser
+operator|=
+name|JsonXContent
+operator|.
+name|jsonXContent
+operator|.
+name|createParser
+argument_list|(
+name|REST_SPEC_COUNT_API
+argument_list|)
+expr_stmt|;
+name|RestApi
+name|restApi
+init|=
+operator|new
+name|RestApiParser
+argument_list|()
+operator|.
+name|parse
+argument_list|(
+name|parser
+argument_list|)
+decl_stmt|;
+name|assertThat
+argument_list|(
+name|restApi
+argument_list|,
+name|notNullValue
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|restApi
+operator|.
+name|getName
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"count"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|restApi
+operator|.
+name|getMethods
+argument_list|()
+operator|.
+name|size
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|2
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|restApi
+operator|.
+name|getMethods
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"POST"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|restApi
+operator|.
+name|getMethods
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|1
+argument_list|)
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"GET"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|restApi
+operator|.
+name|getPaths
+argument_list|()
+operator|.
+name|size
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|3
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|restApi
+operator|.
+name|getPaths
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"/_count"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|restApi
+operator|.
+name|getPaths
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|1
+argument_list|)
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"/{index}/_count"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|restApi
+operator|.
+name|getPaths
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|2
+argument_list|)
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"/{index}/{type}/_count"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|restApi
+operator|.
+name|getPathParts
+argument_list|()
+operator|.
+name|size
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|2
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|restApi
+operator|.
+name|getPathParts
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"index"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|restApi
+operator|.
+name|getPathParts
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|1
+argument_list|)
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"type"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|restApi
+operator|.
+name|getParams
+argument_list|()
+operator|.
+name|size
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|1
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|restApi
+operator|.
+name|getParams
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"ignore_unavailable"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|restApi
+operator|.
+name|isBodySupported
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|true
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|restApi
+operator|.
+name|isBodyRequired
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|false
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|field|REST_SPEC_COUNT_API
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|REST_SPEC_COUNT_API
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"count\": {\n"
+operator|+
+literal|"    \"documentation\": \"http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/search-count.html\",\n"
+operator|+
+literal|"    \"methods\": [\"POST\", \"GET\"],\n"
+operator|+
+literal|"    \"url\": {\n"
+operator|+
+literal|"      \"path\": \"/_count\",\n"
+operator|+
+literal|"      \"paths\": [\"/_count\", \"/{index}/_count\", \"/{index}/{type}/_count\"],\n"
+operator|+
+literal|"      \"parts\": {\n"
+operator|+
+literal|"        \"index\": {\n"
+operator|+
+literal|"          \"type\" : \"list\",\n"
+operator|+
+literal|"          \"description\" : \"A comma-separated list of indices to restrict the results\"\n"
+operator|+
+literal|"        },\n"
+operator|+
+literal|"        \"type\": {\n"
+operator|+
+literal|"          \"type\" : \"list\",\n"
+operator|+
+literal|"          \"description\" : \"A comma-separated list of types to restrict the results\"\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"      },\n"
+operator|+
+literal|"      \"params\": {\n"
+operator|+
+literal|"        \"ignore_unavailable\": {\n"
+operator|+
+literal|"          \"type\" : \"boolean\",\n"
+operator|+
+literal|"          \"description\" : \"Whether specified concrete indices should be ignored when unavailable (missing or closed)\"\n"
+operator|+
+literal|"        } \n"
+operator|+
+literal|"      }\n"
+operator|+
+literal|"    },\n"
+operator|+
+literal|"    \"body\": {\n"
+operator|+
+literal|"      \"description\" : \"A query to restrict the results specified with the Query DSL (optional)\"\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}\n"
+decl_stmt|;
 DECL|field|REST_SPEC_GET_TEMPLATE_API
 specifier|private
 specifier|static
@@ -644,81 +1113,11 @@ literal|"          \"description\" : \"ID of the parent document\"\n"
 operator|+
 literal|"        },\n"
 operator|+
-literal|"        \"percolate\": {\n"
-operator|+
-literal|"          \"type\" : \"string\",\n"
-operator|+
-literal|"          \"description\" : \"Percolator queries to execute while indexing the document\"\n"
-operator|+
-literal|"        },\n"
-operator|+
 literal|"        \"refresh\": {\n"
 operator|+
 literal|"          \"type\" : \"boolean\",\n"
 operator|+
 literal|"          \"description\" : \"Refresh the index after performing the operation\"\n"
-operator|+
-literal|"        },\n"
-operator|+
-literal|"        \"replication\": {\n"
-operator|+
-literal|"          \"type\" : \"enum\",\n"
-operator|+
-literal|"          \"options\" : [\"sync\",\"async\"],\n"
-operator|+
-literal|"          \"default\" : \"sync\",\n"
-operator|+
-literal|"          \"description\" : \"Specific replication type\"\n"
-operator|+
-literal|"        },\n"
-operator|+
-literal|"        \"routing\": {\n"
-operator|+
-literal|"          \"type\" : \"string\",\n"
-operator|+
-literal|"          \"description\" : \"Specific routing value\"\n"
-operator|+
-literal|"        },\n"
-operator|+
-literal|"        \"timeout\": {\n"
-operator|+
-literal|"          \"type\" : \"time\",\n"
-operator|+
-literal|"          \"description\" : \"Explicit operation timeout\"\n"
-operator|+
-literal|"        },\n"
-operator|+
-literal|"        \"timestamp\": {\n"
-operator|+
-literal|"          \"type\" : \"time\",\n"
-operator|+
-literal|"          \"description\" : \"Explicit timestamp for the document\"\n"
-operator|+
-literal|"        },\n"
-operator|+
-literal|"        \"ttl\": {\n"
-operator|+
-literal|"          \"type\" : \"duration\",\n"
-operator|+
-literal|"          \"description\" : \"Expiration time for the document\"\n"
-operator|+
-literal|"        },\n"
-operator|+
-literal|"        \"version\" : {\n"
-operator|+
-literal|"          \"type\" : \"number\",\n"
-operator|+
-literal|"          \"description\" : \"Explicit version number for concurrency control\"\n"
-operator|+
-literal|"        },\n"
-operator|+
-literal|"        \"version_type\": {\n"
-operator|+
-literal|"          \"type\" : \"enum\",\n"
-operator|+
-literal|"          \"options\" : [\"internal\",\"external\"],\n"
-operator|+
-literal|"          \"description\" : \"Specific version type\"\n"
 operator|+
 literal|"        }\n"
 operator|+
