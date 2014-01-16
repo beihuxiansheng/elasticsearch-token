@@ -479,9 +479,9 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-assert|assert
-literal|false
-assert|;
+name|fail
+argument_list|()
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(

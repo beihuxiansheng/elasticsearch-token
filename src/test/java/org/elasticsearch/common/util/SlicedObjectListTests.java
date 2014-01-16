@@ -72,18 +72,6 @@ name|org
 operator|.
 name|hamcrest
 operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
 name|Matchers
 operator|.
 name|equalTo
@@ -185,11 +173,16 @@ name|int
 name|newLength
 parameter_list|)
 block|{
-assert|assert
+name|assertThat
+argument_list|(
 name|offset
-operator|==
+argument_list|,
+name|equalTo
+argument_list|(
 literal|0
-assert|;
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|// NOTE: senseless if offset != 0
 if|if
 condition|(
@@ -766,9 +759,9 @@ operator|)
 literal|4
 argument_list|)
 expr_stmt|;
-assert|assert
-literal|false
-assert|;
+name|fail
+argument_list|()
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -788,9 +781,9 @@ operator|)
 literal|4
 argument_list|)
 expr_stmt|;
-assert|assert
-literal|false
-assert|;
+name|fail
+argument_list|()
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(

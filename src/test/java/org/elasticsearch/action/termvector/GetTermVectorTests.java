@@ -3446,11 +3446,11 @@ name|notNullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-assert|assert
+name|assertNotNull
+argument_list|(
 name|docsAndPositions
-operator|!=
-literal|null
-assert|;
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int

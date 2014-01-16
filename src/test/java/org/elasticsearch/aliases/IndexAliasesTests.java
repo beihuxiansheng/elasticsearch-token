@@ -549,7 +549,7 @@ comment|//
 comment|//        try {
 comment|//            logger.info("--> indexing against [alias1], should fail");
 comment|//            client().index(indexRequest("alias1").type("type1").id("1").source(source("1", "test"))).actionGet();
-comment|//            assert false : "index [alias1] should not exists";
+comment|//            fail("index [alias1] should not exists");
 comment|//        } catch (IndexMissingException e) {
 comment|//            assertThat(e.index().name(), equalTo("alias1"));
 comment|//        }
@@ -825,9 +825,9 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-assert|assert
-literal|false
-assert|;
+name|fail
+argument_list|()
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(

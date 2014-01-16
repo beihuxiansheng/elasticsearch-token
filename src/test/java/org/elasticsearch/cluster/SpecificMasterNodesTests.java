@@ -279,11 +279,11 @@ name|nullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-assert|assert
-literal|false
-operator|:
+name|fail
+argument_list|(
 literal|"should not be able to find master"
-assert|;
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -462,11 +462,11 @@ name|nullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-assert|assert
-literal|false
-operator|:
+name|fail
+argument_list|(
 literal|"should not be able to find master"
-assert|;
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -678,11 +678,11 @@ name|nullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-assert|assert
-literal|false
-operator|:
+name|fail
+argument_list|(
 literal|"should not be able to find master"
-assert|;
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(

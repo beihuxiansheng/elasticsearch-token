@@ -1029,14 +1029,6 @@ name|int
 name|numTerms
 parameter_list|)
 block|{
-assert|assert
-name|numTerms
-operator|<=
-name|termsList
-operator|.
-name|size
-argument_list|()
-assert|;
 name|String
 index|[]
 name|terms

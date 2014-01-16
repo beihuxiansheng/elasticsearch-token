@@ -658,11 +658,11 @@ name|boolean
 name|isPersistentStorage
 parameter_list|()
 block|{
-assert|assert
+name|assertNotNull
+argument_list|(
 name|storeType
-operator|!=
-literal|null
-assert|;
+argument_list|)
+expr_stmt|;
 return|return
 literal|"fs"
 operator|.

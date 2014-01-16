@@ -6136,13 +6136,15 @@ name|BytesRef
 name|ref
 parameter_list|)
 block|{
-assert|assert
+name|assertTrue
+argument_list|(
 name|ref
 operator|.
 name|length
 operator|>
 literal|0
-assert|;
+argument_list|)
+expr_stmt|;
 return|return
 name|Double
 operator|.

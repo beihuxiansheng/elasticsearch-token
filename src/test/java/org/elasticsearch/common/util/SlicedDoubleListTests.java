@@ -595,9 +595,9 @@ operator|)
 literal|4
 argument_list|)
 expr_stmt|;
-assert|assert
-literal|false
-assert|;
+name|fail
+argument_list|()
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -617,9 +617,9 @@ operator|)
 literal|4
 argument_list|)
 expr_stmt|;
-assert|assert
-literal|false
-assert|;
+name|fail
+argument_list|()
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(

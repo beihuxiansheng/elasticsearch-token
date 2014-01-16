@@ -134,33 +134,9 @@ name|org
 operator|.
 name|hamcrest
 operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
 name|Matchers
 operator|.
 name|*
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|fail
 import|;
 end_import
 
@@ -611,11 +587,11 @@ argument_list|(
 literal|"1970 kuku"
 argument_list|)
 expr_stmt|;
-assert|assert
-literal|false
-operator|:
+name|fail
+argument_list|(
 literal|"formatting should fail"
-assert|;
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -911,9 +887,9 @@ argument_list|(
 literal|"1970/01/01"
 argument_list|)
 expr_stmt|;
-assert|assert
-literal|false
-assert|;
+name|fail
+argument_list|()
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(

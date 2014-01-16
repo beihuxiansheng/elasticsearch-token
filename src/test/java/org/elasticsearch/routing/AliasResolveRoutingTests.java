@@ -673,11 +673,11 @@ argument_list|,
 literal|"alias10"
 argument_list|)
 expr_stmt|;
-assert|assert
-literal|false
-operator|:
+name|fail
+argument_list|(
 literal|"should fail"
-assert|;
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -705,11 +705,11 @@ argument_list|,
 literal|"alias0"
 argument_list|)
 expr_stmt|;
-assert|assert
-literal|false
-operator|:
+name|fail
+argument_list|(
 literal|"should fail"
-assert|;
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(

@@ -2153,9 +2153,9 @@ operator|!
 name|ranOnce
 condition|)
 block|{
-assert|assert
-literal|false
-assert|;
+name|fail
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 annotation|@
@@ -3488,9 +3488,9 @@ operator|!
 name|ranOnce
 condition|)
 block|{
-assert|assert
-literal|false
-assert|;
+name|fail
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 block|}

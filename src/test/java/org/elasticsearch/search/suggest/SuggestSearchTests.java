@@ -5809,11 +5809,11 @@ argument_list|,
 name|phraseSuggestion
 argument_list|)
 expr_stmt|;
-assert|assert
-literal|false
-operator|:
+name|fail
+argument_list|(
 literal|"field does not exists"
-assert|;
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -5845,11 +5845,11 @@ argument_list|,
 name|phraseSuggestion
 argument_list|)
 expr_stmt|;
-assert|assert
-literal|false
-operator|:
+name|fail
+argument_list|(
 literal|"analyzer does only produce ngrams"
-assert|;
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -5878,11 +5878,11 @@ argument_list|,
 name|phraseSuggestion
 argument_list|)
 expr_stmt|;
-assert|assert
-literal|false
-operator|:
+name|fail
+argument_list|(
 literal|"analyzer does only produce ngrams"
-assert|;
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(

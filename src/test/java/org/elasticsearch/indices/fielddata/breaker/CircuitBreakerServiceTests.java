@@ -402,11 +402,7 @@ parameter_list|(
 name|SearchPhaseExecutionException
 name|e
 parameter_list|)
-block|{
-assert|assert
-literal|true
-assert|;
-block|}
+block|{             }
 block|}
 finally|finally
 block|{
@@ -744,11 +740,7 @@ parameter_list|(
 name|SearchPhaseExecutionException
 name|e
 parameter_list|)
-block|{
-assert|assert
-literal|true
-assert|;
-block|}
+block|{             }
 block|}
 finally|finally
 block|{

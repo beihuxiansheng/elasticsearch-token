@@ -3389,13 +3389,13 @@ argument_list|)
 expr_stmt|;
 break|break;
 default|default:
-assert|assert
-literal|false
-operator|:
+name|fail
+argument_list|(
 literal|"new flag? "
 operator|+
 name|flag
-assert|;
+argument_list|)
+expr_stmt|;
 break|break;
 block|}
 block|}
@@ -3594,13 +3594,13 @@ operator|!=
 literal|null
 return|;
 default|default:
-assert|assert
-literal|false
-operator|:
+name|fail
+argument_list|(
 literal|"new flag? "
 operator|+
 name|flag
-assert|;
+argument_list|)
+expr_stmt|;
 return|return
 literal|false
 return|;

@@ -1222,9 +1222,9 @@ expr_stmt|;
 block|}
 else|else
 block|{
-assert|assert
-literal|false
-assert|;
+name|fail
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 name|assertThat

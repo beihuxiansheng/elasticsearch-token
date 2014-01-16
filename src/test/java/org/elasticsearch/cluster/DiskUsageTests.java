@@ -223,11 +223,7 @@ parameter_list|(
 name|IllegalStateException
 name|e
 parameter_list|)
-block|{
-assert|assert
-literal|true
-assert|;
-block|}
+block|{                 }
 block|}
 else|else
 block|{

@@ -658,9 +658,9 @@ argument_list|(
 literal|"de_DE_DE_DE"
 argument_list|)
 expr_stmt|;
-assert|assert
-literal|false
-assert|;
+name|fail
+argument_list|()
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(

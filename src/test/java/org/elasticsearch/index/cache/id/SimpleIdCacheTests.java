@@ -750,11 +750,11 @@ argument_list|(
 literal|"_uid"
 argument_list|)
 decl_stmt|;
-assert|assert
+name|assertNotNull
+argument_list|(
 name|parentUid
-operator|!=
-literal|null
-assert|;
+argument_list|)
+expr_stmt|;
 name|writer
 operator|.
 name|deleteDocuments

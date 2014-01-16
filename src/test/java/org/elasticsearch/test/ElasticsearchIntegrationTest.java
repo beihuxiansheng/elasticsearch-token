@@ -1008,15 +1008,15 @@ argument_list|)
 expr_stmt|;
 break|break;
 default|default:
-assert|assert
-literal|false
-operator|:
+name|fail
+argument_list|(
 literal|"Unknown Scope: ["
 operator|+
 name|currentClusterScope
 operator|+
 literal|"]"
-assert|;
+argument_list|)
+expr_stmt|;
 block|}
 name|currentCluster
 operator|.

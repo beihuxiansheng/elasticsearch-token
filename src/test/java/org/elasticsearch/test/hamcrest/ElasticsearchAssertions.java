@@ -498,6 +498,18 @@ name|junit
 operator|.
 name|Assert
 operator|.
+name|assertTrue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
 name|fail
 import|;
 end_import
@@ -1272,11 +1284,16 @@ argument_list|>
 name|matcher
 parameter_list|)
 block|{
-assert|assert
+name|assertThat
+argument_list|(
 name|number
-operator|>
+argument_list|,
+name|greaterThan
+argument_list|(
 literal|0
-assert|;
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|assertThat
 argument_list|(
 literal|"SearchHit number must be greater than 0"
@@ -2713,7 +2730,8 @@ name|Streamable
 name|streamable
 parameter_list|)
 block|{
-assert|assert
+name|assertTrue
+argument_list|(
 name|Version
 operator|.
 name|CURRENT
@@ -2725,7 +2743,8 @@ operator|.
 name|getPreviousVersion
 argument_list|()
 argument_list|)
-assert|;
+argument_list|)
+expr_stmt|;
 name|assertVersionSerializable
 argument_list|(
 name|ElasticsearchTestCase

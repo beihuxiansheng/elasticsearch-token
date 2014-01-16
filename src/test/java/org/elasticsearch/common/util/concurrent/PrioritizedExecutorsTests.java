@@ -1686,9 +1686,9 @@ name|InterruptedException
 name|e
 parameter_list|)
 block|{
-assert|assert
-literal|false
-assert|;
+name|fail
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 annotation|@

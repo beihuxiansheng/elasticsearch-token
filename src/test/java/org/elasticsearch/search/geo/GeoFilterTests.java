@@ -803,11 +803,11 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
-assert|assert
-literal|false
-operator|:
+name|fail
+argument_list|(
 literal|"Self intersection not detected"
-assert|;
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -981,11 +981,11 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
-assert|assert
-literal|false
-operator|:
+name|fail
+argument_list|(
 literal|"Self intersection not detected"
-assert|;
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -1117,11 +1117,11 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
-assert|assert
-literal|false
-operator|:
+name|fail
+argument_list|(
 literal|"Intersection of holes not detected"
-assert|;
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -1200,11 +1200,11 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
-assert|assert
-literal|false
-operator|:
+name|fail
+argument_list|(
 literal|"Self intersection not detected"
-assert|;
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -1225,7 +1225,7 @@ comment|//                .close()
 comment|//                .polygon()
 comment|//                    .point(-5, -5).point(-5, 5).point(5, 5).point(5, -5)
 comment|//                .close().build();
-comment|//            assert false : "Polygon intersection not detected";
+comment|//            fail("Polygon intersection not detected";
 comment|//        } catch (InvalidShapeException e) {}
 comment|// Multipolygon: polygon with hole and polygon within the whole
 name|ShapeBuilder
@@ -1364,7 +1364,7 @@ comment|//                .polygon()
 comment|//                    .point(-4, -4).point(-4, 6).point(4, 6).point(4, -4)
 comment|//                .close()
 comment|//                .build();
-comment|//            assert false : "Polygon intersection not detected";
+comment|//            fail("Polygon intersection not detected";
 comment|//        } catch (InvalidShapeException e) {}
 block|}
 annotation|@
@@ -1377,21 +1377,27 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-assert|assert
-name|intersectSupport
-operator|:
+name|assertTrue
+argument_list|(
 literal|"Intersect relation is not supported"
-assert|;
-assert|assert
-name|disjointSupport
-operator|:
+argument_list|,
+name|intersectSupport
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
 literal|"Disjoint relation is not supported"
-assert|;
-assert|assert
-name|withinSupport
-operator|:
+argument_list|,
+name|disjointSupport
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
 literal|"within relation is not supported"
-assert|;
+argument_list|,
+name|withinSupport
+argument_list|)
+expr_stmt|;
 name|String
 name|mapping
 init|=
@@ -3019,15 +3025,16 @@ name|getItems
 argument_list|()
 control|)
 block|{
-assert|assert
-operator|!
+name|assertFalse
+argument_list|(
+literal|"unable to index data"
+argument_list|,
 name|item
 operator|.
 name|isFailed
 argument_list|()
-operator|:
-literal|"unable to index data"
-assert|;
+argument_list|)
+expr_stmt|;
 block|}
 name|client
 argument_list|()

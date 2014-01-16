@@ -3447,14 +3447,22 @@ index|]
 operator|.
 name|doc
 decl_stmt|;
-assert|assert
+name|assertTrue
+argument_list|(
+literal|"expected "
+operator|+
+name|docID
+operator|+
+literal|" to be a parent"
+argument_list|,
 name|parents
 operator|.
 name|get
 argument_list|(
 name|docID
 argument_list|)
-assert|;
+argument_list|)
+expr_stmt|;
 name|BytesRef
 name|cmpValue
 init|=

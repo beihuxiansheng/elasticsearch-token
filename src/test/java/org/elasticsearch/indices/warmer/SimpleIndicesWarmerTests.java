@@ -1670,11 +1670,11 @@ argument_list|(
 literal|1000
 argument_list|)
 expr_stmt|;
-assert|assert
-literal|false
-operator|:
+name|fail
+argument_list|(
 literal|"warmer foo should not exist"
-assert|;
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -3044,7 +3044,10 @@ block|}
 block|}
 static|static
 block|{
-assert|assert
+name|assertTrue
+argument_list|(
+literal|"remove me when LUCENE-5373 is fixed"
+argument_list|,
 name|Version
 operator|.
 name|CURRENT
@@ -3062,9 +3065,8 @@ operator|.
 name|Version
 operator|.
 name|LUCENE_46
-operator|:
-literal|"remove me when LUCENE-5373 is fixed"
-assert|;
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Ignore

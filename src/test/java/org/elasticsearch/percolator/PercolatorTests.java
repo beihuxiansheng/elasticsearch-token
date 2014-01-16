@@ -14929,11 +14929,10 @@ name|i
 operator|++
 control|)
 block|{
-assert|assert
-name|index
-operator|.
-name|equals
+name|assertEquals
 argument_list|(
+name|index
+argument_list|,
 name|matches
 index|[
 name|i
@@ -14945,7 +14944,7 @@ operator|.
 name|string
 argument_list|()
 argument_list|)
-assert|;
+expr_stmt|;
 name|strings
 index|[
 name|i

@@ -2557,14 +2557,16 @@ name|Listener
 name|listener
 parameter_list|)
 block|{
-assert|assert
+name|assertNull
+argument_list|(
+literal|"addListener was called twice while only one time was expected"
+argument_list|,
 name|listeners
 index|[
 literal|0
 index|]
-operator|==
-literal|null
-assert|;
+argument_list|)
+expr_stmt|;
 name|listeners
 index|[
 literal|0

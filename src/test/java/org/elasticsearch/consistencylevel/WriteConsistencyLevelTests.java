@@ -377,11 +377,11 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-assert|assert
-literal|false
-operator|:
+name|fail
+argument_list|(
 literal|"can't index, does not match consistency"
-assert|;
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -562,11 +562,11 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-assert|assert
-literal|false
-operator|:
+name|fail
+argument_list|(
 literal|"can't index, does not match consistency"
-assert|;
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(

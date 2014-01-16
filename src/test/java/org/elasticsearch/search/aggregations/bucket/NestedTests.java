@@ -569,11 +569,13 @@ name|i
 index|]
 expr_stmt|;
 block|}
-assert|assert
+name|assertTrue
+argument_list|(
 name|totalChildren
 operator|>
 literal|0
-assert|;
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int

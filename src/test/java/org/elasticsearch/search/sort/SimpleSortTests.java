@@ -3571,8 +3571,8 @@ name|getHits
 argument_list|()
 control|)
 block|{
-assert|assert
-operator|!
+name|assertFalse
+argument_list|(
 name|Float
 operator|.
 name|isNaN
@@ -3582,7 +3582,8 @@ operator|.
 name|getScore
 argument_list|()
 argument_list|)
-assert|;
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 annotation|@

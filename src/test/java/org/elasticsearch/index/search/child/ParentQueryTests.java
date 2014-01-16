@@ -1066,15 +1066,22 @@ operator|!
 name|filterMe
 condition|)
 block|{
-assert|assert
-operator|!
+name|assertFalse
+argument_list|(
+literal|"child ["
+operator|+
+name|child
+operator|+
+literal|"] already has a score"
+argument_list|,
 name|childIdToScore
 operator|.
 name|containsKey
 argument_list|(
 name|child
 argument_list|)
-assert|;
+argument_list|)
+expr_stmt|;
 name|childIdToScore
 operator|.
 name|put

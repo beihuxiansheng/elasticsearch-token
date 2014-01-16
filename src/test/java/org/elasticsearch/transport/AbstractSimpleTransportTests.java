@@ -506,13 +506,13 @@ name|DiscoveryNode
 name|node
 parameter_list|)
 block|{
-assert|assert
-literal|false
-operator|:
+name|fail
+argument_list|(
 literal|"disconnect should not be called "
 operator|+
 name|node
-assert|;
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 decl_stmt|;
@@ -1970,13 +1970,13 @@ name|DiscoveryNode
 name|node
 parameter_list|)
 block|{
-assert|assert
-literal|false
-operator|:
+name|fail
+argument_list|(
 literal|"node connected should not be called, all connection have been done previously, node: "
 operator|+
 name|node
-assert|;
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -3482,9 +3482,9 @@ operator|.
 name|printStackTrace
 argument_list|()
 expr_stmt|;
-assert|assert
-literal|false
-assert|;
+name|fail
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -3725,9 +3725,9 @@ operator|.
 name|printStackTrace
 argument_list|()
 expr_stmt|;
-assert|assert
-literal|false
-assert|;
+name|fail
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -3997,9 +3997,9 @@ operator|.
 name|printStackTrace
 argument_list|()
 expr_stmt|;
-assert|assert
-literal|false
-assert|;
+name|fail
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -4233,9 +4233,9 @@ operator|.
 name|printStackTrace
 argument_list|()
 expr_stmt|;
-assert|assert
-literal|false
-assert|;
+name|fail
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Override
