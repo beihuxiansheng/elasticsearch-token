@@ -72,6 +72,22 @@ name|rest
 operator|.
 name|parser
 operator|.
+name|RestTestParseException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|rest
+operator|.
+name|parser
+operator|.
 name|RestTestSuiteParseContext
 import|;
 end_import
@@ -4545,6 +4561,107 @@ argument_list|,
 name|equalTo
 argument_list|(
 literal|true
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+argument_list|(
+name|expected
+operator|=
+name|RestTestParseException
+operator|.
+name|class
+argument_list|)
+DECL|method|testParseTestDuplicateTestSections
+specifier|public
+name|void
+name|testParseTestDuplicateTestSections
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|parser
+operator|=
+name|YamlXContent
+operator|.
+name|yamlXContent
+operator|.
+name|createParser
+argument_list|(
+literal|"---\n"
+operator|+
+literal|"\"Missing document (script)\":\n"
+operator|+
+literal|"\n"
+operator|+
+literal|"  - do:\n"
+operator|+
+literal|"      catch:      missing\n"
+operator|+
+literal|"      update:\n"
+operator|+
+literal|"          index:  test_1\n"
+operator|+
+literal|"          type:   test\n"
+operator|+
+literal|"          id:     1\n"
+operator|+
+literal|"          body:   { doc: { foo: bar } }\n"
+operator|+
+literal|"\n"
+operator|+
+literal|"---\n"
+operator|+
+literal|"\"Missing document (script)\":\n"
+operator|+
+literal|"\n"
+operator|+
+literal|"\n"
+operator|+
+literal|"  - do:\n"
+operator|+
+literal|"      catch:      missing\n"
+operator|+
+literal|"      update:\n"
+operator|+
+literal|"          index:  test_1\n"
+operator|+
+literal|"          type:   test\n"
+operator|+
+literal|"          id:     1\n"
+operator|+
+literal|"          body:\n"
+operator|+
+literal|"            script: \"ctx._source.foo = bar\"\n"
+operator|+
+literal|"            params: { bar: 'xxx' }\n"
+operator|+
+literal|"\n"
+argument_list|)
+expr_stmt|;
+name|RestTestSuiteParser
+name|testParser
+init|=
+operator|new
+name|RestTestSuiteParser
+argument_list|()
+decl_stmt|;
+name|testParser
+operator|.
+name|parse
+argument_list|(
+operator|new
+name|RestTestSuiteParseContext
+argument_list|(
+literal|"api"
+argument_list|,
+literal|"suite"
+argument_list|,
+name|parser
+argument_list|,
+literal|"0.90.5"
 argument_list|)
 argument_list|)
 expr_stmt|;

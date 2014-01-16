@@ -34,6 +34,20 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|Sets
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -49,6 +63,16 @@ operator|.
 name|util
 operator|.
 name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
 import|;
 end_import
 
@@ -81,15 +105,15 @@ name|setupSection
 decl_stmt|;
 DECL|field|testSections
 specifier|private
-name|List
+name|Set
 argument_list|<
 name|TestSection
 argument_list|>
 name|testSections
 init|=
-name|Lists
+name|Sets
 operator|.
-name|newArrayList
+name|newHashSet
 argument_list|()
 decl_stmt|;
 DECL|method|RestTestSuite
@@ -180,15 +204,17 @@ operator|=
 name|setupSection
 expr_stmt|;
 block|}
+comment|/**      * Adds a {@link org.elasticsearch.test.rest.section.TestSection} to the REST suite      * @return true if the test section was not already present, false otherwise      */
 DECL|method|addTestSection
 specifier|public
-name|void
+name|boolean
 name|addTestSection
 parameter_list|(
 name|TestSection
 name|testSection
 parameter_list|)
 block|{
+return|return
 name|this
 operator|.
 name|testSections
@@ -197,7 +223,7 @@ name|add
 argument_list|(
 name|testSection
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 DECL|method|getTestSections
 specifier|public
@@ -209,7 +235,12 @@ name|getTestSections
 parameter_list|()
 block|{
 return|return
+name|Lists
+operator|.
+name|newArrayList
+argument_list|(
 name|testSections
+argument_list|)
 return|;
 block|}
 block|}
