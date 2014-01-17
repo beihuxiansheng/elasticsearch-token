@@ -675,7 +675,7 @@ throw|throw
 operator|new
 name|RestTestParseException
 argument_list|(
-literal|"malformed test section: field suiteName expected but found "
+literal|"malformed test section: field name expected but found "
 operator|+
 name|token
 argument_list|)
