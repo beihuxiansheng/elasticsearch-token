@@ -54,7 +54,7 @@ name|support
 operator|.
 name|master
 operator|.
-name|TransportMasterNodeOperationAction
+name|TransportMasterNodeReadOperationAction
 import|;
 end_import
 
@@ -216,7 +216,7 @@ specifier|public
 class|class
 name|TransportClusterHealthAction
 extends|extends
-name|TransportMasterNodeOperationAction
+name|TransportMasterNodeReadOperationAction
 argument_list|<
 name|ClusterHealthRequest
 argument_list|,
@@ -325,24 +325,6 @@ block|{
 return|return
 operator|new
 name|ClusterHealthResponse
-argument_list|()
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|localExecute
-specifier|protected
-name|boolean
-name|localExecute
-parameter_list|(
-name|ClusterHealthRequest
-name|request
-parameter_list|)
-block|{
-return|return
-name|request
-operator|.
-name|local
 argument_list|()
 return|;
 block|}

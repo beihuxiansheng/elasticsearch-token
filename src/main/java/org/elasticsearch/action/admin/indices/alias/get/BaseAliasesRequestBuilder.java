@@ -74,7 +74,7 @@ name|support
 operator|.
 name|master
 operator|.
-name|MasterNodeOperationRequestBuilder
+name|MasterNodeReadOperationRequestBuilder
 import|;
 end_import
 
@@ -129,7 +129,7 @@ name|Builder
 parameter_list|>
 parameter_list|>
 extends|extends
-name|MasterNodeOperationRequestBuilder
+name|MasterNodeReadOperationRequestBuilder
 argument_list|<
 name|GetAliasesRequest
 argument_list|,

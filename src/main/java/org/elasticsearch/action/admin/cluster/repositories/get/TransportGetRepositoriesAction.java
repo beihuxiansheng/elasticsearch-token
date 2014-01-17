@@ -70,7 +70,7 @@ name|support
 operator|.
 name|master
 operator|.
-name|TransportMasterNodeOperationAction
+name|TransportMasterNodeReadOperationAction
 import|;
 end_import
 
@@ -242,7 +242,7 @@ specifier|public
 class|class
 name|TransportGetRepositoriesAction
 extends|extends
-name|TransportMasterNodeOperationAction
+name|TransportMasterNodeReadOperationAction
 argument_list|<
 name|GetRepositoriesRequest
 argument_list|,

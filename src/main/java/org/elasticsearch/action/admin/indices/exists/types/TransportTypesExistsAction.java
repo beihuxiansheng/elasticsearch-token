@@ -56,7 +56,7 @@ name|support
 operator|.
 name|master
 operator|.
-name|TransportMasterNodeOperationAction
+name|TransportMasterNodeReadOperationAction
 import|;
 end_import
 
@@ -202,7 +202,7 @@ specifier|public
 class|class
 name|TransportTypesExistsAction
 extends|extends
-name|TransportMasterNodeOperationAction
+name|TransportMasterNodeReadOperationAction
 argument_list|<
 name|TypesExistsRequest
 argument_list|,

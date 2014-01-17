@@ -56,7 +56,7 @@ name|support
 operator|.
 name|master
 operator|.
-name|TransportMasterNodeOperationAction
+name|TransportMasterNodeReadOperationAction
 import|;
 end_import
 
@@ -240,7 +240,7 @@ specifier|public
 class|class
 name|TransportGetSettingsAction
 extends|extends
-name|TransportMasterNodeOperationAction
+name|TransportMasterNodeReadOperationAction
 argument_list|<
 name|GetSettingsRequest
 argument_list|,

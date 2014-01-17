@@ -60,7 +60,7 @@ name|support
 operator|.
 name|master
 operator|.
-name|MasterNodeOperationRequestBuilder
+name|MasterNodeReadOperationRequestBuilder
 import|;
 end_import
 
@@ -112,7 +112,7 @@ specifier|public
 class|class
 name|TypesExistsRequestBuilder
 extends|extends
-name|MasterNodeOperationRequestBuilder
+name|MasterNodeReadOperationRequestBuilder
 argument_list|<
 name|TypesExistsRequest
 argument_list|,

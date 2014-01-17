@@ -44,7 +44,7 @@ name|support
 operator|.
 name|master
 operator|.
-name|MasterNodeOperationRequestBuilder
+name|MasterNodeReadOperationRequestBuilder
 import|;
 end_import
 
@@ -84,7 +84,7 @@ specifier|public
 class|class
 name|ClusterStateRequestBuilder
 extends|extends
-name|MasterNodeOperationRequestBuilder
+name|MasterNodeReadOperationRequestBuilder
 argument_list|<
 name|ClusterStateRequest
 argument_list|,
@@ -266,27 +266,6 @@ operator|.
 name|indexTemplates
 argument_list|(
 name|templates
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Sets if the cluster state request should be executed locally on the node, and not go to the master.      */
-DECL|method|setLocal
-specifier|public
-name|ClusterStateRequestBuilder
-name|setLocal
-parameter_list|(
-name|boolean
-name|local
-parameter_list|)
-block|{
-name|request
-operator|.
-name|local
-argument_list|(
-name|local
 argument_list|)
 expr_stmt|;
 return|return

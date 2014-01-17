@@ -56,7 +56,7 @@ name|support
 operator|.
 name|master
 operator|.
-name|MasterNodeOperationRequest
+name|MasterNodeReadOperationRequest
 import|;
 end_import
 
@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Request that allows to retrieve index templates  */
 end_comment
 
 begin_class
@@ -138,7 +138,7 @@ specifier|public
 class|class
 name|GetIndexTemplatesRequest
 extends|extends
-name|MasterNodeOperationRequest
+name|MasterNodeReadOperationRequest
 argument_list|<
 name|GetIndexTemplatesRequest
 argument_list|>
@@ -340,6 +340,15 @@ name|readString
 argument_list|()
 expr_stmt|;
 block|}
+name|readLocal
+argument_list|(
+name|in
+argument_list|,
+name|Version
+operator|.
+name|V_1_0_0
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -405,6 +414,15 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
+name|writeLocal
+argument_list|(
+name|out
+argument_list|,
+name|Version
+operator|.
+name|V_1_0_0
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

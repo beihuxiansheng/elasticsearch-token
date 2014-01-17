@@ -60,7 +60,7 @@ name|support
 operator|.
 name|master
 operator|.
-name|MasterNodeOperationRequestBuilder
+name|MasterNodeReadOperationRequestBuilder
 import|;
 end_import
 
@@ -100,7 +100,7 @@ specifier|public
 class|class
 name|IndicesExistsRequestBuilder
 extends|extends
-name|MasterNodeOperationRequestBuilder
+name|MasterNodeReadOperationRequestBuilder
 argument_list|<
 name|IndicesExistsRequest
 argument_list|,

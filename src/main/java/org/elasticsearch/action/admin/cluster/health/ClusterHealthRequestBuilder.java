@@ -44,7 +44,7 @@ name|support
 operator|.
 name|master
 operator|.
-name|MasterNodeOperationRequestBuilder
+name|MasterNodeReadOperationRequestBuilder
 import|;
 end_import
 
@@ -110,7 +110,7 @@ specifier|public
 class|class
 name|ClusterHealthRequestBuilder
 extends|extends
-name|MasterNodeOperationRequestBuilder
+name|MasterNodeReadOperationRequestBuilder
 argument_list|<
 name|ClusterHealthRequest
 argument_list|,
@@ -326,26 +326,6 @@ operator|.
 name|waitForEvents
 argument_list|(
 name|waitForEvents
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-DECL|method|setLocal
-specifier|public
-name|ClusterHealthRequestBuilder
-name|setLocal
-parameter_list|(
-name|boolean
-name|local
-parameter_list|)
-block|{
-name|request
-operator|.
-name|local
-argument_list|(
-name|local
 argument_list|)
 expr_stmt|;
 return|return

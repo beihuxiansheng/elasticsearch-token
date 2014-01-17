@@ -28,6 +28,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|Version
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|action
 operator|.
 name|ActionRequestValidationException
@@ -60,7 +70,7 @@ name|support
 operator|.
 name|master
 operator|.
-name|MasterNodeOperationRequest
+name|MasterNodeReadOperationRequest
 import|;
 end_import
 
@@ -118,20 +128,6 @@ name|IOException
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|ValidateActions
-operator|.
-name|addValidationError
-import|;
-end_import
-
 begin_comment
 comment|/**  */
 end_comment
@@ -142,7 +138,7 @@ specifier|public
 class|class
 name|GetAliasesRequest
 extends|extends
-name|MasterNodeOperationRequest
+name|MasterNodeReadOperationRequest
 argument_list|<
 name|GetAliasesRequest
 argument_list|>
@@ -364,6 +360,15 @@ argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
+name|readLocal
+argument_list|(
+name|in
+argument_list|,
+name|Version
+operator|.
+name|V_1_0_0
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -404,6 +409,15 @@ operator|.
 name|writeIndicesOptions
 argument_list|(
 name|out
+argument_list|)
+expr_stmt|;
+name|writeLocal
+argument_list|(
+name|out
+argument_list|,
+name|Version
+operator|.
+name|V_1_0_0
 argument_list|)
 expr_stmt|;
 block|}

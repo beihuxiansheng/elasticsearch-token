@@ -58,7 +58,7 @@ name|support
 operator|.
 name|master
 operator|.
-name|MasterNodeOperationRequestBuilder
+name|MasterNodeReadOperationRequestBuilder
 import|;
 end_import
 
@@ -98,7 +98,7 @@ specifier|public
 class|class
 name|ClusterSearchShardsRequestBuilder
 extends|extends
-name|MasterNodeOperationRequestBuilder
+name|MasterNodeReadOperationRequestBuilder
 argument_list|<
 name|ClusterSearchShardsRequest
 argument_list|,
@@ -252,28 +252,6 @@ operator|.
 name|indicesOptions
 argument_list|(
 name|indicesOptions
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Specifies if request should be executed on local node rather than on master.      */
-DECL|method|setLocal
-specifier|public
-name|ClusterSearchShardsRequestBuilder
-name|setLocal
-parameter_list|(
-name|boolean
-name|local
-parameter_list|)
-block|{
-name|request
-argument_list|()
-operator|.
-name|local
-argument_list|(
-name|local
 argument_list|)
 expr_stmt|;
 return|return

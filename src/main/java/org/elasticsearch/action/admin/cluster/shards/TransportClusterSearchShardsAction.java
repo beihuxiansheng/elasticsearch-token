@@ -54,7 +54,7 @@ name|support
 operator|.
 name|master
 operator|.
-name|TransportMasterNodeOperationAction
+name|TransportMasterNodeReadOperationAction
 import|;
 end_import
 
@@ -236,7 +236,7 @@ specifier|public
 class|class
 name|TransportClusterSearchShardsAction
 extends|extends
-name|TransportMasterNodeOperationAction
+name|TransportMasterNodeReadOperationAction
 argument_list|<
 name|ClusterSearchShardsRequest
 argument_list|,
@@ -303,24 +303,6 @@ operator|.
 name|Names
 operator|.
 name|SAME
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|localExecute
-specifier|protected
-name|boolean
-name|localExecute
-parameter_list|(
-name|ClusterSearchShardsRequest
-name|request
-parameter_list|)
-block|{
-return|return
-name|request
-operator|.
-name|local
-argument_list|()
 return|;
 block|}
 annotation|@
