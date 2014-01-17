@@ -271,6 +271,18 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -673,8 +685,6 @@ name|System
 operator|.
 name|currentTimeMillis
 argument_list|()
-operator|/
-literal|1000
 decl_stmt|;
 name|table
 operator|.
@@ -685,7 +695,18 @@ name|table
 operator|.
 name|addCell
 argument_list|(
+name|TimeUnit
+operator|.
+name|SECONDS
+operator|.
+name|convert
+argument_list|(
 name|time
+argument_list|,
+name|TimeUnit
+operator|.
+name|MILLISECONDS
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|table
