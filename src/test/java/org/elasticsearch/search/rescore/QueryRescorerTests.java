@@ -2097,6 +2097,7 @@ block|}
 block|}
 annotation|@
 name|Test
+comment|// forces QUERY_THEN_FETCH because of https://github.com/elasticsearch/elasticsearch/issues/4829
 DECL|method|testEquivalence
 specifier|public
 name|void
@@ -2375,6 +2376,13 @@ operator|.
 name|prepareSearch
 argument_list|()
 operator|.
+name|setSearchType
+argument_list|(
+name|SearchType
+operator|.
+name|QUERY_THEN_FETCH
+argument_list|)
+operator|.
 name|setPreference
 argument_list|(
 literal|"test"
@@ -2470,6 +2478,13 @@ operator|.
 name|prepareSearch
 argument_list|()
 operator|.
+name|setSearchType
+argument_list|(
+name|SearchType
+operator|.
+name|QUERY_THEN_FETCH
+argument_list|)
+operator|.
 name|setPreference
 argument_list|(
 literal|"test"
@@ -2530,6 +2545,13 @@ argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
+operator|.
+name|setSearchType
+argument_list|(
+name|SearchType
+operator|.
+name|QUERY_THEN_FETCH
+argument_list|)
 operator|.
 name|setPreference
 argument_list|(
@@ -2633,6 +2655,13 @@ argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
+operator|.
+name|setSearchType
+argument_list|(
+name|SearchType
+operator|.
+name|QUERY_THEN_FETCH
+argument_list|)
 operator|.
 name|setPreference
 argument_list|(

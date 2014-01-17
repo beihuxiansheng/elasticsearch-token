@@ -38,6 +38,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|action
+operator|.
+name|search
+operator|.
+name|SearchResponse
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|client
 operator|.
 name|Client
@@ -163,6 +177,22 @@ operator|.
 name|ElasticsearchAssertions
 operator|.
 name|assertAcked
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertFailures
 import|;
 end_import
 
@@ -439,6 +469,9 @@ comment|// execute a search that loads field data (sorting on the "test" field)
 comment|// again, this time it should trip the breaker
 try|try
 block|{
+name|SearchResponse
+name|resp
+init|=
 name|client
 operator|.
 name|prepareSearch
@@ -456,10 +489,10 @@ argument_list|()
 operator|.
 name|actionGet
 argument_list|()
-expr_stmt|;
-name|fail
+decl_stmt|;
+name|assertFailures
 argument_list|(
-literal|"should not reach this point"
+name|resp
 argument_list|)
 expr_stmt|;
 block|}
@@ -778,6 +811,9 @@ comment|// execute a search that loads field data (sorting on the "test" field)
 comment|// again, this time it should trip the breaker
 try|try
 block|{
+name|SearchResponse
+name|resp
+init|=
 name|client
 operator|.
 name|prepareSearch
@@ -795,10 +831,10 @@ argument_list|()
 operator|.
 name|actionGet
 argument_list|()
-expr_stmt|;
-name|fail
+decl_stmt|;
+name|assertFailures
 argument_list|(
-literal|"should not reach this point"
+name|resp
 argument_list|)
 expr_stmt|;
 block|}
