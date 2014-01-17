@@ -7110,39 +7110,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/*this is only used by one test right now and shoudl go away entirely once we update lucene*/
-DECL|field|allowRamBytesUsed
-specifier|private
-specifier|static
-name|boolean
-name|allowRamBytesUsed
-init|=
-literal|false
-decl_stmt|;
-static|static
-block|{
-assert|assert
-name|Version
-operator|.
-name|CURRENT
-operator|.
-name|luceneVersion
-operator|==
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|Version
-operator|.
-name|LUCENE_46
-operator|:
-literal|"when upgrading to a new lucene version, check if ramBytes is fixed, see https://issues.apache.org/jira/browse/LUCENE-5373"
-assert|;
-block|}
 DECL|method|getReaderRamBytesUsed
 specifier|private
 name|long
@@ -7153,8 +7120,6 @@ name|reader
 parameter_list|)
 block|{
 return|return
-name|allowRamBytesUsed
-condition|?
 name|SegmentReaderUtils
 operator|.
 name|segmentReader
@@ -7167,8 +7132,6 @@ argument_list|)
 operator|.
 name|ramBytesUsed
 argument_list|()
-else|:
-literal|0
 return|;
 block|}
 annotation|@
