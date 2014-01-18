@@ -569,6 +569,8 @@ name|this
 argument_list|,
 name|context
 argument_list|)
+argument_list|,
+name|copyTo
 argument_list|)
 return|;
 block|}
@@ -808,6 +810,9 @@ name|docValuesProvider
 parameter_list|,
 name|MultiFields
 name|multiFields
+parameter_list|,
+name|CopyTo
+name|copyTo
 parameter_list|)
 block|{
 name|super
@@ -837,6 +842,8 @@ argument_list|,
 literal|null
 argument_list|,
 name|multiFields
+argument_list|,
+name|copyTo
 argument_list|)
 expr_stmt|;
 name|this

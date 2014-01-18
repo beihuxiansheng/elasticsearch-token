@@ -680,6 +680,8 @@ name|MultiFields
 operator|.
 name|empty
 argument_list|()
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 operator|new
@@ -898,6 +900,8 @@ name|MultiFields
 operator|.
 name|empty
 argument_list|()
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1080,6 +1084,8 @@ name|MultiFields
 operator|.
 name|empty
 argument_list|()
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1626,6 +1632,8 @@ name|MultiFields
 operator|.
 name|empty
 argument_list|()
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|Lookup
@@ -2617,6 +2625,8 @@ name|MultiFields
 operator|.
 name|empty
 argument_list|()
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 operator|new

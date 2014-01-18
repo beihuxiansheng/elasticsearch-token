@@ -1157,6 +1157,9 @@ name|indexSettings
 parameter_list|,
 name|MultiFields
 name|multiFields
+parameter_list|,
+name|CopyTo
+name|copyTo
 parameter_list|)
 block|{
 comment|// LUCENE 4 UPGRADE: Since we can't do anything before the super call, we have to push the boost check down to subclasses
@@ -1187,6 +1190,8 @@ argument_list|,
 name|indexSettings
 argument_list|,
 name|multiFields
+argument_list|,
+name|copyTo
 argument_list|)
 expr_stmt|;
 if|if

@@ -729,6 +729,8 @@ name|this
 argument_list|,
 name|context
 argument_list|)
+argument_list|,
+name|copyTo
 argument_list|)
 decl_stmt|;
 name|fieldMapper
@@ -932,6 +934,9 @@ name|indexSettings
 parameter_list|,
 name|MultiFields
 name|multiFields
+parameter_list|,
+name|CopyTo
+name|copyTo
 parameter_list|)
 block|{
 name|super
@@ -991,6 +996,8 @@ argument_list|,
 name|indexSettings
 argument_list|,
 name|multiFields
+argument_list|,
+name|copyTo
 argument_list|)
 expr_stmt|;
 name|this
@@ -1690,9 +1697,12 @@ decl_stmt|;
 name|float
 name|boost
 init|=
-name|this
+name|context
 operator|.
-name|boost
+name|fieldBoost
+argument_list|(
+name|this
+argument_list|)
 decl_stmt|;
 if|if
 condition|(

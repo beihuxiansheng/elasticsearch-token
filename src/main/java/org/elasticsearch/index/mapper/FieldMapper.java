@@ -222,6 +222,22 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|mapper
+operator|.
+name|core
+operator|.
+name|AbstractFieldMapper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|query
 operator|.
 name|QueryParseContext
@@ -714,6 +730,15 @@ comment|/**      * Similarity used for scoring queries on the field      */
 DECL|method|similarity
 name|SimilarityProvider
 name|similarity
+parameter_list|()
+function_decl|;
+comment|/**      * List of fields where this field should be copied to      */
+DECL|method|copyTo
+specifier|public
+name|AbstractFieldMapper
+operator|.
+name|CopyTo
+name|copyTo
 parameter_list|()
 function_decl|;
 comment|/**      * Returns the actual value of the field.      */
