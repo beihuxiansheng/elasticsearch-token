@@ -665,16 +665,6 @@ expr_stmt|;
 name|ensureSearchable
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|randomBoolean
-argument_list|()
-condition|)
-block|{
-name|optimize
-argument_list|()
-expr_stmt|;
-block|}
 while|while
 condition|(
 name|latch
