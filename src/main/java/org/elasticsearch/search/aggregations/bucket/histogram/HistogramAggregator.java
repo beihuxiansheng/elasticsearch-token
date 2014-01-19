@@ -544,7 +544,7 @@ name|key
 init|=
 name|rounding
 operator|.
-name|round
+name|roundKey
 argument_list|(
 name|value
 argument_list|)
@@ -690,11 +690,16 @@ name|histogramFactory
 operator|.
 name|createBucket
 argument_list|(
+name|rounding
+operator|.
+name|valueForKey
+argument_list|(
 name|bucketOrds
 operator|.
 name|key
 argument_list|(
 name|i
+argument_list|)
 argument_list|)
 argument_list|,
 name|bucketDocCount
