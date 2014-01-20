@@ -493,14 +493,14 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"/_cat/aliases"
+literal|"/_cat/aliases\n"
 argument_list|)
 expr_stmt|;
 name|sb
 operator|.
 name|append
 argument_list|(
-literal|"/_cat/aliases/{alias}"
+literal|"/_cat/aliases/{alias}\n"
 argument_list|)
 expr_stmt|;
 block|}
@@ -558,7 +558,7 @@ name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"index_routing"
+literal|"indexRouting"
 argument_list|,
 literal|"desc:index routing"
 argument_list|)
@@ -567,7 +567,7 @@ name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"search_routing"
+literal|"searchRouting"
 argument_list|,
 literal|"desc:search routing"
 argument_list|)
