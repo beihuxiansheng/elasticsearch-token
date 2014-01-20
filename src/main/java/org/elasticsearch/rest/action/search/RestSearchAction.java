@@ -1093,7 +1093,7 @@ name|lenient
 argument_list|(
 name|request
 operator|.
-name|paramAsBooleanOptional
+name|paramAsBoolean
 argument_list|(
 literal|"lenient"
 argument_list|,
@@ -1316,7 +1316,7 @@ name|explain
 argument_list|(
 name|request
 operator|.
-name|paramAsBooleanOptional
+name|paramAsBoolean
 argument_list|(
 literal|"explain"
 argument_list|,
@@ -1355,7 +1355,7 @@ name|version
 argument_list|(
 name|request
 operator|.
-name|paramAsBooleanOptional
+name|paramAsBoolean
 argument_list|(
 literal|"version"
 argument_list|,

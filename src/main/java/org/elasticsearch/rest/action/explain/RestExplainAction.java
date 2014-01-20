@@ -634,7 +634,7 @@ name|lenient
 argument_list|(
 name|request
 operator|.
-name|paramAsBooleanOptional
+name|paramAsBoolean
 argument_list|(
 literal|"lenient"
 argument_list|,

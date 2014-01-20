@@ -78,18 +78,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Booleans
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|Strings
 import|;
 end_import
@@ -430,7 +418,7 @@ name|realtime
 argument_list|(
 name|request
 operator|.
-name|paramAsBooleanOptional
+name|paramAsBoolean
 argument_list|(
 literal|"realtime"
 argument_list|,

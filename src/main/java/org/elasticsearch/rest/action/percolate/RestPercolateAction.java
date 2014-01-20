@@ -666,7 +666,7 @@ name|realtime
 argument_list|(
 name|restRequest
 operator|.
-name|paramAsBooleanOptional
+name|paramAsBoolean
 argument_list|(
 literal|"realtime"
 argument_list|,

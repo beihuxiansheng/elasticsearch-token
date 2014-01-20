@@ -353,7 +353,7 @@ name|realtime
 argument_list|(
 name|request
 operator|.
-name|paramAsBooleanOptional
+name|paramAsBoolean
 argument_list|(
 literal|"realtime"
 argument_list|,
