@@ -160,6 +160,19 @@ name|void
 name|newHash
 parameter_list|()
 block|{
+if|if
+condition|(
+name|hash
+operator|!=
+literal|null
+condition|)
+block|{
+name|hash
+operator|.
+name|release
+argument_list|()
+expr_stmt|;
+block|}
 comment|// Test high load factors to make sure that collision resolution works fine
 specifier|final
 name|float
@@ -219,6 +232,17 @@ name|testDuell
 parameter_list|()
 block|{
 specifier|final
+name|int
+name|len
+init|=
+name|randomIntBetween
+argument_list|(
+literal|1
+argument_list|,
+literal|100000
+argument_list|)
+decl_stmt|;
+specifier|final
 name|BytesRef
 index|[]
 name|values
@@ -226,12 +250,7 @@ init|=
 operator|new
 name|BytesRef
 index|[
-name|randomIntBetween
-argument_list|(
-literal|1
-argument_list|,
-literal|100000
-argument_list|)
+name|len
 index|]
 decl_stmt|;
 for|for
@@ -716,6 +735,11 @@ expr_stmt|;
 block|}
 block|}
 block|}
+name|hash
+operator|.
+name|release
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**      * Test method for      * {@link org.apache.lucene.util.BytesRefHash#get(int, BytesRef)}      * .      */
 annotation|@
@@ -977,6 +1001,11 @@ name|newHash
 argument_list|()
 expr_stmt|;
 block|}
+name|hash
+operator|.
+name|release
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**      * Test method for      * {@link org.apache.lucene.util.BytesRefHash#add(org.apache.lucene.util.BytesRef)}      * .      */
 annotation|@
@@ -1219,6 +1248,11 @@ name|newHash
 argument_list|()
 expr_stmt|;
 block|}
+name|hash
+operator|.
+name|release
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -1463,6 +1497,11 @@ name|newHash
 argument_list|()
 expr_stmt|;
 block|}
+name|hash
+operator|.
+name|release
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|assertAllIn
 specifier|private

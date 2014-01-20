@@ -895,6 +895,8 @@ argument_list|,
 name|bytes
 argument_list|,
 name|hashes
+argument_list|,
+name|startOffsets
 argument_list|)
 expr_stmt|;
 block|}
