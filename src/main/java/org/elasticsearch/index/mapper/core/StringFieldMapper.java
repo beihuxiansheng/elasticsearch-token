@@ -770,6 +770,19 @@ block|}
 comment|// if the field is not analyzed, then by default, we should omit norms and have docs only
 comment|// index options, as probably what the user really wants
 comment|// if they are set explicitly, we will use those values
+comment|// we also change the values on the default field type so that toXContent emits what
+comment|// differs from the defaults
+name|FieldType
+name|defaultFieldType
+init|=
+operator|new
+name|FieldType
+argument_list|(
+name|Defaults
+operator|.
+name|FIELD_TYPE
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|fieldType
@@ -784,6 +797,22 @@ name|tokenized
 argument_list|()
 condition|)
 block|{
+name|defaultFieldType
+operator|.
+name|setOmitNorms
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|defaultFieldType
+operator|.
+name|setIndexOptions
+argument_list|(
+name|IndexOptions
+operator|.
+name|DOCS_ONLY
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -821,6 +850,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|defaultFieldType
+operator|.
+name|freeze
+argument_list|()
+expr_stmt|;
 name|StringFieldMapper
 name|fieldMapper
 init|=
@@ -835,6 +869,8 @@ argument_list|,
 name|boost
 argument_list|,
 name|fieldType
+argument_list|,
+name|defaultFieldType
 argument_list|,
 name|docValues
 argument_list|,
@@ -1236,6 +1272,12 @@ specifier|private
 name|int
 name|ignoreAbove
 decl_stmt|;
+DECL|field|defaultFieldType
+specifier|private
+specifier|final
+name|FieldType
+name|defaultFieldType
+decl_stmt|;
 DECL|method|StringFieldMapper
 specifier|protected
 name|StringFieldMapper
@@ -1248,6 +1290,9 @@ name|boost
 parameter_list|,
 name|FieldType
 name|fieldType
+parameter_list|,
+name|FieldType
+name|defaultFieldType
 parameter_list|,
 name|Boolean
 name|docValues
@@ -1356,6 +1401,12 @@ throw|;
 block|}
 name|this
 operator|.
+name|defaultFieldType
+operator|=
+name|defaultFieldType
+expr_stmt|;
+name|this
+operator|.
 name|nullValue
 operator|=
 name|nullValue
@@ -1396,9 +1447,7 @@ name|defaultFieldType
 parameter_list|()
 block|{
 return|return
-name|Defaults
-operator|.
-name|FIELD_TYPE
+name|defaultFieldType
 return|;
 block|}
 annotation|@
