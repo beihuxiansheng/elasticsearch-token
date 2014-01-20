@@ -1355,7 +1355,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds a partial field based on _source, with an "include" and/or "exclude" set which can include simple wildcard      * elements.      *      * @param name    The name of the field      * @param include An optional include (optionally wildcarded) pattern from _source      * @param exclude An optional exclude (optionally wildcarded) pattern from _source      */
+comment|/**      * Adds a partial field based on _source, with an "include" and/or "exclude" set which can include simple wildcard      * elements.      *      * @deprecated since 1.0.0      * use {@link org.elasticsearch.action.search.SearchRequestBuilder#setFetchSource(String, String)} instead      *      * @param name    The name of the field      * @param include An optional include (optionally wildcarded) pattern from _source      * @param exclude An optional exclude (optionally wildcarded) pattern from _source      */
+annotation|@
+name|Deprecated
 DECL|method|addPartialField
 specifier|public
 name|SearchRequestBuilder
@@ -1391,7 +1393,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds a partial field based on _source, with an "includes" and/or "excludes set which can include simple wildcard      * elements.      *      * @param name     The name of the field      * @param includes An optional list of includes (optionally wildcarded) patterns from _source      * @param excludes An optional list of excludes (optionally wildcarded) patterns from _source      */
+comment|/**      * Adds a partial field based on _source, with an "includes" and/or "excludes set which can include simple wildcard      * elements.      *      * @deprecated since 1.0.0      * use {@link org.elasticsearch.action.search.SearchRequestBuilder#setFetchSource(String[], String[])} instead      *      * @param name     The name of the field      * @param includes An optional list of includes (optionally wildcarded) patterns from _source      * @param excludes An optional list of excludes (optionally wildcarded) patterns from _source      */
+annotation|@
+name|Deprecated
 DECL|method|addPartialField
 specifier|public
 name|SearchRequestBuilder
