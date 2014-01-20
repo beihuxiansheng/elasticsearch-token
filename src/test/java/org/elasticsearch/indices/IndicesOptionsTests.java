@@ -1023,7 +1023,7 @@ argument_list|,
 literal|"test2"
 argument_list|)
 argument_list|,
-literal|true
+literal|false
 argument_list|)
 expr_stmt|;
 name|verify
@@ -1391,7 +1391,7 @@ argument_list|(
 name|options
 argument_list|)
 argument_list|,
-literal|true
+literal|false
 argument_list|)
 expr_stmt|;
 name|verify
