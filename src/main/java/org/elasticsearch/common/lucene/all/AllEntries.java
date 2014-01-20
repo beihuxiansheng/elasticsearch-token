@@ -649,6 +649,15 @@ name|int
 name|startOffset
 parameter_list|)
 block|{
+if|if
+condition|(
+operator|!
+name|entries
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
 name|int
 name|lo
 init|=
@@ -781,6 +790,10 @@ argument_list|)
 operator|.
 name|boost
 argument_list|()
+return|;
+block|}
+return|return
+literal|1.0f
 return|;
 block|}
 annotation|@
