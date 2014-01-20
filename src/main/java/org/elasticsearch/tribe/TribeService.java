@@ -68,6 +68,22 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|action
+operator|.
+name|support
+operator|.
+name|master
+operator|.
+name|TransportMasterNodeReadOperationAction
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|cluster
 operator|.
 name|*
@@ -349,7 +365,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The tribe service holds a list of node clients connected to a list of tribe members, and uses their  * cluster state events to update this local node cluster state with the merged view of it.  *<p/>  * The {@link #processSettings(org.elasticsearch.common.settings.Settings)} method should be called before  * starting the node, so it will make sure to configure this current node properly with the relevant tribe node  * settings.  *<p/>  * The tribe node settings make sure the discovery used is "local", but with no master elected. This means no  * write level master node operations will work ({@link org.elasticsearch.discovery.MasterNotDiscoveredException}  * will be thrown), and state level metadata operations should use the local flag.  *<p/>  * The state merged from different clusters include the list of nodes, metadata, and routing table. Each node merged  * will have in its tribe which tribe member it came from. Each index merged will have in its settings which tribe  * member it came from. In case an index has already been merged from one cluster, and the same name index is discovered  * in another cluster, the conflict one will be discarded. This happens because we need to have the correct index name  * to propagate to the relevant cluster.  */
+comment|/**  * The tribe service holds a list of node clients connected to a list of tribe members, and uses their  * cluster state events to update this local node cluster state with the merged view of it.  *<p/>  * The {@link #processSettings(org.elasticsearch.common.settings.Settings)} method should be called before  * starting the node, so it will make sure to configure this current node properly with the relevant tribe node  * settings.  *<p/>  * The tribe node settings make sure the discovery used is "local", but with no master elected. This means no  * write level master node operations will work ({@link org.elasticsearch.discovery.MasterNotDiscoveredException}  * will be thrown), and state level metadata operations with automatically use the local flag.  *<p/>  * The state merged from different clusters include the list of nodes, metadata, and routing table. Each node merged  * will have in its tribe which tribe member it came from. Each index merged will have in its settings which tribe  * member it came from. In case an index has already been merged from one cluster, and the same name index is discovered  * in another cluster, the conflict one will be discarded. This happens because we need to have the correct index name  * to propagate to the relevant cluster.  */
 end_comment
 
 begin_class
@@ -617,6 +633,17 @@ literal|"none"
 argument_list|)
 expr_stmt|;
 comment|// we shouldn't store anything locally...
+name|sb
+operator|.
+name|put
+argument_list|(
+name|TransportMasterNodeReadOperationAction
+operator|.
+name|FORCE_LOCAL_SETTING
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
 return|return
 name|sb
 operator|.

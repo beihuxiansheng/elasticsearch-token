@@ -245,7 +245,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * Note, when talking to tribe client, no need to set the local flag on master read operations, it  * does it by default.  */
 end_comment
 
 begin_class
@@ -496,11 +496,6 @@ operator|.
 name|prepareState
 argument_list|()
 operator|.
-name|setLocal
-argument_list|(
-literal|true
-argument_list|)
-operator|.
 name|get
 argument_list|()
 operator|.
@@ -574,11 +569,6 @@ argument_list|()
 operator|.
 name|prepareHealth
 argument_list|()
-operator|.
-name|setLocal
-argument_list|(
-literal|true
-argument_list|)
 operator|.
 name|setWaitForGreenStatus
 argument_list|()
@@ -728,11 +718,6 @@ argument_list|()
 operator|.
 name|prepareState
 argument_list|()
-operator|.
-name|setLocal
-argument_list|(
-literal|true
-argument_list|)
 operator|.
 name|get
 argument_list|()
@@ -910,11 +895,6 @@ argument_list|()
 operator|.
 name|prepareState
 argument_list|()
-operator|.
-name|setLocal
-argument_list|(
-literal|true
-argument_list|)
 operator|.
 name|get
 argument_list|()
@@ -1099,11 +1079,6 @@ operator|.
 name|prepareState
 argument_list|()
 operator|.
-name|setLocal
-argument_list|(
-literal|true
-argument_list|)
-operator|.
 name|get
 argument_list|()
 operator|.
@@ -1216,11 +1191,6 @@ argument_list|()
 operator|.
 name|prepareState
 argument_list|()
-operator|.
-name|setLocal
-argument_list|(
-literal|true
-argument_list|)
 operator|.
 name|get
 argument_list|()
