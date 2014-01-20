@@ -712,9 +712,7 @@ name|long
 name|expectedBucketsCount
 parameter_list|)
 block|{
-name|NestedAggregator
-name|aggregator
-init|=
+return|return
 operator|new
 name|NestedAggregator
 argument_list|(
@@ -728,16 +726,6 @@ name|context
 argument_list|,
 name|parent
 argument_list|)
-decl_stmt|;
-name|context
-operator|.
-name|registerReaderContextAware
-argument_list|(
-name|aggregator
-argument_list|)
-expr_stmt|;
-return|return
-name|aggregator
 return|;
 block|}
 block|}

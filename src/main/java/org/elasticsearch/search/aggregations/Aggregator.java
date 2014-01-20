@@ -52,6 +52,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|lucene
+operator|.
+name|ReaderContextAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|xcontent
 operator|.
 name|XContentParser
@@ -126,6 +140,8 @@ class|class
 name|Aggregator
 implements|implements
 name|Releasable
+implements|,
+name|ReaderContextAware
 block|{
 comment|/**      * Defines the nature of the aggregator's aggregation execution when nested in other aggregators and the buckets they create.      */
 DECL|enum|BucketAggregationMode
