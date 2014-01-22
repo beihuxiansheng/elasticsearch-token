@@ -69,7 +69,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Creates an aggregation based on bucketing points into GeoHashes  *  */
+comment|/**  * Creates an aggregation based on bucketing points into GeoHashes  */
 end_comment
 
 begin_class

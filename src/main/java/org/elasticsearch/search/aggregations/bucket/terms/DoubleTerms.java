@@ -624,7 +624,12 @@ decl_stmt|;
 name|terms
 operator|.
 name|trimExcessEntries
+argument_list|(
+name|reduceContext
+operator|.
+name|cacheRecycler
 argument_list|()
+argument_list|)
 expr_stmt|;
 return|return
 name|terms

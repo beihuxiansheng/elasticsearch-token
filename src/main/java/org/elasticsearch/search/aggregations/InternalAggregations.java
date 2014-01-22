@@ -502,7 +502,7 @@ name|name
 argument_list|)
 return|;
 block|}
-comment|/**      * Reduces the given lists of addAggregation.      *      * @param aggregationsList  A list of addAggregation to reduce      * @return                  The reduced addAggregation      */
+comment|/**      * Reduces the given lists of addAggregation.      *      * @param aggregationsList  A list of aggregation to reduce      * @return                  The reduced addAggregation      */
 DECL|method|reduce
 specifier|public
 specifier|static
@@ -531,7 +531,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|// first we collect all addAggregation of the same type and list them together
+comment|// first we collect all aggregations of the same type and list them together
 name|Map
 argument_list|<
 name|String
@@ -730,6 +730,73 @@ expr_stmt|;
 return|return
 name|result
 return|;
+block|}
+comment|/**      * Reduces this aggregations, effectively propagates the reduce to all the sub aggregations      * @param cacheRecycler      */
+DECL|method|reduce
+specifier|public
+name|void
+name|reduce
+parameter_list|(
+name|CacheRecycler
+name|cacheRecycler
+parameter_list|)
+block|{
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+name|aggregations
+operator|.
+name|size
+argument_list|()
+condition|;
+name|i
+operator|++
+control|)
+block|{
+name|InternalAggregation
+name|aggregation
+init|=
+name|aggregations
+operator|.
+name|get
+argument_list|(
+name|i
+argument_list|)
+decl_stmt|;
+name|aggregations
+operator|.
+name|set
+argument_list|(
+name|i
+argument_list|,
+name|aggregation
+operator|.
+name|reduce
+argument_list|(
+operator|new
+name|InternalAggregation
+operator|.
+name|ReduceContext
+argument_list|(
+name|ImmutableList
+operator|.
+name|of
+argument_list|(
+name|aggregation
+argument_list|)
+argument_list|,
+name|cacheRecycler
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|/** The fields required to write this addAggregation to xcontent */
 DECL|class|Fields
