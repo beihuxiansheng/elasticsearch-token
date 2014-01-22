@@ -485,7 +485,7 @@ name|addCell
 argument_list|(
 literal|"epoch"
 argument_list|,
-literal|"desc:seconds since 1970-01-01 00:00:00, that the count was executed"
+literal|"alias:t,time;desc:seconds since 1970-01-01 00:00:00"
 argument_list|)
 expr_stmt|;
 name|t
@@ -494,7 +494,7 @@ name|addCell
 argument_list|(
 literal|"timestamp"
 argument_list|,
-literal|"desc:time that the count was executed"
+literal|"alias:ts,hms,hhmmss;desc:time in HH:MM:SS"
 argument_list|)
 expr_stmt|;
 name|t
@@ -503,7 +503,7 @@ name|addCell
 argument_list|(
 literal|"cluster"
 argument_list|,
-literal|"desc:cluster name"
+literal|"alias:cl;desc:cluster name"
 argument_list|)
 expr_stmt|;
 name|t
@@ -512,25 +512,25 @@ name|addCell
 argument_list|(
 literal|"status"
 argument_list|,
-literal|"desc:health status"
+literal|"alias:st;desc:health status"
 argument_list|)
 expr_stmt|;
 name|t
 operator|.
 name|addCell
 argument_list|(
-literal|"nodeTotal"
+literal|"node.total"
 argument_list|,
-literal|"text-align:right;desc:total number of nodes"
+literal|"alias:nt,nodeTotal;text-align:right;desc:total number of nodes"
 argument_list|)
 expr_stmt|;
 name|t
 operator|.
 name|addCell
 argument_list|(
-literal|"nodeData"
+literal|"node.data"
 argument_list|,
-literal|"text-align:right;desc:number of nodes that can store data"
+literal|"alias:nd,nodeData;text-align:right;desc:number of nodes that can store data"
 argument_list|)
 expr_stmt|;
 name|t
@@ -539,7 +539,7 @@ name|addCell
 argument_list|(
 literal|"shards"
 argument_list|,
-literal|"text-align:right;desc:total number of shards"
+literal|"alias:t,sh,shards.total,shardsTotal;text-align:right;desc:total number of shards"
 argument_list|)
 expr_stmt|;
 name|t
@@ -548,7 +548,7 @@ name|addCell
 argument_list|(
 literal|"pri"
 argument_list|,
-literal|"text-align:right;desc:number of primary shards"
+literal|"alias:p,shards.primary,shardsPrimary;text-align:right;desc:number of primary shards"
 argument_list|)
 expr_stmt|;
 name|t
@@ -557,7 +557,7 @@ name|addCell
 argument_list|(
 literal|"relo"
 argument_list|,
-literal|"text-align:right;desc:number of relocating nodes"
+literal|"alias:r,shards.relocating,shardsRelocating;text-align:right;desc:number of relocating nodes"
 argument_list|)
 expr_stmt|;
 name|t
@@ -566,7 +566,7 @@ name|addCell
 argument_list|(
 literal|"init"
 argument_list|,
-literal|"text-align:right;desc:number of initializing nodes"
+literal|"alias:i,shards.initializing,shardsInitializing;text-align:right;desc:number of initializing nodes"
 argument_list|)
 expr_stmt|;
 name|t
@@ -575,7 +575,7 @@ name|addCell
 argument_list|(
 literal|"unassign"
 argument_list|,
-literal|"text-align:right;desc:number of unassigned shards"
+literal|"alias:u,shards.unassigned,shardsUnassigned;text-align:right;desc:number of unassigned shards"
 argument_list|)
 expr_stmt|;
 name|t

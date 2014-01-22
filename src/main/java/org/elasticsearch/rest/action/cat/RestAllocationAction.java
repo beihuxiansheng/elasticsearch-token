@@ -771,43 +771,43 @@ name|addCell
 argument_list|(
 literal|"shards"
 argument_list|,
-literal|"text-align:right;desc:number of shards on node"
+literal|"alias:s;text-align:right;desc:number of shards on node"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"diskUsed"
+literal|"disk.used"
 argument_list|,
-literal|"text-align:right;desc:disk used (total, not just ES)"
+literal|"alias:du,diskUsed;text-align:right;desc:disk used (total, not just ES)"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"diskAvail"
+literal|"disk.avail"
 argument_list|,
-literal|"text-align:right;desc:disk available"
+literal|"alias:da,diskAvail;text-align:right;desc:disk available"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"diskTotal"
+literal|"disk.total"
 argument_list|,
-literal|"text-align:right;desc:total capacity of all volumes"
+literal|"alias:dt,diskTotal;text-align:right;desc:total capacity of all volumes"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"diskPercent"
+literal|"disk.percent"
 argument_list|,
-literal|"text-align:right;desc:percent disk used"
+literal|"alias:dp,diskPercent;text-align:right;desc:percent disk used"
 argument_list|)
 expr_stmt|;
 name|table
@@ -816,7 +816,7 @@ name|addCell
 argument_list|(
 literal|"host"
 argument_list|,
-literal|"desc:host of node"
+literal|"alias:h;desc:host of node"
 argument_list|)
 expr_stmt|;
 name|table
@@ -834,7 +834,7 @@ name|addCell
 argument_list|(
 literal|"node"
 argument_list|,
-literal|"desc:name of node"
+literal|"alias:n;desc:name of node"
 argument_list|)
 expr_stmt|;
 name|table

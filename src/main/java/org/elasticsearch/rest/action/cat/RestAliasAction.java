@@ -550,7 +550,7 @@ name|addCell
 argument_list|(
 literal|"alias"
 argument_list|,
-literal|"desc:alias name"
+literal|"alias:a;desc:alias name"
 argument_list|)
 expr_stmt|;
 name|table
@@ -559,7 +559,7 @@ name|addCell
 argument_list|(
 literal|"index"
 argument_list|,
-literal|"desc:index alias points to"
+literal|"alias:i,idx;desc:index alias points to"
 argument_list|)
 expr_stmt|;
 name|table
@@ -568,25 +568,25 @@ name|addCell
 argument_list|(
 literal|"filter"
 argument_list|,
-literal|"desc:filter"
+literal|"alias:f,fi;desc:filter"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"indexRouting"
+literal|"routing.index"
 argument_list|,
-literal|"desc:index routing"
+literal|"alias:ri,routingIndex;desc:index routing"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"searchRouting"
+literal|"routing.search"
 argument_list|,
-literal|"desc:search routing"
+literal|"alias:rs,routingSearch;desc:search routing"
 argument_list|)
 expr_stmt|;
 name|table

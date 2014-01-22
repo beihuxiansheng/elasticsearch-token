@@ -693,42 +693,42 @@ name|addCell
 argument_list|(
 literal|"index"
 argument_list|,
-literal|"default:true;desc:index name"
+literal|"default:true;alias:i,idx;desc:index name"
 argument_list|)
 operator|.
 name|addCell
 argument_list|(
 literal|"shard"
 argument_list|,
-literal|"default:true;desc:shard name"
+literal|"default:true;alias:s,sh;desc:shard name"
 argument_list|)
 operator|.
 name|addCell
 argument_list|(
 literal|"prirep"
 argument_list|,
-literal|"alias:pr,primaryOrReplica;default:true;desc:primary or replica"
+literal|"alias:p,pr,primaryOrReplica;default:true;desc:primary or replica"
 argument_list|)
 operator|.
 name|addCell
 argument_list|(
 literal|"state"
 argument_list|,
-literal|"default:true;desc:shard state"
+literal|"default:true;alias:st;desc:shard state"
 argument_list|)
 operator|.
 name|addCell
 argument_list|(
 literal|"docs"
 argument_list|,
-literal|"text-align:right;desc:number of docs in shard"
+literal|"alias:d,dc;text-align:right;desc:number of docs in shard"
 argument_list|)
 operator|.
 name|addCell
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"text-align:right;desc:store size of shard (how much disk it uses)"
+literal|"alias:sto;text-align:right;desc:store size of shard (how much disk it uses)"
 argument_list|)
 operator|.
 name|addCell
@@ -742,7 +742,7 @@ name|addCell
 argument_list|(
 literal|"node"
 argument_list|,
-literal|"default:true;desc:name of node where it lives"
+literal|"default:true;alias:n;desc:name of node where it lives"
 argument_list|)
 expr_stmt|;
 name|table

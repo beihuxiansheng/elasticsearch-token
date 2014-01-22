@@ -878,9 +878,9 @@ name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"nodeId"
+literal|"id"
 argument_list|,
-literal|"default:false;desc:unique node id"
+literal|"default:false;alias:id,nodeId;desc:unique node id"
 argument_list|)
 expr_stmt|;
 name|table
@@ -889,7 +889,7 @@ name|addCell
 argument_list|(
 literal|"pid"
 argument_list|,
-literal|"default:false;desc:process id"
+literal|"default:false;alias:p;desc:process id"
 argument_list|)
 expr_stmt|;
 name|table
@@ -898,7 +898,7 @@ name|addCell
 argument_list|(
 literal|"host"
 argument_list|,
-literal|"desc:host name"
+literal|"alias:h;desc:host name"
 argument_list|)
 expr_stmt|;
 name|table
@@ -907,7 +907,7 @@ name|addCell
 argument_list|(
 literal|"ip"
 argument_list|,
-literal|"desc:ip address"
+literal|"alias:i;desc:ip address"
 argument_list|)
 expr_stmt|;
 name|table
@@ -916,7 +916,7 @@ name|addCell
 argument_list|(
 literal|"port"
 argument_list|,
-literal|"default:false;desc:bound transport port"
+literal|"default:false;alias:po;desc:bound transport port"
 argument_list|)
 expr_stmt|;
 name|table
@@ -943,52 +943,52 @@ name|addCell
 argument_list|(
 literal|"jdk"
 argument_list|,
-literal|"default:false;desc:jdk version"
+literal|"default:false;alias:j;desc:jdk version"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"diskAvail"
+literal|"disk.avail"
 argument_list|,
-literal|"default:false;text-align:right;desc:available disk space"
+literal|"default:false;alias:d,disk,diskAvail;text-align:right;desc:available disk space"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"heapPercent"
+literal|"heap.percent"
 argument_list|,
-literal|"text-align:right;desc:used heap ratio"
+literal|"alias:hp,heapPercent;text-align:right;desc:used heap ratio"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"heapMax"
+literal|"heap.max"
 argument_list|,
-literal|"default:false;text-align:right;desc:max configured heap"
+literal|"default:false;alias:hm,heapMax;text-align:right;desc:max configured heap"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"ramPercent"
+literal|"ram.percent"
 argument_list|,
-literal|"text-align:right;desc:used machine memory ratio"
+literal|"alias:rp,ramPercent;text-align:right;desc:used machine memory ratio"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"ramMax"
+literal|"ram.max"
 argument_list|,
-literal|"default:false;text-align:right;desc:total machine memory"
+literal|"default:false;alias:rm,ramMax;text-align:right;desc:total machine memory"
 argument_list|)
 expr_stmt|;
 name|table
@@ -997,7 +997,7 @@ name|addCell
 argument_list|(
 literal|"load"
 argument_list|,
-literal|"text-align:right;desc:most recent load avg"
+literal|"alias:l;text-align:right;desc:most recent load avg"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1006,16 +1006,16 @@ name|addCell
 argument_list|(
 literal|"uptime"
 argument_list|,
-literal|"default:false;text-align:right;desc:node uptime"
+literal|"default:false;alias:u;text-align:right;desc:node uptime"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"data/client"
+literal|"node.role"
 argument_list|,
-literal|"desc:d:data node, c:client node"
+literal|"alias:r,role,dc,nodeRole;desc:d:data node, c:client node"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1024,7 +1024,7 @@ name|addCell
 argument_list|(
 literal|"master"
 argument_list|,
-literal|"desc:m:master-eligible, *:current master"
+literal|"alias:m;desc:m:master-eligible, *:current master"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1033,7 +1033,7 @@ name|addCell
 argument_list|(
 literal|"name"
 argument_list|,
-literal|"desc:node name"
+literal|"alias:n;desc:node name"
 argument_list|)
 expr_stmt|;
 name|table

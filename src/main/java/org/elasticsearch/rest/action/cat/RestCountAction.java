@@ -616,7 +616,7 @@ name|addCell
 argument_list|(
 literal|"epoch"
 argument_list|,
-literal|"desc:seconds since 1970-01-01 00:00:00, that the count was executed"
+literal|"alias:t,time;desc:seconds since 1970-01-01 00:00:00, that the count was executed"
 argument_list|)
 expr_stmt|;
 name|table
@@ -625,7 +625,7 @@ name|addCell
 argument_list|(
 literal|"timestamp"
 argument_list|,
-literal|"desc:time that the count was executed"
+literal|"alias:ts,hms;desc:time that the count was executed"
 argument_list|)
 expr_stmt|;
 name|table
@@ -634,7 +634,7 @@ name|addCell
 argument_list|(
 literal|"count"
 argument_list|,
-literal|"desc:the document count"
+literal|"alias:dc,docs.count,docsCount;desc:the document count"
 argument_list|)
 expr_stmt|;
 name|table

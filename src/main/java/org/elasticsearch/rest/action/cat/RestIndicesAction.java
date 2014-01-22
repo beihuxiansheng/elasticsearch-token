@@ -859,7 +859,7 @@ name|addCell
 argument_list|(
 literal|"health"
 argument_list|,
-literal|"desc:current health status"
+literal|"alias:h;desc:current health status"
 argument_list|)
 expr_stmt|;
 name|table
@@ -868,7 +868,7 @@ name|addCell
 argument_list|(
 literal|"index"
 argument_list|,
-literal|"desc:index name"
+literal|"alias:i,idx;desc:index name"
 argument_list|)
 expr_stmt|;
 name|table
@@ -877,7 +877,7 @@ name|addCell
 argument_list|(
 literal|"pri"
 argument_list|,
-literal|"text-align:right;desc:number of primary shards"
+literal|"alias:p,shards.primary,shardsPrimary;text-align:right;desc:number of primary shards"
 argument_list|)
 expr_stmt|;
 name|table
@@ -886,7 +886,7 @@ name|addCell
 argument_list|(
 literal|"rep"
 argument_list|,
-literal|"text-align:right;desc:number of replica shards"
+literal|"alias:r,shards.replica,shardsReplica;text-align:right;desc:number of replica shards"
 argument_list|)
 expr_stmt|;
 name|table
@@ -895,7 +895,7 @@ name|addCell
 argument_list|(
 literal|"docs.count"
 argument_list|,
-literal|"alias:docsCount;text-align:right;desc:available docs"
+literal|"alias:dc,docsCount;text-align:right;desc:available docs"
 argument_list|)
 expr_stmt|;
 name|table
@@ -904,7 +904,7 @@ name|addCell
 argument_list|(
 literal|"docs.deleted"
 argument_list|,
-literal|"alias:docsDeleted;text-align:right;desc:deleted docs"
+literal|"alias:dd,docsDeleted;text-align:right;desc:deleted docs"
 argument_list|)
 expr_stmt|;
 name|table

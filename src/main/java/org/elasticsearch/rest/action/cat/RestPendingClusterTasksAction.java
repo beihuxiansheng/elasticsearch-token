@@ -451,7 +451,7 @@ name|addCell
 argument_list|(
 literal|"insertOrder"
 argument_list|,
-literal|"text-align:right;desc:task insertion order"
+literal|"alias:o;text-align:right;desc:task insertion order"
 argument_list|)
 expr_stmt|;
 name|t
@@ -460,7 +460,7 @@ name|addCell
 argument_list|(
 literal|"timeInQueue"
 argument_list|,
-literal|"text-align:right;desc:how long task has been in queue"
+literal|"alias:t;text-align:right;desc:how long task has been in queue"
 argument_list|)
 expr_stmt|;
 name|t
@@ -469,7 +469,7 @@ name|addCell
 argument_list|(
 literal|"priority"
 argument_list|,
-literal|"desc:task priority"
+literal|"alias:p;desc:task priority"
 argument_list|)
 expr_stmt|;
 name|t
@@ -478,7 +478,7 @@ name|addCell
 argument_list|(
 literal|"source"
 argument_list|,
-literal|"desc:task source"
+literal|"alias:s;desc:task source"
 argument_list|)
 expr_stmt|;
 name|t

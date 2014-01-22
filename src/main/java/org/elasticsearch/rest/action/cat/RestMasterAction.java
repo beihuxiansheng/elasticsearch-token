@@ -513,7 +513,7 @@ name|addCell
 argument_list|(
 literal|"host"
 argument_list|,
-literal|"desc:host name"
+literal|"alias:h;desc:host name"
 argument_list|)
 operator|.
 name|addCell
@@ -527,7 +527,7 @@ name|addCell
 argument_list|(
 literal|"node"
 argument_list|,
-literal|"desc:node name"
+literal|"alias:n;desc:node name"
 argument_list|)
 operator|.
 name|endHeaders
