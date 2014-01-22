@@ -339,7 +339,7 @@ name|in
 argument_list|,
 name|Version
 operator|.
-name|V_1_0_0
+name|V_1_0_0_RC2
 argument_list|)
 expr_stmt|;
 block|}
@@ -383,7 +383,7 @@ name|out
 argument_list|,
 name|Version
 operator|.
-name|V_1_0_0
+name|V_1_0_0_RC2
 argument_list|)
 expr_stmt|;
 block|}

@@ -1675,7 +1675,7 @@ name|onOrAfter
 argument_list|(
 name|Version
 operator|.
-name|V_1_0_0
+name|V_1_0_0_RC2
 argument_list|)
 condition|)
 block|{
