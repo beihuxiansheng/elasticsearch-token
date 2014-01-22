@@ -1583,6 +1583,23 @@ argument_list|(
 name|routing
 argument_list|)
 expr_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"going to allocate river [{}] on node {}"
+argument_list|,
+name|routing
+operator|.
+name|riverName
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+argument_list|,
+name|smallest
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 comment|// add relocation logic...
