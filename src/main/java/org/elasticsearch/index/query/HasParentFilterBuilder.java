@@ -75,16 +75,6 @@ specifier|private
 name|String
 name|filterName
 decl_stmt|;
-DECL|field|cache
-specifier|private
-name|Boolean
-name|cache
-decl_stmt|;
-DECL|field|cacheKey
-specifier|private
-name|String
-name|cacheKey
-decl_stmt|;
 comment|/**      * @param parentType  The parent type      * @param parentQuery The query that will be matched with parent documents      */
 DECL|method|HasParentFilterBuilder
 specifier|public
@@ -167,7 +157,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Should the filter be cached or not. Defaults to<tt>false</tt>.      */
+comment|/**      * This is a noop since has_parent can't be cached.      */
 DECL|method|cache
 specifier|public
 name|HasParentFilterBuilder
@@ -177,17 +167,11 @@ name|boolean
 name|cache
 parameter_list|)
 block|{
-name|this
-operator|.
-name|cache
-operator|=
-name|cache
-expr_stmt|;
 return|return
 name|this
 return|;
 block|}
-comment|/**      * Defines what should be used as key to represent this filter in the filter cache.      * By default the filter itself is used as key.      */
+comment|/**      * This is a noop since has_parent can't be cached.      */
 DECL|method|cacheKey
 specifier|public
 name|HasParentFilterBuilder
@@ -197,12 +181,6 @@ name|String
 name|cacheKey
 parameter_list|)
 block|{
-name|this
-operator|.
-name|cacheKey
-operator|=
-name|cacheKey
-expr_stmt|;
 return|return
 name|this
 return|;
@@ -304,40 +282,6 @@ argument_list|(
 literal|"_name"
 argument_list|,
 name|filterName
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|cache
-operator|!=
-literal|null
-condition|)
-block|{
-name|builder
-operator|.
-name|field
-argument_list|(
-literal|"_cache"
-argument_list|,
-name|cache
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|cacheKey
-operator|!=
-literal|null
-condition|)
-block|{
-name|builder
-operator|.
-name|field
-argument_list|(
-literal|"_cache_key"
-argument_list|,
-name|cacheKey
 argument_list|)
 expr_stmt|;
 block|}
