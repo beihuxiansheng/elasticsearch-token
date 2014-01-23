@@ -2412,15 +2412,23 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+specifier|final
+name|RestReproduceInfoPrinter
+name|restReproduceInfoPrinter
+init|=
+operator|new
+name|RestReproduceInfoPrinter
+argument_list|()
+decl_stmt|;
 name|notifier
 operator|.
 name|addListener
 argument_list|(
-operator|new
-name|RestReproduceInfoPrinter
-argument_list|()
+name|restReproduceInfoPrinter
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 comment|//the test suite gets run on a separate thread as the randomized context is per thread
 comment|//once the randomized context is disposed it's not possible to create it again on the same thread
 specifier|final
@@ -2507,6 +2515,20 @@ argument_list|,
 name|e
 argument_list|)
 argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+finally|finally
+block|{
+comment|// remove the listener once the suite is done otherwise it will print
+comment|// a bogus line if a subsequent test fails that is not a
+comment|// REST test. The RunNotifier is used across suites!
+name|notifier
+operator|.
+name|removeListener
+argument_list|(
+name|restReproduceInfoPrinter
 argument_list|)
 expr_stmt|;
 block|}
