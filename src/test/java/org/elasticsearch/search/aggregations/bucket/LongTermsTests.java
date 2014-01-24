@@ -394,6 +394,24 @@ init|=
 literal|5
 decl_stmt|;
 comment|// TODO randomize the size?
+DECL|field|SINGLE_VALUED_FIELD_NAME
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|SINGLE_VALUED_FIELD_NAME
+init|=
+literal|"l_value"
+decl_stmt|;
+DECL|field|MULTI_VALUED_FIELD_NAME
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|MULTI_VALUED_FIELD_NAME
+init|=
+literal|"l_values"
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|indexSettings
@@ -503,14 +521,14 @@ argument_list|()
 operator|.
 name|field
 argument_list|(
-literal|"value"
+name|SINGLE_VALUED_FIELD_NAME
 argument_list|,
 name|i
 argument_list|)
 operator|.
 name|startArray
 argument_list|(
-literal|"values"
+name|MULTI_VALUED_FIELD_NAME
 argument_list|)
 operator|.
 name|value
@@ -594,14 +612,14 @@ argument_list|()
 operator|.
 name|field
 argument_list|(
-literal|"value"
+name|SINGLE_VALUED_FIELD_NAME
 argument_list|,
 name|i
 argument_list|)
 operator|.
 name|startArray
 argument_list|(
-literal|"values"
+name|MULTI_VALUED_FIELD_NAME
 argument_list|)
 operator|.
 name|value
@@ -674,7 +692,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"value"
+name|SINGLE_VALUED_FIELD_NAME
 argument_list|)
 operator|.
 name|minDocCount
@@ -788,7 +806,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"value"
+name|SINGLE_VALUED_FIELD_NAME
 argument_list|)
 argument_list|)
 operator|.
@@ -974,7 +992,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"value"
+name|SINGLE_VALUED_FIELD_NAME
 argument_list|)
 operator|.
 name|size
@@ -1178,7 +1196,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"value"
+name|SINGLE_VALUED_FIELD_NAME
 argument_list|)
 operator|.
 name|order
@@ -1368,7 +1386,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"value"
+name|SINGLE_VALUED_FIELD_NAME
 argument_list|)
 operator|.
 name|order
@@ -1558,7 +1576,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"value"
+name|SINGLE_VALUED_FIELD_NAME
 argument_list|)
 operator|.
 name|subAggregation
@@ -1570,7 +1588,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"values"
+name|MULTI_VALUED_FIELD_NAME
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1798,7 +1816,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"value"
+name|SINGLE_VALUED_FIELD_NAME
 argument_list|)
 operator|.
 name|subAggregation
@@ -2029,7 +2047,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"value"
+name|SINGLE_VALUED_FIELD_NAME
 argument_list|)
 operator|.
 name|script
@@ -2230,7 +2248,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"values"
+name|MULTI_VALUED_FIELD_NAME
 argument_list|)
 argument_list|)
 operator|.
@@ -2444,7 +2462,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"values"
+name|MULTI_VALUED_FIELD_NAME
 argument_list|)
 operator|.
 name|script
@@ -2673,7 +2691,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"values"
+name|MULTI_VALUED_FIELD_NAME
 argument_list|)
 operator|.
 name|script
@@ -2845,7 +2863,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"values"
+name|MULTI_VALUED_FIELD_NAME
 argument_list|)
 operator|.
 name|script
@@ -3153,7 +3171,11 @@ argument_list|)
 operator|.
 name|script
 argument_list|(
-literal|"doc['value'].value"
+literal|"doc['"
+operator|+
+name|SINGLE_VALUED_FIELD_NAME
+operator|+
+literal|"'].value"
 argument_list|)
 argument_list|)
 operator|.
@@ -3339,7 +3361,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"value"
+name|SINGLE_VALUED_FIELD_NAME
 argument_list|)
 operator|.
 name|subAggregation
@@ -3570,7 +3592,11 @@ argument_list|)
 operator|.
 name|script
 argument_list|(
-literal|"doc['values'].values"
+literal|"doc['"
+operator|+
+name|MULTI_VALUED_FIELD_NAME
+operator|+
+literal|"'].values"
 argument_list|)
 argument_list|)
 operator|.
@@ -3788,7 +3814,11 @@ argument_list|)
 operator|.
 name|script
 argument_list|(
-literal|"doc['values'].values"
+literal|"doc['"
+operator|+
+name|MULTI_VALUED_FIELD_NAME
+operator|+
+literal|"'].values"
 argument_list|)
 operator|.
 name|subAggregation
@@ -3856,7 +3886,11 @@ argument_list|)
 operator|.
 name|script
 argument_list|(
-literal|"doc['values'].values"
+literal|"doc['"
+operator|+
+name|MULTI_VALUED_FIELD_NAME
+operator|+
+literal|"'].values"
 argument_list|)
 operator|.
 name|valueType
@@ -4154,7 +4188,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"value"
+name|SINGLE_VALUED_FIELD_NAME
 argument_list|)
 operator|.
 name|size
@@ -4265,7 +4299,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"value"
+name|SINGLE_VALUED_FIELD_NAME
 argument_list|)
 argument_list|)
 operator|.
@@ -4435,7 +4469,7 @@ name|addMapping
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"value"
+name|SINGLE_VALUED_FIELD_NAME
 argument_list|,
 literal|"type=integer"
 argument_list|)
@@ -4502,7 +4536,7 @@ argument_list|()
 operator|.
 name|field
 argument_list|(
-literal|"value"
+name|SINGLE_VALUED_FIELD_NAME
 argument_list|,
 name|i
 operator|*
@@ -4560,7 +4594,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"value"
+name|SINGLE_VALUED_FIELD_NAME
 argument_list|)
 operator|.
 name|interval
@@ -4742,7 +4776,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"value"
+name|SINGLE_VALUED_FIELD_NAME
 argument_list|)
 operator|.
 name|order
@@ -4768,7 +4802,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"value"
+name|SINGLE_VALUED_FIELD_NAME
 argument_list|)
 argument_list|)
 argument_list|)
@@ -4975,7 +5009,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"value"
+name|SINGLE_VALUED_FIELD_NAME
 argument_list|)
 operator|.
 name|order
@@ -5048,7 +5082,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"value"
+name|SINGLE_VALUED_FIELD_NAME
 argument_list|)
 operator|.
 name|order
@@ -5141,7 +5175,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"value"
+name|SINGLE_VALUED_FIELD_NAME
 argument_list|)
 operator|.
 name|order
@@ -5167,7 +5201,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"value"
+name|SINGLE_VALUED_FIELD_NAME
 argument_list|)
 argument_list|)
 argument_list|)
@@ -5229,7 +5263,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"value"
+name|SINGLE_VALUED_FIELD_NAME
 argument_list|)
 operator|.
 name|order
@@ -5255,7 +5289,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"value"
+name|SINGLE_VALUED_FIELD_NAME
 argument_list|)
 argument_list|)
 argument_list|)
@@ -5323,7 +5357,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"value"
+name|SINGLE_VALUED_FIELD_NAME
 argument_list|)
 operator|.
 name|order
@@ -5349,7 +5383,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"value"
+name|SINGLE_VALUED_FIELD_NAME
 argument_list|)
 argument_list|)
 argument_list|)
@@ -5562,7 +5596,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"value"
+name|SINGLE_VALUED_FIELD_NAME
 argument_list|)
 operator|.
 name|order
@@ -5588,7 +5622,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"value"
+name|SINGLE_VALUED_FIELD_NAME
 argument_list|)
 argument_list|)
 argument_list|)
@@ -5801,7 +5835,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"value"
+name|SINGLE_VALUED_FIELD_NAME
 argument_list|)
 operator|.
 name|order
@@ -5827,7 +5861,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"value"
+name|SINGLE_VALUED_FIELD_NAME
 argument_list|)
 argument_list|)
 argument_list|)
@@ -6040,7 +6074,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"value"
+name|SINGLE_VALUED_FIELD_NAME
 argument_list|)
 operator|.
 name|order
@@ -6066,7 +6100,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"value"
+name|SINGLE_VALUED_FIELD_NAME
 argument_list|)
 argument_list|)
 argument_list|)
