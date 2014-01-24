@@ -955,8 +955,7 @@ decl_stmt|;
 name|int
 name|shardCount
 init|=
-operator|-
-literal|1
+literal|0
 decl_stmt|;
 if|if
 condition|(
@@ -1071,12 +1070,6 @@ name|table
 operator|.
 name|addCell
 argument_list|(
-name|shardCount
-operator|<
-literal|0
-condition|?
-literal|null
-else|:
 name|shardCount
 argument_list|)
 expr_stmt|;
