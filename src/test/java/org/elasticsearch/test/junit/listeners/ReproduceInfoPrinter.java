@@ -692,6 +692,8 @@ operator|.
 name|TESTS_ENABLE_MOCK_MODULES
 argument_list|,
 literal|"tests.assertion.disabled"
+argument_list|,
+literal|"tests.security.manager"
 argument_list|)
 expr_stmt|;
 if|if
