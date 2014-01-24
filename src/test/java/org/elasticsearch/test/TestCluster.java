@@ -130,6 +130,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ElasticsearchIllegalStateException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|cache
 operator|.
 name|recycler
@@ -773,6 +783,15 @@ name|SETTING_CLUSTER_NODE_SEED
 init|=
 literal|"test.cluster.node.seed"
 decl_stmt|;
+DECL|field|CLUSTER_NAME_KEY
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|CLUSTER_NAME_KEY
+init|=
+literal|"cluster.name"
+decl_stmt|;
 DECL|field|ENABLE_MOCK_MODULES
 specifier|private
 specifier|static
@@ -1273,8 +1292,6 @@ argument_list|(
 name|getRandomNodeSettings
 argument_list|(
 name|nodeSeed
-argument_list|,
-name|clusterName
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1295,6 +1312,43 @@ operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|settings
+operator|.
+name|get
+argument_list|(
+name|CLUSTER_NAME_KEY
+argument_list|)
+operator|!=
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|ElasticsearchIllegalStateException
+argument_list|(
+literal|"Tests must not set a '"
+operator|+
+name|CLUSTER_NAME_KEY
+operator|+
+literal|"' as a node setting set '"
+operator|+
+name|CLUSTER_NAME_KEY
+operator|+
+literal|"': ["
+operator|+
+name|settings
+operator|.
+name|get
+argument_list|(
+name|CLUSTER_NAME_KEY
+argument_list|)
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
 name|builder
 operator|.
 name|put
@@ -1318,6 +1372,15 @@ name|others
 argument_list|)
 expr_stmt|;
 block|}
+name|builder
+operator|.
+name|put
+argument_list|(
+name|CLUSTER_NAME_KEY
+argument_list|,
+name|clusterName
+argument_list|)
+expr_stmt|;
 return|return
 name|builder
 operator|.
@@ -1333,9 +1396,6 @@ name|getRandomNodeSettings
 parameter_list|(
 name|long
 name|seed
-parameter_list|,
-name|String
-name|clusterName
 parameter_list|)
 block|{
 name|Random
@@ -1356,13 +1416,6 @@ name|settingsBuilder
 argument_list|()
 comment|/* use RAM directories in 10% of the runs */
 comment|//.put("index.store.type", random.nextInt(10) == 0 ? MockRamIndexStoreModule.class.getName() : MockFSIndexStoreModule.class.getName())
-operator|.
-name|put
-argument_list|(
-literal|"cluster.name"
-argument_list|,
-name|clusterName
-argument_list|)
 comment|// decrease the routing schedule so new nodes will be added quickly - some random value between 30 and 80 ms
 operator|.
 name|put
@@ -3529,7 +3582,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"cluster.name"
+name|CLUSTER_NAME_KEY
 argument_list|,
 name|clusterName
 argument_list|)
