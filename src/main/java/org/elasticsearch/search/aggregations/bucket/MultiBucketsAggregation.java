@@ -34,6 +34,34 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|text
+operator|.
+name|Text
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|Aggregation
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|search
 operator|.
 name|aggregations
@@ -58,22 +86,53 @@ name|MetricsAggregation
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
+import|;
+end_import
+
 begin_comment
-comment|/**  *  */
+comment|/**  * An aggregation that returns multiple buckets  */
 end_comment
 
 begin_interface
+DECL|interface|MultiBucketsAggregation
+specifier|public
+interface|interface
+name|MultiBucketsAggregation
+extends|extends
+name|Aggregation
+block|{
+comment|/**      * A bucket represents a criteria to which all documents that fall in it adhere to. It is also uniquely identified      * by a key, and can potentially hold sub-aggregations computed over all documents in it.      */
 DECL|interface|Bucket
 specifier|public
 interface|interface
 name|Bucket
 block|{
-comment|/**      * @return The number of documents that fall within this bucket      */
+comment|/**          * @return  The key associated with the bucket as a string          */
+DECL|method|getKey
+name|String
+name|getKey
+parameter_list|()
+function_decl|;
+comment|/**          * @return  The key associated with the bucket as text (ideal for further streaming this instance)          */
+DECL|method|getKeyAsText
+name|Text
+name|getKeyAsText
+parameter_list|()
+function_decl|;
+comment|/**          * @return The number of documents that fall within this bucket          */
 DECL|method|getDocCount
 name|long
 name|getDocCount
 parameter_list|()
 function_decl|;
+comment|/**          * @return  The sub-aggregations of this bucket          */
 DECL|method|getAggregations
 name|Aggregations
 name|getAggregations
@@ -433,6 +492,32 @@ argument_list|)
 throw|;
 block|}
 block|}
+block|}
+comment|/**      * @return  The buckets of this aggregation.      */
+DECL|method|getBuckets
+name|Collection
+argument_list|<
+name|?
+extends|extends
+name|Bucket
+argument_list|>
+name|getBuckets
+parameter_list|()
+function_decl|;
+comment|/**      * The bucket that is associated with the given key.      *      * @param key   The key of the requested bucket.      * @return      The bucket      */
+DECL|method|getBucketByKey
+parameter_list|<
+name|B
+extends|extends
+name|Bucket
+parameter_list|>
+name|B
+name|getBucketByKey
+parameter_list|(
+name|String
+name|key
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

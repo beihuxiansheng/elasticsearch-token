@@ -76,7 +76,7 @@ name|aggregations
 operator|.
 name|bucket
 operator|.
-name|SingleBucketAggregation
+name|InternalSingleBucketAggregation
 import|;
 end_import
 
@@ -100,10 +100,7 @@ specifier|public
 class|class
 name|InternalGlobal
 extends|extends
-name|SingleBucketAggregation
-argument_list|<
-name|InternalGlobal
-argument_list|>
+name|InternalSingleBucketAggregation
 implements|implements
 name|Global
 block|{
@@ -188,13 +185,11 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|InternalGlobal
-specifier|public
 name|InternalGlobal
 parameter_list|()
 block|{}
 comment|// for serialization
 DECL|method|InternalGlobal
-specifier|public
 name|InternalGlobal
 parameter_list|(
 name|String

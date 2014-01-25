@@ -492,7 +492,7 @@ literal|"Unknown key for a "
 operator|+
 name|token
 operator|+
-literal|" in ["
+literal|" in aggregation ["
 operator|+
 name|aggregationName
 operator|+
@@ -573,7 +573,7 @@ literal|"Unknown key for a "
 operator|+
 name|token
 operator|+
-literal|" in ["
+literal|" in aggregation ["
 operator|+
 name|aggregationName
 operator|+
@@ -647,7 +647,7 @@ literal|"Unknown key for a "
 operator|+
 name|token
 operator|+
-literal|" in ["
+literal|" in aggregation ["
 operator|+
 name|aggregationName
 operator|+
@@ -768,6 +768,38 @@ argument_list|(
 name|dir
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|asc
+operator|&&
+operator|!
+literal|"desc"
+operator|.
+name|equals
+argument_list|(
+name|dir
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|SearchParseException
+argument_list|(
+name|context
+argument_list|,
+literal|"Unknown order direction ["
+operator|+
+name|dir
+operator|+
+literal|"] in aggregation ["
+operator|+
+name|aggregationName
+operator|+
+literal|"]. Should be either [asc] or [desc]"
+argument_list|)
+throw|;
+block|}
 name|order
 operator|=
 name|resolveOrder
@@ -777,7 +809,6 @@ argument_list|,
 name|asc
 argument_list|)
 expr_stmt|;
-comment|//TODO should we throw an error if the value is not "asc" or "desc"???
 block|}
 block|}
 block|}
@@ -793,7 +824,7 @@ literal|"Unknown key for a "
 operator|+
 name|token
 operator|+
-literal|" in ["
+literal|" in aggregation ["
 operator|+
 name|aggregationName
 operator|+
@@ -818,7 +849,7 @@ literal|"Unexpected token "
 operator|+
 name|token
 operator|+
-literal|" in ["
+literal|" in aggregation ["
 operator|+
 name|aggregationName
 operator|+
@@ -1148,24 +1179,24 @@ literal|0
 condition|)
 block|{
 return|return
-name|HistogramBase
+operator|new
+name|InternalOrder
 operator|.
-name|Order
-operator|.
-name|aggregation
+name|Aggregation
 argument_list|(
 name|key
+argument_list|,
+literal|null
 argument_list|,
 name|asc
 argument_list|)
 return|;
 block|}
 return|return
-name|HistogramBase
+operator|new
+name|InternalOrder
 operator|.
-name|Order
-operator|.
-name|aggregation
+name|Aggregation
 argument_list|(
 name|key
 operator|.

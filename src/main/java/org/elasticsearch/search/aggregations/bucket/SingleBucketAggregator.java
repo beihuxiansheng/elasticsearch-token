@@ -42,9 +42,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|support
-operator|.
-name|AggregationContext
+name|AggregatorFactories
 import|;
 end_import
 
@@ -58,7 +56,9 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|AggregatorFactories
+name|support
+operator|.
+name|AggregationContext
 import|;
 end_import
 

@@ -1543,7 +1543,7 @@ name|bucket
 init|=
 name|histo
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|1l
 argument_list|)

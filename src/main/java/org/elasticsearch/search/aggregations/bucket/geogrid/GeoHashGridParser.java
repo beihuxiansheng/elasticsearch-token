@@ -225,7 +225,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  Aggregates Geo information into cells determined by geohashes of a given precision.  *  WARNING - for high-precision geohashes it may prove necessary to use a {@link GeoBoundingBoxFilterBuilder}  *  aggregation to focus in on a smaller area to avoid generating too many buckets and using too much RAM   *    */
+comment|/**  * Aggregates Geo information into cells determined by geohashes of a given precision.  * WARNING - for high-precision geohashes it may prove necessary to use a {@link GeoBoundingBoxFilterBuilder}  * aggregation to focus in on a smaller area to avoid generating too many buckets and using too much RAM  */
 end_comment
 
 begin_class
@@ -448,19 +448,7 @@ name|equals
 argument_list|(
 name|currentFieldName
 argument_list|)
-condition|)
-block|{
-name|shardSize
-operator|=
-name|parser
-operator|.
-name|intValue
-argument_list|()
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
+operator|||
 literal|"shardSize"
 operator|.
 name|equals

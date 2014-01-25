@@ -120,7 +120,7 @@ name|aggregations
 operator|.
 name|bucket
 operator|.
-name|Bucket
+name|MultiBucketsAggregation
 import|;
 end_import
 
@@ -893,6 +893,8 @@ argument_list|,
 name|asc
 argument_list|,
 operator|new
+name|MultiBucketsAggregation
+operator|.
 name|Bucket
 operator|.
 name|SubAggregationComparator
@@ -936,6 +938,8 @@ argument_list|,
 name|asc
 argument_list|,
 operator|new
+name|MultiBucketsAggregation
+operator|.
 name|Bucket
 operator|.
 name|SubAggregationComparator
@@ -1473,6 +1477,8 @@ name|writeBoolean
 argument_list|(
 operator|(
 operator|(
+name|MultiBucketsAggregation
+operator|.
 name|Bucket
 operator|.
 name|SubAggregationComparator
@@ -1492,6 +1498,8 @@ name|writeString
 argument_list|(
 operator|(
 operator|(
+name|MultiBucketsAggregation
+operator|.
 name|Bucket
 operator|.
 name|SubAggregationComparator
@@ -1510,6 +1518,8 @@ name|hasValueName
 init|=
 operator|(
 operator|(
+name|MultiBucketsAggregation
+operator|.
 name|Bucket
 operator|.
 name|SubAggregationComparator
@@ -1542,6 +1552,8 @@ name|writeString
 argument_list|(
 operator|(
 operator|(
+name|MultiBucketsAggregation
+operator|.
 name|Bucket
 operator|.
 name|SubAggregationComparator

@@ -30,26 +30,14 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|Aggregation
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|bucket
 operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
-name|Aggregations
+name|SingleBucketAggregation
 import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * A {@code global} aggregation. Defines a single bucket the holds all the documents in the search context.  */
 end_comment
 
 begin_interface
@@ -58,19 +46,8 @@ specifier|public
 interface|interface
 name|Global
 extends|extends
-name|Aggregation
-block|{
-DECL|method|getDocCount
-name|long
-name|getDocCount
-parameter_list|()
-function_decl|;
-DECL|method|getAggregations
-name|Aggregations
-name|getAggregations
-parameter_list|()
-function_decl|;
-block|}
+name|SingleBucketAggregation
+block|{ }
 end_interface
 
 end_unit

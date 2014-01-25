@@ -20,8 +20,48 @@ name|range
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|Aggregation
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|bucket
+operator|.
+name|MultiBucketsAggregation
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
+import|;
+end_import
+
 begin_comment
-comment|/**  *  */
+comment|/**  * A {@code range} aggregation. Defines multiple buckets, each associated with a pre-defined value range of a field,  * and where the value of that fields in all documents in each bucket fall in the bucket's range.  */
 end_comment
 
 begin_interface
@@ -30,22 +70,52 @@ specifier|public
 interface|interface
 name|Range
 extends|extends
-name|RangeBase
-argument_list|<
-name|Range
-operator|.
-name|Bucket
-argument_list|>
+name|MultiBucketsAggregation
 block|{
+comment|/**      * A bucket associated with a specific range      */
 DECL|interface|Bucket
+specifier|public
 specifier|static
 interface|interface
 name|Bucket
 extends|extends
-name|RangeBase
+name|MultiBucketsAggregation
 operator|.
 name|Bucket
-block|{     }
+block|{
+comment|/**          * @return  The lower bound of the range          */
+DECL|method|getFrom
+name|Number
+name|getFrom
+parameter_list|()
+function_decl|;
+comment|/**          * @return  The upper bound of the range (excluding)          */
+DECL|method|getTo
+name|Number
+name|getTo
+parameter_list|()
+function_decl|;
+block|}
+DECL|method|getBuckets
+name|Collection
+argument_list|<
+name|?
+extends|extends
+name|Bucket
+argument_list|>
+name|getBuckets
+parameter_list|()
+function_decl|;
+annotation|@
+name|Override
+DECL|method|getBucketByKey
+name|Bucket
+name|getBucketByKey
+parameter_list|(
+name|String
+name|key
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

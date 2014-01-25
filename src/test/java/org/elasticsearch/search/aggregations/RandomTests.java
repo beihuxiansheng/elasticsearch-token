@@ -1103,7 +1103,7 @@ name|bucket
 init|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 name|Integer
 operator|.
@@ -1799,7 +1799,7 @@ argument_list|()
 argument_list|,
 name|longTerms
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 operator|.
 name|size
@@ -1815,7 +1815,7 @@ argument_list|()
 argument_list|,
 name|doubleTerms
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 operator|.
 name|size
@@ -1831,7 +1831,7 @@ argument_list|()
 argument_list|,
 name|stringMapTerms
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 operator|.
 name|size
@@ -1847,7 +1847,7 @@ argument_list|()
 argument_list|,
 name|stringOrdinalsTerms
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 operator|.
 name|size
@@ -1863,7 +1863,7 @@ name|bucket
 range|:
 name|longTerms
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 control|)
 block|{
@@ -1875,7 +1875,7 @@ name|doubleBucket
 init|=
 name|doubleTerms
 operator|.
-name|getByTerm
+name|getBucketByKey
 argument_list|(
 name|Double
 operator|.
@@ -1887,7 +1887,7 @@ name|parseLong
 argument_list|(
 name|bucket
 operator|.
-name|getKey
+name|getKeyAsText
 argument_list|()
 operator|.
 name|string
@@ -1904,11 +1904,11 @@ name|stringMapBucket
 init|=
 name|stringMapTerms
 operator|.
-name|getByTerm
+name|getBucketByKey
 argument_list|(
 name|bucket
 operator|.
-name|getKey
+name|getKeyAsText
 argument_list|()
 operator|.
 name|string
@@ -1923,11 +1923,11 @@ name|stringOrdinalsBucket
 init|=
 name|stringOrdinalsTerms
 operator|.
-name|getByTerm
+name|getBucketByKey
 argument_list|(
 name|bucket
 operator|.
-name|getKey
+name|getKeyAsText
 argument_list|()
 operator|.
 name|string
@@ -2339,7 +2339,7 @@ name|assertThat
 argument_list|(
 name|terms
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 operator|.
 name|size
@@ -2349,7 +2349,7 @@ name|equalTo
 argument_list|(
 name|histo
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 operator|.
 name|size
@@ -2365,6 +2365,9 @@ name|Bucket
 name|bucket
 range|:
 name|terms
+operator|.
+name|getBuckets
+argument_list|()
 control|)
 block|{
 specifier|final
@@ -2389,7 +2392,7 @@ name|histoBucket
 init|=
 name|histo
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 name|key
 argument_list|)

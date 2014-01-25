@@ -407,7 +407,7 @@ literal|"test"
 argument_list|)
 operator|)
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 operator|.
 name|size
@@ -438,7 +438,7 @@ literal|"test_raw"
 argument_list|)
 operator|)
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 operator|.
 name|size

@@ -78,7 +78,7 @@ name|aggregations
 operator|.
 name|bucket
 operator|.
-name|Bucket
+name|MultiBucketsAggregation
 import|;
 end_import
 
@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An internal {@link HistogramBase.Order} strategy which is identified by a unique id.  */
+comment|/**  * An internal {@link Histogram.Order} strategy which is identified by a unique id.  */
 end_comment
 
 begin_class
@@ -111,7 +111,7 @@ DECL|class|InternalOrder
 class|class
 name|InternalOrder
 extends|extends
-name|HistogramBase
+name|Histogram
 operator|.
 name|Order
 block|{
@@ -134,7 +134,7 @@ DECL|field|comparator
 specifier|final
 name|Comparator
 argument_list|<
-name|HistogramBase
+name|InternalHistogram
 operator|.
 name|Bucket
 argument_list|>
@@ -154,7 +154,7 @@ name|asc
 parameter_list|,
 name|Comparator
 argument_list|<
-name|HistogramBase
+name|InternalHistogram
 operator|.
 name|Bucket
 argument_list|>
@@ -218,7 +218,7 @@ name|Override
 DECL|method|comparator
 name|Comparator
 argument_list|<
-name|HistogramBase
+name|InternalHistogram
 operator|.
 name|Bucket
 argument_list|>
@@ -300,11 +300,13 @@ argument_list|,
 name|asc
 argument_list|,
 operator|new
+name|MultiBucketsAggregation
+operator|.
 name|Bucket
 operator|.
 name|SubAggregationComparator
 argument_list|<
-name|HistogramBase
+name|InternalHistogram
 operator|.
 name|Bucket
 argument_list|>
@@ -343,11 +345,13 @@ argument_list|,
 name|asc
 argument_list|,
 operator|new
+name|MultiBucketsAggregation
+operator|.
 name|Bucket
 operator|.
 name|SubAggregationComparator
 argument_list|<
-name|HistogramBase
+name|InternalHistogram
 operator|.
 name|Bucket
 argument_list|>

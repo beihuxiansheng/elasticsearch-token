@@ -160,7 +160,7 @@ name|bucket
 operator|.
 name|range
 operator|.
-name|AbstractRangeBase
+name|InternalRange
 import|;
 end_import
 
@@ -1591,7 +1591,7 @@ decl_stmt|;
 DECL|field|rangeFactory
 specifier|private
 specifier|final
-name|AbstractRangeBase
+name|InternalRange
 operator|.
 name|Factory
 name|rangeFactory
@@ -1626,7 +1626,7 @@ name|GeoPointValuesSource
 argument_list|>
 name|valueSourceConfig
 parameter_list|,
-name|AbstractRangeBase
+name|InternalRange
 operator|.
 name|Factory
 name|rangeFactory

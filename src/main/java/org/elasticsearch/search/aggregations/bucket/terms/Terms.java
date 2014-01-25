@@ -28,20 +28,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|text
-operator|.
-name|Text
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|xcontent
 operator|.
 name|ToXContent
@@ -58,7 +44,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|Aggregation
+name|Aggregator
 import|;
 end_import
 
@@ -72,7 +58,9 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|Aggregator
+name|bucket
+operator|.
+name|MultiBucketsAggregation
 import|;
 end_import
 
@@ -113,7 +101,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * A {@code terms} aggregation. Defines multiple bucket, each associated with a unique term for a specific field.  * All documents in a bucket has the bucket's term in that field.  */
 end_comment
 
 begin_interface
@@ -122,14 +110,7 @@ specifier|public
 interface|interface
 name|Terms
 extends|extends
-name|Aggregation
-extends|,
-name|Iterable
-argument_list|<
-name|Terms
-operator|.
-name|Bucket
-argument_list|>
+name|MultiBucketsAggregation
 block|{
 DECL|enum|ValueType
 specifier|static
@@ -262,6 +243,10 @@ block|}
 block|}
 end_interface
 
+begin_comment
+comment|/**      * A bucket that is associated with a single term      */
+end_comment
+
 begin_class
 DECL|class|Bucket
 specifier|static
@@ -269,25 +254,10 @@ specifier|abstract
 class|class
 name|Bucket
 implements|implements
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
-name|bucket
+name|MultiBucketsAggregation
 operator|.
 name|Bucket
 block|{
-DECL|method|getKey
-specifier|public
-specifier|abstract
-name|Text
-name|getKey
-parameter_list|()
-function_decl|;
 DECL|method|getKeyAsNumber
 specifier|public
 specifier|abstract
@@ -310,20 +280,20 @@ block|}
 end_class
 
 begin_function_decl
-DECL|method|buckets
+DECL|method|getBuckets
 name|Collection
 argument_list|<
 name|Bucket
 argument_list|>
-name|buckets
+name|getBuckets
 parameter_list|()
 function_decl|;
 end_function_decl
 
 begin_function_decl
-DECL|method|getByTerm
+DECL|method|getBucketByKey
 name|Bucket
-name|getByTerm
+name|getBucketByKey
 parameter_list|(
 name|String
 name|term
@@ -332,7 +302,7 @@ function_decl|;
 end_function_decl
 
 begin_comment
-comment|/**      *      */
+comment|/**      * Determines the order by which the term buckets will be sorted      */
 end_comment
 
 begin_class

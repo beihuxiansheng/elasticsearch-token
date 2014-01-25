@@ -1347,7 +1347,7 @@ name|assertThat
 argument_list|(
 name|values
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 argument_list|,
 name|notNullValue
@@ -1358,7 +1358,7 @@ name|assertThat
 argument_list|(
 name|values
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 operator|.
 name|size
@@ -1412,7 +1412,7 @@ name|assertNull
 argument_list|(
 name|values
 operator|.
-name|getByTerm
+name|getBucketByKey
 argument_list|(
 name|key
 argument_list|)
@@ -1426,7 +1426,7 @@ name|bucket
 init|=
 name|values
 operator|.
-name|getByTerm
+name|getBucketByKey
 argument_list|(
 name|key
 argument_list|)
@@ -1566,7 +1566,7 @@ name|assertThat
 argument_list|(
 name|values
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 argument_list|,
 name|notNullValue
@@ -1577,7 +1577,7 @@ name|assertThat
 argument_list|(
 name|values
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 operator|.
 name|size
@@ -1619,7 +1619,7 @@ name|assertThat
 argument_list|(
 name|values
 operator|.
-name|getByTerm
+name|getBucketByKey
 argument_list|(
 name|topValue
 argument_list|)
@@ -1633,7 +1633,7 @@ name|nested
 init|=
 name|values
 operator|.
-name|getByTerm
+name|getBucketByKey
 argument_list|(
 name|topValue
 argument_list|)
@@ -2019,7 +2019,7 @@ name|bucket
 init|=
 name|histo
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|1l
 argument_list|)

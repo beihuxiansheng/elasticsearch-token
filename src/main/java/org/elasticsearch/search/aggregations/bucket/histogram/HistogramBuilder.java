@@ -73,7 +73,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * A builder for a histogram aggregation.  */
 end_comment
 
 begin_class
@@ -94,7 +94,7 @@ name|interval
 decl_stmt|;
 DECL|field|order
 specifier|private
-name|HistogramBase
+name|Histogram
 operator|.
 name|Order
 name|order
@@ -104,6 +104,7 @@ specifier|private
 name|Long
 name|minDocCount
 decl_stmt|;
+comment|/**      * Constructs a new histogram aggregation builder.      *      * @param name  The name of the aggregation (will serve as the unique identifier for the aggregation result in the response)      */
 DECL|method|HistogramBuilder
 specifier|public
 name|HistogramBuilder
@@ -125,6 +126,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Sets the interval for the histogram.      *      * @param interval  The interval for the histogram      * @return          This builder      */
 DECL|method|interval
 specifier|public
 name|HistogramBuilder
@@ -144,6 +146,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the order by which the buckets will be returned.      *      * @param order The order by which the buckets will be returned      * @return      This builder      */
 DECL|method|order
 specifier|public
 name|HistogramBuilder
@@ -165,6 +168,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the minimum document count per bucket. Buckets with less documents than this min value will not be returned.      *      * @param minDocCount   The minimum document count per bucket      * @return              This builder      */
 DECL|method|minDocCount
 specifier|public
 name|HistogramBuilder

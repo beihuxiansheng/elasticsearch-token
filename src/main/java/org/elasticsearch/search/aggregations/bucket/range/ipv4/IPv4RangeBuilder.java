@@ -81,15 +81,6 @@ argument_list|<
 name|IPv4RangeBuilder
 argument_list|>
 block|{
-DECL|field|MAX_IP
-specifier|public
-specifier|static
-specifier|final
-name|long
-name|MAX_IP
-init|=
-literal|4294967296l
-decl_stmt|;
 DECL|field|MASK_PATTERN
 specifier|private
 specifier|static
@@ -561,11 +552,13 @@ argument_list|)
 operator|+
 literal|1
 decl_stmt|;
-comment|// we have to +1 the here as the range is non-inclusive on the "to" side
+comment|// we have to +1 here as the range is non-inclusive on the "to" side
 if|if
 condition|(
 name|longTo
 operator|==
+name|InternalIPv4Range
+operator|.
 name|MAX_IP
 condition|)
 block|{

@@ -822,7 +822,7 @@ literal|0
 argument_list|)
 operator|)
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -848,7 +848,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsText
 argument_list|()
 operator|.
 name|string

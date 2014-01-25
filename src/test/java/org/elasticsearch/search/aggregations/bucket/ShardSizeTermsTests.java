@@ -462,7 +462,7 @@ name|buckets
 init|=
 name|terms
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -545,7 +545,7 @@ name|get
 argument_list|(
 name|bucket
 operator|.
-name|getKey
+name|getKeyAsText
 argument_list|()
 operator|.
 name|string
@@ -684,7 +684,7 @@ name|buckets
 init|=
 name|terms
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -769,7 +769,7 @@ name|get
 argument_list|(
 name|bucket
 operator|.
-name|getKey
+name|getKeyAsText
 argument_list|()
 operator|.
 name|string
@@ -913,7 +913,7 @@ name|buckets
 init|=
 name|terms
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -999,9 +999,6 @@ argument_list|(
 name|bucket
 operator|.
 name|getKey
-argument_list|()
-operator|.
-name|string
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1132,7 +1129,7 @@ name|buckets
 init|=
 name|terms
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -1354,7 +1351,7 @@ name|buckets
 init|=
 name|terms
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -1583,7 +1580,7 @@ name|buckets
 init|=
 name|terms
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -1801,7 +1798,7 @@ name|buckets
 init|=
 name|terms
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -2023,7 +2020,7 @@ name|buckets
 init|=
 name|terms
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -2251,7 +2248,7 @@ name|buckets
 init|=
 name|terms
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 decl_stmt|;
 name|assertThat

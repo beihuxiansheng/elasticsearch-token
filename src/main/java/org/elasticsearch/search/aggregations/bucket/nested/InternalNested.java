@@ -76,7 +76,7 @@ name|aggregations
 operator|.
 name|bucket
 operator|.
-name|SingleBucketAggregation
+name|InternalSingleBucketAggregation
 import|;
 end_import
 
@@ -100,10 +100,7 @@ specifier|public
 class|class
 name|InternalNested
 extends|extends
-name|SingleBucketAggregation
-argument_list|<
-name|InternalNested
-argument_list|>
+name|InternalSingleBucketAggregation
 implements|implements
 name|Nested
 block|{

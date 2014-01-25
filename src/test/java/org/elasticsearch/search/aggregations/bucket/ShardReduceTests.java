@@ -390,34 +390,6 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
-operator|.
-name|ClusterScope
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ElasticsearchIntegrationTest
-operator|.
-name|Scope
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
 name|hamcrest
 operator|.
 name|ElasticsearchAssertions
@@ -792,7 +764,7 @@ name|assertThat
 argument_list|(
 name|histo
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 operator|.
 name|size
@@ -918,7 +890,7 @@ name|assertThat
 argument_list|(
 name|histo
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 operator|.
 name|size
@@ -1041,7 +1013,7 @@ name|assertThat
 argument_list|(
 name|histo
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 operator|.
 name|size
@@ -1214,7 +1186,7 @@ name|assertThat
 argument_list|(
 name|histo
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 operator|.
 name|size
@@ -1337,7 +1309,7 @@ name|assertThat
 argument_list|(
 name|histo
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 operator|.
 name|size
@@ -1448,7 +1420,7 @@ name|histo
 init|=
 name|terms
 operator|.
-name|getByTerm
+name|getBucketByKey
 argument_list|(
 literal|"term"
 argument_list|)
@@ -1465,7 +1437,7 @@ name|assertThat
 argument_list|(
 name|histo
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 operator|.
 name|size
@@ -1576,7 +1548,7 @@ name|histo
 init|=
 name|terms
 operator|.
-name|getByTerm
+name|getBucketByKey
 argument_list|(
 literal|"1"
 argument_list|)
@@ -1593,7 +1565,7 @@ name|assertThat
 argument_list|(
 name|histo
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 operator|.
 name|size
@@ -1704,7 +1676,7 @@ name|histo
 init|=
 name|terms
 operator|.
-name|getByTerm
+name|getBucketByKey
 argument_list|(
 literal|"1.5"
 argument_list|)
@@ -1721,7 +1693,7 @@ name|assertThat
 argument_list|(
 name|histo
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 operator|.
 name|size
@@ -1841,7 +1813,7 @@ name|histo
 init|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"r1"
 argument_list|)
@@ -1858,7 +1830,7 @@ name|assertThat
 argument_list|(
 name|histo
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 operator|.
 name|size
@@ -1978,7 +1950,7 @@ name|histo
 init|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"r1"
 argument_list|)
@@ -1995,7 +1967,7 @@ name|assertThat
 argument_list|(
 name|histo
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 operator|.
 name|size
@@ -2115,7 +2087,7 @@ name|histo
 init|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"r1"
 argument_list|)
@@ -2132,7 +2104,7 @@ name|assertThat
 argument_list|(
 name|histo
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 operator|.
 name|size
@@ -2248,7 +2220,7 @@ name|histo
 init|=
 name|topHisto
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|0
 argument_list|)
@@ -2265,7 +2237,7 @@ name|assertThat
 argument_list|(
 name|histo
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 operator|.
 name|size
@@ -2385,6 +2357,9 @@ name|histo
 init|=
 name|topHisto
 operator|.
+name|getBuckets
+argument_list|()
+operator|.
 name|iterator
 argument_list|()
 operator|.
@@ -2403,7 +2378,7 @@ name|assertThat
 argument_list|(
 name|histo
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 operator|.
 name|size
@@ -2514,6 +2489,9 @@ name|histo
 init|=
 name|grid
 operator|.
+name|getBuckets
+argument_list|()
+operator|.
 name|iterator
 argument_list|()
 operator|.
@@ -2532,7 +2510,7 @@ name|assertThat
 argument_list|(
 name|histo
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 operator|.
 name|size

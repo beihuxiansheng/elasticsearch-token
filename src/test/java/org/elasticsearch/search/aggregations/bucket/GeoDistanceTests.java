@@ -904,7 +904,7 @@ name|assertThat
 argument_list|(
 name|geoDist
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 operator|.
 name|size
@@ -923,7 +923,7 @@ name|bucket
 init|=
 name|geoDist
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"*-500.0"
 argument_list|)
@@ -955,6 +955,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -968,6 +971,9 @@ name|bucket
 operator|.
 name|getTo
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -992,7 +998,7 @@ name|bucket
 operator|=
 name|geoDist
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"500.0-1000.0"
 argument_list|)
@@ -1024,6 +1030,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -1036,6 +1045,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1061,7 +1073,7 @@ name|bucket
 operator|=
 name|geoDist
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"1000.0-*"
 argument_list|)
@@ -1093,6 +1105,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -1105,6 +1120,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1248,7 +1266,7 @@ name|assertThat
 argument_list|(
 name|geoDist
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 operator|.
 name|size
@@ -1267,7 +1285,7 @@ name|bucket
 init|=
 name|geoDist
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"ring1"
 argument_list|)
@@ -1299,6 +1317,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -1312,6 +1333,9 @@ name|bucket
 operator|.
 name|getTo
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -1336,7 +1360,7 @@ name|bucket
 operator|=
 name|geoDist
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"ring2"
 argument_list|)
@@ -1368,6 +1392,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -1380,6 +1407,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1405,7 +1435,7 @@ name|bucket
 operator|=
 name|geoDist
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"ring3"
 argument_list|)
@@ -1437,6 +1467,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -1449,6 +1482,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1609,7 +1645,7 @@ name|assertThat
 argument_list|(
 name|geoDist
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 operator|.
 name|size
@@ -1628,7 +1664,7 @@ name|bucket
 init|=
 name|geoDist
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"*-500.0"
 argument_list|)
@@ -1660,6 +1696,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -1673,6 +1712,9 @@ name|bucket
 operator|.
 name|getTo
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -1697,7 +1739,7 @@ name|bucket
 operator|=
 name|geoDist
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"500.0-1000.0"
 argument_list|)
@@ -1729,6 +1771,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -1741,6 +1786,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1766,7 +1814,7 @@ name|bucket
 operator|=
 name|geoDist
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"1000.0-*"
 argument_list|)
@@ -1798,6 +1846,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -1810,6 +1861,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1949,7 +2003,7 @@ name|assertThat
 argument_list|(
 name|geoDist
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 operator|.
 name|size
@@ -1968,7 +2022,7 @@ name|bucket
 init|=
 name|geoDist
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"*-500.0"
 argument_list|)
@@ -2000,6 +2054,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -2013,6 +2070,9 @@ name|bucket
 operator|.
 name|getTo
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -2037,7 +2097,7 @@ name|bucket
 operator|=
 name|geoDist
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"500.0-1000.0"
 argument_list|)
@@ -2069,6 +2129,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -2081,6 +2144,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2106,7 +2172,7 @@ name|bucket
 operator|=
 name|geoDist
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"1000.0-*"
 argument_list|)
@@ -2138,6 +2204,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -2150,6 +2219,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2300,7 +2372,7 @@ name|assertThat
 argument_list|(
 name|geoDist
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 operator|.
 name|size
@@ -2319,7 +2391,7 @@ name|bucket
 init|=
 name|geoDist
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"*-500.0"
 argument_list|)
@@ -2351,6 +2423,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -2363,6 +2438,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2445,6 +2523,9 @@ name|Bucket
 name|city
 range|:
 name|cities
+operator|.
+name|getBuckets
+argument_list|()
 control|)
 block|{
 name|names
@@ -2454,9 +2535,6 @@ argument_list|(
 name|city
 operator|.
 name|getKey
-argument_list|()
-operator|.
-name|string
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2487,7 +2565,7 @@ name|bucket
 operator|=
 name|geoDist
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"500.0-1000.0"
 argument_list|)
@@ -2519,6 +2597,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -2531,6 +2612,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2608,6 +2692,9 @@ name|Bucket
 name|city
 range|:
 name|cities
+operator|.
+name|getBuckets
+argument_list|()
 control|)
 block|{
 name|names
@@ -2617,9 +2704,6 @@ argument_list|(
 name|city
 operator|.
 name|getKey
-argument_list|()
-operator|.
-name|string
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2650,7 +2734,7 @@ name|bucket
 operator|=
 name|geoDist
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"1000.0-*"
 argument_list|)
@@ -2682,6 +2766,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -2694,6 +2781,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2773,6 +2863,9 @@ name|Bucket
 name|city
 range|:
 name|cities
+operator|.
+name|getBuckets
+argument_list|()
 control|)
 block|{
 name|names
@@ -2782,9 +2875,6 @@ argument_list|(
 name|city
 operator|.
 name|getKey
-argument_list|()
-operator|.
-name|string
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -3053,7 +3143,7 @@ name|bucket
 init|=
 name|histo
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|1l
 argument_list|)
@@ -3081,6 +3171,28 @@ argument_list|(
 literal|"geo_dist"
 argument_list|)
 decl_stmt|;
+name|List
+argument_list|<
+name|GeoDistance
+operator|.
+name|Bucket
+argument_list|>
+name|buckets
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|GeoDistance
+operator|.
+name|Bucket
+argument_list|>
+argument_list|(
+name|geoDistance
+operator|.
+name|getBuckets
+argument_list|()
+argument_list|)
+decl_stmt|;
 name|assertThat
 argument_list|(
 name|geoDistance
@@ -3106,10 +3218,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|geoDistance
-operator|.
 name|buckets
-argument_list|()
 operator|.
 name|size
 argument_list|()
@@ -3122,10 +3231,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|geoDistance
-operator|.
 name|buckets
-argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -3143,10 +3249,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|geoDistance
-operator|.
 name|buckets
-argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -3154,6 +3257,9 @@ literal|0
 argument_list|)
 operator|.
 name|getFrom
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3164,10 +3270,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|geoDistance
-operator|.
 name|buckets
-argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -3175,6 +3278,9 @@ literal|0
 argument_list|)
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3185,10 +3291,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|geoDistance
-operator|.
 name|buckets
-argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -3333,7 +3436,7 @@ name|assertThat
 argument_list|(
 name|geoDist
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 operator|.
 name|size
@@ -3352,7 +3455,7 @@ name|bucket
 init|=
 name|geoDist
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"*-500.0"
 argument_list|)
@@ -3384,6 +3487,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -3397,6 +3503,9 @@ name|bucket
 operator|.
 name|getTo
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -3421,7 +3530,7 @@ name|bucket
 operator|=
 name|geoDist
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"500.0-1000.0"
 argument_list|)
@@ -3453,6 +3562,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -3465,6 +3577,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3490,7 +3605,7 @@ name|bucket
 operator|=
 name|geoDist
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"1000.0-*"
 argument_list|)
@@ -3522,6 +3637,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -3534,6 +3652,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo

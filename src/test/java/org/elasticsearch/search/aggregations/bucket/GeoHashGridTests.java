@@ -808,6 +808,9 @@ name|Bucket
 name|cell
 range|:
 name|geoGrid
+operator|.
+name|getBuckets
+argument_list|()
 control|)
 block|{
 name|String
@@ -815,7 +818,7 @@ name|geohash
 init|=
 name|cell
 operator|.
-name|getGeoHash
+name|getKey
 argument_list|()
 decl_stmt|;
 name|long
@@ -1007,6 +1010,9 @@ name|Bucket
 name|cell
 range|:
 name|geoGrid
+operator|.
+name|getBuckets
+argument_list|()
 control|)
 block|{
 name|String
@@ -1014,7 +1020,7 @@ name|geohash
 init|=
 name|cell
 operator|.
-name|getGeoHash
+name|getKey
 argument_list|()
 decl_stmt|;
 name|long
@@ -1183,7 +1189,10 @@ name|assertThat
 argument_list|(
 name|geoGrid
 operator|.
-name|getNumberOfBuckets
+name|getBuckets
+argument_list|()
+operator|.
+name|size
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1290,6 +1299,9 @@ name|Bucket
 name|cell
 range|:
 name|geoGrid
+operator|.
+name|getBuckets
+argument_list|()
 control|)
 block|{
 name|String
@@ -1297,7 +1309,7 @@ name|geohash
 init|=
 name|cell
 operator|.
-name|getGeoHash
+name|getKey
 argument_list|()
 decl_stmt|;
 name|long
@@ -1442,7 +1454,10 @@ name|assertThat
 argument_list|(
 name|geoGrid
 operator|.
-name|getNumberOfBuckets
+name|getBuckets
+argument_list|()
+operator|.
+name|size
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1459,6 +1474,9 @@ name|Bucket
 name|cell
 range|:
 name|geoGrid
+operator|.
+name|getBuckets
+argument_list|()
 control|)
 block|{
 name|String
@@ -1466,7 +1484,7 @@ name|geohash
 init|=
 name|cell
 operator|.
-name|getGeoHash
+name|getKey
 argument_list|()
 decl_stmt|;
 name|long

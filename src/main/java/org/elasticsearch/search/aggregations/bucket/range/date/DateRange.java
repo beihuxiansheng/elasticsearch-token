@@ -36,7 +36,7 @@ name|bucket
 operator|.
 name|range
 operator|.
-name|RangeBase
+name|Range
 import|;
 end_import
 
@@ -52,6 +52,16 @@ name|DateTime
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -62,19 +72,14 @@ specifier|public
 interface|interface
 name|DateRange
 extends|extends
-name|RangeBase
-argument_list|<
-name|DateRange
-operator|.
-name|Bucket
-argument_list|>
+name|Range
 block|{
 DECL|interface|Bucket
 specifier|static
 interface|interface
 name|Bucket
 extends|extends
-name|RangeBase
+name|Range
 operator|.
 name|Bucket
 block|{
@@ -89,6 +94,32 @@ name|getToAsDate
 parameter_list|()
 function_decl|;
 block|}
+annotation|@
+name|Override
+DECL|method|getBuckets
+name|Collection
+argument_list|<
+name|?
+extends|extends
+name|DateRange
+operator|.
+name|Bucket
+argument_list|>
+name|getBuckets
+parameter_list|()
+function_decl|;
+annotation|@
+name|Override
+DECL|method|getBucketByKey
+name|DateRange
+operator|.
+name|Bucket
+name|getBucketByKey
+parameter_list|(
+name|String
+name|key
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

@@ -108,7 +108,7 @@ name|interval
 decl_stmt|;
 DECL|field|order
 specifier|private
-name|HistogramBase
+name|Histogram
 operator|.
 name|Order
 name|order

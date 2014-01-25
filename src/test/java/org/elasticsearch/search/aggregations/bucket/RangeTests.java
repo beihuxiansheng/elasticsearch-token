@@ -635,7 +635,7 @@ name|assertThat
 argument_list|(
 name|terms
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 operator|.
 name|size
@@ -673,7 +673,7 @@ name|bucket
 init|=
 name|terms
 operator|.
-name|getByTerm
+name|getBucketByKey
 argument_list|(
 literal|""
 operator|+
@@ -739,7 +739,7 @@ name|rangeBucket
 init|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"*-3.0"
 argument_list|)
@@ -819,7 +819,7 @@ name|rangeBucket
 operator|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"3.0-6.0"
 argument_list|)
@@ -903,7 +903,7 @@ name|rangeBucket
 operator|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"6.0-*"
 argument_list|)
@@ -1083,7 +1083,7 @@ name|assertThat
 argument_list|(
 name|range
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 operator|.
 name|size
@@ -1102,7 +1102,7 @@ name|bucket
 init|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"*-3.0"
 argument_list|)
@@ -1134,6 +1134,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -1148,6 +1151,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1173,7 +1179,7 @@ name|bucket
 operator|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"3.0-6.0"
 argument_list|)
@@ -1205,6 +1211,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -1217,6 +1226,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1242,7 +1254,7 @@ name|bucket
 operator|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"6.0-*"
 argument_list|)
@@ -1274,6 +1286,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -1286,6 +1301,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1418,7 +1436,7 @@ name|assertThat
 argument_list|(
 name|range
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 operator|.
 name|size
@@ -1437,7 +1455,7 @@ name|bucket
 init|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"r1"
 argument_list|)
@@ -1469,6 +1487,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -1483,6 +1504,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1508,7 +1532,7 @@ name|bucket
 operator|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"r2"
 argument_list|)
@@ -1540,6 +1564,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -1552,6 +1579,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1577,7 +1607,7 @@ name|bucket
 operator|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"r3"
 argument_list|)
@@ -1609,6 +1639,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -1621,6 +1654,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1760,7 +1796,7 @@ name|assertThat
 argument_list|(
 name|range
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 operator|.
 name|size
@@ -1779,7 +1815,7 @@ name|bucket
 init|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"*-3.0"
 argument_list|)
@@ -1811,6 +1847,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -1825,6 +1864,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1885,7 +1927,7 @@ name|bucket
 operator|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"3.0-6.0"
 argument_list|)
@@ -1917,6 +1959,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -1929,6 +1974,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1988,7 +2036,7 @@ name|bucket
 operator|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"6.0-*"
 argument_list|)
@@ -2020,6 +2068,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -2032,6 +2083,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2229,7 +2283,7 @@ name|assertThat
 argument_list|(
 name|range
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 operator|.
 name|size
@@ -2248,7 +2302,7 @@ name|bucket
 init|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"*-3.0"
 argument_list|)
@@ -2280,6 +2334,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -2294,6 +2351,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2354,7 +2414,7 @@ name|bucket
 operator|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"3.0-6.0"
 argument_list|)
@@ -2386,6 +2446,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -2398,6 +2461,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2457,7 +2523,7 @@ name|bucket
 operator|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"6.0-*"
 argument_list|)
@@ -2489,6 +2555,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -2501,6 +2570,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2702,7 +2774,7 @@ name|assertThat
 argument_list|(
 name|range
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 operator|.
 name|size
@@ -2721,7 +2793,7 @@ name|bucket
 init|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"*-3.0"
 argument_list|)
@@ -2753,6 +2825,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -2767,6 +2842,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2793,7 +2871,7 @@ name|bucket
 operator|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"3.0-6.0"
 argument_list|)
@@ -2825,6 +2903,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -2837,6 +2918,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2863,7 +2947,7 @@ name|bucket
 operator|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"6.0-*"
 argument_list|)
@@ -2895,6 +2979,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -2907,6 +2994,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3034,7 +3124,7 @@ name|assertThat
 argument_list|(
 name|range
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 operator|.
 name|size
@@ -3053,7 +3143,7 @@ name|bucket
 init|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"*-3.0"
 argument_list|)
@@ -3085,6 +3175,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -3099,6 +3192,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3124,7 +3220,7 @@ name|bucket
 operator|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"3.0-6.0"
 argument_list|)
@@ -3156,6 +3252,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -3168,6 +3267,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3193,7 +3295,7 @@ name|bucket
 operator|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"6.0-*"
 argument_list|)
@@ -3225,6 +3327,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -3237,6 +3342,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3369,7 +3477,7 @@ name|assertThat
 argument_list|(
 name|range
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 operator|.
 name|size
@@ -3388,7 +3496,7 @@ name|bucket
 init|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"*-3.0"
 argument_list|)
@@ -3420,6 +3528,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -3434,6 +3545,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3459,7 +3573,7 @@ name|bucket
 operator|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"3.0-6.0"
 argument_list|)
@@ -3491,6 +3605,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -3503,6 +3620,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3528,7 +3648,7 @@ name|bucket
 operator|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"6.0-*"
 argument_list|)
@@ -3560,6 +3680,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -3572,6 +3695,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3712,7 +3838,7 @@ name|assertThat
 argument_list|(
 name|range
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 operator|.
 name|size
@@ -3731,7 +3857,7 @@ name|bucket
 init|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"*-3.0"
 argument_list|)
@@ -3763,6 +3889,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -3777,6 +3906,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3851,7 +3983,7 @@ name|bucket
 operator|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"3.0-6.0"
 argument_list|)
@@ -3883,6 +4015,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -3895,6 +4030,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3983,7 +4121,7 @@ name|bucket
 operator|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"6.0-*"
 argument_list|)
@@ -4015,6 +4153,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -4027,6 +4168,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4249,7 +4393,7 @@ name|assertThat
 argument_list|(
 name|range
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 operator|.
 name|size
@@ -4268,7 +4412,7 @@ name|bucket
 init|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"*-3.0"
 argument_list|)
@@ -4300,6 +4444,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -4314,6 +4461,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4339,7 +4489,7 @@ name|bucket
 operator|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"3.0-6.0"
 argument_list|)
@@ -4371,6 +4521,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -4383,6 +4536,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4408,7 +4564,7 @@ name|bucket
 operator|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"6.0-*"
 argument_list|)
@@ -4440,6 +4596,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -4452,6 +4611,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4590,7 +4752,7 @@ name|assertThat
 argument_list|(
 name|range
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 operator|.
 name|size
@@ -4609,7 +4771,7 @@ name|bucket
 init|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"*-3.0"
 argument_list|)
@@ -4641,6 +4803,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -4655,6 +4820,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4715,7 +4883,7 @@ name|bucket
 operator|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"3.0-6.0"
 argument_list|)
@@ -4747,6 +4915,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -4759,6 +4930,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4818,7 +4992,7 @@ name|bucket
 operator|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"6.0-*"
 argument_list|)
@@ -4850,6 +5024,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -4862,6 +5039,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -5052,7 +5232,7 @@ name|assertThat
 argument_list|(
 name|range
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 operator|.
 name|size
@@ -5071,7 +5251,7 @@ name|bucket
 init|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"*--1.0"
 argument_list|)
@@ -5103,6 +5283,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -5117,6 +5300,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -5143,7 +5329,7 @@ name|bucket
 operator|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"1000.0-*"
 argument_list|)
@@ -5175,6 +5361,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -5187,6 +5376,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -5315,7 +5507,7 @@ name|assertThat
 argument_list|(
 name|range
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 operator|.
 name|size
@@ -5334,7 +5526,7 @@ name|bucket
 init|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"*-3.0"
 argument_list|)
@@ -5366,6 +5558,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -5380,6 +5575,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -5405,7 +5603,7 @@ name|bucket
 operator|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"3.0-6.0"
 argument_list|)
@@ -5437,6 +5635,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -5449,6 +5650,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -5474,7 +5678,7 @@ name|bucket
 operator|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"6.0-*"
 argument_list|)
@@ -5506,6 +5710,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -5518,6 +5725,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -5663,7 +5873,7 @@ name|assertThat
 argument_list|(
 name|range
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 operator|.
 name|size
@@ -5682,7 +5892,7 @@ name|bucket
 init|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"r1"
 argument_list|)
@@ -5714,6 +5924,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -5728,6 +5941,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -5809,7 +6025,7 @@ name|bucket
 operator|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"r2"
 argument_list|)
@@ -5841,6 +6057,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -5853,6 +6072,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -5941,7 +6163,7 @@ name|bucket
 operator|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"r3"
 argument_list|)
@@ -5973,6 +6195,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -5985,6 +6210,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -6195,7 +6423,7 @@ name|assertThat
 argument_list|(
 name|range
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 operator|.
 name|size
@@ -6214,7 +6442,7 @@ name|bucket
 init|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"*-3.0"
 argument_list|)
@@ -6246,6 +6474,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -6261,6 +6492,9 @@ name|bucket
 operator|.
 name|getTo
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -6285,7 +6519,7 @@ name|bucket
 operator|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"3.0-6.0"
 argument_list|)
@@ -6317,6 +6551,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -6329,6 +6566,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -6354,7 +6594,7 @@ name|bucket
 operator|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"6.0-*"
 argument_list|)
@@ -6386,6 +6626,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -6398,6 +6641,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -6547,7 +6793,7 @@ name|assertThat
 argument_list|(
 name|range
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 operator|.
 name|size
@@ -6566,7 +6812,7 @@ name|bucket
 init|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"*-3.0"
 argument_list|)
@@ -6598,6 +6844,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -6612,6 +6861,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -6637,7 +6889,7 @@ name|bucket
 operator|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"3.0-6.0"
 argument_list|)
@@ -6669,6 +6921,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -6681,6 +6936,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -6706,7 +6964,7 @@ name|bucket
 operator|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"6.0-*"
 argument_list|)
@@ -6738,6 +6996,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -6750,6 +7011,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -6883,7 +7147,7 @@ name|assertThat
 argument_list|(
 name|range
 operator|.
-name|buckets
+name|getBuckets
 argument_list|()
 operator|.
 name|size
@@ -6902,7 +7166,7 @@ name|bucket
 init|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"*-5.0"
 argument_list|)
@@ -6934,6 +7198,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -6948,6 +7215,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -6973,7 +7243,7 @@ name|bucket
 operator|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"3.0-6.0"
 argument_list|)
@@ -7005,6 +7275,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -7017,6 +7290,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -7042,7 +7318,7 @@ name|bucket
 operator|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"4.0-5.0"
 argument_list|)
@@ -7074,6 +7350,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -7086,6 +7365,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -7111,7 +7393,7 @@ name|bucket
 operator|=
 name|range
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|"4.0-*"
 argument_list|)
@@ -7143,6 +7425,9 @@ name|bucket
 operator|.
 name|getFrom
 argument_list|()
+operator|.
+name|doubleValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -7155,6 +7440,9 @@ argument_list|(
 name|bucket
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -7408,7 +7696,7 @@ name|bucket
 init|=
 name|histo
 operator|.
-name|getByKey
+name|getBucketByKey
 argument_list|(
 literal|1l
 argument_list|)
@@ -7436,6 +7724,28 @@ argument_list|(
 literal|"range"
 argument_list|)
 decl_stmt|;
+name|List
+argument_list|<
+name|Range
+operator|.
+name|Bucket
+argument_list|>
+name|buckets
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|Range
+operator|.
+name|Bucket
+argument_list|>
+argument_list|(
+name|range
+operator|.
+name|getBuckets
+argument_list|()
+argument_list|)
+decl_stmt|;
 name|assertThat
 argument_list|(
 name|range
@@ -7461,10 +7771,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|range
-operator|.
 name|buckets
-argument_list|()
 operator|.
 name|size
 argument_list|()
@@ -7477,10 +7784,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|range
-operator|.
 name|buckets
-argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -7498,10 +7802,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|range
-operator|.
 name|buckets
-argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -7509,6 +7810,9 @@ literal|0
 argument_list|)
 operator|.
 name|getFrom
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -7519,10 +7823,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|range
-operator|.
 name|buckets
-argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -7530,6 +7831,9 @@ literal|0
 argument_list|)
 operator|.
 name|getTo
+argument_list|()
+operator|.
+name|doubleValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -7540,10 +7844,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|range
-operator|.
 name|buckets
-argument_list|()
 operator|.
 name|get
 argument_list|(

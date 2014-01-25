@@ -76,7 +76,7 @@ name|aggregations
 operator|.
 name|bucket
 operator|.
-name|SingleBucketAggregation
+name|InternalSingleBucketAggregation
 import|;
 end_import
 
@@ -100,10 +100,7 @@ specifier|public
 class|class
 name|InternalFilter
 extends|extends
-name|SingleBucketAggregation
-argument_list|<
-name|InternalFilter
-argument_list|>
+name|InternalSingleBucketAggregation
 implements|implements
 name|Filter
 block|{

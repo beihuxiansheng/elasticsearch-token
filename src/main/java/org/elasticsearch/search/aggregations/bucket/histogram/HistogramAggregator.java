@@ -345,7 +345,7 @@ decl_stmt|;
 DECL|field|histogramFactory
 specifier|private
 specifier|final
-name|AbstractHistogramBase
+name|InternalHistogram
 operator|.
 name|Factory
 name|histogramFactory
@@ -391,7 +391,7 @@ parameter_list|,
 name|long
 name|initialCapacity
 parameter_list|,
-name|AbstractHistogramBase
+name|InternalHistogram
 operator|.
 name|Factory
 argument_list|<
@@ -649,7 +649,7 @@ literal|0
 assert|;
 name|List
 argument_list|<
-name|HistogramBase
+name|InternalHistogram
 operator|.
 name|Bucket
 argument_list|>
@@ -658,7 +658,7 @@ init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|HistogramBase
+name|InternalHistogram
 operator|.
 name|Bucket
 argument_list|>
@@ -740,6 +740,11 @@ name|bucketAggregations
 argument_list|(
 name|ord
 argument_list|)
+argument_list|,
+name|valuesSource
+operator|.
+name|formatter
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -771,7 +776,7 @@ argument_list|()
 else|:
 literal|null
 decl_stmt|;
-name|AbstractHistogramBase
+name|InternalHistogram
 operator|.
 name|EmptyBucketInfo
 name|emptyBucketInfo
@@ -781,7 +786,7 @@ operator|==
 literal|0
 condition|?
 operator|new
-name|AbstractHistogramBase
+name|InternalHistogram
 operator|.
 name|EmptyBucketInfo
 argument_list|(
@@ -836,7 +841,7 @@ argument_list|()
 else|:
 literal|null
 decl_stmt|;
-name|AbstractHistogramBase
+name|InternalHistogram
 operator|.
 name|EmptyBucketInfo
 name|emptyBucketInfo
@@ -846,7 +851,7 @@ operator|==
 literal|0
 condition|?
 operator|new
-name|AbstractHistogramBase
+name|InternalHistogram
 operator|.
 name|EmptyBucketInfo
 argument_list|(
@@ -936,7 +941,7 @@ decl_stmt|;
 DECL|field|histogramFactory
 specifier|private
 specifier|final
-name|AbstractHistogramBase
+name|InternalHistogram
 operator|.
 name|Factory
 argument_list|<
@@ -969,7 +974,7 @@ parameter_list|,
 name|long
 name|minDocCount
 parameter_list|,
-name|AbstractHistogramBase
+name|InternalHistogram
 operator|.
 name|Factory
 argument_list|<
