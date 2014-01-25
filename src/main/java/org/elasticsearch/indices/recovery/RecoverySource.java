@@ -2535,27 +2535,13 @@ name|bytes
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|recoverySettings
-operator|.
-name|rateLimiter
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
-name|recoverySettings
-operator|.
-name|rateLimiter
-argument_list|()
-operator|.
-name|pause
-argument_list|(
-name|size
-argument_list|)
-expr_stmt|;
-block|}
+comment|// don't throttle translog, since we lock for phase3 indexing, so we need to move it as
+comment|// fast as possible. Note, sine we index docs to replicas while the index files are recovered
+comment|// the lock can potentially be removed, in which case, it might make sense to re-enable
+comment|// throttling in this phase
+comment|//                        if (recoverySettings.rateLimiter() != null) {
+comment|//                            recoverySettings.rateLimiter().pause(size);
+comment|//                        }
 name|RecoveryTranslogOperationsRequest
 name|translogOperationsRequest
 init|=
