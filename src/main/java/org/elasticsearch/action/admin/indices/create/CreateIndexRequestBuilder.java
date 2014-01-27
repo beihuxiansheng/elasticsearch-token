@@ -206,6 +206,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Sets the name of the index to be created      */
 DECL|method|setIndex
 specifier|public
 name|CreateIndexRequestBuilder
@@ -226,7 +227,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The settings to created the index with.      */
+comment|/**      * The settings to create the index with.      */
 DECL|method|setSettings
 specifier|public
 name|CreateIndexRequestBuilder
@@ -247,7 +248,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The settings to created the index with.      */
+comment|/**      * The settings to create the index with.      */
 DECL|method|setSettings
 specifier|public
 name|CreateIndexRequestBuilder
@@ -291,7 +292,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The settings to crete the index with (either json/yaml/properties format)      */
+comment|/**      * The settings to create the index with (either json/yaml/properties format)      */
 DECL|method|setSettings
 specifier|public
 name|CreateIndexRequestBuilder
@@ -334,7 +335,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The settings to crete the index with (either json/yaml/properties format)      */
+comment|/**      * The settings to create the index with (either json/yaml/properties format)      */
 DECL|method|setSettings
 specifier|public
 name|CreateIndexRequestBuilder
@@ -613,6 +614,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Adds custom metadata to the index to be created.      */
 DECL|method|addCustom
 specifier|public
 name|CreateIndexRequestBuilder

@@ -541,7 +541,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The settings to created the index with.      */
+comment|/**      * The settings to create the index with.      */
 DECL|method|settings
 name|Settings
 name|settings
@@ -593,7 +593,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The settings to created the index with.      */
+comment|/**      * The settings to create the index with.      */
 DECL|method|settings
 specifier|public
 name|CreateIndexRequest
@@ -613,7 +613,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The settings to created the index with.      */
+comment|/**      * The settings to create the index with.      */
 DECL|method|settings
 specifier|public
 name|CreateIndexRequest
@@ -638,7 +638,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The settings to crete the index with (either json/yaml/properties format)      */
+comment|/**      * The settings to create the index with (either json/yaml/properties format)      */
 DECL|method|settings
 specifier|public
 name|CreateIndexRequest
@@ -710,7 +710,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The settings to crete the index with (either json/yaml/properties format)      */
+comment|/**      * The settings to create the index with (either json/yaml/properties format)      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -1087,6 +1087,7 @@ name|length
 argument_list|)
 return|;
 block|}
+comment|/**      * Sets the settings and mappings as a single source.      */
 DECL|method|source
 specifier|public
 name|CreateIndexRequest
@@ -1475,6 +1476,7 @@ operator|.
 name|mappings
 return|;
 block|}
+comment|/**      * Adds custom metadata to the index to be created.      */
 DECL|method|custom
 specifier|public
 name|CreateIndexRequest
