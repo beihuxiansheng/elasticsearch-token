@@ -113,6 +113,14 @@ operator|.
 name|PREFIX_OPERATOR
 argument_list|)
 operator|,
+DECL|enum constant|PHRASE
+name|PHRASE
+argument_list|(
+name|XSimpleQueryParser
+operator|.
+name|PHRASE_OPERATOR
+argument_list|)
+operator|,
 DECL|enum constant|PRECEDENCE
 name|PRECEDENCE
 argument_list|(
