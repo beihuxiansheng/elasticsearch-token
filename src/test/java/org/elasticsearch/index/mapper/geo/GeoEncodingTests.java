@@ -168,10 +168,14 @@ init|=
 operator|new
 name|Distance
 argument_list|(
+literal|1
+operator|+
+operator|(
 name|randomDouble
 argument_list|()
 operator|*
-literal|10
+literal|9
+operator|)
 argument_list|,
 name|randomFrom
 argument_list|(
