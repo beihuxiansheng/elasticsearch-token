@@ -216,8 +216,10 @@ expr_stmt|;
 name|int
 name|recordCount
 init|=
-name|randomInt
+name|between
 argument_list|(
+literal|1
+argument_list|,
 literal|200
 argument_list|)
 decl_stmt|;
