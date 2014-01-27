@@ -8825,7 +8825,7 @@ operator|.
 name|getMatches
 argument_list|()
 argument_list|,
-name|emptyArray
+name|nullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -8904,7 +8904,7 @@ operator|.
 name|getMatches
 argument_list|()
 argument_list|,
-name|emptyArray
+name|nullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -8983,7 +8983,7 @@ operator|.
 name|getMatches
 argument_list|()
 argument_list|,
-name|emptyArray
+name|nullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -9062,7 +9062,7 @@ operator|.
 name|getMatches
 argument_list|()
 argument_list|,
-name|emptyArray
+name|nullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -9568,7 +9568,7 @@ operator|.
 name|getMatches
 argument_list|()
 argument_list|,
-name|emptyArray
+name|nullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -9642,7 +9642,7 @@ operator|.
 name|getMatches
 argument_list|()
 argument_list|,
-name|emptyArray
+name|nullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -9716,7 +9716,7 @@ operator|.
 name|getMatches
 argument_list|()
 argument_list|,
-name|emptyArray
+name|nullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -9790,7 +9790,7 @@ operator|.
 name|getMatches
 argument_list|()
 argument_list|,
-name|emptyArray
+name|nullValue
 argument_list|()
 argument_list|)
 expr_stmt|;

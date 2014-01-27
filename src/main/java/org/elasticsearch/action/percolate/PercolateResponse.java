@@ -274,7 +274,7 @@ implements|,
 name|ToXContent
 block|{
 DECL|field|EMPTY
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|Match
@@ -412,6 +412,10 @@ name|shardFailures
 parameter_list|,
 name|long
 name|tookInMillis
+parameter_list|,
+name|Match
+index|[]
+name|matches
 parameter_list|)
 block|{
 name|super
@@ -435,7 +439,7 @@ name|this
 operator|.
 name|matches
 operator|=
-name|EMPTY
+name|matches
 expr_stmt|;
 block|}
 DECL|method|PercolateResponse
@@ -484,6 +488,7 @@ return|return
 name|tookInMillis
 return|;
 block|}
+comment|/**      * @return The queries that match with the document being percolated. This can return<code>null</code> if th.      */
 DECL|method|getMatches
 specifier|public
 name|Match
@@ -497,6 +502,7 @@ operator|.
 name|matches
 return|;
 block|}
+comment|/**      * @return The total number of queries that have matched with the document being percolated.      */
 DECL|method|getCount
 specifier|public
 name|long
@@ -507,6 +513,7 @@ return|return
 name|count
 return|;
 block|}
+comment|/**      * @return Any facet that has been executed on the query metadata. This can return<code>null</code>.      */
 DECL|method|getFacets
 specifier|public
 name|InternalFacets
@@ -517,6 +524,7 @@ return|return
 name|facets
 return|;
 block|}
+comment|/**      * @return Any aggregations that has been executed on the query metadata. This can return<code>null</code>.      */
 DECL|method|getAggregations
 specifier|public
 name|InternalAggregations
@@ -605,10 +613,8 @@ expr_stmt|;
 if|if
 condition|(
 name|matches
-operator|.
-name|length
 operator|!=
-literal|0
+literal|null
 condition|)
 block|{
 name|builder
@@ -935,6 +941,14 @@ operator|.
 name|readVInt
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|size
+operator|!=
+operator|-
+literal|1
+condition|)
+block|{
 name|matches
 operator|=
 operator|new
@@ -977,6 +991,7 @@ argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|facets
 operator|=
@@ -1031,6 +1046,24 @@ argument_list|(
 name|count
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|matches
+operator|==
+literal|null
+condition|)
+block|{
+name|out
+operator|.
+name|writeVInt
+argument_list|(
+operator|-
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|out
 operator|.
 name|writeVInt
@@ -1055,6 +1088,7 @@ argument_list|(
 name|out
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|out
 operator|.
