@@ -906,6 +906,8 @@ name|i
 operator|++
 control|)
 block|{
+try|try
+block|{
 name|MemoryPoolMXBean
 name|memoryPoolMXBean
 init|=
@@ -1024,6 +1026,26 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|OutOfMemoryError
+name|err
+parameter_list|)
+block|{
+throw|throw
+name|err
+throw|;
+comment|// rethrow
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|ex
+parameter_list|)
+block|{
+comment|/* ignore some JVMs might barf here with:                  * java.lang.InternalError: Memory Pool not found                  * we just omit the pool in that case!*/
+block|}
 block|}
 name|stats
 operator|.
