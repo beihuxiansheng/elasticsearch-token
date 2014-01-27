@@ -1049,7 +1049,7 @@ name|fId
 init|=
 name|in
 operator|.
-name|readString
+name|readOptionalString
 argument_list|()
 decl_stmt|;
 name|String
@@ -1246,7 +1246,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeString
+name|writeOptionalString
 argument_list|(
 name|failure
 operator|.

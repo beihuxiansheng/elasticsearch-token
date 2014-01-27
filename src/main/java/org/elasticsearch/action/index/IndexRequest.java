@@ -2241,7 +2241,7 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"failed to parse doc to extract routing/timestamp"
+literal|"failed to parse doc to extract routing/timestamp/id"
 argument_list|,
 name|e
 argument_list|)
