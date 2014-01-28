@@ -312,18 +312,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
-name|Field
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|Collection
@@ -1516,6 +1504,14 @@ name|void
 name|test4093
 parameter_list|()
 block|{
+name|cluster
+argument_list|()
+operator|.
+name|ensureAtMostNumNodes
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
 name|assertAcked
 argument_list|(
 name|prepareCreate
@@ -1679,7 +1675,7 @@ name|between
 argument_list|(
 literal|30
 argument_list|,
-literal|100
+literal|50
 argument_list|)
 decl_stmt|;
 comment|// 30 docs are enough to fail without the fix for #4093
