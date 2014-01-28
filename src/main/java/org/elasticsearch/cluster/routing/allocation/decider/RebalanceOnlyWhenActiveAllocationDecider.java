@@ -137,15 +137,29 @@ argument_list|)
 condition|)
 block|{
 return|return
+name|allocation
+operator|.
+name|decision
+argument_list|(
 name|Decision
 operator|.
 name|NO
+argument_list|,
+literal|"not all replicas are active in cluster"
+argument_list|)
 return|;
 block|}
 return|return
+name|allocation
+operator|.
+name|decision
+argument_list|(
 name|Decision
 operator|.
 name|YES
+argument_list|,
+literal|"all replicas are active in cluster"
+argument_list|)
 return|;
 block|}
 block|}

@@ -393,9 +393,16 @@ condition|)
 block|{
 comment|// Snapshots are not running
 return|return
+name|allocation
+operator|.
+name|decision
+argument_list|(
 name|Decision
 operator|.
 name|YES
+argument_list|,
+literal|"no snapshots are currently running"
+argument_list|)
 return|;
 block|}
 for|for
@@ -483,17 +490,41 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
+name|allocation
+operator|.
+name|decision
+argument_list|(
 name|Decision
 operator|.
 name|NO
+argument_list|,
+literal|"snapshot for shard [%s] is currently running on node [%s]"
+argument_list|,
+name|shardRouting
+operator|.
+name|shardId
+argument_list|()
+argument_list|,
+name|shardSnapshotStatus
+operator|.
+name|nodeId
+argument_list|()
+argument_list|)
 return|;
 block|}
 block|}
 block|}
 return|return
+name|allocation
+operator|.
+name|decision
+argument_list|(
 name|Decision
 operator|.
 name|YES
+argument_list|,
+literal|"shard not primary or relocation disabled"
+argument_list|)
 return|;
 block|}
 block|}

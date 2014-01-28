@@ -655,14 +655,6 @@ name|allocation
 argument_list|,
 literal|true
 argument_list|)
-condition|?
-name|Decision
-operator|.
-name|YES
-else|:
-name|Decision
-operator|.
-name|NO
 return|;
 block|}
 annotation|@
@@ -693,19 +685,11 @@ name|allocation
 argument_list|,
 literal|false
 argument_list|)
-condition|?
-name|Decision
-operator|.
-name|YES
-else|:
-name|Decision
-operator|.
-name|NO
 return|;
 block|}
 DECL|method|underCapacity
 specifier|private
-name|boolean
+name|Decision
 name|underCapacity
 parameter_list|(
 name|ShardRouting
@@ -731,7 +715,16 @@ literal|0
 condition|)
 block|{
 return|return
-literal|true
+name|allocation
+operator|.
+name|decision
+argument_list|(
+name|Decision
+operator|.
+name|YES
+argument_list|,
+literal|"no allocation awareness enabled"
+argument_list|)
 return|;
 block|}
 name|IndexMetaData
@@ -788,7 +781,18 @@ argument_list|)
 condition|)
 block|{
 return|return
-literal|false
+name|allocation
+operator|.
+name|decision
+argument_list|(
+name|Decision
+operator|.
+name|NO
+argument_list|,
+literal|"node does not contain awareness attribute: [%s]"
+argument_list|,
+name|awarenessAttribute
+argument_list|)
 return|;
 block|}
 comment|// build attr_value -> nodes map
@@ -1192,7 +1196,18 @@ operator|)
 condition|)
 block|{
 return|return
-literal|false
+name|allocation
+operator|.
+name|decision
+argument_list|(
+name|Decision
+operator|.
+name|NO
+argument_list|,
+literal|"too many shards on nodes for attribute: [%s]"
+argument_list|,
+name|awarenessAttribute
+argument_list|)
 return|;
 block|}
 comment|// all is well, we are below or same as average
@@ -1207,7 +1222,16 @@ continue|continue;
 block|}
 block|}
 return|return
-literal|true
+name|allocation
+operator|.
+name|decision
+argument_list|(
+name|Decision
+operator|.
+name|YES
+argument_list|,
+literal|"node meets awareness requirements"
+argument_list|)
 return|;
 block|}
 block|}

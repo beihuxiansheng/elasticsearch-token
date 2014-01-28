@@ -122,20 +122,6 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
 name|Settings
 import|;
 end_import
@@ -482,21 +468,6 @@ block|}
 DECL|method|DiskThresholdDecider
 specifier|public
 name|DiskThresholdDecider
-parameter_list|()
-block|{
-name|this
-argument_list|(
-name|ImmutableSettings
-operator|.
-name|Builder
-operator|.
-name|EMPTY_SETTINGS
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|DiskThresholdDecider
-specifier|public
-name|DiskThresholdDecider
 parameter_list|(
 name|Settings
 name|settings
@@ -684,9 +655,16 @@ name|enabled
 condition|)
 block|{
 return|return
+name|allocation
+operator|.
+name|decision
+argument_list|(
 name|Decision
 operator|.
 name|YES
+argument_list|,
+literal|"disk threshold decider disabled"
+argument_list|)
 return|;
 block|}
 comment|// Allow allocation regardless if only a single node is available
@@ -704,9 +682,16 @@ literal|1
 condition|)
 block|{
 return|return
+name|allocation
+operator|.
+name|decision
+argument_list|(
 name|Decision
 operator|.
 name|YES
+argument_list|,
+literal|"only a single node is present"
+argument_list|)
 return|;
 block|}
 name|ClusterInfo
@@ -741,9 +726,16 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
+name|allocation
+operator|.
+name|decision
+argument_list|(
 name|Decision
 operator|.
 name|YES
+argument_list|,
+literal|"cluster info unavailable"
+argument_list|)
 return|;
 block|}
 name|Map
@@ -797,9 +789,16 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
+name|allocation
+operator|.
+name|decision
+argument_list|(
 name|Decision
 operator|.
 name|YES
+argument_list|,
+literal|"disk usages unavailable"
+argument_list|)
 return|;
 block|}
 name|DiskUsage
@@ -946,9 +945,24 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
+name|allocation
+operator|.
+name|decision
+argument_list|(
 name|Decision
 operator|.
 name|NO
+argument_list|,
+literal|"less than required [%s] free on node, free: [%s]"
+argument_list|,
+name|freeBytesThresholdLow
+argument_list|,
+operator|new
+name|ByteSizeValue
+argument_list|(
+name|freeBytes
+argument_list|)
+argument_list|)
 return|;
 block|}
 if|if
@@ -984,9 +998,20 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
+name|allocation
+operator|.
+name|decision
+argument_list|(
 name|Decision
 operator|.
 name|NO
+argument_list|,
+literal|"less than required [%d%%] free disk on node, free: [%d%%]"
+argument_list|,
+name|freeDiskThresholdLow
+argument_list|,
+name|freeDiskThresholdLow
+argument_list|)
 return|;
 block|}
 comment|// Secondly, check that allocating the shard to this node doesn't put it above the high watermark
@@ -1059,9 +1084,24 @@ name|freeBytesAfterShard
 argument_list|)
 expr_stmt|;
 return|return
+name|allocation
+operator|.
+name|decision
+argument_list|(
 name|Decision
 operator|.
 name|NO
+argument_list|,
+literal|"after allocation less than required [%s] free on node, free: [%s]"
+argument_list|,
+name|freeBytesThresholdLow
+argument_list|,
+operator|new
+name|ByteSizeValue
+argument_list|(
+name|freeBytesAfterShard
+argument_list|)
+argument_list|)
 return|;
 block|}
 if|if
@@ -1088,15 +1128,39 @@ name|freeSpaceAfterShard
 argument_list|)
 expr_stmt|;
 return|return
+name|allocation
+operator|.
+name|decision
+argument_list|(
 name|Decision
 operator|.
 name|NO
+argument_list|,
+literal|"after allocation less than required [%d%%] free disk on node, free: [%d%%]"
+argument_list|,
+name|freeDiskThresholdLow
+argument_list|,
+name|freeSpaceAfterShard
+argument_list|)
 return|;
 block|}
 return|return
+name|allocation
+operator|.
+name|decision
+argument_list|(
 name|Decision
 operator|.
 name|YES
+argument_list|,
+literal|"enough disk for shard on node, free: [%s]"
+argument_list|,
+operator|new
+name|ByteSizeValue
+argument_list|(
+name|freeBytes
+argument_list|)
+argument_list|)
 return|;
 block|}
 DECL|method|canRemain
@@ -1121,9 +1185,16 @@ name|enabled
 condition|)
 block|{
 return|return
+name|allocation
+operator|.
+name|decision
+argument_list|(
 name|Decision
 operator|.
 name|YES
+argument_list|,
+literal|"disk threshold decider disabled"
+argument_list|)
 return|;
 block|}
 comment|// Allow allocation regardless if only a single node is available
@@ -1141,9 +1212,16 @@ literal|1
 condition|)
 block|{
 return|return
+name|allocation
+operator|.
+name|decision
+argument_list|(
 name|Decision
 operator|.
 name|YES
+argument_list|,
+literal|"only a single node is present"
+argument_list|)
 return|;
 block|}
 name|ClusterInfo
@@ -1178,9 +1256,16 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
+name|allocation
+operator|.
+name|decision
+argument_list|(
 name|Decision
 operator|.
 name|YES
+argument_list|,
+literal|"cluster info unavailable"
+argument_list|)
 return|;
 block|}
 name|Map
@@ -1221,9 +1306,16 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
+name|allocation
+operator|.
+name|decision
+argument_list|(
 name|Decision
 operator|.
 name|YES
+argument_list|,
+literal|"disk usages unavailable"
+argument_list|)
 return|;
 block|}
 name|DiskUsage
@@ -1372,9 +1464,24 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
+name|allocation
+operator|.
+name|decision
+argument_list|(
 name|Decision
 operator|.
 name|NO
+argument_list|,
+literal|"after allocation less than required [%s] free on node, free: [%s]"
+argument_list|,
+name|freeBytesThresholdHigh
+argument_list|,
+operator|new
+name|ByteSizeValue
+argument_list|(
+name|freeBytes
+argument_list|)
+argument_list|)
 return|;
 block|}
 if|if
@@ -1410,15 +1517,39 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
+name|allocation
+operator|.
+name|decision
+argument_list|(
 name|Decision
 operator|.
 name|NO
+argument_list|,
+literal|"after allocation less than required [%d%%] free disk on node, free: [%d%%]"
+argument_list|,
+name|freeDiskThresholdHigh
+argument_list|,
+name|freeDiskPercentage
+argument_list|)
 return|;
 block|}
 return|return
+name|allocation
+operator|.
+name|decision
+argument_list|(
 name|Decision
 operator|.
 name|YES
+argument_list|,
+literal|"enough disk for shard to remain on node, free: [%s]"
+argument_list|,
+operator|new
+name|ByteSizeValue
+argument_list|(
+name|freeBytes
+argument_list|)
+argument_list|)
 return|;
 block|}
 comment|/**      * Returns a {@link DiskUsage} for the {@link RoutingNode} using the      * average usage of other nodes in the disk usage map.      * @param node Node to return an averaged DiskUsage object for      * @param usages Map of nodeId to DiskUsage for all known nodes      * @return DiskUsage representing given node using the average disk usage      */

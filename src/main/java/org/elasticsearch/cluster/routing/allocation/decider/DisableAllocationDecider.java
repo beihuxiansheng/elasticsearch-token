@@ -459,9 +459,16 @@ argument_list|()
 condition|)
 block|{
 return|return
+name|allocation
+operator|.
+name|decision
+argument_list|(
 name|Decision
 operator|.
 name|YES
+argument_list|,
+literal|"allocation disabling is ignored"
+argument_list|)
 return|;
 block|}
 name|Settings
@@ -524,7 +531,8 @@ condition|)
 block|{
 comment|// if its primary, and it hasn't been allocated post API (meaning its a "fresh newly created shard"), only disable allocation
 comment|// on a special disable allocation flag
-return|return
+if|if
+condition|(
 name|indexSettings
 operator|.
 name|getAsBoolean
@@ -533,15 +541,36 @@ name|INDEX_ROUTING_ALLOCATION_DISABLE_NEW_ALLOCATION
 argument_list|,
 name|disableNewAllocation
 argument_list|)
-condition|?
+condition|)
+block|{
+return|return
+name|allocation
+operator|.
+name|decision
+argument_list|(
 name|Decision
 operator|.
 name|NO
-else|:
+argument_list|,
+literal|"new primary allocation is disabled"
+argument_list|)
+return|;
+block|}
+else|else
+block|{
+return|return
+name|allocation
+operator|.
+name|decision
+argument_list|(
 name|Decision
 operator|.
 name|YES
+argument_list|,
+literal|"new primary allocation is enabled"
+argument_list|)
 return|;
+block|}
 block|}
 if|if
 condition|(
@@ -556,9 +585,16 @@ argument_list|)
 condition|)
 block|{
 return|return
+name|allocation
+operator|.
+name|decision
+argument_list|(
 name|Decision
 operator|.
 name|NO
+argument_list|,
+literal|"all allocation is disabled"
+argument_list|)
 return|;
 block|}
 if|if
@@ -573,25 +609,54 @@ name|disableReplicaAllocation
 argument_list|)
 condition|)
 block|{
-return|return
+if|if
+condition|(
 name|shardRouting
 operator|.
 name|primary
 argument_list|()
-condition|?
+condition|)
+block|{
+return|return
+name|allocation
+operator|.
+name|decision
+argument_list|(
 name|Decision
 operator|.
 name|YES
-else|:
+argument_list|,
+literal|"primary allocation is enabled"
+argument_list|)
+return|;
+block|}
+else|else
+block|{
+return|return
+name|allocation
+operator|.
+name|decision
+argument_list|(
 name|Decision
 operator|.
 name|NO
+argument_list|,
+literal|"replica allocation is disabled"
+argument_list|)
 return|;
 block|}
+block|}
 return|return
+name|allocation
+operator|.
+name|decision
+argument_list|(
 name|Decision
 operator|.
 name|YES
+argument_list|,
+literal|"all allocation is enabled"
+argument_list|)
 return|;
 block|}
 block|}

@@ -232,9 +232,21 @@ argument_list|)
 condition|)
 block|{
 return|return
+name|allocation
+operator|.
+name|decision
+argument_list|(
 name|Decision
 operator|.
 name|NO
+argument_list|,
+literal|"shard cannot be allocated on same node [%s] it already exists on"
+argument_list|,
+name|node
+operator|.
+name|nodeId
+argument_list|()
+argument_list|)
 return|;
 block|}
 block|}
@@ -427,9 +439,21 @@ argument_list|)
 condition|)
 block|{
 return|return
+name|allocation
+operator|.
+name|decision
+argument_list|(
 name|Decision
 operator|.
 name|NO
+argument_list|,
+literal|"shard cannot be allocated on same host [%s] it already exists on"
+argument_list|,
+name|node
+operator|.
+name|nodeId
+argument_list|()
+argument_list|)
 return|;
 block|}
 block|}
@@ -438,9 +462,16 @@ block|}
 block|}
 block|}
 return|return
+name|allocation
+operator|.
+name|decision
+argument_list|(
 name|Decision
 operator|.
 name|YES
+argument_list|,
+literal|"shard is not allocated to same node or host"
+argument_list|)
 return|;
 block|}
 block|}

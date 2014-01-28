@@ -192,9 +192,16 @@ condition|)
 block|{
 comment|// we are the primary we can allocate wherever
 return|return
+name|allocation
+operator|.
+name|decision
+argument_list|(
 name|Decision
 operator|.
 name|YES
+argument_list|,
+literal|"primary shard can be allocated anywhere"
+argument_list|)
 return|;
 block|}
 specifier|final
@@ -220,9 +227,16 @@ condition|)
 block|{
 comment|// we have a primary - it's a start ;)
 return|return
+name|allocation
+operator|.
+name|decision
+argument_list|(
 name|Decision
 operator|.
 name|YES
+argument_list|,
+literal|"no active primary shard yet"
+argument_list|)
 return|;
 block|}
 name|sourceNodeId
@@ -244,6 +258,8 @@ argument_list|,
 name|sourceNodeId
 argument_list|,
 name|node
+argument_list|,
+name|allocation
 argument_list|)
 return|;
 block|}
@@ -263,6 +279,9 @@ parameter_list|,
 specifier|final
 name|RoutingNode
 name|target
+parameter_list|,
+name|RoutingAllocation
+name|allocation
 parameter_list|)
 block|{
 specifier|final
@@ -300,17 +319,63 @@ condition|)
 block|{
 comment|/* we can allocate if we can recover from a node that is younger or on the same version              * if the primary is already running on a newer version that won't work due to possible              * differences in the lucene index format etc.*/
 return|return
+name|allocation
+operator|.
+name|decision
+argument_list|(
 name|Decision
 operator|.
 name|YES
+argument_list|,
+literal|"target node version [%s] is same or newer than source node version [%s]"
+argument_list|,
+name|target
+operator|.
+name|node
+argument_list|()
+operator|.
+name|version
+argument_list|()
+argument_list|,
+name|source
+operator|.
+name|node
+argument_list|()
+operator|.
+name|version
+argument_list|()
+argument_list|)
 return|;
 block|}
 else|else
 block|{
 return|return
+name|allocation
+operator|.
+name|decision
+argument_list|(
 name|Decision
 operator|.
 name|NO
+argument_list|,
+literal|"target node version [%s] is older than source node version [%s]"
+argument_list|,
+name|target
+operator|.
+name|node
+argument_list|()
+operator|.
+name|version
+argument_list|()
+argument_list|,
+name|source
+operator|.
+name|node
+argument_list|()
+operator|.
+name|version
+argument_list|()
+argument_list|)
 return|;
 block|}
 block|}

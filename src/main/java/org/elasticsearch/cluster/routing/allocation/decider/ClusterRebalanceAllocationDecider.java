@@ -30,48 +30,6 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|MutableShardRouting
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|RoutingNode
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|RoutingNodes
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
 name|ShardRouting
 import|;
 end_import
@@ -117,16 +75,6 @@ operator|.
 name|settings
 operator|.
 name|Settings
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
 import|;
 end_import
 
@@ -345,9 +293,16 @@ argument_list|()
 condition|)
 block|{
 return|return
+name|allocation
+operator|.
+name|decision
+argument_list|(
 name|Decision
 operator|.
 name|NO
+argument_list|,
+literal|"cluster has unassigned primary shards"
+argument_list|)
 return|;
 block|}
 comment|// check if there are initializing primaries that don't have a relocatingNodeId entry.
@@ -363,15 +318,29 @@ argument_list|()
 condition|)
 block|{
 return|return
+name|allocation
+operator|.
+name|decision
+argument_list|(
 name|Decision
 operator|.
 name|NO
+argument_list|,
+literal|"cluster has inactive primary shards"
+argument_list|)
 return|;
 block|}
 return|return
+name|allocation
+operator|.
+name|decision
+argument_list|(
 name|Decision
 operator|.
 name|YES
+argument_list|,
+literal|"all primary shards are active"
+argument_list|)
 return|;
 block|}
 if|if
@@ -396,9 +365,16 @@ argument_list|()
 condition|)
 block|{
 return|return
+name|allocation
+operator|.
+name|decision
+argument_list|(
 name|Decision
 operator|.
 name|NO
+argument_list|,
+literal|"cluster has unassigned shards"
+argument_list|)
 return|;
 block|}
 comment|// in case all indices are assigned, are there initializing shards which
@@ -415,17 +391,31 @@ argument_list|()
 condition|)
 block|{
 return|return
+name|allocation
+operator|.
+name|decision
+argument_list|(
 name|Decision
 operator|.
 name|NO
+argument_list|,
+literal|"cluster has inactive shards"
+argument_list|)
 return|;
 block|}
 block|}
 comment|// type == Type.ALWAYS
 return|return
+name|allocation
+operator|.
+name|decision
+argument_list|(
 name|Decision
 operator|.
 name|YES
+argument_list|,
+literal|"all shards are active"
+argument_list|)
 return|;
 block|}
 block|}
