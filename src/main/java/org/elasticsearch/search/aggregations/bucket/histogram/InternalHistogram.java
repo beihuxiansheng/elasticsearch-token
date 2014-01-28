@@ -445,12 +445,10 @@ name|long
 name|key
 decl_stmt|;
 DECL|field|docCount
-specifier|private
 name|long
 name|docCount
 decl_stmt|;
 DECL|field|aggregations
-specifier|private
 name|InternalAggregations
 name|aggregations
 decl_stmt|;

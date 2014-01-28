@@ -379,7 +379,6 @@ name|long
 name|docCount
 decl_stmt|;
 DECL|field|aggregations
-specifier|private
 name|InternalAggregations
 name|aggregations
 decl_stmt|;
