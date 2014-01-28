@@ -318,6 +318,17 @@ parameter_list|()
 block|{
 try|try
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"get instances for project [{}], zone [{}]"
+argument_list|,
+name|project
+argument_list|,
+name|zone
+argument_list|)
+expr_stmt|;
 name|Compute
 operator|.
 name|Instances
@@ -363,7 +374,21 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"can not get list of nodes. Disabling GCE discovery."
+literal|"disabling GCE discovery. Can not get list of nodes: {}"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Full exception:"
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 return|return
