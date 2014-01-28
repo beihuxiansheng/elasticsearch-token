@@ -2328,6 +2328,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|builder
+operator|.
+name|startObject
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|keyed
@@ -2337,7 +2344,9 @@ name|builder
 operator|.
 name|startObject
 argument_list|(
-name|name
+name|CommonFields
+operator|.
+name|BUCKETS
 argument_list|)
 expr_stmt|;
 block|}
@@ -2347,7 +2356,9 @@ name|builder
 operator|.
 name|startArray
 argument_list|(
-name|name
+name|CommonFields
+operator|.
+name|BUCKETS
 argument_list|)
 expr_stmt|;
 block|}
@@ -2514,6 +2525,9 @@ expr_stmt|;
 block|}
 return|return
 name|builder
+operator|.
+name|endObject
+argument_list|()
 return|;
 block|}
 block|}
