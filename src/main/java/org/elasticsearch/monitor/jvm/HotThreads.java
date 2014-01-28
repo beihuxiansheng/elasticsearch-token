@@ -653,6 +653,24 @@ name|values
 argument_list|()
 argument_list|)
 decl_stmt|;
+specifier|final
+name|int
+name|busiestThreads
+init|=
+name|Math
+operator|.
+name|min
+argument_list|(
+name|this
+operator|.
+name|busiestThreads
+argument_list|,
+name|hotties
+operator|.
+name|size
+argument_list|()
+argument_list|)
+decl_stmt|;
 comment|// skip that for now
 name|CollectionUtil
 operator|.
