@@ -78,24 +78,6 @@ name|action
 operator|.
 name|admin
 operator|.
-name|cluster
-operator|.
-name|health
-operator|.
-name|ClusterHealthStatus
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|admin
-operator|.
 name|indices
 operator|.
 name|mapping
@@ -3208,7 +3190,7 @@ literal|"path"
 argument_list|,
 literal|"just_name"
 argument_list|)
-comment|// The path can't be changes / upgraded
+comment|// The path can't be changed / upgraded
 operator|.
 name|endObject
 argument_list|()
@@ -3251,9 +3233,6 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|client
 argument_list|()
 operator|.
@@ -3292,6 +3271,11 @@ argument_list|)
 operator|.
 name|get
 argument_list|()
+expr_stmt|;
+name|ensureGreen
+argument_list|(
+name|INDEX
+argument_list|)
 expr_stmt|;
 name|PutMappingResponse
 name|putMappingResponse
@@ -3520,11 +3504,9 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-name|waitForRelocation
+name|ensureGreen
 argument_list|(
-name|ClusterHealthStatus
-operator|.
-name|GREEN
+name|INDEX
 argument_list|)
 expr_stmt|;
 name|SuggestResponse
@@ -3634,7 +3616,7 @@ literal|"path"
 argument_list|,
 literal|"just_name"
 argument_list|)
-comment|// The path can't be changes / upgraded
+comment|// The path can't be changed / upgraded
 operator|.
 name|endObject
 argument_list|()
@@ -3677,9 +3659,6 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|client
 argument_list|()
 operator|.
@@ -3718,6 +3697,11 @@ argument_list|)
 operator|.
 name|get
 argument_list|()
+expr_stmt|;
+name|ensureGreen
+argument_list|(
+name|INDEX
+argument_list|)
 expr_stmt|;
 name|PutMappingResponse
 name|putMappingResponse
@@ -3932,11 +3916,9 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-name|waitForRelocation
+name|ensureGreen
 argument_list|(
-name|ClusterHealthStatus
-operator|.
-name|GREEN
+name|INDEX
 argument_list|)
 expr_stmt|;
 name|SuggestResponse
@@ -4122,9 +4104,6 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|client
 argument_list|()
 operator|.
@@ -4163,6 +4142,11 @@ argument_list|)
 operator|.
 name|get
 argument_list|()
+expr_stmt|;
+name|ensureGreen
+argument_list|(
+name|INDEX
+argument_list|)
 expr_stmt|;
 name|PutMappingResponse
 name|putMappingResponse
@@ -4384,11 +4368,9 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-name|waitForRelocation
+name|ensureGreen
 argument_list|(
-name|ClusterHealthStatus
-operator|.
-name|GREEN
+name|INDEX
 argument_list|)
 expr_stmt|;
 name|SuggestResponse
