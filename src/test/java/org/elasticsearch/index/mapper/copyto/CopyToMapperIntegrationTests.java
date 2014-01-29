@@ -213,11 +213,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureGreen
-argument_list|(
-literal|"test-idx"
-argument_list|)
-expr_stmt|;
 name|int
 name|recordCount
 init|=
