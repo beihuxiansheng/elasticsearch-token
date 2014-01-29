@@ -190,6 +190,18 @@ name|SnapshotId
 name|snapshotId
 parameter_list|)
 function_decl|;
+comment|/**      * Returns snapshot throttle time in nanoseconds      */
+DECL|method|snapshotThrottleTimeInNanos
+name|long
+name|snapshotThrottleTimeInNanos
+parameter_list|()
+function_decl|;
+comment|/**      * Returns restore throttle time in nanoseconds      */
+DECL|method|restoreThrottleTimeInNanos
+name|long
+name|restoreThrottleTimeInNanos
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
