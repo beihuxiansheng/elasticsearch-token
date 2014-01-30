@@ -215,7 +215,7 @@ operator|.
 name|version
 return|;
 block|}
-comment|/**      * Returns<tt>true</tt> if there was no doc found to delete.      */
+comment|/**      * Returns<tt>true</tt> if a doc was found to delete.      */
 DECL|method|isFound
 specifier|public
 name|boolean
