@@ -882,10 +882,9 @@ name|fieldMappingMetaDataEntry
 operator|.
 name|getValue
 argument_list|()
-operator|==
-name|FieldMappingMetaData
 operator|.
-name|NULL
+name|isNull
+argument_list|()
 condition|)
 block|{
 return|return
