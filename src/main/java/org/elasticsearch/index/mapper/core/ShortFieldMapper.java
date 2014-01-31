@@ -1697,12 +1697,9 @@ decl_stmt|;
 name|float
 name|boost
 init|=
-name|context
-operator|.
-name|fieldBoost
-argument_list|(
 name|this
-argument_list|)
+operator|.
+name|boost
 decl_stmt|;
 if|if
 condition|(

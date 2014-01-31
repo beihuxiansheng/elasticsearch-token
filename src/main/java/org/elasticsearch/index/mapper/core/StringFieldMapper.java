@@ -1667,12 +1667,7 @@ name|context
 argument_list|,
 name|nullValue
 argument_list|,
-name|context
-operator|.
-name|fieldBoost
-argument_list|(
-name|this
-argument_list|)
+name|boost
 argument_list|)
 decl_stmt|;
 if|if

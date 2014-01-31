@@ -884,12 +884,7 @@ argument_list|,
 literal|null
 comment|/* Out null value is an int so we convert*/
 argument_list|,
-name|context
-operator|.
-name|fieldBoost
-argument_list|(
-name|this
-argument_list|)
+name|boost
 argument_list|)
 decl_stmt|;
 if|if

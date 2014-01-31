@@ -2031,12 +2031,7 @@ name|field
 operator|.
 name|setBoost
 argument_list|(
-name|context
-operator|.
-name|fieldBoost
-argument_list|(
-name|this
-argument_list|)
+name|boost
 argument_list|)
 expr_stmt|;
 name|fields
