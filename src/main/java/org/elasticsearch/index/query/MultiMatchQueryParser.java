@@ -430,7 +430,11 @@ operator|.
 name|index
 argument_list|()
 argument_list|,
-literal|"[query_string] query does not support ["
+literal|"["
+operator|+
+name|NAME
+operator|+
+literal|"] query does not support ["
 operator|+
 name|currentFieldName
 operator|+
@@ -551,6 +555,27 @@ operator|.
 name|PHRASE_PREFIX
 expr_stmt|;
 block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|QueryParsingException
+argument_list|(
+name|parseContext
+operator|.
+name|index
+argument_list|()
+argument_list|,
+literal|"["
+operator|+
+name|NAME
+operator|+
+literal|"] query does not support type "
+operator|+
+name|tStr
+argument_list|)
+throw|;
+block|}
 block|}
 elseif|else
 if|if
@@ -595,7 +620,11 @@ operator|.
 name|index
 argument_list|()
 argument_list|,
-literal|"[match] analyzer ["
+literal|"["
+operator|+
+name|NAME
+operator|+
+literal|"] analyzer ["
 operator|+
 name|parser
 operator|.

@@ -612,6 +612,23 @@ operator|.
 name|PHRASE_PREFIX
 expr_stmt|;
 block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|QueryParsingException
+argument_list|(
+name|parseContext
+operator|.
+name|index
+argument_list|()
+argument_list|,
+literal|"[match] query does not support type "
+operator|+
+name|tStr
+argument_list|)
+throw|;
+block|}
 block|}
 elseif|else
 if|if
