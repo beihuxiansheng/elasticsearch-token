@@ -806,13 +806,13 @@ name|request
 operator|.
 name|versionType
 argument_list|()
-operator|==
+operator|!=
 name|VersionType
 operator|.
-name|EXTERNAL
+name|INTERNAL
 condition|)
 block|{
-comment|// in external versioning mode, we want to create the new document using the given version.
+comment|// in all but the internal versioning mode, we want to create the new document using the given version.
 name|indexRequest
 operator|.
 name|version
@@ -825,9 +825,10 @@ argument_list|)
 operator|.
 name|versionType
 argument_list|(
-name|VersionType
+name|request
 operator|.
-name|EXTERNAL
+name|versionType
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -861,10 +862,10 @@ name|request
 operator|.
 name|versionType
 argument_list|()
-operator|==
+operator|!=
 name|VersionType
 operator|.
-name|EXTERNAL
+name|INTERNAL
 condition|)
 block|{
 name|updateVersion
