@@ -1106,11 +1106,13 @@ name|FieldsProducer
 block|{
 DECL|field|delegateProducer
 specifier|private
+specifier|final
 name|FieldsProducer
 name|delegateProducer
 decl_stmt|;
 DECL|field|lookupFactory
 specifier|private
+specifier|final
 name|LookupFactory
 name|lookupFactory
 decl_stmt|;
@@ -1173,6 +1175,11 @@ argument_list|,
 name|SUGGEST_CODEC_VERSION
 argument_list|)
 expr_stmt|;
+name|FieldsProducer
+name|delegateProducer
+init|=
+literal|null
+decl_stmt|;
 name|boolean
 name|success
 init|=
@@ -1231,8 +1238,6 @@ argument_list|)
 throw|;
 block|}
 comment|// TODO: we could clone the ReadState and make it always forward IOContext.MERGE to prevent unecessary heap usage?
-name|this
-operator|.
 name|delegateProducer
 operator|=
 name|delegatePostingsFormat
@@ -1271,6 +1276,21 @@ name|input
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+name|this
+operator|.
+name|lookupFactory
+operator|=
+literal|null
+expr_stmt|;
+block|}
+name|this
+operator|.
+name|delegateProducer
+operator|=
+name|delegateProducer
+expr_stmt|;
 name|success
 operator|=
 literal|true
@@ -1355,6 +1375,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+specifier|final
 name|Terms
 name|terms
 init|=
@@ -1370,6 +1391,10 @@ condition|(
 name|terms
 operator|==
 literal|null
+operator|||
+name|lookupFactory
+operator|==
+literal|null
 condition|)
 block|{
 return|return
@@ -1382,8 +1407,6 @@ name|CompletionTerms
 argument_list|(
 name|terms
 argument_list|,
-name|this
-operator|.
 name|lookupFactory
 argument_list|)
 return|;
