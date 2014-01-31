@@ -620,6 +620,16 @@ name|getIndexReader
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|indexSearcher
+operator|.
+name|setSimilarity
+argument_list|(
+name|searcher
+operator|.
+name|getSimilarity
+argument_list|()
+argument_list|)
+expr_stmt|;
 while|while
 condition|(
 literal|true

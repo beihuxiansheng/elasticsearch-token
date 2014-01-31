@@ -544,6 +544,16 @@ argument_list|)
 decl_stmt|;
 name|indexSearcher
 operator|.
+name|setSimilarity
+argument_list|(
+name|searcher
+operator|.
+name|getSimilarity
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|indexSearcher
+operator|.
 name|search
 argument_list|(
 name|parentQuery
