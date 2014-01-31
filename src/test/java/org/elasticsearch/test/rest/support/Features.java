@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Allows to register additional features supported by the tests runner.  * This way any runner can add extra features and use proper skip sections to avoid  * breaking others runners till they have implemented the new feature as well.  */
+comment|/**  * Allows to register additional features supported by the tests runner.  * This way any runner can add extra features and use proper skip sections to avoid  * breaking others runners till they have implemented the new feature as well.  *  * Once all runners have implemented the feature, it can be removed from the list  * and the related skip sections can be removed from the tests as well.  */
 end_comment
 
 begin_class
