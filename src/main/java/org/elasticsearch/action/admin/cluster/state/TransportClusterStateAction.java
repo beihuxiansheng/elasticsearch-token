@@ -505,16 +505,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|builder
-operator|.
-name|allocationExplanation
-argument_list|(
-name|currentState
-operator|.
-name|allocationExplanation
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 if|if
 condition|(

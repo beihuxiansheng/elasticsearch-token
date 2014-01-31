@@ -146,6 +146,15 @@ name|ShardsLimitAllocationDecider
 extends|extends
 name|AllocationDecider
 block|{
+DECL|field|NAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|NAME
+init|=
+literal|"shards_limit"
+decl_stmt|;
 comment|/**      * Controls the maximum number of shards per index on a single Elasticsearch      * node. Negative values are interpreted as unlimited.      */
 DECL|field|INDEX_TOTAL_SHARDS_PER_NODE
 specifier|public
@@ -240,6 +249,8 @@ name|Decision
 operator|.
 name|YES
 argument_list|,
+name|NAME
+argument_list|,
 literal|"total shard limit disabled: [%d]<= 0"
 argument_list|,
 name|totalShardsPerNode
@@ -309,6 +320,8 @@ name|Decision
 operator|.
 name|NO
 argument_list|,
+name|NAME
+argument_list|,
 literal|"too many shards for this index on node [%d], limit: [%d]"
 argument_list|,
 name|nodeCount
@@ -325,6 +338,8 @@ argument_list|(
 name|Decision
 operator|.
 name|YES
+argument_list|,
+name|NAME
 argument_list|,
 literal|"shard count under limit [%d] of total shards per node"
 argument_list|,
@@ -400,6 +415,8 @@ name|Decision
 operator|.
 name|YES
 argument_list|,
+name|NAME
+argument_list|,
 literal|"total shard limit disabled: [%d]<= 0"
 argument_list|,
 name|totalShardsPerNode
@@ -469,6 +486,8 @@ name|Decision
 operator|.
 name|NO
 argument_list|,
+name|NAME
+argument_list|,
 literal|"too many shards for this index on node [%d], limit: [%d]"
 argument_list|,
 name|nodeCount
@@ -485,6 +504,8 @@ argument_list|(
 name|Decision
 operator|.
 name|YES
+argument_list|,
+name|NAME
 argument_list|,
 literal|"shard count under limit [%d] of total shards per node"
 argument_list|,

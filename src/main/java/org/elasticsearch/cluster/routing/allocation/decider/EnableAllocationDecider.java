@@ -152,6 +152,15 @@ name|NodeSettingsService
 operator|.
 name|Listener
 block|{
+DECL|field|NAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|NAME
+init|=
+literal|"enable"
+decl_stmt|;
 DECL|field|CLUSTER_ROUTING_ALLOCATION_ENABLE
 specifier|public
 specifier|static
@@ -259,6 +268,8 @@ name|Decision
 operator|.
 name|YES
 argument_list|,
+name|NAME
+argument_list|,
 literal|"allocation disabling is ignored"
 argument_list|)
 return|;
@@ -342,6 +353,8 @@ name|Decision
 operator|.
 name|YES
 argument_list|,
+name|NAME
+argument_list|,
 literal|"all allocations are allowed"
 argument_list|)
 return|;
@@ -356,6 +369,8 @@ argument_list|(
 name|Decision
 operator|.
 name|NO
+argument_list|,
+name|NAME
 argument_list|,
 literal|"no allocations are allowed"
 argument_list|)
@@ -408,6 +423,8 @@ name|Decision
 operator|.
 name|YES
 argument_list|,
+name|NAME
+argument_list|,
 literal|"new primary allocations are allowed"
 argument_list|)
 return|;
@@ -422,6 +439,8 @@ argument_list|(
 name|Decision
 operator|.
 name|NO
+argument_list|,
+name|NAME
 argument_list|,
 literal|"non-new primary allocations are disallowed"
 argument_list|)
@@ -447,6 +466,8 @@ name|Decision
 operator|.
 name|YES
 argument_list|,
+name|NAME
+argument_list|,
 literal|"primary allocations are allowed"
 argument_list|)
 return|;
@@ -461,6 +482,8 @@ argument_list|(
 name|Decision
 operator|.
 name|NO
+argument_list|,
+name|NAME
 argument_list|,
 literal|"replica allocations are disallowed"
 argument_list|)

@@ -120,6 +120,15 @@ name|DisableAllocationDecider
 extends|extends
 name|AllocationDecider
 block|{
+DECL|field|NAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|NAME
+init|=
+literal|"disable"
+decl_stmt|;
 DECL|field|CLUSTER_ROUTING_ALLOCATION_DISABLE_NEW_ALLOCATION
 specifier|public
 specifier|static
@@ -467,6 +476,8 @@ name|Decision
 operator|.
 name|YES
 argument_list|,
+name|NAME
+argument_list|,
 literal|"allocation disabling is ignored"
 argument_list|)
 return|;
@@ -552,6 +563,8 @@ name|Decision
 operator|.
 name|NO
 argument_list|,
+name|NAME
+argument_list|,
 literal|"new primary allocation is disabled"
 argument_list|)
 return|;
@@ -566,6 +579,8 @@ argument_list|(
 name|Decision
 operator|.
 name|YES
+argument_list|,
+name|NAME
 argument_list|,
 literal|"new primary allocation is enabled"
 argument_list|)
@@ -592,6 +607,8 @@ argument_list|(
 name|Decision
 operator|.
 name|NO
+argument_list|,
+name|NAME
 argument_list|,
 literal|"all allocation is disabled"
 argument_list|)
@@ -626,6 +643,8 @@ name|Decision
 operator|.
 name|YES
 argument_list|,
+name|NAME
+argument_list|,
 literal|"primary allocation is enabled"
 argument_list|)
 return|;
@@ -641,6 +660,8 @@ name|Decision
 operator|.
 name|NO
 argument_list|,
+name|NAME
+argument_list|,
 literal|"replica allocation is disabled"
 argument_list|)
 return|;
@@ -654,6 +675,8 @@ argument_list|(
 name|Decision
 operator|.
 name|YES
+argument_list|,
+name|NAME
 argument_list|,
 literal|"all allocation is enabled"
 argument_list|)

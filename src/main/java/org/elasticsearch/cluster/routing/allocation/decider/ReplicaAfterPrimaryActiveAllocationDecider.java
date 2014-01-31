@@ -118,6 +118,15 @@ name|ReplicaAfterPrimaryActiveAllocationDecider
 extends|extends
 name|AllocationDecider
 block|{
+DECL|field|NAME
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|NAME
+init|=
+literal|"replica_after_primary_active"
+decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|ReplicaAfterPrimaryActiveAllocationDecider
@@ -189,6 +198,8 @@ name|Decision
 operator|.
 name|YES
 argument_list|,
+name|NAME
+argument_list|,
 literal|"shard is primary"
 argument_list|)
 return|;
@@ -222,6 +233,8 @@ name|Decision
 operator|.
 name|NO
 argument_list|,
+name|NAME
+argument_list|,
 literal|"primary shard is not yet active"
 argument_list|)
 return|;
@@ -234,6 +247,8 @@ argument_list|(
 name|Decision
 operator|.
 name|YES
+argument_list|,
+name|NAME
 argument_list|,
 literal|"primary is already active"
 argument_list|)

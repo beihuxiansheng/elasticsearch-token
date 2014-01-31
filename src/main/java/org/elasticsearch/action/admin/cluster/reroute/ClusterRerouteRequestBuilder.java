@@ -189,6 +189,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the explain flag (defaults to<tt>false</tt>). If true, the      * request will include an explanation in addition to the cluster state.      */
+DECL|method|setExplain
+specifier|public
+name|ClusterRerouteRequestBuilder
+name|setExplain
+parameter_list|(
+name|boolean
+name|explain
+parameter_list|)
+block|{
+name|request
+operator|.
+name|explain
+argument_list|(
+name|explain
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Sets the source for the request      */
 DECL|method|setSource
 specifier|public

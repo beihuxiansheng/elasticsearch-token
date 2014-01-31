@@ -42,7 +42,35 @@ name|routing
 operator|.
 name|allocation
 operator|.
+name|RerouteExplanation
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|allocation
+operator|.
 name|RoutingAllocation
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|Nullable
 import|;
 end_import
 
@@ -186,7 +214,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**          * Writes an {@link AllocationCommand} using an {@link XContentBuilder}          * @param command {@link AllocationCommand} to write          * @param builder {@link XContentBuilder} to use          * @param params parameters to use when writing the command           * @throws IOException if something happens during writing the command          */
+comment|/**          * Writes an {@link AllocationCommand} using an {@link XContentBuilder}          * @param command {@link AllocationCommand} to write          * @param builder {@link XContentBuilder} to use          * @param params parameters to use when writing the command          * @param objectName object the encoding should be encased in, null means a plain object          * @throws IOException if something happens during writing the command          */
 DECL|method|toXContent
 name|void
 name|toXContent
@@ -201,6 +229,11 @@ name|ToXContent
 operator|.
 name|Params
 name|params
+parameter_list|,
+annotation|@
+name|Nullable
+name|String
+name|objectName
 parameter_list|)
 throws|throws
 name|IOException
@@ -214,11 +247,14 @@ parameter_list|()
 function_decl|;
 comment|/**      * Executes the command on a {@link RoutingAllocation} setup      * @param allocation {@link RoutingAllocation} to modify      * @throws org.elasticsearch.ElasticsearchException if something happens during reconfiguration      */
 DECL|method|execute
-name|void
+name|RerouteExplanation
 name|execute
 parameter_list|(
 name|RoutingAllocation
 name|allocation
+parameter_list|,
+name|boolean
+name|explain
 parameter_list|)
 throws|throws
 name|ElasticsearchException

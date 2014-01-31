@@ -104,6 +104,15 @@ name|ConcurrentRebalanceAllocationDecider
 extends|extends
 name|AllocationDecider
 block|{
+DECL|field|NAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|NAME
+init|=
+literal|"concurrent_rebalance"
+decl_stmt|;
 DECL|field|CLUSTER_ROUTING_ALLOCATION_CLUSTER_CONCURRENT_REBALANCE
 specifier|public
 specifier|static
@@ -272,6 +281,8 @@ name|Decision
 operator|.
 name|YES
 argument_list|,
+name|NAME
+argument_list|,
 literal|"all concurrent rebalances are allowed"
 argument_list|)
 return|;
@@ -298,6 +309,8 @@ name|Decision
 operator|.
 name|NO
 argument_list|,
+name|NAME
+argument_list|,
 literal|"too man concurrent rebalances [%d], limit: [%d]"
 argument_list|,
 name|allocation
@@ -320,6 +333,8 @@ argument_list|(
 name|Decision
 operator|.
 name|YES
+argument_list|,
+name|NAME
 argument_list|,
 literal|"below threshold [%d] for concurrent rebalances"
 argument_list|,

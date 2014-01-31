@@ -132,6 +132,15 @@ name|NodeVersionAllocationDecider
 extends|extends
 name|AllocationDecider
 block|{
+DECL|field|NAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|NAME
+init|=
+literal|"node_version"
+decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|NodeVersionAllocationDecider
@@ -200,6 +209,8 @@ name|Decision
 operator|.
 name|YES
 argument_list|,
+name|NAME
+argument_list|,
 literal|"primary shard can be allocated anywhere"
 argument_list|)
 return|;
@@ -234,6 +245,8 @@ argument_list|(
 name|Decision
 operator|.
 name|YES
+argument_list|,
+name|NAME
 argument_list|,
 literal|"no active primary shard yet"
 argument_list|)
@@ -327,6 +340,8 @@ name|Decision
 operator|.
 name|YES
 argument_list|,
+name|NAME
+argument_list|,
 literal|"target node version [%s] is same or newer than source node version [%s]"
 argument_list|,
 name|target
@@ -357,6 +372,8 @@ argument_list|(
 name|Decision
 operator|.
 name|NO
+argument_list|,
+name|NAME
 argument_list|,
 literal|"target node version [%s] is older than source node version [%s]"
 argument_list|,

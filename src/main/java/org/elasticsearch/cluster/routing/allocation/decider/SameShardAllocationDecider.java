@@ -130,6 +130,15 @@ name|SameShardAllocationDecider
 extends|extends
 name|AllocationDecider
 block|{
+DECL|field|NAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|NAME
+init|=
+literal|"same_shard"
+decl_stmt|;
 DECL|field|SAME_HOST_SETTING
 specifier|public
 specifier|static
@@ -239,6 +248,8 @@ argument_list|(
 name|Decision
 operator|.
 name|NO
+argument_list|,
+name|NAME
 argument_list|,
 literal|"shard cannot be allocated on same node [%s] it already exists on"
 argument_list|,
@@ -447,6 +458,8 @@ name|Decision
 operator|.
 name|NO
 argument_list|,
+name|NAME
+argument_list|,
 literal|"shard cannot be allocated on same host [%s] it already exists on"
 argument_list|,
 name|node
@@ -469,6 +482,8 @@ argument_list|(
 name|Decision
 operator|.
 name|YES
+argument_list|,
+name|NAME
 argument_list|,
 literal|"shard is not allocated to same node or host"
 argument_list|)

@@ -185,13 +185,41 @@ specifier|final
 name|RoutingTable
 name|routingTable
 decl_stmt|;
-DECL|field|explanation
+DECL|field|explanations
 specifier|private
-specifier|final
-name|AllocationExplanation
-name|explanation
+name|RoutingExplanations
+name|explanations
+init|=
+operator|new
+name|RoutingExplanations
+argument_list|()
 decl_stmt|;
-comment|/**          * Creates a new {@link RoutingAllocation.Result}          *           * @param changed a flag to determine whether the actual {@link RoutingTable} has been changed          * @param routingTable the {@link RoutingTable} this Result references          * @param explanation Explanation of the Result          */
+comment|/**          * Creates a new {@link RoutingAllocation.Result}          *          * @param changed a flag to determine whether the actual {@link RoutingTable} has been changed          * @param routingTable the {@link RoutingTable} this Result references          */
+DECL|method|Result
+specifier|public
+name|Result
+parameter_list|(
+name|boolean
+name|changed
+parameter_list|,
+name|RoutingTable
+name|routingTable
+parameter_list|)
+block|{
+name|this
+operator|.
+name|changed
+operator|=
+name|changed
+expr_stmt|;
+name|this
+operator|.
+name|routingTable
+operator|=
+name|routingTable
+expr_stmt|;
+block|}
+comment|/**          * Creates a new {@link RoutingAllocation.Result}          *           * @param changed a flag to determine whether the actual {@link RoutingTable} has been changed          * @param routingTable the {@link RoutingTable} this Result references          * @param explanations Explanation for the reroute actions          */
 DECL|method|Result
 specifier|public
 name|Result
@@ -202,8 +230,8 @@ parameter_list|,
 name|RoutingTable
 name|routingTable
 parameter_list|,
-name|AllocationExplanation
-name|explanation
+name|RoutingExplanations
+name|explanations
 parameter_list|)
 block|{
 name|this
@@ -220,9 +248,9 @@ name|routingTable
 expr_stmt|;
 name|this
 operator|.
-name|explanation
+name|explanations
 operator|=
-name|explanation
+name|explanations
 expr_stmt|;
 block|}
 comment|/** determine whether the actual {@link RoutingTable} has been changed          * @return<code>true</code> if the {@link RoutingTable} has been changed by allocation. Otherwise<code>false</code>          */
@@ -250,14 +278,14 @@ name|routingTable
 return|;
 block|}
 comment|/**          * Get the explanation of this result          * @return explanation          */
-DECL|method|explanation
+DECL|method|explanations
 specifier|public
-name|AllocationExplanation
-name|explanation
+name|RoutingExplanations
+name|explanations
 parameter_list|()
 block|{
 return|return
-name|explanation
+name|explanations
 return|;
 block|}
 block|}
@@ -575,7 +603,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Create a routing decision, including the reason if the debug flag is      * turned on      */
+comment|/**      * Create a routing decision, including the reason if the debug flag is      * turned on      * @param decision decision whether to allow/deny allocation      * @param deciderLabel a human readable label for the AllocationDecider      * @param reason a format string explanation of the decision      * @param params format string parameters      */
 DECL|method|decision
 specifier|public
 name|Decision
@@ -583,6 +611,9 @@ name|decision
 parameter_list|(
 name|Decision
 name|decision
+parameter_list|,
+name|String
+name|deciderLabel
 parameter_list|,
 name|String
 name|reason
@@ -607,6 +638,8 @@ name|decision
 operator|.
 name|type
 argument_list|()
+argument_list|,
+name|deciderLabel
 argument_list|,
 name|reason
 argument_list|,

@@ -146,6 +146,15 @@ name|ThrottlingAllocationDecider
 extends|extends
 name|AllocationDecider
 block|{
+DECL|field|NAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|NAME
+init|=
+literal|"throttling"
+decl_stmt|;
 DECL|field|CLUSTER_ROUTING_ALLOCATION_NODE_INITIAL_PRIMARIES_RECOVERIES
 specifier|public
 specifier|static
@@ -372,6 +381,8 @@ name|Decision
 operator|.
 name|THROTTLE
 argument_list|,
+name|NAME
+argument_list|,
 literal|"too many primaries currently recovering [%d], limit: [%d]"
 argument_list|,
 name|primariesInRecovery
@@ -390,6 +401,8 @@ argument_list|(
 name|Decision
 operator|.
 name|YES
+argument_list|,
+name|NAME
 argument_list|,
 literal|"below primary recovery limit of [%d]"
 argument_list|,
@@ -477,6 +490,8 @@ name|Decision
 operator|.
 name|THROTTLE
 argument_list|,
+name|NAME
+argument_list|,
 literal|"too many shards currently recovering [%d], limit: [%d]"
 argument_list|,
 name|currentRecoveries
@@ -495,6 +510,8 @@ argument_list|(
 name|Decision
 operator|.
 name|YES
+argument_list|,
+name|NAME
 argument_list|,
 literal|"below shard recovery limit of [%d]"
 argument_list|,

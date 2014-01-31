@@ -196,6 +196,15 @@ name|FilterAllocationDecider
 extends|extends
 name|AllocationDecider
 block|{
+DECL|field|NAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|NAME
+init|=
+literal|"filter"
+decl_stmt|;
 DECL|field|INDEX_ROUTING_REQUIRE_GROUP
 specifier|public
 specifier|static
@@ -532,6 +541,8 @@ name|Decision
 operator|.
 name|NO
 argument_list|,
+name|NAME
+argument_list|,
 literal|"node does not match global required filters [%s]"
 argument_list|,
 name|clusterRequireFilters
@@ -569,6 +580,8 @@ name|Decision
 operator|.
 name|NO
 argument_list|,
+name|NAME
+argument_list|,
 literal|"node does not match global include filters [%s]"
 argument_list|,
 name|clusterIncludeFilters
@@ -604,6 +617,8 @@ argument_list|(
 name|Decision
 operator|.
 name|NO
+argument_list|,
+name|NAME
 argument_list|,
 literal|"node matches global exclude filters [%s]"
 argument_list|,
@@ -667,6 +682,8 @@ name|Decision
 operator|.
 name|NO
 argument_list|,
+name|NAME
+argument_list|,
 literal|"node does not match index required filters [%s]"
 argument_list|,
 name|indexMd
@@ -713,6 +730,8 @@ name|Decision
 operator|.
 name|NO
 argument_list|,
+name|NAME
+argument_list|,
 literal|"node does not match index include filters [%s]"
 argument_list|,
 name|indexMd
@@ -758,6 +777,8 @@ name|Decision
 operator|.
 name|NO
 argument_list|,
+name|NAME
+argument_list|,
 literal|"node matches index exclude filters [%s]"
 argument_list|,
 name|indexMd
@@ -776,6 +797,8 @@ argument_list|(
 name|Decision
 operator|.
 name|YES
+argument_list|,
+name|NAME
 argument_list|,
 literal|"node passes include/exclude/require filters"
 argument_list|)

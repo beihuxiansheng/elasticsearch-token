@@ -100,6 +100,15 @@ name|ClusterRebalanceAllocationDecider
 extends|extends
 name|AllocationDecider
 block|{
+DECL|field|NAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|NAME
+init|=
+literal|"cluster_rebalance"
+decl_stmt|;
 comment|/**      * An enum representation for the configured re-balance type.       */
 DECL|enum|ClusterRebalanceType
 specifier|public
@@ -301,6 +310,8 @@ name|Decision
 operator|.
 name|NO
 argument_list|,
+name|NAME
+argument_list|,
 literal|"cluster has unassigned primary shards"
 argument_list|)
 return|;
@@ -326,6 +337,8 @@ name|Decision
 operator|.
 name|NO
 argument_list|,
+name|NAME
+argument_list|,
 literal|"cluster has inactive primary shards"
 argument_list|)
 return|;
@@ -338,6 +351,8 @@ argument_list|(
 name|Decision
 operator|.
 name|YES
+argument_list|,
+name|NAME
 argument_list|,
 literal|"all primary shards are active"
 argument_list|)
@@ -373,6 +388,8 @@ name|Decision
 operator|.
 name|NO
 argument_list|,
+name|NAME
+argument_list|,
 literal|"cluster has unassigned shards"
 argument_list|)
 return|;
@@ -399,6 +416,8 @@ name|Decision
 operator|.
 name|NO
 argument_list|,
+name|NAME
+argument_list|,
 literal|"cluster has inactive shards"
 argument_list|)
 return|;
@@ -413,6 +432,8 @@ argument_list|(
 name|Decision
 operator|.
 name|YES
+argument_list|,
+name|NAME
 argument_list|,
 literal|"all shards are active"
 argument_list|)

@@ -90,6 +90,15 @@ name|RebalanceOnlyWhenActiveAllocationDecider
 extends|extends
 name|AllocationDecider
 block|{
+DECL|field|NAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|NAME
+init|=
+literal|"rebalance_only_when_active"
+decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|RebalanceOnlyWhenActiveAllocationDecider
@@ -145,6 +154,8 @@ name|Decision
 operator|.
 name|NO
 argument_list|,
+name|NAME
+argument_list|,
 literal|"not all replicas are active in cluster"
 argument_list|)
 return|;
@@ -157,6 +168,8 @@ argument_list|(
 name|Decision
 operator|.
 name|YES
+argument_list|,
+name|NAME
 argument_list|,
 literal|"all replicas are active in cluster"
 argument_list|)

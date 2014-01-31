@@ -190,6 +190,15 @@ name|DiskThresholdDecider
 extends|extends
 name|AllocationDecider
 block|{
+DECL|field|NAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|NAME
+init|=
+literal|"disk_threshold"
+decl_stmt|;
 DECL|field|freeDiskThresholdLow
 specifier|private
 specifier|volatile
@@ -663,6 +672,8 @@ name|Decision
 operator|.
 name|YES
 argument_list|,
+name|NAME
+argument_list|,
 literal|"disk threshold decider disabled"
 argument_list|)
 return|;
@@ -689,6 +700,8 @@ argument_list|(
 name|Decision
 operator|.
 name|YES
+argument_list|,
+name|NAME
 argument_list|,
 literal|"only a single node is present"
 argument_list|)
@@ -733,6 +746,8 @@ argument_list|(
 name|Decision
 operator|.
 name|YES
+argument_list|,
+name|NAME
 argument_list|,
 literal|"cluster info unavailable"
 argument_list|)
@@ -796,6 +811,8 @@ argument_list|(
 name|Decision
 operator|.
 name|YES
+argument_list|,
+name|NAME
 argument_list|,
 literal|"disk usages unavailable"
 argument_list|)
@@ -953,6 +970,8 @@ name|Decision
 operator|.
 name|NO
 argument_list|,
+name|NAME
+argument_list|,
 literal|"less than required [%s] free on node, free: [%s]"
 argument_list|,
 name|freeBytesThresholdLow
@@ -1005,6 +1024,8 @@ argument_list|(
 name|Decision
 operator|.
 name|NO
+argument_list|,
+name|NAME
 argument_list|,
 literal|"less than required [%d%%] free disk on node, free: [%d%%]"
 argument_list|,
@@ -1092,6 +1113,8 @@ name|Decision
 operator|.
 name|NO
 argument_list|,
+name|NAME
+argument_list|,
 literal|"after allocation less than required [%s] free on node, free: [%s]"
 argument_list|,
 name|freeBytesThresholdLow
@@ -1136,6 +1159,8 @@ name|Decision
 operator|.
 name|NO
 argument_list|,
+name|NAME
+argument_list|,
 literal|"after allocation less than required [%d%%] free disk on node, free: [%d%%]"
 argument_list|,
 name|freeDiskThresholdLow
@@ -1152,6 +1177,8 @@ argument_list|(
 name|Decision
 operator|.
 name|YES
+argument_list|,
+name|NAME
 argument_list|,
 literal|"enough disk for shard on node, free: [%s]"
 argument_list|,
@@ -1193,6 +1220,8 @@ name|Decision
 operator|.
 name|YES
 argument_list|,
+name|NAME
+argument_list|,
 literal|"disk threshold decider disabled"
 argument_list|)
 return|;
@@ -1219,6 +1248,8 @@ argument_list|(
 name|Decision
 operator|.
 name|YES
+argument_list|,
+name|NAME
 argument_list|,
 literal|"only a single node is present"
 argument_list|)
@@ -1263,6 +1294,8 @@ argument_list|(
 name|Decision
 operator|.
 name|YES
+argument_list|,
+name|NAME
 argument_list|,
 literal|"cluster info unavailable"
 argument_list|)
@@ -1313,6 +1346,8 @@ argument_list|(
 name|Decision
 operator|.
 name|YES
+argument_list|,
+name|NAME
 argument_list|,
 literal|"disk usages unavailable"
 argument_list|)
@@ -1472,6 +1507,8 @@ name|Decision
 operator|.
 name|NO
 argument_list|,
+name|NAME
+argument_list|,
 literal|"after allocation less than required [%s] free on node, free: [%s]"
 argument_list|,
 name|freeBytesThresholdHigh
@@ -1525,6 +1562,8 @@ name|Decision
 operator|.
 name|NO
 argument_list|,
+name|NAME
+argument_list|,
 literal|"after allocation less than required [%d%%] free disk on node, free: [%d%%]"
 argument_list|,
 name|freeDiskThresholdHigh
@@ -1541,6 +1580,8 @@ argument_list|(
 name|Decision
 operator|.
 name|YES
+argument_list|,
+name|NAME
 argument_list|,
 literal|"enough disk for shard to remain on node, free: [%s]"
 argument_list|,

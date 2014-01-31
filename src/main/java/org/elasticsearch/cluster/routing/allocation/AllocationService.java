@@ -502,11 +502,6 @@ name|clusterState
 operator|.
 name|routingTable
 argument_list|()
-argument_list|,
-name|allocation
-operator|.
-name|explanation
-argument_list|()
 argument_list|)
 return|;
 block|}
@@ -557,11 +552,6 @@ operator|.
 name|metaData
 argument_list|()
 argument_list|)
-argument_list|,
-name|allocation
-operator|.
-name|explanation
-argument_list|()
 argument_list|)
 return|;
 block|}
@@ -694,11 +684,6 @@ name|clusterState
 operator|.
 name|routingTable
 argument_list|()
-argument_list|,
-name|allocation
-operator|.
-name|explanation
-argument_list|()
 argument_list|)
 return|;
 block|}
@@ -743,11 +728,6 @@ operator|.
 name|metaData
 argument_list|()
 argument_list|)
-argument_list|,
-name|allocation
-operator|.
-name|explanation
-argument_list|()
 argument_list|)
 return|;
 block|}
@@ -790,7 +770,7 @@ name|AllocationCommands
 name|commands
 parameter_list|,
 name|boolean
-name|debug
+name|explain
 parameter_list|)
 throws|throws
 name|ElasticsearchException
@@ -827,11 +807,12 @@ name|getClusterInfo
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// don't short circuit deciders, we want a full explanation
 name|allocation
 operator|.
 name|debugDecision
 argument_list|(
-name|debug
+literal|true
 argument_list|)
 expr_stmt|;
 comment|// we ignore disable allocation, because commands are explicit
@@ -842,13 +823,18 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+name|RoutingExplanations
+name|explanations
+init|=
 name|commands
 operator|.
 name|execute
 argument_list|(
 name|allocation
+argument_list|,
+name|explain
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 comment|// we revert the ignore disable flag, since when rerouting, we want the original setting to take place
 name|allocation
 operator|.
@@ -894,10 +880,7 @@ name|metaData
 argument_list|()
 argument_list|)
 argument_list|,
-name|allocation
-operator|.
-name|explanation
-argument_list|()
+name|explanations
 argument_list|)
 return|;
 block|}
@@ -1003,11 +986,6 @@ name|clusterState
 operator|.
 name|routingTable
 argument_list|()
-argument_list|,
-name|allocation
-operator|.
-name|explanation
-argument_list|()
 argument_list|)
 return|;
 block|}
@@ -1040,11 +1018,6 @@ operator|.
 name|metaData
 argument_list|()
 argument_list|)
-argument_list|,
-name|allocation
-operator|.
-name|explanation
-argument_list|()
 argument_list|)
 return|;
 block|}
@@ -1175,11 +1148,6 @@ name|clusterState
 operator|.
 name|routingTable
 argument_list|()
-argument_list|,
-name|allocation
-operator|.
-name|explanation
-argument_list|()
 argument_list|)
 return|;
 block|}
@@ -1212,11 +1180,6 @@ operator|.
 name|metaData
 argument_list|()
 argument_list|)
-argument_list|,
-name|allocation
-operator|.
-name|explanation
-argument_list|()
 argument_list|)
 return|;
 block|}

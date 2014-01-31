@@ -146,6 +146,15 @@ name|SnapshotInProgressAllocationDecider
 extends|extends
 name|AllocationDecider
 block|{
+DECL|field|NAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|NAME
+init|=
+literal|"snapshot_in_progress"
+decl_stmt|;
 comment|/**      * Disables relocation of shards that are currently being snapshotted.      */
 DECL|field|CLUSTER_ROUTING_ALLOCATION_SNAPSHOT_RELOCATION_ENABLED
 specifier|public
@@ -401,6 +410,8 @@ name|Decision
 operator|.
 name|YES
 argument_list|,
+name|NAME
+argument_list|,
 literal|"no snapshots are currently running"
 argument_list|)
 return|;
@@ -498,6 +509,8 @@ name|Decision
 operator|.
 name|NO
 argument_list|,
+name|NAME
+argument_list|,
 literal|"snapshot for shard [%s] is currently running on node [%s]"
 argument_list|,
 name|shardRouting
@@ -522,6 +535,8 @@ argument_list|(
 name|Decision
 operator|.
 name|YES
+argument_list|,
+name|NAME
 argument_list|,
 literal|"shard not primary or relocation disabled"
 argument_list|)

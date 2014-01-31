@@ -22,20 +22,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Lists
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -61,6 +47,22 @@ operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchParseException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|allocation
+operator|.
+name|RoutingExplanations
 import|;
 end_import
 
@@ -213,6 +215,22 @@ operator|.
 name|util
 operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import static
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|Lists
+operator|.
+name|newArrayList
 import|;
 end_import
 
@@ -428,8 +446,6 @@ name|AllocationCommand
 argument_list|>
 name|commands
 init|=
-name|Lists
-operator|.
 name|newArrayList
 argument_list|()
 decl_stmt|;
@@ -522,15 +538,25 @@ block|}
 comment|/**      * Executes all wrapped commands on a given {@link RoutingAllocation}      * @param allocation {@link RoutingAllocation} to apply this command to      * @throws org.elasticsearch.ElasticsearchException if something happens during execution      */
 DECL|method|execute
 specifier|public
-name|void
+name|RoutingExplanations
 name|execute
 parameter_list|(
 name|RoutingAllocation
 name|allocation
+parameter_list|,
+name|boolean
+name|explain
 parameter_list|)
 throws|throws
 name|ElasticsearchException
 block|{
+name|RoutingExplanations
+name|explanations
+init|=
+operator|new
+name|RoutingExplanations
+argument_list|()
+decl_stmt|;
 for|for
 control|(
 name|AllocationCommand
@@ -539,14 +565,24 @@ range|:
 name|commands
 control|)
 block|{
+name|explanations
+operator|.
+name|add
+argument_list|(
 name|command
 operator|.
 name|execute
 argument_list|(
 name|allocation
+argument_list|,
+name|explain
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|explanations
+return|;
 block|}
 comment|/**      * Reads a {@link AllocationCommands} from a {@link StreamInput}      * @param in {@link StreamInput} to read from      * @return {@link AllocationCommands} read      *       * @throws IOException if something happens during read      */
 DECL|method|readFrom
@@ -1029,6 +1065,8 @@ argument_list|,
 name|builder
 argument_list|,
 name|params
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|builder

@@ -218,6 +218,15 @@ name|AwarenessAllocationDecider
 extends|extends
 name|AllocationDecider
 block|{
+DECL|field|NAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|NAME
+init|=
+literal|"awareness"
+decl_stmt|;
 DECL|field|CLUSTER_ROUTING_ALLOCATION_AWARENESS_ATTRIBUTES
 specifier|public
 specifier|static
@@ -723,6 +732,8 @@ name|Decision
 operator|.
 name|YES
 argument_list|,
+name|NAME
+argument_list|,
 literal|"no allocation awareness enabled"
 argument_list|)
 return|;
@@ -788,6 +799,8 @@ argument_list|(
 name|Decision
 operator|.
 name|NO
+argument_list|,
+name|NAME
 argument_list|,
 literal|"node does not contain awareness attribute: [%s]"
 argument_list|,
@@ -1204,6 +1217,8 @@ name|Decision
 operator|.
 name|NO
 argument_list|,
+name|NAME
+argument_list|,
 literal|"too many shards on nodes for attribute: [%s]"
 argument_list|,
 name|awarenessAttribute
@@ -1229,6 +1244,8 @@ argument_list|(
 name|Decision
 operator|.
 name|YES
+argument_list|,
+name|NAME
 argument_list|,
 literal|"node meets awareness requirements"
 argument_list|)
