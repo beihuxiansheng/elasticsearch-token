@@ -153,30 +153,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|regex
-operator|.
-name|Matcher
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|regex
-operator|.
-name|Pattern
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -189,6 +165,22 @@ operator|.
 name|Tuple
 operator|.
 name|tuple
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|RegexMatcher
+operator|.
+name|matches
 import|;
 end_import
 
@@ -518,6 +510,13 @@ if|if
 condition|(
 name|catchParam
 operator|.
+name|length
+argument_list|()
+operator|>
+literal|2
+operator|&&
+name|catchParam
+operator|.
 name|startsWith
 argument_list|(
 literal|"/"
@@ -593,49 +592,18 @@ operator|-
 literal|1
 argument_list|)
 decl_stmt|;
-name|String
-name|errorMessage
-init|=
+name|assertThat
+argument_list|(
+literal|"the error message was expected to match the provided regex but didn't"
+argument_list|,
 name|error
 operator|.
 name|toString
 argument_list|()
-decl_stmt|;
-name|Matcher
-name|matcher
-init|=
-name|Pattern
-operator|.
-name|compile
+argument_list|,
+name|matches
 argument_list|(
 name|regex
-argument_list|)
-operator|.
-name|matcher
-argument_list|(
-name|errorMessage
-argument_list|)
-decl_stmt|;
-name|assertThat
-argument_list|(
-literal|"error message ["
-operator|+
-name|errorMessage
-operator|+
-literal|"] was expected to match ["
-operator|+
-name|catchParam
-operator|+
-literal|"] but didn't"
-argument_list|,
-name|matcher
-operator|.
-name|find
-argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;

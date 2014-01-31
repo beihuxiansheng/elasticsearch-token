@@ -66,7 +66,9 @@ init|=
 name|Lists
 operator|.
 name|newArrayList
-argument_list|()
+argument_list|(
+literal|"regex"
+argument_list|)
 decl_stmt|;
 DECL|method|Features
 specifier|private
