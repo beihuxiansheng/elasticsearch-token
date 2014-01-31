@@ -331,7 +331,7 @@ operator|.
 name|getSkipSection
 argument_list|()
 operator|.
-name|skipVersion
+name|skip
 argument_list|(
 name|parseContext
 operator|.
