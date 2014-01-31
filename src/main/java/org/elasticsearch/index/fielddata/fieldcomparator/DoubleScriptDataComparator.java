@@ -654,6 +654,27 @@ name|MAX_VALUE
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|compareTopMissing
+specifier|public
+name|int
+name|compareTopMissing
+parameter_list|()
+block|{
+return|return
+name|Double
+operator|.
+name|compare
+argument_list|(
+name|top
+argument_list|,
+name|Double
+operator|.
+name|MAX_VALUE
+argument_list|)
+return|;
+block|}
 block|}
 end_class
 

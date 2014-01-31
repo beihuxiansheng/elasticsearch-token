@@ -70,6 +70,14 @@ name|int
 name|compareBottomMissing
 parameter_list|()
 function_decl|;
+comment|/**      * Compares the missing value to the top.      *      * @return any N< 0 if the tope is not competitive with the missing value, any N> 0 if the top is competitive      * with the top and 0 if they are equal.      */
+DECL|method|compareTopMissing
+specifier|public
+specifier|abstract
+name|int
+name|compareTopMissing
+parameter_list|()
+function_decl|;
 block|}
 end_class
 

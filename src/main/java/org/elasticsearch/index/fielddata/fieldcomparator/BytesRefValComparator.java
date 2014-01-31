@@ -583,6 +583,23 @@ name|missingValue
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|compareTopMissing
+specifier|public
+name|int
+name|compareTopMissing
+parameter_list|()
+block|{
+return|return
+name|compareValues
+argument_list|(
+name|top
+argument_list|,
+name|missingValue
+argument_list|)
+return|;
+block|}
 block|}
 end_class
 

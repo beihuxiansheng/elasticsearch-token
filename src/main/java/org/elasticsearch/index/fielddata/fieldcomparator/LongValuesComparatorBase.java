@@ -332,6 +332,26 @@ name|missingValue
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|compareTopMissing
+specifier|public
+name|int
+name|compareTopMissing
+parameter_list|()
+block|{
+return|return
+name|compare
+argument_list|(
+name|top
+operator|.
+name|longValue
+argument_list|()
+argument_list|,
+name|missingValue
+argument_list|)
+return|;
+block|}
 block|}
 end_class
 

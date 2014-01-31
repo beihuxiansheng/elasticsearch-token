@@ -1207,6 +1207,10 @@ name|searchPhaseController
 operator|.
 name|sortDocs
 argument_list|(
+name|request
+argument_list|,
+name|useSlowScroll
+argument_list|,
 name|queryFetchResults
 argument_list|)
 expr_stmt|;

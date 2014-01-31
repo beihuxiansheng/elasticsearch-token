@@ -626,6 +626,25 @@ name|MISSING_VALUE
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|compareTopMissing
+specifier|public
+name|int
+name|compareTopMissing
+parameter_list|()
+block|{
+return|return
+name|Double
+operator|.
+name|compare
+argument_list|(
+name|top
+argument_list|,
+name|MISSING_VALUE
+argument_list|)
+return|;
+block|}
 comment|// Computes the distance based on geo points.
 comment|// Due to this abstractions the geo distance comparator doesn't need to deal with whether fields have one
 comment|// or multiple geo points per document.

@@ -1377,6 +1377,36 @@ parameter_list|)
 block|{
 comment|// LUCENE 4 UPGRADE: There must be a better way
 comment|// we want to convert to a Text object here, and not BytesRef
+comment|// Don't write into sortValues! Otherwise the fields in FieldDoc is modified, which may be used in other places. (SearchContext#lastEmitedDoc)
+name|Object
+index|[]
+name|sortValuesCopy
+init|=
+operator|new
+name|Object
+index|[
+name|sortValues
+operator|.
+name|length
+index|]
+decl_stmt|;
+name|System
+operator|.
+name|arraycopy
+argument_list|(
+name|sortValues
+argument_list|,
+literal|0
+argument_list|,
+name|sortValuesCopy
+argument_list|,
+literal|0
+argument_list|,
+name|sortValues
+operator|.
+name|length
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|sortValues
@@ -1411,7 +1441,7 @@ operator|instanceof
 name|BytesRef
 condition|)
 block|{
-name|sortValues
+name|sortValuesCopy
 index|[
 name|i
 index|]
@@ -1439,7 +1469,7 @@ name|this
 operator|.
 name|sortValues
 operator|=
-name|sortValues
+name|sortValuesCopy
 expr_stmt|;
 block|}
 annotation|@
