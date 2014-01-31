@@ -452,7 +452,7 @@ name|length
 decl_stmt|;
 name|size
 operator|+=
-name|RamUsageEstimator
+name|RamEstimator
 operator|.
 name|sizeOf
 argument_list|(
@@ -462,6 +462,34 @@ expr_stmt|;
 return|return
 name|size
 return|;
+block|}
+DECL|class|RamEstimator
+specifier|private
+specifier|static
+specifier|final
+class|class
+name|RamEstimator
+block|{
+comment|// we move this into it's own class to exclude it from the forbidden API checks
+comment|// it's fine to use here!
+DECL|method|sizeOf
+specifier|static
+name|long
+name|sizeOf
+parameter_list|(
+name|Query
+name|query
+parameter_list|)
+block|{
+return|return
+name|RamUsageEstimator
+operator|.
+name|sizeOf
+argument_list|(
+name|query
+argument_list|)
+return|;
+block|}
 block|}
 block|}
 end_class
