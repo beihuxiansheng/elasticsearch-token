@@ -391,6 +391,13 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
+literal|"enhancedPattern"
+argument_list|,
+literal|"org.apache.log4j.EnhancedPatternLayout"
+argument_list|)
+operator|.
+name|put
+argument_list|(
 literal|"ttcc"
 argument_list|,
 literal|"org.apache.log4j.TTCCLayout"
