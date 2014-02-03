@@ -742,7 +742,7 @@ name|storeString
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"store(least_used[byte_buffer])"
+literal|"store(least_used[ram])"
 argument_list|)
 argument_list|)
 expr_stmt|;
