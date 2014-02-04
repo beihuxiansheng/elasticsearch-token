@@ -290,6 +290,8 @@ argument_list|()
 argument_list|,
 literal|2
 argument_list|,
+literal|2
+argument_list|,
 name|cluster
 argument_list|()
 operator|.
