@@ -781,6 +781,13 @@ name|equals
 argument_list|(
 name|currentFieldName
 argument_list|)
+operator|||
+literal|"scriptValuesUnique"
+operator|.
+name|equals
+argument_list|(
+name|currentFieldName
+argument_list|)
 condition|)
 block|{
 name|assumeUnique

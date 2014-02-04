@@ -976,6 +976,13 @@ name|equals
 argument_list|(
 name|currentFieldName
 argument_list|)
+operator|||
+literal|"scriptValuesSorted"
+operator|.
+name|equals
+argument_list|(
+name|currentFieldName
+argument_list|)
 condition|)
 block|{
 name|assumeSorted
