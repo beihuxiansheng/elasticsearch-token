@@ -154,15 +154,6 @@ specifier|private
 name|Object
 name|value
 decl_stmt|;
-DECL|field|scratch
-specifier|private
-name|BytesRef
-name|scratch
-init|=
-operator|new
-name|BytesRef
-argument_list|()
-decl_stmt|;
 DECL|method|ScriptBytesValues
 specifier|public
 name|ScriptBytesValues
