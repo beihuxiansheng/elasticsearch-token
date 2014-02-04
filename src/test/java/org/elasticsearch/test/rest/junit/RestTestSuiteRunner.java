@@ -2086,6 +2086,27 @@ block|}
 block|}
 if|if
 condition|(
+name|rootDescription
+operator|.
+name|getChildren
+argument_list|()
+operator|.
+name|size
+argument_list|()
+operator|==
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|InitializationError
+argument_list|(
+literal|"No tests to run"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
 operator|!
 name|parseExceptions
 operator|.
