@@ -60,9 +60,12 @@ return|;
 block|}
 comment|//Cap the multiplier used for shards to avoid excessive data transfer
 specifier|final
-name|int
+name|long
 name|shardSampleSize
 init|=
+operator|(
+name|long
+operator|)
 name|finalSize
 operator|*
 name|Math
@@ -78,6 +81,17 @@ comment|// When finalSize is very small e.g. 1 and there is a low number of
 comment|// shards then we need to ensure we still gather a reasonable sample of statistics from each
 comment|// shard (at low cost) to improve the chances of the final result being accurate.
 return|return
+operator|(
+name|int
+operator|)
+name|Math
+operator|.
+name|min
+argument_list|(
+name|Integer
+operator|.
+name|MAX_VALUE
+argument_list|,
 name|Math
 operator|.
 name|max
@@ -85,6 +99,7 @@ argument_list|(
 literal|10
 argument_list|,
 name|shardSampleSize
+argument_list|)
 argument_list|)
 return|;
 block|}
