@@ -1554,6 +1554,20 @@ operator|.
 name|pop
 argument_list|()
 decl_stmt|;
+comment|// the terms are owned by the BytesRefHash, we need to pull a copy since the BytesRef hash data may be recycled at some point
+name|bucket
+operator|.
+name|termBytes
+operator|=
+name|BytesRef
+operator|.
+name|deepCopyOf
+argument_list|(
+name|bucket
+operator|.
+name|termBytes
+argument_list|)
+expr_stmt|;
 name|bucket
 operator|.
 name|aggregations

@@ -310,7 +310,6 @@ operator|.
 name|Bucket
 block|{
 DECL|field|termBytes
-specifier|final
 name|BytesRef
 name|termBytes
 decl_stmt|;

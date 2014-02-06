@@ -1168,13 +1168,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// These high numbers of docs and terms are important to trigger page recycling
 specifier|final
 name|int
 name|numDocs
 init|=
 name|atLeast
 argument_list|(
-literal|1000
+literal|10000
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -1185,7 +1186,7 @@ name|randomIntBetween
 argument_list|(
 literal|10
 argument_list|,
-literal|10000
+literal|100000
 argument_list|)
 decl_stmt|;
 specifier|final

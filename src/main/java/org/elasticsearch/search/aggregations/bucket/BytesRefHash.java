@@ -240,7 +240,7 @@ name|hash
 argument_list|)
 return|;
 block|}
-comment|/**      * Return the key at<code>0&lte; index&lte; capacity()</code>. The result is undefined if the slot is unused.      */
+comment|/**      * Return the key at<code>0&lte; index&lte; capacity()</code>. The result is undefined if the slot is unused.      *<p color="red">Beware that the content of the {@link BytesRef} may become invalid as soon as {@link #release()} is called</p>      */
 DECL|method|get
 specifier|public
 name|BytesRef
