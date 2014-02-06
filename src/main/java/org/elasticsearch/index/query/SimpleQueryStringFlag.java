@@ -144,6 +144,31 @@ name|XSimpleQueryParser
 operator|.
 name|WHITESPACE_OPERATOR
 argument_list|)
+operator|,
+DECL|enum constant|FUZZY
+name|FUZZY
+argument_list|(
+name|XSimpleQueryParser
+operator|.
+name|FUZZY_OPERATOR
+argument_list|)
+operator|,
+comment|// NEAR and SLOP are synonymous, since "slop" is a more familiar term than "near"
+DECL|enum constant|NEAR
+name|NEAR
+argument_list|(
+name|XSimpleQueryParser
+operator|.
+name|NEAR_OPERATOR
+argument_list|)
+operator|,
+DECL|enum constant|SLOP
+name|SLOP
+argument_list|(
+name|XSimpleQueryParser
+operator|.
+name|NEAR_OPERATOR
+argument_list|)
 enum|;
 end_enum
 
