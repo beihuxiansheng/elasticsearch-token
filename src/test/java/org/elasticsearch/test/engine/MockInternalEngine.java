@@ -68,7 +68,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|SearcherManager
+name|XSearcherManager
 import|;
 end_import
 
@@ -766,7 +766,7 @@ parameter_list|,
 name|IndexSearcher
 name|searcher
 parameter_list|,
-name|SearcherManager
+name|XSearcherManager
 name|manager
 parameter_list|)
 throws|throws
