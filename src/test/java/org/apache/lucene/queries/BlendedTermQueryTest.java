@@ -228,7 +228,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|LuceneTestCase
+name|_TestUtil
 import|;
 end_import
 
@@ -236,13 +236,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|elasticsearch
 operator|.
-name|lucene
+name|test
 operator|.
-name|util
-operator|.
-name|_TestUtil
+name|ElasticsearchLuceneTestCase
 import|;
 end_import
 
@@ -296,7 +294,7 @@ specifier|public
 class|class
 name|BlendedTermQueryTest
 extends|extends
-name|LuceneTestCase
+name|ElasticsearchLuceneTestCase
 block|{
 DECL|method|testBooleanQuery
 specifier|public
