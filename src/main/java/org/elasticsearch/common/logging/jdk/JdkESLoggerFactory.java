@@ -46,18 +46,6 @@ name|ESLoggerFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|logging
-operator|.
-name|LogManager
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -127,8 +115,6 @@ operator|new
 name|JdkESLogger
 argument_list|(
 name|prefix
-argument_list|,
-name|name
 argument_list|,
 name|logger
 argument_list|)
