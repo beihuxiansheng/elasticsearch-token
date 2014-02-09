@@ -649,6 +649,19 @@ name|props
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * sets the loaded flag to false so that logging configuration can be      * overridden. Should only be used in tests.      */
+DECL|method|reset
+specifier|public
+specifier|static
+name|void
+name|reset
+parameter_list|()
+block|{
+name|loaded
+operator|=
+literal|false
+expr_stmt|;
+block|}
 DECL|method|resolveConfig
 specifier|public
 specifier|static

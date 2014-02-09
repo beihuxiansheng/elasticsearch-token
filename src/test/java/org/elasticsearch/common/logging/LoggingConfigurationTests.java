@@ -192,6 +192,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|LogConfigurator
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
 name|File
 name|configDir
 init|=
