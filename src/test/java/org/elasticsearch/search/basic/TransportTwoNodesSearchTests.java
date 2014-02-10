@@ -900,7 +900,6 @@ literal|60
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//        System.out.println("max_score: " + searchResponse.hits().maxScore());
 for|for
 control|(
 name|int
@@ -930,7 +929,6 @@ index|[
 name|i
 index|]
 decl_stmt|;
-comment|//            System.out.println(hit.shard() + ": " + hit.score() + ":" +  hit.explanation());
 name|assertThat
 argument_list|(
 name|hit
@@ -1251,7 +1249,6 @@ index|[
 name|i
 index|]
 decl_stmt|;
-comment|//            System.out.println(hit.shard() + ": " +  hit.explanation());
 name|assertThat
 argument_list|(
 name|hit
@@ -1565,7 +1562,6 @@ index|[
 name|i
 index|]
 decl_stmt|;
-comment|//            System.out.println(hit.shard() + ": " +  hit.explanation());
 name|assertThat
 argument_list|(
 name|hit
@@ -3644,7 +3640,7 @@ argument_list|()
 operator|.
 name|prepareMultiSearch
 argument_list|()
-comment|// Add custom score query with missing script
+comment|// Add function score with a bogus score mode
 operator|.
 name|add
 argument_list|(
@@ -3660,7 +3656,7 @@ name|setQuery
 argument_list|(
 name|QueryBuilders
 operator|.
-name|customScoreQuery
+name|functionScoreQuery
 argument_list|(
 name|QueryBuilders
 operator|.
@@ -3670,6 +3666,11 @@ literal|"nid"
 argument_list|,
 literal|1
 argument_list|)
+argument_list|)
+operator|.
+name|scoreMode
+argument_list|(
+literal|"foobar"
 argument_list|)
 argument_list|)
 argument_list|)
