@@ -1984,7 +1984,7 @@ block|{
 name|XContentParser
 operator|.
 name|Token
-name|t
+name|token
 init|=
 name|parser
 operator|.
@@ -1994,7 +1994,7 @@ decl_stmt|;
 comment|// Let's handle field-name separately first
 if|if
 condition|(
-name|t
+name|token
 operator|==
 name|XContentParser
 operator|.
@@ -2013,7 +2013,7 @@ name|currentName
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|t
+name|token
 operator|=
 name|parser
 operator|.
@@ -2024,7 +2024,7 @@ comment|// fall-through to copy the associated value
 block|}
 switch|switch
 condition|(
-name|t
+name|token
 condition|)
 block|{
 case|case

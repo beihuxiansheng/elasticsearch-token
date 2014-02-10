@@ -2645,7 +2645,7 @@ block|}
 name|XContentParser
 operator|.
 name|Token
-name|t
+name|token
 init|=
 name|parser
 operator|.
@@ -2654,12 +2654,12 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|t
+name|token
 operator|==
 literal|null
 condition|)
 block|{
-name|t
+name|token
 operator|=
 name|parser
 operator|.
@@ -2669,7 +2669,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|t
+name|token
 operator|==
 name|XContentParser
 operator|.
@@ -2678,7 +2678,7 @@ operator|.
 name|START_OBJECT
 condition|)
 block|{
-name|t
+name|token
 operator|=
 name|parser
 operator|.
@@ -2752,7 +2752,7 @@ decl_stmt|;
 for|for
 control|(
 init|;
-name|t
+name|token
 operator|==
 name|XContentParser
 operator|.
@@ -2760,7 +2760,7 @@ name|Token
 operator|.
 name|FIELD_NAME
 condition|;
-name|t
+name|token
 operator|=
 name|parser
 operator|.
@@ -2778,7 +2778,7 @@ name|currentName
 argument_list|()
 decl_stmt|;
 comment|// And then the value...
-name|t
+name|token
 operator|=
 name|parser
 operator|.
@@ -2834,7 +2834,7 @@ block|{
 if|if
 condition|(
 operator|!
-name|t
+name|token
 operator|.
 name|isValue
 argument_list|()
@@ -2993,7 +2993,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|t
+name|token
 operator|==
 name|XContentParser
 operator|.

@@ -1912,7 +1912,7 @@ block|{
 name|XContentParser
 operator|.
 name|Token
-name|t
+name|token
 init|=
 name|parser
 operator|.
@@ -1921,7 +1921,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|t
+name|token
 operator|==
 literal|null
 condition|)
@@ -1938,7 +1938,7 @@ decl_stmt|;
 while|while
 condition|(
 operator|(
-name|t
+name|token
 operator|=
 name|parser
 operator|.
@@ -1955,7 +1955,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|t
+name|token
 operator|==
 name|XContentParser
 operator|.

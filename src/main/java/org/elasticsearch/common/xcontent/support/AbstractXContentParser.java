@@ -1116,7 +1116,7 @@ decl_stmt|;
 name|XContentParser
 operator|.
 name|Token
-name|t
+name|token
 init|=
 name|parser
 operator|.
@@ -1125,12 +1125,12 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|t
+name|token
 operator|==
 literal|null
 condition|)
 block|{
-name|t
+name|token
 operator|=
 name|parser
 operator|.
@@ -1140,7 +1140,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|t
+name|token
 operator|==
 name|XContentParser
 operator|.
@@ -1149,7 +1149,7 @@ operator|.
 name|START_OBJECT
 condition|)
 block|{
-name|t
+name|token
 operator|=
 name|parser
 operator|.
@@ -1160,7 +1160,7 @@ block|}
 for|for
 control|(
 init|;
-name|t
+name|token
 operator|==
 name|XContentParser
 operator|.
@@ -1168,7 +1168,7 @@ name|Token
 operator|.
 name|FIELD_NAME
 condition|;
-name|t
+name|token
 operator|=
 name|parser
 operator|.
@@ -1186,7 +1186,7 @@ name|currentName
 argument_list|()
 decl_stmt|;
 comment|// And then the value...
-name|t
+name|token
 operator|=
 name|parser
 operator|.
@@ -1202,7 +1202,7 @@ name|parser
 argument_list|,
 name|mapFactory
 argument_list|,
-name|t
+name|token
 argument_list|)
 decl_stmt|;
 name|map
@@ -1237,7 +1237,7 @@ parameter_list|,
 name|XContentParser
 operator|.
 name|Token
-name|t
+name|token
 parameter_list|)
 throws|throws
 name|IOException
@@ -1256,7 +1256,7 @@ decl_stmt|;
 while|while
 condition|(
 operator|(
-name|t
+name|token
 operator|=
 name|parser
 operator|.
@@ -1281,7 +1281,7 @@ name|parser
 argument_list|,
 name|mapFactory
 argument_list|,
-name|t
+name|token
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1305,14 +1305,14 @@ parameter_list|,
 name|XContentParser
 operator|.
 name|Token
-name|t
+name|token
 parameter_list|)
 throws|throws
 name|IOException
 block|{
 if|if
 condition|(
-name|t
+name|token
 operator|==
 name|XContentParser
 operator|.
@@ -1328,7 +1328,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|t
+name|token
 operator|==
 name|XContentParser
 operator|.
@@ -1347,7 +1347,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|t
+name|token
 operator|==
 name|XContentParser
 operator|.
@@ -1445,7 +1445,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|t
+name|token
 operator|==
 name|XContentParser
 operator|.
@@ -1464,7 +1464,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|t
+name|token
 operator|==
 name|XContentParser
 operator|.
@@ -1485,7 +1485,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|t
+name|token
 operator|==
 name|XContentParser
 operator|.
@@ -1501,14 +1501,14 @@ name|parser
 argument_list|,
 name|mapFactory
 argument_list|,
-name|t
+name|token
 argument_list|)
 return|;
 block|}
 elseif|else
 if|if
 condition|(
-name|t
+name|token
 operator|==
 name|XContentParser
 operator|.
