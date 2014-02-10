@@ -2266,7 +2266,7 @@ literal|")"
 argument_list|,
 name|Priority
 operator|.
-name|URGENT
+name|IMMEDIATE
 argument_list|,
 operator|new
 name|ClusterStateUpdateTask
@@ -2482,7 +2482,7 @@ name|reason
 argument_list|,
 name|Priority
 operator|.
-name|URGENT
+name|IMMEDIATE
 argument_list|,
 operator|new
 name|ProcessedClusterStateUpdateTask
@@ -2698,7 +2698,7 @@ literal|"zen-disco-minimum_master_nodes_changed"
 argument_list|,
 name|Priority
 operator|.
-name|URGENT
+name|IMMEDIATE
 argument_list|,
 operator|new
 name|ProcessedClusterStateUpdateTask
@@ -2883,7 +2883,7 @@ literal|")"
 argument_list|,
 name|Priority
 operator|.
-name|URGENT
+name|IMMEDIATE
 argument_list|,
 operator|new
 name|ProcessedClusterStateUpdateTask
@@ -4247,7 +4247,7 @@ literal|"])"
 argument_list|,
 name|Priority
 operator|.
-name|URGENT
+name|IMMEDIATE
 argument_list|,
 operator|new
 name|ClusterStateUpdateTask

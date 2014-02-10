@@ -517,7 +517,7 @@ literal|"cluster_update_settings"
 argument_list|,
 name|Priority
 operator|.
-name|URGENT
+name|IMMEDIATE
 argument_list|,
 operator|new
 name|AckedClusterStateUpdateTask

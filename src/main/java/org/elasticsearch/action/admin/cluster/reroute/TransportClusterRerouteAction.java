@@ -401,7 +401,7 @@ literal|"cluster_reroute (api)"
 argument_list|,
 name|Priority
 operator|.
-name|URGENT
+name|IMMEDIATE
 argument_list|,
 operator|new
 name|AckedClusterStateUpdateTask
