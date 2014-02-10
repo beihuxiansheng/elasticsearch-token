@@ -378,6 +378,18 @@ name|elasticsearch
 operator|.
 name|discovery
 operator|.
+name|DiscoverySettings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|discovery
+operator|.
 name|InitialStateDiscoveryListener
 import|;
 end_import
@@ -867,6 +879,9 @@ name|pingService
 parameter_list|,
 name|Version
 name|version
+parameter_list|,
+name|DiscoverySettings
+name|discoverySettings
 parameter_list|)
 block|{
 name|super
@@ -1093,6 +1108,8 @@ argument_list|,
 operator|new
 name|NewClusterStateListener
 argument_list|()
+argument_list|,
+name|discoverySettings
 argument_list|)
 expr_stmt|;
 name|this
