@@ -2912,14 +2912,14 @@ name|Builder
 name|blocks
 parameter_list|(
 name|ClusterBlocks
-name|block
+name|blocks
 parameter_list|)
 block|{
 name|this
 operator|.
 name|blocks
 operator|=
-name|block
+name|blocks
 expr_stmt|;
 return|return
 name|this
