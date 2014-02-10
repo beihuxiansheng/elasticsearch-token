@@ -491,6 +491,13 @@ name|contains
 argument_list|(
 literal|"nodes"
 argument_list|)
+operator|||
+name|metrics
+operator|.
+name|contains
+argument_list|(
+literal|"master_node"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|clusterStateRequest
