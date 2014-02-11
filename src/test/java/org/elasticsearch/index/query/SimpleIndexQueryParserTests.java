@@ -13151,16 +13151,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Disabled since we need a current context to execute it...
-comment|//    @Test public void testCustomScoreQuery1() throws IOException {
-comment|//        IndexQueryParser queryParser = queryParser();
-comment|//        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/custom_score1.json");
-comment|//        Query parsedQuery = queryParser.parse(query).query();
-comment|//        assertThat(parsedQuery, instanceOf(FunctionScoreQuery.class));
-comment|//        FunctionScoreQuery functionScoreQuery = (FunctionScoreQuery) parsedQuery;
-comment|//        assertThat(((TermQuery) functionScoreQuery.getSubQuery()).getTerm(), equalTo(new Term("name.last", "banon")));
-comment|//        assertThat(functionScoreQuery.getFunction(), instanceOf(CustomScoreQueryParser.ScriptScoreFunction.class));
-comment|//    }
 annotation|@
 name|Test
 DECL|method|testCustomBoostFactorQueryBuilder_withFunctionScore
