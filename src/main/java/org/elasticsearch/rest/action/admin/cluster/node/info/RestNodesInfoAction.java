@@ -274,7 +274,7 @@ literal|"network"
 argument_list|,
 literal|"os"
 argument_list|,
-literal|"plugin"
+literal|"plugins"
 argument_list|,
 literal|"process"
 argument_list|,
@@ -666,13 +666,13 @@ argument_list|)
 expr_stmt|;
 name|nodesInfoRequest
 operator|.
-name|plugin
+name|plugins
 argument_list|(
 name|metrics
 operator|.
 name|contains
 argument_list|(
-literal|"plugin"
+literal|"plugins"
 argument_list|)
 argument_list|)
 expr_stmt|;

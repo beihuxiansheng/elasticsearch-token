@@ -875,7 +875,7 @@ operator|.
 name|clear
 argument_list|()
 operator|.
-name|setPlugin
+name|setPlugins
 argument_list|(
 literal|true
 argument_list|)

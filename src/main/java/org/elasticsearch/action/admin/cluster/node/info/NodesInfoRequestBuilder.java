@@ -316,21 +316,22 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|setPlugin
+comment|/**      * Should the node plugins info be returned.      */
+DECL|method|setPlugins
 specifier|public
 name|NodesInfoRequestBuilder
-name|setPlugin
+name|setPlugins
 parameter_list|(
 name|boolean
-name|plugin
+name|plugins
 parameter_list|)
 block|{
 name|request
 argument_list|()
 operator|.
-name|plugin
+name|plugins
 argument_list|(
-name|plugin
+name|plugins
 argument_list|)
 expr_stmt|;
 return|return

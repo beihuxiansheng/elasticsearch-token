@@ -151,10 +151,10 @@ name|http
 init|=
 literal|true
 decl_stmt|;
-DECL|field|plugin
+DECL|field|plugins
 specifier|private
 name|boolean
-name|plugin
+name|plugins
 init|=
 literal|true
 decl_stmt|;
@@ -218,7 +218,7 @@ name|http
 operator|=
 literal|false
 expr_stmt|;
-name|plugin
+name|plugins
 operator|=
 literal|false
 expr_stmt|;
@@ -265,7 +265,7 @@ name|http
 operator|=
 literal|true
 expr_stmt|;
-name|plugin
+name|plugins
 operator|=
 literal|true
 expr_stmt|;
@@ -537,35 +537,35 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Should information about plugins be returned      * @param plugin true if you want info      * @return The request      */
-DECL|method|plugin
+comment|/**      * Should information about plugins be returned      * @param plugins true if you want info      * @return The request      */
+DECL|method|plugins
 specifier|public
 name|NodesInfoRequest
-name|plugin
+name|plugins
 parameter_list|(
 name|boolean
-name|plugin
+name|plugins
 parameter_list|)
 block|{
 name|this
 operator|.
-name|plugin
+name|plugins
 operator|=
-name|plugin
+name|plugins
 expr_stmt|;
 return|return
 name|this
 return|;
 block|}
 comment|/**      * @return true if information about plugins is requested      */
-DECL|method|plugin
+DECL|method|plugins
 specifier|public
 name|boolean
-name|plugin
+name|plugins
 parameter_list|()
 block|{
 return|return
-name|plugin
+name|plugins
 return|;
 block|}
 annotation|@
@@ -644,7 +644,7 @@ operator|.
 name|readBoolean
 argument_list|()
 expr_stmt|;
-name|plugin
+name|plugins
 operator|=
 name|in
 operator|.
@@ -732,7 +732,7 @@ name|out
 operator|.
 name|writeBoolean
 argument_list|(
-name|plugin
+name|plugins
 argument_list|)
 expr_stmt|;
 block|}

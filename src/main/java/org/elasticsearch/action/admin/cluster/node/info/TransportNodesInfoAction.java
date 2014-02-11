@@ -564,7 +564,7 @@ argument_list|()
 argument_list|,
 name|request
 operator|.
-name|plugin
+name|plugins
 argument_list|()
 argument_list|)
 return|;
