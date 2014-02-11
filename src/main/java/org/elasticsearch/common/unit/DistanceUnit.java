@@ -122,16 +122,6 @@ argument_list|,
 literal|"feet"
 argument_list|)
 block|,
-DECL|enum constant|MILES
-name|MILES
-argument_list|(
-literal|1609.344
-argument_list|,
-literal|"mi"
-argument_list|,
-literal|"miles"
-argument_list|)
-block|,
 DECL|enum constant|KILOMETERS
 name|KILOMETERS
 argument_list|(
@@ -140,6 +130,18 @@ argument_list|,
 literal|"km"
 argument_list|,
 literal|"kilometers"
+argument_list|)
+block|,
+DECL|enum constant|NAUTICALMILES
+name|NAUTICALMILES
+argument_list|(
+literal|1852.0
+argument_list|,
+literal|"NM"
+argument_list|,
+literal|"nmi"
+argument_list|,
+literal|"nauticalmiles"
 argument_list|)
 block|,
 DECL|enum constant|MILLIMETERS
@@ -160,6 +162,17 @@ argument_list|,
 literal|"cm"
 argument_list|,
 literal|"centimeters"
+argument_list|)
+block|,
+comment|// 'm' is a suffix of 'nmi' so it must follow 'nmi'
+DECL|enum constant|MILES
+name|MILES
+argument_list|(
+literal|1609.344
+argument_list|,
+literal|"mi"
+argument_list|,
+literal|"miles"
 argument_list|)
 block|,
 comment|// since 'm' is suffix of other unit
