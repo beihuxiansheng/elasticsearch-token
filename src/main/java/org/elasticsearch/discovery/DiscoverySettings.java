@@ -106,7 +106,7 @@ init|=
 literal|"discovery.zen.publish_timeout"
 decl_stmt|;
 DECL|field|DEFAULT_PUBLISH_TIMEOUT
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|TimeValue
