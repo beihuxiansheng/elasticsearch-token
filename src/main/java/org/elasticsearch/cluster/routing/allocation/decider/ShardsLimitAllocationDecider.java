@@ -146,7 +146,7 @@ name|ShardsLimitAllocationDecider
 extends|extends
 name|AllocationDecider
 block|{
-comment|/**      * Controls the maximum number of shards per index on a single elastic      * search node. Negative values are interpreted as unlimited.      */
+comment|/**      * Controls the maximum number of shards per index on a single Elasticsearch      * node. Negative values are interpreted as unlimited.      */
 DECL|field|INDEX_TOTAL_SHARDS_PER_NODE
 specifier|public
 specifier|static
@@ -419,7 +419,6 @@ range|:
 name|node
 control|)
 block|{
-empty_stmt|;
 if|if
 condition|(
 operator|!
