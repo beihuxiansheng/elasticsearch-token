@@ -42,7 +42,7 @@ name|analysis
 operator|.
 name|miscellaneous
 operator|.
-name|ASCIIFoldingFilter
+name|XASCIIFoldingFilter
 import|;
 end_import
 
@@ -117,7 +117,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Factory for ASCIIFoldingFilter.  */
 end_comment
 
 begin_class
@@ -128,6 +128,12 @@ name|ASCIIFoldingTokenFilterFactory
 extends|extends
 name|AbstractTokenFilterFactory
 block|{
+DECL|field|preserveOriginal
+specifier|private
+specifier|final
+name|boolean
+name|preserveOriginal
+decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|ASCIIFoldingTokenFilterFactory
@@ -164,6 +170,17 @@ argument_list|,
 name|settings
 argument_list|)
 expr_stmt|;
+name|preserveOriginal
+operator|=
+name|settings
+operator|.
+name|getAsBoolean
+argument_list|(
+literal|"preserve_original"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -178,9 +195,11 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|ASCIIFoldingFilter
+name|XASCIIFoldingFilter
 argument_list|(
 name|tokenStream
+argument_list|,
+name|preserveOriginal
 argument_list|)
 return|;
 block|}
