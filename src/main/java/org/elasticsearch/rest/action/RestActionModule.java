@@ -2589,6 +2589,21 @@ operator|.
 name|asEagerSingleton
 argument_list|()
 expr_stmt|;
+name|catActionMultibinder
+operator|.
+name|addBinding
+argument_list|()
+operator|.
+name|to
+argument_list|(
+name|RestSegmentsAction
+operator|.
+name|class
+argument_list|)
+operator|.
+name|asEagerSingleton
+argument_list|()
+expr_stmt|;
 comment|// Fully qualified to prevent interference with rest.action.count.RestCountAction
 name|catActionMultibinder
 operator|.
