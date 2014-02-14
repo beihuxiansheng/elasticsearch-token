@@ -112,9 +112,6 @@ name|String
 name|index
 parameter_list|,
 name|int
-name|successfulShards
-parameter_list|,
-name|int
 name|failedShards
 parameter_list|,
 name|ShardDeleteResponse
@@ -132,7 +129,9 @@ name|this
 operator|.
 name|successfulShards
 operator|=
-name|successfulShards
+name|deleteResponses
+operator|.
+name|length
 expr_stmt|;
 name|this
 operator|.
