@@ -781,6 +781,14 @@ name|fuzzyPrefixLength
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|setLocale
+argument_list|(
+name|settings
+operator|.
+name|locale
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|analyzeWildcard

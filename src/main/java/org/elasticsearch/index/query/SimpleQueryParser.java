@@ -172,6 +172,12 @@ specifier|final
 name|boolean
 name|lowercaseExpandedTerms
 decl_stmt|;
+DECL|field|locale
+specifier|private
+specifier|final
+name|Locale
+name|locale
+decl_stmt|;
 comment|/** Creates a new parser with custom flags used to enable/disable certain features. */
 DECL|method|SimpleQueryParser
 specifier|public
@@ -191,6 +197,9 @@ parameter_list|,
 name|int
 name|flags
 parameter_list|,
+name|Locale
+name|locale
+parameter_list|,
 name|boolean
 name|lowercaseExpandedTerms
 parameter_list|)
@@ -209,6 +218,12 @@ operator|.
 name|lowercaseExpandedTerms
 operator|=
 name|lowercaseExpandedTerms
+expr_stmt|;
+name|this
+operator|.
+name|locale
+operator|=
+name|locale
 expr_stmt|;
 block|}
 comment|/**      * Dispatches to Lucene's SimpleQueryParser's newFuzzyQuery, optionally      * lowercasing the term first      */
@@ -237,9 +252,7 @@ name|text
 operator|.
 name|toLowerCase
 argument_list|(
-name|Locale
-operator|.
-name|ROOT
+name|locale
 argument_list|)
 expr_stmt|;
 block|}
@@ -277,9 +290,7 @@ name|text
 operator|.
 name|toLowerCase
 argument_list|(
-name|Locale
-operator|.
-name|ROOT
+name|locale
 argument_list|)
 expr_stmt|;
 block|}
