@@ -1047,7 +1047,7 @@ name|pathIsPrefixOfAnInclude
 operator|=
 literal|true
 expr_stmt|;
-break|break;
+continue|continue;
 block|}
 if|if
 condition|(
@@ -1109,7 +1109,7 @@ name|pathIsPrefixOfAnInclude
 operator|=
 literal|true
 expr_stmt|;
-break|break;
+continue|continue;
 block|}
 block|}
 if|if
