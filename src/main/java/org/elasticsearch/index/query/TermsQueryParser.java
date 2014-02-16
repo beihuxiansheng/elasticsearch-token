@@ -409,6 +409,26 @@ operator|.
 name|START_ARRAY
 condition|)
 block|{
+if|if
+condition|(
+name|fieldName
+operator|!=
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|QueryParsingException
+argument_list|(
+name|parseContext
+operator|.
+name|index
+argument_list|()
+argument_list|,
+literal|"[terms] query does not support multiple fields"
+argument_list|)
+throw|;
+block|}
 name|fieldName
 operator|=
 name|currentFieldName
