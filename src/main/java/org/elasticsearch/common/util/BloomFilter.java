@@ -1523,6 +1523,7 @@ argument_list|)
 return|;
 block|}
 comment|// START : MURMUR 3_128
+comment|// NOTE: don't replace this code with the o.e.common.hashing.MurmurHash3 method which returns a different hash
 DECL|method|getblock
 specifier|protected
 specifier|static

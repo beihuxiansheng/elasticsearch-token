@@ -105,6 +105,23 @@ name|int
 name|len
 parameter_list|)
 function_decl|;
+comment|/**      * Fill slots between<code>fromIndex</code> inclusive to<code>toIndex</code> exclusive with<code>value</code>.      */
+DECL|method|fill
+specifier|public
+specifier|abstract
+name|void
+name|fill
+parameter_list|(
+name|long
+name|fromIndex
+parameter_list|,
+name|long
+name|toIndex
+parameter_list|,
+name|byte
+name|value
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 
