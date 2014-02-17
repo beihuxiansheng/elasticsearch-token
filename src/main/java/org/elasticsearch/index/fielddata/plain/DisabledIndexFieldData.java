@@ -106,6 +106,22 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|fielddata
+operator|.
+name|ordinals
+operator|.
+name|GlobalOrdinalsBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|mapper
 operator|.
 name|FieldMapper
@@ -236,6 +252,9 @@ name|breakerService
 parameter_list|,
 name|MapperService
 name|mapperService
+parameter_list|,
+name|GlobalOrdinalsBuilder
+name|globalOrdinalBuilder
 parameter_list|)
 block|{
 comment|// Ignore Circuit Breaker

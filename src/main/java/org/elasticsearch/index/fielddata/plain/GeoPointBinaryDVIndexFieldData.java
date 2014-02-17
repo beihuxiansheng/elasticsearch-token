@@ -128,6 +128,22 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|fielddata
+operator|.
+name|ordinals
+operator|.
+name|GlobalOrdinalsBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|mapper
 operator|.
 name|FieldMapper
@@ -215,6 +231,9 @@ name|index
 parameter_list|,
 name|Names
 name|fieldNames
+parameter_list|,
+name|FieldDataType
+name|fieldDataType
 parameter_list|)
 block|{
 name|super
@@ -222,6 +241,8 @@ argument_list|(
 name|index
 argument_list|,
 name|fieldNames
+argument_list|,
+name|fieldDataType
 argument_list|)
 expr_stmt|;
 block|}
@@ -382,6 +403,9 @@ name|breakerService
 parameter_list|,
 name|MapperService
 name|mapperService
+parameter_list|,
+name|GlobalOrdinalsBuilder
+name|globalOrdinalBuilder
 parameter_list|)
 block|{
 comment|// Ignore breaker
@@ -403,6 +427,11 @@ argument_list|(
 name|index
 argument_list|,
 name|fieldNames
+argument_list|,
+name|mapper
+operator|.
+name|fieldDataType
+argument_list|()
 argument_list|)
 return|;
 block|}

@@ -26,35 +26,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Nullable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|inject
 operator|.
 name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|fielddata
-operator|.
-name|AtomicFieldData
 import|;
 end_import
 
@@ -83,6 +57,20 @@ operator|.
 name|fielddata
 operator|.
 name|IndexFieldDataCache
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|fielddata
+operator|.
+name|RamUsage
 import|;
 end_import
 
@@ -168,7 +156,7 @@ parameter_list|,
 name|FieldDataType
 name|fieldDataType
 parameter_list|,
-name|AtomicFieldData
+name|RamUsage
 name|fieldData
 parameter_list|)
 block|{     }
@@ -192,11 +180,6 @@ name|wasEvicted
 parameter_list|,
 name|long
 name|sizeInBytes
-parameter_list|,
-annotation|@
-name|Nullable
-name|AtomicFieldData
-name|fieldData
 parameter_list|)
 block|{
 assert|assert

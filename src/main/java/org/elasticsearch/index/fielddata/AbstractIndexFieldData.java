@@ -281,6 +281,16 @@ operator|.
 name|fieldNames
 return|;
 block|}
+DECL|method|getFieldDataType
+specifier|public
+name|FieldDataType
+name|getFieldDataType
+parameter_list|()
+block|{
+return|return
+name|fieldDataType
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|clear

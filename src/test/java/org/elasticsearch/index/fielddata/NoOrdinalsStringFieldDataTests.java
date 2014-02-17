@@ -104,6 +104,16 @@ name|Names
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/** Returns an implementation based on paged bytes which doesn't implement WithOrdinals in order to visit different paths in the code,  *  eg. BytesRefFieldComparatorSource makes decisions based on whether the field data implements WithOrdinals. */
 end_comment
@@ -188,6 +198,20 @@ return|return
 name|in
 operator|.
 name|getFieldNames
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|FieldDataType
+name|getFieldDataType
+parameter_list|()
+block|{
+return|return
+name|in
+operator|.
+name|getFieldDataType
 argument_list|()
 return|;
 block|}
@@ -309,6 +333,20 @@ expr_stmt|;
 block|}
 block|}
 return|;
+block|}
+annotation|@
+name|Test
+annotation|@
+name|Override
+DECL|method|testTermsEnum
+specifier|public
+name|void
+name|testTermsEnum
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// We can't test this, since the returned IFD instance doesn't implement IndexFieldData.WithOrdinals
 block|}
 block|}
 end_class
