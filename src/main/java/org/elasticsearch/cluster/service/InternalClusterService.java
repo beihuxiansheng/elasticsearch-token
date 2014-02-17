@@ -2260,12 +2260,13 @@ name|version
 argument_list|()
 condition|)
 block|{
-comment|// we got this cluster state from the master, filter out based on versions (don't call listeners)
+comment|// we got a cluster state with older version, when we are *not* the master, let it in since it might be valid
+comment|// we check on version where applicable, like at ZenDiscovery#handleNewClusterStateFromMaster
 name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"got old cluster state ["
+literal|"got smaller cluster state when not master ["
 operator|+
 name|newClusterState
 operator|.
@@ -2283,10 +2284,9 @@ literal|"] from source ["
 operator|+
 name|source
 operator|+
-literal|"], ignoring"
+literal|"]"
 argument_list|)
 expr_stmt|;
-return|return;
 block|}
 block|}
 if|if
