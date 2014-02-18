@@ -134,11 +134,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|indices
 operator|.
-name|gateway
+name|recovery
 operator|.
-name|RecoveryStatus
+name|RecoveryState
 import|;
 end_import
 
@@ -639,15 +639,15 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Restores shard from {@link RestoreSource} associated with this shard in routing table      *      * @param recoveryStatus recovery status      */
+comment|/**      * Restores shard from {@link RestoreSource} associated with this shard in routing table      *      * @param recoveryState recovery state      */
 DECL|method|restore
 specifier|public
 name|void
 name|restore
 parameter_list|(
 specifier|final
-name|RecoveryStatus
-name|recoveryStatus
+name|RecoveryState
+name|recoveryState
 parameter_list|)
 block|{
 name|RestoreSource
@@ -771,7 +771,7 @@ name|shardId
 argument_list|,
 name|snapshotShardId
 argument_list|,
-name|recoveryStatus
+name|recoveryState
 argument_list|)
 expr_stmt|;
 name|restoreService

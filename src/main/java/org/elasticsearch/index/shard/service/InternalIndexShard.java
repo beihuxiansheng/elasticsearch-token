@@ -1226,10 +1226,10 @@ specifier|volatile
 name|ShardRouting
 name|shardRouting
 decl_stmt|;
-DECL|field|peerRecoveryStatus
+DECL|field|recoveryStatus
 specifier|private
 name|RecoveryStatus
-name|peerRecoveryStatus
+name|recoveryStatus
 decl_stmt|;
 DECL|field|applyRefreshSettings
 specifier|private
@@ -4137,16 +4137,16 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * The peer recovery status if this shard recovered from a peer shard.      */
-DECL|method|peerRecoveryStatus
+DECL|method|recoveryStatus
 specifier|public
 name|RecoveryStatus
-name|peerRecoveryStatus
+name|recoveryStatus
 parameter_list|()
 block|{
 return|return
 name|this
 operator|.
-name|peerRecoveryStatus
+name|recoveryStatus
 return|;
 block|}
 DECL|method|performRecoveryFinalization
@@ -4158,7 +4158,7 @@ name|boolean
 name|withFlush
 parameter_list|,
 name|RecoveryStatus
-name|peerRecoveryStatus
+name|recoveryStatus
 parameter_list|)
 throws|throws
 name|ElasticsearchException
@@ -4170,9 +4170,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|peerRecoveryStatus
+name|recoveryStatus
 operator|=
-name|peerRecoveryStatus
+name|recoveryStatus
 expr_stmt|;
 block|}
 DECL|method|performRecoveryFinalization

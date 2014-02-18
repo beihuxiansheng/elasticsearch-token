@@ -80,6 +80,20 @@ name|Translog
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
+name|recovery
+operator|.
+name|RecoveryState
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -100,9 +114,9 @@ name|type
 parameter_list|()
 function_decl|;
 comment|/**      * The last / on going recovery status.      */
-DECL|method|recoveryStatus
-name|RecoveryStatus
-name|recoveryStatus
+DECL|method|recoveryState
+name|RecoveryState
+name|recoveryState
 parameter_list|()
 function_decl|;
 comment|/**      * The last snapshot status performed. Can be<tt>null</tt>.      */
@@ -125,8 +139,8 @@ parameter_list|(
 name|boolean
 name|indexShouldExists
 parameter_list|,
-name|RecoveryStatus
-name|recoveryStatus
+name|RecoveryState
+name|recoveryState
 parameter_list|)
 throws|throws
 name|IndexShardGatewayRecoveryException

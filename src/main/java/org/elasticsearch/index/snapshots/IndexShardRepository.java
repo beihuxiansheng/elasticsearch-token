@@ -50,11 +50,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|indices
 operator|.
-name|gateway
+name|recovery
 operator|.
-name|RecoveryStatus
+name|RecoveryState
 import|;
 end_import
 
@@ -100,7 +100,7 @@ name|IndexShardSnapshotStatus
 name|snapshotStatus
 parameter_list|)
 function_decl|;
-comment|/**      * Restores snapshot of the shard.      *<p/>      * The index can be renamed on restore, hence different {@code shardId} and {@code snapshotShardId} are supplied.      *      * @param snapshotId      snapshot id      * @param shardId         shard id (in the current index)      * @param snapshotShardId shard id (in the snapshot)      * @param recoveryStatus  recovery status      */
+comment|/**      * Restores snapshot of the shard.      *<p/>      * The index can be renamed on restore, hence different {@code shardId} and {@code snapshotShardId} are supplied.      *      * @param snapshotId      snapshot id      * @param shardId         shard id (in the current index)      * @param snapshotShardId shard id (in the snapshot)      * @param recoveryState   recovery state      */
 DECL|method|restore
 name|void
 name|restore
@@ -114,8 +114,8 @@ parameter_list|,
 name|ShardId
 name|snapshotShardId
 parameter_list|,
-name|RecoveryStatus
-name|recoveryStatus
+name|RecoveryState
+name|recoveryState
 parameter_list|)
 function_decl|;
 comment|/**      * Retrieve shard snapshot status for the stored snapshot      *      * @param snapshotId snapshot id      * @param shardId    shard id      * @return snapshot status      */
