@@ -2105,7 +2105,7 @@ argument_list|>
 name|listener
 parameter_list|)
 function_decl|;
-comment|/**      * Deletes an index based on the index name.      *      * @param indices The indices to delete. Empty array to delete all indices.      */
+comment|/**      * Deletes an index based on the index name.      *      * @param indices The indices to delete. Use "_all" to delete all indices.      */
 DECL|method|prepareDelete
 name|DeleteIndexRequestBuilder
 name|prepareDelete

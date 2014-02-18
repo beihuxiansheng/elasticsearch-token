@@ -217,7 +217,7 @@ DECL|method|DeleteIndexRequest
 name|DeleteIndexRequest
 parameter_list|()
 block|{     }
-comment|/**      * Constructs a new delete index request for the specified index.      */
+comment|/**      * Constructs a new delete index request for the specified index.      *      * @param index The index to delete. Use "_all" to delete all indices.      */
 DECL|method|DeleteIndexRequest
 specifier|public
 name|DeleteIndexRequest
@@ -238,6 +238,7 @@ name|index
 block|}
 expr_stmt|;
 block|}
+comment|/**      * Constructs a new delete index request for the specified indices.      *      * @param indices The indices to delete. Use "_all" to delete all indices.      */
 DECL|method|DeleteIndexRequest
 specifier|public
 name|DeleteIndexRequest
