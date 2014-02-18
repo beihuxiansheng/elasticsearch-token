@@ -42,7 +42,7 @@ name|analysis
 operator|.
 name|miscellaneous
 operator|.
-name|XASCIIFoldingFilter
+name|ASCIIFoldingFilter
 import|;
 end_import
 
@@ -195,7 +195,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|XASCIIFoldingFilter
+name|ASCIIFoldingFilter
 argument_list|(
 name|tokenStream
 argument_list|,

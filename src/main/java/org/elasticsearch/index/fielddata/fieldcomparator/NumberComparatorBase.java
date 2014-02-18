@@ -41,6 +41,11 @@ argument_list|<
 name|T
 argument_list|>
 block|{
+DECL|field|top
+specifier|protected
+name|T
+name|top
+decl_stmt|;
 comment|/**      * Adds numeric value at the specified doc to the specified slot.      *      * @param slot  The specified slot      * @param doc   The specified doc      */
 DECL|method|add
 specifier|public
@@ -69,6 +74,24 @@ name|int
 name|divisor
 parameter_list|)
 function_decl|;
+annotation|@
+name|Override
+DECL|method|setTopValue
+specifier|public
+name|void
+name|setTopValue
+parameter_list|(
+name|T
+name|top
+parameter_list|)
+block|{
+name|this
+operator|.
+name|top
+operator|=
+name|top
+expr_stmt|;
+block|}
 block|}
 end_class
 

@@ -233,7 +233,7 @@ literal|"token_separator"
 argument_list|,
 name|ShingleFilter
 operator|.
-name|TOKEN_SEPARATOR
+name|DEFAULT_TOKEN_SEPARATOR
 argument_list|)
 decl_stmt|;
 name|factory
@@ -357,7 +357,7 @@ literal|false
 argument_list|,
 name|ShingleFilter
 operator|.
-name|TOKEN_SEPARATOR
+name|DEFAULT_TOKEN_SEPARATOR
 argument_list|)
 expr_stmt|;
 block|}

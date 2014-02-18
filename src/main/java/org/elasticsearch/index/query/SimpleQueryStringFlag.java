@@ -20,20 +20,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|queryparser
-operator|.
-name|XSimpleQueryParser
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchIllegalArgumentException
@@ -88,19 +74,19 @@ block|,
 DECL|enum constant|AND
 name|AND
 parameter_list|(
-name|XSimpleQueryParser
+name|SimpleQueryParser
 operator|.
 name|AND_OPERATOR
 parameter_list|)
 operator|,
 DECL|enum constant|NOT
-constructor|NOT(XSimpleQueryParser.NOT_OPERATOR
+constructor|NOT(SimpleQueryParser.NOT_OPERATOR
 block|)
 enum|,
 DECL|enum constant|OR
 name|OR
 argument_list|(
-name|XSimpleQueryParser
+name|SimpleQueryParser
 operator|.
 name|OR_OPERATOR
 argument_list|)
@@ -108,7 +94,7 @@ operator|,
 DECL|enum constant|PREFIX
 name|PREFIX
 argument_list|(
-name|XSimpleQueryParser
+name|SimpleQueryParser
 operator|.
 name|PREFIX_OPERATOR
 argument_list|)
@@ -116,7 +102,7 @@ operator|,
 DECL|enum constant|PHRASE
 name|PHRASE
 argument_list|(
-name|XSimpleQueryParser
+name|SimpleQueryParser
 operator|.
 name|PHRASE_OPERATOR
 argument_list|)
@@ -124,7 +110,7 @@ operator|,
 DECL|enum constant|PRECEDENCE
 name|PRECEDENCE
 argument_list|(
-name|XSimpleQueryParser
+name|SimpleQueryParser
 operator|.
 name|PRECEDENCE_OPERATORS
 argument_list|)
@@ -132,7 +118,7 @@ operator|,
 DECL|enum constant|ESCAPE
 name|ESCAPE
 argument_list|(
-name|XSimpleQueryParser
+name|SimpleQueryParser
 operator|.
 name|ESCAPE_OPERATOR
 argument_list|)
@@ -140,7 +126,7 @@ operator|,
 DECL|enum constant|WHITESPACE
 name|WHITESPACE
 argument_list|(
-name|XSimpleQueryParser
+name|SimpleQueryParser
 operator|.
 name|WHITESPACE_OPERATOR
 argument_list|)
@@ -148,7 +134,7 @@ operator|,
 DECL|enum constant|FUZZY
 name|FUZZY
 argument_list|(
-name|XSimpleQueryParser
+name|SimpleQueryParser
 operator|.
 name|FUZZY_OPERATOR
 argument_list|)
@@ -157,7 +143,7 @@ comment|// NEAR and SLOP are synonymous, since "slop" is a more familiar term th
 DECL|enum constant|NEAR
 name|NEAR
 argument_list|(
-name|XSimpleQueryParser
+name|SimpleQueryParser
 operator|.
 name|NEAR_OPERATOR
 argument_list|)
@@ -165,7 +151,7 @@ operator|,
 DECL|enum constant|SLOP
 name|SLOP
 argument_list|(
-name|XSimpleQueryParser
+name|SimpleQueryParser
 operator|.
 name|NEAR_OPERATOR
 argument_list|)

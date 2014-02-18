@@ -40,22 +40,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|codecs
-operator|.
-name|lucene3x
-operator|.
-name|Lucene3xCodec
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|index
 operator|.
 name|*
@@ -130,7 +114,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|XSearcherManager
+name|SearcherManager
 import|;
 end_import
 
@@ -187,20 +171,6 @@ operator|.
 name|util
 operator|.
 name|IOUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|Version
 import|;
 end_import
 
@@ -1108,7 +1078,7 @@ decl_stmt|;
 DECL|field|searcherManager
 specifier|private
 specifier|volatile
-name|XSearcherManager
+name|SearcherManager
 name|searcherManager
 decl_stmt|;
 DECL|field|closed
@@ -4807,7 +4777,7 @@ parameter_list|)
 throws|throws
 name|EngineException
 block|{
-name|XSearcherManager
+name|SearcherManager
 name|manager
 init|=
 name|this
@@ -4892,7 +4862,7 @@ parameter_list|,
 name|IndexSearcher
 name|searcher
 parameter_list|,
-name|XSearcherManager
+name|SearcherManager
 name|manager
 parameter_list|)
 block|{
@@ -5402,7 +5372,7 @@ name|translogId
 argument_list|)
 expr_stmt|;
 block|}
-name|XSearcherManager
+name|SearcherManager
 name|current
 init|=
 name|this
@@ -7130,24 +7100,9 @@ expr_stmt|;
 block|}
 block|}
 block|}
-static|static
-block|{
-assert|assert
-name|Version
-operator|.
-name|LUCENE_46
-operator|.
-name|onOrAfter
-argument_list|(
-name|Lucene
-operator|.
-name|VERSION
-argument_list|)
-assert|;
-comment|// Lucene 4.7 fixed Lucene 3.X RAM usage estimations, see LUCENE-5462
-block|}
 DECL|method|getReaderRamBytesUsed
 specifier|private
+specifier|static
 name|long
 name|getReaderRamBytesUsed
 parameter_list|(
@@ -7169,28 +7124,6 @@ name|reader
 argument_list|()
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|segmentReader
-operator|.
-name|getSegmentInfo
-argument_list|()
-operator|.
-name|info
-operator|.
-name|getCodec
-argument_list|()
-operator|instanceof
-name|Lucene3xCodec
-condition|)
-block|{
-comment|// https://issues.apache.org/jira/browse/LUCENE-5462
-comment|// RAM usage estimation is very costly on Lucene 3.x segments
-return|return
-operator|-
-literal|1
-return|;
-block|}
 return|return
 name|segmentReader
 operator|.
@@ -9236,7 +9169,7 @@ block|}
 block|}
 DECL|method|buildSearchManager
 specifier|private
-name|XSearcherManager
+name|SearcherManager
 name|buildSearchManager
 parameter_list|(
 name|IndexWriter
@@ -9247,7 +9180,7 @@ name|IOException
 block|{
 return|return
 operator|new
-name|XSearcherManager
+name|SearcherManager
 argument_list|(
 name|indexWriter
 argument_list|,
@@ -9278,7 +9211,7 @@ decl_stmt|;
 DECL|field|manager
 specifier|private
 specifier|final
-name|XSearcherManager
+name|SearcherManager
 name|manager
 decl_stmt|;
 DECL|field|released
@@ -9297,7 +9230,7 @@ parameter_list|,
 name|IndexSearcher
 name|searcher
 parameter_list|,
-name|XSearcherManager
+name|SearcherManager
 name|manager
 parameter_list|)
 block|{
