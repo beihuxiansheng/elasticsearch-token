@@ -1044,6 +1044,9 @@ specifier|private
 specifier|volatile
 name|long
 name|lastAccessTime
+init|=
+operator|-
+literal|1
 decl_stmt|;
 DECL|field|clearables
 specifier|private
