@@ -250,7 +250,14 @@ name|paramAsBoolean
 argument_list|(
 literal|"h"
 argument_list|,
+name|request
+operator|.
+name|paramAsBoolean
+argument_list|(
+literal|"help"
+argument_list|,
 literal|false
+argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
