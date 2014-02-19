@@ -489,7 +489,11 @@ operator|new
 name|String
 index|[]
 block|{
+literal|"simon FILLER"
+block|,
 literal|"simon FILLER sorcerer"
+block|,
+literal|"FILLER sorcerer"
 block|}
 decl_stmt|;
 name|TokenStream
