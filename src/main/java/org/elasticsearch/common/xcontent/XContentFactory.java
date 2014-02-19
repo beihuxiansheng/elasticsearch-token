@@ -289,7 +289,7 @@ name|contentBuilder
 argument_list|(
 name|XContentType
 operator|.
-name|SMILE
+name|YAML
 argument_list|)
 return|;
 block|}
