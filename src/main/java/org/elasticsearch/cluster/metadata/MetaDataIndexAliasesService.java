@@ -781,7 +781,7 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// temporarily create the index and add mappings so we have can parse the filter
+comment|// temporarily create the index and add mappings so we can parse the filter
 try|try
 block|{
 name|indexService
@@ -1080,7 +1080,7 @@ continue|continue;
 block|}
 name|indexMetaDataBuilder
 operator|.
-name|removerAlias
+name|removeAlias
 argument_list|(
 name|aliasAction
 operator|.

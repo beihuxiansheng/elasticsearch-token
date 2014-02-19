@@ -1849,6 +1849,11 @@ operator|.
 name|customs
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|custom
 specifier|public
 parameter_list|<
@@ -2715,10 +2720,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|removerAlias
+DECL|method|removeAlias
 specifier|public
 name|Builder
-name|removerAlias
+name|removeAlias
 parameter_list|(
 name|String
 name|alias
