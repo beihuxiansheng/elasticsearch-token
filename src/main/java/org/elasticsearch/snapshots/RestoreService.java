@@ -1336,7 +1336,7 @@ name|blocks
 operator|.
 name|removeIndexBlock
 argument_list|(
-name|index
+name|renamedIndex
 argument_list|,
 name|INDEX_CLOSED_BLOCK
 argument_list|)
