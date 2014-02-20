@@ -335,7 +335,7 @@ import|;
 end_import
 
 begin_comment
-comment|/** Additional tests that aim at testing more complex aggregation trees on larger random datasets, so that things like the growth of dynamic arrays is tested. */
+comment|/**  * Additional tests that aim at testing more complex aggregation trees on larger random datasets, so that things like  * the growth of dynamic arrays is tested.  */
 end_comment
 
 begin_class
