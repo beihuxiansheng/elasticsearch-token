@@ -40,6 +40,22 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|codecs
+operator|.
+name|lucene3x
+operator|.
+name|Lucene3xCodec
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|index
 operator|.
 name|*
@@ -171,6 +187,20 @@ operator|.
 name|util
 operator|.
 name|IOUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Version
 import|;
 end_import
 
@@ -7100,6 +7130,22 @@ expr_stmt|;
 block|}
 block|}
 block|}
+static|static
+block|{
+assert|assert
+name|Version
+operator|.
+name|LUCENE_46
+operator|.
+name|onOrAfter
+argument_list|(
+name|Lucene
+operator|.
+name|VERSION
+argument_list|)
+assert|;
+comment|// Lucene 4.7 fixed Lucene 3.X RAM usage estimations, see LUCENE-5462
+block|}
 DECL|method|getReaderRamBytesUsed
 specifier|private
 name|long
@@ -7109,7 +7155,10 @@ name|AtomicReaderContext
 name|reader
 parameter_list|)
 block|{
-return|return
+specifier|final
+name|SegmentReader
+name|segmentReader
+init|=
 name|SegmentReaderUtils
 operator|.
 name|segmentReader
@@ -7119,6 +7168,31 @@ operator|.
 name|reader
 argument_list|()
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|segmentReader
+operator|.
+name|getSegmentInfo
+argument_list|()
+operator|.
+name|info
+operator|.
+name|getCodec
+argument_list|()
+operator|instanceof
+name|Lucene3xCodec
+condition|)
+block|{
+comment|// https://issues.apache.org/jira/browse/LUCENE-5462
+comment|// RAM usage estimation is very costly on Lucene 3.x segments
+return|return
+operator|-
+literal|1
+return|;
+block|}
+return|return
+name|segmentReader
 operator|.
 name|ramBytesUsed
 argument_list|()
@@ -8464,7 +8538,7 @@ name|codecName
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|/* We set this timeout to a highish value to work around              * the default poll interval in the Lucene lock that is               * 1000ms by default. We might need to poll multiple times              * here but with 1s poll this is only executed twice at most              * in combination with the default writelock timeout*/
+comment|/* We set this timeout to a highish value to work around              * the default poll interval in the Lucene lock that is              * 1000ms by default. We might need to poll multiple times              * here but with 1s poll this is only executed twice at most              * in combination with the default writelock timeout*/
 name|config
 operator|.
 name|setWriteLockTimeout
