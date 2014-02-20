@@ -3120,15 +3120,6 @@ parameter_list|)
 block|{
 try|try
 block|{
-name|URL
-name|_url
-init|=
-operator|new
-name|URL
-argument_list|(
-name|url
-argument_list|)
-decl_stmt|;
 name|urls
 operator|.
 name|add
