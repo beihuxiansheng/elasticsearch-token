@@ -56,6 +56,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|SloppyMath
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -151,6 +165,29 @@ name|PI
 operator|*
 name|EARTH_SEMI_MINOR_AXIS
 decl_stmt|;
+comment|/**      * Return an approximate value of the diameter of the earth (in meters) at the given latitude (in radians).      */
+DECL|method|earthDiameter
+specifier|public
+specifier|static
+name|double
+name|earthDiameter
+parameter_list|(
+name|double
+name|latitude
+parameter_list|)
+block|{
+comment|// SloppyMath impl returns a result in kilometers
+return|return
+name|SloppyMath
+operator|.
+name|earthDiameter
+argument_list|(
+name|latitude
+argument_list|)
+operator|*
+literal|1000
+return|;
+block|}
 comment|/**      * Calculate the width (in meters) of geohash cells at a specific level       * @param level geohash level must be greater or equal to zero       * @return the width of cells at level in meters        */
 DECL|method|geoHashCellWidth
 specifier|public
