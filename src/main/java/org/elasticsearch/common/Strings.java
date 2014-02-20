@@ -5697,6 +5697,18 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|i
+operator|<
+name|value
+operator|.
+name|length
+argument_list|()
+operator|-
+literal|1
+condition|)
+block|{
 name|sb
 operator|.
 name|append
@@ -5715,6 +5727,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 else|else
 block|{
