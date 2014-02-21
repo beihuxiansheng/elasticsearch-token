@@ -420,10 +420,9 @@ name|ElasticsearchIllegalArgumentException
 argument_list|(
 literal|"the field ["
 operator|+
-name|field
+name|highlighterContext
 operator|.
-name|field
-argument_list|()
+name|fieldName
 operator|+
 literal|"] should be indexed with term vector with position offsets to be used with fast vector highlighter"
 argument_list|)
@@ -1202,10 +1201,9 @@ return|return
 operator|new
 name|HighlightField
 argument_list|(
-name|field
+name|highlighterContext
 operator|.
-name|field
-argument_list|()
+name|fieldName
 argument_list|,
 name|StringText
 operator|.
@@ -1322,10 +1320,9 @@ return|return
 operator|new
 name|HighlightField
 argument_list|(
-name|field
+name|highlighterContext
 operator|.
-name|field
-argument_list|()
+name|fieldName
 argument_list|,
 name|StringText
 operator|.

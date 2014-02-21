@@ -562,14 +562,11 @@ throw|throw
 operator|new
 name|ElasticsearchIllegalArgumentException
 argument_list|(
-literal|"source is forced for field ["
+literal|"source is forced for fields "
 operator|+
-name|field
-operator|.
-name|field
-argument_list|()
+name|fieldNamesToHighlight
 operator|+
-literal|"] but type ["
+literal|" but type ["
 operator|+
 name|hitContext
 operator|.

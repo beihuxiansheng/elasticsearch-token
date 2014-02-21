@@ -420,10 +420,9 @@ name|ElasticsearchIllegalArgumentException
 argument_list|(
 literal|"the field ["
 operator|+
-name|field
+name|highlighterContext
 operator|.
-name|field
-argument_list|()
+name|fieldName
 operator|+
 literal|"] should be indexed with positions and offsets in the postings list to be used with postings highlighter"
 argument_list|)
