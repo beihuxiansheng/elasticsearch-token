@@ -1562,13 +1562,34 @@ parameter_list|)
 block|{
 name|logger
 operator|.
-name|error
+name|warn
 argument_list|(
-literal|"Failed to execute NodeStatsAction for ClusterInfoUpdateJob"
+literal|"Failed to execute NodeStatsAction for ClusterInfoUpdateJob: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|logger
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"NodeStatsAction failure"
 argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 argument_list|)
@@ -1722,13 +1743,34 @@ parameter_list|)
 block|{
 name|logger
 operator|.
-name|error
+name|warn
 argument_list|(
-literal|"Failed to execute IndicesStatsAction for ClusterInfoUpdateJob"
+literal|"Failed to execute IndicesStatsAction for ClusterInfoUpdateJob: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|logger
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"IndicesStatsAction failure"
 argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 argument_list|)
