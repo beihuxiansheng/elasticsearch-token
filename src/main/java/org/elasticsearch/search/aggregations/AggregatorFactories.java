@@ -379,13 +379,27 @@ argument_list|>
 name|aggregators
 decl_stmt|;
 block|{
+comment|// if estimated count is zero, we at least create a single aggregator.
+comment|// The estimated count is just an estimation and we can't rely on how it's estimated (that is, an
+comment|// estimation of 0 should not imply that we'll end up without any buckets)
+name|long
+name|arraySize
+init|=
+name|estimatedBucketsCount
+operator|>
+literal|0
+condition|?
+name|estimatedBucketsCount
+else|:
+literal|1
+decl_stmt|;
 name|aggregators
 operator|=
 name|BigArrays
 operator|.
 name|newObjectArray
 argument_list|(
-name|estimatedBucketsCount
+name|arraySize
 argument_list|,
 name|context
 operator|.
@@ -411,7 +425,7 @@ literal|1
 init|;
 name|i
 operator|<
-name|estimatedBucketsCount
+name|arraySize
 condition|;
 operator|++
 name|i

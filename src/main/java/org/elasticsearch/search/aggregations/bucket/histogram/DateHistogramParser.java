@@ -1777,7 +1777,7 @@ name|SearchParseException
 argument_list|(
 name|context
 argument_list|,
-literal|"date histogram can only be aggregated on date fields but  ["
+literal|"date histogram can only be aggregated on date fields but ["
 operator|+
 name|field
 operator|+
