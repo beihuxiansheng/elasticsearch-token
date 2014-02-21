@@ -1363,6 +1363,8 @@ name|field
 argument_list|(
 literal|"force_source"
 argument_list|,
+name|field
+operator|.
 name|forceSource
 argument_list|)
 expr_stmt|;
