@@ -4419,6 +4419,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+comment|//https://github.com/elasticsearch/elasticsearch/issues/5175
 DECL|method|testHighlightingOnWildcardFields
 specifier|public
 name|void
@@ -4427,9 +4428,29 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|createIndex
+name|assertAcked
+argument_list|(
+name|prepareCreate
 argument_list|(
 literal|"test"
+argument_list|)
+operator|.
+name|addMapping
+argument_list|(
+literal|"type1"
+argument_list|,
+literal|"field-postings"
+argument_list|,
+literal|"type=string,index_options=offsets"
+argument_list|,
+literal|"field-fvh"
+argument_list|,
+literal|"type=string,term_vector=with_positions_offsets"
+argument_list|,
+literal|"field-plain"
+argument_list|,
+literal|"type=string"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|ensureGreen
@@ -4447,13 +4468,17 @@ argument_list|)
 operator|.
 name|setSource
 argument_list|(
-literal|"field1"
+literal|"field-postings"
 argument_list|,
-literal|"this is a test"
+literal|"This is the first test sentence. Here is the second one."
 argument_list|,
-literal|"field2"
+literal|"field-fvh"
 argument_list|,
-literal|"this is another test"
+literal|"This is the test with term_vectors"
+argument_list|,
+literal|"field-plain"
+argument_list|,
+literal|"This is the test for the plain highlighter"
 argument_list|)
 operator|.
 name|get
@@ -4479,25 +4504,10 @@ name|query
 argument_list|(
 name|termQuery
 argument_list|(
-literal|"field1"
+literal|"field-plain"
 argument_list|,
 literal|"test"
 argument_list|)
-argument_list|)
-operator|.
-name|from
-argument_list|(
-literal|0
-argument_list|)
-operator|.
-name|size
-argument_list|(
-literal|60
-argument_list|)
-operator|.
-name|explain
-argument_list|(
-literal|true
 argument_list|)
 operator|.
 name|highlight
@@ -4508,11 +4518,6 @@ operator|.
 name|field
 argument_list|(
 literal|"field*"
-argument_list|)
-operator|.
-name|order
-argument_list|(
-literal|"score"
 argument_list|)
 operator|.
 name|preTags
@@ -4543,11 +4548,6 @@ name|source
 argument_list|(
 name|source
 argument_list|)
-operator|.
-name|searchType
-argument_list|(
-name|QUERY_THEN_FETCH
-argument_list|)
 argument_list|)
 operator|.
 name|actionGet
@@ -4559,7 +4559,7 @@ name|searchResponse
 argument_list|,
 literal|0
 argument_list|,
-literal|"field1"
+literal|"field-postings"
 argument_list|,
 literal|0
 argument_list|,
@@ -4567,7 +4567,7 @@ literal|1
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"this is a<xxx>test</xxx>"
+literal|"This is the first<xxx>test</xxx> sentence."
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4577,7 +4577,7 @@ name|searchResponse
 argument_list|,
 literal|0
 argument_list|,
-literal|"field2"
+literal|"field-fvh"
 argument_list|,
 literal|0
 argument_list|,
@@ -4585,7 +4585,25 @@ literal|1
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"this is another<xxx>test</xxx>"
+literal|"This is the<xxx>test</xxx> with term_vectors"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertHighlight
+argument_list|(
+name|searchResponse
+argument_list|,
+literal|0
+argument_list|,
+literal|"field-plain"
+argument_list|,
+literal|0
+argument_list|,
+literal|1
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"This is the<xxx>test</xxx> for the plain highlighter"
 argument_list|)
 argument_list|)
 expr_stmt|;

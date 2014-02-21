@@ -1409,6 +1409,22 @@ name|SearchContextHighlight
 name|highlight
 parameter_list|)
 block|{
+if|if
+condition|(
+name|highlight
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// Enforce highlighting by source, because MemoryIndex doesn't support stored fields.
+name|highlight
+operator|.
+name|globalForceSource
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
 name|this
 operator|.
 name|highlight

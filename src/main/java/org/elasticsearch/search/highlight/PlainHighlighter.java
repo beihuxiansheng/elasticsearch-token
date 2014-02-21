@@ -368,6 +368,9 @@ name|encoder
 init|=
 name|field
 operator|.
+name|fieldOptions
+argument_list|()
+operator|.
 name|encoder
 argument_list|()
 operator|.
@@ -441,6 +444,11 @@ name|mappers
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 name|Map
 argument_list|<
 name|FieldMapper
@@ -540,6 +548,9 @@ name|query
 argument_list|,
 name|field
 operator|.
+name|fieldOptions
+argument_list|()
+operator|.
 name|requireFieldMatch
 argument_list|()
 condition|?
@@ -568,6 +579,9 @@ if|if
 condition|(
 name|field
 operator|.
+name|fieldOptions
+argument_list|()
+operator|.
 name|numberOfFragments
 argument_list|()
 operator|==
@@ -586,6 +600,9 @@ if|if
 condition|(
 name|field
 operator|.
+name|fieldOptions
+argument_list|()
+operator|.
 name|fragmenter
 argument_list|()
 operator|==
@@ -601,6 +618,9 @@ name|queryScorer
 argument_list|,
 name|field
 operator|.
+name|fieldOptions
+argument_list|()
+operator|.
 name|fragmentCharSize
 argument_list|()
 argument_list|)
@@ -615,6 +635,9 @@ name|equals
 argument_list|(
 name|field
 operator|.
+name|fieldOptions
+argument_list|()
+operator|.
 name|fragmenter
 argument_list|()
 argument_list|)
@@ -626,6 +649,9 @@ operator|new
 name|SimpleFragmenter
 argument_list|(
 name|field
+operator|.
+name|fieldOptions
+argument_list|()
 operator|.
 name|fragmentCharSize
 argument_list|()
@@ -641,6 +667,9 @@ name|equals
 argument_list|(
 name|field
 operator|.
+name|fieldOptions
+argument_list|()
+operator|.
 name|fragmenter
 argument_list|()
 argument_list|)
@@ -654,6 +683,9 @@ argument_list|(
 name|queryScorer
 argument_list|,
 name|field
+operator|.
+name|fieldOptions
+argument_list|()
 operator|.
 name|fragmentCharSize
 argument_list|()
@@ -669,6 +701,9 @@ argument_list|(
 literal|"unknown fragmenter option ["
 operator|+
 name|field
+operator|.
+name|fieldOptions
+argument_list|()
 operator|.
 name|fragmenter
 argument_list|()
@@ -691,6 +726,9 @@ name|SimpleHTMLFormatter
 argument_list|(
 name|field
 operator|.
+name|fieldOptions
+argument_list|()
+operator|.
 name|preTags
 argument_list|()
 index|[
@@ -698,6 +736,9 @@ literal|0
 index|]
 argument_list|,
 name|field
+operator|.
+name|fieldOptions
+argument_list|()
 operator|.
 name|postTags
 argument_list|()
@@ -761,6 +802,9 @@ name|numberOfFragments
 init|=
 name|field
 operator|.
+name|fieldOptions
+argument_list|()
+operator|.
 name|numberOfFragments
 argument_list|()
 operator|==
@@ -769,6 +813,9 @@ condition|?
 literal|1
 else|:
 name|field
+operator|.
+name|fieldOptions
+argument_list|()
 operator|.
 name|numberOfFragments
 argument_list|()
@@ -800,16 +847,13 @@ name|HighlightUtils
 operator|.
 name|loadFieldValues
 argument_list|(
+name|field
+argument_list|,
 name|mapper
 argument_list|,
 name|context
 argument_list|,
 name|hitContext
-argument_list|,
-name|field
-operator|.
-name|forceSource
-argument_list|()
 argument_list|)
 expr_stmt|;
 for|for
@@ -975,6 +1019,9 @@ if|if
 condition|(
 name|field
 operator|.
+name|fieldOptions
+argument_list|()
+operator|.
 name|scoreOrdered
 argument_list|()
 condition|)
@@ -1032,6 +1079,9 @@ comment|// number_of_fragments is set to 0 but we have a multivalued field
 if|if
 condition|(
 name|field
+operator|.
+name|fieldOptions
+argument_list|()
 operator|.
 name|numberOfFragments
 argument_list|()
@@ -1163,10 +1213,6 @@ block|}
 if|if
 condition|(
 name|fragments
-operator|!=
-literal|null
-operator|&&
-name|fragments
 operator|.
 name|length
 operator|>
@@ -1196,6 +1242,9 @@ init|=
 name|highlighterContext
 operator|.
 name|field
+operator|.
+name|fieldOptions
+argument_list|()
 operator|.
 name|noMatchSize
 argument_list|()

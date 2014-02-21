@@ -154,6 +154,9 @@ if|if
 condition|(
 name|field
 operator|.
+name|fieldOptions
+argument_list|()
+operator|.
 name|options
 argument_list|()
 operator|!=
@@ -173,6 +176,9 @@ argument_list|>
 name|entry
 range|:
 name|field
+operator|.
+name|fieldOptions
+argument_list|()
 operator|.
 name|options
 argument_list|()
