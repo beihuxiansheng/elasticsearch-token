@@ -841,6 +841,14 @@ operator|.
 name|actionGet
 argument_list|()
 decl_stmt|;
+name|NumShards
+name|twitter
+init|=
+name|getNumShards
+argument_list|(
+literal|"twitter"
+argument_list|)
+decl_stmt|;
 name|assertThat
 argument_list|(
 name|response
@@ -888,7 +896,9 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|5
+name|twitter
+operator|.
+name|numPrimaries
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -925,7 +935,9 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|5
+name|twitter
+operator|.
+name|numPrimaries
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -948,7 +960,9 @@ name|length
 argument_list|,
 name|equalTo
 argument_list|(
-literal|5
+name|twitter
+operator|.
+name|numPrimaries
 argument_list|)
 argument_list|)
 expr_stmt|;

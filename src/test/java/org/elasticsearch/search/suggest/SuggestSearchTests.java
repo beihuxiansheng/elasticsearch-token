@@ -118,18 +118,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|client
-operator|.
-name|Client
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|xcontent
@@ -451,6 +439,8 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|assertAcked
+argument_list|(
 name|prepareCreate
 argument_list|(
 literal|"test"
@@ -458,15 +448,17 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|SETTING_NUMBER_OF_SHARDS
-argument_list|,
-name|between
+name|settingsBuilder
+argument_list|()
+operator|.
+name|put
 argument_list|(
-literal|1
-argument_list|,
-literal|5
+name|indexSettings
+argument_list|()
 argument_list|)
-argument_list|,
+operator|.
+name|put
+argument_list|(
 name|SETTING_NUMBER_OF_REPLICAS
 argument_list|,
 name|between
@@ -476,9 +468,8 @@ argument_list|,
 literal|1
 argument_list|)
 argument_list|)
-operator|.
-name|get
-argument_list|()
+argument_list|)
+argument_list|)
 expr_stmt|;
 name|ensureGreen
 argument_list|()
@@ -571,12 +562,11 @@ argument_list|)
 expr_stmt|;
 name|searchSuggest
 argument_list|(
-name|client
-argument_list|()
-argument_list|,
 name|termSuggest
 argument_list|)
 expr_stmt|;
+name|assertAcked
+argument_list|(
 name|prepareCreate
 argument_list|(
 literal|"test_1"
@@ -584,15 +574,17 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|SETTING_NUMBER_OF_SHARDS
-argument_list|,
-name|between
+name|settingsBuilder
+argument_list|()
+operator|.
+name|put
 argument_list|(
-literal|1
-argument_list|,
-literal|5
+name|indexSettings
+argument_list|()
 argument_list|)
-argument_list|,
+operator|.
+name|put
+argument_list|(
 name|SETTING_NUMBER_OF_REPLICAS
 argument_list|,
 name|between
@@ -602,9 +594,8 @@ argument_list|,
 literal|1
 argument_list|)
 argument_list|)
-operator|.
-name|get
-argument_list|()
+argument_list|)
+argument_list|)
 expr_stmt|;
 name|ensureGreen
 argument_list|()
@@ -701,9 +692,6 @@ argument_list|)
 expr_stmt|;
 name|searchSuggest
 argument_list|(
-name|client
-argument_list|()
-argument_list|,
 name|termSuggest
 argument_list|)
 expr_stmt|;
@@ -773,14 +761,8 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|SETTING_NUMBER_OF_SHARDS
-argument_list|,
-name|between
-argument_list|(
-literal|1
-argument_list|,
-literal|5
-argument_list|)
+name|indexSettings
+argument_list|()
 argument_list|)
 operator|.
 name|put
@@ -953,9 +935,6 @@ try|try
 block|{
 name|searchSuggest
 argument_list|(
-name|client
-argument_list|()
-argument_list|,
 name|termSuggest
 argument_list|)
 expr_stmt|;
@@ -1078,9 +1057,6 @@ try|try
 block|{
 name|searchSuggest
 argument_list|(
-name|client
-argument_list|()
-argument_list|,
 name|termSuggest
 argument_list|)
 expr_stmt|;
@@ -1458,9 +1434,6 @@ name|searchSuggest
 init|=
 name|searchSuggest
 argument_list|(
-name|client
-argument_list|()
-argument_list|,
 literal|"ice tea"
 argument_list|,
 name|phraseSuggestion
@@ -1488,9 +1461,6 @@ name|searchSuggest
 operator|=
 name|searchSuggest
 argument_list|(
-name|client
-argument_list|()
-argument_list|,
 literal|"ice tea"
 argument_list|,
 name|phraseSuggestion
@@ -1649,9 +1619,6 @@ name|suggest
 init|=
 name|searchSuggest
 argument_list|(
-name|client
-argument_list|()
-argument_list|,
 name|termSuggestion
 argument_list|)
 decl_stmt|;
@@ -1684,9 +1651,6 @@ name|suggest
 operator|=
 name|searchSuggest
 argument_list|(
-name|client
-argument_list|()
-argument_list|,
 name|termSuggestion
 argument_list|)
 expr_stmt|;
@@ -1733,14 +1697,8 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|SETTING_NUMBER_OF_SHARDS
-argument_list|,
-name|between
-argument_list|(
-literal|1
-argument_list|,
-literal|5
-argument_list|)
+name|indexSettings
+argument_list|()
 argument_list|)
 operator|.
 name|put
@@ -2030,9 +1988,6 @@ name|searchSuggest
 init|=
 name|searchSuggest
 argument_list|(
-name|client
-argument_list|()
-argument_list|,
 literal|"ice tea"
 argument_list|,
 name|phraseSuggestion
@@ -2151,24 +2106,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|prepareCreate
+name|createIndex
 argument_list|(
 literal|"test"
 argument_list|)
-operator|.
-name|setSettings
-argument_list|(
-name|SETTING_NUMBER_OF_SHARDS
-argument_list|,
-literal|1
-argument_list|,
-name|SETTING_NUMBER_OF_REPLICAS
-argument_list|,
-literal|0
-argument_list|)
-operator|.
-name|get
-argument_list|()
 expr_stmt|;
 name|ensureGreen
 argument_list|()
@@ -2292,9 +2233,6 @@ name|suggest
 init|=
 name|searchSuggest
 argument_list|(
-name|client
-argument_list|()
-argument_list|,
 name|termSuggest
 argument_list|)
 decl_stmt|;
@@ -2346,9 +2284,6 @@ name|suggest
 operator|=
 name|searchSuggest
 argument_list|(
-name|client
-argument_list|()
-argument_list|,
 name|termSuggest
 argument_list|)
 expr_stmt|;
@@ -2407,24 +2342,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|prepareCreate
+name|createIndex
 argument_list|(
 literal|"test"
 argument_list|)
-operator|.
-name|setSettings
-argument_list|(
-name|SETTING_NUMBER_OF_SHARDS
-argument_list|,
-literal|5
-argument_list|,
-name|SETTING_NUMBER_OF_REPLICAS
-argument_list|,
-literal|0
-argument_list|)
-operator|.
-name|get
-argument_list|()
 expr_stmt|;
 name|ensureGreen
 argument_list|()
@@ -2474,9 +2395,6 @@ name|suggest
 init|=
 name|searchSuggest
 argument_list|(
-name|client
-argument_list|()
-argument_list|,
 name|termSuggest
 argument_list|)
 decl_stmt|;
@@ -2524,9 +2442,6 @@ name|suggest
 operator|=
 name|searchSuggest
 argument_list|(
-name|client
-argument_list|()
-argument_list|,
 name|termSuggest
 argument_list|)
 expr_stmt|;
@@ -2581,24 +2496,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|prepareCreate
+name|createIndex
 argument_list|(
 literal|"test"
 argument_list|)
-operator|.
-name|setSettings
-argument_list|(
-name|SETTING_NUMBER_OF_SHARDS
-argument_list|,
-literal|5
-argument_list|,
-name|SETTING_NUMBER_OF_REPLICAS
-argument_list|,
-literal|0
-argument_list|)
-operator|.
-name|get
-argument_list|()
 expr_stmt|;
 name|ensureGreen
 argument_list|()
@@ -2679,9 +2580,6 @@ name|suggest
 init|=
 name|searchSuggest
 argument_list|(
-name|client
-argument_list|()
-argument_list|,
 name|termSuggestion
 argument_list|(
 literal|"size1"
@@ -2905,24 +2803,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|prepareCreate
+name|createIndex
 argument_list|(
 literal|"test"
 argument_list|)
-operator|.
-name|setSettings
-argument_list|(
-name|SETTING_NUMBER_OF_SHARDS
-argument_list|,
-literal|5
-argument_list|,
-name|SETTING_NUMBER_OF_REPLICAS
-argument_list|,
-literal|0
-argument_list|)
-operator|.
-name|get
-argument_list|()
 expr_stmt|;
 name|ensureGreen
 argument_list|()
@@ -3119,9 +3003,6 @@ name|suggest
 init|=
 name|searchSuggest
 argument_list|(
-name|client
-argument_list|()
-argument_list|,
 literal|"prefix_abcd"
 argument_list|,
 name|termSuggestion
@@ -3339,24 +3220,10 @@ name|ElasticsearchException
 throws|,
 name|IOException
 block|{
-name|prepareCreate
+name|createIndex
 argument_list|(
 literal|"test"
 argument_list|)
-operator|.
-name|setSettings
-argument_list|(
-name|SETTING_NUMBER_OF_SHARDS
-argument_list|,
-literal|1
-argument_list|,
-name|SETTING_NUMBER_OF_REPLICAS
-argument_list|,
-literal|0
-argument_list|)
-operator|.
-name|get
-argument_list|()
 expr_stmt|;
 name|ensureGreen
 argument_list|()
@@ -3382,9 +3249,6 @@ name|searchSuggest
 init|=
 name|searchSuggest
 argument_list|(
-name|client
-argument_list|()
-argument_list|,
 literal|"a an the"
 argument_list|,
 name|phraseSuggestion
@@ -3471,13 +3335,6 @@ argument_list|(
 name|SETTING_NUMBER_OF_SHARDS
 argument_list|,
 literal|1
-argument_list|)
-operator|.
-name|put
-argument_list|(
-name|SETTING_NUMBER_OF_REPLICAS
-argument_list|,
-literal|0
 argument_list|)
 operator|.
 name|put
@@ -3735,9 +3592,6 @@ name|searchSuggest
 init|=
 name|searchSuggest
 argument_list|(
-name|client
-argument_list|()
-argument_list|,
 literal|"hello word"
 argument_list|,
 name|phraseSuggestion
@@ -3801,9 +3655,6 @@ name|searchSuggest
 operator|=
 name|searchSuggest
 argument_list|(
-name|client
-argument_list|()
-argument_list|,
 literal|"hello word"
 argument_list|,
 name|phraseSuggestion
@@ -3890,6 +3741,12 @@ name|setSettings
 argument_list|(
 name|settingsBuilder
 argument_list|()
+operator|.
+name|put
+argument_list|(
+name|indexSettings
+argument_list|()
+argument_list|)
 operator|.
 name|put
 argument_list|(
@@ -4084,8 +3941,6 @@ operator|.
 name|endObject
 argument_list|()
 decl_stmt|;
-name|ElasticsearchAssertions
-operator|.
 name|assertAcked
 argument_list|(
 name|builder
@@ -4201,9 +4056,6 @@ name|searchSuggest
 init|=
 name|searchSuggest
 argument_list|(
-name|client
-argument_list|()
-argument_list|,
 literal|"american ame"
 argument_list|,
 name|phraseSuggest
@@ -4260,9 +4112,6 @@ name|searchSuggest
 operator|=
 name|searchSuggest
 argument_list|(
-name|client
-argument_list|()
-argument_list|,
 literal|"Xor the Got-Jewel"
 argument_list|,
 name|phraseSuggest
@@ -4323,9 +4172,6 @@ name|searchSuggest
 operator|=
 name|searchSuggest
 argument_list|(
-name|client
-argument_list|()
-argument_list|,
 literal|"Xor the Got-Jewel"
 argument_list|,
 name|phraseSuggest
@@ -4408,9 +4254,6 @@ name|searchSuggest
 operator|=
 name|searchSuggest
 argument_list|(
-name|client
-argument_list|()
-argument_list|,
 literal|"Xorr the God-Jewel"
 argument_list|,
 name|phraseSuggest
@@ -4439,9 +4282,6 @@ name|searchSuggest
 operator|=
 name|searchSuggest
 argument_list|(
-name|client
-argument_list|()
-argument_list|,
 literal|"Xorr the God-Jewel"
 argument_list|,
 name|phraseSuggest
@@ -4470,9 +4310,6 @@ name|searchSuggest
 operator|=
 name|searchSuggest
 argument_list|(
-name|client
-argument_list|()
-argument_list|,
 literal|"Xorr the God-Jewel"
 argument_list|,
 name|phraseSuggest
@@ -4542,9 +4379,6 @@ name|searchSuggest
 operator|=
 name|searchSuggest
 argument_list|(
-name|client
-argument_list|()
-argument_list|,
 literal|"xor the yod-Jewel"
 argument_list|,
 name|phraseSuggest
@@ -4604,9 +4438,6 @@ name|searchSuggest
 operator|=
 name|searchSuggest
 argument_list|(
-name|client
-argument_list|()
-argument_list|,
 literal|"Xor the Got-Jewel"
 argument_list|,
 name|phraseSuggest
@@ -4645,9 +4476,6 @@ name|searchSuggest
 operator|=
 name|searchSuggest
 argument_list|(
-name|client
-argument_list|()
-argument_list|,
 literal|"Xor the Got-Jewel"
 argument_list|,
 name|phraseSuggest
@@ -4686,9 +4514,6 @@ name|searchSuggest
 operator|=
 name|searchSuggest
 argument_list|(
-name|client
-argument_list|()
-argument_list|,
 literal|"Xor the Got-Jewel"
 argument_list|,
 name|phraseSuggest
@@ -4709,9 +4534,6 @@ name|searchSuggest
 operator|=
 name|searchSuggest
 argument_list|(
-name|client
-argument_list|()
-argument_list|,
 literal|"american ame"
 argument_list|,
 name|phraseSuggest
@@ -4750,9 +4572,6 @@ name|searchSuggest
 operator|=
 name|searchSuggest
 argument_list|(
-name|client
-argument_list|()
-argument_list|,
 literal|"Xor the Got-Jewel"
 argument_list|,
 name|phraseSuggest
@@ -4786,9 +4605,6 @@ name|searchSuggest
 operator|=
 name|searchSuggest
 argument_list|(
-name|client
-argument_list|()
-argument_list|,
 literal|"Xor the Got-Jewel"
 argument_list|,
 name|phraseSuggest
@@ -4822,9 +4638,6 @@ name|searchSuggest
 operator|=
 name|searchSuggest
 argument_list|(
-name|client
-argument_list|()
-argument_list|,
 literal|"Xor the Got-Jewel"
 argument_list|,
 name|phraseSuggest
@@ -4858,9 +4671,6 @@ name|searchSuggest
 operator|=
 name|searchSuggest
 argument_list|(
-name|client
-argument_list|()
-argument_list|,
 literal|"Xor the Got-Jewel"
 argument_list|,
 name|phraseSuggest
@@ -4899,9 +4709,6 @@ name|searchSuggest
 operator|=
 name|searchSuggest
 argument_list|(
-name|client
-argument_list|()
-argument_list|,
 literal|"Xor the Got-Jewel Xor the Got-Jewel Xor the Got-Jewel"
 argument_list|,
 name|phraseSuggest
@@ -4971,13 +4778,6 @@ name|setSettings
 argument_list|(
 name|settingsBuilder
 argument_list|()
-operator|.
-name|put
-argument_list|(
-name|SETTING_NUMBER_OF_SHARDS
-argument_list|,
-literal|1
-argument_list|)
 operator|.
 name|put
 argument_list|(
@@ -5335,9 +5135,6 @@ name|searchSuggest
 init|=
 name|searchSuggest
 argument_list|(
-name|client
-argument_list|()
-argument_list|,
 literal|"Xorr the Gut-Jewel"
 argument_list|,
 name|phraseSuggestion
@@ -5397,9 +5194,6 @@ name|searchSuggest
 operator|=
 name|searchSuggest
 argument_list|(
-name|client
-argument_list|()
-argument_list|,
 literal|"Xorr the Gut-Jewel"
 argument_list|,
 name|phraseSuggestion
@@ -5441,6 +5235,12 @@ name|setSettings
 argument_list|(
 name|settingsBuilder
 argument_list|()
+operator|.
+name|put
+argument_list|(
+name|indexSettings
+argument_list|()
+argument_list|)
 operator|.
 name|put
 argument_list|(
@@ -5743,6 +5543,14 @@ block|}
 name|refresh
 argument_list|()
 expr_stmt|;
+name|NumShards
+name|numShards
+init|=
+name|getNumShards
+argument_list|(
+literal|"test"
+argument_list|)
+decl_stmt|;
 comment|// Lets make sure some things throw exceptions
 name|PhraseSuggestionBuilder
 name|phraseSuggestion
@@ -5799,12 +5607,11 @@ try|try
 block|{
 name|searchSuggest
 argument_list|(
-name|client
-argument_list|()
-argument_list|,
 literal|"Xor the Got-Jewel"
 argument_list|,
-literal|5
+name|numShards
+operator|.
+name|numPrimaries
 argument_list|,
 name|phraseSuggestion
 argument_list|)
@@ -5835,12 +5642,11 @@ try|try
 block|{
 name|searchSuggest
 argument_list|(
-name|client
-argument_list|()
-argument_list|,
 literal|"Xor the Got-Jewel"
 argument_list|,
-literal|5
+name|numShards
+operator|.
+name|numPrimaries
 argument_list|,
 name|phraseSuggestion
 argument_list|)
@@ -5868,12 +5674,11 @@ try|try
 block|{
 name|searchSuggest
 argument_list|(
-name|client
-argument_list|()
-argument_list|,
 literal|"Xor the Got-Jewel"
 argument_list|,
-literal|5
+name|numShards
+operator|.
+name|numPrimaries
 argument_list|,
 name|phraseSuggestion
 argument_list|)
@@ -5900,9 +5705,6 @@ argument_list|)
 expr_stmt|;
 name|searchSuggest
 argument_list|(
-name|client
-argument_list|()
-argument_list|,
 literal|"Xor the Got-Jewel"
 argument_list|,
 name|phraseSuggestion
@@ -5928,9 +5730,6 @@ argument_list|)
 expr_stmt|;
 name|searchSuggest
 argument_list|(
-name|client
-argument_list|()
-argument_list|,
 literal|"Xor the Got-Jewel"
 argument_list|,
 name|phraseSuggestion
@@ -5971,9 +5770,6 @@ name|suggest
 init|=
 name|searchSuggest
 argument_list|(
-name|client
-argument_list|()
-argument_list|,
 literal|"Xor the Got-Jewel"
 argument_list|,
 name|phraseSuggestion
@@ -6001,9 +5797,6 @@ name|suggest
 operator|=
 name|searchSuggest
 argument_list|(
-name|client
-argument_list|()
-argument_list|,
 literal|"Xor the Got-Jewel"
 argument_list|,
 name|phraseSuggestion
@@ -6031,33 +5824,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|prepareCreate
+name|createIndex
 argument_list|(
-literal|"text"
+literal|"test"
 argument_list|)
-operator|.
-name|setSettings
-argument_list|(
-name|settingsBuilder
-argument_list|()
-operator|.
-name|put
-argument_list|(
-name|SETTING_NUMBER_OF_SHARDS
-argument_list|,
-literal|5
-argument_list|)
-operator|.
-name|put
-argument_list|(
-name|SETTING_NUMBER_OF_REPLICAS
-argument_list|,
-literal|0
-argument_list|)
-argument_list|)
-operator|.
-name|get
-argument_list|()
 expr_stmt|;
 name|ensureGreen
 argument_list|()
@@ -6144,9 +5914,6 @@ name|suggest
 init|=
 name|searchSuggest
 argument_list|(
-name|client
-argument_list|()
-argument_list|,
 literal|"foobar"
 argument_list|,
 name|termSuggestion
@@ -6217,14 +5984,8 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|SETTING_NUMBER_OF_SHARDS
-argument_list|,
-name|between
-argument_list|(
-literal|1
-argument_list|,
-literal|5
-argument_list|)
+name|indexSettings
+argument_list|()
 argument_list|)
 operator|.
 name|put
@@ -6697,8 +6458,6 @@ operator|.
 name|endObject
 argument_list|()
 decl_stmt|;
-name|ElasticsearchAssertions
-operator|.
 name|assertAcked
 argument_list|(
 name|prepareCreate
@@ -6713,16 +6472,8 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|SETTING_NUMBER_OF_SHARDS
-argument_list|,
-literal|5
-argument_list|)
-operator|.
-name|put
-argument_list|(
-name|SETTING_NUMBER_OF_REPLICAS
-argument_list|,
-literal|0
+name|indexSettings
+argument_list|()
 argument_list|)
 operator|.
 name|put
@@ -6921,16 +6672,6 @@ name|chafPerShard
 init|=
 literal|100
 decl_stmt|;
-name|int
-name|numberOfShards
-init|=
-name|between
-argument_list|(
-literal|2
-argument_list|,
-literal|5
-argument_list|)
-decl_stmt|;
 name|CreateIndexRequestBuilder
 name|builder
 init|=
@@ -6946,9 +6687,8 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|SETTING_NUMBER_OF_SHARDS
-argument_list|,
-name|numberOfShards
+name|indexSettings
+argument_list|()
 argument_list|)
 operator|.
 name|put
@@ -7103,6 +6843,14 @@ expr_stmt|;
 name|ensureGreen
 argument_list|()
 expr_stmt|;
+name|NumShards
+name|test
+init|=
+name|getNumShards
+argument_list|(
+literal|"test"
+argument_list|)
+decl_stmt|;
 name|List
 argument_list|<
 name|String
@@ -7167,7 +6915,9 @@ literal|0
 init|;
 name|i
 operator|<
-name|numberOfShards
+name|test
+operator|.
+name|numPrimaries
 operator|*
 name|chafPerShard
 condition|;
@@ -7215,9 +6965,6 @@ name|searchSuggest
 init|=
 name|searchSuggest
 argument_list|(
-name|client
-argument_list|()
-argument_list|,
 literal|"nobel prize"
 argument_list|,
 name|phraseSuggestion
@@ -7286,9 +7033,6 @@ name|searchSuggest
 operator|=
 name|searchSuggest
 argument_list|(
-name|client
-argument_list|()
-argument_list|,
 literal|"noble prize"
 argument_list|,
 name|phraseSuggestion
@@ -7361,9 +7105,6 @@ specifier|protected
 name|Suggest
 name|searchSuggest
 parameter_list|(
-name|Client
-name|client
-parameter_list|,
 name|SuggestionBuilder
 argument_list|<
 name|?
@@ -7375,9 +7116,6 @@ block|{
 return|return
 name|searchSuggest
 argument_list|(
-name|client
-argument_list|()
-argument_list|,
 literal|null
 argument_list|,
 name|suggestion
@@ -7389,9 +7127,6 @@ specifier|protected
 name|Suggest
 name|searchSuggest
 parameter_list|(
-name|Client
-name|client
-parameter_list|,
 name|String
 name|suggestText
 parameter_list|,
@@ -7406,9 +7141,6 @@ block|{
 return|return
 name|searchSuggest
 argument_list|(
-name|client
-argument_list|()
-argument_list|,
 name|suggestText
 argument_list|,
 literal|0
@@ -7422,9 +7154,6 @@ specifier|protected
 name|Suggest
 name|searchSuggest
 parameter_list|(
-name|Client
-name|client
-parameter_list|,
 name|String
 name|suggestText
 parameter_list|,

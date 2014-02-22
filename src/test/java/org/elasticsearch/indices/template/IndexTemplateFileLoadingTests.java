@@ -220,10 +220,6 @@ name|is
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 annotation|@
 name|ClusterScope
@@ -398,6 +394,20 @@ name|settingsBuilder
 operator|.
 name|build
 argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|numberOfShards
+specifier|protected
+name|int
+name|numberOfShards
+parameter_list|()
+block|{
+comment|//number of shards won't be set through index settings, the one from the index templates needs to be used
+return|return
+operator|-
+literal|1
 return|;
 block|}
 annotation|@

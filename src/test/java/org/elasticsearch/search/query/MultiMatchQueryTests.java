@@ -391,6 +391,12 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
+name|indexSettings
+argument_list|()
+argument_list|)
+operator|.
+name|put
+argument_list|(
 name|SETTING_NUMBER_OF_SHARDS
 argument_list|,
 literal|1

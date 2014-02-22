@@ -298,13 +298,6 @@ argument_list|,
 literal|"500ms"
 argument_list|)
 operator|.
-name|put
-argument_list|(
-literal|"index.number_of_shards"
-argument_list|,
-literal|1
-argument_list|)
-operator|.
 name|build
 argument_list|()
 decl_stmt|;

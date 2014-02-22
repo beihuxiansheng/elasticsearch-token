@@ -468,10 +468,6 @@ name|*
 import|;
 end_import
 
-begin_comment
-comment|/**  */
-end_comment
-
 begin_class
 DECL|class|SharedClusterSnapshotRestoreTests
 specifier|public
@@ -1481,6 +1477,14 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|NumShards
+name|numShards
+init|=
+name|getNumShards
+argument_list|(
+literal|"test-idx"
+argument_list|)
+decl_stmt|;
 name|assertAcked
 argument_list|(
 name|client
@@ -1613,6 +1617,17 @@ name|ImmutableSettings
 operator|.
 name|builder
 argument_list|()
+operator|.
+name|put
+argument_list|(
+name|IndexMetaData
+operator|.
+name|SETTING_NUMBER_OF_SHARDS
+argument_list|,
+name|numShards
+operator|.
+name|numPrimaries
+argument_list|)
 operator|.
 name|put
 argument_list|(
