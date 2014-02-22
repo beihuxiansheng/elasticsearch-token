@@ -48,7 +48,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
+name|ElasticsearchIllegalStateException
 import|;
 end_import
 
@@ -215,6 +215,26 @@ name|Table
 name|endHeaders
 parameter_list|()
 block|{
+if|if
+condition|(
+name|currentCells
+operator|==
+literal|null
+operator|||
+name|currentCells
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|ElasticsearchIllegalStateException
+argument_list|(
+literal|"no headers added..."
+argument_list|)
+throw|;
+block|}
 name|inHeaders
 operator|=
 literal|false
@@ -290,7 +310,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|ElasticsearchIllegalStateException
 argument_list|(
 literal|"no headers added..."
 argument_list|)
@@ -323,6 +343,21 @@ name|boolean
 name|check
 parameter_list|)
 block|{
+if|if
+condition|(
+name|currentCells
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|ElasticsearchIllegalStateException
+argument_list|(
+literal|"no row started..."
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 name|check
@@ -383,7 +418,7 @@ argument_list|)
 expr_stmt|;
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|ElasticsearchIllegalStateException
 argument_list|(
 name|s
 operator|.
@@ -454,6 +489,21 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|currentCells
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|ElasticsearchIllegalStateException
+argument_list|(
+literal|"no block started..."
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
 operator|!
 name|inHeaders
 condition|)
@@ -473,7 +523,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|ElasticsearchIllegalStateException
 argument_list|(
 literal|"can't add more cells to a row than the header"
 argument_list|)
