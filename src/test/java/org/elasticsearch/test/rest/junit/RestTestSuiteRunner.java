@@ -560,20 +560,6 @@ name|test
 operator|.
 name|TestCluster
 operator|.
-name|SHARED_CLUSTER_SEED
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|TestCluster
-operator|.
 name|clusterName
 import|;
 end_import
@@ -1163,7 +1149,7 @@ operator|=
 operator|new
 name|TestCluster
 argument_list|(
-name|SHARED_CLUSTER_SEED
+name|initialSeed
 argument_list|,
 literal|1
 argument_list|,
@@ -1177,7 +1163,7 @@ name|ElasticsearchTestCase
 operator|.
 name|CHILD_VM_ID
 argument_list|,
-name|SHARED_CLUSTER_SEED
+name|initialSeed
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2206,14 +2192,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"elasticsearch REST Tests - test cluster %s"
-argument_list|,
-name|SeedUtils
-operator|.
-name|formatSeed
-argument_list|(
-name|SHARED_CLUSTER_SEED
-argument_list|)
+literal|"elasticsearch REST Tests - test cluster"
 argument_list|)
 return|;
 block|}

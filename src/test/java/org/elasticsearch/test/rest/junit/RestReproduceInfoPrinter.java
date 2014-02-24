@@ -116,11 +116,17 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|rest
+operator|.
 name|junit
 operator|.
-name|runner
+name|RestTestSuiteRunner
 operator|.
-name|Description
+name|RunMode
 import|;
 end_import
 
@@ -132,9 +138,7 @@ name|junit
 operator|.
 name|runner
 operator|.
-name|notification
-operator|.
-name|Failure
+name|Description
 import|;
 end_import
 
@@ -221,22 +225,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-annotation|@
-name|Override
-DECL|method|mustAppendClusterSeed
-specifier|protected
-name|boolean
-name|mustAppendClusterSeed
-parameter_list|(
-name|Failure
-name|failure
-parameter_list|)
-block|{
-return|return
-name|isTestCluster
-argument_list|()
-return|;
-block|}
 DECL|method|isTestCluster
 specifier|private
 specifier|static
