@@ -228,6 +228,9 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+name|ensureYellow
+argument_list|()
+expr_stmt|;
 name|assertPrecision
 argument_list|(
 operator|new
