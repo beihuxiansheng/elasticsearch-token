@@ -79,10 +79,19 @@ name|int
 name|sizing
 parameter_list|)
 function_decl|;
-comment|/** Clear the data. This operation is called when the data-structure is released. */
-DECL|method|clear
+comment|/** Recycle the data. This operation is called when the data structure is released. */
+DECL|method|recycle
 name|void
-name|clear
+name|recycle
+parameter_list|(
+name|T
+name|value
+parameter_list|)
+function_decl|;
+comment|/** Destroy the data. This operation allows the data structure to release any internal resources before GC. */
+DECL|method|destroy
+name|void
+name|destroy
 parameter_list|(
 name|T
 name|value

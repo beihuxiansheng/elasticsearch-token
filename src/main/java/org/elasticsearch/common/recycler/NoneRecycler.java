@@ -98,7 +98,9 @@ specifier|public
 name|void
 name|close
 parameter_list|()
-block|{      }
+block|{
+comment|// no-op
+block|}
 DECL|class|NV
 specifier|public
 specifier|static

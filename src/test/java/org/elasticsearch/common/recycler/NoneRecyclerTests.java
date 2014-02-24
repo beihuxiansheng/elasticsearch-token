@@ -34,7 +34,10 @@ name|byte
 index|[]
 argument_list|>
 name|newRecycler
-parameter_list|()
+parameter_list|(
+name|int
+name|limit
+parameter_list|)
 block|{
 return|return
 name|Recyclers
@@ -44,6 +47,30 @@ argument_list|(
 name|RECYCLER_C
 argument_list|)
 return|;
+block|}
+DECL|method|assertRecycled
+specifier|protected
+name|void
+name|assertRecycled
+parameter_list|(
+name|byte
+index|[]
+name|data
+parameter_list|)
+block|{
+comment|// will never match
+block|}
+DECL|method|assertDead
+specifier|protected
+name|void
+name|assertDead
+parameter_list|(
+name|byte
+index|[]
+name|data
+parameter_list|)
+block|{
+comment|// will never match
 block|}
 block|}
 end_class

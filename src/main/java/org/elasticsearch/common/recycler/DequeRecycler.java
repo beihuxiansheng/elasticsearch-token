@@ -113,6 +113,24 @@ name|void
 name|close
 parameter_list|()
 block|{
+comment|// call destroy() for every cached object
+for|for
+control|(
+name|T
+name|t
+range|:
+name|deque
+control|)
+block|{
+name|c
+operator|.
+name|destroy
+argument_list|(
+name|t
+argument_list|)
+expr_stmt|;
+block|}
+comment|// finally get rid of all references
 name|deque
 operator|.
 name|clear
@@ -199,7 +217,9 @@ parameter_list|(
 name|boolean
 name|recycled
 parameter_list|)
-block|{}
+block|{
+comment|// nothing to do
+block|}
 DECL|class|DV
 specifier|private
 class|class
@@ -305,7 +325,7 @@ condition|)
 block|{
 name|c
 operator|.
-name|clear
+name|recycle
 argument_list|(
 name|value
 argument_list|)
@@ -313,6 +333,16 @@ expr_stmt|;
 name|deque
 operator|.
 name|addFirst
+argument_list|(
+name|value
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|c
+operator|.
+name|destroy
 argument_list|(
 name|value
 argument_list|)

@@ -18,6 +18,20 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|recycler
+operator|.
+name|AbstractRecyclerC
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|google
@@ -611,9 +625,7 @@ argument_list|,
 name|availableProcessors
 argument_list|,
 operator|new
-name|Recycler
-operator|.
-name|C
+name|AbstractRecyclerC
 argument_list|<
 name|byte
 index|[]
@@ -645,13 +657,15 @@ annotation|@
 name|Override
 specifier|public
 name|void
-name|clear
+name|recycle
 parameter_list|(
 name|byte
 index|[]
 name|value
 parameter_list|)
-block|{}
+block|{
+comment|// nothing to do
+block|}
 block|}
 argument_list|)
 expr_stmt|;
@@ -679,9 +693,7 @@ argument_list|,
 name|availableProcessors
 argument_list|,
 operator|new
-name|Recycler
-operator|.
-name|C
+name|AbstractRecyclerC
 argument_list|<
 name|int
 index|[]
@@ -713,13 +725,15 @@ annotation|@
 name|Override
 specifier|public
 name|void
-name|clear
+name|recycle
 parameter_list|(
 name|int
 index|[]
 name|value
 parameter_list|)
-block|{}
+block|{
+comment|// nothing to do
+block|}
 block|}
 argument_list|)
 expr_stmt|;
@@ -747,9 +761,7 @@ argument_list|,
 name|availableProcessors
 argument_list|,
 operator|new
-name|Recycler
-operator|.
-name|C
+name|AbstractRecyclerC
 argument_list|<
 name|long
 index|[]
@@ -781,13 +793,15 @@ annotation|@
 name|Override
 specifier|public
 name|void
-name|clear
+name|recycle
 parameter_list|(
 name|long
 index|[]
 name|value
 parameter_list|)
-block|{}
+block|{
+comment|// nothing to do
+block|}
 block|}
 argument_list|)
 expr_stmt|;
@@ -815,9 +829,7 @@ argument_list|,
 name|availableProcessors
 argument_list|,
 operator|new
-name|Recycler
-operator|.
-name|C
+name|AbstractRecyclerC
 argument_list|<
 name|double
 index|[]
@@ -849,13 +861,15 @@ annotation|@
 name|Override
 specifier|public
 name|void
-name|clear
+name|recycle
 parameter_list|(
 name|double
 index|[]
 name|value
 parameter_list|)
-block|{}
+block|{
+comment|// nothing to do
+block|}
 block|}
 argument_list|)
 expr_stmt|;
@@ -883,9 +897,7 @@ argument_list|,
 name|availableProcessors
 argument_list|,
 operator|new
-name|Recycler
-operator|.
-name|C
+name|AbstractRecyclerC
 argument_list|<
 name|Object
 index|[]
@@ -917,7 +929,7 @@ annotation|@
 name|Override
 specifier|public
 name|void
-name|clear
+name|recycle
 parameter_list|(
 name|Object
 index|[]

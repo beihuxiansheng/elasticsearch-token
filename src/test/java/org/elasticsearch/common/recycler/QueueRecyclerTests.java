@@ -34,7 +34,10 @@ name|byte
 index|[]
 argument_list|>
 name|newRecycler
-parameter_list|()
+parameter_list|(
+name|int
+name|limit
+parameter_list|)
 block|{
 return|return
 name|Recyclers
@@ -43,12 +46,7 @@ name|concurrentDeque
 argument_list|(
 name|RECYCLER_C
 argument_list|,
-name|randomIntBetween
-argument_list|(
-literal|5
-argument_list|,
-literal|10
-argument_list|)
+name|limit
 argument_list|)
 return|;
 block|}

@@ -34,7 +34,10 @@ name|byte
 index|[]
 argument_list|>
 name|newRecycler
-parameter_list|()
+parameter_list|(
+name|int
+name|limit
+parameter_list|)
 block|{
 return|return
 name|Recyclers
@@ -47,7 +50,7 @@ name|dequeFactory
 argument_list|(
 name|RECYCLER_C
 argument_list|,
-literal|10
+name|limit
 argument_list|)
 argument_list|)
 return|;

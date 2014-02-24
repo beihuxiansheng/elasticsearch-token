@@ -493,6 +493,14 @@ parameter_list|()
 block|{
 name|recyclers
 operator|.
+name|get
+argument_list|()
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|recyclers
+operator|.
 name|close
 argument_list|()
 expr_stmt|;

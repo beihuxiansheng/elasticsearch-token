@@ -20,6 +20,20 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|recycler
+operator|.
+name|AbstractRecyclerC
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|google
@@ -393,9 +407,7 @@ argument_list|>
 name|c
 init|=
 operator|new
-name|Recycler
-operator|.
-name|C
+name|AbstractRecyclerC
 argument_list|<
 name|Object
 argument_list|>
@@ -421,12 +433,14 @@ annotation|@
 name|Override
 specifier|public
 name|void
-name|clear
+name|recycle
 parameter_list|(
 name|Object
 name|value
 parameter_list|)
-block|{}
+block|{
+comment|// do nothing
+block|}
 block|}
 decl_stmt|;
 specifier|final
