@@ -48,20 +48,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|CloseableThreadLocal
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchException
@@ -96,7 +82,7 @@ specifier|public
 enum|enum
 name|Recyclers
 block|{     ;
-comment|/** Return a {@link Recycler} that never recycles entries. */
+comment|/**      * Return a {@link Recycler} that never recycles entries.      */
 DECL|method|none
 specifier|public
 specifier|static
@@ -129,7 +115,7 @@ name|c
 argument_list|)
 return|;
 block|}
-comment|/** Return a concurrent recycler based on a deque. */
+comment|/**      * Return a concurrent recycler based on a deque.      */
 DECL|method|concurrentDeque
 specifier|public
 specifier|static
@@ -167,7 +153,7 @@ name|limit
 argument_list|)
 return|;
 block|}
-comment|/** Return a recycler based on a deque. */
+comment|/**      * Return a recycler based on a deque.      */
 DECL|method|deque
 specifier|public
 specifier|static
@@ -213,7 +199,7 @@ name|limit
 argument_list|)
 return|;
 block|}
-comment|/** Return a recycler based on a deque. */
+comment|/**      * Return a recycler based on a deque.      */
 DECL|method|dequeFactory
 specifier|public
 specifier|static
@@ -274,7 +260,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/** Wrap two recyclers and forward to calls to<code>smallObjectRecycler</code> when<code>size&lt; minSize</code> and to      *<code>defaultRecycler</code> otherwise. */
+comment|/**      * Wrap two recyclers and forward to calls to<code>smallObjectRecycler</code> when<code>size&lt; minSize</code> and to      *<code>defaultRecycler</code> otherwise.      */
 DECL|method|sizing
 specifier|public
 specifier|static
@@ -393,122 +379,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/** Create a thread-local recycler, where each thread will have its own instance, create through the provided factory. */
-DECL|method|threadLocal
-specifier|public
-specifier|static
-parameter_list|<
-name|T
-parameter_list|>
-name|Recycler
-argument_list|<
-name|T
-argument_list|>
-name|threadLocal
-parameter_list|(
-specifier|final
-name|Recycler
-operator|.
-name|Factory
-argument_list|<
-name|T
-argument_list|>
-name|factory
-parameter_list|)
-block|{
-return|return
-operator|new
-name|FilterRecycler
-argument_list|<
-name|T
-argument_list|>
-argument_list|()
-block|{
-specifier|private
-specifier|final
-name|CloseableThreadLocal
-argument_list|<
-name|Recycler
-argument_list|<
-name|T
-argument_list|>
-argument_list|>
-name|recyclers
-decl_stmt|;
-block|{
-name|recyclers
-operator|=
-operator|new
-name|CloseableThreadLocal
-argument_list|<
-name|Recycler
-argument_list|<
-name|T
-argument_list|>
-argument_list|>
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|protected
-name|Recycler
-argument_list|<
-name|T
-argument_list|>
-name|initialValue
-parameter_list|()
-block|{
-return|return
-name|factory
-operator|.
-name|build
-argument_list|()
-return|;
-block|}
-block|}
-block|;             }
-annotation|@
-name|Override
-specifier|protected
-name|Recycler
-argument_list|<
-name|T
-argument_list|>
-name|getDelegate
-parameter_list|()
-block|{
-return|return
-name|recyclers
-operator|.
-name|get
-argument_list|()
-return|;
-block|}
-annotation|@
-name|Override
-specifier|public
-name|void
-name|close
-parameter_list|()
-block|{
-name|recyclers
-operator|.
-name|get
-argument_list|()
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-name|recyclers
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
-block|}
-return|;
-block|}
-comment|/** Create a recycler that is wrapped inside a soft reference, so that it cannot cause {@link OutOfMemoryError}s. */
+comment|/**      * Create a recycler that is wrapped inside a soft reference, so that it cannot cause {@link OutOfMemoryError}s.      */
 DECL|method|soft
 specifier|public
 specifier|static
@@ -620,7 +491,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/** Create a recycler that wraps data in a SoftReference.      *  @see #soft(org.elasticsearch.common.recycler.Recycler.Factory) */
+comment|/**      * Create a recycler that wraps data in a SoftReference.      *      * @see #soft(org.elasticsearch.common.recycler.Recycler.Factory)      */
 DECL|method|softFactory
 specifier|public
 specifier|static
@@ -675,7 +546,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/** Wrap the provided recycler so that calls to {@link Recycler#obtain()} and {@link Recycler.V#release()} are protected by      *  a lock. */
+comment|/**      * Wrap the provided recycler so that calls to {@link Recycler#obtain()} and {@link Recycler.V#release()} are protected by      * a lock.      */
 DECL|method|locked
 specifier|public
 specifier|static
@@ -890,7 +761,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/** Create a concurrent implementation that can support concurrent access from<code>concurrencyLevel</code> threads with little contention. */
+comment|/**      * Create a concurrent implementation that can support concurrent access from<code>concurrencyLevel</code> threads with little contention.      */
 DECL|method|concurrent
 specifier|public
 specifier|static

@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * A recycled object, note, implementations should support calling obtain and then recycle  * on different threads.  */
 end_comment
 
 begin_interface
