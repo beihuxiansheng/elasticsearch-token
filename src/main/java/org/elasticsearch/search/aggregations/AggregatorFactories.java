@@ -649,6 +649,36 @@ name|long
 name|owningBucketOrdinal
 parameter_list|)
 block|{
+comment|// The bucket ordinal may be out of range in case of eg. a terms/filter/terms where
+comment|// the filter matches no document in the highest buckets of the first terms agg
+if|if
+condition|(
+name|owningBucketOrdinal
+operator|>=
+name|aggregators
+operator|.
+name|size
+argument_list|()
+operator|||
+name|aggregators
+operator|.
+name|get
+argument_list|(
+name|owningBucketOrdinal
+argument_list|)
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+name|first
+operator|.
+name|buildEmptyAggregation
+argument_list|()
+return|;
+block|}
+else|else
+block|{
 return|return
 name|aggregators
 operator|.
@@ -662,6 +692,7 @@ argument_list|(
 literal|0
 argument_list|)
 return|;
+block|}
 block|}
 annotation|@
 name|Override
