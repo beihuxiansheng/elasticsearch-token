@@ -139,10 +139,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|InternalSettingsPerparerTests
+DECL|class|InternalSettingsPreparerTests
 specifier|public
 class|class
-name|InternalSettingsPerparerTests
+name|InternalSettingsPreparerTests
 extends|extends
 name|ElasticsearchTestCase
 block|{
