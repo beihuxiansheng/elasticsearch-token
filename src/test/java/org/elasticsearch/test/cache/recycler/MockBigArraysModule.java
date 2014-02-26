@@ -4,15 +4,17 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.common.util
+DECL|package|org.elasticsearch.test.cache.recycler
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|test
 operator|.
-name|util
+name|cache
+operator|.
+name|recycler
 package|;
 end_package
 
@@ -24,33 +26,62 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|lease
+name|inject
 operator|.
-name|Releasable
+name|AbstractModule
 import|;
 end_import
 
-begin_comment
-comment|/** Base abstraction of an array. */
-end_comment
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|BigArrays
+import|;
+end_import
 
-begin_interface
-DECL|interface|BigArray
+begin_class
+DECL|class|MockBigArraysModule
 specifier|public
-interface|interface
-name|BigArray
+class|class
+name|MockBigArraysModule
 extends|extends
-name|Releasable
+name|AbstractModule
 block|{
-comment|/** Return the length of this array. */
-DECL|method|size
-specifier|public
-name|long
-name|size
+annotation|@
+name|Override
+DECL|method|configure
+specifier|protected
+name|void
+name|configure
 parameter_list|()
-function_decl|;
+block|{
+name|bind
+argument_list|(
+name|BigArrays
+operator|.
+name|class
+argument_list|)
+operator|.
+name|to
+argument_list|(
+name|MockBigArrays
+operator|.
+name|class
+argument_list|)
+operator|.
+name|asEagerSingleton
+argument_list|()
+expr_stmt|;
 block|}
-end_interface
+block|}
+end_class
 
 end_unit
 

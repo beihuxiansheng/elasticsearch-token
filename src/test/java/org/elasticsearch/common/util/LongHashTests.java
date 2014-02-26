@@ -211,7 +211,7 @@ name|maxLoadFactor
 argument_list|,
 name|BigArraysTests
 operator|.
-name|randomCacheRecycler
+name|randombigArrays
 argument_list|()
 argument_list|)
 decl_stmt|;

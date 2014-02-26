@@ -259,6 +259,8 @@ name|offsets
 operator|=
 name|BigArrays
 operator|.
+name|NON_RECYCLING_INSTANCE
+operator|.
 name|newLongArray
 argument_list|(
 name|size

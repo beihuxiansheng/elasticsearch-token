@@ -88,6 +88,62 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|component
+operator|.
+name|AbstractComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|ImmutableSettings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|Settings
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -100,12 +156,31 @@ begin_comment
 comment|/** Utility class to work with arrays. */
 end_comment
 
-begin_enum
-DECL|enum|BigArrays
+begin_class
+DECL|class|BigArrays
 specifier|public
-enum|enum
+class|class
 name|BigArrays
-block|{     ;
+extends|extends
+name|AbstractComponent
+block|{
+DECL|field|NON_RECYCLING_INSTANCE
+specifier|public
+specifier|static
+specifier|final
+name|BigArrays
+name|NON_RECYCLING_INSTANCE
+init|=
+operator|new
+name|BigArrays
+argument_list|(
+name|ImmutableSettings
+operator|.
+name|EMPTY
+argument_list|,
+literal|null
+argument_list|)
+decl_stmt|;
 comment|/** Page size in bytes: 16KB */
 DECL|field|PAGE_SIZE_IN_BYTES
 specifier|public
@@ -403,8 +478,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|recycler
-argument_list|,
 name|clearOnResize
 argument_list|)
 expr_stmt|;
@@ -627,8 +700,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|recycler
-argument_list|,
 name|clearOnResize
 argument_list|)
 expr_stmt|;
@@ -792,8 +863,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|recycler
-argument_list|,
 name|clearOnResize
 argument_list|)
 expr_stmt|;
@@ -1006,8 +1075,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|recycler
-argument_list|,
 name|clearOnResize
 argument_list|)
 expr_stmt|;
@@ -1219,8 +1286,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|recycler
-argument_list|,
 name|clearOnResize
 argument_list|)
 expr_stmt|;
@@ -1435,8 +1500,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|recycler
-argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
@@ -1550,18 +1613,45 @@ name|ret
 return|;
 block|}
 block|}
-comment|/** Allocate a new {@link ByteArray} of the given capacity. */
+DECL|field|recycler
+specifier|private
+specifier|final
+name|PageCacheRecycler
+name|recycler
+decl_stmt|;
+annotation|@
+name|Inject
+DECL|method|BigArrays
+specifier|public
+name|BigArrays
+parameter_list|(
+name|Settings
+name|settings
+parameter_list|,
+name|PageCacheRecycler
+name|recycler
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|settings
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|recycler
+operator|=
+name|recycler
+expr_stmt|;
+block|}
+comment|/**      * Allocate a new {@link ByteArray}.      * @param size          the initial length of the array      * @param clearOnResize whether values should be set to 0 on initialization and resize      */
 DECL|method|newByteArray
 specifier|public
-specifier|static
 name|ByteArray
 name|newByteArray
 parameter_list|(
 name|long
 name|size
-parameter_list|,
-name|PageCacheRecycler
-name|recycler
 parameter_list|,
 name|boolean
 name|clearOnResize
@@ -1608,10 +1698,9 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/** Allocate a new {@link ByteArray} of the given capacity. */
+comment|/**      * Allocate a new {@link ByteArray} initialized with zeros.      * @param size          the initial length of the array      */
 DECL|method|newByteArray
 specifier|public
-specifier|static
 name|ByteArray
 name|newByteArray
 parameter_list|(
@@ -1624,8 +1713,6 @@ name|newByteArray
 argument_list|(
 name|size
 argument_list|,
-literal|null
-argument_list|,
 literal|true
 argument_list|)
 return|;
@@ -1633,7 +1720,6 @@ block|}
 comment|/** Resize the array to the exact provided size. */
 DECL|method|resize
 specifier|public
-specifier|static
 name|ByteArray
 name|resize
 parameter_list|(
@@ -1684,10 +1770,6 @@ init|=
 name|newByteArray
 argument_list|(
 name|size
-argument_list|,
-name|arr
-operator|.
-name|recycler
 argument_list|,
 name|arr
 operator|.
@@ -1736,6 +1818,11 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|array
+operator|.
+name|release
+argument_list|()
+expr_stmt|;
 return|return
 name|newArray
 return|;
@@ -1744,7 +1831,6 @@ block|}
 comment|/** Grow an array to a size that is larger than<code>minSize</code>, preserving content, and potentially reusing part of the provided array. */
 DECL|method|grow
 specifier|public
-specifier|static
 name|ByteArray
 name|grow
 parameter_list|(
@@ -1793,18 +1879,14 @@ name|newSize
 argument_list|)
 return|;
 block|}
-comment|/** Allocate a new {@link IntArray} of the given capacity. */
+comment|/**      * Allocate a new {@link IntArray}.      * @param size          the initial length of the array      * @param clearOnResize whether values should be set to 0 on initialization and resize      */
 DECL|method|newIntArray
 specifier|public
-specifier|static
 name|IntArray
 name|newIntArray
 parameter_list|(
 name|long
 name|size
-parameter_list|,
-name|PageCacheRecycler
-name|recycler
 parameter_list|,
 name|boolean
 name|clearOnResize
@@ -1851,10 +1933,9 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/** Allocate a new {@link IntArray} of the given capacity. */
+comment|/**      * Allocate a new {@link IntArray}.      * @param size          the initial length of the array      */
 DECL|method|newIntArray
 specifier|public
-specifier|static
 name|IntArray
 name|newIntArray
 parameter_list|(
@@ -1867,8 +1948,6 @@ name|newIntArray
 argument_list|(
 name|size
 argument_list|,
-literal|null
-argument_list|,
 literal|true
 argument_list|)
 return|;
@@ -1876,7 +1955,6 @@ block|}
 comment|/** Resize the array to the exact provided size. */
 DECL|method|resize
 specifier|public
-specifier|static
 name|IntArray
 name|resize
 parameter_list|(
@@ -1930,10 +2008,6 @@ name|size
 argument_list|,
 name|arr
 operator|.
-name|recycler
-argument_list|,
-name|arr
-operator|.
 name|clearOnResize
 argument_list|)
 decl_stmt|;
@@ -1943,9 +2017,9 @@ name|long
 name|i
 init|=
 literal|0
-operator|,
+init|,
 name|end
-operator|=
+init|=
 name|Math
 operator|.
 name|min
@@ -1957,12 +2031,14 @@ operator|.
 name|size
 argument_list|()
 argument_list|)
-condition|;
+init|;
 name|i
 operator|<
 name|end
-incr|;
-control|++i)
+condition|;
+operator|++
+name|i
+control|)
 block|{
 name|newArray
 operator|.
@@ -1979,6 +2055,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|array
+operator|.
+name|release
+argument_list|()
+expr_stmt|;
 return|return
 name|newArray
 return|;
@@ -1987,7 +2068,6 @@ block|}
 comment|/** Grow an array to a size that is larger than<code>minSize</code>, preserving content, and potentially reusing part of the provided array. */
 DECL|method|grow
 specifier|public
-specifier|static
 name|IntArray
 name|grow
 parameter_list|(
@@ -2036,18 +2116,14 @@ name|newSize
 argument_list|)
 return|;
 block|}
-comment|/** Allocate a new {@link LongArray} of the given capacity. */
+comment|/**      * Allocate a new {@link LongArray}.      * @param size          the initial length of the array      * @param clearOnResize whether values should be set to 0 on initialization and resize      */
 DECL|method|newLongArray
 specifier|public
-specifier|static
 name|LongArray
 name|newLongArray
 parameter_list|(
 name|long
 name|size
-parameter_list|,
-name|PageCacheRecycler
-name|recycler
 parameter_list|,
 name|boolean
 name|clearOnResize
@@ -2094,10 +2170,9 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/** Allocate a new {@link LongArray} of the given capacity. */
+comment|/**      * Allocate a new {@link LongArray}.      * @param size          the initial length of the array      */
 DECL|method|newLongArray
 specifier|public
-specifier|static
 name|LongArray
 name|newLongArray
 parameter_list|(
@@ -2110,8 +2185,6 @@ name|newLongArray
 argument_list|(
 name|size
 argument_list|,
-literal|null
-argument_list|,
 literal|true
 argument_list|)
 return|;
@@ -2119,7 +2192,6 @@ block|}
 comment|/** Resize the array to the exact provided size. */
 DECL|method|resize
 specifier|public
-specifier|static
 name|LongArray
 name|resize
 parameter_list|(
@@ -2173,10 +2245,6 @@ name|size
 argument_list|,
 name|arr
 operator|.
-name|recycler
-argument_list|,
-name|arr
-operator|.
 name|clearOnResize
 argument_list|)
 decl_stmt|;
@@ -2186,9 +2254,9 @@ name|long
 name|i
 init|=
 literal|0
-operator|,
+init|,
 name|end
-operator|=
+init|=
 name|Math
 operator|.
 name|min
@@ -2200,12 +2268,14 @@ operator|.
 name|size
 argument_list|()
 argument_list|)
-condition|;
+init|;
 name|i
 operator|<
 name|end
-incr|;
-control|++i)
+condition|;
+operator|++
+name|i
+control|)
 block|{
 name|newArray
 operator|.
@@ -2222,6 +2292,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|array
+operator|.
+name|release
+argument_list|()
+expr_stmt|;
 return|return
 name|newArray
 return|;
@@ -2230,7 +2305,6 @@ block|}
 comment|/** Grow an array to a size that is larger than<code>minSize</code>, preserving content, and potentially reusing part of the provided array. */
 DECL|method|grow
 specifier|public
-specifier|static
 name|LongArray
 name|grow
 parameter_list|(
@@ -2279,18 +2353,14 @@ name|newSize
 argument_list|)
 return|;
 block|}
-comment|/** Allocate a new {@link DoubleArray} of the given capacity. */
+comment|/**      * Allocate a new {@link DoubleArray}.      * @param size          the initial length of the array      * @param clearOnResize whether values should be set to 0 on initialization and resize      */
 DECL|method|newDoubleArray
 specifier|public
-specifier|static
 name|DoubleArray
 name|newDoubleArray
 parameter_list|(
 name|long
 name|size
-parameter_list|,
-name|PageCacheRecycler
-name|recycler
 parameter_list|,
 name|boolean
 name|clearOnResize
@@ -2340,7 +2410,6 @@ block|}
 comment|/** Allocate a new {@link DoubleArray} of the given capacity. */
 DECL|method|newDoubleArray
 specifier|public
-specifier|static
 name|DoubleArray
 name|newDoubleArray
 parameter_list|(
@@ -2353,8 +2422,6 @@ name|newDoubleArray
 argument_list|(
 name|size
 argument_list|,
-literal|null
-argument_list|,
 literal|true
 argument_list|)
 return|;
@@ -2362,7 +2429,6 @@ block|}
 comment|/** Resize the array to the exact provided size. */
 DECL|method|resize
 specifier|public
-specifier|static
 name|DoubleArray
 name|resize
 parameter_list|(
@@ -2416,10 +2482,6 @@ name|size
 argument_list|,
 name|arr
 operator|.
-name|recycler
-argument_list|,
-name|arr
-operator|.
 name|clearOnResize
 argument_list|)
 decl_stmt|;
@@ -2429,9 +2491,9 @@ name|long
 name|i
 init|=
 literal|0
-operator|,
+init|,
 name|end
-operator|=
+init|=
 name|Math
 operator|.
 name|min
@@ -2443,12 +2505,14 @@ operator|.
 name|size
 argument_list|()
 argument_list|)
-condition|;
+init|;
 name|i
 operator|<
 name|end
-incr|;
-control|++i)
+condition|;
+operator|++
+name|i
+control|)
 block|{
 name|newArray
 operator|.
@@ -2465,6 +2529,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|array
+operator|.
+name|release
+argument_list|()
+expr_stmt|;
 return|return
 name|newArray
 return|;
@@ -2473,7 +2542,6 @@ block|}
 comment|/** Grow an array to a size that is larger than<code>minSize</code>, preserving content, and potentially reusing part of the provided array. */
 DECL|method|grow
 specifier|public
-specifier|static
 name|DoubleArray
 name|grow
 parameter_list|(
@@ -2522,18 +2590,14 @@ name|newSize
 argument_list|)
 return|;
 block|}
-comment|/** Allocate a new {@link FloatArray} of the given capacity. */
+comment|/**      * Allocate a new {@link FloatArray}.      * @param size          the initial length of the array      * @param clearOnResize whether values should be set to 0 on initialization and resize      */
 DECL|method|newFloatArray
 specifier|public
-specifier|static
 name|FloatArray
 name|newFloatArray
 parameter_list|(
 name|long
 name|size
-parameter_list|,
-name|PageCacheRecycler
-name|recycler
 parameter_list|,
 name|boolean
 name|clearOnResize
@@ -2583,7 +2647,6 @@ block|}
 comment|/** Allocate a new {@link FloatArray} of the given capacity. */
 DECL|method|newFloatArray
 specifier|public
-specifier|static
 name|FloatArray
 name|newFloatArray
 parameter_list|(
@@ -2596,8 +2659,6 @@ name|newFloatArray
 argument_list|(
 name|size
 argument_list|,
-literal|null
-argument_list|,
 literal|true
 argument_list|)
 return|;
@@ -2605,7 +2666,6 @@ block|}
 comment|/** Resize the array to the exact provided size. */
 DECL|method|resize
 specifier|public
-specifier|static
 name|FloatArray
 name|resize
 parameter_list|(
@@ -2659,10 +2719,6 @@ name|size
 argument_list|,
 name|arr
 operator|.
-name|recycler
-argument_list|,
-name|arr
-operator|.
 name|clearOnResize
 argument_list|)
 decl_stmt|;
@@ -2672,9 +2728,9 @@ name|long
 name|i
 init|=
 literal|0
-operator|,
+init|,
 name|end
-operator|=
+init|=
 name|Math
 operator|.
 name|min
@@ -2686,12 +2742,14 @@ operator|.
 name|size
 argument_list|()
 argument_list|)
-condition|;
+init|;
 name|i
 operator|<
 name|end
-incr|;
-control|++i)
+condition|;
+operator|++
+name|i
+control|)
 block|{
 name|newArray
 operator|.
@@ -2716,7 +2774,6 @@ block|}
 comment|/** Grow an array to a size that is larger than<code>minSize</code>, preserving content, and potentially reusing part of the provided array. */
 DECL|method|grow
 specifier|public
-specifier|static
 name|FloatArray
 name|grow
 parameter_list|(
@@ -2765,10 +2822,9 @@ name|newSize
 argument_list|)
 return|;
 block|}
-comment|/** Allocate a new {@link ObjectArray} of the given capacity. */
+comment|/**      * Allocate a new {@link ObjectArray}.      * @param size          the initial length of the array      */
 DECL|method|newObjectArray
 specifier|public
-specifier|static
 parameter_list|<
 name|T
 parameter_list|>
@@ -2780,9 +2836,6 @@ name|newObjectArray
 parameter_list|(
 name|long
 name|size
-parameter_list|,
-name|PageCacheRecycler
-name|recycler
 parameter_list|)
 block|{
 if|if
@@ -2828,36 +2881,9 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/** Allocate a new {@link ObjectArray} of the given capacity. */
-DECL|method|newObjectArray
-specifier|public
-specifier|static
-parameter_list|<
-name|T
-parameter_list|>
-name|ObjectArray
-argument_list|<
-name|T
-argument_list|>
-name|newObjectArray
-parameter_list|(
-name|long
-name|size
-parameter_list|)
-block|{
-return|return
-name|newObjectArray
-argument_list|(
-name|size
-argument_list|,
-literal|null
-argument_list|)
-return|;
-block|}
 comment|/** Resize the array to the exact provided size. */
 DECL|method|resize
 specifier|public
-specifier|static
 parameter_list|<
 name|T
 parameter_list|>
@@ -2915,15 +2941,6 @@ init|=
 name|newObjectArray
 argument_list|(
 name|size
-argument_list|,
-operator|(
-operator|(
-name|AbstractArray
-operator|)
-name|array
-operator|)
-operator|.
-name|recycler
 argument_list|)
 decl_stmt|;
 for|for
@@ -2932,9 +2949,9 @@ name|long
 name|i
 init|=
 literal|0
-operator|,
+init|,
 name|end
-operator|=
+init|=
 name|Math
 operator|.
 name|min
@@ -2946,12 +2963,14 @@ operator|.
 name|size
 argument_list|()
 argument_list|)
-condition|;
+init|;
 name|i
 operator|<
 name|end
-incr|;
-control|++i)
+condition|;
+operator|++
+name|i
+control|)
 block|{
 name|newArray
 operator|.
@@ -2968,6 +2987,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|array
+operator|.
+name|release
+argument_list|()
+expr_stmt|;
 return|return
 name|newArray
 return|;
@@ -2976,7 +3000,6 @@ block|}
 comment|/** Grow an array to a size that is larger than<code>minSize</code>, preserving content, and potentially reusing part of the provided array. */
 DECL|method|grow
 specifier|public
-specifier|static
 parameter_list|<
 name|T
 parameter_list|>
@@ -3035,7 +3058,7 @@ argument_list|)
 return|;
 block|}
 block|}
-end_enum
+end_class
 
 end_unit
 

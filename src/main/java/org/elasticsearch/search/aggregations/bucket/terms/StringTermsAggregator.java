@@ -524,7 +524,7 @@ name|estimatedBucketCount
 argument_list|,
 name|aggregationContext
 operator|.
-name|pageCacheRecycler
+name|bigArrays
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1822,7 +1822,11 @@ expr_stmt|;
 block|}
 name|ordinalToBucket
 operator|=
-name|BigArrays
+name|context
+argument_list|()
+operator|.
+name|bigArrays
+argument_list|()
 operator|.
 name|newLongArray
 argument_list|(
@@ -1832,12 +1836,6 @@ name|overSize
 argument_list|(
 name|maxOrd
 argument_list|)
-argument_list|,
-name|context
-argument_list|()
-operator|.
-name|pageCacheRecycler
-argument_list|()
 argument_list|,
 literal|false
 argument_list|)

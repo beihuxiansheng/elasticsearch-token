@@ -90,6 +90,8 @@ name|release
 parameter_list|(
 name|Iterable
 argument_list|<
+name|?
+extends|extends
 name|Releasable
 argument_list|>
 name|releasables
@@ -173,6 +175,8 @@ name|release
 parameter_list|(
 name|Iterable
 argument_list|<
+name|?
+extends|extends
 name|Releasable
 argument_list|>
 name|releasables

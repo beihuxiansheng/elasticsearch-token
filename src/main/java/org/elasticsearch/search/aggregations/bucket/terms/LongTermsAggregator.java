@@ -355,7 +355,7 @@ name|estimatedBucketCount
 argument_list|,
 name|aggregationContext
 operator|.
-name|pageCacheRecycler
+name|bigArrays
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -472,6 +472,8 @@ name|hashes
 init|=
 name|BigArrays
 operator|.
+name|NON_RECYCLING_INSTANCE
+operator|.
 name|newIntArray
 argument_list|(
 name|ordinals
