@@ -312,11 +312,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
+name|common
 operator|.
-name|aggregations
-operator|.
-name|bucket
+name|util
 operator|.
 name|BytesRefHash
 import|;

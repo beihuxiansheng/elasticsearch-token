@@ -4,17 +4,15 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search.aggregations.bucket
+DECL|package|org.elasticsearch.common.util
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
+name|common
 operator|.
-name|aggregations
-operator|.
-name|bucket
+name|util
 package|;
 end_package
 
@@ -67,6 +65,20 @@ operator|.
 name|util
 operator|.
 name|BigArraysTests
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|LongHash
 import|;
 end_import
 
