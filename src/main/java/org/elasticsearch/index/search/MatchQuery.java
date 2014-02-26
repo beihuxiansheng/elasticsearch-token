@@ -1086,6 +1086,8 @@ argument_list|,
 name|occur
 argument_list|,
 name|commonTermsCutoff
+argument_list|,
+name|mapper
 argument_list|)
 expr_stmt|;
 block|}
@@ -1496,6 +1498,12 @@ name|lowFreqOccur
 parameter_list|,
 name|float
 name|maxTermFrequency
+parameter_list|,
+name|FieldMapper
+argument_list|<
+name|?
+argument_list|>
+name|mapper
 parameter_list|)
 block|{
 name|Query
@@ -1552,6 +1560,8 @@ operator|)
 operator|.
 name|isCoordDisabled
 argument_list|()
+argument_list|,
+name|mapper
 argument_list|)
 decl_stmt|;
 for|for
