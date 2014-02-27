@@ -1494,9 +1494,14 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+try|try
+block|{
 name|ensureEstimatedStats
 argument_list|()
 expr_stmt|;
+block|}
+finally|finally
+block|{
 name|wipeIndices
 argument_list|(
 literal|"_all"
@@ -1510,6 +1515,7 @@ expr_stmt|;
 name|wipeRepositories
 argument_list|()
 expr_stmt|;
+block|}
 name|ensureAllSearchersClosed
 argument_list|()
 expr_stmt|;
@@ -2017,7 +2023,21 @@ control|)
 block|{
 name|assertThat
 argument_list|(
-literal|"Breaker reset to 0 "
+literal|"Breaker reset to 0 - cleared on ["
+operator|+
+name|all
+operator|.
+name|getSuccessfulShards
+argument_list|()
+operator|+
+literal|"] shards total ["
+operator|+
+name|all
+operator|.
+name|getTotalShards
+argument_list|()
+operator|+
+literal|"]"
 argument_list|,
 name|stats
 operator|.
