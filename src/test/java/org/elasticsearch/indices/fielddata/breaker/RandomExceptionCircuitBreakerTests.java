@@ -422,11 +422,6 @@ name|ElasticsearchIntegrationTest
 block|{
 annotation|@
 name|Test
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"org.elasticsearch.indices.fielddata.breaker:TRACE,org.elasticsearch.index.fielddata:TRACE,org.elasticsearch.common.breaker:TRACE"
-argument_list|)
 DECL|method|testBreakerWithRandomExceptions
 specifier|public
 name|void
