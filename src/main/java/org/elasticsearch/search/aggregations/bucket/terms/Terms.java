@@ -360,7 +360,7 @@ operator|.
 name|TERM_DESC
 return|;
 block|}
-comment|/**          * Creates a bucket ordering strategy which sorts buckets based on a single-valued calc get          *          * @param   aggregationName the name of the get          * @param   asc             The direction of the order (ascending or descending)          */
+comment|/**          * Creates a bucket ordering strategy which sorts buckets based on a single-valued calc get          *          * @param   path the name of the get          * @param   asc             The direction of the order (ascending or descending)          */
 DECL|method|aggregation
 specifier|public
 specifier|static
@@ -368,7 +368,7 @@ name|Order
 name|aggregation
 parameter_list|(
 name|String
-name|aggregationName
+name|path
 parameter_list|,
 name|boolean
 name|asc
@@ -380,9 +380,7 @@ name|InternalOrder
 operator|.
 name|Aggregation
 argument_list|(
-name|aggregationName
-argument_list|,
-literal|null
+name|path
 argument_list|,
 name|asc
 argument_list|)
@@ -412,7 +410,9 @@ operator|.
 name|Aggregation
 argument_list|(
 name|aggregationName
-argument_list|,
+operator|+
+literal|"."
+operator|+
 name|metricName
 argument_list|,
 name|asc

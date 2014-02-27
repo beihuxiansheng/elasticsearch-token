@@ -465,7 +465,7 @@ expr_stmt|;
 block|}
 comment|/**      * Utility method to return the number of documents that fell in the given bucket (identified by the bucket ordinal)      */
 DECL|method|bucketDocCount
-specifier|protected
+specifier|public
 specifier|final
 name|long
 name|bucketDocCount

@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search.aggregations.bucket
+DECL|package|org.elasticsearch.search.aggregations
 package|package
 name|org
 operator|.
@@ -13,74 +13,19 @@ operator|.
 name|search
 operator|.
 name|aggregations
-operator|.
-name|bucket
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
-name|Aggregation
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
-name|Aggregations
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
-name|HasAggregations
-import|;
-end_import
-
 begin_comment
-comment|/**  * A single bucket aggregation  */
+comment|/**  *  */
 end_comment
 
 begin_interface
-DECL|interface|SingleBucketAggregation
+DECL|interface|HasAggregations
 specifier|public
 interface|interface
-name|SingleBucketAggregation
-extends|extends
-name|Aggregation
-extends|,
 name|HasAggregations
 block|{
-comment|/**      * @return  The number of documents in this bucket      */
-DECL|method|getDocCount
-name|long
-name|getDocCount
-parameter_list|()
-function_decl|;
-comment|/**      * @return  The sub-aggregations of this bucket      */
 DECL|method|getAggregations
 name|Aggregations
 name|getAggregations

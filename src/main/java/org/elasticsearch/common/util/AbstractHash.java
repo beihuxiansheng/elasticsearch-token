@@ -309,7 +309,7 @@ name|mask
 return|;
 comment|// linear probing
 block|}
-comment|/**      * Get the id associated with key at<code>0&lte; index&lte; capacity()</code> or -1 if this slot is unused.      */
+comment|/**      * Get the id associated with key at<code>0&lt;= index&lt;= capacity()</code> or -1 if this slot is unused.      */
 DECL|method|id
 specifier|public
 name|long

@@ -58,20 +58,6 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|Aggregation
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
 name|bucket
 operator|.
 name|MultiBucketsAggregation
@@ -479,7 +465,7 @@ block|}
 block|}
 argument_list|)
 decl_stmt|;
-comment|/**          * Creates a bucket ordering strategy that sorts buckets based on a single-valued calc sug-aggregation          *          * @param aggregationName the name of the aggregation          * @param asc             The direction of the order (ascending or descending)          */
+comment|/**          * Creates a bucket ordering strategy that sorts buckets based on a single-valued calc sug-aggregation          *          * @param path the name of the aggregation          * @param asc             The direction of the order (ascending or descending)          */
 DECL|method|aggregation
 specifier|public
 specifier|static
@@ -487,7 +473,7 @@ name|Order
 name|aggregation
 parameter_list|(
 name|String
-name|aggregationName
+name|path
 parameter_list|,
 name|boolean
 name|asc
@@ -499,9 +485,7 @@ name|InternalOrder
 operator|.
 name|Aggregation
 argument_list|(
-name|aggregationName
-argument_list|,
-literal|null
+name|path
 argument_list|,
 name|asc
 argument_list|)
@@ -531,7 +515,9 @@ operator|.
 name|Aggregation
 argument_list|(
 name|aggregationName
-argument_list|,
+operator|+
+literal|"."
+operator|+
 name|valueName
 argument_list|,
 name|asc
