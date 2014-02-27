@@ -384,6 +384,22 @@ begin_import
 import|import static
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertAllSuccessful
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -423,6 +439,60 @@ name|InterruptedException
 throws|,
 name|ExecutionException
 block|{
+for|for
+control|(
+name|NodeStats
+name|node
+range|:
+name|client
+argument_list|()
+operator|.
+name|admin
+argument_list|()
+operator|.
+name|cluster
+argument_list|()
+operator|.
+name|prepareNodesStats
+argument_list|()
+operator|.
+name|clear
+argument_list|()
+operator|.
+name|setBreaker
+argument_list|(
+literal|true
+argument_list|)
+operator|.
+name|execute
+argument_list|()
+operator|.
+name|actionGet
+argument_list|()
+operator|.
+name|getNodes
+argument_list|()
+control|)
+block|{
+name|assertThat
+argument_list|(
+literal|"Breaker is not set to 0"
+argument_list|,
+name|node
+operator|.
+name|getBreaker
+argument_list|()
+operator|.
+name|getEstimated
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|0L
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 specifier|final
 name|int
 name|numShards
@@ -1197,6 +1267,8 @@ comment|// Now, clear the cache and check that the circuit breaker has been
 comment|// successfully set back to zero. If there is a bug in the circuit
 comment|// breaker adjustment code, it should show up here by the breaker
 comment|// estimate being either positive or negative.
+name|assertAllSuccessful
+argument_list|(
 name|client
 argument_list|()
 operator|.
@@ -1221,6 +1293,7 @@ argument_list|()
 operator|.
 name|actionGet
 argument_list|()
+argument_list|)
 expr_stmt|;
 name|NodesStatsResponse
 name|nodeStats
