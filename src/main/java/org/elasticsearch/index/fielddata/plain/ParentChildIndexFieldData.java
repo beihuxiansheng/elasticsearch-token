@@ -1038,6 +1038,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|success
@@ -1055,7 +1056,6 @@ name|getMemorySizeInBytes
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
