@@ -1494,32 +1494,25 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-try|try
-block|{
-name|ensureEstimatedStats
-argument_list|()
-expr_stmt|;
-block|}
-finally|finally
-block|{
 name|wipeIndices
 argument_list|(
 literal|"_all"
 argument_list|)
 expr_stmt|;
-comment|// wipe after to make sure we fail in the test that
-comment|// didn't ack the delete
+comment|// wipe after to make sure we fail in the test that didn't ack the delete
 name|wipeTemplates
 argument_list|()
 expr_stmt|;
 name|wipeRepositories
 argument_list|()
 expr_stmt|;
-block|}
 name|ensureAllSearchersClosed
 argument_list|()
 expr_stmt|;
 name|ensureAllFilesClosed
+argument_list|()
+expr_stmt|;
+name|ensureEstimatedStats
 argument_list|()
 expr_stmt|;
 name|logger
@@ -1930,8 +1923,9 @@ operator|.
 name|EMPTY
 return|;
 block|}
+comment|/**      * Ensures that the breaker statistics are reset to 0 since we wiped all indices and that      * means all stats should be set to 0 otherwise something is wrong with the field data      * calculation.      */
 DECL|method|ensureEstimatedStats
-specifier|public
+specifier|private
 specifier|static
 name|void
 name|ensureEstimatedStats
@@ -1948,39 +1942,6 @@ operator|>
 literal|0
 condition|)
 block|{
-name|ClearIndicesCacheResponse
-name|all
-init|=
-name|client
-argument_list|()
-operator|.
-name|admin
-argument_list|()
-operator|.
-name|indices
-argument_list|()
-operator|.
-name|prepareClearCache
-argument_list|(
-literal|"_all"
-argument_list|)
-operator|.
-name|setFieldDataCache
-argument_list|(
-literal|true
-argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
-decl_stmt|;
-name|assertNoFailures
-argument_list|(
-name|all
-argument_list|)
-expr_stmt|;
 name|NodesStatsResponse
 name|nodeStats
 init|=
@@ -2023,21 +1984,12 @@ control|)
 block|{
 name|assertThat
 argument_list|(
-literal|"Breaker reset to 0 - cleared on ["
+literal|"Breaker not reset to 0 on node: "
 operator|+
-name|all
+name|stats
 operator|.
-name|getSuccessfulShards
+name|getNode
 argument_list|()
-operator|+
-literal|"] shards total ["
-operator|+
-name|all
-operator|.
-name|getTotalShards
-argument_list|()
-operator|+
-literal|"]"
 argument_list|,
 name|stats
 operator|.
