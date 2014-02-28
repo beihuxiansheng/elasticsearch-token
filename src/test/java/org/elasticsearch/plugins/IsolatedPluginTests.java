@@ -811,6 +811,13 @@ literal|2
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|Arrays
+operator|.
+name|sort
+argument_list|(
+name|hashes
+argument_list|)
+expr_stmt|;
 name|assertThat
 argument_list|(
 name|Arrays
