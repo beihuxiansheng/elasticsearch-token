@@ -280,7 +280,7 @@ name|TEST
 argument_list|,
 name|numNodes
 operator|=
-literal|1
+literal|0
 argument_list|)
 DECL|class|IsolatedPluginTests
 specifier|public
@@ -706,9 +706,6 @@ name|Exception
 block|{
 try|try
 block|{
-name|cluster
-argument_list|()
-operator|.
 name|client
 argument_list|()
 expr_stmt|;
