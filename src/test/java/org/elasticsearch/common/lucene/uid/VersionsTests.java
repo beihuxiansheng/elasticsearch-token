@@ -280,7 +280,7 @@ name|merge
 operator|.
 name|policy
 operator|.
-name|IndexUpgraderMergePolicy
+name|ElasticsearchMergePolicy
 import|;
 end_import
 
@@ -1975,7 +1975,7 @@ operator|.
 name|setMergePolicy
 argument_list|(
 operator|new
-name|IndexUpgraderMergePolicy
+name|ElasticsearchMergePolicy
 argument_list|(
 name|iwConf
 operator|.
