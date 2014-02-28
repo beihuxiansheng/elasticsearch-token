@@ -303,15 +303,6 @@ name|Throwable
 argument_list|()
 argument_list|)
 expr_stmt|;
-specifier|final
-name|Thread
-name|t
-init|=
-name|Thread
-operator|.
-name|currentThread
-argument_list|()
-decl_stmt|;
 return|return
 operator|new
 name|V
@@ -329,35 +320,6 @@ parameter_list|()
 throws|throws
 name|ElasticsearchException
 block|{
-if|if
-condition|(
-name|t
-operator|!=
-name|Thread
-operator|.
-name|currentThread
-argument_list|()
-condition|)
-block|{
-comment|// Releasing from a different thread doesn't break anything but this is bad practice as pages should be acquired
-comment|// as late as possible and released as soon as possible in a try/finally fashion
-throw|throw
-operator|new
-name|RuntimeException
-argument_list|(
-literal|"Page was allocated in "
-operator|+
-name|t
-operator|+
-literal|" but released in "
-operator|+
-name|Thread
-operator|.
-name|currentThread
-argument_list|()
-argument_list|)
-throw|;
-block|}
 specifier|final
 name|Throwable
 name|t
