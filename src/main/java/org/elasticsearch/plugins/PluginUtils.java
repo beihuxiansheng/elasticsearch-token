@@ -671,7 +671,7 @@ operator|.
 name|toString
 argument_list|()
 operator|+
-literal|"!/es.plugin.properties"
+literal|"!/es-plugin.properties"
 argument_list|)
 argument_list|)
 expr_stmt|;
