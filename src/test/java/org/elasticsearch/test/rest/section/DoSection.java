@@ -365,7 +365,7 @@ argument_list|()
 argument_list|,
 name|apiCallSection
 operator|.
-name|getBody
+name|getBodies
 argument_list|()
 argument_list|)
 decl_stmt|;

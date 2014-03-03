@@ -177,6 +177,9 @@ decl_stmt|;
 name|executionContext
 operator|.
 name|stash
+argument_list|()
+operator|.
+name|stashValue
 argument_list|(
 name|entry
 operator|.
