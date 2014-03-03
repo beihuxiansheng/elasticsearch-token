@@ -1096,7 +1096,7 @@ name|aliases
 argument_list|(
 name|builder
 operator|.
-name|string
+name|bytes
 argument_list|()
 argument_list|)
 return|;
@@ -1132,34 +1132,15 @@ name|XContentBuilder
 name|source
 parameter_list|)
 block|{
-try|try
-block|{
 return|return
 name|aliases
 argument_list|(
 name|source
 operator|.
-name|string
+name|bytes
 argument_list|()
 argument_list|)
 return|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|ElasticsearchIllegalArgumentException
-argument_list|(
-literal|"Failed to build json for aliases"
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
 block|}
 comment|/**      * Sets the aliases that will be associated with the index when it gets created      */
 DECL|method|aliases
@@ -1168,6 +1149,27 @@ name|CreateIndexRequest
 name|aliases
 parameter_list|(
 name|String
+name|source
+parameter_list|)
+block|{
+return|return
+name|aliases
+argument_list|(
+operator|new
+name|BytesArray
+argument_list|(
+name|source
+argument_list|)
+argument_list|)
+return|;
+block|}
+comment|/**      * Sets the aliases that will be associated with the index when it gets created      */
+DECL|method|aliases
+specifier|public
+name|CreateIndexRequest
+name|aliases
+parameter_list|(
+name|BytesReference
 name|source
 parameter_list|)
 block|{
@@ -1180,11 +1182,7 @@ name|XContentHelper
 operator|.
 name|createParser
 argument_list|(
-operator|new
-name|BytesArray
-argument_list|(
 name|source
-argument_list|)
 argument_list|)
 decl_stmt|;
 comment|//move to the first alias

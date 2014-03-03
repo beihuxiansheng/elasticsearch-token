@@ -573,6 +573,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the aliases that will be associated with the index when it gets created      */
+DECL|method|setAliases
+specifier|public
+name|CreateIndexRequestBuilder
+name|setAliases
+parameter_list|(
+name|BytesReference
+name|source
+parameter_list|)
+block|{
+name|request
+operator|.
+name|aliases
+argument_list|(
+name|source
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Adds an alias that will be associated with the index when it gets created      */
 DECL|method|addAlias
 specifier|public
