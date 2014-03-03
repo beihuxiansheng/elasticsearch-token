@@ -109,7 +109,7 @@ name|RamAccountingTermsEnum
 extends|extends
 name|FilteredTermsEnum
 block|{
-comment|// Flush every 1mb
+comment|// Flush every 5mb
 DECL|field|FLUSH_BUFFER_SIZE
 specifier|private
 specifier|static
@@ -120,6 +120,8 @@ init|=
 literal|1024
 operator|*
 literal|1024
+operator|*
+literal|5
 decl_stmt|;
 DECL|field|breaker
 specifier|private
