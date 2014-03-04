@@ -470,6 +470,14 @@ name|owningBucketOrd
 parameter_list|)
 block|{
 return|return
+name|valuesSource
+operator|==
+literal|null
+condition|?
+name|Double
+operator|.
+name|NaN
+else|:
 name|sums
 operator|.
 name|get

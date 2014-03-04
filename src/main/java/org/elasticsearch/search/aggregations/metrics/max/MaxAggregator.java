@@ -481,6 +481,14 @@ name|owningBucketOrd
 parameter_list|)
 block|{
 return|return
+name|valuesSource
+operator|==
+literal|null
+condition|?
+name|Double
+operator|.
+name|NEGATIVE_INFINITY
+else|:
 name|maxes
 operator|.
 name|get

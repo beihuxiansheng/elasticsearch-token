@@ -459,6 +459,14 @@ name|owningBucketOrd
 parameter_list|)
 block|{
 return|return
+name|valuesSource
+operator|==
+literal|null
+condition|?
+name|Double
+operator|.
+name|POSITIVE_INFINITY
+else|:
 name|mins
 operator|.
 name|get
