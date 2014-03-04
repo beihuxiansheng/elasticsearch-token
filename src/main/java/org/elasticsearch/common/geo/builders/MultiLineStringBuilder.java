@@ -567,14 +567,9 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-operator|new
-name|JtsGeometry
+name|jtsGeometry
 argument_list|(
 name|geometry
-argument_list|,
-name|SPATIAL_CONTEXT
-argument_list|,
-literal|true
 argument_list|)
 return|;
 block|}
