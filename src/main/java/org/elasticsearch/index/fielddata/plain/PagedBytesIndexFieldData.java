@@ -867,6 +867,17 @@ name|BytesRef
 name|term
 parameter_list|)
 block|{
+if|if
+condition|(
+name|term
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|0
+return|;
+block|}
 name|long
 name|bytes
 init|=
