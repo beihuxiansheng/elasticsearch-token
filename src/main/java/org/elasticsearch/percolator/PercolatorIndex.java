@@ -28,6 +28,10 @@ name|ParsedDocument
 import|;
 end_import
 
+begin_comment
+comment|/**  * Abstraction on how to index the percolator document.  */
+end_comment
+
 begin_interface
 DECL|interface|PercolatorIndex
 interface|interface
@@ -44,12 +48,6 @@ parameter_list|,
 name|ParsedDocument
 name|document
 parameter_list|)
-function_decl|;
-comment|/**      * Release resources      * */
-DECL|method|clean
-name|void
-name|clean
-parameter_list|()
 function_decl|;
 block|}
 end_interface
