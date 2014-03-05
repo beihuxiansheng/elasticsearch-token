@@ -1952,6 +1952,12 @@ operator|.
 name|addCell
 argument_list|(
 name|masterId
+operator|==
+literal|null
+condition|?
+literal|"x"
+else|:
+name|masterId
 operator|.
 name|equals
 argument_list|(
