@@ -252,10 +252,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|newMergeScheduler
+DECL|method|buildMergeScheduler
 specifier|public
 name|MergeScheduler
-name|newMergeScheduler
+name|buildMergeScheduler
 parameter_list|()
 block|{
 name|CustomSerialMergeScheduler

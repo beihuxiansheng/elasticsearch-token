@@ -1422,9 +1422,6 @@ block|}
 DECL|method|createMergeScheduler
 specifier|protected
 name|MergeSchedulerProvider
-argument_list|<
-name|?
-argument_list|>
 name|createMergeScheduler
 parameter_list|()
 block|{
@@ -1484,9 +1481,6 @@ name|Translog
 name|translog
 parameter_list|,
 name|MergeSchedulerProvider
-argument_list|<
-name|?
-argument_list|>
 name|mergeSchedulerProvider
 parameter_list|)
 block|{
