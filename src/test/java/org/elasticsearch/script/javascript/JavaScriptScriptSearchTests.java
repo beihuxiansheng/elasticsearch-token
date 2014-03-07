@@ -1043,12 +1043,6 @@ name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.
-name|addField
-argument_list|(
-literal|"_source.obj1"
-argument_list|)
-comment|// we also automatically detect _source in fields
-operator|.
 name|addScriptField
 argument_list|(
 literal|"s_obj1"
