@@ -1614,6 +1614,7 @@ condition|(
 name|context
 operator|.
 name|size
+argument_list|()
 operator|<
 literal|0
 condition|)
@@ -1621,8 +1622,9 @@ block|{
 name|context
 operator|.
 name|size
-operator|=
+argument_list|(
 literal|0
+argument_list|)
 expr_stmt|;
 block|}
 comment|// parse the source either into one MemoryIndex, if it is a single document or index multiple docs if nested
@@ -2320,24 +2322,20 @@ condition|)
 block|{
 name|context
 operator|.
-name|limit
-operator|=
-literal|true
-expr_stmt|;
-name|context
-operator|.
 name|size
-operator|=
+argument_list|(
 name|parser
 operator|.
 name|intValue
 argument_list|()
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
 name|context
 operator|.
 name|size
+argument_list|()
 operator|<
 literal|0
 condition|)
@@ -2351,6 +2349,7 @@ operator|+
 name|context
 operator|.
 name|size
+argument_list|()
 operator|+
 literal|"] and is expected to be higher or equal to 0"
 argument_list|)
@@ -3767,6 +3766,7 @@ operator|<
 name|context
 operator|.
 name|size
+argument_list|()
 condition|)
 block|{
 name|matches

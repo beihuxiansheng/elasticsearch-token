@@ -1237,6 +1237,7 @@ operator|=
 name|context
 operator|.
 name|size
+argument_list|()
 expr_stmt|;
 name|this
 operator|.
@@ -1537,6 +1538,7 @@ argument_list|(
 name|context
 operator|.
 name|size
+argument_list|()
 argument_list|,
 literal|false
 argument_list|)
@@ -1835,6 +1837,7 @@ operator|=
 name|context
 operator|.
 name|size
+argument_list|()
 expr_stmt|;
 name|this
 operator|.

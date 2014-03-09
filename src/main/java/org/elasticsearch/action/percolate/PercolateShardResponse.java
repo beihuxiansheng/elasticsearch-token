@@ -421,6 +421,7 @@ operator|=
 name|context
 operator|.
 name|size
+argument_list|()
 expr_stmt|;
 name|QuerySearchResult
 name|result
