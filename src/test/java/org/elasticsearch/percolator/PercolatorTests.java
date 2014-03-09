@@ -4779,9 +4779,10 @@ operator|.
 name|getMemorySizeInBytes
 argument_list|()
 argument_list|,
-name|greaterThan
+name|equalTo
 argument_list|(
-literal|0l
+operator|-
+literal|1l
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5052,9 +5053,10 @@ operator|.
 name|getMemorySizeInBytes
 argument_list|()
 argument_list|,
-name|greaterThan
+name|equalTo
 argument_list|(
-literal|0l
+operator|-
+literal|1l
 argument_list|)
 argument_list|)
 expr_stmt|;
