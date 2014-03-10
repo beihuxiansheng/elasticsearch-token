@@ -1825,8 +1825,12 @@ block|}
 name|int
 name|shardSize
 init|=
-name|numberOfShards
-argument_list|()
+name|getNumShards
+argument_list|(
+literal|"test"
+argument_list|)
+operator|.
+name|numPrimaries
 operator|>
 literal|5
 condition|?
