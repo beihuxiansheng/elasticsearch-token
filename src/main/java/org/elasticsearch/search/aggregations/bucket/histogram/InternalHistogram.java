@@ -932,7 +932,7 @@ return|;
 block|}
 block|}
 DECL|field|buckets
-specifier|private
+specifier|protected
 name|List
 argument_list|<
 name|B
