@@ -151,7 +151,7 @@ name|name
 return|;
 block|}
 comment|//describes the rest test suite (e.g. index/10_with_id)
-comment|//useful also to reproduce failures (RestReproduceInfoPrinter)
+comment|//useful also to reproduce failures
 DECL|method|getDescription
 specifier|public
 name|String

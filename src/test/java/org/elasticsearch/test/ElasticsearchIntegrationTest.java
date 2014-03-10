@@ -5645,7 +5645,6 @@ block|}
 block|}
 DECL|method|initializeSuiteScope
 specifier|private
-specifier|final
 specifier|static
 name|void
 name|initializeSuiteScope

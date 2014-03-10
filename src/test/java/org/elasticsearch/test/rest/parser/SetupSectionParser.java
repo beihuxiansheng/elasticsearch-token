@@ -113,22 +113,6 @@ name|parseSkipSection
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|boolean
-name|skip
-init|=
-name|setupSection
-operator|.
-name|getSkipSection
-argument_list|()
-operator|.
-name|skip
-argument_list|(
-name|parseContext
-operator|.
-name|getCurrentVersion
-argument_list|()
-argument_list|)
-decl_stmt|;
 while|while
 condition|(
 name|parser
@@ -142,40 +126,6 @@ name|Token
 operator|.
 name|END_ARRAY
 condition|)
-block|{
-if|if
-condition|(
-name|skip
-condition|)
-block|{
-comment|//if there was a skip section, there was a setup section as well, which means that we are sure
-comment|// the current token is at the beginning of a new object
-assert|assert
-name|parser
-operator|.
-name|currentToken
-argument_list|()
-operator|==
-name|XContentParser
-operator|.
-name|Token
-operator|.
-name|START_OBJECT
-assert|;
-comment|//we need to be at the beginning of an object to be able to skip children
-name|parser
-operator|.
-name|skipChildren
-argument_list|()
-expr_stmt|;
-comment|//after skipChildren we are at the end of the skipped object, need to move on
-name|parser
-operator|.
-name|nextToken
-argument_list|()
-expr_stmt|;
-block|}
-else|else
 block|{
 name|parseContext
 operator|.
@@ -231,7 +181,6 @@ operator|.
 name|nextToken
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 name|parser
 operator|.

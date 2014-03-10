@@ -175,8 +175,6 @@ argument_list|,
 literal|"suite"
 argument_list|,
 name|parser
-argument_list|,
-literal|"0.90.7"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -326,159 +324,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testParseTestSectionWithDoSetAndSkipSectionsSkip
-specifier|public
-name|void
-name|testParseTestSectionWithDoSetAndSkipSectionsSkip
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|String
-name|yaml
-init|=
-literal|"\"First test section\": \n"
-operator|+
-literal|"  - skip:\n"
-operator|+
-literal|"      version:  \"0.90.0 - 0.90.7\"\n"
-operator|+
-literal|"      reason:   \"Update doesn't return metadata fields, waiting for #3259\"\n"
-operator|+
-literal|"  - do :\n"
-operator|+
-literal|"      catch: missing\n"
-operator|+
-literal|"      indices.get_warmer:\n"
-operator|+
-literal|"          index: test_index\n"
-operator|+
-literal|"          name: test_warmer\n"
-operator|+
-literal|"  - set: {_scroll_id: scroll_id}"
-decl_stmt|;
-name|RestTestSectionParser
-name|testSectionParser
-init|=
-operator|new
-name|RestTestSectionParser
-argument_list|()
-decl_stmt|;
-name|parser
-operator|=
-name|YamlXContent
-operator|.
-name|yamlXContent
-operator|.
-name|createParser
-argument_list|(
-name|yaml
-argument_list|)
-expr_stmt|;
-name|TestSection
-name|testSection
-init|=
-name|testSectionParser
-operator|.
-name|parse
-argument_list|(
-operator|new
-name|RestTestSuiteParseContext
-argument_list|(
-literal|"api"
-argument_list|,
-literal|"suite"
-argument_list|,
-name|parser
-argument_list|,
-literal|"0.90.7"
-argument_list|)
-argument_list|)
-decl_stmt|;
-name|assertThat
-argument_list|(
-name|testSection
-argument_list|,
-name|notNullValue
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertThat
-argument_list|(
-name|testSection
-operator|.
-name|getName
-argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|"First test section"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertThat
-argument_list|(
-name|testSection
-operator|.
-name|getSkipSection
-argument_list|()
-argument_list|,
-name|notNullValue
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertThat
-argument_list|(
-name|testSection
-operator|.
-name|getSkipSection
-argument_list|()
-operator|.
-name|getVersion
-argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|"0.90.0 - 0.90.7"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertThat
-argument_list|(
-name|testSection
-operator|.
-name|getSkipSection
-argument_list|()
-operator|.
-name|getReason
-argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|"Update doesn't return metadata fields, waiting for #3259"
-argument_list|)
-argument_list|)
-expr_stmt|;
-comment|//skip parsing when needed
-name|assertThat
-argument_list|(
-name|testSection
-operator|.
-name|getExecutableSections
-argument_list|()
-operator|.
-name|size
-argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|0
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Test
 DECL|method|testParseTestSectionWithDoSetAndSkipSectionsNoSkip
 specifier|public
 name|void
@@ -543,8 +388,6 @@ argument_list|,
 literal|"suite"
 argument_list|,
 name|parser
-argument_list|,
-literal|"0.90.8"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -837,8 +680,6 @@ argument_list|,
 literal|"suite"
 argument_list|,
 name|parser
-argument_list|,
-literal|"0.90.5"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1169,8 +1010,6 @@ argument_list|,
 literal|"suite"
 argument_list|,
 name|parser
-argument_list|,
-literal|"0.90.5"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1913,8 +1752,6 @@ argument_list|,
 literal|"suite"
 argument_list|,
 name|parser
-argument_list|,
-literal|"0.90.5"
 argument_list|)
 argument_list|)
 decl_stmt|;

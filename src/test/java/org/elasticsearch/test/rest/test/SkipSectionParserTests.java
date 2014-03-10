@@ -173,8 +173,6 @@ argument_list|,
 literal|"suite"
 argument_list|,
 name|parser
-argument_list|,
-literal|"0.90.7"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -272,8 +270,6 @@ argument_list|,
 literal|"suite"
 argument_list|,
 name|parser
-argument_list|,
-literal|"0.90.7"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -385,8 +381,6 @@ argument_list|,
 literal|"suite"
 argument_list|,
 name|parser
-argument_list|,
-literal|"0.90.7"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -542,8 +536,6 @@ argument_list|,
 literal|"suite"
 argument_list|,
 name|parser
-argument_list|,
-literal|"0.90.7"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -595,8 +587,6 @@ argument_list|,
 literal|"suite"
 argument_list|,
 name|parser
-argument_list|,
-literal|"0.90.7"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -648,8 +638,6 @@ argument_list|,
 literal|"suite"
 argument_list|,
 name|parser
-argument_list|,
-literal|"0.90.7"
 argument_list|)
 argument_list|)
 expr_stmt|;
