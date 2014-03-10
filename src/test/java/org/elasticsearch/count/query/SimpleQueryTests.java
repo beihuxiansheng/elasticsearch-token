@@ -1686,15 +1686,34 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+comment|//https://github.com/elasticsearch/elasticsearch/issues/3540
 DECL|method|testDateRangeInQueryString
 specifier|public
 name|void
 name|testDateRangeInQueryString
 parameter_list|()
 block|{
-name|createIndex
+comment|//the mapping needs to be provided upfront otherwise we are not sure how many failures we get back
+comment|//as with dynamic mappings some shards might be lacking behind and parse a different query
+name|assertAcked
+argument_list|(
+name|prepareCreate
 argument_list|(
 literal|"test"
+argument_list|)
+operator|.
+name|addMapping
+argument_list|(
+literal|"type"
+argument_list|,
+literal|"past"
+argument_list|,
+literal|"type=date"
+argument_list|,
+literal|"future"
+argument_list|,
+literal|"type=date"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|ensureGreen
