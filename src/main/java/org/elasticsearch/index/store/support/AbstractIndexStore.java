@@ -243,7 +243,7 @@ block|{
 name|String
 name|rateLimitingType
 init|=
-name|indexSettings
+name|settings
 operator|.
 name|get
 argument_list|(
