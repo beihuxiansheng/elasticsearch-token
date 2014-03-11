@@ -4756,11 +4756,16 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+operator|(
+name|long
+operator|)
+name|numShards
+operator|.
+name|dataCopies
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// One primary and replica
+comment|//number of copies
 name|assertThat
 argument_list|(
 name|indicesResponse
@@ -5024,10 +5029,16 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+operator|(
+name|long
+operator|)
+name|numShards
+operator|.
+name|dataCopies
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|//number of copies
 name|assertThat
 argument_list|(
 name|indicesResponse

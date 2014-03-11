@@ -193,23 +193,6 @@ init|=
 literal|"test-mapping"
 decl_stmt|;
 annotation|@
-name|Override
-DECL|method|numberOfReplicas
-specifier|protected
-name|int
-name|numberOfReplicas
-parameter_list|()
-block|{
-return|return
-name|between
-argument_list|(
-literal|0
-argument_list|,
-literal|1
-argument_list|)
-return|;
-block|}
-annotation|@
 name|Test
 comment|// see #3544
 DECL|method|testConcurrentDynamicMapping

@@ -169,23 +169,6 @@ extends|extends
 name|ElasticsearchIntegrationTest
 block|{
 annotation|@
-name|Override
-DECL|method|numberOfReplicas
-specifier|protected
-name|int
-name|numberOfReplicas
-parameter_list|()
-block|{
-return|return
-name|between
-argument_list|(
-literal|0
-argument_list|,
-literal|1
-argument_list|)
-return|;
-block|}
-annotation|@
 name|Test
 comment|// See issue https://github.com/elasticsearch/elasticsearch/issues/3252
 DECL|method|testNumericField

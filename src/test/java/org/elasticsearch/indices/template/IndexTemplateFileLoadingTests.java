@@ -411,6 +411,20 @@ literal|1
 return|;
 block|}
 annotation|@
+name|Override
+DECL|method|numberOfReplicas
+specifier|protected
+name|int
+name|numberOfReplicas
+parameter_list|()
+block|{
+comment|//number of replicas won't be set through index settings, the one from the index templates needs to be used
+return|return
+operator|-
+literal|1
+return|;
+block|}
+annotation|@
 name|Test
 DECL|method|testThatLoadingTemplateFromFileWorks
 specifier|public

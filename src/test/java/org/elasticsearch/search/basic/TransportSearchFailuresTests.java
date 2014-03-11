@@ -266,11 +266,15 @@ begin_import
 import|import static
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
 name|hamcrest
 operator|.
-name|Matchers
+name|ElasticsearchAssertions
 operator|.
-name|equalTo
+name|assertAcked
 import|;
 end_import
 
@@ -282,13 +286,9 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|instanceOf
+name|*
 import|;
 end_import
-
-begin_comment
-comment|/**  *  */
-end_comment
 
 begin_class
 DECL|class|TransportSearchFailuresTests
@@ -298,6 +298,18 @@ name|TransportSearchFailuresTests
 extends|extends
 name|ElasticsearchIntegrationTest
 block|{
+annotation|@
+name|Override
+DECL|method|maximumNumberOfReplicas
+specifier|protected
+name|int
+name|maximumNumberOfReplicas
+parameter_list|()
+block|{
+return|return
+literal|1
+return|;
+block|}
 annotation|@
 name|Test
 DECL|method|testFailedSearchWithWrongQuery
@@ -315,6 +327,8 @@ argument_list|(
 literal|"Start Testing failed search with wrong query"
 argument_list|)
 expr_stmt|;
+name|assertAcked
+argument_list|(
 name|prepareCreate
 argument_list|(
 literal|"test"
@@ -326,30 +340,12 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|indexSettings
-argument_list|()
-argument_list|)
-operator|.
-name|put
-argument_list|(
-literal|"index.number_of_replicas"
-argument_list|,
-literal|2
-argument_list|)
-operator|.
-name|put
-argument_list|(
 literal|"routing.hash.type"
 argument_list|,
 literal|"simple"
 argument_list|)
 argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
+argument_list|)
 expr_stmt|;
 name|ensureYellow
 argument_list|()
@@ -666,9 +662,7 @@ name|waitForActiveShards
 argument_list|(
 name|test
 operator|.
-name|numPrimaries
-operator|*
-literal|2
+name|totalNumShards
 argument_list|)
 argument_list|)
 operator|.
@@ -707,11 +701,21 @@ operator|.
 name|getStatus
 argument_list|()
 argument_list|,
+name|anyOf
+argument_list|(
 name|equalTo
 argument_list|(
 name|ClusterHealthStatus
 operator|.
 name|YELLOW
+argument_list|)
+argument_list|,
+name|equalTo
+argument_list|(
+name|ClusterHealthStatus
+operator|.
+name|GREEN
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -726,9 +730,7 @@ name|equalTo
 argument_list|(
 name|test
 operator|.
-name|numPrimaries
-operator|*
-literal|2
+name|totalNumShards
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -780,9 +782,7 @@ name|equalTo
 argument_list|(
 name|test
 operator|.
-name|numPrimaries
-operator|*
-literal|2
+name|totalNumShards
 argument_list|)
 argument_list|)
 expr_stmt|;

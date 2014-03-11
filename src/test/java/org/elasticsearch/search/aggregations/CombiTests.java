@@ -262,23 +262,6 @@ name|CombiTests
 extends|extends
 name|ElasticsearchIntegrationTest
 block|{
-annotation|@
-name|Override
-DECL|method|numberOfReplicas
-specifier|protected
-name|int
-name|numberOfReplicas
-parameter_list|()
-block|{
-return|return
-name|between
-argument_list|(
-literal|0
-argument_list|,
-literal|1
-argument_list|)
-return|;
-block|}
 comment|/**      * Making sure that if there are multiple aggregations, working on the same field, yet require different      * value source type, they can all still work. It used to fail as we used to cache the ValueSource by the      * field name. If the cached value source was of type "bytes" and another aggregation on the field required to see      * it as "numeric", it didn't work. Now we cache the Value Sources by a custom key (field name + ValueSource type)      * so there's no conflict there.      */
 annotation|@
 name|Test

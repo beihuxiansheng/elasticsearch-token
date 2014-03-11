@@ -132,6 +132,38 @@ begin_import
 import|import static
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|ImmutableSettings
+operator|.
+name|settingsBuilder
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertAcked
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -139,10 +171,6 @@ operator|.
 name|equalTo
 import|;
 end_import
-
-begin_comment
-comment|/**  *  */
-end_comment
 
 begin_class
 DECL|class|SimpleRecoveryTests
@@ -161,7 +189,24 @@ name|indexSettings
 parameter_list|()
 block|{
 return|return
+name|settingsBuilder
+argument_list|()
+operator|.
+name|put
+argument_list|(
+name|super
+operator|.
+name|indexSettings
+argument_list|()
+argument_list|)
+operator|.
+name|put
+argument_list|(
 name|recoverySettings
+argument_list|()
+argument_list|)
+operator|.
+name|build
 argument_list|()
 return|;
 block|}
@@ -180,6 +225,18 @@ name|EMPTY_SETTINGS
 return|;
 block|}
 annotation|@
+name|Override
+DECL|method|maximumNumberOfReplicas
+specifier|protected
+name|int
+name|maximumNumberOfReplicas
+parameter_list|()
+block|{
+return|return
+literal|1
+return|;
+block|}
+annotation|@
 name|Test
 DECL|method|testSimpleRecovery
 specifier|public
@@ -189,6 +246,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|assertAcked
+argument_list|(
 name|prepareCreate
 argument_list|(
 literal|"test"
@@ -202,6 +261,7 @@ operator|.
 name|actionGet
 argument_list|(
 literal|5000
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|NumShards

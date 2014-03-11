@@ -346,23 +346,6 @@ name|RandomTests
 extends|extends
 name|ElasticsearchIntegrationTest
 block|{
-annotation|@
-name|Override
-DECL|method|numberOfReplicas
-specifier|protected
-name|int
-name|numberOfReplicas
-parameter_list|()
-block|{
-return|return
-name|between
-argument_list|(
-literal|0
-argument_list|,
-literal|1
-argument_list|)
-return|;
-block|}
 comment|// Make sure that unordered, reversed, disjoint and/or overlapping ranges are supported
 comment|// Duel with filters
 DECL|method|testRandomRanges

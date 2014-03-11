@@ -192,10 +192,6 @@ name|equalTo
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|UpdateNumberOfReplicasTests
 specifier|public
@@ -204,6 +200,18 @@ name|UpdateNumberOfReplicasTests
 extends|extends
 name|ElasticsearchIntegrationTest
 block|{
+annotation|@
+name|Override
+DECL|method|maximumNumberOfReplicas
+specifier|protected
+name|int
+name|maximumNumberOfReplicas
+parameter_list|()
+block|{
+return|return
+literal|1
+return|;
+block|}
 annotation|@
 name|Test
 DECL|method|simpleUpdateNumberOfReplicasTests
@@ -357,7 +365,9 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1
+name|numShards
+operator|.
+name|numReplicas
 argument_list|)
 argument_list|)
 expr_stmt|;

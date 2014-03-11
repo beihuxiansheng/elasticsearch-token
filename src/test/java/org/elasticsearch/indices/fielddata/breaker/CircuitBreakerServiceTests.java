@@ -24,34 +24,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
-operator|.
-name|search
-operator|.
-name|SearchPhaseExecutionException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|search
-operator|.
-name|SearchResponse
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|client
 operator|.
 name|Client
@@ -97,6 +69,18 @@ operator|.
 name|jvm
 operator|.
 name|JvmInfo
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|rest
+operator|.
+name|RestStatus
 import|;
 end_import
 
@@ -154,6 +138,22 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|cluster
+operator|.
+name|metadata
+operator|.
+name|IndexMetaData
+operator|.
+name|SETTING_NUMBER_OF_REPLICAS
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|settings
@@ -161,6 +161,36 @@ operator|.
 name|ImmutableSettings
 operator|.
 name|settingsBuilder
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticsearchIntegrationTest
+operator|.
+name|ClusterScope
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticsearchIntegrationTest
+operator|.
+name|Scope
+operator|.
+name|TEST
 import|;
 end_import
 
@@ -196,22 +226,28 @@ name|assertFailures
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|CoreMatchers
+operator|.
+name|containsString
+import|;
+end_import
+
 begin_comment
 comment|/**  * Integration tests for InternalCircuitBreakerService  */
 end_comment
 
 begin_class
 annotation|@
-name|ElasticsearchIntegrationTest
-operator|.
 name|ClusterScope
 argument_list|(
 name|scope
 operator|=
-name|ElasticsearchIntegrationTest
-operator|.
-name|Scope
-operator|.
 name|TEST
 argument_list|)
 DECL|class|CircuitBreakerServiceTests
@@ -282,6 +318,21 @@ argument_list|(
 literal|"cb-test"
 argument_list|,
 literal|1
+argument_list|,
+name|settingsBuilder
+argument_list|()
+operator|.
+name|put
+argument_list|(
+name|SETTING_NUMBER_OF_REPLICAS
+argument_list|,
+name|between
+argument_list|(
+literal|0
+argument_list|,
+literal|1
+argument_list|)
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -467,11 +518,8 @@ argument_list|()
 expr_stmt|;
 comment|// execute a search that loads field data (sorting on the "test" field)
 comment|// again, this time it should trip the breaker
-try|try
-block|{
-name|SearchResponse
-name|resp
-init|=
+name|assertFailures
+argument_list|(
 name|client
 operator|.
 name|prepareSearch
@@ -483,25 +531,17 @@ name|setSource
 argument_list|(
 literal|"{\"sort\": \"test\",\"query\":{\"match_all\":{}}}"
 argument_list|)
+argument_list|,
+name|RestStatus
 operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
-decl_stmt|;
-name|assertFailures
+name|INTERNAL_SERVER_ERROR
+argument_list|,
+name|containsString
 argument_list|(
-name|resp
+literal|"Data too large, data would be larger than limit of [100] bytes"
+argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|SearchPhaseExecutionException
-name|e
-parameter_list|)
-block|{             }
 block|}
 finally|finally
 block|{
@@ -582,14 +622,8 @@ decl_stmt|;
 try|try
 block|{
 comment|// Create an index where the mappings have a field data filter
-name|client
-operator|.
-name|admin
-argument_list|()
-operator|.
-name|indices
-argument_list|()
-operator|.
+name|assertAcked
+argument_list|(
 name|prepareCreate
 argument_list|(
 literal|"ramtest"
@@ -601,12 +635,7 @@ literal|"{\"mappings\": {\"type\": {\"properties\": {\"test\": "
 operator|+
 literal|"{\"type\": \"string\",\"fielddata\": {\"filter\": {\"regex\": {\"pattern\": \"^value.*\"}}}}}}}}"
 argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
+argument_list|)
 expr_stmt|;
 comment|// Wait 10 seconds for green
 name|client
@@ -809,11 +838,8 @@ argument_list|()
 expr_stmt|;
 comment|// execute a search that loads field data (sorting on the "test" field)
 comment|// again, this time it should trip the breaker
-try|try
-block|{
-name|SearchResponse
-name|resp
-init|=
+name|assertFailures
+argument_list|(
 name|client
 operator|.
 name|prepareSearch
@@ -825,25 +851,17 @@ name|setSource
 argument_list|(
 literal|"{\"sort\": \"test\",\"query\":{\"match_all\":{}}}"
 argument_list|)
+argument_list|,
+name|RestStatus
 operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
-decl_stmt|;
-name|assertFailures
+name|INTERNAL_SERVER_ERROR
+argument_list|,
+name|containsString
 argument_list|(
-name|resp
+literal|"Data too large, data would be larger than limit of [100] bytes"
+argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|SearchPhaseExecutionException
-name|e
-parameter_list|)
-block|{             }
 block|}
 finally|finally
 block|{

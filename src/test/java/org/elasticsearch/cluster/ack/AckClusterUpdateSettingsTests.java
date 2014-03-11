@@ -659,7 +659,7 @@ argument_list|(
 name|cluster
 argument_list|()
 operator|.
-name|size
+name|dataNodes
 argument_list|()
 argument_list|,
 name|DEFAULT_MAX_NUM_SHARDS
