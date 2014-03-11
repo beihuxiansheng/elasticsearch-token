@@ -114,7 +114,7 @@ name|lucene
 operator|.
 name|queries
 operator|.
-name|TermsFilter
+name|XTermsFilter
 import|;
 end_import
 
@@ -625,7 +625,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|TermsFilter
+name|XTermsFilter
 argument_list|(
 operator|new
 name|Term

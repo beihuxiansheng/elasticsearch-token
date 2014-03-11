@@ -100,7 +100,7 @@ name|lucene
 operator|.
 name|queries
 operator|.
-name|TermsFilter
+name|XTermsFilter
 import|;
 end_import
 
@@ -1782,7 +1782,7 @@ expr_stmt|;
 block|}
 return|return
 operator|new
-name|TermsFilter
+name|XTermsFilter
 argument_list|(
 name|names
 operator|.
@@ -1996,7 +1996,7 @@ block|}
 block|}
 return|return
 operator|new
-name|TermsFilter
+name|XTermsFilter
 argument_list|(
 name|names
 operator|.

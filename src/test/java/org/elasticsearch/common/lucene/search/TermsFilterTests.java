@@ -114,7 +114,7 @@ name|lucene
 operator|.
 name|queries
 operator|.
-name|TermsFilter
+name|XTermsFilter
 import|;
 end_import
 
@@ -764,11 +764,11 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|TermsFilter
+name|XTermsFilter
 name|tf
 init|=
 operator|new
-name|TermsFilter
+name|XTermsFilter
 argument_list|(
 operator|new
 name|Term
@@ -816,7 +816,7 @@ expr_stmt|;
 name|tf
 operator|=
 operator|new
-name|TermsFilter
+name|XTermsFilter
 argument_list|(
 operator|new
 name|Term
@@ -876,7 +876,7 @@ expr_stmt|;
 name|tf
 operator|=
 operator|new
-name|TermsFilter
+name|XTermsFilter
 argument_list|(
 operator|new
 name|Term
@@ -944,7 +944,7 @@ expr_stmt|;
 name|tf
 operator|=
 operator|new
-name|TermsFilter
+name|XTermsFilter
 argument_list|(
 operator|new
 name|Term

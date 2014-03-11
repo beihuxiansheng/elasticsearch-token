@@ -68,7 +68,7 @@ name|lucene
 operator|.
 name|queries
 operator|.
-name|TermsFilter
+name|XTermsFilter
 import|;
 end_import
 
@@ -1311,7 +1311,7 @@ block|}
 name|filter
 operator|=
 operator|new
-name|TermsFilter
+name|XTermsFilter
 argument_list|(
 name|fieldName
 argument_list|,
