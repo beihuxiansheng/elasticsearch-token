@@ -5717,7 +5717,7 @@ name|queryCollector
 range|:
 name|percolateCollector
 operator|.
-name|facetCollectors
+name|facetAndAggregatorCollector
 control|)
 block|{
 if|if
