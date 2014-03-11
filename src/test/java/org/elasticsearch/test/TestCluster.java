@@ -786,7 +786,7 @@ name|getClass
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|/**      * A boolean value to enable or disable mock modules. This is useful to test the      * system without asserting modules that to make sure they don't hide any bugs in      * production.      *       * @see ElasticsearchIntegrationTest      */
+comment|/**      * A boolean value to enable or disable mock modules. This is useful to test the      * system without asserting modules that to make sure they don't hide any bugs in      * production.      *      * @see ElasticsearchIntegrationTest      */
 DECL|field|TESTS_ENABLE_MOCK_MODULES
 specifier|public
 specifier|static
@@ -1102,7 +1102,7 @@ name|numSharedNodes
 operator|>=
 literal|0
 assert|;
-comment|/*          *  TODO           *  - we might want start some master only nodes?          *  - we could add a flag that returns a client to the master all the time?          *  - we could add a flag that never returns a client to the master           *  - along those lines use a dedicated node that is master eligible and let all other nodes be only data nodes          */
+comment|/*          *  TODO          *  - we might want start some master only nodes?          *  - we could add a flag that returns a client to the master all the time?          *  - we could add a flag that never returns a client to the master          *  - along those lines use a dedicated node that is master eligible and let all other nodes be only data nodes          */
 name|sharedNodesSeeds
 operator|=
 operator|new
@@ -1923,6 +1923,18 @@ expr_stmt|;
 block|}
 block|}
 block|}
+name|builder
+operator|.
+name|put
+argument_list|(
+literal|"plugins.isolation"
+argument_list|,
+name|random
+operator|.
+name|nextBoolean
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
 name|builder
 operator|.
