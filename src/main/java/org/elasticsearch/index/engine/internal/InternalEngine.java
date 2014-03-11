@@ -7851,7 +7851,7 @@ parameter_list|)
 block|{
 name|logger
 operator|.
-name|debug
+name|warn
 argument_list|(
 literal|"failed to rollback writer on close"
 argument_list|,
