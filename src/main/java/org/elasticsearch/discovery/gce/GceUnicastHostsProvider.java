@@ -242,24 +242,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|discovery
-operator|.
-name|zen
-operator|.
-name|ping
-operator|.
-name|unicast
-operator|.
-name|UnicastZenPing
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|transport
 operator|.
 name|TransportService
@@ -1263,6 +1245,7 @@ argument_list|(
 name|address
 argument_list|)
 decl_stmt|;
+comment|// If user has set `es_port` metadata, we don't need to ping all ports
 comment|// we only limit to 1 addresses, makes no sense to ping 100 ports
 for|for
 control|(
@@ -1271,19 +1254,11 @@ name|i
 init|=
 literal|0
 init|;
-operator|(
 name|i
 operator|<
 name|addresses
 operator|.
 name|length
-operator|&&
-name|i
-operator|<
-name|UnicastZenPing
-operator|.
-name|LIMIT_PORTS_COUNT
-operator|)
 condition|;
 name|i
 operator|++
@@ -1425,7 +1400,7 @@ return|;
 block|}
 DECL|method|checkProperty
 specifier|private
-name|boolean
+name|void
 name|checkProperty
 parameter_list|(
 name|String
@@ -1455,13 +1430,7 @@ argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
-return|return
-literal|false
-return|;
 block|}
-return|return
-literal|true
-return|;
 block|}
 block|}
 end_class

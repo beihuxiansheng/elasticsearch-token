@@ -4,17 +4,15 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.cloud.gce.tests
+DECL|package|org.elasticsearch.discovery.gce
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cloud
+name|discovery
 operator|.
 name|gce
-operator|.
-name|tests
 package|;
 end_package
 
@@ -85,10 +83,10 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|GceComputeServiceTwoNodesSameTagsMock
+DECL|class|GceComputeServiceTwoNodesDifferentTagsMock
 specifier|public
 class|class
-name|GceComputeServiceTwoNodesSameTagsMock
+name|GceComputeServiceTwoNodesDifferentTagsMock
 extends|extends
 name|GceComputeServiceAbstractMock
 block|{
@@ -112,8 +110,6 @@ name|Lists
 operator|.
 name|newArrayList
 argument_list|(
-literal|"elasticsearch"
-argument_list|,
 literal|"dev"
 argument_list|)
 argument_list|,
@@ -147,9 +143,9 @@ return|;
 block|}
 annotation|@
 name|Inject
-DECL|method|GceComputeServiceTwoNodesSameTagsMock
+DECL|method|GceComputeServiceTwoNodesDifferentTagsMock
 specifier|protected
-name|GceComputeServiceTwoNodesSameTagsMock
+name|GceComputeServiceTwoNodesDifferentTagsMock
 parameter_list|(
 name|Settings
 name|settings
@@ -158,15 +154,6 @@ block|{
 name|super
 argument_list|(
 name|settings
-argument_list|)
-expr_stmt|;
-name|logger
-operator|.
-name|debug
-argument_list|(
-literal|"Starting Gce Mock {}"
-argument_list|,
-name|tags
 argument_list|)
 expr_stmt|;
 block|}
