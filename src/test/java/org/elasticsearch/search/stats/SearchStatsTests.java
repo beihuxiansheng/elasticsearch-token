@@ -498,9 +498,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-name|refresh
-argument_list|()
-expr_stmt|;
 name|cluster
 argument_list|()
 operator|.
@@ -545,6 +542,9 @@ argument_list|)
 expr_stmt|;
 comment|// THERE WILL BE AT LEAST 2 NODES HERE SO WE CAN WAIT FOR GREEN
 name|ensureGreen
+argument_list|()
+expr_stmt|;
+name|refresh
 argument_list|()
 expr_stmt|;
 name|int

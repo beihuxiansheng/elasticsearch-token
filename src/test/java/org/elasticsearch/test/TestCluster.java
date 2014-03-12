@@ -2392,7 +2392,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"reducing cluster size from {} to {}"
+literal|"changing cluster size from {} to {}"
 argument_list|,
 name|nodes
 operator|.
