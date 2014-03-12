@@ -509,8 +509,8 @@ name|nonNestedDocsFilter
 expr_stmt|;
 block|}
 comment|// Rewrite invocation logic:
-comment|// 1) query_then_fetch (default): Rewrite is execute as part of the createWeight invocation, when search child docs.
-comment|// 2) dfs_query_then_fetch:: First rewrite and then createWeight is executed. During query phase rewrite isn't
+comment|// 1) query_then|and_fetch (default): Rewrite is execute as part of the createWeight invocation, when search child docs.
+comment|// 2) dfs_query_then|and_fetch:: First rewrite and then createWeight is executed. During query phase rewrite isn't
 comment|// executed any more because searchContext#queryRewritten() returns true.
 annotation|@
 name|Override
@@ -683,6 +683,17 @@ block|{
 assert|assert
 name|rewriteIndexReader
 operator|==
+name|searcher
+operator|.
+name|getIndexReader
+argument_list|()
+operator|:
+literal|"not equal, rewriteIndexReader="
+operator|+
+name|rewriteIndexReader
+operator|+
+literal|" searcher.getIndexReader()="
+operator|+
 name|searcher
 operator|.
 name|getIndexReader

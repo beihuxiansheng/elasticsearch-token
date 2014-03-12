@@ -3471,16 +3471,25 @@ control|(
 name|int
 name|i
 init|=
-literal|0
+literal|1
 init|;
 name|i
-operator|<
+operator|<=
 literal|10
 condition|;
 name|i
 operator|++
 control|)
 block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"Round {}"
+argument_list|,
+name|i
+argument_list|)
+expr_stmt|;
 name|SearchResponse
 name|searchResponse
 init|=
