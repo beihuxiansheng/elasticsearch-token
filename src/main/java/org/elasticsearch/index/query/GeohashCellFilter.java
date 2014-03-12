@@ -1077,9 +1077,9 @@ condition|)
 block|{
 name|geohash
 operator|=
-name|GeoPoint
+name|GeoUtils
 operator|.
-name|parse
+name|parseGeoPoint
 argument_list|(
 name|parser
 argument_list|)
@@ -1100,9 +1100,9 @@ else|else
 block|{
 name|geohash
 operator|=
-name|GeoPoint
+name|GeoUtils
 operator|.
-name|parse
+name|parseGeoPoint
 argument_list|(
 name|parser
 argument_list|)

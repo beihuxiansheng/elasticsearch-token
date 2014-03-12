@@ -450,9 +450,9 @@ name|fieldName
 operator|=
 name|currentFieldName
 expr_stmt|;
-name|GeoPoint
+name|GeoUtils
 operator|.
-name|parse
+name|parseGeoPoint
 argument_list|(
 name|parser
 argument_list|,

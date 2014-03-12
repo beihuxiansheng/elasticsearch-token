@@ -7596,11 +7596,6 @@ argument_list|(
 literal|"gvalue"
 argument_list|)
 operator|.
-name|startObject
-argument_list|(
-literal|"location"
-argument_list|)
-operator|.
 name|field
 argument_list|(
 literal|"lat"
@@ -7622,9 +7617,6 @@ name|double
 operator|)
 name|i
 argument_list|)
-operator|.
-name|endObject
-argument_list|()
 operator|.
 name|endObject
 argument_list|()

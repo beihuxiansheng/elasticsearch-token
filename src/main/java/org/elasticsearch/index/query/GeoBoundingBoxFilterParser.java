@@ -726,9 +726,9 @@ name|currentFieldName
 argument_list|)
 condition|)
 block|{
-name|GeoPoint
+name|GeoUtils
 operator|.
-name|parse
+name|parseGeoPoint
 argument_list|(
 name|parser
 argument_list|,
@@ -768,9 +768,9 @@ name|currentFieldName
 argument_list|)
 condition|)
 block|{
-name|GeoPoint
+name|GeoUtils
 operator|.
-name|parse
+name|parseGeoPoint
 argument_list|(
 name|parser
 argument_list|,
@@ -810,9 +810,9 @@ name|currentFieldName
 argument_list|)
 condition|)
 block|{
-name|GeoPoint
+name|GeoUtils
 operator|.
-name|parse
+name|parseGeoPoint
 argument_list|(
 name|parser
 argument_list|,
@@ -852,9 +852,9 @@ name|currentFieldName
 argument_list|)
 condition|)
 block|{
-name|GeoPoint
+name|GeoUtils
 operator|.
-name|parse
+name|parseGeoPoint
 argument_list|(
 name|parser
 argument_list|,

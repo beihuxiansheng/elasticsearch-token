@@ -456,9 +456,9 @@ operator|.
 name|START_ARRAY
 condition|)
 block|{
-name|GeoPoint
+name|GeoUtils
 operator|.
-name|parse
+name|parseGeoPoint
 argument_list|(
 name|parser
 argument_list|,
@@ -487,9 +487,9 @@ name|fieldName
 operator|=
 name|currentFieldName
 expr_stmt|;
-name|GeoPoint
+name|GeoUtils
 operator|.
-name|parse
+name|parseGeoPoint
 argument_list|(
 name|parser
 argument_list|,
