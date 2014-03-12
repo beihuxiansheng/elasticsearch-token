@@ -44,6 +44,20 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|Maps
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -712,6 +726,10 @@ name|Settings
 argument_list|>
 name|nodesSettings
 init|=
+name|Maps
+operator|.
+name|newHashMap
+argument_list|(
 name|settings
 operator|.
 name|getGroups
@@ -720,7 +738,16 @@ literal|"tribe"
 argument_list|,
 literal|true
 argument_list|)
+argument_list|)
 decl_stmt|;
+name|nodesSettings
+operator|.
+name|remove
+argument_list|(
+literal|"blocks"
+argument_list|)
+expr_stmt|;
+comment|// remove prefix settings that don't indicate a client
 for|for
 control|(
 name|Map
