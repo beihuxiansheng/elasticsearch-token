@@ -1354,6 +1354,16 @@ name|current
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+name|Releasables
+operator|.
+name|release
+argument_list|(
+name|current
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 name|values
 operator|=
