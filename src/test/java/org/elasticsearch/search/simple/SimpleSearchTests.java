@@ -192,39 +192,7 @@ name|hamcrest
 operator|.
 name|ElasticsearchAssertions
 operator|.
-name|assertAcked
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|hamcrest
-operator|.
-name|ElasticsearchAssertions
-operator|.
-name|assertHitCount
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|hamcrest
-operator|.
-name|ElasticsearchAssertions
-operator|.
-name|assertNoFailures
+name|*
 import|;
 end_import
 
@@ -467,9 +435,11 @@ expr_stmt|;
 name|int
 name|iters
 init|=
-name|atLeast
+name|scaledRandomIntBetween
 argument_list|(
 literal|10
+argument_list|,
+literal|20
 argument_list|)
 decl_stmt|;
 for|for

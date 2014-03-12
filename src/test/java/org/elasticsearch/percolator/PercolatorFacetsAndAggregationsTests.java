@@ -327,9 +327,11 @@ expr_stmt|;
 name|int
 name|numQueries
 init|=
-name|atLeast
+name|scaledRandomIntBetween
 argument_list|(
 literal|250
+argument_list|,
+literal|500
 argument_list|)
 decl_stmt|;
 name|int

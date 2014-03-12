@@ -360,9 +360,11 @@ specifier|final
 name|int
 name|numDocs
 init|=
-name|atLeast
+name|scaledRandomIntBetween
 argument_list|(
 literal|1000
+argument_list|,
+literal|10000
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -1131,9 +1133,11 @@ specifier|final
 name|int
 name|numDocs
 init|=
-name|atLeast
+name|scaledRandomIntBetween
 argument_list|(
 literal|10000
+argument_list|,
+literal|20000
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -1967,9 +1971,11 @@ specifier|final
 name|int
 name|numDocs
 init|=
-name|atLeast
+name|scaledRandomIntBetween
 argument_list|(
 literal|1000
+argument_list|,
+literal|5000
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -2389,11 +2395,24 @@ specifier|final
 name|int
 name|numDocs
 init|=
-name|atLeast
+name|scaledRandomIntBetween
 argument_list|(
 literal|25000
+argument_list|,
+literal|50000
 argument_list|)
 decl_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"Indexing ["
+operator|+
+name|numDocs
+operator|+
+literal|"] docs"
+argument_list|)
+expr_stmt|;
 name|int
 name|t
 init|=

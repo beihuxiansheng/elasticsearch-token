@@ -76,18 +76,6 @@ name|org
 operator|.
 name|hamcrest
 operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
 name|Matchers
 operator|.
 name|is
@@ -370,9 +358,11 @@ specifier|final
 name|int
 name|iters
 init|=
-name|atLeast
+name|scaledRandomIntBetween
 argument_list|(
 literal|20
+argument_list|,
+literal|100
 argument_list|)
 decl_stmt|;
 for|for

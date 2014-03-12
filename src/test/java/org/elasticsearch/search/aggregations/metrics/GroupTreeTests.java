@@ -186,9 +186,11 @@ specifier|final
 name|int
 name|elements
 init|=
-name|atLeast
+name|scaledRandomIntBetween
 argument_list|(
 literal|100
+argument_list|,
+literal|1000
 argument_list|)
 decl_stmt|;
 for|for

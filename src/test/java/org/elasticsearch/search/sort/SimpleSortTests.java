@@ -829,9 +829,11 @@ decl_stmt|;
 name|int
 name|numDocs
 init|=
-name|atLeast
+name|randomIntBetween
 argument_list|(
 literal|200
+argument_list|,
+literal|300
 argument_list|)
 decl_stmt|;
 name|IndexRequestBuilder
@@ -16492,9 +16494,11 @@ specifier|final
 name|int
 name|numDocs
 init|=
-name|atLeast
+name|randomIntBetween
 argument_list|(
 literal|10
+argument_list|,
+literal|20
 argument_list|)
 decl_stmt|;
 name|IndexRequestBuilder

@@ -575,6 +575,8 @@ argument_list|,
 literal|"tests.assertion.disabled"
 argument_list|,
 literal|"tests.security.manager"
+argument_list|,
+literal|"tests.nighly"
 argument_list|)
 expr_stmt|;
 if|if

@@ -338,9 +338,11 @@ specifier|final
 name|int
 name|iters
 init|=
-name|atLeast
+name|scaledRandomIntBetween
 argument_list|(
 literal|2
+argument_list|,
+literal|20
 argument_list|)
 decl_stmt|;
 specifier|final

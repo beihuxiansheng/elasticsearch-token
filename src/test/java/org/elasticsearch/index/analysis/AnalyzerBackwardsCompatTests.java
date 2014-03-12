@@ -64,6 +64,20 @@ end_import
 
 begin_import
 import|import static
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|randomizedtesting
+operator|.
+name|RandomizedTest
+operator|.
+name|scaledRandomIntBetween
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|elasticsearch
@@ -114,9 +128,11 @@ specifier|final
 name|int
 name|iters
 init|=
-name|atLeast
+name|scaledRandomIntBetween
 argument_list|(
 literal|10
+argument_list|,
+literal|100
 argument_list|)
 decl_stmt|;
 name|org

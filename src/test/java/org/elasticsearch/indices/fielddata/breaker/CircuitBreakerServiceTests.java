@@ -349,9 +349,11 @@ comment|// index some different terms so we have some field data for loading
 name|int
 name|docCount
 init|=
-name|atLeast
+name|scaledRandomIntBetween
 argument_list|(
 literal|300
+argument_list|,
+literal|1000
 argument_list|)
 decl_stmt|;
 for|for
@@ -669,9 +671,11 @@ comment|// index some different terms so we have some field data for loading
 name|int
 name|docCount
 init|=
-name|atLeast
+name|scaledRandomIntBetween
 argument_list|(
 literal|300
+argument_list|,
+literal|1000
 argument_list|)
 decl_stmt|;
 for|for

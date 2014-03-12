@@ -612,9 +612,11 @@ condition|)
 block|{
 name|numRuns
 operator|=
-name|atLeast
+name|scaledRandomIntBetween
 argument_list|(
 literal|3
+argument_list|,
+literal|10
 argument_list|)
 expr_stmt|;
 block|}

@@ -3902,9 +3902,11 @@ block|{
 name|int
 name|iterations
 init|=
-name|atLeast
+name|scaledRandomIntBetween
 argument_list|(
-literal|400
+literal|100
+argument_list|,
+literal|1000
 argument_list|)
 decl_stmt|;
 comment|// don't worry that is fast!

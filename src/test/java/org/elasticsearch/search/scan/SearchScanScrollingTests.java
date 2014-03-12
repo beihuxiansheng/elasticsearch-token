@@ -192,9 +192,11 @@ name|Exception
 block|{
 name|testScroll
 argument_list|(
-name|atLeast
+name|scaledRandomIntBetween
 argument_list|(
 literal|100
+argument_list|,
+literal|200
 argument_list|)
 argument_list|,
 name|between

@@ -1023,9 +1023,11 @@ specifier|final
 name|int
 name|numSearches
 init|=
-name|atLeast
+name|scaledRandomIntBetween
 argument_list|(
 literal|50
+argument_list|,
+literal|150
 argument_list|)
 decl_stmt|;
 name|NodesStatsResponse

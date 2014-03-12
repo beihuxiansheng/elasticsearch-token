@@ -288,6 +288,20 @@ end_import
 
 begin_import
 import|import static
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|randomizedtesting
+operator|.
+name|RandomizedTest
+operator|.
+name|scaledRandomIntBetween
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|hamcrest
@@ -1003,9 +1017,11 @@ block|{
 name|int
 name|iters
 init|=
-name|atLeast
+name|scaledRandomIntBetween
 argument_list|(
 literal|20
+argument_list|,
+literal|100
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -1421,9 +1437,11 @@ block|{
 name|int
 name|iters
 init|=
-name|atLeast
+name|scaledRandomIntBetween
 argument_list|(
 literal|20
+argument_list|,
+literal|100
 argument_list|)
 decl_stmt|;
 for|for
@@ -1734,9 +1752,11 @@ block|{
 name|int
 name|iters
 init|=
-name|atLeast
+name|scaledRandomIntBetween
 argument_list|(
 literal|20
+argument_list|,
+literal|100
 argument_list|)
 decl_stmt|;
 for|for

@@ -141,9 +141,11 @@ block|{
 name|int
 name|iters
 init|=
-name|atLeast
+name|scaledRandomIntBetween
 argument_list|(
 literal|1000
+argument_list|,
+literal|10000
 argument_list|)
 decl_stmt|;
 for|for

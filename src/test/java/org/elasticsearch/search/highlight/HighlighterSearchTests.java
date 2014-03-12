@@ -17918,9 +17918,11 @@ specifier|final
 name|int
 name|iters
 init|=
-name|atLeast
+name|scaledRandomIntBetween
 argument_list|(
 literal|20
+argument_list|,
+literal|30
 argument_list|)
 decl_stmt|;
 for|for

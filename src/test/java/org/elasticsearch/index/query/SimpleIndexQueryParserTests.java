@@ -16879,9 +16879,11 @@ decl_stmt|;
 name|int
 name|iters
 init|=
-name|atLeast
+name|scaledRandomIntBetween
 argument_list|(
 literal|5
+argument_list|,
+literal|100
 argument_list|)
 decl_stmt|;
 for|for

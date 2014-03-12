@@ -247,9 +247,11 @@ init|=
 operator|new
 name|IndexRequestBuilder
 index|[
-name|atLeast
+name|scaledRandomIntBetween
 argument_list|(
 literal|50
+argument_list|,
+literal|100
 argument_list|)
 index|]
 decl_stmt|;

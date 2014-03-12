@@ -535,9 +535,11 @@ specifier|final
 name|int
 name|numIters
 init|=
-name|atLeast
+name|scaledRandomIntBetween
 argument_list|(
 literal|10
+argument_list|,
+literal|20
 argument_list|)
 decl_stmt|;
 for|for
@@ -586,9 +588,11 @@ init|=
 operator|new
 name|Thread
 index|[
-name|atLeast
+name|scaledRandomIntBetween
 argument_list|(
 literal|1
+argument_list|,
+literal|3
 argument_list|)
 index|]
 decl_stmt|;

@@ -1304,9 +1304,11 @@ decl_stmt|;
 name|int
 name|num
 init|=
-name|atLeast
+name|scaledRandomIntBetween
 argument_list|(
 literal|150
+argument_list|,
+literal|300
 argument_list|)
 decl_stmt|;
 specifier|final

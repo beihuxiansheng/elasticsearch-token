@@ -899,9 +899,11 @@ specifier|final
 name|int
 name|numSearches
 init|=
-name|atLeast
+name|scaledRandomIntBetween
 argument_list|(
 literal|10
+argument_list|,
+literal|20
 argument_list|)
 decl_stmt|;
 comment|// we don't check anything here really just making sure we don't leave any open files or a broken index behind.
@@ -933,18 +935,6 @@ name|numDocs
 operator|-
 literal|1
 argument_list|)
-decl_stmt|;
-name|long
-name|expectedResults
-init|=
-name|added
-index|[
-name|docToQuery
-index|]
-condition|?
-literal|1
-else|:
-literal|0
 decl_stmt|;
 name|logger
 operator|.
@@ -1521,9 +1511,11 @@ specifier|final
 name|int
 name|numSearches
 init|=
-name|atLeast
+name|scaledRandomIntBetween
 argument_list|(
 literal|100
+argument_list|,
+literal|200
 argument_list|)
 decl_stmt|;
 comment|// we don't check anything here really just making sure we don't leave any open files or a broken index behind.

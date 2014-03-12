@@ -1960,9 +1960,11 @@ comment|// Execute search at least two times to load it in cache
 name|int
 name|iter
 init|=
-name|atLeast
+name|scaledRandomIntBetween
 argument_list|(
 literal|2
+argument_list|,
+literal|10
 argument_list|)
 decl_stmt|;
 for|for

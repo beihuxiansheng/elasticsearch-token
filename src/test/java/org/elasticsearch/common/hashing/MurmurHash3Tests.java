@@ -118,9 +118,11 @@ specifier|final
 name|int
 name|iters
 init|=
-name|atLeast
+name|scaledRandomIntBetween
 argument_list|(
 literal|100
+argument_list|,
+literal|5000
 argument_list|)
 decl_stmt|;
 for|for
@@ -213,7 +215,6 @@ argument_list|,
 name|len
 argument_list|)
 decl_stmt|;
-empty_stmt|;
 name|MurmurHash3
 operator|.
 name|Hash128

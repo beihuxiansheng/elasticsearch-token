@@ -357,9 +357,11 @@ expr_stmt|;
 name|int
 name|numDocs
 init|=
-name|atLeast
+name|scaledRandomIntBetween
 argument_list|(
 literal|5
+argument_list|,
+literal|50
 argument_list|)
 decl_stmt|;
 for|for

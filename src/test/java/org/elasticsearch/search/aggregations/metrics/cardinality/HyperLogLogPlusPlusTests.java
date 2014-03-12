@@ -154,9 +154,11 @@ specifier|final
 name|int
 name|iters
 init|=
-name|atLeast
+name|scaledRandomIntBetween
 argument_list|(
 literal|100000
+argument_list|,
+literal|500000
 argument_list|)
 decl_stmt|;
 comment|// random hashes
