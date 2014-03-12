@@ -2113,6 +2113,16 @@ argument_list|(
 name|snapshotId
 argument_list|)
 decl_stmt|;
+name|int
+name|retryCount
+init|=
+literal|0
+decl_stmt|;
+while|while
+condition|(
+literal|true
+condition|)
+block|{
 name|byte
 index|[]
 name|data
@@ -2124,12 +2134,67 @@ argument_list|(
 name|blobName
 argument_list|)
 decl_stmt|;
+comment|// Because we are overriding snapshot during finalization, it's possible that
+comment|// we can get an empty or incomplete snapshot for a brief moment
+comment|// retrying after some what can resolve the issue
+comment|// TODO: switch to atomic update after non-local gateways are removed and we switch to java 1.7
+try|try
+block|{
 return|return
 name|readSnapshot
 argument_list|(
 name|data
 argument_list|)
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|ElasticsearchParseException
+name|ex
+parameter_list|)
+block|{
+if|if
+condition|(
+name|retryCount
+operator|++
+operator|<
+literal|3
+condition|)
+block|{
+try|try
+block|{
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|50
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|InterruptedException
+name|ex1
+parameter_list|)
+block|{
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+operator|.
+name|interrupt
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+throw|throw
+name|ex
+throw|;
+block|}
+block|}
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -2166,7 +2231,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Configures RateLimiter based on repository and global settings      * @param repositorySettings repository settings      * @param setting setting to use to configure rate limiter      * @param defaultRate default limiting rate      * @return rate limiter or null of no throttling is needed      */
+comment|/**      * Configures RateLimiter based on repository and global settings      *      * @param repositorySettings repository settings      * @param setting            setting to use to configure rate limiter      * @param defaultRate        default limiting rate      * @return rate limiter or null of no throttling is needed      */
 DECL|method|getRateLimiter
 specifier|private
 name|RateLimiter
