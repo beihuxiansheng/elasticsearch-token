@@ -18,6 +18,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|cluster
@@ -184,6 +198,23 @@ return|;
 block|}
 annotation|@
 name|Test
+annotation|@
+name|LuceneTestCase
+operator|.
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"Proposed fix: Each node maintains a list of endpoints that have pinged it "
+operator|+
+literal|"(UnicastZenPing#temporalResponses), a node will remove entries that are old. We can use this list to extend "
+operator|+
+literal|"'discovery.zen.ping.unicast.hosts' list of nodes to ping. If we do this then in the test both nodes will ping each "
+operator|+
+literal|"other, like in solution 1. The upside compared to solution 1, is that it won't go and ping 100 endpoints (based on the default port range), "
+operator|+
+literal|"just other nodes that have pinged it in addition to the already configured nodes in the 'discovery.zen.ping.unicast.hosts' list."
+argument_list|)
 DECL|method|testUnicastDiscovery
 specifier|public
 name|void
