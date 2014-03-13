@@ -280,6 +280,22 @@ name|hamcrest
 operator|.
 name|ElasticsearchAssertions
 operator|.
+name|assertAcked
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
 name|assertNoFailures
 import|;
 end_import
@@ -318,11 +334,31 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|createIndex
+comment|// We need to index a document / define mapping, otherwise field1 doesn't get reconized as number field.
+comment|// If we don't do this, then 'test2' percolate query gets parsed as a TermQuery and not a RangeQuery.
+comment|// The percolate api doesn't parse the doc if no queries have registered, so it can't lazily create a mapping
+name|assertAcked
+argument_list|(
+name|prepareCreate
 argument_list|(
 literal|"index"
 argument_list|)
+operator|.
+name|addMapping
+argument_list|(
+literal|"type"
+argument_list|,
+literal|"field1"
+argument_list|,
+literal|"type=long"
+argument_list|,
+literal|"field2"
+argument_list|,
+literal|"type=string"
+argument_list|)
+argument_list|)
 expr_stmt|;
+comment|// random # shards better has a mapping!
 name|ensureGreen
 argument_list|()
 expr_stmt|;
@@ -432,9 +468,6 @@ operator|.
 name|bytes
 argument_list|()
 decl_stmt|;
-comment|// We need to index a document / define mapping, otherwise field1 doesn't get reconized as number field.
-comment|// If we don't do this, then 'test2' percolate query gets parsed as a TermQuery and not a RangeQuery.
-comment|// The percolate api doesn't parse the doc if no queries have registered, so it can't lazily create a mapping
 name|client
 argument_list|()
 operator|.
@@ -573,6 +606,10 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+name|refresh
+argument_list|()
+expr_stmt|;
+comment|// make sure it's refreshed
 specifier|final
 name|CountDownLatch
 name|start
