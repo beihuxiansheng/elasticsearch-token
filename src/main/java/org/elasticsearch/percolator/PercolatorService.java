@@ -6235,7 +6235,7 @@ name|reduce
 argument_list|(
 name|aggregationsList
 argument_list|,
-name|cacheRecycler
+name|bigArrays
 argument_list|)
 return|;
 block|}

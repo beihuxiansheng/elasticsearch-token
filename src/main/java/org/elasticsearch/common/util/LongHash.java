@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|hppc
-operator|.
-name|hash
-operator|.
-name|MurmurHash3
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -45,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Specialized hash table implementation similar to BytesRefHash that maps  *  long values to ids. Collisions are resolved with open addressing and linear  *  probing, growth is smooth thanks to {@link BigArrays} and capacity is always  *  a multiple of 2 for faster identification of buckets.  */
+comment|/**  * Specialized hash table implementation similar to BytesRefHash that maps  *  long values to ids. Collisions are resolved with open addressing and linear  *  probing, growth is smooth thanks to {@link BigArrays} and capacity is always  *  a multiple of 2 for faster identification of buckets.  *  This class is not thread-safe.  */
 end_comment
 
 begin_comment
@@ -124,27 +110,6 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-block|}
-DECL|method|hash
-specifier|private
-specifier|static
-name|long
-name|hash
-parameter_list|(
-name|long
-name|value
-parameter_list|)
-block|{
-comment|// Don't use the value directly. Under some cases eg dates, it could be that the low bits don't carry much value and we would like
-comment|// all bits of the hash to carry as much value
-return|return
-name|MurmurHash3
-operator|.
-name|hash
-argument_list|(
-name|value
-argument_list|)
-return|;
 block|}
 comment|/**      * Return the key at<code>0&lte; index&lte; capacity()</code>. The result is undefined if the slot is unused.      */
 DECL|method|key
@@ -488,15 +453,22 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|resizeKeys
+DECL|method|resize
 specifier|protected
 name|void
-name|resizeKeys
+name|resize
 parameter_list|(
 name|long
 name|capacity
 parameter_list|)
 block|{
+name|super
+operator|.
+name|resize
+argument_list|(
+name|capacity
+argument_list|)
+expr_stmt|;
 name|keys
 operator|=
 name|bigArrays
@@ -518,11 +490,25 @@ name|removeAndAdd
 parameter_list|(
 name|long
 name|index
-parameter_list|,
-name|long
-name|id
 parameter_list|)
 block|{
+specifier|final
+name|long
+name|id
+init|=
+name|id
+argument_list|(
+name|index
+argument_list|,
+operator|-
+literal|1
+argument_list|)
+decl_stmt|;
+assert|assert
+name|id
+operator|>=
+literal|0
+assert|;
 specifier|final
 name|long
 name|key

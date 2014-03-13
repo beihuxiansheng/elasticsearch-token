@@ -118,9 +118,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|component
+name|collect
 operator|.
-name|AbstractComponent
+name|HppcMaps
 import|;
 end_import
 
@@ -132,9 +132,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|collect
+name|component
 operator|.
-name|HppcMaps
+name|AbstractComponent
 import|;
 end_import
 
@@ -163,6 +163,20 @@ operator|.
 name|settings
 operator|.
 name|Settings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|BigArrays
 import|;
 end_import
 
@@ -539,6 +553,12 @@ specifier|final
 name|CacheRecycler
 name|cacheRecycler
 decl_stmt|;
+DECL|field|bigArrays
+specifier|private
+specifier|final
+name|BigArrays
+name|bigArrays
+decl_stmt|;
 DECL|field|optimizeSingleShard
 specifier|private
 specifier|final
@@ -556,6 +576,9 @@ name|settings
 parameter_list|,
 name|CacheRecycler
 name|cacheRecycler
+parameter_list|,
+name|BigArrays
+name|bigArrays
 parameter_list|)
 block|{
 name|super
@@ -568,6 +591,12 @@ operator|.
 name|cacheRecycler
 operator|=
 name|cacheRecycler
+expr_stmt|;
+name|this
+operator|.
+name|bigArrays
+operator|=
+name|bigArrays
 expr_stmt|;
 name|this
 operator|.
@@ -3056,7 +3085,7 @@ name|reduce
 argument_list|(
 name|aggregationsList
 argument_list|,
-name|cacheRecycler
+name|bigArrays
 argument_list|)
 expr_stmt|;
 block|}

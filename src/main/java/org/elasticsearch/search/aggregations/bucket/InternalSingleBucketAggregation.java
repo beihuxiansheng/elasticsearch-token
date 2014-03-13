@@ -265,7 +265,7 @@ name|reduce
 argument_list|(
 name|reduceContext
 operator|.
-name|cacheRecycler
+name|bigArrays
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -362,7 +362,7 @@ name|subAggregationsList
 argument_list|,
 name|reduceContext
 operator|.
-name|cacheRecycler
+name|bigArrays
 argument_list|()
 argument_list|)
 expr_stmt|;

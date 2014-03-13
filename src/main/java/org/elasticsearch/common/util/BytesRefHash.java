@@ -59,7 +59,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  Specialized hash table implementation similar to Lucene's BytesRefHash that maps  *  BytesRef values to ids. Collisions are resolved with open addressing and linear  *  probing, growth is smooth thanks to {@link BigArrays}, hashes are cached for faster  *  re-hashing and capacity is always a multiple of 2 for faster identification of buckets.  */
+comment|/**  *  Specialized hash table implementation similar to Lucene's BytesRefHash that maps  *  BytesRef values to ids. Collisions are resolved with open addressing and linear  *  probing, growth is smooth thanks to {@link BigArrays}, hashes are cached for faster  *  re-hashing and capacity is always a multiple of 2 for faster identification of buckets.  *  This class is not thread-safe.  */
 end_comment
 
 begin_class
@@ -808,11 +808,25 @@ name|removeAndAdd
 parameter_list|(
 name|long
 name|index
-parameter_list|,
-name|long
-name|id
 parameter_list|)
 block|{
+specifier|final
+name|long
+name|id
+init|=
+name|id
+argument_list|(
+name|index
+argument_list|,
+operator|-
+literal|1
+argument_list|)
+decl_stmt|;
+assert|assert
+name|id
+operator|>=
+literal|0
+assert|;
 specifier|final
 name|int
 name|code
