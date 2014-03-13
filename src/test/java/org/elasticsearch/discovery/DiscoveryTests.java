@@ -156,14 +156,14 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"discovery.zen.multicast.enabled"
+literal|"discovery.zen.ping.multicast.enabled"
 argument_list|,
 literal|false
 argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"discovery.zen.unicast.hosts"
+literal|"discovery.zen.ping.unicast.hosts"
 argument_list|,
 literal|"localhost"
 argument_list|)
