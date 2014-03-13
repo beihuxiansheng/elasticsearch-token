@@ -155,7 +155,7 @@ init|=
 operator|new
 name|long
 index|[
-literal|4
+literal|1
 index|]
 decl_stmt|;
 DECL|field|valueCount
@@ -335,7 +335,6 @@ argument_list|(
 name|value
 argument_list|,
 name|i
-operator|++
 argument_list|)
 operator|)
 operator|.
@@ -366,6 +365,17 @@ operator|)
 operator|.
 name|size
 argument_list|()
+expr_stmt|;
+name|values
+operator|=
+name|ArrayUtil
+operator|.
+name|grow
+argument_list|(
+name|values
+argument_list|,
+name|valueCount
+argument_list|)
 expr_stmt|;
 name|int
 name|i
