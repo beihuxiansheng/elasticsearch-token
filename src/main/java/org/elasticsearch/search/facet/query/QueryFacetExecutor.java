@@ -278,8 +278,9 @@ name|this
 operator|.
 name|filter
 operator|=
-operator|new
-name|QueryWrapperFilter
+name|Queries
+operator|.
+name|wrap
 argument_list|(
 name|query
 argument_list|)
