@@ -953,6 +953,8 @@ argument_list|,
 name|searchContext
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|indexSearcher
 operator|.
 name|search
@@ -978,6 +980,9 @@ name|occurrences
 operator|=
 literal|null
 expr_stmt|;
+block|}
+finally|finally
+block|{
 name|Releasables
 operator|.
 name|release
@@ -987,6 +992,7 @@ operator|.
 name|parentIdsIndex
 argument_list|)
 expr_stmt|;
+block|}
 break|break;
 case|case
 name|SUM
@@ -1004,6 +1010,8 @@ argument_list|,
 name|searchContext
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|indexSearcher
 operator|.
 name|search
@@ -1029,6 +1037,9 @@ name|occurrences
 operator|=
 literal|null
 expr_stmt|;
+block|}
+finally|finally
+block|{
 name|Releasables
 operator|.
 name|release
@@ -1038,6 +1049,7 @@ operator|.
 name|parentIdsIndex
 argument_list|)
 expr_stmt|;
+block|}
 break|break;
 case|case
 name|AVG
@@ -1055,6 +1067,8 @@ argument_list|,
 name|searchContext
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|indexSearcher
 operator|.
 name|search
@@ -1082,6 +1096,9 @@ name|avgCollector
 operator|.
 name|occurrences
 expr_stmt|;
+block|}
+finally|finally
+block|{
 name|Releasables
 operator|.
 name|release
@@ -1091,6 +1108,7 @@ operator|.
 name|parentIdsIndex
 argument_list|)
 expr_stmt|;
+block|}
 break|break;
 default|default:
 throw|throw
