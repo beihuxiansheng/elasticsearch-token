@@ -1618,21 +1618,27 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * We are ignoring by default these tests as they require to have an internet access      * To activate the test, use -Dtests.network=true      */
+comment|/**      * We are ignoring by default these tests as they require to have an internet access      * To activate the test, use -Dtests.network=true      * We test regular form: username/reponame/version      * It should find it in download.elasticsearch.org service      */
 annotation|@
 name|Test
 annotation|@
 name|Network
-DECL|method|testInstallPluginWithInternet
+DECL|method|testInstallPluginWithElasticsearchDownloadService
 specifier|public
 name|void
-name|testInstallPluginWithInternet
+name|testInstallPluginWithElasticsearchDownloadService
 parameter_list|()
 throws|throws
 name|IOException
 block|{
-comment|// We test regular form: username/reponame/version
-comment|// It should find it in download.elasticsearch.org service
+name|assumeTrue
+argument_list|(
+name|isDownloadServiceWorking
+argument_list|(
+literal|"http://download.elasticsearch.org/"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|singlePluginInstallAndRemove
 argument_list|(
 literal|"elasticsearch/elasticsearch-transport-thrift/1.5.0"
@@ -1640,8 +1646,28 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
-comment|// We test regular form: groupId/artifactId/version
-comment|// It should find it in maven central service
+block|}
+comment|/**      * We are ignoring by default these tests as they require to have an internet access      * To activate the test, use -Dtests.network=true      * We test regular form: groupId/artifactId/version      * It should find it in maven central service      */
+annotation|@
+name|Test
+annotation|@
+name|Network
+DECL|method|testInstallPluginWithMavenCentral
+specifier|public
+name|void
+name|testInstallPluginWithMavenCentral
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|assumeTrue
+argument_list|(
+name|isDownloadServiceWorking
+argument_list|(
+literal|"http://search.maven.org/"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|singlePluginInstallAndRemove
 argument_list|(
 literal|"org.elasticsearch/elasticsearch-transport-thrift/1.5.0"
@@ -1649,8 +1675,28 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
-comment|// We test site plugins from github: userName/repoName
-comment|// It should find it on github
+block|}
+comment|/**      * We are ignoring by default these tests as they require to have an internet access      * To activate the test, use -Dtests.network=true      * We test site plugins from github: userName/repoName      * It should find it on github      */
+annotation|@
+name|Test
+annotation|@
+name|Network
+DECL|method|testInstallPluginWithGithub
+specifier|public
+name|void
+name|testInstallPluginWithGithub
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|assumeTrue
+argument_list|(
+name|isDownloadServiceWorking
+argument_list|(
+literal|"https://github.com/"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|singlePluginInstallAndRemove
 argument_list|(
 literal|"elasticsearch/kibana"
@@ -1658,6 +1704,57 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|isDownloadServiceWorking
+specifier|private
+name|boolean
+name|isDownloadServiceWorking
+parameter_list|(
+name|String
+name|url
+parameter_list|)
+block|{
+name|HttpClient
+name|client
+init|=
+operator|new
+name|HttpClient
+argument_list|(
+name|url
+argument_list|)
+decl_stmt|;
+try|try
+block|{
+name|client
+operator|.
+name|request
+argument_list|(
+literal|"/"
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"[{}] download service is not working. Disabling current test."
+argument_list|,
+name|url
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+literal|false
+return|;
 block|}
 DECL|method|deletePluginsFolder
 specifier|private
