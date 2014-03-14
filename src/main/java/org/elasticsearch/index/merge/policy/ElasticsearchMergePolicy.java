@@ -265,6 +265,11 @@ comment|/**  * A {@link MergePolicy} that upgrades segments and can force merges
 end_comment
 
 begin_class
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"PMD.ProperCloneImplementation"
+argument_list|)
 DECL|class|ElasticsearchMergePolicy
 specifier|public
 specifier|final
