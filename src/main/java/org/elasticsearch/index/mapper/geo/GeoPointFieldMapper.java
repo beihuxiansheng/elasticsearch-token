@@ -3020,6 +3020,43 @@ name|name
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|GeoPoint
+name|value
+init|=
+name|context
+operator|.
+name|parseExternalValue
+argument_list|(
+name|GeoPoint
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|value
+operator|!=
+literal|null
+condition|)
+block|{
+name|parseLatLon
+argument_list|(
+name|context
+argument_list|,
+name|value
+operator|.
+name|lat
+argument_list|()
+argument_list|,
+name|value
+operator|.
+name|lon
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|XContentParser
 operator|.
 name|Token
@@ -3139,7 +3176,7 @@ name|Token
 operator|.
 name|END_ARRAY
 condition|)
-block|{                      }
+block|{                          }
 name|parseLatLon
 argument_list|(
 name|context
@@ -3227,7 +3264,7 @@ name|Token
 operator|.
 name|END_ARRAY
 condition|)
-block|{                      }
+block|{                          }
 name|parseLatLon
 argument_list|(
 name|context
@@ -3335,6 +3372,7 @@ argument_list|(
 name|context
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|context
 operator|.
