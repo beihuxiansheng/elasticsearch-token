@@ -630,6 +630,17 @@ name|searcher
 operator|.
 name|getIndexReader
 argument_list|()
+operator|:
+literal|"not equal, rewriteIndexReader="
+operator|+
+name|rewriteIndexReader
+operator|+
+literal|" searcher.getIndexReader()="
+operator|+
+name|searcher
+operator|.
+name|getIndexReader
+argument_list|()
 assert|;
 name|childQuery
 operator|=
