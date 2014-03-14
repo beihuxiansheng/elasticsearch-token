@@ -1151,7 +1151,7 @@ argument_list|)
 operator|.
 name|addMapping
 argument_list|(
-literal|"parent"
+literal|"foo"
 argument_list|)
 operator|.
 name|addMapping
