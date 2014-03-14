@@ -1144,6 +1144,32 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
+if|if
+condition|(
+operator|!
+name|finished
+condition|)
+block|{
+comment|// we have started to (over)write dest, but failed.
+comment|// Try to delete the garbage we'd otherwise leave
+comment|// behind.
+name|IOUtils
+operator|.
+name|closeWhileHandlingException
+argument_list|(
+name|os
+argument_list|,
+name|is
+argument_list|)
+expr_stmt|;
+name|dest
+operator|.
+name|delete
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
 name|IOUtils
 operator|.
 name|close
@@ -1152,20 +1178,6 @@ name|os
 argument_list|,
 name|is
 argument_list|)
-expr_stmt|;
-comment|// we have started to (over)write dest, but failed.
-comment|// Try to delete the garbage we'd otherwise leave
-comment|// behind.
-if|if
-condition|(
-operator|!
-name|finished
-condition|)
-block|{
-name|dest
-operator|.
-name|delete
-argument_list|()
 expr_stmt|;
 block|}
 block|}
