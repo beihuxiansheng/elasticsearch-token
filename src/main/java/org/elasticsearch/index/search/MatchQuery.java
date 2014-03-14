@@ -1380,6 +1380,13 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
+name|prefixQuery
+operator|.
+name|setSlop
+argument_list|(
+name|phraseSlop
+argument_list|)
+expr_stmt|;
 return|return
 name|prefixQuery
 return|;
@@ -1471,6 +1478,13 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
+name|prefixQuery
+operator|.
+name|setSlop
+argument_list|(
+name|phraseSlop
+argument_list|)
+expr_stmt|;
 return|return
 name|prefixQuery
 return|;
