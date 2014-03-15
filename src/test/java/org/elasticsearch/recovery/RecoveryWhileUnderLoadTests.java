@@ -340,6 +340,22 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|cluster
+operator|.
+name|metadata
+operator|.
+name|IndexMetaData
+operator|.
+name|SETTING_NUMBER_OF_SHARDS
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|settings
@@ -453,6 +469,12 @@ argument_list|(
 literal|"--> creating test index ..."
 argument_list|)
 expr_stmt|;
+name|int
+name|numberOfShards
+init|=
+name|numberOfShards
+argument_list|()
+decl_stmt|;
 name|assertAcked
 argument_list|(
 name|prepareCreate
@@ -463,6 +485,13 @@ literal|1
 argument_list|,
 name|settingsBuilder
 argument_list|()
+operator|.
+name|put
+argument_list|(
+name|SETTING_NUMBER_OF_SHARDS
+argument_list|,
+name|numberOfShards
+argument_list|)
 operator|.
 name|put
 argument_list|(
@@ -734,6 +763,8 @@ name|start
 argument_list|()
 expr_stmt|;
 block|}
+try|try
+block|{
 name|logger
 operator|.
 name|info
@@ -934,7 +965,7 @@ argument_list|)
 expr_stmt|;
 name|iterateAssertCount
 argument_list|(
-literal|5
+name|numberOfShards
 argument_list|,
 name|indexCounter
 operator|.
@@ -944,6 +975,23 @@ argument_list|,
 literal|10
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
+comment|// verify the workers are shut down
+name|stop
+operator|.
+name|set
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|stopLatch
+operator|.
+name|await
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Test
@@ -969,6 +1017,12 @@ argument_list|(
 literal|"--> creating test index ..."
 argument_list|)
 expr_stmt|;
+name|int
+name|numberOfShards
+init|=
+name|numberOfShards
+argument_list|()
+decl_stmt|;
 name|assertAcked
 argument_list|(
 name|prepareCreate
@@ -979,6 +1033,13 @@ literal|1
 argument_list|,
 name|settingsBuilder
 argument_list|()
+operator|.
+name|put
+argument_list|(
+name|SETTING_NUMBER_OF_SHARDS
+argument_list|,
+name|numberOfShards
+argument_list|)
 operator|.
 name|put
 argument_list|(
@@ -1223,6 +1284,8 @@ name|start
 argument_list|()
 expr_stmt|;
 block|}
+try|try
+block|{
 name|logger
 operator|.
 name|info
@@ -1433,7 +1496,7 @@ argument_list|)
 expr_stmt|;
 name|iterateAssertCount
 argument_list|(
-literal|5
+name|numberOfShards
 argument_list|,
 name|indexCounter
 operator|.
@@ -1443,6 +1506,23 @@ argument_list|,
 literal|10
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
+comment|// make sure the workers are stopped in case of an error
+name|stop
+operator|.
+name|set
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|stopLatch
+operator|.
+name|await
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Test
@@ -1468,6 +1548,12 @@ argument_list|(
 literal|"--> creating test index ..."
 argument_list|)
 expr_stmt|;
+name|int
+name|numberOfShards
+init|=
+name|numberOfShards
+argument_list|()
+decl_stmt|;
 name|assertAcked
 argument_list|(
 name|prepareCreate
@@ -1478,6 +1564,13 @@ literal|2
 argument_list|,
 name|settingsBuilder
 argument_list|()
+operator|.
+name|put
+argument_list|(
+name|SETTING_NUMBER_OF_SHARDS
+argument_list|,
+name|numberOfShards
+argument_list|)
 operator|.
 name|put
 argument_list|(
@@ -1668,11 +1761,33 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+name|long
+name|count
+init|=
 name|indexCounter
 operator|.
 name|incrementAndGet
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|count
+operator|%
+literal|1000
+operator|==
+literal|0
+condition|)
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"{} documents indexed"
+argument_list|,
+name|count
+argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|logger
 operator|.
@@ -1722,6 +1837,8 @@ name|start
 argument_list|()
 expr_stmt|;
 block|}
+try|try
+block|{
 name|logger
 operator|.
 name|info
@@ -1861,7 +1978,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> waiting for 10000 docs to be indexed ..."
+literal|"--> waiting for 15000 docs to be indexed ..."
 argument_list|)
 expr_stmt|;
 name|waitForDocs
@@ -1873,7 +1990,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> 10000 docs indexed"
+literal|"--> 15000 docs indexed"
 argument_list|)
 expr_stmt|;
 comment|// now, shutdown nodes
@@ -2181,7 +2298,7 @@ argument_list|)
 expr_stmt|;
 name|iterateAssertCount
 argument_list|(
-literal|5
+name|numberOfShards
 argument_list|,
 name|indexCounter
 operator|.
@@ -2191,6 +2308,23 @@ argument_list|,
 literal|10
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
+comment|// make sure the workers are stopped in case of an error
+name|stop
+operator|.
+name|set
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|stopLatch
+operator|.
+name|await
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Test
@@ -2226,14 +2360,6 @@ name|numReplicas
 init|=
 literal|0
 decl_stmt|;
-name|cluster
-argument_list|()
-operator|.
-name|ensureAtLeastNumNodes
-argument_list|(
-literal|3
-argument_list|)
-expr_stmt|;
 name|logger
 operator|.
 name|info
@@ -2251,35 +2377,25 @@ argument_list|(
 name|prepareCreate
 argument_list|(
 literal|"test"
-argument_list|)
-operator|.
-name|setSettings
-argument_list|(
+argument_list|,
+literal|3
+argument_list|,
 name|settingsBuilder
 argument_list|()
 operator|.
 name|put
 argument_list|(
-name|indexSettings
-argument_list|()
-argument_list|)
-operator|.
-name|put
-argument_list|(
-literal|"number_of_shards"
+name|SETTING_NUMBER_OF_SHARDS
 argument_list|,
 name|numShards
 argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"number_of_replicas"
+name|SETTING_NUMBER_OF_REPLICAS
 argument_list|,
 name|numReplicas
 argument_list|)
-operator|.
-name|build
-argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2554,6 +2670,8 @@ name|start
 argument_list|()
 expr_stmt|;
 block|}
+try|try
+block|{
 specifier|final
 name|int
 name|numDocs
@@ -2696,6 +2814,11 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+name|stopLatch
+operator|.
+name|await
+argument_list|()
+expr_stmt|;
 name|assertThat
 argument_list|(
 name|failures
@@ -2703,11 +2826,6 @@ argument_list|,
 name|emptyIterable
 argument_list|()
 argument_list|)
-expr_stmt|;
-name|stopLatch
-operator|.
-name|await
-argument_list|()
 expr_stmt|;
 name|logger
 operator|.
@@ -2836,6 +2954,23 @@ argument_list|,
 literal|10
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
+comment|// make sure the workers are stopped in case of an error
+name|stop
+operator|.
+name|set
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|stopLatch
+operator|.
+name|await
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 DECL|method|iterateAssertCount
 specifier|private
@@ -3398,7 +3533,9 @@ name|Object
 name|o
 parameter_list|)
 block|{
-return|return
+name|long
+name|count
+init|=
 name|client
 argument_list|()
 operator|.
@@ -3419,6 +3556,20 @@ argument_list|()
 operator|.
 name|getCount
 argument_list|()
+decl_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"[{}] docs visible for search. waiting for [{}]"
+argument_list|,
+name|count
+argument_list|,
+name|numDocs
+argument_list|)
+expr_stmt|;
+return|return
+name|count
 operator|>
 name|numDocs
 return|;

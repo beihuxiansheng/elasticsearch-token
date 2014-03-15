@@ -924,7 +924,23 @@ name|metadata
 operator|.
 name|IndexMetaData
 operator|.
-name|*
+name|SETTING_NUMBER_OF_REPLICAS
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|metadata
+operator|.
+name|IndexMetaData
+operator|.
+name|SETTING_NUMBER_OF_SHARDS
 import|;
 end_import
 
@@ -3053,6 +3069,22 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"allowNodes: updating [{}]'s setting to [{}]"
+argument_list|,
+name|index
+argument_list|,
+name|build
+operator|.
+name|toDelimitedString
+argument_list|(
+literal|';'
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|client
 argument_list|()
 operator|.
