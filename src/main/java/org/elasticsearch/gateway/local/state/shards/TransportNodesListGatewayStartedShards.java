@@ -628,6 +628,18 @@ name|resp
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"unknown response type [{}], expected NodeLocalGatewayStartedShards or FailedNodeException"
+argument_list|,
+name|resp
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 return|return
 operator|new

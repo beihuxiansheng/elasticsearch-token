@@ -118,6 +118,18 @@ name|RecoveryStatus
 name|recoveryStatus
 parameter_list|)
 function_decl|;
+comment|/**      * Retrieve shard snapshot status for the stored snapshot      *      * @param snapshotId snapshot id      * @param shardId    shard id      * @return snapshot status      */
+DECL|method|snapshotStatus
+name|IndexShardSnapshotStatus
+name|snapshotStatus
+parameter_list|(
+name|SnapshotId
+name|snapshotId
+parameter_list|,
+name|ShardId
+name|shardId
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

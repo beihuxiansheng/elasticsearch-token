@@ -318,6 +318,26 @@ name|admin
 operator|.
 name|cluster
 operator|.
+name|snapshots
+operator|.
+name|status
+operator|.
+name|SnapshotsStatusRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|admin
+operator|.
+name|cluster
+operator|.
 name|state
 operator|.
 name|ClusterStateRequest
@@ -1662,7 +1682,7 @@ name|snapshot
 argument_list|)
 return|;
 block|}
-comment|/**      * Restores new snapshot      *      * @param snapshot   snapshot name      * @param repository repository name      * @return delete snapshot request      */
+comment|/**      * Deletes a snapshot      *      * @param snapshot   snapshot name      * @param repository repository name      * @return delete snapshot request      */
 DECL|method|deleteSnapshotRequest
 specifier|public
 specifier|static
@@ -1683,6 +1703,25 @@ argument_list|(
 name|repository
 argument_list|,
 name|snapshot
+argument_list|)
+return|;
+block|}
+comment|/**      *  Get status of snapshots      *      * @param repository repository name      * @return snapshot status request      */
+DECL|method|snapshotsStatusRequest
+specifier|public
+specifier|static
+name|SnapshotsStatusRequest
+name|snapshotsStatusRequest
+parameter_list|(
+name|String
+name|repository
+parameter_list|)
+block|{
+return|return
+operator|new
+name|SnapshotsStatusRequest
+argument_list|(
+name|repository
 argument_list|)
 return|;
 block|}
