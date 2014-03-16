@@ -554,9 +554,21 @@ argument_list|(
 literal|"Creating index test"
 argument_list|)
 expr_stmt|;
-name|createIndex
+name|assertAcked
+argument_list|(
+name|prepareCreate
 argument_list|(
 literal|"test"
+argument_list|)
+operator|.
+name|addMapping
+argument_list|(
+literal|"type1"
+argument_list|,
+literal|"some_long"
+argument_list|,
+literal|"type=long"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|logger
