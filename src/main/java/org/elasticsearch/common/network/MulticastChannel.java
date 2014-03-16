@@ -744,6 +744,7 @@ function_decl|;
 comment|/**      * A shared channel that keeps a static map of Config -> Shared channels, and closes shared      * channel once their reference count has reached 0. It also handles de-registering relevant      * listener from the shared list of listeners.      */
 DECL|class|Shared
 specifier|private
+specifier|final
 specifier|static
 class|class
 name|Shared
@@ -834,16 +835,9 @@ argument_list|(
 name|listener
 argument_list|)
 expr_stmt|;
-return|return
-operator|new
-name|Delegate
-argument_list|(
-name|listener
-argument_list|,
-name|shared
-argument_list|)
-return|;
 block|}
+else|else
+block|{
 name|MultiListener
 name|multiListener
 init|=
@@ -885,8 +879,15 @@ argument_list|,
 name|shared
 argument_list|)
 expr_stmt|;
+block|}
 return|return
+operator|new
+name|Delegate
+argument_list|(
+name|listener
+argument_list|,
 name|shared
+argument_list|)
 return|;
 block|}
 block|}
@@ -940,6 +941,21 @@ operator|==
 literal|0
 condition|)
 block|{
+assert|assert
+operator|(
+operator|(
+name|MultiListener
+operator|)
+name|shared
+operator|.
+name|listener
+operator|)
+operator|.
+name|listeners
+operator|.
+name|isEmpty
+argument_list|()
+assert|;
 name|sharedChannels
 operator|.
 name|remove
@@ -1050,6 +1066,20 @@ block|}
 annotation|@
 name|Override
 DECL|method|close
+specifier|public
+name|void
+name|close
+parameter_list|()
+block|{
+assert|assert
+literal|false
+operator|:
+literal|"Shared references should never be closed directly, only via Delegate"
+assert|;
+block|}
+annotation|@
+name|Override
+DECL|method|close
 specifier|protected
 name|void
 name|close
@@ -1070,6 +1100,7 @@ block|}
 comment|/**      * A light weight delegate that wraps another channel, mainly to support delegating      * the close method with the provided listener and not holding existing listener.      */
 DECL|class|Delegate
 specifier|private
+specifier|final
 specifier|static
 class|class
 name|Delegate
