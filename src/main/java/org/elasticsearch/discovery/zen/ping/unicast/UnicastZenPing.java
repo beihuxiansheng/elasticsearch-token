@@ -1715,8 +1715,6 @@ name|void
 name|run
 parameter_list|()
 block|{
-try|try
-block|{
 if|if
 condition|(
 name|sendPingsHandler
@@ -1727,6 +1725,13 @@ condition|)
 block|{
 return|return;
 block|}
+name|boolean
+name|success
+init|=
+literal|false
+decl_stmt|;
+try|try
+block|{
 comment|// connect to the node, see if we manage to do it, if not, bail
 if|if
 condition|(
@@ -1850,6 +1855,10 @@ name|node
 argument_list|)
 expr_stmt|;
 block|}
+name|success
+operator|=
+literal|true
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -1857,7 +1866,7 @@ name|ConnectTransportException
 name|e
 parameter_list|)
 block|{
-comment|// can't connect to the node
+comment|// can't connect to the node - this is a more common path!
 name|logger
 operator|.
 name|trace
@@ -1874,11 +1883,44 @@ argument_list|,
 name|nodeToSend
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"[{}] failed send ping to {}"
+argument_list|,
+name|e
+argument_list|,
+name|sendPingsHandler
+operator|.
+name|id
+argument_list|()
+argument_list|,
+name|nodeToSend
+argument_list|)
+expr_stmt|;
+block|}
+finally|finally
+block|{
+if|if
+condition|(
+operator|!
+name|success
+condition|)
+block|{
 name|latch
 operator|.
 name|countDown
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
