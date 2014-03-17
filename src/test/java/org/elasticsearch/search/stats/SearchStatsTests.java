@@ -753,7 +753,10 @@ block|{
 name|SearchResponse
 name|searchResponse
 init|=
-name|client
+name|cluster
+argument_list|()
+operator|.
+name|clientNodeClient
 argument_list|()
 operator|.
 name|prepareSearch
@@ -820,6 +823,21 @@ operator|.
 name|actionGet
 argument_list|()
 decl_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"###### indices search stats: "
+operator|+
+name|indicesStats
+operator|.
+name|getTotal
+argument_list|()
+operator|.
+name|getSearch
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|assertThat
 argument_list|(
 name|indicesStats
