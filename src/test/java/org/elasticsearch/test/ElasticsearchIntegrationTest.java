@@ -604,6 +604,22 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|discovery
+operator|.
+name|zen
+operator|.
+name|elect
+operator|.
+name|ElectMasterService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|index
 operator|.
 name|mapper
@@ -950,6 +966,22 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|ImmutableSettings
+operator|.
+name|settingsBuilder
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|TestCluster
@@ -1015,7 +1047,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link ElasticsearchIntegrationTest} is an abstract base class to run integration  * tests against a JVM private Elasticsearch Cluster. The test class supports 3 different  * cluster scopes.  *<ul>  *<li>{@link Scope#GLOBAL} - uses a cluster shared across test suites. This cluster doesn't allow any modifications to  * the cluster settings and will fail if any persistent cluster settings are applied during tear down.</li>  *<li>{@link Scope#TEST} - uses a new cluster for each individual test method.</li>  *<li>{@link Scope#SUITE} - uses a cluster shared across all test method in the same suite</li>  *</ul>  *<p/>  * The most common test scope it {@link Scope#GLOBAL} which shares a cluster per JVM. This cluster is only set-up once  * and can be used as long as the tests work on a per index basis without changing any cluster wide settings or require  * any specific node configuration. This is the best performing option since it sets up the cluster only once.  *<p/>  * If the tests need specific node settings or change persistent and/or transient cluster settings either {@link Scope#TEST}  * or {@link Scope#SUITE} should be used. To configure a scope for the test cluster the {@link ClusterScope} annotation  * should be used, here is an example:  *<pre>  *  * @ClusterScope(scope=Scope.TEST) public class SomeIntegrationTest extends ElasticsearchIntegrationTest {  * @Test  * public void testMethod() {}  * }  *</pre>  *<p/>  * If no {@link ClusterScope} annotation is present on an integration test the default scope it {@link Scope#GLOBAL}  *<p/>  * A test cluster creates a set of nodes in the background before the test starts. The number of nodes in the cluster is  * determined at random and can change across tests. The minimum number of nodes in the shared global cluster is<code>2</code>.  * For other scopes the {@link ClusterScope} allows configuring the initial number of nodes that are created before  * the tests start.  *<p/>  *<pre>  * @ClusterScope(scope=Scope.SUITE, numNodes=3)  * public class SomeIntegrationTest extends ElasticsearchIntegrationTest {  * @Test  * public void testMethod() {}  * }  *</pre>  *<p/>  * Note, the {@link ElasticsearchIntegrationTest} uses randomized settings on a cluster and index level. For instance  * each test might use different directory implementation for each test or will return a random client to one of the  * nodes in the cluster for each call to {@link #client()}. Test failures might only be reproducible if the correct  * system properties are passed to the test execution environment.  *<p/>  *<p>  * This class supports the following system properties (passed with -Dkey=value to the application)  *<ul>  *<li>-D{@value #TESTS_CLIENT_RATIO} - a double value in the interval [0..1] which defines the ration between node and transport clients used</li>  *<li>-D{@value TestCluster#TESTS_ENABLE_MOCK_MODULES} - a boolean value to enable or disable mock modules. This is  * useful to test the system without asserting modules that to make sure they don't hide any bugs in production.</li>  *<li>-D{@value #INDEX_SEED_SETTING} - a random seed used to initialize the index random context.  *</ul>  *</p>  */
+comment|/**  * {@link ElasticsearchIntegrationTest} is an abstract base class to run integration  * tests against a JVM private Elasticsearch Cluster. The test class supports 3 different  * cluster scopes.  *<ul>  *<li>{@link Scope#GLOBAL} - uses a cluster shared across test suites. This cluster doesn't allow any modifications to  * the cluster settings and will fail if any persistent cluster settings are applied during tear down.</li>  *<li>{@link Scope#TEST} - uses a new cluster for each individual test method.</li>  *<li>{@link Scope#SUITE} - uses a cluster shared across all test method in the same suite</li>  *</ul>  *<p/>  * The most common test scope it {@link Scope#GLOBAL} which shares a cluster per JVM. This cluster is only set-up once  * and can be used as long as the tests work on a per index basis without changing any cluster wide settings or require  * any specific node configuration. This is the best performing option since it sets up the cluster only once.  *<p/>  * If the tests need specific node settings or change persistent and/or transient cluster settings either {@link Scope#TEST}  * or {@link Scope#SUITE} should be used. To configure a scope for the test cluster the {@link ClusterScope} annotation  * should be used, here is an example:  *<pre>  *  * @ClusterScope(scope=Scope.TEST) public class SomeIntegrationTest extends ElasticsearchIntegrationTest {  * @Test public void testMethod() {}  * }  *</pre>  *<p/>  * If no {@link ClusterScope} annotation is present on an integration test the default scope it {@link Scope#GLOBAL}  *<p/>  * A test cluster creates a set of nodes in the background before the test starts. The number of nodes in the cluster is  * determined at random and can change across tests. The minimum number of nodes in the shared global cluster is<code>2</code>.  * For other scopes the {@link ClusterScope} allows configuring the initial number of nodes that are created before  * the tests start.  *<p/>  *<pre>  * @ClusterScope(scope=Scope.SUITE, numNodes=3)  * public class SomeIntegrationTest extends ElasticsearchIntegrationTest {  * @Test public void testMethod() {}  * }  *</pre>  *<p/>  * Note, the {@link ElasticsearchIntegrationTest} uses randomized settings on a cluster and index level. For instance  * each test might use different directory implementation for each test or will return a random client to one of the  * nodes in the cluster for each call to {@link #client()}. Test failures might only be reproducible if the correct  * system properties are passed to the test execution environment.  *<p/>  *<p>  * This class supports the following system properties (passed with -Dkey=value to the application)  *<ul>  *<li>-D{@value #TESTS_CLIENT_RATIO} - a double value in the interval [0..1] which defines the ration between node and transport clients used</li>  *<li>-D{@value TestCluster#TESTS_ENABLE_MOCK_MODULES} - a boolean value to enable or disable mock modules. This is  * useful to test the system without asserting modules that to make sure they don't hide any bugs in production.</li>  *<li>-D{@value #INDEX_SEED_SETTING} - a random seed used to initialize the index random context.  *</ul>  *</p>  */
 end_comment
 
 begin_class
@@ -3426,6 +3458,53 @@ operator|.
 name|getStatus
 argument_list|()
 return|;
+block|}
+comment|/**      * Sets the cluster's minimum master node and make sure the response is acknowledge.      * Note: this doesn't guaranty the new settings is in effect, just that it has been received bu all nodes.      */
+DECL|method|setMinimumMasterNodes
+specifier|public
+name|void
+name|setMinimumMasterNodes
+parameter_list|(
+name|int
+name|n
+parameter_list|)
+block|{
+name|assertTrue
+argument_list|(
+name|client
+argument_list|()
+operator|.
+name|admin
+argument_list|()
+operator|.
+name|cluster
+argument_list|()
+operator|.
+name|prepareUpdateSettings
+argument_list|()
+operator|.
+name|setTransientSettings
+argument_list|(
+name|settingsBuilder
+argument_list|()
+operator|.
+name|put
+argument_list|(
+name|ElectMasterService
+operator|.
+name|DISCOVERY_ZEN_MINIMUM_MASTER_NODES
+argument_list|,
+name|n
+argument_list|)
+argument_list|)
+operator|.
+name|get
+argument_list|()
+operator|.
+name|isAcknowledged
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Ensures the cluster has a yellow state via the cluster health API.      */
 DECL|method|ensureYellow

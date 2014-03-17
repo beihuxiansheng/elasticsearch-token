@@ -112,22 +112,6 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|junit
-operator|.
-name|annotations
-operator|.
-name|TestLogging
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
 name|ElasticsearchIntegrationTest
 operator|.
 name|ClusterScope
@@ -145,6 +129,22 @@ operator|.
 name|ElasticsearchIntegrationTest
 operator|.
 name|Scope
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|junit
+operator|.
+name|annotations
+operator|.
+name|TestLogging
 import|;
 end_import
 
@@ -498,6 +498,12 @@ operator|.
 name|startNode
 argument_list|()
 expr_stmt|;
+comment|// We now have 5 nodes
+name|setMinimumMasterNodes
+argument_list|(
+literal|3
+argument_list|)
+expr_stmt|;
 comment|// make sure the cluster state is green, and all has been recovered
 name|assertTimeout
 argument_list|(
@@ -626,6 +632,13 @@ literal|"4"
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// going down to 3 nodes. note that the min_master_node may not be in effect when we shutdown the 4th
+comment|// node, but that's OK as it is set to 3 before.
+name|setMinimumMasterNodes
+argument_list|(
+literal|2
+argument_list|)
+expr_stmt|;
 name|cluster
 argument_list|()
 operator|.
@@ -712,6 +725,7 @@ literal|2000l
 argument_list|)
 expr_stmt|;
 block|}
+comment|// closing the 3rd node
 name|cluster
 argument_list|()
 operator|.
@@ -757,6 +771,12 @@ name|setWaitForNodes
 argument_list|(
 literal|"2"
 argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// closing the 2nd node
+name|setMinimumMasterNodes
+argument_list|(
+literal|1
 argument_list|)
 expr_stmt|;
 name|cluster
