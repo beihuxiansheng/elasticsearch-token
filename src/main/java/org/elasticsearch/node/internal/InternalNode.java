@@ -1154,12 +1154,20 @@ name|v2
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// The only place we can actually fake the version a node is running on:
 name|Version
 name|version
 init|=
+name|pSettings
+operator|.
+name|getAsVersion
+argument_list|(
+literal|"tests.mock.version"
+argument_list|,
 name|Version
 operator|.
 name|CURRENT
+argument_list|)
 decl_stmt|;
 name|ESLogger
 name|logger
