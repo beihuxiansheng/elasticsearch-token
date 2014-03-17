@@ -629,15 +629,6 @@ name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"isolation"
-argument_list|,
-literal|"alias:i;desc:isolation"
-argument_list|)
-expr_stmt|;
-name|table
-operator|.
-name|addCell
-argument_list|(
 literal|"url"
 argument_list|,
 literal|"alias:u;desc:url for site plugins"
@@ -828,20 +819,6 @@ operator|.
 name|addCell
 argument_list|(
 name|type
-argument_list|)
-expr_stmt|;
-name|table
-operator|.
-name|addCell
-argument_list|(
-name|pluginInfo
-operator|.
-name|isIsolation
-argument_list|()
-condition|?
-literal|"x"
-else|:
-literal|""
 argument_list|)
 expr_stmt|;
 name|table
