@@ -577,6 +577,10 @@ argument_list|,
 literal|"tests.security.manager"
 argument_list|,
 literal|"tests.nighly"
+argument_list|,
+literal|"tests.jvms"
+argument_list|,
+literal|"tests.client.ratio"
 argument_list|)
 expr_stmt|;
 if|if
