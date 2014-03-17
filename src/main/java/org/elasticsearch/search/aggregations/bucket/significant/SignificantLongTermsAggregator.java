@@ -473,8 +473,6 @@ name|termsAggFactory
 operator|.
 name|getBackgroundFrequency
 argument_list|(
-name|topReader
-argument_list|,
 name|spare
 operator|.
 name|term
