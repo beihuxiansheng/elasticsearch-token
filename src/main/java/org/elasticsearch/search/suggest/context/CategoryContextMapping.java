@@ -243,7 +243,7 @@ specifier|final
 name|String
 name|TYPE
 init|=
-literal|"field"
+literal|"category"
 decl_stmt|;
 DECL|field|FIELD_FIELDNAME
 specifier|private
