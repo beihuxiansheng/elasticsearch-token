@@ -364,7 +364,7 @@ name|hamcrest
 operator|.
 name|CoreMatchers
 operator|.
-name|*
+name|is
 import|;
 end_import
 
@@ -1636,6 +1636,8 @@ argument_list|(
 name|isDownloadServiceWorking
 argument_list|(
 literal|"http://download.elasticsearch.org/"
+argument_list|,
+literal|"elasticsearch/ci-test.txt"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1665,6 +1667,8 @@ argument_list|(
 name|isDownloadServiceWorking
 argument_list|(
 literal|"http://search.maven.org/"
+argument_list|,
+literal|"/"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1694,6 +1698,8 @@ argument_list|(
 name|isDownloadServiceWorking
 argument_list|(
 literal|"https://github.com/"
+argument_list|,
+literal|"/"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1712,6 +1718,9 @@ name|isDownloadServiceWorking
 parameter_list|(
 name|String
 name|url
+parameter_list|,
+name|String
+name|resource
 parameter_list|)
 block|{
 name|HttpClient
@@ -1725,13 +1734,36 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
+if|if
+condition|(
 name|client
 operator|.
 name|request
 argument_list|(
-literal|"/"
+name|resource
+argument_list|)
+operator|.
+name|errorCode
+argument_list|()
+operator|!=
+literal|200
+condition|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"[{}{}] download service is not working. Disabling current test."
+argument_list|,
+name|url
+argument_list|,
+name|resource
 argument_list|)
 expr_stmt|;
+return|return
+literal|false
+return|;
+block|}
 return|return
 literal|true
 return|;
@@ -1746,9 +1778,11 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"[{}] download service is not working. Disabling current test."
+literal|"[{}{}] download service is not working. Disabling current test."
 argument_list|,
 name|url
+argument_list|,
+name|resource
 argument_list|)
 expr_stmt|;
 block|}
