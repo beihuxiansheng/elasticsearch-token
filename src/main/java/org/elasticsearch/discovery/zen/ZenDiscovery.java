@@ -5592,7 +5592,9 @@ name|settings
 operator|.
 name|getAsInt
 argument_list|(
-literal|"discovery.zen.minimum_master_nodes"
+name|ElectMasterService
+operator|.
+name|DISCOVERY_ZEN_MINIMUM_MASTER_NODES
 argument_list|,
 name|ZenDiscovery
 operator|.
@@ -5622,7 +5624,11 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"updating discovery.zen.minimum_master_nodes from [{}] to [{}]"
+literal|"updating {} from [{}] to [{}]"
+argument_list|,
+name|ElectMasterService
+operator|.
+name|DISCOVERY_ZEN_MINIMUM_MASTER_NODES
 argument_list|,
 name|ZenDiscovery
 operator|.
