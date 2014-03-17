@@ -79,7 +79,7 @@ name|MergeSchedulerProvider
 argument_list|>
 name|DEFAULT
 init|=
-name|ConcurrentMergeSchedulerProvider
+name|SerialMergeSchedulerProvider
 operator|.
 name|class
 decl_stmt|;

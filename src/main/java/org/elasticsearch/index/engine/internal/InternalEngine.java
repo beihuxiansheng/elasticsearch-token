@@ -4688,10 +4688,35 @@ name|boolean
 name|possibleMergeNeeded
 parameter_list|()
 block|{
+name|IndexWriter
+name|writer
+init|=
+name|this
+operator|.
+name|indexWriter
+decl_stmt|;
+if|if
+condition|(
+name|writer
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+comment|// a merge scheduler might bail without going through all its pending merges
+comment|// so make sure we also check if there are pending merges
 return|return
 name|this
 operator|.
 name|possibleMergeNeeded
+operator|||
+name|writer
+operator|.
+name|hasPendingMerges
+argument_list|()
 return|;
 block|}
 annotation|@

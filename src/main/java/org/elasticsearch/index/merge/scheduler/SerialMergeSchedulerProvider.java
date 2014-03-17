@@ -215,6 +215,12 @@ name|CustomSerialMergeScheduler
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|field|maxMergeAtOnce
+specifier|private
+specifier|final
+name|int
+name|maxMergeAtOnce
+decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|SerialMergeSchedulerProvider
@@ -242,11 +248,26 @@ argument_list|,
 name|threadPool
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|maxMergeAtOnce
+operator|=
+name|componentSettings
+operator|.
+name|getAsInt
+argument_list|(
+literal|"max_merge_at_once"
+argument_list|,
+literal|5
+argument_list|)
+expr_stmt|;
 name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"using [serial] merge scheduler"
+literal|"using [serial] merge scheduler, max_merge_at_once [{}]"
+argument_list|,
+name|maxMergeAtOnce
 argument_list|)
 expr_stmt|;
 block|}
@@ -409,6 +430,10 @@ block|{
 name|super
 argument_list|(
 name|logger
+argument_list|,
+name|provider
+operator|.
+name|maxMergeAtOnce
 argument_list|)
 expr_stmt|;
 name|this
