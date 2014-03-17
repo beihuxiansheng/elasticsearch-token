@@ -655,8 +655,6 @@ return|return
 literal|true
 return|;
 block|}
-else|else
-block|{
 return|return
 name|hasParentBucketAggregator
 argument_list|(
@@ -666,7 +664,6 @@ name|parent
 argument_list|()
 argument_list|)
 return|;
-block|}
 block|}
 annotation|@
 name|Override
@@ -902,8 +899,6 @@ name|this
 argument_list|)
 return|;
 block|}
-else|else
-block|{
 return|return
 operator|new
 name|SignificantStringTermsAggregator
@@ -931,7 +926,6 @@ argument_list|,
 name|this
 argument_list|)
 return|;
-block|}
 block|}
 if|if
 condition|(
@@ -1029,8 +1023,7 @@ literal|"]. It can only be applied to numeric or string fields."
 argument_list|)
 throw|;
 block|}
-comment|// Many child aggs may ask for the same docFreq information so here we cache docFreq
-comment|// values for these terms.
+comment|// Many child aggs may ask for the same docFreq information so here we cache docFreq values for these terms.
 comment|// TODO this should be re-factored into a more generic system for efficiently checking frequencies of things
 comment|// In future we may need to a) check the frequency in a set other than the index e.g. a subset and b) check
 comment|// the frequency of an entity other than an a single indexed term e.g. a numeric range.
@@ -1151,8 +1144,7 @@ return|return
 name|result
 return|;
 block|}
-comment|// Many child aggs may ask for the same docFreq information so cache docFreq
-comment|// values for these terms
+comment|// Many child aggs may ask for the same docFreq information so cache docFreq values for these terms
 DECL|method|getBackgroundFrequency
 specifier|public
 name|long

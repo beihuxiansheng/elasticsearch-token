@@ -256,6 +256,7 @@ name|numCollectedDocs
 decl_stmt|;
 DECL|field|termsAggFactory
 specifier|private
+specifier|final
 name|SignificantTermsAggregatorFactory
 name|termsAggFactory
 decl_stmt|;
@@ -385,8 +386,8 @@ operator|.
 name|capacity
 argument_list|()
 condition|;
-operator|++
 name|i
+operator|++
 control|)
 block|{
 specifier|final
@@ -494,10 +495,8 @@ name|spare
 operator|.
 name|supersetDf
 assert|;
-comment|// During shard-local down-selection we use subset/superset stats
-comment|// that are for this shard only
-comment|// Back at the central reducer these properties will be updated with
-comment|// global stats
+comment|// During shard-local down-selection we use subset/superset stats that are for this shard only
+comment|// Back at the central reducer these properties will be updated with global stats
 name|spare
 operator|.
 name|updateScore
@@ -558,8 +557,8 @@ name|i
 operator|>=
 literal|0
 condition|;
-operator|--
 name|i
+operator|--
 control|)
 block|{
 specifier|final
@@ -633,8 +632,7 @@ name|SignificantLongTerms
 name|buildEmptyAggregation
 parameter_list|()
 block|{
-comment|// We need to account for the significance of a miss in our global stats
-comment|// - provide corpus size as context
+comment|// We need to account for the significance of a miss in our global stats - provide corpus size as context
 name|ContextIndexSearcher
 name|searcher
 init|=

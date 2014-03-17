@@ -313,6 +313,7 @@ name|numCollectedDocs
 decl_stmt|;
 DECL|field|termsAggFactory
 specifier|protected
+specifier|final
 name|SignificantTermsAggregatorFactory
 name|termsAggFactory
 decl_stmt|;
@@ -666,8 +667,8 @@ name|i
 operator|>=
 literal|0
 condition|;
-operator|--
 name|i
+operator|--
 control|)
 block|{
 specifier|final
@@ -750,8 +751,7 @@ name|SignificantStringTerms
 name|buildEmptyAggregation
 parameter_list|()
 block|{
-comment|// We need to account for the significance of a miss in our global stats
-comment|// - provide corpus size as context
+comment|// We need to account for the significance of a miss in our global stats - provide corpus size as context
 name|ContextIndexSearcher
 name|searcher
 init|=
@@ -1101,8 +1101,7 @@ operator|<
 literal|0
 condition|)
 block|{
-comment|// unlikely condition on a low-cardinality
-comment|// field
+comment|// unlikely condition on a low-cardinality field
 specifier|final
 name|BytesRef
 name|bytes

@@ -331,11 +331,10 @@ return|return
 name|subsetSize
 return|;
 block|}
-comment|/**          * Calculates the significance of a term in a sample against a background of          * normal distributions by comparing the changes in frequency. This is the heart          * of the significant terms feature.           *           * TODO - allow pluggable scoring implementations          *           * @param subsetFreq The frequency of the term in the selected sample          * @param subsetSize The size of the selected sample (typically number of docs)          * @param supersetFreq The frequency of the term in the superset from which the sample was taken          * @param supersetSize The size of the superset from which the sample was taken  (typically number of docs)          * @return a "significance" score          */
+comment|/**          * Calculates the significance of a term in a sample against a background of          * normal distributions by comparing the changes in frequency. This is the heart          * of the significant terms feature.          *<p/>          * TODO - allow pluggable scoring implementations          *          * @param subsetFreq   The frequency of the term in the selected sample          * @param subsetSize   The size of the selected sample (typically number of docs)          * @param supersetFreq The frequency of the term in the superset from which the sample was taken          * @param supersetSize The size of the superset from which the sample was taken  (typically number of docs)          * @return a "significance" score          */
 DECL|method|getSampledTermSignificance
 specifier|public
 specifier|static
-specifier|final
 name|double
 name|getSampledTermSignificance
 parameter_list|(

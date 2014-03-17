@@ -142,6 +142,7 @@ name|minDocCount
 decl_stmt|;
 DECL|field|termsAggFactory
 specifier|private
+specifier|final
 name|SignificantTermsAggregatorFactory
 name|termsAggFactory
 decl_stmt|;
