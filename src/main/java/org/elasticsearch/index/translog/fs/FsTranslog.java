@@ -1895,7 +1895,7 @@ operator|.
 name|bytes
 argument_list|()
 decl_stmt|;
-comment|// TODO: pass teh BytesReference to the FsTranslogFile and have them optimize writing
+comment|// TODO: pass the BytesReference to the FsTranslogFile and have them optimize writing
 if|if
 condition|(
 operator|!

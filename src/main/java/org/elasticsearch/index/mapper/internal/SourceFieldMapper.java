@@ -2218,12 +2218,6 @@ name|toBytesArray
 argument_list|()
 expr_stmt|;
 block|}
-assert|assert
-name|source
-operator|.
-name|hasArray
-argument_list|()
-assert|;
 name|fields
 operator|.
 name|add
