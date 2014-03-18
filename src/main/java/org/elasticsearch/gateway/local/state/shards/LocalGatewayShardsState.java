@@ -1748,24 +1748,11 @@ operator|.
 name|bytes
 argument_list|()
 decl_stmt|;
-name|fos
+name|bytes
 operator|.
-name|write
+name|writeTo
 argument_list|(
-name|bytes
-operator|.
-name|array
-argument_list|()
-argument_list|,
-name|bytes
-operator|.
-name|arrayOffset
-argument_list|()
-argument_list|,
-name|bytes
-operator|.
-name|length
-argument_list|()
+name|fos
 argument_list|)
 expr_stmt|;
 name|fos
@@ -1822,6 +1809,8 @@ name|warn
 argument_list|(
 literal|"[{}][{}]: failed to write shard state"
 argument_list|,
+name|lastFailure
+argument_list|,
 name|shardId
 operator|.
 name|index
@@ -1834,8 +1823,6 @@ name|shardId
 operator|.
 name|id
 argument_list|()
-argument_list|,
-name|lastFailure
 argument_list|)
 expr_stmt|;
 throw|throw

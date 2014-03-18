@@ -2213,7 +2213,7 @@ operator|.
 name|bytes
 argument_list|()
 operator|.
-name|array
+name|toBytes
 argument_list|()
 decl_stmt|;
 name|Document

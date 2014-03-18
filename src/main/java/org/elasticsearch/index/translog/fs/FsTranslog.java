@@ -1895,6 +1895,24 @@ operator|.
 name|bytes
 argument_list|()
 decl_stmt|;
+comment|// TODO: pass teh BytesReference to the FsTranslogFile and have them optimize writing
+if|if
+condition|(
+operator|!
+name|ref
+operator|.
+name|hasArray
+argument_list|()
+condition|)
+block|{
+name|ref
+operator|=
+name|ref
+operator|.
+name|toBytesArray
+argument_list|()
+expr_stmt|;
+block|}
 name|byte
 index|[]
 name|refBytes
