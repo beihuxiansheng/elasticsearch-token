@@ -905,7 +905,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> waiting for 10000 docs to be indexed ..."
+literal|"--> waiting for 15000 docs to be indexed ..."
 argument_list|)
 expr_stmt|;
 name|waitForDocs
@@ -917,7 +917,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> 10000 docs indexed"
+literal|"--> 15000 docs indexed"
 argument_list|)
 expr_stmt|;
 name|logger
@@ -3514,10 +3514,28 @@ parameter_list|)
 throws|throws
 name|InterruptedException
 block|{
-name|assertThat
-argument_list|(
-name|awaitBusy
-argument_list|(
+specifier|final
+name|long
+index|[]
+name|lastKnownCount
+init|=
+block|{
+operator|-
+literal|1
+block|}
+decl_stmt|;
+name|long
+name|lastStartCount
+init|=
+operator|-
+literal|1
+decl_stmt|;
+name|Predicate
+argument_list|<
+name|Object
+argument_list|>
+name|testDocs
+init|=
 operator|new
 name|Predicate
 argument_list|<
@@ -3533,9 +3551,11 @@ name|Object
 name|o
 parameter_list|)
 block|{
-name|long
-name|count
-init|=
+name|lastKnownCount
+index|[
+literal|0
+index|]
+operator|=
 name|client
 argument_list|()
 operator|.
@@ -3556,25 +3576,40 @@ argument_list|()
 operator|.
 name|getCount
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 name|logger
 operator|.
 name|debug
 argument_list|(
 literal|"[{}] docs visible for search. waiting for [{}]"
 argument_list|,
-name|count
+name|lastKnownCount
+index|[
+literal|0
+index|]
 argument_list|,
 name|numDocs
 argument_list|)
 expr_stmt|;
 return|return
-name|count
+name|lastKnownCount
+index|[
+literal|0
+index|]
 operator|>
 name|numDocs
 return|;
 block|}
 block|}
+decl_stmt|;
+comment|// 5 minutes seems like a long time but while relocating,    indexing threads can wait for up to ~1m before retrying when
+comment|// they first try to index into a shard which is not STARTED.
+while|while
+condition|(
+operator|!
+name|awaitBusy
+argument_list|(
+name|testDocs
 argument_list|,
 literal|5
 argument_list|,
@@ -3582,14 +3617,37 @@ name|TimeUnit
 operator|.
 name|MINUTES
 argument_list|)
-argument_list|,
-name|equalTo
+condition|)
+block|{
+if|if
+condition|(
+name|lastStartCount
+operator|==
+name|lastKnownCount
+index|[
+literal|0
+index|]
+condition|)
+block|{
+comment|// we didn't make any progress
+name|fail
 argument_list|(
-literal|true
-argument_list|)
+literal|"failed to reach "
+operator|+
+name|numDocs
+operator|+
+literal|"docs"
 argument_list|)
 expr_stmt|;
-comment|// not really relevant here we just have to wait some time
+block|}
+name|lastStartCount
+operator|=
+name|lastKnownCount
+index|[
+literal|0
+index|]
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class
