@@ -395,10 +395,10 @@ argument_list|()
 operator|==
 name|BucketAggregationMode
 operator|.
-name|MULTI_BUCKETS
+name|PER_BUCKET
 condition|)
 block|{
-comment|// if the parent is a multi-bucket aggregator, we substract 5 to the precision,
+comment|// if the parent is a per-bucket aggregator, we substract 5 to the precision,
 comment|// which will effectively divide the memory usage of each counter by 32
 name|precision
 operator|-=

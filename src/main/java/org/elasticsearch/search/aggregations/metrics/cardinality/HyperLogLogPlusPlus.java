@@ -401,6 +401,23 @@ return|return
 name|precision
 return|;
 block|}
+comment|/**      * Return the expected per-bucket memory usage for the given precision.      */
+DECL|method|memoryUsage
+specifier|public
+specifier|static
+name|long
+name|memoryUsage
+parameter_list|(
+name|int
+name|precision
+parameter_list|)
+block|{
+return|return
+literal|1L
+operator|<<
+name|precision
+return|;
+block|}
 comment|// these static tables come from the appendix of the paper
 DECL|field|RAW_ESTIMATE_DATA
 specifier|private
