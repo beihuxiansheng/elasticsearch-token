@@ -80,6 +80,18 @@ name|OutputStream
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|channels
+operator|.
+name|GatheringByteChannel
+import|;
+end_import
+
 begin_comment
 comment|/**  * A reference to bytes.  */
 end_comment
@@ -380,6 +392,17 @@ name|writeTo
 parameter_list|(
 name|OutputStream
 name|os
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
+comment|/**      * Writes the bytes directly to the channel.      */
+DECL|method|writeTo
+name|void
+name|writeTo
+parameter_list|(
+name|GatheringByteChannel
+name|channel
 parameter_list|)
 throws|throws
 name|IOException
