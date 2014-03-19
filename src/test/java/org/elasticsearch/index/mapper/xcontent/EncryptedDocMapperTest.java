@@ -270,6 +270,10 @@ argument_list|(
 literal|"test"
 argument_list|)
 argument_list|,
+name|ImmutableSettings
+operator|.
+name|EMPTY
+argument_list|,
 operator|new
 name|AnalysisService
 argument_list|(
@@ -789,6 +793,10 @@ name|Index
 argument_list|(
 literal|"test"
 argument_list|)
+argument_list|,
+name|ImmutableSettings
+operator|.
+name|EMPTY
 argument_list|,
 operator|new
 name|AnalysisService
