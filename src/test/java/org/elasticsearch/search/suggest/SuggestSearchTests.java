@@ -7917,17 +7917,7 @@ argument_list|,
 literal|"united states house of representatives elections in washington 2006"
 argument_list|)
 expr_stmt|;
-name|assertThat
-argument_list|(
-name|total
-argument_list|,
-name|lessThan
-argument_list|(
-literal|1000L
-argument_list|)
-argument_list|)
-expr_stmt|;
-comment|// Takes many seconds without fix
+comment|// assertThat(total, lessThan(1000L)); // Takes many seconds without fix - just for debugging
 block|}
 DECL|method|searchSuggest
 specifier|protected
