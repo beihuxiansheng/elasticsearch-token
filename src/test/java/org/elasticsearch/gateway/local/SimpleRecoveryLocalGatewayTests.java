@@ -390,6 +390,8 @@ name|Scope
 operator|.
 name|TEST
 argument_list|)
+annotation|@
+name|Slow
 DECL|class|SimpleRecoveryLocalGatewayTests
 specifier|public
 class|class

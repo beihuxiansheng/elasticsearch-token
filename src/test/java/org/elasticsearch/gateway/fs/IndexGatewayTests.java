@@ -450,6 +450,8 @@ name|numNodes
 operator|=
 literal|0
 argument_list|)
+annotation|@
+name|Slow
 DECL|class|IndexGatewayTests
 specifier|public
 class|class
@@ -649,8 +651,6 @@ return|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Slow
 DECL|method|testSnapshotOperations
 specifier|public
 name|void
@@ -3248,8 +3248,6 @@ return|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Slow
 DECL|method|testRandom
 specifier|public
 name|void
@@ -3265,8 +3263,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Slow
 DECL|method|testIndexActions
 specifier|public
 name|void
