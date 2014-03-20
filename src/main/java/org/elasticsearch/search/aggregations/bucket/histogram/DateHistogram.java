@@ -63,7 +63,7 @@ name|Histogram
 operator|.
 name|Bucket
 block|{
-comment|/**          * @return the key as a date construct.          */
+comment|/**          * @return the key as a date construct (in UTC timezone).          */
 DECL|method|getKeyAsDate
 name|DateTime
 name|getKeyAsDate
