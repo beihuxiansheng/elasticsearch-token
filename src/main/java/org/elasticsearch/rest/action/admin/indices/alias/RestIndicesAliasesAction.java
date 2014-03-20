@@ -603,12 +603,9 @@ elseif|else
 if|if
 condition|(
 name|token
-operator|==
-name|XContentParser
 operator|.
-name|Token
-operator|.
-name|VALUE_STRING
+name|isValue
+argument_list|()
 condition|)
 block|{
 if|if
