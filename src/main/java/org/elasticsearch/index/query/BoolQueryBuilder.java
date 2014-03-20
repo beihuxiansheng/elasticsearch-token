@@ -312,7 +312,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Return<code>true</code> if the query being built has no clause yet      */
+comment|/**      * Returns<code>true</code> iff this query builder has at least one should, must or mustNot clause.      * Otherwise<code>false</code>.      */
 DECL|method|hasClauses
 specifier|public
 name|boolean
@@ -321,22 +321,22 @@ parameter_list|()
 block|{
 return|return
 operator|!
+operator|(
 name|mustClauses
 operator|.
 name|isEmpty
 argument_list|()
-operator|||
-operator|!
-name|mustNotClauses
-operator|.
-name|isEmpty
-argument_list|()
-operator|||
-operator|!
+operator|&&
 name|shouldClauses
 operator|.
 name|isEmpty
 argument_list|()
+operator|&&
+name|mustNotClauses
+operator|.
+name|isEmpty
+argument_list|()
+operator|)
 return|;
 block|}
 comment|/**      * If a boolean query contains only negative ("must not") clauses should the      * BooleanQuery be enhanced with a {@link MatchAllDocsQuery} in order to act      * as a pure exclude. The default is<code>true</code>.      */
