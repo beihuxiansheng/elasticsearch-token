@@ -239,6 +239,7 @@ name|NAME
 block|}
 return|;
 block|}
+comment|/**      * Parses the template query replacing template parameters with provided values.      * Handles both submitting the template as part of the request as well as      * referencing only the template name.      * @param parseContext parse context containing the templated query.      */
 annotation|@
 name|Override
 annotation|@
