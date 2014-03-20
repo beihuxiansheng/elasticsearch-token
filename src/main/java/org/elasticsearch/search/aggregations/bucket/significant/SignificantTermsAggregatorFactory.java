@@ -723,14 +723,13 @@ block|{
 name|numberOfAggregatorsCreated
 operator|++
 expr_stmt|;
-switch|switch
+if|if
 condition|(
 name|numberOfAggregatorsCreated
+operator|==
+literal|1
 condition|)
 block|{
-case|case
-literal|1
-case|:
 comment|// Setup a termsEnum for use by first aggregator
 try|try
 block|{
@@ -765,7 +764,7 @@ argument_list|,
 name|indexedFieldName
 argument_list|)
 decl_stmt|;
-comment|//terms can be null if the choice of field is not found in this index
+comment|// terms can be null if the choice of field is not found in this index
 if|if
 condition|(
 name|terms
@@ -800,12 +799,18 @@ name|e
 argument_list|)
 throw|;
 block|}
-break|break;
-case|case
+block|}
+elseif|else
+if|if
+condition|(
+name|numberOfAggregatorsCreated
+operator|==
 literal|2
-case|:
-comment|// When we have> 1 agg we have possibility of duplicate term frequency lookups and so introduce a cache
-comment|// in the form of a wrapper around the plain termsEnum created for use with the first agg
+condition|)
+block|{
+comment|// When we have> 1 agg we have possibility of duplicate term frequency lookups and
+comment|// so introduce a cache in the form of a wrapper around the plain termsEnum created
+comment|// for use with the first agg
 if|if
 condition|(
 name|termsEnum
@@ -839,7 +844,6 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-break|break;
 block|}
 name|long
 name|estimatedBucketCount
