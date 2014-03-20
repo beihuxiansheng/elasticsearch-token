@@ -24,18 +24,6 @@ name|github
 operator|.
 name|mustachejava
 operator|.
-name|DefaultMustacheFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|github
-operator|.
-name|mustachejava
-operator|.
 name|Mustache
 import|;
 end_import
@@ -364,7 +352,7 @@ comment|/** Factory to generate Mustache objects from. */
 return|return
 operator|(
 operator|new
-name|DefaultMustacheFactory
+name|JsonEscapingMustacheFactory
 argument_list|()
 operator|)
 operator|.
