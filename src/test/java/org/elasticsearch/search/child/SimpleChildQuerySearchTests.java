@@ -42,6 +42,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|Version
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|action
 operator|.
 name|admin
@@ -6259,6 +6269,30 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+static|static
+block|{
+assert|assert
+name|Version
+operator|.
+name|CURRENT
+operator|.
+name|luceneVersion
+operator|==
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Version
+operator|.
+name|LUCENE_47
+operator|:
+literal|"See comments in testDfsSearchType"
+assert|;
+block|}
 annotation|@
 name|Test
 DECL|method|testDfsSearchType
@@ -6467,6 +6501,8 @@ name|SearchType
 operator|.
 name|DFS_QUERY_THEN_FETCH
 argument_list|)
+comment|// Enable this again when upgraded to Lucene 4.7.1
+comment|//                .setQuery(boolQuery().mustNot(hasChildQuery("child", boolQuery().should(queryString("c_field:*"))))).get();
 operator|.
 name|setQuery
 argument_list|(
@@ -6484,10 +6520,8 @@ argument_list|()
 operator|.
 name|should
 argument_list|(
-name|queryString
-argument_list|(
-literal|"c_field:*"
-argument_list|)
+name|matchAllQuery
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -6517,6 +6551,8 @@ name|SearchType
 operator|.
 name|DFS_QUERY_THEN_FETCH
 argument_list|)
+comment|// Enable this again when upgraded to Lucene 4.7.1
+comment|//                .setQuery(boolQuery().mustNot(hasParentQuery("parent", boolQuery().should(queryString("p_field:*"))))).execute()
 operator|.
 name|setQuery
 argument_list|(
@@ -6534,10 +6570,8 @@ argument_list|()
 operator|.
 name|should
 argument_list|(
-name|queryString
-argument_list|(
-literal|"p_field:*"
-argument_list|)
+name|matchAllQuery
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -6570,6 +6604,8 @@ name|SearchType
 operator|.
 name|DFS_QUERY_THEN_FETCH
 argument_list|)
+comment|// Enable this again when upgraded to Lucene 4.7.1
+comment|//                .setQuery(boolQuery().mustNot(topChildrenQuery("child", boolQuery().should(queryString("c_field:*"))))).execute()
 operator|.
 name|setQuery
 argument_list|(
@@ -6587,10 +6623,8 @@ argument_list|()
 operator|.
 name|should
 argument_list|(
-name|queryString
-argument_list|(
-literal|"c_field:*"
-argument_list|)
+name|matchAllQuery
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
