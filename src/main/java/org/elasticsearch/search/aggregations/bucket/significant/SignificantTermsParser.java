@@ -24,6 +24,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|Filter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -210,7 +224,7 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|ValuesSource
+name|FieldContext
 import|;
 end_import
 
@@ -226,7 +240,7 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|FieldContext
+name|ValuesSource
 import|;
 end_import
 
@@ -398,6 +412,11 @@ name|IOException
 block|{
 name|String
 name|field
+init|=
+literal|null
+decl_stmt|;
+name|Filter
+name|filter
 init|=
 literal|null
 decl_stmt|;
@@ -752,6 +771,17 @@ operator|.
 name|START_OBJECT
 condition|)
 block|{
+comment|// TODO not sure if code below is the best means to declare a filter for
+comment|// defining an alternative background stats context.
+comment|// In trial runs it becomes obvious that the choice of background does have to
+comment|// be a strict superset of the foreground subset otherwise the significant terms algo
+comment|// immediately singles out the odd terms that are in the foreground but not represented
+comment|// in the background. So a better approach may be to use a designated parent agg as the
+comment|// background because parent aggs are always guaranteed to be a superset whereas arbitrary
+comment|// filters defined by end users and parsed below are not.
+comment|//                if ("background_context".equals(currentFieldName)) {
+comment|//                    filter = context.queryParserService().parseInnerFilter(parser).filter();
+comment|//                } else
 if|if
 condition|(
 literal|"include"
@@ -1241,6 +1271,8 @@ argument_list|,
 name|includeExclude
 argument_list|,
 name|executionHint
+argument_list|,
+name|filter
 argument_list|)
 return|;
 block|}
@@ -1486,6 +1518,8 @@ argument_list|,
 name|includeExclude
 argument_list|,
 name|executionHint
+argument_list|,
+name|filter
 argument_list|)
 return|;
 block|}
