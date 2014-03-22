@@ -18,6 +18,34 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|randomizedtesting
+operator|.
+name|annotations
+operator|.
+name|Nightly
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|randomizedtesting
+operator|.
+name|annotations
+operator|.
+name|Repeat
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -254,6 +282,18 @@ name|equalTo
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|is
+import|;
+end_import
+
 begin_class
 DECL|class|SearchWhileRelocatingTests
 specifier|public
@@ -262,21 +302,15 @@ name|SearchWhileRelocatingTests
 extends|extends
 name|ElasticsearchIntegrationTest
 block|{
-annotation|@
-name|LuceneTestCase
-operator|.
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"problem with search searching on 1 shard (no replica), "
-operator|+
-literal|"and between getting the cluster state to do the search, and executing it, "
-operator|+
-literal|"the shard has fully relocated (moved from started on one node, to fully started on another node"
-argument_list|)
+comment|// @LuceneTestCase.AwaitsFix(bugUrl = "problem with search searching on 1 shard (no replica), " +
+comment|//   "and between getting the cluster state to do the search, and executing it, " +
+comment|//   "the shard has fully relocated (moved from started on one node, to fully started on another node")
+comment|//   ^^ the current impl of the test handles this case gracefully since it can happen with 1 replica as well
+comment|//   we just make sure if we get a partial result without a failure that the postsearch is ok!
 annotation|@
 name|Test
+annotation|@
+name|Nightly
 DECL|method|testSearchAndRelocateConcurrently0Replicas
 specifier|public
 name|void
@@ -292,12 +326,9 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|TestLogging
-argument_list|(
-literal|"org.elasticsearch.action.search.type:TRACE"
-argument_list|)
-annotation|@
 name|Test
+annotation|@
+name|Nightly
 DECL|method|testSearchAndRelocateConcurrently1Replicas
 specifier|public
 name|void
@@ -312,11 +343,33 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
+DECL|method|testSearchAndRelocateConcurrentlyRanodmReplicas
+specifier|public
+name|void
+name|testSearchAndRelocateConcurrentlyRanodmReplicas
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|testSearchAndRelocateConcurrently
+argument_list|(
+name|randomIntBetween
+argument_list|(
+literal|0
+argument_list|,
+literal|1
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testSearchAndRelocateConcurrently
 specifier|private
 name|void
 name|testSearchAndRelocateConcurrently
 parameter_list|(
+specifier|final
 name|int
 name|numberOfReplicas
 parameter_list|)
@@ -329,7 +382,7 @@ name|numShards
 init|=
 name|between
 argument_list|(
-literal|10
+literal|1
 argument_list|,
 literal|20
 argument_list|)
@@ -537,7 +590,7 @@ name|numIters
 init|=
 name|scaledRandomIntBetween
 argument_list|(
-literal|10
+literal|5
 argument_list|,
 literal|20
 argument_list|)
@@ -573,6 +626,20 @@ argument_list|<
 name|Throwable
 argument_list|>
 name|thrownExceptions
+init|=
+operator|new
+name|CopyOnWriteArrayList
+argument_list|<
+name|Throwable
+argument_list|>
+argument_list|()
+decl_stmt|;
+specifier|final
+name|List
+argument_list|<
+name|Throwable
+argument_list|>
+name|nonCriticalExceptions
 init|=
 operator|new
 name|CopyOnWriteArrayList
@@ -627,6 +694,11 @@ name|void
 name|run
 parameter_list|()
 block|{
+name|boolean
+name|criticalException
+init|=
+literal|true
+decl_stmt|;
 try|try
 block|{
 while|while
@@ -655,6 +727,29 @@ operator|.
 name|get
 argument_list|()
 decl_stmt|;
+comment|// if we did not search all shards but had no failures that is potentially fine
+comment|// if only the hit-count is wrong. this can happen if the cluster-state is behind when the
+comment|// request comes in. It's a small window but a known limitation.
+comment|//
+name|criticalException
+operator|=
+name|sr
+operator|.
+name|getTotalShards
+argument_list|()
+operator|==
+name|sr
+operator|.
+name|getSuccessfulShards
+argument_list|()
+operator|||
+name|sr
+operator|.
+name|getFailedShards
+argument_list|()
+operator|>
+literal|0
+expr_stmt|;
 name|assertHitCount
 argument_list|(
 name|sr
@@ -666,6 +761,10 @@ argument_list|(
 name|numDocs
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|criticalException
+operator|=
+literal|true
 expr_stmt|;
 specifier|final
 name|SearchHits
@@ -701,6 +800,8 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// this is the more critical but that we hit the actual hit array has a different size than the
+comment|// actual number of hits.
 block|}
 block|}
 catch|catch
@@ -709,6 +810,22 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
+if|if
+condition|(
+operator|!
+name|criticalException
+condition|)
+block|{
+name|nonCriticalExceptions
+operator|.
+name|add
+argument_list|(
+name|t
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|thrownExceptions
 operator|.
 name|add
@@ -716,6 +833,7 @@ argument_list|(
 name|t
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -853,6 +971,12 @@ name|thrownExceptions
 operator|.
 name|isEmpty
 argument_list|()
+operator|||
+operator|!
+name|nonCriticalExceptions
+operator|.
+name|isEmpty
+argument_list|()
 condition|)
 block|{
 name|Client
@@ -860,6 +984,11 @@ name|client
 init|=
 name|client
 argument_list|()
+decl_stmt|;
+name|boolean
+name|postSearchOK
+init|=
+literal|true
 decl_stmt|;
 name|String
 name|verified
@@ -904,12 +1033,20 @@ name|verified
 operator|=
 literal|"POST SEARCH FAIL"
 expr_stmt|;
+name|postSearchOK
+operator|=
+literal|false
+expr_stmt|;
 break|break;
 block|}
 block|}
 name|assertThat
 argument_list|(
-literal|"failed in iteration "
+literal|"numberOfReplicas: "
+operator|+
+name|numberOfReplicas
+operator|+
+literal|" failed in iteration "
 operator|+
 name|i
 operator|+
@@ -923,6 +1060,41 @@ name|Matchers
 operator|.
 name|emptyIterable
 argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// if we hit only non-critical exceptions we only make sure that the post search works
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"Non-CriticalExceptions: "
+operator|+
+name|nonCriticalExceptions
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+literal|"numberOfReplicas: "
+operator|+
+name|numberOfReplicas
+operator|+
+literal|" failed in iteration "
+operator|+
+name|i
+operator|+
+literal|", verification: "
+operator|+
+name|verified
+argument_list|,
+name|postSearchOK
+argument_list|,
+name|is
+argument_list|(
+literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
