@@ -312,6 +312,22 @@ name|*
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertAllSuccessful
+import|;
+end_import
+
 begin_class
 DECL|class|MinDocCountTests
 specifier|public
@@ -2006,6 +2022,11 @@ operator|.
 name|actionGet
 argument_list|()
 decl_stmt|;
+name|assertAllSuccessful
+argument_list|(
+name|allTermsResponse
+argument_list|)
+expr_stmt|;
 specifier|final
 name|Terms
 name|allTerms
@@ -2149,6 +2170,11 @@ operator|.
 name|actionGet
 argument_list|()
 decl_stmt|;
+name|assertAllSuccessful
+argument_list|(
+name|response
+argument_list|)
+expr_stmt|;
 name|assertSubset
 argument_list|(
 name|allTerms
