@@ -66,37 +66,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayDeque
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Deque
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Iterator
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
+name|*
 import|;
 end_import
 
@@ -1890,7 +1860,7 @@ name|System
 operator|.
 name|out
 operator|.
-name|printf
+name|print
 argument_list|(
 literal|"| "
 argument_list|)
@@ -1934,6 +1904,10 @@ name|out
 operator|.
 name|printf
 argument_list|(
+name|Locale
+operator|.
+name|ENGLISH
+argument_list|,
 literal|"%s%s, %d, %d, %d\n"
 argument_list|,
 operator|(

@@ -169,6 +169,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -503,6 +513,10 @@ name|out
 operator|.
 name|printf
 argument_list|(
+name|Locale
+operator|.
+name|ENGLISH
+argument_list|,
 literal|"--> Indexed %d so far\n"
 argument_list|,
 name|indexedDocs
@@ -602,6 +616,10 @@ name|out
 operator|.
 name|printf
 argument_list|(
+name|Locale
+operator|.
+name|ENGLISH
+argument_list|,
 literal|"--> Number of docs in index: %d\n"
 argument_list|,
 name|client
@@ -672,6 +690,10 @@ name|err
 operator|.
 name|printf
 argument_list|(
+name|Locale
+operator|.
+name|ENGLISH
+argument_list|,
 literal|"Expected total hits [%d] but got [%d]\n"
 argument_list|,
 name|numDocs
@@ -707,6 +729,10 @@ name|err
 operator|.
 name|printf
 argument_list|(
+name|Locale
+operator|.
+name|ENGLISH
+argument_list|,
 literal|"Expected hits length [%d] but got [%d]\n"
 argument_list|,
 name|requestSize
@@ -758,6 +784,10 @@ name|err
 operator|.
 name|printf
 argument_list|(
+name|Locale
+operator|.
+name|ENGLISH
+argument_list|,
 literal|"Expected sort value [%d] but got [%s]\n"
 argument_list|,
 name|counter
@@ -856,6 +886,10 @@ name|err
 operator|.
 name|printf
 argument_list|(
+name|Locale
+operator|.
+name|ENGLISH
+argument_list|,
 literal|"Expected total hits [%d] but got [%d]\n"
 argument_list|,
 name|numDocs
@@ -905,6 +939,10 @@ name|out
 operator|.
 name|printf
 argument_list|(
+name|Locale
+operator|.
+name|ENGLISH
+argument_list|,
 literal|"Cursor location=%d, avg time spent=%d ms\n"
 argument_list|,
 operator|(
@@ -924,6 +962,10 @@ name|out
 operator|.
 name|printf
 argument_list|(
+name|Locale
+operator|.
+name|ENGLISH
+argument_list|,
 literal|"heap max=%s, used=%s, percentage=%d\n"
 argument_list|,
 name|mem
@@ -985,6 +1027,10 @@ name|err
 operator|.
 name|printf
 argument_list|(
+name|Locale
+operator|.
+name|ENGLISH
+argument_list|,
 literal|"Expected hits length [%d] but got [%d]\n"
 argument_list|,
 name|requestSize
@@ -1036,6 +1082,10 @@ name|err
 operator|.
 name|printf
 argument_list|(
+name|Locale
+operator|.
+name|ENGLISH
+argument_list|,
 literal|"Expected sort value [%d] but got [%s]\n"
 argument_list|,
 name|counter
@@ -1074,6 +1124,10 @@ name|err
 operator|.
 name|printf
 argument_list|(
+name|Locale
+operator|.
+name|ENGLISH
+argument_list|,
 literal|"Counter should be 0 because scroll has been consumed\n"
 argument_list|)
 expr_stmt|;
