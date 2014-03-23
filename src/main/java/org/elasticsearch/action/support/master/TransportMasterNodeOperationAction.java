@@ -845,6 +845,13 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"no known master node, scheduling a retry"
+argument_list|)
+expr_stmt|;
 name|clusterService
 operator|.
 name|add
@@ -1106,6 +1113,23 @@ name|ConnectTransportException
 condition|)
 block|{
 comment|// we want to retry here a bit to see if a new master is elected
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"connection exception while trying to forward request to master node [{}], scheduling a retry. Error: [{}]"
+argument_list|,
+name|nodes
+operator|.
+name|masterNode
+argument_list|()
+argument_list|,
+name|exp
+operator|.
+name|getDetailedMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|clusterService
 operator|.
 name|add
@@ -1136,28 +1160,18 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-operator|!
 name|clusterState
 operator|.
-name|nodes
+name|version
 argument_list|()
-operator|.
-name|masterNodeId
-argument_list|()
-operator|.
-name|equals
-argument_list|(
+operator|!=
 name|clusterStateV2
 operator|.
-name|nodes
+name|version
 argument_list|()
-operator|.
-name|masterNodeId
-argument_list|()
-argument_list|)
 condition|)
 block|{
-comment|// master changes while adding the listener, try here
+comment|// something changed while adding, try again
 name|clusterService
 operator|.
 name|remove
