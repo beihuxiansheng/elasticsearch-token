@@ -6850,6 +6850,8 @@ name|SearchType
 operator|.
 name|QUERY_THEN_FETCH
 argument_list|)
+comment|// Enable this again when upgraded to Lucene 4.7.1
+comment|//                .setQuery(boolQuery().mustNot(topChildrenQuery("child", boolQuery().should(queryString("c_field:*"))))).execute()
 operator|.
 name|setQuery
 argument_list|(
@@ -6869,7 +6871,7 @@ name|should
 argument_list|(
 name|queryString
 argument_list|(
-literal|"c_field:*"
+literal|"c_field:(red OR yellow OR blue)"
 argument_list|)
 argument_list|)
 argument_list|)
