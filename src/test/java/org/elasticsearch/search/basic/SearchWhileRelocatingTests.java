@@ -100,6 +100,20 @@ name|action
 operator|.
 name|search
 operator|.
+name|SearchPhaseExecutionException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|search
+operator|.
 name|SearchResponse
 import|;
 end_import
@@ -802,6 +816,41 @@ argument_list|)
 expr_stmt|;
 comment|// this is the more critical but that we hit the actual hit array has a different size than the
 comment|// actual number of hits.
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|SearchPhaseExecutionException
+name|ex
+parameter_list|)
+block|{
+comment|// it's possible that all shards fail if we have a small number of shards.
+comment|// with replicas this should not happen
+if|if
+condition|(
+name|numberOfReplicas
+operator|==
+literal|1
+operator|||
+operator|!
+name|ex
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"all shards failed"
+argument_list|)
+condition|)
+block|{
+name|thrownExceptions
+operator|.
+name|add
+argument_list|(
+name|ex
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 catch|catch
