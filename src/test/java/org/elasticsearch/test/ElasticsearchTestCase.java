@@ -1098,7 +1098,7 @@ name|w
 operator|.
 name|closeException
 argument_list|()
-operator|==
+operator|!=
 literal|null
 condition|)
 block|{
