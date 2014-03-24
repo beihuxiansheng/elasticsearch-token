@@ -133,7 +133,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A JSON based content implementation using Jackson.  */
+comment|/**  * A Smile based content implementation using Jackson.  */
 end_comment
 
 begin_class
@@ -480,7 +480,7 @@ name|IOException
 block|{
 return|return
 operator|new
-name|JsonXContentParser
+name|SmileXContentParser
 argument_list|(
 name|smileFactory
 operator|.
