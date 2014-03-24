@@ -703,9 +703,6 @@ name|BytesArray
 argument_list|(
 literal|"{\"facet1\":{\"filter\":{ }}}"
 argument_list|)
-operator|.
-name|array
-argument_list|()
 argument_list|)
 operator|.
 name|get
