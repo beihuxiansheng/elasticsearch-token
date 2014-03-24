@@ -4,29 +4,15 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.cluster
+DECL|package|org.elasticsearch.discovery
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
+name|discovery
 package|;
 end_package
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
-import|;
-end_import
 
 begin_import
 import|import
@@ -54,6 +40,18 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|ClusterState
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
 name|node
 operator|.
 name|DiscoveryNode
@@ -69,6 +67,20 @@ operator|.
 name|common
 operator|.
 name|Priority
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|ImmutableSettings
 import|;
 end_import
 
@@ -122,11 +134,23 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|junit
+name|ElasticsearchIntegrationTest
 operator|.
-name|annotations
+name|ClusterScope
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|TestLogging
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticsearchIntegrationTest
+operator|.
+name|Scope
 import|;
 end_import
 
@@ -156,22 +180,6 @@ begin_import
 import|import static
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|ImmutableSettings
-operator|.
-name|settingsBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -180,24 +188,12 @@ name|equalTo
 import|;
 end_import
 
-begin_comment
-comment|/**  */
-end_comment
-
 begin_class
 annotation|@
-name|LuceneTestCase
-operator|.
-name|Slow
-annotation|@
-name|ElasticsearchIntegrationTest
-operator|.
 name|ClusterScope
 argument_list|(
 name|scope
 operator|=
-name|ElasticsearchIntegrationTest
-operator|.
 name|Scope
 operator|.
 name|TEST
@@ -206,26 +202,22 @@ name|numNodes
 operator|=
 literal|0
 argument_list|)
-DECL|class|ZenUnicastDiscoveryTests
+DECL|class|ZenUnicastDiscoveryTestsMinimumMasterNodes
 specifier|public
 class|class
-name|ZenUnicastDiscoveryTests
+name|ZenUnicastDiscoveryTestsMinimumMasterNodes
 extends|extends
 name|ElasticsearchIntegrationTest
 block|{
 annotation|@
 name|Test
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"discovery.zen:TRACE"
-argument_list|)
-comment|// The bug zen unicast ping override bug, may rarely manifest itself, it is very timing dependant.
-comment|// Without the fix in UnicastZenPing, this test fails roughly 1 out of 10 runs from the command line.
-DECL|method|testMasterElectionNotMissed
+comment|// Without the 'include temporalResponses responses to nodesToConnect' improvement in UnicastZenPing#sendPings this
+comment|// test fails, because 2 nodes elect themselves as master and the health request times out b/c waiting_for_nodes=3
+comment|// can't be satisfied.
+DECL|method|testUnicastDiscovery
 specifier|public
 name|void
-name|testMasterElectionNotMissed
+name|testUnicastDiscovery
 parameter_list|()
 throws|throws
 name|Exception
@@ -234,13 +226,14 @@ specifier|final
 name|Settings
 name|settings
 init|=
+name|ImmutableSettings
+operator|.
 name|settingsBuilder
 argument_list|()
-comment|// Failure only manifests if multicast ping is disabled!
 operator|.
 name|put
 argument_list|(
-literal|"discovery.zen.ping.multicast.ping.enabled"
+literal|"discovery.zen.ping.multicast.enabled"
 argument_list|,
 literal|false
 argument_list|)
@@ -251,22 +244,21 @@ literal|"discovery.zen.minimum_master_nodes"
 argument_list|,
 literal|2
 argument_list|)
-comment|// Can't use this, b/c at the moment all node will only ping localhost:9300
-comment|//                .put("discovery.zen.ping.unicast.hosts", "localhost")
 operator|.
 name|put
 argument_list|(
 literal|"discovery.zen.ping.unicast.hosts"
 argument_list|,
-literal|"localhost:15300,localhost:15301,localhost:15302"
+literal|"localhost"
 argument_list|)
 operator|.
 name|put
 argument_list|(
 literal|"transport.tcp.port"
 argument_list|,
-literal|"15300-15400"
+literal|"25400-25500"
 argument_list|)
+comment|// Need to use custom tcp port range otherwise we collide with the shared cluster
 operator|.
 name|build
 argument_list|()

@@ -124,16 +124,16 @@ name|scope
 operator|=
 name|Scope
 operator|.
-name|SUITE
+name|TEST
 argument_list|,
 name|numNodes
 operator|=
 literal|2
 argument_list|)
-DECL|class|DiscoveryTests
+DECL|class|ZenUnicastDiscoveryTests
 specifier|public
 class|class
-name|DiscoveryTests
+name|ZenUnicastDiscoveryTests
 extends|extends
 name|ElasticsearchIntegrationTest
 block|{
@@ -160,16 +160,12 @@ literal|"discovery.zen.ping.multicast.enabled"
 argument_list|,
 literal|false
 argument_list|)
-comment|// Can't use this, b/c at the moment all node will only ping localhost:9300 and the shared
-comment|// cluster will be running there, which leads of no node joining, because the cluster name
-comment|// isn't equal.
-comment|//                .put("discovery.zen.ping.unicast.hosts", "localhost")
 operator|.
 name|put
 argument_list|(
 literal|"discovery.zen.ping.unicast.hosts"
 argument_list|,
-literal|"localhost:25300,localhost:25301"
+literal|"localhost"
 argument_list|)
 operator|.
 name|put
@@ -178,6 +174,7 @@ literal|"transport.tcp.port"
 argument_list|,
 literal|"25300-25400"
 argument_list|)
+comment|// Need to use custom tcp port range otherwise we collide with the shared cluster
 operator|.
 name|put
 argument_list|(
