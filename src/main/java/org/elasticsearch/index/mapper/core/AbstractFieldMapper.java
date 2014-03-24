@@ -1584,7 +1584,6 @@ name|boost
 decl_stmt|;
 DECL|field|fieldType
 specifier|protected
-specifier|final
 name|FieldType
 name|fieldType
 decl_stmt|;
@@ -3364,7 +3363,8 @@ argument_list|()
 operator|.
 name|omitNorms
 argument_list|()
-operator|!=
+operator|&&
+operator|!
 name|fieldMergeWith
 operator|.
 name|fieldType
@@ -3384,7 +3384,7 @@ operator|.
 name|fullName
 argument_list|()
 operator|+
-literal|"] has different `norms.enabled` values"
+literal|"] cannot enable norms (`norms.enabled`)"
 argument_list|)
 expr_stmt|;
 block|}
@@ -3770,6 +3770,39 @@ argument_list|()
 condition|)
 block|{
 comment|// apply changeable values
+name|this
+operator|.
+name|fieldType
+operator|=
+operator|new
+name|FieldType
+argument_list|(
+name|this
+operator|.
+name|fieldType
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|fieldType
+operator|.
+name|setOmitNorms
+argument_list|(
+name|fieldMergeWith
+operator|.
+name|fieldType
+operator|.
+name|omitNorms
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|fieldType
+operator|.
+name|freeze
+argument_list|()
+expr_stmt|;
 name|this
 operator|.
 name|boost
