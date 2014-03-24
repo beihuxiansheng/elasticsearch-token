@@ -204,16 +204,6 @@ argument_list|<
 name|SuggestRequest
 argument_list|>
 block|{
-DECL|field|contentType
-specifier|static
-specifier|final
-name|XContentType
-name|contentType
-init|=
-name|Requests
-operator|.
-name|CONTENT_TYPE
-decl_stmt|;
 annotation|@
 name|Nullable
 DECL|field|routing
