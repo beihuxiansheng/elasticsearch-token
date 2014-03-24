@@ -1021,7 +1021,11 @@ name|acceptsDocsOutOfOrder
 parameter_list|()
 block|{
 return|return
-literal|true
+operator|!
+name|aggregationContext
+operator|.
+name|scoreDocsInOrder
+argument_list|()
 return|;
 block|}
 annotation|@
