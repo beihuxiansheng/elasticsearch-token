@@ -1403,14 +1403,7 @@ name|IOException
 block|{
 name|generator
 operator|.
-name|writeRaw
-argument_list|(
-literal|", \""
-argument_list|)
-expr_stmt|;
-name|generator
-operator|.
-name|writeRaw
+name|writeFieldName
 argument_list|(
 name|fieldName
 argument_list|)
@@ -1419,7 +1412,7 @@ name|generator
 operator|.
 name|writeRaw
 argument_list|(
-literal|"\" : "
+literal|':'
 argument_list|)
 expr_stmt|;
 name|flush
