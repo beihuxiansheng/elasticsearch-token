@@ -855,9 +855,6 @@ name|BytesArray
 argument_list|(
 literal|"{\"facet1\":{\"terms\":{\"field\":\"tag\"},\"facet_filter\":{ }}}"
 argument_list|)
-operator|.
-name|array
-argument_list|()
 argument_list|)
 operator|.
 name|get
