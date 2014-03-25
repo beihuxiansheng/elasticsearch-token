@@ -1565,7 +1565,7 @@ annotation|@
 name|Override
 DECL|method|get
 specifier|public
-name|void
+name|boolean
 name|get
 parameter_list|(
 name|long
@@ -1578,6 +1578,7 @@ name|BytesRef
 name|ref
 parameter_list|)
 block|{
+return|return
 name|in
 operator|.
 name|get
@@ -1588,7 +1589,7 @@ name|len
 argument_list|,
 name|ref
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 annotation|@
 name|Override

@@ -67,11 +67,11 @@ name|byte
 name|value
 parameter_list|)
 function_decl|;
-comment|/**      * Get a reference to a slice.      */
+comment|/**      * Get a reference to a slice.      *       * @return<code>true</code> when a byte[] was materialized,<code>false</code> otherwise.      */
 DECL|method|get
 specifier|public
 specifier|abstract
-name|void
+name|boolean
 name|get
 parameter_list|(
 name|long

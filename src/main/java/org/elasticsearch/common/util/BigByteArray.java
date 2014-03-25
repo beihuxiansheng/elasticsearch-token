@@ -309,7 +309,7 @@ annotation|@
 name|Override
 DECL|method|get
 specifier|public
-name|void
+name|boolean
 name|get
 parameter_list|(
 name|long
@@ -378,6 +378,9 @@ name|length
 operator|=
 name|len
 expr_stmt|;
+return|return
+literal|false
+return|;
 block|}
 else|else
 block|{
@@ -489,6 +492,9 @@ operator|<
 name|len
 condition|)
 do|;
+return|return
+literal|true
+return|;
 block|}
 block|}
 annotation|@
