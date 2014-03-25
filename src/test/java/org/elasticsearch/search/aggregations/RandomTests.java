@@ -1621,7 +1621,12 @@ name|executionHint
 argument_list|(
 name|TermsAggregatorFactory
 operator|.
-name|EXECUTION_HINT_VALUE_MAP
+name|ExecutionMode
+operator|.
+name|MAP
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 operator|.
 name|size
@@ -1659,7 +1664,12 @@ name|executionHint
 argument_list|(
 name|TermsAggregatorFactory
 operator|.
-name|EXECUTION_HINT_VALUE_ORDINALS
+name|ExecutionMode
+operator|.
+name|ORDINALS
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 operator|.
 name|size
