@@ -22,13 +22,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
+name|apache
 operator|.
-name|common
+name|lucene
 operator|.
-name|bytes
+name|util
 operator|.
-name|BytesReference
+name|BytesRef
 import|;
 end_import
 
@@ -42,7 +42,21 @@ name|common
 operator|.
 name|bytes
 operator|.
-name|PagedBytesReference
+name|BytesArray
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|bytes
+operator|.
+name|BytesReference
 import|;
 end_import
 
