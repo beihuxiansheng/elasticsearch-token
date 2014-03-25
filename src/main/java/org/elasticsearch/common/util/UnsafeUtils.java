@@ -364,7 +364,7 @@ name|length
 argument_list|)
 return|;
 block|}
-comment|/**      * Compare<code>b1[o1:o1+len)</code>against<code>b1[o2:o2+len)</code>.      */
+comment|/**      * Compare<code>b1[offset1:offset1+length)</code>against<code>b1[offset2:offset2+length)</code>.      */
 DECL|method|equals
 specifier|public
 specifier|static
@@ -376,19 +376,34 @@ index|[]
 name|b1
 parameter_list|,
 name|int
-name|o1
+name|offset1
 parameter_list|,
 name|byte
 index|[]
 name|b2
 parameter_list|,
 name|int
-name|o2
+name|offset2
 parameter_list|,
 name|int
-name|len
+name|length
 parameter_list|)
 block|{
+name|int
+name|o1
+init|=
+name|offset1
+decl_stmt|;
+name|int
+name|o2
+init|=
+name|offset2
+decl_stmt|;
+name|int
+name|len
+init|=
+name|length
+decl_stmt|;
 while|while
 condition|(
 name|len
