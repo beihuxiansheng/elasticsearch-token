@@ -5614,6 +5614,11 @@ condition|)
 block|{
 return|return;
 block|}
+name|context
+operator|.
+name|setWithinMultiFields
+argument_list|()
+expr_stmt|;
 name|ContentPath
 operator|.
 name|Type
@@ -5691,6 +5696,11 @@ name|pathType
 argument_list|(
 name|origPathType
 argument_list|)
+expr_stmt|;
+name|context
+operator|.
+name|clearWithinMultiFields
+argument_list|()
 expr_stmt|;
 block|}
 comment|// No need for locking, because locking is taken care of in ObjectMapper#merge and DocumentMapper#merge
