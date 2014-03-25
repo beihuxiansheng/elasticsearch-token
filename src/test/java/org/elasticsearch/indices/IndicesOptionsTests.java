@@ -2539,7 +2539,11 @@ literal|"test2"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
+comment|//TODO: temporary work-around for #5531
+name|ensureGreen
+argument_list|()
+expr_stmt|;
+name|waitForRelocation
 argument_list|()
 expr_stmt|;
 name|verify
@@ -4315,7 +4319,11 @@ literal|"barbaz"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
+comment|//TODO: temporary work-around for #5531
+name|ensureGreen
+argument_list|()
+expr_stmt|;
+name|waitForRelocation
 argument_list|()
 expr_stmt|;
 name|options
