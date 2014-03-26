@@ -214,6 +214,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|junit
+operator|.
+name|annotations
+operator|.
+name|TestLogging
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|joda
 operator|.
 name|time
@@ -329,6 +345,11 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|TestLogging
+argument_list|(
+literal|"_root:TRACE"
+argument_list|)
 DECL|class|MinDocCountTests
 specifier|public
 class|class
