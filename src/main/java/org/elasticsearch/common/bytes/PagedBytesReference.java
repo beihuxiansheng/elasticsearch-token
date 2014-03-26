@@ -1834,7 +1834,7 @@ name|pages
 operator|>
 literal|0
 operator|&&
-name|numBuffers
+name|numBytes
 operator|%
 name|PAGE_SIZE
 operator|>
