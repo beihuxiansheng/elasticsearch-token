@@ -464,6 +464,16 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// nothing to do
+if|if
+condition|(
+name|length
+operator|==
+literal|0
+condition|)
+block|{
+return|return;
+block|}
 name|BytesRef
 name|ref
 init|=
@@ -609,6 +619,16 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// nothing to do
+if|if
+condition|(
+name|length
+operator|==
+literal|0
+condition|)
+block|{
+return|return;
+block|}
 name|ByteBuffer
 index|[]
 name|buffers
@@ -1074,6 +1094,20 @@ name|ChannelBuffer
 name|toChannelBuffer
 parameter_list|()
 block|{
+comment|// nothing to do
+if|if
+condition|(
+name|length
+operator|==
+literal|0
+condition|)
+block|{
+return|return
+name|ChannelBuffers
+operator|.
+name|EMPTY_BUFFER
+return|;
+block|}
 name|ChannelBuffer
 index|[]
 name|buffers
