@@ -1159,6 +1159,9 @@ operator|new
 name|IntOpenHashSet
 argument_list|()
 decl_stmt|;
+name|cluster
+argument_list|()
+operator|.
 name|wipeIndices
 argument_list|(
 literal|"idx"

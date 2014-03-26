@@ -2587,6 +2587,9 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+name|cluster
+argument_list|()
+operator|.
 name|wipeIndices
 argument_list|(
 literal|"test"

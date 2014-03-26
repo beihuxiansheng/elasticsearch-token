@@ -394,6 +394,9 @@ name|void
 name|createIndex
 parameter_list|()
 block|{
+name|cluster
+argument_list|()
+operator|.
 name|wipeIndices
 argument_list|(
 name|getConcreteIndexName

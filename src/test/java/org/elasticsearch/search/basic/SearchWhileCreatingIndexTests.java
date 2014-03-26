@@ -671,6 +671,9 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+name|cluster
+argument_list|()
+operator|.
 name|wipeIndices
 argument_list|(
 literal|"test"

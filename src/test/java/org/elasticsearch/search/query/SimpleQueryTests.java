@@ -532,6 +532,20 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
+name|TestCluster
+operator|.
+name|DEFAULT_MAX_NUM_SHARDS
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
 name|hamcrest
 operator|.
 name|ElasticsearchAssertions
@@ -804,6 +818,9 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|cluster
+argument_list|()
+operator|.
 name|wipeIndices
 argument_list|(
 literal|"test"
@@ -3950,6 +3967,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|cluster
+argument_list|()
+operator|.
 name|wipeIndices
 argument_list|(
 literal|"test"

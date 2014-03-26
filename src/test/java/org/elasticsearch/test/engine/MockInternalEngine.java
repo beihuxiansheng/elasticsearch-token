@@ -402,7 +402,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|TestCluster
 import|;
 end_import
 
@@ -643,9 +643,9 @@ name|indexSettings
 operator|.
 name|getAsLong
 argument_list|(
-name|ElasticsearchIntegrationTest
+name|TestCluster
 operator|.
-name|INDEX_SEED_SETTING
+name|SETTING_INDEX_SEED
 argument_list|,
 literal|0l
 argument_list|)

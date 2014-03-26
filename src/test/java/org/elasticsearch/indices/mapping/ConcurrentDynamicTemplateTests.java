@@ -264,6 +264,9 @@ name|i
 operator|++
 control|)
 block|{
+name|cluster
+argument_list|()
+operator|.
 name|wipeIndices
 argument_list|(
 literal|"test"

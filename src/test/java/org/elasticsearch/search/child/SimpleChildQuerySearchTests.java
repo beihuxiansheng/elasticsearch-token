@@ -566,11 +566,9 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|hamcrest
+name|TestCluster
 operator|.
-name|ElasticsearchAssertions
-operator|.
-name|*
+name|DEFAULT_MAX_NUM_SHARDS
 import|;
 end_import
 
@@ -586,7 +584,7 @@ name|hamcrest
 operator|.
 name|ElasticsearchAssertions
 operator|.
-name|assertNoFailures
+name|*
 import|;
 end_import
 

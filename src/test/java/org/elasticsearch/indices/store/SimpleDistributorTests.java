@@ -879,6 +879,9 @@ name|String
 name|distributor
 parameter_list|)
 block|{
+name|cluster
+argument_list|()
+operator|.
 name|wipeIndices
 argument_list|(
 name|index
@@ -988,6 +991,9 @@ name|String
 name|distributor
 parameter_list|)
 block|{
+name|cluster
+argument_list|()
+operator|.
 name|wipeIndices
 argument_list|(
 name|index

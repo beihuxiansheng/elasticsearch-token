@@ -1286,6 +1286,9 @@ literal|"local"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|cluster
+argument_list|()
+operator|.
 name|wipeIndices
 argument_list|(
 literal|"_all"
