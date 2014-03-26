@@ -142,6 +142,18 @@ name|elasticsearch
 operator|.
 name|discovery
 operator|.
+name|DiscoverySettings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|discovery
+operator|.
 name|zen
 operator|.
 name|ZenDiscovery
@@ -292,6 +304,9 @@ name|azureService
 parameter_list|,
 name|NetworkService
 name|networkService
+parameter_list|,
+name|DiscoverySettings
+name|discoverySettings
 parameter_list|)
 block|{
 name|super
@@ -315,6 +330,8 @@ argument_list|,
 name|Version
 operator|.
 name|CURRENT
+argument_list|,
+name|discoverySettings
 argument_list|)
 expr_stmt|;
 if|if
