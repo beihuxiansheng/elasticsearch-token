@@ -2696,6 +2696,17 @@ name|tokenFiltersBindings
 operator|.
 name|processTokenFilter
 argument_list|(
+literal|"uppercase"
+argument_list|,
+name|UpperCaseTokenFilterFactory
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|tokenFiltersBindings
+operator|.
+name|processTokenFilter
+argument_list|(
 literal|"porter_stem"
 argument_list|,
 name|PorterStemTokenFilterFactory
