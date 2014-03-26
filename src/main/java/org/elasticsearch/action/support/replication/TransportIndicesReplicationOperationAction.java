@@ -540,6 +540,15 @@ operator|.
 name|length
 argument_list|)
 decl_stmt|;
+specifier|final
+name|long
+name|startTimeInMillis
+init|=
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
+decl_stmt|;
 name|Map
 argument_list|<
 name|String
@@ -630,6 +639,8 @@ argument_list|,
 name|index
 argument_list|,
 name|routing
+argument_list|,
+name|startTimeInMillis
 argument_list|)
 decl_stmt|;
 comment|// no threading needed, all is done on the index replication one
@@ -807,6 +818,9 @@ argument_list|<
 name|String
 argument_list|>
 name|routing
+parameter_list|,
+name|long
+name|startTimeInMillis
 parameter_list|)
 function_decl|;
 DECL|method|accumulateExceptions
