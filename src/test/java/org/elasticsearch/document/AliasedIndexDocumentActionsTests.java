@@ -15,6 +15,24 @@ package|;
 end_package
 
 begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|admin
+operator|.
+name|indices
+operator|.
+name|alias
+operator|.
+name|Alias
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -25,22 +43,6 @@ operator|.
 name|Requests
 operator|.
 name|createIndexRequest
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|ImmutableSettings
-operator|.
-name|settingsBuilder
 import|;
 end_import
 
@@ -123,15 +125,11 @@ argument_list|(
 literal|"test1"
 argument_list|)
 operator|.
-name|settings
+name|alias
 argument_list|(
-name|settingsBuilder
-argument_list|()
-operator|.
-name|putArray
+operator|new
+name|Alias
 argument_list|(
-literal|"index.aliases"
-argument_list|,
 literal|"test"
 argument_list|)
 argument_list|)
