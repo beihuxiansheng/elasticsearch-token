@@ -1086,6 +1086,9 @@ operator|.
 name|wipe
 argument_list|()
 expr_stmt|;
+name|cluster
+argument_list|()
+operator|.
 name|randomIndexTemplate
 argument_list|()
 expr_stmt|;
@@ -1545,21 +1548,6 @@ block|}
 return|return
 name|client
 return|;
-block|}
-comment|/**      * Creates a randomized index template. This template is used to pass in randomized settings on a      * per index basis.      */
-DECL|method|randomIndexTemplate
-specifier|private
-specifier|static
-name|void
-name|randomIndexTemplate
-parameter_list|()
-block|{
-name|cluster
-argument_list|()
-operator|.
-name|randomIndexTemplate
-argument_list|()
-expr_stmt|;
 block|}
 DECL|method|clients
 specifier|public
