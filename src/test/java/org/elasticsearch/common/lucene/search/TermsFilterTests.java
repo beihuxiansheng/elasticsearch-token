@@ -114,7 +114,7 @@ name|lucene
 operator|.
 name|queries
 operator|.
-name|XTermsFilter
+name|TermsFilter
 import|;
 end_import
 
@@ -128,7 +128,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|DocIdSet
+name|*
 import|;
 end_import
 
@@ -764,11 +764,11 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|XTermsFilter
+name|TermsFilter
 name|tf
 init|=
 operator|new
-name|XTermsFilter
+name|TermsFilter
 argument_list|(
 operator|new
 name|Term
@@ -816,7 +816,7 @@ expr_stmt|;
 name|tf
 operator|=
 operator|new
-name|XTermsFilter
+name|TermsFilter
 argument_list|(
 operator|new
 name|Term
@@ -876,7 +876,7 @@ expr_stmt|;
 name|tf
 operator|=
 operator|new
-name|XTermsFilter
+name|TermsFilter
 argument_list|(
 operator|new
 name|Term
@@ -944,7 +944,7 @@ expr_stmt|;
 name|tf
 operator|=
 operator|new
-name|XTermsFilter
+name|TermsFilter
 argument_list|(
 operator|new
 name|Term

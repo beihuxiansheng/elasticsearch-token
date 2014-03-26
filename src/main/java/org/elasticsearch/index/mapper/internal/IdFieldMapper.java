@@ -114,7 +114,7 @@ name|lucene
 operator|.
 name|queries
 operator|.
-name|XTermsFilter
+name|TermsFilter
 import|;
 end_import
 
@@ -1206,7 +1206,7 @@ return|;
 block|}
 return|return
 operator|new
-name|XTermsFilter
+name|TermsFilter
 argument_list|(
 name|UidFieldMapper
 operator|.
@@ -1267,7 +1267,7 @@ return|;
 block|}
 return|return
 operator|new
-name|XTermsFilter
+name|TermsFilter
 argument_list|(
 name|UidFieldMapper
 operator|.

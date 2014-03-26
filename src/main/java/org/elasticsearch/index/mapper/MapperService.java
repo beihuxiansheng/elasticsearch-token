@@ -136,7 +136,7 @@ name|lucene
 operator|.
 name|queries
 operator|.
-name|XTermsFilter
+name|TermsFilter
 import|;
 end_import
 
@@ -2931,11 +2931,11 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
-name|XTermsFilter
+name|TermsFilter
 name|termsFilter
 init|=
 operator|new
-name|XTermsFilter
+name|TermsFilter
 argument_list|(
 name|TypeFieldMapper
 operator|.

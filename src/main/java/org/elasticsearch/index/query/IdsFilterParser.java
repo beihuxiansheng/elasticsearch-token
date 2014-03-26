@@ -54,7 +54,7 @@ name|lucene
 operator|.
 name|queries
 operator|.
-name|XTermsFilter
+name|TermsFilter
 import|;
 end_import
 
@@ -690,11 +690,11 @@ name|types
 argument_list|()
 expr_stmt|;
 block|}
-name|XTermsFilter
+name|TermsFilter
 name|filter
 init|=
 operator|new
-name|XTermsFilter
+name|TermsFilter
 argument_list|(
 name|UidFieldMapper
 operator|.

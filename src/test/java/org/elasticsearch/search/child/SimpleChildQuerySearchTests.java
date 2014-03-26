@@ -6495,8 +6495,6 @@ name|SearchType
 operator|.
 name|DFS_QUERY_THEN_FETCH
 argument_list|)
-comment|// Enable this again when upgraded to Lucene 4.7.1
-comment|//                .setQuery(boolQuery().mustNot(hasChildQuery("child", boolQuery().should(queryString("c_field:*"))))).get();
 operator|.
 name|setQuery
 argument_list|(
@@ -6514,8 +6512,10 @@ argument_list|()
 operator|.
 name|should
 argument_list|(
-name|matchAllQuery
-argument_list|()
+name|queryString
+argument_list|(
+literal|"c_field:*"
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
@@ -6545,8 +6545,6 @@ name|SearchType
 operator|.
 name|DFS_QUERY_THEN_FETCH
 argument_list|)
-comment|// Enable this again when upgraded to Lucene 4.7.1
-comment|//                .setQuery(boolQuery().mustNot(hasParentQuery("parent", boolQuery().should(queryString("p_field:*"))))).execute()
 operator|.
 name|setQuery
 argument_list|(
@@ -6564,8 +6562,10 @@ argument_list|()
 operator|.
 name|should
 argument_list|(
-name|matchAllQuery
-argument_list|()
+name|queryString
+argument_list|(
+literal|"p_field:*"
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
@@ -6598,8 +6598,6 @@ name|SearchType
 operator|.
 name|DFS_QUERY_THEN_FETCH
 argument_list|)
-comment|// Enable this again when upgraded to Lucene 4.7.1
-comment|//                .setQuery(boolQuery().mustNot(topChildrenQuery("child", boolQuery().should(queryString("c_field:*"))))).execute()
 operator|.
 name|setQuery
 argument_list|(
@@ -6617,8 +6615,10 @@ argument_list|()
 operator|.
 name|should
 argument_list|(
-name|matchAllQuery
-argument_list|()
+name|queryString
+argument_list|(
+literal|"c_field:*"
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
@@ -6844,8 +6844,6 @@ name|SearchType
 operator|.
 name|QUERY_THEN_FETCH
 argument_list|)
-comment|// Enable this again when upgraded to Lucene 4.7.1
-comment|//                .setQuery(boolQuery().mustNot(topChildrenQuery("child", boolQuery().should(queryString("c_field:*"))))).execute()
 operator|.
 name|setQuery
 argument_list|(
@@ -6865,7 +6863,7 @@ name|should
 argument_list|(
 name|queryString
 argument_list|(
-literal|"c_field:(red OR yellow OR blue)"
+literal|"c_field:*"
 argument_list|)
 argument_list|)
 argument_list|)
