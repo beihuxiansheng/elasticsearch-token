@@ -88,6 +88,14 @@ end_import
 
 begin_import
 import|import
+name|jsr166y
+operator|.
+name|ThreadLocalRandom
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -225,20 +233,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|atomic
-operator|.
-name|AtomicInteger
-import|;
-end_import
-
-begin_import
 import|import static
 name|com
 operator|.
@@ -275,6 +269,12 @@ specifier|final
 name|String
 name|index
 decl_stmt|;
+DECL|field|shuffler
+specifier|private
+specifier|final
+name|ShardShuffler
+name|shuffler
+decl_stmt|;
 comment|// note, we assume that when the index routing is created, ShardRoutings are created for all possible number of
 comment|// shards with state set to UNASSIGNED
 DECL|field|shards
@@ -304,16 +304,6 @@ name|ShardRouting
 argument_list|>
 name|allActiveShards
 decl_stmt|;
-DECL|field|counter
-specifier|private
-specifier|final
-name|AtomicInteger
-name|counter
-init|=
-operator|new
-name|AtomicInteger
-argument_list|()
-decl_stmt|;
 DECL|method|IndexRoutingTable
 name|IndexRoutingTable
 parameter_list|(
@@ -332,6 +322,22 @@ operator|.
 name|index
 operator|=
 name|index
+expr_stmt|;
+name|this
+operator|.
+name|shuffler
+operator|=
+operator|new
+name|RotationShardShuffler
+argument_list|(
+name|ThreadLocalRandom
+operator|.
+name|current
+argument_list|()
+operator|.
+name|nextInt
+argument_list|()
+argument_list|)
 expr_stmt|;
 name|this
 operator|.
@@ -1140,12 +1146,12 @@ return|return
 operator|new
 name|PlainShardsIterator
 argument_list|(
-name|allShards
-argument_list|,
-name|counter
+name|shuffler
 operator|.
-name|incrementAndGet
-argument_list|()
+name|shuffle
+argument_list|(
+name|allShards
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -1160,12 +1166,12 @@ return|return
 operator|new
 name|PlainShardsIterator
 argument_list|(
-name|allActiveShards
-argument_list|,
-name|counter
+name|shuffler
 operator|.
-name|incrementAndGet
-argument_list|()
+name|shuffle
+argument_list|(
+name|allActiveShards
+argument_list|)
 argument_list|)
 return|;
 block|}
