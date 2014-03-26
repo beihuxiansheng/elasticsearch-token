@@ -1158,20 +1158,15 @@ operator|.
 name|state
 argument_list|()
 decl_stmt|;
+comment|// checking for changes that happened while adding the listener. We can't check using cluster
+comment|// state versions as mater election doesn't increase version numbers
 if|if
 condition|(
 name|clusterState
-operator|.
-name|version
-argument_list|()
 operator|!=
 name|clusterStateV2
-operator|.
-name|version
-argument_list|()
 condition|)
 block|{
-comment|// something changed while adding, try again
 name|clusterService
 operator|.
 name|remove
