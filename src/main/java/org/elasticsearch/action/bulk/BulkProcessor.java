@@ -192,6 +192,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|Closeable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|concurrent
@@ -223,6 +233,8 @@ DECL|class|BulkProcessor
 specifier|public
 class|class
 name|BulkProcessor
+implements|implements
+name|Closeable
 block|{
 comment|/**      * A listener for the execution.      */
 DECL|interface|Listener
@@ -801,6 +813,8 @@ literal|null
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 comment|/**      * Closes the processor. If flushing by time is enabled, then its shutdown. Any remaining bulk actions are flushed.      */
 DECL|method|close
 specifier|public
@@ -945,6 +959,26 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|ensureOpen
+specifier|public
+name|void
+name|ensureOpen
+parameter_list|()
+block|{
+if|if
+condition|(
+name|closed
+condition|)
+block|{
+throw|throw
+operator|new
+name|ElasticsearchIllegalStateException
+argument_list|(
+literal|"bulk process already closed"
+argument_list|)
+throw|;
+block|}
+block|}
 DECL|method|internalAdd
 specifier|private
 specifier|synchronized
@@ -960,6 +994,9 @@ name|Object
 name|payload
 parameter_list|)
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 name|bulkRequest
 operator|.
 name|add
@@ -1074,19 +1111,9 @@ name|void
 name|executeIfNeeded
 parameter_list|()
 block|{
-if|if
-condition|(
-name|closed
-condition|)
-block|{
-throw|throw
-operator|new
-name|ElasticsearchIllegalStateException
-argument_list|(
-literal|"bulk process already closed"
-argument_list|)
-throw|;
-block|}
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -1388,6 +1415,32 @@ block|}
 return|return
 literal|false
 return|;
+block|}
+comment|/**      * Flush pending delete or index requests.      */
+DECL|method|flush
+specifier|public
+specifier|synchronized
+name|void
+name|flush
+parameter_list|()
+block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|bulkRequest
+operator|.
+name|numberOfActions
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
+name|execute
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 DECL|class|Flush
 class|class
