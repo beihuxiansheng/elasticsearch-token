@@ -935,6 +935,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|initializeGlobalCluster
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|initializeGlobalCluster
+specifier|private
+specifier|static
+name|void
+name|initializeGlobalCluster
+parameter_list|()
+block|{
 comment|// Initialize lazily. No need for volatiles/ CASs since each JVM runs at most one test
 comment|// suite at any given moment.
 if|if
@@ -1262,6 +1273,11 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|boolean
+name|success
+init|=
+literal|false
+decl_stmt|;
 try|try
 block|{
 name|logger
@@ -1431,6 +1447,10 @@ name|getTestName
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|success
+operator|=
+literal|true
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -1465,6 +1485,40 @@ throw|;
 block|}
 finally|finally
 block|{
+if|if
+condition|(
+operator|!
+name|success
+condition|)
+block|{
+comment|// if we failed that means that something broke horribly so we should
+comment|// clear all clusters and if the current cluster is the global we shut that one
+comment|// down as well to prevent subsequent tests from failing due to the same problem.
+name|clearClusters
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|currentCluster
+operator|==
+name|GLOBAL_CLUSTER
+condition|)
+block|{
+name|GLOBAL_CLUSTER
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|GLOBAL_CLUSTER
+operator|=
+literal|null
+expr_stmt|;
+name|initializeGlobalCluster
+argument_list|()
+expr_stmt|;
+comment|// re-init that cluster
+block|}
+block|}
 name|currentCluster
 operator|.
 name|afterTest
