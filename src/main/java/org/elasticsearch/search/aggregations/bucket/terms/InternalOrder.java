@@ -281,7 +281,7 @@ name|int
 name|cmp
 init|=
 operator|-
-name|Longs
+name|Long
 operator|.
 name|compare
 argument_list|(
@@ -369,7 +369,7 @@ block|{
 name|int
 name|cmp
 init|=
-name|Longs
+name|Long
 operator|.
 name|compare
 argument_list|(
@@ -951,7 +951,7 @@ decl_stmt|;
 return|return
 name|asc
 condition|?
-name|Longs
+name|Long
 operator|.
 name|compare
 argument_list|(
@@ -960,7 +960,7 @@ argument_list|,
 name|v2
 argument_list|)
 else|:
-name|Longs
+name|Long
 operator|.
 name|compare
 argument_list|(

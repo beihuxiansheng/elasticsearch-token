@@ -54,20 +54,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|primitives
-operator|.
-name|Longs
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -231,7 +217,7 @@ name|j
 parameter_list|)
 block|{
 return|return
-name|Longs
+name|Long
 operator|.
 name|compare
 argument_list|(
@@ -276,7 +262,7 @@ name|j
 parameter_list|)
 block|{
 return|return
-name|Longs
+name|Long
 operator|.
 name|compare
 argument_list|(

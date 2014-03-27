@@ -304,7 +304,7 @@ index|]
 condition|)
 block|{
 return|return
-name|LongValuesComparator
+name|Long
 operator|.
 name|compare
 argument_list|(
@@ -802,7 +802,7 @@ operator|<<
 literal|2
 decl_stmt|;
 return|return
-name|LongValuesComparator
+name|Long
 operator|.
 name|compare
 argument_list|(
@@ -859,7 +859,7 @@ operator|<<
 literal|2
 decl_stmt|;
 return|return
-name|LongValuesComparator
+name|Long
 operator|.
 name|compare
 argument_list|(
@@ -885,7 +885,7 @@ operator|-
 literal|1
 assert|;
 return|return
-name|LongValuesComparator
+name|Long
 operator|.
 name|compare
 argument_list|(
@@ -906,7 +906,7 @@ block|{
 name|int
 name|cmp
 init|=
-name|LongValuesComparator
+name|Long
 operator|.
 name|compare
 argument_list|(

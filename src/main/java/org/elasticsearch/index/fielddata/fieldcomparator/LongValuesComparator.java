@@ -149,6 +149,8 @@ name|slot2
 index|]
 decl_stmt|;
 return|return
+name|Long
+operator|.
 name|compare
 argument_list|(
 name|v1

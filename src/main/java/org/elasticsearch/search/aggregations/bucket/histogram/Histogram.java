@@ -22,20 +22,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|primitives
-operator|.
-name|Longs
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -197,7 +183,7 @@ name|b2
 parameter_list|)
 block|{
 return|return
-name|Longs
+name|Long
 operator|.
 name|compare
 argument_list|(
@@ -261,7 +247,7 @@ parameter_list|)
 block|{
 return|return
 operator|-
-name|Longs
+name|Long
 operator|.
 name|compare
 argument_list|(
@@ -326,7 +312,7 @@ block|{
 name|int
 name|cmp
 init|=
-name|Longs
+name|Long
 operator|.
 name|compare
 argument_list|(
@@ -350,7 +336,7 @@ condition|)
 block|{
 name|cmp
 operator|=
-name|Longs
+name|Long
 operator|.
 name|compare
 argument_list|(
@@ -420,7 +406,7 @@ name|int
 name|cmp
 init|=
 operator|-
-name|Longs
+name|Long
 operator|.
 name|compare
 argument_list|(
@@ -444,7 +430,7 @@ condition|)
 block|{
 name|cmp
 operator|=
-name|Longs
+name|Long
 operator|.
 name|compare
 argument_list|(

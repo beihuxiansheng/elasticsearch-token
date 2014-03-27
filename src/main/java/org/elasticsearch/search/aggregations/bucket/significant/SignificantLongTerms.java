@@ -407,7 +407,7 @@ name|other
 parameter_list|)
 block|{
 return|return
-name|Longs
+name|Long
 operator|.
 name|compare
 argument_list|(

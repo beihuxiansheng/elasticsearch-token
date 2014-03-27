@@ -244,7 +244,7 @@ condition|)
 block|{
 name|cmp
 operator|=
-name|Longs
+name|Long
 operator|.
 name|compare
 argument_list|(
