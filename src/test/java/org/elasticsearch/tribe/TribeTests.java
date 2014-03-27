@@ -402,6 +402,10 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+name|cluster2
+operator|=
+literal|null
+expr_stmt|;
 block|}
 block|}
 annotation|@
