@@ -441,6 +441,7 @@ block|{
 DECL|field|QUERY_RESULT_ORDERING
 specifier|public
 specifier|static
+specifier|final
 name|Comparator
 argument_list|<
 name|AtomicArray

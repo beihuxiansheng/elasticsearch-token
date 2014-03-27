@@ -110,6 +110,7 @@ block|{
 DECL|field|DEFAULT_MASTER_NODE_TIMEOUT
 specifier|public
 specifier|static
+specifier|final
 name|TimeValue
 name|DEFAULT_MASTER_NODE_TIMEOUT
 init|=

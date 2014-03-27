@@ -264,6 +264,7 @@ block|{
 DECL|field|REFRESH_FORCE
 specifier|public
 specifier|static
+specifier|final
 name|boolean
 name|REFRESH_FORCE
 init|=

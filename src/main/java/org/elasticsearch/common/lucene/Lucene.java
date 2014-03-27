@@ -376,6 +376,7 @@ decl_stmt|;
 DECL|field|EMPTY_SCORE_DOCS
 specifier|public
 specifier|static
+specifier|final
 name|ScoreDoc
 index|[]
 name|EMPTY_SCORE_DOCS

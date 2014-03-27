@@ -91,6 +91,7 @@ block|{
 DECL|field|REST_DECODER
 specifier|public
 specifier|static
+specifier|final
 name|PathTrie
 operator|.
 name|Decoder

@@ -5998,6 +5998,8 @@ condition|(
 operator|!
 name|cursor
 operator|.
+name|value
+operator|.
 name|equals
 argument_list|(
 name|metaData2

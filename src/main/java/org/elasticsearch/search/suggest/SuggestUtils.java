@@ -342,6 +342,7 @@ block|{
 DECL|field|LUCENE_FREQUENCY
 specifier|public
 specifier|static
+specifier|final
 name|Comparator
 argument_list|<
 name|SuggestWord
@@ -355,6 +356,7 @@ decl_stmt|;
 DECL|field|SCORE_COMPARATOR
 specifier|public
 specifier|static
+specifier|final
 name|Comparator
 argument_list|<
 name|SuggestWord

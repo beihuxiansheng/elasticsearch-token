@@ -2658,7 +2658,7 @@ condition|(
 name|locations
 operator|==
 literal|null
-operator||
+operator|||
 name|locations
 operator|.
 name|size

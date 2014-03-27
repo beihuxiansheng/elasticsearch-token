@@ -29,6 +29,7 @@ block|{
 DECL|field|YOUNG
 specifier|public
 specifier|static
+specifier|final
 name|String
 name|YOUNG
 init|=
@@ -37,6 +38,7 @@ decl_stmt|;
 DECL|field|OLD
 specifier|public
 specifier|static
+specifier|final
 name|String
 name|OLD
 init|=
@@ -45,6 +47,7 @@ decl_stmt|;
 DECL|field|SURVIVOR
 specifier|public
 specifier|static
+specifier|final
 name|String
 name|SURVIVOR
 init|=

@@ -246,6 +246,7 @@ block|{
 DECL|field|EMPTY
 specifier|public
 specifier|static
+specifier|final
 name|PingResponse
 index|[]
 name|EMPTY

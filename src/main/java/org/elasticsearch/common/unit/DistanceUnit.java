@@ -192,6 +192,7 @@ block|;
 DECL|field|DEFAULT
 specifier|public
 specifier|static
+specifier|final
 name|DistanceUnit
 name|DEFAULT
 init|=

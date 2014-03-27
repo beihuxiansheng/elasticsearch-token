@@ -1160,6 +1160,7 @@ block|}
 DECL|field|ALWAYS_INSTANCE
 specifier|public
 specifier|static
+specifier|final
 name|AlwaysDistanceBoundingCheck
 name|ALWAYS_INSTANCE
 init|=

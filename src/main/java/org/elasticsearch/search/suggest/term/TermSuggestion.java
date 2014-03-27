@@ -20,26 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Comparator
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -158,6 +138,26 @@ name|Option
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Comparator
+import|;
+end_import
+
 begin_comment
 comment|/**  * The suggestion responses corresponding with the suggestions in the request.  */
 end_comment
@@ -178,6 +178,7 @@ block|{
 DECL|field|SCORE
 specifier|public
 specifier|static
+specifier|final
 name|Comparator
 argument_list|<
 name|Suggestion
@@ -195,6 +196,7 @@ decl_stmt|;
 DECL|field|FREQUENCY
 specifier|public
 specifier|static
+specifier|final
 name|Comparator
 argument_list|<
 name|Suggestion

@@ -236,6 +236,7 @@ decl_stmt|;
 DECL|field|STREAM
 specifier|public
 specifier|static
+specifier|final
 name|AggregationStreams
 operator|.
 name|Stream

@@ -714,6 +714,7 @@ block|}
 DECL|field|ALLOWED_CONTENT_FIELD_NAMES
 specifier|public
 specifier|static
+specifier|final
 name|Set
 argument_list|<
 name|String
